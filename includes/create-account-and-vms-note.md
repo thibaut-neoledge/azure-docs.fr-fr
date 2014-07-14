@@ -1,7 +1,5 @@
-> [WACOM.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un
-> compte Azure. Vous pouvez [activer les avantages de votre abonnement
-> MSDN][1] ou [obtenir une
-> version d'évaluation gratuite][2].
+> [WACOM.NOTE] 
+> Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN][1] ou [obtenir une version d'évaluation gratuite][2].
 
 
 

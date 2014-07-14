@@ -1,9 +1,8 @@
+
 # Création d'un compte Azure et activation des fonctionnalités préliminaires
 
-Vous avez besoin d'un compte Azure pour y déployer des applications. Cet
-article décrit la création d'un compte d'évaluation gratuite et
-l'activation des fonctionnalités préliminaires d'Azure, notamment
-BizTalk Services, HDInsight et Azure Back pour ce compte.
+Vous avez besoin d'un compte Azure pour y déployer des applications. Cet article décrit la création d'un compte d'évaluation gratuite et l'activation des fonctionnalités préliminaires d'Azure, notamment BizTalk Services, HDInsight et Azure Back pour ce compte.
+
 ## Création d'un compte Azure
 
 1.  Ouvrez un navigateur Web et accédez à la page
@@ -14,13 +13,9 @@ BizTalk Services, HDInsight et Azure Back pour ce compte.
     création d'un compte en activant les avantages de votre abonnement
     MSDN.
 
-Sinon, accédez à la page [create a free trial
-account](/en-us/pricing/free-trial/) et suivez la procédure de création d'un compte
-d'évaluation. Vous devrez fournir un numéro de carte de crédit et un
-numéro de téléphone mobile pour prouver votre identité, mais rien ne
-vous sera facturé.
+Sinon, accédez à la page [create a free trial account](/en-us/pricing/free-trial/) et suivez la procédure de création d'un compte d'évaluation. Vous devrez fournir un numéro de carte de crédit et un numéro de téléphone mobile pour prouver votre identité, mais rien ne vous sera facturé.
 
-<h2><a  id="enable" ></a>Activation des fonctionnalités préliminaires d'Azure</h2>
+<h2><a id="enable" ></a>Activation des fonctionnalités préliminaires d'Azure</h2>
 
 
 1.  Accédez à la page [https://account.windowsazure.com/][2] et

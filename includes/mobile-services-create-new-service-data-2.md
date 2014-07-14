@@ -1,9 +1,6 @@
-Pour pouvoir stocker des données d'application dans le nouveau service
-mobile, vous devez d'abord créer une table dans l'instance de base de
-données SQL associée.
+Pour pouvoir stocker des données d'application dans le nouveau service mobile, vous devez d'abord créer une table dans l'instance de base de données SQL associée.
 
-1.  Dans le portail de gestion, cliquez sur **Mobile Services**, puis
-    sur le service mobile que vous venez de créer.
+1.  Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
 2.  Cliquez sur l'onglet **Data**, puis sur **+Create**.
     
@@ -14,22 +11,16 @@ données SQL associée.
 3.  Dans **Table name**, saisissez *TodoItem*, puis cliquez sur le
     bouton de vérification.
 
- ![mobile-create-todoitem-table](./media/mobile-services-create-new-service-data-2/mobile-create-todoitem-table.png) Une nouvelle table de stockage **TodoItem** est créée avec les
-autorisations par défaut. Cela signifie que quiconque possédant la clé
-de l'application, qui est distribuée avec l'application, peut accéder
-aux données de la table et les modifier.
+	![mobile-create-todoitem-table](./media/mobile-services-create-new-service-data-2/mobile-create-todoitem-table.png) 
 
-> [WACOM.NOTE] Le même nom de table est utilisé dans le démarrage
-> rapide avec Mobile Services. Toutefois, chaque table est créée dans un
-> schéma spécifique pour un service mobile donné. Cela vise à éviter les
-> collisions de données lorsque plusieurs services mobiles utilisent la
-> même base de données.
+	Une nouvelle table de stockage **TodoItem** est créée avec les autorisations par défaut. Cela signifie que quiconque possédant la clé de l'application, qui est distribuée avec l'application, peut accéder aux données de la table et les modifier.
 
-1.  Cliquez sur la nouvelle table **TodoItem** et vérifiez qu'aucune
-    ligne de données n'est présente.
+> [WACOM.NOTE] 
+> Le même nom de table est utilisé dans le démarrage rapide avec Mobile Services. Toutefois, chaque table est créée dans un schéma spécifique pour un service mobile donné. Cela vise à éviter les collisions de données lorsque plusieurs services mobiles utilisent la même base de données.
 
-2.  Cliquez sur l'onglet **Colonnes**. Vérifiez si les colonnes par
-    défaut suivantes ont été automatiquement créées pour vous :
+1.  Cliquez sur la nouvelle table **TodoItem** et vérifiez qu'aucune ligne de données n'est présente.
+
+2.  Cliquez sur l'onglet **Colonnes**. Vérifiez si les colonnes par défaut suivantes ont été automatiquement créées pour vous :
     
     <table  border="1" cellpadding="10">
      	<tr>
@@ -88,6 +79,4 @@ aux données de la table et les modifier.
 	</div>
 
 
-Vous pouvez maintenant utiliser le nouveau service mobile en tant que
-stockage des données pour l'application.
-
+Vous pouvez maintenant utiliser le nouveau service mobile en tant que stockage des données pour l'application.
