@@ -140,9 +140,9 @@ Ajout de l'authentificationAjout de l'authentification à l'application
 Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet), vous allez utiliser la valeur de l'ID utilisateur fournie par Mobile Services en fonction de l'utilisateur authentifié et l'utiliser pour filtrer les données renvoyées par Mobile Services. Obtenez plus d'informations sur Mobile Services avec .NET dans [le guide de fonctionnement Mobile Services .NET](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)
 
 <!-- Anchors. -->
-[Register your app for authentication and configure Mobile Services]: #register
-[Restrict table permissions to authenticated users]: #permissions
-[Add authentication to the app]: #add-authentication
+[Inscription de votre application pour l'authentification et configuration de Mobile Services]: #register
+[Restriction des autorisations de table pour les utilisateurs authentifiés]: #permissions
+[Ajout de l'authentification à l'application]: #add-authentication
 [Next Steps]:#next-steps
 
 <!-- Images. -->
