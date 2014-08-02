@@ -1,0 +1,47 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+
+Présentation d'Azure Multi-Factor Authentication
+================================================
+
+L'authentification multi-facteur ou à deux facteurs est une méthode d'authentification qui nécessite l'utilisation de plusieurs méthodes de vérification et ajoute une deuxième couche critique de sécurité aux connexions et transactions des utilisateurs. Cette authentification fonctionne en nécessitant au minimum deux des méthodes de vérification suivantes :
+
+-   Un élément que vous connaissez (généralement un mot de passe)
+-   Un élément que vous possédez (un appareil de confiance qui n'est pas facilement dupliqué, comme un téléphone)
+-   Un élément vous concernant particulièrement (biométrie)
+
+La sécurité de l'authentification multi-facteur repose sur son approche en couche. Compromettre plusieurs facteurs d'authentification présente un défi de taille pour les attaquants. Même si un attaquant réussit à connaître le mot de passe de l'utilisateur, ce dernier est inutile sans posséder l'appareil de confiance. De même, si l'utilisateur venait à perdre l'appareil, celui qui l'a trouvé ne pourra pas l'utiliser sans connaître le mot de passe de l'utilisateur. Azure Multi-Factor Authentication est le service d'authentification multi-facteur qui demande aux utilisateurs de vérifier également les connexions à l'aide d'une application mobile, d'un appel téléphonique ou d'un message texte. Ce service est disponible pour une utilisation avec Azure Active Directory afin de sécuriser les ressources locales avec le serveur Azure Multi-Factor Authentication, ainsi qu'avec des applications et répertoires personnalisés, en utilisant le Kit de développement logiciel (SDK).
+
+![Azure Multi-Factor Authentication](./media/multi-factor-authentication/WAMFA1.png)
+
+### Sécurisation du cloud Azure Active Directory
+
+Activez l'authentification multi-facteur pour les identités Azure AD. Les utilisateurs seront invités à configurer une vérification supplémentaire la prochaine fois qu'ils se connectent. Utilisez l'authentification multi-facteur pour sécuriser l'accès à Azure, à Microsoft Online Services, par exemple Office 365 et Dynamics CRM Online, ainsi qu'à des services cloud tiers qui intègrent Azure AD sans configuration supplémentaire. L'authentification multi-facteur peut être rapidement activée pour un grand nombre d'utilisateurs et d'applications globaux. [En savoir plus](http://msdn.microsoft.com/en-us/library/dn249466.aspx)
+
+### Sécurisation des ressources locales et d'Active Directory
+
+Activez l'authentification multi-facteur pour vos ressources locales, telles qu'IIS et Active Directory, à l'aide du serveur Azure Multi-Factor Authentication. Le serveur Azure Multi-Factor Authentication permet à l'administrateur d'intégrer l'authentification IIS afin de sécuriser les applications Web Microsoft IIS, l'authentification RADIUS, l'authentification LDAP et l'authentification Windows. [En savoir plus](http://msdn.microsoft.com/en-us/library/dn249467.aspx)
+
+### Sécurisation des applications personnalisées
+
+Un Kit de développement logiciel (SDK) permet une intégration à vos services cloud. Intégrez la vérification par appel téléphonique et message texte de l'authentification active à vos processus de connexion aux applications ou de transaction et exploitez la base de données utilisateur existante de votre application. [En savoir plus](http://msdn.microsoft.com/en-us/library/dn249464.aspx)
+
+### Authentification multi-facteur pour Office 365
+
+L'authentification multi-facteur Office 365, optimisée par Azure Multi-Factor Authentication, fonctionne exclusivement avec les applications Office 365 et est gérée depuis le portail Office 365. De ce fait, les administrateurs peuvent désormais sécuriser leurs ressources Office 365 avec une authentification multi-facteur. [En savoir plus](http://msdn.microsoft.com/en-us/library/dn383636.aspx)
+
+### Authentification multi-facteur pour administrateurs Azure
+
+Le même sous-ensemble de fonctionnalités d'authentification multi-facteur pour Office 365 est disponible sans frais à tous les administrateurs Azure. Tout compte administratif possédant un abonnement Azure peut désormais bénéficier d'une protection supplémentaire en activant cette fonctionnalité principale d'authentification multi-facteur. Ainsi, un administrateur qui souhaite accéder au portail Azure afin de créer une machine virtuelle, un site Web, gérer le stockage, les services mobiles ou tout autre service Azure peut ajouter une authentification multi-facteur à son compte d'administrateur. [En savoir plus](http://msdn.microsoft.com/en-us/library/dn249471.aspx)
+
+### Comparaison des fonctionnalités de l'authentification multi-facteur
+
+La capture d'écran ci-dessous présente les versions de l'authentification multi-facteur disponibles et un bref résumé des fonctionnalités qu'elle fournit. Vous pouvez l'utiliser pour déterminer la version de l'authentification multi-facteur qui vous convient. [En savoir plus](http://msdn.microsoft.com/en-us/library/dn249471.aspx)
+
+![Comparaison des fonctionnalités de l'authentification multi-facteur Azure](./media/multi-factor-authentication/mfacomparison1.png)
+
+**Ressources supplémentaires**
+
+-   [Inscription à Azure en tant qu'organisation](/en-us/manage/services/identity/organizational-account/)
+-   [Identité Azure](/en-us/manage/windows/fundamentals/identity/)
+-   [Bibliothèque Azure Multi-Factor Authentication](http://technet.microsoft.com/en-us/library/dn249471.aspx)
+
