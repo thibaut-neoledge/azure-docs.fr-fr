@@ -1,38 +1,37 @@
 
 
-<p></p>
+**Remarque**
 
-<div class="dev-callout"><b>Note</b>
-<p>To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.</p>
-</div> 
+Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte Google avec une adresse de messagerie vérifiée. Pour créer un compte Google, accédez à [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 
-1. Navigate to the <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console</a> web site, sign-in with your Google account credentials, and then click **CREATE PROJECT**.
+1.  Accédez au site Web [Google Cloud Console](http://cloud.google.com/console), connectez-vous avec vos informations d'identification de compte Google, puis cliquez sur **CREATE PROJECT**.
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
+	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
 
-	<div class="dev-callout"><b>Note</b>
-	<p>When you already have an existing project, you are directed to the <strong>Projects</strong> page after login. To create a new project from the Dashboard, expand <strong>API Project</strong>, click <strong>Create...</strong> under <strong>Other projects</strong>, then enter a project name and click <strong>Create project</strong>.</p>
-    </div>
+    **Remarque**
 
-2. Enter a project name, accept the terms of service, and click **Create**. Carry out the requested SMS Verification, and click **Create** again.
+    Si vous disposez déjà d'un projet en cours, vous êtes redirigé vers la page **Projects** une fois la connexion établie. Pour créer un projet depuis le tableau de bord, développez **API Project**, cliquez sur **Create...** sous **Other projects**, puis entrez un nom de projet et cliquez sur **Create project**.
 
-3. Make a note of the project number in the **Projects** section. 
+2.  Entrez un nom de projet, acceptez les conditions de service et cliquez sur **Create**. Procédez à la vérification de SMS demandée et cliquez à nouveau sur **Create**.
 
-	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
+3.  Notez le numéro du projet dans la section **Projects**.
 
-4. In the left column, click **APIs & auth**, then scoll down and click the toggle to enable **Google Cloud Messaging for Android** and accept the terms of service. 
+    Plus loin dans le didacticiel, vous allez définir cette valeur en tant que variable PROJECT\_ID dans le client.
 
-	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
+4.  Dans la colonne de gauche, cliquez sur **APIs & auth**, puis faites défiler la page et cliquez sur la touche bascule pour activer **Google Cloud Messaging for Android** et accepter les conditions de service.
 
-5. Click **Credentials**, and then click **CREATE NEW KEY** 
+    ![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
+5.  Cliquez sur **Credentials**, puis sur **CREATE NEW KEY**
 
-6. In **Create a new key**, click **Server key**. In the next window click **Create**.
+	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
+6.  Dans **Create a new key**, cliquez sur **Server key**. Dans la fenêtre suivante, cliquez sur **Create**.
 
-7. Make a note of the **API key** value.
+	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png) 
+7.  Prenez note de la valeur de **API key**.
+
+	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png) 
+
 

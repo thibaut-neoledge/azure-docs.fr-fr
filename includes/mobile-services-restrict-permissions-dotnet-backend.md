@@ -1,30 +1,31 @@
 
 
-By default, all requests to mobile service resources are restricted to clients that present the application key, which does not strictly secure access to resources. To secure your resources, you need to restrict access to authenticated clients only.
+Par défaut, toutes les requêtes adressées aux ressources du service mobile sont réservées aux clients qui présentent la clé de l'application, ce qui n'offre pas de sécurisation stricte de l'accès aux ressources. Pour sécuriser vos ressources, vous devez limiter l'accès aux clients authentifiés.
 
-1. In Visual Studio, open the project that contains your mobile service. 
+1.  Dans Visual Studio, ouvrez le projet qui contient votre service mobile.
 
-2. In Solution Explorer, expand the Controllers folder and open the TodoItemController.cs project file.
+2.  Dans l'Explorateur de solutions de Visual Studio, développez le dossier Contrôleurs et ouvrez le fichier projet TodoItemController.cs.
 
-	The **TodoItemController** class implements data access for the TodoItem table. 
+    La classe **TodoItemController** implémente l'accès aux données pour la table TodoItem.
 
-3. Add the following `using` statement at the top of the code page:
+3.  Ajoutez l'instruction `using` suivante au début de la page de code :
 
-		using Microsoft.WindowsAzure.Mobile.Service.Security;
+        using Microsoft.WindowsAzure.Mobile.Service.Security;
 
-4. Apply the following AuthorizeLevel attribute to the **TodoItemController** class:
+4.  Appliquez l'attribut AuthorizeLevel suivant à la classe **TodoItemController** :
 
-		[AuthorizeLevel(AuthorizationLevel.User)] 
+        [AuthorizeLevel(AuthorizationLevel.User)] 
 
-	This will ensure that all operations against the **TodoItem** table require an authenticated user. 
+    Cela permet de s'assurer que toutes les opérations effectuées sur la table **TodoItem** requièrent un utilisateur authentifié.
 
-	>[WACOM.NOTE]Apply the AuthorizeLevel attribute to individual methods to set specific authorization levels on the methods exposed by the controller.
+    > [WACOM.NOTE] Appliquez l'attribut AuthorizeLevel aux méthodes individuelles pour définir des niveaux d'autorisation spécifiques sur les méthodes exposées par le contrôleur.
 
-5. Expand the App_Start folder, open the WebApiConfig.cs project file, then add the following code to the **Register** method:
+5.  Développez le dossier App\_Start, ouvrez le fichier projet WebApiConfig.cs, puis ajoutez le code suivant à la méthode **Register** :
 
-		config.SetIsHosted(true);
-	
-	This tells the local mobile service project to run as if it is being hosted in Azure, including honoring the AuthorizeLevel settings. Without this setting, all HTTP requests to *localhost* are permitted without authentication despite the AuthorizeLevel setting.  
+        config.SetIsHosted(true);
 
-6. Republish your service project.
+    Ce code indique au projet de service mobile local de s'exécuter comme s'il était hébergé sous Azure, en honorant les paramètres AuthorizeLevel. Sans ce paramètre, toutes les requêtes HTTP adressées à *localhost* sont autorisées sans authentification malgré la présence du paramètre AuthorizeLevel.
+
+6.  Publiez à nouveau votre projet de service.
+
 

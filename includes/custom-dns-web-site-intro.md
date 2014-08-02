@@ -1,1 +1,3 @@
-When you create a web site, Microsoft Azure provides a friendly subdomain on the azurewebsites.net domain so your users can access your web site using a URL like http://&lt;mysite&gt;.azurewebsites.net. You can also associate a custom domain name, such as contoso.com, with your web site in order to provide a more recognizable domain name for your users.
+
+Lorsque vous créez un site Web, Microsoft Azure fournit un sous-domaine simple à mémoriser au sein du domaine azurewebsites.net. Vos utilisateurs peuvent donc accéder à votre site Web via une URL du type http://&lt;monsite\>.azurewebsites.net. Vous pouvez également associer un nom de domaine personnalisé, tel que contoso.com, à votre site Web afin de proposer un nom de domaine encore plus reconnaissable à vos utilisateurs.
+

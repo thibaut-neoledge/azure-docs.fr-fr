@@ -1,21 +1,23 @@
-After the records for your domain name have propagated, you must associate them with your web site. Use the following steps to enable the domain names using your web browser.
 
-> [WACOM.NOTE] It can take some time for CNAME records created in the previous steps to propagate through the DNS system. You cannot add the domain name of to your Azure Web Site until the CNAME has propagated. If you are using an A record, you cannot add the A record domain name to the your Azure Web Site until the **awverify.www** or **www** CNAME records created in the previous step have propagated.
-> 
-> You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.
+Une fois la propagation des enregistrements de votre nom de domaine terminée, vous devez associer ces enregistrements à votre site. Procédez comme suit pour activer les noms de domaine à l'aide de votre navigateur Internet.
 
-1. In your browser, open the [Azure Management Portal](https://manage.windowsazure.com).
+> [WACOM.NOTE] La propagation de vos enregistrements CNAME, créés à l'étape précédente, dans le système DNS peut prendre du temps. Il n'est pas possible d'ajouter le nom de domaine de votre site Web Azure avant la propagation de l'enregistrement CNAME. Si vous utilisez un enregistrement A, vous ne pouvez pas ajouter le nom de domaine A à votre site Web Azure avant propagation des enregistrements CNAME **awverify.www** ou **www** créés à l'étape précédente.
+>
+> Vous pouvez utiliser un service tel que <http://www.digwebinterface.com/> pour vérifier que l'enregistrement CNAME est disponible.
 
-2. In the **Web Sites** tab, click the name of your site, select **Dashboard**, and then select **Manage Domains** from the bottom of the page.
+1.  Dans votre navigateur, ouvrez le [portail de gestion Azure](https://manage.windowsazure.com).
 
-	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
+2.  Dans l'onglet **Web Sites**, cliquez sur le nom de votre site, sélectionnez **Dashboard**, puis **Manage Domains** en bas de la page.
 
-6. Use the **DOMAIN NAMES** text boxes to enter the domain names to associate with this web site. 
+    ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-	![](./media/custom-dns-web-site/dncmntask-cname-7.png)
+3.  Utilisez les zones de texte **DOMAIN NAMES** pour entrer les noms de domaine à associer avec ce site Web.
 
-6. Click the check mark in the lower right corner to save the domain name configuration.
+    ![](./media/custom-dns-web-site/dncmntask-cname-7.png)
 
-	Once configuration has completed, the custom domain name will be listed in the **domain names** section of the **Configure** page of your web site.
+4.  Cliquez sur la coche dans le coin inférieur droit pour enregistrer la configuration de nom de domaine.
 
-At this point, you should be able to enter the custom domain name in your browser and see that it successfully takes you to your Azure Web Site. 
+    Une fois la configuration terminée, le nom de domaine personnalisé est répertorié dans la section **domain names** de la page **Configure** de votre site Web.
+
+Vous devez alors pouvoir entrer le nom de domaine personnalisé dans votre navigateur et constater que vous êtes bien dirigé vers votre site Web Azure.
+

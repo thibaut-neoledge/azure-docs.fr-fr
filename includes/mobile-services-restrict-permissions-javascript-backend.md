@@ -1,9 +1,11 @@
 
 
-1. In Visual Studio, In the Management Portal, click the **Data** tab, and then click the **TodoItem** table. 
+1.  Dans Visual Studio, accédez au portail de gestion, puis cliquez sur l'onglet **Données** et sur la table **TodoItems**.
 
-   	![](./media/mobile-services-restrict-permissions-javascript-backend/mobile-portal-data-tables.png)
+	![](./media/mobile-services-restrict-permissions-javascript-backend/mobile-portal-data-tables.png)
 
-2. Click the **Permissions** tab, set all permissions to **Only authenticated users**, and then click **Save**. This will ensure that all operations against the **TodoItem** table require an authenticated user. This also simplifies the scripts in the next tutorial because they will not have to allow for the possibility of anonymous users.
+2.  Cliquez sur l'onglet **Autorisations**, définissez toutes les autorisations sur **Seuls les utilisateurs authentifiés**, puis cliquez sur **Enregistrer**. Cela permet de s'assurer que toutes les opérations effectuées sur la table **TodoItem** requièrent un utilisateur authentifié. Cela simplifie aussi les scripts dans le didacticiel suivant, car il ne sera pas nécessaire d'autoriser la possibilité d'utilisateurs anonymes.
 
-   	![](./media/mobile-services-restrict-permissions-javascript-backend/mobile-portal-change-table-perms.png)
+	![](./media/mobile-services-restrict-permissions-javascript-backend/mobile-portal-change-table-perms.png)
+
+

@@ -107,4 +107,8 @@ Voir aussi
 
 -   [Présentation de la résolution de noms Azure](http://go.microsoft.com/fwlink/?LinkId=248097)
 
-
+[Image1]: ./media/create-virtual-network/createVNet_01_OpenVirtualNetworkWizard.png
+[Image2]: ./media/create-virtual-network/createVNet_02_VirtualNetworkDetails.png
+[Image3]: ./media/create-virtual-network/createVNet_03_DNSServersandVPNConnectivity.png
+[Image4]: ./media/create-virtual-network/createVNet_04_VirtualNetworkAddressSpaces.png
+[Image5]: ./media/create-virtual-network/createVNet_05_VirtualNetworkCreatedStatus.png

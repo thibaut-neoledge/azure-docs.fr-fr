@@ -1,144 +1,148 @@
-##<a name="add-select-images"></a>Update the quickstart client app to capture and upload images
 
-1. In Visual Studio 2012, open the Package.appxmanifest file and in the **Capabilities** tab enable the **Webcam** and **Microphone** capabilities.
+Mise à jour de l'application cliente de démarrage rapide pour capturer et télécharger des images
+------------------------------------------------------------------------------------------------
 
-   	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-app-manifest-camera.png)
- 
-   	This makes sure that your app can use a camera attached to the computer. Users will be requested to allow camera access the first time that the app is run.
+1.  Dans Visual Studio 2012, ouvrez le fichier Package.appxmanifest et dans l'onglet **Capacités**, activez les capacités **Webcam** et **Microphone**.
 
-1. Open the MainPage.xaml file and replace the **StackPanel** element directly after the first **Task** element with the following code:
+	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-app-manifest-camera.png)
+         
+	Votre application pourra ainsi utiliser un appareil photo associé à l'ordinateur. Les utilisateurs seront invités à autoriser l'accès à l'appareil photo lors de la première exécution de l'application.
 
-        <StackPanel Orientation="Horizontal" Margin="72,0,0,0">
-            <TextBox Name="TextInput" Margin="5" MaxHeight="40" MinWidth="300"></TextBox>
-            <Button Name="btnTakePhoto" Style="{StaticResource PhotoAppBarButtonStyle}"
-                    Click="OnTakePhotoClick" />
-            <Button Name="ButtonSave" Style="{StaticResource UploadAppBarButtonStyle}" 
-                    Click="ButtonSave_Click"/>
-        </StackPanel>
+2.  Ouvrez le fichier MainPage.xaml et remplacez l'élément **StackPanel** situé directement après le premier élément **Task** par le code suivant :
 
-2. Replace the **StackPanel** element in the **DataTemplate** with the following code:
+         <StackPanel Orientation="Horizontal" Margin="72,0,0,0">
+             <TextBox Name="TextInput" Margin="5" MaxHeight="40" MinWidth="300"></TextBox>
+             <Button Name="btnTakePhoto" Style="{StaticResource PhotoAppBarButtonStyle}"
+                     Click="OnTakePhotoClick" />
+             <Button Name="ButtonSave" Style="{StaticResource UploadAppBarButtonStyle}" 
+                     Click="ButtonSave_Click"/>
+         </StackPanel>
 
-        <StackPanel Orientation="Vertical">
-            <CheckBox Name="CheckBoxComplete" IsChecked="{Binding Complete, Mode=TwoWay}" 
-                        Checked="CheckBoxComplete_Checked" Content="{Binding Text}" 
-                        Margin="10,5" VerticalAlignment="Center"/>
-            <Image Name="ImageUpload" Source="{Binding ImageUri, Mode=OneWay}"
-                    MaxHeight="250"/>
-        </StackPanel> 
+3.  Remplacez l'élément **StackPanel** de **DataTemplate** par le code suivant :
 
-   	This adds an image to the **ItemTemplate** and sets its binding source as the URI of the uploaded image in the Blob Storage service.
+         <StackPanel Orientation="Vertical">
+             <CheckBox Name="CheckBoxComplete" IsChecked="{Binding Complete, Mode=TwoWay}" 
+                         Checked="CheckBoxComplete_Checked" Content="{Binding Text}" 
+                         Margin="10,5" VerticalAlignment="Center"/>
+             <Image Name="ImageUpload" Source="{Binding ImageUri, Mode=OneWay}"
+                     MaxHeight="250"/>
+         </StackPanel> 
 
-3. Open the MainPage.xaml.cs project file and add the following **using** statements:
-	
-		using Windows.Media.Capture;
-		using Windows.Storage;
-		using Windows.UI.Popups;
-		using Microsoft.WindowsAzure.Storage.Auth;
-		using Microsoft.WindowsAzure.Storage.Blob;
-    
-4. In the TodoItem class, add the following properties:
+	Cela ajoute une image à **ItemTemplate** et définit sa source de liaison en tant qu'URI de l'image téléchargée dans le service de stockage d'objets blob.
 
-        [JsonProperty(PropertyName = "containerName")]
-        public string ContainerName { get; set; }
-		
-        [JsonProperty(PropertyName = "resourceName")]
-        public string ResourceName { get; set; }
-		
-        [JsonProperty(PropertyName = "sasQueryString")]
-        public string SasQueryString { get; set; }
-		
-        [JsonProperty(PropertyName = "imageUri")]
-        public string ImageUri { get; set; } 
+4.  Ouvrez le fichier projet MainPage.xaml.cs et ajoutez les instructions **using** suivantes :
 
-   	>[WACOM.NOTE]To add new properties to the TodoItem object, you must have Dynamic Schema enabled in your mobile service. When Dynamic Schema is enabled, new columns are automatically added to the TodoItem table that map to these new properties.
+         using Windows.Media.Capture;
+         using Windows.Storage;
+         using Windows.UI.Popups;
+         using Microsoft.WindowsAzure.Storage.Auth;
+         using Microsoft.WindowsAzure.Storage.Blob;
 
-5. In the MainPage class, add the following code:
+5.  Dans la classe TodoItem, ajoutez les propriétés suivantes :
 
-        // Use a StorageFile to hold the captured image for upload.
-        StorageFile media = null;
-		
-		private async void OnTakePhotoClick(object sender, RoutedEventArgs e)
-		{
-			// Capture a new photo or video from the device.
-			CameraCaptureUI cameraCapture = new CameraCaptureUI();
-			media = await cameraCapture
-				.CaptureFileAsync(CameraCaptureUIMode.PhotoOrVideo);
-        }
+         [JsonProperty(PropertyName = "containerName")]
+         public string ContainerName { get; set; }
+            
+         [JsonProperty(PropertyName = "resourceName")]
+         public string ResourceName { get; set; }
+            
+         [JsonProperty(PropertyName = "sasQueryString")]
+         public string SasQueryString { get; set; }
+            
+         [JsonProperty(PropertyName = "imageUri")]
+         public string ImageUri { get; set; } 
 
-  	This code displays the camera UI to capture an image, and saves the image to a storage file.
+	>[WACOM.NOTE]Pour ajouter de nouvelles propriétés à l'objet TodoItem, le schéma dynamique doit être activé dans votre service mobile. Lorsque le schéma dynamique est activé, de nouvelles colonnes sont automatiquement ajoutées à la table TodoItem. Celles-ci sont mappées vers ces nouvelles propriétés.
 
-6. Replace the existing `InsertTodoItem` method with the following code:
- 
-        private async void InsertTodoItem(TodoItem todoItem)
-        {
-            string errorString = string.Empty;
-			
-            if (media != null)
-            {
-                // Set blob properties of TodoItem.
-                todoItem.ContainerName = "todoitemimages";
-                todoItem.ResourceName = media.Name;
-            }
-			
-            // Send the item to be inserted. When blob properties are set this
-            // generates an SAS in the response.
-            await todoTable.InsertAsync(todoItem);
-			
-            // If we have a returned SAS, then upload the blob.
-            if (!string.IsNullOrEmpty(todoItem.SasQueryString))
-            {
-                // Get the URI generated that contains the SAS 
-                // and extract the storage credentials.
-                StorageCredentials cred = new StorageCredentials(todoItem.SasQueryString);
-                var imageUri = new Uri(todoItem.ImageUri);
-				
-                // Instantiate a Blob store container based on the info in the returned item.
-                CloudBlobContainer container = new CloudBlobContainer(
-                    new Uri(string.Format("https://{0}/{1}",
-                        imageUri.Host, todoItem.ContainerName)), cred);
+6.  Dans la classe MainPage, ajoutez le code suivant :
 
-                // Get the new image as a stream.
-                using (var fileStream = await media.OpenStreamForReadAsync())
-                {                   					
-                    // Upload the new image as a BLOB from the stream.
-                    CloudBlockBlob blobFromSASCredential =
-                        container.GetBlockBlobReference(todoItem.ResourceName);
-                    await blobFromSASCredential.UploadFromStreamAsync(fileStream.AsInputStream());
-                }
-				
-				// When you request an SAS at the container-level instead of the blob-level,
-				// you are able to upload multiple streams using the same container credentials.
-            }
-			
-            // Add the new item to the collection.
-            items.Add(todoItem);
-        }
+         // Utilisez un fichier de stockage pour contenir l'image capturée à télécharger.
+         StorageFile media = null;
+            
+         private async void OnTakePhotoClick(object sender, RoutedEventArgs e)
+         {
+             // Capturez une nouvelle photo ou une nouvelle vidéo depuis l'appareil.
+             CameraCaptureUI cameraCapture = new CameraCaptureUI();
+             media = await cameraCapture
+                 .CaptureFileAsync(CameraCaptureUIMode.PhotoOrVideo);
+         }
 
-	This code sends a request to the mobile service to insert a new TodoItem, including the image file name. The response contains the SAS, which is then used to insert the image in the Blob store, and the URI of the image for data binding.
+	Ce code affiche l'interface utilisateur de l'appareil photo pour capturer une image et enregistre cette image dans un fichier de stockage.
 
-The final step is to test the app and validate that uploads succeed.
-		
-##<a name="test"></a>Test uploading the images in your app
+1.  Remplacez la méthode `InsertTodoItem` existante par le code suivant :
 
-1. In Visual Studio, press the F5 key to run the app.
+         private async void InsertTodoItem(TodoItem todoItem)
+         {
+             string errorString = string.Empty;
+                
+             if (media != null)
+             {
+                 // Définissez les propriétés blob de l'élément TodoItem.
+                 todoItem.ContainerName = "todoitemimages";
+                 todoItem.ResourceName = media.Name;
+             }
+                
+             // Envoyez l'élément à insérer. Lorsque les propriétés blob sont définies, 
+             // une signature d'accès partagé est générée dans la réponse.
+             await todoTable.InsertAsync(todoItem);
+                
+             // Si une signature d'accès partagé est renvoyée, téléchargez l'objet blob.
+             if (!string.IsNullOrEmpty(todoItem.SasQueryString))
+             {
+                 // Récupérez l'URI généré contenant la signature d'accès partagé 
+                 // et extrayez les informations d'identification de stockage.
+                 StorageCredentials cred = new StorageCredentials(todoItem.SasQueryString);
+                 var imageUri = new Uri(todoItem.ImageUri);
+                    
+                 // Instanciez un conteneur de stockage d'objets blob à partir des informations contenues dans l'élément renvoyé.
+                 CloudBlobContainer container = new CloudBlobContainer(
+                     new Uri(string.Format("https://{0}/{1}",
+                         imageUri.Host, todoItem.ContainerName)), cred);
 
-2. Enter text in the textbox under **Insert a TodoItem**, then click **Photo**.
+                 // Obtenez la nouvelle image en tant que flux.
+                 using (var fileStream = await media.OpenStreamForReadAsync())
+                 {                                      
+                     // Téléchargez la nouvelle image en tant qu'objet blob depuis le flux.
+                     CloudBlockBlob blobFromSASCredential =
+                         container.GetBlockBlobReference(todoItem.ResourceName);
+                     await blobFromSASCredential.UploadFromStreamAsync(fileStream.AsInputStream());
+                 }
+                    
+                 // Lorsque vous demandez une signature d'accès partagé au niveau du conteneur et non au niveau de l'objet blob,
+                 // vous pouvez télécharger plusieurs flux en utilisant les mêmes informations d'identification de conteneur.
+             }
+                
+             // Ajoutez le nouvel élément à la collection.
+             items.Add(todoItem);
+         }
 
-   	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar.png)
+    Ce code envoie une requête au service mobile pour insérer un nouvel élément TodoItem, avec le nom du fichier image. La réponse contient la signature d'accès partagé, qui est ensuite utilisée pour insérer l'image dans le stockage d'objets BLOB, ainsi que l'URI de l'image pour la liaison des données.
 
-  	This displays the camera capture UI. 
+La dernière étape consiste à tester l'application et à confirmer que les téléchargements ont abouti.
 
-3. Click the image to take a picture, then click **OK**.
-  
-   	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-camera.png)
+Test du téléchargement des images dans votre application
+--------------------------------------------------------
 
-4. Click **Upload** to insert the new item and upload the image.
+1.  Dans Visual Studio, appuyez sur la touche F5 pour exécuter l'application.
 
-	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar2.png)
+2.  Entrez le texte dans la zone de texte située sous **Insert a TodoItem**, puis cliquez sur **Photo**.
 
-5. The new item, along with the uploaded image, is displayed in the list view.
+	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar.png)
 
-	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-ie.png)
+	L'interface utilisateur de capture de l'appareil photo s'affiche.
 
-   	>[WACOM.NOTE]The image is downloaded automatically from the Blob Storage service when the <code>imageUri</code> property of the new item is bound to the <strong>Image</strong> control.
+1.  Cliquez sur l'image pour prendre une photo, puis sur **OK**.
+
+	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-camera.png)
+
+2.  Cliquez sur **Télécharger** pour insérer le nouvel élément et télécharger l'image.
+
+    ![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar2.png)
+
+3.  Le nouvel élément et l'image téléchargée apparaissent dans la vue liste.
+
+    ![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-ie.png)
+
+	>[WACOM.NOTE]L'image est automatiquement téléchargée depuis le service de stockage d'objets blob lorsque la propriété <code>imageUri</code> pdu nouvel élément est liée au contrôle <strong>Image</strong>.
+
 

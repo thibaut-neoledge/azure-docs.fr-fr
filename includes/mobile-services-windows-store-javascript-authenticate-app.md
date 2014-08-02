@@ -1,43 +1,45 @@
 
 
-1. Open the project file default.js and in the **app.OnActivated** method overload, replace the last call to the **refreshTodoItems** method with the following code: 
-	
-        var userId = null;
+1.  Ouvrez le fichier de projet default.js et dans la surcharge de la méthode **app.OnActivated**, remplacez l'appel à la méthode **refreshTodoItems** par le code suivant :
 
-        // Request authentication from Mobile Services using a Facebook login.
-        var login = function () {
-            return new WinJS.Promise(function (complete) {
-                client.login("facebook").done(function (results) {
-                    userId = results.userId;
-                    refreshTodoItems();
-                    var message = "You are now logged in as: " + userId;
-                    var dialog = new Windows.UI.Popups.MessageDialog(message);
-                    dialog.showAsync().done(complete);
-                }, function (error) {
-                    userId = null;
-                    var dialog = new Windows.UI.Popups
-                        .MessageDialog("An error occurred during login", "Login Required");
-                    dialog.showAsync().done(complete);
-                });
-            });
-        }            
+         var userId = null;
 
-        var authenticate = function () {
-            login().then(function () {
-                if (userId === null) {
+         // Demande d'authentification des services mobiles à l'aide d'une connexion Facebook.
+         var login = function () {
+             return new WinJS.Promise(function (complete) {
+                 client.login("facebook").done(function (results) {
+                     userId = results.userId;
+                     refreshTodoItems();
+                     var message = "You are now logged in as: " + userId;
+                     var dialog = new Windows.UI.Popups.MessageDialog(message);
+                     dialog.showAsync().done(complete);
+                 }, function (error) {
+                     userId = null;
+                     var dialog = new Windows.UI.Popups
+                         .MessageDialog("An error occurred during login", "Login Required");
+                     dialog.showAsync().done(complete);
+                 });
+             });
+         }            
 
-                    // Authentication failed, try again.
-                    authenticate();
-                }
-            });
-        }
+         var authenticate = function () {
+             login().then(function () {
+                 if (userId === null) {
 
-        authenticate();
+                     // Échec de l'authentification, réessayez.
+                     authenticate();
+                 }
+             });
+         }
 
-    This creates a member variable for storing the current user and a method to handle the authentication process. The user is authenticated by using a Facebook login. If you are using an identity provider other than Facebook, change the value passed to the <strong>login</strong> method above to one of the following: _microsoftaccount_, _twitter_, or _google_.
+         authenticate();
 
-    >[WACOM.NOTE]If you registered your Windows Store app package information with Mobile Services, you should call the <a href="http://go.microsoft.com/fwlink/p/?LinkId=322050" target="_blank">login</a> method by supplying a value of <strong>true</strong> for the <em>useSingleSignOn</em> parameter. If you do not do this, your users will still be presented with a login prompt every time that the login method is called.
+    Cela crée une variable membre pour le stockage de l'utilisateur actuel et une méthode pour gérer le processus d'authentification. L'utilisateur est authentifié à l'aide d'une connexion Facebook. Si vous utilisez un fournisseur d'identité différent de Facebook, remplacez la valeur transmise à la méthode **login** ci-dessus par l'une des valeurs suivantes : *microsoftaccount*, *twitter* ou *google*.
 
-9. Press the F5 key to run the app and sign into the app with your chosen identity provider. 
+    > [WACOM.NOTE] Si vous avez enregistré les informations du package de l'application Windows Store avec Mobile Services, vous devez appeler la méthode [login](http://go.microsoft.com/fwlink/p/?LinkId=322050) en fournissant la valeur **true** pour le paramètre *useSingleSignOn*. Si vous ne le faites pas, vos utilisateurs seront toujours invités à se connecter à chaque appel de la méthode de connexion.
 
-   	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+2.  Appuyez sur la touche F5 pour exécuter l'application et vous connecter à l'application avec le fournisseur d'identité choisi.
+
+	Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
+
+

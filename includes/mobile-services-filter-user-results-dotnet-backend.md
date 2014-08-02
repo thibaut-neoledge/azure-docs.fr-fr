@@ -1,43 +1,44 @@
 
 
-Now that authentication is required to access data in the TodoItem table, you can use the userID value assigned by Mobile Services to filter returned data.
+Maintenant que l'authentification est requise pour accéder aux données de la table TodoItem, vous pouvez utiliser la valeur userID attribuée par Mobile Services pour filtrer les données renvoyées.
 
->[WACOM.NOTE]The methods below should have the **RequiresAuthorizationAttribute** applied at the **User** **Authorizationlevel**. This restricts table access to only authenticated users.
+> [WACOM.NOTE] Pour les méthodes ci-dessous, l'attribut **RequiresAuthorizationAttribute** doit être appliqué au paramètre **Authorizationlevel** **User**. L'accès à la table est ainsi limité aux utilisateurs authentifiés.
 
-1. In Visual Studio 2013, open your mobile service project, expand the DataObjects folder, then open the TodoItem.cs project file.
+1.  Dans Visual Studio 2013, ouvrez votre projet de service mobile, développez le dossier DataObjects, puis ouvrez le fichier projet TodoItem.cs.
 
-	The TodoItem class defines the data object, and you need to add a UserId property to use for filtering.
+    La classe TodoItem définit l'objet de données et vous devez ajouter une propriété UserId pour le filtrage.
 
-2. Add the following new UserId property to the **TodoItem** class:
+2.  Ajoutez la nouvelle propriété UserId suivante à la classe **TodoItem** :
 
-		public string UserId { get; set; }
+         public string UserId { get; set; }
 
-	>[WACOM.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. The default initializer cannot be used against a SQL Database in Azure. For more information, see [How to Use Code First Migrations to Update the Data Model](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).
+    > [WACOM.NOTE] Lors de l'utilisation de l'initialiseur de base de données par défaut, Entity Framework supprime et recrée la base de données lorsqu'il détecte une modification du modèle de données dans la définition du modèle Code First. Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les migrations Code First. L'initialiseur par défaut ne peut pas être utilisé avec une base de données SQL dans Azure. Pour plus d'informations, consultez l'article [Utilisation des migrations Code First pour mettre à jour le modèle de données](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).
 
-3. In Solution Explorer, expand the Controllers folder, open the TodoItemController.cs project file, and add the following **using** statement:
+3.  Dans l'Explorateur de solutions, développez le dossier Contrôleurs, ouvrez le fichier projet TodoItemController.cs et ajoutez l'instruction **using** suivante :
 
-		using Microsoft.WindowsAzure.Mobile.Service.Security;
+         using Microsoft.WindowsAzure.Mobile.Service.Security;
 
-	The **TodoItemController** class implements data access for the TodoItem table. 
- 
-4. Locate the **PostTodoItem** method and add the following code at the end right before the **return** statement:
+    La classe **TodoItemController** implémente l'accès aux données pour la table TodoItem.
 
-		// Get the logged-in user.
-	    var currentUser = User as ServiceUser;
-	
-	    // Set the user ID on the item.
-	    item.UserId = currentUser.Id;
+4.  Recherchez la méthode **PostTodoItem** et ajoutez le code suivant en bas à droite, avant l'instruction **return** :
 
-    This code adds a UserId value to the item, which is the user ID of the authenticated user, before it is inserted into the TodoItem table. 
-	
+         // Récupérez l'utilisateur connecté.
+         var currentUser = User as ServiceUser;
 
-5. Locate the **GetAllTodoItems** method and replace the existing **return** statement with the following line of code:
+         // Définissez l'ID de l'utilisateur sur l'élément.
+         item.UserId = currentUser.Id;
 
-        // Get the logged-in user.
-        var currentUser = User as ServiceUser;
+    Ce code ajoute à l'élément une valeur UserId correspondant à l'ID de l'utilisateur authentifié avant de l'insérer dans la table TodoItem.
 
-        return Query().Where(todo => todo.UserId == currentUser.Id);
+5.  Recherchez la méthode **GetAllTodoItems** et remplacez l'instruction **return** existante par la ligne de code suivante :
 
-   	This query filters the returned TodoItem objects so that each user only receives the items that they inserted. You can optionally 
+         // Récupérez l'utilisateur connecté.
+         var currentUser = User as ServiceUser;
 
-6. Republish the mobile service project to Azure.
+         return Query().Where(todo => todo.UserId == currentUser.Id);
+
+	Cette requête filtre les objets TodoItem renvoyés de sorte que chaque utilisateur reçoive uniquement les éléments qu'il a insérés. Vous pouvez également 
+
+6.  Publiez à nouveau le projet de service mobile dans Azure.
+
+

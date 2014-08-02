@@ -1,7 +1,9 @@
-After the records for your domain name have propagated, you should be able to use your browser to verify that your custom domain name can be used to access your web site.
 
-> [WACOM.NOTE] It can take some time for your CNAME to propagate through the DNS system. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.
+Après la propagation des enregistrements de votre nom de domaine, vous devez être en mesure d'utiliser votre navigateur pour vérifier que votre domaine personnalisé peut être utilisé pour accéder à votre site Web.
 
-If you have not already added your web site as a Traffic Manager endpoint, you must do this before name resolution will work, as the custom domain name routes to Traffic Manager. Traffic Manager then routes to your web site. Use the information in [Add or Delete Endpoints](http://msdn.microsoft.com/en-us/library/windowsazure/hh744839.aspx) to add your web site as an endpoint in your Traffic Manager profile.
+> [WACOM.NOTE] La propagation de l'enregistrement CNAME dans le système DNS peut prendre du temps. Vous pouvez utiliser un service tel que <http://www.digwebinterface.com/> pour vérifier que l'enregistrement CNAME est disponible.
 
-> [WACOM.NOTE] If your web site is not listed when adding an endpoint, verify that it is configured for Standard mode. You must use Standard mode for your web site in order to work with Traffic Manager.
+Si vous n'avez pas déjà ajouté votre site Web comme point de terminaison de Traffic Manager, vous devez effectuer cette action pour faire fonctionner la résolution de nom, car le nom de domaine personnalisé assure l'acheminement vers Traffic Manager. Traffic Manager effectue ensuite l'acheminement vers votre site Web.. Utilisez les informations de [Ajout ou suppression de points de terminaison](http://msdn.microsoft.com/en-us/library/windowsazure/hh744839.aspx) pour ajouter votre site Web comme point de terminaison dans votre profil Traffic Manager.
+
+> [WACOM.NOTE] Si votre site Web n'est pas répertorié lors de l'ajout d'un point de terminaison, vérifiez qu'il est configuré pour le mode Standard. Vous devez utiliser le mode Standard pour votre site Web si vous voulez utiliser Traffic Manager.
+

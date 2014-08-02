@@ -1,58 +1,57 @@
 
 
-1. In Visual Studio, open the project that you modified when you completed the tutorial **Get started with data**.
+1.  Dans Visual Studio, ouvrez le projet que vous avez modifié lorsque vous avez suivi le didacticiel **Prise en main des données**.
 
-2. Press the **F5** key to run the app, then type text in **Insert a TodoItem** and click **Save**.
+2.  Appuyez sur la touche **F5** pour exécuter l'application, puis tapez du texte dans **Insert a TodoItem** et cliquez sur **Enregistrer**.
 
-3. Repeat the previous step at least three times, so that you have more than three items stored in the TodoItem table. 
+3.  Répétez les étapes précédentes au moins trois fois de telle sorte que plus de trois éléments soient stockés dans la table TodoItem.
 
-2. In the default.js file, replace the **RefreshTodoItems** method with the following code:
+4.  Dans le fichier default.js, remplacez la méthode **RefreshTodoItems** existante par le code suivant :
 
-        var refreshTodoItems = function () {
-            // Define a filtered query that returns the top 3 items.
-            todoTable.where({ complete: false })
-                .take(3)
-                .read()
-                .done(function (results) {
-                    todoItems = new WinJS.Binding.List(results);
-                    listItems.winControl.itemDataSource = todoItems.dataSource;
-                });
-        };
+         var refreshTodoItems = function () {
+             // Définit une requête filtrée qui renvoie les 3 premiers éléments.
+             todoTable.where({ complete: false })
+                 .take(3)
+                 .read()
+                 .done(function (results) {
+                     todoItems = new WinJS.Binding.List(results);
+                     listItems.winControl.itemDataSource = todoItems.dataSource;
+                 });
+         };
 
-  	This query, when executed during data binding, returns the top three items that are not marked as completed.
+	Cette requête, lorsqu'elle est exécutée pendant la liaison des données, renvoie les trois premiers éléments marqués comme terminés.
 
-3. Press the **F5** key to run the app.
+1.  Appuyez sur la touche **F5** pour exécuter l'application.
 
-  	Notice that only the first three results from the TodoItem table are displayed. 
+	Notez que seuls les trois premiers résultats de la table TodoItem sont affichés.
 
-4. (Optional) View the URI of the request sent to the mobile service by using message inspection software, such as browser developer tools or [Fiddler]. 
+1.  (Facultatif) Affichez l'URI de la requête envoyée au service mobile en utilisant un logiciel d'inspection des messages, tel que les outils destinés aux développeurs de navigateurs ou [Fiddler](http://go.microsoft.com/fwlink/?LinkID=262412).
 
-   	Notice that the **take(3)** method was translated into the query option **$top=3** in the query URI.
+	Notez que la méthode **take(3)** a été convertie en option de requête **$top=3** dans l'URI de requête.
 
-5. Update the **RefreshTodoItems** method once more with the following code:
-            
-        var refreshTodoItems = function () {
-            // Define a filtered query that skips the first 3 items and 
-            // then returns the next 3 items.
-            todoTable.where({ complete: false })
-                .skip(3)
-                .take(3)
-                .read()
-                .done(function (results) {
-                    todoItems = new WinJS.Binding.List(results);
-                    listItems.winControl.itemDataSource = todoItems.dataSource;
-                });
-        };
+2.  Mettez à nouveau à jour la méthode **RefreshTodoItems** avec le code suivant :
 
-   	This query skips the first three results and returns the next three after that. This is effectively the second "page" of data, where the page size is three items.
+         var refreshTodoItems = function () {
+             // Définit une requête filtrée qui ignore les 3 premiers éléments 
+             // et renvoie les trois suivants.
+             todoTable.where({ complete: false })
+                 .skip(3)
+                 .take(3)
+                 .read()
+                 .done(function (results) {
+                     todoItems = new WinJS.Binding.List(results);
+                     listItems.winControl.itemDataSource = todoItems.dataSource;
+                 });
+         };
 
-    <div class="dev-callout"><b>Note</b>
-    <p>This tutorial uses a simplified scenario by passing hard-coded paging values to the <strong>Take</strong> and <strong>Skip</strong> methods. In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages.  You can also call the  <strong>includeTotalCount</strong> method to get the total count of items available on the server, along with the paged data.</p>
-    </div>
+	Cette requête ignore les trois premiers résultats et renvoie les trois résultats suivants. Il s'agit en fait de la deuxième « page » de données, dont la taille est de trois éléments.
 
-6. (Optional) Again view the URI of the request sent to the mobile service. 
+    **Remarque**
 
-   	Notice that the **skip(3)** method was translated into the query option **$skip=3** in the query URI.
+    Ce didacticiel s'appuie sur un scénario simplifié dans lequel les valeurs de pagination codées en dur sont transmises aux méthodes **Take** et **Skip**. Dans une application réelle, vous pouvez utiliser des requêtes semblables à celles indiquées plus haut avec un contrôle pager ou une interface utilisateur comparable pour permettre aux utilisateurs d'accéder aux pages précédentes et suivantes. Vous pouvez également appeler la méthode **includeTotalCount** pour obtenir le nombre total d'éléments disponibles sur le serveur, avec les données paginées.
 
-<!-- URLs -->
-[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412
+3.  (Facultatif) Là aussi, affichez l'URI de la requête envoyée au service mobile.
+
+	Notez que la méthode **skip(3)** a été convertie en option de requête **$skip=3** dans l'URI de requête.
+
+

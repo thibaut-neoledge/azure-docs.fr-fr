@@ -1,28 +1,30 @@
 
 
-1. Open the project file QSTodoListViewController.m and in the **viewDidLoad** method, remove the following code that reloads the data into the table:
+1.  Ouvrez le fichier projet QSTodoListViewController.m et, dans la méthode **viewDidLoad**, supprimez le code suivant qui permet de recharger les données dans la table :
 
-        [self refresh];
+         [self refresh];
 
-2.	Just after the **viewDidLoad** method, add the following code:  
+2.  Juste après la méthode **viewDidLoad**, ajoutez le code suivant :
 
         - (void)viewDidAppear:(BOOL)animated
         {
             MSClient *client = self.todoService.client;
-            
+                
             if (client.currentUser != nil) {
                 return;
             }
-            
+                
             [client loginWithProvider:@"facebook" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
                 [self refresh];
             }];
         }
 
-    <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than Facebook, change the value passed to <strong>loginWithProvider</strong> above to one of the following: <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, or <em>google</em>.</p>
-    </div>
-		
-3. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider.
+    **Remarque**
 
-   	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+    Si vous utilisez un fournisseur d'identité autre que Facebook, remplacez la valeur transmise à la méthode **loginWithProvider** ci-dessus par l'une des valeurs suivantes : *microsoftaccount*, *facebook*, *twitter* ou *google*.
+
+3.  Appuyez sur le bouton **Exécuter** pour générer le projet, démarrez l'application dans l'émulateur iPhone, puis connectez-vous avec le fournisseur d'identité de votre choix.
+
+	Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
+
+
