@@ -1,4 +1,4 @@
-<properties linkid="manage-scenarios-how-to-scale-websites" urlDisplayName="How to scale" pageTitle="How to scale web sites - Microsoft Azure service management" metaKeywords="Azure scaling web sites" description="Learn how to scale web sites in Azure to use Free, Shared, Basic and Standard web hosting plans." metaCanonical="" services="web-sites" documentationCenter="" title="How to Scale Web Sites" authors="timamm" solutions="" writer="timamm" manager="paulettm" editor="mollybos" />
+<properties linkid="manage-scenarios-how-to-scale-websites" urlDisplayName="How to scale" pageTitle="How to scale web sites - Microsoft Azure service management" metaKeywords="Azure scaling web sites" description="Learn how to scale web sites in Azure to use Free, Shared, Basic and Standard web hosting plans." metaCanonical="" services="web-sites" documentationCenter="" title="How to Scale Web Sites" authors="timamm"  solutions="" writer="timamm" manager="paulettm" editor="mollybos"  />
 
 Mise à l'échelle de sites Web
 =============================
@@ -21,6 +21,7 @@ Dans cet article :
 -   [Fonctionnalités pour développeur](#devfeatures)
 -   [Autres fonctionnalités](#OtherFeatures)
 
+<a name="scalingsharedorbasic"></a>
 ## Mise à l'échelle vers le mode de plan Partagé ou De base
 
 1.  Dans votre navigateur, ouvrez le [portail de gestion](https://manage.windowsazure.com/).
@@ -58,7 +59,7 @@ Dans cet article :
     L'exemple illustre la modification du mode de plan **De base** :
 
     ![Modification du plan terminée](./media/web-sites-scale/06BasicComplete.png)
-
+<a name="scalingstandard"></a>
 ## Mise à l'échelle vers le mode de plan Standard
 
 > [WACOM.NOTE] Avant de passer un plan d'hébergement Web au mode Standard, vous devez supprimer les limites de dépense mises en place pour l'abonnement Sites Web Microsoft Azure. Dans le cas contraire, votre site risque de devenir inaccessible si vous atteignez la limite avant la fin de la période de facturation. Pour voir ou modifier les options de votre abonnement Sites Web Microsoft Azure, consultez la page [Abonnements Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=235288).
@@ -120,7 +121,7 @@ Dans cet article :
     **Remarque** : lorsque l'option **Scale by Metric** est activée, Microsoft Azure vérifie l'unité centrale de votre site Web toutes les cinq minutes et ajoute ponctuellement des instances, si nécessaire. Si l'utilisation de l'unité centrale est faible, Microsoft Azure supprime des instances toutes les deux heures afin de garantir la performance de votre site Web. En général, il convient de définir la valeur 1 comme nombre minimal d'instances. Toutefois, en cas de pics d'utilisation soudains sur votre site Web, assurez-vous de disposer d'un nombre minimal d'instances suffisant pour gérer la charge. Par exemple, il se peut que votre site manque de réactivité en cas de pic soudain de trafic, dans l'intervalle des cinq minutes précédant l'instant où Microsoft Azure vérifie l'utilisation de votre unité centrale. Si vous vous attendez à de grandes quantités de trafic, définissez un nombre d'instances minimal suffisamment élevé pour prendre en charge ces poussées d'activité.
 
 3.  Une fois que vous avez apporté des modifications aux éléments de la liste **Edit Scale Settings for Schedule**, cliquez sur l'icône **Enregistrer** dans la barre de commandes au bas de la page pour enregistrer tous les paramètres de planification en même temps (vous n'avez pas à enregistrer chaque paramètre de manière individuelle).
-
+<a name="ScalingSQLServer"></a>
 ## Mise à l'échelle d'une base de données SQL Server connectée à votre site 
 Si une ou plusieurs bases de données SQL Server sont liées à votre site Web (indépendamment du mode du plan d'hébergement Web), elles sont répertoriées dans la section **Linked Resources** au bas de la page Scaling.
 
@@ -135,7 +136,7 @@ Si une ou plusieurs bases de données SQL Server sont liées à votre site Web (
     Concernant l'option **Edition**, choisissez **Web** ou **Business** selon la capacité de stockage souhaitée. L'édition **Web** offre un éventail de petites capacités, tandis que l'édition **Business** offre un éventail de capacités plus importantes.
 
     La valeur que vous choisissez pour **Max Size** spécifie une limite supérieure pour la base de données. Les charges de la base de données s'appuient sur la quantité de données que vous stockez réellement. Ainsi, la modification de la propriété **Max Size** n'a aucune incidence sur les charges de la base de données. Pour plus d'informations, consultez la page [Comptes et facturation dans la base de données SQL Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=234930).
-
+<a name="devfeatures"></a>
 ## Fonctionnalités pour développeur 
 Selon le mode du plan d'hébergement Web, les fonctionnalités orientées développeur sont les suivantes :
 
@@ -148,7 +149,8 @@ Selon le mode du plan d'hébergement Web, les fonctionnalités orientées dével
 
 -   La prise en charge du débogueur est disponible pour les modes Gratuit, Partagé et De base du plan d'hébergement Web et permet une connexion simultanée par application.
 -   La prise en charge du débogueur est disponible pour les modes Standard du plan d'hébergement Web et permet cinq connexions simultanées par application.
-
+-   
+<a name="OtherFeatures"></a>
 ## Autres fonctionnalités
 
 **Surveillance de point de terminaison Web**
@@ -157,6 +159,7 @@ Selon le mode du plan d'hébergement Web, les fonctionnalités orientées dével
 
 -   Pour des informations détaillées sur toutes les autres fonctionnalités des plans d'hébergement Web, notamment la tarification et les fonctionnalités présentant de l'intérêt pour tous les utilisateurs (notamment les développeurs), consultez la page [Tarification – Sites Web](http://www.windowsazure.com/en-us/pricing/details/web-sites/).
 
+<a name="Next Steps"></a>
 ## Étapes suivantes
 - Pour plus d'informations sur les meilleures pratiques liées à Sites Web Azure, notamment la création d'une architecture évolutive et résiliente, consultez la page [Meilleures pratiques : Sites Web Azure](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
@@ -184,4 +187,29 @@ Selon le mode du plan d'hébergement Web, les fonctionnalités orientées dével
 
     [Mise à l'échelle de Sites Web Azure - avec Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/how-azure-web-sites-scale/)
 
+<!-- LINKS -->
+[vmsizes]:http://go.microsoft.com/fwlink/?LinkId=309169
+[SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
+[azuresubscriptions]:http://go.microsoft.com/fwlink/?LinkID=235288
+[portal]: https://manage.windowsazure.com/
 
+<!-- IMAGES -->
+[SelectWebsite]: ./media/web-sites-scale/01SelectWebSite.png
+[SelectScaleTab]: ./media/web-sites-scale/02SelectScaleTab.png
+
+[ChooseWHP]: ./media/web-sites-scale/03aChooseWHP.png
+[ChooseBasicInstanceSize]: ./media/web-sites-scale/03bChooseBasicInstanceSize.png
+[ChooseBasicInstanceCount]: ./media/web-sites-scale/04ChooseBasicInstanceCount.png
+[SaveButton]: ./media/web-sites-scale/05SaveButton.png
+[BasicComplete]: ./media/web-sites-scale/06BasicComplete.png
+[ChooseStandard]: ./media/web-sites-scale/07ChooseStandard.png
+[CapacitySectionStandard]: ./media/web-sites-scale/08CapacitySectionStandard.png
+[ChooseInstanceSize]: ./media/web-sites-scale/09ChooseInstanceSize.png
+[SetUpScheduleTimesButton]: ./media/web-sites-scale/10SetUpScheduleTimesButton.png
+[SetUpScheduleTimesDialog]: ./media/web-sites-scale/11SetUpScheduleTimesDialog.png
+[EditScaleSettingsForSchedule]: ./media/web-sites-scale/12EditScaleSettingsForSchedule.png
+[ScaleByMetric]: ./media/web-sites-scale/13ScaleByMetric.png
+[InstanceCount]: ./media/web-sites-scale/14InstanceCount.png
+[TargetCPU]: ./media/web-sites-scale/15TargetCPU.png
+[LinkedResources]: ./media/web-sites-scale/16LinkedResources.png
+[ScaleDatabase]: ./media/web-sites-scale/17ScaleDatabase.png

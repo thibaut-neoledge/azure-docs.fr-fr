@@ -1,4 +1,4 @@
-<!-- saved from url=(0022)http://internet.e-mail -->
+<properties urlDisplayName="Call a custom API from the client" pageTitle="Call a custom API from a Windows Store client - Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from a Windows Store app that use Azure Mobile Services." metaCanonical="" services="" documentationCenter="" title="Call a custom API from the client" authors="glenga" solutions="" manager="" editor="" />
 
 Appel d'une API personnalisée à partir du client
 ================================================
@@ -41,4 +41,18 @@ Maintenant que vous avez créé une API personnalisée et que vous l'avez appel�
      
     Apprenez à utiliser la fonctionnalité de contrôle du code source pour développer et publier plus facilement et de manière plus sécurisée le code de script de l'API personnalisée.
 
+<!-- Anchors. -->
+[Define the custom API]: #define-custom-api
+[Update the app to call the custom API]: #update-app
+[Test the app]: #test-app
+[Next Steps]: #next-steps
 
+<!-- URLs. -->
+[Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
+[Get started with data]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
+[Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
+[Get started with push notifications]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push/
+
+[Define a custom API that supports periodic notifications]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications
+[Store server scripts in source control]: /en-us/documentation/articles/mobile-services-store-scripts-source-control

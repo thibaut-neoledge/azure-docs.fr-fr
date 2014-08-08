@@ -17,6 +17,7 @@ Cette procédure comprend les étapes suivantes :
 -   [Étape 4 : publication d'un package à l'aide d'un script PowerShell](#step4)
 -   [Étape 5 : publication d'un package à l'aide de TFS Team Build (facultatif)](#step5)
 
+<a name="step1"> </a>
 Configuration du serveur de buildsÉtape 1 : configuration du serveur de builds
 ------------------------------------------------------------------------------
 
@@ -30,6 +31,7 @@ Visual Studio ne doit pas obligatoirement être installé sur le serveur de bui
 4.  Copiez le fichier Microsoft.WebApplication.targets depuis une installation Visual Studio vers le serveur de builds. Si Visual Studio est installé sur l'ordinateur, le fichier se trouve dans le répertoire C:\\Program Files (x86)\\MSBuild\\Microsoft\\VisualStudio\\v11.0\\WebApplications (v12.0 pour Visual Studio 2013). Vous devez le copier dans le même répertoire sur le serveur de builds.
 5.  Installez les outils [Azure Tools for Visual Studio][]. Recherchez WindowsAzureTools.VS120.exe pour créer des projets Visual Studio 2012 et WindowsAzureTools.VS120.exe pour créer des projets Visual Studio 2013.
 
+<a name="step2"> </a>
 Génération d'un package à l'aide de MSBuildÉtape 2 : génération d'un package à l'aide des commandes MSBuild
 -----------------------------------------------------------------------------------------------------------
 
@@ -70,6 +72,7 @@ Cette section décrit la création d'une commande MSBuild qui génère un packag
 
     Une fois que vous avez conçu et testé une ligne de commande MSBuild appropriée pour générer vos projets et les combiner dans un package Azure, vous pouvez ajouter cette ligne de commande à vos scripts. Si votre serveur de builds utilise des scripts personnalisés, ce processus dépend des particularités de votre processus personnalisé. Si vous utilisez TFS comme environnement de génération, vous pouvez suivre les instructions de l'étape qui suit pour ajouter la création du package Azure à votre processus.
 
+<a name="step3"> </a>
 Création d'un package à l'aide de TFS Étape 3 : génération d'un package avec TFS Team Build (facultatif)
 --------------------------------------------------------------------------------------------------------
 
@@ -95,6 +98,7 @@ Pour configurer TFS pour générer des packages Azure, procédez comme suit :
 
 6.  Testez le fonctionnement de votre processus en intégrant une modification à votre projet ou en ajoutant une build dans la file d'attente. Pour ajouter une nouvelle build dans la file d'attente, dans Explorateur d'équipes, cliquez avec le bouton droit sur **Toutes les définitions de build**, puis choisissez **Mettre la nouvelle build en file d'attente**.
 
+<a name="step4"> </a>
 Publication avec PowershellÉtape 4 : publication d'un package à l'aide d'un script PowerShell
 ---------------------------------------------------------------------------------------------
 
@@ -172,7 +176,7 @@ Cette section décrit la création d'un script Windows PowerShell qui publie le 
     Le déploiement de mise à niveau peut être désactivé dans le script (\$enableDeploymentUpgrade = 0) ou en transmettant le paramètre -enableDeploymentUpgrade 0, ce qui modifie le comportement du script : il supprime d'abord les déploiements existants, puis crée un nouveau déploiement.
 
     **Avertissement :** le script supprime ou remplace toujours vos déploiements existants par défaut s'ils sont détectés. Ceci est nécessaire pour permettre la remise continue automatique là où il n'est pas possible de demander à l'utilisateur ou à l'opérateur d'intervenir.
-
+<a name="step5"> </a>
 Publication avec TFS Étape 5 : publication d'un package à l'aide de TFS Team Build (facultatif)
 -----------------------------------------------------------------------------------------------
 
@@ -354,6 +358,7 @@ Cette étape permet de lier TFS Team Build au script créé à l'étape 4, qui 
 
 11. Ajoutez une build à la file d'attente pour exécuter à la fois la génération et la publication du package. Si un déclencheur est défini sur Continuous Deploy, vous exécuterez ce comportement à chaque intégration.
 
+<a name="script"> </a>
 ### Modèle de script PublishCloudService.ps1
 
 ``` {data-morhtml="true"}

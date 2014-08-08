@@ -1,4 +1,4 @@
-<!-- saved from url=(0022)http://internet.e-mail -->
+<properties linkid="manage-services-storage-net-shared-access-signature-part-1" urlDisplayName="" pageTitle="Shared access signatures: Understanding the SAS Model | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Learn about delegating access to blob, queue, and table resources with shared access signatures" metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
 
 Signatures d'accès partagé, partie 1 : présentation du modèle SAP
 =================================================================
@@ -268,3 +268,6 @@ Les signatures d'accès partagé sont utiles pour fournir des autorisations d'ac
 [Délégation de l'accès avec une signature d'accès partagé (API REST)](http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx)
 
 [Présentation des signatures d'accès partagé des tables et des files d'attente](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+
+[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
+[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png

@@ -1,4 +1,4 @@
-<!-- saved from url=(0022)http://internet.e-mail -->
+<properties linkid="develop-mobile-tutorials-get-started-with-data-js-vs2013" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Store JavaScript) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store JavaScript app." metaCanonical="https://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
 Prise en main des données dans Mobile Services
 ==============================================
@@ -171,3 +171,39 @@ Une fois que vous avez terminé les séries de données, essayez l'un de ces aut
     <br/>En savoir plus sur l'utilisation de Mobile Services avec HTML et JavaScript
 
 
+<!-- Anchors. -->
+
+[Get the Windows Store app]: #download-app
+[Create the mobile service]: #create-service
+[Add a data table for storage]: #add-table
+[Update the app to use Mobile Services]: #update-app
+[Test the app against Mobile Services]: #test-app
+[Next Steps]:#next-steps
+
+<!-- Images. -->
+[0]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2013/mobile-quickstart-startup.png
+
+
+
+
+
+
+
+
+[9]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2013/mobile-todoitem-data-browse.png
+[10]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2013/mobile-data-sample-download-js-vs12.png
+
+
+<!-- URLs. -->
+[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js
+[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-js
+[Get started with Mobile Services]: ./mobile-services-get-started.md
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-js
+[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-js
+[C# and XAML]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
+
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Management Portal]: https://manage.windowsazure.com/
+[Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
+[Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
+[Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client/

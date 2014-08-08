@@ -1,4 +1,4 @@
-<!-- saved from url=(0022)http://internet.e-mail -->
+<properties linkid="develop-java-tutorials-jenkins-continuous-integration" urlDisplayName="Jenkins Continuous Integration" pageTitle="Using Azure Storage with a Jenkins Continuous Integration Solution | Microsoft Azure" metaKeywords="" description="This tutorial show how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution." metaCanonical="" services="storage" documentationCenter="Java" title="Using Azure Storage with a Jenkins Continuous Integration solution" authors="waltpo" solutions="" manager="bjsmith" editor="mollybos" />
 
 Utilisation d'Azure Storage avec une solution d'intégration continue Jenkins
 ============================================================================
@@ -145,3 +145,14 @@ La section suivante présente les composants du service BLOB.
     `http://example.blob.core.windows.net/myjob/2013-01-28_15-00-35/2/hello.txt`
 
 
+  [Overview of Jenkins]: #overview
+  [Benefits of using the Blob service]: #benefits
+  [Prerequisites]: #prerequisites
+  [How to use the Blob service with Jenkins CI]: #howtouse
+  [How to install the Azure Storage plugin]: #howtoinstall
+  [How to configure the Azure Storage plugin to use your storage account]: #howtoconfigure
+  [How to create a post-build action that uploads your build artifacts to your storage account]: #howtocreatepostbuild
+  [Components used by the Blob service]: #components
+  [How to Create a Storage Account]: http://go.microsoft.com/fwlink/?LinkId=279823
+  [Meet Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
+  [ms-open-tech]: http://msopentech.com

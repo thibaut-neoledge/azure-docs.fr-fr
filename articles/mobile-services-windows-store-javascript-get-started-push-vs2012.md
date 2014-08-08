@@ -26,6 +26,7 @@ Ce didacticiel requiert les éléments suivants :
 
 Ce didacticiel s'appuie sur le didacticiel [Prise en main des données](/en-us/develop/mobile/tutorials/get-started-with-data-js). Avant de commencer ce didacticiel, vous devez d'abord suivre intégralement [celui-ci](/en-us/develop/mobile/tutorials/get-started-with-data-js) :
 
+<a name="register"></a>
 Inscription de votre applicationInscription de votre application pour le Windows Store
 --------------------------------------------------------------------------------------
 
@@ -35,11 +36,13 @@ Pour pouvoir envoyer des notifications Push vers des applications Windows Store 
 
 Votre service mobile et votre application sont dès lors configurés pour fonctionner avec WNS. La prochaine étape consiste à créer une table pour stocker les inscriptions.
 
+<a name="create-table"></a>
 Création d'une table
 --------------------
 
 [WACOM.INCLUDE [mobile-services-create-new-push-table](../includes/mobile-services-create-new-push-table.md)]
 
+<a name="add-push"></a>
 Ajout de notifications PushAjout de notifications Push à l'application
 ----------------------------------------------------------------------
 
@@ -70,6 +73,7 @@ Ajout de notifications PushAjout de notifications Push à l'application
 
     Cela permet de s'assurer que votre application peut déclencher des notifications toast. 
 
+<a name="update-scripts"></a>
 Mise à jour du script d'insertionMise à jour du script d'insertion inscrit dans le portail de gestion
 -----------------------------------------------------------------------------------------------------
 
@@ -109,6 +113,7 @@ Mise à jour du script d'insertionMise à jour du script d'insertion inscrit dan
 
     Ce script d'insertion envoie une notification Push (avec le texte de l'élément inséré) à tous les canaux stockés dans la table **Registrations**.
 
+<a name="test"></a>
 Test de l'applicationTest des notifications Push dans l'application
 -------------------------------------------------------------------
 
@@ -122,6 +127,7 @@ Test de l'applicationTest des notifications Push dans l'application
 
     ![][14]
 
+<a name="next-steps"> </a>
 Étapes suivantes
 ----------------
 

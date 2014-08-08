@@ -172,3 +172,51 @@ Pour plus d'informations sur les rubriques Mobile Services suivantes :
     <br/>En savoir plus sur l'utilisation de Mobile Services avec .NET.
 
 
+<!-- Anchors. -->
+[Register your app for push notifications and configure Mobile Services]: #register
+[Create the Registrations table]: #create-table
+[Update scripts to send push notifications]: #update-scripts
+[Add push notifications to the app]: #add-push
+[Insert data to receive notifications]: #test
+[Next Steps]:#next-steps
+
+<!-- Images. -->
+
+
+
+
+
+[5]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-insert-script-push2.png
+
+
+
+
+
+
+
+[13]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-quickstart-push1.png
+[14]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-quickstart-push2.png
+[15]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-app-enable-toast-win8.png
+
+
+
+<!-- URLs. -->
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
+[Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-dotnet.md
+[Push notifications to app users]: ../tutorials/mobile-services-push-notifications-to-app-users-dotnet.md
+[Authorize users with scripts]: ../tutorials/mobile-services-authorize-users-dotnet.md
+[JavaScript and HTML]: ../tutorials/mobile-services-get-started-with-push-js.md
+
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library/
+[Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/
+[What are Notification Hubs?]: /en-us/develop/net/how-to-guides/service-bus-notification-hubs/
+[Send notifications to subscribers]: /en-us/manage/services/notification-hubs/breaking-news-dotnet/
+[Send notifications to users]: /en-us/manage/services/notification-hubs/notify-users/
+[Send cross-platform notifications to users]: /en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/

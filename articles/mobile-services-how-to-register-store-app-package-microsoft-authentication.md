@@ -17,3 +17,13 @@ Le fait d'inscrire votre application vous permet également de lui envoyer des n
 
 Après l'inscription du package de votre application, pensez à fournir la valeur **true** pour *useSingleSignOn* lorsque vous appelez la méthode [LoginAsync](http://go.microsoft.com/fwlink/p/?LinkId=311594). Vos utilisateurs bénéficient ainsi d'une expérience de connexion améliorée lorsqu'ils utilisent un compte Microsoft.
 
+
+<!-- Anchors. -->
+<!-- Images. -->
+
+
+<!-- URLs. -->
+[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet/
+[Authenticate your Windows Store app with Live Connect single sign-on]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Get started with users C#]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Get started with users JavaScript]: /en-us/develop/mobile/tutorials/get-started-with-users-js/

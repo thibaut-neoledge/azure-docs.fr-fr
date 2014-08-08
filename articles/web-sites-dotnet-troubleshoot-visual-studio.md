@@ -686,3 +686,4 @@ Le site Web Microsoft TechNet comporte une section [Utilisation du suivi des dem
 
 Si vous voulez déboguer un service de cloud computing Azure plutôt qu'un site Web, consultez la page [Débogage de Cloud Services](http://msdnstage.redmond.corp.microsoft.com/en-us/library/windowsazure/ee405479.aspx).
 
+[GetStarted]: /en-us/develop/net/tutorials/get-started/

@@ -1,4 +1,4 @@
-
+<properties linkid="manage-services-how-to-monitor-websites" urlDisplayName="How to monitor" pageTitle="How to monitor web sites - Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Learn how to monitor Azure web sites by using the Monitor page in the Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Web Sites" authors="" solutions="" manager="" editor="" />
 
 Surveillance de sites Web
 =========================
@@ -308,3 +308,5 @@ Pour en savoir plus sur la surveillance des points de terminaison d'un site Web,
 -   [Assurer la gestion des sites Web Azure et la surveillance des points de terminaison - avec Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
 
+[fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
+[vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169

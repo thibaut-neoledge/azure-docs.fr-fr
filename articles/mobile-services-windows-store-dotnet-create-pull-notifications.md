@@ -1,4 +1,6 @@
-<!-- saved from url=(0022)http://internet.e-mail -->
+<properties linkid="develop-mobile-tutorials-create-pull-notifications-dotnet" urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Define a custom API that supports pull notifications - Azure Mobile Services" metaKeywords="" description="Learn how to Define a custom API that supports periodic notifications in Windows Store apps that use Azure Mobile Services." metaCanonical="" services="" documentationCenter="" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="" editor="" />
+
+
 
 Définition d'une API personnalisée qui prend en charge les notifications périodiques
 ====================================================================================
@@ -134,3 +136,30 @@ Maintenant que vous avez créé une notification périodique, vous pouvez consul
     <br/>En savoir plus sur l'utilisation de Mobile Services avec .NET.
 
 
+<!-- Anchors. -->
+[Define the custom API]: #define-custom-api
+[Update the app to turn on period notifications]: #update-app
+[Test the app]: #test-app
+[Next Steps]: #next-steps
+
+<!-- Images. -->
+[0]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-services-selection.png
+[1]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-create.png
+[2]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-create-dialog.png
+[3]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-select.png
+[4]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-live-tile.png
+
+<!-- URLs. -->
+[Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
+[Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
+[My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
+[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
+[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet
+[JavaScript and HTML]: mobile-services-win8-javascript/
+
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Periodic notifications]: http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx
+
+[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library

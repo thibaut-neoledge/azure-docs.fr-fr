@@ -1,6 +1,4 @@
-<!-- saved from url=(0022)http://internet.e-mail -->
-
-<properties  linkid="manage-services-hdinsight-howto-hive" urldisplayname="Use Hive with HDInsight" pagetitle="Use Hive with HDInsight | Azure" metakeywords="" description="Learn how to use Hive with HDInsight. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data and report basic statistics." metacanonical="" services="hdinsight" documentationcenter="" title="Use Hive with HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-howto-hive" urlDisplayName="Use Hive with HDInsight" pageTitle="Use Hive with HDInsight | Azure" metaKeywords="" description="Learn how to use Hive with HDInsight. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data and report basic statistics." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hive with HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 # Utilisation de Hive avec HDInsight
 
@@ -177,20 +175,13 @@ Les requêtes Hive peuvent être exécutées dans PowerShell avec la cmdlet
 
 Bien que Hive facilite l'interrogation des données avec un langage de requête similaire à SQL, d'autres composants disponibles avec HDInsight fournissent des fonctionnalités supplémentaires telles que le transfert et la transformation des données. Pour en savoir plus, consultez les articles suivants :
 
-* [Prise en main d'Azure
-  HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
-* [Analyse des données sur les retards de vol avec
-  HDInsight](/en-us/documentation/articles/hdinsight-analyze-flight-delay-data/)
-* [Utilisation d'Oozie avec
-  HDInsight](/en-us/documentation/articles/hdinsight-use-oozie/)
-* [Envoi de tâches Hadoop par
-  programme](/en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/)
-* [Téléchargement de données vers
-  HDInsight](/en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/)
-* [Utilisation de Pig avec
-  HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
-* [Documentation du Kit de développement logiciel (SDK) Azure
-  HDInsight][4]
+* [Prise en main d'Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+* [Analyse des données sur les retards de vol avec HDInsight](/en-us/documentation/articles/hdinsight-analyze-flight-delay-data/)
+* [Utilisation d'Oozie avec HDInsight](/en-us/documentation/articles/hdinsight-use-oozie/)
+* [Envoi de tâches Hadoop par programme](/en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/)
+* [Téléchargement de données vers HDInsight](/en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/)
+* [Utilisation de Pig avec HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
+* [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][4]
 
 
 
@@ -198,3 +189,31 @@ Bien que Hive facilite l'interrogation des données avec un langage de requête 
 [2]: http://en.wikipedia.org/wiki/Log4j
 [3]: http://technet.microsoft.com/en-us/library/ee692792.aspx
 [4]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+[azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
+[azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
+[azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
+
+
+[apache-hive]: http://hive.apache.org/
+[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+
+
+[hdinsight-oozie]: /en-us/documentation/articles/hdinsight-use-oozie/
+[hdinsight-analyze-flight-delay-data]: /en-us/documentation/articles/hdinsight-analyze-flight-delay-data/
+
+
+[hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store
+
+[hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
+[hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
+[hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
+[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
+[hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
+
+[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
+[powershell-here-strings]: http://technet.microsoft.com/en-us/library/ee692792.aspx
+
+[image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png 
+[img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png 

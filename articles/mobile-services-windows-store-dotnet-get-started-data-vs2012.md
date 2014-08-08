@@ -1,4 +1,4 @@
-<!-- saved from url=(0022)http://internet.e-mail -->
+<properties linkid="develop-mobile-tutorials-get-started-with-data-dotnet" urlDisplayName="Get Started with Data" pageTitle="Get started with data - Azure Mobile Services" metaKeywords="" description="Learn how to get started using data with Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services using Visual Studio 2012" documentationCenter="Mobile" authors="" />
 
 Prise en main des données dans Mobile Services avec Visual Studio 2012
 ======================================================================
@@ -197,4 +197,38 @@ Une fois que vous avez terminé les séries de données, essayez l'un de ces aut
 -   [Guide de fonctionnement Mobile Services .NET](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)
     <br/>En savoir plus sur l'utilisation de Mobile Services avec .NET.
 
+<!-- Anchors. -->
 
+[Get the Windows Store app]: #download-app
+[Create the mobile service]: #create-service
+[Add a data table for storage]: #add-table
+[Update the app to use Mobile Services]: #update-app
+[Test the app against Mobile Services]: #test-app
+[Next Steps]:#next-steps
+
+<!-- Images. -->
+[0]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-quickstart-startup.png
+
+
+
+
+[7]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-add-nuget-package-dotnet.png
+[8]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-dashboard-tab.png
+[9]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-todoitem-data-browse.png
+[10]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-data-sample-download-dotnet.png
+
+
+<!-- URLs. -->
+[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
+[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
+[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012/
+[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-js-vs2012/
+
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Management Portal]: https://manage.windowsazure.com/
+[Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
+[Developer Code Samples site]:  http://go.microsoft.com/fwlink/?LinkId=262308
+[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library

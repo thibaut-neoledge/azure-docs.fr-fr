@@ -1,4 +1,4 @@
-<!-- saved from url=(0022)http://internet.e-mail -->
+<properties linkid="manage-services-how-to-configure-a-cloud-service" urlDisplayName="How to configure" pageTitle="How to configure a cloud service - Azure" metaKeywords="Configuring cloud services" description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Configure Cloud Services" authors="davidmu" solutions="" manager="" editor="" />
 
 Configuration de services cloud
 ===============================
@@ -135,4 +135,6 @@ Ajoutez des éléments **Import** au fichier de définition de service (.csdef) 
 
 5.  Cliquez sur OK (coche).
 
+[Set Up a Remote Desktop Connection for a Role in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx
 
+[Using Remote Desktop with Azure Roles]: http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx

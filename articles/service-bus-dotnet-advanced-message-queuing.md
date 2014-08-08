@@ -1,4 +1,4 @@
-<!-- saved from url=(0022)http://internet.e-mail -->
+<properties linkid="develop-net-how-to-guides-service-bus-amqp" urlDisplayName="Service Bus AMQP" pageTitle="How to use AMQP 1.0 with the .NET Service Bus API - Azure" metaKeywords="" description="Learn how to use Advanced Message Queuing Protodol (AMQP) 1.0 with the Azure .NET Service Bus API." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to use AMQP 1.0 with the Service Bus .NET API" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
 
 Utilisation d'AMQP 1.0 avec l'API .NET Service Bus
 ==================================================
@@ -301,3 +301,5 @@ Pour plus d'informationsPour plus d'informations
 -   [Guide du développeur AMQP 1.0 Service Bus](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx)
 -   [Utilisation des files d'attente Service Bus](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)
 
+
+[How to Use Service Bus Queues]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/

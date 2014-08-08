@@ -1,4 +1,4 @@
-
+<properties linkid="develop-mobile-tutorials-get-started-offline-data-dotnet" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use offline data in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data in Mobile Services" authors="wesmc" />
 
 Prise en main des données hors connexion dans Mobile Services
 =============================================================
@@ -246,3 +246,32 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 
 -   [Gestion des conflits liés à la prise en charge hors connexion de Mobile Services](/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/)
 
+<!-- Anchors. -->
+[Update the app to support offline features]: #enable-offline-app
+[Test the app in an offline Scenario]: #test-offline-app
+[Update the app to reconnect your mobile service]: #update-online-app
+[Test the app connected to the Mobile Service]: #test-online-app
+[Next Steps]:#next-steps
+
+<!-- Images -->
+[0]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-todoitem-data-browse.png
+[1]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
+[2]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-sqlitestore-nuget.png
+[3]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-sqlitepcl-nuget.png
+[4]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-offline-app-run1.png
+[5]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-online-app-run1.png
+[6]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-data-browse.png
+[7]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-data-browse2.png
+[8]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-online-app-run2.png
+[9]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-online-app-run3.png
+[10]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-data-browse3.png
+
+
+<!-- URLs. -->
+[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/ 
+[Getting Started Offline Sample]: http://go.microsoft.com/fwlink/?LinkId=394777
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
+[Getting Started]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
+[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
+[SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776

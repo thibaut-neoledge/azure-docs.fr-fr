@@ -1,4 +1,4 @@
-<!-- saved from url=(0022)http://internet.e-mail -->
+<properties linkid="develop-mobile-tutorials-get-started-with-push-js-vs2013" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (Windows Store JavaScript) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Windows Store JavaScript app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
 Prise en main des notifications Push dans Mobile Services
 =========================================================
@@ -91,3 +91,43 @@ Pour plus d'informations sur les rubriques Mobile Services suivantes :
     <br/>En savoir plus sur l'utilisation de Mobile Services avec HTML et JavaScript
 
 
+<!-- Anchors. -->
+[Register your app for push notifications and configure Mobile Services]: #register
+[Update the generated push notification code]: #update-scripts
+[Insert data to receive notifications]: #test
+[Next Steps]:#next-steps
+
+<!-- Images. -->
+
+
+
+
+
+
+
+[13]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push1.png
+[14]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push2.png
+
+
+
+
+<!-- URLs. -->
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/
+[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-js/
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-js
+[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-js
+[Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-js
+[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-js
+[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-push-js
+
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client/
+[Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/
+[What are Notification Hubs?]: /en-us/develop/net/how-to-guides/service-bus-notification-hubs/
+[Send notifications to subscribers]: /en-us/manage/services/notification-hubs/breaking-news-dotnet/
+[Send notifications to users]: /en-us/manage/services/notification-hubs/notify-users/
+[Send cross-platform notifications to users]: /en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/

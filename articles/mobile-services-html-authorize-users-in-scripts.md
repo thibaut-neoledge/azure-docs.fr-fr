@@ -82,3 +82,22 @@ Cela met fin à la série de didacticiels établissant les principes de base de 
     <br/>découvrez plus en détail comment utiliser Mobile Services avec le HTML/JavaScript.
 
 
+<!-- Anchors. -->
+[Register server scripts]: #register-scripts
+[Next Steps]:#next-steps
+
+<!-- Images. -->
+[0]: ./media/mobile-services-html-authorize-users-in-scripts/mobile-services-selection.png
+[1]: ./media/mobile-services-html-authorize-users-in-scripts/mobile-portal-data-tables.png
+[2]: ./media/mobile-services-html-authorize-users-in-scripts/mobile-insert-script-users.png
+[3]: ./media/mobile-services-html-authorize-users-in-scripts/mobile-quickstart-startup-html.png
+
+<!-- URLs. -->
+[Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+[My Apps dashboard]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-html
+[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-html
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-html
+
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client

@@ -1,4 +1,4 @@
-<!-- saved from url=(0022)http://internet.e-mail -->
+<properties linkid="develop-mobile-tutorials-schedule-backend-tasks" urlDisplayName="Schedule Backend Tasks" pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
 Planification des travaux récurrents dans Mobile Services
 =========================================================
@@ -162,3 +162,32 @@ Félicitations, vous avez créé un nouveau travail planifié dans votre service
 
 -   [Référence de script serveur Mobile Services](http://go.microsoft.com/fwlink/?LinkId=262293)
   <br/>En savoir plus sur l'enregistrement et l'utilisation des scripts serveur.
+
+
+<!-- Anchors. -->
+[Register for Twitter access and store credentials]: #get-oauth-credentials
+[Create the new Updates table]: #create-table
+[Create a new scheduled job]: #add-job
+[Next steps]: #next-steps
+
+<!-- Images. -->
+[0]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-my-apps.png
+[1]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-app-secrets.png
+[2]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
+[3]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
+[4]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
+[5]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-job-dialog.png
+[6]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script-new.png
+[7]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script.png
+[8]: ./media/mobile-services-schedule-recurring-tasks/mobile-browse-updates-table.png
+[9]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-enabled.png
+[10]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-app-settings.png
+[11]: ./media/mobile-services-schedule-recurring-tasks/mobile-identity-tab-twitter-only.png
+
+<!-- URLs. -->
+[Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
+[WindowsAzure.com]: http://www.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Register your apps for Twitter login with Mobile Services]: /en-us/develop/mobile/how-to-guides/register-for-twitter-authentication
+[Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
+[App settings]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7

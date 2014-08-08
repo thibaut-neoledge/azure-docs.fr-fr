@@ -12,18 +12,18 @@ Bonjour, chers aventuriers ! Bienvenue dans MongoDB-as-a-Service. Ce didacticie
 3.  [Déploiement de l'application](#deploy) : en combinant quelques astuces de configuration, nous apporterons un nouveau souffle à notre code.
 4.  [Gestion de base de données](#manage) : finalement, vous découvrirez le portail de gestion de base de données basé sur le Web où vous pouvez effectuer des recherches, visualiser et modifier les données facilement.
 
-Au cours de ce didacticiel, n'hésitez pas à envoyer un e-mail à tout moment à l'adresse <support@mongolab.com> si vous avez des questions.
+Au cours de ce didacticiel, n'hésitez pas à envoyer un e-mail à tout moment à l'adresse [support@mongolab.com](mailto:support@mongolab.com) si vous avez des questions.
 
 Avant de poursuivre, vérifiez que les éléments suivants sont installés :
 
--   [Node.js](http://nodejs.org) version 0.8.14+
+* [Node.js](http://nodejs.org) version 0.8.14+
 
--   [Git](http://git-scm.com)
+* [Git](http://git-scm.com)
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-<h2>D&eacute;marrage rapide</h2>
-<p>Si vous connaissez d&eacute;j&agrave; l'Azure Store, cette section vous permettra de d&eacute;marrer rapidement. Dans le cas contraire, consultez la section <a href="#provision">Configuration de la base de donn&eacute;es</a> ci-dessous.</p>
+## D&eacute;marrage rapide
+Si vous connaissez d&eacute;j&agrave; l'Azure Store, cette section vous permettra de d&eacute;marrer rapidement. Dans le cas contraire, consultez la section <a href="#provision">Configuration de la base de donn&eacute;es</a> ci-dessous.
 
 <ol>
   <li>Ouvrez l'Azure Store.<br /> <img src="./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-store.png" alt="Store" /></li>
@@ -419,6 +419,7 @@ Avant d'utiliser les outils en ligne de commande avec Azure, vous devez téléch
   </li>
 </ol>
 
+
 <p>Vous avez presque termin&eacute;&nbsp;!</p>
 
 ### Configuration de votre environnement
@@ -447,3 +448,38 @@ Gestion de la base de données
 
 Félicitations ! Vous venez de lancer une application Node.js utilisant une base de données MongoDB hébergée sur MongoLab ! Maintenant que vous disposez d'une base de données MongoLab, vous pouvez contacter <support@mongolab.com> pour toute question ou problème relatif à votre base de données ainsi que pour obtenir de l'aide concernant MongoDB ou le pilote de nœud. Bonne continuation !
 
+
+
+[screen-mongolab-websitedashboard]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/screen-mongolab-websitedashboard.png
+[screen-mongolab-newwebsite]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/screen-mongolab-newwebsite.png
+[button-new]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-new.png
+[button-store]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-store.png
+[entry-mongolab]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/entry-mongolab.png 
+[button-connectioninfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-connectioninfo.png
+[screen-connectioninfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/dialog-mongolab_connectioninfo.png
+[focus-website-connectinfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/focus-mongolab-websiteconnectionstring.png
+[provision]: #provision
+[create]: #create
+[deploy]: #deploy
+[manage]: #manage
+[Node.js]: http://nodejs.org
+[MongoDB]: http://www.mongodb.org
+[Git]: http://git-scm.com
+[Express]: http://expressjs.com
+[Mongoose]: http://mongoosejs.com
+[for free]: /en-us/pricing/free-trial
+[Git remote]: http://git-scm.com/docs/git-remote
+[azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
+[iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
+[Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
+[Azure Developer Center]: /en-us/develop/nodejs/
+[Create and deploy a Node.js application to Azure Web Sites]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+[Publishing to Azure Web Sites with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
+[MongoLab]: http://mongolab.com
+[Node.js Web Application with Storage on MongoDB (Virtual Machine)]: /en-us/develop/nodejs/tutorials/website-with-mongodb-(mac)/
+[node-mongo-finished]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/todo_list_noframe.png
+[node-mongo-express-results]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/express_output.png
+[download-publishing-settings]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/azure-account-download-cli.png
+[import-publishing-settings]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/azureimport.png
+[mongolab-create]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-create.png
+[mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png

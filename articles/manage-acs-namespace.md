@@ -1,4 +1,4 @@
-<!-- saved from url=(0022)http://internet.e-mail -->
+<properties linkid="manage-services-manage-acs" urlDisplayName="Manage ACS" pageTitle="Access Control Service - Azure service management" metaKeywords="" description="Learn how to manage your Azure Access Control Service (ACS) using certificates and keys." metaCanonical="" services="active-directory" documentationCenter="" title="Managing Your ACS Namespace" authors="" solutions="" manager="" editor="" />
 
 Gestion de votre espace de noms ACS
 ===================================
@@ -457,4 +457,14 @@ Si le certificat a expiré, ACS lève les exceptions suivantes :
 </tr>
 </table>
 
-
+[ACS1]:./media/manage-acs-namespace/ACS1.png
+[ACS2]:./media/manage-acs-namespace/ACS2.png
+[ACS3]:./media/manage-acs-namespace/ACS3.png
+[ACS4]:./media/manage-acs-namespace/ACS4.png
+[ACS5]:./media/manage-acs-namespace/ACS5.png
+[ACS7]:./media/manage-acs-namespace/ACS7.png
+[ACS9]:./media/manage-acs-namespace/ACS9.png
+[ACS11]:./media/manage-acs-namespace/ACS11.png
+[ACS112]:./media/manage-acs-namespace/ACS112.png
+[ACS14]:./media/manage-acs-namespace/ACS14.png
+[ACS15]:./media/manage-acs-namespace/ACS15.png
