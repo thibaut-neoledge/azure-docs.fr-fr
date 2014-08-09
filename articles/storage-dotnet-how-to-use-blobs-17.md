@@ -231,7 +231,7 @@ Maintenant que vous avez appris les bases du stockage d'objets blob, suivez ces 
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/wl_svchosting_mref_reference_home
-[3]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+[1]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee758697.aspx
+[2]: http://msdn.microsoft.com/fr-fr/library/windowsazure/wl_svchosting_mref_reference_home
+[3]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179355
+[4]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx

@@ -9,7 +9,7 @@ La mise à l'échelle dans Sites Web Azure implique deux actions connexes : d'u
 
 Vous pouvez facilement modifier les modes et les configurer sous l'onglet Scale du portail de gestion. Vous pouvez augmenter ou diminuer la taille des instances au besoin. L'application de ces modifications ne prend que quelques secondes et s'applique à tous les sites Web de votre plan d'hébergement Web. Vous ne devez pas modifier votre code ni redéployer vos applications.
 
-Pour plus d'informations sur les plans d'hébergement Web, consultez la page [Plans d'hébergement Sites Web Azure](http://go.microsoft.com/fwlink/?LinkId=9845584). Pour plus d'informations sur les tarifs et les fonctionnalités des plans d'hébergement Web individuels, consultez la page [Tarification – Sites Web](http://www.windowsazure.com/en-us/pricing/details/web-sites/).
+Pour plus d'informations sur les plans d'hébergement Web, consultez la page [Plans d'hébergement Sites Web Azure](http://go.microsoft.com/fwlink/?LinkId=9845584). Pour plus d'informations sur les tarifs et les fonctionnalités des plans d'hébergement Web individuels, consultez la page [Tarification – Sites Web](http://www.windowsazure.com/fr-fr/pricing/details/web-sites/).
 
 > [WACOM.NOTE] Avant de passer le plan d'hébergement d'un site Web du mode **Gratuit** au mode **De base** ou **Standard**, vous devez supprimer les limites de dépense mises en place pour l'abonnement de votre site Web. Pour voir ou modifier les options de votre abonnement Sites Web Microsoft Azure, consultez la page [Abonnements Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=235288).
 
@@ -155,9 +155,9 @@ Selon le mode du plan d'hébergement Web, les fonctionnalités orientées dével
 
 **Surveillance de point de terminaison Web**
 
--   La surveillance de point de terminaison Web est disponible dans les modes De base et Standard du plan d'hébergement Web. Pour plus d'informations sur la surveillance des points de terminaison Web, consultez la page [Surveillance des sites Web](http://www.windowsazure.com/en-us/documentation/articles/web-sites-monitor/).
+-   La surveillance de point de terminaison Web est disponible dans les modes De base et Standard du plan d'hébergement Web. Pour plus d'informations sur la surveillance des points de terminaison Web, consultez la page [Surveillance des sites Web](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-monitor/).
 
--   Pour des informations détaillées sur toutes les autres fonctionnalités des plans d'hébergement Web, notamment la tarification et les fonctionnalités présentant de l'intérêt pour tous les utilisateurs (notamment les développeurs), consultez la page [Tarification – Sites Web](http://www.windowsazure.com/en-us/pricing/details/web-sites/).
+-   Pour des informations détaillées sur toutes les autres fonctionnalités des plans d'hébergement Web, notamment la tarification et les fonctionnalités présentant de l'intérêt pour tous les utilisateurs (notamment les développeurs), consultez la page [Tarification – Sites Web](http://www.windowsazure.com/fr-fr/pricing/details/web-sites/).
 
 <a name="Next Steps"></a>
 ## Étapes suivantes
@@ -165,27 +165,27 @@ Selon le mode du plan d'hébergement Web, les fonctionnalités orientées dével
 
 -   Pour plus d'informations sur la tarification, le support et les contrats SLA, accédez aux liens suivants.
 
-    [Détails de la tarification – Transferts de données](http://www.windowsazure.com/en-us/pricing/details/data-transfers/)
+    [Détails de la tarification – Transferts de données](http://www.windowsazure.com/fr-fr/pricing/details/data-transfers/)
 
-    [Plans de support Microsoft Azure](http://www.windowsazure.com/en-us/support/plans/)
+    [Plans de support Microsoft Azure](http://www.windowsazure.com/fr-fr/support/plans/)
 
-    [Contrats de niveau de service](http://www.windowsazure.com/en-us/support/legal/sla/)
+    [Contrats de niveau de service](http://www.windowsazure.com/fr-fr/support/legal/sla/)
 
-    [Tarification – Base de données SQL](http://www.windowsazure.com/en-us/pricing/details/sql-database/)
+    [Tarification – Base de données SQL](http://www.windowsazure.com/fr-fr/pricing/details/sql-database/)
 
     [Tailles de machines virtuelles et services cloud pour Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=309169)
 
-    [Tarification – Sites Web](http://www.windowsazure.com/en-us/pricing/details/web-sites/)
+    [Tarification – Sites Web](http://www.windowsazure.com/fr-fr/pricing/details/web-sites/)
 
-    [Tarification – Sites Web – Connexions SSL](http://www.windowsazure.com/en-us/pricing/details/web-sites/#ssl-connections)
+    [Tarification – Sites Web – Connexions SSL](http://www.windowsazure.com/fr-fr/pricing/details/web-sites/#ssl-connections)
 
 -   Les liens suivants permettent d'accéder à des vidéos sur la mise à l'échelle de Sites Web Azure :
 
-    [Quand mettre à l'échelle Sites Web Azure - avec Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
+    [Quand mettre à l'échelle Sites Web Azure - avec Stefan Schackow](http://www.windowsazure.com/fr-fr/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
 
-    [Mise à l'échelle automatique de Sites Web Azure, unité centrale ou planification - avec Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/auto-scaling-azure-web-sites/)
+    [Mise à l'échelle automatique de Sites Web Azure, unité centrale ou planification - avec Stefan Schackow](http://www.windowsazure.com/fr-fr/documentation/videos/auto-scaling-azure-web-sites/)
 
-    [Mise à l'échelle de Sites Web Azure - avec Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/how-azure-web-sites-scale/)
+    [Mise à l'échelle de Sites Web Azure - avec Stefan Schackow](http://www.windowsazure.com/fr-fr/documentation/videos/how-azure-web-sites-scale/)
 
 <!-- LINKS -->
 [vmsizes]:http://go.microsoft.com/fwlink/?LinkId=309169

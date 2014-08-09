@@ -23,7 +23,7 @@ Sommaire
 Présentation de la gestion des services
 ---------------------------------------
 
-Azure fournit des [API REST pour les opérations de gestion des services](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx), y compris la gestion d'Azure Virtual Machines. Le Kit de développement logiciel (SDK) Azure pour Ruby expose les opérations de gestion pour les machines virtuelles par le biais de la classe **Azure::VirtualMachineService**. La plupart des fonctionnalités de gestion des machines virtuelles disponibles par le biais du [portail de gestion Azure](https://manage.windowsazure.com) sont accessibles au moyen de cette classe.
+Azure fournit des [API REST pour les opérations de gestion des services](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460799.aspx), y compris la gestion d'Azure Virtual Machines. Le Kit de développement logiciel (SDK) Azure pour Ruby expose les opérations de gestion pour les machines virtuelles par le biais de la classe **Azure::VirtualMachineService**. La plupart des fonctionnalités de gestion des machines virtuelles disponibles par le biais du [portail de gestion Azure](https://manage.windowsazure.com) sont accessibles au moyen de cette classe.
 
 Bien que l'API de gestion des services puisse être utilisée pour gérer une série de services hébergés sur Azure, ce document fournit uniquement des détails pour la gestion de machines virtuelles Azure.
 
@@ -41,7 +41,7 @@ Création d'un certificat de gestion Azure
 
 Lors de l'exécution d'opérations de gestion des services, telles que celles exposées par le biais de la classe **Azure::VirtualMachineService**, vous devez fournir votre ID d'abonnement Azure et un fichier contenant un certificat de gestion pour votre abonnement. Tous deux sont utilisés par le Kit de développement logiciel (SDK) lors de l'authentification auprès de l'API REST Azure.
 
-Vous pouvez obtenir l'ID d'abonnement et un certificat de gestion en utilisant l'interface de ligne de commande interplateforme Azure (xplat-cli). Consultez la rubrique [Installation et configuration de l'interface de ligne de commande interplateforme Azure](http://www.windowsazure.com/en-us/manage/install-and-configure-cli/) pour des informations sur l'installation et la configuration de xplat-cli.
+Vous pouvez obtenir l'ID d'abonnement et un certificat de gestion en utilisant l'interface de ligne de commande interplateforme Azure (xplat-cli). Consultez la rubrique [Installation et configuration de l'interface de ligne de commande interplateforme Azure](http://www.windowsazure.com/fr-fr/manage/install-and-configure-cli/) pour des informations sur l'installation et la configuration de xplat-cli.
 
 Une fois que xplat-cli est configuré, vous pouvez effectuer les étapes suivantes pour récupérer votre ID d'abonnement Azure et exporter un certificat de gestion :
 
@@ -180,7 +180,7 @@ Voici les options disponibles lors de l'utilisation de la méthode **create\_vir
 
 -   **:ssh\_port** - Port public qui sera utilisé pour la communication SSH. Si aucune valeur n'est spécifiée, le port SSH 22 est utilisé par défaut.
 
--   **:vm\_size** - Taille de la machine virtuelle. Ceci détermine la taille de la mémoire, le nombre de cœurs, la bande passante et d'autres caractéristiques physiques de la machine virtuelle. Consultez la rubrique [Tailles de machines virtuelles et services cloud pour Microsoft Azure](http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx) pour connaître les tailles et caractéristiques physiques disponibles.
+-   **:vm\_size** - Taille de la machine virtuelle. Ceci détermine la taille de la mémoire, le nombre de cœurs, la bande passante et d'autres caractéristiques physiques de la machine virtuelle. Consultez la rubrique [Tailles de machines virtuelles et services cloud pour Microsoft Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn197896.aspx) pour connaître les tailles et caractéristiques physiques disponibles.
 
 -   **:winrm\_transport** - Tableau des transports disponibles pour une utilisation avec WinRM. Les transports valides sont « http » et « https ». Si « https » est spécifié comme transport, vous devez également utiliser **:ssh\_private\_key\_file** et **:ssh\_certificate\_file** pour spécifier le certificat permettant de sécuriser les communications HTTPS.
 
@@ -359,7 +359,7 @@ Pour supprimer un compte de stockage, utilisez la méthode **delete\_storage\_ac
 
 Maintenant que vous avez appris les principes de base de la création par programme de machines virtuelles Azure, suivez les liens ci-dessous pour découvrir d'autres tâches avec les machines virtuelles.
 
--   Visitez la page [Machines virtuelles](http://www.windowsazure.com/en-us/documentation/services/virtual-machines/).
--   Consultez la référence MSDN suivante : [Machines virtuelles](http://msdn.microsoft.com/en-us/library/windowsazure/jj156003.aspx)
--   Découvrez comment héberger une [Application Ruby on Rails sur une machine virtuelle](http://www.windowsazure.com/en-us/develop/ruby/tutorials/web-app-with-linux-vm/)
+-   Visitez la page [Machines virtuelles](http://www.windowsazure.com/fr-fr/documentation/services/virtual-machines/).
+-   Consultez la référence MSDN suivante : [Machines virtuelles](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156003.aspx)
+-   Découvrez comment héberger une [Application Ruby on Rails sur une machine virtuelle](http://www.windowsazure.com/fr-fr/develop/ruby/tutorials/web-app-with-linux-vm/)
 

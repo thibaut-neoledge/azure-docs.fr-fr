@@ -9,7 +9,7 @@ Une fonctionnalité clé de la solution de données volumineuses de Microsoft es
 
 Avant de commencer la lecture de cet article, vous devez disposer des éléments suivants :
 
--   Un cluster HDInsight. Pour en configurer un, consultez la page [Prise en main d'Azure HDInsight](/en-us/documentation/articles/hdinsight-get-started/).
+-   Un cluster HDInsight. Pour en configurer un, consultez la page [Prise en main d'Azure HDInsight](/fr-fr/documentation/articles/hdinsight-get-started/).
 -   Un ordinateur exécutant Windows 8, Windows 7, Windows Server 2012 ou Windows Server 2008 R2.
 -   Office Professionnel Plus 2013, Office 365 ProPlus, l'édition autonome d'Excel 2013 ou Office Professionnel Plus 2010.
 
@@ -63,6 +63,6 @@ Le complément Power Query pour Excel facilite l'importation de données depuis 
 
 Dans cet article, vous avez appris à utiliser Power Query pour extraire des données de HDInsight et les importer dans Excel. De la même façon, vous pouvez extraire des données de HDInsight et les importer dans SQL Azure. Il est également possible de télécharger des données dans HDInsight. Pour en savoir plus, consultez les articles suivants :
 
--   [Connexion d'Excel à HDInsight à l'aide du pilote ODBC Microsoft Hive](/en-us/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver/)
--   [Téléchargement de données vers HDInsight](/en-us/documentation/articles/hdinsight-upload-data/).
+-   [Connexion d'Excel à HDInsight à l'aide du pilote ODBC Microsoft Hive](/fr-fr/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver/)
+-   [Téléchargement de données vers HDInsight](/fr-fr/documentation/articles/hdinsight-upload-data/).
 

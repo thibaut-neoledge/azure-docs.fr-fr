@@ -5,7 +5,7 @@ Utilisation de compteurs de performances dans Azure
 
 Vous pouvez utiliser des compteurs de performances dans une application Azure pour collecter des données qui peuvent vous aider à repérer les goulots d'étranglement au niveau du système et à ajuster les performances du système et de l'application. Les compteurs de performances accessibles avec Windows Server 2008, Windows Server 2012, IIS et ASP.NET peuvent être collectés et utilisés pour déterminer l'intégrité de votre application Azure.
 
-Cette rubrique explique comment activer les compteurs de performances dans votre application à l'aide du fichier de configuration diagnostics.wadcfg. Pour plus d'informations sur la configuration des performances de votre application dans le [portail de gestion Azure](http://manage.windowsazure.com), consultez la page [Surveillance des services cloud](https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/). Pour obtenir d'autres instructions détaillées sur la création d'une stratégie de journalisation et de suivi, et sur l'utilisation des diagnostics et des autres techniques pour résoudre les problèmes et optimiser les applications Azure, consultez la page [Meilleures pratiques de dépannage pour développer des applications Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx).
+Cette rubrique explique comment activer les compteurs de performances dans votre application à l'aide du fichier de configuration diagnostics.wadcfg. Pour plus d'informations sur la configuration des performances de votre application dans le [portail de gestion Azure](http://manage.windowsazure.com), consultez la page [Surveillance des services cloud](https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/). Pour obtenir d'autres instructions détaillées sur la création d'une stratégie de journalisation et de suivi, et sur l'utilisation des diagnostics et des autres techniques pour résoudre les problèmes et optimiser les applications Azure, consultez la page [Meilleures pratiques de dépannage pour développer des applications Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh771389.aspx).
 
 Cette procédure comprend les étapes suivantes :
 
@@ -53,7 +53,7 @@ Ouvrez le fichier diagnostics.wadcfg et ajoutez ce qui suit à l'élément **Dia
         <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Jit(_Global_)\% Time in Jit" sampleRate="PT30S" />
         </PerformanceCounters>    
 
-L'attribut **bufferQuotaInMB** spécifie la capacité maximale de stockage du système du fichiers disponible pour le type de collecte de données (journaux Azure, journaux IIS, etc.). La valeur par défaut est 0. Lorsque le quota est atteint, les données les plus anciennes sont supprimées à mesure que de nouvelles données sont ajoutées. La somme de toutes les propriétés **bufferQuotaInMB** doit être supérieure à la valeur de l'attribut **OverallQuotaInMB**. Pour plus d'informations sur la façon de déterminer la quantité de stockage nécessaire à la collecte de données de diagnostic, consultez la section Configuration de WAD de la page [Meilleures pratiques de dépannage pour développer des applications Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx).
+L'attribut **bufferQuotaInMB** spécifie la capacité maximale de stockage du système du fichiers disponible pour le type de collecte de données (journaux Azure, journaux IIS, etc.). La valeur par défaut est 0. Lorsque le quota est atteint, les données les plus anciennes sont supprimées à mesure que de nouvelles données sont ajoutées. La somme de toutes les propriétés **bufferQuotaInMB** doit être supérieure à la valeur de l'attribut **OverallQuotaInMB**. Pour plus d'informations sur la façon de déterminer la quantité de stockage nécessaire à la collecte de données de diagnostic, consultez la section Configuration de WAD de la page [Meilleures pratiques de dépannage pour développer des applications Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh771389.aspx).
 
 L'attribut **scheduledTransferPeriod** spécifie le délai entre les transferts de données planifiés, arrondi à la minute supérieure. Dans les exemples suivants, sa valeur est définie sur PT30M (30 minutes). Si la définition d'une période de transfert plus courte, par exemple 1 minute, peut avoir des conséquences néfastes sur les performances de l'application en production, cela peut s'avérer utile en phase de test pour obtenir des diagnostics rapides. La période de transfert planifiée doit être suffisamment courte pour éviter que les données de diagnostic soient remplacées au niveau de l'instance, mais suffisamment longue pour qu'elle n'ait pas d'incidence sur les performances de votre application.
 
@@ -159,7 +159,7 @@ Une fois que cette procédure est exécutée, les données du compteur de perfor
 Étape 3 : interrogation des données de compteurs de performances
 ----------------------------------------------------------------
 
-Une fois votre application déployée et exécutée, le moniteur de diagnostics commence à collecter les compteurs de performances et à conserver ces données dans le stockage Azure. Pour examiner les données des compteurs de performances dans la table **WADPerformanceCountersTable**, vous pouvez utiliser des outils tels que l'**Explorateur de serveurs de Visual Studio**, [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/) ou [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) de Cerebrata. Vous pouvez également interroger le service de Table par programme en [C\#][], [Java](http://www.windowsazure.com/en-us/develop/java/how-to-guides/table-service/), [Node.js][], [Python](http://www.windowsazure.com/en-us/develop/python/how-to-guides/table-service/) ou [PHP](http://www.windowsazure.com/en-us/develop/php/how-to-guides/table-service/).
+Une fois votre application déployée et exécutée, le moniteur de diagnostics commence à collecter les compteurs de performances et à conserver ces données dans le stockage Azure. Pour examiner les données des compteurs de performances dans la table **WADPerformanceCountersTable**, vous pouvez utiliser des outils tels que l'**Explorateur de serveurs de Visual Studio**, [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/) ou [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) de Cerebrata. Vous pouvez également interroger le service de Table par programme en [C\#][], [Java](http://www.windowsazure.com/fr-fr/develop/java/how-to-guides/table-service/), [Node.js][], [Python](http://www.windowsazure.com/fr-fr/develop/python/how-to-guides/table-service/) ou [PHP](http://www.windowsazure.com/fr-fr/develop/php/how-to-guides/table-service/).
 
 Dans l'exemple C\# suivant, une requête simple est exécutée sur la table **WADPerformanceCountersTable** et les données de diagnostic sont enregistrées dans un fichier CSV. Une fois que les compteurs de performances sont enregistrés dans un fichier CSV, vous pouvez visualiser les données à l'aide des fonctionnalités de création de graphiques de Microsoft Excel ou d'un autre outil. Veillez à ajouter une référence à Microsoft.WindowsAzure.Storage.dll, qui figure dans le Kit de développement logiciel (SDK) Azure pour .NET d'octobre 2012 et les versions ultérieures. L'assembly est installé dans le répertoire %Program Files%\\Microsoft SDKs\\Windows Azure.NET SDK\\version-num\\ref\\.
 
@@ -237,16 +237,16 @@ Les entités mappent vers les objets C\# en utilisant une classe personnalisée 
 
 Maintenant que vous avez appris les principes de base de la collecte de compteurs de performances, suivez ces liens pour savoir comment implémenter des scénarios de dépannage plus complexes.
 
--   [Meilleures pratiques de dépannage pour développer des applications Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx)
+-   [Meilleures pratiques de dépannage pour développer des applications Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh771389.aspx)
 -   [Surveillance des services cloud](https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/)
--   [Utilisation du bloc applicatif de mise à l'échelle automatique](http://www.windowsazure.com/en-us/develop/net/how-to-guides/autoscaling/)
--   [Création d'applications élastiques et résilientes](http://msdn.microsoft.com/en-us/library/hh680949(PandP.50).aspx)
+-   [Utilisation du bloc applicatif de mise à l'échelle automatique](http://www.windowsazure.com/fr-fr/develop/net/how-to-guides/autoscaling/)
+-   [Création d'applications élastiques et résilientes](http://msdn.microsoft.com/fr-fr/library/hh680949(PandP.50).aspx)
 
 Ressources supplémentaires
 --------------------------
 
 -   [Activation des diagnostics dans Azure](https://www.windowsazure.com/en-us/develop/net/common-tasks/diagnostics/)
--   [Collecte des données de journalisation avec les diagnostics Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433048.aspx)
--   [Débogage d'une application Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee405479.aspx)
+-   [Collecte des données de journalisation avec les diagnostics Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433048.aspx)
+-   [Débogage d'une application Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee405479.aspx)
 
 

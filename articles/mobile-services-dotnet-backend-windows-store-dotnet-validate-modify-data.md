@@ -3,9 +3,9 @@
 Validation et modification de données dans Mobile Services à l'aide du .Net principal
 =====================================================================================
 
-[Windows Store C\#](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/ "Windows Store C#") [Windows Store JavaScript](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/ "Windows Store JavaScript") [Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ "Windows Phone") [iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS") [Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android") [HTML](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML")[Xamarin.iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS") [Xamarin.Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android")
+[Windows Store C\#](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/ "Windows Store C#") [Windows Store JavaScript](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/ "Windows Store JavaScript") [Windows Phone](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ "Windows Phone") [iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS") [Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android") [HTML](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML")[Xamarin.iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS") [Xamarin.Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android")
 
-[.NET principal](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/ ".NET principal") | [JavaScript principal](/en-us/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/ "JavaScript principal")
+[.NET principal](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/ ".NET principal") | [JavaScript principal](/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/ "JavaScript principal")
 
 Cette rubrique montre comment utiliser le code dans les Windows Azure Mobile Services .Net principaux pour valider et modifier des données. Le service .Net principal est un service HTTP intégré à l'infrastructure API Web et à Entity Framework. Si vous connaissez la classe `ApiController` définie avec l'infrastructure API Web, la classe `TableController` fournie par Mobile Services s'avèrera très intuitive. `TableController` est dérivée de la classe `ApiController` et fournit des fonctionnalités supplémentaires pour créer une interface avec une table de base de données. Vous pouvez l'utiliser pour effectuer des opérations sur les données insérées et mises à jour, qu'il s'agisse de les valider ou de les modifier, comme cela est expliqué dans ce didacticiel.
 
@@ -17,7 +17,7 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 4.  [Ajout d'un horodatage pour CompleteDate](#add-timestamp)
 5.  [Mise à jour du client pour l'affichage de CompleteDate](#update-client-timestamp)
 
-Ce didacticiel s'appuie sur la procédure et l'exemple de code présentés dans le didacticiel précédent, [Prise en main](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) ou [Prise en main des données](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/). Avant de commencer, vous devez suivre le didacticiel [Prise en main](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) ou [Prise en main des données](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/).
+Ce didacticiel s'appuie sur la procédure et l'exemple de code présentés dans le didacticiel précédent, [Prise en main](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) ou [Prise en main des données](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/). Avant de commencer, vous devez suivre le didacticiel [Prise en main](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) ou [Prise en main des données](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/).
 
 Ajout de la validation
 ----------------------
@@ -154,10 +154,10 @@ Maintenant que vous avez terminé ce didacticiel, pensez à suivre le dernier di
 
 Les scripts serveur sont également utilisés dans le cadre du processus d'autorisation des utilisateurs et pour l'envoi de notifications Push. Pour plus d'informations, reportez-vous aux didacticiels suivants :
 
--   [Autorisation des utilisateurs côté service](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts/)
+-   [Autorisation des utilisateurs côté service](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts/)
     En savoir plus sur le filtrage des données en fonction de l'ID d'un utilisateur authentifié.
 
--   [Prise en main des notifications Push](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/)
+-   [Prise en main des notifications Push](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/)
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
 -   [Guide de fonctionnement Mobile Services .NET](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)

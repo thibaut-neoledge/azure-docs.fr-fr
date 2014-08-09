@@ -66,7 +66,7 @@ Dans le code ci-dessus, remplacez `AppUrl` et `AppKey` par l'URL et la clé d'ap
 Création d'une référence de table Création d'une référence de table
 -------------------------------------------------------------------
 
-L'ensemble du code qui permet d'accéder aux données de la table Mobile Services ou de les modifier appelle des fonctions sur l'objet `MobileServiceTable`. Pour obtenir une référence à la table, appelez la fonction [GetTable](http://msdn.microsoft.com/en-us/library/windowsazure/jj554275.aspx) sur une instance du `MobileServiceClient`.
+L'ensemble du code qui permet d'accéder aux données de la table Mobile Services ou de les modifier appelle des fonctions sur l'objet `MobileServiceTable`. Pour obtenir une référence à la table, appelez la fonction [GetTable](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554275.aspx) sur une instance du `MobileServiceClient`.
 
     IMobileServiceTable<TodoItem> todoTable = 
         client.GetTable<TodoItem>();
@@ -162,7 +162,7 @@ La requête révisée ci-dessous ignore les trois premiers résultats et renvoie
                     .Take(3);                              
     List<TodoItem> items = await query.ToListAsync();
 
-Vous pouvez également utiliser la méthode [IncludeTotalCount](http://msdn.microsoft.com/en-us/library/windowsazure/jj730933.aspx) pour faire en sorte que la requête obtienne le nombre total de *tous* les enregistrements qui auraient été renvoyés, en ignorant toute clause de pagination/limite spécifiée :
+Vous pouvez également utiliser la méthode [IncludeTotalCount](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj730933.aspx) pour faire en sorte que la requête obtienne le nombre total de *tous* les enregistrements qui auraient été renvoyés, en ignorant toute clause de pagination/limite spécifiée :
 
     query = query.IncludeTotalCount();
 
@@ -264,7 +264,7 @@ Deux flux d'authentification sont pris en charge : un *flux serveur* et un *flu
 
 Pour que Mobile Services puisse gérer le processus d'authentification dans votre application Windows Store ou Windows Phone, vous devez inscrire votre application auprès de votre fournisseur d'identité. Ensuite, dans votre service mobile, vous devez configurer l'ID d'application et le secret fournis par votre fournisseur. Pour plus d'informations, consultez le didacticiel « Prise en main de l'authentification » ([Xamarin.iOS](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios/)/[Xamarin.Android](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android/)).
 
-Une fois que vous avez inscrit votre fournisseur d'identité, il vous suffit d'appeler la [méthode LoginAsync](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx) avec la valeur [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) de votre fournisseur. Par exemple, le code suivant initie une connexion de flux serveur via Facebook.
+Une fois que vous avez inscrit votre fournisseur d'identité, il vous suffit d'appeler la [méthode LoginAsync](http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx) avec la valeur [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) de votre fournisseur. Par exemple, le code suivant initie une connexion de flux serveur via Facebook.
 
     private MobileServiceUser user;
     private async System.Threading.Tasks.Task Authenticate()
@@ -290,9 +290,9 @@ Une fois que vous avez inscrit votre fournisseur d'identité, il vous suffit d'a
         }
     }
 
-Si vous utilisez un fournisseur d'identité différent de Facebook, remplacez la valeur de [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) ci-dessus par la valeur de votre fournisseur.
+Si vous utilisez un fournisseur d'identité différent de Facebook, remplacez la valeur de [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) ci-dessus par la valeur de votre fournisseur.
 
-Dans ce cas, Mobile Services gère le flux d'authentification OAuth 2.0 en affichant la page de connexion du fournisseur sélectionné et en générant un jeton d'authentification Mobile Services après avoir établi une connexion avec le fournisseur d'identité. La [méthode LoginAsync](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx) renvoie un [MobileServiceUser](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx), qui fournit à la fois l'[userId](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx) de l'utilisateur authentifié et le [MobileServiceAuthenticationToken](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx), sous la forme d'un jeton Web JSON (JWT). Ce jeton peut être mis en cache et réutilisé jusqu'à ce qu'il arrive à expiration. Pour plus d'informations, consultez la section [Mise en cache du jeton d'authentification](#caching).
+Dans ce cas, Mobile Services gère le flux d'authentification OAuth 2.0 en affichant la page de connexion du fournisseur sélectionné et en générant un jeton d'authentification Mobile Services après avoir établi une connexion avec le fournisseur d'identité. La [méthode LoginAsync](http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx) renvoie un [MobileServiceUser](http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx), qui fournit à la fois l'[userId](http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx) de l'utilisateur authentifié et le [MobileServiceAuthenticationToken](http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx), sous la forme d'un jeton Web JSON (JWT). Ce jeton peut être mis en cache et réutilisé jusqu'à ce qu'il arrive à expiration. Pour plus d'informations, consultez la section [Mise en cache du jeton d'authentification](#caching).
 
 ### Flux client
 

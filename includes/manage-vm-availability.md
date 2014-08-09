@@ -174,5 +174,5 @@ Vous pouvez facilement ajouter une machine virtuelle existante à un groupe à h
 
 
 
-[1]: http://www.windowsazure.com/en-us/support/legal/sla/
+[1]: http://www.windowsazure.com/fr-fr/support/legal/sla/
 [2]: http://msdn.microsoft.com/library/windowsazure/jj156085.aspx

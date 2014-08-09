@@ -34,12 +34,12 @@ Présentation de la gestion des services
 
 L'API de gestion des services fournit un accès par programme aux fonctionnalités de gestion des services disponibles par le biais du [portail de gestion](https://manage.windowsazure.com/). Le Kit de développement logiciel (SDK) Azure pour Python vous permet de gérer vos services cloud, comptes de stockage et groupes d'affinités.
 
-Pour utiliser l'API de gestion des services, vous devez [créer un compte Azure](http://www.windowsazure.com/en-us/pricing/free-trial/).
+Pour utiliser l'API de gestion des services, vous devez [créer un compte Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/).
 
 Concepts
 --------
 
-Le Kit de développement logiciel (SDK) Azure pour Python inclut l'[API de gestion des services Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx), qui est une API REST. Toutes les opérations de l'API sont effectuées au moyen du protocole SSL et sont mutuellement authentifiées au moyen de certificats X.509 v3. La gestion des services est accessible à partir d'un service s'exécutant dans Azure, ou directement sur Internet à partir de toute application pouvant envoyer une demande HTTPS et recevoir une réponse HTTPS.
+Le Kit de développement logiciel (SDK) Azure pour Python inclut l'[API de gestion des services Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460799.aspx), qui est une API REST. Toutes les opérations de l'API sont effectuées au moyen du protocole SSL et sont mutuellement authentifiées au moyen de certificats X.509 v3. La gestion des services est accessible à partir d'un service s'exécutant dans Azure, ou directement sur Internet à partir de toute application pouvant envoyer une demande HTTPS et recevoir une réponse HTTPS.
 
 Connexion à la gestion des services
 -----------------------------------
@@ -52,7 +52,7 @@ Vous pouvez créer un certificat de gestion auto-signé sur votre machine au moy
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-La commande va créer le fichier `.cer` et l'installer dans le magasin de certificats **Personnel**. Pour plus d'informations, consultez la rubrique [Créer et télécharger un certificat de gestion pour Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx).
+La commande va créer le fichier `.cer` et l'installer dans le magasin de certificats **Personnel**. Pour plus d'informations, consultez la rubrique [Créer et télécharger un certificat de gestion pour Windows Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg551722.aspx).
 
 Une fois que vous avez créé le certificat, vous devez télécharger le fichier `.cer` sur Azure via l'action Télécharger de l'onglet Paramètres dans le [portail de gestion](https://manage.windowsazure.com/).
 
@@ -78,7 +78,7 @@ Pour créer le certificat `.cer`, exécutez le code suivant :
 
     `openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Pour plus d'informations sur les certificats Azure, consultez la rubrique [Gestion des certificats dans Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx). Pour une description complète des paramètres OpenSSL, consultez la documentation disponible sur <http://www.openssl.org/docs/apps/openssl.html>.
+Pour plus d'informations sur les certificats Azure, consultez la rubrique [Gestion des certificats dans Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg981929.aspx). Pour une description complète des paramètres OpenSSL, consultez la documentation disponible sur <http://www.openssl.org/docs/apps/openssl.html>.
 
 Une fois que vous avez créé ces fichiers, vous devez télécharger le fichier `.cer` sur Azure au moyen de l'action Télécharger de l'onglet Paramètres dans le [portail de gestion](https://manage.windowsazure.com/). Prenez note également de l'endroit où vous avez enregistré le fichier `.pem`.
 
@@ -122,7 +122,7 @@ Lorsque vous créez un service cloud, un service de stockage ou un groupe d'affi
 Création d'un service cloud
 ---------------------------
 
-Lorsque vous créez une application et que vous l'exécutez dans Azure, l'ensemble constitué du code et de la configuration est appelé [service cloud](http://windowsazure.com/en-us/documentation/articles/cloud-services-what-is) Azure (également connu sous le nom de *service hébergé* dans les versions antérieures d'Azure). La méthode **create\_hosted\_service** vous permet de créer un service hébergé en fournissant un nom de service hébergé (qui doit être unique dans Azure), une étiquette (automatiquement codée en base64), une description et un emplacement. Vous pouvez spécifier un groupe d'affinités au lieu d'un emplacement pour votre service.
+Lorsque vous créez une application et que vous l'exécutez dans Azure, l'ensemble constitué du code et de la configuration est appelé [service cloud](http://windowsazure.com/fr-fr/documentation/articles/cloud-services-what-is) Azure (également connu sous le nom de *service hébergé* dans les versions antérieures d'Azure). La méthode **create\_hosted\_service** vous permet de créer un service hébergé en fournissant un nom de service hébergé (qui doit être unique dans Azure), une étiquette (automatiquement codée en base64), une description et un emplacement. Vous pouvez spécifier un groupe d'affinités au lieu d'un emplacement pour votre service.
 
     from azure import *
     from azure.servicemanagement import *
@@ -171,12 +171,12 @@ Notez qu'avant de supprimer un service, vous devez supprimer tous les déploieme
 Création d'un déploiement
 -------------------------
 
-La méthode **create\_deployment** télécharge un nouveau [package de service](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx) et crée un déploiement dans l'environnement intermédiaire ou de production. Les paramètres de cette méthode sont les suivants :
+La méthode **create\_deployment** télécharge un nouveau [package de service](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj155995.aspx) et crée un déploiement dans l'environnement intermédiaire ou de production. Les paramètres de cette méthode sont les suivants :
 
 -   **name** : nom du service hébergé.
 -   **deployment\_name** : nom du déploiement.
 -   **slot** : chaîne indiquant l'emplacement `staging` ou `production`.
--   **package\_url** : URL du package de déploiement (fichier .cspgk). Le fichier de package doit être stocké dans un compte de stockage d'objets blob Azure sous le même abonnement que le service hébergé sur lequel le package est téléchargé. Vous pouvez créer un package de déploiement au moyen des [cmdlets Azure PowerShell](https://www.windowsazure.com/en-us/develop/php/how-to-guides/powershell-cmdlets/) ou de l'[outil en ligne de commande cspack](http://msdn.microsoft.com/en-us/library/windowsazure/gg432988.aspx).
+-   **package\_url** : URL du package de déploiement (fichier .cspgk). Le fichier de package doit être stocké dans un compte de stockage d'objets blob Azure sous le même abonnement que le service hébergé sur lequel le package est téléchargé. Vous pouvez créer un package de déploiement au moyen des [cmdlets Azure PowerShell](https://www.windowsazure.com/en-us/develop/php/how-to-guides/powershell-cmdlets/) ou de l'[outil en ligne de commande cspack](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg432988.aspx).
 -   **configuration** : fichier de configuration de service (fichier .cscfg) codé en base64.
 -   **label** : étiquette du nom de service hébergé (automatiquement codé en base64).
 
@@ -221,7 +221,7 @@ Mise à jour d'un déploiement
 
 Un déploiement peut être mis à jour au moyen de la méthode **change\_deployment\_configuration** ou **update\_deployment\_status**.
 
-La méthode **change\_deployment\_configuration** vous permet de télécharger un nouveau fichier de configuration de service (`.cscfg`), qui changera n'importe quel paramètre de service (y compris le nombre d'instances d'un déploiement). Pour plus d'informations, consultez la rubrique [Schéma de configuration de service Azure (.cscfg)](http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx). L'exemple suivant indique comment télécharger un nouveau fichier de configuration de service :
+La méthode **change\_deployment\_configuration** vous permet de télécharger un nouveau fichier de configuration de service (`.cscfg`), qui changera n'importe quel paramètre de service (y compris le nombre d'instances d'un déploiement). Pour plus d'informations, consultez la rubrique [Schéma de configuration de service Azure (.cscfg)](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee758710.aspx). L'exemple suivant indique comment télécharger un nouveau fichier de configuration de service :
 
     from azure import *
     from azure.servicemanagement import *
@@ -255,7 +255,7 @@ La méthode **update\_deployment\_status** vous permet de définir un état de d
 Transfert des déploiements entre les environnements intermédiaire et de production
 ----------------------------------------------------------------------------------
 
-Azure fournit deux environnements de déploiement : intermédiaire et de production. Généralement, un service est déployé dans l'environnement intermédiaire pour être testé avant son déploiement dans l'environnement de production. Lorsqu'il est temps de promouvoir le service de l'environnement intermédiaire à l'environnement de production, vous pouvez le faire sans redéployer le service. Pour cela, intervertissez les déploiements (pour plus d'informations sur l'intervertissement de déploiements, consultez la rubrique [Déploiement d'un service Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx)).
+Azure fournit deux environnements de déploiement : intermédiaire et de production. Généralement, un service est déployé dans l'environnement intermédiaire pour être testé avant son déploiement dans l'environnement de production. Lorsqu'il est temps de promouvoir le service de l'environnement intermédiaire à l'environnement de production, vous pouvez le faire sans redéployer le service. Pour cela, intervertissez les déploiements (pour plus d'informations sur l'intervertissement de déploiements, consultez la rubrique [Déploiement d'un service Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433027.aspx)).
 
 L'exemple suivant indique comment utiliser la méthode **swap\_deployment** pour intervertir deux déploiements (avec les noms `v1` et `v2`). Dans l'exemple, avant d'appeler **swap\_deployment**, le déploiement `v1` se trouve dans l'emplacement de production, et le déploiement `v2` dans l'emplacement intermédiaire. Après avoir appelé **swap\_deployment**, `v2` se trouve dans l'emplacement de production, et `v1` dans l'emplacement intermédiaire.
 
@@ -510,6 +510,6 @@ Le service cloud peut ensuite être supprimé au moyen de la méthode **delete\_
 
 Maintenant que vous avez appris les bases de la gestion des services, suivez ces liens pour effectuer des tâches plus complexes.
 
--   Consultez la référence MSDN suivante : [Cloud Services](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx)
--   Consultez la référence MSDN suivante : [Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156003.aspx)
+-   Consultez la référence MSDN suivante : [Cloud Services](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj155995.aspx)
+-   Consultez la référence MSDN suivante : [Azure Virtual Machines](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156003.aspx)
 

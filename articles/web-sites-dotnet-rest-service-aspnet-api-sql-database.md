@@ -808,14 +808,14 @@ L'application est à présent exécutée dans le cloud et utilise la base de don
 Étapes suivantes
 ----------------
 
-Une véritable application requiert une authentification et une autorisation. Vous devez utiliser la base de données d'appartenance pour cela. Le didacticiel [Déploiement d'une application ASP.NET MVC sécurisée avec une fonctionnalité d'appartenance, OAuth et une base de données SQL vers un site Web Windows Azure](http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/) est basé sur ce didacticiel et vous montre comment déployer une application Web avec la base de données d'appartenance.
+Une véritable application requiert une authentification et une autorisation. Vous devez utiliser la base de données d'appartenance pour cela. Le didacticiel [Déploiement d'une application ASP.NET MVC sécurisée avec une fonctionnalité d'appartenance, OAuth et une base de données SQL vers un site Web Windows Azure](http://www.windowsazure.com/fr-fr/develop/net/tutorials/web-site-with-sql-database/) est basé sur ce didacticiel et vous montre comment déployer une application Web avec la base de données d'appartenance.
 
 Une autre méthode pour stocker des données dans une application Azure consiste à utiliser le stockage Azure, qui permet de stocker des données non relationnelles sous la forme d'objets blob et de tables. Pour plus d'informations sur les API Web, ASP.NET MVC et Windows Azure, consultez les liens suivants.
 
 -   [Mise en route d'Entity Framework avec MVC](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)
 -   [Introduction à ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 -   [Votre première API Web ASP.NET](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
--   [Débogage de WAWS](http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+-   [Débogage de WAWS](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 
 Ce didacticiel et son exemple d'application ont été écrits par [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) avec l'aide de Tom Dykstra et Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)).
 

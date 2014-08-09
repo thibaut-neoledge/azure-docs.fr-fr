@@ -40,13 +40,13 @@ Pour plus d'informations, consultez la page [AzCopy : téléchargement de fichi
 
 ## <a id="powershell" ></a>Téléchargement de données vers le stockage d'objets blob avec Azure PowerShell
 
-Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Vous pouvez utiliser Azure PowerShell pour télécharger des données vers le stockage d'objets blob, pour traiter les données avec des tâches MapReduce. Pour plus d'informations sur la configuration de votre poste de travail pour exécuter Azure PowerShell, consultez l'article [Installation et configuration d'Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Vous pouvez utiliser Azure PowerShell pour télécharger des données vers le stockage d'objets blob, pour traiter les données avec des tâches MapReduce. Pour plus d'informations sur la configuration de votre poste de travail pour exécuter Azure PowerShell, consultez l'article [Installation et configuration d'Azure PowerShell](/fr-fr/documentation/articles/install-configure-powershell/).
 
 **Téléchargement d'un fichier local vers un stockage d'objets blob**
 
 1.  Ouvrez la fenêtre de la console Azure PowerShell, comme indiqué dans
     la section [Installation et configuration d'Azure
-    PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+    PowerShell](/fr-fr/documentation/articles/install-configure-powershell/).
 2.  Définissez les valeurs des cinq premières variables dans le script
     suivant :
     
@@ -163,7 +163,7 @@ La procédure suivante utilise PowerShell pour envoyer une tâche Sqoop.
 
 1.  Ouvrez la fenêtre de la console Azure PowerShell, comme indiqué dans
     la section [Installation et configuration d'Azure
-    PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+    PowerShell](/fr-fr/documentation/articles/install-configure-powershell/).
 2.  Définissez les valeurs des huit premières variables dans le script
     suivant :
     
@@ -213,7 +213,7 @@ Maintenant que vous savez comment obtenir des données avec HDInsight, utilisez 
 
 
 [1]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/jj152841.aspx
+[2]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj152841.aspx
 [3]: http://azurestorageexplorer.codeplex.com/
 [4]: http://www.cerebrata.com/Products/CloudStorageStudio/
 [5]: http://clumsyleaf.com/products/cloudxplorer

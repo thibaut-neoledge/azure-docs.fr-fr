@@ -87,5 +87,5 @@ Si l'application subit un incident après le traitement du message, mais avant l
 
 Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez ces liens pour en savoir plus :
 
--   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements.](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)
+-   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements.](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367516.aspx)
 

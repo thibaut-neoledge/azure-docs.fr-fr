@@ -18,7 +18,7 @@ Suivez cette procédure pour créer un site Web Azure et activer la publication 
 
 **Remarque**
 
-Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E).
+Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A7171371E).
 
 1.  Connectez-vous au [portail de gestion Azure](http://manage.windowsazure.com).
 
@@ -149,11 +149,11 @@ Publication des modifications apportées à votre application
 
 Si la procédure de cet article utilise le portail Azure pour créer un site Web, vous pouvez également utiliser les [outils en ligne de commande Azure pour Mac et Linux](/en-us/develop/nodejs/how-to-guides/command-line-tools/) pour effectuer les mêmes opérations.
 
-Node.js fournit un écosystème de modules enrichi que vos applications peuvent utiliser. Pour en savoir plus sur le fonctionnement des sites Web Azure avec les modules, consultez la page [Utilisation des modules Node.js avec les applications Azure](http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/working-with-node-modules/).
+Node.js fournit un écosystème de modules enrichi que vos applications peuvent utiliser. Pour en savoir plus sur le fonctionnement des sites Web Azure avec les modules, consultez la page [Utilisation des modules Node.js avec les applications Azure](http://www.windowsazure.com/fr-fr/develop/nodejs/common-tasks/working-with-node-modules/).
 
-Pour en savoir plus sur les versions de Node.js fournies avec Azure et apprendre comment indiquer la version à utiliser avec votre application, consultez la page [Spécification d'une version de Node.js dans une application Azure](http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/specifying-a-node-version/).
+Pour en savoir plus sur les versions de Node.js fournies avec Azure et apprendre comment indiquer la version à utiliser avec votre application, consultez la page [Spécification d'une version de Node.js dans une application Azure](http://www.windowsazure.com/fr-fr/develop/nodejs/common-tasks/specifying-a-node-version/).
 
-Si vous rencontrez des problèmes avec votre application après son déploiement dans Azure, consultez la page [Débogage d'une application Node.js dans les sites Web Azure](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/Debug-Website/) pour obtenir des informations permettant de diagnostiquer vos problèmes.
+Si vous rencontrez des problèmes avec votre application après son déploiement dans Azure, consultez la page [Débogage d'une application Node.js dans les sites Web Azure](http://www.windowsazure.com/fr-fr/develop/nodejs/how-to-guides/Debug-Website/) pour obtenir des informations permettant de diagnostiquer vos problèmes.
 
 Ressources supplémentaires
 --------------------------

@@ -27,7 +27,7 @@ Les conditions préalables suivantes sont requises pour la procédure pas à pas
 
 **Remarque**
 
-Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5).
+Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A8A8397B5).
 
 Configuration de votre projet
 -----------------------------
@@ -179,7 +179,7 @@ Ajoutez un appel à la méthode après la ligne **\_context = new CloudMediaCont
 Encodage de l'élément multimédia sur le serveur et téléchargement d'un fichier de sortie
 ----------------------------------------------------------------------------------------
 
-Dans Media Services, vous pouvez créer des travaux qui traitent le contenu multimédia de plusieurs manières : encodage, chiffrement, conversions de format, etc. Un travail Media Services contient toujours une ou plusieurs tâches qui spécifient les détails du traitement. Dans cette section, vous créez une tâche de codage de base, puis vous exécutez un travail qui effectue la tâche via Azure Media Encoder. La tâche utilise une chaîne de présélection pour spécifier le type d'encodage à effectuer. Pour consulter les valeurs d'encodage de présélection disponibles, consultez la page [Présélections du système Media Services Encoder](http://msdn.microsoft.com/en-us/library/windowsazure/jj129582.aspx). Media Services prend en charge les mêmes formats d'entrée et de sortie de fichier multimédia que Microsoft Expression Encoder. Pour obtenir la liste des formats pris en charge, consultez la page [Types de fichiers pris en charge pour Media Services](http://msdn.microsoft.com/en-us/library/windowsazure/hh973634.aspx).
+Dans Media Services, vous pouvez créer des travaux qui traitent le contenu multimédia de plusieurs manières : encodage, chiffrement, conversions de format, etc. Un travail Media Services contient toujours une ou plusieurs tâches qui spécifient les détails du traitement. Dans cette section, vous créez une tâche de codage de base, puis vous exécutez un travail qui effectue la tâche via Azure Media Encoder. La tâche utilise une chaîne de présélection pour spécifier le type d'encodage à effectuer. Pour consulter les valeurs d'encodage de présélection disponibles, consultez la page [Présélections du système Media Services Encoder](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj129582.aspx). Media Services prend en charge les mêmes formats d'entrée et de sortie de fichier multimédia que Microsoft Expression Encoder. Pour obtenir la liste des formats pris en charge, consultez la page [Types de fichiers pris en charge pour Media Services](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh973634.aspx).
 
 1.  Ajoutez la définition de méthode **CreateEncodingJob** suivante à votre classe. Cette méthode montre comment accomplir plusieurs tâches requises pour un travail d'encodage :
 
@@ -630,6 +630,6 @@ Dans le modèle objet Media Services, un élément multimédia est un objet de c
 
 Cette procédure pas à pas a décrit une séquence de tâches de programmation pour créer une application Media Services simple. Vous avez découvert les tâches de programmation Media Services fondamentales, notamment l'obtention du contexte de serveur, ainsi que la création, l'encodage et le téléchargement des éléments multimédias ou leur accès sur le serveur. Pour les étapes suivantes et des tâches de développement plus avancées, consultez les pages suivantes :
 
--   [Utilisation de Media Services](http://www.windowsazure.com/en-us/develop/net/how-to-guides/media-services/)
--   [Création d'applications avec l'API REST de Media Services](http://msdn.microsoft.com/en-us/library/windowsazure/hh973618.aspx)
+-   [Utilisation de Media Services](http://www.windowsazure.com/fr-fr/develop/net/how-to-guides/media-services/)
+-   [Création d'applications avec l'API REST de Media Services](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh973618.aspx)
 

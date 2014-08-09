@@ -50,7 +50,7 @@ Ensuite, nous allons nous assurer que les appareils s'inscrivent avec un modèle
         }
     }
 
-Les modèles sont une fonctionnalité très puissante sur laquelle vous pouvez obtenir plus d'informations en lisant notre article [Recommandations relatives à Notification Hubs](http://msdn.microsoft.com/en-us/library/jj927170.aspx). Une référence à la langue d'expression du modèle se trouve dans notre guide [Service Bus Notification Hubs (applications iOS)](http://msdn.microsoft.com/en-us/library/jj927168.aspx).
+Les modèles sont une fonctionnalité très puissante sur laquelle vous pouvez obtenir plus d'informations en lisant notre article [Recommandations relatives à Notification Hubs](http://msdn.microsoft.com/fr-fr/library/jj927170.aspx). Une référence à la langue d'expression du modèle se trouve dans notre guide [Service Bus Notification Hubs (applications iOS)](http://msdn.microsoft.com/fr-fr/library/jj927168.aspx).
 
 Interface utilisateur de l'applicationInterface utilisateur de l'application
 ----------------------------------------------------------------------------
@@ -165,9 +165,9 @@ Pour plus d'informations sur l'utilisation des modèles, consultez :
 
 -   [Notification des utilisateurs avec Notification Hubs : ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet)
 -   [Notification des utilisateurs avec Notification Hubs : Mobile Services](/en-us/manage/services/notification-hubs/notify-users)
--   [Recommandations relatives à Notification Hubs](http://msdn.microsoft.com/en-us/library/jj927170.aspx)
+-   [Recommandations relatives à Notification Hubs](http://msdn.microsoft.com/fr-fr/library/jj927170.aspx)
 
-Une référence relative à la langue d'expression du modèle se trouve dans [Notification Hubs, procédure pour iOS](http://msdn.microsoft.com/en-us/library/jj927168.aspx).
+Une référence relative à la langue d'expression du modèle se trouve dans [Notification Hubs, procédure pour iOS](http://msdn.microsoft.com/fr-fr/library/jj927168.aspx).
 
 <!-- Anchors. -->
 [Template concepts]: #concepts
@@ -195,7 +195,7 @@ Une référence relative à la langue d'expression du modèle se trouve dans [No
 
 
 <!-- URLs. -->
-[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/en-us/library/jj927168.aspx
+[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/fr-fr/library/jj927168.aspx
 [Use Notification Hubs to send breaking news]: /en-us/manage/services/notification-hubs/breaking-news-ios
 [Mobile Service]: /en-us/develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs: ASP.NET]: /en-us/manage/services/notification-hubs/notify-users-aspnet
@@ -214,5 +214,5 @@ Une référence relative à la langue d'expression du modèle se trouve dans [No
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
-[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/en-us/library/jj927168.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/fr-fr/library/jj927170.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/fr-fr/library/jj927168.aspx

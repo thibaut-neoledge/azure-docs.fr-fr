@@ -17,7 +17,7 @@ Le didacticiel se compose de quatre leçons :
 Configuration requise
 =====================
 
--   Windows 8 32 bits ou 64 bits. Vous pouvez télécharger la [version d'évaluation de Windows 8 Entreprise](http://msdn.microsoft.com/en-us/evalcenter/jj554510.aspx) sur MSDN.
+-   Windows 8 32 bits ou 64 bits. Vous pouvez télécharger la [version d'évaluation de Windows 8 Entreprise](http://msdn.microsoft.com/fr-fr/evalcenter/jj554510.aspx) sur MSDN.
 -   Visual Studio 2012 ou Visual Studio Express 2012 pour Windows 8 installé sur Windows 8. Vous pouvez télécharger la version d'évaluation [ici](http://www.microsoft.com/visualstudio/11/en-us/downloads).
 -   [Kit de développement logiciel (SDK) du client Microsoft de diffusion en continu lisse pour Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
@@ -30,7 +30,7 @@ Dans cette leçon, vous allez apprendre à créer une application Windows Store 
 
 ![Exemple d'application Windows Store de diffusion en continu lisse](./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png)
 
-Pour plus d'informations sur le développement d'une application Windows Store, consultez la rubrique [Développement d'applications fantastiques pour Windows 8](http://msdn.microsoft.com/en-us/windows/apps/br229512.aspx). Cette leçon aborde les procédures suivantes :
+Pour plus d'informations sur le développement d'une application Windows Store, consultez la rubrique [Développement d'applications fantastiques pour Windows 8](http://msdn.microsoft.com/fr-fr/windows/apps/br229512.aspx). Cette leçon aborde les procédures suivantes :
 
 1.  Création d'un projet Windows Store
 2.  Conception de l'interface utilisateur (XAML)

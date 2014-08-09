@@ -177,11 +177,11 @@ Si vous ne voulez pas utiliser la page du portail WebJobs pour télécharger vos
 
 -   Vidéos sur WebJobs :
 
-    [Azure WebJobs 101 : notions de base sur WebJobs avec Jamie Espinosa](http://www.windowsazure.com/en-us/documentation/videos/azure-webjobs-basics/)
+    [Azure WebJobs 101 : notions de base sur WebJobs avec Jamie Espinosa](http://www.windowsazure.com/fr-fr/documentation/videos/azure-webjobs-basics/)
 
-    [Azure WebJobs 102 : tâches WebJobs planifiées et tableau de bord WebJobs avec Jamie Espinosa](http://www.windowsazure.com/en-us/documentation/videos/azure-webjobs-schedule-and-dashboard/)
+    [Azure WebJobs 102 : tâches WebJobs planifiées et tableau de bord WebJobs avec Jamie Espinosa](http://www.windowsazure.com/fr-fr/documentation/videos/azure-webjobs-schedule-and-dashboard/)
 
-    [Azure Scheduler 101 : Kevin Lam vous explique comment planifier vos tâches](http://www.windowsazure.com/en-us/documentation/videos/azure-scheduler-how-to/)
+    [Azure Scheduler 101 : Kevin Lam vous explique comment planifier vos tâches](http://www.windowsazure.com/fr-fr/documentation/videos/azure-scheduler-how-to/)
 
 <!-- LINKS -->
 [PSonWebJobs]:http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx

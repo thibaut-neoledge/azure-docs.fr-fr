@@ -223,5 +223,5 @@ Pour en savoir plus, consultez les articles suivants :
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/dd135733.aspx
+[1]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179354.aspx
+[2]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dd135733.aspx

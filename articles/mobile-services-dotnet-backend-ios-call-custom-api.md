@@ -3,21 +3,21 @@
 Appel d'une API personnalisée à partir du client
 ================================================
 
-[Windows Store C\#](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api "Windows Store C#")[Windows Store JavaScript](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-call-custom-api "Windows Store JavaScript")[Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-call-custom-api "Windows Phone")[iOS](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-call-custom-api "iOS")[Android](/en-us/documentation/articles/mobile-services-dotnet-backend-android-call-custom-api "Android")
+[Windows Store C\#](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api "Windows Store C#")[Windows Store JavaScript](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-call-custom-api "Windows Store JavaScript")[Windows Phone](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-call-custom-api "Windows Phone")[iOS](/fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-call-custom-api "iOS")[Android](/fr-fr/documentation/articles/mobile-services-dotnet-backend-android-call-custom-api "Android")
 
-[.NET backend](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-call-custom-api ".NET backend") | [JavaScript backend](/en-us/documentation/articles/mobile-services-ios-call-custom-api "JavaScript backend")
+[.NET backend](/fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-call-custom-api ".NET backend") | [JavaScript backend](/fr-fr/documentation/articles/mobile-services-ios-call-custom-api "JavaScript backend")
 
 Cette rubrique explique comment appeler une API personnalisée à partir d'une application iOS. Une API personnalisée vous permet de définir des points de terminaison exposant une fonctionnalité de serveur qui ne mappe pas vers une opération d'insertion, de mise à jour, de suppression ou de lecture. En utilisant une API personnalisée, vous pouvez exercer davantage de contrôle sur la messagerie, notamment lire et définir des en-têtes de message HTTP et définir un autre format de corps de message que JSON.
 
 L'API personnalisée créée dans cette rubrique permet d'envoyer une seule requête POST qui définit l'indicateur complété sur `true` pour toutes les tâches (éléments todo) de la table. En l'absence de cette API personnalisée, le client doit envoyer des demandes individuelles de mise à jour de l'indicateur pour chaque élément todo de la table.
 
-Vous allez ajouter cette fonctionnalité à l'application que vous avez créée avec le didacticiel [Prise en main de Mobile Services](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started/) ou [Prise en main des données](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/). Pour cela, vous allez exécuter la procédure suivante :
+Vous allez ajouter cette fonctionnalité à l'application que vous avez créée avec le didacticiel [Prise en main de Mobile Services](/fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-get-started/) ou [Prise en main des données](/fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/). Pour cela, vous allez exécuter la procédure suivante :
 
 1.  [Définition de l'API personnalisée](#define-custom-api)
 2.  [Mise à jour de l'application pour appeler l'API personnalisée](#update-app)
 3.  [Test de l'application](#test-app)
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez d'abord suivre le didacticiel [Prise en main de Mobile Services](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started/). Ce didacticiel nécessite le [Kit de développement logiciel (SDK) Mobile Services pour iOS](https://go.microsoft.com/fwLink/p/?LinkID=266533), [XCode 4.5](https://go.microsoft.com/fwLink/p/?LinkID=266532) et iOS 5.0 ou ultérieur.
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez d'abord suivre le didacticiel [Prise en main de Mobile Services](/fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-get-started/). Ce didacticiel nécessite le [Kit de développement logiciel (SDK) Mobile Services pour iOS](https://go.microsoft.com/fwLink/p/?LinkID=266533), [XCode 4.5](https://go.microsoft.com/fwLink/p/?LinkID=266532) et iOS 5.0 ou ultérieur.
 
 Définition de l'API personnalisée
 ---------------------------------
@@ -34,7 +34,7 @@ Maintenant que vous avez créé une API personnalisée et que vous l'avez appel�
 -   [Référence des scripts serveur Mobile Services](http://go.microsoft.com/fwlink/?LinkId=262293)
     Familiarisez-vous avec la création des API personnalisées.
 
--   [Stockage des scripts serveur dans le contrôle du code source](/en-us/documentation/articles/mobile-services-store-scripts-source-control)
+-   [Stockage des scripts serveur dans le contrôle du code source](/fr-fr/documentation/articles/mobile-services-store-scripts-source-control)
      Apprenez à utiliser la fonctionnalité de contrôle du code source pour développer et publier plus facilement et de manière plus sécurisée le code de script de l'API personnalisée.
 
 

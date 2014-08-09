@@ -3,13 +3,13 @@
 Autorisation côté service des utilisateurs Mobile Services
 ==========================================================
 
-[Windows Store C\#](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts "Windows Store C#")[Windows Store JavaScript](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts "Windows Store JavaScript")[Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts "Windows Phone")[iOS](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-authorize-users-in-scripts "iOS")
+[Windows Store C\#](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts "Windows Store C#")[Windows Store JavaScript](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts "Windows Store JavaScript")[Windows Phone](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts "Windows Phone")[iOS](/fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-authorize-users-in-scripts "iOS")
 
-[.NET principal](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts/ ".NET principal") | [JavaScript principal](/en-us/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts/ "JavaScript principal")
+[.NET principal](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts/ ".NET principal") | [JavaScript principal](/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts/ "JavaScript principal")
 
 Cette rubrique explique comment autoriser les utilisateurs authentifiés à accéder aux données dans Azure Mobile Services à partir d'une application Windows Store. Dans ce didacticiel, vous allez ajouter du code aux méthodes d'accès aux données de votre contrôleur filtrant les requêtes selon la valeur userId d'un utilisateur authentifié, afin de garantir que chaque utilisateur peut voir uniquement ses propres données.
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie sur le didacticiel précédent [Prise en main de l'authentification](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users). Avant de commencer, vous devez suivre le didacticiel [Prise en main de l'authentification](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users).
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie sur le didacticiel précédent [Prise en main de l'authentification](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users). Avant de commencer, vous devez suivre le didacticiel [Prise en main de l'authentification](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users).
 
 Modification des méthodes d'accès aux données
 ---------------------------------------------
@@ -19,7 +19,7 @@ Modification des méthodes d'accès aux données
 Test de l'application
 ---------------------
 
-1.  Dans Visual Studio, ouvrez le projet que vous avez modifié en suivant le didacticiel [Prise en main de l'authentification](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users).
+1.  Dans Visual Studio, ouvrez le projet que vous avez modifié en suivant le didacticiel [Prise en main de l'authentification](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users).
 
 2.  Appuyez sur la touche F5 pour exécuter l'application, puis connectez-vous avec le fournisseur d'identité choisi.
 
@@ -38,13 +38,13 @@ Test de l'application
 
 Cela met fin à la série de didacticiels établissant les principes de base de l'utilisation de l'authentification. Pour plus d'informations sur les rubriques Mobile Services suivantes :
 
--   [Prise en main des données](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data)
+-   [Prise en main des données](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data)
     En savoir plus sur le stockage et l'interrogation des données à l'aide de Mobile Services.
 
--   [Prise en main des notifications Push](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push)
+-   [Prise en main des notifications Push](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push)
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
--   [Guide de fonctionnement Mobile Services .NET](/en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/)
+-   [Guide de fonctionnement Mobile Services .NET](/fr-fr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/)
     En savoir plus sur l'utilisation de Mobile Services avec .NET.
 
 
@@ -57,9 +57,9 @@ Cela met fin à la série de didacticiels établissant les principes de base de 
 [3]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts/mobile-quickstart-startup.png
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-get-started
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push
+[Get started with Mobile Services]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-get-started
+[Get started with data]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
+[Get started with authentication]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
+[Get started with push notifications]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push
 
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
+[Mobile Services .NET How-to Conceptual Reference]: /fr-fr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/

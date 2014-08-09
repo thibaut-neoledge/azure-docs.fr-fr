@@ -133,9 +133,9 @@ Maintenant que votre déploiement est opérationnel dans Azure, vous pouvez vous
 Ressources supplémentaires
 --------------------------
 
-[Association d'un certificat à un service](http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx)
+[Association d'un certificat à un service](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg465718.aspx)
 
 [Configuration de SSL pour une application Node.js dans un rôle Web Azure](/en-us/develop/nodejs/common-tasks/enable-ssl/)
 
-[Configuration d'un certificat SSL sur un point de terminaison HTTPS](http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx)
+[Configuration d'un certificat SSL sur un point de terminaison HTTPS](http://msdn.microsoft.com/fr-fr/library/windowsazure/ff795779.aspx)
 

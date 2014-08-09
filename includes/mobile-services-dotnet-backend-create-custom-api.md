@@ -43,7 +43,7 @@
              }
          }
 
-    Dans le code ci-dessus, remplacez `todolistContext` par le nom de la DbContext pour votre modèle de données, qui doit correspondre au nom du service mobile auquel est ajouté `Context`. Ce code utilise la [classe de base de données](http://msdn.microsoft.com/en-us/library/system.data.entity.database(v=vs.113).aspx) pour accéder à la table **TodoItems** directement afin de définir l'indicateur complété pour tous les éléments. Cette méthode prend en charge une requête POST et le nombre de lignes modifiées est renvoyé au client sous la forme d'une valeur entière.
+    Dans le code ci-dessus, remplacez `todolistContext` par le nom de la DbContext pour votre modèle de données, qui doit correspondre au nom du service mobile auquel est ajouté `Context`. Ce code utilise la [classe de base de données](http://msdn.microsoft.com/fr-fr/library/system.data.entity.database(v=vs.113).aspx) pour accéder à la table **TodoItems** directement afin de définir l'indicateur complété pour tous les éléments. Cette méthode prend en charge une requête POST et le nombre de lignes modifiées est renvoyé au client sous la forme d'une valeur entière.
 
     > [WACOM.NOTE] Les autorisations par défaut sont définies, ce qui signifie que tous les utilisateurs de l'application peuvent appeler l'API personnalisée. Toutefois, la clé de l'application n'étant pas distribuée ou stockée de façon sécurisée, elle ne peut pas être considérée comme une information d'identification sécurisée. De ce fait, vous devez restreindre l'accès aux utilisateurs authentifiés pour les opérations qui modifient les données ou affectent le service mobile.
 

@@ -5,7 +5,7 @@ Capture de l'image d'une machine virtuelle exécutant Windows Server
 
 Vous pouvez utiliser des images de Image Gallery pour créer rapidement des machines virtuelles ou bien vous pouvez capturer et utiliser vos propres images pour créer des machines virtuelles personnalisées. Les images sont des fichiers de disque dur virtuel (.vhd) qui sont utilisés comme modèles pour la création de machines virtuelles. Une image est considérée comme un modèle, car elle n'inclut aucun paramètre spécifique, tel que ceux liés au nom d'ordinateur et au compte d'utilisateur, contrairement à une machine virtuelle configurée. Si vous souhaitez créer plusieurs machines virtuelles configurées de la même manière, vous pouvez capturer l'image d'une machine virtuelle configurée et utiliser cette image comme modèle.
 
-1.  Pour vous connecter à la machine virtuelle, suivez les étapes indiquées dans la rubrique [Connexion à une machine virtuelle exécutant Windows Server](http://www.windowsazure.com/en-us/manage/windows/how-to-guides/log-on-a-windows-vm/).
+1.  Pour vous connecter à la machine virtuelle, suivez les étapes indiquées dans la rubrique [Connexion à une machine virtuelle exécutant Windows Server](http://www.windowsazure.com/fr-fr/manage/windows/how-to-guides/log-on-a-windows-vm/).
 
 2.  Ouvrez une fenêtre d'invite de commandes en tant qu'administrateur.
 

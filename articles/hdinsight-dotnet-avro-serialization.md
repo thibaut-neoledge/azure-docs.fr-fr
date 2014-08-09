@@ -1271,6 +1271,6 @@ La [Spécification Avro][2] permet d'utiliser les codecs de compression facultat
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/ms731072(v=vs.110).aspx
+[1]: http://msdn.microsoft.com/fr-fr/library/ms731072(v=vs.110).aspx
 [2]: http://avro.apache.org/docs/current/spec.html#Required+Codecs
-[3]: http://msdn.microsoft.com/en-us/library/system.io.compression.deflatestream(v=vs.110).aspx
+[3]: http://msdn.microsoft.com/fr-fr/library/system.io.compression.deflatestream(v=vs.110).aspx

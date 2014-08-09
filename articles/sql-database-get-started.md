@@ -117,7 +117,7 @@ Au fur et à mesure que vous développerez vos compétences, vous aurez envie d'
 
 Dans cette étape, vous allez exécuter deux scripts. Le premier crée un schéma qui définit des tables, des colonnes et des relations. Le second script ajoute les données. Chaque opération s'effectue indépendamment sur une connexion distincte. Si vous avez déjà créé des bases de données dans SQL Server, l'une des différences que vous pourrez constater dans la base de données SQL concerne les commandes CREATE et INSERT : elles doivent être exécutées dans des lots distincts. La base de données SQL impose cette exigence pour minimiser les attaques contre les données pendant leur transport.
 
-**Remarque :** le schéma et les valeurs des données proviennent de cet [article MSDN](http://msdn.microsoft.com/en-us/library/windowsazure/ee621790.aspx "article MSDN") et ont été modifiés pour fonctionner avec la base de données SQL.
+**Remarque :** le schéma et les valeurs des données proviennent de cet [article MSDN](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee621790.aspx "article MSDN") et ont été modifiés pour fonctionner avec la base de données SQL.
 
 1.  Accédez à la page d'accueil. Dans le [portail de gestion](http://manage.windowsazure.com), la seconde base de données **School** apparaît dans la liste des éléments sur la page d'accueil.
 
@@ -142,7 +142,7 @@ Dans cette étape, vous allez exécuter deux scripts. Le premier crée un schém
 Étape 5 : création du schéma
 ----------------------------
 
-Vous allez à présent créer le schéma en utilisant le script suivant. Le script commence par rechercher s'il existe une table existante de même nom pour s'assurer qu'il n'y aura pas de conflit de nom, puis crée la table avec l'instruction [CREATE TABLE](http://msdn.microsoft.com/en-us/library/windowsazure/ee336258.aspx). Par ailleurs, ce script utilise l'instruction [ALTER TABLE](http://msdn.microsoft.com/en-us/library/windowsazure/ee336286.aspx) pour spécifier la clé primaire et les relations de la table.
+Vous allez à présent créer le schéma en utilisant le script suivant. Le script commence par rechercher s'il existe une table existante de même nom pour s'assurer qu'il n'y aura pas de conflit de nom, puis crée la table avec l'instruction [CREATE TABLE](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336258.aspx). Par ailleurs, ce script utilise l'instruction [ALTER TABLE](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336286.aspx) pour spécifier la clé primaire et les relations de la table.
 
 Copiez le script et collez-le dans la fenêtre de requête. Cliquez sur **Exécuter** en haut de la fenêtre pour exécuter le script.
 
@@ -387,7 +387,7 @@ Copiez le script et collez-le dans la fenêtre de requête. Cliquez sur **Exécu
 Étape 6 : Insertion des données
 -------------------------------
 
-Ouvrez une nouvelle fenêtre de requête, puis collez-y le script suivant. Exécutez le script pour insérer les données. Ce script utilise l'instruction [INSERT](http://msdn.microsoft.com/en-us/library/windowsazure/ee336284.aspx) pour ajouter des valeurs à chaque colonne.
+Ouvrez une nouvelle fenêtre de requête, puis collez-y le script suivant. Exécutez le script pour insérer les données. Ce script utilise l'instruction [INSERT](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336284.aspx) pour ajouter des valeurs à chaque colonne.
 
 ``` {data-morhtml="true"}
     -- Insérer des données dans la table Person.
@@ -802,12 +802,12 @@ Pour plus d'informations sur la synchronisation des données SQL, consultez la p
 
 À présent que vous êtes familiarisé avec la base de données SQL et les portails de gestion, vous pouvez essayer d'autres outils et techniques employés par les administrateurs de bases de données SQL Server.
 
-Pour gérer activement votre nouvelle base de données, songez à installer et utiliser SQL Server Management Studio. Management Studio est le principal outil d'administration de base de données pour gérer les bases de données SQL Server, y compris celles qui s'exécutent sur Azure. Avec Management Studio, vous pouvez enregistrer les requêtes pour un usage ultérieur, ajouter de nouvelles tables et procédures stockées, et aiguiser vos compétences relatives à Transact-SQL dans un environnement enrichi de création de scripts, qui inclut un vérificateur de syntaxe, Intellisense et des modèles. Pour la prise en main, suivez les instructions décrites dans la page [Gestion des bases de données SQL avec SQL Server Management Studio](http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/).
+Pour gérer activement votre nouvelle base de données, songez à installer et utiliser SQL Server Management Studio. Management Studio est le principal outil d'administration de base de données pour gérer les bases de données SQL Server, y compris celles qui s'exécutent sur Azure. Avec Management Studio, vous pouvez enregistrer les requêtes pour un usage ultérieur, ajouter de nouvelles tables et procédures stockées, et aiguiser vos compétences relatives à Transact-SQL dans un environnement enrichi de création de scripts, qui inclut un vérificateur de syntaxe, Intellisense et des modèles. Pour la prise en main, suivez les instructions décrites dans la page [Gestion des bases de données SQL avec SQL Server Management Studio](http://www.windowsazure.com/fr-fr/develop/net/common-tasks/sql-azure-management/).
 
-Une bonne maîtrise du langage de définition des requêtes et des données Transact-SQL est essentielle pour les administrateurs de base de données. Si vous débutez avec Transact-SQL, commencez par le [didacticiel : écriture d'instructions Transact-SQL](http://msdn.microsoft.com/en-us/library/ms365303.aspx) pour apprendre quelques techniques de base.
+Une bonne maîtrise du langage de définition des requêtes et des données Transact-SQL est essentielle pour les administrateurs de base de données. Si vous débutez avec Transact-SQL, commencez par le [didacticiel : écriture d'instructions Transact-SQL](http://msdn.microsoft.com/fr-fr/library/ms365303.aspx) pour apprendre quelques techniques de base.
 
 Il existe d'autres méthodes pour transférer une base de données locale vers la base de données SQL. Si vous possédez déjà des bases de données ou si vous avez téléchargé des exemples de base de données pour vous entraîner, essayez les autres approches suivantes :
 
--   [Migration de bases de données vers la base de données SQL](http://msdn.microsoft.com/en-us/library/windowsazure/ee730904.aspx)
--   [Copie de bases de données dans la base de données SQL](http://msdn.microsoft.com/en-us/library/windowsazure/ff951624.aspx)
+-   [Migration de bases de données vers la base de données SQL](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee730904.aspx)
+-   [Copie de bases de données dans la base de données SQL](http://msdn.microsoft.com/fr-fr/library/windowsazure/ff951624.aspx)
 

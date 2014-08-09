@@ -280,11 +280,11 @@ Pour obtenir les informations d'identification du compte de stockage, suivez la 
 
     Cette veille permet de réduire les frais de transaction Azure Storage, comme cela est expliqué dans [le didacticiel précédent](/en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/).
 
-    Lorsqu'un élément de file d'attente est extrait de la file par la méthode [GetMessage](http://msdn.microsoft.com/en-us/library/windowsazure/ee741827.aspx), il devient invisible durant 30 secondes pour tous les autres rôles de travail et Web qui accèdent à la file d'attente. Cela permet de garantir que seule une instance de rôle de travail choisit un message de file d'attente spécifique pour le traiter. Vous pouvez définir ce délai *exclusif* (durée d'invisibilité de l'élément) de manière explicite en transmettant un paramètre de [délai d'expiration de la visibilité](http://msdn.microsoft.com/en-us/library/windowsazure/ee758454.aspx) à la méthode `GetMessage`. Si le traitement d'un message de file d'attente peut prendre plus de 30 secondes au rôle de travail, vous devez augmenter le délai exclusif pour éviter que le même message soit traité par d'autres instances de rôle.
+    Lorsqu'un élément de file d'attente est extrait de la file par la méthode [GetMessage](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee741827.aspx), il devient invisible durant 30 secondes pour tous les autres rôles de travail et Web qui accèdent à la file d'attente. Cela permet de garantir que seule une instance de rôle de travail choisit un message de file d'attente spécifique pour le traiter. Vous pouvez définir ce délai *exclusif* (durée d'invisibilité de l'élément) de manière explicite en transmettant un paramètre de [délai d'expiration de la visibilité](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee758454.aspx) à la méthode `GetMessage`. Si le traitement d'un message de file d'attente peut prendre plus de 30 secondes au rôle de travail, vous devez augmenter le délai exclusif pour éviter que le même message soit traité par d'autres instances de rôle.
 
     Cependant, il ne vaut mieux pas définir le délai exclusif sur une valeur trop grande. Par exemple, si le délai exclusif est défini sur 48 heures et que votre rôle de travail s'arrête de manière imprévue après l'extraction d'un message d'une file d'attente, les autres rôles de travail ne pourront pas traiter le message durant les 48 prochaines heures. Le délai exclusif maximum est de 7 jours.
 
-    La méthode [GetMessages](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storageclient.cloudqueue.getmessages.aspx) (remarquez le « s » à la fin du nom) permet d'extraire jusqu'à 32 messages de la file d'attente par appel. Chaque accès à la file d'attente implique des frais de transaction réduits, qui ne changent pas, peu importe le nombre de messages renvoyés. Le code suivant récupère et traite jusqu'à 32 messages en un appel.
+    La méthode [GetMessages](http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.windowsazure.storageclient.cloudqueue.getmessages.aspx) (remarquez le « s » à la fin du nom) permet d'extraire jusqu'à 32 messages de la file d'attente par appel. Chaque accès à la file d'attente implique des frais de transaction réduits, qui ne changent pas, peu importe le nombre de messages renvoyés. Le code suivant récupère et traite jusqu'à 32 messages en un appel.
 
     foreach (CloudQueueMessage msg in sendEmailQueue.GetMessages(32))
 
@@ -605,14 +605,14 @@ Pour en savoir plus sur le service de stockage de tables Azure, consultez les re
 
 -   [Informations essentielles sur le stockage de tables Azure](http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-azure-table-storage.aspx) (blog de Bruno Terkaly)
 -   [Comment tirer le meilleur parti du stockage de tables Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx) (blog de l'équipe Azure Storage)
--   [Utilisation du service de stockage de tables dans .NET](http://www.windowsazure.com/en-us/develop/net/how-to-guides/table-services/)
+-   [Utilisation du service de stockage de tables dans .NET](http://www.windowsazure.com/fr-fr/develop/net/how-to-guides/table-services/)
 -   [Présentation approfondie des tables de la bibliothèque cliente de stockage 2.0](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx) (blog de l'équipe Azure Storage)
--   [Environnement réel : conception d'une stratégie de partition extensible pour le stockage de tables Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx)
+-   [Environnement réel : conception d'une stratégie de partition extensible pour le stockage de tables Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh508997.aspx)
 
 Pour en savoir plus sur le service de files d'attente Azure et les files d'attente Azure Service Bus, consultez les ressources suivantes :
 
 -   [Modèle de travail centré sur les files d'attente (développement d'applications de cloud plus concrètes avec Azure).](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)
--   [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences](http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx)
+-   [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh767287.aspx)
 -   [Utilisation du service de stockage de files d'attente dans .NET](/en-us/develop/net/how-to-guides/queue-service/)
 
 Pour en savoir plus sur le service de stockage d'objets blob Azure, consultez les ressources suivantes :
@@ -623,7 +623,7 @@ Pour en savoir plus sur le service de stockage d'objets blob Azure, consultez le
 Pour en savoir plus sur la mise à l'échelle automatique des rôles de service cloud Azure, consultez les ressources suivantes :
 
 -   [Utilisation du bloc applicatif de mise à l'échelle automatique](/en-us/develop/net/how-to-guides/autoscaling/)
--   [Mise à l'échelle automatique et Azure](http://msdn.microsoft.com/en-us/library/hh680945(v=PandP.50).aspx)
+-   [Mise à l'échelle automatique et Azure](http://msdn.microsoft.com/fr-fr/library/hh680945(v=PandP.50).aspx)
 -   [Développement de solutions flexibles pouvant être mises à l'échelle automatiquement avec Azure](http://channel9.msdn.com/Events/WindowsAzureConf/2012/B04) (vidéo MSDN Channel 9)
 
 RemerciementsRemerciements

@@ -186,7 +186,7 @@ Vous allez également ajouter des autorisations au principal du service de votre
 
 1.  Téléchargez et décompressez l'exemple d'application dans le dossier de votre choix.
 2.  Avant de pouvoir utiliser l'exemple de code, vous devez fournir des autorisations supplémentaires au principal du service. Celles-ci permettront au principal du service de lire vos données en utilisant l'API Graph. Dans le menu **Démarrer**, exécutez la console **Module Microsoft Online Services pour Windows PowerShell**.
-3.  Vous allez octroyer des autorisations de lecture au principal du service en l'ajoutant au rôle Administrateur de prise en charge du service. Pour plus d'informations sur l'attribution de rôles au principal du service, consultez la page [Contrôle d'accès en fonction du rôle pour l'API Graph](http://msdn.microsoft.com/en-us/library/hh974466.aspx). Tapez la commande suivante, puis appuyez sur Entrée :
+3.  Vous allez octroyer des autorisations de lecture au principal du service en l'ajoutant au rôle Administrateur de prise en charge du service. Pour plus d'informations sur l'attribution de rôles au principal du service, consultez la page [Contrôle d'accès en fonction du rôle pour l'API Graph](http://msdn.microsoft.com/fr-fr/library/hh974466.aspx). Tapez la commande suivante, puis appuyez sur Entrée :
 
          Add-MsolRoleMember -RoleMemberType "ServicePrincipal" -RoleName "Service Support Administrator" -RoleMemberObjectId $appPrincipal.ObjectId 
 
@@ -221,7 +221,7 @@ Résumé
 
 Ce didacticiel vous a indiqué comment créer et configurer une application dédiée utilisant les fonctionnalités d'authentification unique d'Azure Active Directory. De plus, vous avez accédé aux données d'annuaire du client en utilisant l'API Graph. Nous vous recommandons d'explorer l'exemple d'application pour comprendre comment tirer parti de l'API Graph dans votre propre application.
 
-Pour en savoir plus sur l'API Graph, [consultez ces informations sur MSDN](http://msdn.microsoft.com/en-us/library/hh974476.aspx). Vous pouvez également créer des applications mutualisées pour Azure Active Directory en consultant le didacticiel suivant : [Développement d'une application cloud mutualisée avec Azure Active Directory](http://g.microsoftonline.com/0AX00en/121).
+Pour en savoir plus sur l'API Graph, [consultez ces informations sur MSDN](http://msdn.microsoft.com/fr-fr/library/hh974476.aspx). Vous pouvez également créer des applications mutualisées pour Azure Active Directory en consultant le didacticiel suivant : [Développement d'une application cloud mutualisée avec Azure Active Directory](http://g.microsoftonline.com/0AX00en/121).
 
 [Introduction]: #introduction
 [Step 1: Create an ASP.NET MVC Application]: #createapp
@@ -236,5 +236,5 @@ Pour en savoir plus sur l'API Graph, [consultez ces informations sur MSDN](http:
 [ASP.NET MVC 3]: http://www.microsoft.com/en-us/download/details.aspx?id=4211
 [WCF Data Services for OData V3]: http://www.microsoft.com/download/en/details.aspx?id=29306
 [Sample Application with Write Support for Graph API]: http://code.msdn.microsoft.com/Write-Sample-App-for-79e55502
-[Role-Based Access Control for Graph API]: http://msdn.microsoft.com/en-us/library/hh974466.aspx
-[you can read about it on MSDN]: http://msdn.microsoft.com/en-us/library/hh974476.aspx
+[Role-Based Access Control for Graph API]: http://msdn.microsoft.com/fr-fr/library/hh974466.aspx
+[you can read about it on MSDN]: http://msdn.microsoft.com/fr-fr/library/hh974476.aspx

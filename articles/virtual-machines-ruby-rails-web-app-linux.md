@@ -122,7 +122,7 @@ Pour démarrer le serveur Rails dans votre environnement de développement, proc
 Création d'une machine virtuelle Azure
 --------------------------------------
 
-Suivez les instructions fournies [ici](http://windowsazure.com/en-us/documentation/articles/virtual-machines-linux-tutorial) afin de créer une machine virtuelle Azure qui héberge Linux.
+Suivez les instructions fournies [ici](http://windowsazure.com/fr-fr/documentation/articles/virtual-machines-linux-tutorial) afin de créer une machine virtuelle Azure qui héberge Linux.
 
 **Remarque**
 
@@ -260,16 +260,16 @@ Installation des maillons et démarrage de Rails
 
 Dans cet article, vous avez appris à créer et à publier une application Rails de base sur une machine virtuelle Azure. La plupart des actions que vous avez réalisées étaient manuelles et, dans un environnement de production, il serait souhaitable de les automatiser. En outre, la plupart des environnements de production hébergent l'application Rails en association avec un autre processus serveur tel que Apache ou NginX, qui traite l'acheminement des requêtes vers plusieurs instances de l'application Rails et l'envoi des ressources statiques.
 
-Pour plus d'informations sur l'automatisation du déploiement de votre application Rails ainsi que sur l'utilisation du serveur Web Unicorn et NginX, consultez la page [Unicorn+NginX+Capistrano avec une machine virtuelle Azure](http://windowsazure.com/en-us/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/).
+Pour plus d'informations sur l'automatisation du déploiement de votre application Rails ainsi que sur l'utilisation du serveur Web Unicorn et NginX, consultez la page [Unicorn+NginX+Capistrano avec une machine virtuelle Azure](http://windowsazure.com/fr-fr/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/).
 
 Si vous souhaitez en savoir plus sur Ruby on Rails, consultez les [guides Ruby on Rails](http://guides.rubyonrails.org/).
 
 Pour apprendre à utiliser le Kit de développement logiciel (SDK) Azure pour Ruby afin d'accéder aux services Azure depuis votre application Ruby, consultez les pages suivantes :
 
--   [Stockage de données non structurées à l'aide d'objets blob](http://windowsazure.com/en-us/documentation/articles/storage-ruby-how-to-use-blob-storage)
+-   [Stockage de données non structurées à l'aide d'objets blob](http://windowsazure.com/fr-fr/documentation/articles/storage-ruby-how-to-use-blob-storage)
 
--   [Stockage de paires clé/valeur à l'aide de tables](http://www.windowsazure.com/en-us/develop/ruby/how-to-guides/table-service/)
+-   [Stockage de paires clé/valeur à l'aide de tables](http://www.windowsazure.com/fr-fr/develop/ruby/how-to-guides/table-service/)
 
--   [Prise en charge d'une large bande passante avec le réseau de distribution de contenu](http://www.windowsazure.com/en-us/develop/ruby/app-services/)
+-   [Prise en charge d'une large bande passante avec le réseau de distribution de contenu](http://www.windowsazure.com/fr-fr/develop/ruby/app-services/)
 
 

@@ -4,7 +4,7 @@
 
 Cette rubrique explique comment créer un site Web à partir de la galerie ou du portail de gestion.
 
-Pour plus d'informations sur le déploiement de vos contenus vers un site Web Azure que vous avez créé, consultez la section **Déploiement** de la rubrique [Sites Web Azure](/en-us/documentation/services/web-sites/).
+Pour plus d'informations sur le déploiement de vos contenus vers un site Web Azure que vous avez créé, consultez la section **Déploiement** de la rubrique [Sites Web Azure](/fr-fr/documentation/services/web-sites/).
 
 ## Sommaire
 
@@ -65,7 +65,7 @@ Pour supprimer un site Web, utilisez l'icône **Delete** du portail de gestion A
 
 ## <a name="nextsteps"></a>Étapes suivantes
 
-Pour plus d'informations, consultez la page [Sites Web Azure](/en-us/documentation/services/web-sites/).
+Pour plus d'informations, consultez la page [Sites Web Azure](/fr-fr/documentation/services/web-sites/).
 
 
 

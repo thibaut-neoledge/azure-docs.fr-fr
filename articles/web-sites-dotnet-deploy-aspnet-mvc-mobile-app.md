@@ -34,7 +34,7 @@ Configurez l'environnement de développement en installant le Kit de développem
 
 Vous aurez également besoin d'un émulateur de navigateur mobile. Vous pouvez utiliser l'un des émulateurs suivants :
 
--   [Émulateur Windows Phone 7](http://msdn.microsoft.com/en-us/library/ff402530(VS.92).aspx) (émulateur utilisé dans la plupart des captures d'écran de ce didacticiel).
+-   [Émulateur Windows Phone 7](http://msdn.microsoft.com/fr-fr/library/ff402530(VS.92).aspx) (émulateur utilisé dans la plupart des captures d'écran de ce didacticiel).
 -   Modifiez la chaîne de l'agent utilisateur pour émuler un iPhone. Consultez [ce billet de blog](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/) sur How-To Geek.
 -   [Émulateur mobile Opera](http://www.opera.com/developer/tools/mobile/).
 -   [Apple Safari](http://www.apple.com/safari/download/) avec l'agent utilisateur défini sur iPhone. Pour obtenir les instructions de définition de l'agent utilisateur sur « iPhone » dans Safari, consultez l'article [Comment permettre à Safari de se faire passer pour IE](http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html) sur le blog de David Alison.

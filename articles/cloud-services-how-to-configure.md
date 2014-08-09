@@ -64,7 +64,7 @@ Mise à jour de la configuration d'un service cloud
 
     c. Si votre service cloud contient des rôles qui ont une seule instance, activez la case à cocher **Apply configuration even if one or more roles contain a single instance** afin de permettre l'exécution des mises à jour de la configuration pour les rôles.
 
-    Si vous n'avez pas défini au moins deux instances de chaque rôle, Azure n'est pas en mesure de garantir au moins 99,95 % de disponibilité pour votre service cloud pendant les mises à jour de la configuration du service. Pour plus d'informations, consultez la page [Contrats de niveau de service](http://www.windowsazure.com/en-us/support/legal/sla/).
+    Si vous n'avez pas défini au moins deux instances de chaque rôle, Azure n'est pas en mesure de garantir au moins 99,95 % de disponibilité pour votre service cloud pendant les mises à jour de la configuration du service. Pour plus d'informations, consultez la page [Contrats de niveau de service](http://www.windowsazure.com/fr-fr/support/legal/sla/).
 
     d. Cliquez sur OK (coche).
 
@@ -81,7 +81,7 @@ Si votre service cloud est constitué de plusieurs machines virtuelles basées s
 
 ### Configuration de l'accès à distance dans le fichier de définition de service
 
-Ajoutez des éléments **Import** au fichier de définition de service (.csdef) pour importer les modules RemoteAccess et RemoteForwarder dans le modèle de service. Lorsque ces modules sont présents, Azure ajoute les paramètres de configuration du Bureau à distance au fichier de configuration de service. Pour terminer la configuration du Bureau à distance, vous devez importer un certificat dans Azure et spécifier le certificat dans le fichier de configuration de service. Pour plus d'informations, consultez la page [Configurer une connexion Bureau à distance pour un rôle dans Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx).
+Ajoutez des éléments **Import** au fichier de définition de service (.csdef) pour importer les modules RemoteAccess et RemoteForwarder dans le modèle de service. Lorsque ces modules sont présents, Azure ajoute les paramètres de configuration du Bureau à distance au fichier de configuration de service. Pour terminer la configuration du Bureau à distance, vous devez importer un certificat dans Azure et spécifier le certificat dans le fichier de configuration de service. Pour plus d'informations, consultez la page [Configurer une connexion Bureau à distance pour un rôle dans Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh124107.aspx).
 
 ### Activation ou modification de l'accès à distance pour les instances de rôle dans le portail de gestion
 
@@ -135,6 +135,6 @@ Ajoutez des éléments **Import** au fichier de définition de service (.csdef) 
 
 5.  Cliquez sur OK (coche).
 
-[Set Up a Remote Desktop Connection for a Role in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx
+[Set Up a Remote Desktop Connection for a Role in Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh124107.aspx
 
-[Using Remote Desktop with Azure Roles]: http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx
+[Using Remote Desktop with Azure Roles]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg443832.aspx

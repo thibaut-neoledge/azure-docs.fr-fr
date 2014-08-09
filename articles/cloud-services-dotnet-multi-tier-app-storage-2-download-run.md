@@ -134,7 +134,7 @@ Création d'un service cloudCréation d'un service cloud
 
     Vous devez créer le service cloud dans la région où vous avez créé le compte de stockage. Lorsque le service cloud et le compte de stockage se trouvent dans des centres de données différents (différentes régions), la latence augmente et la bande passante en dehors du centre de données vous est facturée, alors qu'elle est gratuite dans un centre de données.
 
-    Les groupes d'affinités Azure fournissent un mécanisme pour minimiser la distance entre les ressources dans un centre de données, ce qui peut réduire la latence. Ce didacticiel n'utilise pas de groupes d'affinités. Pour plus d'informations, consultez la page [Création d'un groupe d'affinités dans Azure](http://msdn.microsoft.com/en-us/library/jj156209.aspx).
+    Les groupes d'affinités Azure fournissent un mécanisme pour minimiser la distance entre les ressources dans un centre de données, ce qui peut réduire la latence. Ce didacticiel n'utilise pas de groupes d'affinités. Pour plus d'informations, consultez la page [Création d'un groupe d'affinités dans Azure](http://msdn.microsoft.com/fr-fr/library/jj156209.aspx).
 
 6.  Cliquez sur **Create Cloud Service**.
 
@@ -315,7 +315,7 @@ Vous pouvez utiliser la même procédure pour configurer les paramètres des rô
 
 2.  Supprimez les éléments `Setting` de ces deux chaînes de connexion des éléments `WorkerRoleA` et `WorkerRoleB`, puis copiez et collez à leur place les éléments `Setting` de l'élément `MvcWebRole`.
 
-Pour plus d'informations sur les fichiers de configuration, consultez la page [Configuration d'un projet Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee405486.aspx)
+Pour plus d'informations sur les fichiers de configuration, consultez la page [Configuration d'un projet Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee405486.aspx)
 
 ### Test de l'application configurée pour utiliser votre compte de stockage
 
@@ -376,7 +376,7 @@ L'exemple d'application utilise SendGrid pour l'envoi des courriers électroniqu
 
 ### Création d'un compte SendGrid
 
-1.  Suivez les instructions de la page [Envoi de courriers électroniques à l'aide de SendGrid avec Azure](http://www.windowsazure.com/en-us/develop/net/how-to-guides/sendgrid-email-service/ "SendGrid") pour créer un compte gratuit.
+1.  Suivez les instructions de la page [Envoi de courriers électroniques à l'aide de SendGrid avec Azure](http://www.windowsazure.com/fr-fr/develop/net/how-to-guides/sendgrid-email-service/ "SendGrid") pour créer un compte gratuit.
 
 ### Mise à jour des informations d'identification de SendGrid dans les propriétés du rôle de travail
 
@@ -473,7 +473,7 @@ Vous pouvez utiliser la même interface utilisateur pour configurer les chaînes
 
 12. Entrez des données sur les pages Web **Liste de diffusion**, **Abonné** et **Message** pour tester l'application.
 
-    **Remarque** : supprimez l'application une fois que vous l'avez testée afin d'éviter de payer pour des ressources que vous n'utilisez pas. Si vous utilisez un [compte d'évaluation Azure gratuit](http://www.windowsazure.com/en-us/pricing/free-trial/ "compte d'évaluation gratuit"), les trois rôles déployés consommeront l'équivalent de votre limite mensuelle en une quinzaine de jours. Pour supprimer un déploiement avec le portail de gestion Azure, sélectionnez le service cloud et cliquez sur **SUPPRIMER** en bas de la page, puis sélectionnez le déploiement de production ou intermédiaire.
+    **Remarque** : supprimez l'application une fois que vous l'avez testée afin d'éviter de payer pour des ressources que vous n'utilisez pas. Si vous utilisez un [compte d'évaluation Azure gratuit](http://www.windowsazure.com/fr-fr/pricing/free-trial/ "compte d'évaluation gratuit"), les trois rôles déployés consommeront l'équivalent de votre limite mensuelle en une quinzaine de jours. Pour supprimer un déploiement avec le portail de gestion Azure, sélectionnez le service cloud et cliquez sur **SUPPRIMER** en bas de la page, puis sélectionnez le déploiement de production ou intermédiaire.
 
     ![pub](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-19.png)
 
@@ -534,16 +534,16 @@ Le suivi est un outil inestimable pour le débogage d'une application cloud. Dan
 
     La méthode `ConfigureDiagnostics` dans chacun des rôles de travail et Web configure l'écouteur de suivi pour enregistrer les données lorsque vous appelez l'API de suivi. Pour plus d'informations, consultez la page [Utilisation du suivi dans les applications cloud Azure](http://blogs.msdn.com/b/windowsazure/archive/2012/10/24/using-trace-in-windows-azure-cloud-applications-1.aspx "Utilisation du suivi dans Azure")
 
-3.  Dans l'**Explorateur de serveurs**, double-cliquez sur **WADLogsTable** (développez **Stockage** / **nom\_de\_votre\_compte\_de\_stockage** / **Tables**) pour le compte de stockage que vous avez ajouté précédemment. Vous pouvez entrer un [filtre Services de données WCF](http://msdn.microsoft.com/en-us/library/windowsazure/ff683669.aspx "filtre WCF") pour limiter les entités affichées. Dans l'image suivante, seuls les avertissements et les messages d'erreur sont affichés.
+3.  Dans l'**Explorateur de serveurs**, double-cliquez sur **WADLogsTable** (développez **Stockage** / **nom\_de\_votre\_compte\_de\_stockage** / **Tables**) pour le compte de stockage que vous avez ajouté précédemment. Vous pouvez entrer un [filtre Services de données WCF](http://msdn.microsoft.com/fr-fr/library/windowsazure/ff683669.aspx "filtre WCF") pour limiter les entités affichées. Dans l'image suivante, seuls les avertissements et les messages d'erreur sont affichés.
 
     ![Tableau de bord](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-trc.png)
 
 Ajout d'une instance de rôleAjout d'une autre instance de rôle de travail pour gérer une charge accrue
 ------------------------------------------------------------------------------------------------------
 
-Pour mettre à l'échelle les ressources de calcul dans les rôles Azure, vous avez le choix entre deux approches : spécifier [la taille des machines virtuelles](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx "Tailles des machines virtuelles") et/ou spécifier le nombre d'instances de machines virtuelles en cours d'exécution.
+Pour mettre à l'échelle les ressources de calcul dans les rôles Azure, vous avez le choix entre deux approches : spécifier [la taille des machines virtuelles](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee814754.aspx "Tailles des machines virtuelles") et/ou spécifier le nombre d'instances de machines virtuelles en cours d'exécution.
 
-La taille des machines virtuelles est spécifiée dans l'attribut `vmsize` de l'élément `WebRole` ou `WorkerRole` dans le fichier *ServiceDefinition.csdef*. Le paramètre par défaut est `Small`, ce qui correspond à un cœur et 1,75 Go de RAM. Dans le cas des applications multithread qui utilisent beaucoup de mémoire, d'espace disque et de bande passante, vous pouvez augmenter la taille des machines virtuelles pour bénéficier de performances accrues. Par exemple, une machine virtuelle `ExtraLarge` comporte 8 cœurs d'UC et 14 Go de RAM. L'augmentation de la mémoire, du nombre de cœurs d'UC et de la bande passante sur une même machine est désignée par le terme *augmentation d'échelle*. Les bons candidats pour une augmentation d'échelle incluent les applications Web ASP.NET qui utilisent [des méthodes asynchrones](http://www.asp.net/mvc/tutorials/mvc-4/using-asynchronous-methods-in-aspnet-mvc-4 "Async MVC"). Pour obtenir une description des ressources fournies par chaque taille de machine virtuelle, consultez la page [Taille des machines virtuelles](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx "Tailles des machines virtuelles").
+La taille des machines virtuelles est spécifiée dans l'attribut `vmsize` de l'élément `WebRole` ou `WorkerRole` dans le fichier *ServiceDefinition.csdef*. Le paramètre par défaut est `Small`, ce qui correspond à un cœur et 1,75 Go de RAM. Dans le cas des applications multithread qui utilisent beaucoup de mémoire, d'espace disque et de bande passante, vous pouvez augmenter la taille des machines virtuelles pour bénéficier de performances accrues. Par exemple, une machine virtuelle `ExtraLarge` comporte 8 cœurs d'UC et 14 Go de RAM. L'augmentation de la mémoire, du nombre de cœurs d'UC et de la bande passante sur une même machine est désignée par le terme *augmentation d'échelle*. Les bons candidats pour une augmentation d'échelle incluent les applications Web ASP.NET qui utilisent [des méthodes asynchrones](http://www.asp.net/mvc/tutorials/mvc-4/using-asynchronous-methods-in-aspnet-mvc-4 "Async MVC"). Pour obtenir une description des ressources fournies par chaque taille de machine virtuelle, consultez la page [Taille des machines virtuelles](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee814754.aspx "Tailles des machines virtuelles").
 
 Le rôle de travail B dans cette application est le composant restrictif sous une charge élevée, car le travail d'envoi des courriers électroniques lui incombe. Le rôle de travail A crée simplement des messages de file d'attente, qui ne mobilisent pas beaucoup de ressources. Dans la mesure où le rôle de travail B n'est pas multithread et n'a pas un grand encombrement mémoire, il n'est pas un bon candidat pour une augmentation d'échelle. La mise à l'échelle du rôle de travail B peut se faire de manière linéaire (les performances sont presque multipliées par deux lorsque le nombre d'instances double) en augmentant le nombre d'instances. L'augmentation du nombre d'instances de calcul est appelée *montée en charge*. Chaque instance a un coût ; aussi la montée en charge doit-elle avoir lieu uniquement quand votre application l'exige.
 

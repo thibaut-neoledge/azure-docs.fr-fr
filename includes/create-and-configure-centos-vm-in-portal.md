@@ -73,5 +73,5 @@ Entrez de nouveau le mot de passe. Patientez pendant l'installation des mises à
 
 
 [1]: http://go.microsoft.com/fwlink/p/?LinkID=294063
-[2]: http://msdn.microsoft.com/en-us/library/ms161962.aspx
+[2]: http://msdn.microsoft.com/fr-fr/library/ms161962.aspx
 [3]: http://www.puttyssh.org/download.html

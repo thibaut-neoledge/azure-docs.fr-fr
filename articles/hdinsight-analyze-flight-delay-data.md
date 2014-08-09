@@ -9,8 +9,8 @@ Hive permet d'exécuter la tâche MapReduce via un langage de création de scrip
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
--   Un cluster Azure HDInsight. Pour plus d'informations sur l'approvisionnement d'un cluster HDInsight, consultez la rubrique [Prise en main de HDInsight](/en-us/documentation/articles/hdinsight-get-started/) ou [Mise en place de clusters HDInsight](/en-us/documentation/articles/hdinsight-provision-clusters/).
--   Un poste de travail sur lequel Azure PowerShell est installé et configuré. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+-   Un cluster Azure HDInsight. Pour plus d'informations sur l'approvisionnement d'un cluster HDInsight, consultez la rubrique [Prise en main de HDInsight](/fr-fr/documentation/articles/hdinsight-get-started/) ou [Mise en place de clusters HDInsight](/fr-fr/documentation/articles/hdinsight-provision-clusters/).
+-   Un poste de travail sur lequel Azure PowerShell est installé et configuré. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/fr-fr/documentation/articles/install-configure-powershell/).
 
 **Durée de réalisation estimée :** 30 minutes
 
@@ -34,9 +34,9 @@ Ce didacticiel utilise les données de ponctualité des vols des compagnies aér
 
 **Présentation du stockage HDInsight**
 
-HDInsight utilise le stockage d'objets blob Azure pour stocker des données. Il s'intitule *WASB* ou *Azure Storage - Blob*. WASB correspond à l'implémentation Microsoft du HDFS sur le stockage d'objets blob Azure. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight](/en-us/documentation/articles/hdinsight-use-blob-storage/).
+HDInsight utilise le stockage d'objets blob Azure pour stocker des données. Il s'intitule *WASB* ou *Azure Storage - Blob*. WASB correspond à l'implémentation Microsoft du HDFS sur le stockage d'objets blob Azure. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight](/fr-fr/documentation/articles/hdinsight-use-blob-storage/).
 
-Lorsque vous approvisionnez un cluster HDInsight, un conteneur de stockage d'objets blob est désigné comme système de fichiers par défaut, comme dans HDFS. Outre ce conteneur, vous pouvez ajouter des conteneurs supplémentaires à partir du même compte de stockage Azure ou de différents comptes de stockage Azure au cours du processus d'approvisionnement. Pour plus d'instructions sur l'ajout de comptes de stockage supplémentaires, consultez la rubrique [Approvisionnement de clusters HDInsight](/en-us/documentation/articles/hdinsight-provision-clusters/).
+Lorsque vous approvisionnez un cluster HDInsight, un conteneur de stockage d'objets blob est désigné comme système de fichiers par défaut, comme dans HDFS. Outre ce conteneur, vous pouvez ajouter des conteneurs supplémentaires à partir du même compte de stockage Azure ou de différents comptes de stockage Azure au cours du processus d'approvisionnement. Pour plus d'instructions sur l'ajout de comptes de stockage supplémentaires, consultez la rubrique [Approvisionnement de clusters HDInsight](/fr-fr/documentation/articles/hdinsight-provision-clusters/).
 
 Pour simplifier le script utilisé dans ce didacticiel, tous les fichiers sont stockés dans le conteneur du système de fichiers par défaut situé sous */tutorials/flightdelays*. Par défaut, ce conteneur porte le même nom que le cluster HDInsight.
 
@@ -46,7 +46,7 @@ La syntaxe WASB est :
 
 > [WACOM.NOTE] Seule la syntaxe *wasb://* est prise en charge dans le cluster HDInsight version 3.0. L'ancienne syntaxe *asv://* est prise en charge dans les clusters HDInsight 2.1 et 1.6, mais ne l'est pas dans les clusters HDInsight 3.0 et ne le sera pas dans les versions ultérieures.
 
-> Le chemin d'accès WASB est le chemin d'accès virtuel. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight](/en-us/documentation/articles/hdinsight-use-blob-storage/).
+> Le chemin d'accès WASB est le chemin d'accès virtuel. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight](/fr-fr/documentation/articles/hdinsight-use-blob-storage/).
 
 Un fichier stocké dans le conteneur du système de fichiers par défaut est accessible depuis HDInsight à l'aide de l'une des URI suivantes (utilisez flightdelays.hql à titre d'exemple) :
 
@@ -101,7 +101,7 @@ Pour plus d'informations, consultez la rubrique [HDInsight : introduction aux t
 
 **Pour télécharger les données de retard de vol vers le stockage d'objets blob Azure**
 
-1.  Ouvrez Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+1.  Ouvrez Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/fr-fr/documentation/articles/install-configure-powershell/).
 2.  Exécutez la commande suivante pour vous connecter à votre abonnement Azure :
 
          Add-AzureAccount
@@ -387,7 +387,7 @@ Pour obtenir la liste complète des commandes HiveQL, consultez la rubrique [Lan
 Exécution d'un script HiveQL
 ----------------------------
 
-Plusieurs cmdlets Azure PowerShell vous permettent d'exécuter Hive. Ce didacticiel utilise Invoke-Hive. Pour connaître les autres méthodes, consultez la rubrique [Utilisation de Hive avec HDInsight](/en-us/documentation/articles/hdinsight-use-hive/). Invoke-Hive vous permet d'exécuter une instruction HiveQL ou un script HiveQL. Vous allez utiliser le script HiveQL que vous avez créé et envoyé au stockage d'objets blob Azure
+Plusieurs cmdlets Azure PowerShell vous permettent d'exécuter Hive. Ce didacticiel utilise Invoke-Hive. Pour connaître les autres méthodes, consultez la rubrique [Utilisation de Hive avec HDInsight](/fr-fr/documentation/articles/hdinsight-use-hive/). Invoke-Hive vous permet d'exécuter une instruction HiveQL ou un script HiveQL. Vous allez utiliser le script HiveQL que vous avez créé et envoyé au stockage d'objets blob Azure
 
 Il existe un problème connu de chemin d'accès à Hive. Les instructions permettant d'y remédier sont disponibles dans la rubrique [Wiki TechNet](http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx).
 
@@ -515,11 +515,11 @@ Les dernières étapes consistent à exécuter l'export Sqoop pour exporter les 
 
 Vous savez à présent télécharger un fichier vers le stockage d'objets blob, renseigner une table Hive à l'aide des données du stockage d'objets blob, exécuter des requêtes Hive et utiliser Sqoop pour exporter des données entre HDFS et la base de données SQL Azure. Pour en savoir plus, consultez les articles suivants :
 
--   [Prise en main de HDInsight](/en-us/documentation/articles/hdinsight-get-started/)
--   [Utilisation de Hive avec HDInsight](/en-us/documentation/articles/hdinsight-use-hive/)
--   [Utilisation d'Oozie avec HDInsight](/en-us/documentation/articles/hdinsight-use-oozie/)
+-   [Prise en main de HDInsight](/fr-fr/documentation/articles/hdinsight-get-started/)
+-   [Utilisation de Hive avec HDInsight](/fr-fr/documentation/articles/hdinsight-use-hive/)
+-   [Utilisation d'Oozie avec HDInsight](/fr-fr/documentation/articles/hdinsight-use-oozie/)
 -   [Utilisation de Sqoop avec HDInsight](../hdinsight-use-sqoop/)
--   [Utilisation de Pig avec HDInsight](/en-us/documentation/articles/hdinsight-use-pig/)
--   [Développement de programmes MapReduce en Java pour HDInsight](/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
--   [Développement de programmes de diffusion en continu Hadoop en C\# pour HDInsight](/en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
+-   [Utilisation de Pig avec HDInsight](/fr-fr/documentation/articles/hdinsight-use-pig/)
+-   [Développement de programmes MapReduce en Java pour HDInsight](/fr-fr/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
+-   [Développement de programmes de diffusion en continu Hadoop en C\# pour HDInsight](/fr-fr/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
 

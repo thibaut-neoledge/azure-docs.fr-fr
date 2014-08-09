@@ -1,9 +1,9 @@
-<properties linkid="websites-global-web-presence" urlDisplayName="Create a Global Web Presence on Azure Web Sites" pageTitle="Create a Global Web Presence on Azure Web Sites" metaKeywords="" description="This guide provides a technical overview of how to host your organization's (.COM) site on Azure Web Sites. This includes deployment, custom domains, SSL, and monitoring." metaCanonical="http://www.windowsazure.com/en-us/documentation/articles/web-sites-global-web-presence-solution-overview/" services="" documentationCenter="" title="Create a Global Web Presence on Azure Web Sites" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
+<properties linkid="websites-global-web-presence" urlDisplayName="Create a Global Web Presence on Azure Web Sites" pageTitle="Create a Global Web Presence on Azure Web Sites" metaKeywords="" description="This guide provides a technical overview of how to host your organization's (.COM) site on Azure Web Sites. This includes deployment, custom domains, SSL, and monitoring." metaCanonical="http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-global-web-presence-solution-overview/" services="" documentationCenter="" title="Create a Global Web Presence on Azure Web Sites" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
 
 Création d'une présence sur le Web à l'international dans Sites Web Azure
 =========================================================================
 
-Ce guide offre un aperçu technique de l'hébergement du site (.COM) de votre organisation sur Azure. Ce scénario est également nommé « présence sur le Web à l'international ». Ce guide se concentre sur l'utilisation de [Sites Web Azure](/en-us/documentation/services/web-sites/), car il s'agit du moyen le plus rapide et le plus simple de créer, de migrer, de mettre à l'échelle et de gérer une application Web sur Azure. Cependant, certaines exigences d'application se prêtent mieux à [Azure Cloud Services](/en-us/documentation/services/cloud-services/) ou à [Azure Virtual Machines](/en-us/documentation/services/virtual-machines/) exécutant IIS, qui représentent également un excellent choix pour l'hébergement d'applications Web. Si vous en êtes aux étapes de planification initiales, consultez le document [Sites Web, services cloud et machines virtuelles Azure : que choisir ?](/en-us/manage/services/web-sites/choose-web-app-service) En l'absence de nécessité de faire appel à Azure Cloud Services ou Azure Virtual Machines, nous vous recommandons de recourir à Sites Web Azure pour héberger votre présence sur le Web à l'international. La suite de ce document fournit des informations concernant l'utilisation du service Sites Web Azure avec ce scénario.
+Ce guide offre un aperçu technique de l'hébergement du site (.COM) de votre organisation sur Azure. Ce scénario est également nommé « présence sur le Web à l'international ». Ce guide se concentre sur l'utilisation de [Sites Web Azure](/fr-fr/documentation/services/web-sites/), car il s'agit du moyen le plus rapide et le plus simple de créer, de migrer, de mettre à l'échelle et de gérer une application Web sur Azure. Cependant, certaines exigences d'application se prêtent mieux à [Azure Cloud Services](/fr-fr/documentation/services/cloud-services/) ou à [Azure Virtual Machines](/fr-fr/documentation/services/virtual-machines/) exécutant IIS, qui représentent également un excellent choix pour l'hébergement d'applications Web. Si vous en êtes aux étapes de planification initiales, consultez le document [Sites Web, services cloud et machines virtuelles Azure : que choisir ?](/en-us/manage/services/web-sites/choose-web-app-service) En l'absence de nécessité de faire appel à Azure Cloud Services ou Azure Virtual Machines, nous vous recommandons de recourir à Sites Web Azure pour héberger votre présence sur le Web à l'international. La suite de ce document fournit des informations concernant l'utilisation du service Sites Web Azure avec ce scénario.
 
 Les questions couvertes par ce guide sont les suivantes :
 
@@ -15,7 +15,7 @@ Les questions couvertes par ce guide sont les suivantes :
 
 **Remarque**
 
-Ce guide présente les domaines et les tâches parmi les plus courants s'adaptant au développement de sites .COM publics. Cependant, le service Sites Web Azure offre encore d'autres fonctionnalités, que vous pouvez utiliser pour votre implémentation. Pour les découvrir, consultez également les autres guides concernant les [campagnes marketing numériques](http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview) et les [applications métier](http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview).
+Ce guide présente les domaines et les tâches parmi les plus courants s'adaptant au développement de sites .COM publics. Cependant, le service Sites Web Azure offre encore d'autres fonctionnalités, que vous pouvez utiliser pour votre implémentation. Pour les découvrir, consultez également les autres guides concernant les [campagnes marketing numériques](http://www.windowsazure.com/fr-fr/manage/services/web-sites/digital-marketing-campaign-solution-overview) et les [applications métier](http://www.windowsazure.com/fr-fr/manage/services/web-sites/business-application-solution-overview).
 
 Création d'un site Web Azure
 ----------------------------
@@ -192,27 +192,27 @@ Pour créer le site (.COM) de votre organisation, les tâches standard incluent 
 </tr>
 <tr data-morhtml="true">
    <td data-morhtml="true" valign="middle"><strong data-morhtml="true">Planification</strong></td>
-   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/manage/services/web-sites/choose-web-app-service">Sites Web, services cloud et machines virtuelles Azure&nbsp;: que choisir&nbsp;?</a></td>
+   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/fr-fr/manage/services/web-sites/choose-web-app-service">Sites Web, services cloud et machines virtuelles Azure&nbsp;: que choisir&nbsp;?</a></td>
 </tr>
 <tr data-morhtml="true">
    <td data-morhtml="true" valign="middle"><strong data-morhtml="true">Cr&eacute;ation</strong></td>
-   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites/">Cr&eacute;ation et d&eacute;ploiement d'un site Web</a></td>
+   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/fr-fr/manage/services/web-sites/how-to-create-websites/">Cr&eacute;ation et d&eacute;ploiement d'un site Web</a></td>
 </tr>
 <tr data-morhtml="true">
    <td data-morhtml="true" valign="middle"><strong data-morhtml="true">D&eacute;ploiement</strong></td>
-   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-git/">Publication &agrave; partir du contr&ocirc;le de code source dans Sites Web Azure</a><br data-morhtml="true" />- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/">D&eacute;ploiement d'une application Web ASP.NET sur un site Web Azure</a><br data-morhtml="true" />- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/develop/net/tutorials/website-with-webmatrix/">D&eacute;veloppement et d&eacute;ploiement d'un site Web avec Microsoft WebMatrix</a></td>
+   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/fr-fr/develop/net/common-tasks/publishing-with-git/">Publication &agrave; partir du contr&ocirc;le de code source dans Sites Web Azure</a><br data-morhtml="true" />- <a data-morhtml="true" href="http://www.windowsazure.com/fr-fr/develop/net/tutorials/get-started/">D&eacute;ploiement d'une application Web ASP.NET sur un site Web Azure</a><br data-morhtml="true" />- <a data-morhtml="true" href="http://www.windowsazure.com/fr-fr/develop/net/tutorials/website-with-webmatrix/">D&eacute;veloppement et d&eacute;ploiement d'un site Web avec Microsoft WebMatrix</a></td>
 </tr>
 <tr data-morhtml="true">
    <td data-morhtml="true" valign="middle"><strong data-morhtml="true">Domaines personnalis&eacute;</strong></td>
-   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuration d&rsquo;un nom de domaine personnalis&eacute; pour un site&nbsp;Web Azure</a></td>
+   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/fr-fr/develop/net/common-tasks/custom-dns-web-site/">Configuration d&rsquo;un nom de domaine personnalis&eacute; pour un site&nbsp;Web Azure</a></td>
 </tr>
 <tr data-morhtml="true">
    <td data-morhtml="true" valign="middle"><strong data-morhtml="true">SSL</strong></td>
-   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">Configuration d'un certificat&nbsp;SSL pour un site&nbsp;Web Azure</a></td>
+   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/fr-fr/develop/net/common-tasks/enable-ssl-web-site/">Configuration d'un certificat&nbsp;SSL pour un site&nbsp;Web Azure</a></td>
 </tr>
 <tr data-morhtml="true">
    <td data-morhtml="true" valign="middle"><strong data-morhtml="true">Surveillance</strong></td>
-   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/">Surveillance de sites Web</a></td>
+   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/fr-fr/manage/services/web-sites/how-to-monitor-websites/">Surveillance de sites Web</a></td>
 </tr>
 </table>
 

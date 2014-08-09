@@ -3,7 +3,7 @@
 Création et téléchargement d'un disque dur virtuel contenant le système d'exploitation Windows Server
 =====================================================================================================
 
-Une machine virtuelle Azure exécute le système d'exploitation que vous avez choisi lors de sa création. Azure stocke le système d'exploitation d'une machine virtuelle dans un disque dur virtuel au format VHD (fichier .vhd). Le disque dur virtuel d'un système d'exploitation préparé pour la duplication est nommé « une image ». Cet article vous explique comment créer votre propre image en téléchargeant un fichier .vhd avec un système d'exploitation que vous avez installé et généralisé. Pour plus d'informations sur les disques et les images dans Azure, consultez la page [Gestion des disques et des images](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
+Une machine virtuelle Azure exécute le système d'exploitation que vous avez choisi lors de sa création. Azure stocke le système d'exploitation d'une machine virtuelle dans un disque dur virtuel au format VHD (fichier .vhd). Le disque dur virtuel d'un système d'exploitation préparé pour la duplication est nommé « une image ». Cet article vous explique comment créer votre propre image en téléchargeant un fichier .vhd avec un système d'exploitation que vous avez installé et généralisé. Pour plus d'informations sur les disques et les images dans Azure, consultez la page [Gestion des disques et des images](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj672979.aspx).
 
 **Remarque** : Lorsque vous créez une machine virtuelle, vous pouvez personnaliser les paramètres de son système d'exploitation pour faciliter l'exécution de votre application. La configuration que vous définissez pour une machine virtuelle est stockée sur un disque. Pour obtenir des instructions, consultez le guide [Création d'une machine virtuelle personnalisée](/en-us/manage/windows/how-to-guides/custom-create-a-vm/).
 
@@ -12,7 +12,7 @@ Conditions préalables
 
 Cet article part du principe que vous disposez des éléments suivants :
 
-**Un certificat de gestion** : vous avez créé un certificat de gestion pour l'abonnement pour lequel vous souhaitez télécharger un disque dur virtuel, puis exporté ce certificat vers un fichier .cer. Pour plus d'informations sur la création de certificats, consultez la page [Création d'un certificat de gestion pour Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx).
+**Un certificat de gestion** : vous avez créé un certificat de gestion pour l'abonnement pour lequel vous souhaitez télécharger un disque dur virtuel, puis exporté ce certificat vers un fichier .cer. Pour plus d'informations sur la création de certificats, consultez la page [Création d'un certificat de gestion pour Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg551722.aspx).
 
 **Un système d'exploitation Windows stocké dans un fichier .vhd** : vous avez installé un système d'exploitation Windows Server pris en charge sur un disque dur virtuel. Plusieurs outils permettent de créer des fichiers .vhd. Vous pouvez utiliser des solutions de virtualisation comme Hyper-V pour créer le fichier .vhd et installer le système d'exploitation. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/en-us/library/hh846766.aspx).
 
@@ -41,7 +41,7 @@ Cet article part du principe que vous disposez des éléments suivants :
 	</TR>
 	</TABLE>
 
--   La cmdlet [Add-AzureVHD](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx), qui fait partie du module Azure PowerShell. Pour télécharger le module, consultez la page [Téléchargements Azure](/en-us/develop/downloads/).
+-   La cmdlet [Add-AzureVHD](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn205185.aspx), qui fait partie du module Azure PowerShell. Pour télécharger le module, consultez la page [Téléchargements Azure](/en-us/develop/downloads/).
 
 Cette procédure comprend les étapes suivantes :
 
@@ -123,7 +123,7 @@ Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexio
 
     Où `<PathToFile>` correspond au chemin d'accès complet vers le fichier .publishsettings.
 
-    Pour plus d'informations, consultez la page [Prise en main des cmdlets Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx)
+    Pour plus d'informations, consultez la page [Prise en main des cmdlets Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554332.aspx)
 
 Étape 4 : téléchargement du fichier .vhd
 ----------------------------------------
@@ -134,7 +134,7 @@ Lorsque vous téléchargez le fichier .vhd, vous pouvez le placer n'importe où 
 
     `Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>`
 
-    Pour plus d'informations, consultez la page [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx).
+    Pour plus d'informations, consultez la page [Add-AzureVhd](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn205185.aspx).
 
 Ajout de l'image à votre liste d'images personnalisées
 ------------------------------------------------------

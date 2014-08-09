@@ -1363,7 +1363,7 @@ Cette commande permet de supprimer toutes les lignes de données de la table.
 
 ### Commandes pour gérer les scripts
 
-Les commandes de cette section permettent de gérer les scripts de serveur qui appartiennent à un service mobile. Pour plus d'informations, consultez la page [Utilisation de scripts de serveur dans Mobile Services](http://www.windowsazure.com/en-us/develop/mobile/how-to-guides/work-with-server-scripts/).
+Les commandes de cette section permettent de gérer les scripts de serveur qui appartiennent à un service mobile. Pour plus d'informations, consultez la page [Utilisation de scripts de serveur dans Mobile Services](http://www.windowsazure.com/fr-fr/develop/mobile/how-to-guides/work-with-server-scripts/).
 
 **mobile script list [options] [servicename]**
 
@@ -1421,7 +1421,7 @@ Cette commande permet de supprimer le script d'insertion existant de la table To
 
 ### Commandes pour gérer les travaux planifiés
 
-Les commandes de cette section permettent de gérer les travaux planifiés qui appartiennent à un service mobile. Pour plus d'informations, consultez la page [Planifier les travaux](http://msdn.microsoft.com/en-us/library/windowsazure/jj860528.aspx).
+Les commandes de cette section permettent de gérer les travaux planifiés qui appartiennent à un service mobile. Pour plus d'informations, consultez la page [Planifier les travaux](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj860528.aspx).
 
 **mobile job list [options] [servicename]**
 
@@ -1495,7 +1495,7 @@ La suppression d'un travail entraîne celle du script téléchargé.
 
 ### Commandes pour mettre à l'échelle un service mobile
 
-Les commandes de cette section permettent de mettre à l'échelle un service mobile. Pour plus d'informations, consultez la page [Augmenter l'extensibilité d'un service mobile](http://msdn.microsoft.com/en-us/library/windowsazure/jj193178.aspx).
+Les commandes de cette section permettent de mettre à l'échelle un service mobile. Pour plus d'informations, consultez la page [Augmenter l'extensibilité d'un service mobile](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj193178.aspx).
 
 **mobile scale show [options] [servicename]**
 

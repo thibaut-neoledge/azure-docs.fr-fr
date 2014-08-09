@@ -104,7 +104,7 @@ L'exemple suivant montre comment instancier un **ServiceBusRestProxy** et appele
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -137,7 +137,7 @@ Pour envoyer un message à une file d'attente Service Bus, votre application app
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780775
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/hh780775
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -188,7 +188,7 @@ L'exemple ci-dessous montre comment les messages peuvent être reçus et traité
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici :
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780735
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/hh780735
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -206,5 +206,5 @@ Si l'application subit un incident après le traitement du message, mais avant l
 Étapes suivantes
 ----------------
 
-Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez la page [Files d'attente, rubriques et abonnements Service Bus](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx) pour plus d'informations.
+Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez la page [Files d'attente, rubriques et abonnements Service Bus](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367516.aspx) pour plus d'informations.
 

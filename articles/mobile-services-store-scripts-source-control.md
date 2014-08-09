@@ -73,7 +73,7 @@ Clonage du référentielInstallation de Git et création du référentiel local
 
 7.  Ouvrez le sous-dossier .\\service\\table et remarquez qu'il contient un fichier TodoItem.json, qui est une représentation JSON des autorisations d'opération sur la table TodoItem.
 
-    Lorsque des scripts serveur ont été définis sur cette table, vous avez également un ou plusieurs fichiers nommés `TodoItem._<operation>_.js` contenant les scripts pour l'opération de table donnée. Les scripts de Scheduler et de l'API personnalisée sont conservés dans des dossiers séparés avec ces noms respectifs. Pour plus d'informations, consultez la page [Contrôle du code source](http://msdn.microsoft.com/en-us/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643).
+    Lorsque des scripts serveur ont été définis sur cette table, vous avez également un ou plusieurs fichiers nommés `TodoItem._<operation>_.js` contenant les scripts pour l'opération de table donnée. Les scripts de Scheduler et de l'API personnalisée sont conservés dans des dossiers séparés avec ces noms respectifs. Pour plus d'informations, consultez la page [Contrôle du code source](http://msdn.microsoft.com/fr-fr/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643).
 
 À présent que vous avez créé votre référentiel local, vous pouvez apporter des modifications aux scripts serveur et transmettre ces modifications au service mobile.
 

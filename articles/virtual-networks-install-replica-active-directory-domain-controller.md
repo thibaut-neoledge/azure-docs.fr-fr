@@ -3,7 +3,7 @@
 Installation d'un contrôleur de domaine Active Directory de réplication dans Azure Virtual Network
 ==================================================================================================
 
-Ce didacticiel vous guide lors de l'installation d'un contrôleur de domaine supplémentaire à partir de votre forêt Corp Active Directory sur une machine virtuelle sur un [Azure Virtual Networks](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx). Dans ce didacticiel, le réseau virtuel de la machine virtuelle est connecté au réseau de votre société. Pour obtenir des informations conceptuelles sur l'installation des services de domaine Active Directory (également nommés « AD DS ») sur un réseau virtuel Azure, consultez la page [Instructions pour le déploiement de Windows Server Active Directory sur des machines virtuelles Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
+Ce didacticiel vous guide lors de l'installation d'un contrôleur de domaine supplémentaire à partir de votre forêt Corp Active Directory sur une machine virtuelle sur un [Azure Virtual Networks](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156007.aspx). Dans ce didacticiel, le réseau virtuel de la machine virtuelle est connecté au réseau de votre société. Pour obtenir des informations conceptuelles sur l'installation des services de domaine Active Directory (également nommés « AD DS ») sur un réseau virtuel Azure, consultez la page [Instructions pour le déploiement de Windows Server Active Directory sur des machines virtuelles Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156090.aspx).
 
 Sommaire
 --------
@@ -21,9 +21,9 @@ Sommaire
 Conditions préalables
 ---------------------
 
--   [Créez un réseau virtuel pour la connectivité entre différents locaux](http://www.windowsazure.com/en-us/manage/services/networking/cross-premises-connectivity/) configuré entre le réseau virtuel Azure et le réseau Corp.
+-   [Créez un réseau virtuel pour la connectivité entre différents locaux](http://www.windowsazure.com/fr-fr/manage/services/networking/cross-premises-connectivity/) configuré entre le réseau virtuel Azure et le réseau Corp.
 -   Créez un service cloud dans le réseau virtuel.
--   Déployez deux machines virtuelles dans le service cloud qui appartiennent au réseau virtuel (indiquez le sous-réseau où vous voulez placer la machine virtuelle). Pour plus d'informations, consultez la page [Ajout d'une machine virtuelle à un réseau virtuel](http://www.windowsazure.com/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/). L'une des machines virtuelles doit avoir au moins la taille L pour que vous puissiez y attacher deux disques de données. Ces derniers sont requis pour stocker :
+-   Déployez deux machines virtuelles dans le service cloud qui appartiennent au réseau virtuel (indiquez le sous-réseau où vous voulez placer la machine virtuelle). Pour plus d'informations, consultez la page [Ajout d'une machine virtuelle à un réseau virtuel](http://www.windowsazure.com/fr-fr/manage/services/networking/add-a-vm-to-a-virtual-network/). L'une des machines virtuelles doit avoir au moins la taille L pour que vous puissiez y attacher deux disques de données. Ces derniers sont requis pour stocker :
     -   la base de données et les journaux Active Directory ;
     -   les sauvegardes d'états du système.
 -   Un réseau Corp avec deux machines virtuelles (YourPrimaryDC et FileServer).
@@ -214,7 +214,7 @@ Si vous avez déjà suivi la procédure d'[installation d'une nouvelle forêt Ac
 
 Une fois le contrôleur de domaine configuré, exécutez la cmdlet Windows PowerShell suivante pour configurer des machines virtuelles supplémentaires et les ajouter automatiquement au domaine une fois leur configuration terminée. Vous devez configurer les paramètres de résolution de client DNS des machines virtuelles durant la configuration de ces dernières. Indiquez les noms de votre domaine, de votre machine virtuelle, etc.
 
-Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez les pages [Mise en route d'Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx) et [Cmdlets de gestion Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841).
+Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez les pages [Mise en route d'Azure PowerShell](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156055.aspx) et [Cmdlets de gestion Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj152841).
 
 Étape 6 : configuration d'une machine virtuelle jointe au domaine au démarrage
 ------------------------------------------------------------------------------
@@ -279,10 +279,10 @@ Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez les 
 Voir aussi
 ----------
 
--   [Réseau virtuel Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
+-   [Réseau virtuel Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156007.aspx)
 
--   [Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx)
+-   [Azure PowerShell](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156055.aspx)
 
--   [Cmdlets de gestion Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841)
+-   [Cmdlets de gestion Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj152841)
 
 

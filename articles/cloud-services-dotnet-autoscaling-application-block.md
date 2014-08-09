@@ -348,19 +348,19 @@ Maintenant que vous avez appris les principes de base de l'utilisation du bloc a
   [Définition d'un modèle de service]: \#DefineServiceModel 
   [Définition de règles de mise à l'échelle automatique]: \#DefineAutoscalingRules 
   [Configuration du bloc applicatif de mise à l'échelle automatique]: \#Configure 
-  [Utilisation de compteurs de performances dans Azure]: http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling/ 
+  [Utilisation de compteurs de performances dans Azure]: http://www.windowsazure.com/fr-fr/develop/net/common-tasks/performance-profiling/ 
   [NuGet]: http://nuget.org/ 
   [Portail de gestion Azure]: http://manage.windowsazure.com 
-  [Stockage de vos données d'informations de service]: http://msdn.microsoft.com/en-us/library/hh680878(PandP.50).aspx 
-  [Hébergement du bloc applicatif de mise à l'échelle automatique dans un rôle de travail]: http://msdn.microsoft.com/en-us/library/hh680914(PandP.50).aspx 
-  [Implémentation d'un comportement de limitation]: http://msdn.microsoft.com/en-us/library/hh680896(PandP.50).aspx 
-  [Présentation des classements et de la conciliation des règles]: http://msdn.microsoft.com/en-us/library/hh680923(PandP.50).aspx 
-  [Développement et modification du bloc applicatif de mise à l'échelle automatique]: http://msdn.microsoft.com/en-us/library/hh680889(PandP.50).aspx 
-  [Utilisation du stabilisateur d'optimisation pour empêcher une oscillation des hautes fréquences et optimiser les coûts]: http://msdn.microsoft.com/en-us/library/hh680951(PandP.50).aspx 
-  [Utilisation des notifications et de la mise à l'échelle manuelle]: http://msdn.microsoft.com/en-us/library/hh680885(PandP.50).aspx 
-  [Définition de groupes d'échelle]: http://msdn.microsoft.com/en-us/library/hh680902(PandP.50).aspx 
-  [Utilisation de WASABiCmdlets pour manipuler le bloc via Windows PowerShell]: http://msdn.microsoft.com/en-us/library/hh680938(PandP.50).aspx 
-  [Guide du développeur Enterprise Library 5.0 Integration Pack for Azure]: http://msdn.microsoft.com/en-us/library/hh680949(PandP.50).aspx 
-  [Réduction des coûts d'hébergement Azure avec Sage via la mise à l'échelle automatique]: http://msdn.microsoft.com/en-us/library/jj838716(PandP.50).aspx 
-  [Réduction des coûts d'hébergement et de l'impact environnemental de TechNet et MSDN grâce à la mise à l'échelle automatique Azure]: http://msdn.microsoft.com/en-us/library/jj838718(PandP.50).aspx
+  [Stockage de vos données d'informations de service]: http://msdn.microsoft.com/fr-fr/library/hh680878(PandP.50).aspx 
+  [Hébergement du bloc applicatif de mise à l'échelle automatique dans un rôle de travail]: http://msdn.microsoft.com/fr-fr/library/hh680914(PandP.50).aspx 
+  [Implémentation d'un comportement de limitation]: http://msdn.microsoft.com/fr-fr/library/hh680896(PandP.50).aspx 
+  [Présentation des classements et de la conciliation des règles]: http://msdn.microsoft.com/fr-fr/library/hh680923(PandP.50).aspx 
+  [Développement et modification du bloc applicatif de mise à l'échelle automatique]: http://msdn.microsoft.com/fr-fr/library/hh680889(PandP.50).aspx 
+  [Utilisation du stabilisateur d'optimisation pour empêcher une oscillation des hautes fréquences et optimiser les coûts]: http://msdn.microsoft.com/fr-fr/library/hh680951(PandP.50).aspx 
+  [Utilisation des notifications et de la mise à l'échelle manuelle]: http://msdn.microsoft.com/fr-fr/library/hh680885(PandP.50).aspx 
+  [Définition de groupes d'échelle]: http://msdn.microsoft.com/fr-fr/library/hh680902(PandP.50).aspx 
+  [Utilisation de WASABiCmdlets pour manipuler le bloc via Windows PowerShell]: http://msdn.microsoft.com/fr-fr/library/hh680938(PandP.50).aspx 
+  [Guide du développeur Enterprise Library 5.0 Integration Pack for Azure]: http://msdn.microsoft.com/fr-fr/library/hh680949(PandP.50).aspx 
+  [Réduction des coûts d'hébergement Azure avec Sage via la mise à l'échelle automatique]: http://msdn.microsoft.com/fr-fr/library/jj838716(PandP.50).aspx 
+  [Réduction des coûts d'hébergement et de l'impact environnemental de TechNet et MSDN grâce à la mise à l'échelle automatique Azure]: http://msdn.microsoft.com/fr-fr/library/jj838718(PandP.50).aspx
 

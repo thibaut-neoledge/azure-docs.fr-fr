@@ -16,7 +16,7 @@ Pour utiliser Windows PowerShell avec le gestionnaire des ressources, vous devez
 
 -   Windows PowerShell, version 3.0 ou ultérieure. Pour trouver la version de Windows PowerShell requise, tapez : `$PSVersionTable` et vérifiez que vous êtes équipé de `PSVersion` 3.0 au minimum. Pour installer une version plus récente, accédez à la page [Windows Management Framework 3.0](http://www.microsoft.com/en-us/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/en-us/download/details.aspx?id=40855).
 
--   Azure PowerShell, version 0.8.0 ou ultérieure. Pour installer la dernière version et l'associer à votre abonnement Azure, accédez à la page [Installation et configuration d'Azure PowerShell](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/).
+-   Azure PowerShell, version 0.8.0 ou ultérieure. Pour installer la dernière version et l'associer à votre abonnement Azure, accédez à la page [Installation et configuration d'Azure PowerShell](http://www.windowsazure.com/fr-fr/documentation/articles/install-configure-powershell/).
 
 Ce didacticiel s'adresse aux utilisateurs novices de Windows PowerShell, mais il part du principe que vous comprenez les concepts fondamentaux (modules, cmdlets et sessions). Pour plus d'informations sur Windows PowerShell, consultez la page [Prise en main de Windows PowerShell](http://technet.microsoft.com/en-us/library/hh857337.aspx).
 
@@ -42,7 +42,7 @@ Dans ce didacticiel
 
 Avec la version 0.8.0, l'installation d'Azure PowerShell inclut trois modules Windows PowerShell :
 
--   **Azure** : comprend les cmdlets traditionnelles de gestion de ressources spécifiques (comptes de stockage, sites Web, bases de données, machines virtuelles et services de médias). Pour plus d'informations, consultez la page [Cmdlets de gestion des services Azure](http://msdn.microsoft.com/en-us/library/jj152841.aspx).
+-   **Azure** : comprend les cmdlets traditionnelles de gestion de ressources spécifiques (comptes de stockage, sites Web, bases de données, machines virtuelles et services de médias). Pour plus d'informations, consultez la page [Cmdlets de gestion des services Azure](http://msdn.microsoft.com/fr-fr/library/jj152841.aspx).
 
 -   **AzureResourceManager** : comprend les cmdlets de création, de gestion et de déploiement des ressources Azure pour un groupe de ressources. Pour plus d'informations, consultez la page [Cmdlets du gestionnaire des ressources Azure](http://go.microsoft.com/fwlink/?LinkID=394765).
 
@@ -487,5 +487,5 @@ Pour en savoir plus sur l'utilisation de Windows PowerShell avec le gestionnaire
 -   [Blog Azure](http://blogs.msdn.com/windowsazure) : découvrez les nouvelles fonctionnalités d'Azure.
 -   [Blog Windows PowerShell](http://blogs.msdn.com/powershell) : découvrez les nouvelles fonctionnalités de Windows PowerShell.
 -   [Blog Hey, Scripting Guy!](http://blogs.technet.com/b/heyscriptingguy/) : bénéficiez des conseils et astuces de la communauté.
--   [Utilisation de l'interface de ligne de commande interplateforme Azure avec le gestionnaire des ressources](http://www.windowsazure.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/) : découvrez d'autres méthodes permettant d'automatiser les opérations du gestionnaire des ressources.
+-   [Utilisation de l'interface de ligne de commande interplateforme Azure avec le gestionnaire des ressources](http://www.windowsazure.com/fr-fr/documentation/articles/xplat-cli-azure-resource-manager/) : découvrez d'autres méthodes permettant d'automatiser les opérations du gestionnaire des ressources.
 

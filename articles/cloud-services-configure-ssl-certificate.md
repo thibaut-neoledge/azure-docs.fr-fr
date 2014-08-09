@@ -30,7 +30,7 @@ Le certificat SSL doit répondre aux prérequis suivants dans Azure :
 -   Le nom d'objet du certificat doit correspondre au domaine servant à accéder au service cloud. Vous ne pouvez pas obtenir de certificat SSL d'une autorité de certification pour le domaine cloudapp.net. Vous devez acquérir un nom de domaine personnalisé à utiliser pour accéder à votre service. Lorsque vous demandez un certificat auprès d'une autorité de certification, le nom d'objet du certificat doit correspondre au nom de domaine personnalisé que vous utilisez pour accéder à votre application. Par exemple, si votre nom de domaine personnalisé est **contoso.com**, vous demandez un certificat auprès de votre autorité de certification pour **\*.contoso.com** ou **www.contoso.com**.
 -   Le certificat doit utiliser au minimum un chiffrement à 2048 bits.
 
-Dans le cadre d'un test, vous pouvez créer et utiliser un certificat auto-signé. Un certificat auto-signé n'est pas authentifié par une autorité de certification et peut utiliser le domaine cloudapp.net comme URL de site Web. Par exemple, la tâche ci-dessous utilise un certificat auto-signé dans lequel le nom commun utilisé dans le certificat est **sslexample.cloudapp.net**. Pour plus d'informations sur la création d'un certificat auto-signé avec le gestionnaire des services Internet, consultez la page [Création d'un certificat pour un rôle](http://msdn.microsoft.com/en-us/library/windowsazure/gg432987.aspx).
+Dans le cadre d'un test, vous pouvez créer et utiliser un certificat auto-signé. Un certificat auto-signé n'est pas authentifié par une autorité de certification et peut utiliser le domaine cloudapp.net comme URL de site Web. Par exemple, la tâche ci-dessous utilise un certificat auto-signé dans lequel le nom commun utilisé dans le certificat est **sslexample.cloudapp.net**. Pour plus d'informations sur la création d'un certificat auto-signé avec le gestionnaire des services Internet, consultez la page [Création d'un certificat pour un rôle](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg432987.aspx).
 
 Ensuite, vous devez ajouter des informations sur le certificat dans votre définition de service et dans les fichiers de configuration de service.
 
@@ -51,7 +51,7 @@ Votre application doit être configurée pour utiliser le certificat, et un poin
         ...
         </WebRole>
 
-    La section **Certificates** définit le nom du certificat, son emplacement et le nom du magasin dans lequel il se trouve. Nous avons choisi de stocker le certificat dans le magasin d'autorité de certification, mais vous pouvez aussi choisir d'autres options. Pour plus d'informations, consultez la page [Association d'un certificat à un service](http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx).
+    La section **Certificates** définit le nom du certificat, son emplacement et le nom du magasin dans lequel il se trouve. Nous avons choisi de stocker le certificat dans le magasin d'autorité de certification, mais vous pouvez aussi choisir d'autres options. Pour plus d'informations, consultez la page [Association d'un certificat à un service](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg465718.aspx).
 
 2.  Dans votre fichier de définition du service, ajoutez un élément **InputEndpoint** dans la section **Endpoints** pour activer HTTPS :
 
@@ -139,8 +139,8 @@ Si vous voulez utiliser SSL pour un déploiement intermédiaire au lieu d'un dé
 Ressources supplémentairesRessources supplémentaires
 ----------------------------------------------------
 
--   [Association d'un certificat à un service](http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx)
+-   [Association d'un certificat à un service](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg465718.aspx)
 
--   [Configuration d'un certificat SSL sur un point de terminaison HTTPS](http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx)
+-   [Configuration d'un certificat SSL sur un point de terminaison HTTPS](http://msdn.microsoft.com/fr-fr/library/windowsazure/ff795779.aspx)
 
 

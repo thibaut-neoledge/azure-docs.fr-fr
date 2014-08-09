@@ -3,9 +3,9 @@
 Création d'un réseau virtuel dans Azure
 =======================================
 
-Ce didacticiel va vous guider lors de la création d'un réseau virtuel Azure Virtual Network de base à l'aide du portail de gestion Azure. Pour plus d'informations sur Azure Virtual Network, consultez la page [Vue d'ensemble d'Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx).
+Ce didacticiel va vous guider lors de la création d'un réseau virtuel Azure Virtual Network de base à l'aide du portail de gestion Azure. Pour plus d'informations sur Azure Virtual Network, consultez la page [Vue d'ensemble d'Azure Virtual Network](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156007.aspx).
 
-Ce didacticiel part du principe que vous n'avez pas d'expérience en tant qu'utilisateur d'Azure. Il a pour but de vous familiariser avec la procédure requise pour créer un réseau virtuel. Si vous recherchez des scénarios de conception et des informations avancées sur Virtual Network, consultez la page [Vue d'ensemble d'Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx).
+Ce didacticiel part du principe que vous n'avez pas d'expérience en tant qu'utilisateur d'Azure. Il a pour but de vous familiariser avec la procédure requise pour créer un réseau virtuel. Si vous recherchez des scénarios de conception et des informations avancées sur Virtual Network, consultez la page [Vue d'ensemble d'Azure Virtual Network](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156007.aspx).
 
 À la fin de ce didacticiel, vous disposerez d'un réseau virtuel vers lequel vous pouvez déployer des services et des machines virtuelles Azure.
 
@@ -15,7 +15,7 @@ Ce didacticiel ne présente pas la création d'une configuration entre différen
 
 Pour plus d'informations sur les paramètres et procédures de configuration de Virtual Network, consultez la page [Tâches de configuration d'Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=296652).
 
-Pour obtenir des instructions sur le déploiement des services de domaine Active Directory (AD DS) dans Azure Virtual Machines, consultez la page [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
+Pour obtenir des instructions sur le déploiement des services de domaine Active Directory (AD DS) dans Azure Virtual Machines, consultez la page [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156090.aspx).
 
 Objectifs
 ---------
@@ -97,13 +97,13 @@ Création d'un réseau virtuel
 Voir aussi
 ----------
 
--   [Vue d'ensemble d'Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
+-   [Vue d'ensemble d'Azure Virtual Network](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156007.aspx)
 
 -   [Forum aux questions sur Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=296650)
 
 -   [Tâches de configuration Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=296652)
 
--   [Configuration d'un réseau virtuel à l'aide de fichiers de configuration de réseau](http://msdn.microsoft.com/en-us/library/windowsazure/jj156097.aspx)
+-   [Configuration d'un réseau virtuel à l'aide de fichiers de configuration de réseau](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156097.aspx)
 
 -   [Présentation de la résolution de noms Azure](http://go.microsoft.com/fwlink/?LinkId=248097)
 

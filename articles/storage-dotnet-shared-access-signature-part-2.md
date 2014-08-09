@@ -18,7 +18,7 @@ Ce didacticiel traite spécifiquement de la création des signatures d'accès pa
 Partie 1 : création d'une application console pour générer des signatures d'accès partagé
 =========================================================================================
 
-Commencez par vérifier que la bibliothèque du client Azure Storage pour .NET (version 2.0) est installée. Vous pouvez installer le [package NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "package NuGet") qui contient les assemblys les plus à jour pour la bibliothèque du client. Cette méthode est recommandée pour garantir que les correctifs les plus récents sont installés. Vous pouvez également télécharger la bibliothèque du client avec la version la plus récente du [Kit de développement logiciel (SDK) Azure pour .NET](http://www.windowsazure.com/en-us/downloads/).
+Commencez par vérifier que la bibliothèque du client Azure Storage pour .NET (version 2.0) est installée. Vous pouvez installer le [package NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "package NuGet") qui contient les assemblys les plus à jour pour la bibliothèque du client. Cette méthode est recommandée pour garantir que les correctifs les plus récents sont installés. Vous pouvez également télécharger la bibliothèque du client avec la version la plus récente du [Kit de développement logiciel (SDK) Azure pour .NET](http://www.windowsazure.com/fr-fr/downloads/).
 
 Dans Visual Studio, créez une application console Windows et nommez-la **GenerateSharedAccessSignatures**. Ajoutez des références à **Microsoft.WindowsAzure.Configuration.dll** et **Microsoft.WindowsAzure.Storage.dll**, en utilisant l'une des méthodes suivantes :
 
@@ -524,9 +524,9 @@ Exécutez l'application console et observez la sortie pour connaître les opéra
 
 [Signatures d'accès partagé, partie 1 : présentation du modèle SAP](../storage-dotnet-shared-access-signature-part-1/)
 
-[Gestion de l'accès aux ressources de stockage Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx)
+[Gestion de l'accès aux ressources de stockage Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee393343.aspx)
 
-[Délégation de l'accès avec une signature d'accès partagé (API REST)](http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx)
+[Délégation de l'accès avec une signature d'accès partagé (API REST)](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee395415.aspx)
 
 [Présentation des signatures d'accès partagé de table et de file d'attente](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 

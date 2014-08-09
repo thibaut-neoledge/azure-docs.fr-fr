@@ -3,11 +3,11 @@
 Prise en main de Mobile Services
 ================================
 
-[Windows Store C\#](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started "Windows Store C#") [Windows Store JavaScript](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started "Windows Store JavaScript") [Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started "Windows Phone") [iOS](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started "iOS") [Android](/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started "Android")
+[Windows Store C\#](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started "Windows Store C#") [Windows Store JavaScript](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started "Windows Store JavaScript") [Windows Phone](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started "Windows Phone") [iOS](/fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-get-started "iOS") [Android](/fr-fr/documentation/articles/mobile-services-dotnet-backend-android-get-started "Android")
 
-[.NET backend](/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started/ ".NET backend") | [JavaScript backend](/en-us/documentation/articles/mobile-services-android-get-started/ "JavaScript backend")
+[.NET backend](/fr-fr/documentation/articles/mobile-services-dotnet-backend-android-get-started/ ".NET backend") | [JavaScript backend](/fr-fr/documentation/articles/mobile-services-android-get-started/ "JavaScript backend")
 
-Ce didacticiel présente l'ajout d'un service principal cloud à une application Android à l'aide d'Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application *To do list* qui stocke les données d'application dans le nouveau service mobile. Le service mobile que vous allez créer utilise les langages .NET pris en charge à l'aide de Visual Studio pour la logique métier côté serveur et pour la gestion du service mobile. Pour créer un service mobile vous permettant d'écrire votre logique métier côté serveur en JavaScript, consultez la [version principale JavaScript](/en-us/documentation/articles/mobile-services-android-get-started/) de cette rubrique.
+Ce didacticiel présente l'ajout d'un service principal cloud à une application Android à l'aide d'Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application *To do list* qui stocke les données d'application dans le nouveau service mobile. Le service mobile que vous allez créer utilise les langages .NET pris en charge à l'aide de Visual Studio pour la logique métier côté serveur et pour la gestion du service mobile. Pour créer un service mobile vous permettant d'écrire votre logique métier côté serveur en JavaScript, consultez la [version principale JavaScript](/fr-fr/documentation/articles/mobile-services-android-get-started/) de cette rubrique.
 
 Voici une capture d'écran de l'application terminée :
 
@@ -19,7 +19,7 @@ Le projet de démarrage rapide téléchargé contient le Kit de développement l
 
 **Remarque**
 
-Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28).
+Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28).
 
 Création d'un service mobile
 ----------------------------
@@ -129,9 +129,9 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 [15]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-users
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push
+[Get started with data]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
+[Get started with authentication]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-android-get-started-users
+[Get started with push notifications]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-android-get-started-push
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 

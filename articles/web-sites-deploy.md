@@ -39,7 +39,7 @@ Si vous n'avez pas encore de contrôle de code source, la méthode la plus simpl
 Pour plus d'informations, consultez les ressources suivantes :
 
 -   [Envoi vers Azure en continu](http://www.visualstudio.com/en-us/learn/continuous-delivery-in-vs). Didacticiel pas à pas montrant comment configurer des envois continus de VSO vers un site Web Azure, en utilisant TFVC. TFVC est l'option de contrôle du code source centralisée dans VSO, contrairement à Git, qui est l'option de contrôle du code source distribuée.
--   [Livraison continue sur Azure au moyen de Visual Studio Online](/en-us/documentation/articles/cloud-services-continuous-delivery-use-vso/). Explique comment se connecter à VSO, archiver un projet vers un contrôle de code source et le configurer pour un envoi continu (déploiement automatique) vers Azure. Écrit pour les services cloud, mais la plupart du processus de configuration du déploiement dans Visual Studio Online est semblable pour les sites Web.
+-   [Livraison continue sur Azure au moyen de Visual Studio Online](/fr-fr/documentation/articles/cloud-services-continuous-delivery-use-vso/). Explique comment se connecter à VSO, archiver un projet vers un contrôle de code source et le configurer pour un envoi continu (déploiement automatique) vers Azure. Écrit pour les services cloud, mais la plupart du processus de configuration du déploiement dans Visual Studio Online est semblable pour les sites Web.
 
 ### Sites Web référentiels utilisant Git
 
@@ -47,7 +47,7 @@ Pour plus d'informations, consultez les ressources suivantes :
 
 Pour plus d'informations, consultez les ressources suivantes :
 
--   [Publication à partir du contrôle de code source sur des sites Web Azure](/en-us/documentation/articles/web-sites-publish-source-control/). Permet d'apprendre à utiliser Git pour publier directement à partir de votre ordinateur local sur un site Web Azure (dans Azure, cette méthode de publication est appelée Git local). Montre également comment activer le déploiement continu de référentiels Git à partir de GitHub, CodePlex ou BitBucket.
+-   [Publication à partir du contrôle de code source sur des sites Web Azure](/fr-fr/documentation/articles/web-sites-publish-source-control/). Permet d'apprendre à utiliser Git pour publier directement à partir de votre ordinateur local sur un site Web Azure (dans Azure, cette méthode de publication est appelée Git local). Montre également comment activer le déploiement continu de référentiels Git à partir de GitHub, CodePlex ou BitBucket.
 -   [Forum Azure pour Git, Mercurial et DropBox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
 
 ### Sites Web référentiels utilisant Mercurial
@@ -56,7 +56,7 @@ Si vous utilisez [Mercurial](http://mercurial.selenic.com/) comme système de co
 
 Pour plus d'informations sur le déploiement avec Mercurial, consultez les ressources suivantes :
 
--   [Publication à partir du contrôle de code source sur des sites Web Azure](/en-us/documentation/articles/web-sites-publish-source-control/). Bien que ce didacticiel montre comment publier un référentiel Git, le processus est similaire pour les référentiels Mercurial hébergés dans CodePlex ou BitBucket.
+-   [Publication à partir du contrôle de code source sur des sites Web Azure](/fr-fr/documentation/articles/web-sites-publish-source-control/). Bien que ce didacticiel montre comment publier un référentiel Git, le processus est similaire pour les référentiels Mercurial hébergés dans CodePlex ou BitBucket.
 -   [Forum Azure pour Git, Mercurial et DropBox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
 
 ### DropBox
@@ -80,7 +80,7 @@ Pour plus d'informations sur le déploiement dans des sites Web Azure depuis Vis
 
 -   [Prise en main d'Azure et ASP.NET](/en-us/develop/net/tutorials/get-started/). Explique comment créer et déployer un projet Web ASP.NET MVC simple en utilisant Visual Studio et Web Deploy.
 -   [Déploiement d'une application ASP.NET MVC 5 sécurisée avec une fonctionnalité d'appartenance, OAuth et une base de données SQL vers un site Web Azure](/en-us/develop/net/tutorials/web-site-with-sql-database/). Explique comment créer et déployer un projet Web ASP.NET MVC avec une base de données SQL, en utilisant Visual Studio, Web Deploy et Entity Framework Code First Migrations.
--   [Présentation d'un déploiement Web pour Visual Studio et ASP.NET](http://msdn.microsoft.com/en-us/library/dd394698.aspx). Une introduction de base au déploiement Web avec Visual Studio. Ancien, mais contient des informations toujours pertinentes, notamment une présentation des options de déploiement d'une base de données ainsi qu'une application Web et une liste de tâches de déploiement supplémentaires que vous devrez effectuer, ou pour lesquelles vous devrez configurer manuellement Visual Studio. Cette rubrique présente une vue d'ensemble du déploiement, pas seulement du déploiement dans des sites Web Azure.
+-   [Présentation d'un déploiement Web pour Visual Studio et ASP.NET](http://msdn.microsoft.com/fr-fr/library/dd394698.aspx). Une introduction de base au déploiement Web avec Visual Studio. Ancien, mais contient des informations toujours pertinentes, notamment une présentation des options de déploiement d'une base de données ainsi qu'une application Web et une liste de tâches de déploiement supplémentaires que vous devrez effectuer, ou pour lesquelles vous devrez configurer manuellement Visual Studio. Cette rubrique présente une vue d'ensemble du déploiement, pas seulement du déploiement dans des sites Web Azure.
 -   [Déploiement Web ASP.NET en utilisant Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Une série de didacticiels en 12 parties présentant un ensemble de tâches de déploiement plus complet que le reste de cette liste.
 -   [Déploiement d'un site Web ASP.NET dans Azure avec Visual Studio 2012 directement depuis un référentiel Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Montre comment déployer un projet Web ASP.NET dans Visual Studio, en utilisant le plug-in Git pour valider le code sur Git et connecter Azure au référentiel Git.
 
@@ -88,9 +88,9 @@ Pour plus d'informations sur le déploiement dans des sites Web Azure depuis Vis
 
 Pour plus d'informations sur le déploiement dans des sites Web Azure depuis WebMatrix, consultez les ressources suivantes :
 
--   [Développement et déploiement d'un site Web avec Microsoft WebMatrix](http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-using-webmatrix/). Montre comment créer un site Web ASP.NET simple en utilisant un modèle WebMatrix et en le déployant sur un site Web Azure en utilisant WebMatrix et Web Deploy.
--   [Génération et déploiement d'un site Web Node.js dans Azure avec WebMatrix](http://www.windowsazure.com/en-us/documentation/articles/web-sites-nodejs-use-webmatrix/).
--   [Création et déploiement d'un site Web Azure PHP-MySQL avec WebMatrix](http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-use-webmatrix/).
+-   [Développement et déploiement d'un site Web avec Microsoft WebMatrix](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-dotnet-using-webmatrix/). Montre comment créer un site Web ASP.NET simple en utilisant un modèle WebMatrix et en le déployant sur un site Web Azure en utilisant WebMatrix et Web Deploy.
+-   [Génération et déploiement d'un site Web Node.js dans Azure avec WebMatrix](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-nodejs-use-webmatrix/).
+-   [Création et déploiement d'un site Web Azure PHP-MySQL avec WebMatrix](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-php-mysql-use-webmatrix/).
 -   [WebMatrix 3 : Git intégré et déploiement dans Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). Utilisation de WebMatrix pour procéder au déploiement depuis un référentiel de contrôle de code source Git.
 
 Déploiement à l'aide d'un utilitaire FTP
@@ -102,8 +102,8 @@ Bien que les utilitaires FTP permettent de copier facilement vos fichiers de sit
 
 Pour plus d'informations, consultez les ressources suivantes :
 
--   [Création et déploiement d'un site Web Azure PHP-MySQL avec FTP](/en-us/documentation/articles/web-sites-php-mysql-deploy-use-ftp/).
--   [Gestion des sites Web](http://www.windowsazure.com/en-us/documentation/articles/web-sites-manage/). Contient des informations supplémentaires non incluses dans le didacticiel sur la configuration des informations d'identification FTP. Consultez les commentaires en base de page pour obtenir les informations manquantes dans le document sur l'obtention des informations d'identification.
+-   [Création et déploiement d'un site Web Azure PHP-MySQL avec FTP](/fr-fr/documentation/articles/web-sites-php-mysql-deploy-use-ftp/).
+-   [Gestion des sites Web](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-manage/). Contient des informations supplémentaires non incluses dans le didacticiel sur la configuration des informations d'identification FTP. Consultez les commentaires en base de page pour obtenir les informations manquantes dans le document sur l'obtention des informations d'identification.
 
 Déploiement à partir d'un système de contrôle du code source local
 ------------------------------------------------------------------
@@ -124,7 +124,7 @@ Dans Azure, vous pouvez entrer l'URL de n'importe quel référentiel utilisant G
 
 Pour plus d'informations, consultez les ressources suivantes :
 
--   [Publication à partir du contrôle de code source sur des sites Web Azure](/en-us/documentation/articles/web-sites-publish-source-control/). Permet d'apprendre à utiliser Git pour publier directement à partir de votre ordinateur local sur un site Web Azure (dans Azure, cette méthode de publication est appelée Git local). Montre également comment activer le déploiement continu de référentiels Git à partir de GitHub, CodePlex ou BitBucket.
+-   [Publication à partir du contrôle de code source sur des sites Web Azure](/fr-fr/documentation/articles/web-sites-publish-source-control/). Permet d'apprendre à utiliser Git pour publier directement à partir de votre ordinateur local sur un site Web Azure (dans Azure, cette méthode de publication est appelée Git local). Montre également comment activer le déploiement continu de référentiels Git à partir de GitHub, CodePlex ou BitBucket.
 -   [Publication vers des sites Web Azure à partir de n'importe quel référentiel git/hg repo](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html). Blog tenu par David Ebbo qui détaille la fonctionnalité « Référenciel externe » des sites Web Azure.
 -   [Forum Azure pour Git, Mercurial et DropBox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
 -   [Déploiement de DEUX sites Web sur Azure à partir d'un référentiel Git](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx). Billet de blog de Scott Hanselman.
@@ -155,7 +155,7 @@ Pour plus d'informations, consultez les ressources suivantes :
 
 ### Windows PowerShell
 
-Vous pouvez utiliser des fonctions MSBuild ou FTP à partir de [Windows PowerShell](http://msdn.microsoft.com/en-us/library/dd835506.aspx). Ce faisant, vous pouvez également utiliser une collection de cmdlets Windows PowerShell facilitant l'appel de l'API de gestion REST Azure.
+Vous pouvez utiliser des fonctions MSBuild ou FTP à partir de [Windows PowerShell](http://msdn.microsoft.com/fr-fr/library/dd835506.aspx). Ce faisant, vous pouvez également utiliser une collection de cmdlets Windows PowerShell facilitant l'appel de l'API de gestion REST Azure.
 
 Pour plus d'informations, consultez les ressources suivantes :
 
@@ -191,5 +191,5 @@ Pour plus d'informations, consultez les ressources suivantes :
 Étapes suivantes
 ----------------
 
-Pour plus d'informations, consultez la section Déploiement de la [documentation des sites Web Azure](/en-us/documentation/services/web-sites/).
+Pour plus d'informations, consultez la section Déploiement de la [documentation des sites Web Azure](/fr-fr/documentation/services/web-sites/).
 

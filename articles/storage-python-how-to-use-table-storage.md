@@ -142,6 +142,6 @@ Le code suivant permet de supprimer une table d'un compte de stockage.
 
 Maintenant que vous avez acquis les bases du stockage de tables, suivez ces liens pour savoir comment effectuer des tâches de stockage plus complexes.
 
--   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+-   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx)
 -   [Consultez le blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 

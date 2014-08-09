@@ -1,4 +1,4 @@
-<properties linkid="script-xplat-intro" urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
+<properties linkid="script-xplat-intro" urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/fr-fr/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
 
 Installation et configuration de l'interface de ligne de commande interplateforme Azure
 =======================================================================================
@@ -96,13 +96,13 @@ Pour vous aider à choisir la méthode d'authentification adaptée à vos besoin
     >
     > 5.  Pour finir, déconnectez-vous du portail Azure et reconnectez-vous en utilisant le nouveau compte professionnel. Si vous vous connectez pour la première fois avec ce compte, vous êtes invité à changer le mot de passe.
     >
-    > Pour plus d'informations sur les comptes professionnels avec Microsoft Azure, consultez la page [Inscription à Microsoft Azure en tant qu'organisation](http://www.windowsazure.com/en-us/documentation/articles/sign-up-organization/).
+    > Pour plus d'informations sur les comptes professionnels avec Microsoft Azure, consultez la page [Inscription à Microsoft Azure en tant qu'organisation](http://www.windowsazure.com/fr-fr/documentation/articles/sign-up-organization/).
 
 -   La méthode basée sur un fichier de paramètres de publication installe un certificat qui vous permet d'exécuter les tâches de gestion pendant toute la durée de validité de l'abonnement et du certificat. Cette méthode facilite l'automatisation des tâches de longue durée. Une fois les informations téléchargées et importées, vous n'avez plus besoin de les fournir de nouveau. Elle complique cependant la gestion de l'accès à un abonnement, car quiconque a accès au certificat peut gérer l'abonnement.
 
-Pour plus d'informations sur la gestion de l'authentification et de l'abonnement, consultez la rubrique [« Quelle est la différence entre l'authentification basée sur les comptes et l'authentification basée sur les certificats ? »](http://msdn.microsoft.com/en-us/library/windowsazure/hh531793.aspx#BKMK_AccountVCert).
+Pour plus d'informations sur la gestion de l'authentification et de l'abonnement, consultez la rubrique [« Quelle est la différence entre l'authentification basée sur les comptes et l'authentification basée sur les certificats ? »](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh531793.aspx#BKMK_AccountVCert).
 
-Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E).
+Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A7171371E).
 
 ### Utilisation de la méthode par connexion
 
@@ -253,7 +253,7 @@ Pour repasser en mode Azure Service Management, utilisez la commande suivante :
 
 > [WACOM.NOTE] Le mode Gestionnaire de ressources et le mode Azure Service Management s'excluent mutuellement. En d'autres termes, les ressources créées dans un mode ne peuvent pas être gérées dans l'autre mode.
 
-Pour plus d'informations sur l'utilisation du gestionnaire de ressources avec l'interface xplat-cli, consultez la page [Utilisation de l'interface de ligne de commande interplateforme Azure avec le gestionnaire de ressources](/en-us/documentation/articles/xplat-cli-azure-resource-manager/).
+Pour plus d'informations sur l'utilisation du gestionnaire de ressources avec l'interface xplat-cli, consultez la page [Utilisation de l'interface de ligne de commande interplateforme Azure avec le gestionnaire de ressources](/fr-fr/documentation/articles/xplat-cli-azure-resource-manager/).
 
 ### Utilisation des services en mode Azure Service Management
 

@@ -99,6 +99,6 @@ Au lieu de l'exécution PHP par défaut, Sites Web Azure peut utiliser une exéc
 
 Maintenant que vous avez appris à configurer PHP dans Sites Web Azure, suivez les liens ci-dessous pour découvrir d'autres tâches.
 
--   [Configuration, surveillance et mise à l'échelle de vos sites Web dans Azure](http://www.windowsazure.com/en-us/manage/services/web-sites/)
--   [Téléchargement du Kit de développement logiciel (SDK) Azure pour PHP](http://www.windowsazure.com/en-us/develop/php/common-tasks/download-php-sdk/)
+-   [Configuration, surveillance et mise à l'échelle de vos sites Web dans Azure](http://www.windowsazure.com/fr-fr/manage/services/web-sites/)
+-   [Téléchargement du Kit de développement logiciel (SDK) Azure pour PHP](http://www.windowsazure.com/fr-fr/develop/php/common-tasks/download-php-sdk/)
 

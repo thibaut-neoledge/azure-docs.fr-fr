@@ -10,7 +10,7 @@
 
 	Un nouvel enregistrement Windows Store est créé pour votre application.
 
-3.  Dans Visual Studio 2012 Express pour Windows 8, ouvrez le projet que vous avez créé lorsque vous avez suivi le didacticiel [Prise en main de Mobile Services](/en-us/documentation/articles/mobile-services-windows-store-get-started/).
+3.  Dans Visual Studio 2012 Express pour Windows 8, ouvrez le projet que vous avez créé lorsque vous avez suivi le didacticiel [Prise en main de Mobile Services](/fr-fr/documentation/articles/mobile-services-windows-store-get-started/).
 
 4.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet, cliquez sur **Store**, puis sur **Associer l'application au Windows Store...**.
 

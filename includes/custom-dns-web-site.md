@@ -3,7 +3,7 @@
 
 Lorsque vous créez un site Web, Azure fournit un nom de sous-domaine convivial au sein du domaine azurewebsites.net. Ainsi, vos utilisateurs peuvent accéder à votre site Web en tapant une URL de type http://<monsite>.azurewebsites.net. Toutefois, si vous configurez vos sites Web en mode Partagé ou Standard, vous pouvez mapper votre site Web à votre nom de domaine.
 
-Vous pouvez éventuellement utiliser Azure Traffic Manager pour équilibrer le trafic entrant vers votre site Web. Pour plus d'informations sur le fonctionnement du Traffic Manager avec les sites Web, consultez [Contrôle du trafic des sites Web Azure avec Azure Traffic Manager](/en-us/documentation/articles/web-sites-traffic-manager/).
+Vous pouvez éventuellement utiliser Azure Traffic Manager pour équilibrer le trafic entrant vers votre site Web. Pour plus d'informations sur le fonctionnement du Traffic Manager avec les sites Web, consultez [Contrôle du trafic des sites Web Azure avec Azure Traffic Manager](/fr-fr/documentation/articles/web-sites-traffic-manager/).
 
 > [WACOM.NOTE] Les procédures décrites ici s'appliquent aux sites Web Azure. Pour les services cloud, consultez la page [Configuration d'un nom de domaine personnalisé dans Azure][1].
 
@@ -39,7 +39,7 @@ sous-domaines, tels que **mail.contoso.com**, **login.contoso.com** ou **www.con
 
 > [WACOM.NOTE] L'enregistrement A étant associé à une adresse IP statique, les changements d'adresse IP de votre site Web ne sont donc pas pris en compte automatiquement. Une adresse IP à utiliser avec les enregistrements A est fournie lors de la configuration des paramètres de nom de domaine personnalisé de votre site Web. Cette valeur est toutefois susceptible d'être modifiée si vous supprimez et recréez votre site Web ou que vous passez à nouveau votre site Web en mode Gratuit.
 
-> [WACOM.NOTE] Les enregistrements A ne peuvent pas être utilisé pour équilibrer la charge avec Traffic Manager. Pour plus d'informations, consultez [Contrôle du trafic des sites Web Azure avec Azure Traffic Manager](/en-us/documentation/articles/web-sites-traffic-manager/).
+> [WACOM.NOTE] Les enregistrements A ne peuvent pas être utilisé pour équilibrer la charge avec Traffic Manager. Pour plus d'informations, consultez [Contrôle du trafic des sites Web Azure avec Azure Traffic Manager](/fr-fr/documentation/articles/web-sites-traffic-manager/).
 
 <a name="bkmk_configsharedmode"></a>
 <h2>Configuration de vos sites Web en mode Partagé ou Standard</h2>
@@ -341,16 +341,16 @@ Une fois la configuration terminée, le nom de domaine personnalisé est répert
 
 
 
-[1]: http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/
-[2]: http://www.windowsazure.com/en-us/pricing/details/web-sites/
+[1]: http://www.windowsazure.com/fr-fr/develop/net/common-tasks/custom-dns/
+[2]: http://www.windowsazure.com/fr-fr/pricing/details/web-sites/
 [3]: http://en.wikipedia.org/wiki/CNAME_record
 [4]: http://tools.ietf.org/html/rfc1035
 [5]: https://www.windowsazure.com/en-us/pricing/details/
 [6]: http://manage.windowsazure.com
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/dn339012.aspx
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/hh744839.aspx
-[9]: http://www.windowsazure.com/en-us/manage/install-and-configure-windows-powershell/
-[10]: http://www.windowsazure.com/en-us/manage/install-and-configure-cli/
+[7]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn339012.aspx
+[8]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh744839.aspx
+[9]: http://www.windowsazure.com/fr-fr/manage/install-and-configure-windows-powershell/
+[10]: http://www.windowsazure.com/fr-fr/manage/install-and-configure-cli/
 [11]: http://www.digwebinterface.com/
-[12]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-manage-websites/
-[13]: http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/
+[12]: http://www.windowsazure.com/fr-fr/manage/services/web-sites/how-to-manage-websites/
+[13]: http://www.windowsazure.com/fr-fr/develop/net/common-tasks/enable-ssl-web-site/

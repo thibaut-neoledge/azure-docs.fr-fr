@@ -150,5 +150,5 @@ Vous pouvez par exemple utiliser l'URI suivant pour accéder à un formulaire W
 Ressources supplémentaires
 --------------------------
 
--   [Mappage du contenu CDN à un domaine personnalisé](http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx)
+-   [Mappage du contenu CDN à un domaine personnalisé](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg680307.aspx)
 

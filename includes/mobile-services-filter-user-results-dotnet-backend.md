@@ -12,7 +12,7 @@ Maintenant que l'authentification est requise pour accéder aux données de la t
 
          public string UserId { get; set; }
 
-    > [WACOM.NOTE] Lors de l'utilisation de l'initialiseur de base de données par défaut, Entity Framework supprime et recrée la base de données lorsqu'il détecte une modification du modèle de données dans la définition du modèle Code First. Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les migrations Code First. L'initialiseur par défaut ne peut pas être utilisé avec une base de données SQL dans Azure. Pour plus d'informations, consultez l'article [Utilisation des migrations Code First pour mettre à jour le modèle de données](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).
+    > [WACOM.NOTE] Lors de l'utilisation de l'initialiseur de base de données par défaut, Entity Framework supprime et recrée la base de données lorsqu'il détecte une modification du modèle de données dans la définition du modèle Code First. Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les migrations Code First. L'initialiseur par défaut ne peut pas être utilisé avec une base de données SQL dans Azure. Pour plus d'informations, consultez l'article [Utilisation des migrations Code First pour mettre à jour le modèle de données](/fr-fr/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).
 
 3.  Dans l'Explorateur de solutions, développez le dossier Contrôleurs, ouvrez le fichier projet TodoItemController.cs et ajoutez l'instruction **using** suivante :
 

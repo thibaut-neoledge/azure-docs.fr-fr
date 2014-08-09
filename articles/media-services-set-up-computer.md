@@ -75,5 +75,5 @@ Maintenant que vous avez configuré votre ordinateur et créé une solution Visu
 
 
 
-[1]: http://www.windowsazure.com/en-us/manage/services/media-services/how-to-create-a-media-services-account/
+[1]: http://www.windowsazure.com/fr-fr/manage/services/media-services/how-to-create-a-media-services-account/
 [2]: http://nuget.org/packages/windowsazure.mediaservices

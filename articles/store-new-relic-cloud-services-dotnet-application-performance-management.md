@@ -17,7 +17,7 @@ Tarification spéciale New Relic par l'intermédiaire d'Azure Store
 
 New Relic Standard est gratuit pour les utilisateurs d'Azure, New Relic Pro est fourni selon la taille d'instance d'Azure Cloud Services
 
-Pour des informations de tarification, consultez la [page New Relic dans l'Azure Store](http://www.windowsazure.com/en-us/gallery/store/new-relic/new-relic/).
+Pour des informations de tarification, consultez la [page New Relic dans l'Azure Store](http://www.windowsazure.com/fr-fr/gallery/store/new-relic/new-relic/).
 
 **Remarque :**
 

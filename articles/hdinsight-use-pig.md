@@ -18,7 +18,7 @@ Pour plus d'informations sur Pig Latin, consultez les pages [Manuel de référen
 Notez la configuration requise avant de commencer la lecture de cet article :
 
 -   Un cluster Azure HDInsight. Pour obtenir des instructions, consultez le didacticiel [Prise en main d'Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/) ou la rubrique [Mise en service de clusters HDInsight](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/).
--   Installez et configurez Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+-   Installez et configurez Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/fr-fr/documentation/articles/install-configure-powershell/).
 
 **Durée de réalisation estimée :** 30 minutes
 
@@ -173,7 +173,7 @@ Cette section contient des instructions sur l'utilisation des cmdlets PowerShell
 
 **Exécution de Pig Latin avec PowerShell**
 
-1.  Ouvrez une fenêtre de console Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+1.  Ouvrez une fenêtre de console Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/fr-fr/documentation/articles/install-configure-powershell/).
 2.  Exécutez la commande suivante pour vous connecter à votre abonnement Azure :
 
         Add-AzureAccount

@@ -21,17 +21,17 @@ Le tableau suivant vous indique le nom et la description de chaque processeur mu
     <tr>
        <td>Encodeur multimédia Azure</td>
        <td>Vous permet d'exécuter des tâches d'encodage avec l'Encodeur multimédia.</td>
-       <td><a href="http://msdn.microsoft.com/en-us/library/jj129582.aspx"> Chaînes de présélection des tâches pour l'Encodeur multimédia Azure</a></td>
+       <td><a href="http://msdn.microsoft.com/fr-fr/library/jj129582.aspx"> Chaînes de présélection des tâches pour l'Encodeur multimédia Azure</a></td>
     </tr>
     <tr>
         <td>Azure Media Packager</td>
         <td>Vous permet de convertir des éléments multimédias du format .mp4 vers un format de diffusion en continu. Permet également de convertir des éléments multimédias de diffusion en continu au format HLS (HTTP Live Streaming) d'Apple.</td>
-		<td><a href="http://msdn.microsoft.com/en-us/library/hh973635.aspx">Chaînes de présélection des tâches pour Azure Media Packager</a></td>
+		<td><a href="http://msdn.microsoft.com/fr-fr/library/hh973635.aspx">Chaînes de présélection des tâches pour Azure Media Packager</a></td>
     </tr>
     <tr>
         <td>Azure Media Encryptor</td>
         <td>Vous permet de chiffrer des éléments multimédias avec PlayReady Protection.</td>
-        <td><a href="http://msdn.microsoft.com/en-us/library/hh973610.aspx">Chaînes de présélection des tâches pour Azure Media Packager</a></td>
+        <td><a href="http://msdn.microsoft.com/fr-fr/library/hh973610.aspx">Chaînes de présélection des tâches pour Azure Media Packager</a></td>
     </tr>
     <tr>
         <td>Storage Decryption</td>
@@ -43,7 +43,7 @@ Le tableau suivant vous indique le nom et la description de chaque processeur mu
 
 <br />
 
-La méthode suivante montre comment obtenir une instance de processeur multimédia. L'exemple de code implique l'utilisation d'une variable au niveau du module, nommée **\_context**, pour conserver une référence au contexte, tel que décrit dans la section [Connexion à Media Services par programme](http://www.windowsazure.com/en-us/develop/media-services/how-to-guides/set-up-computer-for-media-services)
+La méthode suivante montre comment obtenir une instance de processeur multimédia. L'exemple de code implique l'utilisation d'une variable au niveau du module, nommée **\_context**, pour conserver une référence au contexte, tel que décrit dans la section [Connexion à Media Services par programme](http://www.windowsazure.com/fr-fr/develop/media-services/how-to-guides/set-up-computer-for-media-services)
 
 ``` {}
 private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)

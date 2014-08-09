@@ -26,7 +26,7 @@ Sommaire
 Création d'une application Node.js
 ----------------------------------
 
-Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/), [Service cloud Node.js](/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/) (avec Windows PowerShell) ou [Site Web avec WebMatrix](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/).
+Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/), [Service cloud Node.js](/fr-fr/documentation/articles/cloud-services-nodejs-develop-deploy-app/) (avec Windows PowerShell) ou [Site Web avec WebMatrix](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/).
 
 Configuration de votre application pour l'utilisation de Service Bus
 --------------------------------------------------------------------
@@ -136,7 +136,7 @@ Le filtre **MatchAll** est le filtre utilisé par défaut si aucun filtre n'est 
 
 Vous pouvez également configurer des filtres pour spécifier quels sont les messages, parmi ceux envoyés à une rubrique, qui doivent apparaître dans un abonnement de rubrique spécifique.
 
-Parmi les types de filtre pris en charge par les abonnements, **SqlFilter** est le plus flexible ; il implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus de détails sur les expressions utilisables avec un filtre SQL, examinez la syntaxe[SqlFilter.SqlExpression](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx).
+Parmi les types de filtre pris en charge par les abonnements, **SqlFilter** est le plus flexible ; il implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus de détails sur les expressions utilisables avec un filtre SQL, examinez la syntaxe[SqlFilter.SqlExpression](http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx).
 
 Il est possible d'ajouter des filtres à un abonnement en utilisant la méthode **createRule** de l'objet **ServiceBusService**. Cette méthode vous permet d'ajouter de nouveaux filtres à un abonnement existant.
 
@@ -301,7 +301,7 @@ La suppression d'une rubrique a également pour effet de supprimer les abonnemen
 
 Maintenant que vous avez appris les principes de base des rubriques Service Bus, consultez ces liens pour en savoir plus :
 
--   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements](http://msdn.microsoft.com/en-us/library/hh367516.aspx).
--   Référence d'API pour [SqlFilter](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx).
+-   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements](http://msdn.microsoft.com/fr-fr/library/hh367516.aspx).
+-   Référence d'API pour [SqlFilter](http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx).
 -   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Node](https://github.com/WindowsAzure/azure-sdk-for-node) sur GitHub.
 

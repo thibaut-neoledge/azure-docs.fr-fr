@@ -1,4 +1,4 @@
-<properties linkid="script-xplat-intro" urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" title="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaKeywords="windows azure cross-platform command-line interface Resource Manager, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
+<properties linkid="script-xplat-intro" urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" title="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaKeywords="windows azure cross-platform command-line interface Resource Manager, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaCanonical="http://www.windowsazure.com/fr-fr/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
 
 Utilisation de l'interface de ligne de commande interplateforme Azure avec le Gestionnaire de ressources
 ========================================================================================================
@@ -7,7 +7,7 @@ Nous avons récemment introduit une version préliminaire du Gestionnaire de res
 
 > [WACOM.NOTE] Le Gestionnaire de ressources en est actuellement au stade préliminaire et ne fournit pas des capacités de gestion du même niveau qu'Azure Service Management.
 
-> [WACOM.NOTE] Si vous n'avez pas encore installé et configuré xplat-cli, consultez la rubrique [Installation et configuration de l'interface de ligne de commande interplateforme Azure](/en-us/documentation/articles/xplat-cli/) pour connaître les procédures d'installation, de configuration et d'utilisation de xplat-cli.
+> [WACOM.NOTE] Si vous n'avez pas encore installé et configuré xplat-cli, consultez la rubrique [Installation et configuration de l'interface de ligne de commande interplateforme Azure](/fr-fr/documentation/articles/xplat-cli/) pour connaître les procédures d'installation, de configuration et d'utilisation de xplat-cli.
 
 Gestionnaire de ressources
 --------------------------
@@ -27,7 +27,7 @@ Authentification
 
 Actuellement, pour utiliser le Gestionnaire de ressources avec l'interface xplat-cli, vous devez vous authentifier sur Microsoft Azure en utilisant un compte professionnel. L'authentification avec un compte Microsoft ou un certificat installé avec un fichier .publishsettings ne fonctionne pas.
 
-Pour plus d'informations sur l'authentification en utilisant un compte professionnel, consultez la page [Installation et configuration de l'interface de ligne de commande interplateforme Azure](/en-us/documentation/articles/xplat-cli/).
+Pour plus d'informations sur l'authentification en utilisant un compte professionnel, consultez la page [Installation et configuration de l'interface de ligne de commande interplateforme Azure](/fr-fr/documentation/articles/xplat-cli/).
 
 Utilisation de groupes et de modèles
 ------------------------------------
@@ -162,6 +162,6 @@ Pour afficher les informations de journalisation sur les opérations effectuées
 Étapes suivantes
 ----------------
 
--   Pour plus d'informations sur l'utilisation de l'interface de ligne de commande interplateforme Azure, consultez la rubrique [Installation et configuration de l'interface de ligne de commande interplateforme Azure](/en-us/documentation/articles/xplat-cli/).
+-   Pour plus d'informations sur l'utilisation de l'interface de ligne de commande interplateforme Azure, consultez la rubrique [Installation et configuration de l'interface de ligne de commande interplateforme Azure](/fr-fr/documentation/articles/xplat-cli/).
 -   Pour plus d'informations sur l'utilisation du Gestionnaire de ressources avec Windows Azure PowerShell, consultez la rubrique [Prise en main de l'utilisation de Windows PowerShell avec le Gestionnaire de ressources](http://go.microsoft.com/fwlink/?LinkId=394760).
 

@@ -14,31 +14,31 @@ Découvrez comment implémenter les modèles de conception courants dans Azure.
 Modèles de conception
 ---------------------
 
-### [Consommateurs concurrents](http://msdn.microsoft.com/en-us/library/dn568101.aspx)
+### [Consommateurs concurrents](http://msdn.microsoft.com/fr-fr/library/dn568101.aspx)
 
 ![Consommateurs concurrents](./media/architecture-overview/CompetingConsumers.png)
 
 Autorisez plusieurs consommateurs concurrents à traiter les messages reçus sur le même canal de messagerie. Ce modèle permet à un système de traiter plusieurs messages simultanément pour optimiser le débit, améliorer l'extensibilité et la disponibilité, et équilibrer la charge de travail.
 
-### [Répartition de la responsabilité des requêtes et commandes](http://msdn.microsoft.com/en-us/library/dn568103.aspx)
+### [Répartition de la responsabilité des requêtes et commandes](http://msdn.microsoft.com/fr-fr/library/dn568103.aspx)
 
 ![Répartition de la responsabilité des requêtes et commandes](./media/architecture-overview/CQRS.png)
 
 Faites la distinction entre les opérations qui lisent des données et celles qui les mettent à jour en utilisant des interfaces distinctes. Ce modèle permet d'optimiser les performances, l'extensibilité et la sécurité, de prendre en charge l'évolution du système au fil du temps grâce à une flexibilité accrue et d'empêcher les commandes de mise à jour d'entraîner des conflits de fusion au niveau du domaine.
 
-### [Choix de l'instance responsable](http://msdn.microsoft.com/en-us/library/dn568104.aspx)
+### [Choix de l'instance responsable](http://msdn.microsoft.com/fr-fr/library/dn568104.aspx)
 
 ![Choix de l'instance responsable](./media/architecture-overview/LeaderElection.png)
 
 Coordonnez les actions réalisées par un ensemble d'instances de tâche collaborant dans une application distribuée en choisissant l'une de ces instances comme responsable chargée de la gestion des autres instances. Ce modèle permet de s'assurer que les instances de tâche n'entrent pas en conflit les unes avec les autres, n'entraînent pas la contention des ressources partagées ou n'interfèrent pas de manière accidentelle avec le travail effectué par d'autres instances de tâche.
 
-### [Canaux et filtres](http://msdn.microsoft.com/en-us/library/dn568100.aspx)
+### [Canaux et filtres](http://msdn.microsoft.com/fr-fr/library/dn568100.aspx)
 
 ![Canaux et filtres](./media/architecture-overview/PipesAndFilters.png)
 
 Décomposez une tâche qui effectue un traitement complexe en une série d'éléments distincts pouvant être réutilisés. Ce modèle permet d'améliorer les performances, l'extensibilité et la réutilisabilité en autorisant le déploiement et l'extensibilité des éléments de tâche qui effectuent le traitement de manière indépendante.
 
-### [Clé valet](http://msdn.microsoft.com/en-us/library/dn568102.aspx)
+### [Clé valet](http://msdn.microsoft.com/fr-fr/library/dn568102.aspx)
 
 ![Clé valet](./media/architecture-overview/ValetKey.png)
 
@@ -46,5 +46,5 @@ Utilisez un jeton ou une clé qui fournit aux clients un accès direct restreint
 
 ### Conseils supplémentaires
 
-Pour plus d'informations sur les modèles de conception courants dans Azure, consultez la page [Modèles de conception du cloud](http://msdn.microsoft.com/en-us/library/dn568099.aspx).
+Pour plus d'informations sur les modèles de conception courants dans Azure, consultez la page [Modèles de conception du cloud](http://msdn.microsoft.com/fr-fr/library/dn568099.aspx).
 

@@ -5,7 +5,7 @@ Création et déploiement d'une application Node.js dans Azure Cloud Services
 
 À la fin de ce guide, vous disposerez d'une application Node.js simple qui s'exécute dans Azure Cloud Services. Les services de cloud computing sont les blocs de construction des applications cloud extensibles dans Azure. Ils permettent de séparer, de gérer et d'étendre de façon indépendante le composant frontal et le composant principal de votre application. Cloud Services héberge de façon fiable chaque rôle sur une machine virtuelle dédiée.
 
-Pour plus d'informations sur Cloud Services et pour connaître les différences avec Sites Web Azure et Azure Virtual Machines, consultez la page [Sites Web, services cloud et machines virtuelles Azure : que choisir ?](http://msdn.microsoft.com/en-us/library/windowsazure/jj218759.aspx)
+Pour plus d'informations sur Cloud Services et pour connaître les différences avec Sites Web Azure et Azure Virtual Machines, consultez la page [Sites Web, services cloud et machines virtuelles Azure : que choisir ?](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj218759.aspx)
 
 **Vous voulez juste un site Web ?**
 
@@ -15,7 +15,7 @@ Dans ce didacticiel, vous allez créer une application Web simple, hébergée da
 
 Voici une capture d'écran de l'application terminée :
 
-![Une fenêtre de navigateur affichant la page hello world. L'URL indique que la page est hébergée sur Azure.](https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png)
+![Une fenêtre de navigateur affichant la page hello world. L'URL indique que la page est hébergée sur Azure.](https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/fr-fr/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png)
 
 Création d'une application Node
 -------------------------------
@@ -46,7 +46,7 @@ Effectuez les tâches suivantes pour créer un projet Azure Cloud Services, avec
 
     -   **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** et **ServiceDefinition.csdef** sont des fichiers propres à Azure, nécessaires à la publication de votre application.
 
-    Pour plus d'informations sur ces fichiers, consultez la page [Présentation de la création d'un service hébergé pour Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx).
+    Pour plus d'informations sur ces fichiers, consultez la page [Présentation de la création d'un service hébergé pour Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj155995.aspx).
 
     -   **deploymentSettings.json** stocke les paramètres locaux utilisés par les cmdlets de déploiement Azure PowerShell.
 
@@ -141,7 +141,7 @@ Afin de déployer votre application sur Azure, vous devez télécharger les para
 
 3.  Elle crée un **compte de stockage**, si celui-ci n'existe pas. Le compte de stockage Azure permet de stocker le package de l'application au cours du déploiement. Vous pouvez supprimer en toute sécurité le compte de stockage une fois le déploiement terminé.
 
-4.  Elle crée un **service cloud**, si celui-ci n'existe pas. Le **service cloud** est le conteneur dans lequel votre application est hébergée lorsqu'elle est déployée sur Azure. Pour plus d'informations, consultez la page [Présentation de la création d'un service hébergé pour Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx).
+4.  Elle crée un **service cloud**, si celui-ci n'existe pas. Le **service cloud** est le conteneur dans lequel votre application est hébergée lorsqu'elle est déployée sur Azure. Pour plus d'informations, consultez la page [Présentation de la création d'un service hébergé pour Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj155995.aspx).
 
 5.  Elle publie le package de déploiement sur Azure.
 
@@ -179,13 +179,13 @@ Après avoir déployé votre application, vous pouvez la désactiver afin de vou
 
     **Remarque**
 
-    La suppression du service ne supprime pas le compte de stockage qui a été créé lors de la publication initiale du service. Le stockage utilisé continuera à vous être facturé. Pour plus d'informations sur la suppression d'un compte de stockage, consultez la page [Suppression d'un compte de stockage d'un abonnement Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx).
+    La suppression du service ne supprime pas le compte de stockage qui a été créé lors de la publication initiale du service. Le stockage utilisé continuera à vous être facturé. Pour plus d'informations sur la suppression d'un compte de stockage, consultez la page [Suppression d'un compte de stockage d'un abonnement Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh531562.aspx).
 
 [The Windows Start menu with the Azure SDK Node.js entry expanded]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png
 [mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png
 [nodejs.org]: http://nodejs.org/
 [A directory listing of the helloworld folder.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-7.png
-[Overview of Creating a Hosted Service for Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
+[Overview of Creating a Hosted Service for Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj155995.aspx
 [A directory listing of the WebRole1 folder]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-8.png
 [The menu displayed when right-clicking the Azure emulator from the task bar.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-11.png
 [A browser window displaying http://www.windowsazure.com/ with the Free Trial link highlighted]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-12.png

@@ -7,7 +7,7 @@ Cette rubrique vous explique comment utiliser Azure Cache Service (Preview) pour
 
 En l'absence de fournisseur externe, l'état de session est stocké en cours de processus sur le serveur Web qui héberge le site. S'agissant de Sites Web Azure, deux problèmes affectent l'état de session en cours de processus. Tout d'abord, dans le cas des sites comportant plusieurs instances, l'état de session stocké sur une instance n'est pas accessible aux autres. Dans la mesure où une demande utilisateur peut être acheminée vers n'importe quelle instance, rien ne garantit que les informations de session se trouveront à cet endroit. Ensuite, tout changement de configuration peut entraîner l'exécution du site Web sur un serveur complètement différent.
 
-Azure Cache Service (Preview) fournit un service de mise en cache distribuée externe au site Web. Cela permet de remédier au problème affectant l'état de session en cours de processus. Pour plus d'informations sur l'utilisation de l'état de session, consultez la page [Vue d'ensemble de l'état de session ASP.NET](http://msdn.microsoft.com/en-us/library/ms178581.aspx).
+Azure Cache Service (Preview) fournit un service de mise en cache distribuée externe au site Web. Cela permet de remédier au problème affectant l'état de session en cours de processus. Pour plus d'informations sur l'utilisation de l'état de session, consultez la page [Vue d'ensemble de l'état de session ASP.NET](http://msdn.microsoft.com/fr-fr/library/ms178581.aspx).
 
 La procédure de base pour utiliser Cache Service (Preview) pour la mise en cache de l'état de session comprend les étapes suivantes :
 
@@ -38,7 +38,7 @@ Création du cache
 Configuration du projet ASP.NET
 -------------------------------
 
-1.  Vérifiez tout d'abord que vous avez bien [installé le](http://www.windowsazure.com/en-us/downloads/?sdk=net) **Kit de développement logiciel (SDK) Azure le plus récent pour .NET**.
+1.  Vérifiez tout d'abord que vous avez bien [installé le](http://www.windowsazure.com/fr-fr/downloads/?sdk=net) **Kit de développement logiciel (SDK) Azure le plus récent pour .NET**.
 
 2.  Cliquez avec le bouton droit sur le projet ASP.NET dans l'**Explorateur de solutions** de Visual Studio, puis sélectionnez **Manage NuGet Packages**. Si vous utilisez WebMatrix, cliquez plutôt sur le bouton **NuGet** dans la barre d'outils.
 
@@ -87,5 +87,5 @@ Le code suivant récupère cette valeur dans l'état de session.
     if (objValue != null)
        strValue = (string)obj;  
 
-Pour plus d'informations sur l'utilisation de l'état de session ASP.NET, consultez la page [Vue d'ensemble de l'état de session ASP.NET](http://msdn.microsoft.com/en-us/library/ms178581.aspx).
+Pour plus d'informations sur l'utilisation de l'état de session ASP.NET, consultez la page [Vue d'ensemble de l'état de session ASP.NET](http://msdn.microsoft.com/fr-fr/library/ms178581.aspx).
 

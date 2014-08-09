@@ -82,9 +82,9 @@ Pour réaliser les tâches présentées dans ce guide, vous avez besoin des él�
 -   IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Indigo ou ultérieur, disponible en téléchargement à l'adresse : <http://www.eclipse.org/downloads/>.
 -   Une distribution d'un serveur Web ou d'un serveur d'applications basé sur Java, tel que Apache Tomcat, GlassFish, JBoss Application Server ou Jetty.
 -   Un abonnement à Azure, pouvant être souscrit à l'adresse suivante : <http://www.microsoft.com/windowsazure/offers/>.
--   Le plug-in Azure pour Eclipse avec Java (par Microsoft Open Technologies) - Août 2012 CTP. Pour plus d'informations, consultez la page [Installation du plug-in Azure pour Eclipse avec Java (par Microsoft Open Technologies)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx).
+-   Le plug-in Azure pour Eclipse avec Java (par Microsoft Open Technologies) - Août 2012 CTP. Pour plus d'informations, consultez la page [Installation du plug-in Azure pour Eclipse avec Java (par Microsoft Open Technologies)](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh690946.aspx).
 -   Un certificat X509 à utiliser avec votre application. Vous avez besoin du certificat public (.cer) et de celui au format Personal Information Exchange (.PFX) (les instructions de création de ce certificat sont indiquées plus loin dans ce didacticiel).
--   Vous devez connaître l'émulateur de calcul Azure ainsi que les techniques de déploiement présentées dans la page [Création d'une application Hello World pour Azure dans Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx).
+-   Vous devez connaître l'émulateur de calcul Azure ainsi que les techniques de déploiement présentées dans la page [Création d'une application Hello World pour Azure dans Eclipse](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh690944.aspx).
 
 Création d'un espace de noms ACS
 --------------------------------
@@ -221,7 +221,7 @@ Déploiement de l'émulateur de calcul
 
 1.  Dans l'Explorateur de projets Eclipse, cliquez avec le bouton droit sur **MyACSHelloWorld**, cliquez sur **Azure**, puis sur **Package for Azure**.
 2.  Dans **Project name**, entrez **MyAzureACSProject**, puis cliquez sur **Suivant**.
-3.  Sélectionnez un JDK et un serveur d'applications. Ces étapes sont détaillées dans le didacticiel [Création d'une application Hello World pour Azure dans Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx).
+3.  Sélectionnez un JDK et un serveur d'applications. Ces étapes sont détaillées dans le didacticiel [Création d'une application Hello World pour Azure dans Eclipse](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh690944.aspx).
 4.  Cliquez sur **Terminer**.
 5.  Cliquez sur le bouton **Run in Azure Emulator**.
 6.  Lorsque votre application Web Java est lancée dans l'émulateur de calcul, fermez toutes les instances de votre navigateur (afin qu'aucune session de navigateur ne puisse perturber votre test de connexion à ACS).
@@ -256,11 +256,11 @@ Pour effectuer un déploiement sur Azure, vous devez changer le domaine de parti
 
 13. Cliquez sur **Terminer** pour fermer la boîte de dialogue **Edit Library**.
 14. Cliquez sur **OK** pour fermer la boîte de dialogue **Properties for MyACSHelloWorld**.
-15. Dans Eclipse, cliquez sur le bouton **Publish to Azure Cloud**. Répondez aux invites, comme expliqué dans la section **Déploiement de votre application dans Azure** de la rubrique [Création d'une application Hello World pour Azure dans Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx).
+15. Dans Eclipse, cliquez sur le bouton **Publish to Azure Cloud**. Répondez aux invites, comme expliqué dans la section **Déploiement de votre application dans Azure** de la rubrique [Création d'une application Hello World pour Azure dans Eclipse](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh690944.aspx).
 
 Une fois le déploiement de votre application Web terminé, fermez les sessions de navigateur en cours, exécutez votre application Web. Votre identifiant Windows Live ID doit vous être demandé. Vous êtes ensuite transféré vers l'URL de renvoi de votre application par partie de confiance.
 
-Lorsque vous avez terminé d'utiliser votre application ACS Hello World, n'oubliez pas de supprimer le déploiement (la rubrique [Création d'une application Hello World pour Azure dans Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx) explique comment procéder).
+Lorsque vous avez terminé d'utiliser votre application ACS Hello World, n'oubliez pas de supprimer le déploiement (la rubrique [Création d'une application Hello World pour Azure dans Eclipse](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh690944.aspx) explique comment procéder).
 
 Étapes suivantes
 ----------------

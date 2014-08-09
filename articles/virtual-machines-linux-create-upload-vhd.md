@@ -3,7 +3,7 @@
 Création et téléchargement d'un disque dur virtuel contenant le système d'exploitation Linux
 ============================================================================================
 
-Une machine virtuelle Azure exécute le système d'exploitation que vous avez choisi lors de sa création. Azure stocke le système d'exploitation d'une machine virtuelle dans un disque dur virtuel au format VHD (fichier .vhd). Le disque dur virtuel d'un système d'exploitation préparé pour la duplication est nommé « une image ». Cet article vous explique comment créer votre propre image en téléchargeant un fichier .vhd avec un système d'exploitation que vous avez installé et généralisé. Pour plus d'informations sur les disques et les images dans Azure, consultez la page [Gestion des disques et des images](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
+Une machine virtuelle Azure exécute le système d'exploitation que vous avez choisi lors de sa création. Azure stocke le système d'exploitation d'une machine virtuelle dans un disque dur virtuel au format VHD (fichier .vhd). Le disque dur virtuel d'un système d'exploitation préparé pour la duplication est nommé « une image ». Cet article vous explique comment créer votre propre image en téléchargeant un fichier .vhd avec un système d'exploitation que vous avez installé et généralisé. Pour plus d'informations sur les disques et les images dans Azure, consultez la page [Gestion des disques et des images](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj672979.aspx).
 
 **Remarque** : Lorsque vous créez une machine virtuelle, vous pouvez personnaliser les paramètres de son système d'exploitation pour faciliter l'exécution de votre application. La configuration que vous définissez pour une machine virtuelle est stockée sur un disque. Pour obtenir des instructions, consultez le guide [Création d'une machine virtuelle personnalisée](/en-us/manage/windows/how-to-guides/custom-create-a-vm/).
 
@@ -628,7 +628,7 @@ Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexio
 
     Où `<PathToFile>` correspond au chemin d'accès complet vers le fichier .publishsettings.
 
-    Pour plus d'informations, consultez la page [Prise en main des cmdlets Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx)
+    Pour plus d'informations, consultez la page [Prise en main des cmdlets Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554332.aspx)
 
 Étape 4 : téléchargement de l'image sur Azure
 ---------------------------------------------
@@ -641,7 +641,7 @@ Effectuez l'une des actions suivantes :
 
     `Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>`
 
-    Pour plus d'informations, consultez la page [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx).
+    Pour plus d'informations, consultez la page [Add-AzureVhd](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn205185.aspx).
 
 -   Utilisez l'outil en commande de ligne Linux pour télécharger l'image. La commande suivante permet de télécharger une image :
 

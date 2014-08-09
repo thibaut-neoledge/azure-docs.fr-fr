@@ -243,7 +243,7 @@ Dans ce didacticiel, vous avez appris à créer une application Web simple et à
 
 ### Autres méthodes de déploiement d'un projet Web
 
-Dans ce didacticiel, vous avez appris la méthode la plus rapide pour créer un site et le déployer en une opération. Pour découvrir d'autres méthodes de déploiement, en utilisant Visual Studio ou en [automatisant le déploiement][2] à partir d'un [système de contrôle de code source][3], consultez l'article [Déploiement d'un site Web Azure](/en-us/documentation/articles/web-sites-deploy/").
+Dans ce didacticiel, vous avez appris la méthode la plus rapide pour créer un site et le déployer en une opération. Pour découvrir d'autres méthodes de déploiement, en utilisant Visual Studio ou en [automatisant le déploiement][2] à partir d'un [système de contrôle de code source][3], consultez l'article [Déploiement d'un site Web Azure](/fr-fr/documentation/articles/web-sites-deploy/").
 
 Pour automatiser le déploiement, vous pouvez utiliser des scripts Windows PowerShell. Visual Studio et Azure simplifient cette tâche en générant des scripts PowerShell qui permettent d'effectuer les mêmes opérations de déploiement que dans Visual Studio. Pour en savoir plus, consultez la page [Tout automatiser (développement d'applications de cloud concrètes avec Azure)][4].
 

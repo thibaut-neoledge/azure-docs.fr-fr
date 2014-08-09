@@ -137,8 +137,8 @@ Le code suivant amorce seulement la colonne UserId :
 Ce code appelle la méthode d'extension de l'assistance [AddOrUpdate] pour ajouter des données d'amorçage à la nouvelle colonne UserId. Si [AddOrUpdate] est utilisé, aucune ligne en double n'est créée.
 
 [DropCreateDatabaseIfModelChanges]: http://msdn.microsoft.com/query/dev12.query?appId=Dev12IDEF1&l=EN-US&k=k("System.Data.Entity.DropCreateDatabaseIfModelChanges\`1");k(TargetFrameworkMoniker-.NETFramework,Version%3Dv4.5);k(DevLang-csharp)&rd=true 
-[Seed]: http://msdn.microsoft.com/en-us/library/hh829453(v=vs.113).aspx 
+[Seed]: http://msdn.microsoft.com/fr-fr/library/hh829453(v=vs.113).aspx 
 [Azure Management Portal]: https://manage.windowsazure.com/ 
-[DbContext]: http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.113).aspx 
-[AddOrUpdate]: http://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
+[DbContext]: http://msdn.microsoft.com/fr-fr/library/system.data.entity.dbcontext(v=vs.113).aspx 
+[AddOrUpdate]: http://msdn.microsoft.com/fr-fr/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
 

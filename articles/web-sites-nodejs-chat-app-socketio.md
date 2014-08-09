@@ -7,7 +7,7 @@ Socket.IO permet une communication en temps réel entre votre serveur node.js et
 
 **Remarque**
 
-Les procédures de cette tâche s'appliquent à Sites Web Azure. Pour Cloud Services, consultez la page [Création d'une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure](http://www.windowsazure.com/en-us/develop/nodejs/tutorials/app-using-socketio/).
+Les procédures de cette tâche s'appliquent à Sites Web Azure. Pour Cloud Services, consultez la page [Création d'une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure](http://www.windowsazure.com/fr-fr/develop/nodejs/tutorials/app-using-socketio/).
 
 Voici une capture d'écran de l'application terminée :
 
@@ -68,7 +68,7 @@ Suivez cette procédure pour créer un site Web Azure et activer la publication 
 
 **Remarque**
 
-Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E).
+Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A7171371E).
 
 1.  Dans la ligne de commande, remplacez les répertoires par le répertoire **\\node\\chat**, puis utilisez la commande suivante pour créer un site Web Azure et activer un référentiel Git pour le site Web et le répertoire local. Ceci crée également un Git distant nommé « Azure ».
 

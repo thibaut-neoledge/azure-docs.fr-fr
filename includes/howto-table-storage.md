@@ -38,4 +38,4 @@ Le service de table contient les composants suivants :
 
 
 [1]: http://www.odata.org/
-[2]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
+[2]: http://msdn.microsoft.com/fr-fr/library/dn249410.aspx

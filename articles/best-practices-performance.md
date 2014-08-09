@@ -104,7 +104,7 @@ Un modèle de conception courant dans lequel le stockage de table peut être env
 
 Pour plus d'informations sur le stockage de table, consultez les pages suivantes :
 
--   [Stockage de table Windows Azure et base de données SQL Windows Azure - comparaison et différences](http://msdn.microsoft.com/en-us/library/jj553018.aspx)
+-   [Stockage de table Windows Azure et base de données SQL Windows Azure - comparaison et différences](http://msdn.microsoft.com/fr-fr/library/jj553018.aspx)
 -   [Considérations sur les performances du stockage de table Azure](http://go.microsoft.com/fwlink/?LinkId=252663)
 -   [Base de données SQL et stockage de table Azure](http://go.microsoft.com/fwlink/?LinkId=252664)
 -   [Amélioration des performances en regroupant les insertions dans le stockage de table Azure](http://go.microsoft.com/fwlink/?LinkID=252665), qui examine certains résultats de performances.
@@ -202,8 +202,8 @@ Il existe quatre principaux types de stockage de données non-SQL :
 Azure fournit une prise en charge directe de Hadoop et permet également d'utiliser d'autres technologies. Pour obtenir des informations sur le service Azure HDInsight, consultez les pages suivantes :
 
 -   [Données volumineuses (« Big Data »)](/en-us/solutions/big-data/)
--   [Service Azure HDInsight](/en-us/documentation/services/hdinsight/)
--   [Prise en main du service Azure HDInsight](/en-us/documentation/articles/hdinsight-get-started/)
+-   [Service Azure HDInsight](/fr-fr/documentation/services/hdinsight/)
+-   [Prise en main du service Azure HDInsight](/fr-fr/documentation/articles/hdinsight-get-started/)
 
 Pour une discussion sur les problèmes liés aux différentes méthodes de stockage noSQL, consultez les pages suivantes :
 

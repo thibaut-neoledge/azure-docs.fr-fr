@@ -5,7 +5,7 @@ Prise en main des données dans Mobile Services
 
 [Windows Store C\#](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet "Windows Store C#")[Windows Store JavaScript](/en-us/develop/mobile/tutorials/get-started-with-data-js "Windows Store JavaScript")[Windows Phone](/en-us/develop/mobile/tutorials/get-started-with-data-wp8 "Windows Phone")[iOS](/en-us/develop/mobile/tutorials/get-started-with-data-ios "iOS")[Android](/en-us/develop/mobile/tutorials/get-started-with-data-android "Android")[HTML](/en-us/develop/mobile/tutorials/get-started-with-data-html "HTML")[Xamarin.iOS](/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android")
 
-[.NET](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ ".NET") | [JavaScript](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/ "JavaScript")
+[.NET](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ ".NET") | [JavaScript](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/ "JavaScript")
 
 Cette rubrique montre comment utiliser Azure Mobile Services pour utiliser les données dans une application Windows Store. Dans ce didacticiel, vous allez télécharger un projet Visual Studio 2013 pour une application qui stocke les données en mémoire, créer un service mobile, intégrer le service mobile avec l'application, puis vous connecter au portail de gestion Azure pour afficher les modifications effectuées sur les données lors de l'exécution de l'application.
 
@@ -22,7 +22,7 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 
 **Remarque**
 
-Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28).
+Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28).
 
 Téléchargement du projetTéléchargement du projet GetStartedWithData
 -------------------------------------------------------------------
@@ -100,7 +100,7 @@ Ajout d'une nouvelle tableAjout d'une nouvelle table au service mobile et mise �
 
     **Remarque**
 
-    Des tables sont créées avec les colonnes Id, \_\_createdAt, \_\_updatedAt et \_\_version. Lorsqu'un schéma dynamique est activé, Mobile Services génère automatiquement de nouvelles colonnes basées sur l'objet JSON dans la requête d'insertion ou de mise à jour. Pour plus d'informations, consultez la page [Schéma dynamique](http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx).
+    Des tables sont créées avec les colonnes Id, \_\_createdAt, \_\_updatedAt et \_\_version. Lorsqu'un schéma dynamique est activé, Mobile Services génère automatiquement de nouvelles colonnes basées sur l'objet JSON dans la requête d'insertion ou de mise à jour. Pour plus d'informations, consultez la page [Schéma dynamique](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj193175.aspx).
 
 5.  Dans la méthode **RefreshTodoItems**, ajoutez le modificateur **async** à la méthode, puis annulez les marques de commentaire sur la ligne de code suivante :
 

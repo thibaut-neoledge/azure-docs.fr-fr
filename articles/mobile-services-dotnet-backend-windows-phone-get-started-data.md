@@ -3,8 +3,8 @@
 Prise en main des données dans Mobile Services
 ==============================================
 
-[Windows Store C\#](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Windows Store C#") [Windows Store JavaScript](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "Windows Store JavaScript") [Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone")
-[.NET backend](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ ".NET backend") | [JavaScript backend](/en-us/documentation/articles/mobile-services-windows-phone-get-started-data/ "JavaScript backend")
+[Windows Store C\#](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Windows Store C#") [Windows Store JavaScript](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "Windows Store JavaScript") [Windows Phone](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone")
+[.NET backend](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ ".NET backend") | [JavaScript backend](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started-data/ "JavaScript backend")
 
 Cette rubrique montre comment utiliser Azure Mobile Services en tant que source de données principale pour une application Windows Phone 8. Dans ce didacticiel, vous allez télécharger un projet Visual Studio 2012 pour une application qui stocke les données en mémoire, créer un service mobile, intégrer le service mobile à l'application, puis afficher les modifications apportées aux données lors de l'exécution de l'application.
 
@@ -24,7 +24,7 @@ Ce didacticiel requiert que Visual Studio 2012 et le [Kit de développement log
 
 **Remarque**
 
-Pour suivre ce didacticiel, vous devez également disposer d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F).
+Pour suivre ce didacticiel, vous devez également disposer d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F).
 
 Téléchargement du projetTéléchargement du projet GetStartedWithData
 -------------------------------------------------------------------
@@ -278,7 +278,7 @@ Ce didacticiel a présenté les bases de l'activation d'une application Windows 
 
 Une fois que vous avez terminé les séries de données, essayez l'un de ces autres didacticiels :
 
--   [Prise en main de l'authentification](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/)
+-   [Prise en main de l'authentification](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/)
     En savoir plus sur l'authentification des utilisateurs de votre application.
 
 -   [Guide de fonctionnement Mobile Services .NET](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)
@@ -327,10 +327,10 @@ Une fois que vous avez terminé les séries de données, essayez l'un de ces aut
 <!-- URLs. -->
 [Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
 [Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-wp8
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
+[Get started with Mobile Services]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
+[Get started with data]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
+[Get started with authentication]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
+[Get started with push notifications]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-js
 [JavaScript backend version]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8
 

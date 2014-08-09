@@ -210,6 +210,6 @@ Si l'application subit un incident après le traitement du message, mais avant l
 
 Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez ces liens pour en savoir plus :
 
--   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements.](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)
--   Créez une application opérationnelle, capable d'envoyer et de recevoir des messages à destination et en provenance d'une file d'attente Service Bus : [Didacticiel .NET sur la messagerie répartie Service Bus](http://msdn.microsoft.com/en-us/library/windowsazure/hh367512.aspx).
+-   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements.](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367516.aspx)
+-   Créez une application opérationnelle, capable d'envoyer et de recevoir des messages à destination et en provenance d'une file d'attente Service Bus : [Didacticiel .NET sur la messagerie répartie Service Bus](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367512.aspx).
 

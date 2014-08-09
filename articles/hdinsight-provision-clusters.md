@@ -46,7 +46,7 @@ Cette session décrit la procédure de création d'un cluster HDInsight au moyen
      <tr data-morhtml="true"><td data-morhtml="true">DATA NODES</td>
          <td data-morhtml="true">Sp&eacute;cifiez le nombre de n&oelig;uds du cluster. La valeur par d&eacute;faut est 4.</td></tr>
      <tr data-morhtml="true"><td data-morhtml="true">HDINSIGHT VERSION</td>
-         <td data-morhtml="true">Choisissez la version. La valeur par d&eacute;faut est 2.0 ex&eacute;cutant des clusters Hadoop&nbsp;1.2.  La version&nbsp;3.0 utilise des clusters Hadoop&nbsp;2.2. Pour plus d'informations, consultez la rubrique <a data-morhtml="true" href="http://www.windowsazure.com/en-us/manage/services/hdinsight/versioning-in-hdinsight/">Version de Hadoop dans Azure HDInsight</a>.</td></tr>
+         <td data-morhtml="true">Choisissez la version. La valeur par d&eacute;faut est 2.0 ex&eacute;cutant des clusters Hadoop&nbsp;1.2.  La version&nbsp;3.0 utilise des clusters Hadoop&nbsp;2.2. Pour plus d'informations, consultez la rubrique <a data-morhtml="true" href="http://www.windowsazure.com/fr-fr/manage/services/hdinsight/versioning-in-hdinsight/">Version de Hadoop dans Azure HDInsight</a>.</td></tr>
      <tr data-morhtml="true"><td data-morhtml="true">REGION</td>
          <td data-morhtml="true">Sp&eacute;cifiez le centre de donn&eacute;es o&ugrave; le cluster est install&eacute;. L'emplacement doit &ecirc;tre identique au stockage d'objets blob Azure qui sera utilis&eacute; en tant que syst&egrave;me de fichiers par d&eacute;faut. Actuellement, vous pouvez uniquement choisir *Asie du Sud-Est*, *Europe du Nord*, *Europe de l'Ouest*, *Est des &Eacute;tats-Unis* ou *Ouest des &Eacute;tats-Unis*.</td>
      </tr>
@@ -114,7 +114,7 @@ La mise en service d'un cluster peut prendre plusieurs minutes. À l'issue du pr
 Utilisation d'Azure PowerShell
 ------------------------------
 
-Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Pour plus d'informations sur la configuration d'un poste de travail pour exécuter des cmdlets HDInsight Powershell, consultez la rubrique [Installation et configuration d'Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/). Pour plus d'informations sur l'utilisation de PowerShell avec HDInsight, consultez la rubrique [Administration de HDInsight avec PowerShell](/en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/). Pour la liste des cmdlets PowerShell pour HDInsight, consultez la rubrique [Référence des cmdlets HDInsight](http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx).
+Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Pour plus d'informations sur la configuration d'un poste de travail pour exécuter des cmdlets HDInsight Powershell, consultez la rubrique [Installation et configuration d'Azure PowerShell](/fr-fr/documentation/articles/install-configure-powershell/). Pour plus d'informations sur l'utilisation de PowerShell avec HDInsight, consultez la rubrique [Administration de HDInsight avec PowerShell](/en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/). Pour la liste des cmdlets PowerShell pour HDInsight, consultez la rubrique [Référence des cmdlets HDInsight](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn479228.aspx).
 
 Les procédures suivantes sont nécessaires pour mettre en service un cluster HDInsight en utilisant PowerShell :
 
@@ -267,7 +267,7 @@ L'interface de ligne de commande peut être installée au moyen du *Gestionnaire
 
 **Pour installer l'interface de ligne de commande au moyen de Windows Installer**
 
-1.  Accédez à **http://www.windowsazure.com/en-us/downloads/**.
+1.  Accédez à **http://www.windowsazure.com/fr-fr/downloads/**.
 2.  Faites défiler l'écran pour accéder à la section **Outils de ligne de commande**, puis cliquez sur **Interface de ligne de commande interplateforme** et suivez les étapes de l'Assistant Web Platform Installer.
 
 Avant d'utiliser l'interface de ligne de commandes, vous devez configurer la connectivité entre votre poste de travail et Azure. L'interface de ligne de commande se sert des informations sur votre abonnement Azure pour se connecter à votre compte. Ces informations peuvent être obtenues d'Azure dans un fichier de paramètres de publication. Ce dernier peut ensuite être importé en tant que paramètre de configuration local persistant dont l'interface de ligne de commande se servira pour les opérations ultérieures. Vous importez vos paramètres de publication une fois pour toutes.

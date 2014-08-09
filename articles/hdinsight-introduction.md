@@ -101,7 +101,7 @@ HDInsight (et les technologies Hadoop en général) est particulièrement indiqu
 
 -   [Exécution des exemples HDInsight](/en-us/manage/services/hdinsight/howto-run-samples/) : didacticiel expliquant comment exécuter les exemples fournis avec HDInsight.
 
--   [Données volumineuses et Azure](http://www.windowsazure.com/en-us/home/scenarios/big-data/) : scénarios de données volumineuses explorant les diverses possibilités de création offertes par Azure.
+-   [Données volumineuses et Azure](http://www.windowsazure.com/fr-fr/home/scenarios/big-data/) : scénarios de données volumineuses explorant les diverses possibilités de création offertes par Azure.
 
 -   [Kit de développement logiciel (SDK) Azure HDInsight](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx) : documentation de référence pour le Kit de développement logiciel (SDK) HDinsight.
 
@@ -109,9 +109,9 @@ HDInsight (et les technologies Hadoop en général) est particulièrement indiqu
 
 -   [Page d'accueil Azure](https://www.windowsazure.com/en-us/) : scénarios, inscription pour une évaluation gratuite, outils de développement et documentation nécessaires pour se lancer dans la création d'applications.
 
--   [Base de données SQL Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx) : documentation MSDN pour la base de données SQL.
+-   [Base de données SQL Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336279.aspx) : documentation MSDN pour la base de données SQL.
 
--   [Portail de gestion pour la base de données SQL](http://msdn.microsoft.com/en-us/library/windowsazure/gg442309.aspx) : outil de gestion de base de données léger et simple d'utilisation pour gérer la base de données SQL dans le cloud.
+-   [Portail de gestion pour la base de données SQL](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg442309.aspx) : outil de gestion de base de données léger et simple d'utilisation pour gérer la base de données SQL dans le cloud.
 
 -   [Adventure Works pour la base de données SQL](http://msftdbprodsamples.codeplex.com/releases/view/37304) : page de téléchargement de l'exemple de base de données SQL.
 

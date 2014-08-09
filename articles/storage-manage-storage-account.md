@@ -25,7 +25,7 @@ Trois options s'offrent à vous pour la réplication de votre compte de stockage
 
 -   **Réplication géo-redondante avec accès en lecture (version préliminaire seulement).** Cette fonctionnalité réplique vos données dans un emplacement secondaire et permet d'y accéder en lecture. La réplication géo-redondante avec accès en lecture offre un accès aux données, qu'elles se situent dans l'emplacement principal ou secondaire, si l'un des deux n'est pas disponible.
 
-Pour plus d'informations sur la tarification relative à la réplication du compte de stockage, consultez la page [Tarification – Stockage](http://www.windowsazure.com/en-us/pricing/details/storage/).
+Pour plus d'informations sur la tarification relative à la réplication du compte de stockage, consultez la page [Tarification – Stockage](http://www.windowsazure.com/fr-fr/pricing/details/storage/).
 
 ### Pour spécifier les paramètres de réplication d'un compte de stockage
 
@@ -46,7 +46,7 @@ Dans le [portail de gestion](http://manage.windowsazure.com), utilisez **Manage 
 
 ### Copie d'une clé d'accès de stockage
 
-L'option **Manage Keys** sert à copier une clé d'accès de stockage à utiliser dans une chaîne de connexion. Cette dernière nécessite le nom du compte de stockage et une clé pour l'authentification. Pour plus d'informations sur la configuration des chaînes de connexion pour accéder aux services de stockage Azure, consultez la page [Configuration des chaînes de connexion Azure](http://msdn.microsoft.com/en-us/library/ee758697.aspx).
+L'option **Manage Keys** sert à copier une clé d'accès de stockage à utiliser dans une chaîne de connexion. Cette dernière nécessite le nom du compte de stockage et une clé pour l'authentification. Pour plus d'informations sur la configuration des chaînes de connexion pour accéder aux services de stockage Azure, consultez la page [Configuration des chaînes de connexion Azure](http://msdn.microsoft.com/fr-fr/library/ee758697.aspx).
 
 1.  Dans le [portail de gestion](http://manage.windowsazure.com), cliquez sur **Storage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
 

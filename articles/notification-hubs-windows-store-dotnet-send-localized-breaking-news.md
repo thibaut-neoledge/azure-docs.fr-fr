@@ -52,7 +52,7 @@ Ensuite, nous allons nous assurer que les appareils s'inscrivent avec un modèle
       </visual>
     </toast>
 
-Les modèles sont une fonctionnalité très puissante sur laquelle vous pouvez obtenir plus d'informations en lisant notre article [Recommandations relatives à Notification Hubs](http://msdn.microsoft.com/en-us/library/jj927170.aspx). Vous trouverez une référence pour le langage d'expression des modèles dans [Notification Hubs, procédures pour Windows Store](http://msdn.microsoft.com/en-us/library/jj927172.aspx).
+Les modèles sont une fonctionnalité très puissante sur laquelle vous pouvez obtenir plus d'informations en lisant notre article [Recommandations relatives à Notification Hubs](http://msdn.microsoft.com/fr-fr/library/jj927170.aspx). Vous trouverez une référence pour le langage d'expression des modèles dans [Notification Hubs, procédures pour Windows Store](http://msdn.microsoft.com/fr-fr/library/jj927172.aspx).
 
 Interface utilisateur de l'applicationInterface utilisateur de l'application
 ----------------------------------------------------------------------------
@@ -157,5 +157,5 @@ Envoi de notifications localiséesEnvoi de notifications localisées à partir d
 Étapes suivantes
 ----------------
 
-Pour plus d'informations sur les scénarios de notification des utilisateurs, consultez [Notification des utilisateurs avec Notification Hubs : ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet), [Notification des utilisateurs avec Notification Hubs : Mobile Services](/en-us/manage/services/notification-hubs/notify-users) et [Recommandations relatives à Notification Hubs](http://msdn.microsoft.com/en-us/library/jj927170.aspx). Vous trouverez une référence pour le langage d'expression des modèles dans [Notification Hubs, procédures pour Windows Store](http://msdn.microsoft.com/en-us/library/jj927172.aspx).
+Pour plus d'informations sur les scénarios de notification des utilisateurs, consultez [Notification des utilisateurs avec Notification Hubs : ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet), [Notification des utilisateurs avec Notification Hubs : Mobile Services](/en-us/manage/services/notification-hubs/notify-users) et [Recommandations relatives à Notification Hubs](http://msdn.microsoft.com/fr-fr/library/jj927170.aspx). Vous trouverez une référence pour le langage d'expression des modèles dans [Notification Hubs, procédures pour Windows Store](http://msdn.microsoft.com/fr-fr/library/jj927172.aspx).
 

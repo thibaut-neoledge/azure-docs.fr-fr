@@ -3,7 +3,7 @@
 Ajout d'une machine virtuelle à un réseau virtuel
 =================================================
 
-Ce didacticiel vous guide lors de la création d'un compte de stockage Azure et d'une machine virtuelle à ajouter à un [réseau virtuel](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx).
+Ce didacticiel vous guide lors de la création d'un compte de stockage Azure et d'une machine virtuelle à ajouter à un [réseau virtuel](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156007.aspx).
 
 Ce didacticiel part du principe que vous n'avez pas d'expérience en tant qu'utilisateur d'Azure.
 
@@ -125,8 +125,8 @@ Pour installer un contrôleur de domaine supplémentaire pour votre domaine Acti
 Voir aussi
 ----------
 
--   [Réseau virtuel Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
+-   [Réseau virtuel Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156007.aspx)
 
--   [Configuration d'un réseau virtuel à l'aide de fichiers de configuration de réseau](http://msdn.microsoft.com/en-us/library/windowsazure/jj156097.aspx)
+-   [Configuration d'un réseau virtuel à l'aide de fichiers de configuration de réseau](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156097.aspx)
 
 

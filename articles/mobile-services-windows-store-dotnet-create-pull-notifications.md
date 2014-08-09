@@ -7,7 +7,7 @@ Définition d'une API personnalisée qui prend en charge les notifications péri
 
 [Windows Store C\#](/en-us/develop/mobile/tutorials/create-pull-notifications-dotnet "Windows Store C#")[Windows Store JavaScript](/en-us/develop/mobile/tutorials/create-pull-notifications-js "Windows Store JavaScript")
 
-Cette rubrique explique comment appeler une API personnalisée afin de prendre en charge des notifications périodiques à partir d'une application Windows Store. Si les notifications périodiques sont activées, Windows accédera régulièrement au point de terminaison de votre API personnalisée et utilisera le XML renvoyé, dans un format mosaïque, pour mettre à jour la vignette de l'application dans le menu Démarrer. Pour plus d'informations, consultez la page [Notifications périodiques](http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx).
+Cette rubrique explique comment appeler une API personnalisée afin de prendre en charge des notifications périodiques à partir d'une application Windows Store. Si les notifications périodiques sont activées, Windows accédera régulièrement au point de terminaison de votre API personnalisée et utilisera le XML renvoyé, dans un format mosaïque, pour mettre à jour la vignette de l'application dans le menu Démarrer. Pour plus d'informations, consultez la page [Notifications périodiques](http://msdn.microsoft.com/fr-fr/library/windows/apps/jj150587.aspx).
 
 Vous allez ajouter cette fonctionnalité à l'application que vous avez créée avec le didacticiel [Prise en main de Mobile Services](/en-us/develop/mobile/tutorials/get-started/#create-new-service) ou [Prise en main des données](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet). À cet effet, vous allez exécuter la procédure suivante :
 
@@ -85,7 +85,7 @@ Définition de l'API personnalisée
        <div class="dev-callout"><b>Remarque</b>
             <p>Ce script d'API personnalisée utilise le <a href="http://go.microsoft.com/fwlink/p/
             LinkId=306750">module wns</a> Node.js, qui est référencé avec la fonction <strong>require</strong>. Ce module est différent de l'<a href="http://go.microsoft.com/fwlink/p/
-            LinkId=260591">objet wns</a> renvoyé par l'<a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx">objet push</a>, qui est utilisé pour envoyer des notifications Push à partir des scripts serveur.</p>
+            LinkId=260591">objet wns</a> renvoyé par l'<a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554217.aspx">objet push</a>, qui est utilisé pour envoyer des notifications Push à partir des scripts serveur.</p>
         </div>
 
 Vous allez ensuite modifier l'application de démarrage rapide pour démarrer des notifications périodiques qui mettent à jour la vignette dynamique en demandant la nouvelle API personnalisée.
@@ -160,6 +160,6 @@ Maintenant que vous avez créé une notification périodique, vous pouvez consul
 [JavaScript and HTML]: mobile-services-win8-javascript/
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Periodic notifications]: http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx
+[Periodic notifications]: http://msdn.microsoft.com/fr-fr/library/windows/apps/jj150587.aspx
 
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library

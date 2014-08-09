@@ -321,5 +321,5 @@ Maintenant que vous êtes parvenu à la fin de ce didacticiel, vous pouvez pours
 -   **[Envoi de notifications interplateforme aux utilisateurs avec les Notification Hubs](/en-us/manage/services/notification-hubs/notify-users-xplat-aspnet)**
     Ce didacticiel prolonge le présent didacticiel **Notification des utilisateurs avec les Notification Hubs** et explique comment s'inscrire aux notifications en utilisant des modèles propres à la plateforme. Cela vous permet d'envoyer des notifications à partir d'une seule méthode dans votre code côté serveur.
 
-Pour plus d'informations sur Notification Hubs, consultez la page [Azure Notification Hubs](http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx).
+Pour plus d'informations sur Notification Hubs, consultez la page [Azure Notification Hubs](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj927170.aspx).
 

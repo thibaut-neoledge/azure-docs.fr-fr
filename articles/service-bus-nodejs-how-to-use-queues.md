@@ -24,7 +24,7 @@ Sommaire
 Création d'une application Node.js
 ----------------------------------
 
-Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/), [Service cloud Node.js](/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/) (avec Windows PowerShell) ou [Site Web avec WebMatrix](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/).
+Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/), [Service cloud Node.js](/fr-fr/documentation/articles/cloud-services-nodejs-develop-deploy-app/) (avec Windows PowerShell) ou [Site Web avec WebMatrix](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/).
 
 Configuration de votre application pour l'utilisation de Service Bus
 --------------------------------------------------------------------
@@ -171,6 +171,6 @@ Si l'application subit un incident après le traitement du message, mais avant l
 
 Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez ces liens pour en savoir plus :
 
--   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements.](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)
+-   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements.](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367516.aspx)
 -   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Node](https://github.com/WindowsAzure/azure-sdk-for-node) sur GitHub.
 

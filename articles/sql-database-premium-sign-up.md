@@ -37,7 +37,7 @@ Pour tirer parti des avantages de cette fonctionnalité, inscrivez votre abonnem
 
     Seuls les abonnements actifs que vous avez payés peuvent accéder à la version préliminaire. Vous pouvez inscrire plusieurs abonnements, mais chacun d'eux ne peut être inscrit qu'une seule fois.
 
-    L'inscription d'un abonnement à la version préliminaire n'engendre pas de frais supplémentaires, mais une fois l'inscription activée et les quotas de l'édition Premium octroyés, la création ou la mise à niveau vers une base de données Premium est soumise à la tarification indiquée à la [page sur la tarification de la base de données SQL](http://www.windowsazure.com/en-us/pricing/details/sql-database/).
+    L'inscription d'un abonnement à la version préliminaire n'engendre pas de frais supplémentaires, mais une fois l'inscription activée et les quotas de l'édition Premium octroyés, la création ou la mise à niveau vers une base de données Premium est soumise à la tarification indiquée à la [page sur la tarification de la base de données SQL](http://www.windowsazure.com/fr-fr/pricing/details/sql-database/).
 
     Le statut actuel de la demande d'inscription est répercuté dans la liste des versions préliminaires des fonctionnalités.
 

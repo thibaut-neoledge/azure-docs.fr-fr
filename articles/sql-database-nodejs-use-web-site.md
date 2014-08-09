@@ -66,7 +66,7 @@ Suivez cette procédure pour créer un site Web Azure et une base de données SQ
 
     ![Indiquer les détails du site Web](./media/sql-database-nodejs-use-web-site/website_details_sqlazure.jpg)
 
-4.  Entrez le **nom** de votre base de données, sélectionnez l'**édition** [(WEB ou BUSINESS)](http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx) et la **taille maximale** de votre base de données. Choisissez le **classement**, puis sélectionnez **NEW SQL Database server**. Cliquez sur la flèche située en bas de la boîte de dialogue.
+4.  Entrez le **nom** de votre base de données, sélectionnez l'**édition** [(WEB ou BUSINESS)](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee621788.aspx) et la **taille maximale** de votre base de données. Choisissez le **classement**, puis sélectionnez **NEW SQL Database server**. Cliquez sur la flèche située en bas de la boîte de dialogue.
 
     ![Renseigner les paramètres de la base de données SQL](./media/sql-database-nodejs-use-web-site/database_settings.jpg)
 

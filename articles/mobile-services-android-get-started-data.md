@@ -23,7 +23,7 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 
 **Remarque**
 
-Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AED8DE357).
+Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AED8DE357).
 
 Ce didacticiel requiert le [Kit de développement logiciel (SDK) Mobile Services pour Android](http://go.microsoft.com/fwlink/p/?LinkID=280126) ; le [Kit de développement logiciel (SDK) Android](https://go.microsoft.com/fwLink/p/?LinkID=280125), qui inclut l'IDE (environnement de développement intégré) Eclipse, le plug-in ADT (outils de développement Android) et Android 4.2 ou une version ultérieure.
 

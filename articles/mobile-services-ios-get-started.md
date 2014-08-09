@@ -3,9 +3,9 @@
 Prise en main de Mobile Services
 ================================
 
-[Windows Store](/en-us/documentation/articles/mobile-services-windows-store-get-started "Windows Store") [Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone") [iOS](/en-us/documentation/articles/mobile-services-ios-get-started "iOS") [Android](/en-us/documentation/articles/mobile-services-android-get-started "Android") [HTML](/en-us/documentation/articles/mobile-services-html-get-started "HTML") [Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS") [Xamarin.Android](/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android") [Sencha](/en-us/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha") [PhoneGap](/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap")
+[Windows Store](/fr-fr/documentation/articles/mobile-services-windows-store-get-started "Windows Store") [Windows Phone](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone") [iOS](/fr-fr/documentation/articles/mobile-services-ios-get-started "iOS") [Android](/fr-fr/documentation/articles/mobile-services-android-get-started "Android") [HTML](/fr-fr/documentation/articles/mobile-services-html-get-started "HTML") [Xamarin.iOS](/fr-fr/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS") [Xamarin.Android](/fr-fr/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android") [Sencha](/fr-fr/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha") [PhoneGap](/fr-fr/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap")
 
-[.NET](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started/ ".NET") | [JavaScript](/en-us/documentation/articles/mobile-services-ios-get-started/ "JavaScript")
+[.NET](/fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-get-started/ ".NET") | [JavaScript](/fr-fr/documentation/articles/mobile-services-ios-get-started/ "JavaScript")
 
 Ce didacticiel présente l'ajout d'un service principal cloud à une application iOS à l'aide d'Azure Mobile Services.
 
@@ -23,7 +23,7 @@ XCode 4.5 et iOS 5.0 ou versions ultérieures sont requis pour suivre ce didac
 
 **Remarque**
 
-Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F).
+Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F).
 
 Création d'un service mobile
 ----------------------------
@@ -106,4 +106,4 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment effe
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[.NET backend version]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started
+[.NET backend version]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-get-started

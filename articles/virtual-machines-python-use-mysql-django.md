@@ -3,7 +3,7 @@
 Édition Windows Django Hello World - MySQL
 ==========================================
 
-Ce didacticiel décrit comment utiliser MySQL en association avec Django sur une seule machine virtuelle Azure. Ce guide part du principe que vous avez une certaine expérience en tant qu'utilisateur d'Azure et de Django. Pour une introduction à Azure et Django, consultez la page [Django Hello World](http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server). Ce guide présume également que vous possédez quelques connaissances de MySQL. Pour une vue d'ensemble de MySQL, consultez le [site Web MySQL](http://dev.mysql.com/doc/).
+Ce didacticiel décrit comment utiliser MySQL en association avec Django sur une seule machine virtuelle Azure. Ce guide part du principe que vous avez une certaine expérience en tant qu'utilisateur d'Azure et de Django. Pour une introduction à Azure et Django, consultez la page [Django Hello World](http://windowsazure.com/fr-fr/documentation/articles/virtual-machines-python-django-web-app-windows-server). Ce guide présume également que vous possédez quelques connaissances de MySQL. Pour une vue d'ensemble de MySQL, consultez le [site Web MySQL](http://dev.mysql.com/doc/).
 
 Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
@@ -13,7 +13,7 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 -   Utiliser MySQL directement depuis Python.
 -   Héberger et exécuter votre application MySQL Django.
 
-Vous développerez l'exemple [Django Hello World](http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server) en utilisant une base de données MySQL, hébergée dans une machine virtuelle Azure, afin de trouver un remplacement intéressant à *World*. Le remplacement sera ensuite déterminé par l'intermédiaire d'une application *counter* Django MySQL. Comme c'était le cas pour l'exemple Hello World, l'application Django sera encore hébergée sur une machine virtuelle Azure.
+Vous développerez l'exemple [Django Hello World](http://windowsazure.com/fr-fr/documentation/articles/virtual-machines-python-django-web-app-windows-server) en utilisant une base de données MySQL, hébergée dans une machine virtuelle Azure, afin de trouver un remplacement intéressant à *World*. Le remplacement sera ensuite déterminé par l'intermédiaire d'une application *counter* Django MySQL. Comme c'était le cas pour l'exemple Hello World, l'application Django sera encore hébergée sur une machine virtuelle Azure.
 
 Les fichiers de projet de ce didacticiel sont stockés dans **C:\\django\\helloworld** et l'application terminée ressemble à ce qui suit :
 
@@ -83,7 +83,7 @@ Configuration d'une machine virtuelle pour héberger MySQL et Django
 Développement de l'application Django Hello World
 -------------------------------------------------
 
-1.  Suivez les instructions fournies dans le didacticiel [Django Hello World](http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server) afin de créer une application Web « Hello World » dans Django.
+1.  Suivez les instructions fournies dans le didacticiel [Django Hello World](http://windowsazure.com/fr-fr/documentation/articles/virtual-machines-python-django-web-app-windows-server) afin de créer une application Web « Hello World » dans Django.
 
 2.  Ouvrez **C:\\django\\helloworld\\helloworld\\settings.py** dans votre éditeur de texte favori. Modifiez le dictionnaire global **DATABASES** pour lire :
 

@@ -5,9 +5,9 @@ Création de campagnes marketing numériques dans Sites Web Azure
 
 Ce guide fournit un aperçu technique de l'utilisation de Sites Web Azure en vue de créer des campagnes marketing numériques. Une campagne marketing numérique est une entité à durée de vie limitée, conçue pour promouvoir un objectif marketing à court terme. Il y a deux scénarios principaux à envisager. Dans le premier scénario, une agence de marketing crée et gère une campagne pour un client pendant toute la durée de la promotion. Dans le second scénario, l'agence de marketing crée une campagne marketing numérique, puis transfère les droits de propriété sur les ressources associées au client. Ce dernier lance et gère ensuite seul la campagne.
 
-Le service [Sites Web Azure](/en-us/documentation/services/web-sites/) est approprié pour ces deux scénarios. Il permet une création rapide, prend en charge plusieurs infrastructures et langages, s'adapte aux besoins des utilisateurs et accepte un grand nombre de systèmes de déploiement et de contrôle de code source. Avec Azure, vous avez également accès à d'autres services Azure, tels que Media Services, utiles dans le cadre d'une campagne marketing.
+Le service [Sites Web Azure](/fr-fr/documentation/services/web-sites/) est approprié pour ces deux scénarios. Il permet une création rapide, prend en charge plusieurs infrastructures et langages, s'adapte aux besoins des utilisateurs et accepte un grand nombre de systèmes de déploiement et de contrôle de code source. Avec Azure, vous avez également accès à d'autres services Azure, tels que Media Services, utiles dans le cadre d'une campagne marketing.
 
-Bien qu'il soit possible d'utiliser [Azure Cloud Services](/en-us/documentation/services/cloud-services/) ou [Azure Virtual Machines](/en-us/documentation/services/virtual-machines/) pour héberger des sites Web, ces services ne constituent pas la meilleure option pour ce scénario, sauf s'ils proposent une fonctionnalité non proposée par Sites Web Azure. Pour plus d'informations sur ces options, consultez la rubrique [Sites Web, services cloud et machines virtuelles Azure : que choisir ?](/en-us/manage/services/web-sites/choose-web-app-service).
+Bien qu'il soit possible d'utiliser [Azure Cloud Services](/fr-fr/documentation/services/cloud-services/) ou [Azure Virtual Machines](/fr-fr/documentation/services/virtual-machines/) pour héberger des sites Web, ces services ne constituent pas la meilleure option pour ce scénario, sauf s'ils proposent une fonctionnalité non proposée par Sites Web Azure. Pour plus d'informations sur ces options, consultez la rubrique [Sites Web, services cloud et machines virtuelles Azure : que choisir ?](/en-us/manage/services/web-sites/choose-web-app-service).
 
 Les questions couvertes par ce guide sont les suivantes :
 
@@ -19,7 +19,7 @@ Les questions couvertes par ce guide sont les suivantes :
 
 **Remarque**
 
-Ce guide présente les domaines et les tâches parmi les plus courants s'adaptant au développement de sites .COM publics. Cependant, le service Sites Web Azure offre encore d'autres fonctionnalités, que vous pouvez utiliser pour votre implémentation. Pour les découvrir, consultez les guides relatifs à la [Présence sur le Web à l'international](http://www.windowsazure.com/en-us/manage/services/web-sites/global-web-presence-solution-overview/) et aux [Applications métier](http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview).
+Ce guide présente les domaines et les tâches parmi les plus courants s'adaptant au développement de sites .COM publics. Cependant, le service Sites Web Azure offre encore d'autres fonctionnalités, que vous pouvez utiliser pour votre implémentation. Pour les découvrir, consultez les guides relatifs à la [Présence sur le Web à l'international](http://www.windowsazure.com/fr-fr/manage/services/web-sites/global-web-presence-solution-overview/) et aux [Applications métier](http://www.windowsazure.com/fr-fr/manage/services/web-sites/business-application-solution-overview).
 
 Déploiement de sites Web existants
 ----------------------------------
@@ -67,7 +67,7 @@ Si vous développez en ASP.NET, il est important de réaliser que l'intégration
 Le cloud computing se révèle particulièrement utile en cas de charges de travail non prévisibles. Les campagnes marketing numériques sont un exemple parfait de ce cas de figure. Il est difficile de prévoir la popularité d'un site marketing à durée de vie relativement courte, car cela dépend en grande majorité de la capacité à capter l'intérêt des utilisateurs et des interactions avec les réseaux sociaux associés, qui redirigent le public vers le site. Azure inclut plusieurs options permettant de faire évoluer les sites Web mais également les services cloud.
 
 -   Mise à l'échelle manuelle via le [portail de gestion Azure](http://manage.windowsazure.com/)
--   Mise à l'échelle par programmation via l'[API de gestion des services](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx) ou des [scripts PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841.aspx)
+-   Mise à l'échelle par programmation via l'[API de gestion des services](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460799.aspx) ou des [scripts PowerShell](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj152841.aspx)
 -   Mise à l'échelle automatique via la version préliminaire de la fonctionnalité Mise à l'échelle automatique.
 
 Dans le portail de gestion, accédez à l'onglet **Mettre à l'échelle** du site Web. Plusieurs options de mise à l'échelle sont proposées. La première détermine le mode du site Web : **Gratuit**, **Partagé** ou **Standard**.
@@ -86,14 +86,14 @@ Pour plus d'informations sur la mise à l'échelle des sites Web, consultez la r
 
 **Remarque**
 
-Pour les applications Web utilisant les services cloud et les rôles Web, il est également possible de procéder à une mise à l'échelle en fonction de la longueur des éléments placés dans la file d'attente. Dans un service cloud, les rôles traitant les files d'attente de serveur principal constituent un modèle d'architecture commun. Pour plus d'informations sur la mise à l'échelle des services cloud, consultez la rubrique [Extension d'un service cloud](http://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-scale-a-cloud-service/).
+Pour les applications Web utilisant les services cloud et les rôles Web, il est également possible de procéder à une mise à l'échelle en fonction de la longueur des éléments placés dans la file d'attente. Dans un service cloud, les rôles traitant les files d'attente de serveur principal constituent un modèle d'architecture commun. Pour plus d'informations sur la mise à l'échelle des services cloud, consultez la rubrique [Extension d'un service cloud](http://www.windowsazure.com/fr-fr/manage/services/cloud-services/how-to-scale-a-cloud-service/).
 
 Intégration à d'autres services
 -------------------------------
 
-Un site marketing numérique intègre bien souvent du contenu multimédia enrichi, tel que la diffusion en continu de vidéos. L'hébergement de ces sites dans Azure offre une intégration étroite aux services Azure connexes. Vous pouvez, par exemple, utiliser Azure Media Services pour encoder et diffuser en continu des vidéos pour votre site Web. Pour plus d'informations sur Media Services, consultez la rubrique [Concepts Azure Media Services](http://msdn.microsoft.com/en-us/library/windowsazure/dn223282.aspx).
+Un site marketing numérique intègre bien souvent du contenu multimédia enrichi, tel que la diffusion en continu de vidéos. L'hébergement de ces sites dans Azure offre une intégration étroite aux services Azure connexes. Vous pouvez, par exemple, utiliser Azure Media Services pour encoder et diffuser en continu des vidéos pour votre site Web. Pour plus d'informations sur Media Services, consultez la rubrique [Concepts Azure Media Services](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn223282.aspx).
 
-D'autres services Azure peuvent être utilisés pour créer des applications plus puissantes. Par exemple, les sites Web peuvent utiliser la mise en cache distribuée fournie par le nouveau service [Azure Cache Service (Preview)](http://msdn.microsoft.com/en-us/library/windowsazure/dn386094.aspx). Vous pouvez également utiliser les services Azure Storage pour stocker vos données et ressources d'application. Par exemple, les images, les vidéos ainsi que d'autres fichiers volumineux peuvent être stockés durablement dans des objets blob. Des services de base de données, tels que la base de données SQL Azure et MySQL, sont également disponibles pour les données relationnelles.
+D'autres services Azure peuvent être utilisés pour créer des applications plus puissantes. Par exemple, les sites Web peuvent utiliser la mise en cache distribuée fournie par le nouveau service [Azure Cache Service (Preview)](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn386094.aspx). Vous pouvez également utiliser les services Azure Storage pour stocker vos données et ressources d'application. Par exemple, les images, les vidéos ainsi que d'autres fichiers volumineux peuvent être stockés durablement dans des objets blob. Des services de base de données, tels que la base de données SQL Azure et MySQL, sont également disponibles pour les données relationnelles.
 
 Surveillance de la campagne
 ---------------------------
@@ -126,31 +126,31 @@ Le service Sites Web Azure constitue un bon choix pour les contenus Web réutili
 </tr>
 <tr data-morhtml="true">
    <td data-morhtml="true" valign="middle"><strong data-morhtml="true">Planification</strong></td>
-   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/manage/services/web-sites/choose-web-app-service">Sites Web, services cloud et machines virtuelles Azure&nbsp;: que choisir&nbsp;?</a></td>
+   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/fr-fr/manage/services/web-sites/choose-web-app-service">Sites Web, services cloud et machines virtuelles Azure&nbsp;: que choisir&nbsp;?</a></td>
 </tr>
 <tr data-morhtml="true">
    <td data-morhtml="true" valign="middle"><strong data-morhtml="true">Cr&eacute;ation</strong></td>
-   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites/">Cr&eacute;ation et d&eacute;ploiement d'un site Web</a></td>
+   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/fr-fr/manage/services/web-sites/how-to-create-websites/">Cr&eacute;ation et d&eacute;ploiement d'un site Web</a></td>
 </tr>
 <tr data-morhtml="true">
    <td data-morhtml="true" valign="middle"><strong data-morhtml="true">D&eacute;ploiement</strong></td>
-   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-git/">Publication &agrave; partir du contr&ocirc;le de code source dans Sites Web Azure</a><br data-morhtml="true" />- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites/">D&eacute;ploiement d'une application Web ASP.NET sur un site Web Azure</a></td>
+   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/fr-fr/develop/net/common-tasks/publishing-with-git/">Publication &agrave; partir du contr&ocirc;le de code source dans Sites Web Azure</a><br data-morhtml="true" />- <a data-morhtml="true" href="http://www.windowsazure.com/fr-fr/manage/services/web-sites/how-to-create-websites/">D&eacute;ploiement d'une application Web ASP.NET sur un site Web Azure</a></td>
 </tr>
 <tr data-morhtml="true">
    <td data-morhtml="true" valign="middle"><strong data-morhtml="true">M&eacute;dias sociaux</strong></td>
-   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/">D&eacute;ploiement d'une application ASP.NET MVC s&eacute;curis&eacute;e avec une fonctionnalit&eacute; d'appartenance, OAuth et une base de donn&eacute;es&nbsp;SQL</a><br data-morhtml="true" />- <a data-morhtml="true" href="http://blogs.msdn.com/b/africaapps/archive/2013/02/20/creating-a-facebook-app-using-asp-net-mvc-facebook-templates-and-hosting-them-for-free-on-windows-azure-websites.aspx">Cr&eacute;ation d'une application Facebook &agrave; l'aide d'un mod&egrave;le Facebook ASP.NET MVC</a><br data-morhtml="true" />- <a data-morhtml="true" href="http://blogs.msdn.com/b/webdev/archive/2012/12/13/the-new-facebook-application-template-and-library-for-asp.net-mvc.aspx">Mod&egrave;le d'application Facebook et biblioth&egrave;que pour ASP.NET MVC</a></td>
+   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/fr-fr/develop/net/tutorials/web-site-with-sql-database/">D&eacute;ploiement d'une application ASP.NET MVC s&eacute;curis&eacute;e avec une fonctionnalit&eacute; d'appartenance, OAuth et une base de donn&eacute;es&nbsp;SQL</a><br data-morhtml="true" />- <a data-morhtml="true" href="http://blogs.msdn.com/b/africaapps/archive/2013/02/20/creating-a-facebook-app-using-asp-net-mvc-facebook-templates-and-hosting-them-for-free-on-windows-azure-websites.aspx">Cr&eacute;ation d'une application Facebook &agrave; l'aide d'un mod&egrave;le Facebook ASP.NET MVC</a><br data-morhtml="true" />- <a data-morhtml="true" href="http://blogs.msdn.com/b/webdev/archive/2012/12/13/the-new-facebook-application-template-and-library-for-asp.net-mvc.aspx">Mod&egrave;le d'application Facebook et biblioth&egrave;que pour ASP.NET MVC</a></td>
 </tr>
 <tr data-morhtml="true">
    <td data-morhtml="true" valign="middle"><strong data-morhtml="true">Mise &agrave; l'&eacute;chelle</strong></td>
-   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-scale-websites/">Mise &agrave; l'&eacute;chelle de sites Web</a></td>
+   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/fr-fr/manage/services/web-sites/how-to-scale-websites/">Mise &agrave; l'&eacute;chelle de sites Web</a></td>
 </tr>
 <tr data-morhtml="true">
    <td data-morhtml="true" valign="middle"><strong data-morhtml="true">Contenu multim&eacute;dia enrichi</strong></td>
-   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223282.aspx">Concepts Azure Media Services</a></td>
+   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://msdn.microsoft.com/fr-fr/library/windowsazure/dn223282.aspx">Concepts Azure Media Services</a></td>
 </tr>
 <tr data-morhtml="true">
    <td data-morhtml="true" valign="middle"><strong data-morhtml="true">Surveillance</strong></td>
-   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/">Surveillance de sites&nbsp;Web</a><br data-morhtml="true" />- <a data-morhtml="true" href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">R&eacute;ception de notifications d'alerte et gestion des r&egrave;gles d'alerte dans Azure</a></td>
+   <td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/fr-fr/manage/services/web-sites/how-to-monitor-websites/">Surveillance de sites&nbsp;Web</a><br data-morhtml="true" />- <a data-morhtml="true" href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">R&eacute;ception de notifications d'alerte et gestion des r&egrave;gles d'alerte dans Azure</a></td>
 </tr>
 </table>
 

@@ -55,5 +55,5 @@ Le service d'objets blob contient les composants suivants :
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/ee691964.aspx
+[1]: http://msdn.microsoft.com/fr-fr/library/dn249410.aspx
+[2]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee691964.aspx

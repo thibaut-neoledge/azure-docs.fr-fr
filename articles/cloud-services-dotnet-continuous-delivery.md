@@ -167,7 +167,7 @@ Cette section décrit la création d'un script Windows PowerShell qui publie le 
 
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
-    Vous pouvez également exporter le fichier de certificat PFX avec une clé privée et télécharger les certificats sur chaque service cloud ciblé à l'aide du portail de gestion Azure. Pour plus d'informations, consultez l'article suivant : [http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx][].
+    Vous pouvez également exporter le fichier de certificat PFX avec une clé privée et télécharger les certificats sur chaque service cloud ciblé à l'aide du portail de gestion Azure. Pour plus d'informations, consultez l'article suivant : [http://msdn.microsoft.com/fr-fr/library/windowsazure/gg443832.aspx][].
 
     **Mise à niveau du déploiement et suppression du déploiement -\> Nouveau déploiement**
 
@@ -567,7 +567,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [Azure Authoring Tools]: http://go.microsoft.com/fwlink/?LinkId=239600
 [bibliothèques Azure][]: http://go.microsoft.com/fwlink/?LinkId=257862
   [Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
-  [Référence de la ligne de commande MSBuild]: http://msdn.microsoft.com/en-us/library/ms164311(v=VS.90).aspx
+  [Référence de la ligne de commande MSBuild]: http://msdn.microsoft.com/fr-fr/library/ms164311(v=VS.90).aspx
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
   [Vue d'ensemble de Team Foundation Build]: http://go.microsoft.com/fwlink/?LinkId=238798
   [Configuration d'un ordinateur de builds]: http://go.microsoft.com/fwlink/?LinkId=238799

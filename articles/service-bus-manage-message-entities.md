@@ -43,7 +43,7 @@ Cliquez sur l'icône **Service Bus** dans la barre de navigation de gauche pour 
 
 **Remarque** Il est possible que l'espace de noms ne soit pas immédiatement répertorié. La création de l'espace de noms de service et la mise à jour de l'interface du portail peuvent prendre quelques secondes.
 
-**Remarque** L'utilisation de **Création rapide** pour un relais ne crée pas de nouveau point de terminaison de relais. Cette opération ne crée qu'un espace de noms sous lequel vous pouvez créer par programme un point de terminaison de relais. Pour plus d'informations, consultez la [documentation de Service Bus](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-relay/).
+**Remarque** L'utilisation de **Création rapide** pour un relais ne crée pas de nouveau point de terminaison de relais. Cette opération ne crée qu'un espace de noms sous lequel vous pouvez créer par programme un point de terminaison de relais. Pour plus d'informations, consultez la [documentation de Service Bus](http://www.windowsazure.com/fr-fr/develop/net/how-to-guides/service-bus-relay/).
 
 ### Création personnalisée
 

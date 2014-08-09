@@ -277,7 +277,7 @@ La suppression d'une rubrique a également pour effet de supprimer les abonnemen
 
 Maintenant que vous avez appris les principes de base des rubriques et des abonnements Service Bus, consultez ces liens pour en savoir plus :
 
--   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements](http://msdn.microsoft.com/en-us/library/hh367516.aspx).
--   Référence d'API pour [SqlFilter](http://msdn.microsoft.com/en-us/library/microsoft.servicebus.messaging.sqlfilter.aspx).
--   Créez une application opérationnelle, capable d'envoyer et de recevoir des messages à destination et en provenance d'une file d'attente Service Bus : [Didacticiel .NET sur la messagerie répartie Service Bus](http://msdn.microsoft.com/en-us/library/hh367512.aspx).
+-   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements](http://msdn.microsoft.com/fr-fr/library/hh367516.aspx).
+-   Référence d'API pour [SqlFilter](http://msdn.microsoft.com/fr-fr/library/microsoft.servicebus.messaging.sqlfilter.aspx).
+-   Créez une application opérationnelle, capable d'envoyer et de recevoir des messages à destination et en provenance d'une file d'attente Service Bus : [Didacticiel .NET sur la messagerie répartie Service Bus](http://msdn.microsoft.com/fr-fr/library/hh367512.aspx).
 

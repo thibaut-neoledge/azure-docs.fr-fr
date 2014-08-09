@@ -9,7 +9,7 @@ Tant que vous n'avez pas configuré la surveillance d'un compte de stockage, auc
 
 **Remarque**
 
-L'analyse des données de surveillance dans le portail de gestion occasionne des frais supplémentaires. Pour plus d'informations, consultez la page [Storage Analytics et facturation](http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx).
+L'analyse des données de surveillance dans le portail de gestion occasionne des frais supplémentaires. Pour plus d'informations, consultez la page [Storage Analytics et facturation](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh360997.aspx).
 
 Sommaire
 --------
@@ -46,7 +46,7 @@ Configuration de la surveillance d'un compte de stockage
 
 Les données de surveillance doivent commencer à s'afficher dans le tableau de bord et la page **Monitor** au bout d'une heure environ.
 
-Les mesures sont stockées dans le compte de stockage dans quatre tables nommées \$MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue et $MetricsCapacityBlob. Pour plus d'informations, consultez la page [À propos des mesures Storage Analytics](http://msdn.microsoft.com/en-us/library/windowsazure/hh343258.aspx).
+Les mesures sont stockées dans le compte de stockage dans quatre tables nommées \$MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue et $MetricsCapacityBlob. Pour plus d'informations, consultez la page [À propos des mesures Storage Analytics](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh343258.aspx).
 
 Après avoir défini les niveaux de surveillance et les stratégies de rétention, vous pouvez choisir parmi les mesures disponibles dans le portail de gestion celles à surveiller et celles à représenter sur les graphiques de mesures. Un ensemble de mesures par défaut s'affiche à chaque niveau de surveillance. Vous pouvez utiliser **Add Metrics** pour ajouter ou supprimer des mesures dans la liste de mesures.
 
@@ -93,7 +93,7 @@ Ajout de mesures au tableau des mesures
 
     **Remarque**
 
-    Tenez compte des frais au moment de sélectionner les mesures. En effet, l'actualisation des écrans de surveillance s'accompagne de frais de transaction et de sortie. Pour plus d'informations, consultez la page [Storage Analytics et facturation](http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx).
+    Tenez compte des frais au moment de sélectionner les mesures. En effet, l'actualisation des écrans de surveillance s'accompagne de frais de transaction et de sortie. Pour plus d'informations, consultez la page [Storage Analytics et facturation](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh360997.aspx).
 
 </div>
 
@@ -147,5 +147,5 @@ Pour chaque service de stockage accessible à votre compte de stockage (Blob, Ta
 
 4.  Cliquez sur **Enregistrer**.
 
-Les journaux de diagnostic sont enregistrés dans un conteneur d'objets blob nommé \$logs dans votre compte de stockage. Pour plus d'informations sur l'accès au conteneur \$logs, consultez la page [À propos de la journalisation Storage Analytics](http://msdn.microsoft.com/en-us/library/windowsazure/hh343262.aspx).
+Les journaux de diagnostic sont enregistrés dans un conteneur d'objets blob nommé \$logs dans votre compte de stockage. Pour plus d'informations sur l'accès au conteneur \$logs, consultez la page [À propos de la journalisation Storage Analytics](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh343262.aspx).
 

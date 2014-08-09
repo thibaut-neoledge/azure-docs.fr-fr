@@ -3,7 +3,7 @@
 Prise en main de l'émulateur HDInsight
 ======================================
 
-Ce didacticiel vous présente l'utilisation de l'émulateur Microsoft HDInsight pour Azure (anciennement HDInsight Server Developer Preview). L'émulateur HDInsight est fourni avec les mêmes composants de l'écosystème Hadoop qu'Azure HDInsight. Pour plus d'informations, notamment sur les versions déployées, consultez la page [Version de Hadoop dans Azure HDInsight](http://www.windowsazure.com/en-us/manage/services/hdinsight/howto-hadoop-version/ "Versions et composants HDInsight").
+Ce didacticiel vous présente l'utilisation de l'émulateur Microsoft HDInsight pour Azure (anciennement HDInsight Server Developer Preview). L'émulateur HDInsight est fourni avec les mêmes composants de l'écosystème Hadoop qu'Azure HDInsight. Pour plus d'informations, notamment sur les versions déployées, consultez la page [Version de Hadoop dans Azure HDInsight](http://www.windowsazure.com/fr-fr/manage/services/hdinsight/howto-hadoop-version/ "Versions et composants HDInsight").
 
 L'émulateur HDInsight fournit un environnement de développement local pour Azure HDInsight. Si vous connaissez Hadoop, vous pouvez prendre en main l'émulateur à l'aide de HDFS. Toutefois, dans HDInsight, le système de fichiers par défaut étant le stockage d'objets blob Azure (WASB, c'est-à-dire Azure Storage - Objets blob), vous pouvez développer vos tâches à l'aide de WASB. Vous pouvez prendre en main le développement sur WASB à l'aide de l'émulateur Azure Storage, probablement en utilisant uniquement un petit sous-ensemble de vos données (aucune modification de configuration dans l'émulateur HDInsight n'est nécessaire, seul un nom de compte de stockage différent est requis). Puis, vous testez vos tâches en local sur Azure Storage, à nouveau en utilisant uniquement un sous-ensemble de vos données (nécessite une modification de configuration dans l'émulateur HDInsight). Enfin, vous voilà prêt à déplacer la partie calculée de votre travail sur HDInsight et à exécuter une tâche sur les données de production.
 
@@ -21,7 +21,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
     -   Windows Server 2008 R2 Service Pack1
     -   Windows 8
     -   Windows Server 2012.
--   Installez et configurez Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+-   Installez et configurez Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/fr-fr/documentation/articles/install-configure-powershell/).
 
 Dans ce didacticiel
 -------------------
@@ -423,7 +423,7 @@ Il est possible de configurer un cluster local dans l'émulateur HDInsight pour 
 
 ### Connexion à l'émulateur de stockage
 
-L'émulateur de stockage Azure est fourni avec le [Kit de développement logiciel (SDK) Azure pour .NET](http://www.windowsazure.com/en-us/downloads/). L'émulateur de stockage ne démarre pas automatiquement. Vous devez le démarrer manuellement. Le nom de l'application est *Azure Storage Emulator*. Pour démarrer ou arrêter les émulateurs, cliquez avec le bouton droit sur l'icône Azure bleue dans la zone de notification de Windows, puis cliquez sur Show Storage Emulator UI.
+L'émulateur de stockage Azure est fourni avec le [Kit de développement logiciel (SDK) Azure pour .NET](http://www.windowsazure.com/fr-fr/downloads/). L'émulateur de stockage ne démarre pas automatiquement. Vous devez le démarrer manuellement. Le nom de l'application est *Azure Storage Emulator*. Pour démarrer ou arrêter les émulateurs, cliquez avec le bouton droit sur l'icône Azure bleue dans la zone de notification de Windows, puis cliquez sur Show Storage Emulator UI.
 
 > [WACOM.NOTE] Vous pouvez obtenir le message d'erreur suivant lorsque vous démarrez l'émulateur de stockage :
 
@@ -577,7 +577,7 @@ Voici un exemple d'envoi d'une tâche Hadoop :
 
 Vous devez voir apparaître une boîte de dialogue lors de l'appel à Get-Credential : vous devez utiliser **hadoop** comme nom d'utilisateur. Le mot de passe peut être une chaîne quelconque. Le nom du cluster est toujours **http://localhost:50111**.
 
-Pour plus d'informations sur l'envoi de tâches Hadoop, consultez la page [Envoi de tâches Hadoop par programme](/en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/). Pour plus d'informations sur les cmdlets PowerShell pour HDInsight, consultez la page [Référence des cmdlets HDInsight](http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx).
+Pour plus d'informations sur l'envoi de tâches Hadoop, consultez la page [Envoi de tâches Hadoop par programme](/en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/). Pour plus d'informations sur les cmdlets PowerShell pour HDInsight, consultez la page [Référence des cmdlets HDInsight](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn479228.aspx).
 
 Étapes suivantes
 ----------------
@@ -585,7 +585,7 @@ Pour plus d'informations sur l'envoi de tâches Hadoop, consultez la page [Envoi
 Dans ce didacticiel, vous avez installé un émulateur HDInsight et exécuté certaines tâches Hadoop. Pour en savoir plus, consultez les articles suivants :
 
 -   [Prise en main d'Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
--   [Développement de programmes MapReduce en Java pour HDInsight](/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
+-   [Développement de programmes MapReduce en Java pour HDInsight](/fr-fr/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
 -   [Développement de programmes MapReduce de diffusion en continu Hadoop en C\# pour HDInsight](/en-us/manage/services/hdinsight/develop-deploy-hadoop-streaming-jobs/)
 -   [Notes de publication de l'émulateur HDInsight](https://gettingstarted.hadooponazure.com/releaseNotes.html)
 -   [Forum MSDN sur HDInsight](http://social.msdn.microsoft.com/Forums/en-US/hdinsight)

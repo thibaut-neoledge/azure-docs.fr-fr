@@ -135,7 +135,7 @@ Considérations relatives au cycle de vie de l'application
 Étapes suivantes
 ----------------
 
--   Pour en savoir plus sur les autres services, tels que le stockage Azure, Service Bus, la base de données SQL, etc. à inclure dans vos applications Java, consultez les informations disponibles sur la page <http://www.windowsazure.com/en-us/develop/java/>.
+-   Pour en savoir plus sur les autres services, tels que le stockage Azure, Service Bus, la base de données SQL, etc. à inclure dans vos applications Java, consultez les informations disponibles sur la page <http://www.windowsazure.com/fr-fr/develop/java/>.
 
 [virtual_machine_tomcat]: ./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png
 

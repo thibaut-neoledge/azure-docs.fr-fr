@@ -3,12 +3,12 @@
 Installation d'une nouvelle forêt Active Directory sur un réseau virtuel Azure
 ==============================================================================
 
-Cette rubrique explique comment créer un nouvel environnement Windows Server Active Directory sur un réseau virtuel Azure sur une machine virtuelle sur un [réseau virtuel Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx). Dans ce cas, le réseau virtuel Azure n'est pas connecté à un réseau local.
+Cette rubrique explique comment créer un nouvel environnement Windows Server Active Directory sur un réseau virtuel Azure sur une machine virtuelle sur un [réseau virtuel Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156007.aspx). Dans ce cas, le réseau virtuel Azure n'est pas connecté à un réseau local.
 
 Les rubriques suivantes peuvent également vous intéresser :
 
--   Vous pouvez éventuellement [configurer un réseau privé virtuel de site à site à l'aide de l'Assistant du portail de gestion](http://msdn.microsoft.com/en-us/library/windowsazure/dn133795.aspx), puis installer une nouvelle forêt ou étendre une forêt locale à un réseau virtuel Azure. Dans ce cas, consultez la page [Installation d'un réplica de contrôleur de domaine Active Directory dans un réseau virtuel Azure](http://www.windowsazure.com/en-us/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/).
--   Pour obtenir des recommandations sur l'installation des services de domaine Active Directory (AD DS) sur un réseau virtuel Azure, consultez la page [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
+-   Vous pouvez éventuellement [configurer un réseau privé virtuel de site à site à l'aide de l'Assistant du portail de gestion](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn133795.aspx), puis installer une nouvelle forêt ou étendre une forêt locale à un réseau virtuel Azure. Dans ce cas, consultez la page [Installation d'un réplica de contrôleur de domaine Active Directory dans un réseau virtuel Azure](http://www.windowsazure.com/fr-fr/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/).
+-   Pour obtenir des recommandations sur l'installation des services de domaine Active Directory (AD DS) sur un réseau virtuel Azure, consultez la page [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156090.aspx).
 -   Pour obtenir les procédures pas à pas de création d'un environnement test dans Azure incluant AD DS, consultez la page [Guide des laboratoires de test : configuration de base Windows Server 2012 R2 dans Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41684).
 
 Sommaire
@@ -57,7 +57,7 @@ Pour configurer...  | Local  | Réseau virtuel Azure
 	**Service cloud** | <p>Service cloud : **Create a new cloud service**<p>Nom du service cloud : acceptez la valeur par défaut<p>Region/AffinityGroup/VirtualNetwork : sélectionnez le réseau virtuel que vous avez créé<p>Virtual network subnet : sélectionnez le sous-réseau que vous avez créé. <p>Compte de stockage : **Use an automatically generated storage account**<p>Groupe à haute disponibilité : **Aucun**<p>Points de terminaison : acceptez les valeurs par défaut<p>
 	**VM Agent** | Sélectionnez **Install the VM Agent**
 
-3.  L'adresse IP dynamique attribuée par défaut à la machine virtuelle est valide pendant la durée du service cloud. Mais elle change lorsque la machine virtuelle est arrêtée. Vous pouvez attribuer une adresse IP statique en [exécutant la cmdlet Set-AzureStaticVNetIP Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/dn630228.aspx) afin que l'adresse IP soit conservée si vous devez arrêter la machine virtuelle à un moment donné.
+3.  L'adresse IP dynamique attribuée par défaut à la machine virtuelle est valide pendant la durée du service cloud. Mais elle change lorsque la machine virtuelle est arrêtée. Vous pouvez attribuer une adresse IP statique en [exécutant la cmdlet Set-AzureStaticVNetIP Azure PowerShell](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn630228.aspx) afin que l'adresse IP soit conservée si vous devez arrêter la machine virtuelle à un moment donné.
 4.  Attachez un autre disque à la machine virtuelle pour stocker la base de données Active Directory, les fichiers journaux et SYSVOL.
 	1.  Cliquez sur **VM** \> **Attach** \> **Attach empty disk**.
 	2.  Spécifiez une taille (par exemple, 10 Go) et acceptez les autres valeurs par défaut.
@@ -118,21 +118,21 @@ Si vous réexécutez le script, vous devez fournir une valeur unique pour \$serv
 Voir aussi
 ----------
 
--   [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx)
+-   [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156090.aspx)
 
--   [Création d'un réseau virtuel dans Azure](http://www.windowsazure.com/en-us/manage/services/networking/create-a-virtual-network/)
+-   [Création d'un réseau virtuel dans Azure](http://www.windowsazure.com/fr-fr/manage/services/networking/create-a-virtual-network/)
 
--   [Création d'un réseau virtuel pour une connectivité entre différents locaux de site à site](http://www.windowsazure.com/en-us/documentation/articles/virtual-networks-create-site-to-site-cross-premises-connectivity/)
+-   [Création d'un réseau virtuel pour une connectivité entre différents locaux de site à site](http://www.windowsazure.com/fr-fr/documentation/articles/virtual-networks-create-site-to-site-cross-premises-connectivity/)
 
--   [Installation d'un contrôleur de domaine Active Directory de réplication dans un réseau virtuel Azure](http://www.windowsazure.com/en-us/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/)
+-   [Installation d'un contrôleur de domaine Active Directory de réplication dans un réseau virtuel Azure](http://www.windowsazure.com/fr-fr/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/)
 
--   [Réseau virtuel Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
+-   [Réseau virtuel Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156007.aspx)
 
--   [Installation et configuration d’Azure PowerShell](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/)
+-   [Installation et configuration d’Azure PowerShell](http://www.windowsazure.com/fr-fr/documentation/articles/install-configure-powershell/)
 
--   [Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx)
+-   [Azure PowerShell](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156055.aspx)
 
--   [Cmdlets de gestion Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841)
+-   [Cmdlets de gestion Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj152841)
 
 -   [Définition de l'adresse IP statique d'une machine virtuelle Azure](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address)
 

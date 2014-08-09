@@ -248,4 +248,4 @@ La base de données SQL prend en charge plusieurs vues de gestion dynamique vous
 
 
 
-[1]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
+[1]: http://www.windowsazure.com/fr-fr/develop/net/how-to-guides/sql-azure/

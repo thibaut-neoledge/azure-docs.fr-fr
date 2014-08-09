@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with Mobile Services with PhoneGap | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for PhoneGap development for iOS, Android, and Windows Phone." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-[Windows Store](/en-us/documentation/articles/mobile-services-windows-store-get-started "Windows Store") [Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone") [iOS](/en-us/documentation/articles/mobile-services-ios-get-started "iOS") [Android](/en-us/documentation/articles/mobile-services-android-get-started "Android") [HTML](/en-us/documentation/articles/mobile-services-html-get-started "HTML") [Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS") [Xamarin.Android](/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android") [Sencha](/en-us/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha") [PhoneGap](/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap")
+[Windows Store](/fr-fr/documentation/articles/mobile-services-windows-store-get-started "Windows Store") [Windows Phone](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone") [iOS](/fr-fr/documentation/articles/mobile-services-ios-get-started "iOS") [Android](/fr-fr/documentation/articles/mobile-services-android-get-started "Android") [HTML](/fr-fr/documentation/articles/mobile-services-html-get-started "HTML") [Xamarin.iOS](/fr-fr/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS") [Xamarin.Android](/fr-fr/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android") [Sencha](/fr-fr/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha") [PhoneGap](/fr-fr/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap")
 
 Prise en main de Mobile Services
 ================================
@@ -141,10 +141,10 @@ Mise à jour de l'application et régénération des projets pour chaque platefo
 
 Maintenant que vous avez effectué le démarrage rapide, découvrez comment exécuter d'autres tâches importantes dans Mobile Services :
 
--   [Prise en main des données](/en-us/documentation/articles/mobile-services-html-get-started-data)
+-   [Prise en main des données](/fr-fr/documentation/articles/mobile-services-html-get-started-data)
     <br/>En savoir plus sur le stockage et l'interrogation des données à l'aide de Mobile Services.
 
--   [Prise en main de l'authentification](/en-us/documentation/articles/mobile-services-html-get-started-users)
+-   [Prise en main de l'authentification](/fr-fr/documentation/articles/mobile-services-html-get-started-users)
     <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec un fournisseur d'identité.
 
 <!-- Images. -->
@@ -155,8 +155,8 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 [4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
 
 <!-- URLs. -->
-[Get started with data]: /en-us/documentation/articles/mobile-services-html-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-html-get-started-users
+[Get started with data]: /fr-fr/documentation/articles/mobile-services-html-get-started-data
+[Get started with authentication]: /fr-fr/documentation/articles/mobile-services-html-get-started-users
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/mobile-services-html-get-started-push
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Management Portal]: https://manage.windowsazure.com/

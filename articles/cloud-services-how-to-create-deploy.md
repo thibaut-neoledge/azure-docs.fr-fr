@@ -161,12 +161,12 @@ Trois fonctions du service cloud nécessitent une configuration spécifique avan
 
 
 [1]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
-[2]: http://www.windowsazure.com/en-us/develop/downloads/
+[2]: http://www.windowsazure.com/fr-fr/develop/downloads/
 [3]: http://code.msdn.microsoft.com/windowsazure/
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx
-[5]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433010.aspx
-[6]: http://www.windowsazure.com/en-us/develop/net/common-tasks/diagnostics/
+[4]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ff795779.aspx
+[5]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433010.aspx
+[6]: http://www.windowsazure.com/fr-fr/develop/net/common-tasks/diagnostics/
 [7]: http://manage.windowsazure.com/
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx
-[9]: http://msdn.microsoft.com/en-us/library/windowsazure/hh552718.aspx
-[10]: http://www.windowsazure.com/en-us/support/legal/sla/
+[8]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460798.aspx
+[9]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh552718.aspx
+[10]: http://www.windowsazure.com/fr-fr/support/legal/sla/

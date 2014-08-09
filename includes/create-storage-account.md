@@ -21,5 +21,5 @@ Pour utiliser les opérations de stockage, vous avez besoin d'un compte de stock
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
+[1]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh264518.aspx
 [2]: http://manage.windowsazure.com

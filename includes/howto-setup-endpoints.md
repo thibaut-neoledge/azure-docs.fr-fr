@@ -76,4 +76,4 @@ Suivez cette procédure pour ajouter, modifier ou supprimer l'ACL sur un point d
 [1]: http://go.microsoft.com/fwlink/p/?LinkID=294063
 [2]: http://go.microsoft.com/fwlink/p/?LinkId=303816
 [3]: http://manage.windowsazure.com
-[4]: http://www.windowsazure.com/en-us/manage/windows/common-tasks/how-to-load-balance-virtual-machines/
+[4]: http://www.windowsazure.com/fr-fr/manage/windows/common-tasks/how-to-load-balance-virtual-machines/

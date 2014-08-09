@@ -3,7 +3,7 @@
 Planification de tâches récurrentes dans Mobile Services
 ========================================================
 
-[.NET backend](/en-us/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/ ".NET backend") | [JavaScript backend](/en-us/documentation/articles/mobile-services-schedule-recurring-tasks/ "JavaScript backend")
+[.NET backend](/fr-fr/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/ ".NET backend") | [JavaScript backend](/fr-fr/documentation/articles/mobile-services-schedule-recurring-tasks/ "JavaScript backend")
 
 Cette rubrique explique comment utiliser la fonctionnalité du planificateur de tâches dans le portail de gestion pour définir le code du script serveur qui est exécuté sur la base d'un calendrier défini par vous. Dans ce cas, le script effectue régulièrement une vérification auprès d'un service distant, Twitter en l'occurrence, et stocke les résultats dans une nouvelle table. D'autres tâches périodiques peuvent être planifiées, notamment les tâches suivantes :
 
@@ -82,7 +82,7 @@ Création de la nouvelle table Updates
 
     La table Updates, qui est créée dans la base de données lors du premier accès à DbSet, est utilisée par le service pour stocker les données des tweets.
 
-    > [WACOM.NOTE] Lors de l'utilisation de l'initialiseur de base de données par défaut, Entity Framework supprime et recrée la base de données lorsqu'il détecte une modification du modèle de données dans la définition du modèle Code First. Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les migrations Code First. L'initialiseur par défaut ne peut pas être utilisé avec une base de données SQL dans Azure. Pour plus d'informations, consultez l'article [Utilisation des migrations Code First pour mettre à jour le modèle de données](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).
+    > [WACOM.NOTE] Lors de l'utilisation de l'initialiseur de base de données par défaut, Entity Framework supprime et recrée la base de données lorsqu'il détecte une modification du modèle de données dans la définition du modèle Code First. Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les migrations Code First. L'initialiseur par défaut ne peut pas être utilisé avec une base de données SQL dans Azure. Pour plus d'informations, consultez l'article [Utilisation des migrations Code First pour mettre à jour le modèle de données](/fr-fr/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).
 
 Vous pouvez ensuite créer la tâche planifiée qui accède à Twitter et stocke les données des tweets dans la nouvelle table Updates.
 
@@ -284,7 +284,7 @@ Félicitations, vous avez créé une nouvelle tâche planifiée dans votre servi
 
 <!-- URLs. -->
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Register your apps for Twitter login with Mobile Services]: /en-us/documentation/articles/mobile-services-how-to-register-twitter-authentication
+[Register your apps for Twitter login with Mobile Services]: /fr-fr/documentation/articles/mobile-services-how-to-register-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[App settings]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[App settings]: http://msdn.microsoft.com/fr-fr/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ to Twitter CodePlex project]: http://linqtotwitter.codeplex.com/

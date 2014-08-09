@@ -26,7 +26,7 @@ Utilisation de fédérations
 
 Les fédérations dans une base de données SQL sont utilisées pour obtenir une extensibilité et des performances accrues. Une ou plusieurs tables d'une base de données sont fractionnées par ligne et réparties sur plusieurs bases de données (membres de la fédération). Ce type de partitionnement horizontal est souvent nommé « sharding » (partitionnement). Les scénarios principaux dans lesquels ce partitionnement est utile sont ceux où vous devez atteindre une certaine extensibilité ou certaines performances, ou gérer la capacité.
 
-Les fédérations sont prises en charge dans l'édition Business. Pour plus d'informations, consultez la page [Fédérations dans la base de données SQL](http://msdn.microsoft.com/en-us/library/windowsazure/hh597452.aspx) et [Didacticiel sur les fédérations de Base de données SQL -- DBA](http://msdn.microsoft.com/en-us/library/windowsazure/hh778416.aspx).
+Les fédérations sont prises en charge dans l'édition Business. Pour plus d'informations, consultez la page [Fédérations dans la base de données SQL](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh597452.aspx) et [Didacticiel sur les fédérations de Base de données SQL -- DBA](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh778416.aspx).
 
 Prise en considération d'autres formes de stockage
 --------------------------------------------------

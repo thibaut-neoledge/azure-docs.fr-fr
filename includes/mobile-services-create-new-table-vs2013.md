@@ -20,4 +20,4 @@ Avant de pouvoir stocker des données dans le nouveau service mobile, vous devez
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx
+[1]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj193161.aspx

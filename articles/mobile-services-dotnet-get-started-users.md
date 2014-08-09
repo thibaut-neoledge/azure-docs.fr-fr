@@ -44,7 +44,7 @@ Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre applicatio
 	-   [Connexion Facebook](/en-us/develop/mobile/how-to-guides/register-for-facebook-authentication/)
 	-   [Connexion Twitter](/en-us/develop/mobile/how-to-guides/register-for-twitter-authentication/)
 	-   [Connexion Google](/en-us/develop/mobile/how-to-guides/register-for-google-authentication/)
-	-   [Azure Active Directory](/en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/)
+	-   [Azure Active Directory](/fr-fr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/)
 
     	N'oubliez pas de noter les valeurs de l'identité du client et de la clé secrète cliente générées par le fournisseur.
 

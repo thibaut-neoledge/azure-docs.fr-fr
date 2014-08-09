@@ -242,7 +242,7 @@ Les définitions de point de terminaison se déplacent dans le fichier App.confi
 
 Maintenant que vous avez appris les principes de base du service Service Bus **Relay**, consultez ces liens pour en savoir plus :
 
--   Création d'un service : [Génération d'un service pour Service Bus](http://msdn.microsoft.com/en-us/library/windowsazure/ee173564.aspx).
--   Création du client : [Génération d'une application Service Bus Client](http://msdn.microsoft.com/en-us/library/windowsazure/ee173543.aspx).
+-   Création d'un service : [Génération d'un service pour Service Bus](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee173564.aspx).
+-   Création du client : [Génération d'une application Service Bus Client](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee173543.aspx).
 -   Exemples Service Bus : à télécharger depuis [Exemples Azure](http://code.msdn.microsoft.com/windowsazure).
 

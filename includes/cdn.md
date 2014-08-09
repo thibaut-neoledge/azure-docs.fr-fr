@@ -29,7 +29,7 @@ Pour créer un compte de stockage, vous devez être l'administrateur de service 
  
 <div  class="dev-callout">
 <strong>Remarque</strong>
-<p>Pour plus d’informations sur l’exécution de cette opération à l’aide de l’API de gestion des services Azure, consultez la rubrique de référence <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx">Création d’un compte de stockage</a>.</p>
+<p>Pour plus d’informations sur l’exécution de cette opération à l’aide de l’API de gestion des services Azure, consultez la rubrique de référence <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/hh264518.aspx">Création d’un compte de stockage</a>.</p>
 </div>
 
  **Création d'un compte de stockage pour un abonnement Azure**
@@ -121,12 +121,12 @@ Aucun outil de << vidage >> explicite n'est actuellement disponible pour le CD
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680302.aspx
+[1]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg680302.aspx
 [2]: https://manage.windowsazure.com/
-[3]: http://msdn.microsoft.com/en-us/library/windowsazure/ee924681.aspx
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531560.aspx
-[5]: http://msdn.microsoft.com/en-us/library/gg680306.aspx
-[6]: http://msdn.microsoft.com/en-us/library/dd179354.aspx
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531567.aspx
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460807.aspx
-[9]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
+[3]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee924681.aspx
+[4]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh531560.aspx
+[5]: http://msdn.microsoft.com/fr-fr/library/gg680306.aspx
+[6]: http://msdn.microsoft.com/fr-fr/library/dd179354.aspx
+[7]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh531567.aspx
+[8]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460807.aspx
+[9]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg680307.aspx

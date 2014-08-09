@@ -59,7 +59,7 @@ Par défaut, chaque compte Media Services a une capacité maximale de 25 unité
 Pour ouvrir un ticket de support, procédez comme suit :
 
 1.  Connectez-vous à votre compte Azure sur le [portail de gestion](http://manage.windowsazure.com).
-2.  Accédez à [Support](http://www.windowsazure.com/en-us/support/contact/).
+2.  Accédez à [Support](http://www.windowsazure.com/fr-fr/support/contact/).
 3.  Cliquez sur « Obtenir un support ».
 4.  Sélectionnez votre abonnement.
 5.  Sous le type de support, sélectionnez « Technique ».

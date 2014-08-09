@@ -5,7 +5,7 @@ Création d'un réseau virtuel pour une connectivité entre différents locaux d
 
 Ce didacticiel vous guide lors de la création d'un réseau virtuel entre différents locaux. Vous allez y créer une connexion de site à site. Si vous voulez créer un VPN pointant vers un site en utilisant des certificats et un client VPN, consultez la page [Configuration d'un VPN pointant vers un site dans le portail de gestion](http://go.microsoft.com/fwlink/?LinkId=296653).
 
-Ce didacticiel part du principe que vous n'avez pas d'expérience en tant qu'utilisateur d'Azure. Il a pour but de vous familiariser avec la procédure requise pour créer un réseau virtuel de site à site. Si vous recherchez des scénarios de conception et des informations supplémentaires sur Virtual Network, consultez l'article [Présentation d'Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx).
+Ce didacticiel part du principe que vous n'avez pas d'expérience en tant qu'utilisateur d'Azure. Il a pour but de vous familiariser avec la procédure requise pour créer un réseau virtuel de site à site. Si vous recherchez des scénarios de conception et des informations supplémentaires sur Virtual Network, consultez l'article [Présentation d'Azure Virtual Network](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156007.aspx).
 
 Une fois ce didacticiel terminé, vous disposerez d'un réseau virtuel sur lequel vous pouvez déployer vos services et machines virtuelles Azure, qui peuvent ensuite communiquer directement avec le réseau de votre société.
 
@@ -15,7 +15,7 @@ Pour plus d'informations sur l'ajout d'une machine virtuelle et l'extension loca
 
 -   [Installation d'un contrôleur de domaine Active Directory de réplication dans Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=299877)
 
-Pour obtenir des instructions sur le déploiement des services de domaine Active Directory (AD DS) dans Azure Virtual Machines, consultez la page [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
+Pour obtenir des instructions sur le déploiement des services de domaine Active Directory (AD DS) dans Azure Virtual Machines, consultez la page [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156090.aspx).
 
 Pour plus d'informations sur les paramètres et procédures de configuration de Virtual Network, consultez la page [Tâches de configuration d'Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=296652).
 
@@ -89,7 +89,7 @@ Création d'un réseau virtuel
 
 5.  Sur la page **Connectivité de site à site**, entrez les informations suivantes, puis cliquez sur la coche située dans le coin inférieur droit de la page. Pour plus d'informations sur les paramètres de cette page, consultez la section **Connectivité de site à site** sur la page [À propos de la configuration d'un réseau virtuel à l'aide du portail de gestion](http://go.microsoft.com/fwlink/?LinkID=248092).
 	-   **NOM :** entrez *YourCorpHQ*.
-	-   **ADRESSE IP DE PÉRIPHÉRIQUE VPN :** entrez l'adresse IP publique de votre périphérique VPN. Si vous n'avez pas cette information, vous devrez l'obtenir avant de passer aux étapes suivantes de l'Assistant. Notez que votre périphérique VPN ne peut pas être situé derrière un NAT. Pour plus d'informations sur les périphériques VPN, consultez la page [À propos des périphériques VPN pour Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156075.aspx).
+	-   **ADRESSE IP DE PÉRIPHÉRIQUE VPN :** entrez l'adresse IP publique de votre périphérique VPN. Si vous n'avez pas cette information, vous devrez l'obtenir avant de passer aux étapes suivantes de l'Assistant. Notez que votre périphérique VPN ne peut pas être situé derrière un NAT. Pour plus d'informations sur les périphériques VPN, consultez la page [À propos des périphériques VPN pour Virtual Network](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156075.aspx).
 	-   **ESPACE D'ADRESSAGE :** entrez *10.1.0.0/16*.
 	-   **Ajouter un espace d'adressage :** ce didacticiel ne requiert pas d'espace d'adressage supplémentaire.
 
@@ -229,15 +229,15 @@ Si vous voulez exporter les paramètres de votre réseau virtuel dans un fichier
 Voir aussi
 ----------
 
--   [Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
+-   [Azure Virtual Network](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156007.aspx)
 
 -   [FAQ Virtual Network](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
 
--   [Configuration d'un réseau virtuel à l'aide de fichiers de configuration de réseau](http://msdn.microsoft.com/en-us/library/windowsazure/jj156097.aspx)
+-   [Configuration d'un réseau virtuel à l'aide de fichiers de configuration de réseau](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156097.aspx)
 
--   [Ajout d'une machine virtuelle à un réseau virtuel](http://www.windowsazure.com/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/)
+-   [Ajout d'une machine virtuelle à un réseau virtuel](http://www.windowsazure.com/fr-fr/manage/services/networking/add-a-vm-to-a-virtual-network/)
 
--   [À propos des périphériques VPN pour Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156075.aspx)
+-   [À propos des périphériques VPN pour Virtual Network](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156075.aspx)
 
 -   [Présentation de la résolution de noms Azure](http://go.microsoft.com/fwlink/?LinkId=248097)
 

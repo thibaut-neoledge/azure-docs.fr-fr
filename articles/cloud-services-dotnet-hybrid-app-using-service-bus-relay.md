@@ -108,7 +108,7 @@ Afin d'effectuer des opérations de gestion, comme la création d'une file d’a
 
 ### Gestion d'un espace de noms de service avec l'Explorateur de serveurs Visual Studio :
 
-Pour gérer un espace de noms et obtenir des informations de connexion en utilisant Visual Studio plutôt que le portail de gestion, suivez la procédure décrite [ici](http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx), dans la section intitulée **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l'arborescence **Microsoft Azure** dans l'Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Propriétés** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s'affichent dans le volet **Propriétés** de Visual Studio.
+Pour gérer un espace de noms et obtenir des informations de connexion en utilisant Visual Studio plutôt que le portail de gestion, suivez la procédure décrite [ici](http://http://msdn.microsoft.com/fr-fr/library/windowsazure/ff687127.aspx), dans la section intitulée **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l'arborescence **Microsoft Azure** dans l'Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Propriétés** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s'affichent dans le volet **Propriétés** de Visual Studio.
 
 ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png)
 
@@ -399,7 +399,7 @@ Exécutez l'application afin de vérifier qu'elle fonctionne.
     DÉPLOIEMENT SUR AZUREPRÉPARATION DE VOTRE APPLICATION EN VUE DE SON DÉPLOIEMENT SUR AZURE
     -----------------------------------------------------------------------------------------
 
-    Vous pouvez déployer votre application sur un service cloud Azure ou un site Web Azure. Pour plus d'informations sur les différences entre les sites Web et les services cloud, consultez la page [Modèles d'exécution Azure](http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/). Pour plus d'informations sur le déploiement de l'application sur un site Web Azure, consultez la page [Déploiement d'une application Web ASP.NET sur un site Web Azure](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). Cette section contient une procédure pas à pas pour déployer l'application sur un service cloud Azure.
+    Vous pouvez déployer votre application sur un service cloud Azure ou un site Web Azure. Pour plus d'informations sur les différences entre les sites Web et les services cloud, consultez la page [Modèles d'exécution Azure](http://www.windowsazure.com/fr-fr/develop/net/fundamentals/compute/). Pour plus d'informations sur le déploiement de l'application sur un site Web Azure, consultez la page [Déploiement d'une application Web ASP.NET sur un site Web Azure](http://www.windowsazure.com/fr-fr/develop/net/tutorials/get-started/). Cette section contient une procédure pas à pas pour déployer l'application sur un service cloud Azure.
 
     Pour déployer votre application sur un service cloud, vous ajoutez un projet de déploiement de service cloud à la solution. Le projet de déploiement contient des informations de configuration qui sont nécessaires pour exécuter correctement l'application sur le cloud.
 
@@ -533,7 +533,7 @@ Exécutez l'application afin de vérifier qu'elle fonctionne.
 
         ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png)
 
-Pour plus d'informations sur les différences entre les sites Web et les services cloud, consultez la page [Modèles d'exécution Azure](http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/).
+Pour plus d'informations sur les différences entre les sites Web et les services cloud, consultez la page [Modèles d'exécution Azure](http://www.windowsazure.com/fr-fr/develop/net/fundamentals/compute/).
 
 SUPPRESSION DE L'APPLICATIONARRÊT ET SUPPRESSION DE L'APPLICATION
 -----------------------------------------------------------------
@@ -555,7 +555,7 @@ La procédure suivante présente l'arrêt et la suppression de l'application.
 
 Pour en savoir plus sur Service Bus, consultez les ressources suivantes :
 
--   [Azure Service Bus](http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx)
+-   [Azure Service Bus](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee732537.aspx)
 -   [Procédures Service Bus](/en-us/manage/services/service-bus/)
 -   [Utilisation des files d'attente Service Bus.](/en-us/develop/net/how-to-guides/service-bus-queues/)
 

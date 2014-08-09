@@ -18,7 +18,7 @@ Ce didacticiel requiert les éléments suivants :
 
 -   Microsoft Visual Studio 2012 Express pour Windows ou version ultérieure.
 -   Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez effectuer le didacticiel [Prise en main de Mobile Services](/en-us/develop/mobile/tutorials/get-started).
--   [Compte Azure.](http://www.windowsazure.com/en-us/pricing/free-trial/)
+-   [Compte Azure.](http://www.windowsazure.com/fr-fr/pricing/free-trial/)
 -   Package NuGet Azure Mobile Services version 1.1.0 ou ultérieure. Pour obtenir la dernière version, procédez comme suit :
     1.  Dans Visual Studio, ouvrez le projet, cliquez dessus avec le bouton droit dans l'Explorateur de solutions, puis cliquez sur **Manage Nuget Packages**.
 

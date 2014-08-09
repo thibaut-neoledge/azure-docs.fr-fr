@@ -75,14 +75,14 @@ Si vous souhaitez utiliser un autre numéro de téléphone pour vos applications
 Création d'un service mobile
 ----------------------------
 
-Un service mobile qui héberge une application Twilio n'est pas différent d'un autre service mobile. Vous ajoutez simplement la bibliothèque node.js Twilio afin de pouvoir y faire référence depuis vos scripts d'API Mobile Service personnalisée. Pour plus d'informations sur la création d'un service mobile initial, consultez la page [Prise en main de Mobile Services](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started/).
+Un service mobile qui héberge une application Twilio n'est pas différent d'un autre service mobile. Vous ajoutez simplement la bibliothèque node.js Twilio afin de pouvoir y faire référence depuis vos scripts d'API Mobile Service personnalisée. Pour plus d'informations sur la création d'un service mobile initial, consultez la page [Prise en main de Mobile Services](http://www.windowsazure.com/fr-fr/develop/mobile/tutorials/get-started/).
 
 Configuration de votre service mobile pour utiliser la bibliothèque Twilio Node.js
 ----------------------------------------------------------------------------------
 
 Twilio comporte une bibliothèque Node.js qui couvre différents aspects de Twilio afin de fournir des moyens simples et faciles d'interaction avec l'API REST Twilio et le client Twilio en vue de générer des réponses TwiML.
 
-Pour utiliser la bibliothèque Twilio node.js dans votre service mobile, vous devez réutiliser la prise en charge du module npm de Mobile Services, ce que vous pouvez faire en enregistrant vos scripts dans le contrôle de code source. Le didacticiel [Stockage de scripts dans un contrôle de code source](http://www.windowsazure.com/en-us/develop/mobile/tutorials/store-scripts-in-source-control/) montre comment configurer un contrôle de code source pour la première fois dans Mobile Services pour stocker vos scripts serveur dans un référentiel Git.
+Pour utiliser la bibliothèque Twilio node.js dans votre service mobile, vous devez réutiliser la prise en charge du module npm de Mobile Services, ce que vous pouvez faire en enregistrant vos scripts dans le contrôle de code source. Le didacticiel [Stockage de scripts dans un contrôle de code source](http://www.windowsazure.com/fr-fr/develop/mobile/tutorials/store-scripts-in-source-control/) montre comment configurer un contrôle de code source pour la première fois dans Mobile Services pour stocker vos scripts serveur dans un référentiel Git.
 
 Une fois que vous avez configuré le contrôle de code source pour votre service mobile, ouvrez l'onglet Configurer du tableau de bord de votre service mobile, puis recherchez l'URL Git et copiez-la.
 

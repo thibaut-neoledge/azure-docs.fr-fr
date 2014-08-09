@@ -3,7 +3,7 @@
 Administration de HDInsight à l'aide de PowerShell
 ==================================================
 
-Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Cet article vous indique comment gérer les clusters HDInsignt en utilisant la console locale Azure PowerShell par le biais de Windows PowerShell. Pour la liste des cmdlets PowerShell pour HDInsight, consultez la rubrique [Référence des cmdlets HDInsight](http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx).
+Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Cet article vous indique comment gérer les clusters HDInsignt en utilisant la console locale Azure PowerShell par le biais de Windows PowerShell. Pour la liste des cmdlets PowerShell pour HDInsight, consultez la rubrique [Référence des cmdlets HDInsight](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn479228.aspx).
 
 **Configuration requise :**
 
@@ -11,7 +11,7 @@ Avant de commencer la lecture de cet article, vous devez disposer des éléments
 
 -   Un abonnement Azure. Azure est une plateforme disponible par abonnement. Les cmdlets HDInsight PowerShell permettent d'effectuer les tâches associées à votre abonnement. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les [formules d'abonnement](https://www.windowsazure.com/en-us/pricing/purchase-options/), les [offres spéciales membres](https://www.windowsazure.com/en-us/pricing/member-offers/) ou la [version d'évaluation gratuite](https://www.windowsazure.com/en-us/pricing/free-trial/).
 
--   Un poste de travail sur lequel est installé Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+-   Un poste de travail sur lequel est installé Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/fr-fr/documentation/articles/install-configure-powershell/).
 
 Dans cet article
 ----------------
@@ -136,7 +136,7 @@ Dans l'exemple, *hdiv2* correspond au nom d'un cluster HDInsight.
 
 > [WACOM.NOTE] En octroyant/révoquant l'accès, vous réinitialisez le nom d'utilisateur et le mot de passe du cluster.
 
-Vous pouvez également effectuer cette opération à l'aide du portail de gestion Azure. Consultez la rubrique [Administration de HDInsight à l'aide du portail de gestion](/en-us/documentation/articles/hdinsight-administer-use-management-portal/).
+Vous pouvez également effectuer cette opération à l'aide du portail de gestion Azure. Consultez la rubrique [Administration de HDInsight à l'aide du portail de gestion](/fr-fr/documentation/articles/hdinsight-administer-use-management-portal/).
 
 Envoi de tâches MapReduce
 -------------------------
@@ -176,7 +176,7 @@ Le script PowerShell suivant extrait le résultat de la tâche MapReduce de la d
     # Affichez le résultat
     cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
 
-Pour plus d'informations sur le développement et l'exécution des tâches MapReduce, consultez l'article [Utilisation de MapReduce avec HDInsight](/en-us/documentation/articles/hdinsight-use-mapreduce/).
+Pour plus d'informations sur le développement et l'exécution des tâches MapReduce, consultez l'article [Utilisation de MapReduce avec HDInsight](/fr-fr/documentation/articles/hdinsight-use-mapreduce/).
 
 Envoi de tâches Hive
 --------------------
@@ -202,12 +202,12 @@ Le script suivant envoie une tâche Hive afin d'afficher la liste des tables Hiv
 
 La tâche Hive affiche d'abord les tables Hive créées sur le cluster et les données renvoyées par l'exemple de table Hive hivesampletable.
 
-Pour plus d'informations sur l'utilisation de Hive, consultez l'article [Utilisation de Hive avec HDInsight](/en-us/documentation/articles/hdinsight-use-hive/).
+Pour plus d'informations sur l'utilisation de Hive, consultez l'article [Utilisation de Hive avec HDInsight](/fr-fr/documentation/articles/hdinsight-use-hive/).
 
 Téléchargement de données vers le stockage d'objets blob
 --------------------------------------------------------
 
-Consultez la rubrique [Téléchargement de données vers HDInsight](/en-us/documentation/articles/hdinsight-upload-data/).
+Consultez la rubrique [Téléchargement de données vers HDInsight](/fr-fr/documentation/articles/hdinsight-upload-data/).
 
 Téléchargement de données de sortie MapReduce à partir du stockage d'objets blob Azure
 --------------------------------------------------------------------------------------
@@ -217,11 +217,11 @@ Consultez la section [Envoi de tâches MapReduce](#mapreduce) de cet article.
 Voir aussi
 ----------
 
--   [Documentation de référence des cmdlets HDInsight](http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx)
--   [Administration de HDInsight à l'aide du portail de gestion](/en-us/documentation/articles/hdinsight-administer-use-management-portal/)
--   [Administration de HDInsight à l'aide de l'interface de ligne de commande](/en-us/documentation/articles/hdinsight-administer-use-command-line/)
--   [Approvisionnement de clusters HDInsight](/en-us/documentation/articles/hdinsight-provision-clusters/)
--   [Téléchargement de données vers HDInsight](/en-us/documentation/articles/hdinsight-upload-data/)
--   [Envoi de tâches Hadoop par programme](/en-us/documentation/articles/hdinsight-submit-hadoop-jobs-programmatically/)
--   [Prise en main d'Azure HDInsight](/en-us/documentation/articles/hdinsight-get-started/)
+-   [Documentation de référence des cmdlets HDInsight](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn479228.aspx)
+-   [Administration de HDInsight à l'aide du portail de gestion](/fr-fr/documentation/articles/hdinsight-administer-use-management-portal/)
+-   [Administration de HDInsight à l'aide de l'interface de ligne de commande](/fr-fr/documentation/articles/hdinsight-administer-use-command-line/)
+-   [Approvisionnement de clusters HDInsight](/fr-fr/documentation/articles/hdinsight-provision-clusters/)
+-   [Téléchargement de données vers HDInsight](/fr-fr/documentation/articles/hdinsight-upload-data/)
+-   [Envoi de tâches Hadoop par programme](/fr-fr/documentation/articles/hdinsight-submit-hadoop-jobs-programmatically/)
+-   [Prise en main d'Azure HDInsight](/fr-fr/documentation/articles/hdinsight-get-started/)
 

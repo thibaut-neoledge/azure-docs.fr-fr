@@ -3,7 +3,7 @@
 Téléchargement d'images vers Azure Storage à l'aide de Mobile Services
 ======================================================================
 
-[Windows Store C\#](/en-us/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Windows Store C#")[Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone")
+[Windows Store C\#](/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Windows Store C#")[Windows Phone](/fr-fr/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone")
 
 Cette rubrique vous montre comment utiliser Azure Mobile Services pour permettre à votre application de télécharger et de stocker les images générées par l'utilisateur dans Azure Storage. Mobile Services utilise une base de données SQL pour stocker les données. Toutefois, les données BLOB (Binary Large Object) sont stockées avec plus d'efficacité dans le service de stockage d'objets blob Azure.
 
@@ -23,7 +23,7 @@ Ce didacticiel requiert les éléments suivants :
 -   Gestionnaire de package Nuget pour Microsoft Visual Studio ;
 -   [un compte Azure Storage.](/en-us/manage/services/storage/how-to-create-a-storage-account)
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer ce didacticiel, vous devez effectuer le didacticiel [Prise en main de Mobile Services](/en-us/documentation/articles/mobile-services-windows-phone-get-started).
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer ce didacticiel, vous devez effectuer le didacticiel [Prise en main de Mobile Services](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started).
 
 Installation du client de stockage pour les applications du Windows Store
 -------------------------------------------------------------------------

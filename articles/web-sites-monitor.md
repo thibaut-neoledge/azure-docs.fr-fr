@@ -134,7 +134,7 @@ Les options **Diagnostic d'application (système de fichiers)**, **Diagnostic d'
 
 Les diagnostics peuvent également être activés à partir du module Azure PowerShell via la cmdlet **Set-AzureWebsite**.
 
-Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/).
+Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell](http://www.windowsazure.com/fr-fr/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 **Remarque**
 
@@ -209,7 +209,7 @@ Les fichiers journaux peuvent être téléchargés à l'aide de FTP, Azure Power
 
     **Remarque**
 
-    Si **Azure PowerShell** n'est pas installé, consultez la page [Mise en route des cmdlets Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx) pour plus d'informations sur l'installation et la configuration.
+    Si **Azure PowerShell** n'est pas installé, consultez la page [Mise en route des cmdlets Azure PowerShell](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554332.aspx) pour plus d'informations sur l'installation et la configuration.
 
 2.  À l'invite Azure PowerShell, entrez la commande suivante pour télécharger les fichiers journaux :
 
@@ -239,7 +239,7 @@ Cette commande affiche les informations de journalisation à l'invite de command
 
 **Remarque**
 
-Si la commande **azure** n'est pas installée, consultez la page [Utilisation des outils en ligne de commande Azure](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/) pour plus d'informations sur l'installation et la configuration.
+Si la commande **azure** n'est pas installée, consultez la page [Utilisation des outils en ligne de commande Azure](http://www.windowsazure.com/fr-fr/develop/nodejs/how-to-guides/command-line-tools/) pour plus d'informations sur l'installation et la configuration.
 
 ### Lecture des fichiers journaux
 
@@ -303,9 +303,9 @@ Une fois que la surveillance des points de terminaison est configurée, vous pou
 
 Pour en savoir plus sur la surveillance des points de terminaison d'un site Web, visionnez les vidéos suivantes :
 
--   [Scott Guthrie présente Sites Web Azure et paramètre la surveillance des points de terminaison](http://www.windowsazure.com/en-us/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
+-   [Scott Guthrie présente Sites Web Azure et paramètre la surveillance des points de terminaison](http://www.windowsazure.com/fr-fr/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
 
--   [Assurer la gestion des sites Web Azure et la surveillance des points de terminaison - avec Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
+-   [Assurer la gestion des sites Web Azure et la surveillance des points de terminaison - avec Stefan Schackow](http://www.windowsazure.com/fr-fr/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
 
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914

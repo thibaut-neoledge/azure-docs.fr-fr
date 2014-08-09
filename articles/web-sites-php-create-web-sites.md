@@ -7,7 +7,7 @@ Cet article vous indique comment créer un site Web PHP dans [Sites Web Azure]
 
 En règle générale, créer un site Web PHP ne diffère pas de la création d'un site Web *de tout type* dans Sites Web Azure. Par défaut, PHP est activé pour tous les sites Web. Pour plus d'informations sur la configuration de PHP (ou proposer votre propre runtime PHP personnalisé), consultez la page [Configuration de PHP dans Sites Web Azure](/en-us/develop/php/common-tasks/configure-php-web-site/).
 
-Chaque option décrite ci-dessous indique comment créer gratuitement un site Web dans un environnement d'hébergement partagé, avec certaines limites d'utilisation en termes de processeur et de bande passante. Pour plus d’informations, consultez la page de [tarification des sites Web Azure](http://www.windowsazure.com/en-us/pricing/details/#header-1). Pour plus d'informations sur la mise à niveau et les possibilités d'évolution de votre site Web, consultez la page [Mise à l'échelle de sites Web](/en-us/manage/services/web-sites/how-to-scale-websites/).
+Chaque option décrite ci-dessous indique comment créer gratuitement un site Web dans un environnement d'hébergement partagé, avec certaines limites d'utilisation en termes de processeur et de bande passante. Pour plus d’informations, consultez la page de [tarification des sites Web Azure](http://www.windowsazure.com/fr-fr/pricing/details/#header-1). Pour plus d'informations sur la mise à niveau et les possibilités d'évolution de votre site Web, consultez la page [Mise à l'échelle de sites Web](/en-us/manage/services/web-sites/how-to-scale-websites/).
 
 Sommaire
 --------

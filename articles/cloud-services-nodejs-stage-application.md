@@ -61,7 +61,7 @@ Vous avez correctement effectué un déploiement intermédiaire et mis à niveau
 Ressources supplémentaires
 --------------------------
 
--   [Comment déployer une mise à niveau de service vers l'environnement de production en échangeant les adresses IP virtuelles dans Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx)
--   [Présentation de la gestion des déploiements dans Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx)
+-   [Comment déployer une mise à niveau de service vers l'environnement de production en échangeant les adresses IP virtuelles dans Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee517253.aspx)
+-   [Présentation de la gestion des déploiements dans Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh386336.aspx)
 
 

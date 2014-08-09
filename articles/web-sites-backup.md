@@ -5,7 +5,7 @@ Sauvegarde des sites Web Azure
 
 La fonction de sauvegarde et de restauration des sites Web Azure vous permet de facilement créer des sauvegardes de sites Web, manuellement ou automatiquement. Vous pouvez restaurer votre site Web à une étape précédente ou créer un nouveau site Web basé sur des sauvegardes de votre site d'origine.
 
-Pour plus d'informations sur la restauration d'un site Web Azure depuis une sauvegarde, consultez la rubrique [Restauration d'un site Web Azure](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
+Pour plus d'informations sur la restauration d'un site Web Azure depuis une sauvegarde, consultez la rubrique [Restauration d'un site Web Azure](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-restore/).
 
 Dans cet article
 ----------------
@@ -31,7 +31,7 @@ Ces informations sont sauvegardées dans le compte de stockage Azure que vous in
 
 ## Exigences et restrictions
 
--   La fonction de sauvegarde et de restauration implique que le site se situe au niveau Standard. Pour plus d'informations sur la mise à l'échelle de votre site Web au niveau Standard, consultez la rubrique [Mise à l'échelle de sites Web](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/).
+-   La fonction de sauvegarde et de restauration implique que le site se situe au niveau Standard. Pour plus d'informations sur la mise à l'échelle de votre site Web au niveau Standard, consultez la rubrique [Mise à l'échelle de sites Web](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-scale/).
 
 -   La fonction de sauvegarde et de restauration requiert un compte de stockage Azure relevant du même abonnement que le site Web que vous sauvegardez. À défaut de disposer d'un compte de stockage, vous pouvez en créer un en cliquant sur le bouton **Stockage** (icône grille) situé dans le volet de gauche du portail Azure, puis en sélectionnant **Nouveau** dans la barre de commandes du bas. Pour plus d'informations sur les comptes de stockage Azure, consultez les [liens](#moreaboutstorage) situés en bas de cet article.
 
@@ -113,15 +113,15 @@ Les noms des fichiers de sauvegarde .zip et .xml se composent du nom de votre si
 -   Dans la version préliminaire, les opérations de sauvegarde et de restauration sont uniquement disponibles via le portail de gestion Azure.
 
 ## Étapes suivantes
-Pour plus d'informations sur la restauration d'un site Web Azure depuis une sauvegarde, consultez la rubrique [Restauration d'un site Web Azure](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
+Pour plus d'informations sur la restauration d'un site Web Azure depuis une sauvegarde, consultez la rubrique [Restauration d'un site Web Azure](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-restore/).
 
 ### En savoir plus sur les comptes de stockage
 
-[Présentation des comptes de stockage](http://www.windowsazure.com/en-us/documentation/articles/storage-whatis-account/)
+[Présentation des comptes de stockage](http://www.windowsazure.com/fr-fr/documentation/articles/storage-whatis-account/)
 
-[Personnalisation Création d'un compte de stockage](http://www.windowsazure.com/en-us/documentation/articles/storage-create-storage-account/)
+[Personnalisation Création d'un compte de stockage](http://www.windowsazure.com/fr-fr/documentation/articles/storage-create-storage-account/)
 
-[Surveillance d'un compte de stockage](http://www.windowsazure.com/en-us/documentation/articles/storage-monitor-storage-account/)
+[Surveillance d'un compte de stockage](http://www.windowsazure.com/fr-fr/documentation/articles/storage-monitor-storage-account/)
 
 [Présentation de la facturation du stockage Windows](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 

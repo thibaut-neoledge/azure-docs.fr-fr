@@ -26,7 +26,7 @@ Ce didacticiel requiert les éléments suivants :
 -   Gestionnaire de package Nuget pour Microsoft Visual Studio ;
 -   [un compte Azure Storage.](/en-us/manage/services/storage/how-to-create-a-storage-account)
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez effectuer le didacticiel [Prise en main de Mobile Services](/en-us/documentation/articles/mobile-services-windows-phone-get-started).
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez effectuer le didacticiel [Prise en main de Mobile Services](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started).
 
 Installation du client de stockage pour les applications du Windows Store
 -------------------------------------------------------------------------
@@ -59,7 +59,7 @@ Maintenant que vous avez intégré votre service mobile au service BLOB et que v
 
     Découvrez comment ajouter la fonctionnalité de messagerie électronique à votre service mobile en utilisant le service de messagerie SendGrid. Cette rubrique montre comment ajouter des scripts côté serveur pour envoyer du courrier électronique à l'aide de SendGrid.
 
--   [Planification des travaux principaux dans Mobile Services](/en-us/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks)
+-   [Planification des travaux principaux dans Mobile Services](/fr-fr/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks)
 
     Découvrez comment utiliser la fonctionnalité de planification de travaux Mobile Services pour définir du code de script serveur exécuté selon une planification que vous définissez.
 

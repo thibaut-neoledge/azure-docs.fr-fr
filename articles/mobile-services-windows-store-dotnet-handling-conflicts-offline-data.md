@@ -3,11 +3,11 @@
 Gestion des conflits liés aux données hors connexion dans Mobile Services
 =========================================================================
 
-[Windows Store C\#](/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Windows Store C#")
+[Windows Store C\#](/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Windows Store C#")
 
 Cette rubrique vous explique comment synchroniser les données et gérer les conflits lors de l'utilisation des fonctionnalités hors connexion de Windows Azure Mobile Services. Dans ce didacticiel, vous allez télécharger une application qui prend en charge à la fois les données hors connexion et en ligne, intégrer le service mobile avec l'application, puis vous connecter au portail de gestion Windows Azure pour afficher et mettre à jour la base de données lors de l'exécution de l'application.
 
-Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données hors connexion](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data). Avant de commencer, vous devez suivre le didacticiel [Prise en main des données hors connexion](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data).
+Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données hors connexion](/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data). Avant de commencer, vous devez suivre le didacticiel [Prise en main des données hors connexion](/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data).
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 
@@ -24,7 +24,7 @@ Ce didacticiel requiert Visual Studio 2013 s'exécutant sous Windows 8.1.
 Téléchargement de l'exemple de projet
 -------------------------------------
 
-Ce didacticiel repose sur l'[exemple de code de gestion des conflits](http://go.microsoft.com/fwlink/?LinkId=394787), qui est un projet d'application Windows Store dans Visual Studio 2013. L'interface utilisateur pour cette application est similaire à l'application dans le didacticiel [Prise en main de données hors connexion](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data), mis à part qu'il y a une nouvelle colonne de date pour chaque élément TodoItem.
+Ce didacticiel repose sur l'[exemple de code de gestion des conflits](http://go.microsoft.com/fwlink/?LinkId=394787), qui est un projet d'application Windows Store dans Visual Studio 2013. L'interface utilisateur pour cette application est similaire à l'application dans le didacticiel [Prise en main de données hors connexion](/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data), mis à part qu'il y a une nouvelle colonne de date pour chaque élément TodoItem.
 
 1.  Téléchargez la version C\# de l'[exemple de code de gestion des conflits](http://go.microsoft.com/fwlink/?LinkId=394787).
 
@@ -127,7 +127,7 @@ Mise à jour des données sur le serveur principal afin de créer un conflit
 
 Dans un scénario réel, un conflit de synchronisation se produirait lorsqu'une application envoie par Push les mises à jour vers un enregistrement de la base de données, puis qu'une autre application essaie d'envoyer par Push une modification vers le même enregistrement qui est basée sur une version obsolète de cet enregistrement. Si une instance de l'application essaie de mettre à jour le même enregistrement, sans extraire l'enregistrement mis à jour, un conflit se produit et est intercepté en tant que `MobileServicePreconditionFailedException` dans l'application.
 
-Si vous voulez déployer l'application sur une autre machine pour exécuter deux instances de l'application et générer un conflit, vous pouvez suivre les instructions de déploiement dans le didacticiel [Gestion des conflits de base de données](/en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app).
+Si vous voulez déployer l'application sur une autre machine pour exécuter deux instances de l'application et générer un conflit, vous pouvez suivre les instructions de déploiement dans le didacticiel [Gestion des conflits de base de données](/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app).
 
 La procédure suivante explique comment mettre à jour la base de données dans Visual Studio afin de générer un conflit.
 
@@ -207,8 +207,8 @@ Lorsqu'une opération Push est annulée, `PushAsync` génère une `MobileService
 
 <!-- URLs -->
 [Handling conflicts code sample]: http://go.microsoft.com/fwlink/?LinkId=394787
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
-[Get started with offline data]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
+[Get started with Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-store-get-started/
+[Get started with offline data]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Handling Database Conflicts]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app
+[Handling Database Conflicts]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app

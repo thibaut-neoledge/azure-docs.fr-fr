@@ -3,9 +3,9 @@
 Prise en main de Mobile Services
 ================================
 
-[Windows Store](/en-us/documentation/articles/mobile-services-windows-store-get-started "Windows Store")[Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone")[iOS](/en-us/documentation/articles/mobile-services-ios-get-started "iOS")[Android](/en-us/documentation/articles/mobile-services-android-get-started "Android")[HTML](/en-us/documentation/articles/mobile-services-html-get-started "HTML")[Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS")[Xamarin.Android](/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android")[Sencha](/en-us/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha")[PhoneGap](/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap")
+[Windows Store](/fr-fr/documentation/articles/mobile-services-windows-store-get-started "Windows Store")[Windows Phone](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone")[iOS](/fr-fr/documentation/articles/mobile-services-ios-get-started "iOS")[Android](/fr-fr/documentation/articles/mobile-services-android-get-started "Android")[HTML](/fr-fr/documentation/articles/mobile-services-html-get-started "HTML")[Xamarin.iOS](/fr-fr/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS")[Xamarin.Android](/fr-fr/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android")[Sencha](/fr-fr/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha")[PhoneGap](/fr-fr/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap")
 
-[.NET](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/ ".NET") | [JavaScript](/en-us/documentation/articles/mobile-services-windows-phone-get-started/ "JavaScript")
+[.NET](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/ ".NET") | [JavaScript](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started/ "JavaScript")
 
 Ce didacticiel présente l'ajout d'un service principal cloud à une application Windows Phone 8 à l'aide d'Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application *To do list* qui stocke les données d'application dans le nouveau service mobile.
 
@@ -13,7 +13,7 @@ Si vous préférez regarder une vidéo, le clip sur la droite suit la même proc
 
 [regarder le didacticiel](http://go.microsoft.com/fwlink/?LinkId=290816) [Lire la vidéo](http://go.microsoft.com/fwlink/?LinkId=290816) 13:18
 
-Dans ce didacticiel, vous allez créer un service mobile et une simple application *To do list* qui stocke les données d'application dans le nouveau service mobile. Le service mobile à créer utilise du code JavaScript pour la logique métier côté serveur. Pour créer un service mobile vous permettant d'écrire votre logique métier côté serveur dans les langages .NET pris en charge à l'aide de Visual Studio, consultez la [version principale .NET](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started) de cette rubrique.
+Dans ce didacticiel, vous allez créer un service mobile et une simple application *To do list* qui stocke les données d'application dans le nouveau service mobile. Le service mobile à créer utilise du code JavaScript pour la logique métier côté serveur. Pour créer un service mobile vous permettant d'écrire votre logique métier côté serveur dans les langages .NET pris en charge à l'aide de Visual Studio, consultez la [version principale .NET](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started) de cette rubrique.
 
 Voici une capture d'écran de l'application terminée :
 
@@ -23,7 +23,7 @@ Voici une capture d'écran de l'application terminée :
 
 Pour suivre ce didacticiel, vous devez disposer d'un compte Azure sur lequel la fonctionnalité Azure Mobile Services est activée.
 
--   Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A30A4DDE2&returnurl=http%3A%2F%2FFen-us%2Fdocumentation%2Farticles%2Fmobile-services-windows-phone-get-started%2F).
+-   Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A30A4DDE2&returnurl=http%3A%2F%2FFen-us%2Fdocumentation%2Farticles%2Fmobile-services-windows-phone-get-started%2F).
 
 Création d'un service mobile
 ----------------------------
@@ -124,5 +124,5 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment effe
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 
 [Management Portal]: https://manage.windowsazure.com/
-[.NET backend version]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
+[.NET backend version]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
 

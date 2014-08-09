@@ -3,9 +3,9 @@
 Prise en main de l'authentification dans Mobile Services
 ========================================================
 
-[Windows Store C\#](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users "Windows Store C#")[Windows Store JavaScript](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users "Windows Store JavaScript")[Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-get-started-users "Windows Phone")[iOS](/en-us/documentation/articles/mobile-services-ios-get-started-users "iOS")[Android](/en-us/documentation/articles/mobile-services-android-get-started-users "Android")[HTML](/en-us/documentation/articles/mobile-services-html-get-started-users "HTML")[Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-users "Xamarin.iOS")[Xamarin.Android](/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started-users "Xamarin.Android")
+[Windows Store C\#](/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users "Windows Store C#")[Windows Store JavaScript](/fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-users "Windows Store JavaScript")[Windows Phone](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started-users "Windows Phone")[iOS](/fr-fr/documentation/articles/mobile-services-ios-get-started-users "iOS")[Android](/fr-fr/documentation/articles/mobile-services-android-get-started-users "Android")[HTML](/fr-fr/documentation/articles/mobile-services-html-get-started-users "HTML")[Xamarin.iOS](/fr-fr/documentation/articles/partner-xamarin-mobile-services-ios-get-started-users "Xamarin.iOS")[Xamarin.Android](/fr-fr/documentation/articles/partner-xamarin-mobile-services-android-get-started-users "Xamarin.Android")
 
-[.NET backend](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/ ".NET backend") | [JavaScript backend](/en-us/documentation/articles/mobile-services-windows-phone-get-started-users/ "JavaScript backend")
+[.NET backend](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/ ".NET backend") | [JavaScript backend](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started-users/ "JavaScript backend")
 
 Cette rubrique montre comment authentifier les utilisateurs dans Azure Mobile Services à partir de votre application. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
 
@@ -39,7 +39,7 @@ Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre applicatio
 	-   [Connexion Facebook](/en-us/develop/mobile/how-to-guides/register-for-facebook-authentication/)
 	-   [Connexion Twitter](/en-us/develop/mobile/how-to-guides/register-for-twitter-authentication/)
 	-   [Connexion Google](/en-us/develop/mobile/how-to-guides/register-for-google-authentication/)
-	-   [Azure Active Directory](/en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/)
+	-   [Azure Active Directory](/fr-fr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/)
 
     	N'oubliez pas de noter les valeurs de l'identité du client et de la clé secrète cliente générées par le fournisseur.
 

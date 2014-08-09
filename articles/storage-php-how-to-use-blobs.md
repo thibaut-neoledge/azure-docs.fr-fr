@@ -140,9 +140,9 @@ Un objet **BlobRestProxy** vous permet de créer un conteneur d'objets blob avec
         echo $code.": ".$error_message."<br />";
     }
 
-L'appel de **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)** rend le conteneur et les données d'objets blob accessibles via des demandes anonymes. L'appel de **setPublicAccess(PublicAccessType::BLOBS\_ONLY)** ne rend que les données d'objets blob accessibles via des demandes anonymes. Pour plus d'informations sur les ACL de conteneur, consultez la page [Set Container ACL (API REST)](http://msdn.microsoft.com/en-us/library/windowsazure/dd179391.aspx).
+L'appel de **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)** rend le conteneur et les données d'objets blob accessibles via des demandes anonymes. L'appel de **setPublicAccess(PublicAccessType::BLOBS\_ONLY)** ne rend que les données d'objets blob accessibles via des demandes anonymes. Pour plus d'informations sur les ACL de conteneur, consultez la page [Set Container ACL (API REST)](http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179391.aspx).
 
-Pour plus d'informations sur les codes d'erreur des services d'objets blob, consultez la page [Codes d'erreur de service BLOB](http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx).
+Pour plus d'informations sur les codes d'erreur des services d'objets blob, consultez la page [Codes d'erreur de service BLOB](http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179439.aspx).
 
 Téléchargement d'un objet blob dans un conteneur
 ------------------------------------------------
@@ -298,7 +298,7 @@ Enfin, pour supprimer un conteneur d'objets blob, passez le nom du conteneur à 
 
 Maintenant que vous avez appris les principes de base du service Blob Azure, suivez ces liens pour découvrir des tâches de stockage plus complexes.
 
--   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+-   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx)
 -   Accédez au blog de l'équipe Azure Storage : <http://blogs.msdn.com/b/windowsazurestorage/>
 -   Consultez l'exemple d'objet blob de blocs PHP sur <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>.
 -   Consultez l'exemple d'objet blob de pages PHP sur <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>.

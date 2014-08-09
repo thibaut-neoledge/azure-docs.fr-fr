@@ -11,7 +11,7 @@ Vous allez configurer un blog WordPress avec un modèle par défaut. L'illustrat
 ![Blog WordPress](./media/website-from-gallery/wordpressgallery-09.png)
 
 <div class="dev-callout"><strong>Remarque</strong>
-<p>Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page <a href="http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">Création d’un compte Azure</a>.</p>
+<p>Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">Création d’un compte Azure</a>.</p>
 </div>
 
 ## Création d'un site Web dans le portail

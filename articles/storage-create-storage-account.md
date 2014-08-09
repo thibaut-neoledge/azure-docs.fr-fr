@@ -3,7 +3,7 @@
 Création d'un compte de stockage
 ================================
 
-Pour stocker des fichiers et des données dans les services d'objets blob, de table et de file d'attente d'Azure, il est nécessaire de créer un compte de stockage dans la zone géographique où doivent être stockées les données. Un compte de stockage peut contenir jusqu'à 200 To de données et il est possible de créer jusqu'à vingt comptes par abonnement Azure. Pour plus d’informations, consultez la page [Objectifs de performance et évolutivité d'Azure Storage](http://msdn.microsoft.com/en-us/library/dn249410.aspx).
+Pour stocker des fichiers et des données dans les services d'objets blob, de table et de file d'attente d'Azure, il est nécessaire de créer un compte de stockage dans la zone géographique où doivent être stockées les données. Un compte de stockage peut contenir jusqu'à 200 To de données et il est possible de créer jusqu'à vingt comptes par abonnement Azure. Pour plus d’informations, consultez la page [Objectifs de performance et évolutivité d'Azure Storage](http://msdn.microsoft.com/fr-fr/library/dn249410.aspx).
 
 Cette rubrique décrit la procédure à suivre pour créer un compte de stockage sur le portail de gestion Azure.
 
@@ -31,7 +31,7 @@ Création d'un compte de stockage
 4.  Sous **Région/Groupe d'affinités**, sélectionnez une zone ou un groupe d'affinités pour le stockage. Sélectionnez un groupe d'affinités plutôt qu'une zone pour que vos services de stockage soient hébergés dans le même centre de données que les autres services Azure que vous utilisez. Ce choix peut améliorer les performances et n'entraîne aucun frais supplémentaire.
 
     > [WACOM.NOTE] 
-        Pour créer un groupe d'affinités, ouvrez la zone **Réseaux** du portail de gestion, cliquez sur **Groupes d'affinités**, puis cliquez sur **Créer un nouveau groupe d'affinités** ou sur **Create**. Vous pouvez utiliser les groupes d'affinités créés sur le précédent portail de gestion. Pour ouvrir l'autre portail, cliquez sur **Preview** dans la barre de titre, puis sur **Take me to the previous portal**. (Pour revenir sur le portail en cours, cliquez sur **View the Preview Portal** au bas du portail.) Vous pouvez également créer et gérer des groupes d'affinités par le biais de l'API Azure Service Management. Pour plus d'informations, consultez la page [Opérations sur les groupes d'affinités](http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx).
+        Pour créer un groupe d'affinités, ouvrez la zone **Réseaux** du portail de gestion, cliquez sur **Groupes d'affinités**, puis cliquez sur **Créer un nouveau groupe d'affinités** ou sur **Create**. Vous pouvez utiliser les groupes d'affinités créés sur le précédent portail de gestion. Pour ouvrir l'autre portail, cliquez sur **Preview** dans la barre de titre, puis sur **Take me to the previous portal**. (Pour revenir sur le portail en cours, cliquez sur **View the Preview Portal** au bas du portail.) Vous pouvez également créer et gérer des groupes d'affinités par le biais de l'API Azure Service Management. Pour plus d'informations, consultez la page [Opérations sur les groupes d'affinités](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460798.aspx).
 
 5.  Si vous disposez de plusieurs abonnements Azure, le champ **Subscription** s'affiche. Dans **Subscription**, entrez l'abonnement Azure à utiliser avec le compte de stockage. Vous pouvez créer jusqu'à cinq comptes de stockage par abonnement.
 
@@ -46,7 +46,7 @@ Création d'un compte de stockage
     > [WACOM.NOTE]
         Pour utiliser la réplication géo-redondante avec accès en lecture seule, vous devez demander manuellement l'activation de la fonction pour votre abonnement. Pour demander que cette fonction soit activée pour votre abonnement, consultez la page [Fonctionnalités préliminaires d'Azure](https://account.windowsazure.com/PreviewFeatures). Pour plus de détails sur la réplication géo-redondante avec accès en lecture seule, consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/04/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx). Si elle n'est pas activée en tant que fonction préliminaire pour votre abonnement, l'option permettant de la sélectionner pour votre compte de stockage est désactivée.
 
-    Pour plus d'informations sur la tarification relative à la réplication du compte de stockage, consultez la page [Tarification – Stockage](http://www.windowsazure.com/en-us/pricing/details/storage/).
+    Pour plus d'informations sur la tarification relative à la réplication du compte de stockage, consultez la page [Tarification – Stockage](http://www.windowsazure.com/fr-fr/pricing/details/storage/).
 
 7.  Cliquez sur **Create Storage Account**.
 
@@ -57,10 +57,10 @@ Création d'un compte de stockage
 Étapes suivantes
 ----------------
 
--   Pour en savoir plus sur les services de stockage Azure, consultez les pages [Vue d'ensemble du stockage cloud](http://www.windowsazure.com/en-us/develop/net/fundamentals/cloud-storage/) et [Objets blob, files d'attente et tables](http://msdn.microsoft.com/en-us/library/gg433040.aspx).
+-   Pour en savoir plus sur les services de stockage Azure, consultez les pages [Vue d'ensemble du stockage cloud](http://www.windowsazure.com/fr-fr/develop/net/fundamentals/cloud-storage/) et [Objets blob, files d'attente et tables](http://msdn.microsoft.com/fr-fr/library/gg433040.aspx).
 
 -   Consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
 
--   Configurez vos applications afin d'utiliser les services d'objets blob, de table et de file d'attente Azure. Le [Centre de développement Azure](http://www.windowsazure.com/en-us/develop/overview/) fournit les manuels d'utilisation des services de stockage d'objets blob, de table et de file d'attente avec vos applications .NET, Node.js, Java et PHP. Pour obtenir les instructions propres à un langage de programmation, reportez-vous au manuel d'utilisation de ce langage.
+-   Configurez vos applications afin d'utiliser les services d'objets blob, de table et de file d'attente Azure. Le [Centre de développement Azure](http://www.windowsazure.com/fr-fr/develop/overview/) fournit les manuels d'utilisation des services de stockage d'objets blob, de table et de file d'attente avec vos applications .NET, Node.js, Java et PHP. Pour obtenir les instructions propres à un langage de programmation, reportez-vous au manuel d'utilisation de ce langage.
 
 

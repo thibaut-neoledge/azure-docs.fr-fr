@@ -110,7 +110,7 @@ Avant de stocker des données, vous devez créer le conteneur qui remplira ce r�
           
           ?>
 
-    Vous trouverez les descriptions des codes et messages d'erreur sur cette page : <http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx>
+    Vous trouverez les descriptions des codes et messages d'erreur sur cette page : <http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179438.aspx>
 
 Exécution d'une requête sur une table
 -------------------------------------
@@ -276,7 +276,7 @@ L'application de liste de tâches est capable de marquer un élément comme éta
 		$entity = $entities[0];
 
 
-    Comme vous pouvez le constater, le filtre d'exécution de la requête transmis revêt la forme `Key eq 'Value'`. Vous trouverez [ici](http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx) la description complète de la syntaxe de la requête.
+    Comme vous pouvez le constater, le filtre d'exécution de la requête transmis revêt la forme `Key eq 'Value'`. Vous trouverez [ici](http://msdn.microsoft.com/fr-fr/library/windowsazure/dd894031.aspx) la description complète de la syntaxe de la requête.
 
 -   Vous pouvez ensuite modifier les propriétés :
 

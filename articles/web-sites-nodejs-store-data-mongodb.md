@@ -1,4 +1,4 @@
-<properties linkid="develop-node-website-with-mongodb-mac" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on a VM - Azure tutorial" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="Node.js" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors="" solutions="" writer="" manager="" editor="" />
+<properties linkid="develop-node-website-with-mongodb-mac" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on a VM - Azure tutorial" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." metaCanonical="http://www.windowsazure.com/fr-fr/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="Node.js" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors="" solutions="" writer="" manager="" editor="" />
 
 Création d'une application Node.js sur Azure avec MongoDB dans une machine virtuelle
 ====================================================================================
@@ -67,7 +67,7 @@ Bien qu'il soit possible de créer une nouvelle machine virtuelle puis d'y insta
 
     > [WACOM.NOTE] Dans ce didacticiel, vous n'allez pas utiliser SSH pour vous connecter à distance à la machine virtuelle. Sélectionnez **Use a password** et indiquez un mot de passe si vous ne maîtrisez pas l'utilisation des certificats avec SSH.
     >
-    > Pour plus d'informations sur l'utilisation de SSH avec une machine virtuelle Linux sur Azure, consultez la page [Utilisation de SSH avec Linux sur Azure](http://www.windowsazure.com/en-us/documentation/articles/linux-use-ssh-key/).
+    > Pour plus d'informations sur l'utilisation de SSH avec une machine virtuelle Linux sur Azure, consultez la page [Utilisation de SSH avec Linux sur Azure](http://www.windowsazure.com/fr-fr/documentation/articles/linux-use-ssh-key/).
 
 7.  Sélectionnez un nouveau service cloud ou un service existant, puis la région dans laquelle la machine virtuelle sera créée. Cliquez sur la flèche pour continuer.
 
@@ -379,7 +379,7 @@ Les étapes de cette section utilisent les outils en ligne de commande Azure pou
 
 ### Installation de l'interface de ligne de commande interplateforme Azure
 
-L'interface de ligne de commande interplateforme Azure (xplat-cli) vous permet d'effectuer des opérations de gestion sur les services Azure. Si vous n'avez pas déjà installé et configuré xplat-cli dans votre environnement de développement, consultez les instructions dans [Installation de l'interface de ligne de commande interplateforme Azure](/en-us/documentation/articles/xplat-cli/).
+L'interface de ligne de commande interplateforme Azure (xplat-cli) vous permet d'effectuer des opérations de gestion sur les services Azure. Si vous n'avez pas déjà installé et configuré xplat-cli dans votre environnement de développement, consultez les instructions dans [Installation de l'interface de ligne de commande interplateforme Azure](/fr-fr/documentation/articles/xplat-cli/).
 
 ### Création d'un site Web Azure
 

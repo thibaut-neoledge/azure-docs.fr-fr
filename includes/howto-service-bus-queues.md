@@ -80,4 +80,4 @@ Notez la valeur **SharedAccessKey** ou copiez-la dans le Presse-papiers :
 
 
 [1]: http://manage.windowsazure.com
-[2]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+[2]: http://http://msdn.microsoft.com/fr-fr/library/windowsazure/ff687127.aspx

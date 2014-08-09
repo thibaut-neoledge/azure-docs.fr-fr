@@ -114,7 +114,7 @@ Un objet **QueueRestProxy** vous permet de créer une file d'attente avec la mé
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -144,7 +144,7 @@ Pour ajouter un message à une file d'attente, utilisez **QueueRestProxy-\>creat
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -174,7 +174,7 @@ Vous pouvez lire furtivement un ou plusieurs messages au début d'une file d'att
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -229,7 +229,7 @@ Votre code supprime un message d'une file d'attente en deux étapes. Tout d'abor
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -272,7 +272,7 @@ Vous pouvez modifier le contenu d'un message placé dans la file d'attente en ap
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -320,7 +320,7 @@ Il existe deux façons de personnaliser l'extraction des messages à partir d'un
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -347,7 +347,7 @@ Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -375,7 +375,7 @@ Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -386,6 +386,6 @@ Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez
 
 Maintenant que vous avez appris les principes de base du service de file d'attente Azure, suivez ces liens pour découvrir des tâches de stockage plus complexes.
 
--   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+-   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx)
 -   Accédez au blog de l'équipe Azure Storage : <http://blogs.msdn.com/b/windowsazurestorage/>
 

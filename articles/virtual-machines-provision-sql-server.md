@@ -15,7 +15,7 @@ Ce didacticiel présente les procédures suivantes :
 Connexion du portail de gestion Azure et configuration d'une machine virtuelle depuis la galerie
 ------------------------------------------------------------------------------------------------
 
-1. Connectez-vous au [portail de gestion Azure](http://manage.windowsazure.com) avec votre compte. Si vous n'avez pas de compte Azure, visitez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/en-us/pricing/free-trial/).
+1. Connectez-vous au [portail de gestion Azure](http://manage.windowsazure.com) avec votre compte. Si vous n'avez pas de compte Azure, visitez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/).
 
 2. Dans le portail de gestion Azure, en bas à gauche de la page Web, cliquez sur **+NEW**, sur **COMPUTE**, sur **VIRTUAL MACHINE**, puis sur **FROM GALLERY**.
 
@@ -24,7 +24,7 @@ Connexion du portail de gestion Azure et configuration d'une machine virtuelle d
     > [WACOM.NOTE] Si vous avez créé une machine virtuelle en utilisant l'image de plateforme de la version d'évaluation de SQL Server 2012 disponible pendant la période d'évaluation, vous ne pouvez pas la mettre à niveau vers une image de la version payante à l'heure dans la galerie. Vous pouvez choisir l'une des deux options suivantes : 
     > - Vous pouvez créer une machine virtuelle en utilisant la version de SQL Server payante à l'heure à partir de la galerie et faire migrer vos fichiers de base de données vers cette nouvelle machine virtuelle en suivant la procédure de la page [Migration des fichiers de base de données SQL Server et schéma entre les machines virtuelles dans Azure en utilisant des disques de données](http://go.microsoft.com/fwlink/p/?LinkId=294738). **Ou**
 
-    > -   Vous pouvez mettre à niveau une instance de la version d'évaluation de SQL Server 2012 vers une autre version de SQL Server 2012 selon le contrat de [mobilité de licence via l'assurance logicielle sur Azure](http://www.windowsazure.com/en-us/pricing/license-mobility/) en suivant la procédure de la page [Mise à niveau vers une autre version de SQL Server 2012](http://msdn.microsoft.com/library/cc707783.aspx). Pour plus d'informations sur l'achat d'une copie sous licence de SQL Server, consultez la page [Comment acheter SQL Server](http://www.microsoft.com/en-us/sqlserver/get-sql-server/how-to-buy.aspx).
+    > -   Vous pouvez mettre à niveau une instance de la version d'évaluation de SQL Server 2012 vers une autre version de SQL Server 2012 selon le contrat de [mobilité de licence via l'assurance logicielle sur Azure](http://www.windowsazure.com/fr-fr/pricing/license-mobility/) en suivant la procédure de la page [Mise à niveau vers une autre version de SQL Server 2012](http://msdn.microsoft.com/library/cc707783.aspx). Pour plus d'informations sur l'achat d'une copie sous licence de SQL Server, consultez la page [Comment acheter SQL Server](http://www.microsoft.com/en-us/sqlserver/get-sql-server/how-to-buy.aspx).
 
 4. Sur la page **Virtual Machine Configuration**, entrez les informations suivantes :
     - Entrez un **NOM DE MACHINE VIRTUELLE**.
@@ -163,7 +163,7 @@ La machine virtuelle doit avoir un point de terminaison pour écouter les commun
 
     ![Nom de la règle](./media/virtual-machines-provision-sql-server/17Rule-Name.png)
 
-Le cas échéant, ouvrez des ports supplémentaires pour les autres composants. Pour plus d'informations, consultez la page [Configurer le Pare-feu Windows pour autoriser l'accès à SQL Server](http://msdn.microsoft.com/en-us/library/cc646023.aspx).
+Le cas échéant, ouvrez des ports supplémentaires pour les autres composants. Pour plus d'informations, consultez la page [Configurer le Pare-feu Windows pour autoriser l'accès à SQL Server](http://msdn.microsoft.com/fr-fr/library/cc646023.aspx).
 
 ### Configuration de SQL Server pour écouter le protocole TCP
 
@@ -187,7 +187,7 @@ Le cas échéant, ouvrez des ports supplémentaires pour les autres composants. 
 
 7.  Fermez le Gestionnaire de configuration de SQL Server.
 
-Pour plus d'informations sur l'activation des protocoles pour le moteur de base de données SQL Server, consultez la page [Activer ou désactiver un protocole réseau de serveur](http://msdn.microsoft.com/en-us/library/ms191294.aspx).
+Pour plus d'informations sur l'activation des protocoles pour le moteur de base de données SQL Server, consultez la page [Activer ou désactiver un protocole réseau de serveur](http://msdn.microsoft.com/fr-fr/library/ms191294.aspx).
 
 ### Configuration de SQL Server pour l'authentification en mode mixte
 
@@ -255,7 +255,7 @@ Pour vous connecter au moteur de base de données à partir d'un autre ordinateu
 
 12. Cliquez sur OK.
 
-Pour plus d'informations sur les connexions SQL Server, consultez la page [Créer un compte de connexion](http://msdn.microsoft.com/en-us/library/aa337562.aspx).
+Pour plus d'informations sur les connexions SQL Server, consultez la page [Créer un compte de connexion](http://msdn.microsoft.com/fr-fr/library/aa337562.aspx).
 
 ### Détermination du nom DNS de la machine virtuelle
 

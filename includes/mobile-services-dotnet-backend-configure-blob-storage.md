@@ -18,7 +18,7 @@ La classe **TodoItemController** est mise à jour de manière à ce que la méth
 
     ![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png)
 
-    La clé d'accès du compte de stockage est chiffrée et stockée dans les paramètres de l'application. Vous pouvez y accéder à partir du script serveur lors de l'exécution. Pour plus d'informations, consultez l'article [Paramètres de l'application](http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7).
+    La clé d'accès du compte de stockage est chiffrée et stockée dans les paramètres de l'application. Vous pouvez y accéder à partir du script serveur lors de l'exécution. Pour plus d'informations, consultez l'article [Paramètres de l'application](http://msdn.microsoft.com/fr-fr/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7).
 
 3.  Dans l'Explorateur de solutions de Visual Studio, ouvrez le fichier Web.config correspondant au projet de service mobile et ajoutez les nouveaux paramètres de l'application suivants, en remplaçant les espaces réservés par le nom du compte de stockage et la clé d'accès définis comme paramètres de l'application dans le portail :
 

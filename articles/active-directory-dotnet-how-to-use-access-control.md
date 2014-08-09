@@ -280,7 +280,7 @@ Dans cette section, nous allons modifier l'application de manière à ce qu'elle
 
 ![](./media/active-directory-dotnet-how-to-use-access-control/rzCl.png)
 
-Pour plus d'informations sur l'utilisation des demandes dans votre application, consultez la [bibliothèque Windows Identity Foundation](http://msdn.microsoft.com/en-us/library/hh377151.aspx).
+Pour plus d'informations sur l'utilisation des demandes dans votre application, consultez la [bibliothèque Windows Identity Foundation](http://msdn.microsoft.com/fr-fr/library/hh377151.aspx).
 
 Affichage de l'application dans le portail de gestion ACS
 ---------------------------------------------------------

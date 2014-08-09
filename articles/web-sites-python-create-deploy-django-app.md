@@ -9,7 +9,7 @@ Ce didacticiel présente le déploiement d'une application basée sur l'infrastr
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-Ce didacticiel utilise Python 2.7 et Django 1.4. Vous pouvez les obtenir par vous-même ou les installer simplement et rapidement à l'aide du lien vers Windows Installer sur [http://www.windowsazure.com/fr-fr/develop/python/](http://www.windowsazure.com/en-us/develop/python/).
+Ce didacticiel utilise Python 2.7 et Django 1.4. Vous pouvez les obtenir par vous-même ou les installer simplement et rapidement à l'aide du lien vers Windows Installer sur [http://www.windowsazure.com/fr-fr/develop/python/](http://www.windowsazure.com/fr-fr/develop/python/).
 
 **Remarque** : le gestionnaire wfastcgi et Python 2.7 sont désormais préinstallés sur les sites Web Azure. Toutefois, les infrastructures Web comme Django ne sont pas incluses. Vous pouvez toujours utiliser un autre interpréteur Python si vous préférez. Vous devez simplement l'inclure dans le référentiel Git et configurer le site Web pour utiliser cet interpréteur plutôt que l'interpréteur Python 2.7 déjà installé.
 
@@ -122,7 +122,7 @@ Enfin, revenez au tableau de bord. Accédez à **SITE URL** à gauche. Cliquez s
 
 À partir d'ici, vous pouvez poursuivre le développement de votre application Django à l'aide des outils que vous utilisez déjà. Si vous utilisez les [outils Python pour Visual Studio](http://pytools.codeplex.com/) pour le développement, vous voudrez sans doute installer [VisualGit](http://code.google.com/p/visualgit/) pour obtenir l'intégration du contrôle du code source à partir de Visual Studio.
 
-Votre application peut comporter des dépendances au-delà de Python et Django. Si vous avez installé Python à l'aide du programme d'installation <http://www.windowsazure.com/en-us/develop/python/>, PIP est déjà installé et peut être utilisé pour ajouter rapidement de nouvelles dépendances. Par exemple, pour installer le Natural Language Toolkit et toutes ses dépendances, tapez :
+Votre application peut comporter des dépendances au-delà de Python et Django. Si vous avez installé Python à l'aide du programme d'installation <http://www.windowsazure.com/fr-fr/develop/python/>, PIP est déjà installé et peut être utilisé pour ajouter rapidement de nouvelles dépendances. Par exemple, pour installer le Natural Language Toolkit et toutes ses dépendances, tapez :
 
     pip install nltk
 

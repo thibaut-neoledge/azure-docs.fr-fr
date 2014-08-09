@@ -32,4 +32,4 @@ L'URL suivante traite une des files d'attente du diagramme :
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
+[1]: http://msdn.microsoft.com/fr-fr/library/dn249410.aspx

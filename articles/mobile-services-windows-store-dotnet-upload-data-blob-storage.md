@@ -3,7 +3,7 @@
 Téléchargement d'images vers Azure Storage à l'aide de Mobile Services
 ======================================================================
 
-[Windows Store C\#](/en-us/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Windows Store C#")[Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone")
+[Windows Store C\#](/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Windows Store C#")[Windows Phone](/fr-fr/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone")
 
 Cette rubrique vous montre comment utiliser Azure Mobile Services pour permettre à votre application de télécharger et de stocker les images générées par l'utilisateur dans Azure Storage. Mobile Services utilise une base de données SQL pour stocker les données. Toutefois, les données BLOB (Binary Large Object) sont stockées avec plus d'efficacité dans le service de stockage d'objets blob Azure.
 
@@ -22,7 +22,7 @@ Ce didacticiel requiert les éléments suivants :
 -   [un compte Azure Storage ;](/en-us/manage/services/storage/how-to-create-a-storage-account)
 -   un appareil photo ou tout autre appareil de capture d'image raccordé à votre ordinateur.
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer ce didacticiel, vous devez effectuer le didacticiel [Prise en main de Mobile Services](/en-us/documentation/articles/mobile-services-windows-store-get-started).
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer ce didacticiel, vous devez effectuer le didacticiel [Prise en main de Mobile Services](/fr-fr/documentation/articles/mobile-services-windows-store-get-started).
 
 Installation du client de stockage pour les applications du Windows Store
 -------------------------------------------------------------------------
@@ -55,7 +55,7 @@ Maintenant que vous avez intégré votre service mobile au service BLOB et que v
 
     Découvrez comment ajouter la fonctionnalité de messagerie électronique à votre service mobile en utilisant le service de messagerie SendGrid. Cette rubrique montre comment ajouter des scripts côté serveur pour envoyer du courrier électronique à l'aide de SendGrid.
 
--   [Planification des travaux principaux dans Mobile Services](/en-us/documentation/articles/mobile-services-schedule-recurring-tasks)
+-   [Planification des travaux principaux dans Mobile Services](/fr-fr/documentation/articles/mobile-services-schedule-recurring-tasks)
 
     Découvrez comment utiliser la fonctionnalité de planification de travaux Mobile Services pour définir du code de script serveur exécuté selon une planification que vous définissez.
 

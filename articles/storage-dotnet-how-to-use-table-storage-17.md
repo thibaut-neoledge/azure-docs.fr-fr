@@ -81,7 +81,7 @@ Lorsque vous utilisez Sites Web Azure ou Azure Virtual Machines, il est recomman
         </appSettings>
     </configuration>
 
-Pour plus d'informations sur les chaînes de connexion de stockage, consultez la page [Configuration des chaînes de connexion](http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx).
+Pour plus d'informations sur les chaînes de connexion de stockage, consultez la page [Configuration des chaînes de connexion](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee758697.aspx).
 
 Vous pouvez à présent effectuer les tâches présentées dans ce guide.
 
@@ -414,9 +414,9 @@ Pour finir, le code suivant supprime une table d'un compte de stockage. Une tabl
 Maintenant que vous avez appris les bases du stockage de tables, suivez ces liens pour apprendre des tâches de stockage plus complexes.
 
 -   Pour plus d'informations sur les API disponibles, consultez la documentation de référence des services d'objets blob :
-    -   [Référence de bibliothèque cliente .NET](http://msdn.microsoft.com/en-us/library/windowsazure/wl_svchosting_mref_reference_home)
-    -   [Référence d'API REST](http://msdn.microsoft.com/en-us/library/windowsazure/dd179355)
--   Pour plus d'informations sur les tâches avancées que vous pouvez effectuer avec le stockage Azure, consultez la page [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx).
+    -   [Référence de bibliothèque cliente .NET](http://msdn.microsoft.com/fr-fr/library/windowsazure/wl_svchosting_mref_reference_home)
+    -   [Référence d'API REST](http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179355)
+-   Pour plus d'informations sur les tâches avancées que vous pouvez effectuer avec le stockage Azure, consultez la page [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx).
 -   Pour plus d'informations sur les autres options de stockage de données dans Azure, consultez d'autres guides de fonctionnalités.
     -   Utilisez le [stockage d'objets blob](/en-us/develop/net/how-to-guides/blob-storage/) pour stocker des données non structurées.
     -   Utilisez une [base de données SQL](/en-us/develop/net/how-to-guides/sql-database/) pour stocker des données relationnelles.

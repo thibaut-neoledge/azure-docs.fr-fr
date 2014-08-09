@@ -170,7 +170,7 @@ Le package NuGet ajoute également un paramètre **ClientDiagnosticLevel** dans 
       </ConfigurationSettings>
     </Role>
 
-> In-Role Cache comporte un niveau de diagnostic au niveau du serveur de cache et du client de cache. Le niveau de diagnostic est un paramètre unique qui configure le niveau des informations de diagnostic collectées pour la mise en cache. Pour plus d'informations, consultez la page [Résolution des problèmes et diagnostic pour In-Role Cache](http://msdn.microsoft.com/en-us/library/windowsazure/hh914135.aspx)
+> In-Role Cache comporte un niveau de diagnostic au niveau du serveur de cache et du client de cache. Le niveau de diagnostic est un paramètre unique qui configure le niveau des informations de diagnostic collectées pour la mise en cache. Pour plus d'informations, consultez la page [Résolution des problèmes et diagnostic pour In-Role Cache](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh914135.aspx)
 
 Le package NuGet ajoute également des références aux assemblys suivants :
 
@@ -296,7 +296,7 @@ Le fournisseur de l'état de session pour In-Role Cache est un mécanisme de sto
 
 Pour activer le fournisseur de l'état de session pour In-Role Cache, supprimez les commentaires de le section spécifiée. Le cache par défaut est spécifié dans l'extrait fourni. Pour utiliser un autre cache, spécifiez le cache voulu dans l'attribut **cacheName**.
 
-Pour plus d'informations sur l'utilisation du fournisseur de l'état de session du service de mise en cache, consultez la page [Fournisseur de l'état de session pour In-Role Cache](http://msdn.microsoft.com/en-us/library/windowsazure/gg185668.aspx).
+Pour plus d'informations sur l'utilisation du fournisseur de l'état de session du service de mise en cache, consultez la page [Fournisseur de l'état de session pour In-Role Cache](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg185668.aspx).
 
 ## Stockage de la mise en cache de sortie de pages ASP.NET dans le cache
 
@@ -325,14 +325,14 @@ Ajoutez une directive **OutputCache** à chaque page pour laquelle vous voulez m
 
 Dans cet exemple, les données de page mises en cache resteront dans le cache pendant 60 secondes et une version différente de la page sera mise en cache pour chaque combinaison de paramètres. Pour plus d'informations sur les options disponibles, consultez la page [Directive OutputCache](http://go.microsoft.com/fwlink/?LinkId=251979).
 
-Pour plus d'informations sur l'utilisation du fournisseur de caches de sortie pour In-Role Cache, consultez la page [Fournisseur de caches de sortie pour In-Role Cache](http://msdn.microsoft.com/en-us/library/windowsazure/gg185662.aspx).
+Pour plus d'informations sur l'utilisation du fournisseur de caches de sortie pour In-Role Cache, consultez la page [Fournisseur de caches de sortie pour In-Role Cache](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg185662.aspx).
 
 ## Étapes suivantes
 
 Maintenant que vous avez appris les bases de In-Role Cache, suivez ces liens pour apprendre des tâches de mise en cache plus complexes.
 
 -   Consultez la référence MSDN suivante : [In-Role Cache](http://www.microsoft.com/en-us/showcase/Search.aspx?phrase=azure+caching)
--   Découvrez comment effectuer la migration vers In-Role Cache : [Migration vers In-Role Cache](http://msdn.microsoft.com/en-us/library/hh914163.aspx)
--   Consultez les exemples : [Exemples In-Role Cache](http://msdn.microsoft.com/en-us/library/jj189876.aspx)
+-   Découvrez comment effectuer la migration vers In-Role Cache : [Migration vers In-Role Cache](http://msdn.microsoft.com/fr-fr/library/hh914163.aspx)
+-   Consultez les exemples : [Exemples In-Role Cache](http://msdn.microsoft.com/fr-fr/library/jj189876.aspx)
 -   Regardez la session [Performances maximales : accélérez vos applications de service cloud avec Azure Caching](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU) du TechEd 2013 sur In-Role Cache
 

@@ -20,7 +20,7 @@ Voici une capture d'écran de l'application terminée :
 
 ![](./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png)
 
-**Remarque** : Azure offre également la fonction de file d'attente de stockage. Pour plus d'informations sur les files d'attente de stockage Azure et les files d'attente Service Bus, consultez la page [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences](http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx).
+**Remarque** : Azure offre également la fonction de file d'attente de stockage. Pour plus d'informations sur les files d'attente de stockage Azure et les files d'attente Service Bus, consultez la page [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh767287.aspx).
 
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
@@ -114,7 +114,7 @@ Notez que vous pouvez également gérer les espaces de noms et les entités de m
 
 ### Gestion des espaces de noms et des entités de messagerie avec l'explorateur de serveurs Visual Studio
 
-Pour gérer un espace de noms et obtenir des informations de connexion en utilisant Visual Studio plutôt que le portail de gestion, suivez la procédure décrite [ici](http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx), dans la section intitulée **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l'arborescence **Microsoft Azure** dans l'Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Propriétés** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s'affichent dans le volet **Propriétés** de Visual Studio.
+Pour gérer un espace de noms et obtenir des informations de connexion en utilisant Visual Studio plutôt que le portail de gestion, suivez la procédure décrite [ici](http://http://msdn.microsoft.com/fr-fr/library/windowsazure/ff687127.aspx), dans la section intitulée **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l'arborescence **Microsoft Azure** dans l'Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Propriétés** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s'affichent dans le volet **Propriétés** de Visual Studio.
 
 Notez la valeur **SharedAccessKey** ou copiez-la dans le Presse-papiers :
 
@@ -484,7 +484,7 @@ Vous allez maintenant créer le rôle de travail qui traite les commandes envoy�
 
 Pour en savoir plus sur Service Bus, consultez les ressources suivantes :
 
--   [Azure Service Bus](http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx)
+-   [Azure Service Bus](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee732537.aspx)
 -   [Procédures Service Bus](/en-us/manage/services/service-bus/)
 -   [Utilisation des files d'attente Service Bus.](/en-us/develop/net/how-to-guides/service-bus-queues/)
 
@@ -492,7 +492,7 @@ Pour plus d'informations sur les scénarios multiniveau ou pour savoir comment d
 
 -   [Application ASP.NET multiniveau avec tables, files d'attente et objets blob de stockage Azure](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/)
 
-Vous pouvez mettre en œuvre le composant frontal d'une application multiniveau dans Sites Web Azure au lieu d'Azure Cloud Services. Pour plus d'informations sur les différences entre les sites Web et les services cloud, consultez la page [Modèles d'exécution Azure](http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/).
+Vous pouvez mettre en œuvre le composant frontal d'une application multiniveau dans Sites Web Azure au lieu d'Azure Cloud Services. Pour plus d'informations sur les différences entre les sites Web et les services cloud, consultez la page [Modèles d'exécution Azure](http://www.windowsazure.com/fr-fr/develop/net/fundamentals/compute/).
 
 Pour mettre en œuvre l'application que vous créez dans ce didacticiel en tant que projet Web standard au lieu d'un rôle Web d'un service cloud, suivez les étapes de ce didacticiel en appliquant les différences suivantes :
 
@@ -502,11 +502,11 @@ Pour mettre en œuvre l'application que vous créez dans ce didacticiel en tant 
 
 3.  Vous pouvez tester le composant frontal et le composant principal simultanément, ou vous pouvez les exécuter en même temps dans des instances séparées de Visual Studio.
 
-Pour plus d'informations sur le déploiement du composant frontal sur un site Web Azure, consultez la page [Déploiement d'une application Web ASP.NET Web sur un site Web Azure](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). Pour plus d'informations sur le déploiement du composant principal dans Azure Cloud Services, consultez la page [Application ASP.NET multiniveau avec tables, files d'attente et objets blob de stockage](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
+Pour plus d'informations sur le déploiement du composant frontal sur un site Web Azure, consultez la page [Déploiement d'une application Web ASP.NET Web sur un site Web Azure](http://www.windowsazure.com/fr-fr/develop/net/tutorials/get-started/). Pour plus d'informations sur le déploiement du composant principal dans Azure Cloud Services, consultez la page [Application ASP.NET multiniveau avec tables, files d'attente et objets blob de stockage](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
 
  [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
-  [sbqueuecomparison]: http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx
+  [sbqueuecomparison]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh767287.aspx
   [2]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [3]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
@@ -543,8 +543,8 @@ Pour plus d'informations sur le déploiement du composant frontal sur un site We
   [32]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
   [33]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png
   [34]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/VSProperties.png
-  [sbmsdn]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx  
+  [sbmsdn]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee732537.aspx  
   [sbwacom]: /en-us/manage/services/service-bus/  
   [sbwacomqhowto]: /en-us/develop/net/how-to-guides/service-bus-queues/  
   [mutitierstorage]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/ 
-  [executionmodels]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/
+  [executionmodels]: http://www.windowsazure.com/fr-fr/develop/net/fundamentals/compute/

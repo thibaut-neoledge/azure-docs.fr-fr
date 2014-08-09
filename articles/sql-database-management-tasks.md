@@ -18,7 +18,7 @@ Management Studio est un outil d'administration qui permet de gérer plusieurs s
 
 Management Studio comprend des fonctionnalités qui ne sont actuellement pas disponibles sur le portail de gestion, telles qu'un vérificateur de syntaxe et la capacité d'enregistrement de scripts et des requêtes nommées à des fins de réutilisation. La base de données SQL est simplement un point de terminaison TDS (Tabular Data Stream). Tous les outils qui fonctionnent avec TDS, notamment Management Studio, sont valides pour les opérations relatives à la base de données SQL. Les scripts que vous développez pour le serveur local s'exécuteront sur un serveur logique de la base de données SQL.
 
-À l'étape suivante, vous allez utiliser Management Studio pour vous connecter à un serveur logique sur Azure. Cette étape implique que vous disposiez de SQL Server Management Studio version 2008 R2 ou 2012. Afin d'obtenir de l'aide pour télécharger Management Studio ou vous y connecter, consultez la page [Gestion de la base de données SQL à l'aide de Management Studio](http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/) sur ce site.
+À l'étape suivante, vous allez utiliser Management Studio pour vous connecter à un serveur logique sur Azure. Cette étape implique que vous disposiez de SQL Server Management Studio version 2008 R2 ou 2012. Afin d'obtenir de l'aide pour télécharger Management Studio ou vous y connecter, consultez la page [Gestion de la base de données SQL à l'aide de Management Studio](http://www.windowsazure.com/fr-fr/develop/net/common-tasks/sql-azure-management/) sur ce site.
 
 Avant de pouvoir vous connecter, il est parfois nécessaire de créer une exception de pare-feu qui autorise des requêtes sortantes sur le port 1433 sur votre système local. Le port 1433 des ordinateurs qui sont sécurisés par défaut n'est généralement pas ouvert.
 
@@ -125,9 +125,9 @@ Affichage et test de connexions
 
 6.  Ouvrez une seconde fenêtre de requête, puis remplacez le contexte de connexion par *sqlwriter*. La même requête doit à présent s'exécuter correctement.
 
-Vous avez maintenant créé et testé plusieurs connexions. Pour plus d'informations, consultez les pages [Gestion des bases de données et des connexions dans Base de données SQL Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee336235.aspx) et [Contrôle de Base de données SQL Azure à l'aide de vues de gestion dynamique](http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx).
+Vous avez maintenant créé et testé plusieurs connexions. Pour plus d'informations, consultez les pages [Gestion des bases de données et des connexions dans Base de données SQL Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336235.aspx) et [Contrôle de Base de données SQL Azure à l'aide de vues de gestion dynamique](http://msdn.microsoft.com/fr-fr/library/windowsazure/ff394114.aspx).
 
-[Managing Databases and Logins in SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336235.aspx
-[Monitoring SQL Database Using Dynamic Management Views]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx
-[Managing SQL Database using Management Studio]: http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/
+[Managing Databases and Logins in SQL Database]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336235.aspx
+[Monitoring SQL Database Using Dynamic Management Views]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ff394114.aspx
+[Managing SQL Database using Management Studio]: http://www.windowsazure.com/fr-fr/develop/net/common-tasks/sql-azure-management/
 

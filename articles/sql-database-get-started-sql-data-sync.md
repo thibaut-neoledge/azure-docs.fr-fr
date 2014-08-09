@@ -55,7 +55,7 @@ Veillez à installer les composants suivants sur l'ordinateur sur lequel vous in
 
 ### Étape 2b : installation d'un nouvel agent client
 
-Pour installer l'agent, suivez les instructions de la page[Installer un Agent client pour l'Aperçu de synchronisation des données SQL](http://msdn.microsoft.com/en-us/library/jj823137.aspx).
+Pour installer l'agent, suivez les instructions de la page[Installer un Agent client pour l'Aperçu de synchronisation des données SQL](http://msdn.microsoft.com/fr-fr/library/jj823137.aspx).
 
 ### Étape 2c : finalisation de l'Assistant New SQL Data Sync Agent
 
@@ -69,7 +69,7 @@ Pour installer l'agent, suivez les instructions de la page[Installer un Agent cl
 -------------------------------------------------------------------------------
 
 Une fois l'agent client installé, inscrivez chaque base de données SQL Server locale que vous souhaitez inclure dans un groupe de synchronisation auprès de l'agent. 
-Pour ce faire, suivez les instructions de la page [Inscrire une base de données SQL Server auprès d'un agent client](http://msdn.microsoft.com/en-us/library/jj823138.aspx).
+Pour ce faire, suivez les instructions de la page [Inscrire une base de données SQL Server auprès d'un agent client](http://msdn.microsoft.com/fr-fr/library/jj823138.aspx).
 
 Étape 4 : création d'un groupe de synchronisation
 -------------------------------------------------
@@ -180,7 +180,7 @@ Félicitations ! Vous avez créé un groupe de synchronisation incluant une ins
 Pour plus d'informations sur la base de données SQL et la synchronisation des données SQL, consultez les pages suivantes :
 
 -   [Inscription à l'offre Premium pour la base de données SQL] (../sign-up-for-sql-database-premium/)
--   [Synchronisation des données SQL (portail WA)](http://msdn.microsoft.com/en-us/library/windowsazure/jj856263.aspx)
+-   [Synchronisation des données SQL (portail WA)](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj856263.aspx)
 -   [Prise en main de la base de données SQL Azure](../getting-started-w-sql-databases/)
 -   [Cycle de vie des bases de données SQL Server](http://go.microsoft.com/fwlink/?LinkId=275193)
 

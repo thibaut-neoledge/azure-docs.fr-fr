@@ -17,7 +17,7 @@ Lorsqu'elles sont combinées dans un seul script ou dans un fichier de commandes
 
 Pour utiliser les outils en ligne de commande Azure afin de gérer Mobile Services, vous devez disposer d'un compte Azure sur lequel la fonctionnalité Azure Mobile Services est activée.
 
--   Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/en-us/pricing/free-trial/).
+-   Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/).
 
 -   Si vous disposez d'un compte, mais que vous devez activer la version préliminaire d'Azure Mobile Services, consultez la rubrique [Activation des fonctionnalités préliminaires d'Azure](../create-a-windows-azure-account/#enable).
 

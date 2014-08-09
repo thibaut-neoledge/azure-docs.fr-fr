@@ -8,7 +8,7 @@ Ces deux serveurs principaux envoient des notifications aux appareils Windows St
 <h3><a name="console"></a>Envoi de notifications à partir d'une application de console en C#</h3>
 
 
-Ignorez les étapes 1 à 3 si vous avez créé une application de console lorsque vous avez effectué la [prise en main des Notification Hubs](/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/).
+Ignorez les étapes 1 à 3 si vous avez créé une application de console lorsque vous avez effectué la [prise en main des Notification Hubs](/fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/).
 
 1.  Dans Visual Studio, créez une application de console Visual C# :
     
@@ -165,6 +165,6 @@ Vous pouvez maintenant poursuivre avec l'[exécution de l'application et la gén
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
+[1]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn223264.aspx
 [2]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 [3]: https://manage.windowsazure.com/

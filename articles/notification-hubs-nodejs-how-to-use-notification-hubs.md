@@ -17,12 +17,12 @@ Sommaire
 Présentation de Service Bus Notification Hubs
 ---------------------------------------------
 
-Azure Service Bus Notification Hubs offre une infrastructure multiplateforme conviviale et évolutive pour l'envoi de notifications Push aux appareils mobiles. Pour plus d'informations, consultez la page [Azure Service Bus Notification Hubs](http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx).
+Azure Service Bus Notification Hubs offre une infrastructure multiplateforme conviviale et évolutive pour l'envoi de notifications Push aux appareils mobiles. Pour plus d'informations, consultez la page [Azure Service Bus Notification Hubs](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj927170.aspx).
 
 Création d'une application Node.js
 ----------------------------------
 
-Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/), [Service cloud Node.js](/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/) (avec Windows PowerShell) ou [Site Web avec WebMatrix](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/).
+Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/), [Service cloud Node.js](/fr-fr/documentation/articles/cloud-services-nodejs-develop-deploy-app/) (avec Windows PowerShell) ou [Site Web avec WebMatrix](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/).
 
 Configuration de votre application pour l'utilisation de Service Bus
 --------------------------------------------------------------------
@@ -134,11 +134,11 @@ L'objet **MpnsService** fournit une méthode d'**envoi** que vous pouvez utilise
 -   Tags : identifiant de balise. Si aucune balise n'est fournie, la notification est envoyée à tous les clients.
 -   Payload : charge utile XML du message.
 -   TargetName : « toast » pour les notifications toast. « token » pour les notifications par vignette.
--   NotificationClass : priorité de la notification. Consultez la section Éléments d'en-tête HTTP de l'article [Notifications Push d'un serveur](http://msdn.microsoft.com/en-us/library/hh221551.aspx) pour les valeurs valide.
+-   NotificationClass : priorité de la notification. Consultez la section Éléments d'en-tête HTTP de l'article [Notifications Push d'un serveur](http://msdn.microsoft.com/fr-fr/library/hh221551.aspx) pour les valeurs valide.
 -   Options : en-têtes de requête facultatifs.
 -   Callback : fonction de rappel.
 
-Pour une liste d'options valides pour TargetName, NotificationClass et les en-têtes, consultez l'article [Notifications Push d'un serveur](http://msdn.microsoft.com/en-us/library/hh221551.aspx).
+Pour une liste d'options valides pour TargetName, NotificationClass et les en-têtes, consultez l'article [Notifications Push d'un serveur](http://msdn.microsoft.com/fr-fr/library/hh221551.aspx).
 
 Le code suivant utilise l'instance **MpnsService** exposée par **NotificationHubService** pour envoyer une alerte toast :
 
@@ -161,7 +161,7 @@ L'objet **WnsService** fournit une méthode d'**envoi** que vous pouvez utiliser
 -   Options : en-têtes de requête facultatifs.
 -   Callback : fonction de rappel.
 
-Pour obtenir la liste des types et en-têtes de requête valides, consultez l'article [Demande de service et en-têtes de réponse de notifications Push](http://msdn.microsoft.com/en-us/library/windows/apps/hh465435.aspx).
+Pour obtenir la liste des types et en-têtes de requête valides, consultez l'article [Demande de service et en-têtes de réponse de notifications Push](http://msdn.microsoft.com/fr-fr/library/windows/apps/hh465435.aspx).
 
 Le code suivant utilise l'instance **WnsService** exposée par **NotificationHubService** pour envoyer une alerte toast :
 
@@ -177,6 +177,6 @@ Le code suivant utilise l'instance **WnsService** exposée par **NotificationHub
 
 Maintenant que vous avez appris les principes de base des rubriques Service Bus, consultez ces liens pour en savoir plus :
 
--   Consultez la référence MSDN suivante : [Azure Service Bus Notification Hubs](http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx).
+-   Consultez la référence MSDN suivante : [Azure Service Bus Notification Hubs](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj927170.aspx).
 -   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Node](https://github.com/WindowsAzure/azure-sdk-for-node) sur GitHub.
 

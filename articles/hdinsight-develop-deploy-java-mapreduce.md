@@ -10,7 +10,7 @@ Ce didacticiel vous familiarise avec un scénario de bout en bout, allant du dé
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 -   Émulateur HDInsight Azure installé. Pour obtenir des instructions, consultez la page [Prise en main de l'émulateur HDInsight](/en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/).
--   Azure PowerShell installé sur l'ordinateur d'émulation. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+-   Azure PowerShell installé sur l'ordinateur d'émulation. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/fr-fr/documentation/articles/install-configure-powershell/).
 -   Abonnement Azure actif. Pour obtenir des instructions, consultez les pages traitant des [options d'achat](https://www.windowsazure.com/en-us/pricing/purchase-options/), des [offres spéciales membres](https://www.windowsazure.com/en-us/pricing/member-offers/) ou de la [version d'évaluation gratuite](https://www.windowsazure.com/en-us/pricing/free-trial/).
 
 Dans cet article
@@ -234,7 +234,7 @@ Dans ce didacticiel, vous allez créer un conteneur sur un compte de stockage di
          $containerName_Data = "<ContainerName>"
          $location = "<MicrosoftDataCenter>"  # Par exemple, "Est des États-Unis"
 
-    L'élément **$subscripionName** est associé à votre abonnement Azure. Vous devez nommer les éléments **$storageAccountName\_Data** et **$containerName\_Data**. Pour connaître les restrictions relatives aux attributions de noms, consultez la page [Affectation de noms et références aux conteneurs, objets BLOB et métadonnées](http://msdn.microsoft.com/en-us/library/windowsazure/dd135715.aspx).
+    L'élément **$subscripionName** est associé à votre abonnement Azure. Vous devez nommer les éléments **$storageAccountName\_Data** et **$containerName\_Data**. Pour connaître les restrictions relatives aux attributions de noms, consultez la page [Affectation de noms et références aux conteneurs, objets BLOB et métadonnées](http://msdn.microsoft.com/fr-fr/library/windowsazure/dd135715.aspx).
 
 3.  Exécutez la commande suivante pour créer un compte de stockage et un conteneur de stockage d'objets blob sur le compte
 
@@ -486,7 +486,7 @@ Une fois la tâche terminée, vous pouvez soit exporter les données vers SQL Se
 
 Dans ce didacticiel, vous avez appris à développer une tâche MapReduce Java, à tester l'application sur un émulateur HDInsight et à écrire un script PowerShell pour approvisionner un cluster HDInsight et exécuter une tâche MapReduce sur le cluster. Pour en savoir plus, consultez les articles suivants :
 
--   [Développement de programmes MapReduce de diffusion en continu Hadoop en C\# pour HDInsight](/en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
+-   [Développement de programmes MapReduce de diffusion en continu Hadoop en C\# pour HDInsight](/fr-fr/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
 -   [Prise en main d'Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 -   [Prise en main de l'émulateur HDInsight](/en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/)
 -   [Utilisation du stockage d'objets blob Azure avec HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/)
@@ -494,6 +494,6 @@ Dans ce didacticiel, vous avez appris à développer une tâche MapReduce Java, 
 -   [Téléchargement de données vers HDInsight](/en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/)
 -   [Utilisation de Hive avec HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
 -   [Utilisation de Pig avec HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
--   [Connexion d'Excel à HDInsight à l'aide de Power Query](/en-us/documentation/articles/hdinsight-connect-excel-power-query/)
+-   [Connexion d'Excel à HDInsight à l'aide de Power Query](/fr-fr/documentation/articles/hdinsight-connect-excel-power-query/)
 -   [Connexion d'Excel à HDInsight à l'aide du pilote ODBC Microsoft Hive](../hdinsight-connect-excel-hive-ODBC-driver/)
 

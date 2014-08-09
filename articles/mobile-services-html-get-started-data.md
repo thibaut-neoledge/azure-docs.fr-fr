@@ -21,7 +21,7 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 
 **Remarque**
 
-Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F).
+Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F).
 
 ### Conditions supplémentaires
 
@@ -140,7 +140,7 @@ Pour pouvoir stocker des données d’application dans le nouveau service mobile
 
     **Remarque**
 
-	Si vous déployez l'application de démarrage rapide sur un autre serveur que localhost, vous devez ajouter le nom d'hôte du serveur Web à la liste <strong>Autoriser les demandes à partir des noms d'hôte</strong>. Pour plus d'informations, consultez l'article <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx" target="_blank">Partage des ressources cross-origin (CORS)</a>.
+	Si vous déployez l'application de démarrage rapide sur un autre serveur que localhost, vous devez ajouter le nom d'hôte du serveur Web à la liste <strong>Autoriser les demandes à partir des noms d'hôte</strong>. Pour plus d'informations, consultez l'article <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/dn155871.aspx" target="_blank">Partage des ressources cross-origin (CORS)</a>.
 
 Vous pouvez maintenant utiliser le nouveau service mobile en tant que stockage des données pour l'application.
 
@@ -325,4 +325,4 @@ Une fois que vous avez terminé la série de données, découvrez comment authen
 
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client
 
-[Cross-origin resource sharing]: http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx
+[Cross-origin resource sharing]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn155871.aspx

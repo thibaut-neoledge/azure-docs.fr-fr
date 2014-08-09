@@ -3,11 +3,11 @@
 Application Web Python avec le stockage de tables
 =================================================
 
-Dans ce didacticiel, vous allez apprendre à créer une application qui utilise le stockage de tables avec les bibliothèques clientes Azure pour Python. S'il s'agit de votre première application Azure pour Python, vous pouvez consulter la page [Application Web Django Hello World](http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server) au préalable.
+Dans ce didacticiel, vous allez apprendre à créer une application qui utilise le stockage de tables avec les bibliothèques clientes Azure pour Python. S'il s'agit de votre première application Azure pour Python, vous pouvez consulter la page [Application Web Django Hello World](http://windowsazure.com/fr-fr/documentation/articles/virtual-machines-python-django-web-app-windows-server) au préalable.
 
 Pour ce guide, vous allez créer une application de liste de tâches Web que vous pouvez déployer sur Azure. La liste de tâches permet à un utilisateur d'extraire des tâches, d'en ajouter de nouvelles et de marquer celles qui sont terminées. Nous allons utiliser Django en tant qu'infrastructure Web.
 
-Les éléments de tâches sont stockés dans Azure Storage, qui offre le stockage de données non structurées à tolérance de panne et haute disponibilité. Azure Storage inclut plusieurs structures de données dans lesquelles vous pouvez stocker des données et y accéder. Vous pouvez également exploiter les services de stockage à partir des API incluses dans le Kit de développement logiciel (SDK) Azure pour Python ou via les API REST. Pour plus d'informations, consultez la page [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx).
+Les éléments de tâches sont stockés dans Azure Storage, qui offre le stockage de données non structurées à tolérance de panne et haute disponibilité. Azure Storage inclut plusieurs structures de données dans lesquelles vous pouvez stocker des données et y accéder. Vous pouvez également exploiter les services de stockage à partir des API incluses dans le Kit de développement logiciel (SDK) Azure pour Python ou via les API REST. Pour plus d'informations, consultez la page [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx).
 
 Vous apprendrez à effectuer les opérations suivantes :
 
@@ -22,7 +22,7 @@ Une capture d'écran de l'application terminée ressemblera à celle qui s'affic
 Configuration de l'environnement de développement
 -------------------------------------------------
 
-**Remarque :** si vous devez installer Python ou les bibliothèques clientes, consultez le [Guide d'installation de Python](http://windowsazure.com/en-us/documentation/articles/python-how-to-install).
+**Remarque :** si vous devez installer Python ou les bibliothèques clientes, consultez le [Guide d'installation de Python](http://windowsazure.com/fr-fr/documentation/articles/python-how-to-install).
 
 *Remarque pour Windows* : si vous avez utilisé le programme d'installation WebPI Windows, Django et les bibliothèques clientes sont déjà installés.
 
@@ -176,13 +176,13 @@ Vous pouvez désormais cliquer sur **Add Task** pour créer une tâche, puis cli
 Exécution de l'application dans l'émulateur de calcul, publication et arrêt/suppression de votre application
 ------------------------------------------------------------------------------------------------------------
 
-À présent que votre application s'exécute correctement sur le serveur Django intégré, vous pouvez la tester en la déployant sur l'émulateur Azure (Windows uniquement) et en la publiant sur Azure. Pour obtenir des instructions générales sur la procédure à suivre, consultez l'article [Application Web Hello World Django](http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server) qui aborde ces étapes en détail.
+À présent que votre application s'exécute correctement sur le serveur Django intégré, vous pouvez la tester en la déployant sur l'émulateur Azure (Windows uniquement) et en la publiant sur Azure. Pour obtenir des instructions générales sur la procédure à suivre, consultez l'article [Application Web Hello World Django](http://windowsazure.com/fr-fr/documentation/articles/virtual-machines-python-django-web-app-windows-server) qui aborde ces étapes en détail.
 
 Étapes suivantes
 ----------------
 
 Maintenant que vous avez appris les principes de base du service de stockage de tables Azure, suivez ces liens pour découvrir des tâches de stockage plus complexes.
 
--   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+-   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx)
 -   Accédez au blog de l'équipe Azure Storage : &lt;http://blogs.msdn.com/b/windowsazurestorage/&gt;
 

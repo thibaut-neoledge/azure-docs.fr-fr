@@ -3,7 +3,7 @@
 Utilisation des rubriques/abonnements Service Bus
 =================================================
 
-Ce guide vous montre comment utiliser les rubriques et les abonnements Service Bus. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure pour Java](http://www.windowsazure.com/en-us/develop/java/). Les scénarios couverts dans ce guide sont les suivants : **création de rubriques et d'abonnements**, **création de filtres d'abonnement**, **envoi de messages à une rubrique**, **réception de messages en provenance d'un abonnement** et **suppression de rubriques et d'abonnements**.
+Ce guide vous montre comment utiliser les rubriques et les abonnements Service Bus. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure pour Java](http://www.windowsazure.com/fr-fr/develop/java/). Les scénarios couverts dans ce guide sont les suivants : **création de rubriques et d'abonnements**, **création de filtres d'abonnement**, **envoi de messages à une rubrique**, **réception de messages en provenance d'un abonnement** et **suppression de rubriques et d'abonnements**.
 
 Sommaire
 --------

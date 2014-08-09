@@ -79,7 +79,7 @@ Une fois que vous n'avez plus besoin des connexions Bureau à distance aux insta
 Ressources supplémentaires
 --------------------------
 
--   [Accès à distance aux instances de rôle dans Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx)
--   [Utilisation du Bureau à distance avec des rôles Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx)
+-   [Accès à distance aux instances de rôle dans Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh124107.aspx)
+-   [Utilisation du Bureau à distance avec des rôles Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg443832.aspx)
 
 

@@ -227,8 +227,8 @@ Voici certaines des ressources disponibles pour apprendre à utiliser Azure et W
 [4]: http://go.microsoft.com/fwlink/?LinkId=320796
 [5]: http://go.microsoft.com/fwlink/?LinkId=324796
 [6]: http://manage.windowsazure.com
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/gg456328.aspx
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554330.aspx
+[7]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg456328.aspx
+[8]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554330.aspx
 [9]: http://go.microsoft.com/fwlink/p/?LinkId=320212
 [10]: http://go.microsoft.com/fwlink/?LinkId=320213
 [11]: http://go.microsoft.com/fwlink/p/?LinkId=320211

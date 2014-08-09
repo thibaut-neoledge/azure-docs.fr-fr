@@ -6,7 +6,7 @@ Intégration d'une application cloud mutualisée avec Azure Active Directory
 Introduction
 ------------
 
-Azure Active Directory (Azure AD) est un service moderne, basé sur le protocole REST, qui offre des capacités de contrôle d'accès et de gestion des identités pour vos applications dans le cloud. Azure AD s'intègre aisément aux services cloud, ainsi qu'à Azure, Microsoft Office 365, Dynamics CRM Online et Windows Intune. Les déploiements Active Directory locaux existants peuvent également tirer pleinement parti d'Azure AD. Pour en savoir plus, consultez la [page Identité](http://www.windowsazure.com/en-us/home/features/identity/) sur [windowsazure.com][].
+Azure Active Directory (Azure AD) est un service moderne, basé sur le protocole REST, qui offre des capacités de contrôle d'accès et de gestion des identités pour vos applications dans le cloud. Azure AD s'intègre aisément aux services cloud, ainsi qu'à Azure, Microsoft Office 365, Dynamics CRM Online et Windows Intune. Les déploiements Active Directory locaux existants peuvent également tirer pleinement parti d'Azure AD. Pour en savoir plus, consultez la [page Identité](http://www.windowsazure.com/fr-fr/home/features/identity/) sur [windowsazure.com][].
 
 Cette procédure pas à pas s'adresse aux développeurs .NET qui souhaitent intégrer une application mutualisée à Azure AD. Vous allez apprendre à effectuer les opérations suivantes :
 
@@ -14,7 +14,7 @@ Cette procédure pas à pas s'adresse aux développeurs .NET qui souhaitent int�
 -   activer l'authentification unique avec Azure AD ;
 -   interroger les données d'annuaire d'un client en utilisant l'API Azure AD Graph.
 
-L'exemple d'application associé à cette procédure pas à pas peut être [téléchargé ici](http://go.microsoft.com/fwlink/?LinkId=271213). Vous pouvez exécuter cet exemple sans aucune modification, mais il peut s'avérer nécessaire de changer l'[attribution des ports dans Visual Studio](http://msdn.microsoft.com/en-us/library/ms178109(v=vs.100).aspx) pour utiliser HTTPS. Cliquez sur le lien et suivez les instructions indiquées, mais définissez le protocole de liaison sur « https » dans la section bindings du fichier ApplicationHost.config. Tous les extraits de code des étapes suivantes proviennent de l'exemple.
+L'exemple d'application associé à cette procédure pas à pas peut être [téléchargé ici](http://go.microsoft.com/fwlink/?LinkId=271213). Vous pouvez exécuter cet exemple sans aucune modification, mais il peut s'avérer nécessaire de changer l'[attribution des ports dans Visual Studio](http://msdn.microsoft.com/fr-fr/library/ms178109(v=vs.100).aspx) pour utiliser HTTPS. Cliquez sur le lien et suivez les instructions indiquées, mais définissez le protocole de liaison sur « https » dans la section bindings du fichier ApplicationHost.config. Tous les extraits de code des étapes suivantes proviennent de l'exemple.
 
 > [WACOM.NOTE]
 > L'exemple d'application d'annuaire mutualisée est fourni aux fins d'illustration uniquement. Cet exemple (y compris les classes de la bibliothèque d'assistance) ne doit pas être utilisé en production.
@@ -43,13 +43,13 @@ Cette section explique comment obtenir un ID client et une clé secrète client 
 
 ### Étape 1 : création d'un compte avec le Tableau de bord du vendeur Microsoft
 
-Pour développer et publier des applications qui s'intègrent à Azure AD, vous devez créer un compte [Tableau de bord du vendeur Microsoft](https://sellerdashboard.microsoft.com/). Vous êtes ensuite invité à [créer un profil de compte](http://msdn.microsoft.com/en-us/library/jj552460.aspx) en tant que société ou individu. Ce profil est utilisé pour publier des applications sur Azure Marketplace ou d'autres marchés, et il est requis pour générer un ID client et une clé secrète client.
+Pour développer et publier des applications qui s'intègrent à Azure AD, vous devez créer un compte [Tableau de bord du vendeur Microsoft](https://sellerdashboard.microsoft.com/). Vous êtes ensuite invité à [créer un profil de compte](http://msdn.microsoft.com/fr-fr/library/jj552460.aspx) en tant que société ou individu. Ce profil est utilisé pour publier des applications sur Azure Marketplace ou d'autres marchés, et il est requis pour générer un ID client et une clé secrète client.
 
 Les nouveaux comptes sont placés dans un état « Compte en attente d'approbation ». Cet état ne vous empêche pas de commencer le développement ; vous pouvez toujours créer des ID client ainsi que des brouillons de description d'application. Mais une description d'application ne peut être soumise pour approbation qu'après l'approbation du compte proprement dit. Elle n'est alors visible qu'aux clients dans Azure Marketplace une fois qu'elle a été approuvée.
 
 ### Étape 2 : obtention d'un ID client pour votre application
 
-Vous avez besoin d'un ID client et d'une clé secrète client pour intégrer votre application à Azure AD. Identificateur unique de votre application, l'ID client sert principalement à identifier une application pour l'authentification unique ou pour authentifier des appels sur Azure AD Graph. Pour plus d'informations sur l'obtention d'un ID client et d'une clé secrète client, consultez la page [Création d'ID et de clés secrètes client dans le Tableau de bord du vendeur Microsoft](http://msdn.microsoft.com/en-us/library/jj552461.aspx).
+Vous avez besoin d'un ID client et d'une clé secrète client pour intégrer votre application à Azure AD. Identificateur unique de votre application, l'ID client sert principalement à identifier une application pour l'authentification unique ou pour authentifier des appels sur Azure AD Graph. Pour plus d'informations sur l'obtention d'un ID client et d'une clé secrète client, consultez la page [Création d'ID et de clés secrètes client dans le Tableau de bord du vendeur Microsoft](http://msdn.microsoft.com/fr-fr/library/jj552461.aspx).
 
 > [WACOM.NOTE]
 > Vous aurez besoin de votre ID client et de votre clé secrète client plus tard dans cette procédure pas à pas. Aussi, veillez à les enregistrer.
@@ -237,7 +237,7 @@ Une fois que le jeton est validé, l'utilisateur est connecté à l'application.
 Partie 4 : accès à Azure AD Graph
 ---------------------------------
 
-Cette section montre comment obtenir un jeton d'accès et appeler l'API Azure AD Graph pour accéder aux données d'annuaire d'un locataire. Par exemple, bien que le jeton obtenu pendant la connexion contienne des informations utilisateur telles qu'un nom et une adresse électronique, votre application peut avoir besoin d'informations telles que les appartenances à des groupes ou le nom du responsable de l'utilisateur. Il est possible d'obtenir ces informations de l'annuaire du locataire à l'aide de l'API Graph. Pour plus d'informations sur l'API Graph, consultez [cette rubrique](http://msdn.microsoft.com/en-us/library/windowsazure/hh974476.aspx).
+Cette section montre comment obtenir un jeton d'accès et appeler l'API Azure AD Graph pour accéder aux données d'annuaire d'un locataire. Par exemple, bien que le jeton obtenu pendant la connexion contienne des informations utilisateur telles qu'un nom et une adresse électronique, votre application peut avoir besoin d'informations telles que les appartenances à des groupes ou le nom du responsable de l'utilisateur. Il est possible d'obtenir ces informations de l'annuaire du locataire à l'aide de l'API Graph. Pour plus d'informations sur l'API Graph, consultez [cette rubrique](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh974476.aspx).
 
 Pour que votre application puisse appeler Azure AD Graph, elle doit s'authentifier et obtenir un jeton d'accès. Vous pouvez obtenir les jetons d'accès en authentifiant votre application avec son ID client et sa clé secrète client. Les étapes suivantes vous montrent comment :
 
@@ -389,7 +389,7 @@ L'attribut *Policy* dans les exemples ci-dessus décrit le type d'autorisation d
 
 L'élément facultatif *Reason* vous permet de spécifier (dans plusieurs cultures) votre justification pour le niveau d'autorisation requis. Ce texte est affiché sur la page de consentement pour aider le client lorsqu'il approuve ou refuse votre application.
 
-À l'aide de votre ID client et de votre manifeste d'application, vous pouvez créer une description d'application en suivant les instructions de la page [Ajout d'applications dans le Tableau de bord du vendeur Microsoft](http://msdn.microsoft.com/en-us/library/jj552465.aspx). Lors de la création d'une description d'application, veillez à sélectionner le type d'application Azure AD. Une fois la création de votre description d'application terminée, cliquez sur « submit » pour publier votre application sur Azure Marketplace. Vous devez attendre que votre application soit approuvée pour que la publication soit effective.
+À l'aide de votre ID client et de votre manifeste d'application, vous pouvez créer une description d'application en suivant les instructions de la page [Ajout d'applications dans le Tableau de bord du vendeur Microsoft](http://msdn.microsoft.com/fr-fr/library/jj552465.aspx). Lors de la création d'une description d'application, veillez à sélectionner le type d'application Azure AD. Une fois la création de votre description d'application terminée, cliquez sur « submit » pour publier votre application sur Azure Marketplace. Vous devez attendre que votre application soit approuvée pour que la publication soit effective.
 
 **Remarque**
 
@@ -423,14 +423,14 @@ L'intégration à Azure AD permet à vos clients de s'inscrire et de se connect
 [Visual Studio Identity & Access Tool]: http://g.microsoftonline.com/1AX00en/126
 [Windows Identity Foundation 3.5]: http://g.microsoftonline.com/1AX00en/127
 [WCF Data Services for OData]: http://www.microsoft.com/download/en/details.aspx?id=29306
-[Identity page]: http://www.windowsazure.com/en-us/home/features/identity/
+[Identity page]: http://www.windowsazure.com/fr-fr/home/features/identity/
 
 [downloaded here]: http://go.microsoft.com/fwlink/?LinkId=271213
-[port assignment in Visual Studio]: http://msdn.microsoft.com/en-us/library/ms178109(v=vs.100).aspx
+[port assignment in Visual Studio]: http://msdn.microsoft.com/fr-fr/library/ms178109(v=vs.100).aspx
 [Microsoft Seller Dashboard]: https://sellerdashboard.microsoft.com/
-[create an account profile]: http://msdn.microsoft.com/en-us/library/jj552460.aspx
-[Create Client IDs and Secrets in the Microsoft Seller Dashboard]: http://msdn.microsoft.com/en-us/library/jj552461.aspx
+[create an account profile]: http://msdn.microsoft.com/fr-fr/library/jj552460.aspx
+[Create Client IDs and Secrets in the Microsoft Seller Dashboard]: http://msdn.microsoft.com/fr-fr/library/jj552461.aspx
 [Get an Azure AD tenant]: http://g.microsoftonline.com/0AX00en/5
-[this topic]: http://msdn.microsoft.com/en-us/library/windowsazure/hh974476.aspx
-[Add Apps in the Microsoft Seller Dashboard]: http://msdn.microsoft.com/en-us/library/jj552465.aspx
+[this topic]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh974476.aspx
+[Add Apps in the Microsoft Seller Dashboard]: http://msdn.microsoft.com/fr-fr/library/jj552465.aspx
 [login]: ./media/active-directory-dotnet-integrate-multitent-cloud-applications/login.png

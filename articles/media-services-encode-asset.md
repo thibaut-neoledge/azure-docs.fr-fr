@@ -5,7 +5,7 @@ Encodage d'un élément multimédia
 
 Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [Obtention d'un processeur multimédia](http://go.microsoft.com/fwlink/?LinkID=301732&ampclcid=0x409).
 
-Vous pouvez encoder le contenu multimédia sur le serveur avec un grand nombre d'encodages et de formats grâce à Azure Media Encoder. Vous pouvez aussi utiliser un encodeur fourni par un partenaire Media Services. Ces encodeurs sont disponibles sur [Azure Marketplace](https://datamarket.azure.com/). Vous pouvez définir les détails des tâches d'encodage avec les chaînes de [Préréglage des tâches](http://msdn.microsoft.com/en-us/library/hh973610.aspx) ou avec les fichiers de configuration.
+Vous pouvez encoder le contenu multimédia sur le serveur avec un grand nombre d'encodages et de formats grâce à Azure Media Encoder. Vous pouvez aussi utiliser un encodeur fourni par un partenaire Media Services. Ces encodeurs sont disponibles sur [Azure Marketplace](https://datamarket.azure.com/). Vous pouvez définir les détails des tâches d'encodage avec les chaînes de [Préréglage des tâches](http://msdn.microsoft.com/fr-fr/library/hh973610.aspx) ou avec les fichiers de configuration.
 
 Encodage en MP4
 ---------------
@@ -108,9 +108,9 @@ Si vous souhaitez encoder une vidéo pour Smooth Streaming, vous avez deux possi
 -   encoder directement pour Smooth Streaming ;
 -   encoder en MP4, puis convertir en Smooth Streaming.
 
-Pour effectuer l'encodage directement en Smooth Streaming, utilisez le code présenté plus haut, mais utilisez une des présélections Smooth Streaming. Pour obtenir la liste complète des présélections de l'encodeur, consultez la page [Chaînes de présélection des tâches pour Azure Media Encoder](http://msdn.microsoft.com/en-us/library/jj129582.aspx).
+Pour effectuer l'encodage directement en Smooth Streaming, utilisez le code présenté plus haut, mais utilisez une des présélections Smooth Streaming. Pour obtenir la liste complète des présélections de l'encodeur, consultez la page [Chaînes de présélection des tâches pour Azure Media Encoder](http://msdn.microsoft.com/fr-fr/library/jj129582.aspx).
 
-Pour convertir un MP4 en Smooth Streaming, utilisez Azure Media Packager. Azure Media Packager ne prend pas en charge les présélections de chaîne afin que vous puissiez spécifier les options de configuration dans le XML. Le code XML pour la conversion de MP4 en Smooth Streaming se trouve dans [Présélection de tâche pour Azure Media Packager](http://msdn.microsoft.com/en-us/library/windowsazure/hh973635.aspx). Copiez et collez le XML dans un fichier appelé MediaPackager\_MP4ToSmooth.xml dans votre projet. Le code qui suit présente la création d'un élément multimédia MP4 en Smooth Streaming. Cette méthode prend un élément multimédia existant et le convertit.
+Pour convertir un MP4 en Smooth Streaming, utilisez Azure Media Packager. Azure Media Packager ne prend pas en charge les présélections de chaîne afin que vous puissiez spécifier les options de configuration dans le XML. Le code XML pour la conversion de MP4 en Smooth Streaming se trouve dans [Présélection de tâche pour Azure Media Packager](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh973635.aspx). Copiez et collez le XML dans un fichier appelé MediaPackager\_MP4ToSmooth.xml dans votre projet. Le code qui suit présente la création d'un élément multimédia MP4 en Smooth Streaming. Cette méthode prend un élément multimédia existant et le convertit.
 
 ``` {}
 private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFilePath)
@@ -152,8 +152,8 @@ private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFileP
 
 Pour plus d'informations sur le traitement des éléments multimédias, consultez les pages suivantes :
 
--   [Traitement des éléments multimédias avec le Kit de développement logiciel (SDK) Media Services pour .NET](http://msdn.microsoft.com/en-us/library/jj129580.aspx)
--   [Traitement des éléments multimédias avec l'API REST de Media Services](http://msdn.microsoft.com/en-us/library/jj129574.aspx)
+-   [Traitement des éléments multimédias avec le Kit de développement logiciel (SDK) Media Services pour .NET](http://msdn.microsoft.com/fr-fr/library/jj129580.aspx)
+-   [Traitement des éléments multimédias avec l'API REST de Media Services](http://msdn.microsoft.com/fr-fr/library/jj129574.aspx)
 
 Étapes suivantes
 ----------------

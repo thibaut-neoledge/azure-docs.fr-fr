@@ -144,7 +144,7 @@ Logiciels et ressources supplémentaires :
 -   [NumPy : une bibliothèque de valeurs numériques pour Python](http://www.numpy.org)
 -   [Projet Django : une structure Web/un système de gestion du contenu arrivé à maturité](http://www.djangoproject.com)
 -   [IPython : une solution REPL/Notebook avancée pour Python](http://ipython.org)
--   [IPython Notebook sur Azure](http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-ipython-notebook)
+-   [IPython Notebook sur Azure](http://windowsazure.com/fr-fr/documentation/articles/virtual-machines-python-ipython-notebook)
 -   [Python Tools for Visual Studio sur CodePlex](http://pytools.codeplex.com)
 -   [Virtualenv](http://pypi.python.org/pypi/virtualenv)
 

@@ -129,7 +129,7 @@ Azure Storage expose les ressources de stockage via une [API REST](http://msdn.m
 
 Pour la prise en main d'Azure Storage, explorez les ressources suivantes :
 
--   [Documentation d'Azure Storage](/en-us/documentation/services/storage/)
+-   [Documentation d'Azure Storage](/fr-fr/documentation/services/storage/)
 -   [Objectifs de performance et évolutivité d'Azure Storage](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx)
 
 ### Pour les développeurs .NET

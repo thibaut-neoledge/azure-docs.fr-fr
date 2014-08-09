@@ -91,7 +91,7 @@ Création d'une application PHP
 
 Une application PHP qui utilise le service Twilio et qui s'exécute dans Azure est identique aux autres applications PHP qui utilisent le service Twilio. Bien que les services Twilio soient basés sur REST et puissent être appelés de différentes manières depuis PHP, cet article met l'accent sur l'utilisation des services Twilio avec la [bibliothèque Twilio pour PHP depuis Github](https://github.com/twilio/twilio-php). Pour plus d'informations sur l'utilisation de la bibliothèque Twilio pour PHP, consultez la page <http://readthedocs.org/docs/twilio-php/en/latest/index.html>.
 
-Des instructions détaillées sur la conception et le déploiement d'une application Twilio/PHP sur Azure sont disponibles sur la page [Exécution d'un appel téléphonique à l'aide de Twilio dans une application PHP sur Azure](http://windowsazure.com/en-us/documentation/articles/partner-twilio-php-make-phone-call).
+Des instructions détaillées sur la conception et le déploiement d'une application Twilio/PHP sur Azure sont disponibles sur la page [Exécution d'un appel téléphonique à l'aide de Twilio dans une application PHP sur Azure](http://windowsazure.com/fr-fr/documentation/articles/partner-twilio-php-make-phone-call).
 
 Configuration de l'application pour utiliser les bibliothèques Twilio
 ---------------------------------------------------------------------
@@ -250,7 +250,7 @@ Une fois votre page PHP configurée pour fournir des réponses TwiML, utilisez l
         echo 'Error: ' . $e->getMessage();
     }
 
-Pour plus d'informations sur l'utilisation de Twilio dans Azure avec PHP, consultez la page [Exécution d'un appel téléphonique à l'aide de Twilio dans une application PHP sur Azure](http://windowsazure.com/en-us/documentation/articles/partner-twilio-php-make-phone-call).
+Pour plus d'informations sur l'utilisation de Twilio dans Azure avec PHP, consultez la page [Exécution d'un appel téléphonique à l'aide de Twilio dans une application PHP sur Azure](http://windowsazure.com/fr-fr/documentation/articles/partner-twilio-php-make-phone-call).
 
 Utilisation des services Twilio supplémentaires
 -----------------------------------------------
@@ -273,7 +273,7 @@ Maintenant que vous avez appris les bases du service Twilio, consultez ces liens
 [twilio_github_readme]: https://github.com/twilio/twilio-php/blob/master/README.md
 [ssl_validation]: http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html
 
-[howto_phonecall_php]: http://windowsazure.com/en-us/documentation/articles/partner-twilio-php-make-phone-call
+[howto_phonecall_php]: http://windowsazure.com/fr-fr/documentation/articles/partner-twilio-php-make-phone-call
 [twimlet_message_url]: http://twimlets.com/message
 [twimlet_message_url_hello_world]: http://twimlets.com/message?Message%5B0%5D=Hello%20World
 [twiml_reference]: https://www.twilio.com/docs/api/twiml

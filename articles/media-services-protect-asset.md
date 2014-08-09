@@ -9,7 +9,7 @@ Azure Media Services vous permet d'envoyer une tâche qui s'intègre à la prote
 
 L'exemple suivant indique comment créer une tâche simple pour appliquer la protection PlayReady.
 
-1.  Récupérez les données de configuration. Un exemple de fichier de configuration est disponible à la rubrique [Présélection de tâche pour Azure Media Encryptor](http://msdn.microsoft.com/en-us/library/hh973610.aspx).
+1.  Récupérez les données de configuration. Un exemple de fichier de configuration est disponible à la rubrique [Présélection de tâche pour Azure Media Encryptor](http://msdn.microsoft.com/fr-fr/library/hh973610.aspx).
 2.  Téléchargez un fichier d'entrée MP4.
 3.  Convertissez le fichier MP4 en élément multimédia de diffusion en continu lisse.
 4.  Chiffrez l'élément multimédia à l'aide de PlayReady.
@@ -107,7 +107,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
 
 Pour plus d'informations sur la protection PlayReady, consultez la rubrique :
 
--   [Protection des éléments multimédias avec Microsoft PlayReady](http://msdn.microsoft.com/en-us/library/dn189154.aspx)
+-   [Protection des éléments multimédias avec Microsoft PlayReady](http://msdn.microsoft.com/fr-fr/library/dn189154.aspx)
 -   [Microsoft PlayReady](http://www.microsoft.com/PlayReady/)
 
 Étapes suivantes

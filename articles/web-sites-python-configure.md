@@ -6,7 +6,7 @@ Configuration de Python avec Sites Web Azure
 Ce didacticiel décrit les options relatives à la création et à la configuration d'une application Python compatible WSGI (Web Server Gateway Interface) de base dans Sites Web Azure. La prise en main de Sites Web Azure est facile et votre application Python dispose d'espace pour être mise à l'échelle et étendue à d'autres services Azure. La plateforme Sites Web Azure comprend Python 2.7 et le gestionnaire générique FastCGI wfastcgi.py pour Python. Il vous suffit de configurer votre site Web pour utiliser le gestionnaire Python.
 
 Pour un exemple plus complexe de configuration de l'infrastructure Django dans Sites Web Azure, consultez le didacticiel suivant : 
-<http://www.windowsazure.com/en-us/develop/python/tutorials/web-sites-with-django>.
+<http://www.windowsazure.com/fr-fr/develop/python/tutorials/web-sites-with-django>.
 
 Prise en charge de WSGI
 -----------------------
@@ -16,7 +16,7 @@ WSGI est une norme Python décrite par [PEP 3333](http://www.python.org/dev/peps
 Création de site Web
 --------------------
 
-Ce didacticiel part du principe que vous disposez d'un abonnement Azure et d'un accès au portail de gestion Azure. Vous trouverez des recommandations détaillées sur la création d'un site Web à la rubrique <http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites>.
+Ce didacticiel part du principe que vous disposez d'un abonnement Azure et d'un accès au portail de gestion Azure. Vous trouverez des recommandations détaillées sur la création d'un site Web à la rubrique <http://www.windowsazure.com/fr-fr/manage/services/web-sites/how-to-create-websites>.
 
 En résumé, si vous ne disposez pas de site Web, vous pouvez en créer un à partir du portail de gestion Azure. Sélectionnez la fonctionnalité SITES WEB et utilisez l'option CRÉATION RAPIDE, en spécifiant une URL pour votre site Web.
 

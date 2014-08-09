@@ -3,7 +3,7 @@
 Utilisation de la base de données SQL Azure en Java
 ===================================================
 
-Les étapes suivantes montrent comment utiliser la base de données SQL Azure avec Java. Par souci de simplicité, les exemples présentés ici sont des exemples de ligne de commande qui pourraient en grande partie s'appliquer à des applications Web, qu'elles soient hébergées en local, dans Azure ou dans d'autres environnements. Ce guide s'est intéressé à la création d'un serveur et d'une base de données à partir du [portail de gestion Azure](https://windows.azure.com). Pour plus d'informations sur l'exécution de ces tâches à partir du portail de production, consultez la page [Utilisation de la base de données SQL avec Java](http://msdn.microsoft.com/en-us/library/windowsazure/hh749029.aspx).
+Les étapes suivantes montrent comment utiliser la base de données SQL Azure avec Java. Par souci de simplicité, les exemples présentés ici sont des exemples de ligne de commande qui pourraient en grande partie s'appliquer à des applications Web, qu'elles soient hébergées en local, dans Azure ou dans d'autres environnements. Ce guide s'est intéressé à la création d'un serveur et d'une base de données à partir du [portail de gestion Azure](https://windows.azure.com). Pour plus d'informations sur l'exécution de ces tâches à partir du portail de production, consultez la page [Utilisation de la base de données SQL avec Java](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh749029.aspx).
 
 Définition de la base de données SQL Azure
 ------------------------------------------
@@ -37,7 +37,7 @@ Sommaire
 Concepts
 --------
 
-La base de données SQL Azure repose sur les technologies SQL Server. De ce fait, il existe beaucoup de similitudes entre l'accès à la base de données SQL à partir de Java et l'accès à SQL Server à partir de Java. Vous pouvez développer une application en local (à l'aide de SQL Server) et vous connecter ensuite à la base de données SQL en modifiant simplement la chaîne de connexion. Vous pouvez utiliser un pilote JDBC SQL Server pour votre application. Toutefois, les quelques différences qui existent entre la base de données SQL et SQL Server peuvent avoir une incidence sur votre application. Pour plus d'informations, consultez la page [Instructions et limitations (Base de données SQL)](http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx).
+La base de données SQL Azure repose sur les technologies SQL Server. De ce fait, il existe beaucoup de similitudes entre l'accès à la base de données SQL à partir de Java et l'accès à SQL Server à partir de Java. Vous pouvez développer une application en local (à l'aide de SQL Server) et vous connecter ensuite à la base de données SQL en modifiant simplement la chaîne de connexion. Vous pouvez utiliser un pilote JDBC SQL Server pour votre application. Toutefois, les quelques différences qui existent entre la base de données SQL et SQL Server peuvent avoir une incidence sur votre application. Pour plus d'informations, consultez la page [Instructions et limitations (Base de données SQL)](http://msdn.microsoft.com/fr-fr/library/windowsazure/ff394102.aspx).
 
 Pour obtenir des ressources supplémentaires sur la base de données SQL, consultez la section [Étapes suivantes](#nextsteps).
 
@@ -48,7 +48,7 @@ Si vous avez l'intention d'utiliser la base de données SQL avec Java, voici les
 
 -   Kit de développement logiciel (SDK) Java version 1.6 ou ultérieure.
 -   Un abonnement à Azure, qui peut être souscrit à l'adresse suivante : &lt;http://www.microsoft.com/windowsazure/offers/&gt;.
--   Si vous utilisez Eclipse, vous aurez besoin de l'environnement de développement intégré (IDE) Eclipse pour développeurs Java EE, Indigo ou une version ultérieure, disponible en téléchargement à l'adresse &lt;http://www.eclipse.org/downloads/&gt;. De même, vous aurez besoin du plug-in Azure pour Eclipse avec Java (de Microsoft Open Technologies). Pendant l'installation de ce plug-in, assurez-vous que Microsoft JDBC Driver 4.0 pour SQL Server est inclus. Pour plus d'informations, consultez la page [Installation du plug-in Azure pour Eclipse avec Java (par Microsoft Open Technologies)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx).
+-   Si vous utilisez Eclipse, vous aurez besoin de l'environnement de développement intégré (IDE) Eclipse pour développeurs Java EE, Indigo ou une version ultérieure, disponible en téléchargement à l'adresse &lt;http://www.eclipse.org/downloads/&gt;. De même, vous aurez besoin du plug-in Azure pour Eclipse avec Java (de Microsoft Open Technologies). Pendant l'installation de ce plug-in, assurez-vous que Microsoft JDBC Driver 4.0 pour SQL Server est inclus. Pour plus d'informations, consultez la page [Installation du plug-in Azure pour Eclipse avec Java (par Microsoft Open Technologies)](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh690946.aspx).
 -   Si vous n'utilisez pas Eclipse, vous aurez besoin de Microsoft JDBC Driver 4.0 pour SQL Server, disponible en téléchargement à l'adresse suivante : &lt;http://www.microsoft.com/en-us/download/details.aspx?id=11774&gt;.
 
 Création d'une base de données SQL Azure
@@ -129,7 +129,7 @@ Utilisation de la base de données SQL Azure en Java
     4.  Dans la boîte de dialogue **Add Library**, sélectionnez **Microsoft JDBC Driver 4.0 for SQL Server**, cliquez sur **Next**, puis sur **Finish**.
     5.  Cliquez sur **OK** pour fermer la boîte de dialogue **Properties**.
 
-    Si vous n'utilisez pas Eclipse, ajoutez le fichier JAR de Microsoft JDBC Driver 4.0 pour SQL Server au chemin de la classe. Pour obtenir des informations associées, consultez la page [Utilisation du pilote JDBC](http://msdn.microsoft.com/en-us/library/ms378526.aspx).
+    Si vous n'utilisez pas Eclipse, ajoutez le fichier JAR de Microsoft JDBC Driver 4.0 pour SQL Server au chemin de la classe. Pour obtenir des informations associées, consultez la page [Utilisation du pilote JDBC](http://msdn.microsoft.com/fr-fr/library/ms378526.aspx).
 
 4.  Dans votre code **HelloSQLAzure.java**, ajoutez des instructions `import` comme indiqué dans l'exemple suivant :
 
@@ -710,7 +710,7 @@ Pour utiliser la base de données SQL en Java dans un déploiement Azure, en plu
 3.  Dans la boîte de dialogue **New Assembly Directive**, cliquez sur **Java Build Path Entries** puis sur **Next**.
 4.  Sélectionnez **Microsoft JDBC Driver 4.0 SQL Server**, puis cliquez sur **Finish**.
 5.  Cliquez sur **OK** pour fermer la boîte de dialogue **Properties**.
-6.  Exportez le fichier WAR de votre projet dans votre dossier approot, puis régénérez votre projet Azure selon la procédure décrite dans la page [Création d'une application Hello World à l'aide du plug-in Azure pour Eclipse avec Java (de Microsoft Open Technologies)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx). Cette rubrique montre également comment exécuter l'application dans l'émulateur de calcul et dans Azure.
+6.  Exportez le fichier WAR de votre projet dans votre dossier approot, puis régénérez votre projet Azure selon la procédure décrite dans la page [Création d'une application Hello World à l'aide du plug-in Azure pour Eclipse avec Java (de Microsoft Open Technologies)](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh690944.aspx). Cette rubrique montre également comment exécuter l'application dans l'émulateur de calcul et dans Azure.
 
 **Empaquetage de Microsoft JDBC Driver 4.0 SQL Server si vous n'utilisez pas Eclipse**
 
@@ -719,5 +719,5 @@ Pour utiliser la base de données SQL en Java dans un déploiement Azure, en plu
 Étapes suivantes
 ----------------
 
-Pour plus d'informations sur Microsoft JDBC Driver pour SQL Server, consultez la page [Présentation du pilote JDBC](http://msdn.microsoft.com/en-us/library/ms378749.aspx). Pour plus d'informations sur la base de données SQL, consultez la page [Vue d'ensemble de la base de données SQL](http://msdn.microsoft.com/en-us/library/windowsazure/ee336241.aspx).
+Pour plus d'informations sur Microsoft JDBC Driver pour SQL Server, consultez la page [Présentation du pilote JDBC](http://msdn.microsoft.com/fr-fr/library/ms378749.aspx). Pour plus d'informations sur la base de données SQL, consultez la page [Vue d'ensemble de la base de données SQL](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336241.aspx).
 

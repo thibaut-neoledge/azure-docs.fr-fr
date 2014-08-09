@@ -282,7 +282,7 @@ L'étape suivante consiste à activer la fonctionnalité [Migrations Code First]
          enable-migrations -ContextTypeName ContactManagerContext
 
     ![enable-migrations](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxE.png) 
-	Vous devez spécifier le nom de type de contexte (**ContactManagerContext**), car le projet contient deux classes dérivées [DbContext](http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx) nommées **ContactManagerContext** (que nous venons d'ajouter) et **UsersContext** (qui est utilisée pour la base de données des membres). La classe **ContactManagerContext** a été ajoutée par l'Assistant Génération de modèles automatique de Visual Studio.
+	Vous devez spécifier le nom de type de contexte (**ContactManagerContext**), car le projet contient deux classes dérivées [DbContext](http://msdn.microsoft.com/fr-fr/library/system.data.entity.dbcontext(v=VS.103).aspx) nommées **ContactManagerContext** (que nous venons d'ajouter) et **UsersContext** (qui est utilisée pour la base de données des membres). La classe **ContactManagerContext** a été ajoutée par l'Assistant Génération de modèles automatique de Visual Studio.
 
     La commande **enable-migrations** crée un dossier *Migrations* dans lequel elle place un fichier *Configuration.cs* que vous pouvez modifier pour configurer les migrations.
 
@@ -458,9 +458,9 @@ La table **webpages\_OAuthMembership** contient le fournisseur OAuth, son UserID
 Protection de l'application avec l'attribut Authorize
 -----------------------------------------------------
 
-Dans cette section, vous allez appliquer l'attribut [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) pour limiter l'accès aux méthodes d'action. L'utilisateur anonyme pourra afficher uniquement la page d'accueil. Les utilisateurs inscrits pourront afficher les détails des contacts, ainsi que les pages À propos de et Contacts. Seuls les utilisateurs du rôle *peutModifier* pourront accéder aux méthodes d’action qui modifient les données.
+Dans cette section, vous allez appliquer l'attribut [Authorize](http://msdn.microsoft.com/fr-fr/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) pour limiter l'accès aux méthodes d'action. L'utilisateur anonyme pourra afficher uniquement la page d'accueil. Les utilisateurs inscrits pourront afficher les détails des contacts, ainsi que les pages À propos de et Contacts. Seuls les utilisateurs du rôle *peutModifier* pourront accéder aux méthodes d’action qui modifient les données.
 
-1.  Ajoutez les filtres [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) et [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) à l’application. Une autre approche consiste à ajouter les attributs [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) et [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) à chaque contrôleur, mais il est recommandé de les appliquer à l’ensemble de l’application. En les ajoutant de manière globale, les nouveaux contrôleurs et les nouvelles méthodes d’action que vous ajouterez seront automatiquement protégés, vous n’aurez pas à vous rappeler qu’il faut leur appliquer ces attributs à chaque fois. Pour plus d'informations, consultez la page [Sécurisation de votre application ASP.NET MVC 4 et nouvel attribut AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx). Ouvrez le fichier *App\_Start\\FilterConfig.cs* et remplacez la méthode *RegisterGlobalFilters* par le code suivant.
+1.  Ajoutez les filtres [Authorize](http://msdn.microsoft.com/fr-fr/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) et [RequireHttps](http://msdn.microsoft.com/fr-fr/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) à l’application. Une autre approche consiste à ajouter les attributs [Authorize](http://msdn.microsoft.com/fr-fr/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) et [RequireHttps](http://msdn.microsoft.com/fr-fr/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) à chaque contrôleur, mais il est recommandé de les appliquer à l’ensemble de l’application. En les ajoutant de manière globale, les nouveaux contrôleurs et les nouvelles méthodes d’action que vous ajouterez seront automatiquement protégés, vous n’aurez pas à vous rappeler qu’il faut leur appliquer ces attributs à chaque fois. Pour plus d'informations, consultez la page [Sécurisation de votre application ASP.NET MVC 4 et nouvel attribut AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx). Ouvrez le fichier *App\_Start\\FilterConfig.cs* et remplacez la méthode *RegisterGlobalFilters* par le code suivant.
 
          public static void
          RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -525,7 +525,7 @@ Les sites Web Azure incluant un certificat de sécurité valide, cet avertisseme
 Préparation de la base de donnéesCréation d'un script de déploiement de données
 -------------------------------------------------------------------------------
 
-La base de données des membres n'étant pas gérée par Entity Framework Code First, vous ne pouvez pas utiliser Migrations pour la déployer. Nous allons utiliser le fournisseur [dbDacFx](http://msdn.microsoft.com/en-us/library/dd394698.aspx) pour déployer le schéma de base de données et configurer le profil de publication pour exécuter un script visant à insérer les données initiales relatives aux membres dans les tables des membres.
+La base de données des membres n'étant pas gérée par Entity Framework Code First, vous ne pouvez pas utiliser Migrations pour la déployer. Nous allons utiliser le fournisseur [dbDacFx](http://msdn.microsoft.com/fr-fr/library/dd394698.aspx) pour déployer le schéma de base de données et configurer le profil de publication pour exécuter un script visant à insérer les données initiales relatives aux membres dans les tables des membres.
 
 Ce didacticiel utilise SQL Server Management Studio (SSMS) pour créer les scripts de déploiement de données.
 
@@ -677,20 +677,20 @@ N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce 
 Pour obtenir des boutons de connexion Facebook, Google et Yahoo colorés, consultez le billet de blog traitant de la [personnalisation des boutons de connexion externes dans ASP.NET MVC 4](http://www.beabigrockstar.com/customizing-external-login-buttons-in-asp-net-mvc-4/). Pour plus d'informations sur l'utilisation de l'authentification Windows, consultez les ressources suivantes :
 
 -   [Authentification Azure](http://www.asp.net/vnext/overview/fall-2012-update/windows-azure-authentication)
--   [Création d'un site Intranet à l'aide d'ASP.NET MVC](http://msdn.microsoft.com/en-us/library/gg703322(v=vs.98).aspx)
+-   [Création d'un site Intranet à l'aide d'ASP.NET MVC](http://msdn.microsoft.com/fr-fr/library/gg703322(v=vs.98).aspx)
 
 Une autre méthode pour stocker des données dans une application Azure consiste à utiliser le stockage Azure, qui permet de stocker des données non relationnelles sous la forme d'objets blob et de tables. Pour plus d'informations sur ASP.NET MVC et Azure, consultez les liens suivants.
 
--   [Application ASP.NET multiniveau avec tables, files d'attente et objets blob de stockage Azure](http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
+-   [Application ASP.NET multiniveau avec tables, files d'attente et objets blob de stockage Azure](http://www.windowsazure.com/fr-fr/develop/net/tutorials/multi-tier-web-site/1-overview/).
 -   [Introduction à ASP.NET MVC 4](http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4)
 -   [Mise en route d'Entity Framework avec MVC](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)
 -   [OAuth 2.0 et connexion](http://blogs.msdn.com/b/vbertocci/archive/2013/01/02/oauth-2-0-and-sign-in.aspx)
 
-Vous savez désormais déployer une application Web dans un site Web Azure. Pour savoir comment configurer, gérer et mettre à l'échelle les sites Web Azure, consultez les procédures disponibles à la page [Tâches courantes](http://www.windowsazure.com/en-us/develop/net/common-tasks/).
+Vous savez désormais déployer une application Web dans un site Web Azure. Pour savoir comment configurer, gérer et mettre à l'échelle les sites Web Azure, consultez les procédures disponibles à la page [Tâches courantes](http://www.windowsazure.com/fr-fr/develop/net/common-tasks/).
 
 Pour savoir comment déboguer les sites Web Azure, consultez la page [Résolution des problèmes de sites Web Azure dans Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
-Pour savoir comment déployer une application dans un service cloud Azure, consultez la [version de ce didacticiel consacrée aux services cloud](http://www.windowsazure.com/en-us/develop/net/tutorials/cloud-service-with-sql-database/), ainsi que la page [Développement d'applications Web avec Azure](http://msdn.microsoft.com/en-us/library/Hh674484). Voici quelques unes des raisons qui peuvent motiver l'exécution d'une application Web ASP.NET dans un service cloud Azure plutôt que dans un site Web Azure :
+Pour savoir comment déployer une application dans un service cloud Azure, consultez la [version de ce didacticiel consacrée aux services cloud](http://www.windowsazure.com/fr-fr/develop/net/tutorials/cloud-service-with-sql-database/), ainsi que la page [Développement d'applications Web avec Azure](http://msdn.microsoft.com/fr-fr/library/Hh674484). Voici quelques unes des raisons qui peuvent motiver l'exécution d'une application Web ASP.NET dans un service cloud Azure plutôt que dans un site Web Azure :
 
 -   Vous souhaitez disposer d'autorisations d'administrateur sur le serveur Web sur lequel l'application est exécutée.
 -   Vous voulez utiliser la connexion Bureau à distance pour accéder au serveur Web sur lequel l'application est exécutée.
@@ -703,5 +703,5 @@ Pour savoir comment utiliser la base de données SQL, consultez la page [Utilisa
 Pour en savoir plus sur Entity Framework et Code First Migrations, consultez les ressources suivantes :
 
 -   [Mise en route d'Entity Framework avec MVC](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)
--   [Code First Migrations](http://msdn.microsoft.com/en-us/library/hh770484)
+-   [Code First Migrations](http://msdn.microsoft.com/fr-fr/library/hh770484)
 

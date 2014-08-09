@@ -38,8 +38,8 @@ Le résultat de la tâche MapReduce est un ensemble de paires clé-valeur. La cl
 
 L'exécution d'une tâche MapReduce nécessite les éléments suivants :
 
--   Un programme MapReduce. Dans ce didacticiel, vous allez utiliser l'exemple de comptage de mots fourni avec les clusters HDInsight, si bien que vous n'avez pas besoin d'écrire le vôtre. Il se situe à l'emplacement suivant : */example/jars/hadoop-examples.jar*. Le nom du fichier est *hadoop-mapreduce-examples.jar* sur les clusters HDInsight version 3.0. Pour savoir comment écrire votre propre tâche MapReduce, consultez la rubrique [Développement de programmes MapReduce en Java pour HDInsight](/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/).
--   Un fichier d'entrée. Vous allez utiliser */example/data/gutenberg/davinci.txt* comme fichier d'entrée. Pour plus d'informations sur le téléchargement de fichiers, consultez la rubrique [Téléchargement de données vers HDInsight](/en-us/documentation/articles/hdinsight-upload-data/).
+-   Un programme MapReduce. Dans ce didacticiel, vous allez utiliser l'exemple de comptage de mots fourni avec les clusters HDInsight, si bien que vous n'avez pas besoin d'écrire le vôtre. Il se situe à l'emplacement suivant : */example/jars/hadoop-examples.jar*. Le nom du fichier est *hadoop-mapreduce-examples.jar* sur les clusters HDInsight version 3.0. Pour savoir comment écrire votre propre tâche MapReduce, consultez la rubrique [Développement de programmes MapReduce en Java pour HDInsight](/fr-fr/documentation/articles/hdinsight-develop-deploy-java-mapreduce/).
+-   Un fichier d'entrée. Vous allez utiliser */example/data/gutenberg/davinci.txt* comme fichier d'entrée. Pour plus d'informations sur le téléchargement de fichiers, consultez la rubrique [Téléchargement de données vers HDInsight](/fr-fr/documentation/articles/hdinsight-upload-data/).
 -   Un dossier de fichiers de sortie. Vous allez utiliser */example/data/WordCountOutput* comme dossier de fichiers de sortie. Si ce dossier n'existe pas, le système le crée. La tâche MapReduce échoue si le dossier existe. Si vous souhaitez exécuter la tâche MapReduce une deuxième fois, vous devez supprimer le dossier de résultat ou indiquer un autre dossier.
 
 Exécution de l'exemple avec Azure PowerShell
@@ -208,9 +208,9 @@ Voici le code source du programme Java de comptage de mots MapReduce :
 Même si MapReduce est doté de puissantes capacités de diagnostic, il peut être assez difficile à maîtriser. Les autres langages tels que Pig et Hive permettent d'utiliser plus facilement les données stockées dans HDInsight. Pour en savoir plus, consultez les articles suivants :
 
 -   [Prise en main d'Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
--   [Développement de programmes MapReduce en Java pour HDInsight](/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
--   [Développement de programmes MapReduce de diffusion en continu Hadoop en C\# pour HDInsight](/en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
--   [Utilisation de Hive avec HDInsight](/en-us/documentation/articles/hdinsight-use-hive/)
--   [Utilisation de Pig avec HDInsight](/en-us/documentation/articles/hdinsight-use-pig/)
--   [Exécution des exemples HDInsight](/en-us/documentation/articles/hdinsight-run-samples/)
+-   [Développement de programmes MapReduce en Java pour HDInsight](/fr-fr/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
+-   [Développement de programmes MapReduce de diffusion en continu Hadoop en C\# pour HDInsight](/fr-fr/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
+-   [Utilisation de Hive avec HDInsight](/fr-fr/documentation/articles/hdinsight-use-hive/)
+-   [Utilisation de Pig avec HDInsight](/fr-fr/documentation/articles/hdinsight-use-pig/)
+-   [Exécution des exemples HDInsight](/fr-fr/documentation/articles/hdinsight-run-samples/)
 

@@ -108,6 +108,6 @@ Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez
 
 Maintenant que vous avez acquis les bases du stockage de files d'attente, suivez ces liens pour savoir comment effectuer des tâches de stockage plus complexes.
 
--   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+-   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx)
 -   Consultez le [blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 

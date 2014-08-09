@@ -16,7 +16,7 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 * Azure PowerShell (installé et configuré) : pour obtenir des
   instructions, consultez la rubrique [Installation et configuration
   d'Azure
-  PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+  PowerShell](/fr-fr/documentation/articles/install-configure-powershell/).
 
 ## Dans cet article
 
@@ -39,7 +39,7 @@ MapReduce. Ce fichier a été renommé hadoop-mapreduce-examples.jar sur les clu
 
 **Exécution d'une tâche MapReduce de comptage des mots avec PowerShell**
 
-1.  Ouvrez **Azure PowerShell**. Pour savoir comment ouvrir la fenêtre de la console Azure PowerShell, consultez la rubrique [Installation et configuration d'Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+1.  Ouvrez **Azure PowerShell**. Pour savoir comment ouvrir la fenêtre de la console Azure PowerShell, consultez la rubrique [Installation et configuration d'Azure PowerShell](/fr-fr/documentation/articles/install-configure-powershell/).
 
 2.  Configurez ces deux variables en exécutant les commandes PowerShell
     suivantes :
@@ -126,7 +126,7 @@ Les clusters HDInsight sont fournis avec un exemple de table Hive nommé *hivesa
 
 **Exécution d'une tâche Hive avec PowerShell**
 
-1.  Ouvrez **Azure PowerShell**. Pour savoir comment ouvrir la fenêtre de la console Azure PowerShell, consultez la rubrique [Installation et configuration d'Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+1.  Ouvrez **Azure PowerShell**. Pour savoir comment ouvrir la fenêtre de la console Azure PowerShell, consultez la rubrique [Installation et configuration d'Azure PowerShell](/fr-fr/documentation/articles/install-configure-powershell/).
 
 2.  Définissez les deux variables dans les commandes suivantes, puis exécutez-les :
     
@@ -486,5 +486,5 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 [1]: http://hive.apache.org/
 [2]: http://nuget.codeplex.com/wikipage?title=Getting%20Started
 [3]: http://manage.windowsazure.com/
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx
-[5]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
+[4]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg551722.aspx
+[5]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn479228.aspx

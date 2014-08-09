@@ -9,7 +9,7 @@ Vous pouvez également programmer Media Services à l'aide des API REST basées 
 
 Pour programmer avec l'API REST de Media Services ou le Kit de développement logiciel (SDK) de Media Services, commencez par activer votre compte Azure pour Media Services, comme décrit à la section [Configuration d'un compte Azure pour Media Services](#setup-account).
 
-Cliquez [ici](http://msdn.microsoft.com/en-us/library/hh973613.aspx) pour accéder à la documentation la plus récente sur le Kit de développement logiciel (SDK) de Media Services.
+Cliquez [ici](http://msdn.microsoft.com/fr-fr/library/hh973613.aspx) pour accéder à la documentation la plus récente sur le Kit de développement logiciel (SDK) de Media Services.
 
 Présentation de Media Services
 ------------------------------
@@ -28,7 +28,7 @@ Les fonctionnalités suivantes de la version actuelle de Media Services permette
 -   **Encodage**. Les opérations d'encodage englobent l'encodage proprement dit ainsi que la transformation et la conversion des éléments multimédias. Vous pouvez exécuter des tâches d'encodage dans le cloud via l'Encodeur multimédia Azure. Les options d'encodage disponibles sont les suivantes :
     -   Utilisez l'Encodeur multimédia Azure ainsi que différents codecs et formats standard, comme la diffusion en continu lisse IIS, MP4 et la conversion au format de diffusion en continu HTTP Apple.
     -   Convertissez des bibliothèques entières ou des fichiers individuels avec un contrôle total sur les entrées et sorties.
-    -   Un large éventail de types de fichiers, formats et codecs sont pris en charge (consultez la rubrique [Types de fichiers pris en charge pour Media Services](http://msdn.microsoft.com/en-us/library/hh973634)).
+    -   Un large éventail de types de fichiers, formats et codecs sont pris en charge (consultez la rubrique [Types de fichiers pris en charge pour Media Services](http://msdn.microsoft.com/fr-fr/library/hh973634)).
     -   Conversions aux formats pris en charge. Media Services vous permet de convertir le format ISO MP4 (.mp4) au format de fichier de diffusion en continu lisse (PIFF 1.3) (.ismv; .isma). Vous pouvez également convertir le format de fichier de diffusion en continu lisse (PIFF) au format de diffusion en continu HTTP Apple (.msu8, .ts).
 -   **Protection**. La protection de contenu consiste à chiffrer le contenu diffusé en continu ou à la demande afin de sécuriser son transport, son stockage et sa fourniture. Media Services fournit une solution à technologie DRM non spécifiée pour protéger le contenu. Les technologies DRM actuellement prises en charge sont Microsoft PlayReady et MPEG CENC. D'autres technologies DRM seront bientôt disponibles.
 -   **Diffusion en continu**. La diffusion en continu implique l'envoi du contenu en direct ou à la demande aux clients. Vous pouvez également télécharger des fichiers multimédias spécifiques à partir du cloud. Media Services fournit une solution au format non spécifié pour du contenu de diffusion en continu. Media Services prend en charge l'origine de la diffusion en continu pour les formats de diffusion en continu lisse, de diffusion en continu HTTP Apple et MP4. D'autres formats seront bientôt disponibles. Vous pouvez aussi diffuser du contenu en continu en toute transparence via un réseau de distribution de contenu (CDN) tiers permettant d'atteindre des millions d'utilisateurs.
@@ -70,7 +70,7 @@ Pour les PC et Mac, vous pouvez envisager une expérience de diffusion en contin
 
 Pour Windows 8, vous pouvez créer des applications Windows Store en utilisant les langages et constructions de développement pris en charge, comme HTML, Javascript, XAML, C\# et C+.
 
--   [Kits de développement logiciel (SDK) pour clients de diffusion en continu lisse Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). Pour plus d'informations sur la création d'une application Windows Store à l'aide de ce Kit de développement logiciel (SDK), consultez la rubrique [Création d'une application de diffusion en continu lisse Windows Store](http://go.microsoft.com/fwlink/?LinkId=271647). Pour plus d'informations sur la création d'un lecteur de diffusion en continu lisse en HTML5, consultez la rubrique [Procédure pas à pas : génération de votre premier lecteur de diffusion en continu lisse HTML5](http://msdn.microsoft.com/en-us/library/jj573656(v=vs.90).aspx).
+-   [Kits de développement logiciel (SDK) pour clients de diffusion en continu lisse Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). Pour plus d'informations sur la création d'une application Windows Store à l'aide de ce Kit de développement logiciel (SDK), consultez la rubrique [Création d'une application de diffusion en continu lisse Windows Store](http://go.microsoft.com/fwlink/?LinkId=271647). Pour plus d'informations sur la création d'un lecteur de diffusion en continu lisse en HTML5, consultez la rubrique [Procédure pas à pas : génération de votre premier lecteur de diffusion en continu lisse HTML5](http://msdn.microsoft.com/fr-fr/library/jj573656(v=vs.90).aspx).
 
 -   [Plateforme multimédia Microsoft : Infrastructure de lecture pour applications Windows Store Windows 8](http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home)
 
@@ -135,14 +135,14 @@ Différents partenaires Microsoft fournissent des Kits de développement logicie
   [Media Services Preview Account Setup]: http://go.microsoft.com/fwlink/?linkid=247287
   [Azure Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?LinkID=256500
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
-  [Installing the Azure SDK on Windows 8]: http://www.windowsazure.com/en-us/develop/net/other-resources/windows-azure-on-windows-8/
+  [Installing the Azure SDK on Windows 8]: http://www.windowsazure.com/fr-fr/develop/net/other-resources/windows-azure-on-windows-8/
   [Azure Media Services Documentation]: http://go.microsoft.com/fwlink/?linkid=245437
-  [Getting Started with the Azure CDN]: http://msdn.microsoft.com/en-us/library/windowsazure/ff919705.aspx
+  [Getting Started with the Azure CDN]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ff919705.aspx
   [Media Services Forum]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
   [Getting Started with the Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=252966
   [Building Applications with the Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=247821
   [Azure Management Portal]: https://manage.windowsazure.com/
   [How to Create a Media Services Account]: http://go.microsoft.com/fwlink/?linkid=256662
-  [Supported File Types for Media Services]: http://msdn.microsoft.com/en-us/library/hh973634
+  [Supported File Types for Media Services]: http://msdn.microsoft.com/fr-fr/library/hh973634
 
 

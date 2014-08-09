@@ -8,7 +8,7 @@
 
 * Vous devez avoir configuré un **cluster HDInsight**. Pour une description de la procédure à suivre avec le portail Azure, consultez la page [Prise en main de HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/). Pour des instructions sur les autres méthodes disponibles pour créer ce type de clusters, consultez la page [Configuration de clusters HDInsight](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/).
 
-* Vous devez avoir installé **Azure PowerShell** sur votre station de travail. Pour des instructions sur la marche à suivre, consultez la page [Installation et configuration d'Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+* Vous devez avoir installé **Azure PowerShell** sur votre station de travail. Pour des instructions sur la marche à suivre, consultez la page [Installation et configuration d'Azure PowerShell](/fr-fr/documentation/articles/install-configure-powershell/).
 
 **Durée de réalisation estimée :** 30 minutes
 
@@ -71,7 +71,7 @@ Les requêtes Hive peuvent être exécutées dans PowerShell avec la cmdlet
 
 **Pour exécuter les requêtes Hive avec Start-AzureHDInsightJob**
 
-1.  Ouvrez une fenêtre de console Azure PowerShell. Pour les instructions, consultez la page [Installation et configuration d'Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+1.  Ouvrez une fenêtre de console Azure PowerShell. Pour les instructions, consultez la page [Installation et configuration d'Azure PowerShell](/fr-fr/documentation/articles/install-configure-powershell/).
 2.  Exécutez la commande suivante pour vous connecter à votre abonnement Azure :
     
          Add-AzureAccount
@@ -176,8 +176,8 @@ Les requêtes Hive peuvent être exécutées dans PowerShell avec la cmdlet
 Bien que Hive facilite l'interrogation des données avec un langage de requête similaire à SQL, d'autres composants disponibles avec HDInsight fournissent des fonctionnalités supplémentaires telles que le transfert et la transformation des données. Pour en savoir plus, consultez les articles suivants :
 
 * [Prise en main d'Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
-* [Analyse des données sur les retards de vol avec HDInsight](/en-us/documentation/articles/hdinsight-analyze-flight-delay-data/)
-* [Utilisation d'Oozie avec HDInsight](/en-us/documentation/articles/hdinsight-use-oozie/)
+* [Analyse des données sur les retards de vol avec HDInsight](/fr-fr/documentation/articles/hdinsight-analyze-flight-delay-data/)
+* [Utilisation d'Oozie avec HDInsight](/fr-fr/documentation/articles/hdinsight-use-oozie/)
 * [Envoi de tâches Hadoop par programme](/en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/)
 * [Téléchargement de données vers HDInsight](/en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/)
 * [Utilisation de Pig avec HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
@@ -200,8 +200,8 @@ Bien que Hive facilite l'interrogation des données avec un langage de requête 
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 
 
-[hdinsight-oozie]: /en-us/documentation/articles/hdinsight-use-oozie/
-[hdinsight-analyze-flight-delay-data]: /en-us/documentation/articles/hdinsight-analyze-flight-delay-data/
+[hdinsight-oozie]: /fr-fr/documentation/articles/hdinsight-use-oozie/
+[hdinsight-analyze-flight-delay-data]: /fr-fr/documentation/articles/hdinsight-analyze-flight-delay-data/
 
 
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store
@@ -212,7 +212,7 @@ Bien que Hive facilite l'interrogation des données avec un langage de requête 
 [hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 
-[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
+[Powershell-install-configure]: /fr-fr/documentation/articles/install-configure-powershell/
 [powershell-here-strings]: http://technet.microsoft.com/en-us/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png 

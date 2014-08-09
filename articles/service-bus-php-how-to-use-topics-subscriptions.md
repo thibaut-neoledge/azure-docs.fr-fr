@@ -107,7 +107,7 @@ L'exemple ci-dessous montre comment instancier un **ServiceBusRestProxy** et app
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -142,7 +142,7 @@ Le filtre **MatchAll** est le filtre utilisé par défaut si aucun filtre n'est 
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -150,7 +150,7 @@ Le filtre **MatchAll** est le filtre utilisé par défaut si aucun filtre n'est 
 
 ### Création d'abonnements avec des filtres
 
-Vous pouvez également configurer des filtres pour spécifier quels sont les messages, parmi ceux envoyés à une rubrique, qui doivent apparaître dans un abonnement de rubrique spécifique. Parmi les types de filtres pris en charge par les abonnements, **SqlFilter** est le plus flexible ; il implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus d'informations sur SqlFilters, consultez la page [Propriété SqlExpression](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx).
+Vous pouvez également configurer des filtres pour spécifier quels sont les messages, parmi ceux envoyés à une rubrique, qui doivent apparaître dans un abonnement de rubrique spécifique. Parmi les types de filtres pris en charge par les abonnements, **SqlFilter** est le plus flexible ; il implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus d'informations sur SqlFilters, consultez la page [Propriété SqlExpression](http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx).
 
     > [WACOM.NOTE]
     > Chaque règle d'un abonnement traite les messages entrants de façon indépendante, ajoutant leurs messages de résultat à l'abonnement. En outre, chaque nouvel abonnement dispose d'une <b>Règle</b> par défaut avec un filtre qui ajoute tous les messages de la rubrique à l'abonnement. Pour recevoir uniquement les messages correspondant à votre filtre, vous devez supprimer la règle par défaut. Vous pouvez supprimer la règle par défaut en utilisant la méthode <b>ServiceBusRestProxy->deleteRule</b>.
@@ -206,7 +206,7 @@ Pour envoyer un message à une rubrique Service Bus, votre application appelle l
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780775
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/hh780775
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -271,7 +271,7 @@ L'exemple ci-dessous montre comment les messages peuvent être reçus et traité
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici :
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780735
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/hh780735
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -309,7 +309,7 @@ L'exemple suivant montre comment supprimer une rubrique (`mytopic`) et ses abonn
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -322,7 +322,7 @@ La méthode **deleteSubscription** permet de supprimer un abonnement de façon i
 Étapes suivantes
 ----------------
 
-Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez la page [Files d'attente, rubriques et abonnements Service Bus](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx) pour plus d'informations.
+Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez la page [Files d'attente, rubriques et abonnements Service Bus](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367516.aspx) pour plus d'informations.
 
 [download-sdk]: http://go.microsoft.com/fwlink/?LinkId=252473
 [What are Service Bus Topics and Subscriptions?]: #bkmk_WhatAreSvcBusTopics
@@ -343,8 +343,8 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
 [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
 [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
 [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-[Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+[Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367516.aspx
 [Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
-[sqlfilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+[sqlfilter]: http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 
 [require-once]: http://php.net/require_once

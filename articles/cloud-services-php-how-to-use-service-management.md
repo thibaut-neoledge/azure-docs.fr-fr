@@ -35,7 +35,7 @@ Pour utiliser l'API de gestion des services, vous devez [créer un compte Azure]
 Concepts
 --------
 
-Le Kit de développement logiciel (SDK) Azure pour PHP inclut l'[API de gestion des services Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx), qui est une API REST. Toutes les opérations de l'API sont effectuées au moyen du protocole SSL et sont mutuellement authentifiées au moyen de certificats X.509 v3. La gestion des services est accessible à partir d'un service s'exécutant dans Azure, ou directement sur Internet à partir de toute application pouvant envoyer une demande HTTPS et recevoir une réponse HTTPS.
+Le Kit de développement logiciel (SDK) Azure pour PHP inclut l'[API de gestion des services Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460799.aspx), qui est une API REST. Toutes les opérations de l'API sont effectuées au moyen du protocole SSL et sont mutuellement authentifiées au moyen de certificats X.509 v3. La gestion des services est accessible à partir d'un service s'exécutant dans Azure, ou directement sur Internet à partir de toute application pouvant envoyer une demande HTTPS et recevoir une réponse HTTPS.
 
 Création d'une application PHP
 ------------------------------
@@ -62,7 +62,7 @@ Pour créer le certificat `.cer`, exécutez le code suivant :
 
     `openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Pour plus d'informations sur les certificats Azure, consultez la rubrique [Vue d'ensemble des certificats dans Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg981935.aspx). Pour une description complète des paramètres OpenSSL, consultez la documentation disponible sur <http://www.openssl.org/docs/apps/openssl.html>.
+Pour plus d'informations sur les certificats Azure, consultez la rubrique [Vue d'ensemble des certificats dans Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg981935.aspx). Pour une description complète des paramètres OpenSSL, consultez la documentation disponible sur <http://www.openssl.org/docs/apps/openssl.html>.
 
 Si vous avez téchargé et importé le fichier de paramètres de publication au moyen des [outils en ligne de commande Azure](../command-line-tools/), vous pouvez utiliser le fichier `.pem` créé par les outils au lieu de créer le vôtre. Les outils créent un fichier `.cer` pour vous, le téléchargent sur Azure et placent le fichier `.pem` correspondant dans le répertoire `.azure` de votre ordinateur (dans votre répertoire utilisateur).
 
@@ -104,7 +104,7 @@ Pour afficher la liste des emplacements disponibles pour les services d'héberge
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -153,7 +153,7 @@ Lorsque vous créez une application et que vous l'exécutez dans Azure, l'ensemb
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -198,12 +198,12 @@ Notez qu'avant de supprimer un service, vous devez supprimer tous les déploieme
 Création d'un déploiement
 -------------------------
 
-La méthode **createDeployment** télécharge un nouveau [package de service](http://msdn.microsoft.com/en-us/library/windowsazure/gg433093) et crée un déploiement dans l'environnement intermédiaire ou de production. Les paramètres de cette méthode sont les suivants :
+La méthode **createDeployment** télécharge un nouveau [package de service](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433093) et crée un déploiement dans l'environnement intermédiaire ou de production. Les paramètres de cette méthode sont les suivants :
 
 -   **$name** : nom du service hébergé.
 -   **$deploymentName** : nom du déploiement.
 -   **$slot** : énumération indiquant l'emplacement intermédiaire ou de production.
--   **$packageUrl** : URL du package de déploiement (fichier .cspgk). Le fichier de package doit être stocké dans un compte de stockage d'objets blob Azure sous le même abonnement que le service hébergé sur lequel le package est téléchargé. Vous pouvez créer un package de déploiement au moyen des [cmdlets Azure PowerShell](../install-configure-powershell/) ou de l'[outil en ligne de commande cspack](http://msdn.microsoft.com/en-us/library/windowsazure/gg432988.aspx).
+-   **$packageUrl** : URL du package de déploiement (fichier .cspgk). Le fichier de package doit être stocké dans un compte de stockage d'objets blob Azure sous le même abonnement que le service hébergé sur lequel le package est téléchargé. Vous pouvez créer un package de déploiement au moyen des [cmdlets Azure PowerShell](../install-configure-powershell/) ou de l'[outil en ligne de commande cspack](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg432988.aspx).
 -   **$configuration** : fichier de configuration de service (fichier .cscfg).
 -   **$label** : nom du service hébergé codé en base64.
 
@@ -239,7 +239,7 @@ L'exemple suivant crée un déploiement dans l'emplacement de production d'un se
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -272,7 +272,7 @@ Mise à jour d'un déploiement
 
 Vous pouvez mettre un déploiement à jour à l'aide de la méthode **changeDeploymentConfiguration** ou **updateDeploymentStatus**.
 
-La méthode **changeDeploymentConfiguration** vous permet de télécharger un nouveau fichier de configuration de service (`.cscfg`), qui changera n'importe quel paramètre de service (y compris le nombre d'instances dans un déploiement). Pour plus d'informations, consultez la rubrique [Schéma de configuration de service Azure (.cscfg)](http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx). L'exemple suivant indique comment télécharger un nouveau fichier de configuration de service :
+La méthode **changeDeploymentConfiguration** vous permet de télécharger un nouveau fichier de configuration de service (`.cscfg`), qui changera n'importe quel paramètre de service (y compris le nombre d'instances dans un déploiement). Pour plus d'informations, consultez la rubrique [Schéma de configuration de service Azure (.cscfg)](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee758710.aspx). L'exemple suivant indique comment télécharger un nouveau fichier de configuration de service :
 
     require_once 'vendor\autoload.php';
 
@@ -298,7 +298,7 @@ La méthode **changeDeploymentConfiguration** vous permet de télécharger un no
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -328,7 +328,7 @@ La méthode **updateDeploymentStatus** vous permet de définir un état de dépl
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -337,7 +337,7 @@ La méthode **updateDeploymentStatus** vous permet de définir un état de dépl
 Transfert des déploiements entre les environnements intermédiaire et de production
 ----------------------------------------------------------------------------------
 
-Azure fournit deux environnements de déploiement : intermédiaire et de production. Généralement, un service est déployé dans l'environnement intermédiaire pour être testé avant son déploiement dans l'environnement de production. Lorsqu'il est temps de promouvoir le service de l'environnement intermédiaire à l'environnement de production, vous pouvez le faire sans redéployer le service. Pour cela, intervertissez les déploiements Pour plus d'informations sur l'intervertissement de déploiements, consultez la rubrique [Vue d'ensemble de la gestion des déploiements dans Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx).
+Azure fournit deux environnements de déploiement : intermédiaire et de production. Généralement, un service est déployé dans l'environnement intermédiaire pour être testé avant son déploiement dans l'environnement de production. Lorsqu'il est temps de promouvoir le service de l'environnement intermédiaire à l'environnement de production, vous pouvez le faire sans redéployer le service. Pour cela, intervertissez les déploiements Pour plus d'informations sur l'intervertissement de déploiements, consultez la rubrique [Vue d'ensemble de la gestion des déploiements dans Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh386336.aspx).
 
 L'exemple suivant indique comment utiliser la méthode **swapDeployment** pour intervertir deux déploiements (avec les noms `v1` et `v2`). Dans l'exemple, avant l'appel de **swapDeployment**, le déploiement `v1` se trouve dans l'emplacement de production, et le déploiement `v2` dans l'emplacement intermédiaire. Une fois **swapDeployment** appelé, `v2` se trouve dans l'emplacement de production, et `v1` dans l'emplacement intermédiaire.
 
@@ -355,7 +355,7 @@ L'exemple suivant indique comment utiliser la méthode **swapDeployment** pour i
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -385,7 +385,7 @@ Pour supprimer un déploiement, utilisez la méthode **deleteDeployment**. L'exe
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -421,7 +421,7 @@ Un [service de stockage](../storage-whatis-account/) vous donne accès aux [obje
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -463,7 +463,7 @@ Vous pouvez supprimer un service de stockage en transmettant son nom à la méth
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -498,7 +498,7 @@ Pour créer un groupe d'affinités, vous avez besoin d'un nom, d'une étiquette 
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -540,7 +540,7 @@ Vous pouvez supprimer un groupe d'affinités en transmettant son nom à la méth
     catch(ServiceException $e){
         // Gérez une exception en fonction des codes et des messages d'erreur.
         // Les codes et messages d'erreur se trouvent ici : 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";

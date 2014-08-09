@@ -72,8 +72,8 @@ foreach (IAsset asset in _context.Assets)
 
 Pour plus d'informations sur la gestion des éléments multimédias, consultez les pages suivantes :
 
--   [Gestion des éléments multimédias avec le Kit de développement logiciel (SDK) Media Services pour .NET](http://msdn.microsoft.com/en-us/library/jj129589.aspx)
--   [Gestion des éléments multimédias avec l'API REST de Media Services](http://msdn.microsoft.com/en-us/library/jj129583.aspx)
+-   [Gestion des éléments multimédias avec le Kit de développement logiciel (SDK) Media Services pour .NET](http://msdn.microsoft.com/fr-fr/library/jj129589.aspx)
+-   [Gestion des éléments multimédias avec l'API REST de Media Services](http://msdn.microsoft.com/fr-fr/library/jj129583.aspx)
 
 Étapes suivantes
 ----------------

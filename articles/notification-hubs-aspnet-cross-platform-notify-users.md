@@ -62,7 +62,7 @@ Maintenant que vous avez terminé ce didacticiel, vous trouverez des information
 -   **[Vue d'ensemble des concentrateurs de notification](http://go.microsoft.com/fwlink/p/?LinkId=317339)**
     Rubrique générale offrant des informations plus détaillées sur les modèles.
 
--   **[Procédures Notification Hubs pour Windows Store](http://msdn.microsoft.com/en-us/library/windowsazure/jj927172.aspx)**
+-   **[Procédures Notification Hubs pour Windows Store](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj927172.aspx)**
     Fait notamment référence au langage d'expression de modèles.
 
 

@@ -263,9 +263,9 @@ Les signatures d'accès partagé sont utiles pour fournir des autorisations d'ac
 
 [Signatures d'accès partagé, partie 2 : création et utilisation d'une signature d'accès partagé avec le service BLOB](../storage-dotnet-shared-access-signature-part-2/)
 
-[Gestion de l'accès aux ressources de stockage Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx)
+[Gestion de l'accès aux ressources de stockage Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee393343.aspx)
 
-[Délégation de l'accès avec une signature d'accès partagé (API REST)](http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx)
+[Délégation de l'accès avec une signature d'accès partagé (API REST)](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee395415.aspx)
 
 [Présentation des signatures d'accès partagé des tables et des files d'attente](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 

@@ -120,7 +120,7 @@ Création d'un déploiement
 
     4.  Une fois le fichier sélectionné, cliquez sur **Upload**.
 
-4.  Cliquez sur **+ Create new** pour créer un service hébergé. Le *service hébergé* est le conteneur dans lequel votre application est hébergée lorsqu'elle est déployée sur Azure. Pour plus d'informations, consultez la page [Présentation de la création d'un service hébergé pour Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx).
+4.  Cliquez sur **+ Create new** pour créer un service hébergé. Le *service hébergé* est le conteneur dans lequel votre application est hébergée lorsqu'elle est déployée sur Azure. Pour plus d'informations, consultez la page [Présentation de la création d'un service hébergé pour Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj155995.aspx).
 
     ![créer un déploiement](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createdeployment.png)
 
@@ -151,9 +151,9 @@ Déploiement dans un environnement de production Azure
 
     ![message no web.config file found](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_no_web_config.png)
 
-5.  Si c'est la première fois que vous déployez ce projet sur Azure, vous obtenez une erreur **No 'csdef' file present**. Sélectionnez **Oui** pour créer le fichier .csdef. Cette opération ajoute un fichier ServiceDefinition.csdef à votre projet. Il s'agit d'un fichier propre à Azure, nécessaire pour la publication de votre application. Pour plus d'informations, consultez la page [Présentation de la création d'un service hébergé pour Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx).
+5.  Si c'est la première fois que vous déployez ce projet sur Azure, vous obtenez une erreur **No 'csdef' file present**. Sélectionnez **Oui** pour créer le fichier .csdef. Cette opération ajoute un fichier ServiceDefinition.csdef à votre projet. Il s'agit d'un fichier propre à Azure, nécessaire pour la publication de votre application. Pour plus d'informations, consultez la page [Présentation de la création d'un service hébergé pour Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj155995.aspx).
 
-6.  Vous êtes invité à sélectionner la taille de l'instance pour cette application. Sélectionnez **Small**, puis cliquez sur **Create**. Pour plus d'informations sur la taille des machines virtuelles Azure, consultez la page [Configuration de la taille des machines virtuelles](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx).
+6.  Vous êtes invité à sélectionner la taille de l'instance pour cette application. Sélectionnez **Small**, puis cliquez sur **Create**. Pour plus d'informations sur la taille des machines virtuelles Azure, consultez la page [Configuration de la taille des machines virtuelles](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee814754.aspx).
 
     ![Valeurs du fichier csdef](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createcsdef.png)
 
@@ -201,7 +201,7 @@ Déploiement de la mise à jour dans un environnement intermédiaire Azure
 Transfert de la mise à jour en production avec un échange d'adresses IP virtuelles
 ----------------------------------------------------------------------------------
 
-Lorsqu'un service est déployé dans l'environnement intermédiaire ou de production, une adresse IP virtuelle lui est attribuée dans cet environnement. Lorsque vous souhaitez transférer un service de l'environnement intermédiaire vers l'environnement de production, vous pouvez le faire sans redéploiement, en appliquant un échange d'adresses IP virtuelles, ce qui intervertit les deux déploiements. L'échange d'adresses IP virtuelles met l'application intermédiaire testée en production, sans interruption dans l'environnement de production. Pour plus d'informations, consultez la page [Présentation de la gestion des déploiements dans Azure.](http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx)
+Lorsqu'un service est déployé dans l'environnement intermédiaire ou de production, une adresse IP virtuelle lui est attribuée dans cet environnement. Lorsque vous souhaitez transférer un service de l'environnement intermédiaire vers l'environnement de production, vous pouvez le faire sans redéploiement, en appliquant un échange d'adresses IP virtuelles, ce qui intervertit les deux déploiements. L'échange d'adresses IP virtuelles met l'application intermédiaire testée en production, sans interruption dans l'environnement de production. Pour plus d'informations, consultez la page [Présentation de la gestion des déploiements dans Azure.](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433027.aspx)
 
 1.  Dans la boîte de dialogue de déploiement, cliquez sur le lien **Open portal** pour ouvrir le portail de gestion Azure.
 

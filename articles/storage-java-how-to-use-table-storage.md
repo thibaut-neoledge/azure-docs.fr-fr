@@ -37,7 +37,7 @@ Création d'un compte de stockage Azure
 Création d'une application Java
 -------------------------------
 
-Dans ce guide, vous allez utiliser des fonctionnalités de stockage qui peuvent être exécutées dans une application Java en local, ou dans le code s'exécutant dans un rôle Web ou un rôle de travail dans Azure. Nous partons du principe que vous avez téléchargé et installé le Kit de développement Java (JDK) et suivi les instructions figurant sur la page [Kit de développement logiciel (SDK) Azure pour Java](http://www.windowsazure.com/en-us/develop/java/) pour installer les bibliothèques Azure pour Java et le Kit de développement logiciel (SDK) Azure, et que vous avez créé un compte de stockage Azure dans votre abonnement Azure.
+Dans ce guide, vous allez utiliser des fonctionnalités de stockage qui peuvent être exécutées dans une application Java en local, ou dans le code s'exécutant dans un rôle Web ou un rôle de travail dans Azure. Nous partons du principe que vous avez téléchargé et installé le Kit de développement Java (JDK) et suivi les instructions figurant sur la page [Kit de développement logiciel (SDK) Azure pour Java](http://www.windowsazure.com/fr-fr/develop/java/) pour installer les bibliothèques Azure pour Java et le Kit de développement logiciel (SDK) Azure, et que vous avez créé un compte de stockage Azure dans votre abonnement Azure.
 
 Vous pouvez utiliser tous les outils de développement pour créer votre application, y compris Bloc-notes. Vous devez seulement être en mesure de compiler un projet Java et de référencer des bibliothèques Azure pour Java.
 

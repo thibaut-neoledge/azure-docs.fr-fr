@@ -104,7 +104,7 @@ Le contrat de niveau de service est défini en termes de « fenêtre de support
 
 **Remarques et informations supplémentaires sur le contrôle de version**
 
--   Le pilote JDBC pour SQL Server est utilisé en interne par HDInsight et n'est pas employé pour les opérations externes. Si vous voulez vous connecter à HDInsight avec ODBC, utilisez le pilote ODBC Hive de Microsoft. Pour plus d'informations sur l'utilisation d'ODBC Hive, consultez la page [Connexion d'Excel à HDInsight avec le pilote ODBC Hive de Microsoft](/en-us/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver).
+-   Le pilote JDBC pour SQL Server est utilisé en interne par HDInsight et n'est pas employé pour les opérations externes. Si vous voulez vous connecter à HDInsight avec ODBC, utilisez le pilote ODBC Hive de Microsoft. Pour plus d'informations sur l'utilisation d'ODBC Hive, consultez la page [Connexion d'Excel à HDInsight avec le pilote ODBC Hive de Microsoft](/fr-fr/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver).
 
 -   Le cluster HDInsight version 3.0 utilise une distribution Hadoop basée sur la [plateforme de données Hortonworks 2.0](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html).
 
@@ -117,9 +117,9 @@ Le contrat de niveau de service est défini en termes de « fenêtre de support
 
 [image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 
-[wa-forums]: http://www.windowsazure.com/en-us/support/forums/
+[wa-forums]: http://www.windowsazure.com/fr-fr/support/forums/
 
-[connect-excel-with-hive-ODBC]: /en-us/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver
+[connect-excel-with-hive-ODBC]: /fr-fr/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver
 
 [hdp-2-0-8]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html
 

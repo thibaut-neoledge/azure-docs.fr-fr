@@ -68,7 +68,7 @@ v0.4.0.0, publiée le 25/03/2013
 
 -   Connexion à plusieurs clusters, notamment l'installation locale et celles à distance utilisant le service Azure HDInsight.
 
--   Pour plus d'informations sur le service HDInsight, voir http://www.windowsazure.com/en-us/manage/services/hdinsight.
+-   Pour plus d'informations sur le service HDInsight, voir http://www.windowsazure.com/fr-fr/manage/services/hdinsight.
 
 -   Configuration d'ASV sur un cluster local
 
@@ -253,5 +253,5 @@ Problèmes généraux connus
 Étapes suivantes
 ----------------
 
--   [Prise en main de l'émulateur HDInsight](/en-us/documentation/articles/hdinsight-get-started-emulator/)
+-   [Prise en main de l'émulateur HDInsight](/fr-fr/documentation/articles/hdinsight-get-started-emulator/)
 

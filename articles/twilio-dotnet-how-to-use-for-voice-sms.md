@@ -93,7 +93,7 @@ Si vous souhaitez utiliser un autre numéro de téléphone pour vos applications
 Création d'une application Azure
 --------------------------------
 
-Une application Azure qui héberge une application Twilio n'est pas différente d'une autre application Azure. Vous ajoutez simplement la bibliothèque .NET Twilio et configurez le rôle permettant de l'utiliser. Pour plus d'informations sur la création d'un projet Azure initial, consultez la page [Création d'un projet Azure avec Visual Studio](http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx).
+Une application Azure qui héberge une application Twilio n'est pas différente d'une autre application Azure. Vous ajoutez simplement la bibliothèque .NET Twilio et configurez le rôle permettant de l'utiliser. Pour plus d'informations sur la création d'un projet Azure initial, consultez la page [Création d'un projet Azure avec Visual Studio](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee405487.aspx).
 
 Configuration de l'application pour utiliser les bibliothèques Twilio
 ---------------------------------------------------------------------

@@ -3,7 +3,7 @@
 Utilisation des files d'attente Service Bus
 ===========================================
 
-Ce guide vous montre comment utiliser les files d'attente Service Bus. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure pour Java](http://msdn.microsoft.com/en-us/library/windowsazure/hh690953(v=vs.103).aspx). Les scénarios couverts dans ce guide sont les suivants : **création de files d'attente**, **envoi et réception de messages** et **suppression de files d'attente**.
+Ce guide vous montre comment utiliser les files d'attente Service Bus. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure pour Java](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh690953(v=vs.103).aspx). Les scénarios couverts dans ce guide sont les suivants : **création de files d'attente**, **envoi et réception de messages** et **suppression de files d'attente**.
 
 Sommaire
 --------
@@ -176,5 +176,5 @@ Si l'application subit un incident après le traitement du message, mais avant l
 Étapes suivantes
 ----------------
 
-Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez la page [Files d'attente, rubriques et abonnements Service Bus](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx) pour plus d'informations.
+Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez la page [Files d'attente, rubriques et abonnements Service Bus](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367516.aspx) pour plus d'informations.
 

@@ -93,7 +93,7 @@ Management Studio est un outil d'administration qui permet de gérer plusieurs s
 
 Management Studio comprend des fonctionnalités qui ne sont actuellement pas disponibles sur le portail de gestion, telles qu'un vérificateur de syntaxe et la capacité d'enregistrement de scripts et des requêtes nommées à des fins de réutilisation. La base de données SQL est simplement un point de terminaison TDS (Tabular Data Stream). Tous les outils qui fonctionnent avec TDS, notamment Management Studio, sont valides pour les opérations relatives à la base de données SQL. Les scripts que vous développez pour le serveur local s'exécuteront sur un serveur logique de la base de données SQL.
 
-À l'étape suivante, vous allez utiliser Management Studio pour vous connecter à un serveur logique sur Azure. Cette étape implique que vous disposiez de SQL Server Management Studio version 2008 R2 ou 2012. Afin d'obtenir de l'aide pour télécharger Management Studio ou vous y connecter, consultez la page [Gestion de la base de données SQL à l'aide de Management Studio](http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/) sur ce site.
+À l'étape suivante, vous allez utiliser Management Studio pour vous connecter à un serveur logique sur Azure. Cette étape implique que vous disposiez de SQL Server Management Studio version 2008 R2 ou 2012. Afin d'obtenir de l'aide pour télécharger Management Studio ou vous y connecter, consultez la page [Gestion de la base de données SQL à l'aide de Management Studio](http://www.windowsazure.com/fr-fr/develop/net/common-tasks/sql-azure-management/) sur ce site.
 
 Avant de pouvoir vous connecter, il est parfois nécessaire de créer une exception de pare-feu qui autorise des requêtes sortantes sur le port 1433 sur votre système local. Le port 1433 des ordinateurs qui sont sécurisés par défaut n'est généralement pas ouvert.
 
@@ -134,7 +134,7 @@ L'exemple de base de données School est très simple et tous ses objets sont co
 
 ### Création de la base de données School sur un serveur local
 
-Les scripts pour la création de cette base de données sont disponibles dans la rubrique [Prise en main de l'administration de la base de données SQL](http://www.windowsazure.com/en-us/manage/tutorials/sql-azure-management/). Dans ce guide, vous allez exécuter ces scripts dans Management Studio pour créer une version locale de la base de données School.
+Les scripts pour la création de cette base de données sont disponibles dans la rubrique [Prise en main de l'administration de la base de données SQL](http://www.windowsazure.com/fr-fr/manage/tutorials/sql-azure-management/). Dans ce guide, vous allez exécuter ces scripts dans Management Studio pour créer une version locale de la base de données School.
 
 1.  Dans Management Studio, connectez-vous à un serveur local. Cliquez avec le bouton droit sur **Bases de données**, cliquez sur **Nouvelle base de données**, puis entrez *school*.
 
@@ -764,14 +764,14 @@ Le second script attribue les autorisations aux utilisateurs de la base de donn�
 
 6.  Ouvrez une seconde fenêtre de requête, puis remplacez le contexte de connexion par *sqlwriter*. La même requête doit à présent s'exécuter correctement.
 
-Vous avez maintenant créé et testé plusieurs connexions. Pour plus d'informations, consultez les pages [Gestion des bases de données et des connexions dans Base de données SQL Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee336235.aspx) et [Contrôle de Base de données SQL Azure à l'aide de vues de gestion dynamique](http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx).
+Vous avez maintenant créé et testé plusieurs connexions. Pour plus d'informations, consultez les pages [Gestion des bases de données et des connexions dans Base de données SQL Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336235.aspx) et [Contrôle de Base de données SQL Azure à l'aide de vues de gestion dynamique](http://msdn.microsoft.com/fr-fr/library/windowsazure/ff394114.aspx).
 
 Surveillance des serveurs logiques et des instances de base de données
 ----------------------------------------------------------------------
 
 Les outils et techniques de surveillance que vous avez peut-être l'habitude d'utiliser sur les serveurs locaux, tels que l'audit des identifiants de connexion, l'exécution de suivis et l'utilisation de compteurs de performances ne sont pas disponibles avec la base de données SQL. Sur Azure, vous utilisez les vues de gestion dynamique (DMV) pour surveiller la capacité des données, les problèmes liés aux requêtes et les connexions en cours.
 
-Pour plus d'informations, consultez la page [Contrôle de Base de données SQL Windows Azure à l'aide de vues de gestion dynamique](http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx).
+Pour plus d'informations, consultez la page [Contrôle de Base de données SQL Windows Azure à l'aide de vues de gestion dynamique](http://msdn.microsoft.com/fr-fr/library/windowsazure/ff394114.aspx).
 
 Mise à l'échelle d'une solution de base de données SQL
 ------------------------------------------------------
@@ -796,7 +796,7 @@ Dans les scénarios limités, vous pourriez créer des copies d'une base de donn
 
 Les fédérations dans une base de données SQL sont utilisées pour obtenir une extensibilité et des performances accrues. Une ou plusieurs tables d'une base de données sont fractionnées par ligne et réparties sur plusieurs bases de données (membres de la fédération). Ce type de partitionnement horizontal est souvent nommé « sharding » (partitionnement). Les scénarios principaux dans lesquels ce partitionnement est utile sont ceux où vous devez atteindre une certaine extensibilité ou certaines performances, ou gérer la capacité.
 
-Les fédérations sont prises en charge dans l'édition Business. Pour plus d'informations, consultez la page [Fédérations dans la base de données SQL](http://msdn.microsoft.com/en-us/library/windowsazure/hh597452.aspx) et [Didacticiel sur les fédérations de Base de données SQL -- DBA](http://msdn.microsoft.com/en-us/library/windowsazure/hh778416.aspx).
+Les fédérations sont prises en charge dans l'édition Business. Pour plus d'informations, consultez la page [Fédérations dans la base de données SQL](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh597452.aspx) et [Didacticiel sur les fédérations de Base de données SQL -- DBA](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh778416.aspx).
 
 **Prise en considération d'autres formes de stockage**
 
@@ -807,7 +807,7 @@ Gardez à l'esprit qu'Azure prend en charge plusieurs formes de stockage des don
 
 Maintenant que vous avez appris les bases de l'administration de la base de données SQL, suivez ces liens pour effectuer des tâches d'administration plus complexes.
 
--   Consultez la page [Base de données SQL](http://msdn.microsoft.com/en-us/library/windowsazure/gg619386) sur MSDN
+-   Consultez la page [Base de données SQL](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg619386) sur MSDN
 -   Accédez au [Wiki TechNet sur la base de données SQL](http://social.technet.microsoft.com/wiki/contents/articles/2267.sql-azure-technet-wiki-articles-index-en-us.aspx)
 
 [Sign in to Azure]: #PreReq1
@@ -819,21 +819,21 @@ Maintenant que vous avez appris les bases de l'administration de la base de donn
 [Scale a SQL Database solution]: #HowTo4
 [Next Steps]: #NextSteps
 
-[SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/gg619386
+[SQL Database]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg619386
 
 [SQL Database TechNet WIKI]: http://social.technet.microsoft.com/wiki/contents/articles/2267.sql-azure-technet-wiki-articles-index-en-us.aspx
 
-[How to Use SQL Database]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
-[Federations in SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/hh597452.aspx
-[SQL Database Federations Tutorial - DBA]: http://msdn.microsoft.com/en-us/library/windowsazure/hh778416.aspx
-[Managing SQL Database using Management Studio]: http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/
-[Monitoring SQL Database Using Dynamic Management Views]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx
+[How to Use SQL Database]: http://www.windowsazure.com/fr-fr/develop/net/how-to-guides/sql-azure/
+[Federations in SQL Database]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh597452.aspx
+[SQL Database Federations Tutorial - DBA]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh778416.aspx
+[Managing SQL Database using Management Studio]: http://www.windowsazure.com/fr-fr/develop/net/common-tasks/sql-azure-management/
+[Monitoring SQL Database Using Dynamic Management Views]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ff394114.aspx
 [Introducing Geo-Replication for Windows Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
-[How to create a storage account for an Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433066.aspx
+[How to create a storage account for an Azure Subscription]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433066.aspx
 [Download Azure SDK]: http://www.microsoft.com/en-us/download/details.aspx?id=15658
 [Azure Management Tools]: http://wapmmc.codeplex.com/
-[Getting Started with SQL Database Administration]: http://www.windowsazure.com/en-us/manage/tutorials/sql-azure-management/  
-[Managing Databases and Logins in SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336235.aspx
+[Getting Started with SQL Database Administration]: http://www.windowsazure.com/fr-fr/manage/tutorials/sql-azure-management/  
+[Managing Databases and Logins in SQL Database]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336235.aspx
 [How to use the blob storage service]: https://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/
 [DAC SQL Database Import Export Service Client v 1.5]: http://sqldacexamples.codeplex.com/releases/view/85948
 

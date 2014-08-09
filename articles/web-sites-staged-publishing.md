@@ -118,7 +118,7 @@ Lorsque vous répondez **Oui** au message de confirmation, le système supprime 
 
 Azure PowerShell est un module fournissant des cmdlets pour gérer Azure via Windows PowerShell, notamment la prise en charge des emplacements de déploiement Sites Web Azure.
 
--   Pour plus d'informations sur l'installation et la configuration d'Azure PowerShell et sur l'authentification d'Azure PowerShell avec votre abonnement Azure, consultez l'article [Installation et configuration d'Azure PowerShell](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell).
+-   Pour plus d'informations sur l'installation et la configuration d'Azure PowerShell et sur l'authentification d'Azure PowerShell avec votre abonnement Azure, consultez l'article [Installation et configuration d'Azure PowerShell](http://www.windowsazure.com/fr-fr/documentation/articles/install-configure-powershell).
 
 -   Pour répertorier les cmdlets disponibles pour les sites Web Azure dans PowerShell, appelez `help AzureWebsite`.
 
@@ -176,7 +176,7 @@ Si vous n'avez plus besoin d'un emplacement de déploiement, vous pouvez le supp
 
 L'interface de ligne de commande interplateforme Azure (xplat-cli) fournit des commandes interplateforme fonctionnant avec Azure, notamment la prise en charge de la gestion des emplacements de déploiement sur les sites Web Azure.
 
--   Pour obtenir des instructions sur l'installation et la configuration de l'interface xplat-cli, et notamment des informations sur la connexion de cette dernière à votre abonnement Azure, consultez l'article [Installation et configuration de l'interface de ligne de commande interplateforme Azure](http://www.windowsazure.com/en-us/documentation/articles/xplat-cli).
+-   Pour obtenir des instructions sur l'installation et la configuration de l'interface xplat-cli, et notamment des informations sur la connexion de cette dernière à votre abonnement Azure, consultez l'article [Installation et configuration de l'interface de ligne de commande interplateforme Azure](http://www.windowsazure.com/fr-fr/documentation/articles/xplat-cli).
 
 -   Pour répertorier les commandes disponibles pour les sites Web Azure dans xplat-cli, appelez `azure site -h`.
 

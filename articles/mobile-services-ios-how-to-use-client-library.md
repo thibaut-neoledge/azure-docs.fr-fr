@@ -30,7 +30,7 @@ Sommaire
 Configuration et conditions préalables
 --------------------------------------
 
-Ce guide part du principe que vous avez créé un service mobile avec une table. Pour plus d'informations, consultez la page [Créer une table](http://msdn.microsoft.com/en-us/library/windowsazure/jj193162.aspx). Les exemples de cette rubrique utilisent une table nommée `ToDoItem`, qui contient les colonnes suivantes :
+Ce guide part du principe que vous avez créé un service mobile avec une table. Pour plus d'informations, consultez la page [Créer une table](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj193162.aspx). Les exemples de cette rubrique utilisent une table nommée `ToDoItem`, qui contient les colonnes suivantes :
 
 -   `id`
 -   `text`
@@ -236,7 +236,7 @@ La valeur d'`id` doit être unique et ne contenir aucun caractère présent dans
 -   Caractères imprimables : **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **\`** (0x0060)
 -   Les ID « . » et « .. »
 
-Vous pouvez également utiliser des ID d'entier pour vos tables. Pour utiliser un ID d'entier, vous devez créer votre table à l'aide de la commande `mobile table create` en utilisant l'option `--integerId`. Cette commande s'utilise avec l'interface de ligne de commande (CLI) pour Azure. Pour plus d'informations sur l'utilisation de l'interface de ligne de commande, consultez la page [Interface de ligne de commande pour la gestion des tables Mobile Services](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables).
+Vous pouvez également utiliser des ID d'entier pour vos tables. Pour utiliser un ID d'entier, vous devez créer votre table à l'aide de la commande `mobile table create` en utilisant l'option `--integerId`. Cette commande s'utilise avec l'interface de ligne de commande (CLI) pour Azure. Pour plus d'informations sur l'utilisation de l'interface de ligne de commande, consultez la page [Interface de ligne de commande pour la gestion des tables Mobile Services](http://www.windowsazure.com/fr-fr/manage/linux/other-resources/command-line-tools/#Mobile_Tables).
 
 Lorsqu'un schéma dynamique est activé, Mobile Services génère automatiquement de nouvelles colonnes basées sur les champs de l'objet dans la requête d'insertion ou de mise à jour. Pour plus d'informations, consultez la page [Schéma dynamique](http://go.microsoft.com/fwlink/p/?LinkId=296271).
 
@@ -292,7 +292,7 @@ Mobile Services prend en charge les deux workflows d'authentification suivants 
 
 Une fois l'authentification réussie, un objet utilisateur qui contient la valeur d'ID utilisateur attribuée et le jeton d'authentification est renvoyé. Cet ID utilisateur peut être utilisé dans les scripts serveur pour valider ou modifier les requêtes. Pour plus d'informations, consultez la page [Utilisation de scripts pour autoriser les utilisateurs](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios). Le jeton lui-même peut être mis en cache de manière sécurisée pour utilisation lors des connexions suivantes.
 
-Vous pouvez également définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Pour plus d’informations, consultez la page [Autorisations](http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx).
+Vous pouvez également définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Pour plus d’informations, consultez la page [Autorisations](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj193161.aspx).
 
 ### Connexion gérée par serveur
 

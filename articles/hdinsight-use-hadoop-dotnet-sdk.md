@@ -42,7 +42,7 @@ Ces commandes ajoutent la bibliothèque et les références au projet Visual Stu
 Préparation pour le didacticiel
 -------------------------------
 
-Vous devez disposer d'un [abonnement à Azure](http://www.windowsazure.com/en-us/pricing/free-trial/) et d'un [compte de stockage Azure](http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/) afin de pouvoir passer aux étapes suivantes. Vous devez également connaître le nom de votre compte de stockage Azure et la clé du compte. Pour savoir comment obtenir ces informations, consultez la section *Affichage, copie et régénération de clés d'accès de stockage* de la page [Gestion des comptes de stockage](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+Vous devez disposer d'un [abonnement à Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/) et d'un [compte de stockage Azure](http://www.windowsazure.com/fr-fr/manage/services/storage/how-to-create-a-storage-account/) afin de pouvoir passer aux étapes suivantes. Vous devez également connaître le nom de votre compte de stockage Azure et la clé du compte. Pour savoir comment obtenir ces informations, consultez la section *Affichage, copie et régénération de clés d'accès de stockage* de la page [Gestion des comptes de stockage](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
 
 Vous devez également télécharger le fichier Actors.txt utilisé dans ce didacticiel. Procédez comme suit pour télécharger ce fichier dans votre environnement de développement :
 

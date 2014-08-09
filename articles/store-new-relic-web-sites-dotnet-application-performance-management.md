@@ -17,7 +17,7 @@ Tarification spéciale New Relic par l'intermédiaire d'Azure Store
 
 New Relic Standard est gratuit pour les utilisateurs d'Azure. New Relic Pro est fourni dans plusieurs packages selon le mode de site Web que vous utilisez et la taille d'instance si vous utilisez le mode réservé.
 
-Pour des informations de tarification, consultez la [page New Relic dans l'Azure Store](http://www.windowsazure.com/en-us/gallery/store/new-relic/new-relic/).
+Pour des informations de tarification, consultez la [page New Relic dans l'Azure Store](http://www.windowsazure.com/fr-fr/gallery/store/new-relic/new-relic/).
 
 **Remarque :**
 
@@ -49,7 +49,7 @@ Pour vous inscrire à New Relic directement depuis l'Azure Store, procédez co
 
 ### Étape 2 : installation du package New Relic
 
-L'agent Sites Web New Relic est distribué en tant que package NuGet, qui peut être ajouté à votre site Web grâce à Visual Studio ou WebMatrix. Si vous ne savez pas utiliser Visual Studio ou WebMatrix avec un site Web Azure, consultez les rubriques [Déploiement d'une application Web ASP.NET sur un site Web Azure avec Visual Studio](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/) ou [Développement et déploiement d'un site Web avec Microsoft WebMatrix](http://www.windowsazure.com/en-us/develop/net/tutorials/website-with-webmatrix/).
+L'agent Sites Web New Relic est distribué en tant que package NuGet, qui peut être ajouté à votre site Web grâce à Visual Studio ou WebMatrix. Si vous ne savez pas utiliser Visual Studio ou WebMatrix avec un site Web Azure, consultez les rubriques [Déploiement d'une application Web ASP.NET sur un site Web Azure avec Visual Studio](http://www.windowsazure.com/fr-fr/develop/net/tutorials/get-started/) ou [Développement et déploiement d'un site Web avec Microsoft WebMatrix](http://www.windowsazure.com/fr-fr/develop/net/tutorials/website-with-webmatrix/).
 
 Procédez comme suit pour l'environnement de développement spécifique que vous utilisez :
 

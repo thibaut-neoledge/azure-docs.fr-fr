@@ -38,7 +38,7 @@ Avant d'utiliser les services Twilio, vous devez [créer un compte](http://ahoy.
 
 ## Création et déploiement d'un site Web Azure node.js
 
-Ensuite, vous allez devoir créer un site Web node.js s'exécutant sur Azure. [La documentation officielle relative à cette création est située ici](http://www.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/). À un niveau supérieur, vous réaliserez les tâches suivantes :
+Ensuite, vous allez devoir créer un site Web node.js s'exécutant sur Azure. [La documentation officielle relative à cette création est située ici](http://www.windowsazure.com/fr-fr/develop/nodejs/tutorials/create-a-website-(mac)/). À un niveau supérieur, vous réaliserez les tâches suivantes :
 
 -   Création d'un compte Azure si vous n'en possédez pas déjà un
 -   Utilisation de la console d'administration pour créer un site Web
@@ -222,7 +222,7 @@ Nous espérons que vous aimerez travailler sur node.js et Twilio sur Azure !
 [purchase_phone]: https://www.twilio.com/user/account/phone-numbers/available/local
 [twiml]: https://www.twilio.com/docs/api/twiml
 [signup]: http://ahoy.twilio.com/azure
-[azure_new_site]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+[azure_new_site]: http://www.windowsazure.com/fr-fr/develop/nodejs/tutorials/create-a-website-(mac)/
 [twilio_dashboard]: https://www.twilio.com/user/account
 [npm]: http://npmjs.org
 [express]: http://expressjs.com
