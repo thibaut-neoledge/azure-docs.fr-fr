@@ -114,7 +114,6 @@ Vous pouvez envoyer des notifications en utilisant les Notification Hubs à part
 Pour envoyer des notifications en utilisant une application .NET :
 
 1.  Créez une application console Visual C
-2.  # :
 
    	![](./media/notification-hubs-windows-phone-get-started/notification-hub-create-console-app.png)
 
