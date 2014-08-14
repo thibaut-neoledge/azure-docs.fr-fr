@@ -3,9 +3,9 @@
        ![][0]
 
 2.  Tapez un nom pour l'application dans **Nom de l'application**, cliquez sur **Réserver le nom d'application**, puis sur **Enregistrer**.
-    
-      ![][1]
-        
+
+   	![][1]
+
      La nouvelle inscription au Windows Store pour votre application est créée.
 
 3.  Dans Visual Studio 2012 Express pour Windows 8, ouvrez le projet que vous avez créé avec le didacticiel [Prise en main de Mobile Services](/en-us/develop/mobile/tutorials/get-started/#create-new-service).
