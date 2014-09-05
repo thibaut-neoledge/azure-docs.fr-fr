@@ -3,12 +3,13 @@
 Prise en main des notifications Push dans Mobile Services
 =========================================================
 
-[Windows Store C\#](/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Windows Store C#")[Windows Store JavaScript](/fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-push "Windows Store JavaScript")[Windows Phone](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone")[iOS](/fr-fr/documentation/articles/mobile-services-ios-get-started-push "iOS")[Android](/fr-fr/documentation/articles/mobile-services-android-get-started-push "Android")[Xamarin.iOS](/fr-fr/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push "Xamarin.iOS")[Xamarin.Android](/fr-fr/documentation/articles/partner-xamarin-mobile-services-android-get-started-push "Xamarin.Android")
-[.NET backend](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/ ".NET backend") | [JavaScript backend](/fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-push/ "JavaScript backend")
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a><a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a></div>
+
+<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title=".NET backend">.NET backend</a> |  <a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/"  title="JavaScript backend" class="current">JavaScript backend</a></div>	
 
 Cette rubrique vous explique comment, via Visual Studio 2013, utiliser Azure Mobile Services pour envoyer des notifications Push à votre application Windows Store. Le didacticiel vous apprend à ajouter des notifications Push au projet de démarrage rapide à l'aide du Service de notifications Windows Push (WNS), directement à partir de Visual Studio. Une fois que vous avez terminé, votre service mobile envoie une notification Push à chaque fois qu'un enregistrement est inséré.
 
-> [WACOM.NOTE]Mobile Services s'intègre désormais à Azure Notification Hubs pour prendre en charge une fonctionnalité de notification Push supplémentaire, comme les modèles, les plateformes multiples et la mise à l'échelle. Actuellement, cette fonctionnalité intégrée est uniquement disponible en tant que version préliminaire. Pour plus d'informations, consultez cette version de [Prise en main des notifications Push](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
+> [WACOM.NOTE]Mobile Services s'intègre désormais à Azure Notification Hubs pour prendre en charge une fonctionnalité de notification Push supplémentaire, comme les modèles, les plateformes multiples et la mise à l'échelle. Actuellement, cette fonctionnalité intégrée est uniquement disponible en tant que version préliminaire. Pour plus d'informations, consultez cette version de [Prise en main des notifications Push](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
 
 Ce didacticiel vous familiarise avec les étapes de base permettant d'activer les notifications Push :
 
@@ -23,21 +24,25 @@ Inscription de votre application Ajout et configuration des notifications Push d
 
 [WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
-1.  Ouvrez le fichier de code push.register.js généré, puis contrôlez le code qui récupère l'ID d'installation et le canal de l'appareil, et insère ces données dans la nouvelle table **channels**.
+<ol start="6">
+<li><p>Ouvrez le fichier de code push.register.js généré, puis contrôlez le code qui récupère l'ID d'installation et le canal de l'appareil, et insère ces données dans la nouvelle table <b>channels</b>.</p>
 
-    Cette table a été créée dans votre service mobile par l'Assistant Ajouter une notification d'émission. Ce code garantit qu'une tentative d'inscription de l'appareil est effectuée chaque fois que l'application est lancée.
+    <p>Cette table a été créée dans votre service mobile par l'Assistant Ajouter une notification d'émission. Ce code garantit qu'une tentative d'inscription de l'appareil est effectuée chaque fois que l'application est lancée.</p>
 
-2.  Dans l'Explorateur de serveurs, développez **Azure**, **Mobile Services**, votre nom de service et **channels**, puis ouvrez le fichier insert.js.
+<li><p>Dans l'Explorateur de serveurs, développez <b>Azure</b>, <b>Mobile Services</b>, votre nom de service et <b>channels</b>, puis ouvrez le fichier insert.js.</p>
 
-    Ce fichier, qui est stocké dans votre service mobile, contient du code JavaScript qui est exécuté lorsqu'un client envoie une demande d'inscription d'un appareil en insérant les données dans la table de canaux.
+    <p>Ce fichier, qui est stocké dans votre service mobile, contient du code JavaScript qui est exécuté lorsqu'un client envoie une demande d'inscription d'un appareil en insérant les données dans la table de canaux.</p>
 
-    **Remarque**
+<div class="dev-callout"><b>Remarque</b>
 
-    La version initiale de ce fichier contient du code qui vérifie si l'appareil en question est déjà inscrit. Elle inclut une autre portion du code qui envoie une notification Push lorsqu'une nouvelle inscription est ajoutée à la table de canaux. Le code qui envoie une notification Push peut être inclus dans tout fichier script inscrit. L'emplacement de ce script dépend du mode de déclenchement de la notification. Les scripts peuvent être enregistrés pour une opération sur une table de type insertion, mise à jour, suppression ou lecture (tâche planifiée ou API personnalisée). Pour plus d'informations, consultez la page [Utilisation des scripts serveur dans Mobile Services](http://go.microsoft.com/fwlink/p/?LinkID=287178).
+    <p>La version initiale de ce fichier contient du code qui vérifie si l'appareil en question est déjà inscrit. Elle inclut une autre portion du code qui envoie une notification Push lorsqu'une nouvelle inscription est ajoutée à la table de canaux. Le code qui envoie une notification Push peut être inclus dans tout fichier script inscrit. L'emplacement de ce script dépend du mode de déclenchement de la notification. Les scripts peuvent être enregistrés pour une opération sur une table de type insertion, mise à jour, suppression ou lecture (tâche planifiée ou API personnalisée). Pour plus d'informations, consultez la page <a href="http://go.microsoft.com/fwlink/p/?LinkID=287178">Utilisation des scripts serveur dans Mobile Services</a>.</p>
+</div>
+</li>
+<li><p>Appuyez sur la touche F5 pour exécuter l'application et vérifiez que vous recevez immédiatement une notification du service mobile.<p>
 
-3.  Appuyez sur la touche F5 pour exécuter l'application et vérifiez que vous recevez immédiatement une notification du service mobile.
-
-    Cette notification, générée par l'insertion d'une ligne dans la nouvelle table de canaux, correspond à l'inscription de l'appareil.
+    <p>Cette notification, générée par l'insertion d'une ligne dans la nouvelle table de canaux, correspond à l'inscription de l'appareil.</p>
+</li>
+</ol>
 
 Le code généré permet de démontrer facilement l'émission d'une notification lorsque l'application est exécutée. En pratique, ce scénario n'est généralement pas significatif. Vous supprimez ensuite le code de notification de la table de canaux et le remplacez, sous une forme modifiée, dans la table TodoItem.
 

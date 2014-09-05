@@ -3,9 +3,8 @@
 Autorisation côté service des utilisateurs Mobile Services
 ==========================================================
 
-[Windows Store C\#](/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts "Windows Store C#")[Windows Store JavaScript](/fr-fr/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts "Windows Store JavaScript")[Windows Phone](/fr-fr/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts "Windows Phone")[iOS](/fr-fr/documentation/articles/mobile-services-ios-authorize-users-in-scripts "iOS")[Android](/fr-fr/documentation/articles/mobile-services-android-authorize-users-in-scripts "Android")[HTML](/fr-fr/documentation/articles/mobile-services-html-authorize-users-in-scripts "HTML")[Xamarin.iOS](/fr-fr/documentation/articles/partner-xamarin-mobile-services-ios-authorize-users-in-scripts "Xamarin.iOS")[Xamarin.Android](/fr-fr/documentation/articles/partner-xamarin-mobile-services-android-authorize-users-in-scripts "Xamarin.Android")
-
-[.NET backend](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/ ".NET backend") | [JavaScript backend](/fr-fr/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts/ "JavaScript backend")
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts" title="Windows Store JavaScript"  class="current">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-ios-authorize-users-in-scripts" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-services-android-authorize-users-in-scripts" title="Android">Android</a><a href="/en-us/documentation/articles/mobile-services-html-authorize-users-in-scripts" title="HTML">HTML</a><a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-authorize-users-in-scripts" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-authorize-users-in-scripts" title="Xamarin.Android">Xamarin.Android</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts/"  title="JavaScript backend" class="current">JavaScript backend</a></div>	
 
 Cette rubrique montre comment utiliser des scripts serveur pour autoriser les utilisateurs authentifiés à accéder aux données dans Azure Mobile Services à partir d'une application Windows Store. Dans ce didacticiel, vous allez inscrire les scripts dans Mobile Services pour filtrer les requêtes sur la base de la valeur userId d'un utilisateur authentifié, en vous assurant que chaque utilisateur parvient à voir uniquement ses propres données.
 
@@ -37,9 +36,10 @@ Inscription des scripts
 
     Ce script ajoute une valeur userId à l'élément, qui correspond à l'ID de l'utilisateur authentifié, avant de l'insérer dans la table TodoItem.
 
-    **Remarque**
+    <div class="dev-callout"><b>Remarque</b>
 
-    Le schéma dynamique doit être activé la première fois que ce script d'insertion s'exécute. Avec le schéma dynamique activé, Mobile Services ajoute automatiquement la colonne **userId** à la table **TodoItem** lors de la première exécution. Par défaut, le schéma dynamique est activé pour un nouveau service mobile. Il doit être désactivé avant que l'application soit publiée sur le Windows Store.
+    <p>Le schéma dynamique doit être activé la première fois que ce script d'insertion s'exécute. Avec le schéma dynamique activé, Mobile Services ajoute automatiquement la colonne <b>userId</b> à la table <b>TodoItem</b> lors de la première exécution. Par défaut, le schéma dynamique est activé pour un nouveau service mobile. Il doit être désactivé avant que l'application soit publiée sur le Windows Store.</p>
+	</div>
 
 5.  Répétez les étapes 3 et 4 pour remplacer l'opération **Read** existante par la fonction suivante :
 
@@ -74,7 +74,7 @@ Test de l'application
 
 Cela met fin à la série de didacticiels établissant les principes de base de l'utilisation de l'authentification. Pour plus d'informations sur les rubriques Mobile Services suivantes :
 
--   [Prise en main des données](/fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-data/)
+-   [Prise en main des données](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data/)
     <br/>En savoir plus sur le stockage et l'interrogation des données à l'aide de Mobile Services.
 
 -   [Prise en main des notifications Push](/en-us/develop/mobile/tutorials/get-started-with-push-js)
@@ -84,3 +84,24 @@ Cela met fin à la série de didacticiels établissant les principes de base de 
     <br/>En savoir plus sur l'enregistrement et l'utilisation des scripts serveur.
 
 
+<!-- Anchors. -->
+[Register server scripts]: #register-scripts
+[Next Steps]:#next-steps
+
+<!-- Images. -->
+[0]: ./media/mobile-services-windows-store-javascript-authorize-users-in-scripts/mobile-services-selection.png
+[1]: ./media/mobile-services-windows-store-javascript-authorize-users-in-scripts/mobile-portal-data-tables.png
+[2]: ./media/mobile-services-windows-store-javascript-authorize-users-in-scripts/mobile-insert-script-users.png
+[3]: ./media/mobile-services-windows-store-javascript-authorize-users-in-scripts/mobile-quickstart-startup.png
+
+<!-- URLs. -->
+[Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/p/?LinkID=257677
+[Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+[My Apps dashboard]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
+[Get started with data]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-js
+[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-js
+[JavaScript and HTML]: mobile-services-win8-javascript/
+
+[Azure Management Portal]: https://manage.windowsazure.com/

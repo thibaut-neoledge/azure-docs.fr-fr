@@ -3,7 +3,10 @@
 Gestion des conflits d'écriture dans une base de données
 ========================================================
 
-[Windows Store C\#](/en-us/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/ "Windows Store C#") [Windows Store JavaScript](/en-us/develop/mobile/tutorials/handle-database-write-conflicts-javascript/ "Windows Store JavaScript") [Windows Phone](/en-us/develop/mobile/tutorials/handle-database-write-conflicts-wp8/ "Windows Phone")
+<div class="dev-center-tutorial-selector sublanding">
+<a href="/en-us/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/" title="Windows Store C#">Windows Store C#</a>
+<a href="/en-us/develop/mobile/tutorials/handle-database-write-conflicts-javascript/" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
+<a href="/en-us/develop/mobile/tutorials/handle-database-write-conflicts-wp8/" title="Windows Phone">Windows Phone</a></div>	
 
 Ce didacticiel vise à mieux vous faire comprendre comment gérer les conflits qui se produisent lorsque plusieurs clients écrivent dans un même enregistrement de base de données d'une application Windows Store. Dans certains scénarios, plusieurs clients peuvent écrire à un même moment des modifications dans un même élément. En l'absence de détection de conflits, la dernière écriture remplace les mises à jour précédentes, même si cela n'était pas le but recherché. Windows Azure Mobile Services permet de détecter et de résoudre ces conflits. Cette rubrique vous accompagne tout au long de la procédure destinée à gérer les conflits d'écriture dans une base de données sur le serveur et dans votre application.
 
@@ -24,7 +27,7 @@ Ce didacticiel requiert les éléments suivants :
 
     2.  Développez **En ligne**, puis cliquez sur **Microsoft et .NET**. Dans la zone de texte de recherche, entrez **WindowsAzure.MobileServices.WinJS**. Cliquez sur **Installer** dans la package NuGet **Windows Azure Mobile Services pour WinJS**.
 
-        ![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png)
+		![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png)
 
 Mise à jour de l'interface utilisateurMise à jour de l'application pour autoriser les mises à jour
 --------------------------------------------------------------------------------------------------
@@ -137,7 +140,7 @@ Dans cette section, vous allez créer un package d'application Windows Store pou
 
 5.  Copiez le dossier du package, « todolist\_1.0.0.0\_AnyCPU\_Debug\_Test », sur la deuxième machine. Sur cette dernière, ouvrez le dossier du package, cliquez avec le bouton droit sur le script PowerShell **Add-AppDevPackage.ps1**, puis cliquez sur **Exécuter avec PowerShell**, comme illustré ci-dessous. Suivez les instructions de l'invite pour installer l'application.
 
-    ![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-install-app-package.png)
+	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-install-app-package.png)
 
 6.  Exécutez l'instance 1 de l'application dans Visual Studio en cliquant sur **Déboguer**-\>**Démarrer le débogage**. Sur l'écran d'accueil de la deuxième machine, cliquez sur la flèche orientée vers le bas pour afficher « Apps by name ». Cliquez ensuite sur l'application **todolist** pour exécuter l'instance 2 de l'application.
 
@@ -274,18 +277,18 @@ Les étapes suivantes vous accompagnent tout au long des procédures d'ajout et 
 
 Ce didacticiel a montré comment permettre à une application Windows Store de gérer les conflits d'écriture lors de l'utilisation de données dans Mobile Services. Nous vous invitons ensuite à suivre l'un des didacticiels suivants de notre série sur les données :
 
--   [Validation et modification des données avec des scripts](/fr-fr/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/)
+-   [Validation et modification des données avec des scripts](/en-us/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/)
     En savoir plus sur l'utilisation des scripts serveur dans Mobile Services pour valider et modifier les données envoyées à partir de votre application.
 
--   [Affinage des requêtes à la pagination](/fr-fr/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/)
+-   [Affinage des requêtes à la pagination](/en-us/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/)
     En savoir plus sur l'utilisation de la pagination dans les requêtes pour contrôler la quantité de données traitées dans une seule requête.
 
 Une fois que vous avez terminé la série sur les données, vous pouvez également essayer l'un des didacticiels Windows Store suivants :
 
--   [Prise en main de l'authentification](/fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-users/)
+-   [Prise en main de l'authentification](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users/)
     En savoir plus sur l'authentification des utilisateurs de votre application.
 
--   [Prise en main des notifications Push](/fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-push/)
+-   [Prise en main des notifications Push](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/)
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application avec Mobile Services.
 
 
@@ -323,11 +326,11 @@ Une fois que vous avez terminé la série sur les données, vous pouvez égaleme
 [Optimistic Concurrency Control]: http://go.microsoft.com/fwlink/?LinkId=330935
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
 [Windows Azure Account]: http://www.windowsazure.com/fr-fr/pricing/free-trial/
-[Validate and modify data with scripts]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
-[Refine queries with paging]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
+[Validate and modify data with scripts]: /en-us/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
+[Refine queries with paging]: /en-us/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
-[Get started with authentication]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
-[Get started with push notifications]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-push/
+[Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
+[Get started with push notifications]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/
 
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/

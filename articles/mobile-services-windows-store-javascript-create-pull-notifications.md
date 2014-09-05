@@ -3,9 +3,11 @@
 Définition d'une API personnalisée qui prend en charge les notifications périodiques
 ====================================================================================
 
-[Windows Store C\#](/en-us/develop/mobile/tutorials/create-pull-notifications-dotnet "Windows Store C#")[Windows Store JavaScript](/en-us/develop/mobile/tutorials/create-pull-notifications-js "Windows Store JavaScript")
+<div class="dev-center-tutorial-selector sublanding"> 
+	<a href="/en-us/develop/mobile/tutorials/create-pull-notifications-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/create-pull-notifications-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
+</div>
 
-Cette rubrique explique comment appeler une API personnalisée afin de prendre en charge des notifications périodiques à partir d'une application Windows Store. Si les notifications périodiques sont activées, Windows accédera régulièrement au point de terminaison de votre API personnalisée et utilisera le XML renvoyé, dans un format mosaïque, pour mettre à jour la vignette de l'application dans le menu Démarrer. Pour plus d'informations, consultez la page [Notifications périodiques](http://msdn.microsoft.com/fr-fr/library/windows/apps/jj150587.aspx).
+Cette rubrique explique comment appeler une API personnalisée afin de prendre en charge des notifications périodiques à partir d'une application Windows Store. Si les notifications périodiques sont activées, Windows accédera régulièrement au point de terminaison de votre API personnalisée et utilisera le XML renvoyé, dans un format mosaïque, pour mettre à jour la vignette de l'application dans le menu Démarrer. Pour plus d'informations, consultez la page [Notifications périodiques](http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx).
 
 Vous allez ajouter cette fonctionnalité à l'application que vous avez créée avec le didacticiel [Prise en main de Mobile Services](/en-us/develop/mobile/tutorials/get-started/#create-new-service) ou [Prise en main des données](/en-us/develop/mobile/tutorials/started-with-data-js). À cet effet, vous allez exécuter la procédure suivante :
 
@@ -20,23 +22,23 @@ Définition de l'API personnalisée
 
 1.  Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com/), cliquez sur **Mobile Services**, puis sur l'application.
 
-      ![](./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-services-selection.png)
+	![](./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-services-selection.png)
 
 2.  Cliquez sur l'onglet **API**, puis sur **Créer une API personnalisée**.
 
-      ![](./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-create.png)
+	![](./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-create.png)
 
-      La boîte de dialogue **Create a new custom API** s’affiche.
+	La boîte de dialogue **Create a new custom API** s’affiche.
 
 3.  Définissez **Autorisation GET** sur **Tout le monde**, tapez *tiles* dans **Nom API**, puis cliquez sur le bouton de vérification.
 
-      ![](./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-create-dialog.png)
+	![](./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-create-dialog.png)
 
     La nouvelle API est créée avec un accès en lecture (GET) public.
 
 4.  Cliquez sur la nouvelle entrée tiles dans la table API.
 
-    ![](./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-select.png)
+	![](./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-select.png)
 
 5.  Cliquez sur l'onglet **Script** et remplacez le code existant par les lignes suivantes :
 
@@ -81,7 +83,7 @@ Définition de l'API personnalisée
     La fonction **exports.get** est utilisée parce que le client enverra une requête GET pour accéder au modèle de vignette.
 
      <div class="dev-callout"><b>Remarque</b>
-         <p>Ce script d'API personnalisée utilise le <a href="http://go.microsoft.com/fwlink/p/LinkId=306750">module wns</a> Node.js, qui est référencé avec la fonction <strong>require</strong>. Ce module est différent de l'<a href="http://go.microsoft.com/fwlink/p/LinkId=260591">objet wns</a> renvoyé par l'<a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554217.aspx">objet push</a>, qui est utilisé pour envoyer des notifications Push à partir des scripts serveur.</p>
+         <p>Ce script d'API personnalisée utilise le <a href="http://go.microsoft.com/fwlink/p/LinkId=306750">module wns</a> Node.js, qui est référencé avec la fonction <strong>require</strong>. Ce module est différent de l'<a href="http://go.microsoft.com/fwlink/p/LinkId=260591">objet wns</a> renvoyé par l'<a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx">objet push</a>, qui est utilisé pour envoyer des notifications Push à partir des scripts serveur.</p>
      </div>
 
 Vous allez ensuite modifier l'application de démarrage rapide pour démarrer des notifications périodiques qui mettent à jour la vignette dynamique en demandant la nouvelle API personnalisée.
@@ -112,7 +114,7 @@ Test de l'application
 
 2.  Accédez à l'écran d'accueil et recherchez la vignette dynamique correspondant à l'application. Comme vous pouvez le constater, les données de l'élément sont maintenant affichées dans la vignette.
 
-    ![](./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-live-tile.png)
+	![](./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-live-tile.png)
 
 Étapes suivantes
 ----------------
@@ -150,4 +152,4 @@ Maintenant que vous avez créé une notification périodique, vous pouvez consul
 [JavaScript and HTML]: mobile-services-win8-javascript/
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Periodic notifications]: http://msdn.microsoft.com/fr-fr/library/windows/apps/jj150587.aspx
+[Periodic notifications]: http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx

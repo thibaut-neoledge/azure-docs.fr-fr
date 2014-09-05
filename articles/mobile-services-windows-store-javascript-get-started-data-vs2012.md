@@ -3,14 +3,16 @@
 Prise en main des données dans Mobile Services avec Visual Studio 2012
 ======================================================================
 
-[Windows Store C\#](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012 "Windows Store C#")[Windows Store JavaScript](/en-us/develop/mobile/tutorials/get-started-with-data-js-vs2012 "Windows Store JavaScript")[Windows Phone](/en-us/develop/mobile/tutorials/get-started-with-data-wp8 "Windows Phone")[iOS](/en-us/develop/mobile/tutorials/get-started-with-data-ios "iOS")[Android](/en-us/develop/mobile/tutorials/get-started-with-data-android "Android")[HTML](/en-us/develop/mobile/tutorials/get-started-with-data-html "HTML")[Xamarin.iOS](/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android")
+<div class="dev-center-tutorial-selector sublanding"> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js-vs2012" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+</div>
 
 Cette rubrique montre comment utiliser Azure Mobile Services pour utiliser les données dans une application Windows Store. Dans ce didacticiel, vous allez télécharger une application qui stocke les données en mémoire, créer un service mobile, intégrer le service mobile à l'application, puis vous connecter au portail de gestion Azure pour afficher les modifications apportées aux données lors de l'exécution de l'application.
 
-**Remarque**
+<div class="dev-callout"><b>Remarque</b>
 
-Ce didacticiel ajoute la fonctionnalité Mobile Services à une application Windows Store créée dans Visual Studio 2012. Visual Studio 2013 inclut de nouvelles fonctionnalités qui facilitent la connexion de votre application Windows Store à Mobile Services. Pour plus d'informations, consultez la page [Prise en main des données dans Mobile Services](/en-us/develop/mobile/tutorials/get-started-with-data-js/).
-
+<p>Ce didacticiel ajoute la fonctionnalité Mobile Services à une application Windows Store créée dans Visual Studio 2012. Visual Studio 2013 inclut de nouvelles fonctionnalités qui facilitent la connexion de votre application Windows Store à Mobile Services. Pour plus d'informations, consultez la page <a href="/en-us/develop/mobile/tutorials/get-started-with-data-js/">Prise en main des données dans Mobile Services</a>.</p>
+</div>
 Ce didacticiel vous familiarise avec ces étapes de base :
 
 1.  [Téléchargement d'un projet d'application Windows Store](#download-app)
@@ -19,9 +21,11 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 4.  [Mise à jour de l'application pour utiliser Mobile Services](#update-app)
 5.  [Test de l'application avec Mobile Services](#test-app)
 
-**Remarque**
+<div class="dev-callout"><b>Remarque</b>
 
-Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-js%2F).
+<p>Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-js%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+</p>
+</div>
 
 Téléchargement du projetTéléchargement du projet GetStartedWithData
 -------------------------------------------------------------------

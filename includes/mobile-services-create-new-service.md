@@ -18,7 +18,8 @@ Suivez cette procédure pour créer un service mobile.
 
  La page **Specify database settings** s’affiche.     <div  class="dev-callout"> 
 
-   <b>Remarque</b> 
+	<div class="dev-callout"> 
+	<b>Remarque</b> 
 
    <p>Dans ce didacticiel, vous créez une instance et un serveur de base de données SQL. Vous pouvez réutiliser cette nouvelle base de données et la gérer comme une autre instance de base de données SQL. Si vous disposez déjà d’une base de données dans la même région que le nouveau service mobile, vous pouvez alors choisir <strong>Utiliser une base existante</strong> et sélectionner cette base de données. À cause des coûts supplémentaires liés à la bande passante et en raison des latences élevées, il est déconseillé d’utiliser une base de données dans une autre région.</p></div>
 	

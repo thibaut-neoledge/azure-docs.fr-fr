@@ -46,9 +46,10 @@
 
 	Cette requête ignore les trois premiers résultats et renvoie les trois résultats suivants. Il s'agit en fait de la deuxième « page » de données, dont la taille est de trois éléments.
 
-    **Remarque**
+    <div class="dev-callout"><b>Remarque</b>
 
-    Ce didacticiel s'appuie sur un scénario simplifié dans lequel les valeurs de pagination codées en dur sont transmises aux méthodes **Take** et **Skip**. Dans une application réelle, vous pouvez utiliser des requêtes semblables à celles indiquées plus haut avec un contrôle pager ou une interface utilisateur comparable pour permettre aux utilisateurs d'accéder aux pages précédentes et suivantes. Vous pouvez également appeler la méthode **includeTotalCount** pour obtenir le nombre total d'éléments disponibles sur le serveur, avec les données paginées.
+    <p>Ce didacticiel s'appuie sur un scénario simplifié dans lequel les valeurs de pagination codées en dur sont transmises aux méthodes <b>Take</b> et <b>Skip</b>. Dans une application réelle, vous pouvez utiliser des requêtes semblables à celles indiquées plus haut avec un contrôle pager ou une interface utilisateur comparable pour permettre aux utilisateurs d'accéder aux pages précédentes et suivantes. Vous pouvez également appeler la méthode <b>includeTotalCount</b> pour obtenir le nombre total d'éléments disponibles sur le serveur, avec les données paginées.</p>
+	</div>
 
 3.  (Facultatif) Là aussi, affichez l'URI de la requête envoyée au service mobile.
 
