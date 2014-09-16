@@ -38,7 +38,7 @@ Avant d'utiliser les services Twilio, vous devez [créer un compte](http://ahoy.
 
 ## Création et déploiement d'un site Web Azure node.js
 
-Ensuite, vous allez devoir créer un site Web node.js s'exécutant sur Azure. [La documentation officielle relative à cette création est située ici](http://www.windowsazure.com/fr-fr/develop/nodejs/tutorials/create-a-website-(mac)/). À un niveau supérieur, vous réaliserez les tâches suivantes :
+Ensuite, vous allez devoir créer un site Web node.js s'exécutant sur Azure. [La documentation officielle relative à cette création est située ici](http://www.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/). À un niveau supérieur, vous réaliserez les tâches suivantes :
 
 -   Création d'un compte Azure si vous n'en possédez pas déjà un
 -   Utilisation de la console d'administration pour créer un site Web
@@ -154,22 +154,23 @@ Créons un simple formulaire qui passera un appel vers un numéro que nous chois
 
 Ensuite, créez un répertoire appelé « views » et créez-y un fichier nommé « index.ejs » avec le contenu suivant :
 
-&lt;!DOCTYPE html\> 
-&lt;html\> 
-	&lt;head\> 
-		&lt;title\>Twilio Test&lt;/title\> 
-		&lt;style\> input { height:20px; width:300px; font-size:18px; margin:5px; padding:5px; } 
-		&lt;/style\> 
-	&lt;/head\> 
-	&lt;body\> 
-		&lt;h1\>Twilio Test&lt;/h1\> 
-		&lt;form action="/call" method="POST"\> 
-			&lt;input placeholder="Entrez un numéro de téléphone" name="number"/\> 
-			&lt;br/\> 
-			&lt;input type="submit" value="Appelez le numéro ci-dessus"/\> 
-		&lt;/form\> 
-	&lt;/body\> 
-&lt;/html\>
+	<!DOCTYPE html> 
+		<html> 
+	    	<head> 
+				<title>Twilio Test</title> 
+				<style> 
+				input { height:20px; width:300px; font-size:18px; margin:5px; padding:5px; } 
+				</style> 
+		    </head> 
+			<body> 
+				<h1>Twilio Test</h1> 
+					<form action="/call" method="POST"> 
+						<input placeholder="Entrez un numéro de téléphone" name="number"/> 
+						<br/> 
+						<input type="submit" value="Appelez le numéro ci-dessus"/> 
+					</form> 
+		   </body> 
+	   </html>
 
 Maintenant, déployez votre site Web sur Azure et ouvrez votre page d'accueil. Vous devez être en mesure de saisir votre numéro de téléphone dans le champ de texte et de recevoir un appel depuis votre numéro Twilio !
 
@@ -198,13 +199,13 @@ Maintenant, déployez votre site Web sur Azure et ouvrez votre page d'accueil. V
 
 Dans « views/index.ejs », ajoutez un autre formulaire sous le premier afin de soumettre un numéro et un SMS :
 
-&lt;form action="/sms" method="POST"\> 
-	&lt;input placeholder="Entrez un numéro de téléphone" name="number"/\> 
-	&lt;br/\> 
-	&lt;input placeholder="Entrez un SMS à envoyer" name="message"/\> 
-	&lt;br/\> 
-	&lt;input type="submit" value="Envoyez le SMS au numéro ci-dessus"/\> 
-&lt;/form\>
+	<form action="/sms" method="POST"\> 
+		<input placeholder="Entrez un numéro de téléphone" name="number"/> 
+		<br/> 
+		<input placeholder="Entrez un SMS à envoyer" name="message"/> 
+		<br/> 
+		<input type="submit" value="Envoyez le SMS au numéro ci-dessus"/> 
+	<form\>
 
 Redéployez votre application sur Azure. Vous devriez désormais être en mesure d'envoyer ce formulaire et d'envoyer à vous-même (ou à un ami proche) un SMS !
 
@@ -222,7 +223,7 @@ Nous espérons que vous aimerez travailler sur node.js et Twilio sur Azure !
 [purchase_phone]: https://www.twilio.com/user/account/phone-numbers/available/local
 [twiml]: https://www.twilio.com/docs/api/twiml
 [signup]: http://ahoy.twilio.com/azure
-[azure_new_site]: http://www.windowsazure.com/fr-fr/develop/nodejs/tutorials/create-a-website-(mac)/
+[azure_new_site]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/
 [twilio_dashboard]: https://www.twilio.com/user/account
 [npm]: http://npmjs.org
 [express]: http://expressjs.com

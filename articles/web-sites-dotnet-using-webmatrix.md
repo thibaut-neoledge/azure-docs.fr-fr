@@ -106,7 +106,7 @@ Vous pouvez utiliser WebMatrix pour modifier le site et le republier sur votre s
 
 1.  Ouvrez la page *Order.cshtml*.
 
-2.  Recherchez la définition de formulaire de la classe « shiping ». Insérez le code suivant juste après le bloc <li>.
+2.  Recherchez la définition de formulaire de la classe « shiping ». Insérez le code suivant juste après le bloc.
 
          <li class="gift">
              <div class="fieldcontainer" data-role="fieldcontain">

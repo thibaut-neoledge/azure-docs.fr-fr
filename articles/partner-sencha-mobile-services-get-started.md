@@ -1,15 +1,36 @@
 <properties linkid="develop-mobile-tutorials-get-started-sencha" urlDisplayName="Get Started" pageTitle="Get Started with Azure Mobile Services and Sencha" metaKeywords="" description="Follow this tutorial to get started developing with Mobile Services and the Sencha HTML5 mobile app framework. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="" documentationCenter="Mobile" title="Get started with Mobile Services and Sencha Touch" authors="sencha" solutions="" manager="" editor="" />
 
+<a name="getting-started"> </a>
 Prise en main de Mobile Services et de Sencha Touch
 ===================================================
 
-[Windows Store](/fr-fr/documentation/articles/mobile-services-windows-store-get-started "Windows Store") [Windows Phone](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone") [iOS](/fr-fr/documentation/articles/mobile-services-ios-get-started "iOS") [Android](/fr-fr/documentation/articles/mobile-services-android-get-started "Android") [HTML](/fr-fr/documentation/articles/mobile-services-html-get-started "HTML") [Xamarin.iOS](/fr-fr/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS") [Xamarin.Android](/fr-fr/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android") [Sencha](/fr-fr/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha") [PhoneGap](/fr-fr/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap")
+<div class="dev-center-tutorial-selector sublanding">
+	<a href="/en-us/documentation/articles/mobile-services-windows-store-get-started" title="Windows Store">Windows Store</a>
+	<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/documentation/articles/mobile-services-ios-get-started" title="iOS">iOS</a>
+	<a href="/en-us/documentation/articles/mobile-services-android-get-started" title="Android">Android</a>
+	<a href="/en-us/documentation/articles/mobile-services-html-get-started" title="HTML">HTML</a>
+	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a>
+	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a>
+	<a href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha" class="current">Sencha</a>
+	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/" title="PhoneGap">PhoneGap</a>
+</div>
 
-Ce didacticiel vous montre comment exploiter Azure Mobile Services dans votre application Sencha Touch. À l'aide de Sencha Touch, vous allez créer une simple application To Do List qui utilise un service mobile que vous allez définir dans le portail de gestion. Ce didacticiel s'adresse aux développeurs d'applications Web de niveau intermédiaire ou avancé qui ont une bonne compréhension de JavaScript et sont familiarisés avec l'infrastructure Sencha Touch.
+<!--<div class="dev-center-tutorial-subselector">
+	<a href="/en-us/documentation/articles/partner-sencha-mobile-services-dotnet-backend-get-started/" title=".NET backend">.NET backend</a> | 
+	<a href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/"  title="JavaScript backend" class="current">JavaScript backend</a>
+</div>-->
 
-Si vous préférez regarder une vidéo, le clip sur la droite suit la même procédure que ce didacticiel. Dans cette vidéo, Arthur Kay explique comment créer une application Sencha Touch à l'aide d'un serveur principal Azure Mobile Services.
+<div class="dev-onpage-video-clear clearfix">
+<div class="dev-onpage-left-content">
 
-[regarder le didacticiel](http://go.microsoft.com/fwlink/?LinkId=392574) [Lire la vidéo](http://go.microsoft.com/fwlink/?LinkId=392574) 14:37
+<p>Ce didacticiel vous montre comment exploiter Azure Mobile Services dans votre application Sencha Touch. À l'aide de Sencha Touch, vous allez créer une simple application To Do List qui utilise un service mobile que vous allez définir dans le portail de gestion. Ce didacticiel s'adresse aux développeurs d'applications Web de niveau intermédiaire ou avancé qui ont une bonne compréhension de JavaScript et sont familiarisés avec l'infrastructure Sencha Touch.</p>
+
+<p>Si vous préférez regarder une vidéo, le clip sur la droite suit la même procédure que ce didacticiel. Dans cette vidéo, Arthur Kay explique comment créer une application Sencha Touch à l'aide d'un serveur principal Azure Mobile Services.</p>
+</div>
+
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('/media/partner-sencha-mobile-services-get-started/mobile-sencha-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="dev-onpage-video"><span class="icon">[Lire la vidéo</span></a> <span class="time">14:37</span></div>
+</div>
 
 Voici une capture d'écran de l'application terminée :
 
@@ -24,6 +45,7 @@ Prérequis
 
 -   Java Runtime Environment (JRE) ou Java Development Kit (si vous créez des applications pour Android).
 
+<a name="create-new-service"> </a>
 Création d'un service mobile
 ----------------------------
 
@@ -46,9 +68,10 @@ Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapid
 
 3.  Cliquez sur **Create TodoItems table** pour créer une table permettant de stocker les données d'application.
 
-    **Remarque**
+<div class="dev-callout">Remarque</b>
 
-    Ne téléchargez PAS l'application HTML à partir du portail de gestion. Nous allons créer manuellement une application Sencha Touch dans la section suivante.
+    <p>Ne téléchargez PAS l'application HTML à partir du portail de gestion. Nous allons créer manuellement une application Sencha Touch dans la section suivante.</p>
+</div>
 
 4.  Notez les éléments **appKey** et **appUrl** dans le portail de gestion. Nous les utiliserons dans d'autres sections de ce didacticiel.
 

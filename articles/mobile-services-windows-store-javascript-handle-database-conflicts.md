@@ -21,7 +21,7 @@ Ce didacticiel requiert les éléments suivants :
 
 -   Microsoft Visual Studio 2013 Express pour Windows ou version ultérieure.
 -   Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez avoir suivi le didacticiel [Prise en main de Mobile Services](/en-us/develop/mobile/tutorials/get-started) et téléchargé la version de langage JavaScript du projet de démarrage.
--   [Compte Windows Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/)
+-   [Compte Windows Azure](http://www.windowsazure.com/en-us/pricing/free-trial/)
 -   Package NuGet Windows Azure Mobile Services NuGet Package 1.1.5 ou version ultérieure. Pour obtenir la dernière version, procédez comme suit :
     1.  Dans Visual Studio, ouvrez le projet, cliquez dessus avec le bouton droit dans l'Explorateur de solutions, puis cliquez sur **Manage Nuget Packages**.
 
@@ -325,7 +325,7 @@ Une fois que vous avez terminé la série sur les données, vous pouvez égaleme
 <!-- URLs. -->
 [Optimistic Concurrency Control]: http://go.microsoft.com/fwlink/?LinkId=330935
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Windows Azure Account]: http://www.windowsazure.com/fr-fr/pricing/free-trial/
+[Windows Azure Account]: http://www.windowsazure.com/en-us/pricing/free-trial/
 [Validate and modify data with scripts]: /en-us/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
 [Refine queries with paging]: /en-us/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started

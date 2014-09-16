@@ -23,11 +23,11 @@ Tout d'abord, vous utilisez l'Assistant Ajouter une notification d'émission dan
 5.  Dans la boîte de dialogue **Sélectionner un service**, cliquez sur le nom du service mobile que vous avez créé lorsque vous avez suivi le didacticiel [Prise en main de Mobile Services](/en-us/develop/mobile/tutorials/get-started/) ou [Prise en main des données](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/), puis cliquez sur **Suivant** et sur **Terminer**.
     
     Le service mobile est mis à jour pour inscrire votre SID de package d'applications et votre clé secrète client ; une nouvelle table **channels** est créée. Mobile Services est maintenant configuré pour utiliser Windows Push Notification Services (WNS) afin de pouvoir envoyer des notifications vers votre application.
+<div class="dev-callout">
+<b>Remarque</b>
 
-	**Remarque**
-
-	Lorsque votre application n'est pas déjà configurée pour se connecter au service mobile, l'Assistant effectue également les mêmes tâches de configuration que celle indiquées dans <strong>Prise en main des données.</strong> 
-
+<p>Lorsque votre application n'est pas déjà configurée pour se connecter au service mobile, l'Assistant effectue également les mêmes tâches de configuration que celle indiquées dans <strong>Prise en main des données.</p> 
+</div>
 
 
 
