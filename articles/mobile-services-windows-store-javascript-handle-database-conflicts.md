@@ -27,8 +27,9 @@ Ce didacticiel requiert les éléments suivants :
 
     2.  Développez **En ligne**, puis cliquez sur **Microsoft et .NET**. Dans la zone de texte de recherche, entrez **WindowsAzure.MobileServices.WinJS**. Cliquez sur **Installer** dans la package NuGet **Windows Azure Mobile Services pour WinJS**.
 
-		![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png)
+ 		![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png)
 
+<a name="uiupdate"></a>
 Mise à jour de l'interface utilisateurMise à jour de l'application pour autoriser les mises à jour
 --------------------------------------------------------------------------------------------------
 
@@ -65,6 +66,7 @@ Dans cette section, vous allez mettre à jour l'interface utilisateur pour autor
 
 À présent, l'application écrit les modifications apportées au texte dans chaque élément de la base de données lorsque l'utilisateur appuie sur la touche **Entrée**.
 
+<a name="enableOC"></a>
 Activation du contrôle d'accès concurrentiel optimisteActivation de la détection de conflits dans votre application
 -------------------------------------------------------------------------------------------------------------------
 
@@ -117,6 +119,7 @@ Windows Azure Mobile Services prend en charge le contrôle d'accès concurrentie
            });
          }
 
+<a name="test-app"></a>
 Test de l'applicationTest des conflits d'écriture dans la base de données de l'application
 ------------------------------------------------------------------------------------------
 
@@ -124,64 +127,65 @@ Dans cette section, vous allez créer un package d'application Windows Store pou
 
 1.  Créez un package d'application Windows Store pour l'installer sur un deuxième ordinateur ou une deuxième machine virtuelle. Pour ce faire, cliquez sur **Projet**-\>**Windows Store**-\>**Créer des packages d'application** dans Visual Studio.
 
-    ![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-create-app-package1.png)
+ 	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-create-app-package1.png)
 
 2.  Sur l'écran Créer vos packages, cliquez sur **Non**, car ce package ne sera pas téléchargé vers le Windows Store. Cliquez ensuite sur **Suivant**.
 
-    ![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-create-app-package2.png)
+ 	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-create-app-package2.png)
 
 3.  Sur l'écran Sélectionner et configurer des packages, acceptez les paramètres par défaut et cliquez sur **Créer**.
 
-    ![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-create-app-package3.png)
+ 	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-create-app-package3.png)
 
 4.  Sur l'écran Création de package terminée, cliquez sur le lien **Emplacement de sortie** pour ouvrir l'emplacement du package.
 
-	![][11]
+ 	![][11]
 
 5.  Copiez le dossier du package, « todolist\_1.0.0.0\_AnyCPU\_Debug\_Test », sur la deuxième machine. Sur cette dernière, ouvrez le dossier du package, cliquez avec le bouton droit sur le script PowerShell **Add-AppDevPackage.ps1**, puis cliquez sur **Exécuter avec PowerShell**, comme illustré ci-dessous. Suivez les instructions de l'invite pour installer l'application.
 
-	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-install-app-package.png)
+ 	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-install-app-package.png)
 
 6.  Exécutez l'instance 1 de l'application dans Visual Studio en cliquant sur **Déboguer**-\>**Démarrer le débogage**. Sur l'écran d'accueil de la deuxième machine, cliquez sur la flèche orientée vers le bas pour afficher « Apps by name ». Cliquez ensuite sur l'application **todolist** pour exécuter l'instance 2 de l'application.
 
-    Instance 1 de l'application 
+ 	Instance 1 de l'application 
 
-	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app1.png)
+ 	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app1.png)
 
-    Instance 2 de l'application 
+ 	Instance 2 de l'application 
 
-	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app1.png)
+ 	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app1.png)
 
 7.  Dans l'instance 1 de l'application, mettez à jour le texte du dernier élément en le remplaçant par **Test Write 1**, puis appuyez sur la touche **Entrée** pour mettre à jour la base de données. La capture d'écran ci-dessous montre un exemple.
 
-    Instance 1 de l'application 
+ 	Instance 1 de l'application 
 
-	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app1-write1.png)
+ 	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app1-write1.png)
 
-    Instance 2 de l'application 
+ 	Instance 2 de l'application 
 
-	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app1.png)
+ 	[](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app1.png)
 
 8.  À ce stade, le dernier élément de l'instance 2 de l'application présente une ancienne version. Dans cette instance de l'application, entrez **Test Write 2** pour la propriété `text` du dernier élément et appuyez sur **Entrée** pour mettre à jour la base de données en utilisant une ancienne propriété `_version`.
 
-    Instance 1 de l'application 
+ 	Instance 1 de l'application 
 
-	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app1-write2.png)
+ 	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app1-write2.png)
 
-    Instance 2 de l'application 
+ 	Instance 2 de l'application 
 
-	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app2-write2.png)
+ 	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app2-write2.png)
 
 9.  Comme la valeur de `__version` utilisée lors de la tentative de mise à jour ne correspond pas à la valeur de `__version` du serveur, le Kit de développement logiciel (SDK) Mobile Services génère une exception `MobileServicePreconditionFailedException` en tant qu'erreur dans la fonction `updateTodoItem` ce qui permet à l'application de résoudre ce conflit. Pour résoudre ce conflit, vous pouvez cliquer sur **Oui** pour valider les valeurs de l'instance 2. Vous pouvez également cliquer sur **Non** pour ignorer les valeurs de l'instance 2 et conserver les valeurs validées de l'instance 1 de l'application.
 
-    Instance 1 de l'application 
+ 	Instance 1 de l'application 
 
-	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app1-write2.png)
+ 	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app1-write2.png)
 
-    Instance 2 de l'application 
+ 	Instance 2 de l'application 
 
-	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app2-write2-conflict.png)
+ 	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app2-write2-conflict.png)
 
+<a name="scriptsexample"></a>
 Gestion des conflits au niveau des scriptsGestion automatique de la résolution des conflits dans les scripts serveur
 --------------------------------------------------------------------------------------------------------------------
 
@@ -194,15 +198,15 @@ Les étapes suivantes vous accompagnent tout au long des procédures d'ajout et 
 
 1.  Connectez-vous au [portail de gestion Windows Azure](https://manage.windowsazure.com/), cliquez sur **Mobile Services**, puis sur l'application.
 
-	![][7]
+   	![][7]
 
 2.  Cliquez sur l'onglet **Données**, puis sur la table **TodoItem**.
 
-	![][8]
+   	![][8]
 
 3.  Cliquez sur **Script**, puis sélectionnez l'opération **Update**.
 
-	![][9]
+   	![][9]
 
 4.  Remplacez le script existant par la fonction suivante, puis cliquez sur **Enregistrer**.
 
@@ -224,54 +228,55 @@ Les étapes suivantes vous accompagnent tout au long des procédures d'ajout et 
 
 5.  Exécutez l'application **todolist** sur les deux machines. Modifiez la propriété `text` de TodoItem pour le dernier élément de l'instance 2 et appuyez sur **Entrée** de façon à ce que l'application mette à jour la base de données.
 
-    Instance 1 de l'application 
+ 	Instance 1 de l'application 
 
-	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app1-write2.png)
+ 	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app1-write2.png)
 
-    Instance 2 de l'application 
+ 	Instance 2 de l'application 
 
-	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app2-write2.png)
+ 	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app2-write2.png)
 
 6.  Dans l'instance 1 de l'application, entrez une valeur différente pour la dernière propriété text, puis appuyez sur **Entrée**. L'application essaie de mettre à jour la base de données en utilisant une propriété `__version` incorrecte.
 
-    Instance 1 de l'application 
+ 	Instance 1 de l'application 
 
-	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app1-write3.png)
+ 	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app1-write3.png)
 
-    Instance 2 de l'application 
+ 	Instance 2 de l'application 
 
-	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app2-write3.png)
+ 	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-app2-write3.png)
 
 7.  À noter qu'aucune exception n'a été rencontrée dans l'application, car le script serveur a résolu le conflit. Et comme l'élément n'était pas marqué comme terminé, la mise à jour a abouti. Pour vérifier que la mise à jour a vraiment abouti, cliquez sur **Refresh** dans l'instance 2 pour réinterroger la base de données.
 
-    Instance 1 de l'application 
+ 	Instance 1 de l'application 
 
-	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-write3.png)
+ 	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-write3.png)
 
-    Instance 2 de l'application 
+ 	Instance 2 de l'application 
 
-	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-write3.png)
+ 	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-write3.png)
 
 8.  Dans l'instance 1, activez la case à cocher pour terminer le dernier élément Todo.
 
-    Instance 1 de l'application 
+ 	Instance 1 de l'application 
 
-	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-checkbox.png)
+ 	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-checkbox.png)
 
-    Instance 2 de l'application 
+ 	Instance 2 de l'application 
 
-	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-write3.png)
+ 	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-write3.png)
 
 9.  Dans l'instance 2, essayez de mettre à jour la propriété text du dernier TodoItem et appuyez sur **Entrée**. Ceci entraîne un conflit parce qu'il a été mis à jour en définissant le champ complete sur true. Le script a résolu le conflit ainsi obtenu en refusant la mise à jour, car l'élément était déjà terminé. Le script a fourni un message dans la réponse.
 
-    Instance 1 de l'application 
+ 	Instance 1 de l'application 
 
-	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-2-items.png)
+ 	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-2-items.png)
 
-    Instance 2 de l'application 
+ 	Instance 2 de l'application 
 
-	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-already-complete.png)
+ 	![](./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-already-complete.png)
 
+<a name="next-steps"> </a>
 Étapes suivantes
 ----------------
 

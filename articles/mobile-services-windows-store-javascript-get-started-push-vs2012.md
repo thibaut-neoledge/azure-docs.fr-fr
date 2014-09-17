@@ -10,8 +10,8 @@ Prise en main des notifications Push dans Mobile Services avec Visual Studio 20
 Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push à une application Windows Store. Dans ce didacticiel, vous allez ajouter des notifications Push utilisant les services de notifications Windows (WNS) au projet de démarrage rapide. Une fois que vous avez terminé, votre service mobile envoie une notification Push à chaque fois qu'un enregistrement est inséré.
 
 <div class="dev-callout"><b>Remarque</b>
-<p>
-Ce didacticiel permet d'ajouter des notifications Push à une application Windows Store créée dans Visual Studio 2012. Visual Studio 2013 intègre de nouvelles fonctionnalités qui facilitent la configuration des notifications Push dans votre application Windows Store en utilisant Mobile Services. Pour la version Visual Studio 2013, consultez la page <a href="/en-us/develop/mobile/tutorials/get-started-with-push-js">Prise en main des notifications Push</a>.</p>
+
+<p>Ce didacticiel permet d'ajouter des notifications Push à une application Windows Store créée dans Visual Studio 2012. Visual Studio 2013 intègre de nouvelles fonctionnalités qui facilitent la configuration des notifications Push dans votre application Windows Store en utilisant Mobile Services. Pour la version Visual Studio 2013, consultez la page <a href="/en-us/develop/mobile/tutorials/get-started-with-push-js">Prise en main des notifications Push</a>.</p>
 </div>
 
 Ce didacticiel vous familiarise avec les étapes de base permettant d'activer les notifications Push :
@@ -60,7 +60,7 @@ Ajout de notifications PushAjout de notifications Push à l'application
                  channel = newChannel;
              });
 
-    Ce code acquiert et stocke un canal de notification Push à chaque lancement de l'application.
+ 	Ce code acquiert et stocke un canal de notification Push à chaque lancement de l'application.
 
 2.  Ajoutez le code suivant après le code qui crée l'instance **MobileServiceClient** :
 
@@ -68,13 +68,13 @@ Ajout de notifications PushAjout de notifications Push à l'application
          var registrationsTable = client.getTable('Registrations');
          registrationsTable.insert({ handle: channel.uri });         
 
-    Ce code permet d'insérer le canal actif dans la table Registrations.
+ 	Ce code permet d'insérer le canal actif dans la table Registrations.
 
 3.  Ouvrez le fichier Package.appxmanifest et vérifiez sous l'onglet **Interface utilisateur de l'application** que la valeur définie de **Compatible toast** est bien **Oui**.
 
-    ![][15]
+   	![][15]
 
-    Cela permet de s'assurer que votre application peut déclencher des notifications toast. 
+   	Cela permet de s'assurer que votre application peut déclencher des notifications toast. 
 
 <a name="update-scripts"></a>
 Mise à jour du script d'insertionMise à jour du script d'insertion inscrit dans le portail de gestion
@@ -84,7 +84,7 @@ Mise à jour du script d'insertionMise à jour du script d'insertion inscrit dan
 
 1.  Cliquez sur **TodoItem**, puis sur **Script** et sélectionnez **Insérer**.
 
-    ![][5]
+ 	![][5]
 
 2.  Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
 
@@ -114,7 +114,7 @@ Mise à jour du script d'insertionMise à jour du script d'insertion inscrit dan
     		}
          }
 
-    Ce script d'insertion envoie une notification Push (avec le texte de l'élément inséré) à tous les canaux stockés dans la table **Registrations**.
+ 	Ce script d'insertion envoie une notification Push (avec le texte de l'élément inséré) à tous les canaux stockés dans la table **Registrations**.
 
 <a name="test"></a>
 Test de l'applicationTest des notifications Push dans l'application
@@ -124,11 +124,11 @@ Test de l'applicationTest des notifications Push dans l'application
 
 2.  Dans l'application, tapez du texte dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
 
-    ![][13]
+   	![][13]
 
-    Notez qu'une fois l'insertion terminée, l'application reçoit une notification Push de WNS.
+   	Notez qu'une fois l'insertion terminée, l'application reçoit une notification Push de WNS.
 
-    ![][14]
+   	![][14]
 
 <a name="next-steps"> </a>
 Étapes suivantes

@@ -4,12 +4,11 @@ Pour utiliser les opérations de stockage, vous avez besoin d'un compte de stock
 
 2.  En bas du volet de navigation, cliquez sur **NEW**.
     
-    ![+nouveau](./media/create-storage-account/plus-new.png)
+ 	![+nouveau](./media/create-storage-account/plus-new.png)
 
 3.  Cliquez sur **DATA SERVICES**, sur **STORAGE**, puis sur **QUICK CREATE**.
     
-    ![Boîte de dialogue Création
-    rapide](./media/create-storage-account/quick-storage-2.png)
+ 	![Boîte de dialogue Création rapide](./media/create-storage-account/quick-storage-2.png)
 
 4.  Dans URL, tapez un nom de sous-domaine à utiliser dans l'URI du compte de stockage. L'entrée peut être composée de 3 à 24 lettres minuscules et chiffres. Cette valeur devient le nom d'hôte contenu dans l'URI utilisé pour adresser les ressources d'objets blob, de files d'attente et de tables pour l'abonnement.
 
@@ -21,5 +20,5 @@ Pour utiliser les opérations de stockage, vous avez besoin d'un compte de stock
 
 
 
-[1]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh264518.aspx
+[1]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
 [2]: http://manage.windowsazure.com

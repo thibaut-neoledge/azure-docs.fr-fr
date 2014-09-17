@@ -19,6 +19,7 @@ Vous allez ajouter cette fonctionnalité à l'application que vous avez créée 
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez avoir terminé le didacticiel [Prise en main de Mobile Services](/en-us/documentation/articles/mobile-services-windows-store-get-started/) ou [Prise en main des données](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data/). Ce didacticiel utilise Visual Studio 2012 Express pour Windows 8.
 
+<a name="define-custom-api"></a>
 Définition de l'API personnalisée
 ---------------------------------
 
@@ -41,19 +42,3 @@ Maintenant que vous avez créé une API personnalisée et que vous l'avez appel�
      <br/>Apprenez à utiliser la fonctionnalité de contrôle du code source pour développer et publier plus facilement et de manière plus sécurisée le code de script de l'API personnalisée.
 
 
-<!-- Anchors. -->
-[Define the custom API]: #define-custom-api
-[Update the app to call the custom API]: #update-app
-[Test the app]: #test-app
-[Next Steps]: #next-steps
-
-<!-- URLs. -->
-[Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/
-
-[Define a custom API that supports periodic notifications]: /en-us/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications
-[Store server scripts in source control]: /en-us/documentation/articles/mobile-services-store-scripts-source-control

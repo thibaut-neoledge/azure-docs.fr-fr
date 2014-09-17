@@ -17,28 +17,29 @@ Vous allez ajouter cette fonctionnalité à l'application que vous avez créée 
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez avoir terminé le didacticiel [Prise en main de Mobile Services](/en-us/develop/mobile/tutorials/get-started/#create-new-service) ou [Prise en main des données](/en-us/develop/mobile/tutorials/started-with-data-js).
 
+<a name="define-custom-api"></a>
 Définition de l'API personnalisée
 ---------------------------------
 
 1.  Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com/), cliquez sur **Mobile Services**, puis sur l'application.
 
-	![](./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-services-selection.png)
+   	![](./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-services-selection.png)
 
 2.  Cliquez sur l'onglet **API**, puis sur **Créer une API personnalisée**.
 
-	![](./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-create.png)
+   	![](./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-create.png)
 
-	La boîte de dialogue **Create a new custom API** s’affiche.
+   	La boîte de dialogue **Create a new custom API** s’affiche.
 
 3.  Définissez **Autorisation GET** sur **Tout le monde**, tapez *tiles* dans **Nom API**, puis cliquez sur le bouton de vérification.
 
-	![](./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-create-dialog.png)
+   	![](./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-create-dialog.png)
 
-    La nouvelle API est créée avec un accès en lecture (GET) public.
+   	La nouvelle API est créée avec un accès en lecture (GET) public.
 
 4.  Cliquez sur la nouvelle entrée tiles dans la table API.
 
-	![](./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-select.png)
+   	![](./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-select.png)
 
 5.  Cliquez sur l'onglet **Script** et remplacez le code existant par les lignes suivantes :
 
@@ -67,7 +68,7 @@ Définition de l'API personnalisée
              }
          };
 
-    Ce code renvoie les trois premiers éléments non terminés de la table TodoItem, puis les charge dans un objet JSON transmis à la fonction **wns**.**createTileSquareText01**. Cette fonction renvoie le code XML de modèle de vignette suivant :
+ 	Ce code renvoie les trois premiers éléments non terminés de la table TodoItem, puis les charge dans un objet JSON transmis à la fonction **wns**.**createTileSquareText01**. Cette fonction renvoie le code XML de modèle de vignette suivant :
 
          <tile>
              <visual>
@@ -80,14 +81,15 @@ Définition de l'API personnalisée
              </visual>
          </tile>
 
-    La fonction **exports.get** est utilisée parce que le client enverra une requête GET pour accéder au modèle de vignette.
+ 	La fonction **exports.get** est utilisée parce que le client enverra une requête GET pour accéder au modèle de vignette.
 
-     <div class="dev-callout"><b>Remarque</b>
+   	<div class="dev-callout"><b>Remarque</b>
          <p>Ce script d'API personnalisée utilise le <a href="http://go.microsoft.com/fwlink/p/LinkId=306750">module wns</a> Node.js, qui est référencé avec la fonction <strong>require</strong>. Ce module est différent de l'<a href="http://go.microsoft.com/fwlink/p/LinkId=260591">objet wns</a> renvoyé par l'<a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx">objet push</a>, qui est utilisé pour envoyer des notifications Push à partir des scripts serveur.</p>
-     </div>
+ 	</div>
 
 Vous allez ensuite modifier l'application de démarrage rapide pour démarrer des notifications périodiques qui mettent à jour la vignette dynamique en demandant la nouvelle API personnalisée.
 
+<a name="update-app"></a>
 Mise à jour de l'application Mise à jour de l'application pour activer les notifications périodiques
 ----------------------------------------------------------------------------------------------------
 
@@ -103,18 +105,19 @@ Mise à jour de l'application Mise à jour de l'application pour activer les not
 
          notifications.TileUpdateManager.createTileUpdaterForApplication().startPeriodicUpdate(url, recurrence);
 
-    Ce code active les notifications périodiques pour demander les données du modèle de vignette à la nouvelle API personnalisée **tiles**. Sélectionnez la valeur [PeriodicUpdateRecurrance] qui correspond le mieux à la fréquence de mise à jour de vos données.
+ 	Ce code active les notifications périodiques pour demander les données du modèle de vignette à la nouvelle API personnalisée **tiles**. Sélectionnez la valeur [PeriodicUpdateRecurrance] qui correspond le mieux à la fréquence de mise à jour de vos données.
 
+<a name="test-app"></a>
 Test de l'application
 ---------------------
 
 1.  Dans Visual Studio, appuyez sur la touche F5 pour réexécuter l'application.
 
-    Les notifications périodiques sont alors activées.
+ 	Les notifications périodiques sont alors activées.
 
 2.  Accédez à l'écran d'accueil et recherchez la vignette dynamique correspondant à l'application. Comme vous pouvez le constater, les données de l'élément sont maintenant affichées dans la vignette.
 
-	![](./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-live-tile.png)
+ 	![](./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-live-tile.png)
 
 Étapes suivantes
 ----------------

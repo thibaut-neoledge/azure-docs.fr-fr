@@ -5,7 +5,7 @@ Prise en main des données dans Mobile Services avec Visual Studio 2012
 
 <div class="dev-center-tutorial-selector sublanding"> 
 	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js-vs2012" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
-</div>
+</div>	
 
 Cette rubrique montre comment utiliser Azure Mobile Services pour utiliser les données dans une application Windows Store. Dans ce didacticiel, vous allez télécharger une application qui stocke les données en mémoire, créer un service mobile, intégrer le service mobile à l'application, puis vous connecter au portail de gestion Azure pour afficher les modifications apportées aux données lors de l'exécution de l'application.
 
@@ -13,6 +13,7 @@ Cette rubrique montre comment utiliser Azure Mobile Services pour utiliser les d
 
 <p>Ce didacticiel ajoute la fonctionnalité Mobile Services à une application Windows Store créée dans Visual Studio 2012. Visual Studio 2013 inclut de nouvelles fonctionnalités qui facilitent la connexion de votre application Windows Store à Mobile Services. Pour plus d'informations, consultez la page <a href="/en-us/develop/mobile/tutorials/get-started-with-data-js/">Prise en main des données dans Mobile Services</a>.</p>
 </div>
+
 Ce didacticiel vous familiarise avec ces étapes de base :
 
 1.  [Téléchargement d'un projet d'application Windows Store](#download-app)
@@ -23,10 +24,10 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 
 <div class="dev-callout"><b>Remarque</b>
 
-<p>Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-js%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.
-</p>
+<p>Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-js%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.</p>
 </div>
 
+<a name="download-app"></a>
 Téléchargement du projetTéléchargement du projet GetStartedWithData
 -------------------------------------------------------------------
 
@@ -34,30 +35,33 @@ Ce didacticiel est basé sur l'[application GetStartedWithData](http://go.micros
 
 1.  Téléchargez la version JavaScript de l'exemple d'application GetStartedWithData sur le [site d'exemples de code développeur](http://go.microsoft.com/fwlink/?LinkId=262308).
 
-    ![][10]
+   	![][10]
 
 2.  Dans Visual Studio 2012 Express pour Windows 8, ouvrez le projet téléchargé, développez le dossier **js** et examinez le fichier default.js.
 
-    Notez que les objets **TodoItem** ajoutés sont stockés dans un objet **List** en mémoire.
+   	Notez que les objets **TodoItem** ajoutés sont stockés dans un objet **List** en mémoire.
 
 3.  Appuyez sur la touche **F5** pour régénérer le projet et démarrer l'application.
 
 4.  Dans l'application, tapez du texte dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
 
-    ![][0]  
+   	![][0]  
 
-    Notez que le texte enregistré est affiché dans la deuxième colonne sous **Query and update data**.
+   	Notez que le texte enregistré est affiché dans la deuxième colonne sous **Query and update data**.
 
+<a name="create-service"></a>
 Création d'un service mobileCréation d'un service mobile dans le portail de gestion
 -----------------------------------------------------------------------------------
 
 [WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
+<a name="add-table"></a>
 Ajout d'une nouvelle tableAjout d'une nouvelle table au service mobile
 ----------------------------------------------------------------------
 
 [WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
+<a name="update-app"></a>
 Mise à jour de l'applicationMise à jour de l'application afin d'utiliser le service mobile pour l'accès aux données
 -------------------------------------------------------------------------------------------------------------------
 
@@ -67,9 +71,9 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 
 2.  Dans le volet gauche, sélectionnez la catégorie **Online**, recherchez `WindowsAzure.MobileServices.WinJS`, cliquez sur **Install** au niveau du package **Azure Mobile Services pour WinJS**, puis acceptez le contrat de licence.
 
-	![](./media/mobile-services-windows-store-javascript-get-started-data-vs2012/mobile-add-nuget-package-js.png) 
+   	![](./media/mobile-services-windows-store-javascript-get-started-data-vs2012/mobile-add-nuget-package-js.png) 
 
-	La bibliothèque cliente Mobile Services est ajoutée au projet.
+   	La bibliothèque cliente Mobile Services est ajoutée au projet.
 
 3.  Dans le fichier projet default.html, ajoutez la référence de script suivante dans l'en-tête de page :
 
@@ -79,9 +83,9 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 
 5.  Cliquez sur l'onglet **Tableau de bord** et notez la valeur **URL du site**, puis cliquez sur **Gérer les clés** et notez la valeur de **Clé de l'application**.
 
-    ![][8]
+   	![][8]
 
-	Ces valeurs sont nécessaires pour accéder au service mobile à partir de votre code d'application.
+   	Ces valeurs sont nécessaires pour accéder au service mobile à partir de votre code d'application.
 
 6.  Dans Visual Studio, ouvrez le fichier default.js, supprimez les marques de commentaire du code suivant qui définit la variable **client** et fournissez l'URL et la clé d'application du service mobile dans le constructeur **MobileServiceClient**, dans cet ordre :
 
@@ -90,13 +94,13 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
                  "appKey"
              );
 
-	Cela crée une instance de MobileServiceClient utilisée pour accéder au service mobile.
+ 	Cela crée une instance de MobileServiceClient utilisée pour accéder au service mobile.
 
 7.  Supprimez les marques de commentaire sur la ligne de code suivante :
 
          var todoTable = client.getTable('TodoItem');
 
-    Ce code crée un objet proxy (**todoItemTable**) pour la nouvelle table de base de données. 
+ 	Ce code crée un objet proxy (**todoItemTable**) pour la nouvelle table de base de données. 
 
 8.  Remplacez la fonction **InsertTodoItem** par le code suivant :
 
@@ -108,7 +112,7 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
              });
          };
 
-	Ce code permet d'insérer un nouvel élément dans la table.
+ 	Ce code permet d'insérer un nouvel élément dans la table.
 
 9.  Remplacez la fonction **RefreshTodoItem** par le code suivant :
 
@@ -120,7 +124,7 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
              });
          };      
 
-    Cela définit la liaison sur la collection d'éléments dans todoTable, qui contient tous les éléments terminés renvoyés depuis le service mobile. 
+ 	Cela définit la liaison sur la collection d'éléments dans todoTable, qui contient tous les éléments terminés renvoyés depuis le service mobile. 
 
 10.  Remplacez la fonction **UpdateCheckedTodoItem** par le code suivant :
 
@@ -129,10 +133,11 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
              todoTable.update(todoItem);
          };
 
-    Cela permet d'envoyer une mise à jour de l'élément au service mobile.
+ 	Cela permet d'envoyer une mise à jour de l'élément au service mobile.
 
 Maintenant que l'application a été mise à jour pour utiliser Mobile Services pour le stockage principal, le moment est venu de tester l'application avec Mobile Services.
 
+<a name="test-app"></a>
 Test de l'applicationTest de l'application avec votre nouveau service mobile
 ----------------------------------------------------------------------------
 
@@ -140,19 +145,19 @@ Test de l'applicationTest de l'application avec votre nouveau service mobile
 
 2.  Comme auparavant, tapez du texte dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
 
-    Cela permet d'envoyer un nouvel élément en tant qu'insertion au service mobile.
+   	Cela permet d'envoyer un nouvel élément en tant qu'insertion au service mobile.
 
 3.  Dans le [portail de gestion](https://manage.windowsazure.com/), cliquez sur **Mobile Services**, puis sur le service mobile.
 
 4.  Cliquez sur l'onglet **Données**, puis sur **Parcourir**.
 
-    ![][9]
+   	![][9]
           
-    La table **TodoItem** contient à présent des données, dont les valeurs d'ID ont été générées par Mobile Services, et les colonnes ont été automatiquement ajoutées à la table de manière à correspondre à la classe TodoItem au sein de l'application.
+   	La table **TodoItem** contient à présent des données, dont les valeurs d'ID ont été générées par Mobile Services, et les colonnes ont été automatiquement ajoutées à la table de manière à correspondre à la classe TodoItem au sein de l'application.
 
 5.  Dans l'application, cochez un des éléments dans la liste, puis revenez à l'onglet Parcourir dans le portail et cliquez sur **Actualiser**.
 
-	Notez que la valeur terminée est passée de **false** à **true**.
+   	Notez que la valeur terminée est passée de **false** à **true**.
 
 6.  Dans le fichier projet default.js, remplacez la fonction **RefreshTodoItems** existante par le code suivant qui filtre les éléments terminés :
 
@@ -168,10 +173,11 @@ Test de l'applicationTest de l'application avec votre nouveau service mobile
 
 7.  Dans l'application, cochez un autre élément dans la liste, puis cliquez sur le bouton **Actualiser**.
 
-    Notez que l'élément coché n'est plus affiché dans la liste. Chaque actualisation provoque un aller-retour vers le serveur mobile, qui renvoie les données filtrées.
+   	Notez que l'élément coché n'est plus affiché dans la liste. Chaque actualisation provoque un aller-retour vers le serveur mobile, qui renvoie les données filtrées.
 
 Vous voici parvenu à la fin du didacticiel **Prise en main des données**.
 
+<a name="next-steps"> </a>
 Étapes suivantes
 ----------------
 

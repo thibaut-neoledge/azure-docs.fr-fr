@@ -1,6 +1,5 @@
 <properties pageTitle="Get Started with Mobile Services for Windows Store apps | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C# or JavaScript. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<a name="getting-started"> </a>
 Prise en main de Mobile Services
 ================================
 
@@ -23,7 +22,6 @@ Prise en main de Mobile Services
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-
 <p>Ce didacticiel présente l'ajout d'un service principal cloud à une application Windows Store à l'aide d'Azure Mobile Services.</p>
 
 <p>Si vous préférez regarder une vidéo, le clip sur la droite suit la même procédure que ce didacticiel. Dans la vidéo, après avoir présenté Mobile Services, Scott Guthrie décrit la création de votre premier service mobile et explique comment s'y connecter à partir d'une application Windows Store.</p>
@@ -60,11 +58,11 @@ Dans cette section, vous allez créer une application Windows Store connectée �
 
 2.  Dans l'onglet de démarrage rapide, cliquez sur **Windows** sous **Choisissez une plateforme** et développez **Créer une application Windows Store**.
 
-	![][6]
+   	![][6]
 
-	Cette opération affiche les trois étapes faciles pour créer une application Windows Store connectée à votre service mobile.
+   	Cette opération affiche les trois étapes faciles pour créer une application Windows Store connectée à votre service mobile.
 
-	![](./media/mobile-services-windows-store-get-started/mobile-quickstart-steps.png)
+   	![](./media/mobile-services-windows-store-get-started/mobile-quickstart-steps.png)
 
 3.  Si ce n'est pas déjà fait, téléchargez et installez [Visual Studio 2013 Express pour Windows](http://go.microsoft.com/fwlink/?LinkId=257546) sur votre ordinateur local ou sur votre machine virtuelle.
 
@@ -72,7 +70,7 @@ Dans cette section, vous allez créer une application Windows Store connectée �
 
 5.  Sous **Download and run your app**, sélectionnez une langue pour votre application, puis cliquez sur **Télécharger**.
 
-	Cette opération télécharge le projet de votre exemple d'application *To do list* qui est connectée à votre service mobile. Enregistrez le fichier projet compressé sur votre ordinateur local et notez l'emplacement où vous l'avez enregistré.
+   	Cette opération télécharge le projet de votre exemple d'application *To do list* qui est connectée à votre service mobile. Enregistrez le fichier projet compressé sur votre ordinateur local et notez l'emplacement où vous l'avez enregistré.
 
 Exécution de votre application Windows
 --------------------------------------
@@ -85,32 +83,32 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 3.  Dans l'application, tapez un texte explicite, comme *Suivre le didacticiel*, dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
 
-	![][10]
+   	![][10]
 
-	Cette opération envoie une requête POST au nouveau service mobile hébergé sur Azure. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans la table sont renvoyés par le service mobile et les données sont affichées dans la deuxième colonne de l'application.
+   	Cette opération envoie une requête POST au nouveau service mobile hébergé sur Azure. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans la table sont renvoyés par le service mobile et les données sont affichées dans la deuxième colonne de l'application.
 
-    > [WACOM.NOTE]Vous pouvez vérifier le code (se trouvant dans le fichier MainPage.xaml.cs (projet C\#/XAML) ou dans le fichier default.js (projet JavaScript/HTML)) permettant d'accéder au service mobile pour exécuter une requête et insérer des données.
+	> [WACOM.NOTE]Vous pouvez vérifier le code (se trouvant dans le fichier MainPage.xaml.cs (projet C\#/XAML) ou dans le fichier default.js (projet JavaScript/HTML)) permettant d'accéder au service mobile pour exécuter une requête et insérer des données.
 
 4.  De retour dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItems**.
 
-	![][11]
+   	![][11]
 
-	Cette opération vous permet de parcourir les données insérées par l'application dans la table.
+   	Cette opération vous permet de parcourir les données insérées par l'application dans la table.
 
-	![][12]
+   	![][12]
 
 Étapes suivantes
 ----------------
 
 Maintenant que vous avez effectué le démarrage rapide, découvrez comment effectuer d'autres tâches importantes dans Mobile Services :
 
--   **Prise en main des données** ([C\#](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet) / [JavaScript](/en-us/develop/mobile/tutorials/get-started-with-data-js))
+-   **Prise en main des données** ([C#](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet) / [JavaScript](/en-us/develop/mobile/tutorials/get-started-with-data-js))
     En savoir plus sur le stockage et l'interrogation des données à l'aide de Mobile Services.
 
--   **Prise en main de l'authentification** ([C\#](/en-us/develop/mobile/tutorials/get-started-with-users-dotnet) / [JavaScript](/en-us/develop/mobile/tutorials/get-started-with-users-js))
+-   **Prise en main de l'authentification** ([C#](/en-us/develop/mobile/tutorials/get-started-with-users-dotnet) / [JavaScript](/en-us/develop/mobile/tutorials/get-started-with-users-js))
     En savoir plus sur l'authentification des utilisateurs de votre application avec un fournisseur d'identité.
 
--   **Prise en main des notifications Push** ([C\#](/en-us/develop/mobile/tutorials/get-started-with-push-dotnet) / [JavaScript](/en-us/develop/mobile/tutorials/get-started-with-push-js))
+-   **Prise en main des notifications Push** ([C#](/en-us/develop/mobile/tutorials/get-started-with-push-dotnet) / [JavaScript](/en-us/develop/mobile/tutorials/get-started-with-push-js))
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
 <!-- Anchors. -->

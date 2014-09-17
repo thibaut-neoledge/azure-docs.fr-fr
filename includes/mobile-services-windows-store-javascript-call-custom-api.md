@@ -7,7 +7,7 @@ Mise à jour de l'application pour appeler l'API personnalisée
 
          <button id="buttonCompleteAll" style="margin-left: 5px">Complete All</button>
 
-    Le nouveau bouton est ajouté à la page.
+ 	Le nouveau bouton est ajouté à la page.
 
 2.  Ouvrez le fichier de code default.js dans le dossier du projet `js`, recherchez la fonction **refreshTodoItems** et vérifiez que cette fonction contient le code suivant :
 
@@ -18,7 +18,7 @@ Mise à jour de l'application pour appeler l'API personnalisée
                 listItems.winControl.itemDataSource = todoItems.dataSource;
             });            
 
-    Les éléments sont filtrés de manière à ce que les éléments terminés ne soient pas renvoyés par la requête.
+ 	Les éléments sont filtrés de manière à ce que les éléments terminés ne soient pas renvoyés par la requête.
 
 3.  Après la fonction **refreshTodoItems**, ajoutez le code suivant :
 
@@ -48,8 +48,9 @@ Mise à jour de l'application pour appeler l'API personnalisée
              completeAllTodoItems();
          });
 
-    Cette méthode gère l'événement **Click** pour le nouveau bouton. La méthode **InvokeApiAsync** est appelée sur le client pour envoyer une requête POST à la nouvelle API personnalisée. Le résultat renvoyé par l'API personnalisée apparaît dans la boîte de message, avec les erreurs éventuelles.
+ 	Cette méthode gère l'événement **Click** pour le nouveau bouton. La méthode **InvokeApiAsync** est appelée sur le client pour envoyer une requête POST à la nouvelle API personnalisée. Le résultat renvoyé par l'API personnalisée apparaît dans la boîte de message, avec les erreurs éventuelles.
 
+<a name="test-app"></a>
 Test de l'application
 ---------------------
 
@@ -61,6 +62,6 @@ Test de l'application
 
 4.  Cliquez sur le bouton **Complete All**.
 
-	![](./media/mobile-services-windows-store-javascript-call-custom-api/mobile-custom-api-windows-store-completed.png)
+  	![](./media/mobile-services-windows-store-javascript-call-custom-api/mobile-custom-api-windows-store-completed.png)
 
-    Un message s'affiche pour indiquer le nombre d'éléments marqués comme terminés, puis la requête filtrée est de nouveau exécutée pour supprimer tous les éléments de la liste.
+ 	Un message s'affiche pour indiquer le nombre d'éléments marqués comme terminés, puis la requête filtrée est de nouveau exécutée pour supprimer tous les éléments de la liste.

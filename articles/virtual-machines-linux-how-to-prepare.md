@@ -3,7 +3,7 @@
 Préparation d'une machine virtuelle Linux pour Azure
 ====================================================
 
-Une machine virtuelle Azure exécute le système d'exploitation que vous avez choisi lors de sa création. Azure stocke le système d'exploitation d'une machine virtuelle dans un disque dur virtuel au format VHD (fichier .vhd). Le disque dur virtuel d'un système d'exploitation préparé pour la duplication est nommé « une image ». Cet article vous explique comment créer votre propre image en téléchargeant un fichier .vhd avec un système d'exploitation que vous avez installé et généralisé. Pour plus d'informations sur les disques et les images dans Azure, consultez la page [Gestion des disques et des images](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj672979.aspx).
+Une machine virtuelle Azure exécute le système d'exploitation que vous avez choisi lors de sa création. Azure stocke le système d'exploitation d'une machine virtuelle dans un disque dur virtuel au format VHD (fichier .vhd). Le disque dur virtuel d'un système d'exploitation préparé pour la duplication est nommé « une image ». Cet article vous explique comment créer votre propre image en téléchargeant un fichier .vhd avec un système d'exploitation que vous avez installé et généralisé. Pour plus d'informations sur les disques et les images dans Azure, consultez la page [Gestion des disques et des images](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
 
 **Remarque** : Lorsque vous créez une machine virtuelle, vous pouvez personnaliser les paramètres de son système d'exploitation pour faciliter l'exécution de votre application. La configuration que vous définissez pour une machine virtuelle est stockée sur un disque. Pour obtenir des instructions, consultez le guide [Création d'une machine virtuelle personnalisée](/en-us/manage/windows/how-to-guides/custom-create-a-vm/).
 
@@ -14,17 +14,17 @@ Configuration requise
 
 Cet article part du principe que vous disposez des éléments suivants :
 
--   **Un certificat de gestion** : vous avez créé un certificat de gestion pour l'abonnement pour lequel vous souhaitez télécharger un disque dur virtuel, puis exporté ce certificat vers un fichier .cer. Pour plus d'informations sur la création de certificats, consultez la page [Création d'un certificat de gestion pour Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg551722.aspx).
+-   **Un certificat de gestion** : vous avez créé un certificat de gestion pour l'abonnement pour lequel vous souhaitez télécharger un disque dur virtuel, puis exporté ce certificat vers un fichier .cer. Pour plus d'informations sur la création de certificats, consultez la page [Création d'un certificat de gestion pour Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx).
 
 -   **Un système d'exploitation Linux installé dans un fichier .vhd.** - Vous avez installé un système d'exploitation Linux pris en charge sur un disque dur virtuel. Plusieurs outils permettent de créer des fichiers .vhd. Vous pouvez utiliser des solutions de virtualisation comme Hyper-V pour créer le fichier .vhd et installer le système d'exploitation. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/en-us/library/hh846766.aspx).
 
     **Important** : Azure ne prend pas en charge le nouveau format VHDX. Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de la cmdlet convert-vhd.
 
-    Pour accéder à la liste des distributions approuvées, consultez la page [Linux dans les distributions approuvées par Azure](../linux-endorsed-distributions). Vous pouvez également consulter la section située à la fin de cet article : [Informations pour les distributions non approuvées](#nonendorsed).
+ 	Pour accéder à la liste des distributions approuvées, consultez la page [Linux dans les distributions approuvées par Azure](../linux-endorsed-distributions). Vous pouvez également consulter la section située à la fin de cet article : [Informations pour les distributions non approuvées](#nonendorsed).
 
 -   **Outil en ligne de commande Linux Azure.** Si vous utilisez un système d'exploitation Linux pour créer votre image, utilisez cet outil pour télécharger le fichier VHD. Pour télécharger l'outil, consultez la page [Outils en ligne de commande Azure pour Linux et Mac)](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409).
 
--   La **cmdlet Add-AzureVhd**, qui fait partie du module Azure PowerShell. Pour télécharger le module, consultez la page [Téléchargements Azure](/en-us/develop/downloads/). Pour les informations de référence, consultez la page [Add-AzureVhd](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn205185.aspx).
+-   La **cmdlet Add-AzureVhd**, qui fait partie du module Azure PowerShell. Pour télécharger le module, consultez la page [Téléchargements Azure](/en-us/develop/downloads/). Pour les informations de référence, consultez la page [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx).
 
 Attention aux éléments suivants pour l'ensemble des distributions :
 
@@ -45,6 +45,7 @@ Cette procédure comprend les étapes suivantes :
 -   [Étape 3 : préparation de la connexion à Azure](#connect)
 -   [Étape 4 : téléchargement de l'image sur Azure](#upload)
 
+<a id="prepimage"> </a>
 Étape 1 : préparation de l'image pour le téléchargement
 -------------------------------------------------------
 
@@ -268,13 +269,13 @@ Vous devez suivre des étapes de configuration spécifiques dans le système d'e
 
 5.  Ubuntu marque une pause à l'invite Grub pour la saisie utilisateur après un échec système. Pour éviter ceci, procédez comme suit :
 
-    a) Ouvrez le fichier /etc/grub.d/00\_header.
+ 	a) Ouvrez le fichier /etc/grub.d/00\_header.
 
-    b) Dans la fonction **make\_timeout()**, recherchez **if ["\${recordfail}" = 1 ]; then**
+ 	b) Dans la fonction **make\_timeout()**, recherchez **if ["\${recordfail}" = 1 ]; then**
 
-    c) Modifiez le texte sous cette ligne comme suit : **set timeout=5**.
+ 	c) Modifiez le texte sous cette ligne comme suit : **set timeout=5**.
 
-    d) Exécutez update-grub.
+ 	d) Exécutez update-grub.
 
 6.  Modifiez la ligne de démarrage du noyau dans grub ou grub2 afin d'y inclure les paramètres suivants. Ceci permet également d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d'Azure :
 
@@ -293,7 +294,7 @@ Vous devez suivre des étapes de configuration spécifiques dans le système d'e
 
 10. Ne créez pas d'espace swap sur le disque du système d'exploitation.
 
-    L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
+ 	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -331,17 +332,17 @@ Vous devez suivre des étapes de configuration spécifiques dans le système d'e
          5 | susecloud:SLES11-SP3-Pool    | SLES11-SP3-Pool    | Yes     | Yes
          6 | susecloud:SLES11-SP3-Updates | SLES11-SP3-Updates | Yes     | Yes
 
-     Si la commande renvoie un message d'erreur similaire au suivant :
+ 	Si la commande renvoie un message d'erreur similaire au suivant :
 
         "No repositories defined. Use the 'zypper addrepo' command to add one or more repositories."
 
-     il peut être nécessaire de réactiver les référentiels ou d'enregistrer le système.  Ces actions sont possibles via l'utilitaire suse_register.  Pour plus d'informations, consultez la documentation SLES(https://www.suse.com/documentation/sles11/).
+ 	il peut être nécessaire de réactiver les référentiels ou d'enregistrer le système.  Ces actions sont possibles via l'utilitaire suse_register.  Pour plus d'informations, consultez la documentation SLES(https://www.suse.com/documentation/sles11/).
 
-     Si un des référentiels de mise à jour concernés n'est pas activé, exécutez la commande suivante :
+ 	Si un des référentiels de mise à jour concernés n'est pas activé, exécutez la commande suivante :
 
         zypper mr -e [NUMÉRO DU RÉFÉRENTIEL]
 
-     Dans l'exemple ci-dessus, la commande exacte serait :
+ 	Dans l'exemple ci-dessus, la commande exacte serait :
 
         zypper mr -e 1 2 3 4
 
@@ -353,14 +354,14 @@ Vous devez suivre des étapes de configuration spécifiques dans le système d'e
 
         zypper up WALinuxAgent
 
-    Le résultat devrait ressemble à ce qui suit :
+ 	Le résultat devrait ressemble à ce qui suit :
 
         "There is an update candidate for 'WALinuxAgent', but it is from different vendor.
         Use 'zypper install WALinuxAgent-1.2-1.1.noarch' to install this candidate."
 
-    Le fournisseur du package ayant changé de « Microsoft Corporation » vers « SUSE LINUX Products GmbH, Nuernberg, Germany », il est nécessaire d'installer explicitement le package mentionné dans le message.
+ 	Le fournisseur du package ayant changé de « Microsoft Corporation » vers « SUSE LINUX Products GmbH, Nuernberg, Germany », il est nécessaire d'installer explicitement le package mentionné dans le message.
 
-    Remarque : La version du package WALinuxAgent peut être légèrement différente.
+ 	Remarque : La version du package WALinuxAgent peut être légèrement différente.
 
 3.  Modifiez la ligne de démarrage du noyau dans Grub afin d'y inclure les paramètres suivants. Ceci permet également d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d'Azure :
 
@@ -376,7 +377,7 @@ Vous devez suivre des étapes de configuration spécifiques dans le système d'e
 
 7.  Ne créez pas d'espace swap sur le disque du système d'exploitation.
 
-    L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
+ 	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -412,16 +413,16 @@ Vous devez suivre des étapes de configuration spécifiques dans le système d'e
 		2 | openSUSE_12.3_OSS         | openSUSE_12.3_OSS         | Yes     | Yes
 		3 | openSUSE_12.3_Updates     | openSUSE_12.3_Updates     | Yes     | Yes
 
-    cela signifie que les référentiels sont configurés comme attendu ; aucune modification n'est nécessaire.
+ 	cela signifie que les référentiels sont configurés comme attendu ; aucune modification n'est nécessaire.
 
-    Si la commande renvoie « No repositories defined. Use the 'zypper addrepo' command to add one or more repositories », cela signifie que les référentiels doivent être réactivés :
+ 	Si la commande renvoie « No repositories defined. Use the 'zypper addrepo' command to add one or more repositories », cela signifie que les référentiels doivent être réactivés :
 
         zypper ar -f http://download.opensuse.org/distribution/12.3/repo/oss openSUSE_12.3_OSS
         zypper ar -f http://download.opensuse.org/update/12.3 openSUSE_12.3_Updates
 
-    Vérifiez que vos référentiels ont été ajoutés en invoquant à nouveau 'zypper lr'.
+ 	Vérifiez que vos référentiels ont été ajoutés en invoquant à nouveau 'zypper lr'.
 
-    Si un des référentiels de mise à jour concernés n'est pas activé, exécutez la commande suivante :
+ 	Si un des référentiels de mise à jour concernés n'est pas activé, exécutez la commande suivante :
 
         zypper mr -e [NUMBER OF REPOSITORY]
 
@@ -429,26 +430,26 @@ Vous devez suivre des étapes de configuration spécifiques dans le système d'e
 
 6.  Installez l'agent Linux Azure :
 
-    Tout d'abord, ajoutez le référentiel contenant le nouvel agent WALinuxAgent: :
+ 	Tout d'abord, ajoutez le référentiel contenant le nouvel agent WALinuxAgent: :
 
         zypper ar -f -r http://download.opensuse.org/repositories/Cloud:/Tools/openSUSE_12.3/Cloud:Tools.repo
 
-    Exécutez ensuite la commande suivante :
+	 Exécutez ensuite la commande suivante :
 
         zypper up WALinuxAgent
 
-    Après avoir exécuté cette commande, un message similaire à l'exemple ci-dessous peut s'afficher :
+ 	Après avoir exécuté cette commande, un message similaire à l'exemple ci-dessous peut s'afficher :
 
         "There is an update candidate for 'WALinuxAgent', but it is from different vendor. 
         Use 'zypper install WALinuxAgent' to install this candidate."
 
-    Ceci est normal. Le fournisseur du package ayant changé de « Microsoft Corporation » vers « obs://build.opensuse.org/Cloud », il est nécessaire d'installer explicitement le package mentionné dans le message.
+ 	Ceci est normal. Le fournisseur du package ayant changé de « Microsoft Corporation » vers « obs://build.opensuse.org/Cloud », il est nécessaire d'installer explicitement le package mentionné dans le message.
 
 7.  Modifiez la ligne de démarrage du noyau dans Grub afin d'y inclure les paramètres suivants. Ceci permet également d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d'Azure :
 
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300
 
-     Ajoutez /boot/grub/menu.lst, supprimez les paramètres suivants de la ligne de démarrage du noyau (s'ils sont présents) :
+ 	Ajoutez /boot/grub/menu.lst, supprimez les paramètres suivants de la ligne de démarrage du noyau (s'ils sont présents) :
 
         libata.atapi_enabled=0 reserve=0x1f0,0x8
 
@@ -462,7 +463,7 @@ Vous devez suivre des étapes de configuration spécifiques dans le système d'e
 
 4.  Ne créez pas d'espace swap sur le disque du système d'exploitation.
 
-    L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
+ 	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -482,6 +483,7 @@ Vous devez suivre des étapes de configuration spécifiques dans le système d'e
 
 7.  Cliquez sur **Shutdown** dans Hyper-V Manager.
 
+<a id="createstorage"> </a>
 Étape 2 : création d'un compte de stockage dans Azure
 -----------------------------------------------------
 
@@ -491,24 +493,25 @@ Un compte de stockage représente le plus haut niveau d'espace de noms pour l'ac
 
 2.  Dans la barre de commandes, cliquez sur **New**.
 
-    ![Créez un compte de stockage](./media/virtual-machines-linux-how-to-prepare/create.png)
+ 	![Créez un compte de stockage](./media/virtual-machines-linux-how-to-prepare/create.png)
 
 3.  Cliquez sur **Storage Account**, puis sur **Quick Create**.
 
-    ![Créer rapidement un compte de stockage](./media/virtual-machines-linux-how-to-prepare/storage-quick-create.png)
+ 	![Créer rapidement un compte de stockage](./media/virtual-machines-linux-how-to-prepare/storage-quick-create.png)
 
 4.  Remplissez les champs comme suit :
-    ![Entrer les détails du compte de stockage](./media/virtual-machines-linux-how-to-prepare/storage-create-account.png)
+ 	![Entrer les détails du compte de stockage](./media/virtual-machines-linux-how-to-prepare/storage-create-account.png)
 	-   Sous **URL**, entrez un nom de sous-domaine à utiliser dans l'URL du compte de stockage. L'entrée peut être composée de 3 à 24 lettres minuscules et chiffres. Ce nom devient le nom d'hôte contenu dans l'URL utilisée pour adresser les ressources d'objets blob, de files d'attente et de tables pour l'abonnement.
 	-   Sélectionnez l'emplacement ou le groupe d'affinités pour le compte de stockage. En indiquant un groupe d'affinités, vous pouvez localiser vos services cloud dans le même centre de données, avec votre stockage.
 	-   Indiquez si vous souhaitez utiliser la géo-réplication pour le compte de stockage. La géo-réplication est activée par défaut. Cette option permet une réplication gratuite de vos données vers un emplacement secondaire, pour que votre stockage puisse basculer vers l'emplacement secondaire en cas de panne sur l'emplacement principal. L'emplacement secondaire est attribué automatiquement. Vous ne pouvez pas le modifier. Si des obligations légales ou des stratégies organisationnelles requièrent un meilleur contrôle de l'emplacement de votre stockage sur le cloud, vous pouvez désactiver la géo-réplication. Cependant, sachez que si vous réactivez la géo-localisation ultérieurement, la réplication de vos données vers un emplacement secondaire sera facturée au tarif d'un transfert unique. Vous pouvez bénéficier d'une réduction pour les services de stockage sans géo-réplication.
 
 1.  Cliquez sur **Create Storage Account**.
 
-    Le compte apparaît à présent sous **Comptes de stockage**.
+ 	Le compte apparaît à présent sous **Comptes de stockage**.
 
-    ![Compte de stockage correctement créé](./media/virtual-machines-linux-how-to-prepare/Storagenewaccount.png)
+ 	![Compte de stockage correctement créé](./media/virtual-machines-linux-how-to-prepare/Storagenewaccount.png)
 
+<a id="#connect"> </a>
 Étape 3 : préparation de la connexion à Azure
 ---------------------------------------------
 
@@ -520,7 +523,7 @@ Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexio
 
     `Get-AzurePublishSettingsFile`
 
-    Cette commande ouvre une fenêtre de navigateur et télécharge automatiquement un fichier .publishsettings contenant des informations et un certificat pour votre abonnement Azure.
+ 	Cette commande ouvre une fenêtre de navigateur et télécharge automatiquement un fichier .publishsettings contenant des informations et un certificat pour votre abonnement Azure.
 
 3.  Enregistrez le fichier .publishsettings.
 
@@ -528,10 +531,11 @@ Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexio
 
     `Import-AzurePublishSettingsFile <PathToFile>`
 
-    Où `<PathToFile>` correspond au chemin d'accès complet vers le fichier .publishsettings.
+ 	Où `<PathToFile>` correspond au chemin d'accès complet vers le fichier .publishsettings.
 
-    Pour plus d'informations, consultez la page [Prise en main des cmdlets Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554332.aspx)
+ 	Pour plus d'informations, consultez la page [Prise en main des cmdlets Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx)
 
+<a id="upload"> </a>
 Étape 4 : téléchargement de l'image sur Azure
 ---------------------------------------------
 
@@ -543,12 +547,13 @@ Effectuez l'une des actions suivantes :
 
     `Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>`
 
-    Pour plus d'informations, consultez la page [Add-AzureVhd](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn205185.aspx).
+ 	Pour plus d'informations, consultez la page [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx).
 
 -   Utilisez l'outil en commande de ligne Linux pour télécharger l'image. La commande suivante permet de télécharger une image :
 
         Azure vm image create <image name> --location <Location of the data center> --OS Linux <Sourcepath to the vhd>
 
+<a id="nonendorsed"> </a>
 Informations concernant les distributions non validées
 ------------------------------------------------------
 
@@ -584,7 +589,7 @@ La liste ci-dessous remplace l'étape 1 de la procédure pour créer votre prop
 
 10. Ne créez pas d'espace swap sur le disque du système d'exploitation.
 
-    L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
+ 	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -601,3 +606,9 @@ La liste ci-dessous remplace l'étape 1 de la procédure pour créer votre prop
 12. Vous devez ensuite arrêter la machine virtuelle, puis poursuivre le téléchargement.
 
 
+
+[Étape 1 : préparation de l'image pour le téléchargement]: #prepimage
+[Étape 2 : création d'un compte de stockage dans Azure]: #createstorage
+[Étape 3 : préparation de la connexion à Azure]: #connect
+[Étape 4 : téléchargement de l'image sur Azure]: #upload
+[Informations concernant les distributions non validées]: #nonendorsed

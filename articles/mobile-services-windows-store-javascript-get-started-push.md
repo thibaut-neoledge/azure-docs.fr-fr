@@ -19,38 +19,42 @@ Ce didacticiel vous familiarise avec les étapes de base permettant d'activer le
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de le lancer, suivez d'abord le didacticiel [Prise en main de Mobile Services](/en-us/develop/mobile/tutorials/get-started/) ou [Prise en main des données](/en-us/develop/mobile/tutorials/get-started-with-data-js/) pour connecter votre projet au service mobile. Lorsqu'un service mobile n'est pas connecté, l’Assistant Ajouter une notification Push crée cette connexion pour vous.
 
+<a name="register"></a>
 Inscription de votre application Ajout et configuration des notifications Push dans l'application
 -------------------------------------------------------------------------------------------------
 
 [WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 <ol start="6">
-<li><p>Ouvrez le fichier de code push.register.js généré, puis contrôlez le code qui récupère l'ID d'installation et le canal de l'appareil, et insère ces données dans la nouvelle table <b>channels</b>.</p>
+<li><p>Ouvrez le fichier de code push.register.js généré, puis contrôlez le code qui récupère l'ID d'installation et le canal de l'appareil, et insère ces données dans la nouvelle table <b>channels</b>.<p>
 
-    <p>Cette table a été créée dans votre service mobile par l'Assistant Ajouter une notification d'émission. Ce code garantit qu'une tentative d'inscription de l'appareil est effectuée chaque fois que l'application est lancée.</p>
+ 	<p>Cette table a été créée dans votre service mobile par l'Assistant Ajouter une notification d'émission. Ce code garantit qu'une tentative d'inscription de l'appareil est effectuée chaque fois que l'application est lancée.</p></li>
 
 <li><p>Dans l'Explorateur de serveurs, développez <b>Azure</b>, <b>Mobile Services</b>, votre nom de service et <b>channels</b>, puis ouvrez le fichier insert.js.</p>
 
-    <p>Ce fichier, qui est stocké dans votre service mobile, contient du code JavaScript qui est exécuté lorsqu'un client envoie une demande d'inscription d'un appareil en insérant les données dans la table de canaux.</p>
+ 	<p>Ce fichier, qui est stocké dans votre service mobile, contient du code JavaScript qui est exécuté lorsqu'un client envoie une demande d'inscription d'un appareil en insérant les données dans la table de canaux.</p>
 
 <div class="dev-callout"><b>Remarque</b>
 
-    <p>La version initiale de ce fichier contient du code qui vérifie si l'appareil en question est déjà inscrit. Elle inclut une autre portion du code qui envoie une notification Push lorsqu'une nouvelle inscription est ajoutée à la table de canaux. Le code qui envoie une notification Push peut être inclus dans tout fichier script inscrit. L'emplacement de ce script dépend du mode de déclenchement de la notification. Les scripts peuvent être enregistrés pour une opération sur une table de type insertion, mise à jour, suppression ou lecture (tâche planifiée ou API personnalisée). Pour plus d'informations, consultez la page <a href="http://go.microsoft.com/fwlink/p/?LinkID=287178">Utilisation des scripts serveur dans Mobile Services</a>.</p>
+ 	<p>La version initiale de ce fichier contient du code qui vérifie si l'appareil en question est déjà inscrit. Elle inclut une autre portion du code qui envoie une notification Push lorsqu'une nouvelle inscription est ajoutée à la table de canaux. Le code qui envoie une notification Push peut être inclus dans tout fichier script inscrit. L'emplacement de ce script dépend du mode de déclenchement de la notification. Les scripts peuvent être enregistrés pour une opération sur une table de type insertion, mise à jour, suppression ou lecture (tâche planifiée ou API personnalisée). Pour plus d'informations, consultez la page <a href="http://go.microsoft.com/fwlink/p/?LinkID=287178">Utilisation des scripts serveur dans Mobile Services</a>.</p>
 </div>
 </li>
-<li><p>Appuyez sur la touche F5 pour exécuter l'application et vérifiez que vous recevez immédiatement une notification du service mobile.<p>
 
-    <p>Cette notification, générée par l'insertion d'une ligne dans la nouvelle table de canaux, correspond à l'inscription de l'appareil.</p>
+<li><p>Appuyez sur la touche F5 pour exécuter l'application et vérifiez que vous recevez immédiatement une notification du service mobile.</p>
+
+ 	<p>Cette notification, générée par l'insertion d'une ligne dans la nouvelle table de canaux, correspond à l'inscription de l'appareil.</p>
 </li>
 </ol>
 
 Le code généré permet de démontrer facilement l'émission d'une notification lorsque l'application est exécutée. En pratique, ce scénario n'est généralement pas significatif. Vous supprimez ensuite le code de notification de la table de canaux et le remplacez, sous une forme modifiée, dans la table TodoItem.
 
+<a name="update-scripts"></a>
 Mise à jour du code Mise à jour du code de notification Push généré
 -------------------------------------------------------------------
 
 [WACOM.INCLUDE [mobile-services-create-new-push-vs2013-2](../includes/mobile-services-create-new-push-vs2013-2.md)]
 
+<a name="test"></a>
 Test de l'applicationTest des notifications Push dans l'application
 -------------------------------------------------------------------
 
@@ -58,12 +62,13 @@ Test de l'applicationTest des notifications Push dans l'application
 
 2.  Dans l'application, tapez du texte dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
 
-      ![](./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push1.png)
+   	![](./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push1.png)
 
-      Notez qu'une fois l'insertion terminée, l'application reçoit une notification Push de WNS.
+   	Notez qu'une fois l'insertion terminée, l'application reçoit une notification Push de WNS.
 
-      ![](./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push2.png)
+   	![](./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push2.png)
 
+<a name="next-steps"> </a>
 Étapes suivantes
 ----------------
 

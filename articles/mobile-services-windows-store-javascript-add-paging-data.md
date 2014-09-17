@@ -4,8 +4,8 @@ Affinage des requêtes Mobile Services au moyen de la pagination
 ===============================================================
 
 > [AZURE.SELECTOR-LIST (Platform | Backend )] 
-- [(Windows Store C\# | .NET)](mobile-services-dotnet-backend-windows-store-dotnet-add-paging-data.md) 
-- [(Windows Store C\# | JavaScript)](mobile-services-windows-store-dotnet-add-paging-data.md) 
+- [(Windows Store C# | .NET)](mobile-services-dotnet-backend-windows-store-dotnet-add-paging-data.md) 
+- [(Windows Store C# | JavaScript)](mobile-services-windows-store-dotnet-add-paging-data.md) 
 - [(Windows Store JavaScript | .NET)](mobile-services-dotnet-backend-windows-store-javascript-add-paging-data.md) 
 - [(Windows Store JavaScript | JavaScript)](mobile-services-windows-store-javascript-add-paging-data.md) 
 - [(Windows Phone | .NET)](mobile-services-dotnet-backend-windows-phone-add-paging-data) 
@@ -24,6 +24,7 @@ Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés
 
 [WACOM.INCLUDE [mobile-services-javascript-paging](../includes/mobile-services-javascript-paging.md)]
 
+<a name="next-steps"> </a>
 Étapes suivantes
 ----------------
 

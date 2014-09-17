@@ -27,16 +27,19 @@ Sommaire
 
 [WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
+<a id="create-a-windows-azure-storage-account"></a>
 Création d'un compte Azure Storage
 ----------------------------------
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
+<a id="create-a-ruby-application"></a>
 Création d'une application Ruby
 -------------------------------
 
 Créez une application Ruby. Pour obtenir des instructions, consultez le guide [Création d'une application Ruby sur Azure](/en-us/develop/ruby/tutorials/web-app-with-linux-vm/).
 
+<a id="configure-your-application-to-access-storage"></a>
 Configuration de votre application pour accéder au stockage
 -----------------------------------------------------------
 
@@ -54,6 +57,7 @@ Pour utiliser Azure Storage, vous devez télécharger et utiliser le package Azu
 
     require "azure"
 
+<a id="setup-a-windows-azure-storage-connection"></a>
 Configuration d'une connexion Azure Storage
 -------------------------------------------
 
@@ -72,6 +76,7 @@ Pour obtenir ces valeurs :
 
 4.  Dans la boîte de dialogue contextuelle, vous voyez le nom du compte de stockage et la clé d'accès primaire ou secondaire. Vous pouvez utiliser soit la clé d'accès primaire, soit la clé d'accès secondaire.
 
+<a id="how-to-create-a-table"></a>
 Création d'une table
 --------------------
 
@@ -84,6 +89,7 @@ L'objet **Azure::TableService** permet d'utiliser des tables et des entités. Po
       puts $!
     end
 
+<a id="how-to-add-an-entity-to-a-table"></a>
 Ajout d'une entité à une table
 ------------------------------
 
@@ -93,6 +99,7 @@ Pour ajouter une entité, créez tout d'abord un objet de hachage qui définit l
       :PartitionKey => "test-partition-key", :RowKey => "1" }
     azure_table_service.insert_entity("testtable", entity)
 
+<a id="how-to-update-an-entity"></a>
 Mise à jour d'une entité
 ------------------------
 
@@ -111,6 +118,7 @@ L'exemple suivant illustre la mise à jour d'une entité avec **update\_entity()
 
 Avec **update\_entity()** et **merge\_entity()**, si l'entité mise à jour n'existe pas, l'opération échoue. Si vous voulez stocker une entité, qu'elle existe déjà ou non, utilisez plutôt **insert\_or\_replace\_entity()** ou **insert\_or\_merge\_entity()**.
 
+<a id="how-to-work-with-groups-of-entities"></a>
 Utilisation des groupes d'entités
 ---------------------------------
 
@@ -124,6 +132,7 @@ Il est parfois intéressant de soumettre un lot d'opérations simultanément pou
     end
     results = azure_table_service.execute_batch(batch)
 
+<a id="how-to-query-for-an-entity"></a>
 Interrogation d'une entité
 --------------------------
 
@@ -132,6 +141,7 @@ Pour interroger une entité dans une table, utilisez la méthode **get\_entity()
     result = azure_table_service.get_entity("testtable", "test-partition-key", 
       "1")
 
+<a id="how-to-query-a-set-of-entities"></a>
 Interrogation d'un ensemble d'entités
 -------------------------------------
 
@@ -142,6 +152,7 @@ Pour interroger un ensemble d'entités dans une table, créez un objet de hachag
 
 **Notez** que si l'ensemble de résultats est trop grand pour être renvoyé par une seule requête, un jeton de liaison sera renvoyé. Vous pourrez l'utiliser pour récupérer les pages suivantes.
 
+<a id="how-to-query-a-subset-of-entity-properties"></a>
 Interrogation d'un sous-ensemble de propriétés d'entité
 -------------------------------------------------------
 
@@ -151,6 +162,7 @@ Vous pouvez utiliser une requête de table pour extraire uniquement quelques pro
       :select => ["content"] }
     result, token = azure_table_service.query_entities("testtable", query)
 
+<a id="how-to-delete-an-entity"></a>
 Suppression d'une entité
 ------------------------
 
@@ -158,6 +170,7 @@ Pour supprimer une entité, utilisez la méthode **delete\_entity()**. Vous deve
 
      azure_table_service.delete_entity("testtable", "test-partition-key", "1")
 
+<a id="how-to-delete-a-table"></a>
 Suppression d'une table
 -----------------------
 
@@ -165,12 +178,13 @@ Pour supprimer une table, utilisez la méthode **delete\_table()** et transmette
 
      azure_table_service.delete_table("testtable")
 
+<a id="next-steps"></a>
 Étapes suivantes
 ----------------
 
 Maintenant que vous avez appris les bases du stockage de tables, suivez ces liens pour apprendre des tâches de stockage plus complexes.
 
--   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx)
+-   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
 -   Consultez le [blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 -   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub.
 

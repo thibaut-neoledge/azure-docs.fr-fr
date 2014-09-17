@@ -5,7 +5,7 @@ Création d'un réseau virtuel pour une connectivité entre différents locaux d
 
 Ce didacticiel vous guide lors de la création d'un réseau virtuel entre différents locaux. Vous allez y créer une connexion de site à site. Si vous voulez créer un VPN pointant vers un site en utilisant des certificats et un client VPN, consultez la page [Configuration d'un VPN pointant vers un site dans le portail de gestion](http://go.microsoft.com/fwlink/?LinkId=296653).
 
-Ce didacticiel part du principe que vous n'avez pas d'expérience en tant qu'utilisateur d'Azure. Il a pour but de vous familiariser avec la procédure requise pour créer un réseau virtuel de site à site. Si vous recherchez des scénarios de conception et des informations supplémentaires sur Virtual Network, consultez l'article [Présentation d'Azure Virtual Network](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156007.aspx).
+Ce didacticiel part du principe que vous n'avez pas d'expérience en tant qu'utilisateur d'Azure. Il a pour but de vous familiariser avec la procédure requise pour créer un réseau virtuel de site à site. Si vous recherchez des scénarios de conception et des informations supplémentaires sur Virtual Network, consultez l'article [Présentation d'Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx).
 
 Une fois ce didacticiel terminé, vous disposerez d'un réseau virtuel sur lequel vous pouvez déployer vos services et machines virtuelles Azure, qui peuvent ensuite communiquer directement avec le réseau de votre société.
 
@@ -15,7 +15,7 @@ Pour plus d'informations sur l'ajout d'une machine virtuelle et l'extension loca
 
 -   [Installation d'un contrôleur de domaine Active Directory de réplication dans Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=299877)
 
-Pour obtenir des instructions sur le déploiement des services de domaine Active Directory (AD DS) dans Azure Virtual Machines, consultez la page [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156090.aspx).
+Pour obtenir des instructions sur le déploiement des services de domaine Active Directory (AD DS) dans Azure Virtual Machines, consultez la page [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
 
 Pour plus d'informations sur les paramètres et procédures de configuration de Virtual Network, consultez la page [Tâches de configuration d'Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=296652).
 
@@ -65,7 +65,7 @@ Création d'un réseau virtuel
 
 2.  Dans le coin inférieur gauche de l'écran, cliquez sur **Nouveau**. Dans le volet de navigation, cliquez sur **Réseaux**, puis sur **Virtual Network**. Cliquez sur **Custom Create** pour démarrer l'Assistant Configuration.
 
-    ![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_01_OpenVirtualNetworkWizard.png)
+ 	[](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_01_OpenVirtualNetworkWizard.png)
 
 3.  Sur la page **Détails du réseau virtuel**, entrez les informations suivantes, puis cliquez sur la flèche Suivant située dans le coin inférieur droit. Pour plus d'informations sur les paramètres de la page des détails, consultez la section **Détails du réseau virtuel** sur la page [?À propos de la configuration d'un réseau virtuel à l'aide du portail de gestion](http://go.microsoft.com/fwlink/?LinkID=248092).
 	-   **NOM :** nommez votre réseau virtuel. Tapez *YourVirtualNetwork*.
@@ -73,27 +73,28 @@ Création d'un réseau virtuel
 	-   **RÉGION :** dans la liste déroulante, sélectionnez la région de votre choix. Votre réseau virtuel sera créé dans un centre de données situé dans la région indiquée.
 	-   **NOM DU GROUPE D’AFFINITÉS :** nommez le nouveau groupe d'affinités. Tapez *YourAffinityGroup*.
 
-    ![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_02_VirtualNetworkDetails.png)
+ 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_02_VirtualNetworkDetails.png)
 
 4.  Sur la page **Serveurs DNS et connectivité VPN**, entrez les informations suivantes, puis cliquez sur la flèche Suivant située dans le coin inférieur droit.
 
-    **Remarque**
+	<div class="dev-callout"><b>Remarque</b>
 
-    Sur cette page, vous pouvez sélectionner simultanément les configurations \*\*Pointer vers un site\*\* et \*\*Site à site\*\*. Dans le cadre de ce didacticiel, seule la configuration \*\*Site à site\*\* est sélectionnée. Pour plus d'informations sur la configuration de cette page, consultez la section \*\*Serveurs DNS et connectivité VPN\*\* dans [À propos de la configuration d'un réseau virtuel à l'aide du portail de gestion](http://go.microsoft.com/fwlink/?LinkID=248092).
+    <p>Sur cette page, vous pouvez sélectionner simultanément les configurations **Pointer vers un site* et **Site à site**. Dans le cadre de ce didacticiel, seule la configuration **Site à site** est sélectionnée. Pour plus d'informations sur la configuration de cette page, consultez la section **Serveurs DNS et connectivité VPN** dans <a href="http://go.microsoft.com/fwlink/?LinkID=248092">À propos de la configuration d'un réseau virtuel à l'aide du portail de gestion</a>.</p>
+	</div>
 	-   **SERVEURS DNS :** entrez le nom du serveur DNS et l'adresse IP à utiliser pour la résolution de noms. Généralement, il s'agit d'un serveur DNS que vous utilisez pour la résolution de noms locale. Ce paramètre n'entraîne pas la création de serveur DNS. Tapez *YourDNS* pour le nom et *10.1.0.4* pour l'adresse IP.
 	-   **Configure Point-To-Site VPN :** laissez ce champ vide.
 	-   **Configure Site-To-Site VPN :** activez la case à cocher.
 	-   **RÉSEAU LOCAL :** dans la liste déroulante, sélectionnez **Specify a New Local Network**.
 
-    ![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_03_DNSServersandVPNConnectivity.png)
+ 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_03_DNSServersandVPNConnectivity.png)
 
 5.  Sur la page **Connectivité de site à site**, entrez les informations suivantes, puis cliquez sur la coche située dans le coin inférieur droit de la page. Pour plus d'informations sur les paramètres de cette page, consultez la section **Connectivité de site à site** sur la page [À propos de la configuration d'un réseau virtuel à l'aide du portail de gestion](http://go.microsoft.com/fwlink/?LinkID=248092).
 	-   **NOM :** entrez *YourCorpHQ*.
-	-   **ADRESSE IP DE PÉRIPHÉRIQUE VPN :** entrez l'adresse IP publique de votre périphérique VPN. Si vous n'avez pas cette information, vous devrez l'obtenir avant de passer aux étapes suivantes de l'Assistant. Notez que votre périphérique VPN ne peut pas être situé derrière un NAT. Pour plus d'informations sur les périphériques VPN, consultez la page [À propos des périphériques VPN pour Virtual Network](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156075.aspx).
+	-   **ADRESSE IP DE PÉRIPHÉRIQUE VPN :** entrez l'adresse IP publique de votre périphérique VPN. Si vous n'avez pas cette information, vous devrez l'obtenir avant de passer aux étapes suivantes de l'Assistant. Notez que votre périphérique VPN ne peut pas être situé derrière un NAT. Pour plus d'informations sur les périphériques VPN, consultez la page [À propos des périphériques VPN pour Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156075.aspx).
 	-   **ESPACE D'ADRESSAGE :** entrez *10.1.0.0/16*.
 	-   **Ajouter un espace d'adressage :** ce didacticiel ne requiert pas d'espace d'adressage supplémentaire.
 
-    ![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_04_SitetoSite.png)
+ 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_04_SitetoSite.png)
 
 6.  Sur la page **Virtual Network Address Spaces**, entrez les informations ci-dessous, puis cliquez sur la case à cocher située dans le coin inférieur droit pour configurer votre réseau.
 
@@ -108,11 +109,11 @@ Création d'un réseau virtuel
 		-   **Ajoutez un sous-réseau de passerelle** avec l'IP de démarrage *10.4.1.0/24*.
 		-   **Vérifiez** que vous avez bien créé ces trois sous-réseaux ainsi qu'un sous-réseau de passerelle, puis cliquez sur la coche située dans le coin inférieur droit pour créer votre réseau virtuel.
 
-    ![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_05_VirtualNetworkAddressSpaces.png)
+ 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_05_VirtualNetworkAddressSpaces.png)
 
 7.  La création de votre réseau virtuel commence une fois que vous avez cliqué sur cette coche. Après la création de votre réseau virtuel, le statut Créé apparaît sous Statut sur la page des réseaux dans le portail de gestion.
 
-    ![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_06_VirtualNetworkCreatedStatus.png)
+ 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_06_VirtualNetworkCreatedStatus.png)
 
 Démarrage de la passerelle
 --------------------------
@@ -123,40 +124,40 @@ Une fois votre réseau Azure Virtual Network créé, procédez comme suit pour c
 
 1.  Après la création de votre réseau virtuel, la page **réseaux** affiche le statut **Créé** pour votre réseau virtuel.
 
-    Dans la colonne **NOM**, cliquez sur **YourVirtualNetwork** pour ouvrir le tableau de bord.
+ 	Dans la colonne **NOM**, cliquez sur **YourVirtualNetwork** pour ouvrir le tableau de bord.
 
-    ![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_07_ClickYourVirtualNetwork.png)
+ 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_07_ClickYourVirtualNetwork.png)
 
 2.  Cliquez sur **TABLEAU DE BORD** en haut de la page. En bas de la page Tableau de bord, cliquez sur **CREATE GATEWAY**. Sélectionnez **Dynamic Routing** ou **Static Routing** pour le type de passerelle que vous voulez créer.
 
-    Notez que si vous voulez utiliser ce réseau virtuel pour les connexions de pointage vers un site en plus des connexions de site à site, vous devez sélectionner le type de passerelle Dynamic Routing. Avant de créer la passerelle, vérifiez que votre périphérique VPN prend en charge le type de passerelle que vous voulez créer. Consultez la page [À propos des périphériques VPN pour Virtual Network](http://go.microsoft.com/fwlink/?LinkID=248098). Lorsque le système vous demande de confirmer la création de la passerelle, cliquez sur **OUI**.
+ 	Notez que si vous voulez utiliser ce réseau virtuel pour les connexions de pointage vers un site en plus des connexions de site à site, vous devez sélectionner le type de passerelle Dynamic Routing. Avant de créer la passerelle, vérifiez que votre périphérique VPN prend en charge le type de passerelle que vous voulez créer. Consultez la page [À propos des périphériques VPN pour Virtual Network](http://go.microsoft.com/fwlink/?LinkID=248098). Lorsque le système vous demande de confirmer la création de la passerelle, cliquez sur **OUI**.
 
-    ![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_08_CreateGateway.png)
+ 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_08_CreateGateway.png)
 
 3.  Lorsque la création de la passerelle démarre, un message s'affiche pour vous indiquer le démarrage de la passerelle.
 
-    La création de la passerelle peut durer jusqu'à 15 minutes.
+ 	La création de la passerelle peut durer jusqu'à 15 minutes.
 
 4.  Une fois la passerelle créée, vous devez collecter les informations suivantes, car elles seront utilisées pour configurer le périphérique VPN.
 	-   Adresse IP de la passerelle
 	-   Clé partagée
 	-   Modèle de script de configuration de périphérique VPN
 
-    Les étapes suivantes vont vous guider dans la suite de cette procédure.
+ 	Les étapes suivantes vont vous guider dans la suite de cette procédure.
 
 5.  Localisation de l'adresse IP de la passerelle : cette adresse est située sur la page **TABLEAU DE BORD** du réseau virtuel.
 
-    ![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_09_GatewayIP.png)
+ 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_09_GatewayIP.png)
 
 6.  Acquisition de la clé partagée : elle se trouve sur la page **TABLEAU DE BORD** du réseau virtuel. En bas de l'écran, cliquez sur Gérer la clé, puis copiez la clé affichée dans la boîte de dialogue.
 
-    ![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_10_ManageSharedKey.png)
+ 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_10_ManageSharedKey.png)
 
 3.  Téléchargement du modèle de script de configuration de périphérique VPN : sur le tableau de bord, cliquez sur **Download VPN Device Script**.
 
 4.  Dans la boîte de dialogue **Download a VPN Device Configuration Script**, sélectionnez le fournisseur, la plateforme et le système d'exploitation du périphérique VPN de votre société. Cliquez sur la coche, puis enregistrez le fichier.
 
-    ![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_11_DownloadVPNDeviceScript.png)
+ 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_11_DownloadVPNDeviceScript.png)
 
 Si votre périphérique VPN n'apparaît pas dans la liste déroulante, consultez la page [À propos des périphériques VPN pour Virtual Network](http://go.microsoft.com/fwlink/?LinkID=248098) de la bibliothèque MSDN pour obtenir des modèles de script supplémentaires.
 
@@ -229,15 +230,15 @@ Si vous voulez exporter les paramètres de votre réseau virtuel dans un fichier
 Voir aussi
 ----------
 
--   [Azure Virtual Network](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156007.aspx)
+-   [Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
 
 -   [FAQ Virtual Network](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
 
--   [Configuration d'un réseau virtuel à l'aide de fichiers de configuration de réseau](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156097.aspx)
+-   [Configuration d'un réseau virtuel à l'aide de fichiers de configuration de réseau](http://msdn.microsoft.com/en-us/library/windowsazure/jj156097.aspx)
 
--   [Ajout d'une machine virtuelle à un réseau virtuel](http://www.windowsazure.com/fr-fr/manage/services/networking/add-a-vm-to-a-virtual-network/)
+-   [Ajout d'une machine virtuelle à un réseau virtuel](http://www.windowsazure.com/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/)
 
--   [À propos des périphériques VPN pour Virtual Network](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156075.aspx)
+-   [À propos des périphériques VPN pour Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156075.aspx)
 
 -   [Présentation de la résolution de noms Azure](http://go.microsoft.com/fwlink/?LinkId=248097)
 

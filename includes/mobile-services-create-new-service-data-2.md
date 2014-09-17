@@ -4,16 +4,16 @@ Pour pouvoir stocker des données d'application dans le nouveau service mobile, 
 
 2.  Cliquez sur l'onglet **Data**, puis sur **+Create**.
     
-       ![mobile-data-tab-empty](./media/mobile-services-create-new-service-data-2/mobile-data-tab-empty.png)
+   	![mobile-data-tab-empty](./media/mobile-services-create-new-service-data-2/mobile-data-tab-empty.png)
         
-       La boîte de dialogue **Create new table** s’affiche.
+   	La boîte de dialogue **Create new table** s’affiche.
 
 3.  Dans **Table name**, saisissez *TodoItem*, puis cliquez sur le
     bouton de vérification.
 
-	![mobile-create-todoitem-table](./media/mobile-services-create-new-service-data-2/mobile-create-todoitem-table.png) 
+ 	![mobile-create-todoitem-table](./media/mobile-services-create-new-service-data-2/mobile-create-todoitem-table.png) 
 
-	Une nouvelle table de stockage **TodoItem** est créée avec les autorisations par défaut. Cela signifie que quiconque possédant la clé de l'application, qui est distribuée avec l'application, peut accéder aux données de la table et les modifier.
+  Une nouvelle table de stockage **TodoItem** est créée avec les autorisations par défaut. Cela signifie que quiconque possédant la clé de l'application, qui est distribuée avec l'application, peut accéder aux données de la table et les modifier.
 
 > [WACOM.NOTE] 
 > Le même nom de table est utilisé dans le démarrage rapide avec Mobile Services. Toutefois, chaque table est créée dans un schéma spécifique pour un service mobile donné. Cela vise à éviter les collisions de données lorsque plusieurs services mobiles utilisent la même base de données.
@@ -74,9 +74,9 @@ Pour pouvoir stocker des données d'application dans le nouveau service mobile, 
 
  	Cela correspond à la configuration minimale requise pour une table dans Mobile Services.	  
  
-	<div class="dev-callout"><b>Note</b>
-	<p>Lorsque le schéma dynamique est activé sur votre service mobile, de nouvelles colonnes sont créées automatiquement lorsque des objets JSON sont envoyés au service mobile par une opération d’insertion ou de mise à jour.</p>
-	</div>
+ 	<div class="dev-callout"><b>Note</b>
+ 	<p>Lorsque le schéma dynamique est activé sur votre service mobile, de nouvelles colonnes sont créées automatiquement lorsque des objets JSON sont envoyés au service mobile par une opération d’insertion ou de mise à jour.</p>
+ 	</div>
 
 
 Vous pouvez maintenant utiliser le nouveau service mobile en tant que stockage des données pour l'application.
