@@ -64,5 +64,6 @@
 [8]: ./media/mobile-services-register-windows-store-app/mobile-push-tab.png
 
 <!-- URLs. -->
-[1]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[2]: https://manage.windowsazure.com/
+[Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started/#create-new-service
+[Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[portail de gestion Azure]: https://manage.windowsazure.com/
