@@ -12,11 +12,11 @@
 
 4.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet, cliquez sur **Store**, puis sur **Associer l'application au Windows Store...**.
 
-   	![][2]
+ 	![](./media/mobile-services-register-windows-store-app/mobile-services-store-association.png)
 
  	L’Assistant **Associer votre application au Windows Store** s’affiche. 
 
-1.  Dans l'Assistant, cliquez sur **Se connecter**, puis connectez-vous avec votre compte Microsoft.
+5.  Dans l'Assistant, cliquez sur **Se connecter**, puis connectez-vous avec votre compte Microsoft.
 
 2.  Sélectionnez l'application inscrite à l'étape 2, cliquez sur **Suivant**, puis sur **Associer**.
     
@@ -42,11 +42,11 @@
 
 6.  Connectez-vous au [portail de gestion Azure][2], cliquez sur **Mobile Services**, puis sur l'application.
   
-   	![][7]
+ 	![](./media/mobile-services-register-windows-store-app/mobile-services-selection.png)
 
 11.  Cliquez sur l'onglet **Push**, entrez les valeurs **Clé secrète client** et **SID du package** obtenues à partir de WNS à l'étape 4, puis cliquez sur **Enregistrer**.
 
-   	![][8]
+![](./media/mobile-services-register-windows-store-app/mobile-push-tab.png) 
  
 
 
@@ -55,15 +55,13 @@
 <!-- Images. -->
 [0]: ./media/mobile-services-register-windows-store-app/mobile-services-submit-win8-app.png
 [1]: ./media/mobile-services-register-windows-store-app/mobile-services-win8-app-name.png
-[2]: ./media/mobile-services-register-windows-store-app/mobile-services-store-association.png
 [3]: ./media/mobile-services-register-windows-store-app/mobile-services-select-app-name.png
 [4]: ./media/mobile-services-register-windows-store-app/mobile-services-win8-edit-app.png
-[5]: ./media/mobile-services-register-windows-store-app/mobile-services-win8-edit2-app.png
 [6]: ./media/mobile-services-register-windows-store-app/mobile-services-win8-app-push-auth.png
-[7]: ./media/mobile-services-register-windows-store-app/mobile-services-selection.png
-[8]: ./media/mobile-services-register-windows-store-app/mobile-push-tab.png
 
 <!-- URLs. -->
-[Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started/#create-new-service
-[Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[portail de gestion Azure]: https://manage.windowsazure.com/
+
+
+
+[1]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[2]: https://manage.windowsazure.com/
