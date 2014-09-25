@@ -6,14 +6,13 @@
     
    	![][1]
         
-   	La nouvelle inscription au Windows Store pour votre application est créée.
+	La nouvelle inscription au Windows Store pour votre application est créée.
 
 3.  Dans Visual Studio 2012 Express pour Windows 8, ouvrez le projet que vous avez créé avec le didacticiel [Prise en main de Mobile Services](/en-us/develop/mobile/tutorials/get-started/#create-new-service).
 
-4.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet, cliquez sur **Store**, puis sur **Associer l'application au
-    Windows Store...**.
+4.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet, cliquez sur **Store**, puis sur **Associer l'application au Windows Store...**.
 
- 	![][2]
+   	![][2]
 
  	L’Assistant **Associer votre application au Windows Store** s’affiche. 
 
@@ -23,7 +22,7 @@
     
    	![][3]
         
-   	Cela ajoute les informations d’inscription Windows Store requises au manifeste de l’application.    
+     Cela ajoute les informations d’inscription Windows Store requises au manifeste de l’application.    
 
 3.  De retour sur la page du centre de développement Windows pour la nouvelle application, cliquez sur **Services**.
     
@@ -43,7 +42,7 @@
 
 6.  Connectez-vous au [portail de gestion Azure][2], cliquez sur **Mobile Services**, puis sur l'application.
   
- 	![][7]
+   	![][7]
 
 11.  Cliquez sur l'onglet **Push**, entrez les valeurs **Clé secrète client** et **SID du package** obtenues à partir de WNS à l'étape 4, puis cliquez sur **Enregistrer**.
 
