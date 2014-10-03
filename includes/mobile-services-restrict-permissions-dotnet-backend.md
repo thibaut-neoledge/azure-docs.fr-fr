@@ -1,5 +1,3 @@
-
-
 Par défaut, toutes les requêtes adressées aux ressources du service mobile sont réservées aux clients qui présentent la clé de l'application, ce qui n'offre pas de sécurisation stricte de l'accès aux ressources. Pour sécuriser vos ressources, vous devez limiter l'accès aux clients authentifiés.
 
 1.  Dans Visual Studio, ouvrez le projet qui contient votre service mobile.
@@ -20,7 +18,7 @@ Par défaut, toutes les requêtes adressées aux ressources du service mobile so
 
     > [WACOM.NOTE] Appliquez l'attribut AuthorizeLevel aux méthodes individuelles pour définir des niveaux d'autorisation spécifiques sur les méthodes exposées par le contrôleur.
 
-5.  Développez le dossier App\_Start, ouvrez le fichier projet WebApiConfig.cs, puis ajoutez le code suivant à la méthode **Register** :
+5.  Si vous souhaitez déboguer l'authentification localement, développez le dossier App\_Start, ouvrez le fichier projet WebApiConfig.cs, puis ajoutez le code suivant à la méthode **Register** :
 
         config.SetIsHosted(true);
 

@@ -1,88 +1,67 @@
 <properties linkid="develop-mobile-tutorials-get-started-sencha" urlDisplayName="Get Started" pageTitle="Get Started with Azure Mobile Services and Sencha" metaKeywords="" description="Follow this tutorial to get started developing with Mobile Services and the Sencha HTML5 mobile app framework. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="" documentationCenter="Mobile" title="Get started with Mobile Services and Sencha Touch" authors="sencha" solutions="" manager="" editor="" />
 
-<a name="getting-started"> </a>
-Prise en main de Mobile Services et de Sencha Touch
-===================================================
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-sencha" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sencha"></tags>
 
-<div class="dev-center-tutorial-selector sublanding">
-	<a href="/en-us/documentation/articles/mobile-services-windows-store-get-started" title="Windows Store">Windows Store</a>
-	<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started" title="Windows Phone">Windows Phone</a>
-	<a href="/en-us/documentation/articles/mobile-services-ios-get-started" title="iOS">iOS</a>
-	<a href="/en-us/documentation/articles/mobile-services-android-get-started" title="Android">Android</a>
-	<a href="/en-us/documentation/articles/mobile-services-html-get-started" title="HTML">HTML</a>
-	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a>
-	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a>
-	<a href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha" class="current">Sencha</a>
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/" title="PhoneGap">PhoneGap</a>
-</div>
+# <a name="getting-started"> </a>Prise en main de Mobile Services et de Sencha Touch
 
-<!--<div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/partner-sencha-mobile-services-dotnet-backend-get-started/" title=".NET backend">.NET backend</a> | 
-	<a href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/"  title="JavaScript backend" class="current">JavaScript backend</a>
-</div>-->
+[WACOM.INCLUDE [mobile-services-selector-get-started][]]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-
-<p>Ce didacticiel vous montre comment exploiter Azure Mobile Services dans votre application Sencha Touch. À l'aide de Sencha Touch, vous allez créer une simple application To Do List qui utilise un service mobile que vous allez définir dans le portail de gestion. Ce didacticiel s'adresse aux développeurs d'applications Web de niveau intermédiaire ou avancé qui ont une bonne compréhension de JavaScript et sont familiarisés avec l'infrastructure Sencha Touch.</p>
-
-<p>Si vous préférez regarder une vidéo, le clip sur la droite suit la même procédure que ce didacticiel. Dans cette vidéo, Arthur Kay explique comment créer une application Sencha Touch à l'aide d'un serveur principal Azure Mobile Services.</p>
+<p>Ce didacticiel vous montre comment exploiter Azure Mobile Services dans votre application Sencha Touch. &Agrave; l'aide de Sencha Touch, vous allez cr&eacute;er une simple application To Do List qui utilise un service mobile que vous allez d&eacute;finir dans le portail de gestion. Ce didacticiel s'adresse aux d&eacute;veloppeurs d'applications Web de niveau interm&eacute;diaire ou avanc&eacute; qui ont une bonne compr&eacute;hension de JavaScript et sont familiaris&eacute;s avec l'infrastructure Sencha Touch. </p>
+<p>Si vous pr&eacute;f&eacute;rez regarder une vid&eacute;o, le clip sur la droite suit la m&ecirc;me proc&eacute;dure que ce didacticiel. Dans cette vid&eacute;o, Arthur Kay explique comment cr&eacute;er une application Sencha Touch &agrave; l'aide d'un serveur principal Azure Mobile Services.</p>
 </div>
 
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('/media/partner-sencha-mobile-services-get-started/mobile-sencha-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="dev-onpage-video"><span class="icon">[Lire la vidéo</span></a> <span class="time">14:37</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('/media/partner-sencha-mobile-services-get-started/mobile-sencha-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vid&eacute;o</span></a> <span class="time">14:37</span></div>
+
 </div>
 
 Voici une capture d'écran de l'application terminée :
 
-![](./media/partner-sencha-mobile-services-get-started/finished-app.png)
+![][]
 
-Prérequis
----------
+## Configuration requise
 
--   Téléchargez et installez [Sencha Touch](http://wwww.sencha.com/products/touch/download).
+-   Téléchargez et installez [Sencha Touch][].
 
--   Téléchargez et installez l'[outil Sencha Cmd](http://www.sencha.com/products/sencha-cmd/download).
+-   Téléchargez et installez l'[outil Sencha Cmd][].
 
 -   Java Runtime Environment (JRE) ou Java Development Kit (si vous créez des applications pour Android).
 
-<a name="create-new-service"> </a>
-Création d'un service mobile
-----------------------------
+## <a name="create-new-service"> </a>Création d'un service mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[WACOM.INCLUDE [mobile-services-create-new-service][]]
 
-Création d'une table TodoItems
-------------------------------
+## Création d'une table TodoItems
 
-Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le portail de gestion pour créer une table de base de données à utiliser dans votre service mobile.
+Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le portail de gestion pour
+créer une table de base de données à utiliser dans votre service mobile.
 
 1.  Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
 2.  Dans l'onglet de démarrage rapide, cliquez sur **HTML** sous **Choisissez une plateforme** et développez **Créer une application HTML**.
 
-    ![HTML du démarrage rapide du service mobile](./media/partner-sencha-mobile-services-get-started/mobile-portal-quickstart-html.png)
+    ![HTML du démarrage rapide du service mobile][]
 
     Ceci affiche les trois étapes pour créer et héberger une application HTML connecté à votre service mobile.
 
-    ![HTML du démarrage rapide du service mobile](./media/partner-sencha-mobile-services-get-started/mobile-quickstart-steps-html.png)
+    ![HTML du démarrage rapide du service mobile][1]
 
 3.  Cliquez sur **Create TodoItems table** pour créer une table permettant de stocker les données d'application.
 
-<div class="dev-callout">Remarque</b>
-
-    <p>Ne téléchargez PAS l'application HTML à partir du portail de gestion. Nous allons créer manuellement une application Sencha Touch dans la section suivante.</p>
-</div>
+    <div class="dev-callout"> 
+<b>Remarque</b> 
+<p>Ne t&eacute;l&eacute;chargez PAS l'application HTML &agrave; partir du portail de gestion. Nous allons cr&eacute;er manuellement une application Sencha Touch dans la section suivante.</p></div>
 
 4.  Notez les éléments **appKey** et **appUrl** dans le portail de gestion. Nous les utiliserons dans d'autres sections de ce didacticiel.
 
-    ![clé d'application](./media/partner-sencha-mobile-services-get-started/mobile-app-key-portal.png)
+    ![clé d'application][]
 
 5.  Sous l'onglet **Configurer** vérifiez que `localhost` figure déjà dans la liste **Autoriser les demandes à partir des noms d'hôte** sous **Partage des ressources cross-origin (CORS)**. Si cela n'est pas le cas, entrez `localhost` dans le champ **Nom d'hôte**, puis cliquez sur **Enregistrer**.
 
-    ![Configurer CORS pour localhost](./media/partner-sencha-mobile-services-get-started/mobile-services-set-cors-localhost.png)
+    ![Configurer CORS pour localhost][]
 
-Génération de l'application Touch
----------------------------------
+## Génération de l'application Touch
 
 La génération d'un modèle d'application Sencha Touch est une tâche simple qui fait appel à l'outil Sencha Cmd ; c'est aussi un moyen efficace pour mettre très rapidement à disposition une application.
 
@@ -92,8 +71,7 @@ La génération d'un modèle d'application Sencha Touch est une tâche simple qu
 
 Cette commande génère un modèle d'application Sencha Touch nommé « Basic ». Pour démarrer votre application, pointez simplement votre navigateur vers le répertoire /path/to/application pour faire apparaître l'exemple d'application Sencha Touch standard.
 
-Installation des extensions Sencha Touch pour Azure
----------------------------------------------------
+## Installation des extensions Sencha Touch pour Azure
 
 L'extension pour Azure s'installe manuellement ou par le biais d'un package Sencha. Le choix de la méthode vous revient entièrement.
 
@@ -103,47 +81,46 @@ Pour la plupart des applications Touch, si vous souhaitez ajouter une bibliothè
 
 Vous pouvez ajouter manuellement les extensions Azure à votre application en procédant comme suit :
 
-1.  Téléchargez le package d'extensions pour Azure en cliquant [ici](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure). Pour accéder à cet espace, vous pouvez utiliser votre ID de forums Sencha.
+1.  Téléchargez le package d'extensions pour Azure en cliquant [ici][]. Pour accéder à cet espace, vous pouvez utiliser votre ID de forums Sencha.
 
 2.  Copiez le package d'extensions pour Azure du répertoire de téléchargement vers le répertoire où vous souhaitez qu'il réside et décompressez-le :
 
-         $ cd /path/to/application
-         $ mv /download-location/azure.zip.
-		 $ unzip azure.zip
+        $ cd /path/to/application
+        $ mv /download-location/azure.zip .
+        $ unzip azure.zip  
 
     Un dossier **azure** contenant les exemples, la documentation et la source du package est créé. La source résidera dans le répertoire **azure/src**.
 
 ### Installation d'un package Sencha
 
-**Remarque**
-
-Cette méthode peut être utilisée uniquement si vous avez généré votre application à l'aide de la commande `sencha generate app`.
+<div class="dev-callout"> 
+    <b>Remarque</b> 
+    <p>Vous pouvez uniquement utiliser cette m&eacute;thode si vous avez g&eacute;n&eacute;r&eacute; votre application &agrave; l'aide de la commande <code data-inline="1">sencha generate app</code>.</p></div>
 
 Toutes les applications générées à l'aide de l'outil Sencha Cmd affichent un dossier « packages » à la racine. L'emplacement de ce dossier peut être configuré. Néanmoins, quel que soit son emplacement, le dossier « packages » a pour fonction de servir d'emplacement de stockage pour tous les packages utilisés par votre application (ou vos applications si vous avez créé un espace de travail Sencha).
 
-Ext.Azure étant un « package » de l'outil Sencha Cmd, le code source peut être facilement installé et inclus dans votre application à l'aide de Sencha Cmd. Pour plus d'informations, consultez la page [Packages de l'outil Sencha Cmd](http://docs.sencha.com/cmd/3.1.2/#!/guide/command_packages).
+Ext.Azure étant un « package » de l'outil Sencha Cmd, le code source peut être facilement installé et inclus dans votre application à l'aide de Sencha Cmd. Pour plus d'informations, consultez la page [Packages de l'outil Sencha Cmd][].
 
 Pour télécharger et installer le package d'extensions pour Azure à partir du référentiel Sencha Packages, vous devez ajouter le nom du package dans votre fichier **app.json** et créer votre application :
 
 1.  Ajoutez le package Azure à la section des prérequis de votre fichier app.json :
 
-	    {
+        {
             "name": "Basic",
-	        "requires": [
-    	        "touch-azure"
-        	]
-    	}
+            "requires": [
+                "touch-azure"
+            ]
+        }
 
 2.  Recréez votre application à l'aide de **sencha cmd** pour récupérer et installer le package :
 
-         $ sencha app build
+        $ sencha app build
 
 Les commandes **sencha app build** et **sencha app refresh** effectuent alors les étapes requises pour intégrer le package à votre application. En général, après avoir modifié les prérequis de packages, vous devez exécuter la commande **sencha app refresh** afin de mettre à jour les métadonnées requises pour prendre en charge « dev mode ».
 
 Quelle que soit la commande que vous exécutez, l'outil Sencha Cmd télécharge et développe le package dans votre dossier « packages ». Après quoi, un dossier « packages/touch-azure » apparaît dans votre espace de travail.
 
-Ajout et configuration d'Azure
-------------------------------
+## Ajout et configuration d'Azure
 
 **Nom du fichier** : app.js
 
@@ -151,23 +128,23 @@ Maintenant que l'extension Azure est téléchargée et installée dans le réper
 
 1.  Configurez le programme de chargement de Sencha en spécifiant l'emplacement du code source :
 
-         Ext.Loader.setConfig({
-                enabled : true,
-                paths   : {
-                    'Ext'       : 'touch/src',
-                    'Ext.azure' : '/path-to/azure-for-touch/azure/src'
-             }
-         });
+        Ext.Loader.setConfig({
+            enabled : true,
+            paths   : {
+                'Ext'       : 'touch/src',
+                'Ext.azure' : '/path-to/azure-for-touch/azure/src'
+            }
+        });
 
 2.  Demandez les fichiers de classe Azure :
 
-         Ext.application({
+        Ext.application({
 
-             requires: [ 'Ext.azure.Azure' ],
+            requires: [ 'Ext.azure.Azure' ],
 
-             // ...
+            // ...
 
-         });
+        });
 
 3.  Configurez Azure.
 
@@ -175,35 +152,34 @@ Maintenant que l'extension Azure est téléchargée et installée dans le réper
 
     Bien que vous puissiez transmettre l'objet de configuration directement à la méthode init, nous suggérons de créer une propriété de configuration pour l'application Sencha nommée **azure** et d'y placer toutes les informations pertinentes. Vous pourrez alors transmettre la valeur de cette propriété à la méthode Ext.Azure.init.
 
-    Lorsque vous créez un service mobile dans Azure (consultez la page [Prise en main d'Azure](http://senchaazuredocs.azurewebsites.net/#!/guide/getting_started)), une clé d'application et une URL sont associées au service. Ces informations doivent être ajoutées au package Azure afin que celui-ci puisse se connecter au service.
+    Lorsque vous créez un service mobile dans Azure (consultez la page [Prise en main d'Azure][]), une clé d'application et une URL sont associées au service. Ces informations doivent être ajoutées au package Azure afin que celui-ci puisse se connecter au service.
 
     L'exemple suivant montre une configuration et une initialisation très basiques d'Azure utilisant uniquement la clé d'application et l'URL :
 
-	    Ext.application({
-    	    name: 'Basic',
+        Ext.application({
+            name: 'Basic',
 
-        	requires: [ 'Ext.azure.Azure' ],
+            requires: [ 'Ext.azure.Azure' ],
 
-	        azure: {
-    	        appKey: 'myazureservice-access-key',
-        	    appUrl: 'myazure-service.azure-mobile.net'
-	        },
+            azure: {
+                appKey: 'myazureservice-access-key',
+                appUrl: 'myazure-service.azure-mobile.net'
+            },
 
-    	    launch: function() {
+            launch: function() {
 
-        	    // Call Azure initialization
+                // Call Azure initialization
 
-            	Ext.Azure.init(this.config.azure);
+                Ext.Azure.init(this.config.azure);
 
- 	       }
-    	});
+           }
+        });
 
     Pour plus d'informations sur les options de configuration pour Azure, consultez la documentation sur l'API Ext.Azure.
 
 Félicitations ! Votre application est maintenant en mesure d'accéder à votre service mobile.
 
-Création d'une application ToDo
--------------------------------
+## Création d'une application ToDo
 
 La configuration de votre application pour inclure l'extension Azure étant terminée et les informations d'identification du service mobile transmises, nous pouvons maintenant créer une application Touch qui utilise votre service mobile pour afficher et modifier les données de votre liste ToDo stockées dans le service.
 
@@ -222,7 +198,7 @@ Le proxy Azure va automatiquement définir tous les en-têtes HTTP avec les opé
     Ext.define('Basic.model.TodoItem', {
         extend : 'Ext.data.Model',
 
-        requires: [
+        requires : [
             'Ext.azure.Proxy'
         ],
 
@@ -232,15 +208,15 @@ Le proxy Azure va automatiquement définir tous les en-têtes HTTP avec les opé
 
             fields     : [
                 {
-                    name: 'id',
+                    name : 'id',
                     type : 'int'
                 },
                 {
-                    name: 'text',
+                    name : 'text',
                     type : 'string'
                 },
                 {
-                    name: 'complete',
+                    name : 'complete',
                     type : 'boolean'
                 }
             ],
@@ -489,7 +465,7 @@ La dernière étape consiste à associer une réponse aux activations des bouton
                 rec      = dataItem.getRecord(),
                 recVal   = rec.get('complete');
 
-            // Cette vérification est nécessaire pour éviter le problème de déclenchement de plusieurs créations à partir d'une création
+            // this check is needed to prevent an issue where multiple creates get triggered from one create
             if (newVal !== recVal) {
                 rec.set('complete', newVal);
                 rec.save({
@@ -497,7 +473,7 @@ La dernière étape consiste à associer une réponse aux activations des bouton
                         rec.commit();
                     },
                     failure: function (rec, operation) {
-                        // La mise à jour du serveur ayant échoué, rejetez silencieusement la modification
+                        // since there was a failure doing the update on the server then silently reject the change
                         rec.reject(true);
                         Ext.Msg.alert(
                             'Error',
@@ -522,7 +498,7 @@ La dernière étape consiste à associer une réponse aux activations des bouton
                                 rec.commit();
                             },
                             failure: function (rec, operation) {
-                                // La mise à jour du serveur ayant échoué, rejetez la modification
+                                // since there was a failure doing the update on the server then reject the change
                                 rec.reject();
                                 Ext.Msg.alert(
                                     'Error',
@@ -637,30 +613,27 @@ L'ultime étape consiste à terminer de modifier le fichier d'application princi
         },
 
         launch : function () {
-            // Détruisez l'élément #appLoadingIndicator
+            // Destroy the #appLoadingIndicator element
             Ext.fly('appLoadingIndicator').destroy();
 
-            // Initialisez Azure
+            // Initialize Azure
             Ext.Azure.init(this.config.azure);
 
-            // Initialisez la vue principale
+            // Initialize the main view
             Ext.Viewport.add(Ext.create('Basic.view.Main'));
         },
 
         onUpdated : function () {
             Ext.Msg.confirm(
                 "Application Update",
-                "This application has just successfully been updated to the latest version. Reload now
-        ",
+                "This application has just successfully been updated to the latest version. Reload now?",
                 function (buttonId) {
                     if (buttonId === 'yes') {
                         window.location.reload();
                     }
                 }
             );
-
-		}
-
+        }
     });
 
 ### Hébergement et exécution de votre application Sencha Touch
@@ -671,59 +644,76 @@ La dernière étape de ce didacticiel consiste à héberger et exécuter votre n
 
 2.  À l'aide de l'outil Sencha Cmd, exécutez les commandes suivantes :
 
+    -   *sencha app refresh* : cette commande indique à l'outil Sencha Cmd de localiser toutes les dépendances de l'application
+        et de télécharger tous les packages nécessaires (par exemple, [Extensions Sencha Touch pour Azure][ici]).
 
+    -   *sencha web start* : cette commande démarre un serveur Web local pour tester notre application.
 
-    * *sencha app refresh* : cette commande indique à l'outil Sencha Cmd de localiser toutes les dépendances de l'application,
-      et de télécharger les packages requis (par exemple, [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)).
+    ![sencha web start][]
 
-    * *sencha web start* : cette commande démarre un serveur Web local pour tester notre application.
+3.  Ouvrez l'URL indiquée sur votre terminal dans un navigateur web pour démarrer l'application (par exemple, <http://localhost:1841>).
 
-    ![sencha web start](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
+4.  Dans l'application, tapez un texte explicite, comme « Suivre le didacticiel », puis cliquez sur **Ajouter**.
 
-1.  Ouvrez l'URL indiquée sur votre terminal dans un navigateur Web pour démarrer l'application (par exemple http://localhost:1841).
-
-2.  Dans l'application, tapez un texte explicite, comme « Suivre le didacticiel », puis cliquez sur **Ajouter**.
-
-
-
-    ![new todo item](./media/partner-sencha-mobile-services-get-started/new-todo-item.png)
+    ![new todo item][]
 
     Ceci envoie une demande POST vers le nouveau service mobile hébergé dans Azure. Les données de la requête sont insérées dans la table TodoItem.
 
-1.  De retour dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table TodoItems.
+5.  De retour dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table TodoItems.
 
-
-
-    ![Todo Items table](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
+    ![Todo Items table][]
 
     Cela vous permet de parcourir les données insérées par l'application dans la table.
 
-    ![browse todo table](./media/partner-sencha-mobile-services-get-started/mobile-data-browse.png)
+    ![browse todo table][]
 
-Étapes suivantes
-----------------
+## Étapes suivantes
 
 Maintenant que vous avez terminé le guide de prise en main, découvrez comment effectuer d'autres tâches importantes dans Mobile Services avec Sencha.
 
-[Téléchargez](https://github.com/arthurakay/sencha-touch-azure-example) un exemple d'application complet contenant des styles et des fonctionnalités supplémentaires pour découvrir de quoi Sencha Touch est capable !
+[Téléchargez][] un exemple d'application complet contenant des styles et des fonctionnalités supplémentaires pour découvrir de quoi Sencha Touch est capable !
 
 Pour plus d'informations sur les extensions Sencha Touch pour Azure :
 
--   [Procédure pas à pas](http://docs.sencha.com/touch-azure/1.0.0/#!/guide/data_filters) sur un modèle d'application
--   Aide des [Forums Sencha](http://www.sencha.com/forum)
--   [Documentation Sencha](http://docs.sencha.com/)
--   Utilisation de Sencha avec Azure Mobile Services : [(Vidéo)](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-126-Using-Sencha-With-Windows-Azure-Mobile-Services)
+-   [Procédure pas à pas][] sur un modèle d'application
+-   Aide des [Forums Sencha][]
+-   [Documentation Sencha][]
+-   Utilisation de Sencha avec Azure Mobile Services : [(Vidéo)][]
 
-Ressources supplémentaires
---------------------------
+## Ressources supplémentaires
 
--   [Téléchargez Sencha Touch](http://pages.sencha.com/touch-for-azure.html)
--   [Extensions Sencha Touch pour Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)
+-   [Téléchargez Sencha Touch][]
+-   [Extensions Sencha Touch pour Azure][ici]
 
-Résumé
-------
+## Résumé
 
 L'exemple présenté ici est inclus dans le package d'extensions Sencha Touch pour Azure et se trouve dans le répertoire d'exemples, tout comme l'exemple de données de base. D'autres exemples sont disponibles dans lesquels sont expliquées et commentées en détail d'autres fonctionnalités de cette extension.
 
-Pour plus d'informations sur la prise en main de Sencha Touch, consultez l'ensemble des [guides](http://docs.sencha.com/touch/#!/guide)
+Pour plus d'informations sur la prise en main de Sencha Touch, consultez l'ensemble des [guides][]
 
+<!-- images -->
+
+  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
+  [regarder le didacticiel]: http://go.microsoft.com/fwlink/?LinkId=392574
+  []: ./media/partner-sencha-mobile-services-get-started/finished-app.png
+  [Sencha Touch]: http://wwww.sencha.com/products/touch/download
+  [outil Sencha Cmd]: http://www.sencha.com/products/sencha-cmd/download
+  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
+  [HTML du démarrage rapide du service mobile]: ./media/partner-sencha-mobile-services-get-started/mobile-portal-quickstart-html.png
+  [1]: ./media/partner-sencha-mobile-services-get-started/mobile-quickstart-steps-html.png
+  [clé d'application]: ./media/partner-sencha-mobile-services-get-started/mobile-app-key-portal.png
+  [Configurer CORS pour localhost]: ./media/partner-sencha-mobile-services-get-started/mobile-services-set-cors-localhost.png
+  [ici]: https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure
+  [Packages de l'outil Sencha Cmd]: http://docs.sencha.com/cmd/3.1.2/#!/guide/command_packages
+  [Prise en main d'Azure]: http://senchaazuredocs.azurewebsites.net/#!/guide/getting_started
+  [sencha web start]: ./media/partner-sencha-mobile-services-get-started/sencha-web-start.png
+  [new todo item]: ./media/partner-sencha-mobile-services-get-started/new-todo-item.png
+  [Todo Items table]: ./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png
+  [browse todo table]: ./media/partner-sencha-mobile-services-get-started/mobile-data-browse.png
+  [Téléchargez]: https://github.com/arthurakay/sencha-touch-azure-example
+  [Procédure pas à pas]: http://docs.sencha.com/touch-azure/1.0.0/#!/guide/data_filters
+  [Forums Sencha]: http://www.sencha.com/forum
+  [Documentation Sencha]: http://docs.sencha.com/
+  [(Vidéo)]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-126-Using-Sencha-With-Windows-Azure-Mobile-Services
+  [Téléchargez Sencha Touch]: http://pages.sencha.com/touch-for-azure.html
+  [guides]: http://docs.sencha.com/touch/#!/guide

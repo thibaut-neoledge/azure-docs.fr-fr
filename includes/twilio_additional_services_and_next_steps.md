@@ -1,24 +1,20 @@
-<h2><a id="AdditionalServices" ></a><span  class="short-header">Utilisation des services Twilio supplémentaires</span> utilisation des services Twilio supplémentaires</h2>
+## <span id="AdditionalServices"></span></a><span class="short-header">Utilisation des services Twilio supplémentaires</span> utilisation des services Twilio supplémentaires
 
+En plus des exemples présentés ici, Twilio offre des API Web que vous pouvez utiliser pour tirer profit d’autres fonctionnalités de Twilio à partir de votre application Azure. Pour plus d’informations, consultez la [documentation de l’API Twilio][].
 
-En plus des exemples présentés ici, Twilio offre des API Web que vous pouvez utiliser pour tirer profit d'autres fonctionnalités de Twilio à partir de votre application Azure. Pour plus d'informations, consultez la [documentation de l'API Twilio][1].
-
-<h2><a id="NextSteps" ></a><span  class="short-header">Étapes suivantes</span>Étapes suivantes</h2>
-
+## <span id="NextSteps"></span></a><span class="short-header">Étapes suivantes</span>Étapes suivantes
 
 Maintenant que vous avez appris les bases du service Twilio, consultez ces liens pour en savoir plus :
 
-* [Conseils de sécurité Twilio][2]
-* [Procédures et exemples de code Twilio][3]
-* [Didacticiels de démarrage rapide Twilio][4]
-* [Twilio sur GitHub][5]
-* [Support Twilio][6]
+-   [Conseils de sécurité Twilio][]
+-   [Procédures et exemples de code Twilio][]
+-   [Didacticiels de démarrage rapide Twilio][]
+-   [Twilio sur GitHub][]
+-   [Support Twilio][]
 
-
-
-[1]: http://www.twilio.com/api
-[2]: http://www.twilio.com/docs/security
-[3]: http://www.twilio.com/docs/howto
-[4]: http://www.twilio.com/docs/quickstart
-[5]: https://github.com/twilio
-[6]: http://www.twilio.com/help/contact
+  [documentation de l’API Twilio]: http://www.twilio.com/api
+  [Conseils de sécurité Twilio]: http://www.twilio.com/docs/security
+  [Procédures et exemples de code Twilio]: http://www.twilio.com/docs/howto
+  [Didacticiels de démarrage rapide Twilio]: http://www.twilio.com/docs/quickstart
+  [Twilio sur GitHub]: https://github.com/twilio
+  [Support Twilio]: http://www.twilio.com/help/contact

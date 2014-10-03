@@ -1,100 +1,147 @@
+## <a name="storage-client-server"></a>Installation du client de stockage dans le projet de service mobile
 
-La classe **TodoItemController** est mise à jour de manière à ce que la méthode **PostTodoItem** génère une signature d'accès partagé (SAP) lorsqu'un nouvel élément Todo est inséré.
+Avant de pouvoir générer une signature d'accès partagé en vue de télécharger des images vers un stockage d'objets blob, vous devez ajouter le package NuGet qui installe la bibliothèque du client de stockage dans le projet de service mobile.
 
-1.  Si vous n'avez pas encore créé de compte de stockage, consultez la rubrique [Création d'un compte de stockage](/en-us/manage/services/storage/how-to-create-a-storage-account).
+1.  Dans l'**Explorateur de solutions** de Visual Studio, cliquez avec le bouton droit sur le projet de service mobile, puis sélectionnez **Gérer les packages NuGet**.
+
+2.  Dans le volet gauche, sélectionnez la catégorie **En ligne**, sélectionnez **Stabile Only**, recherchez **WindowsAzure.Storage**, cliquez sur **Installer** dans le package **Azure Storage**, puis acceptez les contrats de licence.
+
+    ![](./media/mobile-services-configure-blob-storage/mobile-add-storage-nuget-package-dotnet.png)
+
+    La bibliothèque cliente des services de stockage Azure est alors ajoutée au projet de service mobile.
+
+## <a name="update-data-model"></a>Mise à jour de la définition TodoItem dans le modèle de données
+
+La classe TodoItem définit l'objet de données et vous devez ajouter à cette classe les propriétés ajoutées au client.
+
+1.  Dans Visual Studio 2013, ouvrez votre projet de service mobile, développez le dossier DataObjects, puis ouvrez le fichier projet TodoItem.cs.
+
+2.  Ajoutez les nouvelles propriétés suivantes à la classe **TodoItem** :
+
+        public string containerName { get; set; }
+        public string resourceName { get; set; }
+        public string sasQueryString { get; set; }
+        public string imageUri { get; set; } 
+
+    Ces propriétés permettent de générer la signature d'accès partagé (SAP) et de stocker les informations de l'image. Notez que la casse de ces propriétés correspond à celle de la version principale JavaScript.
+
+    > [WACOM.NOTE] Lors de l'utilisation de l'initialiseur de base de données par défaut, Entity Framework supprime et recrée la base de données lorsqu'il détecte une modification du modèle de données dans la définition de Code First. Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les migrations Code First. L'initialiseur par défaut ne peut pas être utilisé avec une base de données SQL dans Azure. Pour plus d'informations, consultez la rubrique [Utilisation des migrations Code First pour mettre à jour le modèle de données][].
+
+## <a name="update-scripts"></a>Mise à jour du contrôleur TodoItem pour générer une signature d'accès partagé
+
+La classe **TodoItemController** existante est mise à jour de manière à ce que la méthode **PostTodoItem** génère une signature d'accès partagé (SAP) lorsqu'un nouvel élément TodoItem est inséré. De plus
+
+1.  Si vous n'avez pas encore créé de compte de stockage, consultez la rubrique [Création d'un compte de stockage][].
 
 2.  Dans le portail de gestion, cliquez sur **Stockage**, sur le compte de stockage, puis sur **Gérer les clés**.
 
-	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png)
+    ![][1]
 
-1.  Notez le **nom du compte de stockage** et la **clé d'accès**.
+3.  Notez le **nom du compte de stockage** et la **clé d'accès**.
 
-	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png)
+    ![][2]
 
-2.  Dans votre service mobile, cliquez sur l'onglet **Configurer**, faites défiler jusqu'à **Paramètres de l'application** et entrez une paire **Nom** et **Valeur** pour chacun des paramètres suivants obtenus à partir du compte de stockage, puis cliquez sur **Enregistrer**.
+4.  Dans votre service mobile, cliquez sur l'onglet **Configurer**, faites défiler jusqu'à **Paramètres de l'application** et entrez une paire **Nom** et **Valeur** pour chacun des paramètres suivants obtenus à partir du compte de stockage, puis cliquez sur **Enregistrer**.
 
     -   `STORAGE_ACCOUNT_NAME`
     -   `STORAGE_ACCOUNT_ACCESS_KEY`
 
-    ![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png)
+    ![][3]
 
-    La clé d'accès du compte de stockage est chiffrée et stockée dans les paramètres de l'application. Vous pouvez y accéder à partir du script serveur lors de l'exécution. Pour plus d'informations, consultez l'article [Paramètres de l'application](http://msdn.microsoft.com/fr-fr/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7).
+    La clé d'accès du compte de stockage est chiffrée et stockée dans les paramètres de l'application. Vous pouvez y accéder à partir du script serveur lors de l'exécution. Pour plus d'informations, consultez l'article [Paramètres de l'application][].
 
-3.  Dans l'Explorateur de solutions de Visual Studio, ouvrez le fichier Web.config correspondant au projet de service mobile et ajoutez les nouveaux paramètres de l'application suivants, en remplaçant les espaces réservés par le nom du compte de stockage et la clé d'accès définis comme paramètres de l'application dans le portail :
+5.  Dans l'Explorateur de solutions de Visual Studio, ouvrez le fichier Web.config correspondant au projet de service mobile et ajoutez les nouveaux paramètres d'application suivants, en remplaçant les espaces réservés par le nom du compte de stockage et la clé d'accès définis sur le portail :
 
-         <add key="STORAGE_ACCOUNT_NAME" value="**your_account_name**" />
-         <add key="STORAGE_ACCOUNT_ACCESS_KEY" value="**your_access_token_secret**" />
+        <add key="STORAGE_ACCOUNT_NAME" value="**your_account_name**" />
+        <add key="STORAGE_ACCOUNT_ACCESS_KEY" value="**your_access_token_secret**" />
 
     Le service mobile utilise ces paramètres stockés lorsqu'il est exécuté sur l'ordinateur local, vous permettant ainsi de tester le code avant de le publier. Exécuté dans Azure, le service mobile utilise les valeurs des paramètres de l'application définies dans le portail et ignore ces paramètres du projet.
 
-4.  Dans l'Explorateur de solutions, ouvrez le fichier TodoItemController.cs et ajoutez l'instruction **using** suivante :
+6.  Dans l'Explorateur de solutions, ouvrez le fichier TodoItemController.cs et ajoutez l'instruction **using** suivante :
 
         using System;
         using Microsoft.WindowsAzure.Storage.Auth;
         using Microsoft.WindowsAzure.Storage.Blob;
 
-5.  Remplacez la méthode **PostTodoItem** existante par le code suivant :
+7.  Remplacez la méthode **PostTodoItem** existante par le code suivant :
 
-        var azure = require('azure');
-            var qs = require('querystring');
-            var appSettings = require('mobileservice-config').appSettings;
-                
-            function insert(item, user, request) {
-                // Obtenir les paramètres du compte de stockage à partir des paramètres de l'application. 
-            var accountName = appSettings.STORAGE_ACCOUNT_NAME;
-                var accountKey = appSettings.STORAGE_ACCOUNT_ACCESS_KEY;
-                var host = accountName + '.blob.core.windows.net';
-                
-                if ((typeof item.containerName !== "undefined") && (
-                item.containerName !== null)) {
-                    // Définir le nom du conteneur de stockage d'objets blob sur l'élément, qui doit être en minuscules.
-                item.containerName = item.containerName.toLowerCase();
-                
-                    // S'il n'existe pas, créer le conteneur 
-                    // avec un accès en lecture public pour les objets blob.        
-                var blobService = azure.createBlobService(accountName, accountKey, host);
-                    blobService.createContainerIfNotExists(item.containerName, {
-                        publicAccessLevel: 'blob'
-                    }, function(error) {
-                        if (!error) {
-                
-                            // Donner accès en écriture au conteneur pendant les 5 prochaines minutes.        
-                        var sharedAccessPolicy = {
-                                AccessPolicy: {
-                                    Permissions: azure.Constants.BlobConstants.SharedAccessPermissions.WRITE,
-                                    Expiry: new Date(new Date().getTime() + 5 * 60 * 1000)
-                                }
-                            };
-                
-                            // Générer l'URL de téléchargement avec SAP pour la nouvelle image.
-                        var sasQueryUrl = 
-                            blobService.generateSharedAccessSignature(item.containerName, 
-                            item.resourceName, sharedAccessPolicy);
-                
-                            // Définir la chaîne de requête.
-                        item.sasQueryString = qs.stringify(sasQueryUrl.queryString);
-                
-                            // Définir le chemin d'accès complet sur nouvel élément, 
-                            // qui est utilisé pour la liaison de données sur le client. 
-                        item.imageUri = sasQueryUrl.baseUrl + sasQueryUrl.path;
-                
-                        } else {
-                            console.error(error);
-                        }
-                        request.execute();
-                    });
-                } else {
-                    request.execute();
-                }
+        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
+        {
+            string storageAccountName;
+            string storageAccountKey;
+
+            // Try to get the Azure storage account token from app settings.  
+            if (!(Services.Settings.TryGetValue("STORAGE_ACCOUNT_NAME", out storageAccountName) |
+            Services.Settings.TryGetValue("STORAGE_ACCOUNT_ACCESS_KEY", out storageAccountKey)))
+            {
+                Services.Log.Error("Could not retrieve storage account settings.");
             }
 
-	![](./media/mobile-services-configure-blob-storage/mobile-insert-script-blob.png)
+            // Set the URI for the Blob Storage service.
+            Uri blobEndpoint = new Uri(string.Format("https://{0}.blob.core.windows.net", storageAccountName));
 
-	Cela remplace la fonction appelée lors d'une insertion dans la table TodoItem avec le nouveau script. Ce nouveau script génère une nouvelle SAP pour la fonction insert, valide pendant 5 minutes, et attribue la valeur de la SAP générée à la propriété `sasQueryString` de l'élément renvoyé. La propriété `imageUri` est aussi définie sur le chemin d'accès de la ressource du nouvel objet blob pour permettre l'affichage de l'image lors de la liaison dans l'interface utilisateur du client.
+            // Create the BLOB service client.
+            CloudBlobClient blobClient = new CloudBlobClient(blobEndpoint, 
+                new StorageCredentials(storageAccountName, storageAccountKey));
 
-    >[WACOM.NOTE] Ce code créé une SAP pour un objet blob individuel. Si vous devez télécharger plusieurs objets blob sur un conteneur à l'aide de la même SAP, vous pouvez plutôt appeler la <a href="http://go.microsoft.com/fwlink/
-    LinkId=390455" target="_blank">méthode generateSharedAccessSignature</a> avec un nom de ressource d'objet blob vide, comme ceci : 
-    <pre><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
+            if (item.containerName != null)
+            {
+                // Set the BLOB store container name on the item, which must be lowercase.
+                item.containerName = item.containerName.ToLower();
+
+                // Create a container, if it doesn't already exist.
+                CloudBlobContainer container = blobClient.GetContainerReference(item.containerName);
+                await container.CreateIfNotExistsAsync();
+
+                // Create a shared access permission policy. 
+                BlobContainerPermissions containerPermissions = new BlobContainerPermissions();
+
+                // Enable anonymous read access to BLOBs.
+                containerPermissions.PublicAccess = BlobContainerPublicAccessType.Blob;
+                container.SetPermissions(containerPermissions);
+
+                // Define a policy that gives write access to the container for 5 minutes.                                   
+                SharedAccessBlobPolicy sasPolicy = new SharedAccessBlobPolicy()
+                {
+                    SharedAccessStartTime = DateTime.UtcNow,
+                    SharedAccessExpiryTime = DateTime.UtcNow.AddMinutes(5),
+                    Permissions = SharedAccessBlobPermissions.Write
+                };
+
+                // Get the SAS as a string.
+                item.sasQueryString = container.GetSharedAccessSignature(sasPolicy); 
+
+                // Set the URL used to store the image.
+                item.imageUri = string.Format("{0}{1}/{2}", blobEndpoint.ToString(), 
+                    item.containerName, item.resourceName);
+            }
+
+            // Complete the insert operation.
+            TodoItem current = await InsertAsync(item);
+            return CreatedAtRoute("Tables", new { id = current.Id }, current);
+        }
+
+    Cette méthode POST génère une nouvelle SAP (valide 5 minutes) pour l'élément inséré et attribue la valeur de la SAP générée à la propriété `sasQueryString` de l'élément renvoyé. La propriété `imageUri` est aussi définie sur le chemin d'accès de la ressource du nouvel objet blob pour permettre l'affichage de l'image lors de la liaison dans l'interface utilisateur du client.
+
+    > [WACOM.NOTE] Ce code créé une SAP pour un objet BLOB individuel. Si vous devez télécharger plusieurs objets blob sur un conteneur à l'aide de la même SAP, vous pouvez plutôt appeler la méthode [generateSharedAccessSignature method][] avec un nom de ressource d'objet blob vide, comme ceci :
+    >
+    >     blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);
+    >
+    > </p>
 
 Ensuite, vous allez mettre à jour l'application de démarrage rapide pour ajouter la fonctionnalité de téléchargement d'image à l'aide de la SAP générée sur la fonction insert.
 
+<!-- Anchors. --> 
+
+<!-- Images. --> 
+
+<!-- URLs. -->
+
+  
+  [Utilisation des migrations Code First pour mettre à jour le modèle de données]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
+  [Création d'un compte de stockage]: /en-us/manage/services/storage/how-to-create-a-storage-account
+  [1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
+  [2]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png
+  [3]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
+  [Paramètres de l'application]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+  [generateSharedAccessSignature method]: http://go.microsoft.com/fwlink/?LinkId=390455

@@ -1,5 +1,3 @@
-Pour utiliser cette fonctionnalité et d'autres fonctionnalités Azure inédites, inscrivez-vous à l'[aperçu gratuit][1].
+Pour utiliser cette fonctionnalité et d'autres fonctionnalités Azure inédites, inscrivez-vous à la [version d'évaluation gratuite][].
 
-
-
-[1]: https://account.windowsazure.com/PreviewFeatures
+  [version d'évaluation gratuite]: https://account.windowsazure.com/PreviewFeatures
