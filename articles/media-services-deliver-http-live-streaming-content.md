@@ -1,9 +1,10 @@
 <properties linkid="develop-media-services-how-to-guides-deliver-apple-live-streaming" urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="How to Deliver Apple HTTP Live Streaming (HLS) - Azure" metaKeywords="" description="Learn how to create a locator to Apple HTTP Live Stream (HLS) content on Media Services origin server. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver Apple HLS streaming content" authors="migree" solutions="" manager="" editor="" />
 
-Fourniture de contenu de diffusion en continu HLS Apple
-=======================================================
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
 
-Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [Fourniture de contenu de diffusion en continu](http://go.microsoft.com/fwlink/?LinkID=301942&clcid=0x409).
+# Utilisation de contenu de diffusion en continu HLS Apple
+
+Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [Fourniture de contenu de diffusion en continu][].
 
 Cette rubrique décrit la création d'un localisateur renvoyant vers du contenu de diffusion en continu HTTP (HLS) Apple sur un serveur d'origine Media Services. Cette méthode vous permet de créer une URL renvoyant vers du contenu de diffusion en continu HTTP (HLS) Apple qui permettra la lecture de contenu en continu sur des appareils iOS Apple. Le principe de base pour la création de l'URL du localisateur est identique. Générez un localisateur renvoyant vers le chemin d'accès de l'élément multimédia de diffusion en continu HTTP (HLS) Apple sur un serveur d'origine, puis créez une URL complète renvoyant vers le fichier manifeste du contenu de diffusion en continu.
 
@@ -14,66 +15,73 @@ Pour générer un localisateur renvoyant vers du contenu de diffusion en continu
 1.  Obtenez une référence au fichier manifeste dans l'élément de diffusion en continu.
 2.  Définissez une stratégie d'accès.
 3.  Créez le localisateur d'origine en appelant la méthode CreateLocator.
-4.  Générez une URL vers le fichier manifeste.
+4.  Générez une URL vers le fichier de manifeste.
 
 Le code suivant montre comment implémenter les étapes :
 
-``` {}
+    static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
+    {
+        // Get a reference to the asset you want to stream.
+        IAsset assetToStream = GetAsset(targetAssetID);
 
-static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
-{
-    // Obtenez une référence à l'élément de diffusion en continu.
-    IAsset assetToStream = GetAsset(targetAssetID);
+        // Get a reference to the HLS streaming manifest file from the  
+        // collection of files in the asset. 
+        var theManifest =
+                            from f in assetToStream.AssetFiles
+                            where f.Name.EndsWith(".ism")
+                            select f;
 
-    // Obtenez une référence au fichier manifeste de diffusion en continu HLS à partir de  
-    // l'ensemble de fichiers de l'élément. 
-    var theManifest =
-                        from f in assetToStream.AssetFiles
-                        where f.Name.EndsWith(".ism")
-                        select f;
+        // Cast the reference to a true IAssetFile type. 
+        IAssetFile manifestFile = theManifest.First();
+        IAccessPolicy policy = null;
+        ILocator originLocator = null;
 
-    // Diffusez la référence pointant vers un véritable objet de type IAssetFile. 
-    IAssetFile manifestFile = theManifest.First();
-    IAccessPolicy policy = null;
-    ILocator originLocator = null;
+        // Create a 30-day readonly access policy. 
+        policy = _context.AccessPolicies.Create("Streaming HLS Policy",
+            TimeSpan.FromDays(30),
+            AccessPermissions.Read);
 
-    // Créez une stratégie d'accès de 30 jours en lecture seule. 
-    policy = _context.AccessPolicies.Create("Streaming HLS Policy",
-        TimeSpan.FromDays(30),
-        AccessPermissions.Read);
+        originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, assetToStream,
+                    policy,
+                    DateTime.UtcNow.AddMinutes(-5));
 
-    originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, assetToStream,
-                policy,
-                DateTime.UtcNow.AddMinutes(-5));
+        // Create a URL to the HLS streaming manifest file. Use this for playback
+        // in Apple iOS streaming clients.
+        string urlForClientStreaming = originLocator.Path
+            + manifestFile.Name + "/manifest(format=m3u8-aapl)";
+        Console.WriteLine("URL to manifest for client streaming: ");
+        Console.WriteLine(urlForClientStreaming);
+        Console.WriteLine();
 
-    // Créez une URL vers le fichier manifeste de diffusion en continu HLS. Utilisez-la pour la lecture de contenu
-    // dans les clients de diffusion en continu Apple iOS.
-    string urlForClientStreaming = originLocator.Path
-        + manifestFile.Name + "/manifest(format=m3u8-aapl)";
-    Console.WriteLine("URL to manifest for client streaming: ");
-    Console.WriteLine(urlForClientStreaming);
-    Console.WriteLine();
+        // Return the locator. 
+        return originLocator;
+    }
 
-    // Renvoyez le localisateur. 
-    return originLocator;
-}
-```
+Pour plus d'informations sur la fourniture d'éléments multimédias, consultez les rubriques suivantes :
 
-Pour plus d'informations sur la fourniture des éléments multimédias, consultez les pages suivantes :
+-   [Fourniture des éléments multimédias avec Media Services pour .NET][]
+-   [Fourniture des éléments multimédias avec l'API REST de Media Services][]
 
--   [Fourniture des éléments multimédias avec Media Services pour .NET](http://msdn.microsoft.com/fr-fr/library/jj129575.aspx)
--   [Fourniture des éléments multimédias avec l'API REST de Media Services](http://msdn.microsoft.com/fr-fr/library/jj129578.aspx)
-
-Étapes suivantes
-----------------
+</p>
+## Étapes suivantes
 
 Cette rubrique est la dernière consacrée à l'utilisation d'Azure Media Services. Nous avons abordé la configuration de votre ordinateur pour le développement Media Services et l'exécution de tâches de programmation classiques. Pour plus d'informations sur la programmation Media Services, consultez les ressources suivantes :
 
--   [Documentation Azure Media Services](http://go.microsoft.com/fwlink/?linkid=245437)
--   [Prise en main du Kit de développement logiciel (SDK) Media Services pour .NET](http://go.microsoft.com/fwlink/?linkid=252966)
--   [Création d'applications avec le Kit de développement logiciel (SDK) Media Services pour .NET](http://go.microsoft.com/fwlink/?linkid=247821)
--   [Création d'applications avec l'API REST d'Azure Media Services](http://go.microsoft.com/fwlink/?linkid=252967)
--   [Forum Media Services](http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads)
--   [Surveillance d'un compte Media Services](http://www.windowsazure.com/fr-fr/manage/services/media-services/how-to-monitor-a-media-services-account/)
--   [Gestion du contenu dans Media Services](http://www.windowsazure.com/fr-fr/manage/services/media-services/how-to-manage-content-in-media-services/)
+-   [Documentation Azure Media Services][]
+-   [Prise en main du Kit de développement logiciel (SDK) Media Services pour .NET][]
+-   [Création d'applications avec le Kit de développement logiciel (SDK) Media Services pour .NET][]
+-   [Création d'applications avec l'API REST d'Azure Media Services][]
+-   [Forum Media Services][]
+-   [Surveillance d'un compte Media Services][]
+-   [Gestion du contenu dans Media Services][]
 
+  [Fourniture de contenu de diffusion en continu]: http://go.microsoft.com/fwlink/?LinkID=301942&clcid=0x409
+  [Fourniture des éléments multimédias avec Media Services pour .NET]: http://msdn.microsoft.com/en-us/library/jj129575.aspx
+  [Fourniture des éléments multimédias avec l'API REST de Media Services]: http://msdn.microsoft.com/en-us/library/jj129578.aspx
+  [Documentation Azure Media Services]: http://go.microsoft.com/fwlink/?linkid=245437
+  [Prise en main du Kit de développement logiciel (SDK) Media Services pour .NET]: http://go.microsoft.com/fwlink/?linkid=252966
+  [Création d'applications avec le Kit de développement logiciel (SDK) Media Services pour .NET]: http://go.microsoft.com/fwlink/?linkid=247821
+  [Création d'applications avec l'API REST d'Azure Media Services]: http://go.microsoft.com/fwlink/?linkid=252967
+  [Forum Media Services]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
+  [Surveillance d'un compte Media Services]: http://www.windowsazure.com/en-us/manage/services/media-services/how-to-monitor-a-media-services-account/
+  [Gestion du contenu dans Media Services]: http://www.windowsazure.com/en-us/manage/services/media-services/how-to-manage-content-in-media-services/

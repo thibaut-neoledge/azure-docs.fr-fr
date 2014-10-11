@@ -1,36 +1,36 @@
-<properties linkid="develop-media-services-tutorials-smooth-streaming-windows-store-app" urlDisplayName="Smooth Streaming Windows Store App" pageTitle="Smooth Streaming Windows Store App - Azure .NET tutorials" metaKeywords="" description="Learn how to use Azure Media Services to create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content." metaCanonical="" services="media-services" documentationCenter="" title="How to Build a Smooth Streaming Windows Store Application" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-media-services-tutorials-smooth-streaming-windows-store-app" urlDisplayName="Smooth Streaming Windows Store App" pageTitle="Smooth Streaming Windows Store App - Azure .NET tutorials" metaKeywords="" description="Learn how to use Azure Media Services to create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content." metaCanonical="" services="media-services" documentationCenter="" title="How to Build a Smooth Streaming Windows Store Application" authors="Michael Greenn" solutions="" manager="" editor="" />
 
-Génération d'une application Windows Store de diffusion en continu lisse
-========================================================================
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Michael Greenn"></tags>
 
-Le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows 8 permet aux développeurs de générer des applications Windows Store pour la lecture de contenu de diffusion en continu lisse à la demande et en direct. Outre la lecture de contenu de diffusion en continu lisse, le Kit de développement logiciel propose également des fonctionnalités avancées comme la protection Microsoft PlayReady, la limitation du niveau de qualité, le magnétoscope numérique en direct (Live DVR), la commutation des flux audio, l'écoute des mises à jour d'état (par exemple, les modifications des niveaux de qualité), les événements d'erreur, etc. Pour plus d'informations sur les fonctionnalités prises en charge, consultez les [notes de publicationn](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes).
+# Génération d'une application Windows Store de diffusion en continu lisse
 
-Ce didacticiel aborde la question des API. Pour le développement d'un lecteur, Microsoft recommande vivement l'utilisation de [Player Framework for Windows 8](http://playerframework.codeplex.com/). Player Framework permet de générer plus facilement des applications et offre de nombreuses fonctionnalités supplémentaires.
+Le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows 8 permet aux développeurs de générer des applications Windows Store pour la lecture de contenu de diffusion en continu lisse à la demande et en direct. Outre la lecture de contenu de diffusion en continu lisse, le Kit de développement logiciel propose également des fonctionnalités avancées comme la protection Microsoft PlayReady, la limitation du niveau de qualité, le magnétoscope numérique en direct (Live DVR), la commutation des flux audio, l'écoute des mises à jour d'état (par exemple, les modifications des niveaux de qualité), les événements d'erreur, etc. Pour plus d'informations sur les fonctionnalités prises en charge, consultez les [notes de publicationn][].
+
+Ce didacticiel aborde la question des API. Pour le développement d'un lecteur, Microsoft recommande vivement l'utilisation de [Player Framework for Windows 8][]. Player Framework permet de générer plus facilement des applications et offre de nombreuses fonctionnalités supplémentaires.
 
 Le didacticiel se compose de quatre leçons :
 
-1.  Création d'une application Windows Store de diffusion en continu lisse de base
-2.  Ajout d'une barre de curseur pour contrôler la progression des fichiers multimédias
-3.  Sélection des flux de diffusion en continu lisse
-4.  Sélection des pistes de diffusion en continu lisse
+1.  création d'une application Windows Store de diffusion en continu lisse de base
+2.  ajout d'une barre de curseur pour contrôler la progression des fichiers multimédias
+3.  sélection des flux de diffusion en continu lisse
+4.  sélection des pistes de diffusion en continu lisse
 
-Configuration requise
-=====================
+# Configuration requise
 
--   Windows 8 32 bits ou 64 bits. Vous pouvez télécharger la [version d'évaluation de Windows 8 Entreprise](http://msdn.microsoft.com/fr-fr/evalcenter/jj554510.aspx) sur MSDN.
--   Visual Studio 2012 ou Visual Studio Express 2012 pour Windows 8 installé sur Windows 8. Vous pouvez télécharger la version d'évaluation [ici](http://www.microsoft.com/visualstudio/11/en-us/downloads).
--   [Kit de développement logiciel (SDK) du client Microsoft de diffusion en continu lisse pour Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
+-   Windows 8 32 bits ou 64 bits. Vous pouvez télécharger la [version d'évaluation de Windows 8 Entreprise][] sur MSDN.
+-   Visual Studio 2012 ou Visual Studio Express 2012 pour Windows 8 installé sur Windows 8. Vous pouvez télécharger la version d'évaluation [ici][].
+-   [Kit de développement logiciel (SDK) du client Microsoft de diffusion en continu lisse pour Windows 8][].
 
-Vous pouvez télécharger la solution terminée pour chaque leçon sur le site d'exemples de code développeur MSDN (galerie de code) : [Leçon 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "Lecteur multimédia simple de diffusion en continu lisse pour Windows 8"), [Leçon 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "Lecteur multimédia simple de diffusion en continu lisse pour Windows 8 doté d'une barre de curseur de contrôle"), [Leçon 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "Lecteur multimédia de diffusion en continu lisse pour Windows 8 avec sélection de flux") et [Leçon 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "Lecteur multimédia de diffusion en continu lisse pour Windows 8 avec sélection des pistes").
+Vous pouvez télécharger la solution terminée pour chaque leçon sur le site d'exemples de code développeur MSDN (galerie de code) : [Leçon 1][], [Leçon 2][], [Leçon 3][] et [Leçon 4][].
 
-Leçon 1 : création d'une application Windows Store de diffusion en continu lisse de base
-========================================================================================
+# Leçon 1 : création d'une application Windows Store de diffusion en continu lisse de base
 
 Dans cette leçon, vous allez apprendre à créer une application Windows Store dotée d'un contrôle MediaElement pour lire du contenu de diffusion en continu lisse. L'application en cours d'exécution ressemble à ceci :
 
-![Exemple d'application Windows Store de diffusion en continu lisse](./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png)
+![Exemple d'application Windows Store de diffusion en continu lisse][]
 
-Pour plus d'informations sur le développement d'une application Windows Store, consultez la rubrique [Développement d'applications fantastiques pour Windows 8](http://msdn.microsoft.com/fr-fr/windows/apps/br229512.aspx). Cette leçon aborde les procédures suivantes :
+For more information on developing Windows Store application, see [Develop Great Apps for Windows 8][].
+This lesson contains the following procedures:
 
 1.  Création d'un projet Windows Store
 2.  Conception de l'interface utilisateur (XAML)
@@ -43,37 +43,15 @@ Pour plus d'informations sur le développement d'une application Windows Store, 
 2.  Dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
 3.  Dans la boîte de dialogue Nouveau projet, entrez ou sélectionnez les valeurs suivantes :
 
-    <table border="1">
-	<tr>
-		<th>Nom</th>
-		<th>Valeur</th>
-	</tr>
-	<tr>
-		<td>Groupe de modèles</td>
-		<td>Installed/Templates/Visual C#/Windows Store</td>
-	</tr>
-	<tr>
-		<td>Modèle</td>
-		<td>Application vide (XAML)</td>
-	</tr>
-	<tr>
-		<td>Nom</td>
-		<td>SSPlayer</td>
-	</tr>
-	<tr>
-		<td>Emplacement</td>
-		<td>C:\SSTutorials</td>
-	</tr>
-	<tr>
-		<td>Nom de la solution</td>
-		<td>SSPlayer</td>
-	</tr>
-	<tr>
-		<td>Créer un répertoire pour la solution</td>
-		<td>(sélectionné)</td>
-	</tr>
+	<table border="1">
+	<tr><th>Nom                                 </th><th>Valeur                                      </th></tr>
+    <tr><td>Groupe de modèles                   </td><td>Installed/Templates/Visual C#/Windows Store</td></tr>
+    <tr><td>Modèle                              </td><td>Application vide (XAML)                     </td></tr>
+    <tr><td>Nom                                 </td><td>SSPlayer                                    </td></tr>
+    <tr><td>Emplacement                         </td><td>C:\SSTutorials                             </td></tr>
+    <tr><td>Nom de la solution                  </td><td>SSPlayer                                    </td></tr>
+    <tr><td>Créer un répertoire pour la solution</td><td>(sélectionné)                               </td></tr>
 	</table>
-
 
 4.  Cliquez sur **OK**.
 
@@ -82,20 +60,10 @@ Pour plus d'informations sur le développement d'une application Windows Store, 
 1.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **SSPlayer**, puis cliquez sur **Ajouter une référence**.
 2.  Tapez ou sélectionnez les valeurs suivantes :
 
-    <table border="1">
-	<tr>
-		<th>Nom</th>
-		<th>Valeur</th>
-	</tr>
-	<tr>
-		<td>Groupe de référence</td>
-		<td>Windows/Extensions</td>
-	</tr>
-	<tr>
-		<td>Référence</td>
-		<td>Sélectionnez le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows 8 et le package Runtime Microsoft Visual C++ 
-		</td>
-	</tr>
+	<table border="1">
+	<tr><th>Nom                 </th><th>Valeur                                                                                                                                               </th></tr>
+    <tr><td>Groupe de référence</td><td>Windows/Extensions                                                                                                                                   </td></tr>
+    <tr><td>Référence          </td><td>Sélectionnez le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows 8 et le package Runtime Microsoft Visual C++</td></tr>
 	</table>
 
 3.  Cliquez sur **OK**.
@@ -105,7 +73,7 @@ Après l'ajout des références, vous devez sélectionner la plateforme ciblée 
 **Conception de l'interface utilisateur du lecteur**
 
 1.  Dans l'Explorateur de solutions, double-cliquez sur **MainPage.xaml** pour l'ouvrir en mode Création.
-2.  Recherchez les balises **&lt;Grid\>** et **&lt;/Grid\>** du fichier XAML et collez le code suivant entre elles :
+2.  Recherchez les balises **\<Grid\>** et **\</Grid\>** du fichier XAML et collez le code suivant entre elles :
 
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>    <!-- spacer -->
@@ -114,7 +82,7 @@ Après l'ajout des références, vous devez sélectionner la plateforme ciblée 
             <RowDefinition Height="80*"/>   <!-- media stream and track selection -->
             <RowDefinition Height="50"/>    <!-- status bar -->
         </Grid.RowDefinitions>
-            
+
         <StackPanel Name="spMediaControl" Grid.Row="1" Orientation="Horizontal">
             <TextBlock x:Name="tbSource" Text="Source :  " FontSize="16" FontWeight="Bold" VerticalAlignment="Center" />
             <TextBox x:Name="txtMediaSource" Text="http://ecn.channel9.msdn.com/o9/content/smf/smoothcontent/elephantsdream/Elephants_Dream_1024-h264-st-aac.ism/manifest" FontSize="10" Width="700" Margin="0,4,0,10" />
@@ -181,18 +149,18 @@ Dans le fichier XAML, certains gestionnaires d'événements sont associés aux c
             mediaElement.Play();
             txtStatus.Text = "MediaElement is playing ...";
         }
-            
+
         private void btnPause_Click(object sender, RoutedEventArgs e)
         {
             mediaElement.Pause();
             txtStatus.Text = "MediaElement is paused";
         }
-            
+
         private void btnSetSource_Click(object sender, RoutedEventArgs e)
         {
             sliderProgress.Value = 0;
             mediaElement.Source = new Uri(txtMediaSource.Text);
-            
+
             if (chkAutoPlay.IsChecked == true)
             {
                 txtStatus.Text = "MediaElement is playing ...";
@@ -202,13 +170,13 @@ Dans le fichier XAML, certains gestionnaires d'événements sont associés aux c
                 txtStatus.Text = "Click the Play button to play the media source.";
             }
         }
-            
+
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
             mediaElement.Stop();
             txtStatus.Text = "MediaElement is stopped";
         }
-            
+
         private void sliderProgress_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             txtStatus.Text = "Seek to position " + sliderProgress.Value;
@@ -222,7 +190,7 @@ Dans le fichier XAML, certains gestionnaires d'événements sont associés aux c
 
 Le fichier code-behind terminé doit ressembler à ceci :
 
-![Codeview dans Visual Studio d'une application Windows Store de diffusion en continu lisse](./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png)
+![Codeview dans Visual Studio d'une application Windows Store de diffusion en continu lisse][]
 
 **Compilation et test de l'application**
 
@@ -231,12 +199,11 @@ Le fichier code-behind terminé doit ressembler à ceci :
 3.  Appuyez sur **F6** pour compiler le projet.
 4.  Appuyez sur **F5** pour exécuter l'application.
 5.  Au début de l'application, vous pouvez utiliser l'URL de diffusion en continu lisse par défaut ou entrer une URL différente.
-6.  Cliquez sur **Définir la source**. Étant donné que la fonctionnalité **Lecture automatique** est activée par défaut, le fichier multimédia est lu automatiquement. Vous pouvez contrôler le fichier multimédia à l'aide des boutons **Lecture automatique**, **Pause** et **Arrêt**. Vous pouvez contrôler le volume du fichier multimédia à l'aide du curseur vertical. Cependant, le curseur horizontal permettant de contrôler la progression du fichier multimédia n'est pas encore complètement implémenté.
+6.  Cliquez sur **Définir la source**. Étant donné que la fonctionnalité **Lecture automatique** est activée par défaut, le fichier multimédia est lu automatiquement. You can control the media using the **Play**, **Pause** and **Stop** buttons. Vous pouvez contrôler le volume du fichier multimédia à l'aide du curseur vertical. Cependant, le curseur horizontal permettant de contrôler la progression du fichier multimédia n'est pas encore complètement implémenté.
 
 Vous avez terminé la leçon 1. Dans cette leçon, vous avez utilisé un contrôle MediaElement pour lire du contenu de diffusion en continu lisse. Dans la leçon suivante, vous allez ajouter un curseur pour contrôler la progression du contenu de diffusion en continu lisse.
 
-Leçon 2 : ajout d'une barre de curseur pour contrôler la progression des fichiers multimédias
-=============================================================================================
+# Leçon 2 : ajout d'une barre de curseur pour contrôler la progression des fichiers multimédias
 
 Dans la leçon 1, vous avez créé une application Windows Store dotée d'un contrôle XAML MediaElement pour lire du contenu multimédia de diffusion en continu lisse. Elle offre des fonctions de lecture multimédia de base, comme le démarrage, l'arrêt et la pause. Dans cette leçon, vous allez ajouter un contrôle de curseur pour votre application.
 
@@ -267,18 +234,18 @@ Cette leçon aborde les procédures suivantes :
 
 4.  Dans le constructeur **MainPage**, ajoutez le code suivant après la ligne **this.Initialize Components();** et les lignes de code d'enregistrement rédigées dans la précédente leçon :
 
-        // Permet d'obtenir l'instance par défaut de AdaptiveSourceManager qui gère les sources 
-        //multimédias de diffusion en continu lisse.
+        // Gets the default instance of AdaptiveSourceManager which manages Smooth 
+        //Streaming media sources.
         adaptiveSourceManager = AdaptiveSourceManager.GetDefault();
-        // Définit la valeur de la clé de la propriété sur l'instance par défaut de AdaptiveSourceManager.
-        // {A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}" doit être codé en dur.
+        // Sets property key value to AdaptiveSourceManager default instance.
+        // {A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}" must be hardcoded.
         propertySet["{A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}"] = adaptiveSourceManager;
 
 5.  Dans le constructeur **MainPage**, modifiez les deux méthodes RegisterByteStreamHandler pour ajouter les paramètres suivants :
 
-        // Enregistre le gestionnaire de flux d'octets de diffusion en continu lisse pour l'extension ".ism", 
-        // les types MIME "text/xml" et "application/vnd.ms-ss" et transmet le paramètre PropertySet. 
-        // Les ressources URI http://*.ism/manifest seront résolues par le gestionnaire de flux d'octets.
+        // Registers Smooth Streaming byte-stream handler for ".ism" extension and, 
+        // "text/xml" and "application/vnd.ms-ss" mime-types and pass the propertyset. 
+        // http://*.ism/manifest URI resources will be resolved by Byte-stream handler.
         extensions.RegisterByteStreamHandler(
             "Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", 
             ".ism", 
@@ -310,7 +277,8 @@ Cette leçon aborde les procédures suivantes :
 
 4.  À la fin du constructeur **MainPage**, ajoutez la ligne suivante pour vous inscrire à l'événement ouvert de la source adaptative :
 
-    adaptiveSourceManager.AdaptiveSourceOpenedEvent += new AdaptiveSourceOpenedEventHandler(mediaElement\_AdaptiveSourceOpened);
+    adaptiveSourceManager.AdaptiveSourceOpenedEvent +=
+     new AdaptiveSourceOpenedEventHandler(mediaElement\_AdaptiveSourceOpened);
 
 5.  Appuyez sur **Ctrl+S** pour enregistrer le fichier.
 
@@ -330,12 +298,12 @@ Cette leçon aborde les procédures suivantes :
             adaptiveSource = args.AdaptiveSource;
             manifestObject = args.AdaptiveSource.Manifest;
         }
-            
+
         private void mediaElement_AdaptiveSourceStatusUpdated(AdaptiveSource sender, AdaptiveSourceStatusUpdatedEventArgs args)
         {
             adaptiveSourceStatusUpdate = args;
         }
-            
+
         private void mediaElement_AdaptiveSourceFailed(AdaptiveSource sender, AdaptiveSourceFailedEventArgs args)
         {
             txtStatus.Text = "Error: " + args.HttpResponse;
@@ -365,12 +333,12 @@ Les mêmes événements sont également disponibles sur AdaptiveSourceManager, q
         {
             txtStatus.Text = "MediaElement opened";
         }
-            
+
         private void MediaFailed(object sender, ExceptionRoutedEventArgs e)
         {
             txtStatus.Text= "MediaElement failed: " + e.ErrorMessage;
         }
-            
+
         private void MediaEnded(object sender, RoutedEventArgs e)
         {
             txtStatus.Text ="MediaElement ended.";
@@ -410,7 +378,7 @@ Les mêmes événements sont également disponibles sur AdaptiveSourceManager, q
         {
             long absvalue = 0;
             double stepfrequency = -1;
-            
+
             if (manifestObject != null)
             {
                 absvalue = manifestObject.Duration - (long)manifestObject.StartTime;
@@ -419,9 +387,9 @@ Les mêmes événements sont également disponibles sur AdaptiveSourceManager, q
             {
                 absvalue = mediaElement.NaturalDuration.TimeSpan.Ticks;
             }
-            
+
             TimeSpan totalDVRDuration = new TimeSpan(absvalue);
-            
+
             if (totalDVRDuration.TotalMinutes >= 10 && totalDVRDuration.TotalMinutes < 30)
             {
                stepfrequency = 10;
@@ -435,15 +403,15 @@ Les mêmes événements sont également disponibles sur AdaptiveSourceManager, q
             {
                 stepfrequency = 60;
             }
-            
+
             return stepfrequency;
         }
-            
+
         void updateSliderPositionoNTicks(object sender, object e)
         {
             sliderProgress.Value = mediaElement.Position.TotalSeconds;
         }
-            
+
         public void setupTimer()
         {
             sliderPositionUpdateDispatcher = new DispatcherTimer();
@@ -456,8 +424,8 @@ Les mêmes événements sont également disponibles sur AdaptiveSourceManager, q
             sliderPositionUpdateDispatcher.Tick += updateSliderPositionoNTicks;
             sliderPositionUpdateDispatcher.Start();
         }
-            
-        // L'heure de début et de fin de la barre de curseur doivent être mises à jour en cas de diffusion de contenu en direct.
+
+        // Slider start and end time must be updated in case of live content
         public async void setSliderStartTime(long startTime)
         {
             await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
@@ -467,8 +435,8 @@ Les mêmes événements sont également disponibles sur AdaptiveSourceManager, q
                 sliderProgress.Minimum = absvalue;
             });
         }
-            
-        // L'heure de début et de fin de la barre de curseur doivent être mises à jour en cas de diffusion de contenu en direct.
+
+        // Slider start and end time must be updated in case of live content
         public async void setSliderEndTime(long startTime)
         {
             await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
@@ -494,7 +462,9 @@ Les mêmes événements sont également disponibles sur AdaptiveSourceManager, q
 
 7.  À la fin de la méthode **MediaOpened**, ajoutez le code suivant :
 
-    sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan); sliderProgress.Width = mediaElement.Width; setupTimer();
+    sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan);
+    sliderProgress.Width = mediaElement.Width;
+    setupTimer();
 
 8.  Appuyez sur **Ctrl+S** pour enregistrer le fichier.
 
@@ -508,8 +478,7 @@ Les mêmes événements sont également disponibles sur AdaptiveSourceManager, q
 
 Vous avez terminé la leçon 2 au cours de laquelle vous avez appris à ajouter une barre de curseur à l'application.
 
-Leçon 3 : sélection des flux de diffusion en continu lisse
-==========================================================
+# Leçon 3 : sélection des flux de diffusion en continu lisse
 
 La diffusion en continu lisse permet de diffuser du contenu en continu proposant des pistes audio multilingues sélectionnables par les utilisateurs. Cette leçon vous expliquera comment permettre aux utilisateurs de sélectionner des flux. Cette leçon aborde les procédures suivantes :
 
@@ -520,257 +489,257 @@ La diffusion en continu lisse permet de diffuser du contenu en continu proposant
 **Modification du fichier XAML**
 
 1.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Concepteur de vues**.
-2.  Recherchez &lt;Grid.RowDefinitions\> et modifiez les paramètres RowDefinitions pour qu'ils ressemblent à ceci :
+2.  Recherchez \<Grid.RowDefinitions\> et modifiez les paramètres RowDefinitions pour qu'ils ressemblent à ceci :
 
         <Grid.RowDefinitions>            
-             <RowDefinition Height="20"/>
-             <RowDefinition Height="50"/>
-             <RowDefinition Height="100"/>
-             <RowDefinition Height="80"/>
-             <RowDefinition Height="50"/>
-         </Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
 
-3.  Dans les balises &lt;Grid\>&lt;/Grid\>, ajoutez le code suivant pour définir un contrôle ListBox, afin que les utilisateurs puissent afficher la liste des flux disponibles et sélectionner des flux :
+3.  Dans les balises \<Grid\>\</Grid\>, ajoutez le code suivant pour définir un contrôle ListBox, afin que les utilisateurs puissent afficher la liste des flux disponibles et sélectionner des flux :
 
-         <Grid Name="gridStreamAndBitrateSelection" Grid.Row="3">
-             <Grid.RowDefinitions>
-                 <RowDefinition Height="300"/>
-             </Grid.RowDefinitions>
-             <Grid.ColumnDefinitions>
-                 <ColumnDefinition Width="250*"/>
-                 <ColumnDefinition Width="250*"/>
-             </Grid.ColumnDefinitions>
-             <StackPanel Name="spStreamSelection" Grid.Row="1" Grid.Column="0">
-                 <StackPanel Orientation="Horizontal">
-                     <TextBlock Name="tbAvailableStreams" Text="Available Streams:" FontSize="16" VerticalAlignment="Center"></TextBlock>
-                     <Button Name="btnChangeStreams" Content="Submit" Click="btnChangeStream_Click"/>
-                 </StackPanel>
-                 <ListBox x:Name="lbAvailableStreams" Height="200" Width="200" Background="Transparent" HorizontalAlignment="Left" 
+        <Grid Name="gridStreamAndBitrateSelection" Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250*"/>
+                <ColumnDefinition Width="250*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Name="spStreamSelection" Grid.Row="1" Grid.Column="0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Name="tbAvailableStreams" Text="Available Streams:" FontSize="16" VerticalAlignment="Center"></TextBlock>
+                    <Button Name="btnChangeStreams" Content="Submit" Click="btnChangeStream_Click"/>
+                </StackPanel>
+                <ListBox x:Name="lbAvailableStreams" Height="200" Width="200" Background="Transparent" HorizontalAlignment="Left" 
                     ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Visible">
-                     <ListBox.ItemTemplate>
-                         <DataTemplate>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
                             <CheckBox Content="{Binding Name}" IsChecked="{Binding isChecked, Mode=TwoWay}" />
-                         </DataTemplate>
-                     </ListBox.ItemTemplate>
-                 </ListBox>
-             </StackPanel>
-         </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </Grid>
 
 4.  Appuyez sur **Ctrl+S** pour enregistrer les modifications.
 
 **Modification du fichier code-behind**
 
 1.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
-2.  Dans l'espace de noms SSPlayer, ajoutez une nouvelle classe : 
-         #region class Stream
+2.  Inside the SSPlayer namespace, add a new class:
+     \#region class Stream
 
-         public class Stream
-         {
-             private IManifestStream stream;
-             public bool isCheckedValue;
-             public string name;
+        public class Stream
+        {
+            private IManifestStream stream;
+            public bool isCheckedValue;
+            public string name;
 
-             public string Name
-             {
-                 get { return name; }
-                 set { name = value; }
-             }
+            public string Name
+            {
+                get { return name; }
+                set { name = value; }
+            }
 
-             public IManifestStream ManifestStream
-             {
-                 get { return stream; }
-                 set { stream = value; }
-             }
+            public IManifestStream ManifestStream
+            {
+                get { return stream; }
+                set { stream = value; }
+            }
 
-             public bool isChecked
-             {
-                 get { return isCheckedValue; }
-                 set
-                 {
-                     // Activer la vérification constante du flux vidéo.
-                     if (stream.Type == MediaStreamType.Video)
-                     {
-                         isCheckedValue = true;
-                     }
-                     else
-                     {
-                         isCheckedValue = value;
-                     }
-                 }
-             }
+            public bool isChecked
+            {
+                get { return isCheckedValue; }
+                set
+                {
+                    // mMke the video stream always checked.
+                    if (stream.Type == MediaStreamType.Video)
+                    {
+                        isCheckedValue = true;
+                    }
+                    else
+                    {
+                        isCheckedValue = value;
+                    }
+                }
+            }
 
-             public Stream(IManifestStream streamIn)
-             {
-                 stream = streamIn;
-                 name = stream.Name;
-             }
-         }
-         #endregion class Stream
+            public Stream(IManifestStream streamIn)
+            {
+                stream = streamIn;
+                name = stream.Name;
+            }
+        }
+        #endregion class Stream
 
 3.  Au début de la classe MainPage, ajoutez les définitions de variables suivantes :
 
-         private List<Stream> availableStreams;
-         private List<Stream> availableAudioStreams;
-         private List<Stream> availableTextStreams;
-         private List<Stream> availableVideoStreams;
+        private List<Stream> availableStreams;
+        private List<Stream> availableAudioStreams;
+        private List<Stream> availableTextStreams;
+        private List<Stream> availableVideoStreams;
 
 4.  Dans la classe MainPage, ajoutez la région suivante :
 
-         #region stream selection
-         ///<summary>
-         ///Fonctionnalité permettant de sélectionner des flux à partir des flux disponibles dans IManifestStream
-         /// </summary>
-            
-         // Cette fonction est appelée à partir du gestionnaire d'événements mediaElement_ManifestReady 
-         // pour récupérer les flux et les utiliser pour remplir les membres de données locaux.
-         public void getStreams(Manifest manifestObject)
-         {
-             availableStreams = new List<Stream>();
-             availableVideoStreams = new List<Stream>();
-             availableVideoStreams = new List<Stream>();
-             availableTextStreams = new List<Stream>();
-            
-             try
-             {
-                 for (int i = 0; i<manifestObject.AvailableStreams.Count; i++)
-                 {
-                     Stream newStream = new Stream(manifestObject.AvailableStreams[i]);
-                     newStream.isChecked = false;
-            
-                     //Remplir les listes de flux en fonction des types
-                     availableStreams.Add(newStream);
-            
-                     switch (newStream.ManifestStream.Type)
-                     {
-                         case MediaStreamType.Video:
-                             availableVideoStreams.Add(newStream);
-                             break;
-                         case MediaStreamType.Audio:
-                             availableAudioStreams.Add(newStream);
-                             break;
-                         case MediaStreamType.Text:
-                             availableTextStreams.Add(newStream);
-                             break;
-                     }
-            
-                     // Sélectionner les flux sélectionnés par défaut à partir du fichier manifeste
-                     for (int j = 0; j<manifestObject.SelectedStreams.Count; j++)
-                     {
-                         string selectedStreamName = manifestObject.SelectedStreams[j].Name;
-                         if (selectedStreamName.Equals(newStream.Name))
-                         {
-                             newStream.isChecked = true;
-                             break;
-                         }
-                     }
-                 }
-             }
-             catch (Exception e)
-             {
-                 txtStatus.Text = "Error: " + e.Message;
-             }
-         }
-            
-         // Cette fonction permet de définir la zone de liste Item Source
-         private async void refreshAvailableStreamsListBoxItemSource()
-         {
-             try
-             {
-                 //Mettre à jour la liste de cases à cocher de flux dans l'interface utilisateur
-                 await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, ()
-                     => { lbAvailableStreams.ItemsSource = availableStreams; });
-             }
-             catch (Exception e)
-             {
-                 txtStatus.Text = "Error: " + e.Message;
-             }
-         }
-            
-         // Cette fonction permet de créer une liste des flux sélectionnés
-         private void createSelectedStreamsList(List<IManifestStream> selectedStreams)
-         {
-             bool isOneVideoSelected = false;
-             bool isOneAudioSelected = false;
-            
-             // Un seul flux vidéo peut être sélectionné
-             for (int j = 0; j<availableVideoStreams.Count; j++)
-             {
-                 if (availableVideoStreams[j].isChecked && (!isOneVideoSelected))
-                 {
-                     selectedStreams.Add(availableVideoStreams[j].ManifestStream);
-                     isOneVideoSelected = true;
-                 }
-             }
-            
-             // Sélectionner le premier flux vidéo dans la liste si aucun flux vidéo n'est sélectionné
-             if (!isOneVideoSelected)
-             {
-                 availableVideoStreams[0].isChecked = true;
-                 selectedStreams.Add(availableVideoStreams[0].ManifestStream);
-             }
-            
-             // Un seul flux audio peut être sélectionné
-             for (int j = 0; j<availableAudioStreams.Count; j++)
-             {
-                 if (availableAudioStreams[j].isChecked && (!isOneAudioSelected))
-                 {
-                     selectedStreams.Add(availableAudioStreams[j].ManifestStream);
-                     isOneAudioSelected = true;
-                     txtStatus.Text = "The audio stream is changed to " + availableAudioStreams[j].ManifestStream.Name;
-                 }
-             }
-            
-             // Sélectionner le premier flux audio dans la liste si aucun flux audio n'est sélectionné.
-             if (!isOneAudioSelected)
-             {
-                 availableAudioStreams[0].isChecked = true;
-                 selectedStreams.Add(availableAudioStreams[0].ManifestStream);
-             }
-            
-             // De nombreux flux de texte sont pris en charge.
-             for (int j = 0; j < availableTextStreams.Count; j++)
-             {
-                 if (availableTextStreams[j].isChecked)
-                 {
-                     selectedStreams.Add(availableTextStreams[j].ManifestStream);
-                 }
-             }
-         }
-            
-         // Modifiez les flux dans une présentation de diffusion en continu lisse comportant plusieurs flux vidéo.
-         private async void changeStreams(List<IManifestStream> selectStreams)
-         {
-             try
-             {
-                 IReadOnlyList<IStreamChangedResult> returnArgs =
-                     await manifestObject.SelectStreamsAsync(selectStreams);
-             }
-             catch (Exception e)
-             {
-                 txtStatus.Text = "Error: " + e.Message;
-             }
-         }
-         #endregion stream selection
+        #region stream selection
+        ///<summary>
+        ///Functionality to select streams from IManifestStream available streams
+        /// </summary>
+
+        // This function is called from the mediaElement_ManifestReady event handler 
+        // to retrieve the streams and populate them to the local data members.
+        public void getStreams(Manifest manifestObject)
+        {
+            availableStreams = new List<Stream>();
+            availableVideoStreams = new List<Stream>();
+            availableAudioStreams = new List<Stream>();
+            availableTextStreams = new List<Stream>();
+
+            try
+            {
+                for (int i = 0; i<manifestObject.AvailableStreams.Count; i++)
+                {
+                    Stream newStream = new Stream(manifestObject.AvailableStreams[i]);
+                    newStream.isChecked = false;
+
+                    //populate the stream lists based on the types
+                    availableStreams.Add(newStream);
+
+                    switch (newStream.ManifestStream.Type)
+                    {
+                        case MediaStreamType.Video:
+                            availableVideoStreams.Add(newStream);
+                            break;
+                        case MediaStreamType.Audio:
+                            availableAudioStreams.Add(newStream);
+                            break;
+                        case MediaStreamType.Text:
+                            availableTextStreams.Add(newStream);
+                            break;
+                    }
+
+                    // Select the default selected streams from the manifest.
+                    for (int j = 0; j<manifestObject.SelectedStreams.Count; j++)
+                    {
+                        string selectedStreamName = manifestObject.SelectedStreams[j].Name;
+                        if (selectedStreamName.Equals(newStream.Name))
+                        {
+                            newStream.isChecked = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                txtStatus.Text = "Error: " + e.Message;
+            }
+        }
+
+        // This function set the list box ItemSource
+        private async void refreshAvailableStreamsListBoxItemSource()
+        {
+            try
+            {
+                //update the stream check box list on the UI
+                await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, ()
+                    => { lbAvailableStreams.ItemsSource = availableStreams; });
+            }
+            catch (Exception e)
+            {
+                txtStatus.Text = "Error: " + e.Message;
+            }
+        }
+
+        // This function creates a selected streams list
+        private void createSelectedStreamsList(List<IManifestStream> selectedStreams)
+        {
+            bool isOneVideoSelected = false;
+            bool isOneAudioSelected = false;
+
+            // Only one video stream can be selected
+            for (int j = 0; j<availableVideoStreams.Count; j++)
+            {
+                if (availableVideoStreams[j].isChecked && (!isOneVideoSelected))
+                {
+                    selectedStreams.Add(availableVideoStreams[j].ManifestStream);
+                    isOneVideoSelected = true;
+                }
+            }
+
+            // Select the frist video stream from the list if no video stream is selected
+            if (!isOneVideoSelected)
+            {
+                availableVideoStreams[0].isChecked = true;
+                selectedStreams.Add(availableVideoStreams[0].ManifestStream);
+            }
+
+            // Only one audio stream can be selected
+            for (int j = 0; j<availableAudioStreams.Count; j++)
+            {
+                if (availableAudioStreams[j].isChecked && (!isOneAudioSelected))
+                {
+                    selectedStreams.Add(availableAudioStreams[j].ManifestStream);
+                    isOneAudioSelected = true;
+                    txtStatus.Text = "The audio stream is changed to " + availableAudioStreams[j].ManifestStream.Name;
+                }
+            }
+
+            // Select the frist audio stream from the list if no audio steam is selected.
+            if (!isOneAudioSelected)
+            {
+                availableAudioStreams[0].isChecked = true;
+                selectedStreams.Add(availableAudioStreams[0].ManifestStream);
+            }
+
+            // Multiple text streams are supported.
+            for (int j = 0; j < availableTextStreams.Count; j++)
+            {
+                if (availableTextStreams[j].isChecked)
+                {
+                    selectedStreams.Add(availableTextStreams[j].ManifestStream);
+                }
+            }
+        }
+
+        // Change streams on a smooth streaming presentation with multiple video streams.
+        private async void changeStreams(List<IManifestStream> selectStreams)
+        {
+            try
+            {
+                IReadOnlyList<IStreamChangedResult> returnArgs =
+                    await manifestObject.SelectStreamsAsync(selectStreams);
+            }
+            catch (Exception e)
+            {
+                txtStatus.Text = "Error: " + e.Message;
+            }
+        }
+        #endregion stream selection
 
 5.  Recherchez la méthode mediaElement\_ManifestReady, puis ajoutez le code suivant à la fin de la fonction :
 
-         getStreams(manifestObject);
-         refreshAvailableStreamsListBoxItemSource();
+        getStreams(manifestObject);
+        refreshAvailableStreamsListBoxItemSource();
 
     Lorsque le manifeste MediaElement est prêt, le code obtient une liste des flux disponibles et l'insère dans la zone de liste d'interface utilisateur.
 
 6.  Dans la classe MainPage, recherchez la région d'événements Click des boutons de l'interface utilisateur, puis ajoutez la définition de fonction suivante :
 
-         private void btnChangeStream_Click(object sender, RoutedEventArgs e)
-         {
-             List<IManifestStream> selectedStreams = new List<IManifestStream>();
+        private void btnChangeStream_Click(object sender, RoutedEventArgs e)
+        {
+            List<IManifestStream> selectedStreams = new List<IManifestStream>();
 
-             // Créer une liste des flux sélectionnés
-             createSelectedStreamsList(selectedStreams);
+            // Create a list of the selected streams
+            createSelectedStreamsList(selectedStreams);
 
-             // Modifier les flux de la présentation
-             changeStreams(selectedStreams);
-         }
+            // Change streams on the presentation
+            changeStreams(selectedStreams);
+        }
 
 **Compilation et test de l'application**
 
@@ -782,8 +751,7 @@ La diffusion en continu lisse permet de diffuser du contenu en continu proposant
 
 Vous avez terminé la leçon 3 au cours de laquelle vous avez appris à ajouter la fonctionnalité de sélection des flux.
 
-Leçon 4 : sélection des pistes de diffusion en continu lisse
-============================================================
+# Leçon 4 : sélection des pistes de diffusion en continu lisse
 
 Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers vidéo encodés comportant des niveaux de qualité (débit) et des résolutions différents. Cette leçon vous expliquera comment permettre aux utilisateurs de sélectionner des pistes. Cette leçon aborde les procédures suivantes :
 
@@ -794,22 +762,22 @@ Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers
 **Modification du fichier XAML**
 
 1.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Concepteur de vues**.
-2.  Recherchez la balise &lt;Grid\> nommée **gridStreamAndBitrateSelection**, puis ajoutez le code suivant à la fin de la balise :
+2.  Recherchez la balise \<Grid\> nommée **gridStreamAndBitrateSelection**, puis ajoutez le code suivant à la fin de la balise :
 
-         <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
-          <StackPanel Orientation="Horizontal">
-              <TextBlock Name="tbBitRate" Text="Available Bitrates:" FontSize="16" VerticalAlignment="Center"/>
-              <Button Name="btnChangeTracks" Content="Submit" Click="btnChangeTrack_Click" />
-          </StackPanel>
-          <ListBox x:Name="lbAvailableVideoTracks" Height="200" Width="200" Background="Transparent" HorizontalAlignment="Left" 
-                   ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Visible">
-              <ListBox.ItemTemplate>
-                  <DataTemplate>
-                      <CheckBox Content="{Binding Bitrate}" IsChecked="{Binding isChecked, Mode=TwoWay}"/>
-                  </DataTemplate>
-              </ListBox.ItemTemplate>
-          </ListBox>
+        <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
+         <StackPanel Orientation="Horizontal">
+             <TextBlock Name="tbBitRate" Text="Available Bitrates:" FontSize="16" VerticalAlignment="Center"/>
+             <Button Name="btnChangeTracks" Content="Submit" Click="btnChangeTrack_Click" />
          </StackPanel>
+         <ListBox x:Name="lbAvailableVideoTracks" Height="200" Width="200" Background="Transparent" HorizontalAlignment="Left" 
+                  ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Visible">
+             <ListBox.ItemTemplate>
+                 <DataTemplate>
+                     <CheckBox Content="{Binding Bitrate}" IsChecked="{Binding isChecked, Mode=TwoWay}"/>
+                 </DataTemplate>
+             </ListBox.ItemTemplate>
+         </ListBox>
+        </StackPanel>
 
 3.  Appuyez sur **Ctrl+S** pour enregistrer les modifications.
 
@@ -818,163 +786,163 @@ Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers
 1.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
 2.  Dans l'espace de noms SSPlayer, ajoutez une nouvelle classe :
 
-         #region class Track
-         public class Track
-         {
-             private IManifestTrack trackInfo;
-             public string _bitrate;
-             public bool isCheckedValue;
+        #region class Track
+        public class Track
+        {
+            private IManifestTrack trackInfo;
+            public string _bitrate;
+            public bool isCheckedValue;
 
-             public IManifestTrack TrackInfo
-             {
-                 get { return trackInfo; }
-                 set { trackInfo = value; }
-             }
+            public IManifestTrack TrackInfo
+            {
+                get { return trackInfo; }
+                set { trackInfo = value; }
+            }
 
-             public string Bitrate
-             {
-                 get { return _bitrate; }
-                 set { _bitrate = value; }
-             }
+            public string Bitrate
+            {
+                get { return _bitrate; }
+                set { _bitrate = value; }
+            }
 
-             public bool isChecked
-             {
-                 get { return isCheckedValue; }
-                 set
-                 {
-                     isCheckedValue = value;
-                 }
-             }
+            public bool isChecked
+            {
+                get { return isCheckedValue; }
+                set
+                {
+                    isCheckedValue = value;
+                }
+            }
 
-             public Track(IManifestTrack trackInfoIn)
-             {
-                 trackInfo = trackInfoIn;
-                 _bitrate = trackInfoIn.Bitrate.ToString();
-             }
-             //public Track() { }
-         }
-         #endregion class Track
+            public Track(IManifestTrack trackInfoIn)
+            {
+                trackInfo = trackInfoIn;
+                _bitrate = trackInfoIn.Bitrate.ToString();
+            }
+            //public Track() { }
+        }
+        #endregion class Track
 
 3.  Au début de la classe MainPage, ajoutez les définitions de variables suivantes :
 
-         private List<Track> availableTracks;
+        private List<Track> availableTracks;
 
 4.  Dans la classe MainPage, ajoutez la région suivante :
 
-         #region track selection
-         /// <summary>
-         /// Fonctionnalité de sélection des flux vidéo
-         /// </summary>
+        #region track selection
+        /// <summary>
+        /// Functionality to select video streams
+        /// </summary>
 
-         /// Cette fonction permet de récupérer les pistes correspondant au flux vidéo sélectionné
-         public void getTracks(Manifest manifestObject)
-         {
-             availableTracks = new List<Track>();
+        /// This Function gets the tracks for the selected video stream
+        public void getTracks(Manifest manifestObject)
+        {
+            availableTracks = new List<Track>();
 
-             IManifestStream videoStream = getVideoStream();
-             IReadOnlyList<IManifestTrack> availableTracksLocal = videoStream.AvailableTracks;
-             IReadOnlyList<IManifestTrack> selectedTracksLocal = videoStream.SelectedTracks;
+            IManifestStream videoStream = getVideoStream();
+            IReadOnlyList<IManifestTrack> availableTracksLocal = videoStream.AvailableTracks;
+            IReadOnlyList<IManifestTrack> selectedTracksLocal = videoStream.SelectedTracks;
 
-             try
-             {
-                 for (int i = 0; i < availableTracksLocal.Count; i++)
-                 {
-                     Track thisTrack = new Track(availableTracksLocal[i]);
-                     thisTrack.isChecked = true;
+            try
+            {
+                for (int i = 0; i < availableTracksLocal.Count; i++)
+                {
+                    Track thisTrack = new Track(availableTracksLocal[i]);
+                    thisTrack.isChecked = true;
 
-                     for (int j = 0; j < selectedTracksLocal.Count; j++)
-                     {
-                         string selectedTrackName = selectedTracksLocal[j].Bitrate.ToString();
-                         if (selectedTrackName.Equals(thisTrack.Bitrate))
-                         {
-                             thisTrack.isChecked = true;
-                             break;
-                         }
-                     }
-                     availableTracks.Add(thisTrack);
-                 }
-             }
-             catch (Exception e)
-             {
-                 txtStatus.Text = e.Message;
-             }
-         }
+                    for (int j = 0; j < selectedTracksLocal.Count; j++)
+                    {
+                        string selectedTrackName = selectedTracksLocal[j].Bitrate.ToString();
+                        if (selectedTrackName.Equals(thisTrack.Bitrate))
+                        {
+                            thisTrack.isChecked = true;
+                            break;
+                        }
+                    }
+                    availableTracks.Add(thisTrack);
+                }
+            }
+            catch (Exception e)
+            {
+                txtStatus.Text = e.Message;
+            }
+        }
 
-         // Cette fonction permet de récupérer le flux vidéo en cours de lecture
-         private IManifestStream getVideoStream()
-         {
-             IManifestStream videoStream = null;
-             for (int i = 0; i < manifestObject.SelectedStreams.Count; i++)
-             {
-                 if (manifestObject.SelectedStreams[i].Type == MediaStreamType.Video)
-                 {
-                     videoStream = manifestObject.SelectedStreams[i];
-                     break;
-                 }
-             }
-             return videoStream;
-         }
+        // This function gets the video stream that is playing
+        private IManifestStream getVideoStream()
+        {
+            IManifestStream videoStream = null;
+            for (int i = 0; i < manifestObject.SelectedStreams.Count; i++)
+            {
+                if (manifestObject.SelectedStreams[i].Type == MediaStreamType.Video)
+                {
+                    videoStream = manifestObject.SelectedStreams[i];
+                    break;
+                }
+            }
+            return videoStream;
+        }
 
-         // Cette fonction permet de définir le contrôle ListBox d'interface utilisateur Item Source
-         private async void refreshAvailableTracksListBoxItemSource()
-         {
-             try
-             {
-                 // Mettre à jour la liste de cases à cocher de pistes dans l'interface utilisateur 
-                 await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, ()
-                     => { lbAvailableVideoTracks.ItemsSource = availableTracks; });
-             }
-             catch (Exception e)
-             {
-                 txtStatus.Text = "Error: " + e.Message;
-             }        
-         }
+        // This function set the UI list box control ItemSource
+        private async void refreshAvailableTracksListBoxItemSource()
+        {
+            try
+            {
+                // Update the track check box list on the UI 
+                await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, ()
+                    => { lbAvailableVideoTracks.ItemsSource = availableTracks; });
+            }
+            catch (Exception e)
+            {
+                txtStatus.Text = "Error: " + e.Message;
+            }        
+        }
 
-         // Cette fonction permet de créer une liste des pistes sélectionnées.
-         private void createSelectedTracksList(List<IManifestTrack> selectedTracks)
-         {
-             // Créer une liste des pistes sélectionnées
-             for (int j = 0; j < availableTracks.Count; j++)
-             {
-                 if (availableTracks[j].isCheckedValue == true)
-                 {
-                     selectedTracks.Add(availableTracks[j].TrackInfo);
-                 }
-             }
-         }
+        // This function creates a list of the selected tracks.
+        private void createSelectedTracksList(List<IManifestTrack> selectedTracks)
+        {
+            // Create a list of selected tracks
+            for (int j = 0; j < availableTracks.Count; j++)
+            {
+                if (availableTracks[j].isCheckedValue == true)
+                {
+                    selectedTracks.Add(availableTracks[j].TrackInfo);
+                }
+            }
+        }
 
-         // Cette fonction permet de sélectionner les pistes en fonction de la sélection de l'utilisateur 
-         private void changeTracks(List<IManifestTrack> selectedTracks)
-         {
-             IManifestStream videoStream = getVideoStream();
-             try
-             {
-                 videoStream.SelectTracks(selectedTracks);
-             }
-             catch (Exception ex)
-             {
-                 txtStatus.Text = ex.Message;
-             }
-         }
-         #endregion track selection
+        // This function selects the tracks based on user selection 
+        private void changeTracks(List<IManifestTrack> selectedTracks)
+        {
+            IManifestStream videoStream = getVideoStream();
+            try
+            {
+                videoStream.SelectTracks(selectedTracks);
+            }
+            catch (Exception ex)
+            {
+                txtStatus.Text = ex.Message;
+            }
+        }
+        #endregion track selection
 
 5.  Recherchez la méthode mediaElement\_ManifestReady, puis ajoutez le code suivant à la fin de la fonction :
 
-         getTracks(manifestObject);
-         refreshAvailableTracksListBoxItemSource();
+        getTracks(manifestObject);
+        refreshAvailableTracksListBoxItemSource();
 
 6.  Dans la classe MainPage, recherchez la région d'événements Click des boutons de l'interface utilisateur, puis ajoutez la définition de fonction suivante :
 
-         private void btnChangeStream_Click(object sender, RoutedEventArgs e)
-         {
-             List<IManifestStream> selectedStreams = new List<IManifestStream>();
+        private void btnChangeStream_Click(object sender, RoutedEventArgs e)
+        {
+            List<IManifestStream> selectedStreams = new List<IManifestStream>();
 
-             // Créer une liste des flux sélectionnés
-             createSelectedStreamsList(selectedStreams);
+            // Create a list of the selected streams
+            createSelectedStreamsList(selectedStreams);
 
-             // Modifier les flux de la présentation
-             changeStreams(selectedStreams);
-         }
+            // Change streams on the presentation
+            changeStreams(selectedStreams);
+        }
 
 **Compilation et test de l'application**
 
@@ -986,9 +954,22 @@ Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers
 
 Vous avez terminé la leçon 4 au cours de laquelle vous avez appris à ajouter la fonctionnalité de sélection des pistes.
 
-Autres ressources :
-===================
+# Autres ressources :
 
--   [Développement d'une application JavaScript de diffusion en continu lisse pour Windows 8 dotée de fonctionnalités avancées](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
--   [Présentation technique de la diffusion en continu lisse](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
+-   [Développement d'une application JavaScript de diffusion en continu lisse pour Windows 8 dotée de fonctionnalités avancées][]
+-   [Présentation technique de la diffusion en continu lisse][]
 
+  [notes de publicationn]: http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes
+  [Player Framework for Windows 8]: http://playerframework.codeplex.com/
+  [version d'évaluation de Windows 8 Entreprise]: http://msdn.microsoft.com/en-us/evalcenter/jj554510.aspx
+  [ici]: http://www.microsoft.com/visualstudio/11/en-us/downloads
+  [Kit de développement logiciel (SDK) du client Microsoft de diffusion en continu lisse pour Windows 8]: http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home
+  [Leçon 1]: http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "Lecteur multimédia simple de diffusion en continu lisse pour Windows 8"
+  [Leçon 2]: http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "Lecteur multimédia simple de diffusion en continu lisse pour Windows 8 doté d'une barre de curseur de contrôle"
+  [Leçon 3]: http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "Lecteur multimédia de diffusion en continu lisse pour Windows 8 avec sélection de flux"
+  [Leçon 4]: http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "Lecteur multimédia de diffusion en continu lisse pour Windows 8 avec sélection des pistes"
+  [Exemple d'application Windows Store de diffusion en continu lisse]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
+  [Develop Great Apps for Windows 8]: http://msdn.microsoft.com/en-us/windows/apps/br229512.aspx
+  [Codeview dans Visual Studio d'une application Windows Store de diffusion en continu lisse]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
+  [Développement d'une application JavaScript de diffusion en continu lisse pour Windows 8 dotée de fonctionnalités avancées]: http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx
+  [Présentation technique de la diffusion en continu lisse]: http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview
