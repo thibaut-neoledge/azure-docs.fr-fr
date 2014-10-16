@@ -1,0 +1,15 @@
+### Que s'est-il passé ?
+
+###### Références ajoutées
+
+Le package NuGet d'Azure Storage a été ajouté à votre projet Visual Studio.  
+Ce package fournit les références .NET suivantes : Microsoft.Data.Edm, Microsoft.Data.OData, Microsoft.Data.Services.Client, Microsoft.WindowsAzure.Configuration, Microsoft.WindowsAzure.Storage, Newtonsoft.Json, System.Data, System.Spatial
+
+###### Chaîne de connexion pour Azure Storage ajoutée
+
+Les éléments ont été créés avec la clé et la chaîne de connexion du compte de stockage sélectionné. Des modifications ont été apportées aux fichiers suivants :
+
+-   ServiceDefinition.csdef
+-   ServiceConfiguration.Cloud.cscfg
+-   ServiceConfiguration.Local.cscfg
+
