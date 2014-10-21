@@ -175,9 +175,9 @@ Maintenant que vous avez appris les principes de base du service de stockage de 
 -   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][]
 -   Accédez au blog de l'équipe Azure Storage : <http://blogs.msdn.com/b/windowsazurestorage/>
 
-  [Application web Django Hello World]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server
+  [Application web Django Hello World]: http://windowsazure.com/fr-fr/documentation/articles/virtual-machines-python-django-web-app-windows-server
   [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   []: ./media/storage-python-use-table-storage-web-app/web-app-with-storage-Finaloutput-mac.png
   [create-account-note]: ../includes/create-account-note.md
-  [Guide d'installation de Python]: http://windowsazure.com/en-us/documentation/articles/python-how-to-install
+  [Guide d'installation de Python]: http://windowsazure.com/fr-fr/documentation/articles/python-how-to-install
   [create-storage-account]: ../includes/create-storage-account.md

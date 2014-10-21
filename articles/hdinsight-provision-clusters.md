@@ -533,7 +533,7 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 -   [Envoi de tâches Hadoop par programme][]
 -   [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][]
 
-  [Approvisionnement d'un cluster HBase dans HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
+  [Approvisionnement d'un cluster HBase dans HDInsight]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-hbase-get-started/
   [Différences entre Hadoop et HBase]: http://go.microsoft.com/fwlink/?LinkId=510237
   [Apache Hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
   [Présentation de Hadoop dans HDInsight]: ../hdinsight-introduction/

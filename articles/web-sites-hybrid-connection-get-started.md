@@ -201,9 +201,9 @@ Maintenant que l'infrastructure de connexion hybride est terminée, vous pouvez 
   [Installation]: ./media/web-sites-hybrid-connection-get-started/D08HCMInstalling.png
   [Click Close]: ./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png
   [Connected Status]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
-  [Connexion à une instance SQL Server locale à partir d'un service mobile Azure au moyen de connexions hybrides]: http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/
+  [Connexion à une instance SQL Server locale à partir d'un service mobile Azure au moyen de connexions hybrides]: http://azure.microsoft.com/fr-fr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/
   [Josh Twist présente les connexions hybrides (vidéo Channel 9)]: http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections
   [Site web des connexions hybrides]: http://azure.microsoft.com/en-us/services/biztalk-services/
-  [BizTalk Services : Onglets Tableau de bord, Surveiller, Mettre à l'échelle, Configurer et Connexion hybride]: http://azure.microsoft.com/en-us/documentation/articles/biztalk-dashboard-monitor-scale-tabs/
+  [BizTalk Services : Onglets Tableau de bord, Surveiller, Mettre à l'échelle, Configurer et Connexion hybride]: http://azure.microsoft.com/fr-fr/documentation/articles/biztalk-dashboard-monitor-scale-tabs/
   [Création d'un cloud hybride réel avec la portabilité transparente des applications (vidéo Channel 9)]: http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=
   [Connexion à une instance SQL Server locale à partir d'Azure Mobile Services au moyen de connexions hybrides (vidéo Channel 9)]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections

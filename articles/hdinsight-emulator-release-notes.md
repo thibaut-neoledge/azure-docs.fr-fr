@@ -63,7 +63,7 @@
 
 -   Connexion à plusieurs clusters, notamment l'installation locale et celles à distance utilisant le service Azure HDInsight.
 
--   Pour plus d'informations sur le service HDInsight, consultez la page [http://azure.microsoft.com/fr-fr/documentation/services/hdinsight/](http://azure.microsoft.com/en-us/documentation/services/hdinsight/).
+-   Pour plus d'informations sur le service HDInsight, consultez la page [http://azure.microsoft.com/fr-fr/documentation/services/hdinsight/](http://azure.microsoft.com/fr-fr/documentation/services/hdinsight/).
 
 -   Configuration de WASB sur un cluster local
 

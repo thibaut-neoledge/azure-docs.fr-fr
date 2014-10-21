@@ -213,7 +213,7 @@ Dans ce didacticiel, vous avez appris à approvisionner un cluster avec HDInsigh
   [Hive]: http://go.microsoft.com/fwlink/?LinkId=510085
   [Présentation de Hadoop dans HDInsight]: ../hdinsight-introduction/
   [Prise en main de l'émulateur HDInsight]: ../hdinsight-get-started-emulator/
-  [Approvisionnement d'un cluster HBase dans HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
+  [Approvisionnement d'un cluster HBase dans HDInsight]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-hbase-get-started/
   [Différences entre Hadoop et HBase]: http://go.microsoft.com/fwlink/?LinkId=510237
   [HDI.GetStartedFlow]: ./media/hdinsight-get-started/HDI.GetStartedFlow.png
   [formules d'abonnement]: http://azure.microsoft.com/en-us/pricing/purchase-options/
@@ -229,7 +229,7 @@ Dans ce didacticiel, vous avez appris à approvisionner un cluster avec HDInsigh
   [portail de gestion Azure]: https://manage.windowsazure.com/
   [HDI.StorageAccount.QuickCreate]: ./media/hdinsight-get-started/HDI.StorageAccount.QuickCreate.png
   [Création d'un compte de stockage]: ../storage-create-storage-account/
-  [Contrôle de version des composants HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/
+  [Contrôle de version des composants HDInsight]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-component-versioning/
   [HDI.ClusterStatus]: ./media/hdinsight-get-started/HDI.ClusterStatus.png
   [HDI.QuickCreateCluster]: ./media/hdinsight-get-started/HDI.QuickCreateCluster.png
   [Nouveautés des versions de cluster fournies par HDInsight]: ../hdinsight-component-versioning/

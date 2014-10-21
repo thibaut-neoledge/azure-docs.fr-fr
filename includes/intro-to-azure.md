@@ -123,7 +123,7 @@ Azure Cloud Services est idéal pour gérer l'évolutivité et bénéficier d'un
 
 #### Choix d'un modèle de calcul
 
-La page Comparaison entre Sites Web Azure, Azure Cloud Services et Azure Virtual Machines (<http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/>) contient des informations détaillées qui vous aideront à choisir un modèle de calcul.
+La page Comparaison entre Sites Web Azure, Azure Cloud Services et Azure Virtual Machines (<http://azure.microsoft.com/fr-fr/documentation/articles/choose-web-site-cloud-service-vm/>) contient des informations détaillées qui vous aideront à choisir un modèle de calcul.
 
 ## <span id="data"></span></a>Gestion des données
 
@@ -566,7 +566,7 @@ Maintenant que vous connaissez les grandes lignes, la prochaine étape est de cr
   [Média]: #media
   [Commerce]: #commerce
   [Mise en route]: #start
-  [Infographie Windows Azure]: http://azure.microsoft.com/en-us/documentation/infographics/azure/ "infographie Microsoft Azure"
+  [Infographie Windows Azure]: http://azure.microsoft.com/fr-fr/documentation/infographics/azure/ "infographie Microsoft Azure"
   [Azure components]: ./media/intro-to-azure/AzureComponentsIntroNew800.png
   [Azure Virtual Machines]: ./media/intro-to-azure/VirtualMachinesIntroNew.png
   [Azure Websites]: ./media/intro-to-azure/AzureWebsitesIntroNew.png
@@ -595,7 +595,7 @@ Maintenant que vous connaissez les grandes lignes, la prochaine étape est de cr
   [Azure CDN]: ./media/intro-to-azure/CDNIntroNew.png
   [HDInsight]: ./media/intro-to-azure/HDInsightIntroNew.png
   [Azure Media Services]: ./media/intro-to-azure/MediaServicesIntroNew.png
-  [poster Azure Media Services]: http://azure.microsoft.com/en-us/documentation/infographics/media-services/
+  [poster Azure Media Services]: http://azure.microsoft.com/fr-fr/documentation/infographics/media-services/
   [Azure Marketplace]: http://datamarket.azure.com/
   [Azure Store]: /en-us/store/overview/
   [Azure Commerce]: ./media/intro-to-azure/CommerceIntroNew.png

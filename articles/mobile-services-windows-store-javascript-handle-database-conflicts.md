@@ -282,18 +282,18 @@ Les étapes suivantes vous accompagnent tout au long des procédures d'ajout et 
 
 Ce didacticiel a montré comment permettre à une application Windows Store de gérer les conflits d'écriture lors de l'utilisation de données dans Mobile Services. Nous vous invitons ensuite à suivre l'un des didacticiels suivants de notre série sur les données :
 
--   [Validation et modification des données avec des scripts](/en-us/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/)
+-   [Validation et modification des données avec des scripts](/fr-fr/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/)
     En savoir plus sur l'utilisation des scripts serveur dans Mobile Services pour valider et modifier les données envoyées à partir de votre application.
 
--   [Affinage des requêtes à la pagination](/en-us/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/)
+-   [Affinage des requêtes à la pagination](/fr-fr/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/)
     En savoir plus sur l'utilisation de la pagination dans les requêtes pour contrôler la quantité de données traitées dans une seule requête.
 
 Une fois que vous avez terminé la série sur les données, vous pouvez également essayer l'un des didacticiels Windows Store suivants :
 
--   [Prise en main de l'authentification](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users/)
+-   [Prise en main de l'authentification](/fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-users/)
     En savoir plus sur l'authentification des utilisateurs de votre application.
 
--   [Prise en main des notifications Push](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/)
+-   [Prise en main des notifications Push](/fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-push/)
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application avec Mobile Services.
 
 
@@ -331,11 +331,11 @@ Une fois que vous avez terminé la série sur les données, vous pouvez égaleme
 [Optimistic Concurrency Control]: http://go.microsoft.com/fwlink/?LinkId=330935
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
 [Windows Azure Account]: http://www.windowsazure.com/en-us/pricing/free-trial/
-[Validate and modify data with scripts]: /en-us/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
-[Refine queries with paging]: /en-us/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
+[Validate and modify data with scripts]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
+[Refine queries with paging]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/
+[Get started with authentication]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
+[Get started with push notifications]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-push/
 
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/

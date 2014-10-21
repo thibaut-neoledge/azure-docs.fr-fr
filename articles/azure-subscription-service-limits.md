@@ -36,12 +36,12 @@ Le document ci-dessous présente quelques-unes des limites Microsoft Azure les p
 <td align="left"><p>200</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/">Comptes de stockage</a> par abonnement</p></td>
+<td align="left"><p><a href="http://azure.microsoft.com/fr-fr/documentation/articles/storage-whatis-account/">Comptes de stockage</a> par abonnement</p></td>
 <td align="left"><p>20</p></td>
 <td align="left"><p>50</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/">Services cloud</a> par abonnement</p></td>
+<td align="left"><p><a href="http://azure.microsoft.com/fr-fr/documentation/articles/cloud-services-what-is/">Services cloud</a> par abonnement</p></td>
 <td align="left"><p>20</p></td>
 <td align="left"><p>200</p></td>
 </tr>
@@ -93,7 +93,7 @@ Le document ci-dessous présente quelques-unes des limites Microsoft Azure les p
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/">Rôles de travail/web par déploiement<sup>1</sup></a></p></td>
+<td align="left"><p><a href="http://azure.microsoft.com/fr-fr/documentation/articles/cloud-services-what-is/">Rôles de travail/web par déploiement<sup>1</sup></a></p></td>
 <td align="left"><p>25</p></td>
 <td align="left"><p>25</p></td>
 </tr>
@@ -128,7 +128,7 @@ Le document ci-dessous présente quelques-unes des limites Microsoft Azure les p
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><a href="http://azure.microsoft.com/en-us/documentation/services/virtual-machines/">Machines virtuelles</a> par service cloud<sup>1</sup></p></td>
+<td align="left"><p><a href="http://azure.microsoft.com/fr-fr/documentation/services/virtual-machines/">Machines virtuelles</a> par service cloud<sup>1</sup></p></td>
 <td align="left"><p>50</p></td>
 <td align="left"><p>50</p></td>
 </tr>
@@ -260,15 +260,15 @@ Pour les limites de base de données SQL, consultez les rubriques suivantes :
   [service client]: http://azure.microsoft.com/en-us/support/faq/
   [abonnement]: http://msdn.microsoft.com/en-us/library/azure/hh531793.aspx
   [Coadministrateurs]: http://msdn.microsoft.com/en-us/library/azure/gg456328.aspx
-  [Comptes de stockage]: http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/
-  [Services cloud]: http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/
+  [Comptes de stockage]: http://azure.microsoft.com/fr-fr/documentation/articles/storage-whatis-account/
+  [Services cloud]: http://azure.microsoft.com/fr-fr/documentation/articles/cloud-services-what-is/
   [Réseaux virtuels]: http://msdn.microsoft.com/library/azure/jj156007.aspx
   [Réseaux locaux]: http://msdn.microsoft.com/en-us/library/jj157100.aspx
   [Groupes d'affinités]: http://msdn.microsoft.com/en-us/library/azure/jj156085.aspx
   [Points de terminaison d'entrée d'instance]: http://msdn.microsoft.com/en-us/library/gg557552.aspx#InstanceInputEndpoint
   [Points de terminaison d'entrée]: http://msdn.microsoft.com/en-us/library/gg557552.aspx#InputEndpoint
   [Points de terminaison internes]: http://msdn.microsoft.com/en-us/library/gg557552.aspx#InternalEndpoint
-  [Machines virtuelles]: http://azure.microsoft.com/en-us/documentation/services/virtual-machines/
+  [Machines virtuelles]: http://azure.microsoft.com/fr-fr/documentation/services/virtual-machines/
   [passerelle de réseau virtuel unique]: http://msdn.microsoft.com/en-us/library/azure/jj156210.aspx
   [Objectifs de performances et d'extensibilité du stockage Azure]: http://msdn.microsoft.com/library/azure/dn249410.aspx
   [Niveaux de service de la Base de données SQL Azure (éditions)]: http://msdn.microsoft.com/en-us/library/azure/dn741340.aspx

@@ -138,7 +138,7 @@ Ensuite, vous allez mettre à jour l'application de démarrage rapide pour ajout
 <!-- URLs. -->
 
   
-  [Utilisation des migrations Code First pour mettre à jour le modèle de données]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
+  [Utilisation des migrations Code First pour mettre à jour le modèle de données]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
   [Création d'un compte de stockage]: /en-us/manage/services/storage/how-to-create-a-storage-account
   [1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
   [2]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png

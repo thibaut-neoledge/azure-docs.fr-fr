@@ -3,21 +3,21 @@
 Appel d'une API personnalisée à partir du client
 ================================================
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-call-custom-api" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-call-custom-api" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-ios-call-custom-api" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-services-android-call-custom-api" title="Android">Android</a>
+<div class="dev-center-tutorial-selector sublanding"><a href="/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api" title="Windows Store C#">Windows Store C#</a><a href="/fr-fr/documentation/articles/mobile-services-windows-store-javascript-call-custom-api" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/fr-fr/documentation/articles/mobile-services-windows-phone-call-custom-api" title="Windows Phone">Windows Phone</a><a href="/fr-fr/documentation/articles/mobile-services-ios-call-custom-api" title="iOS">iOS</a><a href="/fr-fr/documentation/articles/mobile-services-android-call-custom-api" title="Android">Android</a>
 </div>
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-call-custom-api" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-call-custom-api"  title="JavaScript backend" class="current">JavaScript backend</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-call-custom-api" title=".NET backend">.NET backend</a> | <a href="/fr-fr/documentation/articles/mobile-services-windows-store-javascript-call-custom-api"  title="JavaScript backend" class="current">JavaScript backend</a></div>
 
 Cette rubrique explique comment appeler une API personnalisée à partir d'une application Windows Store. Une API personnalisée vous permet de définir des points de terminaison exposant une fonctionnalité de serveur qui ne mappe pas vers une opération d'insertion, de mise à jour, de suppression ou de lecture. En utilisant une API personnalisée, vous pouvez exercer davantage de contrôle sur la messagerie, notamment lire et définir des en-têtes de message HTTP et définir un format de corps de message autre que JSON.
 
 L'API personnalisée créée dans cette rubrique vous donne la possibilité d'envoyer une seule requête POST qui définit l'indicateur complété sur `true` pour tous les éléments todo de la table. En l'absence de cette API personnalisée, le client devrait envoyer des demandes individuelles de mise à jour de l'indicateur pour chaque élément todo de la table.
 
-Vous allez ajouter cette fonctionnalité à l'application que vous avez créée avec le didacticiel [Prise en main de Mobile Services](/en-us/documentation/articles/mobile-services-windows-store-get-started/) ou [Prise en main des données](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data/). À cet effet, vous allez exécuter la procédure suivante :
+Vous allez ajouter cette fonctionnalité à l'application que vous avez créée avec le didacticiel [Prise en main de Mobile Services](/fr-fr/documentation/articles/mobile-services-windows-store-get-started/) ou [Prise en main des données](/fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-data/). À cet effet, vous allez exécuter la procédure suivante :
 
 1.  [Définition de l'API personnalisée](#define-custom-api)
 2.  [Mise à jour de l'application pour appeler l'API personnalisée](#update-app)
 3.  [Test de l'application](#test-app)
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez avoir terminé le didacticiel [Prise en main de Mobile Services](/en-us/documentation/articles/mobile-services-windows-store-get-started/) ou [Prise en main des données](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data/). Ce didacticiel utilise Visual Studio 2012 Express pour Windows 8.
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez avoir terminé le didacticiel [Prise en main de Mobile Services](/fr-fr/documentation/articles/mobile-services-windows-store-get-started/) ou [Prise en main des données](/fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-data/). Ce didacticiel utilise Visual Studio 2012 Express pour Windows 8.
 
 <a name="define-custom-api"></a>
 Définition de l'API personnalisée
@@ -32,13 +32,13 @@ Définition de l'API personnalisée
 
 Maintenant que vous avez créé une API personnalisée et que vous l'avez appelée à partir de votre application Windows Store, vous pouvez consulter les rubriques Mobile Services suivantes pour obtenir plus d'informations :
 
--   [Définition d'une API personnalisée qui prend en charge les notifications périodiques](/en-us/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications)
+-   [Définition d'une API personnalisée qui prend en charge les notifications périodiques](/fr-fr/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications)
     <br/>Apprenez à utiliser une API personnalisée pour prendre en charge les notifications périodiques dans une application Windows Store. Si les notifications périodiques sont activées, Windows accédera régulièrement au point de terminaison de votre API personnalisée et utilisera le XML renvoyé, dans un format mosaïque, pour mettre à jour la vignette de l'application dans le menu Démarrer.
 
 -   [Référence de script serveur Mobile Services](http://go.microsoft.com/fwlink/?LinkId=262293)
     <br/>Familiarisez-vous avec la création des API personnalisées.
 
--   [Stockage des scripts serveur dans le contrôle du code source](/en-us/documentation/articles/mobile-services-store-scripts-source-control)
+-   [Stockage des scripts serveur dans le contrôle du code source](/fr-fr/documentation/articles/mobile-services-store-scripts-source-control)
      <br/>Apprenez à utiliser la fonctionnalité de contrôle du code source pour développer et publier plus facilement et de manière plus sécurisée le code de script de l'API personnalisée.
 
 

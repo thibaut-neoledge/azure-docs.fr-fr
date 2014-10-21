@@ -2,4 +2,4 @@ Seuls les modes Partagé, De base et Standard autorisent la définition d'un nom
 
 Pour plus d'informations sur les modes de sites web, notamment sur la modification du mode de votre site, consultez la page [Mise à l'échelle de sites Web][].
 
-  [Mise à l'échelle de sites Web]: /en-us/documentation/articles/web-sites-scale/
+  [Mise à l'échelle de sites Web]: /fr-fr/documentation/articles/web-sites-scale/

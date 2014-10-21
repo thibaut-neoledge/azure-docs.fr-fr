@@ -54,5 +54,5 @@ Pour connaître l'adresse IP, ainsi que les noms **awverify** et **.azurewebsit
   [Noms de domaine IETF - Implémentation et spécification]: http://tools.ietf.org/html/rfc1035
   [portail de gestion Azure]: https://manage.windowsazure.com
   []: ./media/custom-dns-web-site/dncmntask-cname-6.png
-  [Mise à l'échelle de sites Web]: http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/
+  [Mise à l'échelle de sites Web]: http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-scale/
   [1]: ./media/custom-dns-web-site/managecustomdomains.png

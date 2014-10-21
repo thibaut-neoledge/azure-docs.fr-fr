@@ -254,5 +254,5 @@ Dans certains cas, vous pouvez exécuter votre application dans un service cloud
   [Résolution des problèmes de sites Web Azure dans Visual Studio]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
   [Déploiement d'une application ASP.NET MVC sécurisée avec une fonctionnalité d'appartenance, OAuth et une base de données SQL vers un site Web Azure]: /en-us/develop/net/tutorials/web-site-with-sql-database/
   [Modèles d'exécution Azure]: /en-us/develop/net/fundamentals/compute/
-  [Comparaison entre Sites Web Azure, Azure Cloud Services et Azure Virtual Machines]: http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/
+  [Comparaison entre Sites Web Azure, Azure Cloud Services et Azure Virtual Machines]: http://azure.microsoft.com/fr-fr/documentation/articles/choose-web-site-cloud-service-vm/
   [Application .NET multiniveau avec tables, files d'attente et objets blob de stockage]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/

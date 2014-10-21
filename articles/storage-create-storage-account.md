@@ -55,6 +55,6 @@ For details about storage account capacity and throughput, see [Azure Storage Sc
   [Opérations sur les groupes d'affinités]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx
   [storage-replication-options]: ../includes/storage-replication-options.md
   [StoragePage]: ./media/storage-create-storage-account/Storage_StoragePage.png
-  [azure.com]: http://azure.microsoft.com/en-us/documentation/services/storage/
+  [azure.com]: http://azure.microsoft.com/fr-fr/documentation/services/storage/
   [MSDN]: http://msdn.microsoft.com/en-us/library/gg433040.aspx
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/

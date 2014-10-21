@@ -1,6 +1,6 @@
 Tout d'abord, vous utilisez l'Assistant Ajouter une notification d'émission dans Visual Studio 2013 pour inscrire votre application auprès du Windows Store, configurer votre service mobile pour activer les notifications Push et ajouter du code à votre application pour inscrire un canal d'appareil.
 
-1.  Si vous ne l'avez pas encore fait, suivez cette procédure dans [Importer votre fichier publishsettings dans Visual Studio 2013](/en-us/documentation/articles/mobile-services-windows-how-to-import-publishsettings/) pour importer votre fichier publisher.settings dans Visual Studio.
+1.  Si vous ne l'avez pas encore fait, suivez cette procédure dans [Importer votre fichier publishsettings dans Visual Studio 2013](/fr-fr/documentation/articles/mobile-services-windows-how-to-import-publishsettings/) pour importer votre fichier publisher.settings dans Visual Studio.
     
  	Cette procédure n'est pas nécessaire si vous avez déjà utilisé Visual Studio pour créer ou gérer des services mobiles dans votre abonnement Azure.
 

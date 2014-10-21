@@ -83,9 +83,9 @@ Ignorez les étapes 1 à 3 si vous avez créé une application de console lors
 
 <!-- Anchors --> <!-- Images. --> <!-- URLs. -->
 [13]: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
-  [Prise en main des notifications push]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
-  [Utilisation de Notification Hubs depuis Java/PHP]: /en-us/documentation/articles/notification-hubs-java-backend-how-to/
+  [Prise en main des notifications push]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
+  [Utilisation de Notification Hubs depuis Java/PHP]: /fr-fr/documentation/articles/notification-hubs-java-backend-how-to/
   [interface REST des Notification Hubs]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
-  [prise en main des Notification Hubs]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+  [prise en main des Notification Hubs]: /fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
   
   [package NuGet WindowsAzure.ServiceBus]: http://nuget.org/packages/WindowsAzure.ServiceBus/

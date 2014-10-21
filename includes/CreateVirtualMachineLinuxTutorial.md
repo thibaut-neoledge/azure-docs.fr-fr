@@ -227,7 +227,7 @@ Pour en savoir plus sur Linux sous Azure, consultez les articles suivants :
   [Présentation d’Azure]: http://go.microsoft.com/fwlink/p/?LinkId=311926
   [portail de gestion Azure]: http://manage.windowsazure.com
   [Gestion des extensions]: http://go.microsoft.com/FWLink/p/?LinkID=390493
-  [Configuration des points de terminaison sur une machine virtuelle]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/
+  [Configuration des points de terminaison sur une machine virtuelle]: http://azure.microsoft.com/fr-fr/documentation/articles/virtual-machines-set-up-endpoints/
   [Téléchargement PuTTY]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
   [OpenSSH]: http://www.openssh.org/
   [Rechercher les détails SSH]: ./media/CreateVirtualMachineLinuxTutorial/SSHdetails.png
@@ -242,5 +242,5 @@ Pour en savoir plus sur Linux sous Azure, consultez les articles suivants :
   [Répertorier les informations sur le disque]: ./media/CreateVirtualMachineLinuxTutorial/diskinfo.png
   [Écrire les modifications apportées au disque]: ./media/CreateVirtualMachineLinuxTutorial/diskwrite.png
   [Créer le système de fichiers]: ./media/CreateVirtualMachineLinuxTutorial/diskfilesystem.png
-  [Présentation de Linux sous Azure]: http://www.windowsazure.com/en-us/documentation/articles/introduction-linux/
-  [Utilisation des outils en ligne de commande Azure pour Mac et Linux]: http://www.windowsazure.com/en-us/documentation/articles/xplat-cli/
+  [Présentation de Linux sous Azure]: http://www.windowsazure.com/fr-fr/documentation/articles/introduction-linux/
+  [Utilisation des outils en ligne de commande Azure pour Mac et Linux]: http://www.windowsazure.com/fr-fr/documentation/articles/xplat-cli/

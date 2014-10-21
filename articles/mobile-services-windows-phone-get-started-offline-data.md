@@ -5,11 +5,11 @@
 # Prise en main de la synchronisation des données hors connexion dans Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data" title="Windows Store&nbsp;C#">Windows Store&nbsp;C#</a>
-<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data" title="Windows Phone" class="current">Windows Phone</a>
-<a href="/en-us/documentation/articles/mobile-services-ios-get-started-offline-data" title="iOS">iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data" title="Xamarin.iOS">Xamarin.iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-xamarin-android-get-started-offline-data" title="Xamarin.Android">Xamarin.Android</a>
+<a href="/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data" title="Windows Store&nbsp;C#">Windows Store&nbsp;C#</a>
+<a href="/fr-fr/documentation/articles/mobile-services-windows-phone-get-started-offline-data" title="Windows Phone" class="current">Windows Phone</a>
+<a href="/fr-fr/documentation/articles/mobile-services-ios-get-started-offline-data" title="iOS">iOS</a>
+<a href="/fr-fr/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data" title="Xamarin.iOS">Xamarin.iOS</a>
+<a href="/fr-fr/documentation/articles/mobile-services-xamarin-android-get-started-offline-data" title="Xamarin.Android">Xamarin.Android</a>
 </div>
 
 Cette rubrique vous explique comment utiliser les fonctionnalités hors connexion d'Azure Mobile Services. Les fonctionnalités hors connexion d'Azure Mobile Services vous permettent d'interagir avec une base de données locale lorsque vous vous trouvez dans un scénario hors connexion avec votre version de Mobile Service. Les fonctionnalités hors connexion vous permettent de synchroniser vos modifications locales avec le service mobile une fois que vous êtes à nouveau en ligne.
@@ -243,13 +243,13 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 
   <!-- URLs. -->
 
-  [Windows Store C\#]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows Store C#"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
-  [iOS]: /en-us/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
-  [Xamarin.iOS]: /en-us/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
-  [Xamarin.Android]: /en-us/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
-  [Prise en main de Mobile Services]: /en-us/documentation/articles/mobile-services-windows-phone-get-started/
-  [Prise en main de données]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data/
+  [Windows Store C\#]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows Store C#"
+  [Windows Phone]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
+  [iOS]: /fr-fr/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
+  [Xamarin.iOS]: /fr-fr/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
+  [Xamarin.Android]: /fr-fr/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
+  [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started/
+  [Prise en main de données]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-data/
 
 
 <!-- Anchors. -->
@@ -275,4 +275,4 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
   [7]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-online-app-run2.png
   [8]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-online-app-run3.png
   [9]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-data-browse3.png
-  [Gestion des conflits liés à la prise en charge hors connexion de Mobile Services]: /en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data/
+  [Gestion des conflits liés à la prise en charge hors connexion de Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data/

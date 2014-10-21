@@ -64,7 +64,7 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 -   [Prise en main des notifications Push][Get started with push notifications]
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
-Pour plus d'informations sur les applications Windows universelles, consultez la page [Prise en charge de plusieurs plateformes d'appareil à partir d'un service mobile unique](/en-us/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs).
+Pour plus d'informations sur les applications Windows universelles, consultez la page [Prise en charge de plusieurs plateformes d'appareil à partir d'un service mobile unique](/fr-fr/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs).
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
@@ -75,9 +75,9 @@ Pour plus d'informations sur les applications Windows universelles, consultez la
 <!-- Images. -->
 
 <!-- URLs. -->
-[Get started with data]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
+[Get started with data]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-data
+[Get started with authentication]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-users
+[Get started with push notifications]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Management Portal]: https://manage.windowsazure.com/

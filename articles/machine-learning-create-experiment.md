@@ -190,4 +190,4 @@ Pour obtenir un didacticiel pas à pas plus avancé et détaillé sur la créati
   [Score Model module]: ./media/machine-learning-create-experiment/screen8a.png
   [Evaluation results]: ./media/machine-learning-create-experiment/screen9.png
   [Complete experiment]: ./media/machine-learning-create-experiment/screen10.png
-  [Didacticiel pas à pas : Développement d'une solution prédictive avec Azure Machine Learning]: http://azure.microsoft.com/en-us/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/
+  [Didacticiel pas à pas : Développement d'une solution prédictive avec Azure Machine Learning]: http://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/

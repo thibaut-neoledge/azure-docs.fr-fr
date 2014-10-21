@@ -72,4 +72,4 @@ La batterie de serveurs SharePoint utilise des scripts et le module Azure Resour
   [Détails de configuration de la batterie de serveurs SharePoint]: ../virtual-machines-sharepoint-farm-config-azure-preview/
   [Configurer SharePoint 2013]: http://technet.microsoft.com/library/ee836142.aspx
   [version préliminaire du portail Microsoft Azure]: https://portal.azure.com/
-  [Utilisation de Windows PowerShell avec Resource Manager]: http://azure.microsoft.com/en-us/documentation/articles/powershell-azure-resource-manager/
+  [Utilisation de Windows PowerShell avec Resource Manager]: http://azure.microsoft.com/fr-fr/documentation/articles/powershell-azure-resource-manager/

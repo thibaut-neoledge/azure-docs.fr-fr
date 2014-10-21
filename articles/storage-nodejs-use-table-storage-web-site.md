@@ -636,7 +636,7 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
 
 ## Ressources supplémentaires
 
-[Outil en ligne de commande Azure pour Mac et Linux](/en-us/documentation/articles/xplat-cli/)
+[Outil en ligne de commande Azure pour Mac et Linux](/fr-fr/documentation/articles/xplat-cli/)
 
   [node]: http://nodejs.org
   [Git]: http://git-scm.com
@@ -652,14 +652,14 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
   [Twitter Bootstrap]: https://github.com/twbs/bootstrap
   [1]: http://getbootstrap.com/
   [Image du nouvel élément dans la liste de tâches]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_list.png
-  [Création et déploiement d'une application Node.js sur des sites Web Azure]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Création et déploiement d'une application Node.js sur des sites Web Azure]: /fr-fr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [antares-iaas-signup]: ../includes/antares-iaas-signup.md
-  [Installation et configuration de l'interface de ligne de commande multiplateforme Azure]: /en-us/documentation/articles/xplat-cli/
+  [Installation et configuration de l'interface de ligne de commande multiplateforme Azure]: /fr-fr/documentation/articles/xplat-cli/
   [Page de téléchargement]: ./media/storage-nodejs-use-table-storage-web-site/azure-account-download-cli.png
   [Git remote]: http://git-scm.com/docs/git-remote
   [Ouvrir le tableau de bord du site Web]: ./media/storage-nodejs-use-table-storage-web-site/go_to_dashboard.png
   [configurer le lien]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
   [paramètres d'application]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
   [enregistrer les paramètres d'application]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
-  [Application Web Node.js avec MongoDB]: /en-us/documentation/articles/web-sites-nodejs-store-data-mongodb/
-  [Publication vers Azure Web Sites avec Git]: /en-us/documentation/articles/web-sites-publish-source-control/
+  [Application Web Node.js avec MongoDB]: /fr-fr/documentation/articles/web-sites-nodejs-store-data-mongodb/
+  [Publication vers Azure Web Sites avec Git]: /fr-fr/documentation/articles/web-sites-publish-source-control/

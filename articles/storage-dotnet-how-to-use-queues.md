@@ -337,7 +337,7 @@ consultez les liens suivants pour apprendre à effectuer des tâches de stockage
   [Référence de la bibliothèque de client de stockage pour .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Référence d’API REST]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
   [Stockage et accessibilité des données dans Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Prise en main du Kit de développement logiciel (SDK) Tâches web Azure]: /en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
-  [stockage de table]: /en-us/documentation/articles/storage-dotnet-how-to-use-tables/
-  [stockage d’objets blob]: /en-us/documentation/articles/storage-dotnet-how-to-use-blobs/
-  [base de données SQL]: /en-us/documentation/articles/sql-database-dotnet-how-to-use/
+  [Prise en main du Kit de développement logiciel (SDK) Tâches web Azure]: /fr-fr/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
+  [stockage de table]: /fr-fr/documentation/articles/storage-dotnet-how-to-use-tables/
+  [stockage d’objets blob]: /fr-fr/documentation/articles/storage-dotnet-how-to-use-blobs/
+  [base de données SQL]: /fr-fr/documentation/articles/sql-database-dotnet-how-to-use/

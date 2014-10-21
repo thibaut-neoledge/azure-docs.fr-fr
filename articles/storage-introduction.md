@@ -178,7 +178,7 @@ Pour la prise en main d'Azure Storage, explorez les ressources suivantes :
   [essai gratuit]: /en-us/pricing/free-trial/
   [options d'achat]: /en-us/pricing/purchase-options/
   [abonné à MSDN]: /en-us/pricing/member-offers/msdn-benefits-details/
-  [service d'importation/exportation Azure]: http://azure.microsoft.com/en-us/documentation/articles/storage-import-export-service/
+  [service d'importation/exportation Azure]: http://azure.microsoft.com/fr-fr/documentation/articles/storage-import-export-service/
   [signature d'accès partagé]: ../storage-dotnet-shared-access-signature-part-1/
   [storage-replication-options]: ../includes/storage-replication-options.md
   [Tarification – Stockage]: /en-us/pricing/details/storage/
@@ -193,7 +193,7 @@ Pour la prise en main d'Azure Storage, explorez les ressources suivantes :
   [Ruby]: /en-us/develop/ruby/
   [Python]: /en-us/develop/python/
   [PowerShell]: http://msdn.microsoft.com/library/dn495240.aspx
-  [Documentation d'Azure Storage]: /en-us/documentation/services/storage/
+  [Documentation d'Azure Storage]: /fr-fr/documentation/services/storage/
   [Utilisation du stockage d'objets blob à partir de .NET]: ../storage-dotnet-how-to-use-blobs/
   [Utilisation du stockage de tables à partir de .NET]: ../storage-dotnet-how-to-use-tables/
   [Utilisation du service de stockage de files d'attente à partir de .NET]: ../storage-dotnet-how-to-use-queues/

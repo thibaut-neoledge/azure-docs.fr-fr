@@ -600,5 +600,5 @@ Pour en savoir plus sur Service Bus, consultez les ressources suivantes:
   [33]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png
   [34]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
   [Azure Service Bus]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx
-  [Procédures Service Bus]: /en-us/documentation/services/service-bus/
+  [Procédures Service Bus]: /fr-fr/documentation/services/service-bus/
   [Utilisation des files d'attente Service Bus]: /en-us/develop/net/how-to-guides/service-bus-queues/

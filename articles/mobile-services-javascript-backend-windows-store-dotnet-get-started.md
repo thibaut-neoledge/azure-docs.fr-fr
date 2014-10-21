@@ -12,7 +12,7 @@ Dans ce didacticiel, vous allez créer un service mobile et une simple applicati
 
 > [WACOM.NOTE]Cette rubrique montre comment créer un projet de service mobile et une application Windows universelle à l'aide du portail de gestion Azure. Visual Studio 2013 vous permet également d'ajouter un nouveau projet de service mobile dans une solution Visual Studio existante. Pour plus d'informations, consultez la page [Démarrage rapide : ajout d'un service mobile (service principal JavaScript)](http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn263180.aspx).
 
-> Pour ajouter un service mobile à un projet d'application Windows Phone 8.0 ou Windows Phone Store 8.1, consultez la page [Prise en main de données pour Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-get-started-data).
+> Pour ajouter un service mobile à un projet d'application Windows Phone 8.0 ou Windows Phone Store 8.1, consultez la page [Prise en main de données pour Windows Phone](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started-data).
 
 [WACOM.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
 
@@ -68,7 +68,7 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 -   [Prise en main des notifications Push]
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
-Pour plus d'informations sur les applications Windows universelles, consultez la page [Prise en charge de plusieurs plateformes d'appareil à partir d'un service mobile unique](/en-us/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs).
+Pour plus d'informations sur les applications Windows universelles, consultez la page [Prise en charge de plusieurs plateformes d'appareil à partir d'un service mobile unique](/fr-fr/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs).
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
@@ -81,10 +81,10 @@ Pour plus d'informations sur les applications Windows universelles, consultez la
 
 
 <!-- URLs. -->
-[Prise en main des données]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
-[Prise en main de l'authentification]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
-[Prise en main des notifications Push]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
+[Prise en main des données]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
+[Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
+[Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
 [Visual Studio 2013 Express pour Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Management Portal]: https://manage.windowsazure.com/
-[Get started with data in Mobile Services using Visual Studio 2012]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
+[Get started with data in Mobile Services using Visual Studio 2012]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012

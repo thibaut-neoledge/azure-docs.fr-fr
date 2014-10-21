@@ -340,23 +340,23 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
   
   [Portal home page with new web site called out]: ./media/web-sites-dotnet-get-started-vs2013/portalhome.png
   [Portal web site dashboard tab]: ./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png
-  [Configurer]: /en-us/documentation/articles/web-sites-configure//
+  [Configurer]: /fr-fr/documentation/articles/web-sites-configure//
   [WebSockets]: /blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/
-  [journalisation des diagnostics]: /en-us/documentation/articles/web-sites-enable-diagnostic-log/
+  [journalisation des diagnostics]: /fr-fr/documentation/articles/web-sites-enable-diagnostic-log/
   [valeurs de chaîne de connexion]: /blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
   [Portal web site configure tab]: ./media/web-sites-dotnet-get-started-vs2013/portalconfigure.png
-  [Mettre à l'échelle]: /en-us/documentation/articles/web-sites-scale/
+  [Mettre à l'échelle]: /fr-fr/documentation/articles/web-sites-scale/
   [Portal website scale tab]: ./media/web-sites-dotnet-get-started-vs2013/portalscale.png
   [Version préliminaire du portail Azure]: /en-us/overview/preview-portal/
   [automatiser le déploiement]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
   [système de contrôle de code source]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
-  [Déploiement d'un site web Azure]: /en-us/documentation/articles/web-sites-deploy/"
+  [Déploiement d'un site web Azure]: /fr-fr/documentation/articles/web-sites-deploy/"
   [Tout automatiser (développement d’applications de cloud concrètes avec Azure)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
   [Résolution des problèmes de sites web Azure dans Visual Studio]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
   [Déploiement d'une application ASP.NET MVC sécurisée avec une fonctionnalité d'appartenance, OAuth et une base de données SQL vers un site web Azure]: /en-us/develop/net/tutorials/web-site-with-sql-database/
-  [Configuration d'un nom de domaine personnalisé pour un site web Azure]: /en-us/documentation/articles/web-sites-custom-domain-name/
-  [Activation du protocole HTTPS pour un site web Azure]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/
-  [Configuration des sites web]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure/
+  [Configuration d'un nom de domaine personnalisé pour un site web Azure]: /fr-fr/documentation/articles/web-sites-custom-domain-name/
+  [Activation du protocole HTTPS pour un site web Azure]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-configure-ssl-certificate/
+  [Configuration des sites web]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-configure/
   [ASP.NET SignalR]: http://www.asp.net/signalr
   [Utilisation de SignalR avec Sites Web Windows Azure]: http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites
   [Modèles d'exécution Azure]: /en-us/develop/net/fundamentals/compute/

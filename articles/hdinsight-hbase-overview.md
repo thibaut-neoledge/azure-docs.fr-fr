@@ -67,7 +67,7 @@ Les applications peuvent fonctionner par-dessus HBase, en l'utilisant comme banq
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-[hbase-get-started]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
+[hbase-get-started]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-hbase-get-started/
 
 [cs-hbase-sdk]: https://github.com/hdinsight/hbase-sdk-for-net
 

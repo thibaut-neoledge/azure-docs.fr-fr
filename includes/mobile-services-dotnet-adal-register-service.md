@@ -43,6 +43,6 @@ Dans cette section, vous allez inscrire votre service mobile auprès d'Azure Act
 
 <!-- URLs. -->
 
-  [Inscription auprès d'Azure Active Directory]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+  [Inscription auprès d'Azure Active Directory]: /fr-fr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [portail de gestion Azure]: https://manage.windowsazure.com/
   []: ./media/mobile-services-dotnet-adal-register-service/mobile-services-aad-app-manage-manifest.png

@@ -388,9 +388,9 @@ Maintenant que vous connaissez les bases du stockage d'objets blob, consultez le
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [Création et déploiement d'une application Node.js dans un site Web Azure]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-  [Service cloud Node.js]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Site Web avec WebMatrix]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
-  [Application web Node.js avec stockage]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Service cloud Node.js]: /fr-fr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Site Web avec WebMatrix]: /fr-fr/documentation/articles/web-sites-nodejs-use-webmatrix/
+  [Application web Node.js avec stockage]: /fr-fr/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
   [Présentation des objets blob de blocs et de pages]: http://msdn.microsoft.com/en-us/library/azure/ee691964.aspx
   [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx

@@ -4,7 +4,7 @@
 
 # Appel d'une API personnalisée à partir d'une application HTML
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-call-custom-api" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-call-custom-api" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-ios-call-custom-api" title="iOS" >iOS</a><a href="/en-us/documentation/articles/mobile-services-android-call-custom-api" title="Android">Android</a><a href="/en-us/documentation/articles/mobile-services-html-call-custom-api" title="HTML" class="current">HTML</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api" title="Windows Store C#">Windows Store C#</a><a href="/fr-fr/documentation/articles/mobile-services-windows-store-javascript-call-custom-api" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/fr-fr/documentation/articles/mobile-services-windows-phone-call-custom-api" title="Windows Phone">Windows Phone</a><a href="/fr-fr/documentation/articles/mobile-services-ios-call-custom-api" title="iOS" >iOS</a><a href="/fr-fr/documentation/articles/mobile-services-android-call-custom-api" title="Android">Android</a><a href="/fr-fr/documentation/articles/mobile-services-html-call-custom-api" title="HTML" class="current">HTML</a></div>
 
 Cette rubrique explique comment appeler une API personnalisée à partir d'une application HTML. Une API personnalisée vous permet de définir des points de terminaison exposant une fonctionnalité de serveur qui ne mappe pas vers une opération d'insertion, de mise à jour, de suppression ou de lecture. En utilisant une API personnalisée, vous pouvez exercer davantage de contrôle sur la messagerie, notamment lire et définir des en-têtes de message HTTP et définir un autre format de corps de message que JSON.
 
@@ -72,14 +72,14 @@ Maintenant que vous avez créé une API personnalisée et que vous l'avez appel�
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [Windows Store C\#]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "Windows Store C#"
-  [Windows Store JavaScript]: /en-us/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Windows Store JavaScript"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
-  [iOS]: /en-us/documentation/articles/mobile-services-ios-call-custom-api "iOS"
-  [Android]: /en-us/documentation/articles/mobile-services-android-call-custom-api "Android"
-  [HTML]: /en-us/documentation/articles/mobile-services-html-call-custom-api "HTML"
-  [Prise en main de Mobile Services]: /en-us/documentation/articles/mobile-services-html-get-started
-  [Prise en main des données]: /en-us/documentation/articles/mobile-services-html-get-started-data
+  [Windows Store C\#]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "Windows Store C#"
+  [Windows Store JavaScript]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Windows Store JavaScript"
+  [Windows Phone]: /fr-fr/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
+  [iOS]: /fr-fr/documentation/articles/mobile-services-ios-call-custom-api "iOS"
+  [Android]: /fr-fr/documentation/articles/mobile-services-android-call-custom-api "Android"
+  [HTML]: /fr-fr/documentation/articles/mobile-services-html-call-custom-api "HTML"
+  [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-html-get-started
+  [Prise en main des données]: /fr-fr/documentation/articles/mobile-services-html-get-started-data
   [Définition de l'API personnalisée]: #define-custom-api
   [Mise à jour de l'application pour appeler l'API personnalisée]: #update-app
   [Test de l'application]: #test-app

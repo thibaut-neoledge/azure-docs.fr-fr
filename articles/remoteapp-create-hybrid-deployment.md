@@ -192,7 +192,7 @@ Félicitations ! Vous avez créé et déployé correctement votre déploiement 
 
   [mises à jour requises]: http://support.microsoft.com/kb/2977219
   [version préliminaire de RemoteApp]: http://azure.microsoft.com/en-us/services/remoteapp/
-  [Azure PowerShell]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
+  [Azure PowerShell]: http://azure.microsoft.com/fr-fr/documentation/articles/install-configure-powershell/
   [portail de gestion Azure]: http://manage.windowsazure.com
   [Configurer un VPN de site à site dans le portail de gestion]: http://msdn.microsoft.com/library/azure/dn133795.aspx
   [Programme de synchronisation d'annuaires]: http://msdn.microsoft.com//library/azure/hh967642.aspx

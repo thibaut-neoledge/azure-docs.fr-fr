@@ -5,8 +5,8 @@
 # Gestion des conflits liés à la synchronisation des données hors connexion dans Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="Windows Store&nbsp;C#">Windows Store&nbsp;C#</a>
-<a href="/en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone" class="current">Windows Phone</a>
+<a href="/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="Windows Store&nbsp;C#">Windows Store&nbsp;C#</a>
+<a href="/fr-fr/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone" class="current">Windows Phone</a>
 </div>
 
 Cette rubrique vous explique comment synchroniser les données et gérer les conflits lors de l'utilisation des fonctionnalités hors connexion d'Azure Mobile Services. Dans ce didacticiel, vous allez télécharger une application qui prend en charge à la fois les données hors connexion et en ligne, intégrer le service mobile avec l'application, puis vous connecter au portail de gestion Azure pour afficher et mettre à jour la base de données lors de l'exécution de l'application.
@@ -198,9 +198,9 @@ Lorsqu'une opération Push est annulée, `PushAsync` génère une `MobileService
 
 <!-- URLs -->
 
-  [Windows Store C\#]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Windows Store C#"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data "Windows Phone"
-  [Prise en main des données hors connexion]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data
+  [Windows Store C\#]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Windows Store C#"
+  [Windows Phone]: /fr-fr/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data "Windows Phone"
+  [Prise en main des données hors connexion]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-offline-data
   [Téléchargement du projet Windows Phone]: #download-app
   [Ajout d'une colonne de date d'échéance pour la base de données]: #add-column
   [Mise à jour de la base de données pour les services mobiles principaux .NET]: #dotnet-backend
@@ -211,7 +211,7 @@ Lorsqu'une opération Push est annulée, `PushAsync` génère une `MobileService
   [exemple de code de gestion des conflits]: http://go.microsoft.com/fwlink/?LinkId=398257
   []: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
   [SQLite pour Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
-  [Utilisation des migrations Code First pour mettre à jour le modèle de données]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
+  [Utilisation des migrations Code First pour mettre à jour le modèle de données]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
   [portail de gestion Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-todowithdate-push1.png
   [2]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/vs-emulator-wvga.png

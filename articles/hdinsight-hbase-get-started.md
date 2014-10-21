@@ -198,7 +198,7 @@ Dans ce didacticiel, vous avez appris à approvisionner un cluster HBase, à cr�
   [formules d'abonnement]: http://azure.microsoft.com/en-us/pricing/purchase-options/
   [offres spéciales membres]: http://azure.microsoft.com/en-us/pricing/member-offers/
   [version d'évaluation gratuite]: http://azure.microsoft.com/en-us/pricing/free-trial/
-  [Création d'un compte de stockage]: http://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/
+  [Création d'un compte de stockage]: http://azure.microsoft.com/fr-fr/documentation/articles/storage-create-storage-account/
   [Approvisionnement d'un cluster HBase dans le portail Azure]: #create-hbase-cluster
   [Création d'un exemple de table HBase à partir du shell HBase]: #create-sample-table
   [Utilisation de Hive pour interroger une table HBase]: #hive-query

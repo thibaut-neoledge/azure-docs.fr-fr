@@ -856,7 +856,7 @@ Ce didacticiel a été réalisé à partir du didacticiel MVC [Déploiement d'un
 
 N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce qui pourrait être amélioré... pas seulement à propos de ce didacticiel, mais aussi en ce qui concerne les produits présentés ici. Vos commentaires nous aideront à orienter nos améliorations. Vous pouvez aussi demander de nouvelles rubriques et noter les rubriques existantes sur [Leçons de code][].
 
-  [Déploiement d'une application ASP.NET MVC 5 sécurisée avec une fonctionnalité d'appartenance, OAuth et une base de données SQL vers un site web Azure]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
+  [Déploiement d'une application ASP.NET MVC 5 sécurisée avec une fonctionnalité d'appartenance, OAuth et une base de données SQL vers un site web Azure]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
   [Contacts - Edit Page]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms00.png
   [activer les avantages de votre abonnement MSDN]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   [obtenir une évaluation gratuite]: /en-us/pricing/free-trial/?WT.mc_id=A261C142F
@@ -930,7 +930,7 @@ N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce 
   [AspNetUserRoles data]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms36.png
   [13]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms37.png
   [Présentation d'ASP.NET Web Forms]: http://www.asp.net/web-forms
-  [Didacticiels et guides de Microsoft Azure]: http://azure.microsoft.com/en-us/documentation/services/web-sites/#net
+  [Didacticiels et guides de Microsoft Azure]: http://azure.microsoft.com/fr-fr/documentation/services/web-sites/#net
   [@RickAndMSFT]: https://twitter.com/RickAndMSFT
   [@blowdart]: https://twitter.com/blowdart
   [Leçons de code]: http://aspnet.uservoice.com/forums/228522-show-me-how-with-code

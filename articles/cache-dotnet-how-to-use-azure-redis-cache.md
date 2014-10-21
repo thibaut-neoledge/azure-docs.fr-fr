@@ -303,7 +303,7 @@ suivez ces liens pour apprendre à exécuter les tâches de mise en cache plus c
   [1]: http://go.microsoft.com/fwlink/?LinkId=320830
   [Configuration du cache]: #enable-caching
   [New cache]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-new-cache-menu.png
-  [Utilisation des groupes de ressources pour gérer vos ressources Azure]: http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups/
+  [Utilisation des groupes de ressources pour gérer vos ressources Azure]: http://azure.microsoft.com/fr-fr/documentation/articles/azure-preview-portal-using-resource-groups/
   [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
   [Documentation du client du cache StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
   [Utilisation d'objets .NET dans le cache]: http://msdn.microsoft.com/en-us/library/dn690521.aspx#Objects
