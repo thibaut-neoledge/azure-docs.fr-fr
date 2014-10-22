@@ -5,20 +5,20 @@
 # Utilisation de Cache Redis Azure
 
 Ce guide décrit la prise en main de
-**Cache Redis Azure (version préliminaire)**. Les exemples sont écrits en C# et utilisent l'API .NET. Les scénarios couverts incluent **la création et la configuration d'un cache**, **la configuration des clients de cache**, **l'ajout et la suppression d'objets dans le cache** et **le stockage de l'état de session ASP.NET dans le cache**. Pour plus d'informations sur l'utilisation de Cache Redis Azure, consultez la section [Étapes suivantes][].
+**Cache Redis Azure (version préliminaire)**. Les exemples sont écrits en C# et utilisent l'API .NET. Les scénarios couverts incluent **la création et la configuration d'un cache**, **la configuration des clients de cache**, **l'ajout et la suppression d'objets dans le cache** et **le stockage de l'état de session ASP.NET dans le cache**. Pour plus d'informations sur l'utilisation de Cache Redis Azure, consultez la section [Étapes suivantes][Étapes suivantes].
 
 ## Sommaire
 
--   [Présentation de Cache Redis Azure][]
--   [Prise en main de Cache Redis Azure][]
-    -   [Création du cache][]
-    -   [Configuration des clients de cache][]
--   [Utilisation des caches][]
-    -   [Connexion au cache][]
-    -   [Ajout et récupération d'objets dans le cache][]
-    -   [Spécification de l'expiration d'un objet dans le cache][]
-    -   [Stockage de l'état de session ASP.NET dans le cache][]
--   [Étapes suivantes][]
+-   [Présentation de Cache Redis Azure][Présentation de Cache Redis Azure]
+-   [Prise en main de Cache Redis Azure][Prise en main de Cache Redis Azure]
+    -   [Création du cache][Création du cache]
+    -   [Configuration des clients de cache][Configuration des clients de cache]
+-   [Utilisation des caches][Utilisation des caches]
+    -   [Connexion au cache][Connexion au cache]
+    -   [Ajout et récupération d'objets dans le cache][Ajout et récupération d'objets dans le cache]
+    -   [Spécification de l'expiration d'un objet dans le cache][Spécification de l'expiration d'un objet dans le cache]
+    -   [Stockage de l'état de session ASP.NET dans le cache][Stockage de l'état de session ASP.NET dans le cache]
+-   [Étapes suivantes][Étapes suivantes]
 
 <a name="what-is"></a>
 
@@ -31,7 +31,7 @@ Cache Redis Microsoft Azure est disponible en deux options :
 -   **De base**, avec un seul nœud. Plusieurs tailles jusqu'à 26 Go.
 -   **Standard**, avec deux nœuds Master/Slave. Plusieurs tailles jusqu'à 26 Go.
 
-Chaque option diffère en termes de fonctionnalités et de tarification. Les fonctionnalités sont décrites plus loin dans ce guide ; pour plus d'informations sur la tarification, consultez la page [Tarification - Cache][].
+Chaque option diffère en termes de fonctionnalités et de tarification. Les fonctionnalités sont décrites plus loin dans ce guide ; pour plus d'informations sur la tarification, consultez la page [Tarification - Cache][Tarification - Cache].
 
 Ce guide offre un aperçu de la prise en main de Cache Redis Azure. Pour plus d'informations sur les fonctions qui ne sont pas présentées dans ce guide de prise en main, consultez la page [Présentation de Cache Redis Azure][1].
 
@@ -41,9 +41,9 @@ Ce guide offre un aperçu de la prise en main de Cache Redis Azure. Pour plus d'
 
 La prise en main de Cache Redis Azure est aisée. Pour commencer, vous mettez en service et configurez un cache. Ensuite, vous configurez les clients du cache pour qu'ils puissent accéder au cache. Une fois les clients du cache configurés, vous pouvez commencer à les utiliser.
 
--   [Création du cache][]
--   [Configuration du cache][]
--   [Configuration des clients de cache][]
+-   [Création du cache][Création du cache]
+-   [Configuration du cache][Configuration du cache]
+-   [Configuration des clients de cache][Configuration des clients de cache]
 
 <a name="create-cache"></a>
 
@@ -51,11 +51,11 @@ La prise en main de Cache Redis Azure est aisée. Pour commencer, vous mettez en
 
 Pour créer un cache, connectez-vous à la version préliminaire du portail de gestion Azure et cliquez sur **Nouveau**, **Cache Redis (version préliminaire)**.
 
-![New cache][]
+![New cache][New cache]
 
 Dans le volet **Nouveau Cache Redis (version préliminaire)**, indiquez la configuration souhaitée pour le cache.
 
-![Create cache][]
+![Create cache][Create cache]
 
 Dans **Nom DNS**, entrez le nom de sous-domaine à utiliser pour le point de terminaison du cache. Le point de terminaison doit être une chaîne composée de six à vingt caractères, contenant uniquement des minuscules et des chiffres, et commençant par une lettre.
 
@@ -70,21 +70,21 @@ Dans **Abonnement**, sélectionnez l'abonnement Azure que vous voulez utiliser p
 
 Dans **Groupe de ressources**, sélectionnez ou créez un groupe de ressources pour le cache.
 
-> Pour plus d'informations, consultez la rubrique [Utilisation des groupes de ressources pour gérer vos ressources Azure][].
+> Pour plus d'informations, consultez la rubrique [Utilisation des groupes de ressources pour gérer vos ressources Azure][Utilisation des groupes de ressources pour gérer vos ressources Azure].
 
 Utilisez la **géolocalisation** pour indiquer l'emplacement géographique de l'hébergement du cache. Pour des performances optimales, Microsoft recommande de créer le cache dans la même région que l'application cliente du cache.
 
 Une fois les options du nouveau cache configurées, cliquez sur **Créer**. La création du cache peut prendre plusieurs minutes. Pour vérifier l'état d'avancement de l'opération, vous pouvez consulter le tableau d'accueil. Après sa création, le nouveau cache a le statut **En cours d'exécution** et il est prêt à fonctionner avec les paramètres par défaut.
 
-![Cache created][]
+![Cache created][Cache created]
 
 Lorsque le cache est créé, vous pouvez y accéder à partir du volet **Parcourir**.
 
-![Browse blade][]
+![Browse blade][Browse blade]
 
 Cliquez sur **Caches** pour afficher vos caches.
 
-![Caches][]
+![Caches][Caches]
 
 <a name="NuGet"></a>
 
@@ -92,17 +92,17 @@ Cliquez sur **Caches** pour afficher vos caches.
 
 Un cache créé avec Cache Redis Azure est accessible à partir de toutes les applications Azure. Les applications .NET développées dans Visual Studio peuvent utiliser le client du cache **StackExchange.Redis**, qui peut être configuré en utilisant un package NuGet qui simplifie la configuration des applications clientes du cache.
 
-> Pour plus d'informations, consultez la page github [StackExchange.Redis][] et la rubrique [Documentation du client du cache StackExchange.Redis][].
+> Pour plus d'informations, consultez la page github [StackExchange.Redis][StackExchange.Redis] et la rubrique [Documentation du client du cache StackExchange.Redis][Documentation du client du cache StackExchange.Redis].
 
 Pour configurer une application cliente dans Visual Studio avec le package NuGet StackExchange.Redis, cliquez avec le bouton droit sur le projet dans l'**Explorateur de solutions** et choisissez **Gérer les packages NuGet**.
 
-![Manage NuGet packages][]
+![Manage NuGet packages][Manage NuGet packages]
 
 Tapez **StackExchange.Redis** ou **StackExchange.Redis.StrongName** dans la zone de texte **Rechercher en ligne**, sélectionnez la version dans les résultats et cliquez sur **Installer**.
 
 > Si vous préférez utiliser une version avec nom fort de la bibliothèque du client **StackExchange.Redis**, choisissez **StackExchange.Redis.StrongName**. Sinon, choisissez **StackExchange.Redis**.
 
-![StackExchange.Redis NuGet package][]
+![StackExchange.Redis NuGet package][StackExchange.Redis NuGet package]
 
 Le package NuGet télécharge et ajoute les références d'assembly nécessaires pour que votre application cliente puisse accéder à Cache Redis Azure avec le client du cache StackExchange.Redis.
 
@@ -114,9 +114,9 @@ Une fois que votre projet client est configuré pour la mise en cache, vous pouv
 
 Cette section décrit l'exécution des tâches courantes avec Cache.
 
--   [Connexion au cache][]
--   [Ajout et récupération d'objets dans le cache][]
--   [Stockage de l'état de session ASP.NET dans le cache][]
+-   [Connexion au cache][Connexion au cache]
+-   [Ajout et récupération d'objets dans le cache][Ajout et récupération d'objets dans le cache]
+-   [Stockage de l'état de session ASP.NET dans le cache][Stockage de l'état de session ASP.NET dans le cache]
 
 <a name="connect-to-cache"></a>
 
@@ -134,19 +134,19 @@ Pour vous connecter à Cache Redis Azure et recevoir en retour une instance d'un
 
     ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,ssl=true,password=...");
 
-> Avertissement : ne stockez jamais des informations d'identification dans du code source. Pour ne pas alourdir cet exemple, elles sont montrées dans le code source. Consultez la rubrique [Sites web Windows Azure : fonctionnement des chaînes d'application et de connexion][] pour plus d'informations sur le stockage des informations d'identification.
+> Avertissement : ne stockez jamais des informations d'identification dans du code source. Pour ne pas alourdir cet exemple, elles sont montrées dans le code source. Consultez la rubrique [Sites web Windows Azure : fonctionnement des chaînes d'application et de connexion][Sites web Windows Azure : fonctionnement des chaînes d'application et de connexion] pour plus d'informations sur le stockage des informations d'identification.
 
 Si vous ne souhaitez pas utiliser SSL, définissez `ssl=false` ou passez le point de terminaison et la clé.
 
     connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,password=...");
 
-> Pour plus d'informations sur les options avancées de configuration de connexion, consultez la rubrique [Modèle de configuration StackExchange.Redis][].
+> Pour plus d'informations sur les options avancées de configuration de connexion, consultez la rubrique [Modèle de configuration StackExchange.Redis][Modèle de configuration StackExchange.Redis].
 
 Le point de terminaison et les clés du cache peuvent être obtenus dans le volet de la version préliminaire du portail de gestion Azure pour votre instance de cache.
 
-![Cache properties][]
+![Cache properties][Cache properties]
 
-![Manage keys][]
+![Manage keys][Manage keys]
 
 Lorsque la connexion est établie, renvoyez une référence à la base de données du cache Redis en appelant la méthode `ConnectionMultiplexer.GetDatabase`.
 
@@ -195,7 +195,7 @@ Lors de l'appel de `StringGet`, si l'objet existe, il est renvoyé ; sinon, la 
         cache.StringSet("key1", value);
     }
 
-> Cache Redis Azure peut mettre en cache des objets .NET comme des types de données primitifs, mais avant qu'un objet .NET puisse être mis en cache, il doit être sérialisé. Cette opération échoit au développeur d’applications, qui a toute latitude pour choisir le sérialiseur. Pour plus d'informations, consultez la rubrique [Utilisation d'objets .NET dans le cache][].
+> Cache Redis Azure peut mettre en cache des objets .NET comme des types de données primitifs, mais avant qu'un objet .NET puisse être mis en cache, il doit être sérialisé. Cette opération échoit au développeur d’applications, qui a toute latitude pour choisir le sérialiseur. Pour plus d'informations, consultez la rubrique [Utilisation d'objets .NET dans le cache][Utilisation d'objets .NET dans le cache].
 
 <a name="specify-expiration"></a>
 
@@ -214,11 +214,11 @@ fournisseur d'état de session de la mise en cache, configurez d'abord votre cac
 
 Pour configurer une application cliente dans Visual Studio avec le package NuGet de l'état de session Cache Redis, cliquez avec le bouton droit sur l'**Explorateur de solutions** et choisissez **Gérer les packages NuGet**.
 
-![Manage NuGet packages][]
+![Manage NuGet packages][Manage NuGet packages]
 
 Tapez **RedisSessionStateProvider** dans la zone de texte **Rechercher en ligne**, choisissez parmi les résultats et cliquez sur **Installer**.
 
-![Redis Cache Session State NuGet Package][]
+![Redis Cache Session State NuGet Package][Redis Cache Session State NuGet Package]
 
 Le package NuGet télécharge et ajoute les références d'assembly nécessaires et ajoute la section suivante dans le fichier web.config qui contient la configuration requise pour que votre application ASP.NET utilise le fournisseur d'état de session Cache Redis.
 
@@ -269,7 +269,7 @@ N'oubliez pas de supprimer les marques de commentaire concernant le fournisseur 
       </providers>
     </sessionState> -->
 
-Pour plus d'informations sur la configuration et l'utilisation du fournisseur d'état de session Azure Redis, consultez la rubrique [Fournisseur de l'état de session Azure Redis][].
+Pour plus d'informations sur la configuration et l'utilisation du fournisseur d'état de session Azure Redis, consultez la rubrique [Fournisseur de l'état de session Azure Redis][Fournisseur de l'état de session Azure Redis].
 
 <a name="next-steps"></a>
 
@@ -278,9 +278,9 @@ Pour plus d'informations sur la configuration et l'utilisation du fournisseur d'
 Maintenant que vous avez appris les bases de Cache Redis Azure,
 suivez ces liens pour apprendre à exécuter les tâches de mise en cache plus complexes.
 
--   Pour en savoir plus sur le client StackExchange.Redis, consultez : [Documentation du client du cache StackExchange.Redis][]
--   Consultez la documentation [redis][] et notamment les [types de données Redis][] et [quinze minutes de présentation des types de données Redis][].
--   Consultez la référence MSDN suivante : [Cache Redis Azure][]
+-   Pour en savoir plus sur le client StackExchange.Redis, consultez : [Documentation du client du cache StackExchange.Redis][Documentation du client du cache StackExchange.Redis]
+-   Consultez la documentation [redis][redis] et notamment les [types de données Redis][types de données Redis] et [quinze minutes de présentation des types de données Redis][quinze minutes de présentation des types de données Redis].
+-   Consultez la référence MSDN suivante : [Cache Redis Azure][Cache Redis Azure]
 
 
 
