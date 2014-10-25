@@ -4,7 +4,7 @@
 
 # Prise en main d'un compte DocumentDB
 
-Ce guide décrit la prise en main d'**Azure DocumentDB (version préliminaire)**. Les exemples sont écrits en C# et utilisent le Kit de développement logiciel (SDK) .NET de DocumentDB. Les scénarios couverts incluent la création et la configuration d'un compte DocumentDB, la création de bases de données et de collections, ainsi que le stockage de documents JSON dans le compte. Pour plus d'informations sur l'utilisation d'Azure DocumentDB, consultez la section Étapes suivantes.
+Ce guide décrit la prise en main d'**Azure DocumentDB (version préliminaire)**. Les exemples sont écrits en C\# et utilisent le Kit de développement logiciel (SDK) .NET de DocumentDB. Les scénarios couverts incluent la création et la configuration d'un compte DocumentDB, la création de bases de données et de collections, ainsi que le stockage de documents JSON dans le compte. Pour plus d'informations sur l'utilisation d'Azure DocumentDB, consultez la section Étapes suivantes.
 
 Afin d'utiliser ce guide de prise en main, vous devez posséder un compte DocumentDB et une clé d'accès (primaire ou secondaire) pour le compte. Pour plus d'informations, consultez les pages suivantes :
 
@@ -21,9 +21,9 @@ Afin d'utiliser ce guide de prise en main, vous devez posséder un compte Docume
 
 ## <span id="Connect"></span></a>Connexion à un compte DocumentDB
 
-Différents Kits de développement logiciel (SDK) et API fonctionnent par programme avec DocumentDB. Les exemples ci-dessous sont écrits en C# et utilisent le Kit de développement logiciel (SDK) .NET de DocumentDB.
+Différents Kits de développement logiciel (SDK) et API fonctionnent par programme avec DocumentDB. Les exemples ci-dessous sont écrits en C\# et utilisent le Kit de développement logiciel (SDK) .NET de DocumentDB.
 
-Commençons par la création d'un DocumentClient afin d'établir une connexion à notre compte DocumentDB. Nous devons suivre les références suivantes dans notre application C# :
+Commençons par la création d'un DocumentClient afin d'établir une connexion à notre compte DocumentDB. Nous devons suivre les références suivantes dans notre application C\# :
 
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;

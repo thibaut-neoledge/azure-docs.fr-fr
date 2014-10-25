@@ -22,7 +22,7 @@ Pour que le service web soit utile, les utilisateurs doivent pouvoir lui envoyer
 
 L'onglet **TABLEAU DE BORD** du service web contient deux liens vers des informations qui aident le développeur à écrire du code pour accéder à ce service. Cliquez sur le lien **Page d'aide sur l'API** sur la ligne **Requête/Réponse**. La page qui s'ouvre contient un exemple de code pour utiliser le protocole de requête/réponse du service. De même, le lien sur la ligne **EXÉCUTION EN LOTS** fournit un exemple de code pour effectuer une requête de lots au service.
 
-La page d'aide sur l'API contient des exemples en langages R, C# et Python. Exemple : voici le code R que vous pouvez utiliser pour accéder au service web que nous avons publié (l'URL réelle du service est affichée dans votre exemple de code) :
+La page d'aide sur l'API contient des exemples en langages R, C\# et Python. Exemple : voici le code R que vous pouvez utiliser pour accéder au service web que nous avons publié (l'URL réelle du service est affichée dans votre exemple de code) :
 
     library("RCurl")
     library("RJSONIO")

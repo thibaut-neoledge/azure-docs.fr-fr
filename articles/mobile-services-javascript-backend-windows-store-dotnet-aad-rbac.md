@@ -243,7 +243,7 @@ La procédure suivante montre comment déployer un contrôle d'accès en fonctio
 <!-- Images -->
 <!-- URLs. -->
 
-  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "Windows Store C#"
+  [Windows Store C\#]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "Windows Store C#"
   [Serveur principal .NET]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ ".NET backend"
   [JavaScript backend]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "JavaScript backend"
   [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx

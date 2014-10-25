@@ -418,7 +418,7 @@ Dans cette section, vous effectuerez les tâches suivantes :
 
 1.  Dans Visual Studio, sélectionnez **Nouveau**, **Projet** dans le menu **Fichier**.
 
-2.  Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Visual C#** \> **Web** \> **Application Web ASP.NET**.
+2.  Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Visual C\#** \> **Web** \> **Application Web ASP.NET**.
 
 3.  Nommez le projet ContosoAdsWeb, la solution ContosoAdsWebJobsSDK (modifiez le nom de la solution si vous la placez dans le même dossier que la solution téléchargée) et cliquez sur **OK**.
 
@@ -442,7 +442,7 @@ Dans cette section, vous effectuerez les tâches suivantes :
 
 8.  Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur la solution (et non sur le projet) et choisissez **Ajouter** \> **Nouveau projet**.
 
-9.  Dans la boîte de dialogue **Ajouter un nouveau projet**, sélectionnez **Visual C#** \> **Bureau Windows** \> **Bibliothèque de classes**.
+9.  Dans la boîte de dialogue **Ajouter un nouveau projet**, sélectionnez **Visual C\#** \> **Bureau Windows** \> **Bibliothèque de classes**.
 
 10. Nommez le projet *ContosoAdsCommon*, puis cliquez sur **OK**.
 

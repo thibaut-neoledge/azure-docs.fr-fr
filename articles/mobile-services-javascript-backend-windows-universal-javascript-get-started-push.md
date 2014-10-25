@@ -4,26 +4,26 @@
 
 # Prise en main des notifications Push dans Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
 Cette rubrique explique comment utiliser Azure Mobile Services avec un service principal JavaScript pour envoyer des notifications Push à une application Windows universelle. Dans ce didacticiel, vous allez activer des notifications Push à l'aide d'Azure Notification Hubs dans un projet d'application Windows universelle. Lorsque vous aurez terminé, votre service mobile enverra une notification Push depuis le service principal JavaScript vers toutes les applications Windows Store et Windows Phone Store enregistrées, chaque fois qu'un enregistrement est inséré dans la table TodoList. Le concentrateur de notification que vous créez est fourni gratuitement avec votre service mobile, peut être géré indépendamment du service mobile et peut être utilisé par d'autres applications et services.
 
-> [WACOM.NOTE]Cette rubrique explique comment utiliser les outils dans Visual Studio 2013 Update 3 pour ajouter la prise en charge des notifications Push depuis Mobile Services vers une application Windows universelle. La même procédure peut être utilisée pour ajouter la prise en charge des notifications Push depuis Mobile Services vers une application Windows Store ou Windows Phone Store 8.1. Si vous ne pouvez pas procéder à la mise à niveau vers Visual Studio 2013 Update 3 ou préférez ajouter manuellement votre projet de service mobile à une solution d'application Windows Store, consultez [cette version][] de la rubrique.
+> [WACOM.NOTE]Cette rubrique explique comment utiliser les outils dans Visual Studio 2013 Update 3 pour ajouter la prise en charge des notifications Push depuis Mobile Services vers une application Windows universelle. La même procédure peut être utilisée pour ajouter la prise en charge des notifications Push depuis Mobile Services vers une application Windows Store ou Windows Phone Store 8.1. Si vous ne pouvez pas procéder à la mise à niveau vers Visual Studio 2013 Update 3 ou préférez ajouter manuellement votre projet de service mobile à une solution d'application Windows Store, consultez [cette version][cette version] de la rubrique.
 
 Ce didacticiel vous familiarise avec les étapes de base permettant d'activer les notifications Push :
 
-1.  [Inscription de votre application pour les notifications Push][]
-2.  [Mise à jour du service pour l'envoi de notifications Push][]
-3.  [Test des notifications Push dans votre application][]
+1.  [Inscription de votre application pour les notifications Push][Inscription de votre application pour les notifications Push]
+2.  [Mise à jour du service pour l'envoi de notifications Push][Mise à jour du service pour l'envoi de notifications Push]
+3.  [Test des notifications Push dans votre application][Test des notifications Push dans votre application]
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
--   Un [compte Microsoft Store][] actif.
--   [Visual Studio 2013 Express pour Windows][] Update 3 ou une version ultérieure
+-   Un [compte Microsoft Store][compte Microsoft Store] actif.
+-   [Visual Studio 2013 Express pour Windows][Visual Studio 2013 Express pour Windows] Update 3 ou une version ultérieure
 
 ## <span id="register"></span></a>Inscription de votre application pour les notifications Push
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013][]]
+[WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 1.  Accédez au dossier de projet `\services\mobileServices\scripts`, copiez le fichier de script \<*nom\_de\_votre\_service*\>.push.register.js dans le dossier `\js` partagé, puis supprimez ce fichier des deux projets d'application Windows et WindowsPhone individuels.
 
@@ -45,28 +45,28 @@ Maintenant que les notifications Push sont activées dans l'application, vous de
 
 La procédure suivante permet de mettre à jour le script d'insertion enregistré dans la table TodoItem. Vous pouvez implémenter un code similaire dans n'importe quel script serveur ou n'importe où dans vos services principaux.
 
-[WACOM.INCLUDE [mobile-services-javascript-update-script-notification-hubs][]]
+[WACOM.INCLUDE [mobile-services-javascript-update-script-notification-hubs](../includes/mobile-services-javascript-update-script-notification-hubs.md)]
 
 ## <span id="test"></span></a> Test des notifications Push dans votre application
 
-[WACOM.INCLUDE [mobile-services-javascript-backend-windows-universal-test-push][]]
+[WACOM.INCLUDE [mobile-services-javascript-backend-windows-universal-test-push](../includes/mobile-services-javascript-backend-windows-universal-test-push.md)]
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Ce didacticiel explique les règles de base de l'activation des applications Windows Store pour utiliser Mobile Services et Notification Hubs afin d'envoyer des notifications Push. Vous pouvez ensuite envisager de consulter le didacticiel suivant, [Envoi de notifications Push aux utilisateurs authentifiés][], qui explique comment utiliser des balises pour envoyer des notifications Push depuis un service mobile vers des utilisateurs authentifiés uniquement.
+Ce didacticiel explique les règles de base de l'activation des applications Windows Store pour utiliser Mobile Services et Notification Hubs afin d'envoyer des notifications Push. Vous pouvez ensuite envisager de consulter le didacticiel suivant, [Envoi de notifications Push aux utilisateurs authentifiés][Envoi de notifications Push aux utilisateurs authentifiés], qui explique comment utiliser des balises pour envoyer des notifications Push depuis un service mobile vers des utilisateurs authentifiés uniquement.
 
 Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
--   [Prise en main des données][]
+-   [Prise en main des données][Prise en main des données]
     En savoir plus sur le stockage et l'interrogation des données à l'aide des services mobiles.
 
--   [Prise en main de l'authentification][]
+-   [Prise en main de l'authentification][Prise en main de l'authentification]
     En savoir plus sur l'authentification des utilisateurs de votre application avec des types de comptes différents utilisant des services mobiles.
 
--   [Présentation de Notification Hubs][]
+-   [Présentation de Notification Hubs][Présentation de Notification Hubs]
     Découvrez comment Notification Hubs opère pour envoyer des notifications à vos applications sur toutes les principales plateformes clientes.
 
--   [Utilisation d'un client HTML/JavaScript pour Azure Mobile Services][]
+-   [Utilisation d'un client HTML/JavaScript pour Azure Mobile Services][Utilisation d'un client HTML/JavaScript pour Azure Mobile Services]
     En savoir plus sur l'utilisation de Mobile Services à partir d'applications HTML et JavaScript.
 
 

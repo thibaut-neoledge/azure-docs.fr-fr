@@ -84,7 +84,7 @@ Si vous utilisez Visual Studio Online, vous pouvez configurer un déploiement co
   [Pendant l'exécution de votre site Web]: #while-your-website-is-running
   [Lors de la mise à jour de votre site Web]: #when-you-update-your-website
   [Gérer des sites Web via le portal de gestion Azure]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-manage/
-  [détails de tarification]: http://azure.microsoft.com/en-us/pricing/details/websites/
+  [détails de tarification]: http://azure.microsoft.com/fr-fr/pricing/details/websites/
   [plans d'hébergement Web]: http://azure.microsoft.com/fr-fr/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview
   [changer de niveau]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-scale/
   [portail de gestion Azure]: https://manage.windowsazure.com/
@@ -99,7 +99,7 @@ Si vous utilisez Visual Studio Online, vous pouvez configurer un déploiement co
   [Gestion des performances des applications New Relic sur Azure]: http://azure.microsoft.com/fr-fr/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/
   [sauvegardes automatiques]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-backup/
   [cette vidéo]: http://azure.microsoft.com/fr-fr/documentation/videos/azure-websites-automatic-and-easy-backup/
-  [récupération de base de données]: http://msdn.microsoft.com/en-us/library/azure/hh852669.aspx
+  [récupération de base de données]: http://msdn.microsoft.com/fr-fr/library/azure/hh852669.aspx
   [résoudre les problèmes dans Visual Studio]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/#remotedebug
   [Activation de la journalisation de diagnostic pour les sites Web Azure]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-enable-diagnostic-log/
   [Débogage d'une application Node.js dans les sites Web Azure]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-nodejs-debug/

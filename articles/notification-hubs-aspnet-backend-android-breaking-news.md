@@ -296,7 +296,7 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 <!-- Images. -->
 <!-- URLs.-->
 
-  [Windows Store C#]: /fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows Store C#"
+  [Windows Store C\#]: /fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows Store C#"
   [Windows Phone]: /fr-fr/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
   [iOS]: /fr-fr/documentation/articles/notification-hubs-ios-send-breaking-news/ "iOS"
   [Android]: /fr-fr/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/ "Android"

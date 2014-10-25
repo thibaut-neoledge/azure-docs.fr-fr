@@ -72,7 +72,7 @@ Vous pouvez également écrire un code similaire dans le script serveur standard
 
 Modifiez le code client pour appeler la méthode **invokeApi** sur l'objet **MobileServiceClient**. La syntaxe exacte du code est spécifique de l'appareil de votre client et est expliquée dans les rubriques suivantes :
 
--   [Windows Store C#][Windows Store C#]
+-   [Windows Store C\#][Windows Store C\#]
 -   [Windows Store JavaScript][Windows Store JavaScript]
 -   [Windows Phone][Windows Phone]
 -   [iOS][iOS]
@@ -154,7 +154,7 @@ Vous pouvez également utiliser le portail Azure pour gérer et créer des proc�
   [Fonctionnement du serveur principal Azure Mobile Services .Net]: http://curah.microsoft.com/64518/how-the-azure-mobile-services-net-backend-works
   [objet mssql]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx
   [API personnalisée]: http://msdn.microsoft.com/en-us/library/windowsazure/dn280974.aspx
-  [Windows Store C#]: http://azure.microsoft.com/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/
+  [Windows Store C\#]: http://azure.microsoft.com/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/
   [Windows Store JavaScript]: http://azure.microsoft.com/fr-fr/documentation/articles/mobile-services-windows-store-javascript-call-custom-api/
   [Windows Phone]: http://azure.microsoft.com/fr-fr/documentation/articles/mobile-services-windows-phone-call-custom-api/
   [iOS]: http://azure.microsoft.com/fr-fr/documentation/articles/mobile-services-ios-call-custom-api/

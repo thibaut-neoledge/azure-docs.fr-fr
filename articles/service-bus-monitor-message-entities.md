@@ -1,16 +1,16 @@
-<properties linkid="service-bus-monitor-messaging-entitites" urlDisplayName="Traffic Manager" pageTitle="Monitor Service Bus Messaging Entities - Azure" metaKeywords="" description="Learn how to monitor your Service Bus entities using the Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="service-bus" documentationCenter="" title="How to Monitor Service Bus Messaging Entities" authors="" solutions="" />
+<properties linkid="service-bus-monitor-messaging-entitites" urlDisplayName="Traffic Manager" pageTitle="Monitor Service Bus Messaging Entities - Azure" metaKeywords="" description="Learn how to monitor your Service Bus entities using the Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="service-bus" documentationCenter="" title="How to Monitor Service Bus Messaging Entities" authors="sethm" solutions="" />
 
-Surveillance des entités de messagerie Service Bus
-==================================================
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
 
-Cette rubrique décrit la gestion et la surveillance de vos entités Service Bus à l'aide du [portail de gestion Azure](http://manage.windowsazure.com). Ce dernier propose une vue complète de l'état des files d'attente et des rubriques, dont vous pouvez également suivre l'utilisation.
+# Surveillance des entités de messagerie Service Bus
 
-Suivi de l'activité sur les files d'attente Service Bus
--------------------------------------------------------
+Cette rubrique décrit la gestion et la surveillance de vos entités Service Bus à l'aide du [portail de gestion Azure][]. Ce dernier propose une vue complète de l'état des files d'attente et des rubriques, dont vous pouvez également suivre l'utilisation.
+
+## Suivi de l'activité sur les files d'attente Service Bus
 
 Pour surveiller une file d'attente Service Bus, procédez comme suit :
 
-1.  Connectez-vous à la [version préliminaire du portail de gestion Azure](http://manage.windowsazure.com).
+1.  Connectez-vous au [portail de gestion Azure][].
 2.  Cliquez sur l'icône **Service Bus** dans la barre de navigation de gauche pour obtenir la liste des espaces de noms du service.
 3.  Cliquez sur l'espace de noms qui contient la file d'attente que vous voulez surveiller.
 4.  Dans la barre en haut de la page, cliquez sur **Files d'attente**.
@@ -28,14 +28,13 @@ Pour toutes les files d'attente, les graphiques suivants sont affichés :
 
 Dans le tableau de bord, **Aperçu rapide** affiche l'état actuel de la file d'attente dans **Longueur de la file d'attente**. Les autres propriétés de la file d'attente ou de la rubrique sont également affichées. Ces informations sont actualisées toutes les 10 secondes.
 
-![](./media/service-bus-monitor-message-entities/QueueDashboard.png)
+![][]
 
-Suivi de l'activité sur les rubriques Service Bus
--------------------------------------------------
+## Suivi de l'activité sur les rubriques Service Bus
 
 Pour surveiller une rubrique Service Bus, procédez comme suit :
 
-1.  Connectez-vous à la [version préliminaire du portail de gestion Azure](http://manage.windowsazure.com).
+1.  Connectez-vous au [portail de gestion Azure][].
 2.  Cliquez sur l'icône **Service Bus** dans la barre de navigation de gauche pour obtenir la liste des espaces de noms du service.
 3.  Cliquez sur l'espace de noms qui contient la rubrique que vous voulez surveiller.
 4.  Dans la barre en haut de la page, cliquez sur **Rubriques**.
@@ -43,5 +42,8 @@ Pour surveiller une rubrique Service Bus, procédez comme suit :
 
 Le tableau de bord de la rubrique est similaire au tableau de bord de la file d'attente, à l'exception des mesures d'utilisation. Le nombre de messages sortants et leur longueur ne sont pas présents dans le tableau de bord de la rubrique, car ces informations sont différentes pour chaque abonnement à une rubrique. L'onglet **Surveiller** permet d'ajouter des mesures d'utilisation (nombre de messages sortants et longueur) par abonnement à une rubrique. Pour ajouter ces mesures, cliquez sur l'onglet **Surveiller**. Cliquez ensuite sur **Ajouter des métriques** en bas de la page, puis choisissez les abonnements sous la rubrique.
 
-![](./media/service-bus-monitor-message-entities/AddMetrics.png)
+![][1]
 
+  [portail de gestion Azure]: http://manage.windowsazure.com
+  []: ./media/service-bus-monitor-message-entities/QueueDashboard.png
+  [1]: ./media/service-bus-monitor-message-entities/AddMetrics.png

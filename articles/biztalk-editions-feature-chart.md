@@ -1,150 +1,194 @@
-<properties linkid="manage-services-biztalk-services-editions-chart" urlDisplayName="Editions chart" pageTitle="Learn about features in BizTalk Services editions | Azure" metaKeywords="BizTalk Services, get started, Azure, editions" description="Compare the capabilities of the BizTalk Services editions: Developer, Basic, Standard, and Premium." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Basic" authors="mandia" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-biztalk-services-editions-chart" urlDisplayName="Editions chart" pageTitle="Learn about features in BizTalk Services editions | Azure" metaKeywords="BizTalk Services, get started, Azure, editions" description="Compare the capabilities of the BizTalk Services editions: Free, Developer, Basic, Standard, and Premium." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Basic" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
-Tableau comparatif des éditions Développeur, De base, Standard, et Premium de BizTalk Services
-==============================================================================================
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
 
-Azure BizTalk Services se décline en quatre éditions : Développeur, De base, Standard et Premium :
+# BizTalk Services : Tableau comparatif des éditions
 
-**Développeur** : permet le traitement des messages IAE et EDI, la connectivité hybride avec le Pack adaptateurs BizTalk, et fournit des services de connexion au cloud pour les scénarios IAE les plus répandus, avec les protocoles HTTP/S, REST, FTP, WCF et SFTP nécessaires pour lire et écrire des messages. Son environnement conçu pour les développeurs, doté d'outils Visual Studio, facilite le développement et le déploiement. Limité au développement et aux tests, sans contrat de niveau de service.
+Azure BizTalk Services se décline en cinq éditions : Gratuite, Développeur, De base, Standard et Premium.
 
-**De base** : permet le traitement des messages IAE et EDI grâce à un portail de gestion de partenaire commercial simple à utiliser, une prise en charge des schémas EDI répandus et des capacités de traitement EDI enrichies sur X12 et AS2. Permet également de créer des services de connexion au cloud pour les scénarios IAE les plus répandus, avec les protocoles HTTP/S, REST, FTP, WCF et SFTP pour lire et écrire des messages. Prend en charge le traitement et la médiation des messages enrichis grâce à des outils de développement pilotés par la configuration. Les adaptateurs SAP, Oracle eBusiness, Oracle DB, Siebel et SQL Server prêts à l'emploi de cette édition permettent d'utiliser la connectivité hybride vers les systèmes métiers locaux.
+**Gratuite (Évaluation)** : cette édition permet de créer et de gérer des connexions hybrides. Une connexion hybride offre un moyen simple de connecter un site web Azure à un système local, tel que SQL Server.
 
-**Standard** : inclut toutes les capacités de l'édition De base, ainsi que la possibilité de mettre à l'échelle vos déploiements, pour répondre à l'évolution de vos besoins.
+**Développeur** : cette édition permet le traitement des messages des connexions hybrides, EAI et EDI grâce à un portail de gestion de partenaire commercial simple à utiliser, une prise en charge des schémas EDI répandus et des capacités de traitement EDI enrichies sur X12 et AS2. Permet également de créer des services de connexion au cloud pour les scénarios IAE les plus répandus, avec les protocoles HTTP/S, REST, FTP, WCF et SFTP pour lire et écrire des messages. Les adaptateurs SAP, Oracle eBusiness, Oracle DB, Siebel et SQL Server prêts à l'emploi de cette édition permettent d'utiliser la connectivité vers les systèmes métiers locaux. Son environnement conçu pour les développeurs, doté d'outils Visual Studio, facilite le développement et le déploiement. Cette édition est limitée à des fins de développement et de test uniquement, sans contrat de niveau de service (SLA).
 
-**Premium** : inclut toutes les capacités de l'édition Standard, avec une amélioration de la capacité de mise à l'échelle, des ponts IAE, des contrats EDI, une connectivité hybride, ainsi qu'une capacité d'archivage.
+**De base** : cette édition comprend la plupart des fonctionnalités de l'édition Développeur avec une amélioration de la capacité des connexions hybrides, des ponts EAI, des contrats EDI et des connexions Pack adaptateurs BizTalk. Elle offre également une haute disponibilité et la possibilité d'effectuer une mise à l'échelle avec un contrat de niveau de service (SLA).
+
+**Standard** : cette édition comprend toutes les fonctionnalités de l'édition De base avec une amélioration de la capacité des connexions hybrides, des ponts EAI, des contrats EDI et des connexions Pack adaptateurs BizTalk. Elle offre également une haute disponibilité et la possibilité d'effectuer une mise à l'échelle avec un contrat de niveau de service (SLA).
+
+**Premium** : cette édition comprend toutes les fonctionnalités de l'édition Standard avec une amélioration de la capacité des connexions hybrides, des ponts EAI, des contrats EDI et des connexions Pack adaptateurs BizTalk. Elle offre également des fonctionnalités d'archivage, une haute disponibilité et la possibilité d'effectuer une mise à l'échelle avec un contrat de niveau de service (SLA).
 
 Le tableau suivant répertorie les différences :
 
-<table data-morhtml="true" border="1">
-<tr data-morhtml="true" bgcolor="FAF9F9">
-        <th data-morhtml="true"> </th>
-        <th data-morhtml="true">D&eacute;veloppeur</th>
-        <th data-morhtml="true">De base</th>
-        <th data-morhtml="true">Standard</th>
-        <th data-morhtml="true">Premium</th>
+<table>
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">Gratuite (Évaluation)</th>
+<th align="left">Développeur</th>
+<th align="left">De base</th>
+<th align="left">Standard</th>
+<th align="left">Premium</th>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true"><strong data-morhtml="true">Prix de d&eacute;part</strong></td>
-<td data-morhtml="true">Consultez la page <a data-morhtml="true" href="http://go.microsoft.com/fwlink/p/?LinkID=304011">Tarification &ndash; BizTalk Services</a>.</td>
-<td data-morhtml="true">Consultez la page <a data-morhtml="true" href="http://go.microsoft.com/fwlink/p/?LinkID=304011">Tarification &ndash; BizTalk Services</a>.</td>
-<td data-morhtml="true">Consultez la page <a data-morhtml="true" href="http://go.microsoft.com/fwlink/p/?LinkID=304011">Tarification &ndash; BizTalk Services</a>.</td>
-<td data-morhtml="true">Consultez la page <a data-morhtml="true" href="http://go.microsoft.com/fwlink/p/?LinkID=304011">Tarification &ndash; BizTalk Services</a>.</td>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Prix de départ</strong></td>
+<td align="left">Consultez la page <a href="http://go.microsoft.com/fwlink/p/?LinkID=304011">Tarification – BizTalk Services</a>.</td>
+<td align="left">Consultez la page <a href="http://go.microsoft.com/fwlink/p/?LinkID=304011">Tarification – BizTalk Services</a>.</td>
+<td align="left">Consultez la page <a href="http://go.microsoft.com/fwlink/p/?LinkID=304011">Tarification – BizTalk Services</a>.</td>
+<td align="left">Consultez la page <a href="http://go.microsoft.com/fwlink/p/?LinkID=304011">Tarification – BizTalk Services</a>.</td>
+<td align="left">Consultez la page <a href="http://go.microsoft.com/fwlink/p/?LinkID=304011">Tarification – BizTalk Services</a>.</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true"><strong data-morhtml="true">Configuration minimale par d&eacute;faut</strong></td>
-<td data-morhtml="true">1&nbsp;unit&eacute; D&eacute;veloppeur</td>
-<td data-morhtml="true">1&nbsp;unit&eacute; De base</td>
-<td data-morhtml="true">1&nbsp;unit&eacute; Standard</td>
-<td data-morhtml="true">1&nbsp;unit&eacute; Premium</td>
+<tr class="even">
+<td align="left"><strong>Configuration minimale par défaut</strong></td>
+<td align="left">1 unité Gratuite</td>
+<td align="left">1 unité Développeur</td>
+<td align="left">1 unité De base</td>
+<td align="left">1 unité Standard</td>
+<td align="left">1 unité Premium</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true"><strong data-morhtml="true">Mise &agrave; l'&eacute;chelle</strong></td>
-<td data-morhtml="true">Pas de mise &agrave; l'&eacute;chelle</td>
-<td data-morhtml="true">Pas de mise &agrave; l'&eacute;chelle</td>
-<td data-morhtml="true">Oui, dans les incr&eacute;ments d'1 unit&eacute; Standard</td>
-<td data-morhtml="true">Oui, dans les incr&eacute;ments d'1 unit&eacute; Premium</td>
+<tr class="odd">
+<td align="left"><strong>Mise à l’échelle</strong></td>
+<td align="left">Pas de mise à l'échelle</td>
+<td align="left">Pas de mise à l'échelle</td>
+<td align="left">Oui, dans les incréments d'1 unité De base</td>
+<td align="left">Oui, dans les incréments d'1 unité Standard</td>
+<td align="left">Oui, dans les incréments d'1 unité Premium</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true"><strong data-morhtml="true">Mont&eacute;e en charge maximale autoris&eacute;e</strong></td>
-<td data-morhtml="true">Pas de mise &agrave; l'&eacute;chelle</td>
-<td data-morhtml="true">Pas de mise &agrave; l'&eacute;chelle</td>
-<td data-morhtml="true">Jusqu'&agrave; 4&nbsp;unit&eacute;s</td>
-<td data-morhtml="true">Jusqu'&agrave; 8&nbsp;unit&eacute;s</td>
+<tr class="even">
+<td align="left"><strong>Montée en charge maximale autorisée</strong></td>
+<td align="left">Pas de mise à l'échelle</td>
+<td align="left">Pas de mise à l'échelle</td>
+<td align="left">Jusqu'à 8 unités</td>
+<td align="left">Jusqu'à 8 unités</td>
+<td align="left">Jusqu'à 8 unités</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true"><strong data-morhtml="true">Ponts IAE par unit&eacute;</strong></td>
-<td data-morhtml="true">30</td>
-<td data-morhtml="true">50</td>
-<td data-morhtml="true">125</td>
-<td data-morhtml="true">500</td>
+<tr class="odd">
+<td align="left"><strong>Ponts IAE par unité</strong></td>
+<td align="left">Non inclus</td>
+<td align="left">25</td>
+<td align="left">25</td>
+<td align="left">125</td>
+<td align="left">500</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true"><strong data-morhtml="true">EDI, AS2 <br data-morhtml="true" /><br data-morhtml="true" /> Inclut les contrats, types de messages, le portail BizTalk Services</strong></td>
-<td data-morhtml="true">Inclus. 10&nbsp;contrats par unit&eacute;.</td>
-<td data-morhtml="true">Inclus. 25&nbsp;contrats par unit&eacute;.</td>
-<td data-morhtml="true">Inclus. 250&nbsp;contrats par unit&eacute;.</td>
-<td data-morhtml="true">Inclus. 1000&nbsp;contrats par unit&eacute;.</td>
+<tr class="even">
+<td align="left"><strong>EDI, AS2</strong><br /><br /> Inclut les contrats TPM</td>
+<td align="left">Non inclus</td>
+<td align="left">Inclus. 10 contrats par unité.</td>
+<td align="left">Inclus. 50 contrats par unité.</td>
+<td align="left">Inclus. 250 contrats par unité.</td>
+<td align="left">Inclus. 1000 contrats par unité.</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true"><strong data-morhtml="true">Connexions du service d'adaptateurs BizTalk aux syst&egrave;mes m&eacute;tiers locaux</strong></td>
-<td data-morhtml="true">1&nbsp;connexion</td>
-<td data-morhtml="true">2&nbsp;connexions</td>
-<td data-morhtml="true">5&nbsp;connexions</td>
-<td data-morhtml="true">25&nbsp;connexions</td>
+<tr class="odd">
+<td align="left"><strong>Connexions hybrides par unité</strong></td>
+<td align="left">5</td>
+<td align="left">5</td>
+<td align="left">10</td>
+<td align="left">50</td>
+<td align="left">100</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" align="left"><strong data-morhtml="true">Protocoles/syst&egrave;mes pris en charge&nbsp;:</strong>
-<ul data-morhtml="true">
-<li data-morhtml="true">HTTP</li>
-<li data-morhtml="true">HTTPS</li>
-<li data-morhtml="true">FTP</li>
-<li data-morhtml="true">SFTP</li>
-<li data-morhtml="true">WCF</li>
-<li data-morhtml="true">Service Bus (SB)</li>
-<li data-morhtml="true">Objets blob Azure</li>
-<li data-morhtml="true">API REST</li>
-</ul>
-</td>
-<td data-morhtml="true">Inclus</td>
-<td data-morhtml="true">Inclus</td>
-<td data-morhtml="true">Inclus</td>
-<td data-morhtml="true">Inclus</td>
+<tr class="even">
+<td align="left"><strong>Transfert de données des connexions hybrides (Go) par unité</strong></td>
+<td align="left">5</td>
+<td align="left">5</td>
+<td align="left">50</td>
+<td align="left">250</td>
+<td align="left">500</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true"><strong data-morhtml="true">Haute disponibilit&eacute;</strong> <br data-morhtml="true" /><br data-morhtml="true" /> Pour le contrat SLA, consultez <a data-morhtml="true" href="http://go.microsoft.com/fwlink/p/?LinkID=304011">Tarification &ndash; BizTalk Services</a>.
-</td>
-<td data-morhtml="true">Non inclus</td>
-<td data-morhtml="true">Inclus</td>
-<td data-morhtml="true">Inclus</td>
-<td data-morhtml="true">Inclus</td>
+<tr class="odd">
+<td align="left"><strong>Connexions du service d'adaptateurs BizTalk aux systèmes métiers locaux</strong></td>
+<td align="left">Non inclus</td>
+<td align="left">1 connexion</td>
+<td align="left">2 connexions</td>
+<td align="left">5 connexions</td>
+<td align="left">25 connexions</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true"><strong data-morhtml="true">Sauvegarde et restauration</strong></td>
-<td data-morhtml="true">Non inclus</td>
-<td data-morhtml="true">Inclus</td>
-<td data-morhtml="true">Inclus</td>
-<td data-morhtml="true">Inclus</td>
+<tr class="even">
+<td align="left"><strong>Protocoles/systèmes pris en charge :</strong>
+<ul>
+<li>HTTP</li>
+<li>HTTPS</li>
+<li>FTP</li>
+<li>SFTP</li>
+<li>WCF</li>
+<li>Service Bus (SB)</li>
+<li>Objets blob Azure</li>
+<li>API REST</li>
+</ul></td>
+<td align="left">Non inclus</td>
+<td align="left">Inclus</td>
+<td align="left">Inclus</td>
+<td align="left">Inclus</td>
+<td align="left">Inclus</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true"><strong data-morhtml="true">Suivi</strong></td>
-<td data-morhtml="true">Inclus</td>
-<td data-morhtml="true">Inclus</td>
-<td data-morhtml="true">Inclus</td>
-<td data-morhtml="true">Inclus</td>
+<tr class="odd">
+<td align="left"><strong>Haute disponibilité</strong><br /><br /> Pour le contrat de niveau de service (SLA), consultez <a href="http://go.microsoft.com/fwlink/p/?LinkID=304011">Tarification – BizTalk Services</a>.</td>
+<td align="left">Non inclus</td>
+<td align="left">Non inclus</td>
+<td align="left">Inclus</td>
+<td align="left">Inclus</td>
+<td align="left">Inclus</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true"><strong data-morhtml="true">Archivage</strong><br data-morhtml="true" /><br data-morhtml="true" /> Inclut NRR et le t&eacute;l&eacute;chargement des messages suivis</td>
-<td data-morhtml="true">Inclus</td>
-<td data-morhtml="true">Non inclus</td>
-<td data-morhtml="true">Non inclus</td>
-<td data-morhtml="true">Inclus</td>
+<tr class="even">
+<td align="left"><strong>Sauvegarde et restauration</strong></td>
+<td align="left">Non inclus</td>
+<td align="left">Inclus</td>
+<td align="left">Inclus</td>
+<td align="left">Inclus</td>
+<td align="left">Inclus</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true"><strong data-morhtml="true">Utilisation de code personnalis&eacute;</strong></td>
-<td data-morhtml="true">Inclus</td>
-<td data-morhtml="true">Inclus</td>
-<td data-morhtml="true">Inclus</td>
-<td data-morhtml="true">Inclus</td>
+<tr class="odd">
+<td align="left"><strong>Suivi</strong></td>
+<td align="left">Non inclus</td>
+<td align="left">Inclus</td>
+<td align="left">Inclus</td>
+<td align="left">Inclus</td>
+<td align="left">Inclus</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true"><strong data-morhtml="true">Utilisation des transformations, notamment la personnalisation XSLT</strong></td>
-<td data-morhtml="true">Inclus</td>
-<td data-morhtml="true">Inclus</td>
-<td data-morhtml="true">Inclus</td>
-<td data-morhtml="true">Inclus</td>
+<tr class="even">
+<td align="left"><strong>Archivage</strong><br /><br /> Inclut NRR et le téléchargement des messages suivis</td>
+<td align="left">Non inclus</td>
+<td align="left">Inclus</td>
+<td align="left">Non inclus</td>
+<td align="left">Non inclus</td>
+<td align="left">Inclus</td>
 </tr>
+<tr class="odd">
+<td align="left"><strong>Utilisation de code personnalisé</strong></td>
+<td align="left">Non inclus</td>
+<td align="left">Inclus</td>
+<td align="left">Inclus</td>
+<td align="left">Inclus</td>
+<td align="left">Inclus</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Utilisation des transformations, notamment la personnalisation XSLT</strong></td>
+<td align="left">Non inclus</td>
+<td align="left">Inclus</td>
+<td align="left">Inclus</td>
+<td align="left">Inclus</td>
+<td align="left">Inclus</td>
+</tr>
+</tbody>
 </table>
 
 **Remarque**
-Pour résister aux risques de pannes, la haute disponibilité requiert d'avoir plusieurs machines virtuelles dans une seule unité BizTalk.
+<br/>Pour résister aux risques de pannes, la haute disponibilité nécessite plusieurs machines virtuelles dans une seule unité BizTalk.
 
-FAQ
----
+## FAQ
 
-#### Qu'est-ce qu'une unité BizTalk ? 
+#### Qu'est-ce qu'une unité BizTalk ?
+
 Une « unité » correspond au niveau atomique d'un déploiement Azure BizTalk Services. Chaque édition est livrée avec une unité ayant différentes capacités de calcul et de mémoire. Par exemple, une unité De base comprend davantage d'ordinateurs qu'une unité Développeur, une unité Standard dispose d'une plus grande capacité de calcul qu'une unité De base, etc. Lorsque vous mettez à l'échelle un service BizTalk, cette mise à l'échelle s'effectue en termes d'unités.
 
-#### Quelle est la différence entre BizTalk Services et Biztalk Server sur une machine virtuelle Azure ?
+#### Quelle est la différence entre BizTalk Services et la machine virtuelle Azure BizTalk ?
 
 BizTalk Services fournit une véritable architecture PaaS (Platform-as-a-Service) permettant de développer des solutions d'intégration dans le cloud. Grâce au modèle PaaS, vous pouvez vous concentrer uniquement sur la logique de l'application et confier toute la gestion de l'infrastructure à Microsoft, en profitant des avantages suivants :
 
@@ -156,6 +200,10 @@ BizTalk Server sur les machines virtuelles Azure fournit une architecture IaaS (
 
 Si vous voulez développer de nouvelles solutions d'intégration pour faciliter la gestion de votre architecture, choisissez BizTalk Services. Si vous voulez faire migrer rapidement vos solutions BizTalk ou si vous recherchez un environnement à la demande pour développer et tester vos applications BizTalk Server, choisissez BizTalk Server sur une machine virtuelle Azure.
 
+#### Quelle est la différence entre le service d'adaptateur BizTalk et les connexions hybrides?
+
+Le service d'adaptateur BizTalk est utilisé par un service Azure BizTalk. Le service d'adaptateur BizTalk utilise le Pack adaptateurs BizTalk pour se connecter à un système métier local. Une connexion hybride offre un moyen facile et pratique de connecter des applications Azure, comme des sites web et Mobile Services, à une ressource locale.
+
 #### Lorsque je crée un contrat dans BizTalk Services, pourquoi y-a-t-il deux ponts au lieu d'un ?
 
 Chaque contrat comprend deux ponts différents : un pont de communication pour l'envoi, et un autre pour la réception.
@@ -166,25 +214,33 @@ Vous ne pourrez plus déployer d'autres ponts ou créer d'autres contrats. Pour 
 
 #### Comment migrer d'un niveau de BizTalk Services à un autre ?
 
-Utilisez le flux de sauvegarde et de restauration pour migrer d'un niveau à un autre. Seuls certains chemins de migration sont pris en charge. Pour plus d'informations sur les chemins de migration pris en charge, consultez la page [Sauvegarde et restauration de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329873).
+Utilisez le flux de sauvegarde et de restauration pour migrer d'un niveau à un autre. Seuls certains chemins de migration sont pris en charge. Consultez [BizTalk Services : Sauvegarde et restauration][] pour plus d'informations sur les chemins de migration pris en charge.
 
 #### Un service d'adaptateur BizTalk est-il inclus dans le service ? Comment recevoir le logiciel ?
 
-Oui, le service d'adaptateur BizTalk livré avec le Pack adaptateurs BizTalk vous est fourni lorsque vous [téléchargez](http://www.microsoft.com/download/details.aspx?id=39087) le Kit de développement logiciel (SDK) Azure BizTalk Services.
+Oui, le service d'adaptateur BizTalk livré avec le Pack adaptateurs BizTalk vous est fourni lorsque vous [téléchargez][] le Kit de développement logiciel (SDK) Azure BizTalk Services.
 
-Suivant
--------
+## Suivant
 
-Pour approvisionner Azure BizTalk Services dans le portail de gestion Azure, consultez la rubrique [Approvisionnement de BizTalk Services avec le portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280). Pour commencer à créer des applications, accédez à la page [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Pour approvisionner Azure BizTalk Services dans le portail de gestion Azure, accédez à [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][]. Pour commencer à créer des applications, consultez la page [Azure BizTalk Services][].
 
-Voir aussi
-----------
+## Voir aussi
 
--   [Approvisionnement de BizTalk Services avec le portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)
--   [Tableau comparatif des états d'approvisionnement BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329870)
--   [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)
--   [Sauvegarde et restauration de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329873)
--   [Limitation BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)
--   [Nom et clé de l'émetteur dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303941)
--   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+-   [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][]
+-   [BizTalk Services : Tableau comparatif des états d'approvisionnement BizTalk Services][]
+-   [BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services][]
+-   [BizTalk Services : Sauvegarde et restauration][]
+-   [BizTalk Services : Limitation][]
+-   [BizTalk Services : Nom et clé de l'émetteur][]
+-   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services][]
 
+  [Tarification – BizTalk Services]: http://go.microsoft.com/fwlink/p/?LinkID=304011
+  [BizTalk Services : Sauvegarde et restauration]: http://go.microsoft.com/fwlink/p/?LinkID=329873
+  [téléchargez]: http://www.microsoft.com/download/details.aspx?id=39087
+  [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure]: http://go.microsoft.com/fwlink/p/?LinkID=302280
+  [Azure BizTalk Services]: http://go.microsoft.com/fwlink/p/?LinkID=235197
+  [BizTalk Services : Tableau comparatif des états d'approvisionnement BizTalk Services]: http://go.microsoft.com/fwlink/p/?LinkID=329870
+  [BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services]: http://go.microsoft.com/fwlink/p/?LinkID=302281
+  [BizTalk Services : Limitation]: http://go.microsoft.com/fwlink/p/?LinkID=302282
+  [BizTalk Services : Nom et clé de l'émetteur]: http://go.microsoft.com/fwlink/p/?LinkID=303941
+  [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services]: http://go.microsoft.com/fwlink/p/?LinkID=302335

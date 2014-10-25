@@ -1,84 +1,78 @@
-<properties linkid="develop-php-sql-database" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (PHP) - Azure feature guides" metaKeywords="Azure SQL Database PHP, SQL Database PHP" description="Learn how to create and connect to an Azure SQL Database from PHP." metaCanonical="" services="sql-database" documentationCenter="PHP" title="How to Access Azure SQL Database from PHP" authors="waltpo" solutions="" manager="bjsmith" editor="mollybos" videoId="" scriptId="" />
+<properties linkid="develop-php-sql-database" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (PHP) - Azure feature guides" metaKeywords="Azure SQL Database PHP, SQL Database PHP" description="Learn how to create and connect to an Azure SQL Database from PHP." metaCanonical="" services="sql-database" documentationCenter="PHP" title="How to Access Azure SQL Database from PHP" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-Accès à la base de données SQL Azure à partir de PHP
-====================================================
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
 
-Ce guide présente les principes de base concernant l'utilisation de la base de données SQL Azure à partir de PHP. Les exemples sont écrits en PHP. Les scénarios traités incluent la **création d'une base de données SQL** et la **connexion à celle-ci**. Ce guide traite de la création d'une base de données SQL à partir du [portail de gestion](https://manage.windowsazure.com). Pour plus d'informations sur la réalisation de ces tâches depuis le portail de production, consultez la page [Prise en main de PHP et de la base de données SQL](http://blogs.msdn.com/b/brian_swan/archive/2010/02/12/getting-started-with-php-and-sql-azure.aspx). Pour plus d'informations, consultez la section [Étapes suivantes](#NextSteps).
+# Accès à la base de données SQL Azure à partir de PHP
 
-Définition de la base de données SQL Azure
-------------------------------------------
+Ce guide présente les principes de base concernant l'utilisation de la base de données SQL Azure à partir de PHP. Les exemples sont écrits en PHP. Les scénarios traités incluent la **création d'une base de données SQL** et la **connexion à celle-ci**. Ce guide traite de la création d'une base de données SQL à partir du [portail de gestion][]. Pour plus d'informations sur la réalisation de ces tâches depuis le portail de production, consultez la page [Prise en main de PHP et de la base de données SQL][]. Pour plus d'informations, consultez la section [Étapes suivantes][].
+
+## Définition de la base de données SQL Azure
 
 La base de données SQL Azure fournit un système de gestion des bases de données relationnelles pour Azure. Elle est basée sur la technologie SQL Server. La base de données SQL permet de configurer et de déployer facilement des solutions de bases de données relationnelles dans le cloud. Elle tire parti d'un centre de données distribué qui fournit haute disponibilité, extensibilité et sécurité aux entreprises, avec les avantages de la protection des données et de l'auto-adaptation intégrées.
 
-Sommaire
---------
+## Sommaire
 
--   [Concepts](#Concepts)
--   [Configuration de votre environnement](#Setup)
--   [Création d'une base de données SQL](#CreateServer)
--   [Obtention des informations de connexion à la base de données SQL](#ConnectionInfo)
--   [Connexion à une instance de base de données SQL](#Connect)
--   [Étapes suivantes](#NextSteps)
+-   [Concepts][]
+-   [Configuration de votre environnement][]
+-   [Création d'une base de données SQL][]
+-   [Obtention des informations de connexion à la base de données SQL][]
+-   [Connexion à une instance de base de données SQL][]
+-   [Étapes suivantes][]
 
-Concepts
---------
+## <span id="Concepts"></span></a>Concepts
 
-La base de données SQL Azure repose sur les technologies SQL Server. De ce fait, il existe beaucoup de similitudes entre l'accès à la base de données SQL à partir de PHP et l'accès à SQL Server à partir de PHP. Vous pouvez développer une application en local (à l'aide de SQL Server) et vous connecter ensuite à la base de données SQL en modifiant simplement la chaîne de connexion. Toutefois, les quelques différences qui existent entre la base de données SQL et SQL Server peuvent avoir une incidence sur votre application. Pour plus d'informations, consultez la page [Instructions et limitations (Base de données SQL)](http://msdn.microsoft.com/fr-fr/library/windowsazure/ff394102.aspx).
+La base de données SQL Azure repose sur les technologies SQL Server. De ce fait, il existe beaucoup de similitudes entre l'accès à la base de données SQL à partir de PHP et l'accès à SQL Server à partir de PHP. Vous pouvez développer une application en local (à l'aide de SQL Server) et vous connecter ensuite à la base de données SQL en modifiant simplement la chaîne de connexion. Toutefois, les quelques différences qui existent entre la base de données SQL et SQL Server peuvent avoir une incidence sur votre application. Pour plus d'informations, consultez la page [Instructions et limitations (Base de données SQL)][].
 
-L'approche recommandée pour accéder à la base de données SQL à partir de PHP est d'utiliser les [pilotes Microsoft SQL Server pour PHP](http://www.microsoft.com/download/en/details.aspx?id=20098) (les exemples contenus dans cet article utilisent ces pilotes). Les pilotes Microsoft SQL Server pour PHP fonctionnent sur Windows uniquement.
+L'approche recommandée pour accéder à la base de données SQL à partir de PHP est d'utiliser les [pilotes Microsoft SQL Server pour PHP][] (les exemples contenus dans cet article utilisent ces pilotes). Les pilotes Microsoft SQL Server pour PHP fonctionnent sur Windows uniquement.
 
-Configuration de votre environnement
-------------------------------------
+## <span id="Setup"></span></a> Configuration de votre environnement
 
-La méthode recommandée pour configurer votre environnement de développement est d'utiliser [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/?LinkId=253447). Web Platform Installer vous permet de choisir les éléments de votre plateforme de développement Web, qui sont ensuite installés et configurés automatiquement. En téléchargeant Web Platform Installer et en décidant d'installer WebMatrix, PHP pour WebMatrix et SQL Server Express, vous obtenez un environnement de développement complet, configuré automatiquement.
+La méthode recommandée pour configurer votre environnement de développement est d'utiliser [Microsoft Web Platform Installer][]. Web Platform Installer vous permet de choisir les éléments de votre plateforme de développement Web, qui sont ensuite installés et configurés automatiquement. En téléchargeant Web Platform Installer et en décidant d'installer WebMatrix, PHP pour WebMatrix et SQL Server Express, vous obtenez un environnement de développement complet, configuré automatiquement.
 
 Vous pouvez également choisir de configurer votre environnement manuellement :
 
--   Installez PHP et configurez IIS : <http://php.net/manual/en/install.windows.iis7.php>.
--   Téléchargez et installez SQL Server Express : <http://www.microsoft.com/en-us/download/details.aspx?id=29062>
--   Téléchargez et installez les pilotes Microsoft SQL Server pour PHP : <http://php.net/manual/en/sqlsrv.requirements.php>.
+-   Installez PHP et configurez IIS : [][]<http://php.net/manual/en/install.windows.iis7.php></a>.
+-   Téléchargez et installez SQL Server Express : [][1]<http://www.microsoft.com/fr-fr/download/details.aspx?id=29062></a>
+-   Téléchargez et installez les pilotes Microsoft SQL Server pour PHP : [][2]<http://php.net/manual/en/sqlsrv.requirements.php></a>.
 
-Création d'une base de données SQL
-----------------------------------
+## <span id="CreateServer"></span></a> Création d'une base de données SQL
 
 Pour créer une base de données SQL Azure, procédez comme suit :
 
-1.  Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com).
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion].
 2.  Cliquez sur **New** dans le coin inférieur gauche du portail.
 
-    ![Créer un site Web Azure](./media/sql-database-php-how-to-use-sql-database/plus-new.png)
+    ![Créer un site Web Azure][]
 
 3.  Cliquez sur **DATA SERVICES**, **SQL DATABASE**, puis sur **CUSTOM CREATE**.
 
-    ![Créer une base de données SQL personnalisée](./media/sql-database-php-how-to-use-sql-database/create_custom_sql_db-2.png)
+    ![Créer une base de données SQL personnalisée][]
 
 4.  Entrez une valeur pour le **nom** de la base de données, sélectionnez l'**édition** (Web ou Entreprise), la **taille maximale**, le **classement** et **NEW SQL Database Server**. Cliquez sur la flèche située en bas de la boîte de dialogue. Si vous avez déjà créé une base de données SQL, vous pouvez choisir un serveur existant dans le menu déroulant **Choose a server**.
 
-    ![Renseigner les paramètres de la base de données SQL](./media/sql-database-php-how-to-use-sql-database/new-sql-db.png)
+    ![Renseigner les paramètres de la base de données SQL][]
 
-5.  Entrez le nom et le mot de passe de l'administrateur (et confirmez ce dernier), choisissez la région dans laquelle sera créée la base de données SQL, puis activez la case `Allow Azure Services to access the server`.
+5.  Entrez le nom de l'administrateur et son mot de passe (et confirmez ce dernier), choisissez la région dans laquelle sera créée la base de données SQL, puis cochez la case `Allow Azure Services to access the server`.
 
-    ![Créer un serveur de base de données SQL](./media/sql-database-php-how-to-use-sql-database/db-server-settings.png)
+    ![Créer un serveur de base de données SQL][]
 
 Pour afficher les informations relatives au serveur et à la base de données, cliquez sur **SQL Databases** dans le portail de gestion. Cliquez sur **BASES DE DONNÉES** ou **SERVEURS** pour afficher les informations associées.
 
-![Afficher les informations relatives au serveur et à la base de données](./media/sql-database-php-how-to-use-sql-database/sql-dbs-portal.png)
+![Afficher les informations relatives au serveur et à la base de données][]
 
-Obtention des informations de connexion à la base de données SQL
-----------------------------------------------------------------
+## <span id="ConnectionInfo"></span></a> Obtention des informations de connexion à la base de données SQL
 
 Pour obtenir les informations de connexion à la base de données SQL, cliquez sur **SQL DATABASES** dans le portail, puis sur le nom de la base de données.
 
-![Afficher les informations relatives à la base de données](./media/sql-database-php-how-to-use-sql-database/go-to-db-info.png)
+![Afficher les informations relatives à la base de données][]
 
 Cliquez ensuite sur **View SQL Database connection strings for ADO.NET, ODBC, PHP, and JDBC**.
 
-![Afficher les chaînes de connexion](./media/sql-database-php-how-to-use-sql-database/show-connection-string-2.png)
+![Afficher les chaînes de connexion][]
 
 Dans la section PHP de la fenêtre qui s'ouvre, notez les valeurs des champs **SERVER**, **DATABASE** et **USERNAME**. Votre mot de passe est le même que celui que vous avez utilisé lorsque vous avez créé la base de données SQL.
 
-Connexion à une instance de base de données SQL
------------------------------------------------
+## <span id="Connect"></span></a> Connexion à une instance de base de données SQL
 
 Les exemples suivants montrent comment utiliser les extensions **SQLSRV** et **PDO\_SQLSRV** pour se connecter à une base de données SQL appelée `testdb`. Vous aurez besoin des informations obtenues à la section précédente. Remplacez `SERVER_ID` par votre ID de serveur à 10 chiffres (c'est-à-dire, les 10 premiers caractères de la valeur SERVER obtenue à la section précédente), puis affectez les valeurs correctes (votre nom d'utilisateur et votre mot de passe) aux variables `$user` et `$pwd`.
 
@@ -86,7 +80,7 @@ Les exemples suivants montrent comment utiliser les extensions **SQLSRV** et **P
 
     $server = "tcp:<value of SERVER from section above>";
     $user = "<value of USERNAME from section above>"@SERVER_ID;
-    $pwd = "mot de passe";
+    $pwd = "password";
     $db = "testdb";
 
     $conn = sqlsrv_connect($server, array("UID"=>$user, "PWD"=>$pwd, "Database"=>$db));
@@ -99,10 +93,10 @@ Les exemples suivants montrent comment utiliser les extensions **SQLSRV** et **P
 
     $server = "tcp:<value of SERVER from section above>";
     $user = "<value of USERNAME from section above>"@SERVER_ID;
-    $pwd = "mot de passe";
+    $pwd = "password";
     $db = "testdb";
 
-    try {
+    try{
         $conn = new PDO( "sqlsrv:Server= $server ; Database = $db ", $user, $pwd);
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     }
@@ -110,10 +104,31 @@ Les exemples suivants montrent comment utiliser les extensions **SQLSRV** et **P
         die(print_r($e));
     }
 
-Étapes suivantes
-----------------
+## <span id="NextSteps"></span></a>Étapes suivantes
 
-Comme indiqué précédemment, l'utilisation de la base de données SQL est semblable à celle de SQL Server. Une fois que vous avez établi une connexion avec une base de données SQL (comme indiqué plus haut), vous pouvez utiliser les API **SQLSRV** ou **PDO\_SQLSRV** pour insérer, récupérer, mettre à jour et supprimer des données. Pour plus d'informations sur les API **SQLSRV** et **PDO\_SQLSRV**, consultez la [documentation relative aux pilotes Microsoft SQL Server pour PHP](http://msdn.microsoft.com/fr-fr/library/dd638075(SQL.10).aspx). Toutefois, les quelques différences qui existent entre la base de données SQL et SQL Server peuvent avoir une incidence sur votre application. Pour plus d'informations, consultez la page [Instructions et limitations (Base de données SQL)](http://msdn.microsoft.com/fr-fr/library/windowsazure/ff394102.aspx).
+Comme indiqué précédemment, l'utilisation de la base de données SQL est semblable à celle de SQL Server. Une fois que vous avez établi une connexion avec une base de données SQL (comme indiqué plus haut), vous pouvez utiliser les API **SQLSRV** ou **PDO\_SQLSRV** pour insérer, récupérer, mettre à jour et supprimer des données. Pour plus d'informations sur les API **SQLSRV** et **PDO\_SQLSRV**, consultez la [documentation relative aux pilotes Microsoft SQL Server pour PHP][]. Toutefois, les quelques différences qui existent entre la base de données SQL et SQL Server peuvent avoir une incidence sur votre application. Pour plus d'informations, consultez la page [Instructions et limitations (Base de données SQL)][].
 
 Un exemple montrant comment utiliser la base de données SQL avec PHP sur Azure est disponible à l'adresse <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-sqlazure>.
 
+  [portail de gestion]: https://manage.windowsazure.com
+  [Prise en main de PHP et de la base de données SQL]: http://blogs.msdn.com/b/brian_swan/archive/2010/02/12/getting-started-with-php-and-sql-azure.aspx
+  [Étapes suivantes]: #NextSteps
+  [Concepts]: #Concepts
+  [Configuration de votre environnement]: #Setup
+  [Création d'une base de données SQL]: #CreateServer
+  [Obtention des informations de connexion à la base de données SQL]: #ConnectionInfo
+  [Connexion à une instance de base de données SQL]: #Connect
+  [Instructions et limitations (Base de données SQL)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ff394102.aspx
+  [pilotes Microsoft SQL Server pour PHP]: http://www.microsoft.com/download/en/details.aspx?id=20098
+  [Microsoft Web Platform Installer]: http://go.microsoft.com/fwlink/?LinkId=253447
+  []: http://php.net/manual/en/install.windows.iis7.php
+  [1]: http://www.microsoft.com/fr-fr/download/details.aspx?id=29062
+  [2]: http://php.net/manual/en/sqlsrv.requirements.php
+  [Créer un site Web Azure]: ./media/sql-database-php-how-to-use-sql-database/plus-new.png
+  [Créer une base de données SQL personnalisée]: ./media/sql-database-php-how-to-use-sql-database/create_custom_sql_db-2.png
+  [Renseigner les paramètres de la base de données SQL]: ./media/sql-database-php-how-to-use-sql-database/new-sql-db.png
+  [Créer un serveur de base de données SQL]: ./media/sql-database-php-how-to-use-sql-database/db-server-settings.png
+  [Afficher les informations relatives au serveur et à la base de données]: ./media/sql-database-php-how-to-use-sql-database/sql-dbs-portal.png
+  [Afficher les informations relatives à la base de données]: ./media/sql-database-php-how-to-use-sql-database/go-to-db-info.png
+  [Afficher les chaînes de connexion]: ./media/sql-database-php-how-to-use-sql-database/show-connection-string-2.png
+  [documentation relative aux pilotes Microsoft SQL Server pour PHP]: http://msdn.microsoft.com/fr-fr/library/dd638075(SQL.10).aspx

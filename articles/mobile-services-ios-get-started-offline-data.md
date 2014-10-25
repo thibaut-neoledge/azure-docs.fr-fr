@@ -32,7 +32,7 @@ Ce didacticiel va vous montrer comment mettre à jour l'application à partir du
 <!-- ## Next steps  * [How to use the Mobile Services client library for iOS]    -->
 <!-- URLs. -->
 
-  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows Store C#"
+  [Windows Store C\#]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows Store C#"
   [Windows Phone]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
   [iOS]: /fr-fr/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
   [Xamarin.iOS]: /fr-fr/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"

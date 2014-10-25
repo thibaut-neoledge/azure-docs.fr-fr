@@ -1,7 +1,8 @@
-<properties linkid="" urlDisplayName="" pageTitle="Supported browsers and devices" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Supported browsers and devices" authors="Justin Beckwith" solutions="" writer="" manager="" editor="" />
+<properties urlDisplayName="" pageTitle="Supported browsers and devices" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Supported browsers and devices" authors="Justin Beckwith"  solutions="" writer="" manager="" editor=""  />
 
-Navigateurs et périphériques pris en charge
-===========================================
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Justin Beckwith"></tags>
+
+# Navigateurs et périphériques pris en charge
 
 La version préliminaire du portail Azure s'exécute sur tous les périphériques modernes, de bureau et pour tablette, et sur l'ensemble des navigateurs.
 

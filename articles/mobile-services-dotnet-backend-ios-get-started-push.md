@@ -199,7 +199,7 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
 
 
-  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/ "Windows Store C#"
+  [Windows Store C\#]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/ "Windows Store C#"
   [Windows Store JavaScript]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/ "Windows Store JavaScript"
   [Windows Phone]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/ "Windows Phone"
   [iOS]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "iOS"

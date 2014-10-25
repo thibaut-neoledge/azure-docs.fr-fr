@@ -1,17 +1,16 @@
-<properties linkid="web-sites-traffic-manager" urlDisplayName="Controlling Windows Azure Web Sites Traffic with Azure Traffic Manager" pageTitle="Controlling Azure Web Sites Traffic with Azure Traffic Manager" metaKeywords="Azure Web Sites, Traffic Manager, request routing, round robin, failover, performance" description="This article provides summary information for  Azure Traffic Manager as it relates to Azure Web Sites." metaCanonical="" services="web-sites" documentationCenter="" title="Controlling Azure Web Sites Traffic with Azure Traffic Manager" authors="timamm" solutions="" writer="timamm" manager="paulettm" editor="mollybos" />
+<properties linkid="web-sites-traffic-manager" urlDisplayName="Controlling Windows Azure Websites Traffic with Azure Traffic Manager" pageTitle="Controlling Azure Websites Traffic with Azure Traffic Manager" metaKeywords="Azure Web Sites, Traffic Manager, request routing, round robin, failover, performance" description="This article provides summary information for  Azure Traffic Manager as it relates to Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Controlling Azure Websites Traffic with Azure Traffic Manager" authors="cephalin"  solutions="" writer="cephalin" manager="wpickett" editor="mollybos"  />
 
-Contrôle du trafic du service Sites Web Azure avec Azure Traffic Manager
-========================================================================
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
 
-> [WACOM.NOTE] Cet article présente des informations succinctes sur Microsoft Azure Traffic Manager, qui est associé au service Sites Web Azure. Vous trouverez d'autres informations sur Azure Traffic Manager en suivant les liens fournis à la fin de cet article.
+# Contrôle du trafic du service Sites Web Azure avec Azure Traffic Manager
 
-Introduction
-------------
+> [WACOM.NOTE] Cet article présente des informations succinctes sur Microsoft Azure Traffic Manager, qui est associé à Sites Web Azure. Vous trouverez d'autres informations sur Azure Traffic Manager en suivant les liens fournis à la fin de cet article.
+
+## Introduction
 
 Vous pouvez utiliser Azure Traffic Manager pour contrôler la distribution des demandes des clients web sur le service Sites Web Azure. Lorsque des points de terminaison de sites web Azure sont ajoutés à un profil Azure Traffic Manager, ce dernier conserve une trace du statut de vos sites web (en cours d'exécution, arrêté ou supprimé) pour pouvoir décider lequel de ces points de terminaison doit recevoir le trafic.
 
-Méthodes d'équilibrage de charge
---------------------------------
+## Méthodes d'équilibrage de charge
 
 Azure Traffic Manager utilise trois méthodes d'équilibrage de charge. Elles sont décrites dans la liste suivante, car elles se rapportent au service Sites Web Azure.
 
@@ -21,12 +20,11 @@ Azure Traffic Manager utilise trois méthodes d'équilibrage de charge. Elles so
 
 -   **Performance** : la méthode de Performance distribue le trafic sur la base de l'aller-retour le plus court vers les clients. Cette méthode peut être utilisée pour les sites web d'une même région ou de régions différentes.
 
-Pour plus d'informations sur l'équilibrage de charge dans Azure Traffic Manager, consultez la rubrique [À propos des méthodes d'équilibrage de charge dans Traffic Manager](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn339010.aspx).
+Pour plus d'informations sur l'équilibrage de charge dans Azure Traffic Manager, consultez la rubrique [À propos des méthodes d'équilibrage de charge dans Traffic Manager][].
 
-Sites Web Azure et profils Traffic Manager
-------------------------------------------
+## Sites Web Azure et profils Traffic Manager
 
-Pour configurer le contrôle du trafic des sites web, vous pouvez créer un profil dans Azure Traffic Manager, qui utilise l'une des trois méthodes d'équilibrage de charge décrites précédemment, puis ajouter les points de terminaison (ici, des sites web) dont vous souhaitez contrôler le trafic sur le profil. Le statut de votre site web (en cours d'exécution, arrêté ou supprimé) est régulièrement communiqué au profil ce qui permet à Azure Traffic Manager de diriger le trafic.
+Pour configurer le contrôle du trafic des sites web, vous pouvez créer un profil dans Azure Traffic Manager, qui utilise l'une des trois méthodes d'équilibrage de charge décrites précédemment, puis ajouter les points de terminaison (ici, des sites web) dont vous souhaitez contrôler le trafic sur le profil. Le statut de votre site web (en cours d'exécution, arrêté ou supprimé) est régulièrement communiqué au profil, ce qui permet à Azure Traffic Manager de diriger le trafic.
 
 Lorsque vous utilisez Azure Traffic Manager avec Azure, tenez compte des points suivants :
 
@@ -36,20 +34,28 @@ Lorsque vous utilisez Azure Traffic Manager avec Azure, tenez compte des points 
 
 -   Vous pouvez spécifier un seul point de terminaison de site web par région dans un profil. Lorsque vous sélectionnez un site web comme point de terminaison pour une région, les autres sites web de cette région ne peuvent plus être sélectionnés pour ce profil.
 
--   Les points de terminaison de site web que vous spécifiez dans un profil Azure Traffic Manager figurent dans la section **Domain Names** sur la page de configuration des sites web du profil, mais ne peuvent pas être configurés ici.
+-   Les points de terminaison de site web que vous spécifiez dans un profil Azure Traffic Manager figurent dans la section **Noms de domaine** dans la page de configuration des sites web du profil, mais ne peuvent pas être configurés ici.
 
--   Lorsque vous avez ajouté un site web à un profil, l'**Site URL** sur le tableau de bord de la page du portail du site web affiche l'URL de domaine personnalisé du site web, le cas échéant. Sinon, elle affiche l'URL du profil Traffic Manager (par exemple, `contoso.trafficmgr.com`). Le nom de domaine direct du site web et l'URL Traffic Manager sont tous deux affichés sur la page de configuration du site web dans la section **Domain Names**.
+-   Quand vous avez ajouté un site web à un profil, l'**URL du site** dans le tableau de bord de la page du portail du site web affiche l'URL de domaine personnalisé du site web, le cas échéant. Sinon, elle affiche l'URL du profil Traffic Manager (par exemple, `contoso.trafficmgr.com`). Le nom de domaine direct du site web et l'URL Traffic Manager sont tous deux affichés dans la page de configuration du site web dans la section **Noms de domaine**.
 
--   Vos noms de domaine personnalisé fonctionnent comme prévu, mais, en plus de les ajouter à vos sites web, vous devez configurer votre carte DNS pour qu'elle pointe sur l'URL Traffic Manager. Pour plus d'informations sur la configuration d'un domaine personnalisé pour un site web Azure, consultez la page [Configuration d'un nom de domaine personnalisé pour un site web Azure](https://www.windowsazure.com/fr-fr/documentation/articles/web-sites-custom-domain-name/).
+-   Vos noms de domaine personnalisés fonctionnent comme prévu mais, en plus de les ajouter à vos sites web, vous devez configurer votre carte DNS pour qu'elle pointe sur l'URL Traffic Manager. Pour plus d'informations sur la configuration d'un domaine personnalisé pour un site web Azure, consultez la page [Configuration d'un nom de domaine personnalisé pour un site web Azure][].
 
 -   Vous pouvez uniquement ajouter des sites web qui sont en mode Standard dans un profil Azure Traffic Manager.
 
-Étapes suivantes
-----------------
+## Étapes suivantes
 
-Pour une vue d'ensemble conceptuelle et technique d'Azure Traffic Manager, consultez la rubrique [Vue d'ensemble de Traffic Manager](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh744833.aspx).
+Pour une vue d'ensemble conceptuelle et technique d'Azure Traffic Manager, consultez la rubrique [Vue d'ensemble de Traffic Manager][].
 
-Pour plus d'informations sur la configuration d'Azure Traffic Manager, y compris pour l'utilisation de Sites Web Azure, consultez la rubrique [Tâches de configuration Traffic Manager](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh744830.aspx).
+Pour plus d'informations sur la configuration d'Azure Traffic Manager, y compris pour l'utilisation de Sites Web Azure, consultez la rubrique [Tâches de configuration Traffic Manager][].
 
-Pour plus d'informations sur l'équilibrage de charge dans Azure Traffic Manager, consultez la rubrique [À propos des méthodes d'équilibrage de charge dans Traffic Manager](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn339010.aspx).
+Pour plus d'informations sur l'équilibrage de charge dans Azure Traffic Manager, consultez la rubrique [À propos des méthodes d'équilibrage de charge dans Traffic Manager][].
 
+Pour plus d'informations sur l'utilisation de Traffic Manager avec Sites Web Azure, consultez les billets de blog
+[Using Windows Azure Traffic Manager with WAWS][] et [Azure Traffic Manager can now integrate with Azure Web sites][].
+
+  [À propos des méthodes d'équilibrage de charge dans Traffic Manager]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn339010.aspx
+  [Configuration d'un nom de domaine personnalisé pour un site web Azure]: https://www.windowsazure.com/fr-fr/documentation/articles/web-sites-custom-domain-name/
+  [Vue d'ensemble de Traffic Manager]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh744833.aspx
+  [Tâches de configuration Traffic Manager]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh744830.aspx
+  [Using Windows Azure Traffic Manager with WAWS]: http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx
+  [Azure Traffic Manager can now integrate with Azure Web sites]: http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/

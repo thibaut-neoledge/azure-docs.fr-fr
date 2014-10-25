@@ -298,7 +298,7 @@ Ce didacticiel requiert les éléments suivants :
 
 Vous pouvez envoyer des notifications en utilisant Notification Hubs à partir de tous les serveurs principaux qui utilisent l'[interface REST][interface REST]. Dans ce didacticiel, nous expliquons la procédure en utilisant une application console .NET.
 
-1.  Créez une application console Visual C# :
+1.  Créez une application console Visual C\# :
 
     ![][13]
 

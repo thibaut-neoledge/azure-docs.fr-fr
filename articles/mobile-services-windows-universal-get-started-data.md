@@ -25,7 +25,7 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 
 Ce didacticiel est basé sur l'[application GetStartedWithMobileServices][application GetStartedWithMobileServices], qui est un projet d'application Windows Store dans Visual Studio 2013. L'interface utilisateur de cette application est identique à l'application générée par le démarrage rapide de Mobile Services, sauf que les éléments ajoutés sont stockés en local dans la mémoire.
 
-1.  Téléchargez la version C# de l'exemple d'application GetStartedWithMobileServices sur le [site d'exemples de code développeur][application GetStartedWithMobileServices].
+1.  Téléchargez la version C\# de l'exemple d'application GetStartedWithMobileServices sur le [site d'exemples de code développeur][application GetStartedWithMobileServices].
 
     ![][]
 
@@ -172,7 +172,7 @@ Une fois que vous avez terminé les séries de données, essayez l'un de ces aut
 <!-- Images. -->
 <!-- URLs. -->
 
-  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/ "Windows Store C#"
+  [Windows Store C\#]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/ "Windows Store C#"
   [Windows Store JavaScript]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-data/ "Windows Store JavaScript"
   [Windows Phone]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-data/ "Windows Phone"
   [iOS]: /fr-fr/documentation/articles/mobile-services-ios-get-started-data/ "iOS"

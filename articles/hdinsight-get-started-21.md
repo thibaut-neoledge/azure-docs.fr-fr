@@ -194,7 +194,7 @@ Dans ce didacticiel, vous avez appris à approvisionner un cluster avec HDInsigh
 -   [Utilisation de Hive avec HDInsight][Utilisation de Hive avec HDInsight]
 -   [Utilisation de Pig avec HDInsight][Utilisation de Pig avec HDInsight]
 -   [Utilisation d'Oozie avec HDInsight][Utilisation d'Oozie avec HDInsight]
--   [Développement de programmes de diffusion en continu Hadoop en C# pour HDInsight][Développement de programmes de diffusion en continu Hadoop en C# pour HDInsight]
+-   [Développement de programmes de diffusion en continu Hadoop en C\# pour HDInsight][Développement de programmes de diffusion en continu Hadoop en C\# pour HDInsight]
 -   [Développement de programmes MapReduce en Java pour HDInsight][Développement de programmes MapReduce en Java pour HDInsight]
 
   [Hadoop 2.2]: ../hdinsight-get-started "Prise en main de Hadoop 2.2 dans HDInsight"
@@ -230,6 +230,6 @@ Dans ce didacticiel, vous avez appris à approvisionner un cluster avec HDInsigh
   [Utilisation de Hive avec HDInsight]: ../hdinsight-use-hive/
   [Utilisation de Pig avec HDInsight]: ../hdinsight-use-pig/
   [Utilisation d'Oozie avec HDInsight]: ../hdinsight-use-oozie/
-  [Développement de programmes de diffusion en continu Hadoop en C# pour HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+  [Développement de programmes de diffusion en continu Hadoop en C\# pour HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
   [Développement de programmes MapReduce en Java pour HDInsight]: ../hdinsight-develop-deploy-java-mapreduce/
   [img-hdi-getstarted-video]: https://www.youtube.com/watch?v=Y4aNjnoeaHA&list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS

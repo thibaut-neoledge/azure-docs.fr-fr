@@ -22,7 +22,7 @@ Vous pouvez connecter un site Web à un réseau virtuel nouveau ou existant. Si 
 
 Si votre site Web n'est pas de niveau Standard, l'interface utilisateur vous en informe et vous donne accès aux différents niveaux de tarification. Cliquez sur le niveau de tarification approprié.
 
-![][]
+![](./media/web-sites-integrate-with-vnet/upgrade-to-standard.png)
 
 ## Fonctionnement du système
 
@@ -30,7 +30,7 @@ Pour connecter votre site web Azure à votre VNET, cette fonctionnalité utilise
 
 Le travail nécessaire pour sécuriser vos réseaux uniquement pour les sites Web qui nécessitent un accès empêche la création de connexions SMB. Bien que vous puissiez accéder à des ressources à distance, cela n'inclut pas la possibilité de monter un lecteur distant.
 
-![][1]
+![](./media/web-sites-integrate-with-vnet/how-it-works.png)
 
 Si vous n'avez pas configuré un serveur DNS avec votre réseau virtuel, vous devrez utiliser des adresses IP. Assurez-vous d'exposer les ports des points de terminaison souhaités via votre pare-feu. Pour tester la connexion, la seule méthode disponible à l'heure actuelle consiste à appeler le point de terminaison souhaité via un site Web ou une tâche Web. Les outils tels que la commande ping ou nslookup ne fonctionnent pas sur la console Kudu actuellement. Ce point sera amélioré prochainement.
 
@@ -38,7 +38,7 @@ Si vous n'avez pas configuré un serveur DNS avec votre réseau virtuel, vous de
 
 Pour connecter un site à un réseau virtuel, accédez à la lame de votre site Web, cliquez sur la vignette Réseau virtuel dans la section Mise en réseau, et sélectionnez l'un de vos réseaux préexistants.
 
-![][2]
+![](./media/web-sites-integrate-with-vnet/connect-to-existing-vnet.png)
 
 Le système crée ensuite un certificat pour authentifier votre VNET s'il s'agit du premier site Web de votre abonnement à établir une connexion à ce réseau. Pour voir le certificat, accédez au portail actuel, puis à Réseaux virtuels, sélectionnez le réseau, puis l'onglet Certificats.
 
@@ -48,17 +48,17 @@ Dans l'illustration ci-dessus, le réseau nommé cantConnectVnet est grisé et n
 
 Outre la connexion à un VNET préexistant, vous pouvez également créer un nouveau VNET à partir de l'interface utilisateur du site Web et vous y connecter automatiquement. Pour cela, suivez le même chemin pour atteindre l'interface utilisateur du réseau virtuel et sélectionnez Créer un nouveau réseau virtuel. La fenêtre qui s'ouvre vous permet de nommer le réseau, de spécifier l'espace d'adresse et de définir les adresses des serveurs DNS que le réseau virtuel doit utiliser.
 
-![][3]
+![](./media/web-sites-integrate-with-vnet/create-new-vnet.png)
 
 La création d'un réseau virtuel avec des passerelles configurées peut prendre jusqu'à 30 minutes. Pendant ce temps, l'interface utilisateur vous informe que le processus est en cours et affiche le message suivant.
 
-![][4]
+![](./media/web-sites-integrate-with-vnet/new-vnet-progress.png)
 
 Lorsque le réseau est associé au site Web, celui-ci peut accéder aux ressources du VNET via TCP ou UDP. Si vous voulez accéder à des ressources de votre système sur site disponibles sur votre VNET via un VPN de site à site, vous devez ajouter des itinéraires à votre réseau d'entreprise pour autoriser le trafic depuis votre réseau vers les adresses de point à site configurées dans votre VNET.
 
 Une fois l'intégration terminée, le portail affichera des informations de base sur la connexion et indiquera un moyen de déconnecter le site Web du réseau, mais aussi de synchroniser les certificats utilisés pour authentifier la connexion. La synchronisation peut être nécessaire si un certificat a expiré ou a été révoqué.
 
-![][5]
+![](./media/web-sites-integrate-with-vnet/vnet-status-portal.png)
 
 Gestion de la connexion du réseau virtuel
 Vous pouvez afficher la liste de tous les réseaux virtuels actuellement associés à des sites dans un plan d'hébergement Web en visitant la lame de ce dernier. Un plan d'hébergement Web Standard peut être associé à un maximum de 5 réseaux.
@@ -71,19 +71,19 @@ Dans Azure, il n'est actuellement pas possible de déplacer une machine virtuell
 
 Si vous travaillez avec un VNET configuré avec un VPN de site à site, une étape supplémentaire est nécessaire pour permettre l'accès à vos ressources sur site depuis le site Web Azure. Des itinéraires doivent être ajoutés à votre réseau sur site pour autoriser le trafic depuis votre réseau vers les adresses de point à site configurées dans votre VNET. Pour voir la plage d'adresses IP pour votre connexion de point à site, accédez à la zone Réseau dans le portail actuel, comme illustré.
 
-![][6]
+![](./media/web-sites-integrate-with-vnet/vpn-to-onpremise.png)
 
 ## Certificats
 
 Lors de la connexion sécurisée avec votre VNET, un échange de certificats a lieu. Vous pouvez voir l'empreinte numérique du certificat public que les sites Web Azure génèrent pour le portail réseau actuel, comme illustré ci-dessous.
 
-![][7]
+![](./media/web-sites-integrate-with-vnet/vpn-to-onpremise-certificate.png)
 
 Si les certificats se désynchronisent pour une raison quelconque, notamment en cas de suppression accidentelle d'un certificat sur le portail réseau, la connexion est interrompue. Pour résoudre ce problème, l'interface utilisateur du réseau virtuel de vos sites Web propose une action de synchronisation qui rétablit la connexion.
 
 Cette action doit également être utilisée si vous ajoutez un DNS à votre réseau virtuel ou si vous ajoutez un VPN de site à site à votre réseau.
 
-![][8]
+![](./media/web-sites-integrate-with-vnet/vnet-sync-connection.png)
 
 ## Comparaison et différences avec les connexions hybrides
 

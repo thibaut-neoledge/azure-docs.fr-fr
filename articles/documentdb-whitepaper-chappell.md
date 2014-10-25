@@ -18,6 +18,6 @@ Ce livre blanc couvre également les concepts fondamentaux suivants :
 
 **Date de publication :** Le 10 septembre 2014
 
-**Téléchargement :** [Présentation de DocumentDB - Une base de données NoSQL pour Microsoft Azure][]
+**Téléchargement :** [Présentation de DocumentDB - Une base de données NoSQL pour Microsoft Azure][Présentation de DocumentDB - Une base de données NoSQL pour Microsoft Azure]
 
   [Présentation de DocumentDB - Une base de données NoSQL pour Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=511318

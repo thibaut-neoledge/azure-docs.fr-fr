@@ -150,10 +150,10 @@ Pour en savoir plus sur le contrôle d'accès basé sur un rôle à l'aide de Wi
 
   [Interface de ligne de commande interplateforme]: /fr-fr/documentation/articles/powershell-rbac.md "Interface de ligne de commande interplateforme"
   [Windows PowerShell]: /fr-fr/documentation/articles/xplat-cli-rbac.md "Windows PowerShell"
-  [Windows Management Framework 3.0]: http://www.microsoft.com/en-us/download/details.aspx?id=34595
-  [Windows Management Framework 4.0]: http://www.microsoft.com/en-us/download/details.aspx?id=40855
+  [Windows Management Framework 3.0]: http://www.microsoft.com/fr-fr/download/details.aspx?id=34595
+  [Windows Management Framework 4.0]: http://www.microsoft.com/fr-fr/download/details.aspx?id=40855
   [Installation et configuration d'Azure PowerShell]: http://www.windowsazure.com/fr-fr/documentation/articles/install-configure-powershell/
-  [Prise en main de Windows PowerShell]: http://technet.microsoft.com/en-us/library/hh857337.aspx
+  [Prise en main de Windows PowerShell]: http://technet.microsoft.com/fr-fr/library/hh857337.aspx
   [Installation et configuration d’Azure PowerShell]: http://azure.microsoft.com/fr-fr/documentation/articles/install-configure-powershell/
   [Utilisation de Windows PowerShell avec le gestionnaire des ressources]: http://azure.microsoft.com/fr-fr/documentation/articles/powershell-azure-resource-manager/
   [Connexion à vos abonnements]: #connect

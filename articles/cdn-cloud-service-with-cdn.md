@@ -1,6 +1,6 @@
 <properties linkid="cdn-cloud-service-with-cdn" urlDisplayName="Integrate a cloud service with Azure CDN" pageTitle="Integrate a cloud service with Azure CDN" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, cloud service" description="A tutorial that teaches you how to deploy a cloud service that serves content from an integrated Azure CDN endpoint" metaCanonical="" services="cdn,cloud-services" documentationCenter=".NET" title="Integrate a cloud service with Azure CDN" authors="cephalin" solutions="" manager="wpickett" editor="tysonn" />
 
-<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 <a name="intro"></a>
 
@@ -54,7 +54,7 @@ Dans cette section, vous allez déployer le modèle d'application ASP.NET MVC p
 
 1.  Dans Visual Studio 2013, créez un service cloud Azure depuis la barre de menus : **Fichier \> Nouveau \> Projet \> Cloud \> Windows Azure Cloud Service**. Attribuez-lui un nom et cliquez sur **OK**.
 
-    ![][]
+    ![][0]
 
 2.  Sélectionnez **Rôle Web ASP.NET** et cliquez sur le bouton **\>**. Cliquez sur OK.
 
@@ -558,48 +558,41 @@ La classe [Bundle][Bundle] contient la propriété [CdnFallbackExpression][CdnF
 5.  Republiez le service cloud et accédez à la page d'accueil.
 6.  Affichez le code HTML de la page. Vous devez trouver des scripts injectés similaires à ce qui suit :
 
-    ``` prettyprint
-    ...
-    &lt;link href=&quot;http://az632148.vo.msecnd.net/Content/css?v=1.0.0.25474&quot; rel=&quot;stylesheet&quot;/&gt;
-    ```
-
-    <mark>\<script\>(function() {
-     var loadFallback,
-     len = document.styleSheets.length;
-     for (var i = 0; i \< len; i++) {
-     var sheet = document.styleSheets[i];
-     if (sheet.href.indexOf('<http://az632148.vo.msecnd.net/Content/css?v=1.0.0.25474'>) !== -1) {
-     var meta = document.createElement('meta');
-     meta.className = 'sr-only';
-     document.head.appendChild(meta);
-     var value = window.getComputedStyle(meta).getPropertyValue('width');
-     document.head.removeChild(meta);
-     if (value !== '1px') {
-     document.write('\<link href="/Content/css" rel="stylesheet" type="text/css" /\>');
-     }
-     }
-     }
-     return true;
-     }())||document.write('\<script src="/Content/css"\>\<\\/script\>');\</script\></mark>
-
-        &lt;script src=&quot;http://az632148.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-
-    <mark>\<script\>(window.Modernizr)||document.write('\<script src="/bundles/modernizr"\>\<\\/script\>');\</script\></mark>
-
-    ...
-
-        &lt;script src=&quot;http://az632148.vo.msecnd.net/bundles/jquery?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-
-    <mark>\<script\>(window.jquery)||document.write('\<script src="/bundles/jquery"\>\<\\/script\>');\</script\></mark>
-
-        &lt;script src=&quot;http://az632148.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
-
-    <mark>\<script\>($.fn.modal)||document.write('\<script src="/bundles/bootstrap"\>\<\\/script\>');\</script\></mark>
-
-    <p>
-    ...
-
-    </pre>
+	<pre class="prettyprint">...
+	
+		&lt;link href=&quot;http://az632148.vo.msecnd.net/Content/css?v=1.0.0.25474&quot; rel=&quot;stylesheet&quot;/&gt;
+	<mark>&lt;script&gt;(function() {
+	                var loadFallback,
+	                    len = document.styleSheets.length;
+	                for (var i = 0; i &lt; len; i++) {
+	                    var sheet = document.styleSheets[i];
+	                    if (sheet.href.indexOf(&#39;http://az632148.vo.msecnd.net/Content/css?v=1.0.0.25474&#39;) !== -1) {
+	                        var meta = document.createElement(&#39;meta&#39;);
+	                        meta.className = &#39;sr-only&#39;;
+	                        document.head.appendChild(meta);
+	                        var value = window.getComputedStyle(meta).getPropertyValue(&#39;width&#39;);
+	                        document.head.removeChild(meta);
+	                        if (value !== &#39;1px&#39;) {
+	                            document.write(&#39;&lt;link href=&quot;/Content/css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;&#39;);
+	                        }
+	                    }
+	                }
+	                return true;
+	            }())||document.write(&#39;&lt;script src=&quot;/Content/css&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	
+	    &lt;script src=&quot;http://az632148.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
+	<mark>&lt;script&gt;(window.Modernizr)||document.write(&#39;&lt;script src=&quot;/bundles/modernizr&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	
+	...	
+	
+	    &lt;script src=&quot;http://az632148.vo.msecnd.net/bundles/jquery?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
+	<mark>&lt;script&gt;(window.jquery)||document.write(&#39;&lt;script src=&quot;/bundles/jquery&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	
+	    &lt;script src=&quot;http://az632148.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
+	<mark>&lt;script&gt;($.fn.modal)||document.write(&#39;&lt;script src=&quot;/bundles/bootstrap&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	
+	...
+	</pre>
     </p>
     Notez que le script injecté pour le regroupement CSS contient toujours les éléments restants provenant de la propriété `CdnFallbackExpression` dans la ligne :
 
@@ -623,7 +616,7 @@ La classe [Bundle][Bundle] contient la propriété [CdnFallbackExpression][CdnF
   [Kit de développement logiciel (SDK) Azure]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
   [ouvrir gratuitement un compte Azure]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F
   [activer les avantages de l'abonnement MSDN]: http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-  []: media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG
+  [0]: media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG
   [1]: media/cdn-cloud-service-with-cdn/cdn-cs-2-select-role.PNG
   [2]: media/cdn-cloud-service-with-cdn/cdn-cs-3-mvc-template.PNG
   [3]: media/cdn-cloud-service-with-cdn/cdn-cs-4-publish-a.png

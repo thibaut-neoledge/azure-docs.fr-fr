@@ -6,11 +6,11 @@
 
 ## Sommaire
 
--   [Affichage, copie et régénération de clés d'accès DocumentDB][]
--   [Gestion des paramètres de cohérence DocumentDB][]
--   [Gestion des paramètres de capacité DocumentDB][]
--   [Suppression d'un compte DocumentDB][]
--   [Étapes suivantes][]
+-   [Affichage, copie et régénération de clés d'accès DocumentDB](#keys)
+-   [Gestion des paramètres de cohérence DocumentDB](#consistency)
+-   [Gestion des paramètres de capacité DocumentDB](#capacity)
+-   [Suppression d'un compte DocumentDB](#delete)
+-   [Étapes suivantes](#next)
 
 ## <span id="keys"></span></a> Affichage, copie et régénération de clés d'accès
 
@@ -26,7 +26,7 @@ accédez à la section **Clés** à partir du volet de votre compte DocumentDB a
 copier et régénérer les clés utilisées pour accéder à votre
 compte DocumentDB.
 
-![][]
+![](./media/documentdb-manage-account/image002.jpg)
 
 ### Affichage et copie d'une clé d'accès
 
@@ -40,7 +40,7 @@ que vous souhaitez copier.
 
 4.      Appuyez sur Ctrl+C pour copier la clé.
 
-  ![][1]
+  ![](./media/documentdb-manage-account/image004.jpg)
 
 ### Régénération de clés d'accès
 
@@ -103,13 +103,11 @@ lisent toujours un sous-ensemble d'écritures valides, qui finiront par converge
 
 *Notez que, par défaut, les comptes DocumentDB utilisent un niveau de cohérence Session
 (Par session). Pour plus d'informations sur les paramètres de cohérence
-DocumentDB, voir la section [Niveau de
-cohérence](http://go.microsoft.com/fwlink/p/?LinkId=402365).*
+DocumentDB, voir la section [Niveau de cohérence](http://go.microsoft.com/fwlink/p/?LinkId=402365).*
 
 ### Pour spécifier le niveau de cohérence par défaut d'un compte DocumentDB
 
-1.      Dans la [version préliminaire du portail de gestion
-Azure](https://portal.azure.com/), accédez à votre compte DocumentDB. 
+1.      Dans la [version préliminaire du portail de gestion Azure](https://portal.azure.com/), accédez à votre compte DocumentDB. 
 
 2.      Dans l'objectif Configuration, cliquez sur **Cohérence**.
 
@@ -121,9 +119,9 @@ par défaut souhaité pour votre compte DocumentDB.
 5.      La progression de l'opération peut être contrôlée via le hub Notifications
 de la version préliminaire du portail de gestion Azure.
 
-![][2]
+ ![](./media/documentdb-manage-account/image005.png)
 
-![][3]
+ ![](./media/documentdb-manage-account/image006.png)
 
 *Notez qu'il faut attendre plusieurs minutes avant qu'une modification du paramètre de cohérence
 par défaut soit appliquée à votre compte DocumentDB.*
@@ -157,7 +155,7 @@ hub Notifications de la version préliminaire du portail de gestion Azure).
 *Notez que la version préliminaire de DocumentDB prend en charge un maximum de 5 unités de
 capacité par compte DocumentDB.*
 
-![][4]
+![](./media/documentdb-manage-account/image007.png)
 
  
 
@@ -173,7 +171,7 @@ compte DocumentDB supprimé. Supprimer un compte DocumentDB supprimera
 toutes les ressources du compte, y compris les bases de données, collections,
 documents et pièces jointes.*
 
-![][5]
+![](./media/documentdb-manage-account/image009.png)
 
 1.      Dans la [version préliminaire du portail de gestion
 Azure](https://portal.azure.com/), accédez au compte DocumentDB à
@@ -188,11 +186,10 @@ afin de confirmer que vous souhaitez le supprimer.
 
 ## <span id="next"></span></a>Étapes suivantes
 
--   [Prenez en main votre compte
-    DocumentDB](http://go.microsoft.com/fwlink/p/?LinkId=402364).
+-   [Prenez en main votre compte DocumentDB](http://go.microsoft.com/fwlink/p/?LinkId=402364).
 -   Pour en savoir plus sur DocumentDB, voir la documentation Azure DocumentDB
     sur
-    [azure.com][]
+    [azure.com][azure.com]
 
  
 

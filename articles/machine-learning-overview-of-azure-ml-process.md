@@ -16,7 +16,7 @@ En général, un projet Microsoft Azure Machine Learning (Azure ML) implique les
 
 Les étapes 1 à 3 sont généralement réalisées par un spécialiste des données via de nombreuses itérations à la fin desquelles un modèle ML est proposé aux équipes d'ingénierie et des opérations afin de l'intégrer aux systèmes de production. Ainsi, le modèle ML pourra être utilisé en production.
 
-Le processus classique d'intégration et de déploiement du modèle ML dans un système de production peut prendre des semaines, voire des mois, en fonction du code utilisé pour établir les modèles (R, Python, C# ou Java), des considérations relatives à l'intégration dans la plateforme et à l'infrastructure, ainsi que de la planification du déploiement.
+Le processus classique d'intégration et de déploiement du modèle ML dans un système de production peut prendre des semaines, voire des mois, en fonction du code utilisé pour établir les modèles (R, Python, C\# ou Java), des considérations relatives à l'intégration dans la plateforme et à l'infrastructure, ainsi que de la planification du déploiement.
 
 Azure ML simplifie ce processus en faisant de la création du modèle et de l'évaluation une expérience simple et intuitive, puis en fournissant un processus simple pour déployer l'expérience sous forme de service web dans Azure. Ainsi, le délai total entre l'expérimentation du modèle et sa mise en production sous forme de service web est considérablement réduit.
 
@@ -153,7 +153,7 @@ Figure 10 : notification de déploiement et option de déploiement en producti
 
 #### RRS
 
-Le service web RRS est un point de terminaison REST qui peut être appelé par d'autres applications clientes à l'aide de divers langages de programmation. La page d'aide de l'API fournit un lien vers l'exemple de code pour appeler les nouveaux exemples de service web en C#, R et Python.
+Le service web RRS est un point de terminaison REST qui peut être appelé par d'autres applications clientes à l'aide de divers langages de programmation. La page d'aide de l'API fournit un lien vers l'exemple de code pour appeler les nouveaux exemples de service web en C\#, R et Python.
 
 ![][10]
 

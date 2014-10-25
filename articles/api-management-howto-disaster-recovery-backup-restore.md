@@ -8,12 +8,12 @@ En choisissant de publier et de gérer vos API via la Gestion des API Azure, vou
 
 Pour récupérer à la suite de problèmes de disponibilité affectant la région où votre service Gestion des API est hébergé, vous devez être prêt à reconstituer votre service dans une autre région à tout moment. En fonction de vos objectifs de disponibilité et de temps de récupération, vous pouvez réserver un service de sauvegarde dans une ou plusieurs régions et tenter de maintenir la synchronisation de leur configuration et de leur contenu avec le service actif. La fonctionnalité de sauvegarde et de récupération de service fournit le bloc de construction nécessaire pour implémenter votre stratégie de récupération d'urgence.
 
-Cette fonctionnalité est accessible via l'API REST de gestion des services. Voir la section [Authentification des demandes Gestionnaire de ressources Azure][] pour des instructions sur la marche à suivre pour accéder à l'API.
+Cette fonctionnalité est accessible via l'API REST de gestion des services. Voir la section [Authentification des demandes Gestionnaire de ressources Azure][Authentification des demandes Gestionnaire de ressources Azure] pour des instructions sur la marche à suivre pour accéder à l'API.
 
 ## Dans cette rubrique
 
--   [Sauvegarde d'un service Gestion des API][]
--   [Récupération d'un service Gestion des API][]
+-   [Sauvegarde d'un service Gestion des API][Sauvegarde d'un service Gestion des API]
+-   [Récupération d'un service Gestion des API][Récupération d'un service Gestion des API]
 
 ## <a name="step1"> </a>Sauvegarde d'un service Gestion des API
 
@@ -46,7 +46,7 @@ La sauvegarde est une opération de longue durée qui peut prendre plusieurs min
 -   Le **conteneur** spécifié dans le corps de la demande **doit exister**.
 -   Lorsque la sauvegarde est en cours, **vous ne devez tenter aucune opération de gestion de services** (par ex., la mise à niveau vers une version supérieure/antérieure, la modification d'un nom de domaine, etc.).
 -   La récupération d'une **sauvegarde n'est garantie que pendant 7 jours** à partir du moment de sa création.
--   Les **données d'utilisation** utilisées pour la création des rapports d'analyse **ne sont pas incluses** dans la sauvegarde. Utilisez l'[API REST de Gestion des API Azure][] pour récupérer régulièrement les rapports d'analyse et les conserver en toute sécurité.
+-   Les **données d'utilisation** utilisées pour la création des rapports d'analyse **ne sont pas incluses** dans la sauvegarde. Utilisez l'[API REST de Gestion des API Azure][API REST de Gestion des API Azure] pour récupérer régulièrement les rapports d'analyse et les conserver en toute sécurité.
 -   La fréquence à laquelle vous effectuez les sauvegardes du service affecte votre objectif de point de récupération. Afin de le réduire au maximum, nous vous conseillons d'implémenter des sauvegardes régulières, ainsi que des sauvegardes à la demande lorsque vous apportez des modifications importantes à votre service Gestion des API.
 -   Les **modifications** de la configuration du service (par ex., API, stratégies, apparence du portail des développeurs) pendant qu'une opération de sauvegarde est en cours **peuvent ne pas être incluses dans la sauvegarde et donc être perdues**.
 
@@ -81,7 +81,7 @@ La récupération est une opération de longue durée qui peut prendre jusqu'à 
 -   Le **niveau** du service à récupérer **doit correspondre** à celui du service sauvegardé utilisé pour la récupération.
 -   Les **modifications** de configuration du service (par ex., API, stratégies, apparence du portail des développeurs) pendant qu'une opération de sauvegarde est en cours **peuvent être écrasées**.
 
-  [Authentification des demandes Gestionnaire de ressources Azure]: http://msdn.microsoft.com/en-us/library/dn790557.aspx
+  [Authentification des demandes Gestionnaire de ressources Azure]: http://msdn.microsoft.com/fr-fr/library/dn790557.aspx
   [Sauvegarde d'un service Gestion des API]: #step1
   [Récupération d'un service Gestion des API]: #step2
-  [API REST de Gestion des API Azure]: http://msdn.microsoft.com/en-us/library/azure/dn781421.aspx
+  [API REST de Gestion des API Azure]: http://msdn.microsoft.com/fr-fr/library/azure/dn781421.aspx

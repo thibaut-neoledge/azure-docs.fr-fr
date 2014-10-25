@@ -15,4 +15,4 @@ La dernière étape facultative de ce didacticiel consiste à archiver la base d
 
   [se connecter pour gérer la base de données SQL]: ./media/mobile-services-dotnet-backend-view-sql-data/manage-sql-azure-database.png
   [interroger la base de données SQL pour obtenir les éléments stockés]: ./media/mobile-services-dotnet-backend-view-sql-data/sql-azure-query.png
-  [EntityData]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.mobile.service.entitydata.aspx
+  [EntityData]: http://msdn.microsoft.com/fr-fr/library/microsoft.windowsazure.mobile.service.entitydata.aspx

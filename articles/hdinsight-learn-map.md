@@ -61,6 +61,6 @@ HDInsight permet de travailler avec des « Big Data » sur Azure en vous perme
 
 [hadoop-hdinsight-intro]: ../hdinsight-introduction/
 
-[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
+[azure-purchase-options]: http://azure.microsoft.com/fr-fr/pricing/purchase-options/
 
 [img-hdi-dashboard]: ./media/hdinsight-get-started/HDI.dashboard.png

@@ -106,7 +106,7 @@ Maintenant que vous avez votre image de modèle personnalisée, vous devez tél�
 -   [Création d'un déploiement hybride de RemoteApp][Création d'un déploiement hybride de RemoteApp]
 -   [Création d'un déploiement cloud de RemoteApp][Création d'un déploiement cloud de RemoteApp]
 
-  []: http://azure.microsoft.com/en-us/services/remoteapp/
+  []: http://azure.microsoft.com/fr-fr/services/remoteapp/
   [Azure PowerShell]: http://azure.microsoft.com/fr-fr/documentation/articles/install-configure-powershell/
   [Création d'un déploiement hybride de RemoteApp]: http://azure.microsoft.com/fr-fr/documentation/articles/remoteapp-create-hybrid-deployment/
   [Création d'un déploiement cloud de RemoteApp]: http://azure.microsoft.com/fr-fr/documentation/articles/remoteapp-create-cloud-deployment/

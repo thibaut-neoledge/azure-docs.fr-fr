@@ -192,7 +192,7 @@ Ce didacticiel a présenté les bases de l'activation d'une application iOS pour
 <!-- Images. -->
 <!-- URLs.   -->
 
-  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "Windows Store C#"
+  [Windows Store C\#]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "Windows Store C#"
   [Windows Store JavaScript]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "Windows Store JavaScript"
   [Windows Phone]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone"
   [iOS]: /fr-fr/documentation/articles/mobile-services-javascript-backend-ios-get-started-push "iOS"

@@ -126,7 +126,7 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
 
 
 
-  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Windows Store C#"
+  [Windows Store C\#]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Windows Store C#"
   [Windows Store JavaScript]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "Windows Store JavaScript"
   [Windows Phone]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone"
   [iOS]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ "iOS"

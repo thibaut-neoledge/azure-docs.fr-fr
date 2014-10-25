@@ -1,25 +1,27 @@
-<properties linkid="develop-net-common-tasks-diagnostics-logging-and-instrumentation" urlDisplayName="Enable diagnostic logging" pageTitle="Enable diagnostic logging - Azure Web Sites" metaKeywords="Azure diagnostics web sites, Azure Management Portal diagnostics, Azure diagnostics, web site diagnostics, web site debug" description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Enable diagnostic logging for Azure Web Sites" authors="larryfr" solutions="" manager="" editor="" />
+<properties linkid="develop-net-common-tasks-diagnostics-logging-and-instrumentation" urlDisplayName="Enable diagnostic logging" pageTitle="Enable diagnostic logging - Azure Websites" metaKeywords="Azure diagnostics web sites, Azure Management Portal diagnostics, Azure diagnostics, web site diagnostics, web site debug" description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Enable diagnostic logging for Azure Websites" authors="larryfr" solutions="" manager="" editor="" />
 
-Activation de la journalisation de diagnostic pour Sites Web Azure
-==================================================================
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+
+# Activer la journalisation de diagnostic pour Sites Web Azure
 
 Azure fournit un outil de diagnostic intégré qui vous aide à déboguer une application hébergée dans Sites Web Azure. Cet article vous explique comment activer la journalisation de diagnostic et ajouter la fonctionnalité d'instrumentation à votre application, mais aussi comment accéder aux informations enregistrées par Azure.
 
-> [WACOM.NOTE] Cet article décrit l'utilisation du portail de gestion Azure, d'Azure PowerShell et de l'interface de ligne de commande interplateforme Azure en vue d'une utilisation avec les journaux de diagnostic. Pour plus d'informations sur l'utilisation de journaux de diagnostic avec Visual Studio, consultez la page [Résolution des problèmes liés à Sites Web Azure dans Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+> [WACOM.NOTE] Cet article décrit l'utilisation du portail de gestion Azure, d'Azure PowerShell et de l'interface de ligne de commande interplateforme Azure en vue d'une utilisation avec les journaux de diagnostic. Pour plus d'informations sur l'utilisation de journaux de diagnostic avec Visual Studio, consultez la page [Résolution des problèmes liés à Sites Web Azure dans Visual Studio][].
 
-Sommaire
---------
+## Sommaire
 
--   [Définition des diagnostics de site Web](#whatisdiag)
--   [Activation des diagnostics](#enablediag)
--   [Téléchargement de journaux](#download)
--   [Diffusion de journaux en continu](#streamlogs)
--   [Description des journaux de diagnostic](#understandlogs)
--   [Étapes suivantes](#nextsteps)
+-   [Définition des diagnostics de site web][]
+-   [Activation des diagnostics][]
+-   [Téléchargement des journaux][]
+-   [Diffusion en continu des journaux][]
+-   [Présentation des journaux de diagnostic][]
+-   [Étapes suivantes][]
 
-## Définition des diagnostics de site Web ?
+<a name="whatisdiag"></a>
 
-Sites Web Azure fournit une fonctionnalité de diagnostic pour les informations de journalisation provenant aussi bien du serveur Web que de l'application Web. Ces informations sont réparties, en toute logique, en **diagnostic de site** et **diagnostic d'application**.
+## Définition des diagnostics de site web
+
+L'offre Sites Web Azure fournit des fonctionnalités de diagnostic pour les informations de journalisation provenant aussi bien du serveur web que de l'application web. Ces informations sont réparties, en toute logique, en **diagnostic de site** et **diagnostic d'application**.
 
 ### Diagnostic de site
 
@@ -27,63 +29,67 @@ Les diagnostics de site vous permettent d'activer ou de désactiver les élémen
 
 -   **Messages d'erreur détaillés** : cette option enregistre des informations d'erreur détaillées pour les codes d'erreur HTTP qui indiquent un échec (code d'état 400 ou supérieur). Il peut s'agir d'informations qui vous aident à déterminer la raison pour laquelle le serveur a renvoyé le code d'erreur.
 -   **Suivi des demandes ayant échoué** : cette option enregistre des informations sur les demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Cela peut se révéler utile si vous essayez d'améliorer les performances du site ou d'isoler la cause d'une erreur HTTP spécifique.
--   **Web Server Logging** : cette option enregistre toutes les transactions HTTP réalisées sur un site Web à l'aide du [format de fichier journal étendu W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Ce rapport s'avère utile pour déterminer les mesures globales d'un site, telles que le nombre de demandes traitées ou le nombre de demandes émanant d'une adresse IP spécifique.
+-   **Journalisation du serveur Web** : cette option enregistre toutes les transactions HTTP effectuées sur un site web à l'aide du [format de fichier journal étendu W3C][]. Ce rapport s'avère utile pour déterminer les mesures globales d'un site, telles que le nombre de demandes traitées ou le nombre de demandes émanant d'une adresse IP spécifique.
 
 ### Diagnostic d'application
 
-Le diagnostic d'application vous permet de capturer des informations générées par une application Web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/fr-fr/library/36hhw2t6.aspx) pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple :
+Le diagnostic d'application vous permet de capturer des informations générées par une application Web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace][] pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple :
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
 Le diagnostic d'application vous permet de résoudre les problèmes affectant l'application en cours d'exécution en émettant des informations lorsque certains fragments de code sont utilisés. Cela est très utile lorsque vous essayez de déterminer pourquoi le code emprunte un chemin spécifique, le plus souvent lorsque le chemin entraîne une erreur ou provoque un comportement indésirable.
 
-Pour plus d'informations sur l'utilisation du diagnostic d'application avec Visual Studio, consultez la page [Résolution des problèmes liés à Sites Web Azure dans Visual Studio](http://www.windowsazure.com/fr-fr/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+Pour plus d'informations sur l'utilisation du diagnostic d'application avec Visual Studio, consultez la page [Résolution des problèmes liés à Sites Web Azure dans Visual Studio][1].
 
 > [WACOM.NOTE] Contrairement à la modification du fichier web.config, le fait d'activer le diagnostic d'application ou de modifier les niveaux de journalisation de diagnostic ne recycle pas le domaine dans lequel l'application s'exécute.
 
-Sites Web Azure consigne également des informations de déploiement lorsque vous publiez une application sur un site Web. Cela est effectué automatiquement et il n'existe aucun paramètre de configuration pour la journalisation du déploiement. Cette dernière vous permet de déterminer le motif d'échec d'un déploiement. Si vous utilisez, par exemple, un script de déploiement personnalisé, vous pouvez recourir à la journalisation de déploiement pour déterminer la cause de l'échec du script.
+L'offre Sites Web Azure journalise également les informations de déploiement quand vous publiez une application sur un site web. Cela est effectué automatiquement et il n'existe aucun paramètre de configuration pour la journalisation du déploiement. Cette dernière vous permet de déterminer le motif d'échec d'un déploiement. Si vous utilisez, par exemple, un script de déploiement personnalisé, vous pouvez recourir à la journalisation de déploiement pour déterminer la cause de l'échec du script.
+
+<a name="enablediag"></a>
 
 ## Activation des diagnostics
 
-Vous pouvez activer les diagnostics en accédant à la page **Configurer** de votre site Web Azure sur le [portail de gestion Azure](https://manage.microsoft.com). Sur la page **Configurer**, utilisez les sections **Diagnostic d'application** et **Diagnostic de site** pour activer la journalisation.
+Vous pouvez activer les diagnostics en accédant à la page **Configurer** de votre site web Azure sur le [portail de gestion Azure][]. Sur la page **Configurer**, utilisez les sections **Diagnostic d'application** et **Diagnostic de site** pour activer la journalisation.
 
 Lorsque vous activez le **Diagnostic d'application**, vous devez également sélectionner le **niveau de journalisation** et indiquer si la journalisation doit être activée dans le **système de fichiers**, le **stockage de tables** ou le **stockage d'objets blob**. Bien que ces trois emplacements de stockage fournissent les mêmes informations de base pour les événements consignés, le **stockage de tables** et le **stockage d'objets blob** consignent davantage d'informations, telles que l'ID d'instance, l'ID de thread et un horodatage plus précis, que lorsque vous optez pour la journalisation dans le **système de fichiers**.
 
 Lorsque vous activez le **Diagnostic de site**, vous devez sélectionner le **stockage** ou le **système de fichiers** pour la **journalisation du serveur Web**. Si vous sélectionnez le **stockage**, vous avez également la possibilité de sélectionner un compte de stockage, puis un conteneur d'objets blob dans lequel les journaux seront écrits. Tous les autres journaux relatifs au **diagnostic de site** sont écrits uniquement dans le système de fichiers.
 
-> [WACOM.NOTE] Les informations stockées dans le **stockage de tables** ou le **stockage d'objets blob** ne sont accessibles qu'à l'aide d'un client de stockage ou d'une application capable d'utiliser directement ces systèmes de stockage. Par exemple, Visual Studio 2013 contient un Explorateur de stockage qui peut être utilisé pour explorer un système de stockage de tables ou d'objets blob, tandis que HDInsight peut accéder aux données stockées dans un stockage d'objets blob. Vous pouvez également écrire une application qui accède à Azure Storage en utilisant l'un des [Kits de développement logiciel (SDK) Azure](http://www.windowsazure.com/fr-fr/downloads/#).
+> [WACOM.NOTE] Les informations stockées dans le **stockage de tables** ou le **stockage d'objets blob** ne sont accessibles qu'à l'aide d'un client de stockage ou d'une application capable d'utiliser directement ces systèmes de stockage. Par exemple, Visual Studio 2013 contient un Explorateur de stockage qui peut être utilisé pour explorer un système de stockage de tables ou d'objets blob, tandis que HDInsight peut accéder aux données stockées dans un stockage d'objets blob. Vous pouvez également écrire une application qui accède à Azure Storage en utilisant l'un des [Kits de développement logiciel (SDK) Azure][].
 
 Les paramètres suivants sont disponibles lors de l'activation du **diagnostic d'application** :
 
 -   **Niveau de journalisation** : permet de filtrer les données capturées selon le critère **Information**, **Avertissement** ou **Erreur**. Vous pouvez également sélectionner le niveau **Détaillé** pour que toutes les informations générées par l'application soient consignées. Le **niveau de journalisation** peut être défini différemment pour **Système de fichiers**, **Stockage de tables** et **Stockage d'objets blob**.
--   **Système de fichiers** : stocke les informations de diagnostic d'application dans le système de fichiers du site Web. Vous pouvez accéder à ces fichiers par FTP ou les télécharger sous la forme d'une archive ZIP en utilisant Azure PowerShell ou les outils en ligne de commande Azure.
+-   **Système de fichiers** : stocke les informations de diagnostic d'application dans le système de fichiers du site web. Vous pouvez accéder à ces fichiers par FTP ou les télécharger sous la forme d'une archive ZIP en utilisant Azure PowerShell ou les outils en ligne de commande Azure.
 -   **Stockage de tables** : stocke les informations de diagnostic d'application dans la table et le compte Azure Storage spécifiés.
 -   **Stockage d'objets blob** : stocke les informations de diagnostic d'application dans le conteneur d'objets blob et le compte Azure Storage spécifiés.
 -   **Période de rétention** : par défaut, les journaux ne sont pas automatiquement supprimés du **stockage d'objets blob**. Sélectionnez **Set retention** et entrez la période de conservation des journaux (en jours) si vous souhaitez les supprimer automatiquement.
 
 > [WACOM.NOTE] Vous pouvez activer simultanément toute combinaison de système de fichiers, stockage de tables ou stockage d'objets blob. Des configurations de niveau de journalisation individuelles sont également possibles. Vous pouvez, par exemple, consigner les erreurs et les avertissements dans le stockage d'objets blob dans le cadre d'une solution de journalisation à long terme, tout en activant un niveau de journalisation détaillé du système de fichiers.
 
-> [WACOM.NOTE] Les diagnostics peuvent également être activés à partir du module Azure PowerShell via la cmdlet **Set-AzureWebsite**. Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell](http://www.windowsazure.com/fr-fr/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [WACOM.NOTE] Les diagnostics peuvent également être activés à partir du module Azure PowerShell via la cmdlet **Set-AzureWebsite**. Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell][].
 
-## Téléchargement de journaux
+<a name="download"></a>
 
-Les informations de diagnostic stockées dans le système de fichiers du site Web sont accessibles directement via FTP. Vous pouvez également les télécharger sous la forme d'une archive ZIP en utilisant Azure PowerShell ou les outils en ligne de commande Azure.
+## Téléchargement des journaux
+
+Les informations de diagnostic stockées dans le système de fichiers du site web sont accessibles directement via FTP. Vous pouvez également les télécharger sous la forme d'une archive ZIP en utilisant Azure PowerShell ou les outils en ligne de commande Azure.
 
 La structure de répertoires dans laquelle les journaux sont stockés est la suivante :
 
 -   **Journaux d'application** : /LogFiles/Application/. Ce dossier contient un ou plusieurs fichiers texte contenant des informations générées dans le cadre de la journalisation des applications.
 
--   **Suivi des demandes ayant échoué** : /LogFiles/W3SVC########\#/. Ce dossier contient un fichier XSL et un ou plusieurs fichiers XML. Assurez-vous de télécharger le fichier XSL dans le même répertoire que le(s) fichier(s) XML, car le fichier XSL possède des attributs permettant de formater et de filtrer le contenu de fichiers XML lorsqu'ils sont affichés dans Internet Explorer.
+-   **Suivi des demandes ayant échoué** : /LogFiles/W3SVC#\#\#\#\#\#\#\#\#/. Ce dossier contient un fichier XSL et un ou plusieurs fichiers XML. Assurez-vous de télécharger le fichier XSL dans le même répertoire que le(s) fichier(s) XML, car le fichier XSL possède des attributs permettant de formater et de filtrer le contenu de fichiers XML lorsqu'ils sont affichés dans Internet Explorer.
 
 -   **Journaux d'erreurs détaillés** : /LogFiles/DetailedErrors/. Ce dossier contient un ou plusieurs fichiers .htm fournissant des informations détaillées sur toute erreur HTTP qui s'est produite.
 
--   **Journaux des serveurs Web** : /LogFiles/http/RawLogs. Ce dossier contient un ou plusieurs fichiers texte au format [de fichier journal étendu W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
+-   **Journaux des serveurs Web** : /LogFiles/http/RawLogs. Ce dossier contient un ou plusieurs fichiers texte au format [de fichier journal étendu W3C][format de fichier journal étendu W3C].
 
 -   **Journaux de déploiement** : /LogFiles/Git. Ce dossier contient les journaux générés par les processus de déploiement internes utilisés par Sites Web Azure, ainsi que les journaux des déploiements Git.
 
 ### FTP
 
-Pour accéder à des informations de diagnostic via FTP, accédez au **Tableau de bord** de votre site Web dans le portail de gestion Azure. Dans la section **Quick Glance**, cliquez sur le lien **FTP Diagnostic Logs** pour accéder aux fichiers journaux via FTP. L'entrée **Deployment/FTP User** indique le nom d'utilisateur à utiliser pour accéder au site FTP.
+Pour accéder à des informations de diagnostic via FTP, accédez au **Tableau de bord** de votre site web dans le portail de gestion Azure. Dans la section **Quick Glance**, cliquez sur le lien **FTP Diagnostic Logs** pour accéder aux fichiers journaux via FTP. L'entrée **Deployment/FTP User** indique le nom d'utilisateur à utiliser pour accéder au site FTP.
 
 > [WACOM.NOTE] Si l'entrée **Deployment/FTP User** n'est pas définie ou que vous avez oublié le mot de passe de cet utilisateur, vous pouvez créer un utilisateur et un mot de passe en utilisant le lien **Reset deployment credentials** dans la section **Quick Glance** du **Tableau de bord**.
 
@@ -93,9 +99,9 @@ Pour télécharger les fichiers journaux, démarrez une nouvelle instance du mod
 
     Save-AzureWebSiteLog -Name websitename
 
-Cette commande enregistre les journaux du site Web spécifié par le paramètre **-Name** dans un fichier nommé **logs.zip** dans le répertoire en cours.
+Cette commande enregistre les journaux du site web spécifié par le paramètre **-Name** dans un fichier nommé **logs.zip** dans le répertoire actif.
 
-> [WACOM.NOTE] Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell](http://www.windowsazure.com/fr-fr/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [WACOM.NOTE] Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell][].
 
 ### Téléchargement avec les outils en ligne de commande Azure
 
@@ -103,11 +109,13 @@ Pour télécharger les fichiers journaux à l'aide des outils en ligne de comman
 
     azure site log download websitename
 
-Cette commande enregistre les journaux du site Web nommé « websitename » dans un fichier **diagnostics.zip** dans le répertoire en cours.
+Cette commande enregistre les journaux du site web nommé « websitename » dans un fichier **diagnostics.zip** dans le répertoire actif.
 
-> [WACOM.NOTE] Si vous n'avez pas installé ou configuré les outils en ligne de commande Azure de manière à utiliser votre abonnement Azure, consultez la page [Utilisation des outils en ligne de commande Azure](http://www.windowsazure.com/fr-fr/develop/nodejs/how-to-guides/command-line-tools/).
+> [WACOM.NOTE] Si vous n'avez pas installé ou configuré les outils en ligne de commande Azure de manière à utiliser votre abonnement Azure, consultez la page [Utilisation des outils en ligne de commande Azure][].
 
-## Diffusion de journaux en continu
+<a name="streamlogs"></a>
+
+## Diffusion en continu des journaux
 
 Lors du développement d'une application, il est utile de visualiser des informations de journalisation en temps quasi-réel. Pour ce faire, vous pouvez diffuser ces informations vers votre environnement de développement en utilisant soit Azure PowerShell, soit les outils en ligne de commande Azure.
 
@@ -121,7 +129,7 @@ Pour diffuser des informations de journalisation en continu, démarrez une nouve
 
     Get-AzureWebSiteLog -Name websitename -Tail
 
-Une connexion est alors établie avec le site Web spécifié par le paramètre **-Name** et les informations sont diffusées vers la fenêtre PowerShell à mesure que des événements de journalisation se produisent sur le site Web. Toute information enregistrée dans un fichier ayant l'extension .txt, .log ou .htm et stocké dans le répertoire /LogFiles (d:/home/logfiles) est diffusée vers la console locale.
+Une connexion est alors établie avec le site web spécifié par le paramètre **-Name**, et les informations sont diffusées vers la fenêtre PowerShell quand des événements de journalisation se produisent sur le site web. Toute information enregistrée dans un fichier ayant l'extension .txt, .log ou .htm et stocké dans le répertoire /LogFiles (d:/home/logfiles) est diffusée vers la console locale.
 
 Pour filtrer des événements spécifiques, tels que des erreurs, utilisez le paramètre **-Message**. Par exemple :
 
@@ -133,7 +141,7 @@ Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le para
 
 Pour afficher la liste des chemins disponibles, utilisez le paramètre -ListPath.
 
-> [WACOM.NOTE] Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell](http://www.windowsazure.com/fr-fr/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [WACOM.NOTE] Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell][].
 
 ### Diffusion d'informations en continu avec les outils en ligne de commande Azure
 
@@ -141,7 +149,7 @@ Pour diffuser des informations de journalisation, ouvrez une nouvelle session d'
 
     azure site log tail websitename
 
-Une connexion est alors établie avec le site Web « websitename » et les informations sont diffusées vers la fenêtre à mesure que des événements de journalisation se produisent sur le site Web. Toute information enregistrée dans un fichier ayant l'extension .txt, .log ou .htm et stocké dans le répertoire /LogFiles (d:/home/logfiles) est diffusée vers la console locale.
+Une connexion est alors établie avec le site web « websitename », et les informations sont diffusées vers la fenêtre quand des événements de journalisation se produisent sur le site web. Toute information enregistrée dans un fichier ayant l'extension .txt, .log ou .htm et stocké dans le répertoire /LogFiles (d:/home/logfiles) est diffusée vers la console locale.
 
 Pour filtrer des événements spécifiques, tels que des erreurs, utilisez le paramètre **--Filter**. Par exemple :
 
@@ -151,9 +159,11 @@ Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le para
 
     azure site log tail websitename --path http
 
-> [WACOM.NOTE] Si vous n'avez pas installé ou configuré les outils en ligne de commande Azure de manière à utiliser votre abonnement Azure, consultez la page [Utilisation des outils en ligne de commande Azure](http://www.windowsazure.com/fr-fr/develop/nodejs/how-to-guides/command-line-tools/).
+> [WACOM.NOTE] Si vous n'avez pas installé ou configuré les outils en ligne de commande Azure de manière à utiliser votre abonnement Azure, consultez la page [Utilisation des outils en ligne de commande Azure][].
 
-## Description des journaux de diagnostic
+<a name="understandlogs"></a>
+
+## Présentation des journaux de diagnostic
 
 ### Journaux de diagnostic d'application
 
@@ -175,176 +185,178 @@ Parmi les trois méthodes disponibles, la journalisation d'informations dans le 
 
 Lorsque vous consignez des informations dans le stockage de tables, des propriétés supplémentaires sont utilisées pour faciliter la recherche des données stockées dans la table, ainsi que des informations plus précises sur l'événement. Les propriétés suivantes (colonnes) sont utilisées pour chaque entité (ligne) stockée dans la table.
 
-<table  style="width:100%;border-collapse:collapse">
+<table style="width:100%;border-collapse:collapse">
 <thead>
 <tr>
-<th  style="width:45%;border:1px solid black;background-color:#0099dd">Nom de la propriété</th>
+<th style="width:45%;border:1px solid black;background-color:#0099dd">
+Nom de la propriété
 
-<th  style="border:1px solid black;vertical-align:top;background-color:#0099dd">Valeur/format</th>
+</th>
+<th style="border:1px solid black;vertical-align:top;background-color:#0099dd">
+Valeur/format
 
+</th>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">PartitionKey</td>
+<td style="border:1px solid black;vertical-align:top">
+PartitionKey
 
-<td  style="border:1px solid black;vertical-align:top">Date/heure de l'événement au format aaaaMMjjHH</td>
+</td>
+<td style="border:1px solid black;vertical-align:top">
+Date/heure de l'événement au format aaaaMMjjHH
 
+</td>
 </tr>
-
 </thead>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">RowKey</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+RowKey
 
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Valeur GUID qui identifie cette entité de façon unique</td>
+</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+Valeur GUID qui identifie cette entité de façon unique
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">Timestamp</td>
+<td style="border:1px solid black;vertical-align:top">
+Timestamp
 
-<td  style="border:1px solid black;vertical-align:top">Date et heure auxquelles l'événement s'est produit</td>
+</td>
+<td style="border:1px solid black;vertical-align:top">
+Date et heure auxquelles l'événement s'est produit
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+EventTickCount
 
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Date et heure auxquelles l'événement s'est produit, au format Tick (précision accrue)</td>
+</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+Date et heure auxquelles l'événement s'est produit, au format Tick (précision accrue)
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">ApplicationName</td>
+<td style="border:1px solid black;vertical-align:top">
+ApplicationName
 
-<td  style="border:1px solid black;vertical-align:top">Nom du site Web</td>
+</td>
+<td style="border:1px solid black;vertical-align:top">
+Nom du site web
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Level</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+Level
 
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Niveau d'événement (erreur, avertissement ou information, par exemple)</td>
+</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+Niveau d'événement (erreur, avertissement ou information, par exemple)
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">EventId</td>
+<td style="border:1px solid black;vertical-align:top">
+EventId
 
-<td  style="border:1px solid black;vertical-align:top">ID de cet événement<br  />
-Il est, par défaut, défini sur 0</td>
+</td>
+<td style="border:1px solid black;vertical-align:top">
+ID de cet événement
+Il est, par défaut, défini sur 0
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+InstanceId
 
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Instance du site Web sur lequel l'événement s'est produit</td>
+</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+Instance du site web sur lequel l'événement s'est produit
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">Pid</td>
+<td style="border:1px solid black;vertical-align:top">
+Pid
 
-<td  style="border:1px solid black;vertical-align:top">ID du processus</td>
+</td>
+<td style="border:1px solid black;vertical-align:top">
+ID du processus
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+Tid
 
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">ID de thread qui a généré l'événement</td>
+</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+ID de thread qui a généré l'événement
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">Message</td>
+<td style="border:1px solid black;vertical-align:top">
+Message
 
-<td  style="border:1px solid black;vertical-align:top">Message détaillé sur l'événement</td>
+</td>
+<td style="border:1px solid black;vertical-align:top">
+Message détaillé sur l'événement
 
+</td>
 </tr>
-
 </table>
-
 **Stockage d'objets blob**
 
 Lorsque vous consignez des données dans un stockage d'objets blob, elles sont stockées au format CSV (valeurs séparées par des virgules). Comme c'est le cas avec le stockage de tables, des champs supplémentaires sont consignés afin de fournir des informations plus précises sur l'événement. Les propriétés suivantes sont utilisées pour chaque ligne du fichier CSV :
 
-<table  style="width:100%;border-collapse:collapse">
+<table style="width:100%;border-collapse:collapse">
 <thead>
 <tr>
-<th  style="width:45%;border:1px solid black;background-color:#0099dd">Nom de la propriété</th>
-
-<th  style="border:1px solid black;vertical-align:top;background-color:#0099dd">Valeur/format</th>
-
+<th style="width:45%;border:1px solid black;background-color:#0099dd">Nom de la propriété</th>
+<th style="border:1px solid black;vertical-align:top;background-color:#0099dd">Valeur/format</th>
 </tr>
-
 </thead>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">Date</td>
-
-<td  style="border:1px solid black;vertical-align:top">Date et heure auxquelles l'événement s'est produit</td>
-
+<td style="border:1px solid black;vertical-align:top">Date</td>
+<td style="border:1px solid black;vertical-align:top">Date et heure auxquelles l'événement s'est produit</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Level</td>
-
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Niveau d'événement (erreur, avertissement ou information, par exemple)</td>
-
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Level</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Niveau d'événement (erreur, avertissement ou information, par exemple)</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">ApplicationName</td>
-
-<td  style="border:1px solid black;vertical-align:top">Nom du site Web</td>
-
+<td style="border:1px solid black;vertical-align:top">ApplicationName</td>
+<td style="border:1px solid black;vertical-align:top">Nom du site web</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
-
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Instance du site Web sur lequel l'événement s'est produit</td>
-
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Instance du site web sur lequel l'événement s'est produit</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
-
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Date et heure auxquelles l'événement s'est produit, au format Tick (précision accrue)</td>
-
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Date et heure auxquelles l'événement s'est produit, au format Tick (précision accrue)</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">EventId</td>
-
-<td  style="border:1px solid black;vertical-align:top">ID de cet événement<br  />
-Il est, par défaut, défini sur 0</td>
-
+<td style="border:1px solid black;vertical-align:top">EventId</td>
+<td style="border:1px solid black;vertical-align:top">ID de cet événement<br>Il est, par défaut, défini sur 0</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">Pid</td>
-
-<td  style="border:1px solid black;vertical-align:top">ID du processus</td>
-
+<td style="border:1px solid black;vertical-align:top">Pid</td>
+<td style="border:1px solid black;vertical-align:top">ID du processus</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
-
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">ID de thread qui a généré l'événement</td>
-
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">ID de thread qui a généré l'événement</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">Message</td>
-
-<td  style="border:1px solid black;vertical-align:top">Message détaillé sur l'événement</td>
-
+<td style="border:1px solid black;vertical-align:top">Message</td>
+<td style="border:1px solid black;vertical-align:top">Message détaillé sur l'événement</td>
 </tr>
-
 </table>
 
 Les données stockées dans un objet blob se présentent comme suit :
@@ -356,9 +368,9 @@ Les données stockées dans un objet blob se présentent comme suit :
 
 ### Suivi des demandes ayant échoué
 
-Le suivi des demandes ayant échoué est stocké dans des fichiers XML nommés **fr######.xml**. Pour faciliter la consultation des informations consignées, une feuille de style XSL nommée **freb.xsl** est fournie dans le même répertoire que les fichiers XML. Lorsque vous ouvrez l'un des fichiers XML dans Internet Explorer, la feuille de style XSL est utilisée afin de fournir un affichage formaté des informations de suivi. Les informations se présentent alors comme suit :
+Le suivi des demandes ayant échoué est stocké dans des fichiers XML nommés **fr\#\#\#\#\#\#.xml**. Pour faciliter la consultation des informations consignées, une feuille de style XSL nommée **freb.xsl** est fournie dans le même répertoire que les fichiers XML. Lorsque vous ouvrez l'un des fichiers XML dans Internet Explorer, la feuille de style XSL est utilisée afin de fournir un affichage formaté des informations de suivi. Les informations se présentent alors comme suit :
 
-![affichage d'une demande ayant échoué dans le navigateur](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
+![affichage d'une demande ayant échoué dans le navigateur][]
 
 ### Journaux d'erreurs détaillés
 
@@ -366,14 +378,35 @@ Les journaux d'erreurs détaillés sont des documents HTML qui fournissent des i
 
 ### Journaux de serveur Web
 
-Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Ces informations peuvent être lues à l'aide d'un éditeur de texte ou analysées à l'aide d'utilitaires tels que [Log Parser](http://go.microsoft.com/fwlink/?LinkId=246619).
+Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C][]. Ces informations peuvent être lues à l'aide d'un éditeur de texte ou analysées à l'aide d'utilitaires tels que [Log Parser][].
 
 > [WACOM.NOTE] Les journaux générés par Sites Web Azure ne prennent pas en charge les champs **s-computername**, **s-ip** et **cs-version**.
 
+<a name="nextsteps"></a>
+
 ## Étapes suivantes
 
--   [Contrôle de sites Web](/en-us/manage/services/web-sites/how-to-monitor-websites/)
--   [Didacticiel - Résolution des problèmes des sites Web](/en-us/develop/net/best-practices/troubleshooting-web-sites/)
--   [Résolution des problèmes liés à Sites Web Azure dans Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
--   [Analyse des journaux de site Web dans HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+-   [Surveillance de sites Web][]
+-   [Didacticiel - Résolution des problèmes des sites Web][]
+-   [Résolution des problèmes liés à Sites Web Azure dans Visual Studio][]
+-   [Analyse des journaux de site Web dans HDInsight][]
 
+  [Résolution des problèmes liés à Sites Web Azure dans Visual Studio]: /fr-fr/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
+  [Définition des diagnostics de site web]: #whatisdiag
+  [Activation des diagnostics]: #enablediag
+  [Téléchargement des journaux]: #download
+  [Diffusion en continu des journaux]: #streamlogs
+  [Présentation des journaux de diagnostic]: #understandlogs
+  [Étapes suivantes]: #nextsteps
+  [format de fichier journal étendu W3C]: http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx
+  [System.Diagnostics.Trace]: http://msdn.microsoft.com/fr-fr/library/36hhw2t6.aspx
+  [1]: http://www.windowsazure.com/fr-fr/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
+  [portail de gestion Azure]: https://manage.microsoft.com
+  [Kits de développement logiciel (SDK) Azure]: http://www.windowsazure.com/fr-fr/downloads/#
+  [Utilisation d'Azure PowerShell]: http://www.windowsazure.com/fr-fr/develop/nodejs/how-to-guides/powershell-cmdlets/
+  [Utilisation des outils en ligne de commande Azure]: http://www.windowsazure.com/fr-fr/develop/nodejs/how-to-guides/command-line-tools/
+  [affichage d'une demande ayant échoué dans le navigateur]: ./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png
+  [Log Parser]: http://go.microsoft.com/fwlink/?LinkId=246619
+  [Surveillance de sites Web]: /fr-fr/manage/services/web-sites/how-to-monitor-websites/
+  [Didacticiel - Résolution des problèmes des sites Web]: /fr-fr/develop/net/best-practices/troubleshooting-web-sites/
+  [Analyse des journaux de site Web dans HDInsight]: http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413

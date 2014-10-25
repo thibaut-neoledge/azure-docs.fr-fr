@@ -1,14 +1,14 @@
-<properties pageTitle="What is a web hosting plan?" description="Web hosting plan overview" title="What is a web hosting plan?" authors="adamab" />
+<properties pageTitle="What is a web hosting plan?" description="Web hosting plan overview" title="What is a web hosting plan?" services="web-sites" authors="adamab" />
 
-Présentation des plans d'hébergement web
-========================================
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab"></tags>
+
+# Présentation des plans d'hébergement web
 
 Les plans d'hébergement web représentent un ensemble de fonctionnalités et de capacités que vous pouvez partager sur vos sites web. Les plans d'hébergement web prennent en charge plusieurs options de tarification (Gratuit, Partagé, De base et Standard), chacune ayant ses propres possibilités. Les sites des mêmes abonnement, groupe de ressources et emplacement géographique peuvent partager un plan d'hébergement web.
 
-Fonctionnalités des plans d'hébergement web
--------------------------------------------
+## Fonctionnalités des plans d'hébergement web
 
-Chaque option de tarification (Gratuit, Partagé, De base et Standard) a ses propres fonctionnalités. [Cliquez ici](http://go.microsoft.com/fwlink/?LinkID=394421) pour connaître les fonctionnalités et les informations de tarification les plus récentes.
+Chaque option de tarification (Gratuit, Partagé, De base et Standard) a ses propres fonctionnalités. [Cliquez ici][] pour connaître les fonctionnalités et les informations de tarification les plus récentes.
 
 Voici quelques conseils concernant les plans d'hébergement web et les fonctionnalités :
 
@@ -16,8 +16,9 @@ Voici quelques conseils concernant les plans d'hébergement web et les fonctionn
 -   Les sites des mêmes abonnement, emplacement et groupe de ressources peuvent partager un plan d'hébergement web.
 -   Les fonctionnalités comme la mise à l'échelle automatique ciblent un plan d'hébergement web. Pour mettre à l'échelle automatiquement des sites individuels, dédiez un plan d'hébergement web à chaque site.
 
-Plans d'hébergement web et capacité
------------------------------------
+[En savoir plus sur la gestion des plans d'hébergement web][].
+
+## Plans d'hébergement web et capacité
 
 Les plans d'hébergement web des options Gratuit et Partagé offrent aux sites une infrastructure partagée. Autrement dit, vos sites partagent des ressources avec ceux d'autres clients.
 
@@ -33,13 +34,27 @@ Lorsque vous créez un site, le portail vous demande à quel plan d'hébergement
 
 Vous pouvez voir tous vos plans d'hébergement web pour tous vos abonnements en cliquant sur le bouton **Browse** dans la barre de menus à gauche, puis en cliquant sur **Everything** en haut à droite du volet d'activité affiché à l'écran.
 
-![](./media/web-sites-web-hosting-plan-overview/browse-everything.png) ![](./media/web-sites-web-hosting-plan-overview/browse-web-hosting-plans.png)
+![][]
+![][1]
 
 Vous pouvez également voir à quel plan d'hébergement web est associé chaque site web dans la représentation graphique de votre groupe de ressources affichée en haut du volet de votre site web.
 
-![](./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png)
+![][2]
 
-Cliquez sur le plan pour ouvrir un volet qui permet de gérer votre plan d'hébergement web. [En savoir plus sur la gestion des plans d'hébergement web](http://go.microsoft.com/fwlink/?LinkID=394411).
+Cliquez sur le plan pour ouvrir un volet qui permet de gérer votre plan d'hébergement web. [En savoir plus sur la gestion des plans d'hébergement web][].
 
-![](./media/web-sites-web-hosting-plan-overview/web-hosting-plan-blade.png)
+![][3]
 
+### Étapes suivantes
+
+Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite de Microsoft Azure][].
+
+<!-- Images. -->
+
+  [Cliquez ici]: http://go.microsoft.com/fwlink/?LinkID=394421
+  [En savoir plus sur la gestion des plans d'hébergement web]: http://go.microsoft.com/fwlink/?LinkID=394411
+  []: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
+  [1]: ./media/web-sites-web-hosting-plan-overview/browse-web-hosting-plans.png
+  [2]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png
+  [3]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-blade.png
+  [Version d'évaluation gratuite de Microsoft Azure]: http://azure.microsoft.com/fr-fr/pricing/free-trial/

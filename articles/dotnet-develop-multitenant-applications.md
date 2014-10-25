@@ -1,22 +1,38 @@
 <properties linkid="develop-net-architecture-multi-tenant-web-application" urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="" solutions="" manager="" editor="" />
 
--   [Compute](/en-us/develop/net/compute/)
--   [Services de données](/en-us/develop/net/data/)
--   [App Services](/en-us/develop/net/app-services/)
--   [Référence](/en-us/develop/net/reference/)
--   [Assistance](/en-us/develop/net/guidance/)
--   [Architecture](/en-us/develop/net/architecture/)
--   [Exemples](/en-us/develop/net/samples/)
--   [Didacticiels basés sur des scénarios](/en-us/develop/net/end-to-end-Apps/)
--   [Forums](/en-us/support/forums/)
--   Dans cette section (accéder à) :
--   [Présentation de l'architecture de l'application](/en-us/develop/net/architecture/#overviews)
--   **Modèle d'application : applications mutualisées**
--   [Modèle d'application : tests de charge](/en-us/develop/net/architecture/load-testing-pattern/)
--   [Modèles de conception](/en-us/develop/net/architecture/#designpatterns)
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
 
-Applications mutualisées dans Azure
-===================================
+
+<div>
+<div class="left-nav">
+<div class="static-nav">
+<ul>
+<li class="menu-nodejs-compute"><a href="/fr-fr/develop/net/compute/">Compute</a></li>
+<li class="menu-nodejs-data"><a href="/fr-fr/develop/net/data/">Services de donn&eacute;es</a></li>
+<li class="menu-nodejs-appservices"><a href="/fr-fr/develop/net/app-services/">App Services</a></li>
+<li><a href="/fr-fr/develop/net/reference/">R&eacute;f&eacute;rence</a></li>
+<li><a href="/fr-fr/develop/net/guidance/">Assistance</a></li>
+<li><a href="/fr-fr/develop/net/architecture/">Architecture</a></li>
+<li><a href="/fr-fr/develop/net/samples/">Exemples</a></li>
+<li><a href="/fr-fr/develop/net/end-to-end-Apps/">Didacticiels bas&eacute;s sur des sc&eacute;narios</a></li>
+</ul>
+<ul class="links">
+<li class="forum"><a href="/fr-fr/support/forums/">Forums</a></li>
+</ul>
+</div>
+<div class="floating-nav jump-to"><br />
+<ul>
+<li>Dans cette section (acc&eacute;der &agrave;)&nbsp;:</li>
+<li><a href="/fr-fr/develop/net/architecture/#overviews">Pr&eacute;sentation de l'architecture de l'application</a></li>
+<li><strong>Mod&egrave;le d'application&nbsp;: applications mutualis&eacute;es</strong></li>
+<li><a href="/fr-fr/develop/net/architecture/load-testing-pattern/">Mod&egrave;le d'application&nbsp;: tests de charge</a></li>
+<li><a href="/fr-fr/develop/net/architecture/#designpatterns">Mod&egrave;les de conception</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+# Applications mutualisées dans Azure
 
 Une application mutualisée est une ressource partagée qui autorise des utilisateurs distincts, appelés « locataires », à afficher l'application comme s'il s'agissait de la leur. Un scénario typique qui se prête à une application mutualisée est celui dans lequel tous les utilisateurs de l'application peuvent personnaliser leur expérience utilisateur, tout en ayant les mêmes besoins professionnels de base. Exemples d'applications mutualisées : Office 365, Outlook.com et visualstudio.com.
 
@@ -26,7 +42,7 @@ Voici une liste des objectifs et exigences les plus significatifs du point de vu
 
 -   **Approvisionnement** : vous devez pouvoir approvisionner de nouveaux locataires pour l'application. Pour les applications mutualisées incluant un grand nombre de locataires, il est généralement nécessaire d'automatiser ce processus en activant l'approvisionnement libre-service.
 -   **Maintenabilité** : vous devez pouvoir mettre à niveau l'application et effectuer d'autres tâches de maintenance pendant que plusieurs locataires sont en train de l'utiliser.
--   **Surveillance** : vous devez pouvoir surveiller l'application en toutes circonstances pour identifier et résoudre les éventuels problèmes. Cela inclut la surveillance de la façon dont chaque locataire utilise l'application.
+-   **Monitoring** : vous devez pouvoir surveiller l'application en toutes circonstances pour identifier et résoudre les éventuels problèmes. Cela inclut la surveillance de la façon dont chaque locataire utilise l'application.
 
 Une application mutualisée correctement mise en œuvre offre les avantages suivants aux utilisateurs.
 
@@ -38,14 +54,14 @@ Une application mutualisée correctement mise en œuvre offre les avantages suiv
 
 En résumé, bien que de nombreux aspects soient à prendre en compte pour fournir un service hautement évolutif, il y a également une série d'objectifs et d'exigences communs à de nombreuses applications mutualisées. Certains peuvent ne pas concerner des scénarios spécifiques, et l'importance d'objectifs et d'exigences individuels peut différer pour chaque scénario. En tant que fournisseur de l'application mutualisée, vous aurez également des objectifs et des exigences tels que la satisfaction des objectifs et des exigences des locataires, la rentabilité, la facturation, les niveaux de service multiples, l'approvisionnement, la surveillance de la maintenabilité et l'automatisation.
 
-Pour plus d'informations sur les considérations supplémentaires d'une application mutualisée en matière de conception, consultez la page [Hébergement d'une application mutualisée dans Azure](http://msdn.microsoft.com/fr-fr/library/hh534480.aspx).
+Pour plus d'informations sur les considérations supplémentaires d'une application mutualisée en matière de conception, consultez la page [Hébergement d'une application mutualisée dans Azure][].
 
 Azure offre de nombreuses fonctionnalités vous permettant de résoudre les problèmes clés rencontrés lors de la conception d'un système mutualisé.
 
 **Isolement**
 
--   Segmentation des locataires de site Web en fonction des en-têtes d'hôte avec ou sans communication SSL
--   Segmentation des locataires de site Web en fonction des paramètres de requête
+-   Segmentation des locataires de site web en fonction des en-têtes d'hôte avec ou sans communication SSL
+-   Segmentation des locataires de site web en fonction des paramètres de requête
 -   Services Web dans les rôles de travail
     -   Rôles de travail traitant généralement les données sur la partie principale d'une application.
     -   Rôles Web faisant généralement office d'interface frontale pour les applications.
@@ -85,5 +101,18 @@ Azure offre une série de méthodes permettant d'approvisionner de nouveaux loca
     -   Copie à partir d'une base de données de référence principale
     -   Utilisation de l'importation et de l'exportation de base de données pour approvisionner de nouvelles bases de données à partir d'un fichier
 
-Pour plus d'informations sur la façon de mettre en œuvre Azure dans des applications mutualisées, consultez la page [Conception d'applications mutualisées dans Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh689716).
+<!--links-->
 
+  [Compute]: /fr-fr/develop/net/compute/
+  [Services de données]: /fr-fr/develop/net/data/
+  [App Services]: /fr-fr/develop/net/app-services/
+  [Référence]: /fr-fr/develop/net/reference/
+  [Assistance]: /fr-fr/develop/net/guidance/
+  [Architecture]: /fr-fr/develop/net/architecture/
+  [Exemples]: /fr-fr/develop/net/samples/
+  [Didacticiels basés sur des scénarios]: /fr-fr/develop/net/end-to-end-Apps/
+  [Forums]: /fr-fr/support/forums/
+  [Présentation de l'architecture de l'application]: /fr-fr/develop/net/architecture/#overviews
+  [Modèle d'application : tests de charge]: /fr-fr/develop/net/architecture/load-testing-pattern/
+  [Modèles de conception]: /fr-fr/develop/net/architecture/#designpatterns
+  [Hébergement d'une application mutualisée dans Azure]: http://msdn.microsoft.com/fr-fr/library/hh534480.aspx

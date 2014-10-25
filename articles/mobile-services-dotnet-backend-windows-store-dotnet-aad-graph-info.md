@@ -159,7 +159,7 @@ Dans le prochain didacticiel, [Contrôle d'accès en fonction du rôle avec AAD 
 
 
 
-  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-aad-graph-info/ "Windows Store C#"
+  [Windows Store C\#]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-aad-graph-info/ "Windows Store C#"
   [Serveur principal .NET]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/ ".NET backend"
   [JavaScript backend]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/ "JavaScript backend"
   [bibliothèque cliente Graph]: http://go.microsoft.com/fwlink/?LinkId=510536

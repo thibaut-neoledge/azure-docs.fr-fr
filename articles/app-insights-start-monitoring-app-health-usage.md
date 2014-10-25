@@ -14,24 +14,24 @@ Application Insights vous permet d'analyser les éléments suivants de votre app
 
 La configuration est très facile, et les résultats sont visibles après quelques minutes. Nous prenons actuellement en charge les applications Web ASP.NET (sur vos propres serveurs ou sur Azure).
 
-Vous aurez besoin d'un compte dans [Microsoft Azure][] (une période d'évaluation gratuite est intégrée).
+Vous aurez besoin d'un compte dans [Microsoft Azure](http://azure.com) (une période d'évaluation gratuite est intégrée).
 
 La prise en main de Application Insights peut se faire de deux façons :
 
--   (Recommandé) [Ajout de Application Insights à votre projet dans Visual Studio][] afin d'analyser les performances et l'utilisation de l'application.
--   [Installation d'un agent sur votre serveur sans redéploiement][] - Analysez un site Web en direct sans le redéployer ni modifier votre code source. Cela vous permet d'analyser à la fois les performances et les exceptions. Vous pouvez ajouter l'analyse de l'utilisation ultérieurement.
+-   (Recommandé) [Ajout de Application Insights à votre projet dans Visual Studio](#add) afin d'analyser les performances et l'utilisation de l'application.
+-   [Installation d'un agent sur votre serveur sans redéploiement][redfield] - Analysez un site Web en direct sans le redéployer ni modifier votre code source. Cela vous permet d'analyser à la fois les performances et les exceptions. Vous pouvez ajouter l'analyse de l'utilisation ultérieurement.
 
-> [WACOM.NOTE] Il existe une [ancienne version de Application Insights][] dans Visual Studio Online, qui prend en charge un plus grand nombre de types d'applications. Nous sommes en train de la redévelopper pour Microsoft Azure, et c'est cette nouvelle version dont nous parlons actuellement.
+> [WACOM.NOTE] Il existe une [ancienne version de Application Insights](http://msdn.microsoft.com/fr-fr/library/dn481095.aspx) dans Visual Studio Online, qui prend en charge un plus grand nombre de types d'applications. Nous sommes en train de la redévelopper pour Microsoft Azure, et c'est cette nouvelle version dont nous parlons actuellement.
 
 ## <a name="add"></a>Ajout de Application Insights à votre projet
 
-Vous avez besoin de [Visual Studio 2013 Update 3][] (ou une version ultérieure).
+Vous avez besoin de [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (ou une version ultérieure).
 
 ### S'il s'agit d'un nouveau projet...
 
 Lorsque vous créez un projet dans Visual Studio 2013, assurez-vous que Application Insights est sélectionné.
 
-![Création d'un projet ASP.NET][]
+![Création d'un projet ASP.NET](./media/appinsights/appinsights-01-vsnewp1.png)
 
 S'il s'agit de votre toute première utilisation, vous êtes invité à vous connecter ou à vous inscrire à la version préliminaire de Microsoft Azure. (indépendamment de votre compte Visual Studio Online).
 
@@ -43,7 +43,7 @@ Utilisez **Configurer les paramètres** si vous souhaitez que la ressource Azure
 
 Cliquez avec le bouton droit de la souris sur le projet dans l'Explorateur de solutions, puis sélectionnez Ajouter Application Insights.
 
-![Sélection de Ajouter Application Insights][]
+![Sélection de Ajouter Application Insights](./media/appinsights/appinsights-03-addExisting.png)
 
 *Il existe une étape supplémentaire si vous souhaitez configurer l'analyse de l'utilisation Web, mais examinons d'abord quelques données...*
 
@@ -53,19 +53,19 @@ Exécutez votre application à l'aide de la touche F5 et essayez-la - ouvrez dif
 
 Un décompte des événements qui ont été reçus s'affiche dans Visual Studio.
 
-![][]
+![](./media/appinsights/appinsights-09eventcount.png)
 
 ### <a name="monitor"></a>3. Affichage des données d'analyse
 
 Ouvrez Application Insights à partir de votre projet.
 
-![Cliquez avec le bouton droit de la souris sur votre projet et ouvrez le portail Azure][]
+![Cliquez avec le bouton droit de la souris sur votre projet et ouvrez le portail Azure](./media/appinsights/appinsights-04-openPortal.png)
 
 Recherchez des données dans les vignettes **Intégrité des applications**. Au début, seuls un ou deux points s'affichent. Par exemple :
 
-![Cliquez sur d'autres éléments pour afficher plus de données][]
+![Cliquez sur d'autres éléments pour afficher plus de données](./media/appinsights/appinsights-41firstHealth.png)
 
-Cliquez sur n'importe quelle vignette pour plus de détails. Vous pouvez modifier ce qui s'affiche dans les rapports. [Familiarisez-vous avec la configuration des rapports Intégrité des applications.][]
+Cliquez sur n'importe quelle vignette pour plus de détails. Vous pouvez modifier ce qui s'affiche dans les rapports. [Familiarisez-vous avec la configuration des rapports Intégrité des applications.][perf]
 
 ### <a name="webclient"></a>4. Configuration de l'analyse de l'utilisation Web
 
@@ -73,23 +73,23 @@ Si vous avez ajouté Application Insights à un projet Web *existant*, rien ne s
 
 Dans Application Insights, sélectionnez Quick start, Instrument your website.
 
-![Dans votre projet dans Application Insights, cliquez sur Quick start, Instrument your website, et copiez le code][]
+![Dans votre projet dans Application Insights, cliquez sur Quick start, Instrument your website, et copiez le code](./media/appinsights/appinsights-06webcode.png)
 
 Copiez le code JavaScript dans les pages Web que vous souhaitez analyser, juste avant la balise de fermeture \</head\>. Dans un projet ASP.NET, un moyen efficace d'analyser toutes les pages consiste à placer le code dans la page maître, habituellement appelée `_SiteLayout` ou `Views\Shared\_Layout`. Notez que le code contient la clé Application Insights de votre application.
 
 Exécutez à nouveau votre application ; les données apparaissent dans **Analyse de l'utilisation**.
 
-![Cliquez sur d'autres éléments pour afficher plus de données][1]
+![Cliquez sur d'autres éléments pour afficher plus de données](./media/appinsights/appinsights-05-usageTiles.png)
 
-[Cliquez sur les divers graphique pour plus de détails.][Familiarisez-vous avec la configuration des rapports Intégrité des applications.]
+[Cliquez sur les divers graphique pour plus de détails.][perf]
 
 ### <a name="deploy"></a>5. Déploiement de votre application
 
 Déployez votre application et regardez les données s'accumuler.
 
-Lorsque votre application est active, [configurez les test Web][] pour vous assurer qu'elle demeure active.
+Lorsque votre application est active, [configurez les test Web][availability] pour vous assurer qu'elle demeure active.
 
-![Exemple d'analyse d'application dans Application Insights][]
+![Exemple d'analyse d'application dans Application Insights](./media/appinsights/appinsights-00-appblade.png)
 
 ### Vous souhaitez modifier le nom de votre application dans le portail ?
 
@@ -113,42 +113,31 @@ Ensuite, revenez au portail et supprimez l'ancienne ressource.
 
 ## <a name="next"></a>Étapes suivantes
 
-[Suivi de l'utilisation de votre application Web][]
+[Suivi de l'utilisation de votre application Web][usage]
 
-[Analyse des performances dans les applications Web][Familiarisez-vous avec la configuration des rapports Intégrité des applications.]
+[Analyse des performances dans les applications Web][perf]
 
-[Capture et recherche des journaux de diagnostic][]
+[Capture et recherche des journaux de diagnostic][diagnostic]
 
-[Résolution des problèmes][]
+[Résolution des problèmes][qna]
 
 ## En savoir plus
 
--   [Application Insights - prise en main][]
--   [Analyse d'un serveur Web en direct dès maintenant][Installation d'un agent sur votre serveur sans redéploiement]
--   [Analyse des performances dans les applications Web][Familiarisez-vous avec la configuration des rapports Intégrité des applications.]
--   [Recherche des journaux de diagnostic][Capture et recherche des journaux de diagnostic]
--   [Suivi de la disponibilité avec les tests Web][configurez les test Web]
--   [Suivi de l'utilisation][Suivi de l'utilisation de votre application Web]
--   [Questions et réponses, et résolution des problèmes][Résolution des problèmes]
+-   [Application Insights - prise en main][start]
+-   [Analyse d'un serveur Web en direct dès maintenant][redfield]
+-   [Analyse des performances dans les applications Web][perf]
+-   [Recherche des journaux de diagnostic][diagnostic]
+-   [Suivi de la disponibilité avec les tests Web][availability]
+-   [Suivi de l'utilisation][usage]
+-   [Questions et réponses, et résolution des problèmes][qna]
 
 <!--Link references-->
 
-  [Microsoft Azure]: http://azure.com
-  [Ajout de Application Insights à votre projet dans Visual Studio]: #add
-  [Installation d'un agent sur votre serveur sans redéploiement]: ../app-insights-monitor-performance-live-website-now/
-  [ancienne version de Application Insights]: http://msdn.microsoft.com/en-us/library/dn481095.aspx
-  [Visual Studio 2013 Update 3]: http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409
-  [Création d'un projet ASP.NET]: ./media/appinsights/appinsights-01-vsnewp1.png
-  [Sélection de Ajouter Application Insights]: ./media/appinsights/appinsights-03-addExisting.png
-  []: ./media/appinsights/appinsights-09eventcount.png
-  [Cliquez avec le bouton droit de la souris sur votre projet et ouvrez le portail Azure]: ./media/appinsights/appinsights-04-openPortal.png
-  [Cliquez sur d'autres éléments pour afficher plus de données]: ./media/appinsights/appinsights-41firstHealth.png
-  [Familiarisez-vous avec la configuration des rapports Intégrité des applications.]: ../app-insights-web-monitor-performance/
-  [Dans votre projet dans Application Insights, cliquez sur Quick start, Instrument your website, et copiez le code]: ./media/appinsights/appinsights-06webcode.png
-  [1]: ./media/appinsights/appinsights-05-usageTiles.png
-  [configurez les test Web]: ../app-insights-monitor-web-app-availability/
-  [Exemple d'analyse d'application dans Application Insights]: ./media/appinsights/appinsights-00-appblade.png
-  [Suivi de l'utilisation de votre application Web]: ../app-insights-web-track-usage/
-  [Capture et recherche des journaux de diagnostic]: ../app-insights-search-diagnostic-logs/
-  [Résolution des problèmes]: ../app-insights-troubleshoot-faq/
-  [Application Insights - prise en main]: ../app-insights-start-monitoring-app-health-usage/
+[start]: ../app-insights-start-monitoring-app-health-usage/
+[redfield]: ../app-insights-monitor-performance-live-website-now/
+[perf]: ../app-insights-web-monitor-performance/
+[diagnostic]: ../app-insights-search-diagnostic-logs/ 
+[availability]: ../app-insights-monitor-web-app-availability/
+[usage]: ../app-insights-web-track-usage/
+[qna]: ../app-insights-troubleshoot-faq/
+

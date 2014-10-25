@@ -6,13 +6,13 @@
 
 ## <a name="webclient"></a>Configuration de l'analyse de l'utilisation Web
 
-Si vous ne l'avez pas encore fait, [ajoutez Application Insights à votre projet Web][].
+Si vous ne l'avez pas encore fait, [ajoutez Application Insights à votre projet Web][start].
 
 ## <a name="usage"></a>Analyse de l'utilisation
 
 Dans le volet d'aperçu de l'application, les vignettes d'utilisation suivantes s'affichent :
 
-![][]
+![](./media/appinsights/appinsights-47usage.png)
 
 ### Sessions par navigateur
 
@@ -26,13 +26,13 @@ Affiche les décomptes totaux des 24 dernières heures.
 
 Cliquez sur la vignette des affichages de page pour obtenir un historique plus détaillé.
 
-![][1]
+![](./media/appinsights/appinsights-49usage.png)
 
 Cliquez sur Plage de temps pour afficher un historique plus long, jusqu'à sept jours.
 
 Cliquez sur un graphique pour voir les autres métriques qui peuvent être affichées.
 
-![][2]
+![](./media/appinsights/appinsights-63usermetrics.png)
 
 ## Compteurs de page personnalisés
 
@@ -50,13 +50,13 @@ La télémétrie de l'affichage de page est généralement analysée par Applica
 
 Dans le volet Recherche de diagnostic, définissez Filtres sur Affichage de page.
 
-![][3]
+![](./media/appinsights/appinsights-51searchpageviews.png)
 
 Sélectionnez n'importe quel événement pour afficher plus de détails.
 
-> [WACOM.NOTE] Si vous utilisez [Rechercher][], notez que les mots en entier doivent correspondre : « Concernan » et « oncernant » ne correspondront pas à « Concernant », mais « Concernan\* » correspondra. En outre, un terme de recherche ne peut pas commencer par un caractère générique. Par exemple, effectuer une recherche sur « \*oncernan » ne correspondra pas à « Concernant ».
+> [WACOM.NOTE] Si vous utilisez [Rechercher][diagnostic], notez que les mots en entier doivent correspondre : « Concernan » et « oncernant » ne correspondront pas à « Concernant », mais « Concernan\* » correspondra. En outre, un terme de recherche ne peut pas commencer par un caractère générique. Par exemple, effectuer une recherche sur « \*oncernan » ne correspondra pas à « Concernant ».
 
-> [En savoir plus sur la recherche de diagnostic][Rechercher]
+> [En savoir plus sur la recherche de diagnostic][diagnostic]
 
 ## Suivi de l'utilisation
 
@@ -64,24 +64,24 @@ Sélectionnez n'importe quel événement pour afficher plus de détails.
 
 ## En savoir plus
 
--   [Application Insights - prise en main][ajoutez Application Insights à votre projet Web]
--   [Analyse d'un serveur Web en direct dès maintenant][]
--   [Analyse des performances dans les applications Web][]
--   [Recherche des journaux de diagnostic][Rechercher]
--   [Suivi de la disponibilité avec les tests Web][]
--   [Suivi de l'utilisation][]
--   [Questions et réponses, et résolution des problèmes][]
+-   [Application Insights - prise en main][start]
+-   [Analyse d'un serveur Web en direct dès maintenant][redfield]
+-   [Analyse des performances dans les applications Web][perf]
+-   [Recherche des journaux de diagnostic][diagnostic]
+-   [Suivi de la disponibilité avec les tests Web][availability]
+-   [Suivi de l'utilisation][usage]
+-   [Questions et réponses, et résolution des problèmes][qna]
 
 <!--Link references-->
 
-  [ajoutez Application Insights à votre projet Web]: ../app-insights-start-monitoring-app-health-usage/
+  [start]: ../app-insights-start-monitoring-app-health-usage/
   []: ./media/appinsights/appinsights-47usage.png
   [1]: ./media/appinsights/appinsights-49usage.png
   [2]: ./media/appinsights/appinsights-63usermetrics.png
   [3]: ./media/appinsights/appinsights-51searchpageviews.png
-  [Rechercher]: ../app-insights-search-diagnostic-logs/
-  [Analyse d'un serveur Web en direct dès maintenant]: ../app-insights-monitor-performance-live-website-now/
-  [Analyse des performances dans les applications Web]: ../app-insights-web-monitor-performance/
-  [Suivi de la disponibilité avec les tests Web]: ../app-insights-monitor-web-app-availability/
-  [Suivi de l'utilisation]: ../app-insights-web-track-usage/
-  [Questions et réponses, et résolution des problèmes]: ../app-insights-troubleshoot-faq/
+  [diagnostic]: ../app-insights-search-diagnostic-logs/
+  [redfield]: ../app-insights-monitor-performance-live-website-now/
+  [perf]: ../app-insights-web-monitor-performance/
+  [availability]: ../app-insights-monitor-web-app-availability/
+  [usage]: ../app-insights-web-track-usage/
+  [qna]: ../app-insights-troubleshoot-faq/

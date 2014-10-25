@@ -1,7 +1,8 @@
-<properties linkid="manage-services-biztalk-state-chart" urlDisplayName="BizTalk Services: Service state chart" pageTitle="BizTalk Services: Service state chart | Azure" metaKeywords="" description="" metaCanonical="" services="biztalk-services" documentationCenter="" title="BizTalk Services: Service state chart" authors="mandia" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-biztalk-state-chart" urlDisplayName="BizTalk Services: Service state chart" pageTitle="BizTalk Services: Service state chart | Azure" metaKeywords="" description="" metaCanonical="" services="biztalk-services" documentationCenter="" title="BizTalk Services: Service state chart" authors="mandia" solutions="integration" manager="dwrede" editor="cgronlun" />
 
-Tableau comparatif des états BizTalk Services
-=============================================
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+
+# BizTalk Services : des états BizTalk Services
 
 Selon l'état actuel du service BizTalk, vous pouvez effectuer ou non certaines opérations sur celui-ci.
 
@@ -9,237 +10,600 @@ Par exemple, vous approvisionnez un nouveau service BizTalk dans le portail de g
 
 **Opération non autorisée**
 
-Pour plus d'informations sur l'approvisionnement d'un service BizTalk, consultez la rubrique [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280).
+Pour plus d'informations sur l'approvisionnement d'un service BizTalk, consultez la rubrique [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][].
 
 Les tableaux ci-dessous répertorient les opérations qui peuvent être effectuées selon l'état du service BizTalk. Une coche signifie que l'opération peut être effectuée dans cet état. Une case vide signifie que l'opération ne peut pas être effectuée dans cet état.
 
 #### Opérations Démarrer, Arrêter, Redémarrer, Interrompre, Reprendre et Supprimer
 
-<table data-morhtml="true" border="1">
-<tr data-morhtml="true">
-        <th data-morhtml="true" colspan="15">Op&eacute;ration</th>
-</tr>
+<table border="1">
+<tr>
+<th colspan="15">
+Opération
 
-<tr data-morhtml="true">
-        <th data-morhtml="true" rowspan="18">&Eacute;tat du service BizTalk</th>
+</th>
 </tr>
-<tr data-morhtml="true" bgcolor="FAF9F9">
-        <th data-morhtml="true"> </th>
-        <th data-morhtml="true">D&eacute;marrer</th>
-        <th data-morhtml="true">Arr&ecirc;ter</th>
-        <th data-morhtml="true">Red&eacute;marrer</th>
-        <th data-morhtml="true">Interrompre</th>
-        <th data-morhtml="true">Reprendre</th>
-        <th data-morhtml="true">Supprimer</th>
+<tr>
+<th rowspan="18">
+État du service BizTalk
+
+</th>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">Actif</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr bgcolor="FAF9F9">
+<th>
+</th>
+<th>
+Démarrer
+
+</th>
+<th>
+Arrêter
+
+</th>
+<th>
+Redémarrer
+
+</th>
+<th>
+Interrompre
+
+</th>
+<th>
+Reprendre
+
+</th>
+<th>
+Supprimer
+
+</th>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">D&eacute;sactiv&eacute;</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>Active</b>
+
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">Interrompu</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>Désactivé</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">Arr&ecirc;t&eacute;</b></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>Interrompu</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">&Eacute;chec de mise &agrave; jour du service</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>Arrêté</b>
+
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">DisableFailed</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>Échec de mise à jour du service</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">EnableFailed</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>DisableFailed</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">StartFailed<br data-morhtml="true" /> StopFailed<br data-morhtml="true" /> RestartFailed</b></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>EnableFailed</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">SuspendedFailed<br data-morhtml="true" /> ResumeFailed</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>StartFailed<br/>
+ StopFailed<br/>
+ RestartFailed</b>
+
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">CreatedFailed<br data-morhtml="true" /> RestoreFailed<br data-morhtml="true" /></b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>SuspendedFailed<br/>
+ ResumeFailed</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">ConfigUpdateFailed</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>CreatedFailed<br/>
+ RestoreFailed
+</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">ScaleFailed</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>ConfigUpdateFailed</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+</tr>
+<tr>
+<td bgcolor="FAF9F9">
+<b>ScaleFailed</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
 </table>
+<br/>
 
 #### Opérations Mettre à l'échelle, Mettre à jour la configuration et Sauvegarder
 
-<table data-morhtml="true" border="1">
-<tr data-morhtml="true">
-        <th data-morhtml="true" colspan="15">Op&eacute;ration</th>
-</tr>
+<table border="1">
+<tr>
+<th colspan="15">
+Opération
 
-<tr data-morhtml="true">
-        <th data-morhtml="true" rowspan="18">&Eacute;tat du service BizTalk</th>
+</th>
 </tr>
-<tr data-morhtml="true" bgcolor="FAF9F9">
-        <th data-morhtml="true"> </th>
-        <th data-morhtml="true">Mettre &agrave; l'&eacute;chelle</th>
-        <th data-morhtml="true">Mettre &agrave; jour la configuration</th>
-        <th data-morhtml="true">Sauvegarder</th>
+<tr>
+<th rowspan="18">
+État du service BizTalk
+
+</th>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">Actif</b></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr bgcolor="FAF9F9">
+<th>
+</th>
+<th>
+Mise à l’échelle
+
+</th>
+<th>
+Mettre à jour la configuration
+
+</th>
+<th>
+Sauvegarder
+
+</th>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">D&eacute;sactiv&eacute;</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>Active</b>
+
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">Interrompu</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>Désactivé</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">Arr&ecirc;t&eacute;</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>Interrompu</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">&Eacute;chec de mise &agrave; jour du service</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>Arrêté</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">DisableFailed</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>Échec de mise à jour du service</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">EnableFailed</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>DisableFailed</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">StartFailed<br data-morhtml="true" /> StopFailed<br data-morhtml="true" /> RestartFailed</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"> </td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>EnableFailed</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">SuspendedFailed<br data-morhtml="true" /> ResumeFailed</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>StartFailed<br/>
+ StopFailed<br/>
+ RestartFailed</b>
+
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">CreatedFailed<br data-morhtml="true" /> RestoreFailed<br data-morhtml="true" /></b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>SuspendedFailed<br/>
+ ResumeFailed</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">ConfigUpdateFailed</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"> </td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>CreatedFailed<br/>
+ RestoreFailed
+<b/>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">ScaleFailed</b></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>ConfigUpdateFailed</b>
+
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td bgcolor="FAF9F9">
+<b>ScaleFailed</b>
+
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 </table>
+## Voir aussi
 
-Voir aussi
-----------
+-   [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][]
+-   [BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services][]
+-   [BizTalk Services : Tableau comparatif des éditions Développeur, De base, Standard, et Premium de BizTalk Services][]
+-   [BizTalk Services : Sauvegarde et restauration][]
+-   [BizTalk Services : Limitation][]
+-   [BizTalk Services : Nom et clé de l'émetteur][]
+-   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services][]
 
--   [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)
--   [Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)
--   [Tableau comparatif des éditions Développeur, De base, Standard, et Premium de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)
--   [BizTalk Services : Sauvegarde et restauration](http://go.microsoft.com/fwlink/p/?LinkID=329873)
--   [BizTalk Services : Limitation](http://go.microsoft.com/fwlink/p/?LinkID=302282)
--   [BizTalk Services : Nom et clé de l'émetteur](http://go.microsoft.com/fwlink/p/?LinkID=303941)
--   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
-
+  [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure]: http://go.microsoft.com/fwlink/p/?LinkID=302280
+  [BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services]: http://go.microsoft.com/fwlink/p/?LinkID=302281
+  [BizTalk Services : Tableau comparatif des éditions Développeur, De base, Standard, et Premium de BizTalk Services]: http://go.microsoft.com/fwlink/p/?LinkID=302279
+  [BizTalk Services : Sauvegarde et restauration]: http://go.microsoft.com/fwlink/p/?LinkID=329873
+  [BizTalk Services : Limitation]: http://go.microsoft.com/fwlink/p/?LinkID=302282
+  [BizTalk Services : Nom et clé de l'émetteur]: http://go.microsoft.com/fwlink/p/?LinkID=303941
+  [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services]: http://go.microsoft.com/fwlink/p/?LinkID=302335

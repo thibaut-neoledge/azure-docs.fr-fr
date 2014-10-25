@@ -159,7 +159,7 @@ Afin de montrer comment utiliser l'API à partir d'une application locale, nous 
 
 Pour créer une application console dans Visual Studio et installer le package NuGet pour Azure Storage :
 
-1.  Dans Visual Studio, choisissez **Fichier** -\> **Nouveau projet**, puis **Windows** -\> **Application console** dans la liste de modèles Visual C#.
+1.  Dans Visual Studio, choisissez **Fichier** -\> **Nouveau projet**, puis **Windows** -\> **Application console** dans la liste de modèles Visual C\#.
 2.  Nommez l'application console, puis cliquez sur **OK**.
 3.  Une fois le projet créé, cliquez dessus avec le bouton droit dans l'Explorateur de solutions et choisissez **Gérer les packages NuGet**. Effectuez une recherche en ligne sur « WindowsAzure.Storage », puis cliquez sur **Install** pour installer le package de stockage Azure et ses dépendances.
 
