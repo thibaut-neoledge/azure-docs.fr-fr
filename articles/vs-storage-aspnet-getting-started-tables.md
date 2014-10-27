@@ -2,7 +2,7 @@
 
 <tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="ghogen, kempb"></tags>
 
-[WACOM.INCLUDE [vs-storage-aspnet-getting-started-intro][vs-storage-aspnet-getting-started-intro]]
+[WACOM.INCLUDE [vs-storage-aspnet-getting-started-intro](../includes/vs-storage-aspnet-getting-started-intro.md)]
 
 ### Prise en main d'Azure Storage
 
@@ -26,7 +26,7 @@ Pour pouvoir exploiter une table, vous devez avant tout obtenir la chaîne de co
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
       ConfigurationManager.GetSetting("<storageAccountName>_AzureStorageConnectionString"));
 
-[WACOM.INCLUDE [vs-storage-getting-started-tables-include][vs-storage-getting-started-tables-include]]
+[WACOM.INCLUDE [vs-storage-getting-started-tables-include](../includes/vs-storage-getting-started-tables-include.md)]
 
   [vs-storage-aspnet-getting-started-intro]: ../includes/vs-storage-aspnet-getting-started-intro.md
   [Objets blob]: /fr-fr/documentation/articles/vs-storage-aspnet-getting-started-blobs "Objets blob"
