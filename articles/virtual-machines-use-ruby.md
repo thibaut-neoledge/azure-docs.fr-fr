@@ -1,34 +1,32 @@
 <properties linkid="manage-services-identity-multi-factor-authentication" urlDisplayName="What is Azure Multi-Factor Authentication?" pageTitle="What is Azure Multi-Factor Authentication?" metaKeywords="" description="Learn more about Azure Multi-Factor Authentication, a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions." metaCanonical="" services="active-directory,multi-factor-authentication" documentationCenter="" title="How to Manage Azure Virtual Machines using Ruby" authors="larryfr" solutions="" manager="" editor="" />
 
-Gestion d'Azure Virtual Machines au moyen de Ruby
-=================================================
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+
+# Gestion d'Azure Virtual Machines au moyen de Ruby
 
 Ce guide vous montre comment effectuer par programme des tâches de gestion courantes pour Azure Virtual Machines, telles que la création et la configuration de machines virtuelles et l'ajout de disques de données. Le Kit de développement logiciel (SDK) Azure pour Ruby permet d'accéder aux fonctionnalités de gestion des services pour une série de services Azure, y compris Azure Virtual Machines.
 
-Sommaire
---------
+## Sommaire
 
--   [Présentation de la gestion des services](#what-is)
--   [Concepts](#concepts)
--   [Création d'un certificat de gestion](#setup-certificate)
--   [Création d'une application Ruby](#create-app)
--   [Configuration de votre application pour utiliser le Kit de développement logiciel (SDK)](#configure-access)
--   [Configuration d'une connexion de gestion Azure](#setup-connection)
--   [Utilisation de machines virtuelles](#virtual-machine)
--   [Utilisation d'images et de disques](#vm-images)
--   [Utilisation de services cloud](#cloud-services)
--   [Utilisation de services de stockage](#storage-services)
--   [Étapes suivantes](#next-steps)
+-   [Présentation de la gestion des services][]
+-   [Concepts][]
+-   [Création d'un certificat de gestion][]
+-   [Création d'une application Ruby][]
+-   [Configuration de votre application pour utiliser le Kit de développement logiciel (SDK)][]
+-   [Configuration d'une connexion de gestion Azure][]
+-   [Utilisation de machines virtuelles][]
+-   [Utilisation d'images et de disques][]
+-   [Utilisation de services cloud][]
+-   [Utilisation de services de stockage][]
+-   [Étapes suivantes][]
 
-Présentation de la gestion des services
----------------------------------------
+## <a name="what-is"> </a>Présentation de la gestion des services
 
-Azure fournit des [API REST pour les opérations de gestion des services](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460799.aspx), y compris la gestion d'Azure Virtual Machines. Le Kit de développement logiciel (SDK) Azure pour Ruby expose les opérations de gestion pour les machines virtuelles par le biais de la classe **Azure::VirtualMachineService**. La plupart des fonctionnalités de gestion des machines virtuelles disponibles par le biais du [portail de gestion Azure](https://manage.windowsazure.com) sont accessibles au moyen de cette classe.
+Azure fournit des [API REST pour les opérations de gestion des services][], y compris la gestion d'Azure Virtual Machines. Le Kit de développement logiciel (SDK) Azure pour Ruby expose les opérations de gestion pour les machines virtuelles par le biais de la classe **Azure::VirtualMachineService**. La plupart des fonctionnalités de gestion des machines virtuelles disponibles par le biais du [portail de gestion Azure][] sont accessibles au moyen de cette classe.
 
 Bien que l'API de gestion des services puisse être utilisée pour gérer une série de services hébergés sur Azure, ce document fournit uniquement des détails pour la gestion de machines virtuelles Azure.
 
-Concepts
---------
+## <a name="concepts"> </a>Concepts
 
 Les machines virtuelles Azure sont implémentées en tant que « rôles » au sein d'un service cloud. Chaque service cloud peut contenir un ou plusieurs rôles, qui sont regroupés de façon logique en déploiements. Le rôle définit les caractéristiques physiques globales de la machine virtuelle, telles que la quantité de mémoire disponible, le nombre de cœurs d'UC, etc.
 
@@ -36,34 +34,31 @@ Chaque machine virtuelle comporte un disque du système d'exploitation, qui cont
 
 La plupart des images sont fournies par Microsoft ou des partenaires, mais vous pouvez créer vos propres images ou en créer une à partir d'une machine virtuelle hébergée dans Azure.
 
-Création d'un certificat de gestion Azure
------------------------------------------
+## <a name="setup-certificate"> </a>Création d'un certificat de gestion Azure
 
 Lors de l'exécution d'opérations de gestion des services, telles que celles exposées par le biais de la classe **Azure::VirtualMachineService**, vous devez fournir votre ID d'abonnement Azure et un fichier contenant un certificat de gestion pour votre abonnement. Tous deux sont utilisés par le Kit de développement logiciel (SDK) lors de l'authentification auprès de l'API REST Azure.
 
-Vous pouvez obtenir l'ID d'abonnement et un certificat de gestion en utilisant l'interface de ligne de commande interplateforme Azure (xplat-cli). Consultez la rubrique [Installation et configuration de l'interface de ligne de commande interplateforme Azure](http://www.windowsazure.com/fr-fr/manage/install-and-configure-cli/) pour des informations sur l'installation et la configuration de xplat-cli.
+Vous pouvez obtenir l'ID d'abonnement et un certificat de gestion en utilisant l'interface de ligne de commande interplateforme Azure (xplat-cli). Consultez la rubrique [Installation et configuration de l'interface de ligne de commande interplateforme Azure][] pour des informations sur l'installation et la configuration de xplat-cli.
 
 Une fois que xplat-cli est configuré, vous pouvez effectuer les étapes suivantes pour récupérer votre ID d'abonnement Azure et exporter un certificat de gestion :
 
 1.  Pour récupérer l'ID d'abonnement, utilisez :
 
-         azure account list
+        azure account list
 
 2.  Pour exporter le certificat de gestion, utilisez la commande suivante :
 
-         azure account cert export
+        azure account cert export
 
-    Une fois la commande exécutée, le certificat est exporté dans un fichier nommé &lt;nom-abonnement-azure\>.pem. Par exemple, si votre abonnement est intitulé **monsuperabonnement**, le fichier créé s'appellera **monsuperabonnement.pem**.
+    Une fois la commande exécutée, le certificat est exporté dans un fichier nommé \<nom-abonnement-azure\>.pem. Par exemple, si votre abonnement est intitulé **monsuperabonnement**, le fichier créé s'appellera **monsuperabonnement.pem**.
 
 Prenez note de l'ID d'abonnement et de l'emplacement du fichier PEM contenant le certificat exporté, dans la mesure où ceux-ci seront utilisés plus tard dans ce document.
 
-Création d'une application Ruby
--------------------------------
+## <a name="create-app"></a>Création d'une application Ruby
 
 Créez une application Ruby. Les exemples figurant dans ce document peuvent être mis en œuvre dans un fichier **.rb** unique.
 
-Configuration de votre application
-----------------------------------
+## <a name="configure-access"></a>Configuration de votre application
 
 Pour gérer les services Azure, vous devez télécharger et utiliser l'application gem Azure, qui contient le Kit de développement logiciel (SDK) Azure pour Ruby.
 
@@ -73,29 +68,30 @@ Pour gérer les services Azure, vous devez télécharger et utiliser l'applicati
 
 2.  Utilisez la commande suivante pour installer l'application gem azure :
 
-         gem install azure
+        gem install azure
 
     Le résultat ressemble à ce qui suit :
 
-         Fetching: mini_portile-0.5.1.gem (100%)
-         Fetching: nokogiri-1.6.0-x86-mingw32.gem (100%)
-         Fetching: mime-types-1.25.gem (100%)
-         Fetching: systemu-2.5.2.gem (100%)
-         Fetching: macaddr-1.6.1.gem (100%)
-         Fetching: uuid-2.3.7.gem (100%)
-         Fetching: azure-0.5.0.gem (100%)
-         Successfully installed mini_portile-0.5.1
-         Successfully installed nokogiri-1.6.0-x86-mingw32
-         Successfully installed mime-types-1.25
-         Successfully installed systemu-2.5.2
-         Successfully installed macaddr-1.6.1
-         Successfully installed uuid-2.3.7
-         Successfully installed azure-0.5.0
-         7 gems installed
+        Fetching: mini_portile-0.5.1.gem (100%)
+        Fetching: nokogiri-1.6.0-x86-mingw32.gem (100%)
+        Fetching: mime-types-1.25.gem (100%)
+        Fetching: systemu-2.5.2.gem (100%)
+        Fetching: macaddr-1.6.1.gem (100%)
+        Fetching: uuid-2.3.7.gem (100%)
+        Fetching: azure-0.5.0.gem (100%)
+        Successfully installed mini_portile-0.5.1
+        Successfully installed nokogiri-1.6.0-x86-mingw32
+        Successfully installed mime-types-1.25
+        Successfully installed systemu-2.5.2
+        Successfully installed macaddr-1.6.1
+        Successfully installed uuid-2.3.7
+        Successfully installed azure-0.5.0
+        7 gems installed
 
-    **Remarque**
-
-    Si vous recevez une erreur en lien avec les autorisations, utilisez `sudo gem install azure` à la place.
+    <div class="dev-callout">
+<b>Remarque</b>
+<p>Si vous recevez une erreur en lien avec les autorisations, utilisez <code data-inline="1">sudo gem install azure</code> &agrave; la place.</p>
+</div>
 
 ### Appel de l'application gem
 
@@ -103,10 +99,9 @@ Au moyen d'un éditeur de texte, ajoutez ce qui suit en haut de votre fichier d'
 
     require 'azure'
 
-Connexion à la gestion des services
------------------------------------
+## <a name="setup-connection"> </a> Connexion à la gestion des services
 
-Pour effectuer correctement des opérations de gestion des services dans Azure, vous devez spécifier l'ID d'abonnement et le certificat obtenu dans la section [Création d'un certificat de gestion Azure](#setup-certificate). La façon la plus simple de procéder consiste à spécifier l'ID et le chemin d'accès au fichier de certificat au moyen des variables d'environnement suivantes :
+Pour effectuer correctement des opérations de gestion des services dans Azure, vous devez spécifier l'ID d'abonnement et le certificat obtenu dans la section [Création d'un certificat de gestion Azure][Création d'un certificat de gestion]. La façon la plus simple de procéder consiste à spécifier l'ID et le chemin d'accès au fichier de certificat au moyen des variables d'environnement suivantes :
 
 -   AZURE\_MANAGEMENT\_CERTIFICATE - Chemin d'accès au fichier .PEM contenant le certificat de gestion.
 
@@ -119,12 +114,11 @@ Vous pouvez également définir ces valeurs par programme dans votre application
       config.subscription_id = 'subscription ID'
     end
 
-Utilisation de machines virtuelles
-----------------------------------
+## <a name="virtual-machine"> </a> Utilisation de machines virtuelles
 
 Les opérations de gestion pour Azure Virtual Machines sont effectuées au moyen de la classe **Azure::VirtualMachineService**.
 
-### Création d'une machine virtuelle
+### Utilisation Création d’une machine virtuelle
 
 Pour créer une machine virtuelle, utilisez la méthode **create\_virtual\_machine**. Cette méthode accepte un hachage contenant les paramètres suivants et renvoie une instance **Azure::VirtualMachineManagement::VirtualMachine** décrivant la machine virtuelle qui a été créée :
 
@@ -143,20 +137,20 @@ Pour créer une machine virtuelle, utilisez la méthode **create\_virtual\_machi
 L'exemple suivant illustre la création d'une machine virtuelle au moyen de ces paramètres :
 
     vm_params = {
-      :vm_name => 'masupermv',
-      :vm_user => 'monutilisateur',
-      :password => 'monmotdepasse',
-      :image => 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_04-amd64-server-20130824-en-us-30GB',
+      :vm_name => 'mygreatvm',
+      :vm_user => 'myuser',
+      :password => 'mypassword',
+      :image => 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_04-amd64-server-20130824-fr-fr-30GB',
       :location = 'East US'
     }
 
     vm_mgr = Azure::VirtualMachineService.new
     vm = vm_mgr.create_virtual_machine(vm_params)
 
-    puts "Une machine virtuelle intitulée #{vm.vm_name} a été créée dans un service cloud intitulé #{vm.nom_service_cloud}."
-    puts "Elle utilise un disque intitulé #{vm.nom_disque}, qui a été créé à partir d'une #image basée sur {vm.type_os}."
-    puts "L'adresse IP virtuelle de la machine est #{vm.adresse_ip}."
-    puts "Le nom de domaine complet est #{vm.nom_service_cloud}.cloudapp.net."
+    puts "A VM named #{vm.vm_name} was created in a cloud service named #{vm.cloud_service_name}."
+    puts "It uses a disk named #{vm.disk_name}, which was created from a #{vm.os_type}-based image."
+    puts "The virtual IP address of the machine is #{vm.ipaddress}."
+    puts "The fully qualified domain name is #{vm.cloud_service_name}.cloudapp.net."
 
 **Options**
 
@@ -180,17 +174,17 @@ Voici les options disponibles lors de l'utilisation de la méthode **create\_vir
 
 -   **:ssh\_port** - Port public qui sera utilisé pour la communication SSH. Si aucune valeur n'est spécifiée, le port SSH 22 est utilisé par défaut.
 
--   **:vm\_size** - Taille de la machine virtuelle. Ceci détermine la taille de la mémoire, le nombre de cœurs, la bande passante et d'autres caractéristiques physiques de la machine virtuelle. Consultez la rubrique [Tailles de machines virtuelles et services cloud pour Microsoft Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn197896.aspx) pour connaître les tailles et caractéristiques physiques disponibles.
+-   **:vm\_size** - Taille de la machine virtuelle. Ceci détermine la taille de la mémoire, le nombre de cœurs, la bande passante et d'autres caractéristiques physiques de la machine virtuelle. Consultez la rubrique [Tailles de machines virtuelles et services cloud pour Microsoft Azure][] pour connaître les tailles et caractéristiques physiques disponibles.
 
 -   **:winrm\_transport** - Tableau des transports disponibles pour une utilisation avec WinRM. Les transports valides sont « http » et « https ». Si « https » est spécifié comme transport, vous devez également utiliser **:ssh\_private\_key\_file** et **:ssh\_certificate\_file** pour spécifier le certificat permettant de sécuriser les communications HTTPS.
 
 Voici un exemple de création de machine virtuelle qui utilise une petite instance de calcul, expose publiquement les ports pour le trafic HTTP (port local 8080, port public 80) et HTTPS (443), et active l'authentification par certificat pour les sessions SSH au moyen des fichiers de certificats spécifiés :
 
     vm_params = {
-      :vm_name => 'mamv',
-      :vm_user => 'monutilisateur',
-      :password => 'monmotdepasse',
-      :image => 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_04-amd64-server-20130824-en-us-30GB',
+      :vm_name => 'myvm',
+      :vm_user => 'myuser',
+      :password => 'mypassword',
+      :image => 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_04-amd64-server-20130824-fr-fr-30GB',
       :location = 'East US'
     }
 
@@ -204,77 +198,76 @@ Voici un exemple de création de machine virtuelle qui utilise une petite instan
     vm_mgr = Azure::VirtualMachineService.new
     vm = vm_mgr.create_virtual_machine(vm_params, vm_opts)
 
-### Affichage de la liste des machines virtuelles
+### Utilisation Affichage de la liste des machines virtuelles
 
 Pour afficher la liste des machines virtuelles pour votre abonnement Azure, utilisez la méthode **list\_virtual\_machines**. Celle-ci renvoie un tableau d'objets **Azure::VirtualMachineManagement::VirtualMachine** :
 
     vm_mgr = Azure::VirtualMachineService.new
     virtual_machines = vm_mgr.list_virtual_machines
 
-### Obtention d'informations sur une machine virtuelle
+### Utilisation Obtention d'informations sur une machine virtuelle
 
 Pour obtenir une instance de **Azure::VirtualMachineManagement::VirtualMachine** pour une machine virtuelle spécifique, utilisez la méthode **get\_virtual\_machine** et fournissez le nom de la machine virtuelle et du service cloud :
 
     vm_mgr = Azure::VirtualMachineService.new
-    vm = vm_mgr.get_virtual_machine('mamv', 'monservicecloud')
+    vm = vm_mgr.get_virtual_machine('myvm', 'mycloudservice')
 
-### Suppression d'une machine virtuelle
+### Utilisation Suppression d'une machine virtuelle
 
 Pour supprimer une machine virtuelle, utilisez la méthode **delete\_virtual\_machine** et fournissez le nom de la machine virtuelle et du service cloud :
 
     vm_mgr = Azure::VirtualMachineService.new
-    vm = vm_mgr.delete_virtual_machine('mamv', 'monservicecloud')
+    vm = vm_mgr.delete_virtual_machine('myvm', 'mycloudservice')
 
-**Avertissement**
+<div class="dev-callout">
+<b>Avertissement</b>
+<p>La m&eacute;thode <b>delete_virtual_machine</b> supprime le service cloud et tous les disques associ&eacute;s &agrave; la machine virtuelle.</p>
+</div>
 
-La méthode **delete\_virtual\_machine** supprime le service cloud et tous les disques associés à la machine virtuelle.
-
-### Arrêt d'une machine virtuelle
+### Utilisation Arrêt d'une machine virtuelle
 
 Pour arrêter une machine virtuelle, utilisez la méthode **shutdown\_virtual\_machine** et fournissez le nom de la machine virtuelle et du service cloud :
 
     vm_mgr = Azure::VirtualMachineService.new
-    vm = vm_mgr.shutdown_virtual_machine('mamv', 'monservicecloud')
+    vm = vm_mgr.shutdown_virtual_machine('myvm', 'mycloudservice')
 
-### Démarrage d'une machine virtuelle
+### Utilisation Démarrage d'une machine virtuelle
 
 Pour démarrer une machine virtuelle, utilisez la méthode **start\_virtual\_machine** et fournissez le nom de la machine virtuelle et du service cloud :
 
     vm_mgr = Azure::VirtualMachineService.new
-    vm = vm_mgr.start_virtual_machine('mamv', 'monservicecloud')
+    vm = vm_mgr.start_virtual_machine('myvm', 'mycloudservice')
 
-Utilisation d'images et de disques de machine virtuelle
--------------------------------------------------------
+## <a name="vm-images"> </a> Utilisation d'images et de disques de machine virtuelle
 
 Les opérations sur les images de machine virtuelle sont effectuées au moyen de la classe **Azure::VirtualMachineImageService**. Les opérations sur les disques sont effectuées au moyen de la classe **Azure::VirtualMachineImageManagement::VirtualMachineDiskManagementService**.
 
-### Affichage de la liste des images de machine virtuelle
+### Utilisation Affichage de la liste des images de machine virtuelle
 
 Pour afficher la liste des images de machine virtuelle, utilisez la méthode **list\_virtual\_machine\_images**. Cette méthode renvoie un tableau d'objets **Azure::VirtualMachineImageService**.
 
     image_mgr = Azure::VirtualMachineImageService.new
     images = image_mgr.list_virtual_machine_images
 
-### Affichage de la liste de disques
+### Utilisation Affichage de la liste de disques
 
 Pour afficher la liste des disques de votre abonnement Azure, utilisez la méthode **list\_virtual\_machine\_disks**. Celle-ci renvoie un tableau d'objets **Azure::VirtualMachineImageManagement::VirtualMachineDisk**.
 
     disk_mgr = Azure::VirtualMachineImageManagement::VirtualMachineDiskManagementService.new
     disks = disk_mgr.list_virtual_machine_disks
 
-### Suppression d'un disque
+### Utilisation Suppression d'un disque
 
 Pour supprimer un disque, utilisez la méthode **delete\_virtual\_machine\_disk** et spécifiez le nom du disque à supprimer :
 
     disk_mgr = Azure::VirtualMachineImageManagement::VirtualMachineDiskManagementService.new
     disk_mgr.delete_virtual_machine_disk
 
-Utilisation des services cloud
-------------------------------
+## <a name="cloud-services"> </a> Utilisation de services cloud
 
 Les opérations de gestion d'Azure Cloud Services sont effectuées au moyen de la classe **Azure::CloudService**.
 
-### Création d'un service cloud
+### Utilisation Création d'un service cloud
 
 Pour créer un service cloud, utilisez la méthode **create\_cloud\_service** et fournissez un nom et un hachage d'options. Les options valides sont les suivantes :
 
@@ -285,42 +278,41 @@ Pour créer un service cloud, utilisez la méthode **create\_cloud\_service** et
 Le code suivant crée un service cloud dans la région East US :
 
     cs_mgr = Azure::CloudService.new
-    cs_mgr.create_cloud_service('monservicecloud', { :location => 'East US' })
+    cs_mgr.create_cloud_service('mycloudservice', { :location => 'East US' })
 
-### Affichage de la liste de services cloud
+### Utilisation Affichage de la liste de services cloud
 
 Pour afficher la liste des services cloud pour votre abonnement Azure, utilisez la méthode **list\_cloud\_services**. Celle-ci renvoie un tableau d'objets **Azure::CloudServiceManagement::CloudService** :
 
     cs_mgr = Azure::CloudService.new
     cloud_services = cs_mgr.list_cloud_services
 
-### Détermination de l'existence ou non d'un service cloud
+### Utilisation Détermination de l'existence ou non d'un service cloud
 
 Pour vérifier si un service cloud spécifique existe déjà, utilisez la méthode **get\_cloud\_service** et fournissez le nom du service cloud. Renvoie **true** si un service cloud portant le nom spécifié existe ; sinon, renvoie **false**.
 
     cs_mgr = Azure::CloudService.new
-    cs_exists = cs_mgr.get_cloud_service('monservicecloud')
+    cs_exists = cs_mgr.get_cloud_service('mycloudservice')
 
-### Suppression d'un service cloud
+### Utilisation Suppression d'un service cloud
 
 Pour supprimer un service cloud, utilisez la méthode **delete\_cloud\_service** et fournissez le nom du service cloud :
 
     cs_mgr = Azure::CloudService.new
-    cs_mgr.delete_cloud_service('monservicecloud')
+    cs_mgr.delete_cloud_service('mycloudservice')
 
-### Suppression d'un déploiement
+### Utilisation Suppression d'un déploiement
 
 Pour supprimer un déploiement de service cloud, utilisez la méthode **delete\_cloud\_service\_deployment** et fournissez le nom du service cloud :
 
     cs_mgr = Azure::CloudService.new
-    cs_mgr.delete_cloud_service_deployment('monservicecloud')
+    cs_mgr.delete_cloud_service_deployment('mycloudservice')
 
-Utilisation de service de stockage
-----------------------------------
+## <a name="storage-services"> </a> Utilisation de services de stockage
 
 Les opérations de gestion d'Azure Cloud Services sont effectuées au moyen de la classe **Azure::StorageService**.
 
-### Création d'un compte de stockage
+### Utilisation Créer un compte de stockage
 
 Pour créer un compte de stockage, utilisez la méthode **create\_storage\_account** et fournissez un nom et un hachage d'options. Les options valides sont les suivantes :
 
@@ -331,35 +323,52 @@ Pour créer un compte de stockage, utilisez la méthode **create\_storage\_accou
 Le code suivant crée un compte de stockage dans la région « East US » :
 
     storage_mgr = Azure::StorageService.new
-    storage_mgr.create_storage_account('monstockage', { :location => 'East US' })
+    storage_mgr.create_storage_account('mystorage', { :location => 'East US' })
 
-### Affichage de la liste de comptes de stockage
+### Utilisation Affichage de la liste de comptes de stockage
 
 Pour obtenir une liste des comptes de stockage pour votre abonnement Azure, utilisez la méthode **list\_storage\_accounts**. Celle-ci renvoie un tableau d'objets **Azure::StorageManagement::StorageAccount** :
 
     storage_mgr = Azure::StorageService.new
     accounts = storage_mgr.list_storage_accounts
 
-### Détermination de l'existence d'un compte de stockage
+### Utilisation Détermination de l'existence d'un compte de stockage
 
 Pour déterminer si un compte de stockage spécifique existe, utilisez la méthode **get\_storage\_account** et spécifiez le nom du compte de stockage. Renvoie **true** si le compte de stockage existe ; sinon, renvoie **false**.
 
     storage_mgr = Azure::StorageService.new
-    store_exists = storage_mgr.get_storage_account('monstockage')
+    store_exists = storage_mgr.get_storage_account('mystorage')
 
-### Suppression d'un compte de stockage
+### Utilisation Suppression d'un compte de stockage
 
 Pour supprimer un compte de stockage, utilisez la méthode **delete\_storage\_account** et spécifiez le nom du compte de stockage :
 
     storage_mgr = Azure::StorageService.new
-    storage_mgr.delete_storage_account('monstockage')
+    storage_mgr.delete_storage_account('mystorage')
 
-Étapes suivantes
-----------------
+## <a name="next-steps"> </a>Étapes suivantes
 
 Maintenant que vous avez appris les principes de base de la création par programme de machines virtuelles Azure, suivez les liens ci-dessous pour découvrir d'autres tâches avec les machines virtuelles.
 
--   Visitez la page [Machines virtuelles](http://www.windowsazure.com/fr-fr/documentation/services/virtual-machines/).
--   Consultez la référence MSDN suivante : [Machines virtuelles](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156003.aspx)
--   Découvrez comment héberger une [Application Ruby on Rails sur une machine virtuelle](http://www.windowsazure.com/fr-fr/develop/ruby/tutorials/web-app-with-linux-vm/)
+-   Visitez la page [Machines virtuelles][].
+-   Consultez la référence MSDN suivante : [Machines virtuelles][1]
+-   Découvrez comment héberger une [Application Ruby on Rails sur une machine virtuelle][]
 
+  [Présentation de la gestion des services]: #what-is
+  [Concepts]: #concepts
+  [Création d'un certificat de gestion]: #setup-certificate
+  [Création d'une application Ruby]: #create-app
+  [Configuration de votre application pour utiliser le Kit de développement logiciel (SDK)]: #configure-access
+  [Configuration d'une connexion de gestion Azure]: #setup-connection
+  [Utilisation de machines virtuelles]: #virtual-machine
+  [Utilisation d'images et de disques]: #vm-images
+  [Utilisation de services cloud]: #cloud-services
+  [Utilisation de services de stockage]: #storage-services
+  [Étapes suivantes]: #next-steps
+  [API REST pour les opérations de gestion des services]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460799.aspx
+  [portail de gestion Azure]: https://manage.windowsazure.com
+  [Installation et configuration de l'interface de ligne de commande interplateforme Azure]: http://www.windowsazure.com/fr-fr/manage/install-and-configure-cli/
+  [Tailles de machines virtuelles et services cloud pour Microsoft Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn197896.aspx
+  [Machines virtuelles]: http://www.windowsazure.com/fr-fr/documentation/services/virtual-machines/
+  [1]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156003.aspx
+  [Application Ruby on Rails sur une machine virtuelle]: http://www.windowsazure.com/fr-fr/develop/ruby/tutorials/web-app-with-linux-vm/

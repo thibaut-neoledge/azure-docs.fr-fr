@@ -1,30 +1,29 @@
-<properties linkid="manage-services-how-to-manage-a-cloud-service" urlDisplayName="How to manage" pageTitle="How to manage a cloud service - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="Learn how to manage cloud services in the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Manage Cloud Services" authors="ryanwi" solutions="" manager="" editor="" />
+<properties linkid="manage-services-how-to-manage-a-cloud-service" urlDisplayName="How to manage" pageTitle="How to manage a cloud service - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="Learn how to manage cloud services in the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Manage Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-Gestion des services cloud
-==========================
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
 
-[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
+# Gestion des services cloud
+
+[WACOM.INCLUDE [disclaimer][]]
 
 Dans la zone **Cloud Services** du portail de gestion Azure, vous pouvez mettre à jour un rôle de service ou un déploiement, promouvoir un déploiement intermédiaire en déploiement de production, lier des ressources à votre service cloud afin de voir les dépendances de ressources et d'étendre les ressources en même temps, mais aussi supprimer un service cloud ou un déploiement.
 
-Sommaire
---------
+## Sommaire
 
--   [Procédure : Mise à jour d'un rôle ou d'un déploiement de service cloud](#updaterole)
--   [Procédure : Inversion de déploiements pour faire passer un déploiement intermédiaire en production](#swap)
--   [Procédure : Liaison d'une ressource à un service cloud](#linkresources)
--   [Procédure : Suppression de déploiements et d'un service cloud](#deletecloudservice)
+-   [Mise à jour d'un rôle ou d'un déploiement de service cloud][]
+-   [Inversion de déploiements pour faire passer un déploiement intermédiaire en production][]
+-   [Liaison d'une ressource à un service cloud][]
+-   [Suppression de déploiements et d'un service cloud][]
 
-Procédure : Mise à jour d'un rôle ou d'un déploiement de service cloud
-----------------------------------------------------------------------
+## <span id="updaterole"></span></a> Mise à jour d'un rôle ou d'un déploiement de service cloud
 
 Si vous devez mettre à jour le code de l'application pour votre service cloud, utilisez **Update** dans le tableau de bord, la page **Cloud Services** ou la page **Instances**. Vous pouvez mettre à jour un ou plusieurs rôles. Vous devrez charger un nouveau package de service et un nouveau fichier de configuration de service.
 
-1.  Dans le [portail de gestion Azure](https://manage.windowsazure.com/), dans le tableau de bord, dans la page **Cloud Services** ou dans la page **Instances**, cliquez sur **Update**.
+1.  Dans le [portail de gestion Azure][], dans le tableau de bord, dans la page **Cloud Services** ou dans la page **Instances**, cliquez sur **Update**.
 
     **Update Deployment** s'affiche.
 
-    ![UpdateDeployment](./media/cloud-services-how-to-manage/CloudServices_UpdateDeployment.png)
+    ![UpdateDeployment][]
 
 2.  Dans **Deployment label**, entrez un nom pour identifier le déploiement (par exemple, mycloudservicev2). Le nom du déploiement se trouve sous **quick start** sur le tableau de bord.
 
@@ -44,14 +43,13 @@ Si vous devez mettre à jour le code de l'application pour votre service cloud, 
 
 8.  Cliquez sur OK (coche) pour commencer la mise à jour du service.
 
-Procédure : Inversion de déploiements pour faire passer un déploiement intermédiaire en production
---------------------------------------------------------------------------------------------------
+## <span id="swap"></span></a> Inversion de déploiements pour faire passer un déploiement intermédiaire en production
 
 Utilisez **Swap** pour faire passer le déploiement intermédiaire d'un service cloud en production. Lorsque vous décidez de déployer une nouvelle version d'un service cloud, vous pouvez créer un déploiement intermédiaire et tester la nouvelle version dans l'environnement intermédiaire de votre service pendant que vos clients utilisent la version actuelle en production. Une fois que vous êtes prêt à faire passer la nouvelle version en production, vous pouvez utiliser **Swap** pour inverser les URL qui permettent d'accéder aux deux déploiements.
 
 Vous pouvez inverser les déploiements à partir de la page **Cloud Services** ou du tableau de bord.
 
-1.  Dans le [portail de gestion](https://manage.windowsazure.com/), cliquez sur **Cloud Services**.
+1.  Dans le [portail de gestion][portail de gestion Azure], cliquez sur **Cloud Services**.
 
 2.  Dans la liste des services cloud, cliquez sur le service cloud pour le sélectionner.
 
@@ -59,7 +57,7 @@ Vous pouvez inverser les déploiements à partir de la page **Cloud Services** o
 
     L'invite de confirmation suivante s'affiche.
 
-    ![Inverser les services cloud](./media/cloud-services-how-to-manage/CloudServices_Swap.png)
+    ![Inverser les services cloud][]
 
 4.  Une fois les informations de déploiement vérifiées, cliquez sur **Yes** pour inverser les déploiements.
 
@@ -67,12 +65,11 @@ Vous pouvez inverser les déploiements à partir de la page **Cloud Services** o
 
     Afin de réduire les coûts liés au calcul, vous pouvez supprimer le déploiement de l'environnement intermédiaire une fois que vous êtes certain que le nouveau déploiement de production se comporte comme vous le souhaitez.
 
-Procédure : Liaison d'une ressource à un service cloud
-------------------------------------------------------
+## <span id="linkresources"></span></a> Liaison d'une ressource à un service cloud
 
 Pour voir les dépendances de votre service par rapport à d'autres ressources, vous pouvez lier une instance de base de données SQL ou un compte de stockage Azure au service cloud. Vous pouvez lier des ressources et annuler la liaison vers des ressources dans la page **Linked Resources**. Surveillez ensuite leur utilisation dans le tableau de bord du service cloud. Si la surveillance du compte de stockage lié est activée, vous pouvez surveiller le nombre total de demandes dans le tableau de bord du service cloud.
 
-Utilisez **Link** pour créer une liaison entre une instance de base de données SQL ou un compte de stockage, nouveau ou existant, et votre service cloud. Vous pouvez ensuite étendre la base de données en même temps que le service cloud qui utilise cette base de données sur la page **Scale**. (Le compte de stockage s'étend automatiquement avec l'augmentation de l'utilisation.) Pour plus d'informations, consultez la page [Extension d'un service cloud et des ressources liées](https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-scale-a-cloud-service/).
+Utilisez **Link** pour créer une liaison entre une instance de base de données SQL ou un compte de stockage, nouveau ou existant, et votre service cloud. Vous pouvez ensuite étendre la base de données en même temps que le service cloud qui utilise cette base de données sur la page **Scale**. (Le compte de stockage s'étend automatiquement avec l'augmentation de l'utilisation.) Pour plus d'informations, consultez la page [Extension d'un service cloud et des ressources liées][].
 
 Vous pouvez également surveiller, gérer et étendre la base de données dans le nœud **Databases** du portail de gestion.
 
@@ -82,35 +79,35 @@ La procédure qui suit décrit comment lier une nouvelle instance de base de don
 
 ### Liaison d'une instance de base de données SQL à un service cloud
 
-1.  Dans le [portail de gestion](http://manage.windowsazure.com/), cliquez sur **Cloud Services**. Cliquez ensuite sur le nom du service cloud pour ouvrir le tableau de bord.
+1.  Dans le [portail de gestion][], cliquez sur **Cloud Services**. Cliquez ensuite sur le nom du service cloud pour ouvrir le tableau de bord.
 
 2.  Cliquez sur **Linked Resources**.
 
     La page **Linked Resources** s'affiche.
 
-    ![LinkedResourcesPage](./media/cloud-services-how-to-manage/CloudServices_LinkedResourcesPage.png)
+    ![LinkedResourcesPage][]
 
 3.  Cliquez sur **Link a Resource** ou sur **Link**.
 
     L'Assistant **Link Resource** démarre.
 
-    ![Link Page1](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkPage1.png)
+    ![Link Page1][]
 
 4.  Cliquez sur **Create a new resource** ou **Link an existing resource**.
 
-5.  Choisissez le type de ressource à lier. Dans le [portail de gestion](http://manage.windowsazure.com/), cliquez sur **SQL Database**. (L'aperçu du portail de gestion ne prend pas en charge la liaison d'un compte de stockage à un service cloud.)
+5.  Choisissez le type de ressource à lier. Dans le [portail de gestion][], cliquez sur **SQL Database**. (L'aperçu du portail de gestion ne prend pas en charge la liaison d'un compte de stockage à un service cloud.)
 
 6.  Afin de terminer la configuration de la base de données, suivez les instructions de l'aide dans la zone **SQL Databases** du portail de gestion.
 
     Vous pouvez suivre l'état de l'opération de liaison dans la zone de messages.
 
-    ![Progression de la liaison](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkProgress.png)
+    ![Progression de la liaison][]
 
-    Une fois la liaison terminée, vous pouvez surveiller l'état de la ressource liée dans le tableau de bord du service cloud. Pour plus d'informations sur l'extension d'une base de données SQL liée, consultez la page [Extension d'un service cloud et des ressources liées](../how-to-scale-a-cloud-service/).
+    Une fois la liaison terminée, vous pouvez surveiller l'état de la ressource liée dans le tableau de bord du service cloud. Pour plus d'informations sur l'extension d'une base de données SQL liée, consultez la page [Extension d'un service cloud et des ressources liées][].
 
 ### Pour annuler la liaison d'une ressource liée
 
-1.  Dans le [portail de gestion](http://manage.windowsazure.com/), cliquez sur **Cloud Services**. Cliquez ensuite sur le nom du service cloud pour ouvrir le tableau de bord.
+1.  Dans le [portail de gestion][], cliquez sur **Cloud Services**. Cliquez ensuite sur le nom du service cloud pour ouvrir le tableau de bord.
 
 2.  Cliquez sur **Linked Resources**, puis sélectionnez la ressource.
 
@@ -118,8 +115,7 @@ La procédure qui suit décrit comment lier une nouvelle instance de base de don
 
     L'annulation de la liaison d'une base de données SQL n'a pas d'effet sur la base de données ou sur les connexions de l'application à la base de données. Vous pouvez gérer la base de données dans la zone **SQL Databases** du portail de gestion.
 
-Procédure : Suppression de déploiements et d'un service cloud
--------------------------------------------------------------
+## <span id="deletecloudservice"></span></a> Suppression de déploiements et d'un service cloud
 
 Avant de pouvoir supprimer un service cloud, vous devez supprimer tous les déploiements existants.
 
@@ -127,13 +123,13 @@ Afin de réduire les coûts liés au calcul, vous pouvez supprimer le déploieme
 
 Utiliser la procédure suivante pour supprimer un déploiement ou un service cloud.
 
-1.  Dans le [portail de gestion](http://manage.windowsazure.com/), cliquez sur **Cloud Services**.
+1.  Dans le [portail de gestion][], cliquez sur **Cloud Services**.
 
 2.  Sélectionnez le service cloud, puis cliquez sur **Delete**. (Pour sélectionner un service cloud sans ouvrir le tableau de bord, cliquez n'importe où, sauf sur le nom dans l'entrée du service cloud.)
 
     Si vous avez un déploiement intermédiaire ou un déploiement de production, un menu similaire au menu suivant s'affiche en bas de la fenêtre. Avant de supprimer le service cloud, vous devez supprimer tous les déploiements existants.
 
-    ![Menu Delete](./media/cloud-services-how-to-manage/CloudServices_DeleteMenu.png)
+    ![Menu Delete][]
 
 3.  Pour supprimer un déploiement, cliquez sur **Delete production deployment** ou sur **Delete staging deployment**. Ensuite, à l'invite de confirmation, cliquez sur **Yes**.
 
@@ -141,5 +137,21 @@ Utiliser la procédure suivante pour supprimer un déploiement ou un service clo
 
 5.  Pour supprimer le service cloud, cliquez sur **Delete cloud service**. Ensuite, à l'invite de confirmation, cliquez sur **Yes**.
 
-> [WACOM.NOTE] Si la surveillance détaillée est configurée pour votre service cloud, Azure ne supprime pas les données de surveillance de votre compte de stockage lorsque vous supprimez le service cloud. Vous devez supprimer manuellement les données. Pour plus d'informations sur les tables de mesures, consultez la page « Procédure : Accès aux données de la surveillance détaillée en dehors du portail de gestion » dans [Surveillance des services cloud](https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
+> [WACOM.NOTE]
+> Si la surveillance détaillée est configurée pour votre service cloud, Azure ne supprime pas les données de surveillance de votre compte de stockage lorsque vous supprimez le service cloud. Vous devez supprimer manuellement les données. Pour plus d'informations sur les tables de mesures, consultez la page « Procédure : Accès aux données de la surveillance détaillée en dehors du portail de gestion » dans [Surveillance des services cloud][].
 
+  [disclaimer]: ../includes/disclaimer.md
+  [Mise à jour d'un rôle ou d'un déploiement de service cloud]: #updaterole
+  [Inversion de déploiements pour faire passer un déploiement intermédiaire en production]: #swap
+  [Liaison d'une ressource à un service cloud]: #linkresources
+  [Suppression de déploiements et d'un service cloud]: #deletecloudservice
+  [portail de gestion Azure]: https://manage.windowsazure.com/
+  [UpdateDeployment]: ./media/cloud-services-how-to-manage/CloudServices_UpdateDeployment.png
+  [Inverser les services cloud]: ./media/cloud-services-how-to-manage/CloudServices_Swap.png
+  [Extension d'un service cloud et des ressources liées]: ../cloud-services-how-to-scale/
+  [portail de gestion]: http://manage.windowsazure.com/
+  [LinkedResourcesPage]: ./media/cloud-services-how-to-manage/CloudServices_LinkedResourcesPage.png
+  [Link Page1]: ./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkPage1.png
+  [Progression de la liaison]: ./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkProgress.png
+  [Menu Delete]: ./media/cloud-services-how-to-manage/CloudServices_DeleteMenu.png
+  [Surveillance des services cloud]: http://azure.microsoft.com/fr-fr/documentation/articles/cloud-services-how-to-monitor/

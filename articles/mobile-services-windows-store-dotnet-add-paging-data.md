@@ -1,41 +1,50 @@
 <properties pageTitle="Refine Mobile Services queries with paging (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Windows Store app from Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="" editor="" />
 
-Affinage des requêtes Mobile Services au moyen de la pagination
-===============================================================
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
 
-> [AZURE.SELECTOR-LIST (Platform | Backend )] 
-- [(Windows Store C\# | .NET)](mobile-services-dotnet-backend-windows-store-dotnet-add-paging-data.md) 
-- [(Windows Store C\# | JavaScript)](mobile-services-windows-store-dotnet-add-paging-data.md)
-- [(Windows Store JavaScript | .NET)](mobile-services-dotnet-backend-windows-store-javascript-add-paging-data.md) 
-- [(Windows Store JavaScript | JavaScript)](mobile-services-windows-store-javascript-add-paging-data.md) 
-- [(Windows Phone | .NET)](mobile-services-dotnet-backend-windows-phone-add-paging-data) 
-- [(Windows Phone | JavaScript)](mobile-services-windows-phone-add-paging-data) 
-- [(iOS | JavaScript)](mobile-services-ios-add-paging-data) 
-- [(Android | JavaScript)](mobile-services-android-add-paging-data) 
-- [(HTML | .NET)](mobile-services-html-add-paging-data) 
-- [(Xamarin iOS | .NET)](partner-xamarin-mobile-services-ios-add-paging-data) 
-- [(Xamarin Android | .NET)](partner-xamarin-mobile-services-android-add-paging-data)
+# Affinage des requêtes Mobile Services au moyen de la pagination
 
-Cette rubrique montre comment utiliser la pagination pour gérer la quantité de données renvoyées vers votre application Windows Store à partir d'Azure Mobile Services. Dans le cadre de ce didacticiel, vous allez utiliser les méthodes de requête **Take** et **Skip** sur le client pour demander des « pages » spécifiques de données.
+<div class="dev-center-tutorial-selector sublanding"><a href="/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-add-paging-data" title="Windows Store C#" class="current">Windows Store C#</a><a href="/fr-fr/documentation/articles/mobile-services-windows-store-javascript-add-paging-data" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/fr-fr/documentation/articles/mobile-services-windows-phone-add-paging-data" title="Windows Phone" class="current">Windows Phone</a><a href="/fr-fr/documentation/articles/mobile-services-ios-add-paging-data" title="iOS" class="current">iOS</a><a href="/fr-fr/documentation/articles/mobile-services-android-add-paging-data" title="Android" class="current">Android</a><a href="/fr-fr/documentation/articles/mobile-services-html-add-paging-data" title="HTML" class="current">HTML</a><a href="/fr-fr/documentation/articles/partner-xamarin-mobile-services-ios-add-paging-data" title="Xamarin.iOS">Xamarin.iOS</a><a href="/fr-fr/documentation/articles/partner-xamarin-mobile-services-android-add-paging-data" title="Xamarin.Android" class="current">Xamarin.Android</a>
+</div>
+
+<div class="dev-center-tutorial-subselector"><a href="/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-add-paging-data" title=".NET backend">.NET backend</a> | <a href="/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-add-paging-data"  title="JavaScript backend" class="current">JavaScript backend</a></div>
+
+Cette rubrique montre comment utiliser la pagination pour gérer la quantité de données renvoyées vers votre application Windows Store à partir d'Azure Mobile Services. Dans ce didacticiel, vous allez utiliser les méthodes de requête **Take** et **Skip** sur le client pour demander des « pages » spécifiques de données.
 
 > [WACOM.NOTE]Pour éviter tout dépassement de capacité dans les appareils mobiles clients, Mobile Services implémente une limite automatique du nombre de pages, qui autorise par défaut un maximum de 50 éléments par réponse. En spécifiant la taille de page, vous pouvez demander explicitement jusqu'à 1 000 éléments dans la réponse.
 
-Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données](/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/). Avant de commencer ce didacticiel, vous devez effectuer au moins le premier didacticiel relatif à l'utilisation de séries de données, intitulé [Prise en main des données](/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/).
+Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données][]. Avant de commencer ce didacticiel, vous devez suivre au moins le premier didacticiel consacré à l'utilisation des séries de données, intitulé [Prise en main des données][].
 
-[WACOM.INCLUDE [mobile-services-windows-dotnet-paging](../includes/mobile-services-windows-dotnet-paging.md)]
+[WACOM.INCLUDE [mobile-services-windows-dotnet-paging][]]
 
-Étapes suivantes
-----------------
+## <a name="next-steps"> </a>Étapes suivantes
 
 Vous voici parvenu à la fin de la série de didacticiels présentant les principes de base de l'utilisation des données dans Mobile Services. Pour plus d'informations sur les rubriques Mobile Services suivantes :
 
--   [Prise en main de l'authentification](/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/)
-    <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec un compte Windows.
+-   [Prise en main de l'authentification][]
 
--   [Prise en main des notifications Push](/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-push/)
-    <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
+    En savoir plus sur l'authentification des utilisateurs de votre application avec un compte Windows.
 
--   [Guide de fonctionnement Mobile Services .NET](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)
-    <br/>En savoir plus sur l'utilisation de Mobile Services avec .NET.
+-   [Prise en main des notifications Push][]
 
+    En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
+-   [Guide de fonctionnement Mobile Services .NET][]
+
+    En savoir plus sur l'utilisation de Mobile Services avec .NET.
+
+  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-add-paging-data "Windows Store C#"
+  [Windows Store JavaScript]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-add-paging-data "Windows Store JavaScript"
+  [Windows Phone]: /fr-fr/documentation/articles/mobile-services-windows-phone-add-paging-data "Windows Phone"
+  [iOS]: /fr-fr/documentation/articles/mobile-services-ios-add-paging-data "iOS"
+  [Android]: /fr-fr/documentation/articles/mobile-services-android-add-paging-data "Android"
+  [HTML]: /fr-fr/documentation/articles/mobile-services-html-add-paging-data "HTML"
+  [Xamarin.iOS]: /fr-fr/documentation/articles/partner-xamarin-mobile-services-ios-add-paging-data "Xamarin.iOS"
+  [Xamarin.Android]: /fr-fr/documentation/articles/partner-xamarin-mobile-services-android-add-paging-data "Xamarin.Android"
+  [.NET backend]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-add-paging-data ".NET backend"
+  [JavaScript backend]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-add-paging-data "JavaScript backend"
+  [Prise en main des données]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
+  [mobile-services-windows-dotnet-paging]: ../includes/mobile-services-windows-dotnet-paging.md
+  [Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
+  [Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-push/
+  [Guide de fonctionnement Mobile Services .NET]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library

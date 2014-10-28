@@ -1,29 +1,28 @@
-<properties  authors="kathydav" editor="tysonn" manager="donaldg" />
+<properties authors="kathydav" editor="tysonn" manager="donaldg" />
 
 # Connexion des machines virtuelles dans un service cloud
 
-Lors de la création d'une machine virtuelle, un service cloud est automatiquement créé pour la contenir. Vous pouvez créer plusieurs machines virtuelles dans le même service cloud pour leur permettre de communiquer les unes avec les autres, pour équilibrer la charge du trafic réseau et pour garantir leur haute disponibilité.
+Lors de la création d’une machine virtuelle, un service cloud est automatiquement créé pour la contenir. Vous pouvez créer plusieurs machines virtuelles dans le même service cloud pour leur permettre de communiquer les unes avec les autres, pour équilibrer la charge du trafic réseau et pour garantir leur haute disponibilité.
 
-Pour plus d'informations sur l'équilibrage de charge des machines virtuelles, consultez la page [Équilibrage de charge des machines virtuelles](../load-balancing-vms/). Pour plus d'informations sur la gestion de la disponibilité d'une application, consultez la page [Gestion de la disponibilité des machines
-virtuelles](../manage-vm-availability/).
+Pour plus d’informations sur l’équilibrage de charge des machines virtuelles, consultez la page [Équilibrage de charge des machines virtuelles][]. Pour plus d’informations sur la gestion de la disponibilité d’une application, consultez la page [Gestion de la disponibilité des machines virtuelles][].
 
-Dans un premier temps, vous devez créer une machine virtuelle et un service cloud. Vous pouvez ensuite connecter d'autres machines virtuelles à la première machine virtuelle dans le même service cloud.
+Dans un premier temps, vous devez créer une machine virtuelle et un service cloud. Vous pouvez ensuite connecter d’autres machines virtuelles à la première machine virtuelle dans le même service cloud.
 
-1.  Créez une machine virtuelle en suivant la procédure indiquée à la page [Création d'une machine virtuelle personnalisée](../howto-custom-create-vm/).
+1.  Créez une machine virtuelle en suivant la procédure indiquée à la page [Création d’une machine virtuelle personnalisée][].
 
-2.  Après avoir créé la première machine virtuelle personnalisée, dans la barre de commandes du [portail de gestion][1], cliquez sur **New**.
-    
-    ![Création d’une machine virtuelle](./media/howto-connect-vm-cloud-service/Create.png)
+2.  Après avoir créé la première machine virtuelle personnalisée, dans la barre de commandes du [portail de gestion][], cliquez sur **New**.
+
+    ![Création d’une machine virtuelle][]
 
 3.  Cliquez sur **Virtual Machine**, puis sur **From Gallery**.
-    
-    ![Création d’une machine virtuelle personnalisée](./media/howto-connect-vm-cloud-service/CreateNew.png)
-    
-    La boîte de dialogue **Select the virtual machine operating system** s'affiche.
+
+    ![Création d’une machine virtuelle personnalisée][1]
+
+    La boîte de dialogue **Select the virtual machine operating system** s’affiche.
 
 4.  Sur la page **Choose an image**, sélectionnez une image, puis cliquez sur la flèche pour continuer.
-    
-    La première page **Virtual machine configuration** s'affiche.
+
+    La première page **Virtual machine configuration** s’affiche.
 
 5.  Dans **Virtual Machine Name**, tapez le nom que vous souhaitez utiliser pour la machine virtuelle.
 
@@ -33,7 +32,7 @@ Dans un premier temps, vous devez créer une machine virtuelle et un service clo
 
 8.  Dans **New Password**, tapez un mot de passe fort pour le compte administratif. Dans **Confirm Password**, entrez de nouveau le mot de passe.
 
-9.  Pour une machine virtuelle s'exécutant sous le système d'exploitation Linux, vous pouvez choisir de sécuriser la machine avec une clé SSH.
+9.  Pour une machine virtuelle s’exécutant sous le système d’exploitation Linux, vous pouvez choisir de sécuriser la machine avec une clé SSH.
 
 10. Dans **Cloud Service**, sélectionnez le service cloud dans lequel placer la nouvelle machine virtuelle.
 
@@ -45,6 +44,9 @@ Dans un premier temps, vous devez créer une machine virtuelle et un service clo
 
 14. Cliquez sur la coche pour créer la machine virtuelle connectée.
 
-
-
-[1]: http://manage.windowsazure.com
+  [Équilibrage de charge des machines virtuelles]: ../../articles/load-balance-virtual-machines/
+  [Gestion de la disponibilité des machines virtuelles]: ../../articles/manage-availability-virtual-machines/
+  [Création d’une machine virtuelle personnalisée]: ../../articles/virtual-machines-create-custom/
+  [portail de gestion]: http://manage.windowsazure.com
+  [Création d’une machine virtuelle]: ./media/howto-connect-vm-cloud-service/Create.png
+  [1]: ./media/howto-connect-vm-cloud-service/CreateNew.png

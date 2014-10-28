@@ -1,7 +1,8 @@
-<properties linkid="manage-linux-commontasks-install-software" urlDisplayName="Install software on VM" pageTitle="Install software on a Linux virtual machine - Azure" metaKeywords="" description="Learn how to install software on your Linux virtual machine in Azure by using CentOS/Red Hat or Ubuntu." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install software on your Linux virtual machine in Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-linux-commontasks-install-software" urlDisplayName="Install software on VM" pageTitle="Install software on a Linux virtual machine - Azure" metaKeywords="" description="Learn how to install software on your Linux virtual machine in Azure by using CentOS/Red Hat or Ubuntu." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install software on your Linux virtual machine in Azure" authors="timlt" solutions="" manager="timlt" editor="" />
 
-Installation de logiciels sur une machine virtuelle Linux dans Azure
-====================================================================
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt"></tags>
+
+# Installation de logiciels sur une machine virtuelle Linux dans Azure
 
 Les distributions Linux tendent à livrer les logiciels sous forme de « packages » pour les installer. Ces packages sont en général gérés à l'aide d'un ensemble de commandes, telles que `apt` ou `yum`. Vous pouvez également installer des programmes sans package, avec, par exemple, un *tarball* du code source.
 
@@ -9,8 +10,7 @@ Nous allons présenter l'utilisation des gestionnaires de package de certaines d
 
 **Remarque :** en fonction de la configuration de votre environnement, ces commandes peuvent nécessiter d'être exécutées en utilisant des privilèges racine (via `sudo`).
 
-CentOS/Red Hat
---------------
+## CentOS/Red Hat
 
 CentOS est livré avec `yum` pour la gestion des packages. Cet outil permet d'installer, de désinstaller, de mettre à jour, d'afficher la liste des packages installés, et bien plus. La syntaxe des commandes correspondantes est présentée ci-après.
 
@@ -18,19 +18,19 @@ CentOS est livré avec `yum` pour la gestion des packages. Cet outil permet d'in
 
 Cette commande installe un package, ainsi que les packages dont il dépend. En raison des dépendances, plusieurs packages peuvent être installés.
 
-    yum install [nom du package]
+    yum install [package name]
 
 ### Désinstallation
 
 Cette commande désinstalle un package de votre machine. Gardez à l'esprit qu'elle ne supprime aucune dépendance.
 
-    yum remove [nom du package]
+    yum remove [package name]
 
 ### Mise à jour
 
 Cette commande met à jour un package à la dernière version. Le package doit être installé pour pouvoir être mis à jour.
 
-    yum update [nom du package]
+    yum update [package name]
 
 ### Affichage de la liste des packages installés
 
@@ -38,8 +38,7 @@ Cette commande affiche une liste de tous les packages installés sur votre machi
 
     yum list installed
 
-Ubuntu
-------
+## Ubuntu
 
 Ubuntu est livré avec `apt` (Advanced Packaging Tool ou gestionnaire de paquets) pour la gestion des packages. Cet outil permet d'installer, de désinstaller, de mettre à jour, d'afficher la liste des packages installés, et bien plus. La syntaxe des commandes correspondantes est présentée ci-après.
 
@@ -47,13 +46,13 @@ Ubuntu est livré avec `apt` (Advanced Packaging Tool ou gestionnaire de paquets
 
 Cette commande installe un package, ainsi que les packages dont il dépend. En raison des dépendances, plusieurs packages peuvent être installés.
 
-    apt-get install [nom du package]
+    apt-get install [package name]
 
 ### Désinstallation
 
 Cette commande désinstalle un package de votre machine. Gardez à l'esprit qu'elle ne supprime aucune dépendance.
 
-    apt-get remove [nom du package]
+    apt-get remove [package name]
 
 ### Mise à jour/Mise à niveau
 

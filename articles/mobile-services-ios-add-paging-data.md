@@ -1,30 +1,20 @@
-<properties linkid="develop-mobile-tutorials-add-paging-to-data-ios" urlDisplayName="Add paging to data" pageTitle="Add paging to data (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your iOS app from Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-tutorials-add-paging-to-data-ios" urlDisplayName="Add paging to data" pageTitle="Add paging to data (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your iOS app from Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="krisragh" solutions="" manager="" editor="" />
 
-Affinage des requêtes Mobile Services au moyen de la pagination
-===============================================================
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
 
-> [AZURE.SELECTOR-LIST (Platform | Backend )]
->  - [(Windows Store C\# | .NET)](mobile-services-dotnet-backend-windows-store-dotnet-add-paging-data.md)
->  - [(Windows Store C\# | JavaScript)](mobile-services-windows-store-dotnet-add-paging-data.md)
->  - [(Windows Store JavaScript | .NET)](mobile-services-dotnet-backend-windows-store-javascript-add-paging-data.md)
->  - [(Windows Store JavaScript | JavaScript)](mobile-services-windows-store-javascript-add-paging-data.md)
->  - [(Windows Phone | .NET)](mobile-services-dotnet-backend-windows-phone-add-paging-data)
->  - [(Windows Phone | JavaScript)](mobile-services-windows-phone-add-paging-data) 
->  - [(iOS | JavaScript)](mobile-services-ios-add-paging-data) 
->  - [(Android | JavaScript)](mobile-services-android-add-paging-data) 
->  - [(HTML | .NET)](mobile-services-html-add-paging-data) 
->  - [(Xamarin iOS | .NET)](partner-xamarin-mobile-services-ios-add-paging-data) 
->  - [(Xamarin Android | .NET)](partner-xamarin-mobile-services-android-add-paging-data)
+# Affinage des requêtes Mobile Services au moyen de la pagination
+
+<div class="dev-center-tutorial-selector sublanding"><a href="/fr-fr/develop/mobile/tutorials/add-paging-to-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/fr-fr/develop/mobile/tutorials/add-paging-to-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/fr-fr/develop/mobile/tutorials/add-paging-to-data-wp8" title="Windows Phone">Windows Phone</a><a href="/fr-fr/develop/mobile/tutorials/add-paging-to-data-ios" title="iOS" class="current">iOS</a><a href="/fr-fr/develop/mobile/tutorials/add-paging-to-data-android" title="Android" class="current">Android</a><a href="/fr-fr/develop/mobile/tutorials/add-paging-to-data-html" title="HTML" class="current">HTML</a><a href="/fr-fr/develop/mobile/tutorials/add-paging-to-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/fr-fr/develop/mobile/tutorials/add-paging-to-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a></div>
 
 Cette rubrique montre comment utiliser la pagination pour gérer la quantité de données renvoyée à votre application iOS par Azure Mobile Services. Dans le cadre de ce didacticiel, vous allez utiliser les méthodes de requête **fetchLimit** et **fetchOffset** sur le client pour demander des « pages » spécifiques de données.
 
-**Remarque**
+<div class="dev-callout"><b>Remarque</b>
+<p>Pour &eacute;viter tout d&eacute;passement de capacit&eacute; dans les appareils mobiles clients, Mobile Services impl&eacute;mente une limite automatique du nombre de pages, qui autorise par d&eacute;faut un maximum de 50&nbsp;&eacute;l&eacute;ments par r&eacute;ponse. En sp&eacute;cifiant la taille de page, vous pouvez demander explicitement jusqu'&agrave; 1&nbsp;000&nbsp;&eacute;l&eacute;ments dans la r&eacute;ponse.</p>
+</div>
 
-Pour éviter tout dépassement de capacité dans les appareils mobiles clients, Mobile Services implémente une limite automatique du nombre de pages, qui autorise par défaut un maximum de 50 éléments par réponse. En spécifiant la taille de page, vous pouvez demander explicitement jusqu'à 1 000 éléments dans la réponse.
+Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données][]. Avant de commencer ce didacticiel, vous devez suivre au moins le premier didacticiel consacré à l'utilisation des séries de données, intitulé [Prise en main des données][].
 
-Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données](/en-us/develop/mobile/tutorials/get-started-with-data-ios). Avant de commencer ce didacticiel, vous devez effectuer au moins le premier didacticiel relatif à l'utilisation de séries de données, intitulé [Prise en main des données](/en-us/develop/mobile/tutorials/get-started-with-data-ios).
-
-1.  Dans Xcode, ouvrez le projet que vous avez modifié avec le didacticiel [Prise en main des données](/en-us/develop/mobile/tutorials/get-started-with-data-ios).
+1.  Dans Xcode, ouvrez le projet que vous avez modifié avec le didacticiel [Prise en main des données][].
 
 2.  Appuyez sur le bouton **Exécuter** (Commande + R) pour générer le projet et démarrer l'application, puis tapez un texte dans la zone de texte et cliquez sur l'icône représentant un signe plus (**+**).
 
@@ -32,39 +22,39 @@ Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés
 
 4.  Ouvrez le fichier QSTodoService.m et recherchez la méthode suivante :
 
-         - (void)refreshDataOnSuccess:(QSCompletionBlock)completion
+        - (void)refreshDataOnSuccess:(QSCompletionBlock)completion
 
-      Remplacez le corps de la méthode entière par le code suivant. 
+    Remplacez le corps de la méthode entière par le code suivant.
 
-         // Créez un prédicat qui recherche les éléments actifs dans lesquels complete a la valeur false
-         NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
+        // Create a predicate that finds active items in which complete is false
+        NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
-         // Récupérez l'instance MSQuery de MSTable avec le prédicat que vous venez de créer.
-         MSQuery * query = [self.table queryWithPredicate:predicate];
-            
-         query.includeTotalCount = YES; // Demandez le nombre total d'éléments
+        // Retrieve the MSTable's MSQuery instance with the predicate you just created.
+        MSQuery * query = [self.table queryWithPredicate:predicate];
 
-         // Commencez par le premier élément et récupérez trois éléments seulement
-         query.fetchOffset = 0;
-         query.fetchLimit = 3;
+        query.includeTotalCount = YES; // Request the total item count
 
-         // Appelez l'instance MSQuery directement, au lieu d'utiliser les méthodes d'assistance de MSTable.
-         [query readWithCompletion:^(NSArray *results, NSInteger totalCount, NSError *error) {
-                
-             [self logErrorIfNotNil:error];
-             if (!error)
-             {
-                 // Enregistrez le nombre total.
-                 NSLog(@"Total item count: %@",[NSString stringWithFormat:@"%zd", (ssize_t) totalCount]);            
-             }
-            
-             items = [results mutableCopy];
-            
-             // Informez l'appelant de la fin de l'opération
-             completion();
-         }];
+        // Start with the first item, and retrieve only three items
+        query.fetchOffset = 0;
+        query.fetchLimit = 3;
 
-     Cette requête renvoie les trois premiers éléments qui ne sont pas marqués comme terminés. 
+        // Invoke the MSQuery instance directly, rather than using the MSTable helper methods.
+        [query readWithCompletion:^(NSArray *results, NSInteger totalCount, NSError *error) {
+
+            [self logErrorIfNotNil:error];
+            if (!error)
+            {
+                // Log total count.
+                NSLog(@"Total item count: %@",[NSString stringWithFormat:@"%zd", (ssize_t) totalCount]);            
+            }
+
+            items = [results mutableCopy];
+
+            // Let the caller know that we finished
+            completion();
+        }];
+
+    Cette requête renvoie les trois premiers éléments qui ne sont pas marqués comme terminés.
 
 5.  Régénérez et démarrez l'application.
 
@@ -72,21 +62,31 @@ Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés
 
 6.  Mettez de nouveau à jour la méthode **refreshDataOnSuccess** en recherchant la ligne de code suivante :
 
-         query.fetchOffset = 0;
+        query.fetchOffset = 0;
 
-      Cette fois, définissez la valeur **query.fetchOffset** sur 3. 
+    Cette fois, définissez la valeur **query.fetchOffset** sur 3.
 
-      Cette requête ignore les trois premiers résultats et renvoie les trois résultats suivants. Il s'agit en fait de la deuxième « page » de données, dont la taille est de trois éléments.
+    Cette requête ignore les trois premiers résultats et renvoie les trois résultats suivants. Il s'agit en fait de la deuxième « page » de données, dont la taille est de trois éléments.
 
-    **Remarque**
+    <div class="dev-callout"><b>Remarque</b>
+<p>Ce didacticiel utilise un sc&eacute;nario simplifi&eacute; dans lequel les valeurs de pagination cod&eacute;es en dur sont d&eacute;finies pour les propri&eacute;t&eacute;s <strong>fetchOffset</strong> et <strong>fetchLimit</strong>. Dans une application r&eacute;elle, vous pouvez utiliser des requ&ecirc;tes semblables &agrave; celles indiqu&eacute;es plus haut avec un contr&ocirc;le pager ou une interface utilisateur comparable pour permettre aux utilisateurs d'acc&eacute;der aux pages pr&eacute;c&eacute;dentes et suivantes. Vous pouvez &eacute;galement d&eacute;finir **query.includeTotalCount = YES** pour obtenir le nombre total d'&eacute;l&eacute;ments disponibles sur le serveur, avec les donn&eacute;es pagin&eacute;es.</p>
+</div>
 
-    Ce didacticiel utilise un scénario simplifié dans lequel les valeurs de pagination codées en dur sont définies pour les propriétés **fetchOffset** et **fetchLimit**. Dans une application réelle, vous pouvez utiliser des requêtes semblables à celles indiquées plus haut avec un contrôle pager ou une interface utilisateur comparable pour permettre aux utilisateurs d'accéder aux pages précédentes et suivantes. Vous pouvez également définir **query.includeTotalCount = YES** pour obtenir le nombre total d'éléments disponibles sur le serveur, avec les données paginées.
-
-Étapes suivantes
-----------------
+## <a name="next-steps"> </a>Étapes suivantes
 
 Vous voici parvenu à la fin de la série de didacticiels présentant les principes de base de l'utilisation des données dans Mobile Services. Pour plus d'informations, consultez la rubrique Mobile Services suivante :
 
--   [Prise en main de l'authentification](/en-us/develop/mobile/tutorials/get-started-with-users-ios)
-    <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec un compte Windows.
+-   [Prise en main de l'authentification][]
 
+    En savoir plus sur l'authentification des utilisateurs de votre application avec un compte Windows.
+
+  [Windows Store C#]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-dotnet "Windows Store C#"
+  [Windows Store JavaScript]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-js "Windows Store JavaScript"
+  [Windows Phone]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-wp8 "Windows Phone"
+  [iOS]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-ios "iOS"
+  [Android]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-android "Android"
+  [HTML]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-html "HTML"
+  [Xamarin.iOS]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-xamarin-ios "Xamarin.iOS"
+  [Xamarin.Android]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-xamarin-android "Xamarin.Android"
+  [Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-ios
+  [Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-ios

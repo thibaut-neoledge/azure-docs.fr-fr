@@ -1,35 +1,34 @@
-Tout d'abord, vous utilisez l'Assistant Ajouter une notification d'émission dans Visual Studio 2013 pour inscrire votre application auprès du Windows Store, configurer votre service mobile pour activer les notifications Push et ajouter du code à votre application pour inscrire un canal d'appareil.
+La procédure suivante permet d'inscrire votre application auprès du Windows Store, de configurer votre service mobile pour activer les notifications Push et d'ajouter du code à votre application pour inscrire un canal d’appareil via votre concentrateur de notification. Visual Studio 2013 se connecte à Azure et à Windows Store à l'aide des informations d'identification que vous fournissez.
 
-1.  Si vous ne l'avez pas encore fait, suivez cette procédure dans [Importer votre fichier publishsettings dans Visual Studio 2013](/fr-fr/documentation/articles/mobile-services-windows-how-to-import-publishsettings/) pour importer votre fichier publisher.settings dans Visual Studio.
-    
- 	Cette procédure n'est pas nécessaire si vous avez déjà utilisé Visual Studio pour créer ou gérer des services mobiles dans votre abonnement Azure.
+1.  Dans Visual Studio 2013, ouvrez l’Explorateur de solutions, cliquez avec le bouton droit sur le projet d'application Windows Store, cliquez sur **Ajouter**, puis sur **Notification Push...**.
 
-2.  Dans Visual Studio 2013, ouvrez l'Explorateur de solutions, cliquez avec le bouton droit sur le projet, cliquez sur **Ajouter**, puis sur **Notification Push...**.
-    
- 	![mobile-add-push-notifications-vs2013](../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013.png)
-    
- 	L'Assistant Ajouter une notification d'émission démarre.
+    ![Assistant Ajouter une notification Push dans Visual Studio 2013][]
 
-3.  Cliquez sur **Suivant**, connectez-vous à votre compte Windows Store, puis indiquez un nom dans **Réserver un nouveau nom** et cliquez sur **Réserver**.
-    
- 	![mobile-add-push-notifications-vs2013-2](../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013-2.png)
-    
- 	Une nouvelle inscription d'application est créée.
+    L’Assistant Ajouter une notification d’émission démarre.
 
-4.  Cliquez sur la nouvelle inscription dans la liste **Nom de l'application**, puis cliquez sur **Suivant**.
-    
- 	![mobile-add-push-notifications-vs2013-3](../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013-3.png)
+2.  Cliquez sur **Suivant**, connectez-vous à votre compte Windows Store, puis indiquez un nom dans **Réserver un nouveau nom** et cliquez sur **Réserver**.
 
-5.  Dans la boîte de dialogue **Sélectionner un service**, cliquez sur le nom du service mobile que vous avez créé lorsque vous avez suivi le didacticiel [Prise en main de Mobile Services](/en-us/develop/mobile/tutorials/get-started/) ou [Prise en main des données](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/), puis cliquez sur **Suivant** et sur **Terminer**.
-    
- 	Le service mobile est mis à jour pour inscrire votre SID de package d'applications et votre clé secrète client ; une nouvelle table **channels** est créée. Mobile Services est maintenant configuré pour utiliser Windows Push Notification Services (WNS) afin de pouvoir envoyer des notifications vers votre application.
+    ![Sélectionnez le nom d'une application dans l'Assistant Ajouter une notification Push][]
 
- 	<div class="dev-callout"><b>Remarque</b>
+    Une nouvelle inscription d’application est créée.
 
- 	<p>Lorsque votre application n'est pas déjà configurée pour se connecter au service mobile, l'Assistant effectue également les mêmes tâches de configuration que celle indiquées dans <strong>Prise en main des données.</strong> <p>
- 	</div>
+3.  Cliquez sur la nouvelle inscription dans la liste **Nom de l’application**, puis cliquez sur **Suivant**.
 
+    ![mobile-add-push-notifications-vs2013-3][]
 
+4.  Sur la page **Sélectionner un service**, cliquez sur le nom de votre service mobile, puis sur **Suivant** et **Terminer**.
 
+    Le concentrateur de notification utilisé par votre service mobile est mis à jour via l'inscription à Windows Notification Services (WNS). Vous pouvez désormais utiliser Azure Notification Hubs pour envoyer des notifications de Mobile Services vers votre application via WNS.
+
+    > [WACOM.NOTE]Ce didacticiel montre comment envoyer des notifications depuis un service mobile principal. Vous pouvez utiliser la même inscription au concentrateur de notification pour envoyer des notifications depuis n'importe quel service principal. Pour plus d'informations, consultez la page [Vue d'ensemble des concentrateurs de notification][].
+
+5.  Une fois l'Assistant terminé, une nouvelle page **L'installation Push est presque terminée** s'ouvrira dans Visual Studio. Cette page présente une toute autre méthode permettant de configurer votre projet de service mobile pour envoyer des notifications.
+
+    > [WACOM.NOTE]Le code qui est ajouté à votre solution d'application Windows universelle via l'Assistant Ajouter une notification Push est propre à la plateforme. Plus loin dans cette rubrique, vous supprimerez cette redondance en partageant le code client Mobile Services, ce qui facilitera la maintenance de l'application universelle.
 
 <!-- URLs. -->
+
+  [Assistant Ajouter une notification Push dans Visual Studio 2013]: ../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013.png
+  [Sélectionnez le nom d'une application dans l'Assistant Ajouter une notification Push]: ../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013-2.png
+  [mobile-add-push-notifications-vs2013-3]: ../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013-3.png
+  [Vue d'ensemble des concentrateurs de notification]: http://msdn.microsoft.com/fr-fr/library/azure/jj927170.aspx

@@ -1,7 +1,8 @@
-<properties linkid="manage-linux-common-tasks-lampstack" urlDisplayName="Install LAMP stack" pageTitle="Install the LAMP stack on a Linux virtual machine" metaKeywords="" description="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install the LAMP Stack on a Linux virtual machine in Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-linux-common-tasks-lampstack" urlDisplayName="Install LAMP stack" pageTitle="Install the LAMP stack on a Linux virtual machine" metaKeywords="" description="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install the LAMP Stack on a Linux virtual machine in Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
-Installation de la pile LAMP sur une machine virtuelle Linux dans Azure
-=======================================================================
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
+
+# Installation de la pile LAMP sur une machine virtuelle Linux dans Azure
 
 Une pile LAMP se compose des différents éléments suivants :
 
@@ -10,8 +11,7 @@ Une pile LAMP se compose des différents éléments suivants :
 -   **M**ySQL : serveur de base de données
 -   **P**HP : langage de programmation
 
-Installation sur Ubuntu
------------------------
+## Installation sur Ubuntu
 
 Les packages suivants doivent être installés :
 
@@ -19,18 +19,19 @@ Les packages suivants doivent être installés :
 -   `mysql-server`
 -   `php5`
 -   `php5-mysql`
--   `libapache2-mod-auth-mysql`
--   `libapache2-mod-php5`
--   `php5-xsl`
--   `php5-gd`
--   `php-pear`
 
-Pour ce faire, exécutez cette commande `apt-get install` unique :
+Après avoir exécuté `apt-get update` pour mettre à jour la liste locale de packages, vous pouvez les installer avec une simple commande `apt-get install` :
 
-    apt-get install apache2 mysql-server php5 php5-mysql libapache2-mod-auth-mysql libapache2-mod-php5 php5-xsl php5-gd php-pear
+    # sudo apt-get update
+    # sudo apt-get install apache2 mysql-server php5 php5-mysql
 
-Installation sur CentOS
------------------------
+Après avoir exécuté la commande ci-dessus, vous serez invité à installer ces packages et d'autres dépendances. Appuyez sur « y » puis « Entrée » pour continuer et suivez les indications des invites pour définir un mot de passe d'administration pour MySQL.
+
+Cela installera les extensions PHP minimales requises pour utiliser PHP avec MySQL. Exécutez les commandes suivantes pour voir les autres extensions PHP disponibles sous forme de packages :
+
+    # apt-cache search php5
+
+## Installation sur CentOS et Oracle Linux
 
 Les packages suivants doivent être installés :
 
@@ -40,43 +41,66 @@ Les packages suivants doivent être installés :
 -   `php`
 -   `php-mysql`
 
-Pour ce faire, exécutez cette commande `yum install` unique :
+Vous pouvez installer ces packages avec une simple commande `yum install` :
 
-    yum install httpd mysql mysql-server php-php-mysql
+    # sudo yum install httpd mysql mysql-server php php-mysql
 
-Configuration
--------------
+Après avoir exécuté la commande ci-dessus, vous serez invité à installer ces packages et d'autres dépendances. Appuyez sur « y » puis « Entrée » pour continuer.
 
-1.  Configurez **Apache**.
+Cela installera les extensions PHP minimales requises pour utiliser PHP avec MySQL. Exécutez les commandes suivantes pour voir les autres extensions PHP disponibles sous forme de packages :
 
-    1.  Vous devez redémarrer manuellement le serveur Web Apache. Exécutez la commande suivante :
+    # yum search php
 
-             sudo /etc/init.d/apache2 restart
+## Installation sur SUSE Linux Enterprise Server
 
-    2.  Vérifiez si l'installation est en cours. Dans votre navigateur, accédez à : <http://localhost>. « It works! » (Elle fonctionne) doit être affiché.
+Les packages suivants doivent être installés :
 
-2.  Configurez **MySQL**.
-    1.  Définissez le mot de passe racine pour mysql en exécutant la commande suivante :
+-   apache2
+-   mysql
+-   apache2-mod\_php53
+-   php53-mysql
 
-             mysqladmin -u root -p password yourpassword
+Vous pouvez installer ces packages avec une simple commande `zypper install` :
 
-    2.  Connectez-vous à la console à l'aide de `mysql` ou d'un éventail de clients MySQL.
+    # sudo zypper install apache2 mysql apache2-mod_php53 php53-mysql
 
-3.  Configurez **PHP**.
+Après avoir exécuté la commande ci-dessus, vous serez invité à installer ces packages et d'autres dépendances. Appuyez sur « y » puis « Entrée » pour continuer.
 
-    1.  Activez le module PHP Apache en exécutant la commande suivante :
+Cela installera les extensions PHP minimales requises pour utiliser PHP avec MySQL. Exécutez les commandes suivantes pour voir les autres extensions PHP disponibles sous forme de packages :
 
-             sudo a2enmod php5
+    # zypper search php
 
-    2.  Relancez Apache en exécutant la commande suivante :
+## Configuration
 
-             sudo service apache2 restart
+1.  Configurez **Apache**
 
-Pour aller plus loin
---------------------
+    -   Exécutez la commande suivante pour vous assurer que le serveur Web Apache est lancé :
+
+        -   Ubuntu et SLES : `sudo service apache2 restart`
+
+        -   CentOS et Oracle Linux : `sudo service httpd restart`
+
+    -   Par défaut, Apache écoute sur le port 80. Il est possible que vous ayez besoin d'un point de terminaison pour accéder à votre serveur Apache à distance. Pour plus d'informations, veuillez consulter la documentation sur la [configuration de points de terminaison][].
+
+    -   Vous pouvez maintenant vérifier si Apache fonctionne et fournit du contenu. Dans votre navigateur, accédez à `http://[MYSERVICE].cloudapp.net`, où **[MYSERVICE]** est le nom du service cloud dans lequel se trouve votre machine virtuelle. Dans certaines distributions, cela fera apparaître une page Web par défaut qui affiche simplement « It works! » Dans d'autres distributions, vous pourrez voir une page Web plus complète contenant des liens vers de la documentation et du contenu supplémentaire pour la configuration du serveur Apache.
+
+2.  Configurez **MySQL**
+
+    -   Cette étape n'est pas nécessaire sur Ubuntu, qui vous invite à saisir un mot de passe `root` MySQL au cours de l'installation du package mysql-server.
+
+    -   Dans les autres distributions, définissez le mot de passe racine pour MySQL en exécutant la commande suivante :
+
+            # mysqladmin -u root -p password yourpassword
+
+    -   Vous pouvez ensuite gérer MySQL à l'aide des utilitaires `mysql` ou `mysqladmin`.
+
+## Pour aller plus loin
 
 Il existe de nombreuses ressources pour configurer une pile LAMP sur Ubuntu.
 
--   <https://help.ubuntu.com/community/ApacheMySQLPHP>
--   <http://fedorasolved.org/server-solutions/lamp-stack>
+-   [][]<https://help.ubuntu.com/community/ApacheMySQLPHP></a>
+-   [][1]<http://fedorasolved.org/server-solutions/lamp-stack></a>
 
+  [configuration de points de terminaison]: http://azure.microsoft.com/fr-fr/documentation/articles/virtual-machines-set-up-endpoints/
+  []: https://help.ubuntu.com/community/ApacheMySQLPHP
+  [1]: http://fedorasolved.org/server-solutions/lamp-stack

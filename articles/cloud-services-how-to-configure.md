@@ -1,34 +1,33 @@
 <properties linkid="manage-services-how-to-configure-a-cloud-service" urlDisplayName="How to configure" pageTitle="How to configure a cloud service - Azure" metaKeywords="Configuring cloud services" description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Configure Cloud Services" authors="davidmu" solutions="" manager="" editor="" />
 
-Configuration de services cloud
-===============================
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="davidmu"></tags>
 
-[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
+# <span id="configurecloudservice"></span></a>Configuration de services cloud
+
+[WACOM.INCLUDE [disclaimer][]]
 
 Vous pouvez configurer les paramètres utilisateur les plus communément utilisés pour un service cloud dans le portail de gestion Azure. Ou, si vous voulez mettre à jour directement vos fichiers de configuration, téléchargez un fichier de configuration de service pour le mettre à jour, puis chargez-le et mettez à jour le service cloud avec les modifications de la configuration. Dans les deux cas, les mises à jour de la configuration sont transmises à toutes les instances de rôle.
 
 Vous pouvez également activer une connexion Bureau à distance à l'un ou l'ensemble des rôles en cours d'exécution dans votre service cloud. Le Bureau à distance vous permet d'accéder au bureau de votre application lorsqu'elle est en cours d'exécution, et de dépanner et diagnostiquer les problèmes. Vous pouvez activer une connexion Bureau à distance à votre rôle, même si vous n'avez pas configuré le fichier de définition de service (.csdef) pour le Bureau à distance pendant le développement de l'application. Il n'est pas nécessaire de redéployer votre application pour activer une connexion Bureau à distance.
 
-Azure ne peut garantir que 99,95 % de disponibilité du service pendant les mises à jour de la configuration si vous avez au moins deux instances de rôle (machines virtuelles) pour chaque rôle. Cela permet à une machine virtuelle de traiter les demandes du client pendant que l'autre est mise à jour. Pour plus d'informations, consultez la page [Contrats de niveau de service](https://www.windowsazure.com/en-us/support/legal/sla/).
+Azure ne peut garantir que 99,95 % de disponibilité du service pendant les mises à jour de la configuration si vous avez au moins deux instances de rôle (machines virtuelles) pour chaque rôle. Cela permet à une machine virtuelle de traiter les demandes du client pendant que l'autre est mise à jour. Pour plus d'informations, consultez la page [Contrats de niveau de service][].
 
-Sommaire
---------
+## Sommaire
 
--   [Mise à jour de la configuration d'un service cloud](#update)
--   [Configuration de l'accès à distance aux instances de rôle](#remoteaccess)
+-   [Mise à jour de la configuration d'un service cloud][]
+-   [Configuration de l'accès à distance aux instances de rôle][]
 
-Mise à jour de la configuration d'un service cloud
---------------------------------------------------
+## <span id="update"></span></a> Mise à jour de la configuration d'un service cloud
 
-1.  Dans le [portail de gestion Azure](http://manage.windowsazure.com/), cliquez sur **Cloud Services**. Cliquez ensuite sur le nom du service cloud pour ouvrir le tableau de bord.
+1.  Dans le [portail de gestion Azure][], cliquez sur **Cloud Services**. Cliquez ensuite sur le nom du service cloud pour ouvrir le tableau de bord.
 
 2.  Cliquez sur **Configurer**.
 
     Sur la page **Configure**, vous pouvez configurer la surveillance, mettre à jour les paramètres de rôle et choisir le système d'exploitation invité et la famille pour les instances de rôle (machines virtuelles).
 
-    ![Page de configuration](./media/cloud-services-how-to-configure/CloudServices_ConfigurePage1.png)
+    ![Page de configuration][]
 
-3.  Dans les paramètres de surveillance, définissez le niveau de surveillance sur Détaillé ou Minimal et configurez les chaînes de connexion des diagnostics requises pour la surveillance détaillée. Pour obtenir des instructions, consultez la rubrique [Surveillance des services cloud](../how-to-monitor-a-cloud-service/).
+3.  Dans les paramètres de surveillance, définissez le niveau de surveillance sur Détaillé ou Minimal et configurez les chaînes de connexion des diagnostics requises pour la surveillance détaillée. Pour obtenir des instructions, consultez la rubrique [Surveillance des services cloud][].
 
 4.  Pour les rôles de service (regroupés par rôle), vous pouvez mettre à jour les paramètres suivants :
 
@@ -44,7 +43,7 @@ Mise à jour de la configuration d'un service cloud
 
     Si vous résolvez tous les problèmes de compatibilité rencontrés par vos applications avec la version la plus récente du système d'exploitation, vous pouvez reprendre les mises à jour automatiques des systèmes d'exploitation en définissant la version du système d'exploitation sur **Automatique**.
 
-    ![Paramètres du système d'exploitation](./media/cloud-services-how-to-configure/CloudServices_ConfigurePage_OSSettings.png)
+    ![Paramètres du système d'exploitation][]
 
 6.  Pour enregistrer vos paramètres de configuration et les transmettre aux instances de rôle, cliquez sur **Enregistrer**. Cliquez sur **Ignorer** pour annuler les modifications. Les commandes **Enregistrer** et **Ignorer** sont ajoutées à la barre de commandes lorsque vous avez modifié un paramètre.
 
@@ -58,44 +57,45 @@ Mise à jour de la configuration d'un service cloud
 
     La page **Télécharger un nouveau fichier de configuration** s'ouvre.
 
-    ![Télécharger une configuration](./media/cloud-services-how-to-configure/CloudServices_UploadConfigFile.png)
+    ![Télécharger une configuration][]
 
     b. Dans **Fichier de configuration**, cliquez sur **Parcourir** pour sélectionner le fichier .cscfg mis à jour.
 
     c. Si votre service cloud contient des rôles qui ont une seule instance, activez la case à cocher **Apply configuration even if one or more roles contain a single instance** afin de permettre l'exécution des mises à jour de la configuration pour les rôles.
 
-    Si vous n'avez pas défini au moins deux instances de chaque rôle, Azure n'est pas en mesure de garantir au moins 99,95 % de disponibilité pour votre service cloud pendant les mises à jour de la configuration du service. Pour plus d'informations, consultez la page [Contrats de niveau de service](http://www.windowsazure.com/fr-fr/support/legal/sla/).
+    Si vous n'avez pas défini au moins deux instances de chaque rôle, Azure n'est pas en mesure de garantir au moins 99,95 % de disponibilité pour votre service cloud pendant les mises à jour de la configuration du service. Pour plus d'informations, consultez la page [Contrats de niveau de service][1].
 
     d. Cliquez sur OK (coche).
 
-Configuration de l'accès à distance aux instances de rôle
----------------------------------------------------------
+## <span id="remoteaccess"></span></a> Configuration de l'accès à distance aux instances de rôle
 
 Le Bureau à distance vous permet d'accéder au bureau d'un rôle en cours d'exécution dans Azure. Vous pouvez utiliser une connexion Bureau à distance pour dépanner et diagnostiquer les problèmes rencontrés par votre application lorsqu'elle est en cours d'exécution. Vous pouvez activer une connexion Bureau à distance dans votre rôle pendant la conception de l'application ou après son déploiement dans Azure (pendant que le rôle est en cours d'exécution). L'activation d'une connexion Bureau à distance dans un rôle en cours d'exécution par l'intermédiaire du portail de gestion ne vous oblige pas à redéployer votre application. Pour authentifier la connexion Bureau à distance, vous pouvez utiliser un certificat préalablement téléchargé ou en créer un.
 
 Sur la page **Configurer** de votre service cloud, vous pouvez activer le Bureau à distance, ou changer le compte Administrateur local ou le mot de passe utilisés pour la connexion aux machines virtuelles, le certificat employé dans l'authentification ou la date d'expiration.
 
-**Remarque**
-
-Si votre service cloud est constitué de plusieurs machines virtuelles basées sur Windows Server connectées, vous n'êtes pas obligé de configurer l'accès à distance, car ces machines virtuelles sont configurées automatiquement pour le Bureau à distance.
+<div class="dev-callout"> 
+<b>Remarque</b> 
+<p>Si votre service cloud est constitu&eacute; de plusieurs machines virtuelles bas&eacute;es sur Windows Server connect&eacute;es, vous n'&ecirc;tes pas oblig&eacute; de configurer l'acc&egrave;s &agrave; distance, car ces machines virtuelles sont configur&eacute;es automatiquement pour le Bureau &agrave; distance.</p> 
+</div>
 
 ### Configuration de l'accès à distance dans le fichier de définition de service
 
-Ajoutez des éléments **Import** au fichier de définition de service (.csdef) pour importer les modules RemoteAccess et RemoteForwarder dans le modèle de service. Lorsque ces modules sont présents, Azure ajoute les paramètres de configuration du Bureau à distance au fichier de configuration de service. Pour terminer la configuration du Bureau à distance, vous devez importer un certificat dans Azure et spécifier le certificat dans le fichier de configuration de service. Pour plus d'informations, consultez la page [Configurer une connexion Bureau à distance pour un rôle dans Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh124107.aspx).
+Ajoutez des éléments **Import** au fichier de définition de service (.csdef) pour importer les modules RemoteAccess et RemoteForwarder dans le modèle de service. Lorsque ces modules sont présents, Azure ajoute les paramètres de configuration du Bureau à distance au fichier de configuration de service. Pour terminer la configuration du Bureau à distance, vous devez importer un certificat dans Azure et spécifier le certificat dans le fichier de configuration de service. Pour plus d'informations, consultez la page [Configurer une connexion Bureau à distance pour un rôle dans Azure][].
 
 ### Activation ou modification de l'accès à distance pour les instances de rôle dans le portail de gestion
 
-1.  Connectez-vous au [portail de gestion](http://manage.windowsazure.com/) et cliquez sur **Cloud Services**. Cliquez ensuite sur le nom du service cloud pour ouvrir le tableau de bord.
+1.  Connectez-vous au [portail de gestion][portail de gestion Azure] et cliquez sur **Cloud Services**. Cliquez ensuite sur le nom du service cloud pour ouvrir le tableau de bord.
 
 2.  Ouvrez la page **Configurer** du service cloud et cliquez sur **Remote**.
 
     La page **Configurer le Bureau à distance** affiche (le cas échéant) les paramètres qui ont été ajoutés au fichier de configuration de service lors du déploiement du service cloud, comme indiqué ci-après.
 
-    ![Services cloud à distance](./media/cloud-services-how-to-configure/CloudServices_Remote.png)
+    ![Services cloud à distance][]
 
-> [WACOM.NOTE] **Avertissement :** toutes les instances de rôle sont redémarrées lorsque vous activez pour la première fois le Bureau à distance et cliquez sur OK (coche). Pour éviter un redémarrage, le certificat utilisé pour chiffrer le mot de passe doit être installé sur le rôle. Si aucun certificat n'est installé, l'option suivante est affichée : ![CloudServices\_CreateNewCertDropDown](./media/cloud-services-how-to-configure/CloudServices_CreateNewCertDropDown.png)
+> [WACOM.NOTE]
+> **Avertissement :** toutes les instances de rôle sont redémarrées lorsque vous activez pour la première fois le Bureau à distance et cliquez sur OK (coche). Pour éviter un redémarrage, le certificat utilisé pour chiffrer le mot de passe doit être installé sur le rôle. Si aucun certificat n'est installé, l'option suivante est affichée : ![CloudServices\_CreateNewCertDropDown][]
 
-    Pour éviter un redémarrage, installez un certificat, puis revenez dans cette boîte de dialogue (pour plus d'informations, voir [Utilisation du Bureau à distance avec des rôles Azure][]). Si vous choisissez un certificat existant, une mise à jour de la configuration sera envoyée à toutes les instances dans le rôle.
+    To prevent a restart, install a certificate and then return to this dialog (see [Using Remote Desktop with Azure Roles][] for more information). If you choose an existing certificate, then a configuration update will be sent to all the instances in the role.
 
 1.  Dans **Rôles**, sélectionnez le rôle de service que vous voulez mettre à jour ou sélectionnez **Tous** pour tous les rôles.
 
@@ -125,7 +125,7 @@ Ajoutez des éléments **Import** au fichier de définition de service (.csdef) 
 
 ### Désactivation de l'accès à distance pour les instances de rôle dans le portail de gestion
 
-1.  Connectez-vous au [portail de gestion](http://manage.windowsazure.com/) et cliquez sur **Cloud Services**. Cliquez ensuite sur le nom du service cloud pour ouvrir le tableau de bord.
+1.  Connectez-vous au [portail de gestion][portail de gestion Azure] et cliquez sur **Cloud Services**. Cliquez ensuite sur le nom du service cloud pour ouvrir le tableau de bord.
 
 2.  Ouvrez la page **Configurer** du service cloud et cliquez sur **Remote**.
 
@@ -135,6 +135,16 @@ Ajoutez des éléments **Import** au fichier de définition de service (.csdef) 
 
 5.  Cliquez sur OK (coche).
 
-[Set Up a Remote Desktop Connection for a Role in Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh124107.aspx
-
-[Using Remote Desktop with Azure Roles]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg443832.aspx
+  [disclaimer]: ../includes/disclaimer.md
+  [Contrats de niveau de service]: https://www.windowsazure.com/fr-fr/support/legal/sla/
+  [Mise à jour de la configuration d'un service cloud]: #update
+  [Configuration de l'accès à distance aux instances de rôle]: #remoteaccess
+  [portail de gestion Azure]: http://manage.windowsazure.com/
+  [Page de configuration]: ./media/cloud-services-how-to-configure/CloudServices_ConfigurePage1.png
+  [Surveillance des services cloud]: ../how-to-monitor-a-cloud-service/
+  [Paramètres du système d'exploitation]: ./media/cloud-services-how-to-configure/CloudServices_ConfigurePage_OSSettings.png
+  [Télécharger une configuration]: ./media/cloud-services-how-to-configure/CloudServices_UploadConfigFile.png
+  [1]: http://www.windowsazure.com/fr-fr/support/legal/sla/
+  [Configurer une connexion Bureau à distance pour un rôle dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh124107.aspx
+  [Services cloud à distance]: ./media/cloud-services-how-to-configure/CloudServices_Remote.png
+  [CloudServices\_CreateNewCertDropDown]: ./media/cloud-services-how-to-configure/CloudServices_CreateNewCertDropDown.png
