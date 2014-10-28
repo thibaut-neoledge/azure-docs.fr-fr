@@ -130,7 +130,7 @@ Les faisceaux de connexions complets incluent une connexion entre chaque nœud d
 
 #### Faisceaux filtrés
 
-Les spécifications de faisceaux de connexions filtrés incluent un prédicat, dont la syntaxe est assez similaire à celle d'une expression lambda C\#. L'exemple suivant est une définition de deux faisceaux filtrés :
+Les spécifications de faisceaux de connexions filtrés incluent un prédicat, dont la syntaxe est assez similaire à celle d'une expression lambda C#. L'exemple suivant est une définition de deux faisceaux filtrés :
 
     input Pixels [10, 20];
     hidden ByRow[10, 12] from Pixels where (s,d) => s[0] == d[0];

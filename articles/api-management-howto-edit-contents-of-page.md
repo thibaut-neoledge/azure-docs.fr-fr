@@ -8,7 +8,7 @@ Le portail des développeurs se compose de pages générées automatiquement tel
 
 Pour afficher la liste de toutes les pages de contenu existantes, cliquez sur **Contenu** dans le menu **Portail des développeurs** de la console de gestion.
 
-![Manage content][]
+![Manage content][Manage content]
 
 Cliquez sur la page « Bienvenue » pour modifier le texte s'affichant sur la page d'accueil du portail des développeurs. Apportez les modifications de votre choix, générez-en un aperçu si nécessaire, puis cliquez sur **Publier maintenant** pour les rendre visibles pour tous.
 

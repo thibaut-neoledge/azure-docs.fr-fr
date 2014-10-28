@@ -20,7 +20,7 @@ Azure Traffic Manager utilise trois méthodes d'équilibrage de charge. Elles so
 
 -   **Performance** : la méthode de Performance distribue le trafic sur la base de l'aller-retour le plus court vers les clients. Cette méthode peut être utilisée pour les sites web d'une même région ou de régions différentes.
 
-Pour plus d'informations sur l'équilibrage de charge dans Azure Traffic Manager, consultez la rubrique [À propos des méthodes d'équilibrage de charge dans Traffic Manager][].
+Pour plus d'informations sur l'équilibrage de charge dans Azure Traffic Manager, consultez la rubrique [À propos des méthodes d'équilibrage de charge dans Traffic Manager][À propos des méthodes d'équilibrage de charge dans Traffic Manager].
 
 ## Sites Web Azure et profils Traffic Manager
 
@@ -38,20 +38,20 @@ Lorsque vous utilisez Azure Traffic Manager avec Azure, tenez compte des points 
 
 -   Quand vous avez ajouté un site web à un profil, l'**URL du site** dans le tableau de bord de la page du portail du site web affiche l'URL de domaine personnalisé du site web, le cas échéant. Sinon, elle affiche l'URL du profil Traffic Manager (par exemple, `contoso.trafficmgr.com`). Le nom de domaine direct du site web et l'URL Traffic Manager sont tous deux affichés dans la page de configuration du site web dans la section **Noms de domaine**.
 
--   Vos noms de domaine personnalisés fonctionnent comme prévu mais, en plus de les ajouter à vos sites web, vous devez configurer votre carte DNS pour qu'elle pointe sur l'URL Traffic Manager. Pour plus d'informations sur la configuration d'un domaine personnalisé pour un site web Azure, consultez la page [Configuration d'un nom de domaine personnalisé pour un site web Azure][].
+-   Vos noms de domaine personnalisés fonctionnent comme prévu mais, en plus de les ajouter à vos sites web, vous devez configurer votre carte DNS pour qu'elle pointe sur l'URL Traffic Manager. Pour plus d'informations sur la configuration d'un domaine personnalisé pour un site web Azure, consultez la page [Configuration d'un nom de domaine personnalisé pour un site web Azure][Configuration d'un nom de domaine personnalisé pour un site web Azure].
 
 -   Vous pouvez uniquement ajouter des sites web qui sont en mode Standard dans un profil Azure Traffic Manager.
 
 ## Étapes suivantes
 
-Pour une vue d'ensemble conceptuelle et technique d'Azure Traffic Manager, consultez la rubrique [Vue d'ensemble de Traffic Manager][].
+Pour une vue d'ensemble conceptuelle et technique d'Azure Traffic Manager, consultez la rubrique [Vue d'ensemble de Traffic Manager][Vue d'ensemble de Traffic Manager].
 
-Pour plus d'informations sur la configuration d'Azure Traffic Manager, y compris pour l'utilisation de Sites Web Azure, consultez la rubrique [Tâches de configuration Traffic Manager][].
+Pour plus d'informations sur la configuration d'Azure Traffic Manager, y compris pour l'utilisation de Sites Web Azure, consultez la rubrique [Tâches de configuration Traffic Manager][Tâches de configuration Traffic Manager].
 
-Pour plus d'informations sur l'équilibrage de charge dans Azure Traffic Manager, consultez la rubrique [À propos des méthodes d'équilibrage de charge dans Traffic Manager][].
+Pour plus d'informations sur l'équilibrage de charge dans Azure Traffic Manager, consultez la rubrique [À propos des méthodes d'équilibrage de charge dans Traffic Manager][À propos des méthodes d'équilibrage de charge dans Traffic Manager].
 
 Pour plus d'informations sur l'utilisation de Traffic Manager avec Sites Web Azure, consultez les billets de blog
-[Using Windows Azure Traffic Manager with WAWS][] et [Azure Traffic Manager can now integrate with Azure Web sites][].
+[Using Windows Azure Traffic Manager with WAWS][Using Windows Azure Traffic Manager with WAWS] et [Azure Traffic Manager can now integrate with Azure Web sites][Azure Traffic Manager can now integrate with Azure Web sites].
 
   [À propos des méthodes d'équilibrage de charge dans Traffic Manager]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn339010.aspx
   [Configuration d'un nom de domaine personnalisé pour un site web Azure]: https://www.windowsazure.com/fr-fr/documentation/articles/web-sites-custom-domain-name/

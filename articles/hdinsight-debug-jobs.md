@@ -10,9 +10,9 @@ Les messages d'erreur répertoriés dans cette rubrique visent à aider les util
 
 Certains de ces messages d'erreur peuvent également apparaître dans le portail Azure lorsqu'il sert à gérer les clusters HDinsight. Mais d'autres messages d'erreur que vous pouvez rencontrer ici sont moins granulaires, en raison des contraintes qui s'appliquent aux mesures correctives possibles dans ce contexte. D'autres encore sont fournis dans les contextes où l'atténuation est évidente. Si les contraintes sur les paramètres sont violées, par exemple, le message s'affiche à droite de la zone dans laquelle la valeur a été entrée. Dans le cas suivant, un trop grand nombre de nœuds de données a été demandé. La solution consiste à réduire ce nombre à une valeur autorisée, c'est-à-dire 22 ou moins.
 
-![HDI.Debugging.ErrorMessages.Portal][]
+![HDI.Debugging.ErrorMessages.Portal][HDI.Debugging.ErrorMessages.Portal]
 
-Les erreurs auxquelles un utilisateur peut être confronté dans Azure PowerShell ou dans le portail Azure sont répertoriées dans l'ordre alphabétique des noms dans la section [Erreurs HDInsight][]. Chaque erreur répertoriée est liée à une entrée de la section [Description et atténuation des erreurs][] qui fournit les informations suivantes sur l'erreur :
+Les erreurs auxquelles un utilisateur peut être confronté dans Azure PowerShell ou dans le portail Azure sont répertoriées dans l'ordre alphabétique des noms dans la section [Erreurs HDInsight][Erreurs HDInsight]. Chaque erreur répertoriée est liée à une entrée de la section [Description et atténuation des erreurs][Description et atténuation des erreurs] qui fournit les informations suivantes sur l'erreur :
 
 -   **Description** : message d'erreur visible pour les utilisateurs
 -   **Atténuation** : mesures à prendre pour la récupération à la suite de l'erreur.
@@ -266,12 +266,12 @@ Les erreurs auxquelles un utilisateur peut être confronté dans Azure PowerShel
 ### <span id="UnableToResolveDNS"></span></a>UnableToResolveDNS
 
 -   **Description** : impossible de résoudre le DNS *URL\_DNS*. Veillez à fournir l'URL complète du point de terminaison d'objet blob.
--   **Atténuation** : fournissez une URL d'objet blob correcte. L'URL DOIT être entièrement correcte, notamment commencer par *<http://>* et se terminer par *[.com][]*. L'URL complète se trouve généralement sous l'onglet Stockage du portail manage.windowsazure.com.
+-   **Atténuation** : fournissez une URL d'objet blob correcte. L'URL DOIT être entièrement correcte, notamment commencer par *<http://>* et se terminer par *[.com][.com]*. L'URL complète se trouve généralement sous l'onglet Stockage du portail manage.windowsazure.com.
 
 ### <span id="UnableToVerifyLocationOfResource"></span></a>UnableToVerifyLocationOfResource
 
 -   **Description** : impossible de vérifier l'emplacement de la ressource *URL\_DNS*. Veillez à fournir l'URL complète du point de terminaison d'objet blob.
--   **Atténuation** : fournissez une URL d'objet blob correcte. L'URL DOIT être entièrement correcte, notamment commencer par *<http://>* et se terminer par *[.com][]*. L'URL complète se trouve généralement sous l'onglet Stockage du portail manage.windowsazure.com.
+-   **Atténuation** : fournissez une URL d'objet blob correcte. L'URL DOIT être entièrement correcte, notamment commencer par *<http://>* et se terminer par *[.com][.com]*. L'URL complète se trouve généralement sous l'onglet Stockage du portail manage.windowsazure.com.
 
 ### <span id="VersionCapabilityNotAvailable"></span></a>VersionCapabilityNotAvailable
 
@@ -295,7 +295,7 @@ Les erreurs auxquelles un utilisateur peut être confronté dans Azure PowerShel
 
 ## <span id="resources"></span></a>Autres ressources de débogage
 
--   [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][]
+-   [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][Documentation du Kit de développement logiciel (SDK) Azure HDInsight]
 
   [HDI.Debugging.ErrorMessages.Portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
   [Erreurs HDInsight]: #hdinsight-error-messages
@@ -345,4 +345,4 @@ Les erreurs auxquelles un utilisateur peut être confronté dans Azure PowerShel
   [VersionNotSupportedInRegion]: #VersionNotSupportedInRegion
   [WasbAccountConfigNotFound]: #WasbAccountConfigNotFound
   [.com]: http://
-  [Documentation du Kit de développement logiciel (SDK) Azure HDInsight]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+  [Documentation du Kit de développement logiciel (SDK) Azure HDInsight]: http://msdnstage.redmond.corp.microsoft.com/fr-fr/library/dn479185.aspx

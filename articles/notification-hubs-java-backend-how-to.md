@@ -358,14 +358,14 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Java 
 
   [Java]: /fr-fr/documentation/articles/notification-hubs-java-backend-how-to/ "Java"
   [PHP]: /fr-fr/documentation/articles/notification-hubs-php-backend-how-to/ "PHP"
-  [API REST de Notification Hubs]: http://msdn.microsoft.com/en-us/library/dn223264.aspx
+  [API REST de Notification Hubs]: http://msdn.microsoft.com/fr-fr/library/dn223264.aspx
   [didacticiel de prise en main]: http://azure.microsoft.com/fr-fr/documentation/articles/notification-hubs-ios-get-started/
-  [Kit de développement logiciel (SDK) .NET Notification Hubs]: http://msdn.microsoft.com/en-us/library/jj933431.aspx
+  [Kit de développement logiciel (SDK) .NET Notification Hubs]: http://msdn.microsoft.com/fr-fr/library/jj933431.aspx
   [exemple de wrapper REST Java]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-java
   [Suivi du didacticiel]: #complete-tutorial
-  [MSDN]: http://msdn.microsoft.com/en-us/library/dn530746.aspx
+  [MSDN]: http://msdn.microsoft.com/fr-fr/library/dn530746.aspx
   [Apache HttpComponents]: http://hc.apache.org/httpcomponents-client-ga/
   [Apache Commons-Codec]: http://commons.apache.org/proper/commons-codec/
   [Apache Commons-Io]: http://commons.apache.org/proper/commons-io/
-  [ici]: http://msdn.microsoft.com/en-us/library/dn495627.aspx
-  [documentation sur les API REST de Notification Hubs]: http://msdn.microsoft.com/en-us/library/dn495827.aspx
+  [ici]: http://msdn.microsoft.com/fr-fr/library/dn495627.aspx
+  [documentation sur les API REST de Notification Hubs]: http://msdn.microsoft.com/fr-fr/library/dn495827.aspx

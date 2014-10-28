@@ -14,22 +14,22 @@ Vous ne pouvez pas distribuer de manière sécurisée les informations d'identif
 
 Dans ce didacticiel, vous allez ajouter une fonctionnalité à l'application de démarrage rapide Mobile Services pour prendre des photos et télécharger les images vers Azure en utilisant une signature d'accès partagé générée par Mobile Services. Ce didacticiel vous guide tout au long des étapes de base suivantes pour mettre à jour le démarrage rapide de Mobile Services en vue de télécharger des images vers le service de stockage d'objets blob :
 
-1.  [Installation de la bibliothèque du client de stockage][]
-2.  [Mise à jour de l'application cliente pour capturer des images][]
-3.  [Installation du client de stockage dans le projet de service mobile][]
-4.  [Mise à jour de la définition TodoItem dans le modèle de données][]
-5.  [Mise à jour du contrôleur de table pour générer une signature d'accès partagé][]
-6.  [Téléchargement des images pour tester l'application][]
+1.  [Installation de la bibliothèque du client de stockage][Installation de la bibliothèque du client de stockage]
+2.  [Mise à jour de l'application cliente pour capturer des images][Mise à jour de l'application cliente pour capturer des images]
+3.  [Installation du client de stockage dans le projet de service mobile][Installation du client de stockage dans le projet de service mobile]
+4.  [Mise à jour de la définition TodoItem dans le modèle de données][Mise à jour de la définition TodoItem dans le modèle de données]
+5.  [Mise à jour du contrôleur de table pour générer une signature d'accès partagé][Mise à jour du contrôleur de table pour générer une signature d'accès partagé]
+6.  [Téléchargement des images pour tester l'application][Téléchargement des images pour tester l'application]
 
 Ce didacticiel requiert les éléments suivants :
 
 -   Microsoft Visual Studio 2013 ou une version ultérieure.
 -   Gestionnaire de package Nuget pour Microsoft Visual Studio ;
--   [un compte Azure Storage ;][]
+-   [un compte Azure Storage ;][un compte Azure Storage ;]
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez effectuer le didacticiel [Prise en main de Mobile Services][].
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez effectuer le didacticiel [Prise en main de Mobile Services][Prise en main de Mobile Services].
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage][mobile-services-dotnet-backend-configure-blob-storage]]
 
 ## <a name="install-storage-client"></a>Installation du client de stockage pour les applications du Windows Store
 
@@ -45,7 +45,7 @@ Avant de pouvoir utiliser une signature d'accès partagé en vue de télécharge
 
 Dans la prochaine étape, vous allez mettre à jour l'application de démarrage rapide pour capturer et télécharger des images.
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage][]]
+[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage][mobile-services-windows-store-dotnet-upload-to-blob-storage]]
 
 
 

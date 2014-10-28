@@ -42,7 +42,7 @@ Une fois l'espace de travail ML créé, vous pouvez vous connecter à ML Studio
 
 2.  Une fois les cookies supprimés, redémarrez le navigateur et accédez à [https://studio.azureml.net](https://studio.azureml.net). Lorsque vous êtes invité à fournir un nom d'utilisateur et un mot de passe, entrez le même compte Microsoft que celui que vous avez spécifié en tant que propriétaire de l'espace de travail.
 
-Notre objectif est de vous offrir une expérience d'Azure ML qui soit aussi fluide et transparente que possible. Publiez tous vos commentaires et problèmes ci-dessous ou sur le [forum d'Azure ML](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning) pour nous permettre de vous aider au mieux.
+Notre objectif est de vous offrir une expérience d'Azure ML qui soit aussi fluide et transparente que possible. Publiez tous vos commentaires et problèmes ci-dessous ou sur le [forum d'Azure ML](http://social.msdn.microsoft.com/Forums/windowsazure/fr-fr/home?forum=MachineLearning) pour nous permettre de vous aider au mieux.
 
 [screen1]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen1.png
 [screen2]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen2.png

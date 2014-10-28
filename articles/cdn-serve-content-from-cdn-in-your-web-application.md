@@ -36,8 +36,8 @@ Ce didacticiel nécessite les éléments suivants :
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>Pour suivre ce didacticiel, vous avez besoin d'un compte Azure.</h5>
   <ul>
-    <li>Vous pouvez <a href="http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F">ouvrir un compte Azure gratuitement</a>&nbsp;: vous obtenez alors des cr&eacute;dits dont vous pouvez vous servir pour tester les services Azure payants, et m&ecirc;me lorsqu'ils sont &eacute;puis&eacute;s, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web.</li>
-    <li>Vous pouvez <a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activer les avantages de l'abonnement MSDN</a>&nbsp;: votre abonnement MSDN vous donne droit chaque mois &agrave; des cr&eacute;dits dont vous pouvez vous servir pour les services Azure payants.</li>
+    <li>Vous pouvez <a href="http://azure.microsoft.com/fr-fr/pricing/free-trial/?WT.mc_id=A261C142F">ouvrir un compte Azure gratuitement</a>&nbsp;: vous obtenez alors des cr&eacute;dits dont vous pouvez vous servir pour tester les services Azure payants, et m&ecirc;me lorsqu'ils sont &eacute;puis&eacute;s, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web.</li>
+    <li>Vous pouvez <a href="http://azure.microsoft.com/fr-fr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activer les avantages de l'abonnement MSDN</a>&nbsp;: votre abonnement MSDN vous donne droit chaque mois &agrave; des cr&eacute;dits dont vous pouvez vous servir pour les services Azure payants.</li>
   <ul>
 </div>
 
@@ -269,11 +269,11 @@ Pour en savoir plus sur l'intégration d'Azure CDN à Azure Cloud Services, c
   [automatiser le téléchargement du contenu de votre application ASP.NET vers votre point de terminaison CDN ;]: #upload
   [configurer le cache du réseau de distribution de contenu (CDN) pour refléter la mise à jour de contenu souhaitée ;]: #update
   [distribuer immédiatement du nouveau contenu au moyen de chaînes de requête.]: #query
-  [compte Microsoft Azure]: http://azure.microsoft.com/en-us/account/
+  [compte Microsoft Azure]: http://azure.microsoft.com/fr-fr/account/
   [Kit de développement logiciel (SDK) Azure]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9811175&clcid=0x409
-  [ouvrir un compte Azure gratuitement]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F
-  [activer les avantages de l'abonnement MSDN]: http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+  [ouvrir un compte Azure gratuitement]: http://azure.microsoft.com/fr-fr/pricing/free-trial/?WT.mc_id=A261C142F
+  [activer les avantages de l'abonnement MSDN]: http://azure.microsoft.com/fr-fr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   [portail de gestion Azure]: http://manage.windowsazure.com/
   []: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-1.PNG
   [1]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2.PNG
@@ -281,7 +281,7 @@ Pour en savoir plus sur l'intégration d'Azure CDN à Azure Cloud Services, c
   [3]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-3-succeed.PNG
   [www.ip-address.org]: http://www.ip-address.org
   [4]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-4.PNG
-  [Emplacements des nœuds CDN Azure]: http://msdn.microsoft.com/en-us/library/azure/gg680302.aspx
+  [Emplacements des nœuds CDN Azure]: http://msdn.microsoft.com/fr-fr/library/azure/gg680302.aspx
   [5]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2-enablequerya.PNG
   [6]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2-enablequeryb.PNG
   [7]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-5.PNG
@@ -295,9 +295,9 @@ Pour en savoir plus sur l'intégration d'Azure CDN à Azure Cloud Services, c
   [Remise continue pour Cloud Services dans Azure]: http://azure.microsoft.com/fr-fr/documentation/articles/cloud-services-dotnet-continuous-delivery/
   [Téléchargement de contenu d'une application ASP.NET dans des objets blob Azure]: http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a
   [15]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-updates-1.PNG
-  [Azure Cloud Services]: http://azure.microsoft.com/en-us/services/cloud-services/
+  [Azure Cloud Services]: http://azure.microsoft.com/fr-fr/services/cloud-services/
   [stackoverflow]: http://stackoverflow.com/a/13736433
   [Intégration d'un service cloud à Azure CDN]: http://azure.microsoft.com/fr-fr/documentation/articles/cloud-services-how-to-create-deploy/
   [Vue d'ensemble du réseau de distribution de contenu (CDN) Azure]: http://msdn.microsoft.com/library/azure/ff919703.aspx
-  [Intégration d'une application cloud à Azure CDN]: http://azure.microsoft.com/fr-fr/documentation/Articles/cdn-cloud-service-with-cdn/
+  [Intégration d'une application cloud à Azure CDN]: http://azure.microsoft.com/fr-fr/Documentation/Articles/cdn-cloud-service-with-cdn/
   [Utilisation du réseau de distribution de contenu (CDN) Azure]: http://azure.microsoft.com/fr-fr/documentation/articles/cdn-how-to-use/

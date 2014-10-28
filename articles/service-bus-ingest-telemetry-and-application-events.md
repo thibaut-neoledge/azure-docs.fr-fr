@@ -22,9 +22,9 @@ Les applications modernes créent une énorme quantité d'informations lorsqu'el
 -   [Stockage][Stockage]
 -   [HDInsight][HDInsight]
 
-  [Concentrateurs d'événements]: http://msdn.microsoft.com/en-us/library/dn789973.aspx
-  [Tarification des concentrateurs d'événements]: http://azure.microsoft.com/en-us/pricing/details/event-hubs/
-  [Modèle d'approvisionnement en événements]: http://msdn.microsoft.com/en-us/library/dn589792.aspx
+  [Concentrateurs d'événements]: http://msdn.microsoft.com/fr-fr/library/dn789973.aspx
+  [Tarification des concentrateurs d'événements]: http://azure.microsoft.com/fr-fr/pricing/details/event-hubs/
+  [Modèle d'approvisionnement en événements]: http://msdn.microsoft.com/fr-fr/library/dn589792.aspx
   [Référence de l'API REST du concentrateur d'événements]: http://go.microsoft.com/fwlink/?LinkId=403977
   [Exemples de code du concentrateur d'événements]: http://go.microsoft.com/fwlink/?LinkID=402449
   [Stockage]: http://azure.microsoft.com/fr-fr/documentation/services/storage/

@@ -15,11 +15,11 @@ web, ainsi que le téléchargement d'un certificat SSL pour sécuriser votre app
 
 Cette procédure comprend les étapes suivantes :
 
--   [Étape 1 : création d'un service Node.js et publication de ce service dans le cloud][]
--   [Étape 2 : obtention d'un certificat SSL][]
--   [Étape 3 : importation du certificat SSL][]
--   [Étape 4 : modification des fichiers de définition de service et de configuration][]
--   [Étape 5 : connexion à l'instance de rôle à l'aide de HTTPS][]
+-   [Étape 1 : création d'un service Node.js et publication de ce service dans le cloud][Étape 1 : création d'un service Node.js et publication de ce service dans le cloud]
+-   [Étape 2 : obtention d'un certificat SSL][Étape 2 : obtention d'un certificat SSL]
+-   [Étape 3 : importation du certificat SSL][Étape 3 : importation du certificat SSL]
+-   [Étape 4 : modification des fichiers de définition de service et de configuration][Étape 4 : modification des fichiers de définition de service et de configuration]
+-   [Étape 5 : connexion à l'instance de rôle à l'aide de HTTPS][Étape 5 : connexion à l'instance de rôle à l'aide de HTTPS]
 
 ## <a name="step1"> </a>Étape 1 : création d'un service Node.js et publication de ce service dans le cloud
 
@@ -31,9 +31,9 @@ d'écrire sur le service Node.js comme s'il s'agissait d'un service http. Vous p
 
 1.  À partir du menu **Démarrer** ou de l'**écran d'accueil**, recherchez **Azure PowerShell**. Enfin, cliquez avec le bouton droit sur **Azure PowerShell** et sélectionnez **Exécuter en tant qu'administrateur**.
 
-    ![Icône Azure PowerShell][]
+    ![Icône Azure PowerShell][Icône Azure PowerShell]
 
-[WACOM.INCLUDE [install-dev-tools][]]
+[WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
 1.  Créez un projet de service en utilisant la cmdlet **New-AzureServiceProject**.
 
@@ -86,13 +86,13 @@ Pour importer le certificat SSL, procédez comme suit :
 
 1.  Dans l'Explorateur Windows, accédez au répertoire du fichier **.pfx** contenant le certificat. Double-cliquez ensuite sur le certificat. L'Assistant Importation de certificat s'affiche alors.
 
-    ![Assistant Certificat][]
+    ![Assistant Certificat][Assistant Certificat]
 
 2.  Dans la section **Emplacement de stockage**, sélectionnez **Utilisateur actuel**, puis cliquez sur **Suivant**. Le certificat est alors installé dans le magasin de certificats pour votre compte utilisateur.
 
 3.  Poursuivez l'Assistant en acceptant les valeurs par défaut, jusqu'à l'écran **Protection de clé privée**. Entrez alors le mot de passe lié au certificat (le cas échéant). Sélectionnez également **Marquer cette clé comme exportable**. Enfin, cliquez sur **Suivant**.
 
-    ![Protection de clé privée][]
+    ![Protection de clé privée][Protection de clé privée]
 
 4.  Poursuivez dans l'Assistant en acceptant les valeurs par défaut jusqu'à la fin de l'installation du certificat.
 
@@ -120,7 +120,7 @@ de service et de configuration de service doivent être mis à jour.
 
     La section **Certificates** définit le nom du certificat, son
     emplacement et le nom du magasin dans lequel il se trouve. Depuis l'installation du certificat dans le magasin de certificats, la valeur « My » est utilisée. Il est également possible d'utiliser d'autres emplacements de stockage de certificats. Pour plus
-    d'informations, consultez la page [Association d'un certificat à un service][].
+    d'informations, consultez la page [Association d'un certificat à un service][Association d'un certificat à un service].
 
 2.  Dans votre fichier de définition de service, mettez à jour l'élément http **InputEndpoint** dans la section **Endpoints** pour activer HTTPS :
 
@@ -169,7 +169,7 @@ vous pouvez vous y connecter via HTTPS.
 
 2.  Faites défiler l'écran vers le bas, puis cliquez sur le lien affiché en tant qu'**URL du site** :
 
-    ![URL du site][]
+    ![URL du site][URL du site]
 
     <div class="dev-callout">
 <strong>Remarque</strong>
@@ -186,11 +186,11 @@ vous pouvez vous y connecter via HTTPS.
 
 ## Ressources supplémentaires
 
-[Association d'un certificat à un service][]
+[Association d'un certificat à un service][Association d'un certificat à un service]
 
-[Configuration de SSL pour une application Node.js dans un rôle de travail Azure][]
+[Configuration de SSL pour une application Node.js dans un rôle de travail Azure][Configuration de SSL pour une application Node.js dans un rôle de travail Azure]
 
-[Configuration d'un certificat SSL sur un point de terminaison HTTPS][]
+[Configuration d'un certificat SSL sur un point de terminaison HTTPS][Configuration d'un certificat SSL sur un point de terminaison HTTPS]
 
   [Configuration d'un certificat SSL pour un site web Azure]: ../web-sites-configure-ssl-certificate/
   [Étape 1 : création d'un service Node.js et publication de ce service dans le cloud]: #step1

@@ -38,7 +38,7 @@ Dans une application node.js, vous pouvez écrire le code suivant pour atteindre
 
 ### Activation et affichage des journaux en continu
 
-Les diagnostics sont activés par site web. Dans le [portail][], cliquez sur le bouton **Browse** dans la barre de menus à gauche et cliquez sur **Websites** pour afficher la liste de tous vos sites web.
+Les diagnostics sont activés par site web. Dans le [portail][portail], cliquez sur le bouton **Browse** dans la barre de menus à gauche et cliquez sur **Websites** pour afficher la liste de tous vos sites web.
 
 ![][]
 

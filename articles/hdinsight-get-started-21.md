@@ -194,7 +194,7 @@ Dans ce didacticiel, vous avez appris à approvisionner un cluster avec HDInsigh
 -   [Utilisation de Hive avec HDInsight][Utilisation de Hive avec HDInsight]
 -   [Utilisation de Pig avec HDInsight][Utilisation de Pig avec HDInsight]
 -   [Utilisation d'Oozie avec HDInsight][Utilisation d'Oozie avec HDInsight]
--   [Développement de programmes de diffusion en continu Hadoop en C\# pour HDInsight][Développement de programmes de diffusion en continu Hadoop en C\# pour HDInsight]
+-   [Développement de programmes de diffusion en continu Hadoop en C# pour HDInsight][Développement de programmes de diffusion en continu Hadoop en C# pour HDInsight]
 -   [Développement de programmes MapReduce en Java pour HDInsight][Développement de programmes MapReduce en Java pour HDInsight]
 
   [Hadoop 2.2]: ../hdinsight-get-started "Prise en main de Hadoop 2.2 dans HDInsight"
@@ -204,9 +204,9 @@ Dans ce didacticiel, vous avez appris à approvisionner un cluster avec HDInsigh
   [Nouveautés des versions de cluster fournies par HDInsight]: ../hdinsight-component-versioning/
   
   [Prise en main de l'émulateur HDInsight]: ../hdinsight-get-started-emulator/
-  [formules d'abonnement]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [offres spéciales membres]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [version d'évaluation gratuite]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [formules d'abonnement]: http://azure.microsoft.com/fr-fr/pricing/purchase-options/
+  [offres spéciales membres]: http://azure.microsoft.com/fr-fr/pricing/member-offers/
+  [version d'évaluation gratuite]: http://azure.microsoft.com/fr-fr/pricing/free-trial/
   [Approvisionnement d'un cluster HDInsight]: #provision
   [Exécution d'une tâche Hive]: #sample
   [Connexion aux outils décisionnels Microsoft]: #powerquery
@@ -221,7 +221,7 @@ Dans ce didacticiel, vous avez appris à approvisionner un cluster avec HDInsigh
   [hdi.dashboard]: ./media/hdinsight-get-started/HDI.dashboard.png
   [hdi.dashboard.query.select]: ./media/hdinsight-get-started/HDI.dashboard.query.select.png
   [hdi.dashboard.query.select.result]: ./media/hdinsight-get-started/HDI.dashboard.query.select.result.png
-  [Centre de téléchargement Microsoft]: http://www.microsoft.com/en-us/download/details.aspx?id=39379
+  [Centre de téléchargement Microsoft]: http://www.microsoft.com/fr-fr/download/details.aspx?id=39379
   [HDI.GettingStarted.PowerQuery.ImportData]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
   [HDI.GettingStarted.PowerQuery.ImportData2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
   [Administration de HDInsight à l'aide de PowerShell]: ../hdinsight-administer-use-powershell/
@@ -230,6 +230,6 @@ Dans ce didacticiel, vous avez appris à approvisionner un cluster avec HDInsigh
   [Utilisation de Hive avec HDInsight]: ../hdinsight-use-hive/
   [Utilisation de Pig avec HDInsight]: ../hdinsight-use-pig/
   [Utilisation d'Oozie avec HDInsight]: ../hdinsight-use-oozie/
-  [Développement de programmes de diffusion en continu Hadoop en C\# pour HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+  [Développement de programmes de diffusion en continu Hadoop en C# pour HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
   [Développement de programmes MapReduce en Java pour HDInsight]: ../hdinsight-develop-deploy-java-mapreduce/
   [img-hdi-getstarted-video]: https://www.youtube.com/watch?v=Y4aNjnoeaHA&list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS

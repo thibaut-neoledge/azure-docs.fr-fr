@@ -4,7 +4,7 @@
 
 # Test de charge dans Azure
 
-Le service de test de charge dans le cloud peut tester la charge de vos applications web. Utilisez Visual Studio pour créer un test de charge afin de déterminer la capacité et les performances de votre application web. Aucun besoin d'utiliser vos machines virtuelles Azure. Il vous suffit de laisser le [service de test de charge][] dans le cloud les créer pour vous.
+Le service de test de charge dans le cloud peut tester la charge de vos applications web. Utilisez Visual Studio pour créer un test de charge afin de déterminer la capacité et les performances de votre application web. Aucun besoin d'utiliser vos machines virtuelles Azure. Il vous suffit de laisser le [service de test de charge][service de test de charge] dans le cloud les créer pour vous.
 
 <!--links--> 
 <!--images-->

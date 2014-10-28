@@ -91,12 +91,12 @@ Pour en savoir plus sur la configuration de machines virtuelles Windows sous Azu
 
   [Portail Azure]: /fr-fr/documentation/articles/virtual-machines-windows-tutorial/ "Portail Azure"
   [Version préliminaire du portail Azure]: /fr-fr/documentation/articles/virtual-machines-windows-tutorial-azure-preview/ "Version préliminaire du portail Azure"
-  [Création d’un compte Azure]: http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/
+  [Création d’un compte Azure]: http://www.windowsazure.com/fr-fr/develop/php/tutorials/create-a-windows-azure-account/
   [Création de la machine virtuelle]: #createvirtualmachine
   [Connexion à la machine virtuelle une fois celle-ci créée]: #logon
   [Machines virtuelles]: http://go.microsoft.com/fwlink/p/?LinkID=271224
   [version préliminaire du portail Azure]: https://portal.azure.com
-  [version d'évaluation gratuite]: http://www.windowsazure.com/en-us/pricing/free-trial/
+  [version d'évaluation gratuite]: http://www.windowsazure.com/fr-fr/pricing/free-trial/
   [Select New from the Command Bar]: ./media/virtual-machines-windows-tutorial-azure-preview/new_button_preview_portal.png
   [Select a VM image from the Gallery]: ./media/virtual-machines-windows-tutorial-azure-preview/image_gallery_preview_portal.png
   [Configure host name and log on credentials]: ./media/virtual-machines-windows-tutorial-azure-preview/create_vm_preview_portal.png

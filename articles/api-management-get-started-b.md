@@ -4,21 +4,21 @@
 
 Ce guide décrit la prise en main rapide de Gestion des API et la création de votre premier appel d'API.
 
-> Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][].
+> Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][Version d'évaluation gratuite d'Azure].
 
-La première étape de travail avec Gestion des API consiste à créer une instance de service. Connectez-vous au [portail de gestion][] et cliquez sur **Nouveau**, **Services d'application**, **Gestion des API**, **Créer**.
+La première étape de travail avec Gestion des API consiste à créer une instance de service. Connectez-vous au [portail de gestion][portail de gestion] et cliquez sur **Nouveau**, **Services d'application**, **Gestion des API**, **Créer**.
 
-![API Management new instance][]
+![API Management new instance][API Management new instance]
 
 Pour l'**URL**, spécifiez un nom de sous-domaine unique à utiliser pour l'URL du service.
 
 Choisissez l'**option de tarification**, l'**abonnement** et la **région** souhaités pour votre instance de service. Toutes les options de tarification peuvent être utilisées dans ce didacticiel. Une fois vos sélections effectuées, cliquez sur le bouton Suivant.
 
-![New API Management service][]
+![New API Management service][New API Management service]
 
 Entrez **Contoso Ltd.** pour le **nom de l'organisation**, ainsi que votre adresse de messagerie dans le champ correspondant pour l'administrateur.
 
-> Cette adresse de messagerie est utilisée pour les notifications provenant du système Gestion des API. Pour plus d'informations, consultez la page [Configuration de notifications][].
+> Cette adresse de messagerie est utilisée pour les notifications provenant du système Gestion des API. Pour plus d'informations, consultez la page [Configuration de notifications][Configuration de notifications].
 
 Cliquez sur la coche pour créer votre instance de service.
 
@@ -36,13 +36,13 @@ Chaque instance de service Gestion des API est préconfigurée avec un exemple d
 
 Les API sont créées et configurées à partir de la console Gestion des API, accessible via le portail de gestion Azure. Pour accéder à la console Gestion des API, cliquez sur **Console de gestion** dans le portail Azure de votre service Gestion des API.
 
-![New API Management console][]
+![New API Management console][New API Management console]
 
 Pour créer **Mon API d'écho**, cliquez sur **API** dans le menu **Gestion des API** à gauche, puis sur **Ajouter des API**.
 
-![Create API][]
+![Create API][Create API]
 
-![Add new API][]
+![Add new API][Add new API]
 
 Les trois champs suivants permettent de configurer la nouvelle API.
 
@@ -52,19 +52,19 @@ Les trois champs suivants permettent de configurer la nouvelle API.
 
 Cliquez sur **Enregistrer** pour créer l'API. Une fois l'API créée, la page Résumé de l'API s'affiche dans le portail de gestion.
 
-![API summary][]
+![API summary][API summary]
 
-> L'exemple d'API Echo n'utilise pas d'authentification, mais pour plus d'informations sur la configuration de l'authentification, consultez la rubrique [Configuration des paramètres de l'API][].
+> L'exemple d'API Echo n'utilise pas d'authentification, mais pour plus d'informations sur la configuration de l'authentification, consultez la rubrique [Configuration des paramètres de l'API][Configuration des paramètres de l'API].
 
 ## <a name="add-operation"> </a>Ajout d'une opération
 
 Cliquez sur **Opérations** pour afficher le volet des opérations de l'API. Les définitions des opérations sont utilisées pour valider les demandes entrantes et générer automatiquement la documentation. Comme nous n'avons pas encore ajouté d'opérations, aucune ne s'affiche.
 
-![Operations][]
+![Operations][Operations]
 
 Cliquez sur **Ajouter une opération** pour ajouter une nouvelle opération. La fenêtre **Nouvelle opération** s'affiche et l'onglet **Signature** est sélectionné par défaut.
 
-![Operation signature][]
+![Operation signature][Operation signature]
 
 Dans cet exemple, nous spécifions une opération GET sur le service d'écho. Entrez les valeurs suivantes dans les champs de l'onglet **Signature**.
 
@@ -89,7 +89,7 @@ Les développeurs doivent commencer par s'abonner à un produit avant de pouvoir
 
 Cliquez sur **Produits** dans le menu **Gestion des API** à gauche pour afficher et configurer les produits disponibles dans cette instance d'API.
 
-![Produits][]
+![Produits][Produits]
 
 Par défaut, chaque instance Gestion des API est fournie avec deux exemples de produits :
 
@@ -98,7 +98,7 @@ Par défaut, chaque instance Gestion des API est fournie avec deux exemples de p
 
 Dans ce didacticiel, vous allez utiliser le produit **Starter**. Cliquez sur **Starter** pour afficher les paramètres, y compris les API associées à ce produit.
 
-![Add API][]
+![Add API][Add API]
 
 Cliquez sur **Ajouter l'API au produit**.
 
@@ -106,11 +106,11 @@ Cliquez sur **Ajouter l'API au produit**.
 
 Activez la case à cocher pour **Mon API d'écho** et cliquez sur **Enregistrer**.
 
-![API added][]
+![API added][API added]
 
 Maintenant que **Mon API d'écho** est associée à un produit, les développeurs peuvent s'y abonner et commencer à utiliser l'API.
 
-> Cette étape du didacticiel utilise le produit **Starter**, lequel est fourni préconfiguré et prêt à l'utilisation. Pour un guide détaillé sur la création et la publication d'un nouveau produit, consultez le guide [Création et publication d'un produit][].
+> Cette étape du didacticiel utilise le produit **Starter**, lequel est fourni préconfiguré et prêt à l'utilisation. Pour un guide détaillé sur la création et la publication d'un nouveau produit, consultez le guide [Création et publication d'un produit][Création et publication d'un produit].
 
 L'utilisateur Administrateur est automatiquement abonné à tous les produits et peut accéder aux API auxquelles il offre l'accès. Il n'est donc pas nécessaire de s'abonner manuellement au produit qui vient d'être créé avant de pouvoir lancer un appel.
 
@@ -118,7 +118,7 @@ L'utilisateur Administrateur est automatiquement abonné à tous les produits et
 
 Les opérations peuvent être directement appelées depuis le portail des développeurs, ce qui permet d'afficher et de tester les opérations d'une API. Dans l'étape de ce didacticiel, vous allez appeler la méthode Get qui a été ajoutée à **Mon API d'écho**. Cliquez sur **Portail des développeurs** dans le menu en haut à droite du portail de gestion.
 
-![Portail des développeurs][]
+![Portail des développeurs][Portail des développeurs]
 
 Cliquez sur **API** dans le menu en haut, puis sur **Mon API d'écho** pour afficher les opérations disponibles.
 
@@ -128,15 +128,15 @@ Notez que la description et les paramètres ajoutés lors de la création de l'o
 
 Cliquez sur **ressource GET**, puis sur **Ouvrir la console**.
 
-![Operation console][]
+![Operation console][Operation console]
 
 Entrez des valeurs pour les paramètres, spécifiez votre clé de développeur et cliquez sur **HTTP Get**.
 
-![HTTP Get][]
+![HTTP Get][HTTP Get]
 
 Après l'appel d'une opération, le portail des développeurs affiche l'**URL requise** à partir du service principal, l'**état de la réponse**, les **en-têtes de la réponse** et tout **contenu de la réponse**.
 
-![Response][]
+![Response][Response]
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
@@ -144,7 +144,7 @@ Après l'appel d'une opération, le portail des développeurs affiche l'**URL re
 -   Personnalisation du portail des développeurs
 -   Suivi des appels avec l'inspecteur d'API
 
-  [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/
+  [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/fr-fr/pricing/free-trial/
   [portail de gestion]: https://manage.windowsazure.com/
   [API Management new instance]: ./media/api-management-get-started/api-management-create-instance-menu.png
   [New API Management service]: ./media/api-management-get-started/api-management-create-instance-step1.png

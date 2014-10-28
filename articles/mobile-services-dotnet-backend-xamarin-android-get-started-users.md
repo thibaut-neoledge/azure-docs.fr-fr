@@ -86,7 +86,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [Windows Store C\#]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users "Windows Store C#"
+  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users "Windows Store C#"
   [Windows Store JavaScript]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users "Windows Store JavaScript"
   [Windows Phone]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users "Windows Phone"
   [iOS]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-android-get-started-users "iOS"

@@ -16,7 +16,7 @@ Les journaux des opérations, une fonction des services de gestion disponibles d
 1.  Depuis le portail de gestion Azure, cliquez sur Services de gestion, puis sur l'onglet Journaux des opérations.
 2.  Vous pouvez filtrer les journaux selon différents paramètres tels que l'abonnement, la plage de dates, le type de service (ex : BizTalk Services), le nom du service ou le statut (de l'opération, ex : réussite, échec).
 3.  Cliquez sur la coche pour afficher la liste filtrée. L'illustration suivante montre les activités liées à testbiztalkservice.
-    ![Affichage des journaux des opérations][]
+    ![Affichage des journaux des opérations][Affichage des journaux des opérations]
 4.  Pour afficher plus d'informations sur une opération spécifique, sélectionnez la ligne correspondante et cliquez sur **Détails** en bas de la page.
 
 ## <a name="bizops"></a>Opérations suivies à l'aide des services de gestion Azure
@@ -89,15 +89,15 @@ Le tableau ci-dessous répertorie les opérations suivies à l'aide des services
 
 ## Voir aussi
 
--   [Sauvegarde d'un service BizTalk][]
--   [Restauration d'un service BizTalk depuis une sauvegarde][]
--   [BizTalk Services : Tableau comparatif des éditions Développeur, De base, Standard, et Premium de BizTalk Services][]
--   [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][]
--   [BizTalk Services : Tableau comparatif des états d'approvisionnement BizTalk Services][]
--   [BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services][]
--   [BizTalk Services : Limitation][]
--   [BizTalk Services : Nom et clé de l'émetteur][]
--   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services][]
+-   [Sauvegarde d'un service BizTalk][Sauvegarde d'un service BizTalk]
+-   [Restauration d'un service BizTalk depuis une sauvegarde][Restauration d'un service BizTalk depuis une sauvegarde]
+-   [BizTalk Services : Tableau comparatif des éditions Développeur, De base, Standard, et Premium de BizTalk Services][BizTalk Services : Tableau comparatif des éditions Développeur, De base, Standard, et Premium de BizTalk Services]
+-   [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure]
+-   [BizTalk Services : Tableau comparatif des états d'approvisionnement BizTalk Services][BizTalk Services : Tableau comparatif des états d'approvisionnement BizTalk Services]
+-   [BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services][BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services]
+-   [BizTalk Services : Limitation][BizTalk Services : Limitation]
+-   [BizTalk Services : Nom et clé de l'émetteur][BizTalk Services : Nom et clé de l'émetteur]
+-   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services][Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services]
 
   [API REST BizTalk Services]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn232347.aspx
   [Opérations suivies à l'aide des services de gestion Azure]: #bizops

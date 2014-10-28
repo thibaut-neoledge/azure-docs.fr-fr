@@ -4,7 +4,7 @@
 
 # Création et déploiement d'un site web Azure PHP-MySQL avec FTP
 
-Ce didacticiel vous montre comment créer un site web Azure PHP-MySQL et comment le déployer en utilisant FTP. Il part du principe que vous avez installé [PHP][], [MySQL][], un serveur Web et un client FTP sur votre ordinateur. Les instructions de ce didacticiel s'appliquent à n'importe quel système d'exploitation, notamment Windows, Mac et Linux. ﻿À la fin de ce guide, vous disposerez d'un site web PHP/MySQL exécuté dans Azure.
+Ce didacticiel vous montre comment créer un site web Azure PHP-MySQL et comment le déployer en utilisant FTP. Il part du principe que vous avez installé [PHP][PHP], [MySQL][MySQL], un serveur Web et un client FTP sur votre ordinateur. Les instructions de ce didacticiel s'appliquent à n'importe quel système d'exploitation, notamment Windows, Mac et Linux. ﻿À la fin de ce guide, vous disposerez d'un site web PHP/MySQL exécuté dans Azure.
 
 Vous apprendrez à effectuer les opérations suivantes :
 
@@ -13,44 +13,44 @@ Vous apprendrez à effectuer les opérations suivantes :
 
 En suivant ce didacticiel, vous allez générer une application Web d'inscription simple dans PHP. L'application est hébergée dans un site web Azure. Voici une capture d'écran de l'application terminée :
 
-![Azure PHP Web Site][]
+![Azure PHP Web Site][Azure PHP Web Site]
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Création d'un site web Azure et configuration de la publication FTP
 
 Suivez cette procédure pour créer un site web Azure et une base de données MySQL :
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 2.  Cliquez sur l'icône **+ New** dans le coin inférieur gauche du portail.
 
-    ![Créer un site Web Azure][]
+    ![Créer un site Web Azure][Créer un site Web Azure]
 
 3.  Cliquez sur **SITE WEB**, puis sur **CRÉATION PERSONNALISÉE**.
 
-    ![Création personnalisée d'un site Web][]
+    ![Création personnalisée d'un site Web][Création personnalisée d'un site Web]
 
     Entrez une valeur pour **URL** et, dans la liste déroulante **BASE DE DONNÉES**, sélectionnez **Créer une base de données MySQL**, puis sélectionnez un centre de données pour votre site web dans la liste déroulante **﻿RÉGION**. Cliquez sur la flèche située en bas de la boîte de dialogue.
 
-    ![Entrer les détails du site Web][]
+    ![Entrer les détails du site Web][Entrer les détails du site Web]
 
 4.  Entrez un **nom** pour votre base de données, sélectionnez un centre de données dans la liste déroulante **﻿RÉGION**, puis cochez la case qui indique que vous acceptez les conditions juridiques. Cliquez sur la coche située en bas de la boîte de dialogue.
 
-    ![Créer une base de données MySQL][]
+    ![Créer une base de données MySQL][Créer une base de données MySQL]
 
     Lorsque le site web est créé, le texte **La création du site Web 'nom\_du\_site' s'est terminée correctement** apparaît. Vous pouvez maintenant activer la publication FTP.
 
 5.  Cliquez sur le nom du site web affiché dans la liste des sites web pour ouvrir le tableau de bord **DÉMARRAGE RAPIDE** du site web.
 
-    ![Ouvrir le tableau de bord du site Web][]
+    ![Ouvrir le tableau de bord du site Web][Ouvrir le tableau de bord du site Web]
 
 6.  En bas de la page **﻿DÉMARRAGE RAPIDE**, cliquez sur **Reset deployment credentials**.
 
-    ![Réinitialiser les informations d'identification de déploiement][]
+    ![Réinitialiser les informations d'identification de déploiement][Réinitialiser les informations d'identification de déploiement]
 
 7.  Pour activer la publication FTP, vous devez fournir un nom d'utilisateur et un mot de passe. Notez le nom d'utilisateur et le mot de passe que vous créez
 
-    ![Créer les informations d'identification de publication][]
+    ![Créer les informations d'identification de publication][Créer les informations d'identification de publication]
 
 ## Génération et test de votre application localement
 
@@ -59,7 +59,7 @@ L'application d'inscription est une simple application PHP qui vous permet de vo
 -   **index.php** : affiche un formulaire d'inscription et un tableau contenant les informations des inscrits.
 -   **createtable.php** : crée la table MySQL pour l'application. Ce fichier sera utilisé une seule fois.
 
-Pour générer et exécuter l'application en local, procédez comme suit : notez que ces étapes partent du principe que PHP, MySQL et un serveur Web sont configurés sur votre machine locale, et que vous avez activé l'[extension PDO pour MySQL][].
+Pour générer et exécuter l'application en local, procédez comme suit : notez que ces étapes partent du principe que PHP, MySQL et un serveur Web sont configurés sur votre machine locale, et que vous avez activé l'[extension PDO pour MySQL][extension PDO pour MySQL].
 
 1.  Créez une base de données MySQL nommée `registration`. Pour cela, utilisez l'invite de commandes MySQL avec cette commande :
 
@@ -192,7 +192,7 @@ Pour générer et exécuter l'application en local, procédez comme suit : note
             echo "<h3>No one is currently registered.</h3>";
         }
 
-Vous pouvez maintenant accéder à [][1][http://localhost/inscription/index.php][]</a> pour tester l'application.
+Vous pouvez maintenant accéder à [][1][http://localhost/inscription/index.php][http://localhost/inscription/index.php]</a> pour tester l'application.
 
 ## Obtention des informations de connexion MySQL et FTP
 
@@ -200,13 +200,13 @@ Pour vous connecter à la base de données MySQL exécutée sur Sites Web Azure,
 
 1.  Depuis le tableau de bord de votre site web, cliquez sur le lien **Afficher les chaînes de connexion** à droite de la page.
 
-    ![Obtenir les informations de connexion à la base de données][]
+    ![Obtenir les informations de connexion à la base de données][Obtenir les informations de connexion à la base de données]
 
 2.  Prenez note des valeurs `Database`, `Data Source`, `User Id` et `Password`.
 
 3.  Depuis le tableau de bord de votre site web, cliquez sur le lien **Télécharger le profil de publication** en bas à droite de la page :
 
-    ![Télécharger le profil de publication][]
+    ![Télécharger le profil de publication][Télécharger le profil de publication]
 
 4.  Ouvrez le fichier `.publishsettings` dans un éditeur XML.
 

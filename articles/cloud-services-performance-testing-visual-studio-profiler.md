@@ -6,9 +6,9 @@
 
 Différents outils et diverses techniques permettent de tester les performances des services cloud.
 Lorsque vous publiez un service cloud sur Azure, vous pouvez demander à ce que
-Visual Studio collecte des données de profilage, puis les analyse en local, comme décrit dans la page [Analyse du profil d'une application Azure][].
+Visual Studio collecte des données de profilage, puis les analyse en local, comme décrit dans la page [Analyse du profil d'une application Azure][Analyse du profil d'une application Azure].
 Vous pouvez également utiliser le diagnostic pour suivre tout un
-ensemble de compteurs de performances, comme décrit dans la rubrique [Utilisation de compteurs de performances dans Azure][].
+ensemble de compteurs de performances, comme décrit dans la rubrique [Utilisation de compteurs de performances dans Azure][Utilisation de compteurs de performances dans Azure].
 Vous pouvez également profiler votre application en local dans l'émulateur de calcul avant de la déployer dans le cloud.
 
 Cet article présente la méthode de profilage par échantillonnage de l'UC, qui peut se faire en local dans l'émulateur. Cette méthode de profilage est peu intrusive. Selon une fréquence d'échantillonnage définie, le profileur enregistre un instantané de la pile d'appels. Les données sont collectées pendant un certain temps, puis sont présentées dans un rapport. Cette méthode de profilage indique plutôt, dans une application qui effectue beaucoup de calculs, où se fait la plus grande part du travail du processeur. Ceci vous permet de vous occuper en priorité des « points chauds », là où votre application passe le plus de temps.
@@ -19,17 +19,17 @@ Vous pouvez exécuter le profileur en local uniquement si vous disposez de Visua
 
 ## Dans cet article :
 
--   [Étape 1 : configuration de Visual Studio pour le profilage][]
+-   [Étape 1 : configuration de Visual Studio pour le profilage][Étape 1 : configuration de Visual Studio pour le profilage]
 
--   [Étape 2 : attachement à un processus][]
+-   [Étape 2 : attachement à un processus][Étape 2 : attachement à un processus]
 
--   [Étape 3 : affichage des rapports de profilage][]
+-   [Étape 3 : affichage des rapports de profilage][Étape 3 : affichage des rapports de profilage]
 
--   [Étape 4 : application de modifications et comparaison des performances][]
+-   [Étape 4 : application de modifications et comparaison des performances][Étape 4 : application de modifications et comparaison des performances]
 
--   [Résolution des problèmes][]
+-   [Résolution des problèmes][Résolution des problèmes]
 
--   [Étapes suivantes][]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <a name="step1"> </a>Étape 1 : configuration de Visual Studio pour le profilage
 
@@ -173,7 +173,7 @@ Félicitations ! Vous avez fait connaissance avec le profileur.
 
 ## <a name="nextSteps"> </a>Étapes suivantes
 
-L'instrumentalisation d'exécutables Azure dans l'émulateur de calcul n'est pas prise en charge par le profileur Visual Studio 2010, mais si vous souhaitez tester l'allocation de la mémoire, vous pouvez choisir cette option au moment du profilage. Vous pouvez également choisir le profilage d'accès concurrentiel, qui vous aide à savoir si des threads perdent du temps à se disputer les verrouillages, ou bien le profilage d'interaction de couche, qui permet de détecter les problèmes de performances lors de l'interaction entre différentes couches de l'application, la plupart du temps entre la couche de données et un rôle de travail. Vous pouvez consulter les requêtes de base de données que votre application génère et utiliser les données de profilage pour optimiser l'utilisation de la base de données. Pour plus d'informations sur le profilage d'interaction de couche, consultez la page [Procédure pas à pas : utilisation du profileur d'interaction de couche dans Visual Studio Team System 2010][].
+L'instrumentalisation d'exécutables Azure dans l'émulateur de calcul n'est pas prise en charge par le profileur Visual Studio 2010, mais si vous souhaitez tester l'allocation de la mémoire, vous pouvez choisir cette option au moment du profilage. Vous pouvez également choisir le profilage d'accès concurrentiel, qui vous aide à savoir si des threads perdent du temps à se disputer les verrouillages, ou bien le profilage d'interaction de couche, qui permet de détecter les problèmes de performances lors de l'interaction entre différentes couches de l'application, la plupart du temps entre la couche de données et un rôle de travail. Vous pouvez consulter les requêtes de base de données que votre application génère et utiliser les données de profilage pour optimiser l'utilisation de la base de données. Pour plus d'informations sur le profilage d'interaction de couche, consultez la page [Procédure pas à pas : utilisation du profileur d'interaction de couche dans Visual Studio Team System 2010][Procédure pas à pas : utilisation du profileur d'interaction de couche dans Visual Studio Team System 2010].
 
   [Analyse du profil d'une application Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh369930.aspx
   [Utilisation de compteurs de performances dans Azure]: http://www.windowsazure.com/fr-fr/develop/net/common-tasks/performance-profiling

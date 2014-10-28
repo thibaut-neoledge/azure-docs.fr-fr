@@ -10,17 +10,17 @@ Cette rubrique explique comment appeler une API personnalisée à partir d'une a
 
 L'API personnalisée créée dans cette rubrique permet d'envoyer une seule requête POST qui définit l'indicateur complété sur `true` pour toutes les tâches (éléments todo) de la table. En l'absence de cette API personnalisée, le client doit envoyer des demandes individuelles de mise à jour de l'indicateur pour chaque élément todo de la table.
 
-Vous allez ajouter cette fonctionnalité à l'application que vous avez créée avec le didacticiel [Prise en main de Mobile Services][] ou [Prise en main des données][]. À cet effet, vous allez exécuter la procédure suivante :
+Vous allez ajouter cette fonctionnalité à l'application que vous avez créée avec le didacticiel [Prise en main de Mobile Services][Prise en main de Mobile Services] ou [Prise en main des données][Prise en main des données]. À cet effet, vous allez exécuter la procédure suivante :
 
-1.  [Définition de l'API personnalisée][]
-2.  [Mise à jour de l'application pour appeler l'API personnalisée][]
-3.  [Test de l'application][]
+1.  [Définition de l'API personnalisée][Définition de l'API personnalisée]
+2.  [Mise à jour de l'application pour appeler l'API personnalisée][Mise à jour de l'application pour appeler l'API personnalisée]
+3.  [Test de l'application][Test de l'application]
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez avoir terminé le didacticiel [Prise en main de Mobile Services][] ou [Prise en main des données][].
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez avoir terminé le didacticiel [Prise en main de Mobile Services][Prise en main de Mobile Services] ou [Prise en main des données][Prise en main des données].
 
 ## <a name="define-custom-api"></a>Définition de l'API personnalisée
 
-[WACOM.INCLUDE [mobile-services-create-custom-api][]]
+[WACOM.INCLUDE [mobile-services-create-custom-api][mobile-services-create-custom-api]]
 
 ## <a name="update-app"></a><span class="short-header">Mise à jour de l'application </span>Mise à jour de l'application pour appeler l'API personnalisée
 
@@ -66,7 +66,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 
 Maintenant que vous avez créé une API personnalisée et que vous l'avez appelée à partir de votre application HTML, vous pouvez consulter les rubriques Mobile Services suivantes pour obtenir plus d'informations :
 
--   [Référence de script serveur Mobile Services][]
+-   [Référence de script serveur Mobile Services][Référence de script serveur Mobile Services]
     Familiarisez-vous avec la création des API personnalisées.
 
 <!-- Anchors. -->

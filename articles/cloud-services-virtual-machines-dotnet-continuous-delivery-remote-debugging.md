@@ -80,11 +80,11 @@ Dans cette rubrique :
   [remise continue]: http://azure.microsoft.com/fr-fr/documentation/articles/cloud-services-dotnet-continuous-delivery/
   [Activation du débogage distant pour les services cloud]: #cloudservice
   [Activation du débogage distant pour les machines virtuelles]: #virtualmachine
-  [Génération en mode ligne de commande pour Azure]: http://msdn.microsoft.com/en-us/library/hh535755.aspx
-  [Outils de contrôle à distance pour Visual Studio 2013]: http://www.microsoft.com/en-us/download/details.aspx?id=40781
-  [Outils de contrôle à distance pour Visual Studio 2012 Update 4]: http://www.microsoft.com/en-us/download/details.aspx?id=38184
+  [Génération en mode ligne de commande pour Azure]: http://msdn.microsoft.com/fr-fr/library/hh535755.aspx
+  [Outils de contrôle à distance pour Visual Studio 2013]: http://www.microsoft.com/fr-fr/download/details.aspx?id=40781
+  [Outils de contrôle à distance pour Visual Studio 2012 Update 4]: http://www.microsoft.com/fr-fr/download/details.aspx?id=38184
   [Créer un certificat de service pour Azure]: http://msdn.microsoft.com/library/azure/gg432987.aspx
   [Création d'une machine virtuelle exécutant Windows Server]: http://azure.microsoft.com/fr-fr/documentation/articles/virtual-machines-windows-tutorial/
-  [Création de machines virtuelles Azure dans Visual Studio]: http://msdn.microsoft.com/en-us/library/azure/dn569263.aspx
+  [Création de machines virtuelles Azure dans Visual Studio]: http://msdn.microsoft.com/fr-fr/library/azure/dn569263.aspx
   [page du portail Azure]: http://go.microsoft.com/fwlink/p/?LinkID=269851
   [Azure Powershell]: http://go.microsoft.com/?linkid=9811175&clcid=0x409

@@ -13,7 +13,7 @@ Vous apprendrez à effectuer les opérations suivantes:
 -   Créer ou adapter un service web existant qui sera utilisé par une solution web
 -   Utiliser Azure Service Bus Relay pour partager des données entre une application Azure et un service web hébergé ailleurs.
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note][create-account-note]]
 
 ### AVANTAGES DE L'UTILISATION DE SERVICE BUS RELAY POUR LES SOLUTIONS HYBRIDES
 
@@ -41,7 +41,7 @@ Avant de commencer à développer votre application Azure, vous devez obtenir de
 
 1.  Pour installer le Kit de développement logiciel (SDK) Azure pour .NET, cliquez sur le bouton ci-dessous:
 
-    [Obtenir les outils et le Kit de développement logiciel (SDK)][]
+    [Obtenir les outils et le Kit de développement logiciel (SDK)][Obtenir les outils et le Kit de développement logiciel (SDK)]
 
 2.  Cliquez sur **Install the SDK**.
 
@@ -63,11 +63,11 @@ Avant de commencer à développer votre application Azure, vous devez obtenir de
 
 Pour commencer à utiliser les fonctionnalités de Service Bus dans Azure, vous devez d'abord créer un espace de noms de service. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application.
 
-Vous pouvez également gérer les espaces de noms et les entités de messagerie Service Bus à l'aide du [portail de gestion Azure][] ou de l'Explorateur de serveurs Visual Studio, mais vous ne pouvez créer d'espaces de noms que depuis le portail.
+Vous pouvez également gérer les espaces de noms et les entités de messagerie Service Bus à l'aide du [portail de gestion Azure][portail de gestion Azure] ou de l'Explorateur de serveurs Visual Studio, mais vous ne pouvez créer d'espaces de noms que depuis le portail.
 
 ### Pour créer un espace de noms de service à l'aide du portail:
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 
 2.  Dans le volet de navigation gauche du portail de gestion, cliquez sur **Service Bus**.
 
@@ -107,7 +107,7 @@ Afin d'effectuer des opérations de gestion, comme la création d'une file d’a
 
 ### Gestion d'un espace de noms de service avec l'Explorateur de serveurs Visual Studio:
 
-Pour gérer un espace de noms et obtenir des informations de connexion en utilisant Visual Studio plutôt que le portail de gestion, suivez la procédure décrite [ici][], dans la section intitulée **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l’arborescence **Microsoft Azure** dans l’Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Properties** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s’affichent dans le volet **Properties** de Visual Studio.
+Pour gérer un espace de noms et obtenir des informations de connexion en utilisant Visual Studio plutôt que le portail de gestion, suivez la procédure décrite [ici][ici], dans la section intitulée **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l’arborescence **Microsoft Azure** dans l’Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Properties** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s’affichent dans le volet **Properties** de Visual Studio.
 
 ![][10]
 
@@ -118,7 +118,7 @@ Notez la valeur **SharedAccessKey** ou copiez-la dans le Presse-papiers.
 Vous créez d'abord un système local de catalogue de produits (fictif). Cela est assez simple: représentez-vous un système réel de catalogue de produits local avec une surface complète de services que nous essayons d'intégrer.
 
 Ce projet démarre comme une application console Visual Studio. Il utilise le package NuGet Service Bus pour inclure les bibliothèques et les paramètres de configuration Service Bus. L'extension Visual Studio NuGet facilite l'installation et la mise à jour des bibliothèques et des outils de Visual Studio et Visual Studio Express. Le package NuGet Service Bus est le moyen
-le plus simple de se procurer l'API Service Bus et de configurer votre application avec toutes les dépendances Service Bus. Pour plus d'informations sur l'utilisation de NuGet et du package Service Bus, consultez la page [Utilisation du package NuGet Service Bus][].
+le plus simple de se procurer l'API Service Bus et de configurer votre application avec toutes les dépendances Service Bus. Pour plus d'informations sur l'utilisation de NuGet et du package Service Bus, consultez la page [Utilisation du package NuGet Service Bus][Utilisation du package NuGet Service Bus].
 
 ### CRÉATION DU PROJET
 
@@ -139,7 +139,7 @@ le plus simple de se procurer l'API Service Bus et de configurer votre applicati
 
     ![][13]
 
-7.  Si vous avez déjà installé le gestionnaire de package NuGet pour Visual Studio, passez à l'étape suivante. Sinon, accédez à [NuGet][], puis cliquez sur [Install NuGet][]. Suivez les invites pour installer le gestionnaire de package NuGet, puis redémarrez Visual Studio.
+7.  Si vous avez déjà installé le gestionnaire de package NuGet pour Visual Studio, passez à l'étape suivante. Sinon, accédez à [NuGet][NuGet], puis cliquez sur [Install NuGet][Install NuGet]. Suivez les invites pour installer le gestionnaire de package NuGet, puis redémarrez Visual Studio.
 
 8.  Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur **References**, puis cliquez sur **Manage NuGet Packages**.
 9.  Dans la colonne de gauche de la boîte de dialogue NuGet, cliquez sur **Online**.
@@ -397,7 +397,7 @@ Exécutez l'application afin de vérifier qu'elle fonctionne.
 
     ## <span class="short-header">DÉPLOIEMENT SUR AZURE</span>PRÉPARATION DE VOTRE APPLICATION EN VUE DE SON DÉPLOIEMENT SUR AZURE
 
-    Vous pouvez déployer votre application vers un service cloud Azure ou un site web Azure. Pour plus d'informations sur les différences entre les sites web et les services cloud, consultez la page [Modèles d'exécution Azure][]. Pour plus d'informations sur le déploiement de l'application vers un site web Azure, consultez la page [Déploiement d'une application web ASP.NET vers un site web Azure][]. Cette section contient une procédure pas à pas pour déployer l'application sur un service cloud Azure.
+    Vous pouvez déployer votre application vers un service cloud Azure ou un site web Azure. Pour plus d'informations sur les différences entre les sites web et les services cloud, consultez la page [Modèles d'exécution Azure][Modèles d'exécution Azure]. Pour plus d'informations sur le déploiement de l'application vers un site web Azure, consultez la page [Déploiement d'une application web ASP.NET vers un site web Azure][Déploiement d'une application web ASP.NET vers un site web Azure]. Cette section contient une procédure pas à pas pour déployer l'application sur un service cloud Azure.
 
     Pour déployer votre application vers un service cloud, ajoutez un projet de déploiement de projet de service cloud à la solution.
     Le projet de déploiement contient des informations de configuration nécessaires pour exécuter correctement l'application sur le cloud.
@@ -531,7 +531,7 @@ Exécutez l'application afin de vérifier qu'elle fonctionne.
 
         ![][33]
 
-Pour plus d'informations sur les différences entre les sites web et les services cloud, consultez la page [Modèles d'exécution Azure][].
+Pour plus d'informations sur les différences entre les sites web et les services cloud, consultez la page [Modèles d'exécution Azure][Modèles d'exécution Azure].
 
 ## <span class="short-header">SUPPRESSION DE L'APPLICATION</span>ARRÊT ET SUPPRESSION DE L'APPLICATION
 
@@ -541,7 +541,7 @@ Azure facture les instances de rôle web par heure de serveur consommée. Une fo
 
 La procédure suivante présente l'arrêt et la suppression de l'application.
 
-1.  Connectez-vous au [portail de gestion Azure][], cliquez sur Cloud Services, puis sur le nom du service.
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure], cliquez sur Cloud Services, puis sur le nom du service.
 
 2.  Sélectionnez l'onglet **Tableau de bord**, puis cliquez sur **Arrêter** pour suspendre momentanément l'application. Vous pouvez la redémarrer en cliquant simplement sur Démarrer. Cliquez sur **Supprimer** pour supprimer complètement l'application d'Azure, sans aucune possibilité de la restaurer.
 
@@ -551,9 +551,9 @@ La procédure suivante présente l'arrêt et la suppression de l'application.
 
 Pour en savoir plus sur Service Bus, consultez les ressources suivantes:
 
--   [Azure Service Bus][]
--   [Procédures Service Bus][]
--   [Utilisation des files d'attente Service Bus][]
+-   [Azure Service Bus][Azure Service Bus]
+-   [Procédures Service Bus][Procédures Service Bus]
+-   [Utilisation des files d'attente Service Bus][Utilisation des files d'attente Service Bus]
 
   [create-account-note]: ../includes/create-account-note.md
   []: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hybrid.png

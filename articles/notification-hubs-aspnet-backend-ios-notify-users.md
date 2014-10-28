@@ -331,7 +331,7 @@ Pour exécuter l'application, procédez comme suit :
   [Windows Universal]: /fr-fr/documentation/articles/notification-hubs-windows-dotnet-notify-users/ "Windows Universal"
   [iOS]: /fr-fr/documentation/articles/notification-hubs-/ "iOS"
   [Android]: /fr-fr/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/ "Android"
-  [Inscription auprès du serveur principal de votre application]: http://msdn.microsoft.com/en-us/library/dn743807.aspx
+  [Inscription auprès du serveur principal de votre application]: http://msdn.microsoft.com/fr-fr/library/dn743807.aspx
   [Prise en main de Notification Hubs (iOS)]: http://azure.microsoft.com/fr-fr/documentation/articles/notification-hubs-ios-get-started/
   [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
   []: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png

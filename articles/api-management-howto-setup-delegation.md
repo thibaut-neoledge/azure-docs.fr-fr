@@ -8,8 +8,8 @@ La délégation vous permet d'utiliser votre site web existant pour gérer les c
 
 ## Dans cette rubrique
 
--   [Délégation de la connexion et de l'inscription des développeurs][]
--   [Délégation de l'abonnement aux produits][]
+-   [Délégation de la connexion et de l'inscription des développeurs][Délégation de la connexion et de l'inscription des développeurs]
+-   [Délégation de l'abonnement aux produits][Délégation de l'abonnement aux produits]
 
 ## <a name="delegate-signin-up"> </a>Délégation de la connexion et de l'inscription des développeurs
 
@@ -24,7 +24,7 @@ Le processus final se présente comme suit :
 
 Pour commencer, configurons Gestion des API pour que les demandes soient acheminées via votre point de terminaison de délégation. Dans le portail des éditeurs Gestion des API, sous l'en-tête **Portail des développeurs** dans le menu à gauche, cliquez sur **Délégation**, puis sur **Déléguer la connexion et l'inscription**.
 
-![Delegation page][]
+![Delegation page][Delegation page]
 
 -   Décidez de l'URL de votre point de terminaison de délégation spécial, puis entrez-la dans le champ **URL du point de terminaison de délégation**.
 
@@ -55,11 +55,11 @@ Pour commencer, configurons Gestion des API pour que les demandes soient achemin
 
 4.  Présentez à l'utilisateur l'interface de connexion ou d'inscription.
 
-5.  Si l'utilisateur s'inscrit, vous devez créer un compte dans Gestion des API. [Créez un utilisateur][] avec l'API REST de gestion de Gestion des API. Lors de cette opération, assurez-vous de bien définir l'identifiant utilisateur afin qu'il soit identique à celui de votre magasin utilisateur ou à un identifiant que vous pouvez suivre.
+5.  Si l'utilisateur s'inscrit, vous devez créer un compte dans Gestion des API. [Créez un utilisateur][Créez un utilisateur] avec l'API REST de gestion de Gestion des API. Lors de cette opération, assurez-vous de bien définir l'identifiant utilisateur afin qu'il soit identique à celui de votre magasin utilisateur ou à un identifiant que vous pouvez suivre.
 
 6.  Lorsque l'utilisateur est bien authentifié :
 
-    -   [Demandez un jeton d'authentification unique (SSO)][] via l'API REST Gestion des API.
+    -   [Demandez un jeton d'authentification unique (SSO)][Demandez un jeton d'authentification unique (SSO)] via l'API REST Gestion des API.
 
     -   Ajoutez un paramètre de requête returnUrl à l'URL SSO reçue de l'appel d'API ci-dessus :
 
@@ -106,7 +106,7 @@ Assurez-vous ensuite que le point de terminaison de délégation effectue bien l
 
 3.  Effectuez le traitement de l'abonnement au produit en fonction du type de l'opération demandée dans **operation**, par exemple facturation, autres questions, etc.
 
-4.  Après avoir correctement abonné l'utilisateur au produit de votre côté, abonnez l'utilisateur au produit Gestion des API en [appelant l'API REST pour l'abonnement au produit][].
+4.  Après avoir correctement abonné l'utilisateur au produit de votre côté, abonnez l'utilisateur au produit Gestion des API en [appelant l'API REST pour l'abonnement au produit][appelant l'API REST pour l'abonnement au produit].
 
 5.  Redirigez l'utilisateur vers l'URL **redirectUrl** fournie lorsque vous avez reçu la demande.
 

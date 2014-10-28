@@ -8,20 +8,20 @@ Gestion des API Azure (version préliminaire) permet de configurer les notificat
 
 ## Dans cette rubrique
 
--   [Configuration des notifications de l'éditeur][]
--   [Configuration des modèles de messages électroniques][]
+-   [Configuration des notifications de l'éditeur][Configuration des notifications de l'éditeur]
+-   [Configuration des modèles de messages électroniques][Configuration des modèles de messages électroniques]
 
 ## <a name="publisher-notifications"> </a>Configuration des notifications de l'éditeur
 
 Pour configurer les notifications, cliquez sur **Console de gestion** dans le portail Azure pour votre service Gestion des API. Vous accéderez au portail d'administration Gestion des API.
 
-> Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][] dans le didacticiel [Prise en main de Gestion des API Azure][].
+> Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][Création d'une instance de service Gestion des API] dans le didacticiel [Prise en main de Gestion des API Azure][Prise en main de Gestion des API Azure].
 
-![API Management console][]
+![API Management console][API Management console]
 
 Cliquez sur **Notifications** dans le menu **Gestion des API** à gauche pour voir les notifications disponibles.
 
-![Publisher notifications][]
+![Publisher notifications][Publisher notifications]
 
 La liste suivante répertorie les événements pour lesquels il est possible de configurer des notifications.
 
@@ -37,7 +37,7 @@ Pour chaque événement, vous pouvez spécifier les destinataires du message via
 
 Pour spécifier les adresses à notifier, entrez-les dans la zone de texte d'adresse. Si vous devez entrer plusieurs adresses, séparez-les par des virgules.
 
-![Notification recipients][]
+![Notification recipients][Notification recipients]
 
 Pour spécifier les utilisateurs à notifier, cliquez sur **Ajouter un destinataire**, activez la case à cocher à côté de l'utilisateur à notifier, puis cliquez sur **OK**.
 
@@ -66,15 +66,15 @@ Ces modèles peuvent être modifiés comme vous le souhaitez.
 
 Pour voir et configurer les modèles de messages électroniques de votre instance Gestion des API, cliquez sur **Notifications** dans le menu **Gestion des API** à gauche, puis sélectionnez l'onglet **Modèles de messages électroniques**.
 
-![Email templates][]
+![Email templates][Email templates]
 
 Pour consulter ou modifier un modèle en particulier, sélectionnez-le dans la liste déroulante **Modèles**.
 
-![Email templates list][]
+![Email templates list][Email templates list]
 
 Pour chaque modèle de message, l'objet est au format texte et le corps au format HTML. Chaque élément peut être personnalisé.
 
-![Email template editor][]
+![Email template editor][Email template editor]
 
 La liste **Paramètres** contient une liste de paramètres qui, lorsqu'ils sont insérés dans l'objet ou dans le corps du message, sont remplacés par une valeur définie lorsque le message est envoyé. Pour insérer un paramètre, placez le curseur là où vous voulez insérer le paramètre, puis cliquez sur la flèche à gauche du nom du paramètre.
 

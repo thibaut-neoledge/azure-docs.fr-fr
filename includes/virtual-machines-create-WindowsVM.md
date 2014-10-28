@@ -41,7 +41,7 @@
     ![Configure VM Agent and the endpoints of the virtual machine][Configure VM Agent and the endpoints of the virtual machine]
 
   [portail de gestion]: http://manage.windowsazure.com
-  [évaluation gratuite]: http://www.windowsazure.com/en-us/pricing/free-trial/
+  [évaluation gratuite]: http://www.windowsazure.com/fr-fr/pricing/free-trial/
   [Navigate to From Gallery in the Command Bar]: ./media/virtual-machines-create-WindowsVM/fromgallery.png
   [Choose an image]: ./media/virtual-machines-create-WindowsVM/chooseimage.png
   [Tailles de machines virtuelles et services cloud pour Windows Azure]: http://go.microsoft.com/fwlink/p/?LinkId=466520

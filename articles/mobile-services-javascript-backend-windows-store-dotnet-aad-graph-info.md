@@ -145,7 +145,7 @@ Dans le prochain didacticiel, [Contrôle d'accès en fonction du rôle avec AAD 
 <!-- Images -->
 <!-- URLs. -->
 
-  [Windows Store C\#]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-aad-graph-info/ "Windows Store C#"
+  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-aad-graph-info/ "Windows Store C#"
   [Serveur principal .NET]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/ ".NET backend"
   [JavaScript backend]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/ "JavaScript backend"
   [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
@@ -157,10 +157,10 @@ Dans le prochain didacticiel, [Contrôle d'accès en fonction du rôle avec AAD 
   [Didacticiel relatif aux API personnalisées]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/
   [Inscription à des fins d'utilisation d'une connexion Azure Active Directory]: /fr-fr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
-  [API REST Graph]: http://msdn.microsoft.com/en-us/library/azure/hh974478.aspx
+  [API REST Graph]: http://msdn.microsoft.com/fr-fr/library/azure/hh974478.aspx
   [portail de gestion Azure]: https://manage.windowsazure.com/
   []: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/create-getuserinfo.png
-  [Get User]: http://msdn.microsoft.com/en-us/library/azure/dn151678.aspx
+  [Get User]: http://msdn.microsoft.com/fr-fr/library/azure/dn151678.aspx
   [mobile-services-aad-graph-info-update-app]: ../includes/mobile-services-aad-graph-info-update-app.md
   [mobile-services-aad-graph-info-test-app]: ../includes/mobile-services-aad-graph-info-test-app.md
   [Contrôle d'accès en fonction du rôle avec AAD dans Mobile Services]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/

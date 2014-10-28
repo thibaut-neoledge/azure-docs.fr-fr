@@ -34,14 +34,14 @@ La demande dynamique est une réalité pour les applications actuelles. De la de
 
   [Génération d'une application multiniveau avec les files d'attente Service Bus]: /fr-fr/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/
   [Microsoft Azure Service Bus - David Chappell]: http://azure.microsoft.com/fr-fr/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-  [Modèle de nivellement de charge basé sur la file d'attente]: http://msdn.microsoft.com/en-us/library/dn589783.aspx
-  [Consommateurs concurrents]: http://msdn.microsoft.com/en-us/library/dn568101.aspx
+  [Modèle de nivellement de charge basé sur la file d'attente]: http://msdn.microsoft.com/fr-fr/library/dn589783.aspx
+  [Consommateurs concurrents]: http://msdn.microsoft.com/fr-fr/library/dn568101.aspx
   [Un fournisseur de solutions de transport filtre les véhicules commerciaux - Xerox]: http://www.microsoft.com/casestudies/Case_Study_Detail.aspx?CaseStudyID=710000000945
   [Utilisation des files d'attente Service Bus]: http://azure.microsoft.com/fr-fr/documentation/articles/service-bus-dotnet-how-to-use-queues/
   [Lettres mortes dans la messagerie répartie Service Bus (billet de blog du 21 octobre 2011)]: http://geekswithblogs.net/asmith/articles/147398.aspx
-  [Meilleures pratiques pour protéger les applications Service Bus contre les pannes de Service Bus et les sinistres]: http://sandboxmsdnstage.redmond.corp.microsoft.com/en-us/library/azure/jj554355.aspx
+  [Meilleures pratiques pour protéger les applications Service Bus contre les pannes de Service Bus et les sinistres]: http://sandboxmsdnstage.redmond.corp.microsoft.com/fr-fr/library/azure/jj554355.aspx
   [Messagerie répartie : demande/réponse]: http://code.msdn.microsoft.com/windowsazure/Brokered-Messaging-Request-2b4ff5d8
   [Application multiniveau avec Azure Service Bus]: http://azure.microsoft.com/fr-fr/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/
-  [Files d'attente Azure et files d'attente Azure Service Bus - comparaison et différences]: http://msdn.microsoft.com/en-us/library/azure/hh767287.aspx
-  [Référence de l'API REST de Service Bus]: http://msdn.microsoft.com/en-us/library/azure/hh780717.aspx
+  [Files d'attente Azure et files d'attente Azure Service Bus - comparaison et différences]: http://msdn.microsoft.com/fr-fr/library/azure/hh767287.aspx
+  [Référence de l'API REST de Service Bus]: http://msdn.microsoft.com/fr-fr/library/azure/hh780717.aspx
   [Services cloud]: http://azure.microsoft.com/fr-fr/documentation/services/cloud-services/

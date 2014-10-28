@@ -8,46 +8,46 @@ Pour qu'une API puisse être utilisée dans Gestion des API (version préliminai
 
 ## Dans cette rubrique
 
--   [Ajout d'une opération][]
--   [Mise en cache de l'opération][]
--   [Paramètres de demande][]
--   [Corps de la demande][]
--   [Réponses][]
--   [Étapes suivantes][]
+-   [Ajout d'une opération][Ajout d'une opération]
+-   [Mise en cache de l'opération][Mise en cache de l'opération]
+-   [Paramètres de demande][Paramètres de demande]
+-   [Corps de la demande][Corps de la demande]
+-   [Réponses][Réponses]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <a name="add-operation"> </a>Ajout d'une opération
 
 Les opérations sont ajoutées et configurées dans une API dans la console de gestion. Pour accéder à la console de gestion, cliquez sur **Console de gestion** dans le portail Azure de votre service Gestion des API.
 
-> Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][] dans le didacticiel [Prise en main de Gestion des API Azure][].
+> Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][Création d'une instance de service Gestion des API] dans le didacticiel [Prise en main de Gestion des API Azure][Prise en main de Gestion des API Azure].
 
-![API Management console][]
+![API Management console][API Management console]
 
 Sélectionnez l'API souhaitée dans le portail Gestion des API, puis sélectionnez l'onglet **Opérations**.
 
-![Operations][]
+![Operations][Operations]
 
 Cliquez sur **Ajouter une opération** pour ajouter une nouvelle opération. **Nouvelle opération** s'affiche et l'onglet **Signature** est sélectionné par défaut.
 
-![Add operation][]
+![Add operation][Add operation]
 
 Spécifiez le **verbe HTTP** en le choisissant dans la liste déroulante.
 
-![HTTP method][]
+![HTTP method][HTTP method]
 
 Définissez le modèle d'URL en tapant un fragment d'URL comprenant un ou plusieurs segments de chemin d'URL et aucun ou plusieurs paramètres de chaîne de requête. Le modèle d'URL, ajouté à l'URL de base de l'API, identifie de façon unique l'opération HTTP. Il peut contenir une ou plusieurs parties variables identifiées par des accolades. Ces parties variables sont appelées paramètres de modèle. Des valeurs leur sont affectées de façon dynamique à partir de l'URL de la demande lorsque la demande est traitée par la plateforme Gestion des API.
 
-![URL template][]
+![URL template][URL template]
 
 Si vous le souhaitez, spécifiez le **modèle de réécriture de l'URL**. Ceci vous permet d'utiliser le modèle d'URL standard pour traiter les demandes entrantes dans la partie frontale, tout en faisant appel à la partie principale via une URL convertie selon le modèle de réécriture. Les paramètres du modèle d'URL doivent être utilisés dans le modèle de réécriture. L'exemple qui suit montre comment un type de contenu codé sous forme de segment de chemin dans le service web de l'exemple précédent peut être utilisé comme paramètre de requête dans l'API publiée via la plateforme Gestion des API à l'aide des modèles d'URL.
 
-![URL template rewrite][]
+![URL template rewrite][URL template rewrite]
 
 Les appelants de l'opération utiliseront le format `/customers?customerid=ALFKI`, qui sera mappé sur `/Customers('ALFKI')` lors de l'appel du service principal.
 
 **Nom d'affichage** et **Description** fournissent une description de l'opération et offrent des informations aux développeurs utilisant cette API dans le portail des développeurs.
 
-![Description][]
+![Description][Description]
 
 La description de l'opération peut être ajoutée en texte brut ou au format HTML dans la zone de texte **Description**.
 
@@ -57,13 +57,13 @@ La mise en cache de la réponse réduit le temps de latence perçu par les conso
 
 Pour activer facilement et rapidement la mise en cache pour une opération, sélectionnez l'onglet **Mise en cache** et activez la case à cocher **Activer**.
 
-![Mise en cache][]
+![Mise en cache][Mise en cache]
 
 **Durée** spécifie la durée pendant laquelle la réponse de l'opération reste dans le cache. La valeur par défaut est de 3600 secondes (1 heure).
 
 Les clés de cache permettent de faire la distinction entre les réponses, afin que la réponse correspondant à chaque clé de cache obtienne sa propre valeur mise en cache. Vous pouvez également entrer des paramètres de chaîne de requête spécifiques et/ou des en-têtes HTTP à utiliser pour calculer les valeurs de clés de cache dans les zones de texte **Variation par paramètres de chaîne de requête** et **Variation par en-têtes**. Si aucune valeur n'est spécifiée, l'URL complète de la demande et les valeurs d'en-tête HTTP suivantes sont utilisées pour générer la clé de cache : **Accept** et **Accept-Charset**.
 
-> Pour plus d'informations sur la mise en cache et les stratégies associée, consultez la page [Mise en cache des résultats d'opérations dans Gestion des API Azure][].
+> Pour plus d'informations sur la mise en cache et les stratégies associée, consultez la page [Mise en cache des résultats d'opérations dans Gestion des API Azure][Mise en cache des résultats d'opérations dans Gestion des API Azure].
 
 ## <a name="request-parameters"> </a>Paramètres de demande
 
@@ -99,15 +99,15 @@ Il est conseillé de fournir des exemples de réponses pour tous les codes d'ét
 
 Pour ajouter une réponse, cliquez sur **Ajouter**, puis tapez le code d'état souhaité. Dans cet exemple, le code d'état est **200 OK**. Une fois le code affiché dans la liste déroulante, sélectionnez-le. Le code de réponse est alors créé et ajouté à votre opération.
 
-![Response code][]
+![Response code][Response code]
 
 Cliquez sur **Ajouter une représentation**, commencez à taper le nom du type de contenu (par exemple application/json), puis sélectionnez-le dans la liste déroulante.
 
-![Body content type][]
+![Body content type][Body content type]
 
 Collez l'exemple de corps de la réponse au format sélectionné dans la zone de texte.
 
-![Response body][]
+![Response body][Response body]
 
 Si vous le souhaitez, vous pouvez spécifier une description dans la zone de texte **Description**.
 
@@ -117,7 +117,7 @@ Une fois l'opération configurée, cliquez sur **Enregistrer**.
 
 Une fois les opérations ajoutées à une API, l'étape suivante est l'association de l'API à un produit et sa publication, afin que les développeurs puissent appeler ses opérations.
 
--   [Création et publication d'un produit][]
+-   [Création et publication d'un produit][Création et publication d'un produit]
 
   [Ajout d'une opération]: #add-operation
   [Mise en cache de l'opération]: #operation-caching

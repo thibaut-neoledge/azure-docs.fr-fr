@@ -75,7 +75,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
     Ceci envoie une demande POST vers le nouveau service mobile hébergé dans Azure. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans la table sont renvoyés par le service mobile et les données sont affichées dans la liste.
 
-> [WACOM.NOTE]Vous pouvez vérifier le code (se trouvant dans le fichier C\# QSTodoService.cs) qui accède au service mobile pour exécuter une requête et insérer des données.
+> [WACOM.NOTE]Vous pouvez vérifier le code (se trouvant dans le fichier C# QSTodoService.cs) qui accède au service mobile pour exécuter une requête et insérer des données.
 
 ## Étapes suivantes
 
@@ -93,9 +93,9 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [version principale JavaScript]: /fr-fr/documentation/articles/partner-xamarin-mobile-services-ios-get-started
-  [Démarrage rapide : ajout d'un service mobile (service principal .NET)]: http://msdn.microsoft.com/en-us/library/windows/apps/dn629482.aspx
+  [Démarrage rapide : ajout d'un service mobile (service principal .NET)]: http://msdn.microsoft.com/fr-fr/library/windows/apps/dn629482.aspx
   []: ./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-quickstart-completed-ios.png
-  [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started
+  [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
   [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
   [1]: ./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-portal-quickstart-xamarin-ios.png

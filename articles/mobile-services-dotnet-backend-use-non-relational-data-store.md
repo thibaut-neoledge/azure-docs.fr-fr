@@ -93,6 +93,6 @@ Notez que vous devez avoir déjà suivi le didacticiel [Prise en main de Mobile 
   [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
   [Prise en main des données]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
   [portail de gestion Azure]: https://manage.windowsazure.com/
-  [page dédiée au module complémentaire MongoLab]: /en-us/gallery/store/mongolab/mongolab
+  [page dédiée au module complémentaire MongoLab]: /fr-fr/gallery/store/mongolab/mongolab
   []: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/create-mongo-lab.png
   [1]: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/mongo-connection-string.png

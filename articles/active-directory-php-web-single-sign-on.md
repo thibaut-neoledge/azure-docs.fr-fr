@@ -15,20 +15,20 @@ Ce didacticiel va expliquer aux développeurs PHP comment tirer parti d'Azure Ac
 
 Les éléments de développement suivants sont requis pour cette procédure pas à pas :
 
--   [Exemple de code PHP pour Azure Active Directory][]
--   [Eclipse PDT 3.0.x All In Ones][]
+-   [Exemple de code PHP pour Azure Active Directory][Exemple de code PHP pour Azure Active Directory]
+-   [Eclipse PDT 3.0.x All In Ones][Eclipse PDT 3.0.x All In Ones]
 -   PHP 5.3.1 (via Web Platform Installer)
 -   IIS (Internet Information Services) 7.5 avec SSL activé
 -   Windows PowerShell
--   [Cmdlets PowerShell pour Office 365][]
+-   [Cmdlets PowerShell pour Office 365][Cmdlets PowerShell pour Office 365]
 
 ### Sommaire
 
--   [Introduction][]
--   [Étape 1 : création d'une application PHP][]
--   [Étape 2 : configuration de l'application dans le client d'annuaire d'une société][]
--   [Étape 3 : protection de l'application en utilisant WS-Federation pour la connexion des employés][]
--   [Résumé][]
+-   [Introduction][Introduction]
+-   [Étape 1 : création d'une application PHP][Étape 1 : création d'une application PHP]
+-   [Étape 2 : configuration de l'application dans le client d'annuaire d'une société][Étape 2 : configuration de l'application dans le client d'annuaire d'une société]
+-   [Étape 3 : protection de l'application en utilisant WS-Federation pour la connexion des employés][Étape 3 : protection de l'application en utilisant WS-Federation pour la connexion des employés]
+-   [Résumé][Résumé]
 
 ## <a name="createapp"></a>Étape 1 : création d'une application PHP
 

@@ -158,5 +158,5 @@ Les migrations peuvent être complexes et nécessitent que l'état de la base de
   [Logs in Azure Management Portal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
   [packages NuGet du service principal .NET]: http://www.nuget.org/packages?q=%22mobile+services+.net+backend%22
   [Help page indicating assembly loading conflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
-  [migrations Code First]: http://msdn.microsoft.com/en-us/data/jj591621
+  [migrations Code First]: http://msdn.microsoft.com/fr-fr/data/jj591621
   [Modifications des modèles de données pour un service mobile principal .NET]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/

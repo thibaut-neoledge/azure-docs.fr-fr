@@ -131,7 +131,7 @@ Pour gérer vos connexions hybrides, vous pouvez :
 2.  Procédez à l'extraction des fichiers.
 3.  Sur l'ordinateur qui modifie la stratégie de groupe, procédez comme suit :
 4.  Copiez les fichiers .ADMX dans le dossier *%WINROOT%\\PolicyDefinitions*.
--   Copiez les fichiers .ADMX dans le dossier *%WINROOT%\\PolicyDefinitions\\en-us*.
+-   Copiez les fichiers .ADMX dans le dossier *%WINROOT%\\PolicyDefinitions\\fr-fr*.
 
 Une fois les fichiers copiés, vous pouvez utiliser l'Éditeur de stratégie de groupe pour modifier la stratégie.
 

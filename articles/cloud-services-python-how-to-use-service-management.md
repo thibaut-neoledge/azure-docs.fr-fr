@@ -4,44 +4,44 @@
 
 # Utilisation de la gestion des services à partir de Python
 
-Ce guide vous explique comment effectuer des tâches courantes de gestion des services par programme à partir de Python. La classe **ServiceManagementService** du [Kit de développement logiciel (SDK) Azure pour Python][] prend en charge l'accès par programme à une grande partie des fonctionnalités liées à la gestion des services disponibles dans le [portail de gestion][] (telles que **la création, la mise à jour et la suppression de services cloud, les déploiements, les services de gestion des données, les machines virtuelles et les groupes d'affinités**). Ces fonctionnalités peuvent être utiles pour la création d'applications nécessitant un accès par programme à la gestion des services.
+Ce guide vous explique comment effectuer des tâches courantes de gestion des services par programme à partir de Python. La classe **ServiceManagementService** du [Kit de développement logiciel (SDK) Azure pour Python][Kit de développement logiciel (SDK) Azure pour Python] prend en charge l'accès par programme à une grande partie des fonctionnalités liées à la gestion des services disponibles dans le [portail de gestion][portail de gestion] (telles que **la création, la mise à jour et la suppression de services cloud, les déploiements, les services de gestion des données, les machines virtuelles et les groupes d'affinités**). Ces fonctionnalités peuvent être utiles pour la création d'applications nécessitant un accès par programme à la gestion des services.
 
 ## Sommaire
 
--   [Présentation de la gestion des services][]
--   [Concepts][]
--   [Connexion à la gestion des services][]
--   [Affichage de la liste des emplacements disponibles][]
--   [Création d'un service cloud][]
--   [Suppression d'un service cloud][]
--   [Création d'un déploiement][]
--   [Mise à jour d'un déploiement][]
--   [Transfert des déploiements entre les environnements intermédiaire et de production][]
--   [Suppression d'un déploiement][]
--   [Création d’un service de stockage][]
--   [Suppression d'un service de stockage][]
--   [Création d'un groupe d'affinités][]
--   [Suppression d'un groupe d'affinités][]
--   [Affichage de la liste des systèmes d'exploitation disponibles][]
--   [Création d'une image du système d'exploitation][]
--   [Suppression d'une image du système d'exploitation][]
--   [Création d'une machine virtuelle][]
--   [Suppression d'une machine virtuelle][]
--   [Étapes suivantes][]
+-   [Présentation de la gestion des services][Présentation de la gestion des services]
+-   [Concepts][Concepts]
+-   [Connexion à la gestion des services][Connexion à la gestion des services]
+-   [Affichage de la liste des emplacements disponibles][Affichage de la liste des emplacements disponibles]
+-   [Création d'un service cloud][Création d'un service cloud]
+-   [Suppression d'un service cloud][Suppression d'un service cloud]
+-   [Création d'un déploiement][Création d'un déploiement]
+-   [Mise à jour d'un déploiement][Mise à jour d'un déploiement]
+-   [Transfert des déploiements entre les environnements intermédiaire et de production][Transfert des déploiements entre les environnements intermédiaire et de production]
+-   [Suppression d'un déploiement][Suppression d'un déploiement]
+-   [Création d’un service de stockage][Création d’un service de stockage]
+-   [Suppression d'un service de stockage][Suppression d'un service de stockage]
+-   [Création d'un groupe d'affinités][Création d'un groupe d'affinités]
+-   [Suppression d'un groupe d'affinités][Suppression d'un groupe d'affinités]
+-   [Affichage de la liste des systèmes d'exploitation disponibles][Affichage de la liste des systèmes d'exploitation disponibles]
+-   [Création d'une image du système d'exploitation][Création d'une image du système d'exploitation]
+-   [Suppression d'une image du système d'exploitation][Suppression d'une image du système d'exploitation]
+-   [Création d'une machine virtuelle][Création d'une machine virtuelle]
+-   [Suppression d'une machine virtuelle][Suppression d'une machine virtuelle]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <a name="WhatIs"> </a>Présentation de la gestion des services
 
-L'API de gestion des services fournit un accès par programme aux fonctionnalités de gestion des services disponibles par le biais du [portail de gestion][]. Le Kit de développement logiciel (SDK) Azure pour Python vous permet de gérer vos services cloud, comptes de stockage et groupes d'affinités.
+L'API de gestion des services fournit un accès par programme aux fonctionnalités de gestion des services disponibles par le biais du [portail de gestion][portail de gestion]. Le Kit de développement logiciel (SDK) Azure pour Python vous permet de gérer vos services cloud, comptes de stockage et groupes d'affinités.
 
-Pour utiliser l'API de gestion des services, vous devez [créer un compte Azure][].
+Pour utiliser l'API de gestion des services, vous devez [créer un compte Azure][créer un compte Azure].
 
 ## <a name="Concepts"> </a>Concepts
 
-Le Kit de développement logiciel (SDK) Azure pour Python inclut l'[API de gestion des services Azure][], qui est une API REST. Toutes les opérations de l'API sont effectuées au moyen du protocole SSL et sont mutuellement authentifiées au moyen de certificats X.509 v3. La gestion des services est accessible à partir d'un service s'exécutant dans Azure, ou directement sur Internet à partir de toute application pouvant envoyer une demande HTTPS et recevoir une réponse HTTPS.
+Le Kit de développement logiciel (SDK) Azure pour Python inclut l'[API de gestion des services Azure][API de gestion des services Azure], qui est une API REST. Toutes les opérations de l'API sont effectuées au moyen du protocole SSL et sont mutuellement authentifiées au moyen de certificats X.509 v3. La gestion des services est accessible à partir d'un service s'exécutant dans Azure, ou directement sur Internet à partir de toute application pouvant envoyer une demande HTTPS et recevoir une réponse HTTPS.
 
 ## <a name="Connect"> </a> Connexion à la gestion des services
 
-Pour vous connecter au point de terminaison de la gestion de services, vous avez besoin de votre ID d'abonnement Azure et d'un certificat de gestion valide. Vous pouvez obtenir votre ID d'abonnement dans le [portail de gestion][].
+Pour vous connecter au point de terminaison de la gestion de services, vous avez besoin de votre ID d'abonnement Azure et d'un certificat de gestion valide. Vous pouvez obtenir votre ID d'abonnement dans le [portail de gestion][portail de gestion].
 
 > [WACOM.NOTE] À partir du Kit de développement logiciel (SDK) Azure pour Python v0.8.0, il est maintenant possible d'utiliser des certificats créés avec OpenSSL sous Windows. Ceci nécessite Python 2.7.4 ou version ultérieure.
 
@@ -51,9 +51,9 @@ Vous pouvez créer un certificat de gestion auto-signé sur votre machine au moy
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-La commande va créer le fichier `.cer` et l'installer dans le magasin de certificats **Personnel**. Pour plus d'informations, consultez la rubrique [Créer et télécharger un certificat de gestion pour Windows Azure][].
+La commande va créer le fichier `.cer` et l'installer dans le magasin de certificats **Personnel**. Pour plus d'informations, consultez la rubrique [Créer et télécharger un certificat de gestion pour Windows Azure][Créer et télécharger un certificat de gestion pour Windows Azure].
 
-Une fois que vous avez créé le certificat, vous devez télécharger le fichier `.cer` sur Azure via l'action Télécharger de l'onglet Paramètres dans le [portail de gestion][].
+Une fois que vous avez créé le certificat, vous devez télécharger le fichier `.cer` sur Azure via l'action Télécharger de l'onglet Paramètres dans le [portail de gestion][portail de gestion].
 
 Une fois que vous avez obtenu votre ID d'abonnement, créé un certificat et téléchargé le fichier `.cer` sur Azure, vous pouvez vous connecter au point de terminaison de gestion Azure en transmettant l'ID d'abonnement et l'emplacement du certificat dans votre magasin de certificats **Personnel** vers **ServiceManagementService** (à nouveau, remplacez *AzureCertificate* par le nom de votre certificat) :
 
@@ -69,7 +69,7 @@ Dans l'exemple ci-dessus, `sms` est un objet **ServiceManagementService**. La cl
 
 ### Certificats de gestion sur Windows/Mac/Linux (OpenSSL)
 
-Vous pouvez utiliser [OpenSSL][] pour créer votre certificat de gestion. En fait, vous devez créer deux certificats, un pour le serveur (un fichier `.cer`) et un pour le client (un fichier `.pem`). Pour créer le fichier `.pem`, exécutez le code suivant :
+Vous pouvez utiliser [OpenSSL][OpenSSL] pour créer votre certificat de gestion. En fait, vous devez créer deux certificats, un pour le serveur (un fichier `.cer`) et un pour le client (un fichier `.pem`). Pour créer le fichier `.pem`, exécutez le code suivant :
 
     `openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
 
@@ -77,9 +77,9 @@ Pour créer le certificat `.cer`, exécutez le code suivant :
 
     `openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Pour plus d'informations sur les certificats Azure, consultez la rubrique [Gestion des certificats dans Azure][]. Pour une description complète des paramètres OpenSSL, consultez la documentation disponible sur [][]<http://www.openssl.org/docs/apps/openssl.html></a>.
+Pour plus d'informations sur les certificats Azure, consultez la rubrique [Gestion des certificats dans Azure][Gestion des certificats dans Azure]. Pour une description complète des paramètres OpenSSL, consultez la documentation disponible sur [][]<http://www.openssl.org/docs/apps/openssl.html></a>.
 
-Une fois que vous avez créé ces fichiers, vous devez télécharger le fichier `.cer` sur Azure au moyen de l'action Télécharger de l'onglet Paramètres dans le [portail de gestion][]. Prenez note également de l'endroit où vous avez enregistré le fichier `.pem`.
+Une fois que vous avez créé ces fichiers, vous devez télécharger le fichier `.cer` sur Azure au moyen de l'action Télécharger de l'onglet Paramètres dans le [portail de gestion][portail de gestion]. Prenez note également de l'endroit où vous avez enregistré le fichier `.pem`.
 
 Une fois que vous avez obtenu votre ID d'abonnement, créé un certificat et téléchargé le fichier `.cer` sur Azure, vous pouvez vous connecter au point de terminaison de gestion Azure en transmettant l'ID d'abonnement et le chemin du fichier `.pem` vers **ServiceManagementService** :
 
@@ -119,7 +119,7 @@ Lorsque vous créez un service cloud, un service de stockage ou un groupe d'affi
 
 ## <a name="CreateCloudService"> </a> Création d'un service cloud
 
-Lorsque vous créez une application et que vous l'exécutez dans Azure, l'ensemble constitué du code et de la configuration est appelé [service cloud][] Azure (également connu sous le nom de *service hébergé* dans les versions antérieures d'Azure). La méthode **create\_hosted\_service** vous permet de créer un service hébergé en fournissant un nom de service hébergé (qui doit être unique dans Azure), une étiquette (automatiquement codée en base64), une description et un emplacement. Vous pouvez spécifier un groupe d'affinités au lieu d'un emplacement pour votre service.
+Lorsque vous créez une application et que vous l'exécutez dans Azure, l'ensemble constitué du code et de la configuration est appelé [service cloud][service cloud] Azure (également connu sous le nom de *service hébergé* dans les versions antérieures d'Azure). La méthode **create\_hosted\_service** vous permet de créer un service hébergé en fournissant un nom de service hébergé (qui doit être unique dans Azure), une étiquette (automatiquement codée en base64), une description et un emplacement. Vous pouvez spécifier un groupe d'affinités au lieu d'un emplacement pour votre service.
 
     from azure import *
     from azure.servicemanagement import *
@@ -163,16 +163,16 @@ Vous pouvez supprimer un service cloud en transmettant son nom à la méthode **
 
     sms.delete_hosted_service('myhostedservice')
 
-Notez qu'avant de supprimer un service, vous devez supprimer tous les déploiements associés Pour plus d'informations, consultez la rubrique [Suppression d'un déploiement][].
+Notez qu'avant de supprimer un service, vous devez supprimer tous les déploiements associés Pour plus d'informations, consultez la rubrique [Suppression d'un déploiement][Suppression d'un déploiement].
 
 ## <a name="CreateDeployment"> </a> Création d'un déploiement
 
-La méthode **create\_deployment** télécharge un nouveau [package de service][] et crée un déploiement dans l'environnement intermédiaire ou de production. Les paramètres de cette méthode sont les suivants :
+La méthode **create\_deployment** télécharge un nouveau [package de service][package de service] et crée un déploiement dans l'environnement intermédiaire ou de production. Les paramètres de cette méthode sont les suivants :
 
 -   **name** : nom du service hébergé.
 -   **deployment\_name** : nom du déploiement.
 -   **slot** : chaîne indiquant l'emplacement `staging` ou `production`.
--   **package\_url** : URL du package de déploiement (fichier .cspgk). Le fichier de package doit être stocké dans un compte de stockage d'objets blob Azure sous le même abonnement que le service hébergé sur lequel le package est téléchargé. Vous pouvez créer un package de déploiement au moyen des [cmdlets Azure PowerShell][] ou de l'[outil en ligne de commande cspack][].
+-   **package\_url** : URL du package de déploiement (fichier .cspgk). Le fichier de package doit être stocké dans un compte de stockage d'objets blob Azure sous le même abonnement que le service hébergé sur lequel le package est téléchargé. Vous pouvez créer un package de déploiement au moyen des [cmdlets Azure PowerShell][cmdlets Azure PowerShell] ou de l'[outil en ligne de commande cspack][outil en ligne de commande cspack].
 -   **configuration** : fichier de configuration de service (fichier .cscfg) codé en base64.
 -   **label** : étiquette du nom de service hébergé (automatiquement codé en base64).
 
@@ -216,7 +216,7 @@ Vous pouvez accéder aux propriétés de déploiement avec la méthode **get\_de
 
 Un déploiement peut être mis à jour au moyen de la méthode **change\_deployment\_configuration** ou **update\_deployment\_status**.
 
-La méthode **change\_deployment\_configuration** vous permet de télécharger un nouveau fichier de configuration de service (`.cscfg`), qui changera n'importe quel paramètre de service (y compris le nombre d'instances d'un déploiement). Pour plus d'informations, consultez la rubrique [Schéma de configuration de service Azure (.cscfg)][]. L'exemple suivant indique comment télécharger un nouveau fichier de configuration de service :
+La méthode **change\_deployment\_configuration** vous permet de télécharger un nouveau fichier de configuration de service (`.cscfg`), qui changera n'importe quel paramètre de service (y compris le nombre d'instances d'un déploiement). Pour plus d'informations, consultez la rubrique [Schéma de configuration de service Azure (.cscfg)][Schéma de configuration de service Azure (.cscfg)]. L'exemple suivant indique comment télécharger un nouveau fichier de configuration de service :
 
     from azure import *
     from azure.servicemanagement import *
@@ -249,7 +249,7 @@ La méthode **update\_deployment\_status** vous permet de définir un état de d
 
 ## <a name="MoveDeployments"> </a> Transfert des déploiements entre les environnements intermédiaire et de production
 
-Azure fournit deux environnements de déploiement : intermédiaire et de production. Généralement, un service est déployé dans l'environnement intermédiaire pour être testé avant son déploiement dans l'environnement de production. Lorsqu'il est temps de promouvoir le service de l'environnement intermédiaire à l'environnement de production, vous pouvez le faire sans redéployer le service. Pour cela, intervertissez les déploiements (pour plus d'informations sur l'intervertissement de déploiements, consultez la rubrique [Déploiement d'un service Azure][]).
+Azure fournit deux environnements de déploiement : intermédiaire et de production. Généralement, un service est déployé dans l'environnement intermédiaire pour être testé avant son déploiement dans l'environnement de production. Lorsqu'il est temps de promouvoir le service de l'environnement intermédiaire à l'environnement de production, vous pouvez le faire sans redéployer le service. Pour cela, intervertissez les déploiements (pour plus d'informations sur l'intervertissement de déploiements, consultez la rubrique [Déploiement d'un service Azure][Déploiement d'un service Azure]).
 
 L'exemple suivant indique comment utiliser la méthode **swap\_deployment** pour intervertir deux déploiements (avec les noms `v1` et `v2`). Dans l'exemple, avant d'appeler **swap\_deployment**, le déploiement `v1` se trouve dans l'emplacement de production, et le déploiement `v2` dans l'emplacement intermédiaire. Après avoir appelé **swap\_deployment**, `v2` se trouve dans l'emplacement de production, et `v1` dans l'emplacement intermédiaire.
 
@@ -273,7 +273,7 @@ Pour supprimer un déploiement, utilisez la méthode **delete\_deployment**. L'e
 
 ## <a name="CreateStorageService"> </a> Création d’un service de stockage
 
-Un [service de stockage][] vous donne accès aux [objets blob][], [tables][] et [files d'attente][] Azure. Pour créer un service de stockage, vous avez besoin d'un nom pour le service (comprenant entre 3 et 24 lettres minuscules et unique au sein d'Azure), une description, une étiquette (jusqu'à 100 caractères, automatiquement codés en base64) et un emplacement ou un groupe d'affinités. L'exemple suivant indique comment créer un service de stockage en spécifiant un emplacement. Si vous voulez utiliser un groupe d'affinités, vous devez au préalable créer ce dernier (consultez la section [Création d'un groupe d'affinités][]) et le configurer avec le paramètre **affinity\_group**.
+Un [service de stockage][service de stockage] vous donne accès aux [objets blob][objets blob], [tables][tables] et [files d'attente][files d'attente] Azure. Pour créer un service de stockage, vous avez besoin d'un nom pour le service (comprenant entre 3 et 24 lettres minuscules et unique au sein d'Azure), une description, une étiquette (jusqu'à 100 caractères, automatiquement codés en base64) et un emplacement ou un groupe d'affinités. L'exemple suivant indique comment créer un service de stockage en spécifiant un emplacement. Si vous voulez utiliser un groupe d'affinités, vous devez au préalable créer ce dernier (consultez la section [Création d'un groupe d'affinités][Création d'un groupe d'affinités]) et le configurer avec le paramètre **affinity\_group**.
 
     from azure import *
     from azure.servicemanagement import *
@@ -494,7 +494,7 @@ Le service cloud peut ensuite être supprimé au moyen de la méthode **delete\_
 Maintenant que vous avez appris les bases de la gestion des services, suivez ces liens pour effectuer des tâches plus complexes.
 
 -   Consultez la référence MSDN suivante : [Services cloud][package de service]
--   Consultez la référence MSDN suivante : [Machines virtuelles][]
+-   Consultez la référence MSDN suivante : [Machines virtuelles][Machines virtuelles]
 
   [Kit de développement logiciel (SDK) Azure pour Python]: https://www.windowsazure.com/fr-fr/develop/python/common-tasks/install-python/
   [portail de gestion]: https://manage.windowsazure.com/

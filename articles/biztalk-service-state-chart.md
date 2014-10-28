@@ -10,7 +10,7 @@ Par exemple, vous approvisionnez un nouveau service BizTalk dans le portail de g
 
 **Opération non autorisée**
 
-Pour plus d'informations sur l'approvisionnement d'un service BizTalk, consultez la rubrique [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][].
+Pour plus d'informations sur l'approvisionnement d'un service BizTalk, consultez la rubrique [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure].
 
 Les tableaux ci-dessous répertorient les opérations qui peuvent être effectuées selon l'état du service BizTalk. Une coche signifie que l'opération peut être effectuée dans cet état. Une case vide signifie que l'opération ne peut pas être effectuée dans cet état.
 
@@ -592,13 +592,13 @@ x
 </table>
 ## Voir aussi
 
--   [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][]
--   [BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services][]
--   [BizTalk Services : Tableau comparatif des éditions Développeur, De base, Standard, et Premium de BizTalk Services][]
--   [BizTalk Services : Sauvegarde et restauration][]
--   [BizTalk Services : Limitation][]
--   [BizTalk Services : Nom et clé de l'émetteur][]
--   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services][]
+-   [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure]
+-   [BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services][BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services]
+-   [BizTalk Services : Tableau comparatif des éditions Développeur, De base, Standard, et Premium de BizTalk Services][BizTalk Services : Tableau comparatif des éditions Développeur, De base, Standard, et Premium de BizTalk Services]
+-   [BizTalk Services : Sauvegarde et restauration][BizTalk Services : Sauvegarde et restauration]
+-   [BizTalk Services : Limitation][BizTalk Services : Limitation]
+-   [BizTalk Services : Nom et clé de l'émetteur][BizTalk Services : Nom et clé de l'émetteur]
+-   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services][Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services]
 
   [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure]: http://go.microsoft.com/fwlink/p/?LinkID=302280
   [BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services]: http://go.microsoft.com/fwlink/p/?LinkID=302281

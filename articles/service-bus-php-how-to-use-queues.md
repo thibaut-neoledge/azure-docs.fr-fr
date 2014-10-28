@@ -106,7 +106,7 @@ L'exemple suivant montre comment instancier un **ServiceBusRestProxy** et appele
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -140,7 +140,7 @@ Pour envoyer un message à une file d'attente Service Bus, votre application app
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780775
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/hh780775
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -200,7 +200,7 @@ L'exemple ci-dessous montre comment les messages peuvent être reçus et traité
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here:
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780735
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/hh780735
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -254,4 +254,4 @@ Service Bus, consultez la rubrique MSDN [Files d'attente, rubriques et abonnemen
   [extension OpenSSL]: http://php.net/openssl
   [get-client-libraries]: ../includes/get-client-libraries.md
   [require\_once]: http://php.net/require_once
-  [Files d'attente, rubriques et abonnements]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+  [Files d'attente, rubriques et abonnements]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367516.aspx

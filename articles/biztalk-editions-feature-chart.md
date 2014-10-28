@@ -214,25 +214,25 @@ Vous ne pourrez plus déployer d'autres ponts ou créer d'autres contrats. Pour 
 
 #### Comment migrer d'un niveau de BizTalk Services à un autre ?
 
-Utilisez le flux de sauvegarde et de restauration pour migrer d'un niveau à un autre. Seuls certains chemins de migration sont pris en charge. Consultez [BizTalk Services : Sauvegarde et restauration][] pour plus d'informations sur les chemins de migration pris en charge.
+Utilisez le flux de sauvegarde et de restauration pour migrer d'un niveau à un autre. Seuls certains chemins de migration sont pris en charge. Consultez [BizTalk Services : Sauvegarde et restauration][BizTalk Services : Sauvegarde et restauration] pour plus d'informations sur les chemins de migration pris en charge.
 
 #### Un service d'adaptateur BizTalk est-il inclus dans le service ? Comment recevoir le logiciel ?
 
-Oui, le service d'adaptateur BizTalk livré avec le Pack adaptateurs BizTalk vous est fourni lorsque vous [téléchargez][] le Kit de développement logiciel (SDK) Azure BizTalk Services.
+Oui, le service d'adaptateur BizTalk livré avec le Pack adaptateurs BizTalk vous est fourni lorsque vous [téléchargez][téléchargez] le Kit de développement logiciel (SDK) Azure BizTalk Services.
 
 ## Suivant
 
-Pour approvisionner Azure BizTalk Services dans le portail de gestion Azure, accédez à [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][]. Pour commencer à créer des applications, consultez la page [Azure BizTalk Services][].
+Pour approvisionner Azure BizTalk Services dans le portail de gestion Azure, accédez à [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure]. Pour commencer à créer des applications, consultez la page [Azure BizTalk Services][Azure BizTalk Services].
 
 ## Voir aussi
 
--   [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][]
--   [BizTalk Services : Tableau comparatif des états d'approvisionnement BizTalk Services][]
--   [BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services][]
--   [BizTalk Services : Sauvegarde et restauration][]
--   [BizTalk Services : Limitation][]
--   [BizTalk Services : Nom et clé de l'émetteur][]
--   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services][]
+-   [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure]
+-   [BizTalk Services : Tableau comparatif des états d'approvisionnement BizTalk Services][BizTalk Services : Tableau comparatif des états d'approvisionnement BizTalk Services]
+-   [BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services][BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services]
+-   [BizTalk Services : Sauvegarde et restauration][BizTalk Services : Sauvegarde et restauration]
+-   [BizTalk Services : Limitation][BizTalk Services : Limitation]
+-   [BizTalk Services : Nom et clé de l'émetteur][BizTalk Services : Nom et clé de l'émetteur]
+-   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services][Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services]
 
   [Tarification – BizTalk Services]: http://go.microsoft.com/fwlink/p/?LinkID=304011
   [BizTalk Services : Sauvegarde et restauration]: http://go.microsoft.com/fwlink/p/?LinkID=329873

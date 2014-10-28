@@ -17,20 +17,20 @@ Les éléments de développement suivants sont requis pour cette procédure pas 
 
 -   Visual Studio 2010 SP1
 -   Microsoft .NET Framework 4.0
--   [ASP.NET MVC 3][]
--   [Windows Identity Foundation 1.0 Runtime][]
--   [Windows Identity Foundation 3.5 SDK][]
+-   [ASP.NET MVC 3][ASP.NET MVC 3]
+-   [Windows Identity Foundation 1.0 Runtime][Windows Identity Foundation 1.0 Runtime]
+-   [Windows Identity Foundation 3.5 SDK][Windows Identity Foundation 3.5 SDK]
 -   IIS (Internet Information Services) 7.5 avec SSL activé
 -   Windows PowerShell
--   [Cmdlets PowerShell pour Office 365][]
+-   [Cmdlets PowerShell pour Office 365][Cmdlets PowerShell pour Office 365]
 
 ### Sommaire
 
--   [Introduction][]
--   [Étape 1 : création d'une application ASP.NET MVC][]
--   [Étape 2 : configuration de l'application dans le client d'annuaire d'une société][]
--   [Étape 3 : protection de l'application en utilisant WS-Federation pour la connexion des employés][]
--   [Résumé][]
+-   [Introduction][Introduction]
+-   [Étape 1 : création d'une application ASP.NET MVC][Étape 1 : création d'une application ASP.NET MVC]
+-   [Étape 2 : configuration de l'application dans le client d'annuaire d'une société][Étape 2 : configuration de l'application dans le client d'annuaire d'une société]
+-   [Étape 3 : protection de l'application en utilisant WS-Federation pour la connexion des employés][Étape 3 : protection de l'application en utilisant WS-Federation pour la connexion des employés]
+-   [Résumé][Résumé]
 
 ## <a name="createapp"></a>Étape 1 : Création d'une application ASP.NET MVC
 
@@ -172,7 +172,7 @@ Cette étape vous indique comment ajouter la prise en charge de la connexion fé
 
 ## <a name="summary"></a>Résumé
 
-Ce didacticiel vous a indiqué comment créer et configurer une unique application cliente utilisant les fonctionnalités d'authentification unique d'-Azure Active Directory. Vous pouvez également créer des applications mutualisées pour Azure Active Directory en consultant le didacticiel suivant : [Développement d'une application cloud mutualisée avec Azure Active Directory][].
+Ce didacticiel vous a indiqué comment créer et configurer une unique application cliente utilisant les fonctionnalités d'authentification unique d'-Azure Active Directory. Vous pouvez également créer des applications mutualisées pour Azure Active Directory en consultant le didacticiel suivant : [Développement d'une application cloud mutualisée avec Azure Active Directory][Développement d'une application cloud mutualisée avec Azure Active Directory].
 
   [ASP.NET MVC 3]: http://www.microsoft.com/fr-fr/download/details.aspx?id=4211
   [Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/fr-fr/download/details.aspx?id=17331

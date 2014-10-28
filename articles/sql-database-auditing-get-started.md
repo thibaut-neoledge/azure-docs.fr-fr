@@ -86,7 +86,7 @@ Pour des instructions plus détaillées sur la façon de travailler avec le mod�
 <!--Link references-->
 
   [inscrivez-vous pour la version préliminaire]: http://go.microsoft.com/fwlink/?LinkId=404163
-  [Centre de gestion de la confidentialité Azure]: http://azure.microsoft.com/en-us/support/trust-center/compliance/
+  [Centre de gestion de la confidentialité Azure]: http://azure.microsoft.com/fr-fr/support/trust-center/compliance/
   [Principes fondamentaux de l'audit de base de données SQL Azure]: #subheading-1
   [Configuration de l'audit de votre base de données]: #subheading-2
   [Analyse des journaux et des rapports d'audit]: #subheading-3
@@ -100,6 +100,6 @@ Pour des instructions plus détaillées sur la façon de travailler avec le mod�
   [4]: ./media/sql-database-auditing-get-started/sql-database-get-started-connectionstring.png
   [l'Explorateur de stockage Azure]: http://azurestorageexplorer.codeplex.com/
   [feuille de calcul Excel téléchargeable]: http://go.microsoft.com/fwlink/?LinkId=403540
-  [ici]: http://www.microsoft.com/en-us/download/details.aspx?id=39379
+  [ici]: http://www.microsoft.com/fr-fr/download/details.aspx?id=39379
   [Procédure (téléchargement doc)]: http://go.microsoft.com/fwlink/?LinkId=506731
   [5]: ./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png

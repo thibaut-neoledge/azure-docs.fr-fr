@@ -6,7 +6,7 @@
 
 Cette rubrique explique comment télécharger un site web Java personnalisé dans Azure. Vous y trouverez des informations s'appliquant à tous les sites web Java, ainsi que quelques exemples d'applications spécifiques.
 
-Notez qu'Azure permet de créer des sites web Java en utilisant l'interface utilisateur de configuration du portail Azure, ainsi que la galerie d'applications Azure, comme indiqué dans la page [Prise en main d'Azure Web Sites et de Java][]. Ce didacticiel est consacré aux scénarios pour lesquels vous ne souhaitez pas utiliser l'interface utilisateur de configuration Azure ni la galerie d'applications Azure.
+Notez qu'Azure permet de créer des sites web Java en utilisant l'interface utilisateur de configuration du portail Azure, ainsi que la galerie d'applications Azure, comme indiqué dans la page [Prise en main d'Azure Web Sites et de Java][Prise en main d'Azure Web Sites et de Java]. Ce didacticiel est consacré aux scénarios pour lesquels vous ne souhaitez pas utiliser l'interface utilisateur de configuration Azure ni la galerie d'applications Azure.
 
 # Instructions de configuration
 
@@ -152,16 +152,16 @@ Notre test a utilisé le war Hudson 3.1.2 et l'instance Tomcat 7.0.50 par déf
 
 4.  Une fois que Hudson s'est configuré lui-même, l'écran suivant doit s'afficher :
 
-    ![Hudson][]
+    ![Hudson][Hudson]
 
 5.  Accédez à la page de configuration de Hudson : Cliquez sur **Manage Hudson**, puis sur **Configure System**.
 6.  Configurez le JDK comme indiqué ci-dessous :
 
-    ![Configuration de Hudson][]
+    ![Configuration de Hudson][Configuration de Hudson]
 
 7.  Configurez Maven comme indiqué ci-dessous :
 
-    ![Configuration de Maven][]
+    ![Configuration de Maven][Configuration de Maven]
 
 8.  Enregistrez les paramètres. Hudson est désormais configuré et prêt à l'emploi.
 

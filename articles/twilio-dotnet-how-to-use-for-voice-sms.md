@@ -4,22 +4,22 @@
 
 # Utilisation de Twilio pour les fonctionnalités vocales et de SMS depuis Azure
 
-Ce guide présente l'exécution de tâches de programmation courantes avec le service API Twilio sur Azure. Les scénarios abordés comprennent notamment les appels téléphoniques et l'envoi de SMS. Pour plus d'informations sur Twilio et sur l'utilisation des fonctionnalités vocales et de SMS de vos applications, consultez la section [Étapes suivantes][].
+Ce guide présente l'exécution de tâches de programmation courantes avec le service API Twilio sur Azure. Les scénarios abordés comprennent notamment les appels téléphoniques et l'envoi de SMS. Pour plus d'informations sur Twilio et sur l'utilisation des fonctionnalités vocales et de SMS de vos applications, consultez la section [Étapes suivantes][Étapes suivantes].
 
 ## Sommaire
 
--   [Présentation de Twilio][]
--   [Tarification de Twilio][]
--   [Concepts][]
--   [Création d'un compte Twilio][]
--   [Vérification des numéros de téléphone][]
--   [Création d'une application Azure][]
--   [Configuration de l'application pour utiliser les bibliothèques Twilio][]
--   [Appel téléphonique][]
--   [Envoi d'un SMS][]
--   [Envoi de réponses TwiML à partir de votre propre site Web][]
--   [Utilisation des services Twilio supplémentaires][]
--   [Étapes suivantes][]
+-   [Présentation de Twilio][Présentation de Twilio]
+-   [Tarification de Twilio][Tarification de Twilio]
+-   [Concepts][Concepts]
+-   [Création d'un compte Twilio][Création d'un compte Twilio]
+-   [Vérification des numéros de téléphone][Vérification des numéros de téléphone]
+-   [Création d'une application Azure][Création d'une application Azure]
+-   [Configuration de l'application pour utiliser les bibliothèques Twilio][Configuration de l'application pour utiliser les bibliothèques Twilio]
+-   [Appel téléphonique][Appel téléphonique]
+-   [Envoi d'un SMS][Envoi d'un SMS]
+-   [Envoi de réponses TwiML à partir de votre propre site Web][Envoi de réponses TwiML à partir de votre propre site Web]
+-   [Utilisation des services Twilio supplémentaires][Utilisation des services Twilio supplémentaires]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <span id="WhatIs"></span></a>Présentation de Twilio
 
@@ -29,13 +29,13 @@ Twilio alimente le futur des communications professionnelles, en permettant aux 
 
 ## <span id="Pricing"></span></a>Tarification de Twilio et offres spéciales
 
-Les clients Azure reçoivent une [offre spéciale][] sous la forme d'un crédit Twilio d'un montant de 10 $ offert lorsqu'ils mettent à niveau leur compte Twilio. Ce crédit peut servir à l'achat d'une prestation Twilio (un crédit de 10 $ correspond à l'envoi de 1 000 SMS ou à la réception de 1 000 minutes vocales maximum, en fonction de l'emplacement de votre numéro de téléphone, du message ou de la destination de l'appel). Profitez de ce crédit Twilio et démarrez en consultant la page [ahoy.twilio.com/azure][].
+Les clients Azure reçoivent une [offre spéciale][offre spéciale] sous la forme d'un crédit Twilio d'un montant de 10 $ offert lorsqu'ils mettent à niveau leur compte Twilio. Ce crédit peut servir à l'achat d'une prestation Twilio (un crédit de 10 $ correspond à l'envoi de 1 000 SMS ou à la réception de 1 000 minutes vocales maximum, en fonction de l'emplacement de votre numéro de téléphone, du message ou de la destination de l'appel). Profitez de ce crédit Twilio et démarrez en consultant la page [ahoy.twilio.com/azure][ahoy.twilio.com/azure].
 
 Twilio est un service de paiement à l'utilisation. Il n'existe pas de frais d'entrée et vous pouvez fermer votre compte quand vous le souhaitez. Pour plus d'informations, consultez la page [Tarification de Twilio][1].
 
 ## <span id="Concepts"></span></a>Concepts
 
-L'API Twilio est une API RESTful qui offre des fonctionnalités vocales et de SMS aux applications. Les bibliothèques clientes sont disponibles dans plusieurs langues : pour en obtenir la liste, consultez la page [Bibliothèques de l'API Twilio][].
+L'API Twilio est une API RESTful qui offre des fonctionnalités vocales et de SMS aux applications. Les bibliothèques clientes sont disponibles dans plusieurs langues : pour en obtenir la liste, consultez la page [Bibliothèques de l'API Twilio][Bibliothèques de l'API Twilio].
 
 Les éléments les plus importants de l'API Twilio sont les verbes Twilio et TwiML (Twilio Markup Language).
 
@@ -43,7 +43,7 @@ Les éléments les plus importants de l'API Twilio sont les verbes Twilio et Twi
 
 L'API utilise les verbes Twilio ; par exemple, le verbe **\<Say\>** (Dire) indique à Twilio de transmettre un message de manière audible lors d'un appel.
 
-La liste suivante présente les verbes Twilio. Découvrez les autres verbes et fonctionnalités dans la page [Documentation de Twilio Markup Language][].
+La liste suivante présente les verbes Twilio. Découvrez les autres verbes et fonctionnalités dans la page [Documentation de Twilio Markup Language][Documentation de Twilio Markup Language].
 
 -   **\<Dial\>** (Composer) : connecte l'appelant à un autre téléphone.
 -   **\<Gather\>** (Rassembler) : rassemble les chiffres numériques entrés sur le clavier du téléphone.
@@ -69,24 +69,24 @@ TwiML est un jeu d'instructions XML reposant sur les verbes Twilio qui informent
 
 Lorsque votre application appelle l'API Twilio, l'un des paramètres de l'API est l'URL qui renvoie la réponse TwiML. À des fins de développement, vous pouvez utiliser les URL Twilio pour fournir les réponses TwiML utilisées par vos applications. Vous pouvez également héberger vos propres URL afin de produire les réponses TwiML, ou encore utiliser l'objet **TwiMLResponse**.
 
-Pour plus d'informations sur les verbes Twilio, leurs attributs et le langage TwiML, consultez la page [TwiML][Documentation de Twilio Markup Language]. Pour plus d'informations sur l'API Twilio, consultez la page [API Twilio][].
+Pour plus d'informations sur les verbes Twilio, leurs attributs et le langage TwiML, consultez la page [TwiML][Documentation de Twilio Markup Language]. Pour plus d'informations sur l'API Twilio, consultez la page [API Twilio][API Twilio].
 
 ## <span id="CreateAccount"></span></a>Création d'un compte Twilio
 
-Lorsque vous êtes prêt à créer votre compte Twilio, inscrivez-vous sur la page [Essayer Twilio][]. Vous pouvez commencer avec un compte gratuit, avant de le mettre à niveau ultérieurement.
+Lorsque vous êtes prêt à créer votre compte Twilio, inscrivez-vous sur la page [Essayer Twilio][Essayer Twilio]. Vous pouvez commencer avec un compte gratuit, avant de le mettre à niveau ultérieurement.
 
-Lorsque vous créez un compte Twilio, vous recevez un ID de compte et un jeton d'authentification. Les deux sont nécessaires pour passer des appels d'API Twilio. Pour éviter qu'une personne non autorisée n'accède à votre compte, conservez votre jeton d'authentification en lieu sûr. Vous pouvez consulter vos ID de compte et jeton d'authentification sur la [page du compte Twilio][], dans les champs intitulés **ACCOUNT SID** et **AUTH TOKEN**, respectivement.
+Lorsque vous créez un compte Twilio, vous recevez un ID de compte et un jeton d'authentification. Les deux sont nécessaires pour passer des appels d'API Twilio. Pour éviter qu'une personne non autorisée n'accède à votre compte, conservez votre jeton d'authentification en lieu sûr. Vous pouvez consulter vos ID de compte et jeton d'authentification sur la [page du compte Twilio][page du compte Twilio], dans les champs intitulés **ACCOUNT SID** et **AUTH TOKEN**, respectivement.
 
 ## <span id="VerifyPhoneNumbers"></span></a>Vérification des numéros de téléphone
 
-Plusieurs numéros de téléphone doivent être vérifiés avec Twilio pour votre compte. Par exemple, si vous souhaitez passer des appels téléphoniques, le numéro de téléphone doit être vérifié en tant qu'ID d'appelant sortant avec Twilio. De la même façon, si vous voulez un numéro de téléphone pour recevoir des SMS, le numéro de téléphone recevant l'appel doit être vérifié avec Twilio. Pour plus d'informations sur la vérification d'un numéro de téléphone, consultez la page [Gestion des numéros][]. Une partie du code ci-dessous repose sur les numéros de téléphone que vous devez vérifier avec Twilio.
+Plusieurs numéros de téléphone doivent être vérifiés avec Twilio pour votre compte. Par exemple, si vous souhaitez passer des appels téléphoniques, le numéro de téléphone doit être vérifié en tant qu'ID d'appelant sortant avec Twilio. De la même façon, si vous voulez un numéro de téléphone pour recevoir des SMS, le numéro de téléphone recevant l'appel doit être vérifié avec Twilio. Pour plus d'informations sur la vérification d'un numéro de téléphone, consultez la page [Gestion des numéros][Gestion des numéros]. Une partie du code ci-dessous repose sur les numéros de téléphone que vous devez vérifier avec Twilio.
 
-Si vous souhaitez utiliser un autre numéro de téléphone pour vos applications, vous pouvez acheter un numéro de téléphone Twilio. Pour plus d'informations sur l'achat d'un numéro de téléphone Twilio, consultez la page [Aide sur les numéros de téléphone Twilio][].
+Si vous souhaitez utiliser un autre numéro de téléphone pour vos applications, vous pouvez acheter un numéro de téléphone Twilio. Pour plus d'informations sur l'achat d'un numéro de téléphone Twilio, consultez la page [Aide sur les numéros de téléphone Twilio][Aide sur les numéros de téléphone Twilio].
 
 ## <span id="create_app"></span></a>Création d'une application Azure
 
 Une application Azure qui héberge une application Twilio n'est pas différente d'une autre application Azure. Vous ajoutez simplement la bibliothèque .NET Twilio et configurez le rôle permettant de l'utiliser.
-Pour plus d'informations sur la création d'un projet Azure initial, consultez la page [Création d'un projet Azure avec Visual Studio][].
+Pour plus d'informations sur la création d'un projet Azure initial, consultez la page [Création d'un projet Azure avec Visual Studio][Création d'un projet Azure avec Visual Studio].
 
 ## <span id="configure_app"></span></a>Configuration de l'application pour utiliser les bibliothèques Twilio
 
@@ -186,7 +186,7 @@ Notez que toutes les bibliothèques nécessitent .NET 3.5, Silverlight 4 ou Wi
 
 Les exemples fournis dans ce guide utilisent la bibliothèque Twilio.API.
 
-Les bibliothèques peuvent être [installées à l'aide de l'extension du gestionnaire de packages NuGet][] disponible pour Visual Studio 2010 et 2012. Le code source est hébergé sur [GitHub][], qui comprend un Wiki doté d'une documentation complète sur l'utilisation des bibliothèques.
+Les bibliothèques peuvent être [installées à l'aide de l'extension du gestionnaire de packages NuGet][installées à l'aide de l'extension du gestionnaire de packages NuGet] disponible pour Visual Studio 2010 et 2012. Le code source est hébergé sur [GitHub][GitHub], qui comprend un Wiki doté d'une documentation complète sur l'utilisation des bibliothèques.
 
 Par défaut, Microsoft Visual Studio 2010 installe la version 1.2 de NuGet. L'installation des bibliothèques Twilio requiert la version 1.6 de NuGet ou ultérieure. Pour plus d'informations sur l'installation ou la mise à jour de NuGet, consultez le site [][]<http://nuget.org/></a>.
 
@@ -237,7 +237,7 @@ Le code suivant montre comment passer un appel téléphonique à l'aide de la cl
 
 Pour plus d'informations sur les paramètres transmis dans la méthode **client.InitiateOutboundCall**, consultez la page [][2]<http://www.twilio.com/docs/api/rest/making-calls></a>.
 
-Comme indiqué, ce code utilise un site Twilio afin de renvoyer la réponse TwiML, mais vous pouvez utiliser votre propre site. Pour plus d'informations, consultez la page [Envoi de réponses TwiML à partir de votre propre site Web][].
+Comme indiqué, ce code utilise un site Twilio afin de renvoyer la réponse TwiML, mais vous pouvez utiliser votre propre site. Pour plus d'informations, consultez la page [Envoi de réponses TwiML à partir de votre propre site Web][Envoi de réponses TwiML à partir de votre propre site Web].
 
 ## <span id="howto_send_sms"></span></a> Envoi d'un SMS
 
@@ -264,7 +264,7 @@ La capture d'écran suivante montre comment envoyer un SMS à l'aide de la class
 
 ## <span id="howto_provide_twiml_responses"></span></a> Envoi de réponses TwiML à partir de votre propre site web
 
-Lorsque votre application démarre un appel à l'API Twilio, par exemple via la méthode **client.InitiateOutboundCall**, Twilio envoie votre demande à une URL qui est censée renvoyer une réponse TwiML. L'exemple figurant dans la section [Appel téléphonique][] utilise l'URL Twilio [][3]<http://twimlets.com/message></a> pour renvoyer la réponse.
+Lorsque votre application démarre un appel à l'API Twilio, par exemple via la méthode **client.InitiateOutboundCall**, Twilio envoie votre demande à une URL qui est censée renvoyer une réponse TwiML. L'exemple figurant dans la section [Appel téléphonique][Appel téléphonique] utilise l'URL Twilio [][3]<http://twimlets.com/message></a> pour renvoyer la réponse.
 
 <div class="dev-callout">
 <b>Remarque</b>
@@ -357,9 +357,9 @@ Une fois que vous avez défini une façon de fournir des réponses TwiML, vous p
     // Place the call.
     var call = client.InitiateOutboundCall(options);
 
-Pour plus d'informations sur l'utilisation de Twilio sur Azure avec ASP.NET, consultez la page [Appel téléphonique à l'aide de Twilio dans un rôle Web sur Azure][].
+Pour plus d'informations sur l'utilisation de Twilio sur Azure avec ASP.NET, consultez la page [Appel téléphonique à l'aide de Twilio dans un rôle Web sur Azure][Appel téléphonique à l'aide de Twilio dans un rôle Web sur Azure].
 
-[WACOM.INCLUDE [twilio\_additional\_services\_and\_next\_steps][]]
+[WACOM.INCLUDE [twilio\_additional\_services\_and\_next\_steps][twilio\_additional\_services\_and\_next\_steps]]
 
   [Étapes suivantes]: #NextSteps
   [Présentation de Twilio]: #WhatIs

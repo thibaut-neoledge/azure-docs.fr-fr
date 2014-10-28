@@ -83,7 +83,7 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [Windows Store C\#]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users "Windows Store C#"
+  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users "Windows Store C#"
   [Windows Store JavaScript]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users "Windows Store JavaScript"
   [Windows Phone]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users "Windows Phone"
   [iOS]: /fr-fr/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users "iOS"

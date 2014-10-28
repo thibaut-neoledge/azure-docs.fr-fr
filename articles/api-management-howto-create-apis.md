@@ -6,29 +6,29 @@
 
 Une API du service Gestion des API (version préliminaire) est un ensemble d'opérations qui peuvent être appelées par des applications clientes. Les nouvelles API sont créées dans la console de gestion. Les opérations souhaitées sont ensuite ajoutées. Une fois les opérations ajoutées, l'API est ajoutée à un produit et peut être publiée. Une fois l'API publiée, les développeurs peuvent s'y abonner et l'utiliser.
 
-Ce guide présente la première étape du processus : créer et configurer une nouvelle API dans Gestion des API. Pour plus d'informations sur l'ajout d'opérations et la publication d'un produit, consultez les rubriques [Ajout d'opérations à une API][] et [Création et publication d'un produit][].
+Ce guide présente la première étape du processus : créer et configurer une nouvelle API dans Gestion des API. Pour plus d'informations sur l'ajout d'opérations et la publication d'un produit, consultez les rubriques [Ajout d'opérations à une API][Ajout d'opérations à une API] et [Création et publication d'un produit][Création et publication d'un produit].
 
 ## Dans cette rubrique
 
--   [Création d'une API][]
--   [Configuration des paramètres de l'API][]
--   [Étapes suivantes][]
+-   [Création d'une API][Création d'une API]
+-   [Configuration des paramètres de l'API][Configuration des paramètres de l'API]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <a name="create-new-api"> </a>Création d'une API
 
 Pour créer et configurer des API, cliquez sur **Console de gestion** dans le portail Azure de votre instance de service Gestion des API. Vous accéderez au portail d'administration Gestion des API.
 
-> Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][] dans le didacticiel [Prise en main de Gestion des API Azure][].
+> Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][Création d'une instance de service Gestion des API] dans le didacticiel [Prise en main de Gestion des API Azure][Prise en main de Gestion des API Azure].
 
-![Management console][]
+![Management console][Management console]
 
 Cliquez sur **API** dans le menu **Gestion des API** à gauche, puis sur **Ajouter des API**.
 
-![Create API][]
+![Create API][Create API]
 
 Utilisez la fenêtre **Ajouter une nouvelle API** pour configurer la nouvelle API.
 
-![Add new API][]
+![Add new API][Add new API]
 
 Les trois champs suivants permettent de configurer la nouvelle API.
 
@@ -38,17 +38,17 @@ Les trois champs suivants permettent de configurer la nouvelle API.
 
 Une fois les trois valeurs configurées, cliquez sur **Enregistrer**. Une fois l'API créée, la page Résumé de l'API s'affiche dans le portail de gestion.
 
-![API summary][]
+![API summary][API summary]
 
 ## <a name="configure-api-settings"> </a>Configuration des paramètres de l'API
 
 L'onglet **Paramètres** permet de vérifier et de modifier la configuration d'une API. Les options **Titre d'API web**, **URL du service web** et **Suffixe de l'URL d'API web** sont définis initialement lors de la création de l'API. Vous pouvez les modifier ici. **Description** fournit une description facultative. **Avec informations d'identification** permet de configurer l'authentification HTTP de base.
 
-![API settings][]
+![API settings][API settings]
 
 Pour configurer l'authentification HTTP de base pour le service web qui met en place l'API, sélectionnez **De base** dans la liste déroulante **Avec informations d'identification**, puis entrez les informations d'identification souhaitées.
 
-![Basic authentication settings][]
+![Basic authentication settings][Basic authentication settings]
 
 Cliquez sur **Enregistrer** pour enregistrer les modifications apportées aux paramètres de l'API.
 
@@ -56,8 +56,8 @@ Cliquez sur **Enregistrer** pour enregistrer les modifications apportées aux pa
 
 Une fois l'API créée et les paramètres configurés, l'étape suivante consiste à ajouter les opérations à l'API, à ajouter l'API à un produit et à la publier pour la mettre à disposition des développeurs. Pour plus d'informations, consultez les guides suivants :
 
--   [Ajout d'opérations à une API][]
--   [Création et publication d'un produit][]
+-   [Ajout d'opérations à une API][Ajout d'opérations à une API]
+-   [Création et publication d'un produit][Création et publication d'un produit]
 
   [Ajout d'opérations à une API]: ../api-management-howto-add-operations
   [Création et publication d'un produit]: ../api-management-howto-add-products

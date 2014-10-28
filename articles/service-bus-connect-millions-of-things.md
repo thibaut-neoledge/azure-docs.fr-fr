@@ -28,13 +28,13 @@ Les objets intelligents et connectés prolifèrent de plus en plus dans les éco
 -   [Azure Active Directory][Azure Active Directory]
 -   [Services cloud][Services cloud]
 
-  [Concentrateurs d'événements]: http://msdn.microsoft.com/en-us/library/dn789973.aspx
-  [Modèle de partitionnement]: http://msdn.microsoft.com/en-us/library/dn589797.aspx
-  [Service Bus et AMQP 1.0]: http://msdn.microsoft.com/en-us/library/azure/jj841071.aspx
+  [Concentrateurs d'événements]: http://msdn.microsoft.com/fr-fr/library/dn789973.aspx
+  [Modèle de partitionnement]: http://msdn.microsoft.com/fr-fr/library/dn589797.aspx
+  [Service Bus et AMQP 1.0]: http://msdn.microsoft.com/fr-fr/library/azure/jj841071.aspx
   [Introduction à Service Bus]: http://azure.microsoft.com/fr-fr/documentation/services/service-bus/
-  [Partitionnement des entités de messagerie]: http://msdn.microsoft.com/en-us/library/azure/dn520246.aspx
+  [Partitionnement des entités de messagerie]: http://msdn.microsoft.com/fr-fr/library/azure/dn520246.aspx
   [Rubriques Service Bus]: http://azure.microsoft.com/fr-fr/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-  [Utilisation d'Apache Qpid Proton C avec Azure Service Bus sur Linux et Windows]: http://msdn.microsoft.com/en-us/library/azure/dn235560.aspx
+  [Utilisation d'Apache Qpid Proton C avec Azure Service Bus sur Linux et Windows]: http://msdn.microsoft.com/fr-fr/library/azure/dn235560.aspx
   [Communications assistées par service pour les appareils connectés]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx
   [Azure Active Directory]: http://azure.microsoft.com/fr-fr/documentation/services/active-directory/
   [Services cloud]: http://azure.microsoft.com/fr-fr/documentation/services/cloud-services/

@@ -428,7 +428,7 @@ Ce code inscrit un nouveau script d'insertion, qui utilise l'[objet Push Mobile 
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [Windows Store C\#]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Windows Store C#"
+  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Windows Store C#"
   [Windows Store JavaScript]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-push "Windows Store JavaScript"
   [Windows Phone]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone"
   [iOS]: /fr-fr/documentation/articles/mobile-services-ios-get-started-push "iOS"

@@ -6,10 +6,10 @@
 
 Cette rubrique répertorie les étapes à suivre pour créer un service Azure BizTalk dans le portail de gestion Azure. Plus précisément :
 
--   [Création d'un service BizTalk][]
--   [Étapes postérieures à l'approvisionnement][]
--   [Explication des exigences][]
--   [Connexions hybrides (nouveauté)][]
+-   [Création d'un service BizTalk][Création d'un service BizTalk]
+-   [Étapes postérieures à l'approvisionnement][Étapes postérieures à l'approvisionnement]
+-   [Explication des exigences][Explication des exigences]
+-   [Connexions hybrides (nouveauté)][Connexions hybrides (nouveauté)]
 
 <div class="dev-callout"> 
 <b>Conseil</b> 
@@ -20,14 +20,14 @@ Cette rubrique répertorie les étapes à suivre pour créer un service Azure Bi
 
 Selon l'édition que vous choisissez, tous les paramètres du service BizTalk peuvent ne pas être disponibles.
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 2.  Dans le volet de navigation inférieur, sélectionnez **NOUVEAU** :
 <br/>
-    ![Sélectionnez le bouton Nouveau][]
+    ![Sélectionnez le bouton Nouveau][Sélectionnez le bouton Nouveau]
 
 3.  Sélectionnez **APP SERVICES** \> **BIZTALK SERVICE** \> **CRÉATION PERSONNALISÉE** :
 <br/>
-    ![Sélectionnez BizTalk Service, puis Création personnalisée][]
+    ![Sélectionnez BizTalk Service, puis Création personnalisée][Sélectionnez BizTalk Service, puis Création personnalisée]
 
 4.  Entrez les paramètres du service BizTalk.
 
@@ -118,28 +118,28 @@ Sélectionnez la flèche SUIVANT.
 
 Cliquez sur la coche pour terminer l'Assistant. L'icône d'avancement affiche :
 <br/>
-![Icône d'avancement affichée à la fin de l'opération][]
+![Icône d'avancement affichée à la fin de l'opération][Icône d'avancement affichée à la fin de l'opération]
 
-Une fois que vous avez terminé, le service Azure BizTalk est créé et prêt pour vos applications. Les paramètres par défaut sont suffisants. Si vous souhaitez modifier les paramètres par défaut, sélectionnez **BIZTALK SERVICES** dans le volet de navigation gauche, puis sélectionnez votre service BizTalk. Des paramètres supplémentaires sont affichés sous les onglets [Tableau de bord, Surveiller et Mettre à l'échelle][] situés en haut.
+Une fois que vous avez terminé, le service Azure BizTalk est créé et prêt pour vos applications. Les paramètres par défaut sont suffisants. Si vous souhaitez modifier les paramètres par défaut, sélectionnez **BIZTALK SERVICES** dans le volet de navigation gauche, puis sélectionnez votre service BizTalk. Des paramètres supplémentaires sont affichés sous les onglets [Tableau de bord, Surveiller et Mettre à l'échelle][Tableau de bord, Surveiller et Mettre à l'échelle] situés en haut.
 
-Selon l'état du service BizTalk, certaines opérations ne peuvent pas être effectuées. Pour en obtenir la liste, consultez [BizTalk Services : Tableau comparatif des états][].
+Selon l'état du service BizTalk, certaines opérations ne peuvent pas être effectuées. Pour en obtenir la liste, consultez [BizTalk Services : Tableau comparatif des états][BizTalk Services : Tableau comparatif des états].
 
 ## <a name="PostProv"></a>Étapes postérieures à l'approvisionnement
 
--   [Installer le certificat sur un ordinateur local][]
--   [Ajouter un certificat prêt pour la production][]
--   [Obtenir l'espace de noms Access Control][]
+-   [Installer le certificat sur un ordinateur local][Installer le certificat sur un ordinateur local]
+-   [Ajouter un certificat prêt pour la production][Ajouter un certificat prêt pour la production]
+-   [Obtenir l'espace de noms Access Control][Obtenir l'espace de noms Access Control]
 
 #### <a name="InstallCert"></a>Installer le certificat sur un ordinateur local
 
 Dans le cadre de l'approvisionnement du service BizTalk, un certificat auto-signé est créé et associé à votre abonnement au service BizTalk. Vous devez télécharger ce certificat et l'installer sur les ordinateurs à partir desquels vous déployez des applications de service BizTalk ou envoyez des messages à un point de terminaison de service BizTalk.
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 2.  Cliquez sur **BIZTALK SERVICES** dans le volet de navigation gauche, puis sélectionnez votre abonnement au service BizTalk.
 3.  Cliquez sur l'onglet **Tableau de bord**.
 4.  Cliquez sur **Télécharger le certificat SSL**.
 <br/>
-![Modifier le certificat SSL][]
+![Modifier le certificat SSL][Modifier le certificat SSL]
 5.  Double-cliquez sur le certificat et suivez les étapes de l'Assistant pour installer le certificat. Veillez à installer le certificat dans le magasin **Autorités de certification racines de confiance**.
 
 #### <a name="AddCert"></a>Ajouter un certificat prêt pour la production
@@ -151,11 +151,11 @@ Le certificat auto-signé qui est créé automatiquement lors de l'approvisionne
 
 #### <a name="ACS"></a>Obtenir l'espace de noms Access Control
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 2.  Sélectionnez **BIZTALK SERVICES** dans le volet de navigation gauche, puis votre service BizTalk.
 3.  Dans la barre des tâches, sélectionnez **Informations de connexion** :
 <br/>
-![Sélectionnez Informations de connexion][]
+![Sélectionnez Informations de connexion][Sélectionnez Informations de connexion]
 
 4.  Copiez les valeurs Access Control.
 
@@ -165,7 +165,7 @@ Les valeurs Access Control values peuvent être utilisées avec n'importe quelle
 
 Cliquez sur **Manage** pour ouvrir le portail de gestion Access Control. Dans ce dernier, le service BizTalk utilise **Identités de service** :
 <br/>
-![Identités de service ACS dans le portail de gestion Access Control][]
+![Identités de service ACS dans le portail de gestion Access Control][Identités de service ACS dans le portail de gestion Access Control]
 
 L'identité de service Access Control est un ensemble d'informations d'identification qui permet aux applications ou aux clients de s'authentifier directement auprès du contrôle d'accès et de recevoir un jeton.
 
@@ -174,7 +174,7 @@ L'identité de service Access Control est un ensemble d'informations d'identific
 
 *Impossible de se connecter au compte de service de gestion Access Control avec les informations d'identification spécifiées.*
 
-La rubrique [Gestion de votre espace de noms ACS][] répertorie quelques instructions et recommandations.
+La rubrique [Gestion de votre espace de noms ACS][Gestion de votre espace de noms ACS] répertorie quelques instructions et recommandations.
 
 ## <a name="Requirements"></a>Explication des exigences
 
@@ -306,25 +306,25 @@ Un certificat nouveau ou différent peut être ajouté après la création du se
 
 Quand vous créez un service Azure BizTalk, l'onglet **Connexions hybrides** est disponible :
 
-![Onglet Connexions hybrides][]
+![Onglet Connexions hybrides][Onglet Connexions hybrides]
 
 Les connexions hybrides permettent de connecter un site web Azure ou un service mobile Azure à toute ressource locale utilisant un port TCP statique, par exemple SQL Server, MySQL, les API web HTTP, Mobile Services et la plupart des services web personnalisés. Les connexions hybrides et le service d'adaptateur BizTalk sont différents. Le service d'adaptateur BizTalk permet de connecter Azure BizTalk Services à un système métier local.
 
-Pour en savoir plus, en particulier sur la création et la gestion des connexions hybrides, consultez [Connexions hybrides][].
+Pour en savoir plus, en particulier sur la création et la gestion des connexions hybrides, consultez [Connexions hybrides][Connexions hybrides].
 
 ## Suivant
 
-Après avoir créé un service BizTalk, passez en revue les différents onglets dans la page [BizTalk Services : Onglets Tableau de bord, Surveiller et Mettre à l'échelle][Tableau de bord, Surveiller et Mettre à l'échelle]. Votre service BizTalk est prêt pour vos applications. Pour commencer à créer des applications, consultez la page [Azure BizTalk Services][].
+Après avoir créé un service BizTalk, passez en revue les différents onglets dans la page [BizTalk Services : Onglets Tableau de bord, Surveiller et Mettre à l'échelle][Tableau de bord, Surveiller et Mettre à l'échelle]. Votre service BizTalk est prêt pour vos applications. Pour commencer à créer des applications, consultez la page [Azure BizTalk Services][Azure BizTalk Services].
 
 ## Voir aussi
 
--   [BizTalk Services : Tableau comparatif des éditions][]
--   [BizTalk Services : Tableau comparatif des états][]
--   [BizTalk Services : Sauvegarde et restauration][]
--   [BizTalk Services : Limitation][]
--   [BizTalk Services : Nom et clé de l'émetteur][]
--   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services][]
--   [Connexions hybrides][]
+-   [BizTalk Services : Tableau comparatif des éditions][BizTalk Services : Tableau comparatif des éditions]
+-   [BizTalk Services : Tableau comparatif des états][BizTalk Services : Tableau comparatif des états]
+-   [BizTalk Services : Sauvegarde et restauration][BizTalk Services : Sauvegarde et restauration]
+-   [BizTalk Services : Limitation][BizTalk Services : Limitation]
+-   [BizTalk Services : Nom et clé de l'émetteur][BizTalk Services : Nom et clé de l'émetteur]
+-   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services][Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services]
+-   [Connexions hybrides][Connexions hybrides]
 
   [Création d'un service BizTalk]: #BizTalk
   [Étapes postérieures à l'approvisionnement]: #PostProv

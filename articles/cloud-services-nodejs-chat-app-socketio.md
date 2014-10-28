@@ -11,7 +11,7 @@ sur Socket.IO, consultez le site <http://socket.io/>.
 
 Voici une capture d'écran de l'application terminée :
 
-![Fenêtre de navigateur affichant le service hébergé sur Azure][]
+![Fenêtre de navigateur affichant le service hébergé sur Azure][Fenêtre de navigateur affichant le service hébergé sur Azure]
 
 ## Création d'un projet de service cloud
 
@@ -19,9 +19,9 @@ La procédure suivante permet de créer un projet de service cloud hébergeant l
 
 1.  À partir du menu **Démarrer** ou de l'**écran d'accueil**, recherchez **Azure PowerShell**. Enfin, cliquez avec le bouton droit sur **Azure PowerShell** et sélectionnez **Exécuter en tant qu'administrateur**.
 
-    ![Icône Azure PowerShell][]
+    ![Icône Azure PowerShell][Icône Azure PowerShell]
 
-    [WACOM.INCLUDE [install-dev-tools][]]
+    [WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
 2.  Remplacez les répertoires du répertoire **c:\\node**, puis entrez les commandes suivantes pour créer une solution nommée **chatapp** et un rôle de travail nommé **WorkerRole1** :
 
@@ -30,23 +30,23 @@ La procédure suivante permet de créer un projet de service cloud hébergeant l
 
     Vous obtenez la réponse suivante :
 
-    ![Résultat des cmdlets new-azureservice et add-azurenodeworkerrole][]
+    ![Résultat des cmdlets new-azureservice et add-azurenodeworkerrole][Résultat des cmdlets new-azureservice et add-azurenodeworkerrole]
 
 ## Téléchargement de l'exemple de conversation instantanée
 
 Pour ce projet, nous utiliserons un exemple de conversation instantanée
-obtenu depuis le [référentiel Socket.IOGitHub][]. Procédez comme suit pour télécharger l'exemple et
+obtenu depuis le [référentiel Socket.IOGitHub][référentiel Socket.IOGitHub]. Procédez comme suit pour télécharger l'exemple et
 l'ajouter au projet créé précédemment.
 
 1.  Créez une copie locale du référentiel en utilisant le bouton **Clone**. Vous pouvez aussi télécharger le projet en utilisant le bouton **ZIP**.
 
-    ![Fenêtre de navigateur affichant https://github.com/LearnBoost/socket.io/tree/master/examples/chat, avec l'icône de téléchargement ZIP en surbrillance][]
+    ![Fenêtre de navigateur affichant https://github.com/LearnBoost/socket.io/tree/master/examples/chat, avec l'icône de téléchargement ZIP en surbrillance][Fenêtre de navigateur affichant https://github.com/LearnBoost/socket.io/tree/master/examples/chat, avec l'icône de téléchargement ZIP en surbrillance]
 
 2.  Accédez à la structure de répertoires du référentiel local, jusqu'à atteindre le répertoire **examples\\chat**
     . Copiez le contenu de ce répertoire dans le répertoire
     **C:\\node\\chatapp\\WorkerRole1** créé précédemment.
 
-    ![Explorateur affichant le contenu du répertoire examples\\chat extrait de l'archive][]
+    ![Explorateur affichant le contenu du répertoire examples\chat extrait de l'archive][Explorateur affichant le contenu du répertoire examples\chat extrait de l'archive]
 
     Les éléments mis en surbrillance sur cette capture d'écran sont les fichiers copiés depuis le répertoire **examples\\chat**.
 
@@ -90,7 +90,7 @@ puis testez l'application dans l'émulateur Azure :
     fois la commande terminée, un texte similaire à celui présenté
     ci-dessous doit s'afficher :
 
-    ![Résultat de la commande npm install][]
+    ![Résultat de la commande npm install][Résultat de la commande npm install]
 
 2.  Comme cet exemple fait partie du référentiel GitHub Socket.IO
     et qu'il est directement référencé par la bibliothèque Socket.IO
@@ -110,7 +110,7 @@ puis testez l'application dans l'émulateur Azure :
     tester la fonctionnalité multi-utilisateurs, ouvrez d'autres fenêtres du
     navigateur en utilisant la même URL et en entrant différents pseudonymes.
 
-    ![Deux fenêtres du navigateur affichant des messages de conversation instantanée des utilisateurs User1 et User2][]
+    ![Deux fenêtres du navigateur affichant des messages de conversation instantanée des utilisateurs User1 et User2][Deux fenêtres du navigateur affichant des messages de conversation instantanée des utilisateurs User1 et User2]
 
 3.  Une fois le test de l'application terminé, arrêtez l'émulateur en
     exécutant la commande suivante :
@@ -128,7 +128,7 @@ puis testez l'application dans l'émulateur Azure :
 <p>Si vous recevez une erreur indiquant que le nom d'abonnement fourni n'existe pas dans le profil de publication import&eacute;, vous devez t&eacute;l&eacute;charger et importer le profil de publication de votre abonnement avant de le d&eacute;ployer dans Azure. Consultez la section <b>D&eacute;ploiement de l'application dans Azure</b> du didacticiel <a href="https://www.windowsazure.com/fr-fr/develop/nodejs/tutorials/getting-started/">Cr&eacute;ation et d&eacute;ploiement d'une application Node.js dans Azure Cloud Services</a></p>
 </div>
 
-    ![Fenêtre de navigateur affichant le service hébergé sur Azure][]
+    ![Fenêtre de navigateur affichant le service hébergé sur Azure][Fenêtre de navigateur affichant le service hébergé sur Azure]
 
     <div class="dev-callout">
 <strong>Remarque</strong>
@@ -145,7 +145,7 @@ transmettre des messages de conversation instantanée entre différents clients 
 
 ## Étapes suivantes
 
-Ce didacticiel vous a montré comment créer une application de conversation instantanée de base, hébergée dans un service cloud Azure. Pour plus d'informations sur l'hébergement de cette application sur un site web Azure, consultez la page [Création d'une application de conversation instantanée Node.js avec Socket.IO sur un site web Azure][].
+Ce didacticiel vous a montré comment créer une application de conversation instantanée de base, hébergée dans un service cloud Azure. Pour plus d'informations sur l'hébergement de cette application sur un site web Azure, consultez la page [Création d'une application de conversation instantanée Node.js avec Socket.IO sur un site web Azure][Création d'une application de conversation instantanée Node.js avec Socket.IO sur un site web Azure].
 
   [Fenêtre de navigateur affichant le service hébergé sur Azure]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
   [Icône Azure PowerShell]: ./media/cloud-services-nodejs-chat-app-socketio/azure-powershell-start.png

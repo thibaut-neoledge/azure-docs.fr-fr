@@ -91,19 +91,19 @@ Lorsque Azure BizTalk Services passe en mode limitation, les actions suivantes s
 
 ## Autres rubriques Azure BizTalk Services
 
--   [Installation du Kit de développement logiciel (SDK) Azure BizTalk Services][]
--   [Didacticiels : Azure BizTalk Services][]
--   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services][]
--   [Azure BizTalk Services][]
+-   [Installation du Kit de développement logiciel (SDK) Azure BizTalk Services][Installation du Kit de développement logiciel (SDK) Azure BizTalk Services]
+-   [Didacticiels : Azure BizTalk Services][Didacticiels : Azure BizTalk Services]
+-   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services][Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services]
+-   [Azure BizTalk Services][Azure BizTalk Services]
 
 ## Voir aussi
 
--   [BizTalk Services : Tableau comparatif des éditions Développeur, De base, Standard, et Premium de BizTalk Services][]
--   [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][]
--   [BizTalk Services : Tableau comparatif des états d'approvisionnement BizTalk Services][]
--   [BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services][]
--   [BizTalk Services : Sauvegarde et restauration][]
--   [BizTalk Services : Nom et clé de l'émetteur][]
+-   [BizTalk Services : Tableau comparatif des éditions Développeur, De base, Standard, et Premium de BizTalk Services][BizTalk Services : Tableau comparatif des éditions Développeur, De base, Standard, et Premium de BizTalk Services]
+-   [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure]
+-   [BizTalk Services : Tableau comparatif des états d'approvisionnement BizTalk Services][BizTalk Services : Tableau comparatif des états d'approvisionnement BizTalk Services]
+-   [BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services][BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services]
+-   [BizTalk Services : Sauvegarde et restauration][BizTalk Services : Sauvegarde et restauration]
+-   [BizTalk Services : Nom et clé de l'émetteur][BizTalk Services : Nom et clé de l'émetteur]
 
   [Installation du Kit de développement logiciel (SDK) Azure BizTalk Services]: http://go.microsoft.com/fwlink/p/?LinkID=241589
   [Didacticiels : Azure BizTalk Services]: http://go.microsoft.com/fwlink/p/?LinkID=236944

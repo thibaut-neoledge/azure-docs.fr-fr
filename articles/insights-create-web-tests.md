@@ -6,7 +6,7 @@
 
 Votre site web Azure fonctionne-t-il encore ? Répond-il correctement et rapidement ? Testez-le régulièrement en configurant un test web. Si le site ne fonctionne plus ou répond lentement ou de façon incorrecte, vous recevez une alerte par courrier électronique, accompagnée de graphiques illustrant sa disponibilité et sa réactivité dans le temps.
 
-![Parcourir le Hub][]
+![Parcourir le Hub][Parcourir le Hub]
 
 Vous pouvez configurer la surveillance de la disponibilité des sites Web Azure qui utilisent un plan Basique ou Standard. Vous pouvez créer jusqu'à 3 tests Web et les exécuter chacun à partir de 3 régions géographiques sans modifier le site Web.
 
@@ -16,13 +16,13 @@ Vous pouvez interrompre les tests Web pendant les déploiements ou les coupures 
 
 1.  Pour configurer un test Web, vérifiez que le site Web est dans l'un des modes **Basique** ou **Standard**.
 2.  Dans le volet **Web site**, choisissez **Web test** :  
-    ![Configurer les tests Web][]
+    ![Configurer les tests Web][Configurer les tests Web]
 3.  Dans le volet **Create Web test**, donnez un nom au test et spécifiez l'URL soumise au test.  
-    ![Créer un test Web][]
+    ![Créer un test Web][Créer un test Web]
 4.  Choisissez 3 emplacements au maximum sur les 8.
 5.  Spécifiez les critères de réussite, y compris les vérifications des codes d'état HTTP ou les contenus de chaîne sur le site.
 6.  Choisissez les paramètres d'alerte, y compris la sensibilité et le destinataire des courriers électroniques.  
-    ![Alertes][]
+    ![Alertes][Alertes]
     - Une sensibilité élevée crée une alerte chaque fois que l'échec d'un test est détecté dans un emplacement.
     - Pour une sensibilité moyenne, au moins la moitié des emplacements doit avoir connu un échec en 10 minutes.
     - Pour une sensibilité faible, le test de tous les emplacements doit avoir échoué dans les 15 minutes.
@@ -43,11 +43,11 @@ Vous ne pouvez pas utiliser de caractères génériques dans la chaîne de corre
 
 Si votre test Web ne répond pas aux critères de réussite, il sera marqué comme ayant échoué et la disponibilité globale de votre site Web sera limitée. Les tests qui ont échoué (comme ceux qui ont réussi) sont affichés dans une fenêtre de discussion de type Scatter Chat sur le volet du test Web.
 
-![Test ayant échoué][]
+![Test ayant échoué][Test ayant échoué]
 
 Les tests ayant échoué peuvent être analysés pour déterminer la cause de l'échec. Explorez un test Web ayant échoué, puis téléchargez et ouvrez le fichier de résultat du test Web Visual Studio pour analyser et comprendre les causes de l'échec.
 
-![Ouverture dans VS][]
+![Ouverture dans VS][Ouverture dans VS]
 
   [Parcourir le Hub]: ./media/insights-create-web-tests/Inisghts_WebTestBlade.png
   [Configurer les tests Web]: ./media/insights-create-web-tests/Insights_ConfigurePart.png

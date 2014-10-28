@@ -14,7 +14,7 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 -   mettre à jour un déploiement Azure existant ;
 -   déplacer des projets entre l'environnement intermédiaire et l'environnement de production.
 
-L'[IDE Cloud9][] est un environnement de développement interplateforme
+L'[IDE Cloud9][IDE Cloud9] est un environnement de développement interplateforme
 accessible depuis un navigateur. Une des fonctions de Cloud9 pour les projets Node.js est que
 vous pouvez directement effectuer le déploiement sur
 Azure depuis l'IDE.Cloud9 assure également l'intégration aux services GitHub et
@@ -31,19 +31,19 @@ Pour utiliser Cloud9, vous devez d'abord visiter le site web et [prendre
 un abonnement][IDE Cloud9]. Vous pouvez vous connecter avec un
 compte GitHub ou BitBucket, ou bien créer un compte Cloud9. Il existe
 aussi un abonnement gratuit, ainsi qu'une offre payante qui
-comporte plus d'options. Pour plus d'informations, consultez le site web [IDE Cloud9][].
+comporte plus d'options. Pour plus d'informations, consultez le site web [IDE Cloud9][IDE Cloud9].
 
 ## Création d'un projet Node.js
 
 1.  Connectez-vous à Cloud9, cliquez sur le symbole **+** à côté de
     **My Projects**, puis sélectionnez **Create a new project**.
 
-    ![créer un projet Cloud9][]
+    ![créer un projet Cloud9][créer un projet Cloud9]
 
 2.  Dans la boîte de dialogue **Create a new project**, entrez le
     nom du projet, son accès et son type. Cliquez sur **Create** pour créer le projet.
 
-    ![Boîte de dialogue de création de projet Cloud9][]
+    ![Boîte de dialogue de création de projet Cloud9][Boîte de dialogue de création de projet Cloud9]
 
     <div class="dev-callout">
 <strong>Remarque</strong>
@@ -57,12 +57,12 @@ comporte plus d'options. Pour plus d'informations, consultez le site web [IDE Cl
 
 3.  Une fois le projet créé, cliquez sur **Start Editing**. Si c'est la première fois que vous utilisez l'IDE Cloud9, vous êtes invité à une visite guidée du service. Si vous ne voulez pas suivre la visite guidée et y revenir plus tard, sélectionnez **Just the editor, please**.
 
-    ![modifier le projet Cloud9][]
+    ![modifier le projet Cloud9][modifier le projet Cloud9]
 
 4.  Pour créer une application Node, sélectionnez **File**, puis **New
     File**.
 
-    ![créer un fichier dans le projet Cloud9][]
+    ![créer un fichier dans le projet Cloud9][créer un fichier dans le projet Cloud9]
 
 5.  Un nouvel onglet **Untitled1** s'affiche. Entrez le
     code suivant sous l'onglet **Untitled1** pour créer
@@ -89,7 +89,7 @@ comporte plus d'options. Pour plus d'informations, consultez le site web [IDE Cl
 <p>Un avertissement indiquant que la variable req n'est pas utilis&eacute;e risque de s'afficher. Vous pouvez ignorer cet avertissement.</p>
 </div>
 
-    ![enregistrer le fichier server.js][]
+    ![enregistrer le fichier server.js][enregistrer le fichier server.js]
 
 ## Exécution de l'application
 
@@ -100,16 +100,16 @@ comporte plus d'options. Pour plus d'informations, consultez le site web [IDE Cl
 
 1.  Cliquez sur **Debug** pour exécuter l'application dans le débogueur Cloud9.
 
-    ![exécuter dans le débogueur][]
+    ![exécuter dans le débogueur][exécuter dans le débogueur]
 
 2.  Une fenêtre de résultat s'affiche. Cliquez sur l'URL pour
     accéder à votre application dans une fenêtre du navigateur.
 
-    ![fenêtre de résultat][]
+    ![fenêtre de résultat][fenêtre de résultat]
 
     L'application finale ressemble à ce qui suit :
 
-    ![application exécutée dans le navigateur][]
+    ![application exécutée dans le navigateur][application exécutée dans le navigateur]
 
 3.  Pour arrêter le débogage de l'application, cliquez sur **stop**.
 
@@ -119,7 +119,7 @@ Pour déployer votre application, vous avez besoin d'un compte Azure. Si vous
 ne disposez pas déjà d'un compte Azure, vous pouvez obtenir
 une évaluation gratuite. Pour cela, procédez comme suit :
 
-[WACOM.INCLUDE [create-azure-account][]]
+[WACOM.INCLUDE [create-azure-account](../includes/create-azure-account.md)]
 
 ## Création d'un déploiement
 
@@ -133,7 +133,7 @@ une évaluation gratuite. Pour cela, procédez comme suit :
 
     1.  Cliquez sur **Download Azure Settings**.
 
-        ![télécharger les paramètres de publication][]
+        ![télécharger les paramètres de publication][télécharger les paramètres de publication]
 
         Ceci ouvre le portail de gestion Azure et vous invite à télécharger les paramètres de publication Azure. Vous devez vous connecter avec votre compte Azure avant de commencer.
 
@@ -144,13 +144,13 @@ une évaluation gratuite. Pour cela, procédez comme suit :
 
     4.  Une fois le fichier sélectionné, cliquez sur **Upload**.
 
-4.  Cliquez sur **+ Create new** pour créer un service hébergé. Le *service hébergé* est le conteneur dans lequel votre application est hébergée lorsqu'elle est déployée sur Azure. Pour plus d'informations, consultez la page [Présentation de la création d'un service hébergé pour Azure][].
+4.  Cliquez sur **+ Create new** pour créer un service hébergé. Le *service hébergé* est le conteneur dans lequel votre application est hébergée lorsqu'elle est déployée sur Azure. Pour plus d'informations, consultez la page [Présentation de la création d'un service hébergé pour Azure][Présentation de la création d'un service hébergé pour Azure].
 
-    ![créer un déploiement][]
+    ![créer un déploiement][créer un déploiement]
 
 5.  Vous êtes invité à préciser le nom du nouveau service hébergé, ainsi que certaines options de configuration comme le nombre d'instances, le système d'exploitation hôte et le centre de données. Le nom de déploiement spécifié est le nom du service hébergé dans Azure. Ce nom doit être unique dans le système Azure.
 
-    ![créer un service hébergé][]
+    ![créer un service hébergé][créer un service hébergé]
 
     <div class="dev-callout">
 <strong>Remarque</strong>
@@ -169,7 +169,7 @@ une évaluation gratuite. Pour cela, procédez comme suit :
     ainsi que l'URL de production qui sera utilisée après le déploiement
     sur Azure.
 
-    ![choix du déploiement][]
+    ![choix du déploiement][choix du déploiement]
 
 2.  Sélectionnez **Déployer vers l'environnement de production**.
 
@@ -177,17 +177,17 @@ une évaluation gratuite. Pour cela, procédez comme suit :
 
 4.  Si c'est la première fois que vous déployez ce projet sur Azure, vous obtenez une erreur **No web.config found**. Sélectionnez **Oui** pour créer le fichier. Cette opération ajoute un fichier Web.cloud.config à votre projet.
 
-    ![message no web.config file found][]
+    ![message no web.config file found][message no web.config file found]
 
-5.  Si c'est la première fois que vous déployez ce projet sur Azure, vous obtenez une erreur **No 'csdef' file present**. Sélectionnez **Oui** pour créer le fichier .csdef. Cette opération ajoute un fichier ServiceDefinition.csdef à votre projet. Il s'agit d'un fichier propre à Azure, nécessaire pour la publication de votre application. Pour plus d'informations, consultez la page [Présentation de la création d'un service hébergé pour Azure][].
+5.  Si c'est la première fois que vous déployez ce projet sur Azure, vous obtenez une erreur **No 'csdef' file present**. Sélectionnez **Oui** pour créer le fichier .csdef. Cette opération ajoute un fichier ServiceDefinition.csdef à votre projet. Il s'agit d'un fichier propre à Azure, nécessaire pour la publication de votre application. Pour plus d'informations, consultez la page [Présentation de la création d'un service hébergé pour Azure][Présentation de la création d'un service hébergé pour Azure].
 
-6.  Vous êtes invité à sélectionner la taille de l'instance pour cette application. Sélectionnez **Small**, puis cliquez sur **Create**. Pour plus d'informations sur la taille des machines virtuelles Azure, consultez la page [Configuration de la taille des machines virtuelles][].
+6.  Vous êtes invité à sélectionner la taille de l'instance pour cette application. Sélectionnez **Small**, puis cliquez sur **Create**. Pour plus d'informations sur la taille des machines virtuelles Azure, consultez la page [Configuration de la taille des machines virtuelles][Configuration de la taille des machines virtuelles].
 
-    ![Valeurs du fichier csdef][]
+    ![Valeurs du fichier csdef][Valeurs du fichier csdef]
 
 7.  L'entrée de déploiement affiche l'état du processus de déploiement. Une fois terminé, le déploiement apparaît comme **Active**.
 
-    ![état du déploiement][]
+    ![état du déploiement][état du déploiement]
 
     <div class="dev-callout">
 <strong>Remarque</strong>
@@ -196,7 +196,7 @@ une évaluation gratuite. Pour cela, procédez comme suit :
 
 8.  La boîte de dialogue de déploiement comprend un lien vers l'URL de production. Une fois le déploiement terminé, cliquez sur l'URL pour accéder à votre application exécutée dans Azure.
 
-    ![URL de production Azure][]
+    ![URL de production Azure][URL de production Azure]
 
 ## Mise à jour de l'application
 
@@ -223,7 +223,7 @@ Lorsque vous appliquez des modifications à votre application, vous pouvez utili
 
 3.  Une fois votre application déployée dans l'environnement intermédiaire, l'URL intermédiaire basée sur le GUID s'affiche dans le résultat de la console, comme illustré dans la capture d'écran ci-dessous. Cliquez sur l'URL pour ouvrir votre application intermédiaire dans un navigateur.
 
-    ![résultat de la console avec l'URL intermédiaire][]
+    ![résultat de la console avec l'URL intermédiaire][résultat de la console avec l'URL intermédiaire]
 
 ## Transfert de la mise à jour en production avec un échange d'adresses IP virtuelles
 
@@ -234,7 +234,7 @@ l'environnement intermédiaire vers l'environnement de production, vous
 pouvez le faire sans redéploiement, en appliquant un échange d'adresses IP
 virtuelles, ce qui intervertit les deux déploiements. L'échange d'adresses IP virtuelles met l'application
 intermédiaire testée en production, sans interruption dans l'environnement de production. Pour plus
-d'informations, consultez la page [Présentation de la gestion des déploiements dans Azure][].
+d'informations, consultez la page [Présentation de la gestion des déploiements dans Azure][Présentation de la gestion des déploiements dans Azure].
 
 1.  Dans la boîte de dialogue de déploiement, cliquez sur le lien **Open
     portal** pour ouvrir le portail de gestion Azure.
@@ -252,20 +252,20 @@ d'informations, consultez la page [Présentation de la gestion des déploiements
 
 4.  Pour effectuer l'échange d'adresses IP virtuelles, sélectionnez le service hébergé, puis cliquez sur **Échanger les adresses IP virtuelles**.
 
-    ![Échange d'adresses IP virtuelles][]
+    ![Échange d'adresses IP virtuelles][Échange d'adresses IP virtuelles]
 
 5.  Cliquez sur **OK** dans la boîte de dialogue d'échange d'adresses IP virtuelles qui s'affiche.
 
 6.  Accédez à votre application de production. La version de l'application précédemment déployée dans l'environnement intermédiaire est maintenant en production.
 
-    ![Application de production exécutée dans Azure][]
+    ![Application de production exécutée dans Azure][Application de production exécutée dans Azure]
 
 ## Utilisation du Bureau à distance
 
 Si vous avez activé le Bureau à distance et que vous avez spécifié un nom d'utilisateur et un mot de passe lors de la création de votre déploiement, vous pouvez utiliser le Bureau à distance pour vous connecter à votre
 service hébergé en sélectionnant une instance particulière, puis en sélectionnant Connect dans le ruban.
 
-![Connexion à une instance][]
+![Connexion à une instance][Connexion à une instance]
 
 Lorsque vous cliquez sur Connect, vous êtes invité à ouvrir un fichier RDP ou à le télécharger. Ce fichier contient les informations nécessaires à la connexion à votre session de Bureau à distance. Lorsque vous exécutez ce fichier sur Windows, vous êtes invité à indiquer le nom d'utilisateur et le mot de passe que vous avez entrés à la création du déploiement. Vous êtes ensuite
 connecté au Bureau de l'instance sélectionnée.
@@ -284,7 +284,7 @@ Cloud9 s'attache surtout à fournir un environnement de développement et n'offr
 
 1.  Dans la boîte de dialogue de déploiement, cliquez sur le lien **Open portal** pour ouvrir le portail de gestion Azure.
 
-    ![Lien de la boîte de dialogue de déploiement vers le portail de gestion Azure][]
+    ![Lien de la boîte de dialogue de déploiement vers le portail de gestion Azure][Lien de la boîte de dialogue de déploiement vers le portail de gestion Azure]
 
 2.  Connectez-vous au portail de gestion avec vos informations d'identification.
 
@@ -292,13 +292,13 @@ Cloud9 s'attache surtout à fournir un environnement de développement et n'offr
 
 4.  Sélectionnez le déploiement intermédiaire (indiqué par la valeur **Environment**). Cliquez sur **Supprimer** dans le ruban pour supprimer l'application.
 
-    ![supprimer le déploiement][]
+    ![supprimer le déploiement][supprimer le déploiement]
 
 5.  Sélectionnez le déploiement de production, puis cliquez sur **Supprimer** pour supprimer aussi cette application.
 
 ## Ressources supplémentaires
 
--   [Documentation Cloud9][]
+-   [Documentation Cloud9][Documentation Cloud9]
 
   [IDE Cloud9]: http://cloud9ide.com/
   [créer un projet Cloud9]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_create_project.png

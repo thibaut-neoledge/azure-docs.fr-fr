@@ -8,7 +8,7 @@ Vous pouvez configurer un domaine personnalisé pour accéder à des données d'
 
 <div class="dev-callout"> 
 <b>Remarque</b> 
-    <p>Les proc&eacute;dures d&eacute;crites ici s'appliquent aux comptes de stockage Azure. Pour les services cloud, consultez la rubrique <a href = "/en-us/develop/net/common-tasks/custom-dns/">Configuration d'un nom de domaine personnalis&eacute; pour un service cloud&nbsp;Azure</a>&nbsp;; pour les sites&nbsp;web, consultez la rubrique <a href="/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuration d'un nom de domaine personnalis&eacute; pour un site&nbsp;web&nbsp;Azure</a>.</p> 
+    <p>Les proc&eacute;dures d&eacute;crites ici s'appliquent aux comptes de stockage Azure. Pour les services cloud, consultez la rubrique <a href = "/fr-fr/develop/net/common-tasks/custom-dns/">Configuration d'un nom de domaine personnalis&eacute; pour un service cloud&nbsp;Azure</a>&nbsp;; pour les sites&nbsp;web, consultez la rubrique <a href="/fr-fr/develop/net/common-tasks/custom-dns-web-site/">Configuration d'un nom de domaine personnalis&eacute; pour un site&nbsp;web&nbsp;Azure</a>.</p> 
 </div>
 
 Il existe deux méthodes pour mapper votre domaine personnalisé au point de terminaison de service BLOB de votre compte de stockage. La plus simple consiste à créer un mappage d'enregistrement CNAME entre votre domaine personnalisé et son sous-domaine et le point de terminaison de service BLOB. Un enregistrement CNAME est une fonctionnalité DNS qui mappe un domaine source à un domaine cible. Dans cet exemple, le domaine source est votre domaine personnalisé et son sous-domaine. Notez que le sous-domaine est dans tous les cas indispensable. Le domaine cible est le point de terminaison de votre service BLOB.
@@ -33,8 +33,8 @@ Le tableau suivant contient des exemples d'URL permettant d'accéder aux donnée
 
 Cette tâche vous explique comment :
 
--   [enregistrer un domaine personnalisé pour votre compte de stockage ;][]
--   [enregistrer un domaine personnalisé pour votre compte de stockage à l'aide du sous-domaine intermédiaire asverify ;][]
+-   [enregistrer un domaine personnalisé pour votre compte de stockage ;][enregistrer un domaine personnalisé pour votre compte de stockage ;]
+-   [enregistrer un domaine personnalisé pour votre compte de stockage à l'aide du sous-domaine intermédiaire asverify ;][enregistrer un domaine personnalisé pour votre compte de stockage à l'aide du sous-domaine intermédiaire asverify ;]
 -   <a name="#verify-subdomain">Vérification du mappage entre votre domaine personnalisé et le point de terminaison du service BLOB</a>
 
 ## <a name="register-domain"></a>Enregistrement d'un domaine personnalisé pour votre compte de stockage
@@ -128,10 +128,10 @@ Vous pouvez par exemple utiliser l'URI suivant pour accéder à un formulaire W
 
 ## Ressources supplémentaires
 
--   [Mappage du contenu CDN à un domaine personnalisé][]
+-   [Mappage du contenu CDN à un domaine personnalisé][Mappage du contenu CDN à un domaine personnalisé]
 
-  [Configuration d'un nom de domaine personnalisé pour un service cloud Azure]: /en-us/develop/net/common-tasks/custom-dns/
-  [Configuration d'un nom de domaine personnalisé pour un site web Azure]: /en-us/develop/net/common-tasks/custom-dns-web-site/
+  [Configuration d'un nom de domaine personnalisé pour un service cloud Azure]: /fr-fr/develop/net/common-tasks/custom-dns/
+  [Configuration d'un nom de domaine personnalisé pour un site web Azure]: /fr-fr/develop/net/common-tasks/custom-dns-web-site/
   [enregistrer un domaine personnalisé pour votre compte de stockage ;]: #register-domain
   [enregistrer un domaine personnalisé pour votre compte de stockage à l'aide du sous-domaine intermédiaire asverify ;]: #register-asverify
-  [Mappage du contenu CDN à un domaine personnalisé]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
+  [Mappage du contenu CDN à un domaine personnalisé]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg680307.aspx

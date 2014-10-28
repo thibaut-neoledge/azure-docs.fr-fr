@@ -15,21 +15,21 @@ Ce didacticiel va expliquer aux développeurs Java comment tirer parti d'Azure A
 
 Ce didacticiel utilise un serveur d'applications spécifique, mais si vous êtes un développeur Java expérimenté, vous pouvez appliquer le processus décrit ci-dessous à d'autres environnements. Les éléments de développement suivants sont requis pour ce didacticiel :
 
--   [Exemple de code Java pour Azure Active Directory][]
--   [Java Runtime Environment 1.6][]
--   [JBoss Application Server version 7.1.1.Final][]
--   [IDE JBoss Developer Studio][]
+-   [Exemple de code Java pour Azure Active Directory][Exemple de code Java pour Azure Active Directory]
+-   [Java Runtime Environment 1.6][Java Runtime Environment 1.6]
+-   [JBoss Application Server version 7.1.1.Final][JBoss Application Server version 7.1.1.Final]
+-   [IDE JBoss Developer Studio][IDE JBoss Developer Studio]
 -   IIS (Internet Information Services) 7.5 avec SSL activé
 -   Windows PowerShell
--   [Cmdlets PowerShell pour Office 365][]
+-   [Cmdlets PowerShell pour Office 365][Cmdlets PowerShell pour Office 365]
 
 ### Sommaire
 
--   [Introduction][]
--   [Étape 1 : création d'une application Java][]
--   [Étape 2 : configuration de l'application dans le client d'annuaire d'une société][]
--   [Étape 3 : protection de l'application en utilisant WS-Federation pour la connexion des employés][]
--   [Résumé][]
+-   [Introduction][Introduction]
+-   [Étape 1 : création d'une application Java][Étape 1 : création d'une application Java]
+-   [Étape 2 : configuration de l'application dans le client d'annuaire d'une société][Étape 2 : configuration de l'application dans le client d'annuaire d'une société]
+-   [Étape 3 : protection de l'application en utilisant WS-Federation pour la connexion des employés][Étape 3 : protection de l'application en utilisant WS-Federation pour la connexion des employés]
+-   [Résumé][Résumé]
 
 ## <a name="createapp"></a>Étape 1 : création d'une application Java
 

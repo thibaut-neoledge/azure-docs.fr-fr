@@ -8,23 +8,23 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/fr-fr/documentation/articles/web-sites-godaddy-custom-domain-name/" title="Sites web" class="current">Site web</a> | <a href="/fr-fr/documentation/articles/web-sites-godaddy-traffic-manager-custom-domain-name/" title="Site web utilisant Traffic Manager">Site web utilisant Traffic Manager</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro][]]
+[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
-Cet article contient des instructions sur l'utilisation d'un nom de domaine personnalisé acheté auprès de [Go Daddy][] avec Sites Web Azure.
+Cet article contient des instructions sur l'utilisation d'un nom de domaine personnalisé acheté auprès de [Go Daddy][Go Daddy] avec Sites Web Azure.
 
-[WACOM.INCLUDE [introfooter][]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 Dans cet article :
 
--   [Présentation des enregistrements DNS][]
--   [Ajouter un enregistrement DNS pour votre domaine personnalisé][]
--   [Activer le domaine sur votre site Web][]
+-   [Présentation des enregistrements DNS][Présentation des enregistrements DNS]
+-   [Ajouter un enregistrement DNS pour votre domaine personnalisé][Ajouter un enregistrement DNS pour votre domaine personnalisé]
+-   [Activer le domaine sur votre site Web][Activer le domaine sur votre site Web]
 
 ## <a name="understanding-records"></a>Présentation des enregistrements DNS
 
-[WACOM.INCLUDE [understandingdns][]]
+[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
 ## <a name="bkmk_configurecname"></a>Ajouter un enregistrement DNS pour votre domaine personnalisé
 
@@ -32,11 +32,11 @@ Pour associer votre domaine personnalisé à un site web Azure, vous devez ajout
 
 1.  Connectez-vous à votre compte GoDaddy.com et sélectionnez **My Account**, puis **Manage my domains**. Enfin, sélectionnez le menu déroulant du nom de domaine à utiliser avec votre site web Azure, puis sélectionnez **Manage DNS**.
 
-    ![page des domaines personnalisés de GoDaddy][]
+    ![page des domaines personnalisés de GoDaddy][page des domaines personnalisés de GoDaddy]
 
 2.  Dans la page **Domain details**, faites défiler jusqu'à l'onglet **DNS Zone File**. Il s'agit de la section qui vous permet d'ajouter et de modifier des enregistrements DNS pour votre nom de domaine.
 
-    ![Onglet DNS Zone File][]
+    ![Onglet DNS Zone File][Onglet DNS Zone File]
 
     Sélectionnez **Add Record** pour ajouter un enregistrement existant.
 
@@ -46,11 +46,11 @@ Pour associer votre domaine personnalisé à un site web Azure, vous devez ajout
 
 3.  Quand vous ajoutez un enregistrement, vous devez d'abord sélectionner son type.
 
-    ![sélectionner le type d'enregistrement][]
+    ![sélectionner le type d'enregistrement][sélectionner le type d'enregistrement]
 
     Vous devez ensuite indiquer l'**Host** (domaine ou sous-domaine personnalisé) et sa cible dans **Points to**.
 
-    ![ajouter un enregistrement de zone][]
+    ![ajouter un enregistrement de zone][ajouter un enregistrement de zone]
 
     -   Durant l'ajout d'un **A (host) record**, vous devez affecter au champ **Host** la valeur **@** (ceci correspond au nom de domaine racine, par exemple **contoso.com**), la valeur \* (caractère générique pour la correspondance avec plusieurs sous-domaines) ou le sous-domaine à utiliser (par exemple **www**). Vous devez définir le champ **Points to** en fonction de l'adresse IP de votre site web Azure.
 
@@ -66,7 +66,7 @@ Pour associer votre domaine personnalisé à un site web Azure, vous devez ajout
 
 ## <a name="enabledomain"></a>Activer le nom de domaine de votre site web
 
-[WACOM.INCLUDE [modes][]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
 
   [Domaine personnalisé]: /fr-fr/documentation/articles/web-sites-custom-domain-name "Domaine personnalisé"
   [GoDaddy]: /fr-fr/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"

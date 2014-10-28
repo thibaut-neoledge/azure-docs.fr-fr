@@ -10,7 +10,7 @@ Notez que les performances ne sont que l'un des nombreux avantages qui découlen
 
 ## Vue d'ensemble
 
-Les performances peuvent être définies comme [« la quantité de travail utile accompli par rapport au temps et aux ressources utilisés »][].
+Les performances peuvent être définies comme [« la quantité de travail utile accompli par rapport au temps et aux ressources utilisés »][« la quantité de travail utile accompli par rapport au temps et aux ressources utilisés »].
 
 La définition présente deux facettes : les mesures et les ressources. Les mesures des performances sont des chiffres qui doivent être atteints pour répondre aux besoins métier. Elles incluent des éléments tels que le temps de réponse, le débit, la disponibilité, etc. Les performances incluent également le niveau d'utilisation des ressources requis pour atteindre un certain niveau de mesures de performances. Comme le coût est presque toujours un besoin métier et que les ressources coûtent de l'argent, les performances impliquent une utilisation des ressources aussi efficace que possible.
 
@@ -31,7 +31,7 @@ Il est important d'élaborer un modèle des principaux scénarios client de votr
 
 Les tests de performances complets, de bout en bout, sont une étape critique pendant la conception et le déploiement d'une application. Les applications Azure sont composées de différentes parties, qui peuvent inclure des composants personnalisés, ainsi que ceux fournis par Microsoft. Microsoft n'est pas en mesure de tester les performances pour toutes les combinaisons possibles de ces composants. Par conséquent, des tests de performances complets et réalisés correctement constituent une étape critique dans tout déploiement.
 
-Sur la base du modèle d'application que vous avez créé, vous devez ensuite réaliser les tests de validation technique de votre application dès que possible et la soumettre à un test de charge pour valider son architecture, afin de vous assurer que votre application répond aux exigences de performances en termes d'extensibilité et de latence. Il est extrêmement important de valider votre architecture et vos hypothèses initiales. En effet, vous n'avez pas envie de découvrir que votre application est incapable de supporter la charge prévue au moment de sa mise en service ! Visual Studio propose des fonctions pour réaliser les tests de charge. Pour une description de ces fonctions, consultez la page [Vue d'ensemble des tests de charge Visual Studio dans Azure][].
+Sur la base du modèle d'application que vous avez créé, vous devez ensuite réaliser les tests de validation technique de votre application dès que possible et la soumettre à un test de charge pour valider son architecture, afin de vous assurer que votre application répond aux exigences de performances en termes d'extensibilité et de latence. Il est extrêmement important de valider votre architecture et vos hypothèses initiales. En effet, vous n'avez pas envie de découvrir que votre application est incapable de supporter la charge prévue au moment de sa mise en service ! Visual Studio propose des fonctions pour réaliser les tests de charge. Pour une description de ces fonctions, consultez la page [Vue d'ensemble des tests de charge Visual Studio dans Azure][Vue d'ensemble des tests de charge Visual Studio dans Azure].
 
 ### Différences à propos des performances dans Azure
 
@@ -78,9 +78,9 @@ Azure propose les solutions suivantes pour le stockage des données, et un choix
 
 La plupart des principes de bonne conception d'une base de données s'appliquent également à la base de données SQL Azure. Il existe un immense corpus de documents expliquant comment concevoir des schémas de base de données SQL Server ou SQL Azure efficaces. Les références relatives à la conception d'un schéma de base de données SQL sont les suivantes :
 
--   [Principes fondamentaux de conception et de modélisation d'une base de données][]
--   [Étapes de la conception d'une base de données][]
--   [Conception d'une base de données][]
+-   [Principes fondamentaux de conception et de modélisation d'une base de données][Principes fondamentaux de conception et de modélisation d'une base de données]
+-   [Étapes de la conception d'une base de données][Étapes de la conception d'une base de données]
+-   [Conception d'une base de données][Conception d'une base de données]
 
 Deux activités clés liées à la conception sont différentes dans Azure :
 
@@ -103,17 +103,17 @@ Un modèle de conception courant dans lequel le stockage de table peut être env
 
 Pour plus d'informations sur le stockage de table, consultez les pages suivantes :
 
--   [Stockage de table Windows Azure et base de données SQL Windows Azure - comparaison et différences][]
--   [Considérations sur les performances du stockage de table Azure][]
--   [Base de données SQL et stockage de table Azure][]
--   [Amélioration des performances en regroupant les insertions dans le stockage de table Azure][], qui examine certains résultats de performances.
--   [Guide d'élasticité et de performances de la base de données SQL][]
+-   [Stockage de table Windows Azure et base de données SQL Windows Azure - comparaison et différences][Stockage de table Windows Azure et base de données SQL Windows Azure - comparaison et différences]
+-   [Considérations sur les performances du stockage de table Azure][Considérations sur les performances du stockage de table Azure]
+-   [Base de données SQL et stockage de table Azure][Base de données SQL et stockage de table Azure]
+-   [Amélioration des performances en regroupant les insertions dans le stockage de table Azure][Amélioration des performances en regroupant les insertions dans le stockage de table Azure], qui examine certains résultats de performances.
+-   [Guide d'élasticité et de performances de la base de données SQL][Guide d'élasticité et de performances de la base de données SQL]
 
 #### Partitionnement des données
 
 Les données sont l'une des ressources les plus souvent partitionnées. Si vous créez un service cloud Azure, vous devez songer à utiliser le partitionnement intégré de la base de données SQL disponible par l'intermédiaire des fédérations.
 
-Pour une vue d'ensemble des fédérations de la base de données SQL, consultez la page [Fédérations dans la base de données SQL][].
+Pour une vue d'ensemble des fédérations de la base de données SQL, consultez la page [Fédérations dans la base de données SQL][Fédérations dans la base de données SQL].
 
 ##### Tâches de conception pour les fédérations SQL
 
@@ -129,18 +129,18 @@ Par exemple, dans l'exemple bien connu de base de données AdventureWorks, un ag
 
 Chaque agrégat est un candidat pour la fédération. Vous devez déterminer à quel endroit vous prévoyez une augmentation de la taille et examiner également la charge de travail de votre application : les requêtes qui sont « bien adaptées » au schéma de fédération, c'est-à-dire qui n'ont pas besoin de données provenant de plusieurs membres de la fédération, fonctionneront correctement. Celles qui ne sont pas bien adaptées exigeront une logique dans la couche d'application, car la base de données SQL ne prend pas en charge actuellement les jonctions entre plusieurs bases de données.
 
-Pour afficher un exemple d'analyse de conception qui examine la base de données AdventureWorks pour la fédérer et qui présente étape par étape les éléments à considérer dans la conception, consultez la page [Approche « Scale-First » de la conception de base de données avec des fédérations : Partie 1 - Choix des fédérations et de la clé de fédération][].
+Pour afficher un exemple d'analyse de conception qui examine la base de données AdventureWorks pour la fédérer et qui présente étape par étape les éléments à considérer dans la conception, consultez la page [Approche « Scale-First » de la conception de base de données avec des fédérations : Partie 1 - Choix des fédérations et de la clé de fédération][Approche « Scale-First » de la conception de base de données avec des fédérations : Partie 1 - Choix des fédérations et de la clé de fédération].
 
 Une fois que vous avez déterminé quelles tables doivent être fédérées, vous devez ajouter la clé primaire de la table racine de l'agrégat en tant que colonne dans chacune des tables liées.
 
-Une fois que vous avez déterminé les tables sur lesquelles vous voulez établir la fédération, un autre problème concerne l'emplacement des tables de référence, ainsi que des autres objets de base de données. Pour une discussion approfondie sur ce sujet, consultez la page [Approche « Scale-First » de la conception de base de données avec des fédérations : Part 2 - Annotation et déploiement du schéma pour les fédérations][]. Les requêtes plus avancées sont décrites dans la [Partie 2][].
+Une fois que vous avez déterminé les tables sur lesquelles vous voulez établir la fédération, un autre problème concerne l'emplacement des tables de référence, ainsi que des autres objets de base de données. Pour une discussion approfondie sur ce sujet, consultez la page [Approche « Scale-First » de la conception de base de données avec des fédérations : Part 2 - Annotation et déploiement du schéma pour les fédérations][Approche « Scale-First » de la conception de base de données avec des fédérations : Part 2 - Annotation et déploiement du schéma pour les fédérations]. Les requêtes plus avancées sont décrites dans la [Partie 2][Partie 2].
 
 ##### Partitionnement autonome (« Do-It-Yourself »)
 
 Il existe plusieurs exemples illustrant différentes méthodes de partitionnement des données. Si vous décidez de ne pas utiliser de fédérations pour partitionner votre instance de base de données SQL, vous devez choisir une méthode de partitionnement qui convient pour votre application. Voici quelques exemples :
 
--   Pour un compte complet, écrit avant le lancement des fédérations, consultez la page [Partitionnement avec la base de données SQL][].
--   [Bibliothèque de partitionnement de SQL Server et de la base de données SQL][]
+-   Pour un compte complet, écrit avant le lancement des fédérations, consultez la page [Partitionnement avec la base de données SQL][Partitionnement avec la base de données SQL].
+-   [Bibliothèque de partitionnement de SQL Server et de la base de données SQL][Bibliothèque de partitionnement de SQL Server et de la base de données SQL]
 
 ##### Partitionnement des autres ressources
 
@@ -152,7 +152,7 @@ Selon votre application, vous pourrez éventuellement appliquer un raisonnement 
 
 Le service de mise en cache Azure fournit une mémoire élastique distribuée pour mettre en cache des éléments tels que l'état de session ASP.net ou des valeurs couramment référencées des tables de référence de la base de données SQL. Comme les objets se trouvent dans la mémoire distribuée, les gains de performances possibles sont considérables. Dans la mesure où Azure gère l'infrastructure de mise en cache, les coûts de développement liés à sa mise en œuvre sont peu élevés.
 
-Prévoyez de fournir une capacité suffisante pour mettre en cache les objets auxquels vous accédez fréquemment. Dans la base de données SQL, il existe souvent des tables de référence utilisées pour convertir des codes numériques en chaînes de caractères descriptives plus longues. Ces tables incluent fréquemment des données telles que des noms de pays ou de ville, des valeurs de code postal valides, des noms de département au sein de votre entreprise, etc. Pour les petites tables, il peut être intéressant de stocker la table entière dans le cache ; pour les autres tables, vous pouvez vous contenter de stocker uniquement les valeurs les plus utilisées. Les gains de performances concernent les requêtes multi-jonctions impliquant ces données : pour chaque valeur trouvée dans le cache, plusieurs accès au disque sont économisés. Pour une introduction et une discussion sur les performances et la mise en cache dans Azure, consultez la page [Présentation du service de mise en cache Azure][]. Un billet de blog plus récent sur le sujet est proposé sur la page [Mise en cache Azure – Considérations sur les performances][].
+Prévoyez de fournir une capacité suffisante pour mettre en cache les objets auxquels vous accédez fréquemment. Dans la base de données SQL, il existe souvent des tables de référence utilisées pour convertir des codes numériques en chaînes de caractères descriptives plus longues. Ces tables incluent fréquemment des données telles que des noms de pays ou de ville, des valeurs de code postal valides, des noms de département au sein de votre entreprise, etc. Pour les petites tables, il peut être intéressant de stocker la table entière dans le cache ; pour les autres tables, vous pouvez vous contenter de stocker uniquement les valeurs les plus utilisées. Les gains de performances concernent les requêtes multi-jonctions impliquant ces données : pour chaque valeur trouvée dans le cache, plusieurs accès au disque sont économisés. Pour une introduction et une discussion sur les performances et la mise en cache dans Azure, consultez la page [Présentation du service de mise en cache Azure][Présentation du service de mise en cache Azure]. Un billet de blog plus récent sur le sujet est proposé sur la page [Mise en cache Azure – Considérations sur les performances][Mise en cache Azure – Considérations sur les performances].
 
 #### Scénario : utilisation de la mise en file d'attente dans les applications Azure
 
@@ -164,9 +164,9 @@ Azure inclut deux technologies de file d'attente différentes : les files d'att
 
 Les files d'attente de stockage Azure proposent, entre autres, des fonctionnalités telles que les files d'attente de grande taille et le suivi de la progression. Service Bus propose, entre autres, des fonctionnalités telles que la publication et l'abonnement, l'intégration complète à Windows Communication Foundation (« WCF »), la détection automatique des doublons, la livraison garantie de messages sur le principe du premier entré, premier sorti (« FIFO »).
 
-Pour une comparaison plus complète et détaillée des deux technologies, consultez la page [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences][].
+Pour une comparaison plus complète et détaillée des deux technologies, consultez la page [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences][Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences].
 
-Pour une discussion sur les performances de Service Bus, consultez la page [Meilleures pratiques relatives aux améliorations de performances à l'aide de la messagerie répartie Service Bus][].
+Pour une discussion sur les performances de Service Bus, consultez la page [Meilleures pratiques relatives aux améliorations de performances à l'aide de la messagerie répartie Service Bus][Meilleures pratiques relatives aux améliorations de performances à l'aide de la messagerie répartie Service Bus].
 
 #### Scénario : applications « Big Data »
 
@@ -200,15 +200,15 @@ Il existe quatre principaux types de stockage de données non-SQL :
 
 Azure fournit une prise en charge directe de Hadoop et permet également d'utiliser d'autres technologies. Pour obtenir des informations sur le service Azure HDInsight, consultez les pages suivantes :
 
--   [Données volumineuses (« Big Data »)][]
--   [Service Azure HDInsight][]
--   [Prise en main du service Azure HDInsight][]
+-   [Données volumineuses (« Big Data »)][Données volumineuses (« Big Data »)]
+-   [Service Azure HDInsight][Service Azure HDInsight]
+-   [Prise en main du service Azure HDInsight][Prise en main du service Azure HDInsight]
 
 Pour une discussion sur les problèmes liés aux différentes méthodes de stockage noSQL, consultez les pages suivantes :
 
--   [Familiarisation avec NoSQL sur Azure][]
--   [Base de données orientée agrégat][]
--   [Persistance polyglotte][]
+-   [Familiarisation avec NoSQL sur Azure][Familiarisation avec NoSQL sur Azure]
+-   [Base de données orientée agrégat][Base de données orientée agrégat]
+-   [Persistance polyglotte][Persistance polyglotte]
 
 #### Autres optimisations des performances des services Azure individuels
 
@@ -224,11 +224,11 @@ Bien qu'il ne soit pas persistant en cas de défaillance de la machine, le stock
 
 ##### Azure Access Control Service (ACS)
 
-Les deux principaux facteurs ayant une incidence sur l'utilisation des ressources ACS, et donc sur les performances, sont la taille de jeton et le chiffrement. Pour une discussion plus approfondie, consultez la page [Instructions relatives aux performances du service ACS][].
+Les deux principaux facteurs ayant une incidence sur l'utilisation des ressources ACS, et donc sur les performances, sont la taille de jeton et le chiffrement. Pour une discussion plus approfondie, consultez la page [Instructions relatives aux performances du service ACS][Instructions relatives aux performances du service ACS].
 
 ##### Sérialisation
 
-La sérialisation n'est pas une partie évidente de l'optimisation des performances, mais la réduction du trafic réseau peut avoir son importance dans certains scénarios d'application. Pour un exemple illustrant la manière dont la taille de sérialisation peut varier selon le protocole, examinez les réductions de taille présentées sur la page [Applications web Azure et sérialisation][].
+La sérialisation n'est pas une partie évidente de l'optimisation des performances, mais la réduction du trafic réseau peut avoir son importance dans certains scénarios d'application. Pour un exemple illustrant la manière dont la taille de sérialisation peut varier selon le protocole, examinez les réductions de taille présentées sur la page [Applications web Azure et sérialisation][Applications web Azure et sérialisation].
 
 Si la quantité de données déplacée pose un problème de performances, utilisez la plus petite sérialisation disponible. Au cas où les performances de la sérialisation ne seraient pas suffisantes, songez à utiliser des formats de sérialisation tiers personnalisés ou non-Microsoft. Comme toujours, les tests de validation technique sont décisifs.
 
@@ -267,7 +267,7 @@ Par exemple, placez l'application web dans le même centre de données que l'ins
 
 ### Connexions temporaires
 
-Votre application DOIT être capable de gérer les pertes de connexion. Celles-ci sont inévitables et intrinsèques à l'architecture cloud (voir, par exemple, les opérations comme le remplacement d'un nœud mort, le fractionnement d'un membre de fédération dans la base de données SQL, etc.). Le meilleur cadre pour gérer les pertes de connexion est actuellement [le bloc applicatif de gestion des erreurs temporaires][].
+Votre application DOIT être capable de gérer les pertes de connexion. Celles-ci sont inévitables et intrinsèques à l'architecture cloud (voir, par exemple, les opérations comme le remplacement d'un nœud mort, le fractionnement d'un membre de fédération dans la base de données SQL, etc.). Le meilleur cadre pour gérer les pertes de connexion est actuellement [le bloc applicatif de gestion des erreurs temporaires][le bloc applicatif de gestion des erreurs temporaires].
 
 ### limitation
 
@@ -286,7 +286,7 @@ Azure réduit de façon spectaculaire le travail nécessaire à la planification
 
 Et en raison de l'extensibilité d'Azure, les décisions initiales touchant à la capacité ne sont pas gravées dans le marbre : la mise à l'échelle (augmentation ou réduction d'échelle) des ressources Azure est relativement simple. Malgré tout, il est important de planifier avec précision la capacité, ce qui permet d'éviter une période d'essai ou une erreur concernant la capacité lors de la mise en service de l'application.
 
-Pour les applications dont les besoins en ressources fluctuent considérablement dans le temps, songez à utiliser [le bloc applicatif de mise à l’échelle automatique][]. Ce bloc vous permet de définir des règles pour mettre à l'échelle (augmentation ou réduction d'échelle) les instances de rôle. Deux types de règles sont définis :
+Pour les applications dont les besoins en ressources fluctuent considérablement dans le temps, songez à utiliser [le bloc applicatif de mise à l’échelle automatique][le bloc applicatif de mise à l’échelle automatique]. Ce bloc vous permet de définir des règles pour mettre à l'échelle (augmentation ou réduction d'échelle) les instances de rôle. Deux types de règles sont définis :
 
 -   les règles de contrainte, qui définissent le nombre maximal/minimal d'instances par heure de la journée ;
 
@@ -294,13 +294,13 @@ Pour les applications dont les besoins en ressources fluctuent considérablement
 
 Vous pouvez également définir des règles personnalisées. Pour plus d'informations, consultez la page [Bloc applicatif de mise à l’échelle automatique][le bloc applicatif de mise à l’échelle automatique].
 
-La planification de la capacité est une spécialité à part entière et ce document part du principe que vous n'êtes pas débutant. Pour une discussion détaillée sur la planification de la capacité dans Azure, consultez la page [Planification de la capacité des files d'attente et rubriques de Service Bus][].
+La planification de la capacité est une spécialité à part entière et ce document part du principe que vous n'êtes pas débutant. Pour une discussion détaillée sur la planification de la capacité dans Azure, consultez la page [Planification de la capacité des files d'attente et rubriques de Service Bus][Planification de la capacité des files d'attente et rubriques de Service Bus].
 
 ## Surveillance et réglage des performances lors de l'exécution
 
 Aucune conception, aussi scrupuleuse soit-elle, ne peut garantir l'absence totale de problèmes de performances lors de l'exécution. Il est donc nécessaire de surveiller les performances de l'application de manière continue, afin de vérifier qu'elle atteint les mesures de performances requises et de remédier aux situations dans lesquelles elle ne parvient pas à atteindre ces mesures. Même lorsqu'elles sont bien conçues, les applications sont sujettes à des événements imprévus tels qu'une croissance exponentielle de l'utilisation ou d'éventuelles modifications apportées à l'environnement d'exécution, qui peuvent entraîner des problèmes de performances nécessitant un réglage. Identifier et résoudre les goulots d'étranglement constitue souvent une partie importante du processus.
 
-Être capable de résoudre les problèmes de performances lors de l'exécution nécessite un travail en amont pour intégrer la journalisation et une gestion correcte des exceptions, de telle sorte que le dépannage soit possible chaque fois que des problèmes surviennent. Pour un traitement complet de ce domaine, consultez la page [Meilleures pratiques de dépannage pour développer des applications Azure][].
+Être capable de résoudre les problèmes de performances lors de l'exécution nécessite un travail en amont pour intégrer la journalisation et une gestion correcte des exceptions, de telle sorte que le dépannage soit possible chaque fois que des problèmes surviennent. Pour un traitement complet de ce domaine, consultez la page [Meilleures pratiques de dépannage pour développer des applications Azure][Meilleures pratiques de dépannage pour développer des applications Azure].
 
 Des outils sont disponibles pour surveiller les performances continues de chaque service Azure. En outre, des fonctions de journalisation, fournissant les informations détaillées requises pour dépanner et résoudre les problèmes de performances, doivent être intégrées aux applications.
 
@@ -308,28 +308,28 @@ Des outils sont disponibles pour surveiller les performances continues de chaque
 
 Notez que le Générateur de profils SQL n'est pas disponible actuellement dans Azure. Il existe plusieurs solutions de contournement pour obtenir les informations sur les performances requises. Une alternative pendant le développement consiste à réaliser des tests initiaux dans une version locale de la base de données où le Générateur de profils SQL est disponible.
 
-Vous pouvez également utiliser la commande Transact-SQL SET STATISTICS et vous servir de SQL Server Management Studio pour afficher le plan d'exécution généré par une requête, dans la mesure où le codage de requêtes efficaces constitue un élément clé pour les performances. Pour une discussion détaillée et une explication étape par étape de la marche à suivre, consultez la page [Compréhension des performances dans la base de données SQL][]. Une autre approche intéressante est décrite à la page [Analyse des performances entre la base de données SQL et SQL Server local][].
+Vous pouvez également utiliser la commande Transact-SQL SET STATISTICS et vous servir de SQL Server Management Studio pour afficher le plan d'exécution généré par une requête, dans la mesure où le codage de requêtes efficaces constitue un élément clé pour les performances. Pour une discussion détaillée et une explication étape par étape de la marche à suivre, consultez la page [Compréhension des performances dans la base de données SQL][Compréhension des performances dans la base de données SQL]. Une autre approche intéressante est décrite à la page [Analyse des performances entre la base de données SQL et SQL Server local][Analyse des performances entre la base de données SQL et SQL Server local].
 
 Les deux rubriques suivantes traitent des vues de gestion dynamique :
 
--   [Contrôle de la base de données SQL à l'aide de vues de gestion dynamique][]
--   [Vues de gestion dynamique de la base de données SQL utiles pour l'analyse en l'absence du Générateur de profils SQL][]
+-   [Contrôle de la base de données SQL à l'aide de vues de gestion dynamique][Contrôle de la base de données SQL à l'aide de vues de gestion dynamique]
+-   [Vues de gestion dynamique de la base de données SQL utiles pour l'analyse en l'absence du Générateur de profils SQL][Vues de gestion dynamique de la base de données SQL utiles pour l'analyse en l'absence du Générateur de profils SQL]
 
 ### Ressources et outils d'analyse
 
 Un certain nombre d'outils tiers non-Microsoft sont disponibles pour analyser les performances d'Azure :
 
--   [Cerebrata][]
--   [Tests de performances de SQL Server et de la base de données SQL : Enzo SQL Baseline][]
+-   [Cerebrata][Cerebrata]
+-   [Tests de performances de SQL Server et de la base de données SQL : Enzo SQL Baseline][Tests de performances de SQL Server et de la base de données SQL : Enzo SQL Baseline]
 
 Autres ressources
 
 -   [Guide d'élasticité et de performances de la base de données SQL][2]
--   [Base de données SQL][]
--   [Stockage][]
--   [Mise en réseau][]
--   [Service Bus][]
--   [Planification Azure - Guide postdécision pour intégrer Azure dans votre environnement][]
+-   [Base de données SQL][Base de données SQL]
+-   [Stockage][Stockage]
+-   [Mise en réseau][Mise en réseau]
+-   [Service Bus][Service Bus]
+-   [Planification Azure - Guide postdécision pour intégrer Azure dans votre environnement][Planification Azure - Guide postdécision pour intégrer Azure dans votre environnement]
 
   [« la quantité de travail utile accompli par rapport au temps et aux ressources utilisés »]: http://go.microsoft.com/fwlink/?LinkId=252650
   [Vue d'ensemble des tests de charge Visual Studio dans Azure]: http://www.visualstudio.com/get-started/load-test-your-app-vs

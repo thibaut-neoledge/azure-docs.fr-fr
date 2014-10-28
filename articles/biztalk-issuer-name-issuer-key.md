@@ -36,7 +36,7 @@ Le nom et la clé de l'émetteur Access Control sont utilisés par les élément
 
 ### Pour récupérer le nom et la clé de l'émetteur Access Control
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 2.  Dans le volet de navigation de gauche, sélectionnez **BizTalk Services**.
 3.  Sélectionnez votre service BizTalk.
 4.  Sélectionnez **Informations de connexion** dans la barre des tâches. L'espace de noms Access Control, l'émetteur par défaut (Nom de l'émetteur) et la clé par défaut (Clé de l'émetteur) sont répertoriés et peuvent être copiés-collés.<br/><br/>
@@ -47,7 +47,7 @@ Clé de l'émetteur = Clé par défaut
 
 Vous pouvez également cliquer sur **Ouvrir le portail de gestion ACS** pour récupérer les valeurs Access Control :
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 2.  Dans le volet de navigation de gauche, sélectionnez **BizTalk Services**.
 3.  Sélectionnez votre service BizTalk.
 4.  Sélectionnez le bouton Informations de connexion, puis **Ouvrir le portail de gestion ACS**.
@@ -71,7 +71,7 @@ Le nom et la clé de l'émetteur Service Bus sont utilisés par BizTalk Adapter 
 
 ### Pour récupérer le nom et la clé de l'émetteur Service Bus
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 2.  Dans le volet de navigation de gauche, cliquez sur **Service Bus**.
 3.  Cliquez sur votre espace de noms. Dans la barre des tâches, cliquez sur **Informations de connexion**. Cette action affiche l'**Émetteur par défaut** (Nom de l'émetteur) et la **Clé par défaut** (Clé de l'émetteur). Leurs valeurs peuvent être copiées.<br/><br/>
 Pour résumer :<br/>
@@ -82,20 +82,20 @@ Clé de l'émetteur = Clé par défaut
 
 Autres rubriques Azure BizTalk Services :
 
--   [Installation du Kit de développement logiciel (SDK) Azure BizTalk Services][]
--   [Didacticiels : Azure BizTalk Services][]
--   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services][]
--   [Azure BizTalk Services][]
+-   [Installation du Kit de développement logiciel (SDK) Azure BizTalk Services][Installation du Kit de développement logiciel (SDK) Azure BizTalk Services]
+-   [Didacticiels : Azure BizTalk Services][Didacticiels : Azure BizTalk Services]
+-   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services][Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services]
+-   [Azure BizTalk Services][Azure BizTalk Services]
 
 ## Voir aussi
 
--   [Utilisation du service de gestion ACS pour configurer des identités de service][]
--   [BizTalk Services : Tableau comparatif des éditions Développeur, De base, Standard, et Premium de BizTalk Services][]
--   [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][]
--   [BizTalk Services : Tableau comparatif des états d'approvisionnement BizTalk Services][]
--   [BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services][]
--   [BizTalk Services : Sauvegarde et restauration][]
--   [BizTalk Services : Limitation][]
+-   [Utilisation du service de gestion ACS pour configurer des identités de service][Utilisation du service de gestion ACS pour configurer des identités de service]
+-   [BizTalk Services : Tableau comparatif des éditions Développeur, De base, Standard, et Premium de BizTalk Services][BizTalk Services : Tableau comparatif des éditions Développeur, De base, Standard, et Premium de BizTalk Services]
+-   [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure]
+-   [BizTalk Services : Tableau comparatif des états d'approvisionnement BizTalk Services][BizTalk Services : Tableau comparatif des états d'approvisionnement BizTalk Services]
+-   [BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services][BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services]
+-   [BizTalk Services : Sauvegarde et restauration][BizTalk Services : Sauvegarde et restauration]
+-   [BizTalk Services : Limitation][BizTalk Services : Limitation]
 
   [portail de gestion Azure]: http://go.microsoft.com/fwlink/p/?LinkID=213885
   [Utilisation du service de gestion ACS pour configurer des identités de service]: http://go.microsoft.com/fwlink/p/?LinkID=303942

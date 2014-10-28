@@ -10,15 +10,15 @@ La mise à l'échelle affecte l'ensemble du plan d'hébergement Web. Quand vous 
 
 ## Mise à l'échelle d'un plan d'hébergement Web
 
-1. Dans la [version préliminaire du portail Azure][], cliquez sur **Browse**, puis sur **Web Sites**. Cliquez ensuite sur le nom du site Web pour ouvrir le volet correspondant.
+1. Dans la [version préliminaire du portail Azure][version préliminaire du portail Azure], cliquez sur **Browse**, puis sur **Web Sites**. Cliquez ensuite sur le nom du site Web pour ouvrir le volet correspondant.
 2. La partie **Scale** sous l'objectif **Operations** du volet du site Web, vous indique l'état du plan d'hébergement Web : **Off** lorsque vous effectuez la mise à l'échelle de façon manuelle, **Performance** lorsque vous effectuez la mise à l'échelle en fonction d'une ou plusieurs mesures de performances et **Schedule** lorsque vous avez activé plusieurs profils de mise à l'échelle automatique.  
-    ![Partie Scale][]
+    ![Partie Scale][Partie Scale]
 3. Lorsque vous cliquez sur cette partie, le volet **Scale** s'affiche. Un historique des mises à l'échelle automatiques de votre plan d'hébergement Web est affiché en haut du volet Scale.
 
-    ![Volet Scale][]
+    ![Volet Scale][Volet Scale]
 4. Vous pouvez définir de façon manuelle le nombre de machines virtuelles qui exécutent votre plan d'hébergement Web avec le curseur **Instance**.
 5. Si vous voulez que le nombre d'instances soit automatiquement ajusté en fonction de la charge, sélectionnez **Performance** sous **Autoscale Mode**. À ce stade, vous ne pouvez pas sélectionner **Schedule** dans la version préliminaire du portail Azure.  
-    ![Volet Scale avec pourcentage UC][]
+    ![Volet Scale avec pourcentage UC][Volet Scale avec pourcentage UC]
 6. Une fois que vous avez sélectionné Performance, deux changements se produisent :
     -   **Instance Range** vous permet maintenant de choisir un nombre minimum et maximum d'instances. Autoscale vous maintient dans cette plage, quelle que soit la charge.
     -   Vous pouvez définir les mesures de performances dans la section **Target Metrics**.
@@ -43,11 +43,11 @@ En plus du processeur, vous pouvez baser la mise à l'échelle sur les facteurs 
 
 La mise à l'échelle en fonction d'une autre mesure peut se faire de deux manières. Si vous ne souhaitez effectuer la mise à l'échelle qu'en fonction d'une seule mesure, sélectionnez la flèche à côté du curseur **CPU Percentage**. Cette opération ouvre le volet Metric Details :
 
-![Point d'entrée des mesures de mise à l'échelle][]
+![Point d'entrée des mesures de mise à l'échelle][Point d'entrée des mesures de mise à l'échelle]
 
 Pour appliquer la mise à l'échelle en fonction de plusieurs mesures, vous pouvez cliquer sur **Add Metric** dans la barre de commandes :
 
-![Add metrics][]
+![Add metrics][Add metrics]
 
 Le volet Metric Detail contient toutes les commandes dont vous avez besoin pour définir votre profil de mise à l'échelle optimal. En haut, choisissez la nouvelle mesure selon laquelle appliquer la mise à l'échelle.
 
@@ -63,7 +63,7 @@ Pour chaque règle, vous pouvez choisir :
 -   Scale up or down by - taille de l'action de mise à l'échelle
 -   Cool down - temps d'attente de cette règle entre la dernière action de mise à l'échelle et la prochaine
 
-![Règles de mise à l'échelle multiples][]
+![Règles de mise à l'échelle multiples][Règles de mise à l'échelle multiples]
 
 Avec les règles de mise à l'échelle multiples, vous pouvez définir des stratégies d'extension (ou de réduction) plus agressives en fonction des performances. Par exemple, vous pouvez définir deux règles de mise à l'échelle :
 

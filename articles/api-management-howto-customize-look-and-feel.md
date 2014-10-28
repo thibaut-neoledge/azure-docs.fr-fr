@@ -10,7 +10,7 @@ Pour modifier les règles de style, cliquez sur **Apparence** dans le menu **Por
 
 Votre navigateur basculera vers une page masquée du portail des développeurs, contenant des échantillons de contenu, avec des exemples de toutes les règles de style utilisées sur le site. Pour ouvrir l'éditeur de style, déplacez votre curseur sur la fine ligne verticale grise sur la partie la plus à gauche de la page. La barre d'outils de l'éditeur doit s'afficher.
 
-![Customization toolbar][]
+![Customization toolbar][Customization toolbar]
 
 Il existe deux méthodes principales pour modifier les règles de style : **Modifier toutes les règles** affiche la liste de toutes les règles de style utilisées, alors que **Choisir élément** vous permet de sélectionner un élément sur la page sur laquelle vous vous trouvez et affiche les styles uniquement pour cet élément.
 
@@ -24,11 +24,11 @@ Chaque règle représente une propriété de style de l'élément sélectionné.
 
 Modifions la couleur du texte d'en-tête. Sélectionnez l'entrée dans le champ **@headings-color** et tapez \#000000. Il s'agit du code hexadécimal pour la couleur noire. Suite à cette action, vous verrez un indicateur de couleur carré apparaître à la fin de la zone de texte. Si vous cliquez sur cet indicateur, un sélecteur de couleurs vous permettra de faire votre choix.
 
-![Color picker][]
+![Color picker][Color picker]
 
 Lorsque vous avez terminé d'apporter des modifications aux styles de l'élément sélectionné, cliquez sur **Aperçu des modifications** pour afficher les résultats à l'écran. Pour l'instant, ils ne sont visibles que pour les administrateurs. Pour rendre ces modifications visibles pour tout le monde, cliquez sur le bouton **Publier** dans l'éditeur de style et confirmez les modifications.
 
-![Publish form][]
+![Publish form][Publish form]
 
 > Pour modifier les règles de style qui s'appliquent à tout autre élément sur la page, suivez la même procédure que pour l'en-tête : cliquez sur **Choisir un élément** dans l'éditeur de style, sélectionnez l'élément qui vous intéresse et commencez à modifier les valeurs des règles de style affichées à l'écran.
 

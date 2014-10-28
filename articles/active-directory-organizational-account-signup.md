@@ -4,11 +4,11 @@
 
 # Inscription à Azure en tant qu'organisation
 
-[WACOM.INCLUDE [disclaimer][]]
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 Jusqu'à récemment, vous pouviez uniquement créer un abonnement Azure à l'aide d'un compte Microsoft (Windows Live ID). Azure prend désormais en charge l'utilisation des deux méthodes suivantes pour la création d'un compte :
 
--   **Comptes Microsoft** (que vous avez créés pour votre utilisation personnelle) : ils donnent accès à tous les produits et services cloud Microsoft orientés utilisateur, tels qu'Outlook (Hotmail), Messenger, SkyDrive, MSN, Xbox LIVE ou Office Live. La création d'un compte Outlook crée automatiquement un compte Microsoft avec une adresse @Outlook.com. Une fois le compte Microsoft créé, il vous permet d'accéder aux services cloud Microsoft orientés utilisateur et/ou à Azure. [En savoir plus][]
+-   **Comptes Microsoft** (que vous avez créés pour votre utilisation personnelle) : ils donnent accès à tous les produits et services cloud Microsoft orientés utilisateur, tels qu'Outlook (Hotmail), Messenger, SkyDrive, MSN, Xbox LIVE ou Office Live. La création d'un compte Outlook crée automatiquement un compte Microsoft avec une adresse @Outlook.com. Une fois le compte Microsoft créé, il vous permet d'accéder aux services cloud Microsoft orientés utilisateur et/ou à Azure. [En savoir plus][En savoir plus]
 
 -   **Comptes professionnels** (créés par un administrateur à des fins commerciales/de formation) : ils donnent accès à tous les services cloud Microsoft professionnels destinés aux PME et aux grandes entreprises, tels qu'Azure, Windows Intune ou Office 365. Lorsque vous vous inscrivez à l'un de ces services en tant qu'organisation, un client cloud est automatiquement configuré dans Azure Active Directory pour représenter votre organisation. [En savoir plus][1]
 

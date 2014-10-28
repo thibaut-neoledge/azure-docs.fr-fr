@@ -107,7 +107,7 @@ Le Gestionnaire de ressources est une nouvelle infrastructure qui permet de dép
 -   [Build 2014 : Modèle de groupe de ressources Azure : une gestion moderne du cloud moderne (vidéo)][Build 2014 : Modèle de groupe de ressources Azure : une gestion moderne du cloud moderne (vidéo)]
 
   [Visual Studio 2013 Update 2 RC]: http://aka.ms/vs2013update2rc
-  [Kit de développement logiciel (SDK) Azure 2.3]: http://www.windowsazure.com/en-us/downloads/
+  [Kit de développement logiciel (SDK) Azure 2.3]: http://www.windowsazure.com/fr-fr/downloads/
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9811175
   [Interface de ligne de commande interplateforme Azure]: http://go.microsoft.com/?linkid=9828653
   [notes de publication relatives au Kit de développement logiciel (SDK) Azure pour .NET 2.3]: http://go.microsoft.com/fwlink/p/?LinkId=393548
@@ -121,25 +121,25 @@ Le Gestionnaire de ressources est une nouvelle infrastructure qui permet de dép
   [SCL 3.0 et nouvel émulateur de stockage]: #storage
   [Gestionnaire de ressources]: #arm
   [Prise en main d'Azure et ASP.NET]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-dotnet-get-started/
-  [Prise en main des outils Azure pour Visual Studio]: http://msdn.microsoft.com/en-us/library/azure/ff687127.aspx
+  [Prise en main des outils Azure pour Visual Studio]: http://msdn.microsoft.com/fr-fr/library/azure/ff687127.aspx
   [Création de projets Web ASP.NET dans Visual Studio 2013]: http://asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio
   [Build 2014 : Nouveautés ASP.NET et web dans Visual Studio 2013 Update 2 et ultérieure (vidéo)]: http://channel9.msdn.com/Events/Build/2014/3-602
-  [Débogage d'un service cloud ou d'une machine virtuelle dans Visual Studio]: http://msdn.microsoft.com/en-us/library/azure/ff683670.aspx
-  [Utilisation d'Emulator Express pour exécuter et déboguer Cloud Services]: http://msdn.microsoft.com/en-us/library/windowsazure/dn339018.aspx
+  [Débogage d'un service cloud ou d'une machine virtuelle dans Visual Studio]: http://msdn.microsoft.com/fr-fr/library/azure/ff683670.aspx
+  [Utilisation d'Emulator Express pour exécuter et déboguer Cloud Services]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn339018.aspx
   [Résolution des problèmes liés à Sites Web Azure dans Visual Studio]: http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio
-  [Création d'une machine virtuelle à partir de l'Explorateur de serveurs]: http://msdn.microsoft.com/en-us/library/windowsazure/dn569263.aspx
-  [Accès aux machines virtuelles Azure à partir de l'Explorateur de serveurs]: http://msdn.microsoft.com/en-us/library/windowsazure/jj131259.aspx
-  [Consultation des ressources Service Bus avec l'Explorateur de serveurs Visual Studio]: http://msdn.microsoft.com/en-us/library/windowsazure/jj149828.aspx
-  [Consultation des ressources de stockage avec l'Explorateur de serveurs]: http://msdn.microsoft.com/en-us/library/windowsazure/ff683677.aspx
+  [Création d'une machine virtuelle à partir de l'Explorateur de serveurs]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn569263.aspx
+  [Accès aux machines virtuelles Azure à partir de l'Explorateur de serveurs]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj131259.aspx
+  [Consultation des ressources Service Bus avec l'Explorateur de serveurs Visual Studio]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj149828.aspx
+  [Consultation des ressources de stockage avec l'Explorateur de serveurs]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ff683677.aspx
   [Installation et configuration d’Azure PowerShell]: http://www.windowsazure.com/fr-fr/documentation/articles/install-configure-powershell/
-  [Documentation Azure PowerShell]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx
+  [Documentation Azure PowerShell]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156055.aspx
   [Build 2014 : Automatisation en tout lieu avec de nouveaux Kits de développement logiciel (SDK), outils et services dans Azure (vidéo)]: http://channel9.msdn.com/Events/Build/2014/3-621
-  [Utilisation de scripts Windows PowerShell pour publier des environnements de développement et de test]: http://msdn.microsoft.com/en-us/library/windowsazure/dn642480.aspx
+  [Utilisation de scripts Windows PowerShell pour publier des environnements de développement et de test]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn642480.aspx
   [Couverture Cloud : les services mobiles Azure .NET principaux (vidéo)]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-137-The-Azure-Mobile-Services-NET-Backend-with-Yavor-Georgiev
-  [Centre de développement mobile Azure]: /en-us/develop/mobile/
-  [Démarrage rapide : ajouter un service mobile]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn629482.aspx
-  [Comment envoyer des notifications Push à une application en cours d’exécution avec Visual Studio]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn614131.aspx
-  [Comment créer des API personnalisées et des travaux planifiés dans un service mobile]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn614130.aspx
+  [Centre de développement mobile Azure]: /fr-fr/develop/mobile/
+  [Démarrage rapide : ajouter un service mobile]: http://msdn.microsoft.com/fr-fr/library/windows/apps/xaml/dn629482.aspx
+  [Comment envoyer des notifications Push à une application en cours d’exécution avec Visual Studio]: http://msdn.microsoft.com/fr-fr/library/windows/apps/xaml/dn614131.aspx
+  [Comment créer des API personnalisées et des travaux planifiés dans un service mobile]: http://msdn.microsoft.com/fr-fr/library/windows/apps/xaml/dn614130.aspx
   [Bibliothèque cliente de stockage Azure 3.0]: http://go.microsoft.com/fwlink/?LinkId=394927
   [Introduction à Azure Storage]: /fr-fr/documentation/articles/storage-introduction/
   [Build 2014 : Microsoft Azure Storage – Nouveautés, meilleures pratiques et modèles (vidéo)]: http://channel9.msdn.com/Events/Build/2014/3-628

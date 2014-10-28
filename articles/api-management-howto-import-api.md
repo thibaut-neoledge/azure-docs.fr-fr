@@ -13,25 +13,25 @@ Les API et leurs opérations peuvent être importées dans les formats suivants.
 
 Ce guide vous présente comment créer une API et importer des opérations en une seule fois.
 
-> Pour plus d'informations sur la création manuelle d'une API et l'ajout d'opérations, consultez les rubriques [Création d'API][] et [Ajout d'opérations à une API][].
+> Pour plus d'informations sur la création manuelle d'une API et l'ajout d'opérations, consultez les rubriques [Création d'API][Création d'API] et [Ajout d'opérations à une API][Ajout d'opérations à une API].
 
 ## Dans cette rubrique
 
--   [Importation d'une API][]
--   [Exportation d'une API][]
--   [Étapes suivantes][]
+-   [Importation d'une API][Importation d'une API]
+-   [Exportation d'une API][Exportation d'une API]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <a name="import-api"> </a>Importation d'une API
 
 Pour créer et configurer des API, cliquez sur **Console de gestion** dans le portail Azure de votre service Gestion des API. Vous accéderez au portail d'administration Gestion des API.
 
-> Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][] dans le didacticiel [Prise en main de Gestion des API Azure][].
+> Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][Création d'une instance de service Gestion des API] dans le didacticiel [Prise en main de Gestion des API Azure][Prise en main de Gestion des API Azure].
 
-![Management console][]
+![Management console][Management console]
 
 Cliquez sur **API** dans le menu **Gestion des API** à gauche, puis sur **Importer l'API**.
 
-![Import API][]
+![Import API][Import API]
 
 La fenêtre **Importer l'API** comporte trois onglets, qui correspondent à trois façons de définir les spécifications de l'API.
 
@@ -39,7 +39,7 @@ La fenêtre **Importer l'API** comporte trois onglets, qui correspondent à troi
 -   **À partir d'un fichier** vous permet de choisir le fichier qui contient la spécification de l'API.
 -   **À partir d'une URL** vous permet d'indiquer l'URL menant à la spécification de l'API.
 
-![Import API format][]
+![Import API format][Import API format]
 
 Une fois la spécification de l'API fournie, utilisez les cases d'option à droite pour indiquer le format de la spécification. Les formats suivants sont pris en charge.
 
@@ -54,18 +54,18 @@ Une fois toutes les valeurs entrées, cliquez sur **Enregistrer** pour créer l'
 
 En plus de l'importation de nouvelles API, vous pouvez exporter les définitions de vos API depuis la console de gestion. Pour cela, cliquez sur **Exporter l'API** dans l'onglet **Résumé** de votre **API**.
 
-![Export API][]
+![Export API][Export API]
 
 Les API peuvent être exportées avec WADL ou Swagger. Sélectionnez le format souhaité, cliquez sur **Enregistrer**, puis choisissez l'emplacement dans lequel enregistrer le fichier.
 
-![Export API format][]
+![Export API format][Export API format]
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
 Une fois l'API créée et les opérations importées, vous pouvez vérifier et configurer les paramètres complémentaires, ajouter l'API à un produit et la publier pour la mettre à disposition des développeurs. Pour plus d'informations, consultez les guides suivants :
 
--   [Configuration des paramètres de l'API][]
--   [Création et publication d'un produit][]
+-   [Configuration des paramètres de l'API][Configuration des paramètres de l'API]
+-   [Création et publication d'un produit][Création et publication d'un produit]
 
   [Création d'API]: ../api-management-howto-create-apis
   [Ajout d'opérations à une API]: ../api-management-howto-add-operations

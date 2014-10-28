@@ -11,7 +11,7 @@ Un espace de travail Microsoft Azure Machine Learning (espace de travail ML) con
 1.  Connectez-vous à votre compte Microsoft Azure.
 2.  Dans le volet des services Microsoft Azure, cliquez sur **MACHINE LEARNING**.
 
-	![][]
+	![][0]
 
 3. Cliquez sur **CRÉER UN ESPACE DE TRAVAIL ML**.
 4. Sur la page **CRÉATION RAPIDE** :
@@ -25,5 +25,5 @@ Un espace de travail Microsoft Azure Machine Learning (espace de travail ML) con
 
 
 
-  []: ./media/machine-learning-create-workspace/cw1.png
+  [0]: ./media/machine-learning-create-workspace/cw1.png
   [1]: ./media/machine-learning-create-workspace/cw2.png

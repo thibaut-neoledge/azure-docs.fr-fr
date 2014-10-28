@@ -296,11 +296,11 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 <!-- Images. -->
 <!-- URLs.-->
 
-  [Windows Store C\#]: /fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows Store C#"
+  [Windows Store C#]: /fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows Store C#"
   [Windows Phone]: /fr-fr/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
   [iOS]: /fr-fr/documentation/articles/notification-hubs-ios-send-breaking-news/ "iOS"
   [Android]: /fr-fr/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/ "Android"
-  [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
+  [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/fr-fr/library/jj927170.aspx
   [Ajout d'une sélection de catégories à l'application]: #adding-categories
   [Inscription à des notifications]: #register
   [Envoi de notifications à partir de votre serveur principal]: #send
@@ -308,5 +308,5 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
   [Prise en main de Notification Hubs]: /fr-fr/documentation/articles/notification-hubs-android-get-started/
   []: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG
   [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
-  [Utilisation des Notification Hubs pour diffuser les dernières nouvelles localisées]: /en-us/manage/services/notification-hubs/breaking-news-localized-dotnet/
-  [Notification des utilisateurs avec Notification Hubs]: /en-us/manage/services/notification-hubs/notify-users
+  [Utilisation des Notification Hubs pour diffuser les dernières nouvelles localisées]: /fr-fr/manage/services/notification-hubs/breaking-news-localized-dotnet/
+  [Notification des utilisateurs avec Notification Hubs]: /fr-fr/manage/services/notification-hubs/notify-users

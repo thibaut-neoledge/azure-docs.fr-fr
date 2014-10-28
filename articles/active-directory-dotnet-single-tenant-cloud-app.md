@@ -18,22 +18,22 @@ Les éléments de développement suivants sont requis pour cette procédure pas 
 
 -   Visual Studio 2010 SP1
 -   Microsoft .NET Framework 4.0
--   [ASP.NET MVC 3][]
--   [Windows Identity Foundation 1.0 Runtime][]
--   [Windows Identity Foundation 3.5 SDK][]
--   [WCF Data Services pour OData V3][]
+-   [ASP.NET MVC 3][ASP.NET MVC 3]
+-   [Windows Identity Foundation 1.0 Runtime][Windows Identity Foundation 1.0 Runtime]
+-   [Windows Identity Foundation 3.5 SDK][Windows Identity Foundation 3.5 SDK]
+-   [WCF Data Services pour OData V3][WCF Data Services pour OData V3]
 -   IIS (Internet Information Services) 7.5 avec SSL activé
 -   Windows PowerShell
--   [Cmdlets PowerShell pour Office 365][]
+-   [Cmdlets PowerShell pour Office 365][Cmdlets PowerShell pour Office 365]
 
 ### Sommaire
 
--   [Introduction][]
--   [Étape 1 : création d'une application ASP.NET MVC][]
--   [Étape 2 : configuration de l'application dans le client d'annuaire d'une société][]
--   [Étape 3 : protection de l'application en utilisant WS-Federation pour la connexion des employés][]
--   [Étape 4 : lecture des données de l'annuaire avec l'API Graph][]
--   [Résumé][]
+-   [Introduction][Introduction]
+-   [Étape 1 : création d'une application ASP.NET MVC][Étape 1 : création d'une application ASP.NET MVC]
+-   [Étape 2 : configuration de l'application dans le client d'annuaire d'une société][Étape 2 : configuration de l'application dans le client d'annuaire d'une société]
+-   [Étape 3 : protection de l'application en utilisant WS-Federation pour la connexion des employés][Étape 3 : protection de l'application en utilisant WS-Federation pour la connexion des employés]
+-   [Étape 4 : lecture des données de l'annuaire avec l'API Graph][Étape 4 : lecture des données de l'annuaire avec l'API Graph]
+-   [Résumé][Résumé]
 
 ## <a name="createapp"></a>Étape 1 : Création d'une application ASP.NET MVC
 
@@ -169,19 +169,19 @@ Cette étape vous indique comment ajouter la prise en charge de la connexion fé
             }
         </p> 
 
-18. Après avoir enregistré les modifications apportées au fichier **Index.cshtml**, appuyez sur **F5** pour exécuter l'application. Vous êtes alors redirigé vers la page du fournisseur d'identité Office 365, où vous pouvez vous connecter à l'aide de vos informations d'identification de client d'annuaire. Par exemple, [\*thomas.levesque@awesomecomputers.onmicrosoft.com\*][].
+18. Après avoir enregistré les modifications apportées au fichier **Index.cshtml**, appuyez sur **F5** pour exécuter l'application. Vous êtes alors redirigé vers la page du fournisseur d'identité Office 365, où vous pouvez vous connecter à l'aide de vos informations d'identification de client d'annuaire. Par exemple, [\*thomas.levesque@awesomecomputers.onmicrosoft.com\*][\*thomas.levesque@awesomecomputers.onmicrosoft.com\*].
 
 19. Après vous être connecté avec vos informations d'identification, vous êtes redirigé vers la page d'index de votre contrôleur d'accueil, là où s'affichent les demandes de votre compte. Ceci confirme que vous êtes bien connecté à l'application via l'authentification unique proposée par Azure Active Directory.
 
 ## <a name="readdata"></a>Étape 4 : lecture des données de l'annuaire avec l'API Graph
 
-Cette étape montre comment utiliser l'API Graph pour vous connecter à votre client Azure Active Directory et lire les données associées. Pour vous aider à prendre en main l'API Graph, téléchargez l'application ASP.NET suivante : [Exemple d'application avec une prise en charge d'écriture pour l'API Graph][]. Cette application contient des méthodes d'assistance qui facilitent l'authentification et la création de requêtes pour l'API Graph.
+Cette étape montre comment utiliser l'API Graph pour vous connecter à votre client Azure Active Directory et lire les données associées. Pour vous aider à prendre en main l'API Graph, téléchargez l'application ASP.NET suivante : [Exemple d'application avec une prise en charge d'écriture pour l'API Graph][Exemple d'application avec une prise en charge d'écriture pour l'API Graph]. Cette application contient des méthodes d'assistance qui facilitent l'authentification et la création de requêtes pour l'API Graph.
 
 Vous allez également ajouter des autorisations au principal du service de votre application créé durant l'étape 2. Pour ajouter ces autorisations, vous aurez besoin de la valeur AppPrincipalId.
 
 1.  Téléchargez et décompressez l'exemple d'application dans le dossier de votre choix.
 2.  Avant de pouvoir utiliser l'exemple de code, vous devez fournir des autorisations supplémentaires au principal du service. Celles-ci permettront au principal du service de lire vos données en utilisant l'API Graph. Dans le menu **Démarrer**, exécutez la console **Module Microsoft Online Services pour Windows PowerShell**.
-3.  Vous allez octroyer des autorisations de lecture au principal du service en l'ajoutant au rôle Administrateur de prise en charge du service. Pour plus d'informations sur l'attribution de rôles au principal du service, consultez la page [Contrôle d'accès en fonction du rôle pour l'API Graph][]. Tapez la commande suivante, puis appuyez sur Entrée :
+3.  Vous allez octroyer des autorisations de lecture au principal du service en l'ajoutant au rôle Administrateur de prise en charge du service. Pour plus d'informations sur l'attribution de rôles au principal du service, consultez la page [Contrôle d'accès en fonction du rôle pour l'API Graph][Contrôle d'accès en fonction du rôle pour l'API Graph]. Tapez la commande suivante, puis appuyez sur Entrée :
 
         Add-MsolRoleMember -RoleMemberType "ServicePrincipal" -RoleName "Service Support Administrator" -RoleMemberObjectId $appPrincipal.ObjectId 
 
@@ -213,7 +213,7 @@ Vous allez également ajouter des autorisations au principal du service de votre
 
 Ce didacticiel vous a indiqué comment créer et configurer une unique application cliente utilisant les fonctionnalités d'authentification unique d'-Azure Active Directory. De plus, vous avez accédé aux données d'annuaire du client en utilisant l'API Graph. Nous vous recommandons d'explorer l'exemple d'application pour comprendre comment tirer parti de l'API Graph dans votre propre application.
 
-Pour en savoir plus sur l'API Graph, [consultez ces informations sur MSDN][]. Vous pouvez également créer des applications mutualisées pour Azure Active Directory en consultant le didacticiel suivant : [Développement d'une application cloud mutualisée avec Azure Active Directory][].
+Pour en savoir plus sur l'API Graph, [consultez ces informations sur MSDN][consultez ces informations sur MSDN]. Vous pouvez également créer des applications mutualisées pour Azure Active Directory en consultant le didacticiel suivant : [Développement d'une application cloud mutualisée avec Azure Active Directory][Développement d'une application cloud mutualisée avec Azure Active Directory].
 
   [ASP.NET MVC 3]: http://www.microsoft.com/fr-fr/download/details.aspx?id=4211
   [Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/fr-fr/download/details.aspx?id=17331

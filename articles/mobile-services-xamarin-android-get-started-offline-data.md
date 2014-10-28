@@ -160,14 +160,14 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 <!-- Images -->
 <!-- URLs. -->
 
-  [Windows Store C\#]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows Store C#"
+  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows Store C#"
   [Windows Phone]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
   [iOS]: /fr-fr/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
   [Xamarin.iOS]: /fr-fr/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
   [Xamarin.Android]: /fr-fr/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
   [Prise en main de Mobile Services]: /fr-fr/documentation/articles/partner-xamarin-mobile-services-android-get-started/
   [Prise en main de données]: /fr-fr/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/
-  [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28
+  [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28
   [Mise à jour de l'application pour prendre en charge les fonctionnalités hors connexion]: #enable-offline-app
   [Test de l'application connectée au service mobile]: #test-online-app
   [Xamarin]: http://xamarin.com/visual-studio

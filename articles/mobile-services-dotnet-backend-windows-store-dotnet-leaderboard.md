@@ -737,11 +737,11 @@ Transmettez l'URL de service et la clé d'application au constructeur **MobileSe
   [4]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/05leaderboard.png
   [EF Code First]: http://msdn.microsoft.com/en-US/data/ee712907#codefirst
   [gestion des conflits d'écriture de base de données]: http://azure.microsoft.com/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
-  [propriété de navigation]: http://msdn.microsoft.com/en-us/data/jj713564.aspx
+  [propriété de navigation]: http://msdn.microsoft.com/fr-fr/data/jj713564.aspx
   [5]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/06leaderboard.png
   [6]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/07leaderboard.png
   [7]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/08leaderboard.png
-  [API REST]: http://msdn.microsoft.com/en-us/library/azure/jj710104.aspx
+  [API REST]: http://msdn.microsoft.com/fr-fr/library/azure/jj710104.aspx
   [Mappage entre les types de base de données et les types de client dans le serveur principal .NET avec AutoMapper]: http://blogs.msdn.com/b/azuremobile/archive/2014/05/19/mapping-between-database-types-and-client-type-in-the-net-backend-using-automapper.aspx
   [Attribut du routage dans l'API Web]: http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
   [8]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/10leaderboard.png
@@ -752,7 +752,7 @@ Transmettez l'URL de service et la clé d'application au constructeur **MobileSe
   [13]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/15leaderboard.png
   [14]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/16leaderboard.png
   [15]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/17leaderboard.png
-  [En savoir plus sur Azure Mobile Services]: /en-us/develop/mobile/resources/
+  [En savoir plus sur Azure Mobile Services]: /fr-fr/develop/mobile/resources/
   [Gestion des conflits d'écriture dans une base de données]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
   [Ajout de notifications Push]: /fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-  [Prise en main de l'authentification]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
+  [Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-dotnet

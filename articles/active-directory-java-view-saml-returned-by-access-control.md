@@ -4,26 +4,26 @@
 
 # Affichage des données SAML (Security Assertion Markup Language) renvoyées par Azure Access Control Service
 
-Ce guide explique comment afficher les données SAML (Security Assertion Markup Language) sous-jacentes renvoyées à votre application par Azure Access Control Service (ACS). Ce guide s'appuie sur la rubrique [Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse][] en fournissant le code nécessaire à l'affichage des données SAML. L'application terminée sera semblable à ce qui suit.
+Ce guide explique comment afficher les données SAML (Security Assertion Markup Language) sous-jacentes renvoyées à votre application par Azure Access Control Service (ACS). Ce guide s'appuie sur la rubrique [Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse][Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse] en fournissant le code nécessaire à l'affichage des données SAML. L'application terminée sera semblable à ce qui suit.
 
-![Exemple de sortie SAML][]
+![Exemple de sortie SAML][Exemple de sortie SAML]
 
-Pour plus d'informations sur ACS, consultez la section [Étapes suivantes][].
+Pour plus d'informations sur ACS, consultez la section [Étapes suivantes][Étapes suivantes].
 
 > [WACOM.NOTE]
 > Le filtre ACS Azure (par Microsoft Open Technologies) est une version préliminaire de la technologie destinée à la communauté. En tant que logiciel préliminaire, il n'est pas officiellement pris en charge par Microsoft Open Technologies, Inc. ou Microsoft.
 
 ## Sommaire
 
--   [Conditions préalables][]
--   [Ajout de la bibliothèque JspWriter au chemin d'accès de la build et à l'assembly de déploiement][]
--   [Modification du fichier JSP pour afficher les données SAML][]
--   [Exécution de l'application][]
--   [Étapes suivantes][]
+-   [Conditions préalables][Conditions préalables]
+-   [Ajout de la bibliothèque JspWriter au chemin d'accès de la build et à l'assembly de déploiement][Ajout de la bibliothèque JspWriter au chemin d'accès de la build et à l'assembly de déploiement]
+-   [Modification du fichier JSP pour afficher les données SAML][Modification du fichier JSP pour afficher les données SAML]
+-   [Exécution de l'application][Exécution de l'application]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <a name="pre"></a>Conditions préalables
 
-Pour réaliser les tâches présentées dans ce guide, suivez l'exemple de la rubrique [Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse][] et utilisez-le comme point de départ de ce didacticiel.
+Pour réaliser les tâches présentées dans ce guide, suivez l'exemple de la rubrique [Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse][Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse] et utilisez-le comme point de départ de ce didacticiel.
 
 ## <a name="add_library"></a>Ajout de la bibliothèque JspWriter au chemin d'accès de la build et à l'assembly de déploiement
 
@@ -173,12 +173,12 @@ Modifiez le fichier **index.jsp** de manière à utiliser le code suivant.
 
 ## <a name="run_application"></a>Exécution de l'application
 
-1.  Exécutez votre application dans l'émulateur de l'ordinateur ou déployez-la dans Azure en suivant la procédure décrite à la rubrique [Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse][].
+1.  Exécutez votre application dans l'émulateur de l'ordinateur ou déployez-la dans Azure en suivant la procédure décrite à la rubrique [Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse][Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse].
 2.  Lancez un navigateur et ouvrez votre application Web. Une fois connecté à votre application, vous verrez les données SAML ainsi que l'assertion de sécurité fournie par le fournisseur d'identité.
 
 ## <a name="next_steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les fonctionnalités ACS et découvrir des scénarios plus complexes, consultez la page [Access Control Service 2.0][].
+Pour en savoir plus sur les fonctionnalités ACS et découvrir des scénarios plus complexes, consultez la page [Access Control Service 2.0][Access Control Service 2.0].
 
   [Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
   [Exemple de sortie SAML]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png

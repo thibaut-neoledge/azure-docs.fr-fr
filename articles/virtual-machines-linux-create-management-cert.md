@@ -6,7 +6,7 @@
 
 Un certificat de gestion est requis pour utiliser l'API de gestion de services afin d'interagir avec la plateforme d'images d'Azure.
 
-De la documentation indiquant comment créer et gérer ces certificats est disponible à l'adresse [][]<http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx></a>. Vous pouvez également utiliser OpenSSL pour créer le certificat de gestion. Pour plus d’informations, consultez la page [OpenSSL][OpenSSL]. Néanmoins, cette documentation se concentre principalement sur l'utilisation du portail Silverlight qui peut ne pas être accessible à certains utilisateurs Linux. Elle décrit comment obtenir l'accès à ces certificats, les intégrer dans nos différents outils et chez les partenaires et les utiliser de façon autonome en attendant l'intégration de cette fonctionnalité sur le portail de gestion Azure.
+De la documentation indiquant comment créer et gérer ces certificats est disponible à l'adresse [][]<http://msdn.microsoft.com/fr-fr/library/azure/gg981929.aspx></a>. Vous pouvez également utiliser OpenSSL pour créer le certificat de gestion. Pour plus d’informations, consultez la page [OpenSSL][OpenSSL]. Néanmoins, cette documentation se concentre principalement sur l'utilisation du portail Silverlight qui peut ne pas être accessible à certains utilisateurs Linux. Elle décrit comment obtenir l'accès à ces certificats, les intégrer dans nos différents outils et chez les partenaires et les utiliser de façon autonome en attendant l'intégration de cette fonctionnalité sur le portail de gestion Azure.
 
 ## Sommaire
 
@@ -133,7 +133,7 @@ Vous devez ensuite fusionner votre ID d'abonnement et le fichier .pfx encodé en
 Remplacez « xxxxx » par le contenu du [fichier encodé] utilisé pour fournir les détails aux outils en ligne de commande Linux Azure avec les commandes :
 Azure account import (File)
 
-  []: http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx
+  []: http://msdn.microsoft.com/fr-fr/library/azure/gg981929.aspx
   [OpenSSL]: http://openssl.org/
   [Obtention d'un certificat de gestion à partir du fichier publishsettings]: #createcert
   [Installation d'un certificat de gestion à l'aide du portail de gestion Azure]: #management

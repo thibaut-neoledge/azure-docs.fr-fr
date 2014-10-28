@@ -2,6 +2,6 @@
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryf"></tags>
 
-[WACOM.INCLUDE [publishing-with-git][]]
+[WACOM.INCLUDE [publishing-with-git](../includes/publishing-with-git.md)]
 
   [publishing-with-git]: ../includes/publishing-with-git.md

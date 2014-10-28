@@ -55,7 +55,7 @@ Il existe deux façons de démarrer avec Application Insights :
 
   [Ajout de Application Insights à votre projet dans Visual Studio]: ../app-insights-monitor-application-health-usage/
   [Diagnostiquez maintenant les problèmes rencontrés dans un service web en activité]: ../app-insights-monitor-performance-live-website-now/
-  [ancienne version de Application Insights]: http://msdn.microsoft.com/en-us/library/dn481095.aspx
+  [ancienne version de Application Insights]: http://msdn.microsoft.com/fr-fr/library/dn481095.aspx
   [Example application monitor in Application Insights]: ./media/appinsights/appinsights-00-appblade.png
   [Application Insights]: ../app-insights-get-started/
   [Exploration des mesures dans Application Insights]: ../app-insights-explore-metrics/

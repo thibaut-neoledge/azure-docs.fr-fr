@@ -6,16 +6,16 @@
 
 Azure BizTalk Services offre des fonctionnalités de sauvegarde et de restauration. Cette rubrique décrit la procédure à suivre pour sauvegarder et restaurer BizTalk Services à l'aide du portail de gestion Azure :
 
--   [Avant de commencer][]
--   [Création d'une sauvegarde][]
--   [Restauration d'une sauvegarde][]
--   [Éléments sauvegardés][]
+-   [Avant de commencer][Avant de commencer]
+-   [Création d'une sauvegarde][Création d'une sauvegarde]
+-   [Restauration d'une sauvegarde][Restauration d'une sauvegarde]
+-   [Éléments sauvegardés][Éléments sauvegardés]
 
-Vous pouvez également utiliser l'[API REST BizTalk Services][] pour sauvegarder BizTalk Services.
+Vous pouvez également utiliser l'[API REST BizTalk Services][API REST BizTalk Services] pour sauvegarder BizTalk Services.
 
 ## <a name="beforebackup"></a>Avant de commencer
 
--   Il se peut que les fonctionnalités de sauvegarde et de restauration ne soient pas disponibles dans toutes les éditions. Consultez [BizTalk Services : tableau comparatif des éditions][].
+-   Il se peut que les fonctionnalités de sauvegarde et de restauration ne soient pas disponibles dans toutes les éditions. Consultez [BizTalk Services : tableau comparatif des éditions][BizTalk Services : tableau comparatif des éditions].
 
     **Remarque** Les connexions hybrides NE sont PAS sauvegardées, quelle que soit l'édition.
 
@@ -39,9 +39,9 @@ Vous pouvez également utiliser l'[API REST BizTalk Services][] pour sauvegarder
 
 Une sauvegarde peut être effectuée à tout moment et vous la contrôlez complètement. Cette section répertorie les étapes à suivre pour créer des sauvegardes à l'aide du portail de gestion Azure :
 
-[Sauvegarde à la demande][]
+[Sauvegarde à la demande][Sauvegarde à la demande]
 
-[Planification d'une sauvegarde][]
+[Planification d'une sauvegarde][Planification d'une sauvegarde]
 
 #### <a name="backupnow"></a>Sauvegarde à la demande
 
@@ -71,13 +71,13 @@ Lors de l'exécution d'une tâche de sauvegarde planifiée, un conteneur est cr�
 
 Si le tableau de bord du service BizTalk indique l'état **Échec** :
 
-![Statut de la dernière sauvegarde planifiée][]
+![Statut de la dernière sauvegarde planifiée][Statut de la dernière sauvegarde planifiée]
 
-Le lien ouvre les journaux des opérations des services de gestion pour vous aider à résoudre le problème. Consultez [BizTalk Services : résolution de problèmes à l'aide des journaux des opérations][].
+Le lien ouvre les journaux des opérations des services de gestion pour vous aider à résoudre le problème. Consultez [BizTalk Services : résolution de problèmes à l'aide des journaux des opérations][BizTalk Services : résolution de problèmes à l'aide des journaux des opérations].
 
 ## <a name="restore"></a>Restauration
 
-Vous pouvez restaurer des sauvegardes depuis le portail de gestion Azure ou l'[API REST Restaurer le service BizTalk][]. Cette section répertorie les étapes à suivre pour restaurer une sauvegarde à l'aide du portail de gestion.
+Vous pouvez restaurer des sauvegardes depuis le portail de gestion Azure ou l'[API REST Restaurer le service BizTalk][API REST Restaurer le service BizTalk]. Cette section répertorie les étapes à suivre pour restaurer une sauvegarde à l'aide du portail de gestion.
 
 #### Avant de restaurer une sauvegarde
 
@@ -227,19 +227,19 @@ Lors de la création du service BizTalk, les détails relatifs à la base de don
 </table>
 ## Suivant
 
-Pour créer Azure BizTalk Services dans le portail de gestion Azure, accédez à [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][]. Pour commencer à créer des applications, consultez la page [Azure BizTalk Services][].
+Pour créer Azure BizTalk Services dans le portail de gestion Azure, accédez à [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure]. Pour commencer à créer des applications, consultez la page [Azure BizTalk Services][Azure BizTalk Services].
 
 ## Voir aussi
 
 -   [Sauvegarde d'un service BizTalk][API REST BizTalk Services]
 -   [Restauration d'un service BizTalk depuis une sauvegarde][API REST Restaurer le service BizTalk]
--   [BizTalk Services : Tableau comparatif des éditions Développeur, De base, Standard, et Premium de BizTalk Services][]
--   [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][]
--   [BizTalk Services : Tableau comparatif des états d'approvisionnement BizTalk Services][]
--   [BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services][]
--   [BizTalk Services : Limitation][]
--   [BizTalk Services : Nom et clé de l'émetteur][]
--   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services][]
+-   [BizTalk Services : Tableau comparatif des éditions Développeur, De base, Standard, et Premium de BizTalk Services][BizTalk Services : Tableau comparatif des éditions Développeur, De base, Standard, et Premium de BizTalk Services]
+-   [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure]
+-   [BizTalk Services : Tableau comparatif des états d'approvisionnement BizTalk Services][BizTalk Services : Tableau comparatif des états d'approvisionnement BizTalk Services]
+-   [BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services][BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services]
+-   [BizTalk Services : Limitation][BizTalk Services : Limitation]
+-   [BizTalk Services : Nom et clé de l'émetteur][BizTalk Services : Nom et clé de l'émetteur]
+-   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services][Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services]
 
   [Avant de commencer]: #beforebackup
   [Création d'une sauvegarde]: #createbu

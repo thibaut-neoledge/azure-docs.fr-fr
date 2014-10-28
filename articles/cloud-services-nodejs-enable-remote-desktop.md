@@ -16,15 +16,15 @@ problèmes avec votre application.
 
 Cette procédure comprend les étapes suivantes :
 
--   [Étape 1 : configuration du service pour l'accès au Bureau à distance au moyen d'Azure PowerShell][]
--   [Étape 2 : connexion à l'instance de rôle][]
--   [Étape 3 : configuration du service pour désactiver l'accès au Bureau à distance au moyen d'Azure PowerShell][]
+-   [Étape 1 : configuration du service pour l'accès au Bureau à distance au moyen d'Azure PowerShell][Étape 1 : configuration du service pour l'accès au Bureau à distance au moyen d'Azure PowerShell]
+-   [Étape 2 : connexion à l'instance de rôle][Étape 2 : connexion à l'instance de rôle]
+-   [Étape 3 : configuration du service pour désactiver l'accès au Bureau à distance au moyen d'Azure PowerShell][Étape 3 : configuration du service pour désactiver l'accès au Bureau à distance au moyen d'Azure PowerShell]
 
 ## <a name="step1"> </a>Étape 1 : configuration du service pour l'accès au Bureau à distance au moyen d'Azure PowerShell
 
 Pour utiliser le Bureau à distance, vous devez configurer votre définition de
 service et votre configuration de service au moyen d'un
-nom d'utilisateur, d'un mot de passe et d'un certificat afin de vous authentifier auprès des instances de rôle dans le cloud. [Azure PowerShell][] inclut la cmdlet **Enable-AzureServiceProjectRemoteDesktop**, qui effectue
+nom d'utilisateur, d'un mot de passe et d'un certificat afin de vous authentifier auprès des instances de rôle dans le cloud. [Azure PowerShell][Azure PowerShell] inclut la cmdlet **Enable-AzureServiceProjectRemoteDesktop**, qui effectue
 cette configuration pour vous.
 
 Effectuez les étapes suivantes sur l'ordinateur sur lequel la définition
@@ -32,20 +32,20 @@ de service a été créée.
 
 1.  Dans le menu **Démarrer**, sélectionnez **Azure PowerShell**.
 
-    ![Entrée du menu Démarrer Azure PowerShell][]
+    ![Entrée du menu Démarrer Azure PowerShell][Entrée du menu Démarrer Azure PowerShell]
 
 2.  Accédez au service d'annuaire, tapez
     **Enable-AzureServiceProjectRemoteDesktop**, puis entrez le nom d'utilisateur et le mot
     de passe à utiliser lors de l'authentification auprès d'instances
     de rôle dans le cloud.
 
-    ![enable-azureserviceprojectremotedesktop][]
+    ![enable-azureserviceprojectremotedesktop][enable-azureserviceprojectremotedesktop]
 
 3.  Publiez les modifications apportées à la configuration du service dans le cloud. À l'invite
     **Azure PowerShell**, tapez
     **Publish-AzureServiceProject**.
 
-    ![publish-azureserviceproject][]
+    ![publish-azureserviceproject][publish-azureserviceproject]
 
 Une fois ces étapes effectuées, les instances de rôle du service dans le
 cloud sont configurées pour l'accès au Bureau à distance.
@@ -55,40 +55,40 @@ cloud sont configurées pour l'accès au Bureau à distance.
 Votre déploiement étant opérationnel dans Azure, vous pouvez vous
 connecter à l'instance de rôle.
 
-1.  Dans le [portail de gestion Azure][], sélectionnez **Cloud Services**, puis le service déployé à l'étape 1 ci-dessus.
+1.  Dans le [portail de gestion Azure][portail de gestion Azure], sélectionnez **Cloud Services**, puis le service déployé à l'étape 1 ci-dessus.
 
-    ![portail de gestion azure][]
+    ![portail de gestion azure][portail de gestion azure]
 
 2.  Cliquez sur **Instances**, puis sur **Production** ou **Intermédiaire** pour afficher les instances de votre service. Sélectionnez une instance, puis cliquez sur **Connexion** en bas de la page.
 
-    ![Page des instances][]
+    ![Page des instances][Page des instances]
 
 3.  Lorsque vous cliquez sur **Connexion**, le navigateur web vous invite
     à enregistrer un fichier .rdp. Si vous utilisez Internet Explorer, cliquez sur **Ouvrir**.
 
-    ![invite à ouvrir ou enregistrer le fichier .rdp][]
+    ![invite à ouvrir ou enregistrer le fichier .rdp][invite à ouvrir ou enregistrer le fichier .rdp]
 
 4.  Une fois le fichier ouvert, l'invite de sécurité suivante s'affiche :
 
-    ![Invite de sécurité Windows][]
+    ![Invite de sécurité Windows][Invite de sécurité Windows]
 
 5.  Cliquez sur **Connexion**. Une invite de sécurité vous permet
     d'entrer des informations d'identification pour accéder à l'instance. Entrez le mot de passe que vous
     avez créé à l'[étape 1][Étape 1 : configuration du service pour l'accès au Bureau à distance au moyen d'Azure PowerShell], puis cliquez sur **OK**.
 
-    ![invite du nom d'utilisateur/mot de passe][]
+    ![invite du nom d'utilisateur/mot de passe][invite du nom d'utilisateur/mot de passe]
 
 Une fois la connexion établie, la connexion Bureau à distance affiche le
 Bureau de l'instance dans Azure. Vous disposez à présent d'un
 accès distant à votre instance et vous pouvez effectuer toutes les tâches
 nécessaires à la gestion de votre application.
 
-![session Bureau à distance][]
+![session Bureau à distance][session Bureau à distance]
 
 ## <a name="step3"> </a>Étape 3 : configuration du service pour désactiver l'accès au Bureau à distance au moyen d'Azure PowerShell
 
 Une fois que vous n'avez plus besoin des connexions Bureau à
-distance aux instances de rôle dans le cloud, désactivez l'accès Bureau à distance au moyen d'[Azure PowerShell][].
+distance aux instances de rôle dans le cloud, désactivez l'accès Bureau à distance au moyen d'[Azure PowerShell][Azure PowerShell].
 
 1.  Dans le menu **Démarrer**, sélectionnez **Azure PowerShell**.
 
@@ -101,8 +101,8 @@ distance aux instances de rôle dans le cloud, désactivez l'accès Bureau à di
 
 ## Ressources supplémentaires
 
--   [Accès à distance aux instances de rôle dans Azure][]
--   [Utilisation du Bureau à distance avec des rôles Azure][]
+-   [Accès à distance aux instances de rôle dans Azure][Accès à distance aux instances de rôle dans Azure]
+-   [Utilisation du Bureau à distance avec des rôles Azure][Utilisation du Bureau à distance avec des rôles Azure]
 
   [Étape 1 : configuration du service pour l'accès au Bureau à distance au moyen d'Azure PowerShell]: #step1
   [Étape 2 : connexion à l'instance de rôle]: #step2

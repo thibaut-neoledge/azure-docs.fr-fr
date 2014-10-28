@@ -26,7 +26,7 @@ Avant de créer le service, vous devez effectuer les étapes suivantes :
 
 ## **Étape 1 : Création d'un service RemoteApp**
 
-1.  Accédez à la page RemoteApp du [portail de gestion Windows Azure][].
+1.  Accédez à la page RemoteApp du [portail de gestion Windows Azure][portail de gestion Windows Azure].
 2.  Cliquez sur **Nouveau \> Création rapide**.
 
 3.  Entrez le nom de votre service et sélectionnez ensuite votre région.
@@ -43,7 +43,7 @@ Après avoir créé votre service RemoteApp, accédez à la page **Démarrage ra
 
 ## **Étape 2 : Configuration de la synchronisation d'annuaires Active Directory (facultatif)**
 
-Si vous souhaitez utiliser Active Directory, RemoteApp nécessite une synchronisation d'annuaires entre Azure Active Directory et votre annuaire Active Directory local afin de synchroniser les utilisateurs, groupes, contacts et mots de passe avec votre client Azure Active Directory. Pour plus d'informations sur la planification, consultez la rubrique [Programme de synchronisation d'annuaires][].
+Si vous souhaitez utiliser Active Directory, RemoteApp nécessite une synchronisation d'annuaires entre Azure Active Directory et votre annuaire Active Directory local afin de synchroniser les utilisateurs, groupes, contacts et mots de passe avec votre client Azure Active Directory. Pour plus d'informations sur la planification, consultez la rubrique [Programme de synchronisation d'annuaires][Programme de synchronisation d'annuaires].
 
 ## **Étape 3 : Publication de programmes RemoteApp**
 
@@ -68,6 +68,6 @@ Maintenant que vous avez créé votre service RemoteApp, vous devez ajouter les 
 
 Félicitations ! Vous avez créé et déployé correctement votre déploiement cloud RemoteApp. L'étape suivante consistera à faire en sorte que vos utilisateurs téléchargent et installent le client Bureau à distance. L'URL du client est disponible sur la page Démarrage rapide de RemoteApp. Les utilisateurs devront ensuite se connecter à Azure et accéder aux programmes RemoteApp que vous avez publiés.
 
-  []: http://azure.microsoft.com/en-us/services/remoteapp/
+  []: http://azure.microsoft.com/fr-fr/services/remoteapp/
   [portail de gestion Windows Azure]: http://manage.windowsazure.com
-  [Programme de synchronisation d'annuaires]: http://msdn.microsoft.com/en-us/library/azure/hh967642.aspx
+  [Programme de synchronisation d'annuaires]: http://msdn.microsoft.com/fr-fr/library/azure/hh967642.aspx

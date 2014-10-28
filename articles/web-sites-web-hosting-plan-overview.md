@@ -8,7 +8,7 @@ Les plans d'hébergement web représentent un ensemble de fonctionnalités et de
 
 ## Fonctionnalités des plans d'hébergement web
 
-Chaque option de tarification (Gratuit, Partagé, De base et Standard) a ses propres fonctionnalités. [Cliquez ici][] pour connaître les fonctionnalités et les informations de tarification les plus récentes.
+Chaque option de tarification (Gratuit, Partagé, De base et Standard) a ses propres fonctionnalités. [Cliquez ici][Cliquez ici] pour connaître les fonctionnalités et les informations de tarification les plus récentes.
 
 Voici quelques conseils concernant les plans d'hébergement web et les fonctionnalités :
 
@@ -16,7 +16,7 @@ Voici quelques conseils concernant les plans d'hébergement web et les fonctionn
 -   Les sites des mêmes abonnement, emplacement et groupe de ressources peuvent partager un plan d'hébergement web.
 -   Les fonctionnalités comme la mise à l'échelle automatique ciblent un plan d'hébergement web. Pour mettre à l'échelle automatiquement des sites individuels, dédiez un plan d'hébergement web à chaque site.
 
-[En savoir plus sur la gestion des plans d'hébergement web][].
+[En savoir plus sur la gestion des plans d'hébergement web][En savoir plus sur la gestion des plans d'hébergement web].
 
 ## Plans d'hébergement web et capacité
 
@@ -41,13 +41,13 @@ Vous pouvez également voir à quel plan d'hébergement web est associé chaque 
 
 ![][2]
 
-Cliquez sur le plan pour ouvrir un volet qui permet de gérer votre plan d'hébergement web. [En savoir plus sur la gestion des plans d'hébergement web][].
+Cliquez sur le plan pour ouvrir un volet qui permet de gérer votre plan d'hébergement web. [En savoir plus sur la gestion des plans d'hébergement web][En savoir plus sur la gestion des plans d'hébergement web].
 
 ![][3]
 
 ### Étapes suivantes
 
-Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite de Microsoft Azure][].
+Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite de Microsoft Azure][Version d'évaluation gratuite de Microsoft Azure].
 
 <!-- Images. -->
 

@@ -140,7 +140,7 @@ Pour des détails sur les informations de journalisation pour les sites web Azur
   [Étapes suivantes]: #next
   [nom de domaine personnalisé]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-custom-domain-name/
   [Activation du protocole HTTPS pour un site web Azure]: /fr-fr/documentation/articles/web-sites-configure-ssl-certificate/
-  [RequireHttps]: http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute.aspx
+  [RequireHttps]: http://msdn.microsoft.com/fr-fr/library/system.web.mvc.requirehttpsattribute.aspx
   [Déploiement d'une application ASP.NET MVC 5 sécurisée vers un site web Azure]: /fr-fr/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
   [exemple]: #example
   [Chargement/téléchargement de fichiers sur FTP et collecte de journaux de diagnostic]: http://blogs.msdn.com/b/avkashchauhan/archive/2012/06/19/windows-azure-website-uploading-downloading-files-over-ftp-and-collecting-diagnostics-logs.aspx
@@ -148,6 +148,6 @@ Pour des détails sur les informations de journalisation pour les sites web Azur
   [Configuration de sites web]: /fr-fr/documentation/articles/web-sites-configure/
   [portail de gestion Azure]: https://manage.windowsazure.com
   [Protocole FTP]: http://en.wikipedia.org/wiki/File_Transfer_Protocol
-  [Centre de gestion de la confidentialité Microsoft Azure]: /en-us/support/trust-center/security/
+  [Centre de gestion de la confidentialité Microsoft Azure]: /fr-fr/support/trust-center/security/
   [Options de configuration déverrouillées sur les sites web Azure]: http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/
   [Activation de la journalisation des diagnostics]: /fr-fr/documentation/articles/web-sites-enable-diagnostic-log/

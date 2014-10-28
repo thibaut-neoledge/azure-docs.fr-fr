@@ -100,7 +100,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 <!-- Images. -->
 <!-- URLs. -->
 
-  [Windows Store C\#]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users "Windows Store C#"
+  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users "Windows Store C#"
   [Windows Store JavaScript]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-users "Windows Store JavaScript"
   [Windows Phone]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-users "Windows Phone"
   [iOS]: /fr-fr/documentation/articles/mobile-services-ios-get-started-users "iOS"

@@ -324,7 +324,7 @@ abonnements inscrits au niveau de la rubrique. Les abonnements peuvent aussi êt
 Maintenant que vous avez appris les principes de base des files d'attente Service Bus,
 consultez la rubrique MSDN [Files d'attente, rubriques et abonnements Service Bus][Files d'attente, rubriques et abonnements Service Bus] pour plus d'informations.
 
-  [Kit de développement logiciel (SDK) Azure pour Java]: http://www.windowsazure.com/en-us/develop/java/
+  [Kit de développement logiciel (SDK) Azure pour Java]: http://www.windowsazure.com/fr-fr/develop/java/
   [Présentation des rubriques et des abonnements Service Bus]: #what-are-service-bus-topics
   [Création d'un espace de noms de service]: #create-a-service-namespace
   [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms]: #obtain-default-credentials

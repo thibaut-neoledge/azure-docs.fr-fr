@@ -8,19 +8,19 @@ La première fois que vous ouvrez le portail de gestion Azure, l'onglet **Tous l
 
 Une nouvelle fenêtre apparaît avec les onglets suivants : La présente rubrique décrit ces onglets.
 
--   ![Démarrage rapide][] [Démarrage rapide][1]
+-   ![Démarrage rapide][QuickStart]] [Démarrage rapide](#QuickStart)
 
--   [Tableau de bord][]
+-   [Tableau de bord](#Dashboard)
 
--   [Surveiller][]
+-   [Surveiller](#Monitor)
 
--   [Mise à l’échelle][]
+-   [Mise à l’échelle](#Scale)
 
--   [Configurer][]
+-   [Configurer](#Configure)
 
--   [Connexions hybrides][]
+-   [Connexions hybrides](#HybridConnections)
 
-## <a name="QuickStart"></a>Démarrage rapide (![Démarrage rapide][])
+## <a name="QuickStart"></a>Démarrage rapide (![Démarrage rapide][QuickStart])
 
 Selon l'édition de BizTalk Services, toutes les options énumérées peuvent ne pas être disponibles.
 
@@ -107,7 +107,7 @@ Affiche également l'utilisation des données en Go.
 
 Ces mesures fournissent des valeurs en temps réel concernant l'intégrité du service BizTalk. Vous pouvez également spécifier les valeurs **Relatif** ou **Absolu** et l'**Intervalle** de temps des mesures affichées sur le graphique.
 
-Pour une description de ces mesures de performances, accédez à la section [Mesures disponibles][] dans cette rubrique.
+Pour une description de ces mesures de performances, accédez à la section [Mesures disponibles](#Metrics) dans cette rubrique.
 
 ##### Aperçu rapide : dresse la liste des propriétés de votre service BizTalk.
 
@@ -174,7 +174,7 @@ La section <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Explication
 </tr>
 </table>
 
-[BizTalk Services : approvisionnement à l'aide du portail de gestion Azure][créez le service BizTalk] indique la procédure de création d'un service BizTalk.
+[BizTalk Services : approvisionnement à l'aide du portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280) indique la procédure de création d'un service BizTalk.
 
 ##### Gérer, Informations de connexion, Clés de synchronisation et Supprimer dans la barre des tâches :
 
@@ -227,18 +227,18 @@ Vous pouvez également spécifier les valeurs **Relatif** ou **Absolu** et l'**I
 1.  Sélectionnez l'onglet **Surveiller**.
 2.  Sélectionnez **Ajouter des métriques** dans la barre des tâches :
 <br/>
-    ![Sélectionnez Ajouter des métriques][]
+    ![Sélectionnez Ajouter des métriques][AddMetrics]
 3.  Vérifiez les mesures de performances que vous souhaitez afficher.
 4.  Sélectionnez la coche pour revenir à l'onglet **Surveiller**.
 5.  Sélectionnez le cercle en regard de la mesure pour afficher la valeur associée dans le graphique.
 <br/>
     Par exemple, la mesure **Utilisation du processeur** apparaît en grisé ; son résultat n'apparaît pas dans le graphique :
 <br/>
-    ![La mesure Utilisation du processeur apparaît en grisé][]
+    ![La mesure Utilisation du processeur apparaît en grisé][GrayedMetric]
 <br/>
     Sélectionnez le cercle en grisé pour activer la mesure **Utilisation du processeur** et afficher son résultat dans le graphique :
 <br/>
-    ![La mesure Utilisation du processeur est activée][]
+    ![La mesure Utilisation du processeur est activée][EnabledMetric]
 
 6.  Pour supprimer une mesure du graphique affiché et de la liste, sélectionnez **Supprimer une métrique** dans la barre des tâches. Pour réintégrer la mesure dans la liste, sélectionnez **Ajouter des métriques** dans la barre des tâches, vérifiez la mesure et cochez la case pour revenir à l'onglet **Surveiller**. Sélectionnez le cercle en grisé pour activer la mesure.
 
@@ -309,11 +309,11 @@ Les mesures/compteurs de performances suivants sont disponibles :
 
 Dans l'onglet Mettre à l'échelle, vous pouvez ajouter ou soustraire le nombre d'unités utilisées par votre service BizTalk. Par défaut, une seule unité est configurée. Vous pouvez ajouter des unités supplémentaires afin de mettre à l'échelle votre service BizTalk. Lorsque vous augmentez la mise à l'échelle, vous augmentez le débit. La quantité de ressources augmente également, y compris les ponts déployés, les contrats, les connexions métier et la puissance de traitement. Par exemple, vous augmentez la mise à l'échelle de 1 à 2 unités. Dans ce cas, vous pouvez doubler le nombre de ponts, les contrats, les connexions métier et la puissance de traitement.
 
-Certaines éditions BizTalk n'offrent pas de possibilité de mise à l'échelle. Dans ce cas, une seule unité est autorisée. Pour déterminer le nombre d'unités auquel votre édition peut être mise à l'échelle, consultez la page [BizTalk Services : Tableau comparatif des éditions][].
+Certaines éditions BizTalk n'offrent pas de possibilité de mise à l'échelle. Dans ce cas, une seule unité est autorisée. Pour déterminer le nombre d'unités auquel votre édition peut être mise à l'échelle, consultez la page [BizTalk Services : Tableau comparatif des éditions](http://go.microsoft.com/fwlink/p/?LinkID=302279).
 
 L'augmentation du nombre d'unités peut avoir un impact sur les tarifs. Si vous augmentez les unités, sélectionnez **Enregistrer** pour afficher un message indiquant s'il y a un impact sur la facturation. Vous choisissez ensuite de continuer. Lorsque vous augmentez le nombre d'unités, le statut du service BizTalk passe d'Actif à Mis à jour. En état de mise à jour, votre service BizTalk continue de s'exécuter.
 
-[BizTalk Services : Tableau comparatif des éditions][] définit une « unité ».
+[BizTalk Services : Tableau comparatif des éditions](http://go.microsoft.com/fwlink/p/?LinkID=302279) définit une « unité ».
 
 ## <a name="Configure"></a>Configurer
 
@@ -321,45 +321,44 @@ Ne s'applique pas aux connexions hybrides.
 
 Définit l'état de la sauvegarde sur Aucun ou Automatique. Lorsqu'il est défini sur Aucun, aucune sauvegarde n'est automatiquement créée. Lorsqu'il est défini sur Automatique, vous configurez l'emplacement de la sauvegarde, la fréquence de la sauvegarde et la durée de conservation des fichiers de sauvegarde.
 
-[BizTalk Services : Sauvegarde et restauration][] fournit les détails.
+[BizTalk Services : Sauvegarde et restauration](http://go.microsoft.com/fwlink/p/?LinkID=329873) fournit les détails.
 
 ## <a name="HybridConnections"></a>Connexions hybrides
 
 Les connexions hybrides connectent une application Azure, comme Sites web ou Mobile Services, à une ressource locale qui utilise un port TCP statique, par exemple SQL Server, MySQL, les API web HTTP et la plupart des services web personnalisés. Les connexions hybrides sont gérées dans BizTalk Services dans le portail de gestion Azure.
 
-Pour créer des connexions hybrides dans Sites web Azure, consultez [Connexion hybride : Connexion d'un site web Azure à une ressource locale][].
+Pour créer des connexions hybrides dans Sites web Azure, consultez [Connexion hybride : Connexion d'un site web Azure à une ressource locale](http://go.microsoft.com/fwlink/p/?LinkId=397538).
 
-Pour utiliser les connexions hybrides dans Azure Mobile Services, consultez [Azure Mobile Services et connexions hybrides][].
+Pour utiliser les connexions hybrides dans Azure Mobile Services, consultez [Azure Mobile Services et connexions hybrides](http://azure.microsoft.com/fr-fr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started).
 
-Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consultez [Connexions hybrides][2].
+Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consultez [Connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
 ## Suivant
 
 À présent que vous connaissez bien les différents onglets, vous pouvez accéder à davantage d'informations sur les fonctionnalités Azure BizTalk Services :
 
--   [BizTalk Services : Limitation][]
--   [BizTalk Services : Nom et clé de l'émetteur][]
--   [BizTalk Services : Sauvegarde et restauration][]
+-   [BizTalk Services : Limitation](http://go.microsoft.com/fwlink/p/?LinkID=302282)
+-   [BizTalk Services : Nom et clé de l'émetteur](http://go.microsoft.com/fwlink/p/?LinkID=303941)
+-   [BizTalk Services : Sauvegarde et restauration](http://go.microsoft.com/fwlink/p/?LinkID=329873)
 
 ## Voir aussi
 
--   [Connexions hybrides][2]
--   [BizTalk Services : Tableau comparatif des éditions Développeur, De base, Standard, et Premium de BizTalk Services][BizTalk Services : Tableau comparatif des éditions]
--   [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure][créez le service BizTalk]
--   [BizTalk Services : Tableau comparatif des états du service BizTalk][BizTalk Services : tableau comparatif des états du service]
--   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services][]
+-   [Connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274)
+-   [BizTalk Services : Tableau comparatif des éditions Développeur, De base, Standard, et Premium de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)
+-   [BizTalk Services : Approvisionnement à l'aide du portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)
+-   [BizTalk Services : Tableau comparatif des états du service BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=329870)
+-   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
-  [Démarrage rapide]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
-  [1]: #QuickStart
-  [Tableau de bord]: #Dashboard
-  [Surveiller]: #Monitor
-  [Mise à l’échelle]: #Scale
-  [Configurer]: #Configure
-  [Connexions hybrides]: #HybridConnections
+
+  [QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
+  [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
+  [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
+  [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
+
   [Espace formations]: http://azure.microsoft.com/fr-fr/documentation/services/biztalk-services/
   [Configuration de composants pour la messagerie EDI sur le portail BizTalk Services]: http://go.microsoft.com/fwlink/p/?LinkID=303653
   [Gestion de votre espace de noms ACS]: http://go.microsoft.com/fwlink/p/?LinkID=285670
-  [Mesures disponibles]: #Metrics
+
   [créez le service BizTalk]: http://go.microsoft.com/fwlink/p/?LinkID=302280
   [BizTalk Services : tableau comparatif des états du service]: http://go.microsoft.com/fwlink/p/?LinkID=329870
   [Sélectionnez Ajouter des métriques]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png

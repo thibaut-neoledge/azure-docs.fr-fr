@@ -13,22 +13,22 @@ Azure HDInsight prend en charge le système HDFS (Hadoop Distributed Files Syste
 > [WACOM.NOTE]
 > La plupart des commandes HDFS telles que **ls**, **copyFromLocal**, **mkdir**, etc., fonctionnent toujours comme prévu. Seules les commandes propres à l'implémentation HDFS native (nommée DFS), telles que **fschk** et **dfsadmin** se comporteront différemment sur le stockage d'objets blob Azure.
 
-Pour plus d'informations sur la configuration d'un cluster HDInsight, consultez [Prise en main de HDInsight][] ou [Configuration des clusters HDInsight][].
+Pour plus d'informations sur la configuration d'un cluster HDInsight, consultez [Prise en main de HDInsight][Prise en main de HDInsight] ou [Configuration des clusters HDInsight][Configuration des clusters HDInsight].
 
 ## Dans cet article
 
--   [Architecture de stockage HDInsight][]
--   [Avantages du stockage d'objets blob Azure][]
--   [Préparation d'un conteneur au stockage d'objets blob][]
--   [Adressage des fichiers dans le stockage d'objets blob][]
--   [Accès aux objets blob avec PowerShell][]
--   [Étapes suivantes][]
+-   [Architecture de stockage HDInsight][Architecture de stockage HDInsight]
+-   [Avantages du stockage d'objets blob Azure][Avantages du stockage d'objets blob Azure]
+-   [Préparation d'un conteneur au stockage d'objets blob][Préparation d'un conteneur au stockage d'objets blob]
+-   [Adressage des fichiers dans le stockage d'objets blob][Adressage des fichiers dans le stockage d'objets blob]
+-   [Accès aux objets blob avec PowerShell][Accès aux objets blob avec PowerShell]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <span id="architecture"></span></a>Architecture de stockage HDInsight
 
 Le schéma suivant résume l'architecture de stockage HDInsight :
 
-![HDI.ASVArch][]
+![HDI.ASVArch][HDI.ASVArch]
 
 HDInsight permet d'accéder au système de fichiers distribués (DFS) connecté localement aux nœuds de calcul. Vous pouvez accéder à ce système de fichiers en utilisant l'URI complet. Par exemple :
 
@@ -46,13 +46,13 @@ En plus de ce compte de stockage, pendant la configuration, vous pouvez ajouter 
 -   **Conteneurs publics ou objets blob publics des comptes de stockage qui NE SONT PAS connectés à un cluster :** vous disposez uniquement d'une autorisation d'accès en lecture aux objets blob de ces conteneurs.
 
     > [WACOM.NOTE]
-    >  \> Un conteneur public vous permet d'obtenir une liste de tous ses objets blob disponibles, ainsi que ses métadonnées. Vous pouvez accéder aux objets blob d'un objet blob public uniquement si vous connaissez leur URL exacte. Pour plus d'informations, consultez la page [Limiter l'accès aux conteneurs et aux objets blob][].
+    >  \> Un conteneur public vous permet d'obtenir une liste de tous ses objets blob disponibles, ainsi que ses métadonnées. Vous pouvez accéder aux objets blob d'un objet blob public uniquement si vous connaissez leur URL exacte. Pour plus d'informations, consultez la page [Limiter l'accès aux conteneurs et aux objets blob][Limiter l'accès aux conteneurs et aux objets blob].
 
 -   **Conteneurs privés des comptes de stockage qui NE SONT PAS connectés à un cluster :** vous ne pouvez pas accéder aux objets blob des conteneurs, sauf si vous définissez le compte de stockage lorsque vous envoyez les tâches WebHCat. Plus d'explications sont disponibles plus bas dans l'article.
 
 Les comptes de stockage définis dans le processus d'approvisionnement et les clés associées sont stockés dans %HADOOP\_HOME%/conf/core-site.xm. Le comportement par défaut de HDInsight est d'utiliser les comptes de stockage définis dans le fichier core-site.xml file. Il est déconseillé de modifier le fichier core-site.xml fil, car le cluster headnote(master) peut être ré-imagé ou migré à tout moment. En outre, les modifications apportées à ces fichiers seront perdues.
 
-Plusieurs tâches WebHCat, y compris Hive, MapReduce, la diffusion en continu Hadoop et Pig, peuvent inclure une description des comptes de stockage et des métadonnées associées (dans le cas de Pig, cela fonctionne pour les comptes de stockage, mais pas pour les métadonnées). La section [Accès aux objets blob à l'aide de PowerShell][Accès aux objets blob avec PowerShell] de cet article propose un exemple de cette fonctionnalité. Pour plus d'informations, consultez la page [Utilisation d'un cluster HDInsight avec des comptes de stockage et metastores de secours][].
+Plusieurs tâches WebHCat, y compris Hive, MapReduce, la diffusion en continu Hadoop et Pig, peuvent inclure une description des comptes de stockage et des métadonnées associées (dans le cas de Pig, cela fonctionne pour les comptes de stockage, mais pas pour les métadonnées). La section [Accès aux objets blob à l'aide de PowerShell][Accès aux objets blob avec PowerShell] de cet article propose un exemple de cette fonctionnalité. Pour plus d'informations, consultez la page [Utilisation d'un cluster HDInsight avec des comptes de stockage et metastores de secours][Utilisation d'un cluster HDInsight avec des comptes de stockage et metastores de secours].
 
 Les conteneurs de stockage d'objets blob stockent des données en tant que paires clé/valeur et sans hiérarchie de répertoires. Cependant, vous pouvez utiliser le caractère « / » dans le nom de la clé pour la faire apparaître comme un fichier stocké dans une structure de répertoires. Par exemple, une clé d'objet blob peut être *input/log1.txt*. Il n'existe pas de répertoire *input*, mais le caractère « / » figurant dans le nom de la clé lui donne l'aspect d'un chemin d'accès de fichier.
 
@@ -62,7 +62,7 @@ La réduction des performances entraînée par la séparation des emplacements d
 
 Voici les avantages offerts par le stockage de données dans un stockage d'objets blob au lieu d'un système HDFS :
 
--   **Réutilisation et partage des données :** les données du système HDFS sont situées dans le cluster de calcul. Seules les applications pouvant accéder au cluster de calcul peuvent utiliser les données avec l'API HDFS. Vous pouvez accéder aux données du stockage d'objets blob via les API HDFS ou les [API REST de stockage d'objets blob][]. Vous pouvez donc utiliser un plus grand nombre d'applications (notamment d'autres clusters HDInsight) et d'outils pour produire et consommer des données.
+-   **Réutilisation et partage des données :** les données du système HDFS sont situées dans le cluster de calcul. Seules les applications pouvant accéder au cluster de calcul peuvent utiliser les données avec l'API HDFS. Vous pouvez accéder aux données du stockage d'objets blob via les API HDFS ou les [API REST de stockage d'objets blob][API REST de stockage d'objets blob]. Vous pouvez donc utiliser un plus grand nombre d'applications (notamment d'autres clusters HDInsight) et d'outils pour produire et consommer des données.
 -   **Archivage de données :** le stockage de données dans le stockage d'objets blob permet de supprimer les clusters HDInsight ayant servi aux calculs, sans perte de données utilisateur.
 -   **Coût de stockage des données :** le stockage à long terme des données dans DFS est plus coûteux que le stockage des données dans un stockage d'objets blob, car le coût d'un cluster de calcul est plus élevé que celui d'un conteneur de stockage d'objets blob. De plus, comme vous n'avez pas à recharger les données pour chaque génération de cluster de calcul, vous faites également des économies sur les chargements de données.
 -   **Évolution flexible :** même si le système HDFS offre un système de fichiers monté en charge, cette capacité est déterminée par le nombre de nœuds que vous configurez pour votre cluster. Au lieu de procéder ainsi, il est parfois plus simple de profiter des capacités d'évolution flexible du stockage d'objets blob, que vous obtenez automatiquement.
@@ -72,7 +72,7 @@ Certains packages et tâches MapReduce peuvent créer des résultats intermédia
 
 ## <span id="preparingblobstorage"></span></a>Préparation d'un conteneur au stockage d'objets blob
 
-Pour utiliser des objets blob, commencez par créer un [compte de stockage Azure][]. Durant cette opération, vous devez indiquer un centre de données Azure qui stockera les objets que vous créez en utilisant ce compte. Le cluster et le compte de stockage doivent être hébergés dans le même centre de données (les bases de données SQL des metastores Hive et Oozie doivent également se trouver dans le même centre de données). Où qu’il réside, chaque objet blob que vous créez appartient à un conteneur de votre compte de stockage. Ce conteneur peut être un conteneur de stockage d'objets blob existant créé hors de HDInsight ou un conteneur créé pour un cluster HDInsight.
+Pour utiliser des objets blob, commencez par créer un [compte de stockage Azure][compte de stockage Azure]. Durant cette opération, vous devez indiquer un centre de données Azure qui stockera les objets que vous créez en utilisant ce compte. Le cluster et le compte de stockage doivent être hébergés dans le même centre de données (les bases de données SQL des metastores Hive et Oozie doivent également se trouver dans le même centre de données). Où qu’il réside, chaque objet blob que vous créez appartient à un conteneur de votre compte de stockage. Ce conteneur peut être un conteneur de stockage d'objets blob existant créé hors de HDInsight ou un conteneur créé pour un cluster HDInsight.
 
 ### Création d'un conteneur d'objets blob pour HDInsight avec le portail de gestion
 
@@ -80,7 +80,7 @@ Lorsque vous configurez un cluster HDInsight à partir du portail de gestion Azu
 
 En utilisant l'option quick create, vous pouvez sélectionner un compte de stockage existant. Le processus de configuration crée un conteneur ayant le même nom que le cluster HDInsight. Si un conteneur avec le même nom existe déjà, <clustername>-<x> est utilisé. Par exemple, myHDIcluster-1. Ce conteneur est utilisé comme système de fichiers par défaut.
 
-![HDI.QuickCreate][]
+![HDI.QuickCreate][HDI.QuickCreate]
 
 À l'aide de l'option Création personnalisée, vous avez le choix parmi les options suivantes pour le compte de stockage par défaut :
 
@@ -90,11 +90,11 @@ En utilisant l'option quick create, vous pouvez sélectionner un compte de stock
 
 Vous pouvez également créer votre propre conteneur d'objets blob ou en utiliser un existant.
 
-![HDI.CustomCreateStorageAccount][]
+![HDI.CustomCreateStorageAccount][HDI.CustomCreateStorageAccount]
 
 ### Création d'un conteneur avec Azure PowerShell
 
-Vous pouvez utiliser [Azure PowerShell][] pour créer des conteneurs d'objets blob. Voici un exemple de script PowerShell :
+Vous pouvez utiliser [Azure PowerShell][Azure PowerShell] pour créer des conteneurs d'objets blob. Voici un exemple de script PowerShell :
 
     $subscriptionName = "<SubscriptionName>"    # Azure subscription name
     $storageAccountName = "<AzureStorageAccountName>" # The storage account that you will create
@@ -144,11 +144,11 @@ Utilisez la commande suivante pour répertorier les cmdlets relatives aux objets
 
     Get-Command *blob*
 
-![Blob.PowerShell.cmdlets][]
+![Blob.PowerShell.cmdlets][Blob.PowerShell.cmdlets]
 
 **Exemple PowerShell pour le chargement d'un fichier**
 
-Consultez la rubrique [Téléchargement de données vers HDInsight][].
+Consultez la rubrique [Téléchargement de données vers HDInsight][Téléchargement de données vers HDInsight].
 
 **Exemple PowerShell pour le téléchargement d'un fichier**
 
@@ -242,9 +242,9 @@ Dans cet article, vous avez appris comment utiliser le stockage d'objets blob av
 Pour en savoir plus, consultez les articles suivants :
 
 -   [Prise en main d'Azure HDInsight][Prise en main de HDInsight]
--   [Téléchargement de données vers HDInsight][]
--   [Utilisation de Hive avec HDInsight][]
--   [Utilisation de Pig avec HDInsight][]
+-   [Téléchargement de données vers HDInsight][Téléchargement de données vers HDInsight]
+-   [Utilisation de Hive avec HDInsight][Utilisation de Hive avec HDInsight]
+-   [Utilisation de Pig avec HDInsight][Utilisation de Pig avec HDInsight]
 
   [Prise en main de HDInsight]: ../hdinsight-get-started/
   [Configuration des clusters HDInsight]: ../hdinsight-provision-clusters/
@@ -255,9 +255,9 @@ Pour en savoir plus, consultez les articles suivants :
   [Accès aux objets blob avec PowerShell]: #powershell
   [Étapes suivantes]: #nextsteps
   [HDI.ASVArch]: ./media/hdinsight-use-blob-storage/HDI.ASVArch.png "Architecture de stockage HDInsight"
-  [Limiter l'accès aux conteneurs et aux objets blob]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx
+  [Limiter l'accès aux conteneurs et aux objets blob]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179354.aspx
   [Utilisation d'un cluster HDInsight avec des comptes de stockage et metastores de secours]: http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
-  [API REST de stockage d'objets blob]: http://msdn.microsoft.com/en-us/library/windowsazure/dd135733.aspx
+  [API REST de stockage d'objets blob]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dd135733.aspx
   [compte de stockage Azure]: ../storage-create-storage-account/
   [HDI.QuickCreate]: ./media/hdinsight-use-blob-storage/HDI.QuickCreateCluster.png
   [HDI.CustomCreateStorageAccount]: ./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount.png

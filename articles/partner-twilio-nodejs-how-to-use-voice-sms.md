@@ -247,7 +247,7 @@ Nous espérons que vous aimerez travailler sur node.js et Twilio sur Azure !
   [TwiML]: https://www.twilio.com/docs/api/twiml
   [sur le blog des développeurs Twilio]: http://www.twilio.com/blog/2013/04/introduction-to-twilio-client-with-node-js.html
   [créer un compte]: http://ahoy.twilio.com/azure
-  [La documentation officielle relative à cette création est située ici]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+  [La documentation officielle relative à cette création est située ici]: http://www.windowsazure.com/fr-fr/develop/nodejs/tutorials/create-a-website-(mac)/
   [disponibles dans le tableau de bord Twilio]: https://www.twilio.com/user/account
   [Console d'administration Azure]: ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png
   [npm]: http://npmjs.org

@@ -10,7 +10,7 @@ Nous avons récemment introduit une version préliminaire du Gestionnaire de res
 
 > [WACOM.NOTE] Le Gestionnaire de ressources en est actuellement au stade préliminaire et ne fournit pas des capacités de gestion du même niveau qu'Azure Service Management.
 
-> [WACOM.NOTE] Si vous n'avez pas encore installé et configuré xplat-cli, consultez la rubrique [Installation et configuration de l'interface de ligne de commande interplateforme Microsoft Azure][] pour connaître les procédures d'installation, de configuration et d'utilisation de xplat-cli.
+> [WACOM.NOTE] Si vous n'avez pas encore installé et configuré xplat-cli, consultez la rubrique [Installation et configuration de l'interface de ligne de commande interplateforme Microsoft Azure][Installation et configuration de l'interface de ligne de commande interplateforme Microsoft Azure] pour connaître les procédures d'installation, de configuration et d'utilisation de xplat-cli.
 
 ## Gestionnaire de ressources
 
@@ -160,7 +160,7 @@ Pour afficher les informations de journalisation sur les opérations effectuées
 ## Étapes suivantes
 
 -   Pour plus d'informations sur l'utilisation de l'interface de ligne de commande interplateforme Azure, consultez la rubrique [Installation et configuration de l'interface de ligne de commande interplateforme Azure][Installation et configuration de l'interface de ligne de commande interplateforme Microsoft Azure].
--   Pour plus d'informations sur l'utilisation du Gestionnaire de ressources avec Windows Azure PowerShell, consultez la rubrique [Prise en main de l'utilisation de Windows PowerShell avec le Gestionnaire de ressources][].
+-   Pour plus d'informations sur l'utilisation du Gestionnaire de ressources avec Windows Azure PowerShell, consultez la rubrique [Prise en main de l'utilisation de Windows PowerShell avec le Gestionnaire de ressources][Prise en main de l'utilisation de Windows PowerShell avec le Gestionnaire de ressources].
 
   [Windows PowerShell]: /fr-fr/documentation/articles/powershell-azure-resource-manager.md "Windows PowerShell"
   [Interface de ligne de commande interplateforme]: /fr-fr/documentation/articles/xplat-cli-azure-resource-manager.md "Interface de ligne de commande interplateforme"

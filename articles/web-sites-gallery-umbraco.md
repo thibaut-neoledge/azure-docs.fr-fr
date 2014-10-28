@@ -115,7 +115,7 @@ Et voilà ! Vous avez créé un blog à l'aide d'Umbraco CMS en quelques minute
   [Published web site page]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
   [Documentation sur Umbraco]: http://our.umbraco.org/documentation
   [Didacticiels vidéo sur Umbraco]: https://umbraco.com/help-and-support/video-tutorials.aspx
-  [Présentation de la version préliminaire du portail Microsoft Azure]: http://azure.microsoft.com/en-us/overview/preview-portal/
+  [Présentation de la version préliminaire du portail Microsoft Azure]: http://azure.microsoft.com/fr-fr/overview/preview-portal/
   [Documentation sur la version préliminaire du portail Microsoft Azure]: http://azure.microsoft.com/fr-fr/documentation/preview-portal/
   [Version préliminaire du portail Azure (Channel 9)]: http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal
   [Documentation sur les sites web Microsoft Azure]: http://azure.microsoft.com/fr-fr/documentation/services/web-sites/

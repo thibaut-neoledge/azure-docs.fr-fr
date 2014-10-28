@@ -8,22 +8,22 @@ Dans Gestion des API Azure (version préliminaire), les développeurs sont les u
 
 ## Dans cette rubrique
 
--   [Création d'un développeur][]
--   [Invitation d'un développeur][]
--   [Désactivation ou réactivation d'un compte de développeur][]
--   [Étapes suivantes][]
+-   [Création d'un développeur][Création d'un développeur]
+-   [Invitation d'un développeur][Invitation d'un développeur]
+-   [Désactivation ou réactivation d'un compte de développeur][Désactivation ou réactivation d'un compte de développeur]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <a name="create-developer"> </a>Création d'un développeur
 
 Pour créer un développeur, cliquez sur **Console de gestion** dans le portail Azure de votre service Gestion des API. Vous accéderez au portail d'administration Gestion des API.
 
-> Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][] dans le didacticiel [Prise en main de Gestion des API Azure][].
+> Si vous n'avez pas encore créé une instance de service Gestion des API, consultez la page [Création d'une instance de service Gestion des API][Création d'une instance de service Gestion des API] dans le didacticiel [Prise en main de Gestion des API Azure][Prise en main de Gestion des API Azure].
 
-![API Management console][]
+![API Management console][API Management console]
 
 Cliquez sur **Développeurs** dans le menu **Gestion des API** à gauche, puis sur **Ajouter un utilisateur**.
 
-![Create developer][]
+![Create developer][Create developer]
 
 Entrez l'**adresse électronique**, le **mot de passe** et le **nom** du nouveau développeur et cliquez sur **Enregistrer**.
 
@@ -31,15 +31,15 @@ Entrez l'**adresse électronique**, le **mot de passe** et le **nom** du nouveau
 
 Par défaut, les comptes de développeurs nouvellement créés sont **actifs**. Ils sont associés au groupe **Développeurs**.
 
-![New developer][]
+![New developer][New developer]
 
-Les comptes de développeurs dont l'état est **actif** peuvent être utilisés pour accéder à toutes les API auxquelles ils sont abonnés. Pour associer les développeurs nouvellement créés à d'autres groupes, consultez la rubrique [Association de groupes à des développeurs][].
+Les comptes de développeurs dont l'état est **actif** peuvent être utilisés pour accéder à toutes les API auxquelles ils sont abonnés. Pour associer les développeurs nouvellement créés à d'autres groupes, consultez la rubrique [Association de groupes à des développeurs][Association de groupes à des développeurs].
 
 ## <a name="invite-developer"> </a>Invitation d'un développeur
 
 Pour inviter un développeur, cliquez sur **Développeurs** dans le menu **Gestion des API** à gauche, puis sur **Inviter un utilisateur**.
 
-![Invite developer][]
+![Invite developer][Invite developer]
 
 Entrez le nom et l'adresse électronique du développeur, puis cliquez sur **Inviter**.
 
@@ -47,9 +47,9 @@ Entrez le nom et l'adresse électronique du développeur, puis cliquez sur **Inv
 
 Un message de confirmation s'affiche, mais le développeur qui vient d'être invité n'apparaît pas dans la liste tant qu'il n'a pas accepté l'invitation.
 
-![Invite confirmation][]
+![Invite confirmation][Invite confirmation]
 
-> Quand un développeur est invité, un message lui est envoyé. Ce message est généré à partir d'un modèle. Il est personnalisable. Pour plus d'informations, consultez la page [Configuration des modèles de courrier électronique][].
+> Quand un développeur est invité, un message lui est envoyé. Ce message est généré à partir d'un modèle. Il est personnalisable. Pour plus d'informations, consultez la page [Configuration des modèles de courrier électronique][Configuration des modèles de courrier électronique].
 
 Une fois l'invitation acceptée, le compte est activé.
 
@@ -61,7 +61,7 @@ Par défaut, les comptes de développeur nouvellement créés ou invités sont *
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Une fois le compte de développeur créé, vous pouvez l'associer à des rôles et l'abonner à des produits et des API. Pour plus d'informations, consultez la page [Création et utilisation de groupes][].
+Une fois le compte de développeur créé, vous pouvez l'associer à des rôles et l'abonner à des produits et des API. Pour plus d'informations, consultez la page [Création et utilisation de groupes][Création et utilisation de groupes].
 
   [Création d'un développeur]: #create-developer
   [Invitation d'un développeur]: #invite-developer
