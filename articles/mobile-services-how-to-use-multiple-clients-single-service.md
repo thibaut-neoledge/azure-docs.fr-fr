@@ -19,7 +19,7 @@ Ce didacticiel explique comment utiliser Azure Notification Hubs pour envoyer de
 -   Services de notifications Push Windows (WNS) pour les applications Windows Store, Windows Phone 8.1 Store et Windows universelles
 -   Service de notifications Push Microsoft (MPNS) pour les applications Windows Phone Silverlight
 
-> [WACOM.NOTE]Notification Hubs does not currently support using WNS to send push notifications to Windows Phone Silverlight 8.1 apps. Vous devez utiliser les services de notifications Push Microsoft (MPNS) pour envoyer des notifications vers les applications Silverlight et Windows Phone 7.0 et 8.0.
+> [WACOM.NOTE]Notification Hubs ne prend pas en charge actuellement l'utilisation du service de notification Windows (WNS) pour envoyer des notifications Push vers des applications Windows Phone Silverlight 8.1. Vous devez utiliser les services de notifications Push Microsoft (MPNS) pour envoyer des notifications vers les applications Silverlight et Windows Phone 7.0 et 8.0.
 
 Pour plus d'informations, consultez la page [Azure Notification Hubs][].
 
@@ -31,7 +31,7 @@ Des inscriptions de clients sont créées à l'aide de la fonction d'inscription
 -   **Inscription de modèle**
     Notification Hubs prend également en charge les inscriptions de modèle propres aux plateformes. En utilisant des inscriptions de modèle, vous pouvez utiliser un seul appel d'API pour envoyer une notification à votre application exécutée sur n'importe quelle plateforme enregistrée. Pour plus d'informations, consultez la page [Envoi de notifications interplateforme aux utilisateurs][].
 
-> [WACOM.NOTE]An error occurs when trying to send a message to a native device platform for which no device registrations exists. Cette erreur ne se produit pas lorsque vous envoyez des notifications de modèle.
+> [WACOM.NOTE]Une erreur se produit lors de la tentative d'envoi d'un message à une plateforme d'appareil native pour laquelle il n'existe aucune inscription d'appareil. Cette erreur ne se produit pas lorsque vous envoyez des notifications de modèle.
 
 Les tables des sections suivants renvoient vers les didacticiels propres aux clients, qui montrent comment implémenter des notifications Push à partir de services mobiles principaux .NET et JavaScript.
 
@@ -161,7 +161,7 @@ Visual Studio 2013 Update 2 ajoute la prise en charge des projets d'applicatio
 
 Par défaut, l'onglet de démarrage rapide du service mobile du [portail de gestion Azure][] génère une version d'application Windows universelle de l'exemple d'application TodoList pour commencer. Vous pouvez choisir de télécharger une version C#/XAML ou JavaScript/HTML du projet. Pour plus d'informations, consultez la page [Prise en main de Mobile Services][].
 
-> [WACOM.NOTE]The C# version of the quickstart app project from the portal shares the MainPage.xaml.cs code-behind page but doesn't use a view model. Pour obtenir un exemple de l'application TodoList en tant que projet d'application Windows universelle en C# qui utilise le modèle MVVM, consultez la page [Projet d'application Windows universelle pour Azure Mobile Services à l'aide du modèle MVVM][].
+> [WACOM.NOTE]La version C# du projet d'application quickstart du portail partage la page MainPage.xaml.cs code-behind, mais n'utilise pas un modèle de vue. Pour obtenir un exemple de l'application TodoList en tant que projet d'application Windows universelle en C# qui utilise le modèle MVVM, consultez la page [Projet d'application Windows universelle pour Azure Mobile Services à l'aide du modèle MVVM][].
 
 ### <span id="xamarin"></span></a>Développement Xamarin
 
@@ -175,7 +175,7 @@ Dans Windows Phone 8.1, vous pouvez choisir d'utiliser le XAML basé sur Silver
 
 La bibliothèque cliente .NET de Mobile Services prend en charge les applications Windows Phone Store 8.1 et Windows Phone Silverlight 8.1. Du fait que les applications Windows Runtime et Windows Phone Silverlight ne peuvent être créées à partir d'un même projet, vous devez envisager la réutilisation du code comme expliquée dans les méthodes énoncées ci-dessus relatives à la bibliothèque de classes portable et au modèle MVVM.
 
-> [WACOM.NOTE]In order to use single sign-on client authentication using Microsoft Account in both Windows Runtime and Windows Phone Silverlight apps, you must register the Windows Runtime app on the Windows Store dashboard first. En effet, une fois que vous créez une inscription Live Connect pour Windows Phone, vous ne pouvez pas en créer une pour Windows Store. Pour plus d'informations sur la marche à suivre, lisez la rubrique **Authentification unique de votre application Windows Store avec Live Connect** ([Windows Store][]/[Windows Phone][]).
+> [WACOM.NOTE]Pour utiliser l'authentification unique du client avec un compte Microsoft dans des applications Windows Runtime et Windows Phone Silverlight, vous devez d'abord inscrire l'application Windows Runtime dans le tableau de bord Windows Store. En effet, une fois que vous créez une inscription Live Connect pour Windows Phone, vous ne pouvez pas en créer une pour Windows Store. Pour plus d'informations sur la marche à suivre, lisez la rubrique **Authentification unique de votre application Windows Store avec Live Connect** ([Windows Store][]/[Windows Phone][]).
 
 <!-- URLs -->
 

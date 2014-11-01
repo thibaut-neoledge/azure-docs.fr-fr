@@ -6,7 +6,7 @@
 
 Cette rubrique montre comment inscrire vos applications afin d'utiliser Azure Active Directory comme fournisseur d'authentification pour Azure Mobile Services.
 
-> [WACOM.NOTE] If you want to provide client-driven authentication for single sign-on (SSO) with Azure Active Directory, see the [Authenticate your app with Active Directory Authentication Library Single Sign-On][] tutorial.
+> [WACOM.NOTE] Si vous voulez fournir  une authentification pilotée par le client pour l'authentification unique (SSO) avec Azure Active Directory, consultez le didacticiel Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory.
 
 1.  Connectez-vous au [portail de gestion Azure][], cliquez sur **Mobile Services**, puis sur le service mobile.
 

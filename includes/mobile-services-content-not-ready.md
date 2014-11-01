@@ -1,4 +1,4 @@
-> [WACOM.NOTE] It looks like we don't have this content ready right now, but we wanted to let you know about it. Si ce sujet vous intéresse particulièrement, faites-le-nous savoir en envoyant un tweet à [@AzureMobile][@AzureMobile], ou publiez un commentaire sur les [Forums][Forums], les [Retours][Retours], ou le fil de discussion Disqus consacré à ce sujet.
+> [WACOM.NOTE] Il semble que ce contenu ne soit pas prêt actuellement, mais nous voulions vous en faire part. Si ce sujet vous intéresse particulièrement, faites-le-nous savoir en envoyant un tweet à [@AzureMobile][@AzureMobile], ou publiez un commentaire sur les [Forums][Forums], les [Retours][Retours], ou le fil de discussion Disqus consacré à ce sujet.
 
   [@AzureMobile]: https://twitter.com/AzureMobile
   [Forums]: http://social.msdn.microsoft.com/Forums/windowsazure/fr-fr/home?forum=azuremobile

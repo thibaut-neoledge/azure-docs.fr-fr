@@ -25,7 +25,7 @@ Ce guide fournit des informations de base sur l’installation et la configurati
 
 Azure est une plateforme disponible par abonnement. Cela signifie qu’un abonnement est requis pour l’utiliser. Dans la plupart des cas, cela signifie également que les cmdlets requièrent des informations d’abonnement pour effectuer les tâches associées. (Il est possible d’utiliser certaines cmdlets relatives au stockage sans ces informations.) Vous pouvez fournir ces informations en configurant votre ordinateur pour vous connecter avec votre abonnement. Vous trouverez des instructions à ce sujet dans la section Connexion à votre abonnement.
 
-> [WACOM.NOTE] Beginning in version 0.8.5, the Azure PowerShell modules require Microsoft .NET Framework 4.5.
+> [WACOM.NOTE] Avec la version 0.8.5, les modules Azure PowerShell nécessitent Microsoft .NET Framework 4.5.
 
 Lors de l’installation du module, le programme d’installation recherche les logiciels requis sur votre système et installe toutes les dépendances, comme les versions adéquates de Windows PowerShell et de .NET Framework.
 
@@ -80,7 +80,7 @@ Pour plus d’informations sur la gestion de l’authentification et de l’abon
         $cred = New-Object System.Management.Automation.PSCredential($userName, $securePassword)
         Add-AzureAccount -Credential $cred 
 
-    > [WACOM.NOTE] This non-interactive login method only works with organizational account. Il s'agit d'un utilisateur géré par votre organisation et défini dans le client Azure Active Directory de vos organisations. Si vous ne possédez pas de compte professionnel et que vous utilisez un compte Microsoft pour vous connecter à votre abonnement Azure, vous pouvez en créer un facilement en procédant comme suit.
+    > [WACOM.NOTE] Cette méthode de connexion non interactive fonctionne uniquement avec un compte professionnel. Il s'agit d'un utilisateur géré par votre organisation et défini dans le client Azure Active Directory de vos organisations. Si vous ne possédez pas de compte professionnel et que vous utilisez un compte Microsoft pour vous connecter à votre abonnement Azure, vous pouvez en créer un facilement en procédant comme suit.
     >
     > 1.  Connectez-vous au [portail de gestion Azure][] et cliquez sur **Active Directory**.
     >
@@ -139,10 +139,7 @@ sur vos abonnements, consultez le <a href="http://manage.windowsazure.com/">port
 
     `Import-AzurePublishSettingsFile C:\UsersImport-AzurePublishSettingsFile C:\Users\<UserProfile>\Downloads\<SubscriptionName>-credentials.publishsettings`lt;UserProfile\>\\Downloads`Import-AzurePublishSettingsFile C:\Users\<UserProfile>\Downloads\<SubscriptionName>-credentials.publishsettings`lt;SubscriptionName\>-credentials.publishsettings</code>
 
-> [WACOM.NOTE] If you are added to other subscriptions as a co-administrator after you import your publish settings, you'll need to repeat this
-> process to download a new .publishsettings file, and then import those
-> settings. Pour plus d’informations sur l’ajout de coadministrateurs afin de faciliter la gestion
-> des services pour un abonnement, consultez la page [Ajout et suppression de coadministrateurs pour vos abonnements Azure][].
+> [WACOM.NOTE] Si vous êtes ajouté à d’autres abonnements en tant que coadministrateur après l’importation de vos paramètres de publication, vous devrez répéter cette procédure pour télécharger un nouveau fichier .publishsettings, puis pour importer ces paramètres. Pour plus d’informations sur l’ajout de coadministrateurs afin de faciliter la gestion des services pour un abonnement, consultez la page [Ajout et suppression de coadministrateurs pour vos abonnements Azure][].
 
 ### Afficher les informations détaillées du compte et de l’abonnement
 

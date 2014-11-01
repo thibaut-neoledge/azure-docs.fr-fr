@@ -122,7 +122,7 @@ L'étape finale consiste à mettre à jour le client de manière à afficher les
             public DateTime? CompleteDate { get; set; }
         }
 
-    > [WACOM.NOTE] The `DataMemberAttribute` tells the client to map the new `CompleteDate` property in the app to the `CompleteDate` column defined in the TodoItem table. En utilisant cet attribut, votre application peut avoir des noms de propriétés pour les objets qui diffèrent des noms de colonnes dans la base de données SQL.
+    > [WACOM.NOTE] L'attribut `DataMemberAttribute`  indique au client de mapper la nouvelle propriété `CompleteDate` dans l'application vers la colonne `CompleteDate` définie dans la table TodoItem. En utilisant cet attribut, votre application peut avoir des noms de propriétés pour les objets qui diffèrent des noms de colonnes dans la base de données SQL.
 
 4.  Dans le fichier MainPage.xaml.cs, supprimez ou commentez la fonction clause `.Where` dans la méthode **RefreshTodoItems** existante, pour que les todoitems terminés soient inclus dans les résultats.
 

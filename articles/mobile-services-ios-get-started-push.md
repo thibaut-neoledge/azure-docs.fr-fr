@@ -120,9 +120,9 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
             @"deviceToken" : delegate.deviceToken
         };
 
-    This adds a reference to the **QSAppDelegate** to obtain the device token and then modifies the request payload to include that device token.
+    This adds a reference to the  **QSAppDelegate** to obtain the device token and then modifies the request payload to include that device token.
 
-    > [WACOM.NOTE] You must add this code before to the call to the <strong>addItem</strong> method.
+    > [WACOM.NOTE] Vous devez ajouter ce code avant d'appeler la méthode <strong>addItem</strong>.
 
 L'application est mise à jour et prend en charge les notifications Push.
 

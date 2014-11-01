@@ -259,7 +259,7 @@ La tâche doit être enregistrée dans l'onglet **Planificateur** afin que Mobil
 
     Ainsi, la tâche est exécutée, tout en restant désactivée dans le planificateur. Depuis cette page, vous pouvez activer la tâche et modifier sa planification à n'importe quel moment.
 
-    > [WACOM.NOTE]A POST request can still be used to start the scheduled job. Néanmoins, l'autorisation prend implicitement la valeur utilisateur, ce qui signifie que la requête doit inclure la clé d'application dans l'en-tête.
+    > [WACOM.NOTE]Une requête POST peut encore être utilisée pour démarrer la tâche planifiée. Néanmoins, l'autorisation prend implicitement la valeur utilisateur, ce qui signifie que la requête doit inclure la clé d'application dans l'en-tête.
 
 6.  (Facultatif) Dans le [portail de gestion Azure][], cliquez sur manage pour la base de données associée à votre service mobile.
 

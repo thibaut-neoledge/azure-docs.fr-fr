@@ -20,7 +20,7 @@ Cette rubrique montre comment inscrire vos applications afin d'utiliser Google p
 
 3.  Sélectionnez **Application Web**, saisissez l'URL de votre service mobile dans **Origines Javascript autorisées**, remplacez l'URL générée dans **URI de redirection autorisé** par l'URL de votre service mobile suivie de */login/google*, puis cliquez sur **Créer un ID de client**.
 
-    > [WACOM.NOTE]For a .NET backend mobile service published to Azure by using Visual Studio, the redirect URL is the URL of your mobile service appended with the path *signin-google* your mobile service as a .NET service, such as `https://todolist.azure-mobile.net/signin-google`.
+    > [WACOM.NOTE]Pour un service mobile principal .NET publié sur Azure avec Visual Studio, l'URL de redirection est l'URL de votre service mobile, suivie du chemin signin-google de votre service mobile en tant que service .NET, par exemple https://todolist.azure-mobile.net/signin-google.
 
     ![][2]
 

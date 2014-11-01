@@ -35,7 +35,7 @@ Ce didacticiel est basé sur l'[application GetStartedWithMobileServices][], un 
 
     ![][]
 
-    > [WACOM.NOTE]To create a Windows Phone Silverlght 8.1 app, just change the target OS in the downloaded Windows Phone Silverlight 8 app project to Windows Phone 8.1. Pour créer une application Windows Phone Store, téléchargez la [version de l'application Windows Phone Store][] de l'exemple de projet d'application GetStartedWithData.
+    > [WACOM.NOTE]Pour créer une application Windows Phone Silverlight 8.1, modifiez simplement le système d'exploitation cible dans le projet d'application Windows Phone Silverlight 8 téléchargé sur Windows Phone 8.1. Pour créer une application Windows Phone Store, téléchargez la [version de l'application Windows Phone Store][] de l'exemple de projet d'application GetStartedWithData.
 
 2.  Exécutez Visual Studio avec des privilèges d'administration : cliquez avec le bouton droit sur Visual Studio, puis cliquez sur **Exécuter en tant qu'administrateur**.
 

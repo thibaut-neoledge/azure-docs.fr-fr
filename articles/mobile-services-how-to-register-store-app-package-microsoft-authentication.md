@@ -6,11 +6,11 @@
 
 Azure Mobile Services prend en charge les méthodes d'authentification pilotée par le client et pilotée par le serveur. L'authentification pilotée par le serveur utilise des fournisseurs d'identité, y compris le compte Microsoft. Lorsque vous utilisez un compte Microsoft avec une authentification pilotée par le serveur sans inscrire votre application auprès de Mobile Services, les utilisateurs sont invités à fournir des informations d'identification à chaque demande d'authentification. Lorsque vous inscrivez votre application, les informations d'identification du compte Microsoft sont mises en cache et peuvent être utilisées pour l'authentification sans que l'utilisateur ne soit invité à les fournir à nouveau. Cette rubrique montre comment inscrire le package de votre application Windows Store et ainsi bénéficier d'une expérience de connexion améliorée avec le compte Microsoft lorsque vous utilisez Azure Mobile Services pour l'authentification.
 
-> [WACOM.NOTE]Visual Studio 2013 makes it easy to register your Windows Store app package with Mobile Services. Pour plus d'informations, consultez la page [Démarrage rapide : ajout de notifications Push pour un service mobile][] dans le Centre de développement Windows.
+> [WACOM.NOTE]Visual Studio 2013 facilite l'inscription du package de votre application Windows Store auprès de Mobile Services. Pour plus d'informations, consultez la page [Démarrage rapide : ajout de notifications Push pour un service mobile][] dans le Centre de développement Windows.
 
 L'authentification gérée par le client peut être employée pour fournir une authentification unique sur un appareil Windows en utilisant Live Connect. Si vous utilisez des API Live Connect, vous n'avez pas besoin de suivre la procédure décrite dans cette rubrique. Pour plus d'informations, consultez la page [Authentification unique de votre application Windows Store avec Live Connect][].
 
-> [WACOM.NOTE]Client-managed authentication using Live Connect is not yet supported in a .NET backend mobile service.
+> [WACOM.NOTE]L'authentification gérée par le client avec Live Connect n'est pas encore prise en charge dans un service mobile principal .NET.
 
 [WACOM.INCLUDE [mobile-services-register-windows-store-app][]]
 

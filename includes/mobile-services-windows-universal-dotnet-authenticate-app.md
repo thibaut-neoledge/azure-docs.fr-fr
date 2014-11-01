@@ -40,7 +40,7 @@
 
     Cela empêche les données d'être chargées avant que l'utilisateur ne soit authentifié.
 
-    > [WACOM.NOTE]To successfully authenticate from a Windows Phone Store 8.1 app, you must call LoginAsync after the **OnNavigated** method has been called and after the page's **Loaded** event has been raised. Pour cela, dans ce didacticiel, un bouton **Se connecter** est ajouté à l'application.
+    > [WACOM.NOTE]Pour vous authentifier depuis une application Windows Phone Store 8.1, vous devez appeler LoginAsync après l'appel de la méthode **OnNavigated** et après la génération de l'événement **Loaded** de la page. Pour cela, dans ce didacticiel, un bouton **Se connecter** est ajouté à l'application.
 
 4.  Ajoutez l'extrait de code suivant à la classe MainPage :
 

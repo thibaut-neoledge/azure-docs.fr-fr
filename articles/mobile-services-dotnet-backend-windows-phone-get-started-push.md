@@ -17,7 +17,7 @@ Ce didacticiel vous familiarise avec les étapes de base permettant d'activer le
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de le lancer, suivez d'abord le didacticiel [Prise en main de Mobile Services][] ou [Prise en main des données][] pour connecter votre projet au service mobile.
 
-> [WACOM.NOTE]This tutorial targets Windows Phone 8.1 "Silverlight" apps. Si vous créez au contraire une application Windows Phone 8.1 Store, consultez la version de l'[application Windows Store][] de ce didacticiel. Pour plus d'informations sur les applications Windows Phone Silverlight et leurs différences par rapport aux applications Windows Phone Store, consultez la section [Applications Windows Phone Silverlight 8.1][].
+> [WACOM.NOTE]Ce didacticiel concerne les applications Windows Phone 8.1 « Silverlight ». Si vous créez au contraire une application Windows Phone 8.1 Store, consultez la version de l'[application Windows Store][] de ce didacticiel. Pour plus d'informations sur les applications Windows Phone Silverlight et leurs différences par rapport aux applications Windows Phone Store, consultez la section [Applications Windows Phone Silverlight 8.1][].
 
 ## <span id="update-app"></span></a> Mise à jour de l'application pour l'inscription aux notifications
 
@@ -143,7 +143,7 @@ Le service mobile peut ainsi se connecter à MPNS en mode non authentifié pour 
 
 1.  Dans Visual Studio, appuyez sur la touche F5 pour exécuter l'application.
 
-    > [WACOM.NOTE] You may encounter a 401 Unauthorized RegistrationAuthorizationException when testing on the Windows Phone emulator. Ce problème peut se produire lors de l'appel `RegisterNativeAsync()` en raison de la manière dont l'émulateur Windows Phone synchronise son horloge avec le PC hôte. Ceci peut entraîner le rejet d'un jeton de sécurité. Pour résoudre ce problème, il vous suffit de régler manuellement l'horloge de l'émulateur avant le test.
+    > [WACOM.NOTE] Vous pouvez rencontrer l'exception d'autorisation d'inscription « 401 non autorisé » lors du test sur l'émulateur Windows Phone. Ce problème peut se produire lors de l'appel `RegisterNativeAsync()` en raison de la manière dont l'émulateur Windows Phone synchronise son horloge avec le PC hôte. Ceci peut entraîner le rejet d'un jeton de sécurité. Pour résoudre ce problème, il vous suffit de régler manuellement l'horloge de l'émulateur avant le test.
 
 2.  Dans l'application, entrez le texte « hello push » dans la zone de texte, cliquez sur **Enregistrer**, puis cliquez immédiatement sur le bouton Démarrer ou Retour pour quitter l'application.
 
@@ -153,7 +153,7 @@ Le service mobile peut ainsi se connecter à MPNS en mode non authentifié pour 
 
     ![][3]
 
-    > [WACOM.NOTE]You will not receive the notification when you are still in the app. Pour recevoir une notification toast pendant que l'application est active, vous devez gérer l'événement [ShellToastNotificationReceived][].
+    > [WACOM.NOTE]Vous ne recevrez pas la notification tant que vous êtes dans l'application. Pour recevoir une notification toast pendant que l'application est active, vous devez gérer l'événement [ShellToastNotificationReceived][].
 
 ## <a name="next-steps">Étapes suivantes</a>
 

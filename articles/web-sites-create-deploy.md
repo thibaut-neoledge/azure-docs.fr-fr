@@ -33,29 +33,29 @@ Pour créer un site web dans Azure, procédez comme suit :
 
 7.  La page de gestion **Configurer** présente les paramètres de votre site web dans les catégories suivantes :
 
- - **General** : définissez la version de .NET framework ou de PHP requise par votre application Web. Pour les sites en mode Standard, l’option **Platform** vous permet de choisir entre un environnement 32 bits ou 64 bits.
+ - **Général** : définissez la version de .NET framework ou de PHP requise par votre application Web. Pour les sites en mode Standard, l’option **Plateforme** vous permet de choisir entre un environnement 32 bits ou 64 bits.
 
-- **Certificates** : en mode Standard, vous pouvez télécharger un certificat SSL pour des domaines personnalisés.
+- **Certificats** : en mode Standard, vous pouvez télécharger un certificat SSL pour des domaines personnalisés.
 
-- **Domain Names** : dans les modes Standard et Partagé, vous pouvez afficher et gérer des noms de domaine personnalisés pour votre site web.
+- **Noms de domaine** : dans les modes Standard et Partagé, vous pouvez afficher et gérer des noms de domaine personnalisés pour votre site web.
 
-- **SSL Bindings** : en mode Standard, vous pouvez attribuer des certificats SSL à vos noms de domaines personnalisés en utilisant une liaison SSL IP ou SNI.
+- **Liaisons SSL** : en mode Standard, vous pouvez attribuer des certificats SSL à vos noms de domaines personnalisés en utilisant une liaison SSL IP ou SNI.
 
- - **Deployments** : ici, vous pouvez configurer un déploiement à partir d’un contrôle de code source.
+ - **Déploiements** : ici, vous pouvez configurer un déploiement à partir d’un contrôle de code source.
 
- - **Application Diagnostics** : configurez les options de la collecte de traces de diagnostic à partir d’une application Web instrumentée avec des suivis.
+ - **Diagnostics d'application** : configurez les options de la collecte de traces de diagnostic à partir d’une application Web instrumentée avec des suivis.
 
-- **Site Diagnostics** : définissez les options de journalisation pour la collecte d'informations de diagnostic pour votre site web. Les options incluent la journalisation de serveur Web, les messages d’erreur détaillés et le suivi des demandes ayant échoué.
+- **Diagnostics de site** : définissez les options de journalisation pour la collecte d'informations de diagnostic pour votre site web. Les options incluent la journalisation de serveur Web, les messages d’erreur détaillés et le suivi des demandes ayant échoué.
 
-- **Monitoring** : cette fonctionnalité permet de tester la disponibilité des points de terminaison HTTP ou HTTPS pour les sites web en mode Standard.
+- **Surveillance** : cette fonctionnalité permet de tester la disponibilité des points de terminaison HTTP ou HTTPS pour les sites web en mode Standard.
 
-- **App Settings** : indiquez les paires nom/valeur qui seront chargées par votre application Web au démarrage. Pour les sites .NET, ces paramètres seront inclus dans votre configuration .NET **AppSettings** au moment de l’exécution, en remplacement des paramètres existants. Pour les sites PHP et Node, ces paramètres sont disponibles en tant que variables d’environnement au moment de l’exécution.
+- **Paramètres d'application** : indiquez les paires nom/valeur qui seront chargées par votre application Web au démarrage. Pour les sites .NET, ces paramètres seront inclus dans votre configuration .NET **AppSettings** au moment de l’exécution, en remplacement des paramètres existants. Pour les sites PHP et Node, ces paramètres sont disponibles en tant que variables d’environnement au moment de l’exécution.
 
- - **Connection Strings** : affichez et modifiez les chaînes de connexion. Pour les sites .NET, ces chaînes de connexion seront incluses dans les paramètres **connectionStrings** de votre configuration .NET au moment de l’exécution, en remplacement des entrées existantes où la clé est identique à celle du nom de la base de données liée. Pour les sites PHP et Node, ces paramètres sont disponibles en tant que variables d’environnement au moment de l’exécution.
+ - **Chaînes de connexion** : affichez et modifiez les chaînes de connexion. Pour les sites .NET, ces chaînes de connexion seront incluses dans les paramètres **connectionStrings** de votre configuration .NET au moment de l’exécution, en remplacement des entrées existantes où la clé est identique à celle du nom de la base de données liée. Pour les sites PHP et Node, ces paramètres sont disponibles en tant que variables d’environnement au moment de l’exécution.
 
- - **Default Documents** : un document par défaut de site web correspond à la page affichée par défaut quand un utilisateur accède à un site web. Ajoutez le document par défaut de votre application Web à cette liste, si ce n’est pas déjà fait. Le document par défaut de votre site web doit être situé en haut de la liste.
+ - **Documents par défaut** : un document par défaut de site web correspond à la page affichée par défaut quand un utilisateur accède à un site web. Ajoutez le document par défaut de votre application Web à cette liste, si ce n’est pas déjà fait. Le document par défaut de votre site web doit être situé en haut de la liste.
 
-- **Handler Mappings** : indiquez les processeurs de script qui gèreront les demandes pour les extensions de fichier spécifiques telles que \*.php.
+- **Mappages de gestionnaires** : indiquez les processeurs de script qui gèreront les demandes pour les extensions de fichier spécifiques telles que \*.php.
 
 ## <a name="howtocreatefromgallery"></a> création d'un site web à partir de la galerie
 

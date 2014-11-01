@@ -8,7 +8,7 @@
 
 Cette rubrique montre comment utiliser Azure Mobile Services avec un service principal .NET pour envoyer des notifications Push à une application Windows universelle. Dans ce didacticiel, vous allez activer des notifications Push dans le projet de démarrage rapide Windows universel à l'aide d'Azure Notification Hubs. Une fois la procédure terminée, votre service mobile utilise Notification Hubs pour envoyer une notification Push depuis le service principal .NET chaque fois qu'un enregistrement est inséré. Le concentrateur de notification que vous créez est fourni gratuitement avec votre service mobile, peut être géré indépendamment du service mobile et peut être utilisé par d'autres applications et services.
 
-> [WACOM.NOTE]This topic shows you how to manually configure push notifications using Windows Notification Service (WNS) for a Windows Store app. Vous pouvez utiliser les outils de Visual Studio 2013 pour configurer automatiquement les mêmes notifications Push dans un projet d'application Windows. Pour plus d'informations, consultez la page [version de l'application universelle Windows][] de ce didacticiel.
+> [WACOM.NOTE]Cette rubrique vous montre comment configurer manuellement des notifications Push à l'aide du service de notification Windows (WNS) pour une application Windows Store. Vous pouvez utiliser les outils de Visual Studio 2013 pour configurer automatiquement les mêmes notifications Push dans un projet d'application Windows. Pour plus d'informations, consultez la page [version de l'application universelle Windows][] de ce didacticiel.
 
 Ce didacticiel vous familiarise avec les étapes de base permettant d'activer les notifications Push :
 
@@ -20,7 +20,7 @@ Ce didacticiel vous familiarise avec les étapes de base permettant d'activer le
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de le lancer, suivez d'abord le didacticiel [Prise en main de Mobile Services][] ou [Prise en main des données][] pour connecter votre projet au service mobile.
 
-> [WACOM.NOTE]This topic supports Windows Phone Store 8.1 apps. Pour ajouter des notifications Push à une application Windows Phone 8 ou Windows Phone Silverlight 8.1, consultez la page [Prise en main des notifications Push dans Mobile Services][].
+> [WACOM.NOTE]Cette rubrique est compatible avec les applications Windows Phone 8.1. Pour ajouter des notifications Push à une application Windows Phone 8 ou Windows Phone Silverlight 8.1, consultez la page [Prise en main des notifications Push dans Mobile Services][].
 
 ## <span id="register"></span></a> Inscription de votre application avec WNS et configuration de Mobile Services
 

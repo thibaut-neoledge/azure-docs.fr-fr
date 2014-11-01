@@ -60,7 +60,7 @@ Pour récupérer votre service mobile après une panne :
 
 	<b>Note</b>
 
-    <p>It may take a few minutes after the command completes until you can see the changes in the portal.</p>
+    <p>Plusieurs minutes peuvent être nécessaires avant que l'exécution de la commande aboutisse et que les modifications soient visibles dans le portail.</p>
 
 1.  Vérifiez que tous les scripts ont été correctement récupérés en les comparant à vos originaux dans le contrôle de code source. Dans la plupart des cas, les scripts sont récupérés automatiquement sans perte de données. Si toutefois vous notez des différences dans un script déterminé, vous pouvez le récupérer manuellement.
 

@@ -15,7 +15,7 @@ Cette rubrique montre comment utiliser Azure Mobile Services en tant que source 
 
 Le service mobile que vous allez créer dans ce didacticiel est un service mobile principal .NET. Le service principal .NET vous permettra d'utiliser les langages .NET et Visual Studio pour la logique métier côté serveur dans le service mobile. Il vous permettra également d'exécuter et de déboguer votre service mobile sur votre ordinateur local. Pour créer un service mobile vous permettant d'écrire votre logique métier côté serveur en JavaScript, consultez la version principale JavaScript de cette rubrique.
 
-> [WACOM.NOTE]This topic shows you how to add Azure Mobile Services to a Windows Store project. Vous pouvez utiliser les outils de Visual Studio 2013 pour ajouter le même service mobile principal .NET à un projet d'application Windows universelle. Pour plus d'informations, consultez la page [version de l'application universelle Windows][] de ce didacticiel.
+> [WACOM.NOTE]Cette rubrique vous montre comment ajouter Azure Mobile Services à un projet Windows Store. Vous pouvez utiliser les outils de Visual Studio 2013 pour ajouter le même service mobile principal .NET à un projet d'application Windows universelle. Pour plus d'informations, consultez la page [version de l'application universelle Windows][] de ce didacticiel.
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 

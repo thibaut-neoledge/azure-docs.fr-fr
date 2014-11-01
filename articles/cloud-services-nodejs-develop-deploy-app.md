@@ -163,7 +163,7 @@ Afin de déployer votre application sur Azure, vous devez télécharger les para
 5.  Elle publie le package de déploiement sur Azure.
 
     > [WACOM.NOTE]
-    > It can take 5 - 7 minutes for the application to deploy and become available when first published.
+    > Il peut s'écouler de 5 à 7 minutes avant que l'application ne soit déployée et disponible lors de la première publication.
 
     Une fois le déploiement terminé, une fenêtre de navigateur s'ouvre et accède au service cloud.
 

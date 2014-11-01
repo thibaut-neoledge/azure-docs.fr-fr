@@ -8,7 +8,7 @@
 
 Cette rubrique montre comment authentifier les utilisateurs dans Azure Mobile Services à partir d'une application Windows Store. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
 
-> [WACOM.NOTE]Authentication is not currently supported for Windows Phone Store 8.1 apps when using the Mobile Services JavaScript client library. Si vous disposez d'un projet d'application Windows universelle qui utilise le client JavaScript, vous ne pourrez pas authentifier d'utilisateurs sur Windows Phone pour le moment.
+> [WACOM.NOTE]L'authentification n'est pas prise en charge actuellement pour les applications Windows Phone Store 8.1 lors de l'utilisation de la bibliothèque client JavaScript des services mobiles. Si vous disposez d'un projet d'application Windows universelle qui utilise le client JavaScript, vous ne pourrez pas authentifier d'utilisateurs sur Windows Phone pour le moment.
 
 Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
 

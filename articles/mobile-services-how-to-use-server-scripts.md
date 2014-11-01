@@ -451,7 +451,7 @@ Vous pouvez utiliser le contrôle du code source avec le gestionnaire de package
 
 -   Pour les modules privés ou personnalisés, vous pouvez utiliser npm pour installer manuellement le module dans le répertoire `.\service\node_modules` de votre contrôle du code source. Pour un exemple de chargement manuel d'un module, consultez la page [Utilisation du code partagé et des modules Node.js dans vos scripts serveur][].
 
-    > [WACOM.NOTE]When `node_modules` already exists in the directory hierarchy, NPM will create the `\node-uuid` subdirectory there instead of creating a new `node_modules` in the repository. Dans ce cas, supprimez simplement le répertoire `node_modules` existant.
+    > [WACOM.NOTE]Lorsque `node_modules` existe déjà dans la hiérarchie de répertoires, NPM crée le sous-répertoire `\node-uuid` existe déjà dans la hiérarchie de répertoires, NPM crée le sous-répertoire`node_modules` dans le référentiel. Dans ce cas, supprimez simplement le répertoire `node_modules` existant.
 
 Après avoir validé le fichier package.json ou les modules personnalisés sur le référentiel pour votre service mobile, utilisez **require** pour référencer les modules par nom.
 
