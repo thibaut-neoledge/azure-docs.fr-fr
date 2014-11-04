@@ -1,12 +1,8 @@
-###### Création d'un conteneur
+##### Création d'un conteneur
 
-De la même manière que les fichiers résident dans des dossiers, le stockage des objets blob s'effectue dans des conteneurs.
+De la même manière que les fichiers résident dans des dossiers, le stockage des objets blob s'effectue dans des conteneurs. Vous pouvez utiliser un objet **CloudBlobClient** pour référencer un conteneur existant, ou appeler la méthode CreateCloudBlobClient() pour créer un conteneur.
 
--   Vous pouvez utiliser un objet **CloudBlobClient** pour obtenir une référence pointant vers le conteneur que vous voulez utiliser.
-
--   Si besoin, vous pouvez appeler la méthode CreateCloudBlobClient() pour créer un conteneur.
-
-Le code suivant montre comment créer un conteneur de stockage d'objets blob. Ce code permet de créer un objet **BlobClient** vous permettant d'accéder aux fonctions de l'objet, notamment pour créer un conteneur de stockage. Il tente ensuite de référencer le conteneur de stockage nommé « mycontainer ». S'il ne trouve aucun conteneur ainsi nommé, il en crée un.
+Le code suivant montre comment créer un conteneur de stockage d'objets blob. Ce code commence par créer un objet **BlobClient** vous permettant d'accéder aux fonctions de l'objet, notamment pour créer un conteneur de stockage. Il tente ensuite de référencer le conteneur de stockage nommé « mycontainer ». S'il ne trouve aucun conteneur ainsi nommé, il en crée un.
 
     // Create a blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -17,11 +13,20 @@ Le code suivant montre comment créer un conteneur de stockage d'objets blob. Ce
     // If “mycontainer” doesn’t exist, create it.
     container.CreateIfNotExists();
 
+Le nouveau conteneur est privé par défaut et vous devez indiquer votre clé d’accès de stockage pour télécharger des objets blob depuis ce conteneur. Si vous voulez que les fichiers du conteneur soient publics, vous pouvez configurer le conteneur en utilisant le code suivant :
+
+    container.SetPermissions(
+        new BlobContainerPermissions { PublicAccess = 
+        BlobContainerPublicAccessType.Blob }); 
+
 **REMARQUE :** ajoutez ce bloc de code avant le code indiqué dans les sections suivantes.
 
-###### Téléchargement d'un objet blob dans un conteneur
+##### Téléchargement d'un objet blob dans un conteneur
 
-Pour télécharger un fichier blob vers un conteneur, obtenez la référence du conteneur et utilisez-la pour celle de l'objet blob. Avec cette référence d'objet blob, vous pouvez télécharger un flux de données vers cet objet en appelant la méthode UploadFromStream(). Si l'objet blob n'existe pas, cette opération entraîne sa création. S'il existe, il est remplacé. L’exemple suivant illustre le téléchargement d’un objet blob dans un conteneur en partant du principe que le conteneur existe déjà.
+Pour télécharger un fichier blob vers un conteneur, obtenez la référence du conteneur et utilisez-la pour celle de l'objet blob. Lorsque vous disposez d'une référence d'objet blob, vous pouvez télécharger un flux de données vers cet objet en appelant la méthode **UploadFromStream()**. Si l'objet blob n'existe pas, cette opération entraîne sa création. S'il existe, il est remplacé. L’exemple suivant illustre le téléchargement d’un objet blob dans un conteneur en partant du principe que le conteneur existe déjà.
+
+    // Get a reference to a blob named "myblob".
+    CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob");
 
     // Create or overwrite the "myblob" blob with the contents of a local file
     // named “myfile”.
@@ -30,9 +35,9 @@ Pour télécharger un fichier blob vers un conteneur, obtenez la référence du 
         blockBlob.UploadFromStream(fileStream);
     }
 
-###### Création d'une liste d'objets blob dans un conteneur
+##### Création d'une liste d'objets blob dans un conteneur
 
-Pour créer une liste d’objets blob dans un conteneur, commencez par obtenir une référence pointant vers un conteneur. Vous pouvez ensuite appeler la méthode ListBlobs() du conteneur pour extraire les objets blob et/ou les répertoires qu'il contient. Pour accéder aux nombreuses propriétés et méthodes d’une **IListBlobItem** renvoyée, vous devez l’appeler vers un objet **CloudBlockBlob**, **CloudPageBlob** ou **CloudBlobDirectory**. Si vous ne savez pas de quel type d'objet blob il s'agit, vous pouvez lancer une vérification de type pour déterminer la cible de l'appel. Le code suivant illustre l'extraction et la génération de l'URI de chaque élément du conteneur « photos ».
+Pour créer une liste d’objets blob dans un conteneur, commencez par obtenir une référence pointant vers un conteneur. Vous pouvez ensuite appeler la méthode **ListBlobs()** du conteneur pour récupérer les objets blob et/ou les répertoires qu'il contient. Pour accéder aux nombreuses propriétés et méthodes d’une **IListBlobItem** renvoyée, vous devez l’appeler vers un objet **CloudBlockBlob**, **CloudPageBlob** ou **CloudBlobDirectory**. Si vous ne savez pas de quel type d'objet blob il s'agit, vous pouvez lancer une vérification de type pour déterminer la cible de l'appel. Le code suivant illustre l'extraction et la génération de l'URI de chaque élément du conteneur « photos ».
 
     // Get a reference to a previously created container.
     CloudBlobContainer container = blobClient.GetContainerReference("photos");
@@ -65,7 +70,7 @@ Pour créer une liste d’objets blob dans un conteneur, commencez par obtenir u
 
 D'autres méthodes permettent de répertorier le contenu d'un conteneur d'objets blob. Pour plus d'informations, consultez la page [Utilisation du stockage d'objets blob à partir de .NET][Utilisation du stockage d'objets blob à partir de .NET].
 
-###### Téléchargement d'un objet blob
+##### Téléchargement d'un objet blob
 
 Pour télécharger un objet blob, commencez par en obtenir la référence, puis appelez la méthode DownloadToStream(). L'exemple suivant utilise la méthode DownloadToStream() pour transférer le contenu des objets blob vers un objet de flux que vous pouvez enregistrer sous forme de fichier local.
 
@@ -80,7 +85,7 @@ Pour télécharger un objet blob, commencez par en obtenir la référence, puis 
 
 Il existe plusieurs façons d'enregistrer les objets blob sous forme de fichiers. Pour plus d'informations, consultez la page [Utilisation du stockage d'objets blob à partir de .NET][1].
 
-###### Suppression d'un objet blob
+##### Suppression d'un objet blob
 
 Pour supprimer un objet blob, commencez par en obtenir la référence, puis appelez la méthode Delete() associée.
 
@@ -90,5 +95,10 @@ Pour supprimer un objet blob, commencez par en obtenir la référence, puis appe
     // Delete the blob.
     blockBlob.Delete();
 
+[En savoir plus sur Azure Storage][En savoir plus sur Azure Storage]
+Voir aussi [Consultation des ressources de stockage avec l'Explorateur de serveurs][Consultation des ressources de stockage avec l'Explorateur de serveurs].
+
   [Utilisation du stockage d'objets blob à partir de .NET]: http://azure.microsoft.com/fr-fr/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob
   [1]: http://azure.microsoft.com/fr-fr/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs
+  [En savoir plus sur Azure Storage]: http://azure.microsoft.com/documentation/services/storage/
+  [Consultation des ressources de stockage avec l'Explorateur de serveurs]: http://msdn.microsoft.com/fr-fr/library/azure/ff683677.aspx
