@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-debug-error-messages" urlDisplayName="Debug HDInsight Hadoop Errors" pageTitle="Debug Hadoop in HDInsight: Error messages | Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" description="Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover." services="hdinsight" title="Debug Hadoop in HDInsight: Error messages" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # Débogage de Hadoop dans HDInsight : messages d'erreur
 
@@ -266,12 +266,12 @@ Les erreurs auxquelles un utilisateur peut être confronté dans Azure PowerShel
 ### <span id="UnableToResolveDNS"></span></a>UnableToResolveDNS
 
 -   **Description** : impossible de résoudre le DNS *URL\_DNS*. Veillez à fournir l'URL complète du point de terminaison d'objet blob.
--   **Atténuation** : fournissez une URL d'objet blob correcte. L'URL DOIT être entièrement correcte, notamment commencer par *<http://>* et se terminer par *[.com][.com]*. L'URL complète se trouve généralement sous l'onglet Stockage du portail manage.windowsazure.com.
+-   **Atténuation** : fournissez une URL d'objet blob correcte. L'URL DOIT être entièrement correcte, notamment commencer par *http://* et se terminer par *.com*. L'URL complète se trouve généralement sous l'onglet Stockage du portail manage.windowsazure.com.
 
 ### <span id="UnableToVerifyLocationOfResource"></span></a>UnableToVerifyLocationOfResource
 
 -   **Description** : impossible de vérifier l'emplacement de la ressource *URL\_DNS*. Veillez à fournir l'URL complète du point de terminaison d'objet blob.
--   **Atténuation** : fournissez une URL d'objet blob correcte. L'URL DOIT être entièrement correcte, notamment commencer par *<http://>* et se terminer par *[.com][.com]*. L'URL complète se trouve généralement sous l'onglet Stockage du portail manage.windowsazure.com.
+-   **Atténuation** : fournissez une URL d'objet blob correcte. L'URL DOIT être entièrement correcte, notamment commencer par *http://* et se terminer par *.com*. L'URL complète se trouve généralement sous l'onglet Stockage du portail manage.windowsazure.com.
 
 ### <span id="VersionCapabilityNotAvailable"></span></a>VersionCapabilityNotAvailable
 
@@ -295,7 +295,7 @@ Les erreurs auxquelles un utilisateur peut être confronté dans Azure PowerShel
 
 ## <span id="resources"></span></a>Autres ressources de débogage
 
--   [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][Documentation du Kit de développement logiciel (SDK) Azure HDInsight]
+-   [Documentation du Kit de développement logiciel (SDK) Azure HDInsight](Documentation du Kit de développement logiciel (SDK) Azure HDInsight)
 
   [HDI.Debugging.ErrorMessages.Portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
   [Erreurs HDInsight]: #hdinsight-error-messages
@@ -345,4 +345,3 @@ Les erreurs auxquelles un utilisateur peut être confronté dans Azure PowerShel
   [VersionNotSupportedInRegion]: #VersionNotSupportedInRegion
   [WasbAccountConfigNotFound]: #WasbAccountConfigNotFound
   [.com]: http://
-  [Documentation du Kit de développement logiciel (SDK) Azure HDInsight]: http://msdnstage.redmond.corp.microsoft.com/fr-fr/library/dn479185.aspx

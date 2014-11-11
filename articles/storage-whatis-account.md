@@ -1,6 +1,6 @@
 <properties linkid="manage-services-what-is-a-storage-account" urlDisplayName="What is a Storage Account" pageTitle="What is a storage account? | Microsoft Azure" metaKeywords="" description="Learn about the different types of storage accounts available in Azure, and get definitions for key storage terms." metaCanonical="" services="storage" documentationCenter="" title="What is a Storage Account?" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Présentation des comptes de stockage
 
@@ -24,15 +24,15 @@ La page [Tarification – Stockage][Tarification – Stockage] fournit des i
 
 The *endpoints* for a storage account represent the highest level of the namespace for accessing blobs, tables, queues, or files. Les points de terminaison par défaut d'un compte de stockage suivent ces formats :
 
--   Service d'objets blob : <http://*mystorageaccount>\*.blob.core.windows.net
+-   Service d'objets blob : http://*mystorageaccount\*.blob.core.windows.net
 
--   Service de tables : <http://*mystorageaccount>\*.table.core.windows.net
+-   Service de tables : http://*mystorageaccount\*.table.core.windows.net
 
--   Service de files d'attente : <http://*mystorageaccount>\*.queue.core.windows.net
+-   Service de files d'attente : http://*mystorageaccount\*.queue.core.windows.net
 
--   File service: <http://*mystorageaccount>\*.file.core.windows.net
+-   File service: http://*mystorageaccount\*.file.core.windows.net
 
-The URL for accessing an object in a storage account is built by appending the object's location in the storage account to the endpoint. Par exemple, une adresse d'objet blob peut avoir ce format : <http://*mystorageaccount>*.blob.core.windows.net/*mycontainer*/*myblob\*.
+The URL for accessing an object in a storage account is built by appending the object's location in the storage account to the endpoint. Par exemple, une adresse d'objet blob peut avoir ce format : http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob\*.
 
 ### Storage account security
 

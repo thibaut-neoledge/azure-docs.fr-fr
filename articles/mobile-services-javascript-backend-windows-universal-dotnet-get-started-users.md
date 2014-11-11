@@ -25,25 +25,29 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 [WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
-1.  (Facultatif) Suivez la procédure décrite dans la rubrique [Inscription du package de votre application Windows Store pour l'authentification Microsoft][Inscription du package de votre application Windows Store pour l'authentification Microsoft].
+<ol start="5">
+<li><p>(Facultatif) Suivez la procédure décrite dans la rubrique <a href="/fr-fr/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/">Inscription du package de votre application Windows Store pour l'authentification Microsoft</a>.</p>
 
     <div class="dev-callout"><b>Remarque</b>
     <p>Cette &eacute;tape est facultative, car elle concerne uniquement le fournisseur de connexion du compte Microsoft. Lorsque vous inscrivez les informations du package de votre application Windows Store aupr&egrave;s de Mobile Services, le client peut r&eacute;utiliser les informations d'identification du compte Microsoft pour fournir une authentification unique. Si vous ne le faites pas, vos utilisateurs se connectant via le compte Microsoft seront invit&eacute;s &agrave; se connecter &agrave; chaque appel de la m&eacute;thode de connexion. Suivez cette &eacute;tape si vous pr&eacute;voyez d'utiliser le fournisseur d'identit&eacute; du compte Microsoft.</p>
-    </div>
+    </div></li>
+</ol>
 
 ## <a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-1.  Dans Visual Studio, cliquez avec le bouton droit de la souris sur le projet Windows Store pour l'application TodoList, puis cliquez sur **Définir comme projet de démarrage**.
+<ol start="3">
+<li><p>Dans Visual Studio, cliquez avec le bouton droit de la souris sur le projet Windows Store pour l'application TodoList, puis cliquez sur <b>Définir comme projet de démarrage</b>.</p></li>
 
-2.  Dans le projet partagé, ouvrez le fichier de projet App.xaml.cs, accédez à la définition [MobileServiceClient][MobileServiceClient] et assurez-vous qu'elle est configurée pour une connexion au service mobile exécuté dans Azure.
+<li><p>Dans le projet partagé, ouvrez le fichier de projet App.xaml.cs, accédez à la définition <a href="http://msdn.microsoft.com/fr-fr/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> et assurez-vous qu'elle est configurée pour une connexion au service mobile exécuté dans Azure.</p>
 
-    <div class="dev-callout"><strong>Remarque</strong><p>Lorsque vous utilisez les outils Visual Studio pour connecter votre application &agrave; un service mobile, l'outil g&eacute;n&egrave;re deux ensembles de d&eacute;finitions <strong>MobileServiceClient</strong>, une pour chaque plateforme cliente. C'est le bon moment pour simplifier le code g&eacute;n&eacute;r&eacute; en unifiant les d&eacute;finitions <strong>MobileServiceClient</strong> encapsul&eacute;es dans <code data-inline="1">#if...#endif</code> en une seule d&eacute;finition encapsul&eacute;e, utilis&eacute;e pour les deux versions de l'application.</p></div>
+    <div class="dev-callout"><strong>Remarque</strong><p>Lorsque vous utilisez les outils Visual Studio pour connecter votre application &agrave; un service mobile, l'outil g&eacute;n&egrave;re deux ensembles de d&eacute;finitions <strong>MobileServiceClient</strong>, une pour chaque plateforme cliente. C'est le bon moment pour simplifier le code g&eacute;n&eacute;r&eacute; en unifiant les d&eacute;finitions <strong>MobileServiceClient</strong> encapsul&eacute;es dans <code data-inline="1">#if...#endif</code> en une seule d&eacute;finition encapsul&eacute;e, utilis&eacute;e pour les deux versions de l'application.</p></div></li>
 
-3.  Appuyez sur la touche F5 pour exécuter l'application Windows Store, et vérifiez qu'une exception non prise en charge avec le code d'état 401 (Unauthorized) est déclenchée après le démarrage de l'application.
+<li><p>Appuyez sur la touche F5 pour exécuter l'application Windows Store, et vérifiez qu'une exception non prise en charge avec le code d'état 401 (Unauthorized) est déclenchée après le démarrage de l'application.</p>
 
-    Cela se produit, car l'application essaye d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table *TodoItem* requiert désormais l'authentification.
+    <p>Cela se produit, car l'application essaye d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table *TodoItem* requiert désormais l'authentification.</p></li>
+</ol>
 
 Ensuite, vous allez mettre à jour l'application pour authentifier les utilisateurs avant de demander des ressources à partir du service mobile.
 

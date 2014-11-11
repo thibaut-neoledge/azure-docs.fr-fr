@@ -1,6 +1,6 @@
 <properties linkid="hdinsight-use-time-based-oozie-coordinator-with-hdinsight" urlDisplayName="Use time-based Hadoop Oozie Coordinator in HDInsight" pageTitle="Use time-based Hadoop Oozie Coordinator in HDInsight | Azure" metaKeywords="" description="Use time-based Hadoop Oozie Coordinator in HDInsight, a big data solution. Learn how to define Oozie workflows and coordinators, and submit coordinator jobs." metaCanonical="" services="hdinsight" documentationCenter="" title="Use time-based Hadoop Oozie Coordinator in HDInsight" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Utilisation du coordinateur Oozie basé sur le temps avec Hadoop dans HDInsight
 
@@ -688,7 +688,7 @@ utiliser la cmdlet PowerShell Invoke-RestMethod pour appeler les services web Oo
 
     Supprimez les signes \# si vous souhaitez exécuter d'autres fonctions.
 
-9.  Si vous disposez du cluster HDInsight version 2.1, remplacez <https://$clusterName.azurehdinsight.net:443/oozie/v2/> par <https://$clusterName.azurehdinsight.net:443/oozie/v1/>. Le cluster HDInsight version 2.1 ne prend pas en charge la version 2 des services Web.
+9.  Si vous disposez du cluster HDInsight version 2.1, remplacez https://$clusterName.azurehdinsight.net:443/oozie/v2/ par https://$clusterName.azurehdinsight.net:443/oozie/v1/. Le cluster HDInsight version 2.1 ne prend pas en charge la version 2 des services Web.
 
 10. Cliquez sur **Exécuter le script** ou appuyez sur **F5** pour exécuter le script. La sortie doit ressembler à ceci :
 

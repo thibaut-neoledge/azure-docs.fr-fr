@@ -548,7 +548,7 @@ Si Microsoft Excel est installé sur votre ordinateur, vous pouvez utiliser la p
 
 2.  Dans l'Assistant Connexion de données, entrez le nom de domaine complet de votre serveur de base de données SQL, suivi d'une connexion d'authentification SQL Server munie de l'autorisation d'accès à la base de données.
 
-	Vous pouvez trouver le nom du serveur sur le portail de gestion Azure, sur la base de données SQL, sur la page du serveur, sur le tableau de bord, dans **Manage URL**. Le nom du serveur est constitué d'une série de lettres et de chiffres, suivie de « .database.windows.net ». Indiquez ce nom dans l'Assistant Connecteur de base de données, sans inclure le préfixe <http://> ou <https://>.
+	Vous pouvez trouver le nom du serveur sur le portail de gestion Azure, sur la base de données SQL, sur la page du serveur, sur le tableau de bord, dans **Manage URL**. Le nom du serveur est constitué d'une série de lettres et de chiffres, suivie de « .database.windows.net ». Indiquez ce nom dans l'Assistant Connecteur de base de données, sans inclure le préfixe http:// ou https://.
 
 	Entrez une connexion d'authentification SQL Server. À des fins de test, vous pouvez utiliser la connexion administrateur que vous avez créée lors de la configuration du serveur. Pour l'accès régulier aux données, utilisez une connexion utilisateur de base de données similaire à celle que vous venez de créer.
 

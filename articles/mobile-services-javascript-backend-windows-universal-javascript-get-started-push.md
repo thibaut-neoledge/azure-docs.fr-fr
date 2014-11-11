@@ -25,19 +25,21 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 [WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
-1.  Accédez au dossier de projet `\services\mobileServices\scripts`, copiez le fichier de script \<*nom\_de\_votre\_service*\>.push.register.js dans le dossier `\js` partagé, puis supprimez ce fichier des deux projets d'application Windows et WindowsPhone individuels.
+<ol start="6">
+<li><p>Accédez au dossier de projet <code>\services\mobileServices\scripts</code>, copiez le fichier de script \<*nom\_de\_votre\_service*\>.push.register.js dans le dossier <code>\js</code> partagé, puis supprimez ce fichier des deux projets d'application Windows et WindowsPhone individuels.</p></li>
 
-2.  Ouvrez ce fichier de script dans le dossier de projet `\js` partagé, identifiez le code dans l'écouteur d'événements *activé* qui enregistre l'URL de canal d'appareil avec le hub de notification, puis supprimez la fonction de promesse **done**.
+<li><p>Ouvrez ce fichier de script dans le dossier de projet <code>\js</code> partagé, identifiez le code dans l'écouteur d'événements *activé* qui enregistre l'URL de canal d'appareil avec le hub de notification, puis supprimez la fonction de promesse <b>done</b>.</p>
 
-    Ce didacticiel permet d'envoyer des notifications lorsqu'un nouvel élément est inséré, pas lorsqu'une API personnalisée est appelée.
+    <p>Ce didacticiel permet d'envoyer des notifications lorsqu'un nouvel élément est inséré, pas lorsqu'une API personnalisée est appelée.</p></li>
 
-3.  Dans le projet d'application Windows, ouvrez le fichier default.html et modifiez le chemin d'accès de la référence du fichier de script vers le dossier de projet `\js`, pour qu'il se présente comme suit :
+<li><p>Dans le projet d'application Windows, ouvrez le fichier default.html et modifiez le chemin d'accès de la référence du fichier de script vers le dossier de projet <code>\js</code>, pour qu'il se présente comme suit :</p>
 
-        <script src="/js/your_service_name.push.register.js"></script>
+<pre><code>&lt;script src="/js/your_service_name.push.register.js"&gt;&lt;/script&gt;</code></pre></li>
 
-4.  Répétez cette étape pour le projet d'application Windows Phone.
+<li><p>Répétez cette étape pour le projet d'application Windows Phone.</p>
 
-    Les deux projets utilisent maintenant une version partagée du script d'inscription Push.
+    <p>Les deux projets utilisent maintenant une version partagée du script d'inscription Push.</p></li>
+</ol>
 
 Maintenant que les notifications Push sont activées dans l'application, vous devez mettre à jour le service mobile pour les envoyer.
 

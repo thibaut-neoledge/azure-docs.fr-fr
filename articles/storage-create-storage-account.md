@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-create-a-storage-account" urlDisplayName="How to create" pageTitle="How to create a storage account | Azure" metaKeywords="" description="Learn how to create a storage account in the Azure management portal." metaCanonical="" services="storage" documentationCenter="" title="How To Create a Storage Account" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # <span id="createstorageaccount"></span></a>Création d'un compte de stockage
 
@@ -23,7 +23,7 @@ For details about storage account capacity and throughput, see [Azure Storage Sc
 
     ![NewStorageAccount][NewStorageAccount]
 
-3.  Sous **URL**, entrez un nom de sous-domaine à inclure dans l'URL du compte de stockage. Pour accéder à un objet qui est stocké, ajoutez l'emplacement de l'objet au point de terminaison. For example, the URL for accessing a blob might be <http://*myaccount>*.blob.core.windows.net/*mycontainer*/*myblob\*.
+3.  Sous **URL**, entrez un nom de sous-domaine à inclure dans l'URL du compte de stockage. Pour accéder à un objet qui est stocké, ajoutez l'emplacement de l'objet au point de terminaison. For example, the URL for accessing a blob might be http://*myaccount*.blob.core.windows.net/*mycontainer*/*myblob\*.
 
 4.  Sous **Région/Groupe d'affinités**, sélectionnez une zone ou un groupe d'affinités pour le stockage. Sélectionnez un groupe d'affinités plutôt qu'une zone pour que vos services de stockage soient hébergés dans le même centre de données que les autres services Azure que vous utilisez. Ce choix peut améliorer les performances et n'entraîne aucun frais supplémentaire.
 
