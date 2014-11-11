@@ -1,22 +1,22 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-html" urlDisplayName="Get Started with Data (HTML5)" pageTitle="Get started with data (HTML 5) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your HTML app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 
 # Prise en main des données dans Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 Cette rubrique montre comment utiliser Azure Mobile Services pour tirer parti des données dans une application HTML. Dans ce didacticiel, vous allez télécharger une application qui stocke les données en mémoire, créer un service mobile, intégrer le service mobile à l'application, puis vous connecter au portail de gestion Azure pour afficher les modifications apportées aux données lors de l'exécution de l'application.
 
-> [WACOM.NOTE]Ce didacticiel vise à mieux vous faire comprendre en quoi Mobile Services vous permet de stocker et de récupérer des données à partir d'une application HTML à l'aide d'Azure. À cet effet, il vous guide tout au long des nombreuses étapes exécutées automatiquement dans le démarrage rapide Mobile Services. Si vous n'avez aucune expérience de Mobile Services, nous vous invitons à suivre d'abord le didacticiel [Prise en main de Mobile Services][].
+> [WACOM.NOTE]Ce didacticiel vise à mieux vous faire comprendre en quoi Mobile Services vous permet de stocker et de récupérer des données à partir d'une application HTML à l'aide d'Azure. À cet effet, il vous guide tout au long des nombreuses étapes exécutées automatiquement dans le démarrage rapide Mobile Services. Si vous n'avez aucune expérience de Mobile Services, nous vous invitons à suivre d'abord le didacticiel [Prise en main de Mobile Services][Prise en main de Mobile Services].
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 
-1.  [Téléchargement du projet d'application HTML][]
-2.  [Création du service mobile][]
-3.  [Ajout d'une table de données pour le stockage][]
-4.  [Mise à jour de l'application pour utiliser Mobile Services][]
-5.  [Test de l'application avec Mobile Services][]
+1.  [Téléchargement du projet d'application HTML][Téléchargement du projet d'application HTML]
+2.  [Création du service mobile][Création du service mobile]
+3.  [Ajout d'une table de données pour le stockage][Ajout d'une table de données pour le stockage]
+4.  [Mise à jour de l'application pour utiliser Mobile Services][Mise à jour de l'application pour utiliser Mobile Services]
+5.  [Test de l'application avec Mobile Services][Test de l'application avec Mobile Services]
 
 <div class="dev-callout"><strong>Remarque</strong> <p>Pour effectuer ce didacticiel, vous avez besoin d&rsquo;un compte Azure. Si vous ne poss&eacute;dez pas de compte, vous pouvez cr&eacute;er un compte d'&eacute;valuation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F" target="_blank">Version d'&eacute;valuation gratuite d'Azure</a>.</p></div>
 
@@ -36,7 +36,7 @@ Vous pouvez héberger l'application GetStartedWithData sur n'importe quel serveu
 
 ## <a name="download-app"></a><span class="short-header">Téléchargement du projet</span>Téléchargement du projet GetStartedWithData
 
-Ce didacticiel est basé sur l'application [GetStartedWithData][], qui est une application HTML5. L'interface utilisateur de cette application est identique à l'application générée par le démarrage rapide de Mobile Services, sauf que les éléments ajoutés sont stockés en local dans la mémoire.
+Ce didacticiel est basé sur l'application [GetStartedWithData][GetStartedWithData], qui est une application HTML5. L'interface utilisateur de cette application est identique à l'application générée par le démarrage rapide de Mobile Services, sauf que les éléments ajoutés sont stockés en local dans la mémoire.
 
 1.  [Téléchargement des fichiers du projet d'application HTML][GetStartedWithData].
 
@@ -60,13 +60,13 @@ Ce didacticiel est basé sur l'application [GetStartedWithData][], qui est une a
 
 5.  Dans l'application, tapez un texte explicite, comme *Suivre le didacticiel*, dans **Entrer une nouvelle tâche**, puis cliquez sur **Ajouter**.
 
-    ![][]
+    ![][0]
 
     Le texte enregistré est ajouté au tableau **staticItems** et la page est mise à jour pour afficher le nouvel élément.
 
 ## <a name="create-service"></a><span class="short-header">Création d'un service mobile</span>Création d'un service mobile dans le portail de gestion
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data][]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 ## <a name="add-table"></a><span class="short-header">Ajout d'une nouvelle table</span>Ajout d'une nouvelle table au service mobile
 
@@ -198,7 +198,7 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 
     Cela permet d'envoyer un nouvel élément en tant qu'insertion au service mobile.
 
-3.  Dans le [portail de gestion][], cliquez sur **Mobile Services**, puis sur le service mobile.
+3.  Dans le [portail de gestion][portail de gestion], cliquez sur **Mobile Services**, puis sur le service mobile.
 
 4.  Cliquez sur l'onglet **Données**, puis sur **Parcourir**.
 
@@ -224,15 +224,15 @@ Vous voici parvenu à la fin du didacticiel **Prise en main des données**.
 
 Ce didacticiel a présenté les bases de l'activation d'une application HTML pour utiliser les données dans Mobile Services. Ensuite, pensez à suivre l'un des didacticiels suivants basés sur l'application GetStartedWithData que vous avez créée dans ce didacticiel :
 
--   [Validation et modification des données avec des scripts][]
+-   [Validation et modification des données avec des scripts][Validation et modification des données avec des scripts]
 
     En savoir plus sur l'utilisation des scripts serveur dans Mobile Services pour valider et modifier les données envoyées à partir de votre application.
 
--   [Affinage des requêtes à la pagination][]
+-   [Affinage des requêtes à la pagination][Affinage des requêtes à la pagination]
 
     En savoir plus sur l'utilisation de la pagination dans les requêtes pour contrôler la quantité de données traitées dans une seule requête.
 
-Une fois que vous avez terminé la série de données, découvrez comment authentifier les utilisateurs de votre application en suivant le didacticiel [Prise en main de l'authentification][].
+Une fois que vous avez terminé la série de données, découvrez comment authentifier les utilisateurs de votre application en suivant le didacticiel [Prise en main de l'authentification][Prise en main de l'authentification].
 
   [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
   [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started-html
@@ -241,14 +241,12 @@ Une fois que vous avez terminé la série de données, découvrez comment authen
   [Ajout d'une table de données pour le stockage]: #add-table
   [Mise à jour de l'application pour utiliser Mobile Services]: #update-app
   [Test de l'application avec Mobile Services]: #test-app
-  [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F
   [GetStartedWithData]: http://go.microsoft.com/fwlink/?LinkID=286345
-  []: ./media/mobile-services-html-get-started-data/mobile-quickstart-startup-html.png
+  [0]: ./media/mobile-services-html-get-started-data/mobile-quickstart-startup-html.png
   [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [1]: ./media/mobile-services-html-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/mobile-services-html-get-started-data/mobile-create-todoitem-table.png
   [3]: ./media/mobile-services-html-get-started-data/mobile-services-set-cors-localhost.png
-  [Partage des ressources cross-origin]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn155871.aspx
   [4]: ./media/mobile-services-html-get-started-data/mobile-dashboard-tab.png
   [portail de gestion]: https://manage.windowsazure.com/
   [5]: ./media/mobile-services-html-get-started-data/mobile-todoitem-data-browse.png

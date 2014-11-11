@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/fr-fr/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Prise en main des notifications Push dans Mobile Services
 
@@ -33,11 +33,11 @@ Ce didacticiel requiert les éléments suivants :
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez effectuer le didacticiel [Prise en main de Mobile Services][Prise en main de Mobile Services].
 
-[WACOM.INCLUDE [Enable Apple Push Notifications][Enable Apple Push Notifications]]
+[WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
 ## Configuration de Mobile Services pour l'envoi de requêtes Push
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push][mobile-services-apns-configure-push]]
+[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 ## Ajout de notifications Push à votre application
 
@@ -110,7 +110,7 @@ L'application est mise à jour et prend en charge les notifications Push.
 
 1.  Dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItem**.
 
-    ![][]
+    ![][0]
 
 2.  Dans **todoitem**, cliquez sur l'onglet **Script** et sélectionnez **Insérer**.
 
@@ -192,14 +192,6 @@ Ce didacticiel a présenté les bases de l'activation d'une application iOS pour
 <!-- Images. -->
 <!-- URLs.   -->
 
-  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "Windows Store C#"
-  [Windows Store JavaScript]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "Windows Store JavaScript"
-  [Windows Phone]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone"
-  [iOS]: /fr-fr/documentation/articles/mobile-services-javascript-backend-ios-get-started-push "iOS"
-  [Android]: /fr-fr/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android"
-  [.NET backend]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ ".NET backend"
-  [JavaScript backend]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "JavaScript backend"
-  [Prise en main des notifications Push (existantes)]: /fr-fr/documentation/articles/mobile-services-ios-get-started-push/
   [Génération de la demande de signature de certificat]: #certificates
   [Inscription de votre application et activation des notifications Push]: #register
   [Création d'un profil de mise en service pour l'application]: #profile
@@ -207,12 +199,11 @@ Ce didacticiel a présenté les bases de l'activation d'une application iOS pour
   [Ajout de notifications Push à l'application]: #add-push
   [Mise à jour des scripts pour l'envoi de notifications Push]: #update-scripts
   [Insertion de données pour recevoir des notifications]: #test
-  [Kit de développement logiciel (SDK) Mobile Services iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [XCode 4,5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-ios-get-started
   [Enable Apple Push Notifications]: ../includes/enable-apple-push-notifications.md
   [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
-  []: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
+  [0]: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png
   [objet apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333
   [2]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png

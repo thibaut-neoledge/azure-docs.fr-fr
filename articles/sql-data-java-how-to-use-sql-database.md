@@ -1,10 +1,10 @@
 <properties linkid="develop-java-sql-azure" urlDisplayName="SQL Database" pageTitle="How to use SQL Azure (Java) - Azure feature guide" metaKeywords="" description="Learn how to use the Azure SQL Database from Java code. " metaCanonical="" services="sql-database" documentationCenter="Java" title="How to Use Azure SQL Database in Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Utilisation de la base de données SQL Azure en Java
 
-Les étapes suivantes montrent comment utiliser la base de données SQL Azure avec Java. Par souci de simplicité, les exemples présentés ici sont des exemples de ligne de commande qui pourraient en grande partie s'appliquer à des applications Web, qu'elles soient hébergées en local, dans Azure ou dans d'autres environnements. Ce guide décrit la création d'un serveur et d'une base de données à partir du [portail de gestion Azure][].
+Les étapes suivantes montrent comment utiliser la base de données SQL Azure avec Java. Par souci de simplicité, les exemples présentés ici sont des exemples de ligne de commande qui pourraient en grande partie s'appliquer à des applications Web, qu'elles soient hébergées en local, dans Azure ou dans d'autres environnements. Ce guide décrit la création d'un serveur et d'une base de données à partir du [portail de gestion Azure][portail de gestion Azure].
 
 ## Définition de la base de données SQL Azure
 
@@ -12,32 +12,32 @@ La base de données SQL Azure fournit un système de gestion des bases de donné
 
 ## Sommaire
 
--   [Concepts][]
--   [Conditions préalables][]
--   [Création d'une base de données SQL Azure][]
--   [Détermination de la chaîne de connexion à la base de données SQL][]
--   [Autorisation de l'accès à une plage d'adresses IP][]
--   [Utilisation de la base de données SQL Azure en Java][]
--   [Communication avec la base de données SQL Azure à partir de votre code][]
--   [Création d'une table][]
--   [Création d'un index sur une table][]
--   [Insertion de lignes][]
--   [Extraction de lignes][]
--   [Extraction de lignes à l'aide d'une clause WHERE][]
--   [Extraction d'un nombre de lignes][]
--   [Mise à jour de lignes][]
--   [Suppression de lignes][]
--   [Vérification de l'existence d'une table][]
--   [Suppression d'un index][]
--   [Suppression d'une table][]
--   [Utilisation de la base de données SQL en Java dans un déploiement Azure][]
--   [Étapes suivantes][]
+-   [Concepts][Concepts]
+-   [Conditions préalables][Conditions préalables]
+-   [Création d'une base de données SQL Azure][Création d'une base de données SQL Azure]
+-   [Détermination de la chaîne de connexion à la base de données SQL][Détermination de la chaîne de connexion à la base de données SQL]
+-   [Autorisation de l'accès à une plage d'adresses IP][Autorisation de l'accès à une plage d'adresses IP]
+-   [Utilisation de la base de données SQL Azure en Java][Utilisation de la base de données SQL Azure en Java]
+-   [Communication avec la base de données SQL Azure à partir de votre code][Communication avec la base de données SQL Azure à partir de votre code]
+-   [Création d'une table][Création d'une table]
+-   [Création d'un index sur une table][Création d'un index sur une table]
+-   [Insertion de lignes][Insertion de lignes]
+-   [Extraction de lignes][Extraction de lignes]
+-   [Extraction de lignes à l'aide d'une clause WHERE][Extraction de lignes à l'aide d'une clause WHERE]
+-   [Extraction d'un nombre de lignes][Extraction d'un nombre de lignes]
+-   [Mise à jour de lignes][Mise à jour de lignes]
+-   [Suppression de lignes][Suppression de lignes]
+-   [Vérification de l'existence d'une table][Vérification de l'existence d'une table]
+-   [Suppression d'un index][Suppression d'un index]
+-   [Suppression d'une table][Suppression d'une table]
+-   [Utilisation de la base de données SQL en Java dans un déploiement Azure][Utilisation de la base de données SQL en Java dans un déploiement Azure]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <span id="concepts"></span></a>Concepts
 
-La base de données SQL Azure repose sur les technologies SQL Server. De ce fait, il existe beaucoup de similitudes entre l'accès à la base de données SQL à partir de Java et l'accès à SQL Server à partir de Java. Vous pouvez développer une application en local (à l'aide de SQL Server) et vous connecter ensuite à la base de données SQL en modifiant simplement la chaîne de connexion. Vous pouvez utiliser un pilote JDBC SQL Server pour votre application. Toutefois, les quelques différences qui existent entre la base de données SQL et SQL Server peuvent avoir une incidence sur votre application. Pour plus d'informations, consultez la page [Instructions et limitations (Base de données SQL)][].
+La base de données SQL Azure repose sur les technologies SQL Server. De ce fait, il existe beaucoup de similitudes entre l'accès à la base de données SQL à partir de Java et l'accès à SQL Server à partir de Java. Vous pouvez développer une application en local (à l'aide de SQL Server) et vous connecter ensuite à la base de données SQL en modifiant simplement la chaîne de connexion. Vous pouvez utiliser un pilote JDBC SQL Server pour votre application. Toutefois, les quelques différences qui existent entre la base de données SQL et SQL Server peuvent avoir une incidence sur votre application. Pour plus d'informations, consultez la page [Instructions et limitations (Base de données SQL)][Instructions et limitations (Base de données SQL)].
 
-Pour obtenir des ressources supplémentaires sur la base de données SQL, consultez la section [Étapes suivantes][].
+Pour obtenir des ressources supplémentaires sur la base de données SQL, consultez la section [Étapes suivantes][Étapes suivantes].
 
 ## <span id="prerequisites"></span></a>Conditions préalables
 
@@ -45,7 +45,7 @@ Si vous avez l'intention d'utiliser la base de données SQL avec Java, voici les
 
 -   Kit de développement logiciel (SDK) Java version 1.6 ou ultérieure
 -   Abonnement à Azure, que vous pouvez souscrire à l'adresse suivante : <http://www.microsoft.com/windowsazure/offers/>.
--   Si vous utilisez Eclipse, vous aurez besoin de l'environnement de développement intégré (IDE) Eclipse pour développeurs Java EE, Indigo ou une version ultérieure, Vous pouvez le télécharger à partir de <http://www.eclipse.org/downloads/>. De même, vous aurez besoin du plug-in Azure pour Eclipse avec Java (de Microsoft Open Technologies). Pendant l'installation de ce plug-in, assurez-vous que Microsoft JDBC Driver 4.0 pour SQL Server est inclus. Pour plus d'informations, consultez la page [Installation du plug-in Azure pour Eclipse avec Java (par Microsoft Open Technologies)][].
+-   Si vous utilisez Eclipse, vous aurez besoin de l'environnement de développement intégré (IDE) Eclipse pour développeurs Java EE, Indigo ou une version ultérieure, Vous pouvez le télécharger à partir de <http://www.eclipse.org/downloads/>. De même, vous aurez besoin du plug-in Azure pour Eclipse avec Java (de Microsoft Open Technologies). Pendant l'installation de ce plug-in, assurez-vous que Microsoft JDBC Driver 4.0 pour SQL Server est inclus. Pour plus d'informations, consultez la page [Installation du plug-in Azure pour Eclipse avec Java (par Microsoft Open Technologies)][Installation du plug-in Azure pour Eclipse avec Java (par Microsoft Open Technologies)].
 -   Si vous n'utilisez pas Eclipse, vous aurez besoin de Microsoft JDBC Driver 4.0 pour SQL Server, disponible en téléchargement à l'adresse suivante : <http://www.microsoft.com/fr-fr/download/details.aspx?id=11774>.
 
 ## <span id="create_db"></span></a>Création d'une base de données SQL Azure
@@ -55,21 +55,21 @@ Avant d'utiliser la base de données SQL Azure dans du code Java, vous devez cr�
 1.  Connectez-vous au [portail de gestion Azure][1].
 2.  Cliquez sur **Nouveau**.
 
-    ![Créer une base de données SQL][]
+    ![Créer une base de données SQL][Créer une base de données SQL]
 
 3.  Cliquez sur **Base de données SQL**, puis sur **Création personnalisée**.
 
-    ![Créer une base de données SQL personnalisée][]
+    ![Créer une base de données SQL personnalisée][Créer une base de données SQL personnalisée]
 
 4.  Dans la boîte de dialogue **Paramètres de base de données**, spécifiez le nom de votre base de données. Pour les besoins de ce guide, utilisez **gettingstarted**.
 5.  Pour **Serveur**, sélectionnez **Nouveau serveur de base de données SQL**. Pour les autres champs, utilisez les valeurs par défaut.
 
-    ![Paramètres de base de données SQL][]
+    ![Paramètres de base de données SQL][Paramètres de base de données SQL]
 
 6.  Cliquez sur la flèche Suivant.
 7.  Dans la boîte de dialogue **Paramètres du serveur**, spécifiez un nom d'utilisateur SQL Server. Pour ce guide, **MySQLAdmin** a été utilisé. Spécifiez un mot de passe et confirmez-le. Spécifiez une région et assurez-vous que **Autoriser les services Azure à accéder au serveur** est activé.
 
-    ![Paramètres de SQL Server][]
+    ![Paramètres de SQL Server][Paramètres de SQL Server]
 
 8.  Cliquez sur le bouton de fin.
 
@@ -81,7 +81,7 @@ Avant d'utiliser la base de données SQL Azure dans du code Java, vous devez cr�
 4.  Cliquez sur **Afficher les chaînes de connexion**.
 5.  Mettez en surbrillance le contenu de la chaîne de connexion **JDBC**.
 
-    ![Déterminer la chaîne de connexion JDBC][]
+    ![Déterminer la chaîne de connexion JDBC][Déterminer la chaîne de connexion JDBC]
 
 6.  Cliquez avec le bouton droit sur le contenu mis en surbrillance de la chaîne de connexion **JDBC**, puis cliquez sur **Copier**.
 7.  Vous pouvez maintenant coller cette valeur dans votre fichier de code pour créer une chaîne de connexion au format suivant. Remplacez *your\_server* (à deux endroits) par le texte que vous avez copié à l'étape précédente, puis remplacez *your\_password* par la valeur de mot de passe que vous avez spécifiée lorsque vous avez créé votre compte de base de données SQL (remplacez également les valeurs attribuées à **database=** et **user=** si vous n'avez pas utilisé **gettingstarted** et **MySQLAdmin**, respectivement).
@@ -107,7 +107,7 @@ De fait, nous utiliserons cette chaîne plus loin dans ce guide. Pour l'heure, v
 6.  Cliquez sur **Configurer**.
 7.  Sous **Adresses IP autorisées**, entrez le nom d'une nouvelle règle IP. Spécifiez le début et la fin de la plage d'adresses IP. Pour vous faciliter la tâche, l'adresse IP cliente actuelle est indiquée. L'exemple suivant autorise la saisie d'une seule adresse IP cliente (votre adresse IP sera différente).
 
-    ![Boîte de dialogue Adresses IP autorisées][]
+    ![Boîte de dialogue Adresses IP autorisées][Boîte de dialogue Adresses IP autorisées]
 
 8.  Cliquez sur le bouton de fin. Les adresses IP que vous spécifiez sont alors autorisées à accéder à votre serveur de base de données.
 
@@ -693,7 +693,7 @@ Pour utiliser la base de données SQL en Java dans un déploiement Azure, en plu
 3.  Dans la boîte de dialogue **New Assembly Directive**, cliquez sur **Java Build Path Entries** puis sur **Next**.
 4.  Sélectionnez **Microsoft JDBC Driver 4.0 SQL Server**, puis cliquez sur **Finish**.
 5.  Cliquez sur **OK** pour fermer la boîte de dialogue **Properties**.
-6.  Exportez le fichier WAR de votre projet dans votre dossier approot, puis régénérez votre projet Azure selon la procédure décrite dans la page [Création d'une application Hello World à l'aide du plug-in Azure pour Eclipse avec Java (de Microsoft Open Technologies)][]. Cette rubrique montre également comment exécuter l'application dans l'émulateur de calcul et dans Azure.
+6.  Exportez le fichier WAR de votre projet dans votre dossier approot, puis régénérez votre projet Azure selon la procédure décrite dans la page [Création d'une application Hello World à l'aide du plug-in Azure pour Eclipse avec Java (de Microsoft Open Technologies)][Création d'une application Hello World à l'aide du plug-in Azure pour Eclipse avec Java (de Microsoft Open Technologies)]. Cette rubrique montre également comment exécuter l'application dans l'émulateur de calcul et dans Azure.
 
 **Empaquetage de Microsoft JDBC Driver 4.0 SQL Server si vous n'utilisez pas Eclipse**
 
@@ -701,7 +701,7 @@ Pour utiliser la base de données SQL en Java dans un déploiement Azure, en plu
 
 ## <span id="nextsteps"></span></a>Étapes suivantes
 
-Pour plus d'informations sur Microsoft JDBC Driver pour SQL Server, consultez la page [Présentation du pilote JDBC][]. Pour plus d'informations sur la base de données SQL, consultez la page [Vue d'ensemble de la base de données SQL][].
+Pour plus d'informations sur Microsoft JDBC Driver pour SQL Server, consultez la page [Présentation du pilote JDBC][Présentation du pilote JDBC]. Pour plus d'informations sur la base de données SQL, consultez la page [Vue d'ensemble de la base de données SQL][Vue d'ensemble de la base de données SQL].
 
   [portail de gestion Azure]: https://windows.azure.com
   [Concepts]: #concepts
@@ -724,16 +724,12 @@ Pour plus d'informations sur Microsoft JDBC Driver pour SQL Server, consultez la
   [Suppression d'une table]: #to_drop_table
   [Utilisation de la base de données SQL en Java dans un déploiement Azure]: #using_in_azure
   [Étapes suivantes]: #nextsteps
-  [Instructions et limitations (Base de données SQL)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ff394102.aspx
-  [Installation du plug-in Azure pour Eclipse avec Java (par Microsoft Open Technologies)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh690946.aspx
   [1]: https://manage.windowsazure.com
   [Créer une base de données SQL]: ./media/sql-data-java-how-to-use-sql-database/WA_New.png
   [Créer une base de données SQL personnalisée]: ./media/sql-data-java-how-to-use-sql-database/WA_SQL_DB_Create.png
   [Paramètres de base de données SQL]: ./media/sql-data-java-how-to-use-sql-database/WA_CustomCreate_1.png
   [Paramètres de SQL Server]: ./media/sql-data-java-how-to-use-sql-database/WA_CustomCreate_2.png
   [Déterminer la chaîne de connexion JDBC]: ./media/sql-data-java-how-to-use-sql-database/WA_SQL_JDBC_ConnectionString.png
-  ["user=MySQLAdmin@\*your\_server\*]: mailto:"user=MySQLAdmin@*your_server*
   [Boîte de dialogue Adresses IP autorisées]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
-  [Création d'une application Hello World à l'aide du plug-in Azure pour Eclipse avec Java (de Microsoft Open Technologies)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh690944.aspx
   [Présentation du pilote JDBC]: http://msdn.microsoft.com/fr-fr/library/ms378749.aspx
   [Vue d'ensemble de la base de données SQL]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336241.aspx

@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Node.js) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Node.js" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Node.js applications." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="How to Use Service Bus Topics/Subscriptions" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Utilisation des rubriques/abonnements Service Bus
 
@@ -9,28 +9,28 @@ Service Bus depuis les applications Node.js. Les scénarios couverts dans ce gui
 rubriques et d'abonnements, création de filtres d'abonnement, envoi
 de messages** à une rubrique, **réception de messages en provenance d'un abonnement** et
 **suppression de rubriques et d'abonnements**. Pour plus d'informations sur les rubriques
-et les abonnements, consultez la section [Étapes suivantes][].
+et les abonnements, consultez la section [Étapes suivantes][Étapes suivantes].
 
 ## Sommaire
 
--   [Présentation des rubriques et des abonnements Service Bus][]
--   [Création d'un espace de noms de service][]
--   [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms][]
--   [Création d'une application Node.js][]
--   [Configuration de votre application pour l'utilisation de Service Bus][]
--   [Création d'une rubrique][]
--   [Création d'abonnements][]
--   [Envoi de messages à une rubrique][]
--   [Réception des messages d'un abonnement][]
--   [Gestion des blocages d'application et des messages illisibles][]
--   [Suppression de rubriques et d'abonnements][]
+-   [Présentation des rubriques et des abonnements Service Bus][Présentation des rubriques et des abonnements Service Bus]
+-   [Création d'un espace de noms de service][Création d'un espace de noms de service]
+-   [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms][Obtention d'informations d'identification de gestion par défaut pour l'espace de noms]
+-   [Création d'une application Node.js][Création d'une application Node.js]
+-   [Configuration de votre application pour l'utilisation de Service Bus][Configuration de votre application pour l'utilisation de Service Bus]
+-   [Création d'une rubrique][Création d'une rubrique]
+-   [Création d'abonnements][Création d'abonnements]
+-   [Envoi de messages à une rubrique][Envoi de messages à une rubrique]
+-   [Réception des messages d'un abonnement][Réception des messages d'un abonnement]
+-   [Gestion des blocages d'application et des messages illisibles][Gestion des blocages d'application et des messages illisibles]
+-   [Suppression de rubriques et d'abonnements][Suppression de rubriques et d'abonnements]
 -   [Étapes suivantes][1]
 
-[WACOM.INCLUDE [howto-service-bus-topics][]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <a name="create-app"></a>Création d'une application Node.js
 
-Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure][], [Service cloud Node.js][] (avec Windows PowerShell) ou [Site Web avec WebMatrix][].
+Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure][Création et déploiement d'une application Node.js dans un site Web Azure], [Service cloud Node.js][Service cloud Node.js] (avec Windows PowerShell) ou [Site Web avec WebMatrix][Site Web avec WebMatrix].
 
 ## <a name="configure-app"></a> Configuration de votre application pour l'utilisation de Service Bus
 
@@ -73,9 +73,9 @@ au début du fichier **server.js** de l'application :
 
 Le module Azure lit les variables d'environnement AZURE\_SERVICEBUS\_NAMESPACE et AZURE\_SERVICEBUS\_ACCESS\_KEY pour obtenir les informations nécessaires à la connexion à votre compte Azure Service Bus. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **createServiceBusService**.
 
-Pour consulter un exemple de paramétrage de variables d'environnement dans un fichier de configuration pour un service cloud Azure, consultez la page [Service cloud Node.js avec stockage][].
+Pour consulter un exemple de paramétrage de variables d'environnement dans un fichier de configuration pour un service cloud Azure, consultez la page [Service cloud Node.js avec stockage][Service cloud Node.js avec stockage].
 
-Pour obtenir un exemple de configuration des variables d'environnement dans le portail de gestion pour un site web Azure, consultez la rubrique [Application web Node.js avec stockage][]
+Pour obtenir un exemple de configuration des variables d'environnement dans le portail de gestion pour un site web Azure, consultez la rubrique [Application web Node.js avec stockage][Application web Node.js avec stockage]
 
 ## <a name="create-topic"></a>Création d'une rubrique
 
@@ -172,7 +172,7 @@ Parmi les types de filtre pris en charge par les abonnements,
 **SqlFilter** est le plus flexible ; il implémente un sous-ensemble de SQL92. Les filtres SQL s'appliquent
 aux propriétés des messages publiés dans la rubrique. Pour
 plus de détails sur les expressions utilisables avec un filtre SQL,
-examinez la syntaxe[SqlFilter.SqlExpression][].
+examinez la syntaxe[SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 Il est possible d'ajouter des filtres à un abonnement en utilisant la méthode **createRule**
  de l'objet **ServiceBusService**
@@ -412,9 +412,9 @@ code suivant montre comment supprimer l'abonnement
 Maintenant que vous avez appris les principes de base des rubriques Service Bus, consultez les
 liens suivants pour en savoir plus.
 
--   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements][].
--   Référence d'API pour [SqlFilter][].
--   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Node][] sur GitHub.
+-   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements][Files d'attente, rubriques et abonnements].
+-   Référence d'API pour [SqlFilter][SqlFilter].
+-   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Node][Kit de développement logiciel (SDK) Azure pour Node] sur GitHub.
 
   [Étapes suivantes]: #nextsteps
   [Présentation des rubriques et des abonnements Service Bus]: #what-are-service-bus-topics
@@ -438,4 +438,3 @@ liens suivants pour en savoir plus.
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Files d'attente, rubriques et abonnements]: http://msdn.microsoft.com/fr-fr/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
-  [Kit de développement logiciel (SDK) Azure pour Node]: https://github.com/WindowsAzure/azure-sdk-for-node

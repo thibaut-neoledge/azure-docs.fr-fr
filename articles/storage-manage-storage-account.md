@@ -1,22 +1,22 @@
 <properties linkid="manage-services-how-to-manage-a-storage-account" urlDisplayName="How to manage" pageTitle="How to manage storage accounts | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="Learn how to manage storage accounts in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Manage Storage Accounts" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # <span id="managestorageaccounts"></span></a>Gestion des comptes de stockage
 
 ## Sommaire
 
--   [Gestion de la réplication du compte de stockage][]
--   [Affichage, copie et régénération de clés d'accès de stockage][]
--   [Suppression d'un compte de stockage][]
+-   [Gestion de la réplication du compte de stockage][Gestion de la réplication du compte de stockage]
+-   [Affichage, copie et régénération de clés d'accès de stockage][Affichage, copie et régénération de clés d'accès de stockage]
+-   [Suppression d'un compte de stockage][Suppression d'un compte de stockage]
 
 ## <span id="georeplication"></span></a> Replicate your storage account data for durability and high availability
 
-[WACOM.INCLUDE [storage-replication-options][]]
+[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
 ### Pour spécifier les paramètres de réplication d'un compte de stockage
 
-1.  Dans le [portail de gestion Azure][], cliquez sur **Storage**, puis sur le nom du compte de stockage pour afficher le tableau de bord.
+1.  Dans le [portail de gestion Azure][portail de gestion Azure], cliquez sur **Storage**, puis sur le nom du compte de stockage pour afficher le tableau de bord.
 
 2.  Cliquez sur **Configurer**.
 
@@ -28,19 +28,19 @@
 
 Lorsque vous créez un compte de stockage, Azure génère deux clés d'accès de stockage de 512 bits, qui servent à l'authentification lors de l'accès au compte de stockage. En fournissant deux clés d'accès de stockage, Azure vous permet de régénérer les clés sans interrompre votre service de stockage ni l'accès à ce service.
 
-Dans le [portail de gestion][], utilisez **Manage Keys** sur le tableau de bord ou la page **Storage** pour afficher, copier et régénérer les clés d'accès de stockage qui servent à accéder aux services Blob, de Table et de File d'attente.
+Dans le [portail de gestion][portail de gestion], utilisez **Manage Keys** sur le tableau de bord ou la page **Storage** pour afficher, copier et régénérer les clés d'accès de stockage qui servent à accéder aux services Blob, de Table et de File d'attente.
 
 ### Copie d'une clé d'accès de stockage
 
-L'option **Manage Keys** sert à copier une clé d'accès de stockage à utiliser dans une chaîne de connexion. Cette dernière nécessite le nom du compte de stockage et une clé pour l'authentification. Pour plus d'informations sur la configuration des chaînes de connexion pour accéder aux services de stockage Azure, consultez la page [Configuration des chaînes de connexion Azure][].
+L'option **Manage Keys** sert à copier une clé d'accès de stockage à utiliser dans une chaîne de connexion. Cette dernière nécessite le nom du compte de stockage et une clé pour l'authentification. Pour plus d'informations sur la configuration des chaînes de connexion pour accéder aux services de stockage Azure, consultez la page [Configuration des chaînes de connexion Azure][Configuration des chaînes de connexion Azure].
 
-1.  Dans le [portail de gestion][], cliquez sur **Storage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
+1.  Dans le [portail de gestion][portail de gestion], cliquez sur **Storage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
 
 2.  Cliquez sur **Manage Keys**.
 
     **Manage Access Keys** s'affiche.
 
-    ![Managekeys][]
+    ![Managekeys][Managekeys]
 
 3.  Pour copier une clé d'accès de stockage, sélectionnez le texte de la clé. Cliquez ensuite avec le bouton droit, puis cliquez sur **Copier**.
 
@@ -62,7 +62,7 @@ Vous devez modifier périodiquement les clés d'accès à votre compte de stocka
 
 1.  Mettez à jour les chaînes de connexion dans votre code d'application pour désigner la clé d'accès secondaire du compte de stockage.
 
-2.  Régénérez la clé d'accès principale de votre compte de stockage. Dans le [portail de gestion][], depuis le tableau de bord ou la page **Configurer**, cliquez sur **Manage Keys**. Cliquez sur **Régénérer** sous la clé d'accès principal, puis sur **Oui** pour confirmer que vous souhaitez générer une nouvelle clé.
+2.  Régénérez la clé d'accès principale de votre compte de stockage. Dans le [portail de gestion][portail de gestion], depuis le tableau de bord ou la page **Configurer**, cliquez sur **Manage Keys**. Cliquez sur **Régénérer** sous la clé d'accès principal, puis sur **Oui** pour confirmer que vous souhaitez générer une nouvelle clé.
 
 3.  Mettez à jour les chaînes de connexion dans votre code pour désigner la nouvelle clé d'accès principale.
 
@@ -84,7 +84,7 @@ Pour supprimer un compte de stockage obsolète, utilisez **Supprimer** sur le ta
     </p>
 </div>
 
-1.  Dans le [portail de gestion][], cliquez sur **Storage**.
+1.  Dans le [portail de gestion][portail de gestion], cliquez sur **Storage**.
 
 2.  Cliquez sur un endroit quelconque de l'entrée du compte de stockage, à l'exception du nom, puis sur **Supprimer**.
 
@@ -100,5 +100,5 @@ Pour supprimer un compte de stockage obsolète, utilisez **Supprimer** sur le ta
   [storage-replication-options]: ../includes/storage-replication-options.md
   [portail de gestion Azure]: https://manage.windowsazure.com
   [portail de gestion]: http://manage.windowsazure.com
-  [Configuration des chaînes de connexion Azure]: http://msdn.microsoft.com/en-us/library/ee758697.aspx
+  [Configuration des chaînes de connexion Azure]: http://msdn.microsoft.com/fr-fr/library/ee758697.aspx
   [Managekeys]: ./media/storage-manage-storage-account/Storage_ManageKeys.png

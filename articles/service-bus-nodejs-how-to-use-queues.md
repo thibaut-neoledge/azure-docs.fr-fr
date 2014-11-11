@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Node.js) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Node.js" description="Learn how to use Service Bus queues in Azure. Code samples written in Node.js." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="How to Use Service Bus Queues" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Utilisation des files d'attente Service Bus
 
@@ -8,26 +8,27 @@ Ce guide vous montre comment utiliser les files d'attente Service Bus. Les exemp
 écrits en JavaScript et utilisent le module Azure Node.js. Les scénarios
 couverts dans ce guide sont les suivants : **création de files d'attente, envoi et réception de messages** et
 **suppression de files d'attente**. Pour plus d'informations sur les files d'attente, consultez la section [Étapes
-suivantes][].
+suivantes][Étapes
+suivantes].
 
 ## Sommaire
 
--   [Présentation des files d'attente Service Bus][]
--   [Création d'un espace de noms de service][]
--   [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms][]
--   [Création d'une application Node.js][]
--   [Configuration de votre application pour l'utilisation de Service Bus][]
--   [Création d'une file d'attente][]
--   [Envoi de messages à une file d'attente][]
--   [Réception des messages d'une file d'attente][]
--   [Gestion des blocages d'application et des messages illisibles][]
+-   [Présentation des files d'attente Service Bus][Présentation des files d'attente Service Bus]
+-   [Création d'un espace de noms de service][Création d'un espace de noms de service]
+-   [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms][Obtention d'informations d'identification de gestion par défaut pour l'espace de noms]
+-   [Création d'une application Node.js][Création d'une application Node.js]
+-   [Configuration de votre application pour l'utilisation de Service Bus][Configuration de votre application pour l'utilisation de Service Bus]
+-   [Création d'une file d'attente][Création d'une file d'attente]
+-   [Envoi de messages à une file d'attente][Envoi de messages à une file d'attente]
+-   [Réception des messages d'une file d'attente][Réception des messages d'une file d'attente]
+-   [Gestion des blocages d'application et des messages illisibles][Gestion des blocages d'application et des messages illisibles]
 -   [Étapes suivantes][Étapes suivantes]
 
-[WACOM.INCLUDE [howto-service-bus-queues][]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <a name="create-app"> </a>Création d'une application Node.js
 
-Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure][], [Service cloud Node.js][] (avec Windows PowerShell) ou [Site Web avec WebMatrix][].
+Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure][Création et déploiement d'une application Node.js dans un site Web Azure], [Service cloud Node.js][Service cloud Node.js] (avec Windows PowerShell) ou [Site Web avec WebMatrix][Site Web avec WebMatrix].
 
 ## <a name="configure-app"> </a> Configuration de votre application pour l'utilisation de Service Bus
 
@@ -72,9 +73,9 @@ au début du fichier **server.js** de l'application :
 
 Le module Azure lit les variables d'environnement AZURE\_SERVICEBUS\_NAMESPACE et AZURE\_SERVICEBUS\_ACCESS\_KEY pour obtenir les informations nécessaires à la connexion à votre compte Azure Service Bus. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **createServiceBusService**.
 
-Pour consulter un exemple de paramétrage de variables d'environnement dans un fichier de configuration pour un service cloud Azure, consultez la page [Service cloud Node.js avec stockage][].
+Pour consulter un exemple de paramétrage de variables d'environnement dans un fichier de configuration pour un service cloud Azure, consultez la page [Service cloud Node.js avec stockage][Service cloud Node.js avec stockage].
 
-Pour obtenir un exemple de configuration des variables d'environnement dans le portail de gestion pour un site web Azure, consultez la rubrique [Application web Node.js avec stockage][]
+Pour obtenir un exemple de configuration des variables d'environnement dans le portail de gestion pour un site web Azure, consultez la rubrique [Application web Node.js avec stockage][Application web Node.js avec stockage]
 
 ## <a name="create-queue"> </a>Création d'une file d'attente
 
@@ -244,8 +245,8 @@ tentatives de remise.
 Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez les
 liens suivants pour en savoir plus.
 
--   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements.][]
--   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Node][] sur GitHub.
+-   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements.][Files d'attente, rubriques et abonnements.]
+-   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Node][Kit de développement logiciel (SDK) Azure pour Node] sur GitHub.
 
   [Étapes suivantes]: #next-steps
   [Présentation des files d'attente Service Bus]: #what-are-service-bus-queues
@@ -264,4 +265,3 @@ liens suivants pour en savoir plus.
   [Service cloud Node.js avec stockage]: /fr-fr/develop/nodejs/tutorials/web-app-with-storage/
   [Application web Node.js avec stockage]: /fr-fr/develop/nodejs/tutorials/web-site-with-storage/
   [Files d'attente, rubriques et abonnements.]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367516.aspx
-  [Kit de développement logiciel (SDK) Azure pour Node]: https://github.com/WindowsAzure/azure-sdk-for-node

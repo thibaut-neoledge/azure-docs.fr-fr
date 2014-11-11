@@ -1,36 +1,33 @@
-<properties linkid="dev-java-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Java) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Java" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Java applications." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Topics/Subscriptions" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties linkid="dev-java-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Java) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Java" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Java applications." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Topics/Subscriptions" authors="waltpo" solutions="" manager="bjsmith" editor="mollybos" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+Utilisation des rubriques/abonnements Service Bus
+=================================================
 
-# Utilisation des rubriques/abonnements Service Bus
+Ce guide vous montre comment utiliser les rubriques et les abonnements Service Bus. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure pour Java](http://www.windowsazure.com/fr-fr/develop/java/). Les scénarios couverts dans ce guide sont les suivants : **création de rubriques et d'abonnements**, **création de filtres d'abonnement**, **envoi de messages à une rubrique**, **réception de messages en provenance d'un abonnement** et **suppression de rubriques et d'abonnements**.
 
-Ce guide vous montre comment utiliser les rubriques et les
-abonnements Service Bus. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure pour Java][Kit de développement logiciel (SDK) Azure pour Java]. Les scénarios couverts dans ce guide sont les suivants : **création de rubriques
-et d'abonnements**, **création de filtres d'abonnement** **envoi de messages
-à une rubrique**, **réception de messages en provenance d'un abonnement** et
-**suppression de rubriques et d'abonnements**.
+Sommaire
+--------
 
-## Sommaire
+-   [Présentation des rubriques et des abonnements Service Bus](#what-are-service-bus-topics)
+-   [Création d'un espace de noms de service](#create-a-service-namespace)
+-   [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms](#obtain-default-credentials)
+-   [Configuration de votre application pour l'utilisation de Service Bus](#bkmk_ConfigYourApp)
+-   [Création d'une rubrique](#bkmk_HowToCreateTopic)
+-   [Création d'abonnements](#bkmk_HowToCreateSubscrip)
+-   [Envoi de messages à une rubrique](#bkmk_HowToSendMsgs)
+-   [Réception des messages d'un abonnement](#bkmk_HowToReceiveMsgs)
+-   [Gestion des blocages d'application et des messages illisibles](#bkmk_HowToHandleAppCrash)
+-   [Suppression de rubriques et d'abonnements](#bkmk_HowToDeleteTopics)
+-   [Étapes suivantes](#bkmk_NextSteps)
 
--   [Présentation des rubriques et des abonnements Service Bus][Présentation des rubriques et des abonnements Service Bus]
--   [Création d'un espace de noms de service][Création d'un espace de noms de service]
--   [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms][Obtention d'informations d'identification de gestion par défaut pour l'espace de noms]
--   [Configuration de votre application pour l'utilisation de Service Bus][Configuration de votre application pour l'utilisation de Service Bus]
--   [Création d'une rubrique][Création d'une rubrique]
--   [Création d'abonnements][Création d'abonnements]
--   [Envoi de messages à une rubrique][Envoi de messages à une rubrique]
--   [Réception des messages d'un abonnement][Réception des messages d'un abonnement]
--   [Gestion des blocages d'application et des messages illisibles][Gestion des blocages d'application et des messages illisibles]
--   [Suppression de rubriques et d'abonnements][Suppression de rubriques et d'abonnements]
--   [Étapes suivantes][Étapes suivantes]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
-[WACOM.INCLUDE [howto-service-bus-topics][howto-service-bus-topics]]
-
-## <a name="bkmk_ConfigYourApp"> </a> Configuration de votre application pour l'utilisation de Service Bus
+Configuration de votre application pour l'utilisation de Service Bus
+--------------------------------------------------------------------
 
 Ajoutez les instructions import suivantes au début du fichier Java :
 
-    // Include the following imports to use service bus APIs
+    // Ajoutez les commandes import suivantes pour utiliser des API Service Bus
     import com.microsoft.windowsazure.services.serviceBus.*;
     import com.microsoft.windowsazure.services.serviceBus.models.*;
     import com.microsoft.windowsazure.services.core.*;
@@ -38,17 +35,12 @@ Ajoutez les instructions import suivantes au début du fichier Java :
 
 Ajoutez les bibliothèques Azure pour Java au chemin de votre build et incluez-le dans votre assembly de déploiement du projet.
 
-## <a name="bkmk_HowToCreateTopic"> </a>Création d'une rubrique
+Création d'une rubrique
+-----------------------
 
-Les opérations de gestion des rubriques Service Bus peuvent être effectuées via la classe
-**ServiceBusContract**. Un objet **ServiceBusContract** est construit
-avec une configuration appropriée qui encapsule les autorisations
-de jetons pour le gérer, et la classe **ServiceBusContract** est le
-point de communication unique avec Azure.
+Les opérations de gestion des rubriques Service Bus peuvent être effectuées via la classe **ServiceBusContract**. Un objet **ServiceBusContract** est construit avec une configuration appropriée qui encapsule les autorisations de jetons pour le gérer, et la classe **ServiceBusContract** est le point de communication unique avec Azure.
 
-La classe **ServiceBusService** fournit des méthodes pour créer, énumérer
-et supprimer des rubriques. L'exemple qui suit présente un objet **ServiceBusService** qui peut
-être utilisé pour créer une rubrique « TestTopic », avec un espace de noms « HowToSample » :
+La classe **ServiceBusService** fournit des méthodes pour créer, énumérer et supprimer des rubriques. L'exemple qui suit présente un objet **ServiceBusService** qui peut être utilisé pour créer une rubrique « TestTopic », avec un espace de noms « HowToSample » :
 
     Configuration config = 
         ServiceBusConfiguration.configureWithWrapAuthentication(
@@ -70,34 +62,23 @@ et supprimer des rubriques. L'exemple qui suit présente un objet **ServiceBusSe
         System.exit(-1);
     }
 
-Certaines méthodes sur **TopicInfo** permettent de paramétrer les propriétés
-de la rubrique (par exemple pour faire en sorte que la valeur par défaut
-de durée de vie « time-to-live » soit appliquée aux messages envoyés à la rubrique). L'exemple suivant montre comment
-créer une rubrique nommée « TestTopic » avec une taille maximale de 5 Go :
+Certaines méthodes sur **TopicInfo** permettent de paramétrer les propriétés de la rubrique (par exemple pour faire en sorte que la valeur par défaut de durée de vie « time-to-live » soit appliquée aux messages envoyés à la rubrique). L'exemple suivant montre comment créer une rubrique nommée « TestTopic » avec une taille maximale de 5 Go :
 
     long maxSizeInMegabytes = 5120;  
     TopicInfo topicInfo = new TopicInfo("TestTopic");  
     topicInfo.setMaxSizeInMegabytes(maxSizeInMegabytes); 
     CreateTopicResult result = service.createTopic(topicInfo);
 
-Notez que vous pouvez utiliser la méthode **listTopics** sur les objets
-**ServiceBusContract** afin de vérifier si une rubrique avec le nom
-spécifié existe dans l'espace de noms d'un service.
+Notez que vous pouvez utiliser la méthode **listTopics** sur les objets **ServiceBusContract** afin de vérifier si une rubrique avec le nom spécifié existe dans l'espace de noms d'un service.
 
-## <a name="bkmk_HowToCreateSubscrip"> </a>Création d'abonnements
+Création d'abonnements
+----------------------
 
-Les abonnements de rubrique sont également créés à l'aide de l'objet **ServiceBusService**
-. Les abonnements sont nommés et peuvent être assortis d'un
-filtre facultatif qui limite l'ensemble des messages transmis à la file
-d'attente virtuelle de l'abonnement.
+Les abonnements de rubrique sont également créés à l'aide de l'objet **ServiceBusService**. Les abonnements sont nommés et peuvent être assortis d'un filtre facultatif qui limite l'ensemble des messages transmis à la file d'attente virtuelle de l'abonnement.
 
 ### Création d'un abonnement avec le filtre par défaut (MatchAll)
 
-Le filtre **MatchAll** est le filtre utilisé par défaut si aucun filtre n'est
-spécifié lors de la création d'un abonnement. Lorsque le filtre **MatchAll**
- est utilisé, tous les messages publiés dans la rubrique sont placés
-dans la file d'attente virtuelle de l'abonnement. Dans l'exemple suivant, l'abonnement
-« AllMessages » qui est créé utilise le filtre par défaut **MatchAll**.
+Le filtre **MatchAll** est le filtre utilisé par défaut si aucun filtre n'est spécifié lors de la création d'un abonnement. Lorsque le filtre **MatchAll** est utilisé, tous les messages publiés dans la rubrique sont placés dans la file d'attente virtuelle de l'abonnement. Dans l'exemple suivant, l'abonnement « AllMessages » qui est créé utilise le filtre par défaut **MatchAll**.
 
     SubscriptionInfo subInfo = new SubscriptionInfo("AllMessages");
     CreateSubscriptionResult result = 
@@ -105,20 +86,13 @@ dans la file d'attente virtuelle de l'abonnement. Dans l'exemple suivant, l'abon
 
 ### Création d'abonnements avec des filtres
 
-Vous pouvez également configurer des filtres pour spécifier quels sont les
-messages, parmi ceux envoyés à une rubrique, qui doivent apparaître dans un abonnement de rubrique spécifique.
+Vous pouvez également configurer des filtres pour spécifier quels sont les messages, parmi ceux envoyés à une rubrique, qui doivent apparaître dans un abonnement de rubrique spécifique.
 
-Parmi les types de filtre pris en charge par les abonnements,
-**SqlFilter** est le plus flexible ; il implémente un sous-ensemble de SQL92. Les filtres SQL opèrent
-au niveau des propriétés des messages publiés dans la rubrique. Pour
-plus de détails sur les expressions utilisables avec un filtre SQL, examinez
-la syntaxe SqlFilter.SqlExpression.
+Parmi les types de filtres pris en charge par les abonnements, **SqlFilter** est le plus flexible ; il implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus de détails sur les expressions utilisables avec un filtre SQL, examinez la syntaxe SqlFilter.SqlExpression.
 
-Dans l'exemple ci-dessous, l'abonnement « HighMessages » est créé avec un filtre
-**SqlFilter** qui sélectionne uniquement les messages dont la propriété personnalisée
-**messagenumber** a une valeur supérieure à 3 :
+Dans l'exemple ci-dessous, l'abonnement « HighMessages » est créé avec un filtre **SqlFilter** qui sélectionne uniquement les messages dont la propriété personnalisée **messagenumber** a une valeur supérieure à 3 :
 
-    // Create a "HighMessages" filtered subscription  
+    // Créez un abonnement HighMessages filtré  
     SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
     CreateSubscriptionResult result = 
         service.createSubscription("TestTopic", subInfo);
@@ -126,16 +100,12 @@ Dans l'exemple ci-dessous, l'abonnement « HighMessages » est créé avec un 
     ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber > 3");
     CreateRuleResult ruleResult = 
         service.createRule("TestTopic", "HighMessages", ruleInfo);
-    // Delete the default rule, otherwise the new rule won't be invoked.
+    // Supprimez la règle par défaut, sinon la nouvelle règle ne sera pas appelée.
     service.deleteRule("TestTopic", "HighMessages", "$Default");
 
-De même, l'exemple suivant crée l'abonnement « LowMessages »
-avec un filtre SqlFilter
-qui sélectionne uniquement les messages dont la propriété MessageNumber
-a une valeur inférieure
-ou égale à 3 :
+De même, l'exemple suivant crée l'abonnement « LowMessages » avec un filtre SqlFilter qui sélectionne uniquement les messages dont la propriété MessageNumber a une valeur inférieure ou égale à 3 :
 
-    // Create a "LowMessages" filtered subscription
+    // Créez un abonnement LowMessages filtré
     SubscriptionInfo subInfo = new SubscriptionInfo("LowMessages");
     CreateSubscriptionResult result = 
         service.createSubscription("TestTopic", subInfo);
@@ -143,88 +113,44 @@ ou égale à 3 :
     ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber <= 3");
     CreateRuleResult ruleResult = 
         service.createRule("TestTopic", "LowMessages", ruleInfo);
-    // Delete the default rule, otherwise the new rule won't be invoked.
+    // Supprimez la règle par défaut, sinon la nouvelle règle ne sera pas appelée.
     service.deleteRule("TestTopic", "LowMessages", "$Default");
 
-Dès lors qu'un message est envoyé à « TestTopic », il est toujours
-remis aux destinataires abonnés à l'abonnement de rubrique
-« AllMessages » et est remis de manière sélective aux destinataires
-abonnés aux abonnements de rubrique « HighMessages » et « LowMessages »
-(en fonction du contenu du message).
+Dès lors qu'un message est envoyé à « TestTopic », il est toujours remis aux destinataires abonnés à l'abonnement de rubrique « AllMessages » et est remis de manière sélective aux destinataires abonnés aux abonnements de rubrique « HighMessages » et « LowMessages » (en fonction du contenu du message).
 
-## <a name="bkmk_HowToSendMsgs"> </a> Envoi de messages à une rubrique
+Envoi de messages à une rubrique
+--------------------------------
 
-Pour envoyer un message à une rubrique Service Bus, votre application doit obtenir un objet
-**ServiceBusContract**. Le code ci-dessous montre comment créer un
-message pour la rubrique « TestTopic » créée précédemment à
-l'aide de l'espace de noms de service « HowToSample » :
+Pour envoyer un message à une rubrique Service Bus, votre application doit obtenir un objet **ServiceBusContract**. Le code ci-dessous montre comment créer un message pour la rubrique « TestTopic » créée précédemment à l'aide de l'espace de noms de service « HowToSample » :
 
     BrokeredMessage message = new BrokeredMessage("MyMessage");
     service.sendTopicMessage("TestTopic", message);
 
-Les messages envoyés aux rubriques Service Bus sont des instances de la classe
-**BrokeredMessage**. Les objets **BrokeredMessage** possèdent un ensemble
-de propriétés standard (telles que **setLabel** et **TimeToLive**), un dictionnaire
-servant à conserver les propriétés personnalisées propres à une
-application, ainsi qu'un corps de données d'application arbitraires. Une application peut définir le corps du
-message en transmettant un objet sérialisable au constructeur de l'objet
-**BrokeredMessage** ; le sérialiseur **DataContractSerializer** approprié est alors
-utilisé pour sérialiser l'objet. Une autre possibilité consiste à fournir un
-**java.io.InputStream**.
+Les messages envoyés aux rubriques Service Bus sont des instances de la classe **BrokeredMessage**. Les objets **BrokeredMessage** possèdent un ensemble de propriétés standard (telles que **Label** et **TimeToLive**), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu'un corps de données d'application arbitraires. Une application peut définir le corps du message en transmettant un objet sérialisable au constructeur de l'objet **BrokeredMessage** ; le sérialiseur **DataContractSerializer** approprié est alors utilisé pour sérialiser l'objet. Une autre possibilité consiste à fournir un **java.io.InputStream**.
 
-L'exemple suivant montre comment envoyer cinq messages de test à la rubrique
-« TestTopic » **MessageSender** que nous avons obtenue dans l'extrait de code ci-dessus.
-Notez que la valeur de la propriété **MessageNumber** de chaque
-message varie au niveau de l'itération de la boucle
-(détermine l'abonnement qui le reçoit) :
+L'exemple suivant montre comment envoyer cinq messages de test au client **MessageSender** « TestTopic » obtenu dans l'extrait de code précédent. Notez que la valeur de la propriété **MessageNumber** de chaque message varie au niveau de l'itération de la boucle (détermine les abonnements qui le reçoivent) :
 
     for (int i=0; i<5; i++)  {
-        // Create message, passing a string message for the body
+        // Créez un message, en transférant un message de chaîne pour le corps.
         BrokeredMessage message = new BrokeredMessage("Test message " + i);
-        // Set some additional custom app-specific property
+        // Définissez les autres propriétés personnalisées propres à l'application
         message.setProperty("MessageNumber", i);
-        // Send message to the topic
+        // Envoyez le message à la rubrique
         service.sendTopicMessage("TestTopic", message);
     }
 
-Les rubriques Service Bus prennent en charge une taille de message maximale
-de 256 Ko (l'en-tête, qui comprend les propriétés d'application standard
-et personnalisées, peut avoir une taille maximale de 64 Ko). Si une rubrique n'est pas limitée par le nombre
-de messages qu'elle peut contenir, elle l'est en revanche par la taille
-totale des messages qu'elle contient. Cette taille de rubrique est définie au moment de la
-création. La limite maximale est de 5 Go.
+Les rubriques Service Bus prennent en charge une taille de message maximale de 256 Mo (l'en-tête, qui comprend les propriétés d'application standard et personnalisées, peut avoir une taille maximale de 64 Mo). Si une rubrique n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de rubrique est définie au moment de la création. La limite maximale est de 5 Go.
 
-## <a name="bkmk_HowToReceiveMsgs"> </a> Réception des messages d'un abonnement
+Réception des messages d'un abonnement
+--------------------------------------
 
-Le principal moyen de recevoir les messages d'un abonnement est d'utiliser un objet
-**ServiceBusContract**. Ces messages reçus peuvent fonctionner
-dans deux modes différents : **ReceiveAndDelete** et **PeekLock**.
+Le principal moyen de recevoir les messages d'un abonnement est d'utiliser un objet **ServiceBusContract**. Ces messages reçus peuvent fonctionner dans deux modes différents : **ReceiveAndDelete** et **PeekLock**.
 
-Lorsque le mode **ReceiveAndDelete** est utilisé, la réception est une
-opération unique : quand Service Bus reçoit une demande de lecture
-pour un message, il marque ce message comme étant consommé et le
-renvoie à l'application. Le mode **ReceiveAndDelete** est le modèle le plus simple et
-le mieux adapté aux scénarios dans lesquels une application est capable
-de tolérer le non-traitement d'un message en cas d'échec. Pour mieux comprendre, imaginez
-un scénario dans lequel le consommateur émet la demande de réception
-et subit un incident avant de la traiter. Comme Service Bus a marqué le message
-comme étant consommé, lorsque l'application redémarre et recommence à
-consommer des messages, elle manque le message consommé avant
-l'incident.
+Lorsque le mode **ReceiveAndDelete** est utilisé, la réception est une opération unique : quand Service Bus reçoit une demande de lecture pour un message, il marque ce message comme étant consommé et le renvoie à l'application. Le mode **ReceiveAndDelete** est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels une application est capable de tolérer le non-traitement d'un message en cas d'échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Comme Service Bus a marqué le message comme étant consommé, lorsque l'application redémarre et recommence à consommer des messages, elle manque le message consommé avant l'incident.
 
-En mode **PeekLock**, la réception devient une opération en deux étapes, qui
-autorise une prise en charge des applications qui ne peuvent pas
-tolérer les messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain
-message à consommer, le verrouille pour empêcher d'autres consommateurs
-de le recevoir, puis le renvoie à l'application. Dès lors que l'application a terminé
-le traitement du message (ou qu'elle l'a stocké de manière fiable pour
-un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant **Delete**
-pour le message reçu. Lorsque Service Bus obtient l'appel **Delete**, il
-marque le message comme étant consommé et le supprime de la rubrique.
+En mode **PeekLock**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas tolérer les messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès lors que l'application a terminé le traitement du message (ou qu'elle l'a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant **Delete** pour le message reçu. Lorsque Service Bus obtient l'appel **Delete**, il marque le message comme étant consommé et le supprime de la rubrique.
 
-L'exemple ci-dessous montre comment les messages peuvent être reçus
-et traités avec le mode **PeekLock** (et pas le mode par défaut). L'exemple ci-dessous
-lance une boucle qui traite les messages de l'abonnement HighMessages, qui s'arrête lorsqu'il n'y a plus de messages (cette boucle peut aussi être configurée pour attendre de nouveaux messages).
+L'exemple ci-dessous montre comment les messages peuvent être reçus et traités avec le mode **PeekLock** (et pas le mode par défaut). L'exemple ci-dessous lance une boucle qui traite les messages de l'abonnement HighMessages, qui s'arrête lorsqu'il n'y a plus de messages (cette boucle peut aussi être configurée pour attendre de nouveaux messages).
 
     try
     {
@@ -238,7 +164,7 @@ lance une boucle qui traite les messages de l'abonnement HighMessages, qui s'arr
             if (message != null && message.getMessageId() != null)
             {
                 System.out.println("MessageID: " + message.getMessageId());    
-                // Display the topic message.
+                // Affichez le message de la rubrique.
                 System.out.print("From topic: ");
                 byte[] b = new byte[200];
                 String s = null;
@@ -253,7 +179,7 @@ lance une boucle qui traite les messages de l'abonnement HighMessages, qui s'arr
                 System.out.println();
                 System.out.println("Custom Property: " + 
                     message.getProperty("MessageNumber"));
-                // Delete message.
+                // Supprimez le message.
                 System.out.println("Deleting this message.");
                 service.deleteMessage(message);
             }  
@@ -261,8 +187,8 @@ lance une boucle qui traite les messages de l'abonnement HighMessages, qui s'arr
             {        
                 System.out.println("Finishing up - no more messages.");        
                 break; 
-                // Added to handle no more messages.
-                // Could instead wait for more messages to be added.
+                // Ajouté pour ne plus gérer aucun message.
+                // À la place, peut attendre plus de messages à ajouter.
             }
         }
     }
@@ -277,64 +203,30 @@ lance une boucle qui traite les messages de l'abonnement HighMessages, qui s'arr
         System.exit(-1);
     } 
 
-## <a name="bkmk_HowToHandleAppCrash"> </a>Gestion des blocages d'application et des messages illisibles
+Gestion des blocages d'application et des messages illisibles
+-------------------------------------------------------------
 
-Service Bus intègre des fonctionnalités destinées à faciliter la récupération
-à la suite d'erreurs survenues dans votre application ou de difficultés à traiter un message. Si une
-application réceptrice ne parvient pas à traiter le message pour une raison
-quelconque, elle appelle la méthode **unlockMessage** pour le message
-reçu (au lieu de la méthode **deleteMessage**). Service Bus déverrouille alors
-le message dans la rubrique et le rend à nouveau disponible en
-réception, pour la même application consommatrice ou pour une
-autre.
+Service Bus intègre des fonctionnalités destinées à faciliter la récupération à la suite d'erreurs survenues dans votre application ou de difficultés à traiter un message. Si une application réceptrice ne parvient pas à traiter le message pour une raison quelconque, elle appelle la méthode **unlockMessage** pour le message reçu (au lieu de la méthode **deleteMessage**). Cela amène Service Bus à déverrouiller le message dans la rubrique et à le rendre à nouveau disponible en réception, pour la même application consommatrice ou pour une autre.
 
-De même, il faut savoir qu'un message verrouillé dans une rubrique
-est assorti d'un délai d'expiration et que si l'application ne parvient pas
-à traiter le message dans le temps imparti (par exemple, si
-l'application subit un incident), Service Bus déverrouille le message automatiquement
-et le rend à nouveau disponible en réception.
+De même, il faut savoir qu'un message verrouillé dans une rubrique est assorti d'un délai d'expiration et que si l'application ne parvient pas à traiter le message dans le temps imparti (par exemple, si l'application subit un incident), Service Bus déverrouille le message automatiquement et le rend à nouveau disponible en réception.
 
-Si l'application subit un incident après le traitement du message, mais avant
-l'émission de la demande **deleteMessage**, le message est à nouveau
-remis à l'application lorsqu'elle redémarre. Dans ce type
-de traitement, souvent appelé **Au moins une fois**, chaque message est
-traité au moins une fois. Toutefois, dans certaines circonstances,
-un même message peut être remis une nouvelle fois. Si le scénario ne peut pas tolérer le traitement en double,
-les développeurs d'application doivent ajouter une logique
-supplémentaire à leur application pour traiter la remise de messages en double. Ceci est souvent obtenu
-grâce à la propriété **getMessageId** du message, qui reste constante pendant
-les tentatives de remise.
+Si l'application subit un incident après le traitement du message, mais avant l'émission de la demande **deleteMessage**, le message est à nouveau remis à l'application lorsqu'elle redémarre. Dans ce type de traitement, souvent appelé **Au moins une fois**, chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Si le scénario ne peut pas tolérer le traitement en double, les développeurs d'application doivent ajouter une logique supplémentaire à leur application pour traiter la remise de messages en double, ce qui est souvent obtenu grâce à la propriété **getMessageId** du message, qui reste constante pendant les tentatives de remise.
 
-## <a name="bkmk_HowToDeleteTopics"> </a> Suppression des rubriques et des abonnements
+Suppression de rubriques et d'abonnements
+-----------------------------------------
 
-Le principal moyen de supprimer des rubriques et des abonnements est d'utiliser un objet
-**ServiceBusContract**. La suppression d'une rubrique a également pour effet de supprimer les
-abonnements inscrits au niveau de la rubrique. Les abonnements peuvent aussi être supprimés de manière indépendante.
+Le principal moyen de supprimer des rubriques et des abonnements est d'utiliser un objet **ServiceBusContract**. La suppression d'une rubrique a également pour effet de supprimer les abonnements inscrits au niveau de la rubrique. Les abonnements peuvent aussi être supprimés de manière indépendante.
 
-    // Delete subscriptions
+    // Supprimer des abonnements
     service.deleteSubscription("TestTopic", "AllMessages");
     service.deleteSubscription("TestTopic", "HighMessages");
     service.deleteSubscription("TestTopic", "LowMessages");
 
-    // Delete a topic
+    // Supprimer une rubrique
     service.deleteTopic("TestTopic");
 
-# <a name="bkmk_NextSteps"> </a>Étapes suivantes
+Étapes suivantes
+================
 
-Maintenant que vous avez appris les principes de base des files d'attente Service Bus,
-consultez la rubrique MSDN [Files d'attente, rubriques et abonnements Service Bus][Files d'attente, rubriques et abonnements Service Bus] pour plus d'informations.
+Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez la rubrique MSDN [Files d'attente, rubriques et abonnements Service Bus](http://msdn.microsoft.com/library/windowsazure/hh367516.aspx) pour plus d'informations.
 
-  [Kit de développement logiciel (SDK) Azure pour Java]: http://www.windowsazure.com/fr-fr/develop/java/
-  [Présentation des rubriques et des abonnements Service Bus]: #what-are-service-bus-topics
-  [Création d'un espace de noms de service]: #create-a-service-namespace
-  [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms]: #obtain-default-credentials
-  [Configuration de votre application pour l'utilisation de Service Bus]: #bkmk_ConfigYourApp
-  [Création d'une rubrique]: #bkmk_HowToCreateTopic
-  [Création d'abonnements]: #bkmk_HowToCreateSubscrip
-  [Envoi de messages à une rubrique]: #bkmk_HowToSendMsgs
-  [Réception des messages d'un abonnement]: #bkmk_HowToReceiveMsgs
-  [Gestion des blocages d'application et des messages illisibles]: #bkmk_HowToHandleAppCrash
-  [Suppression de rubriques et d'abonnements]: #bkmk_HowToDeleteTopics
-  [Étapes suivantes]: #bkmk_NextSteps
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
-  [Files d'attente, rubriques et abonnements Service Bus]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx

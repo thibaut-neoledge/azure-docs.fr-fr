@@ -1,6 +1,6 @@
 <properties linkid="Contact - Support" urlDisplayName="Caching" pageTitle="How to use In-Role Cache (.NET) - Azure feature guide" metaKeywords="Azure cache, Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" description="Learn how to use Azure In-Role Cache. The samples are written in C# code and use the .NET API." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use In-Role Cache for Azure Cache" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Utilisation de In-Role Cache pour Azure Cache
 
@@ -9,23 +9,23 @@ Ce guide décrit la prise en main de
 utilisent l'API .NET. Les scénarios présentés comprennent la **configuration d'un cluster de cache**, **la configuration de clients de cache**, **l'ajout et la suppression
 d'objets dans le cache, le stockage de l'état de session ASP.NET dans le cache**
  et **l'activation du cache de la sortie de pages ASP.NET avec le cache**. Pour plus
-d'informations sur l'utilisation de In-Role Cache, consultez la section [Étapes suivantes][].
+d'informations sur l'utilisation de In-Role Cache, consultez la section [Étapes suivantes][Étapes suivantes].
 
-> Pour obtenir des informations sur le choix de l'offre Azure Cache appropriée pour votre application, consultez [Choix de l'offre Azure Cache appropriée][].
+> Pour obtenir des informations sur le choix de l'offre Azure Cache appropriée pour votre application, consultez [Choix de l'offre Azure Cache appropriée][Choix de l'offre Azure Cache appropriée].
 
 ## Sommaire
 
--   [Présentation de In-Role Cache][]
--   [Prise en main de In-Role Cache][]
-    -   [Configuration du cluster de cache][]
-    -   [Configuration des clients de cache][]
--   [Utilisation des caches][]
-    -   [Création d'un objet DataCache][]
-    -   [Ajout et récupération d'un objet dans le cache][]
-    -   [Spécification de l'expiration d'un objet dans le cache][]
-    -   [Stockage de l'état de session ASP.NET dans le cache][]
-    -   [Stockage de la mise en cache de sortie de pages ASP.NET dans le cache][]
--   [Étapes suivantes][]
+-   [Présentation de In-Role Cache][Présentation de In-Role Cache]
+-   [Prise en main de In-Role Cache][Prise en main de In-Role Cache]
+    -   [Configuration du cluster de cache][Configuration du cluster de cache]
+    -   [Configuration des clients de cache][Configuration des clients de cache]
+-   [Utilisation des caches][Utilisation des caches]
+    -   [Création d'un objet DataCache][Création d'un objet DataCache]
+    -   [Ajout et récupération d'un objet dans le cache][Ajout et récupération d'un objet dans le cache]
+    -   [Spécification de l'expiration d'un objet dans le cache][Spécification de l'expiration d'un objet dans le cache]
+    -   [Stockage de l'état de session ASP.NET dans le cache][Stockage de l'état de session ASP.NET dans le cache]
+    -   [Stockage de la mise en cache de sortie de pages ASP.NET dans le cache][Stockage de la mise en cache de sortie de pages ASP.NET dans le cache]
+-   [Étapes suivantes][Étapes suivantes]
 
 <a name="what-is"></a>
 
@@ -64,7 +64,7 @@ En outre, la mise en cache sur les instances de rôle comporte ces options confi
 -   Configuration facultative de la haute disponibilité sur certains caches.
 -   Utilisation de capacités étendues de mise en cache, comme les régions, les balises et les notifications.
 
-Ce guide offre un aperçu de la prise en main de In-Role Cache. Pour plus d'informations sur les fonctions qui ne sont pas présentées dans ce guide de prise en main, consultez la page [À propos de In-Role Cache pour le Cache Windows Azure][].
+Ce guide offre un aperçu de la prise en main de In-Role Cache. Pour plus d'informations sur les fonctions qui ne sont pas présentées dans ce guide de prise en main, consultez la page [À propos de In-Role Cache pour le Cache Windows Azure][À propos de In-Role Cache pour le Cache Windows Azure].
 
 <a name="getting-started-cache-role-instance"></a>
 
@@ -77,8 +77,8 @@ In-Role Cache permet d'activer la mise en cache à l'aide de la mémoire qui se 
 
 Pour utiliser la mise en cache sur les instances de rôle, vous devez configurer un cluster de cache, puis configurer les clients du cache afin qu'ils puissent accéder au cluster de cache.
 
--   [Configuration du cluster de cache][]
--   [Configuration des clients de cache][]
+-   [Configuration du cluster de cache][Configuration du cluster de cache]
+-   [Configuration des clients de cache][Configuration des clients de cache]
 
 <a name="enable-caching"></a>
 
@@ -86,37 +86,37 @@ Pour utiliser la mise en cache sur les instances de rôle, vous devez configurer
 
 Pour configurer un cluster de cache **Rôle en colocation**, sélectionnez le rôle dans lequel vous voulez héberger le cluster de cache. Cliquez avec le bouton droit sur les propriétés du rôle dans **Explorateur de solutions** et sélectionnez **Propriétés**.
 
-![RoleCache1][]
+![RoleCache1][RoleCache1]
 
 Passez dans l'onglet **Caching**, activez la case à cocher **Enable Caching** et spécifiez les options de mise en cache souhaitées. Lorsque la mise en cache est activée sur un **Rôle de travail** ou sur un **Rôle Web ASP.NET**, la configuration par défaut est la mise en cache **Rôle en colocation** avec 30 % de la mémoire des instances de rôle alloué à la mise en cache. Un cache par défaut est configuré automatiquement, et d'autres caches nommés supplémentaires peuvent être créés si nécessaire. Ces caches se partageront la mémoire allouée.
 
-![RoleCache2][]
+![RoleCache2][RoleCache2]
 
 Pour configurer un cluster de cache **Rôle dédié**, ajoutez un **Rôle de travail de cache** à votre projet.
 
-![RoleCache7][]
+![RoleCache7][RoleCache7]
 
 Lorsqu'un **Rôle de travail de cache** est ajouté à un projet, la configuration par défaut est la mise en cache **Rôle dédié**.
 
-![RoleCache8][]
+![RoleCache8][RoleCache8]
 
 Une fois que la mise en cache est activée, le compte de stockage du cluster de cache peut être configuré. In-Role Cache nécessite un compte de stockage Azure. Ce compte de stockage est utilisé pour contenir les données de configuration sur le cluster de cache, accessible depuis toutes les machines virtuelles qui composent le cluster de cache. Ce compte de stockage est spécifié sur l'onglet **Caching** de la page des propriétés du rôle de cluster de cache, juste au-dessus de **Named Cache Settings**.
 
-![RoleCache10][]
+![RoleCache10][RoleCache10]
 
 > Si ce compte de stockage n'est pas configuré, les rôles ne peuvent pas démarrer.
 
 La taille du cache est déterminée par la taille de la machine virtuelle du rôle, le nombre d'instances du rôle, et si le cluster de cache est configuré comme rôle dédié ou comme cluster de cache de rôle en colocation.
 
-> Cette section contient une présentation simplifiée sur la configuration de la taille du cache. Pour plus d'informations sur la taille du cache et sur d'autres facteurs de planification de la capacité, consultez la page [Éléments à prendre en considération pour la planification de capacité In-Role Cache][].
+> Cette section contient une présentation simplifiée sur la configuration de la taille du cache. Pour plus d'informations sur la taille du cache et sur d'autres facteurs de planification de la capacité, consultez la page [Éléments à prendre en considération pour la planification de capacité In-Role Cache][Éléments à prendre en considération pour la planification de capacité In-Role Cache].
 
 Pour configurer la taille de la machine virtuelle et le nombre d'instances de rôle, cliquez avec le bouton droit sur les propriétés du rôle dans **Explorateur de solutions** et choisissez **Propriétés**.
 
-![RoleCache1][]
+![RoleCache1][RoleCache1]
 
 Passez sur l'onglet **Configuration**. La valeur par défaut de **Instance count** est 1 et la taille **VM size** par défaut est **Small**.
 
-![RoleCache3][]
+![RoleCache3][RoleCache3]
 
 La mémoire totale par taille de machine virtuelle se présente comme suit :
 
@@ -125,9 +125,9 @@ La mémoire totale par taille de machine virtuelle se présente comme suit :
 -   **Large** : 7 GB
 -   **ExtraLarge** : 14 GB
 
-> Cette taille représente la quantité totale de mémoire disponible pour la machine virtuelle, partagée par le système d'exploitation, le processus de cache, les données en cache et l'application. Pour plus d'informations sur la configuration de la taille des machines virtuelles, consultez la page [Configuration de la taille des machines virtuelles][]. Notez que le cache n'est pas pris en charge sur les machines virtuelles de taille **ExtraSmall**.
+> Cette taille représente la quantité totale de mémoire disponible pour la machine virtuelle, partagée par le système d'exploitation, le processus de cache, les données en cache et l'application. Pour plus d'informations sur la configuration de la taille des machines virtuelles, consultez la page [Configuration de la taille des machines virtuelles][Configuration de la taille des machines virtuelles]. Notez que le cache n'est pas pris en charge sur les machines virtuelles de taille **ExtraSmall**.
 
-Lorsque la mise en cache **Rôle en colocation** est spécifiée, la taille du cache est déterminée par le pourcentage spécifié de mémoire de la machine virtuelle. Lorsque la mise en cache **Rôle dédié** est spécifiée, toute la mémoire disponible sur la machine virtuelle est utilisée pour la mise en cache. Si deux instances de rôle sont configurées, la mémoire combinée des machines virtuelles est utilisée. Ceci forme un cluster de cache dans lequel la mémoire de cache disponible est distribuée sur plusieurs instances de rôle, mais présentée aux clients du cache comme une seule et même ressource. La taille du cache augmente de façon similaire lorsque vous configurez d'autres instances de rôle. Afin de déterminer les paramètres nécessaires pour fournir un cache de la taille souhaitée, vous pouvez utiliser la feuille de calcul de prévision de la capacité qui est présentée dans la page [Éléments à prendre en considération pour la planification de capacité In-Role Cache][].
+Lorsque la mise en cache **Rôle en colocation** est spécifiée, la taille du cache est déterminée par le pourcentage spécifié de mémoire de la machine virtuelle. Lorsque la mise en cache **Rôle dédié** est spécifiée, toute la mémoire disponible sur la machine virtuelle est utilisée pour la mise en cache. Si deux instances de rôle sont configurées, la mémoire combinée des machines virtuelles est utilisée. Ceci forme un cluster de cache dans lequel la mémoire de cache disponible est distribuée sur plusieurs instances de rôle, mais présentée aux clients du cache comme une seule et même ressource. La taille du cache augmente de façon similaire lorsque vous configurez d'autres instances de rôle. Afin de déterminer les paramètres nécessaires pour fournir un cache de la taille souhaitée, vous pouvez utiliser la feuille de calcul de prévision de la capacité qui est présentée dans la page [Éléments à prendre en considération pour la planification de capacité In-Role Cache][Éléments à prendre en considération pour la planification de capacité In-Role Cache].
 
 Une fois le cluster de cache configuré, vous pouvez configurer les clients du cache pour permettre l'accès au cache.
 
@@ -137,17 +137,17 @@ Une fois le cluster de cache configuré, vous pouvez configurer les clients du c
 
 Pour accéder à un cache In-Role Cache, les clients doivent se trouver dans le même déploiement. Si le cluster de cache est un cluster de cache de rôle dédié, les clients sont d'autres rôles dans le déploiement. Si le cluster de cache est un cluster de cache de rôle en colocation, les clients peuvent être soit d'autres rôles dans le déploiement, soit les rôles qui hébergent le cluster de cache. Le package NuGet fourni permet de configurer chaque rôle client qui accède au cache. Pour configurer un rôle pour qu'il accède à un cluster de cache à l'aide du package Caching NuGet, cliquez avec le bouton droit sur le projet de rôle dans **Explorateur de solutions** et choisissez **Manage NuGet Packages**.
 
-![RoleCache4][]
+![RoleCache4][RoleCache4]
 
 Sélectionnez **In-Role Cache**, cliquez sur **Install**, puis sur **I Accept**.
 
 > Si **In-Role Cache** ne figure pas dans la liste, tapez **WindowsAzure.Caching** dans la zone de texte **Search Online** et sélectionnez-le dans les résultats.
 
-![RoleCache5][]
+![RoleCache5][RoleCache5]
 
 Le package NuGet effectue plusieurs opérations : il ajoute la configuration nécessaire aux fichiers de configuration du rôle, il ajoute un paramètre de niveau de diagnostic du client de cache au fichier ServiceConfiguration.cscfg de l'application Azure et il ajoute également les références d'assembly nécessaires.
 
-> Pour les rôles Web ASP.NET, le package Caching NuGet ajoute également deux sections commentées au fichier web.config. La première section indique que l'état de la session doit être stocké dans le cache et la deuxième active la mise en cache de la sortie de pages ASP.NET. Pour plus d'informations, consultez les pages [Stockage de l'état de session ASP.NET dans le cache][] et [Stockage de la mise en cache de sortie de pages ASP.NET dans le cache][]
+> Pour les rôles Web ASP.NET, le package Caching NuGet ajoute également deux sections commentées au fichier web.config. La première section indique que l'état de la session doit être stocké dans le cache et la deuxième active la mise en cache de la sortie de pages ASP.NET. Pour plus d'informations, consultez les pages [Stockage de l'état de session ASP.NET dans le cache][Stockage de l'état de session ASP.NET dans le cache] et [Stockage de la mise en cache de sortie de pages ASP.NET dans le cache][Stockage de la mise en cache de sortie de pages ASP.NET dans le cache]
 
 Le package NuGet ajoute les éléments de configuration suivants au fichier web.config ou app.config du rôle. Une section **dataCacheClients** et une section **cacheDiagnostics** sont ajoutées sous l'élément **configSections**. Si aucun élément **configSections** n'est présent, un élément configSections enfant de l'élément **configuration** est créé.
 
@@ -192,7 +192,7 @@ Le package NuGet ajoute également un paramètre **ClientDiagnosticLevel** dans 
       </ConfigurationSettings>
     </Role>
 
-> In-Role Cache comporte un niveau de diagnostic au niveau du serveur de cache et du client de cache. Le niveau de diagnostic est un paramètre unique qui configure le niveau des informations de diagnostic collectées pour la mise en cache. Pour plus d'informations, consultez la page [Résolution des problèmes et diagnostic pour In-Role Cache][]
+> In-Role Cache comporte un niveau de diagnostic au niveau du serveur de cache et du client de cache. Le niveau de diagnostic est un paramètre unique qui configure le niveau des informations de diagnostic collectées pour la mise en cache. Pour plus d'informations, consultez la page [Résolution des problèmes et diagnostic pour In-Role Cache][Résolution des problèmes et diagnostic pour In-Role Cache]
 
 Le package NuGet ajoute également des références aux assemblys suivants :
 
@@ -217,11 +217,11 @@ Une fois que votre projet client est configuré pour la mise en cache, vous pouv
 
 Les étapes de cette section décrivent des tâches courantes avec la mise en cache.
 
--   [Création d'un objet DataCache][]
--   [Ajout et récupération d'un objet dans le cache][]
--   [Spécification de l'expiration d'un objet dans le cache][]
--   [Stockage de l'état de session ASP.NET dans le cache][]
--   [Stockage de la mise en cache de sortie de pages ASP.NET dans le cache][]
+-   [Création d'un objet DataCache][Création d'un objet DataCache]
+-   [Ajout et récupération d'un objet dans le cache][Ajout et récupération d'un objet dans le cache]
+-   [Spécification de l'expiration d'un objet dans le cache][Spécification de l'expiration d'un objet dans le cache]
+-   [Stockage de l'état de session ASP.NET dans le cache][Stockage de l'état de session ASP.NET dans le cache]
+-   [Stockage de la mise en cache de sortie de pages ASP.NET dans le cache][Stockage de la mise en cache de sortie de pages ASP.NET dans le cache]
 
 <a name="create-cache-object"></a>
 
@@ -298,7 +298,7 @@ s'il n'existe pas ou remplace l'objet s'il existe.
 
 Par défaut, les éléments du cache expirent 10 minutes après qu'ils y ont été placés. Cette valeur peut être configurée dans le paramètre **Time to Live (min)** des propriétés du rôle qui héberge le cluster de cache.
 
-![RoleCache6][]
+![RoleCache6][RoleCache6]
 
 Il existe trois types de **Expiration Type** : **None**, **Absolute** et **Sliding Window**. Ils définissent comment **Time to Live (min)** est utilisé pour déterminer l'expiration. Le **Type d'expiration** par défaut est **Absolute**, ce qui signifie que le compte à rebours pour l'expiration d'un élément commence lorsque l'élément est placé dans le cache. Une fois que le délai spécifié pour un élément est écoulé, l'élément expire. Si **Sliding Window** est spécifié, le décompte de l'expiration d'un élément est réinitialisé à chaque accès de l'élément dans le cache et l'élément n'expire pas tant que la durée spécifiée depuis son dernier accès n'est pas écoulée. Si **None** est spécifié, alors **Time to Live (min)** soit être défini sur **0**. Les éléments n'expirent pas et restent valides tant qu'ils se trouvent dans le cache.
 
@@ -329,7 +329,7 @@ Le fournisseur de l'état de session pour In-Role Cache est un
 mécanisme de stockage externe aux processus pour les applications ASP.NET. Il vous
 permet de stocker l'état de votre session dans un cache Azure plutôt
 qu'en mémoire ou dans une base de données SQL Server. Pour utiliser le fournisseur de
-l'état de session de la mise en cache, configurez d'abord votre cluster de cache, puis configurez votre application ASP.NET pour la mise en cache à l'aide du package Caching NuGet, comme décrit dans [Prise en main de In-Role Cache][]. Lorsque le package Cache NuGet est installé, il ajoute dans le fichier web.config une section placée en commentaire contenant la configuration requise pour que votre application ASP.NET utilise le fournisseur d'état de session pour In-Role Cache.
+l'état de session de la mise en cache, configurez d'abord votre cluster de cache, puis configurez votre application ASP.NET pour la mise en cache à l'aide du package Caching NuGet, comme décrit dans [Prise en main de In-Role Cache][Prise en main de In-Role Cache]. Lorsque le package Cache NuGet est installé, il ajoute dans le fichier web.config une section placée en commentaire contenant la configuration requise pour que votre application ASP.NET utilise le fournisseur d'état de session pour In-Role Cache.
 
     <!--Uncomment this section to use In-Role Cache for session state caching
     <system.web>
@@ -344,12 +344,12 @@ l'état de session de la mise en cache, configurez d'abord votre cluster de cach
       </sessionState>
     </system.web>-->
 
-> Si votre fichier web.config ne contient pas cette section commentée après l'installation du package Caching NuGet, assurez-vous que la dernière version de NuGet Package Manager est installée depuis [NuGet Package Manager Installation][], puis désinstallez et réinstallez le package.
+> Si votre fichier web.config ne contient pas cette section commentée après l'installation du package Caching NuGet, assurez-vous que la dernière version de NuGet Package Manager est installée depuis [NuGet Package Manager Installation][NuGet Package Manager Installation], puis désinstallez et réinstallez le package.
 
 Pour activer le fournisseur de l'état de session pour In-Role Cache, supprimez les commentaires de le section spécifiée. Le cache par défaut est spécifié dans l'extrait fourni. Pour utiliser un autre cache, spécifiez le cache voulu dans l'attribut **cacheName**.
 
 Pour plus d'informations sur l'utilisation du fournisseur de l'état de session
-du service de mise en cache, consultez la page [Fournisseur de l'état de session pour In-Role Cache][].
+du service de mise en cache, consultez la page [Fournisseur de l'état de session pour In-Role Cache][Fournisseur de l'état de session pour In-Role Cache].
 
 <a name="store-page"></a>
 
@@ -358,7 +358,7 @@ du service de mise en cache, consultez la page [Fournisseur de l'état de sessio
 Le fournisseur de caches de sortie pour In-Role Cache est un mécanisme de stockage hors processus pour les données de cache de sortie. Ces données concernent spécialement les réponses
 HTTP complètes (mise en cache de la sortie de pages). Le fournisseur se connecte sur le nouveau
 point d'extensibilité du fournisseur de caches de sortie introduit dans ASP.NET 4. Pour
-utiliser ce fournisseur de caches de sortie, configurez d'abord votre cluster de cache, puis configurez votre application ASP.NET pour la mise en cache à l'aide du package Caching NuGet, comme décrit dans [Prise en main de In-Role Cache][]. Lorsque le package Cache NuGet est installé, il ajoute dans le fichier web.config la section commentée suivante, qui contient la configuration requise pour que votre application ASP.NET utilise le fournisseur de caches de sortie pour In-Role Cache.
+utiliser ce fournisseur de caches de sortie, configurez d'abord votre cluster de cache, puis configurez votre application ASP.NET pour la mise en cache à l'aide du package Caching NuGet, comme décrit dans [Prise en main de In-Role Cache][Prise en main de In-Role Cache]. Lorsque le package Cache NuGet est installé, il ajoute dans le fichier web.config la section commentée suivante, qui contient la configuration requise pour que votre application ASP.NET utilise le fournisseur de caches de sortie pour In-Role Cache.
 
     <!--Uncomment this section to use In-Role Cache for output caching
     <caching>
@@ -373,7 +373,7 @@ utiliser ce fournisseur de caches de sortie, configurez d'abord votre cluster de
       </outputCache>
     </caching>-->
 
-> Si votre fichier web.config ne contient pas cette section commentée après l'installation du package Caching NuGet, assurez-vous que la dernière version de NuGet Package Manager est installée depuis [NuGet Package Manager Installation][], puis désinstallez et réinstallez le package.
+> Si votre fichier web.config ne contient pas cette section commentée après l'installation du package Caching NuGet, assurez-vous que la dernière version de NuGet Package Manager est installée depuis [NuGet Package Manager Installation][NuGet Package Manager Installation], puis désinstallez et réinstallez le package.
 
 Pour activer le fournisseur de caches de sortie pour In-Role Cache, supprimez les commentaires de la section spécifiée. Le cache par défaut est spécifié dans l'extrait fourni. Pour utiliser un autre cache, spécifiez le cache voulu dans l'attribut **cacheName**.
 
@@ -381,9 +381,9 @@ Ajoutez une directive **OutputCache** à chaque page pour laquelle vous voulez m
 
     <%@ OutputCache Duration="60" VaryByParam="*" %>
 
-Dans cet exemple, les données de page mises en cache resteront dans le cache pendant 60 secondes et une version différente de la page sera mise en cache pour chaque combinaison de paramètres. Pour plus d'informations sur les options disponibles, consultez la page [Directive OutputCache][].
+Dans cet exemple, les données de page mises en cache resteront dans le cache pendant 60 secondes et une version différente de la page sera mise en cache pour chaque combinaison de paramètres. Pour plus d'informations sur les options disponibles, consultez la page [Directive OutputCache][Directive OutputCache].
 
-Pour plus d'informations sur l'utilisation du fournisseur de caches de sortie pour In-Role Cache, consultez la page [Fournisseur de caches de sortie pour In-Role Cache][].
+Pour plus d'informations sur l'utilisation du fournisseur de caches de sortie pour In-Role Cache, consultez la page [Fournisseur de caches de sortie pour In-Role Cache][Fournisseur de caches de sortie pour In-Role Cache].
 
 <a name="next-steps"></a>
 
@@ -392,10 +392,10 @@ Pour plus d'informations sur l'utilisation du fournisseur de caches de sortie po
 Maintenant que vous avez appris les bases de In-Role Cache,
 suivez ces liens pour apprendre des tâches de mise en cache plus complexes.
 
--   Consultez la référence MSDN suivante : [In-Role Cache][]
--   Découvrez comment effectuer la migration vers In-Role Cache : [Migration vers In-Role Cache][]
--   Consultez les exemples : [Exemples In-Role Cache][]
--   Regardez la session [Performances maximales : accélérez vos applications de service cloud avec Azure Caching][] du TechEd 2013 sur In-Role Cache
+-   Consultez la référence MSDN suivante : [In-Role Cache][In-Role Cache]
+-   Découvrez comment effectuer la migration vers In-Role Cache : [Migration vers In-Role Cache][Migration vers In-Role Cache]
+-   Consultez les exemples : [Exemples In-Role Cache][Exemples In-Role Cache]
+-   Regardez la session [Performances maximales : accélérez vos applications de service cloud avec Azure Caching][Performances maximales : accélérez vos applications de service cloud avec Azure Caching] du TechEd 2013 sur In-Role Cache
 
 
   [Étapes suivantes]: #next-steps

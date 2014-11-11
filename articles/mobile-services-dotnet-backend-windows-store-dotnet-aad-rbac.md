@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-dotnet-rbac-with-aad" urlDisplayName="Role Based Access Control with Azure Active Directory" pageTitle="Role Based Access Control in Mobile Services and Azure Active Directory (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to control access based on Azure Active Directory roles in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Role Based Access Control in Mobile Services and Azure Active Directory" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="08/21/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="08/21/2014" ms.author="wesmc" />
 
 # Contrôle d'accès en fonction du rôle dans Mobile Services et Azure Active Directory
 
@@ -35,13 +35,13 @@ Ce didacticiel requiert les éléments suivants :
 
 ## <a name="create-group"></a>Création d'un groupe Sales avec appartenance
 
-[WACOM.INCLUDE [mobile-services-aad-rbac-create-sales-group][mobile-services-aad-rbac-create-sales-group]]
+[WACOM.INCLUDE [mobile-services-aad-rbac-create-sales-group](../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 ## <a name="generate-key"></a>Génération d'une clé pour l'application intégrée
 
 Avec le didacticiel [Prise en main de l'authentification][Prise en main de l'authentification], vous avez créé une inscription pour l'application intégrée lors de l'étape [Inscription à des fins d'utilisation d'une connexion Azure Active Directory][Inscription à des fins d'utilisation d'une connexion Azure Active Directory]. Dans cette section, vous allez générer la clé devant être utilisée pour lire les informations d'annuaire avec l'ID client de cette application intégrée.
 
-[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key][mobile-services-generate-aad-app-registration-access-key]]
+[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 ## <a name="create-custom-authorization-attribute"></a>Création d'un attribut d'autorisation personnalisé pour le service mobile
 
@@ -57,7 +57,7 @@ Dans cette section, vous allez créer un attribut d'autorisation personnalisé p
 
 5.  Dans Visual Studio, cliquez avec le bouton droit sur ce dossier **Utilities**, puis ajoutez un nouveau fichier de classe nommé **AuthorizeAadRole.cs**.
 
-    ![][]
+    ![][0]
 
 6.  Dans le fichier AuthorizeAadRole.cs, ajoutez les instructions `using` suivantes au début du code.
 
@@ -272,13 +272,10 @@ Dans cette section, vous allez créer un attribut d'autorisation personnalisé p
 
 ## <a name="test-client"></a>Test de l'accès client
 
-[WACOM.INCLUDE [mobile-services-aad-rbac-test-app][mobile-services-aad-rbac-test-app]]
+[WACOM.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
 
 
-  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ "Windows Store C#"
-  [Serveur principal .NET]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ ".NET backend"
-  [JavaScript backend]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "JavaScript backend"
   [bibliothèque cliente Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
   [Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
   [Création d'un groupe Sales avec appartenance]: #create-group
@@ -290,5 +287,5 @@ Dans cette section, vous allez créer un attribut d'autorisation personnalisé p
   [mobile-services-aad-rbac-create-sales-group]: ../includes/mobile-services-aad-rbac-create-sales-group.md
   [Inscription à des fins d'utilisation d'une connexion Azure Active Directory]: /fr-fr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
-  []: ./media/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/add-authorize-aad-role-class.png
+  [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/add-authorize-aad-role-class.png
   [mobile-services-aad-rbac-test-app]: ../includes/mobile-services-aad-rbac-test-app.md

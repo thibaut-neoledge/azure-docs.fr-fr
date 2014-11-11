@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-push-notifications-to-users-ios" urlDisplayName="Push Notifications to Users (iOS)" pageTitle="Push notifications to users (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your iOS app." metaCanonical="" services="" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Notifications Push adressées aux utilisateurs à l'aide de Mobile Services
 
@@ -8,14 +8,14 @@
     <a href="/fr-fr/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone">Windows Phone</a><a href="/fr-fr/develop/mobile/tutorials/push-notifications-to-users-ios" title="iOS" class="current">iOS</a><a href="/fr-fr/develop/mobile/tutorials/push-notifications-to-users-android" title="Android" class="current">Android</a>
 </div>
 
-Cette rubrique s'inscrit dans le prolongement du [didacticiel précédent sur les notifications Push][] en ajoutant une nouvelle table pour le stockage des jetons APNS (Apple Push Notification Service). Ceux-ci peuvent ensuite être utilisés pour envoyer des notifications Push aux utilisateurs de l'application iPhone ou iPad.
+Cette rubrique s'inscrit dans le prolongement du [didacticiel précédent sur les notifications Push][didacticiel précédent sur les notifications Push] en ajoutant une nouvelle table pour le stockage des jetons APNS (Apple Push Notification Service). Ceux-ci peuvent ensuite être utilisés pour envoyer des notifications Push aux utilisateurs de l'application iPhone ou iPad.
 
 Ce didacticiel vous guide tout au long de la procédure de mise à jour des notifications Push dans votre application :
 
-1.  [Création de la table Devices][]
-2.  [Mise à jour de l'application][]
-3.  [Mise à jour des scripts serveur][]
-4.  [Vérification du comportement des notifications Push][]
+1.  [Création de la table Devices][Création de la table Devices]
+2.  [Mise à jour de l'application][Mise à jour de l'application]
+3.  [Mise à jour des scripts serveur][Mise à jour des scripts serveur]
+4.  [Vérification du comportement des notifications Push][Vérification du comportement des notifications Push]
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie sur le didacticiel précédent [Prise en main des notifications Push][didacticiel précédent sur les notifications Push]. Avant de commencer ce didacticiel, vous devez suivre le didacticiel [Prise en main des notifications Push][didacticiel précédent sur les notifications Push].
 
@@ -23,9 +23,9 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 
 ## <span class="short-header">Création de la table</span>Création de la table Devices
 
-1.  Connectez-vous au [portail de gestion Azure][], cliquez sur **Mobile Services**, puis sur l'application.
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application.
 
-    ![][]
+    ![][0]
 
 2.  Cliquez sur l'onglet **Data**, puis sur **Create**.
 
@@ -205,28 +205,25 @@ Vous avez terminé ce didacticiel.
 
 Cela met fin à la série de didacticiels établissant les principes de base de l'utilisation de notifications Push. Pour plus d'informations sur les rubriques Mobile Services suivantes :
 
--   [Prise en main des données][]
+-   [Prise en main des données][Prise en main des données]
 
     En savoir plus sur le stockage et l'interrogation des données à l'aide de Mobile Services.
 
--   [Prise en main de l'authentification][]
+-   [Prise en main de l'authentification][Prise en main de l'authentification]
 
     En savoir plus sur l'authentification des utilisateurs de votre application avec un compte Windows.
 
--   [Référence de script serveur Mobile Services][]
+-   [Référence de script serveur Mobile Services][Référence de script serveur Mobile Services]
 
     En savoir plus sur l'enregistrement et l'utilisation des scripts serveur.
 
-  [Windows Phone]: /fr-fr/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
-  [iOS]: /fr-fr/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"
-  [Android]: /fr-fr/develop/mobile/tutorials/push-notifications-to-users-android "Android"
   [didacticiel précédent sur les notifications Push]: /fr-fr/develop/mobile/tutorials/get-started-with-push-ios
   [Création de la table Devices]: #create-table
   [Mise à jour de l'application]: #update-app
   [Mise à jour des scripts serveur]: #update-scripts
   [Vérification du comportement des notifications Push]: #test-app
   [portail de gestion Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-ios-push-notifications-app-users/mobile-services-selection.png
+  [0]: ./media/mobile-services-ios-push-notifications-app-users/mobile-services-selection.png
   [1]: ./media/mobile-services-ios-push-notifications-app-users/mobile-create-table.png
   [2]: ./media/mobile-services-ios-push-notifications-app-users/mobile-create-devices-table.png
   [3]: ./media/mobile-services-ios-push-notifications-app-users/mobile-portal-data-tables-devices.png

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-ios" urlDisplayName="Validate Data" pageTitle="Use server scripts to validate and modify data (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your iOS app." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Validation et modification de données dans Mobile Services à l'aide de scripts serveur
 
@@ -10,18 +10,18 @@ Cette rubrique vous montre comment exploiter les scripts serveur dans Azure Mobi
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 
-1.  [Ajout de la validation de longueur de chaîne][]
-2.  [Mise à jour du client pour la prise en charge de la validation][]
+1.  [Ajout de la validation de longueur de chaîne][Ajout de la validation de longueur de chaîne]
+2.  [Mise à jour du client pour la prise en charge de la validation][Mise à jour du client pour la prise en charge de la validation]
 
-Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données][]. Avant de commencer, vous devez suivre le didacticiel [Prise en main des données][].
+Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données][Prise en main des données]. Avant de commencer, vous devez suivre le didacticiel [Prise en main des données][Prise en main des données].
 
 ## <a name="string-length-validation"></a>Ajout de la validation
 
 Il est toujours souhaitable de valider la longueur des données soumises par les utilisateurs. Vous devez d'abord inscrire un script qui valide la longueur des données de chaîne envoyées au service mobile et refuse les chaînes trop longues, en l'occurrence, celles qui font plus de 10 caractères.
 
-1.  Connectez-vous au [portail de gestion Azure][], cliquez sur **Mobile Services**, puis sur l'application.
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application.
 
-    ![][]
+    ![][0]
 
 2.  Cliquez sur l'onglet **Données**, puis sur la table **TodoItem**.
 
@@ -51,7 +51,7 @@ Il est toujours souhaitable de valider la longueur des données soumises par les
 
 Maintenant que le service mobile valide les données et envoie des réponses d'erreur, vous devez mettre à jour l'application afin qu'elle traite les réponses d'erreur de la validation.
 
-1.  Dans Xcode, ouvrez le projet que vous avez modifié avec le didacticiel [Prise en main des données][].
+1.  Dans Xcode, ouvrez le projet que vous avez modifié avec le didacticiel [Prise en main des données][Prise en main des données].
 
 2.  Appuyez sur le bouton **Exécuter** (Commande + R) pour générer le projet et démarrer l'application, puis tapez un texte de plus de 10 caractères dans la zone de texte et cliquez sur l'icône représentant un signe plus (**+**).
 
@@ -104,35 +104,27 @@ Maintenant que le service mobile valide les données et envoie des réponses d'e
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Maintenant que vous avez terminé ce didacticiel, pensez à suivre le dernier didacticiel dans la série des données : [Affinage des requêtes au moyen de la pagination][].
+Maintenant que vous avez terminé ce didacticiel, pensez à suivre le dernier didacticiel dans la série des données : [Affinage des requêtes au moyen de la pagination][Affinage des requêtes au moyen de la pagination].
 
 Les scripts serveur sont également utilisés dans le cadre du processus d'autorisation des utilisateurs et pour l'envoi de notifications Push. Pour plus d'informations, reportez-vous aux didacticiels suivants :
 
--   [Autorisation des utilisateurs avec des scripts][]
+-   [Autorisation des utilisateurs avec des scripts][Autorisation des utilisateurs avec des scripts]
 
     En savoir plus sur le filtrage des données en fonction de l'ID d'un utilisateur authentifié.
 
--   [Prise en main des notifications Push][]
+-   [Prise en main des notifications Push][Prise en main des notifications Push]
 
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
--   [Référence de script serveur Mobile Services][]
+-   [Référence de script serveur Mobile Services][Référence de script serveur Mobile Services]
 
     En savoir plus sur l'enregistrement et l'utilisation des scripts serveur.
 
-  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts "Windows Store C#"
-  [Windows Store JavaScript]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts "Windows Store JavaScript"
-  [Windows Phone]: /fr-fr/documentation/articles/mobile-services-windows-phone-validate-modify-data-server-scripts "Windows Phone"
-  [iOS]: /fr-fr/documentation/articles/mobile-services-ios-validate-modify-data-server-scripts "iOS"
-  [Android]: /fr-fr/documentation/articles/mobile-services-android-validate-modify-data-server-scripts "Android"
-  [HTML]: /fr-fr/documentation/articles/mobile-services-html-validate-modify-data-server-scripts "HTML"
-  [Xamarin.iOS]: /fr-fr/documentation/articles/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts "Xamarin.iOS"
-  [Xamarin.Android]: /fr-fr/documentation/articles/partner-xamarin-mobile-services-android-validate-modify-data-server-scripts "Xamarin.Android"
   [Ajout de la validation de longueur de chaîne]: #string-length-validation
   [Mise à jour du client pour la prise en charge de la validation]: #update-client-validation
   [Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-ios
   [portail de gestion Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-services-selection.png
+  [0]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-insert-script-users.png
   [3]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-quickstart-data-error-ios.png

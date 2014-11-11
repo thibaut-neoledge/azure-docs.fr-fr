@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-create-pull-notifications-js" urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Define a custom API that supports pull notifications - Azure Mobile Services" metaKeywords="" description="Learn how to Define a custom API that supports periodic notifications in Windows Store apps that use Azure Mobile Services." metaCanonical="" services="" documentationCenter="" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Définition d'une API personnalisée qui prend en charge les notifications périodiques
 
@@ -8,21 +8,21 @@
     <a href="/fr-fr/develop/mobile/tutorials/create-pull-notifications-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/fr-fr/develop/mobile/tutorials/create-pull-notifications-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
 </div>
 
-Cette rubrique explique comment appeler une API personnalisée afin de prendre en charge des notifications périodiques à partir d'une application Windows Store. Si les notifications périodiques sont activées, Windows accédera régulièrement au point de terminaison de votre API personnalisée et utilisera le XML renvoyé, dans un format mosaïque, pour mettre à jour la vignette de l'application dans le menu Démarrer. Pour plus d'informations, consultez la page [Notifications périodiques][].
+Cette rubrique explique comment appeler une API personnalisée afin de prendre en charge des notifications périodiques à partir d'une application Windows Store. Si les notifications périodiques sont activées, Windows accédera régulièrement au point de terminaison de votre API personnalisée et utilisera le XML renvoyé, dans un format mosaïque, pour mettre à jour la vignette de l'application dans le menu Démarrer. Pour plus d'informations, consultez la page [Notifications périodiques][Notifications périodiques].
 
-Vous allez ajouter cette fonctionnalité à l'application que vous avez créée avec le didacticiel [Prise en main de Mobile Services][] ou [Prise en main des données][]. À cet effet, vous allez exécuter la procédure suivante :
+Vous allez ajouter cette fonctionnalité à l'application que vous avez créée avec le didacticiel [Prise en main de Mobile Services][Prise en main de Mobile Services] ou [Prise en main des données][Prise en main des données]. À cet effet, vous allez exécuter la procédure suivante :
 
-1.  [Définition de l'API personnalisée][]
-2.  [Mise à jour de l'application pour activer les notifications périodiques][]
-3.  [Test de l'application][]
+1.  [Définition de l'API personnalisée][Définition de l'API personnalisée]
+2.  [Mise à jour de l'application pour activer les notifications périodiques][Mise à jour de l'application pour activer les notifications périodiques]
+3.  [Test de l'application][Test de l'application]
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez avoir terminé le didacticiel [Prise en main de Mobile Services][] ou [Prise en main des données][].
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez avoir terminé le didacticiel [Prise en main de Mobile Services][Prise en main de Mobile Services] ou [Prise en main des données][Prise en main des données].
 
 ## <a name="define-custom-api"></a>Définition de l'API personnalisée
 
-1.  Connectez-vous au [portail de gestion Azure][], cliquez sur **Mobile Services**, puis sur l'application.
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application.
 
-    ![][]
+    ![][0]
 
 2.  Cliquez sur l’onglet **API**, puis sur **Create a custom API**.
 
@@ -118,16 +118,14 @@ Vous allez ensuite modifier l'application de démarrage rapide pour démarrer de
 
 Maintenant que vous avez créé une notification périodique, vous pouvez consulter les rubriques Mobile Services suivantes pour obtenir plus d'informations :
 
--   [Prise en main des notifications push][]
+-   [Prise en main des notifications push][Prise en main des notifications push]
 
     Les notifications périodiques sont gérées par Windows et obéissent à une planification prédéfinie. Les notifications Push peuvent être envoyées par le service mobile à la demande. Il peut s'agir de notifications toast, par vignette et brutes.
 
--   [Référence de script serveur Mobile Services][]
+-   [Référence de script serveur Mobile Services][Référence de script serveur Mobile Services]
 
     Familiarisez-vous avec la création des API personnalisées.
 
-  [Windows Store C#]: /fr-fr/develop/mobile/tutorials/create-pull-notifications-dotnet "Windows Store C#"
-  [Windows Store JavaScript]: /fr-fr/develop/mobile/tutorials/create-pull-notifications-js "Windows Store JavaScript"
   [Notifications périodiques]: http://msdn.microsoft.com/fr-fr/library/windows/apps/jj150587.aspx
   [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started/#create-new-service
   [Prise en main des données]: /fr-fr/develop/mobile/tutorials/started-with-data-js
@@ -135,13 +133,10 @@ Maintenant que vous avez créé une notification périodique, vous pouvez consul
   [Mise à jour de l'application pour activer les notifications périodiques]: #update-app
   [Test de l'application]: #test-app
   [portail de gestion Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-services-selection.png
+  [0]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-services-selection.png
   [1]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-create.png
   [2]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-create-dialog.png
   [3]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-select.png
-  [module wns]: http://go.microsoft.com/fwlink/p/?LinkId=306750
-  [objet wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-  [objet push]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554217.aspx
   [4]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-live-tile.png
   [Prise en main des notifications push]: /fr-fr/develop/mobile/tutorials/get-started-with-push-js
   [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=262293

@@ -1,6 +1,6 @@
 <properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in Objective-C using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Notification des utilisateurs via Azure Notification Hubs
 
@@ -19,7 +19,7 @@ Ce didacticiel est également un prérequis pour le didacticiel **sur les notifi
 
 Avant de commencer ce didacticiel, vous devez créer un profil d'approvisionnement iOS et un certificat Push de développement, puis créer un concentrateur de notification Azure et le connecter à cette application. Suivez les étapes de la rubrique [Prise en main de Notification Hubs (iOS)][Prise en main de Notification Hubs (iOS)], en particulier les sections 1 à 5.
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers][notification-hubs-aspnet-backend-notifyusers]]
+[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Modification de votre application iOS
 
@@ -36,7 +36,7 @@ Avant de commencer ce didacticiel, vous devez créer un profil d'approvisionneme
 
     Votre storyboard doit ressembler à ce qui suit :
 
-    ![][]
+    ![][0]
 
 2.  Créez des outlets pour les deux UITextFields et les boutons UIButtons dans la partie interface de votre ViewController.m
 
@@ -328,10 +328,6 @@ Pour exécuter l'application, procédez comme suit :
 
 4.  Dans l'interface utilisateur de l'application iOS, cliquez sur **Log in**. Cliquez ensuite sur **Send push**.
 
-  [Windows Universal]: /fr-fr/documentation/articles/notification-hubs-windows-dotnet-notify-users/ "Windows Universal"
-  [iOS]: /fr-fr/documentation/articles/notification-hubs-/ "iOS"
-  [Android]: /fr-fr/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/ "Android"
   [Inscription auprès du serveur principal de votre application]: http://msdn.microsoft.com/fr-fr/library/dn743807.aspx
-  [Prise en main de Notification Hubs (iOS)]: http://azure.microsoft.com/fr-fr/documentation/articles/notification-hubs-ios-get-started/
   [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
-  []: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png
+  [0]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png

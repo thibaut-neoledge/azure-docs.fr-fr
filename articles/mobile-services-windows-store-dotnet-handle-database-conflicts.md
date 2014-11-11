@@ -355,9 +355,6 @@ Une fois que vous avez terminé la série sur les données, vous pouvez égaleme
 
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application avec Mobile Services.
 
-  [Windows Store C#]: /fr-fr/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/ "Windows Store C#"
-  [Windows Store JavaScript]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/ "Windows Store JavaScript"
-  [Windows Phone]: /fr-fr/develop/mobile/tutorials/handle-database-write-conflicts-wp8/ "Windows Phone"
   [Mise à jour de l'application pour autoriser les mises à jour]: #uiupdate
   [Activation de la détection de conflits dans votre application]: #enableOC
   [Test des conflits d'écriture dans la base de données de l'application]: #test-app

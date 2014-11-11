@@ -1,29 +1,29 @@
 <properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-Xamarin-iOS" urlDisplayName="" pageTitle="Use server scripts to validate and modify data (Xamarin iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your Xamarin iOS app." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="donnam" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # Validation et modification de données dans Mobile Services à l'aide de scripts serveur
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone">Windows Phone</a><a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS" class="current">Xamarin.iOS</a><a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
 
-Cette rubrique vous montre comment exploiter les scripts serveur dans Azure Mobile Services. Il est possible d'utiliser les scripts serveur inscrits dans un service mobile pour effectuer diverses opérations sur les données insérées et mises à jour, qu'il s'agisse de les valider ou de les modifier. Ce didacticiel vous apprend à définir et à inscrire les scripts serveur qui valident et modifient les données. Le comportement des scripts serveur ayant souvent un impact sur le client, vous allez également mettre à jour votre application iOS pour tirer profit de ces nouveaux comportements. Le code terminé est disponible dans l'exemple d'application [ValidateModifyData][].
+Cette rubrique vous montre comment exploiter les scripts serveur dans Azure Mobile Services. Il est possible d'utiliser les scripts serveur inscrits dans un service mobile pour effectuer diverses opérations sur les données insérées et mises à jour, qu'il s'agisse de les valider ou de les modifier. Ce didacticiel vous apprend à définir et à inscrire les scripts serveur qui valident et modifient les données. Le comportement des scripts serveur ayant souvent un impact sur le client, vous allez également mettre à jour votre application iOS pour tirer profit de ces nouveaux comportements. Le code terminé est disponible dans l'exemple d'application [ValidateModifyData][ValidateModifyData].
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 
-1.  [Ajout de la validation de longueur de chaîne][]
-2.  [Mise à jour du client pour la prise en charge de la validation][]
-3.  [Ajout d'un horodatage lors d'une insertion][]
-4.  [Mise à jour du client pour l'affichage de l'horodatage][]
+1.  [Ajout de la validation de longueur de chaîne][Ajout de la validation de longueur de chaîne]
+2.  [Mise à jour du client pour la prise en charge de la validation][Mise à jour du client pour la prise en charge de la validation]
+3.  [Ajout d'un horodatage lors d'une insertion][Ajout d'un horodatage lors d'une insertion]
+4.  [Mise à jour du client pour l'affichage de l'horodatage][Mise à jour du client pour l'affichage de l'horodatage]
 
-Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données][]. Avant de commencer, vous devez suivre le didacticiel [Prise en main des données][].
+Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données][Prise en main des données]. Avant de commencer, vous devez suivre le didacticiel [Prise en main des données][Prise en main des données].
 
 ## <a name="string-length-validation"></a>Ajout de la validation
 
 Il est toujours souhaitable de valider la longueur des données soumises par les utilisateurs. Vous devez d'abord inscrire un script qui valide la longueur des données de chaîne envoyées au service mobile et refuse les chaînes trop longues, en l'occurrence, celles qui font plus de 10 caractères.
 
-1.  Connectez-vous au [portail de gestion Azure][], cliquez sur **Mobile Services**, puis sur l'application.
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application.
 
-    ![][]
+    ![][0]
 
 2.  Cliquez sur l'onglet **Données**, puis sur la table **TodoItem**.
 
@@ -53,7 +53,7 @@ Il est toujours souhaitable de valider la longueur des données soumises par les
 
 Maintenant que le service mobile valide les données et envoie des réponses d'erreur, vous devez mettre à jour l'application afin qu'elle traite les réponses d'erreur de la validation.
 
-1.  Dans Xamarin Studio, ouvrez le projet que vous avez modifié avec le didacticiel [Prise en main des données][].
+1.  Dans Xamarin Studio, ouvrez le projet que vous avez modifié avec le didacticiel [Prise en main des données][Prise en main des données].
 
 2.  Cliquez sur **Exécuter** pour générer le projet et démarrer l'application, puis tapez un texte de plus de 10 caractères dans la zone de texte et cliquez sur l'icône plus (**+**).
 
@@ -93,30 +93,22 @@ Maintenant que le service mobile valide les données et envoie des réponses d'e
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Maintenant que vous avez terminé ce didacticiel, pensez à suivre le dernier didacticiel dans la série des données : [Affinage des requêtes au moyen de la pagination][].
+Maintenant que vous avez terminé ce didacticiel, pensez à suivre le dernier didacticiel dans la série des données : [Affinage des requêtes au moyen de la pagination][Affinage des requêtes au moyen de la pagination].
 
 Les scripts serveur sont également utilisés dans le cadre du processus d'autorisation des utilisateurs et pour l'envoi de notifications Push. Pour plus d'informations, reportez-vous aux didacticiels suivants :
 
--   [Autorisation des utilisateurs avec des scripts][]
+-   [Autorisation des utilisateurs avec des scripts][Autorisation des utilisateurs avec des scripts]
 
     En savoir plus sur le filtrage des données en fonction de l'ID d'un utilisateur authentifié.
 
--   [Prise en main des notifications Push][]
+-   [Prise en main des notifications Push][Prise en main des notifications Push]
 
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
--   [Référence de script serveur Mobile Services][]
+-   [Référence de script serveur Mobile Services][Référence de script serveur Mobile Services]
 
     En savoir plus sur l'enregistrement et l'utilisation des scripts serveur.
 
-  [Windows Store C#]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet "Windows Store C#"
-  [Windows Store JavaScript]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-js "Windows Store JavaScript"
-  [Windows Phone]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Windows Phone"
-  [iOS]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS"
-  [Android]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android"
-  [HTML]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML"
-  [Xamarin.iOS]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android"
   [ValidateModifyData]: http://go.microsoft.com/fwlink/p/?LinkId=331330
   [Ajout de la validation de longueur de chaîne]: #string-length-validation
   [Mise à jour du client pour la prise en charge de la validation]: #update-client-validation
@@ -124,7 +116,7 @@ Les scripts serveur sont également utilisés dans le cadre du processus d'autor
   [Mise à jour du client pour l'affichage de l'horodatage]: #update-client-timestamp
   [Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-xamarin-ios
   [portail de gestion Azure]: https://manage.windowsazure.com/
-  []: ./media/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts/mobile-services-selection.png
+  [0]: ./media/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts/mobile-services-selection.png
   [1]: ./media/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts/mobile-portal-data-tables.png
   [2]: ./media/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts/mobile-insert-script-users.png
   [3]: ./media/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts/mobile-quickstart-data-error-ios.png

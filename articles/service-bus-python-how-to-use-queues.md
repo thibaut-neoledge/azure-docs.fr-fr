@@ -1,28 +1,28 @@
 <properties linkid="develop-python-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Python) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Python" description="Learn how to use Service Bus queues in Azure. Code samples written in Python." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Queues" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Utilisation des files d'attente Service Bus
 
 Ce guide vous montre comment utiliser les files d'attente Service Bus. Les exemples sont
 écrits en Python et utilisent le module Azure Python. Les scénarios
 couverts dans ce guide sont les suivants : **création de files d'attente, envoi et réception de messages** et
-**suppression de files d'attente**. Pour plus d'informations sur les files d'attente, consultez la section [Étapes suivantes][].
+**suppression de files d'attente**. Pour plus d'informations sur les files d'attente, consultez la section [Étapes suivantes][Étapes suivantes].
 
 ## Sommaire
 
--   [Présentation des files d'attente Service Bus][]
--   [Création d'un espace de noms de service][]
--   [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms][]
--   [Création d'une file d'attente][]
--   [Envoi de messages à une file d'attente][]
--   [Réception des messages d'une file d'attente][]
--   [Gestion des blocages d'application et des messages illisibles][]
--   [Étapes suivantes][]
+-   [Présentation des files d'attente Service Bus][Présentation des files d'attente Service Bus]
+-   [Création d'un espace de noms de service][Création d'un espace de noms de service]
+-   [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms][Obtention d'informations d'identification de gestion par défaut pour l'espace de noms]
+-   [Création d'une file d'attente][Création d'une file d'attente]
+-   [Envoi de messages à une file d'attente][Envoi de messages à une file d'attente]
+-   [Réception des messages d'une file d'attente][Réception des messages d'une file d'attente]
+-   [Gestion des blocages d'application et des messages illisibles][Gestion des blocages d'application et des messages illisibles]
+-   [Étapes suivantes][Étapes suivantes]
 
-[WACOM.INCLUDE [howto-service-bus-queues][]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-**Remarque :** si vous devez installer Python ou les bibliothèques clientes, consultez le [Guide d'installation de Python][].
+**Remarque :** si vous devez installer Python ou les bibliothèques clientes, consultez le [Guide d'installation de Python][Guide d'installation de Python].
 
 ## <a name="create-queue"> </a>Création d'une file d'attente
 
@@ -140,7 +140,7 @@ tentatives de remise.
 Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez les
 liens suivants pour en savoir plus.
 
--   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements.][]
+-   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements.][Files d'attente, rubriques et abonnements.]
 
   [Étapes suivantes]: #next-steps
   [Présentation des files d'attente Service Bus]: #what-are-service-bus-queues

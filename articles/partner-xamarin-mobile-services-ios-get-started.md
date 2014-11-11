@@ -1,10 +1,10 @@
 <properties pageTitle="Get Started with Mobile Services for Xamarin iOS apps" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with Mobile Services" authors="craigd" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="craigd"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="craigd" />
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 Ce didacticiel vous montre comment ajouter un service principal cloud à une application Xamarin.iOS en utilisant Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application *To do list* qui stocke les données d'application dans le nouveau service mobile.
 
@@ -16,15 +16,15 @@ Vidéo : « Prise en main de Xamarin et d'Azure Mobile Services » avec Craig
 
 Voici une capture d'écran de l'application terminée :
 
-![][]
+![][0]
 
-Pour suivre ce didacticiel, vous avez besoin de XCode 4.5 et d'iOS 5.0 (ou versions ultérieures), ainsi que de [Xamarin Studio][] pour OS X ou du plug-in Xamarin Visual Studio pour Visual Studio sous Windows.
+Pour suivre ce didacticiel, vous avez besoin de XCode 4.5 et d'iOS 5.0 (ou versions ultérieures), ainsi que de [Xamarin Studio][Xamarin Studio] pour OS X ou du plug-in Xamarin Visual Studio pour Visual Studio sous Windows.
 
 <div class="dev-callout"><strong>Remarque</strong> <p>Pour effectuer ce didacticiel, vous avez besoin d&rsquo;un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une &eacute;valuation d'Azure et obtenir jusqu'&agrave; 10&nbsp;services mobiles gratuits que vous pourrez conserver apr&egrave;s l'expiration de votre p&eacute;riode d'&eacute;valuation. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F" target="_blank">Version d'&eacute;valuation gratuite d'Azure</a>.</p></div>
 
 ## <a name="create-new-service"> </a>Création d'un service mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## <span class="short-header">Création d'une application</span> Création d'une application Xamarin.iOS
 
@@ -42,7 +42,7 @@ Dans cette section, vous allez créer une application Xamarin.iOS connectée à 
 
     ![][2]
 
-3.  Si vous ne l'avez pas déjà fait, téléchargez et installez [Xcode] v4.4 ou une version ultérieure et [Xamarin Studio][].
+3.  Si vous ne l'avez pas déjà fait, téléchargez et installez [Xcode] v4.4 ou une version ultérieure et [Xamarin Studio][Xamarin Studio].
 
 4.  Cliquez sur **Create TodoItems table** pour créer une table permettant de stocker les données d'application.
 
@@ -85,26 +85,25 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 Maintenant que vous avez effectué le démarrage rapide, découvrez comment exécuter d'autres tâches importantes dans Mobile Services :
 
--   [Prise en main des données][]
+-   [Prise en main des données][Prise en main des données]
 
     En savoir plus sur le stockage et l'interrogation des données à l'aide de Mobile Services.
 
--   [Prise en main de la synchronisation des données hors connexion][]
+-   [Prise en main de la synchronisation des données hors connexion][Prise en main de la synchronisation des données hors connexion]
 
     En savoir plus sur la synchronisation des données hors connexion pour rendre votre application réactive et robuste.
 
--   [Prise en main de l'authentification][]
+-   [Prise en main de l'authentification][Prise en main de l'authentification]
 
     En savoir plus sur l'authentification des utilisateurs de votre application avec un fournisseur d'identité.
 
--   [Prise en main des notifications Push][]
+-   [Prise en main des notifications Push][Prise en main des notifications Push]
 
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  []: ./media/partner-xamarin-mobile-services-ios-get-started/mobile-quickstart-completed-ios.png
+  [0]: ./media/partner-xamarin-mobile-services-ios-get-started/mobile-quickstart-completed-ios.png
   [Xamarin Studio]: http://xamarin.com/download
-  [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A643EE910&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/partner-xamarin-mobile-services-ios-get-started/mobile-portal-quickstart-xamarin-ios.png
   [2]: ./media/partner-xamarin-mobile-services-ios-get-started/mobile-quickstart-steps-xamarin-ios.png

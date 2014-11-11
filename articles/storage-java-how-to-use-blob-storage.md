@@ -1,40 +1,40 @@
 <properties linkid="dev-net-how-to-use-blog-storage-service-java" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Java) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use Blob Storage from Java" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Utilisation du stockage d'objets blob à partir de Java
 
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage d'objets blob Microsoft Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure Storage pour Java][]. Les scénarios traités incluent le **téléchargement (vers une cible)**, la **création de listes**, le **téléchargement (à partir d'une source)** et la **suppression** d'objets blob. Pour plus d'informations sur les objets blob, consultez la section [Étapes suivantes][].
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage d'objets blob Microsoft Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure Storage pour Java][Kit de développement logiciel (SDK) Azure Storage pour Java]. Les scénarios traités incluent le **téléchargement (vers une cible)**, la **création de listes**, le **téléchargement (à partir d'une source)** et la **suppression** d'objets blob. Pour plus d'informations sur les objets blob, consultez la section [Étapes suivantes][Étapes suivantes].
 
-Remarque : Un Kit de développement logiciel (SDK) est disponible pour les développeurs qui utilisent Azure Storage sur des appareils Android. Pour plus d'informations, consultez la page [Kit de développement logiciel (SDK) Azure Storage pour Android][].
+Remarque : Un Kit de développement logiciel (SDK) est disponible pour les développeurs qui utilisent Azure Storage sur des appareils Android. Pour plus d'informations, consultez la page [Kit de développement logiciel (SDK) Azure Storage pour Android][Kit de développement logiciel (SDK) Azure Storage pour Android].
 
 ## <a name="Contents"> </a>Sommaire
 
--   [Présentation du stockage d'objets blob][]
--   [Concepts][]
--   [Création d'un compte de stockage Azure][]
--   [Création d'une application Java][]
--   [Configuration de votre application pour accéder au stockage d'objets blob][]
--   [Configuration d'une chaîne de connexion de stockage Azure][]
--   [Création d'un conteneur][]
--   [Téléchargement d'un objet blob dans un conteneur][]
--   [Création d'une liste d'objets blob dans un conteneur][]
--   [Téléchargement d'un objet blob][]
--   [Suppression d'un objet blob][]
--   [Suppression d'un conteneur d'objets blob][]
--   [Étapes suivantes][]
+-   [Présentation du stockage d'objets blob][Présentation du stockage d'objets blob]
+-   [Concepts][Concepts]
+-   [Création d'un compte de stockage Azure][Création d'un compte de stockage Azure]
+-   [Création d'une application Java][Création d'une application Java]
+-   [Configuration de votre application pour accéder au stockage d'objets blob][Configuration de votre application pour accéder au stockage d'objets blob]
+-   [Configuration d'une chaîne de connexion de stockage Azure][Configuration d'une chaîne de connexion de stockage Azure]
+-   [Création d'un conteneur][Création d'un conteneur]
+-   [Téléchargement d'un objet blob dans un conteneur][Téléchargement d'un objet blob dans un conteneur]
+-   [Création d'une liste d'objets blob dans un conteneur][Création d'une liste d'objets blob dans un conteneur]
+-   [Téléchargement d'un objet blob][Téléchargement d'un objet blob]
+-   [Suppression d'un objet blob][Suppression d'un objet blob]
+-   [Suppression d'un conteneur d'objets blob][Suppression d'un conteneur d'objets blob]
+-   [Étapes suivantes][Étapes suivantes]
 
-[WACOM.INCLUDE [howto-blob-storage][]]
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <span id="CreateAccount"></span></a>Création d'un compte de stockage Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"> </a>Création d'une application Java
 
 Dans ce guide, vous allez utiliser des fonctionnalités de stockage qui peuvent être exécutées dans une application Java en local, ou dans le code s'exécutant dans un rôle Web ou un rôle de travail dans Azure.
 
-Pour ce faire, vous devez installer Java Development Kit (JDK) et créer un compte de stockage Azure dans votre abonnement Azure. Vous devez ensuite vérifier que votre système de développement répond à la configuration minimale requise et aux dépendances répertoriées dans le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Java][] sur GitHub. Si votre système répond à ces exigences, vous pouvez suivre les instructions de téléchargement et d'installation des bibliothèques Azure Storage pour Java correspondant à votre système à partir de ce référentiel. Une fois ces opérations accomplies, vous pouvez créer une application Java en utilisant les exemples de cet article.
+Pour ce faire, vous devez installer Java Development Kit (JDK) et créer un compte de stockage Azure dans votre abonnement Azure. Vous devez ensuite vérifier que votre système de développement répond à la configuration minimale requise et aux dépendances répertoriées dans le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Java][Kit de développement logiciel (SDK) Azure Storage pour Java] sur GitHub. Si votre système répond à ces exigences, vous pouvez suivre les instructions de téléchargement et d'installation des bibliothèques Azure Storage pour Java correspondant à votre système à partir de ce référentiel. Une fois ces opérations accomplies, vous pouvez créer une application Java en utilisant les exemples de cet article.
 
 ## <a name="ConfigureStorage"> </a>Configuration de votre application pour accéder au stockage d'objets blob
 
@@ -65,7 +65,7 @@ Les exemples suivants partent du principe que vous avez utilisé une de ces deux
 
 ## <a name="CreateContainer"> </a> Création d'un conteneur
 
-Un objet CloudBlobClient vous permet d'obtenir les objets de référence pour les conteneurs et objets blob. Le code suivant crée un objet **CloudBlobClient**. Remarque : d'autres méthodes sont disponibles pour créer des objets **CloudStorageAccount**. Pour plus d'informations, consultez la rubrique **CloudStorageAccount** du document [Référence du Kit de développement logiciel (SDK) du client Azure Storage][].)
+Un objet CloudBlobClient vous permet d'obtenir les objets de référence pour les conteneurs et objets blob. Le code suivant crée un objet **CloudBlobClient**. Remarque : d'autres méthodes sont disponibles pour créer des objets **CloudStorageAccount**. Pour plus d'informations, consultez la rubrique **CloudStorageAccount** du document [Référence du Kit de développement logiciel (SDK) du client Azure Storage][Référence du Kit de développement logiciel (SDK) du client Azure Storage].)
 
 Tous les objets blob résident dans un conteneur. Utilisez l'objet **CloudBlobClient** pour obtenir une référence pointant vers le conteneur à utiliser. Si le conteneur n'existe pas, vous pouvez le créer en utilisant la méthode **createIfNotExists** ; sinon, le conteneur existant est renvoyé. Le nouveau conteneur est privé par défaut et vous devez indiquer votre clé d'accès de stockage (comme précédemment) pour télécharger des objets blob depuis ce conteneur.
 
@@ -165,7 +165,7 @@ Par exemple, vous pouvez avoir un conteneur nommé « photos », dans lequel v
 Vous pouvez également transmettre les paramètres à la méthode **listBlobs** avec le
 paramètre **useFlatBlobListing** défini sur true. Cela permet de renvoyer
 chaque objet blob, indépendamment du répertoire. Pour plus
-d'informations, consultez la rubrique **CloudBlobContainer.listBlobs** du document [Référence du Kit de développement logiciel (SDK) du client Azure Storage][].
+d'informations, consultez la rubrique **CloudBlobContainer.listBlobs** du document [Référence du Kit de développement logiciel (SDK) du client Azure Storage][Référence du Kit de développement logiciel (SDK) du client Azure Storage].
 
 ## <a name="DownloadBlob"> </a> Téléchargement d'un objet blob
 
@@ -254,14 +254,12 @@ appelez la méthode **deleteIfExists**.
 
 Maintenant que vous avez appris les bases du stockage d'objets blob, suivez ces liens pour apprendre des tâches de stockage plus complexes.
 
--   [Kit de développement logiciel (SDK) Azure Storage pour Java][]
--   [Référence du Kit de développement logiciel (SDK) du client Azure Storage][]
--   [API REST d'Azure Storage][]
--   [Blog de l'équipe Azure Storage][]
+-   [Kit de développement logiciel (SDK) Azure Storage pour Java][Kit de développement logiciel (SDK) Azure Storage pour Java]
+-   [Référence du Kit de développement logiciel (SDK) du client Azure Storage][Référence du Kit de développement logiciel (SDK) du client Azure Storage]
+-   [API REST d'Azure Storage][API REST d'Azure Storage]
+-   [Blog de l'équipe Azure Storage][Blog de l'équipe Azure Storage]
 
-  [Kit de développement logiciel (SDK) Azure Storage pour Java]: https://github.com/azure/azure-storage-java
   [Étapes suivantes]: #NextSteps
-  [Kit de développement logiciel (SDK) Azure Storage pour Android]: https://github.com/azure/azure-storage-android
   [Présentation du stockage d'objets blob]: #what-is
   [Concepts]: #Concepts
   [Création d'un compte de stockage Azure]: #CreateAccount
@@ -276,6 +274,5 @@ Maintenant que vous avez appris les bases du stockage d'objets blob, suivez ces 
   [Suppression d'un conteneur d'objets blob]: #DeleteContainer
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [Référence du Kit de développement logiciel (SDK) du client Azure Storage]: http://dl.windowsazure.com/storage/javadoc/
-  [API REST d'Azure Storage]: http://msdn.microsoft.com/en-us/library/azure/gg433040.aspx
+  [API REST d'Azure Storage]: http://msdn.microsoft.com/fr-fr/library/azure/gg433040.aspx
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/

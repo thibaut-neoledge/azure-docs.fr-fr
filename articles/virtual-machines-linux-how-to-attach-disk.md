@@ -1,23 +1,23 @@
 <properties linkid="manage-linux-howto-attach-a-disk" urlDisplayName="Attach a disk" pageTitle="Attach a disk to a virtual machine running Linux in Azure" metaKeywords="disk VM Azure, initialize new disk Azure, initialize disk Azure Linux, attaching empty disk Azure" description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use." metaCanonical="http://www.windowsazure.com/fr-fr/manage/windows/how-to-guides/attach-a-disk/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="7/29/2014" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="7/29/2014" ms.author="kathydav" />
 
 # Association d’un disque de données avec une machine virtuelle Linux
 
 Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas, les disques sont en fait des fichiers .vhd conservés dans un compte de stockage Azure. De plus, après avoir attaché le disque, vous devrez l'initialiser pour qu'il soit prêt à être utilisé.
 
 > [WACOM.NOTE] Il est recommandé d'utiliser un ou plusieurs disques distincts pour conserver les données d'une machine virtuelle. Lors de la création d'une machine virtuelle Azure, cette dernière possède un disque de système d'exploitation et un disque temporaire. **N'utilisez pas le disque temporaire pour conserver des données.** Comme son nom l'indique, il n'offre qu'un stockage temporaire. Il ne fournit ni redondance ni sauvegarde, étant donné qu'il ne se trouve pas sur un stockage Azure.
-> Le disque temporaire est habituellement géré par l'agent Linux Azure et monté automatiquement dans **/mnt/resource** (ou **/mnt** pour les images Ubuntu). Par contre, sous Linux, le disque de données peut être nommé par le noyau `/dev/sdc` Si c'est le cas, il vous faudra partitionner, formater et monter cette ressource. Pour plus d’informations, consultez le [guide d’utilisation de l’agent Linux Azure][].
+> Le disque temporaire est habituellement géré par l'agent Linux Azure et monté automatiquement dans **/mnt/resource** (ou **/mnt** pour les images Ubuntu). Par contre, sous Linux, le disque de données peut être nommé par le noyau `/dev/sdc` Si c'est le cas, il vous faudra partitionner, formater et monter cette ressource. Pour plus d’informations, consultez le [guide d’utilisation de l’agent Linux Azure][guide d’utilisation de l’agent Linux Azure].
 
--   [Association d'un disque vide][]
--   [Association d'un disque existant][]
--   [Initialisation d’un nouveau disque de données sous Linux][]
+-   [Association d'un disque vide][Association d'un disque vide]
+-   [Association d'un disque existant][Association d'un disque existant]
+-   [Initialisation d’un nouveau disque de données sous Linux][Initialisation d’un nouveau disque de données sous Linux]
 
-[WACOM.INCLUDE [howto-attach-disk-windows-linux][]]
+[WACOM.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
 
 ## <span id="initializeinlinux"></span></a> Initialisation d’un nouveau disque de données sous Linux
 
-1.  Pour vous connecter à la machine virtuelle, suivez les étapes indiquées dans la rubrique [Connexion à une machine virtuelle exécutant Linux][].
+1.  Pour vous connecter à la machine virtuelle, suivez les étapes indiquées dans la rubrique [Connexion à une machine virtuelle exécutant Linux][Connexion à une machine virtuelle exécutant Linux].
 
 2.  Dans la fenêtre SSH, tapez la commande suivante, puis entrez le mot de passe du compte créé pour gérer la machine virtuelle :
 
@@ -25,7 +25,7 @@ Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas,
 
     L’identificateur du dernier disque de données ajouté est disponible dans les messages qui s’affichent.
 
-    ![Obtenir les messages du disque][]
+    ![Obtenir les messages du disque][Obtenir les messages du disque]
 
 3.  Dans la fenêtre SSH, tapez la commande suivante pour créer un appareil, puis entrez le mot de passe du compte :
 
@@ -35,25 +35,25 @@ Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas,
 
 4.  Tapez **n** pour créer une partition.
 
-    ![Créer un appareil][]
+    ![Créer un appareil][Créer un appareil]
 
 5.  Tapez **p** pour définir la partition comme partition principale, tapez **1** pour la définir comme première partition, puis appuyez sur Entrée pour accepter la valeur par défaut du cylindre.
 
-    ![Créer une partition][]
+    ![Créer une partition][Créer une partition]
 
 6.  Tapez **p** pour afficher les détails relatifs au disque faisant l’objet de la partition.
 
-    ![Répertorier les informations sur le disque][]
+    ![Répertorier les informations sur le disque][Répertorier les informations sur le disque]
 
 7.  Tapez **w** pour écrire les paramètres du disque.
 
-    ![Écrire les modifications apportées au disque][]
+    ![Écrire les modifications apportées au disque][Écrire les modifications apportées au disque]
 
 8.  Créez le système de fichiers sur la nouvelle partition. Par exemple, entrez la commande suivante, puis le mot de passe du compte :
 
         # sudo mkfs -t ext4 /dev/sdc1
 
-    ![Créer le système de fichiers][]
+    ![Créer le système de fichiers][Créer le système de fichiers]
 
     > [WACOM.NOTE] Notez que les systèmes SUSE Linux Enterprise 11 ne prennent en charge que l’accès en lecture seule aux systèmes de fichiers ext4. Pour ces systèmes, il est recommandé de formater le nouveau système de fichiers en ext3 plutôt que ext4.
 

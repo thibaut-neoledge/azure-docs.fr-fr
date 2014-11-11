@@ -1,6 +1,6 @@
 <properties linkid="manage-services-notification-hubs-notify-users-xplat-mobile-services" urlDisplayName="notify users xplat mobile services" pageTitle="Send cross-platform notifications to users with Notification Hubs (Mobile Services)" metaKeywords="" description="Learn how to use Notification Hubs templates to send, in a single request, a platform-agnostic notification that targets all platforms." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Send cross-platform notifications to users with Notification Hubs" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Envoi de notifications interplateforme aux utilisateurs avec Notification Hubs
 
@@ -9,7 +9,7 @@
     <a href="/fr-fr/documentation/articles/notification-hubs-aspnet-cross-platform-notify-users/" title="ASP.NET">ASP.NET</a>
 </div>
 
-Dans le didacticiel précédent [Notification des utilisateurs avec Notification Hubs][], vous avez appris à envoyer des notifications Push à tous les appareils inscrits par un utilisateur authentifié. Dans ce didacticiel, l'envoi d'une notification à chaque plateforme cliente prise en charge nécessitait plusieurs demandes. Notification Hubs prend en charge des modèles qui permettent de spécifier le mode de réception préféré d'un appareil déterminé. Cela simplifie l'envoi de notifications interplateforme. Cette rubrique montre comment exploiter les modèles pour envoyer, dans une même demande, une notification qui cible toutes les plateformes, quelles qu'elles soient. Pour plus d'informations sur les modèles, consultez la page [Vue d'ensemble des concentrateurs de notification][].
+Dans le didacticiel précédent [Notification des utilisateurs avec Notification Hubs][Notification des utilisateurs avec Notification Hubs], vous avez appris à envoyer des notifications Push à tous les appareils inscrits par un utilisateur authentifié. Dans ce didacticiel, l'envoi d'une notification à chaque plateforme cliente prise en charge nécessitait plusieurs demandes. Notification Hubs prend en charge des modèles qui permettent de spécifier le mode de réception préféré d'un appareil déterminé. Cela simplifie l'envoi de notifications interplateforme. Cette rubrique montre comment exploiter les modèles pour envoyer, dans une même demande, une notification qui cible toutes les plateformes, quelles qu'elles soient. Pour plus d'informations sur les modèles, consultez la page [Vue d'ensemble des concentrateurs de notification][Vue d'ensemble des concentrateurs de notification].
 
 <div class="dev-callout"><b>Remarque</b>
     <p>Notification Hubs permet &agrave; un appareil d'inscrire plusieurs mod&egrave;les avec la m&ecirc;me balise. Dans ce cas, un message entrant ciblant cette balise d&eacute;clenche l'envoi de plusieurs notifications &agrave; destination de l'appareil, une pour chaque mod&egrave;le. Cela vous permet d'afficher le m&ecirc;me message dans plusieurs notifications visuelles, par exemple, sous la forme d'un badge et d'une notification toast dans une application Windows Store.</p>
@@ -17,9 +17,9 @@ Dans le didacticiel précédent [Notification des utilisateurs avec Notification
 
 Pour envoyer des notifications interplateforme à l'aide de modèles, procédez comme suit :
 
-1.  Connectez-vous au [portail de gestion Azure][], cliquez sur **Mobile Services**, puis sur l'application.
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application.
 
-    ![][]
+    ![][0]
 
 2.  Cliquez sur l'onglet **API**, puis sur l'entrée **register\_notifications** dans la table API.
 
@@ -101,25 +101,23 @@ Pour envoyer des notifications interplateforme à l'aide de modèles, procédez 
 
 Maintenant que vous avez terminé ce didacticiel, vous trouverez des informations supplémentaires sur Notification Hubs et les modèles dans les rubriques suivantes :
 
--   **Utilisation de Notification Hubs pour envoyer les dernières nouvelles ([Windows Store C#][] / [iOS][])**
+-   **Utilisation de Notification Hubs pour envoyer les dernières nouvelles ([Windows Store C#][Windows Store C#] / [iOS][iOS])**
     Présente un autre scénario d'utilisation des modèles.
 
--   **[Vue d'ensemble des concentrateurs de notification][]**
+-   **[Vue d'ensemble des concentrateurs de notification][Vue d'ensemble des concentrateurs de notification]**
     Rubrique générale offrant des informations plus détaillées sur les modèles.
 
--   **[Procédures Notification Hubs pour Windows Store][]**
+-   **[Procédures Notification Hubs pour Windows Store][Procédures Notification Hubs pour Windows Store]**
     Fait notamment référence au langage d'expression de modèles.
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Mobile Services]: /fr-fr/documentation/articles/notification-hubs-mobile-services-cross-platform-notify-users/ "Mobile Services"
-  [ASP.NET]: /fr-fr/documentation/articles/notification-hubs-aspnet-cross-platform-notify-users/ "ASP.NET"
   [Notification des utilisateurs avec Notification Hubs]: /fr-fr/manage/services/notification-hubs/notify-users
   [Vue d'ensemble des concentrateurs de notification]: http://go.microsoft.com/fwlink/p/?LinkId=317339
   [portail de gestion Azure]: https://manage.windowsazure.com/
-  []: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-services-selection.png
+  [0]: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-services-selection.png
   [1]: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-custom-api-select.png
   [2]: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-portal-data-tables.png
   [3]: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-insert-script-push2.png

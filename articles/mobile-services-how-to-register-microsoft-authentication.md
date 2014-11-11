@@ -1,18 +1,18 @@
 <properties pageTitle="Register for Microsoft authentication - Mobile Services" metaKeywords="Azure registering application, Azure Microsoft authentication, application authenticate, authenticate mobile services" description="Learn how to register for Microsoft authentication in your Azure Mobile Services application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" title="Register your apps to use a Microsoft Account login" authors="glenga" services="mobile-services" documentationCenter="Mobile" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Inscription de vos applications pour utiliser les informations d'identification d'un compte Microsoft
 
 Cette rubrique montre comment inscrire votre application afin d'utiliser Live Connect comme fournisseur d'authentification pour Azure Mobile Services.
 
-> [WACOM.NOTE]Pour configurer l'authentification de compte Microsoft pour une application Windows 8.1 ou Windows Phone 8.1,[consultez la rubrique Inscription du package de votre application Windows Store pour l'authentification Microsoft][].
+> [WACOM.NOTE]Pour configurer l'authentification de compte Microsoft pour une application Windows 8.1 ou Windows Phone 8.1,[consultez la rubrique Inscription du package de votre application Windows Store pour l'authentification Microsoft][consultez la rubrique Inscription du package de votre application Windows Store pour l'authentification Microsoft].
 
-1.  Accédez à la page [Mes applications][] dans le Centre des développeurs Live Connect, puis connectez-vous avec votre compte Microsoft si nécessaire.
+1.  Accédez à la page [Mes applications][Mes applications] dans le Centre des développeurs Live Connect, puis connectez-vous avec votre compte Microsoft si nécessaire.
 
 2.  Cliquez sur **Créer une application**, puis tapez le **Nom de l'application** et cliquez sur **J'accepte**.
 
-    ![][]
+    ![][0]
 
     Cette action inscrit l'application auprès de Live Connect.
 
@@ -38,6 +38,6 @@ Vous pouvez désormais utiliser un compte Microsoft pour l'authentification dans
 
   [consultez la rubrique Inscription du package de votre application Windows Store pour l'authentification Microsoft]: /fr-fr/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
   [Mes applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-  []: ./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-live-connect-add-app.png
+  [0]: ./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-live-connect-add-app.png
   [1]: ./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth-2.png
   [2]: ./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth.png

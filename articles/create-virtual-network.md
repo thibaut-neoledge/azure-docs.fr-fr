@@ -1,6 +1,6 @@
 <properties linkid="manage-services-create-a-virtual-network" urlDisplayName="Tutorial: Create a cloud-only virtual network" pageTitle="Tutorial: Create a cloud-only virtual network" metaKeywords="" description="Learn how to create an example cloud-only Azure Virtual Network in this tutorial." metaCanonical="" services="virtual-machines,virtual-network" documentationCenter="" title="Tutorial: Create a Clound-only Virtual Network in Azure" authors="cherylmc" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc"></tags>
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc" />
 
 # Didacticiel : Création d'un réseau virtuel cloud uniquement dans Azure
 
@@ -33,7 +33,7 @@ Pour créer cet exemple de réseau virtuel cloud uniquement, procédez comme sui
 
 2.  En bas à gauche de l'écran, cliquez sur **Nouveau** \> **Services de réseau** \> **Réseau virtuel**, puis sur **Création personnalisée** pour lancer l'Assistant Configuration.
 
-    ![][]
+    ![][0]
 
 3.  Dans la page **Détails du réseau virtuel**, entrez les informations suivantes :
 
@@ -92,11 +92,10 @@ Pour plus d'informations sur les paramètres et procédures de configuration du 
   [createvnet]: ./media/create-virtual-network/createVNet_06_VNetExample.png
   [Configuration d'un réseau virtuel cloud uniquement dans le Portail de gestion]: http://msdn.microsoft.com/library/azure/dn631643.aspx
   [Présentation du réseau virtuel]: http://msdn.microsoft.com/library/windowsazure/jj156007.aspx
-  [Didacticiel : Création d'un réseau virtuel pour une connectivité entre différents locaux de site à site]: /fr-fr/manage/services/networking/cross-premises-connectivity/
   [Essayer Azure]: http://www.windowsazure.com/pricing/free-trial/
   [Tarifs préférentiels Microsoft Azure : avantages MSDN, MPN et Bizspark]: http://azure.microsoft.com/fr-fr/pricing/member-offers/msdn-benefits-details/
   [portail de gestion Azure]: http://manage.windowsazure.com/
-  []: ./media/create-virtual-network/createVNet_01_OpenVirtualNetworkWizard.png
+  [0]: ./media/create-virtual-network/createVNet_01_OpenVirtualNetworkWizard.png
   [1]: ./media/create-virtual-network/createVNet_02_VirtualNetworkDetails.png
   [﻿À propos des paramètres de réseau virtuel dans le Portail de gestion]: http://go.microsoft.com/fwlink/?linkid=248092&clcid=0x409
   [2]: ./media/create-virtual-network/createVNet_04_VirtualNetworkAddressSpaces.png

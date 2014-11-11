@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-single-sign-on-windows-8-dotnet" urlDisplayName="Authenticate with single sign-on" pageTitle="Authenticate your Windows Store app with Live Connect" metaKeywords="Azure Live Connect, Azure SSO, SSO Live Connect, mobile services sso, Windows Store app sso" description="Learn how to use Live Connect single sign-on in Azure Mobile Services from a Windows Store application." metaCanonical="" services="mobile-services" documentationCenter="" title="Authenticate your Windows Store app with Live Connect single sign-on" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Authentification unique de vos applications Windows Store avec Live Connect
 
@@ -10,20 +10,20 @@
 
 Cette rubrique vous montre comment utiliser la solution d'authentification unique Live Connect pour authentifier les utilisateurs dans Azure Mobile Services depuis une application Windows Store ou Windows Phone 8.1 Store. Dans ce didacticiel, vous allez ajouter le processus d'authentification au projet de démarrage rapide à l'aide de Live Connect. Après avoir été authentifié par Live Connect, l'utilisateur connecté est accueilli par son nom et son ID est affiché.
 
-> [WACOM.NOTE]Ce didacticiel montre les avantages de l'authentification unique Live Connect pour les applications Windows Store. Cette fonction vous permet d'authentifier plus facilement un utilisateur déjà connecté avec votre service mobile. Pour une expérience d'authentification plus globale permettant la prise en charge de plusieurs fournisseurs de services d'authentification, consultez la rubrique [Prise en main de l'authentification][].
+> [WACOM.NOTE]Ce didacticiel montre les avantages de l'authentification unique Live Connect pour les applications Windows Store. Cette fonction vous permet d'authentifier plus facilement un utilisateur déjà connecté avec votre service mobile. Pour une expérience d'authentification plus globale permettant la prise en charge de plusieurs fournisseurs de services d'authentification, consultez la rubrique [Prise en main de l'authentification][Prise en main de l'authentification].
 
 Ce didacticiel vous familiarise avec les étapes de base pour activer l'authentification Live Connect :
 
-1.  [Inscription de votre application pour l'authentification et configuration de Mobile Services][]
-2.  [Restriction des autorisations de table pour les utilisateurs authentifiés][]
-3.  [Ajout de l'authentification à l'application][]
+1.  [Inscription de votre application pour l'authentification et configuration de Mobile Services][Inscription de votre application pour l'authentification et configuration de Mobile Services]
+2.  [Restriction des autorisations de table pour les utilisateurs authentifiés][Restriction des autorisations de table pour les utilisateurs authentifiés]
+3.  [Ajout de l'authentification à l'application][Ajout de l'authentification à l'application]
 
 Ce didacticiel requiert les éléments suivants :
 
--   [Kit de développement logiciel (SDK) Live][]
+-   [Kit de développement logiciel (SDK) Live][Kit de développement logiciel (SDK) Live]
 -   Microsoft Visual Studio 2012 Express pour Windows 8 RC ou version ultérieure
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez aussi d'abord suivre le didacticiel [Prise en main de Mobile Services][].
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez aussi d'abord suivre le didacticiel [Prise en main de Mobile Services][Prise en main de Mobile Services].
 
 > [WACOM.NOTE]Ce didacticiel utilise un service mobile principal JavaScript. L'authentification gérée par client à l'aide de Live Connect ou d'autres clients d'authentification n'est pas encore prise en charge dans un service mobile principal .NET.
 
@@ -31,11 +31,11 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 Pour pouvoir authentifier les utilisateurs, vous devez soumettre votre application à Windows Store. Vous devez ensuite inscrire la clé secrète client pour intégrer Live Connect à Mobile Services.
 
-[WACOM.INCLUDE [mobile-services-register-windows-store-app][]]
+[WACOM.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
 
 ## <a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend][]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 1.  Dans Visual Studio 2012 Express pour Windows 8, ouvrez le projet que vous avez créé avec le didacticiel [Prise en main de Mobile Services][1].
 
@@ -47,11 +47,11 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 ## <a name="add-authentication"></a>Ajout de l'authentification à l'application
 
-1.  Téléchargez et installez le [Kit de développement logiciel (SDK) Live][].
+1.  Téléchargez et installez le [Kit de développement logiciel (SDK) Live][Kit de développement logiciel (SDK) Live].
 
 2.  Dans le menu **Projet** de Visual Studio, cliquez sur **Ajouter une référence**, puis développez **Windows**, cliquez sur **Extensions**, cochez **Kit de développement logiciel (SDK)**, puis cliquez sur **OK**.
 
-    ![][]
+    ![][0]
 
     Cette action permet d'ajouter une référence au Kit de développement logiciel (SDK) Live dans le projet.
 
@@ -121,23 +121,18 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts][], vous allez utiliser la valeur de l'ID utilisateur fournie par Mobile Services en fonction de l'utilisateur authentifié et l'utiliser pour filtrer les données renvoyées par Mobile Services. Pour plus d'informations sur l'utilisation d'autres fournisseurs d'identité à des fins d'authentification, consultez la page [Prise en main de l'authentification][3]. Obtenez plus d'informations sur Mobile Services avec .NET dans [le guide de fonctionnement Mobile Services .NET][]
+Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts][Autorisation des utilisateurs avec des scripts], vous allez utiliser la valeur de l'ID utilisateur fournie par Mobile Services en fonction de l'utilisateur authentifié et l'utiliser pour filtrer les données renvoyées par Mobile Services. Pour plus d'informations sur l'utilisation d'autres fournisseurs d'identité à des fins d'authentification, consultez la page [Prise en main de l'authentification][3]. Obtenez plus d'informations sur Mobile Services avec .NET dans [le guide de fonctionnement Mobile Services .NET][le guide de fonctionnement Mobile Services .NET]
 
-  [Windows Store C#]: /fr-fr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet "Windows Store C#"
-  [Windows Store JavaScript]: /fr-fr/develop/mobile/tutorials/single-sign-on-windows-8-js "Windows Store JavaScript"
-  [Windows Phone]: /fr-fr/develop/mobile/tutorials/single-sign-on-wp8 "Windows Phone"
   [Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
   [Inscription de votre application pour l'authentification et configuration de Mobile Services]: #register
   [Restriction des autorisations de table pour les utilisateurs authentifiés]: #permissions
   [Ajout de l'authentification à l'application]: #add-authentication
-  [Kit de développement logiciel (SDK) Live]: http://go.microsoft.com/fwlink/p/?LinkId=262253
   [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started
   [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
   [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [1]: /fr-fr/documentation/articles/mobile-services-windows-store-get-started
-  []: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-add-reference-live-dotnet.png
+  [0]: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-add-reference-live-dotnet.png
   [2]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/#tokens
-  [application Windows Phone 8]: /fr-fr/develop/mobile/tutorials/single-sign-on-wp8/
   [Autorisation des utilisateurs avec des scripts]: /fr-fr/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
   [3]: /fr-fr/develop/mobile/tutorials/get-started-with-users-dotnet
   [le guide de fonctionnement Mobile Services .NET]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library

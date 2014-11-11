@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-windows-phone-send-breaking-news" pageTitle="Use Notification Hubs to send breaking news (Windows Phone)" metaKeywords="" description="Use  Azure Notification Hubs to use tag in registrations to send breaking news to a Windows Phone app." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Utilisation des Notification Hubs pour diffuser les dernières nouvelles
 
@@ -10,16 +10,16 @@
 
 Cette rubrique montre comment utiliser Azure Notification Hubs pour diffuser des notifications relatives aux dernières nouvelles vers une application Windows Phone 8.0/8.1 Silverlight. Si vous ciblez une application Windows Store ou Windows Phone 8.1, consultez la version [Windows Universel][1]. Lorsque vous aurez terminé, vous pourrez vous inscrire aux catégories de dernières nouvelles qui vous intéressent et recevoir uniquement des notifications Push pour ces catégories. Ce scénario est un modèle courant pour de nombreuses applications pour lesquelles des notifications doivent être envoyées à des groupes d'utilisateurs qui ont signalé antérieurement un intérêt, par exemple, lecteur RSS, applications pour fans de musique, etc.
 
-Les scénarios de diffusion sont activés en incluant une ou plusieurs *balises* lors de la création d'une inscription dans le Notification Hub. Lorsque des notifications sont envoyées à une balise, tous les appareils pour lesquels cette balise est inscrite reçoivent la notification. Les balises étant de simples chaînes, il n'est pas nécessaire de les mettre en service à l'avance. Pour plus d'informations sur les balises, consultez la page [Recommandations relatives à Notification Hubs][].
+Les scénarios de diffusion sont activés en incluant une ou plusieurs *balises* lors de la création d'une inscription dans le Notification Hub. Lorsque des notifications sont envoyées à une balise, tous les appareils pour lesquels cette balise est inscrite reçoivent la notification. Les balises étant de simples chaînes, il n'est pas nécessaire de les mettre en service à l'avance. Pour plus d'informations sur les balises, consultez la page [Recommandations relatives à Notification Hubs][Recommandations relatives à Notification Hubs].
 
 Ce didacticiel vous familiarise avec les étapes de base pour activer ce scénario :
 
-1.  [Ajout d'une sélection de catégories à l'application][]
-2.  [Inscription à des notifications][]
-3.  [Envoi de notifications à partir de votre serveur principal][]
-4.  [Exécution de l'application et génération de notifications][]
+1.  [Ajout d'une sélection de catégories à l'application][Ajout d'une sélection de catégories à l'application]
+2.  [Inscription à des notifications][Inscription à des notifications]
+3.  [Envoi de notifications à partir de votre serveur principal][Envoi de notifications à partir de votre serveur principal]
+4.  [Exécution de l'application et génération de notifications][Exécution de l'application et génération de notifications]
 
-Cette rubrique s'appuie sur l'application que vous avez créée dans [Prise en main de Notification Hubs][]. Avant de commencer ce didacticiel, vous devez suivre celui intitulé [Prise en main de Notification Hubs][].
+Cette rubrique s'appuie sur l'application que vous avez créée dans [Prise en main de Notification Hubs][Prise en main de Notification Hubs]. Avant de commencer ce didacticiel, vous devez suivre celui intitulé [Prise en main de Notification Hubs][Prise en main de Notification Hubs].
 
 ## <a name="adding-categories"></a>Ajout d'une sélection de catégories à l'application
 
@@ -157,7 +157,7 @@ Les étapes suivantes permettent l'inscription auprès du Notification Hub au d�
 
 2.  Ouvrez le fichier App.xaml.cs et ajoutez le modificateur **async** à la méthode **Application\_Launching**.
 
-3.  Dans la méthode **Application\_Launching**, localisez et remplacez le code d'inscription Notification Hubs que vous avez ajouté dans le cadre du didacticiel [Prise en main de Notification Hubs][] par la ligne de code suivante :
+3.  Dans la méthode **Application\_Launching**, localisez et remplacez le code d'inscription Notification Hubs que vous avez ajouté dans le cadre du didacticiel [Prise en main de Notification Hubs][Prise en main de Notification Hubs] par la ligne de code suivante :
 
         await notifications.SubscribeToCategories(notifications.RetrieveCategories());
 
@@ -183,13 +183,13 @@ L'application est désormais terminée et peut stocker un ensemble de catégorie
 
 ## <a name="send"></a><span class="short-header">Envoi de notifications</span>Envoi de notifications à partir de votre serveur principal
 
-[WACOM.INCLUDE [notification-hubs-back-end][]]
+[WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
 ## <a name="test-app"></a>Exécution de l'application et génération de notifications
 
 1.  Dans Visual Studio, appuyez sur la touche F5 pour compiler et démarrer l'application.
 
-    ![][]
+    ![][0]
 
     Notez que l'interface utilisateur de l'application fournit un ensemble de bascules qui vous permet de choisir les catégories auxquelles vous abonner.
 
@@ -217,9 +217,6 @@ Vous avez terminé cette rubrique.
 <!-- URLs.-->
 
   [Windows Universel]: /fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows Universel"
-  [Windows Phone]: /fr-fr/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
-  [iOS]: /fr-fr/documentation/articles/notification-hubs-ios-send-breaking-news/ "iOS"
-  [Android]: /fr-fr/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/ "Android"
   [1]: /fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
   [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/fr-fr/library/jj927170.aspx
   [Ajout d'une sélection de catégories à l'application]: #adding-categories
@@ -228,6 +225,6 @@ Vous avez terminé cette rubrique.
   [Exécution de l'application et génération de notifications]: #test-app
   [Prise en main de Notification Hubs]: /fr-fr/manage/services/notification-hubs/get-started-notification-hubs-wp8/
   [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
-  []: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-breakingnews.png
+  [0]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-breakingnews.png
   [2]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-registration.png
   [3]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-toast.png

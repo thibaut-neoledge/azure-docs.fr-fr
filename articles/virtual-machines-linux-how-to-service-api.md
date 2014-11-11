@@ -1,22 +1,21 @@
-<properties linkid="manage-linux-howto-service-management-api" urlDisplayName="Service Management API" pageTitle="How to use the service management API for VMs - Azure" metaKeywords="" description="Learn how to use the Azure Service Management API for a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Use the Service Management API" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties linkid="manage-linux-howto-service-management-api" urlDisplayName="Service Management API" pageTitle="How to use the service management API for VMs - Azure" metaKeywords="" description="Learn how to use the Azure Service Management API for a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Use the Service Management API" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt"></tags>
+Utilisation de l'API de gestion des services
+============================================
 
-# Utilisation de l'API de gestion des services
-
-## Initialisation
+Initialisation
+--------------
 
 Pour appeler l'API de gestion des services IaaS Azure à partir de NodeJS, le module `azure` est utilisé.
 
-    var azure = require('azure');
+    var azure = require('azure');
 
 Créez tout d'abord une instance de ServiceManagementService. Tous les appels à l'API utilisent cet objet. L'ID d'abonnement, les informations d'identification et d'autres options de connexion sont définis à ce moment. Pour gérer plusieurs abonnements, créez plusieurs objets ServiceManagementService.
 
-    var iaasClient = azure.createServiceManagementService(subscriptionid, auth, options);
+    var iaasClient = azure.createServiceManagementService(subscriptionid, auth, options);
 
 -   Subscriptionid est une chaîne obligatoire. Il doit s'agir de l'ID d'abonnement du compte auquel vous accédez.
 -   Auth est un objet facultatif spécifiant la clé privée et le certificat public à utiliser avec ce compte.
-
     -   keyfile : chemin d'accès au fichier .pem qui a une clé privée. Ignoré si keyvalue est spécifiée.
     -   keyvalue : valeur réelle d'une clé privée telle qu'elle est stockée dans un fichier .pem.
     -   certfile : chemin d'accès au fichier .pem qui a un certificat public. Ignoré si certvalue est spécifiée.
@@ -24,18 +23,18 @@ Créez tout d'abord une instance de ServiceManagementService. Tous les appels à
     -   Si les valeurs ci-dessus ne sont pas spécifiées, les valeurs des variables d'environnement du processus `CLIENT_AUTH_KEYFILE` et `CLIENT_AUTH_CERTFILE` sont lues et utilisées. Si elles ne sont pas définies, les valeurs par défaut des fichiers sont tentées : priv.pem et pub.pem.
     -   S'il n'est pas possible de charger la clé privée et le certificat public, une erreur est générée.
 -   Options est un objet facultatif pouvant être utilisé pour contrôler les propriétés utilisées par le client.
-
     -   host : nom d'hôte du serveur de gestion Azure. S'il n'est pas spécifié, l'hôte par défaut est utilisé.
     -   apiversion : chaîne de version à utiliser dans l'en-tête HTTP. Si elle n'est pas spécifiée, la version par défaut est utilisée.
     -   serializetype : peut être XML ou JSON. S'il n'est pas spécifié, la sérialisation par défaut est utilisée.
 
 Un proxy de tunnel peut également être utilisé pour permettre à la requête HTTPS de passer par un proxy. Une fois IaasClient créé, la variable d'environnement `HTTPS_PROXY` est traitée. Si elle est définie sur une URL valide, le nom d'hôte et le port sont analysés à partir de l'URL et utilisés lors des requêtes suivantes afin d'identifier le proxy.
 
-        iaasClient.SetProxyUrl(proxyurl)
+     iaasClient.SetProxyUrl(proxyurl)
 
 SetProxyUrl peut être appelé pour définir explicitement l'hôte et le port du proxy. Il a le même effet que lorsque la variable d'environnement `HTTPS_PROXY` est définie et il remplace le paramètre d'environnement.
 
-## Rappels
+Rappels
+-------
 
 Toutes les API ont un argument de rappel requis. L'achèvement de la requête est signalé en appelant la fonction transmise dans le rappel.
 
@@ -52,7 +51,8 @@ Toutes les API ont un argument de rappel requis. L'achèvement de la requête es
 
 Remarquez que, dans certains cas, l'achèvement peut uniquement indiquer que la requête a été acceptée. Dans ce cas, utilisez **GetOperationStatus** pour obtenir l'état final.
 
-## API
+API
+---
 
 **iaasClient.GetOperationStatus(requested, callback)**
 
@@ -75,7 +75,6 @@ Remarquez que, dans certains cas, l'achèvement peut uniquement indiquer que la 
 -   imageName est un nom de chaîne requis de l'image.
 -   mediaLink est un nom de chaîne requis du mediaLink à utiliser.
 -   imageOptions est un objet facultatif. Il peut contenir les propriétés suivantes :
-
     -   Catégorie
     -   Label : imageName par défaut si non défini.
     -   Emplacement
@@ -98,10 +97,9 @@ Remarquez que, dans certains cas, l'achèvement peut uniquement indiquer que la 
 
 -   serviceName est un nom de chaîne requis du service hébergé.
 -   serviceOptions est un objet facultatif. Il peut contenir les propriétés suivantes :
-
     -   Description : « Service host » par défaut
     -   Label : serviceName par défaut si non défini.
-    -   Location : la région où créer le service
+    -   Location : « Azure Preview » par défaut, TODO à modifier lors de la publication.
 -   callback est requis.
 
 **iaasClient.GetStorageAccountKeys(serviceName, callback)**
@@ -210,7 +208,6 @@ Remarquez que, dans certains cas, l'achèvement peut uniquement indiquer que la 
 -   deploymentName est un nom de chaîne requis du déploiement.
 -   roleInstance est un nom de chaîne requis de l'instance de rôle.
 -   captOptions est un objet requis qui définit les actions de capture :
-
     -   PostCaptureActions
     -   ProvisioningConfiguration
     -   SupportsStatelessDeployment
@@ -218,11 +215,10 @@ Remarquez que, dans certains cas, l'achèvement peut uniquement indiquer que la 
     -   TargetImageName
 -   callback est requis.
 
-## Objets de données
+Objets de données
+-----------------
 
-Les API considèrent les objets comme des entrées lors de la création ou de la modification d'un déploiement, d'un rôle ou d'un disque. D'autres API renvoient des objets similaires à une opération Get ou List.
-Cette section décrit les propriétés de l'objet.
-Déploiement
+Les API considèrent les objets comme des entrées lors de la création ou de la modification d'un déploiement, d'un rôle ou d'un disque. D'autres API renvoient des objets similaires à une opération Get ou List. Cette section décrit les propriétés de l'objet. Deployment
 
 -   Name : chaîne
 -   DeploymentSlot : « Staging » ou « Production »
@@ -299,27 +295,28 @@ Déploiement
 -   Port
 -   Protocole
 
-## Exemple de code
+Exemple de code
+---------------
 
 Voici un exemple de code javascript qui crée un service hébergé et un déploiement, puis qui interroge pour connaître l'état d'avancement du déploiement.
 
     var azure = require('azure');
 
-    // specify where certificate files are located
+    // spécifiez où sont situés les fichiers de certificat
     var auth = {
       keyfile : '../certs/priv.pem',
       certfile : '../certs/pub.pem'
     }
 
-    // names and IDs for subscription, service, deployment
+    // noms et ID pour l'abonnement, le service et le déploiement
     var subscriptionId = '167a0c69-cb6f-4522-ba3e-d3bdc9c504e1';
     var serviceName = 'sampleService2';
     var deploymentName = 'sampleDeployment';
 
-    // poll for completion every 10 seconds
+    // interrogation pour connaître l'état de l'avancement toutes les 10 secondes
     var pollPeriod = 10000;
 
-    // data used to define deployment and role
+    // données utilisées pour définir le déploiement et le rôle
 
     var deploymentOptions = {
       DeploymentSlot: 'Staging',
@@ -363,7 +360,7 @@ Voici un exemple de code javascript qui crée un service hébergé et un déploi
     }
 
 
-    // function to show error messages if failed
+    // fonction pour afficher les messages d'erreur en cas d'échec
     function showErrorResponse(rsp) {
       console.log('There was an error response from the service');
       console.log('status code=' + rsp.statusCode);
@@ -371,7 +368,7 @@ Voici un exemple de code javascript qui crée un service hébergé et un déploi
       console.log('Error Message=' + rsp.error.Message);
     }
 
-    // polling for completion
+    // interrogation pour connaître l'état d'avancement
     function PollComplete(reqid) {
       iaasCli.GetOperationStatus(reqid, function(rspobj) {
         if (rspobj.isSuccessful && rspobj.response) {
@@ -394,12 +391,12 @@ Voici un exemple de code javascript qui crée un service hébergé et un déploi
     }
 
 
-    // create the client object
+    // créez l'objet client
     var iaasCli = azure.createServiceManagementService(subscriptionId, auth);
 
-    // create a hosted service.
-    // if successful, create deployment
-    // if accepted, poll for completion
+    // créez un service hébergé.
+    // en cas de réussite, créez un déploiement
+    // en cas d'acceptation, interrogez pour connaître l'état d'avancement
     iaasCli.CreateHostedService(serviceName, function(rspobj) {
       if (rspobj.isSuccessful) {
         iaasCli.CreateDeployment(serviceName, 
@@ -407,7 +404,7 @@ Voici un exemple de code javascript qui crée un service hébergé et un déploi
                                  VMRole, deploymentOptions,
                                   function(rspobj) {
           if (rspobj.isSuccessful) {
-          // get request id, and start polling for completion
+          // obtenez l'ID de la requête et commencez à interroger pour connaître l'état d'avancement
             var reqid = rspobj.headers['x-ms-request-id'];
             process.stdout.write('Polling');
             setTimeout(PollComplete(reqid), pollPeriod);

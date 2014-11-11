@@ -1,10 +1,10 @@
 <properties title="Troubleshooting Azure Websites in Visual Studio" pageTitle="Troubleshooting Azure Websites in Visual Studio" metaKeywords="troubleshoot debug azure web site tracing logging" description="Learn how to troubleshoot an Azure Website by using remote debugging, tracing, and logging tools that are built in to Visual Studio 2013." metaCanonical="" services="web-sites" documentationCenter=".NET" authors="tdykstra" manager="wpickett" solutions="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
 
 # Résolution des problèmes de Sites Web Azure dans Visual Studio
 
-Durant le développement et le test d'une application Web, vous pouvez résoudre des problèmes en [exécutant le mode débogage][] ou en utilisant [IntelliTrace][]. Vous pouvez exécuter le mode débogage localement dans IIS Express ou à distance dans un site Web Azure. Mais pour les erreurs qui se produisent uniquement durant la production, la meilleure méthode de débogage consiste à examiner les journaux créés par le code d'application ou le serveur Web. Ce didacticiel montre comment utiliser les outils Visual Studio permettant de déboguer une application exécutée dans un site Web Azure en utilisant le mode débogage à distance ou en consultant les journaux d'application et de serveur Web.
+Durant le développement et le test d'une application Web, vous pouvez résoudre des problèmes en [exécutant le mode débogage][exécutant le mode débogage] ou en utilisant [IntelliTrace][IntelliTrace]. Vous pouvez exécuter le mode débogage localement dans IIS Express ou à distance dans un site Web Azure. Mais pour les erreurs qui se produisent uniquement durant la production, la meilleure méthode de débogage consiste à examiner les journaux créés par le code d'application ou le serveur Web. Ce didacticiel montre comment utiliser les outils Visual Studio permettant de déboguer une application exécutée dans un site Web Azure en utilisant le mode débogage à distance ou en consultant les journaux d'application et de serveur Web.
 
 Vous apprendrez ce qui suit :
 
@@ -17,22 +17,22 @@ Vous apprendrez ce qui suit :
 
 ### Sections du didacticiel
 
-1.  [Configuration requise][]
-2.  [Configuration et gestion de site][]
-3.  [Affichage distant][]
-4.  [Débogage à distance][]
-5.  [Présentation des journaux de diagnostic][]
-6.  [Création et affichage des journaux de suivi d'application][]
-7.  [Affichage des journaux de serveur Web][]
-8.  [Affichage des journaux de messages d'erreur détaillés][]
-9.  [Téléchargement de journaux du système de fichiers][]
-10. [Affichage des journaux de stockage][]
-11. [Affichage des journaux de demandes ayant échoué][]
-12. [Étapes suivantes][]
+1.  [Configuration requise][Configuration requise]
+2.  [Configuration et gestion de site][Configuration et gestion de site]
+3.  [Affichage distant][Affichage distant]
+4.  [Débogage à distance][Débogage à distance]
+5.  [Présentation des journaux de diagnostic][Présentation des journaux de diagnostic]
+6.  [Création et affichage des journaux de suivi d'application][Création et affichage des journaux de suivi d'application]
+7.  [Affichage des journaux de serveur Web][Affichage des journaux de serveur Web]
+8.  [Affichage des journaux de messages d'erreur détaillés][Affichage des journaux de messages d'erreur détaillés]
+9.  [Téléchargement de journaux du système de fichiers][Téléchargement de journaux du système de fichiers]
+10. [Affichage des journaux de stockage][Affichage des journaux de stockage]
+11. [Affichage des journaux de demandes ayant échoué][Affichage des journaux de demandes ayant échoué]
+12. [Étapes suivantes][Étapes suivantes]
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-Ce didacticiel fonctionne avec l'environnement de développement, le projet Web et le site Web Azure que vous avez configurés dans le didacticiel [Prise en main d'Azure et d'ASP.NET][]. Les exemples de code inclus dans ce didacticiel sont destinés à une application Web C# MVC, mais les procédures de résolution de problèmes sont identiques pour les applications Visual Basic et Web Forms.
+Ce didacticiel fonctionne avec l'environnement de développement, le projet Web et le site Web Azure que vous avez configurés dans le didacticiel [Prise en main d'Azure et d'ASP.NET][Prise en main d'Azure et d'ASP.NET]. Les exemples de code inclus dans ce didacticiel sont destinés à une application Web C# MVC, mais les procédures de résolution de problèmes sont identiques pour les applications Visual Basic et Web Forms.
 
 Le débogage à distance requiert Visual Studio 2013 ou Visual Studio 2012 avec Update 4. Les autres fonctionnalités affichées dans ce didacticiel fonctionnent également dans les versions 2012 et 2013 de Visual Studio Express pour le Web.
 
@@ -49,30 +49,30 @@ Visual Studio permet d'accéder à un sous-ensemble des fonctionnalités de gest
     > [WACOM.NOTE]
     > Si vous téléchargez un fichier d'abonnement, enregistrez-le dans un dossier situé hors de vos répertoires de code source (par exemple, dans le dossier Téléchargements), puis supprimez-le une fois l'importation terminée. Si un utilisateur malveillant accède au fichier d’abonnement, il peut modifier, créer et supprimer vos services Azure.
 
-    Pour plus d'informations sur la connexion aux ressources Azure à partir de Visual Studio, consultez la page [Gérer des comptes, des abonnements et des rôles d'administrateur][].
+    Pour plus d'informations sur la connexion aux ressources Azure à partir de Visual Studio, consultez la page [Gérer des comptes, des abonnements et des rôles d'administrateur][Gérer des comptes, des abonnements et des rôles d'administrateur].
 
 2.  Dans l'**Explorateur de serveurs**, développez **Azure**, puis **Sites Web**.
 
-3.  Cliquez avec le bouton droit sur le nœud du site Web créé durant le didacticiel [Prise en main d'Azure et d'ASP.NET][], puis cliquez sur **Paramètres d'affichage**.
+3.  Cliquez avec le bouton droit sur le nœud du site Web créé durant le didacticiel [Prise en main d'Azure et d'ASP.NET][Prise en main d'Azure et d'ASP.NET], puis cliquez sur **Paramètres d'affichage**.
 
-    ![Afficher les paramètres dans l'Explorateur de serveurs][]
+    ![Afficher les paramètres dans l'Explorateur de serveurs][Afficher les paramètres dans l'Explorateur de serveurs]
 
     L'onglet **Site Web Azure** s'affiche et des tâches de gestion et de configuration de site deviennent disponibles dans Visual Studio.
 
-    ![Fenêtre Site Web Azure][]
+    ![Fenêtre Site Web Azure][Fenêtre Site Web Azure]
 
     Dans ce didacticiel, vous utiliserez les menus déroulants de suivi et de journalisation. Vous utiliserez également le débogage à distance en l'activant d'une façon différente.
 
-    Pour obtenir des informations sur les zones Paramètres de l'application et Chaînes de connexion de cette fenêtre, consultez la page [Fonctionnement des chaînes d'application et de connexion dans Sites Web Azure][].
+    Pour obtenir des informations sur les zones Paramètres de l'application et Chaînes de connexion de cette fenêtre, consultez la page [Fonctionnement des chaînes d'application et de connexion dans Sites Web Azure][Fonctionnement des chaînes d'application et de connexion dans Sites Web Azure].
 
-    Pour mener à bien une tâche de gestion de site qui n'est pas disponible dans cette fenêtre, cliquez sur **Paramètres de site Web complets** pour ouvrir une fenêtre de navigateur vers le portail de gestion. Pour plus d’informations, consultez la rubrique [Configuration des sites Web][].
+    Pour mener à bien une tâche de gestion de site qui n'est pas disponible dans cette fenêtre, cliquez sur **Paramètres de site Web complets** pour ouvrir une fenêtre de navigateur vers le portail de gestion. Pour plus d’informations, consultez la rubrique [Configuration des sites Web][Configuration des sites Web].
 
 ## <a name="remoteview"></a>Affichage distant
 
 Vous pouvez généralement déployer un site avec l'indicateur `customErrors` dans le fichier Web.config défini sur `On` ou `RemoteOnly`, ce qui signifie que vous n'obtenez pas de message d'erreur utile lorsqu'une erreur survient. Généralement, ces messages se présentent sous la forme d'une page comme celles qui suivent.
 
 **Erreur de serveur dans l'application « / » :**
-![Page d'erreur inutile][]
+![Page d'erreur inutile][Page d'erreur inutile]
 
 **Nous avons rencontré une erreur :**
 ![Page d'erreur inutile][1]
@@ -80,17 +80,17 @@ Vous pouvez généralement déployer un site avec l'indicateur `customErrors` da
 **Le site Web ne peut pas afficher la page**
 ![Page d'erreur inutile][2]
 
-Généralement, la méthode la plus simple pour rechercher la cause d'une erreur consiste à activer les messages d'erreur détaillés : la première capture d'écran de la série précédente montre comment procéder. Vous devez modifier le fichier Web.config déployé. Vous pouvez modifier le fichier *Web.config* dans le projet, puis redéployer le projet, ou créer une [transformation Web.config][], puis déployer une version de débogage, mais il existe une méthode plus rapide : l'**Explorateur de solutions** permet d'afficher et de modifier directement des fichiers sur un site distant en utilisant la fonctionnalité *affichage distant*.
+Généralement, la méthode la plus simple pour rechercher la cause d'une erreur consiste à activer les messages d'erreur détaillés : la première capture d'écran de la série précédente montre comment procéder. Vous devez modifier le fichier Web.config déployé. Vous pouvez modifier le fichier *Web.config* dans le projet, puis redéployer le projet, ou créer une [transformation Web.config][transformation Web.config], puis déployer une version de débogage, mais il existe une méthode plus rapide : l'**Explorateur de solutions** permet d'afficher et de modifier directement des fichiers sur un site distant en utilisant la fonctionnalité *affichage distant*.
 
 1.  Dans l'**Explorateur de serveurs**, développez **Azure**, **Sites Web**, puis le nœud du site Web vers lequel vous procédez au déploiement.
 
     Les nœuds qui s'affichent permettent d'accéder aux fichiers de contenu du site et aux fichiers journaux.
 
-    ![Fichiers et fichiers journaux][]
+    ![Fichiers et fichiers journaux][Fichiers et fichiers journaux]
 
 2.  Développez le nœud **Fichiers**, puis double-cliquez sur le fichier *Web.config*.
 
-    ![Ouvrir Web.config][]
+    ![Ouvrir Web.config][Ouvrir Web.config]
 
     Visual Studio ouvre le fichier Web.config à partir du site distant, puis affiche [Distant] en regard du nom du fichier dans la barre de titre.
 
@@ -98,11 +98,11 @@ Généralement, la méthode la plus simple pour rechercher la cause d'une erreur
 
     `<customErrors mode="off"></customErrors>`
 
-    ![Modifier Web.config][]
+    ![Modifier Web.config][Modifier Web.config]
 
 4.  Actualisez le navigateur qui affiche le message d'erreur inutile : à présent, vous obtenez un message d'erreur détaillé, comme dans l'exemple suivant :
 
-    ![Message d'erreur détaillé][]
+    ![Message d'erreur détaillé][Message d'erreur détaillé]
 
     L'erreur affichée est générée par l'ajout de la ligne affichée en rouge à *Views\\Home\\Index.cshtml*.
 
@@ -114,9 +114,9 @@ Si le message d'erreur détaillé ne fournit pas assez d'informations et que vou
 
 Le débogage à distance ne fonctionne pas avec les éditions Express de Visual Studio.
 
-Cette section vous montre comment procéder au débogage à distance en utilisant le projet que vous créez dans le didacticiel [Prise en main d'Azure et d'ASP.NET][].
+Cette section vous montre comment procéder au débogage à distance en utilisant le projet que vous créez dans le didacticiel [Prise en main d'Azure et d'ASP.NET][Prise en main d'Azure et d'ASP.NET].
 
-1.  Ouvrez le projet Web que vous avez créé durant le didacticiel [Prise en main d'Azure et d'ASP.NET][].
+1.  Ouvrez le projet Web que vous avez créé durant le didacticiel [Prise en main d'Azure et d'ASP.NET][Prise en main d'Azure et d'ASP.NET].
 
 2.  Ouvrez *Controllers\\HomeController.cs*.
 
@@ -133,17 +133,17 @@ Cette section vous montre comment procéder au débogage à distance en utilisan
 
 5.  Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis cliquez sur **Publier**.
 
-6.  Dans le menu déroulant **Profil**, sélectionnez le même profil que celui utilisé dans [Prise en main d'Azure et d'ASP.NET][].
+6.  Dans le menu déroulant **Profil**, sélectionnez le même profil que celui utilisé dans [Prise en main d'Azure et d'ASP.NET][Prise en main d'Azure et d'ASP.NET].
 
 7.  Cliquez sur l'onglet **Paramètres**, remplacez **Configuration** par **Debug**, puis cliquez sur **Publier**.
 
-    ![Publier en mode débogage][]
+    ![Publier en mode débogage][Publier en mode débogage]
 
 8.  Une fois le déploiement terminé et que votre navigateur ouvre l'URL Azure de votre site, fermez-le.
 
 9.  Pour Visual Studio 2013 : dans l'**Explorateur de serveurs**, développez **Azure**, **Sites Web**, cliquez avec le bouton droit sur votre site Web, puis cliquez sur **Attacher le débogueur**.
 
-    ![Attacher le débogueur][]
+    ![Attacher le débogueur][Attacher le débogueur]
 
     Le navigateur ouvre automatiquement votre page d'accueil exécutée dans Azure. Vous devrez peut-être attendre environ 20 secondes pendant qu'Azure configure le serveur pour le débogage. Ce délai se produit uniquement lors du premier démarrage en mode débogage sur un site Web. Il ne se reproduira pas lors des redémarrages du mode débogage au cours des 48 prochaines heures.
 
@@ -153,7 +153,7 @@ Cette section vous montre comment procéder au débogage à distance en utilisan
 
     -   Définissez **Débogage distant** sur **On**, puis **Remote Debugging Visual Studio Version** sur **2012**.
 
-    ![Configurer le débogage à distance sur le portail de gestion][]
+    ![Configurer le débogage à distance sur le portail de gestion][Configurer le débogage à distance sur le portail de gestion]
 
     -   Dans le menu **Déboguer** de Visual Studio, cliquez sur **Attacher au processus**.
 
@@ -175,7 +175,7 @@ Cette section vous montre comment procéder au débogage à distance en utilisan
 
 12. Passez la souris sur la variable `currentTime` pour afficher la valeur de temps.
 
-    ![Afficher une variable en mode débogage sur Azure][]
+    ![Afficher une variable en mode débogage sur Azure][Afficher une variable en mode débogage sur Azure]
 
     Le temps affiché correspond au fuseau horaire du serveur Azure, qui peut différer de celui de votre ordinateur local.
 
@@ -185,7 +185,7 @@ Cette section vous montre comment procéder au débogage à distance en utilisan
 
     La page « À propos de » exécutée dans Azure affiche la nouvelle valeur entrée dans la variable currentTime.
 
-    ![Page « À propos de » avec une nouvelle valeur][]
+    ![Page « À propos de » avec une nouvelle valeur][Page « À propos de » avec une nouvelle valeur]
 
 ### Notes à propos du débogage à distance
 
@@ -193,7 +193,7 @@ Cette section vous montre comment procéder au débogage à distance en utilisan
 
 -   Évitez les arrêts longs aux points d'arrêt avec le débogage à distance. Azure considère qu'un processus arrêté pendant plus de quelques minutes ne répond pas, et l'arrête définitivement.
 
--   Pendant le débogage, le serveur envoie des données à Visual Studio, ce qui peut affecter les frais de bande passante. Pour plus d'informations sur les tarifs de bande passante, consultez les [tarifs Azure][].
+-   Pendant le débogage, le serveur envoie des données à Visual Studio, ce qui peut affecter les frais de bande passante. Pour plus d'informations sur les tarifs de bande passante, consultez les [tarifs Azure][tarifs Azure].
 
 -   Vérifiez que l'attribut `debug` de l'élément `compilation` du fichier *Web.config* est défini sur true. Il est défini sur true par défaut lorsque vous publiez une configuration de version de débogage.
 
@@ -202,18 +202,18 @@ Cette section vous montre comment procéder au débogage à distance en utilisan
           <httpRuntime targetFramework="4.5" />
         </system.web>
 
--   Si le débogueur ne parcourt pas le code que vous voulez déboguer, vous devez modifier le paramètre « Uniquement mon code ». Pour plus d'informations, consultez la page [Limiter le pas à pas à Uniquement mon code][].
+-   Si le débogueur ne parcourt pas le code que vous voulez déboguer, vous devez modifier le paramètre « Uniquement mon code ». Pour plus d'informations, consultez la page [Limiter le pas à pas à Uniquement mon code][Limiter le pas à pas à Uniquement mon code].
 
 -   Lorsque vous activez la fonctionnalité de débogage à distance, un compteur démarre sur le serveur : après 48 heures, la fonctionnalité est automatiquement désactivée. Cette limite de 48 heures a été définie à des fins de sécurité et de performances. Vous pouvez facilement réactiver la fonctionnalité autant de fois que nécessaire. Nous vous recommandons de la désactiver lorsque vous n'utilisez pas le débogage.
 
--   Vous pouvez joindre manuellement le débogueur à n'importe quelle procédure. Vous pouvez non seulement déboguer le processus de site Web (w3wp.exe), mais également d'autres processus tels que [WebJobs][]. Pour plus d'informations sur l'utilisation du mode débogage dans Visual Studio, consultez la page [Débogage dans Visual Studio][].
+-   Vous pouvez joindre manuellement le débogueur à n'importe quelle procédure. Vous pouvez non seulement déboguer le processus de site Web (w3wp.exe), mais également d'autres processus tels que [WebJobs][WebJobs]. Pour plus d'informations sur l'utilisation du mode débogage dans Visual Studio, consultez la page [Débogage dans Visual Studio][Débogage dans Visual Studio].
 
 ## <a name="logsoverview"></a><span class="short-header">Présentation des journaux</span>Présentation des journaux de diagnostic
 
 Une application ASP.NET exécutée dans un site Web Azure peut créer les types de journaux suivants :
 
 -   **Journaux de suivi d'application**
-     : l'application crée ces journaux en appelant des méthodes de la classe [System.Diagnostics.Trace][].
+     : l'application crée ces journaux en appelant des méthodes de la classe [System.Diagnostics.Trace][System.Diagnostics.Trace].
 -   **Journaux de serveur Web**
      : le serveur Web crée une entrée de journal pour chaque requête HTTP vers le site.
 -   **Journaux de messages d'erreur détaillés**
@@ -284,7 +284,7 @@ Dans cette section, vous effectuerez les tâches suivantes :
 
     L'écouteur de suivi par défaut écrit toutes les sorties de suivi dans la fenêtre **Sortie**, avec d'autres sorties de débogage. L'image suivante montre la sortie des instructions de suivi ajoutées à la méthode `Index`.
 
-    ![Suivi dans la fenêtre Débogage][]
+    ![Suivi dans la fenêtre Débogage][Suivi dans la fenêtre Débogage]
 
     La procédure suivante montre comment afficher la sortie de suivi dans une page Web, sans procéder à la compilation en mode de débogage.
 
@@ -305,7 +305,7 @@ Dans cette section, vous effectuerez les tâches suivantes :
 
     L'élément `WebPageTraceListener` vous permet d'afficher la sortie de suivi en accédant à `/trace.axd`.
 
-3.  Ajoutez un [élément de suivi][] sous `<system.web>` dans le fichier Web.config, comme dans l'exemple suivant :
+3.  Ajoutez un [élément de suivi][élément de suivi] sous `<system.web>` dans le fichier Web.config, comme dans l'exemple suivant :
 
         <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 
@@ -315,7 +315,7 @@ Dans cette section, vous effectuerez les tâches suivantes :
 
 6.  Sur la page **Suivi d'application**, cliquez sur **Afficher les détails**.
 
-    ![trace.axd][]
+    ![trace.axd][trace.axd]
 
     La page **Détails de la demande** s'affiche et la section **Informations de suivi** affiche la sortie des instructions de suivi ajoutées à la méthode `Index`.
 
@@ -337,7 +337,7 @@ Dans cette section, vous effectuerez les tâches suivantes :
 
 3.  Dans l'**Explorateur de serveurs**, cliquez avec le bouton droit sur votre site Web puis sélectionnez **Afficher la diffusion des journaux dans la fenêtre Sortie**.
 
-    ![Afficher la diffusion de journaux en continu dans le menu contextuel][]
+    ![Afficher la diffusion de journaux en continu dans le menu contextuel][Afficher la diffusion de journaux en continu dans le menu contextuel]
 
     La fenêtre **Sortie** indique que vous êtes connecté au service de diffusion de journaux en continu et ajoute une ligne de notification à chaque minute passée sans affichage de journal.
 
@@ -347,11 +347,11 @@ Dans cette section, vous effectuerez les tâches suivantes :
 
     En quelques secondes, la sortie du suivi de l'erreur que vous avez ajouté à la méthode `Contact` apparaît dans la fenêtre **Sortie**.
 
-    ![Suivi d'erreur dans la fenêtre Sortie][]
+    ![Suivi d'erreur dans la fenêtre Sortie][Suivi d'erreur dans la fenêtre Sortie]
 
     Visual Studio affiche uniquement le suivi des erreurs, car il s'agit du paramètre par défaut lorsque vous activez le service de surveillance des journaux. Lorsque vous créez un site Web Azure, toutes les journalisations sont désactivées par défaut, comme vous l'avez constaté en ouvrant la page de paramètres du site :
 
-    ![Journalisation d'application désactivée][]
+    ![Journalisation d'application désactivée][Journalisation d'application désactivée]
 
     Cependant, lorsque vous avez sélectionné **View Streaming Logs in Output Window**, Visual Studio a automatiquement remplacé **Application Logging(File System)** par **Erreur**, ce qui signifie que les journaux d'erreur sont signalés. Pour afficher tous vos journaux de suivi, vous pouvez remplacer ce paramètre par **Commentaires**. Lorsque vous sélectionnez un niveau de gravité inférieur à l'erreur, tous les journaux correspondant aux niveaux de gravité supérieurs sont également signalés. Donc, lorsque vous sélectionnez Commentaires, vous pouvez également consulter des informations, des avertissements et des journaux d'erreurs.
 
@@ -359,13 +359,13 @@ Dans cette section, vous effectuerez les tâches suivantes :
 
 6.  Remplacez **Application Logging (File System)** par **Commentaires**, puis cliquez sur **Enregistrer**.
 
-    ![Définir le niveau de suivi sur Commentaires][]
+    ![Définir le niveau de suivi sur Commentaires][Définir le niveau de suivi sur Commentaires]
 
 7.  Dans la fenêtre du navigateur affichant votre page **Contact**, cliquez sur **Accueil**, sur **À propos de**, puis sur **Contact**.
 
     Quelques secondes après, la fenêtre **Sortie** affiche toutes vos sorties de suivi.
 
-    ![Sortie de suivi des commentaires][]
+    ![Sortie de suivi des commentaires][Sortie de suivi des commentaires]
 
     Dans cette section, vous avez activé et désactivé la journalisation en utilisant les paramètres de Sites Web Azure. Vous pouvez également activer et désactiver les écouteurs de suivi en modifiant le fichier Web.config. Cependant, la modification du fichier Web.config entraîne le recyclage du domaine d'application, tandis que la journalisation via le site Web ne le fait pas. Si le problème met du temps à se reproduire ou s'il est intermittent, le recyclage du domaine d'application peut le « résoudre » temporairement et vous forcer à attendre qu'il se reproduise. L'activation des diagnostics dans Azure n'entraîne pas cela, vous pouvez donc commencer tout de suite à saisir des informations sur une erreur.
 
@@ -373,7 +373,7 @@ Dans cette section, vous effectuerez les tâches suivantes :
 
 L'onglet **Journaux Azure** de la fenêtre **Sortie** contient plusieurs boutons et une zone de texte :
 
-![Boutons de l'onglet Journaux][]
+![Boutons de l'onglet Journaux][Boutons de l'onglet Journaux]
 
 Ces éléments permettent d'effectuer les opérations suivantes :
 
@@ -393,23 +393,23 @@ Les journaux de serveur Web enregistrent toutes les activités HTTP sur le site.
 
 1.  Sous l'onglet **Configuration de site Web Azure** que vous avez ouvert à partir de l'**Explorateur de serveurs**, définissez la valeur de Journalisation de serveur Web sur **Actif**, puis cliquez sur **Enregistrer**.
 
-    ![Activer la journalisation de serveur Web][]
+    ![Activer la journalisation de serveur Web][Activer la journalisation de serveur Web]
 
 2.  Dans la fenêtre **Sortie**, cliquez sur le bouton **Sélection des journaux Azure à surveiller**.
 
-    ![Sélectionner les journaux Azure à surveiller][]
+    ![Sélectionner les journaux Azure à surveiller][Sélectionner les journaux Azure à surveiller]
 
 3.  Dans la boîte de dialogue **Options de journalisation Azure**, sélectionnez **Journaux de serveur Web**, puis cliquez sur **OK**.
 
-    ![Surveiller les journaux de serveur Web][]
+    ![Surveiller les journaux de serveur Web][Surveiller les journaux de serveur Web]
 
 4.  Dans la fenêtre de navigateur affichant le site Web, cliquez sur **Accueil**, sur **À propos de**, puis sur **Contact**.
 
     Généralement, les journaux d'application s'affichent en premier, suivis par les journaux de serveur Web. Le processus d'affichage peut prendre un certain temps.
 
-    ![Journaux de serveur Web dans la fenêtre Sortie][]
+    ![Journaux de serveur Web dans la fenêtre Sortie][Journaux de serveur Web dans la fenêtre Sortie]
 
-Par défaut, Azure écrit les journaux dans le système de fichiers lorsque vous activez les journaux de serveur Web en utilisant Visual Studio. Une autre méthode consiste à utiliser le portail de gestion pour indiquer que les journaux de serveur Web doivent être écrits sur un conteneur d'objets blob dans un compte de stockage. Pour plus d'informations, consultez la section **Diagnostics de site** de la rubrique [Configuration des sites Web][].
+Par défaut, Azure écrit les journaux dans le système de fichiers lorsque vous activez les journaux de serveur Web en utilisant Visual Studio. Une autre méthode consiste à utiliser le portail de gestion pour indiquer que les journaux de serveur Web doivent être écrits sur un conteneur d'objets blob dans un compte de stockage. Pour plus d'informations, consultez la section **Diagnostics de site** de la rubrique [Configuration des sites Web][Configuration des sites Web].
 
 Si vous utilisez le portail de gestion pour activer la journalisation de serveur Web sur un compte de stockage Azure, puis que vous désactivez la journalisation dans Visual Studio, lorsque vous réactivez la journalisation dans Visual Studio, les paramètres de votre compte de stockage sont restaurés.
 
@@ -419,23 +419,23 @@ Les journaux d'erreur détaillés fournissent des informations supplémentaires 
 
 1.  Sous l'onglet **Configuration de site Web Azure** ouvert depuis l'**Explorateur de serveurs**, définissez la valeur de **Messages d'erreur détaillés** sur **Actif**, puis cliquez sur **Enregistrer**.
 
-    ![Activer les messages d'erreur détaillés][]
+    ![Activer les messages d'erreur détaillés][Activer les messages d'erreur détaillés]
 
 2.  Dans la fenêtre **Sortie**, cliquez sur le bouton **Sélection des journaux Azure à surveiller**.
 
 3.  Dans la boîte de dialogue **Options de journalisation Azure**, cliquez sur **Tous les journaux**, puis sur **OK**.
 
-    ![Surveiller tous les journaux][]
+    ![Surveiller tous les journaux][Surveiller tous les journaux]
 
 4.  Dans la barre d'adresse de la fenêtre de navigateur, ajoutez un caractère supplémentaire à l'URL pour provoquer une erreur 404 (par exemple, `http://localhost:53370/Home/Contactx`) et appuyez sur Entrée.
 
     Après quelques secondes, le journal d'erreur détaillé s'affiche dans la fenêtre **Sortie** de Visual Studio.
 
-    ![Journal d'erreur détaillé dans la fenêtre Sortie][]
+    ![Journal d'erreur détaillé dans la fenêtre Sortie][Journal d'erreur détaillé dans la fenêtre Sortie]
 
     Maintenez la touche Ctrl appuyée tout en cliquant sur le lien pour afficher le journal de sortie mis en forme dans un navigateur :
 
-    ![Journal d'erreur détaillé dans la fenêtre du navigateur][]
+    ![Journal d'erreur détaillé dans la fenêtre du navigateur][Journal d'erreur détaillé dans la fenêtre du navigateur]
 
 ## <a name="downloadlogs"></a><span class="short-header">Téléchargement de journaux</span>Téléchargement de journaux du système de fichiers
 
@@ -447,14 +447,14 @@ Tous les journaux que vous pouvez surveiller dans la fenêtre **Sortie** peuvent
 
     L'Explorateur de fichiers ouvre votre dossier *Téléchargements* dans lequel le fichier téléchargé est sélectionné.
 
-    ![Fichier téléchargé][]
+    ![Fichier téléchargé][Fichier téléchargé]
 
 2.  Procédez à l'extraction du fichier *.zip* pour afficher la structure de dossiers suivante :
 
     ![Fichier téléchargé][6]
 
     -   Les journaux de suivi d'application sont dans des fichiers *.txt* dans le dossier *LogFiles\\Application*.
-    -   Les journaux de serveur Web sont dans des fichiers *.log* dans le dossier *LogFiles\\http\\RawLogs*. Vous pouvez utiliser un outil tel que [Log Parser][] pour afficher et manipuler ces fichiers.
+    -   Les journaux de serveur Web sont dans des fichiers *.log* dans le dossier *LogFiles\\http\\RawLogs*. Vous pouvez utiliser un outil tel que [Log Parser][Log Parser] pour afficher et manipuler ces fichiers.
     -   Les journaux de messages d'erreur détaillés sont dans des fichiers *.html* dans le dossier *LogFiles\\DetailedErrors*.
 
     Le dossier *deployments* contient les fichiers créés par la publication à partir du contrôle de code source : il n'a rien à voir avec la publication Visual Studio. Le dossier *Git* contient le suivi lié à la publication à partir du contrôle de code source et au service de diffusion de fichier journal en continu.
@@ -471,7 +471,7 @@ Vous pouvez envoyer des journaux à l'une des trois destinations suivantes, ou a
 
 Vous pouvez définir un niveau de gravité distinct pour chaque destination.
 
-Les tables facilitent l'affichage des détails des journaux en ligne et elles prennent en charge la diffusion en continu. Vous pouvez demander des journaux dans des tables et afficher les nouveaux journaux durant leur création. Les objets blob facilitent le téléchargement des journaux dans des fichiers et leur analyse en utilisant HDInsight, car HDInsight sait comment utiliser le stockage d'objets blob. Pour plus d'informations, consultez la section **Hadoop et MapReduce** de la page [Options de stockage de données (développement d'applications de cloud concrètes avec Azure)][].
+Les tables facilitent l'affichage des détails des journaux en ligne et elles prennent en charge la diffusion en continu. Vous pouvez demander des journaux dans des tables et afficher les nouveaux journaux durant leur création. Les objets blob facilitent le téléchargement des journaux dans des fichiers et leur analyse en utilisant HDInsight, car HDInsight sait comment utiliser le stockage d'objets blob. Pour plus d'informations, consultez la section **Hadoop et MapReduce** de la page [Options de stockage de données (développement d'applications de cloud concrètes avec Azure)][Options de stockage de données (développement d'applications de cloud concrètes avec Azure)].
 
 Pour le moment, vous avez configuré des journaux de système de fichiers sur un niveau de commentaires : la procédure suivante va vous guider durant la configuration des journaux au niveau de l'information pour accéder aux tables de compte de stockage. « Au niveau de l'information » signifie que tous les journaux créés en appelant `Trace.TraceInformation`, `Trace.TraceWarning` et `Trace.TraceError` seront affichés, mais pas les journaux créés en appelant `Trace.WriteLine`.
 
@@ -481,11 +481,11 @@ Les comptes de stockage offrent un espace de stockage plus important et une cons
 
 2.  Dans le portail de gestion, cliquez sur l'onglet **Stockage**, puis sur **Créer un compte de stockage**.
 
-    ![Créer un compte de stockage][]
+    ![Créer un compte de stockage][Créer un compte de stockage]
 
 3.  Entrez une URL unique pour le compte de stockage, puis cliquez sur **Create Storage Account**.
 
-    ![Entrer une URL][]
+    ![Entrer une URL][Entrer une URL]
 
 4.  Dans la fenêtre **Site Web Azure** de Visual Studio, cliquez sur l'onglet **Journaux**, puis sur **Configurer la journalisation**.
 
@@ -499,11 +499,11 @@ Les comptes de stockage offrent un espace de stockage plus important et une cons
 
 7.  Cliquez sur **Manage Table Storage**.
 
-    ![Cliquer sur Manage Table Storage][]
+    ![Cliquer sur Manage Table Storage][Cliquer sur Manage Table Storage]
 
     Dans la zone **Manage table storage for application diagnostics**, vous pouvez sélectionner votre compte de stockage, si vous en avez plusieurs. Vous pouvez créer une table ou utiliser une table existante.
 
-    ![Gérer le stockage de tables][]
+    ![Gérer le stockage de tables][Gérer le stockage de tables]
 
 8.  Dans la zone **Manage table storage for application diagnostics**, cliquez sur la coche pour fermer la zone.
 
@@ -515,13 +515,13 @@ Les comptes de stockage offrent un espace de stockage plus important et une cons
 
 11. Sous l'onglet **Journaux** de la fenêtre **Site Web Azure** de Visual Studio, cliquez sur **Actualiser** sous **Résumé du diagnostic**.
 
-    ![Cliquer sur Actualiser][]
+    ![Cliquer sur Actualiser][Cliquer sur Actualiser]
 
     La section **Diagnostic Summary** affiche par défaut les journaux des 15 dernières minutes. Vous pouvez modifier ce délai pour afficher plus de journaux.
 
     Si vous obtenez l'erreur « table introuvable », vérifiez que vous avez bien parcouru les pages sur lesquelles le suivi est activé après avoir activé **Application Logging (Storage)** et cliqué sur **Enregistrer**.
 
-    ![Journaux de stockage][]
+    ![Journaux de stockage][Journaux de stockage]
 
     Notez qu'ici, vous pouvez afficher l'**ID de processus** et l'**ID de thread** pour chaque journal, ce qui n'est pas possible dans le système de fichiers. Vous pouvez consulter d'autres champs en affichant directement la table de stockage Azure.
 
@@ -531,11 +531,11 @@ Les comptes de stockage offrent un espace de stockage plus important et une cons
 
     Si vous obtenez une erreur du type « la séquence ne contient pas d'élément », ouvrez l'**Explorateur de serveurs**, développez le nœud de votre compte de stockage sous le nœud **Azure**, cliquez avec le bouton droit sur **Tables**, puis cliquez sur **Actualiser**.
 
-    ![Table de suivi dans l'Explorateur de serveurs][]
+    ![Table de suivi dans l'Explorateur de serveurs][Table de suivi dans l'Explorateur de serveurs]
 
-    ![Journaux de stockage dans la vue Table][]
+    ![Journaux de stockage dans la vue Table][Journaux de stockage dans la vue Table]
 
-    Cette vue affiche des champs supplémentaires que vous ne pouvez pas consulter ailleurs. Elle vous permet également de filtrer les journaux en utilisant l'interface utilisateur du générateur de requêtes pour construire une requête. Pour plus d'informations, consultez les sections « Utilisation des ressources de tables » et « Filtrage d'entités » de la page [Consultation des ressources de stockage avec l'Explorateur de serveurs][].
+    Cette vue affiche des champs supplémentaires que vous ne pouvez pas consulter ailleurs. Elle vous permet également de filtrer les journaux en utilisant l'interface utilisateur du générateur de requêtes pour construire une requête. Pour plus d'informations, consultez les sections « Utilisation des ressources de tables » et « Filtrage d'entités » de la page [Consultation des ressources de stockage avec l'Explorateur de serveurs][Consultation des ressources de stockage avec l'Explorateur de serveurs].
 
 13. Pour consulter les détails d'une seule ligne, cliquez avec le bouton droit sur l'une des lignes, puis cliquez sur **Modifier**.
 
@@ -553,7 +553,7 @@ Vous pouvez afficher les journaux de suivi des demandes ayant échoué directeme
 
 1.  Sous l'onglet **Configuration** de la fenêtre **Site Web Azure** ouverte à partir de l'**Explorateur de serveurs**, définissez **Suivi des demandes ayant échoué** sur **Actif**, puis cliquez sur **Enregistrer**.
 
-    ![Activer le suivi des demandes ayant échoué][]
+    ![Activer le suivi des demandes ayant échoué][Activer le suivi des demandes ayant échoué]
 
 2.  Dans la barre d'adresse de la fenêtre de navigateur affichant le site Web, ajoutez un caractère supplémentaire à l'URL, puis cliquez sur Entrée pour provoquer une erreur 404.
 
@@ -563,11 +563,11 @@ Vous pouvez afficher les journaux de suivi des demandes ayant échoué directeme
 
 4.  Dans le portail de gestion, cliquez sur **Tableau de bord**, puis sur **Reset your deployment credentials** dans la section **Quick Glance**.
 
-    ![Lien Réinitialiser les informations d'identification FTP dans le tableau de bord][]
+    ![Lien Réinitialiser les informations d'identification FTP dans le tableau de bord][Lien Réinitialiser les informations d'identification FTP dans le tableau de bord]
 
 5.  Entrez un nouveau nom d'utilisateur et un nouveau mot de passe.
 
-    ![Nouveaux nom d'utilisateur et mot de passe FTP][]
+    ![Nouveaux nom d'utilisateur et mot de passe FTP][Nouveaux nom d'utilisateur et mot de passe FTP]
 
 6.  Sous l'onglet **Tableau de bord** du portail de gestion, appuyez sur F5 pour actualiser la page, puis faites défiler vers le bas jusqu'à voir **Deployment / FTP User**. Notez que le nom d'utilisateur est doté d'un préfixe composé du nom du site. **Lorsque vous vous connectez, vous devez utiliser ce nom d'utilisateur complet, comprenant le nom du site en guise de préfixe, comme indiqué ici.**
 
@@ -579,21 +579,21 @@ Vous pouvez afficher les journaux de suivi des demandes ayant échoué directeme
 
 9.  Ouvrez le fichier *LogFiles*.
 
-    ![Ouvrir le dossier LogFiles][]
+    ![Ouvrir le dossier LogFiles][Ouvrir le dossier LogFiles]
 
 10. Ouvrez le dossier nommé W3SVC avec une valeur numérique.
 
-    ![Ouvrir le dossier W3SVC][]
+    ![Ouvrir le dossier W3SVC][Ouvrir le dossier W3SVC]
 
     Ce dossier contient des fichiers XML pour plusieurs erreurs journalisées une fois le suivi des demandes ayant échoué activé, ainsi qu'un fichier XSL utilisable par un navigateur pour mettre en forme les fichiers XML.
 
-    ![Dossier W3SVC][]
+    ![Dossier W3SVC][Dossier W3SVC]
 
 11. Cliquez sur le fichier XML de la demande ayant échoué dont vous voulez consulter les informations de suivi.
 
     L'image suivante montre une partie des informations de suivi d'un exemple d'erreur.
 
-    ![Suivi d'une demande ayant échoué dans le navigateur][]
+    ![Suivi d'une demande ayant échoué dans le navigateur][Suivi d'une demande ayant échoué dans le navigateur]
 
 ## <a name="nextsteps"></a><span class="short-header">Étapes suivantes</span>Étapes suivantes
 
@@ -603,49 +603,49 @@ Vous avez vu comment Visual Studio facilite l'affichage de journaux créés par 
 
 Pour plus d'informations sur la résolution des problèmes de Sites Web Azure (WAWS), consultez les ressources suivantes :
 
--   [Résolution des problèmes dans Azure][]
+-   [Résolution des problèmes dans Azure][Résolution des problèmes dans Azure]
      : un livre blanc de présentation de base incluant une courte section sur Azure Web Sites.
--   [Résolution des problèmes d'un site Web][]
+-   [Résolution des problèmes d'un site Web][Résolution des problèmes d'un site Web]
      : une introduction qui se concentre sur Azure Web Sites.
--   [Activation de la journalisation de diagnostic pour Azure Web Sites][]
+-   [Activation de la journalisation de diagnostic pour Azure Web Sites][Activation de la journalisation de diagnostic pour Azure Web Sites]
      : présente globalement les mêmes informations que celles fournies dans ce didacticiel, mais se concentre sur l'obtention des journaux de diagnostic sans utiliser Visual Studio.
--   [Surveillance des sites Web][]
-     : la section [Configuration des diagnostics et téléchargement de journaux][] présente des informations de valeur qui ne sont pas incluses dans les documents liés à la résolution des problèmes.
--   [Étude des fuites de mémoire dans Sites Web Azure au sein de Visual Studio 2013][]. Article sur le blog ALM de Microsoft concernant les fonctionnalités de Visual Studio prévues pour l'analyse de problèmes de mémoire gérés.
--   [Outils en ligne de Sites Web Azure que vous devez connaître][]. Article de blog par Amit Apple.
+-   [Surveillance des sites Web][Surveillance des sites Web]
+     : la section [Configuration des diagnostics et téléchargement de journaux][Configuration des diagnostics et téléchargement de journaux] présente des informations de valeur qui ne sont pas incluses dans les documents liés à la résolution des problèmes.
+-   [Étude des fuites de mémoire dans Sites Web Azure au sein de Visual Studio 2013][Étude des fuites de mémoire dans Sites Web Azure au sein de Visual Studio 2013]. Article sur le blog ALM de Microsoft concernant les fonctionnalités de Visual Studio prévues pour l'analyse de problèmes de mémoire gérés.
+-   [Outils en ligne de Sites Web Azure que vous devez connaître][Outils en ligne de Sites Web Azure que vous devez connaître]. Article de blog par Amit Apple.
 
 Pour obtenir des réponses sur une question relative à la résolution des problèmes, ouvrez un fil de discussion dans l'un des forums suivants :
 
--   [Forum Azure sur le site ASP.NET][].
--   [Forum Azure sur MSDN][].
--   [StackOverflow.com][].
+-   [Forum Azure sur le site ASP.NET][Forum Azure sur le site ASP.NET].
+-   [Forum Azure sur MSDN][Forum Azure sur MSDN].
+-   [StackOverflow.com][StackOverflow.com].
 
 ### Débogage dans Visual Studio
 
-Pour plus d'informations sur l'utilisation du mode débogage dans Visual Studio, consultez la rubrique MSDN [Débogage dans Visual Studio][], puis [Conseils de débogage avec Visual Studio 2010][].
+Pour plus d'informations sur l'utilisation du mode débogage dans Visual Studio, consultez la rubrique MSDN [Débogage dans Visual Studio][Débogage dans Visual Studio], puis [Conseils de débogage avec Visual Studio 2010][Conseils de débogage avec Visual Studio 2010].
 
 Pour plus d'informations sur le débogage à distance de Sites Web Azure (WAWS), consultez les ressources suivantes :
 
--   [Présentation du débogage à distance de Sites Web Azure][].
--   [Deuxième partie de la présentation du débogage à distance de Sites Web Azure : au cœur du débogage à distance][]
--   [Troisième partie de la présentation du débogage à distance de Sites Web Azure : environnement multi-instance et GIT][]
+-   [Présentation du débogage à distance de Sites Web Azure][Présentation du débogage à distance de Sites Web Azure].
+-   [Deuxième partie de la présentation du débogage à distance de Sites Web Azure : au cœur du débogage à distance][Deuxième partie de la présentation du débogage à distance de Sites Web Azure : au cœur du débogage à distance]
+-   [Troisième partie de la présentation du débogage à distance de Sites Web Azure : environnement multi-instance et GIT][Troisième partie de la présentation du débogage à distance de Sites Web Azure : environnement multi-instance et GIT]
 
-Si votre site Web utilise une API Web Azure ou les composants principaux Mobile Services et que vous voulez les déboguer, consultez la page [Débogage du .NET principal dans Visual Studio][].
+Si votre site Web utilise une API Web Azure ou les composants principaux Mobile Services et que vous voulez les déboguer, consultez la page [Débogage du .NET principal dans Visual Studio][Débogage du .NET principal dans Visual Studio].
 
 ### Suivi dans les applications ASP.NET
 
 Il n'y a pas d'autre présentation du suivi ASP.NET plus détaillée et actualisée disponible sur Internet. Nous vous conseillons de commencer par consulter les anciens documents de présentation rédigés pour Web Forms, car MVC n'existait pas encore, et de compléter cela en consultant les billets de blog les plus récents traitant de problèmes plus précis. Les ressources suivantes constituent un bon début :
 
--   [Surveillance et télémétrie (développement d'applications de cloud plus concrètes avec Azure)][].<br />
+-   [Surveillance et télémétrie (développement d'applications de cloud plus concrètes avec Azure)][Surveillance et télémétrie (développement d'applications de cloud plus concrètes avec Azure)].<br />
     Chapitre de livre électronique contenant des recommandations pour le suivi dans les applications de cloud Azure.
--   [Suivi ASP.NET][]<br />
+-   [Suivi ASP.NET][Suivi ASP.NET]<br />
      Une ressource ancienne mais toujours efficace pour une présentation de base du sujet.
--   [Écouteurs de suivi][]<br />
-     Contient des informations sur les écouteurs de suivi mais ne mentionne pas l'élément [WebPageTraceListener][].
--   [Procédure pas à pas : intégration du traçage ASP.NET avec le traçage System.Diagnostics][]<br />
+-   [Écouteurs de suivi][Écouteurs de suivi]<br />
+     Contient des informations sur les écouteurs de suivi mais ne mentionne pas l'élément [WebPageTraceListener][WebPageTraceListener].
+-   [Procédure pas à pas : intégration du traçage ASP.NET avec le traçage System.Diagnostics][Procédure pas à pas : intégration du traçage ASP.NET avec le traçage System.Diagnostics]<br />
      Cette page également est un peu ancienne, mais vous y trouverez des informations complémentaires que l'article de présentation ne traite pas.
--   [Suivi dans les vues d'ASP.NET MVC Razor][]
-     En plus du suivi dans les vues Razor, ce billet explique également comment créer un filtre d'erreur pour journaliser toutes les exceptions non gérées dans une application MVC. Pour plus d'informations sur la procédure de journalisation des exceptions non gérées dans une application Web Forms, consultez l'exemple de Global.asax dans [Exemple complet pour les gestionnaires d'erreurs][] sur MSDN. Dans MVC ou Web Forms, si vous voulez journaliser certaines exceptions tout en laissant le Framework par défaut les gérer, vous pouvez utiliser l'exemple de code suivant :
+-   [Suivi dans les vues d'ASP.NET MVC Razor][Suivi dans les vues d'ASP.NET MVC Razor]
+     En plus du suivi dans les vues Razor, ce billet explique également comment créer un filtre d'erreur pour journaliser toutes les exceptions non gérées dans une application MVC. Pour plus d'informations sur la procédure de journalisation des exceptions non gérées dans une application Web Forms, consultez l'exemple de Global.asax dans [Exemple complet pour les gestionnaires d'erreurs][Exemple complet pour les gestionnaires d'erreurs] sur MSDN. Dans MVC ou Web Forms, si vous voulez journaliser certaines exceptions tout en laissant le Framework par défaut les gérer, vous pouvez utiliser l'exemple de code suivant :
 
         try
         {
@@ -657,12 +657,12 @@ Il n'y a pas d'autre présentation du suivi ASP.NET plus détaillée et actualis
             throw;
         } 
 
--   [Journalisation de suivi de diagnostics de diffusion à partir de l'outil en ligne de commande Azure (et Glimpse)][]
-     Apprenez à utiliser l'outil en ligne de commande pour effectuer ce que montre ce didacticiel dans Visual Studio. [Glimpse][] est un outil pour le débogage d'applications ASP.NET.
--   Vidéos [Utilisation de la journalisation et des diagnostics de site Web Azure, avec David Ebbo][] et [Diffusion de journaux à partir des sites Web Azure, avec David Ebbo][]
+-   [Journalisation de suivi de diagnostics de diffusion à partir de l'outil en ligne de commande Azure (et Glimpse)][Journalisation de suivi de diagnostics de diffusion à partir de l'outil en ligne de commande Azure (et Glimpse)]
+     Apprenez à utiliser l'outil en ligne de commande pour effectuer ce que montre ce didacticiel dans Visual Studio. [Glimpse][Glimpse] est un outil pour le débogage d'applications ASP.NET.
+-   Vidéos [Utilisation de la journalisation et des diagnostics de site Web Azure, avec David Ebbo][Utilisation de la journalisation et des diagnostics de site Web Azure, avec David Ebbo] et [Diffusion de journaux à partir des sites Web Azure, avec David Ebbo][Diffusion de journaux à partir des sites Web Azure, avec David Ebbo]
      par Scott Hanselman et David Ebbo.
 
-Pour la journalisation d'erreurs, vous pouvez éviter d'avoir à écrire votre propre code de suivi en utilisant un Framework de journalisation Open Source comme [ELMAH][]. Pour plus d'informations, consultez les [billets du blog de Scott Hanselman sur ELMAH][].
+Pour la journalisation d'erreurs, vous pouvez éviter d'avoir à écrire votre propre code de suivi en utilisant un Framework de journalisation Open Source comme [ELMAH][ELMAH]. Pour plus d'informations, consultez les [billets du blog de Scott Hanselman sur ELMAH][billets du blog de Scott Hanselman sur ELMAH].
 
 Notez également que vous n'avez pas besoin d'utiliser le suivi ASP.NET ou System.Diagnostics si vous voulez activer une diffusion de journaux en continu à partir d'Azure. Le service de diffusion de journaux en continu des sites Web Azure diffusera tous les fichiers *.txt*, *.html* ou *.log* qu'il trouvera dans le dossier *LogFiles*. C'est pourquoi vous devez créer votre propre système de journalisation, qui écrira dans le système de fichiers du site Web. Ainsi, vos fichiers seront automatiquement diffusés et téléchargés. Tout ce que vous avez à faire est d'écrire un code d'application qui crée les fichiers dans le dossier *d:\\home\\logfiles*.
 
@@ -670,20 +670,20 @@ Notez également que vous n'avez pas besoin d'utiliser le suivi ASP.NET ou Syste
 
 Pour plus d'informations sur l'analyse des journaux de serveur Web, consultez les ressources suivantes :
 
--   [LogParser][]
+-   [LogParser][LogParser]
      Un outil pour afficher les données des journaux de serveur Web (fichiers *.log*).
--   [Résolution des problèmes de performance IIS ou des erreurs d'application à l'aide de LogParser][]
+-   [Résolution des problèmes de performance IIS ou des erreurs d'application à l'aide de LogParser][Résolution des problèmes de performance IIS ou des erreurs d'application à l'aide de LogParser]
      Une introduction à l'outil LogParser que vous pouvez utiliser pour analyser les journaux de serveur Web.
--   [Billets du blog de Robert McMurray sur l'utilisation de LogParser][]
--   [Code d'état HTTP dans IIS 7.0, IIS 7.5 et IIS 8.0][]
+-   [Billets du blog de Robert McMurray sur l'utilisation de LogParser][Billets du blog de Robert McMurray sur l'utilisation de LogParser]
+-   [Code d'état HTTP dans IIS 7.0, IIS 7.5 et IIS 8.0][Code d'état HTTP dans IIS 7.0, IIS 7.5 et IIS 8.0]
 
 ### Analyse des journaux de suivi des demandes ayant échoué
 
-Le site Web Microsoft TechNet comporte une section [Utilisation du suivi des demandes ayant échoué][] qui permet de comprendre l'utilisation de ces journaux. Cependant, cette documentation traite principalement du suivi des demandes ayant échoué dans IIS, ce qui ne s'applique pas à Sites Web Azure.
+Le site Web Microsoft TechNet comporte une section [Utilisation du suivi des demandes ayant échoué][Utilisation du suivi des demandes ayant échoué] qui permet de comprendre l'utilisation de ces journaux. Cependant, cette documentation traite principalement du suivi des demandes ayant échoué dans IIS, ce qui ne s'applique pas à Sites Web Azure.
 
 ### Débogage de Cloud Services
 
-Si vous voulez déboguer un service cloud Azure plutôt qu'un site Web, consultez la page [Débogage de Cloud Services][].
+Si vous voulez déboguer un service cloud Azure plutôt qu'un site Web, consultez la page [Débogage de Cloud Services][Débogage de Cloud Services].
 
   [exécutant le mode débogage]: http://www.visualstudio.com/fr-fr/get-started/debug-your-app-vs.aspx
   [IntelliTrace]: http://msdn.microsoft.com/library/vstudio/dd264915.aspx
@@ -746,7 +746,6 @@ Si vous voulez déboguer un service cloud Azure plutôt qu'un site Web, consulte
   [Fichier téléchargé]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png
   [6]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png
   [Log Parser]: http://www.microsoft.com/fr-fr/download/details.aspx?displaylang=en&id=24659
-  [Options de stockage de données (développement d'applications de cloud concrètes avec Azure)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
   [Créer un compte de stockage]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-createstorage.png
   [Entrer une URL]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storageurl.png
   [7]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png
@@ -780,14 +779,12 @@ Si vous voulez déboguer un service cloud Azure plutôt qu'un site Web, consulte
   [Deuxième partie de la présentation du débogage à distance de Sites Web Azure : au cœur du débogage à distance]: /blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/
   [Troisième partie de la présentation du débogage à distance de Sites Web Azure : environnement multi-instance et GIT]: /blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/
   [Débogage du .NET principal dans Visual Studio]: http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx
-  [Surveillance et télémétrie (développement d'applications de cloud plus concrètes avec Azure)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
   [Suivi ASP.NET]: http://msdn.microsoft.com/fr-fr/library/ms972204.aspx
   [Écouteurs de suivi]: http://msdn.microsoft.com/fr-fr/library/4y5y10s7.aspx
   [WebPageTraceListener]: http://msdn.microsoft.com/fr-fr/library/system.web.webpagetracelistener.aspx
   [Procédure pas à pas : intégration du traçage ASP.NET avec le traçage System.Diagnostics]: http://msdn.microsoft.com/fr-fr/library/b0ectfxd.aspx
   [Suivi dans les vues d'ASP.NET MVC Razor]: http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx
   [Exemple complet pour les gestionnaires d'erreurs]: http://msdn.microsoft.com/fr-fr/library/bb397417.aspx
-  [Journalisation de suivi de diagnostics de diffusion à partir de l'outil en ligne de commande Azure (et Glimpse)]: http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx
   [Glimpse]: http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx
   [Utilisation de la journalisation et des diagnostics de site Web Azure, avec David Ebbo]: http://www.windowsazure.com/fr-fr/documentation/videos/azure-web-site-logging-and-diagnostics/
   [Diffusion de journaux à partir des sites Web Azure, avec David Ebbo]: http://www.windowsazure.com/fr-fr/documentation/videos/log-streaming-with-azure-web-sites/

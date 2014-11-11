@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-dotnet-backend-get-started-with-data-ios" urlDisplayName="Get Started with Data" pageTitle="Get started with data (iOS) | Mobile Dev Center" metaKeywords="Azure iOS data, Azure mobile services data, " description="Learn how to get started using Mobile Services to leverage data in your iOS app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Prise en main des données dans Mobile Services
 
@@ -50,29 +50,29 @@ Ce didacticiel est basé sur l'[application GetStartedWithData][application GetS
 
 4.  Dans l'application, tapez du texte dans la zone de texte, puis cliquez sur le bouton **+**.
 
-    ![][]
+    ![][0]
 
     Le texte enregistré est affiché dans la liste ci-dessous.
 
 ## <a name="create-service"></a>Création d'un service mobile dans le portail de gestion
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][mobile-services-dotnet-backend-create-new-service]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 ## <a name="download-the-service-locally"></a>Téléchargement du service mobile sur votre ordinateur local
 
-[WACOM.INCLUDE [mobile-services-ios-download-service-locally][mobile-services-ios-download-service-locally]]
+[WACOM.INCLUDE [mobile-services-ios-download-service-locally](../includes/mobile-services-ios-download-service-locally.md)]
 
 ## <a name="test-the-service"></a>Test du service mobile
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][mobile-services-dotnet-backend-test-local-service]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
 ## <a name="publish-mobile-service"></a>Publication du service mobile sur Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][mobile-services-dotnet-backend-publish-service]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## <a name="update-app"></a>Mise à jour de l'application afin d'utiliser le service mobile pour l'accès aux données
 
-[WACOM.INCLUDE [mobile-services-ios-enable-mobile-service-access][mobile-services-ios-enable-mobile-service-access]]
+[WACOM.INCLUDE [mobile-services-ios-enable-mobile-service-access](../includes/mobile-services-ios-enable-mobile-service-access.md)]
 
 ## <a name="test-app"></a>Test de l'application avec votre nouveau service mobile
 
@@ -126,15 +126,7 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
 
 
 
-  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Windows Store C#"
-  [Windows Store JavaScript]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "Windows Store JavaScript"
-  [Windows Phone]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone"
-  [iOS]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ "iOS"
-  [Android]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ "Android"
-  [.NET backend]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ ".NET backend"
-  [JavaScript backend]: /fr-fr/develop/mobile/tutorials/get-started-with-data-ios/ "JavaScript backend"
   [version principale JavaScript]: /fr-fr/develop/mobile/tutorials/get-started-with-data-ios
-  [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started-ios
   [Téléchargement du projet d'application iOS]: #download-app
   [Création du service mobile]: #create-service
   [Téléchargement du service en local]: #download-the-service-locally
@@ -142,12 +134,11 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
   [Publication du service mobile sur Azure]: #publish-mobile-service
   [Mise à jour de l'application pour utiliser Mobile Services]: #update-app
   [Test de l'application avec Mobile Services]: #test-app
-  [Kit de développement logiciel (SDK) Mobile Services pour iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [Visual Studio Express pour le web]: http://go.microsoft.com/p/?linkid=9832232
   [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F
   [application GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
-  []: ./media/mobile-services-dotnet-backend-ios-get-started-data/mobile-quickstart-startup-ios.png
+  [0]: ./media/mobile-services-dotnet-backend-ios-get-started-data/mobile-quickstart-startup-ios.png
   [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
   [mobile-services-ios-download-service-locally]: ../includes/mobile-services-ios-download-service-locally.md
   [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md

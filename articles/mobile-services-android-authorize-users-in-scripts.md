@@ -1,6 +1,6 @@
 <properties pageTitle="Service-side authorization (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Autorisation côté service des utilisateurs Mobile Services
 
@@ -10,15 +10,15 @@
 
 Cette rubrique explique comment utiliser des scripts serveur pour autoriser les utilisateurs authentifiés à accéder aux données dans Azure Mobile Services à partir d'une application Android. Dans ce didacticiel, vous allez inscrire les scripts dans Mobile Services pour filtrer les requêtes sur la base de la valeur userId d'un utilisateur authentifié, en vous assurant que chaque utilisateur parvient à voir uniquement ses propres données.
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie sur le didacticiel précédent [Prise en main de l'authentification][]. Avant de commencer, vous devez suivre le didacticiel [Prise en main de l'authentification][].
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie sur le didacticiel précédent [Prise en main de l'authentification][Prise en main de l'authentification]. Avant de commencer, vous devez suivre le didacticiel [Prise en main de l'authentification][Prise en main de l'authentification].
 
 ## <a name="register-scripts"></a>Inscription des scripts
 
 Étant donné que l'application de démarrage rapide lit et insère les données, vous devez inscrire les scripts de ces opérations dans la table TodoItem.
 
-1.  Connectez-vous au [portail de gestion Azure][], cliquez sur **Mobile Services**, puis sur l'application.
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application.
 
-    ![][]
+    ![][0]
 
 2.  Cliquez sur l'onglet **Données**, puis sur la table **TodoItem**.
 
@@ -52,7 +52,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 
 ## Test de l'application
 
-1.  Dans Eclipse, ouvrez le projet que vous avez modifié avec le didacticiel [Prise en main de l'authentification][].
+1.  Dans Eclipse, ouvrez le projet que vous avez modifié avec le didacticiel [Prise en main de l'authentification][Prise en main de l'authentification].
 
 2.  À partir du menu **Exécuter**, cliquez sur **Exécuter** pour démarrer l'application et vous connecter avec le fournisseur d'identité choisi.
 
@@ -70,31 +70,22 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 
 Cela met fin à la série de didacticiels établissant les principes de base de l'utilisation de l'authentification. Pour plus d'informations sur les rubriques Mobile Services suivantes :
 
--   [Prise en main des données][]
+-   [Prise en main des données][Prise en main des données]
    
     En savoir plus sur le stockage et l'interrogation des données à l'aide de Mobile Services.
 
--   [Prise en main des notifications Push][]
+-   [Prise en main des notifications Push][Prise en main des notifications Push]
  
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
--   [Référence de script serveur Mobile Services][]
+-   [Référence de script serveur Mobile Services][Référence de script serveur Mobile Services]
  
     En savoir plus sur l'enregistrement et l'utilisation des scripts serveur.
 
 
-  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts "Windows Store C#"
-  [Windows Store JavaScript]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts "Windows Store JavaScript"
-  [Windows Phone]: /fr-fr/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts "Windows Phone"
-  [iOS]: /fr-fr/documentation/articles/mobile-services-ios-authorize-users-in-scripts "iOS"
-  [Android]: /fr-fr/documentation/articles/mobile-services-android-authorize-users-in-scripts "Android"
-  [HTML]: /fr-fr/documentation/articles/mobile-services-html-authorize-users-in-scripts "HTML"
-  [Xamarin.iOS]: /fr-fr/documentation/articles/partner-xamarin-mobile-services-ios-authorize-users-in-scripts "Xamarin.iOS"
-  [Xamarin.Android]: /fr-fr/documentation/articles/partner-xamarin-mobile-services-android-authorize-users-in-scripts "Xamarin.Android"
-  [JavaScript backend]: /fr-fr/documentation/articles/mobile-services-android-authorize-users-in-scripts/ "JavaScript backend"
   [Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-android
   [portail de gestion Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-authorize-users-in-scripts/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-authorize-users-in-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-android-authorize-users-in-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-android-authorize-users-in-scripts/mobile-insert-script-users.png
   [Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-android

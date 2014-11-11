@@ -1,6 +1,6 @@
 <properties urlDisplayName="" pageTitle="Using Resource groups to manage your Azure resources" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="" editor=""  />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Nafisa Bhojawala"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Nafisa="" Bhojawala" />
 
 
 # Utilisation des groupes de ressources pour gérer vos ressources Azure
@@ -19,7 +19,7 @@ Voici une présentation succincte de la façon dont vous pouvez utiliser les gro
 
 Lorsqu'une ressource est créée dans la version préliminaire du portail, elle est toujours intégrée à un groupe de ressources. Vous avez le choix entre créer un groupe de ressources et utiliser un groupe qui existe déjà dans le flux de création. <br><br />
 
-![][]
+![][0]
 
 <br><br />
 Lorsque vous créez une application qui comporte quelques ressources fonctionnant ensemble (par exemple un site web + une base de données), elle est toujours créée dans son propre groupe de ressources, ce qui vous permet de gérer le cycle de vie de l'ensemble des ressources associées en utilisant le groupe. Vous pouvez ajouter des ressources au groupe ou en supprimer au fil de l'évolution de votre application.
@@ -71,7 +71,7 @@ Comme les groupes de ressources permettent de gérer le cycle de vie de l'ensemb
 
 ![][6]
 
-  []: http://i.imgur.com/USKkQdW.png
+  [0]: http://i.imgur.com/USKkQdW.png
   [1]: http://i.imgur.com/Me0jbio.png
   [2]: http://i.imgur.com/PhJeLZQ.png
   [3]: http://i.imgur.com/5Wqv2XR.png

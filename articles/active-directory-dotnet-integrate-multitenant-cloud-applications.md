@@ -1,12 +1,12 @@
 <properties urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Integrating Multi-Tenant Cloud Applications with Azure Active Directory" authors="terrylan" solutions="" manager="terrylan" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan" />
 
 # Intégration d'une application cloud mutualisée avec Azure Active Directory
 
 ## <a name="introduction"></a>Introduction
 
-Azure Active Directory (Azure AD) est un service moderne, basé sur le protocole REST, qui offre des capacités de contrôle d'accès et de gestion des identités pour vos applications dans le cloud. Azure AD s'intègre aisément aux services cloud, ainsi qu'à Azure, Microsoft Office 365, Dynamics CRM Online et Windows Intune. Les déploiements Active Directory locaux existants peuvent également tirer pleinement parti d'Azure AD. Pour en savoir plus, consultez la [page Identité][] sur [windowsazure.com][].
+Azure Active Directory (Azure AD) est un service moderne, basé sur le protocole REST, qui offre des capacités de contrôle d'accès et de gestion des identités pour vos applications dans le cloud. Azure AD s'intègre aisément aux services cloud, ainsi qu'à Azure, Microsoft Office 365, Dynamics CRM Online et Windows Intune. Les déploiements Active Directory locaux existants peuvent également tirer pleinement parti d'Azure AD. Pour en savoir plus, consultez la [page Identité][page Identité] sur [windowsazure.com][windowsazure.com].
 
 Cette procédure pas à pas s'adresse aux développeurs .NET qui souhaitent intégrer une application mutualisée à Azure AD. Vous apprendrez à :
 
@@ -14,7 +14,7 @@ Cette procédure pas à pas s'adresse aux développeurs .NET qui souhaitent int�
 -   activer l'authentification unique avec Azure AD ;
 -   interroger les données d'annuaire d'un client en utilisant l'API Azure AD Graph.
 
-L'exemple d'application associé à cette procédure pas à pas peut être [téléchargé ici][]. Vous pouvez exécuter cet exemple sans aucune modification, mais il peut s'avérer nécessaire de changer l'[attribution des ports dans Visual Studio][] pour utiliser HTTPS. Cliquez sur le lien et suivez les instructions indiquées, mais définissez le protocole de liaison sur « https » dans la section bindings du fichier ApplicationHost.config. Tous les extraits de code des étapes suivantes proviennent de l'exemple.
+L'exemple d'application associé à cette procédure pas à pas peut être [téléchargé ici][téléchargé ici]. Vous pouvez exécuter cet exemple sans aucune modification, mais il peut s'avérer nécessaire de changer l'[attribution des ports dans Visual Studio][attribution des ports dans Visual Studio] pour utiliser HTTPS. Cliquez sur le lien et suivez les instructions indiquées, mais définissez le protocole de liaison sur « https » dans la section bindings du fichier ApplicationHost.config. Tous les extraits de code des étapes suivantes proviennent de l'exemple.
 
 > [WACOM.NOTE]
 > L'exemple d'application d'annuaire mutualisée est fourni aux fins d'illustration uniquement. Cet exemple (y compris les classes de la bibliothèque d'assistance) ne doit pas être utilisé en production.
@@ -23,18 +23,18 @@ L'exemple d'application associé à cette procédure pas à pas peut être [tél
 
 Les éléments de développement suivants sont requis pour cette procédure pas à pas :
 
--   [Visual Studio 2012][]
--   [Services de données WCF pour OData][]
+-   [Visual Studio 2012][Visual Studio 2012]
+-   [Services de données WCF pour OData][Services de données WCF pour OData]
 
 ### Sommaire
 
--   [Introduction][]
--   [Partie 1 : obtention d'un ID client pour l'accès à Azure AD][]
--   [Partie 2 : activation de l'inscription des clients à l'aide d'Azure AD][]
--   [Partie 3 : activation de l'authentification unique][]
--   [Partie 4 : accès à Azure AD Graph][]
--   [Partie 5 : publication de votre application][]
--   [Résumé][]
+-   [Introduction][Introduction]
+-   [Partie 1 : obtention d'un ID client pour l'accès à Azure AD][Partie 1 : obtention d'un ID client pour l'accès à Azure AD]
+-   [Partie 2 : activation de l'inscription des clients à l'aide d'Azure AD][Partie 2 : activation de l'inscription des clients à l'aide d'Azure AD]
+-   [Partie 3 : activation de l'authentification unique][Partie 3 : activation de l'authentification unique]
+-   [Partie 4 : accès à Azure AD Graph][Partie 4 : accès à Azure AD Graph]
+-   [Partie 5 : publication de votre application][Partie 5 : publication de votre application]
+-   [Résumé][Résumé]
 
 ## <a name="getclientid"></a>Partie 1 : Obtention d'un ID client pour l'accès à Azure AD
 
@@ -42,13 +42,13 @@ Cette section explique comment obtenir un ID client et une clé secrète client 
 
 ### Étape 1 : création d'un compte avec le Tableau de bord du vendeur Microsoft
 
-Pour développer et publier des applications qui s'intègrent à Azure AD, vous devez créer un compte [Tableau de bord du vendeur Microsoft][]. Vous êtes ensuite invité à [créer un profil de compte][] en tant que société ou individu. Ce profil est utilisé pour publier des applications sur Azure Marketplace ou d'autres marchés, et il est requis pour générer un ID client et une clé secrète client.
+Pour développer et publier des applications qui s'intègrent à Azure AD, vous devez créer un compte [Tableau de bord du vendeur Microsoft][Tableau de bord du vendeur Microsoft]. Vous êtes ensuite invité à [créer un profil de compte][créer un profil de compte] en tant que société ou individu. Ce profil est utilisé pour publier des applications sur Azure Marketplace ou d'autres marchés, et il est requis pour générer un ID client et une clé secrète client.
 
 Les nouveaux comptes sont placés dans un état « Compte en attente d'approbation ». Cet état ne vous empêche pas de commencer le développement ; vous pouvez toujours créer des ID client ainsi que des brouillons de description d'application. Mais une description d'application ne peut être soumise pour approbation qu'après l'approbation du compte proprement dit. Elle n'est alors visible qu'aux clients dans Azure Marketplace une fois qu'elle a été approuvée.
 
 ### Étape 2 : obtention d'un ID client pour votre application
 
-Vous avez besoin d'un ID client et d'une clé secrète client pour intégrer votre application à Azure AD. Identificateur unique de votre application, l'ID client sert principalement à identifier une application pour l'authentification unique ou pour authentifier des appels sur Azure AD Graph. Pour plus d'informations sur l'obtention d'un ID client et d'une clé secrète client, consultez la page [Création d'ID et de clés secrètes client dans le Tableau de bord du vendeur Microsoft][].
+Vous avez besoin d'un ID client et d'une clé secrète client pour intégrer votre application à Azure AD. Identificateur unique de votre application, l'ID client sert principalement à identifier une application pour l'authentification unique ou pour authentifier des appels sur Azure AD Graph. Pour plus d'informations sur l'obtention d'un ID client et d'une clé secrète client, consultez la page [Création d'ID et de clés secrètes client dans le Tableau de bord du vendeur Microsoft][Création d'ID et de clés secrètes client dans le Tableau de bord du vendeur Microsoft].
 
 > [WACOM.NOTE]
 > Vous aurez besoin de votre ID client et de votre clé secrète client plus tard dans cette procédure pas à pas. Aussi, veillez à les enregistrer.
@@ -118,7 +118,7 @@ Voici un exemple d'URL de demande de consentement correcte :
 
 Dans l'exemple d'application, le lien « Register » contient une URL similaire pour la demande de consentement, comme indiqué ci-dessous :
 
-![login][]
+![login][login]
 
 > [WACOM.NOTE]
 > Lorsque vous testez votre application non publiée, vous êtes confronté, pour ce qui touche au consentement, à une expérience similaire à celle de vos clients. La page d'autorisation pour une application non publiée, cependant, est différente de la page d'autorisation pour une application publiée. Cette dernière, contrairement à une application non publiée, affiche le nom de votre application, votre logo et les détails de l'éditeur.
@@ -162,7 +162,7 @@ Pour pouvoir tester le code de demande de consentement/réponse pour votre appli
 
 ### Étape 3 : obtention d'un locataire Azure AD pour tester votre application
 
-Pour tester la capacité d'intégration à Azure AD de votre application, vous avez besoin d'un locataire Azure AD. Si vous disposez déjà d'un locataire pour tester une autre application, vous pouvez le réutiliser. Nous vous recommandons d'obtenir au moins deux locataires pour vous assurer que votre application peut être testée et utilisée par plusieurs locataires. Nous vous déconseillons d'utiliser un locataire de production à cet effet. [Obtention d'un locataire Azure AD][].
+Pour tester la capacité d'intégration à Azure AD de votre application, vous avez besoin d'un locataire Azure AD. Si vous disposez déjà d'un locataire pour tester une autre application, vous pouvez le réutiliser. Nous vous recommandons d'obtenir au moins deux locataires pour vous assurer que votre application peut être testée et utilisée par plusieurs locataires. Nous vous déconseillons d'utiliser un locataire de production à cet effet. [Obtention d'un locataire Azure AD][Obtention d'un locataire Azure AD].
 
 Une fois que vous avez obtenu un locataire Azure AD, vous pouvez générer et exécuter l'application en appuyant sur **F5**. En outre, vous pouvez essayer de vous inscrire à votre application en utilisant le nouveau locataire.
 
@@ -177,7 +177,7 @@ La demande de connexion est propre à un locataire d'annuaire et doit inclure un
 -   Si l'URL de l'application est *<https://contoso.myapp.com>* ou *<https://myapp.com/contoso.com>*, *contoso* et *contoso.com* représentent le nom de domaine Azure AD et *myapp.com* l'URL de votre application.
 -   Votre application peut inviter l'utilisateur à fournir son adresse électronique ou son nom de domaine Azure AD. Cette approche est utilisée dans l'exemple d'application, où l'utilisateur doit entrer son nom de domaine Azure AD, comme indiqué ci-après :
 
-![login][]
+![login][login]
 
 ### Étape 1 : recherche de l'ID de locataire
 
@@ -199,7 +199,7 @@ Pour présenter ce processus, les étapes suivantes utilisent le nom de domaine 
 
 Lorsqu'un client se connecte à votre application, par exemple, en cliquant sur un bouton de connexion, la demande de connexion doit être générée avec l'ID de locataire du client et l'ID client de votre application. Dans l'exemple d'application, cette requête est générée par la méthode *GenerateSignInMessage* de la classe *Microsoft.IdentityModel.WAAD.Preview.WebSSO.URLUtils*. Cette méthode vérifie que l'ID de locataire du client représente une organisation qui a autorisé votre application et elle génère l'URL de destination du bouton de connexion, comme indiqué ci-dessous :
 
-![login][]
+![login][login]
 
 Un clic sur le bouton permet d'accéder à une page de connexion à Azure AD dans le navigateur de l'utilisateur. Une fois la connexion établie, Azure AD renvoie une réponse de connexion à l'application.
 
@@ -234,7 +234,7 @@ Une fois que le jeton est validé, l'utilisateur est connecté à l'application.
 
 ## <a name="accessgraph"></a>Partie 4 : accès à Azure AD Graph
 
-Cette section montre comment obtenir un jeton d'accès et appeler l'API Azure AD Graph pour accéder aux données d'annuaire d'un locataire. Par exemple, bien que le jeton obtenu pendant la connexion contienne des informations utilisateur telles qu'un nom et une adresse électronique, votre application peut avoir besoin d'informations telles que les appartenances à des groupes ou le nom du responsable de l'utilisateur. Il est possible d'obtenir ces informations de l'annuaire du locataire à l'aide de l'API Graph. Pour plus d'informations sur l'API Graph, consultez [cette rubrique][].
+Cette section montre comment obtenir un jeton d'accès et appeler l'API Azure AD Graph pour accéder aux données d'annuaire d'un locataire. Par exemple, bien que le jeton obtenu pendant la connexion contienne des informations utilisateur telles qu'un nom et une adresse électronique, votre application peut avoir besoin d'informations telles que les appartenances à des groupes ou le nom du responsable de l'utilisateur. Il est possible d'obtenir ces informations de l'annuaire du locataire à l'aide de l'API Graph. Pour plus d'informations sur l'API Graph, consultez [cette rubrique][cette rubrique].
 
 Pour que votre application puisse appeler Azure AD Graph, elle doit s'authentifier et obtenir un jeton d'accès. Vous pouvez obtenir les jetons d'accès en authentifiant votre application avec son ID client et sa clé secrète client. Les étapes suivantes vous montrent comment :
 
@@ -380,7 +380,7 @@ L'attribut *Policy* dans les exemples ci-dessus décrit le type d'autorisation d
 
 L'élément facultatif *Reason* vous permet de spécifier (dans plusieurs cultures) votre justification pour le niveau d'autorisation requis. Ce texte est affiché sur la page de consentement pour aider le client lorsqu'il approuve ou refuse votre application.
 
-À l'aide de votre ID client et de votre manifeste d'application, vous pouvez créer une description d'application en suivant les instructions de la page [Ajout d'applications dans le Tableau de bord du vendeur Microsoft][]. Lors de la création d'une description d'application, veillez à sélectionner le type d'application Azure AD. Une fois la création de votre description d'application terminée, cliquez sur « submit » pour publier votre application sur Azure Marketplace. Vous devez attendre que votre application soit approuvée pour que la publication soit effective.
+À l'aide de votre ID client et de votre manifeste d'application, vous pouvez créer une description d'application en suivant les instructions de la page [Ajout d'applications dans le Tableau de bord du vendeur Microsoft][Ajout d'applications dans le Tableau de bord du vendeur Microsoft]. Lors de la création d'une description d'application, veillez à sélectionner le type d'application Azure AD. Une fois la création de votre description d'application terminée, cliquez sur « submit » pour publier votre application sur Azure Marketplace. Vous devez attendre que votre application soit approuvée pour que la publication soit effective.
 
 <div class="dev-callout"><strong>Remarque</strong><p>Si vous &ecirc;tes invit&eacute; &agrave; &laquo;&nbsp;ajouter des informations sur les taxes et les paiements&nbsp;&raquo;, vous pouvez ignorer cette &eacute;tape, car vous vendez votre application directement au client, et pas par l'interm&eacute;diaire de Microsoft.</p></div>
 
@@ -415,6 +415,5 @@ L'intégration à Azure AD permet à vos clients de s'inscrire et de se connect
   [Création d'ID et de clés secrètes client dans le Tableau de bord du vendeur Microsoft]: http://msdn.microsoft.com/fr-fr/library/jj552461.aspx
   [login]: ./media/active-directory-dotnet-integrate-multitent-cloud-applications/login.png
   [Obtention d'un locataire Azure AD]: http://g.microsoftonline.com/0AX00en/5
-  [contoso]: https://contoso.myapp.com
   [cette rubrique]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh974476.aspx
   [Ajout d'applications dans le Tableau de bord du vendeur Microsoft]: http://msdn.microsoft.com/fr-fr/library/jj552465.aspx

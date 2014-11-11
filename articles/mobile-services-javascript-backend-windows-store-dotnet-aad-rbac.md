@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-js-rbac-with-aad" urlDisplayName="Role Based Access Control with Azure Active Directory" pageTitle="Role Based Access Control in Mobile Services and Azure Active Directory (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to control access based on Azure Active Directory roles in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Role Based Access Control in Mobile Services and Azure Active Directory" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="08/21/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="08/21/2014" ms.author="wesmc" />
 
 # Contrôle d'accès en fonction du rôle dans Mobile Services et Azure Active Directory
 
@@ -35,13 +35,13 @@ Ce didacticiel requiert les éléments suivants :
 
 ## <a name="create-group"></a>Création d'un groupe Sales avec appartenance
 
-[WACOM.INCLUDE [mobile-services-aad-rbac-create-sales-group][mobile-services-aad-rbac-create-sales-group]]
+[WACOM.INCLUDE [mobile-services-aad-rbac-create-sales-group](../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 ## <a name="generate-key"></a>Génération d'une clé pour l'application intégrée
 
 Avec le didacticiel [Prise en main de l'authentification][Prise en main de l'authentification], vous avez créé une inscription pour l'application intégrée lors de l'étape [Inscription à des fins d'utilisation d'une connexion Azure Active Directory][Inscription à des fins d'utilisation d'une connexion Azure Active Directory]. Dans cette section, vous allez générer la clé devant être utilisée pour lire les informations d'annuaire avec l'ID client de cette application intégrée.
 
-[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key][mobile-services-generate-aad-app-registration-access-key]]
+[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 ## <a name="add-shared-script"></a>Ajout d'un script partagé vérifiant l'appartenance au service mobile
 
@@ -153,7 +153,7 @@ Si vous débutez avec le déploiement de scripts vers votre service mobile avec 
 
 Lorsque vous avez suivi le didacticiel [Prise en main de l'authentification][Prise en main de l'authentification], vous aviez dû au préalable définir les opérations de table pour qu'elles requièrent une authentification, comme indiqué ci-dessous.
 
-![][]
+![][0]
 
 Avec chaque opération de base de données nécessitant une authentification, vous pouvez ajouter des scripts qui utilisent l'objet utilisateur pour les vérifications d'accès.
 
@@ -237,15 +237,12 @@ La procédure suivante montre comment déployer un contrôle d'accès en fonctio
 
 ## <a name="test-client"></a>Test de l'accès client
 
-[WACOM.INCLUDE [mobile-services-aad-rbac-test-app][mobile-services-aad-rbac-test-app]]
+[WACOM.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
 <!-- Anchors. -->
 <!-- Images -->
 <!-- URLs. -->
 
-  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "Windows Store C#"
-  [Serveur principal .NET]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ ".NET backend"
-  [JavaScript backend]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "JavaScript backend"
   [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
   [Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
   [Création d'un groupe Sales avec appartenance]: #create-group
@@ -259,7 +256,7 @@ La procédure suivante montre comment déployer un contrôle d'accès en fonctio
   [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [référence sur les erreurs de l'API Graph]: http://msdn.microsoft.com/fr-fr/library/azure/hh974480.aspx
   [IsMemberOf]: http://msdn.microsoft.com/fr-fr/library/azure/dn151601.aspx
-  []: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-perms.png
+  [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-perms.png
   [portail de gestion Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/insert-table-op-view.png
   [mobile-services-aad-rbac-test-app]: ../includes/mobile-services-aad-rbac-test-app.md

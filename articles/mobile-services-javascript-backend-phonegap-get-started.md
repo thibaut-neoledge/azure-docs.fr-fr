@@ -1,8 +1,8 @@
 <properties pageTitle="Get started with Mobile Services with PhoneGap | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for PhoneGap development for iOS, Android, and Windows Phone." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
@@ -10,7 +10,7 @@ Ce didacticiel vous montre comment ajouter un service principal cloud à une app
 
 Voici une capture d'écran de l'application terminée :
 
-![][]
+![][0]
 
 ### <a name="additional-requirements"></a>Conditions supplémentaires
 
@@ -18,14 +18,14 @@ Pour suivre ce didacticiel, vous devez disposer des outils PhoneGap (v3.2+ requi
 
 PhoneGap prend en charge le développement de plusieurs plateformes. Outre les outils PhoneGap, vous devez installer les outils de chacune des plateformes requises :
 
--   Windows Phone : installez [Visual Studio 2012 Express pour Windows Phone.][]
--   iOS : installez [Xcode][] (v4.4+ requise).
--   Android : installez les [outils de développement Android][]
+-   Windows Phone : installez [Visual Studio 2012 Express pour Windows Phone.][Visual Studio 2012 Express pour Windows Phone.]
+-   iOS : installez [Xcode][Xcode] (v4.4+ requise).
+-   Android : installez les [outils de développement Android][outils de développement Android]
     (le Kit de développement logiciel (SDK) Mobile Services pour Android prend en charge les applications destinées à Android 2.2 (et versions ultérieures). Android 4.2 (ou version ultérieure) est requis pour exécuter l'application de démarrage rapide).
 
 ## <a name="create-new-service"> </a>Création d'un service mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## <span class="short-header">Création d'une application </span>Création d'une application PhoneGap
 
@@ -73,7 +73,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
     2.  Appuyez sur le bouton **Exécuter** pour générer le projet et démarrer l'application dans l'émulateur iPhone (configuration par défaut pour ce projet).
 
-        ![][]
+        ![][0]
 
     -   **Android**
 
@@ -138,16 +138,16 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 Maintenant que vous avez effectué le démarrage rapide, découvrez comment exécuter d'autres tâches importantes dans Mobile Services :
 
--   [Prise en main des données][]
+-   [Prise en main des données][Prise en main des données]
 
     En savoir plus sur le stockage et l'interrogation des données à l'aide de Mobile Services.
 
--   [Prise en main de l'authentification][]
+-   [Prise en main de l'authentification][Prise en main de l'authentification]
 
     En savoir plus sur l'authentification des utilisateurs de votre application avec un fournisseur d'identité.
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  []: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-ios.png
+  [0]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-ios.png
   [Visual Studio 2012 Express pour Windows Phone.]: https://go.microsoft.com/fwLink/p/?LinkID=268374
   [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [outils de développement Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125

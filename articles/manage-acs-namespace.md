@@ -1,6 +1,6 @@
 <properties linkid="manage-services-manage-acs" urlDisplayName="Manage ACS" pageTitle="Access Control Service - Azure service management" metaKeywords="" description="Learn how to manage your Azure Access Control Service (ACS) using certificates and keys." metaCanonical="" services="active-directory" documentationCenter="" title="Managing Your ACS Namespace" authors="mbaldwin" solutions="" manager="mbaldwin" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin" />
 
 # Gestion de votre espace de noms ACS
 
@@ -10,7 +10,7 @@ Cette rubrique décrit les tâches de gestion qu'il est recommandé d'exécuter 
 
 2.  Passez en revue vos fournisseurs d'identité, identités de service, règles et administrateurs de portail, et supprimez ceux qui sont obsolètes.
 
-Pour plus d'informations sur ACS, consultez la page [Access Control Service 2.0][].
+Pour plus d'informations sur ACS, consultez la page [Access Control Service 2.0][Access Control Service 2.0].
 
 ## Instructions relatives à la gestion des certificats et des clés
 
@@ -38,13 +38,13 @@ Les étapes générales pour la substitution des clés d'identité du service ou
 
 Lorsqu'un certificat ou une clé expire, ACS ne réussit pas à émettre des jetons, empêchant votre partie de confiance de fonctionner normalement. Les certificats et les clés arrivés à expiration sont ignorés par ACS, ce qui provoque des exceptions, comme si aucun certificat ou clé n'avait été configuré initialement. Les sections suivantes fournissent des informations sur les différents certificats et clés gérés par ACS, sur leur renouvellement et sur la procédure à suivre pour déterminer s'ils ont expiré et doivent être renouvelés.
 
--   Utilisez la section Certificats et clés du portail de gestion ACS pour gérer les certificats et les clés relatifs à l'espace de noms du service et aux applications par partie de confiance. Pour plus d'informations sur ces types d'informations d'identification, consultez la page [Certificats et clés][].
--   Utilisez la section Identités de service du portail de gestion ACS pour gérer les informations d'identification (certificats, clés ou mots de passe) relatives aux identités de service. Pour plus d'informations sur les identités de service, consultez la page [Identités de service][].
--   Utilisez la section Service de gestion du portail de gestion ACS pour gérer les informations d'identification (certificats, clés ou mots de passe) relatives aux comptes du service de gestion ACS. Pour plus d'informations sur le service de gestion ACS, consultez la page [Service de gestion ACS][].
+-   Utilisez la section Certificats et clés du portail de gestion ACS pour gérer les certificats et les clés relatifs à l'espace de noms du service et aux applications par partie de confiance. Pour plus d'informations sur ces types d'informations d'identification, consultez la page [Certificats et clés][Certificats et clés].
+-   Utilisez la section Identités de service du portail de gestion ACS pour gérer les informations d'identification (certificats, clés ou mots de passe) relatives aux identités de service. Pour plus d'informations sur les identités de service, consultez la page [Identités de service][Identités de service].
+-   Utilisez la section Service de gestion du portail de gestion ACS pour gérer les informations d'identification (certificats, clés ou mots de passe) relatives aux comptes du service de gestion ACS. Pour plus d'informations sur le service de gestion ACS, consultez la page [Service de gestion ACS][Service de gestion ACS].
 
-Certains types de certificats et de clés ne sont pas visibles dans le portail de gestion ACS. En particulier pour les fournisseurs d'identité WS-Federation tels que AD FS, vous devez contrôler de façon proactive la validité des certificats utilisés par les fournisseurs d'identité. Actuellement, les certificats disponibles par l'intermédiaire des métadonnées des fournisseurs d'identité WS-Federation ne sont pas visibles sur le portail de gestion ACS. Pour vérifier la validité des certificats, vous devez utiliser le service de gestion afin d'examiner les dates d'effet et d'expiration pour les propriétés StartDate et EndDate de [IdentityProviderKey][]. Lorsque le certificat ou une clé expire et devient par conséquent non valide, ACS commence à lever des exceptions [Codes d'erreur ACS][] propres au certificat ou à la clé. Pour les codes d'erreur spécifiques, consultez les sections ci-dessous.
+Certains types de certificats et de clés ne sont pas visibles dans le portail de gestion ACS. En particulier pour les fournisseurs d'identité WS-Federation tels que AD FS, vous devez contrôler de façon proactive la validité des certificats utilisés par les fournisseurs d'identité. Actuellement, les certificats disponibles par l'intermédiaire des métadonnées des fournisseurs d'identité WS-Federation ne sont pas visibles sur le portail de gestion ACS. Pour vérifier la validité des certificats, vous devez utiliser le service de gestion afin d'examiner les dates d'effet et d'expiration pour les propriétés StartDate et EndDate de [IdentityProviderKey][IdentityProviderKey]. Lorsque le certificat ou une clé expire et devient par conséquent non valide, ACS commence à lever des exceptions [Codes d'erreur ACS][Codes d'erreur ACS] propres au certificat ou à la clé. Pour les codes d'erreur spécifiques, consultez les sections ci-dessous.
 
-Vous pouvez mettre à jour les certificats et les clés par programme à l'aide du [service de gestion ACS][Service de gestion ACS]. Pensez à examiner l'exemple de code KeyManagement disponible en téléchargement dans le cadre de l'[Exemple de code : service de gestion][].
+Vous pouvez mettre à jour les certificats et les clés par programme à l'aide du [service de gestion ACS][Service de gestion ACS]. Pensez à examiner l'exemple de code KeyManagement disponible en téléchargement dans le cadre de l'[Exemple de code : service de gestion][Exemple de code : service de gestion].
 
 ## Certificats et clés disponibles
 
@@ -74,7 +74,7 @@ Vous pouvez gérer les certificats de signature de jeton via la section Certific
 
 3.  Une fois connecté avec votre Windows Live ID, vous êtes redirigé vers la page du portail de gestion. Dans la partie inférieure gauche de cette page, cliquez sur **Service Bus and Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Pour lancer le portail de gestion ACS, cliquez sur **Access Control** dans l'arborescence affichée sur le côté gauche, sélectionnez l'espace de noms du service ACS que vous voulez configurer, puis cliquez sur le bouton **Access Control Service** dans la barre d'outils en haut de la page.
 
@@ -102,7 +102,7 @@ Vous pouvez gérer les certificats de signature de jeton via la section Certific
 
 10. Après une période de grâce raisonnable, utilisez le bouton Supprimer sous la section Token Signing de la page Certificats et clés pour supprimer l'ancien certificat de la configuration d'ACS.
 
-Pour plus d'informations, consultez la page [Certificats et clés][].
+Pour plus d'informations, consultez la page [Certificats et clés][Certificats et clés].
 
 Une fois que les certificats de signature ont expiré, vous recevez les erreurs suivantes lorsque vous essayez de demander un jeton :
 
@@ -130,7 +130,7 @@ Vous pouvez gérer les clés de signature de jeton via la section Certificats et
 
 3.  Une fois connecté avec votre Windows Live ID, vous êtes redirigé vers la page du portail de gestion. Dans la partie inférieure gauche de cette page, cliquez sur **Service Bus and Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Pour lancer le portail de gestion ACS, cliquez sur **Access Control** dans l'arborescence affichée sur le côté gauche, sélectionnez l'espace de noms du service ACS que vous voulez configurer, puis cliquez sur le bouton **Access Control Service** dans la barre d'outils en haut de la page.
 
@@ -158,7 +158,7 @@ Vous pouvez gérer les clés de signature de jeton via la section Certificats et
 
 10. Après une période de grâce raisonnable, utilisez le bouton Supprimer sous la section Token Signing de la page Certificats et clés pour supprimer l'ancienne clé de la configuration d'ACS.
 
-Pour plus d'informations, consultez la page [Certificats et clés][].
+Pour plus d'informations, consultez la page [Certificats et clés][Certificats et clés].
 
 Une fois que les clés de signature ont expiré, vous recevez les erreurs suivantes lorsque vous essayez de demander un jeton :
 
@@ -186,7 +186,7 @@ Vous pouvez gérer les certificats de chiffrement de jeton via la section Certif
 
 3.  Une fois connecté avec votre Windows Live ID, vous êtes redirigé vers la page du portail de gestion. Dans la partie inférieure gauche de cette page, cliquez sur **Service Bus and Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Pour lancer le portail de gestion ACS, cliquez sur **Access Control** dans l'arborescence affichée sur le côté gauche, sélectionnez l'espace de noms du service ACS que vous voulez configurer, puis cliquez sur le bouton **Access Control Service** dans la barre d'outils en haut de la page.
 
@@ -208,7 +208,7 @@ Vous pouvez gérer les certificats de chiffrement de jeton via la section Certif
 7.  Utilisez le bouton Ajouter pour configurer le nouveau certificat de chiffrement dans ACS, à côté du certificat existant, qui expirera.
 8.  Utilisez le bouton Supprimer pour supprimer l'ancien certificat de chiffrement.
 
-Pour plus d'informations, consultez la page [Certificats et clés][].
+Pour plus d'informations, consultez la page [Certificats et clés][Certificats et clés].
 
 Une fois que les certificats de chiffrement ont expiré, vous recevez les erreurs suivantes lorsque vous essayez de demander un jeton :
 
@@ -236,7 +236,7 @@ Vous pouvez gérer les certificats de déchiffrement de jeton via la section Cer
 
 3.  Une fois connecté avec votre Windows Live ID, vous êtes redirigé vers la page du portail de gestion. Dans la partie inférieure gauche de cette page, cliquez sur **Service Bus and Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Pour lancer le portail de gestion ACS, cliquez sur **Access Control** dans l'arborescence affichée sur le côté gauche, sélectionnez l'espace de noms du service ACS que vous voulez configurer, puis cliquez sur le bouton **Access Control Service** dans la barre d'outils en haut de la page.
 
@@ -264,7 +264,7 @@ Vous pouvez gérer les certificats de déchiffrement de jeton via la section Cer
 
 10. Après une période de grâce raisonnable, utilisez le bouton Supprimer sous la section Token Signing de la page Certificats et clés pour supprimer l'ancien certificat de la configuration d'ACS.
 
-Pour plus d'informations, consultez la page [Certificats et clés][].
+Pour plus d'informations, consultez la page [Certificats et clés][Certificats et clés].
 
 Une fois que les certificats de déchiffrement ont expiré, vous recevez les erreurs suivantes lorsque vous essayez de demander un jeton :
 
@@ -293,7 +293,7 @@ Vous pouvez gérer les informations d'identification de service via la page Iden
 
 3.  Une fois connecté avec votre Windows Live ID, vous êtes redirigé vers la page du portail de gestion. Dans la partie inférieure gauche de cette page, cliquez sur **Service Bus and Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Pour lancer le portail de gestion ACS, cliquez sur **Access Control** dans l'arborescence affichée sur le côté gauche, sélectionnez l'espace de noms du service ACS que vous voulez configurer, puis cliquez sur le bouton **Access Control Service** dans la barre d'outils en haut de la page.
 
@@ -317,7 +317,7 @@ Vous pouvez gérer les informations d'identification de service via la page Iden
 
 9.  Une fois que tous les clients ont été mis à jour (ou après une période de grâce raisonnable), supprimez l'ancien certificat ou l'ancienne clé avec le bouton Supprimer.
 
-Pour plus d'informations, consultez la page [Identités de service][].
+Pour plus d'informations, consultez la page [Identités de service][Identités de service].
 
 Si les informations d'identification ont expiré, ACS lève l'exception suivante :
 
@@ -350,7 +350,7 @@ Si les informations d'identification ont expiré, ACS lève l'exception suivante
 </tbody>
 </table>
 
-Pour vérifier et mettre à jour les dates d'expiration des clés symétriques ou du mot de passe, ou pour charger un nouveau certificat en tant qu'informations d'identification de service, suivez les instructions décrites dans [Ajout d'identités de service avec certificat X.509, mot de passe ou clé symétrique][] Une liste des informations d'identification de service est disponible sur la page Edit Service Identity.
+Pour vérifier et mettre à jour les dates d'expiration des clés symétriques ou du mot de passe, ou pour charger un nouveau certificat en tant qu'informations d'identification de service, suivez les instructions décrites dans [Ajout d'identités de service avec certificat X.509, mot de passe ou clé symétrique][Ajout d'identités de service avec certificat X.509, mot de passe ou clé symétrique] Une liste des informations d'identification de service est disponible sur la page Edit Service Identity.
 
 ## Informations d'identification du service de gestion
 
@@ -366,7 +366,7 @@ Vous pouvez gérer les informations d'identification du service de gestion via l
 
 3.  Une fois connecté avec votre Windows Live ID, vous êtes redirigé vers la page du portail de gestion. Dans la partie inférieure gauche de cette page, cliquez sur **Service Bus and Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Pour lancer le portail de gestion ACS, cliquez sur **Access Control** dans l'arborescence affichée sur le côté gauche, sélectionnez l'espace de noms du service ACS que vous voulez configurer, puis cliquez sur le bouton **Access Control Service** dans la barre d'outils en haut de la page.
 
@@ -390,7 +390,7 @@ Vous pouvez gérer les informations d'identification du service de gestion via l
 
 9.  Une fois que tous les clients ont été mis à jour (ou après une période de grâce raisonnable), supprimez l'ancien certificat ou l'ancienne clé avec le bouton Supprimer.
 
-Pour plus d'informations, consultez la page [Service de gestion ACS][].
+Pour plus d'informations, consultez la page [Service de gestion ACS][Service de gestion ACS].
 
 Si ces informations d'identification ont expiré, ACS lève les exceptions suivantes :
 
@@ -427,7 +427,7 @@ Une liste des informations d'identification du compte du service de gestion ACS 
 
 ## Certificat du fournisseur d'identité WS-Federation
 
-Le certificat du fournisseur d’identité WS-Federation est accessible par l’intermédiaire de ses métadonnées. Lors de la configuration du fournisseur d'identité WS-Federation, tel qu'AD FS, le certificat de signature WS-Federation est configuré par l'intermédiaire des métadonnées de WS-Federation disponibles via l'URL ou sous forme de fichier. Pour plus d'informations, consultez les pages [Fournisseurs d'identité WS-Federation][] et [Configuration d'AD FS 2.0 en tant que fournisseur d'identité][]. Après avoir configuré le fournisseur d'identité WS-Federation dans ACS, utilisez le service de gestion ACS pour l'interroger au sujet de la validité de ses certificats. Notez que pour chaque chargement consécutif des métadonnées via le portail de gestion ACS ou le service de gestion ACS, les clés sont remplacées.
+Le certificat du fournisseur d’identité WS-Federation est accessible par l’intermédiaire de ses métadonnées. Lors de la configuration du fournisseur d'identité WS-Federation, tel qu'AD FS, le certificat de signature WS-Federation est configuré par l'intermédiaire des métadonnées de WS-Federation disponibles via l'URL ou sous forme de fichier. Pour plus d'informations, consultez les pages [Fournisseurs d'identité WS-Federation][Fournisseurs d'identité WS-Federation] et [Configuration d'AD FS 2.0 en tant que fournisseur d'identité][Configuration d'AD FS 2.0 en tant que fournisseur d'identité]. Après avoir configuré le fournisseur d'identité WS-Federation dans ACS, utilisez le service de gestion ACS pour l'interroger au sujet de la validité de ses certificats. Notez que pour chaque chargement consécutif des métadonnées via le portail de gestion ACS ou le service de gestion ACS, les clés sont remplacées.
 
 Si le certificat a expiré, ACS lève les exceptions suivantes :
 
@@ -450,8 +450,8 @@ Si le certificat a expiré, ACS lève les exceptions suivantes :
   [IdentityProviderKey]: http://msdn.microsoft.com/fr-fr/library/hh124084.aspx
   [Codes d'erreur ACS]: http://msdn.microsoft.com/fr-fr/library/gg185949.aspx
   [Exemple de code : service de gestion]: http://msdn.microsoft.com/fr-fr/library/gg185970.aspx
-  []: http://go.microsoft.com/fwlink/?LinkID=129428
-  []: ./media/manage-acs-namespace/ACS1.png
+  [0]: http://go.microsoft.com/fwlink/?LinkID=129428
+  [0]: ./media/manage-acs-namespace/ACS1.png
   [1]: ./media/manage-acs-namespace/ACS2.png
   [2]: ./media/manage-acs-namespace/ACS3.png
   [3]: ./media/manage-acs-namespace/ACS4.png

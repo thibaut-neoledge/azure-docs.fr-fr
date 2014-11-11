@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with DomainDiscover - TierraNet" pageTitle="Configure a DomainDiscover domain name for an Azure website using Traffic Manager" metaKeywords="Windows Azure, Windows Azure Web Sites, DomainDiscover, TierraNet, Traffic Manager" description="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with DomainDiscover - TierraNet" services="web-sites" documentationCenter="" authors="larryfr,jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth" />
 
 # Configuration d'un nom de domaine personnalisé pour un site web Windows Azure utilisant Traffic Manager (DomainDiscover / TierraNet)
 
@@ -8,30 +8,30 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/fr-fr/documentation/articles/web-sites-domaindiscover-custom-domain-name/" title="Sites web">Site web</a> | <a href="/fr-fr/documentation/articles/web-sites-domaindiscover-traffic-manager-custom-domain-name/" title="Site web utilisant Traffic Manager" class="current">Site web utilisant Traffic Manager</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro][]]
+[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-Cet article contient des instructions permettant d'utiliser un nom de domaine personnalisé acheté auprès de [DomainDiscover.com][] avec Sites Web Azure. DomainDiscover.com fait partie de [TierraNet][].
+Cet article contient des instructions permettant d'utiliser un nom de domaine personnalisé acheté auprès de [DomainDiscover.com][DomainDiscover.com] avec Sites Web Azure. DomainDiscover.com fait partie de [TierraNet][TierraNet].
 
-[WACOM.INCLUDE [tmwebsitefooter][]]
+[WACOM.INCLUDE [tmwebsitefooter](../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
-[WACOM.INCLUDE [introfooter][]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 Dans cet article :
 
--   [Présentation des enregistrements DNS][]
--   [Configurer vos sites web pour le mode Standard][]
--   [Ajouter un enregistrement DNS pour votre domaine personnalisé][]
--   [Activer Traffic Manager pour votre site web][]
+-   [Présentation des enregistrements DNS][Présentation des enregistrements DNS]
+-   [Configurer vos sites web pour le mode Standard][Configurer vos sites web pour le mode Standard]
+-   [Ajouter un enregistrement DNS pour votre domaine personnalisé][Ajouter un enregistrement DNS pour votre domaine personnalisé]
+-   [Activer Traffic Manager pour votre site web][Activer Traffic Manager pour votre site web]
 
 ## <a name="understanding-records"></a>Présentation des enregistrements DNS
 
-[WACOM.INCLUDE [understandingdns][]]
+[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-traffic-manager.md)]
 
 ## <a name="bkmk_configsharedmode"></a>Configurer vos sites web pour le mode Standard
 
-[WACOM.INCLUDE [modes][]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
 <a name="bkmk_configurecname"></a>
 
@@ -41,15 +41,15 @@ Pour associer votre domaine personnalisé à un site web Azure, vous devez ajout
 
 1.  Connectez-vous à votre compte sur DomainDiscover.com (TierraNet) en sélectionnant **Control Panel** dans le menu **Login**.
 
-    ![Menu Login de DomainDiscover][]
+    ![Menu Login de DomainDiscover][Menu Login de DomainDiscover]
 
 2.  Dans la page **Domain Services**, sélectionnez le domaine que vous souhaitez utiliser pour votre site web Azure.
 
-    ![Page de gestion de domaine][]
+    ![Page de gestion de domaine][Page de gestion de domaine]
 
 3.  Dans les paramètres de domaine, cliquez sur le bouton **Edit** correspondant à **DNS Service**.
 
-    ![Bouton de modification des DNS][]
+    ![Bouton de modification des DNS][Bouton de modification des DNS]
 
 4.  Dans la fenêtre **Manage DNS**, sélectionnez le type d'enregistrement DNS à ajouter à la liste **Add Records**. Cliquez ensuite sur le bouton **Add**.
 
@@ -67,17 +67,6 @@ Pour associer votre domaine personnalisé à un site web Azure, vous devez ajout
 
 [WACOM.INCLUDE [modes][3]]
 
-  [Domaine personnalisé]: /fr-fr/documentation/articles/web-sites-custom-domain-name "Domaine personnalisé"
-  [GoDaddy]: /fr-fr/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [Network Solutions]: /fr-fr/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
-  [Register.com]: /fr-fr/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /fr-fr/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /fr-fr/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /fr-fr/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /fr-fr/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /fr-fr/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [Site web]: /fr-fr/documentation/articles/web-sites-domaindiscover-custom-domain-name/ "Sites web"
-  [Site web utilisant Traffic Manager]: /fr-fr/documentation/articles/web-sites-domaindiscover-traffic-manager-custom-domain-name/ "Site web utilisant Traffic Manager"
   [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
   [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [DomainDiscover.com]: https://domaindiscover.com

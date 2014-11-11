@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-how-to-html-client" urlDisplayName="HTML Client" pageTitle="How to use an HTML client - Azure Mobile Services" metaKeywords="Azure Mobile Services, Mobile Service HTML client, HTML client" description="Learn how to use an HTML client for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Azure Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Utilisation d'un client HTML/JavaScript pour Azure Mobile Services
 
@@ -8,32 +8,32 @@
   <a href="/fr-fr/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/fr-fr/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript" class="current">HTML/JavaScript</a><a href="/fr-fr/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/fr-fr/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a><a href="/fr-fr/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin" class="current">Xamarin</a>
 </div>
 
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation d'un client HTML/JavaScript pour Azure Mobile Services. Les scénarios traités incluent l'interrogation des données, l'insertion, la mise à jour et la suppression des données, l'authentification des utilisateurs et la gestion des erreurs. Si vous débutez avec Mobile Services, suivez le didacticiel [Démarrage rapide de Windows Store JavaScript][] ou [Démarrage rapide HTML][] consacré à Mobile Services. Ces didacticiels de démarrage rapide vous aideront à configurer et à créer votre premier service mobile.
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation d'un client HTML/JavaScript pour Azure Mobile Services. Les scénarios traités incluent l'interrogation des données, l'insertion, la mise à jour et la suppression des données, l'authentification des utilisateurs et la gestion des erreurs. Si vous débutez avec Mobile Services, suivez le didacticiel [Démarrage rapide de Windows Store JavaScript][Démarrage rapide de Windows Store JavaScript] ou [Démarrage rapide HTML][Démarrage rapide HTML] consacré à Mobile Services. Ces didacticiels de démarrage rapide vous aideront à configurer et à créer votre premier service mobile.
 
 ## Sommaire
 
--   [Présentation de Mobile Services][]
--   [Concepts][]
--   [Création du client Mobile Services][]
--   [Interrogation des données à partir d'un service mobile][]
-    -   [Filtrage des données renvoyées][]
-    -   [Tri des données renvoyées][]
-    -   [Renvoi de données dans les pages][]
-    -   [Sélection de colonnes spécifiques][]
-    -   [Recherche des données par ID][]
-    -   [Exécution d'une opération de requête OData][]
--   [Insertion de données dans un service mobile][]
--   [Modification des données d'un service mobile][]
--   [Suppression des données d'un service mobile][]
--   [Affichage des données dans l'interface utilisateur][]
--   [Authentification des utilisateurs][]
--   [Gestion des erreurs][]
--   [Utilisation des promesses][]
--   [Personnalisation des en-têtes de requête][]
--   [Utilisation de CORS (Cross-Origin Resource Sharing, partage des ressources cross-origin)][]
--   [Étapes suivantes][]
+-   [Présentation de Mobile Services][Présentation de Mobile Services]
+-   [Concepts][Concepts]
+-   [Création du client Mobile Services][Création du client Mobile Services]
+-   [Interrogation des données à partir d'un service mobile][Interrogation des données à partir d'un service mobile]
+    -   [Filtrage des données renvoyées][Filtrage des données renvoyées]
+    -   [Tri des données renvoyées][Tri des données renvoyées]
+    -   [Renvoi de données dans les pages][Renvoi de données dans les pages]
+    -   [Sélection de colonnes spécifiques][Sélection de colonnes spécifiques]
+    -   [Recherche des données par ID][Recherche des données par ID]
+    -   [Exécution d'une opération de requête OData][Exécution d'une opération de requête OData]
+-   [Insertion de données dans un service mobile][Insertion de données dans un service mobile]
+-   [Modification des données d'un service mobile][Modification des données d'un service mobile]
+-   [Suppression des données d'un service mobile][Suppression des données d'un service mobile]
+-   [Affichage des données dans l'interface utilisateur][Affichage des données dans l'interface utilisateur]
+-   [Authentification des utilisateurs][Authentification des utilisateurs]
+-   [Gestion des erreurs][Gestion des erreurs]
+-   [Utilisation des promesses][Utilisation des promesses]
+-   [Personnalisation des en-têtes de requête][Personnalisation des en-têtes de requête]
+-   [Utilisation de CORS (Cross-Origin Resource Sharing, partage des ressources cross-origin)][Utilisation de CORS (Cross-Origin Resource Sharing, partage des ressources cross-origin)]
+-   [Étapes suivantes][Étapes suivantes]
 
-[WACOM.INCLUDE [mobile-services-concepts][]]
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ## <a name="create-client"></a> Création du client Mobile Services
 
@@ -48,7 +48,7 @@ Dans l'éditeur, ouvrez ou créez un fichier JavaScript, ajoutez le code suivant
     var MobileServiceClient = WindowsAzure.MobileServiceClient;
     var client = new MobileServiceClient('AppUrl', 'AppKey');
 
-Vous devez remplacer l'espace réservé `AppUrl` par l'URL d'application de votre service mobile et `AppKey` par la clé d'application. Pour savoir comment obtenir l'URL et la clé d'application du service mobile, consultez le didacticiel [Prise en main des données dans Windows Store JavaScript][] ou [Prise en main des données dans HTML/JavaScript][].
+Vous devez remplacer l'espace réservé `AppUrl` par l'URL d'application de votre service mobile et `AppKey` par la clé d'application. Pour savoir comment obtenir l'URL et la clé d'application du service mobile, consultez le didacticiel [Prise en main des données dans Windows Store JavaScript][Prise en main des données dans Windows Store JavaScript] ou [Prise en main des données dans HTML/JavaScript][Prise en main des données dans HTML/JavaScript].
 
 ## <a name="querying"></a> Interrogation des données à partir d'un service mobile
 
@@ -258,7 +258,7 @@ Mobile Services utilise les conventions URI de requête OData pour composer et e
         }, handleError);
     }
 
-> [WACOM.NOTE]Si vous fournissez une chaîne option brute de requête OData dans la fonction `read`, vous ne pouvez pas utiliser également les méthodes du générateur de requêtes dans la même requête. Dans ce cas, vous devez composer toute la requête sous forme de chaîne option OData. Pour plus d'informations sur les options de requête système OData, consultez la page [Référence des options de requête système OData][].
+> [WACOM.NOTE]Si vous fournissez une chaîne option brute de requête OData dans la fonction `read`, vous ne pouvez pas utiliser également les méthodes du générateur de requêtes dans la même requête. Dans ce cas, vous devez composer toute la requête sous forme de chaîne option OData. Pour plus d'informations sur les options de requête système OData, consultez la page [Référence des options de requête système OData][Référence des options de requête système OData].
 
 ## <a name="inserting"></a><span class="short-header">Insertion de données</span> Insertion de données dans un service mobile
 
@@ -313,11 +313,11 @@ Si une application fournit la valeur d'un ID, Mobile Services la stocke en l'ét
 
 La valeur d'`id` doit être unique et ne contenir aucun caractère présent dans les ensembles suivants :
 
--   Caractères de contrôle : [0x0000-0x001F] et [0x007F-0x009F]. Pour plus d'informations, consultez la page [Codes de contrôle ASCII C0 et C1][].
+-   Caractères de contrôle : [0x0000-0x001F] et [0x007F-0x009F]. Pour plus d'informations, consultez la page [Codes de contrôle ASCII C0 et C1][Codes de contrôle ASCII C0 et C1].
 -   Caractères imprimables : **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **\`** (0x0060)
 -   Les ID « . » et « .. »
 
-Vous pouvez également utiliser des ID d'entier pour vos tables. Pour pouvoir utiliser un ID d'entier, vous devez créer votre table avec la commande `mobile table create` à l'aide de l'option `--integerId`. Cette commande s'utilise avec l'interface de ligne de commande (CLI) pour Azure. Pour plus d'informations sur l'utilisation de l'interface de ligne de commande, consultez la page [Interface de ligne de commande pour la gestion des tables Mobile Services][].
+Vous pouvez également utiliser des ID d'entier pour vos tables. Pour pouvoir utiliser un ID d'entier, vous devez créer votre table avec la commande `mobile table create` à l'aide de l'option `--integerId`. Cette commande s'utilise avec l'interface de ligne de commande (CLI) pour Azure. Pour plus d'informations sur l'utilisation de l'interface de ligne de commande, consultez la page [Interface de ligne de commande pour la gestion des tables Mobile Services][Interface de ligne de commande pour la gestion des tables Mobile Services].
 
 ## <a name="modifying"></a><span class="short-header">Modification des données</span> Modification des données d'un service mobile
 
@@ -383,18 +383,18 @@ Cette section montre comment afficher des objets de données renvoyés à l'aide
                alert("Error: " + err);
             });
 
-Dans une application Windows Store, les résultats d'une requête peuvent servir à créer un objet [WinJS.Binding.List], qui peut être lié comme source de données d'un objet [ListView][]. Pour plus d'informations, consultez la page [Liaison de données (applications du Windows Store en JavaScript et HTML)][].
+Dans une application Windows Store, les résultats d'une requête peuvent servir à créer un objet [WinJS.Binding.List], qui peut être lié comme source de données d'un objet [ListView][ListView]. Pour plus d'informations, consultez la page [Liaison de données (applications du Windows Store en JavaScript et HTML)][Liaison de données (applications du Windows Store en JavaScript et HTML)].
 
 ## <a name="caching"></a><span class="short-header">Authentification</span> Authentification des utilisateurs
 
-Mobile Services permet aux utilisateurs d'applications de s'authentifier par l'intermédiaire de divers fournisseurs d'identité externes : Facebook, Google, compte Microsoft et Twitter. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l'identité des utilisateurs authentifiés pour implémenter des règles d'autorisation dans les scripts serveur. Pour plus d'informations, consultez la page [Prise en main de l'authentification][].
+Mobile Services permet aux utilisateurs d'applications de s'authentifier par l'intermédiaire de divers fournisseurs d'identité externes : Facebook, Google, compte Microsoft et Twitter. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l'identité des utilisateurs authentifiés pour implémenter des règles d'autorisation dans les scripts serveur. Pour plus d'informations, consultez la page [Prise en main de l'authentification][Prise en main de l'authentification].
 
 Deux flux d'authentification sont pris en charge : un *flux serveur* et un *flux client*. Le flux serveur fournit l'authentification la plus simple, car il repose sur l'interface d'authentification Web du fournisseur. Le flux client permet une intégration approfondie avec les fonctionnalités propres aux appareils, telles que l'authentification unique, car il repose sur des Kits de développement logiciel (SDK) propres aux appareils et aux fournisseurs.
 
 ### Flux serveur
 
 Pour que Mobile Services gère le processus d'authentification dans votre application Windows Store ou HTML5,
-vous devez inscrire votre application auprès de votre fournisseur d'identité. Ensuite, dans votre service mobile, vous devez configurer l'ID d'application et le secret fournis par votre fournisseur. Pour plus d'informations, consultez le didacticiel « Prise en main de l'authentification » ([Windows Store][]/[HTML][Prise en main de l'authentification]).
+vous devez inscrire votre application auprès de votre fournisseur d'identité. Ensuite, dans votre service mobile, vous devez configurer l'ID d'application et le secret fournis par votre fournisseur. Pour plus d'informations, consultez le didacticiel « Prise en main de l'authentification » ([Windows Store][Windows Store]/[HTML][Prise en main de l'authentification]).
 
 Une fois que vous avez inscrit votre fournisseur d'identité, appelez simplement la [méthode LoginAsync] avec la valeur [MobileServiceAuthenticationProvider] de votre fournisseur. Par exemple, pour vous connecter avec Facebook, utilisez le code suivant.
 
@@ -406,7 +406,7 @@ Une fois que vous avez inscrit votre fournisseur d'identité, appelez simplement
 
 Si vous utilisez un fournisseur d'identité différent de Facebook, remplacez la valeur transmise à la méthode `login` ci-dessus par l'une des valeurs suivantes : `microsoftaccount`, `facebook`, `twitter`, `google` ou `windowsazureactivedirectory`.
 
-Dans ce cas, Mobile Services gère le flux d'authentification OAuth 2.0 en affichant la page de connexion du fournisseur sélectionné et en générant un jeton d'authentification Mobile Services après avoir établi une connexion avec le fournisseur d'identité. La fonction [login][], lorsqu'elle est utilisée, renvoie un objet JSON (**user**) qui expose l'ID utilisateur et le jeton d'authentification Mobile Services dans les champs **userId** et **authenticationToken**, respectivement. Ce jeton peut être mis en cache et réutilisé jusqu'à ce qu'il arrive à expiration. Pour plus d'informations, consultez [Mise en cache du jeton d'authentification].
+Dans ce cas, Mobile Services gère le flux d'authentification OAuth 2.0 en affichant la page de connexion du fournisseur sélectionné et en générant un jeton d'authentification Mobile Services après avoir établi une connexion avec le fournisseur d'identité. La fonction [login][login], lorsqu'elle est utilisée, renvoie un objet JSON (**user**) qui expose l'ID utilisateur et le jeton d'authentification Mobile Services dans les champs **userId** et **authenticationToken**, respectivement. Ce jeton peut être mis en cache et réutilisé jusqu'à ce qu'il arrive à expiration. Pour plus d'informations, consultez [Mise en cache du jeton d'authentification].
 
 <div class="dev-callout"><b>Application Windows Store</b>
 <p>Lorsque vous utilisez le fournisseur de connexion du compte Microsoft pour authentifier les utilisateurs de votre application Windows Store, vous devez &eacute;galement inscrire le package de l'application aupr&egrave;s de Mobile Services. Lorsque vous inscrivez les informations du package de votre application Windows Store aupr&egrave;s de Mobile Services, le client peut r&eacute;utiliser les informations d'identification du compte Microsoft pour fournir une authentification unique. Si vous ne le faites pas, vos utilisateurs se connectant via le compte Microsoft seront invit&eacute;s &agrave; se connecter &agrave; chaque appel de la m&eacute;thode de connexion. Pour savoir comment inscrire votre package d'application Windows Store, consultez la rubrique <a href="/fr-fr/develop/mobile/how-to-guides/register-windows-store-app-package/" target="_blank">Inscription du package de votre application Windows Store pour l'authentification Microsoft</a>. Une fois les informations du package inscrites aupr&egrave;s de Mobile Services, appelez la m&eacute;thode <a href="http://go.microsoft.com/fwlink/p/?LinkId=322050" target="_blank">login</a> en fournissant la valeur <strong>true</strong> pour le param&egrave;tre <em>useSingleSignOn</em> pour r&eacute;utiliser les informations d'identification.</p>
@@ -430,7 +430,7 @@ L'exemple suivant utilise le Kit de développement logiciel (SDK) Live, qui pren
               });
         });
 
-Cet exemple simplifié récupère un jeton de Live Connect, qui est fourni à Mobile Services en appelant la fonction [login][]. Pour accéder à un exemple plus complet concernant l'utilisation d'un compte Microsoft pour fournir l'authentification unique, consultez la rubrique [Authentification de votre application avec l'authentification unique][].
+Cet exemple simplifié récupère un jeton de Live Connect, qui est fourni à Mobile Services en appelant la fonction [login][login]. Pour accéder à un exemple plus complet concernant l'utilisation d'un compte Microsoft pour fournir l'authentification unique, consultez la rubrique [Authentification de votre application avec l'authentification unique][Authentification de votre application avec l'authentification unique].
 
 Lorsque vous utilisez les API Facebook ou Google pour l'authentification client, l'exemple diffère légèrement.
 
@@ -448,7 +448,7 @@ Vous ne pouvez pas utiliser Twitter pour l'authentification client pour le momen
 
 ### Mise en cache du jeton d'authentification
 
-Dans certains cas, l'appel à la méthode de connexion peut être évité après la première authentification de l'utilisateur. Vous pouvez utiliser [sessionStorage][] ou [localStorage][sessionStorage] pour mettre en cache l'identité de l'utilisateur actif lors de sa première connexion et, par la suite, à chaque fois que vous vérifiez si son identité est présente dans le cache. Si le cache est vide ou échoue (c'est-à-dire que la session de connexion en cours a expiré), l'utilisateur doit toujours effectuer le processus de connexion.
+Dans certains cas, l'appel à la méthode de connexion peut être évité après la première authentification de l'utilisateur. Vous pouvez utiliser [sessionStorage][sessionStorage] ou [localStorage][sessionStorage] pour mettre en cache l'identité de l'utilisateur actif lors de sa première connexion et, par la suite, à chaque fois que vous vérifiez si son identité est présente dans le cache. Si le cache est vide ou échoue (c'est-à-dire que la session de connexion en cours a expiré), l'utilisateur doit toujours effectuer le processus de connexion.
 
         // After logging in
         sessionStorage.loggedInUser = JSON.stringify(client.currentUser);
@@ -506,7 +506,7 @@ En outre, vous transmettez le gestionnaire d'erreur comme deuxième argument à 
 
 Les promesses permettent de planifier un travail sur une valeur qui n'a pas encore été calculée. Il s'agit d'une abstraction pour la gestion des interactions avec des API asynchrones.
 
-La promesse `done` est exécutée dès que la fonction qui lui a été fournie a réussi ou a généré une erreur. Contrairement à la promesse `then`, la génération d'une erreur non traitée au sein de la fonction est garantie, et à la fin de l'exécution des gestionnaires, cette fonction génère une erreur qui aurait été renvoyée depuis « then » en tant que promesse dans l'état d'erreur. Pour plus d'informations, consultez la page [done][].
+La promesse `done` est exécutée dès que la fonction qui lui a été fournie a réussi ou a généré une erreur. Contrairement à la promesse `then`, la génération d'une erreur non traitée au sein de la fonction est garantie, et à la fin de l'exécution des gestionnaires, cette fonction génère une erreur qui aurait été renvoyée depuis « then » en tant que promesse dans l'état d'erreur. Pour plus d'informations, consultez la page [done][done].
 
             promise.done(onComplete, onError);
 
@@ -519,7 +519,7 @@ Comme suit :
                alert("Error: " + err);
             });
 
-La promesse `then` est identique à la promesse `done`, mais contrairement à la promesse `then`, `done` garantit la génération d'une erreur qui n'est pas traitée au sein de la fonction. Si vous ne fournissez pas de gestionnaire d'erreurs à `then` et que l'opération génère une erreur, aucune exception n'est levée, mais une promesse est renvoyée dans l'état d'erreur. Pour plus d’informations, consultez la page [then][].
+La promesse `then` est identique à la promesse `done`, mais contrairement à la promesse `then`, `done` garantit la génération d'une erreur qui n'est pas traitée au sein de la fonction. Si vous ne fournissez pas de gestionnaire d'erreurs à `then` et que l'opération génère une erreur, aucune exception n'est levée, mais une promesse est renvoyée dans l'état d'erreur. Pour plus d’informations, consultez la page [then][then].
 
             promise.then(onComplete, onError).done( /* Your success and error handlers */ );
 
@@ -532,7 +532,7 @@ Comme suit :
                alert("Error: " + err);
             });
 
-Vous pouvez utiliser les promesses de différentes manières. Vous pouvez chaîner des opérations de promesse en appelant `then` ou `done` sur la promesse renvoyée par la fonction `then` précédente. Utilisez `then` pour une étape intermédiaire de l'opération (par exemple `.then().then()`), et `done` pour l'étape finale de l'opération (par exemple `.then().then().done()`). Vous pouvez chaîner plusieurs fonctions `then`, car `then` renvoie une promesse. Vous ne pouvez pas chaîner plusieurs méthodes `done`, car elles renvoient des éléments non définis. [Découvrez les différences entre then et done][].
+Vous pouvez utiliser les promesses de différentes manières. Vous pouvez chaîner des opérations de promesse en appelant `then` ou `done` sur la promesse renvoyée par la fonction `then` précédente. Utilisez `then` pour une étape intermédiaire de l'opération (par exemple `.then().then()`), et `done` pour l'étape finale de l'opération (par exemple `.then().then().done()`). Vous pouvez chaîner plusieurs fonctions `then`, car `then` renvoie une promesse. Vous ne pouvez pas chaîner plusieurs méthodes `done`, car elles renvoient des éléments non définis. [Découvrez les différences entre then et done][Découvrez les différences entre then et done].
 
             todoItemTable.insert({
                text: "foo"
@@ -563,35 +563,30 @@ Pour contrôler les sites Web autorisés à interagir avec les requêtes et à e
 
 Maintenant que vous avez consulté ce guide de fonctionnement, découvrez en détail comment effectuer des tâches importantes dans Mobile Services :
 
--   [Prise en main de Mobile Services][]
+-   [Prise en main de Mobile Services][Prise en main de Mobile Services]
 
     Découvrez les bases de l'utilisation de Mobile Services.
 
--   [Prise en main des données][]
+-   [Prise en main des données][Prise en main des données]
 
     En savoir plus sur le stockage et l'interrogation des données à l'aide de Mobile Services.
 
--   [Prise en main de l'authentification][]
+-   [Prise en main de l'authentification][Prise en main de l'authentification]
 
     En savoir plus sur l'authentification des utilisateurs de votre application avec un fournisseur d'identité.
 
--   [Validation et modification des données avec des scripts][]
+-   [Validation et modification des données avec des scripts][Validation et modification des données avec des scripts]
 
     En savoir plus sur l'utilisation des scripts serveur dans Mobile Services pour valider et modifier les données envoyées à partir de votre application.
 
--   [Affinage des requêtes à la pagination][]
+-   [Affinage des requêtes à la pagination][Affinage des requêtes à la pagination]
 
     En savoir plus sur l'utilisation de la pagination dans les requêtes pour contrôler la quantité de données traitées dans une seule requête.
 
--   [Autorisation des utilisateurs avec des scripts][]
+-   [Autorisation des utilisateurs avec des scripts][Autorisation des utilisateurs avec des scripts]
 
     Découvrez comment prendre la valeur d'ID utilisateur fournie par Mobile Services en fonction de l'utilisateur authentifié et l'utiliser pour filtrer les données renvoyées par Mobile Services.
 
-  [.NET Framework]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /fr-fr/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /fr-fr/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /fr-fr/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
-  [Xamarin]: /fr-fr/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [Démarrage rapide de Windows Store JavaScript]: http://www.windowsazure.com/fr-fr/develop/mobile/tutorials/get-started
   [Démarrage rapide HTML]: http://www.windowsazure.com/fr-fr/develop/mobile/tutorials/get-started-html
   [Présentation de Mobile Services]: #what-is
@@ -612,7 +607,6 @@ Maintenant que vous avez consulté ce guide de fonctionnement, découvrez en dé
   [Gestion des erreurs]: #errors
   [Utilisation des promesses]: #promises
   [Personnalisation des en-têtes de requête]: #customizing
-  [Utilisation de CORS (Cross-Origin Resource Sharing, partage des ressources cross-origin)]: #hostnames
   [Étapes suivantes]: #nextsteps
   [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [Prise en main des données dans Windows Store JavaScript]: http://www.windowsazure.com/fr-fr/develop/mobile/tutorials/get-started-with-data-js
@@ -621,12 +615,9 @@ Maintenant que vous avez consulté ce guide de fonctionnement, découvrez en dé
   [Codes de contrôle ASCII C0 et C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
   [Interface de ligne de commande pour la gestion des tables Mobile Services]: http://www.windowsazure.com/fr-fr/manage/linux/other-resources/command-line-tools/#Mobile_Tables
   [ListView]: http://msdn.microsoft.com/fr-fr/library/windows/apps/br211837.aspx
-  [Liaison de données (applications du Windows Store en JavaScript et HTML)]: http://msdn.microsoft.com/fr-fr/library/windows/apps/hh758311.aspx
   [Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-html
   [Windows Store]: /fr-fr/develop/mobile/tutorials/get-started-with-users-js
   [login]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554236.aspx
-  [Inscription du package de votre application Windows Store pour l'authentification Microsoft]: /fr-fr/develop/mobile/how-to-guides/register-windows-store-app-package/
-  [1]: http://go.microsoft.com/fwlink/p/?LinkId=322050
   [Authentification de votre application avec l'authentification unique]: /fr-fr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
   [sessionStorage]: http://msdn.microsoft.com/fr-fr/library/cc197062(v=vs.85).aspx
   [done]: http://msdn.microsoft.com/fr-fr/library/windows/apps/hh701079.aspx

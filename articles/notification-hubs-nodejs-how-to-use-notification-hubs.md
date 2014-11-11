@@ -1,27 +1,27 @@
 <properties linkid="develop-nodejs-how-to-guides-service-bus-notification-hubs" urlDisplayName="Notification Hubs" pageTitle="Notification Hubs - Node.js Dev Center" metaKeywords="" description="Learn how to use Notification Hubs to send push notifications. Code samples are written for Node.js applications." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="How to Use Notification Hubs" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Comment utiliser Notification Hubs
 
 Ce guide vous montre comment utiliser Notification Hubs
-depuis les applications Node.js. Les scénarios abordés comprennent l'**envoi de notifications aux applications Android, iOS, Windows Phone et Windows Store**. Pour plus d'informations sur les concentrateurs de notification, consultez la section [Étapes suivantes][].
+depuis les applications Node.js. Les scénarios abordés comprennent l'**envoi de notifications aux applications Android, iOS, Windows Phone et Windows Store**. Pour plus d'informations sur les concentrateurs de notification, consultez la section [Étapes suivantes][Étapes suivantes].
 
 ## Sommaire
 
--   [Présentation de Notification Hubs][]
--   [Création d'une application Node.js][]
--   [Configuration de l'application pour l'utilisation de Notification Hubs][]
--   [Envoi de notifications][]
--   [Étapes suivantes][]
+-   [Présentation de Notification Hubs][Présentation de Notification Hubs]
+-   [Création d'une application Node.js][Création d'une application Node.js]
+-   [Configuration de l'application pour l'utilisation de Notification Hubs][Configuration de l'application pour l'utilisation de Notification Hubs]
+-   [Envoi de notifications][Envoi de notifications]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <span id="hub"></span></a>Présentation de Notification Hubs
 
-Azure Notification Hubs offre une infrastructure multiplateforme conviviale et extensible pour l'envoi de notifications Push aux appareils mobiles. Pour plus d'informations, consultez la page [Azure Notification Hubs][].
+Azure Notification Hubs offre une infrastructure multiplateforme conviviale et extensible pour l'envoi de notifications Push aux appareils mobiles. Pour plus d'informations, consultez la page [Azure Notification Hubs][Azure Notification Hubs].
 
 ## <span id="create"></span></a>Création d'une application Node.js
 
-Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure][], [Service cloud Node.js][] (avec Windows PowerShell) ou [Site Web avec WebMatrix][].
+Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure][Création et déploiement d'une application Node.js dans un site Web Azure], [Service cloud Node.js][Service cloud Node.js] (avec Windows PowerShell) ou [Site Web avec WebMatrix][Site Web avec WebMatrix].
 
 ## <span id="config"></span></a>Configuration de l'application pour utiliser Notification Hubs
 
@@ -100,7 +100,7 @@ L'objet **GcmService** fournit une méthode d'**envoi** que vous pouvez utiliser
 -   Payload : charge utile JSON ou de chaîne du message.
 -   Callback : fonction de rappel.
 
-Pour plus d'informations sur le format de charge utile, consultez la section Charge utile de l'article [Implémentation du serveur GCM][].
+Pour plus d'informations sur le format de charge utile, consultez la section Charge utile de l'article [Implémentation du serveur GCM][Implémentation du serveur GCM].
 
 Le code suivant utilise l'instance **GcmService** exposée par **NotificationHubService** pour envoyer un message à tous les clients.
 
@@ -123,7 +123,7 @@ L'objet **ApnsService** fournit une méthode d'**envoi** que vous pouvez utilise
 -   Payload : charge utile JSON ou de chaîne du message.
 -   Callback : fonction de rappel.
 
-Pour plus d'informations sur le format de charge utile, consultez la section Charge utile de notification du [Guide de programmation des notifications locales et Push][].
+Pour plus d'informations sur le format de charge utile, consultez la section Charge utile de notification du [Guide de programmation des notifications locales et Push][Guide de programmation des notifications locales et Push].
 
 Le code suivant utilise l'instance **ApnsService** exposée par **NotificationHubService** pour envoyer un message d'alerte à tous les clients :
 
@@ -143,11 +143,11 @@ L'objet **MpnsService** fournit une méthode d'**envoi** que vous pouvez utilise
 -   Tags : identifiant de balise. Si aucune balise n'est fournie, la notification est envoyée à tous les clients.
 -   Payload : charge utile XML du message.
 -   TargetName : « toast » pour les notifications toast. « token » pour les notifications par vignette.
--   NotificationClass : priorité de la notification. Consultez la section Éléments d'en-tête HTTP de l'article [Notifications Push d'un serveur][] pour les valeurs valide.
+-   NotificationClass : priorité de la notification. Consultez la section Éléments d'en-tête HTTP de l'article [Notifications Push d'un serveur][Notifications Push d'un serveur] pour les valeurs valide.
 -   Options : en-têtes de requête facultatifs.
 -   Callback : fonction de rappel.
 
-Pour une liste d'options valides pour TargetName, NotificationClass et les en-têtes, consultez l'article [Notifications Push d'un serveur][].
+Pour une liste d'options valides pour TargetName, NotificationClass et les en-têtes, consultez l'article [Notifications Push d'un serveur][Notifications Push d'un serveur].
 
 Le code suivant utilise l'instance **MpnsService** exposée par **NotificationHubService** pour envoyer une alerte toast :
 
@@ -168,7 +168,7 @@ L'objet **WnsService** fournit une méthode d'**envoi** que vous pouvez utiliser
 -   Options : en-têtes de requête facultatifs.
 -   Callback : fonction de rappel.
 
-Pour obtenir la liste des types et en-têtes de requête valides, consultez l'article [Demande de service et en-têtes de réponse de notifications Push][].
+Pour obtenir la liste des types et en-têtes de requête valides, consultez l'article [Demande de service et en-têtes de réponse de notifications Push][Demande de service et en-têtes de réponse de notifications Push].
 
 Le code suivant utilise l'instance **WnsService** exposée par **NotificationHubService** pour envoyer une alerte toast :
 
@@ -184,8 +184,8 @@ Le code suivant utilise l'instance **WnsService** exposée par **NotificationHub
 Maintenant que vous avez appris les principes de base de l'utilisation de Notification Hubs, consultez ces
 liens pour en savoir plus :
 
--   Consultez la référence MSDN suivante : [Azure Notification Hubs][].
--   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Node][] sur GitHub.
+-   Consultez la référence MSDN suivante : [Azure Notification Hubs][Azure Notification Hubs].
+-   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Node][Kit de développement logiciel (SDK) Azure pour Node] sur GitHub.
 
   [Étapes suivantes]: #next
   [Présentation de Notification Hubs]: #hub
@@ -200,4 +200,3 @@ liens pour en savoir plus :
   [Guide de programmation des notifications locales et Push]: http://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html
   [Notifications Push d'un serveur]: http://msdn.microsoft.com/fr-fr/library/hh221551.aspx
   [Demande de service et en-têtes de réponse de notifications Push]: http://msdn.microsoft.com/fr-fr/library/windows/apps/hh465435.aspx
-  [Kit de développement logiciel (SDK) Azure pour Node]: https://github.com/WindowsAzure/azure-sdk-for-node

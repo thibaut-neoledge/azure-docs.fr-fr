@@ -1,10 +1,10 @@
 <properties pageTitle="Get Started with Azure Mobile Services for Appcelerator Titanium" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator team;mahender"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator="" team;mahender" />
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][mobile-services-selector-get-started]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 Ce didacticiel vous montre comment exploiter Azure Mobile Services dans vos applications générées avec Appcelerator.
 
@@ -18,7 +18,7 @@ Si vous créez pour Android, vous avez également besoin du Kit de développemen
 
 ## <a name="create-new-service"> </a>Création d'un service mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service][mobile-services-create-new-service]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## Création d'une application Appcelerator
 
@@ -40,7 +40,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 1.  Ouvrez Titanium Studio et accédez à **File -\> Import** (Fichier -\> Importer) pour importer le projet que vous avez téléchargé précédemment.
 
-    ![][]
+    ![][0]
 
 2.  Dans l'écran suivant, sélectionnez **Existing Projects into Workspace** (Projets existants dans l'espace de travail) et cliquez sur **Next** (Suivant).
 
@@ -101,7 +101,7 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
   [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [application Todolist]: http://go.microsoft.com/fwlink/p/?LinkId=506859
-  []: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/image007.png
+  [0]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/image007.png
   [1]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/image008.png
   [2]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/image009.png
   [3]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/image010.png

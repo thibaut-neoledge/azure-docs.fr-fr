@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with Dotster" pageTitle="Configure a Dotster domain name for an Azure website using Traffic Manager" metaKeywords="Windows Azure, Windows Azure Web Sites, Dotster, Traffic Manager" description="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with Dotster" services="web-sites" documentationCenter="" authors="larryfr,jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth" />
 
 # Configuration d'un nom de domaine personnalisé pour un site web Windows Azure utilisant Traffic Manager (Dotster)
 
@@ -8,30 +8,30 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/fr-fr/documentation/articles/web-sites-dotster-custom-domain-name/" title="Sites web">Site web</a> | <a href="/fr-fr/documentation/articles/web-sites-dotster-traffic-manager-custom-domain-name/" title="Site web utilisant Traffic Manager" class="current">Site web utilisant Traffic Manager</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro][]]
+[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-Cet article contient des instructions permettant d'utiliser un nom de domaine personnalisé acheté auprès de [Dotster.com][] avec Sites Web Azure.
+Cet article contient des instructions permettant d'utiliser un nom de domaine personnalisé acheté auprès de [Dotster.com][Dotster.com] avec Sites Web Azure.
 
-[WACOM.INCLUDE [tmwebsitefooter][]]
+[WACOM.INCLUDE [tmwebsitefooter](../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
-[WACOM.INCLUDE [introfooter][]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 Dans cet article :
 
--   [Présentation des enregistrements DNS][]
--   [Configurer vos sites web pour le mode Standard][]
--   [Ajouter un enregistrement DNS pour votre domaine personnalisé][]
--   [Activer Traffic Manager pour votre site web][]
+-   [Présentation des enregistrements DNS][Présentation des enregistrements DNS]
+-   [Configurer vos sites web pour le mode Standard][Configurer vos sites web pour le mode Standard]
+-   [Ajouter un enregistrement DNS pour votre domaine personnalisé][Ajouter un enregistrement DNS pour votre domaine personnalisé]
+-   [Activer Traffic Manager pour votre site web][Activer Traffic Manager pour votre site web]
 
 ## <a name="understanding-records"></a>Présentation des enregistrements DNS
 
-[WACOM.INCLUDE [understandingdns][]]
+[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-traffic-manager.md)]
 
 ## <a name="bkmk_configsharedmode"></a>Configurer vos sites web pour le mode Standard
 
-[WACOM.INCLUDE [modes][]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
 <a name="bkmk_configurecname"></a>
 
@@ -41,11 +41,11 @@ Pour associer votre domaine personnalisé à un site web Azure, vous devez ajout
 
 1.  Connectez-vous à votre compte Dotster.com et sélectionnez **Domain** puis **Domain Central**.
 
-    ![Menu Domain Central de Dotster][]
+    ![Menu Domain Central de Dotster][Menu Domain Central de Dotster]
 
 2.  Sélectionnez votre domaine pour afficher une liste de paramètres. Sélectionnez ensuite le lien **Nameservers**.
 
-    ![Options de configuration de domaine Dotster][]
+    ![Options de configuration de domaine Dotster][Options de configuration de domaine Dotster]
 
 3.  Sélectionnez l'option **Use different name servers**. Afin de bénéficier des services DNS sur Dotster, vous devez spécifier les serveurs de noms suivants : ns1.nameresolve.com, ns2.nameresolve.com, ns3.nameresolve.com et ns4.nameresolve.com.
 
@@ -69,17 +69,6 @@ Pour associer votre domaine personnalisé à un site web Azure, vous devez ajout
 
 [WACOM.INCLUDE [modes][4]]
 
-  [Domaine personnalisé]: /fr-fr/documentation/articles/web-sites-custom-domain-name "Domaine personnalisé"
-  [GoDaddy]: /fr-fr/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [Network Solutions]: /fr-fr/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
-  [Register.com]: /fr-fr/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /fr-fr/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /fr-fr/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /fr-fr/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /fr-fr/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /fr-fr/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [Site web]: /fr-fr/documentation/articles/web-sites-dotster-custom-domain-name/ "Sites web"
-  [Site web utilisant Traffic Manager]: /fr-fr/documentation/articles/web-sites-dotster-traffic-manager-custom-domain-name/ "Site web utilisant Traffic Manager"
   [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
   [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [Dotster.com]: https://dotster.com

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-js-vs2013" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (Android JavaScript) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Android JavaScript app." metaCanonical="http://www.windowsazure.com/fr-fr/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal"  solutions="" writer="ricksal" manager="" editor=""   />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # <a name="getting-started-with-push"> </a>Prise en main des notifications Push dans Mobile Services
 
@@ -12,35 +12,35 @@
 
 Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push à une application Android. Dans ce didacticiel, vous ajoutez des notifications Push au projet de démarrage rapide à l'aide du service Google Cloud Messaging (GCM). Une fois la procédure terminée, votre service mobile envoie une notification Push chaque fois qu'un enregistrement est inséré.
 
-> [WACOM.NOTE]Ce didacticiel présente l'intégration de Mobile Services à Notification Hubs, ce qui correspond à la façon dont vous envoyez des notifications Push depuis votre service mobile. Si vous utilisez un service mobile plus ancien qui utilise un push hérité et qui n'a pas encore été mis à jour pour utiliser Notification Hubs, *il est recommandé d'effectuer une mise à niveau* dans le cadre de ce didacticiel. Si vous décidez de ne pas effectuer de mise à niveau maintenant, vous devez suivre cette version du didacticiel : [Prise en main des notifications Push (hérité)][].
+> [WACOM.NOTE]Ce didacticiel présente l'intégration de Mobile Services à Notification Hubs, ce qui correspond à la façon dont vous envoyez des notifications Push depuis votre service mobile. Si vous utilisez un service mobile plus ancien qui utilise un push hérité et qui n'a pas encore été mis à jour pour utiliser Notification Hubs, *il est recommandé d'effectuer une mise à niveau* dans le cadre de ce didacticiel. Si vous décidez de ne pas effectuer de mise à niveau maintenant, vous devez suivre cette version du didacticiel : [Prise en main des notifications Push (hérité)][Prise en main des notifications Push (hérité)].
 
 Ce didacticiel vous familiarise avec les étapes de base permettant d'activer les notifications Push :
 
-1.  [Activation de Google Cloud Messaging][]
-2.  [Configuration de Mobile Services][]
-3.  [Ajout de notifications Push à votre application][]
-4.  [Mise à jour des scripts pour l'envoi de notifications Push][]
-5.  [Insertion de données pour recevoir des notifications][]
+1.  [Activation de Google Cloud Messaging][Activation de Google Cloud Messaging]
+2.  [Configuration de Mobile Services][Configuration de Mobile Services]
+3.  [Ajout de notifications Push à votre application][Ajout de notifications Push à votre application]
+4.  [Mise à jour des scripts pour l'envoi de notifications Push][Mise à jour des scripts pour l'envoi de notifications Push]
+5.  [Insertion de données pour recevoir des notifications][Insertion de données pour recevoir des notifications]
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de le lancer, suivez d'abord le didacticiel [Prise en main de Mobile Services][] ou [Prise en main des données][] pour connecter votre projet au service mobile.
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de le lancer, suivez d'abord le didacticiel [Prise en main de Mobile Services][Prise en main de Mobile Services] ou [Prise en main des données][Prise en main des données] pour connecter votre projet au service mobile.
 
 ## <span id="register"></span></a>Activation de Google Cloud Messaging
 
-> [WACOM.NOTE]Pour effectuer cette procédure, vous devez disposer d'un compte Google avec une adresse électronique vérifiée. Pour créer un compte Google, consultez la page [accounts.google.com][].
+> [WACOM.NOTE]Pour effectuer cette procédure, vous devez disposer d'un compte Google avec une adresse électronique vérifiée. Pour créer un compte Google, consultez la page [accounts.google.com][accounts.google.com].
 
-[WACOM.INCLUDE [Enable GCM][]]
+[WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 Ensuite, vous allez utiliser cette valeur de clé API afin d'activer Mobile Services pour l'authentification avec GCM et l'envoi des notifications Push au nom de votre application.
 
 ## <span id="configure"></span></a>Configuration de Mobile Services pour l'envoi de demandes push
 
-1.  Connectez-vous au [portail de gestion Azure][], cliquez sur **Mobile Services**, puis sur l'application.
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application.
 
-    ![][]
+    ![][0]
 
 2.  Cliquez sur l'onglet **Push**, entrez la valeur de **API Key** fournie par GCM dans la procédure précédente, puis cliquez sur **Save**.
 
-    > [WACOM.NOTE]Si vous suivez ce didacticiel en utilisant un ancien service mobile, vous verrez peut-être un lien au bas de l'onglet **Push** indiquant **Activer la transmission push améliorée**. Cliquez dessus pour mettre à niveau votre service mobile et l'intégrer à Notification Hubs. Cette modification est irréversible. Pour plus d'informations sur l'activation de notifications Push améliorées dans un service mobile de production, consultez [ce guide][].
+    > [WACOM.NOTE]Si vous suivez ce didacticiel en utilisant un ancien service mobile, vous verrez peut-être un lien au bas de l'onglet **Push** indiquant **Activer la transmission push améliorée**. Cliquez dessus pour mettre à niveau votre service mobile et l'intégrer à Notification Hubs. Cette modification est irréversible. Pour plus d'informations sur l'activation de notifications Push améliorées dans un service mobile de production, consultez [ce guide][ce guide].
 
     ![][1]
 
@@ -54,19 +54,19 @@ Votre service mobile et votre application sont désormais configurés pour fonct
 
 ### Vérification de la version du Kit de développement logiciel (SDK) Android
 
-[WACOM.INCLUDE [Verify SDK][]]
+[WACOM.INCLUDE [Verify SDK](../includes/mobile-services-verify-android-sdk-version.md)]
 
 L'étape suivante consiste à installer les services Google Play. Google Cloud Messaging a des spécifications requises d'API minimales pour le développement et les tests, auxquelles la propriété **minSdkVersion** du manifeste doit se conformer.
 
-Si vous envisagez de procéder à un test avec un appareil ancien, consultez la rubrique [Configuration du Kit de développement logiciel (SDK) des services Google Play][] pour déterminer comment définir cette valeur.
+Si vous envisagez de procéder à un test avec un appareil ancien, consultez la rubrique [Configuration du Kit de développement logiciel (SDK) des services Google Play][Configuration du Kit de développement logiciel (SDK) des services Google Play] pour déterminer comment définir cette valeur.
 
 ### Ajout de services Google Play au projet
 
-[WACOM.INCLUDE [Add Play Services][]]
+[WACOM.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services.md)]
 
 ### Ajout de code
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-push][]]
+[WACOM.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push.md)]
 
 ## <span id="update-scripts"></span></a>Mise à jour du script d'insertion inscrit dans le portail de gestion
 
@@ -108,7 +108,7 @@ Si vous envisagez de procéder à un test avec un appareil ancien, consultez la 
           });
         }
 
-    Cela enregistre un nouveau script d'insertion qui utilise l'[objet gcm][] pour envoyer une notification Push à tous les appareils enregistrés après l'insertion.
+    Cela enregistre un nouveau script d'insertion qui utilise l'[objet gcm][objet gcm] pour envoyer une notification Push à tous les appareils enregistrés après l'insertion.
 
 ## <span id="test"></span></a>Test des notifications Push dans votre application
 
@@ -152,34 +152,26 @@ Vous avez terminé ce didacticiel.
 
 Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
--   [Prise en main des données][]
+-   [Prise en main des données][Prise en main des données]
 
     En savoir plus sur le stockage et l'interrogation des données à l'aide des services mobiles.
 
--   [Prise en main de l'authentification][]
+-   [Prise en main de l'authentification][Prise en main de l'authentification]
 
     En savoir plus sur l'authentification des utilisateurs de votre application avec des types de comptes différents utilisant des services mobiles.
 
--   [Présentation de Notification Hubs][]
+-   [Présentation de Notification Hubs][Présentation de Notification Hubs]
 
     Découvrez comment Notification Hubs opère pour envoyer des notifications à vos applications sur toutes les principales plateformes clientes.
 
--   [Utilisation de la bibliothèque cliente Android pour Mobile Services][]
+-   [Utilisation de la bibliothèque cliente Android pour Mobile Services][Utilisation de la bibliothèque cliente Android pour Mobile Services]
 
     En savoir plus sur l'utilisation de Mobile Services avec Android.
 
--   [Référence de script serveur Mobile Services][]
+-   [Référence de script serveur Mobile Services][Référence de script serveur Mobile Services]
 
     En savoir plus sur l'implémentation de logique métier dans votre service mobile.
 
-  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "Windows Store C#"
-  [Windows Store JavaScript]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "Windows Store JavaScript"
-  [Windows Phone]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone"
-  [iOS]: /fr-fr/documentation/articles/mobile-services-javascript-backend-ios-get-started-push "iOS"
-  [Android]: /fr-fr/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android"
-  [.NET backend]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ ".NET backend"
-  [JavaScript backend]: /fr-fr/documentation/articles/mobile-services-javascript-backend-android-get-started-push/ "JavaScript backend"
-  [Prise en main des notifications Push (hérité)]: /fr-fr/documentation/articles/mobile-services-android-get-started-push/
   [Activation de Google Cloud Messaging]: #register
   [Configuration de Mobile Services]: #configure
   [Ajout de notifications Push à votre application]: #add-push
@@ -190,11 +182,10 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
   [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
   [Enable GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [portail de gestion Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [ce guide]: http://go.microsoft.com/fwlink/p/?LinkId=391951
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
   [Verify SDK]: ../includes/mobile-services-verify-android-sdk-version.md
-  [Configuration du Kit de développement logiciel (SDK) des services Google Play]: http://go.microsoft.com/fwlink/?LinkId=389801
   [Add Play Services]: ../includes/mobile-services-add-Google-play-services.md
   [mobile-services-android-getting-started-with-push]: ../includes/mobile-services-android-getting-started-with-push.md
   [2]: ./media/mobile-services-android-get-started-push/mobile-portal-data-tables.png

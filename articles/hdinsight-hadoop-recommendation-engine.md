@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-recommendation-engine-using-mahout" urlDisplayName="Hadoop Recommendation Engine" pageTitle="Hadoop recommendation engine (.NET) | Azure" metaKeywords="Azure Apache Mahout, Azure recommendation example, Azure recommendation tutorial, Azure recommendation engine" description="A tutorial that teaches how to use the Apache Mahout recommendation engine with Azure to create song suggestions based on listening habits." disqusComments="1" umbracoNaviHide="1" title="Simple recommendation engine using Apache Mahout" authors="jgao" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao" />
 
 # Moteur de recommandation simple avec Apache Mahout
 
@@ -8,7 +8,7 @@ Apache Mahout™ est une bibliothèque à apprentissage automatique conçue pour
 
 Apache Mahout fournit une implémentation intégrée du filtrage collaboratif basé sur l'article. Cette approche est fréquemment utilisée dans le cadre des explorations de données de recommandation. Le filtrage collaboratif basé sur l'article a été développé par Amazon.com. Son principe est que les données relatives aux préférences d'utilisateur démontrant des corrélations entre les préférences d'objets peuvent être utilisées pour influencer les goûts des futurs utilisateurs d'un groupe semblable.
 
-Dans ce didacticiel, vous allez utiliser le site [Million Song Dataset][] et télécharger le [jeu de données][] pour créer des recommandations de chansons pour les utilisateurs, d'après leurs habitudes d'écoute passées.
+Dans ce didacticiel, vous allez utiliser le site [Million Song Dataset][Million Song Dataset] et télécharger le [jeu de données][jeu de données] pour créer des recommandations de chansons pour les utilisateurs, d'après leurs habitudes d'écoute passées.
 
 Vous apprendrez à effectuer les opérations suivantes :
 
@@ -16,20 +16,20 @@ Vous apprendrez à effectuer les opérations suivantes :
 
 Ce didacticiel se compose des parties suivantes :
 
-1.  [Installation et configuration][]
-2.  [Examen et formatage des données][]
-3.  [Installation de Mahout][]
-4.  [Exécution du travail Mahout][]
+1.  [Installation et configuration][Installation et configuration]
+2.  [Examen et formatage des données][Examen et formatage des données]
+3.  [Installation de Mahout][Installation de Mahout]
+4.  [Exécution du travail Mahout][Exécution du travail Mahout]
 
 ## <a name="setup"></a>Installation et configuration
 
-Ce didacticiel part du principe que vous avez installé Azure et la version préliminaire de HDInsight et que vous avez créé un cluster HDInsight sur lequel vous pouvez exécuter un exemple. Si vous n'avez pas encore effectué ces actions, consultez le didacticiel [Prise en main d'Azure HDInsight][] pour obtenir des instructions sur le respect de ces prérequis.
+Ce didacticiel part du principe que vous avez installé Azure et la version préliminaire de HDInsight et que vous avez créé un cluster HDInsight sur lequel vous pouvez exécuter un exemple. Si vous n'avez pas encore effectué ces actions, consultez le didacticiel [Prise en main d'Azure HDInsight][Prise en main d'Azure HDInsight] pour obtenir des instructions sur le respect de ces prérequis.
 
 ## <a name="segment1"></a>Examen et formatage des données
 
 Cet exemple présente la façon dont les utilisateurs expriment leur préférence pour certaines chansons. L'hypothèse est que le nombre de fois où un utilisateur écoute une chanson permet de mesurer la préférence de cet utilisateur pour cette chanson. Les modèles détectés dans les données de préférence peuvent être utilisés pour prévoir les futures préférences des utilisateurs d'après certaines de leurs préférences musicales exprimées. Vous pouvez afficher un exemple de ce jeu de données dans la section **Description** de la page Web [Echo Nest Taste Profile Subset][Million Song Dataset] :
 
-![Echo Nest Taste Profile Subset][]
+![Echo Nest Taste Profile Subset][Echo Nest Taste Profile Subset]
 
 ### Exemple de données de Million Song Dataset
 
@@ -42,7 +42,7 @@ Si Visual Studio 2010 n'est pas installé sur votre ordinateur, ignorez cette �
 
 Lancez tout d'abord Visual Studio 2010, puis sélectionnez **Fichier -\> Nouveau -\> Projet**. Dans le volet **Modèles installés**, sous le nœud **Visual C#**, sélectionnez la catégorie **Fenêtre**, puis sélectionnez **Application console** dans la liste. Nommez le projet « ConvertToMahoutInput » et cliquez sur le bouton **OK**.
 
-![création d'une application console][]
+![création d'une application console][création d'une application console]
 
 ### Création d'une application console
 
@@ -132,7 +132,7 @@ Lancez tout d'abord Visual Studio 2010, puis sélectionnez **Fichier -\> Nouvea
 
     Lors de l'exécution de l'utilitaire, ajoutez un argument de ligne de commande avec l'emplacement de **train\_triplets.txt**. Pour cela, cliquez avec le bouton droit sur le nœud de projet **ConvertToMahoutInput** dans l'**Explorateur de solutions** et sélectionnez **Propriétés**. Sur la page des propriétés du projet, sélectionnez l'onglet **Débogage** sur le côté gauche, puis ajoutez le chemin du fichier \<chemin d'accès local\>train\_triplets.txt dans la zone de texte **Arguments de ligne de commande** :
 
-    ![définition des arguments de ligne de commande][]
+    ![définition des arguments de ligne de commande][définition des arguments de ligne de commande]
 
 ### Définition des arguments de ligne de commande
 
@@ -142,17 +142,17 @@ Lancez tout d'abord Visual Studio 2010, puis sélectionnez **Fichier -\> Nouvea
 
 -   Ouvrez le portail du cluster HDInsight, puis cliquez sur l'icône **Bureau à distance**.
 
-    ![Icône Gérer le cluster][]
+    ![Icône Gérer le cluster][Icône Gérer le cluster]
 
 ### Icône Bureau à distance
 
-HDInsight ne comprend pas Mahout par défaut. Celui-ci faisant partie de l'écosystème Hadoop, il peut être téléchargé sur le site Web [Mahout][]. La version la plus récente est la 0.7, mais cet ensemble d'instructions est compatible avec les versions 0.5 ou 0.7.
+HDInsight ne comprend pas Mahout par défaut. Celui-ci faisant partie de l'écosystème Hadoop, il peut être téléchargé sur le site Web [Mahout][Mahout]. La version la plus récente est la 0.7, mais cet ensemble d'instructions est compatible avec les versions 0.5 ou 0.7.
 
-1.  Téléchargez tout d'abord [Mahout version 0.7][] sur votre ordinateur.
+1.  Téléchargez tout d'abord [Mahout version 0.7][Mahout version 0.7] sur votre ordinateur.
 
 2.  Ensuite, copiez-le sur le cluster. Pour cela, sélectionnez le fichier .zip local et appuyez sur Ctrl+C pour copier, puis collez-le dans votre cluster Hadoop.
 
-    ![Téléchargement de Mahout][]
+    ![Téléchargement de Mahout][Téléchargement de Mahout]
 
 ### Copie de Mahout sur le nœud principal
 
@@ -175,7 +175,7 @@ Il est plus pratique de t&eacute;l&eacute;charger tous les &eacute;l&eacute;ment
 
 Vous devez alors ouvrir une fenêtre Terminal de Hadoop et accéder au dossier qui contient les fichiers users.txt et mInput.txt.
 
-![Fenêtre de commande Mahout][]
+![Fenêtre de commande Mahout][Fenêtre de commande Mahout]
 
 ### Fenêtre de commande Hadoop
 
@@ -224,7 +224,7 @@ Bien que cet article présente l'utilisation de la ligne de commande Hadoop, vou
   [Examen et formatage des données]: #segment1
   [Installation de Mahout]: #Segment2
   [Exécution du travail Mahout]: #segment2
-  [Prise en main d'Azure HDInsight]: /en-us/manage/services/hdinsight/get-started-hdinsight/
+  [Prise en main d'Azure HDInsight]: /fr-fr/manage/services/hdinsight/get-started-hdinsight/
   [Echo Nest Taste Profile Subset]: ./media/hdinsight-hadoop-recommendation-engine/the-echo-nest-taste-profile-subset.png
   [création d'une application console]: ./media/hdinsight-hadoop-recommendation-engine/creating-a-console-application.png
   [définition des arguments de ligne de commande]: ./media/hdinsight-hadoop-recommendation-engine/setting-command-line-arguments.png
@@ -232,6 +232,4 @@ Bien que cet article présente l'utilisation de la ligne de commande Hadoop, vou
   [Mahout]: http://mahout.apache.org/
   [Mahout version 0.7]: http://www.apache.org/dyn/closer.cgi/mahout/
   [Téléchargement de Mahout]: ./media/hdinsight-hadoop-recommendation-engine/uploading-mahout.PNG
-  [référentiel]: https://github.com/wenming/BigDataSamples/tree/master/mahout
-  [fichier .zip]: https://github.com/wenming/BigDataSamples/archive/master.zip
   [Fenêtre de commande Mahout]: ./media/hdinsight-hadoop-recommendation-engine/mahout-commandwindow.PNG

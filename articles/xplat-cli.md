@@ -1,6 +1,6 @@
 <properties linkid="script-xplat-intro" urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/fr-fr/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="carolz" services="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
 
 # Installation et configuration de l'interface de ligne de commande interplateforme Azure
 
@@ -14,11 +14,11 @@ Ce document décrit l'installation et la configuration de l'interface de ligne d
 
 ## Dans ce document
 
--   [Installation et configuration de l'interface de ligne de commande interplateforme Azure][]
--   [Connexion à votre abonnement Azure][]
--   [Utilisation de l'interface de ligne de commande interplateforme Azure][]
--   [Création de scripts dans l'interface de ligne de commande interplateforme Azure][]
--   [Ressources supplémentaires][]
+-   [Installation et configuration de l'interface de ligne de commande interplateforme Azure][Installation et configuration de l'interface de ligne de commande interplateforme Azure]
+-   [Connexion à votre abonnement Azure][Connexion à votre abonnement Azure]
+-   [Utilisation de l'interface de ligne de commande interplateforme Azure][Utilisation de l'interface de ligne de commande interplateforme Azure]
+-   [Création de scripts dans l'interface de ligne de commande interplateforme Azure][Création de scripts dans l'interface de ligne de commande interplateforme Azure]
+-   [Ressources supplémentaires][Ressources supplémentaires]
 
 ## <span id="install"></span></a>Installation et configuration de l'interface de ligne de commande interplateforme Azure
 
@@ -32,9 +32,9 @@ Une fois l'interface xplat-cli installée, vous pouvez utiliser la commande **az
 
 Les packages d'installation suivants sont disponibles :
 
--   [Windows Installer][]
+-   [Windows Installer][Windows Installer]
 
--   [Programme d'installation OS X][]
+-   [Programme d'installation OS X][Programme d'installation OS X]
 
 ### Utilisation de npm
 
@@ -82,7 +82,7 @@ Pour vous aider à choisir la méthode d'authentification adaptée à vos besoin
 
     > [WACOM.NOTE] La méthode par connexion fonctionne uniquement avec votre compte professionnel. Il s'agit d'un utilisateur géré par votre organisation et défini dans le client Azure Active Directory de vos organisations. Si vous ne possédez pas de compte professionnel et que vous utilisez un compte Microsoft pour vous connecter à votre abonnement Azure, vous pouvez en créer un facilement en procédant comme suit.
     >
-    > 1.  Connectez-vous au [portail de gestion Azure][] et cliquez sur **Active Directory**.
+    > 1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure] et cliquez sur **Active Directory**.
     >
     > 2.  S'il n'existe aucun annuaire, sélectionnez **Create your directory** et fournissez les informations demandées.
     >
@@ -94,13 +94,13 @@ Pour vous aider à choisir la méthode d'authentification adaptée à vos besoin
     >
     > 5.  Pour finir, déconnectez-vous du portail Azure et reconnectez-vous en utilisant le nouveau compte professionnel. Si vous vous connectez pour la première fois avec ce compte, vous êtes invité à changer le mot de passe.
     >
-    > Pour plus d'informations sur les comptes professionnels avec Microsoft Azure, consultez la page [Inscription à Microsoft Azure en tant qu'organisation][].
+    > Pour plus d'informations sur les comptes professionnels avec Microsoft Azure, consultez la page [Inscription à Microsoft Azure en tant qu'organisation][Inscription à Microsoft Azure en tant qu'organisation].
 
 -   La méthode basée sur un fichier de paramètres de publication installe un certificat qui vous permet d'exécuter les tâches de gestion pendant toute la durée de validité de l'abonnement et du certificat. Cette méthode facilite l'automatisation des tâches de longue durée. Une fois les informations téléchargées et importées, vous n'avez plus besoin de les fournir de nouveau. Elle complique cependant la gestion de l'accès à un abonnement, car quiconque a accès au certificat peut gérer l'abonnement.
 
-Pour plus d'informations sur la gestion de l'authentification et de l'abonnement, consultez la rubrique [« Quelle est la différence entre l'authentification basée sur les comptes et l'authentification basée sur les certificats ? »][].
+Pour plus d'informations sur la gestion de l'authentification et de l'abonnement, consultez la rubrique [« Quelle est la différence entre l'authentification basée sur les comptes et l'authentification basée sur les certificats ? »][« Quelle est la différence entre l'authentification basée sur les comptes et l'authentification basée sur les certificats ? »].
 
-Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][].
+Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][Version d'évaluation gratuite d'Azure].
 
 ### Utilisation de la méthode par connexion
 
@@ -250,7 +250,7 @@ Pour repasser en mode Azure Service Management, utilisez la commande suivante :
 
 > [WACOM.NOTE] Le mode Gestionnaire de ressources et le mode Azure Service Management s'excluent mutuellement. En d'autres termes, les ressources créées dans un mode ne peuvent pas être gérées dans l'autre mode.
 
-Pour plus d'informations sur l'utilisation du gestionnaire de ressources avec l'interface xplat-cli, consultez la page [Utilisation de l'interface de ligne de commande interplateforme Azure avec le gestionnaire de ressources][].
+Pour plus d'informations sur l'utilisation du gestionnaire de ressources avec l'interface xplat-cli, consultez la page [Utilisation de l'interface de ligne de commande interplateforme Azure avec le gestionnaire de ressources][Utilisation de l'interface de ligne de commande interplateforme Azure avec le gestionnaire de ressources].
 
 ### Utilisation des services en mode Azure Service Management
 
@@ -300,11 +300,11 @@ Cet exemple envoie une liste de sites Web à la commande `grep`, qui examine cha
 
 Comme nous venons de le voir, vous avez la possibilité d'enchaîner des commandes, mais vous pouvez également créer des scripts plus élaborés à l'aide des fonctions de création de scripts fournies par votre interpréteur de ligne de commande. Les différents interpréteurs de ligne de commande n'ont pas les mêmes fonctions de création de scripts ni la même syntaxe. Bash est probablement l'interpréteur de ligne de commande le plus largement utilisé pour les systèmes UNIX, y compris Linux et OS X.
 
-Pour obtenir des informations sur la création de scripts avec Bash, consultez la page [Guide avancé sur la création de scripts Bash][].
+Pour obtenir des informations sur la création de scripts avec Bash, consultez la page [Guide avancé sur la création de scripts Bash][Guide avancé sur la création de scripts Bash].
 
-Pour obtenir des informations plus générales sur la création de scripts pour des systèmes OS X ou Linux, consultez la page [Script Shell][].
+Pour obtenir des informations plus générales sur la création de scripts pour des systèmes OS X ou Linux, consultez la page [Script Shell][Script Shell].
 
-Pour obtenir des informations sur la création de scripts pour des systèmes Windows avec des fichiers de commandes, consultez la page [Référence de ligne de commande de A à Z][].
+Pour obtenir des informations sur la création de scripts pour des systèmes Windows avec des fichiers de commandes, consultez la page [Référence de ligne de commande de A à Z][Référence de ligne de commande de A à Z].
 
 ### Compréhension des résultats
 
@@ -356,7 +356,7 @@ Si le paramètre `--verbose` ou `-v` est spécifié, des informations similaires
     data:    myawesomesite  Running  Free  myawesomesite.azurewebsites.net
     info:    site list command OK
 
-Notez que les informations `verbose:` apparaissent comme des données au format JSON. Vous pouvez utiliser le paramètre `--json` pour renvoyer les informations au format JSON si vous travaillez avec des utilitaires qui comprennent JSON de manière native, tels que [jsawk][] ou [jq][]. Par exemple :
+Notez que les informations `verbose:` apparaissent comme des données au format JSON. Vous pouvez utiliser le paramètre `--json` pour renvoyer les informations au format JSON si vous travaillez avec des utilitaires qui comprennent JSON de manière native, tels que [jsawk][jsawk] ou [jq][jq]. Par exemple :
 
     azure site list --json | jsawk -n 'out(this.Name)' | xargs -L 1 azure site delete -q 
 
@@ -378,14 +378,12 @@ Si vous écrivez un script qui dépend de l'état de sortie, vérifiez que les c
 
 ## <span id="additional-resources"></span></a>Ressources supplémentaires
 
--   Pour plus d'informations sur l'interface xplat-cli, pour télécharger un code source, signaler des problèmes ou contribuer au projet, consultez la page [Référentiel GitHub pour l'interface de ligne de commande interplateforme Azure][].
+-   Pour plus d'informations sur l'interface xplat-cli, pour télécharger un code source, signaler des problèmes ou contribuer au projet, consultez la page [Référentiel GitHub pour l'interface de ligne de commande interplateforme Azure][Référentiel GitHub pour l'interface de ligne de commande interplateforme Azure].
 
--   Si vous rencontrez des problèmes lors de l'utilisation de l'interface xplat-cli ou d'Azure, consultez les [forums Azure][].
+-   Si vous rencontrez des problèmes lors de l'utilisation de l'interface xplat-cli ou d'Azure, consultez les [forums Azure][forums Azure].
 
--   Pour plus d'informations sur Azure, consultez le site [][2][http://azure.microsoft.com/fr-fr/][]</a>.
+-   Pour plus d'informations sur Azure, consultez le site [][2][http://azure.microsoft.com/fr-fr/][http://azure.microsoft.com/fr-fr/]</a>.
 
-  [PowerShell]: /fr-fr/manage/install-and-configure-windows-powershell/ "PowerShell"
-  [Interface de ligne de commande interplateforme]: /fr-fr/manage/install-and-configure-cli/ "Interface de ligne de commande interplateforme"
   []: https://github.com/WindowsAzure/azure-sdk-tools-xplat
   [Installation et configuration de l'interface de ligne de commande interplateforme Azure]: #install
   [Connexion à votre abonnement Azure]: #configure
@@ -397,7 +395,6 @@ Si vous écrivez un script qui dépend de l'état de sortie, vérifiez que les c
   [Programme d'installation OS X]: http://go.microsoft.com/fwlink/?LinkId=252249
   [portail de gestion Azure]: https://manage.windowsazure.com
   [Inscription à Microsoft Azure en tant qu'organisation]: http://www.windowsazure.com/fr-fr/documentation/articles/sign-up-organization/
-  [« Quelle est la différence entre l'authentification basée sur les comptes et l'authentification basée sur les certificats ? »]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
   [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A7171371E
   [Utilisation de l'interface de ligne de commande interplateforme Azure avec le gestionnaire de ressources]: /fr-fr/documentation/articles/xplat-cli-azure-resource-manager/
   [Guide avancé sur la création de scripts Bash]: http://tldp.org/LDP/abs/html/
@@ -405,6 +402,6 @@ Si vous écrivez un script qui dépend de l'état de sortie, vérifiez que les c
   [Référence de ligne de commande de A à Z]: http://technet.microsoft.com/fr-fr/library/bb490890.aspx
   [jsawk]: https://github.com/micha/jsawk
   [jq]: http://stedolan.github.io/jq/
-  [forums Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home
+  [forums Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/fr-fr/home
   [2]: http://azure.microsoft.com
   [http://azure.microsoft.com/fr-fr/]: http://azure.microsoft.com/

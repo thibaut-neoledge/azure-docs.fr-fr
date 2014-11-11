@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with eNom" pageTitle="Configure an eNom domain name for an Azure website that uses Traffic Manager" metaKeywords="Windows Azure, Windows Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth" />
 
 # Configuration d'un nom de domaine personnalisé pour un site web Azure utilisant Traffic Manager (eNom)
 
@@ -8,30 +8,30 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/fr-fr/documentation/articles/web-sites-enom-custom-domain-name/" title="Sites web">Site web</a> | <a href="/fr-fr/documentation/articles/web-sites-enom-traffic-manager-custom-domain-name/" title="Site web utilisant Traffic Manager" class="current">Site web utilisant Traffic Manager</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro][]]
+[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-Cet article contient des instructions permettant d'utiliser un nom de domaine personnalisé acheté auprès de [eNom][] avec Sites Web Azure.
+Cet article contient des instructions permettant d'utiliser un nom de domaine personnalisé acheté auprès de [eNom][eNom] avec Sites Web Azure.
 
-[WACOM.INCLUDE [tmwebsitefooter][]]
+[WACOM.INCLUDE [tmwebsitefooter](../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
-[WACOM.INCLUDE [introfooter][]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 Dans cet article :
 
--   [Présentation des enregistrements DNS][]
--   [Configurer vos sites web pour le mode Standard][]
--   [Ajouter un enregistrement DNS pour votre domaine personnalisé][]
--   [Activer Traffic Manager pour votre site web][]
+-   [Présentation des enregistrements DNS][Présentation des enregistrements DNS]
+-   [Configurer vos sites web pour le mode Standard][Configurer vos sites web pour le mode Standard]
+-   [Ajouter un enregistrement DNS pour votre domaine personnalisé][Ajouter un enregistrement DNS pour votre domaine personnalisé]
+-   [Activer Traffic Manager pour votre site web][Activer Traffic Manager pour votre site web]
 
 ## <a name="understanding-records"></a>Présentation des enregistrements DNS
 
-[WACOM.INCLUDE [understandingdns][]]
+[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-traffic-manager.md)]
 
 ## <a name="bkmk_configsharedmode"></a>Configurer vos sites web pour le mode Standard
 
-[WACOM.INCLUDE [modes][]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
 <a name="bkmk_configurecname"></a>
 
@@ -43,11 +43,11 @@ Pour associer votre domaine personnalisé à un site web Azure, vous devez ajout
 
 2.  Sur la page **My Domains**, dans le champ **Manage Domain**, sélectionnez **Host Records**. Les champs d'enregistrements d'hôtes s'affichent.
 
-    ![Onglet DNS Zone File][]
+    ![Onglet DNS Zone File][Onglet DNS Zone File]
 
 3.  L'éditeur d'enregistrements d'hôtes vous permet de sélectionner le type d'enregistrement à l'aide du champ **Record Type**. Pour les sites web Azure utilisant Traffic Manager, employez uniquement l'option **CNAME (Alias)**, car Traffic Manager n'est compatible qu'avec les enregistrements CNAME.
 
-    ![éditeur de fichier de zone][]
+    ![éditeur de fichier de zone][éditeur de fichier de zone]
 
     -   Lors de l'ajout d'un enregistrement CNAME, vous devez définir le champ **Host Name** sur le sous-domaine à utiliser. Par exemple, **www**. Vous devez définir le champ **Address** en fonction du nom de domaine **.trafficmanager.net** du profil Traffic Manager utilisé avec votre site web Azure. Par exemple, **contoso.trafficmanager.net**.
 
@@ -57,17 +57,6 @@ Pour associer votre domaine personnalisé à un site web Azure, vous devez ajout
 
 [WACOM.INCLUDE [modes][1]]
 
-  [Domaine personnalisé]: /fr-fr/documentation/articles/web-sites-custom-domain-name "Domaine personnalisé"
-  [GoDaddy]: /fr-fr/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [Network Solutions]: /fr-fr/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
-  [Register.com]: /fr-fr/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /fr-fr/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /fr-fr/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /fr-fr/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /fr-fr/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /fr-fr/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [Site web]: /fr-fr/documentation/articles/web-sites-enom-custom-domain-name/ "Sites web"
-  [Site web utilisant Traffic Manager]: /fr-fr/documentation/articles/web-sites-enom-traffic-manager-custom-domain-name/ "Site web utilisant Traffic Manager"
   [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
   [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [eNom]: https://enom.com

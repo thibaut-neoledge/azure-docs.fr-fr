@@ -1,6 +1,6 @@
 <properties linkid="dev-net-common-tasks-profiling-in-compute-emulator" urldisplayname="Team Foundation Service" headerexpose="" pageTitle="Profiling a Cloud Service Locally in the Compute Emulator" metakeywords="" footerexpose="" description="" umbraconavihide="0" disquscomments="1" title="Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler" authors="ghogen" manager="douge" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
 # Test des performances d'un service cloud local dans l'émulateur de calcul Azure avec le profileur Visual Studio
 
@@ -35,7 +35,7 @@ Vous pouvez exécuter le profileur en local uniquement si vous disposez de Visua
 
 Tout d'abord, certaines options de configuration de Visual Studio peuvent s'avérer utiles dans le cadre du profilage. Afin de bien comprendre les rapports de profilage, vous aurez besoin de symboles (fichiers .pdb) pour votre application, ainsi que de symboles pour les bibliothèques système. Assurez-vous que vous faites référence aux serveurs de symboles disponibles. Pour cela, dans le menu **Outils** de Visual Studio, sélectionnez **Options**, puis **Débogage**, et enfin **Symboles**. Assurez-vous que Microsoft Symbol Servers figure bien dans **Emplacements du fichier de symboles (.pdb)**. Vous pouvez également faire référence à <http://referencesource.microsoft.com/symbols>, qui peut comporter d'autres fichiers de symboles.
 
-![][]
+![][0]
 
 Si vous le souhaitez, vous pouvez simplifier les rapports générés par le profileur en choisissant Uniquement mon code. Lorsque cette option est activée, les piles d'appels de fonction sont simplifiées afin que les appels purement internes aux bibliothèques et à .NET Framework soient masqués dans les rapports. Dans le menu **Outils**, choisissez **Options**. Développez le nœud **Outils de performances** et choisissez **Général**. Activez la case à cocher **Activer Uniquement mon code pour les rapports du profileur**.
 
@@ -183,7 +183,7 @@ L'instrumentalisation d'exécutables Azure dans l'émulateur de calcul n'est pas
   [Étape 4 : application de modifications et comparaison des performances]: #step4
   [Résolution des problèmes]: #troubleshooting
   [Étapes suivantes]: #nextSteps
-  []: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
+  [0]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
   [1]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
   [2]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png
   [3]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png

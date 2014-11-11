@@ -1,6 +1,6 @@
 <properties linkid="manage-linux-common-tasks-lampstack" urlDisplayName="Install LAMP stack" pageTitle="Install the LAMP stack on a Linux virtual machine" metaKeywords="" description="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install the LAMP Stack on a Linux virtual machine in Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark" />
 
 # Installation de la pile LAMP sur une machine virtuelle Linux dans Azure
 
@@ -80,7 +80,7 @@ Cela installera les extensions PHP minimales requises pour utiliser PHP avec MyS
 
         -   CentOS et Oracle Linux : `sudo service httpd restart`
 
-    -   Par défaut, Apache écoute sur le port 80. Il est possible que vous ayez besoin d'un point de terminaison pour accéder à votre serveur Apache à distance. Pour plus d'informations, veuillez consulter la documentation sur la [configuration de points de terminaison][].
+    -   Par défaut, Apache écoute sur le port 80. Il est possible que vous ayez besoin d'un point de terminaison pour accéder à votre serveur Apache à distance. Pour plus d'informations, veuillez consulter la documentation sur la [configuration de points de terminaison][configuration de points de terminaison].
 
     -   Vous pouvez maintenant vérifier si Apache fonctionne et fournit du contenu. Dans votre navigateur, accédez à `http://[MYSERVICE].cloudapp.net`, où **[MYSERVICE]** est le nom du service cloud dans lequel se trouve votre machine virtuelle. Dans certaines distributions, cela fera apparaître une page Web par défaut qui affiche simplement « It works! » Dans d'autres distributions, vous pourrez voir une page Web plus complète contenant des liens vers de la documentation et du contenu supplémentaire pour la configuration du serveur Apache.
 

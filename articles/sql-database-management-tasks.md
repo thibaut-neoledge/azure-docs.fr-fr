@@ -1,6 +1,6 @@
 <properties umbracoNaviHide="0" pageTitle="How to Manage SQL Database" metaKeywords="Azure SQL database, SQL database, manage sql database, add logins, connect to sql database" description="Learn how to manage Azure SQL database." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg" />
 
 # <span id="swap"></span></a>Gestion de la base de données SQL
 
@@ -8,8 +8,8 @@ Cette rubrique montre comment effectuer des tâches simples de gestion sur la ba
 
 ## Sommaire
 
--   [Connexion à la base de données SQL dans Azure à l'aide de Management Studio][]
--   [Ajout de connexions et d'utilisateurs à la base de données SQL dans Azure][]
+-   [Connexion à la base de données SQL dans Azure à l'aide de Management Studio][Connexion à la base de données SQL dans Azure à l'aide de Management Studio]
+-   [Ajout de connexions et d'utilisateurs à la base de données SQL dans Azure][Ajout de connexions et d'utilisateurs à la base de données SQL dans Azure]
 
 ## <span id="connect"></span></a> Connexion à la base de données SQL dans Azure à l'aide de Management Studio
 
@@ -17,7 +17,7 @@ Management Studio est un outil d'administration qui permet de gérer plusieurs s
 
 Management Studio comprend des fonctionnalités qui ne sont actuellement pas disponibles sur le portail de gestion, telles qu'un vérificateur de syntaxe et la capacité d'enregistrement de scripts et des requêtes nommées à des fins de réutilisation. La base de données SQL est simplement un point de terminaison TDS (Tabular Data Stream). Tous les outils qui fonctionnent avec TDS, notamment Management Studio, sont valides pour les opérations relatives à la base de données SQL. Les scripts que vous développez pour le serveur local s'exécuteront sur un serveur logique de la base de données SQL.
 
-À l'étape suivante, vous allez utiliser Management Studio pour vous connecter à un serveur logique sur Azure. Cette étape implique que vous disposiez de SQL Server Management Studio version 2008 R2 ou 2012. Afin d'obtenir de l'aide pour télécharger Management Studio ou vous y connecter, consultez la page [Gestion de la base de données SQL à l'aide de Management Studio][] sur ce site.
+À l'étape suivante, vous allez utiliser Management Studio pour vous connecter à un serveur logique sur Azure. Cette étape implique que vous disposiez de SQL Server Management Studio version 2008 R2 ou 2012. Afin d'obtenir de l'aide pour télécharger Management Studio ou vous y connecter, consultez la page [Gestion de la base de données SQL à l'aide de Management Studio][Gestion de la base de données SQL à l'aide de Management Studio] sur ce site.
 
 Avant de pouvoir vous connecter, il est parfois nécessaire de créer une exception de pare-feu qui autorise des requêtes sortantes sur le port 1433 sur votre système local. Le port 1433 des ordinateurs qui sont sécurisés par défaut n'est généralement pas ouvert.
 
@@ -117,7 +117,7 @@ Le second script attribue les autorisations aux utilisateurs de la base de donn�
 
 6.  Ouvrez une seconde fenêtre de requête, puis remplacez le contexte de connexion par *sqlwriter*. La même requête doit à présent s'exécuter correctement.
 
-Vous avez maintenant créé et testé plusieurs connexions. Pour plus d'informations, consultez les pages [Gestion des bases de données et des connexions dans Base de données SQL Azure][] et [Contrôle de Base de données SQL Azure à l'aide de vues de gestion dynamique][].
+Vous avez maintenant créé et testé plusieurs connexions. Pour plus d'informations, consultez les pages [Gestion des bases de données et des connexions dans Base de données SQL Azure][Gestion des bases de données et des connexions dans Base de données SQL Azure] et [Contrôle de Base de données SQL Azure à l'aide de vues de gestion dynamique][Contrôle de Base de données SQL Azure à l'aide de vues de gestion dynamique].
 
   [Connexion à la base de données SQL dans Azure à l'aide de Management Studio]: #connect
   [Ajout de connexions et d'utilisateurs à la base de données SQL dans Azure]: #addlogins

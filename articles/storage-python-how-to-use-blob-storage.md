@@ -1,6 +1,6 @@
 <properties linkid="develop-python-blob-service" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="How to use the Blob service from Python" authors="huvalo" videoId="" scriptId="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Utilisation du service de stockage d'objets blob à partir de Python
 
@@ -9,30 +9,30 @@ l'utilisation du service de stockage d'objets blob Azure. Les exemples sont écr
 l'API Python. Les scénarios traités incluent le **téléchargement (vers une cible)**, la **création de listes**, le
 **téléchargement (à partir d'une source)** et la
 **suppression** d'objets blob. Pour plus d'informations sur les
-objets blob, consultez la section [Étapes suivantes][].
+objets blob, consultez la section [Étapes suivantes][Étapes suivantes].
 
 ## Sommaire
 
-[Présentation du stockage d'objets blob][]
- [Concepts][]
- [Création d'un compte de stockage Azure][]
- [Création d'un conteneur][]
- [Téléchargement d'un objet blob dans un conteneur][]
- [Création d'une liste d'objets blob dans un conteneur][]
- [Téléchargement d'objets blob][]
- [Suppression d'un objet blob][]
- [Chargement et téléchargement d'objets blob volumineux][]
- [Étapes suivantes][]
+[Présentation du stockage d'objets blob][Présentation du stockage d'objets blob]
+ [Concepts][Concepts]
+ [Création d'un compte de stockage Azure][Création d'un compte de stockage Azure]
+ [Création d'un conteneur][Création d'un conteneur]
+ [Téléchargement d'un objet blob dans un conteneur][Téléchargement d'un objet blob dans un conteneur]
+ [Création d'une liste d'objets blob dans un conteneur][Création d'une liste d'objets blob dans un conteneur]
+ [Téléchargement d'objets blob][Téléchargement d'objets blob]
+ [Suppression d'un objet blob][Suppression d'un objet blob]
+ [Chargement et téléchargement d'objets blob volumineux][Chargement et téléchargement d'objets blob volumineux]
+ [Étapes suivantes][Étapes suivantes]
 
-[WACOM.INCLUDE [howto-blob-storage][]]
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <a name="create-account"> </a>Création d'un compte Azure Storage
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-container"> </a> Création d'un conteneur
 
-**Remarque :** si vous devez installer Python ou les bibliothèques clientes, consultez le [Guide d'installation de Python][].
+**Remarque :** si vous devez installer Python ou les bibliothèques clientes, consultez le [Guide d'installation de Python][Guide d'installation de Python].
 
 L'objet **BlobService** permet d'utiliser des conteneurs et des objets blob. Le code
 suivant crée un objet **BlobService**. Ajoutez ce qui suit au
@@ -96,8 +96,8 @@ Pour supprimer un objet blob, appelez **delete\_blob**.
 
 Maintenant que vous avez appris les bases du stockage d'objets blob, suivez ces liens pour apprendre des tâches de stockage plus complexes.
 
--   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][]
--   Consultez le [blog de l'équipe Azure Storage][]
+-   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][Stockage et accessibilité des données dans Azure]
+-   Consultez le [blog de l'équipe Azure Storage][blog de l'équipe Azure Storage]
 
   [Étapes suivantes]: #next-steps
   [Présentation du stockage d'objets blob]: #what-is
@@ -112,5 +112,5 @@ Maintenant que vous avez appris les bases du stockage d'objets blob, suivez ces 
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [Guide d'installation de Python]: ../python-how-to-install/
-  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx
   [blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/

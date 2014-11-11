@@ -1,30 +1,30 @@
 <properties linkid="develop-java-how-to-guides-access-control" urlDisplayName="Access Control" pageTitle="How to use Access Control (Java) - Azure feature guide" metaKeywords="" description="Learn how to develop and use Access Control with Java in Azure." metaCanonical="" services="active-directory" documentationCenter="Java" title="How to Authenticate Web Users with Azure Access Control Service Using Eclipse" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse
 
-Ce guide vous indique comment utiliser Azure Access Control Service (ou ACS) au sein du plug-in Azure pour Eclipse avec Java (par Microsoft Open Technologies). Pour plus d'informations sur ACS, consultez la section [Étapes suivantes][].
+Ce guide vous indique comment utiliser Azure Access Control Service (ou ACS) au sein du plug-in Azure pour Eclipse avec Java (par Microsoft Open Technologies). Pour plus d'informations sur ACS, consultez la section [Étapes suivantes][Étapes suivantes].
 
 > [WACOM.NOTE]
 > Le filtre ACS Azure (par Microsoft Open Technologies) est une version préliminaire de la technologie destinée à la communauté. En tant que logiciel préliminaire, il n'est pas officiellement pris en charge par Microsoft Open Technologies, Inc. ou Microsoft.
 
 ## Sommaire
 
--   [Qu'est-ce qu'ACS ?][]
--   [Concepts][]
--   [Conditions préalables][]
--   [Création d'un espace de noms ACS][]
--   [Ajout de fournisseurs d'identité][]
--   [Ajout d'une application par partie de confiance][]
--   [Création de règles][]
--   [Téléchargement d'un certificat vers votre espace de noms ACS][]
--   [Vérification de la page d'intégration d'application][]
--   [Création d'une application web Java][]
--   [Ajout de la bibliothèque de filtres ACS à votre application][]
--   [Déploiement de l'émulateur de calcul][]
--   [Déploiement sur Azure][]
--   [Étapes suivantes][]
+-   [Qu'est-ce qu'ACS ?][Qu'est-ce qu'ACS ?]
+-   [Concepts][Concepts]
+-   [Conditions préalables][Conditions préalables]
+-   [Création d'un espace de noms ACS][Création d'un espace de noms ACS]
+-   [Ajout de fournisseurs d'identité][Ajout de fournisseurs d'identité]
+-   [Ajout d'une application par partie de confiance][Ajout d'une application par partie de confiance]
+-   [Création de règles][Création de règles]
+-   [Téléchargement d'un certificat vers votre espace de noms ACS][Téléchargement d'un certificat vers votre espace de noms ACS]
+-   [Vérification de la page d'intégration d'application][Vérification de la page d'intégration d'application]
+-   [Création d'une application web Java][Création d'une application web Java]
+-   [Ajout de la bibliothèque de filtres ACS à votre application][Ajout de la bibliothèque de filtres ACS à votre application]
+-   [Déploiement de l'émulateur de calcul][Déploiement de l'émulateur de calcul]
+-   [Déploiement sur Azure][Déploiement sur Azure]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <a name="what-is"></a>Qu'est-ce qu'ACS ?
 
@@ -43,7 +43,7 @@ Les fonctionnalités suivantes sont disponibles dans ACS :
 -   Service de gestion OData (Open Data Protocol) qui fournit un accès par programme aux paramètres ACS.
 -   Portail de gestion qui autorise l'accès administratif aux paramètres ACS.
 
-Pour plus d'informations sur ACS, consultez la page [Access Control Service 2.0][].
+Pour plus d'informations sur ACS, consultez la page [Access Control Service 2.0][Access Control Service 2.0].
 
 ## <a name="concepts"></a>Concepts
 
@@ -108,7 +108,7 @@ l'application afin qu'ACS assure les fonctions demandées.
 La figure suivante présente le fonctionnement de l'authentification
 ACS avec une application web :
 
-![Diagramme de flux ACS][]
+![Diagramme de flux ACS][Diagramme de flux ACS]
 
 1.  Le client (dans le cas présent, un navigateur) demande une page à partir de la partie de confiance.
 2.  Puisque la demande n'a pas encore été authentifiée, la partie de confiance redirige l'utilisateur vers l'autorité approuvée, c'est-à-dire ACS. ACS propose à l'utilisateur de choisir parmi les fournisseurs d'identité spécifiés pour cette partie de confiance. L'utilisateur sélectionne le fournisseur d'identité approprié.
@@ -126,9 +126,9 @@ Pour réaliser les tâches présentées dans ce guide, vous avez besoin des él�
 -   IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Indigo ou ultérieur, disponible en téléchargement à l'adresse suivante : <http://www.eclipse.org/downloads/>.
 -   Une distribution d'un serveur web ou d'un serveur d'applications basé sur Java, tel que Apache Tomcat, GlassFish, JBoss Application Server ou Jetty.
 -   Un abonnement à Azure, pouvant être souscrit à l'adresse suivante : <http://www.microsoft.com/windowsazure/offers/>.
--   Le plug-in Azure pour Eclipse avec Java (par Microsoft Open Technologies), version avril 2014. Pour plus d'informations, consultez la page [Installation du plug-in Azure pour Eclipse avec Java (par Microsoft Open Technologies)][].
+-   Le plug-in Azure pour Eclipse avec Java (par Microsoft Open Technologies), version avril 2014. Pour plus d'informations, consultez la page [Installation du plug-in Azure pour Eclipse avec Java (par Microsoft Open Technologies)][Installation du plug-in Azure pour Eclipse avec Java (par Microsoft Open Technologies)].
 -   Un certificat X509 à utiliser avec votre application. Vous avez besoin du certificat public (.cer) et de celui au format Personal Information Exchange (.PFX) (les instructions de création de ce certificat sont indiquées plus loin dans ce didacticiel).
--   Vous devez connaître l'émulateur de calcul Azure ainsi que les techniques de déploiement présentées dans la page [Création d'une application Hello World pour Azure dans Eclipse][].
+-   Vous devez connaître l'émulateur de calcul Azure ainsi que les techniques de déploiement présentées dans la page [Création d'une application Hello World pour Azure dans Eclipse][Création d'une application Hello World pour Azure dans Eclipse].
 
 ## <a name="create-namespace"></a>Création d'un espace de noms ACS
 
@@ -136,7 +136,7 @@ Pour commencer à utiliser ACS dans Azure, vous devez créer
 un espace de noms ACS. L'espace de noms fournit une étendue unique pour
 l'adressage des ressources ACS au sein de votre application.
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 2.  Cliquez sur **Active Directory**.
 3.  Pour créer un espace de noms ACS, cliquez sur **Nouveau**, sur **Services d'application**, sur **Access Control**, puis sur **Création rapide**.
 4.  Entrez le nom de l'espace de noms. Azure vérifie que le nom est unique.
@@ -153,7 +153,7 @@ Cette tâche vous permet d'ajouter des fournisseurs d'identité
 Windows Live comme fournisseur d'identité, mais il est possible d'utiliser
 tous les fournisseurs répertoriés dans le portail de gestion ACS.
 
-1.  Dans le [portail de gestion Azure][], cliquez **Active Directory**, sélectionnez un espace de noms Access Control, puis cliquez sur **Gérer**. Le portail de gestion ACS s'ouvre.
+1.  Dans le [portail de gestion Azure][portail de gestion Azure], cliquez **Active Directory**, sélectionnez un espace de noms Access Control, puis cliquez sur **Gérer**. Le portail de gestion ACS s'ouvre.
 2.  Dans le volet de navigation gauche du portail de gestion ACS, cliquez sur **Identity providers**.
 3.  Windows Live ID est activé par défaut. Il n'est pas possible de le supprimer. Dans le cadre de ce didacticiel, seul Windows Live ID est utilisé. C'est toutefois sur cet écran qu'il est possible d'ajouter d'autres fournisseurs d'identité, en cliquant sur le bouton **Add**.
 
@@ -173,9 +173,9 @@ web Java soit reconnue comme application par partie de confiance valide.
         **Azure Web App**.
     2.  Dans **Mode**, sélectionnez **Enter settings manually**.
     3.  Sous **Realm**, entrez l'URI auquel s'applique le jeton de sécurité émis par ACS. Dans le cas présent, entrez **http://localhost:8080/**.
-        ![Domaine de partie de confiance à utiliser dans l'émulateur de calcul][]
+        ![Domaine de partie de confiance à utiliser dans l'émulateur de calcul][Domaine de partie de confiance à utiliser dans l'émulateur de calcul]
     4.  Sous **Return URL**, entrez l'adresse URL vers laquelle ACS renvoie le jeton de sécurité. Dans le cas présent, entrez **http://localhost:8080/MyACSHelloWorld/index.jsp**  
-        ![URL de retour vers partie de confiance pour utilisation dans l'émulateur de calcul][]
+        ![URL de retour vers partie de confiance pour utilisation dans l'émulateur de calcul][URL de retour vers partie de confiance pour utilisation dans l'émulateur de calcul]
     5.  Acceptez les valeurs par défaut dans les autres champs.
 
 4.  Cliquez sur **Enregistrer**.
@@ -206,9 +206,9 @@ Au cours de cette tâche, vous allez télécharger un certificat .PFX qui sera u
 3.  Sur la page **Add Token-Signing Certificate or Key** :
     1.  Dans la section **Used for**, cliquez sur **Relying Party Application**, puis sélectionnez **Azure Web App** (que vous avez précédemment défini comme nom de votre application de partie de confiance).
     2.  Dans la section **Type**, sélectionnez **X.509 Certificate**.
-    3.  Dans la section **Certificate**, cliquez sur le bouton Parcourir, puis accédez au fichier de certificat X.509 que vous souhaitez utiliser. Il s'agit d'un fichier .PFX. Sélectionnez le fichier, cliquez sur **Open**, puis saisissez le mot de passe du certificat dans la zone **Password**. Dans le cadre d'un test, vous pouvez utiliser un certificat auto-signé. Pour créer un certificat auto-signé, dans la boîte de dialogue **ACS Filter Library** (qui sera décrite ultérieurement), appuyez sur le bouton **New** ou servez-vous de l'utilitaire **encutil.exe** présent sur le [site web du projet][] de kit de démarrage Azure pour Java (par Microsoft Open Technologies).
+    3.  Dans la section **Certificate**, cliquez sur le bouton Parcourir, puis accédez au fichier de certificat X.509 que vous souhaitez utiliser. Il s'agit d'un fichier .PFX. Sélectionnez le fichier, cliquez sur **Open**, puis saisissez le mot de passe du certificat dans la zone **Password**. Dans le cadre d'un test, vous pouvez utiliser un certificat auto-signé. Pour créer un certificat auto-signé, dans la boîte de dialogue **ACS Filter Library** (qui sera décrite ultérieurement), appuyez sur le bouton **New** ou servez-vous de l'utilitaire **encutil.exe** présent sur le [site web du projet][site web du projet] de kit de démarrage Azure pour Java (par Microsoft Open Technologies).
     4.  Vérifiez que **Make Primary** est sélectionné. Votre page **Add Token-Signing Certificate or Key** doit être similaire à celle-ci.
-        ![Ajouter un certificat de signature de jeton][]
+        ![Ajouter un certificat de signature de jeton][Ajouter un certificat de signature de jeton]
     5.  Cliquez sur **Save** pour enregistrer vos paramètres et fermer la page **Add Token-Signing Certificate or Key**.
 
 Vérifiez ensuite les informations contenues dans la page d'intégration
@@ -233,14 +233,14 @@ Sur la page **Login Page Integration: Azure Web App**, l'URL répertoriée sous 
 
 1.  Dans le menu d'Eclipse, cliquez sur **File**, sur **New**, puis sur **Dynamic Web Project**. Si **Dynamic Web Project** ne figure pas dans la liste des projets disponibles après avoir cliqué sur **File**, puis **New**, procédez comme suit : cliquez sur **File**, **New**, **Project**, développez le nœud **Web**, cliquez sur **Dynamic Web Project**, puis sur **Suivant**. Pour l'exemple de ce didacticiel, nommez votre projet **MyACSHelloWorld**. Assurez-vous de bien utiliser ce nom, les étapes suivantes du didacticiel partent du principe que votre fichier WAR se nomme MyACSHelloWorld. Votre écran se présente comme suit :
 
-    ![Créer un projet Hello World pour l'exemple ACS][]
+    ![Créer un projet Hello World pour l'exemple ACS][Créer un projet Hello World pour l'exemple ACS]
 
     Cliquez sur **Terminer**.
 
 2.  Dans la vue de l'Explorateur de projets Eclipse, développez **MyACSHelloWorld**. Cliquez avec le bouton droit sur **WebContent**, cliquez sur **New**, puis sur **JSP File**.
 3.  Dans la boîte de dialogue **New JSP File**, nommez le fichier **index.jsp**. Conservez MyACSHelloWorld/WebContent comme dossier parent, comme illustré ci-dessous :
 
-    ![Ajouter un fichier JSP pour l'exemple ACS][]
+    ![Ajouter un fichier JSP pour l'exemple ACS][Ajouter un fichier JSP pour l'exemple ACS]
 
     Cliquez sur **Suivant**.
 
@@ -260,7 +260,7 @@ Sur la page **Login Page Integration: Azure Web App**, l'URL répertoriée sous 
 3.  Cliquez sur **Add Library**.
 4.  Cliquez sur **Azure Access Control Services Filter (by MS Open Tech)**, puis sur **Suivant**. La boîte de dialogue **Azure Access Control Services Filter** s'affiche. Un chemin différent peut être indiqué pour le champ **Location**, en fonction de l'emplacement d'installation d'Eclipse. Le numéro de version peut également être différent en fonction des mises à jour logicielles.
 
-    ![Ajouter la bibliothèque de filtres ACS][]
+    ![Ajouter la bibliothèque de filtres ACS][Ajouter la bibliothèque de filtres ACS]
 
 5.  En utilisant un navigateur ouvert sur la page **Login Page Integration** du portail de gestion, copiez l'URL indiquée dans le champ **Option 1: Link to an ACS-hosted login page**, puis collez-la dans le champ **ACS Authentication Endpoint** de la boîte de dialogue Eclipse.
 6.  En utilisant un navigateur ouvert sur la page **Edit Relying Party Application** du portail de gestion, copiez l'URL indiquée dans le champ **Realm**, puis collez-la dans le champ **Relying Party Realm** de la boîte de dialogue Eclipse.
@@ -269,7 +269,7 @@ Sur la page **Login Page Integration: Azure Web App**, l'URL répertoriée sous 
 9.  [Facultatif] Laissez la case à cocher **Require HTTPS connections** activée. Si vous activez cette option, vous devrez accéder à votre application via le protocole HTTPS. Si vous ne souhaitez pas utiliser de connexions HTTPS, désélectionnez cette option.
 10. Pour un déploiement vers l'émulateur de calcul, vos paramètres **Azure ACS Filter** doivent être similaires à l'exemple ci-dessous.
 
-    ![Paramètres de filtre ACS Azure pour un déploiement sur l'émulateur de calcul][]
+    ![Paramètres de filtre ACS Azure pour un déploiement sur l'émulateur de calcul][Paramètres de filtre ACS Azure pour un déploiement sur l'émulateur de calcul]
 
 11. Cliquez sur **Terminer**.
 12. Cliquez sur **Yes** dans la boîte de dialogue indiquant qu'un fichier web.xml va être créé.
@@ -279,7 +279,7 @@ Sur la page **Login Page Integration: Azure Web App**, l'URL répertoriée sous 
 
 1.  Dans l'Explorateur de projets Eclipse, cliquez avec le bouton droit sur **MyACSHelloWorld**, cliquez sur **Azure**, puis sur **Package for Azure**.
 2.  Dans **Project name**, entrez **MyAzureACSProject**, puis cliquez sur **Suivant**.
-3.  Sélectionnez un JDK et un serveur d'applications. Ces étapes sont détaillées dans le didacticiel [Création d'une application Hello World pour Azure dans Eclipse][].
+3.  Sélectionnez un JDK et un serveur d'applications. Ces étapes sont détaillées dans le didacticiel [Création d'une application Hello World pour Azure dans Eclipse][Création d'une application Hello World pour Azure dans Eclipse].
 4.  Cliquez sur **Terminer**.
 5.  Cliquez sur le bouton **Run in Azure Emulator**.
 6.  Lorsque votre application web Java est lancée dans l'émulateur de calcul, fermez toutes les instances de votre navigateur (afin qu'aucune session de navigateur ne puisse perturber votre test de connexion à ACS).
@@ -292,11 +292,11 @@ Pour effectuer un déploiement sur Azure, vous devez changer le domaine de parti
 
 1.  Dans le portail de gestion Azure, sur la page **Edit Relying Party Application**, modifiez **Realm** et entrez l'URL de votre site déployé. Remplacez **example** par le nom DNS spécifié lors du déploiement.
 
-    ![Domaine de partie de confiance à utiliser en production][]
+    ![Domaine de partie de confiance à utiliser en production][Domaine de partie de confiance à utiliser en production]
 
 2.  Modifiez la valeur **Return URL** et entrez l'URL de votre application. Remplacez **example** par le nom DNS spécifié lors du déploiement.
 
-    ![URL de renvoi de partie de confiance à utiliser en production][]
+    ![URL de renvoi de partie de confiance à utiliser en production][URL de renvoi de partie de confiance à utiliser en production]
 
 3.  Cliquez sur **Save** pour enregistrer les modifications apportées au domaine de partie de confiance et à l'URL de renvoi.
 4.  Laissez la page **Login Page Integration** ouverte dans votre navigateur, car vous allez avoir besoin de copier certaines données qui s'y trouvent.
@@ -309,19 +309,19 @@ Pour effectuer un déploiement sur Azure, vous devez changer le domaine de parti
 11. [Facultatif] Laissez la case à cocher **Require HTTPS connections** activée. Si vous activez cette option, vous devrez accéder à votre application via le protocole HTTPS. Si vous ne souhaitez pas utiliser de connexions HTTPS, désélectionnez cette option.
 12. Pour un déploiement vers Azure, vos paramètres de filtre ACS Azure doivent être similaires à l'exemple ci-dessous.
 
-    ![Paramètres de filtre ACS Azure pour un déploiement de production][]
+    ![Paramètres de filtre ACS Azure pour un déploiement de production][Paramètres de filtre ACS Azure pour un déploiement de production]
 
 13. Cliquez sur **Terminer** pour fermer la boîte de dialogue **Edit Library**.
 14. Cliquez sur **OK** pour fermer la boîte de dialogue **Properties for MyACSHelloWorld**.
-15. Dans Eclipse, cliquez sur le bouton **Publish to Azure Cloud**. Répondez aux invites, comme expliqué dans la section **Déploiement de votre application dans Azure** de la rubrique [Création d'une application Hello World pour Azure dans Eclipse][].
+15. Dans Eclipse, cliquez sur le bouton **Publish to Azure Cloud**. Répondez aux invites, comme expliqué dans la section **Déploiement de votre application dans Azure** de la rubrique [Création d'une application Hello World pour Azure dans Eclipse][Création d'une application Hello World pour Azure dans Eclipse].
 
 Une fois le déploiement de votre application web terminé, fermez les sessions de navigateur en cours, exécutez votre application web. Votre identifiant Windows Live ID doit vous être demandé. Vous êtes ensuite transféré vers l'URL de renvoi de votre application par partie de confiance.
 
-Lorsque vous avez terminé d'utiliser votre application ACS Hello World, n'oubliez pas de supprimer le déploiement (la rubrique [Création d'une application Hello World pour Azure dans Eclipse][] explique comment procéder).
+Lorsque vous avez terminé d'utiliser votre application ACS Hello World, n'oubliez pas de supprimer le déploiement (la rubrique [Création d'une application Hello World pour Azure dans Eclipse][Création d'une application Hello World pour Azure dans Eclipse] explique comment procéder).
 
 ## <a name="next_steps"></a>Étapes suivantes
 
-Pour étudier les données SAML (Security Assertion Markup Language) renvoyées par ACS vers votre application, consultez la rubrique [Affichage des données SAML renvoyées par ACS][]. Pour en savoir plus sur les fonctionnalités ACS et découvrir des scénarios plus complexes, consultez la page [Access Control Service 2.0][].
+Pour étudier les données SAML (Security Assertion Markup Language) renvoyées par ACS vers votre application, consultez la rubrique [Affichage des données SAML renvoyées par ACS][Affichage des données SAML renvoyées par ACS]. Pour en savoir plus sur les fonctionnalités ACS et découvrir des scénarios plus complexes, consultez la page [Access Control Service 2.0][Access Control Service 2.0].
 
 Cet exemple utilisait l'option **Embed the certificate in the WAR file** qui simplifie le déploiement du certificat. Si vous préférez maintenir le certificat de signature séparé du fichier WAR, vous pouvez utiliser la technique suivante :
 
@@ -338,16 +338,15 @@ Cet exemple utilisait l'option **Embed the certificate in the WAR file** qui sim
         2.  Dans la zone **To directory**, entrez **%JAVA\_HOME%**.
     4.  La boîte de dialogue **Add Component** doit être similaire à la suivante :
 
-        ![Ajouter un composant de certificat][]
+        ![Ajouter un composant de certificat][Ajouter un composant de certificat]
 
     5.  Cliquez sur **OK**.
 
-Votre certificat doit maintenant être inclus dans votre déploiement. Que le certificat soit intégré au fichier WAR ou ajouté en tant que composant au déploiement, vous devez télécharger le certificat dans votre espace de noms en suivant les instructions de la section [Téléchargement d'un certificat vers votre espace de noms ACS][].
+Votre certificat doit maintenant être inclus dans votre déploiement. Que le certificat soit intégré au fichier WAR ou ajouté en tant que composant au déploiement, vous devez télécharger le certificat dans votre espace de noms en suivant les instructions de la section [Téléchargement d'un certificat vers votre espace de noms ACS][Téléchargement d'un certificat vers votre espace de noms ACS].
 
 <!-- Eclipse-specific -->
 
   [Étapes suivantes]: #next_steps
-  [Qu'est-ce qu'ACS ?]: #what-is
   [Concepts]: #concepts
   [Conditions préalables]: #pre
   [Création d'un espace de noms ACS]: #create-namespace
@@ -362,7 +361,6 @@ Votre certificat doit maintenant être inclus dans votre déploiement. Que le ce
   [Déploiement sur Azure]: #deploy_azure
   [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
   [Diagramme de flux ACS]: ./media/active-directory-java-authenticate-users-access-control-eclipse/ACSFlow.png
-  [Installation du plug-in Azure pour Eclipse avec Java (par Microsoft Open Technologies)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh690946.aspx
   [Création d'une application Hello World pour Azure dans Eclipse]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh690944.aspx
   [portail de gestion Azure]: https://manage.windowsazure.com
   [Domaine de partie de confiance à utiliser dans l'émulateur de calcul]: ./media/active-directory-java-authenticate-users-access-control-eclipse/RelyingPartyRealmEmulator.png

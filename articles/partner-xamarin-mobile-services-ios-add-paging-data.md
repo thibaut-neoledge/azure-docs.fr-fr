@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-add-paging-to-data-xamarin-ios" urlDisplayName="" pageTitle="Add paging to data (Xamarin iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Xamarin iOS app from Mobile Services." metaCanonical="" services="" authors="donnam" solutions="" manager="dwrede" editor="" title="Refine Mobile Services queries with paging" documentationCenter="Mobile" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # Affinage des requêtes Mobile Services au moyen de la pagination
 
@@ -14,9 +14,9 @@ Cette rubrique montre comment utiliser la pagination pour gérer la quantité de
 <p>Pour &eacute;viter tout d&eacute;passement de capacit&eacute; dans les appareils mobiles clients, Mobile Services impl&eacute;mente une limite automatique du nombre de pages, qui autorise par d&eacute;faut un maximum de 50&nbsp;&eacute;l&eacute;ments par r&eacute;ponse. En sp&eacute;cifiant la taille de page, vous pouvez demander explicitement jusqu'&agrave; 1&nbsp;000&nbsp;&eacute;l&eacute;ments dans la r&eacute;ponse.</p>
 </div>
 
-Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données][]. Avant de commencer ce didacticiel, vous devez suivre au moins le premier didacticiel consacré à l'utilisation des séries de données, intitulé [Prise en main des données][].
+Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données][Prise en main des données]. Avant de commencer ce didacticiel, vous devez suivre au moins le premier didacticiel consacré à l'utilisation des séries de données, intitulé [Prise en main des données][Prise en main des données].
 
-1.  Dans Xamarin Studio, ouvrez le projet que vous avez modifié avec le didacticiel [Prise en main des données][].
+1.  Dans Xamarin Studio, ouvrez le projet que vous avez modifié avec le didacticiel [Prise en main des données][Prise en main des données].
 
 2.  Cliquez sur **Exécuter** pour générer le projet et démarrer l'application, puis entrez du texte dans la zone de texte et cliquez sur l'icône plus (**+**).
 
@@ -55,16 +55,8 @@ Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés
 
 Vous voici parvenu à la fin de la série de didacticiels présentant les principes de base de l'utilisation des données dans Mobile Services. Pour plus d'informations, consultez la rubrique Mobile Services suivante :
 
--   [Prise en main de l'authentification][]
+-   [Prise en main de l'authentification][Prise en main de l'authentification]
     En savoir plus sur l'authentification des utilisateurs de votre application avec un compte Windows.
 
-  [Windows Store C#]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-dotnet "Windows Store C#"
-  [Windows Store JavaScript]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-js "Windows Store JavaScript"
-  [Windows Phone]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-wp8 "Windows Phone"
-  [iOS]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-ios "iOS"
-  [Android]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-android "Android"
-  [HTML]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-html "HTML"
-  [iOS C#]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-xamarin-ios "Xamarin.iOS"
-  [Android C#]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-xamarin-android "Xamarin.Android"
   [Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-xamarin-ios
   [Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-xamarin-ios

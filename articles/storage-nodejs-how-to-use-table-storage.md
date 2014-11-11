@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Learn how to use the table storage service in Azure. Code samples are written using the Node.js API." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Utilisation du service de Table à partir de Node.js
 
@@ -8,36 +8,36 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utili
 Table Windows Azure. Les exemples sont écrits en utilisant
 l'API Node.js. Les scénarios traités incluent la **création et la suppression d'une
 table, l'insertion et l'interrogation d'entités dans une table**. Pour plus
-d'informations sur les tables, consultez la section [Étapes suivantes][].
+d'informations sur les tables, consultez la section [Étapes suivantes][Étapes suivantes].
 
 ## Sommaire
 
--   [Présentation du service de Table][]
--   [Concepts][]
--   [Création d'un compte de stockage Azure][]
--   [Création d'une application Node.js][]
--   [Configuration de votre application pour accéder au stockage][]
--   [Configuration d'une connexion Azure Storage][]
--   [Création d'une table][]
--   [Ajout d'une entité à une table][]
--   [Mise à jour d'une entité][]
--   [Utilisation des groupes d'entités][]
--   [Extraction d'une entité][]
--   [Interrogation d'un ensemble d'entités][]
--   [Suppression d'une entité][]
--   [Suppression d'une table][]
--   [Utilisation des signatures d'accès partagé][]
--   [Étapes suivantes][]
+-   [Présentation du service de Table][Présentation du service de Table]
+-   [Concepts][Concepts]
+-   [Création d'un compte de stockage Azure][Création d'un compte de stockage Azure]
+-   [Création d'une application Node.js][Création d'une application Node.js]
+-   [Configuration de votre application pour accéder au stockage][Configuration de votre application pour accéder au stockage]
+-   [Configuration d'une connexion Azure Storage][Configuration d'une connexion Azure Storage]
+-   [Création d'une table][Création d'une table]
+-   [Ajout d'une entité à une table][Ajout d'une entité à une table]
+-   [Mise à jour d'une entité][Mise à jour d'une entité]
+-   [Utilisation des groupes d'entités][Utilisation des groupes d'entités]
+-   [Extraction d'une entité][Extraction d'une entité]
+-   [Interrogation d'un ensemble d'entités][Interrogation d'un ensemble d'entités]
+-   [Suppression d'une entité][Suppression d'une entité]
+-   [Suppression d'une table][Suppression d'une table]
+-   [Utilisation des signatures d'accès partagé][Utilisation des signatures d'accès partagé]
+-   [Étapes suivantes][Étapes suivantes]
 
-[WACOM.INCLUDE [howto-table-storage][]]
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## <a name="create-account"></a>Création d'un compte de stockage Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>Création d'une application Node.js
 
-Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure][], [Service cloud Node.js][] (avec Windows PowerShell) ou [Site Web avec WebMatrix][].
+Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure][Création et déploiement d'une application Node.js dans un site Web Azure], [Service cloud Node.js][Service cloud Node.js] (avec Windows PowerShell) ou [Site Web avec WebMatrix][Site Web avec WebMatrix].
 
 ## <a name="configure-access"> </a>Configuration de votre application pour accéder au stockage
 
@@ -76,7 +76,7 @@ communiquent avec les services REST de stockage.
 
 Le module Azure lit les variables d'environnement AZURE\_STORAGE\_ACCOUNT et AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING pour obtenir les informations obligatoires pour se connecter à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **TableService**.
 
-Pour obtenir un exemple de configuration des variables d'environnement dans le portail de gestion pour un site web Azure, consultez la rubrique [Application web Node.js avec stockage][]
+Pour obtenir un exemple de configuration des variables d'environnement dans le portail de gestion pour un site web Azure, consultez la rubrique [Application web Node.js avec stockage][Application web Node.js avec stockage]
 
 ## <a name="create-table"> </a>Création d'une table
 
@@ -122,7 +122,7 @@ propriétés de l'entité. Toutes les entités doivent contenir une propriété 
 
 -   **RowKey** : identifie de façon unique l'entité dans la partition.
 
-**PartitionKey** et **RowKey** doivent être des valeurs de chaîne. Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table][].
+**PartitionKey** et **RowKey** doivent être des valeurs de chaîne. Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table][Présentation du modèle de données du service de Table].
 
 Voici un exemple de définition d'une entité. Notez que **dueDate** est définie comme un type de **Edm.DateTime**. L'indication du type est facultative et s'ils ne sont pas spécifiés, les types sont déduits.
 
@@ -154,7 +154,7 @@ la méthode **insertEntity**.
         }
     });
 
-Si l'opération aboutit, `result` contient l'élément [ETag][] de l'enregistrement inséré et `response` contient des informations sur l'opération.
+Si l'opération aboutit, `result` contient l'élément [ETag][ETag] de l'enregistrement inséré et `response` contient des informations sur l'opération.
 
 > [WACOM.NOTE] Par défaut, **insertEntity** ne renvoie pas l'entité insérée comme information `response`. Si vous prévoyez d'exécuter d'autres opérations sur cette entité, ou si vous voulez mettre en cache les informations, il peut être utile de la faire renvoyer dans `result`. Pour ce faire, activez **echoContent** comme suit :
 >
@@ -313,7 +313,7 @@ transmis à la méthode **deleteEntity**.
       }
     });
 
-> [WACOM.NOTE] Vous avez intérêt à utiliser les ETag pour supprimer des éléments afin de vous assurer que les éléments n'ont pas été modifiés par un autre processus. Consultez la rubrique [Mise à jour d'une entité][] pour plus d'informations sur l'utilisation des ETags.
+> [WACOM.NOTE] Vous avez intérêt à utiliser les ETag pour supprimer des éléments afin de vous assurer que les éléments n'ont pas été modifiés par un autre processus. Consultez la rubrique [Mise à jour d'une entité][Mise à jour d'une entité] pour plus d'informations sur l'utilisation des ETags.
 
 ## <a name="delete-table"> </a>Suppression d'une table
 
@@ -415,9 +415,9 @@ Lorsque la liste de contrôle d'accès est définie, vous pouvez créer une sign
 Maintenant que vous connaissez les bases du stockage de tables, consultez les liens suivants
 pour apprendre à effectuer des tâches de stockage plus complexes.
 
--   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][].
--   [Consultez le blog de l'équipe Azure Storage][].
--   Consultez le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Node][] sur GitHub.
+-   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][Stockage et accessibilité des données dans Azure].
+-   [Consultez le blog de l'équipe Azure Storage][Consultez le blog de l'équipe Azure Storage].
+-   Consultez le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Node][Kit de développement logiciel (SDK) Azure Storage pour Node] sur GitHub.
 
   [Étapes suivantes]: #next-steps
   [Présentation du service de Table]: #what-is
@@ -443,6 +443,5 @@ pour apprendre à effectuer des tâches de stockage plus complexes.
   [Application web Node.js avec stockage]: /fr-fr/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [Présentation du modèle de données du service de Table]: http://msdn.microsoft.com/library/azure/dd179338.aspx
   [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
-  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx
   [Consultez le blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Kit de développement logiciel (SDK) Azure Storage pour Node]: https://github.com/Azure/azure-storage-node

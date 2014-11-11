@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-create-and-deploy-a-cloud-service" urlDisplayName="How to create and deploy" pageTitle="How to create and deploy a cloud service - Azure" metaKeywords="Azure creating cloud service, deleting cloud service" description="Learn how to create and deploy a cloud service using the Quick Create method in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Create and Deploy a Cloud Service" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # Création et déploiement d'un service cloud
 
@@ -164,17 +164,6 @@ Azure ne peut garantir un pourcentage d'accès au service cloud que de 99,95 % 
   [Présentation de la configuration d'une connexion Bureau à distance pour un rôle]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433010.aspx
   [Activation des diagnostics dans Azure]: http://www.windowsazure.com/fr-fr/develop/net/common-tasks/diagnostics/
   [portail de gestion]: http://manage.windowsazure.com/
-  [CloudServices\_QuickCreate]: ./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png
-  [http://\*monURL]: http://*myURL
   [Opérations sur les groupes d'affinités]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460798.aspx
-  [CloudServices\_CloudServicesPage]: ./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png
-  [CloudServices\_EmptyDashboard]: ./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png
-  [CloudServices\_CertificatesPage]: ./media/cloud-services-how-to-create-deploy/CloudServices_CertificatesPage.png
-  [CloudServices\_AddaCertificate]: ./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png
-  [CloudServices\_CertificateProgress]: ./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png
-  [notes de publication du Kit de développement logiciel (SDK) Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh552718.aspx
-  [CloudServices\_QuickStartPage]: ./media/cloud-services-how-to-create-deploy/CloudServices_QuickStartPage.png
-  [CloudServices\_UploadaPackage]: ./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png
   [Contrats de niveau de service]: http://www.windowsazure.com/fr-fr/support/legal/sla/
-  [CloudServices\_UploadProgress]: ./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png
   [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409

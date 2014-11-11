@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-how-to-guides-howto-register-user-with-aspnet-webapi-windowsphonedotnet" urlDisplayName="Notify Windows Store app users by using Web API" pageTitle="Register the current user for push notifications by using Web API - Notification Hubs" metaKeywords="Azure registering application, Notification Hubs, Azure push notifications, push notification Windows Store app" description="Learn how to request push notification registration in a Windows Store app with Azure Notification Hubs when registeration is performed by ASP.NET Web API." metaCanonical="" services="notification-hubs" documentationCenter="" title="Register the current user for push notifications by using ASP.NET" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Inscription de l'utilisateur actif aux notifications Push à l'aide d'ASP.NET
 
@@ -8,7 +8,7 @@
     <a href="/fr-fr/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#" class="current">Windows Store C#</a><a href="/fr-fr/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS">iOS</a>
 </div>
 
-Cette rubrique montre comment demander une inscription aux notifications Push avec Azure Notification Hubs lorsque l'inscription est réalisée par l'API Web ASP.NET. Cette rubrique s'inscrit dans le prolongement du didacticiel [Notification des utilisateurs avec Notification Hubs][]. Vous devez avoir suivi les étapes de ce didacticiel permettant de créer le service mobile authentifié. Pour plus d'informations sur les scénarios de notification des utilisateurs, consultez la rubrique [Notification des utilisateurs avec Notification Hubs][].
+Cette rubrique montre comment demander une inscription aux notifications Push avec Azure Notification Hubs lorsque l'inscription est réalisée par l'API Web ASP.NET. Cette rubrique s'inscrit dans le prolongement du didacticiel [Notification des utilisateurs avec Notification Hubs][Notification des utilisateurs avec Notification Hubs]. Vous devez avoir suivi les étapes de ce didacticiel permettant de créer le service mobile authentifié. Pour plus d'informations sur les scénarios de notification des utilisateurs, consultez la rubrique [Notification des utilisateurs avec Notification Hubs][Notification des utilisateurs avec Notification Hubs].
 
 1.  Dans Visual Studio 2012, ouvrez le fichier app.xaml.cs du projet que vous avez créé avec le didacticiel prérequis [Notifications des utilisateurs avec Notification Hubs][Notification des utilisateurs avec Notification Hubs].
 
@@ -20,7 +20,7 @@ Cette rubrique montre comment demander une inscription aux notifications Push av
 
 4.  Dans le volet gauche, sélectionnez la catégorie **En ligne**, recherchez `json.net`, cliquez sur **Installer** au niveau du package **Json.NET**, puis acceptez le contrat de licence.
 
-    ![][]
+    ![][0]
 
     L'assembly tiers Newtonsoft.Json.dll est ajouté à votre projet.
 
@@ -167,16 +167,14 @@ Cette rubrique montre comment demander une inscription aux notifications Push av
             await dialog.ShowAsync();
         }
 
-    Cette méthode obtient à la fois un ID d'installation et un canal pour les notifications Push et les envoie avec le type d'appareil à la méthode d'API Web authentifiée qui crée une inscription dans Notification Hubs. Cette API Web a été définie dans le cadre du didacticiel [Notification des utilisateurs avec Notification Hubs][].
+    Cette méthode obtient à la fois un ID d'installation et un canal pour les notifications Push et les envoie avec le type d'appareil à la méthode d'API Web authentifiée qui crée une inscription dans Notification Hubs. Cette API Web a été définie dans le cadre du didacticiel [Notification des utilisateurs avec Notification Hubs][Notification des utilisateurs avec Notification Hubs].
 
-Maintenant que l'application cliente est à jour, retournez au didacticiel [Notification des utilisateurs avec Notification Hubs][] et mettez le service mobile à jour pour qu'il envoie des notifications à l'aide de Notification Hubs.
+Maintenant que l'application cliente est à jour, retournez au didacticiel [Notification des utilisateurs avec Notification Hubs][Notification des utilisateurs avec Notification Hubs] et mettez le service mobile à jour pour qu'il envoie des notifications à l'aide de Notification Hubs.
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Store C#]: /fr-fr/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/ "Windows Store C#"
-  [iOS]: /fr-fr/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/ "iOS"
   [Notification des utilisateurs avec Notification Hubs]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
-  []: ./media/notification-hubs-windows-store-aspnet-register-user-push-notifications/notification-hub-add-nuget-package-json.png
+  [0]: ./media/notification-hubs-windows-store-aspnet-register-user-push-notifications/notification-hub-add-nuget-package-json.png
   [1]: ./media/notification-hubs-windows-store-aspnet-register-user-push-notifications/notification-hub-create-aspnet-class.png

@@ -1,22 +1,22 @@
 <properties urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Configure Traffic Manager Settings" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="traffic-manager" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="traffic-manager" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Configuration des paramètres Traffic Manager
 
 Azure Traffic Manager permet de contrôler la répartition du trafic utilisateur sur les services hébergés Azure.
 
-Traffic Manager utilise un moteur de stratégie intelligent pour les requêtes DNS exécutées sur le nom de domaine d'entreprise principal. Vous pouvez ainsi mettre à jour les enregistrements de ressource DNS de votre entreprise afin de les faire pointer vers des domaines Traffic Manager. Les stratégies Traffic Manager associées à ces domaines résolvent les requêtes DNS exécutées sur le nom de domaine d'entreprise principal en adresses IP de services hébergés Azure spécifiques inclus dans les stratégies Traffic Manager. Pour plus d'informations, consultez la rubrique [Présentation d'Azure Traffic Manager][].
+Traffic Manager utilise un moteur de stratégie intelligent pour les requêtes DNS exécutées sur le nom de domaine d'entreprise principal. Vous pouvez ainsi mettre à jour les enregistrements de ressource DNS de votre entreprise afin de les faire pointer vers des domaines Traffic Manager. Les stratégies Traffic Manager associées à ces domaines résolvent les requêtes DNS exécutées sur le nom de domaine d'entreprise principal en adresses IP de services hébergés Azure spécifiques inclus dans les stratégies Traffic Manager. Pour plus d'informations, consultez la rubrique [Présentation d'Azure Traffic Manager][Présentation d'Azure Traffic Manager].
 
 ## Sommaire
 
--   [Redirection d'un domaine Internet d'entreprise vers un domaine Traffic Manager][]
--   [Test d'une stratégie][]
--   [Désactivation temporaire des stratégies et services hébergés][]
--   [Modification d'une stratégie][]
--   [Équilibrage de charge du trafic sur un ensemble de services hébergés][]
--   [Création d'une stratégie de basculement][]
--   [Redirection du trafic entrant vers des services hébergés en fonction des performances réseau][]
+-   [Redirection d'un domaine Internet d'entreprise vers un domaine Traffic Manager][Redirection d'un domaine Internet d'entreprise vers un domaine Traffic Manager]
+-   [Test d'une stratégie][Test d'une stratégie]
+-   [Désactivation temporaire des stratégies et services hébergés][Désactivation temporaire des stratégies et services hébergés]
+-   [Modification d'une stratégie][Modification d'une stratégie]
+-   [Équilibrage de charge du trafic sur un ensemble de services hébergés][Équilibrage de charge du trafic sur un ensemble de services hébergés]
+-   [Création d'une stratégie de basculement][Création d'une stratégie de basculement]
+-   [Redirection du trafic entrant vers des services hébergés en fonction des performances réseau][Redirection du trafic entrant vers des services hébergés en fonction des performances réseau]
 
 ## <span id="howto_point_company"></span></a> Redirection d'un domaine Internet d'entreprise vers un domaine Traffic Manager
 
@@ -35,7 +35,7 @@ La meilleure façon de tester une stratégie est de configurer des clients puis 
 
 -   **Veillez à connaître l'adresse IP de tous les services hébergés Azure** de la stratégie testée. Ces informations sont disponibles via le portail de gestion Azure. Cliquez sur le déploiement de production du service puis, dans le volet Propriétés à droite, recherchez l'adresse IP virtuelle (la dernière entrée).
 
-    ![Emplacement de l'adresse IP d'un service hébergé][]
+    ![Emplacement de l'adresse IP d'un service hébergé][Emplacement de l'adresse IP d'un service hébergé]
 
     **Illustration 1** - Emplacement de l'adresse IP d'un service hébergé
 
@@ -59,7 +59,7 @@ La meilleure façon de tester une stratégie est de configurer des clients puis 
 > > -   Il s'agit du nom de domaine Traffic Manager saisi sur la ligne de commande après « nslookup » et l'adresse IP correspondant au domaine Traffic Manager.
 > >     La deuxième adresse IP est celle à vérifier. Elle doit correspondre à l'adresse IP virtuelle de l'un des services hébergés de la stratégie Traffic Manager testée.
 
-> > ![Exemple de commande nslookup][]
+> > ![Exemple de commande nslookup][Exemple de commande nslookup]
 
 > > **Illustration 2** - Exemple de commande nslookup
 
@@ -160,21 +160,21 @@ Pour modifier le type d'une stratégie :
 
 Il est courant d'utiliser un ensemble de services hébergés identiques et de répartir le trafic en tourniquet. Cet article détaille la procédure à suivre pour configurer un domaine et une stratégie Traffic Manager pour ce type d'équilibrage de charge.
 
-Pour plus d'informations sur les différentes méthodes d'équilibrage de charge assumées par Traffic Manager, consultez la section « À propos des méthodes d'équilibrage de charge de Traffic Manager » de la rubrique [Présentation d'Azure Traffic Manager][].
+Pour plus d'informations sur les différentes méthodes d'équilibrage de charge assumées par Traffic Manager, consultez la section « À propos des méthodes d'équilibrage de charge de Traffic Manager » de la rubrique [Présentation d'Azure Traffic Manager][Présentation d'Azure Traffic Manager].
 
-1.  **Déployez les services hébergés** dans votre environnement de production. Pour plus d'informations sur le développement et le déploiement des services hébergés, consultez la rubrique [Services hébergés Azure][].
+1.  **Déployez les services hébergés** dans votre environnement de production. Pour plus d'informations sur le développement et le déploiement des services hébergés, consultez la rubrique [Services hébergés Azure][Services hébergés Azure].
 
 2.  **Connectez-vous à la section Traffic Manager du portail de gestion**, à l'adresse [][]<http://manage.windowsazure.com></a>. Cliquez sur **Virtual Network** dans l'angle inférieur gauche des pages du portail, puis sélectionnez **Traffic Manager** dans le volet de gauche.
 
 3.  **Sélectionnez Stratégies, puis cliquez sur Créer.** Sélectionnez le dossier **Stratégies** dans l'arborescence de gauche afin d'activer l'option **Créer** dans la barre d'outils supérieure, puis cliquez sur **Créer**. La boîte de dialogue **Create Traffic Manager policy** s'affiche alors.
 
-    ![Bouton Créer pour les stratégies][]
+    ![Bouton Créer pour les stratégies][Bouton Créer pour les stratégies]
 
     **Illustration 1** - Bouton Créer pour les stratégies
 
 4.  **Choisissez un abonnement.** Les stratégies et domaines sont associés à un abonnement unique.
 
-5.  **Sélectionnez la méthode d'équilibrage de charge Tourniquet.** Pour plus d'informations sur les différentes méthodes d'équilibrage de charge assumées par Traffic Manager, consultez la section « À propos des méthodes d'équilibrage de charge de Traffic Manager » de la rubrique [Présentation d'Azure Traffic Manager][].
+5.  **Sélectionnez la méthode d'équilibrage de charge Tourniquet.** Pour plus d'informations sur les différentes méthodes d'équilibrage de charge assumées par Traffic Manager, consultez la section « À propos des méthodes d'équilibrage de charge de Traffic Manager » de la rubrique [Présentation d'Azure Traffic Manager][Présentation d'Azure Traffic Manager].
 
 6.  **Sélectionnez les services hébergés afin de les ajouter à la stratégie.** Vous pouvez effectuer une recherche à l'aide du champ de filtrage ou laisser ce champ vide pour afficher tous les services hébergés en production pour l'abonnement sélectionné à l'étape 4. Utilisez ensuite les boutons fléchés pour les ajouter à la stratégie. L'ordre des éléments spécifiés dans le champ **Selected DNS names** n'a aucune incidence dans le cadre de cette méthode d'équilibrage de charge.
 
@@ -185,7 +185,7 @@ Pour plus d'informations sur les différentes méthodes d'équilibrage de charge
 
     La boîte de dialogue **Create Traffic Manager policy** doit être similaire à l'illustration ci-après.
 
-    ![Boîte de dialogue de la méthode d'équilibrage de charge Tourniquet][]
+    ![Boîte de dialogue de la méthode d'équilibrage de charge Tourniquet][Boîte de dialogue de la méthode d'équilibrage de charge Tourniquet]
 
     **Illustration 2** - Boîte de dialogue de la méthode d'équilibrage de charge Tourniquet
 
@@ -200,21 +200,21 @@ Pour plus d'informations sur les différentes méthodes d'équilibrage de charge
 
 Bien souvent, une organisation souhaite assurer une certaine fiabilité pour ses services. Pour ce faire, elle fournit des services de sauvegarde au cas où le service principal serait hors fonction. Dans le cadre du basculement des services, il est courant d'utiliser un ensemble de services hébergés identiques et de diriger le trafic vers un service principal, avec une liste répertoriant une ou plusieurs sauvegardes. Cet article détaille la procédure à suivre pour configurer une stratégie Traffic Manager pour ce type de sauvegarde de basculement.
 
-Pour plus d'informations sur les différentes méthodes d'équilibrage de charge assumées par Traffic Manager, consultez la section « À propos des méthodes d'équilibrage de charge de Traffic Manager » de la rubrique [Présentation d'Azure Traffic Manager][].
+Pour plus d'informations sur les différentes méthodes d'équilibrage de charge assumées par Traffic Manager, consultez la section « À propos des méthodes d'équilibrage de charge de Traffic Manager » de la rubrique [Présentation d'Azure Traffic Manager][Présentation d'Azure Traffic Manager].
 
-1.  **Déployez les services hébergés** dans votre environnement de production. Pour plus d'informations sur le développement et le déploiement des services hébergés, consultez la rubrique [Services hébergés Azure][].
+1.  **Déployez les services hébergés** dans votre environnement de production. Pour plus d'informations sur le développement et le déploiement des services hébergés, consultez la rubrique [Services hébergés Azure][Services hébergés Azure].
 
 2.  **Connectez-vous à la section Traffic Manager du portail de gestion**, à l'adresse [][]<http://manage.windowsazure.com></a>. Cliquez sur **Virtual Network** dans l'angle inférieur gauche des pages du portail, puis sélectionnez **Traffic Manager** dans le volet de gauche.
 
 3.  **Sélectionnez Stratégies, puis cliquez sur Créer.** Sélectionnez le dossier **Stratégies** dans l'arborescence de gauche afin d'activer l'option **Créer** dans la barre d'outils supérieure, puis cliquez sur **Créer**. La boîte de dialogue **Create Traffic Manager policy** s'affiche alors.
 
-    ![Bouton Créer pour les stratégies][]
+    ![Bouton Créer pour les stratégies][Bouton Créer pour les stratégies]
 
     **Illustration 1** - Bouton Créer pour les stratégies
 
 4.  **Choisissez un abonnement.** Les stratégies et domaines sont associés à un abonnement unique.
 
-5.  **Sélectionnez la méthode d'équilibrage de charge Basculement.** Pour plus d'informations sur les différentes méthodes d'équilibrage de charge assumées par Traffic Manager, consultez la section « À propos des méthodes d'équilibrage de charge de Traffic Manager » de la rubrique [Présentation d'Azure Traffic Manager][].
+5.  **Sélectionnez la méthode d'équilibrage de charge Basculement.** Pour plus d'informations sur les différentes méthodes d'équilibrage de charge assumées par Traffic Manager, consultez la section « À propos des méthodes d'équilibrage de charge de Traffic Manager » de la rubrique [Présentation d'Azure Traffic Manager][Présentation d'Azure Traffic Manager].
 
 6.  **Sélectionnez les services hébergés afin de les ajouter à la stratégie.** Vous pouvez effectuer une recherche à l'aide du champ de filtrage ou laisser ce champ vide pour afficher tous les services hébergés en production pour l'abonnement sélectionné à l'étape 4. Utilisez ensuite les boutons fléchés pour les ajouter à la stratégie. Dans le cadre de la méthode d'équilibrage de charge **Basculement**, l'ordre de classement des services sélectionnés importe. Le service hébergé principal doit se trouver en haut de la liste. Utilisez les flèches vers le haut et vers le bas pour modifier l'ordre si besoin.
 
@@ -226,37 +226,37 @@ Pour plus d'informations sur les différentes méthodes d'équilibrage de charge
 
     La boîte de dialogue **Create Traffic Manager policy** doit être similaire à l'illustration ci-après.
 
-    ![Boîte de dialogue de la méthode d'équilibrage de charge Basculement][]
+    ![Boîte de dialogue de la méthode d'équilibrage de charge Basculement][Boîte de dialogue de la méthode d'équilibrage de charge Basculement]
 
     **Illustration 2** - Boîte de dialogue de la méthode d'équilibrage de charge Basculement
 
 9.  **Testez le domaine et la stratégie Traffic Manager.** Pour plus d'informations, consultez la rubrique [Test d'une stratégie Azure Traffic Manager][Test d'une stratégie].
 
 10. **Faites pointer le serveur DNS vers le domaine Traffic Manager.** Une fois le domaine Traffic Manager configuré et opérationnel, modifiez l'enregistrement DNS sur le serveur DNS faisant autorité afin de faire pointer votre domaine d'entreprise vers le domaine Traffic Manager.
-    Pour plus d'informations, consultez la rubrique [Redirection d'un domaine Internet d'entreprise vers un domaine Traffic Manager][].
+    Pour plus d'informations, consultez la rubrique [Redirection d'un domaine Internet d'entreprise vers un domaine Traffic Manager][Redirection d'un domaine Internet d'entreprise vers un domaine Traffic Manager].
     Par exemple, la commande suivante redirige l'intégralité du trafic entrant de **www.contoso.com** vers le domaine Traffic Manager **contoso.trafficmanager.net**
     `www.contoso.com IN CNAME contoso.trafficmanager.net`
 
 ## <span id="howto_direct"></span></a> Redirection du trafic entrant vers des services hébergés en fonction des performances réseau
 
-Pour équilibrer la charge de services hébergés situés dans différents centres de données à l'international, vous pouvez rediriger le trafic entrant vers le service hébergé le plus proche. Bien que l'expression « le plus proche » puisse faire référence à une distance géographique, elle peut également correspondre à l'emplacement présentant la plus faible latence pour répondre aux requêtes. La méthode d'équilibrage de charge Performance permet de répartir la charge en fonction des emplacements et de la latence, mais ne tient pas compte des modifications apportées en temps réel à la charge ou à la configuration réseau. Pour plus d'informations sur les différentes méthodes d'équilibrage de charge assumées par Traffic Manager, consultez la section « À propos des méthodes d'équilibrage de charge de Traffic Manager » de la rubrique [Présentation d'Azure Traffic Manager][].
+Pour équilibrer la charge de services hébergés situés dans différents centres de données à l'international, vous pouvez rediriger le trafic entrant vers le service hébergé le plus proche. Bien que l'expression « le plus proche » puisse faire référence à une distance géographique, elle peut également correspondre à l'emplacement présentant la plus faible latence pour répondre aux requêtes. La méthode d'équilibrage de charge Performance permet de répartir la charge en fonction des emplacements et de la latence, mais ne tient pas compte des modifications apportées en temps réel à la charge ou à la configuration réseau. Pour plus d'informations sur les différentes méthodes d'équilibrage de charge assumées par Traffic Manager, consultez la section « À propos des méthodes d'équilibrage de charge de Traffic Manager » de la rubrique [Présentation d'Azure Traffic Manager][Présentation d'Azure Traffic Manager].
 
 Voici la procédure à suivre :
 
-1.  **Déployez les services hébergés** dans votre environnement de production. Pour plus d'informations, consultez la rubrique [Création d'un service hébergé pour Azure][]
+1.  **Déployez les services hébergés** dans votre environnement de production. Pour plus d'informations, consultez la rubrique [Création d'un service hébergé pour Azure][Création d'un service hébergé pour Azure]
      ainsi que la section « Meilleures pratiques recommandées pour les stratégies et services hébergés » de la rubrique [Présentation d'Azure Traffic Manager][1].
 
 2.  **Connectez-vous à la section Traffic Manager du portail de gestion**, à l'adresse [][]<http://manage.windowsazure.com></a>. Cliquez sur **Virtual Network** dans l'angle inférieur gauche des pages du portail, puis sélectionnez **Traffic Manager** dans le volet de gauche.
 
 3.  **Sélectionnez Stratégies, puis cliquez sur Créer.** Sélectionnez le dossier **Stratégies** dans l'arborescence de gauche afin d'activer l'option **Créer** dans la barre d'outils supérieure, puis cliquez sur **Créer**. La boîte de dialogue **Create Traffic Manager policy** s'affiche alors.
 
-    ![Bouton Créer pour les stratégies][]
+    ![Bouton Créer pour les stratégies][Bouton Créer pour les stratégies]
 
     **Illustration 1** - Bouton Créer pour les stratégies
 
 4.  **Choisissez un abonnement.** Les stratégies et domaines sont associés à un abonnement unique.
 
-5.  **Sélectionnez la méthode d'équilibrage de charge Performance.** Pour plus d'informations sur les différentes méthodes d'équilibrage de charge assumées par Traffic Manager, consultez la section « À propos des méthodes d'équilibrage de charge de Traffic Manager » de la rubrique [Présentation d'Azure Traffic Manager][].
+5.  **Sélectionnez la méthode d'équilibrage de charge Performance.** Pour plus d'informations sur les différentes méthodes d'équilibrage de charge assumées par Traffic Manager, consultez la section « À propos des méthodes d'équilibrage de charge de Traffic Manager » de la rubrique [Présentation d'Azure Traffic Manager][Présentation d'Azure Traffic Manager].
 
 6.  **Sélectionnez les services hébergés afin de les ajouter à la stratégie.** Vous pouvez effectuer une recherche à l'aide du champ de filtrage ou laisser ce champ vide pour afficher tous les services hébergés en production pour l'abonnement sélectionné à l'étape 4. Utilisez ensuite les boutons fléchés pour les ajouter à la stratégie. L'ordre des éléments spécifiés dans le champ **Selected DNS names** n'a aucune incidence dans le cadre de cette méthode d'équilibrage de charge.
 
@@ -268,7 +268,7 @@ Voici la procédure à suivre :
 
     La boîte de dialogue **Create Traffic Manager policy** doit être similaire à l'illustration ci-après.
 
-    ![Boîte de dialogue de la méthode d'équilibrage de charge Performance][]
+    ![Boîte de dialogue de la méthode d'équilibrage de charge Performance][Boîte de dialogue de la méthode d'équilibrage de charge Performance]
 
     **Illustration 2** - Boîte de dialogue de la méthode d'équilibrage de charge Performance
 
@@ -279,7 +279,7 @@ Voici la procédure à suivre :
     `www.contoso.com IN CNAME contoso.trafficmanager.net`
     Pour plus d'informations, consultez la page [Redirection d'un domaine Internet d'entreprise vers un domaine Azure Traffic Manager][Redirection d'un domaine Internet d'entreprise vers un domaine Traffic Manager].
 
-  [Présentation d'Azure Traffic Manager]: http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx
+  [Présentation d'Azure Traffic Manager]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh744833.aspx
   [Redirection d'un domaine Internet d'entreprise vers un domaine Traffic Manager]: #howto_point_company
   [Test d'une stratégie]: #howto_test
   [Désactivation temporaire des stratégies et services hébergés]: #howto_temp_disable
@@ -289,11 +289,11 @@ Voici la procédure à suivre :
   [Redirection du trafic entrant vers des services hébergés en fonction des performances réseau]: #howto_direct
   [Emplacement de l'adresse IP d'un service hébergé]: ./media/traffic-manager-configure-settings/hosted_service_IP_location.png
   [Exemple de commande nslookup]: ./media/traffic-manager-configure-settings/nslookup_command_example.png
-  [1]: http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring
+  [1]: http://msdn.microsoft.com/fr-fr/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring
   []: http://manage.windowsazure.com
   [Services hébergés Azure]: http://msdn.microsoft.com/library/gg432967.aspx
   [Bouton Créer pour les stratégies]: ./media/traffic-manager-configure-settings/Create_button_for_policies.png
   [Boîte de dialogue de la méthode d'équilibrage de charge Tourniquet]: ./media/traffic-manager-configure-settings/Dialog_box_for_Round_Robin_load_balancing_method.png
   [Boîte de dialogue de la méthode d'équilibrage de charge Basculement]: ./media/traffic-manager-configure-settings/Dialog_box_for_Failover_load_balancing_method.png
-  [Création d'un service hébergé pour Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432967.aspx
+  [Création d'un service hébergé pour Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg432967.aspx
   [Boîte de dialogue de la méthode d'équilibrage de charge Performance]: ./media/traffic-manager-configure-settings/Dialog_box_for_Performance_load_balancing_method.png

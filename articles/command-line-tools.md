@@ -1,12 +1,12 @@
 <properties linkid="manage-linux-other-resources-command-line-tools" urlDisplayName="Command-Line Tools" pageTitle="Azure Command-Line Tools for Mac and Linux" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="Learn about using the command-line tool for Mac and Linux in Azure." metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors="carolz" solutions="" manager="" editor="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
 
 # Outil en ligne de commande Azure pour Mac et Linux
 
 Les fonctionnalités de cet outil permettent de créer, de déployer et de gérer des machines virtuelles, des sites Web et Azure Mobile Services à partir de postes de travail Mac et Linux. Elles sont comparables à celles fournies par les cmdlets Windows PowerShell installées avec les Kits de développement logiciel (SDK) Azure pour .NET, Node.JS et PHP.
 
-Pour installer l'outil sur un Mac, téléchargez et exécutez le [programme d'installation du SDK Azure][].
+Pour installer l'outil sur un Mac, téléchargez et exécutez le [programme d'installation du SDK Azure][programme d'installation du SDK Azure].
 
 Pour installer l'outil sur Linux, installez la dernière version de Node.JS et utilisez NPM pour l'installation :
 
@@ -18,20 +18,20 @@ Outre les paramètres facultatifs propres aux commandes qui vous sont présenté
 
 **Sommaire :**
 
--   [Gestion de vos informations de compte et des paramètres de publication][]
--   [Commandes pour gérer vos machines virtuelles Azure][]
--   [Commandes pour gérer vos points de terminaison de machine virtuelle Azure][]
--   [Commandes pour gérer vos images de machine virtuelle Azure][]
--   [Commandes pour gérer vos disques de données de machine virtuelle Azure][]
--   [Commandes pour gérer vos services cloud Azure][]
--   [Commandes pour gérer vos certificats Azure][]
--   [Commandes pour gérer vos sites Web][]
--   [Commandes pour gérer Azure Mobile Services][]
--   [Gestion des paramètres locaux d'outil][]
--   [Commandes pour gérer Service Bus][]
--   [Commandes pour gérer vos objets de stockage][]
--   [Commandes pour gérer les bases de données SQL][]
--   [Commandes pour gérer vos réseaux virtuels][]
+-   [Gestion de vos informations de compte et des paramètres de publication][Gestion de vos informations de compte et des paramètres de publication]
+-   [Commandes pour gérer vos machines virtuelles Azure][Commandes pour gérer vos machines virtuelles Azure]
+-   [Commandes pour gérer vos points de terminaison de machine virtuelle Azure][Commandes pour gérer vos points de terminaison de machine virtuelle Azure]
+-   [Commandes pour gérer vos images de machine virtuelle Azure][Commandes pour gérer vos images de machine virtuelle Azure]
+-   [Commandes pour gérer vos disques de données de machine virtuelle Azure][Commandes pour gérer vos disques de données de machine virtuelle Azure]
+-   [Commandes pour gérer vos services cloud Azure][Commandes pour gérer vos services cloud Azure]
+-   [Commandes pour gérer vos certificats Azure][Commandes pour gérer vos certificats Azure]
+-   [Commandes pour gérer vos sites Web][Commandes pour gérer vos sites Web]
+-   [Commandes pour gérer Azure Mobile Services][Commandes pour gérer Azure Mobile Services]
+-   [Gestion des paramètres locaux d'outil][Gestion des paramètres locaux d'outil]
+-   [Commandes pour gérer Service Bus][Commandes pour gérer Service Bus]
+-   [Commandes pour gérer vos objets de stockage][Commandes pour gérer vos objets de stockage]
+-   [Commandes pour gérer les bases de données SQL][Commandes pour gérer les bases de données SQL]
+-   [Commandes pour gérer vos réseaux virtuels][Commandes pour gérer vos réseaux virtuels]
 
 ## <a name="Manage_your_account_information_and_publish_settings"></a>Gestion de vos informations de compte et des paramètres de publication
 
@@ -186,7 +186,7 @@ Cette commande permet de supprimer l'environnement spécifié du compte.
 
 Le schéma suivant montre comment les machines virtuelles Azure sont hébergées dans l'environnement de déploiement de production d'un service cloud Azure.
 
-![Schéma technique Azure][]
+![Schéma technique Azure][Schéma technique Azure]
 
 **create-new** crée le lecteur dans le stockage d'objets blob (en l'occurrence, e:\\ dans le schéma) ; **attach** attache un disque déjà créé mais non attaché à une machine virtuelle.
 
@@ -357,7 +357,7 @@ Cette commande permet d'exporter une image de machine virtuelle Azure vers un fi
 
 Le schéma suivant illustre l'architecture d'un déploiement type de plusieurs instances d'une machine virtuelle. Dans cet exemple, notez que le port 3389 est ouvert sur chaque machine virtuelle (pour l'accès RDP) et que chacune d'elles a une adresse IP interne (en l'occurrence, 168.55.11.1) qui est utilisée par l'équilibrage de charge pour acheminer le trafic vers la machine virtuelle. Cette adresse IP interne peut également être utilisée pour permettre la communication entre les machines virtuelles.
 
-![azurenetworkdiagram][]
+![azurenetworkdiagram][azurenetworkdiagram]
 
 Les demandes externes adressées aux machines virtuelles transitent par l'équilibrage de charge. De ce fait, les demandes ne peuvent pas être spécifiées pour une machine virtuelle en particulier dans les déploiements constitués de plusieurs machines virtuelles. Dans ces déploiements, le mappage de port doit être configuré entre les machines virtuelles (vm-port) et l'équilibrage de charge (lb-port).
 
@@ -670,7 +670,7 @@ Pour forcer la suppression, utilisez le paramètre `-q`.
 
 ## <a name="Commands_to_manage_your_Azure_certificates"></a>Commandes pour gérer vos certificats Azure
 
-Les certificats Azure sont des certificats SSL connectés à votre compte Azure. Pour plus d'informations sur les certificats Azure, consultez la page [Gérer les certificats][].
+Les certificats Azure sont des certificats SSL connectés à votre compte Azure. Pour plus d'informations sur les certificats Azure, consultez la page [Gérer les certificats][Gérer les certificats].
 
 **service cert list [options]**
 
@@ -1147,12 +1147,12 @@ Cette commande permet de configurer les options de diagnostic pour votre site We
 
 Azure Mobile Services réunit un ensemble de services Azure qui dotent vos applications de fonctionnalités principales. Les commandes Mobile Services se répartissent en différentes catégories, à savoir :
 
--   [Commandes pour gérer des instances de service mobile][]
--   [Commandes pour gérer la configuration d'un service mobile][]
--   [Commandes pour gérer les tables d'un service mobile][]
--   [Commandes pour gérer les scripts d'un service mobile][]
--   [Commandes pour gérer les travaux planifiés][]
--   [Commandes pour mettre à l'échelle un service mobile][]
+-   [Commandes pour gérer des instances de service mobile][Commandes pour gérer des instances de service mobile]
+-   [Commandes pour gérer la configuration d'un service mobile][Commandes pour gérer la configuration d'un service mobile]
+-   [Commandes pour gérer les tables d'un service mobile][Commandes pour gérer les tables d'un service mobile]
+-   [Commandes pour gérer les scripts d'un service mobile][Commandes pour gérer les scripts d'un service mobile]
+-   [Commandes pour gérer les travaux planifiés][Commandes pour gérer les travaux planifiés]
+-   [Commandes pour mettre à l'échelle un service mobile][Commandes pour mettre à l'échelle un service mobile]
 
 Les options suivantes s'appliquent à la plupart des commandes Mobile Services :
 
@@ -1471,7 +1471,7 @@ Cette commande permet de supprimer toutes les lignes de données de la table.
 
 ### <a name="Mobile_Scripts"></a>Commandes pour gérer les scripts
 
-Les commandes de cette section permettent de gérer les scripts de serveur qui appartiennent à un service mobile. Pour plus d'informations, consultez la page [Utilisation des scripts serveur dans Mobile Services][].
+Les commandes de cette section permettent de gérer les scripts de serveur qui appartiennent à un service mobile. Pour plus d'informations, consultez la page [Utilisation des scripts serveur dans Mobile Services][Utilisation des scripts serveur dans Mobile Services].
 
 **mobile script list [options] [servicename]**
 
@@ -1529,7 +1529,7 @@ Cette commande permet de supprimer le script d'insertion existant de la table To
 
 ### <a name="Mobile_Jobs"></a>Commandes pour gérer les travaux planifiés
 
-Les commandes de cette section permettent de gérer les travaux planifiés qui appartiennent à un service mobile. Pour plus d'informations, consultez la page [Planifier les travaux][].
+Les commandes de cette section permettent de gérer les travaux planifiés qui appartiennent à un service mobile. Pour plus d'informations, consultez la page [Planifier les travaux][Planifier les travaux].
 
 **mobile job list [options] [servicename]**
 
@@ -1605,7 +1605,7 @@ Cette commande permet de supprimer le travail planifié getUpdates du serveur To
 
 ### <a name="Mobile_Scale"></a>Commandes pour mettre à l'échelle un service mobile
 
-Les commandes de cette section permettent de mettre à l'échelle un service mobile. Pour plus d'informations, consultez la page [Augmenter l'extensibilité d'un service mobile][].
+Les commandes de cette section permettent de mettre à l'échelle un service mobile. Pour plus d'informations, consultez la page [Augmenter l'extensibilité d'un service mobile][Augmenter l'extensibilité d'un service mobile].
 
 **mobile scale show [options] [servicename]**
 

@@ -1,6 +1,6 @@
 <properties linkid="manage-services-identity-multi-factor-authentication" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="What is Azure Multi-Factor Authentication?" authors="billmath" solutions="" manager="terrylan" editor="lisatoft" />
 
-<tags ms.service="multi-factor-authentication" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="billmath"></tags>
+<tags ms.service="multi-factor-authentication" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="billmath" />
 
 # Présentation d'Azure Multi-Factor Authentication
 
@@ -13,11 +13,11 @@ L'authentification multi-facteur ou à deux facteurs est une méthode d'authenti
 La sécurité de l'authentification multi-facteur repose sur son approche en couche. Compromettre plusieurs facteurs d'authentification présente un défi de taille pour les attaquants. Même si un attaquant réussit à connaître le mot de passe de l'utilisateur, ce dernier est inutile sans posséder l'appareil de confiance. De même, si l'utilisateur venait à perdre l'appareil, celui qui l'a trouvé ne pourra pas l'utiliser sans connaître le mot de passe de l'utilisateur.
 Azure Multi-Factor Authentication est le service d'authentification multi-facteur qui demande aux utilisateurs de vérifier également les connexions à l'aide d'une application mobile, d'un appel téléphonique ou d'un message texte. Ce service est disponible pour une utilisation avec Azure Active Directory afin de sécuriser les ressources locales avec le serveur Azure Multi-Factor Authentication, ainsi qu'avec des applications et répertoires personnalisés, en utilisant le Kit de développement logiciel (SDK).
 
-![Azure Multi-Factor Authentication][]
+![Azure Multi-Factor Authentication][Azure Multi-Factor Authentication]
 
 ### Sécurisation du cloud Azure Active Directory
 
-Activez l'authentification multi-facteur pour les identités Azure AD. Les utilisateurs seront invités à configurer une vérification supplémentaire la prochaine fois qu'ils se connectent. Utilisez l'authentification multi-facteur pour sécuriser l'accès à Azure, à Microsoft Online Services, par exemple Office 365 et Dynamics CRM Online, ainsi qu'à des services cloud tiers qui intègrent Azure AD sans configuration supplémentaire. L'authentification multi-facteur peut être rapidement activée pour un grand nombre d'utilisateurs et d'applications globaux. [En savoir plus][]
+Activez l'authentification multi-facteur pour les identités Azure AD. Les utilisateurs seront invités à configurer une vérification supplémentaire la prochaine fois qu'ils se connectent. Utilisez l'authentification multi-facteur pour sécuriser l'accès à Azure, à Microsoft Online Services, par exemple Office 365 et Dynamics CRM Online, ainsi qu'à des services cloud tiers qui intègrent Azure AD sans configuration supplémentaire. L'authentification multi-facteur peut être rapidement activée pour un grand nombre d'utilisateurs et d'applications globaux. [En savoir plus][En savoir plus]
 
 ### Sécurisation des ressources locales et d'Active Directory
 
@@ -40,13 +40,13 @@ Le même sous-ensemble de fonctionnalités d'authentification multi-facteur pour
 
 La capture d'écran ci-dessous présente les versions de l'authentification multi-facteur disponibles et un bref résumé des fonctionnalités qu'elle fournit. Vous pouvez l'utiliser pour déterminer la version de l'authentification multi-facteur qui vous convient. [En savoir plus][4]
 
-![Comparaison des fonctionnalités de l'authentification multi-facteur Azure][]
+![Comparaison des fonctionnalités de l'authentification multi-facteur Azure][Comparaison des fonctionnalités de l'authentification multi-facteur Azure]
 
 **Ressources supplémentaires**
 
--   [Inscription à Azure en tant qu'organisation][]
--   [Identité Azure][]
--   [Bibliothèque Azure Multi-Factor Authentication][]
+-   [Inscription à Azure en tant qu'organisation][Inscription à Azure en tant qu'organisation]
+-   [Identité Azure][Identité Azure]
+-   [Bibliothèque Azure Multi-Factor Authentication][Bibliothèque Azure Multi-Factor Authentication]
 
   [Azure Multi-Factor Authentication]: ./media/multi-factor-authentication/WAMFA1.png
   [En savoir plus]: http://msdn.microsoft.com/fr-fr/library/dn249466.aspx

@@ -1,28 +1,28 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-users-html" urlDisplayName="Get Started with Authentication (HTML5)" pageTitle="Get started with authentication (HTML 5) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your HTML app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga" />
 
 # Prise en main de l'authentification dans Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-users][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
 Cette rubrique montre comment authentifier les utilisateurs dans Azure Mobile Services à partir de votre application HTML ou PhoneGap. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
 
 Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
 
-1.  [Inscription de votre application pour l'authentification et configuration de Mobile Services][]
-2.  [Restriction des autorisations de table pour les utilisateurs authentifiés][]
-3.  [Ajout de l'authentification à l'application][]
+1.  [Inscription de votre application pour l'authentification et configuration de Mobile Services][Inscription de votre application pour l'authentification et configuration de Mobile Services]
+2.  [Restriction des autorisations de table pour les utilisateurs authentifiés][Restriction des autorisations de table pour les utilisateurs authentifiés]
+3.  [Ajout de l'authentification à l'application][Ajout de l'authentification à l'application]
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez aussi d'abord suivre le didacticiel [Prise en main de Mobile Services][].
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez aussi d'abord suivre le didacticiel [Prise en main de Mobile Services][Prise en main de Mobile Services].
 
 ## <a name="register"></a>Inscription de votre application pour l'authentification et configuration de Mobile Services
 
-[WACOM.INCLUDE [mobile-services-register-authentication][]]
+[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
 ## <a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend][]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 1.  Dans le répertoire de l'application, lancez un des fichiers de commande suivants à partir du sous-dossier **server**.
 
@@ -109,7 +109,7 @@ Ensuite, vous allez mettre à jour l'application pour autoriser l'authentificati
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts][], vous allez utiliser la valeur de l'ID utilisateur fournie par Mobile Services en fonction de l'utilisateur authentifié et l'utiliser pour filtrer les données renvoyées par Mobile Services. Obtenez plus d'informations sur l'utilisation de Mobile Services avec HTML/JavaScript dans le [Guide de fonctionnement Mobile Services HTML/JavaScript][]
+Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts][Autorisation des utilisateurs avec des scripts], vous allez utiliser la valeur de l'ID utilisateur fournie par Mobile Services en fonction de l'utilisateur authentifié et l'utiliser pour filtrer les données renvoyées par Mobile Services. Obtenez plus d'informations sur l'utilisation de Mobile Services avec HTML/JavaScript dans le [Guide de fonctionnement Mobile Services HTML/JavaScript][Guide de fonctionnement Mobile Services HTML/JavaScript]
 
   [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
   [Inscription de votre application pour l'authentification et configuration de Mobile Services]: #register

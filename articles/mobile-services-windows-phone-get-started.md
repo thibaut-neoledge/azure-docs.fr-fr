@@ -1,10 +1,10 @@
 <properties pageTitle="Get Started with Azure Mobile Services for Windows Phone apps" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Phone development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga" />
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -16,17 +16,17 @@
 
 </div>
 
-Dans ce didacticiel, vous allez créer un service mobile et une simple application *To do list* qui stocke les données d'application dans le nouveau service mobile. Le service mobile à créer utilise du code JavaScript pour la logique métier côté serveur. Pour créer un service mobile vous permettant d'écrire votre logique métier côté serveur dans les langages .NET pris en charge à l'aide de Visual Studio, consultez la [version principale .NET][] de cette rubrique.
+Dans ce didacticiel, vous allez créer un service mobile et une simple application *To do list* qui stocke les données d'application dans le nouveau service mobile. Le service mobile à créer utilise du code JavaScript pour la logique métier côté serveur. Pour créer un service mobile vous permettant d'écrire votre logique métier côté serveur dans les langages .NET pris en charge à l'aide de Visual Studio, consultez la [version principale .NET][version principale .NET] de cette rubrique.
 
 Voici une capture d'écran de l'application terminée :
 
-![][]
+![][0]
 
-> [WACOM.NOTE] Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][]. Pour créer une application Windows Phone 8.1, Visual Studio 2013 Update 2 (ou une version ultérieure) doit être installé.
+> [WACOM.NOTE] Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][Version d'évaluation gratuite d'Azure]. Pour créer une application Windows Phone 8.1, Visual Studio 2013 Update 2 (ou une version ultérieure) doit être installé.
 
 ## <a name="create-new-service"> </a>Création d'un service mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## 
 
@@ -47,7 +47,7 @@ Dans cette section, vous allez créer une application Windows Phone 8 connecté
 
     ![][2]
 
-3.  Si ce n'est pas déjà fait, téléchargez et installez [Visual Studio 2012 Express pour Windows Phone][] sur votre ordinateur local.
+3.  Si ce n'est pas déjà fait, téléchargez et installez [Visual Studio 2012 Express pour Windows Phone][Visual Studio 2012 Express pour Windows Phone] sur votre ordinateur local.
 
     > [WACOM.NOTE]Pour créer une application Windows Phone 8.1, Visual Studio 2013 Update 2 doit être installé.
 
@@ -87,26 +87,25 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 Maintenant que vous avez effectué le démarrage rapide, découvrez comment exécuter d'autres tâches importantes dans Mobile Services :
 
--   [Prise en main des données][]
+-   [Prise en main des données][Prise en main des données]
 
     En savoir plus sur le stockage et l'interrogation des données à l'aide de Mobile Services.
 
--   [Prise en main de la synchronisation des données hors connexion][]
+-   [Prise en main de la synchronisation des données hors connexion][Prise en main de la synchronisation des données hors connexion]
 
     En savoir plus sur la synchronisation des données hors connexion pour rendre votre application réactive et robuste.
 
--   [Prise en main de l'authentification][]
+-   [Prise en main de l'authentification][Prise en main de l'authentification]
 
     En savoir plus sur l'authentification des utilisateurs de votre application avec un fournisseur d'identité.
 
--   [Prise en main des notifications Push][]
+-   [Prise en main des notifications Push][Prise en main des notifications Push]
 
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  [regarder le didacticiel]: http://go.microsoft.com/fwlink/?LinkId=290816
   [version principale .NET]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
-  []: ./media/mobile-services-windows-phone-get-started/mobile-quickstart-completed-wp8.png
+  [0]: ./media/mobile-services-windows-phone-get-started/mobile-quickstart-completed-wp8.png
   [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A30A4DDE2&returnurl=http%3A%2F%2FFfr-fr%2Fdocumentation%2Farticles%2Fmobile-services-windows-phone-get-started%2F
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-windows-phone-get-started/mobile-portal-quickstart-wp8.png

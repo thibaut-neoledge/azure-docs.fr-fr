@@ -1,12 +1,12 @@
 <properties linkid="dev-nodejs-how-to-debug-website" urlDisplayName="Debug Websites (Node)" pageTitle="How to Debug Azure Websites in Node.js" metaKeywords="debug website azure, debugging azure, troubleshooting azure web site, troubleshoot azure website node" description="Learn how to debug an Azure website in Node.js." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Débogage d'une application Node.js dans Sites Web Azure
 
 Azure fournit un outil de diagnostic intégré qui vous aide à déboguer les applications Node.js hébergées dans Sites Web Azure. Cet article vous explique comment activer la journalisation de stdout et de stderr, comment afficher les informations sur l'erreur dans le navigateur et comment télécharger et afficher les fichiers journaux.
 
-Le diagnostic des applications Node.js hébergées sur Azure est fourni par [IISNode][]. Bien que les paramètres les plus courants pour la collecte des informations de diagnostic soient abordés, cet article ne fournit pas une référence complète sur l'utilisation de IISNode. Pour plus d'informations sur l'utilisation de IISNode, consultez le [fichier Lisez-moi IISNode][] sur GitHub.
+Le diagnostic des applications Node.js hébergées sur Azure est fourni par [IISNode][IISNode]. Bien que les paramètres les plus courants pour la collecte des informations de diagnostic soient abordés, cet article ne fournit pas une référence complète sur l'utilisation de IISNode. Pour plus d'informations sur l'utilisation de IISNode, consultez le [fichier Lisez-moi IISNode][fichier Lisez-moi IISNode] sur GitHub.
 
 ## <span id="enablelogging"></span></a>Activation de la journalisation
 
@@ -36,9 +36,9 @@ Si le fichier **IISNode.yml** n'existe pas dans votre application, vous devez re
 <p>Si votre site web a &eacute;t&eacute; cr&eacute;&eacute; &agrave; l'aide des outils en ligne de commande Azure ou des applets de commande Azure PowerShell, un fichier <strong>IISNode.yml</strong> par d&eacute;faut est automatiquement cr&eacute;&eacute;.</p>
 </div>
 
-Vous pouvez redémarrer le site web en le sélectionnant dans le [portail de gestion Azure][], puis en sélectionnant le bouton **REDÉMARRER** :
+Vous pouvez redémarrer le site web en le sélectionnant dans le [portail de gestion Azure][portail de gestion Azure], puis en sélectionnant le bouton **REDÉMARRER** :
 
-![bouton redémarrer][]
+![bouton redémarrer][bouton redémarrer]
 
 Si les outils en ligne de commande Azure sont installés dans votre environnement de développement, vous pouvez utiliser la commande suivante pour redémarrer le site web :
 
@@ -55,7 +55,7 @@ Il existe trois manières d'accéder aux journaux de diagnostic : à l'aide du 
 
     npm install azure-cli -g
 
-Une fois installés, ils sont accessibles à l'aide de la commande « azure ». Les outils en ligne de commande doivent d'abord être configurés pour utiliser votre abonnement Azure. Pour plus d'informations sur la réalisation de cette tâche, consultez la section **Téléchargement et importation des paramètres de publication** de l'article [Utilisation des outils en ligne de commande Azure][].
+Une fois installés, ils sont accessibles à l'aide de la commande « azure ». Les outils en ligne de commande doivent d'abord être configurés pour utiliser votre abonnement Azure. Pour plus d'informations sur la réalisation de cette tâche, consultez la section **Téléchargement et importation des paramètres de publication** de l'article [Utilisation des outils en ligne de commande Azure][Utilisation des outils en ligne de commande Azure].
 
 ### FTP
 
@@ -100,15 +100,14 @@ Cela renvoie un flux d'événements de journal qui sont mis à jour lorsqu'ils s
 
 Cet article vous a montré comment activer les informations de diagnostic pour Azure et comment y accéder. Bien que ces informations soient utiles pour comprendre les problèmes qui surviennent avec votre application, elles peuvent mettre en évidence un problème avec un module que vous utilisez ou avec la version de Node.js utilisée par Sites Web Azure qui est différente de celle utilisée dans votre environnement de déploiement.
 
-Pour plus d'informations sur l'utilisation des modules sur Azure, consultez la page [Utilisation des modules Node.js avec les applications Azure][].
+Pour plus d'informations sur l'utilisation des modules sur Azure, consultez la page [Utilisation des modules Node.js avec les applications Azure][Utilisation des modules Node.js avec les applications Azure].
 
-Pour plus d'informations sur la spécification d'une version Node.js de votre application, consultez la page [Spécification d'une version de Node.js dans une application Azure][].
+Pour plus d'informations sur la spécification d'une version Node.js de votre application, consultez la page [Spécification d'une version de Node.js dans une application Azure][Spécification d'une version de Node.js dans une application Azure].
 
   [IISNode]: https://github.com/tjanczuk/iisnode
   [fichier Lisez-moi IISNode]: https://github.com/tjanczuk/iisnode#readme
   [portail de gestion Azure]: https://manage.windowsazure.com/
   [bouton redémarrer]: ./media/web-sites-nodejs-debug/restartbutton.png
-  [iisnode\_schema.xml]: https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml
   [Utilisation des outils en ligne de commande Azure]: /fr-fr/documentation/articles/xplat-cli/
   [Utilisation des modules Node.js avec les applications Azure]: /fr-fr/documentation/articles/nodejs-use-node-modules-azure-apps/
   [Spécification d'une version de Node.js dans une application Azure]: /fr-fr/documentation/articles/nodejs-specify-node-version-azure-apps/

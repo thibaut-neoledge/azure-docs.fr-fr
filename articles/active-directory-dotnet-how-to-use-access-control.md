@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-access-control" urlDisplayName="Access Control" pageTitle="How to use Access Control (.NET) - Azure feature guide" metaKeywords="Azure Access Control Service authentication C#" description="Learn how to use Access Control Service (ACS) in your Azure application to authenticate users when they try to gain access to a web app." metaCanonical="" services="active-directory" documentationCenter=".NET" title="How to Authenticate Web Users with Azure Active Directory Access Control" authors="mbaldwin, juneb" solutions="" manager="mbaldwin" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin, juneb"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin, juneb" />
 
 # Authentification des utilisateurs Web avec le contrôle d'accès Azure Active Directory
 
@@ -8,17 +8,17 @@ Ce guide vous montre comment utiliser le contrôle d'accès Azure Active Directo
 
 ## <span class="short-header">Sommaire</span>Sommaire
 
--   [Qu'est-ce qu'ACS ?][]
--   [Concepts][]
--   [Configuration requise][]
--   [Création d'un espace de noms de contrôle d'accès][]
--   [Création d'une application ASP.NET MVC][]
--   [Intégration d'une application Web à ACS][]
--   [Test de l'intégration à ACS][]
--   [Affichage des demandes envoyées par ACS][]
--   [Affichage de l'application dans le portail de gestion ACS][]
--   [Ajout d'un fournisseur d'identité][]
--   [Étapes suivantes][]
+-   [Qu'est-ce qu'ACS ?][Qu'est-ce qu'ACS ?]
+-   [Concepts][Concepts]
+-   [Configuration requise][Configuration requise]
+-   [Création d'un espace de noms de contrôle d'accès][Création d'un espace de noms de contrôle d'accès]
+-   [Création d'une application ASP.NET MVC][Création d'une application ASP.NET MVC]
+-   [Intégration d'une application Web à ACS][Intégration d'une application Web à ACS]
+-   [Test de l'intégration à ACS][Test de l'intégration à ACS]
+-   [Affichage des demandes envoyées par ACS][Affichage des demandes envoyées par ACS]
+-   [Affichage de l'application dans le portail de gestion ACS][Affichage de l'application dans le portail de gestion ACS]
+-   [Ajout d'un fournisseur d'identité][Ajout d'un fournisseur d'identité]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <span class="short-header">Qu'est-ce qu'ACS ?</span>Qu'est-ce qu'ACS ?
 
@@ -34,7 +34,7 @@ Les fonctionnalités suivantes sont disponibles dans ACS :
 -   Portail de gestion qui autorise l'accès administratif aux paramètres
     ACS.
 
-Pour plus d'informations sur ACS, consultez la page [Access Control Service 2.0][].
+Pour plus d'informations sur ACS, consultez la page [Access Control Service 2.0][Access Control Service 2.0].
 
 ## <span class="short-header">Concepts</span>Concepts
 
@@ -58,7 +58,7 @@ Pour effectuer les tâches présentées dans ce guide, vous devez comprendre les
 
 La figure suivante présente le fonctionnement de l'authentification ACS avec une application Web :
 
-![][]
+![][0]
 
 1.  Le client (dans le cas présent, un navigateur) demande une page à partir de la partie de confiance.
 2.  Puisque la demande n'a pas encore été authentifiée, la partie de confiance redirige
@@ -82,14 +82,14 @@ Pour réaliser les tâches présentées dans ce guide, vous avez besoin des él�
 
 -   Abonnement Azure
 -   Microsoft Visual Studio 2012
--   Identity and Access Tool for Visual Studio 2012 (téléchargement disponible à la page [Identity and Access Tool][])
+-   Identity and Access Tool for Visual Studio 2012 (téléchargement disponible à la page [Identity and Access Tool][Identity and Access Tool])
 
 ## <span class="short-header">Création d'un espace de noms de contrôle d'accès</span>Création d'un espace de noms de contrôle d'accès
 
 Pour utiliser le contrôle d'accès Active Directory, créez un espace de noms de contrôle d'accès. L'espace de noms fournit une étendue unique pour
 l'adressage des ressources ACS au sein de votre application.
 
-1.  Connectez-vous au [portail de gestion Azure][] (<https://manage.WindowsAzure.com>).
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure] (<https://manage.WindowsAzure.com>).
 
 2.  Cliquez sur **Active Directory**.
 
@@ -155,7 +155,7 @@ Au cours de cette tâche, vous allez intégrer votre application Web ASP.NET à 
 
 1.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet MvcACS, puis sélectionnez **Identité et accès**.
 
-    Si l'option **Identité et accès** ne s'affiche pas dans le menu contextuel, installez l'outil Identity and Access Tool. Pour plus d'informations, consultez la page [Identity and Access Tool][].
+    Si l'option **Identité et accès** ne s'affiche pas dans le menu contextuel, installez l'outil Identity and Access Tool. Pour plus d'informations, consultez la page [Identity and Access Tool][Identity and Access Tool].
 
     ![][4]
 
@@ -285,7 +285,7 @@ Dans cette section, nous allons modifier l'application de manière à ce qu'elle
 
 ![][15]
 
-Pour plus d'informations sur l'utilisation des demandes dans votre application, consultez la [bibliothèque Windows Identity Foundation][].
+Pour plus d'informations sur l'utilisation des demandes dans votre application, consultez la [bibliothèque Windows Identity Foundation][bibliothèque Windows Identity Foundation].
 
 ## <a name="bkmk_VP"></a>Affichage de l'application dans le portail de gestion ACS
 
@@ -295,7 +295,7 @@ Lorsque vous sélectionnez l'option Use Azure Access Control, puis que vous exé
 
 Vous pouvez passer en revue et modifier ces paramètres de configuration dans le portail de gestion ACS. Pour ce faire, procédez comme suit.
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 
 2.  Cliquez sur **Active Directory**.
 
@@ -357,9 +357,8 @@ Par exemple, vous pouvez ajouter d'autres fournisseurs d'identité pour cette pa
 
 Vous pouvez également ajouter des règles à l'espace de noms pour déterminer quelle demande est envoyée à l'application pour le traitement de la logique métier de l'application.
 
-Pour en savoir plus sur les fonctionnalités ACS et découvrir d'autres scénarios, consultez la page [Access Control Service 2.0][].
+Pour en savoir plus sur les fonctionnalités ACS et découvrir d'autres scénarios, consultez la page [Access Control Service 2.0][Access Control Service 2.0].
 
-  [Qu'est-ce qu'ACS ?]: #what-is
   [Concepts]: #concepts
   [Configuration requise]: #pre
   [Création d'un espace de noms de contrôle d'accès]: #create-namespace
@@ -371,7 +370,7 @@ Pour en savoir plus sur les fonctionnalités ACS et découvrir d'autres scénari
   [Ajout d'un fournisseur d'identité]: #add-IP
   [Étapes suivantes]: #whats-next
   [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
-  []: ./media/active-directory-dotnet-how-to-use-access-control/acs-01.png
+  [0]: ./media/active-directory-dotnet-how-to-use-access-control/acs-01.png
   [Identity and Access Tool]: http://go.microsoft.com/fwlink/?LinkID=245849
   [portail de gestion Azure]: http://manage.WindowsAzure.com
   [1]: ./media/active-directory-dotnet-how-to-use-access-control/acsCreateNamespace.png

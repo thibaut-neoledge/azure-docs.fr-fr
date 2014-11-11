@@ -1,6 +1,6 @@
 <properties title="Using the Docker Virtual Machines Extension for Linux on Azure" pageTitle="Using the Docker VM Extension for Linux on Azure" description="Describes Docker and the Azure Virtual Machines extensions, and shows how to programmatically create Virtual Machines on Azure that are docker hosts from the command line using the azure-cli command interface." metaKeywords="linux, virtual machines, vm, azure, docker, linux containers,  lxc, virtualization" services="virtual-machines" solutions="dev-test" documentationCenter="virtual-machines" authors="rasquill" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="08/21/2014" ms.author="ralph.squillace@microsoft.com"></tags>
+<tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="08/21/2014" ms.author="ralph.squillace@microsoft.com" />
 
 # Utilisation de l'extension Docker VM pour Linux sur Azure
 
@@ -150,12 +150,10 @@ Pour obtenir une liste complète, consultez la page [Extensions de machine virtu
   [azure-cli]: https://github.com/Azure/azure-sdk-tools-xplat
   [Boot2Docker]: https://docs.docker.com/installation/windows/
   [ici]: http://azure.microsoft.com/fr-fr/documentation/articles/xplat-cli/#install
-  [npm (node package manager)]: http://en.wikipedia.org/wiki/Npm_%28software%29
   [cet article]: https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server
   [programme d'installation pour Mac]: http://go.microsoft.com/fwlink/?linkid=252249&clcid=0x409
   [Connexion à votre abonnement Azure]: http://azure.microsoft.com/fr-fr/documentation/articles/xplat-cli/#configure
   [instructions d'installation de Docker]: https://docs.docker.com/installation/#installation
-  [!@\#$%^&+=]: mailto:!@#$%^&+=
   [0]: ./media/virtual-machines-docker/dockercreateresults.png
   [1]: ./media/virtual-machines-docker/connectingtodockerhost.png
   [guide d'utilisation de Docker]: https://docs.docker.com/userguide/

@@ -1,6 +1,6 @@
 <properties linkid="dev-java-compute-load" urlDisplayName="TSP on Virtual Machine" pageTitle="Compute-intensive Java application on a VM - Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a compute-intensive task in Java on a virtual machine" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Exécution d'une tâche nécessitant beaucoup de ressources en langage Java sur une machine virtuelle
 
@@ -20,17 +20,17 @@ Vous apprendrez à effectuer les opérations suivantes :
 
 Dans le cadre de ce didacticiel, la tâche nécessitant beaucoup de ressources repose sur le problème du voyageur de commerce. Vous trouverez ci-dessous un exemple d'application Java qui exécute la tâche nécessitant beaucoup de ressources :
 
-![Résolution du problème du voyageur de commerce][]
+![Résolution du problème du voyageur de commerce][Résolution du problème du voyageur de commerce]
 
 Vous trouverez ci-dessous un exemple d'application Java qui surveille la tâche nécessitant beaucoup de ressources :
 
-![Client du problème du voyageur de commerce][]
+![Client du problème du voyageur de commerce][Client du problème du voyageur de commerce]
 
-[WACOM.INCLUDE [create-account-and-vms-note][]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Création d'une machine virtuelle
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 2.  Cliquez sur **New**, sur **Compute**, sur **Virtual machine**, puis sur **From Gallery**.
 3.  Dans la boîte de dialogue **Virtual machine image select** sélectionnez **JDK 7 Windows Server 2012**.
     Notez que **Windows Server 2012 JDK 6** est disponible si vous ne pouvez pas exécuter certaines de vos applications héritées dans JDK 7.
@@ -60,7 +60,7 @@ Vous trouverez ci-dessous un exemple d'application Java qui surveille la tâche 
 4.  Cliquez sur **Connecter**.
 5.  Répondez aux invites pour vous connecter à la machine virtuelle. Lorsque vous y êtes invité, entrez le nom d'administrateur et le mot de passe fournis lors de la création de la machine virtuelle.
 
-Notez que la fonctionnalité Azure Service Bus requiert l'installation du certificat racine Baltimore CyberTrust dans le magasin **cacerts** de votre environnement JRE. Ce certificat est automatiquement inclus dans l'environnement JRE utilisé par ce didacticiel. Si vous ne disposez pas de ce certificat dans le magasin **cacerts** de votre environnement JRE, consultez la rubrique [Ajout d'un certificat au magasin de certificats d'autorité de certification Java][] pour plus d'informations sur l'ajout de celui-ci (et sur l'affichage des certificats de votre magasin cacerts).
+Notez que la fonctionnalité Azure Service Bus requiert l'installation du certificat racine Baltimore CyberTrust dans le magasin **cacerts** de votre environnement JRE. Ce certificat est automatiquement inclus dans l'environnement JRE utilisé par ce didacticiel. Si vous ne disposez pas de ce certificat dans le magasin **cacerts** de votre environnement JRE, consultez la rubrique [Ajout d'un certificat au magasin de certificats d'autorité de certification Java][Ajout d'un certificat au magasin de certificats d'autorité de certification Java] pour plus d'informations sur l'ajout de celui-ci (et sur l'affichage des certificats de votre magasin cacerts).
 
 ## Création d'un espace de noms Service Bus
 
@@ -69,15 +69,15 @@ créer un espace de noms de service. Ce dernier fournit un conteneur d'étendue 
 
 Pour créer un espace de noms de service :
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 2.  Dans le volet de navigation gauche du portail de gestion, cliquez sur **Bus des services, Contrôle d'accès et Cache**.
 3.  Dans le volet supérieur gauche du portail de gestion, cliquez sur le nœud **Service
     Bus** puis sur le bouton **Nouveau**.<br />
-    ![Capture d'écran du nœud Service Bus][]
+    ![Capture d'écran du nœud Service Bus][Capture d'écran du nœud Service Bus]
 4.  Dans la boîte de dialogue **Create a new Service Namespace**, entrez un
     **Espace de noms**, puis vérifiez qu'il est unique en cliquant sur le bouton
     **Vérifier la disponibilité**.<br />
-    ![Capture d'écran création d'un espace de noms][]
+    ![Capture d'écran création d'un espace de noms][Capture d'écran création d'un espace de noms]
 5.  Après avoir vérifié que le nom de l'espace de noms est disponible, choisissez le
     pays ou la région où votre espace de noms sera hébergé, puis cliquez sur le bouton **Créer un espace de noms**.
 
@@ -92,22 +92,22 @@ de gestion associées.
 
 1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour
     afficher la liste des espaces de noms disponibles :<br />
-    ![Capture d'écran des espaces de noms disponibles][]
+    ![Capture d'écran des espaces de noms disponibles][Capture d'écran des espaces de noms disponibles]
 2.  Sélectionnez l'espace de noms que vous venez de créer dans la liste affichée :<br />
-    ![Capture d'écran de la liste des espaces de noms][]
+    ![Capture d'écran de la liste des espaces de noms][Capture d'écran de la liste des espaces de noms]
 3.  Le volet **Propriétés** de droite répertorie les propriétés du
     nouvel espace de noms :<br />
-    ![Capture d'écran du volet Propriétés][]
+    ![Capture d'écran du volet Propriétés][Capture d'écran du volet Propriétés]
 4.  La **Clé par défaut** est masquée. Cliquez sur le bouton **Afficher** pour afficher
     les informations d'identification de sécurité :<br />
-    ![Capture d'écran Clé par défaut][]
+    ![Capture d'écran Clé par défaut][Capture d'écran Clé par défaut]
 5.  Notez l'**Émetteur par défaut** et la **Clé par défaut**, car vous
     devrez utiliser ces informations ci-dessous pour accomplir les opérations
     relatives à l'espace de noms.
 
 ## Création d'une application Java exécutant une tâche qui nécessite beaucoup de ressources
 
-1.  Sur votre ordinateur de développement (qui n'est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour Java][].
+1.  Sur votre ordinateur de développement (qui n'est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour Java][Kit de développement logiciel (SDK) Azure pour Java].
 2.  Créez une application console Java à l'aide de l'exemple de code disponible à la fin de cette section. Dans le cadre de ce didacticiel, nous utiliserons le nom de fichier Java **TSPSolver.java**. Modifiez les espaces réservés **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** et **your\_service\_bus\_key** pour utiliser respectivement vos valeurs Service Bus **Espace de noms**, **Émetteur par défaut** et **Clé par défaut**.
 3.  Après le codage, exportez l'application dans une archive Java exécutable (JAR) et créez un package contenant les bibliothèques requises dans le fichier JAR généré. Dans le cadre de ce didacticiel, nous utiliserons le nom **TSPSolver.jar** pour désigner le fichier JAR généré.
 
@@ -526,4 +526,3 @@ Pour quitter les applications solveur et cliente avant la fin normale, vous pouv
   [Capture d'écran de la liste des espaces de noms]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_05_NamespaceList.jpg
   [Capture d'écran du volet Propriétés]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
   [Capture d'écran Clé par défaut]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
-  [Kit de développement logiciel (SDK) Azure pour Java]: http://www.windowsazure.com/fr-fr/develop/java/

@@ -1,34 +1,34 @@
 <properties title="How to use the queue service (PHP) - Azure feature guide" pageTitle="How to use the queue service (PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." documentationCenter="PHP" services="storage" authors="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Utilisation du service de file d'attente à partir de PHP
 
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de file d'attente Azure. Les exemples sont écrits au moyen de classes provenant du Kit de développement logiciel (SDK) Windows pour PHP. Les scénarios traités incluent l'**insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d'attente, ainsi que la **création et suppression des files d'attente**. Pour plus d'informations sur les files d'attente, consultez la section [Étapes suivantes][].
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de file d'attente Azure. Les exemples sont écrits au moyen de classes provenant du Kit de développement logiciel (SDK) Windows pour PHP. Les scénarios traités incluent l'**insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d'attente, ainsi que la **création et suppression des files d'attente**. Pour plus d'informations sur les files d'attente, consultez la section [Étapes suivantes][Étapes suivantes].
 
 ## Sommaire
 
--   [Présentation du stockage des files d'attente][]
--   [Concepts][]
--   [Création d'un compte de stockage Azure][]
--   [Création d'une application PHP][]
--   [Configuration de votre application pour le service de file d'attente][]
--   [Configuration d'une connexion Azure Storage][]
--   [Création d'une file d'attente][]
--   [Ajout d'un message à une file d'attente][]
--   [Lecture furtive du message suivant][]
--   [Enlèvement du message suivant de la file d'attente][]
--   [Modification du contenu d'un message en file d'attente][]
--   [Options supplémentaires pour la suppression des messages dans la file d'attente][]
--   [Obtention de la longueur de la file d'attente][]
--   [Suppression d'une file d'attente][]
+-   [Présentation du stockage des files d'attente][Présentation du stockage des files d'attente]
+-   [Concepts][Concepts]
+-   [Création d'un compte de stockage Azure][Création d'un compte de stockage Azure]
+-   [Création d'une application PHP][Création d'une application PHP]
+-   [Configuration de votre application pour le service de file d'attente][Configuration de votre application pour le service de file d'attente]
+-   [Configuration d'une connexion Azure Storage][Configuration d'une connexion Azure Storage]
+-   [Création d'une file d'attente][Création d'une file d'attente]
+-   [Ajout d'un message à une file d'attente][Ajout d'un message à une file d'attente]
+-   [Lecture furtive du message suivant][Lecture furtive du message suivant]
+-   [Enlèvement du message suivant de la file d'attente][Enlèvement du message suivant de la file d'attente]
+-   [Modification du contenu d'un message en file d'attente][Modification du contenu d'un message en file d'attente]
+-   [Options supplémentaires pour la suppression des messages dans la file d'attente][Options supplémentaires pour la suppression des messages dans la file d'attente]
+-   [Obtention de la longueur de la file d'attente][Obtention de la longueur de la file d'attente]
+-   [Suppression d'une file d'attente][Suppression d'une file d'attente]
 -   [Étapes suivantes][1]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <span id="create-account"></span></a>Création d'un compte de stockage Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <span id="create-app"></span></a>Création d'une application PHP
 
@@ -38,13 +38,13 @@ Dans ce guide, vous allez utiliser des fonctionnalités de service de File d'att
 
 ## <span id="GetClientLibrary"></span></a>Obtention des bibliothèques clientes Azure
 
-[WACOM.INCLUDE [get-client-libraries][]]
+[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ## <span id="configure-app"></span></a>Configuration de votre application pour accéder au service de file d'attente
 
 Pour utiliser les API du service de file d'attente Azure, vous devez procéder comme suit :
 
-1.  référencer le fichier de chargeur automatique à l'aide de l'instruction [require\_once][] ; et
+1.  référencer le fichier de chargeur automatique à l'aide de l'instruction [require\_once][require\_once] ; et
 2.  référencer toute classe que vous êtes susceptible d'utiliser.
 
 L'exemple suivant montre comment inclure le fichier du chargeur automatique et référencer la classe **ServicesBuilder**.
@@ -110,7 +110,7 @@ Un objet **QueueRestProxy** vous permet de créer une file d'attente avec la mé
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -140,7 +140,7 @@ Pour ajouter un message à une file d'attente, utilisez **QueueRestProxy-\>creat
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -169,7 +169,7 @@ Vous pouvez lire furtivement un ou plusieurs messages au début d'une file d'att
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -223,7 +223,7 @@ Votre code supprime un message d'une file d'attente en deux étapes. Tout d'abor
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -265,7 +265,7 @@ Vous pouvez modifier le contenu d'un message placé dans la file d'attente en ap
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -312,7 +312,7 @@ Il existe deux façons de personnaliser l'extraction des messages à partir d'un
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -338,7 +338,7 @@ Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -365,7 +365,7 @@ Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -375,7 +375,7 @@ Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez
 
 Maintenant que vous avez appris les principes de base du service de file d'attente Azure, suivez ces liens pour découvrir des tâches de stockage plus complexes.
 
--   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][]
+-   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][Stockage et accessibilité des données dans Azure]
 -   Accédez au blog de l'équipe Azure Storage : <http://blogs.msdn.com/b/windowsazurestorage/>
 
   [Étapes suivantes]: #NextSteps
@@ -397,5 +397,4 @@ Maintenant que vous avez appris les principes de base du service de file d'atten
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [get-client-libraries]: ../includes/get-client-libraries.md
-  [require\_once]: http://www.php.net/manual/en/function.require-once.php
-  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx

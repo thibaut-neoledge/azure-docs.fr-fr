@@ -1,10 +1,10 @@
 <properties linkid="manage-services-storage-net-shared-access-signature-part-1" urlDisplayName="" pageTitle="Shared access signatures: Understanding the SAS Model | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Learn about delegating access to blob, queue, and table resources with shared access signatures" metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Signatures d'accès partagé, partie 1 : présentation du modèle SAP
 
-L'utilisation d'une signature d'accès partagé (SAP) offre un moyen efficace pour octroyer aux autres clients un accès limité aux objets blobs, tables et files d'attente dans votre compte de stockage, sans être obligé d'exposer votre clé de compte. Dans la première partie de ce didacticiel consacré aux signatures d'accès partagé, nous allons vous présenter un aperçu du modèle SAP et examiner les meilleures pratiques concernant les signatures d'accès partagé. La [partie 2][] du didacticiel décrit étape par étape la procédure de création de signatures d'accès partagé avec le service BLOB.
+L'utilisation d'une signature d'accès partagé (SAP) offre un moyen efficace pour octroyer aux autres clients un accès limité aux objets blobs, tables et files d'attente dans votre compte de stockage, sans être obligé d'exposer votre clé de compte. Dans la première partie de ce didacticiel consacré aux signatures d'accès partagé, nous allons vous présenter un aperçu du modèle SAP et examiner les meilleures pratiques concernant les signatures d'accès partagé. La [partie 2][partie 2] du didacticiel décrit étape par étape la procédure de création de signatures d'accès partagé avec le service BLOB.
 
 ## Présentation de la signature d'accès partagé
 
@@ -118,7 +118,7 @@ Les recommandations suivantes relatives à l'utilisation des signatures d'accès
 7.  **Sachez que toute utilisation de votre compte sera facturée, y compris pour les signatures d'accès partagé.** Si vous fournissez un accès en écriture à un objet blob, un utilisateur peut choisir de charger un objet blob de 200 Go. Si vous lui avez également accordé un accès en lecture, il peut choisir de le télécharger 10 fois, et vous devrez alors acquitter des frais de sortie pour l'équivalent de 2 To. Accordez des autorisations limitées pour atténuer les risques liés aux utilisateurs malveillants. Utilisez des signatures d'accès partagé à durée de vie limitée pour atténuer cette menace (mais pensez au décalage d'horloge pour l'heure de fin).
 8.  **Validez les données écrites avec une signature d'accès partagé.** Lorsqu'une application cliente écrit des données dans votre compte de stockage, n'oubliez pas que ces données peuvent être une source de problèmes. Si votre application exige que ces données soient validées ou autorisées avant de pouvoir être utilisées, vous devez effectuer cette validation après l'écriture des données et avant qu'elles ne soient utilisées par votre application. Cette pratique assure également une protection contre l'écriture de données endommagées ou malveillantes dans votre compte, soit par un utilisateur qui a acquis correctement la signature d'accès partagé, soit par un utilisateur qui exploite sa divulgation.
 9.  **N'utilisez pas toujours une signature d'accès partagé.** Parfois, les risques associés à une opération particulière sur votre compte de stockage l'emportent sur les avantages offerts par la signature d'accès partagé. Pour ces opérations, créez un service de niveau intermédiaire qui écrit dans votre compte de stockage après avoir effectué la validation des règles métier, l'authentification et un audit. Parfois aussi, il est plus simple de gérer l'accès par d'autres moyens. Par exemple, si vous voulez que tous les objets blob dans un conteneur soient publiquement lisibles, vous pouvez rendre le conteneur public, au lieu de fournir une signature d'accès partagé à chaque client.
-10. **Utilisez l'analyse du stockage pour surveiller votre application.** Vous pouvez utiliser la journalisation et les mesures pour observer tout pic dans les échecs d'authentification dus à une interruption du service de votre fournisseur de signatures d'accès partagé ou à la suppression par inadvertance d'une stratégie d'accès stockée. Pour plus d'informations, consultez le [blog de l'équipe Azure Storage][].
+10. **Utilisez l'analyse du stockage pour surveiller votre application.** Vous pouvez utiliser la journalisation et les mesures pour observer tout pic dans les échecs d'authentification dus à une interruption du service de votre fournisseur de signatures d'accès partagé ou à la suppression par inadvertance d'une stratégie d'accès stockée. Pour plus d'informations, consultez le [blog de l'équipe Azure Storage][blog de l'équipe Azure Storage].
 
 ## Conclusion
 
@@ -128,17 +128,16 @@ Les signatures d'accès partagé sont utiles pour fournir des autorisations d'ac
 
 [Signatures d'accès partagé, partie 2 : création et utilisation d'une signature d'accès partagé avec le service BLOB][partie 2]
 
-[Gestion de l'accès aux ressources de stockage Azure][]
+[Gestion de l'accès aux ressources de stockage Azure][Gestion de l'accès aux ressources de stockage Azure]
 
-[Délégation de l'accès avec une signature d'accès partagé (API REST)][]
+[Délégation de l'accès avec une signature d'accès partagé (API REST)][Délégation de l'accès avec une signature d'accès partagé (API REST)]
 
-[Présentation des signatures d'accès partagé des tables et des files d'attente][]
+[Présentation des signatures d'accès partagé des tables et des files d'attente][Présentation des signatures d'accès partagé des tables et des files d'attente]
 
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
   [partie 2]: ../storage-dotnet-shared-access-signature-part-2/
   [blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx
-  [Gestion de l'accès aux ressources de stockage Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx
-  [Délégation de l'accès avec une signature d'accès partagé (API REST)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx
+  [Gestion de l'accès aux ressources de stockage Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee393343.aspx
   [Présentation des signatures d'accès partagé des tables et des files d'attente]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

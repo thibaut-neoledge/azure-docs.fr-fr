@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-send-localized-breaking-news-iOS" urlDisplayName="Localized Breaking News" pageTitle="Notification Hubs Localized Breaking News Tutorial for iOS" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications (iOS)." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news to iOS devices" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées vers des appareils iOS
 
@@ -8,14 +8,14 @@
         <a href="/fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows Store C#">Windows Store C#</a><a href="/fr-fr/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS" class="current">iOS</a>
 </div>
 
-Cette rubrique montre comment utiliser la fonctionnalité de **modèle** d'Azure Notification Hubs pour diffuser des notifications relatives aux dernières nouvelles qui ont été localisées par langue et par appareil. Vous devez commencer ce didacticiel avec l'application Windows Store que vous avez créée dans le cadre du didacticiel [Utilisation de Notification Hubs pour envoyer les dernières nouvelles][]. Lorsque vous aurez terminé, vous pourrez vous inscrire aux catégories qui vous intéressent, spécifier une langue dans laquelle recevoir les notifications et recevoir uniquement des notifications Push pour les catégories sélectionnées dans cette langue.
+Cette rubrique montre comment utiliser la fonctionnalité de **modèle** d'Azure Notification Hubs pour diffuser des notifications relatives aux dernières nouvelles qui ont été localisées par langue et par appareil. Vous devez commencer ce didacticiel avec l'application Windows Store que vous avez créée dans le cadre du didacticiel [Utilisation de Notification Hubs pour envoyer les dernières nouvelles][Utilisation de Notification Hubs pour envoyer les dernières nouvelles]. Lorsque vous aurez terminé, vous pourrez vous inscrire aux catégories qui vous intéressent, spécifier une langue dans laquelle recevoir les notifications et recevoir uniquement des notifications Push pour les catégories sélectionnées dans cette langue.
 
 Ce didacticiel vous familiarise avec les étapes de base pour activer ce scénario :
 
-1.  [Concepts de modèle][]
-2.  [Interface utilisateur de l'application][]
-3.  [Création de l'application iOS][]
-4.  [Envoi de notifications à partir de votre serveur principal][]
+1.  [Concepts de modèle][Concepts de modèle]
+2.  [Interface utilisateur de l'application][Interface utilisateur de l'application]
+3.  [Création de l'application iOS][Création de l'application iOS]
+4.  [Envoi de notifications à partir de votre serveur principal][Envoi de notifications à partir de votre serveur principal]
 
 Ce scénario comporte deux parties :
 
@@ -31,7 +31,7 @@ Vous avez également besoin de Visual Studio 2012.
 
 ## <a name="concepts"></a><span class="short-header">Concepts</span>Concepts de modèle
 
-Dans le didacticiel [Utilisation de Notification Hubs pour envoyer les dernières nouvelles][], vous avez créé une application qui se sert de **balises** pour s'abonner aux notifications relatives à différentes catégories de nouvelles.
+Dans le didacticiel [Utilisation de Notification Hubs pour envoyer les dernières nouvelles][Utilisation de Notification Hubs pour envoyer les dernières nouvelles], vous avez créé une application qui se sert de **balises** pour s'abonner aux notifications relatives à différentes catégories de nouvelles.
 Cependant, de nombreuses applications sont destinées à plusieurs marchés et doivent donc être localisées. Cela signifie que le contenu des notifications proprement dites doit lui aussi être localisé et envoyé au bon ensemble d'appareils.
 Dans cette rubrique, nous allons vous montrer comment utiliser la fonctionnalité de **modèle** de Notification Hubs pour facilement envoyer des notifications de dernières nouvelles localisées.
 
@@ -53,15 +53,15 @@ Ensuite, nous allons nous assurer que les appareils s'inscrivent avec un modèle
         }
     }
 
-Les modèles sont une fonctionnalité très puissante sur laquelle vous pouvez obtenir plus d'informations en lisant notre article [Recommandations relatives à Notification Hubs][]. Une référence à la langue d'expression du modèle se trouve dans notre guide [Service Bus Notification Hubs (applications iOS)][].
+Les modèles sont une fonctionnalité très puissante sur laquelle vous pouvez obtenir plus d'informations en lisant notre article [Recommandations relatives à Notification Hubs][Recommandations relatives à Notification Hubs]. Une référence à la langue d'expression du modèle se trouve dans notre guide [Service Bus Notification Hubs (applications iOS)][Service Bus Notification Hubs (applications iOS)].
 
 ## <a name="ui"></a><span class="short-header">Interface utilisateur de l'application</span>Interface utilisateur de l'application
 
-Nous allons maintenant modifier l'application de dernières nouvelles que vous avez créée à la rubrique [Utilisation de Notification Hubs pour envoyer les dernières nouvelles][] pour envoyer les dernières nouvelles localisées à l'aide de modèles.
+Nous allons maintenant modifier l'application de dernières nouvelles que vous avez créée à la rubrique [Utilisation de Notification Hubs pour envoyer les dernières nouvelles][Utilisation de Notification Hubs pour envoyer les dernières nouvelles] pour envoyer les dernières nouvelles localisées à l'aide de modèles.
 
 Dans votre MainStoryboard\_iPhone.storyboard, ajoutez un contrôle segmenté avec les trois langues que nous prenons en charge : anglais, français et mandarin.
 
-![][]
+![][0]
 
 Puis, assurez-vous d'ajouter un IBOutlet dans votre ViewController.h comme indiqué ci-dessous :
 
@@ -156,15 +156,15 @@ Pour adapter vos applications clientes afin qu'elles puissent recevoir des messa
 
 ## <a name="send"></a><span class="short-header">Envoi de notifications localisées</span>Envoi de notifications localisées à partir de votre serveur principal
 
-[WACOM.INCLUDE [notification-hubs-localized-back-end][]]
+[WACOM.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
 
 ## Étapes suivantes
 
 Pour plus d'informations sur l'utilisation des modèles, consultez :
 
--   [Notification des utilisateurs avec Notification Hubs : ASP.NET][]
--   [Notification des utilisateurs avec Notification Hubs : Mobile Services][]
--   [Recommandations relatives à Notification Hubs][]
+-   [Notification des utilisateurs avec Notification Hubs : ASP.NET][Notification des utilisateurs avec Notification Hubs : ASP.NET]
+-   [Notification des utilisateurs avec Notification Hubs : Mobile Services][Notification des utilisateurs avec Notification Hubs : Mobile Services]
+-   [Recommandations relatives à Notification Hubs][Recommandations relatives à Notification Hubs]
 
 Une référence relative à la langue d'expression du modèle se trouve dans [Notification Hubs, procédure pour iOS][Service Bus Notification Hubs (applications iOS)].
 
@@ -172,16 +172,13 @@ Une référence relative à la langue d'expression du modèle se trouve dans [No
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Store C#]: /fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/ "Windows Store C#"
-  [iOS]: /fr-fr/documentation/articles/notification-hubs-ios-send-localized-breaking-news/ "iOS"
   [Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-ios
   [Concepts de modèle]: #concepts
   [Interface utilisateur de l'application]: #ui
   [Création de l'application iOS]: #building-client
   [Envoi de notifications à partir de votre serveur principal]: #send
   [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/fr-fr/library/jj927170.aspx
-  [Service Bus Notification Hubs (applications iOS)]: http://msdn.microsoft.com/fr-fr/library/jj927168.aspx
-  []: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized1.png
+  [0]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized1.png
   [1]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized2.png
   [notification-hubs-localized-back-end]: ../includes/notification-hubs-localized-back-end.md
   [Notification des utilisateurs avec Notification Hubs : ASP.NET]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet

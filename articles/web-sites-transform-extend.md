@@ -1,20 +1,20 @@
 <properties linkid="dev-net-transform-extend-site" urlDisplayName="Service Bus Topics" pageTitle="Transform and extend your site" metaKeywords="none" description="TBD" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="cephalin" writer="cephalin" editor="mollybos" manager="wpickett" title="Transform and extend your site"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Transformation et extension de votre site
 
-En utilisant des déclarations [XDT (XML Document Transformation)][], vous pouvez transformer le fichier [ApplicationHost.config][] sur vos sites web Azure. Vous pouvez également utiliser des déclarations XDT pour ajouter des extensions de site privé autorisant des actions d'administration de site personnalisées. Le présent article inclut un exemple d'extension de site PHP Manager qui permet de gérer les paramètres PHP par le biais d'une interface Web.
+En utilisant des déclarations [XDT (XML Document Transformation)][XDT (XML Document Transformation)], vous pouvez transformer le fichier [ApplicationHost.config][ApplicationHost.config] sur vos sites web Azure. Vous pouvez également utiliser des déclarations XDT pour ajouter des extensions de site privé autorisant des actions d'administration de site personnalisées. Le présent article inclut un exemple d'extension de site PHP Manager qui permet de gérer les paramètres PHP par le biais d'une interface Web.
 
 <!-- MINI TOC -->
 
--   [Transformation de la configuration de site dans ApplicationHost.config][]
--   [Extension de votre site][]
-    -   [Présentation des extensions de site privé][]
-    -   [Exemple d'extension de site : PHP Manager][]
-        -   [Application Web PHP Manager][]
-        -   [Fichier applicationHost.xdt][]
-    -   [Déploiement de l'extension de site][]
+-   [Transformation de la configuration de site dans ApplicationHost.config][Transformation de la configuration de site dans ApplicationHost.config]
+-   [Extension de votre site][Extension de votre site]
+    -   [Présentation des extensions de site privé][Présentation des extensions de site privé]
+    -   [Exemple d'extension de site : PHP Manager][Exemple d'extension de site : PHP Manager]
+        -   [Application Web PHP Manager][Application Web PHP Manager]
+        -   [Fichier applicationHost.xdt][Fichier applicationHost.xdt]
+    -   [Déploiement de l'extension de site][Déploiement de l'extension de site]
 
 ## <span id="transform"></span></a>Transformation de la configuration de site dans ApplicationHost.config
 
@@ -67,13 +67,13 @@ PHP Manager est une extension de site permettant aux administrateurs de site d'a
 
 Ceci est la page d'accueil du site web PHP Manager :
 
-![TransformSitePHPUI][]
+![TransformSitePHPUI][TransformSitePHPUI]
 
 Comme vous pouvez le voir, une extension de site est similaire à une application Web standard, à la différence près qu'un fichier ApplicationHost.xdt supplémentaire se trouve dans le dossier racine du site (des informations supplémentaires sur le fichier ApplicationHost.xdt sont disponibles dans la section suivante de cet article).
 
 L'extension PHP Manager a été créée au moyen du modèle d'application Web ASP.NET MVC 4 Visual Studio. L'affichage suivant de l'Explorateur de solutions illustre la structure de l'extension de site PHP Manager.
 
-![TransformSiteSolEx][]
+![TransformSiteSolEx][TransformSiteSolEx]
 
 La seule logique spéciale requise pour l'E/S de fichier consiste à indiquer où se trouve le répertoire wwwroot du site. Comme illustré dans l'exemple de code suivant, la variable d'environnement « HOME » indique le chemin d'accès de la racine du site, et le chemin d'accès wwwroot peut être construit en ajoutant « site\\wwwroot » :
 
@@ -156,11 +156,11 @@ Pour installer l'extension de votre site, vous pouvez utiliser FTP pour copier t
 
 Ensuite, sur le portail Sites Web Azure, accédez à l'onglet **Configurer** du site web présentant votre extension. Dans la section **Paramètres de l'application**, ajoutez la clé `WEBSITE_PRIVATE_EXTENSIONS` et affectez-lui la valeur `1`.
 
-![TransformSiteappSettings][]
+![TransformSiteappSettings][TransformSiteappSettings]
 
 Pour finir, dans le portail Azure, redémarrez votre site web pour activer votre extension.
 
-![TransformSiteRestart][]
+![TransformSiteRestart][TransformSiteRestart]
 
 Votre extension de site doit à présent apparaître sur :
 
@@ -170,7 +170,6 @@ Notez que l'URL ressemble en tous points à l'URL de votre site, sauf qu'elle ut
 
 <!-- IMAGES -->
 
-  [XDT (XML Document Transformation)]: http://msdn.microsoft.com/fr-fr/library/dd465326.aspx
   [ApplicationHost.config]: http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig
   [Transformation de la configuration de site dans ApplicationHost.config]: #transform
   [Extension de votre site]: #extend

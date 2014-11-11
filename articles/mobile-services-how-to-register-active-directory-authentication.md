@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-how-to-guides-register-for-active-directory-authentication" urlDisplayName="Register for Azure Active Directory Authentication" pageTitle="Register for Azure Active Directory authentication - Mobile Services" metaKeywords="Azure registering application, Azure Active Directory authentication, application authenticate, authenticate mobile services" description="Learn how to register for Azure Active Directory authentication in your Mobile Services application." title="Register your account to use an Azure Active Directory account login" authors="wesmc" services="mobile-services" documentationCenter="Mobile" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Inscription de vos applications à des fins d'utilisation d'une connexion via un compte Azure Active Directory
 
@@ -8,9 +8,9 @@ Cette rubrique montre comment inscrire vos applications afin d'utiliser Azure Ac
 
 > [WACOM.NOTE] Si vous voulez fournir  une authentification pilotée par le client pour l'authentification unique (SSO) avec Azure Active Directory, consultez le didacticiel Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory.
 
-1.  Connectez-vous au [portail de gestion Azure][], cliquez sur **Mobile Services**, puis sur le service mobile.
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure], cliquez sur **Mobile Services**, puis sur le service mobile.
 
-    ![][]
+    ![][0]
 
 2.  Cliquez sur l'onglet **Identité** de votre service mobile.
 
@@ -56,9 +56,8 @@ Cette rubrique montre comment inscrire vos applications afin d'utiliser Azure Ac
 
 Vous êtes maintenant prêt à utiliser Azure Active Directory pour l'authentification dans votre application.
 
-  [Authenticate your app with Active Directory Authentication Library Single Sign-On]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
   [portail de gestion Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-selection.png
+  [0]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-selection.png
   [1]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-identity-tab.png
   [2]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-copy-app-url-waad-auth.png
   [3]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-select-ad-waad-auth.png

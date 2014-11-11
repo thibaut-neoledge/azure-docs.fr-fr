@@ -1,6 +1,6 @@
 <properties title="Get started with a DocumentDB account" pageTitle="Get started with a DocumentDB account | Azure" description="Learn how to create and configure an Azure DocumentDB account, create databases, create collections, and store JSON documents within the account." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="paulettm" editor="cgronlun" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # Prise en main d'un compte DocumentDB
 
@@ -33,7 +33,7 @@ Un DocumentClient peut être créé à l'aide du point de terminaison de compte 
 
 Le point de terminaison du compte DocumentDB et les clés peuvent être obtenus dans le volet de la version préliminaire du portail de gestion Azure pour votre compte DocumentDB.
 
-![][]
+![][0]
 
 > Remarque : les clés d'accès DocumentDB disponibles dans le volet Clés octroient un accès administratif à votre compte DocumentDB et à toutes ses ressources. DocumentDB prend également en charge l'utilisation de clés de ressource qui permettent aux clients de lire, d'écrire et de supprimer des ressources dans le compte DocumentDB conformément aux autorisations que vous leur avez accordées, et sans qu'une clé de compte soit nécessaire.
 
@@ -196,7 +196,7 @@ DocumentDB prend en charge des requêtes enrichies destinées aux documents JSON
   [Création de documents]: #CreateDoc
   [Interrogation de ressources DocumentDB]: #Query
   [Étapes suivantes]: #NextSteps
-  []: ./media/documentdb-get-started/gs1.png
+  [0]: ./media/documentdb-get-started/gs1.png
   [Sites web Windows Azure : fonctionnement des chaînes d'application et de connexion]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
   [surveiller un compte DocumentDB]: http://go.microsoft.com/fwlink/p/?LinkId=402378
   [page de documentation DocumentDB]: http://go.microsoft.com/fwlink/p/?LinkID=402319

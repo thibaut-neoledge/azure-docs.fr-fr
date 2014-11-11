@@ -1,6 +1,6 @@
 <properties title="HDInsight Release Notes" pageTitle="HDInsight Release Notes | Azure" description="HDInsight release notes." metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure, release notes" services="HDInsight" solutions="" documentationCenter="" editor="cgronlun" manager="paulettm"  authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # Notes de publication de Microsoft HDInsight
 
@@ -43,7 +43,7 @@ Cette version inclut plusieurs nouvelles améliorations du service HDInsight :
 -   **Disponibilité de HDP 2.1** : HDInsight 3.1, qui contient HDP 2.1, est désormais disponible pour le grand public et constitue la version par défaut pour les nouveaux clusters.
 -   **HBase – Améliorations du portail de gestion Azure** : nous faisons en sorte que les clusters HBase soient disponibles dans la version préliminaire. Vous pouvez désormais créer des clusters HBase à partir du portail en 3 clics.
 
-![][]
+![][0]
 
 Avec HBase, vous pouvez créer différentes charges de travail en temps réel sur HDInsight, de sites web interactifs fonctionnant avec des jeux de données volumineux à des services stockant les données de capteur et de télémétrie provenant de millions de points de terminaison. L'étape suivante consisterait à analyser les données dans ces charges de travail avec des tâches Hadoop, ce qui est déjà possible dans HDInsight grâce, notamment, à PowerShell et au tableau de bord de cluster Hive.
 
@@ -425,9 +425,8 @@ Les notes de publication des HDP utilisés par les versions de cluster HDInsight
 -   Le cluster HDInsight version 1.6 utilise une distribution Hadoop basée sur la [plateforme de données Hortonworks 1.1][plateforme de données Hortonworks 1.1].
 
   [New-AzureHDInsightCluster]: http://msdn.microsoft.com/fr-fr/library/dn593744.aspx
-  [Kit de développement logiciel (SDK) HDInsight]: http://msdn.microsoft.com/fr-fr/library/azure/dn469975.aspx
   [Contrôle de version des composants HDInsight]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-component-versioning/
-  []: http://i.imgur.com/cmOl5fM.png
+  [0]: http://i.imgur.com/cmOl5fM.png
   [Mahout]: http://hortonworks.com/hadoop/mahout/
   [Exemple Breiman]: https://mahout.apache.org/users/classification/breiman-example.html
   [Tests de performances d'Apache Hive 13 for Enterprise Hadoop]: http://hortonworks.com/blog/benchmarking-apache-hive-13-enterprise-hadoop/

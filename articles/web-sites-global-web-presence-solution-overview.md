@@ -1,6 +1,6 @@
 <properties linkid="websites-global-web-presence" urlDisplayName="Create a Global Web Presence on Azure Websites" pageTitle="Create a Global Web Presence on Azure Websites" metaKeywords="" description="This guide provides a technical overview of how to host your organization's (.COM) site on Azure Websites. This includes deployment, custom domains, SSL, and monitoring." metaCanonical="http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-global-web-presence-solution-overview/" services="" documentationCenter="" title="Create a Global Web Presence on Azure Websites" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth" />
 
 # Créer une présence sur le web à l'international dans Sites Web Azure
 
@@ -217,8 +217,6 @@ Pour créer le site (.COM) de votre organisation, les tâches standard incluent 
   [Azure Cloud Services]: /fr-fr/documentation/services/cloud-services/
   [Azure Virtual Machines]: /fr-fr/documentation/services/virtual-machines/
   [Comparaison entre Sites Web Azure, Azure Cloud Services et Azure Virtual Machines]: /fr-fr/manage/services/web-sites/choose-web-app-service
-  [campagnes marketing numériques]: http://www.windowsazure.com/fr-fr/manage/services/web-sites/digital-marketing-campaign-solution-overview
-  [applications métier]: http://www.windowsazure.com/fr-fr/manage/services/web-sites/business-application-solution-overview
   [GlobalWebCreate]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Create.png
   [Prise en main d'Azure Web Sites et d'ASP.NET]: /fr-fr/documentation/articles/web-sites-dotnet-get-started
   [WebMatrix]: http://www.microsoft.com/web/webmatrix/
@@ -243,11 +241,3 @@ Pour créer le site (.COM) de votre organisation, les tâches standard incluent 
   [GlobalWebMonitor4]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Monitor4.png
   [Campagnes marketing numériques]: /fr-fr/manage/services/web-sites/digital-marketing-campaign-solution-overview
   [Surveillance de sites Web]: /fr-fr/manage/services/web-sites/how-to-monitor-websites/
-  [1]: http://www.windowsazure.com/fr-fr/manage/services/web-sites/choose-web-app-service
-  [Prise en main d'Azure et ASP.NET]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-dotnet-get-started/
-  [2]: http://www.windowsazure.com/fr-fr/develop/net/common-tasks/publishing-with-git/
-  [Déploiement d'une application web ASP.NET sur un site web Azure]: http://www.windowsazure.com/fr-fr/develop/net/tutorials/get-started/
-  [Développer et déployer un site web avec Microsoft WebMatrix]: http://www.windowsazure.com/fr-fr/develop/net/tutorials/website-with-webmatrix/
-  [Configuration d'un nom de domaine personnalisé pour un site web Azure]: http://www.windowsazure.com/fr-fr/develop/net/common-tasks/custom-dns-web-site/
-  [Configuration d'un certificat SSL pour un site web Azure]: http://www.windowsazure.com/fr-fr/develop/net/common-tasks/enable-ssl-web-site/
-  [Surveillance des sites web]: http://www.windowsazure.com/fr-fr/manage/services/web-sites/how-to-monitor-websites/

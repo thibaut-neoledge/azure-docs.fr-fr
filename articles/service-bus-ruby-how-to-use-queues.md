@@ -1,33 +1,33 @@
 <properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Ruby) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Ruby" description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Queues" authors="guayan" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Utilisation des files d'attente Service Bus
 
 Ce guide vous montre comment utiliser les files d'attente Service Bus. Les exemples sont
 écrits en Ruby et utilisent le module Azure gem. Les scénarios
 couverts dans ce guide sont les suivants : **création de files d'attente, envoi et réception de messages** et
-**suppression de files d'attente**. Pour plus d'informations sur les files d'attente, consultez la section [Étapes suivantes][].
+**suppression de files d'attente**. Pour plus d'informations sur les files d'attente, consultez la section [Étapes suivantes][Étapes suivantes].
 
 ## Sommaire
 
--   [Présentation des files d'attente Service Bus][]
--   [Création d'un espace de noms de service][]
--   [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms][]
--   [Création d'une application Ruby][]
--   [Configuration de votre application pour l'utilisation de Service Bus][]
--   [Configuration d'une connexion Azure Service Bus][]
--   [Création d'une file d'attente][]
--   [Envoi de messages à une file d'attente][]
--   [Réception des messages d'une file d'attente][]
--   [Gestion des blocages d'application et des messages illisibles][]
--   [Étapes suivantes][]
+-   [Présentation des files d'attente Service Bus][Présentation des files d'attente Service Bus]
+-   [Création d'un espace de noms de service][Création d'un espace de noms de service]
+-   [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms][Obtention d'informations d'identification de gestion par défaut pour l'espace de noms]
+-   [Création d'une application Ruby][Création d'une application Ruby]
+-   [Configuration de votre application pour l'utilisation de Service Bus][Configuration de votre application pour l'utilisation de Service Bus]
+-   [Configuration d'une connexion Azure Service Bus][Configuration d'une connexion Azure Service Bus]
+-   [Création d'une file d'attente][Création d'une file d'attente]
+-   [Envoi de messages à une file d'attente][Envoi de messages à une file d'attente]
+-   [Réception des messages d'une file d'attente][Réception des messages d'une file d'attente]
+-   [Gestion des blocages d'application et des messages illisibles][Gestion des blocages d'application et des messages illisibles]
+-   [Étapes suivantes][Étapes suivantes]
 
-[WACOM.INCLUDE [howto-service-bus-queues][]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <span id="create-a-ruby-application"></span></a>Création d'une application Ruby
 
-Créez une application Ruby. Pour obtenir des instructions, consultez le guide [Création d'une application Ruby sur Azure][].
+Créez une application Ruby. Pour obtenir des instructions, consultez le guide [Création d'une application Ruby sur Azure][Création d'une application Ruby sur Azure].
 
 ## <span id="configure-your-application-to-use-service-bus"></span></a> Configuration de votre application pour l'utilisation de Service Bus
 
@@ -111,10 +111,10 @@ Si l'application subit un incident après le traitement du message, mais avant l
 
 Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez ces liens pour en savoir plus :
 
--   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements.][]
--   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby][] sur GitHub.
+-   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements.][Files d'attente, rubriques et abonnements.]
+-   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby][Kit de développement logiciel (SDK) Azure pour Ruby] sur GitHub.
 
-Pour consulter un comparatif entre les files d'attente Azure Service Bus évoquées dans cet article et les files d'attente Azure présentées dans l'article [Utilisation du service de file d'attente Azure][], voir [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences][]
+Pour consulter un comparatif entre les files d'attente Azure Service Bus évoquées dans cet article et les files d'attente Azure présentées dans l'article [Utilisation du service de file d'attente Azure][Utilisation du service de file d'attente Azure], voir [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences][Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences]
 
   [Étapes suivantes]: #next-steps
   [Présentation des files d'attente Service Bus]: #what-are-service-bus-queues
@@ -130,6 +130,5 @@ Pour consulter un comparatif entre les files d'attente Azure Service Bus évoqu�
   [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Création d'une application Ruby sur Azure]: /fr-fr/develop/ruby/tutorials/web-app-with-linux-vm/
   [Files d'attente, rubriques et abonnements.]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367516.aspx
-  [Kit de développement logiciel (SDK) Azure pour Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby
   [Utilisation du service de file d'attente Azure]: /fr-fr/develop/ruby/how-to-guides/queue-service/
   [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh767287.aspx

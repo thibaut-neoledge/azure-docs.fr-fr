@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-service-bus-relay" urlDisplayName="Service Bus Relay" pageTitle="How to use Service Bus relay (.NET) - Azure" metaKeywords="get started azure Service Bus Relay C# " description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Utilisation du service Service Bus Relay
 
@@ -9,9 +9,9 @@ Les exemples sont écrits en C# et utilisent l'API Windows Communication
 Foundation avec les extensions contenues dans l'assembly Service Bus,
 qui fait partie des bibliothèques .NET pour Azure. Pour plus
 d'informations sur Service Bus Relay, consultez la section
-[Étapes suivantes][].
+[Étapes suivantes][Étapes suivantes].
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ## <span class="short-header">Présentation de Service Bus Relay</span>Présentation de Service Bus Relay
 
@@ -24,7 +24,7 @@ sur le cloud public en toute sécurité, sans avoir à ouvrir une
 connexion de pare-feu ni à exiger des modifications intrusives dans une
 infrastructure de réseau d'entreprise.
 
-![Concepts de relais][]
+![Concepts de relais][Concepts de relais]
 
 Service Bus Relay vous permet d'héberger des services WCF au sein de votre
 environnement d'entreprise existant. Vous pouvez ensuite déléguer l'écoute
@@ -47,14 +47,14 @@ créer un espace de noms de service. Ce dernier fournit un conteneur d'étendue 
 
 Pour créer un espace de noms de service :
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 
 2.  Dans le volet de navigation gauche du portail de gestion, cliquez sur
     **Service Bus**.
 
 3.  Dans le volet inférieur du portail de gestion, cliquez sur **Créer**.
 
-    ![][]
+    ![][0]
 
 4.  Dans la boîte de dialogue **Ajouter un nouvel espace de noms**, entrez un nom d'espace de noms.
     Le système vérifie immédiatement la disponibilité du nom.
@@ -81,7 +81,7 @@ Pour effectuer des opérations de gestion, telles que la création d'une connexi
 1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour
     afficher la liste des espaces de noms disponibles :
 
-    ![][]
+    ![][0]
 
 2.  Sélectionnez l'espace de noms que vous venez de créer dans la liste affichée :
 
@@ -332,15 +332,15 @@ la clé du service Service Bus.
 Maintenant que vous avez appris les principes de base du service Service Bus **Relay**,
 consultez ces liens pour en savoir plus :
 
--   Création d'un service : [Génération d'un service pour Service Bus][].
--   Création du client : [Génération d'une application Service Bus Client][].
--   Exemples Service Bus : à télécharger depuis [Exemples Azure][].
+-   Création d'un service : [Génération d'un service pour Service Bus][Génération d'un service pour Service Bus].
+-   Création du client : [Génération d'une application Service Bus Client][Génération d'une application Service Bus Client].
+-   Exemples Service Bus : à télécharger depuis [Exemples Azure][Exemples Azure].
 
   [Étapes suivantes]: #next_steps
   [create-account-note]: ../includes/create-account-note.md
   [Concepts de relais]: ./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png
   [portail de gestion Azure]: http://manage.windowsazure.com
-  []: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png
+  [0]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png
   [1]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png
   [2]: ./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png
   [3]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png

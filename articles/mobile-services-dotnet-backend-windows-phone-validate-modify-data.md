@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-dotnet-backend-validate-modify-and-augment-data-wp8" urlDisplayName="Validate and Modify Data" pageTitle="Use the .Net backend to validate and modify data (Windows Phone 8) | Mobile Dev Center" metaKeywords="" description="Learn how to validate, modify, and augment data for your Windows Phone app with .Net backend Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Validation et modification de données dans Mobile Services à l'aide du .Net principal
 
@@ -23,17 +23,17 @@ Cette rubrique montre comment utiliser le code dans les Azure Mobile Services .N
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 
-1.  [Ajout de la validation de longueur de chaîne][]
-2.  [Mise à jour du client pour la prise en charge de la validation][]
-3.  [Test de la longueur de chaîne][]
-4.  [Ajout d'un horodatage pour CompleteDate][]
-5.  [Mise à jour du client pour l'affichage de CompleteDate][]
+1.  [Ajout de la validation de longueur de chaîne][Ajout de la validation de longueur de chaîne]
+2.  [Mise à jour du client pour la prise en charge de la validation][Mise à jour du client pour la prise en charge de la validation]
+3.  [Test de la longueur de chaîne][Test de la longueur de chaîne]
+4.  [Ajout d'un horodatage pour CompleteDate][Ajout d'un horodatage pour CompleteDate]
+5.  [Mise à jour du client pour l'affichage de CompleteDate][Mise à jour du client pour l'affichage de CompleteDate]
 
-Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé, [Prise en main][] ou [Prise en main des données][]. Avant de commencer, vous devez suivre le didacticiel [Prise en main][] ou [Prise en main des données][].
+Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé, [Prise en main][Prise en main] ou [Prise en main des données][Prise en main des données]. Avant de commencer, vous devez suivre le didacticiel [Prise en main][Prise en main] ou [Prise en main des données][Prise en main des données].
 
 ## <a name="string-length-validation"></a>Ajout de la validation
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
 
 ## <a name="update-client-validation"></a>Mise à jour du client
 
@@ -77,7 +77,7 @@ Maintenant que le service mobile est configuré pour valider les données et env
 
 2.  Entrez le texte du nouvel élément todo, dont la longueur doit dépasser les 10 caractères, puis cliquez sur **Enregistrer**.
 
-    ![][]
+    ![][0]
 
 3.  En case de texte incorrect, vous obtiendrez une boîte de dialogue de message semblable à la suivante.
 
@@ -85,7 +85,7 @@ Maintenant que le service mobile est configuré pour valider les données et env
 
 ## <a name="add-timestamp"></a>Ajout d'un horodatage pour CompleteDate
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
 
 ## <a name="update-client-timestamp"></a>Mise à jour du client pour l'affichage de CompleteDate
 
@@ -153,32 +153,22 @@ L'étape finale consiste à mettre à jour le client de manière à afficher les
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Maintenant que vous avez terminé ce didacticiel, pensez à suivre le dernier didacticiel dans la série des données : [Affinage des requêtes au moyen de la pagination][].
+Maintenant que vous avez terminé ce didacticiel, pensez à suivre le dernier didacticiel dans la série des données : [Affinage des requêtes au moyen de la pagination][Affinage des requêtes au moyen de la pagination].
 
 Les scripts serveur sont également utilisés dans le cadre du processus d'autorisation des utilisateurs et pour l'envoi de notifications Push. Pour plus d'informations, reportez-vous aux didacticiels suivants :
 
--   [Autorisation des utilisateurs côté service][]
+-   [Autorisation des utilisateurs côté service][Autorisation des utilisateurs côté service]
 
     En savoir plus sur le filtrage des données en fonction de l'ID d'un utilisateur authentifié.
 
--   [Prise en main des notifications Push][]
+-   [Prise en main des notifications Push][Prise en main des notifications Push]
 
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
--   [Guide de fonctionnement Mobile Services .NET][]
+-   [Guide de fonctionnement Mobile Services .NET][Guide de fonctionnement Mobile Services .NET]
 
     En savoir plus sur l'utilisation de Mobile Services avec .NET.
 
-  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/ "Windows Store C#"
-  [Windows Store JavaScript]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/ "Windows Store JavaScript"
-  [Windows Phone]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ "Windows Phone"
-  [iOS]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS"
-  [Android]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android"
-  [HTML]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML"
-  [Xamarin.iOS]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android"
-  [Serveur principal .NET]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ ".NET backend"
-  [JavaScript backend]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "JavaScript backend"
   [Ajout de la validation de longueur de chaîne]: #string-length-validation
   [Mise à jour du client pour la prise en charge de la validation]: #update-client-validation
   [Test de la longueur de chaîne]: #test-length-validation
@@ -187,7 +177,7 @@ Les scripts serveur sont également utilisés dans le cadre du processus d'autor
   [Prise en main]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
   [Prise en main des données]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
   [mobile-services-dotnet-backend-add-validation]: ../includes/mobile-services-dotnet-backend-add-validation.md
-  []: ./media/mobile-services-dotnet-backend-windows-phone-validate-modify-data/mobile-services-invalid-text-length.png
+  [0]: ./media/mobile-services-dotnet-backend-windows-phone-validate-modify-data/mobile-services-invalid-text-length.png
   [1]: ./media/mobile-services-dotnet-backend-windows-phone-validate-modify-data/mobile-services-invalid-text-length-exception-dialog.png
   [mobile-services-dotnet-backend-add-completedate]: ../includes/mobile-services-dotnet-backend-add-completedate.md
   [Affinage des requêtes au moyen de la pagination]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-dotnet

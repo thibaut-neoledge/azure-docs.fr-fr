@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-app-with-django-mac" urlDisplayName="Web with Django" pageTitle="Python web app with Django on Mac - Azure tutorial" metaKeywords="" description="A tutorial that shows how to host a Django-based website on Azure using a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application (mac-linux)" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Application Web Django Hello World (mac-linux)
 
@@ -19,13 +19,13 @@ Web Hello World simple. L'application sera hébergée sur une machine virtuelle 
 
 Voici une capture d'écran de l'application terminée :
 
-![Fenêtre de navigateur affichant la page Hello World sous Azure][]
+![Fenêtre de navigateur affichant la page Hello World sous Azure][Fenêtre de navigateur affichant la page Hello World sous Azure]
 
-[WACOM.INCLUDE [create-account-and-vms-note][]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Création et configuration d'une machine virtuelle Azure pour héberger Django
 
-1.  Suivez les instructions disponibles [ici][] pour créer une machine virtuelle Azure de la distribution *Ubuntu Server 14.04*.
+1.  Suivez les instructions disponibles [ici][ici] pour créer une machine virtuelle Azure de la distribution *Ubuntu Server 14.04*.
 
 	**Remarque :** il *suffit* de créer la machine virtuelle. Arrêtez-vous à la section intitulée *Connexion à la machine virtuelle une fois celle-ci créée*.
 
@@ -33,13 +33,13 @@ Voici une capture d'écran de l'application terminée :
 
     -   Accédez à votre machine virtuelle nouvellement créée dans le portail Azure et cliquez sur l'onglet *ENDPOINTS*.
     -   Cliquez sur le bouton *ADD ENDPOINT* en bas de l'écran.
-        ![Ajouter un point de terminaison][]
+        ![Ajouter un point de terminaison][Ajouter un point de terminaison]
     -   Ouvrez le *PORT PUBLIC 80* du protocole *TCP* en tant que *PORT PRIVÉ 80*.
-        ![port80][]
+        ![port80][port80]
 
 ## <span id="setup"></span> </a>Configuration de l'environnement de développement
 
-**Remarque :** si vous devez installer Python ou si vous souhaitez utiliser les bibliothèques clientes, consultez le [Guide d'installation de Python][].
+**Remarque :** si vous devez installer Python ou si vous souhaitez utiliser les bibliothèques clientes, consultez le [Guide d'installation de Python][Guide d'installation de Python].
 
 Python 2.7 est préinstallé sur la machine virtuelle Linux Ubuntu. En revanche, Apache et Django ne sont pas installés. Pour vous connecter à votre machine virtuelle et installer Apache et Django, procédez comme suit :
 
@@ -108,14 +108,12 @@ Python 2.7 est préinstallé sur la machine virtuelle Linux Ubuntu. En revanche
 
 4.  Enfin, chargez la page Web dans votre navigateur :
 
-    ![Fenêtre de navigateur affichant la page Hello World sous Azure][]
+    ![Fenêtre de navigateur affichant la page Hello World sous Azure][Fenêtre de navigateur affichant la page Hello World sous Azure]
 
 ## Arrêt de la machine virtuelle Azure
 
 Lorsque vous avez terminé ce didacticiel, arrêtez et/ou supprimez votre machine virtuelle Azure nouvellement créée afin de libérer des ressources pour d'autres didacticiels et éviter l'ajout de charges d'utilisation Azure.
 
-  [Windows]: /fr-fr/develop/python/tutorials/web-app-with-django/ "Windows"
-  [Mac/Linux]: /fr-fr/develop/python/tutorials/django-hello-world-(maclinux)/ "Mac/Linux"
   [Fenêtre de navigateur affichant la page Hello World sous Azure]: ./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-browser.png
   [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [ici]: /fr-fr/manage/linux/tutorials/virtual-machine-from-gallery/

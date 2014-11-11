@@ -1,46 +1,46 @@
 <properties linkid="dev-java-how-to-use-table-storage" urlDisplayName="Table Service" pageTitle="How to use table storage (Java) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Learn how to use the table storage service in Azure. Code samples are written in Java code." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Table storage service from Java" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Utilisation du stockage de tables à partir de Java
 
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de table Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure Storage pour Java][]. Les scénarios traités incluent la **création**, l'**énumération** et la **suppression** de tables, ainsi que l'**insertion**, l'**interrogation**, la **modification** et la **suppression** d'entités dans une table. Pour plus d'informations sur les tables, consultez la section [Étapes suivantes][].
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de table Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure Storage pour Java][Kit de développement logiciel (SDK) Azure Storage pour Java]. Les scénarios traités incluent la **création**, l'**énumération** et la **suppression** de tables, ainsi que l'**insertion**, l'**interrogation**, la **modification** et la **suppression** d'entités dans une table. Pour plus d'informations sur les tables, consultez la section [Étapes suivantes][Étapes suivantes].
 
-Remarque : Un Kit de développement logiciel (SDK) est disponible pour les développeurs qui utilisent Azure Storage sur des appareils Android. Pour plus d'informations, consultez la page [Kit de développement logiciel (SDK) Azure Storage pour Android][].
+Remarque : Un Kit de développement logiciel (SDK) est disponible pour les développeurs qui utilisent Azure Storage sur des appareils Android. Pour plus d'informations, consultez la page [Kit de développement logiciel (SDK) Azure Storage pour Android][Kit de développement logiciel (SDK) Azure Storage pour Android].
 
 ## <a name="Contents"> </a>Sommaire
 
--   [Présentation du stockage de table][]
--   [Concepts][]
--   [Création d'un compte de stockage Azure][]
--   [Création d'une application Java][]
--   [Configuration de votre application pour accéder au stockage de table][]
--   [Configuration d'une chaîne de connexion de stockage Azure][]
--   [Création d'une table][]
--   [Affichage de la liste des tables][]
--   [Ajout d'une entité à une table][]
--   [Insertion d'un lot d'entités][]
--   [Extraction de toutes les entités d'une partition][]
--   [Extraction d'un ensemble d'entités dans une partition][]
--   [Extraction d'une seule entité][]
--   [Modification d'une entité][]
--   [Interrogation d'un sous-ensemble de propriétés d'entité][]
--   [Insertion ou remplacement d'une entité][]
--   [Suppression d'une entité][]
--   [Suppression d'une table][]
--   [Étapes suivantes][]
+-   [Présentation du stockage de table][Présentation du stockage de table]
+-   [Concepts][Concepts]
+-   [Création d'un compte de stockage Azure][Création d'un compte de stockage Azure]
+-   [Création d'une application Java][Création d'une application Java]
+-   [Configuration de votre application pour accéder au stockage de table][Configuration de votre application pour accéder au stockage de table]
+-   [Configuration d'une chaîne de connexion de stockage Azure][Configuration d'une chaîne de connexion de stockage Azure]
+-   [Création d'une table][Création d'une table]
+-   [Affichage de la liste des tables][Affichage de la liste des tables]
+-   [Ajout d'une entité à une table][Ajout d'une entité à une table]
+-   [Insertion d'un lot d'entités][Insertion d'un lot d'entités]
+-   [Extraction de toutes les entités d'une partition][Extraction de toutes les entités d'une partition]
+-   [Extraction d'un ensemble d'entités dans une partition][Extraction d'un ensemble d'entités dans une partition]
+-   [Extraction d'une seule entité][Extraction d'une seule entité]
+-   [Modification d'une entité][Modification d'une entité]
+-   [Interrogation d'un sous-ensemble de propriétés d'entité][Interrogation d'un sous-ensemble de propriétés d'entité]
+-   [Insertion ou remplacement d'une entité][Insertion ou remplacement d'une entité]
+-   [Suppression d'une entité][Suppression d'une entité]
+-   [Suppression d'une table][Suppression d'une table]
+-   [Étapes suivantes][Étapes suivantes]
 
-[WACOM.INCLUDE [howto-table-storage][]]
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## <a name="CreateAccount"></a>Création d'un compte de stockage Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"></a>Création d'une application Java
 
 Dans ce guide, vous allez utiliser des fonctionnalités de stockage qui peuvent être exécutées dans une application Java en local, ou dans le code s'exécutant dans un rôle Web ou un rôle de travail dans Azure.
 
-Pour ce faire, vous devez installer Java Development Kit (JDK) et créer un compte de stockage Azure dans votre abonnement Azure. Vous devez ensuite vérifier que votre système de développement répond à la configuration minimale requise et aux dépendances répertoriées dans le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Java][] sur GitHub. Si votre système répond à ces exigences, vous pouvez suivre les instructions de téléchargement et d'installation des bibliothèques Azure Storage pour Java correspondant à votre système à partir de ce référentiel. Une fois ces opérations accomplies, vous pouvez créer une application Java en utilisant les exemples de cet article.
+Pour ce faire, vous devez installer Java Development Kit (JDK) et créer un compte de stockage Azure dans votre abonnement Azure. Vous devez ensuite vérifier que votre système de développement répond à la configuration minimale requise et aux dépendances répertoriées dans le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Java][Kit de développement logiciel (SDK) Azure Storage pour Java] sur GitHub. Si votre système répond à ces exigences, vous pouvez suivre les instructions de téléchargement et d'installation des bibliothèques Azure Storage pour Java correspondant à votre système à partir de ce référentiel. Une fois ces opérations accomplies, vous pouvez créer une application Java en utilisant les exemples de cet article.
 
 ## <a name="ConfigureStorage"> </a>Configuration de votre application pour accéder au stockage de table
 
@@ -72,7 +72,7 @@ Les exemples suivants partent du principe que vous avez utilisé une de ces deux
 ## <a name="CreateTable"> </a> Création d'une table
 
 Un objet **CloudTableClient** vous permet d'obtenir les objets de référence pour les tables et entités. Le code suivant crée un objet **CloudTableClient** et
-l'utilise pour créer un objet **CloudTable** qui représente une table nommée « people ». Remarque : d'autres méthodes sont disponibles pour créer des objets **CloudStorageAccount**. Pour plus d'informations, consultez la rubrique **CloudStorageAccount** du document [Référence du Kit de développement logiciel (SDK) du client Azure Storage][].)
+l'utilise pour créer un objet **CloudTable** qui représente une table nommée « people ». Remarque : d'autres méthodes sont disponibles pour créer des objets **CloudStorageAccount**. Pour plus d'informations, consultez la rubrique **CloudStorageAccount** du document [Référence du Kit de développement logiciel (SDK) du client Azure Storage][Référence du Kit de développement logiciel (SDK) du client Azure Storage].)
 
     try
     {
@@ -419,7 +419,7 @@ Pour modifier une entité, extrayez-la dans le service de Table, apportez les mo
 
 ## <a name="QueryProperties"> </a> Interrogation d'un sous-ensemble de propriétés d'entité
 
-Vous pouvez utiliser une requête de table pour extraire uniquement quelques propriétés d'une entité. Cette technique, nommée « projection », réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. La requête contenue dans le code suivant utilise la méthode **select** pour renvoyer uniquement les adresses de messagerie des entités dans la table. Les résultat sont projetés dans un ensemble d'éléments **String** avec l'aide d'un élément **EntityResolver**, qui effectue la conversion de type des entités renvoyées depuis le serveur. Pour plus d'informations sur la projection, consultez ce [billet de blog][]. Notez que la projection n'est pas prise en charge sur l'émulateur de stockage local : ce code s'exécute donc uniquement lors de l'utilisation d'un compte sur le service de table.
+Vous pouvez utiliser une requête de table pour extraire uniquement quelques propriétés d'une entité. Cette technique, nommée « projection », réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. La requête contenue dans le code suivant utilise la méthode **select** pour renvoyer uniquement les adresses de messagerie des entités dans la table. Les résultat sont projetés dans un ensemble d'éléments **String** avec l'aide d'un élément **EntityResolver**, qui effectue la conversion de type des entités renvoyées depuis le serveur. Pour plus d'informations sur la projection, consultez ce [billet de blog][billet de blog]. Notez que la projection n'est pas prise en charge sur l'émulateur de stockage local : ce code s'exécute donc uniquement lors de l'utilisation d'un compte sur le service de table.
 
     try
     {
@@ -460,7 +460,7 @@ Vous pouvez utiliser une requête de table pour extraire uniquement quelques pro
 
 ## <a name="InsertOrReplace"> </a> Insertion ou remplacement d'une entité
 
-Il arrive souvent de vouloir ajouter une entité à une table sans savoir si elle existe dans la table. Une opération d'insertion ou de remplacement permet d'envoyer une seule requête pour insérer l'entité si elle n'existe pas ou la remplacer si elle existe. À partir des exemples précédents, le code suivant insère ou remplace l'entité « Walter Harp ». Après la création d'une entité, ce code appelle la méthode **TableOperation.insertOrReplace**. Ce code appelle ensuite la commande **execute** sur l'objet **CloudTable** avec la table et l'opération de table « insertion » ou « remplacement » comme paramètres. Pour mettre à jour seulement une partie de l'entité, il est possible d'utiliser la méthode **TableOperation.insertOrMerge** à la place. Notez que l'opération d'insertion ou de remplacement n'est pas prise en charge sur l'émulateur de stockage local : ce code s'exécute donc uniquement lors de l'utilisation d'un compte sur le service de Table. Pour plus d'informations sur les opérations d'insertion ou de remplacement et d'insertion ou de fusion, consultez ce [billet de blog][].
+Il arrive souvent de vouloir ajouter une entité à une table sans savoir si elle existe dans la table. Une opération d'insertion ou de remplacement permet d'envoyer une seule requête pour insérer l'entité si elle n'existe pas ou la remplacer si elle existe. À partir des exemples précédents, le code suivant insère ou remplace l'entité « Walter Harp ». Après la création d'une entité, ce code appelle la méthode **TableOperation.insertOrReplace**. Ce code appelle ensuite la commande **execute** sur l'objet **CloudTable** avec la table et l'opération de table « insertion » ou « remplacement » comme paramètres. Pour mettre à jour seulement une partie de l'entité, il est possible d'utiliser la méthode **TableOperation.insertOrMerge** à la place. Notez que l'opération d'insertion ou de remplacement n'est pas prise en charge sur l'émulateur de stockage local : ce code s'exécute donc uniquement lors de l'utilisation d'un compte sur le service de Table. Pour plus d'informations sur les opérations d'insertion ou de remplacement et d'insertion ou de fusion, consultez ce [billet de blog][billet de blog].
 
     try
     {
@@ -553,14 +553,12 @@ Pour finir, le code suivant supprime une table d'un compte de stockage. Une tabl
 
 Maintenant que vous avez appris les bases du stockage de tables, suivez ces liens pour apprendre des tâches de stockage plus complexes.
 
--   [Kit de développement logiciel (SDK) Azure Storage pour Java][]
--   [Référence du Kit de développement logiciel (SDK) du client Azure Storage][]
--   [API REST d'Azure Storage][]
--   [Blog de l'équipe Azure Storage][]
+-   [Kit de développement logiciel (SDK) Azure Storage pour Java][Kit de développement logiciel (SDK) Azure Storage pour Java]
+-   [Référence du Kit de développement logiciel (SDK) du client Azure Storage][Référence du Kit de développement logiciel (SDK) du client Azure Storage]
+-   [API REST d'Azure Storage][API REST d'Azure Storage]
+-   [Blog de l'équipe Azure Storage][Blog de l'équipe Azure Storage]
 
-  [Kit de développement logiciel (SDK) Azure Storage pour Java]: https://github.com/azure/azure-storage-java
   [Étapes suivantes]: #NextSteps
-  [Kit de développement logiciel (SDK) Azure Storage pour Android]: https://github.com/azure/azure-storage-android
   [Présentation du stockage de table]: #what-is
   [Concepts]: #Concepts
   [Création d'un compte de stockage Azure]: #CreateAccount
@@ -581,7 +579,6 @@ Maintenant que vous avez appris les bases du stockage de tables, suivez ces lien
   [Suppression d'une table]: #DeleteTable
   [howto-table-storage]: ../includes/howto-table-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [Référence du Kit de développement logiciel (SDK) du client Azure Storage]: http://dl.windowsazure.com/storage/javadoc/
   [billet de blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [API REST d'Azure Storage]: http://msdn.microsoft.com/en-us/library/azure/gg433040.aspx
+  [API REST d'Azure Storage]: http://msdn.microsoft.com/fr-fr/library/azure/gg433040.aspx
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/

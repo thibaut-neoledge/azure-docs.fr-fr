@@ -1,6 +1,6 @@
 <properties linkid="provisioning-biztalk-service" urlDisplayName="Provision BizTalk Services in management portal" pageTitle="Create BizTalk Services in management portal | Azure" metaKeywords="Get started Azure biztalk services, provision, Azure unstructured data" description="Learn how to provision a BizTalk service in the Azure Management Portal, as well as create an optional SQL database server and Storage account." metaCanonical="http://www.windowsazure.com/fr-fr/manage/services/biztalk-services/provisioning-biztalk-service" services="biztalk-services" documentationCenter="" title="BizTalk Services: Provisioning Using Azure Management Portal" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # Créer un service BizTalk à l'aide du portail de gestion Azure
 
@@ -329,8 +329,6 @@ Après avoir créé un service BizTalk, passez en revue les différents onglets 
   [Création d'un service BizTalk]: #BizTalk
   [Étapes postérieures à l'approvisionnement]: #PostProv
   [Explication des exigences]: #Requirements
-  [Connexions hybrides (nouveauté)]: #HC
-  [Version d'évaluation gratuite d'Azure]: http://go.microsoft.com/fwlink/p/?LinkID=239738
   [portail de gestion Azure]: http://go.microsoft.com/fwlink/p/?LinkID=213885
   [Sélectionnez le bouton Nouveau]: ./media/biztalk-provision-services/WABS_New.png
   [Sélectionnez BizTalk Service, puis Création personnalisée]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
@@ -345,14 +343,9 @@ Après avoir créé un service BizTalk, passez en revue les différents onglets 
   [Sélectionnez Informations de connexion]: ./media/biztalk-provision-services/WABS_ACSConnectInformation.png
   [Identités de service ACS dans le portail de gestion Access Control]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
   [Gestion de votre espace de noms ACS]: http://go.microsoft.com/fwlink/p/?LinkID=285670
-  [Abonnements Azure]: https://account.windowsazure.com/Subscriptions
-  [Gestion des abonnements et des comptes de stockage dans le portail de gestion Azure]: http://go.microsoft.com/fwlink/p/?LinkID=267577
-  [Comptes et facturation dans la base de données SQL Azure]: http://go.microsoft.com/fwlink/p/?LinkID=234930
-  [Stockage]: http://go.microsoft.com/fwlink/p/?LinkID=285671
   [Onglet Connexions hybrides]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
   [Connexions hybrides]: http://go.microsoft.com/fwlink/p/?LinkID=397274
   [Azure BizTalk Services]: http://go.microsoft.com/fwlink/p/?LinkID=235197
   [BizTalk Services : Sauvegarde et restauration]: http://go.microsoft.com/fwlink/p/?LinkID=329873
   [BizTalk Services : Limitation]: http://go.microsoft.com/fwlink/p/?LinkID=302282
   [BizTalk Services : Nom et clé de l'émetteur]: http://go.microsoft.com/fwlink/p/?LinkID=303941
-  [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services]: http://go.microsoft.com/fwlink/p/?LinkID=302335

@@ -1,6 +1,6 @@
 <properties linkid="manage-services-import-export" urlDisplayName="Azure Import/Export Service" pageTitle="Using import/export to transfer data to Blob Storage | Microsoft Azure" metaKeywords="" description="Learn how to create import and export jobs in the Azure Management Portal to transfer data to blob storage." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Transfert de données vers le stockage d'objets blob à l'aide du service Microsoft Azure Import/Export
 
@@ -13,7 +13,7 @@ Vous pouvez créer et gérer des tâches d'importation et d'exportation de l'une
 -   en utilisant le portail de gestion Azure ;
 -   en utilisant une interface REST communiquant avec le service.
 
-Cet article offre une vue d'ensemble du service Import/Export et explique comment l'utiliser via le portail de gestion. Pour plus d'informations sur l'API REST, consultez la page [Référence de l'API REST du service d'importation/exportation Azure][].
+Cet article offre une vue d'ensemble du service Import/Export et explique comment l'utiliser via le portail de gestion. Pour plus d'informations sur l'API REST, consultez la page [Référence de l'API REST du service d'importation/exportation Azure][Référence de l'API REST du service d'importation/exportation Azure].
 
 ## Vue d'ensemble du service Import/Export
 
@@ -35,7 +35,7 @@ Lorsque vous créez une tâche d'importation ou d'exportation, vous avez égalem
 
 ### Exigences et portée
 
-1.  **Abonnement et comptes de stockage :** vous devez être titulaire d'un abonnement Azure et posséder un ou plusieurs comptes de stockage pour pouvoir utiliser le service Import/Export. Chaque tâche peut servir à transférer des données vers ou à partir d'un seul compte de stockage. Autrement dit, une tâche ne peut pas englober plusieurs comptes de stockage. Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage][].
+1.  **Abonnement et comptes de stockage :** vous devez être titulaire d'un abonnement Azure et posséder un ou plusieurs comptes de stockage pour pouvoir utiliser le service Import/Export. Chaque tâche peut servir à transférer des données vers ou à partir d'un seul compte de stockage. Autrement dit, une tâche ne peut pas englober plusieurs comptes de stockage. Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage][Création d'un compte de stockage].
 2.  **Disques durs :** seuls les disques durs SATA II/III de 3,5 pouces sont pris en charge par le service Import/Export. Les disques durs de plus de 4 To ne sont pas pris en charge. Dans le cas des tâches d'importation, seul le premier volume de données du lecteur est traité. Il doit être formaté avec NTFS. Vous pouvez raccorder un disque dur SATA II/III par voie externe à la plupart des ordinateurs à l'aide d'un adaptateur USB SATA II//III.
 3.  **Chiffrement BitLocker :** toutes les données stockées sur les disques durs doivent être chiffrées à l'aide de BitLocker avec des clés de chiffrement protégées par des mots de passe numériques.
 4.  **Cibles de stockage d'objets blob :** les données peuvent être téléchargées vers ou à partir d'objets blob de blocs ou de pages.
@@ -48,7 +48,7 @@ Créez une tâche d'importation pour avertir le service Import/Export que vous a
 
 ### Préparation des lecteurs
 
-Avant de créer une tâche d'importation, préparez vos lecteurs à l'aide de l'outil Microsoft Azure Import/Export Tool. Pour plus d'informations sur l'utilisation de l'outil Microsoft Azure Import/Export Tool, consultez la page [Référence de l'outil Microsoft Azure Import/Export Tool][]. Vous pouvez télécharger l'outil [Microsoft Azure Import/Export Tool][] en tant que package autonome.
+Avant de créer une tâche d'importation, préparez vos lecteurs à l'aide de l'outil Microsoft Azure Import/Export Tool. Pour plus d'informations sur l'utilisation de l'outil Microsoft Azure Import/Export Tool, consultez la page [Référence de l'outil Microsoft Azure Import/Export Tool][Référence de l'outil Microsoft Azure Import/Export Tool]. Vous pouvez télécharger l'outil [Microsoft Azure Import/Export Tool][Microsoft Azure Import/Export Tool] en tant que package autonome.
 
 Pour préparer vos lecteurs, effectuez les trois étapes suivantes :
 
@@ -68,7 +68,7 @@ L'outil Microsoft Azure Import/Export Tool génère un fichier *journal de lecte
 
 4.  À l'étape 3, téléchargez les fichiers journaux de lecteur que vous avez obtenus à l'étape de préparation de lecteur. Vous devrez télécharger un fichier pour chaque lecteur préparé.
 
-    ![Créer une tâche d'importation - Étape 3][]
+    ![Créer une tâche d'importation - Étape 3][Créer une tâche d'importation - Étape 3]
 
 5.  À l'étape 4, attribuez un nom descriptif à la tâche d'importation. Notez que le nom que vous entrez ne peut contenir que des minuscules, des chiffres, des tirets et des traits de soulignement, qu'il doit commencer par une lettre et qu'il ne peut pas contenir d'espaces. Le nom que choisissez vous servira à suivre la tâche pendant et après son exécution.
 
@@ -94,7 +94,7 @@ Créez une tâche d'exportation pour avertir le service Import/Export que vous a
 
 3.  À l'étape 3, indiquez les données d'objet blob que vous souhaitez exporter de votre compte de stockage vers le ou les lecteurs vides. Vous pouvez choisir d'exporter toutes les données d'objet blob contenues dans le compte de stockage ou indiquer les objets blob ou les ensembles d'objets blob que vous souhaitez exporter.
 
-    ![Créer une tâche d'exportation - Étape 3][]
+    ![Créer une tâche d'exportation - Étape 3][Créer une tâche d'exportation - Étape 3]
 
     -   Pour spécifier un objet blob à exporter, utilisez le sélecteur **Equal To**, puis indiquez le chemin d'accès relatif de l'objet blob en le faisant précéder du nom du conteneur. Utilisez *$root* pour spécifier le conteneur racine.
     -   Pour spécifier tous les objets blob commençant par un préfixe, utilisez le sélecteur **Starts With**, puis spécifiez le préfixe en le faisant précéder d'une barre oblique (« / »). Il peut s'agir du préfixe du nom de conteneur, du nom de conteneur complet, ou du nom de conteneur complet suivi du préfixe du nom d'objet blob.
@@ -145,7 +145,7 @@ Le tableau ci-dessous indique la signification de chaque désignation de statut 
 
 Dans le cas des tâches d'exportation, vous pouvez afficher et copier les clés BitLocker que le service a générées pour vos lecteurs. Celles-ci vous permettent de déchiffrer vos données exportées une fois que vous avez reçu les lecteurs en provenance du centre de données Azure. Accédez à votre compte de stockage dans le portail de gestion, puis cliquez sur l'onglet **Import/Export**. Sélectionnez votre tâche d'exportation dans la liste, puis cliquez sur le bouton **View Keys**. Les clés BitLocker s'affichent comme illustré ci-dessous :
 
-![Afficher les clés BitLocker pour une tâche d'exportation][]
+![Afficher les clés BitLocker pour une tâche d'exportation][Afficher les clés BitLocker pour une tâche d'exportation]
 
 ## Forum Aux Questions (FAQ)
 
@@ -153,7 +153,7 @@ Dans le cas des tâches d'exportation, vous pouvez afficher et copier les clés 
 
 **Combien coûte le service Import/Export ?**
 
--   Consultez cette [page][] pour obtenir des informations sur la tarification.
+-   Consultez cette [page][page] pour obtenir des informations sur la tarification.
 
 **Combien de temps faut-il compter pour que mes données soient importées ou exportées ?**
 
@@ -203,9 +203,9 @@ Dans le cas des tâches d'exportation, vous pouvez afficher et copier les clés 
 
 **À quels services d'expédition peut-on recourir ?**
 
--   Aux États-Unis et en Europe, seul [Federal Express][] (FedEx) est pris en charge. Tous les colis sont renvoyés via FedEx Ground ou FedEx International Economy.
+-   Aux États-Unis et en Europe, seul [Federal Express][Federal Express] (FedEx) est pris en charge. Tous les colis sont renvoyés via FedEx Ground ou FedEx International Economy.
 
--   Pour l'Asie, seul [DHL][] est pris en charge. Tous les colis sont renvoyés via DHL Express Worldwide.
+-   Pour l'Asie, seul [DHL][DHL] est pris en charge. Tous les colis sont renvoyés via DHL Express Worldwide.
 
     <div class="dev-callout">
 <strong>Important</strong>
@@ -214,7 +214,7 @@ Dans le cas des tâches d'exportation, vous pouvez afficher et copier les clés 
 
 **Les retours d'expédition sont-ils facturés ?**
 
--   Microsoft utilise le numéro du compte transporteur que vous lui avez fourni lors de la création de la tâche pour expédier les lecteurs du centre de données à votre adresse de retour. N'oubliez pas de fournir le numéro de compte du transporteur pris en charge dans la région de votre centre de données. Si vous n'en possédez pas, vous pouvez créer un compte transporteur [FedEx][Federal Express] (pour les États-Unis et l'Europe) ou [DHL][] (pour l'Asie).
+-   Microsoft utilise le numéro du compte transporteur que vous lui avez fourni lors de la création de la tâche pour expédier les lecteurs du centre de données à votre adresse de retour. N'oubliez pas de fournir le numéro de compte du transporteur pris en charge dans la région de votre centre de données. Si vous n'en possédez pas, vous pouvez créer un compte transporteur [FedEx][Federal Express] (pour les États-Unis et l'Europe) ou [DHL][DHL] (pour l'Asie).
 
 -   Les frais d'expédition de retour sont prélevés sur votre compte transporteur et dépendent du transporteur.
 
@@ -237,7 +237,7 @@ Dans le cas des tâches d'exportation, vous pouvez afficher et copier les clés 
 <p>Veuillez noter que le support physique que vous exp&eacute;diez peut &ecirc;tre amen&eacute; &agrave; franchir des fronti&egrave;res internationales. L'importation et/ou l'exportation de votre support physique et de vos donn&eacute;es doivent &ecirc;tre conformes aux lois en vigueur. Avant d'exp&eacute;dier le support physique, consultez vos conseillers pour v&eacute;rifier que vous &ecirc;tes l&eacute;galement autoris&eacute; &agrave; exp&eacute;dier votre support et vos donn&eacute;es vers le centre de donn&eacute;es identifi&eacute;. Il pourra ainsi &ecirc;tre remis &agrave; Microsoft dans les meilleurs d&eacute;lais.</p>
 </div>
 
--   Dans le cadre de l'expédition de vos colis, vous devez vous conformer aux [Conditions du service Microsoft Azure][].
+-   Dans le cadre de l'expédition de vos colis, vous devez vous conformer aux [Conditions du service Microsoft Azure][Conditions du service Microsoft Azure].
 
 **Est-il possible d'acheter des lecteurs auprès de Microsoft pour des tâches d'importation/exportation ?**
 
@@ -257,4 +257,4 @@ Dans le cas des tâches d'exportation, vous pouvez afficher et copier les clés 
   [page]: http://go.microsoft.com/fwlink/?LinkId=329033
   [Federal Express]: http://www.fedex.com/us/oadr/
   [DHL]: http://www.dhl-welcome.com/Tutorial/
-  [Conditions du service Microsoft Azure]: http://azure.microsoft.com/en-us/support/legal/services-terms/
+  [Conditions du service Microsoft Azure]: http://azure.microsoft.com/fr-fr/support/legal/services-terms/

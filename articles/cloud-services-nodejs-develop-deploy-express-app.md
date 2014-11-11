@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-basic-web-app-with-express" urlDisplayName="Web App with Express" pageTitle="Web App with Express (Node.js) - Azure Tutorial" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="An tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build a Node.js web application using Express on an Azure Cloud Service" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Création d'une application web Node.js avec Express sur un service cloud Azure
 
@@ -125,5 +125,4 @@ Une fois le déploiement terminé, votre navigateur s'ouvre et affiche la page w
   [Page Web contenant Bienvenue sur Express.]: ./media/cloud-services-nodejs-develop-deploy-express-app/node28.png
   [Contenu du fichier index.jade.]: ./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png
   []: http://jade-lang.com
-  [Dernières lignes du fichier index.jade : p Bienvenue sur \#{title} dans Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node31.png
   [Navigateur web affichant la page Bienvenue sur Express dans Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node32.png

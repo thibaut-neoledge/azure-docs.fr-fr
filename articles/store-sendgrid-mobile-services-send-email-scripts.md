@@ -1,32 +1,32 @@
 <properties linkid="develop-mobile-tutorials-send-email-with-sendgrid" urlDisplayName="Send Email Using SendGrid" pageTitle="Send email using SendGrid - Azure Mobile Services" metaKeywords="Azure SendGrid, SendGrid service, Azure emailing, mobile services email" description="Learn how to use the SendGrid service to send email from your Azure Mobile Services app." metaCanonical="" services="" documentationCenter="Mobile" title="Send email from Mobile Services with SendGrid" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
 
 # Envoi de courrier électronique à partir de Mobile Services avec SendGrid
 
 Cette rubrique vous montre comment ajouter une fonctionnalité de messagerie électronique à votre service mobile. Dans ce didacticiel, vous allez ajouter des scripts côté serveur pour envoyer du courrier électronique à l'aide de SendGrid. Une fois que vous aurez terminé, votre service mobile enverra un message électronique chaque fois qu'un enregistrement sera inséré.
 
-SendGrid est un [service de messagerie dans le cloud][] qui fournit des fonctionnalités fiables en matière de [remise de courrier électronique transactionnelle][], d'extensibilité et d'analyse en temps réel, ainsi que des API flexibles qui facilitent l'intégration personnalisée. Pour plus d'informations, consultez la page <http://sendgrid.com>.
+SendGrid est un [service de messagerie dans le cloud][service de messagerie dans le cloud] qui fournit des fonctionnalités fiables en matière de [remise de courrier électronique transactionnelle][remise de courrier électronique transactionnelle], d'extensibilité et d'analyse en temps réel, ainsi que des API flexibles qui facilitent l'intégration personnalisée. Pour plus d'informations, consultez la page <http://sendgrid.com>.
 
 Ce didacticiel vous familiarise avec les étapes de base permettant d'activer la fonctionnalité de messagerie électronique :
 
-1.  [Création d'un compte SendGrid][]
-2.  [Ajout d'un script pour envoyer du courrier électronique][]
-3.  [Insertion de données pour recevoir du courrier électronique][]
+1.  [Création d'un compte SendGrid][Création d'un compte SendGrid]
+2.  [Ajout d'un script pour envoyer du courrier électronique][Ajout d'un script pour envoyer du courrier électronique]
+3.  [Insertion de données pour recevoir du courrier électronique][Insertion de données pour recevoir du courrier électronique]
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez effectuer le didacticiel [Prise en main de Mobile Services][].
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez effectuer le didacticiel [Prise en main de Mobile Services][Prise en main de Mobile Services].
 
 ## <a name="sign-up"></a><span class="short-header">Création d'un compte</span>Création d'un compte SendGrid
 
-[WACOM.INCLUDE [sendgrid-sign-up][]]
+[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="add-script"></a><span class="short-header">Inscription d'un script</span>Inscription d'un nouveau script qui envoie des messages électroniques
 
-1.  Connectez-vous au [portail de gestion Azure][], cliquez sur **Mobile Services**, puis sur le service mobile.
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure], cliquez sur **Mobile Services**, puis sur le service mobile.
 
 2.  Dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItem**.
 
-    ![][]
+    ![][0]
 
 3.  Dans **todoitem**, cliquez sur l'onglet **Script** et sélectionnez **Insérer**.
 
@@ -67,7 +67,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 
 5.  Remplacez les espaces réservés par les valeurs appropriées dans le script ci-dessus :
 
-    -   ***username* et *password*** : informations d'identification SendGrid que vous avez identifiées dans la section [Création d'un compte SendGrid][].
+    -   ***username* et *password*** : informations d'identification SendGrid que vous avez identifiées dans la section [Création d'un compte SendGrid][Création d'un compte SendGrid].
 
     -   ***email-address*** : adresse à laquelle le message électronique est envoyé. Dans une application réelle, vous pouvez utiliser des tables pour stocker et récupérer les adresses électroniques. Au moment de tester votre application, utilisez uniquement votre propre adresse électronique.
 
@@ -111,7 +111,7 @@ ces liens pour en savoir plus sur SendGrid.
   [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started
   [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [portail de gestion Azure]: https://manage.windowsazure.com/
-  []: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-portal-data-tables.png
+  [0]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-portal-data-tables.png
   [1]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-insert-script-push2.png
   [2]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-quickstart-push1.png
   [3]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-receive-email.png

@@ -1,10 +1,10 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-4-worker-role-a" pageTitle="Azure Cloud Service Tutorial: Worker Role with Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande"></tags>
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
 
 # Création du rôle de travail A (planificateur de messages) pour l'application Azure Email Service : 4 sur 5.
 
-Ce didacticiel, le quatrième d'une série de cinq, explique comment créer et déployer l'exemple d'application Azure Email Service. Pour obtenir des informations sur l'application et la série de didacticiels, consultez le [premier didacticiel de la série][].
+Ce didacticiel, le quatrième d'une série de cinq, explique comment créer et déployer l'exemple d'application Azure Email Service. Pour obtenir des informations sur l'application et la série de didacticiels, consultez le [premier didacticiel de la série][premier didacticiel de la série].
 
 Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
@@ -18,11 +18,11 @@ Vous avez déjà créé le projet de rôle de travail A lorsque vous avez cré�
 
 ## Sections de ce didacticiel
 
--   [Ajout d'une référence au projet Web][]
--   [Ajout du modèle SendEmail][]
--   [Ajout de code qui s'exécute au démarrage du rôle de travail][]
--   [Test du rôle de travail A][]
--   [Étapes suivantes][]
+-   [Ajout d'une référence au projet Web][Ajout d'une référence au projet Web]
+-   [Ajout du modèle SendEmail][Ajout du modèle SendEmail]
+-   [Ajout de code qui s'exécute au démarrage du rôle de travail][Ajout de code qui s'exécute au démarrage du rôle de travail]
+-   [Test du rôle de travail A][Test du rôle de travail A]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <a name="addref"></a><span class="short-header">Ajout d'une référence au projet</span>Ajout d'une référence au projet Web
 
@@ -34,13 +34,13 @@ Vous avez besoin d'une référence au projet Web, car les classes d'entité sont
 
 2.  Dans le **Gestionnaire de références**, ajoutez une référence au projet MvcWebRole, puis cliquez sur **OK**.
 
-    ![Ajout d'une référence à MvcWebRole][]
+    ![Ajout d'une référence à MvcWebRole][Ajout d'une référence à MvcWebRole]
 
 ## <a name="addmodel"></a>Ajout du modèle SendEmail
 
 Le rôle de travail A crée des lignes `SendEmail` dans la table `Message` et le rôle de travail B lit ces lignes pour obtenir les informations nécessaires à l'envoi des courriers électroniques. L'image suivante présente un sous-ensemble de propriétés pour deux lignes `Message` et trois lignes `SendEmail` dans la table `Message`.
 
-![table message avec sendmail][]
+![table message avec sendmail][table message avec sendmail]
 
 Ces lignes de la table `Message` ont plusieurs utilités :
 
@@ -130,9 +130,9 @@ La méthode `OnStart` initialise les objets de contexte requis pour utiliser les
 
 Dans une documentation antérieure sur l'utilisation d'Azure Storage, il se peut que vous ayez vu le code d'initialisation dans une boucle qui vérifie les erreurs de transport. Ce n'est maintenant plus nécessaire, car l'API intègre désormais un mécanisme de nouvelle tentative qui absorbe les pannes de réseau transitoires à hauteur de 3 tentatives supplémentaire.
 
-La méthode `ConfigureDiagnostics` appelée par la méthode `OnStart` configure le suivi pour que vous puissiez voir le résultat des méthodes `Trace.Information` et `Trace.Error`. Cette méthode est expliquée dans le [deuxième didacticiel][].
+La méthode `ConfigureDiagnostics` appelée par la méthode `OnStart` configure le suivi pour que vous puissiez voir le résultat des méthodes `Trace.Information` et `Trace.Error`. Cette méthode est expliquée dans le [deuxième didacticiel][deuxième didacticiel].
 
-Le paramètre [ServicePointManager.DefaultConnectionLimit][] indique le nombre maximal de connexions TCP simultanées pouvant être ouvertes dans .NET. La documentation sur la classe [ServicePointManager][] explique que chaque hôte unique auquel l'instance de rôle de travail se connecte est une connexion distincte. Par exemple, ce rôle de travail aurait trois connexions simultanées, une pour les tables, une pour les objets blob et une pour les files d'attente. Pour certaines connexions, notamment pour SQL Server, le logiciel client regroupe les connexions, réduisant ainsi le nombre de connexions simultanées gérées par `ServicePointManager`. Le nombre idéal pour `DefaultConnectionLimit` dépend en partie du service principale auquel vous vous connectez. Certains services peuvent gérer sans problème 500 connexions ouvertes, tandis que d'autres pourraient être dépassés avec à peine 5 connexions. De manière générale, la limite de 12 connexions par processeur convient dans la plupart des cas.
+Le paramètre [ServicePointManager.DefaultConnectionLimit][ServicePointManager.DefaultConnectionLimit] indique le nombre maximal de connexions TCP simultanées pouvant être ouvertes dans .NET. La documentation sur la classe [ServicePointManager][ServicePointManager] explique que chaque hôte unique auquel l'instance de rôle de travail se connecte est une connexion distincte. Par exemple, ce rôle de travail aurait trois connexions simultanées, une pour les tables, une pour les objets blob et une pour les files d'attente. Pour certaines connexions, notamment pour SQL Server, le logiciel client regroupe les connexions, réduisant ainsi le nombre de connexions simultanées gérées par `ServicePointManager`. Le nombre idéal pour `DefaultConnectionLimit` dépend en partie du service principale auquel vous vous connectez. Certains services peuvent gérer sans problème 500 connexions ouvertes, tandis que d'autres pourraient être dépassés avec à peine 5 connexions. De manière générale, la limite de 12 connexions par processeur convient dans la plupart des cas.
 
 ### Méthode OnStop
 
@@ -155,7 +155,7 @@ La méthode `OnStop` est appelée lorsque le rôle de travail s'arrête pour l'u
 
 La méthode `Run` surveille la variable `onStopCalled` et stoppe la récupération de nouveaux éléments de travail à traiter lorsque cette variable est définie sur `true`. Cette coordination entre les méthodes `OnStop` et `Run` permet un arrêt approprié du processus de travail.
 
-Azure installe régulièrement des mises à jour pour le système d'exploitation afin de s'assurer que la plateforme est sécurisée, fiable et qu'elle fonctionne correctement. Ces mises à jour requièrent généralement l'arrêt et le redémarrage des machines hébergeant votre service cloud. Pour plus d'informations, consultez la page [Redémarrages d'instances de rôles pour cause de mise à jour du système d'exploitation][].
+Azure installe régulièrement des mises à jour pour le système d'exploitation afin de s'assurer que la plateforme est sécurisée, fiable et qu'elle fonctionne correctement. Ces mises à jour requièrent généralement l'arrêt et le redémarrage des machines hébergeant votre service cloud. Pour plus d'informations, consultez la page [Redémarrages d'instances de rôles pour cause de mise à jour du système d'exploitation][Redémarrages d'instances de rôles pour cause de mise à jour du système d'exploitation].
 
 ### Méthode Run
 
@@ -246,7 +246,7 @@ La méthode vérifie également la variable globale `onStopCalled`. Lorsque la v
             }
         }
 
-Notez que tout le travail est effectué dans une boucle infinie dans un bloc `while` et que tout le code du bloc `while` est encapsulé dans un bloc `try`-`catch` pour gérer les exceptions non prises en charge. Si une exception non prise en charge se produit, Azure déclenche un événement [UnhandledException][], le processus de travail s'arrête et le rôle est mis hors connexion. Azure redémarre le rôle de travail au bout de plusieurs minutes. Le bloc `try` appelle `TraceError` pour enregistrer l'erreur, puis se met en veille pendant 60 secondes pour que le message d'erreur ne soit pas trop répété si l'erreur est persistante. Dans une application de production, vous pouvez envoyer un courrier électronique à un administrateur dans le bloc `try`.
+Notez que tout le travail est effectué dans une boucle infinie dans un bloc `while` et que tout le code du bloc `while` est encapsulé dans un bloc `try`-`catch` pour gérer les exceptions non prises en charge. Si une exception non prise en charge se produit, Azure déclenche un événement [UnhandledException][UnhandledException], le processus de travail s'arrête et le rôle est mis hors connexion. Azure redémarre le rôle de travail au bout de plusieurs minutes. Le bloc `try` appelle `TraceError` pour enregistrer l'erreur, puis se met en veille pendant 60 secondes pour que le message d'erreur ne soit pas trop répété si l'erreur est persistante. Dans une application de production, vous pouvez envoyer un courrier électronique à un administrateur dans le bloc `try`.
 
 La méthode `Run` effectue une requête sur les lignes `message` de la table `message` ayant une date planifiée antérieure à demain :
 
@@ -498,11 +498,11 @@ La méthode `CheckAndUpdateStatusIfComplete` vérifie les messages dont l'état 
 
 3.  Créez un message à envoyer à la liste de diffusion que vous avez créée, puis définissez la date planifiée sur aujourd'hui ou sur une date antérieure.
 
-    ![Nouveau message dans l'état Pending][]
+    ![Nouveau message dans l'état Pending][Nouveau message dans l'état Pending]
 
 4.  Dans un peu plus d'une minute (à cause de la minute de mise en veille dans la méthode Run), actualisez la page Web Messages pour voir l'état passer sur Processing. (Vous pouvez d'abord le voir passer sur Queuing, mais il y a des chances qu'il passe si vite de l'état Queuing à Processing que vous ne voyiez pas l'état Queuing.)
 
-    ![Nouveau message dans l'état Processing][]
+    ![Nouveau message dans l'état Processing][Nouveau message dans l'état Processing]
 
 5.  Ouvrez l'**Explorateur de serveurs** et développez le nœud Stockage de développement.
 
@@ -510,13 +510,13 @@ La méthode `CheckAndUpdateStatusIfComplete` vérifie les messages dont l'état 
 
     Vous voyez un message de file d'attente pour chaque abonné vérifié dans votre liste de diffusion de destination.
 
-    ![Message de file d'attente dans ASE][]
+    ![Message de file d'attente dans ASE][Message de file d'attente dans ASE]
 
 7.  Double-cliquez sur un message de file d'attente.
 
     Vous voyez le contenu du message de file d'attente : la clé de partition (la date), la clé de ligne (la valeur MessageRef et l'adresse de messagerie) ainsi que l'indicateur de redémarrage délimité par une virgule.
 
-    ![Contenu d'un message de file d'attente dans ASE][]
+    ![Contenu d'un message de file d'attente dans ASE][Contenu d'un message de file d'attente dans ASE]
 
 8.  Fermez la boîte de dialogue **Afficher le message**.
 
@@ -526,15 +526,15 @@ La méthode `CheckAndUpdateStatusIfComplete` vérifie les messages dont l'état 
 
 10. Double-cliquez sur une ligne ayant « message » dans la clé de ligne pour afficher le contenu de la ligne créée par le rôle Web.
 
-    ![Ligne Message][]
+    ![Ligne Message][Ligne Message]
 
 11. Double-cliquez sur une ligne ayant une adresse de messagerie dans la clé de ligne pour afficher le contenu de la ligne `SendEmail` créée par le rôle de travail A.
 
-    ![Ligne SendEmail dans la table Message][]
+    ![Ligne SendEmail dans la table Message][Ligne SendEmail dans la table Message]
 
 ## <a name="nextsteps"></a>Étapes suivantes
 
-Vous avez créé le rôle de travail A et vérifié qu'il crée les messages de file d'attente et les lignes de table requises par le rôle de travail B pour envoyer des courriers électroniques. Dans le [didacticiel suivant][], vous allez créer et tester le rôle de travail B.
+Vous avez créé le rôle de travail A et vérifié qu'il crée les messages de file d'attente et les lignes de table requises par le rôle de travail B pour envoyer des courriers électroniques. Dans le [didacticiel suivant][didacticiel suivant], vous allez créer et tester le rôle de travail B.
 
 Pour obtenir des liens sur les ressources supplémentaires pour utiliser les tables, les files d'attente et les objets blob Azure Storage, consultez le [dernier didacticiel de cette série][didacticiel suivant].
 

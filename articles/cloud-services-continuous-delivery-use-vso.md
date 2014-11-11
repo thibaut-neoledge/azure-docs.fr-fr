@@ -1,12 +1,12 @@
 <properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with Visual Studio Online" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online" authors="ghogen" solutions="" manager="douge" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
 
 # Livraison continue sur Azure au moyen de Visual Studio Online
 
-Vous pouvez configurer vos projets d'équipe Visual Studio Online afin de les générer et de les déployer automatiquement sur des sites Web Azure ou des services cloud. (Pour plus d'informations sur la procédure à suivre pour configurer un système de génération et de déploiement continus au moyen d'un serveur TFS *local*, consultez la rubrique [Remise continue pour Cloud Services dans Azure][].)
+Vous pouvez configurer vos projets d'équipe Visual Studio Online afin de les générer et de les déployer automatiquement sur des sites Web Azure ou des services cloud. (Pour plus d'informations sur la procédure à suivre pour configurer un système de génération et de déploiement continus au moyen d'un serveur TFS *local*, consultez la rubrique [Remise continue pour Cloud Services dans Azure][Remise continue pour Cloud Services dans Azure].)
 
-Ce didacticiel part du principe que vous avez déjà installé Visual Studio 2013 et le Kit de développement logiciel (SDK) Azure sur votre système. Si Visual Studio 2013 n'est pas déjà installé, téléchargez-le en choisissant le lien **Test gratuit de Visual Studio** sur [www.visualstudio.com][]. Pour installer le Kit de développement logiciel (SDK) Azure, cliquez [ici][].
+Ce didacticiel part du principe que vous avez déjà installé Visual Studio 2013 et le Kit de développement logiciel (SDK) Azure sur votre système. Si Visual Studio 2013 n'est pas déjà installé, téléchargez-le en choisissant le lien **Test gratuit de Visual Studio** sur [www.visualstudio.com][www.visualstudio.com]. Pour installer le Kit de développement logiciel (SDK) Azure, cliquez [ici][ici].
 
 <div class="wa-note">
   <span class="wa-icon-bulb"></span>
@@ -16,23 +16,23 @@ Ce didacticiel part du principe que vous avez déjà installé Visual Studio 20
 
 Pour configurer un service cloud permettant de générer et de déployer automatiquement sur Azure au moyen de Visual Studio Online, procédez comme suit :
 
--   [Étape 1 : création d'un projet d'équipe][]
+-   [Étape 1 : création d'un projet d'équipe][Étape 1 : création d'un projet d'équipe]
 
--   [Étape 2 : archivage d'un projet dans le contrôle de code source][]
+-   [Étape 2 : archivage d'un projet dans le contrôle de code source][Étape 2 : archivage d'un projet dans le contrôle de code source]
 
--   [Étape 3 : connexion du projet à Azure][]
+-   [Étape 3 : connexion du projet à Azure][Étape 3 : connexion du projet à Azure]
 
--   [Étape 4 : exécution des modifications et déclenchement d'une régénération et d'un redéploiement][]
+-   [Étape 4 : exécution des modifications et déclenchement d'une régénération et d'un redéploiement][Étape 4 : exécution des modifications et déclenchement d'une régénération et d'un redéploiement]
 
--   [Étape 5 : redéploiement d'une build antérieure (facultatif)][]
+-   [Étape 5 : redéploiement d'une build antérieure (facultatif)][Étape 5 : redéploiement d'une build antérieure (facultatif)]
 
--   [Étape 6 : modification du déploiement de production (services cloud uniquement)][]
+-   [Étape 6 : modification du déploiement de production (services cloud uniquement)][Étape 6 : modification du déploiement de production (services cloud uniquement)]
 
--   [Étape 7 : exécution de tests unitaires (facultatif)][]
+-   [Étape 7 : exécution de tests unitaires (facultatif)][Étape 7 : exécution de tests unitaires (facultatif)]
 
 ## <a name="step1"></a><span class="short-header">Création d'un projet d'équipe</span>Étape 1 : création d'un projet d'équipe
 
-Suivez les instructions disponibles [ici][1] pour créer votre projet d'équipe et l'associer à Visual Studio. Cette procédure pas à pas part du principe que vous utilisez TFVC (Team Foundation Version Control) en tant que solution de contrôle de code source. Si vous souhaitez utiliser Git pour le contrôle de version, consultez [la version Git de cette procédure pas à pas][].
+Suivez les instructions disponibles [ici][1] pour créer votre projet d'équipe et l'associer à Visual Studio. Cette procédure pas à pas part du principe que vous utilisez TFVC (Team Foundation Version Control) en tant que solution de contrôle de code source. Si vous souhaitez utiliser Git pour le contrôle de version, consultez [la version Git de cette procédure pas à pas][la version Git de cette procédure pas à pas].
 
 ## <a name="step2"> </a><span class="short-header">Archivage d'un projet dans le contrôle de code source</span>Étape 2 : archivage d'un projet dans le contrôle de code source
 
@@ -40,11 +40,11 @@ Suivez les instructions disponibles [ici][1] pour créer votre projet d'équipe 
     Vous pouvez déployer un site Web ou un service cloud (application Azure) en suivant les étapes de cette procédure.
     Si vous voulez créer une solution, créez un projet de service cloud Azure
     ou ASP.NET MVC. Vérifiez que le projet cible .NET Framework 4 ou 4.5, et si vous créez un projet de service cloud, ajoutez un rôle Web ASP.NET MVC et un rôle de travail, et choisissez Application Internet pour le rôle Web. Lorsque vous y êtes invité, choisissez **Application Internet**.
-    Si vous voulez créer un site Web, choisissez le modèle de projet Application Web ASP.NET, puis sélectionnez MVC. Consultez la page [Prise en main d'Azure et ASP.NET][].
+    Si vous voulez créer un site Web, choisissez le modèle de projet Application Web ASP.NET, puis sélectionnez MVC. Consultez la page [Prise en main d'Azure et ASP.NET][Prise en main d'Azure et ASP.NET].
 
 2.  Ouvrez le menu contextuel pour la solution et sélectionnez **Ajouter la solution au contrôle de code source**.
   
-  ![][]
+  ![][0]
 
 3.  Acceptez ou modifiez les valeurs par défaut et choisissez le bouton **OK**. Au terme du processus, les icônes du contrôle de code source apparaissent dans l'Explorateur de solutions.
  
@@ -64,7 +64,7 @@ Remarquez les options permettant d'inclure ou d'exclure des modifications spéci
 
 ## <a name="step3"> </a><span class="short-header">Connexion du projet à Azure</span>Étape 3 : connexion du projet à Azure
 
-1.  Maintenant que vous disposez d'un projet d'équipe VSO contenant du code source, vous êtes prêt à connecter votre projet d'équipe à Azure. Dans le [portail Azure][], sélectionnez votre service cloud ou site Web, ou créez-en un en sélectionnant l'icône + en bas à gauche et en choisissant **Service cloud** ou **Site Web**, puis **Création rapide**. Choisissez le lien **Configurer la publication avec Visual Studio Online**.
+1.  Maintenant que vous disposez d'un projet d'équipe VSO contenant du code source, vous êtes prêt à connecter votre projet d'équipe à Azure. Dans le [portail Azure][portail Azure], sélectionnez votre service cloud ou site Web, ou créez-en un en sélectionnant l'icône + en bas à gauche et en choisissant **Service cloud** ou **Site Web**, puis **Création rapide**. Choisissez le lien **Configurer la publication avec Visual Studio Online**.
 
    ![][6]
 
@@ -226,7 +226,7 @@ Si vous utilisez plusieurs configurations de service (fichiers .cscfg), vous pou
   
   ![][26]
 
-3.  Dans le [portail Azure][], vous pouvez afficher le déploiement associé sous l'onglet Déploiements lorsque l'environnement intermédiaire est sélectionné.
+3.  Dans le [portail Azure][portail Azure], vous pouvez afficher le déploiement associé sous l'onglet Déploiements lorsque l'environnement intermédiaire est sélectionné.
 
     ![][27]
 
@@ -328,25 +328,21 @@ Pour mettre en place un « portail de qualité » dans vos déploiements inter
  
    ![][44]
 
-Pour en savoir plus sur le test unitaire dans Visual Studio Online, consultez [Exécuter des tests unitaires dans votre build][].
+Pour en savoir plus sur le test unitaire dans Visual Studio Online, consultez [Exécuter des tests unitaires dans votre build][Exécuter des tests unitaires dans votre build].
 
-Pour plus d'informations, consultez la page [Visual Studio Online][]. Si vous utilisez Git, consultez les pages [Partagez votre code dans Git][] et [Publication à partir du contrôle de code source sur des sites Web Azure][].
+Pour plus d'informations, consultez la page [Visual Studio Online][Visual Studio Online]. Si vous utilisez Git, consultez les pages [Partagez votre code dans Git][Partagez votre code dans Git] et [Publication à partir du contrôle de code source sur des sites Web Azure][Publication à partir du contrôle de code source sur des sites Web Azure].
 
   [Remise continue pour Cloud Services dans Azure]: ../cloud-services-dotnet-continuous-delivery
   [www.visualstudio.com]: http://www.visualstudio.com
   [ici]: http://go.microsoft.com/fwlink/?LinkId=239540
-  [ouvrir gratuitement un compte Visual Studio Online]: http://go.microsoft.com/fwlink/p/?LinkId=512979
   [Étape 1 : création d'un projet d'équipe]: #step1
   [Étape 2 : archivage d'un projet dans le contrôle de code source]: #step2
   [Étape 3 : connexion du projet à Azure]: #step3
   [Étape 4 : exécution des modifications et déclenchement d'une régénération et d'un redéploiement]: #step4
-  [Étape 5 : redéploiement d'une build antérieure (facultatif)]: #step5
-  [Étape 6 : modification du déploiement de production (services cloud uniquement)]: #step6
-  [Étape 7 : exécution de tests unitaires (facultatif)]: #step7
   [1]: http://go.microsoft.com/fwlink/?LinkId=512980
   [la version Git de cette procédure pas à pas]: http://go.microsoft.com/fwlink/p/?LinkId=397358
   [Prise en main d'Azure et ASP.NET]: http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-dotnet-get-started/
-  []: ./media/cloud-services-continuous-delivery-use-vso/tfs5.png
+  [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs5.png
   [2]: ./media/cloud-services-continuous-delivery-use-vso/tfs6.png
   [3]: ./media/cloud-services-continuous-delivery-use-vso/tfs7.png
   [4]: ./media/cloud-services-continuous-delivery-use-vso/tfs8.png

@@ -1,6 +1,6 @@
 <properties linkid="develop-python-tutorials-web-sites-configuration" urlDisplayName="Configuring Python with Azure Websites" pageTitle="Configuring Python with Azure Websites" metaKeywords="" description="This tutorial describes options for authoring and configuring a basic Web server Gateway Interface (WSGI) compliant Python application on Azure Websites." metaCanonical="" services="web-sites" documentationCenter="Python" title="Configuring Python with Azure Websites" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Configuration de Python avec Sites Web Azure
 
@@ -13,7 +13,7 @@ Pour obtenir un exemple plus complexe de configuration de l'infrastructure Djang
 
 ## Prise en charge de WSGI
 
-WSGI est une norme Python décrite par [PEP 3333][] qui définit une interface entre le serveur Web et Python. Elle fournit une interface normalisée pour la rédaction de diverses applications et infrastructures Web à l'aide de Python. Des infrastructures Web Python connues utilisent aujourd'hui WSGI. Sites Web Azure vous offre la prise en charge de ces infrastructures ; en outre, les utilisateurs experts peuvent même créer leur propre infrastructure à condition que le gestionnaire personnalisé suive les recommandations de la spécification WSGI.
+WSGI est une norme Python décrite par [PEP 3333][PEP 3333] qui définit une interface entre le serveur Web et Python. Elle fournit une interface normalisée pour la rédaction de diverses applications et infrastructures Web à l'aide de Python. Des infrastructures Web Python connues utilisent aujourd'hui WSGI. Sites Web Azure vous offre la prise en charge de ces infrastructures ; en outre, les utilisateurs experts peuvent même créer leur propre infrastructure à condition que le gestionnaire personnalisé suive les recommandations de la spécification WSGI.
 
 ## Création de site web
 
@@ -21,7 +21,7 @@ Ce didacticiel part du principe que vous disposez d'un abonnement Azure et d'un 
 
 En résumé, si vous ne disposez pas de site web, vous pouvez en créer un à partir du portail de gestion Azure. Sélectionnez la fonctionnalité SITES WEB et utilisez l'option CRÉATION RAPIDE, en spécifiant une URL pour votre site web.
 
-![][]
+![][0]
 
 ## Publication Git
 
@@ -35,7 +35,7 @@ Une fois la publication Git configurée, un référentiel Git est créé et asso
 
 À titre d'exemple, nous utilisons une application Python de base avec un gestionnaire WSGI de base qui illustre la quantité minimale de travail nécessaire pour bénéficier de la prise en charge Python dans Sites Web Azure. Cette application Python de base peut ensuite être utilisée pour commencer à créer un éventail de solutions, offrant un niveau de complexité allant de l'exemple ci-dessous jusqu'à une infrastructure Web à part entière.
 
-Vous trouverez ci-dessous le code pour le gestionnaire WSGI de base. Il s'apparente à celui suggéré par la spécification [PEP 3333][] comme point de départ pour une application compatible WSGI. Nous avons enregistré ce contenu dans un fichier nommé ConfigurePython.py créé dans un dossier ConfigurePython à la racine du site web :
+Vous trouverez ci-dessous le code pour le gestionnaire WSGI de base. Il s'apparente à celui suggéré par la spécification [PEP 3333][PEP 3333] comme point de départ pour une application compatible WSGI. Nous avons enregistré ce contenu dans un fichier nommé ConfigurePython.py créé dans un dossier ConfigurePython à la racine du site web :
 
     def application(environ, start_response):
         status = '200 OK'
@@ -131,10 +131,10 @@ Accédez à votre site web pour tester la configuration correcte. Dans le cas de
 
 ![][5]
 
-  []: http://www.windowsazure.com/fr-fr/develop/python/tutorials/web-sites-with-django
+  [0]: http://www.windowsazure.com/fr-fr/develop/python/tutorials/web-sites-with-django
   [PEP 3333]: http://www.python.org/dev/peps/pep-3333/
   [1]: http://www.windowsazure.com/fr-fr/manage/services/web-sites/how-to-create-websites
-  []: ./media/web-sites-python-configure/configure-python-create-website.png
+  [0]: ./media/web-sites-python-configure/configure-python-create-website.png
   [2]: ./media/web-sites-python-configure/configure-python-git.png
   [3]: ./media/web-sites-python-configure/configure-python-handler-mapping.png
   [4]: ./media/web-sites-python-configure/configure-python-app-settings.png

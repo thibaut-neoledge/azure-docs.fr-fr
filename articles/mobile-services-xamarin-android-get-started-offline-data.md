@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-offline-data-android" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Xamarin Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin Android application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data in Mobile Services" authors="donnam,wesmc" editor="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam,wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam,wesmc" />
 
 # Prise en main de la synchronisation des données hors connexion dans Mobile Services
 
@@ -116,7 +116,7 @@ Dans cette section, vous allez tester la méthode `SyncAsync` qui synchronise le
 
 3.  Ajout d'éléments à la liste ToDo
 
-    ![][]
+    ![][0]
 
 4.  Connectez-vous au portail de gestion Microsoft Azure et examinez la base de données de votre service mobile. Si votre service utilise l'application dorsale de JavaScript pour les services mobiles, vous pouvez accéder aux données à partir de l'onglet **Données** du service mobile. Si vous utilisez l'application dorsale .NET pour votre service mobile, vous pouvez cliquer sur le bouton **Gérer** pour votre base de données dans l'extension SQL Azure afin d'exécuter une requête sur base de votre table.
 
@@ -160,11 +160,6 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 <!-- Images -->
 <!-- URLs. -->
 
-  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows Store C#"
-  [Windows Phone]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
-  [iOS]: /fr-fr/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
-  [Xamarin.iOS]: /fr-fr/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
-  [Xamarin.Android]: /fr-fr/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
   [Prise en main de Mobile Services]: /fr-fr/documentation/articles/partner-xamarin-mobile-services-android-get-started/
   [Prise en main de données]: /fr-fr/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/
   [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28
@@ -172,10 +167,9 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
   [Test de l'application connectée au service mobile]: #test-online-app
   [Xamarin]: http://xamarin.com/visual-studio
   [Xamarin Studio]: http://xamarin.com/download
-  [Kit de développement logiciel (SDK) Azure Mobile Services version 1.3.0-alpha3]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-alpha3
   [Azure Mobile Services SQLite Store version 1.0.0-alpha2]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-alpha2
   [complément NuGet pour Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
-  []: ./media/mobile-services-xamarin-android-get-started-offline-data/mobile-quickstart-startup-android.png
+  [0]: ./media/mobile-services-xamarin-android-get-started-offline-data/mobile-quickstart-startup-android.png
   [1]: ./media/mobile-services-xamarin-android-get-started-offline-data/mobile-quickstart-completed-android.png
   [2]: ./media/mobile-services-xamarin-android-get-started-offline-data/mobile-data-browse.png
   [Utilisation du client Xamarin Component pour Azure Mobile Services]: /fr-fr/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/

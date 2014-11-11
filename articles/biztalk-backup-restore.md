@@ -1,6 +1,6 @@
 <properties linkid="biztalk-backup-restore" urlDisplayName="BizTalk Services: Backup and Restore" pageTitle="BizTalk Services: Backup and Restore | Azure" metaKeywords="" description="BizTalk Services includes Backup and Restore capabilities. When creating a Backup, a snapshot of the BizTalk Services configuration is taken." metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Backup and Restore" authors="mandia"  solutions="" writer="mandia" manager="dwrede" editor="cgronlun"  />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # BizTalk Services : Sauvegarde et restauration
 
@@ -58,7 +58,7 @@ Une fois la sauvegarde terminée, un conteneur portant le nom de sauvegarde indi
 2.  Définissez **État de la sauvegarde** sur **Automatique**.
 3.  Sélectionnez le **Compte de stockage** dans lequel stocker la sauvegarde, puis entrez la **Fréquence** de création des sauvegardes et la durée pendant laquelle vous souhaitez les conserver (**Jours de rétention**) :
 
-    ![][]
+    ![][0]
 
     **Remarques**
 
@@ -249,7 +249,7 @@ Pour créer Azure BizTalk Services dans le portail de gestion Azure, accédez à
   [BizTalk Services : tableau comparatif des éditions]: http://azure.microsoft.com/fr-fr/documentation/articles/biztalk-editions-feature-chart/
   [Sauvegarde à la demande]: #backupnow
   [Planification d'une sauvegarde]: #backupschedule
-  []: ./media/biztalk-backup-restore/AutomaticBU.png
+  [0]: ./media/biztalk-backup-restore/AutomaticBU.png
   [Statut de la dernière sauvegarde planifiée]: ./media/biztalk-backup-restore/status-last-backup.png
   [BizTalk Services : résolution de problèmes à l'aide des journaux des opérations]: http://go.microsoft.com/fwlink/?LinkId=391211
   [API REST Restaurer le service BizTalk]: http://go.microsoft.com/fwlink/p/?LinkID=325582
@@ -262,4 +262,3 @@ Pour créer Azure BizTalk Services dans le portail de gestion Azure, accédez à
   [BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services]: http://go.microsoft.com/fwlink/p/?LinkID=302281
   [BizTalk Services : Limitation]: http://go.microsoft.com/fwlink/p/?LinkID=302282
   [BizTalk Services : Nom et clé de l'émetteur]: http://go.microsoft.com/fwlink/p/?LinkID=303941
-  [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services]: http://go.microsoft.com/fwlink/p/?LinkID=302335

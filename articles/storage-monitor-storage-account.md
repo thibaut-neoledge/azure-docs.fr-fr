@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-monitor-a-storage-account" urlDisplayName="How to monitor" pageTitle="How to monitor a storage account | Microsoft Azure" metaKeywords="Azure monitor storage accounts, storage account management portal, storage account dashboard, storage metrics table, storage metrics chart" description="Learn how to monitor a storage account in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Monitor a Storage Account" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # <span id="createstorageaccount"></span></a>Surveillance d'un compte de stockage
 
@@ -10,25 +10,25 @@ Tant que vous n'avez pas configuré la surveillance d'un compte de stockage, auc
 
 <div class="dev-callout"> 
 <b>Remarque</b> 
-<p>L'analyse des donn&eacute;es de surveillance dans le portail de gestion occasionne des frais suppl&eacute;mentaires. Pour plus d'informations, consultez la page <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx">Storage Analytics et facturation</a>.</p> 
+<p>L'analyse des donn&eacute;es de surveillance dans le portail de gestion occasionne des frais suppl&eacute;mentaires. Pour plus d'informations, consultez la page <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/hh360997.aspx">Storage Analytics et facturation</a>.</p> 
 </div>
 
 ## Sommaire
 
--   [Configure monitoring for a storage account][]
--   [Customize the dashboard for monitoring][]
--   [Customize the Monitor page][]
--   [Add metrics to the metrics table][]
--   [Customize the metrics chart on the Monitor page][]
--   [Configure logging][]
+-   [Configure monitoring for a storage account][Configure monitoring for a storage account]
+-   [Customize the dashboard for monitoring][Customize the dashboard for monitoring]
+-   [Customize the Monitor page][Customize the Monitor page]
+-   [Add metrics to the metrics table][Add metrics to the metrics table]
+-   [Customize the metrics chart on the Monitor page][Customize the metrics chart on the Monitor page]
+-   [Configure logging][Configure logging]
 
 ## <span id="configurestoragemonitoring"></span></a> Configure monitoring for a storage account
 
-1.  Dans le [portail de gestion][], cliquez sur **Storage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
+1.  Dans le [portail de gestion][portail de gestion], cliquez sur **Storage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
 
 2.  Cliquez sur **Configure**, puis faites défiler l'écran vers le bas jusqu'aux paramètres de surveillance (**monitoring**) pour les services Blob, Table et File d'attente, présentés ci-dessous.
 
-    ![MonitoringOptions][]
+    ![MonitoringOptions][MonitoringOptions]
 
 3.  Dans **monitoring**, définissez le niveau de surveillance et la stratégie de rétention de données pour chaque service :
 
@@ -46,7 +46,7 @@ Tant que vous n'avez pas configuré la surveillance d'un compte de stockage, auc
 
 Les données de surveillance doivent commencer à s'afficher dans le tableau de bord et la page **Monitor** au bout d'une heure environ.
 
-Les mesures sont stockées dans le compte de stockage dans quatre tables nommées $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue et $MetricsCapacityBlob. Pour plus d'informations, consultez la page [À propos des mesures Storage Analytics][].
+Les mesures sont stockées dans le compte de stockage dans quatre tables nommées $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue et $MetricsCapacityBlob. Pour plus d'informations, consultez la page [À propos des mesures Storage Analytics][À propos des mesures Storage Analytics].
 
 Après avoir défini les niveaux de surveillance et les stratégies de rétention, vous pouvez choisir parmi les mesures disponibles dans le portail de gestion celles à surveiller et celles à représenter sur les graphiques de mesures. Un ensemble de mesures par défaut s'affiche à chaque niveau de surveillance. Vous pouvez utiliser **Add Metrics** pour ajouter ou supprimer des mesures dans la liste de mesures.
 
@@ -54,7 +54,7 @@ Après avoir défini les niveaux de surveillance et les stratégies de rétentio
 
 Sur le tableau de bord, vous pouvez choisir jusqu'à six mesures sur les neuf disponibles pour les représenter sur le graphique de mesures. Pour chaque service (Blob, Table et File d'attente), les mesures Availability, Success Percentage et Total Requests sont disponibles. Les mesures disponibles sur le tableau de bord sont les mêmes, quel que soit le type de surveillance (minimale ou détaillée).
 
-1.  Dans le [portail de gestion][], cliquez sur **Storage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
+1.  Dans le [portail de gestion][portail de gestion], cliquez sur **Storage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
 
 2.  Pour modifier les mesures représentées sur le graphique, effectuez l'une des actions suivantes :
 
@@ -62,7 +62,7 @@ Sur le tableau de bord, vous pouvez choisir jusqu'à six mesures sur les neuf di
 
 -   Pour masquer une mesure représentée sur le graphique, désactivez la case à cocher à côté de son en-tête.
 
-    ![Monitoring\_nmore][]
+    ![Monitoring\_nmore][Monitoring\_nmore]
 
 1.  Par défaut, le graphique indique les tendances, affichant uniquement la valeur actuelle de chaque mesure (option **Relative** dans la partie supérieure du graphique). Pour afficher un axe Y afin de voir les valeurs absolues, sélectionnez **Absolute**.
 
@@ -80,40 +80,40 @@ Utilisez les procédures suivantes pour choisir les mesures de stockage à affic
 
 ## <span id="addmonitoringmetrics"></span></a> Ajout de mesures à la table des mesures
 
-1.  Dans le [portail de gestion][], cliquez sur **Storage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
+1.  Dans le [portail de gestion][portail de gestion], cliquez sur **Storage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
 
 2.  Cliquez sur **Monitor**.
 
     La page **Monitor** s'ouvre. Par défaut, le tableau des mesures affiche un sous-ensemble des mesures disponibles pour la surveillance. L'écran Monitor par défaut illustré ci-dessous représente un compte de stockage avec une surveillance détaillée configurée pour les trois services. Utilisez **Add Metrics** pour sélectionner parmi les mesures disponibles celles qui doivent faire l'objet d'une surveillance.
 
-    ![Monitoring\_VerboseDisplay][]
+    ![Monitoring\_VerboseDisplay][Monitoring\_VerboseDisplay]
 
     <div class="dev-callout"> 
 <b>Remarque</b> 
-<p>Tenez compte des frais au moment de s&eacute;lectionner les mesures. En effet, l'actualisation des &eacute;crans de surveillance s'accompagne de frais de transaction et de sortie. Pour plus d'informations, consultez la page <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx">Storage Analytics et facturation</a>.</p> 
+<p>Tenez compte des frais au moment de s&eacute;lectionner les mesures. En effet, l'actualisation des &eacute;crans de surveillance s'accompagne de frais de transaction et de sortie. Pour plus d'informations, consultez la page <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/hh360997.aspx">Storage Analytics et facturation</a>.</p> 
 </div>
 
 3.  Cliquez sur **Add Metrics**.
 
     Les mesures d'agrégation disponibles dans le cadre de la surveillance minimale figurent en haut de la liste. Si la case à cocher est activée, la mesure figure dans la liste des mesures.
 
-    ![AddMetricsInitialDisplay][]
+    ![AddMetricsInitialDisplay][AddMetricsInitialDisplay]
 
 4.  Placez le pointeur dans la partie droite de la boîte de dialogue pour afficher une barre de défilement que vous pouvez actionner pour faire défiler d'autres mesures.
 
-    ![AddMetricsScrollbar][]
+    ![AddMetricsScrollbar][AddMetricsScrollbar]
 
 5.  Cliquez sur la flèche vers le bas en regard d'une mesure pour développer la liste des opérations qu'elle prend en charge. Sélectionnez chaque opération que vous souhaitez voir figurer dans le tableau des mesures du portail de gestion.
 
     Dans l'illustration suivante, la mesure AUTHORIZATION ERROR PERCENTAGE a été développée.
 
-    ![ExpandCollapse][]
+    ![ExpandCollapse][ExpandCollapse]
 
 6.  Après avoir sélectionné des mesures pour tous les services, cliquez sur OK (coche) pour mettre à jour la configuration de la surveillance. Les mesures sélectionnées sont ajoutées au tableau des mesures.
 
 7.  Pour supprimer une mesure du tableau, cliquez sur la mesure pour la sélectionner, puis sur **Delete Metric**, comme illustré ci-dessous.
 
-    ![DeleteMetric][]
+    ![DeleteMetric][DeleteMetric]
 
 ## <span id="customizemetricschart"></span></a> Customize the metrics chart on the Monitor page
 
@@ -127,11 +127,11 @@ Utilisez les procédures suivantes pour choisir les mesures de stockage à affic
 
 Pour chaque service de stockage accessible à votre compte de stockage (Blob, Table et File d'attente), vous pouvez enregistrer des journaux de diagnostic pour les demandes de lecture, d'écriture et/ou de suppression. De même, vous pouvez définir la stratégie de rétention de données de chaque service.
 
-1.  Dans le [portail de gestion][], cliquez sur **Storage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
+1.  Dans le [portail de gestion][portail de gestion], cliquez sur **Storage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
 
 2.  Cliquez sur **Configure**, puis faites défiler la page **logging** (illustrée ci-dessous) à l'aide de la touche Bas du clavier.
 
-    ![Storagelogging][]
+    ![Storagelogging][Storagelogging]
 
 3.  Pour chaque service (Blob, Table et File d'attente), configurez les paramètres suivants :
 
@@ -141,9 +141,8 @@ Pour chaque service de stockage accessible à votre compte de stockage (Blob, Ta
 
 4.  Cliquez sur **Enregistrer**.
 
-Les journaux de diagnostic sont enregistrés dans un conteneur d'objets blob nommé $logs dans votre compte de stockage. Pour plus d'informations sur l'accès au conteneur $logs, consultez la page [À propos de la journalisation Storage Analytics][].
+Les journaux de diagnostic sont enregistrés dans un conteneur d'objets blob nommé $logs dans votre compte de stockage. Pour plus d'informations sur l'accès au conteneur $logs, consultez la page [À propos de la journalisation Storage Analytics][À propos de la journalisation Storage Analytics].
 
-  [Storage Analytics et facturation]: http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx
   [Configure monitoring for a storage account]: #configurestoragemonitoring
   [Customize the dashboard for monitoring]: #customizestoragemonitoring
   [Customize the Monitor page]: #customizemonitorpage
@@ -152,12 +151,10 @@ Les journaux de diagnostic sont enregistrés dans un conteneur d'objets blob nom
   [Configure logging]: #configurelogging
   [portail de gestion]: https://manage.windowsazure.com/
   [MonitoringOptions]: ./media/storage-monitor-storage-account/Storage_MonitoringOptions.png
-  [À propos des mesures Storage Analytics]: http://msdn.microsoft.com/en-us/library/windowsazure/hh343258.aspx
-  [Monitoring\_nmore]: ./media/storage-monitor-storage-account/storage_Monitoring_nmore.png
-  [Monitoring\_VerboseDisplay]: ./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png
+  [À propos des mesures Storage Analytics]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh343258.aspx
   [AddMetricsInitialDisplay]: ./media/storage-monitor-storage-account/Storage_AddMetrics_InitialDisplay.png
   [AddMetricsScrollbar]: ./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png
   [ExpandCollapse]: ./media/storage-monitor-storage-account/Storage_AddMetrics_ExpandCollapse.png
   [DeleteMetric]: ./media/storage-monitor-storage-account/Storage_DeleteMetric.png
   [Storagelogging]: ./media/storage-monitor-storage-account/Storage_LoggingOptions.png
-  [À propos de la journalisation Storage Analytics]: http://msdn.microsoft.com/en-us/library/windowsazure/hh343262.aspx
+  [À propos de la journalisation Storage Analytics]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh343262.aspx

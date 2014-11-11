@@ -1,10 +1,10 @@
 <properties linkid="manage-services-storage-net-shared-access-signature-part-2" urlDisplayName="" pageTitle="Create and use a SAS with the Blob Service | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Explore generating and using shared access signatures with the Blob service" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Signatures d'accès partagé, partie 2 : création et utilisation d'une signature d'accès partagé avec le service BLOB
 
-La [partie 1][] de ce didacticiel traitait des signatures d'accès partagé et indiquait les meilleures pratiques les concernant. La partie 2 indique comment générer et utiliser les signatures d'accès partagé avec le service BLOB Azure. Les exemples ont été écrits en C# et utilisent la bibliothèque du client Azure Storage pour .NET. Les scénarios traités incluent les points suivants de l'utilisation des signatures d'accès partagé :
+La [partie 1][partie 1] de ce didacticiel traitait des signatures d'accès partagé et indiquait les meilleures pratiques les concernant. La partie 2 indique comment générer et utiliser les signatures d'accès partagé avec le service BLOB Azure. Les exemples ont été écrits en C# et utilisent la bibliothèque du client Azure Storage pour .NET. Les scénarios traités incluent les points suivants de l'utilisation des signatures d'accès partagé :
 
 -   Génération d'une signature d'accès partagé sur un conteneur
 -   Génération d'une signature d'accès partagé sur un objet blob
@@ -17,11 +17,11 @@ Ce didacticiel traite spécifiquement de la création des signatures d'accès pa
 
 # Partie 1 : création d'une application console pour générer des signatures d'accès partagé
 
-First, ensure that you have the Azure Storage Client Library for .NET installed. Vous pouvez installer le [package NuGet][] qui contient les assemblys les plus à jour pour la bibliothèque du client. Cette méthode est recommandée pour garantir que les correctifs les plus récents sont installés. Vous pouvez également télécharger la bibliothèque du client avec la version la plus récente du [Kit de développement logiciel (SDK) Azure pour .NET][].
+First, ensure that you have the Azure Storage Client Library for .NET installed. Vous pouvez installer le [package NuGet][package NuGet] qui contient les assemblys les plus à jour pour la bibliothèque du client. Cette méthode est recommandée pour garantir que les correctifs les plus récents sont installés. Vous pouvez également télécharger la bibliothèque du client avec la version la plus récente du [Kit de développement logiciel (SDK) Azure pour .NET][Kit de développement logiciel (SDK) Azure pour .NET].
 
 Dans Visual Studio, créez une application console Windows et nommez-la **GenerateSharedAccessSignatures**. Ajoutez des références à **Microsoft.WindowsAzure.Configuration.dll** et **Microsoft.WindowsAzure.Storage.dll**, en utilisant l'une des méthodes suivantes :
 
--   Si vous souhaitez installer le package NuGet, commencez par installer [NuGet Package Manager Extension pour Visual Studio][]. Dans Visual Studio, sélectionnez **Project | Manage NuGet Packages**, effectuez une recherche en ligne sur **Azure Storage** et suivez les instructions d'installation.
+-   Si vous souhaitez installer le package NuGet, commencez par installer [NuGet Package Manager Extension pour Visual Studio][NuGet Package Manager Extension pour Visual Studio]. Dans Visual Studio, sélectionnez **Project | Manage NuGet Packages**, effectuez une recherche en ligne sur **Azure Storage** et suivez les instructions d'installation.
 -   Vous pouvez également rechercher les assemblys dans votre installation du Kit de développement logiciel (SDK) Azure et y ajouter des références.
 
 Au début du fichier Program.cs, ajoutez les instructions **using** suivantes :
@@ -273,7 +273,7 @@ La méthode **Main()** doit maintenant ressembler à ceci. Lancez-la pour écrir
 
 Lorsque vous exécutez l'application console GenerateSharedAccessSignatures, la sortie est semblable à ce qui suit dans la fenêtre de la console. Il s'agit des signatures d'accès partagé que vous allez utiliser dans la partie 2 du didacticiel.
 
-![sas-console-output-1][]
+![sas-console-output-1][sas-console-output-1]
 
 # Partie 2 : création d'une application console pour tester les signatures d'accès partagé
 
@@ -508,24 +508,22 @@ Mettez à jour la méthode **Main()** pour appeler **UseBlobSAS()** avec les deu
 
 Exécutez l'application console et observez la sortie pour connaître les opérations autorisées en fonction des signatures. La sortie dans la fenêtre de la console ressemble à ceci :
 
-![sas-console-output-2][]
+![sas-console-output-2][sas-console-output-2]
 
 # Étapes suivantes
 
 [Signatures d'accès partagé, partie 1 : présentation du modèle SAP][partie 1]
 
-[Gestion de l'accès aux ressources de stockage Azure][]
+[Gestion de l'accès aux ressources de stockage Azure][Gestion de l'accès aux ressources de stockage Azure]
 
-[Délégation de l'accès avec une signature d'accès partagé (API REST)][]
+[Délégation de l'accès avec une signature d'accès partagé (API REST)][Délégation de l'accès avec une signature d'accès partagé (API REST)]
 
-[Présentation des signatures d'accès partagé de table et de file d'attente][]
+[Présentation des signatures d'accès partagé de table et de file d'attente][Présentation des signatures d'accès partagé de table et de file d'attente]
 
   [partie 1]: ../storage-dotnet-shared-access-signature-part-1/
   [package NuGet]: http://nuget.org/packages/WindowsAzure.Storage/ "package NuGet"
-  [Kit de développement logiciel (SDK) Azure pour .NET]: http://www.windowsazure.com/en-us/downloads/
   [NuGet Package Manager Extension pour Visual Studio]: http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
   [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
   [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
-  [Gestion de l'accès aux ressources de stockage Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx
-  [Délégation de l'accès avec une signature d'accès partagé (API REST)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx
+  [Gestion de l'accès aux ressources de stockage Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee393343.aspx
   [Présentation des signatures d'accès partagé de table et de file d'attente]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

@@ -1,10 +1,10 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-xamarin-ios" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Xamarin.iOS) - Azure Mobile Services" metaKeywords="Azure Xamarin.iOS data, Azure mobile services data, " description="Learn how to store and access data from your Azure Mobile Services Xamarin.iOS app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="donnam" manager="dwrede" services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="donnam" />
 
 # Prise en main des données dans Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 Cette rubrique montre comment utiliser Azure Mobile Services pour tirer parti des données dans une application Xamarin.iOS. Dans ce didacticiel, vous allez télécharger une application qui stocke les données en mémoire, créer un service mobile, intégrer le service mobile à l'application, puis vous connecter au portail de gestion Azure pour afficher les modifications apportées aux données lors de l'exécution de l'application.
 
@@ -14,13 +14,13 @@ Cette rubrique montre comment utiliser Azure Mobile Services pour tirer parti de
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 
-1.  [Téléchargement du projet d'application Xamarin.iOS][]
-2.  [Création du service mobile][]
-3.  [Ajout d'une table de données pour le stockage][]
-4.  [Mise à jour de l'application pour utiliser Mobile Services][]
-5.  [Test de l'application avec Mobile Services][]
+1.  [Téléchargement du projet d'application Xamarin.iOS][Téléchargement du projet d'application Xamarin.iOS]
+2.  [Création du service mobile][Création du service mobile]
+3.  [Ajout d'une table de données pour le stockage][Ajout d'une table de données pour le stockage]
+4.  [Mise à jour de l'application pour utiliser Mobile Services][Mise à jour de l'application pour utiliser Mobile Services]
+5.  [Test de l'application avec Mobile Services][Test de l'application avec Mobile Services]
 
-Ce didacticiel nécessite le [composant Azure Mobile Services][], [XCode 5.0][], [Xamarin.iOS] et iOS 5.0 ou ultérieur.
+Ce didacticiel nécessite le [composant Azure Mobile Services][composant Azure Mobile Services], [XCode 5.0][XCode 5.0], [Xamarin.iOS] et iOS 5.0 ou ultérieur.
 
 <div class="dev-callout"><strong>Remarque</strong> <p>Pour effectuer ce didacticiel, vous avez besoin d&rsquo;un compte Azure. Si vous ne poss&eacute;dez pas de compte, vous pouvez cr&eacute;er un compte d'&eacute;valuation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-xamarin-ios%2F" target="_blank">Version d'&eacute;valuation gratuite d'Azure</a>.</p></div>
 
@@ -38,13 +38,13 @@ Ce didacticiel est basé sur l'[application GetStartedWithData][Téléchargement
 
 4.  Dans l'application, tapez du texte dans la zone de texte, puis cliquez sur le bouton **+**.
 
-    ![][]
+    ![][0]
 
     Le texte enregistré est affiché dans la liste ci-dessous.
 
 ## <a name="create-service"></a><span class="short-header">Création d'un service mobile</span>Création d'un service mobile dans le portail de gestion
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data][]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 ## <a name="add-table"></a><span class="short-header">Ajout d'une nouvelle table</span>Ajout d'une nouvelle table au service mobile
 
@@ -167,7 +167,7 @@ Maintenant que l'application a été mise à jour pour utiliser Mobile Services 
 
     Cela permet d'envoyer un nouvel élément en tant qu'insertion au service mobile.
 
-3.  Dans le [portail de gestion][], cliquez sur **Mobile Services**, puis sur le service mobile.
+3.  Dans le [portail de gestion][portail de gestion], cliquez sur **Mobile Services**, puis sur le service mobile.
 
 4.  Cliquez sur l'onglet **Données**, puis sur **Parcourir**.
 
@@ -187,21 +187,21 @@ Ce didacticiel a présenté les bases de l'activation d'une application iOS pour
 
 Ensuite, pensez à suivre l'un des didacticiels suivants basés sur l'application GetStartedWithData que vous avez créée dans ce didacticiel :
 
--   [Validation et modification des données avec des scripts][]
+-   [Validation et modification des données avec des scripts][Validation et modification des données avec des scripts]
 
     En savoir plus sur l'utilisation des scripts serveur dans Mobile Services pour valider et modifier les données envoyées à partir de votre application.
 
--   [Affinage des requêtes à la pagination][]
+-   [Affinage des requêtes à la pagination][Affinage des requêtes à la pagination]
 
     En savoir plus sur l'utilisation de la pagination dans les requêtes pour contrôler la quantité de données traitées dans une seule requête.
 
 Une fois que vous avez terminé les séries de données, essayez ces autres didacticiels iOS :
 
--   [Prise en main de l'authentification][]
+-   [Prise en main de l'authentification][Prise en main de l'authentification]
 
     En savoir plus sur l'authentification des utilisateurs de votre application.
 
--   [Prise en main des notifications Push][]
+-   [Prise en main des notifications Push][Prise en main des notifications Push]
 
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application avec Mobile Services.
 
@@ -210,7 +210,6 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
 <!-- URLs. TODO:: update download link, github link, and completed example project with new Xamarin.iOs projects -->
 
   [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
-  [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started-xamarin-ios
   [Téléchargement du projet d'application Xamarin.iOS]: http://go.microsoft.com/fwlink/p/?LinkId=331302
   [Création du service mobile]: #create-service
   [Ajout d'une table de données pour le stockage]: #add-table
@@ -218,8 +217,7 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
   [Test de l'application avec Mobile Services]: #test-app
   [composant Azure Mobile Services]: http://components.xamarin.com/view/azure-mobile-services/
   [XCode 5.0]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A643EE910&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-xamarin-ios%2F
-  []: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-quickstart-startup-ios.png
+  [0]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-quickstart-startup-ios.png
   [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [1]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-create-todoitem-table.png

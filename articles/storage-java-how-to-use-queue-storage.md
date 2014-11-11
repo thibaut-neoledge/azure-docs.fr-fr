@@ -1,43 +1,43 @@
 <properties linkid="dev-net-how-to-use-queue-storage-service-java" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Java) | Microsoft Azure" metaKeywords="Azure Queue Service, Azure Queue storage service, queues peeking, queues insert messages, queues get messages, queues delete messages, create queues, delete queues, Queue service Java" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Queue storage service from Java" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Utilisation du stockage de files d'attente à partir de Java
 
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage des files d'attente Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure Storage pour Java][]. Les scénarios traités incluent l'**insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d'attente, ainsi que la **création** et la **suppression** des files d'attente. Pour plus d'informations sur les files d'attente, consultez la section [Étapes suivantes][].
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage des files d'attente Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure Storage pour Java][Kit de développement logiciel (SDK) Azure Storage pour Java]. Les scénarios traités incluent l'**insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d'attente, ainsi que la **création** et la **suppression** des files d'attente. Pour plus d'informations sur les files d'attente, consultez la section [Étapes suivantes][Étapes suivantes].
 
-Remarque : Un Kit de développement logiciel (SDK) est disponible pour les développeurs qui utilisent Azure Storage sur des appareils Android. Pour plus d'informations, consultez la page [Kit de développement logiciel (SDK) Azure Storage pour Android][].
+Remarque : Un Kit de développement logiciel (SDK) est disponible pour les développeurs qui utilisent Azure Storage sur des appareils Android. Pour plus d'informations, consultez la page [Kit de développement logiciel (SDK) Azure Storage pour Android][Kit de développement logiciel (SDK) Azure Storage pour Android].
 
 ## <a name="Contents"> </a>Sommaire
 
--   [Présentation du stockage des files d'attente][]
--   [Concepts][]
--   [Création d'un compte de stockage Azure][]
--   [Création d'une application Java][]
--   [Configuration de votre application pour accéder au stockage de files d'attente][]
--   [Configuration d'une chaîne de connexion de stockage Azure][]
--   [Création d'une file d'attente][]
--   [Ajout d'un message à une file d'attente][]
--   [Lecture furtive du message suivant][]
--   [Modification du contenu d'un message en file d'attente][]
--   [Obtention de la longueur de la file d'attente][]
--   [Enlèvement du message suivant de la file d'attente][]
--   [Options supplémentaires pour l'enlèvement des messages][]
--   [Affichage de la liste des files d'attente][]
--   [Suppression d'une file d'attente][]
--   [Étapes suivantes][]
+-   [Présentation du stockage des files d'attente][Présentation du stockage des files d'attente]
+-   [Concepts][Concepts]
+-   [Création d'un compte de stockage Azure][Création d'un compte de stockage Azure]
+-   [Création d'une application Java][Création d'une application Java]
+-   [Configuration de votre application pour accéder au stockage de files d'attente][Configuration de votre application pour accéder au stockage de files d'attente]
+-   [Configuration d'une chaîne de connexion de stockage Azure][Configuration d'une chaîne de connexion de stockage Azure]
+-   [Création d'une file d'attente][Création d'une file d'attente]
+-   [Ajout d'un message à une file d'attente][Ajout d'un message à une file d'attente]
+-   [Lecture furtive du message suivant][Lecture furtive du message suivant]
+-   [Modification du contenu d'un message en file d'attente][Modification du contenu d'un message en file d'attente]
+-   [Obtention de la longueur de la file d'attente][Obtention de la longueur de la file d'attente]
+-   [Enlèvement du message suivant de la file d'attente][Enlèvement du message suivant de la file d'attente]
+-   [Options supplémentaires pour l'enlèvement des messages][Options supplémentaires pour l'enlèvement des messages]
+-   [Affichage de la liste des files d'attente][Affichage de la liste des files d'attente]
+-   [Suppression d'une file d'attente][Suppression d'une file d'attente]
+-   [Étapes suivantes][Étapes suivantes]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <span id="CreateAccount"></span></a>Création d'un compte de stockage Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"> </a>Création d'une application Java
 
 Dans ce guide, vous allez utiliser des fonctionnalités de stockage qui peuvent être exécutées dans une application Java en local, ou dans le code s'exécutant dans un rôle Web ou un rôle de travail dans Azure.
 
-Pour ce faire, vous devez installer Java Development Kit (JDK) et créer un compte de stockage Azure dans votre abonnement Azure. Vous devez ensuite vérifier que votre système de développement répond à la configuration minimale requise et aux dépendances répertoriées dans le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Java][] sur GitHub. Si votre système répond à ces exigences, vous pouvez suivre les instructions de téléchargement et d'installation des bibliothèques Azure Storage pour Java correspondant à votre système à partir de ce référentiel. Une fois ces opérations accomplies, vous pouvez créer une application Java en utilisant les exemples de cet article.
+Pour ce faire, vous devez installer Java Development Kit (JDK) et créer un compte de stockage Azure dans votre abonnement Azure. Vous devez ensuite vérifier que votre système de développement répond à la configuration minimale requise et aux dépendances répertoriées dans le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Java][Kit de développement logiciel (SDK) Azure Storage pour Java] sur GitHub. Si votre système répond à ces exigences, vous pouvez suivre les instructions de téléchargement et d'installation des bibliothèques Azure Storage pour Java correspondant à votre système à partir de ce référentiel. Une fois ces opérations accomplies, vous pouvez créer une application Java en utilisant les exemples de cet article.
 
 ## <a name="ConfigureStorage"> </a>Configuration de votre application pour accéder au stockage de files d'attente
 
@@ -67,7 +67,7 @@ Les exemples suivants partent du principe que vous avez utilisé une de ces deux
 
 ## <a name="create-queue"> </a> Création d'une file d'attente
 
-Un objet **CloudQueueClient** vous permet d'obtenir les objets de référence pour les files d'attente. Le code suivant crée un objet **CloudQueueClient**. Remarque : d'autres méthodes sont disponibles pour créer des objets **CloudStorageAccount**. Pour plus d'informations, consultez la rubrique **CloudStorageAccount** du document [Référence du Kit de développement logiciel (SDK) du client Azure Storage][].)
+Un objet **CloudQueueClient** vous permet d'obtenir les objets de référence pour les files d'attente. Le code suivant crée un objet **CloudQueueClient**. Remarque : d'autres méthodes sont disponibles pour créer des objets **CloudStorageAccount**. Pour plus d'informations, consultez la rubrique **CloudStorageAccount** du document [Référence du Kit de développement logiciel (SDK) du client Azure Storage][Référence du Kit de développement logiciel (SDK) du client Azure Storage].)
 
 Utilisez l'objet **CloudQueueClient** pour obtenir une référence pointant vers la file d'attente à utiliser. Si la file d'attente n'existe pas, vous pouvez la créer :
 
@@ -381,14 +381,12 @@ Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez
 
 Maintenant que vous avez appris les bases du stockage des files d'attente, suivez ces liens pour apprendre des tâches de stockage plus complexes.
 
--   [Kit de développement logiciel (SDK) Azure Storage pour Java][]
--   [Référence du Kit de développement logiciel (SDK) du client Azure Storage][]
--   [API REST d'Azure Storage][]
--   [Blog de l'équipe Azure Storage][]
+-   [Kit de développement logiciel (SDK) Azure Storage pour Java][Kit de développement logiciel (SDK) Azure Storage pour Java]
+-   [Référence du Kit de développement logiciel (SDK) du client Azure Storage][Référence du Kit de développement logiciel (SDK) du client Azure Storage]
+-   [API REST d'Azure Storage][API REST d'Azure Storage]
+-   [Blog de l'équipe Azure Storage][Blog de l'équipe Azure Storage]
 
-  [Kit de développement logiciel (SDK) Azure Storage pour Java]: https://github.com/azure/azure-storage-java
   [Étapes suivantes]: #NextSteps
-  [Kit de développement logiciel (SDK) Azure Storage pour Android]: https://github.com/azure/azure-storage-android
   [Présentation du stockage des files d'attente]: #what-is
   [Concepts]: #Concepts
   [Création d'un compte de stockage Azure]: #CreateAccount
@@ -406,6 +404,5 @@ Maintenant que vous avez appris les bases du stockage des files d'attente, suive
   [Suppression d'une file d'attente]: #delete-queue
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [Référence du Kit de développement logiciel (SDK) du client Azure Storage]: http://dl.windowsazure.com/storage/javadoc/
-  [API REST d'Azure Storage]: http://msdn.microsoft.com/en-us/library/azure/gg433040.aspx
+  [API REST d'Azure Storage]: http://msdn.microsoft.com/fr-fr/library/azure/gg433040.aspx
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/

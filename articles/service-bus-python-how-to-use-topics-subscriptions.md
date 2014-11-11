@@ -1,6 +1,6 @@
 <properties linkid="develop-python-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Python) - Azure" metaKeywords="Get started Azure Service Bus topics publising subscribe messaging Python" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Python applications." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Topics/Subscriptions" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Utilisation des rubriques/abonnements Service Bus
 
@@ -9,24 +9,24 @@ depuis les applications Python. Les scénarios couverts dans ce guide sont les s
 rubriques et d'abonnements, création de filtres d'abonnement, envoi
 de messages** à une rubrique, **réception de messages en provenance d'un abonnement** et
 **suppression de rubriques et d'abonnements**. Pour plus d'informations sur les rubriques
-et les abonnements, consultez la section [Étapes suivantes][].
+et les abonnements, consultez la section [Étapes suivantes][Étapes suivantes].
 
 ## Sommaire
 
--   [Présentation des rubriques et des abonnements Service Bus][]
--   [Création d'un espace de noms de service][]
--   [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms][]
--   [Création d'une rubrique][]
--   [Création d'abonnements][]
--   [Envoi de messages à une rubrique][]
--   [Réception des messages d'un abonnement][]
--   [Gestion des blocages d'application et des messages illisibles][]
--   [Suppression de rubriques et d'abonnements][]
--   [Étapes suivantes][]
+-   [Présentation des rubriques et des abonnements Service Bus][Présentation des rubriques et des abonnements Service Bus]
+-   [Création d'un espace de noms de service][Création d'un espace de noms de service]
+-   [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms][Obtention d'informations d'identification de gestion par défaut pour l'espace de noms]
+-   [Création d'une rubrique][Création d'une rubrique]
+-   [Création d'abonnements][Création d'abonnements]
+-   [Envoi de messages à une rubrique][Envoi de messages à une rubrique]
+-   [Réception des messages d'un abonnement][Réception des messages d'un abonnement]
+-   [Gestion des blocages d'application et des messages illisibles][Gestion des blocages d'application et des messages illisibles]
+-   [Suppression de rubriques et d'abonnements][Suppression de rubriques et d'abonnements]
+-   [Étapes suivantes][Étapes suivantes]
 
-[WACOM.INCLUDE [howto-service-bus-topics][]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
-**Remarque :** si vous devez installer Python ou les bibliothèques clientes, consultez le [Guide d'installation de Python][].
+**Remarque :** si vous devez installer Python ou les bibliothèques clientes, consultez le [Guide d'installation de Python][Guide d'installation de Python].
 
 ## <a name="How_to_Create_a_Topic"></a>Création d'une rubrique
 
@@ -86,7 +86,7 @@ Parmi les types de filtre pris en charge par les abonnements,
 **SqlFilter** est le plus flexible ; il implémente un sous-ensemble de SQL92. Les filtres SQL s'appliquent
 aux propriétés des messages publiés dans la rubrique. Pour
 plus de détails sur les expressions utilisables avec un filtre SQL,
-examinez la syntaxe [SqlFilter.SqlExpression][].
+examinez la syntaxe [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 Il est possible d'ajouter des filtres à un abonnement en utilisant la méthode **create\_rule**
  de l'objet **ServiceBusService**
@@ -239,8 +239,8 @@ code suivant montre comment supprimer l'abonnement
 Maintenant que vous avez appris les principes de base des rubriques Service Bus, consultez les
 liens suivants pour en savoir plus.
 
--   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements][].
--   Référence d'API pour [SqlFilter][].
+-   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements][Files d'attente, rubriques et abonnements].
+-   Référence d'API pour [SqlFilter][SqlFilter].
 
   [Étapes suivantes]: #Next_Steps
   [Présentation des rubriques et des abonnements Service Bus]: #what-are-service-bus-topics

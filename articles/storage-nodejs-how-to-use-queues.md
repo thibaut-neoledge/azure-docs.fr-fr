@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Node.js) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Node.js" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Queue Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Utilisation du service de file d'attente à partir de Node.js
 
@@ -8,36 +8,36 @@ Ce guide vous explique comment exécuter des scénarios courants en utilisant le
 service de File d'attente Windows Azure. Les exemples sont écrits en utilisant
 l'API Node.js. Les scénarios traités incluent l'**insertion**, la **lecture furtive**, la
 **récupération** et la **suppression** des messages de file d'attente, ainsi que la **création et
-la suppression des files d'attente**. Pour plus d'informations sur les files d'attente, consultez la section [Étapes suivantes][].
+la suppression des files d'attente**. Pour plus d'informations sur les files d'attente, consultez la section [Étapes suivantes][Étapes suivantes].
 
 ## Sommaire
 
--   [Présentation du service de file d'attente][]
--   [Concepts][]
--   [Création d'un compte de stockage Azure][]
--   [Création d'une application Node.js][]
--   [Configuration de votre application pour accéder au stockage][]
--   [Configuration d'une chaîne de connexion Azure Storage][]
--   [Création d'une file d'attente][]
--   [Insertion d'un message dans une file d'attente][]
--   [Lecture furtive du message suivant][]
--   [Enlèvement du message suivant de la file d'attente][]
--   [Modification du contenu d'un message en file d'attente][]
--   [Options supplémentaires pour l'enlèvement des messages de la file d'attente][]
--   [Obtention de la longueur de la file d'attente][]
--   [Suppression d'une file d'attente][]
--   [Utilisation des signatures d'accès partagé][]
--   [Étapes suivantes][]
+-   [Présentation du service de file d'attente][Présentation du service de file d'attente]
+-   [Concepts][Concepts]
+-   [Création d'un compte de stockage Azure][Création d'un compte de stockage Azure]
+-   [Création d'une application Node.js][Création d'une application Node.js]
+-   [Configuration de votre application pour accéder au stockage][Configuration de votre application pour accéder au stockage]
+-   [Configuration d'une chaîne de connexion Azure Storage][Configuration d'une chaîne de connexion Azure Storage]
+-   [Création d'une file d'attente][Création d'une file d'attente]
+-   [Insertion d'un message dans une file d'attente][Insertion d'un message dans une file d'attente]
+-   [Lecture furtive du message suivant][Lecture furtive du message suivant]
+-   [Enlèvement du message suivant de la file d'attente][Enlèvement du message suivant de la file d'attente]
+-   [Modification du contenu d'un message en file d'attente][Modification du contenu d'un message en file d'attente]
+-   [Options supplémentaires pour l'enlèvement des messages de la file d'attente][Options supplémentaires pour l'enlèvement des messages de la file d'attente]
+-   [Obtention de la longueur de la file d'attente][Obtention de la longueur de la file d'attente]
+-   [Suppression d'une file d'attente][Suppression d'une file d'attente]
+-   [Utilisation des signatures d'accès partagé][Utilisation des signatures d'accès partagé]
+-   [Étapes suivantes][Étapes suivantes]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <a name="create-account"></a>Création d'un compte de stockage Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>Création d'une application Node.js
 
-Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure][], [Service cloud Node.js][] (avec Windows PowerShell) ou [Site Web avec WebMatrix][].
+Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure][Création et déploiement d'une application Node.js dans un site Web Azure], [Service cloud Node.js][Service cloud Node.js] (avec Windows PowerShell) ou [Site Web avec WebMatrix][Site Web avec WebMatrix].
 
 ## <a name="configure-access"> </a>Configuration de votre application pour accéder au stockage
 
@@ -71,7 +71,7 @@ Pour utiliser le stockage Azure, vous avez besoin du Kit de développement logic
 
 Le module Azure lit les variables d'environnement AZURE\_STORAGE\_ACCOUNT et AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING pour obtenir les informations obligatoires pour se connecter à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **createQueueService**.
 
-Pour obtenir un exemple de configuration des variables d'environnement dans le portail de gestion pour un site web Azure, consultez la rubrique [Application web Node.js avec stockage][]
+Pour obtenir un exemple de configuration des variables d'environnement dans le portail de gestion pour un site web Azure, consultez la rubrique [Application web Node.js avec stockage][Application web Node.js avec stockage]
 
 ## <a name="create-queue"> </a> Création d'une file d'attente
 
@@ -320,9 +320,9 @@ Lorsque la liste de contrôle d'accès est définie, vous pouvez créer une sign
 Maintenant que vous connaissez les bases du stockage de files d'attente, consultez les liens suivants
 pour apprendre à effectuer des tâches de stockage plus complexes.
 
--   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][].
--   Consultez le [Blog de l'équipe Azure Storage][].
--   Consultez le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Node][] sur GitHub.
+-   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][Stockage et accessibilité des données dans Azure].
+-   Consultez le [Blog de l'équipe Azure Storage][Blog de l'équipe Azure Storage].
+-   Consultez le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Node][Kit de développement logiciel (SDK) Azure Storage pour Node] sur GitHub.
 
   [Étapes suivantes]: #next-steps
   [Présentation du service de file d'attente]: #what-is
@@ -346,6 +346,5 @@ pour apprendre à effectuer des tâches de stockage plus complexes.
   [Service cloud Node.js]: /fr-fr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Site Web avec WebMatrix]: /fr-fr/documentation/articles/web-sites-nodejs-use-webmatrix/
   [Application web Node.js avec stockage]: /fr-fr/documentation/articles/storage-nodejs-use-table-storage-web-site/
-  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Kit de développement logiciel (SDK) Azure Storage pour Node]: https://github.com/Azure/azure-storage-node

@@ -1,6 +1,6 @@
 <properties linkid="manage-services-mediaservices-create-a-media-services-account" urlDisplayName="How to create" pageTitle="Create a Media Services Account - Azure" metaKeywords="" description="Describes how to create a new Media Services account in Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Create a Media Services Account" authors="migree" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree" />
 
 # Création d'un compte Media Services
 
@@ -10,8 +10,8 @@ Cette rubrique présente l'utilisation de la méthode Création rapide pour cré
 
 ## Sommaire
 
--   [Concepts][]
--   [Création d'un compte Media Services grâce à la méthode Création rapide][]
+-   [Concepts][Concepts]
+-   [Création d'un compte Media Services grâce à la méthode Création rapide][Création d'un compte Media Services grâce à la méthode Création rapide]
 
 ## <span id="concepts"></span></a>Concepts
 
@@ -24,9 +24,9 @@ L'accès à Media Services requiert deux comptes associés :
 
 ## <span id="quick"></span></a> Création d'un compte Media Services grâce à la méthode Création rapide
 
-1.  Dans le [portail de gestion][], cliquez sur **New**, sur **Service de média**, puis sur **Création rapide**.
+1.  Dans le [portail de gestion][portail de gestion], cliquez sur **New**, sur **Service de média**, puis sur **Création rapide**.
 
-    ![Media Services - Création rapide][]
+    ![Media Services - Création rapide][Media Services - Création rapide]
 
 2.  Dans **NAME**, entrez le nom du nouveau compte. Un nom de compte Media Services se compose de chiffres ou de lettres en minuscules, sans espaces. Sa longueur est comprise entre 3 et 24 caractères.
 
@@ -42,7 +42,7 @@ L'accès à Media Services requiert deux comptes associés :
 
     La page **Services de média** s'ouvre et affiche le nouveau compte. Lorsque l'état devient Active, cela signifie que le compte a été correctement créé.
 
-    ![Page Services de média][]
+    ![Page Services de média][Page Services de média]
 
     Lorsque vous double-cliquez sur le nom de compte, la page Démarrage rapide s'affiche par défaut. Elle vous permet d'effectuer des tâches de gestion également disponibles sur d'autres pages du portail. Par exemple, vous pouvez télécharger un fichier vidéo depuis cette page ou depuis la page CONTENU.
 

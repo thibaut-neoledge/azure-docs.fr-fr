@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-develop-hadoop-streaming-programs-for-hdinsight" urlDisplayName="" pageTitle="Develop C# Hadoop streaming programs for HDInsight | Azure" metaKeywords="hdinsight hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce" description="Learn how to develop Hadoop streaming MapReduce programs in C#, and how to deploy them to Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="Develop C# Hadoop streaming programs for HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Développement de programmes de diffusion en continu Hadoop en C# pour HDInsight
 
@@ -10,18 +10,18 @@ Hadoop fournit une API de diffusion en continu pour MapReduce qui vous permet d'
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
--   Émulateur HDInsight Azure installé. Pour obtenir des instructions, consultez la page [Prise en main de l'émulateur HDInsight][].
--   Azure PowerShell installé sur l'ordinateur d'émulation. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][].
--   Abonnement Azure actif. Pour obtenir des instructions, consultez les pages traitant des [options d'achat][], des [offres spéciales membres][] ou de la [version d'évaluation gratuite][].
+-   Émulateur HDInsight Azure installé. Pour obtenir des instructions, consultez la page [Prise en main de l'émulateur HDInsight][Prise en main de l'émulateur HDInsight].
+-   Azure PowerShell installé sur l'ordinateur d'émulation. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][Installation et configuration d'Azure PowerShell].
+-   Abonnement Azure actif. Pour obtenir des instructions, consultez les pages traitant des [options d'achat][options d'achat], des [offres spéciales membres][offres spéciales membres] ou de la [version d'évaluation gratuite][version d'évaluation gratuite].
 
 ## Dans cet article
 
--   [Développement d'un programme de diffusion en continu Hadoop pour le comptage de mots dans C#][]
--   [Test du programme sur l'émulateur][]
--   [Téléchargement des données et des applications vers le stockage d'objets blob Azure][]
--   [Exécution du programme MapReduce sur Azure HDInsight][]
--   [Extraction des résultats MapReduce][]
--   [Étapes suivantes][]
+-   [Développement d'un programme de diffusion en continu Hadoop pour le comptage de mots dans C#][Développement d'un programme de diffusion en continu Hadoop pour le comptage de mots dans C#]
+-   [Test du programme sur l'émulateur][Test du programme sur l'émulateur]
+-   [Téléchargement des données et des applications vers le stockage d'objets blob Azure][Téléchargement des données et des applications vers le stockage d'objets blob Azure]
+-   [Exécution du programme MapReduce sur Azure HDInsight][Exécution du programme MapReduce sur Azure HDInsight]
+-   [Extraction des résultats MapReduce][Extraction des résultats MapReduce]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <a name="develop"></a>Développement d'un programme de diffusion en continu Hadoop pour le comptage de mots dans C#
 
@@ -144,7 +144,7 @@ Cette section contient les procédures suivantes :
 4.  Vérification de l'état de la tâche
 5.  Extraction des résultats de la tâche
 
-L'émulateur HDInsight utilise HDFS en tant que système de fichiers par défaut. Vous pouvez éventuellement configurer l'émulateur HDInsight pour utiliser le stockage d'objets blob Azure. Pour plus d'informations, consultez la page [Prise en main de l'émulateur HDInsight][1]. Dans cette section, vous allez utiliser la commande HDFS copyFromLocal pour télécharger les fichiers. La section suivante montre comment télécharger des fichiers en utilisant Azure PowerShell. Pour découvrir d'autres méthodes, consultez la rubrique [Téléchargement de données vers HDInsight][].
+L'émulateur HDInsight utilise HDFS en tant que système de fichiers par défaut. Vous pouvez éventuellement configurer l'émulateur HDInsight pour utiliser le stockage d'objets blob Azure. Pour plus d'informations, consultez la page [Prise en main de l'émulateur HDInsight][1]. Dans cette section, vous allez utiliser la commande HDFS copyFromLocal pour télécharger les fichiers. La section suivante montre comment télécharger des fichiers en utilisant Azure PowerShell. Pour découvrir d'autres méthodes, consultez la rubrique [Téléchargement de données vers HDInsight][Téléchargement de données vers HDInsight].
 
 Ce didacticiel utilise la structure de dossiers suivante :
 
@@ -197,7 +197,7 @@ Ce didacticiel utilise les fichiers .txt situés dans le répertoire %hadoop\_ho
 
 **Exécution de la tâche MapReduce avec PowerShell HDInsight**
 
-1.  Ouvrez Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][].
+1.  Ouvrez Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][Installation et configuration d'Azure PowerShell].
 2.  Exécutez les commandes suivantes pour définir les variables :
 
         $clusterName = "http://localhost:50111"
@@ -480,13 +480,13 @@ Le script PowerShell suivant effectue les tâches suivantes :
 
         PowerShell -File <FileName> -ExecutionPolicy RemoteSigned
 
-8.  Lorsque vous y êtes invité, entrez le nom d'utilisateur et le mot de passe du cluster HDInsight. Comme vous allez supprimer le cluster à la fin du script et que vous n'aurez plus besoin de ce nom d'utilisateur et de ce mot de passe, ils peuvent correspondre à n'importe quelle chaîne. Si vous ne voulez pas être invité à saisir les informations d'identification, consultez la page [Utilisation des mots de passe, des chaînes sécurisées et des informations d'identification dans Windows PowerShell][]
+8.  Lorsque vous y êtes invité, entrez le nom d'utilisateur et le mot de passe du cluster HDInsight. Comme vous allez supprimer le cluster à la fin du script et que vous n'aurez plus besoin de ce nom d'utilisateur et de ce mot de passe, ils peuvent correspondre à n'importe quelle chaîne. Si vous ne voulez pas être invité à saisir les informations d'identification, consultez la page [Utilisation des mots de passe, des chaînes sécurisées et des informations d'identification dans Windows PowerShell][Utilisation des mots de passe, des chaînes sécurisées et des informations d'identification dans Windows PowerShell]
 
-For a HDInsight .NET SDK sample on submitting Hadoop streaming jobs, see [Submit Hadoop jobs programmatically][].
+For a HDInsight .NET SDK sample on submitting Hadoop streaming jobs, see [Submit Hadoop jobs programmatically][Submit Hadoop jobs programmatically].
 
 ## <a name="retrieve"></a>Extraction du résultat de la tâche MapReduce
 
-Cette section montre comment télécharger et afficher le résultat. Pour obtenir les informations sur l'affichage des résultats sur Excel, consultez les articles [Connexion d'Excel à HDInsight avec le pilote ODBC Microsoft Hive][] et [Connexion d'Excel à HDInsight avec Power Query][].
+Cette section montre comment télécharger et afficher le résultat. Pour obtenir les informations sur l'affichage des résultats sur Excel, consultez les articles [Connexion d'Excel à HDInsight avec le pilote ODBC Microsoft Hive][Connexion d'Excel à HDInsight avec le pilote ODBC Microsoft Hive] et [Connexion d'Excel à HDInsight avec Power Query][Connexion d'Excel à HDInsight avec Power Query].
 
 **Extraction du résultat**
 
@@ -513,20 +513,20 @@ Cette section montre comment télécharger et afficher le résultat. Pour obteni
 
 Dans ce didacticiel, vous avez appris à développer une tâche MapReduce de diffusion en continu Hadoop, à tester l'application sur un émulateur HDInsight et à écrire un script PowerShell pour approvisionner un cluster HDInsight et exécuter une tâche MapReduce sur le cluster. Pour en savoir plus, consultez les articles suivants :
 
--   [Prise en main d'Azure HDInsight][]
--   [Prise en main de l'émulateur HDInsight][]
--   [Développement de programmes MapReduce en Java pour HDInsight][]
--   [Utilisation du stockage d'objets blob Azure avec HDInsight][]
--   [Administration de HDInsight à l'aide de PowerShell][]
--   [Téléchargement de données vers HDInsight][]
--   [Utilisation de Hive avec HDInsight][]
--   [Utilisation de Pig avec HDInsight][]
+-   [Prise en main d'Azure HDInsight][Prise en main d'Azure HDInsight]
+-   [Prise en main de l'émulateur HDInsight][Prise en main de l'émulateur HDInsight]
+-   [Développement de programmes MapReduce en Java pour HDInsight][Développement de programmes MapReduce en Java pour HDInsight]
+-   [Utilisation du stockage d'objets blob Azure avec HDInsight][Utilisation du stockage d'objets blob Azure avec HDInsight]
+-   [Administration de HDInsight à l'aide de PowerShell][Administration de HDInsight à l'aide de PowerShell]
+-   [Téléchargement de données vers HDInsight][Téléchargement de données vers HDInsight]
+-   [Utilisation de Hive avec HDInsight][Utilisation de Hive avec HDInsight]
+-   [Utilisation de Pig avec HDInsight][Utilisation de Pig avec HDInsight]
 
   [Prise en main de l'émulateur HDInsight]: ../hdinsight-get-started-emulator/
   [Installation et configuration d'Azure PowerShell]: ../install-configure-powershell/
-  [options d'achat]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [offres spéciales membres]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [version d'évaluation gratuite]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [options d'achat]: http://azure.microsoft.com/fr-fr/pricing/purchase-options/
+  [offres spéciales membres]: http://azure.microsoft.com/fr-fr/pricing/member-offers/
+  [version d'évaluation gratuite]: http://azure.microsoft.com/fr-fr/pricing/free-trial/
   [Développement d'un programme de diffusion en continu Hadoop pour le comptage de mots dans C#]: #develop
   [Test du programme sur l'émulateur]: #test
   [Téléchargement des données et des applications vers le stockage d'objets blob Azure]: #upload

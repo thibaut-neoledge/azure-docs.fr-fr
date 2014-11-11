@@ -1,48 +1,48 @@
 <properties linkid="develop-php-how-to-guides-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (PHP) - Azure" metaKeywords="" description="Learn how to use Service Bus topics with PHP in Azure." metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Utilisation des rubriques/abonnements Service Bus
 
 Ce guide vous montre comment utiliser les rubriques et les abonnements
-Service Bus. Les exemples sont écrits en PHP et utilisent le [Kit de développement logiciel (SDK) Azure pour PHP][]. Les scénarios couverts dans ce guide sont les suivants : **création de rubriques et d'abonnements**, **création de filtres d'abonnement**, **envoi de messages à une rubrique**, **réception de messages en provenance d'un abonnement** et **suppression de rubriques et d'abonnements**.
+Service Bus. Les exemples sont écrits en PHP et utilisent le [Kit de développement logiciel (SDK) Azure pour PHP][Kit de développement logiciel (SDK) Azure pour PHP]. Les scénarios couverts dans ce guide sont les suivants : **création de rubriques et d'abonnements**, **création de filtres d'abonnement**, **envoi de messages à une rubrique**, **réception de messages en provenance d'un abonnement** et **suppression de rubriques et d'abonnements**.
 
 ## Sommaire
 
--   [Présentation des rubriques et des abonnements Service Bus][]
--   [Création d'un espace de noms de service][]
--   [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms][]
--   [Création d'une application PHP][]
--   [Obtention des bibliothèques clientes Azure][]
--   [Configuration de votre application pour l'utilisation de Service Bus][]
--   [Création d'une rubrique][]
--   [Création d'un abonnement][]
--   [Envoi de messages à une rubrique][]
--   [Réception des messages d'un abonnement][]
--   [Gestion des blocages d'application et des messages illisibles][]
--   [Suppression de rubriques et d'abonnements][]
--   [Étapes suivantes][]
+-   [Présentation des rubriques et des abonnements Service Bus][Présentation des rubriques et des abonnements Service Bus]
+-   [Création d'un espace de noms de service][Création d'un espace de noms de service]
+-   [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms][Obtention d'informations d'identification de gestion par défaut pour l'espace de noms]
+-   [Création d'une application PHP][Création d'une application PHP]
+-   [Obtention des bibliothèques clientes Azure][Obtention des bibliothèques clientes Azure]
+-   [Configuration de votre application pour l'utilisation de Service Bus][Configuration de votre application pour l'utilisation de Service Bus]
+-   [Création d'une rubrique][Création d'une rubrique]
+-   [Création d'un abonnement][Création d'un abonnement]
+-   [Envoi de messages à une rubrique][Envoi de messages à une rubrique]
+-   [Réception des messages d'un abonnement][Réception des messages d'un abonnement]
+-   [Gestion des blocages d'application et des messages illisibles][Gestion des blocages d'application et des messages illisibles]
+-   [Suppression de rubriques et d'abonnements][Suppression de rubriques et d'abonnements]
+-   [Étapes suivantes][Étapes suivantes]
 
-[WACOM.INCLUDE [howto-service-bus-topics][]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <span id="CreateApplication"></span></a>Création d'une application PHP
 
-La référence de classes dans le [Kit de développement logiciel (SDK) Azure pour PHP][] constitue la seule exigence pour créer une application PHP qui accède au service Blob Azure dans votre code. Vous pouvez utiliser tous les outils de développement pour créer votre application, y compris Bloc-notes.
+La référence de classes dans le [Kit de développement logiciel (SDK) Azure pour PHP][Kit de développement logiciel (SDK) Azure pour PHP] constitue la seule exigence pour créer une application PHP qui accède au service Blob Azure dans votre code. Vous pouvez utiliser tous les outils de développement pour créer votre application, y compris Bloc-notes.
 
 > [WACOM.NOTE]
-> L'[extension OpenSSL][] doit également être installée et activée dans votre installation PHP.
+> L'[extension OpenSSL][extension OpenSSL] doit également être installée et activée dans votre installation PHP.
 
 Dans ce guide, vous allez utiliser des fonctionnalités de service qui peuvent être appelées dans une application PHP localement, ou dans du code qui s'exécute dans un rôle web, un rôle de travail ou un site web Azure.
 
 ## <span id="GetClientLibrary"></span></a>Obtention des bibliothèques clientes Azure
 
-[WACOM.INCLUDE [get-client-libraries][]]
+[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ## <span id="ConfigureApp"></span></a>Configuration de votre application pour l'utilisation de Service Bus
 
 Pour utiliser les API de rubrique Azure Service Bus, vous devez procéder comme suit :
 
-1.  référencer le fichier de chargeur automatique à l'aide de l'instruction [require\_once][] ; et
+1.  référencer le fichier de chargeur automatique à l'aide de l'instruction [require\_once][require\_once] ; et
 2.  référencer toute classe que vous êtes susceptible d'utiliser.
 
 L'exemple suivant montre comment inclure le fichier du chargeur automatique et référencer la classe **ServiceBusService**.
@@ -148,12 +148,12 @@ Le filtre **MatchAll** est le filtre utilisé par défaut si aucun filtre n'est 
 
 ### Création d'abonnements avec des filtres
 
-Vous pouvez également configurer des filtres pour spécifier quels sont les messages, parmi ceux envoyés à une rubrique, qui doivent apparaître dans un abonnement de rubrique spécifique. Parmi les types de filtre pris en charge par les abonnements, **SqlFilter** est le plus flexible ; il implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus d'informations sur SqlFilters, consultez la page [Propriété SqlExpression][].
+Vous pouvez également configurer des filtres pour spécifier quels sont les messages, parmi ceux envoyés à une rubrique, qui doivent apparaître dans un abonnement de rubrique spécifique. Parmi les types de filtre pris en charge par les abonnements, **SqlFilter** est le plus flexible ; il implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus d'informations sur SqlFilters, consultez la page [Propriété SqlExpression][Propriété SqlExpression].
 
     > [WACOM.NOTE]
     > Each rule on a subscription processes incoming messages independently, adding their result messages to the subscription. In addition, each new subscription has a default <b>Rule</b> with a filter that adds all messages from the topic to the subscription. To receive only messages matching your filter, you must remove the default rule. You can remove the default rule by using the <b>ServiceBusRestProxy->deleteRule</b> method.
 
-Dans l'exemple ci-dessous, l'abonnement « HighMessages » est créé avec un filtre **SqlFilter** qui sélectionne uniquement les messages dont la propriété personnalisée **MessageNumber** a une valeur supérieure à 3 (consultez la section [Envoi de messages à une rubrique][] pour plus d'informations sur l'ajout de propriétés personnalisées aux messages) :
+Dans l'exemple ci-dessous, l'abonnement « HighMessages » est créé avec un filtre **SqlFilter** qui sélectionne uniquement les messages dont la propriété personnalisée **MessageNumber** a une valeur supérieure à 3 (consultez la section [Envoi de messages à une rubrique][Envoi de messages à une rubrique] pour plus d'informations sur l'ajout de propriétés personnalisées aux messages) :
 
     $subscriptionInfo = new SubscriptionInfo("HighMessages");
     $serviceBusRestProxy->createSubscription("mytopic", $subscriptionInfo);
@@ -210,7 +210,7 @@ Pour envoyer un message à une rubrique Service Bus, votre application appelle l
         echo $code.": ".$error_message."<br />";
     }
 
-Les messages envoyés aux rubriques Service Bus sont des instances de la classe **BrokeredMessage**. Les objets **BrokeredMessage** possèdent un ensemble de propriétés et de méthodes standard (telles que **getLabel**, **getTimeToLive**, **setLabel** et **setTimeToLive**), ainsi que des propriétés pouvant être utilisées pour conserver les propriétés personnalisées propres à une application. L'exemple suivant montre comment envoyer cinq messages de test à la rubrique `mytopic` créée précédemment. La méthode **setProperty** est utilisée pour ajouter une propriété personnalisée (`MessageNumber`) à chaque message. Notez que la valeur de la propriété `MessageNumber` varie pour chaque message (cela peut être utilisé pour déterminer les abonnements qui le reçoivent, comme indiqué dans la section [Création d'un abonnement][] ci-dessus) :
+Les messages envoyés aux rubriques Service Bus sont des instances de la classe **BrokeredMessage**. Les objets **BrokeredMessage** possèdent un ensemble de propriétés et de méthodes standard (telles que **getLabel**, **getTimeToLive**, **setLabel** et **setTimeToLive**), ainsi que des propriétés pouvant être utilisées pour conserver les propriétés personnalisées propres à une application. L'exemple suivant montre comment envoyer cinq messages de test à la rubrique `mytopic` créée précédemment. La méthode **setProperty** est utilisée pour ajouter une propriété personnalisée (`MessageNumber`) à chaque message. Notez que la valeur de la propriété `MessageNumber` varie pour chaque message (cela peut être utilisé pour déterminer les abonnements qui le reçoivent, comme indiqué dans la section [Création d'un abonnement][Création d'un abonnement] ci-dessus) :
 
     for($i = 0; $i < 5; $i++){
         // Create message.
@@ -318,9 +318,8 @@ La méthode **deleteSubscription** permet de supprimer un abonnement de façon i
 ## <span id="NextSteps"></span></a>Étapes suivantes
 
 Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez la rubrique
-MSDN [Files d'attente, rubriques et abonnements Service Bus][] pour plus d'informations.
+MSDN [Files d'attente, rubriques et abonnements Service Bus][Files d'attente, rubriques et abonnements Service Bus] pour plus d'informations.
 
-  [Kit de développement logiciel (SDK) Azure pour PHP]: http://go.microsoft.com/fwlink/?LinkId=252473
   [Présentation des rubriques et des abonnements Service Bus]: #what-are-service-bus-topics
   [Création d'un espace de noms de service]: #create-a-service-namespace
   [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms]: #obtain-default-credentials
@@ -337,6 +336,5 @@ MSDN [Files d'attente, rubriques et abonnements Service Bus][] pour plus d'infor
   [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [extension OpenSSL]: http://php.net/openssl
   [get-client-libraries]: ../includes/get-client-libraries.md
-  [require\_once]: http://php.net/require_once
   [Propriété SqlExpression]: http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Files d'attente, rubriques et abonnements Service Bus]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367516.aspx

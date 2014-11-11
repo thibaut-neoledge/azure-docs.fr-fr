@@ -1,28 +1,29 @@
 <properties linkid="develop-dotnet-aspnet-mvc-4-mobile-website" urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle=".NET ASP.NET MVC 5 mobile website - Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="A tutorial that teaches you how to deploy a web application to an Azure website using mobile features in ASP.NET MVC 5 web application." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande" />
 
 # Déploiement d'une application Web mobile ASP.NET MVC 5 sur les sites Web Azure
 
 Ce didacticiel aborde les bases de la conception d'une application Web
 ASP.NET MVC 5 adaptée aux périphériques mobiles et son déploiement au sein de Microsoft Azure. Pour ce didacticiel, vous avez besoin de
-[Visual Studio Express 2013 pour le Web][]
+[Visual Studio Express 2013 pour le Web][Visual Studio Express 2013 pour le Web]
 ou de l'édition professionnelle de
 Visual Studio si vous l'avez déjà.
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ### Contenu
 
 Dans ce didacticiel, vous ajouterez des fonctionnalités
-mobiles à l'application simple de listes de conférence fournie dans le [projet de départ][]. La capture d'écran suivante illustre les sessions ASP.NET dans l'application
+mobiles à l'application simple de listes de conférence fournie dans le [projet de départ][projet de départ]. La capture d'écran suivante illustre les sessions ASP.NET dans l'application
 terminée telles qu'elles s'affichent dans l'émulateur de navigateur
 des outils destinés aux développeur F12 d'Internet Explorer 11.
 
-![][]
+![][0]
 
 Vous pouvez utiliser les outils destinés aux développeurs F12 d'Internet Explorer 11 et l'[outil
-Fiddler][]
+Fiddler][outil
+Fiddler]
 pour vous aider à déboguer votre application. 
 
 ### Compétences
@@ -41,39 +42,39 @@ Vous apprendrez les compétences suivantes :
 
 Configurez l'environnement de développement en installant le Kit de développement logiciel (SDK) Azure pour .NET Framework.
 
-1.  Pour installer le Kit de développement logiciel (SDK) Azure pour .NET, cliquez sur le lien ci-dessous. Si Visual Studio 2013 n'est pas encore installé, il le sera par l'intermédiaire de ce lien. Ce didacticiel nécessite Visual Studio 2013. [Kit de développement logiciel (SDK) Azure pour Visual Studio 2013][]
+1.  Pour installer le Kit de développement logiciel (SDK) Azure pour .NET, cliquez sur le lien ci-dessous. Si Visual Studio 2013 n'est pas encore installé, il le sera par l'intermédiaire de ce lien. Ce didacticiel nécessite Visual Studio 2013. [Kit de développement logiciel (SDK) Azure pour Visual Studio 2013][Kit de développement logiciel (SDK) Azure pour Visual Studio 2013]
 2.  Dans la fenêtre Web Platform Installer, cliquez sur **Installer**, puis poursuivez l’installation.
 
-    ![Web Platform Installer - Kit de développement logiciel (SDK) Azure pour .NET][]
+    ![Web Platform Installer - Kit de développement logiciel (SDK) Azure pour .NET][Web Platform Installer - Kit de développement logiciel (SDK) Azure pour .NET]
 
 Vous aurez également besoin d'un émulateur de navigateur mobile. Vous pouvez utiliser l'un
 des émulateurs suivants :
 
--   Émulateur de navigateur dans les [outils destinés aux développeur F12 d'Internet Explorer 11][]
+-   Émulateur de navigateur dans les [outils destinés aux développeur F12 d'Internet Explorer 11][outils destinés aux développeur F12 d'Internet Explorer 11]
     (utilisé dans toutes les captures d'écran de navigateur mobile). Il dispose de présélections de chaîne d'agent utilisateur pour Windows Phone 8, Windows Phone 7 et l'iPad d'Apple.
--   Émulateur de navigateur de [Google Chrome DevTools][]. Il inclut des présélections pour de nombreux périphériques Android, ainsi que pour l'iPhone d'Apple, l'iPad d'Apple et le Kindle Fire d'Amazon. Il émule également des événements tactiles.
--   [Émulateur mobile Opera][]
+-   Émulateur de navigateur de [Google Chrome DevTools][Google Chrome DevTools]. Il inclut des présélections pour de nombreux périphériques Android, ainsi que pour l'iPhone d'Apple, l'iPad d'Apple et le Kindle Fire d'Amazon. Il émule également des événements tactiles.
+-   [Émulateur mobile Opera][Émulateur mobile Opera]
 
 Les projets Visual Studio avec code source C# sont disponibles pour cette
 rubrique :
 
 -   [Téléchargement du projet de départ][projet de départ]
--   [Téléchargement du projet terminé][]
+-   [Téléchargement du projet terminé][Téléchargement du projet terminé]
 
 ## Étapes de ce didacticiel
 
--   [Déploiement du projet de départ sur un site Web Microsoft Azure][]
--   [Infrastructure CSS Bootstrap][]
--   [Remplacement des vues, des dispositions et des vues partielles][]
--   [Amélioration de la liste Intervenants][]
--   [Amélioration de la liste Balises][]
--   [Amélioration de la liste Dates][]
--   [Amélioration de la vue SessionsTable][]
--   [Amélioration de la vue SessionByCode][]
+-   [Déploiement du projet de départ sur un site Web Microsoft Azure][Déploiement du projet de départ sur un site Web Microsoft Azure]
+-   [Infrastructure CSS Bootstrap][Infrastructure CSS Bootstrap]
+-   [Remplacement des vues, des dispositions et des vues partielles][Remplacement des vues, des dispositions et des vues partielles]
+-   [Amélioration de la liste Intervenants][Amélioration de la liste Intervenants]
+-   [Amélioration de la liste Balises][Amélioration de la liste Balises]
+-   [Amélioration de la liste Dates][Amélioration de la liste Dates]
+-   [Amélioration de la vue SessionsTable][Amélioration de la vue SessionsTable]
+-   [Amélioration de la vue SessionByCode][Amélioration de la vue SessionByCode]
 
 ### <a name="bkmk_DeployStarterProject"></a>Déploiement du projet de départ sur un site Web Microsoft Azure
 
-1.  Téléchargez le [projet de départ][] de l'application de listes de conférence.
+1.  Téléchargez le [projet de départ][projet de départ] de l'application de listes de conférence.
 
 2.  Dans l'Explorateur Windows, cliquez ensuite avec le bouton droit sur le fichier Mvc5Mobile.zip et sélectionnez *Propriétés*.
 
@@ -187,7 +188,7 @@ est intégré au modèle de projet ASP.NET MVC 5. Votre application
 Web MVC 5 peut donc tirer parti de Bootstrap par défaut.
 
 Pour plus d'informations sur Bootstrap, rendez-vous sur le
-site de [Bootstrap][].
+site de [Bootstrap][Bootstrap].
 
 Cette section vous présente comment fournir des affichages spécialement adaptés aux
 périphériques mobiles.
@@ -352,7 +353,7 @@ vous allez adapter l'affichage *AllSpeakers* aux périphériques mobiles. Les
 liens seront plus grands, faciles à sélectionner
 et contiendront une zone de recherche pour trouver des intervenants rapidement.
 
-Vous pouvez utiliser le style [linked list group][] Bootstrap pour
+Vous pouvez utiliser le style [linked list group][linked list group] Bootstrap pour
 optimiser la vue *Intervenants*. Dans *Views\\Home\\AllSpeakers.cshtml*,
 remplacez le contenu du fichier Razor par le code ci-dessous.
 
@@ -379,7 +380,7 @@ Actualisez le navigateur mobile. L'affichage actualisé ressemble à ceci :
 
 ![][18]
 
-Avec le style [linked list group][] Bootstrap, toute la zone de chaque
+Avec le style [linked list group][linked list group] Bootstrap, toute la zone de chaque
 lien est cliquable, ce qui confère un confort d'utilisation optimal. Basculez vers l'affichage
 de bureau et jetez un œil à cet aspect cohérent.
 
@@ -417,7 +418,7 @@ connecter du code JavaScript pour la fonction de filtre. Dans
 
 Remarque : les styles Bootstrap ont été appliqués aux balises `<form>` et
 `<input>`. L'élément `<span>` ajoute un
-[glyphicon][] Bootstrap au champ
+[glyphicon][glyphicon] Bootstrap au champ
 de recherche.
 
 Dans le dossier *Scripts*, ajoutez un fichier JavaScript intitulé *filter.js*. Ouvrez
@@ -504,7 +505,7 @@ La vue du navigateur mobile actualisé se présente ainsi :
 
 Vous pouvez encore optimiser la vue *Dates*. Il vous suffit de classer les valeurs date-heure
 par date. Vous devez utiliser le style
-[panels][] Bootstrap. Remplacez
+[panels][panels] Bootstrap. Remplacez
 le contenu du fichier *Views\\Home\\AllDates.cshtm* par le
 code suivant :
 
@@ -535,7 +536,7 @@ code suivant :
     }
 
 Ce code crée une balise `<div class="panel panel-primary">` distincte pour
-chaque date de la liste et utilise le style [linked list group][] pour les
+chaque date de la liste et utilise le style [linked list group][linked list group] pour les
 liens respectifs, comme avant. Voici à quoi le navigateur mobile ressemble
 lorsque ce code est exécuté :
 
@@ -598,19 +599,19 @@ fichier par le code suivant :
 
 Le code se compose de trois étapes :
 
--   il utilise le style [custom linked list group][]
+-   il utilise le style [custom linked list group][custom linked list group]
     Bootstrap pour mettre en forme les informations de session de façon verticale. Ainsi, toutes ces
     informations sont lisibles sur un navigateur mobile (à l'aide de classes telles que list-group-item-text)
--   il applique le style [grid system][] à la
+-   il applique le style [grid system][grid system] à la
     disposition, afin que les éléments de session s'affichent à l'horizontale dans le navigateur
     de bureau et à la verticale dans le navigateur mobile (à l'aide de la classe col-md-4)
--   il utilise les [utilitaires réactifs][] pour
+-   il utilise les [utilitaires réactifs][utilitaires réactifs] pour
     masquer les balises de session lorsqu'elles s'affichent dans le navigateur mobile (à l'aide de la classe hidden-xs)
 
 Vous pouvez aussi appuyer sur le lien d'un titre pour accéder à la session associée. L'image
 qui suit reflète les changements réalisés à l'aide du code.
 
-![][]
+![][0]
 
 Le système de grille Bootstrap que vous avez automatiquement appliqué permet de classer les
 sessions à la verticale dans le navigateur mobile. En outre, vous remarquerez que les balises
@@ -633,7 +634,7 @@ champ de recherche.
 
 Appuyez sur le lien **ASP.NET**. Les sessions de balise ASP.NET s'affichent.
 
-![][]
+![][0]
 
 Choisissez le lien **Conception d'une application à page unique avec ASP.NET et
 AngularJS**.
@@ -708,12 +709,12 @@ Web adaptées aux périphériques mobiles. Vous avez notamment vu les points sui
 
 ## Voir aussi
 
--   Site [Bootstrap][]
--   [Blog Bootstrap officiel][]
--   [Tutoriel Bootstrap Twitter de Tutorial Republic][]
--   [The Bootstrap Playground][]
--   [Bonnes pratiques pour les applications Web mobiles des recommandations W3C][]
--   [W3C Candidate Recommendation des requêtes Média][]
+-   Site [Bootstrap][Bootstrap]
+-   [Blog Bootstrap officiel][Blog Bootstrap officiel]
+-   [Tutoriel Bootstrap Twitter de Tutorial Republic][Tutoriel Bootstrap Twitter de Tutorial Republic]
+-   [The Bootstrap Playground][The Bootstrap Playground]
+-   [Bonnes pratiques pour les applications Web mobiles des recommandations W3C][Bonnes pratiques pour les applications Web mobiles des recommandations W3C]
+-   [W3C Candidate Recommendation des requêtes Média][W3C Candidate Recommendation des requêtes Média]
 
 <!-- Internal Links -->
 <!-- External Links -->
@@ -722,10 +723,7 @@ Web adaptées aux périphériques mobiles. Vous avez notamment vu les points sui
   [Visual Studio Express 2013 pour le Web]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
   [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [projet de départ]: http://go.microsoft.com/fwlink/?LinkID=398780&clcid=0x409
-  []: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-Fixed.png
-  [outil Fiddler]: http://www.fiddler2.com/fiddler2/
-  [Kit de développement logiciel (SDK) Azure pour Visual Studio 2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
-  [Web Platform Installer - Kit de développement logiciel (SDK) Azure pour .NET]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk23NetVS13.png
+  [0]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-Fixed.png
   [outils destinés aux développeur F12 d'Internet Explorer 11]: http://msdn.microsoft.com/fr-fr/library/ie/dn255001.aspx
   [Google Chrome DevTools]: https://developers.google.com/chrome-developer-tools/docs/mobile-emulation
   [Émulateur mobile Opera]: http://www.opera.com/developer/tools/mobile/

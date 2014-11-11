@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-introduction-hdinsight" urlDisplayName="HDInsight Introduction" pageTitle="Introduction to Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how Azure HDInsight uses Apache Hadoop clusters in the cloud, to provide a software framework to manage, analyze, and report on big data." metaCanonical="" services="hdinsight" documentationCenter="" title="Introduction to Hadoop in HDInsight" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # Présentation de Hadoop dans HDInsight
 
@@ -45,11 +45,11 @@ Microsoft Power Query pour Excel est disponible pour l'importation de données d
 
 Cette rubrique décrit l'écosystème Hadoop pris en charge par HDInsight, les principaux scénarios d'utilisation de HDInsight et propose des liens vers d'autres ressources. Elle se compose des sections suivantes :
 
--   [Écosystème Hadoop sous HDInsight][] : HDInsight fournit des implémentations de Pig, Hive, Sqoop, Oozie et Ambari, et prend en charge d'autres outils décisionnels, tels que Microsoft Excel, SQL Server Analysis Services et Reporting Services, qui sont intégrés au stockage d'objets blob/à HDFS et à l'infrastructure MapReduce via Power Query ou le pilote ODBC Microsoft Hive. Cette section décrit les tâches qui sont traitées spécifiquement par ces programmes de l'écosystème Hadoop.
+-   [Écosystème Hadoop sous HDInsight][Écosystème Hadoop sous HDInsight] : HDInsight fournit des implémentations de Pig, Hive, Sqoop, Oozie et Ambari, et prend en charge d'autres outils décisionnels, tels que Microsoft Excel, SQL Server Analysis Services et Reporting Services, qui sont intégrés au stockage d'objets blob/à HDFS et à l'infrastructure MapReduce via Power Query ou le pilote ODBC Microsoft Hive. Cette section décrit les tâches qui sont traitées spécifiquement par ces programmes de l'écosystème Hadoop.
 
--   [Scénarios de données volumineuses pour HDInsight][] : cette section répond à la question suivante : pour quels types de tâches la technologie HDInsight est-elle appropriée ?
+-   [Scénarios de données volumineuses pour HDInsight][Scénarios de données volumineuses pour HDInsight] : cette section répond à la question suivante : pour quels types de tâches la technologie HDInsight est-elle appropriée ?
 
--   [Ressources relatives à HDInsight][] : cette section indique où trouver des ressources utiles pour obtenir des informations supplémentaires.
+-   [Ressources relatives à HDInsight][Ressources relatives à HDInsight] : cette section indique où trouver des ressources utiles pour obtenir des informations supplémentaires.
 
 ## <a name="Ecosystem">Écosystème Hadoop sur Azure </a>
 
@@ -63,15 +63,15 @@ Les autres technologies compatibles Apache et les technologies sœurs qui font p
 
 ### Pig
 
-Pig est une plateforme généraliste conçue pour traiter les données volumineuses sur les clusters Hadoop. Pig est à la fois un langage de flux de données appelé Pig Latin qui prend en charge l'écriture de requêtes sur les jeux de données volumineux, et un environnement d'exécution exécutant des programmes à partir d'une console. Les programmes Pig Latin se composent d'une série de transformations de jeux de données convertie discrètement en une série de programmes MapReduce. Les abstractions Pig Latin offrent des structures de données plus riches que MapReduce et sont pour Hadoop ce qu'est SQL pour les systèmes de gestion de base de données relationnelle (SGBDR). Pig Latin est entièrement extensible. Des fonctions définies par l'utilisateur (UDF), écrites en Java, Python, Ruby, C# ou JavaScript, peuvent être appelées pour personnaliser chaque étape du chemin de traitement lors de la composition de l'analyse. Pour plus d'informations, consultez la [page d'accueil d'Apache Pig][].
+Pig est une plateforme généraliste conçue pour traiter les données volumineuses sur les clusters Hadoop. Pig est à la fois un langage de flux de données appelé Pig Latin qui prend en charge l'écriture de requêtes sur les jeux de données volumineux, et un environnement d'exécution exécutant des programmes à partir d'une console. Les programmes Pig Latin se composent d'une série de transformations de jeux de données convertie discrètement en une série de programmes MapReduce. Les abstractions Pig Latin offrent des structures de données plus riches que MapReduce et sont pour Hadoop ce qu'est SQL pour les systèmes de gestion de base de données relationnelle (SGBDR). Pig Latin est entièrement extensible. Des fonctions définies par l'utilisateur (UDF), écrites en Java, Python, Ruby, C# ou JavaScript, peuvent être appelées pour personnaliser chaque étape du chemin de traitement lors de la composition de l'analyse. Pour plus d'informations, consultez la [page d'accueil d'Apache Pig][page d'accueil d'Apache Pig].
 
 ### Hive
 
-Hive est un entrepôt de données distribuées qui permet de gérer les données stockées dans un système HDFS. Il s'agit du moteur d'interrogation Hadoop. Hive, dont l'interface et le modèle de données relationnelles s'apparentent à ceux de SQL, s'adresse aux analystes rompus à SQL. Hive utilise un langage appelé HiveQL, qui est une variante de SQL. À l'instar de Pig, Hive est une abstraction qui s'appuie sur MapReduce et qui, lorsqu'elle est exécutée, transforme les requêtes en une série de tâches MapReduce. Les scénarios pour Hive étant plus proches dans l'esprit des scénarios SGBDR, il est recommandé de les utiliser avec des données plus structurées. Pour les données non structurées, Pig est un choix plus judicieux. Pour plus d'informations, consultez la [page d'accueil d'Apache Hive][].
+Hive est un entrepôt de données distribuées qui permet de gérer les données stockées dans un système HDFS. Il s'agit du moteur d'interrogation Hadoop. Hive, dont l'interface et le modèle de données relationnelles s'apparentent à ceux de SQL, s'adresse aux analystes rompus à SQL. Hive utilise un langage appelé HiveQL, qui est une variante de SQL. À l'instar de Pig, Hive est une abstraction qui s'appuie sur MapReduce et qui, lorsqu'elle est exécutée, transforme les requêtes en une série de tâches MapReduce. Les scénarios pour Hive étant plus proches dans l'esprit des scénarios SGBDR, il est recommandé de les utiliser avec des données plus structurées. Pour les données non structurées, Pig est un choix plus judicieux. Pour plus d'informations, consultez la [page d'accueil d'Apache Hive][page d'accueil d'Apache Hive].
 
 ### Sqoop
 
-Sqoop est un outil qui permet de transférer des données en bloc entre Hadoop et des bases de données relationnelles, telles que SQL ou d'autres banques de données structurées, avec une efficacité optimale. Utilisez Sqoop pour importer des données issues de banques de données structurées externes dans HDFS ou des systèmes analogues, comme Hive. Sqoop peut également extraire des données de Hadoop et les exporter vers des bases de données relationnelles externes, des entrepôts de données d'entreprise ou tout autre type de banque de données structurées. Pour plus d'informations, consultez le site web [Apache Sqoop][].
+Sqoop est un outil qui permet de transférer des données en bloc entre Hadoop et des bases de données relationnelles, telles que SQL ou d'autres banques de données structurées, avec une efficacité optimale. Utilisez Sqoop pour importer des données issues de banques de données structurées externes dans HDFS ou des systèmes analogues, comme Hive. Sqoop peut également extraire des données de Hadoop et les exporter vers des bases de données relationnelles externes, des entrepôts de données d'entreprise ou tout autre type de banque de données structurées. Pour plus d'informations, consultez le site web [Apache Sqoop][Apache Sqoop].
 
 ### Oozie
 
@@ -79,25 +79,25 @@ Apache Oozie est un système de workflow/coordination qui gère les tâches Hado
 
 ### Ambari
 
-Apache Ambari est destiné à l'approvisionnement, à la gestion et à la surveillance des clusters Apache Hadoop. Il comprend une collection intuitive d'outils d'opérateurs et un solide jeu d'API qui masque la complexité de Hadoop, en simplifiant le fonctionnement des clusters. Pour plus d'informations sur les API, consultez la page [Référence des API Ambari][]. HDInsight prend actuellement en charge la fonctionnalité de surveillance Ambari uniquement. La version 1.0 de l'API Ambari est prise en charge par les versions 2.1 et 3.0 du cluster HDInsight. Pour plus d'informations sur Ambari, consultez le site web [Apache Ambari][].
+Apache Ambari est destiné à l'approvisionnement, à la gestion et à la surveillance des clusters Apache Hadoop. Il comprend une collection intuitive d'outils d'opérateurs et un solide jeu d'API qui masque la complexité de Hadoop, en simplifiant le fonctionnement des clusters. Pour plus d'informations sur les API, consultez la page [Référence des API Ambari][Référence des API Ambari]. HDInsight prend actuellement en charge la fonctionnalité de surveillance Ambari uniquement. La version 1.0 de l'API Ambari est prise en charge par les versions 2.1 et 3.0 du cluster HDInsight. Pour plus d'informations sur Ambari, consultez le site web [Apache Ambari][Apache Ambari].
 
 ### Microsoft Avro Library
 
-Microsoft Avro Library met en œuvre le système de sérialisation des données Apache Avro pour l'environnement Microsoft.NET. Apache Avro fournit un format compact d'échange des données binaires pour la sérialisation. Il utilise [JSON][] pour définir un schéma sans langage spécifié qui assure l'interopérabilité des langages. Les données sérialisées dans un langage peuvent être lues dans un autre langage. Les langages C, C++, C#, Java, PHP, Python et Ruby sont actuellement pris en charge. Vous pouvez trouver des informations détaillées sur ce format dans la [Spécification Apache Avro][]. Notez que la version actuelle de Microsoft Avro Library ne prend pas en charge la partie RPC (appels de procédure distante) de cette spécification.
+Microsoft Avro Library met en œuvre le système de sérialisation des données Apache Avro pour l'environnement Microsoft.NET. Apache Avro fournit un format compact d'échange des données binaires pour la sérialisation. Il utilise [JSON][JSON] pour définir un schéma sans langage spécifié qui assure l'interopérabilité des langages. Les données sérialisées dans un langage peuvent être lues dans un autre langage. Les langages C, C++, C#, Java, PHP, Python et Ruby sont actuellement pris en charge. Vous pouvez trouver des informations détaillées sur ce format dans la [Spécification Apache Avro][Spécification Apache Avro]. Notez que la version actuelle de Microsoft Avro Library ne prend pas en charge la partie RPC (appels de procédure distante) de cette spécification.
 
-Le format de sérialisation Apache Avro est largement utilisé dans Azure HDInsight et les autres environnements Apache Hadoop. Avro offre un moyen pratique pour représenter des structures de données complexes dans une tâche Hadoop MapReduce. Le format des fichiers Avro a été conçu pour prendre en charge le modèle de programmation MapReduce distribué. La fonctionnalité clé qui permet la distribution est la possibilité de fractionner les fichiers : il est ainsi possible de rechercher un point quelconque dans un fichier et de commencer la lecture à partir d'un bloc particulier. Pour des informations supplémentaires, consultez la page [Sérialisation des données avec Microsoft Avro Library][].
+Le format de sérialisation Apache Avro est largement utilisé dans Azure HDInsight et les autres environnements Apache Hadoop. Avro offre un moyen pratique pour représenter des structures de données complexes dans une tâche Hadoop MapReduce. Le format des fichiers Avro a été conçu pour prendre en charge le modèle de programmation MapReduce distribué. La fonctionnalité clé qui permet la distribution est la possibilité de fractionner les fichiers : il est ainsi possible de rechercher un point quelconque dans un fichier et de commencer la lecture à partir d'un bloc particulier. Pour des informations supplémentaires, consultez la page [Sérialisation des données avec Microsoft Avro Library][Sérialisation des données avec Microsoft Avro Library].
 
 ### Connecteurs et outils décisionnels
 
 Les outils décisionnels courants que sont Excel, PowerPivot, SQL Server Analysis Services et Reporting Services permettent de récupérer des données intégrées à HDInsight, de les analyser et de générer des rapports à leur sujet via le complément Power Query ou le pilote ODBC Microsoft Hive.
 
--   Microsoft Power Query pour Excel peut être téléchargé depuis le [Centre de téléchargement Microsoft][].
+-   Microsoft Power Query pour Excel peut être téléchargé depuis le [Centre de téléchargement Microsoft][Centre de téléchargement Microsoft].
 
--   Le pilote ODBC Microsoft Hive peut être téléchargé depuis ce [site de téléchargement][].
+-   Le pilote ODBC Microsoft Hive peut être téléchargé depuis ce [site de téléchargement][site de téléchargement].
 
--   Pour plus d'informations sur Analysis Services, consultez la page [SQL Server 2012 Analysis Services][].
+-   Pour plus d'informations sur Analysis Services, consultez la page [SQL Server 2012 Analysis Services][SQL Server 2012 Analysis Services].
 
--   Pour plus d'informations sur Reporting Services, consultez la page [SQL Server 2012 Reporting][].
+-   Pour plus d'informations sur Reporting Services, consultez la page [SQL Server 2012 Reporting][SQL Server 2012 Reporting].
 
 ## <a name="Scenarios"></a>Scénarios de données volumineuses pour HDInsight
 
@@ -111,47 +111,47 @@ HDInsight (et les technologies Hadoop en général) est particulièrement indiqu
 
 **Microsoft : HDInsight**
 
--   [Documentation HDInsight][] : page de documentation sur Azure HDInsight proposant des liens vers des articles, des vidéos et d'autres ressources.
+-   [Documentation HDInsight][Documentation HDInsight] : page de documentation sur Azure HDInsight proposant des liens vers des articles, des vidéos et d'autres ressources.
 
--   [Notes de publication de HDInsight][] : notes sur les dernières versions.
+-   [Notes de publication de HDInsight][Notes de publication de HDInsight] : notes sur les dernières versions.
 
--   [Prise en main d'Azure HDInsight][] : didacticiel permettant de prendre rapidement en main HDInsight.
+-   [Prise en main d'Azure HDInsight][Prise en main d'Azure HDInsight] : didacticiel permettant de prendre rapidement en main HDInsight.
 
--   [Exécution des exemples HDInsight][] : didacticiel expliquant comment exécuter les exemples fournis avec HDInsight.
+-   [Exécution des exemples HDInsight][Exécution des exemples HDInsight] : didacticiel expliquant comment exécuter les exemples fournis avec HDInsight.
 
--   [Données volumineuses et Azure][] : scénarios de données volumineuses explorant les diverses possibilités de création offertes par Azure.
+-   [Données volumineuses et Azure][Données volumineuses et Azure] : scénarios de données volumineuses explorant les diverses possibilités de création offertes par Azure.
 
--   [Kit de développement logiciel (SDK) Azure HDInsight][] : documentation de référence pour le Kit de développement logiciel (SDK) HDinsight.
+-   [Kit de développement logiciel (SDK) Azure HDInsight][Kit de développement logiciel (SDK) Azure HDInsight] : documentation de référence pour le Kit de développement logiciel (SDK) HDinsight.
 
 **Microsoft : Windows et base de données SQL**
 
--   [Page d'accueil Azure][] : scénarios, inscription pour une évaluation gratuite, outils de développement et documentation nécessaires pour se lancer dans la création d'applications.
+-   [Page d'accueil Azure][Page d'accueil Azure] : scénarios, inscription pour une évaluation gratuite, outils de développement et documentation nécessaires pour se lancer dans la création d'applications.
 
--   [Base de données SQL Azure][] : documentation MSDN pour la base de données SQL.
+-   [Base de données SQL Azure][Base de données SQL Azure] : documentation MSDN pour la base de données SQL.
 
--   [Portail de gestion pour la base de données SQL][] : outil de gestion de base de données léger et simple d'utilisation pour gérer la base de données SQL dans le cloud.
+-   [Portail de gestion pour la base de données SQL][Portail de gestion pour la base de données SQL] : outil de gestion de base de données léger et simple d'utilisation pour gérer la base de données SQL dans le cloud.
 
--   [Adventure Works pour la base de données SQL][] : page de téléchargement de l'exemple de base de données SQL.
+-   [Adventure Works pour la base de données SQL][Adventure Works pour la base de données SQL] : page de téléchargement de l'exemple de base de données SQL.
 
 **Microsoft : décisionnel**
 
--   [Connexion d'Excel à HDInsight à l'aide de Power Query][] : apprenez à connecter Excel au compte de stockage Azure dans lequel sont stockées les données associées à votre cluster HDInsight via Microsoft Power Query pour Excel.
+-   [Connexion d'Excel à HDInsight à l'aide de Power Query][Connexion d'Excel à HDInsight à l'aide de Power Query] : apprenez à connecter Excel au compte de stockage Azure dans lequel sont stockées les données associées à votre cluster HDInsight via Microsoft Power Query pour Excel.
 
--   [Connexion d'Excel à HDInsight à l'aide du pilote ODBC Microsoft Hive][] : apprenez à importer des données à partir d'Azure HDInsight avec le pilote ODBC Microsoft Hive.
+-   [Connexion d'Excel à HDInsight à l'aide du pilote ODBC Microsoft Hive][Connexion d'Excel à HDInsight à l'aide du pilote ODBC Microsoft Hive] : apprenez à importer des données à partir d'Azure HDInsight avec le pilote ODBC Microsoft Hive.
 
--   [Microsoft BI PowerPivot][] : téléchargez et obtenez des informations sur une application Web hybride et un puissant outil d'exploration de données.
+-   [Microsoft BI PowerPivot][Microsoft BI PowerPivot] : téléchargez et obtenez des informations sur une application Web hybride et un puissant outil d'exploration de données.
 
 -   [SQL Server 2012 Analysis Services][SQL Server 2012 Analysis Services] : téléchargez une copie d'évaluation de SQL Server 2012 et apprenez à créer des solutions analytiques complètes à l'échelle de l'entreprise qui fournissent des informations exploitables.
 
--   [SQL Server 2012 Reporting][] : téléchargez une copie d'évaluation de SQL Server 2012 et apprenez à créer des solutions complètes hautement évolutives qui permettent de prendre des décisions en temps réel à l'échelle de l'entreprise.
+-   [SQL Server 2012 Reporting][SQL Server 2012 Reporting] : téléchargez une copie d'évaluation de SQL Server 2012 et apprenez à créer des solutions complètes hautement évolutives qui permettent de prendre des décisions en temps réel à l'échelle de l'entreprise.
 
 **Apache Hadoop** :
 
--   [Apache Hadoop][] : découvrez plus en détail la bibliothèque de logiciels Apache Hadoop, infrastructure autorisant le traitement distribué de jeux de données volumineux sur des clusters d'ordinateurs.
+-   [Apache Hadoop][Apache Hadoop] : découvrez plus en détail la bibliothèque de logiciels Apache Hadoop, infrastructure autorisant le traitement distribué de jeux de données volumineux sur des clusters d'ordinateurs.
 
--   [HDFS][] : découvrez plus en détail l'architecture et la conception du système HDFS (Hadoop Distributed File System), principal système de stockage utilisé par les applications Hadoop.
+-   [HDFS][HDFS] : découvrez plus en détail l'architecture et la conception du système HDFS (Hadoop Distributed File System), principal système de stockage utilisé par les applications Hadoop.
 
--   [MapReduce][] : découvrez plus en détail l'infrastructure de programmation pour écrire des applications Hadoop qui autorisent un traitement rapide et en parallèle de vastes quantités de données sur des clusters de nœuds de calcul volumineux.
+-   [MapReduce][MapReduce] : découvrez plus en détail l'infrastructure de programmation pour écrire des applications Hadoop qui autorisent un traitement rapide et en parallèle de vastes quantités de données sur des clusters de nœuds de calcul volumineux.
 
   [Écosystème Hadoop sous HDInsight]: #Ecosystem
   [Scénarios de données volumineuses pour HDInsight]: #Scenarios
@@ -167,20 +167,19 @@ HDInsight (et les technologies Hadoop en général) est particulièrement indiqu
   [Centre de téléchargement Microsoft]: http://go.microsoft.com/fwlink/?LinkID=286689
   [site de téléchargement]: http://go.microsoft.com/fwlink/?LinkID=286698
   [SQL Server 2012 Analysis Services]: http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-analysis-services.aspx
-  [SQL Server 2012 Reporting]: http://www.microsoft.com/en-us/sqlserver/solutions-technologies/business-intelligence/reporting.aspx
+  [SQL Server 2012 Reporting]: http://www.microsoft.com/fr-fr/sqlserver/solutions-technologies/business-intelligence/reporting.aspx
   [Documentation HDInsight]: http://go.microsoft.com/fwlink/?LinkID=285601
   [Notes de publication de HDInsight]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-release-notes/
   [Prise en main d'Azure HDInsight]: ../hdinsight-get-started/
   [Exécution des exemples HDInsight]: ../hdinsight-run-samples/
-  [Données volumineuses et Azure]: http://azure.microsoft.com/en-us/solutions/big-data/
-  [Kit de développement logiciel (SDK) Azure HDInsight]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
-  [Page d'accueil Azure]: http://azure.microsoft.com/en-us/
-  [Base de données SQL Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx
-  [Portail de gestion pour la base de données SQL]: http://msdn.microsoft.com/en-us/library/windowsazure/gg442309.aspx
+  [Données volumineuses et Azure]: http://azure.microsoft.com/fr-fr/solutions/big-data/
+  [Page d'accueil Azure]: http://azure.microsoft.com/fr-fr/
+  [Base de données SQL Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336279.aspx
+  [Portail de gestion pour la base de données SQL]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg442309.aspx
   [Adventure Works pour la base de données SQL]: http://msftdbprodsamples.codeplex.com/releases/view/37304
   [Connexion d'Excel à HDInsight à l'aide de Power Query]: ../hdinsight-connect-excel-power-query/
   [Connexion d'Excel à HDInsight à l'aide du pilote ODBC Microsoft Hive]: ../hdinsight-connect-excel-hive-ODBC-driver/
-  [Microsoft BI PowerPivot]: http://www.microsoft.com/en-us/bi/PowerPivot.aspx
+  [Microsoft BI PowerPivot]: http://www.microsoft.com/fr-fr/bi/PowerPivot.aspx
   [SQL Server 2012 Reporting]: http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-reporting-services.aspx
   [Apache Hadoop]: http://hadoop.apache.org/
   [HDFS]: http://hadoop.apache.org/docs/r0.18.1/hdfs_design.html

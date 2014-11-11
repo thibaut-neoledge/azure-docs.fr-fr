@@ -1,6 +1,6 @@
 <properties title="How to use Giraph with HDInsight" pageTitle="How to use Apache Giraph with Azure HDInsight" description="Learn how to use Apache Giraph to perform graph processing with Azure HDInsight" metaKeywords="Azure HDInsight Apache Giraph, hdinsight giraph, hdinsight graph, hadoop giraph, azure hadoop, hadoop graph" services="hdinsight" solutions="big-data" documentationCenter="" authors="larryfr" videoId="" scriptId="" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/14/2014" ms.author="larryfr"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/14/2014" ms.author="larryfr" />
 
 ## Utilisation de Apache Giraph avec Azure HDInsight (Hadoop)
 
@@ -211,7 +211,6 @@ Maintenant que vous savez utiliser Giraph avec HDInsight, essayez [Pig][Pig] et 
   [Pregel]: http://people.apache.org/~edwardyoon/documents/pregel.pdf
   [branche de la version 1.1]: https://github.com/apache/giraph/tree/release-1.1
   [graphique dirigé]: http://en.wikipedia.org/wiki/Directed_graph
-  [tiny\_graph.txt drawn as circles with lines of varying distance between]: .\media\hdinsight-giraph\giraph-graph.png
   [Drawing of objects as circles with shortest paths drawn between]: .\media\hdinsight-giraph\giraph-graph-out.png
   [portail de gestion Azure]: https://manage.windowsazure.com
   [Nouveautés des versions de cluster HDInsight]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-component-versioning/

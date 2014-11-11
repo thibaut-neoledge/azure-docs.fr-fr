@@ -1,6 +1,6 @@
 <properties linkid="develop-dotnet-performance" urlDisplayName="Performance" pageTitle="Performance best practices - Azure" metaKeywords="Azure optimization, Azure best practice performance" description="Learn about best practices for performance in Azure." metaCanonical="" services="cloud-services,sql-database,storage,service-bus,virtual-network" documentationCenter=".NET" title="" authors="robb" solutions="" manager="johndaw" editor="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb" />
 
 # Meilleures pratiques pour les performances dans les applications Azure
 
@@ -351,7 +351,6 @@ Autres ressources
   [Mise en cache Azure – Considérations sur les performances]: http://go.microsoft.com/fwlink/?LinkId=252681
   [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences]: http://go.microsoft.com/fwlink/?LinkId=252682
   [Meilleures pratiques relatives aux améliorations de performances à l'aide de la messagerie répartie Service Bus]: http://go.microsoft.com/fwlink/?LinkID=252683
-  [Données volumineuses (« Big Data »)]: /fr-fr/solutions/big-data/
   [Service Azure HDInsight]: /fr-fr/documentation/services/hdinsight/
   [Prise en main du service Azure HDInsight]: /fr-fr/documentation/articles/hdinsight-get-started/
   [Familiarisation avec NoSQL sur Azure]: http://go.microsoft.com/fwlink/?LinkId=252729

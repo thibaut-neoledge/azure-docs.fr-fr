@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-app-with-django" urlDisplayName="Web with Django (Windows)" pageTitle="Python web app with Django - Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" description="A tutorial that teaches you how to host a Django-based website on Azure using a Windows Server 2008 R2 virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Application Web Django Hello World
 
@@ -19,22 +19,22 @@ Web Hello World simple. L'application sera hébergée sur une machine virtuelle 
 
 Voici une capture d'écran de l'application terminée :
 
-![Fenêtre de navigateur affichant la page Hello World sous Azure][]
+![Fenêtre de navigateur affichant la page Hello World sous Azure][Fenêtre de navigateur affichant la page Hello World sous Azure]
 
-[WACOM.INCLUDE [create-account-and-vms-note][]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Création et configuration d'une machine virtuelle Azure pour héberger Django
 
-1.  Suivez les instructions disponibles [ici][] pour créer une machine virtuelle Azure de distribution *Windows Server 2012 Datacenter*.
+1.  Suivez les instructions disponibles [ici][ici] pour créer une machine virtuelle Azure de distribution *Windows Server 2012 Datacenter*.
 
 2.  Indiquez à Azure d'acheminer le trafic du port **80** du Web vers le port **80** de la machine virtuelle :
 
 	-   Accédez à votre machine virtuelle nouvellement créée dans le portail Azure et cliquez sur l'onglet *ENDPOINTS*.
 	-   Cliquez sur le bouton *ADD ENDPOINT* en bas de l'écran.
-    	![Ajouter un point de terminaison][]
+    	![Ajouter un point de terminaison][Ajouter un point de terminaison]
 
 	-   Ouvrez le *PORT PUBLIC 80* du protocole *TCP* en tant que *PORT PRIVÉ 80*.
-    	![][]
+    	![][0]
 
 1.  Utilisez le *Bureau à distance* Windows pour vous connecter à distance à la machine virtuelle Azure que vous venez de créer.
 
@@ -42,7 +42,7 @@ Voici une capture d'écran de l'application terminée :
 
 ## <span id="setup"></span> </a>Configuration de l'environnement de développement
 
-Pour plus d'informations sur la configuration des environnements Python et Django, consultez le [Guide d'installation][].
+Pour plus d'informations sur la configuration des environnements Python et Django, consultez le [Guide d'installation][Guide d'installation].
 
 **Remarque 1 :** sur la machine virtuelle Azure, vous devez *uniquement* installer le produit **Django** à partir de Windows WebPI pour que *ce* didacticiel fonctionne.
 
@@ -72,13 +72,13 @@ Pour plus d'informations sur la configuration des environnements Python et Djang
 
     Les éléments suivants doivent s'afficher :
 
-    ![IIS config1][]
+    ![IIS config1][IIS config1]
 
 6.  Spécifiez le gestionnaire WSGI à utiliser par la passerelle FastCGI-WSGI :
 
         %windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python27\python.exe', arguments='C:\Python27\Scripts\wfastcgi.py'].environmentVariables.[name='WSGI_HANDLER',value='django.core.handlers.wsgi.WSGIHandler()']" /commit:apphost
 
-7.  Téléchargez le fichier wfastcgi.py depuis [codeplex][] et enregistrez-le sous C:\\Python27\\Scripts. Il s'agit de l'emplacement des commandes précédemment utilisées pour enregistrer le gestionnaire FastCGI. Vous pouvez également l'installer via Web Platform Installer. Recherchez « WFastCGI ».
+7.  Téléchargez le fichier wfastcgi.py depuis [codeplex][codeplex] et enregistrez-le sous C:\\Python27\\Scripts. Il s'agit de l'emplacement des commandes précédemment utilisées pour enregistrer le gestionnaire FastCGI. Vous pouvez également l'installer via Web Platform Installer. Recherchez « WFastCGI ».
 
 ## Création d'une application Django
 
@@ -90,7 +90,7 @@ Pour plus d'informations sur la configuration des environnements Python et Djang
 
     C:\\Python27\\python.exe -m django.bin.django-admin startproject DjangoApplication
 
-    ![Résultat de la commande New-AzureService][]
+    ![Résultat de la commande New-AzureService][Résultat de la commande New-AzureService]
 
 	Le script **django-admin.py** génère une structure de base pour les sites Web Django :
 
@@ -115,19 +115,17 @@ Pour plus d'informations sur la configuration des environnements Python et Djang
 
 3.  Enfin, chargez la page Web dans votre navigateur.
 
-![Fenêtre de navigateur affichant la page Hello World sous Azure][]
+![Fenêtre de navigateur affichant la page Hello World sous Azure][Fenêtre de navigateur affichant la page Hello World sous Azure]
 
 ## Arrêt de la machine virtuelle Azure
 
 Lorsque vous avez terminé ce didacticiel, arrêtez et/ou supprimez votre machine virtuelle Azure nouvellement créée afin de libérer des ressources pour d'autres didacticiels et éviter l'ajout de charges d'utilisation Azure.
 
-  [Windows]: /fr-fr/develop/python/tutorials/web-app-with-django/ "Windows"
-  [Mac/Linux]: /fr-fr/develop/python/tutorials/django-hello-world-(maclinux)/ "MacLinux"
   [Fenêtre de navigateur affichant la page Hello World sous Azure]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-browser-azure.png
   [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [ici]: /fr-fr/manage/windows/tutorials/virtual-machine-from-gallery/
   [Ajouter un point de terminaison]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png
-  []: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-port80.png
+  [0]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-port80.png
   [Guide d'installation]: ../python-how-to-install/
   [IIS config1]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-iis1.png
   [codeplex]: http://go.microsoft.com/fwlink/?LinkID=316392&clcid=0x409

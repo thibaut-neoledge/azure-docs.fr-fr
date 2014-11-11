@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-monitor-websites" urlDisplayName="How to monitor" pageTitle="How to monitor websites - Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Learn how to monitor Azure websites by using the Monitor page in the Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # <a name="howtomonitor"></a>Surveillance de sites Web
 
@@ -8,17 +8,17 @@ Les sites Web proposent une fonctionnalité de surveillance via une page d'admin
 
 ## Sommaire
 
--   [Ajout des mesures d'un site Web][]
--   [Réception d'alertes générées à partir des mesures d'un site Web][]
--   [Affichage des quotas d'utilisation d'un site Web][]
--   [Réduction de l'utilisation des ressources][]
--   [Scénario dans lequel un quota d'utilisation des ressources est dépassé][]
--   [Configuration des diagnostics et téléchargement des journaux d'un site Web][]
--   [Surveillance de l'état d'un point de terminaison Web][]
+-   [Ajout des mesures d'un site Web][Ajout des mesures d'un site Web]
+-   [Réception d'alertes générées à partir des mesures d'un site Web][Réception d'alertes générées à partir des mesures d'un site Web]
+-   [Affichage des quotas d'utilisation d'un site Web][Affichage des quotas d'utilisation d'un site Web]
+-   [Réduction de l'utilisation des ressources][Réduction de l'utilisation des ressources]
+-   [Scénario dans lequel un quota d'utilisation des ressources est dépassé][Scénario dans lequel un quota d'utilisation des ressources est dépassé]
+-   [Configuration des diagnostics et téléchargement des journaux d'un site Web][Configuration des diagnostics et téléchargement des journaux d'un site Web]
+-   [Surveillance de l'état d'un point de terminaison Web][Surveillance de l'état d'un point de terminaison Web]
 
 ## <a name="websitemetrics"></a> Ajout des mesures d'un site Web
 
-1.  Dans le [portail de gestion Azure][], depuis les pages d'administration du site Web, cliquez sur l'onglet **Surveiller** pour afficher la page d'administration **Surveiller**. Par défaut, le graphique de la page **Monitor** affiche les mêmes mesures que celui de la page **Tableau de bord**.
+1.  Dans le [portail de gestion Azure][portail de gestion Azure], depuis les pages d'administration du site Web, cliquez sur l'onglet **Surveiller** pour afficher la page d'administration **Surveiller**. Par défaut, le graphique de la page **Monitor** affiche les mêmes mesures que celui de la page **Tableau de bord**.
 
 2.  Pour afficher des mesures supplémentaires concernant le site Web, cliquez sur **Ajouter des métriques** au bas de la page. La boîte de dialogue **Choisir des métriques** apparaît.
 
@@ -47,14 +47,14 @@ La liste suivante présente les mesures qui peuvent apparaître dans le graphiqu
 
 ## <a name="howtoreceivealerts"></a> Réception d'alertes générées à partir des mesures d'un site Web
 
-En mode **Standard** du site Web, vous pouvez recevoir des alertes en fonction des indicateurs de surveillance de votre site Web. La fonction d'alerte requiert le paramétrage préalable de la surveillance d'un point de terminaison Web, à effectuer dans la section **Monitoring** de la page **Configure**. Sur la page **Paramètres** du portail de gestion Azure, vous pouvez alors créer une règle pour déclencher une alerte lorsque la mesure de votre choix atteint une valeur définie. Vous pouvez également paramétrer l'envoi d'un courrier électronique lorsque l'alerte est déclenchée. Pour plus d'informations, consultez la page [Réception de notifications d'alerte et gestion des règles d'alerte dans Azure][].
+En mode **Standard** du site Web, vous pouvez recevoir des alertes en fonction des indicateurs de surveillance de votre site Web. La fonction d'alerte requiert le paramétrage préalable de la surveillance d'un point de terminaison Web, à effectuer dans la section **Monitoring** de la page **Configure**. Sur la page **Paramètres** du portail de gestion Azure, vous pouvez alors créer une règle pour déclencher une alerte lorsque la mesure de votre choix atteint une valeur définie. Vous pouvez également paramétrer l'envoi d'un courrier électronique lorsque l'alerte est déclenchée. Pour plus d'informations, consultez la page [Réception de notifications d'alerte et gestion des règles d'alerte dans Azure][Réception de notifications d'alerte et gestion des règles d'alerte dans Azure].
 
 ## <a name="howtoviewusage"></a> Affichage des quotas d'utilisation d'un site Web
 
 Les sites Web peuvent être configurés pour s'exécuter en mode **Partagé** ou **Standard** à partir de la page d'administration **Mettre à l'échelle** du site Web. Chaque abonnement Azure donne accès à une réserve de ressources dans le but d'exécuter jusqu'à 100 sites Web par région en mode **Partagé**. La réserve de ressources disponibles pour chaque abonnement au site Web dans ce but est partagée par d'autres sites Web de la même région géographique qui sont configurés pour s'exécuter en mode **Partagé**. Ces ressources étant partagées pour utilisation par d'autres sites Web, tous les abonnements sont limités dans leur utilisation. Les limites appliquées à l'utilisation de ces ressources par abonnement sont exprimées sous forme de quotas d'utilisation, répertoriés dans la section de la liste des utilisations de la page d'administration **Tableau de bord** de chaque site Web.
 
 **Remarque**
-Lorsqu'un site Web est configuré pour s'exécuter en mode **Standard**, le volume de ressources qui lui est dédié est équivalent aux tailles **Petite** (par défaut), **Moyenne** ou **Grande** de machines virtuelles répertoriées dans le tableau de la page [Tailles de machines virtuelles et services cloud pour Microsoft Azure][]. Aucune limite n'est fixée concernant les ressources qu'un abonnement peut utiliser pour exécuter des sites Web en mode **Standard**. Toutefois, le nombre de sites Web en mode **Standard** pouvant être créé par région est limité à 500.
+Lorsqu'un site Web est configuré pour s'exécuter en mode **Standard**, le volume de ressources qui lui est dédié est équivalent aux tailles **Petite** (par défaut), **Moyenne** ou **Grande** de machines virtuelles répertoriées dans le tableau de la page [Tailles de machines virtuelles et services cloud pour Microsoft Azure][Tailles de machines virtuelles et services cloud pour Microsoft Azure]. Aucune limite n'est fixée concernant les ressources qu'un abonnement peut utiliser pour exécuter des sites Web en mode **Standard**. Toutefois, le nombre de sites Web en mode **Standard** pouvant être créé par région est limité à 500.
 
 ### Affichage des quotas d'utilisation de sites Web configurés en mode Partagé
 
@@ -114,7 +114,7 @@ Vous pouvez activer ou désactiver les diagnostics d'application suivants :
 
     Pour spécifier le compte de stockage Azure et l'objet blob, choisissez **On**, sélectionnez **Logging Level**, puis choisissez **Manage Blob Storage**. Spécifiez le compte de stockage, le conteneur d'objets blob et le nom de l'objet blob à utiliser, ou créez un nouveau conteneur et un objet blob.
 
-Pour plus d’informations sur les comptes de stockage Azure, consultez la page [Gestion des comptes de stockage][].
+Pour plus d’informations sur les comptes de stockage Azure, consultez la page [Gestion des comptes de stockage][Gestion des comptes de stockage].
 
 <div class="dev-callout"> 
 <b>Remarque</b> 
@@ -146,7 +146,7 @@ La section **Site diagnostics** de la page d'administration **Configure** contr�
 
 -   **Journalisation du serveur Web** : permet d'enregistrer les journaux de site au format de journal étendu du W3C. La journalisation du serveur Web génère un enregistrement de toutes les demandes entrantes adressées à votre site Web, qui contient des informations telles que l'adresse IP du client, l'URI demandé, le code d'état HTTP de la réponse, ainsi que la chaîne de l'agent utilisateur du client. Vous pouvez enregistrer les journaux sur un compte de stockage Azure ou sur le système de fichiers.
 
-	Pour enregistrer les journaux du serveur Web sur un compte de stockage Azure, choisissez **Stockage**, puis **manage storage** pour spécifier un compte de stockage et un conteneur d'objet blob Azure destiné à conserver les journaux. Pour plus d’informations sur les comptes de stockage Azure, consultez la page [Gestion des comptes de stockage][].
+	Pour enregistrer les journaux du serveur Web sur un compte de stockage Azure, choisissez **Stockage**, puis **manage storage** pour spécifier un compte de stockage et un conteneur d'objet blob Azure destiné à conserver les journaux. Pour plus d’informations sur les comptes de stockage Azure, consultez la page [Gestion des comptes de stockage][Gestion des comptes de stockage].
 
 	Pour enregistrer les journaux du serveur Web sur le système de fichiers, choisissez **File System**. Cela active la zone **Quota** permettant de définir l'espace disque maximal alloué aux fichiers journaux. Les valeurs minimales et maximales sont respectivement 25 Mo et 100 Mo. La valeur par défaut est 35 Mo.
 
@@ -193,7 +193,7 @@ Les fichiers journaux peuvent être téléchargés à l'aide de FTP, Azure Power
 
 1.  Ouvrez la page d'administration **Tableau de bord** du site Web, puis notez le site FTP figurant sous **Journaux de diagnostic** et le compte répertorié sous **Utilisateur du déploiement**. Le site FTP héberge les fichiers journaux ; le compte répertorié sous Deployment User permet de vous authentifier auprès du site FTP.
 2.  Si vous n'avez pas déjà créé les identifiants pour le déploiement, le compte figurant sous **Deployment User** est associé à **Not set**. Dans ce cas, vous devez créer les identifiants de déploiement comme décrit dans la section Reset Deployment Credentials du Tableau de bord, car ces identifiants vous permettent de vous authentifier auprès du site FTP sur lequel sont stockés les fichiers journaux. Azure ne prend pas en charge l'authentification auprès du site FTP avec les informations d'identification Live ID.
-3.  Pensez à utiliser un client FTP comme [FileZilla][] pour vous connecter au site FTP. Le client FTP facilite la saisie des informations d'identification. En outre, l'affichage des dossiers d'un site FTP y est généralement plus clair que dans un navigateur.
+3.  Pensez à utiliser un client FTP comme [FileZilla][FileZilla] pour vous connecter au site FTP. Le client FTP facilite la saisie des informations d'identification. En outre, l'affichage des dossiers d'un site FTP y est généralement plus clair que dans un navigateur.
 4.  Copiez les fichiers journaux du site FTP sur votre ordinateur en local.
 
 **Azure PowerShell**
@@ -270,7 +270,7 @@ Les fichiers .htm contiennent les sections suivantes :
 
 **Type de fichier journal : journalisation du serveur Web**
 
--   Emplacement : /LogFiles/http/RawLogs. Les informations que contiennent ces fichiers sont enregistrées au [format du journal étendu W3C][]. Les champs s-computername, s-ip et cs-version ne sont pas utilisés par Sites Web Azure.
+-   Emplacement : /LogFiles/http/RawLogs. Les informations que contiennent ces fichiers sont enregistrées au [format du journal étendu W3C][format du journal étendu W3C]. Les champs s-computername, s-ip et cs-version ne sont pas utilisés par Sites Web Azure.
 
 -   Lire les fichiers avec : Log Parser. Utilisé pour analyser et interroger les fichiers journaux du gestionnaire des services Internet. Log Parser 2.2 est disponible sur le Centre de téléchargement Microsoft, à l'adresse <http://go.microsoft.com/fwlink/?LinkId=246619>.
 
@@ -297,9 +297,9 @@ Une fois que la surveillance des points de terminaison est configurée, vous pou
 
 Pour en savoir plus sur la surveillance des points de terminaison d'un site Web, visionnez les vidéos suivantes :
 
--   [Scott Guthrie présente Sites Web Azure et paramètre la surveillance des points de terminaison][]
+-   [Scott Guthrie présente Sites Web Azure et paramètre la surveillance des points de terminaison][Scott Guthrie présente Sites Web Azure et paramètre la surveillance des points de terminaison]
 
--   [Assurer la gestion des sites Web Azure et la surveillance des points de terminaison - avec Stefan Schackow][]
+-   [Assurer la gestion des sites Web Azure et la surveillance des points de terminaison - avec Stefan Schackow][Assurer la gestion des sites Web Azure et la surveillance des points de terminaison - avec Stefan Schackow]
 
   [Ajout des mesures d'un site Web]: #websitemetrics
   [Réception d'alertes générées à partir des mesures d'un site Web]: #howtoreceivealerts
@@ -312,12 +312,7 @@ Pour en savoir plus sur la surveillance des points de terminaison d'un site Web,
   [Réception de notifications d'alerte et gestion des règles d'alerte dans Azure]: http://go.microsoft.com/fwlink/?LinkId=309356
   [Tailles de machines virtuelles et services cloud pour Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkID=309169
   [Gestion des comptes de stockage]: https://www.windowsazure.com/fr-fr/manage/services/storage/how-to-manage-a-storage-account/
-  [Utilisation d'Azure PowerShell]: http://www.windowsazure.com/fr-fr/develop/nodejs/how-to-guides/powershell-cmdlets/
-  [Activation de la journalisation de diagnostic pour Sites Web Azure]: /fr-fr/develop/net/common-tasks/diagnostics-logging-and-instrumentation/
-  [Débogage d'une application Node.js dans Sites Web Azure]: /fr-fr/develop/nodejs/how-to-guides/Debug-Website/
   [FileZilla]: http://go.microsoft.com/fwlink/?LinkId=247914
-  [Mise en route des cmdlets Azure PowerShell]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554332.aspx
-  [Utilisation des outils en ligne de commande Azure]: http://www.windowsazure.com/fr-fr/develop/nodejs/how-to-guides/command-line-tools/
   [format du journal étendu W3C]: http://go.microsoft.com/fwlink/?LinkID=90561
   []: http://contoso.cloudapp.net
   [Scott Guthrie présente Sites Web Azure et paramètre la surveillance des points de terminaison]: http://www.windowsazure.com/fr-fr/documentation/videos/websites-and-endpoint-monitoring-scottgu/

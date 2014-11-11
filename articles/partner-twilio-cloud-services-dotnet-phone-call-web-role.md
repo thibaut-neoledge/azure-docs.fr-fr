@@ -1,20 +1,20 @@
 <properties linkid="develop-net-how-to-twilio-phone-call" urlDisplayName="Twilio Phone Call" pageTitle="How to make a phone call from Twilio (.NET) - Azure" metaKeywords="Azure .NET Twilio, Azure Twilio, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages, ASP.NET twilio Azure" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." metaCanonical="" services="" documentationCenter=".NET" title="How to make a phone call using Twilio in a web role on Azure" authors="MicrosoftHelp@twilio.com; larryf" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; larryf"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; larryf" />
 
 # Exécution d'un appel téléphonique à l'aide de Twilio dans un rôle Web sur Azure
 
 Ce guide montre comment utiliser Twilio pour passer un appel à partir d'une page Web hébergée dans Azure. L'application finale invite l'utilisateur à fournir des valeurs d'appel téléphonique, comme indiqué dans la capture d'écran suivante.
 
-![Formulaire d'appel Azure utilisant Twilio et ASP.NET][]
+![Formulaire d'appel Azure utilisant Twilio et ASP.NET][Formulaire d'appel Azure utilisant Twilio et ASP.NET]
 
 ## Sommaire
 
--   [Conditions préalables][]
--   [Création d'un formulaire Web pour passer un appel][]
--   [Création du code pour passer l'appel][]
--   [Étapes suivantes][]
--   [Voir aussi][]
+-   [Conditions préalables][Conditions préalables]
+-   [Création d'un formulaire Web pour passer un appel][Création d'un formulaire Web pour passer un appel]
+-   [Création du code pour passer l'appel][Création du code pour passer l'appel]
+-   [Étapes suivantes][Étapes suivantes]
+-   [Voir aussi][Voir aussi]
 
 ## <a name="twilio-prereqs"></a>Conditions préalables
 
@@ -147,7 +147,7 @@ Le code suivant, qui est appelé lorsque l'utilisateur remplit le formulaire, cr
 
 L'appel est passé, et le point de terminaison Twilio, la version de l'API et l'état de l'appel sont affichés. La capture d'écran ci-dessous présente la sortie d'un exemple d'exécution.
 
-![Réponse Azure à un appel à l'aide de Twilio et ASP.NET][]
+![Réponse Azure à un appel à l'aide de Twilio et ASP.NET][Réponse Azure à un appel à l'aide de Twilio et ASP.NET]
 
 Pour plus d'informations sur TwiML, consultez la page [][4]<http://www.twilio.com/docs/api/twiml></a>. Pour plus d'informations sur \<Say\> et d'autres verbes Twilio, consultez la page [][5]<http://www.twilio.com/docs/api/twiml/say></a>.
 
@@ -155,14 +155,14 @@ Pour plus d'informations sur TwiML, consultez la page [][4]<http://www.twilio.co
 
 Ce code vous est fourni afin de vous présenter les fonctions de base de l'utilisation de Twilio dans un rôle Web ASP.NET sur Azure. Avant d'effectuer le déploiement de production sur Azure, vous pouvez ajouter d'autres fonctionnalités telles que la gestion des erreurs. Par exemple :
 
--   Au lieu d'utiliser un formulaire Web, vous pouvez utiliser un stockage d'objets blob Azure ou une instance de base de données SQL Azure pour stocker les numéros de téléphone et le texte d'appel. Pour plus d'informations sur l'utilisation des objets blob dans Azure, consultez la page [Utilisation du service de stockage d'objets blob Azure dans .NET][]. Pour plus d'informations sur l'utilisation des bases de données SQL, consultez la page [Utilisation d'une base de données SQL Azure dans les applications .NET][].
--   Vous pouvez utiliser RoleEnvironment.getConfigurationSettings pour récupérer l'ID du compte Twilio et le jeton d'authentification à partir des paramètres de configuration de votre déploiement, au lieu de coder les valeurs de votre formulaire en dur. Pour plus d'informations sur la classe RoleEnvironment, consultez [Espace de noms Microsoft.WindowsAzure.ServiceRuntime][].
+-   Au lieu d'utiliser un formulaire Web, vous pouvez utiliser un stockage d'objets blob Azure ou une instance de base de données SQL Azure pour stocker les numéros de téléphone et le texte d'appel. Pour plus d'informations sur l'utilisation des objets blob dans Azure, consultez la page [Utilisation du service de stockage d'objets blob Azure dans .NET][Utilisation du service de stockage d'objets blob Azure dans .NET]. Pour plus d'informations sur l'utilisation des bases de données SQL, consultez la page [Utilisation d'une base de données SQL Azure dans les applications .NET][Utilisation d'une base de données SQL Azure dans les applications .NET].
+-   Vous pouvez utiliser RoleEnvironment.getConfigurationSettings pour récupérer l'ID du compte Twilio et le jeton d'authentification à partir des paramètres de configuration de votre déploiement, au lieu de coder les valeurs de votre formulaire en dur. Pour plus d'informations sur la classe RoleEnvironment, consultez [Espace de noms Microsoft.WindowsAzure.ServiceRuntime][Espace de noms Microsoft.WindowsAzure.ServiceRuntime].
 -   Consultez les instructions de sécurité Twilio sur la page [][6]<https://www.twilio.com/docs/security></a>.
 -   Pour en savoir plus sur Twilio, consultez la page [][7]<https://www.twilio.com/docs></a>.
 
 ## <a name="seealso"></a>Voir aussi
 
--   [Utilisation de Twilio pour les fonctionnalités vocales et de SMS depuis Azure][]
+-   [Utilisation de Twilio pour les fonctionnalités vocales et de SMS depuis Azure][Utilisation de Twilio pour les fonctionnalités vocales et de SMS depuis Azure]
 
   [Formulaire d'appel Azure utilisant Twilio et ASP.NET]: ./media/partner-twilio-cloud-services-dotnet-phone-call-web-role/WA_twilio_dotnet_basic_form.png
   [Conditions préalables]: #twilio-prereqs

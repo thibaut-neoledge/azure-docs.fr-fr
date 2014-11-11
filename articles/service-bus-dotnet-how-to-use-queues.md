@@ -1,17 +1,17 @@
 <properties linkid="dev-net-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Learn how to use Service Bus queues in Azure. Code samples written in C# using the .NET API." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Utilisation des files d'attente Service Bus
 
 <span>Ce guide vous montre comment utiliser les files d'attente Service Bus. Les
 exemples sont écrits en C# et utilisent l'API .NET. Les scénarios couverts dans ce guide sont les suivants :
 **création de files d'attente, envoi et réception de messages** et
-**suppression de files d'attente**. Pour plus d'informations sur les files d'attente, consultez la section [Étapes suivantes][]. </span>
+**suppression de files d'attente**. Pour plus d'informations sur les files d'attente, consultez la section [Étapes suivantes][Étapes suivantes]. </span>
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-[WACOM.INCLUDE [howto-service-bus-queues][]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <span class="short-header">Configuration de l'application</span>Configuration de l'application en vue d'une utilisation de Service Bus
 
@@ -35,7 +35,7 @@ Pour installer le package NuGet dans votre application, procédez comme suit :
     Service Bus**. Cliquez sur **Install** pour terminer l'installation,
     puis fermez cette boîte de dialogue.
 
-    ![][]
+    ![][0]
 
 Vous êtes maintenant en mesure d'écrire du code pour Service Bus.
 
@@ -286,12 +286,12 @@ les tentatives de remise.
 Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez ces
 liens pour en savoir plus :
 
--   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements.][]
--   Créez une application opérationnelle, capable d'envoyer et de recevoir des messages à destination et en provenance d'une file d'attente Service Bus : [Didacticiel .NET sur la messagerie répartie Service Bus][].
+-   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements.][Files d'attente, rubriques et abonnements.]
+-   Créez une application opérationnelle, capable d'envoyer et de recevoir des messages à destination et en provenance d'une file d'attente Service Bus : [Didacticiel .NET sur la messagerie répartie Service Bus][Didacticiel .NET sur la messagerie répartie Service Bus].
 
   [Étapes suivantes]: #next-steps
   [create-account-note]: ../includes/create-account-note.md
   [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
-  []: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
+  [0]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Files d'attente, rubriques et abonnements.]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367516.aspx
   [Didacticiel .NET sur la messagerie répartie Service Bus]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367512.aspx

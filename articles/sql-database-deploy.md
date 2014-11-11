@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-deploy-a-sqldb" urlDisplayName="How to deploy" pageTitle="How to deploy a SQL Database - Azure" metaKeywords="" description="Learn how to deploy a SQL Server database to Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="Lori Clark" solutions="" manager="" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Lori Clark"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Lori="" Clark" />
 
 # <span id="howtodeploySQLdb"></span></a>Déploiement d'une base de données dans Azure
 
@@ -12,13 +12,13 @@ L'exemple de base de données School est très simple et tous ses objets sont co
 
 ## Sommaire
 
--   [Création de la base de données School sur un serveur local][]
--   [Déploiement dans la base de données SQL][]
--   [Vérification du déploiement de la base de données][]
+-   [Création de la base de données School sur un serveur local][Création de la base de données School sur un serveur local]
+-   [Déploiement dans la base de données SQL][Déploiement dans la base de données SQL]
+-   [Vérification du déploiement de la base de données][Vérification du déploiement de la base de données]
 
 ## <span id="schooldb"></span></a> Création de la base de données School sur un serveur local
 
-Les scripts pour la création de cette base de données sont disponibles dans la rubrique [Prise en main de l'administration de la base de données SQL][]. Dans ce guide, vous allez exécuter ces scripts dans Management Studio pour créer une version locale de la base de données School.
+Les scripts pour la création de cette base de données sont disponibles dans la rubrique [Prise en main de l'administration de la base de données SQL][Prise en main de l'administration de la base de données SQL]. Dans ce guide, vous allez exécuter ces scripts dans Management Studio pour créer une version locale de la base de données School.
 
 1.  Dans Management Studio, connectez-vous à un serveur local. Cliquez avec le bouton droit sur **Bases de données**, cliquez sur **Nouvelle base de données**, puis entrez *school*.
 

@@ -1,28 +1,28 @@
 <properties linkid="dev-java-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Java) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Java" description="Learn how to use Service Bus queues in Azure. Code samples written in Java." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Queues" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Utilisation des files d'attente Service Bus
 
 Ce guide vous montre comment utiliser les files d'attente Service Bus. Les exemples sont
-écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure pour Java][]. Les
+écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure pour Java][Kit de développement logiciel (SDK) Azure pour Java]. Les
 scénarios couverts dans ce guide sont les suivants : **création de files d'attente**, **envoi et réception
 de messages** et **suppression de files d'attente**.
 
 ## Sommaire
 
--   [Présentation des files d'attente Service Bus][]
--   [Création d'un espace de noms de service][]
--   [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms][]
--   [Configuration de votre application pour l'utilisation de Service Bus][]
--   [Création d'un fournisseur de jeton de sécurité][]
+-   [Présentation des files d'attente Service Bus][Présentation des files d'attente Service Bus]
+-   [Création d'un espace de noms de service][Création d'un espace de noms de service]
+-   [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms][Obtention d'informations d'identification de gestion par défaut pour l'espace de noms]
+-   [Configuration de votre application pour l'utilisation de Service Bus][Configuration de votre application pour l'utilisation de Service Bus]
+-   [Création d'un fournisseur de jeton de sécurité][Création d'un fournisseur de jeton de sécurité]
 -   [Création d'une file d'attente][Création d'un fournisseur de jeton de sécurité]
--   [Envoi de messages à une file d'attente][]
--   [Réception des messages d'une file d'attente][]
--   [Gestion des blocages d'application et des messages illisibles][]
--   [Étapes suivantes][]
+-   [Envoi de messages à une file d'attente][Envoi de messages à une file d'attente]
+-   [Réception des messages d'une file d'attente][Réception des messages d'une file d'attente]
+-   [Gestion des blocages d'application et des messages illisibles][Gestion des blocages d'application et des messages illisibles]
+-   [Étapes suivantes][Étapes suivantes]
 
-[WACOM.INCLUDE [howto-service-bus-queues][]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <a name="bkmk_ConfigApp"> </a> Configuration de votre application pour l'utilisation de Service Bus
 
@@ -246,9 +246,8 @@ pendant les tentatives de remise.
 ## <a name="bkmk_NextSteps"> </a>Étapes suivantes
 
 Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez la rubrique
-MSDN [Files d'attente, rubriques et abonnements Service Bus][] pour plus d'informations.
+MSDN [Files d'attente, rubriques et abonnements Service Bus][Files d'attente, rubriques et abonnements Service Bus] pour plus d'informations.
 
-  [Kit de développement logiciel (SDK) Azure pour Java]: http://azure.microsoft.com/fr-fr/develop/java/
   [Présentation des files d'attente Service Bus]: #what-are-service-bus-queues
   [Création d'un espace de noms de service]: #create-a-service-namespace
   [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms]: #obtain-default-credentials

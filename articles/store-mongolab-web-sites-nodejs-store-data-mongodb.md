@@ -1,6 +1,6 @@
 <properties linkid="develop-nodejs-tutorials-web-site-with-mongodb-mongolab" urlDisplayName="Website with MongoDB" pageTitle="Node.js website with MongoDB on MongoLab - Azure" metaKeywords="" description="Learn how to create a Node.js Azure Website that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" services="web-sites,virtual-machines" documentationCenter="nodejs" title="Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On" authors="eric@mongolab.com" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="eric@mongolab.com"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="eric@mongolab.com" />
 
 # Création d'une application Node.js sur Azure avec MongoDB à l'aide du module MongoLab
 
@@ -8,36 +8,36 @@
 
 Bonjour, chers aventuriers ! Bienvenue dans MongoDB-as-a-Service. Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
-1.  [Configuration de la base de données][] : le module [MongoLab][] de l'Azure Store fournit une base de données MongoDB hébergée dans le cloud Azure et gérée par la plateforme de base de données cloud de MongoLab.
-2.  [Création de l'application][] : il s'agit d'une simple application Node.js pour conserver une liste de tâches.
-3.  [Déploiement de l'application][] : en combinant quelques astuces de configuration, nous apporterons un nouveau souffle à notre code.
-4.  [Gestion de base de données][] : finalement, vous découvrirez le portail de gestion de base de données basé sur le Web où vous pouvez effectuer des recherches, visualiser et modifier les données facilement.
+1.  [Configuration de la base de données][Configuration de la base de données] : le module [MongoLab][MongoLab] de l'Azure Store fournit une base de données MongoDB hébergée dans le cloud Azure et gérée par la plateforme de base de données cloud de MongoLab.
+2.  [Création de l'application][Création de l'application] : il s'agit d'une simple application Node.js pour conserver une liste de tâches.
+3.  [Déploiement de l'application][Déploiement de l'application] : en combinant quelques astuces de configuration, nous apporterons un nouveau souffle à notre code.
+4.  [Gestion de base de données][Gestion de base de données] : finalement, vous découvrirez le portail de gestion de base de données basé sur le Web où vous pouvez effectuer des recherches, visualiser et modifier les données facilement.
 
-Au cours de ce didacticiel, n'hésitez pas à envoyer un e-mail à tout moment à l'adresse [\<a href="mailto:support@mongolab.com"\>support@mongolab.com\</a\>][] si vous avez des questions.
+Au cours de ce didacticiel, n'hésitez pas à envoyer un e-mail à tout moment à l'adresse [\<a href="mailto:support@mongolab.com"\>support@mongolab.com\</a\>][\<a href="mailto:support@mongolab.com"\>support@mongolab.com\</a\>] si vous avez des questions.
 
 Avant de poursuivre, vérifiez que les éléments suivants sont installés :
 
--   [Node.js][] version 0.8.14+
+-   [Node.js][Node.js] version 0.8.14+
 
--   [Git][]
+-   [Git][Git]
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Démarrage rapide
 
-Si vous connaissez déjà l'Azure Store, cette section vous permettra de démarrer rapidement. Dans le cas contraire, consultez la section [Configuration de la base de données][] ci-dessous.
+Si vous connaissez déjà l'Azure Store, cette section vous permettra de démarrer rapidement. Dans le cas contraire, consultez la section [Configuration de la base de données][Configuration de la base de données] ci-dessous.
 
 1.  Ouvrez l'Azure Store.<br />
-    ![Store][]
+    ![Store][Store]
 2.  Cliquez sur le module MongoLab.<br />
     ![MongoLab][1]
 3.  Cliquez sur le module MongoLab dans la liste des modules complémentaires, puis cliquez sur **Connection Info**.<br />
-    ![ConnectionInfoButton][]
+    ![ConnectionInfoButton][ConnectionInfoButton]
 4.  Copiez le fichier MONGOLAB\_URI dans votre presse-papiers.<br />
-    ![ConnectionInfoScreen][]
+    ![ConnectionInfoScreen][ConnectionInfoScreen]
     **Cet URI contient votre nom d’utilisateur et votre mot de passe. Considérez ces informations comme étant sensibles, ne les partagez pas.**
 5.  Ajoutez la valeur à la liste Connection Strings dans le menu Configuration de votre application Azure Web :<br />
-    ![WebSiteConnectionStrings][]
+    ![WebSiteConnectionStrings][WebSiteConnectionStrings]
 6.  Dans **Name**, entrez MONGOLAB\_URI.
 7.  Dans **Value**, collez la chaîne de connexion obtenue dans la section précédente.
 8.  Sélectionnez **Custom** dans la liste déroulante Type (à la place de la valeur par défaut **SQLAzure**).
@@ -56,11 +56,11 @@ Passons maintenant au didacticiel complet...
 
 ## <a name="provision"></a>Configuration de la base de données
 
-[WACOM.INCLUDE [howto-provision-mongolab][]]
+[WACOM.INCLUDE [howto-provision-mongolab](../includes/howto-provision-mongolab.md)]
 
 ## <a name="create"></a>Création de l'application
 
-Dans cette section, vous allez développer votre environnement de développement et définir le code pour une application Web de base de liste de tâches qui utilise Node.js, Express et MongoDB. [Express][] offre une infrastructure View Controller pour le nœud, tandis que [Mongoose][] est un pilote permettant la communication avec MongoDB en nœud.
+Dans cette section, vous allez développer votre environnement de développement et définir le code pour une application Web de base de liste de tâches qui utilise Node.js, Express et MongoDB. [Express][Express] offre une infrastructure View Controller pour le nœud, tandis que [Mongoose][Mongoose] est un pilote permettant la communication avec MongoDB en nœud.
 
 ### Paramétrage
 
@@ -314,7 +314,7 @@ Pour installer les outils en ligne de commande, utilisez la commande suivante :
 
     npm install azure-cli -g
 
-Si vous avez déjà installé le fichier **Azure SDK for Node.js** depuis le [Centre de développement Azure][], les outils en ligne de commande devraient déjà être installés. Pour plus d'informations, consultez la page [Outil en ligne de commande Azure pour Mac et Linux][].
+Si vous avez déjà installé le fichier **Azure SDK for Node.js** depuis le [Centre de développement Azure][Centre de développement Azure], les outils en ligne de commande devraient déjà être installés. Pour plus d'informations, consultez la page [Outil en ligne de commande Azure pour Mac et Linux][Outil en ligne de commande Azure pour Mac et Linux].
 
 Alors que les outils en ligne de commande Azure ont été créés en priorité pour les utilisateurs Mac et Linux, ils sont basés sur Node.js et peuvent fonctionner sur tout système capable d'exécuter Node.
 
@@ -326,7 +326,7 @@ Avant d'utiliser les outils en ligne de commande avec Azure, vous devez téléch
 
         azure account download
 
-    ![Page de téléchargement][]
+    ![Page de téléchargement][Page de téléchargement]
 
     Le téléchargement du fichier doit se lancer automatiquement. Si ce n'est pas le cas, cliquez sur le lien situé en haut de la page pour télécharger le fichier manuellement.
 
@@ -351,13 +351,13 @@ Avant d'utiliser les outils en ligne de commande avec Azure, vous devez téléch
 Il est très facile de créer un site Web dans Azure. S'il s'agit de votre premier site Web Azure, vous devez utiliser le portail. Si vous en avez déjà créé un ou plusieurs, passez à l'étape 7.
 
 1.  Dans le portail Azure, cliquez sur **New**.<br />
-    ![New][]
+    ![New][New]
 2.  Sélectionnez **Compute \> Web Site \> Quick Create**.<br />
-    ![CreateSite][]
+    ![CreateSite][CreateSite]
 3.  Saisissez un préfixe d'URL. Sélectionnez le nom de votre choix, tout en gardant à l'esprit qu'il doit être unique (« monappmongo » risque fort de ne pas être disponible).
 4.  Cliquez sur **Create Website**.
 5.  Une fois le site Web créé, cliquez sur le nom du site Web dans la liste des sites Web. Le tableau de bord du site Web s'affiche.<br />
-    ![WebSiteDashboard][]
+    ![WebSiteDashboard][WebSiteDashboard]
 6.  Cliquez **Configurer la publication Git** sous **quick glance**, puis entrez votre nom d'utilisateur et votre mot de passe git. Vous utiliserez ce mot de passe pour le transfert vers votre site Web (étape 9).
 7.  Si vous avez créé votre site Web en suivant les étapes ci-dessus, la commande suivante clôt le processus. Toutefois, si vous disposez déjà de plus d'un site Web Azure, vous pouvez ignorer les étapes ci-dessus et créer un nouveau site Web à l'aide de cette même commande. Dans votre répertoire de projet **tasklist** :
 
@@ -367,8 +367,8 @@ Il est très facile de créer un site Web dans Azure. S'il s'agit de votre prem
 
     Le paramètre `--git` crée :
     Un référentiel git local dans le dossier **tasklist**, si aucun n'existe déjà ;
-    un [Git remote][] nommé « azure », qui sera utilisé pour publier l'application sur Azure ;
-    un fichier[iisnode.yml][], qui contient les paramètres utilisés par Azure pour gérer des applications nœud ;
+    un [Git remote][Git remote] nommé « azure », qui sera utilisé pour publier l'application sur Azure ;
+    un fichier[iisnode.yml][iisnode.yml], qui contient les paramètres utilisés par Azure pour gérer des applications nœud ;
     un fichier gitignore pour empêcher la publication du dossier modules-nœuds sur .git.
 
     Une fois cette commande terminée, le résultat doit ressembler à ce qui suit. Notez que la ligne qui commence par **Created website at** contient l'URL du site Web.
@@ -421,30 +421,29 @@ Vous vous rappelez de la variable process.env.CUSTOMCONNSTR\_MONGOLAB\_URI dans 
 
 #### Accédez à la chaîne de connexion MongoLab
 
-[WACOM.INCLUDE [howto-get-connectioninfo-mongolab][]]
+[WACOM.INCLUDE [howto-get-connectioninfo-mongolab](../includes/howto-get-connectioninfo-mongolab.md)]
 
 #### Ajoutez la chaîne de connexion aux variables d'environnement du site Web
 
-[WACOM.INCLUDE [howto-save-connectioninfo-mongolab][]]
+[WACOM.INCLUDE [howto-save-connectioninfo-mongolab](../includes/howto-save-connectioninfo-mongolab.md)]
 
 ## Vous avez réussi !
 
 Exécutez `azure site browse` depuis le répertoire de votre projet pour ouvrir automatiquement un navigateur (ou ouvrez un navigateur et accédez manuellement à l'URL de votre site Web, monsiteunique.azurewebsites.net) :
 
-![Une page Web affiche une liste de tâches vide.][]
+![Une page Web affiche une liste de tâches vide.][Une page Web affiche une liste de tâches vide.]
 
 ## <a name="manage"></a>Gestion de la base de données
 
-[WACOM.INCLUDE [howto-access-mongolab-ui][]]
+[WACOM.INCLUDE [howto-access-mongolab-ui](../includes/howto-access-mongolab-ui.md)]
 
-Félicitations ! Vous venez de lancer une application Node.js utilisant une base de données MongoDB hébergée sur MongoLab ! Maintenant que vous disposez d'une base de données MongoLab, vous pouvez contacter [\<a href="mailto:support@mongolab.com"\>support@mongolab.com\</a\>][] pour toute question ou problème relatif à votre base de données ainsi que pour obtenir de l'aide concernant MongoDB ou le pilote de nœud. Bonne continuation !
+Félicitations ! Vous venez de lancer une application Node.js utilisant une base de données MongoDB hébergée sur MongoLab ! Maintenant que vous disposez d'une base de données MongoLab, vous pouvez contacter [\<a href="mailto:support@mongolab.com"\>support@mongolab.com\</a\>][\<a href="mailto:support@mongolab.com"\>support@mongolab.com\</a\>] pour toute question ou problème relatif à votre base de données ainsi que pour obtenir de l'aide concernant MongoDB ou le pilote de nœud. Bonne continuation !
 
   [Configuration de la base de données]: #provision
   [MongoLab]: http://mongolab.com
   [Création de l'application]: #create
   [Déploiement de l'application]: #deploy
   [Gestion de base de données]: #manage
-  [\<a href="mailto:support@mongolab.com"\>support@mongolab.com\</a\>]: mailto:support@mongolab.com
   [Node.js]: http://nodejs.org
   [Git]: http://git-scm.com
   [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md

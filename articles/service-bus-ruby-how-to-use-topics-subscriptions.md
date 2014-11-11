@@ -1,32 +1,32 @@
 <properties linkid="dev-ruby-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Ruby) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic ruby" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Topics/Subscriptions" authors="guayan" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Utilisation des rubriques/abonnements Service Bus
 
-Ce guide vous montre comment utiliser les rubriques et les abonnements Service Bus depuis les applications Ruby. Les scénarios couverts dans ce guide sont les suivants : **création de rubriques et d'abonnements, création de filtres d'abonnement, envoi de messages** à une rubrique, **réception de messages en provenance d'un abonnement** et **suppression de rubriques et d'abonnements**. Pour plus d'informations sur les rubriques et les abonnements, consultez la section [Étapes suivantes][].
+Ce guide vous montre comment utiliser les rubriques et les abonnements Service Bus depuis les applications Ruby. Les scénarios couverts dans ce guide sont les suivants : **création de rubriques et d'abonnements, création de filtres d'abonnement, envoi de messages** à une rubrique, **réception de messages en provenance d'un abonnement** et **suppression de rubriques et d'abonnements**. Pour plus d'informations sur les rubriques et les abonnements, consultez la section [Étapes suivantes][Étapes suivantes].
 
 ## Sommaire
 
--   [Présentation des rubriques et des abonnements Service Bus][]
--   [Création d'un espace de noms de service][]
--   [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms][]
--   [Création d'une application Ruby][]
--   [Configuration de votre application pour l'utilisation de Service Bus][]
--   [Configuration d'une connexion Azure Service Bus][]
--   [Création d'une rubrique][]
--   [Création d'abonnements][]
--   [Envoi de messages à une rubrique][]
--   [Réception des messages d'un abonnement][]
--   [Gestion des blocages d'application et des messages illisibles][]
--   [Suppression de rubriques et d'abonnements][]
--   [Étapes suivantes][]
+-   [Présentation des rubriques et des abonnements Service Bus][Présentation des rubriques et des abonnements Service Bus]
+-   [Création d'un espace de noms de service][Création d'un espace de noms de service]
+-   [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms][Obtention d'informations d'identification de gestion par défaut pour l'espace de noms]
+-   [Création d'une application Ruby][Création d'une application Ruby]
+-   [Configuration de votre application pour l'utilisation de Service Bus][Configuration de votre application pour l'utilisation de Service Bus]
+-   [Configuration d'une connexion Azure Service Bus][Configuration d'une connexion Azure Service Bus]
+-   [Création d'une rubrique][Création d'une rubrique]
+-   [Création d'abonnements][Création d'abonnements]
+-   [Envoi de messages à une rubrique][Envoi de messages à une rubrique]
+-   [Réception des messages d'un abonnement][Réception des messages d'un abonnement]
+-   [Gestion des blocages d'application et des messages illisibles][Gestion des blocages d'application et des messages illisibles]
+-   [Suppression de rubriques et d'abonnements][Suppression de rubriques et d'abonnements]
+-   [Étapes suivantes][Étapes suivantes]
 
-[WACOM.INCLUDE [howto-service-bus-topics][]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <span id="create-a-ruby-application"></span></a>Création d'une application Ruby
 
-Créez une application Ruby. Pour obtenir des instructions, consultez le guide [Création d'une application Ruby sur Azure][].
+Créez une application Ruby. Pour obtenir des instructions, consultez le guide [Création d'une application Ruby sur Azure][Création d'une application Ruby sur Azure].
 
 ## <span id="configure-your-application-to-use-service-bus"></span></a> Configuration de votre application pour l'utilisation de Service Bus
 
@@ -89,7 +89,7 @@ Le filtre **MatchAll** est le filtre utilisé par défaut si aucun filtre n'est 
 
 Vous pouvez également configurer des filtres pour spécifier quels sont les messages, parmi ceux envoyés à une rubrique, qui doivent apparaître dans un abonnement de rubrique spécifique.
 
-Parmi les types de filtres pris en charge par les abonnements, **Azure::ServiceBus::SqlFilter** est le plus flexible ; il implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus de détails sur les expressions utilisables avec un filtre SQL, examinez la syntaxe[SqlFilter.SqlExpression][].
+Parmi les types de filtres pris en charge par les abonnements, **Azure::ServiceBus::SqlFilter** est le plus flexible ; il implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus de détails sur les expressions utilisables avec un filtre SQL, examinez la syntaxe[SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 Il est possible d'ajouter des filtres à un abonnement en utilisant la méthode **create\_rule()** de l'objet **Azure::ServiceBusService**. Cette méthode vous permet d'ajouter de nouveaux filtres à un abonnement existant.
 
@@ -166,7 +166,7 @@ Si l'application subit un incident après le traitement du message, mais avant l
 
 ## <span id="how-to-delete-topics-and-subscriptions"></span></a> Suppression des rubriques et des abonnements
 
-Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du [portail de gestion Azure][] ou par programme. L'exemple suivant montre comme supprimer la rubrique intitulée « test-topic » :
+Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du [portail de gestion Azure][portail de gestion Azure] ou par programme. L'exemple suivant montre comme supprimer la rubrique intitulée « test-topic » :
 
     azure_service_bus_service.delete_topic("test-topic")
 
@@ -178,9 +178,9 @@ La suppression d'une rubrique a également pour effet de supprimer les abonnemen
 
 Maintenant que vous avez appris les principes de base des rubriques Service Bus, consultez ces liens pour en savoir plus :
 
--   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements.][]
--   Référence d'API pour [SqlFilter][]
--   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby][] sur GitHub.
+-   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements.][Files d'attente, rubriques et abonnements.]
+-   Référence d'API pour [SqlFilter][SqlFilter]
+-   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby][Kit de développement logiciel (SDK) Azure pour Ruby] sur GitHub.
 
   [Étapes suivantes]: #NextSteps
   [Présentation des rubriques et des abonnements Service Bus]: #what-are-service-bus-topics
@@ -201,4 +201,3 @@ Maintenant que vous avez appris les principes de base des rubriques Service Bus,
   [portail de gestion Azure]: https://manage.windowsazure.com
   [Files d'attente, rubriques et abonnements.]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
-  [Kit de développement logiciel (SDK) Azure pour Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby

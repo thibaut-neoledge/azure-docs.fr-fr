@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-push-notifications-to-users-android" urlDisplayName="" pageTitle="Push notifications to users (Android ) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Notifications Push adressées aux utilisateurs à l'aide de Mobile Services
 
@@ -14,18 +14,18 @@
 
 Ce didacticiel vous guide tout au long de la procédure de mise à jour des notifications Push dans votre application :
 
-1.  [Création de la table Registration][]
-2.  [Mise à jour de votre application][]
-3.  [Mise à jour des scripts serveur][]
-4.  [Vérification du comportement des notifications Push][]
+1.  [Création de la table Registration][Création de la table Registration]
+2.  [Mise à jour de votre application][Mise à jour de votre application]
+3.  [Mise à jour des scripts serveur][Mise à jour des scripts serveur]
+4.  [Vérification du comportement des notifications Push][Vérification du comportement des notifications Push]
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie sur le didacticiel précédent [Prise en main des notifications Push][didacticiel précédent sur les notifications Push]. Avant de commencer ce didacticiel, vous devez suivre le didacticiel [Prise en main des notifications Push][didacticiel précédent sur les notifications Push].
 
 ## <a name="create-table"></a>Création d'une table
 
-1.  Connectez-vous au [portail de gestion Azure][], cliquez sur **Mobile Services**, puis sur l'application.
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application.
 
-    ![][]
+    ![][0]
 
 2.  Cliquez sur l'onglet **Data**, puis sur **Create**.
 
@@ -225,32 +225,29 @@ Vous avez terminé ce didacticiel.
 
 Cela met fin à la série de didacticiels établissant les principes de base de l'utilisation de notifications Push. Pour plus d'informations sur les rubriques Mobile Services suivantes :
 
--   [Prise en main des données][]
+-   [Prise en main des données][Prise en main des données]
 
     En savoir plus sur le stockage et l'interrogation des données à l'aide de Mobile Services.
 
--   [Prise en main de l'authentification][]
+-   [Prise en main de l'authentification][Prise en main de l'authentification]
 
     En savoir plus sur l'authentification des utilisateurs de votre application avec un compte Windows.
 
--   [Référence de script serveur Mobile Services][]
+-   [Référence de script serveur Mobile Services][Référence de script serveur Mobile Services]
 
     En savoir plus sur l'enregistrement et l'utilisation des scripts serveur.
 
--   [Utilisation de la bibliothèque cliente Android pour Mobile Services][]
+-   [Utilisation de la bibliothèque cliente Android pour Mobile Services][Utilisation de la bibliothèque cliente Android pour Mobile Services]
 
     En savoir plus sur l'utilisation de Mobile Services avec .NET.
 
-  [Windows Phone]: /fr-fr/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
-  [iOS]: /fr-fr/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"
-  [Android]: /fr-fr/develop/mobile/tutorials/push-notifications-to-users-android "Android"
   [didacticiel précédent sur les notifications Push]: /fr-fr/develop/mobile/tutorials/get-started-with-push-android
   [Création de la table Registration]: #create-table
   [Mise à jour de votre application]: #update-app
   [Mise à jour des scripts serveur]: #update-scripts
   [Vérification du comportement des notifications Push]: #test-app
   [portail de gestion Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-push-notifications-app-users/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-push-notifications-app-users/mobile-services-selection.png
   [1]: ./media/mobile-services-android-push-notifications-app-users/mobile-create-table.png
   [2]: ./media/mobile-services-android-push-notifications-app-users/mobile-create-registration-table.png
   [3]: ./media/mobile-services-android-push-notifications-app-users/mobile-create-registration-class.png

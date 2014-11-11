@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-autoscaling" urlDisplayName="Autoscaling" pageTitle="Use the autoscaling application block (.NET) - Azure" metaKeywords="Azure autoscaling, Azure autoscaling C#, Azure autoscaling .NET" description="Learn how to use the Autoscaling Application for Azure. Code samples are written in C# and use the .NET API." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="How to Use the Autoscaling Application Block" authors="timlt" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="timlt"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
 
 
@@ -12,21 +12,22 @@
 
 Ce guide explique le déroulement des scénarios courants dans le cadre de
 l'utilisation du bloc applicatif de mise à l'échelle automatique de [Microsoft Enterprise Library 5.0
-Integration Pack for Azure][]. Les exemples sont écrits en C#
+Integration Pack for Azure][Microsoft Enterprise Library 5.0
+Integration Pack for Azure]. Les exemples sont écrits en C#
 et utilisent l'API .NET. Les scénarios traités incluent l'**hébergement
 du bloc**, l'**utilisation de règles de contrainte** et l'**utilisation de règles réactives**. Pour
-plus d'informations sur le bloc applicatif de mise à l'échelle automatique, consultez la section [Étapes suivantes][].
+plus d'informations sur le bloc applicatif de mise à l'échelle automatique, consultez la section [Étapes suivantes][Étapes suivantes].
 
 ## Sommaire
 
-[Présentation du bloc applicatif de mise à l'échelle automatique][]   
- [Concepts][]   
- [Collecte de données de compteurs de performances à partir de votre application Azure cible][]   
- [Configuration d'une application hôte pour le bloc applicatif de mise à l'échelle automatique][]   
- [Instanciation et exécution de la classe Autoscaler][] [Définition d'un modèle de service][]   
- [Définition de règles de mise à l'échelle automatique][]   
- [Configuration du bloc applicatif de mise à l'échelle automatique][]   
- [Étapes suivantes][]
+[Présentation du bloc applicatif de mise à l'échelle automatique][Présentation du bloc applicatif de mise à l'échelle automatique]   
+ [Concepts][Concepts]   
+ [Collecte de données de compteurs de performances à partir de votre application Azure cible][Collecte de données de compteurs de performances à partir de votre application Azure cible]   
+ [Configuration d'une application hôte pour le bloc applicatif de mise à l'échelle automatique][Configuration d'une application hôte pour le bloc applicatif de mise à l'échelle automatique]   
+ [Instanciation et exécution de la classe Autoscaler][Instanciation et exécution de la classe Autoscaler] [Définition d'un modèle de service][Définition d'un modèle de service]   
+ [Définition de règles de mise à l'échelle automatique][Définition de règles de mise à l'échelle automatique]   
+ [Configuration du bloc applicatif de mise à l'échelle automatique][Configuration du bloc applicatif de mise à l'échelle automatique]   
+ [Étapes suivantes][Étapes suivantes]
 
 ## <span id="WhatIs"></span> </a>Présentation du bloc applicatif de mise à l'échelle automatique
 
@@ -53,7 +54,7 @@ exécutées d'un rôle Azure sur deux jours. Le nombre
 d'instances change automatiquement dans le temps sous l'effet d'un
 ensemble de règles de mise à l'échelle automatique.
 
-![schéma d'un exemple de mise à l'échelle][]
+![schéma d'un exemple de mise à l'échelle][schéma d'un exemple de mise à l'échelle]
 
 Le bloc utilise deux types de règle pour définir le comportement de mise
 à l'échelle automatique de votre application :
@@ -106,7 +107,7 @@ Par défaut, Azure n'écrit pas les données de compteurs de
 performances dans la table de diagnostics dans Azure Storage. Par conséquent,
 pour enregistrer ces données, vous devez modifier les rôles à partir
 desquels vous devez collecter les données de compteurs de performances. Pour plus d'informations sur
-l'activation des compteurs de performances dans votre application, consultez la page [Utilisation de compteurs de performances dans Azure][].
+l'activation des compteurs de performances dans votre application, consultez la page [Utilisation de compteurs de performances dans Azure][Utilisation de compteurs de performances dans Azure].
 
 ## <span id="CreateHost"></span> </a>Configuration d'une application hôte pour le bloc applicatif de mise à l'échelle automatique
 
@@ -126,7 +127,7 @@ bibliothèques et des outils de Visual Studio et Visual Web Developer. Le packag
 de bloc applicatif de mise à l'échelle automatique est le moyen le plus
 simple de se procurer les API associées au bloc. Pour plus d'informations sur **NuGet**, sur l'installation
 et l'utilisation de l'extension Visual Studio **NuGet**, consultez le
-site web [NuGet][].
+site web [NuGet][NuGet].
 
 Une fois que le Gestionnaire de package NuGet est installé, pour installer le package
 NuGet de mise à l'échelle automatique dans votre application, procédez comme suit :
@@ -147,7 +148,7 @@ XML pour les définitions de règle de mise à l'échelle et les
 informations de service de mise à l'échelle.Il inclut également un fichier lisezmoi (readme) qui contient des
 informations importantes sur le bloc applicatif de mise à l'échelle automatique :
 
-![fichiers configurés par le package NuGet de mise à l'échelle automatique][]
+![fichiers configurés par le package NuGet de mise à l'échelle automatique][fichiers configurés par le package NuGet de mise à l'échelle automatique]
 
 ### Définition de l'infrastructure cible .NET Framework 4
 
@@ -159,7 +160,7 @@ l'infrastructure cible :
 
 2.  Sous l'onglet **Application** de la fenêtre Propriétés, assurez-vous que la version cible définie de l'infrastructure est bien **.NET Framework 4**.
 
-    ![image][]
+    ![image][image]
 
 ### Ajout de références à l'espace de noms
 
@@ -200,7 +201,7 @@ de service est copié dans le dossier de sortie. Pour ce faire :
 2.  Dans le volet Propriétés, définissez la valeur de **Copier dans le répertoire de sortie**
      sur **Toujours copier**.
 
-    ![Définir la valeur de Copier dans le répertoire de sortie][]
+    ![Définir la valeur de Copier dans le répertoire de sortie][Définir la valeur de Copier dans le répertoire de sortie]
 
 
 	L'exemple de code suivant montre un exemple de modèle de service dans un fichier **services.xml** :
@@ -233,7 +234,7 @@ de service est copié dans le dossier de sortie. Pour ce faire :
 
 Vous devez remplacer les valeurs entre crochets par des valeurs
 propres à votre environnement et à votre application cible. Pour trouver la plupart de ces
-valeurs, vous devez vous connecter au [portail de gestion Azure][].
+valeurs, vous devez vous connecter au [portail de gestion Azure][portail de gestion Azure].
 
 Connectez-vous au portail de gestion.
 
@@ -301,7 +302,7 @@ Connectez-vous au portail de gestion.
         ![image][5]
 
 Pour plus d'informations sur le contenu du fichier de modèle de
-service, consultez la page [Stockage de vos données d'informations de service][].
+service, consultez la page [Stockage de vos données d'informations de service][Stockage de vos données d'informations de service].
 
 ## <span id="DefineAutoscalingRules"></span> </a> Définition de règles de mise à l'échelle automatique
 
@@ -410,7 +411,7 @@ du système de fichiers local.
     suspension (...) en regard de **Data Points Store Storage Account**, ajoutez le
     **nom de compte** et la **clé de compte** du compte de
     stockage Azure dans lequel le bloc doit stocker les points de données qu'il collecte (consultez la section
-    [Définition d'un modèle de service][] si vous ne savez
+    [Définition d'un modèle de service][Définition d'un modèle de service] si vous ne savez
     pas exactement où se trouvent ces valeurs), puis cliquez sur **OK** :  
 
 	![image][7]
@@ -518,17 +519,17 @@ Maintenant que vous avez appris les principes de base de l'utilisation du
 bloc applicatif de mise à l'échelle automatique, suivez ces liens
 pour savoir comment implémenter des scénarios de mise à l'échelle plus complexes :
 
--   [Hébergement du bloc applicatif de mise à l'échelle automatique dans un rôle de travail][]
--   [Implémentation d'un comportement de limitation][]
--   [Présentation des classements et de la conciliation des règles][]
--   [Développement et modification du bloc applicatif de mise à l'échelle automatique][]
--   [Utilisation du stabilisateur d'optimisation pour empêcher une oscillation des hautes fréquences et optimiser les coûts][]
--   [Utilisation des notifications et de la mise à l'échelle manuelle][]
--   [Définition de groupes d'échelle][]
--   [Utilisation de WASABiCmdlets pour manipuler le bloc via Windows PowerShell][]
--   [Guide du développeur Enterprise Library 5.0 Integration Pack for Azure][]
--   [Réduction des coûts d'hébergement Azure avec Sage via la mise à l'échelle automatique][]
--   [Réduction des coûts d'hébergement et de l'impact environnemental de TechNet et MSDN grâce à la mise à l'échelle automatique Azure][]
+-   [Hébergement du bloc applicatif de mise à l'échelle automatique dans un rôle de travail][Hébergement du bloc applicatif de mise à l'échelle automatique dans un rôle de travail]
+-   [Implémentation d'un comportement de limitation][Implémentation d'un comportement de limitation]
+-   [Présentation des classements et de la conciliation des règles][Présentation des classements et de la conciliation des règles]
+-   [Développement et modification du bloc applicatif de mise à l'échelle automatique][Développement et modification du bloc applicatif de mise à l'échelle automatique]
+-   [Utilisation du stabilisateur d'optimisation pour empêcher une oscillation des hautes fréquences et optimiser les coûts][Utilisation du stabilisateur d'optimisation pour empêcher une oscillation des hautes fréquences et optimiser les coûts]
+-   [Utilisation des notifications et de la mise à l'échelle manuelle][Utilisation des notifications et de la mise à l'échelle manuelle]
+-   [Définition de groupes d'échelle][Définition de groupes d'échelle]
+-   [Utilisation de WASABiCmdlets pour manipuler le bloc via Windows PowerShell][Utilisation de WASABiCmdlets pour manipuler le bloc via Windows PowerShell]
+-   [Guide du développeur Enterprise Library 5.0 Integration Pack for Azure][Guide du développeur Enterprise Library 5.0 Integration Pack for Azure]
+-   [Réduction des coûts d'hébergement Azure avec Sage via la mise à l'échelle automatique][Réduction des coûts d'hébergement Azure avec Sage via la mise à l'échelle automatique]
+-   [Réduction des coûts d'hébergement et de l'impact environnemental de TechNet et MSDN grâce à la mise à l'échelle automatique Azure][Réduction des coûts d'hébergement et de l'impact environnemental de TechNet et MSDN grâce à la mise à l'échelle automatique Azure]
 
   [Microsoft Enterprise Library 5.0 Integration Pack for Azure]: http://go.microsoft.com/fwlink/?LinkID=235134
   [Étapes suivantes]: #NextSteps

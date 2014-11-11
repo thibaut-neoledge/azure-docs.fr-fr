@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze realt-time Twitter sentiment with Hbase in HDInsight" pageTitle="Analyze real-time Twitter sentiment with HBase in HDInsight | Azure" metaKeywords="" description="Learn how to do real-time analysis of big data using HBase in an HDInsight (Hadoop) cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze real-time Twitter sentiment with HBase in HDInsight" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao" />
 
 # Analyse de sentiments Twitter en temps réel avec HBase dans HDInsight
 
@@ -1223,7 +1223,6 @@ Dans ce didacticiel, nous avons appris à recevoir des tweets, analyser les sent
   [Protobuf-net]: https://www.nuget.org/packages/protobuf-net/
   [2]: https://github.com/hdinsight/hbase-sdk-for-net
   [img-streaming-service]: ./media/hdinsight-hbase-analyze-twitter-sentiment/StreamingService.png
-  [3]: http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/
   [website-get-started]: ../web-sites-dotnet-get-started/
   [hdinsight-get-started]: ../hdinsight-get-started/
   [hdinsight-analyze-twitter-data]: ../hdinsight-analyze-twitter-data/

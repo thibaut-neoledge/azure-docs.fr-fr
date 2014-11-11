@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website that uses Traffic Manager to use a custom domain name" pageTitle="Configure a custom domain name for an Azure website that uses Traffic Manager" metaKeywords="Windows Azure, Windows Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth" />
 
 # Configuration d'un nom de domaine personnalisé pour un site web Azure à l'aide de Traffic Manager
 
@@ -56,17 +56,6 @@ Pour associer votre domaine personnalisé à un site web Azure, vous devez ajout
 
 [WACOM.INCLUDE [modes][1]]
 
-  [Domaine personnalisé]: /fr-fr/documentation/articles/web-sites-custom-domain-name "Domaine personnalisé"
-  [GoDaddy]: /fr-fr/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [Network Solutions]: /fr-fr/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
-  [Register.com]: /fr-fr/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /fr-fr/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /fr-fr/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /fr-fr/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /fr-fr/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /fr-fr/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [Site web]: /fr-fr/documentation/articles/web-sites-custom-domain-name/ "Sites web"
-  [Site web à l'aide de Traffic Manager]: /fr-fr/documentation/articles/web-sites-traffic-manager-custom-domain-name/ "Site web à l'aide de Traffic Manager"
   [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
   [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [tmwebsitefooter]: ../includes/custom-dns-web-site-traffic-manager-notes.md

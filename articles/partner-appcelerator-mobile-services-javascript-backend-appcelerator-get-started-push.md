@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with push notifications (Appcelerator) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Appcelerator app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator team;mahender"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator="" team;mahender" />
 
 # Prise en main des notifications Push dans Mobile Services (transmission de type push héritée)
 
@@ -40,13 +40,13 @@ Ce didacticiel requiert les éléments suivants :
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez effectuer le didacticiel [Prise en main de Mobile Services][Prise en main de Mobile Services].
 
-[WACOM.INCLUDE [Enable Apple Push Notifications][Enable Apple Push Notifications]]
+[WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
 ## <a name="register-gcm"></a>Activation de Google Cloud Messaging
 
 > [WACOM.NOTE]Pour exécuter cette procédure, vous devez disposer d'un compte Google avec une adresse électronique vérifiée. Pour créer un compte Google, consultez la page [accounts.google.com][accounts.google.com].
 
-[WACOM.INCLUDE [Enable GCM][Enable GCM]]
+[WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 ## <a name="gcm-module"></a>Création du module GCM pour Titanium
 
@@ -62,7 +62,7 @@ Vous devez installer le NDK Android. Téléchargez le fichier .zip approprié su
 
 2.  Cliquez sur File (Fichier) -\> New (Nouveau) -\> Mobile Module Project (Projet de module mobile).
 
-    ![][]
+    ![][0]
 
 3.  Dans la fenêtre suivante, entrez les données des paramètres du projet :
 
@@ -213,7 +213,7 @@ Vous pouvez alors choisir de déployer le module pour tous les projets ou pour u
 
 ## <a name="configure"></a>Configuration de Mobile Services pour l'envoi de demandes push
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push][mobile-services-apns-configure-push]]
+[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 1.  Entrez la valeur de la clé API fournie par GCM au cours de la procédure précédente, puis cliquez sur Save (Enregistrer).
 
@@ -428,12 +428,6 @@ Ce code inscrit un nouveau script d'insertion, qui utilise l'[objet Push Mobile 
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Windows Store C#"
-  [Windows Store JavaScript]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-push "Windows Store JavaScript"
-  [Windows Phone]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone"
-  [iOS]: /fr-fr/documentation/articles/mobile-services-ios-get-started-push "iOS"
-  [Android]: /fr-fr/documentation/articles/mobile-services-android-get-started-push "Android"
-  [Appcelerator]: /fr-fr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push "Appcelerator"
   [Génération de la demande de signature de certificat]: #certificates
   [Inscription de votre application et activation des notifications Push]: #register
   [Création d'un profil de mise en service pour l'application]: #profile
@@ -448,8 +442,8 @@ Ce code inscrit un nouveau script d'insertion, qui utilise l'[objet Push Mobile 
   [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
   [Enable GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Installation des outils de développement Java]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
-  []: http://developer.android.com/sdk/ndk/index.html
-  []: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0011.png
+  [0]: http://developer.android.com/sdk/ndk/index.html
+  [0]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0011.png
   [1]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0031.png
   [2]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0041.png
   [3]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0061.png

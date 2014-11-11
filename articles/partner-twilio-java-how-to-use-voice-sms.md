@@ -1,25 +1,25 @@
 <properties linkid="develop-java-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (Java) - Azure" metaKeywords="Twilio, Twilio API, phone calls, SMS message, TwiML responses, Azure Twilio Java" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Java." metaCanonical="" services="" videoId="" scriptId="" documentationCenter="Java" title="How to Use Twilio for Voice and SMS Capabilities in Java" authors="MicrosoftHelp@twilio.com; robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm" />
 
 # Utilisation de Twilio pour les fonctionnalités vocales et de SMS dans Java
 
-Ce guide présente l'exécution de tâches de programmation courantes avec le service API Twilio sur Azure. Les scénarios abordés comprennent notamment les appels téléphoniques et l'envoi de SMS. Pour plus d'informations sur Twilio et sur l'utilisation des fonctionnalités vocales et de SMS de vos applications, consultez la section [Étapes suivantes][].
+Ce guide présente l'exécution de tâches de programmation courantes avec le service API Twilio sur Azure. Les scénarios abordés comprennent notamment les appels téléphoniques et l'envoi de SMS. Pour plus d'informations sur Twilio et sur l'utilisation des fonctionnalités vocales et de SMS de vos applications, consultez la section [Étapes suivantes][Étapes suivantes].
 
 ## Sommaire
 
--   [Présentation de Twilio][]
--   [Tarification de Twilio][]
--   [Concepts][]
--   [Création d'un compte Twilio][]
--   [Vérification des numéros de téléphone][]
--   [Création d'une application Java][]
--   [Configuration de l'application pour utiliser les bibliothèques Twilio][]
--   [Appel téléphonique][]
--   [Envoi d'un SMS][]
--   [Envoi de réponses TwiML à partir de votre propre site Web][]
--   [Utilisation des services Twilio supplémentaires][]
--   [Étapes suivantes][]
+-   [Présentation de Twilio][Présentation de Twilio]
+-   [Tarification de Twilio][Tarification de Twilio]
+-   [Concepts][Concepts]
+-   [Création d'un compte Twilio][Création d'un compte Twilio]
+-   [Vérification des numéros de téléphone][Vérification des numéros de téléphone]
+-   [Création d'une application Java][Création d'une application Java]
+-   [Configuration de l'application pour utiliser les bibliothèques Twilio][Configuration de l'application pour utiliser les bibliothèques Twilio]
+-   [Appel téléphonique][Appel téléphonique]
+-   [Envoi d'un SMS][Envoi d'un SMS]
+-   [Envoi de réponses TwiML à partir de votre propre site Web][Envoi de réponses TwiML à partir de votre propre site Web]
+-   [Utilisation des services Twilio supplémentaires][Utilisation des services Twilio supplémentaires]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <span id="WhatIs"></span></a>Présentation de Twilio
 
@@ -29,11 +29,11 @@ Twilio est une API de service Web de téléphonie vous permettant d'utiliser vos
 
 ## <span id="Pricing"></span></a>Tarification de Twilio et offres spéciales
 
-Des informations sur la tarification de Twilio sont disponibles dans la page [Tarification de Twilio][1]. Les clients Azure reçoivent une [offre spéciale][] 1 000 SMS ou 1 000 minutes d'appel en entrée. Pour bénéficier de cette offre ou pour obtenir des informations supplémentaires, visitez la page [][offre spéciale]<http://ahoy.twilio.com/azure></a>.
+Des informations sur la tarification de Twilio sont disponibles dans la page [Tarification de Twilio][1]. Les clients Azure reçoivent une [offre spéciale][offre spéciale] 1 000 SMS ou 1 000 minutes d'appel en entrée. Pour bénéficier de cette offre ou pour obtenir des informations supplémentaires, visitez la page [][offre spéciale]<http://ahoy.twilio.com/azure></a>.
 
 ## <span id="Concepts"></span></a>Concepts
 
-L'API Twilio est une API RESTful qui offre des fonctionnalités vocales et de SMS aux applications. Les bibliothèques clientes sont disponibles dans plusieurs langues : pour en obtenir la liste, consultez la page [Bibliothèques de l'API Twilio][].
+L'API Twilio est une API RESTful qui offre des fonctionnalités vocales et de SMS aux applications. Les bibliothèques clientes sont disponibles dans plusieurs langues : pour en obtenir la liste, consultez la page [Bibliothèques de l'API Twilio][Bibliothèques de l'API Twilio].
 
 Les éléments les plus importants de l'API Twilio sont les verbes Twilio et TwiML (Twilio Markup Language).
 
@@ -67,26 +67,26 @@ TwiML est un jeu d'instructions XML reposant sur les verbes Twilio qui informent
 
 Lorsque votre application appelle l'API Twilio, l'un des paramètres de l'API est l'URL qui renvoie la réponse TwiML. À des fins de développement, vous pouvez utiliser les URL Twilio pour fournir les réponses TwiML utilisées par vos applications. Vous pouvez également héberger vos propres URL afin de produire les réponses TwiML, ou encore utiliser l'objet **TwiMLResponse**.
 
-Pour plus d'informations sur les verbes Twilio, leurs attributs et le langage TwiML, consultez la page [TwiML][]. Pour plus d'informations sur l'API Twilio, consultez la page [API Twilio][].
+Pour plus d'informations sur les verbes Twilio, leurs attributs et le langage TwiML, consultez la page [TwiML][TwiML]. Pour plus d'informations sur l'API Twilio, consultez la page [API Twilio][API Twilio].
 
 ## <span id="CreateAccount"></span></a>Création d'un compte Twilio
 
-Lorsque vous êtes prêt à créer votre compte Twilio, inscrivez-vous sur la page [Essayer Twilio][]. Vous pouvez commencer avec un compte gratuit, avant de le mettre à niveau ultérieurement.
+Lorsque vous êtes prêt à créer votre compte Twilio, inscrivez-vous sur la page [Essayer Twilio][Essayer Twilio]. Vous pouvez commencer avec un compte gratuit, avant de le mettre à niveau ultérieurement.
 
-Lorsque vous créez un compte Twilio, vous recevez un ID de compte et un jeton d'authentification. Les deux sont nécessaires pour passer des appels d'API Twilio. Pour éviter qu'une personne non autorisée n'accède à votre compte, conservez votre jeton d'authentification en lieu sûr. Vous pouvez consulter vos ID de compte et jeton d'authentification sur la [page du compte Twilio][], dans les champs intitulés **ACCOUNT SID** et **AUTH TOKEN**, respectivement.
+Lorsque vous créez un compte Twilio, vous recevez un ID de compte et un jeton d'authentification. Les deux sont nécessaires pour passer des appels d'API Twilio. Pour éviter qu'une personne non autorisée n'accède à votre compte, conservez votre jeton d'authentification en lieu sûr. Vous pouvez consulter vos ID de compte et jeton d'authentification sur la [page du compte Twilio][page du compte Twilio], dans les champs intitulés **ACCOUNT SID** et **AUTH TOKEN**, respectivement.
 
 ## <span id="VerifyPhoneNumbers"></span></a>Vérification des numéros de téléphone
 
-Plusieurs numéros de téléphone doivent être vérifiés avec Twilio pour votre compte. Par exemple, si vous souhaitez passer des appels téléphoniques, le numéro de téléphone doit être vérifié en tant qu'ID d'appelant sortant avec Twilio. De la même façon, si vous voulez un numéro de téléphone pour recevoir des SMS, le numéro de téléphone recevant l'appel doit être vérifié avec Twilio. Pour plus d'informations sur la vérification d'un numéro de téléphone, consultez la page [Gestion des numéros][]. Une partie du code ci-dessous repose sur les numéros de téléphone que vous devez vérifier avec Twilio.
+Plusieurs numéros de téléphone doivent être vérifiés avec Twilio pour votre compte. Par exemple, si vous souhaitez passer des appels téléphoniques, le numéro de téléphone doit être vérifié en tant qu'ID d'appelant sortant avec Twilio. De la même façon, si vous voulez un numéro de téléphone pour recevoir des SMS, le numéro de téléphone recevant l'appel doit être vérifié avec Twilio. Pour plus d'informations sur la vérification d'un numéro de téléphone, consultez la page [Gestion des numéros][Gestion des numéros]. Une partie du code ci-dessous repose sur les numéros de téléphone que vous devez vérifier avec Twilio.
 
-Si vous souhaitez utiliser un autre numéro de téléphone pour vos applications, vous pouvez acheter un numéro de téléphone Twilio. Pour plus d'informations sur l'achat d'un numéro de téléphone Twilio, consultez la page [Aide sur les numéros de téléphone Twilio][].
+Si vous souhaitez utiliser un autre numéro de téléphone pour vos applications, vous pouvez acheter un numéro de téléphone Twilio. Pour plus d'informations sur l'achat d'un numéro de téléphone Twilio, consultez la page [Aide sur les numéros de téléphone Twilio][Aide sur les numéros de téléphone Twilio].
 
 ## <span id="create_app"></span></a>Création d'une application Java
 
 1.  Obtenez le JAR Twilio et ajoutez-le à votre chemin d'accès de build Java et à votre assembly de déploiement WAR. Sur [][]<https://github.com/twilio/twilio-java></a>, vous pouvez télécharger les sources GitHub et créer votre propre JAR, ou télécharger un JAR préconstruit (avec ou sans dépendances).
-2.  Vérifiez que le keystore **cacerts** de votre JDK contient le certificat ESCA (Equifax Secure Certificate Authority) avec l'empreinte MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (le numéro de série est 35:DE:F4:CF et l'empreinte de SHA1 est D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). Il s'agit du certificat d'autorité de certification pour le service [][2]<https://api.twilio.com></a>, qui est appelé lorsque vous utilisez les API Twilio. Pour plus d'informations sur la façon de s'assurer que le keystore **cacerts** de votre JDK contient le certificat d'autorité de certification correct, consultez la rubrique [Ajout d'un certificat au magasin de certificats d'autorité de certification Java][].
+2.  Vérifiez que le keystore **cacerts** de votre JDK contient le certificat ESCA (Equifax Secure Certificate Authority) avec l'empreinte MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (le numéro de série est 35:DE:F4:CF et l'empreinte de SHA1 est D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). Il s'agit du certificat d'autorité de certification pour le service [][2]<https://api.twilio.com></a>, qui est appelé lorsque vous utilisez les API Twilio. Pour plus d'informations sur la façon de s'assurer que le keystore **cacerts** de votre JDK contient le certificat d'autorité de certification correct, consultez la rubrique [Ajout d'un certificat au magasin de certificats d'autorité de certification Java][Ajout d'un certificat au magasin de certificats d'autorité de certification Java].
 
-Des instructions détaillées sur l'utilisation de la bibliothèque cliente Twilio pour Java sont disponibles dans la rubrique [Exécution d'un appel téléphonique au moyen de Twilio dans une application Java sur Azure][].
+Des instructions détaillées sur l'utilisation de la bibliothèque cliente Twilio pour Java sont disponibles dans la rubrique [Exécution d'un appel téléphonique au moyen de Twilio dans une application Java sur Azure][Exécution d'un appel téléphonique au moyen de Twilio dans une application Java sur Azure].
 
 ## <span id="configure_app"></span></a>Configuration de l'application pour utiliser les bibliothèques Twilio
 
@@ -201,7 +201,7 @@ La page JSP suivante génère une réponse TwiML qui prononce un texte spécifiq
         <Say>Good bye.</Say>
     </Response>
 
-Le paramètre **ApiVersion** est disponible dans les demandes vocales Twilio (pas pour les demandes par SMS). Pour afficher les paramètres de demande disponibles pour les demandes vocales et SMS de Twilio, consultez respectivement les pages <https://www.twilio.com/docs/api/twiml/twilio_request> et <https://www.twilio.com/docs/api/twiml/sms/twilio_request>. La variable d'environnement **RoleName** est disponible au sein du déploiement Azure. Si vous voulez ajouter des variables d'environnement personnalisées de façon à ce qu'elles puissent être sélectionnées à partir de **System.getenv**, consultez la section des variables d'environnement sur la page [Paramètres de configuration de rôle divers][].
+Le paramètre **ApiVersion** est disponible dans les demandes vocales Twilio (pas pour les demandes par SMS). Pour afficher les paramètres de demande disponibles pour les demandes vocales et SMS de Twilio, consultez respectivement les pages <https://www.twilio.com/docs/api/twiml/twilio_request> et <https://www.twilio.com/docs/api/twiml/sms/twilio_request>. La variable d'environnement **RoleName** est disponible au sein du déploiement Azure. Si vous voulez ajouter des variables d'environnement personnalisées de façon à ce qu'elles puissent être sélectionnées à partir de **System.getenv**, consultez la section des variables d'environnement sur la page [Paramètres de configuration de rôle divers][Paramètres de configuration de rôle divers].
 
 Une fois que votre page JSP est configurée et prête à envoyer des réponses TwiML, utilisez son URL en tant qu'URL transmise à la méthode **CallFactory.create**. Par exemple, si vous avez une application Web intitulée MyTwiML et déployée sur un service hébergé Azure, et que le nom de la page JSP est mytwiml.jsp, l'URL peut être transmise à **CallFactory.create**, comme indiqué ci-après :
 
@@ -226,11 +226,11 @@ En plus des exemples présentés ici, Twilio offre des API Web que vous pouvez u
 
 Maintenant que vous avez appris les bases du service Twilio, consultez ces liens pour en savoir plus :
 
--   [Conseils de sécurité Twilio][]
--   [Procédures et exemples de code Twilio][]
--   [Didacticiels de démarrage rapide Twilio][]
--   [Twilio sur GitHub][]
--   [Support Twilio][]
+-   [Conseils de sécurité Twilio][Conseils de sécurité Twilio]
+-   [Procédures et exemples de code Twilio][Procédures et exemples de code Twilio]
+-   [Didacticiels de démarrage rapide Twilio][Didacticiels de démarrage rapide Twilio]
+-   [Twilio sur GitHub][Twilio sur GitHub]
+-   [Support Twilio][Support Twilio]
 
   [Étapes suivantes]: #NextSteps
   [Présentation de Twilio]: #WhatIs

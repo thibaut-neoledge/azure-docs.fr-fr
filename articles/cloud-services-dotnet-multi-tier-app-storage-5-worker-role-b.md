@@ -1,10 +1,10 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-5-worker-role-b" pageTitle="Azure Cloud Service Tutorial: Worker Role with Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande"></tags>
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
 
 # Création du rôle de travail B (expéditeur de messages) pour l'application Azure Email Service : 5 sur 5.
 
-Voici le cinquième didacticiel de notre série sur le développement et le déploiement de l'exemple d'application Azure Email Service. Pour obtenir des informations sur l'application et la série de didacticiels, consultez le [premier didacticiel de la série][].
+Voici le cinquième didacticiel de notre série sur le développement et le déploiement de l'exemple d'application Azure Email Service. Pour obtenir des informations sur l'application et la série de didacticiels, consultez le [premier didacticiel de la série][premier didacticiel de la série].
 
 Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
@@ -16,23 +16,23 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 ## Sections de ce didacticiel
 
--   [Ajout d'un projet de rôle de travail B à la solution][]
--   [Ajout d'une référence au projet Web][]
--   [Ajout du package NuGet SendGrid au projet][]
--   [Ajout des paramètres du projet][]
--   [Ajout de code qui s'exécute au démarrage du rôle de travail][]
--   [Test du rôle de travail B][]
--   [Étapes suivantes][]
+-   [Ajout d'un projet de rôle de travail B à la solution][Ajout d'un projet de rôle de travail B à la solution]
+-   [Ajout d'une référence au projet Web][Ajout d'une référence au projet Web]
+-   [Ajout du package NuGet SendGrid au projet][Ajout du package NuGet SendGrid au projet]
+-   [Ajout des paramètres du projet][Ajout des paramètres du projet]
+-   [Ajout de code qui s'exécute au démarrage du rôle de travail][Ajout de code qui s'exécute au démarrage du rôle de travail]
+-   [Test du rôle de travail B][Test du rôle de travail B]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <a name="addworkerrole"></a><span class="short-header">Ajout du rôle de travail B</span>Ajout d'un projet de rôle de travail B à la solution
 
 1.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet de service cloud, puis sélectionnez **Nouveau projet de rôle de travail**.
 
-    ![Menu Nouveau projet de rôle de travail][]
+    ![Menu Nouveau projet de rôle de travail][Menu Nouveau projet de rôle de travail]
 
 2.  Dans la boîte de dialogue **Ajouter un nouveau projet de rôle**, sélectionnez **C#**, **Rôle de travail**, nommez le projet WorkerRoleB, puis cliquez sur **Ajouter**.
 
-    ![Boîte de dialogue Nouveau projet de rôle][]
+    ![Boîte de dialogue Nouveau projet de rôle][Boîte de dialogue Nouveau projet de rôle]
 
 ## <a name="addreference"></a>Ajout d'une référence au projet Web
 
@@ -42,7 +42,7 @@ Vous avez besoin d'une référence au projet Web, car les classes d'entité sont
 
 2.  Dans le **Gestionnaire de références**, ajoutez une référence au projet MvcWebRole.
 
-    ![Ajout d'une référence à MvcWebRole][]
+    ![Ajout d'une référence à MvcWebRole][Ajout d'une référence à MvcWebRole]
 
 ## <a name="addsendgrid"></a>Ajout du package NuGet SendGrid au projet
 
@@ -50,13 +50,13 @@ Pour envoyer des messages électroniques avec SendGrid, vous devez installer le 
 
 1.  Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur le projet WorkerRoleB, puis sélectionnez **Gérer les packages NuGet**.
 
-    ![Gérer les packages NuGet][]
+    ![Gérer les packages NuGet][Gérer les packages NuGet]
 
 2.  Dans la boîte de dialogue **Gérer les packages NuGet**, sélectionnez l'onglet **En ligne**, entrez « sendgrid » dans la zone de recherche, puis appuyez sur Entrée.
 
 3.  Cliquez sur le bouton **Installer** du package **SendGrid**.
 
-    ![Installer le package Sendgrid][]
+    ![Installer le package Sendgrid][Installer le package Sendgrid]
 
 4.  Fermez la boîte de dialogue.
 
@@ -64,7 +64,7 @@ Pour envoyer des messages électroniques avec SendGrid, vous devez installer le 
 
 Comme le rôle de travail A, le rôle de travail B a besoin des informations d'identification du compte de stockage pour pouvoir fonctionner avec les tables, les files d'attente et les objets blob. De plus, pour pouvoir envoyer des courriers électroniques, le rôle de travail doit posséder des informations d'identification pour intégrer des appels entrants au service SendGrid. Et pour pouvoir créer un lien de désabonnement à inclure dans les messages électroniques qu'il envoie, le rôle de travail doit connaître l'URL de l'application. Ces valeurs sont stockées dans les paramètres du projet.
 
-Pour obtenir les informations d'identification du compte de stockage, suivez la procédure présentée dans [le troisième didacticiel][].
+Pour obtenir les informations d'identification du compte de stockage, suivez la procédure présentée dans [le troisième didacticiel][le troisième didacticiel].
 
 1.  Dans l'**Explorateur de solutions**, sous **Rôles** dans le projet cloud, cliquez avec le bouton droit sur **WorkerRoleB**, puis sélectionnez **Propriétés**.
 
@@ -86,13 +86,13 @@ Ensuite, créez et configurez les trois nouveaux paramètres utilisés uniquemen
 
 1.  Sous l'onglet **Paramètres** de la fenêtre **Propriétés**, cliquez sur **Ajouter un paramètre**, puis ajoutez trois nouveaux paramètres au type **Chaîne** :
 
-    -   **Nom** : SendGridUserName, **Valeur** : le nom d'utilisateur SendGrid que vous avez choisi dans le [deuxième didacticiel][].
+    -   **Nom** : SendGridUserName, **Valeur** : le nom d'utilisateur SendGrid que vous avez choisi dans le [deuxième didacticiel][deuxième didacticiel].
 
     -   **Nom** : SendGridPassword, **Valeur** : le mot de passe SendGrid.
 
     -   **Nom** : AzureMailServiceURL, **Valeur** : l'URL de base de l'application lorsque vous la déployez, par exemple : <http://sampleurl.cloudapp.net>.
 
-    ![Nouveaux paramètres du projet WorkerRoleB][]
+    ![Nouveaux paramètres du projet WorkerRoleB][Nouveaux paramètres du projet WorkerRoleB]
 
 ## <a name="addcode"></a>Ajout de code qui s'exécute au démarrage du rôle de travail
 
@@ -233,13 +233,13 @@ S'il n'y a pas d'élément en attente dans l'une des files, le code passe en vei
                         System.Threading.Thread.Sleep(1000 * 60);
                     }
 
-Cette veille permet de réduire les frais de transaction Azure Storage, comme cela est expliqué dans [le didacticiel précédent][].
+Cette veille permet de réduire les frais de transaction Azure Storage, comme cela est expliqué dans [le didacticiel précédent][le didacticiel précédent].
 
-Lorsqu'un élément de file d'attente est extrait de la file par la méthode [GetMessage][], il devient invisible durant 30 secondes pour tous les autres rôles de travail et Web qui accèdent à la file d'attente. Cela permet de garantir que seule une instance de rôle de travail choisit un message de file d'attente spécifique pour le traiter. Vous pouvez définir ce délai *exclusif* (durée d'invisibilité de l'élément) de manière explicite en transmettant un paramètre de [délai d'expiration de la visibilité][] à la méthode `GetMessage`. Si le traitement d'un message de file d'attente peut prendre plus de 30 secondes au rôle de travail, vous devez augmenter le délai exclusif pour éviter que le même message soit traité par d'autres instances de rôle.
+Lorsqu'un élément de file d'attente est extrait de la file par la méthode [GetMessage][GetMessage], il devient invisible durant 30 secondes pour tous les autres rôles de travail et Web qui accèdent à la file d'attente. Cela permet de garantir que seule une instance de rôle de travail choisit un message de file d'attente spécifique pour le traiter. Vous pouvez définir ce délai *exclusif* (durée d'invisibilité de l'élément) de manière explicite en transmettant un paramètre de [délai d'expiration de la visibilité][délai d'expiration de la visibilité] à la méthode `GetMessage`. Si le traitement d'un message de file d'attente peut prendre plus de 30 secondes au rôle de travail, vous devez augmenter le délai exclusif pour éviter que le même message soit traité par d'autres instances de rôle.
 
 Cependant, il ne vaut mieux pas définir le délai exclusif sur une valeur trop grande. Par exemple, si le délai exclusif est défini sur 48 heures et que votre rôle de travail s'arrête de manière imprévue après l'extraction d'un message d'une file d'attente, les autres rôles de travail ne pourront pas traiter le message durant les 48 prochaines heures. Le délai exclusif maximum est de 7 jours.
 
-La méthode [GetMessages][] (remarquez le « s » à la fin du nom) permet d'extraire jusqu'à 32 messages de la file d'attente par appel. Chaque accès à la file d'attente implique des frais de transaction réduits, qui ne changent pas, peu importe le nombre de messages renvoyés. Le code suivant récupère et traite jusqu'à 32 messages en un appel.
+La méthode [GetMessages][GetMessages] (remarquez le « s » à la fin du nom) permet d'extraire jusqu'à 32 messages de la file d'attente par appel. Chaque accès à la file d'attente implique des frais de transaction réduits, qui ne changent pas, peu importe le nombre de messages renvoyés. Le code suivant récupère et traite jusqu'à 32 messages en un appel.
 
         foreach (CloudQueueMessage msg in sendEmailQueue.GetMessages(32))
         {
@@ -401,7 +401,7 @@ Finalement, si tout se passe correctement, le message en file d'attente est supp
 
 Le travail d'envoi du message électronique avec SendGrid est effectué par la méthode `SendEmailToList`. Si vous voulez utiliser un autre service que SendGrid, tout ce que vous avez à faire est de modifier le code de cette méthode.
 
-**Remarque :** si les informations d'identification contenues dans les paramètres du projet ne sont pas correctes, l'appel vers SendGrid échoue mais l'application n'indique pas les raisons de l'échec. Si vous utilisez SendGrid dans une application de production, pensez à configurer des informations d'identification distinctes pour l'API Web, afin d'éviter des échecs silencieux lorsqu'un administrateur modifie le mot de passe de son compte d'utilisateur SendGrid. Pour plus d'informations, consultez la page [SendGrid MultiAuth : informations d'identification de plusieurs comptes][]. Vous pouvez configurer vos informations d'identification sur la page [][]<https://sendgrid.com/credentials></a>.
+**Remarque :** si les informations d'identification contenues dans les paramètres du projet ne sont pas correctes, l'appel vers SendGrid échoue mais l'application n'indique pas les raisons de l'échec. Si vous utilisez SendGrid dans une application de production, pensez à configurer des informations d'identification distinctes pour l'API Web, afin d'éviter des échecs silencieux lorsqu'un administrateur modifie le mot de passe de son compte d'utilisateur SendGrid. Pour plus d'informations, consultez la page [SendGrid MultiAuth : informations d'identification de plusieurs comptes][SendGrid MultiAuth : informations d'identification de plusieurs comptes]. Vous pouvez configurer vos informations d'identification sur la page [][]<https://sendgrid.com/credentials></a>.
 
         private void SendEmailToList(string emailAddress, string fromEmailAddress, string subjectLine,
             string htmlMessageBodyRef, string textMessageBodyRef)
@@ -516,51 +516,51 @@ Comme pour les messages électroniques envoyés aux listes, l'envoi du message �
 
 ## <a name="nextsteps"></a>Étapes suivantes
 
-Vous avez créé intégralement l'application Azure Email Service, et le résultat est identique au projet complet que vous avez téléchargé. Pour le déployer et le tester dans le cloud, puis le faire passer en production, vous pouvez utiliser les mêmes procédures que celles du [deuxième didacticiel][].
+Vous avez créé intégralement l'application Azure Email Service, et le résultat est identique au projet complet que vous avez téléchargé. Pour le déployer et le tester dans le cloud, puis le faire passer en production, vous pouvez utiliser les mêmes procédures que celles du [deuxième didacticiel][deuxième didacticiel].
 
-Pour un exemple d'application illustrant l'utilisation de LINQ dans les requêtes du service de table Azure Storage, consultez ce scénario [PhluffyFotos][].
+Pour un exemple d'application illustrant l'utilisation de LINQ dans les requêtes du service de table Azure Storage, consultez ce scénario [PhluffyFotos][PhluffyFotos].
 
 Pour en savoir plus sur Azure Storage, consultez les ressources suivantes :
 
--   [Informations essentielles sur Azure Storage][] (blog de Bruno Terkaly)
+-   [Informations essentielles sur Azure Storage][Informations essentielles sur Azure Storage] (blog de Bruno Terkaly)
 
 Pour en savoir plus sur le service de stockage de tables Azure, consultez les ressources suivantes :
 
--   [Informations essentielles sur le stockage de tables Azure][] (blog de Bruno Terkaly)
--   [Comment tirer le meilleur parti du stockage de tables Azure][] (blog de l'équipe Azure Storage)
--   [Utilisation du service de stockage de tables dans .NET][]
--   [Présentation approfondie des tables de la bibliothèque cliente de stockage 2.0][] (blog de l'équipe Azure Storage)
--   [Environnement réel : conception d'une stratégie de partition extensible pour le stockage de tables Azure][]
+-   [Informations essentielles sur le stockage de tables Azure][Informations essentielles sur le stockage de tables Azure] (blog de Bruno Terkaly)
+-   [Comment tirer le meilleur parti du stockage de tables Azure][Comment tirer le meilleur parti du stockage de tables Azure] (blog de l'équipe Azure Storage)
+-   [Utilisation du service de stockage de tables dans .NET][Utilisation du service de stockage de tables dans .NET]
+-   [Présentation approfondie des tables de la bibliothèque cliente de stockage 2.0][Présentation approfondie des tables de la bibliothèque cliente de stockage 2.0] (blog de l'équipe Azure Storage)
+-   [Environnement réel : conception d'une stratégie de partition extensible pour le stockage de tables Azure][Environnement réel : conception d'une stratégie de partition extensible pour le stockage de tables Azure]
 
 Pour en savoir plus sur le service de files d'attente Azure et les files d'attente Azure Service Bus, consultez les ressources suivantes :
 
--   [Modèle de travail centré sur les files d'attente (développement d'applications de cloud plus concrètes avec Azure).][]
--   [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences][]
--   [Utilisation du service de stockage de files d'attente dans .NET][]
+-   [Modèle de travail centré sur les files d'attente (développement d'applications de cloud plus concrètes avec Azure).][Modèle de travail centré sur les files d'attente (développement d'applications de cloud plus concrètes avec Azure).]
+-   [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences][Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences]
+-   [Utilisation du service de stockage de files d'attente dans .NET][Utilisation du service de stockage de files d'attente dans .NET]
 
 Pour en savoir plus sur le service de stockage d'objets blob Azure, consultez les ressources suivantes :
 
--   [Stockage d'objets blob non structurés (développement d'applications de cloud plus concrètes avec Azure).][]
--   [Utilisation du service de stockage d'objets blob Azure dans .NET][]
+-   [Stockage d'objets blob non structurés (développement d'applications de cloud plus concrètes avec Azure).][Stockage d'objets blob non structurés (développement d'applications de cloud plus concrètes avec Azure).]
+-   [Utilisation du service de stockage d'objets blob Azure dans .NET][Utilisation du service de stockage d'objets blob Azure dans .NET]
 
 Pour en savoir plus sur la mise à l'échelle automatique des rôles de service cloud Azure, consultez les ressources suivantes :
 
--   [Utilisation du bloc applicatif de mise à l'échelle automatique][]
--   [Mise à l'échelle automatique et Azure][]
--   [Développement de solutions flexibles pouvant être mises à l'échelle automatiquement avec Azure][] (vidéo MSDN Channel 9)
+-   [Utilisation du bloc applicatif de mise à l'échelle automatique][Utilisation du bloc applicatif de mise à l'échelle automatique]
+-   [Mise à l'échelle automatique et Azure][Mise à l'échelle automatique et Azure]
+-   [Développement de solutions flexibles pouvant être mises à l'échelle automatiquement avec Azure][Développement de solutions flexibles pouvant être mises à l'échelle automatiquement avec Azure] (vidéo MSDN Channel 9)
 
 ## <a name="Acknowledgments"></a><span class="short-header">Remerciements</span>Remerciements
 
-Ces didacticiels et exemples d'applications ont été écrits par [Rick Anderson][] et Tom Dykstra. Nous aimerions remercier les personnes suivantes pour leur aide :
+Ces didacticiels et exemples d'applications ont été écrits par [Rick Anderson][Rick Anderson] et Tom Dykstra. Nous aimerions remercier les personnes suivantes pour leur aide :
 
--   Barry Dorrans (Twitter [@blowdart][])
--   [Cory Fowler][] (Twitter [@SyntaxC4][] )
--   [Joe Giardino][]
+-   Barry Dorrans (Twitter [@blowdart][@blowdart])
+-   [Cory Fowler][Cory Fowler] (Twitter [@SyntaxC4][@SyntaxC4] )
+-   [Joe Giardino][Joe Giardino]
 -   Don Glover
 -   Jai Haridas
--   [Scott Hunter][] (Twitter [@coolcsh][])
--   [Brian Swan][]
--   [Daniel Wang][]
+-   [Scott Hunter][Scott Hunter] (Twitter [@coolcsh][@coolcsh])
+-   [Brian Swan][Brian Swan]
+-   [Daniel Wang][Daniel Wang]
 -   Merci aux membres du Conseil consultatif des développeurs pour leurs commentaires :
 	-   Damir Arh
 	-   Jean-Luc Boucho
@@ -604,10 +604,8 @@ Ces didacticiels et exemples d'applications ont été écrits par [Rick Anderson
   [Utilisation du service de stockage de tables dans .NET]: http://www.windowsazure.com/fr-fr/develop/net/how-to-guides/table-services/
   [Présentation approfondie des tables de la bibliothèque cliente de stockage 2.0]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx
   [Environnement réel : conception d'une stratégie de partition extensible pour le stockage de tables Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh508997.aspx
-  [Modèle de travail centré sur les files d'attente (développement d'applications de cloud plus concrètes avec Azure).]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
   [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh767287.aspx
   [Utilisation du service de stockage de files d'attente dans .NET]: /fr-fr/develop/net/how-to-guides/queue-service/
-  [Stockage d'objets blob non structurés (développement d'applications de cloud plus concrètes avec Azure).]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
   [Utilisation du service de stockage d'objets blob Azure dans .NET]: /fr-fr/develop/net/how-to-guides/blob-storage/
   [Utilisation du bloc applicatif de mise à l'échelle automatique]: /fr-fr/develop/net/how-to-guides/autoscaling/
   [Mise à l'échelle automatique et Azure]: http://msdn.microsoft.com/fr-fr/library/hh680945(v=PandP.50).aspx

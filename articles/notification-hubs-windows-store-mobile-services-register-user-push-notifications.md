@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-how-to-guides-howto-register-user-with-mobile-service-windowsphonedotnet" urlDisplayName="Notify Windows Store app users by using Mobile Services" pageTitle="Register the current user for push notifications by using a mobile service - Notification Hubs" metaKeywords="Azure registering application, Notification Hubs, Azure push notifications, push notification Windows Store app" description="Learn how to request push notification registration in a Windows Store app with Azure Notification Hubs when registeration is performed by Azure Mobile Services." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Register the current user for push notifications by using a mobile service" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Inscription de l'utilisateur actif aux notifications Push à l'aide d'un service mobile
 
@@ -8,19 +8,19 @@
     <a href="/fr-fr/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/" title="Windows Store C#" class="current">Windows Store C#</a><a href="/fr-fr/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/" title="iOS">iOS</a>
 </div>
 
-Cette rubrique vous montre comment demander une inscription aux notifications Push avec Azure Notification Hubs lorsque l'inscription est réalisée par Azure Mobile Services. Cette rubrique s'inscrit dans le prolongement du didacticiel [Notification des utilisateurs avec Notification Hubs][]. Vous devez avoir suivi les étapes de ce didacticiel permettant de créer le service mobile authentifié. Pour plus d'informations sur les scénarios de notification des utilisateurs, consultez la rubrique [Notification des utilisateurs avec Notification Hubs][].
+Cette rubrique vous montre comment demander une inscription aux notifications Push avec Azure Notification Hubs lorsque l'inscription est réalisée par Azure Mobile Services. Cette rubrique s'inscrit dans le prolongement du didacticiel [Notification des utilisateurs avec Notification Hubs][Notification des utilisateurs avec Notification Hubs]. Vous devez avoir suivi les étapes de ce didacticiel permettant de créer le service mobile authentifié. Pour plus d'informations sur les scénarios de notification des utilisateurs, consultez la rubrique [Notification des utilisateurs avec Notification Hubs][Notification des utilisateurs avec Notification Hubs].
 
-1.  Dans Visual Studio 2012 Express pour Windows 8, ouvrez le projet que vous avez créé en suivant le didacticiel préalable [Prise en main de l'authentification][].
+1.  Dans Visual Studio 2012 Express pour Windows 8, ouvrez le projet que vous avez créé en suivant le didacticiel préalable [Prise en main de l'authentification][Prise en main de l'authentification].
 
 2.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet, cliquez sur **Store**, puis sur **Associer l'application au Windows Store...**.
 
-    ![][]
+    ![][0]
 
     L'Assistant **Associer votre application au Windows Store** s'affiche.
 
 3.  Dans l'Assistant, cliquez sur **Se connecter**, puis connectez-vous avec votre compte Microsoft.
 
-4.  Sélectionnez l'application inscrite à l'étape [Notification des utilisateurs avec Notification Hubs][], cliquez sur **Suivant**, puis sur **Associer**.
+4.  Sélectionnez l'application inscrite à l'étape [Notification des utilisateurs avec Notification Hubs][Notification des utilisateurs avec Notification Hubs], cliquez sur **Suivant**, puis sur **Associer**.
 
     ![][1]
 
@@ -95,7 +95,7 @@ Cette rubrique vous montre comment demander une inscription aux notifications Pu
             await dialog.ShowAsync();
         }
 
-    Cette méthode crée un canal pour les notifications Push et l'envoie, avec le type d'appareil, vers la méthode d'API personnalisée qui crée une inscription dans Notification Hubs. Cette API personnalisée a été définie dans le cadre du didacticiel [Notification des utilisateurs avec Notification Hubs][].
+    Cette méthode crée un canal pour les notifications Push et l'envoie, avec le type d'appareil, vers la méthode d'API personnalisée qui crée une inscription dans Notification Hubs. Cette API personnalisée a été définie dans le cadre du didacticiel [Notification des utilisateurs avec Notification Hubs][Notification des utilisateurs avec Notification Hubs].
 
 9.  Ajoutez la ligne de code suivante à la méthode **OnNavigatedTo**, juste après que la méthode **Authenticate** ait été appelée :
 
@@ -105,16 +105,14 @@ Cette rubrique vous montre comment demander une inscription aux notifications Pu
 <p>Cela permet de s'assurer que l'inscription est demand&eacute;e &agrave; chaque chargement de la page. Dans votre application, vous souhaitez effectuer cette inscription r&eacute;guli&egrave;rement pour vous assurer de son exactitude.</p>
 </div>
 
-Maintenant que l'application cliente est à jour, retournez au didacticiel [Notification des utilisateurs avec Notification Hubs][] et mettez le service mobile à jour pour qu'il envoie des notifications à l'aide de Notification Hubs.
+Maintenant que l'application cliente est à jour, retournez au didacticiel [Notification des utilisateurs avec Notification Hubs][Notification des utilisateurs avec Notification Hubs] et mettez le service mobile à jour pour qu'il envoie des notifications à l'aide de Notification Hubs.
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Store C#]: /fr-fr/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/ "Windows Store C#"
-  [iOS]: /fr-fr/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/ "iOS"
   [Notification des utilisateurs avec Notification Hubs]: /fr-fr/manage/services/notification-hubs/notify-users
   [Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-dotnet/
-  []: ./media/notification-hubs-windows-store-mobile-services-register-user-push-notifications/mobile-services-select-app-name.png
+  [0]: ./media/notification-hubs-windows-store-mobile-services-register-user-push-notifications/mobile-services-select-app-name.png
   [1]: ./media/notification-hubs-windows-store-mobile-services-register-user-push-notifications/notification-hub-associate-win8-app.png
   [2]: ./media/notification-hubs-windows-store-mobile-services-register-user-push-notifications/notification-hub-win8-app-toast.png

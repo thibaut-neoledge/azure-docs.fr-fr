@@ -1,50 +1,50 @@
 <properties linkid="dev-net-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage  from .NET | Microsoft Azure" metaKeywords="Get started Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage   Azure table .NET   Azure table storage .NET   Azure table C#   Azure table storage C#" description="Learn how to use Microsoft Azure Table storage to create and delete tables and insert and query entities in a table." services="storage" documentationCenter=".NET" metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="How to use Microsoft Azure Table storage" authors="tamram" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Utilisation du stockage de tables à partir de .NET
 
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du
 service de stockage de tables Azure. Les exemples ont été écrits en code C# et utilisent la bibliothèque cliente de stockage Azure pour .NET. Les scénarios traités incluent la **création et
-suppression d'une table**, ainsi que l'**utilisation d'entités de table**. Pour plus d'informations sur les tables, consultez la section [Étapes suivantes][].
+suppression d'une table**, ainsi que l'**utilisation d'entités de table**. Pour plus d'informations sur les tables, consultez la section [Étapes suivantes][Étapes suivantes].
 
-> [WACOM.NOTE] Ce guide cible la bibliothèque cliente de stockage Azure .NET 2.x et les versions ultérieures. Nous vous recommandons d'utiliser la version 4.x disponible via [NuGet][] ou dans le [Kit de développement logiciel (SDK) Azure pour .NET][]. Pour plus d'informations sur l'obtention de la bibliothèque cliente de stockage, consultez la rubrique [Accès au stockage de tables par programme][] ci-dessous.
+> [WACOM.NOTE] Ce guide cible la bibliothèque cliente de stockage Azure .NET 2.x et les versions ultérieures. Nous vous recommandons d'utiliser la version 4.x disponible via [NuGet][NuGet] ou dans le [Kit de développement logiciel (SDK) Azure pour .NET][Kit de développement logiciel (SDK) Azure pour .NET]. Pour plus d'informations sur l'obtention de la bibliothèque cliente de stockage, consultez la rubrique [Accès au stockage de tables par programme][Accès au stockage de tables par programme] ci-dessous.
 
 ## Sommaire
 
--   [Présentation du service de Table][]
--   [Concepts][]
--   [Création d’un compte de stockage Azure][]
--   [Configuration d’une chaîne de connexion de stockage][]
--   [Accès au stockage de tables par programme][]
--   [Création d'une table][]
--   [Ajout d'une entité à une table][]
--   [Insertion d'un lot d'entités][]
--   [Extraction de toutes les entités d'une partition][]
--   [Extraction d'un ensemble d'entités dans une partition][]
--   [Extraction d'une seule entité][]
--   [Remplacement d'une entité][]
--   [Insertion ou remplacement d'une entité][]
--   [Interrogation d'un sous-ensemble de propriétés d'entité][]
--   [Suppression d'une entité][]
--   [Suppression d'une table][]
--   [Étapes suivantes][]
+-   [Présentation du service de Table][Présentation du service de Table]
+-   [Concepts][Concepts]
+-   [Création d’un compte de stockage Azure][Création d’un compte de stockage Azure]
+-   [Configuration d’une chaîne de connexion de stockage][Configuration d’une chaîne de connexion de stockage]
+-   [Accès au stockage de tables par programme][Accès au stockage de tables par programme]
+-   [Création d'une table][Création d'une table]
+-   [Ajout d'une entité à une table][Ajout d'une entité à une table]
+-   [Insertion d'un lot d'entités][Insertion d'un lot d'entités]
+-   [Extraction de toutes les entités d'une partition][Extraction de toutes les entités d'une partition]
+-   [Extraction d'un ensemble d'entités dans une partition][Extraction d'un ensemble d'entités dans une partition]
+-   [Extraction d'une seule entité][Extraction d'une seule entité]
+-   [Remplacement d'une entité][Remplacement d'une entité]
+-   [Insertion ou remplacement d'une entité][Insertion ou remplacement d'une entité]
+-   [Interrogation d'un sous-ensemble de propriétés d'entité][Interrogation d'un sous-ensemble de propriétés d'entité]
+-   [Suppression d'une entité][Suppression d'une entité]
+-   [Suppression d'une table][Suppression d'une table]
+-   [Étapes suivantes][Étapes suivantes]
 
-[WACOM.INCLUDE [howto-table-storage][]]
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## 
 
 ## <a name="create-account"></a><span class="short-header">Création d’un compte</span>Création d’un compte de stockage Azure
 
 </h2>
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## 
 
 ## <a name="setup-connection-string"></a><span class="short-header">Configuration d’une chaîne de connexion</span>Configuration d’une chaîne de connexion de stockage
 
 </h2>
-[WACOM.INCLUDE [storage-configure-connection-string][]]
+[WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
 ## 
 
@@ -55,7 +55,7 @@ suppression d'une table**, ainsi que l'**utilisation d'entités de table**. Pour
 
 Vous pouvez utiliser NuGet pour obtenir l’assembly `Microsoft.WindowsAzure.Storage.dll`. Cliquez avec le bouton droit sur votre projet dans l’**Explorateur de solutions**, puis sélectionnez **Manage NuGet Packages**. Effectuez une recherche en ligne sur « WindowsAzure.Storage », puis cliquez sur **Install** pour installer le package de stockage Azure et ses dépendances.
 
-`Microsoft.WindowsAzure.Storage.dll` est également inclus dans le Kit de développement logiciel (SDK) Azure pour .NET, téléchargeable à partir du [Centre de développement .NET][]. L'assembly est installé dans le répertoire `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`lt;sdk-version\>\\ref\\</code>.
+`Microsoft.WindowsAzure.Storage.dll` est également inclus dans le Kit de développement logiciel (SDK) Azure pour .NET, téléchargeable à partir du [Centre de développement .NET][Centre de développement .NET]. L'assembly est installé dans le répertoire `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`lt;sdk-version\>\\ref\\</code>.
 
 ### Déclarations d’espace de noms
 
@@ -90,7 +90,7 @@ Si vous créez une application sans référence pointant vers Microsoft.WindowsA
 
 ### Dépendances ODataLib
 
-Les dépendances ODataLib de la bibliothèque de client de stockage pour .NET sont résolues via les packages ODataLib (version 5.0.2) disponibles avec NuGet et non pas avec les services de données WCF. Vous pouvez télécharger directement les bibliothèques ODataLib ou les référencer avec votre projet de code via NuGet. Les packages ODataLib sont [OData][], [Edm][] et [Spatial][].
+Les dépendances ODataLib de la bibliothèque de client de stockage pour .NET sont résolues via les packages ODataLib (version 5.0.2) disponibles avec NuGet et non pas avec les services de données WCF. Vous pouvez télécharger directement les bibliothèques ODataLib ou les référencer avec votre projet de code via NuGet. Les packages ODataLib sont [OData][OData], [Edm][Edm] et [Spatial][Spatial].
 
 ## <a name="create-table"></a><span class="short-header">Création d'une table</span> Création d'une table
 
@@ -357,7 +357,7 @@ Les opérations **Replace** échouent si l'entité a été modifiée depuis son 
 
 ## <a name="query-entity-properties"></a><span class="short-header">Interrogation d'un sous-ensemble de propriétés</span> Interrogation d'un sous-ensemble de propriétés d'entité
 
-Vous pouvez utiliser une requête de table pour récupérer uniquement quelques propriétés au lieu de l’intégralité des propriétés de l’entité. Cette technique, nommée « projection », réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. La requête contenue dans le code suivant renvoie uniquement les adresses de messagerie des entités présentes dans la table. Pour ce faire, nous utilisons une requête **DynamicTableEntity** ainsi qu'une requête **EntityResolver**. Pour plus d'informations sur la projection, consultez ce [billet de blog][]. Notez que la projection n'est pas prise en charge sur l'émulateur de stockage local : ce code s'exécute donc uniquement lors de l'utilisation d'un compte sur le service de table.
+Vous pouvez utiliser une requête de table pour récupérer uniquement quelques propriétés au lieu de l’intégralité des propriétés de l’entité. Cette technique, nommée « projection », réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. La requête contenue dans le code suivant renvoie uniquement les adresses de messagerie des entités présentes dans la table. Pour ce faire, nous utilisons une requête **DynamicTableEntity** ainsi qu'une requête **EntityResolver**. Pour plus d'informations sur la projection, consultez ce [billet de blog][billet de blog]. Notez que la projection n'est pas prise en charge sur l'émulateur de stockage local : ce code s'exécute donc uniquement lors de l'utilisation d'un compte sur le service de table.
 
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -439,18 +439,17 @@ Pour finir, l’exemple de code suivant supprime une table d’un compte de stoc
 Maintenant que vous connaissez les bases du stockage de tables, consultez les liens suivants pour apprendre à réaliser des tâches de stockage plus complexes.
 
 -   Pour plus d'informations sur les API disponibles, consultez la documentation de référence du service de Table :
-    -   [Référence de la bibliothèque de client de stockage pour .NET][]
-    -   [Référence d’API REST][]
--   Pour plus d’informations sur les tâches avancées que vous pouvez effectuer avec le stockage Azure, consultez la page [Stockage et accessibilité des données dans Windows Azure][].
--   Pour apprendre à utiliser Azure Storage dans les processus principaux relatifs à Sites Web Azure, consultez la page [Prise en main du Kit de développement logiciel (SDK) Tâches web Azure][].
+    -   [Référence de la bibliothèque de client de stockage pour .NET][Référence de la bibliothèque de client de stockage pour .NET]
+    -   [Référence d’API REST][Référence d’API REST]
+-   Pour plus d’informations sur les tâches avancées que vous pouvez effectuer avec le stockage Azure, consultez la page [Stockage et accessibilité des données dans Windows Azure][Stockage et accessibilité des données dans Windows Azure].
+-   Pour apprendre à utiliser Azure Storage dans les processus principaux relatifs à Sites Web Azure, consultez la page [Prise en main du Kit de développement logiciel (SDK) Tâches web Azure][Prise en main du Kit de développement logiciel (SDK) Tâches web Azure].
 -   Pour plus d’informations sur les autres options de stockage de données dans Azure, consultez d’autres guides de fonctionnalités.
-    -   Utilisez le [stockage d’objets blob][] pour stocker des données non structurées.
-    -   Utilisez le [stockage des files d'attente][] pour stocker des données structurées.
-    -   Utilisez une [base de données SQL][] pour stocker des données relationnelles.
+    -   Utilisez le [stockage d’objets blob][stockage d’objets blob] pour stocker des données non structurées.
+    -   Utilisez le [stockage des files d'attente][stockage des files d'attente] pour stocker des données structurées.
+    -   Utilisez une [base de données SQL][base de données SQL] pour stocker des données relationnelles.
 
   [Étapes suivantes]: #next-steps
   [NuGet]: https://www.nuget.org/packages/WindowsAzure.Storage/
-  [Kit de développement logiciel (SDK) Azure pour .NET]: /en-us/downloads/
   [Accès au stockage de tables par programme]: #configure-access
   [Présentation du service de Table]: #what-is
   [Concepts]: #concepts
@@ -470,15 +469,14 @@ Maintenant que vous connaissez les bases du stockage de tables, consultez les li
   [howto-table-storage]: ../includes/howto-table-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [storage-configure-connection-string]: ../includes/storage-configure-connection-string.md
-  [Centre de développement .NET]: http://www.windowsazure.com/en-us/develop/net/#
+  [Centre de développement .NET]: http://www.windowsazure.com/fr-fr/develop/net/#
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [billet de blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
   [Référence de la bibliothèque de client de stockage pour .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Référence d’API REST]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
-  [Stockage et accessibilité des données dans Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Prise en main du Kit de développement logiciel (SDK) Tâches web Azure]: /fr-fr/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
+  [Référence d’API REST]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179355
+  [Stockage et accessibilité des données dans Windows Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx
   [stockage d’objets blob]: /fr-fr/documentation/articles/storage-dotnet-how-to-use-blobs/
   [stockage des files d'attente]: /fr-fr/documentation/articles/storage-dotnet-how-to-use-queues/
   [base de données SQL]: /fr-fr/documentation/articles/sql-database-dotnet-how-to-use/

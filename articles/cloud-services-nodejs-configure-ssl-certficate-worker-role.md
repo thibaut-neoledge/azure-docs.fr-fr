@@ -32,7 +32,7 @@ Vous pouvez créer un simple service
 
 1.  À partir du menu **Démarrer** ou de l'**écran d'accueil**, recherchez **Azure PowerShell**. Enfin, cliquez avec le bouton droit sur **Azure PowerShell** et sélectionnez **Exécuter en tant qu'administrateur**.
 
-    ![Icône Azure PowerShell][]
+    ![Icône Azure PowerShell][Icône Azure PowerShell]
 
 2.  Créez un service en utilisant la cmdlet **New-AzureServiceProject**.
 
@@ -135,7 +135,7 @@ vous pouvez vous y connecter via HTTPS.
 
 2.  Faites défiler l'écran vers le bas, puis cliquez sur le lien affiché en tant qu'**URL du site** :
 
-    ![URL du site][]
+    ![URL du site][URL du site]
 
     <div class="dev-callout">
 <strong>Remarque</strong>
@@ -173,7 +173,6 @@ vous pouvez vous y connecter via HTTPS.
   [3]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-03-worker.png
   
   
-  [Utilisation d'Azure PowerShell pour Node.js]: https://www.windowsazure.com/fr-fr/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings
   
   [URL du site]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/site-url.png
   [8]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-08.png

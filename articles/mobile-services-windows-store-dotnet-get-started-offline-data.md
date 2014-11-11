@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-offline-data-dotnet" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Windows Store application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data sync in Mobile Services" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Prise en main de la synchronisation des données hors connexion dans Mobile Services
 
@@ -23,28 +23,28 @@
 
 </div>
 
-Dans ce didacticiel, vous allez mettre à jour l'application à partir du didacticiel [Prise en main de Mobile Services][] ou [Prise en main de données][] pour pouvoir prendre en charge les fonctionnalités hors connexion d'Azure Mobile Services. Ensuite, vous allez ajouter les données dans le cadre d'un scénario hors connexion déconnecté, synchroniser ces éléments dans la base de données en ligne, puis vous connecter au portail de gestion Azure pour afficher les modifications apportées aux données lors de l'exécution de l'application.
+Dans ce didacticiel, vous allez mettre à jour l'application à partir du didacticiel [Prise en main de Mobile Services][Prise en main de Mobile Services] ou [Prise en main de données][Prise en main de données] pour pouvoir prendre en charge les fonctionnalités hors connexion d'Azure Mobile Services. Ensuite, vous allez ajouter les données dans le cadre d'un scénario hors connexion déconnecté, synchroniser ces éléments dans la base de données en ligne, puis vous connecter au portail de gestion Azure pour afficher les modifications apportées aux données lors de l'exécution de l'application.
 
-> [WACOM.NOTE] Ce didacticiel vise à mieux vous faire comprendre en quoi Mobile Services vous permet de stocker et de récupérer des données dans une application Windows Store à l'aide d'Azure. À cet effet, il vous guide tout au long des nombreuses étapes exécutées automatiquement dans le démarrage rapide Mobile Services. Si vous n'avez aucune expérience de Mobile Services, nous vous invitons à suivre d'abord le didacticiel [Prise en main de Mobile Services][].
+> [WACOM.NOTE] Ce didacticiel vise à mieux vous faire comprendre en quoi Mobile Services vous permet de stocker et de récupérer des données dans une application Windows Store à l'aide d'Azure. À cet effet, il vous guide tout au long des nombreuses étapes exécutées automatiquement dans le démarrage rapide Mobile Services. Si vous n'avez aucune expérience de Mobile Services, nous vous invitons à suivre d'abord le didacticiel [Prise en main de Mobile Services][Prise en main de Mobile Services].
 >
-> Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][].
+> Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][Version d'évaluation gratuite d'Azure].
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 
-1.  [Mise à jour de l'application pour prendre en charge les fonctionnalités hors connexion][]
-2.  [Test de l'application dans un scénario hors connexion][]
-3.  [Mise à jour de l'application pour reconnecter votre service mobile][]
-4.  [Test de l'application connectée au service mobile][]
+1.  [Mise à jour de l'application pour prendre en charge les fonctionnalités hors connexion][Mise à jour de l'application pour prendre en charge les fonctionnalités hors connexion]
+2.  [Test de l'application dans un scénario hors connexion][Test de l'application dans un scénario hors connexion]
+3.  [Mise à jour de l'application pour reconnecter votre service mobile][Mise à jour de l'application pour reconnecter votre service mobile]
+4.  [Test de l'application connectée au service mobile][Test de l'application connectée au service mobile]
 
 Ce didacticiel requiert les éléments suivants :
 
 -   Visual Studio 2013 s'exécutant sous Windows 8.1.
--   L'exécution du didacticiel [Prise en main de Mobile Services][] ou [Prise en main de données][].
--   [Kit de développement logiciel (SDK) Azure Mobile Services version 1.3.0-beta2 (ou versions ultérieures)][]
--   [Azure Mobile Services SQLite Store version 1.0.0-beta2 (ou versions ultérieures)][]
+-   L'exécution du didacticiel [Prise en main de Mobile Services][Prise en main de Mobile Services] ou [Prise en main de données][Prise en main de données].
+-   [Kit de développement logiciel (SDK) Azure Mobile Services version 1.3.0-beta2 (ou versions ultérieures)][Kit de développement logiciel (SDK) Azure Mobile Services version 1.3.0-beta2 (ou versions ultérieures)]
+-   [Azure Mobile Services SQLite Store version 1.0.0-beta2 (ou versions ultérieures)][Azure Mobile Services SQLite Store version 1.0.0-beta2 (ou versions ultérieures)]
 -   SQLite pour Windows 8.1
 
-> [WACOM.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][].
+> [WACOM.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][Version d'évaluation gratuite d'Azure].
 
 ## <a name="enable-offline-app"></a>Mise à jour de l'application pour prendre en charge les fonctionnalités hors connexion
 
@@ -52,15 +52,15 @@ Les fonctionnalités hors connexion d'Azure Mobile Services vous permettent d'in
 
 Cette section utilise SQLite en tant que magasin local pour les fonctionnalités hors connexion.
 
-> [WACOM.NOTE] Vous pouvez ignorer cette section et télécharger simplement une version du projet de prise en main disposant déjà d'une prise en charge hors connexion. Pour télécharger un projet pour lequel la prise en charge hors connexion est activée, consultez la rubrique [Prise en main de l'exemple hors connexion][].
+> [WACOM.NOTE] Vous pouvez ignorer cette section et télécharger simplement une version du projet de prise en main disposant déjà d'une prise en charge hors connexion. Pour télécharger un projet pour lequel la prise en charge hors connexion est activée, consultez la rubrique [Prise en main de l'exemple hors connexion][Prise en main de l'exemple hors connexion].
 
-1.  Installez SQLite. Vous pouvez l'installer à partir de ce lien, [SQLite pour Windows 8.1][].
+1.  Installez SQLite. Vous pouvez l'installer à partir de ce lien, [SQLite pour Windows 8.1][SQLite pour Windows 8.1].
 
     > [WACOM.NOTE] Si vous utilisez Internet Explorer et que vous cliquez sur le lien pour installer SQLite, vous serez peut-être invité à télécharger le fichier .vsix en tant que fichier .zip. Enregistrez le fichier à un emplacement sur votre disque dur avec l'extension .vsix plutôt que .zip. Ensuite, double-cliquez sur le fichier .vsix dans l'Explorateur Windows pour exécuter l'installation.
 
-2.  Dans Visual Studio, ouvrez le projet que vous avez effectué dans le didacticiel [Prise en main de Mobile Services][] ou [Prise en main de données][]. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **Références** sous le projet et ajoutez une référence à **SQLite pour Windows Runtime** sous **Windows** \> **Extensions**.
+2.  Dans Visual Studio, ouvrez le projet que vous avez effectué dans le didacticiel [Prise en main de Mobile Services][Prise en main de Mobile Services] ou [Prise en main de données][Prise en main de données]. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **Références** sous le projet et ajoutez une référence à **SQLite pour Windows Runtime** sous **Windows** \> **Extensions**.
 
-    ![][]
+    ![][0]
 
 3.  SQLite Runtime vous oblige à modifier l'architecture processeur du projet en cours de conception vers **x86**, **x64** ou **ARM**. **Tout processeur** n'est pas pris en charge. Remplacez l'architecture de processeur par l'un des paramètres pris en charge que vous voulez tester.
 
@@ -256,14 +256,8 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 
 ## Étapes suivantes
 
--   [Gestion des conflits liés à la prise en charge hors connexion de Mobile Services][]
+-   [Gestion des conflits liés à la prise en charge hors connexion de Mobile Services][Gestion des conflits liés à la prise en charge hors connexion de Mobile Services]
 
-  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows Store C#"
-  [Windows Phone]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
-  [iOS]: /fr-fr/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
-  [Xamarin.iOS]: /fr-fr/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
-  [Xamarin.Android]: /fr-fr/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
-  [regarder le didacticiel]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services
   [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-store-get-started/
   [Prise en main de données]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
   [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28
@@ -271,11 +265,9 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
   [Test de l'application dans un scénario hors connexion]: #test-offline-app
   [Mise à jour de l'application pour reconnecter votre service mobile]: #update-online-app
   [Test de l'application connectée au service mobile]: #test-online-app
-  [Kit de développement logiciel (SDK) Azure Mobile Services version 1.3.0-beta2 (ou versions ultérieures)]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-beta2
-  [Azure Mobile Services SQLite Store version 1.0.0-beta2 (ou versions ultérieures)]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-beta2
   [Prise en main de l'exemple hors connexion]: http://go.microsoft.com/fwlink/?LinkId=394777
   [SQLite pour Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
-  []: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
+  [0]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-sqlitestore-nuget.png
   [2]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-offline-app-run1.png
   [3]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-online-app-run1.png

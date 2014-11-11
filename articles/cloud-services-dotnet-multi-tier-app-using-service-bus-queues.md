@@ -1,6 +1,6 @@
 <properties linkid="dev-net-e2e-multi-tier" urlDisplayName="Multi-Tier Application" pageTitle=".NET Multi-Tier Application - Azure Tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" description="A tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers. Samples in .NET." metaCanonical="" services="cloud-services,service-bus" documentationCenter=".NET" title=".NET Multi-Tier Application Using Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm" />
 
 # Application multiniveau .NET avec les files d'attente Service Bus
 
@@ -21,15 +21,15 @@ Vous apprendrez à effectuer les opérations suivantes :
     rôles Web et les rôles de travail ;
 -   communication entre niveaux à l'aide des files d'attente Service Bus.
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-Dans ce didacticiel, vous allez générer et exécuter l'application multiniveau dans Azure Cloud Services. Le composant frontal sera un rôle Web ASP.NET MVC et le composant principal sera un rôle de travail. Vous pourriez créer la même application multiniveau avec le composant frontal comme projet Web à déployer sur un site Web Azure au lieu d'un service cloud. Pour obtenir des instructions sur les différences à appliquer pour le composant frontal d'un site Web Azure, consultez la section [Étapes suivantes][].
+Dans ce didacticiel, vous allez générer et exécuter l'application multiniveau dans Azure Cloud Services. Le composant frontal sera un rôle Web ASP.NET MVC et le composant principal sera un rôle de travail. Vous pourriez créer la même application multiniveau avec le composant frontal comme projet Web à déployer sur un site Web Azure au lieu d'un service cloud. Pour obtenir des instructions sur les différences à appliquer pour le composant frontal d'un site Web Azure, consultez la section [Étapes suivantes][Étapes suivantes].
 
 Voici une capture d'écran de l'application terminée :
 
-![][]
+![][0]
 
-**Remarque** : Azure offre également la fonction de file d'attente de stockage. Pour plus d'informations sur les files d'attente de stockage Azure et les files d'attente Service Bus, consultez la page [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences][].
+**Remarque** : Azure offre également la fonction de file d'attente de stockage. Pour plus d'informations sur les files d'attente de stockage Azure et les files d'attente Service Bus, consultez la page [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences][Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences].
 
 ## <span class="short-header">Communication entre rôles</span>Présentation du scénario : communication entre rôles
 
@@ -97,7 +97,7 @@ vous devez obtenir des outils et configurer votre environnement de développemen
 
 1.  Pour installer le Kit de développement logiciel (SDK) Azure pour .NET, cliquez sur le bouton ci-dessous :
 
-    [Obtenir les outils et le Kit de développement logiciel (SDK)][]
+    [Obtenir les outils et le Kit de développement logiciel (SDK)][Obtenir les outils et le Kit de développement logiciel (SDK)]
 
 2.  Cliquez sur **Install the SDK**.
 
@@ -134,7 +134,7 @@ Notez que vous pouvez également gérer les espaces de noms et les entités de m
 
 ### Configuration de l'espace de noms avec le portail de gestion
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 
 2.  Dans le volet de navigation gauche du portail de gestion, cliquez sur
     **Service Bus**.
@@ -176,7 +176,7 @@ Notez que vous pouvez également gérer les espaces de noms et les entités de m
 
 ### Gestion des espaces de noms et des entités de messagerie avec l'explorateur de serveurs Visual Studio
 
-Pour gérer un espace de noms et obtenir des informations de connexion en utilisant Visual Studio plutôt que le portail de gestion, suivez la procédure décrite [ici][], dans la section intitulée **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l’arborescence **Microsoft Azure** dans l’Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Properties** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s’affichent dans le volet **Properties** de Visual Studio.
+Pour gérer un espace de noms et obtenir des informations de connexion en utilisant Visual Studio plutôt que le portail de gestion, suivez la procédure décrite [ici][ici], dans la section intitulée **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l’arborescence **Microsoft Azure** dans l’Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Properties** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s’affichent dans le volet **Properties** de Visual Studio.
 
 Notez la valeur **SharedAccessKey** ou copiez-la dans le Presse-papiers :
 
@@ -500,7 +500,7 @@ une file d'attente Service Bus.
 
 ## <span class="short-header">Gestionnaire de configuration</span>Gestionnaire de configuration cloud
 
-Azure prend en charge un ensemble d'API managées qui offrent un moyen cohérent de créer des instances de clients du service Azure (comme Service Bus) sur les services cloud Microsoft. Ces API vous permettent d'instancier ces clients (par exemple, **CloudBlobClient**, **QueueClient**, **TopicClient**) quel que soit l'endroit où est hébergée l'application : localement, dans un service cloud Microsoft, sur un site Web ou dans un rôle de machine virtuelle persistant. Vous pouvez également utiliser ces API pour récupérer les informations de configuration nécessaires à l'instanciation de ces clients et pour modifier la configuration sans avoir à redéployer l'application. Ces API se trouvent dans la classe [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][]. Il existe également des API côté client.
+Azure prend en charge un ensemble d'API managées qui offrent un moyen cohérent de créer des instances de clients du service Azure (comme Service Bus) sur les services cloud Microsoft. Ces API vous permettent d'instancier ces clients (par exemple, **CloudBlobClient**, **QueueClient**, **TopicClient**) quel que soit l'endroit où est hébergée l'application : localement, dans un service cloud Microsoft, sur un site Web ou dans un rôle de machine virtuelle persistant. Vous pouvez également utiliser ces API pour récupérer les informations de configuration nécessaires à l'instanciation de ces clients et pour modifier la configuration sans avoir à redéployer l'application. Ces API se trouvent dans la classe [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]. Il existe également des API côté client.
 
 ### Chaîne de connexion
 
@@ -606,15 +606,15 @@ commandes envoyées. Cet exemple utilise le modèle de projet Visual Studio **W
 
 Pour en savoir plus sur Service Bus, consultez les ressources suivantes :
 
--   [Azure Service Bus][]
--   [Procédures Service Bus][]
--   [Utilisation des files d'attente Service Bus][]
+-   [Azure Service Bus][Azure Service Bus]
+-   [Procédures Service Bus][Procédures Service Bus]
+-   [Utilisation des files d'attente Service Bus][Utilisation des files d'attente Service Bus]
 
 Pour plus d'informations sur les scénarios multiniveau ou pour savoir comment déployer une application dans un service cloud, consultez la page :
 
--   [Application ASP.NET multiniveau avec tables, files d'attente et objets blob de stockage Azure][]
+-   [Application ASP.NET multiniveau avec tables, files d'attente et objets blob de stockage Azure][Application ASP.NET multiniveau avec tables, files d'attente et objets blob de stockage Azure]
 
-Vous pouvez mettre en œuvre le composant frontal d'une application multiniveau dans un site Web Azure au lieu d'un service cloud Azure. Pour plus d'informations sur les différences entre les sites web et les services cloud, consultez la page [Modèles d'exécution Azure][].
+Vous pouvez mettre en œuvre le composant frontal d'une application multiniveau dans un site Web Azure au lieu d'un service cloud Azure. Pour plus d'informations sur les différences entre les sites web et les services cloud, consultez la page [Modèles d'exécution Azure][Modèles d'exécution Azure].
 
 Pour mettre en œuvre l'application que vous créez dans ce didacticiel en tant que projet Web standard au lieu d'un rôle Web d'un service cloud, suivez les étapes de ce didacticiel en appliquant les différences suivantes :
 
@@ -624,15 +624,14 @@ Pour mettre en œuvre l'application que vous créez dans ce didacticiel en tant 
 
 3.  Vous pouvez tester le composant frontal et le composant principal simultanément, ou vous pouvez les exécuter en même temps dans des instances séparées de Visual Studio.
 
-Pour plus d'informations sur le déploiement du composant frontal sur un site Web Azure, consultez la page [Déploiement d'une application Web ASP.NET sur un site Web Azure][]. Pour plus d'informations sur le déploiement du composant principal dans Azure Cloud Services, consultez la page [Application ASP.NET multiniveau avec tables, files d'attente et objets blob de stockage][Application ASP.NET multiniveau avec tables, files d'attente et objets blob de stockage Azure].
+Pour plus d'informations sur le déploiement du composant frontal sur un site Web Azure, consultez la page [Déploiement d'une application Web ASP.NET sur un site Web Azure][Déploiement d'une application Web ASP.NET sur un site Web Azure]. Pour plus d'informations sur le déploiement du composant principal dans Azure Cloud Services, consultez la page [Application ASP.NET multiniveau avec tables, files d'attente et objets blob de stockage][Application ASP.NET multiniveau avec tables, files d'attente et objets blob de stockage Azure].
 
   [create-account-note]: ../includes/create-account-note.md
   [Étapes suivantes]: #nextsteps
-  []: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
+  [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh767287.aspx
   [1]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
   [2]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-  [Obtenir les outils et le Kit de développement logiciel (SDK)]: http://go.microsoft.com/fwlink/?LinkId=271920
   [3]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
   [4]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
   [5]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png

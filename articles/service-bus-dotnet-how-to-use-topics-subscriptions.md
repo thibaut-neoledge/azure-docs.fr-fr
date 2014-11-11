@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (.NET) - Azure" metaKeywords="Get started Azure Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions C# " description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for .NET applications. " metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Utilisation des rubriques/abonnements Service Bus
 
@@ -10,11 +10,11 @@ scénarios couverts dans ce guide sont les suivants : **création de rubriques 
 de filtres d'abonnement, envoi de messages** à une rubrique, **réception
 de messages en provenance d'un abonnement** et **suppression de rubriques et
 d'abonnements**. Pour plus d'informations sur les rubriques et les abonnements, consultez
-la section [Étapes suivantes][]. </span>
+la section [Étapes suivantes][Étapes suivantes]. </span>
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-[WACOM.INCLUDE [howto-service-bus-topics][]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <span class="short-header">Configuration de l'application</span>Configuration de l'application en vue d'une utilisation de Service Bus
 
@@ -40,7 +40,7 @@ Pour installer le package NuGet dans votre application, procédez comme suit :
     Service Bus**. Cliquez sur **Install** pour terminer l'installation,
     puis fermez cette boîte de dialogue.
 
-    ![][]
+    ![][0]
 
 Vous êtes maintenant en mesure d'écrire du code pour Service Bus.
 
@@ -188,7 +188,7 @@ Parmi les types de filtre pris en charge par les abonnements,
 **SqlFilter** est le plus flexible ; il implémente un sous-ensemble de SQL92. Les filtres SQL opèrent
 au niveau des propriétés des messages publiés dans la rubrique. Pour
 plus de détails sur les expressions utilisables avec un filtre SQL,
-examinez la syntaxe [SqlFilter.SqlExpression][].
+examinez la syntaxe [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 Dans l'exemple ci-dessous, l'abonnement « HighMessages » est créé avec un filtre
 **SqlFilter** qui sélectionne uniquement les messages dont la propriété personnalisée
@@ -386,15 +386,15 @@ code suivant montre comment supprimer l'abonnement
 Maintenant que vous avez appris les principes de base des rubriques et des abonnements Service Bus, consultez ces
 liens pour en savoir plus :
 
--   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements][].
--   Référence d'API pour [SqlFilter][].
+-   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements][Files d'attente, rubriques et abonnements].
+-   Référence d'API pour [SqlFilter][SqlFilter].
 -   Créez une application opérationnelle, capable d'envoyer et de recevoir des messages à destination et
-    en provenance d'une file d'attente Service Bus : [Didacticiel .NET sur la messagerie répartie Service Bus][].
+    en provenance d'une file d'attente Service Bus : [Didacticiel .NET sur la messagerie répartie Service Bus][Didacticiel .NET sur la messagerie répartie Service Bus].
 
   [Étapes suivantes]: #nextsteps
   [create-account-note]: ../includes/create-account-note.md
   [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
-  []: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
+  [0]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
   [Files d'attente, rubriques et abonnements]: http://msdn.microsoft.com/fr-fr/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/fr-fr/library/microsoft.servicebus.messaging.sqlfilter.aspx
   [Didacticiel .NET sur la messagerie répartie Service Bus]: http://msdn.microsoft.com/fr-fr/library/hh367512.aspx

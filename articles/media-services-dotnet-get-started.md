@@ -1,31 +1,31 @@
 <properties linkid="develop-media-services-tutorials-get-started" urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services - Azure" metaKeywords="Azure media services" description="An introduction to using Media Services with Azure." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # <a name="getting-started"></a>Prise en main de Media Services
 
 Ce didacticiel vous montre comment commencer à développer avec Azure Media Services. Il présente le workflow Media Services de base et les objets et tâches de programmation les plus courants requis pour le développement Media Services. À la fin du didacticiel, vous pourrez lire un exemple de fichier multimédia que vous avez chargé, encodé et téléchargé. Ou vous pourrez accéder à l'élément multimédia encodé et le lire sur le serveur.
 
-Un projet C# Visual Studio qui contient le code pour ce didacticiel est disponible ici : [Télécharger][].
+Un projet C# Visual Studio qui contient le code pour ce didacticiel est disponible ici : [Télécharger][Télécharger].
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 
--   [Configuration de votre projet][]
--   [Obtention du contexte de serveur Media Services][]
--   [Création d'un élément multimédia et téléchargement des fichiers associés dans Media Services][]
--   [Encodage d'un élément multimédia et téléchargement d'un élément multimédia de sortie][]
+-   [Configuration de votre projet][Configuration de votre projet]
+-   [Obtention du contexte de serveur Media Services][Obtention du contexte de serveur Media Services]
+-   [Création d'un élément multimédia et téléchargement des fichiers associés dans Media Services][Création d'un élément multimédia et téléchargement des fichiers associés dans Media Services]
+-   [Encodage d'un élément multimédia et téléchargement d'un élément multimédia de sortie][Encodage d'un élément multimédia et téléchargement d'un élément multimédia de sortie]
 
 ## Configuration requise
 
 Les conditions préalables suivantes sont requises pour la procédure pas à pas et pour le développement basé sur le Kit de développement logiciel (SDK) d'Azure Media Services.
 
--   Un compte Media Services dans un abonnement Azure nouveau ou existant. Pour plus d'informations, consultez la page [Création d'un compte Media Services][].
+-   Un compte Media Services dans un abonnement Azure nouveau ou existant. Pour plus d'informations, consultez la page [Création d'un compte Media Services][Création d'un compte Media Services].
 -   Systèmes d'exploitation : Windows 7, Windows 2008 R2 ou Windows 8.
 -   .NET Framework 4.5 ou .NET Framework 4.
 -   Visual Studio 2012 ou Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express).
--   Installez les bibliothèques **Kit de développement logiciel (SDK) Azure pour .NET**, **Kit de développement logiciel (SDK) d'Azure Media Services pour .NET** et **Services de données WCF 5.0 pour OData V3**, puis ajoutez les références à votre projet à l'aide du package [NuGet windowsazure.mediaservices][]. La section suivante montre comment installer et ajouter ces références.
+-   Installez les bibliothèques **Kit de développement logiciel (SDK) Azure pour .NET**, **Kit de développement logiciel (SDK) d'Azure Media Services pour .NET** et **Services de données WCF 5.0 pour OData V3**, puis ajoutez les références à votre projet à l'aide du package [NuGet windowsazure.mediaservices][NuGet windowsazure.mediaservices]. La section suivante montre comment installer et ajouter ces références.
 
-<div class="dev-callout"><strong>Remarque</strong> <p>Pour effectuer ce didacticiel, vous avez besoin d&rsquo;un compte Azure. Si vous ne poss&eacute;dez pas de compte, vous pouvez cr&eacute;er un compte d'&eacute;valuation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Version d'&eacute;valuation gratuite d'Azure</a>.</p></div>
+<div class="dev-callout"><strong>Remarque</strong> <p>Pour effectuer ce didacticiel, vous avez besoin d&rsquo;un compte Azure. Si vous ne poss&eacute;dez pas de compte, vous pouvez cr&eacute;er un compte d'&eacute;valuation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Version d'&eacute;valuation gratuite d'Azure</a>.</p></div>
 
 ## <span id="Step1"></span></a>Configuration de votre projet
 
@@ -35,7 +35,7 @@ Les conditions préalables suivantes sont requises pour la procédure pas à pas
 
     Pour ajouter des références à l'aide de la boîte de dialogue **Gérer les références**, procédez comme suit. Cliquez avec le bouton droit sur le nœud **Références** dans l'**Explorateur de solutions**, puis sélectionnez **Ajouter une référence**. Dans la boîte de dialogue **Gérer les références**, sélectionnez les assemblys appropriés (dans ce cas, System.Configuration).
 
-3.  Si ce n'est pas déjà fait, ajoutez les références aux bibliothèques **Kit de développement logiciel (SDK) Azure pour .NET** (Microsoft.WindowsAzure.StorageClient.dll), **Kit de développement logiciel (SDK) d'Azure Media Services pour .NET** (Microsoft.WindowsAzure.MediaServices.Client.dll) et **Services de données WCF 5.0 pour OData V3** (Microsoft.Data.OData.dll) à l'aide du package [NuGet windowsazure.mediaservices][].
+3.  Si ce n'est pas déjà fait, ajoutez les références aux bibliothèques **Kit de développement logiciel (SDK) Azure pour .NET** (Microsoft.WindowsAzure.StorageClient.dll), **Kit de développement logiciel (SDK) d'Azure Media Services pour .NET** (Microsoft.WindowsAzure.MediaServices.Client.dll) et **Services de données WCF 5.0 pour OData V3** (Microsoft.Data.OData.dll) à l'aide du package [NuGet windowsazure.mediaservices][NuGet windowsazure.mediaservices].
 
     Pour ajouter des références à l'aide de NuGet, procédez comme suit. Dans le menu principal de Visual Studio, sélectionnez OUTILS -\> Gestionnaire de package de bibliothèques -\> Console du Gestionnaire de package. Dans la fenêtre de la console, tapez *Install-Package [nom du package]*, puis appuyez sur Entrée (dans le cas présent, utilisez la commande suivante : *Install-Package windowsazure.mediaservices*.)
 
@@ -167,13 +167,13 @@ Ajoutez un appel à la méthode après la ligne **_context = new CloudMediaConte
 
 ## <span id="Step4"></span></a>Encodage de l'élément multimédia sur le serveur et téléchargement d'un élément multimédia en sortie
 
-Dans Media Services, vous pouvez créer des tâches qui traitent le contenu multimédia de plusieurs façons : encodage, chiffrement, réalisation de conversions de format, etc. Un travail Media Services contient toujours une ou plusieurs tâches qui spécifient les détails du traitement. Dans cette section, vous créez une tâche de codage de base, puis vous exécutez un travail qui effectue la tâche via Azure Media Encoder. La tâche utilise une chaîne de présélection pour spécifier le type d'encodage à effectuer. Pour consulter les valeurs d'encodage de présélection disponibles, consultez la page [Présélections du système Media Services Encoder][]. Media Services prend en charge les mêmes formats d'entrée et de sortie de fichier multimédia que Microsoft Expression Encoder. Pour obtenir la liste des formats pris en charge, consultez la page [Types de fichiers pris en charge pour Media Services][].
+Dans Media Services, vous pouvez créer des tâches qui traitent le contenu multimédia de plusieurs façons : encodage, chiffrement, réalisation de conversions de format, etc. Un travail Media Services contient toujours une ou plusieurs tâches qui spécifient les détails du traitement. Dans cette section, vous créez une tâche de codage de base, puis vous exécutez un travail qui effectue la tâche via Azure Media Encoder. La tâche utilise une chaîne de présélection pour spécifier le type d'encodage à effectuer. Pour consulter les valeurs d'encodage de présélection disponibles, consultez la page [Présélections du système Media Services Encoder][Présélections du système Media Services Encoder]. Media Services prend en charge les mêmes formats d'entrée et de sortie de fichier multimédia que Microsoft Expression Encoder. Pour obtenir la liste des formats pris en charge, consultez la page [Types de fichiers pris en charge pour Media Services][Types de fichiers pris en charge pour Media Services].
 
 1.  Ajoutez la définition de méthode **CreateEncodingJob** suivante à votre classe. Cette méthode montre comment accomplir plusieurs tâches requises pour un travail d'encodage :
 
     -   Déclarez un nouveau travail.
     -   Déclarez un processeur multimédia pour traiter le travail. Un processeur multimédia est un composant qui gère l'encodage, le chiffrement, la conversion de format et d'autres travaux de traitement connexes. Il existe plusieurs types de processeurs multimédias (vous pouvez itérer tous les processeurs avec \_context.MediaProcessors). La méthode GetLatestMediaProcessorByName, présentée plus loin dans cette procédure pas à pas, renvoie le processeur de l'encodeur multimédia Azure.
-    -   Déclarez une nouvelle tâche. Chaque travail inclut une ou plusieurs tâches. Notez qu'avec la tâche, vous lui transmettez un nom convivial, une instance de processeur multimédia, une chaîne de configuration de tâche et des options de création de tâche. La chaîne de configuration spécifie les paramètres d'encodage. Cet exemple utilise le paramètre **H264 Broadband 720p**. Cette présélection génère un fichier MP4 unique. Pour plus d'informations à ce sujet et sur les autres présélections, consultez la page [Chaînes de présélection des tâches pour Azure Media Encoder][].
+    -   Déclarez une nouvelle tâche. Chaque travail inclut une ou plusieurs tâches. Notez qu'avec la tâche, vous lui transmettez un nom convivial, une instance de processeur multimédia, une chaîne de configuration de tâche et des options de création de tâche. La chaîne de configuration spécifie les paramètres d'encodage. Cet exemple utilise le paramètre **H264 Broadband 720p**. Cette présélection génère un fichier MP4 unique. Pour plus d'informations à ce sujet et sur les autres présélections, consultez la page [Chaînes de présélection des tâches pour Azure Media Encoder][Chaînes de présélection des tâches pour Azure Media Encoder].
     -   Ajoutez un élément multimédia d'entrée à la tâche. Dans cet exemple, l'élément multimédia d'entrée est celui que vous avez créé dans la section précédente.
     -   Ajoutez un élément multimédia de sortie à la tâche. Pour un élément multimédia de sortie, spécifiez un nom convivial, une valeur booléenne pour indiquer s'il faut enregistrer la sortie sur le serveur une fois le travail terminé et une valeur **AssetCreationOptions.None** pour indiquer que la sortie n'est pas chiffrée pour le stockage et le transport.
     -   Soumettez la tâche.
@@ -618,8 +618,8 @@ Exécutez le programme (appuyez sur F5). La console affiche une sortie semblable
 
 Cette procédure pas à pas a décrit une séquence de tâches de programmation pour créer une application Media Services simple. Vous avez découvert les tâches de programmation Media Services fondamentales, notamment l'obtention du contexte de serveur, ainsi que la création, l'encodage et le téléchargement des éléments multimédias ou leur accès sur le serveur. Pour les étapes suivantes et des tâches de développement plus avancées, consultez les pages suivantes :
 
--   [Utilisation de Media Services][]
--   [Création d'applications avec l'API REST de Media Services][]
+-   [Utilisation de Media Services][Utilisation de Media Services]
+-   [Création d'applications avec l'API REST de Media Services][Création d'applications avec l'API REST de Media Services]
 
 <!-- Anchors. -->
 
@@ -630,9 +630,8 @@ Cette procédure pas à pas a décrit une séquence de tâches de programmation 
   [Encodage d'un élément multimédia et téléchargement d'un élément multimédia de sortie]: #Step4
   [Création d'un compte Media Services]: http://go.microsoft.com/fwlink/?LinkId=256662
   [NuGet windowsazure.mediaservices]: http://nuget.org/packages/windowsazure.mediaservices
-  [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5
-  [Présélections du système Media Services Encoder]: http://msdn.microsoft.com/en-us/library/windowsazure/jj129582.aspx
-  [Types de fichiers pris en charge pour Media Services]: http://msdn.microsoft.com/en-us/library/windowsazure/hh973634.aspx
+  [Présélections du système Media Services Encoder]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj129582.aspx
+  [Types de fichiers pris en charge pour Media Services]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh973634.aspx
   [Chaînes de présélection des tâches pour Azure Media Encoder]: http://msdn.microsoft.com/library/windowsazure/jj129582.aspx
-  [Utilisation de Media Services]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/media-services/
-  [Création d'applications avec l'API REST de Media Services]: http://msdn.microsoft.com/en-us/library/windowsazure/hh973618.aspx
+  [Utilisation de Media Services]: http://www.windowsazure.com/fr-fr/develop/net/how-to-guides/media-services/
+  [Création d'applications avec l'API REST de Media Services]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh973618.aspx

@@ -1,29 +1,29 @@
 <properties linkid="manage-services-hdinsight-administer-hdinsight-hadoop-clusters-using-powershell" urlDisplayName="HDInsight Administration" pageTitle="Manage Hadoop clusters in HDInsight with Azure PowerShell | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, Hadoop, administration, administer" description="Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Manage Hadoop clusters in HDInsight using Azure PowerShell" authors="jgao" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Gestion des clusters Hadoop dans HDInsight au moyen d'Azure PowerShell
 
-Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Cet article vous indique comment gérer les clusters Hadoop dans HDInsight en utilisant la console locale Azure PowerShell par le biais de Windows PowerShell. Pour la liste des cmdlets PowerShell pour HDInsight, consultez la rubrique [Référence des cmdlets HDInsight][].
+Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Cet article vous indique comment gérer les clusters Hadoop dans HDInsight en utilisant la console locale Azure PowerShell par le biais de Windows PowerShell. Pour la liste des cmdlets PowerShell pour HDInsight, consultez la rubrique [Référence des cmdlets HDInsight][Référence des cmdlets HDInsight].
 
 **Configuration requise :**
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
--   Un abonnement Azure. Azure est une plateforme disponible par abonnement. Les cmdlets HDInsight PowerShell permettent d'effectuer les tâches associées à votre abonnement. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les [formules d'abonnement][], les [offres spéciales membres][] ou la [version d'évaluation gratuite][].
+-   Un abonnement Azure. Azure est une plateforme disponible par abonnement. Les cmdlets HDInsight PowerShell permettent d'effectuer les tâches associées à votre abonnement. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les [formules d'abonnement][formules d'abonnement], les [offres spéciales membres][offres spéciales membres] ou la [version d'évaluation gratuite][version d'évaluation gratuite].
 
--   Un poste de travail sur lequel est installé Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][].
+-   Un poste de travail sur lequel est installé Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][Installation et configuration d'Azure PowerShell].
 
 ## Dans cet article
 
--   [Mise en service d'un cluster][]
--   [Énumération et affichage des clusters][]
--   [Suppression d'un cluster][]
--   [Octroi/révocation de l'accès aux services HTTP][]
--   [Envoi de tâches MapReduce][]
--   [Envoi de tâches Hive][]
--   [Téléchargement de données vers le stockage d'objets blob][]
--   [Téléchargement de données de sortie MapReduce à partir du stockage d'objets blob][]
+-   [Mise en service d'un cluster][Mise en service d'un cluster]
+-   [Énumération et affichage des clusters][Énumération et affichage des clusters]
+-   [Suppression d'un cluster][Suppression d'un cluster]
+-   [Octroi/révocation de l'accès aux services HTTP][Octroi/révocation de l'accès aux services HTTP]
+-   [Envoi de tâches MapReduce][Envoi de tâches MapReduce]
+-   [Envoi de tâches Hive][Envoi de tâches Hive]
+-   [Téléchargement de données vers le stockage d'objets blob][Téléchargement de données vers le stockage d'objets blob]
+-   [Téléchargement de données de sortie MapReduce à partir du stockage d'objets blob][Téléchargement de données de sortie MapReduce à partir du stockage d'objets blob]
 
 ## <span id="provision"></span></a>Approvisionnement d'un cluster HDInsight
 
@@ -47,7 +47,7 @@ Après avoir importé le fichier de paramètres de publication, vous pouvez util
 > -   Est des États-Unis
 > -   Ouest des États-Unis
 
-Pour plus d'informations sur la création d'un compte de stockage Azure au moyen du portail de gestion, consultez la rubrique [Création d'un compte de stockage][].
+Pour plus d'informations sur la création d'un compte de stockage Azure au moyen du portail de gestion, consultez la rubrique [Création d'un compte de stockage][Création d'un compte de stockage].
 
 Si vous disposez déjà d'un compte de stockage mais que vous ne connaissez ni le nom ni la clé du compte, vous pouvez utiliser les commandes suivantes pour récupérer les informations :
 
@@ -56,7 +56,7 @@ Si vous disposez déjà d'un compte de stockage mais que vous ne connaissez ni l
     # List the keys for a storage account
     Get-AzureStorageKey <StorageAccountName>
 
-Pour des détails sur l'obtention d'informations avec le portail de gestion, consultez la section *Affichage, copie et régénération de clés d'accès de stockage* de la page [Gestion des comptes de stockage][].
+Pour des détails sur l'obtention d'informations avec le portail de gestion, consultez la section *Affichage, copie et régénération de clés d'accès de stockage* de la page [Gestion des comptes de stockage][Gestion des comptes de stockage].
 
 **Pour créer un conteneur Azure Storage**
 
@@ -92,7 +92,7 @@ Une fois que le compte de stockage et le conteneur d'objets blob sont prêts, vo
 
 La capture d'écran suivante représente l'exécution du script :
 
-![HDI.PS.Provision][]
+![HDI.PS.Provision][HDI.PS.Provision]
 
 ## <span id="listshow"></span></a> Énumération et affichage des détails de cluster
 
@@ -130,7 +130,7 @@ Dans l'exemple, *hdiv2* correspond au nom d'un cluster HDInsight.
 
 > [WACOM.NOTE] En octroyant/révoquant l'accès, vous réinitialisez le nom d'utilisateur et le mot de passe du cluster.
 
-Vous pouvez également effectuer cette opération à l'aide du portail de gestion Azure. Consultez la rubrique [Administration de HDInsight à l'aide du portail de gestion][].
+Vous pouvez également effectuer cette opération à l'aide du portail de gestion Azure. Consultez la rubrique [Administration de HDInsight à l'aide du portail de gestion][Administration de HDInsight à l'aide du portail de gestion].
 
 ## <span id="mapreduce"></span></a> Envoi de tâches MapReduce
 
@@ -170,7 +170,7 @@ Le script PowerShell suivant extrait le résultat de la tâche MapReduce de la d
     # Display the output
     cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
 
-Pour plus d'informations sur le développement et l'exécution des tâches MapReduce, consultez l'article [Utilisation de MapReduce avec HDInsight][].
+Pour plus d'informations sur le développement et l'exécution des tâches MapReduce, consultez l'article [Utilisation de MapReduce avec HDInsight][Utilisation de MapReduce avec HDInsight].
 
 ## <span id="hive"></span></a> Envoi de tâches Hive
 
@@ -195,30 +195,30 @@ Le script suivant envoie une tâche Hive afin d'afficher la liste des tables Hiv
 
 La tâche Hive affiche d'abord les tables Hive créées sur le cluster et les données renvoyées par l'exemple de table Hive hivesampletable.
 
-Pour plus d'informations sur l'utilisation de Hive, consultez l'article [Utilisation de Hive avec HDInsight][].
+Pour plus d'informations sur l'utilisation de Hive, consultez l'article [Utilisation de Hive avec HDInsight][Utilisation de Hive avec HDInsight].
 
 ## <span id="upload"></span></a>Téléchargement de données vers le stockage d'objets blob
 
-Consultez la rubrique [Téléchargement de données vers HDInsight][].
+Consultez la rubrique [Téléchargement de données vers HDInsight][Téléchargement de données vers HDInsight].
 
 ## <span id="download"></span></a>Téléchargement de données de sortie MapReduce à partir du stockage d'objets blob Azure
 
-Consultez la section [Envoi de tâches MapReduce][] de cet article.
+Consultez la section [Envoi de tâches MapReduce][Envoi de tâches MapReduce] de cet article.
 
 ## Voir aussi
 
 -   [Documentation de référence des cmdlets HDInsight][Référence des cmdlets HDInsight]
--   [Administration de HDInsight à l'aide du portail de gestion][]
--   [Administration de HDInsight à l'aide de l'interface de ligne de commande][]
--   [Configuration de clusters HDInsight][]
--   [Téléchargement de données vers HDInsight][]
--   [Envoi de tâches Hadoop par programme][]
--   [Prise en main d'Azure HDInsight][]
+-   [Administration de HDInsight à l'aide du portail de gestion][Administration de HDInsight à l'aide du portail de gestion]
+-   [Administration de HDInsight à l'aide de l'interface de ligne de commande][Administration de HDInsight à l'aide de l'interface de ligne de commande]
+-   [Configuration de clusters HDInsight][Configuration de clusters HDInsight]
+-   [Téléchargement de données vers HDInsight][Téléchargement de données vers HDInsight]
+-   [Envoi de tâches Hadoop par programme][Envoi de tâches Hadoop par programme]
+-   [Prise en main d'Azure HDInsight][Prise en main d'Azure HDInsight]
 
-  [Référence des cmdlets HDInsight]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
-  [formules d'abonnement]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [offres spéciales membres]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [version d'évaluation gratuite]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Référence des cmdlets HDInsight]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn479228.aspx
+  [formules d'abonnement]: http://azure.microsoft.com/fr-fr/pricing/purchase-options/
+  [offres spéciales membres]: http://azure.microsoft.com/fr-fr/pricing/member-offers/
+  [version d'évaluation gratuite]: http://azure.microsoft.com/fr-fr/pricing/free-trial/
   [Installation et configuration d'Azure PowerShell]: ../install-configure-powershell/
   [Mise en service d'un cluster]: #provision
   [Énumération et affichage des clusters]: #listshow

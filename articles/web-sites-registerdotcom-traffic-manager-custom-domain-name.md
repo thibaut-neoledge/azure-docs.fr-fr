@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with Register.com" pageTitle="Configure a Register.com domain name for an Azure website that uses Traffic Manager" metaKeywords="Windows Azure, Windows Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth" />
 
 # Configuration d'un nom de domaine personnalisé pour un site web Azure à l'aide de Traffic Manager (Register.com)
 
@@ -8,30 +8,30 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/fr-fr/documentation/articles/web-sites-registerdotcom-custom-domain-name/" title="Sites web">Site web</a> | <a href="/fr-fr/documentation/articles/web-sites-registerdotcom-traffic-manager-custom-domain-name/" title="Site web &agrave; l'aide de Traffic Manager" class="current">Site web &agrave; l'aide de Traffic Manager</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro][]]
+[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
 Cet article contient des instructions permettant d'utiliser un nom de domaine personnalisé acheté auprès de [Register.com][1] avec le service Sites Web Azure.
 
-[WACOM.INCLUDE [tmwebsitefooter][]]
+[WACOM.INCLUDE [tmwebsitefooter](../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
-[WACOM.INCLUDE [introfooter][]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 Dans cet article :
 
--   [Présentation des enregistrements DNS][]
--   [Configurer vos sites web pour le mode Standard][]
--   [Ajouter un enregistrement DNS pour votre domaine personnalisé][]
--   [Activer Traffic Manager pour votre site web][]
+-   [Présentation des enregistrements DNS][Présentation des enregistrements DNS]
+-   [Configurer vos sites web pour le mode Standard][Configurer vos sites web pour le mode Standard]
+-   [Ajouter un enregistrement DNS pour votre domaine personnalisé][Ajouter un enregistrement DNS pour votre domaine personnalisé]
+-   [Activer Traffic Manager pour votre site web][Activer Traffic Manager pour votre site web]
 
 ## <a name="understanding-records"></a>Présentation des enregistrements DNS
 
-[WACOM.INCLUDE [understandingdns][]]
+[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-traffic-manager.md)]
 
 ## <a name="bkmk_configsharedmode"></a>Configurer vos sites web pour le mode Standard
 
-[WACOM.INCLUDE [modes][]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
 <a name="bkmk_configurecname"></a>
 
@@ -42,17 +42,17 @@ Pour associer votre domaine personnalisé à un site web Azure, vous devez ajout
 
 1.  Connectez-vous à votre compte sur register.com et sélectionnez **Your Account** dans le coin supérieur droit pour afficher vos domaines, puis sélectionnez votre nom de domaine personnalisé.
 
-    ![Page My Account][]
+    ![Page My Account][Page My Account]
 
 2.  Faites défiler la page pour accéder à **Advanced Technical Settings**. Les liens de cette section vous permettent de gérer les enregistrements de votre domaine. Pour les enregistrements CNAME, utilisez le lien **Edit Domain Aliases Records**.
 
-    ![Paramètres techniques avancés][]
+    ![Paramètres techniques avancés][Paramètres techniques avancés]
 
 3.  Lorsque vous cliquez sur le bouton **Edit**, vous accédez à un formulaire permettant de modifier les enregistrements existants ou d'en ajouter de nouveaux. Le formulaire est identique pour les enregistrements CNAME et A.
 
     -   Lors de l'ajout d'un enregistrement CNAME, vous devez définir le champ **.mydomainname.com** sur le sous-domaine à utiliser. Par exemple, **www**. Définissez la valeur **points to** sur le nom de domaine **.trafficmanager.net** du profil Traffic Manager utilisé avec votre site web Azure. Par exemple, **contoso.trafficmanager.net**. Laissez le champ **Refers to Host Name** sur **Select**, car ce champ n'est pas obligatoire lors de la création d'un enregistrement CNAME à utiliser avec le service Sites Web Azure.
 
-        ![Formulaire cname][]
+        ![Formulaire cname][Formulaire cname]
 
 4.  Lorsque vous avez fini d'ajouter ou de modifier des enregistrements, cliquez sur **Continue** pour vérifier les modifications. Sélectionnez à nouveau **Continue** pour enregistrer les modifications.
 
@@ -60,17 +60,7 @@ Pour associer votre domaine personnalisé à un site web Azure, vous devez ajout
 
 [WACOM.INCLUDE [modes][2]]
 
-  [Domaine personnalisé]: /fr-fr/documentation/articles/web-sites-custom-domain-name "Domaine personnalisé"
-  [GoDaddy]: /fr-fr/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [Network Solutions]: /fr-fr/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
   [Register.com]: /fr-fr/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /fr-fr/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /fr-fr/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /fr-fr/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /fr-fr/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /fr-fr/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [Site web]: /fr-fr/documentation/articles/web-sites-registerdotcom-custom-domain-name/ "Sites web"
-  [Site web à l'aide de Traffic Manager]: /fr-fr/documentation/articles/web-sites-registerdotcom-traffic-manager-custom-domain-name/ "Site web à l'aide de Traffic Manager"
   [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
   [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [1]: https://www.register.com

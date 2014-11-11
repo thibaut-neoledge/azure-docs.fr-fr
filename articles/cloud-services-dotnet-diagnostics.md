@@ -1,21 +1,21 @@
 <properties linkid="dev-net-commons-tasks-diagnostics" urlDisplayName="Diagnostics" pageTitle="How to use diagnostics (.NET) - Azure feature guide" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Learn how to use diagnostic data in Azure for debugging, measuring performance, monitoring, traffic analysis, and more." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # Activation de Diagnostics dans les services cloud et les machines virtuelles Azure
 
-Azure Diagnostics 1.2 vous permet de collecter des données de diagnostic à partir d'un rôle de travail, d'un rôle Web ou d'une machine virtuelle exécuté dans Azure. Ce guide décrit comment utiliser Azure Diagnostics 1.2. Pour d'autres instructions détaillées sur la création d'une stratégie de journalisation et de suivi, et sur l'utilisation des diagnostics et des autres techniques pour résoudre les problèmes, consultez la page [Meilleures pratiques de dépannage pour développer des applications Azure][].
+Azure Diagnostics 1.2 vous permet de collecter des données de diagnostic à partir d'un rôle de travail, d'un rôle Web ou d'une machine virtuelle exécuté dans Azure. Ce guide décrit comment utiliser Azure Diagnostics 1.2. Pour d'autres instructions détaillées sur la création d'une stratégie de journalisation et de suivi, et sur l'utilisation des diagnostics et des autres techniques pour résoudre les problèmes, consultez la page [Meilleures pratiques de dépannage pour développer des applications Azure][Meilleures pratiques de dépannage pour développer des applications Azure].
 
 ## Sommaire
 
--   [Vue d'ensemble][]
--   [Activation de Diagnostics dans un rôle de travail][]
--   [Activation de Diagnostics dans une machine virtuelle][]
--   [Exemple de fichier de configuration et de schéma][]
--   [Résolution des problèmes][]
--   [Forum Aux Questions (FAQ)][]
--   [Comparaison d'Azure Diagnostics 1.0 et 1.2][]
--   [Ressources supplémentaires][]
+-   [Vue d'ensemble][Vue d'ensemble]
+-   [Activation de Diagnostics dans un rôle de travail][Activation de Diagnostics dans un rôle de travail]
+-   [Activation de Diagnostics dans une machine virtuelle][Activation de Diagnostics dans une machine virtuelle]
+-   [Exemple de fichier de configuration et de schéma][Exemple de fichier de configuration et de schéma]
+-   [Résolution des problèmes][Résolution des problèmes]
+-   [Forum Aux Questions (FAQ)][Forum Aux Questions (FAQ)]
+-   [Comparaison d'Azure Diagnostics 1.0 et 1.2][Comparaison d'Azure Diagnostics 1.0 et 1.2]
+-   [Ressources supplémentaires][Ressources supplémentaires]
 
 ## <a name="overview"></a><span class="short-header">Vue d'ensemble</span>Vue d'ensemble
 
@@ -50,7 +50,7 @@ Cette procédure pas à pas décrit comment mettre en oeuvre un rôle de travail
 
 ### Conditions préalables
 
-Cet article part du principe que vous disposez d'un abonnement Azure et que vous utilisez Visual Studio 2013 avec le kit de développement logiciel (SDK) Azure. Si vous n'avez pas d'abonnement Azure, vous pouvez vous inscrire pour bénéficier d'une [évaluation gratuite][]. Assurez-vous d'avoir [installé et configuré Azure PowerShell version 0.8.7 ou ultérieure][].
+Cet article part du principe que vous disposez d'un abonnement Azure et que vous utilisez Visual Studio 2013 avec le kit de développement logiciel (SDK) Azure. Si vous n'avez pas d'abonnement Azure, vous pouvez vous inscrire pour bénéficier d'une [évaluation gratuite][évaluation gratuite]. Assurez-vous d'avoir [installé et configuré Azure PowerShell version 0.8.7 ou ultérieure][installé et configuré Azure PowerShell version 0.8.7 ou ultérieure].
 
 ### Étape 1 : création d'un rôle de travail
 
@@ -161,7 +161,7 @@ Remplacez le contenu de WorkerRole.cs par le code suivant : La classe SampleEve
 
 3.  Ajoutez un fichier XML à votre projet **WorkerRole1** en cliquant avec le bouton droit sur le projet **WorkerRole1**, puis sélectionnez **Ajouter** -\> **Nouvel élément…** -\> **Visual C# items** -\> **Données** -\> **Fichier XML**. Nommez le fichier « WadExample.xml ».
 
-    ![CloudServices\_diag\_add\_xml][]
+    ![CloudServices\_diag\_add\_xml][CloudServices\_diag\_add\_xml]
 
 4.  Associez le fichier WadConfig.xsd avec le fichier de configuration. Assurez-vous que la fenêtre de l'éditeur WadExample.xml est la fenêtre active. Appuyez sur **F4** pour ouvrir la fenêtre **Propriétés**. Cliquez sur la propriété **Schémas** dans la fenêtre **Propriétés**. Cliquez sur **…** dans la propriété **Schémas**. Cliquez sur le bouton **Ajouter…** et naviguez jusqu'à l'emplacement où vous avez enregistré le fichier XSD, puis sélectionnez le fichier WadConfig.xsd. Cliquez sur **OK**.
 5.  Remplacez le contenu du fichier de configuration WadExample.xml par le XML suivant, puis enregistrez le fichier. Ce fichier de configuration définit quelques compteurs de performances à collecter : un pour l'utilisation du processeur et l'autre pour l'utilisation de la mémoire. Ensuite, la configuration définit les quatre événements correspondant aux méthodes de la classe SampleEventSourceWriter.
@@ -204,7 +204,7 @@ Les cmdlets PowerShell pour la gestion de Diagnostics sur un rôle web ou de tra
 ### Étape 6 : examen de vos données télémétriques
 
 Dans l'**Explorateur de serveurs** de Visual Studio, naviguez jusqu'au compte de stockage wadexample. Une fois que le service cloud a été exécuté pendant environ 5 minutes, vous devriez voir les tables **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** et **WADSetOtherTable**. Double-cliquez sur l'une des tables pour afficher les données télémétriques qui ont été collectées.
- ![CloudServices\_diag\_tables][]
+ ![CloudServices\_diag\_tables][CloudServices\_diag\_tables]
 
 ## <a name="virtual-machine"></a><span class="short-header">Activation de Diagnostics dans une machine virtuelle</span>Activation de Diagnostics dans une machine virtuelle
 
@@ -212,7 +212,7 @@ Cette procédure pas à pas décrit comment installer Diagnostics à distance da
 
 ### Conditions préalables
 
-Cette procédure pas à pas part du principe que vous disposez d'un abonnement Azure et que vous utilisez Visual Studio 2013 avec le kit de développement logiciel (SDK) Azure. Si vous n'avez pas d'abonnement Azure, vous pouvez vous inscrire pour bénéficier d'une [évaluation gratuite][]. Assurez-vous d'avoir [installé et configuré Azure PowerShell version 0.8.7 ou ultérieure][].
+Cette procédure pas à pas part du principe que vous disposez d'un abonnement Azure et que vous utilisez Visual Studio 2013 avec le kit de développement logiciel (SDK) Azure. Si vous n'avez pas d'abonnement Azure, vous pouvez vous inscrire pour bénéficier d'une [évaluation gratuite][évaluation gratuite]. Assurez-vous d'avoir [installé et configuré Azure PowerShell version 0.8.7 ou ultérieure][installé et configuré Azure PowerShell version 0.8.7 ou ultérieure].
 
 ### Étape 1 : création d'une machine virtuelle
 
@@ -228,7 +228,7 @@ Cette procédure pas à pas part du principe que vous disposez d'un abonnement A
 
 1.  Sur votre ordinateur de développement, lancez Visual Studio 2013.
 2.  Créez une nouvelle application console Visual C# qui cible .NET Framework 4.5. Nommez le projet « WadExampleVM ».
-    ![CloudServices\_diag\_new\_project][]
+    ![CloudServices\_diag\_new\_project][CloudServices\_diag\_new\_project]
 3.  Remplacez le contenu de Program.cs par le code suivant. La classe **SampleEventSourceWriter** implémente quatre méthodes de journalisation : **SendEnums**, **MessageMethod**, **SetOther** et **HighFreq**. Le premier paramètre de la méthode WriteEvent définit l'ID de l'événement respectif. La méthode Run implémente une boucle infinie qui appelle chacune des méthodes de journalisation implémentées dans la classe **SampleEventSourceWriter** toutes les 10 secondes.
 
         using System;
@@ -357,11 +357,11 @@ Les cmdlets PowerShell pour la gestion de Diagnostics sur une machine virtuelle 
 ### Étape 6 : examen de vos données télémétriques
 
 Dans l'**Explorateur de serveurs** de Visual Studio, naviguez jusqu'au compte de stockage wadexample. Une fois que la machine virtuelle a été exécutée pendant environ 5 minutes, vous devriez voir les tables **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** et **WADSetOtherTable**. Double-cliquez sur l'une des tables pour afficher les données télémétriques qui ont été collectées.
- ![CloudServices\_diag\_wadexamplevm\_tables][]
+ ![CloudServices\_diag\_wadexamplevm\_tables][CloudServices\_diag\_wadexamplevm\_tables]
 
 ## <a name="configuration-file-schema"></a><span class="short-header">Exemple de fichier de configuration et de schéma</span>Schéma de fichier de configuration
 
-Le fichier de configuration Diagnostics définit les valeurs qui sont utilisées pour initialiser les paramètres de configuration de diagnostic lorsque le moniteur de diagnostics démarre. Un exemple de fichier de configuration ainsi qu'une documentation détaillée à propos de son schéma sont situés ici : [Schéma de configuration Azure Diagnostics 1.2][].
+Le fichier de configuration Diagnostics définit les valeurs qui sont utilisées pour initialiser les paramètres de configuration de diagnostic lorsque le moniteur de diagnostics démarre. Un exemple de fichier de configuration ainsi qu'une documentation détaillée à propos de son schéma sont situés ici : [Schéma de configuration Azure Diagnostics 1.2][Schéma de configuration Azure Diagnostics 1.2].
 
 ## <a name="troubleshooting"></a><span class="short-header">Résolution des problèmes</span>Résolution des problèmes
 
@@ -621,10 +621,10 @@ Le tableau suivant compare les fonctionnalités prises en charge par Azure Diagn
 
 ## <a name="additional"></a><span class="short-header">Ressources supplémentaires</span>Ressources supplémentaires
 
--   [Meilleures pratiques de dépannage pour développer des applications Azure][]
--   [Collecte des données de journalisation avec les diagnostics Azure][]
--   [Débogage d'une application Azure][]
--   [Configuration des diagnostics Azure][]
+-   [Meilleures pratiques de dépannage pour développer des applications Azure][Meilleures pratiques de dépannage pour développer des applications Azure]
+-   [Collecte des données de journalisation avec les diagnostics Azure][Collecte des données de journalisation avec les diagnostics Azure]
+-   [Débogage d'une application Azure][Débogage d'une application Azure]
+-   [Configuration des diagnostics Azure][Configuration des diagnostics Azure]
 
   [Meilleures pratiques de dépannage pour développer des applications Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh771389.aspx
   [Vue d'ensemble]: #overview
@@ -632,18 +632,12 @@ Le tableau suivant compare les fonctionnalités prises en charge par Azure Diagn
   [Activation de Diagnostics dans une machine virtuelle]: #virtual-machine
   [Exemple de fichier de configuration et de schéma]: #configuration-file-schema
   [Résolution des problèmes]: #troubleshooting
-  [Forum Aux Questions (FAQ)]: #faq
   [Comparaison d'Azure Diagnostics 1.0 et 1.2]: #comparing
   [Ressources supplémentaires]: #additional
   [classe EventSource]: http://msdn.microsoft.com/fr-fr/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
   [évaluation gratuite]: http://azure.microsoft.com/fr-fr/pricing/free-trial/
   [installé et configuré Azure PowerShell version 0.8.7 ou ultérieure]: http://azure.microsoft.com/fr-fr/documentation/articles/install-configure-powershell/
-  [CloudServices\_diag\_add\_xml]: ./media/cloud-services-dotnet-diagnostics/AddXmlFile.png
-  [CloudServices\_diag\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleTables.png
-  [CloudServices\_diag\_new\_project]: ./media/cloud-services-dotnet-diagnostics/NewProject.png
-  [CloudServices\_diag\_wadexamplevm\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png
   [Schéma de configuration Azure Diagnostics 1.2]: http://msdn.microsoft.com/fr-fr/library/azure/dn782207.aspx
-  [les décoder]: http://www.bing.com/search?q=base64+decoder
   [Collecte des données de journalisation avec les diagnostics Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433048.aspx
   [Débogage d'une application Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee405479.aspx
   [Configuration des diagnostics Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn186185.aspx

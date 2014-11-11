@@ -1,16 +1,16 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-1-overview" pageTitle="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, MVC Web Role tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande"></tags>
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
 
 # Didacticiel du service cloud Azure : rôle Web ASP.NET MVC, rôle de travail, tables, files d'attente et objets blob Azure Storage - 1 sur 5
 
-Cette série de didacticiels vous montre comment créer et déployer une application Web ASP.NET MVC multiniveau qui s'exécute dans un service cloud Azure et utilise des tables, des files d'attente et des objets blob Azure Storage. Vous pouvez télécharger [l'application terminée][] dans la galerie de code MSDN ou un [livre électronique][] d'une version antérieure dans la galerie de livres électroniques TechNet.
+Cette série de didacticiels vous montre comment créer et déployer une application Web ASP.NET MVC multiniveau qui s'exécute dans un service cloud Azure et utilise des tables, des files d'attente et des objets blob Azure Storage. Vous pouvez télécharger [l'application terminée][l'application terminée] dans la galerie de code MSDN ou un [livre électronique][livre électronique] d'une version antérieure dans la galerie de livres électroniques TechNet.
 
 Le schéma suivant montre l'interaction des parties de l'application :
 
-![Traitement du message][]
+![Traitement du message][Traitement du message]
 
-Cette série de didacticiels compte 5 parties. Si vous voulez une présentation plus rapide et plus simple des services cloud, files d'attente et objets blob, consultez la page [Prise en main d'Azure Cloud Services et d'ASP.NET][]. Vous pouvez également exécuter une application multiniveau sur des sites Web et dans WebJobs. Pour plus d'informations, consultez la page [Prise en main du Kit de développement logiciel (SDK) Azure WebJobs][].
+Cette série de didacticiels compte 5 parties. Si vous voulez une présentation plus rapide et plus simple des services cloud, files d'attente et objets blob, consultez la page [Prise en main d'Azure Cloud Services et d'ASP.NET][Prise en main d'Azure Cloud Services et d'ASP.NET]. Vous pouvez également exécuter une application multiniveau sur des sites Web et dans WebJobs. Pour plus d'informations, consultez la page [Prise en main du Kit de développement logiciel (SDK) Azure WebJobs][Prise en main du Kit de développement logiciel (SDK) Azure WebJobs].
 
 Cette série de didacticiels vous apprendra à effectuer les opérations suivantes :
 
@@ -30,24 +30,24 @@ Cette série de didacticiels vous apprendra à effectuer les opérations suivant
 Cette série compte cinq didacticiels :
 
 1.  **Présentation de l'application Azure Email Service** (ce didacticiel). Propose une présentation détaillée de l'application et de son architecture. Vous pouvez ignorer cette étape si vous voulez simplement voir comment déployer ou voir le code, et revenir ici plus tard pour mieux comprendre l'architecture.
-2.  [Configuration et déploiement de l'application Azure Email Service][]. Explique comment télécharger l'exemple d'application, le configurer, le tester en local, le déployer et le tester dans le cloud.
-3.  [Création du rôle Web pour l'application Azure Email Service][]. Explique comment créer les composants MVC de l'application et les tester en local.
-4.  [Création du rôle de travail A (planificateur de messages) pour l'application Azure Email Service][]. Création du composant principal qui crée les éléments de travail de la file d'attente pour envoyer les messages, et test en local.
-5.  [Création du rôle de travail B (expéditeur de messages) pour l'application Azure Email Service][]. Création du composant principal qui traite les éléments de travail de la file d'attente pour envoyer les messages, et test en local.
+2.  [Configuration et déploiement de l'application Azure Email Service][Configuration et déploiement de l'application Azure Email Service]. Explique comment télécharger l'exemple d'application, le configurer, le tester en local, le déployer et le tester dans le cloud.
+3.  [Création du rôle Web pour l'application Azure Email Service][Création du rôle Web pour l'application Azure Email Service]. Explique comment créer les composants MVC de l'application et les tester en local.
+4.  [Création du rôle de travail A (planificateur de messages) pour l'application Azure Email Service][Création du rôle de travail A (planificateur de messages) pour l'application Azure Email Service]. Création du composant principal qui crée les éléments de travail de la file d'attente pour envoyer les messages, et test en local.
+5.  [Création du rôle de travail B (expéditeur de messages) pour l'application Azure Email Service][Création du rôle de travail B (expéditeur de messages) pour l'application Azure Email Service]. Création du composant principal qui traite les éléments de travail de la file d'attente pour envoyer les messages, et test en local.
 
 ## Sections de ce didacticiel
 
--   [Configuration requise][]
--   [Présentation du composant frontal][]
--   [Présentation du composant principal][]
--   [Tables Azure][]
--   [Files d'attente Azure][]
--   [Schéma des données][]
--   [Objets blob Azure][]
--   [Service cloud Azure et site Web Azure][]
--   [Coût][]
--   [Authentification et autorisation][]
--   [Étapes suivantes][]
+-   [Configuration requise][Configuration requise]
+-   [Présentation du composant frontal][Présentation du composant frontal]
+-   [Présentation du composant principal][Présentation du composant principal]
+-   [Tables Azure][Tables Azure]
+-   [Files d'attente Azure][Files d'attente Azure]
+-   [Schéma des données][Schéma des données]
+-   [Objets blob Azure][Objets blob Azure]
+-   [Service cloud Azure et site Web Azure][Service cloud Azure et site Web Azure]
+-   [Coût][Coût]
+-   [Authentification et autorisation][Authentification et autorisation]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## Configuration requise
 
@@ -56,7 +56,7 @@ Les instructions des didacticiels sont valables pour les produits suivants :
 -   Visual Studio 2013 avec Update 2
 -   Visual Studio 2013 Express pour le Web avec Update 2
 
-Vous avez également besoin d'un abonnement Azure. Vous pouvez créer un [compte d'évaluation gratuit][] ou [activer les avantages de votre abonnement MSDN][].
+Vous avez également besoin d'un abonnement Azure. Vous pouvez créer un [compte d'évaluation gratuit][compte d'évaluation gratuit] ou [activer les avantages de votre abonnement MSDN][activer les avantages de votre abonnement MSDN].
 
 ## <a name="frontend"></a>Présentation du composant frontal
 
@@ -64,29 +64,29 @@ L'application est un service de liste de diffusion. Le composant frontal compren
 
 (Les captures d'écran montrent le style de modèle Visual Studio 2012 ; le contenu est identique pour Visual Studio 2013 mais le style est différent.)
 
-![Page d'index de la liste de diffusion][]
+![Page d'index de la liste de diffusion][Page d'index de la liste de diffusion]
 
-![Page d'index de l'abonné][]
+![Page d'index de l'abonné][Page d'index de l'abonné]
 
 Il existe également un jeu de pages que les administrateurs utilisent pour créer les messages à envoyer à une liste.
 
-![Page d'index du message][]
+![Page d'index du message][Page d'index du message]
 
-![Page de création du message][]
+![Page de création du message][Page de création du message]
 
 Les clients du service sont des sociétés qui offrent à leurs clients la possibilité de s'abonner à une liste de diffusion sur leur site Web. Par exemple, l'administrateur configure une liste pour les annonces du département d'histoire de l'université Contoso. Quand un étudiant intéressé par les annonces du département d'histoire clique sur le lien sur le site Web de l'université Contoso, l'université passe un appel de service Web à l'application Azure Email Service. Cette méthode de service provoque l'envoi d'un courrier électronique au client. Ce courrier contient un lien hypertexte, et lorsque le destinataire clique dessus, une page de bienvenue dans la liste des annonces du département d'histoire s'affiche.
 
-![Message de confirmation][]
+![Message de confirmation][Message de confirmation]
 
-![Page de bienvenue dans la liste][]
+![Page de bienvenue dans la liste][Page de bienvenue dans la liste]
 
 Tous les messages envoyés (à l'exception de la confirmation d'abonnement) comportent un lien hypertexte de désabonnement. Si le destinataire clique sur ce lien, une page Web lui demande de confirmer s'il a bien l'intention de se désabonner.
 
-![Page de confirmation du désabonnement][]
+![Page de confirmation du désabonnement][Page de confirmation du désabonnement]
 
 Si le destinataire clique sur le bouton **Confirm**, la page qui s'affiche confirme que la personne a été supprimée de la liste.
 
-![Unsubscribe confirmed page][]
+![Unsubscribe confirmed page][Unsubscribe confirmed page]
 
 ## <a name="backend"></a>Présentation du composant principal
 
@@ -100,19 +100,19 @@ Lorsque le rôle de travail A trouve un message qui doit être envoyé, il exéc
 
 Un second rôle de travail (rôle de travail B) interroge la file d'attente à la recherche d'éléments de travail. Lorsque le rôle de travail B rencontre un élément de travail, il le traite en envoyant le message, puis il le supprime de la file d'attente. Le schéma qui suit présente ces relations.
 
-![Traitement du message][]
+![Traitement du message][Traitement du message]
 
 Aucun message n'est oublié si le rôle de travail B s'arrête et doit être redémarré, car l'élément de travail de la file d'attente pour un message n'est pas supprimé tant que le message n'a pas été envoyé. L'application empêche également que plusieurs messages ne soient envoyés au cas où le rôle de travail A s'arrête et doit être redémarré.
 
-![Empêcher l'envoi de messages en double][]
+![Empêcher l'envoi de messages en double][Empêcher l'envoi de messages en double]
 
 Le rôle de travail B interroge une file d'attente d'abonnement à la recherche d'éléments de travail placés dans la file d'attente par la méthode de service de l'API Web pour les nouveaux abonnements. Lorsqu'il en trouve un, il envoie le message de confirmation.
 
-![Traitement des messages de la file d'attente d'abonnement][]
+![Traitement des messages de la file d'attente d'abonnement][Traitement des messages de la file d'attente d'abonnement]
 
 ## <a name="tables"></a>Tables Azure
 
-L'application Azure Email Service stocke les données dans des tables Azure Storage. Les tables Azure sont un magasin de données NoSQL, et non une base de données relationnelle comme la [base de données SQL Azure][]. Les tables Azure constituent un choix intéressant lorsque l'efficacité et l'extensibilité sont plus importantes que la normalisation des données et l'intégrité des relations. Par exemple, dans cette application, un rôle de travail crée une ligne à chaque fois qu'un élément de travail de file d'attente est créé. Un autre rôle de travail récupère et met à jour une ligne chaque fois qu'un message est envoyé, ce qui peut constituer un goulot d'étranglement si vous utilisez une base de données relationnelle. En outre, les tables Azure sont moins chères que les tables Azure SQL. Pour plus d'informations sur les tables Azure, consultez [le dernier didacticiel de cette série][Création du rôle de travail B (expéditeur de messages) pour l'application Azure Email Service].
+L'application Azure Email Service stocke les données dans des tables Azure Storage. Les tables Azure sont un magasin de données NoSQL, et non une base de données relationnelle comme la [base de données SQL Azure][base de données SQL Azure]. Les tables Azure constituent un choix intéressant lorsque l'efficacité et l'extensibilité sont plus importantes que la normalisation des données et l'intégrité des relations. Par exemple, dans cette application, un rôle de travail crée une ligne à chaque fois qu'un élément de travail de file d'attente est créé. Un autre rôle de travail récupère et met à jour une ligne chaque fois qu'un message est envoyé, ce qui peut constituer un goulot d'étranglement si vous utilisez une base de données relationnelle. En outre, les tables Azure sont moins chères que les tables Azure SQL. Pour plus d'informations sur les tables Azure, consultez [le dernier didacticiel de cette série][Création du rôle de travail B (expéditeur de messages) pour l'application Azure Email Service].
 
 Les sections qui suivent décrivent le contenu des tables Azure qui sont utilisées par l'application Azure Email Service. Consultez la section [Schéma des données Azure Email Service][Schéma des données] plus bas sur cette page pour voir un schéma présentant les tables et leurs relations.
 
@@ -855,7 +855,7 @@ Les éléments de travail de file d'attente contiennent le GUID de l'abonné. Ce
 
 Le schéma qui suit présente les tables et les files d'attente, ainsi que leurs relations.
 
-![Schéma des données de l'application Azure Email Service][]
+![Schéma des données de l'application Azure Email Service][Schéma des données de l'application Azure Email Service]
 
 ## <a name="blobs"></a>Objets blob Azure
 
@@ -871,22 +871,22 @@ Comme les messages au format HTML ou texte brut sont essentiellement composés d
 
 L'application Azure Email Service est configurée de façon à ce que le composant principal et le composant frontal s'exécutent dans un service cloud Azure.
 
-![Présentation de l'architecture de l'application][]
+![Présentation de l'architecture de l'application][Présentation de l'architecture de l'application]
 
 Une autre architecture possible est d'exécuter le composant frontal dans un site Web Azure.
 
-![Autre architecture d'application][]
+![Autre architecture d'application][Autre architecture d'application]
 
-Une alternative consiste à exécuter le composant frontal dans un site Web Azure et à utiliser la fonctionnalité WebJobs pour exécuter le composant principal sur les mêmes serveurs que le composant frontal. Pour plus d'informations, consultez la page [Prise en main du Kit de développement logiciel (SDK) Azure WebJobs][].
+Une alternative consiste à exécuter le composant frontal dans un site Web Azure et à utiliser la fonctionnalité WebJobs pour exécuter le composant principal sur les mêmes serveurs que le composant frontal. Pour plus d'informations, consultez la page [Prise en main du Kit de développement logiciel (SDK) Azure WebJobs][Prise en main du Kit de développement logiciel (SDK) Azure WebJobs].
 
 ## <a name="cost"></a>Coût
 
 Cette section offre un aperçu des coûts d'exécution de l'exemple d'application dans Azure, selon les tarifs en vigueur au moment de la première publication de ce didacticiel, en décembre 2012. Avant de prendre des décisions sur les coûts, consultez les tarifs dans les pages suivantes :
 
--   [Calcul des coûts Azure][]
--   [Azure SendGrid][]
+-   [Calcul des coûts Azure][Calcul des coûts Azure]
+-   [Azure SendGrid][Azure SendGrid]
 
-Les coûts dépendent du nombre d'instances de rôle de travail et de rôle Web que vous décidez d'utiliser. Afin de pouvoir répondre aux critères du [contrat de niveau de service Azure Cloud Service 99,95 %][], vous devez déployer au moins deux instances de chaque rôle. Une des raisons pour lesquelles vous devez exécuter au moins deux instances de rôle est que les machines virtuelles qui exécutent votre application doivent être redémarrées environ deux fois par mois en raison de mises à niveau du système d'exploitation. (Pour plus d'informations sur les mises à jour du système d'exploitation, consultez la page [Redémarrages d'instances de rôle pour cause de mise à jour du système d'exploitation][].)
+Les coûts dépendent du nombre d'instances de rôle de travail et de rôle Web que vous décidez d'utiliser. Afin de pouvoir répondre aux critères du [contrat de niveau de service Azure Cloud Service 99,95 %][contrat de niveau de service Azure Cloud Service 99,95 %], vous devez déployer au moins deux instances de chaque rôle. Une des raisons pour lesquelles vous devez exécuter au moins deux instances de rôle est que les machines virtuelles qui exécutent votre application doivent être redémarrées environ deux fois par mois en raison de mises à niveau du système d'exploitation. (Pour plus d'informations sur les mises à jour du système d'exploitation, consultez la page [Redémarrages d'instances de rôle pour cause de mise à jour du système d'exploitation][Redémarrages d'instances de rôle pour cause de mise à jour du système d'exploitation].)
 
 Le travail effectué par les deux rôles de travail dans notre exemple n'est pas critique, et n'a donc pas besoin du niveau de service à 99,5 %. Ainsi, il est possible de n'utiliser qu'une seule instance de rôle de travail, tant que celle-ci peut absorber la charge de travail. L'instance de rôle Web est un élément sensible, c'est-à-dire que les utilisateurs s'attendent à ce que le site Web soit toujours en ligne. Une application de production doit donc comporter au moins deux instances du rôle Web.
 
@@ -1016,23 +1016,23 @@ $60.43
 </td>
 </tr>
 </table>
-Comme vous pouvez le constater, les instances de rôle sont un élément majeur du coût total. Elles génèrent des frais même si elles sont arrêtées. Vous devez supprimer une instance de rôle pour qu'elle n'entraîne plus de frais. Une façon de réaliser des économies serait de déplacer tout le code du rôle de travail A et du rôle de travail B dans un seul rôle de travail. Pour ces didacticiels, nous avons délibérément choisi d'utiliser deux instances de rôle de travail afin de simplifier l'extensibilité. Le travail qu'effectue le rôle de travail B est coordonné par le service de file d'attente Azure, ce qui signifie que vous pouvez étendre le rôle de travail B en augmentant simplement le nombre d'instances de rôle. (Le rôle de travail B est le facteur limitant en cas de charge de travail élevée.) Le travail effectué par le rôle de travail A n'étant pas coordonné par les files d'attente, vous ne pouvez pas exécuter plusieurs instances du rôle de travail A. Si les deux rôles de travail sont combinés et que vous voulez permettre l'extensibilité, vous devez mettre en place un mécanisme pour vous assurer que les tâches du rôle de travail A ne s'exécutent que dans une seule instance. (Ce mécanisme est fourni par [CloudFx][]. Consultez également l'[exemple WorkerRole.cs][].)
+Comme vous pouvez le constater, les instances de rôle sont un élément majeur du coût total. Elles génèrent des frais même si elles sont arrêtées. Vous devez supprimer une instance de rôle pour qu'elle n'entraîne plus de frais. Une façon de réaliser des économies serait de déplacer tout le code du rôle de travail A et du rôle de travail B dans un seul rôle de travail. Pour ces didacticiels, nous avons délibérément choisi d'utiliser deux instances de rôle de travail afin de simplifier l'extensibilité. Le travail qu'effectue le rôle de travail B est coordonné par le service de file d'attente Azure, ce qui signifie que vous pouvez étendre le rôle de travail B en augmentant simplement le nombre d'instances de rôle. (Le rôle de travail B est le facteur limitant en cas de charge de travail élevée.) Le travail effectué par le rôle de travail A n'étant pas coordonné par les files d'attente, vous ne pouvez pas exécuter plusieurs instances du rôle de travail A. Si les deux rôles de travail sont combinés et que vous voulez permettre l'extensibilité, vous devez mettre en place un mécanisme pour vous assurer que les tâches du rôle de travail A ne s'exécutent que dans une seule instance. (Ce mécanisme est fourni par [CloudFx][CloudFx]. Consultez également l'[exemple WorkerRole.cs][exemple WorkerRole.cs].)
 
-Il est également possible de déplacer tout le code des deux rôles de travail dans le rôle Web, afin que tout soit exécuté dans ce dernier. Toutefois, l'exécution de tâches en arrière-plan dans ASP.NET n'est pas prise en charge ou considérée comme robuste. Cette architecture complique l'extensibilité. Pour plus d'informations, consultez la page [Dangers de la mise en œuvre de tâches en arrière-plan récurrentes dans ASP.NET][]. Consultez également les pages [Combinaison d'un rôle de travail et d'un rôle Web dans Azure][] et [Combinaison de plusieurs rôles de travail Azure dans un rôle Web Azure][]. Si vous vouliez aller dans ce sens, il serait préférable d'[exécuter les rôles dans un site Web Azure et d'utiliser la fonctionnalité WebJobs pour les tâches liées au composant principal][].
+Il est également possible de déplacer tout le code des deux rôles de travail dans le rôle Web, afin que tout soit exécuté dans ce dernier. Toutefois, l'exécution de tâches en arrière-plan dans ASP.NET n'est pas prise en charge ou considérée comme robuste. Cette architecture complique l'extensibilité. Pour plus d'informations, consultez la page [Dangers de la mise en œuvre de tâches en arrière-plan récurrentes dans ASP.NET][Dangers de la mise en œuvre de tâches en arrière-plan récurrentes dans ASP.NET]. Consultez également les pages [Combinaison d'un rôle de travail et d'un rôle Web dans Azure][Combinaison d'un rôle de travail et d'un rôle Web dans Azure] et [Combinaison de plusieurs rôles de travail Azure dans un rôle Web Azure][Combinaison de plusieurs rôles de travail Azure dans un rôle Web Azure]. Si vous vouliez aller dans ce sens, il serait préférable d'[exécuter les rôles dans un site Web Azure et d'utiliser la fonctionnalité WebJobs pour les tâches liées au composant principal][exécuter les rôles dans un site Web Azure et d'utiliser la fonctionnalité WebJobs pour les tâches liées au composant principal].
 
-Une autre possibilité d'architecture pour réduire les coûts est d'utiliser le [bloc applicatif de mise à l'échelle automatique][] pour déployer automatiquement les rôles de travail uniquement lors de périodes définies et les supprimer une fois le travail terminé. Pour plus d'informations sur la mise à l'échelle automatique, consultez [le dernier didacticiel de cette série][Création du rôle de travail B (expéditeur de messages) pour l'application Azure Email Service].
+Une autre possibilité d'architecture pour réduire les coûts est d'utiliser le [bloc applicatif de mise à l'échelle automatique][bloc applicatif de mise à l'échelle automatique] pour déployer automatiquement les rôles de travail uniquement lors de périodes définies et les supprimer une fois le travail terminé. Pour plus d'informations sur la mise à l'échelle automatique, consultez [le dernier didacticiel de cette série][Création du rôle de travail B (expéditeur de messages) pour l'application Azure Email Service].
 
 À l'avenir, Azure pourrait proposer un mécanisme de notification pour les redémarrages programmés, ce qui vous permettrait de ne lancer une instance de rôle Web supplémentaire que pour la période de redémarrage prévue. Vous ne seriez pas conforme au contrat SLA 99,95 %, mais vous pourriez réduire vos coûts de moitié environ et assurer la disponibilité de votre application Web pendant la période de redémarrage.
 
 ## <a name="auth"></a>Authentification et autorisation
 
-Dans une application de production, vous mettez en place un mécanisme d'authentification et d'autorisation comme [ASP.NET Identity][] pour le composant frontal Web ASP.NET MVC, avec la méthode de service de l'API Web ASP.NET. Il existe également d'autres possibilités, comme l'utilisation d'un secret partagé, pour assurer la sécurité de la méthode de service de l'API Web. Les fonctions d'authentification et d'autorisation ont été omises dans cet exemple d'application pour qu'il reste simple à configurer et à déployer.
+Dans une application de production, vous mettez en place un mécanisme d'authentification et d'autorisation comme [ASP.NET Identity][ASP.NET Identity] pour le composant frontal Web ASP.NET MVC, avec la méthode de service de l'API Web ASP.NET. Il existe également d'autres possibilités, comme l'utilisation d'un secret partagé, pour assurer la sécurité de la méthode de service de l'API Web. Les fonctions d'authentification et d'autorisation ont été omises dans cet exemple d'application pour qu'il reste simple à configurer et à déployer.
 
 ## <a name="nextsteps"></a>Étapes suivantes
 
 Dans le [prochain didacticiel][Configuration et déploiement de l'application Azure Email Service], vous allez télécharger l'exemple de projet, configurer votre environnement de développement, configurer le projet pour votre environnement et tester le projet en local et dans le cloud. Dans les didacticiels 3 à 5, vous verrez comment créer entièrement le projet.
 
-Pour obtenir des liens sur les ressources supplémentaires pour utiliser les tables, les files d'attente et les objets blob Azure Storage, consultez le [dernier didacticiel de cette série][].
+Pour obtenir des liens sur les ressources supplémentaires pour utiliser les tables, les files d'attente et les objets blob Azure Storage, consultez le [dernier didacticiel de cette série][dernier didacticiel de cette série].
 
 <div><a href="/fr-fr/develop/net/tutorials/multi-tier-web-site/2-download-and-run/" class="site-arrowboxcta download-cta">Didacticiel&nbsp;2</a></div>
 
@@ -1040,11 +1040,8 @@ Pour obtenir des liens sur les ressources supplémentaires pour utiliser les tab
   [livre électronique]: http://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETMultiTierWindowsAzureApplicationUsingStorageTablesQueuesandBlobs
   [Traitement du message]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-worker-roles-a-and-b.png
   [Prise en main d'Azure Cloud Services et d'ASP.NET]: /fr-fr/documentation/articles/cloud-services-dotnet-get-started/
-  [Prise en main du Kit de développement logiciel (SDK) Azure WebJobs]: /fr-fr/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
   [Configuration et déploiement de l'application Azure Email Service]: /fr-fr/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
   [Création du rôle Web pour l'application Azure Email Service]: /fr-fr/develop/net/tutorials/multi-tier-web-site/3-web-role/
-  [Création du rôle de travail A (planificateur de messages) pour l'application Azure Email Service]: /fr-fr/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
-  [Création du rôle de travail B (expéditeur de messages) pour l'application Azure Email Service]: /fr-fr/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
   [Configuration requise]: #prerequisites
   [Présentation du composant frontal]: #frontend
   [Présentation du composant principal]: #backend
@@ -1069,7 +1066,6 @@ Pour obtenir des liens sur les ressources supplémentaires pour utiliser les tab
   [Empêcher l'envoi de messages en double]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-message-processing.png
   [Traitement des messages de la file d'attente d'abonnement]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-subscribe-diagram.png
   [base de données SQL Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336279.aspx
-  [Environnement réel : Conception d'une stratégie de partition extensible pour le stockage de tables Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh508997.aspx
   [Schéma des données de l'application Azure Email Service]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-datadiagram.png
   [Présentation de l'architecture de l'application]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-architecture-overview.png
   [Autre architecture d'application]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-alternative-architecture.png

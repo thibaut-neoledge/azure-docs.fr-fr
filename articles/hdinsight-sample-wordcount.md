@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-sample-wordcount" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The WordCount Hadoop sample in HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample, hadoop, mapreduce" description="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The WordCount Hadoop sample in HDInsight" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # Exemple Hadoop de comptage de mots dans HDInsight
 
@@ -15,26 +15,26 @@ Le programme Hadoop MapReduce lit le fichier texte et comptabilise les occurrenc
 
 **Conditions préalables** :
 
--   Vous devez disposer d'un compte Azure. Pour connaître les options disponibles lors de la création d'un compte, consultez la page [Version d'évaluation gratuite d'Azure][].
+-   Vous devez disposer d'un compte Azure. Pour connaître les options disponibles lors de la création d'un compte, consultez la page [Version d'évaluation gratuite d'Azure][Version d'évaluation gratuite d'Azure].
 
--   Vous devez avoir approvisionné un cluster HDInsight. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de clusters, consultez la page [Prise en main d'Azure HDInsight][] ou [Approvisionnement de clusters HDInsight][].
+-   Vous devez avoir approvisionné un cluster HDInsight. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de clusters, consultez la page [Prise en main d'Azure HDInsight][Prise en main d'Azure HDInsight] ou [Approvisionnement de clusters HDInsight][Approvisionnement de clusters HDInsight].
 
--   Vous devez avoir installé Azure PowerShell et l'avoir configuré pour une utilisation avec votre compte. Pour des instructions sur la marche à suivre, consultez la page [Installation et configuration d'Azure PowerShell][].
+-   Vous devez avoir installé Azure PowerShell et l'avoir configuré pour une utilisation avec votre compte. Pour des instructions sur la marche à suivre, consultez la page [Installation et configuration d'Azure PowerShell][Installation et configuration d'Azure PowerShell].
 
 ## Dans cet article
 
 Cette rubrique vous montre comment exécuter l'exemple, présente le code Java du programme MapReduce, récapitule ce que vous avez appris, et indique les étapes suivantes. Elle se compose des sections suivantes :
 
-1.  [Exécution de l'exemple avec Azure PowerShell][]
-2.  [Code Java pour le programme WordCount MapReduce][]
-3.  [Résumé][]
-4.  [Étapes suivantes][]
+1.  [Exécution de l'exemple avec Azure PowerShell][Exécution de l'exemple avec Azure PowerShell]
+2.  [Code Java pour le programme WordCount MapReduce][Code Java pour le programme WordCount MapReduce]
+3.  [Résumé][Résumé]
+4.  [Étapes suivantes][Étapes suivantes]
 
 ## <span id="run-sample"></span></a>Exécution de l'exemple avec Azure PowerShell
 
 **Envoi de la tâche MapReduce**
 
-1.  Ouvrez **Azure PowerShell**. Pour savoir comment ouvrir la fenêtre de la console Azure PowerShell, consultez la rubrique [Installation et configuration d'Azure PowerShell][].
+1.  Ouvrez **Azure PowerShell**. Pour savoir comment ouvrir la fenêtre de la console Azure PowerShell, consultez la rubrique [Installation et configuration d'Azure PowerShell][Installation et configuration d'Azure PowerShell].
 
 2.  Définissez les deux variables dans les commandes suivantes, puis exécutez-les :
 
@@ -101,7 +101,7 @@ Cette rubrique vous montre comment exécuter l'exemple, présente le code Java d
 
 La sortie du script WordCount doit s'afficher dans la fenêtre cmd :
 
-![HDI.Sample.WordCount.Output][]
+![HDI.Sample.WordCount.Output][HDI.Sample.WordCount.Output]
 
 Notez que les fichiers de résultat d'une tâche MapReduce sont immuables. Donc, si vous réexécutez cet exemple, vous devrez modifier le nom du fichier de résultat.
 
@@ -183,15 +183,15 @@ Ce didacticiel vous a présenté un exemple qui explique comment exécuter un pr
 
 Pour suivre des didacticiels exécutant d'autres exemples et fournissant des instructions sur l'utilisation des tâches Pig, Hive et MapReduce sur Azure HDInsight avec Azure PowerShell, consultez les rubriques suivantes :
 
--   [Prise en main d'Azure HDInsight][]
--   [Exemple : GraySort 10 Go][]
--   [Exemple : Estimateur Pi][]
--   [Exemple : Diffusion en continu en C#][]
--   [Utilisation de Pig avec HDInsight][]
--   [Utilisation de Hive avec HDInsight][]
--   [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][]
+-   [Prise en main d'Azure HDInsight][Prise en main d'Azure HDInsight]
+-   [Exemple : GraySort 10 Go][Exemple : GraySort 10 Go]
+-   [Exemple : Estimateur Pi][Exemple : Estimateur Pi]
+-   [Exemple : Diffusion en continu en C#][Exemple : Diffusion en continu en C#]
+-   [Utilisation de Pig avec HDInsight][Utilisation de Pig avec HDInsight]
+-   [Utilisation de Hive avec HDInsight][Utilisation de Hive avec HDInsight]
+-   [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][Documentation du Kit de développement logiciel (SDK) Azure HDInsight]
 
-  [Version d'évaluation gratuite d'Azure]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Version d'évaluation gratuite d'Azure]: http://azure.microsoft.com/fr-fr/pricing/free-trial/
   [Prise en main d'Azure HDInsight]: ../hdinsight-get-started/
   [Approvisionnement de clusters HDInsight]: ../hdinsight-provision-clusters/
   [Installation et configuration d'Azure PowerShell]: ../install-configure-powershell/
@@ -205,4 +205,3 @@ Pour suivre des didacticiels exécutant d'autres exemples et fournissant des ins
   [Exemple : Diffusion en continu en C#]: ../hdinsight-sample-csharp-streaming/
   [Utilisation de Pig avec HDInsight]: ../hdinsight-use-pig/
   [Utilisation de Hive avec HDInsight]: ../hdinsight-use-hive/
-  [Documentation du Kit de développement logiciel (SDK) Azure HDInsight]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx

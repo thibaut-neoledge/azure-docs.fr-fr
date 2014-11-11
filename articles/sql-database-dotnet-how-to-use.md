@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-sql-azure" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (.NET) - Azure feature guide" metaKeywords="Get started SQL Azure, Getting started SQL Azure, SQL Azure database connection, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" description="Get started with SQL Database. Learn how to create a SQL Database instance and connect to it using ADO.NET, ODBC, and EntityClient Provider." metaCanonical="" services="sql-database" documentationCenter=".NET" title="How to use Azure SQL Database in .NET applications" authors="jeffreyg" solutions="" manager="" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg" />
 
 # Utilisation d'une base de données SQL Azure dans des applications .NET
 
@@ -14,13 +14,13 @@ La base de données SQL fournit un système de gestion des bases de données rel
 
 ## Sommaire
 
--   [Se connecter à Azure][]
--   [Création et configuration d'une base de données SQL][]
--   [Connexion à la base de données SQL][]
--   [Connexion à l'aide d'ADO.NET][]
--   [Connexion à l'aide d'ODBC][]
--   [Connexion à l'aide du fournisseur EntityClient][]
--   [Étapes suivantes][]
+-   [Se connecter à Azure][Se connecter à Azure]
+-   [Création et configuration d'une base de données SQL][Création et configuration d'une base de données SQL]
+-   [Connexion à la base de données SQL][Connexion à la base de données SQL]
+-   [Connexion à l'aide d'ADO.NET][Connexion à l'aide d'ADO.NET]
+-   [Connexion à l'aide d'ODBC][Connexion à l'aide d'ODBC]
+-   [Connexion à l'aide du fournisseur EntityClient][Connexion à l'aide du fournisseur EntityClient]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <a name="PreReq1"></a>Connexion à Azure
 
@@ -36,7 +36,7 @@ Vous allez ensuite créer et configurer une base de données et un serveur. Le p
 
 ### Création d'une instance de base de données et d'un serveur logique
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 
 2.  Cliquez sur **+Nouveau** en bas de la page.
 
@@ -59,7 +59,8 @@ Vous allez ensuite créer et configurer une base de données et un serveur. Le p
     Pour chaque base de données SQL créée sur Azure, il existe réellement trois
     réplicas de cette base de données. Ces derniers garantissent une haute disponibilité.
     Le basculement est transparent et fait partie du service. Le contrat [SLA (Service Level
-    Agreement)][] fournit 99,9 % de disponibilité pour la base de données SQL.
+    Agreement)][SLA (Service Level
+    Agreement)] fournit 99,9 % de disponibilité pour la base de données SQL.
 
 8.  Dans Serveur, sélectionnez **Nouveau serveur de base de données SQL**.
 
@@ -83,7 +84,7 @@ Comme vous pouvez le remarquer, vous n'avez spécifié aucun nom de serveur. La 
 
 Une fois la base de données créée, cliquez dessus pour ouvrir son tableau de bord. Ce dernier fournit des chaînes de connexion que vous pouvez copier et utiliser dans le code de l'application. Il affiche également l'URL de gestion que vous devez spécifier si vous vous connectez à la base de données à partir de Management Studio ou d'un autre outil d'administration.
 
-![image][]
+![image][image]
 
 À l'étape suivante, vous allez configurer le pare-feu de telle sorte que les connexions des applications exécutées sur votre réseau soient autorisées à y accéder.
 
@@ -91,7 +92,7 @@ Une fois la base de données créée, cliquez dessus pour ouvrir son tableau de 
 
 1.  Cliquez sur **Bases de données SQL**, sur **Serveurs** en haut de la page, puis sur le serveur que vous venez de créer.
 
-    ![Image2][]
+    ![Image2][Image2]
 
 2.  Cliquez sur **Configurer**.
 
@@ -105,7 +106,7 @@ Une fois la base de données créée, cliquez dessus pour ouvrir son tableau de 
 
 6.  Cliquez sur la coche en regard de la règle pour l'enregistrer.
 
-    ![Image3][]
+    ![Image3][Image3]
 
 7.  Cliquez sur **Enregistrer** en bas de la page pour achever cette étape. Si **Enregistrer** n'est pas visible, actualisez la page du navigateur.
 
@@ -223,15 +224,16 @@ Voici par exemple la chaîne de connexion suivante :
     metadata=res://*/SchoolModel.csdl|res://*/SchoolModel.ssdl|res://*/SchoolModel.msl;provider=System.Data.SqlClient;provider connection string="Data Source=xxxxxxxxxx.database.windows.net;Initial Catalog=School;Persist Security Info=True;User ID=MyAdmin;Password=***********"
 
 Pour plus d'informations, consultez la page [Fournisseur EntityClient pour Entity
-Framework][].
+Framework][Fournisseur EntityClient pour Entity
+Framework].
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez découvert les notions de base de la connexion à la base de données SQL. Consultez à présent les
 ressources suivantes pour obtenir plus d'informations sur la base de données SQL.
 
--   [Développement : rubriques de procédures (Base de données SQL)][]
--   [Base de données SQL][]
+-   [Développement : rubriques de procédures (Base de données SQL)][Développement : rubriques de procédures (Base de données SQL)]
+-   [Base de données SQL][Base de données SQL]
 
   [Se connecter à Azure]: #PreReq1
   [Création et configuration d'une base de données SQL]: #PreReq2
@@ -242,10 +244,7 @@ ressources suivantes pour obtenir plus d'informations sur la base de données SQ
   [Étapes suivantes]: #next-steps
   []: http://www.windowsazure.com
   [portail de gestion Azure]: http://manage.windowsazure.com
-  [SLA (Service Level Agreement)]: {localLink:1132} "SLA"
   [image]: ./media/sql-database-dotnet-how-to-use/SQLDbDashboard.PNG
   [Image2]: ./media/sql-database-dotnet-how-to-use/SQLDBFirewall.PNG
   [Image3]: ./media/sql-database-dotnet-how-to-use/SQLDBIPRange.PNG
-  [Fournisseur EntityClient pour Entity Framework]: http://msdn.microsoft.com/fr-fr/library/bb738561.aspx
-  [Développement : rubriques de procédures (Base de données SQL)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee621787.aspx
   [Base de données SQL]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336279.aspx

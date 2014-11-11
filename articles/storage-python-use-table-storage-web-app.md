@@ -1,15 +1,15 @@
 <properties linkid="develop-python-web-app-with-blob-storage" urlDisplayName="Web App with Blob Storage" pageTitle="Python web app with table storage | Microsoft Azure" metaKeywords="Azure table storage Python, Azure Python application, Azure Python tutorial, Azure Python example" description="A tutorial that teaches you how to create a Python web application using the Azure Client Libraries. Django is used as the web framework." metaCanonical="" services="storage" documentationCenter="Python" title="Python Web Application using Table Storage" authors="huvalo" solutions="" videoId="" scriptId="" manager="" editor="mollybos" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Application web Python avec le stockage de tables
 
-Dans ce didacticiel, vous allez apprendre à créer une application qui utilise le stockage de tables avec les bibliothèques clientes Azure pour Python. S'il s'agit de votre première application Azure pour Python, vous pouvez consulter la page [Application web Django Hello World][] au préalable.
+Dans ce didacticiel, vous allez apprendre à créer une application qui utilise le stockage de tables avec les bibliothèques clientes Azure pour Python. S'il s'agit de votre première application Azure pour Python, vous pouvez consulter la page [Application web Django Hello World][Application web Django Hello World] au préalable.
 
 Pour ce guide, vous allez créer une application de liste de tâches web que vous pouvez déployer sur Azure. La liste de tâches permet à un utilisateur d'extraire des tâches, d'en ajouter de nouvelles et de marquer celles qui sont terminées. Nous allons utiliser Django en tant qu'infrastructure web.
 
 Les éléments de tâches sont stockés dans Azure Storage, qui offre le stockage de données non structurées à tolérance de panne et haute disponibilité. Azure Storage inclut plusieurs structures de données dans lesquelles vous pouvez stocker des données et y accéder. Vous pouvez également exploiter les services de stockage à partir des API incluses dans le Kit de développement logiciel (SDK) Azure pour Python ou
-via les API REST. Pour plus d'informations, consultez la page [Stockage et accessibilité des données dans Azure][].
+via les API REST. Pour plus d'informations, consultez la page [Stockage et accessibilité des données dans Azure][Stockage et accessibilité des données dans Azure].
 
 Vous apprendrez à effectuer les opérations suivantes :
 
@@ -17,19 +17,19 @@ Vous apprendrez à effectuer les opérations suivantes :
 
 Une capture d'écran de l'application terminée ressemblera à celle qui s'affiche ci-dessous (les éléments de tâches ajoutés seront différents) :
 
-![][]
+![][0]
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ## <span id="setup"></span> </a>Configuration de l'environnement de développement
 
-**Remarque :** si vous devez installer Python ou les bibliothèques clientes, consultez le [Guide d'installation de Python][].
+**Remarque :** si vous devez installer Python ou les bibliothèques clientes, consultez le [Guide d'installation de Python][Guide d'installation de Python].
 
 *Remarque pour Windows* : si vous avez utilisé le programme d'installation WebPI Windows, Django et les bibliothèques clientes sont déjà installés.
 
 ## Création d'un compte de stockage dans Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## Création d'un projet Django
 
@@ -172,12 +172,12 @@ Vous pouvez désormais cliquer sur **Add Task** pour créer une tâche, puis cli
 
 Maintenant que vous avez appris les principes de base du service de stockage de tables Azure, suivez ces liens pour découvrir des tâches de stockage plus complexes.
 
--   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][]
+-   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][Stockage et accessibilité des données dans Azure]
 -   Accédez au blog de l'équipe Azure Storage : <http://blogs.msdn.com/b/windowsazurestorage/>
 
   [Application web Django Hello World]: http://windowsazure.com/fr-fr/documentation/articles/virtual-machines-python-django-web-app-windows-server
-  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  []: ./media/storage-python-use-table-storage-web-app/web-app-with-storage-Finaloutput-mac.png
+  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx
+  [0]: ./media/storage-python-use-table-storage-web-app/web-app-with-storage-Finaloutput-mac.png
   [create-account-note]: ../includes/create-account-note.md
   [Guide d'installation de Python]: http://windowsazure.com/fr-fr/documentation/articles/python-how-to-install
   [create-storage-account]: ../includes/create-storage-account.md

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-handle-conflcits-offline-data-dotnet" urlDisplayName="Handle Conflicts with Offline Data" pageTitle="Handle Conflicts with offline data in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your Windows Store application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Gestion des conflits liés à la synchronisation des données hors connexion dans Mobile Services
 
@@ -21,30 +21,30 @@
 
 Dans ce didacticiel, vous allez télécharger une application qui prend en charge à la fois les données hors connexion et en ligne, intégrer le service mobile avec l'application, puis vous connecter au portail de gestion Azure pour afficher et mettre à jour la base de données lors de l'exécution de l'application.
 
-Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données hors connexion][]. Avant de commencer, vous devez suivre le didacticiel [Prise en main des données hors connexion][].
+Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données hors connexion][Prise en main des données hors connexion]. Avant de commencer, vous devez suivre le didacticiel [Prise en main des données hors connexion][Prise en main des données hors connexion].
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 
-1.  [Téléchargement d'un projet d'application Windows Store][]
-2.  [Ajout d'une colonne de date d'échéance pour la base de données][]
+1.  [Téléchargement d'un projet d'application Windows Store][Téléchargement d'un projet d'application Windows Store]
+2.  [Ajout d'une colonne de date d'échéance pour la base de données][Ajout d'une colonne de date d'échéance pour la base de données]
 
--   [Mise à jour de la base de données pour les services mobiles principaux .NET][]
--   [Mise à jour de la base de données pour les services mobiles JavaScript][]
+-   [Mise à jour de la base de données pour les services mobiles principaux .NET][Mise à jour de la base de données pour les services mobiles principaux .NET]
+-   [Mise à jour de la base de données pour les services mobiles JavaScript][Mise à jour de la base de données pour les services mobiles JavaScript]
 
-1.  [Test de l'application sur base d'un service mobile][]
-2.  [Mise à jour manuelle des données sur le serveur principal afin de créer un conflit][]
+1.  [Test de l'application sur base d'un service mobile][Test de l'application sur base d'un service mobile]
+2.  [Mise à jour manuelle des données sur le serveur principal afin de créer un conflit][Mise à jour manuelle des données sur le serveur principal afin de créer un conflit]
 
 Ce didacticiel requiert Visual Studio 2013 s'exécutant sous Windows 8.1.
 
 ## <a name="download-app"></a>Téléchargement de l'exemple de projet
 
-![][]
+![][0]
 
-Ce didacticiel repose sur l'[exemple de code de gestion des conflits][], qui est un projet d'application Windows Store pour Visual Studio 2013. L'interface utilisateur pour cette application est similaire à l'application dans le didacticiel [Prise en main de données hors connexion][Prise en main des données hors connexion], mis à part qu'il y a une nouvelle colonne de date pour chaque élément TodoItem.
+Ce didacticiel repose sur l'[exemple de code de gestion des conflits][exemple de code de gestion des conflits], qui est un projet d'application Windows Store pour Visual Studio 2013. L'interface utilisateur pour cette application est similaire à l'application dans le didacticiel [Prise en main de données hors connexion][Prise en main des données hors connexion], mis à part qu'il y a une nouvelle colonne de date pour chaque élément TodoItem.
 
-1.  Téléchargez la version C# de l'[exemple de code de gestion des conflits][].
+1.  Téléchargez la version C# de l'[exemple de code de gestion des conflits][exemple de code de gestion des conflits].
 
-2.  Le cas échéant, installez [SQLite pour Windows 8.1][].
+2.  Le cas échéant, installez [SQLite pour Windows 8.1][SQLite pour Windows 8.1].
 
 3.  Dans Visual Studio 2013, ouvrez le projet téléchargé. Appuyez sur la touche **F5** pour régénérer le projet et démarrer l'application.
 
@@ -80,7 +80,7 @@ Si vous utilisez le serveur principal .NET pour votre service mobile, procédez 
 
     Dans le fichier WebApiConfig.cs, notez que votre classe d'initialiseur de base de données par défaut est issue de la classe `DropCreateDatabaseIfModelChanges`. Cela signifie qu'à chaque modification apportée au modèle, la table sera supprimée et recréée pour s'adapter au nouveau modèle. Par conséquent, les données dans la table seront perdues et la table sera réamorcée. Modifiez la méthode Seed de l'initialiseur de base de données de façon à ce que la fonction d'initialisation `Seed()` fonctionne comme suit pour initialiser la nouvelle colonne DueDate. Enregistrez le fichier WebApiConfig.cs.
 
-    > [WACOM.NOTE] Lors de l'utilisation de l'initialiseur de base de données par défaut, Entity Framework supprime et recrée la base de données lorsqu'il détecte une modification du modèle de données dans la définition du modèle Code First. Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les migrations Code First. Pour plus d'informations, consultez la rubrique [Utilisation des migrations Code First pour mettre à jour le modèle de données][].
+    > [WACOM.NOTE] Lors de l'utilisation de l'initialiseur de base de données par défaut, Entity Framework supprime et recrée la base de données lorsqu'il détecte une modification du modèle de données dans la définition du modèle Code First. Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les migrations Code First. Pour plus d'informations, consultez la rubrique [Utilisation des migrations Code First pour mettre à jour le modèle de données][Utilisation des migrations Code First pour mettre à jour le modèle de données].
 
         new TodoItem { Id = "1", Text = "First item", Complete = false, DueDate = DateTime.Today },
         new TodoItem { Id = "2", Text = "Second item", Complete = false, DueDate = DateTime.Today },
@@ -95,7 +95,7 @@ Si vous utilisez le serveur principal .NET pour votre service mobile, procédez 
 
 Pour les services mobiles principaux JavaScript, vous allez ajouter une nouvelle table intitulée **TodoWithDate**. Pour ajouter la table **TodoWithDate** pour les services mobiles principaux JavaScript, procédez comme suit.
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 
 2.  Accédez à l'onglet **Données** de votre service mobile.
 
@@ -118,9 +118,9 @@ Pour les services mobiles principaux JavaScript, vous allez ajouter une nouvelle
 
 4.  Comme précédemment, tapez du texte dans la zone de texte, puis cliquez sur **Enregistrer**. Cette action enregistre les données dans la table de synchronisation locale, mais pas sur le serveur.
 
-    ![][]
+    ![][0]
 
-5.  Pour afficher l'état actuel de votre base de données, connectez-vous au [portail de gestion Azure][], cliquez sur **Mobile Services**, puis cliquez sur votre service mobile.
+5.  Pour afficher l'état actuel de votre base de données, connectez-vous au [portail de gestion Azure][portail de gestion Azure], cliquez sur **Mobile Services**, puis cliquez sur votre service mobile.
 
 -   Si vous utilisez le serveur principal JavaScript pour votre service mobile, cliquez sur l'onglet **Données**, puis cliquez sur la table **TodoWithDate**. Cliquez sur **Parcourir** pour voir que la table reste vide, étant donné que nous n'avons pas envoyé par Push les modifications depuis l'application vers le serveur.
 
@@ -142,7 +142,7 @@ Pour les services mobiles principaux JavaScript, vous allez ajouter une nouvelle
 
 Dans un scénario réel, un conflit de synchronisation se produit lorsqu'une application envoie par push les mises à jour vers un enregistrement de la base de données, puis qu'une autre application essaie d'envoyer par push une modification vers le même enregistrement au moyen d'une version de champ obsolète de cet enregistrement. Si une instance de l'application essaie de mettre à jour le même enregistrement, sans extraire l'enregistrement mis à jour, un conflit se produit et est intercepté en tant que `MobileServicePreconditionFailedException` dans l'application.
 
-Si vous voulez déployer l'application sur une autre machine pour exécuter deux instances de l'application et générer un conflit, vous pouvez suivre les instructions de déploiement dans le didacticiel [Gestion des conflits de base de données][].
+Si vous voulez déployer l'application sur une autre machine pour exécuter deux instances de l'application et générer un conflit, vous pouvez suivre les instructions de déploiement dans le didacticiel [Gestion des conflits de base de données][Gestion des conflits de base de données].
 
 La procédure suivante explique comment mettre à jour la base de données dans Visual Studio afin de générer un conflit.
 
@@ -196,9 +196,6 @@ Lorsqu'une opération Push est annulée, `PushAsync` génère une `MobileService
 
 <!-- Anchors. --> <!-- Images --> <!-- URLs -->
 
-  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Windows Store C#"
-  [Windows Phone]: /fr-fr/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data "Windows Phone"
-  [regarder le didacticiel]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services
   [Prise en main des données hors connexion]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
   [Téléchargement d'un projet d'application Windows Store]: #download-app
   [Ajout d'une colonne de date d'échéance pour la base de données]: #add-column
@@ -206,7 +203,7 @@ Lorsqu'une opération Push est annulée, `PushAsync` génère une `MobileService
   [Mise à jour de la base de données pour les services mobiles JavaScript]: #javascript-backend
   [Test de l'application sur base d'un service mobile]: #test-app
   [Mise à jour manuelle des données sur le serveur principal afin de créer un conflit]: #handle-conflict
-  []: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
+  [0]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
   [exemple de code de gestion des conflits]: http://go.microsoft.com/fwlink/?LinkId=394787
   [SQLite pour Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
   [Utilisation des migrations Code First pour mettre à jour le modèle de données]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations

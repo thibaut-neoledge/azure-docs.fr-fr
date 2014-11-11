@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-dotnet-backend-get-started-custom-authentication" urlDisplayName="Get started with custom authentication" pageTitle="Get started with custom authentication | Mobile Dev Center" metaKeywords="" description="Learn how to authenticate users with a username and password." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with custom authentication" authors="mahender" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
 
 # Prise en main de l'authentification personnalisée
 
@@ -252,7 +252,7 @@ Vous allez ensuite créer un point de terminaison pour que vos utilisateurs puis
 
 ## <a name="require-authentication"></a>Configuration du service mobile afin d'exiger une authentification
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend][mobile-services-restrict-permissions-dotnet-backend]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="test-login"></a>Test du flux de connexion pour le client test
 
@@ -262,7 +262,7 @@ Dans votre application cliente, vous devrez développer un écran de connexion p
 
 1.  Dans Visual Studio, démarrez une nouvelle instance de débogage de votre projet de service principal Mobile Services en cliquant avec le bouton droit sur le projet et en sélectionnant **Déboguer-\>Démarrer une nouvelle instance**.
 
-    ![][]
+    ![][0]
 
 2.  Cliquez sur **Faire un essai**.
 
@@ -291,7 +291,7 @@ Dans votre application cliente, vous devrez développer un écran de connexion p
   [Test du flux de connexion pour le client test]: #test-login
   [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
   [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
-  []: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-debug-start.png
+  [0]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-debug-start.png
   [1]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-try-out.png
   [2]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-test-client.png
   [3]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-send-register.png

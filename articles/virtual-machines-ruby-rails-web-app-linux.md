@@ -1,6 +1,6 @@
 <properties linkid="dev-ruby-web-app-with-linux-vm" urlDisplayName="Ruby on Rails Web App on Azure using Linux VM" pageTitle="Ruby on Rails Web App on Azure using Linux VM" metaKeywords="Azure Ruby web application, Azure Ruby application, Ruby app Azure, Ruby azure vm, ruby virthal machine, ruby linux vm" description="Host a Ruby on Rails-based website on Azure using a Linux virtual machine. " metaCanonical="" services="virtual-machines" documentationCenter="Ruby" title="Ruby on Rails Web application on an Azure VM" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Application Web Ruby on Rails sur une machine virtuelle Azure
 
@@ -18,33 +18,33 @@ Vous apprendrez à :
 
 La capture d'écran suivante présente l'application terminée :
 
-![navigateur affichant Listing Posts][]
+![navigateur affichant Listing Posts][navigateur affichant Listing Posts]
 
 ## Dans cet article
 
--   [Configuration de l'environnement de développement][]
+-   [Configuration de l'environnement de développement][Configuration de l'environnement de développement]
 
--   [Création d'une application Rails][]
+-   [Création d'une application Rails][Création d'une application Rails]
 
--   [Test de l'application][]
+-   [Test de l'application][Test de l'application]
 
--   [Création d'une machine virtuelle Azure][]
+-   [Création d'une machine virtuelle Azure][Création d'une machine virtuelle Azure]
 
--   [Copie de l'application vers la machine virtuelle][]
+-   [Copie de l'application vers la machine virtuelle][Copie de l'application vers la machine virtuelle]
 
--   [Installation de maillons et démarrage de l'application][]
+-   [Installation de maillons et démarrage de l'application][Installation de maillons et démarrage de l'application]
 
--   [Étapes suivantes][]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <span id="setup"></span></a>Configuration de l'environnement de développement
 
 1. Installez Ruby dans votre environnement de développement. En fonction de votre système d'exploitation, les étapes peuvent varier.
 
-    * **Apple OS X** - Il existe plusieurs distributions pour OS X. Ce didacticiel a été validé sur OS X en utilisant [Homebrew][] pour installer **rbenv** et **ruby-build**. Vous trouverez des informations d'installation à la page [][]<https://github.com/sstephenson/rbenv/></a>.
+    * **Apple OS X** - Il existe plusieurs distributions pour OS X. Ce didacticiel a été validé sur OS X en utilisant [Homebrew][Homebrew] pour installer **rbenv** et **ruby-build**. Vous trouverez des informations d'installation à la page [][]<https://github.com/sstephenson/rbenv/></a>.
 
     * **Linux** - Utilisez le système de gestion des packages de distributions. Ce didacticiel a été validé sur Ubuntu 12.10 à l'aide des packages ruby1.9.1 et ruby1.9.1-dev.
 
-    * **Windows** - Il existe plusieurs distributions Ruby pour Windows. Ce didacticiel a été validé en utilisant [RailsInstaller][] 1.9.3-p392.
+    * **Windows** - Il existe plusieurs distributions Ruby pour Windows. Ce didacticiel a été validé en utilisant [RailsInstaller][RailsInstaller] 1.9.3-p392.
 
 2. Ouvrez une nouvelle ligne de commande ou session terminal et saisissez la commande suivante pour installer Ruby on Rails :
 
@@ -64,7 +64,7 @@ La capture d'écran suivante présente l'application terminée :
 
 3.  Vous devez également installer un interpréteur JavaScript, qui sera utilisé par Rails pour compiler des ressources CoffeeScript utilisées par votre application Rails. Une liste des interpréteurs pris en charge est disponible à la page [][1]<https://github.com/sstephenson/execjs#readme></a>.
 
-    [Node.js][] a été utilisé au cours de la validation de ce didacticiel, car il est disponible pour les systèmes d'exploitation OS X, Linux et Windows.
+    [Node.js][Node.js] a été utilisé au cours de la validation de ce didacticiel, car il est disponible pour les systèmes d'exploitation OS X, Linux et Windows.
 
 ## <span id="create"></span></a>Création d'une application Rails
 
@@ -89,7 +89,7 @@ La capture d'écran suivante présente l'application terminée :
 
         rake db:migrate
 
-    Elle utilise le fournisseur de base de données par défaut pour Rails, qui est la [base de données SQLite3][]. Bien qu'il soit également possible d'utiliser une autre base de données pour une application de production, SQLite est suffisant pour les objectifs de ce didacticiel.
+    Elle utilise le fournisseur de base de données par défaut pour Rails, qui est la [base de données SQLite3][base de données SQLite3]. Bien qu'il soit également possible d'utiliser une autre base de données pour une application de production, SQLite est suffisant pour les objectifs de ce didacticiel.
 
 ## <span id="test"></span></a>Test de l'application
 
@@ -111,17 +111,17 @@ Pour démarrer le serveur Rails dans votre environnement de développement, proc
 
 2.  Ouvrez votre navigateur et accédez à la page http://localhost:3000/. Une page similaire à celle ci-dessous doit s'afficher :
 
-    ![page rails par défaut][]
+    ![page rails par défaut][page rails par défaut]
 
     Cette page est une page de bienvenue statique. Pour afficher les formes générées par la commande de structuration, accédez à http://localhost:3000/posts. Une page similaire à celle ci-dessous doit s'afficher :
 
-    ![page listant les publications][]
+    ![page listant les publications][page listant les publications]
 
     Pour arrêter le processus de serveur, entrez CTRL+C dans la ligne de commande
 
 ## <span id="createvm"></span></a>Création d'une machine virtuelle Azure
 
-Suivez les instructions fournies [ici][] afin de créer une machine virtuelle Azure qui héberge Linux.
+Suivez les instructions fournies [ici][ici] afin de créer une machine virtuelle Azure qui héberge Linux.
 
 <div class="dev-callout">
 <strong>Remarque</strong>
@@ -224,13 +224,13 @@ La liste des fichiers renvoyés doit correspondre aux fichiers contenus dans le 
         [2013-03-12 19:11:31] INFO  ruby 1.9.3 (2012-04-20) [x86_64-linux]
         [2013-03-12 19:11:31] INFO  WEBrick::HTTPServer#start: pid=9789 port=3000
 
-4.  Dans votre navigateur, accédez au [portail de gestion Azure][] et sélectionnez votre machine virtuelle.
+4.  Dans votre navigateur, accédez au [portail de gestion Azure][portail de gestion Azure] et sélectionnez votre machine virtuelle.
 
-    ![liste des machines virtuelles][]
+    ![liste des machines virtuelles][liste des machines virtuelles]
 
 5.  Sélectionnez **ENDPOINTS** dans la partie supérieure de la page, puis cliquez sur **+ ADD ENDPOINT** dans la partie inférieure de la page.
 
-    ![page des points de terminaison][]
+    ![page des points de terminaison][page des points de terminaison]
 
 6.  Dans la boîte de dialogue **ADD ENDPOINT**, cliquez sur la flèche dans la partie inférieure gauche afin d'accéder à la deuxième page, puis saisissez les informations suivantes :
 
@@ -244,7 +244,7 @@ La liste des fichiers renvoyés doit correspondre aux fichiers contenus dans le 
 
     Ainsi, un port public 80 sera créé pour acheminer le trafic vers le port privé 3000, où le serveur Rails écoute.
 
-    ![nouvelle boîte de dialogue de points de terminaison][]
+    ![nouvelle boîte de dialogue de points de terminaison][nouvelle boîte de dialogue de points de terminaison]
 
 7.  Cliquez sur la coche pour enregistrer le point de terminaison.
 
@@ -260,17 +260,17 @@ La liste des fichiers renvoyés doit correspondre aux fichiers contenus dans le 
 
 Dans cet article, vous avez appris à créer et à publier une application Rails de base sur une machine virtuelle Azure. La plupart des actions que vous avez réalisées étaient manuelles et, dans un environnement de production, il serait souhaitable de les automatiser. En outre, la plupart des environnements de production hébergent l'application Rails en association avec un autre processus serveur tel que Apache ou NginX, qui traite l'acheminement des requêtes vers plusieurs instances de l'application Rails et l'envoi des ressources statiques.
 
-Pour plus d'informations sur l'automatisation du déploiement de votre application Rails ainsi que sur l'utilisation du serveur Web Unicorn et NginX, consultez la page [Unicorn+NginX+Capistrano avec une machine virtuelle Azure][].
+Pour plus d'informations sur l'automatisation du déploiement de votre application Rails ainsi que sur l'utilisation du serveur Web Unicorn et NginX, consultez la page [Unicorn+NginX+Capistrano avec une machine virtuelle Azure][Unicorn+NginX+Capistrano avec une machine virtuelle Azure].
 
-Si vous souhaitez en savoir plus sur Ruby on Rails, consultez les [guides Ruby on Rails][].
+Si vous souhaitez en savoir plus sur Ruby on Rails, consultez les [guides Ruby on Rails][guides Ruby on Rails].
 
 Pour apprendre à utiliser le Kit de développement logiciel (SDK) Azure pour Ruby afin d'accéder aux services Azure depuis votre application Ruby, consultez les pages suivantes :
 
--   [Stockage de données non structurées à l'aide d'objets blob][]
+-   [Stockage de données non structurées à l'aide d'objets blob][Stockage de données non structurées à l'aide d'objets blob]
 
--   [Stockage de paires clé/valeur à l'aide de tables][]
+-   [Stockage de paires clé/valeur à l'aide de tables][Stockage de paires clé/valeur à l'aide de tables]
 
--   [Prise en charge d'une large bande passante avec le réseau de distribution de contenu][]
+-   [Prise en charge d'une large bande passante avec le réseau de distribution de contenu][Prise en charge d'une large bande passante avec le réseau de distribution de contenu]
 
   [navigateur affichant Listing Posts]: ./media/virtual-machines-ruby-rails-web-app-linux/blograilscloud.png
   [Configuration de l'environnement de développement]: #setup
@@ -289,13 +289,11 @@ Pour apprendre à utiliser le Kit de développement logiciel (SDK) Azure pour Ru
   [page rails par défaut]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailslocal.png
   [page listant les publications]: ./media/virtual-machines-ruby-rails-web-app-linux/blograilslocal.png
   [ici]: /fr-fr/documentation/articles/virtual-machines-linux-tutorial
-  [page de téléchargement de PuTTY]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
   [portail de gestion Azure]: https://manage.windowsazure.com/
   [liste des machines virtuelles]: ./media/virtual-machines-ruby-rails-web-app-linux/vmlist.png
   [page des points de terminaison]: ./media/virtual-machines-ruby-rails-web-app-linux/endpoints.png
   [nouvelle boîte de dialogue de points de terminaison]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
   [2]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailscloud.png
-  [Unicorn+NginX+Capistrano avec une machine virtuelle Azure]: /fr-fr/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/
   [guides Ruby on Rails]: http://guides.rubyonrails.org/
   [Stockage de données non structurées à l'aide d'objets blob]: /fr-fr/documentation/articles/storage-ruby-how-to-use-blob-storage
   [Stockage de paires clé/valeur à l'aide de tables]: /fr-fr/develop/ruby/how-to-guides/table-service/

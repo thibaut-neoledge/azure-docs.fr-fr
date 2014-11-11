@@ -1,10 +1,10 @@
 <properties linkid="develop-nodejs-tutorials-web-site-with-sql-database" urlDisplayName="Website with SQL Database" pageTitle="Node.js website with SQL Database - Azure tutorial" metaKeywords="" description="Learn how to create a Node.js website that accesses a SQL Database and is deployed to Azure" metaCanonical="" services="web-sites,sql-database" documentationCenter="nodejs" title="Node.js Web Application using the Azure SQL Database" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Application Web Node.js avec la base de données SQL Azure
 
-Ce didacticiel vous indique comment utiliser la base de données SQL fournie par Azure Data Management pour stocker vos données et y accéder à partir d'une application [node][] hébergée sur Azure. Ce didacticiel part du principe que vous avez déjà une certaine expérience en tant qu'utilisateur des applications node et de [Git][]
+Ce didacticiel vous indique comment utiliser la base de données SQL fournie par Azure Data Management pour stocker vos données et y accéder à partir d'une application [node][node] hébergée sur Azure. Ce didacticiel part du principe que vous avez déjà une certaine expérience en tant qu'utilisateur des applications node et de [Git][Git]
 
 Vous apprendrez à effectuer les opérations suivantes :
 
@@ -20,7 +20,7 @@ Dans ce didacticiel, vous allez concevoir une application Web simple pour la ges
 
 Les fichiers de projets de ce didacticiel sont stockés dans un répertoire appelé **tasklist** et l'application terminée ressemble à ce qui suit :
 
-![Une page Web avec une liste de tâches vide][]
+![Une page Web avec une liste de tâches vide][Une page Web avec une liste de tâches vide]
 
 <div class="dev-callout">
 <b>Remarque</b>
@@ -41,11 +41,11 @@ Les fichiers de projets de ce didacticiel sont stockés dans un répertoire appe
 
 Avant de suivre les instructions de cet article, vérifiez que les éléments suivants sont installés :
 
--   [node][] version 0.6.14 ou supérieure
+-   [node][node] version 0.6.14 ou supérieure
 
--   [Git][]
+-   [Git][Git]
 
--   Bibliothèques clientes natives Microsoft SQL Server - disponibles avec le [Microsoft SQL Server 2012 Feature Pack][]
+-   Bibliothèques clientes natives Microsoft SQL Server - disponibles avec le [Microsoft SQL Server 2012 Feature Pack][Microsoft SQL Server 2012 Feature Pack]
 
 -   Un éditeur de texte
 
@@ -57,46 +57,46 @@ Avant de suivre les instructions de cet article, vérifiez que les éléments su
 
 Suivez cette procédure pour créer un site web Azure et une base de données SQL :
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 2.  Cliquez sur l'icône **+ New** dans le coin inférieur gauche du portail.
 
-    ![Créer un site Web Azure][]
+    ![Créer un site Web Azure][Créer un site Web Azure]
 
 3.  Cliquez sur **SITE WEB**, puis sur **CRÉATION PERSONNALISÉE**.
 
-    ![Création personnalisée d'un site Web][]
+    ![Création personnalisée d'un site Web][Création personnalisée d'un site Web]
 
     Entrez une valeur pour **URL** et, dans la liste déroulante **BASE DE DONNÉES**, sélectionnez **Créer une base de données SQL**, puis sélectionnez un centre de données pour votre site web dans la liste déroulante **﻿RÉGION**. Cliquez sur la flèche située en bas de la boîte de dialogue.
 
-    ![Indiquer les détails du site Web][]
+    ![Indiquer les détails du site Web][Indiquer les détails du site Web]
 
-4.  Entrez le **nom** de votre base de données, sélectionnez l'**édition** [(WEB ou BUSINESS)][] et la **taille maximale** de votre base de données. Choisissez le **classement**, puis sélectionnez **NEW SQL Database server**. Cliquez sur la flèche située en bas de la boîte de dialogue.
+4.  Entrez le **nom** de votre base de données, sélectionnez l'**édition** [(WEB ou BUSINESS)][(WEB ou BUSINESS)] et la **taille maximale** de votre base de données. Choisissez le **classement**, puis sélectionnez **NEW SQL Database server**. Cliquez sur la flèche située en bas de la boîte de dialogue.
 
-    ![Renseigner les paramètres de la base de données SQL][]
+    ![Renseigner les paramètres de la base de données SQL][Renseigner les paramètres de la base de données SQL]
 
 5.  Entrez le nom et le mot de passe de l'administrateur (et confirmez ce dernier), choisissez la région dans laquelle sera créé le serveur de base de données SQL, puis cochez la case **Allow Azure Services to access the server**
 
-    ![Créer un serveur de base de données SQL][]
+    ![Créer un serveur de base de données SQL][Créer un serveur de base de données SQL]
 
     Lorsque le site web est créé, le texte **La création du site Web 'nom\_du\_site' s'est terminée correctement** apparaît. Vous pouvez maintenant activer la publication Git.
 
 6.  Cliquez sur le nom du site web affiché dans la liste des sites web pour ouvrir le tableau de bord Démarrage rapide du site web.
 
-    ![Ouvrir le tableau de bord du site Web][]
+    ![Ouvrir le tableau de bord du site Web][Ouvrir le tableau de bord du site Web]
 
 7.  En bas de la page de démarrage rapide, cliquez sur **Configurer la publication Git**.
 
-    ![Configurer la publication Git][]
+    ![Configurer la publication Git][Configurer la publication Git]
 
 8.  Pour activer la publication Git, vous devez fournir un nom d'utilisateur et un mot de passe. Notez le nom d'utilisateur et le mot de passe que vous créez (si vous avez déjà configuré un référentiel Git, ignorez cette étape).
 
-    ![Créer les informations d'identification de publication][]
+    ![Créer les informations d'identification de publication][Créer les informations d'identification de publication]
 
     La configuration du référentiel prend quelques secondes.
 
 9.  Lorsque votre référentiel est prêt, les instructions de publication de vos fichiers d'application s'affichent dans le référentiel. Notez ces instructions : elles vous seront utiles plus tard.
 
-    ![Instructions Git][]
+    ![Instructions Git][Instructions Git]
 
 ## Obtention des informations de connexion à la base de données SQL
 
@@ -104,11 +104,11 @@ Pour vous connecter à l'instance de base de données SQL exécutée sur Sites W
 
 1.  Dans le portail de gestion Azure, cliquez sur **LINKED RESOURCES**, puis sur le nom de la base de données.
 
-    ![Ressources liées][]
+    ![Ressources liées][Ressources liées]
 
 2.  Cliquez sur **Afficher les chaînes de connexion**.
 
-    ![Chaîne de connexion][]
+    ![Chaîne de connexion][Chaîne de connexion]
 
 3.  Dans la boîte de dialogue qui s'affiche, sous la section **ODBC**, notez la chaîne de connexion. Elle vous sera utile par la suite.
 
@@ -118,29 +118,29 @@ Pour créer la table de base de données utilisée pour stocker les éléments p
 
 1.  Dans le portail de gestion Azure, sélectionnez votre base de données SQL, puis cliquez sur **MANAGE** en bas de la page. Si un message s'affiche pour indiquer que l'adresse IP actuelle n'est pas incluse dans les règles de pare-feu, sélectionnez **OK** pour ajouter l'adresse IP.
 
-    ![bouton de gestion][]
+    ![bouton de gestion][bouton de gestion]
 
 2.  Connectez-vous avec l'identifiant et le mot de passe utilisés précédemment lors de la création du serveur de base de données.
 
-    ![connexion pour la gestion de base de données][]
+    ![connexion pour la gestion de base de données][connexion pour la gestion de base de données]
 
 3.  En bas à gauche de la page, sélectionnez **Design**, puis **New Table**.
 
-    ![Nouvelle table][]
+    ![Nouvelle table][Nouvelle table]
 
 4.  Indiquez « tasks » pour le **nom de table**, puis activez la case **Is Identity?** pour la colonne **ID**.
 
-    ![nom de table défini sur tasks avec case identity activée][]
+    ![nom de table défini sur tasks avec case identity activée][nom de table défini sur tasks avec case identity activée]
 
 5.  Remplacez **Column1** par **name** et **Column2** par **category**. Ajoutez deux nouvelles colonnes en cliquant sur le bouton **Add column**. La première nouvelle colonne doit être nommée **created** et contenir une **date**. La seconde doit être nommée **completed** et contenir un **bit**. Pour ces deux colonnes, la case **Is Required?** doit être activée.
 
-    ![conception de table terminée][]
+    ![conception de table terminée][conception de table terminée]
 
 6.  Cliquez sur le bouton **Enregistrer** pour enregistrer les modifications apportées à la table. Vous pouvez maintenant fermer la page de gestion de base de données SQL.
 
 ## Installation des modules et création de la structure
 
-Dans cette section, vous allez créer une application Node et utiliser npm pour ajouter des packages de module. Pour l'application de liste de tâches, vous devez utiliser les modules [express][] and [node-sqlserver][]. Le module Express fournit une infrastructure Model View Controller pour node, tandis que le serveur node-sqlserver assure la connexion vers la base de données SQL Azure.
+Dans cette section, vous allez créer une application Node et utiliser npm pour ajouter des packages de module. Pour l'application de liste de tâches, vous devez utiliser les modules [express][express] and [node-sqlserver][node-sqlserver]. Le module Express fournit une infrastructure Model View Controller pour node, tandis que le serveur node-sqlserver assure la connexion vers la base de données SQL Azure.
 
 ### Installation express et création de la structure
 
@@ -216,7 +216,7 @@ Dans cette section, vous allez créer une application Node et utiliser npm pour 
 
     npm install nconf -save
 
-3.  Téléchargez ensuite la version binaire du pilote Microsoft SQL Server pour Node.JS dans le [centre de téléchargement][].
+3.  Téléchargez ensuite la version binaire du pilote Microsoft SQL Server pour Node.JS dans le [centre de téléchargement][centre de téléchargement].
 
 4.  Procédez à l'extraction de l'archive dans le répertoire **tasklist\\node\_modules**.
 
@@ -336,7 +336,7 @@ Cette section indique comment enrichir l'application de base créée via la comm
 
 ### Modification de la disposition générale
 
-Le fichier **layout.jade** du répertoire **views** sert de modèle global aux autres fichiers **.jade**. Dans cette étape, vous allez le modifier pour utiliser [Twitter Bootstrap][], qui est un kit de ressources qui facilite la conception d'un site web bien présenté.
+Le fichier **layout.jade** du répertoire **views** sert de modèle global aux autres fichiers **.jade**. Dans cette étape, vous allez le modifier pour utiliser [Twitter Bootstrap][Twitter Bootstrap], qui est un kit de ressources qui facilite la conception d'un site web bien présenté.
 
 1.  Téléchargez les fichiers du [Twitter Bootstrap][1], puis procédez à l'extraction. Copiez le fichier **bootstrap.min.css** du dossier **bootstrap\\css** vers le répertoire **public\\stylesheets** de votre application de liste de tâches.
 
@@ -386,13 +386,13 @@ Pour tester l'application sur votre machine locale, procédez comme suit :
 
 3.  Ouvrez un navigateur web et accédez à l'adresse <http://127.0.0.1:3000>. Une page web semblable à la suivante doit s'afficher :
 
-    ![Une page Web affiche une liste de tâches vide.][]
+    ![Une page Web affiche une liste de tâches vide.][Une page Web affiche une liste de tâches vide.]
 
 4.  Utilisez les champs **Item Name** et **Item Category** pour entrer les informations, puis cliquez sur **Add item**.
 
 5.  La page doit se mettre à jour et afficher l'élément dans la liste ToDo.
 
-    ![Image du nouvel élément dans la liste de tâches][]
+    ![Image du nouvel élément dans la liste de tâches][Image du nouvel élément dans la liste de tâches]
 
 6.  Pour terminer une tâche, activez simplement la case à cocher dans la colonne Complete, puis cliquez sur **Update tasks**.
 
@@ -427,19 +427,19 @@ Précédemment, nous avons implémenté un code qui recherche une variable d'env
 
 1.  Dans le portail de gestion Azure, cliquez sur **Sites Web**, puis sélectionnez votre site web.
 
-    ![Ouvrir le tableau de bord du site Web][]
+    ![Ouvrir le tableau de bord du site Web][Ouvrir le tableau de bord du site Web]
 
 2.  Cliquez sur **CONFIGURE**, puis recherchez la section **app settings** de la page.
 
-    ![configurer le lien][]
+    ![configurer le lien][configurer le lien]
 
 3.  Dans la section **app settings**, entrez **SQL\_CONN** dans le champ **KEY**. Entrez également la chaîne de connexion ODBC dans le champ **VALUE**. Cliquez ensuite sur la coche.
 
-    ![paramètres d'application][]
+    ![paramètres d'application][paramètres d'application]
 
 4.  Pour finir, cliquez sur l'icône **SAVE** en bas de la page pour appliquer cette modification à l'environnement d'exécution.
 
-    ![enregistrer les paramètres d'application][]
+    ![enregistrer les paramètres d'application][enregistrer les paramètres d'application]
 
 5.  Dans la ligne de commande, remplacez les répertoires par le répertoire **tasklist**, puis entrez la commande suivante pour supprimer le fichier **config.json** :
 

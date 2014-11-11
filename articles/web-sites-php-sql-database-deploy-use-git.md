@@ -1,13 +1,13 @@
 <properties linkid="develop-php-website-with-sql-database-and-git" urlDisplayName="Web w/ SQL + Git" pageTitle="PHP website with SQL Database and Git - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in SQL Database and use Git deployment to Azure." metaCanonical="" services="web-sites,sql-database" documentationCenter="PHP" title="Create a PHP website with a SQL Database and deploy using Git" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Création d'un site web PHP comportant une base de données SQL et déploiement avec Git
 
-Ce didacticiel vous montre comment créer un site web PHP avec une base de données SQL Azure et comment le déployer en utilisant Git. Pour ce didacticiel, [PHP][], [SQL Server Express][], les [pilotes Microsoft SQL Server pour PHP][], un serveur Web et [Git][] doivent être installés sur votre ordinateur. ﻿Une fois que vous aurez terminé ce guide, vous disposerez d'un site web contenant une base de données PHP-SQL qui s'exécute dans Azure.
+Ce didacticiel vous montre comment créer un site web PHP avec une base de données SQL Azure et comment le déployer en utilisant Git. Pour ce didacticiel, [PHP][PHP], [SQL Server Express][SQL Server Express], les [pilotes Microsoft SQL Server pour PHP][pilotes Microsoft SQL Server pour PHP], un serveur Web et [Git][Git] doivent être installés sur votre ordinateur. ﻿Une fois que vous aurez terminé ce guide, vous disposerez d'un site web contenant une base de données PHP-SQL qui s'exécute dans Azure.
 
 > [WACOM.NOTE]
-> Vous pouvez installer et configurer PHP, SQL Server Express, les pilotes Microsoft SQL Server pour PHP, ainsi qu'Internet Information Services (IIS) via [Microsoft Web Platform Installer][].
+> Vous pouvez installer et configurer PHP, SQL Server Express, les pilotes Microsoft SQL Server pour PHP, ainsi qu'Internet Information Services (IIS) via [Microsoft Web Platform Installer][Microsoft Web Platform Installer].
 
 Vous apprendrez à effectuer les opérations suivantes :
 
@@ -16,57 +16,57 @@ Vous apprendrez à effectuer les opérations suivantes :
 
 En suivant ce didacticiel, vous allez générer une application Web d'inscription simple dans PHP. L'application est hébergée dans un site web Azure. Voici une capture d'écran de l'application terminée :
 
-![Azure PHP Web Site][]
+![Azure PHP Web Site][Azure PHP Web Site]
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Création d'un site web Azure et configuration de la publication Git
 
 Suivez cette procédure pour créer un site web Azure et une base de données SQL :
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 2.  Cliquez sur l'icône **Nouveau** dans le coin inférieur gauche du portail.
-    ![Créer un site web Azure][]
+    ![Créer un site web Azure][Créer un site web Azure]
 
 3.  Cliquez sur **Site Web**, puis sur **Création personnalisée**.
 
-    ![Création personnalisée d'un site Web][]
+    ![Création personnalisée d'un site Web][Création personnalisée d'un site Web]
 
     Entrez une valeur pour **URL**, dans la liste déroulante **Base de données**, sélectionnez **Créer un serveur de base de données SQL**, puis sélectionnez un centre de données pour votre site web dans la liste déroulante **Région**. Cliquez sur la flèche située en bas de la boîte de dialogue.
 
-    ![Entrer les détails du site Web][]
+    ![Entrer les détails du site Web][Entrer les détails du site Web]
 
-4.  Entrez le **nom** de votre base de données, sélectionnez l'**édition** [(WEB ou BUSINESS)][] et la **taille maximale** de votre base de données. Choisissez le **classement**, puis sélectionnez **NEW SQL Database server**. Cliquez sur la flèche située en bas de la boîte de dialogue.
+4.  Entrez le **nom** de votre base de données, sélectionnez l'**édition** [(WEB ou BUSINESS)][(WEB ou BUSINESS)] et la **taille maximale** de votre base de données. Choisissez le **classement**, puis sélectionnez **NEW SQL Database server**. Cliquez sur la flèche située en bas de la boîte de dialogue.
 
-    ![Renseigner les paramètres de la base de données SQL][]
+    ![Renseigner les paramètres de la base de données SQL][Renseigner les paramètres de la base de données SQL]
 
 5.  Entrez le nom et le mot de passe de l'administrateur (et confirmez ce dernier), choisissez la région dans laquelle sera créé le serveur de bases de données SQL, puis cochez la case `Allow Azure Services to access the server`.
 
-    ![Créer un serveur de base de données SQL][]
+    ![Créer un serveur de base de données SQL][Créer un serveur de base de données SQL]
 
     Lorsque le site web est créé, le texte **La création du site Web 'nom\_du\_site' s'est terminée correctement** apparaît. Vous pouvez maintenant activer la publication Git.
 
 6.  Cliquez sur le nom du site web affiché dans la liste des sites web pour ouvrir le tableau de bord Démarrage rapide du site web.
 
-    ![Ouvrir le tableau de bord du site Web][]
+    ![Ouvrir le tableau de bord du site Web][Ouvrir le tableau de bord du site Web]
 
 7.  En bas de la page de démarrage rapide, cliquez sur **Set up deployment from source control**.
 
-    ![Configurer la publication Git][]
+    ![Configurer la publication Git][Configurer la publication Git]
 
 8.  À la question « Où est votre code source ? », sélectionnez **Référentiel Git local**, puis cliquez sur la flèche.
 
-    ![où est votre code source][]
+    ![où est votre code source][où est votre code source]
 
 9.  Pour activer la publication Git, vous devez fournir un nom d'utilisateur et un mot de passe. Notez le nom d'utilisateur et le mot de passe que vous créez (si vous avez déjà configuré un référentiel Git, ignorez cette étape).
 
-    ![Créer les informations d'identification de publication][]
+    ![Créer les informations d'identification de publication][Créer les informations d'identification de publication]
 
     La configuration du référentiel prend quelques secondes.
 
 10. Lorsque votre référentiel est prêt, les instructions de publication de vos fichiers d'application s'affichent dans le référentiel. Notez ces instructions : elles vous seront utiles plus tard.
 
-    ![Instructions Git][]
+    ![Instructions Git][Instructions Git]
 
 ## Obtention des informations de connexion à la base de données SQL
 
@@ -74,11 +74,11 @@ Pour vous connecter à l'instance de base de données SQL exécutée sur Sites W
 
 1.  Dans le portail de gestion Azure, cliquez sur **Linked Resources**, puis sur le nom de la base de données.
 
-    ![Ressources liées][]
+    ![Ressources liées][Ressources liées]
 
 2.  Cliquez sur **Afficher les chaînes de connexion**.
 
-    ![Chaîne de connexion][]
+    ![Chaîne de connexion][Chaîne de connexion]
 
 3.  Dans la section **PHP** de la boîte de dialogue qui s'affiche, notez les valeurs des champs `SERVER`, `DATABASE` et `USERNAME`.
 
@@ -89,7 +89,7 @@ L'application d'inscription est une simple application PHP qui vous permet de vo
 -   **index.php** : affiche un formulaire d'inscription et un tableau contenant les informations des inscrits.
 -   **createtable.php** : crée la table de base de données SQL pour l'application. Ce fichier sera utilisé une seule fois.
 
-Pour exécuter l'application en local, procédez comme suit : notez que ces étapes partent du principe que PHP, SQL Server Express et un serveur Web sont configurés sur votre machine locale, et que vous avez activé l'[extension PDO pour SQL Server][].
+Pour exécuter l'application en local, procédez comme suit : notez que ces étapes partent du principe que PHP, SQL Server Express et un serveur Web sont configurés sur votre machine locale, et que vous avez activé l'[extension PDO pour SQL Server][extension PDO pour SQL Server].
 
 1.  Créez une base de données SQL Server nommée `registration`. Pour cela, utilisez l'invite de commandes `sqlcmd` avec ces commandes :
 
@@ -283,7 +283,6 @@ Pour publier des modifications apportées à votre application, procédez comme 
   [Créer un site web Azure]: ./media/web-sites-php-sql-database-deploy-use-git/new_website.jpg
   [Création personnalisée d'un site Web]: ./media/web-sites-php-sql-database-deploy-use-git/custom_create.png
   [Entrer les détails du site Web]: ./media/web-sites-php-sql-database-deploy-use-git/website_details_sqlazure.jpg
-  [(WEB ou BUSINESS)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee621788.aspx
   [Renseigner les paramètres de la base de données SQL]: ./media/web-sites-php-sql-database-deploy-use-git/database_settings.jpg
   [Créer un serveur de base de données SQL]: ./media/web-sites-php-sql-database-deploy-use-git/create_server.jpg
   [Ouvrir le tableau de bord du site Web]: ./media/web-sites-php-sql-database-deploy-use-git/go_to_dashboard.png

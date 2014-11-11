@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-dotnet" urlDisplayName="Validate and Modify Data" pageTitle="User server scripts to validate and modify data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use server scripts to validate, modify, and augment data for your Windows Store app with Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Validation et modification de données dans Mobile Services à l'aide de scripts serveur
 
@@ -22,20 +22,20 @@
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 
-1.  [Ajout de la validation de longueur de chaîne][]
-2.  [Mise à jour du client pour la prise en charge de la validation][]
-3.  [Ajout d'un horodatage lors d'une insertion][]
-4.  [Mise à jour du client pour l'affichage de l'horodatage][]
+1.  [Ajout de la validation de longueur de chaîne][Ajout de la validation de longueur de chaîne]
+2.  [Mise à jour du client pour la prise en charge de la validation][Mise à jour du client pour la prise en charge de la validation]
+3.  [Ajout d'un horodatage lors d'une insertion][Ajout d'un horodatage lors d'une insertion]
+4.  [Mise à jour du client pour l'affichage de l'horodatage][Mise à jour du client pour l'affichage de l'horodatage]
 
-Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données][]. Avant de commencer, vous devez suivre le didacticiel [Prise en main des données][].
+Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données][Prise en main des données]. Avant de commencer, vous devez suivre le didacticiel [Prise en main des données][Prise en main des données].
 
 ## <a name="string-length-validation"></a>Ajout de la validation
 
 Il est toujours souhaitable de valider la longueur des données soumises par les utilisateurs. Vous devez d'abord inscrire un script qui valide la longueur des données de chaîne envoyées au service mobile et refuse les chaînes trop longues, en l'occurrence, celles qui font plus de 10 caractères.
 
-1.  Connectez-vous au [portail de gestion Azure][], cliquez sur **Mobile Services**, puis sur l'application.
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application.
 
-    ![][]
+    ![][0]
 
 2.  Cliquez sur l'onglet **Données**, puis sur la table **TodoItem**.
 
@@ -65,7 +65,7 @@ Il est toujours souhaitable de valider la longueur des données soumises par les
 
 Maintenant que le service mobile valide les données et envoie des réponses d'erreur, vous devez mettre à jour l'application afin qu'elle traite les réponses d'erreur de la validation.
 
-1.  Dans Visual Studio 2012 Express pour Windows 8, ouvrez le projet que vous avez modifié en suivant le didacticiel [Prise en main des données][].
+1.  Dans Visual Studio 2012 Express pour Windows 8, ouvrez le projet que vous avez modifié en suivant le didacticiel [Prise en main des données][Prise en main des données].
 
 2.  Appuyez sur la touche **F5** pour exécuter l'application, puis tapez une chaîne de texte dépassant 10 caractères dans **Insert a TodoItem** et cliquez sur **Enregistrer**.
 
@@ -198,44 +198,33 @@ Vous avez maintenant terminé ce didacticiel.
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Maintenant que vous avez terminé ce didacticiel, pensez à suivre le dernier didacticiel dans la série des données : [Affinage des requêtes au moyen de la pagination][].
+Maintenant que vous avez terminé ce didacticiel, pensez à suivre le dernier didacticiel dans la série des données : [Affinage des requêtes au moyen de la pagination][Affinage des requêtes au moyen de la pagination].
 
 Les scripts serveur sont également utilisés dans le cadre du processus d'autorisation des utilisateurs et pour l'envoi de notifications Push. Pour plus d'informations, reportez-vous aux didacticiels suivants :
 
--   [Autorisation des utilisateurs avec des scripts][]
+-   [Autorisation des utilisateurs avec des scripts][Autorisation des utilisateurs avec des scripts]
 
     En savoir plus sur le filtrage des données en fonction de l'ID d'un utilisateur authentifié.
 
--   [Prise en main des notifications Push][]
+-   [Prise en main des notifications Push][Prise en main des notifications Push]
 
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
--   [Référence de script serveur Mobile Services][]
+-   [Référence de script serveur Mobile Services][Référence de script serveur Mobile Services]
 
     En savoir plus sur l'enregistrement et l'utilisation des scripts serveur.
 
--   [Guide de fonctionnement Mobile Services .NET][]
+-   [Guide de fonctionnement Mobile Services .NET][Guide de fonctionnement Mobile Services .NET]
 
     En savoir plus sur l'utilisation de Mobile Services avec .NET.
 
-  [Windows Store C#]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet "Windows Store C#"
-  [Windows Store JavaScript]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-js "Windows Store JavaScript"
-  [Windows Phone]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Windows Phone"
-  [iOS]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS"
-  [Android]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android"
-  [HTML]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML"
-  [Xamarin.iOS]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android"
-  [Serveur principal .NET]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/ ".NET backend"
-  [JavaScript backend]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/ "JavaScript backend"
-  [regarder le didacticiel]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Validate-and-Modify-Data-with-Server-Scripts-in-Windows-Azure-Mobile-Services
   [Ajout de la validation de longueur de chaîne]: #string-length-validation
   [Mise à jour du client pour la prise en charge de la validation]: #update-client-validation
   [Ajout d'un horodatage lors d'une insertion]: #add-timestamp
   [Mise à jour du client pour l'affichage de l'horodatage]: #update-client-timestamp
   [Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-dotnet
   [portail de gestion Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/mobile-services-selection.png
+  [0]: ./media/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/mobile-insert-script-users.png
   [Affinage des requêtes au moyen de la pagination]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-dotnet

@@ -33,26 +33,23 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 [WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
-<ol start="8">
-<li><p>Dans l'Explorateur de solutions, accédez au sous-dossier <b>services\\mobileService\\scripts</b>, ouvrez le fichier de script service.js, et notez la nouvelle variable globale, similaire à celle présentée dans l'exemple suivant :</p>
+1.  Dans l'Explorateur de solutions, accédez au sous-dossier **services\\mobileService\\scripts**, ouvrez le fichier de script service.js, et notez la nouvelle variable globale, similaire à celle présentée dans l'exemple suivant :
 
-		<pre><code>var todolistClient = new WindowsAzure.MobileServiceClient(
-                "https://todolist.azure-mobile.net/",
-		        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");</code></pre>
+        var todolistClient = new WindowsAzure.MobileServiceClient(
+                        "https://todolist.azure-mobile.net/",
+                        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
 
-    <p>Ce code permet d'accéder à votre nouveau service mobile dans votre application en utilisant une variable globale. Le client est créé en fournissant l'URI et la clé de l'application du nouveau service mobile. Dans la mesure où une référence à ce script a été ajoutée dans le fichier default.html, cette variable est disponible pour tous les fichiers de script qui sont également référencés sur cette page.</p>
-</li>
+    Ce code permet d'accéder à votre nouveau service mobile dans votre application en utilisant une variable globale. Le client est créé en fournissant l'URI et la clé de l'application du nouveau service mobile. Dans la mesure où une référence à ce script a été ajoutée dans le fichier default.html, cette variable est disponible pour tous les fichiers de script qui sont également référencés sur cette page.
 
-<li><p>Ouvrez le fichier de projet default.html, identifiez la référence au nouveau fichier de script service.js et assurez-vous que le chemin d'accès référencé se présente comme suit :</p>
+2.  Ouvrez le fichier de projet default.html, identifiez la référence au nouveau fichier de script service.js et assurez-vous que le chemin d'accès référencé se présente comme suit :
 
-<pre><code>&lt;script src="/services/mobileServices/scripts/todolist.js"&gt;</script></code></pre>
+        <script src="/services/mobileServices/scripts/todolist.js">
 
-    <p>Visual Studio comporte actuellement un bogue qui génère un nom de dossier incorrect dans le chemin d'accès.</p></li>
+    Visual Studio comporte actuellement un bogue qui génère un nom de dossier incorrect dans le chemin d'accès.
 
-<li><p>Cliquez avec le bouton droit de la souris sur le projet d'application Windows Phone, cliquez sur <b>Ajouter</b>, puis sur <b>Service connecté...</b>, sélectionnez le service mobile que vous venez de créer, puis cliquez sur <b>OK</b>.
+3.  Cliquez avec le bouton droit de la souris sur le projet d'application Windows Phone, cliquez sur **Ajouter**, puis sur **Service connecté...**, sélectionnez le service mobile que vous venez de créer, puis cliquez sur **OK**.
 
-    <p>Le même nouveau fichier de code est ajouté au projet d'application Windows Phone Store. Assurez-vous de corriger également le chemin d'accès référencé ajouté au fichier default.html.</p></li>
-</ol>
+    Le même nouveau fichier de code est ajouté au projet d'application Windows Phone Store. Assurez-vous de corriger également le chemin d'accès référencé ajouté au fichier default.html.
 
 ## <a name="add-table"></a>Ajout d'une nouvelle table au service mobile
 
@@ -70,14 +67,12 @@ Nous pouvons maintenant tester les deux versions de l'application Windows univer
 
 [WACOM.INCLUDE [mobile-services-windows-universal-test-app](../includes/mobile-services-windows-universal-test-app.md)]
 
-<ol start="4">
-<li><p>Dans le <a href="https://manage.windowsazure.com/" target="_blank">portail de gestion</a>, cliquez sur <b>Mobile Services</b>, puis sur le service mobile.</p></li>
+1.  Dans le [portail de gestion][portail de gestion], cliquez sur **Mobile Services**, puis sur le service mobile.
 
+    <p>
+2.  Cliquez sur l'onglet **Données**, puis sur **Parcourir**.
 
-<li><pCliquez sur l'onglet <b>Données</b>, puis sur <b>Parcourir</b>.</p>
-
-    <p>La table <b>TodoItem</b> contient à présent des données, dont les valeurs d'ID ont été générées par Mobile Services, et les colonnes ont été automatiquement ajoutées à la table de manière à correspondre à la classe TodoItem au sein de l'application.</p></li>
-</ol>
+    La table **TodoItem** contient à présent des données, dont les valeurs d'ID ont été générées par Mobile Services, et les colonnes ont été automatiquement ajoutées à la table de manière à correspondre à la classe TodoItem au sein de l'application.
 
 ![][0]
 

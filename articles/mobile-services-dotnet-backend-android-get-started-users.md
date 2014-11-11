@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with authentication (Android) | Mobile Dev Center" metaKeywords="authentication, Facebook, Google, Twitter, Microsoft Account, login" description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="mahender" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="mahender"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
 
 # Prise en main de l'authentification dans Mobile Services
 
@@ -31,13 +31,13 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 ## <a name="register"></a>Inscription de votre application pour l'authentification et configuration de Mobile Services
 
-[WACOM.INCLUDE [mobile-services-register-authentication][mobile-services-register-authentication]]
+[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-aad-server-extension][mobile-services-dotnet-backend-aad-server-extension]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)]
 
 ## <a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend][mobile-services-restrict-permissions-dotnet-backend]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 1.  Dans Eclipse, ouvrez le projet que vous avez créé avec le didacticiel [Prise en main de Mobile Services][Prise en main de Mobile Services].
 
@@ -49,15 +49,15 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 ## <a name="add-authentication"></a>Ajout de l'authentification à l'application
 
-[WACOM.INCLUDE [mobile-services-android-authenticate-app][mobile-services-android-authenticate-app]]
+[WACOM.INCLUDE [mobile-services-android-authenticate-app](../includes/mobile-services-android-authenticate-app.md)]
 
 ## <a name="cache-tokens"></a>Mise en cache de jetons d'authentification sur le client
 
-[WACOM.INCLUDE [mobile-services-android-authenticate-app-with-token][mobile-services-android-authenticate-app-with-token]]
+[WACOM.INCLUDE [mobile-services-android-authenticate-app-with-token](../includes/mobile-services-android-authenticate-app-with-token.md)]
 
 ## <a name="refresh-tokens"></a>Actualisation du cache des jetons
 
-[WACOM.INCLUDE [mobile-services-android-authenticate-app-refresh-token][mobile-services-android-authenticate-app-refresh-token]]
+[WACOM.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../includes/mobile-services-android-authenticate-app-refresh-token.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -65,15 +65,6 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 
 
 
-  [Windows Store C#]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users "Windows Store C#"
-  [Windows Store JavaScript]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users "Windows Store JavaScript"
-  [Windows Phone]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users "Windows Phone"
-  [iOS]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users "iOS"
-  [Android]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-android-get-started-users "Android"
-  [Xamarin.iOS]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users "Xamarin.iOS"
-  [Xamarin.Android]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users "Xamarin.Android"
-  [.NET backend]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/ ".NET backend"
-  [JavaScript backend]: /fr-fr/documentation/articles/mobile-services-android-get-started-users/ "JavaScript backend"
   [Inscription de votre application pour l'authentification et configuration de Mobile Services]: #register
   [Restriction des autorisations de table pour les utilisateurs authentifiés]: #permissions
   [Ajout de l'authentification à l'application]: #add-authentication

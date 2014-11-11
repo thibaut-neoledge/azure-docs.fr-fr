@@ -1,10 +1,10 @@
 <properties linkid="develop-java-how-to-hudson-ci" urlDisplayName="Hudson Continuous Integration" pageTitle="How to use Hudson with the Azure Blob service | Microsoft Azure" metaKeywords="Hudson, Azure storage, Azure Blob service, Azure storage, Azure hudson" description="Describes how to use Hudson with Azure Blob storage as a repository for build artifacts." metaCanonical="" services="storage" documentationCenter="Java" title="Using Azure Storage with a Hudson Continuous Integration solution" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Utilisation d'Azure Storage avec une solution d'intégration continue Hudson
 
-*Par [Microsoft Open Technologies Inc.][]*
+*Par [Microsoft Open Technologies Inc.][Microsoft Open Technologies Inc.]*
 
 Les informations suivantes expliquent comment utiliser le service BLOB Azure comme référentiel pour les artefacts de build créés par une solution d'intégration continue (CI) Hudson ou comme source de fichiers téléchargeables pour un processus de génération. Cela peut s'avérer utile dans plusieurs scénarios, notamment lorsque vous codez dans un environnement de développement agile (avec Java ou d'autres langages), que les builds s'exécutent sur la base d'une intégration continue et que vous avez besoin d'un référentiel pour vos artefacts de build, de manière, par exemple, à pouvoir les partager avec d'autres membres de l'organisation, vos clients, ou conserver une archive. Il existe un autre scénario dans lequel votre tâche de build proprement dite requiert d'autres fichiers, comme des dépendances à télécharger dans le cadre de l'entrée de génération.
 
@@ -12,21 +12,21 @@ Dans ce didacticiel, vous allez utiliser le plug-in Azure Storage pour Hudson CI
 
 ## Sommaire
 
--   [Présentation d'Hudson][]
--   [Avantages de l'utilisation du service BLOB][]
--   [Configuration requise][]
--   [Utilisation du service BLOB avec Hudson CI][]
--   [Installation du plug-in Azure Storage][]
--   [Configuration du plug-in Azure Storage pour l'utilisation de votre compte de stockage][]
--   [Création d'une action post-build qui télécharge les artefacts de votre build sur votre compte de stockage][]
--   [Création d'une étape de génération pour télécharger des éléments depuis un stockage d'objets blob Azure][]
--   [Composants utilisés par le service BLOB][]
+-   [Présentation d'Hudson][Présentation d'Hudson]
+-   [Avantages de l'utilisation du service BLOB][Avantages de l'utilisation du service BLOB]
+-   [Configuration requise][Configuration requise]
+-   [Utilisation du service BLOB avec Hudson CI][Utilisation du service BLOB avec Hudson CI]
+-   [Installation du plug-in Azure Storage][Installation du plug-in Azure Storage]
+-   [Configuration du plug-in Azure Storage pour l'utilisation de votre compte de stockage][Configuration du plug-in Azure Storage pour l'utilisation de votre compte de stockage]
+-   [Création d'une action post-build qui télécharge les artefacts de votre build sur votre compte de stockage][Création d'une action post-build qui télécharge les artefacts de votre build sur votre compte de stockage]
+-   [Création d'une étape de génération pour télécharger des éléments depuis un stockage d'objets blob Azure][Création d'une étape de génération pour télécharger des éléments depuis un stockage d'objets blob Azure]
+-   [Composants utilisés par le service BLOB][Composants utilisés par le service BLOB]
 
 ## <span id="overview"></span></a><span class="short header">Présentation</span>Présentation d'Hudson
 
 Hudson rend possible l'intégration continue d'un projet de logiciel en permettant aux développeurs d'intégrer aisément les modifications de leur code et de créer automatiquement et fréquemment des builds, d'où une productivité accrue. Les versions des builds sont gérées et les artefacts de build peuvent être téléchargés dans divers référentiels. Dans cette rubrique, vous allez apprendre à utiliser le stockage d'objets blob comme référentiel des artefacts de build. Vous allez également apprendre à télécharger des dépendances depuis le stockage d'objets blob Azure.
 
-Pour plus d'informations sur Hudson, consultez la page de [présentation d'Hudson][].
+Pour plus d'informations sur Hudson, consultez la page de [présentation d'Hudson][présentation d'Hudson].
 
 ## <span id="benefits"></span></a><span class="short header">Avantages</span>Avantages de l'utilisation du service BLOB
 
@@ -60,7 +60,7 @@ Pour utiliser le service BLOB avec votre solution Hudson CI, vous avez besoin de
 
 -   Un compte Azure. Pour créer un compte Azure, consultez la page <http://www.windowsazure.com>.
 
--   Un compte de stockage Azure. Si vous ne disposez pas déjà d'un compte de stockage, vous pouvez en créer un en suivant la procédure décrite à la page [Création d'un compte de stockage][].
+-   Un compte de stockage Azure. Si vous ne disposez pas déjà d'un compte de stockage, vous pouvez en créer un en suivant la procédure décrite à la page [Création d'un compte de stockage][Création d'un compte de stockage].
 
 -   Une bonne connaissance de la solution Hudson CI est recommandée, mais pas obligatoire, car le contenu suivant emploiera un exemple élémentaire pour décrire la procédure requise lorsque vous utilisez le service BLOB comme référentiel pour les artefacts de build Hudson CI.
 
@@ -114,7 +114,7 @@ Pour les besoins de la formation, nous devons d'abord créer une tâche qui cré
 
     Sous la section **Command** où vous avez entré un script pour **Execute Windows batch command**, un lien permet d'accéder aux variables d'environnement reconnues par Hudson. Cliquez sur ce lien pour découvrir les noms des variables d'environnement avec leurs descriptions. Notez que les variables d'environnement qui contiennent des caractères spéciaux, telle la variable d'environnement **BUILD\_URL**, ne sont pas autorisées comme nom de conteneur ou chemin virtuel commun.
 
-8.  Cliquez sur **Rendre le nouveau conteneur public par défaut** pour cet exemple. Si vous voulez utiliser un conteneur privé, vous devez créer une signature d'accès partagé pour autoriser l'accès. La procédure n'entre pas dans le cadre de cette rubrique. Pour en savoir plus sur les signatures d'accès partagé, consultez la page [Créer et utiliser une signature d'accès partagé][].
+8.  Cliquez sur **Rendre le nouveau conteneur public par défaut** pour cet exemple. Si vous voulez utiliser un conteneur privé, vous devez créer une signature d'accès partagé pour autoriser l'accès. La procédure n'entre pas dans le cadre de cette rubrique. Pour en savoir plus sur les signatures d'accès partagé, consultez la page [Créer et utiliser une signature d'accès partagé][Créer et utiliser une signature d'accès partagé].
 9.  [Facultatif] Cliquez sur **Nettoyer le conteneur avant le téléchargement** si vous souhaitez que le contenu du conteneur soit effacé avant le téléchargement des artefacts de build (ne sélectionnez pas cette option si vous ne souhaitez pas effacer le contenu du conteneur).
 10. Pour **Liste des artefacts à télécharger**, entrez \*\*text/\*.txt\*\*.
 11. Pour **Common virtual path for uploaded artifacts**, entrez **${BUILD\_ID}/${BUILD\_NUMBER}**.
@@ -150,7 +150,7 @@ La section suivante présente les composants du service BLOB.
 
 -   **Compte de stockage** : tous les accès à Azure Storage passent par un compte de stockage. Il s'agit du plus haut niveau d'espace de noms permettant d'accéder aux objets blob. Un compte peut contenir un nombre illimité de conteneurs, tant que sa taille totale ne dépasse pas 100 To.
 -   **Conteneur** : un conteneur regroupe un ensemble d'objets blob. Tous les objets blob doivent figurer dans un conteneur. Un compte peut contenir un nombre illimité de conteneurs. Un conteneur peut stocker un nombre illimité d'objets blob.
--   **Blob** : fichier de n'importe quel type et de n'importe quelle taille. Deux types d'objets blob peuvent être stockés dans Azure Storage : objets blob de blocs et de pages. La plupart des fichiers sont des objets blob de blocs. Un seul objet blob de blocs peut avoir une taille maximale de 200 Go. Ce didacticiel utilise des objets blob de blocs. Les objets blob de pages, autre type d'objets blob, peuvent avoir une taille de 1 To et sont plus efficaces lorsque des plages d'octets dans un fichier sont modifiées fréquemment. Pour plus d’informations sur les objets blob, consultez la page [Présentation des objets blob de blocs et des objets blob de pages][].
+-   **Blob** : fichier de n'importe quel type et de n'importe quelle taille. Deux types d'objets blob peuvent être stockés dans Azure Storage : objets blob de blocs et de pages. La plupart des fichiers sont des objets blob de blocs. Un seul objet blob de blocs peut avoir une taille maximale de 200 Go. Ce didacticiel utilise des objets blob de blocs. Les objets blob de pages, autre type d'objets blob, peuvent avoir une taille de 1 To et sont plus efficaces lorsque des plages d'octets dans un fichier sont modifiées fréquemment. Pour plus d’informations sur les objets blob, consultez la page [Présentation des objets blob de blocs et des objets blob de pages][Présentation des objets blob de blocs et des objets blob de pages].
 -   **Format d'URL** : Les objets blob sont adressables à l'aide du format d'URL suivant :
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -174,4 +174,4 @@ La section suivante présente les composants du service BLOB.
   [présentation d'Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
   [Création d'un compte de stockage]: http://go.microsoft.com/fwlink/?LinkId=279823
   [Créer et utiliser une signature d'accès partagé]: http://go.microsoft.com/fwlink/?LinkId=279889
-  [Présentation des objets blob de blocs et des objets blob de pages]: http://msdn.microsoft.com/en-us/library/windowsazure/ee691964.aspx
+  [Présentation des objets blob de blocs et des objets blob de pages]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee691964.aspx

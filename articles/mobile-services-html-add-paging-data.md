@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-add-paging-to-data-html" urlDisplayName="Add paging to data (HTML5)" pageTitle="Add paging to data (HTML 5) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your HTML app from Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Affinage des requêtes Mobile Services au moyen de la pagination
 
@@ -14,9 +14,9 @@ Cette rubrique montre comment utiliser la pagination pour gérer la quantité de
 <p>Pour &eacute;viter tout d&eacute;passement de capacit&eacute; dans les appareils mobiles clients, Mobile Services impl&eacute;mente une limite automatique du nombre de pages, qui autorise par d&eacute;faut un maximum de 50&nbsp;&eacute;l&eacute;ments par r&eacute;ponse. En sp&eacute;cifiant la taille de page, vous pouvez demander explicitement jusqu'&agrave; 1&nbsp;000&nbsp;&eacute;l&eacute;ments dans la r&eacute;ponse.</p>
 </div>
 
-Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données][]. Avant de commencer ce didacticiel, vous devez suivre au moins le premier didacticiel consacré à l'utilisation des séries de données, intitulé [Prise en main des données][].
+Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données][Prise en main des données]. Avant de commencer ce didacticiel, vous devez suivre au moins le premier didacticiel consacré à l'utilisation des séries de données, intitulé [Prise en main des données][Prise en main des données].
 
-1.  Exécutez l'un des fichiers de commandes suivants à partir du sous-dossier **server** du projet que vous avez modifié dans le didacticiel [Prise en main des données][].
+1.  Exécutez l'un des fichiers de commandes suivants à partir du sous-dossier **server** du projet que vous avez modifié dans le didacticiel [Prise en main des données][Prise en main des données].
 
     -   **launch-windows** (pour les ordinateurs Windows)
     -   **launch-mac.command** (pour les ordinateurs Mac OS X)
@@ -64,16 +64,8 @@ Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Vous voici parvenu à la fin de la série de didacticiels présentant les principes de base de l'utilisation des données dans Mobile Services. À présent, apprenez à authentifier les utilisateurs de votre application en consultant le didacticiel [Prise en main de l'authentification][]. Obtenez plus d'informations sur l'utilisation de Mobile Services avec HTML/JavaScript dans le [Guide de fonctionnement Mobile Services HTML/JavaScript][]
+Vous voici parvenu à la fin de la série de didacticiels présentant les principes de base de l'utilisation des données dans Mobile Services. À présent, apprenez à authentifier les utilisateurs de votre application en consultant le didacticiel [Prise en main de l'authentification][Prise en main de l'authentification]. Obtenez plus d'informations sur l'utilisation de Mobile Services avec HTML/JavaScript dans le [Guide de fonctionnement Mobile Services HTML/JavaScript][Guide de fonctionnement Mobile Services HTML/JavaScript]
 
-  [Windows Store C#]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-dotnet "Windows Store C#"
-  [Windows Store JavaScript]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-js "Windows Store JavaScript"
-  [Windows Phone]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-wp8 "Windows Phone"
-  [iOS]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-ios "iOS"
-  [Android]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-android "Android"
-  [HTML]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-html "HTML"
-  [Xamarin.iOS]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-xamarin-android "Xamarin.Android"
   [Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-html
   [Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-html
   [Guide de fonctionnement Mobile Services HTML/JavaScript]: /fr-fr/develop/mobile/how-to-guides/work-with-html-js-client

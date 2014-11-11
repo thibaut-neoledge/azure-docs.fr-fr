@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-use-Ambari" urlDisplayName="Monitor Hadoop clusters  in HDInsight using the Ambari API" pageTitle="Monitor Hadoop clusters in HDInsight using the Ambari API | Azure" metaKeywords="" description="Use the Apache Ambari APIs for provisioning, managing, and monitoring Hadoop clusters. Ambari's intuitive operator tools and APIs hide the complexity of Hadoop." services="hdinsight" documentationCenter="" title="Monitor Hadoop clusters in HDInsight using the Ambari API" umbracoNaviHide="0" disqusComments="1" authors="jgao" editor="cgronlun" manager="paulettm" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Monitor Hadoop clusters in HDInsight using the Ambari API
 
@@ -10,15 +10,15 @@ Découvrez comment surveiller les clusters HDInsight version 2.1 à l'aide des 
 
 ## Dans cet article
 
--   [Présentation d'Ambari][]
--   [Configuration requise][]
--   [Démarrage rapide][]
--   [API de surveillance Ambari][]
--   [Étapes suivantes][]
+-   [Présentation d'Ambari][Présentation d'Ambari]
+-   [Configuration requise][Configuration requise]
+-   [Démarrage rapide][Démarrage rapide]
+-   [API de surveillance Ambari][API de surveillance Ambari]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <span id="whatisambari"></span></a> Présentation d'Ambari
 
-[Apache Ambari][] est destiné à l'approvisionnement, la gestion et la surveillance des clusters Apache Hadoop. Il comprend une collection intuitive d'outils d'opérateurs et un solide jeu d'API qui masque la complexité de Hadoop, en simplifiant le fonctionnement des clusters. Pour plus d'informations sur les API, consultez la page [Référence des API Ambari][].
+[Apache Ambari][Apache Ambari] est destiné à l'approvisionnement, la gestion et la surveillance des clusters Apache Hadoop. Il comprend une collection intuitive d'outils d'opérateurs et un solide jeu d'API qui masque la complexité de Hadoop, en simplifiant le fonctionnement des clusters. Pour plus d'informations sur les API, consultez la page [Référence des API Ambari][Référence des API Ambari].
 
 HDInsight prend actuellement en charge la fonctionnalité de surveillance Ambari uniquement. La version 1.0 de l'API Ambari est prise en charge par le cluster HDInsight versions 2.1 et 3.0. Cet article aborde uniquement l'exécution des API Ambari sur le cluster HDInsight version 2.1.
 
@@ -26,13 +26,13 @@ HDInsight prend actuellement en charge la fonctionnalité de surveillance Ambari
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
--   Un **poste de travail** sur lequel Azure PowerShell est installé et configuré. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][]. Pour exécuter des scripts PowerShell, vous devez exécuter Azure PowerShell en tant qu'administrateur et définir la stratégie d'exécution sur *RemoteSigned*. Consultez la page [Exécution de scripts Windows PowerShell][].
+-   Un **poste de travail** sur lequel Azure PowerShell est installé et configuré. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][Installation et configuration d'Azure PowerShell]. Pour exécuter des scripts PowerShell, vous devez exécuter Azure PowerShell en tant qu'administrateur et définir la stratégie d'exécution sur *RemoteSigned*. Consultez la page [Exécution de scripts Windows PowerShell][Exécution de scripts Windows PowerShell].
 
-    [Curl][] est facultatif. Vous pouvez l'installer à partir d'[ici][].
+    [Curl][Curl] est facultatif. Vous pouvez l'installer à partir d'[ici][ici].
 
     > [WACOM.NOTE] Lorsque vous utilisez la commande curl sur Windows, remplacez les guillemets doubles par des guillemets simples pour exprimer la valeur des options.
 
--   Un **cluster Azure HDInsight**. Pour obtenir des instructions sur l'approvisionnement des clusters, consultez les rubriques [Prise en main de HDInsight][] ou [Approvisionnement de clusters HDInsight][]. Vous aurez besoin des données suivantes pour suivre ce didacticiel :
+-   Un **cluster Azure HDInsight**. Pour obtenir des instructions sur l'approvisionnement des clusters, consultez les rubriques [Prise en main de HDInsight][Prise en main de HDInsight] ou [Approvisionnement de clusters HDInsight][Approvisionnement de clusters HDInsight]. Vous aurez besoin des données suivantes pour suivre ce didacticiel :
 
     <table>
     <colgroup>
@@ -97,7 +97,7 @@ Voici un script PowerShell permettant d'obtenir les informations de suivi de tâ
 
 La sortie est la suivante :
 
-![Sortie du jobtracker][]
+![Sortie du jobtracker][Sortie du jobtracker]
 
 **Utilisation de curl**
 
@@ -124,7 +124,7 @@ La sortie est la suivante :
 
 ## <span id="monitor"></span></a>API de surveillance Ambari
 
-Le tableau suivant répertorie certains des appels d'API de surveillance Ambari les plus connus. Pour plus d'informations sur les API, consultez la page [Référence des API Ambari][].
+Le tableau suivant répertorie certains des appels d'API de surveillance Ambari les plus connus. Pour plus d'informations sur les API, consultez la page [Référence des API Ambari][Référence des API Ambari].
 
 <table border="1">
 <tr><th>Appel d'API de surveillance</th><th>URI</th><th>Description</th></tr>
@@ -194,11 +194,11 @@ Le tableau suivant répertorie certains des appels d'API de surveillance Ambari 
 
 Vous avez appris à utiliser les appels d'API de surveillance Ambari. Pour plus d'informations, consultez les rubriques suivantes :
 
--   [Administration de clusters HDInsight à l'aide du portail de gestion][]
--   [Administration de clusters HDInsight à l'aide d'Azure PowerShell][]
--   [Administration de clusters HDInsight à l'aide de l'interface de ligne de commande][]
--   [Documentation HDInsight][]
--   [Prise en main de HDInsight][]
+-   [Administration de clusters HDInsight à l'aide du portail de gestion][Administration de clusters HDInsight à l'aide du portail de gestion]
+-   [Administration de clusters HDInsight à l'aide d'Azure PowerShell][Administration de clusters HDInsight à l'aide d'Azure PowerShell]
+-   [Administration de clusters HDInsight à l'aide de l'interface de ligne de commande][Administration de clusters HDInsight à l'aide de l'interface de ligne de commande]
+-   [Documentation HDInsight][Documentation HDInsight]
+-   [Prise en main de HDInsight][Prise en main de HDInsight]
 
   [Présentation d'Ambari]: #whatisambari
   [Configuration requise]: #prerequisites
@@ -208,7 +208,7 @@ Vous avez appris à utiliser les appels d'API de surveillance Ambari. Pour plus 
   [Apache Ambari]: http://ambari.apache.org/
   [Référence des API Ambari]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
   [Installation et configuration d'Azure PowerShell]: ../install-configure-powershell/
-  [Exécution de scripts Windows PowerShell]: http://technet.microsoft.com/en-us/library/ee176949.aspx
+  [Exécution de scripts Windows PowerShell]: http://technet.microsoft.com/fr-fr/library/ee176949.aspx
   [Curl]: http://curl.haxx.se
   [ici]: http://curl.haxx.se/download.html
   [Prise en main de HDInsight]: ../hdinsight-get-started/

@@ -1,6 +1,6 @@
 <properties linkid="dev-net-tutorials-web-app-with-sql-azure-vs2013" urlDisplayName="Website with SQL Database" pageTitle="Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Website" metaKeywords="Azure hello world tutorial, Azure getting started tutorial, SQL Database tutorial, Azure .NET hello world tutorial, Azure C# hello world tutorial, SQL Azure C# tutorial" description="Learn how to develop an ASP.NET MVC 5 website with a SQL Database back-end deploy it to Azure." metaCanonical="" services="web-sites,sql-database" documentationCenter=".NET" title="Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to an Azure Website" authors="riande"  solutions="" writer="riande" manager="wpickett" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande" />
 
 # Déploiement d'une application ASP.NET MVC sécurisée avec une fonctionnalité d'appartenance, OAuth et une base de données SQL vers un site web Azure
 
@@ -37,7 +37,7 @@ Dans ce didacticiel :
 -   [Déploiement de l’application dans Azure][Déploiement de l’application dans Azure]
 -   [Étapes suivantes][Étapes suivantes]
 
-[WACOM.INCLUDE [install-sdk-2013-only][install-sdk-2013-only]]
+[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 Vous devez installer [Visual Studio 2013 Update 2 RC][Visual Studio 2013 Update 2 RC] ou une version plus récente pour utiliser le nouveau certificat SSL pour l’hôte local (localhost).
 
@@ -688,12 +688,12 @@ N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce 
 
 <!-- images-->
 
-  [version précédente de ce didacticiel]: /en-us/develop/net/tutorials/web-site-with-sql-database-vs2012/
+  [version précédente de ce didacticiel]: /fr-fr/develop/net/tutorials/web-site-with-sql-database-vs2012/
   [OAuth]: http://oauth.net/ "http://oauth.net/"
   [OpenID]: http://openid.net/
   [page de connexion]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rxb.png
-  [activer les avantages de votre abonnement MSDN]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-  [obtenir une évaluation gratuite]: /en-us/pricing/free-trial/?WT.mc_id=A261C142F
+  [activer les avantages de votre abonnement MSDN]: /fr-fr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+  [obtenir une évaluation gratuite]: /fr-fr/pricing/free-trial/?WT.mc_id=A261C142F
   [Configuration de l’environnement de développement]: #setupdevenv
   [Configuration de l'environnement Azure]: #bkmk_setupwindowsazure
   [Création d'une application ASP.NET MVC 5]: #bkmk_createmvc4app
@@ -714,7 +714,6 @@ N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce 
   [Nouveau projet dans le menu Fichier]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/gs13newproj.png
   [New Project dialog box]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13newprojdb.png
   [Boîte de dialogue New ASP.NET Project]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss1.PNG
-  [\_Layout.cshtml dans l'Explorateur de solutions]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/dntutmobile-createapp-004.png
   [modifications du code]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs3.png
   [Site Web exécuté en local]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr2.png
   [Publier dans le menu contextuel du projet]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13publish.png
@@ -730,7 +729,6 @@ N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce 
   [Boîte de dialogue New data ctx]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss5.PNG
   [Migrations Code First]: http://msdn.microsoft.com/library/hh770484.aspx
   [Package Manager Console in Tools menu]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/SS6.png
-  [Amorçage et débogage des bases de données Entity Framework (EF)]: http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx
   [Commandes de la Console du Gestionnaire de package]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/dntutmobile-migrations-package-manager-console.png
   [Affichage MVC des données]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rx2.png
   [Création d’une application ASP.NET MVC 5 avec une authentification OAuth2 et OpenID pour Facebook et Google]: http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
@@ -739,10 +737,10 @@ N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce 
   [s’inscrire]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss8.PNG
   [image du code]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss24.PNG
   [page de ressources d’identité ASP.NET]: http://curah.microsoft.com/55636/aspnet-identity
-  [WSAT]: http://msdn.microsoft.com/en-us/library/ms228053.aspx
+  [WSAT]: http://msdn.microsoft.com/fr-fr/library/ms228053.aspx
   [code]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss9.PNG
-  [Authorize]: http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute.aspx
-  [RequireHttps]: http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute.aspx
+  [Authorize]: http://msdn.microsoft.com/fr-fr/library/system.web.mvc.authorizeattribute.aspx
+  [RequireHttps]: http://msdn.microsoft.com/fr-fr/library/system.web.mvc.requirehttpsattribute.aspx
   [Sécurisation de votre application ASP.NET MVC et nouvel attribut AllowAnonymous]: http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx
   [3]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss10.PNG
   [4]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss11.PNG

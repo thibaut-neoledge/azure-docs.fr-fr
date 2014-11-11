@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Blob Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Utilisation du service BLOB à partir de Node.js
 
@@ -8,34 +8,34 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utili
 service Blob Azure. Les exemples sont écrits en utilisant
 l'API Node.js. Les scénarios traités incluent le **téléchargement (vers une cible)**, la **création de listes**, le
 **téléchargement (à partir d'une source)** et la **suppression** d'objets blob. Pour plus d'informations sur les
-objets blob, consultez la section [Étapes suivantes][].
+objets blob, consultez la section [Étapes suivantes][Étapes suivantes].
 
 ## Sommaire
 
--   [Présentation du service BLOB][]
--   [Concepts][]
--   [Création d'un compte de stockage Azure][]
--   [Création d'une application Node.js][]
--   [Configuration de votre application pour accéder au stockage][]
--   [Configuration d'une chaîne de connexion Azure Storage][]
--   [Création d'un conteneur][]
--   [Téléchargement d'un objet blob dans un conteneur][]
--   [Création d'une liste d'objets blob dans un conteneur][]
--   [Téléchargement d'objets blob][]
--   [Suppression d'un objet blob][]
--   [Accès simultané][]
--   [Utilisation des signatures d'accès partagé][]
--   [Étapes suivantes][]
+-   [Présentation du service BLOB][Présentation du service BLOB]
+-   [Concepts][Concepts]
+-   [Création d'un compte de stockage Azure][Création d'un compte de stockage Azure]
+-   [Création d'une application Node.js][Création d'une application Node.js]
+-   [Configuration de votre application pour accéder au stockage][Configuration de votre application pour accéder au stockage]
+-   [Configuration d'une chaîne de connexion Azure Storage][Configuration d'une chaîne de connexion Azure Storage]
+-   [Création d'un conteneur][Création d'un conteneur]
+-   [Téléchargement d'un objet blob dans un conteneur][Téléchargement d'un objet blob dans un conteneur]
+-   [Création d'une liste d'objets blob dans un conteneur][Création d'une liste d'objets blob dans un conteneur]
+-   [Téléchargement d'objets blob][Téléchargement d'objets blob]
+-   [Suppression d'un objet blob][Suppression d'un objet blob]
+-   [Accès simultané][Accès simultané]
+-   [Utilisation des signatures d'accès partagé][Utilisation des signatures d'accès partagé]
+-   [Étapes suivantes][Étapes suivantes]
 
-[WACOM.INCLUDE [howto-blob-storage][]]
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <a name="create-account"></a>Création d'un compte de stockage Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>Création d'une application Node.js
 
-Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure][], [Service cloud Node.js][] (avec Windows PowerShell) ou [Site Web avec WebMatrix][].
+Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure][Création et déploiement d'une application Node.js dans un site Web Azure], [Service cloud Node.js][Service cloud Node.js] (avec Windows PowerShell) ou [Site Web avec WebMatrix][Site Web avec WebMatrix].
 
 ## <a name="configure-access"> </a>Configuration de votre application pour accéder au stockage
 
@@ -75,7 +75,7 @@ communiquent avec les services REST de stockage.
 
 Le module Azure lit les variables d'environnement AZURE\_STORAGE\_ACCOUNT et AZURE\_STORAGE\_ACCESS\_KEY, ou AZURE\_STORAGE\_CONNECTION\_STRING pour obtenir les informations obligatoires pour se connecter à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **createBlobService**.
 
-Pour obtenir un exemple de configuration des variables d'environnement dans le portail de gestion pour un site web Azure, consultez la rubrique [Application web Node.js avec stockage][]
+Pour obtenir un exemple de configuration des variables d'environnement dans le portail de gestion pour un site web Azure, consultez la rubrique [Application web Node.js avec stockage][Application web Node.js avec stockage]
 
 ## <a name="create-container"> </a> Création d'un conteneur
 
@@ -97,7 +97,7 @@ Tous les objets blob résident dans un conteneur. Pour créer un conteneur, util
       }
     });
 
-Si le conteneur est créé, `result` a la valeur true. Si le conteneur existe déjà, `result` a la valeur false. `response` contient des informations sur l'opération, y compris les informations [ETag][] du conteneur.
+Si le conteneur est créé, `result` a la valeur true. Si le conteneur existe déjà, `result` a la valeur false. `response` contient des informations sur l'opération, y compris les informations [ETag][ETag] du conteneur.
 
 ### Sécurité du conteneur
 
@@ -144,7 +144,7 @@ Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de 
 
 ## <a name="upload-blob"> </a> Téléchargement d'un objet blob dans un conteneur
 
-Un objet blob peut être de blocs ou de pages. Les objets blob de blocs permettent un téléchargement plus efficace des données volumineuses, alors que les objets blob de pages sont optimisés pour les opérations de lecture/écriture. Pour plus d'informations, consultez la page [Présentation des objets blob de blocs et de pages][].
+Un objet blob peut être de blocs ou de pages. Les objets blob de blocs permettent un téléchargement plus efficace des données volumineuses, alors que les objets blob de pages sont optimisés pour les opérations de lecture/écriture. Pour plus d'informations, consultez la page [Présentation des objets blob de blocs et de pages][Présentation des objets blob de blocs et de pages].
 
 ### Objets blob de blocs
 
@@ -367,9 +367,9 @@ Lorsque la liste de contrôle d'accès est définie, vous pouvez créer une sign
 
 Maintenant que vous connaissez les bases du stockage d'objets blob, consultez les liens suivants pour apprendre à effectuer des tâches de stockage plus complexes.
 
--   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][].
--   Consultez le [Blog de l'équipe Azure Storage][].
--   Consultez le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Node][] sur GitHub.
+-   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][Stockage et accessibilité des données dans Azure].
+-   Consultez le [Blog de l'équipe Azure Storage][Blog de l'équipe Azure Storage].
+-   Consultez le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Node][Kit de développement logiciel (SDK) Azure Storage pour Node] sur GitHub.
 
   [Étapes suivantes]: #next-steps
   [Présentation du service BLOB]: #what-is
@@ -387,12 +387,11 @@ Maintenant que vous connaissez les bases du stockage d'objets blob, consultez le
   [Utilisation des signatures d'accès partagé]: #sas
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [Création et déploiement d'une application Node.js dans un site Web Azure]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+  [Création et déploiement d'une application Node.js dans un site Web Azure]: /fr-fr/develop/nodejs/tutorials/create-a-website-(mac)/
   [Service cloud Node.js]: /fr-fr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Site Web avec WebMatrix]: /fr-fr/documentation/articles/web-sites-nodejs-use-webmatrix/
   [Application web Node.js avec stockage]: /fr-fr/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
-  [Présentation des objets blob de blocs et de pages]: http://msdn.microsoft.com/en-us/library/azure/ee691964.aspx
-  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Présentation des objets blob de blocs et de pages]: http://msdn.microsoft.com/fr-fr/library/azure/ee691964.aspx
+  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Kit de développement logiciel (SDK) Azure Storage pour Node]: https://github.com/Azure/azure-storage-node

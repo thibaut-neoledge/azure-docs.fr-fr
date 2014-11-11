@@ -1,6 +1,6 @@
 <properties title="How to Create a DocumentDB Account" pageTitle="How to create a DocumentDB account | Azure" description="Find out how to create a DocumentDB account and choose account settings in the Azure Preview portal."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # Création d'un compte DocumentDB
 
@@ -16,7 +16,7 @@ Pour utiliser DocumentDB, vous devez créer un compte DocumentDB dans une régio
 1.  Connectez-vous à la [version préliminaire du portail de gestion Azure][version préliminaire du portail de gestion Azure].
 2.  Cliquez sur Nouveau -\> Compte DocumentDB.
     
-	![][]
+	![][0]
 
     Vous pouvez également parcourir la galerie Azure, sélectionner la catégorie « Données, stockage, cache + sauvegarde », choisir **DocumentDB**, puis cliquer sur **Créer**.
 
@@ -77,7 +77,7 @@ Pour utiliser DocumentDB, vous devez créer un compte DocumentDB dans une régio
   [Création d'un compte DocumentDB]: #Howto
   [Étapes suivantes]: #NextSteps
   [version préliminaire du portail de gestion Azure]: https://portal.azure.com/
-  []: ./media/documentdb-create-account/ca1.png
+  [0]: ./media/documentdb-create-account/ca1.png
   [1]: ./media/documentdb-create-account/ca2.png
   [2]: ./media/documentdb-create-account/ca3.png
   [informations de tarification de DocumentDB]: http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409

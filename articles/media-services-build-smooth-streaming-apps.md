@@ -1,12 +1,12 @@
 <properties linkid="develop-media-services-tutorials-smooth-streaming-windows-store-app" urlDisplayName="Smooth Streaming Windows Store App" pageTitle="Smooth Streaming Windows Store App - Azure .NET tutorials" metaKeywords="" description="Learn how to use Azure Media Services to create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content." metaCanonical="" services="media-services" documentationCenter="" title="How to Build a Smooth Streaming Windows Store Application" authors="Michael Greenn" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Michael Greenn"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Michael="" Greenn" />
 
 # Génération d'une application Windows Store de diffusion en continu lisse
 
-Le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows 8 permet aux développeurs de générer des applications Windows Store pour la lecture de contenu de diffusion en continu lisse à la demande et en direct. Outre la lecture de contenu de diffusion en continu lisse, le Kit de développement logiciel propose également des fonctionnalités avancées comme la protection Microsoft PlayReady, la limitation du niveau de qualité, le magnétoscope numérique en direct (Live DVR), la commutation des flux audio, l'écoute des mises à jour d'état (par exemple, les modifications des niveaux de qualité), les événements d'erreur, etc. Pour plus d'informations sur les fonctionnalités prises en charge, consultez les [notes de publicationn][].
+Le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows 8 permet aux développeurs de générer des applications Windows Store pour la lecture de contenu de diffusion en continu lisse à la demande et en direct. Outre la lecture de contenu de diffusion en continu lisse, le Kit de développement logiciel propose également des fonctionnalités avancées comme la protection Microsoft PlayReady, la limitation du niveau de qualité, le magnétoscope numérique en direct (Live DVR), la commutation des flux audio, l'écoute des mises à jour d'état (par exemple, les modifications des niveaux de qualité), les événements d'erreur, etc. Pour plus d'informations sur les fonctionnalités prises en charge, consultez les [notes de publicationn][notes de publicationn].
 
-Ce didacticiel aborde la question des API. Pour le développement d'un lecteur, Microsoft recommande vivement l'utilisation de [Player Framework for Windows 8][]. Player Framework permet de générer plus facilement des applications et offre de nombreuses fonctionnalités supplémentaires.
+Ce didacticiel aborde la question des API. Pour le développement d'un lecteur, Microsoft recommande vivement l'utilisation de [Player Framework for Windows 8][Player Framework for Windows 8]. Player Framework permet de générer plus facilement des applications et offre de nombreuses fonctionnalités supplémentaires.
 
 Le didacticiel se compose de quatre leçons :
 
@@ -17,19 +17,19 @@ Le didacticiel se compose de quatre leçons :
 
 # Configuration requise
 
--   Windows 8 32 bits ou 64 bits. Vous pouvez télécharger la [version d'évaluation de Windows 8 Entreprise][] sur MSDN.
--   Visual Studio 2012 ou Visual Studio Express 2012 pour Windows 8 installé sur Windows 8. Vous pouvez télécharger la version d'évaluation [ici][].
--   [Kit de développement logiciel (SDK) du client Microsoft de diffusion en continu lisse pour Windows 8][].
+-   Windows 8 32 bits ou 64 bits. Vous pouvez télécharger la [version d'évaluation de Windows 8 Entreprise][version d'évaluation de Windows 8 Entreprise] sur MSDN.
+-   Visual Studio 2012 ou Visual Studio Express 2012 pour Windows 8 installé sur Windows 8. Vous pouvez télécharger la version d'évaluation [ici][ici].
+-   [Kit de développement logiciel (SDK) du client Microsoft de diffusion en continu lisse pour Windows 8][Kit de développement logiciel (SDK) du client Microsoft de diffusion en continu lisse pour Windows 8].
 
-Vous pouvez télécharger la solution terminée pour chaque leçon sur le site d'exemples de code développeur MSDN (galerie de code) : [Leçon 1][], [Leçon 2][], [Leçon 3][] et [Leçon 4][].
+Vous pouvez télécharger la solution terminée pour chaque leçon sur le site d'exemples de code développeur MSDN (galerie de code) : [Leçon 1][Leçon 1], [Leçon 2][Leçon 2], [Leçon 3][Leçon 3] et [Leçon 4][Leçon 4].
 
 # Leçon 1 : création d'une application Windows Store de diffusion en continu lisse de base
 
 Dans cette leçon, vous allez apprendre à créer une application Windows Store dotée d'un contrôle MediaElement pour lire du contenu de diffusion en continu lisse. L'application en cours d'exécution ressemble à ceci :
 
-![Exemple d'application Windows Store de diffusion en continu lisse][]
+![Exemple d'application Windows Store de diffusion en continu lisse][Exemple d'application Windows Store de diffusion en continu lisse]
 
-For more information on developing Windows Store application, see [Develop Great Apps for Windows 8][].
+For more information on developing Windows Store application, see [Develop Great Apps for Windows 8][Develop Great Apps for Windows 8].
 This lesson contains the following procedures:
 
 1.  Création d'un projet Windows Store
@@ -190,7 +190,7 @@ Dans le fichier XAML, certains gestionnaires d'événements sont associés aux c
 
 Le fichier code-behind terminé doit ressembler à ceci :
 
-![Codeview dans Visual Studio d'une application Windows Store de diffusion en continu lisse][]
+![Codeview dans Visual Studio d'une application Windows Store de diffusion en continu lisse][Codeview dans Visual Studio d'une application Windows Store de diffusion en continu lisse]
 
 **Compilation et test de l'application**
 
@@ -956,20 +956,19 @@ Vous avez terminé la leçon 4 au cours de laquelle vous avez appris à ajouter
 
 # Autres ressources :
 
--   [Développement d'une application JavaScript de diffusion en continu lisse pour Windows 8 dotée de fonctionnalités avancées][]
--   [Présentation technique de la diffusion en continu lisse][]
+-   [Développement d'une application JavaScript de diffusion en continu lisse pour Windows 8 dotée de fonctionnalités avancées][Développement d'une application JavaScript de diffusion en continu lisse pour Windows 8 dotée de fonctionnalités avancées]
+-   [Présentation technique de la diffusion en continu lisse][Présentation technique de la diffusion en continu lisse]
 
   [notes de publicationn]: http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes
   [Player Framework for Windows 8]: http://playerframework.codeplex.com/
-  [version d'évaluation de Windows 8 Entreprise]: http://msdn.microsoft.com/en-us/evalcenter/jj554510.aspx
-  [ici]: http://www.microsoft.com/visualstudio/11/en-us/downloads
-  [Kit de développement logiciel (SDK) du client Microsoft de diffusion en continu lisse pour Windows 8]: http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home
+  [version d'évaluation de Windows 8 Entreprise]: http://msdn.microsoft.com/fr-fr/evalcenter/jj554510.aspx
+  [ici]: http://www.microsoft.com/visualstudio/11/fr-fr/downloads
   [Leçon 1]: http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "Lecteur multimédia simple de diffusion en continu lisse pour Windows 8"
   [Leçon 2]: http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "Lecteur multimédia simple de diffusion en continu lisse pour Windows 8 doté d'une barre de curseur de contrôle"
   [Leçon 3]: http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "Lecteur multimédia de diffusion en continu lisse pour Windows 8 avec sélection de flux"
   [Leçon 4]: http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "Lecteur multimédia de diffusion en continu lisse pour Windows 8 avec sélection des pistes"
   [Exemple d'application Windows Store de diffusion en continu lisse]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
-  [Develop Great Apps for Windows 8]: http://msdn.microsoft.com/en-us/windows/apps/br229512.aspx
+  [Develop Great Apps for Windows 8]: http://msdn.microsoft.com/fr-fr/windows/apps/br229512.aspx
   [Codeview dans Visual Studio d'une application Windows Store de diffusion en continu lisse]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
   [Développement d'une application JavaScript de diffusion en continu lisse pour Windows 8 dotée de fonctionnalités avancées]: http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx
   [Présentation technique de la diffusion en continu lisse]: http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview
