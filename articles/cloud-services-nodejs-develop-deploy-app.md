@@ -22,7 +22,7 @@ déployer à l'aide d'outils de ligne de commande PowerShell.
 
 Voici une capture d'écran de l'application terminée :
 
-![A browser window displaying the hello world page. The URL indicates the page is hosted on Azure.][A browser window displaying the hello world page. The URL indicates the page is hosted on Azure.]
+![A browser window displaying the hello world page. The URL indicates the page is hosted on Azure.](https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png)
 
 ## Création d'une application Node
 

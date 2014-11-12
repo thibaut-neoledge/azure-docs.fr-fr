@@ -137,7 +137,7 @@ Ici encore, l'état de la machine virtuelle et des éventuels disques de donnée
 
 ### Base de données SQL Azure
 
-![Azure Storage SQL Database][]
+![Azure Storage SQL Database](./media/intro-to-azure/StorageAzureSQLDatabaseIntroNew.png)   
 
 **Base de données SQL Azure fournit un service de base de données relationnelle géré dans le cloud.**
 

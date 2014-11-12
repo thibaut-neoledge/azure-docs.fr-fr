@@ -7,34 +7,28 @@ Pour créer une base de données MongoDB à partir de l’[Azure Store][Azure Ma
 1.  Connectez-vous au [portail de gestion Azure][].
 2.  Cliquez sur **+NEW** en bas de la page, puis sélectionnez **STORE**.
 
-    ![Sélectionner un module complémentaire dans le marketplace][]
+	![Sélectionner un module complémentaire dans le marketplace](./media/create-mongolab-mongodb/select-store.png)
 
 3.  Sélectionnez **MongoLab**, puis cliquez sur la flèche en bas du cadre.
 
-    ![Sélectionner MongoLab][]
+	![Sélectionner MongoLab](./media/create-mongolab-mongodb/select-mongo-db.png)
 
 4.  Indiquez le nom de la base de données, sélectionnez une région, puis cliquez sur la flèche en bas du cadre.
 
-    ![Acheter une base de données MongoLab dans le marketplace][]
+	![Acheter une base de données MongoLab dans le marketplace](./media/create-mongolab-mongodb/purchase-mongodb.png)
 
 5.  Cliquez sur la coche pour effectuer l’achat.
 
-    ![Passer en revue et terminer l’achat][]
+	![Passer en revue et terminer l’achat](./media/create-mongolab-mongodb/complete-mongolab-purchase.png)
 
 6.  Une fois la base de données créée, vous pouvez la gérer à partir de l’onglet **ADD-ONS** du portail de gestion.
 
-    ![Gérer une base de données MongoLab dans le portail Azure][]
+	![Gérer une base de données MongoLab dans le portail Azure](./media/create-mongolab-mongodb/manage-mongolab-add-on.png)
 
 7.  Pour obtenir les informations de connexion à la base de données, cliquez sur **CONNECTION INFO** en bas de la page (comme illustré ci-dessus).
 
-    ![Informations de connexion MongoLab][]
+	![Informations de connexion MongoLab](./media/create-mongolab-mongodb/mongolab-conn-info.png) 
 
   [MongoLab]: https://mongolab.com/home
   [Azure Marketplace]: /en-us/store/overview/
   [portail de gestion Azure]: http://windows.azure.com/
-  [Sélectionner un module complémentaire dans le marketplace]: ./media/create-mongolab-mongodb/select-store.png
-  [Sélectionner MongoLab]: ./media/create-mongolab-mongodb/select-mongo-db.png
-  [Acheter une base de données MongoLab dans le marketplace]: ./media/create-mongolab-mongodb/purchase-mongodb.png
-  [Passer en revue et terminer l’achat]: ./media/create-mongolab-mongodb/complete-mongolab-purchase.png
-  [Gérer une base de données MongoLab dans le portail Azure]: ./media/create-mongolab-mongodb/manage-mongolab-add-on.png
-  [Informations de connexion MongoLab]: ./media/create-mongolab-mongodb/mongolab-conn-info.png
