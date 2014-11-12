@@ -45,7 +45,7 @@ Services supplémentaires
 
 Azure regroupe les services en catégories sur le portail de gestion et sur différentes aides visuelles telles que l'[Infographie Windows Azure][]. Le portail de gestion vous permet de gérer la plupart des services dans Azure (mais pas tous). Ce document repose sur une **organisation différente** afin de présenter les services basés sur des fonctionnalités similaires et d'accéder aux sous-services importants intégrés à des services de plus grande taille.
 
-![Azure components][]
+![Azure components](./media/intro-to-azure/AzureComponentsIntroNew800.png)   
 
  **Figure 1 : Azure fournit des services d’application accessibles via Internet, exécutés depuis les centres de données Azure.**
 
@@ -67,7 +67,7 @@ Vous pouvez utiliser ces technologies de façon séparée ou les combiner en fon
 
 ### Azure Virtual Machines
 
-![Azure Virtual Machines][]
+![Azure Virtual Machines](./media/intro-to-azure/VirtualMachinesIntroNew.png)   
 **Figure 2 : Azure Virtual Machines offre un contrôle total des instances de machine virtuelle dans le cloud.**
 
 Il peut s’avérer très utile de créer une machine virtuelle à la demande, à partir d’une image standard comme depuis une image que vous fournissez. Cette approche, communément appelée « Infrastructure as a Service » (IaaS) est celle adoptée par les machines virtuelles Azure. La figure 2 présente le fonctionnement d'une machine virtuelle ainsi que la création d'une machine virtuelle depuis un disque dur virtuel.
@@ -88,7 +88,7 @@ Cette approche générique du cloud computing peut être utilisée pour gérer d
 
 ### Sites Web
 
-![Azure Websites][]
+![Azure Websites](./media/intro-to-azure/AzureWebsitesIntroNew.png)   
  **Sites Web Azure exécute une application de site web dans le cloud sans gestion du serveur web sous-jacent.**
 
 Dans bien des cas, le cloud est utilisé pour exécuter les sites et applications web. Azure Virtual Machines permet ceci, mais vous conservez la charge d'administrer une ou plusieurs machines virtuelles et les systèmes d'exploitation sous-jacents. Les rôles web Cloud Services peuvent s'en charger, mais leur déploiement et leur gestion nécessitent malgré tout des tâches d'administration. Pourquoi ne pas simplement opter pour un site web où vous n'avez pas à vous soucier des tâches d'administration ?
@@ -103,7 +103,7 @@ Sites Web Azure a été conçu pour répondre aux besoins des entreprises, des 
 
 ### Services cloud
 
-![Azure Cloud Service][]
+![Azure Cloud Service](./media/intro-to-azure/CloudServicesIntroNew.png)   
 
 **Azure Cloud Services permet d'exécuter un code personnalisé hautement évolutif dans un environnement PaaS (Platform as a Service).**
 
