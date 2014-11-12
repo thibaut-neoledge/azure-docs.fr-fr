@@ -50,7 +50,7 @@ l'API de gestion des services Azure, consultez la rubrique de r&eacute;f&eacute;
 
     La boîte de dialogue **Create Storage Account** s’affiche.
 
-    ![Création d'un compte de stockage][]
+    ![Création d'un compte de stockage][1]
 
 4.  Dans le champ **URL**, tapez un nom de sous-domaine. Cette entrée peut être composée de 3 à 24 lettres minuscules et chiffres.
 
@@ -160,7 +160,7 @@ Azure.
   [portail de gestion Azure]: https://manage.windowsazure.com/
   [profil de facturation]: /fr-fr/pricing/calculator/?scenario=full
   [Créer un compte de stockage]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh264518.aspx
-  [Création d'un compte de stockage]: ./media/cdn/CDN_CreateNewStorageAcct.png
+  [1]: ./media/cdn/CDN_CreateNewStorageAcct.png
   [Opérations sur les groupes d'affinités]: http://msdn.microsoft.com/library/azure/ee460798.aspx
   [Comment gérer l’expiration du contenu d’objets BLOB]: http://msdn.microsoft.com/fr-fr/library/gg680306.aspx
   [Limiter l’accès aux conteneurs et aux objets BLOB]: http://msdn.microsoft.com/fr-fr/library/dd179354.aspx
