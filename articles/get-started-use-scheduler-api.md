@@ -4,28 +4,29 @@
 
 # Prise en main de l'API Scheduler
 
-(TODO: provide a short description of the article.)
+(À FAIRE : fournir une brève description de l'article.)
 
 Vous apprendrez à effectuer les opérations suivantes :
 
--   (TODO: provide a bulleted list of items the customer will learn by completing this tutorial. List items should begin with "how to," for example: "How to use Visual Studio to develop for Azure." Each bulleted list item should end in a period.
+-   (À FAIRE : fournir une liste à puces des éléments que le client apprendra en suivant ce didacticiel. Les éléments de la liste doivent commencer par "« Comment »", par exemple : « Comment utiliser Visual Studio pour développer pour Azure. » Chaque élément de la liste à puces doit se terminer par un point.
 
-(TODO: provide a description of the final application, followed by a screenshot of the completed application.)
+(À FAIRE : fournir une description de l'application finale, suivie d'une capture d'écran de l'application terminée.)
 
 ## (TODO: Add a header)
 
-(TODO: Step the user through the application. You can use as many h2 and h3 headers as necessary throughout the tutorial. Steps within the sections should be presented in ordered lists.)
+(À FAIRE : Accompagner l'utilisateur dans l'application. Vous pouvez utiliser autant de titres h2 et h3 que nécessaire dans le didacticiel. Les étapes des sections doivent être présentées dans l'ordre sous la forme de listes.)
 
 ## Étapes suivantes
 
-(TODO: Optional section that points the user to related topics and additional information. Start with a short summary and then transition to a list of related articles.)
+(À FAIRE : Section facultative indiquant à l'utilisateur des rubriques associées et des informations supplémentaires. Commencer par un bref résumé, puis passer à une liste des articles associés.)
 
--   (TODO: Short sentence of link1): [(TODO: Enter link1 text)] [NextStepsLink1]
--   (TODO: Short sentence of link2): [(TODO: Enter link2 text)] [NextStepsLink2]
+-   (À FAIRE : Phrase brève du lien1) : [(À FAIRE : Entrer le texte du lien1)] [ÉtapesSuivantesLien1]
+-   (À FAIRE : Phrase brève du lien2) : [(À FAIRE : Entrer le texte du lien2)] [ÉtapesSuivantesLien2]
 
-enter Next Steps 1 URL)
-enter Next Steps 2 URL)
+Entrer l'URL Étapes suivantes 1)
+Entrer l'URL Étapes suivantes 2)
 
-if used an image1, enter the url here, otherwise delete this)
-if used an image2, enter the url here, otherwise delete this)
+Si une image1 est utilisée, entrer l'URL ici ; sinon, supprimer ceci)
+Si une image2 est utilisée, entrer l'URL ici ; sinon, supprimer ceci)
+
 

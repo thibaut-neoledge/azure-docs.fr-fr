@@ -136,9 +136,9 @@ La procédure suivante fonctionne à la fois pour la recherche partagée et la r
 
 3.  Entrez une URL qui spécifie l'URL de service (figurant dans la page Propriétés), les attributs de demande et la version d'API. Voici quelques points à garder à l'esprit :
 
--   Utilisez le préfixe HTTPS.
--   L'attribut de demande est « /indexes/hotels ». Cela indique à Search de créer un index intitulé « hotels ».
--   La version d'API est en minuscules et elle est spécifiée comme suit : ?api-version=2014-07-31-preview. Les versions d'API sont importantes, car Azure Search déploie régulièrement des mises à jour. En de rares cas, une mise à jour de service peut introduire une modification avec rupture dans l'API. À l'aide de versions d'API, vous pouvez continuer à utiliser votre version existante et la mettre à niveau avec une version plus récente le cas échéant.
+   + Utilisez le préfixe HTTPS.
+   + L'attribut de demande est « /indexes/hotels ». Cela indique à Search de créer un index intitulé « hotels ».
+   + La version d'API est en minuscules et elle est spécifiée comme suit : ?api-version=2014-07-31-preview. Les versions d'API sont importantes, car Azure Search déploie régulièrement des mises à jour. En de rares cas, une mise à jour de service peut introduire une modification avec rupture dans l'API. À l'aide de versions d'API, vous pouvez continuer à utiliser votre version existante et la mettre à niveau avec une version plus récente le cas échéant.
 
     L'URL complète doit être semblable à celle figurant dans l'exemple suivant :
 
@@ -287,7 +287,7 @@ Le code de réponse doit correspondre à 200 et la sortie de réponse doit se pr
 
    ![][19]
 
-L'exemple de requête suivant provient de la page [Opération d'index de recherche (API Azure Search)](http://msdn.microsoft.com/en-us/library/dn798927.aspx) sur MSDN. Plusieurs des exemples de requêtes dans cette rubrique comportent des espaces, qui ne sont pas autorisés dans Fiddler. Remplacez chaque espace par un caractère + avant de coller la chaîne de requête et d'essayer la requête dans Fiddler :
+L'exemple de requête suivant provient de la page [Opération d'index de recherche (API Azure Search)](http://msdn.microsoft.com/fr-fr/library/dn798927.aspx) sur MSDN. Plusieurs des exemples de requêtes dans cette rubrique comportent des espaces, qui ne sont pas autorisés dans Fiddler. Remplacez chaque espace par un caractère + avant de coller la chaîne de requête et d'essayer la requête dans Fiddler :
 
 **Avant le remplacement des espaces :**
 
@@ -351,9 +351,9 @@ Vous êtes prêt à passer à l'étape suivante ? Les liens suivants fournissen
 
 [Gestion de votre solution de recherche dans Microsoft Azure](../search-manage/)
 
-[Présentation technique d'Azure Search](http://msdn.microsoft.com/en-us/library/dn798933.aspx)
+[Présentation technique d'Azure Search](http://msdn.microsoft.com/fr-fr/library/dn798933.aspx)
 
-[API REST d'Azure Search](http://msdn.microsoft.com/en-us/library/dn798935.aspx)
+[API REST d'Azure Search](http://msdn.microsoft.com/fr-fr/library/dn798935.aspx)
 
 <!--Anchors-->
 [Start with the free service]: #sub-1
