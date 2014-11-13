@@ -1,42 +1,42 @@
-<properties linkid="manage-services-hdinsight-sample-10gb-graysort" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The 10GB GraySort sample | Azure" metaKeywords="hdinsight, hadoop, hdinsight administration, hdinsight administration azure" description="Learn how to run a general purpose GraySort on Hadoop with HDInsight using Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The 10GB GraySort sample" authors="bradsev" />
+<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="Exemple GraySort 10&nbsp;Go | Azure" metaKeywords="hdinsight, hadoop, hdinsight administration, hdinsight administration azure" description="D&eacute;couvrez comment ex&eacute;cuter un programme GraySort g&eacute;n&eacute;raliste sur Hadoop avec HDInsight au moyen d'Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Exemple GraySort 10&nbsp;Go" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # Exemple Hadoop GraySort 10 Go dans HDInsight
 
-Cette rubrique d'exemple explique comment exécuter un programme MapReduce GraySort Hadoop généraliste sur Azure HDInsight au moyen d'Azure PowerShell. Un GraySort est un tri de benchmark dont la mesure est le taux de tri (To/minute) obtenu lors du tri de très grandes quantités de données, en général au minimum 100 To.
+Cette rubrique d'exemple explique comment exécuter un programme MapReduce Hadoop GraySort généraliste sur Azure HDInsight au moyen d'Azure PowerShell. Un GraySort est un tri de benchmark dont la mesure est le taux de tri (To/minute) obtenu lors du tri de très grandes quantités de données, en général au minimum 100 To.
 
-Cet exemple utilise seulement 10 Go de données afin de pouvoir être exécuté relativement rapidement. Il utilise les applications MapReduce développées par Owen O'Malley et Arun Murthy qui ont remporté en 2009 le benchmark de tri de téraoctets (« daytona ») annuel universel avec un taux de 0,578 To/min (100 To en 173 minutes). Pour plus d'informations à ce sujet et sur d'autres benchmarks de tri, consultez le site [Sortbenchmark][].
+Cet exemple utilise seulement 10 Go de données afin de pouvoir être exécuté relativement rapidement. Il utilise les applications MapReduce développées par Owen O'Malley et Arun Murthy qui ont remporté en 2009 le benchmark de tri de téraoctets (« daytona ») annuel universel avec un taux de 0,578 To/min (100 To en 173 minutes). Pour plus d'informations à ce sujet et sur d'autres benchmarks de tri, consultez le site [Sortbenchmark][Sortbenchmark].
 
 Cet exemple utilise trois ensembles de programmes MapReduce :
 
 1.  **TeraGen** est un programme MapReduce que vous pouvez utiliser pour générer les lignes de données à trier.
 2.  **TeraSort** échantillonne les données d'entrée et utilise MapReduce pour trier les données en une commande totale. TeraSort est un tri standard de fonctions MapReduce, sauf pour un partitionneur personnalisé qui utilise une liste triée de clés échantillonnées N-1 définissant le groupe de clés pour chaque réduction. Plus particulièrement, toutes les clés semblables à cet échantillon [i-1] \<= key \< sample[i] sont envoyées pour réduire i ; cela garantit que les sorties de réduction i sont toutes inférieures aux sorties de réduction i+1.
-3.  **TeraValidate** est un programme MapReduce qui valide que la sortie soit globalement triée. Il crée un mappage par fichier dans le répertoire de sortie et chaque mappage assure que chaque clé est inférieure ou égale à la précédente. La fonction de mappage génère également des enregistrements des première et dernière clés de chaque fichier et la fonction de réduction garantit que la première clé du fichier i est supérieure à la dernière clé du fichier i-1. Un problème est signalé comme une sortie de la réduction avec les clés dans le désordre.
+3.  **TeraValidate** est un programme MapReduce qui valide que la sortie soit globalement triée. Il crée un mappage par fichier dans le répertoire de sortie et chaque mappage assure que chaque clé est inférieure ou égale à la précédente. La fonction de mappage génère également des enregistrements des première et dernière clés de chaque fichier et la fonction de réduction assure que la première clé du fichier i est supérieure à la dernière clé du fichier i-1. Un problème est signalé comme une sortie de la réduction avec les clés dans le désordre.
 
 Les formats d'entrée et de sortie utilisés par les trois applications lisent et écrivent les fichiers texte dans le bon format. La réplication de la sortie de la réduction est définie sur 1 au lieu de 3 par défaut, car le concours benchmark ne requiert pas la réplication des données de sortie sur plusieurs nœuds.
 
 **Vous apprendrez à effectuer les opérations suivantes :**
 
--   utilisation d'Azure PowerShell pour exécuter une série de programmes MapReduce sur Azure HDInsight ;
+-   Utilisation d'Azure PowerShell pour exécuter une série de programmes MapReduce sur Azure HDInsight.
 -   identification d'un programme MapReduce écrit en Java.
 
 **Conditions préalables** :
 
--   Vous devez disposer d'un compte Azure. Pour connaître les options disponibles lors de la création d'un compte, consultez la page [Version d'évaluation gratuite d'Azure][].
+-   Vous devez disposer d'un compte Azure. Pour connaître les options disponibles lors de la création d'un compte, consultez la page [Version d'évaluation gratuite d'Azure][Version d'évaluation gratuite d'Azure].
 
--   Vous devez avoir approvisionné un cluster HDInsight. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de clusters, consultez la page [Approvisionnement de clusters HDInsight][].
+-   Vous devez avoir approvisionné un cluster HDInsight. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de clusters, consultez la page [Approvisionnement de clusters HDInsight][Approvisionnement de clusters HDInsight].
 
--   Vous devez avoir installé Azure PowerShell et l'avoir configuré pour une utilisation avec votre compte. Pour des instructions sur la marche à suivre, consultez la page [Installation et configuration d'Azure PowerShell][].
+-   Vous devez avoir installé Azure PowerShell et l'avoir configuré pour une utilisation avec votre compte. Pour des instructions sur la marche à suivre, consultez la page [Installation et configuration d'Azure PowerShell][Installation et configuration d'Azure PowerShell].
 
 ## Dans cet article
 
 Cette rubrique vous explique comment exécuter la série de programmes MapReduce qui compose l'exemple, présente le code Java du programme MapReduce, résume ce que vous avez appris et décrit quelques étapes suivantes. Elle se compose des sections suivantes :
 
-1.  [Exécution de l'exemple avec Azure PowerShell][]
-2.  [Code Java du programme MapReduce TeraSort][]
-3.  [Résumé][]
-4.  [Étapes suivantes][]
+1.  [Exécution de l'exemple avec Azure PowerShell][Exécution de l'exemple avec Azure PowerShell]
+2.  [Code Java du programme MapReduce TeraSort][Code Java du programme MapReduce TeraSort]
+3.  [Résumé][Résumé]
+4.  [Étapes suivantes][Étapes suivantes]
 
 ## <span id="run-sample"></span></a>Exécution de l'exemple avec Azure PowerShell
 
@@ -48,7 +48,7 @@ Trois tâches sont requises par l'exemple, chacune correspondant à un des progr
 
 **Exécution du programme TeraGen**
 
-1.  Ouvrez Azure PowerShell. Pour savoir comment ouvrir la fenêtre de la console Azure PowerShell, consultez la rubrique [Installation et configuration d'Azure PowerShell][].
+1.  Ouvrez Azure PowerShell. Pour savoir comment ouvrir la fenêtre de la console Azure PowerShell, consultez la rubrique [Installation et configuration d'Azure PowerShell][Installation et configuration d'Azure PowerShell].
 2.  Définissez les deux variables dans les commandes suivantes, puis exécutez-les :
 
         # Provide the Azure subscription name and the HDInsight cluster name.
@@ -397,16 +397,16 @@ Cet exemple a montré comment exécuter une série de tâches MapReduce en utili
 
 Pour suivre des didacticiels exécutant d'autres exemples et fournissant des instructions sur l'utilisation des tâches Pig, Hive et MapReduce sur Azure HDInsight avec Azure PowerShell, consultez les rubriques suivantes :
 
--   [Prise en main d'Azure HDInsight][]
--   [Exemple : Estimateur de la valeur de Pi][]
--   [Exemple : Comptage de mots][]
--   [Exemple : Diffusion en continu en C#][]
--   [Utilisation de Pig avec HDInsight][]
--   [Utilisation de Hive avec HDInsight][]
--   [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][]
+-   [Prise en main d'Azure HDInsight][Prise en main d'Azure HDInsight]
+-   [Exemple : Estimateur de la valeur de Pi][Exemple : Estimateur de la valeur de Pi]
+-   [Exemple : Comptage de mots][Exemple : Comptage de mots]
+-   [Exemple : Diffusion en continu en C#][Exemple : Diffusion en continu en C#]
+-   [Utilisation de Pig avec HDInsight][Utilisation de Pig avec HDInsight]
+-   [Utilisation de Hive avec HDInsight][Utilisation de Hive avec HDInsight]
+-   [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][Documentation du Kit de développement logiciel (SDK) Azure HDInsight]
 
   [Sortbenchmark]: http://sortbenchmark.org/
-  [Version d'évaluation gratuite d'Azure]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Version d'évaluation gratuite d'Azure]: http://azure.microsoft.com/fr-fr/pricing/free-trial/
   [Approvisionnement de clusters HDInsight]: ../hdinsight-provision-clusters/
   [Installation et configuration d'Azure PowerShell]: ../install-configure-powershell/
   [Exécution de l'exemple avec Azure PowerShell]: #run-sample
@@ -419,4 +419,4 @@ Pour suivre des didacticiels exécutant d'autres exemples et fournissant des ins
   [Exemple : Diffusion en continu en C#]: ../hdinsight-sample-csharp-streaming/
   [Utilisation de Pig avec HDInsight]: ../hdinsight-use-pig/
   [Utilisation de Hive avec HDInsight]: ../hdinsight-use-hive/
-  [Documentation du Kit de développement logiciel (SDK) Azure HDInsight]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+  [Documentation du Kit de développement logiciel (SDK) Azure HDInsight]: http://msdnstage.redmond.corp.microsoft.com/fr-fr/library/dn479185.aspx

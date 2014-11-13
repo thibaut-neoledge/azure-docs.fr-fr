@@ -1,8 +1,8 @@
-<properties linkid="manage-services-hdinsight-submit-hadoop-jobs" urlDisplayName="HDInsight Administration" pageTitle="Submit Hadoop jobs in HDInsight | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hive, mapreduce, HDInsight .NET SDK, powershell, submit mapreduce jobs, submit hive jobs, development, hadoop, apache" description="Learn how to submit Hadoop jobs to Azure HDInsight Hadoop." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Submit  Hadoop jobs in HDInsight" authors="jgao" />
+<properties urlDisplayName="HDInsight Administration" pageTitle="Envoi de t&acirc;ches Hadoop dans HDInsight | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hive, mapreduce, HDInsight .NET SDK, powershell, submit mapreduce jobs, submit hive jobs, development, hadoop, apache" description="Apprenez &agrave; envoyer des t&acirc;ches Hadoop &agrave; Azure HDInsight Hadoop." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Envoi de t&acirc;ches Hadoop dans HDInsight" authors="jgao" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
-# Submit Hadoop jobs in HDInsight
+# Envoi de tâches Hadoop dans HDInsight
 
 Cet article explique comment envoyer des tâches MapReduce et Hive en utilisant PowerShell et le Kit de développement logiciel (SDK) .NET HDInsight.
 
@@ -19,7 +19,7 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 -   [Envoi de tâches Hive avec PowerShell][Envoi de tâches Hive avec PowerShell]
 -   [Envoi de tâches Sqoop avec PowerShell][Envoi de tâches Sqoop avec PowerShell]
 -   [Envoi de tâches MapReduce avec le Kit de développement logiciel (SDK) .NET HDInsight][Envoi de tâches MapReduce avec le Kit de développement logiciel (SDK) .NET HDInsight]
--   [Submit Hadoop Streaming MapReduce jobs using HDInsight .NET SDK][Submit Hadoop Streaming MapReduce jobs using HDInsight .NET SDK]
+-   [Envoi de tâches MapReduce de diffusion en continu Hadoop avec le Kit de développement logiciel (SDK) .NET HDInsight][Envoi de tâches MapReduce de diffusion en continu Hadoop avec le Kit de développement logiciel (SDK) .NET HDInsight]
 -   [Envoi de tâches Hive avec le Kit de développement logiciel (SDK) .NET HDInsight][Envoi de tâches Hive avec le Kit de développement logiciel (SDK) .NET HDInsight]
 -   [Étapes suivantes][Étapes suivantes]
 
@@ -43,7 +43,7 @@ Hadoop MapReduce est une infrastructure logicielle permettant d'écrire des appl
 3.  Exécutez les commandes suivantes pour créer une définition de tâche MapReduce :
 
         # Define the word count MapReduce job
-        $wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
+        $wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
     Il y a deux arguments. Le premier est le nom du fichier source ; le deuxième est le chemin d'accès au fichier de sortie. Pour plus d'informations sur le préfixe wasb, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][Utilisation du stockage d'objets blob Azure avec HDInsight].
 
@@ -108,7 +108,7 @@ Hadoop MapReduce est une infrastructure logicielle permettant d'écrire des appl
 
 ## <span id="hive-powershell"></span></a> Envoi de tâches Hive avec PowerShell
 
-Apache [hdinsight-use-hive][hdinsight-use-hive] provides a means of running MapReduce job through an SQL-like scripting language, called *HiveQL*, which can be applied towards summarization, querying, and analysis of large volumes of data.
+Apache [hdinsight-use-hive][hdinsight-use-hive] permet d'exécuter une tâche MapReduce via un langage de création de scripts semblable à SQL, nommé *HiveQL*, qui peut être appliqué au résumé, à l'envoi de requêtes et à l'analyse d'importants volumes de données.
 
 Les clusters HDInsight sont fournis avec un exemple de table Hive nommé *hivesampletable*. Dans cette session, vous allez utiliser PowerShell pour exécuter une tâche Hive pour répertorier certaines données à partir de la table Hive.
 
@@ -280,13 +280,13 @@ Les procédures suivantes sont nécessaires pour configurer un cluster HDInsight
 
 Lorsque l'application est ouverte dans Visual Studio, appuyez sur **F5** pour l'exécuter. Une fenêtre de console doit s'ouvrir et afficher l'état de l'application, ainsi que son résultat.
 
-## <span id="streaming-sdk"></span></a> Submit Hadoop streaming jobs using HDInsight .NET SDK
+## <span id="streaming-sdk"></span></a> Envoi de tâches de diffusion en continu Hadoop avec le Kit de développement logiciel (SDK) .NET HDInsight
 
-HDInsight clusters come with a word counting Hadoop stream program developed in C#. The mapper program is */example/apps/cat.exe*, and the reduce program is */example/apps/wc.exe*. In this session, you will learn how to create a .NET application to run the word counting sample.
+Les clusters HDInsight sont fournis avec un programme de diffusion en continu Hadoop pour le comptage de mots développé en C#. Le programme de mappage et le programme de réduction sont, respectivement, */example/apps/cat.exe* et */example/apps/wc.exe*. Dans cette session, vous allez apprendre à créer une application .NET pour exécuter l'exemple de comptage des mots.
 
-For the details of creating a .Net application for submitting MapReduce jobs, see [Submit MapReduce jobs using HDInsight .NET SDK][Envoi de tâches MapReduce avec le Kit de développement logiciel (SDK) .NET HDInsight].
+Pour des informations détaillées sur la création d'une application .Net pour l'envoi de tâches MapReduce, consultez la page [Envoi de tâches MapReduce avec le Kit de développement logiciel (SDK) .NET HDInsight][Envoi de tâches MapReduce avec le Kit de développement logiciel (SDK) .NET HDInsight].
 
-For more information on developing and deploying Hadoop streaming jobs, see [Develop C# Hadoop streaming programs for HDInsight][Develop C# Hadoop streaming programs for HDInsight].
+Pour plus d'informations sur le développement et le déploiement de tâches de diffusion en continu Hadoop, consultez la page [Développement de programmes de diffusion en continu Hadoop en C# pour HDInsight][Développement de programmes de diffusion en continu Hadoop en C# pour HDInsight].
 
     using System;
     using System.Collections.Generic;
@@ -521,7 +521,9 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
   [Envoi de tâches MapReduce avec PowerShell]: #mapreduce-powershell
   [Envoi de tâches Hive avec PowerShell]: #hive-powershell
   [Envoi de tâches Sqoop avec PowerShell]: #sqoop-powershell
-  [Submit Hadoop Streaming MapReduce jobs using HDInsight .NET SDK]: #streaming-sdk
+  [Envoi de tâches MapReduce avec le Kit de développement logiciel (SDK) .NET HDInsight]: #mapreduce-sdk
+  [Envoi de tâches MapReduce de diffusion en continu Hadoop avec le Kit de développement logiciel (SDK) .NET HDInsight]: #streaming-sdk
+  [Envoi de tâches Hive avec le Kit de développement logiciel (SDK) .NET HDInsight]: #hive-sdk
   [Étapes suivantes]: #nextsteps
   [Administration de HDInsight avec PowerShell]: ../hdinsight-administer-use-powershell/
   [Utilisation de MapReduce avec HDInsight]: ../hdinsight-use-mapreduce/
@@ -534,6 +536,6 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
   [NuGet]: http://nuget.codeplex.com/wikipage?title=Getting%20Started
   [portail de gestion Azure]: http://manage.windowsazure.com/
   [Créer et télécharger un certificat de gestion pour Windows Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg551722.aspx
-  [Develop C# Hadoop streaming programs for HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+  [Développement de programmes de diffusion en continu Hadoop en C# pour HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
   [Documentation de référence des cmdlets HDInsight]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn479228.aspx
   [Utilisation de Pig avec HDInsight]: ../hdinsight-use-pig/

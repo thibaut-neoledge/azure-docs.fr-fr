@@ -1,4 +1,4 @@
-<properties linkid="dev-java-vm-application-server" urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat on a virtual machine - Azure tutorial" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a Java application server on a virtual machine" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat sur une machine virtuelle - Didacticiel&nbsp;Azure" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Apprenez &agrave; cr&eacute;er une machine virtuelle&nbsp;Windows et &agrave; la configurer pour ex&eacute;cuter un serveur d'applications&nbsp;Apache&nbsp;Tomcat." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="Ex&eacute;cution d'un serveur d'applications Java sur une machine virtuelle" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
@@ -28,19 +28,24 @@ Ce didacticiel nécessite l'installation d'un serveur d'applications Apache Tomc
     Notez que **Windows Server 2012 JDK 6** est disponible si vous ne pouvez pas exécuter certaines de vos applications héritées dans JDK 7.
 4.  Cliquez sur **Suivant**.
 5.  Dans la boîte de dialogue **Virtual machine configuration** :
+
     1.  Entrez un nom pour la machine virtuelle.
     2.  Entrez la taille de la machine virtuelle.
     3.  Entrez un nom pour l'administrateur dans le champ **Nom d'utilisateur**. Notez le nom et le mot de passe que vous allez entrer, car vous les utiliserez pour vous connecter à distance à votre machine virtuelle.
     4.  Entrez un mot de passe dans le champ **Nouveau mot de passe**, puis entrez-le de nouveau dans le champ **Confirmer**. Il s'agit du mot de passe du compte Administrateur.
     5.  Cliquez sur **Suivant**.
+
 6.  Dans la boîte de dialogue **Virtual machine configuration** suivante :
+
     1.  Pour **Cloud service**, utilisez la valeur par défaut **Create a new cloud service**.
     2.  La valeur pour **Cloud service DNS name** doit être unique sur cloudapp.net. Le cas échéant, modifiez cette valeur pour qu'Azure indique qu'elle est unique.
     3.  Indiquez une région, un groupe d'affinités ou un réseau virtuel. Dans le cadre de ce didacticiel, indiquez une région comme **Bretagne**.
     4.  Pour **Storage Account**, sélectionnez **Use an automatically generated storage account**.
     5.  Pour **Availability Set**, sélectionnez **(None)**.
     6.  Cliquez sur **Suivant**.
+
 7.  Dans la dernière boîte de dialogue **Virtual machine configuration** :
+
     1.  Validez les entrées de points de terminaison par défaut.
     2.  Cliquez sur **Terminé**.
 
@@ -49,8 +54,9 @@ Ce didacticiel nécessite l'installation d'un serveur d'applications Apache Tomc
 1.  Connectez-vous au [portail de gestion][portail de gestion Azure].
 2.  Cliquez sur **Machines virtuelles**.
 3.  Cliquez sur le nom de la machine virtuelle à laquelle vous voulez vous connecter.
-4.  Cliquez sur **Connecter**.
-5.  Répondez aux invites pour vous connecter à la machine virtuelle. Lorsque vous y êtes invité, entrez le nom d'administrateur et le mot de passe fournis lors de la création de la machine virtuelle.
+4.  Lorsque la machine virtuelle a démarré, un menu contextuel au bas de la page autorise les connexions.
+5.  Cliquez sur **Connecter**.
+6.  Répondez aux invites pour vous connecter à la machine virtuelle. Cela implique d'enregistrer ou d'ouvrir le fichier .rdp qui contient les informations de connexion. Vous devrez peut-être copier le port url:port à la dernière partie de la première ligne du fichier .rdp et le coller dans une application de connexion distante.
 
 ## Installation d'un serveur d'applications Java sur votre machine virtuelle
 
@@ -80,6 +86,7 @@ Pour démarrer Tomcat depuis des machines externes, vous devez créer un point d
 5.  Cliquez sur **Add**.
 6.  Dans la boîte de dialogue **Ajouter un point de terminaison**, vérifiez que la case à cocher **Add standalone endpoint** est activée, puis cliquez sur **Suivant**.
 7.  Dans la boîte de dialogue **New endpoint details** :
+
     1.  Entrez un nom pour le point de terminaison, par exemple **HttpIn**.
     2.  Indiquez **TCP** pour le protocole.
     3.  Indiquez **80** pour le port public.
@@ -94,29 +101,29 @@ Pour démarrer Tomcat depuis des machines externes, vous devez créer un point d
 4.  Cliquez sur **Système et sécurité**, sur **Pare-feu Windows**, puis sur **Paramètres avancés**.
 5.  Cliquez sur **Règles de trafic entrant**, puis sur **Nouvelle règle**.
 
-	![Nouvelle règle de trafic entrant][Nouvelle règle de trafic entrant]
+![Nouvelle règle de trafic entrant][Nouvelle règle de trafic entrant]
 
 1.  Pour la nouvelle règle, sélectionnez **Port** pour le **Type de règle**, puis cliquez sur **Suivant**.
 
-	![Porte de nouvelle règle de trafic entrant][Porte de nouvelle règle de trafic entrant]
+![Porte de nouvelle règle de trafic entrant][Porte de nouvelle règle de trafic entrant]
 
 1.  Sélectionnez **TCP** pour le protocole et indiquez **8080** pour le port, puis cliquez sur **Suivant**.
 
-	![Nouvelle règle de trafic entrant][1]
+![Nouvelle règle de trafic entrant][1]
 
 1.  Sélectionnez **Autoriser la connexion**, puis cliquez sur **Suivant**.
 
-	![Action de nouvelle règle de trafic entrant][Action de nouvelle règle de trafic entrant]
+![Action de nouvelle règle de trafic entrant][Action de nouvelle règle de trafic entrant]
 
 1.  Vérifiez que les cases à cocher **Domaine**, **Privé** et **Public** sont activées pour le profil, puis cliquez sur **Suivant**.
 
-	![Profil de nouvelle règle de trafic entrant][Profil de nouvelle règle de trafic entrant]
+![Profil de nouvelle règle de trafic entrant][Profil de nouvelle règle de trafic entrant]
 
 1.  Indiquez un nom pour la règle, comme **HttpIn** (il n'est pas nécessaire que ce nom corresponde à celui du point de terminaison), puis cliquez sur **Terminer**.
 
-	![Nom de nouvelle règle de trafic entrant][Nom de nouvelle règle de trafic entrant]
+![Nom de nouvelle règle de trafic entrant][Nom de nouvelle règle de trafic entrant]
 
-Vous pouvez désormais afficher votre site Web Tomcat dans un navigateur externe, en utilisant une URL au format **http://*votre_nom_DNS*.cloudapp.net**, où ***votre_nom_DNS*** correspond au nom DNS que vous avez indiqué lors de la création de la machine virtuelle.
+Vous pouvez désormais afficher votre site web Tomcat dans un navigateur externe, en utilisant une URL au format **http://*votre\_nom\_DNS*.cloudapp.net**, où ***votre\_nom\_DNS*** correspond au nom DNS que vous avez indiqué lors de la création de la machine virtuelle.
 
 ## Considérations relatives au cycle de vie de l'application
 
@@ -132,7 +139,6 @@ Vous pouvez désormais afficher votre site Web Tomcat dans un navigateur externe
 -   Pour en savoir plus sur les autres services, tels que le stockage Azure, Service Bus, la base de données SQL, etc. à inclure dans vos applications Java, consultez les informations disponibles sur la page <http://www.windowsazure.com/fr-fr/develop/java/>.
 
   [Machine virtuelle exécutant Apache Tomcat]: ./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png
-  [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [portail de gestion Azure]: https://manage.windowsazure.com
   [Nouvelle règle de trafic entrant]: ./media/virtual-machines-java-run-tomcat-application-server/NewInboundRule.png
   [Porte de nouvelle règle de trafic entrant]: ./media/virtual-machines-java-run-tomcat-application-server/NewRulePort.png

@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-deliver-apple-live-streaming" urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="How to Deliver Apple HTTP Live Streaming (HLS) - Azure" metaKeywords="" description="Learn how to create a locator to Apple HTTP Live Stream (HLS) content on Media Services origin server. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver Apple HLS streaming content" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="Remise de contenu de diffusion en continu HTTP (HLS) Apple - Azure" metaKeywords="" description="Apprenez &agrave; cr&eacute;er un localisateur renvoyant vers du contenu de diffusion en continu HTTP (HLS) Apple sur un serveur d'origine Media Services. Les exemples de code sont &eacute;crits en C# et utilisent le Kit de d&eacute;veloppement logiciel (SDK) Media Services pour .NET." metaCanonical="" services="media-services" documentationCenter="" title="Utilisation de contenu de diffusion en continu HLS Apple" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # Utilisation de contenu de diffusion en continu HLS Apple
 
-Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [Fourniture de contenu de diffusion en continu][].
+Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [Fourniture de contenu de diffusion en continu][Fourniture de contenu de diffusion en continu].
 
 Cette rubrique décrit la création d'un localisateur renvoyant vers du contenu de diffusion en continu HTTP (HLS) Apple sur un serveur d'origine Media Services. Cette méthode vous permet de créer une URL renvoyant vers du contenu de diffusion en continu HTTP (HLS) Apple qui permettra la lecture de contenu en continu sur des appareils iOS Apple. Le principe de base pour la création de l'URL du localisateur est identique. Générez un localisateur renvoyant vers le chemin d'accès de l'élément multimédia de diffusion en continu HTTP (HLS) Apple sur un serveur d'origine, puis créez une URL complète renvoyant vers le fichier manifeste du contenu de diffusion en continu.
 
@@ -57,31 +57,31 @@ Le code suivant montre comment implémenter les étapes :
         return originLocator;
     }
 
-Pour plus d'informations sur la fourniture d'éléments multimédias, consultez les rubriques suivantes :
+Pour plus d'informations sur la fourniture des éléments multimédias, consultez les pages suivantes :
 
--   [Fourniture des éléments multimédias avec Media Services pour .NET][]
--   [Fourniture des éléments multimédias avec l'API REST de Media Services][]
+-   [Fourniture des éléments multimédias avec Media Services pour .NET][Fourniture des éléments multimédias avec Media Services pour .NET]
+-   [Fourniture des éléments multimédias avec l'API REST de Media Services][Fourniture des éléments multimédias avec l'API REST de Media Services]
 
 </p>
 ## Étapes suivantes
 
 Cette rubrique est la dernière consacrée à l'utilisation d'Azure Media Services. Nous avons abordé la configuration de votre ordinateur pour le développement Media Services et l'exécution de tâches de programmation classiques. Pour plus d'informations sur la programmation Media Services, consultez les ressources suivantes :
 
--   [Documentation Azure Media Services][]
--   [Prise en main du Kit de développement logiciel (SDK) Media Services pour .NET][]
--   [Création d'applications avec le Kit de développement logiciel (SDK) Media Services pour .NET][]
--   [Création d'applications avec l'API REST d'Azure Media Services][]
--   [Forum Media Services][]
--   [Surveillance d'un compte Media Services][]
--   [Gestion du contenu dans Media Services][]
+-   [Documentation Azure Media Services][Documentation Azure Media Services]
+-   [Prise en main du Kit de développement logiciel (SDK) Media Services pour .NET][Prise en main du Kit de développement logiciel (SDK) Media Services pour .NET]
+-   [Création d'applications avec le Kit de développement logiciel (SDK) Media Services pour .NET][Création d'applications avec le Kit de développement logiciel (SDK) Media Services pour .NET]
+-   [Création d'applications avec l'API REST d'Azure Media Services][Création d'applications avec l'API REST d'Azure Media Services]
+-   [Forum Media Services][Forum Media Services]
+-   [Surveillance d'un compte Media Services][Surveillance d'un compte Media Services]
+-   [Gestion du contenu dans Media Services][Gestion du contenu dans Media Services]
 
-  [Fourniture de contenu de diffusion en continu]: http://go.microsoft.com/fwlink/?LinkID=301942&clcid=0x409
-  [Fourniture des éléments multimédias avec Media Services pour .NET]: http://msdn.microsoft.com/en-us/library/jj129575.aspx
-  [Fourniture des éléments multimédias avec l'API REST de Media Services]: http://msdn.microsoft.com/en-us/library/jj129578.aspx
+  [Fourniture de contenu de diffusion en continu]: ../media-services-deliver-streaming-content/
+  [Fourniture des éléments multimédias avec Media Services pour .NET]: http://msdn.microsoft.com/fr-fr/library/jj129575.aspx
+  [Fourniture des éléments multimédias avec l'API REST de Media Services]: http://msdn.microsoft.com/fr-fr/library/jj129578.aspx
   [Documentation Azure Media Services]: http://go.microsoft.com/fwlink/?linkid=245437
   [Prise en main du Kit de développement logiciel (SDK) Media Services pour .NET]: http://go.microsoft.com/fwlink/?linkid=252966
   [Création d'applications avec le Kit de développement logiciel (SDK) Media Services pour .NET]: http://go.microsoft.com/fwlink/?linkid=247821
   [Création d'applications avec l'API REST d'Azure Media Services]: http://go.microsoft.com/fwlink/?linkid=252967
   [Forum Media Services]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
-  [Surveillance d'un compte Media Services]: http://www.windowsazure.com/en-us/manage/services/media-services/how-to-monitor-a-media-services-account/
-  [Gestion du contenu dans Media Services]: http://www.windowsazure.com/en-us/manage/services/media-services/how-to-manage-content-in-media-services/
+  [Surveillance d'un compte Media Services]: ../media-services-monitor-services-account/
+  [Gestion du contenu dans Media Services]: ../media-services-manage-content/

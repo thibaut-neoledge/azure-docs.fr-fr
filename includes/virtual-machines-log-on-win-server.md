@@ -1,4 +1,4 @@
-<properties linkid="manage-windows-howto-logon" urlDisplayName="Log on to a VM" pageTitle="Log on to a virtual machine running Windows Server" metaKeywords="Azure logging on vm, vm portal" description="Learn how to log on to a virtual machine running Windows Server 2008 R2 by using the Azure Management Portal." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Log on to a Virtual Machine Running Windows Server" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
+<properties linkid="manage-windows-howto-logon" urlDisplayName="Log on to a VM" pageTitle="Connexion &agrave; une machine virtuelle ex&eacute;cutant&nbsp;Windows&nbsp;Server" metaKeywords="Azure logging on vm, vm portal" description="Apprenez &agrave; vous connecter &agrave; une machine virtuelle ex&eacute;cutant Windows Server&nbsp;2008 R2 &agrave; l'aide du portail de gestion Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Connexion &agrave; une machine virtuelle ex&eacute;cutant Windows Server" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
 
 > [WACOM.NOTE] Pour connaître les conditions requises et obtenir des astuces concernant le dépannage, consultez la page [Se connecter à une machine virtuelle Azure avec RDP ou SSH][Se connecter à une machine virtuelle Azure avec RDP ou SSH].
 
@@ -12,13 +12,13 @@
 
 4.  Cliquez sur **Ouvrir** pour utiliser le fichier de protocole RDP (Remote Desktop Protocol) qui a été créé automatiquement pour la machine virtuelle.
 
-5.  Cliquez sur **Connecter** pour continuer le processus de connexion.
+5.  Cliquez sur **Connect** pour continuer le processus de connexion.
 
     ![Poursuivre la connexion][Poursuivre la connexion]
 
 6.  Tapez le nom d'utilisateur et le mot de passe du compte d'administration sur la machine virtuelle, puis cliquez sur **OK**.
 
-7.  Cliquez sur **Oui** pour vérifier l'identité de la machine virtuelle.
+7.  Cliquez sur **Yes** pour vérifier l'identité de la machine virtuelle.
 
     ![Vérifier l'identité de la machine][Vérifier l'identité de la machine]
 

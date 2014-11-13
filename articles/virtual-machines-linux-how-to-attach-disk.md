@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-howto-attach-a-disk" urlDisplayName="Attach a disk" pageTitle="Attach a disk to a virtual machine running Linux in Azure" metaKeywords="disk VM Azure, initialize new disk Azure, initialize disk Azure Linux, attaching empty disk Azure" description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use." metaCanonical="http://www.windowsazure.com/fr-fr/manage/windows/how-to-guides/attach-a-disk/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Attach a disk" pageTitle="Association d'un disque &agrave; une machine virtuelle&nbsp;ex&eacute;cutant&nbsp;Linux dans&nbsp;Azure" metaKeywords="disk VM Azure, initialize new disk Azure, initialize disk Azure Linux, attaching empty disk Azure" description="Apprenez &agrave; associer un disque &agrave; une machine virtuelle&nbsp;Azure et initialisez-le afin qu'il soit pr&ecirc;t &agrave; l'utilisation." metaCanonical="http://www.windowsazure.com/fr-fr/manage/windows/how-to-guides/attach-a-disk/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="7/29/2014" ms.author="kathydav" />
 
@@ -106,7 +106,6 @@ Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas,
   [Association d'un disque vide]: #attachempty
   [Association d'un disque existant]: #attachexisting
   [Initialisation d’un nouveau disque de données sous Linux]: #initializeinlinux
-  [howto-attach-disk-windows-linux]: ../includes/howto-attach-disk-windows-linux.md
   [Connexion à une machine virtuelle exécutant Linux]: ../virtual-machines-linux-how-to-log-on/
   [Obtenir les messages du disque]: ./media/virtual-machines-linux-how-to-attach-disk/DiskMessages.png
   [Créer un appareil]: ./media/virtual-machines-linux-how-to-attach-disk/DiskPartition.png

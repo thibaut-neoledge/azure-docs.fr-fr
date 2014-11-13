@@ -1,6 +1,6 @@
-<properties linkid="manage-services-how-to-monitor-a-cloud-service" urlDisplayName="How to monitor" pageTitle="How to monitor a cloud service - Azure" metaKeywords="Azure monitoring cloud services, Azure Management Portal cloud services" description="Learn how to monitor cloud services by using the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Monitor Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="How to monitor" pageTitle="Surveillance d'un service cloud - Azure" metaKeywords="Azure monitoring cloud services, Azure Management Portal cloud services" description="D&eacute;couvrez comment surveiller des services cloud dans le portail de gestion Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="Surveillance des services cloud" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="ryanwi" />
 
 # Surveillance des services cloud
 
@@ -8,7 +8,7 @@
 
 Vous pouvez surveiller les indicateurs de performances clés de vos services cloud dans le portail de gestion Azure. Vous pouvez régler un niveau de surveillance minimal ou détaillé pour chaque rôle de service, et vous pouvez personnaliser les affichages de la surveillance. Les données de la surveillance détaillée sont stockées dans un compte de stockage, auquel vous pouvez accéder en dehors du portail.
 
-Les affichages de surveillance dans le portail de gestion sont configurables à loisir. Vous pouvez choisir les mesures à surveiller dans la liste des mesures de la page **Monitor**, et choisir les mesures à afficher dans les graphiques sur la page **Monitor** et dans le tableau de bord.
+Les affichages de surveillance dans le portail de gestion sont configurables à loisir. Vous pouvez choisir les mesures à surveiller dans la liste des mesures de la page **Surveiller** et vous pouvez choisir les mesures à afficher dans les graphiques sur la page **Surveiller** et dans le tableau de bord.
 
 ## Sommaire
 
@@ -24,7 +24,7 @@ Les affichages de surveillance dans le portail de gestion sont configurables à 
 Par défaut, une surveillance minimale est fournie pour le nouveau service cloud à l'aide de compteurs de performances récupérés sur le système d'exploitation hôte pour les instances de rôle (machines virtuelles). Les mesures minimales sont limitées au pourcentage processeur, aux données entrantes, aux données sortantes, au débit d'écriture sur le disque et au débit de lecture sur le disque. En configurant la surveillance détaillée, vous obtenez des mesures supplémentaires basées sur les données de performances dans les machines virtuelles (instances de rôle). Les mesures détaillées offrent une analyse plus fine des problèmes qui surviennent au cours du fonctionnement de l'application.
 
 > [WACOM.NOTE]
-> Si vous utilisez la surveillance détaillée, vous pouvez ajouter d'autres compteurs de performances au démarrage de l'instance de rôle, via un fichier de configuration du diagnostic, ou bien à distance à l'aide de l'API Azure Diagnostics. Pour pouvoir surveiller ces mesures dans le portail de gestion, vous devez ajouter les compteurs de performances avant de configurer la surveillance détaillée. Pour plus d'informations, consultez les pages [Recueillir des données de journaux à l'aide des diagnostics Windows Azure][Recueillir des données de journaux à l'aide des diagnostics Windows Azure] et [Créer et utiliser des compteurs de performances dans une application Windows Azure][Créer et utiliser des compteurs de performances dans une application Windows Azure].
+> Si vous utilisez la surveillance détaillée, vous pouvez ajouter d'autres compteurs de performances au démarrage de l'instance de rôle, via un fichier de configuration du diagnostic. Pour pouvoir surveiller ces mesures dans le portail de gestion, vous devez ajouter les compteurs de performances avant de configurer la surveillance détaillée. Pour plus d'informations, consultez la page [Activation de Diagnostics dans Azure Cloud Services et Azure Virtual Machines][Activation de Diagnostics dans Azure Cloud Services et Azure Virtual Machines].
 
 Par défaut, les données des compteurs de performances des instances de rôle sont échantillonnées et transférées à partir de l'instance de rôle toutes les 3 minutes. Lorsque vous activez la surveillance détaillée, les données brutes des compteurs de performances sont consolidées pour chaque instance de rôle et pour toutes les instances de rôle de chaque rôle toutes les 5 minutes, toutes les heures et toutes les 12 heures. Les données consolidées sont purgées tous les 10 jours.
 
@@ -41,7 +41,7 @@ Les procédures suivantes permettent de configurer la surveillance minimale ou d
 -   Créez un compte de stockage pour stocker les données de surveillance. Vous pouvez utiliser différents comptes de stockage pour différents rôles. Pour plus d'informations, consultez **Comptes de stockage** ou la page [Création d'un compte de stockage][Création d'un compte de stockage].
 
 -   Activez le diagnostic Azure pour vos rôles de service cloud.
-    Vous devez mettre à jour le fichier de définition de service cloud (.csdef) et le fichier de configuration de service cloud (.cscfg). Pour plus d'informations, consultez la page [Configuration des diagnostics Azure][Configuration des diagnostics Azure].
+    Pour plus d'informations, consultez la page [Activation de Diagnostics dans Azure Cloud Services et Azure Virtual Machines][1].
 
 Dans le portail de gestion, vous pouvez ajouter ou modifier les chaînes de connexion de diagnostic utilisées par Azure Diagnostics pour accéder aux comptes de stockage qui contiennent les données de la surveillance détaillée, et vous pouvez choisir le niveau de surveillance minimal ou détaillé. Comme la surveillance détaillée stocke les données dans un compte de stockage, vous devez configurer les chaînes de connexion de diagnostic avant de sélectionner le niveau de surveillance détaillé.
 
@@ -55,7 +55,7 @@ Dans le portail de gestion, vous pouvez ajouter ou modifier les chaînes de conn
 
 4.  Cliquez sur **Configurer**.
 
-    Vous allez modifier les paramètres **monitoring** en haut de la page **Configure** présentée ci-dessous. Si vous n'avez pas activé Azure Diagnostics pour le service cloud, l'option **Level** n'est pas disponible. Vous ne pouvez pas modifier la stratégie de rétention des données. Les données de la surveillance détaillée d'un service cloud sont stockées pendant 10 jours.
+    Vous allez modifier les paramètres **monitoring** en haut de la page **Configurer** présentée ci-dessous . Si vous n'avez pas activé Azure Diagnostics pour le service cloud, l'option **Level** n'est pas disponible. Vous ne pouvez pas modifier la stratégie de rétention des données. Les données de la surveillance détaillée d'un service cloud sont stockées pendant 10 jours.
 
     ![Options de surveillance][Options de surveillance]
 
@@ -89,7 +89,7 @@ Vous pouvez recevoir des alertes en fonction des mesures de surveillance de votr
 
 1.  Dans le [portail de gestion][portail de gestion], ouvrez la page **Monitor** du service cloud.
 
-    Par défaut, la table des mesures affiche un sous-ensemble des mesures disponibles. Cette illustration présente les mesures détaillées par défaut d'un service cloud, qui sont limitées au compteur de performances Memory\\Available MBytes, avec les données consolidées au niveau du rôle. Utilisez **Add Metrics** pour sélectionner les données consolidées et les données au niveau du rôle à surveiller dans le portail de gestion.
+    Par défaut, la table des mesures affiche un sous-ensemble des mesures disponibles. Cette illustration présente les mesures détaillées par défaut d'un service cloud, qui sont limitées au compteur de performances Memory\\Available MBytes, avec les données consolidées au niveau du rôle. Utilisez **Ajouter des métriques** pour sélectionner les données consolidées et les données de niveau rôle à surveiller dans le portail de gestion.
 
     ![Affichage détaillé][Affichage détaillé]
 
@@ -107,10 +107,12 @@ Vous pouvez recevoir des alertes en fonction des mesures de surveillance de votr
 
     Vous pouvez afficher jusqu'à 50 mesures dans la table des mesures.
 
-    <div class="dev-callout"> 
-<b>Conseil</b> 
-<p>Dans le cas de la surveillance d&eacute;taill&eacute;e, la liste des mesures peut contenir des dizaines de mesures. Pour afficher une barre de d&eacute;filement, passez la souris sur la partie droite de la bo&icirc;te de dialogue. Pour filtrer la liste, cliquez sur l'ic&ocirc;ne de recherche, puis entrez du texte dans la zone de recherche comme illustr&eacute; ci-dessous.</p> 
-</div>
+    <div class="dev-callout">
+
+    **Conseil**
+    Dans le cas de la surveillance détaillée, la liste des mesures peut contenir des dizaines de mesures. Pour afficher une barre de défilement, passez la souris sur la partie droite de la boîte de dialogue. Pour filtrer la liste, cliquez sur l'icône de recherche, puis entrez du texte dans la zone de recherche comme illustré ci-dessous.
+
+    </div>
 
     ![Add metrics search][Add metrics search]
 
@@ -120,7 +122,7 @@ Vous pouvez recevoir des alertes en fonction des mesures de surveillance de votr
 
     ![mesures de surveillance][mesures de surveillance]
 
-4.  Pour supprimer une mesure de la table, cliquez sur la mesure pour la sélectionner, puis sur **Delete Metric**. (**Delete Metric** ne s'affiche que si une mesure est sélectionnée.)
+4.  Pour supprimer une mesure de la table, cliquez sur la mesure pour la sélectionner, puis cliquez sur **Supprimer une métrique**. (Vous ne verrez **Supprimer une métrique** que si une mesure est sélectionnée.)
 
 ## <span id="customizechart"></span></a> Personnalisation des graphiques de mesure
 
@@ -148,7 +150,7 @@ Vous pouvez recevoir des alertes en fonction des mesures de surveillance de votr
 
     -   Pour supprimer une mesure du graphique, désactivez la case à cocher à côté de son en-tête.
 
-3.  Basculez entre les affichages **Relative** et **Absolute**.
+3.  Basculez entre les affichages **Relatif** et **Absolu**.
 
 4.  Choisissez 1 heure, 24 heures ou 7 jours de données à afficher.
 
@@ -176,19 +178,17 @@ Par exemple, les tables suivantes stockent les données de la surveillance déta
 
     WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
 
-  [disclaimer]: ../includes/disclaimer.md
   [Concepts]: #concepts
   [Configuration de la surveillance pour les services cloud]: #verbose
   [Réception d'alertes pour les mesures de services cloud]: #receivealerts
   [Ajout de mesures à la table des mesures]: #addmetrics
   [Personnalisation des graphiques de mesure]: #customizechart
   [Accès aux données de la surveillance détaillée en dehors du portail de gestion]: #accessverbose
-  [Recueillir des données de journaux à l'aide des diagnostics Windows Azure]: http://msdn.microsoft.com/fr-fr/library/gg433048.aspx
-  [Créer et utiliser des compteurs de performances dans une application Windows Azure]: http://msdn.microsoft.com/fr-fr/library/hh411542.aspx
+  [Activation de Diagnostics dans Azure Cloud Services et Azure Virtual Machines]: http://azure.microsoft.com/fr-fr/documentation/articles/cloud-services-dotnet-diagnostics/
   [Création d'un compte de stockage]: /fr-fr/manage/services/storage/how-to-create-a-storage-account/
-  [Configuration des diagnostics Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn186185.aspx
+  [1]: /fr-fr/documentation/articles/cloud-services-dotnet-diagnostics/
   [portail de gestion Azure]: https://manage.windowsazure.com/
-  [Gestion des services cloud]: http://www.windowsazure.com/fr-fr/manage/services/cloud-services/how-to-manage-a-cloud-service/
+  [Gestion des services cloud]: /fr-fr/documentation/articles/cloud-services-how-to-manage/
   [Options de surveillance]: ./media/cloud-services-how-to-monitor/CloudServices_MonitoringOptions.png
   [Réception de notifications d'alerte et gestion des règles d'alerte dans Azure]: http://go.microsoft.com/fwlink/?LinkId=309356
   [portail de gestion]: http://manage.windowsazure.com/

@@ -1,6 +1,6 @@
-<properties title="How to use the queue service (PHP) - Azure feature guide" pageTitle="How to use the queue service (PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." documentationCenter="PHP" services="storage" authors="" />
+<properties title="Utilisation du service de File d'attente (PHP)&nbsp;&ndash; Guide des fonctionnalit&eacute;s Azure" pageTitle="Utilisation du service de File d'attente (PHP) | Microsoft&nbsp;Azure" metaKeywords="Azure Queue Service messaging PHP" description="D&eacute;couvrez comment utiliser le service de File d'attente Azure pour cr&eacute;er et supprimer des files d'attente, ainsi que pour ins&eacute;rer, r&eacute;cup&eacute;rer et supprimer des messages. Les exemples sont &eacute;crits en PHP." documentationCenter="PHP" services="storage" authors="tamram" manager="adinah" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Utilisation du service de file d'attente à partir de PHP
 
@@ -34,7 +34,7 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utili
 
 La référence de classes dans le Kit de développement logiciel (SDK) Azure pour PHP constitue la seule exigence pour créer une application PHP qui accède au service de file d'attente Azure dans votre code. Vous pouvez utiliser tous les outils de développement pour créer votre application, y compris Bloc-notes.
 
-Dans ce guide, vous allez utiliser des fonctionnalités de service de File d'attente qui peuvent être appelées dans une application PHP en local, ou dans le code s'exécutant dans un rôle web, un rôle de travail ou un site web Azure.
+Dans ce guide, vous allez utiliser des fonctionnalités du service de File d'attente qui peuvent être appelées dans une application PHP localement, ou dans du code qui s'exécute dans un rôle web, un rôle de travail ou un site web Azure.
 
 ## <span id="GetClientLibrary"></span></a>Obtention des bibliothèques clientes Azure
 
@@ -50,12 +50,12 @@ Pour utiliser les API du service de file d'attente Azure, vous devez procéder c
 L'exemple suivant montre comment inclure le fichier du chargeur automatique et référencer la classe **ServicesBuilder**.
 
 > [WACOM.NOTE]
-> Cet exemple et d'autres exemples de cet article partent du principe que vous avez installé les bibliothèques clientes PHP pour Azure via Composer. Si vous avez installé les bibliothèques manuellement ou en tant que package PEAR, vous devez faire référence au fichier de chargeur automatique `WindowsAzure.php` .
+> Cet exemple et d'autres exemples de cet article partent du principe que vous avez installé les bibliothèques clientes PHP pour Azure via Composer. Si vous avez installé les bibliothèques manuellement ou en tant que package PEAR, vous devez référencer le fichier de chargeur automatique `WindowsAzure.php`.
 
     require_once 'vendor\autoload.php';
     use WindowsAzure\Common\ServicesBuilder;
 
-Dans les exemples ci-dessous, l'instruction `require_once` sera toujours affichée, mais seules les classes nécessaires à l'exécution de l'exemple seront référencées.
+Dans les exemples ci-dessous, l'instruction `require_once` s'affichera toujours, mais seules les classes nécessaires aux besoins de l'exemple à exécuter sont référencées.
 
 ## <span id="connection-string"></span></a>Configuration d'une chaîne de connexion de stockage Azure
 
@@ -394,7 +394,5 @@ Maintenant que vous avez appris les principes de base du service de file d'atten
   [Obtention de la longueur de la file d'attente]: #get-queue-length
   [Suppression d'une file d'attente]: #delete-queue
   [1]: #next-steps
-  [howto-queue-storage]: ../includes/howto-queue-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [get-client-libraries]: ../includes/get-client-libraries.md
+  [require\_once]: http://www.php.net/manual/en/function.require-once.php
   [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx

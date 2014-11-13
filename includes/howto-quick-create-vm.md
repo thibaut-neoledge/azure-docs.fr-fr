@@ -4,17 +4,17 @@
 
 La méthode **Quick Create** permet de créer rapidement une machine virtuelle dans le portail de gestion. Lorsque vous créez cette machine, une seule boîte de dialogue vous invite à fournir les détails de configuration.
 
-**Remarque** : cet article permet de créer une machine virtuelle qui n’est pas connectée à un réseau virtuel. Si vous souhaitez que la machine virtuelle utilise un réseau virtuel, utilisez plutôt la méthode **From Gallery** et spécifiez le réseau virtuel lors de la création de la machine virtuelle. Pour plus d’informations sur les réseaux virtuels, consultez la page [Présentation du réseau virtuel Azure][].
+**Remarque** : cet article permet de créer une machine virtuelle qui n’est pas connectée à un réseau virtuel. Si vous souhaitez que la machine virtuelle utilise un réseau virtuel, utilisez plutôt la méthode **From Gallery** et spécifiez le réseau virtuel lors de la création de la machine virtuelle. Pour plus d’informations sur les réseaux virtuels, consultez la page [Présentation du réseau virtuel Azure][Présentation du réseau virtuel Azure].
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 
 2.  Dans la barre de commandes, cliquez sur **New**.
 
-    ![Création d’une machine virtuelle][]
+    ![Création d’une machine virtuelle][Création d’une machine virtuelle]
 
 3.  Cliquez sur **Virtual Machines**, puis sur **Quick Create**.
 
-    ![Créer rapidement une machine virtuelle][]
+    ![Créer rapidement une machine virtuelle][Créer rapidement une machine virtuelle]
 
     La boîte de dialogue **Create a New Virtual Machine** s’affiche.
 
@@ -32,7 +32,7 @@ La méthode **Quick Create** permet de créer rapidement une machine virtuelle d
 
     La nouvelle machine virtuelle est répertoriée sur la page **Virtual Machines**.
 
-    ![Machine virtuelle correctement créée][]
+    ![Machine virtuelle correctement créée][Machine virtuelle correctement créée]
 
   [Présentation du réseau virtuel Azure]: http://go.microsoft.com/fwlink/p/?LinkID=294063
   [portail de gestion Azure]: http://manage.windowsazure.com

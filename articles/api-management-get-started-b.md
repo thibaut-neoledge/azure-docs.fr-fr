@@ -1,4 +1,6 @@
-<properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+<properties pageTitle="Prise en main de Gestion des API Azure" metaKeywords="" description="D&eacute;couvrez comment cr&eacute;er des API, des op&eacute;rations et comment prendre en main la gestion des API" metaCanonical="" services="api-management" documentationCenter="API Management" title="Prise en main de Gestion des API Azure" authors="sdanie" solutions="" manager="dwrede" editor="" />
+
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Prise en main de Gestion des API Azure
 
@@ -47,7 +49,7 @@ Pour créer **Mon API d'écho**, cliquez sur **API** dans le menu **Gestion des 
 Les trois champs suivants permettent de configurer la nouvelle API.
 
 -   Tapez **Mon API d'écho** dans la zone **Titre d'API web**. **Titre d'API web** fournit un nom descriptif unique pour l'API. Il s'affiche dans les portails des développeurs et de gestion.
--   Tapez **<http://echoapi.cloudapp.net/api>** dans l'**URL du service web**. L'**URL du service web** indique le service HTTP implémentant l'API. La gestion des API transmet les demandes à cette adresse.
+-   Tapez **http://echoapi.cloudapp.net/api** dans l'**URL du service web**. L'**URL du service web** indique le service HTTP implémentant l'API. La gestion des API transmet les demandes à cette adresse.
 -   Tapez **monécho** dans le **suffixe de l'URL d'API web**. Le **suffixe de l'URL d'API web** est ajouté à l'URL de base du service Gestion des API. Vos API partageront une URL de base commune et se distingueront par un suffixe unique ajouté après la base.
 
 Cliquez sur **Enregistrer** pour créer l'API. Une fois l'API créée, la page Résumé de l'API s'affiche dans le portail de gestion.

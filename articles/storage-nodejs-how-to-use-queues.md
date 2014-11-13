@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Node.js) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Node.js" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Queue Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Queue Service" pageTitle="Utilisation du service de File d'attente (Node.js) | Microsoft&nbsp;Azure" metaKeywords="Azure Queue Service get messages Node.js" description="D&eacute;couvrez comment utiliser le service de File d'attente Azure pour cr&eacute;er et supprimer des files d'attente, ainsi que pour ins&eacute;rer, r&eacute;cup&eacute;rer et supprimer des messages. Les exemples sont &eacute;crits en Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="Utilisation du service de file d'attente &agrave; partir de Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Utilisation du service de file d'attente à partir de Node.js
 
@@ -41,13 +41,15 @@ Créez une application Node.js vide. Pour obtenir les instructions permettant de
 
 ## <a name="configure-access"> </a>Configuration de votre application pour accéder au stockage
 
-Pour utiliser le stockage Azure, vous avez besoin du Kit de développement logiciel (SDK) Azure Storage pour Node.js, qui inclut un ensemble de bibliothèques pratiques qui communiquent avec les services REST de stockage.
+Pour utiliser le stockage Azure, vous avez besoin du Kit de développement logiciel (SDK) Azure Storage pour Node.js, qui inclut un ensemble de bibliothèques pratiques qui
+communiquent avec les services REST de stockage.
 
 ### Utilisation de Node Package Manager (NPM) pour obtenir le package
 
 1.  Utilisez une interface de ligne de commande telle que **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix) pour accéder au dossier dans lequel vous avez créé votre exemple d'application.
 
-2.  Tapez **npm install azure-storage** dans la fenêtre de commande, ce qui doit aboutir à la sortie suivante :
+2.  Tapez **npm install azure-storage** dans la fenêtre de commande, ce qui doit aboutir à
+    la sortie suivante :
 
         azure-storage@0.1.0 node_modules\azure-storage
         ├── extend@1.2.1
@@ -59,11 +61,15 @@ Pour utiliser le stockage Azure, vous avez besoin du Kit de développement logic
         ├── xml2js@0.2.7 (sax@0.5.2)
         └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  Vous pouvez exécuter manuellement la commande **ls** pour vérifier que le dossier **node\_modules** a été créé. Dans ce dossier, recherchez le package **azure-storage** qui contient les bibliothèques dont vous avez besoin pour accéder au stockage.
+3.  Vous pouvez exécuter manuellement la commande **ls** pour vérifier que le dossier
+    **node\_modules** a été créé. Dans ce dossier,
+    recherchez le package **azure-storage** qui contient les bibliothèques dont vous avez besoin
+    pour accéder au stockage.
 
 ### Importation du package
 
-À l'aide d'un éditeur de texte, comme le Bloc-notes, ajoutez la commande suivante au début du fichier **server.js** de l'application dans laquelle vous souhaitez utiliser le stockage :
+À l'aide d'un éditeur de texte, comme le Bloc-notes, ajoutez la commande suivante au début du fichier
+**server.js** de l'application dans laquelle vous souhaitez utiliser le stockage :
 
     var azure = require('azure-storage');
 
@@ -80,7 +86,9 @@ d'utiliser les files d'attente.
 
     var queueSvc = azure.createQueueService();
 
-Utilisez la méthode **createQueueIfNotExists**, qui renvoie la file d'attente spécifiée si elle existe déjà ou crée une file d'attente avec le nom spécifié si elle n'existe pas encore.
+Utilisez la méthode **createQueueIfNotExists**, qui renvoie la file d'attente spécifiée
+si elle existe déjà ou crée une file d'attente avec le nom spécifié
+si elle n'existe pas encore.
 
     queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
       if(!error){
@@ -120,7 +128,9 @@ crée un message et l'ajoute à la file d'attente.
 
 ## <a name="peek-message"> </a> Lecture furtive du message suivant
 
-Vous pouvez lire le message en début de file d'attente sans le supprimer de la file d'attente en appelant la méthode **peekMessages**. Par défaut, **peekMessages** lit un seul message.
+Vous pouvez lire le message en début de file d'attente sans le supprimer
+de la file d'attente en appelant la méthode **peekMessages**. Par défaut,
+**peekMessages** lit un seul message.
 
     queueSvc.peekMessages('myqueue', function(error, result, response){
       if(!error){
@@ -340,11 +350,10 @@ pour apprendre à effectuer des tâches de stockage plus complexes.
   [Obtention de la longueur de la file d'attente]: #get-queue-length
   [Suppression d'une file d'attente]: #delete-queue
   [Utilisation des signatures d'accès partagé]: #sas
-  [howto-queue-storage]: ../includes/howto-queue-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Création et déploiement d'une application Node.js dans un site Web Azure]: /fr-fr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [Service cloud Node.js]: /fr-fr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Site Web avec WebMatrix]: /fr-fr/documentation/articles/web-sites-nodejs-use-webmatrix/
   [Application web Node.js avec stockage]: /fr-fr/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Kit de développement logiciel (SDK) Azure Storage pour Node]: https://github.com/Azure/azure-storage-node

@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-tutorials-smooth-streaming-windows-store-app" urlDisplayName="Smooth Streaming Windows Store App" pageTitle="Smooth Streaming Windows Store App - Azure .NET tutorials" metaKeywords="" description="Learn how to use Azure Media Services to create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content." metaCanonical="" services="media-services" documentationCenter="" title="How to Build a Smooth Streaming Windows Store Application" authors="Michael Greenn" solutions="" manager="" editor="" />
+<properties urlDisplayName="Smooth Streaming Windows Store App" pageTitle="Application Windows Store de diffusion en continu lisse - Didacticiels Azure .NET" metaKeywords="" description="Apprenez &agrave; utiliser Azure Media Services pour cr&eacute;er une application Windows Store en C# avec un contr&ocirc;le MediaElement XML pour lire du contenu de diffusion en continu lisse." metaCanonical="" services="media-services" documentationCenter="" title="G&eacute;n&eacute;ration d'une application Windows Store de diffusion en continu lisse" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Michael="" Greenn" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # Génération d'une application Windows Store de diffusion en continu lisse
 
@@ -29,8 +29,8 @@ Dans cette leçon, vous allez apprendre à créer une application Windows Store 
 
 ![Exemple d'application Windows Store de diffusion en continu lisse][Exemple d'application Windows Store de diffusion en continu lisse]
 
-For more information on developing Windows Store application, see [Develop Great Apps for Windows 8][Develop Great Apps for Windows 8].
-This lesson contains the following procedures:
+Pour plus d'informations sur le développement d'une application Windows Store, consultez la page [Développement d'applications fantastiques pour Windows 8][Développement d'applications fantastiques pour Windows 8].
+Cette leçon couvre les procédures suivantes :
 
 1.  Création d'un projet Windows Store
 2.  Conception de l'interface utilisateur (XAML)
@@ -39,19 +39,18 @@ This lesson contains the following procedures:
 
 **Création d'un projet Windows Store**
 
-1.  Exécutez Visual Studio 2012.
+1.  Exécutez Visual Studio 2012 ou une version ultérieure.
 2.  Dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
 3.  Dans la boîte de dialogue Nouveau projet, entrez ou sélectionnez les valeurs suivantes :
 
-	<table border="1">
-	<tr><th>Nom                                 </th><th>Valeur                                      </th></tr>
-    <tr><td>Groupe de modèles                   </td><td>Installed/Templates/Visual C#/Windows Store</td></tr>
-    <tr><td>Modèle                              </td><td>Application vide (XAML)                     </td></tr>
-    <tr><td>Nom                                 </td><td>SSPlayer                                    </td></tr>
-    <tr><td>Emplacement                         </td><td>C:\SSTutorials                             </td></tr>
-    <tr><td>Nom de la solution                  </td><td>SSPlayer                                    </td></tr>
-    <tr><td>Créer un répertoire pour la solution</td><td>(sélectionné)                               </td></tr>
-	</table>
+    | Nom                                  | Valeur                                       |
+    |--------------------------------------|----------------------------------------------|
+    | Groupe de modèles                    | Installed/Templates/Visual C#/Windows Store |
+    | Modèle                               | Application vide (XAML)                      |
+    | Nom                                  | SSPlayer                                     |
+    | Emplacement                          | C:\\SSTutorials                              |
+    | Nom de la solution                   | SSPlayer                                     |
+    | Créer un répertoire pour la solution | (sélectionné)                                |
 
 4.  Cliquez sur **OK**.
 
@@ -60,11 +59,10 @@ This lesson contains the following procedures:
 1.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **SSPlayer**, puis cliquez sur **Ajouter une référence**.
 2.  Tapez ou sélectionnez les valeurs suivantes :
 
-	<table border="1">
-	<tr><th>Nom                 </th><th>Valeur                                                                                                                                               </th></tr>
-    <tr><td>Groupe de référence</td><td>Windows/Extensions                                                                                                                                   </td></tr>
-    <tr><td>Référence          </td><td>Sélectionnez le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows 8 et le package Runtime Microsoft Visual C++</td></tr>
-	</table>
+    | Nom                 | Valeur                                                                                                                                                |
+    |---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Groupe de référence | Windows/Extensions                                                                                                                                    |
+    | du SDK              | Sélectionnez le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows 8 et le package Runtime Microsoft Visual C++ |
 
 3.  Cliquez sur **OK**.
 
@@ -199,7 +197,7 @@ Le fichier code-behind terminé doit ressembler à ceci :
 3.  Appuyez sur **F6** pour compiler le projet.
 4.  Appuyez sur **F5** pour exécuter l'application.
 5.  Au début de l'application, vous pouvez utiliser l'URL de diffusion en continu lisse par défaut ou entrer une URL différente.
-6.  Cliquez sur **Définir la source**. Étant donné que la fonctionnalité **Lecture automatique** est activée par défaut, le fichier multimédia est lu automatiquement. You can control the media using the **Play**, **Pause** and **Stop** buttons. Vous pouvez contrôler le volume du fichier multimédia à l'aide du curseur vertical. Cependant, le curseur horizontal permettant de contrôler la progression du fichier multimédia n'est pas encore complètement implémenté.
+6.  Cliquez sur **Définir la source**. Étant donné que la fonctionnalité **Lecture automatique** est activée par défaut, le fichier multimédia est lu automatiquement. Vous pouvez contrôler le fichier multimédia à l'aide des boutons **Lecture**, **Pause** et **Arrêt**. Vous pouvez contrôler le volume du fichier multimédia à l'aide du curseur vertical. Cependant, le curseur horizontal permettant de contrôler la progression du fichier multimédia n'est pas encore complètement implémenté.
 
 Vous avez terminé la leçon 1. Dans cette leçon, vous avez utilisé un contrôle MediaElement pour lire du contenu de diffusion en continu lisse. Dans la leçon suivante, vous allez ajouter un curseur pour contrôler la progression du contenu de diffusion en continu lisse.
 
@@ -530,7 +528,7 @@ La diffusion en continu lisse permet de diffuser du contenu en continu proposant
 **Modification du fichier code-behind**
 
 1.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
-2.  Inside the SSPlayer namespace, add a new class:
+2.  Dans l'espace de noms SSPlayer, ajoutez une nouvelle classe :
      \#region class Stream
 
         public class Stream
@@ -963,12 +961,13 @@ Vous avez terminé la leçon 4 au cours de laquelle vous avez appris à ajouter
   [Player Framework for Windows 8]: http://playerframework.codeplex.com/
   [version d'évaluation de Windows 8 Entreprise]: http://msdn.microsoft.com/fr-fr/evalcenter/jj554510.aspx
   [ici]: http://www.microsoft.com/visualstudio/11/fr-fr/downloads
+  [Kit de développement logiciel (SDK) du client Microsoft de diffusion en continu lisse pour Windows 8]: http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home
   [Leçon 1]: http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "Lecteur multimédia simple de diffusion en continu lisse pour Windows 8"
   [Leçon 2]: http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "Lecteur multimédia simple de diffusion en continu lisse pour Windows 8 doté d'une barre de curseur de contrôle"
   [Leçon 3]: http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "Lecteur multimédia de diffusion en continu lisse pour Windows 8 avec sélection de flux"
   [Leçon 4]: http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "Lecteur multimédia de diffusion en continu lisse pour Windows 8 avec sélection des pistes"
   [Exemple d'application Windows Store de diffusion en continu lisse]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
-  [Develop Great Apps for Windows 8]: http://msdn.microsoft.com/fr-fr/windows/apps/br229512.aspx
+  [Développement d'applications fantastiques pour Windows 8]: http://msdn.microsoft.com/fr-fr/windows/apps/br229512.aspx
   [Codeview dans Visual Studio d'une application Windows Store de diffusion en continu lisse]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
   [Développement d'une application JavaScript de diffusion en continu lisse pour Windows 8 dotée de fonctionnalités avancées]: http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx
   [Présentation technique de la diffusion en continu lisse]: http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview

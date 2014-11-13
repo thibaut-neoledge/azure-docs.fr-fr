@@ -1,91 +1,68 @@
-<properties linkid="manage-services-hdinsight-howto-pig" urlDisplayName="Use Hadoop Pig in HDInsight" pageTitle="Use Hadoop Pig in HDInsight | Azure" metaKeywords="" description="Learn how to use Pig with HDInsight. Write Pig Latin statements to analyze an application log file, and run queries on the data to generate output for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop Pig in HDInsight" authors="jgao" solutions="big data" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Use Hadoop Pig in HDInsight" pageTitle="Utilisation de Hadoop Pig dans HDInsight | Azure" metaKeywords="" description="Apprenez &agrave; utiliser Pig avec HDInsight. &Eacute;crivez des instructions Pig Latin pour analyser le fichier journal d'une application et ex&eacute;cutez des requ&ecirc;tes sur les donn&eacute;es afin de g&eacute;n&eacute;rer un r&eacute;sultat &agrave; des fins d'analyse." metaCanonical="" services="hdinsight" documentationCenter="" title="Utilisation de Hadoop Pig dans HDInsight" authors="jgao" solutions="big data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/25/2014" ms.author="jgao" />
 
 # Utilisation de Pig avec Hadoop dans HDInsight
 
-Découvrez comment exécuter des tâches [Apache Pig][] dans HDInsight pour analyser un fichier journal Apache log4j.
+Ce didacticiel vous montre comment exécuter des tâches [Apache Pig][Apache Pig] sur HDInsight pour analyser des fichiers de données volumineux. Pig contient un langage de script pour exécuter les tâches *MapReduce*, ce qui permet d'éviter d'écrire du code Java. Le langage de script Pig est appelé *Pig Latin*.
+
+**Configuration requise**
+
+-   Vous devez avoir approvisionné un cluster Azure HDInsight. Pour obtenir des instructions, consultez le didacticiel [Prise en main d'Azure HDInsight][Prise en main d'Azure HDInsight] ou la rubrique [Mise en service de clusters HDInsight][Mise en service de clusters HDInsight]. Vous avez besoin du nom du cluster pour suivre le didacticiel.
+
+-   Vous devez avoir installé et configuré Azure PowerShell sur votre poste de travail. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][Installation et configuration d'Azure PowerShell].
 
 **Durée de réalisation estimée :** 30 minutes
 
 ## Dans cet article
 
--   [Pig : cas d'emploi][]
--   [Configuration requise][]
--   [Présentation de Pig Latin][]
--   [Envoi de tâches Pig avec PowerShell][]
--   [Envoi de tâches Pig avec le Kit de développement logiciel (SDK) .NET HDInsight][]
--   [Étapes suivantes][]
+-   [Pourquoi utiliser Pig ?][Pourquoi utiliser Pig ?]
+-   [Que dois-je faire dans ce didacticiel ?][Que dois-je faire dans ce didacticiel ?]
+-   [Identification des données à analyser][Identification des données à analyser]
+-   [Présentation de Pig Latin][Présentation de Pig Latin]
+-   [Envoi de tâches Pig avec PowerShell][Envoi de tâches Pig avec PowerShell]
+-   [Envoi de tâches Pig avec le Kit de développement logiciel (SDK) .NET HDInsight][Envoi de tâches Pig avec le Kit de développement logiciel (SDK) .NET HDInsight]
+-   [Étapes suivantes][Étapes suivantes]
 
-## <span id="usage"></span></a>Pig : cas d'emploi
+## <span id="usage"></span></a>Pourquoi utiliser Pig ?
 
-Les bases de données sont parfaites pour les petits jeux de données et les requêtes à faible latence. Mais lorsqu'il s'agit de gérer de gros volumes de données et des jeux de données qui se comptent en téraoctets, les bases de données SQL ne sont plus une bonne solution. Au fur et à mesure de l'augmentation de la charge de la base de données et de la dégradation des performances, les administrateurs ont généralement recours à l'achat de matériel plus performant.
+L'utilisation de données volumineuses est difficile dans les bases de données relationnelles et les packages de statistiques et de visualisation. En raison des grandes quantités de données et des calculs effectués sur ces données, des logiciels parallèles exécutés sur des dizaines, des centaines, voire des milliers de serveurs sont souvent nécessaires pour traiter ces données dans un délai raisonnable. Hadoop contient une infrastructure *MapReduce* pour la création d'applications qui traitent en parallèle de grands volumes de données, structurées ou non, sur des clusters d'ordinateurs de façon extrêmement fiable et robuste.
 
-En général, toutes les applications enregistrent les erreurs, exceptions et autres problèmes dans un fichier journal pour que l'administrateur puisse consulter les problèmes ou bien générer des mesures à partir des données du fichier journal. Ces fichiers journaux atteignent généralement une taille assez importante et contiennent énormément de données qui doivent être traitées et exploitées.
+![HDI.Pig.Architecture][HDI.Pig.Architecture]
 
-Les fichiers journaux sont un bon exemple de données volumineuses. L'utilisation de données volumineuses est difficile dans les bases de données relationnelles et les packages de statistiques et de visualisation. En raison des grandes quantités de données et des calculs effectués sur ces données, des logiciels parallèles exécutés sur des dizaines, des centaines, voire des milliers de serveurs sont souvent nécessaires pour traiter ces données dans un délai raisonnable. Hadoop contient une infrastructure MapReduce pour la création d'applications qui traitent en parallèle de grands volumes de données, structurées ou non, sur des clusters d'ordinateurs de façon extrêmement fiable et robuste.
+[Apache *Pig*][Apache Pig] fournit une couche d'abstraction au-dessus de l'infrastructure MapReduce Java, ce qui permet aux utilisateurs d'analyser les données sans connaissance de Java ou MapReduce. Pig est une plateforme destinée à l'analyse de jeux de données volumineux avec un langage de flux de données facile à utiliser, *Pig Latin*. Pig réduit le temps nécessaire à la conception de programmes de mappage et de réduction. Il ne nécessite aucune connaissance de Java. Vous avez également la possibilité de combiner du code Java avec Pig. De nombreux algorithmes complexes peuvent être écrits en moins de cinq lignes de code Pig compréhensible.
 
-[Apache *Pig*][Apache Pig] contient un langage de script pour exécuter les tâches *MapReduce*, ce qui permet d'éviter d'écrire du code Java. Le langage de script Pig est appelé *Pig Latin*. Les instructions Pig Latin suivent en général ce modèle :
+Les instructions Pig Latin suivent en général ce modèle :
 
 -   **Chargement** : lecture des données à manipuler dans le système de fichiers
 -   **Transformation** : manipulation des données
 -   **Sortie ou stockage** : affichage du résultat à l'écran ou stockage pour traitement
 
-L'utilisation de Pig réduit le temps nécessaire à la conception de programmes de mappage et de réduction. Ce qui signifie qu'aucun code Java n'est nécessaire, pas plus que le code réutilisable. Vous avez également la possibilité de combiner du code Java avec Pig. De nombreux algorithmes complexes peuvent être écrits en moins de cinq lignes de code Pig compréhensible.
+Pour plus d'informations sur Pig Latin, consultez les pages [Manuel de référence Pig Latin 1][Manuel de référence Pig Latin 1] et [Manuel de référence Pig Latin 2][Manuel de référence Pig Latin 2].
 
-La représentation visuelle de ce que vous allez accomplir dans cet article se trouve dans les deux figures qui suivent. Celles-ci présentent un exemple de données qui illustre le flux et la transformation des données au fur et à mesure des lignes de code Pig du script. La première figure présente un extrait du fichier journal log4j :
+## <span id="what"></span></a>Que dois-je faire dans ce didacticiel ?
 
-![exemple de fichier complet][]
+Dans ce didacticiel, vous analysez un fichier journal Apache (*sample.log*) pour déterminer le nombre de niveaux de journal différents (INFO, DEBUG, TRACE, etc.). Les deux figures ci-dessous illustrent visuellement ce que vous allez réaliser dans cet article. La première figure présente un extrait du fichier sample.log.
 
-La deuxième figure présente la transformation des données :
+![exemple de fichier complet][exemple de fichier complet]
 
-![HDI.PIG.Data.Transformation][]
+La seconde figure illustre le flux et la transformation des données au fur et à mesure que vous parcourez les lignes de code Pig dans le script :
 
-Pour plus d'informations sur Pig Latin, consultez les pages [Manuel de référence Pig Latin 1][] et [Manuel de référence Pig Latin 2][].
+![HDI.PIG.Data.Transformation][HDI.PIG.Data.Transformation]
 
-## <span id="prerequisites"></span></a>Conditions préalables
+La tâche Pig créée dans ce didacticiel suit le même flux.
 
-Notez la configuration requise avant de commencer la lecture de cet article :
+## <span id="data"></span></a>Identification des données à analyser
 
--   Un cluster Azure HDInsight. Pour obtenir des instructions, consultez le didacticiel [Prise en main d'Azure HDInsight][] ou la rubrique [Mise en service de clusters HDInsight][]. Vous aurez besoin des données suivantes pour suivre ce didacticiel :
+HDInsight utilise le conteneur de stockage d'objets blob Azure comme système de fichiers par défaut pour les clusters Hadoop. Quelques exemples de fichiers de données sont ajoutés au stockage d'objets blob dans le cadre de l'approvisionnement du cluster. Vous pouvez vous en servir pour exécuter des requêtes Hive sur le cluster. Vous pouvez également, si vous le souhaitez, télécharger votre propre fichier de données vers le compte de stockage d'objets blob associé au cluster. Pour des instructions, consultez la page [Téléchargement de données vers HDInsight][Téléchargement de données vers HDInsight]. Pour plus d'informations sur l'utilisation du stockage d'objets blob Azure avec HDInsight, consultez la page [Utilisation du stockage d'objets blob Azure avec HDInsight][Utilisation du stockage d'objets blob Azure avec HDInsight].
 
-    <table>
-    <colgroup>
-    <col width="25%" />
-    <col width="25%" />
-    <col width="25%" />
-    <col width="25%" />
-    </colgroup>
-    <tr class="header">
-    <th align="left">Propriété du cluster</th>
-    <th align="left">Nom de la variable PowerShell</th>
-    <th align="left">Valeur</th>
-    <th align="left">Description</th>
-    </tr>
-    <tr class="odd">
-    <td align="left">Nom du cluster HDInsight</td>
-    <td align="left">$clusterName</td>
-    <td align="left"></td>
-    <td align="left">Cluster HDInsight sur lequel vous exécutez ce didacticiel.</td>
-    </tr>
-    </table>
-
--   Installez et configurez Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][].
-
-**Présentation du stockage HDInsight**
-
-HDInsight utilise le stockage d'objets blob Azure pour stocker des données. Il s'intitule *WASB* ou *Azure Storage - Blob*. WASB correspond à l'implémentation Microsoft du HDFS sur le stockage d'objets blob Azure. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][].
-
-Lors de l'approvisionnement d'un cluster HDInsight, un compte Azure Storage et un conteneur de stockage d'objets blob spécifique de ce compte sont désignés en tant que système de fichiers par défaut, comme dans HDFS. En plus de ce compte de stockage, pendant l'approvisionnement, vous pouvez ajouter des comptes de stockage supplémentaires à partir du même abonnement Azure ou d'autres abonnements Azure. Pour plus d'instructions sur l'ajout de comptes de stockage supplémentaires, consultez la rubrique [Approvisionnement de clusters HDInsight][Mise en service de clusters HDInsight]. Afin de simplifier le script PowerShell utilisé dans le cadre de ce didacticiel, tous les fichiers sont conservés dans le conteneur de système de fichiers par défaut, sous */tutorials/usepig*. Par défaut, ce conteneur porte le même nom que le cluster HDInsight.
-La syntaxe WASB est :
+La syntaxe pour accéder aux fichiers dans le stockage d'objets blob est la suivante :
 
     wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
 > [WACOM.NOTE] Seule la syntaxe *wasb://* est prise en charge dans le cluster HDInsight version 3.0. L'ancienne syntaxe *asv://* est prise en charge dans les clusters HDInsight 2.1 et 1.6, mais ne l'est pas dans les clusters HDInsight 3.0 et ne le sera pas dans les versions ultérieures.
 
-> [WACOM.NOTE] Le chemin d'accès WASB est un chemin d'accès virtuel. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][].
-
-Vous pouvez accéder à un fichier stocké dans le conteneur du système de fichiers par défaut à partir de HDInsight en utilisant l'un des URI suivants (sample.log est utilisé comme exemple) : Ce fichier est le fichier de données utilisé dans ce didacticiel :
+Vous pouvez également accéder à un fichier stocké dans le conteneur du système de fichiers par défaut à partir de HDInsight en utilisant l'un des URI suivants (sample.log, le fichier de données utilisé dans ce didacticiel, vous servira d'exemple) :
 
     wasb://mycontainer@mystorageaccount.blob.core.windows.net/example/data/sample.log
     wasb:///example/data/sample.log
@@ -95,16 +72,28 @@ Pour accéder directement au fichier à partir du compte de stockage, le nom de 
 
     example/data/sample.log
 
-Dans cet article, vous allez utiliser un exemple de fichier log4j distribué avec les clusters HDInsight stockés dans *\\example\\data\\sample.log*. Pour plus d'informations sur le téléchargement de vos propres fichiers de données, consultez la rubrique [Téléchargement de données vers HDInsight][].
+Cet article utilise un exemple de fichier *log4j* distribué avec les clusters HDInsight qui est stocké dans *\\example\\data\\sample.log*. Pour plus d'informations sur le téléchargement de vos propres fichiers de données, consultez la rubrique [Téléchargement de données vers HDInsight][Téléchargement de données vers HDInsight].
 
 ## <span id="understand"></span></a> Présentation de Pig Latin
 
-Dans cette session, vous allez aborder quelques instructions Pig Latin, ainsi que les résultats générés après leur exécution. Dans la session qui suit, vous allez lancer PowerShell pour exécuter les instructions Pig.
+Dans cette section, vous allez aborder quelques instructions Pig Latin, ainsi que les résultats générés après leur exécution. Dans la section suivante, vous exécuterez PowerShell afin d'exécuter les instructions Pig ensemble pour analyser l'exemple de fichier journal. Les instructions Pig Latin individuelles doivent être exécutées directement sur le cluster HDInsight.
 
-1.  Chargez les données depuis le système de fichiers, puis affichez les résultats.
+1.  Activez le Bureau à distance pour le cluster HDInsight en suivant les instructions de la page [Connexion aux clusters HDInsight avec RDP][Connexion aux clusters HDInsight avec RDP]. Connectez-vous au nœud de cluster et, sur le Bureau, cliquez sur **Ligne de commande Hadoop**.
 
-        LOGS = LOAD 'wasb:///example/data/sample.log';
-        DUMP LOGS;
+2.  À partir de la ligne de commande, accédez au répertoire dans lequel est installé **Pig**. Type :
+
+        C:\apps\dist\hadoop-<version>> cd %pig_home%\bin
+
+3.  À l'invite de commandes, tapez *pig* et appuyez sur ENTRÉE pour accéder à l'interpréteur de commandes *grunt*.
+
+        C:\apps\dist\pig-<version>\bin>pig
+        ...
+        grunt>  
+
+4.  Entrez les informations suivantes pour charger les données de l'exemple de fichier dans le système de fichiers, puis afficher les résultats :
+
+        grunt> LOGS = LOAD 'wasb:///example/data/sample.log';
+        grunt> DUMP LOGS;
 
     Le résultat ressemble à ce qui suit :
 
@@ -121,14 +110,14 @@ Dans cette session, vous allez aborder quelques instructions Pig Latin, ainsi qu
         (2012-02-05 19:23:50 SampleClass9 [TRACE] verbose detail)
         ...
 
-2.  Lisez chaque ligne du fichier de données pour rechercher une correspondance dans les 6 niveaux du journal :
+5.  Lisez chaque ligne du fichier de données pour rechercher une correspondance dans les 6 niveaux du journal :
 
-        LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+        grunt> LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
 
-3.  Excluez les lignes qui ne contiennent pas de correspondance. Par exemple, les lignes vides.
+6.  Excluez les lignes qui ne contiennent pas de correspondance et affichez les résultats. Le code qui suit permet d'éliminer les lignes vides.
 
-        FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-        DUMP FILTEREDLEVELS;
+        grunt> FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+        grunt> DUMP FILTEREDLEVELS;
 
     Le résultat ressemble à ce qui suit :
 
@@ -145,10 +134,10 @@ Dans cette session, vous allez aborder quelques instructions Pig Latin, ainsi qu
         (TRACE)
         ...
 
-4.  Regroupez tous les niveaux de journal dans leur propre ligne :
+7.  Regroupez tous les niveaux de journal dans leur propre ligne et affichez le résultat :
 
-        GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-        DUMP GROUPEDLEVELS;
+        grunt> GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+        grunt> DUMP GROUPEDLEVELS;
 
     Le résultat ressemble à ce qui suit :
 
@@ -164,41 +153,42 @@ Dans cette session, vous allez aborder quelques instructions Pig Latin, ainsi qu
         (TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),(TRACE),
         (TRACE), ...
 
-5.  Pour chaque groupe, comptez le nombre d'occurrences des niveaux de journal. Voici les fréquences de chaque niveau de journal :
+8.  Pour chaque groupe, comptez le nombre d'occurrences des niveaux de journal et affichez le résultat :
 
-        FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-        DUMP FREQUENCIES;
-
-    Le résultat ressemble à ce qui suit :
-
-        (INFO,3355)
-        (WARN,361)
-        (DEBUG,15608)
-        (ERROR,181)
-        (FATAL,37)
-        (TRACE,29950)
-
-6.  Classez les fréquences par ordre décroissant :
-
-        RESULT = order FREQUENCIES by COUNT desc;
-        DUMP RESULT;   
+        grunt> FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+        grunt> DUMP FREQUENCIES;
 
     Le résultat ressemble à ce qui suit :
 
-        (TRACE,29950)
-        (DEBUG,15608)
-        (INFO,3355)
-        (WARN,361)
-        (ERROR,181)
-        (FATAL,37)
+        (INFO,96)
+        (WARN,11)
+        (DEBUG,434)
+        (ERROR,6)
+        (FATAL,2)
+        (TRACE,816)
+
+9.  Classez les fréquences dans l'ordre décroissant et affichez le résultat :
+
+        grunt> RESULT = order FREQUENCIES by COUNT desc;
+        grunt> DUMP RESULT;   
+
+    Le résultat ressemble à ce qui suit :
+
+        (TRACE,816)
+        (DEBUG,434)
+        (INFO,96)
+        (WARN,11)
+        (ERROR,6)
+        (FATAL,2)
 
 ## <span id="powershell"></span></a>Envoi de tâches Pig avec PowerShell
 
-Cette section contient des instructions sur l'utilisation des cmdlets PowerShell. Avant de parcourir cette section, vous devez configurer l'environnement local et la connexion à Azure. Pour plus de détails, consultez le didacticiel [Prise en main d'Azure HDInsight][] et la rubrique [Administration de HDInsight avec PowerShell][].
+Cette section contient des instructions sur l'utilisation des cmdlets PowerShell. Avant de parcourir cette section, vous devez configurer l'environnement local et la connexion à Azure. Pour plus de détails, consultez le didacticiel [Prise en main d'Azure HDInsight][Prise en main d'Azure HDInsight] et la rubrique [Administration de HDInsight avec PowerShell][Administration de HDInsight avec PowerShell].
 
 **Exécution de Pig Latin avec PowerShell**
 
-1.  Ouvrez Windows PowerShell ISE (dans l'écran d'accueil Windows 8, tapez **PowerShell\_ISE**, puis cliquez sur **Windows PowerShell ISE**. Consultez la page [Démarrage de Windows PowerShell sur Windows 8 et Windows][]).
+1.  Ouvrez Windows PowerShell ISE. Dans l'écran d'accueil Windows 8, tapez **PowerShell\_ISE**, puis cliquez sur **Windows PowerShell ISE**. Pour plus d'informations, consultez la page [Démarrage de Windows PowerShell sur Windows 8 et Windows][Démarrage de Windows PowerShell sur Windows 8 et Windows].
+
 2.  Dans le volet inférieur, exécutez la commande suivante pour vous connecter à votre abonnement Azure :
 
         Add-AzureAccount
@@ -207,14 +197,14 @@ Cette section contient des instructions sur l'utilisation des cmdlets PowerShell
 
     > [WACOM.NOTE] Si vous disposez de plusieurs abonnements Azure et que vous ne souhaitez pas utiliser l'abonnement défini par défaut, utilisez la cmdlet **Select-AzureSubscription** pour sélectionner l'abonnement actuel.
 
-3.  Dans le volet de script, copiez et collez les lignes suivantes :
+3.  Dans le volet du script, copiez et collez les lignes suivantes :
 
-        $clusterName = "<HDInsightClusterName>" 
-        $statusFolder = "/tutorials/usepig/status"
+        $clusterName = "<HDInsightClusterName>"     #Specify the cluster name
+        $statusFolder = "/tutorials/usepig/status"  #Specify the folder to dump results
 
-4.  Définissez la variable $clusterName.
+    Si le dossier status indiqué n'existe pas, le script le créera.
 
-5.  Ajoutez les lignes suivantes dans le volet de script. Ces lignes définissent la chaîne de requête Pig Latin et créent une définition de tâche Pig :
+4.  Ajoutez les lignes suivantes dans le volet de script. Ces lignes définissent la chaîne de requête Pig Latin et créent une définition de tâche Pig :
 
         # Create the Pig job definition
         $0 = '$0';
@@ -228,158 +218,168 @@ Cette section contient des instructions sur l'utilisation des cmdlets PowerShell
 
         $pigJobDefinition = New-AzureHDInsightPigJobDefinition -Query $QueryString -StatusFolder $statusFolder 
 
-    Vous pouvez également utiliser le commutateur -File pour spécifier un fichier de script Pig sur HDFS. Le commutateur -StatusFolder place le journal des erreurs standard et le fichier de sortie standard dans le dossier.
+    Vous pouvez également utiliser le commutateur **-File** pour spécifier un fichier de script Pig sur HDFS. Le commutateur **-StatusFolder** place le journal d'erreur standard et le fichier de sortie standard dans le dossier.
 
-6.  Ajoutez les lignes suivantes pour l'envoi de la tâche Pig :
+5.  Ajoutez les lignes suivantes pour envoyer la tâche Pig :
 
         # Submit the Pig job
         Write-Host "Submit the Pig job ..." -ForegroundColor Green
         $pigJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $pigJobDefinition  
 
-7.  Ajoutez les lignes suivantes pour attendre la fin de la tâche Pig :
+6.  Ajoutez les lignes suivantes pour attendre que la tâche Pig soit terminée :
 
         # Wait for the Pig job to complete
         Write-Host "Wait for the Pig job to complete ..." -ForegroundColor Green
         Wait-AzureHDInsightJob -Job $pigJob -WaitTimeoutInSeconds 3600
 
-8.  Ajoutez les lignes suivantes pour imprimer la sortie de la tâche Pig :
+7.  Exécutez les lignes suivantes pour imprimer le résultat de la tâche Pig :
 
         # Print the standard error and the standard output of the Pig job.
-        #Write-Host "Display the standard error log ..." -ForegroundColor Green
-        #Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $pigJob.JobId -StandardError
-
         Write-Host "Display the standard output ..." -ForegroundColor Green
         Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $pigJob.JobId -StandardOutput
 
-    > [WACOM.NOTE] L'une des cmdlets Get-AzureHDInsightJobOut est commentée pour raccourcir la sortie dans la capture d'écran suivante.
+    > [WACOM.NOTE] L'une des cmdlets Get-AzureHDInsightJobOut est mise en commentaire pour raccourcir la sortie dans la capture d'écran suivante.
 
-9.  Appuyez sur **F5** pour exécuter le script :
-    ![HDI.Pig.PowerShell][]
+8.  Appuyez sur **F5** pour exécuter le script :
+
+    ![HDI.Pig.PowerShell][HDI.Pig.PowerShell]
 
     La tâche Pig calcule la fréquence des différents types de journaux.
 
 ## <span id="sdk"></span></a>Envoi de tâches Pig avec le Kit de développement logiciel (SDK) .NET HDInsight
 
-Voici un exemple d'envoi de tâche Pig utilisant le Kit de développement logiciel (SDK) HDInsight .NET. Pour des instructions sur la création d'une application C# pour l'envoi de tâches Hadoop, consultez la rubrique [Envoi de tâches Hadoop par programme][].
+Procédez comme suit pour envoyer une tâche Pig avec une application C#. Pour des instructions sur la création d'une application C# pour l'envoi des tâches Hadoop, consultez la page [Envoi de tâches Hadoop par programme][Envoi de tâches Hadoop par programme].
 
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+1.  Créez un certificat auto-signé, installez-le sur votre poste de travail et téléchargez-le dans votre abonnement Azure. Pour obtenir des instructions, consultez la page [Création d'un certificat auto-signé][Création d'un certificat auto-signé].
 
-    using System.IO;
-    using System.Threading;
-    using System.Security.Cryptography.X509Certificates;
+2.  Créez une application console Visual Studio et installez le package HDInsight. Dans le menu Outils, cliquez sur **Gestionnaire de package NuGet**, puis cliquez sur **Console du Gestionnaire de package**. À l'invite de commandes, entrez les informations suivantes :
 
-    using Microsoft.WindowsAzure.Management.HDInsight;
-    using Microsoft.Hadoop.Client;
+        Install-Package Microsoft.WindowsAzure.Management.HDInsight
 
-    namespace SubmitPigJobs
-    {
-        class Program
+3.  Double-cliquez sur Program.cs et collez le code suivant pour envoyer une tâche Pig. Renseignez les variables.
+
+        using System;
+        using System.Collections.Generic;
+        using System.Linq;
+        using System.Text;
+        using System.Threading.Tasks;
+
+        using System.IO;
+        using System.Threading;
+        using System.Security.Cryptography.X509Certificates;
+
+        using Microsoft.WindowsAzure.Management.HDInsight;
+        using Microsoft.Hadoop.Client;
+
+        namespace SubmitPigJobs
         {
-            static void Main(string[] args)
+            class Program
             {
-                // Set the variables
-                string subscriptionID = "<Azure subscription ID>";
-                string certFriendlyName = "<certificate friendly name>";
-        
-                string clusterName = "<HDInsight cluster name>";
-                string statusFolderName = @"/tutorials/usepig/status";
-
-                string queryString = "LOGS = LOAD 'wasb:///example/data/sample.log';" +
-                    "LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;" +
-                    "FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;" +
-                    "GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;" +
-                    "FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;" +
-                    "RESULT = order FREQUENCIES by COUNT desc;" +
-                    "DUMP RESULT;";
-
-                // Define the Pig job
-                PigJobCreateParameters myJobDefinition = new PigJobCreateParameters()
+                static void Main(string[] args)
                 {
-                    Query = queryString,
-                    StatusFolder = statusFolderName
-                };
+                    // Set the variables
+                    string subscriptionID = "<Azure subscription ID>";
+                    string certFriendlyName = "<certificate friendly name>";
 
-                // Get the certificate object from certificate store using the friendly name to identify it
-                X509Store store = new X509Store();
-                store.Open(OpenFlags.ReadOnly);
-                X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
+                    string clusterName = "<HDInsight cluster name>";
+                    string statusFolderName = @"/tutorials/usepig/status";
 
-                JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
+                    string queryString = "LOGS = LOAD 'wasb:///example/data/sample.log';" +
+                        "LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;" +
+                        "FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;" +
+                        "GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;" +
+                        "FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;" +
+                        "RESULT = order FREQUENCIES by COUNT desc;" +
+                        "DUMP RESULT;";
 
-                // Create a hadoop client to connect to HDInsight
-                var jobClient = JobSubmissionClientFactory.Connect(creds);
+                    // Define the Pig job
+                    PigJobCreateParameters myJobDefinition = new PigJobCreateParameters()
+                    {
+                        Query = queryString,
+                        StatusFolder = statusFolderName
+                    };
 
-                // Run the MapReduce job
-                Console.WriteLine("----- Submit the Pig job ...");
-                JobCreationResults mrJobResults = jobClient.CreatePigJob(myJobDefinition);
+                    // Get the certificate object from certificate store using the friendly name to identify it
+                    X509Store store = new X509Store();
+                    store.Open(OpenFlags.ReadOnly);
+                    X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
 
-                // Wait for the job to complete
-                Console.WriteLine("----- Wait for the Pig job to complete ...");
-                WaitForJobCompletion(mrJobResults, jobClient);
+                    JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
 
-                // Display the error log
-                Console.WriteLine("----- The Pig job error log.");
-                using (Stream stream = jobClient.GetJobErrorLogs(mrJobResults.JobId))
-                {
-                    var reader = new StreamReader(stream);
-                    Console.WriteLine(reader.ReadToEnd());
+                    // Create a hadoop client to connect to HDInsight
+                    var jobClient = JobSubmissionClientFactory.Connect(creds);
+
+                    // Run the MapReduce job
+                    Console.WriteLine("----- Submit the Pig job ...");
+                    JobCreationResults mrJobResults = jobClient.CreatePigJob(myJobDefinition);
+
+                    // Wait for the job to complete
+                    Console.WriteLine("----- Wait for the Pig job to complete ...");
+                    WaitForJobCompletion(mrJobResults, jobClient);
+
+                    // Display the error log
+                    Console.WriteLine("----- The Pig job error log.");
+                    using (Stream stream = jobClient.GetJobErrorLogs(mrJobResults.JobId))
+                    {
+                        var reader = new StreamReader(stream);
+                        Console.WriteLine(reader.ReadToEnd());
+                    }
+
+                    // Display the output log
+                    Console.WriteLine("----- The Pig job output log.");
+                    using (Stream stream = jobClient.GetJobOutput(mrJobResults.JobId))
+                    {
+                        var reader = new StreamReader(stream);
+                        Console.WriteLine(reader.ReadToEnd());
+                    }
+
+                    Console.WriteLine("----- Press ENTER to continue.");
+                    Console.ReadLine();
                 }
 
-                // Display the output log
-                Console.WriteLine("----- The Pig job output log.");
-                using (Stream stream = jobClient.GetJobOutput(mrJobResults.JobId))
+                private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
                 {
-                    var reader = new StreamReader(stream);
-                    Console.WriteLine(reader.ReadToEnd());
-                }
-
-                Console.WriteLine("----- Press ENTER to continue.");
-                Console.ReadLine();
-            }
-
-            private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
-            {
-                JobDetails jobInProgress = client.GetJob(jobResults.JobId);
-                while (jobInProgress.StatusCode != JobStatusCode.Completed && jobInProgress.StatusCode != JobStatusCode.Failed)
-                {
-                    jobInProgress = client.GetJob(jobInProgress.JobId);
-                    Thread.Sleep(TimeSpan.FromSeconds(10));
+                    JobDetails jobInProgress = client.GetJob(jobResults.JobId);
+                    while (jobInProgress.StatusCode != JobStatusCode.Completed && jobInProgress.StatusCode != JobStatusCode.Failed)
+                    {
+                        jobInProgress = client.GetJob(jobInProgress.JobId);
+                        Thread.Sleep(TimeSpan.FromSeconds(10));
+                    }
                 }
             }
         }
-    }
 
 ## <span id="nextsteps"></span></a>Étapes suivantes
 
 Alors que Pig vous permet d'analyser les données, d'autres langages fournis avec HDInsight sont susceptibles de vous intéresser. Hive contient un langage de requête similaire à SQL qui permet d'effectuer des requêtes de façon simple sur les données stockées dans HDInsight. Les tâches MapReduce écrites en Java permettent quant à elles d'effectuer des opérations complexes d'analyse des données. Pour plus d'informations, consultez les liens suivants :
 
--   [Prise en main d'Azure HDInsight][]
--   [Téléchargement de données vers HDInsight][]
--   [Envoi de tâches Hadoop par programme][]
--   [Utilisation de Hive avec HDInsight][]
+-   [Prise en main d'Azure HDInsight][Prise en main d'Azure HDInsight]
+-   [Téléchargement de données vers HDInsight][Téléchargement de données vers HDInsight]
+-   [Envoi de tâches Hadoop par programme][Envoi de tâches Hadoop par programme]
+-   [Utilisation de Hive avec HDInsight][Utilisation de Hive avec HDInsight]
 
   [Apache Pig]: http://pig.apache.org/
-  [Pig : cas d'emploi]: #usage
-  [Configuration requise]: #prerequisites
+  [Prise en main d'Azure HDInsight]: ../hdinsight-get-started/
+  [Mise en service de clusters HDInsight]: ../hdinsight-provision-clusters/
+  [Installation et configuration d'Azure PowerShell]: ../install-configure-powershell/
+  [Pourquoi utiliser Pig ?]: #usage
+  [Que dois-je faire dans ce didacticiel ?]: #what
+  [Identification des données à analyser]: #data
   [Présentation de Pig Latin]: #understand
   [Envoi de tâches Pig avec PowerShell]: #powershell
   [Envoi de tâches Pig avec le Kit de développement logiciel (SDK) .NET HDInsight]: #sdk
   [Étapes suivantes]: #nextsteps
-  [exemple de fichier complet]: ./media/hdinsight-use-pig/HDI.wholesamplefile.png
-  [HDI.PIG.Data.Transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
+  [HDI.Pig.Architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
   [Manuel de référence Pig Latin 1]: http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html
   [Manuel de référence Pig Latin 2]: http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html
-  [Prise en main d'Azure HDInsight]: ../hdinsight-get-started/
-  [Mise en service de clusters HDInsight]: ../hdinsight-provision-clusters/
-  [Installation et configuration d'Azure PowerShell]: ../install-configure-powershell/
-  [Utilisation du stockage d'objets blob Azure avec HDInsight]: ../hdinsight-use-blob-storage/
+  [exemple de fichier complet]: ./media/hdinsight-use-pig/HDI.wholesamplefile.png
+  [HDI.PIG.Data.Transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
   [Téléchargement de données vers HDInsight]: ../hdinsight-upload-data/
+  [Utilisation du stockage d'objets blob Azure avec HDInsight]: ../hdinsight-use-blob-storage/
+  [Connexion aux clusters HDInsight avec RDP]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-administer-use-management-portal/#rdp
   [Administration de HDInsight avec PowerShell]: ../hdinsight-administer-use-powershell/
-  [Démarrage de Windows PowerShell sur Windows 8 et Windows]: http://technet.microsoft.com/en-us/library/hh847889.aspx
+  [Démarrage de Windows PowerShell sur Windows 8 et Windows]: http://technet.microsoft.com/fr-fr/library/hh847889.aspx
   [HDI.Pig.PowerShell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
   [Envoi de tâches Hadoop par programme]: ../hdinsight-submit-hadoop-jobs-programmatically/#mapreduce-sdk
+  [Création d'un certificat auto-signé]: http://go.microsoft.com/fwlink/?LinkId=511138
   [Utilisation de Hive avec HDInsight]: ../hdinsight-use-hive/

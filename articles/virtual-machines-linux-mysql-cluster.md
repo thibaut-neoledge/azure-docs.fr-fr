@@ -1,6 +1,6 @@
-<properties title="Using load-balanced sets to clusterize MySQL on Linux" pageTitle="Using load-balanced sets to clusterize MySQL on Linux" description="An article that illustrates patterns to setup a load-balanced, high availability Linux cluster on Azure using MySQL as an example" metaKeywords="mysql, linux, cluster, azure, ha, high availability, corosync, pacemaker, drbd, heartbeat" services="virtual-machines" solutions="" documentationCenter="" authors="jparrel" videoId="" scriptId="" />
+<properties title="Utilisation de jeux d'&eacute;quilibrage de la charge pour regrouper MySQL sur Linux" pageTitle="Utilisation de jeux d'&eacute;quilibrage de la charge pour regrouper MySQL sur Linux" description="Article qui illustre les mod&egrave;les de configuration d'un cluster&nbsp;Linux &agrave; charge &eacute;quilibr&eacute;e et haute disponibilit&eacute; sur&nbsp;Azure en utilisant&nbsp;MySQL &agrave; titre d'exemple" metaKeywords="mysql, linux, cluster, azure, ha, high availability, corosync, pacemaker, drbd, heartbeat" services="virtual-machines" solutions="" documentationCenter="" authors="jparrel" videoId="" scriptId="" manager="timlt" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jparrel"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jparrel" />
 
 # Utilisation de jeux d'équilibrage de la charge pour regrouper MySQL sur Linux
 
@@ -31,10 +31,10 @@ Vous avez besoin d'un compte Microsoft Azure avec un abonnement valide, permetta
 
 ### Environnement testé
 
-- Ubuntu 13.10
-  - DRBD
-  - MySQL Server
-  - Corosync et Pacemaker
+-   Ubuntu 13.10
+-   DRBD
+-   MySQL Server
+-   Corosync et Pacemaker
 
 ### Groupe d'affinités
 
@@ -326,12 +326,12 @@ Un exemple de code pour la ressource est disponible sur [GitHub][GitHub]. Il est
 
 Les limites suivantes s'appliquent :
 
-- Le script de ressource DRBD linbit qui gère DRBD comme ressource dans Pacemaker utilise `drbdadm down` lors de l'arrêt d'un nœud, même si celui-ci est juste passé en veille. Cette situation n'est pas idéale, car l'esclave ne synchronisera pas la ressource DRBD lorsque le maître recevra des écritures. Si le maître n'échoue pas par commande, l'esclave peut prendre un état de système de fichiers antérieur. Cela peut être résolu de deux façons :
-  - En appliquant un `drbdadm up r0` dans tous les nœuds du cluster grâce à une surveillance locale (non groupée), ou
-  - En modifiant le script DRBD linbit en veillant à ce que `down` ne soit pas appelé dans `/usr/lib/ocf/resource.d/linbit/drbd`.
-- L'équilibrage de charge a besoin d'au moins 5 secondes pour répondre. Les applications doivent donc être conscientes des clusters et plus tolérantes en matière de délai. D'autres architectures peuvent également aider, par exemple les files d'attente intégrées, les intergiciels de requête, etc.
-- Un réglage de MySQL est nécessaire pour veiller à ce que l'écriture soit effectuée à un rythme raisonnable et que les caches soient vidés le plus souvent possible afin de limiter la perte de mémoire.
-- Les performances d'écriture dépendront de l'interconnexion des machines virtuelles dans le commutateur virtuel, car il s'agit du mécanisme utilisé par DRBD pour répliquer le périphérique.
+-   Le script de ressource DRBD linbit qui gère DRBD comme ressource dans Pacemaker utilise `drbdadm down` lors de l'arrêt d'un nœud, même si celui-ci est juste passé en veille. Cette situation n'est pas idéale, car l'esclave ne synchronisera pas la ressource DRBD lorsque le maître recevra des écritures. Si le maître n'échoue pas par commande, l'esclave peut prendre un état de système de fichiers antérieur. Cela peut être résolu de deux façons :
+-   En appliquant un `drbdadm up r0` dans tous les nœuds du cluster grâce à une surveillance locale (non groupée), ou
+-   En modifiant le script DRBD linbit en veillant à ce que `down` ne soit pas appelé dans `/usr/lib/ocf/resource.d/linbit/drbd`.
+-   L'équilibrage de charge a besoin d'au moins 5 secondes pour répondre. Les applications doivent donc être conscientes des clusters et plus tolérantes en matière de délai. D'autres architectures peuvent également aider, par exemple les files d'attente intégrées, les intergiciels de requête, etc.
+-   Un réglage de MySQL est nécessaire pour veiller à ce que l'écriture soit effectuée à un rythme raisonnable et que les caches soient vidés le plus souvent possible afin de limiter la perte de mémoire.
+-   Les performances d'écriture dépendront de l'interconnexion des machines virtuelles dans le commutateur virtuel, car il s'agit du mécanisme utilisé par DRBD pour répliquer le périphérique.
 
   [Préparation]: #getting-ready
   [Configuration du cluster]: #setting-up-the-cluster

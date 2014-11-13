@@ -1,6 +1,6 @@
-<properties linkid="develop-python-service-management" urlDisplayName="Service Management" pageTitle="How to use the service management API (Python) - feature guide" metaKeywords="" description="Learn how to programmatically perform common service management tasks from Python." metaCanonical="" services="cloud-services" documentationCenter="Python" title="How to use Service Management from Python" authors="huvalo" solutions="" manager="" editor="" />
+<properties urlDisplayName="Service Management" pageTitle="Utilisation de l'API de gestion des services (Python) - Guide des fonctionnalit&eacute;s" metaKeywords="" description="D&eacute;couvrez comment effectuer des t&acirc;ches courantes de gestion des services par programme &agrave; partir de Python." metaCanonical="" services="cloud-services" documentationCenter="Python" title="Utilisation de la gestion des services &agrave; partir de Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo" />
 
 # Utilisation de la gestion des services à partir de Python
 
@@ -77,7 +77,7 @@ Pour créer le certificat `.cer`, exécutez le code suivant :
 
     `openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Pour plus d'informations sur les certificats Azure, consultez la rubrique [Gestion des certificats dans Azure][Gestion des certificats dans Azure]. Pour une description complète des paramètres OpenSSL, consultez la documentation disponible sur [][]<http://www.openssl.org/docs/apps/openssl.html></a>.
+Pour plus d'informations sur les certificats Azure, consultez la rubrique [Gestion des certificats dans Azure][Gestion des certificats dans Azure]. Pour une description complète des paramètres OpenSSL, consultez la documentation disponible sur <http://www.openssl.org/docs/apps/openssl.html>.
 
 Une fois que vous avez créé ces fichiers, vous devez télécharger le fichier `.cer` sur Azure au moyen de l'action Télécharger de l'onglet Paramètres dans le [portail de gestion][portail de gestion]. Prenez note également de l'endroit où vous avez enregistré le fichier `.pem`.
 
@@ -119,7 +119,7 @@ Lorsque vous créez un service cloud, un service de stockage ou un groupe d'affi
 
 ## <a name="CreateCloudService"> </a> Création d'un service cloud
 
-Lorsque vous créez une application et que vous l'exécutez dans Azure, l'ensemble constitué du code et de la configuration est appelé [service cloud][service cloud] Azure (également connu sous le nom de *service hébergé* dans les versions antérieures d'Azure). La méthode **create\_hosted\_service** vous permet de créer un service hébergé en fournissant un nom de service hébergé (qui doit être unique dans Azure), une étiquette (automatiquement codée en base64), une description et un emplacement. Vous pouvez spécifier un groupe d'affinités au lieu d'un emplacement pour votre service.
+Lorsque vous créez une application et que vous l'exécutez dans Azure, l'ensemble constitué du code et de la configuration est appelé [service cloud Azure][service cloud Azure] (également connu sous le nom de *service hébergé* dans les versions antérieures d'Azure). La méthode **create\_hosted\_service** vous permet de créer un service hébergé en fournissant un nom de service hébergé (qui doit être unique dans Azure), une étiquette (automatiquement codée en base64), une description et un emplacement. Vous pouvez spécifier un groupe d'affinités au lieu d'un emplacement pour votre service.
 
     from azure import *
     from azure.servicemanagement import *
@@ -271,9 +271,9 @@ Pour supprimer un déploiement, utilisez la méthode **delete\_deployment**. L'e
 
     sms.delete_deployment('myhostedservice', 'v1')
 
-## <a name="CreateStorageService"> </a> Création d’un service de stockage
+## <a name="CreateStorageService"> </a> Création d'un service de stockage
 
-Un [service de stockage][service de stockage] vous donne accès aux [objets blob][objets blob], [tables][tables] et [files d'attente][files d'attente] Azure. Pour créer un service de stockage, vous avez besoin d'un nom pour le service (comprenant entre 3 et 24 lettres minuscules et unique au sein d'Azure), une description, une étiquette (jusqu'à 100 caractères, automatiquement codés en base64) et un emplacement ou un groupe d'affinités. L'exemple suivant indique comment créer un service de stockage en spécifiant un emplacement. Si vous voulez utiliser un groupe d'affinités, vous devez au préalable créer ce dernier (consultez la section [Création d'un groupe d'affinités][Création d'un groupe d'affinités]) et le configurer avec le paramètre **affinity\_group**.
+Un [service de stockage][service de stockage] vous donne accès aux [objets blob][objets blob], [tables][tables] et [files d'attente][files d'attente] Azure. Pour créer un service de stockage, vous avez besoin d'un nom pour le service (comprenant entre 3 et 24 lettres minuscules et unique au sein d'Azure), une description, une étiquette (jusqu'à 100 caractères, automatiquement codés en base64) et un emplacement ou un groupe d'affinités. L'exemple suivant indique comment créer un service de stockage en spécifiant un emplacement. Si vous voulez utiliser un groupe d'affinités, vous devez au préalable créer un groupe d'affinités (consultez la rubrique [Création d'un groupe d'affinités][Création d'un groupe d'affinités]) et le configurer à l'aide de la méthode **affinity\_group**.
 
     from azure import *
     from azure.servicemanagement import *
@@ -523,8 +523,7 @@ Maintenant que vous avez appris les bases de la gestion des services, suivez ces
   [Créer et télécharger un certificat de gestion pour Windows Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg551722.aspx
   [OpenSSL]: http://www.openssl.org/
   [Gestion des certificats dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg981929.aspx
-  []: http://www.openssl.org/docs/apps/openssl.html
-  [service cloud]: http://windowsazure.com/fr-fr/documentation/articles/cloud-services-what-is
+  [service cloud Azure]: http://windowsazure.com/fr-fr/documentation/articles/cloud-services-what-is
   [package de service]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj155995.aspx
   [cmdlets Azure PowerShell]: https://www.windowsazure.com/fr-fr/develop/php/how-to-guides/powershell-cmdlets/
   [outil en ligne de commande cspack]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg432988.aspx

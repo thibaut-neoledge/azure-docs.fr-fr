@@ -6,8 +6,8 @@ Suivez cette procédure pour installer et exécuter MongoDB sur une machine virt
 </div>
 
 1.  Une fois que vous êtes connecté à la machine virtuelle à l’aide du Bureau à distance, ouvrez Internet Explorer à partir du menu **Démarrer**.
-2.  Sélectionnez le bouton **Outils** dans le coin supérieur droit. Dans **Options Internet**, sélectionnez l'onglet **Sécurité**, l'icône **Sites de confiance**, puis cliquez sur le bouton **Sites**. Ajoutez *<http://>\*.mongodb.org* à la liste des sites de confiance.
-3.  Accédez à [Téléchargements - MongoDB][].
+2.  Sélectionnez le bouton **Outils** dans le coin supérieur droit. Dans **Options Internet**, sélectionnez l'onglet **Sécurité**, l'icône **Sites de confiance**, puis cliquez sur le bouton **Sites**. Ajoutez *http://\*.mongodb.org* à la liste des sites de confiance.
+3.  Accédez à [Téléchargements - MongoDB][Téléchargements - MongoDB].
 4.  Recherchez la version la plus récente sous la section **Version de production (Recommandé)** et cliquez sur le lien \***2008+** dans la colonne Windows 64 bits. Cliquez sur **Enregistrer sous**, puis enregistrez le fichier .zip sur le Bureau.
 5.  Cliquez avec le bouton droit sur le fichier .zip, puis sélectionnez **Extraire tout...** Spécifiez « C: » , puis cliquez sur **Extraire**. Une fois les fichiers extraits, vous pouvez renommer le dossier d’installation pour lui donner un nom plus simple. « MongoDB », par exemple.
 6.  Créez les répertoires de données et du journal MongoDB dans le disque de données (lecteur **F:**, par exemple) créé lors des étapes précédentes. Dans **Démarrer**, sélectionnez **Invite de commandes** pour ouvrir une fenêtre d’invite de commandes. Type :
@@ -45,13 +45,13 @@ Suivez cette procédure pour installer et exécuter MongoDB sur une machine virt
 
         C:\mongodb\bin>mongod --logpath "c:\mongodb\logs\logfile.log" --logappend --dbpath "c:\data" --install 
 
-    Un service nommé « Mongo DB » est créé avec « Mongo DB » comme description. L’option **--logpath** permet de spécifier un fichier journal puisque le service en cours d’exécution n’a pas de fenêtre de commande pour afficher la sortie. L’option **--logpath** spécifie qu’au redémarrage du service, la sortie est ajoutée au fichier journal existant. L’option **--dbpath** spécifie l’emplacement du répertoire de données. Pour plus d’informations sur les options de ligne de commande associées au service, consultez la page [Options de ligne de commande associées au service][].
+    Un service nommé « Mongo DB » est créé avec « Mongo DB » comme description. L’option **--logpath** permet de spécifier un fichier journal puisque le service en cours d’exécution n’a pas de fenêtre de commande pour afficher la sortie. L’option **--logpath** spécifie qu’au redémarrage du service, la sortie est ajoutée au fichier journal existant. L’option **--dbpath** spécifie l’emplacement du répertoire de données. Pour plus d’informations sur les options de ligne de commande associées au service, consultez la page [Options de ligne de commande associées au service][Options de ligne de commande associées au service].
 
 10. Maintenant que MongoDB est installé et en cours d'exécution, vous devez ouvrir un port dans le Pare-feu Windows pour vous connecter à distance à MongoDB. À partir du menu **Démarrer**, sélectionnez **Outils d'administration**, puis **Pare-feu Windows avec fonctions avancées de sécurité**.
 
 11. Dans le volet gauche, sélectionnez **Règles de trafic entrant**. Dans le volet **Actions** situé à droite, sélectionnez **Nouvelle règle...**.
 
-    ![Pare-feu Windows][]
+    ![Pare-feu Windows][Pare-feu Windows]
 
     Dans l'**Assistant Nouvelle règle de trafic entrant**, sélectionnez **Port**, puis cliquez sur **Suivant**.
 
@@ -75,7 +75,7 @@ Suivez cette procédure pour installer et exécuter MongoDB sur une machine virt
 
 12. Si vous n'avez configuré aucun point de terminaison pour la base de données MongoDB lors de la création de la machine virtuelle, vous pouvez le faire maintenant. La règle de pare-feu et le point de terminaison sont tous deux nécessaires pour vous connecter à distance à la base de données MongoDB. Dans le portail de gestion, cliquez sur **Machines virtuelles**, sur le nom de la nouvelle machine virtuelle, puis sur **Points de terminaison**.
 
-    ![Points de terminaison][]
+    ![Points de terminaison][Points de terminaison]
 
 13. Cliquez sur **Add Endpoint** en bas de la page. Sélectionnez **Add Endpoint**, puis cliquez sur **Suivant**.
 
@@ -85,7 +85,6 @@ Suivez cette procédure pour installer et exécuter MongoDB sur une machine virt
 
     ![Points de terminaison][7]
 
-  [Sécurité et authentification]: http://www.mongodb.org/display/DOCS/Security+and+Authentication
   [Téléchargements - MongoDB]: http://www.mongodb.org/downloads
   [Options de ligne de commande associées au service]: http://www.mongodb.org/display/DOCS/Windows+Service
   [Pare-feu Windows]: ./media/install-and-run-mongo-on-win2k8-vm/WinFirewall1.png

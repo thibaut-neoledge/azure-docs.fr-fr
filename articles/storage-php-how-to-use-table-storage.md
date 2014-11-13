@@ -1,6 +1,6 @@
-<properties linkid="develop-php-table-service" urlDisplayName="Table Service" pageTitle="How to use table storage (PHP) | Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="PHP" title="How to use the Table service from PHP" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Utilisation du stockage de tables (PHP) | Microsoft&nbsp;Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="D&eacute;couvrez comment utiliser le service de Table de PHP pour cr&eacute;er, supprimer, ins&eacute;rer et interroger une table." metaCanonical="" services="storage" documentationCenter="PHP" title="Utilisation du service de Table &agrave; partir de PHP" authors="tamram" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Utilisation du service de Table à partir de PHP
 
@@ -470,6 +470,7 @@ Maintenant que vous avez appris les principes de base du service de Table Azure,
 -   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][Stockage et accessibilité des données dans Azure]
 -   Accédez au blog de l'équipe Azure Storage : <http://blogs.msdn.com/b/windowsazurestorage/>
 
+  [Kit de développement logiciel (SDK) Azure pour PHP]: http://go.microsoft.com/fwlink/?LinkID=252473
   [Étapes suivantes]: #NextSteps
   [Présentation du service de Table]: #what-is
   [Concepts]: #concepts
@@ -486,9 +487,7 @@ Maintenant que vous avez appris les principes de base du service de Table Azure,
   [Mise à jour d'une entité]: #UpdateEntity
   [Traitement par lots d'opérations de table]: #BatchOperations
   [Suppression d'une table]: #DeleteTable
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [get-client-libraries]: ../includes/get-client-libraries.md
+  [require\_once]: http://php.net/require_once
   [Définition de délais d'expiration pour les opérations du service de Table]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dd894042.aspx
   [Présentation du modèle de données du service de Table]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179338.aspx
   [Interrogation de tables et d'entités]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dd894031.aspx

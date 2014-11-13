@@ -1,6 +1,6 @@
-<properties linkid="dev-net-commons-tasks-diagnostics" urlDisplayName="Diagnostics" pageTitle="How to use diagnostics (.NET) - Azure feature guide" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Learn how to use diagnostic data in Azure for debugging, measuring performance, monitoring, traffic analysis, and more." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Diagnostics" pageTitle="Utilisation des diagnostics (.NET) - Guide des fonctionnalit&eacute;s Azure" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="D&eacute;couvrez comment utiliser les donn&eacute;es de diagnostic dans Azure pour le d&eacute;bogage, la mesure des performances, la surveillance, l'analyse du trafic, etc." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Activation des diagnostics dans Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/23/2014" ms.author="ryanwi" />
 
 # Activation de Diagnostics dans les services cloud et les machines virtuelles Azure
 
@@ -31,18 +31,17 @@ Pour une comparaison plus détaillée, consultez [Comparaison d'Azure Diagnostic
 
 Azure Diagnostics peut collecter les types de données télémétriques suivants :
 
-<table>
-<tr><td> <strong>Source de données</strong>         </td><td> <strong>Description</strong>                                                    </td></tr>
-<tr><td> Journaux IIS                               </td><td> Informations au sujet des sites Web IIS.                                        </td></tr>
-<tr><td> Journaux d'infrastructure Azure Diagnostic </td><td> Informations au sujet de Diagnostics lui-même.                                  </td></tr>
-<tr><td> Journaux d'échecs de requête IIS           </td><td> Informations au sujet des échecs de requête à un site ou à une application IIS. </td></tr>
-<tr><td> Journaux d'événements Windows              </td><td> Informations envoyées au système de journalisation des événements Windows.      </td></tr>
-<tr><td> Compteurs de performances                  </td><td> Compteur du système d'exploitation et compteurs de performances personnalisés.  </td></tr>
-<tr><td> Vidages sur incident                       </td><td> Informations au sujet de l'état du processus en cas d'incident d'application.   </td></tr>
-<tr><td> Journaux d'erreurs personnalisés           </td><td> Journaux créés par votre application ou votre service.                          </td></tr>
-<tr><td> .NET EventSource                           </td><td> Événements générés par votre code à l'aide de la <a href="http://msdn.microsoft.com/fr-fr/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx">classe EventSource</a> .NET.   </td></tr>
-<tr><td> ETW basé sur les manifestes                </td><td> Événements ETW générés par n'importe quel processus.                            </td></tr>
-</table>
+|--------------------------------------------|---------------------------------------------------------------------------------|
+| **Source de données**                      | **Description**                                                                 |
+| Journaux IIS                               | Informations au sujet des sites Web IIS.                                        |
+| Journaux d'infrastructure Azure Diagnostic | Informations au sujet de Diagnostics lui-même.                                  |
+| Journaux d'échecs de requête IIS           | Informations au sujet des échecs de requête à un site ou à une application IIS. |
+| Journaux d'événements Windows              | Informations envoyées au système de journalisation des événements Windows.      |
+| Compteurs de performances                  | Compteur du système d'exploitation et compteurs de performances personnalisés.  |
+| Vidages sur incident                       | Informations au sujet de l'état du processus en cas d'incident d'application.   |
+| Journaux d'erreurs personnalisés           | Journaux créés par votre application ou votre service.                          |
+| .NET EventSource                           | Événements générés par votre code à l'aide de la [classe EventSource][classe EventSource] .NET.   |
+| ETW basé sur les manifestes                | Événements ETW générés par n'importe quel processus.                            |
 
 ## <a name="worker-role"></a><span class="short-header">Activation de Diagnostics dans un rôle de travail</span>Activation de Diagnostics dans un rôle de travail
 
@@ -156,8 +155,7 @@ Remplacez le contenu de WorkerRole.cs par le code suivant : La classe SampleEve
 ### Étape 4 : création de votre fichier de configuration Diagnostics et installation de l'extension
 
 1.  Téléchargez la définition de schéma de fichier de configuration publique en exécutant la commande PowerShell suivante :
-2.  		 
-		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
+2.  (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
 3.  Ajoutez un fichier XML à votre projet **WorkerRole1** en cliquant avec le bouton droit sur le projet **WorkerRole1**, puis sélectionnez **Ajouter** -\> **Nouvel élément…** -\> **Visual C# items** -\> **Données** -\> **Fichier XML**. Nommez le fichier « WadExample.xml ».
 
@@ -500,7 +498,7 @@ Vous trouverez ci-dessous des réponses à certaines questions fréquemment pos�
 
 **A.** La mise à niveau de votre solution Visual Studio de Diagnostics 1.0 à Diagnostics 1.1 (ou ultérieure) est un processus manuel :
 
--   Désactivez Diagnostics dans votre solution Visual Studion pour empêcher Diagnostics 1.0 d'être déployé avec votre rôle.
+-   Désactivez Diagnostics dans votre solution Visual Studio pour empêcher Diagnostics 1.0 d'être déployé avec votre rôle.
 -   Si votre code utilise l'écouteur de suivi, vous devrez modifier votre code pour utiliser .NET EventSource. Diagnostics 1.1 et versions ultérieures ne prennent pas en charge l'écouteur de suivi.
 -   Modifiez votre processus de déploiement pour installer l'extension Diagnostics 1.1.
 
@@ -538,17 +536,17 @@ Cela générera 4 tables :
 <tbody>
 <tr>
 <td style="width: 100px;">
-<strong>Événement</strong>
+**Événement**
 
 </td>
 <td>
-<strong>Nom de la table</strong>
+**Nom de la table**
 
 </td>
 </tr>
 <tr>
 <td>
-provider=”prov1” &lt;Event id=”1” /&gt;
+provider=”prov1” \<Event id=”1” /\>
 
 </td>
 <td>
@@ -558,7 +556,7 @@ WADEvent+MD5(“prov1”)+”1”
 </tr>
 <tr>
 <td>
-provider=”prov1” &lt;Event id=”2” eventDestination=”dest1” /&gt;
+provider=”prov1” \<Event id=”2” eventDestination=”dest1” /\>
 
 </td>
 <td>
@@ -568,7 +566,7 @@ WADdest1
 </tr>
 <tr>
 <td>
-provider=”prov1” &lt;DefaultEvents /&gt;
+provider=”prov1” \<DefaultEvents /\>
 
 </td>
 <td>
@@ -578,7 +576,7 @@ WADDefault+MD5(“prov1”)
 </tr>
 <tr>
 <td>
-provider=”prov2” &lt;DefaultEvents eventDestination=”dest2” /&gt;
+provider=”prov2” \<DefaultEvents eventDestination=”dest2” /\>
 
 </td>
 <td>
@@ -592,32 +590,29 @@ WADdest2
 
 Le tableau suivant compare les fonctionnalités prises en charge par Azure Diagnostics version 1.0 et versions 1.1/1.2 :
 
-<table border="1">
-<tr><td> <strong>Types de rôle pris en charge</strong> </td><td> <strong>Diagnostics 1.0</strong> </td><td> <strong>Diagnostics 1.1/1.2</strong> </td></tr>
-<tr><td> Rôle Web                         </td><td> Oui                 </td><td> Oui                     </td></tr>
-<tr><td> Rôle de travail                  </td><td> Oui                 </td><td> Oui                     </td></tr>
-<tr><td> IaaS                             </td><td> Non                 </td><td> Oui                     </td></tr>
-</table>
+|----------------------------------|---------------------|-------------------------|
+| **Types de rôle pris en charge** | **Diagnostics 1.0** | **Diagnostics 1.1/1.2** |
+| Rôle Web                         | Oui                 | Oui                     |
+| Rôle de travail                  | Oui                 | Oui                     |
+| IaaS                             | Non                 | Oui                     |
 
-<table border="1">
-<tr><td> <strong>Configuration et déploiement</strong>                                                                       </td><td> <strong>Diagnostics 1.0</strong> </td><td> <strong>Diagnostics 1.1/1.2</strong> </td></tr>
-<tr><td> Intégration avec Visual Studio - Intégré dans l'expérience de développement web/travail Azure.         </td><td> Oui                 </td><td> Non                     </td></tr>
-<tr><td> Scripts PowerShell - Scripts pour gérer l'installation et la configuration de Diagnostics sur le rôle. </td><td> Oui                 </td><td> Oui                     </td></tr>
-</table>
+|--------------------------------------------------------------------------------------------------------|---------------------|-------------------------|
+| **Configuration et déploiement**                                                                       | **Diagnostics 1.0** | **Diagnostics 1.1/1.2** |
+| Intégration avec Visual Studio - Intégré dans l'expérience de développement web/travail Azure.         | Oui                 | Non                     |
+| Scripts PowerShell - Scripts pour gérer l'installation et la configuration de Diagnostics sur le rôle. | Oui                 | Oui                     |
 
-<table border="1">
-<tr><td> <strong>Source de données</strong>         </td><td> <strong>Collecte par défaut</strong> </td><td> <strong>Format</strong> </td><td> <strong>Description</strong>                                                                                                                                                                                                                                                                                                                                                                                                                                                  </td><td> <strong>Diagnostics 1.0</strong> </td><td> <strong>Diagnostics 1.1/1.2</strong>     </td></tr>
-<tr><td> Journaux System.Diagnostics.Trace          </td><td> Oui                     </td><td> Table      </td><td> Journalise les messages de suivi envoyés par votre code à l'écouteur de suivi (un écouteur de suivi doit être ajouté dans le fichier web.config ou app.config). Les données du journal seront transférées à la table de stockage WADLogsTable en fonction de l'intervalle de transfert scheduledTransferPeriod.                                                                                                                                                                                   </td><td> Oui                 </td><td> Non (utilisent EventSource) </td></tr>
-<tr><td> Journaux IIS                               </td><td> Oui                     </td><td> Blob       </td><td> Journalise les informations au sujet des sites IIS. Les données du journal seront transférées au conteneur que vous spécifiez en fonction de l'intervalle de transfert scheduledTransferPeriod.                                                                                                                                                                                                                                                                                                   </td><td> Oui                 </td><td> Oui                         </td></tr>
-<tr><td> Journaux d'infrastructure Azure Diagnostic </td><td> Oui                     </td><td> Table      </td><td> Journalise les informations au sujet de l'infrastructure de diagnostic, du module RemoteAccess et du module RemoteForwarder. Les données du journal seront transférées à la table de stockage ADDiagnosticInfrastructureLogsTable en fonction de l'intervalle de transfert scheduledTransferPeriodtransfer.                                                                                                                                                                                       </td><td> Oui                 </td><td> Oui                         </td></tr>
-<tr><td> Journaux d'échecs de requête IIS           </td><td> Non                     </td><td> Blob       </td><td> Journalise les informations au sujet des échecs de requête à un site ou à une application IIS. Vous devez également l'activer en paramétrant les options de suivi de system.WebServer dans Web.config. Les données du journal seront transférées au conteneur que vous spécifiez en fonction de l'intervalle de transfert scheduledTransferPeriod.                                                                                                                                                </td><td> Oui                 </td><td> Oui                         </td></tr>
-<tr><td> Journaux d'événements Windows              </td><td> Non                     </td><td> Table      </td><td> Journalise les informations concernant les performances du système d'exploitation, de l'application ou du pilote. Les compteurs de performances doivent être spécifiés de manière explicite. Lorsque ceux-ci sont ajoutés, les données des compteurs de performances seront transférées à la table de stockage WADPerformanceCountersTable en fonction de l'intervalle de transfert scheduledTransferPeriod.                                                                                      </td><td> Oui                 </td><td> Oui                         </td></tr>
-<tr><td> Compteurs de performances                  </td><td> Non                     </td><td> Table      </td><td> Journalise les informations concernant les performances du système d'exploitation, de l'application ou du pilote. Les compteurs de performances doivent être spécifiés de manière explicite. Lorsque ceux-ci sont ajoutés, les données des compteurs de performances seront transférées à la table de stockage WADPerformanceCountersTable en fonction de l'intervalle de transfert scheduledTransferPeriod.                                                                                      </td><td> Oui                 </td><td> Oui                         </td></tr>
-<tr><td> Vidages sur incident                       </td><td> Non                     </td><td> Blob       </td><td> Journalise les informations au sujet de l'état du système d'exploitation en cas d'échec système. Les mini vidages sur incident sont collectés localement. Les vidages complets peuvent être activés. Les données du journal seront transférées au conteneur que vous spécifiez en fonction de l'intervalle de transfert scheduledTransferPeriod. Comme ASP.NET gère la plupart des exceptions, cette fonction est généralement utile uniquement pour un rôle de travail ou une machine virtuelle. </td><td> Oui                 </td><td> Oui                         </td></tr>
-<tr><td> Journaux d'erreurs personnalisés           </td><td> Non                     </td><td> Blob       </td><td> En utilisant des ressources de stockage locales, les données personnalisées peuvent être journalisées et transférées immédiatement au conteneur que vous spécifiez.                                                                                                                                                                                                                                                                                                                               </td><td> Oui                 </td><td> Oui                         </td></tr>
-<tr><td> EventSource                                </td><td> Non                     </td><td> Table      </td><td> Journalise les événements générés par votre code à l'aide de la classe EventSource .NET.                                                                                                                                                                                                                                                                                                                                                                                                          </td><td> Non                 </td><td> Oui                         </td></tr>
-<tr><td> ETW basé sur les manifestes                </td><td> Non                     </td><td> Table      </td><td> Événements ETW générés par n'importe quel processus.                                                                                                                                                                                                                                                                                                                                                                                                                                              </td><td> Non                 </td><td> Oui                         </td></tr>
-</table>
+|--------------------------------------------|-------------------------|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|-----------------------------|
+| **Source de données**                      | **Collecte par défaut** | **Format** | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | **Diagnostics 1.0** | **Diagnostics 1.1/1.2**     |
+| Journaux System.Diagnostics.Trace          | Oui                     | Table      | Journalise les messages de suivi envoyés par votre code à l'écouteur de suivi (un écouteur de suivi doit être ajouté dans le fichier web.config ou app.config). Les données du journal seront transférées à la table de stockage WADLogsTable en fonction de l'intervalle de transfert scheduledTransferPeriod.                                                                                                                                                                                   | Oui                 | Non (utilisent EventSource) |
+| Journaux IIS                               | Oui                     | Blob       | Journalise les informations au sujet des sites IIS. Les données du journal seront transférées au conteneur que vous spécifiez en fonction de l'intervalle de transfert scheduledTransferPeriod.                                                                                                                                                                                                                                                                                                   | Oui                 | Oui                         |
+| Journaux d'infrastructure Azure Diagnostic | Oui                     | Table      | Journalise les informations au sujet de l'infrastructure de diagnostic, du module RemoteAccess et du module RemoteForwarder. Les données du journal seront transférées à la table de stockage ADDiagnosticInfrastructureLogsTable en fonction de l'intervalle de transfert scheduledTransferPeriodtransfer.                                                                                                                                                                                       | Oui                 | Oui                         |
+| Journaux d'échecs de requête IIS           | Non                     | Blob       | Journalise les informations au sujet des échecs de requête à un site ou à une application IIS. Vous devez également l'activer en paramétrant les options de suivi de system.WebServer dans Web.config. Les données du journal seront transférées au conteneur que vous spécifiez en fonction de l'intervalle de transfert scheduledTransferPeriod.                                                                                                                                                | Oui                 | Oui                         |
+| Journaux d'événements Windows              | Non                     | Table      | Journalise les informations concernant les performances du système d'exploitation, de l'application ou du pilote. Les compteurs de performances doivent être spécifiés de manière explicite. Lorsque ceux-ci sont ajoutés, les données des compteurs de performances seront transférées à la table de stockage WADPerformanceCountersTable en fonction de l'intervalle de transfert scheduledTransferPeriod.                                                                                      | Oui                 | Oui                         |
+| Compteurs de performances                  | Non                     | Table      | Journalise les informations concernant les performances du système d'exploitation, de l'application ou du pilote. Les compteurs de performances doivent être spécifiés de manière explicite. Lorsque ceux-ci sont ajoutés, les données des compteurs de performances seront transférées à la table de stockage WADPerformanceCountersTable en fonction de l'intervalle de transfert scheduledTransferPeriod.                                                                                      | Oui                 | Oui                         |
+| Vidages sur incident                       | Non                     | Blob       | Journalise les informations au sujet de l'état du système d'exploitation en cas d'échec système. Les mini vidages sur incident sont collectés localement. Les vidages complets peuvent être activés. Les données du journal seront transférées au conteneur que vous spécifiez en fonction de l'intervalle de transfert scheduledTransferPeriod. Comme ASP.NET gère la plupart des exceptions, cette fonction est généralement utile uniquement pour un rôle de travail ou une machine virtuelle. | Oui                 | Oui                         |
+| Journaux d'erreurs personnalisés           | Non                     | Blob       | En utilisant des ressources de stockage locales, les données personnalisées peuvent être journalisées et transférées immédiatement au conteneur que vous spécifiez.                                                                                                                                                                                                                                                                                                                               | Oui                 | Oui                         |
+| EventSource                                | Non                     | Table      | Journalise les événements générés par votre code à l'aide de la classe EventSource .NET.                                                                                                                                                                                                                                                                                                                                                                                                          | Non                 | Oui                         |
+| ETW basé sur les manifestes                | Non                     | Table      | Événements ETW générés par n'importe quel processus.                                                                                                                                                                                                                                                                                                                                                                                                                                              | Non                 | Oui                         |
 
 ## <a name="additional"></a><span class="short-header">Ressources supplémentaires</span>Ressources supplémentaires
 
@@ -632,11 +627,16 @@ Le tableau suivant compare les fonctionnalités prises en charge par Azure Diagn
   [Activation de Diagnostics dans une machine virtuelle]: #virtual-machine
   [Exemple de fichier de configuration et de schéma]: #configuration-file-schema
   [Résolution des problèmes]: #troubleshooting
+  [Forum Aux Questions (FAQ)]: #faq
   [Comparaison d'Azure Diagnostics 1.0 et 1.2]: #comparing
   [Ressources supplémentaires]: #additional
   [classe EventSource]: http://msdn.microsoft.com/fr-fr/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
   [évaluation gratuite]: http://azure.microsoft.com/fr-fr/pricing/free-trial/
   [installé et configuré Azure PowerShell version 0.8.7 ou ultérieure]: http://azure.microsoft.com/fr-fr/documentation/articles/install-configure-powershell/
+  [CloudServices\_diag\_add\_xml]: ./media/cloud-services-dotnet-diagnostics/AddXmlFile.png
+  [CloudServices\_diag\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleTables.png
+  [CloudServices\_diag\_new\_project]: ./media/cloud-services-dotnet-diagnostics/NewProject.png
+  [CloudServices\_diag\_wadexamplevm\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png
   [Schéma de configuration Azure Diagnostics 1.2]: http://msdn.microsoft.com/fr-fr/library/azure/dn782207.aspx
   [Collecte des données de journalisation avec les diagnostics Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433048.aspx
   [Débogage d'une application Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee405479.aspx

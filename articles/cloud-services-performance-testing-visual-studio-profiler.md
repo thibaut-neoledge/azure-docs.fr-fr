@@ -1,19 +1,19 @@
-<properties linkid="dev-net-common-tasks-profiling-in-compute-emulator" urldisplayname="Team Foundation Service" headerexpose="" pageTitle="Profiling a Cloud Service Locally in the Compute Emulator" metakeywords="" footerexpose="" description="" umbraconavihide="0" disquscomments="1" title="Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler" authors="ghogen" manager="douge" />
+<properties urldisplayname="Team Foundation Service" headerexpose="" pageTitle="Analyse du profil d'un service cloud local dans l'&eacute;mulateur de calcul" metakeywords="" footerexpose="" description="" umbraconavihide="0" disquscomments="1" title="Test des performances d'un service cloud local dans l'&eacute;mulateur de calcul Azure avec le profileur Visual Studio" authors="ghogen" manager="douge" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
 # Test des performances d'un service cloud local dans l'émulateur de calcul Azure avec le profileur Visual Studio
 
 Différents outils et diverses techniques permettent de tester les performances des services cloud.
-Lorsque vous publiez un service cloud sur Azure, vous pouvez demander à ce que
-Visual Studio collecte des données de profilage, puis les analyse en local, comme décrit dans la page [Analyse du profil d'une application Azure][Analyse du profil d'une application Azure].
+Lorsque vous publiez un service cloud sur Azure, vous pouvez demander à ce que Visual Studio
+ collecte des données de profilage, puis les analyse en local, comme décrit dans la page [Analyse du profil d'une application Azure][Analyse du profil d'une application Azure].
 Vous pouvez également utiliser le diagnostic pour suivre tout un
 ensemble de compteurs de performances, comme décrit dans la rubrique [Utilisation de compteurs de performances dans Azure][Utilisation de compteurs de performances dans Azure].
 Vous pouvez également profiler votre application en local dans l'émulateur de calcul avant de la déployer dans le cloud.
 
 Cet article présente la méthode de profilage par échantillonnage de l'UC, qui peut se faire en local dans l'émulateur. Cette méthode de profilage est peu intrusive. Selon une fréquence d'échantillonnage définie, le profileur enregistre un instantané de la pile d'appels. Les données sont collectées pendant un certain temps, puis sont présentées dans un rapport. Cette méthode de profilage indique plutôt, dans une application qui effectue beaucoup de calculs, où se fait la plus grande part du travail du processeur. Ceci vous permet de vous occuper en priorité des « points chauds », là où votre application passe le plus de temps.
 
-## Conditions préalables
+## Configuration requise
 
 Vous pouvez exécuter le profileur en local uniquement si vous disposez de Visual Studio Premium ou Visual Studio Ultimate.
 
@@ -33,7 +33,7 @@ Vous pouvez exécuter le profileur en local uniquement si vous disposez de Visua
 
 ## <a name="step1"> </a>Étape 1 : configuration de Visual Studio pour le profilage
 
-Tout d'abord, certaines options de configuration de Visual Studio peuvent s'avérer utiles dans le cadre du profilage. Afin de bien comprendre les rapports de profilage, vous aurez besoin de symboles (fichiers .pdb) pour votre application, ainsi que de symboles pour les bibliothèques système. Assurez-vous que vous faites référence aux serveurs de symboles disponibles. Pour cela, dans le menu **Outils** de Visual Studio, sélectionnez **Options**, puis **Débogage**, et enfin **Symboles**. Assurez-vous que Microsoft Symbol Servers figure bien dans **Emplacements du fichier de symboles (.pdb)**. Vous pouvez également faire référence à <http://referencesource.microsoft.com/symbols>, qui peut comporter d'autres fichiers de symboles.
+Tout d'abord, certaines options de configuration de Visual Studio peuvent s'avérer utiles dans le cadre du profilage. Afin de bien comprendre les rapports de profilage, vous aurez besoin de symboles (fichiers .pdb) pour votre application, ainsi que de symboles pour les bibliothèques système. Assurez-vous que vous faites référence aux serveurs de symboles disponibles. Pour cela, dans le menu **Outils** de Visual Studio, sélectionnez **Options**, puis **Débogage**, et enfin **Symboles**. Assurez-vous que Microsoft Symbol Servers figure bien dans **Emplacements du fichier de symboles (.pdb)**. Vous pouvez également faire référence à http://referencesource.microsoft.com/symbols, qui peut comporter d'autres fichiers de symboles.
 
 ![][0]
 

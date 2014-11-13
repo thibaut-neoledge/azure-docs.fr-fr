@@ -1,12 +1,12 @@
 <properties writer="kathydav" editor="tysonn" manager="jeffreyg" />
 
-**Important** : si vous voulez que votre machine virtuelle utilise un réseau virtuel, lorsque vous la créez, assurez-vous de bien indiquer le réseau virtuel. Vous pouvez configurer une machine virtuelle pour qu’elle rejoigne uniquement un réseau virtuel lorsque vous la créez. Pour plus d’informations sur les réseaux virtuels, consultez la page [Présentation du réseau virtuel Azure][].
+**Important** : si vous voulez que votre machine virtuelle utilise un réseau virtuel, lorsque vous la créez, assurez-vous de bien indiquer le réseau virtuel. Vous pouvez configurer une machine virtuelle pour qu’elle rejoigne uniquement un réseau virtuel lorsque vous la créez. Pour plus d’informations sur les réseaux virtuels, consultez la page [Présentation du réseau virtuel Azure][Présentation du réseau virtuel Azure].
 
-1.  Connectez-vous au [portail de gestion Azure][] en utilisant votre compte Azure.
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure] en utilisant votre compte Azure.
 
 2.  Dans le portail de gestion, dans le coin inférieur gauche de la page Web, cliquez sur **+New**, sur **Virtual Machine**, puis sur **From Gallery**.
 
-    ![Créer une machine virtuelle][]
+    ![Créer une machine virtuelle][Créer une machine virtuelle]
 
 3.  Sélectionnez une image de machine virtuelle OpenSUSE depuis **Platform Images**, puis cliquez sur la flèche Suivant dans le coin inférieur droit de la page.
 
@@ -14,7 +14,7 @@
 
     -   Entrez le **Virtual Machine Name**, par exemple « testlinuxvm ».
     -   Entrez un **New User Name**, par exemple « newuser », qui sera ajouté au fichier de liste Sudoers.
-    -   Dans la zone **New Password**, entrez un [mot de passe fort][].
+    -   Dans la zone **New Password**, entrez un [mot de passe fort][mot de passe fort].
     -   Dans la zone **Confirm Password**, entrez de nouveau le mot de passe.
     -   Dans la liste déroulante, sélectionnez la **Size** adéquate.
 
@@ -26,7 +26,7 @@
     -   Dans la zone **DNS Name**, entrez une adresse DNS valide. Par exemple, « testlinuxvm ».
     -   Dans la zone **Region/Affinity Group/Virtual Network**, sélectionnez une région d’hébergement pour cette image virtuelle.
 
-	Cliquez sur la flèche Suivant pour continuer.
+Cliquez sur la flèche Suivant pour continuer.
 
 1.  Sur la page **Virtual machine options**, dans la zone **Availability Set** sélectionnez **(none)**. Cliquez sur la coche pour continuer.
 
@@ -54,12 +54,12 @@ Entrez le mot de passe de l’utilisateur.
 
 ### Connexion avec PuTTY
 
-Si vous utilisez un ordinateur Windows, connectez-vous à la machine virtuelle en utilisant PuTTY, que vous pouvez télécharger sur la [page de téléchargement de PuTTY][].
+Si vous utilisez un ordinateur Windows, connectez-vous à la machine virtuelle en utilisant PuTTY, que vous pouvez télécharger sur la [page de téléchargement de PuTTY][page de téléchargement de PuTTY].
 
 1.  Téléchargez et enregistrez **putty.exe** dans un répertoire de votre ordinateur. Ouvrez une invite de commandes, accédez à ce dossier, puis exécutez **putty.exe**.
 
 2.  Entrez le **nom d'hôte** testlinuxvm.cloudapp.net et le numéro de **Port** 22.
-    ![PuTTY Screen][]
+    ![PuTTY Screen][PuTTY Screen]
 
 ## Mise à jour de la machine virtuelle (facultatif)
 
@@ -74,6 +74,6 @@ Si vous utilisez un ordinateur Windows, connectez-vous à la machine virtuelle e
   [Présentation du réseau virtuel Azure]: http://go.microsoft.com/fwlink/p/?LinkID=294063
   [portail de gestion Azure]: http://manage.windowsazure.com
   [Créer une machine virtuelle]: ./media/create-and-configure-opensuse-vm-in-portal/CreateVM.png
-  [mot de passe fort]: http://msdn.microsoft.com/en-us/library/ms161962.aspx
+  [mot de passe fort]: http://msdn.microsoft.com/fr-fr/library/ms161962.aspx
   [page de téléchargement de PuTTY]: http://www.puttyssh.org/download.html
   [PuTTY Screen]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png

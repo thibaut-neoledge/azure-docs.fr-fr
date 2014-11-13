@@ -1,4 +1,4 @@
-<properties linkid="manage-services-how-to-manage-a-storage-account" urlDisplayName="How to manage" pageTitle="How to manage storage accounts | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="Learn how to manage storage accounts in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Manage Storage Accounts" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="How to manage" pageTitle="Gestion des comptes de stockage | Microsoft&nbsp;Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="D&eacute;couvrez comment g&eacute;rer des comptes de stockage dans Azure en utilisant le portail de gestion." metaCanonical="" services="storage" documentationCenter="" title="Gestion des comptes de stockage" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -10,7 +10,7 @@
 -   [Affichage, copie et régénération de clés d'accès de stockage][Affichage, copie et régénération de clés d'accès de stockage]
 -   [Suppression d'un compte de stockage][Suppression d'un compte de stockage]
 
-## <span id="georeplication"></span></a> Replicate your storage account data for durability and high availability
+## <span id="georeplication"></span></a> Réplication de vos données de compte de stockage pour la durabilité et la haute disponibilité
 
 [WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
@@ -50,7 +50,7 @@ Vous devez modifier périodiquement les clés d'accès à votre compte de stocka
 
 <div class="dev-callout"> 
     <b>Avertissement</b> 
-    <p>La r&eacute;g&eacute;n&eacute;ration des cl&eacute;s d'acc&egrave;s a une incidence sur les machines virtuelles, les services de m&eacute;dias et toutes les applications qui d&eacute;pendent du compte de stockage. All clients that use the access key to access the storage account must be updated to use the new key.
+    <p>La r&eacute;g&eacute;n&eacute;ration des cl&eacute;s d'acc&egrave;s a une incidence sur les machines virtuelles, les services de m&eacute;dias et toutes les applications qui d&eacute;pendent du compte de stockage. Tous les clients qui utilisent la cl&eacute; d'acc&egrave;s pour acc&eacute;der au compte de stockage doivent &ecirc;tre mis &agrave; jour pour utiliser la nouvelle cl&eacute;.
     </p> 
     </div>
 
@@ -74,13 +74,13 @@ Pour supprimer un compte de stockage obsolète, utilisez **Supprimer** sur le ta
 
 <div class="dev-callout">
     <b>Avertissement</b>
-    <p>Il n'existe aucun moyen de restaurer le contenu d'un compte de stockage supprim&eacute;. Make 
-    sure you back up anything you want to save before you delete the account.
+    <p>Il n'existe aucun moyen de restaurer le contenu d'un compte de stockage supprim&eacute;. Assurez-vous 
+    de sauvegarder tout ce que vous souhaitez enregistrer avant de supprimer le compte.
     </p>
     <p>
-    If your storage account contains any VHD files or disks for an Azure 
-    virtual machine, then you must delete any images and disks that are using those VHD files 
-    before you can delete the storage account. Arr&ecirc;tez au pr&eacute;alable la machine virtuelle si elle est en cours d'ex&eacute;cution, puis supprimez-la. Pour supprimer des disques, acc&eacute;dez &agrave; l'onglet Disques et supprimez tous les disques contenus dans le compte de stockage. Pour supprimer des images, acc&eacute;dez &agrave; l'onglet Images et supprimez toutes les images stock&eacute;es dans le compte.
+    Si votre compte de stockage contient des fichiers de disque dur virtuel 
+    ou des disques pour une machine virtuelle Azure, vous devez supprimer l'ensemble des images 
+    et des disques qui utilisent ces fichiers avant de pouvoir supprimer le compte de stockage. Arr&ecirc;tez au pr&eacute;alable la machine virtuelle si elle est en cours d'ex&eacute;cution, puis supprimez-la. Pour supprimer des disques, acc&eacute;dez &agrave; l'onglet Disques et supprimez tous les disques contenus dans le compte de stockage. Pour supprimer des images, acc&eacute;dez &agrave; l'onglet Images et supprimez toutes les images stock&eacute;es dans le compte.
     </p>
 </div>
 
@@ -97,7 +97,6 @@ Pour supprimer un compte de stockage obsolète, utilisez **Supprimer** sur le ta
   [Gestion de la réplication du compte de stockage]: #georeplication
   [Affichage, copie et régénération de clés d'accès de stockage]: #regeneratestoragekeys
   [Suppression d'un compte de stockage]: #deletestorageaccount
-  [storage-replication-options]: ../includes/storage-replication-options.md
   [portail de gestion Azure]: https://manage.windowsazure.com
   [portail de gestion]: http://manage.windowsazure.com
   [Configuration des chaînes de connexion Azure]: http://msdn.microsoft.com/fr-fr/library/ee758697.aspx

@@ -1,13 +1,13 @@
-<properties linkid="dev-ruby-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Ruby) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Ruby" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Blob Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
+<properties urlDisplayName="Blob Service" pageTitle="Utilisation du stockage d'objets blob (Ruby) | Microsoft&nbsp;Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Ruby" description="D&eacute;couvrez comment utiliser le service BLOB Azure pour charger, t&eacute;l&eacute;charger, r&eacute;pertorier et supprimer du contenu d'objet blob. Les exemples sont &eacute;crits en Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="Utilisation du service BLOB &agrave; partir de Ruby" authors="guayan" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Utilisation du service BLOB à partir de Ruby
 
-This guide will show you how to perform common scenarios using the
-Azure Blob service. The samples are written using the Ruby API.
-The scenarios covered include **uploading, listing, downloading,** and **deleting** blobs.
-For more information on blobs, see the [Next Steps][Next Steps] section.
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du
+service Blob Azure. Les exemples sont écrits en utilisant l'API Ruby.
+Les scénarios traités portent sur **le chargement, le téléchargement, l'énumération** et **la suppression** d'objets blobs.
+Pour plus d'informations sur les objets blob, consultez la section [Étapes suivantes][Étapes suivantes].
 
 ## Sommaire
 
@@ -22,7 +22,7 @@ For more information on blobs, see the [Next Steps][Next Steps] section.
 -   [Création d'une liste d'objets blob dans un conteneur][Création d'une liste d'objets blob dans un conteneur]
 -   [Téléchargement d'objets blob][Téléchargement d'objets blob]
 -   [Suppression d'un objet blob][Suppression d'un objet blob]
--   [Étapes suivantes][Étapes suivantes]
+-   [Étapes suivantes][1]
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
@@ -32,8 +32,8 @@ For more information on blobs, see the [Next Steps][Next Steps] section.
 
 ## <span id="CreateRubyApp"></span></a>Création d'une application Ruby
 
-Créez une application Ruby. For instructions,
-see [Create a Ruby Application on Azure][Create a Ruby Application on Azure].
+Créez une application Ruby. Pour obtenir des
+instructions, consultez le guide [Création d'une application Ruby sur Azure][Création d'une application Ruby sur Azure].
 
 ## <span id="ConfigAccessStorage"></span></a>Configuration de votre application pour accéder au stockage
 
@@ -111,8 +111,8 @@ Le code suivant télécharge le fichier **test.png** en tant que nouvel objet bl
 
 ## <span id="ListBlobs"></span></a> Création d'une liste d'objets blob dans un conteneur
 
-To list the containers, use **list\_containers()** method.
-To list the blobs within a container, use **list\_blobs()** method.
+Pour créer une liste de conteneurs, utilisez la méthode **list\_containers()**.
+Pour énumérer les objets blob à l'intérieur d'un conteneur, utilisez la méthode **list\_blobs()**.
 
 Cette action génère les URL de tous les objets blob de tous les conteneurs pour le compte.
 
@@ -147,7 +147,7 @@ Maintenant que vous avez appris les bases du stockage d'objets blob, suivez ces 
 -   Consultez le [blog de l'équipe Azure Storage][blog de l'équipe Azure Storage]
 -   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby][Kit de développement logiciel (SDK) Azure pour Ruby] sur GitHub.
 
-  [Next Steps]: #next-steps
+  [Étapes suivantes]: #next-steps
   [Présentation du service BLOB]: #what-is
   [Concepts]: #concepts
   [Création d'un compte de stockage Azure]: #CreateAccount
@@ -159,10 +159,9 @@ Maintenant que vous avez appris les bases du stockage d'objets blob, suivez ces 
   [Création d'une liste d'objets blob dans un conteneur]: #ListBlobs
   [Téléchargement d'objets blob]: #DownloadBlobs
   [Suppression d'un objet blob]: #DeleteBlob
-  [Étapes suivantes]: #NextSteps
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [Create a Ruby Application on Azure]: /fr-fr/develop/ruby/tutorials/web-app-with-linux-vm/
+  [1]: #NextSteps
+  [Création d'une application Ruby sur Azure]: /fr-fr/develop/ruby/tutorials/web-app-with-linux-vm/
   [portail de gestion Azure]: https://manage.windowsazure.com/
   [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx
   [blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Kit de développement logiciel (SDK) Azure pour Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby

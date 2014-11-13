@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-administer-hdinsight-hadoop-clusters-using-command-line" urlDisplayName="HDInsight Administration" pageTitle="Manage Hadoop clusters using Cross-Platform Command-Line | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hadoop, administration" description="Learn how to use the Cross-Platform Command-Line Interface to manage Hadoop clusters in HDIsight on any platform that supports Node.js, including Windows, Mac, and Linux." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Administer Hadoop clusters using the Cross-platform Command-line Interface" authors="jgao" />
+<properties urlDisplayName="HDInsight Administration" pageTitle="Gestion des clusters Hadoop au moyen de l'interface de ligne de commande interplateforme | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hadoop, administration" description="D&eacute;couvrez l'utilisation de l'interface de ligne de commande interplateforme pour g&eacute;rer les clusters Hadoop dans HDIsight sur toute plateforme prenant en charge Node.js, y compris Windows, Mac et Linux." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Administration de clusters Hadoop &agrave; l'aide de l'interface de ligne de commande interplateforme" authors="jgao" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -54,7 +54,7 @@ L'interface de ligne de commande peut être installée au moyen du *Gestionnaire
 
 **Pour installer l'interface de ligne de commande au moyen de Windows Installer**
 
-1.  Accédez à **<http://azure.microsoft.com/fr-fr/downloads/>**.
+1.  Accédez à **http://azure.microsoft.com/fr-fr/downloads/**.
 2.  Faites défiler l'écran pour accéder à la section **Outils de ligne de commande**, puis cliquez sur **Interface de ligne de commande interplateforme** et suivez les étapes de l'Assistant Web Platform Installer.
 
 ## <span id="importsettings"></span></a> Téléchargement et importation de paramètres de publication de compte Azure
@@ -83,6 +83,8 @@ Avant d'utiliser l'interface de ligne de commandes, vous devez configurer la con
     Dans la capture d'écran précédente, le fichier de paramètres de publication a été enregistré dans le dossier C:\\HDInsight sur le poste de travail.
 
 ## <span id="provision"></span></a>Approvisionnement d'un cluster HDInsight
+
+[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 HDInsight utilise un conteneur de stockage d'objets blob Azure comme système de fichiers par défaut. Un compte Azure Storage est nécessaire avant de pouvoir créer un cluster HDInsight.
 

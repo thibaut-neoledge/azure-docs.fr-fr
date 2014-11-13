@@ -22,17 +22,16 @@ demande.
 
 Le service de table contient les composants suivants :
 
-![Table1][]
+![Table1][Table1]
 
 -   **Format d'URL :** le code traite les tables dans un compte à l'aide du
     format d'adresse suivant :
-    <http://>`<storage account>`.table.core.windows.net/`<table>`
+    http://`<storage account>`.table.core.windows.net/`<table>`
 
     Vous pouvez traiter les tables Azure directement à l'aide de cette adresse avec le
-    protocole OData. Pour plus d'informations, consultez [OData.org][]
+    protocole OData. Pour plus d'informations, consultez [OData.org][OData.org]
 
--   **Compte de stockage :** Tous les accès à Azure Storage passent par
-    un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez la page [Objectifs de performance et évolutivité du stockage Azure][].
+-   **Compte de stockage :** tous les accès à Azure Storage passent par un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez la page [Objectifs de performance et évolutivité du stockage Azure][Objectifs de performance et évolutivité du stockage Azure].
 
 -   **Table** : une table est une collection d’entités. Les tables n'appliquent pas de
     schéma sur les entités, ce qui signifie qu'une seule table peut contenir des entités
@@ -52,4 +51,4 @@ Le service de table contient les composants suivants :
 
   [Table1]: ./media/storage-java-how-to-use-table-storage/table1.png
   [OData.org]: http://www.odata.org/
-  [Objectifs de performance et évolutivité du stockage Azure]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
+  [Objectifs de performance et évolutivité du stockage Azure]: http://msdn.microsoft.com/fr-fr/library/dn249410.aspx

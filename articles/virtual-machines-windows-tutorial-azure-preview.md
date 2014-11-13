@@ -1,12 +1,12 @@
-<properties linkid="virtual-machines-windows-tutorial-azure-preview" urlDisplayName="Create a virtual machine in the Preview Portal" pageTitle="Create a virtual machine running Windows Server in the Azure Preview Portal" metaKeywords="Azure image gallery vm" description="Learn how to create an Azure virtual machine (VM) running Windows Server, using the VM Gallery in the Azure Preview Portal" metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="danlep,kathydav" solutions="" manager="dongill" editor="tysonn" />
+<properties urlDisplayName="Create a virtual machine in the Preview Portal" pageTitle="Cr&eacute;ation d'une machine virtuelle ex&eacute;cutant&nbsp;Windows dans la version pr&eacute;liminaire du portail Azure" metaKeywords="Azure image gallery vm" description="Apprenez &agrave; cr&eacute;er une machine virtuelle&nbsp;Azure ex&eacute;cutant&nbsp;Windows &agrave; partir de la galerie de machines virtuelles de la version pr&eacute;liminaire du portail Azure" metaCanonical="" services="virtual-machines" documentationCenter="" title="Cr&eacute;ation d'une machine virtuelle ex&eacute;cutant&nbsp;Windows dans la version pr&eacute;liminaire du portail Azure" authors="danlep,kathydav,rasquill" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="danlep,kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="danlep,kathydav,rasquill" />
 
-# Création d'une machine virtuelle exécutant Windows Server dans la version préliminaire du portail Azure
+# Création d'une machine virtuelle exécutant Windows dans la version préliminaire du portail Azure
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/fr-fr/documentation/articles/virtual-machines-windows-tutorial/" title="Portail Azure">Portail Azure</a><a href="/fr-fr/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Version pr&eacute;liminaire du portail Azure" class="current">Version pr&eacute;liminaire du portail Azure</a></div>
 
-Ce didacticiel montre à quel point il est facile de créer une machine virtuelle Azure exécutant Windows Server à partir de la galerie de machines virtuelles de la version préliminaire du portail Azure. La galerie propose de nombreuses images, notamment des systèmes d'exploitation Windows et Linux, ainsi que des images d'applications.
+Ce didacticiel montre à quel point il est facile de créer une machine virtuelle Azure exécutant Windows en utilisant à titre d'exemple une image Windows Server à partir de la galerie d'images de la version préliminaire du portail Azure. La galerie propose de nombreuses images, notamment des systèmes d'exploitation Windows et Linux, ainsi que des images d'applications.
 
 > [WACOM.NOTE] Vous n'avez besoin d'aucune expérience préalable avec les machines virtuelles Azure pour pouvoir suivre ce didacticiel. Vous devez cependant posséder un compte Azure. Vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page [Création d’un compte Azure][Création d’un compte Azure].
 
@@ -19,7 +19,9 @@ Pour en savoir plus, consultez la page [Machines virtuelles][Machines virtuelles
 
 ## <span id="createvirtualmachine"></span> </a>Création de la machine virtuelle
 
-Cette section vous montre comment utiliser la version préliminaire du portail pour créer une machine virtuelle exécutant Windows Server. Vous pouvez utiliser les paramètres par défaut d'Azure pour la majorité de la configuration, et créer la machine virtuelle en quelques minutes.
+Cette section explique comment utiliser la version préliminaire du portail pour créer une machine virtuelle en utilisant Windows Server à titre d'exemple. Vous pouvez utiliser les paramètres par défaut d'Azure pour la majorité de la configuration, et créer la machine virtuelle en quelques minutes.
+
+> [WACOM.NOTE] Le nombre et le type d'images disponibles dans la galerie dépendent du type de votre abonnement. Ce didacticiel utilise une image Windows Server, mais un abonnement MSDN peut offrir d'autres images, y compris des images de Bureau.
 
 1.  Connectez-vous à la [version préliminaire du portail Azure][version préliminaire du portail Azure]. Consultez l'offre de [version d'évaluation gratuite][version d'évaluation gratuite] si vous n'avez pas encore d'abonnement.
 
@@ -89,8 +91,8 @@ Pour en savoir plus sur la configuration de machines virtuelles Windows sous Azu
 
 [Gestion de la disponibilité des machines virtuelles][Gestion de la disponibilité des machines virtuelles]
 
-  [Portail Azure]: /fr-fr/documentation/articles/virtual-machines-windows-tutorial/ "Portail Azure"
-  [Version préliminaire du portail Azure]: /fr-fr/documentation/articles/virtual-machines-windows-tutorial-azure-preview/ "Version préliminaire du portail Azure"
+[À propos des paramètres de configuration de machine virtuelle Azure][À propos des paramètres de configuration de machine virtuelle Azure]
+
   [Création d’un compte Azure]: http://www.windowsazure.com/fr-fr/develop/php/tutorials/create-a-windows-azure-account/
   [Création de la machine virtuelle]: #createvirtualmachine
   [Connexion à la machine virtuelle une fois celle-ci créée]: #logon
@@ -111,3 +113,4 @@ Pour en savoir plus sur la configuration de machines virtuelles Windows sous Azu
   [Création et téléchargement de votre disque dur virtuel contenant le système d'exploitation Windows Server]: http://www.windowsazure.com/fr-fr/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
   [Association de disques de données avec une machine virtuelle]: http://www.windowsazure.com/fr-fr/documentation/articles/storage-windows-attach-disk/
   [Gestion de la disponibilité des machines virtuelles]: http://www.windowsazure.com/fr-fr/documentation/articles/manage-availability-virtual-machines/
+  [À propos des paramètres de configuration de machine virtuelle Azure]: http://msdn.microsoft.com/library/azure/dn763935.aspx

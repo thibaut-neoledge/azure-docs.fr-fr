@@ -1,6 +1,6 @@
-<properties linkid="manage-services-storage-custom-dns-storage" urlDisplayName="custom dns storage" pageTitle="Configure a domain name for blob data in a storage account | Microsoft Azure" metaKeywords="" description="Learn how to configure a custom domain for accessing blob data in an Azure storage account." metaCanonical="" services="storage" documentationCenter="" title="Configure a custom domain name for blob data in a storage account" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="custom dns storage" pageTitle="Configuration d'un nom de domaine pour les donn&eacute;es d'objets blob d'un compte de stockage | Microsoft Azure" metaKeywords="" description="D&eacute;couvrez comment configurer un domaine personnalis&eacute; pour acc&eacute;der &agrave; des donn&eacute;es d'objets blob dans un compte de stockage Azure." metaCanonical="" services="storage" documentationCenter="" title="Configuration d'un nom de domaine personnalis&eacute; pour des donn&eacute;es d'objets blob dans un compte de stockage" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Configuration d'un nom de domaine personnalisé pour des données d'objets blob dans un compte de stockage Azure
 
@@ -17,19 +17,18 @@ Le processus consistant à mapper votre domaine personnalisé à votre point de 
 
 Le tableau suivant contient des exemples d'URL permettant d'accéder aux données d'objets blob dans un compte de stockage nommé **mystorageaccount**. Le domaine personnalisé enregistré pour le compte de stockage est **www.contoso.com** :
 
-<table border="1">
-<tr><th>Type de ressource</th><th>Formats d'URL</th></tr>
-<tr><td>Compte de stockage</td><td><strong>URL par défaut :</strong> http://mystorageaccount.blob.core.windows.net<br />                    
-                          <strong>URL de domaine personnalisée :</strong> http://www.contoso.com                             </td></tr>
-<tr><td>Blob                  </td><td><strong>URL par défaut :</strong> http://mystorageaccount.blob.core.windows.net/mycontainer/myblob <br />
-                         <strong>URL du domaine personnalisé :</strong> http://www.contoso.com/mycontainer/myblob            </td></tr>
-<tr><td>Conteneur racine     </td><td> <strong>URL par défaut :</strong> http://mystorageaccount.blob.core.windows.net/myblob         <br />    
-                         ou                                                                                     <br />
-                          http://mystorageaccount.blob.core.windows.net/$root/myblob                            <br />
-                          <strong>URL de domaine personnalisée :</strong> http://www.contoso.com/myblob               <br />       
-                         ou                                                                                     <br />
-                          http://www.contoso.com/$root/myblob                                                   </td></tr>
-</table>
+|-----------------------|---------------------------------------------------------------------------------------|
+| **Type de ressource** | **Formats d'URL**                                                                     |
+| Compte de stockage    | **URL par défaut :** http://mystorageaccount.blob.core.windows.net                    
+                          **URL de domaine personnalisée :** http://www.contoso.com                             |
+| Blob                  | **URL par défaut :** http://mystorageaccount.blob.core.windows.net/mycontainer/myblob 
+                         **URL du domaine personnalisé :** http://www.contoso.com/mycontainer/myblob            |
+| Conteneur racine      | **URL par défaut :** http://mystorageaccount.blob.core.windows.net/myblob             
+                         ou                                                                                     
+                          http://mystorageaccount.blob.core.windows.net/$root/myblob                            
+                          **URL de domaine personnalisée :** http://www.contoso.com/myblob                      
+                         ou                                                                                     
+                          http://www.contoso.com/$root/myblob                                                   |
 
 Cette tâche vous explique comment :
 
@@ -45,8 +44,7 @@ Si votre domaine personnalisé prend en charge une application qui ne peut suppo
 
 Pour configurer un nom de domaine personnalisé, vous devez créer un enregistrement CNAME auprès de votre bureau d'enregistrement de domaine. L'enregistrement CNAME spécifie un alias pour un nom de domaine ; dans cet exemple, il mappe l'adresse de votre domaine personnalisé au point de terminaison du service BLOB pour votre compte de stockage.
 
-Chaque bureau d'enregistrement possède sa propre méthode de spécification des enregistrements CNAME, même si le fonctionnement général
-reste souvent similaire. Notez que de nombreuses formules de base pour l'enregistrement de domaine n'offrent pas la configuration DNS. Avant de pouvoir créer l'enregistrement CNAME, vous devrez peut-être mettre à niveau votre formule d'enregistrement de domaine.
+Chaque bureau d'enregistrement possède sa propre méthode de spécification des enregistrements CNAME, même si le fonctionnement général reste souvent similaire. Notez que de nombreuses formules de base pour l'enregistrement de domaine n'offrent pas la configuration DNS. Avant de pouvoir créer l'enregistrement CNAME, vous devrez peut-être mettre à niveau votre formule d'enregistrement de domaine.
 
 1.  Dans le portail de gestion Azure, accédez à l'onglet **Stockage**.
 
@@ -56,16 +54,11 @@ reste souvent similaire. Notez que de nombreuses formules de base pour l'enregis
 
 4.  Au bas de l'écran, cliquez sur **Gérer les domaines** pour afficher la boîte de dialogue **Manage Custom Domain**. Le texte figurant en haut de la boîte de dialogue contient des informations sur la manière de créer l'enregistrement CNAME. Pour cette procédure, ignorez le texte qui fait référence au sous-domaine **asverify**.
 
-5.  Connectez-vous au site web du bureau d’enregistrement de votre DNS et
-    accédez à la section de gestion DNS. Vous pourrez trouver ces informations dans une section telle que **Domain
-    Name**, **DNS** ou **Name Server Management**.
+5.  Connectez-vous au site web du bureau d'enregistrement de votre DNS et accédez à la page de gestion DNS. Vous pourrez trouver ces informations dans une section telle que **Domain Name**, **DNS** ou **Name Server Management**.
 
-6.  Recherchez la section relative à la gestion des enregistrements CNAME. Pour cela, accédez à une
-    page de paramètres avancés et recherchez les mots **CNAME**, **Alias**
-    ou **Subdomains**.
+6.  Recherchez la section relative à la gestion des enregistrements CNAME. Pour cela, accédez à une page de paramètres avancés et recherchez les mots **CNAME**, **Alias** ou **Subdomains**.
 
-7.  Créez un enregistrement CNAME et indiquez un alias de sous-domaine tel que **www** ou **photos**. Indiquez
-    ensuite un nom d'hôte, à savoir votre point de terminaison de service BLOB, au format **mystorageaccount.blob.core.windows.net** (où **mystorageaccount** correspond au nom de votre compte de stockage). Le nom d'hôte à utiliser est indiqué dans le texte de la boîte de dialogue **Manage Custom Domain**.
+7.  Créez un enregistrement CNAME et indiquez un alias de sous-domaine tel que **www** ou **photos**. Indiquez ensuite un nom d'hôte, à savoir votre point de terminaison de service BLOB, au format **mystorageaccount.blob.core.windows.net** (où **mystorageaccount** correspond au nom de votre compte de stockage). Le nom d'hôte à utiliser est indiqué dans le texte de la boîte de dialogue **Manage Custom Domain**.
 
 8.  Après avoir créé un enregistrement CNAME, retournez dans la boîte de dialogue **Manage Custom Domain** et entrez le nom de votre domaine personnalisé, en incluant le sous-domaine, dans le champ **Custom Domain Name**. Par exemple, si votre domaine est **contoso.com** et votre sous-domaine **www**, entrez **www.contoso.com** ; si votre sous-domaine est **photos**, entrez **photos.contoso.com**. Notez que le sous-domaine est obligatoire.
 
@@ -87,16 +80,11 @@ Le sous-domaine asverify est un sous-domaine spécial reconnu par Azure. En ajou
 
 4.  Au bas de l'écran, cliquez sur **Gérer les domaines** pour afficher la boîte de dialogue **Manage Custom Domain**. Le texte figurant en haut de la boîte de dialogue contient des informations sur la manière de créer l'enregistrement CNAME à l'aide du sous-domaine **asverify**.
 
-5.  Connectez-vous au site web du bureau d’enregistrement de votre DNS et
-    accédez à la section de gestion DNS. Vous pourrez trouver ces informations dans une section telle que **Domain
-    Name**, **DNS** ou **Name Server Management**.
+5.  Connectez-vous au site web du bureau d'enregistrement de votre DNS et accédez à la page de gestion DNS. Vous pourrez trouver ces informations dans une section telle que **Domain Name**, **DNS** ou **Name Server Management**.
 
-6.  Recherchez la section relative à la gestion des enregistrements CNAME. Pour cela, accédez à une
-    page de paramètres avancés et recherchez les mots **CNAME**, **Alias**
-    ou **Subdomains**.
+6.  Recherchez la section relative à la gestion des enregistrements CNAME. Pour cela, accédez à une page de paramètres avancés et recherchez les mots **CNAME**, **Alias** ou **Subdomains**.
 
-7.  Créez un enregistrement CNAME et indiquez un alias de sous-domaine qui inclut le sous-domaine asverify. Par exemple, le sous-domaine que vous spécifiez sera au format **asverify.www** ou **asverify.photos**. Indiquez
-    ensuite un nom d'hôte, à savoir votre point de terminaison de service BLOB, au format **asverify.mystorageaccount.blob.core.windows.net** (où **mystorageaccount** correspond au nom de votre compte de stockage). Le nom d'hôte à utiliser est indiqué dans le texte de la boîte de dialogue **Manage Custom Domain**.
+7.  Créez un enregistrement CNAME et indiquez un alias de sous-domaine qui inclut le sous-domaine asverify. Par exemple, le sous-domaine que vous spécifiez sera au format **asverify.www** ou **asverify.photos**. Indiquez ensuite un nom d'hôte, à savoir votre point de terminaison de service BLOB, au format **asverify.mystorageaccount.blob.core.windows.net** (où **mystorageaccount** correspond au nom de votre compte de stockage). Le nom d'hôte à utiliser est indiqué dans le texte de la boîte de dialogue **Manage Custom Domain**.
 
 8.  Après avoir créé un enregistrement CNAME, retournez dans la boîte de dialogue **Manage Custom Domain** et entrez le nom de votre domaine personnalisé dans le champ **Custom Domain Name**. Par exemple, si votre domaine est **contoso.com** et votre sous-domaine **www**, entrez **www.contoso.com** ; si votre sous-domaine est **photos**, entrez **photos.contoso.com**. Notez que le sous-domaine est obligatoire.
 
@@ -124,14 +112,12 @@ Vous pouvez par exemple utiliser l'URI suivant pour accéder à un formulaire W
 **photos.contoso.com** qui renvoie à un objet blob dans votre conteneur
 **myforms** :
 
--   <http://photos.contoso.com/myforms/applicationform.htm>
+-   http://photos.contoso.com/myforms/applicationform.htm
 
 ## Ressources supplémentaires
 
 -   [Mappage du contenu CDN à un domaine personnalisé][Mappage du contenu CDN à un domaine personnalisé]
 
-  [Configuration d'un nom de domaine personnalisé pour un service cloud Azure]: /fr-fr/develop/net/common-tasks/custom-dns/
-  [Configuration d'un nom de domaine personnalisé pour un site web Azure]: /fr-fr/develop/net/common-tasks/custom-dns-web-site/
   [enregistrer un domaine personnalisé pour votre compte de stockage ;]: #register-domain
   [enregistrer un domaine personnalisé pour votre compte de stockage à l'aide du sous-domaine intermédiaire asverify ;]: #register-asverify
   [Mappage du contenu CDN à un domaine personnalisé]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg680307.aspx

@@ -1,6 +1,6 @@
 ## <a name="setupdevenv"></a>Configuration de l'environnement de développement
 
-Pour commencer, configurez l'environnement de développement en installant le [Kit de développement logiciel (SDK) Azure pour Visual Studio 2013][].
+Pour commencer, configurez l'environnement de développement en installant le [Kit de développement logiciel (SDK) Azure pour Visual Studio 2013][Kit de développement logiciel (SDK) Azure pour Visual Studio 2013].
 
 Si vous n'avez pas installé Visual Studio, Visual Studio Express pour le web sera également installé.
 

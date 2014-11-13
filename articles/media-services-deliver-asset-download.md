@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-deliver-media-assets" urlDisplayName="Delivering Media Assets" pageTitle="How to Deliver Media Assets - Azure" metaKeywords="" description="Learn about options for delivering media assets that have been uploaded to Media Services in Azure. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver an Asset by Download" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Delivering Media Assets" pageTitle="Fourniture d'&eacute;l&eacute;ments multim&eacute;dias - Azure" metaKeywords="" description="D&eacute;couvrez les options disponibles pour fournir des &eacute;l&eacute;ments multim&eacute;dias qui ont &eacute;t&eacute; charg&eacute;s sur Media Services dans Azure. Les exemples de code sont &eacute;crits en C# et utilisent le Kit de d&eacute;veloppement logiciel (SDK) Media Services pour .NET." metaCanonical="" services="media-services" documentationCenter="" title="Utilisation d'un &eacute;l&eacute;ment multim&eacute;dia par t&eacute;l&eacute;chargement" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # Utilisation d'un élément multimédia par téléchargement
 
-Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [Gestion des éléments multimédias][].
+Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [Gestion des éléments multimédias][Gestion des éléments multimédias].
 
 Cette rubrique présente les options disponibles pour fournir des éléments multimédias téléchargés sur Media Services. De nombreux scénarios d'application permettent de fournir du contenu Media Services. Il est possible de télécharger des éléments multimédias ou d'y accéder en utilisant un localisateur. Vous pouvez envoyer du contenu multimédia vers une autre application ou un autre fournisseur de contenu. Pour améliorer les performances et l'évolutivité, vous pouvez également fournir du contenu en utilisant un réseau de distribution de contenu (CDN), tel que Azure CDN.
 
@@ -60,17 +60,17 @@ Cet exemple montre comment télécharger des éléments multimédias depuis Medi
         Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
     }
 
-Pour plus d'informations sur la fourniture d'éléments multimédias, consultez les rubriques suivantes :
+Pour plus d'informations sur la fourniture des éléments multimédias, consultez les pages suivantes :
 
--   [Fourniture des éléments multimédias avec Media Services pour .NET][]
--   [Fourniture des éléments multimédias avec l'API REST de Media Services][]
+-   [Fourniture des éléments multimédias avec Media Services pour .NET][Fourniture des éléments multimédias avec Media Services pour .NET]
+-   [Fourniture des éléments multimédias avec l'API REST de Media Services][Fourniture des éléments multimédias avec l'API REST de Media Services]
 
 </p>
 ## Étapes suivantes
 
-Cette rubrique vous a indiqué comment télécharger un élément multimédia depuis Azure Storage. Pour plus d'informations sur les autres méthodes possibles pour fournir des éléments multimédias, consultez la page [Fourniture de contenu de diffusion en continu][].
+Cette rubrique vous a indiqué comment télécharger un élément multimédia depuis Azure Storage. Pour plus d'informations sur les autres méthodes possibles pour fournir des éléments multimédias, consultez la page [Fourniture de contenu de diffusion en continu][Fourniture de contenu de diffusion en continu].
 
-  [Gestion des éléments multimédias]: http://go.microsoft.com/fwlink/?LinkID=301815&clcid=0x409
-  [Fourniture des éléments multimédias avec Media Services pour .NET]: http://msdn.microsoft.com/en-us/library/jj129575.aspx
-  [Fourniture des éléments multimédias avec l'API REST de Media Services]: http://msdn.microsoft.com/en-us/library/jj129578.aspx
-  [Fourniture de contenu de diffusion en continu]: http://go.microsoft.com/fwlink/?LinkID=301942
+  [Gestion des éléments multimédias]: ../media-services-manage-assets/
+  [Fourniture des éléments multimédias avec Media Services pour .NET]: http://msdn.microsoft.com/fr-fr/library/jj129575.aspx
+  [Fourniture des éléments multimédias avec l'API REST de Media Services]: http://msdn.microsoft.com/fr-fr/library/jj129578.aspx
+  [Fourniture de contenu de diffusion en continu]: ../media-services-deliver-streaming-content/

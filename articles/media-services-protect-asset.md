@@ -1,16 +1,16 @@
-<properties linkid="develop-media-services-how-to-guides-encrypt-assets" urlDisplayName="Encrypt Assets in Media Services" pageTitle="How to Encrypt Assets in Media Services - Azure" metaKeywords="" description="Learn how to use Microsoft PlayReady Protection to encrypt an asset in Media Services. Code samples are written in C# and use the Media Services SDK for .NET. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Protect an Asset with PlayReady Protection" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Encrypt Assets in Media Services" pageTitle="Chiffrement des &eacute;l&eacute;ments multim&eacute;dias dans Media Services - Azure" metaKeywords="" description="Apprenez &agrave; utiliser Microsoft PlayReady Protection pour chiffrer un &eacute;l&eacute;ment multim&eacute;dia dans Media Services. Les exemples de code sont &eacute;crits en C# et utilisent le Kit de d&eacute;veloppement logiciel (SDK) Media Services pour .NET. Les exemples de code sont &eacute;crits en C# et utilisent le Kit de d&eacute;veloppement logiciel (SDK) Media Services pour .NET." metaCanonical="" services="media-services" documentationCenter="" title="Utilisation Protection d'un &eacute;l&eacute;ment multim&eacute;dia &agrave; l'aide de la protection PlayReady" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # <a name="playready"></a> Protection d'un élément multimédia à l'aide de la protection PlayReady
 
-Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [Vérification de la progression d'une tâche.][].
+Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [Vérification de la progression d'une tâche.][Vérification de la progression d'une tâche.].
 
 Azure Media Services vous permet d'envoyer une tâche qui s'intègre à la protection Microsoft PlayReady pour chiffrer un élément multimédia. Le code présenté ici prélève plusieurs fichiers de diffusion en continu dans un dossier d'entrée, crée une tâche et la chiffre avec la protection PlayReady.
 
 L'exemple suivant indique comment créer une tâche simple pour appliquer la protection PlayReady.
 
-1.  Récupérez les données de configuration. Un exemple de fichier de configuration est disponible à la rubrique [Présélection de tâche pour Azure Media Encryptor][].
+1.  Récupérez les données de configuration. Un exemple de fichier de configuration est disponible à la rubrique [Présélection de tâche pour Azure Media Encryptor][Présélection de tâche pour Azure Media Encryptor].
 2.  Téléchargez un fichier d'entrée MP4.
 3.  Convertissez le fichier MP4 en élément multimédia de diffusion en continu lisse.
 4.  Chiffrez l'élément multimédia à l'aide de PlayReady.
@@ -32,7 +32,7 @@ L'exemple de code suivant montre comment implémenter les étapes :
         string configMp4ToSmooth = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaPackager_MP4ToSmooth.xml"));
 
         // Get a media processor instance
-        IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Packager");
+        IMediaProcessor processor = GetLatestMediaProcessorByName("Windows Azure Media Packager");
 
         // Create a task with the conversion details, using the configuration data 
         ITask task = job.Tasks.AddNew("My Mp4 to Smooth Task",
@@ -55,7 +55,7 @@ L'exemple de code suivant montre comment implémenter les étapes :
         string configPlayReady = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaEncryptor_PlayReadyProtection.xml"));
 
         // Get a media processor instance
-        IMediaProcessor playreadyProcessor = GetLatestMediaProcessorByName("Azure Media Encryptor");
+        IMediaProcessor playreadyProcessor = GetLatestMediaProcessorByName("Windows Azure Media Encryptor");
 
         // Create a second task, specifying a task name, the media processor, and configuration
         ITask playreadyTask = job.Tasks.AddNew("My PlayReady Task",
@@ -101,18 +101,18 @@ L'exemple de code suivant montre comment implémenter les étapes :
         return job;
     }
 
-Pour plus d'informations sur la protection PlayReady, consultez les rubriques :
+Pour plus d'informations sur la protection PlayReady, consultez les pages suivantes :
 
--   [Protection des éléments multimédias avec Microsoft PlayReady][]
--   [Microsoft PlayReady][]
+-   [Protection des éléments multimédias avec Microsoft PlayReady][Protection des éléments multimédias avec Microsoft PlayReady]
+-   [Microsoft PlayReady][Microsoft PlayReady]
 
 </p>
 ## Étapes suivantes
 
-Maintenant que vous savez comment protéger des éléments multimédias avec Media Services, consultez la rubrique [Gestion des éléments multimédias][].
+Maintenant que vous savez comment protéger des éléments multimédias avec Media Services, consultez la rubrique [Gestion des éléments multimédias][Gestion des éléments multimédias].
 
-  [Vérification de la progression d'une tâche.]: http://go.microsoft.com/fwlink/?LinkID=301737&clcid=0x409
-  [Présélection de tâche pour Azure Media Encryptor]: http://msdn.microsoft.com/en-us/library/hh973610.aspx
-  [Protection des éléments multimédias avec Microsoft PlayReady]: http://msdn.microsoft.com/en-us/library/dn189154.aspx
+  [Vérification de la progression d'une tâche.]: ../media-services-check-job-progress/
+  [Présélection de tâche pour Azure Media Encryptor]: http://msdn.microsoft.com/fr-fr/library/hh973610.aspx
+  [Protection des éléments multimédias avec Microsoft PlayReady]: http://msdn.microsoft.com/fr-fr/library/dn189154.aspx
   [Microsoft PlayReady]: http://www.microsoft.com/PlayReady/
-  [Gestion des éléments multimédias]: http://go.microsoft.com/fwlink/?LinkID=301943&clcid=0x409
+  [Gestion des éléments multimédias]: ../media-services-manage-assets/

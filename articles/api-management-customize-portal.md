@@ -1,10 +1,10 @@
-<properties pageTitle="Customizing the developer portal in Azure API Management" metaKeywords="" description="Customizing the developer portal in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="Customizing the developer portal in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+<properties pageTitle="Personnalisation du portail des d&eacute;veloppeurs dans Gestion des API Azure" metaKeywords="" description="Personnalisation du portail des d&eacute;veloppeurs dans Gestion des API Azure." metaCanonical="" services="api-management" documentationCenter="API Management" title="Personnalisation du portail des d&eacute;veloppeurs dans Gestion des API Azure" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Personnalisation du portail des développeurs dans Gestion des API Azure
 
-Ce guide vous montre comment modifier l'aspect du portail des développeurs dans Gestion des API (version préliminaire) pour le rendre cohérent avec votre marque.
+Ce guide vous montre comment modifier l'aspect du portail des développeurs dans Gestion des API pour le rendre cohérent avec votre marque.
 
 ## Dans cette rubrique
 
@@ -47,7 +47,7 @@ Chaque règle représente une propriété de style de l'élément sélectionné.
 
 > Si vous connaissez l'[amorçage][amorçage], ces règles sont en fait des [variables LESS][variables LESS] dans le thème d'amorçage utilisé par le portail des développeurs.
 
-Modifions la couleur du texte d'en-tête. Sélectionnez l'entrée dans le champ <**@headings-color*>\* et tapez \#000000. Il s'agit du code hexadécimal pour la couleur noire. Suite à cette action, vous verrez un indicateur de couleur carré apparaître à la fin de la zone de texte. Si vous cliquez sur cet indicateur, un sélecteur de couleurs vous permettra de faire votre choix.
+Modifions la couleur du texte d'en-tête. Sélectionnez l'entrée dans le champ **@headings-color** et tapez \#000000. Il s'agit du code hexadécimal pour la couleur noire. Suite à cette action, vous verrez un indicateur de couleur carré apparaître à la fin de la zone de texte. Si vous cliquez sur cet indicateur, un sélecteur de couleurs vous permettra de faire votre choix.
 
 ![Color picker][Color picker]
 

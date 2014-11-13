@@ -1,10 +1,8 @@
-<properties linkid="manage-services-how-to-manage-a-cloud-service" urlDisplayName="How to manage" pageTitle="How to manage a cloud service - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="Learn how to manage cloud services in the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Manage Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="How to manage" pageTitle="Gestion d'un service cloud - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="D&eacute;couvrez comment g&eacute;rer des services cloud dans le portail de gestion Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="Gestion des services cloud" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="ryanwi" />
 
 # Gestion des services cloud
-
-[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 Dans la zone **Cloud Services** du portail de gestion Azure, vous pouvez mettre à jour un rôle de service ou un déploiement, promouvoir un déploiement intermédiaire en déploiement de production, lier des ressources à votre service cloud afin de voir les dépendances de ressources et d'étendre les ressources en même temps, mais aussi supprimer un service cloud ou un déploiement.
 
@@ -17,23 +15,21 @@ Dans la zone **Cloud Services** du portail de gestion Azure, vous pouvez mettre 
 
 ## <span id="updaterole"></span></a> Mise à jour d'un rôle ou d'un déploiement de service cloud
 
-Si vous devez mettre à jour le code de l'application pour votre service cloud, utilisez **Update** dans le tableau de bord, la page **Cloud Services** ou la page **Instances**. Vous pouvez mettre à jour un ou plusieurs rôles. Vous devrez charger un nouveau package de service et un nouveau fichier de configuration de service.
+Si vous devez mettre à jour le code de l'application pour votre service cloud, utilisez **Mise à jour** dans le tableau de bord, la page **Cloud Services** ou la page **Instances**. Vous pouvez mettre à jour un ou plusieurs rôles. Vous devrez charger un nouveau package de service et un nouveau fichier de configuration de service.
 
-1.  Dans le [portail de gestion Azure][portail de gestion Azure], dans le tableau de bord, dans la page **Cloud Services** ou dans la page **Instances**, cliquez sur **Update**.
-
-    **Update Deployment** s'affiche.
+1.  Dans le [portail de gestion Azure][portail de gestion Azure], dans le tableau de bord, dans la page **Cloud Services** ou dans la page **Instances**, cliquez sur **Mise à jour**.
 
     ![UpdateDeployment][UpdateDeployment]
 
-2.  Dans **Deployment label**, entrez un nom pour identifier le déploiement (par exemple, mycloudservicev2). Le nom du déploiement se trouve sous **quick start** sur le tableau de bord.
+2.  Dans **Étiquette du déploiement**, entrez un nom pour identifier le déploiement (par exemple, mycloudservicev4). L'étiquette du déploiement se trouve sous **Démarrage rapide** sur le tableau de bord.
 
-3.  Dans **Package file**, utilisez **Browse** pour charger le fichier de package du service (.cspkg).
+3.  Dans **Package**, utilisez **Parcourir** pour charger le fichier de package du service (.cspkg).
 
-4.  Dans **Configuration file**, utilisez **Browse** pour charger le fichier de configuration du service (.cscfg).
+4.  Dans **Configuration**, utilisez **Parcourir** pour charger le fichier de configuration du service (.cscfg).
 
-5.  Dans **Role**, sélectionnez **All** si vous souhaitez mettre à niveau tous les rôles dans le service cloud. Pour effectuer la mise à niveau d'un rôle, sélectionnez le rôle à mettre à niveau. Même si vous sélectionnez un rôle en particulier à mettre à jour, les mises à jour du fichier de configuration de service sont appliquées à tous les rôles.
+5.  Dans **Role**, sélectionnez **All** si vous souhaitez mettre à niveau tous les rôles dans le service cloud. Pour effectuer la mise à jour d'un seul rôle, sélectionnez le rôle à mettre à jour. Même si vous sélectionnez un rôle en particulier à mettre à jour, les mises à jour du fichier de configuration de service sont appliquées à tous les rôles.
 
-6.  Si la mise à niveau change le nombre de rôles ou la taille d'un des rôles, activez la case à cocher **Allow update if role sizes or number of roles changes** afin de permettre à la mise à jour de continuer.
+6.  Si la mise à jour change le nombre de rôles ou la taille d'un des rôles, activez la case à cocher **Autoriser la mise à jour si la taille de rôle ou le nombre de rôles change** afin de permettre à la mise à jour de continuer.
 
     Notez que si vous modifiez la taille d'un rôle (c'est-à-dire la taille de la machine virtuelle qui héberge une instance de rôle) ou le nombre de rôles, l'image de chaque instance de rôle (machine virtuelle) doit être recréée et toutes les données locales sont perdues.
 
@@ -41,7 +37,7 @@ Si vous devez mettre à jour le code de l'application pour votre service cloud, 
 
     Azure ne peut garantir 99,95 % de disponibilité du service pendant la mise à jour du service cloud que si chaque rôle dispose d'au moins deux instances de rôle (machines virtuelles). Cela permet à une machine virtuelle de traiter les demandes du client pendant que l'autre est mise à jour.
 
-8.  Cliquez sur OK (coche) pour commencer la mise à jour du service.
+8.  Cliquez sur **OK** (coche) pour commencer la mise à jour du service.
 
 ## <span id="swap"></span></a> Inversion de déploiements pour faire passer un déploiement intermédiaire en production
 
@@ -67,7 +63,7 @@ Vous pouvez inverser les déploiements à partir de la page **Cloud Services** o
 
 ## <span id="linkresources"></span></a> Liaison d'une ressource à un service cloud
 
-Pour voir les dépendances de votre service par rapport à d'autres ressources, vous pouvez lier une instance de base de données SQL ou un compte de stockage Azure au service cloud. Vous pouvez lier des ressources et annuler la liaison vers des ressources dans la page **Linked Resources**. Surveillez ensuite leur utilisation dans le tableau de bord du service cloud. Si la surveillance du compte de stockage lié est activée, vous pouvez surveiller le nombre total de demandes dans le tableau de bord du service cloud.
+Pour afficher les dépendances de votre service cloud vis-à-vis d'autres ressources, vous pouvez lier une instance de base de données SQL Azure ou un compte de stockage au service cloud. Vous pouvez lier des ressources et annuler la liaison vers des ressources dans la page **Linked Resources**. Surveillez ensuite leur utilisation dans le tableau de bord du service cloud. Si la surveillance du compte de stockage lié est activée, vous pouvez surveiller le nombre total de demandes dans le tableau de bord du service cloud.
 
 Utilisez **Link** pour créer une liaison entre une instance de base de données SQL ou un compte de stockage, nouveau ou existant, et votre service cloud. Vous pouvez ensuite étendre la base de données en même temps que le service cloud qui utilise cette base de données sur la page **Scale**. (Le compte de stockage s'étend automatiquement avec l'augmentation de l'utilisation.) Pour plus d'informations, consultez la page [Extension d'un service cloud et des ressources liées][Extension d'un service cloud et des ressources liées].
 
@@ -138,9 +134,8 @@ Utiliser la procédure suivante pour supprimer un déploiement ou un service clo
 5.  Pour supprimer le service cloud, cliquez sur **Delete cloud service**. Ensuite, à l'invite de confirmation, cliquez sur **Yes**.
 
 > [WACOM.NOTE]
-> Si la surveillance détaillée est configurée pour votre service cloud, Azure ne supprime pas les données de surveillance de votre compte de stockage lorsque vous supprimez le service cloud. Vous devez supprimer manuellement les données. Pour plus d'informations sur les tables de mesures, consultez la page « Procédure : Accès aux données de la surveillance détaillée en dehors du portail de gestion » dans [Surveillance des services cloud][Surveillance des services cloud].
+> Si la surveillance détaillée est configurée pour votre service cloud, Azure ne supprime pas les données de surveillance de votre compte de stockage lorsque vous supprimez le service cloud. Vous devez supprimer manuellement les données. Pour plus d'informations sur les tables de mesures, consultez la page Accès aux données de la surveillance détaillée en dehors du portail de gestion dans [Surveillance des services cloud][Surveillance des services cloud].
 
-  [disclaimer]: ../includes/disclaimer.md
   [Mise à jour d'un rôle ou d'un déploiement de service cloud]: #updaterole
   [Inversion de déploiements pour faire passer un déploiement intermédiaire en production]: #swap
   [Liaison d'une ressource à un service cloud]: #linkresources

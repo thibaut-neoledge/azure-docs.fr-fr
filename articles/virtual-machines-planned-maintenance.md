@@ -1,4 +1,4 @@
-<properties title="Planned maintenance for Azure virtual machines" pageTitle="Planned maintenance for Azure virtual machines" description="Understand what Azure planned maintenance is and how it affects your virtual machines running in Azure." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="kenazk" videoId="" scriptId="" />
+<properties title="Maintenance planifi&eacute;e des machines virtuelles Azure" pageTitle="Maintenance planifi&eacute;e des machines virtuelles Azure" description="Pr&eacute;sentation de la maintenance planifi&eacute;e&nbsp;Azure et de ses effets sur vos machines virtuelles s'ex&eacute;cutant dans&nbsp;Azure." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="kenazk" videoId="" scriptId="" manager="timlt" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kenazk" />
 
@@ -47,6 +47,7 @@ Pour la configuration de machines virtuelles à instance unique uniquement, Azur
 
 ![][1]
 
+<!--Anchors--> <!--Link references-->
 
   [Compréhension de la maintenance planifiée et non planifiée]: ../virtual-machines-manage-availability/#Understand-planned-versus-unplanned-maintenance/
   [Configurations de machine virtuelle]: #virtual-machine-configurations

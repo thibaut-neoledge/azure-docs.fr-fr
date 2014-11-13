@@ -1,13 +1,14 @@
-<properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Blob Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Blob Service" pageTitle="Utilisation du stockage d'objets blob (Node.js) | Microsoft&nbsp;Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="D&eacute;couvrez comment utiliser le service BLOB Azure pour charger, t&eacute;l&eacute;charger, r&eacute;pertorier et supprimer du contenu d'objet blob. Les exemples sont &eacute;crits en Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="Utilisation du service BLOB &agrave; partir de Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Utilisation du service BLOB à partir de Node.js
 
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du
 service Blob Azure. Les exemples sont écrits en utilisant
 l'API Node.js. Les scénarios traités incluent le **téléchargement (vers une cible)**, la **création de listes**, le
-**téléchargement (à partir d'une source)** et la **suppression** d'objets blob. Pour plus d'informations sur les
+**téléchargement (à partir d'une source)** et la
+**suppression** d'objets blob. Pour plus d'informations sur les
 objets blob, consultez la section [Étapes suivantes][Étapes suivantes].
 
 ## Sommaire
@@ -174,7 +175,7 @@ Pour télécharger des données dans un objet blob de pages, utilisez :
 
 -   **createPageBlob** : permet de créer un objet blob de pages d'une certaine longueur.
 
--   **createPageBlobFromFile** : permet de créer un objet blob de pages et de télécharger le contenu d'un fichier.
+-   **createPageBlobFromLocalFile** : permet de créer un objet blob de pages et de télécharger le contenu d'un fichier.
 
 -   **createPageBlobFromStream** : permet de créer un objet blob de pages et de télécharger le contenu d'un flux.
 
@@ -184,7 +185,7 @@ Pour télécharger des données dans un objet blob de pages, utilisez :
 
 L'exemple suivant télécharge le contenu du fichier **test.txt** dans **mypageblob**.
 
-    blobSvc.createPageBlobFromFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
+    blobSvc.createPageBlobFromLocalFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
       if(!error){
         // file uploaded
       }
@@ -365,7 +366,8 @@ Lorsque la liste de contrôle d'accès est définie, vous pouvez créer une sign
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Maintenant que vous connaissez les bases du stockage d'objets blob, consultez les liens suivants pour apprendre à effectuer des tâches de stockage plus complexes.
+Maintenant que vous connaissez les bases du stockage d'objets blob, consultez les liens suivants
+pour apprendre à effectuer des tâches de stockage plus complexes.
 
 -   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][Stockage et accessibilité des données dans Azure].
 -   Consultez le [Blog de l'équipe Azure Storage][Blog de l'équipe Azure Storage].
@@ -385,8 +387,6 @@ Maintenant que vous connaissez les bases du stockage d'objets blob, consultez le
   [Suppression d'un objet blob]: #delete-blobs
   [Accès simultané]: #concurrent-access
   [Utilisation des signatures d'accès partagé]: #sas
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Création et déploiement d'une application Node.js dans un site Web Azure]: /fr-fr/develop/nodejs/tutorials/create-a-website-(mac)/
   [Service cloud Node.js]: /fr-fr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Site Web avec WebMatrix]: /fr-fr/documentation/articles/web-sites-nodejs-use-webmatrix/
@@ -395,3 +395,4 @@ Maintenant que vous connaissez les bases du stockage d'objets blob, consultez le
   [Présentation des objets blob de blocs et de pages]: http://msdn.microsoft.com/fr-fr/library/azure/ee691964.aspx
   [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Kit de développement logiciel (SDK) Azure Storage pour Node]: https://github.com/Azure/azure-storage-node

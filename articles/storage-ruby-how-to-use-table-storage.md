@@ -1,14 +1,14 @@
-<properties linkid="dev-ruby-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Ruby) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Table Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Utilisation du stockage de tables (Ruby) | Microsoft&nbsp;Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="D&eacute;couvrez comment utiliser le service de stockage de tables dans Azure. Les exemples de code sont &eacute;crits &agrave; l'aide de l'API&nbsp;Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="Utilisation du service de Table &agrave; partir de Ruby" authors="guayan" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Utilisation du service de Table à partir de Ruby
 
-This guide shows you how to perform common scenarios using the Windows
-Azure Table service. The samples are written written using the
-Ruby API. The scenarios covered include **creating and deleting a
-table, inserting and querying entities in a table**. For more
-information on tables, see the [Next Steps][Next Steps] section.
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de
+Table Windows Azure. Les exemples sont écrits à l'aide de l'API
+Ruby. Les scénarios traités incluent la **création et la suppression d'une
+table, l'insertion et l'interrogation d'entités dans une table**. Pour plus
+d'informations sur les tables, consultez la section [Étapes suivantes][Étapes suivantes].
 
 ## Sommaire
 
@@ -27,7 +27,7 @@ information on tables, see the [Next Steps][Next Steps] section.
 -   [Interrogation d'un sous-ensemble de propriétés d'entité][Interrogation d'un sous-ensemble de propriétés d'entité]
 -   [Suppression d'une entité][Suppression d'une entité]
 -   [Suppression d'une table][Suppression d'une table]
--   [Étapes suivantes][Next Steps]
+-   [Étapes suivantes][Étapes suivantes]
 
 [WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
@@ -37,13 +37,13 @@ information on tables, see the [Next Steps][Next Steps] section.
 
 ## <span id="create-a-ruby-application"></span></a>Création d'une application Ruby
 
-Créez une application Ruby. For instructions,
-see [Create a Ruby Application on Azure][Create a Ruby Application on Azure].
+Créez une application Ruby. Pour obtenir des
+instructions, consultez le guide [Création d'une application Ruby sur Azure][Création d'une application Ruby sur Azure].
 
 ## <span id="configure-your-application-to-access-storage"></span></a>Configuration de votre application pour accéder au stockage
 
-To use Azure storage, you need to download and use the Ruby azure package,
-which includes a set of convenience libraries that communicate with the storage REST services.
+Pour utiliser Azure Storage, vous devez télécharger et utiliser le package Azure Ruby,
+qui inclut un ensemble de bibliothèques permettant de communiquer avec les services de stockage REST.
 
 ### Utilisation de RubyGems pour obtenir le package
 
@@ -167,7 +167,7 @@ Maintenant que vous avez appris les bases du stockage de tables, suivez ces lien
 -   Consultez le [blog de l'équipe Azure Storage][blog de l'équipe Azure Storage]
 -   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby][Kit de développement logiciel (SDK) Azure pour Ruby] sur GitHub.
 
-  [Next Steps]: #next-steps
+  [Étapes suivantes]: #next-steps
   [Présentation du service de Table]: #what-is
   [Concepts]: #concepts
   [Création d'un compte de stockage Azure]: #create-a-windows-azure-storage-account
@@ -183,9 +183,8 @@ Maintenant que vous avez appris les bases du stockage de tables, suivez ces lien
   [Interrogation d'un sous-ensemble de propriétés d'entité]: #how-to-query-a-subset-of-entity-properties
   [Suppression d'une entité]: #how-to-delete-an-entity
   [Suppression d'une table]: #how-to-delete-a-table
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [Create a Ruby Application on Azure]: /fr-fr/develop/ruby/tutorials/web-app-with-linux-vm/
+  [Création d'une application Ruby sur Azure]: /fr-fr/develop/ruby/tutorials/web-app-with-linux-vm/
   [portail de gestion Azure]: https://manage.windowsazure.com/
   [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx
   [blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Kit de développement logiciel (SDK) Azure pour Ruby]: http://github.com/WindowsAzure/azure-sdk-for-ruby

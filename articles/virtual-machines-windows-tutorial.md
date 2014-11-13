@@ -1,12 +1,12 @@
-<properties linkid="manage-windows-tutorial-virtual-machine-gallery" urlDisplayName="Create a virtual machine" pageTitle="Create a virtual machine running Windows Server in Azure" metaKeywords="Azure capture image vm, capturing vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Windows Server. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
+<properties urlDisplayName="Create a virtual machine" pageTitle="Cr&eacute;ation d'une machine virtuelle ex&eacute;cutant&nbsp;Windows dans&nbsp;Azure" metaKeywords="Azure capture image vm, capturing vm" description="Apprenez &agrave; cr&eacute;er une machine virtuelle Windows dans&nbsp;Azure et &agrave; connecter et attacher un disque de donn&eacute;es" metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kathydav, rasquill" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/12/2014" ms.author="kathydav" />
 
-# Création d’une machine virtuelle exécutant Windows Server
+# Création d'une machine virtuelle exécutant Windows
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/fr-fr/documentation/articles/virtual-machines-windows-tutorial/" title="Portail Azure" class="current">Portail Azure</a><a href="/fr-fr/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Version pr&eacute;liminaire du portail Azure">Version pr&eacute;liminaire du portail Azure</a></div>
 
-Ce didacticiel montre à quel point il est facile de créer une machine virtuelle Azure exécutant Windows Server à partir de la galerie d'images du portail de gestion Azure. La galerie d'images propose de nombreuses images, notamment des systèmes d'exploitation Windows et Linux, ainsi que des images d'applications.
+Ce didacticiel montre à quel point il est facile de créer une machine virtuelle Azure exécutant Windows en utilisant à titre d'exemple une image Windows Server à partir de la galerie d'images du portail de gestion Azure. La galerie d'images propose de nombreuses images, notamment des systèmes d'exploitation Windows et Linux, ainsi que des images d'applications.
 
 > [WACOM.NOTE] Vous n'avez besoin d'aucune expérience préalable avec les machines virtuelles Azure pour pouvoir suivre ce didacticiel. Vous devez cependant posséder un compte Azure. Vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page [Création d’un compte Azure][Création d’un compte Azure].
 
@@ -18,21 +18,23 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 Pour en savoir plus, consultez la page [Machines virtuelles][Machines virtuelles].
 
-## <a id="createvirtualmachine"> </a> Création de la machine virtuelle
+## <span id="createvirtualmachine"></span> </a>Création de la machine virtuelle
 
 Ce didacticiel vous montre comment utiliser l'option **À partir de la galerie** dans le portail de gestion pour créer la machine virtuelle. Cette option propose davantage de possibilités de configuration que l'option **Création rapide**. Par exemple, si vous voulez associer une machine virtuelle à un réseau virtuel, vous devez utiliser l'option **À partir de la galerie**.
 
-> [WACOM.NOTE] Vous pouvez faire un essai avec la [version préliminaire du portail Azure][version préliminaire du portail Azure], plus riche et personnalisable, pour créer une machine virtuelle, automatiser le déploiement de modèles d'application sur plusieurs ordinateurs, utiliser les fonctions avancées de surveillance et de diagnostic des machines virtuelles, etc. Bien qu'il existe des recoupements importants entre les options de configuration des machines virtuelles disponibles dans les deux portails, ces options ne sont pas identiques.
+> [WACOM.NOTE] Le nombre et le type d'images disponibles dans la galerie dépendent du type de votre abonnement. Ce didacticiel utilise une image Windows Server, mais un abonnement MSDN peut offrir d'autres images, y compris des images de Bureau.
 
-[WACOM.INCLUDE [virtual-machines-create-WindowsVM][virtual-machines-create-WindowsVM]]
+> Vous pouvez faire un essai avec la [version préliminaire du portail Azure][version préliminaire du portail Azure], plus riche et personnalisable, pour créer une machine virtuelle, automatiser le déploiement de modèles d'application sur plusieurs ordinateurs, utiliser les fonctions avancées de surveillance et de diagnostic des machines virtuelles, etc. Bien qu'il existe des recoupements importants entre les options de configuration des machines virtuelles disponibles dans les deux portails, ces options ne sont pas identiques.
 
-## <a id="logon"> </a> Connexion à la machine virtuelle une fois celle-ci créée
+[WACOM.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
+
+## <span id="logon"></span> </a>Connexion à la machine virtuelle une fois celle-ci créée
 
 Cette section explique comment se connecter à la machine virtuelle de manière à pouvoir gérer ses paramètres et les applications qui seront exécutées dessus.
 
-[WACOM.INCLUDE [virtual-machines-log-on-win-server][virtual-machines-log-on-win-server]]
+[WACOM.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
 
-## <a id="attachdisk"></a> Association d’un disque de données avec la nouvelle machine virtuelle
+## <span id="attachdisk"></span> </a>Association d’un disque de données avec la nouvelle machine virtuelle
 
 Cette section explique comment associer un disque de données vide à la machine virtuelle. Pour plus d'informations sur l'association de disques vides ou existants, consultez la page [Association d'un disque de données][Association d'un disque de données].
 
@@ -52,6 +54,8 @@ Cette section explique comment associer un disque de données vide à la machine
 
 5.  Les options **Virtual Machine Name**, **Storage Location**, **File Name** et **Host Cache Preference** sont déjà définies. Il vous suffit d’entrer la taille de disque souhaitée. Tapez **5** dans le champ **Size**. Cliquez ensuite sur la coche pour attacher le disque vide à la machine virtuelle.
 
+    > [WACOM.NOTE] Il est intéressant de signaler que les images de disques dans Azure sont stockées en tant qu'objets blob de pages dans le stockage Azure. En dehors d'Azure, les disques durs virtuels peuvent utiliser le format VHD ou VHDX. Il est également possible de les corriger, de les étendre et de les différencier. Azure prend en charge les disques fixes au format VHD. Le format fixe définit linéairement le disque logique dans le fichier de façon que l'offset du disque X soit stocké à l'offset de l'objet blob X. Un petit pied de page à la fin de l'objet blob décrit les propriétés du disque dur virtuel. Souvent, le format fixe gaspille de l'espace du fait que la plupart des disques comportent de grandes plages inutilisées. Cependant, Azure stocke les fichiers .vhd dans un format fragmenté : vous profitez donc en même temps de disques fixes et dynamiques. Pour en savoir plus à ce sujet, consultez la page [À propos des disques durs virtuels dans Azure][À propos des disques durs virtuels dans Azure]
+
     ![Specify the size of the empty disk][Specify the size of the empty disk]
 
     > [WACOM.NOTE] Tous les disques sont créés à partir d'un fichier de disque dur virtuel dans Windows Azure Storage. Sous **Nom de fichier**, vous pouvez fournir le nom du fichier de disque dur virtuel ajouté au stockage. Quant au nom du disque, Azure le génère automatiquement.
@@ -62,7 +66,7 @@ Cette section explique comment associer un disque de données vide à la machine
 
     Une fois le disque de données attaché à la machine virtuelle, il apparaît hors connexion et n’est pas initialisé. Pour pouvoir l’utiliser en vue de stocker des données, vous devez vous connecter à la machine virtuelle et initialiser le disque.
 
-7.  Connectez-vous à la machine virtuelle en suivant la procédure de la section précédente [Connexion à la machine virtuelle une fois celle-ci créée] (#logon).
+7.  Connectez-vous à la machine virtuelle en suivant la procédure de la section précédente [Connexion à la machine virtuelle une fois celle-ci créée][Connexion à la machine virtuelle une fois celle-ci créée] (\#logon).
 
 8.  Une fois que vous êtes connecté à la machine virtuelle, ouvrez **Server Manager**. Dans le volet gauche, sélectionnez **Services de fichiers et de stockage**.
 
@@ -98,25 +102,34 @@ Pour en savoir plus sur la configuration des machines virtuelles Windows sur Azu
 
 [Création et téléchargement de votre disque dur virtuel contenant le système d'exploitation Windows Server][Création et téléchargement de votre disque dur virtuel contenant le système d'exploitation Windows Server]
 
-[Association de disques de données avec une machine virtuelle][Association d'un disque de données]
-
 [Gestion de la disponibilité des machines virtuelles][Gestion de la disponibilité des machines virtuelles]
 
-  [Portail Azure]: /fr-fr/documentation/articles/virtual-machines-windows-tutorial/ "Portail Azure"
-  [Version préliminaire du portail Azure]: /fr-fr/documentation/articles/virtual-machines-windows-tutorial-azure-preview/ "Version préliminaire du portail Azure"
-  [Création d’un compte Azure]: http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/
+[À propos des paramètres de configuration de machine virtuelle Azure][À propos des paramètres de configuration de machine virtuelle Azure]
+
+[VIDÉO : Prise en main des disques durs virtuels - Ce qui se passe réellement][VIDÉO : Prise en main des disques durs virtuels - Ce qui se passe réellement]
+
+[VIDÉO : FAQ avec Mark Russinovich - Microsoft Azure s'exécute-t-il dans Windows ?][VIDÉO : FAQ avec Mark Russinovich - Microsoft Azure s'exécute-t-il dans Windows ?]
+
+[VIDÉO : Ajout d'une nouvelle machine virtuelle dans une batterie de serveurs web en réalisant des images réutilisables][VIDÉO : Ajout d'une nouvelle machine virtuelle dans une batterie de serveurs web en réalisant des images réutilisables]
+
+[VIDÉO : Ajout de disques durs virtuels, de comptes de stockage et mise à l'échelle des machines virtuelles][VIDÉO : Ajout de disques durs virtuels, de comptes de stockage et mise à l'échelle des machines virtuelles]
+
+[VIDÉO : Scott Guthrie commence par les machines virtuelles][VIDÉO : Scott Guthrie commence par les machines virtuelles]
+
+[VIDÉO : Notions de base sur le stockage et les disques avec des machines virtuelles Azure][VIDÉO : Notions de base sur le stockage et les disques avec des machines virtuelles Azure]
+
+  [Création d’un compte Azure]: http://www.windowsazure.com/fr-fr/develop/php/tutorials/create-a-windows-azure-account/
   [Création de la machine virtuelle]: #createvirtualmachine
   [Connexion à la machine virtuelle une fois celle-ci créée]: #logon
   [Association d’un disque de données avec la nouvelle machine virtuelle]: #attachdisk
   [Machines virtuelles]: http://go.microsoft.com/fwlink/p/?LinkID=271224
   [version préliminaire du portail Azure]: https://portal.azure.com
-  [virtual-machines-create-WindowsVM]: ../includes/virtual-machines-create-WindowsVM.md
-  [virtual-machines-log-on-win-server]: ../includes/virtual-machines-log-on-win-server.md
   [Association d'un disque de données]: http://www.windowsazure.com/fr-fr/documentation/articles/storage-windows-attach-disk/
   [portail de gestion]: http://manage.windowsazure.com
   [Select MyTestVM]: ./media/virtual-machines-windows-tutorial/selectvm.png
   [Select Dashboard]: ./media/virtual-machines-windows-tutorial/dashboard.png
   [Select Attach from the command bar]: ./media/virtual-machines-windows-tutorial/commandbarattach.png
+  [À propos des disques durs virtuels dans Azure]: http://msdn.microsoft.com/fr-fr/library/azure/dn790344.aspx
   [Specify the size of the empty disk]: ./media/virtual-machines-windows-tutorial/emptydisksize.png
   [Attacher un disque vide]: ./media/virtual-machines-windows-tutorial/disklistwithdatadisk.png
   [Expand File and Storage Services in Server Manager]: ./media/virtual-machines-windows-tutorial/fileandstorageservices.png
@@ -128,3 +141,10 @@ Pour en savoir plus sur la configuration des machines virtuelles Windows sur Azu
   [Connexion des machines virtuelles dans un service cloud]: http://www.windowsazure.com/fr-fr/documentation/articles/cloud-services-connect-virtual-machine/
   [Création et téléchargement de votre disque dur virtuel contenant le système d'exploitation Windows Server]: http://www.windowsazure.com/fr-fr/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
   [Gestion de la disponibilité des machines virtuelles]: http://www.windowsazure.com/fr-fr/documentation/articles/manage-availability-virtual-machines/
+  [À propos des paramètres de configuration de machine virtuelle Azure]: http://msdn.microsoft.com/library/azure/dn763935.aspx
+  [VIDÉO : Prise en main des disques durs virtuels - Ce qui se passe réellement]: http://azure.microsoft.com/fr-fr/documentation/videos/getting-started-with-azure-virtual-machines
+  [VIDÉO : FAQ avec Mark Russinovich - Microsoft Azure s'exécute-t-il dans Windows ?]: http://azure.microsoft.com/fr-fr/documentation/videos/mark-russinovich-windows-on-azure
+  [VIDÉO : Ajout d'une nouvelle machine virtuelle dans une batterie de serveurs web en réalisant des images réutilisables]: http://azure.microsoft.com/fr-fr/documentation/videos/adding-virtual-machines-web-farm
+  [VIDÉO : Ajout de disques durs virtuels, de comptes de stockage et mise à l'échelle des machines virtuelles]: http://azure.microsoft.com/fr-fr/documentation/videos/adding-drives-scaling-virtual-machines
+  [VIDÉO : Scott Guthrie commence par les machines virtuelles]: http://azure.microsoft.com/fr-fr/documentation/videos/virtual-machines-scottgu
+  [VIDÉO : Notions de base sur le stockage et les disques avec des machines virtuelles Azure]: http://azure.microsoft.com/fr-fr/documentation/videos/storage-and-disks-virtual-machines

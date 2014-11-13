@@ -1,36 +1,34 @@
-<properties linkid="manage-services-mediaservices-scale-media-service" urlDisplayName="How to scale" pageTitle="How to Scale a media service | Azure Documentation" metaKeywords="" description="Learn how to scale Media Services by specifying the number of On-Demand Streaming Reserved Units and Encoding Reserved Units that you would like your account to be provisioned with." metaCanonical="" services="media-services" documentationCenter="" title="How to Scale a Media Service" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="How to scale" pageTitle="Mise &agrave; l'&eacute;chelle d'un service Media Services | Documentation Azure" metaKeywords="" description="Apprenez &agrave; mettre &agrave; l'&eacute;chelle Media Services en sp&eacute;cifiant le nombre d'unit&eacute;s r&eacute;serv&eacute;es de diffusion en continu &agrave; la demande et d'unit&eacute;s r&eacute;serv&eacute;es d'encodage avec lesquelles vous voulez que votre compte soit approvisionn&eacute;." metaCanonical="" services="media-services" documentationCenter="" title="Mise &agrave; l'&eacute;chelle d'un service de m&eacute;dia" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/26/2014" ms.author="juliako" />
 
 # Mise à l'échelle d'un service de média
 
-[WACOM.INCLUDE [disclaimer][]]
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 Vous pouvez mettre à l'échelle des services de média en spécifiant le nombre d'**Unités réservées de diffusion en continu à la demande** et d'**Unités réservées d'encodage** avec lesquelles vous voulez que votre compte soit approvisionné.
 
 ## Unités réservées de diffusion en continu à la demande
 
-Les unités réservées de diffusion en continu à la demande fournissent à la fois une capacité de sortie dédiée que vous pouvez acquérir par incréments de 200 Mbps et une fonctionnalité supplémentaire qui inclut actuellement des [capacités d'empaquetage dynamique][]. Par défaut, la diffusion en continu à la demande est configurée dans un modèle d’instance partagée, pour lequel les ressources du serveur (calcul, sortie, capacité, etc.) sont partagées avec tous les autres utilisateurs. Afin d'améliorer la vitesse de diffusion en continu à la demande, il est recommandé d'acheter des unités réservées de diffusion en continu à la demande.
+Les unités réservées de diffusion en continu à la demande fournissent à la fois une capacité de sortie dédiée que vous pouvez acquérir par incréments de 200 Mbps et une fonctionnalité supplémentaire qui inclut actuellement des [capacités d'empaquetage dynamique][capacités d'empaquetage dynamique]. Par défaut, la diffusion en continu à la demande est configurée dans un modèle d’instance partagée, pour lequel les ressources du serveur (calcul, sortie, capacité, etc.) sont partagées avec tous les autres utilisateurs. Afin d'améliorer la vitesse de diffusion en continu à la demande, il est recommandé d'acheter des unités réservées de diffusion en continu à la demande.
 
 Pour changer le nombre d'unités réservées de diffusion en continu à la demande, procédez comme suit :
 
-1.  Dans le [portail de gestion][], cliquez sur **Media Services**. Cliquez ensuite sur le nom du service multimédia.
+1.  Dans le [portail de gestion][portail de gestion], cliquez sur **Media Services**. Cliquez ensuite sur le nom du service multimédia.
 
-2.  Sélectionnez la page ORIGINS. Cliquez ensuite sur l'origine que vous souhaitez modifier.
+2.  Sélectionnez la page POINTS DE TERMINAISON DE DIFFUSION EN CONTINU. Cliquez ensuite sur le point de terminaison de diffusion en continu que vous souhaitez modifier.
 
-    ![page Origine][]
+3.  Pour spécifier le nombre d'unités de diffusion en continu, sélectionnez l'onglet METTRE À L'ÉCHELLE et déplacez le curseur de **capacité réservée**.
 
-3.  Pour spécifier le nombre d'unités réservées, sélectionnez l'onglet Mettre à l'échelle et déplacez le curseur de **capacité réservée**.
-
-    ![Page Mettre à l'échelle][]
+    ![Page Mettre à l'échelle][Page Mettre à l'échelle]
 
 4.  Appuyez sur le bouton ENREGISTRER pour enregistrer vos modifications.
 
     Il faut environ 20 minutes pour allouer de nouvelles unités de diffusion en continu à la demande.
 
-    **Remarque :** actuellement, le fait de passer d'une valeur positive à zéro pour le nombre d'unités de diffusion en continu à la demande peut désactiver la diffusion en continu pendant une heure.
+    > [Azure.Note] Actuellement, le fait de passer d'une valeur positive à zéro pour le nombre d'unités de diffusion en continu à la demande peut désactiver la diffusion en continu à la demande pendant une heure.
 
-    **Remarque :** le nombre d'unités le plus élevé spécifié pour la période de 24 heures est utilisé pour le calcul du coût. Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification des services de média][].
+    > [Azure.Note] Le nombre d'unités le plus élevé spécifié pour la période de 24 heures est utilisé pour le calcul du coût. Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification des services de média][Détails de la tarification des services de média].
 
 ## Unités réservées d'encodage
 
@@ -38,17 +36,25 @@ Le nombre d'unités réservées d'encodage approvisionnées est égal au nombre 
 
 Pour changer le nombre d'unités réservées d'encodage, procédez comme suit :
 
-1.  Dans le [portail de gestion][], cliquez sur **Media Services**. Cliquez ensuite sur le nom du service multimédia.
+1.  Dans le [portail de gestion][portail de gestion], cliquez sur **Media Services**. Cliquez ensuite sur le nom du service multimédia.
 
-2.  Sélectionnez la page PROCESSORS.
+2.  Sélectionnez la page ENCODAGE.
 
-    ![Page Processors][]
+    La page Encodage vous permet de sélectionner l'un des trois types d'unités réservées d'encodage : De base, Standard ou Premium (comme illustré ci-après).
+
+    ![Page Processors][Page Processors]
+
+    Vous pouvez changer le nombre d'unités réservées pour le TYPE D'UNITÉ RÉSERVÉE sélectionné à l'aide du curseur d'ENCODAGE.
+
+    La principale différence entre les types d'unité réservée concerne la vitesse. Par exemple, la même tâche d'encodage s'exécute plus vite avec le type d'unité réservée Standard qu'avec le type De base. Pour plus d'informations, consultez le blog « Encodage des types d'unité réservée » rédigé par [Milan Gada][Milan Gada].
+
+    > [Azure.Note] Les centres de données suivants ne proposent pas le type d'unité réservée Premium : Singapour, Hong Kong, Osaka, Pékin, Shanghai.
 
 3.  Appuyez sur le bouton ENREGISTRER pour enregistrer vos modifications.
 
-    Les nouvelles unités réservées d'encodage sont allouées presque immédiatement.
+    Les nouvelles unités réservées d'encodage sont allouées dès que vous appuyez sur ENREGISTRER.
 
-    **Remarque :** le nombre d'unités le plus élevé spécifié pour la période de 24 heures est utilisé pour le calcul du coût.
+    > [Azure.Note] Le nombre d'unités le plus élevé spécifié pour la période de 24 heures est utilisé pour le calcul du coût.
 
 ## Ouverture d'un ticket de support
 
@@ -57,7 +63,7 @@ Par défaut, chaque compte Media Services a une capacité maximale de 25 unité
 Pour ouvrir un ticket de support, procédez comme suit :
 
 1.  Connectez-vous à votre compte Azure sur le [portail de gestion][1].
-2.  Accédez à [Support][].
+2.  Accédez à [Support][Support].
 3.  Cliquez sur « Obtenir un support ».
 4.  Sélectionnez votre abonnement.
 5.  Sous le type de support, sélectionnez « Technique ».
@@ -68,12 +74,11 @@ Pour ouvrir un ticket de support, procédez comme suit :
 10. Suivez les instructions de la page suivante, puis entrez les détails concernant le nombre d'unités réservées de diffusion en continu à la demande ou d'encodage dont vous avez besoin.
 11. Cliquez sur Envoyer pour ouvrir le ticket.
 
-  [disclaimer]: ../includes/disclaimer.md
   [capacités d'empaquetage dynamique]: http://go.microsoft.com/fwlink/?LinkId=276874
   [portail de gestion]: https://manage.windowsazure.com/
-  [page Origine]: ./media/media-services-how-to-scale/media-services-origin-page.png
   [Page Mettre à l'échelle]: ./media/media-services-how-to-scale/media-services-origin-scale.png
   [Détails de la tarification des services de média]: http://go.microsoft.com/fwlink/?LinkId=275107
   [Page Processors]: ./media/media-services-how-to-scale/media-services-encoding-scale.png
+  [Milan Gada]: http://azure.microsoft.com/blog/author/milanga/
   [1]: http://manage.windowsazure.com
-  [Support]: http://www.windowsazure.com/en-us/support/contact/
+  [Support]: http://www.windowsazure.com/fr-fr/support/contact/

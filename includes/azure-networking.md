@@ -4,8 +4,8 @@ La méthode la plus facile pour se connecter aux données et aux applications Az
 
 ## Sommaire
 
--   [Réseau virtuel Azure][]
--   [Azure Traffic Manager][]
+-   [Réseau virtuel Azure][Réseau virtuel Azure]
+-   [Azure Traffic Manager][Azure Traffic Manager]
 
 <a name="Vnet"></a>
 
@@ -17,14 +17,14 @@ Il existe une solution standard pour remédier à ce type de problème : créer
 
 <a name="Fig1"></a>
 
-![01\_Miseenréseau][]
+![01\_Miseenréseau][01\_Miseenréseau]
 
 **Figure 1 : Le réseau virtuel Azure permet la création dans le cloud d’un réseau virtuel connecté à votre centre de données local.**
 
 Comme le montre l’illustration, le réseau virtuel Azure vous permet de créer une limite logique autour d’un groupe de machines virtuelles, appelé *réseau virtuel ou VNET*, dans un centre de données Azure. Vous pouvez alors établir une connexion IPsec entre ce VNET et votre réseau local. Les machines virtuelles d’un VNET peuvent être créées à l’aide des machines virtuelles Azure et/ou des services cloud Azure. Autrement dit, il peut s'agir de machines virtuelles créées à l'aide de la technologie Infrastructure as a Service (IaaS) d'Azure ou de sa technologie Platform as a Service (PaaS).
 Quel que soit votre choix, la création de la connexion IPsec requiert un périphérique de passerelle VPN (matériel spécialisé connecté à votre réseau local), ainsi que les services de votre administrateur réseau. Une fois que cette connexion est en place, les machines virtuelles Azure s’exécutant dans votre VNET ressemblent à n’importe quelle autre partie du réseau de votre organisation.
 
-Comme suggéré dans la [figure 1][], vous allouez des adresses IP aux machines virtuelles Azure à partir du même espace d’adressage IP utilisé dans votre propre réseau. Dans la situation présentée ici, qui utilise des adresses IP privées, les machines virtuelles du cloud ne sont qu’un autre sous-réseau IP. Les logiciels s’exécutant sur votre réseau local voient ces machines virtuelles comme s’il s’agissait de machines virtuelles locales, tout comme pour les VPN ordinaires. Et il est important de remarquer cela, car cette connexion se produit au niveau de l’IP, les machines virtuelles et physiques des deux côtés peuvent exécuter n’importe quel système d’exploitation. Les machines virtuelles Azure exécutant Windows Server ou Linux peuvent interagir avec les machines locales exécutant Windows, Linux ou d’autres systèmes. Il est également possible d’utiliser des outils de gestion courants, comme System Center, pour gérer les machines virtuelles du cloud et les applications qu’elles contiennent.
+Comme suggéré dans la [figure 1][figure 1], vous allouez des adresses IP aux machines virtuelles Azure à partir du même espace d’adressage IP utilisé dans votre propre réseau. Dans la situation présentée ici, qui utilise des adresses IP privées, les machines virtuelles du cloud ne sont qu’un autre sous-réseau IP. Les logiciels s’exécutant sur votre réseau local voient ces machines virtuelles comme s’il s’agissait de machines virtuelles locales, tout comme pour les VPN ordinaires. Et il est important de remarquer cela, car cette connexion se produit au niveau de l’IP, les machines virtuelles et physiques des deux côtés peuvent exécuter n’importe quel système d’exploitation. Les machines virtuelles Azure exécutant Windows Server ou Linux peuvent interagir avec les machines locales exécutant Windows, Linux ou d’autres systèmes. Il est également possible d’utiliser des outils de gestion courants, comme System Center, pour gérer les machines virtuelles du cloud et les applications qu’elles contiennent.
 
 L’utilisation d’un réseau virtuel Azure présente un intérêt dans de nombreuses situations. Comme cela a déjà été mentionné, cette approche facilite l’accès des utilisateurs de l’entreprise aux applications cloud. Un aspect important de cette simplicité d’utilisation est la possibilité pour les machines virtuelles Azure de faire partie intégrante d’un domaine Active Directory local pour donner aux utilisateurs une authentification unique sur les applications qu’elles exécutent. Si vous préférez, vous pouvez aussi créer un domaine Active Directory dans le cloud, puis connecter ce domaine à votre réseau local.
 
@@ -42,7 +42,7 @@ Azure Traffic Manager sert justement à résoudre ce problème. La figure 2 l�
 
 <a name="Fig3"></a>
 
-![03\_TrafficManager][]
+![03\_TrafficManager][03\_TrafficManager]
 
 **Figure 2 : Azure Traffic Manager redirige de façon intelligence les requêtes des utilisateurs entre les instances d’une application s’exécutant dans différents centres de données Azure.**
 

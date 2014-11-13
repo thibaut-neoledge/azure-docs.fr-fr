@@ -1,6 +1,6 @@
-<properties linkid="dev-node-remotedesktop" urlDisplayName="Enable Remote Desktop" pageTitle="Enable remote desktop for cloud services (Node.js)" metaKeywords="Azure Node.js remote access, Azure Node.js remote connection, Azure Node.js VM access, Azure Node.js virtual machine access" description="Learn how to enable remote-desktop access for the virtual machines hosting your Azure Node.js application. " metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Enabling Remote Desktop in Azure" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Enable Remote Desktop" pageTitle="Activation du Bureau &agrave; distance pour les services cloud (Node.js)" metaKeywords="Azure Node.js remote access, Azure Node.js remote connection, Azure Node.js VM access, Azure Node.js virtual machine access" description="D&eacute;couvrez comment activer l'acc&egrave;s Bureau &agrave; distance pour les machines virtuelles qui h&eacute;bergent votre application Azure Node.js. " metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Activation du Bureau &agrave; distance dans Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 # Activation du Bureau à distance dans Azure
 
@@ -18,7 +18,9 @@ Cette procédure comprend les étapes suivantes :
 
 -   [Étape 1 : configuration du service pour l'accès au Bureau à distance au moyen d'Azure PowerShell][Étape 1 : configuration du service pour l'accès au Bureau à distance au moyen d'Azure PowerShell]
 -   [Étape 2 : connexion à l'instance de rôle][Étape 2 : connexion à l'instance de rôle]
--   [Étape 3 : configuration du service pour désactiver l'accès au Bureau à distance au moyen d'Azure PowerShell][Étape 3 : configuration du service pour désactiver l'accès au Bureau à distance au moyen d'Azure PowerShell]
+-   [Étape 3 : configuration du service pour désactiver l'accès au Bureau
+    à distance au moyen d'Azure PowerShell][Étape 3 : configuration du service pour désactiver l'accès au Bureau
+    à distance au moyen d'Azure PowerShell]
 
 ## <a name="step1"> </a>Étape 1 : configuration du service pour l'accès au Bureau à distance au moyen d'Azure PowerShell
 
@@ -106,7 +108,6 @@ distance aux instances de rôle dans le cloud, désactivez l'accès Bureau à di
 
   [Étape 1 : configuration du service pour l'accès au Bureau à distance au moyen d'Azure PowerShell]: #step1
   [Étape 2 : connexion à l'instance de rôle]: #step2
-  [Étape 3 : configuration du service pour désactiver l'accès au Bureau à distance au moyen d'Azure PowerShell]: #step3
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
   [Entrée du menu Démarrer Azure PowerShell]: ./media/cloud-services-nodejs-enable-remote-desktop/azure-powershell-menu.png
   [enable-azureserviceprojectremotedesktop]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png

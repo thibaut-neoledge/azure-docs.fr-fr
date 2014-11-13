@@ -1,6 +1,6 @@
-<properties linkid="manage-linux-fundamentals-intro-to-linux" urlDisplayName="Intro to Linux" pageTitle="Introduction to Linux in Azure - Azure Tutorial" metaKeywords="Azure Linux vm, Linux vm" description="Learn about using Linux virtual machines on Azure." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Introduction to Linux on Azure" authors="szark" solutions="" manager="" editor="" />
+<properties urlDisplayName="Intro to Linux" pageTitle="Pr&eacute;sentation de&nbsp;Linux dans Azure - Didacticiel&nbsp;Azure" metaKeywords="Azure Linux vm, Linux vm" description="Apprenez &agrave; utiliser des machines virtuelles&nbsp;Linux sur&nbsp;Azure." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Pr&eacute;sentation de Linux sous Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark" />
 
 # Présentation de Linux sous Azure
 
@@ -36,11 +36,11 @@ La version actuelle du portail de gestion accepte uniquement les clés publiques
 
         chmod 600 myPrivateKey.key
 
-3.  Convertissez myCert.pem en myCert.cer (certificat codé DER X509)
+3.  Convertissez `myCert.pem` en `myCert.cer` (certificat codé DER X509)
 
         openssl  x509 -outform der -in myCert.pem -out myCert.cer
 
-4.  Téléchargez myCert.cer lors de la création de la machine virtuelle Linux. Le processus de déploiement installe automatiquement la clé publique de ce certificat dans le fichier authorized\_keys pour l'utilisateur spécifié dans la machine virtuelle.
+4.  Téléchargez `myCert.cer` lors de la création de la machine virtuelle Linux. Le processus d'approvisionnement installe automatiquement la clé publique de ce certificat dans le fichier `~/.ssh/authorized_keys` pour l'utilisateur spécifié dans la machine virtuelle.
 
 5.  Connectez-vous à la machine virtuelle Linux à l'aide de ssh.
 
@@ -48,7 +48,11 @@ La version actuelle du portail de gestion accepte uniquement les clés publiques
 
     Lors de la première connexion, vous êtes invité à accepter l'empreinte digitale de la clé publique de l'hôte.
 
-6.  Vous pouvez éventuellement copier myPrivateKey.key vers ~/.ssh/id\_rsa pour que votre client openssh puisse sélectionner la clé automatiquement sans utiliser l'option -i.
+6.  Vous pouvez facultativement copier `myPrivateKey.key` dans `~/.ssh/id_rsa` pour que votre client openssh puisse sélectionner la clé automatiquement sans utiliser l'option -i.
+     Vous pouvez également modifier `~/.ssh/config` pour inclure une section pour votre machine virtuelle :
+
+        Host servicename.cloudapp.net
+          IdentityFile %d/.ssh/myPrivateKey.key
 
 ### Génération d'une clé à partir d'une clé existante compatible OpenSSH
 
@@ -100,13 +104,13 @@ Les images Ubuntu utilisent cloud-init, qui fournit des fonctionnalités supplé
 
 Azure vous permet de capturer l'état d'une machine virtuelle existante dans une image qui peut ensuite servir au déploiement d'autres instances de machine virtuelle. L'agent Linux Azure peut être utilisé pour restaurer une partie de la personnalisation réalisée pendant le processus de déploiement. Pour capturer une machine virtuelle en tant qu'image, vous pouvez procéder comme suit :
 
-1. Exécutez **waagent -deprovision** pour annuler la personnalisation du déploiement. Ou exécutez **waagent -deprovision+user** pour éventuellement supprimer le compte utilisateur spécifié pendant le déploiement, avec toutes les données associées.
+1.  Exécutez **waagent -deprovision** pour annuler la personnalisation du déploiement. Ou exécutez **waagent -deprovision+user** pour éventuellement supprimer le compte utilisateur spécifié pendant le déploiement, avec toutes les données associées.
 
-2. Arrêtez/mettez hors tension la machine virtuelle.
+2.  Arrêtez/mettez hors tension la machine virtuelle.
 
-3. Cliquez sur *Capture* dans le portail de gestion ou utilisez les outils Powershell ou d'interface de ligne de commande pour capturer la machine virtuelle en tant qu'image.
+3.  Cliquez sur *Capture* dans le portail de gestion ou utilisez les outils Powershell ou d'interface de ligne de commande pour capturer la machine virtuelle en tant qu'image.
 
- - Consultez la rubrique : [Capture d'une machine virtuelle Linux à utiliser comme modèle][Capture d'une machine virtuelle Linux à utiliser comme modèle]
+-   Consultez la rubrique : [Capture d'une machine virtuelle Linux à utiliser comme modèle][Capture d'une machine virtuelle Linux à utiliser comme modèle]
 
 ## <span id="attachingdisks"></span></a>Attachement de disques
 

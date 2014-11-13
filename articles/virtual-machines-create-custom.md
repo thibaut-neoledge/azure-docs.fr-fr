@@ -1,10 +1,10 @@
-<properties linkid="manage-linux-howto-custom-create-vm" urlDisplayName="Create a custom VM" pageTitle=" Create a custom virtual machine running Linux in Azure" metaKeywords="Azure custom vm, creating custom vm" description="Learn how to create a custom virtual machine in Azure." metaCanonical="http://www.windowsazure.com/fr-fr/manage/windows/how-to-guides/custom-create-a-vm/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
+<properties urlDisplayName="Create a custom VM" pageTitle=" Cr&eacute;ation d'une machine virtuelle personnalis&eacute;e ex&eacute;cutant&nbsp;Linux dans&nbsp;Azure" metaKeywords="Azure custom vm, creating custom vm" description="Apprenez &agrave; cr&eacute;er une machine virtuelle personnalis&eacute;e dans&nbsp;Azure." metaCanonical="http://www.windowsazure.com/fr-fr/manage/windows/how-to-guides/custom-create-a-vm/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # Création d’une machine virtuelle personnalisée
 
-Une machine virtuelle *personnalisée* correspond à une machine virtuelle que vous avez créée à l'aide de l'option **From Gallery** parce qu'elle propose davantage de possibilités de configuration que l'option **Quick Create**. Elles comprennent :
+Une machine virtuelle *personnalisée* correspond à une machine virtuelle que vous avez créée à l'aide de l'option **From Gallery** parce qu'elle propose davantage de possibilités de configuration que l'option **Quick Create**. Vous avez notamment vu les points suivants :
 
 -   Un plus grand choix d'images pour la création de la machine virtuelle (MV)
 -   Connexion de la MV à un réseau virtuel
@@ -17,4 +17,3 @@ Une machine virtuelle *personnalisée* correspond à une machine virtuelle que v
 [WACOM.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
   [Présentation du réseau virtuel Azure]: http://go.microsoft.com/fwlink/p/?LinkID=294063
-  [virtual-machines-create-WindowsVM]: ../includes/virtual-machines-create-WindowsVM.md

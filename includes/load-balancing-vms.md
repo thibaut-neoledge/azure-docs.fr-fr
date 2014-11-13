@@ -1,6 +1,6 @@
-<properties title="Load Balancing for Azure Infrastructure Services" pageTitle="Load Balancing for Azure Infrastructure Services" description="Describes the facilities to perform load balancing with Traffic Manager and load balancer." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt" />
+<properties title="&Eacute;quilibrage de charge pour les services d'infrastructure Azure" pageTitle="&Eacute;quilibrage de charge pour les services d'infrastructure Azure" description="D&eacute;crit les fonctions d'&eacute;quilibrage de charge (avec Traffic Manager)." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="cherylmc" videoId="" scriptId="" manager="adinah" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="josephd"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="cherylmc" />
 
 # Équilibrage de charge pour les services d'infrastructure Azure
 
@@ -21,11 +21,11 @@ Azure Traffic Manager utilise trois méthodes d'équilibrage de charge pour r�
 -   **Performance** : Utilisez cette méthode lorsque vos points de terminaison se trouvent à des emplacements géographiques différents et que vous souhaitez que les clients étant à l’origine des demandes utilisent le point de terminaison « le plus proche » (latence la plus faible).
 -   **Tourniquet (round robin) :** Utilisez cette méthode lorsque vous souhaitez répartir la charge sur un ensemble de services cloud situés dans le même centre de données ou sur des services cloud ou des sites Web situés dans différents centres de données.
 
-Pour plus d'informations, consultez la page [À propos des méthodes d'équilibrage de charge dans Traffic Manager][].
+Pour plus d'informations, consultez la page [À propos des méthodes d'équilibrage de charge dans Traffic Manager][À propos des méthodes d'équilibrage de charge dans Traffic Manager].
 
 La figure suivante présente un exemple d'équilibrage de charge Tourniquet utilisé pour répartir le trafic entre différents services cloud.
 
-![équilibrage de la charge][]
+![équilibrage de la charge][équilibrage de la charge]
 
 Cela se déroule généralement de la manière suivante :
 
@@ -34,7 +34,7 @@ Cela se déroule généralement de la manière suivante :
 3.  Traffic Manager renvoie le nom DNS du service cloud dans la liste Tourniquet. Le serveur DNS du client Internet résout le nom en adresse IP et l'envoie au client Internet.
 4.  Le client Internet se connecte via le service cloud choisi.
 
-Pour plus d'informations, consultez la rubrique [Traffic Manager][].
+Pour plus d'informations, consultez la rubrique [Traffic Manager][Traffic Manager].
 
 ## Équilibrage de charge Azure pour des machines virtuelles
 
@@ -46,7 +46,7 @@ La figure suivante présente un point de terminaison à charge équilibrée pour
 
 ![équilibrage de la charge][1]
 
-Pour plus d’informations, consultez la page [Équilibrage de charge Azure][]. Pour découvrir comment créer un jeu d'équilibrage de charge, consultez la page [Configurer un jeu d'équilibrage de charge][].
+Pour plus d’informations, consultez la page [Équilibrage de charge Azure][Équilibrage de charge Azure]. Pour découvrir comment créer un jeu d'équilibrage de charge, consultez la page [Configurer un jeu d'équilibrage de charge][Configurer un jeu d'équilibrage de charge].
 
 Azure peut également équilibrer la charge au sein d'un service cloud ou réseau virtuel. On parle alors d'équilibrage de charge interne, que l'on peut utiliser comme suit :
 
@@ -60,7 +60,7 @@ La figure suivante présente un exemple de point de terminaison interne à charg
 
 ![équilibrage de la charge][2]
 
-Pour plus d’informations, consultez la page [Équilibrage de charge interne][]. Pour découvrir comment créer un jeu d'équilibrage de charge, consultez la page [Configurer un jeu d'équilibrage de charge interne][].
+Pour plus d’informations, consultez la page [Équilibrage de charge interne][Équilibrage de charge interne]. Pour découvrir comment créer un jeu d'équilibrage de charge, consultez la page [Configurer un jeu d'équilibrage de charge interne][Configurer un jeu d'équilibrage de charge interne].
 
 <!-- LINKS -->
 

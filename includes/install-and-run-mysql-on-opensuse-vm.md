@@ -59,12 +59,12 @@
 
         quit
 
-11. Après l'installation de MySQL, vous devez configurer un point de terminaison pour que MySQL soit accessible à distance. Connectez-vous au [portail de gestion Azure][]. Dans le portail Azure, cliquez sur **Virtual Machines**, puis sur le nom de la nouvelle machine virtuelle et sur **Endpoints**.
+11. Après l'installation de MySQL, vous devez configurer un point de terminaison pour que MySQL soit accessible à distance. Connectez-vous au [portail de gestion Azure][portail de gestion Azure]. Dans le portail Azure, cliquez sur **Virtual Machines**, puis sur le nom de la nouvelle machine virtuelle et sur **Endpoints**.
 
-    ![Points de terminaison][]
+    ![Points de terminaison][Points de terminaison]
 
 12. Cliquez sur **Ajouter un point de terminaison** en bas de la page.
-    ![Endpoints][]
+    ![Endpoints][Endpoints]
 
 13. Ajoutez un point de terminaison avec le nom « MySQL », le protocole **TCP** ainsi que les ports **Public** et **Privé** définis sur « 3306 ». Cela permet d'accéder à distance à MySQL.
     ![Endpoints][1]
@@ -77,7 +77,7 @@
 
         mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
-15. Vous avez réussi à configurer MySQL, à créer une base de données et un utilisateur. Pour plus d'informations sur MySQL, consultez la [documentation MySQL][].
+15. Vous avez réussi à configurer MySQL, à créer une base de données et un utilisateur. Pour plus d'informations sur MySQL, consultez la [documentation MySQL][documentation MySQL].
 
   [portail de gestion Azure]: http://manage.windowsazure.com
   [Points de terminaison]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpoint.png

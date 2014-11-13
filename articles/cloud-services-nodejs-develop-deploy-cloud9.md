@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-cloud9" urlDisplayName="Deploying with Cloud9" pageTitle="Node.js deploying with Cloud9 - Azure tutorial" metaKeywords="Cloud9 IDE Azure, Azure node.js, Azure node apps" description="Learn how to use Cloud9 IDE to develop, build, and deploy a Node.js application to Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Deploying an Azure App from Cloud9" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Deploying with Cloud9" pageTitle="D&eacute;ploiement de Node.js avec Cloud9 - Didacticiel Azure" metaKeywords="Cloud9 IDE Azure, Azure node.js, Azure node apps" description="D&eacute;couvrez comment utiliser l'IDE Cloud9 pour d&eacute;velopper, g&eacute;n&eacute;rer et d&eacute;ployer une application Node.js sur Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="D&eacute;ploiement d'une application Azure App &agrave; partir de Cloud9" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 # Déploiement d'une application Azure App à partir de Cloud9
 
@@ -16,9 +16,9 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 L'[IDE Cloud9][IDE Cloud9] est un environnement de développement interplateforme
 accessible depuis un navigateur. Une des fonctions de Cloud9 pour les projets Node.js est que
-vous pouvez directement effectuer le déploiement sur
-Azure depuis l'IDE.Cloud9 assure également l'intégration aux services GitHub et
-BitBucket, le partage de vos projets est donc simple.
+vous pouvez directement effectuer le déploiement vers Azure depuis l'IDE.
+Cloud9 assure également l'intégration aux services GitHub
+et BitBucket, le partage de vos projets est donc simple.
 
 Avec Cloud9, vous pouvez développer une application et la déployer
 sur Azure à partir de nombreux navigateurs et systèmes d'exploitation
@@ -46,14 +46,18 @@ comporte plus d'options. Pour plus d'informations, consultez le site web [IDE Cl
     ![Boîte de dialogue de création de projet Cloud9][Boîte de dialogue de création de projet Cloud9]
 
     <div class="dev-callout">
-<strong>Remarque</strong>
-<p>Certaines options n&eacute;cessitent un abonnement payant &agrave; Cloud9.</p>
-</div>
+
+    **Remarque**
+    Certaines options nécessitent un abonnement payant à Cloud9.
+
+    </div>
 
     <div class="dev-callout">
-<strong>Remarque</strong>
-<p>Le nom de votre projet Cloud9 n'est pas celui utilis&eacute; lors du d&eacute;ploiement sur Azure.</p>
-</div>
+
+    **Remarque**
+    Le nom de votre projet Cloud9 n'est pas celui utilisé lors du déploiement sur Azure.
+
+    </div>
 
 3.  Une fois le projet créé, cliquez sur **Start Editing**. Si c'est la première fois que vous utilisez l'IDE Cloud9, vous êtes invité à une visite guidée du service. Si vous ne voulez pas suivre la visite guidée et y revenir plus tard, sélectionnez **Just the editor, please**.
 
@@ -76,26 +80,32 @@ comporte plus d'options. Pour plus d'informations, consultez le site web [IDE Cl
         }).listen(port);
 
     <div class="dev-callout">
-<strong>Remarque</strong>
-<p>L'utilisation de process.env.PORT permet de s'assurer que l'application choisit bien le bon port, qu'elle soit ex&eacute;cut&eacute;e dans le d&eacute;bogueur Cloud9 ou d&eacute;ploy&eacute;e sur Azure.</p>
-</div>
+
+    **Remarque**
+    L'utilisation de process.env.PORT permet de s'assurer que l'application choisit bien le bon port, qu'elle soit exécutée dans le débogueur Cloud9 ou déployée sur Azure.
+
+    </div>
 
 6.  Pour enregistrer le code, sélectionnez **File**, puis **Save as**. Dans
     la boîte de dialogue **Save As**, entrez le nom de fichier **server.js**,
     puis cliquez sur **Save**.
 
     <div class="dev-callout">
-<strong>Remarque</strong>
-<p>Un avertissement indiquant que la variable req n'est pas utilis&eacute;e risque de s'afficher. Vous pouvez ignorer cet avertissement.</p>
-</div>
+
+    **Remarque**
+    Un avertissement indiquant que la variable req n'est pas utilisée risque de s'afficher. Vous pouvez ignorer cet avertissement.
+
+    </div>
 
     ![enregistrer le fichier server.js][enregistrer le fichier server.js]
 
 ## Exécution de l'application
 
 <div class="dev-callout">
-<strong>Remarque</strong>
-<p>Les &eacute;tapes pr&eacute;sent&eacute;es dans cette section sont suffisantes dans le cadre d'une application tr&egrave;s simple, mais pour les applications qui utilisent des modules externes, vous devrez peut-&ecirc;tre s&eacute;lectionner une version sp&eacute;cifique de Node.js pour l'environnement de d&eacute;bogage. Pour cela, s&eacute;lectionnez <strong>Configure...</strong> dans la liste d&eacute;roulante de d&eacute;bogage, puis la version sp&eacute;cifique de Node.js. Par exemple, il est possible que vous obteniez des erreurs d'authentification lorsque vous utilisez le module &laquo;&nbsp;azure&nbsp;&raquo;, si Node.js 0.6.x n'est pas s&eacute;lectionn&eacute;.</p>
+
+**Remarque**
+Les étapes présentées dans cette section sont suffisantes dans le cadre d'une application très simple, mais pour les applications qui utilisent des modules externes, vous devrez peut-être sélectionner une version spécifique de Node.js pour l'environnement de débogage. Pour cela, sélectionnez **Configure...** dans la liste déroulante de débogage, puis la version spécifique de Node.js. Par exemple, il est possible que vous obteniez des erreurs d'authentification lorsque vous utilisez le module « azure », si Node.js 0.6.x n'est pas sélectionné.
+
 </div>
 
 1.  Cliquez sur **Debug** pour exécuter l'application dans le débogueur Cloud9.
@@ -153,14 +163,18 @@ une évaluation gratuite. Pour cela, procédez comme suit :
     ![créer un service hébergé][créer un service hébergé]
 
     <div class="dev-callout">
-<strong>Remarque</strong>
-<p>Dans la bo&icirc;te de dialogue <strong>Add a deploy target</strong>, les services h&eacute;berg&eacute;s Azure existants sont r&eacute;pertori&eacute;s dans la section <strong>Choose existing deployment</strong>. Si vous s&eacute;lectionnez un service h&eacute;berg&eacute; existant, le projet sera d&eacute;ploy&eacute; sur ce service.</p>
-</div>
+
+    **Remarque**
+    Dans la boîte de dialogue **Add a deploy target**, les services hébergés Azure existants sont répertoriés dans la section **Choose existing deployment**. Si vous sélectionnez un service hébergé existant, le projet sera déployé sur ce service.
+
+    </div>
 
     <div class="dev-callout">
-<strong>Remarque</strong>
-<p>S&eacute;lectionnez <strong>Enable RDP</strong> et indiquez un nom d'utilisateur et un mot de passe pour activer le Bureau &agrave; distance sur votre d&eacute;ploiement.</p>
-</div>
+
+    **Remarque**
+    Sélectionnez **Enable RDP** et indiquez un nom d'utilisateur et un mot de passe pour activer le Bureau à distance sur votre déploiement.
+
+    </div>
 
 ## Déploiement dans un environnement de production Azure
 
@@ -190,9 +204,11 @@ une évaluation gratuite. Pour cela, procédez comme suit :
     ![état du déploiement][état du déploiement]
 
     <div class="dev-callout">
-<strong>Remarque</strong>
-<p>Les projets d&eacute;ploy&eacute;s via l'IDE Cloud9 portent un GUID comme nom de d&eacute;ploiement dans Azure.</p>
-</div>
+
+    **Remarque**
+    Les projets déployés via l'IDE Cloud9 portent un GUID comme nom de déploiement dans Azure.
+
+    </div>
 
 8.  La boîte de dialogue de déploiement comprend un lien vers l'URL de production. Une fois le déploiement terminé, cliquez sur l'URL pour accéder à votre application exécutée dans Azure.
 
@@ -246,7 +262,7 @@ d'informations, consultez la page [Présentation de la gestion des déploiements
 3.  Dans la partie gauche de la page web, sélectionnez **Hosted Services,
     Storage Accounts & CDN**, puis cliquez sur **Hosted Services**.
 
-    ![Portail de gestion Azure][Portail de gestion Azure]
+    [Portail de gestion Azure][Portail de gestion Azure]
 
     Le volet de résultats présente le service hébergé avec le nom spécifié dans Cloud9 et deux déploiements avec deux valeurs **Environment** différentes, l'un avec **Staging**, l'autre avec **Production**.
 
@@ -271,8 +287,10 @@ Lorsque vous cliquez sur Connect, vous êtes invité à ouvrir un fichier RDP ou
 connecté au Bureau de l'instance sélectionnée.
 
 <div class="dev-callout">
-<strong>Remarque</strong>
-<p>Le fichier RDP utilis&eacute; pour la connexion &agrave; l'instance h&eacute;berg&eacute;e de votre application ne fonctionne qu'avec l'application Bureau &agrave; distance de Windows.</p>
+
+**Remarque**
+Le fichier RDP utilisé pour la connexion à l'instance hébergée de votre application ne fonctionne qu'avec l'application Bureau à distance de Windows.
+
 </div>
 
 ## Arrêt et suppression de l'application
@@ -309,7 +327,6 @@ Cloud9 s'attache surtout à fournir un environnement de développement et n'offr
   [exécuter dans le débogueur]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug.png
   [fenêtre de résultat]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_output.png
   [application exécutée dans le navigateur]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug_browser.png
-  [create-azure-account]: ../includes/create-azure-account.md
   [télécharger les paramètres de publication]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_choosetypeandcert.png
   [Présentation de la création d'un service hébergé pour Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj155995.aspx
   [créer un déploiement]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createdeployment.png

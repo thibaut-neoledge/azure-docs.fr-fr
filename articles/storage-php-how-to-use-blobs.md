@@ -1,4 +1,4 @@
-<properties title="How to use blob storage (PHP) - Azure feature guide" pageTitle="How to use blob storage (PHP) | Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="robmcm" manager="wpickett" editor="mollybos" />
+<properties title="Utilisation du stockage d'objets blob (PHP)&nbsp;&ndash; Guide des fonctionnalit&eacute;s Azure" pageTitle="Utilisation du stockage d'objets blob (PHP) | Microsoft&nbsp;Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="D&eacute;couvrez comment utiliser le service BLOB Azure pour charger, t&eacute;l&eacute;charger, r&eacute;pertorier et supprimer des objets blob. Les exemples de code sont &eacute;crits en PHP." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="robmcm" manager="adinah" editor="mollybos" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
@@ -292,6 +292,7 @@ Maintenant que vous avez appris les principes de base du service Blob Azure, sui
 -   Consultez l'exemple d'objet blob de blocs PHP à l'adresse <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>.
 -   Consultez l'exemple d'objet blob de pages PHP à l'adresse <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
 
+  [Kit de développement logiciel (SDK) Azure pour PHP]: http://go.microsoft.com/fwlink/?LinkID=252473
   [Étapes suivantes]: #NextSteps
   [Présentation du stockage d'objets blob]: #what-is
   [Concepts]: #concepts
@@ -305,9 +306,10 @@ Maintenant que vous avez appris les principes de base du service Blob Azure, sui
   [Téléchargement d'un objet blob]: #DownloadBlob
   [Suppression d'un objet blob]: #DeleteBlob
   [Suppression d'un conteneur d'objets blob]: #DeleteContainer
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [get-client-libraries]: ../includes/get-client-libraries.md
+  [require\_once]: http://php.net/require_once
+  [Set Container ACL (API REST)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179391.aspx
   [Codes d'erreur de service BLOB]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179439.aspx
   [fopen]: http://www.php.net/fopen
+  [file\_get\_contents]: http://php.net/file_get_contents
+  [stream\_get\_contents]: http://www.php.net/stream_get_contents
   [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx

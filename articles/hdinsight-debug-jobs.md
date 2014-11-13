@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-debug-error-messages" urlDisplayName="Debug HDInsight Hadoop Errors" pageTitle="Debug Hadoop in HDInsight: Error messages | Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" description="Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover." services="hdinsight" title="Debug Hadoop in HDInsight: Error messages" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="bradsev" />
+<properties urlDisplayName="Debug HDInsight Hadoop Errors" pageTitle="D&eacute;bogage de Hadoop dans HDInsight&nbsp;: messages d'erreur | Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" description="D&eacute;couvrez les messages d'erreur susceptibles de s'afficher lorsque vous administrez HDInsight au moyen de PowerShell, ainsi que la proc&eacute;dure de r&eacute;cup&eacute;ration." services="hdinsight" title="D&eacute;bogage de Hadoop dans HDInsight&nbsp;: messages d'erreur" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -19,51 +19,51 @@ Les erreurs auxquelles un utilisateur peut être confronté dans Azure PowerShel
 
 ### Erreurs HDInsight
 
-[AtleastOneSqlMetastoreMustBeProvided](#AtleastOneSqlMetastoreMustBeProvided)	
-[AzureRegionNotSupported](#AzureRegionNotSupported)		
-[ClusterContainerRecordNotFound](#ClusterContainerRecordNotFound)	 
-[ClusterDnsNameInvalidReservedWord](#ClusterDnsNameInvalidReservedWord)		
-[ClusterNameUnavailable](#ClusterNameUnavailable)	
-[ClusterUserNameInvalid](#ClusterUserNameInvalid)	
-[ClusterUserNameInvalidReservedWord](#ClusterUserNameInvalidReservedWord)	
-[ContainerNameMisMatchWithDnsName](#ContainerNameMisMatchWithDnsName)	
-[DataNodeDefinitionNotFound](#DataNodeDefinitionNotFound)	
-[DeploymentDeletionFailure](#DeploymentDeletionFailure)	
-[DnsMappingNotFound](#DnsMappingNotFound)	
-[DuplicateClusterContainerRequest](#DuplicateClusterContainerRequest)	
-[DuplicateClusterInHostedService](#DuplicateClusterInHostedService)		
-[FailureToUpdateDeploymentStatus](#FailureToUpdateDeploymentStatus)		
-[HdiRestoreClusterAltered](#HdiRestoreClusterAltered)	
-[HeadNodeConfigNotFound](#HeadNodeConfigNotFound)	
-[HeadNodeConfigNotFound](#HeadNodeConfigNotFound)	 
-[HostedServiceCreationFailure](#HostedServiceCreationFailure)	
-[HostedServiceHasProductionDeployment](#HostedServiceHasProductionDeployment)	
-[HostedServiceNotFound](#HostedServiceNotFound)		
-[HostedServiceWithNoDeployment](#HostedServiceWithNoDeployment)		
-[InsufficientResourcesCores](#InsufficientResourcesCores)	
-[InsufficientResourcesHostedServices](#InsufficientResourcesHostedServices)		
-[InternalErrorRetryRequest](#InternalErrorRetryRequest)		
-[InvalidAzureStorageLocation](#InvalidAzureStorageLocation)		
-[InvalidNodeSizeForDataNode](#InvalidNodeSizeForDataNode)	
-[InvalidNodeSizeForHeadNode](#InvalidNodeSizeForHeadNode)	
-[InvalidRightsForDeploymentDeletion](#InvalidRightsForDeploymentDeletion)	
-[InvalidStorageAccountBlobContainerName](#InvalidStorageAccountBlobContainerName)	
-[InvalidStorageAccountConfigurationSecretKey](#InvalidStorageAccountConfigurationSecretKey)	
-[InvalidVersionHeaderFormat](#InvalidVersionHeaderFormat)	
-[MoreThanOneHeadNode](#MoreThanOneHeadNode)	
-[OperationTimedOutRetryRequest](#OperationTimedOutRetryRequest)	
-[ParameterNullOrEmpty](#ParameterNullOrEmpty)	
-[PreClusterCreationValidationFailure](#PreClusterCreationValidationFailure)	
-[RegionCapabilityNotAvailable](#RegionCapabilityNotAvailable)	
-[StorageAccountNotColocated](#StorageAccountNotColocated)	
-[SubscriptionIdNotActive](#SubscriptionIdNotActive)	
-[SubscriptionIdNotFound](#SubscriptionIdNotFound)	
-[UnableToResolveDNS](#UnableToResolveDNS)	
-[UnableToVerifyLocationOfResource](#UnableToVerifyLocationOfResource)	
-[VersionCapabilityNotAvailable](#VersionCapabilityNotAvailable)	
-[VersionNotSupported](#VersionNotSupported)	
-[VersionNotSupportedInRegion](#VersionNotSupportedInRegion)	
-[WasbAccountConfigNotFound](#WasbAccountConfigNotFound)	
+[AtleastOneSqlMetastoreMustBeProvided][AtleastOneSqlMetastoreMustBeProvided]
+[AzureRegionNotSupported][AzureRegionNotSupported]
+[ClusterContainerRecordNotFound][ClusterContainerRecordNotFound]
+[ClusterDnsNameInvalidReservedWord][ClusterDnsNameInvalidReservedWord]
+[ClusterNameUnavailable][ClusterNameUnavailable]
+[ClusterUserNameInvalid][ClusterUserNameInvalid]
+[ClusterUserNameInvalidReservedWord][ClusterUserNameInvalidReservedWord]
+[ContainerNameMisMatchWithDnsName][ContainerNameMisMatchWithDnsName]
+[DataNodeDefinitionNotFound][DataNodeDefinitionNotFound]
+[DeploymentDeletionFailure][DeploymentDeletionFailure]
+[DnsMappingNotFound][DnsMappingNotFound]
+[DuplicateClusterContainerRequest][DuplicateClusterContainerRequest]
+[DuplicateClusterInHostedService][DuplicateClusterInHostedService]
+[FailureToUpdateDeploymentStatus][FailureToUpdateDeploymentStatus]
+[HdiRestoreClusterAltered][HdiRestoreClusterAltered]
+[HeadNodeConfigNotFound][HeadNodeConfigNotFound]
+[HeadNodeConfigNotFound][HeadNodeConfigNotFound]
+[HostedServiceCreationFailure][HostedServiceCreationFailure]
+[HostedServiceHasProductionDeployment][HostedServiceHasProductionDeployment]
+[HostedServiceNotFound][HostedServiceNotFound]
+[HostedServiceWithNoDeployment][HostedServiceWithNoDeployment]
+[InsufficientResourcesCores][InsufficientResourcesCores]
+[InsufficientResourcesHostedServices][InsufficientResourcesHostedServices]
+[InternalErrorRetryRequest][InternalErrorRetryRequest]
+[InvalidAzureStorageLocation][InvalidAzureStorageLocation]
+[InvalidNodeSizeForDataNode][InvalidNodeSizeForDataNode]
+[InvalidNodeSizeForHeadNode][InvalidNodeSizeForHeadNode]
+[InvalidRightsForDeploymentDeletion][InvalidRightsForDeploymentDeletion]
+[InvalidStorageAccountBlobContainerName][InvalidStorageAccountBlobContainerName]
+[InvalidStorageAccountConfigurationSecretKey][InvalidStorageAccountConfigurationSecretKey]
+[InvalidVersionHeaderFormat][InvalidVersionHeaderFormat]
+[MoreThanOneHeadNode][MoreThanOneHeadNode]
+[OperationTimedOutRetryRequest][OperationTimedOutRetryRequest]
+[ParameterNullOrEmpty][ParameterNullOrEmpty]
+[PreClusterCreationValidationFailure][PreClusterCreationValidationFailure]
+[RegionCapabilityNotAvailable][RegionCapabilityNotAvailable]
+[StorageAccountNotColocated][StorageAccountNotColocated]
+[SubscriptionIdNotActive][SubscriptionIdNotActive]
+[SubscriptionIdNotFound][SubscriptionIdNotFound]
+[UnableToResolveDNS][UnableToResolveDNS]
+[UnableToVerifyLocationOfResource][UnableToVerifyLocationOfResource]
+[VersionCapabilityNotAvailable][VersionCapabilityNotAvailable]
+[VersionNotSupported][VersionNotSupported]
+[VersionNotSupportedInRegion][VersionNotSupportedInRegion]
+[WasbAccountConfigNotFound][WasbAccountConfigNotFound]
 
 ## <span id="discription-mitigation-errors"></span></a>Diagnostic et atténuation des erreurs
 
@@ -295,7 +295,7 @@ Les erreurs auxquelles un utilisateur peut être confronté dans Azure PowerShel
 
 ## <span id="resources"></span></a>Autres ressources de débogage
 
--   [Documentation du Kit de développement logiciel (SDK) Azure HDInsight](Documentation du Kit de développement logiciel (SDK) Azure HDInsight)
+-   [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][Documentation du Kit de développement logiciel (SDK) Azure HDInsight]
 
   [HDI.Debugging.ErrorMessages.Portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
   [Erreurs HDInsight]: #hdinsight-error-messages
@@ -344,4 +344,4 @@ Les erreurs auxquelles un utilisateur peut être confronté dans Azure PowerShel
   [VersionNotSupported]: #VersionNotSupported
   [VersionNotSupportedInRegion]: #VersionNotSupportedInRegion
   [WasbAccountConfigNotFound]: #WasbAccountConfigNotFound
-  [.com]: http://
+  [Documentation du Kit de développement logiciel (SDK) Azure HDInsight]: http://msdnstage.redmond.corp.microsoft.com/fr-fr/library/dn479185.aspx

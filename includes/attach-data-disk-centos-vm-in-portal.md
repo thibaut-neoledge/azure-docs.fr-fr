@@ -1,4 +1,4 @@
-1.  Dans le [portail de gestion][] Azure, cliquez sur **Virtual Machines**, puis sélectionnez la machine virtuelle créée précédemment (**testlinuxvm**).
+1.  Dans le [portail de gestion][portail de gestion] Azure, cliquez sur **Virtual Machines**, puis sélectionnez la machine virtuelle créée précédemment (**testlinuxvm**).
 
 2.  Dans la barre de commandes, cliquez sur **Attach**, puis sur **Attach Empty Disk**.
 
@@ -6,7 +6,7 @@
 
 3.  Les options **Nom de la machine virtuelle**, **Emplacement de stockage** et **Nom de fichier** sont déjà définies. Il vous suffit d’entrer la taille de disque souhaitée. Tapez **5** dans le champ **Size**.
 
-    ![Attacher un disque vide][]
+    ![Attacher un disque vide][Attacher un disque vide]
 
     **Remarque :** Tous les disques sont créés à partir d’un fichier de disque dur virtuel dans le stockage Azure. Vous pouvez fournir le nom du fichier de disque dur virtuel ajouté au stockage. Quant au nom du disque, Azure le génère automatiquement.
 
@@ -28,7 +28,7 @@ Connectez-vous à la machine virtuelle pour terminer l'installation du disque et
 
     L’identificateur du dernier disque de données ajouté est disponible dans les messages qui s’affichent (**sdc**, dans cet exemple).
 
-    ![GREP][]
+    ![GREP][GREP]
 
 3.  Dans la fenêtre SSH ou PuTTY, entrez la commande suivante pour partitionner le disque **/dev/sdc** :
 
@@ -36,7 +36,7 @@ Connectez-vous à la machine virtuelle pour terminer l'installation du disque et
 
 4.  Entrez **n** pour créer une partition.
 
-    ![FDISK][]
+    ![FDISK][FDISK]
 
 5.  Tapez **p** pour définir la partition comme partition principale, tapez **1** pour la définir comme première partition, puis appuyez sur Entrée pour accepter la valeur par défaut (1) du cylindre.
 

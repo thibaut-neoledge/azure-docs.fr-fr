@@ -1,6 +1,6 @@
-<properties linkid="manage-linux-howto-linux-agent" urlDisplayName="Linux Agent guide" pageTitle="Linux Agent User Guide for Azure" metaKeywords="" description="Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Linux Agent guide" pageTitle="Guide d'utilisation de l'agent Linux pour&nbsp;Azure" metaKeywords="" description="Apprenez &agrave; installer et &agrave; configurer l'agent&nbsp;Linux (waagent) pour g&eacute;rer l'interaction de votre machine virtuelle avec le contr&ocirc;leur de structure&nbsp;Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Guide d'utilisation de l'agent Linux Azure" authors="timlt" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
 # Guide d'utilisation de l'agent Linux Azure
 
@@ -9,25 +9,26 @@
 L'agent Linux Azure (waagent) gère l'interaction de la machine virtuelle avec le contrôleur de structure Azure. Il offre les fonctionnalités suivantes pour les déploiements IaaS Linux :
 
 -   **Approvisionnement d'image**
-  - Création d'un compte d'utilisateur
-  - Configuration des types d'authentification SSH
-  - Déploiement des clés publiques et des paires de clés SSH
-  - Définition du nom d'hôte
-  - Publication du nom d'hôte sur la plateforme DNS
-  - Génération de rapports sur l'empreinte digitale de la clé d'hôte SSH destinés à la plateforme
-  - Gestion du disque de ressources
-  - Formatage et montage du disque de ressources
-  - Configuration de l'espace d'échange
+-   Création d'un compte d'utilisateur
+-   Configuration des types d'authentification SSH
+-   Déploiement des clés publiques et des paires de clés SSH
+-   Définition du nom d'hôte
+-   Publication du nom d'hôte sur la plateforme DNS
+-   Génération de rapports sur l'empreinte digitale de la clé d'hôte SSH destinés à la plateforme
+-   Gestion du disque de ressources
+-   Formatage et montage du disque de ressources
+-   Configuration de l'espace d'échange
 -   **Mise en réseau**
-  - Gestion des itinéraires afin d'améliorer la compatibilité avec les serveurs DHCP de plateforme
-  - Garantie de la stabilité du nom de l'interface réseau
+-   Gestion des itinéraires afin d'améliorer la compatibilité avec les serveurs DHCP de plateforme
+-   Garantie de la stabilité du nom de l'interface réseau
 -   **Noyau**
-  - Configuration de l'architecture NUMA virtuelle
-  - Consommation de l'entropie Hyper-V pour /dev/random
-  - Configuration des délais d'expiration SCSI de l'appareil racine (qui peut être distant)
+-   Configuration de l'architecture NUMA virtuelle
+-   Consommation de l'entropie Hyper-V pour /dev/random
+-   Configuration des délais d'expiration SCSI de l'appareil racine (qui peut être distant)
 -   **Diagnostics**
-  - Redirection de la console vers le port série
+-   Redirection de la console vers le port série
 -   **Déploiements SCVMM**
+
     -   Détection et amorçage de l'agent VMM pour Linux lors de l'exécution dans
         un environnement System Center Virtual Machine Manager 2012 R2
 
@@ -41,11 +42,12 @@ Le flux d'informations de la plateforme à l'agent se produit via deux canaux :
 
 Vous pouvez obtenir l'agent Linux le plus récent directement :
 
--   [auprès des différents fournisseurs de distribution approuvés Linux sur Azure ;][]
--   ou sur le [référentiel Open Source Github pour l'agent Linux Azure][].
+-   [auprès des différents fournisseurs de distribution approuvés Linux sur Azure ;][auprès des différents fournisseurs de distribution approuvés Linux sur Azure ;]
+-   ou sur le [référentiel Open Source Github pour l'agent Linux Azure][référentiel Open Source Github pour l'agent Linux Azure].
 
 ### Distributions de Linux prises en charge
 
+-   CoreOS
 -   CentOS 6.2+
 -   Debian 7.0+
 -   Ubuntu 12.04+
@@ -92,37 +94,37 @@ Le fichier journal de l'agent est conservé sur /var/log/waagent.log.
 -   help: répertorie les commandes et les indicateurs pris en charge.
 
 -   install : installation manuelle de l'agent
- * Vérifie le système en termes de dépendances requises.
+-   Vérifie le système en termes de dépendances requises.
 
- * Crée le script SysV init (/etc/init.d/waagent), le fichier de configuration logrotate (/etc/logrotate.d/waagent) et configure l'image pour exécuter le script init au démarrage.
+-   Crée le script SysV init (/etc/init.d/waagent), le fichier de configuration logrotate (/etc/logrotate.d/waagent) et configure l'image pour exécuter le script init au démarrage.
 
- * Écrit l'exemple de fichier de configuration sur /etc/waagent.conf.
+-   Écrit l'exemple de fichier de configuration sur /etc/waagent.conf.
 
- * Tout fichier de configuration existant est déplacé sur /etc/waagent.conf.old.
+-   Tout fichier de configuration existant est déplacé sur /etc/waagent.conf.old.
 
- * Détecte la version du noyau et applique la solution de contournement VNUMA si nécessaire.
+-   Détecte la version du noyau et applique la solution de contournement VNUMA si nécessaire.
 
- * Déplace les règles udev qui peuvent interférer avec la mise en réseau (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) sur /var/lib/waagent/.
+-   Déplace les règles udev qui peuvent interférer avec la mise en réseau (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) sur /var/lib/waagent/.
 
 -   uninstall : supprime waagent et les fichiers associés.
- * Annule l'enregistrement du script init du système et le supprime.
+-   Annule l'enregistrement du script init du système et le supprime.
 
- * Supprime le fichier de configuration logrotate et le fichier de configuration waagent dans /etc/waagent.conf.
+-   Supprime le fichier de configuration logrotate et le fichier de configuration waagent dans /etc/waagent.conf.
 
- * Restaure les règles udev qui ont été déplacées au cours de l'installation.
+-   Restaure les règles udev qui ont été déplacées au cours de l'installation.
 
- * Le rétablissement automatique de la solution de contournement VNUMA n'est pas pris en charge. Veuillez éditer manuellement les fichiers de configuration GRUB afin de réactiver NUMA si nécessaire.
+-   Le rétablissement automatique de la solution de contournement VNUMA n'est pas pris en charge. Veuillez éditer manuellement les fichiers de configuration GRUB afin de réactiver NUMA si nécessaire.
 
 -   deprovision : essaie de nettoyer le système et de le préparer pour le réapprovisionnement. Cette opération supprime les éléments suivants :
- * toutes les clés de l'hôte SSH (si Provisioning.RegenerateSshHostKeyPair a la valeur « y » dans le fichier de configuration) ;
+-   toutes les clés de l'hôte SSH (si Provisioning.RegenerateSshHostKeyPair a la valeur « y » dans le fichier de configuration) ;
 
- * la configuration de Nameserver dans /etc/resolv.conf ;
+-   la configuration de Nameserver dans /etc/resolv.conf ;
 
- * le mot de passe racine de /etc/shadow (si Provisioning.DeleteRootPassword a la valeur « y » dans le fichier de configuration) ;
+-   le mot de passe racine de /etc/shadow (si Provisioning.DeleteRootPassword a la valeur « y » dans le fichier de configuration) ;
 
- * les baux du client DHCP mis en cache.
+-   les baux du client DHCP mis en cache.
 
- * Réinitialise le nom d'hôte sur localhost.localdomain.
+-   Réinitialise le nom d'hôte sur localhost.localdomain.
 
 **Avertissement :** l'annulation de l'approvisionnement ne garantit pas que l'image est exempte de toute information sensible et qu'elle convient pour la redistribution.
 

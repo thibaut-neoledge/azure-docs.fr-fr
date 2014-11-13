@@ -4,15 +4,15 @@
 
 Lors de la création d’une machine virtuelle, un service cloud est automatiquement créé pour la contenir. Vous pouvez créer plusieurs machines virtuelles dans le même service cloud pour leur permettre de communiquer les unes avec les autres, pour équilibrer la charge du trafic réseau et pour garantir leur haute disponibilité.
 
-Pour plus d’informations sur l’équilibrage de charge des machines virtuelles, consultez la page [Équilibrage de charge des machines virtuelles][]. Pour plus d’informations sur la gestion de la disponibilité d’une application, consultez la page [Gestion de la disponibilité des machines virtuelles][].
+Pour plus d’informations sur l’équilibrage de charge des machines virtuelles, consultez la page [Équilibrage de charge des machines virtuelles][Équilibrage de charge des machines virtuelles]. Pour plus d’informations sur la gestion de la disponibilité d’une application, consultez la page [Gestion de la disponibilité des machines virtuelles][Gestion de la disponibilité des machines virtuelles].
 
 Dans un premier temps, vous devez créer une machine virtuelle et un service cloud. Vous pouvez ensuite connecter d’autres machines virtuelles à la première machine virtuelle dans le même service cloud.
 
-1.  Créez une machine virtuelle en suivant la procédure indiquée à la page [Création d’une machine virtuelle personnalisée][].
+1.  Créez une machine virtuelle en suivant la procédure indiquée à la page [Création d’une machine virtuelle personnalisée][Création d’une machine virtuelle personnalisée].
 
-2.  Après avoir créé la première machine virtuelle personnalisée, dans la barre de commandes du [portail de gestion][], cliquez sur **New**.
+2.  Après avoir créé la première machine virtuelle personnalisée, dans la barre de commandes du [portail de gestion][portail de gestion], cliquez sur **New**.
 
-    ![Création d’une machine virtuelle][]
+    ![Création d’une machine virtuelle][Création d’une machine virtuelle]
 
 3.  Cliquez sur **Virtual Machine**, puis sur **From Gallery**.
 

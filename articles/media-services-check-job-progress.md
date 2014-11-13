@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-check-job-progress" urlDisplayName="Check Job Progress" pageTitle="How to Check Job Progress in Media Services - Azure" metaKeywords="" description="Learn how to use event handler code to track job progress and send status updates. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Check Job Progress" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Check Job Progress" pageTitle="V&eacute;rification de la progression des t&acirc;ches dans Media Services - Azure" metaKeywords="" description="Apprenez &agrave; utiliser le code du gestionnaire d'&eacute;v&eacute;nements pour suivre la progression des t&acirc;ches et envoyer des mises &agrave; jour de l'&eacute;tat. Les exemples de code sont &eacute;crits en C# et utilisent le Kit de d&eacute;veloppement logiciel (SDK) Media Services pour .NET." metaCanonical="" services="media-services" documentationCenter="" title="Utilisation de la progression des t&acirc;ches" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # Utilisation de la progression des tâches
 
-Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [Encodage d'un élément multimédia][].
+Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [Encodage d'un élément multimédia][Encodage d'un élément multimédia].
 
 Lorsque vous exécutez des travaux, vous avez généralement besoin de faire appel à une méthode de suivi de la progression du travail. L'exemple de code suivant définit un gestionnaire d'événements StateChanged. Ce dernier suit la progression du travail et fournit l'état mis à jour, selon l'état. Le code définit également la méthode LogJobStop. Cette méthode d'assistance journalise les détails de l'erreur.
 
@@ -83,9 +83,9 @@ Lorsque vous exécutez des travaux, vous avez généralement besoin de faire app
         return jobID.Replace(":", "_");
     }
 
-# Étapes suivantes
+## Étapes suivantes
 
-Vous savez maintenant créer une tâche et suivre sa progression. L'étape suivante consiste à protéger les éléments multimédias. Pour plus d'informations, consultez la page [Protection d'éléments multimédias avec Azure Media Services][].
+Vous savez maintenant créer une tâche et suivre sa progression. L'étape suivante consiste à protéger les éléments multimédias. Pour plus d'informations, consultez la page [Protection d'éléments multimédias avec Azure Media Services][Protection d'éléments multimédias avec Azure Media Services].
 
   [Encodage d'un élément multimédia]: http://go.microsoft.com/fwlink/?LinkID=301753&clcid=0x409
   [Protection d'éléments multimédias avec Azure Media Services]: http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409

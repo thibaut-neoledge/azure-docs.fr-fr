@@ -4,21 +4,21 @@ Le réseau de distribution de contenu (CDN) Azure offre aux développeurs
 une solution globale pour la diffusion de contenu haut débit en mettant en cache les objets blob
 et le contenu statique des instances de calcul sur des nœuds physiques aux États-Unis,
 en Europe, en Asie, en Australie et en Amérique du Sud. Pour obtenir la liste actualisée des emplacements des nœuds
-CDN, consultez [Emplacements des nœuds CDN Azure][].
+CDN, consultez [Emplacements des nœuds CDN Azure][Emplacements des nœuds CDN Azure].
 
 Cette procédure comprend les étapes suivantes :
 
--   [Étape 1 : Création d’un compte de stockage][]
--   [Étape 2 : Création d’un point de terminaison CDN pour le compte de stockage][]
--   [Étape 3 : Accès au contenu du CDN][]
--   [Étape 4 : Suppression du contenu du CDN][]
+-   [Étape 1 : Création d’un compte de stockage][Étape 1 : Création d’un compte de stockage]
+-   [Étape 2 : Création d’un point de terminaison CDN pour le compte de stockage][Étape 2 : Création d’un point de terminaison CDN pour le compte de stockage]
+-   [Étape 3 : Accès au contenu du CDN][Étape 3 : Accès au contenu du CDN]
+-   [Étape 4 : Suppression du contenu du CDN][Étape 4 : Suppression du contenu du CDN]
 
 Les avantages de l’utilisation du CDN pour mettre en cache des données Azure sont notamment les suivants :
 
 -   de meilleures performances et une expérience utilisateur plus agréable pour les utilisateurs finaux qui se trouvent éloignés d’une source de contenu et qui utilisent des applications ayant recours à de nombreux « trajets Internet » pour charger le contenu ;
 -   une diffusion à grande échelle pour améliorer la gestion instantanée des charges importantes, par exemple au début d’un événement comme le lancement d’un produit.
 
-Les clients du CDN existants peuvent désormais utiliser le CDN Azure dans le [portail de gestion Azure][]. Le CDN est une fonctionnalité sous forme de module, ajoutée à votre abonnement et qui présente un [profil de facturation][] distinct.
+Les clients du CDN existants peuvent désormais utiliser le CDN Azure dans le [portail de gestion Azure][portail de gestion Azure]. Le CDN est une fonctionnalité sous forme de module, ajoutée à votre abonnement et qui présente un [profil de facturation][profil de facturation] distinct.
 
 <span id="Step1"></span> </a>
 
@@ -37,20 +37,21 @@ Pour créer un compte de stockage, vous devez être l'administrateur
 du service ou un co-administrateur de l'abonnement associé.
 
 <div class="dev-callout">
-<strong>Remarque</strong>
-<p>Pour des informations sur la r&eacute;alisation de cette op&eacute;ration &agrave; l'aide de
-l'API de gestion des services Azure, consultez la rubrique de r&eacute;f&eacute;rence <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/hh264518.aspx">Cr&eacute;er un compte de stockage</a>.</p>
+
+**Remarque**
+Pour des informations sur la réalisation de cette opération à l'aide de l'API de gestion des services Azure, consultez la rubrique de référence [Créer un compte de stockage][Créer un compte de stockage].
+
 </div>
 
 **Création d’un compte de stockage pour un abonnement Azure**
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 2.  Dans le coin inférieur gauche, cliquez sur **New**, puis sur **Storage**.
 3.  Cliquez sur **Create**.
 
     La boîte de dialogue **Create Storage Account** s’affiche.
 
-    ![Création d'un compte de stockage][1]
+    ![Création d'un compte de stockage][Création d'un compte de stockage]
 
 4.  Dans le champ **URL**, tapez un nom de sous-domaine. Cette entrée peut être composée de 3 à 24 lettres minuscules et chiffres.
 
@@ -60,7 +61,7 @@ l'API de gestion des services Azure, consultez la rubrique de r&eacute;f&eacute;
     au format suivant, où *\<LibelléCompteStockage\>* référence
     la valeur entrée dans **Entrer une URL** :
 
-    http://*\<LibelléCompteStockage\>*.blob.core.windows.net/*\<mon\_conteneur\>*
+    http://*\<LibelléCompteStockage\>*.blob.core.windows.net/*\<monconteneur\>*
 
     **Important :** l'étiquette de l'URL forme le sous-domaine de l'URI
     du compte de stockage et doit être unique parmi tous les services hébergés
@@ -70,7 +71,7 @@ l'API de gestion des services Azure, consultez la rubrique de r&eacute;f&eacute;
 
 5.  Dans la liste déroulante **Groupe de régions ou d'affinités**, sélectionnez un groupe de régions ou d'affinités pour le compte de stockage. Sélectionnez un groupe d'affinités plutôt qu'une zone pour que vos services de stockage soient hébergés dans le même centre de données que les autres services Azure que vous utilisez. Ce choix peut améliorer les performances et n'entraîne aucun frais supplémentaire.
 
-    **Remarque :** pour créer un groupe d'affinités, ouvrez la zone **Paramètres** du portail de gestion, cliquez sur **Groupes d'affinités**, puis cliquez sur **Ajouter un groupe d'affinités** ou sur **Ajouter**. Vous pouvez également créer et gérer des groupes d'affinités par le biais de l'API de gestion des services Azure. Pour plus d'informations, consultez la page [Opérations sur les groupes d'affinités][].
+    **Remarque :** pour créer un groupe d'affinités, ouvrez la zone **Paramètres** du portail de gestion, cliquez sur **Groupes d'affinités**, puis cliquez sur **Ajouter un groupe d'affinités** ou sur **Ajouter**. Vous pouvez également créer et gérer des groupes d'affinités par le biais de l'API de gestion des services Azure. Pour plus d'informations, consultez la page [Opérations sur les groupes d'affinités][Opérations sur les groupes d'affinités].
 
 6.  Dans la liste déroulante **Subscription**, sélectionnez l’abonnement à utiliser avec le compte de stockage.
 7.  Cliquez sur **Create Storage Account**. Le processus de création du compte de stockage peut durer quelques minutes.
@@ -89,7 +90,7 @@ au terme de l'expiration de sa durée de vie.
 
 **Création d’un point de terminaison CDN pour votre compte de stockage**
 
-1.  Dans le [portail de gestion Azure][], dans le volet de navigation, cliquez sur **CDN**.
+1.  Dans le [portail de gestion Azure][portail de gestion Azure], dans le volet de navigation, cliquez sur **CDN**.
 
 2.  Dans le ruban, cliquez sur **New**. Dans la boîte de dialogue **New**, sélectionnez **App Services**, **CDN**, puis **Quick Create**.
 
@@ -100,16 +101,14 @@ au terme de l'expiration de sa durée de vie.
 5.  Une fois le point de terminaison créé, il s’affiche dans la liste des points de terminaison pour l’abonnement. L’affichage sous forme de liste montre l’URL à utiliser pour accéder au contenu mis en cache et le domaine d’origine.
 
     Le domaine d'origine est l'emplacement à partir duquel le CDN
-    met du contenu en cache. Il peut s’agir d’un compte de stockage ou d’un service cloud. Cet exemple utilise un compte de stockage. Le contenu de stockage est mis en cache dans les serveurs Edge en fonction d’un paramètre de contrôle du cache que vous avez spécifié ou de la méthode heuristique par défaut du réseau de mise en cache. Pour plus d’informations, consultez la page [Comment gérer l’expiration du contenu d’objets BLOB][].
+    met du contenu en cache. Il peut s’agir d’un compte de stockage ou d’un service cloud. Cet exemple utilise un compte de stockage. Le contenu de stockage est mis en cache dans les serveurs Edge en fonction d’un paramètre de contrôle du cache que vous avez spécifié ou de la méthode heuristique par défaut du réseau de mise en cache. Pour plus d’informations, consultez la page [Comment gérer l’expiration du contenu d’objets BLOB][Comment gérer l’expiration du contenu d’objets BLOB].
 
     <div class="dev-callout">
-<strong>Remarque</strong>
-<p>La configuration cr&eacute;&eacute;e pour le point de terminaison ne sera
-pas imm&eacute;diatement disponible. Le d&eacute;lai n&eacute;cessaire pour la propagation de l'inscription
-&agrave; travers le r&eacute;seau CDN peut prendre jusqu'&agrave; 60&nbsp;minutes. Les utilisateurs qui essaient
-d'utiliser le nom de domaine du CDN sont susceptibles de recevoir le code d'&eacute;tat 400
-(Requ&ecirc;te incorrecte) tant que le contenu n'est pas disponible via le CDN.</p>
-</div>
+
+    **Remarque**
+    La configuration créée pour le point de terminaison ne sera pas immédiatement disponible. Le délai nécessaire pour la propagation de l'inscription à travers le réseau CDN peut prendre jusqu'à 60 minutes. Les utilisateurs qui essaient d'utiliser le nom de domaine du CDN sont susceptibles de recevoir le code d'état 400 (Requête incorrecte) tant que le contenu n'est pas disponible via le CDN.
+
+    </div>
 
 <span id="Step3"></span> </a>
 
@@ -130,7 +129,7 @@ Si vous ne voulez plus mettre en cache un objet dans le réseau de distribution 
 
 -   S'il s'agit d'un objet blob Azure, vous pouvez le supprimer du
     conteneur public.
--   Vous pouvez changer le statut du conteneur de public à privé. Pour plus d’informations, consultez la page [Limiter l’accès aux conteneurs et aux objets BLOB][].
+-   Vous pouvez changer le statut du conteneur de public à privé. Pour plus d’informations, consultez la page [Limiter l’accès aux conteneurs et aux objets BLOB][Limiter l’accès aux conteneurs et aux objets BLOB].
 -   Vous pouvez désactiver ou supprimer le point de terminaison CDN
     à l'aide du portail de gestion.
 -   Vous pouvez modifier votre service hébergé pour qu'il ne réponde plus aux requêtes
@@ -148,9 +147,9 @@ Azure.
 ## Ressources supplémentaires
 
 -   [Comment créer un groupe d'affinités dans Azure]
--   [Procédure : gestion des comptes de stockage pour un abonnement Azure][]
--   [À propos de l’API de gestion du service dans Windows Azure][]
--   [Mappage du contenu CDN à un domaine personnalisé][]
+-   [gestion des comptes de stockage pour un abonnement Azure][gestion des comptes de stockage pour un abonnement Azure]
+-   [À propos de l’API de gestion du service dans Windows Azure][À propos de l’API de gestion du service dans Windows Azure]
+-   [Mappage du contenu CDN à un domaine personnalisé][Mappage du contenu CDN à un domaine personnalisé]
 
   [Emplacements des nœuds CDN Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg680302.aspx
   [Étape 1 : Création d’un compte de stockage]: #Step1
@@ -160,10 +159,10 @@ Azure.
   [portail de gestion Azure]: https://manage.windowsazure.com/
   [profil de facturation]: /fr-fr/pricing/calculator/?scenario=full
   [Créer un compte de stockage]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh264518.aspx
-  [1]: ./media/cdn/CDN_CreateNewStorageAcct.png
+  [Création d'un compte de stockage]: ./media/cdn/CDN_CreateNewStorageAcct.png
   [Opérations sur les groupes d'affinités]: http://msdn.microsoft.com/library/azure/ee460798.aspx
   [Comment gérer l’expiration du contenu d’objets BLOB]: http://msdn.microsoft.com/fr-fr/library/gg680306.aspx
   [Limiter l’accès aux conteneurs et aux objets BLOB]: http://msdn.microsoft.com/fr-fr/library/dd179354.aspx
-  [Procédure : gestion des comptes de stockage pour un abonnement Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh531567.aspx
+  [gestion des comptes de stockage pour un abonnement Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh531567.aspx
   [À propos de l’API de gestion du service dans Windows Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460807.aspx
   [Mappage du contenu CDN à un domaine personnalisé]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg680307.aspx

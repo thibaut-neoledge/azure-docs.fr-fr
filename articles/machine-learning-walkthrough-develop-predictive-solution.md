@@ -1,6 +1,6 @@
-<properties title="Develop a predictive solution with Azure Machine Learning" pageTitle="Develop a predictive solution with Machine Learning | Azure" description="Walkthrough of how to create a predictive analytics experiment in Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+<properties title="D&eacute;veloppement d'une solution pr&eacute;dictive avec Azure Machine Learning" pageTitle="D&eacute;veloppement d'une solution pr&eacute;dictive avec Machine Learning | Azure" description="Proc&eacute;dure pas &agrave; pas pour cr&eacute;er une exp&eacute;rience d'analyse pr&eacute;dictive dans Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
 
 # Développement d'une solution prédictive avec Azure Machine Learning
 
@@ -12,15 +12,15 @@ Au cours de cette procédure pas à pas, nous suivrons le processus de développ
 
 Nous suivrons les étapes suivantes :
 
-1.  [Création d'un espace de travail ML][]
-2.  [Téléchargement de données existantes][]
-3.  [Création d'une expérience][]
-4.  [Formation et évaluation des modèles][]
-5.  [Publication du service web][]
-6.  [Accès au service web][]
+1.  [Création d'un espace de travail ML][Création d'un espace de travail ML]
+2.  [Téléchargement de données existantes][Téléchargement de données existantes]
+3.  [Création d'une expérience][Création d'une expérience]
+4.  [Formation et évaluation des modèles][Formation et évaluation des modèles]
+5.  [Publication du service web][Publication du service web]
+6.  [Accès au service web][Accès au service web]
 
 Cette procédure pas à pas est basée sur une version simplifiée de l'
-[Exemple d'expérience de prédiction du risque de crédit][] inclus dans ML Studio.
+[Exemple d'expérience de prédiction du risque de crédit][Exemple d'expérience de prédiction du risque de crédit] inclus dans ML Studio.
 
   [Création d'un espace de travail ML]: ../machine-learning-walkthrough-1-create-ml-workspace/
   [Téléchargement de données existantes]: ../machine-learning-walkthrough-2-upload-data/

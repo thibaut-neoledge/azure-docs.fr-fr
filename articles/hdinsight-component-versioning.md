@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-version" urlDisplayName="HDInsight Hadoop Version" pageTitle="What's new in Hadoop cluster versions of HDInsight? | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="What's new in the cluster versions provided by HDInsight?" authors="bradsev" />
+<properties urlDisplayName="HDInsight Hadoop Version" pageTitle="Nouveaut&eacute;s des versions de cluster Hadoop dans HDInsight | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight prend en charge plusieurs versions de cluster Hadoop pouvant &ecirc;tre d&eacute;ploy&eacute;es &agrave; tout moment. D&eacute;couvrez les versions de distributions prises en charge Hadoop et HortonWorks Data Platform (HDP)." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Nouveaut&eacute;s des versions de cluster fournies par HDInsight" authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -8,105 +8,116 @@
 
 HDInsight prend en charge plusieurs versions de cluster Hadoop qui peuvent être déployées à tout moment. Le choix d'une version approvisionne une version spécifique de la distribution de la plateforme de données Hortonworks et un ensemble de composants qui sont contenus dans cette distribution. Les versions de composants associées à chaque version de cluster HDInsight sont répertoriées dans le tableau suivant. Notez que la version de cluster par défaut actuellement utilisée par [Azure HDInsight][Azure HDInsight] est la version 3.1 basée sur HDP 2.1.
 
-<table border="1">
-<tr>
-<th>Composant</th>
-<th>HDInsight Version 3.1 (par défaut)</th>
-<th>HDInsight Version 3,0</th>
-<th>HDInsight Version 2.1</th>
-<th>HDInsight Version 1.6</th>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Composant</th>
+<th align="left">HDInsight Version 3.1 (par défaut)</th>
+<th align="left">HDInsight Version 3,0</th>
+<th align="left">HDInsight Version 2.1</th>
+<th align="left">HDInsight Version 1.6</th>
 </tr>
-<tr>
-<td>Hortonworks Data Platform (HDP)</td>
-<td>2.1</td>
-<td>2.0</td>
-<td>1.3</td>
-<td>1.1</td>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Hortonworks Data Platform (HDP)</td>
+<td align="left">2.1</td>
+<td align="left">2.0</td>
+<td align="left">1.3</td>
+<td align="left">1.1</td>
 </tr>
-<tr>
-<td>Apache Hadoop et YARN</td>
-<td>2.4.0</td>
-<td>2.2.0</td>
-<td>1.2.0</td>
-<td>1.0.3</td>
+<tr class="even">
+<td align="left">Apache Hadoop et YARN</td>
+<td align="left">2.4.0</td>
+<td align="left">2.2.0</td>
+<td align="left">1.2.0</td>
+<td align="left">1.0.3</td>
 </tr>
-<tr>
-<td>Tez</td>
-<td>0.4.0</td>
-<td></td>
-<td></td>
-<td></td>
+<tr class="odd">
+<td align="left">Tez</td>
+<td align="left">0.4.0</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
-<tr>
-<td>Apache Pig</td>
-<td>0.12.1</td>
-<td>0.12.0</td>
-<td>0.11.0</td>
-<td>0.9.3</td>
+<tr class="even">
+<td align="left">Apache Pig</td>
+<td align="left">0.12.1</td>
+<td align="left">0.12.0</td>
+<td align="left">0.11.0</td>
+<td align="left">0.9.3</td>
 </tr>
-<tr>
-<td>Apache Hive et HCatalog</td>
-<td>0.13.0</td>
-<td>0.12.0</td>
-<td>0.11.0</td>
-<td>0.9.0</td>
+<tr class="odd">
+<td align="left">Apache Hive et HCatalog</td>
+<td align="left">0.13.0</td>
+<td align="left">0.12.0</td>
+<td align="left">0.11.0</td>
+<td align="left">0.9.0</td>
 </tr>
-<tr>
-<td>HBase</td>
-<td>0.98.0</td>
-<td></td>
-<td></td>
-<td></td>
+<tr class="even">
+<td align="left">HBase</td>
+<td align="left">0.98.0</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
-<tr>
-<td>Apache Sqoop</td>
-<td>1.4.4</td>
-<td>1.4.4</td>
-<td>1.4.3</td>
-<td>1.4.2</td>
+<tr class="odd">
+<td align="left">Apache Sqoop</td>
+<td align="left">1.4.4</td>
+<td align="left">1.4.4</td>
+<td align="left">1.4.3</td>
+<td align="left">1.4.2</td>
 </tr>
-<tr>
-<td>Apache Oozie</td>
-<td>4.0.0</td>
-<td>4.0.0</td>
-<td>3.3.2</td>
-<td>3.2.0</td>
+<tr class="even">
+<td align="left">Apache Oozie</td>
+<td align="left">4.0.0</td>
+<td align="left">4.0.0</td>
+<td align="left">3.3.2</td>
+<td align="left">3.2.0</td>
 </tr>
-<tr>
-<td>Apache HCatalog</td>
-<td>Fusionné avec Hive</td>
-<td>Fusionné avec Hive</td>
-<td>Fusionné avec Hive</td>
-<td>0.4.1</td>
+<tr class="odd">
+<td align="left">Apache HCatalog</td>
+<td align="left">Fusionné avec Hive</td>
+<td align="left">Fusionné avec Hive</td>
+<td align="left">Fusionné avec Hive</td>
+<td align="left">0.4.1</td>
 </tr>
-<tr>
-<td>Apache Templeton</td>
-<td>Fusionné avec Hive</td>
-<td>Fusionné avec Hive</td>
-<td>Fusionné avec Hive</td>
-<td>0.1.4</td>
+<tr class="even">
+<td align="left">Apache Templeton</td>
+<td align="left">Fusionné avec Hive</td>
+<td align="left">Fusionné avec Hive</td>
+<td align="left">Fusionné avec Hive</td>
+<td align="left">0.1.4</td>
 </tr>
-<tr>
-<td>Ambari</td>
-<td>1.5.1</td>
-<td>1.4.1</td>
-<td>API v1.0</td>
-<td></td>
+<tr class="odd">
+<td align="left">Ambari</td>
+<td align="left">1.5.1</td>
+<td align="left">1.4.1</td>
+<td align="left">API v1.0</td>
+<td align="left"></td>
 </tr>
-<tr>
-<td>Zookeeper</td>
-<td>3.4.5</td>
-<td>3.4.5</td>
-<td></td>
-<td></td>
+<tr class="even">
+<td align="left">Zookeeper</td>
+<td align="left">3.4.5</td>
+<td align="left">3.4.5</td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
-<tr>
-<td>Mahout</td>
-<td>0.9.0</td>
-<td></td>
-<td></td>
-<td></td>
+<tr class="odd">
+<td align="left">Mahout</td>
+<td align="left">0.9.0</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
+</tbody>
 </table>
 
 **Obtention d'informations sur les versions actuelles des composants**
@@ -127,7 +138,7 @@ Si vous utilisez l'option **Création rapide**, vous obtenez la version 3.1 de 
 
 Azure HDInsight prend désormais en charge Hadoop 2.4 avec la version 3.1 du cluster HDInsight (avec Hortonworks Data Platform 2.1) par défaut. Il tire pleinement profit de cette plateforme pour offrir aux clients un ensemble d'avantages considérables. Ces derniers incluent notamment :
 
--   **HBase** : HBase est une base de données NoSQL à faible latence qui permet un traitement transactionnel en ligne des données volumineuses. HBase est proposé en tant que cluster géré intégré à l'environnement Azure. Les clusters sont configurés de façon à stocker les données directement dans le stockage d'objets blob Azure, ce qui fournit une faible latence et une élasticité accrue en matière de choix performances/coût. Cela permet aux clients de créer des sites web interactifs fonctionnant avec des jeux de données volumineux, de créer des services stockant les données de capteur et de télémétrie provenant de millions de points de terminaison, et d'analyser ces données avec des tâches Hadoop.
+-   **HBase** : HBase est une base de données NoSQL à faible latence qui permet le traitement transactionnel en ligne des données volumineuses (« Big Data »). HBase est proposé en tant que cluster géré intégré à l'environnement Azure. Les clusters sont configurés de façon à stocker les données directement dans le stockage d'objets blob Azure, ce qui fournit une faible latence et une élasticité accrue en matière de choix performances/coût. Cela permet aux clients de créer des sites web interactifs fonctionnant avec des jeux de données volumineux, de créer des services stockant les données de capteur et de télémétrie provenant de millions de points de terminaison, et d'analyser ces données avec des tâches Hadoop.
 
 -   **Tableau de bord** : nouvelle application web déployée vers votre cluster HDInsight. Utilisez-la pour exécuter des requêtes Hive, vérifier les journaux des tâches et parcourir le stockage d'objets blob Azure. L'URL utilisée pour accéder à l'application web est \<*Nom\_cluster*\>.azurehdinsight.net.
 
@@ -141,9 +152,11 @@ Azure HDInsight prend désormais en charge Hadoop 2.4 avec la version 3.1 du c
 
 -   **Performances de Hive** : amélioration considérable des temps de réponse des requêtes Hive (jusqu'à 40 fois plus rapides) et de la compression de données (jusqu'à 80 %) avec le format **ORC (Optimized Row Columnar)**.
 
--   **Pig, Sqoop, Qozie, Ambari** : mises à niveau des versions des composants pour le cluster HDinsight version 3.0 (HDP 2.0/Hadoop 2.2) qui fournissent la parité avec le cluster HDinsight version 2.1 (HDP 1.3/Hadoop 1.2). Pour des précisions, consultez les tableaux de versions ci-dessous.
+-   **Pig, Sqoop, Oozie, Ambari** : mises à niveau des versions des composants pour le cluster HDinsight version 3.0 (HDP 2.0/Hadoop 2.2) qui fournissent la parité avec le cluster HDinsight version 2.1 (HDP 1.3/Hadoop 1.2). Pour des précisions, consultez les tableaux de versions ci-dessous.
 
 -   **Mahout** : cette bibliothèque d'algorithmes à apprentissage automatique évolutifs est préinstallée sur les clusters Hadoop HDInsight 3.1. Vous pouvez donc exécuter des tâches Mahout sans avoir besoin d'une configuration de cluster supplémentaire.
+
+-   **Prise en charge de Virtual Network** : les clusters HDInsight peuvent être utilisés avec Azure Virtual Network pour prendre en charge l'isolement des ressources de cloud ou de scénarios hybrides liant les ressources cloud avec celles de votre centre de données.
 
 ## Versions prises en charge
 
@@ -317,9 +330,9 @@ La **Date d'obsolescence** est la date après laquelle la version du cluster ne 
 
 -   Le cluster HDInsight version 3.1 utilise une distribution Hadoop basée sur [Hortonworks Data Platform 2.1][Hortonworks Data Platform 2.1]. Il s'agit du cluster Hadoop par défaut créé lors de l'utilisation du portail Azure HDInsight.
 
--   Le cluster HDInsight version 3.0 utilise une distribution Hadoop basée sur la [plateforme de données Hortonworks 2.0][plateforme de données Hortonworks 2.0].
+-   Le cluster HDInsight version 3,0 utilise une distribution Hadoop basée sur la [plateforme de données Hortonworks 2,0][plateforme de données Hortonworks 2,0].
 
--   Le cluster HDInsight version 2.1 utilise une distribution Hadoop basée sur la [plateforme de données Hortonworks 1.3][plateforme de données Hortonworks 1.3].
+-   Le cluster HDInsight version 2,1 utilise une distribution Hadoop basée sur la [plateforme de données Hortonworks 1,3][plateforme de données Hortonworks 1,3].
 
 -   Le cluster HDInsight version 1.6 utilise une distribution Hadoop basée sur la [plateforme de données Hortonworks 1.1][plateforme de données Hortonworks 1.1].
 
@@ -329,6 +342,6 @@ La **Date d'obsolescence** est la date après laquelle la version du cluster ne 
   [New-AzureHDInsightCluster]: http://msdn.microsoft.com/fr-fr/library/dn593744.aspx
   [Famille 4]: http://msdn.microsoft.com/fr-fr/library/azure/ee924680.aspx#explanation
   [Hortonworks Data Platform 2.1]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.1/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.1.html
-  [plateforme de données Hortonworks 2.0]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html
-  [plateforme de données Hortonworks 1.3]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.3.0_1.html
+  [plateforme de données Hortonworks 2,0]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html
+  [plateforme de données Hortonworks 1,3]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.3.0_1.html
   [plateforme de données Hortonworks 1.1]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-Win-1.1/bk_releasenotes_HDP-Win/content/ch_relnotes-hdp-win-1.1.0_1.html

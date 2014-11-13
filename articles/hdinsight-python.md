@@ -1,12 +1,12 @@
-<properties linkid="python-hdinsight" urlDisplayName="Python with HDInsight" pageTitle="Use Python with Hive and Pig in Azure HDInsight" metaKeywords="" description="Learn how to use Python User Defined Functions (UDF) from Hive and Pig in Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Python with Hive and Pig in HDInsight" authors="larryfr" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Python with HDInsight" pageTitle="Utilisation de Python avec Hive et Pig dans Azure HDInsight" metaKeywords="" description="D&eacute;couvrez comment utiliser des fonctions d&eacute;finies par l'utilisateur Python &agrave; partir de Hive et Pig dans Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="Utilisation de Python avec Hive et Pig dans HDInsight" authors="larryfr" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Utilisation de Python avec Hive et Pig dans HDInsight
 
 Les langages Hive et Pig sont parfaits pour traiter des données dans HDInsight, mais vous avez parfois besoin d'un langage plus généraliste. Hive et Pig vous permettent de créer des fonctions définies par l'utilisateur (UDF) avec différents langages de programmation. Dans cet article, vous allez apprendre à utiliser une fonction définie par l'utilisateur Python à partir de Hive et Pig.
 
-> [WACOM.NOTE] Les étapes décrites dans cet article s'appliquent aux versions de cluster HDInsight 2.1, 3.0 et 3.1 préliminaire.
+> [WACOM.NOTE] Les étapes décrites dans cet article s'appliquent aux versions de cluster HDInsight 2.1, 3.0 et 3.1.
 
 ## Sommaire
 
@@ -70,7 +70,7 @@ Comme nous utilisons la diffusion en continu, ce script doit effectuer ce qui su
 
 3.  Lors du traitement par flux, une seule ligne contient toutes les valeurs séparées par un caractère de tabulation. `string.split(line, "\t")` peut donc être utilisé pour fractionner l'entrée à chaque tabulation et retourner uniquement les champs.
 
-4.  Une fois le traitement terminé, la sortie doit être écrite dans STDOUT sur une seule ligne, chaque champ étant séparé par une tabulation.Cette opération est réalisée avec `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
+4.  Une fois le traitement terminé, la sortie doit être écrite dans STDOUT sur une seule ligne, chaque champ étant séparé par une tabulation. Cette opération est réalisée avec `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
 
 5.  Tout cela a lieu dans une boucle `while`, qui se répète jusqu'à ce qu'aucun `line` ne soit lu ; `break` interrompt alors la boucle et le script se termine.
 
@@ -112,7 +112,7 @@ Voici le fichier **jython.py** utilisé par l'exemple Pig :
 
 Souvenez-vous : auparavant, nous avons simplement défini l'entrée **LINE** comme un tableau de caractères car il n'existait pas de schéma cohérent pour l'entrée ! Le rôle de **jython.py** est de transformer les données en un schéma cohérent pour la sortie. Cela fonctionne de la manière suivante :
 
-1.  L'instruction <**@outputSchema*>\* définit le format des données qui seront renvoyées à Pig. Dans le cas présent, il s'agit d'un **data bag**, qui est un type de données Pig. Ce conteneur contient les champs suivants, qui sont tous des tableaux de caractères (chaînes) :
+1.  L'instruction **@outputSchema** définit le format des données qui seront renvoyées à Pig. Dans le cas présent, il s'agit d'un **data bag**, qui est un type de données Pig. Ce conteneur contient les champs suivants, qui sont tous des tableaux de caractères (chaînes) :
 
     -   date : date de création de l'entrée du journal
     -   time : heure de création de l'entrée du journal
@@ -128,7 +128,7 @@ Souvenez-vous : auparavant, nous avons simplement défini l'entrée **LINE** co
 
 5.  Enfin, les valeurs sont renvoyées à Pig.
 
-Lorsque les données sont renvoyées à Pig, elles utilisent un schéma cohérent comme défini dans l'instruction <**@outputSchema*>\*.
+Lorsque les données sont renvoyées à Pig, elles utilisent un schéma cohérent comme défini dans l'instruction **@outputSchema**.
 
 Pour savoir comment exécuter cet exemple sur votre cluster HDInsight, consultez la rubrique [Exécution des exemples][Exécution des exemples].
 
@@ -159,7 +159,7 @@ Ces étapes utilisent Windows Azure PowerShell. Si ce dernier n'est pas déjà i
 
 ### Utilisation du tableau de bord Hive (exemple Hive uniquement)
 
-1.  Après le téléchargement du fichier, ouvrez un navigateur et accédez à la page [https://NomDeVotreCluster.azurehdinsight.net/][https://NomDeVotreCluster.azurehdinsight.net/]. Lorsque les informations d'identification vous sont demandées, entrez le nom d'utilisateur admin et le mot de passe pour votre cluster.
+1.  Après le téléchargement du fichier, ouvrez un navigateur et accédez à la page https://NomDeVotreCluster.azurehdinsight.net/. Lorsque les informations d'identification vous sont demandées, entrez le nom d'utilisateur admin et le mot de passe pour votre cluster.
 
     > [WACOM.NOTE] Vous pouvez également utiliser le lien **Gérer le cluster** au bas du **tableau de bord** HDInsight dans le portail de gestion Azure pour lancer le tableau de bord Hive.
 
@@ -293,6 +293,5 @@ Si vous souhaitez exécuter des tâches sur HDInsight à distance sans utiliser 
   [streaming.py]: #streamingpy
   [jython.py]: #jythonpy
   [Téléchargement de données pour des tâches Hadoop dans HDInsight]: /fr-fr/documentation/articles/hdinsight-upload-data/
-  [https://NomDeVotreCluster.azurehdinsight.net/]: https://YourClusterName.azurehdinsight.net/
   [Déploiement d'un module vers Azure HDInsight]: http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx
   [Utilisation d'Azure HDInsight à partir de Linux]: http://blogs.msdn.com/b/benjguin/archive/2014/02/18/how-to-use-hdinsight-from-linux.aspx

@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-tutorials-get-started" urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services - Azure" metaKeywords="Azure media services" description="An introduction to using Media Services with Azure." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Get Started with Media Services" pageTitle="Prise en main de Media Services - Azure" metaKeywords="Azure media services" description="Introduction &agrave; l'utilisation de Media Services avec Azure." metaCanonical="" services="media-services" documentationCenter="" title="Prise en main de Media Services" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # <a name="getting-started"></a>Prise en main de Media Services
 
@@ -20,12 +20,13 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 Les conditions préalables suivantes sont requises pour la procédure pas à pas et pour le développement basé sur le Kit de développement logiciel (SDK) d'Azure Media Services.
 
 -   Un compte Media Services dans un abonnement Azure nouveau ou existant. Pour plus d'informations, consultez la page [Création d'un compte Media Services][Création d'un compte Media Services].
--   Systèmes d'exploitation : Windows 7, Windows 2008 R2 ou Windows 8.
+-   Systèmes d'exploitation : Windows 7, Windows 2008 R2, Windows 8 ou une version ultérieure.
 -   .NET Framework 4.5 ou .NET Framework 4.
--   Visual Studio 2012 ou Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express).
+-   Visual Studio 2012, Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou une version ultérieure.
 -   Installez les bibliothèques **Kit de développement logiciel (SDK) Azure pour .NET**, **Kit de développement logiciel (SDK) d'Azure Media Services pour .NET** et **Services de données WCF 5.0 pour OData V3**, puis ajoutez les références à votre projet à l'aide du package [NuGet windowsazure.mediaservices][NuGet windowsazure.mediaservices]. La section suivante montre comment installer et ajouter ces références.
 
-<div class="dev-callout"><strong>Remarque</strong> <p>Pour effectuer ce didacticiel, vous avez besoin d&rsquo;un compte Azure. Si vous ne poss&eacute;dez pas de compte, vous pouvez cr&eacute;er un compte d'&eacute;valuation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Version d'&eacute;valuation gratuite d'Azure</a>.</p></div>
+> [WACOM.NOTE]
+> Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][Version d'évaluation gratuite d'Azure].
 
 ## <span id="Step1"></span></a>Configuration de votre projet
 
@@ -67,7 +68,7 @@ Les conditions préalables suivantes sont requises pour la procédure pas à pas
         using Microsoft.WindowsAzure;
         using Microsoft.WindowsAzure.MediaServices.Client;
 
-7.  Ajoutez les variables de chemin d'accès de niveau classe suivantes. Le chemin d'accès \*\*\_supportFiles\*\* doit pointer sur le dossier que vous avez créé dans une étape précédente.
+7.  Ajoutez les variables de chemin d'accès de niveau classe suivantes. Le chemin d'accès \*\*\_supportFiles\*\* doit pointer sur le dossier que vous avez créé lors d'une étape précédente.
 
         // Base support files path.  Update this field to point to the base path  
         // for the local support files folder that you create. 
@@ -96,12 +97,12 @@ Les conditions préalables suivantes sont requises pour la procédure pas à pas
 
 L'objet de contexte Media Services contient tous les principaux objets et collections auxquels accéder pour la programmation Media Services. Le contexte comprend des références à des collections importantes comme les travaux, les éléments multimédias, les fichiers, les stratégies d'accès, les localisateurs et d'autres objets La plupart des tâches de programmation Media Services requièrent le contexte de serveur.
 
-Dans le fichier Program.cs, ajoutez le code suivant en tant que premier élément de votre méthode **Main**. Ce code utilise les valeurs de nom et de clé de votre compte Media Services à partir du fichier app.config pour créer une instance de contexte de serveur. L'instance est attribuée à la variable **_context** que vous avez créée au niveau de la classe.
+Dans le fichier Program.cs, ajoutez le code suivant en tant que premier élément de votre méthode **Main**. Ce code utilise les valeurs de nom et de clé de votre compte Media Services à partir du fichier app.config pour créer une instance de contexte de serveur. L'instance est attribuée à la variable \*\*\_context\*\* que vous avez créée au niveau classe.
 
     // Get the service context.
     _context = new CloudMediaContext(_accountName, _accountKey);
 
-## <span id="Step3"></span></a>Création d'un élément multimédia et téléchargement d'un fichier
+## <span id="Step3"></span></a>Création d'un élément multimédia et chargement d'un fichier
 
 Le code de cette section permet d'effectuer les opérations suivantes :
 
@@ -112,10 +113,12 @@ Le code de cette section permet d'effectuer les opérations suivantes :
     -   **AssetCreationOptions.CommonEncryptionProtected** : pour les fichiers CENC (Common Encryption Protected). Par exemple, un ensemble de fichiers pour lesquels le chiffrement PlayReady est déjà activé.
     -   **AssetCreationOptions.StorageEncrypted** : chiffrement du stockage. Chiffre un fichier d'entrée clair avant de le charger sur le stockage Azure.
 
-        <div class="dev-callout"> 
-<strong>Remarque</strong> 
-<p>Media Services fournit un chiffrement de stockage sur disque, et non pas sur le r&eacute;seau comme pour la gestion des droits num&eacute;riques (DRM).</p> 
-</div>
+        <div class="dev-callout">
+
+        **Remarque**
+        Media Services fournit un chiffrement de stockage sur disque, et non pas sur le réseau comme pour la gestion des droits numériques (DRM).
+
+        </div>
 
 2.  Création d'une instance AssetFile que nous voulons associer à l'élément multimédia.
 3.  Création d'une instance AccessPolicy qui définit les autorisations et la durée de l'accès à l'élément multimédia.
@@ -161,22 +164,22 @@ Ajoutez les méthodes suivantes à la classe.
         return asset;
     }
 
-Ajoutez un appel à la méthode après la ligne **_context = new CloudMediaContext(\_accountName, \_accountKey);** de votre méthode Main.
+Ajoutez un appel à la méthode après la ligne \*\*\_context = new CloudMediaContext(\_accountName, \_accountKey);\*\* dans la méthode Main.
 
     IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, _singleInputFilePath)
 
-## <span id="Step4"></span></a>Encodage de l'élément multimédia sur le serveur et téléchargement d'un élément multimédia en sortie
+## <span id="Step4"></span></a>Encodage de l'élément multimédia sur le serveur et téléchargement d'un élément multimédia de sortie
 
-Dans Media Services, vous pouvez créer des tâches qui traitent le contenu multimédia de plusieurs façons : encodage, chiffrement, réalisation de conversions de format, etc. Un travail Media Services contient toujours une ou plusieurs tâches qui spécifient les détails du traitement. Dans cette section, vous créez une tâche de codage de base, puis vous exécutez un travail qui effectue la tâche via Azure Media Encoder. La tâche utilise une chaîne de présélection pour spécifier le type d'encodage à effectuer. Pour consulter les valeurs d'encodage de présélection disponibles, consultez la page [Présélections du système Media Services Encoder][Présélections du système Media Services Encoder]. Media Services prend en charge les mêmes formats d'entrée et de sortie de fichier multimédia que Microsoft Expression Encoder. Pour obtenir la liste des formats pris en charge, consultez la page [Types de fichiers pris en charge pour Media Services][Types de fichiers pris en charge pour Media Services].
+Dans Media Services, vous pouvez créer des tâches qui traitent le contenu multimédia de plusieurs manières : encodage, chiffrement, conversions de formats, etc. Un travail Media Services contient toujours une ou plusieurs tâches qui spécifient les détails du traitement. Dans cette section, vous créez une tâche de codage de base, puis vous exécutez un travail qui effectue la tâche via Azure Media Encoder. La tâche utilise une chaîne de présélection pour spécifier le type d'encodage à effectuer. Pour consulter les valeurs d'encodage de présélection disponibles, consultez la page [Présélections du système Media Services Encoder][Présélections du système Media Services Encoder]. Media Services prend en charge les mêmes formats d'entrée et de sortie de fichier multimédia que Microsoft Expression Encoder. Pour obtenir la liste des formats pris en charge, consultez la page [Types de fichiers pris en charge pour Media Services][Types de fichiers pris en charge pour Media Services].
 
 1.  Ajoutez la définition de méthode **CreateEncodingJob** suivante à votre classe. Cette méthode montre comment accomplir plusieurs tâches requises pour un travail d'encodage :
 
     -   Déclarez un nouveau travail.
-    -   Déclarez un processeur multimédia pour traiter le travail. Un processeur multimédia est un composant qui gère l'encodage, le chiffrement, la conversion de format et d'autres travaux de traitement connexes. Il existe plusieurs types de processeurs multimédias (vous pouvez itérer tous les processeurs avec \_context.MediaProcessors). La méthode GetLatestMediaProcessorByName, présentée plus loin dans cette procédure pas à pas, renvoie le processeur de l'encodeur multimédia Azure.
+    -   Déclarez un processeur multimédia pour traiter le travail. Un processeur multimédia est un composant qui gère l'encodage, le chiffrement, la conversion de format et d'autres travaux de traitement connexes. Il existe plusieurs types de processeurs multimédias disponibles (vous pouvez itérer à travers ces derniers avec \_context.MediaProcessors.). La méthode GetLatestMediaProcessorByName mentionnée plus tard dans cette présentation renvoie le processeur Azure Media Encoder.
     -   Déclarez une nouvelle tâche. Chaque travail inclut une ou plusieurs tâches. Notez qu'avec la tâche, vous lui transmettez un nom convivial, une instance de processeur multimédia, une chaîne de configuration de tâche et des options de création de tâche. La chaîne de configuration spécifie les paramètres d'encodage. Cet exemple utilise le paramètre **H264 Broadband 720p**. Cette présélection génère un fichier MP4 unique. Pour plus d'informations à ce sujet et sur les autres présélections, consultez la page [Chaînes de présélection des tâches pour Azure Media Encoder][Chaînes de présélection des tâches pour Azure Media Encoder].
     -   Ajoutez un élément multimédia d'entrée à la tâche. Dans cet exemple, l'élément multimédia d'entrée est celui que vous avez créé dans la section précédente.
     -   Ajoutez un élément multimédia de sortie à la tâche. Pour un élément multimédia de sortie, spécifiez un nom convivial, une valeur booléenne pour indiquer s'il faut enregistrer la sortie sur le serveur une fois le travail terminé et une valeur **AssetCreationOptions.None** pour indiquer que la sortie n'est pas chiffrée pour le stockage et le transport.
-    -   Soumettez la tâche.
+    -   Envoyez le travail.
          Il s'agit de la dernière étape requise pour effectuer un travail d'encodage.
 
     La méthode montre aussi comment effectuer d'autres tâches utiles (mais facultatives) comme le suivi de la progression des travaux et l'accès à l'élément multimédia créé par votre travail d'encodage.
@@ -288,15 +291,15 @@ Dans Media Services, vous pouvez créer des tâches qui traitent le contenu mult
         CreateEncodingJob(asset, _singleInputFilePath, _outputFilesFolder);
 
 3.  Ajoutez les méthodes d'assistance suivantes à la classe. Elles sont nécessaires pour prendre en charge la méthode **CreateEncodingJob**. Ce qui suit est un résumé des méthodes d'assistance.
-    -   La méthode **GetLatestMediaProcessorByName** renvoie un processeur multimédia approprié pour gérer l'encodage, le chiffrement ou d'autres tâches de traitement connexes. Vous créez un processeur multimédia à l'aide du nom de chaîne approprié pour le processeur à créer. Les chaînes pouvant être transmises à la méthode pour le paramètre mediaProcessor sont : **Azure Media Encoder**, **Azure Media Packager**, **Azure Media Encryptor** et **Storage Decryption**.
+    -   La méthode **GetLatestMediaProcessorByName** renvoie un processeur multimédia approprié pour gérer l'encodage, le chiffrement ou d'autres tâches de traitement connexes. Vous créez un processeur multimédia à l'aide du nom de chaîne approprié pour le processeur à créer. Les chaînes pouvant être transmises à la méthode pour le paramètre mediaProcessor sont : **Azure Media Encoder**, **Microsoft Azure Media Packager**, **Microsoft Media Encryptor** et **Storage Decryption**.
 
             private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
             {
                 // The possible strings that can be passed into the 
                 // method for the mediaProcessor parameter:
                 //   Azure Media Encoder
-                //   Azure Media Packager
-                //   Azure Media Encryptor
+                //   Windows Azure Media Packager
+                //   Windows Azure Media Encryptor
                 //   Storage Decryption
 
                 var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
@@ -457,7 +460,7 @@ Dans Media Services, vous pouvez créer des tâches qui traitent le contenu mult
                 return uriBuilder.Uri.AbsoluteUri;
             }
 
-    -   La méthode **DownloadAssetToLocal** télécharge chaque fichier de l'élément multimédia dans un dossier local. Dans cet exemple, comme l'élément multimédia a été créé avec un fichier multimédia d'entrée, la collection de fichiers d'élément multimédia de sortie contient deux fichiers : le fichier multimédia encodé (un fichier .mp4) et un fichier .xml avec des métadonnées sur l'élément multimédia. La méthode télécharge les deux fichiers.
+    -   La méthode **DownloadAssetToLocal** télécharge chaque fichier de l'élément multimédia dans un dossier local. Dans cet exemple, comme l'élément multimédia a été créé avec un fichier multimédia d'entrée, la collection de fichiers d'éléments multimédias de sortie contient deux fichiers : le fichier multimédia encodé (un fichier .mp4) et un fichier .xml avec les métadonnées sur l'élément multimédia. La méthode télécharge les deux fichiers.
 
             static IAsset DownloadAssetToLocal(string jobId, string outputFolder)
             {
@@ -609,10 +612,8 @@ Exécutez le programme (appuyez sur F5). La console affiche une sortie semblable
 
 5.  Le fichier multimédia .mp4 et le fichier \_metadata.xml sont téléchargés dans le dossier outputFiles.
 
-<div class="dev-callout"> 
-<strong>Remarque</strong> 
-<p>Dans le mod&egrave;le objet Media Services, un &eacute;l&eacute;ment multim&eacute;dia est un objet de collection de contenu Media Services repr&eacute;sentant un ou plusieurs fichiers. Le chemin d'acc&egrave;s au localisateur fournit une URL d'objet blob Azure qui est le chemin d'acc&egrave;s de base &agrave; cet &eacute;l&eacute;ment multim&eacute;dia dans Azure Storage. Pour acc&eacute;der &agrave; des fichiers sp&eacute;cifiques dans l'&eacute;l&eacute;ment multim&eacute;dia, ajoutez un nom de fichier au chemin d'acc&egrave;s au localisateur de base.</p> 
-</div>
+> [WACOM.NOTE]
+> Dans le modèle objet Media Services, un élément multimédia est un objet de collection de contenu Media Services représentant un ou plusieurs fichiers. Le chemin d'accès au localisateur fournit une URL d'objet blob Azure qui est le chemin d'accès de base à cet élément multimédia dans Azure Storage. Pour accéder à des fichiers spécifiques dans l'élément multimédia, ajoutez un nom de fichier au chemin d'accès au localisateur de base.
 
 ## Étapes suivantes
 
@@ -630,8 +631,9 @@ Cette procédure pas à pas a décrit une séquence de tâches de programmation 
   [Encodage d'un élément multimédia et téléchargement d'un élément multimédia de sortie]: #Step4
   [Création d'un compte Media Services]: http://go.microsoft.com/fwlink/?LinkId=256662
   [NuGet windowsazure.mediaservices]: http://nuget.org/packages/windowsazure.mediaservices
+  [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A8A8397B5
   [Présélections du système Media Services Encoder]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj129582.aspx
   [Types de fichiers pris en charge pour Media Services]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh973634.aspx
   [Chaînes de présélection des tâches pour Azure Media Encoder]: http://msdn.microsoft.com/library/windowsazure/jj129582.aspx
-  [Utilisation de Media Services]: http://www.windowsazure.com/fr-fr/develop/net/how-to-guides/media-services/
+  [Utilisation de Media Services]: http://azure.microsoft.com/fr-fr/develop/media-services/resources/
   [Création d'applications avec l'API REST de Media Services]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh973618.aspx

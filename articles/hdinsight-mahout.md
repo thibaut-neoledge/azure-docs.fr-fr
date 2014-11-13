@@ -1,14 +1,14 @@
-<properties title="Generate movie recommendations using Mahout" pageTitle="Generate movie recommendations using Mahout with Microsoft Azure HDInsight (Hadoop)" description="Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop)" metaKeywords="Azure hdinsight mahout, Azure hdinsight machine learning, azure hadoop mahout, azure hadoop machine learning" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" />
+<properties title="G&eacute;n&eacute;ration de recommandations de films en utilisant Mahout" pageTitle="G&eacute;n&eacute;ration de recommandations de films &agrave; l'aide de Mahout avec Microsoft Azure HDInsight (Hadoop)" description="Apprenez &agrave; utiliser la biblioth&egrave;que &agrave; apprentissage automatique Apache Mahout pour g&eacute;n&eacute;rer des recommandations de films avec HDInsight (Hadoop)" metaKeywords="Azure hdinsight mahout, Azure hdinsight machine learning, azure hadoop mahout, azure hadoop machine learning" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" manager="paulettm" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Génération de recommandations de films à l'aide d'Apache Mahout avec HDInsight (Hadoop)
 
 Apprenez à utiliser la bibliothèque à apprentissage automatique [Apache Mahout][Apache Mahout] pour générer des recommandations de films avec Microsoft Azure HDInsight (Hadoop).
 
 > [WACOM.NOTE] Vous devez avoir un cluster HDInsight pour utiliser les informations de cet article. Pour en créer un, consultez la page [Prise en main de Hadoop dans HDInsight][Prise en main de Hadoop dans HDInsight].
-
-> [WACOM.NOTE] Mahout est fourni avec des clusters HDInsight 3.1. Si vous utilisez une version antérieure de HDInsight, consultez la section [Installation de Mahout][Installation de Mahout] avant de continuer.
+>
+> Mahout est fourni avec des clusters HDInsight 3.1. Si vous utilisez une version antérieure de HDInsight, consultez la section [Installation de Mahout][Installation de Mahout] avant de continuer.
 
 ## <a name="learn"></a>Contenu
 
@@ -70,7 +70,7 @@ Utilisez le script PowerShell suivant pour exécuter une tâche à l'aide du mot
     $clusterName = "the cluster name"
 
     # The location of the Mahout jar file.
-    $jarFile = "C:\apps\dist\mahout-0.9.0.2.1.3.0-1887\examples\target\mahout-examples-0.9.0.2.1.3.0-1887-job.jar"
+    $jarFile = "file:///c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar"
     # NOTE: The version number portion of the file path
     # may change in future versions of HDInsight.
     # Use the following to find the location and name
@@ -260,13 +260,13 @@ L'une des méthodes de classification disponibles avec Mahout est la constructio
 
 L'implémentation Mahout actuelle est compatible avec le format du référentiel de l'université de Californie, Irvine (UCI) [en quoi est-ce important ? quel est ce format ?]
 
-1.  Téléchargez les fichiers ci-après dans [][]<http://nsl.cs.unb.ca/NSL-KDD/></a>.
+1.  Téléchargez les fichiers ci-après dans <http://nsl.cs.unb.ca/NSL-KDD/>.
 
-	*   [KDDTrain+.ARFF][KDDTrain+.ARFF] - fichier de formation
+-   [KDDTrain+.ARFF][KDDTrain+.ARFF] - fichier de formation
 
-	*   [KDDTest+.ARFF][KDDTest+.ARFF] - données du test
+-   [KDDTest+.ARFF][KDDTest+.ARFF] - données du test
 
-1.  Ouvrez chaque fichier et supprimez les lignes en haut commençant par <'@'>, puis enregistrez les fichiers. Si les lignes ne sont pas supprimées, vous obtiendrez des erreurs lorsque vous utiliserez ces données avec Mahout.
+1.  Ouvrez chaque fichier et supprimez les lignes en haut commençant par « @ », puis enregistrez les fichiers. Si les lignes ne sont pas supprimées, vous obtiendrez des erreurs lorsque vous utiliserez ces données avec Mahout.
 
 2.  Téléchargez vers **example/data**. Pour cela, utilisez la fonction `Add-HDInsightFile` dans le module PowerShell de [HDInsight-Tools][HDInsight-Tools].
 
@@ -342,9 +342,9 @@ Mahout est installé sur les clusters HDInsight 3.1 et peut être installé man
 
         PS C:PS C:\> Get-AzureHDInsightCluster -Name YourClusterName | Select versiongt; Get-AzureHDInsightCluster -Name YourClusterName | Select version
 
-	*   **Pour HDInsight 2.1**, vous pouvez télécharger un fichier jar contenant [Mahout 0.9][Mahout 0.9].
+-   **Pour HDInsight 2.1**, vous pouvez télécharger un fichier jar contenant [Mahout 0.9][Mahout 0.9].
 
-	*   **Pour HDInsight 3.0**, vous devez [générer Mahout à partir de la source][générer Mahout à partir de la source] et spécifier la version Hadoop fournie par HDInsight. Installez les éléments requis répertoriés sur la page de génération, téléchargez la source, puis utilisez la commande ci-après pour créer les fichiers jar de Mahout.
+-   **Pour HDInsight 3.0**, vous devez [générer Mahout à partir de la source][générer Mahout à partir de la source] et spécifier la version Hadoop fournie par HDInsight. Installez les éléments requis répertoriés sur la page de génération, téléchargez la source, puis utilisez la commande ci-après pour créer les fichiers jar de Mahout.
 
             mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
 
@@ -405,7 +405,6 @@ Pour exécuter des tâches utilisant ces classes, connectez-vous au cluster HDIn
   [HDInsight-Tools]: https://github.com/Blackmist/hdinsight-tools
   [Téléchargement de données pour les tâches Hadoop dans HDInsight]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-upload-data/
   [forêt aléatoire]: http://en.wikipedia.org/wiki/Random_forest
-  []: http://nsl.cs.unb.ca/NSL-KDD/
   [KDDTrain+.ARFF]: http://nsl.cs.unb.ca/NSL-KDD/KDDTrain+.arff
   [KDDTest+.ARFF]: http://nsl.cs.unb.ca/NSL-KDD/KDDTest+.arff
   [portail de gestion Azure]: https://manage.windowsazure.com/

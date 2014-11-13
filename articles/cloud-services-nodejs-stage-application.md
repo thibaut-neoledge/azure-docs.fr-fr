@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-enablestaging" urlDisplayName="Staging Deployment" pageTitle="Stage a cloud service deployment (Node.js) - Azure" metaKeywords="Azure staging, Azure application staging, Azure test environment, Azure staging environment, Azure Virtual IP swap, Azure VIP swap" description="Learn how to deploy your Azure application to a staging environment, then deploy to a production environment using Virtual IP (VIP) swap." metaCanonical=" " services="cloud-services" documentationCenter="nodejs" title="Staging an Application in Azure" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Staging Deployment" pageTitle="D&eacute;ploiement d'un service cloud dans un environnement interm&eacute;diaire (Node.js) - Azure" metaKeywords="Azure staging, Azure application staging, Azure test environment, Azure staging environment, Azure Virtual IP swap, Azure VIP swap" description="D&eacute;couvrez comment d&eacute;ployer votre application Azure vers un environnement interm&eacute;diaire, puis comment la d&eacute;ployer vers un environnement de production gr&acirc;ce &agrave; l'&eacute;change d'adresses IP virtuelles (VIP)." metaCanonical=" " services="cloud-services" documentationCenter="nodejs" title="D&eacute;ploiement interm&eacute;diaire d'une application dans Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 # Déploiement intermédiaire d'une application dans Azure
 
@@ -16,7 +16,7 @@ dans l'environnement de production après avoir effectué un échange d'adresses
 <div class="dev-callout">
     <b>Remarque</b>
     <p>Les &eacute;tapes figurant dans cet article s'appliquent uniquement aux applications Node h&eacute;berg&eacute;es en tant que service cloud Azure.</p>
-</div>
+    </div>
 
 Cette procédure comprend les étapes suivantes :
 
@@ -61,7 +61,9 @@ virtuelles des environnements intermédiaire et de production.
 
 <div class="dev-callout">
 <b>Remarque</b>
-<p>Cette &eacute;tape part du principe que vous avez d&eacute;j&agrave; d&eacute;ploy&eacute; une application en production et cr&eacute;&eacute; une version interm&eacute;diaire de la version mise &agrave; niveau de l'application.</p>
+<p>Cette &eacute;tape part du principe que vous avez d&eacute;j&agrave; d&eacute;ploy&eacute; une
+application en production et cr&eacute;&eacute; une version interm&eacute;diaire de la version mise &agrave; niveau de
+l'application.</p>
 </div>
 
 1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure]

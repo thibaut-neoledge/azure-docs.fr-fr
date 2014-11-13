@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage  from .NET | Microsoft Azure" metaKeywords="Get started Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage   Azure table .NET   Azure table storage .NET   Azure table C#   Azure table storage C#" description="Learn how to use Microsoft Azure Table storage to create and delete tables and insert and query entities in a table." services="storage" documentationCenter=".NET" metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="How to use Microsoft Azure Table storage" authors="tamram" />
+<properties urlDisplayName="Table Service" pageTitle="Utilisation du stockage de tables &agrave; partir de .NET | Microsoft Azure" metaKeywords="Get started Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage   Azure table .NET   Azure table storage .NET   Azure table C#   Azure table storage C#" description="D&eacute;couvrez comment utiliser le stockage de tables Microsoft Azure pour cr&eacute;er et supprimer des tables, et ins&eacute;rer et interroger les entit&eacute;s d'une table." services="storage" documentationCenter=".NET" metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Utilisation du stockage de tables Microsoft" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -14,7 +14,7 @@ suppression d'une table**, ainsi que l'**utilisation d'entités de table**. Pour
 
 -   [Présentation du service de Table][Présentation du service de Table]
 -   [Concepts][Concepts]
--   [Création d’un compte de stockage Azure][Création d’un compte de stockage Azure]
+-   [Création d'un compte Azure Storage][Création d'un compte Azure Storage]
 -   [Configuration d’une chaîne de connexion de stockage][Configuration d’une chaîne de connexion de stockage]
 -   [Accès au stockage de tables par programme][Accès au stockage de tables par programme]
 -   [Création d'une table][Création d'une table]
@@ -450,10 +450,11 @@ Maintenant que vous connaissez les bases du stockage de tables, consultez les li
 
   [Étapes suivantes]: #next-steps
   [NuGet]: https://www.nuget.org/packages/WindowsAzure.Storage/
+  [Kit de développement logiciel (SDK) Azure pour .NET]: /fr-fr/downloads/
   [Accès au stockage de tables par programme]: #configure-access
   [Présentation du service de Table]: #what-is
   [Concepts]: #concepts
-  [Création d’un compte de stockage Azure]: #create-account
+  [Création d'un compte Azure Storage]: #create-account
   [Configuration d’une chaîne de connexion de stockage]: #setup-connection-string
   [Création d'une table]: #create-table
   [Ajout d'une entité à une table]: #add-entity
@@ -466,9 +467,6 @@ Maintenant que vous connaissez les bases du stockage de tables, consultez les li
   [Interrogation d'un sous-ensemble de propriétés d'entité]: #query-entity-properties
   [Suppression d'une entité]: #delete-entity
   [Suppression d'une table]: #delete-table
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [storage-configure-connection-string]: ../includes/storage-configure-connection-string.md
   [Centre de développement .NET]: http://www.windowsazure.com/fr-fr/develop/net/#
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
@@ -477,6 +475,7 @@ Maintenant que vous connaissez les bases du stockage de tables, consultez les li
   [Référence de la bibliothèque de client de stockage pour .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Référence d’API REST]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179355
   [Stockage et accessibilité des données dans Windows Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx
+  [Prise en main du Kit de développement logiciel (SDK) Tâches web Azure]: /fr-fr/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
   [stockage d’objets blob]: /fr-fr/documentation/articles/storage-dotnet-how-to-use-blobs/
   [stockage des files d'attente]: /fr-fr/documentation/articles/storage-dotnet-how-to-use-queues/
   [base de données SQL]: /fr-fr/documentation/articles/sql-database-dotnet-how-to-use/

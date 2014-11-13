@@ -14,16 +14,16 @@ Pour configurer votre chaîne de connexion dans la configuration de service Azur
 1.  Dans l'Explorateur de solutions de Visual Studio, dans le dossier **Rôles**
     de votre projet de déploiement Azure, cliquez avec le bouton droit sur votre
     rôle web ou de travail, puis cliquez sur **Propriétés**.
-    ![Select the properties on a Cloud Service role in Visual Studio][]
+    ![Select the properties on a Cloud Service role in Visual Studio][Select the properties on a Cloud Service role in Visual Studio]
 
 2.  Cliquez sur l'onglet **Paramètres** et appuyez sur le bouton **Ajouter un paramètre**.
-    ![Add a Cloud Service setting in visual Studio][]
+    ![Add a Cloud Service setting in visual Studio][Add a Cloud Service setting in visual Studio]
 
     Une nouvelle entrée nommée **Setting1** est ensuite affichée dans la grille des paramètres.
 
 3.  Dans le menu déroulant **Type** de l'entrée **Setting1**, sélectionnez
     **Chaîne de connexion**.
-    ![Set connection string type][]
+    ![Set connection string type][Set connection string type]
 
 4.  Cliquez sur le bouton **...** situé à l'extrême droite de l'entrée **Setting1**.
     La boîte de dialogue **Chaîne de connexion de compte de stockage** s'ouvre.
@@ -37,12 +37,12 @@ Pour configurer votre chaîne de connexion dans la configuration de service Azur
 
     > [WACOM.NOTE] Vous pouvez cibler l'émulateur de stockage pour éviter les frais liés à l'utilisation des services de stockage Windows Azure. Toutefois, si vous choisissez de cibler un compte de stockage Azure situé dans le cloud, les frais associés à l'utilisation de ce didacticiel seront négligeables.
 
-    ![Select target environment][]
+    ![Select target environment][Select target environment]
 
 6.  Modifiez l'entrée **Nom** en remplaçant **Setting1** par un nom plus convivial
     tel que **ChaineConnexionStockage**. Vous vous référerez à cette
     chaîne de connexion dans le code plus loin dans ce guide.
-    ![Change connection string name][]
+    ![Change connection string name][Change connection string name]
 
 ### Configuration de votre chaîne de connexion en utilisant la configuration .NET
 
@@ -62,7 +62,7 @@ Par exemple, le paramètre de configuration de votre fichier de configuration pe
         </appSettings>
     </configuration>
 
-Pour plus d'informations sur les chaînes de connexion de stockage, consultez la page [Configuration des chaînes de connexion][].
+Pour plus d'informations sur les chaînes de connexion de stockage, consultez la page [Configuration des chaînes de connexion][Configuration des chaînes de connexion].
 
 Vous pouvez à présent effectuer les tâches présentées dans ce guide.
 
@@ -71,4 +71,4 @@ Vous pouvez à présent effectuer les tâches présentées dans ce guide.
   [Set connection string type]: ./media/storage-configure-connection-string/connection-string3.png
   [Select target environment]: ./media/storage-configure-connection-string/connection-string4.png
   [Change connection string name]: ./media/storage-configure-connection-string/connection-string5.png
-  [Configuration des chaînes de connexion]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx
+  [Configuration des chaînes de connexion]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee758697.aspx

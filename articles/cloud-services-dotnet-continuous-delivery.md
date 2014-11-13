@@ -1,4 +1,4 @@
-<properties linkid="dev-net-common-tasks-continuous-delivery" urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="ghogen" solutions="" manager="" editor="" />
+<properties urlDisplayName="Continuous Delivery" pageTitle="Livraison continue pour les services cloud avec TFS dans Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="D&eacute;couvrez comment configurer la livraison continue pour les applications cloud Azure. Exemples de code pour les instructions en ligne de commande MSBuild et les scripts PowerShell." metaCanonical="" services="" documentationCenter="" title="Remise continue pour Cloud Services dans Azure" authors="ghogen" solutions="" manager="douge" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
@@ -53,7 +53,7 @@ de builds, suivez les instructions de la documentation [Team Foundation Build Se
     (x86)\\MSBuild\\Microsoft\\VisualStudio\\v11.0\\WebApplications (v12.0
     pour Visual Studio 2013). Vous
     devez le copier dans le même répertoire sur le serveur de builds.
-5.  Installez les outils [Azure Tools for Visual Studio][bibliothèques Windows Azure].
+5.  Installez les [outils Azure Tools for Visual Studio][bibliothèques Windows Azure].
     Recherchez WindowsAzureTools.VS110.exe pour créer des projets Visual Studio 2012 et WindowsAzureTools.VS120.exe pour créer des projets Visual Studio 2013.
 
 ## <a name="step2"> </a><span class="short-header">Génération d'un package à l'aide de MSBuild</span>Étape 2 : génération d'un package à l'aide des commandes MSBuild
@@ -128,7 +128,7 @@ d'informations sur les paramètres de ligne de commande et MSBuild, consultez la
 
         MSBuild /t:Publish /p:TargetProfile=Cloud
 
-6.  Spécifiez l'emplacement de la sortie. Définissez le chemin d'accèsavec l'option
+6.  Spécifiez l'emplacement de la sortie. Définissez le chemin d'accès avec l'option
     /p:PublishDir=*Directory*\\, en incluant la barre
     oblique inverse de fin, comme dans l'exemple suivant :
 
@@ -307,7 +307,7 @@ les activités de workflow du modèle de processus dans Visual Studio TFS Team B
     et télécharger les certificats sur chaque service cloud ciblé
     à l'aide du portail de gestion Azure. Pour plus d'informations, consultez l'article
     suivant :
-    [<http://msdn.microsoft.com/fr-fr/library/windowsazure/gg443832.aspx>][<http://msdn.microsoft.com/fr-fr/library/windowsazure/gg443832.aspx>].
+    [http://msdn.microsoft.com/fr-fr/library/windowsazure/gg443832.aspx][http://msdn.microsoft.com/fr-fr/library/windowsazure/gg443832.aspx].
 
     **Mise à niveau du déploiement et suppression du déploiement -\> Nouveau déploiement**
 
@@ -780,7 +780,9 @@ Pour activer le débogage distant lors de l'utilisation de la remise continue, c
   [Remise continue pour Azure avec Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso/
   [Étape 1 : configuration du serveur de builds]: #step1
   [Étape 2 : génération d'un package à l'aide des commandes MSBuild]: #step2
+  [Étape 3 : génération d'un package avec TFS Team Build (facultatif)]: #step3
   [Étape 4 : publication d'un package à l'aide d'un script PowerShell]: #step4
+  [Étape 5 : publication d'un package à l'aide de TFS Team Build (facultatif)]: #step5
   [Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484

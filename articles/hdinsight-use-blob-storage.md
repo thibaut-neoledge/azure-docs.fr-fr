@@ -1,12 +1,12 @@
-<properties linkid="manage-services-hdinsight-howto-blob-store" urlDisplayName="Blob Storage with  Hadoop in HDInsight" pageTitle="Use Blob storage with Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how HDInsight uses Blob storage as the underlying data store for HDFS and how you can query data from the store." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Use Azure Blob storage with Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
+<properties urlDisplayName="Blob Storage with  Hadoop in HDInsight" pageTitle="Utilisation du stockage d'objets blob Azure avec Hadoop dans HDInsight | Azure" metaKeywords="" description="D&eacute;couvrez comment HDInsight utilise le stockage d'objets blob comme magasin de donn&eacute;es sous-jacent pour HDFS et comment vous pouvez interroger les donn&eacute;es dans le magasin." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Utilisation du stockage d'objets blob Azure avec Hadoop dans HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Utilisation du stockage d'objets blob Azure avec Hadoop dans HDInsight
 
 Azure HDInsight prend en charge le système HDFS (Hadoop Distributed Files System) et le stockage d'objets blob Azure pour stocker des données. Le stockage d'objets blob est une solution de stockage Azure fiable et généraliste. Le stockage d'objets blob fournit une interface HDFS complète offrant une expérience transparente en permettant à l'ensemble complet de composants de l'écosystème Hadoop de fonctionner (par défaut) directement sur les données. Le stockage d'objets blob n'est pas seulement une solution économique : il permet également de supprimer sans risque de perte de données les clusters HDInsight ayant servi aux calculs.
 
-> [WACOM.NOTE] La syntaxe *asv://* n'est pas prise en charge dans les clusters HDInsight version 3.0 et ne sera pas prise en charge dans les versions ultérieures. Cela signifie que toutes les tâches utilisant explicitement la syntaxe asv:// et envoyées vers des clusters HDInsight version 3.0 échoueront. Vous devez plutôt utiliser la syntaxe *wasb://*. De même, les tâches créées avec un metastore existant contenant des références explicites aux ressources utilisant la syntaxe asv:// et envoyées vers des clusters HDInsight version 3.0 échoueront également. Vous devrez recréer ces metastores en utilisant la syntaxe wasb:// pour adresser les ressources.
+> [WACOM.NOTE] La syntaxe *asv://* n'est pas prise en charge dans les clusters HDInsight version 3.0 et ne sera pas prise en charge dans les versions ultérieures. Cela signifie que toutes les tâches envoyées vers un cluster HDInsight 3.0 utilisant explicitement la syntaxe « asv:// »? échoueront. Vous devez plutôt utiliser la syntaxe *wasb://*. De même, les tâches créées avec un metastore existant contenant des références explicites aux ressources utilisant la syntaxe asv:// et envoyées vers des clusters HDInsight version 3.0 échoueront également. Vous devrez recréer ces metastores en utilisant la syntaxe wasb:// pour adresser les ressources.
 
 > [WACOM.NOTE] HDInsight prend uniquement en charge les objets blob de blocs pour le moment.
 
@@ -48,11 +48,11 @@ En plus de ce compte de stockage, pendant la configuration, vous pouvez ajouter 
     > [WACOM.NOTE]
     >  \> Un conteneur public vous permet d'obtenir une liste de tous ses objets blob disponibles, ainsi que ses métadonnées. Vous pouvez accéder aux objets blob d'un objet blob public uniquement si vous connaissez leur URL exacte. Pour plus d'informations, consultez la page [Limiter l'accès aux conteneurs et aux objets blob][Limiter l'accès aux conteneurs et aux objets blob].
 
--   **Conteneurs privés des comptes de stockage qui NE SONT PAS connectés à un cluster :** vous ne pouvez pas accéder aux objets blob des conteneurs, sauf si vous définissez le compte de stockage lorsque vous envoyez les tâches WebHCat. Plus d'explications sont disponibles plus bas dans l'article.
+-   **Conteneurs privés des comptes de stockage qui NE SONT PAS connectés à un cluster :** vous ne pouvez pas accéder aux objets blob dans les conteneurs sauf si vous définissez le compte de stockage lors de l'envoi des tâches WebHCat. Une explication sera fournie plus loin dans cet article.
 
-Les comptes de stockage définis dans le processus d'approvisionnement et les clés associées sont stockés dans %HADOOP\_HOME%/conf/core-site.xm. Le comportement par défaut de HDInsight est d'utiliser les comptes de stockage définis dans le fichier core-site.xml file. Il est déconseillé de modifier le fichier core-site.xml fil, car le cluster headnote(master) peut être ré-imagé ou migré à tout moment. En outre, les modifications apportées à ces fichiers seront perdues.
+Les comptes de stockage définis dans le processus d'approvisionnement et leurs clés sont stockés dans %HADOOP\_HOME%/conf/core-site.xml. Le comportement par défaut de HDInsight consiste à utiliser les comptes de stockage définis dans le fichier core-site.xml. Il est déconseillé de modifier le fichier core-site.xml, car le nœud principal du cluster peut à tout moment être recréé ou migrer, et toutes les modifications apportées à ces fichiers seront perdues.
 
-Plusieurs tâches WebHCat, y compris Hive, MapReduce, la diffusion en continu Hadoop et Pig, peuvent inclure une description des comptes de stockage et des métadonnées associées (dans le cas de Pig, cela fonctionne pour les comptes de stockage, mais pas pour les métadonnées). La section [Accès aux objets blob à l'aide de PowerShell][Accès aux objets blob avec PowerShell] de cet article propose un exemple de cette fonctionnalité. Pour plus d'informations, consultez la page [Utilisation d'un cluster HDInsight avec des comptes de stockage et metastores de secours][Utilisation d'un cluster HDInsight avec des comptes de stockage et metastores de secours].
+Plusieurs tâches WebHCat, notamment Hive, MapReduce, la diffusion en continu Hadoop et Pig, peuvent véhiculer avec elles une description des comptes de stockage et des métadonnées (cela fonctionne actuellement pour les comptes de stockage, mais pas pour les métadonnées.) La section [Accès à un objet blob avec PowerShell][Accès aux objets blob avec PowerShell] de cet article contient un exemple de cette fonctionnalité. Pour plus d'informations, consultez la page [Utilisation d'un cluster HDInsight avec des comptes de stockage et des metastores secondaires][Utilisation d'un cluster HDInsight avec des comptes de stockage et des metastores secondaires].
 
 Les conteneurs de stockage d'objets blob stockent des données en tant que paires clé/valeur et sans hiérarchie de répertoires. Cependant, vous pouvez utiliser le caractère « / » dans le nom de la clé pour la faire apparaître comme un fichier stocké dans une structure de répertoires. Par exemple, une clé d'objet blob peut être *input/log1.txt*. Il n'existe pas de répertoire *input*, mais le caractère « / » figurant dans le nom de la clé lui donne l'aspect d'un chemin d'accès de fichier.
 
@@ -78,17 +78,17 @@ Pour utiliser des objets blob, commencez par créer un [compte de stockage Azure
 
 Lorsque vous configurez un cluster HDInsight à partir du portail de gestion Azure, vous disposez de deux options : *quick create* et *custom create*. L'option quick create requiert un compte Azure Storage. Pour obtenir des instructions, consultez le guide [Création d'un compte de stockage][compte de stockage Azure].
 
-En utilisant l'option quick create, vous pouvez sélectionner un compte de stockage existant. Le processus de configuration crée un conteneur ayant le même nom que le cluster HDInsight. Si un conteneur avec le même nom existe déjà, <clustername>-<x> est utilisé. Par exemple, myHDIcluster-1. Ce conteneur est utilisé comme système de fichiers par défaut.
+En utilisant l'option quick create, vous pouvez sélectionner un compte de stockage existant. Le processus de configuration crée un conteneur ayant le même nom que le cluster HDInsight. S'il existe déjà un conteneur de même nom, <clustername>-<x> sera utilisé. Par exemple : myHDIcluster-1. Ce conteneur sert de système de fichiers par défaut.
 
 ![HDI.QuickCreate][HDI.QuickCreate]
 
-À l'aide de l'option Création personnalisée, vous avez le choix parmi les options suivantes pour le compte de stockage par défaut :
+Avec la création personnalisée, vous avez le choix entre les options suivantes pour le compte de stockage par défaut :
 
--   Utilisation d'un stockage existant
--   Création d'un stockage
--   Utilisation d'un stockage provenant d'un autre abonnement
+-   utiliser un stockage existant ;
+-   créer un stockage ;
+-   utiliser un stockage d'un autre abonnement.
 
-Vous pouvez également créer votre propre conteneur d'objets blob ou en utiliser un existant.
+Vous avez également la possibilité de créer votre propre conteneur d'objets blob ou d'utiliser un conteneur existant.
 
 ![HDI.CustomCreateStorageAccount][HDI.CustomCreateStorageAccount]
 
@@ -117,7 +117,7 @@ Le modèle d'URI pour accéder aux fichiers du stockage d'objets blob est le sui
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
-> [WACOM.NOTE] La syntaxe pour l'adressage des fichiers sur un émulateur de stockage (HDInsight) est <i>wasb://&lt;ContainerName&gt;@storageemulator</i>.
+> [WACOM.NOTE] La syntaxe pour l'adressage des fichiers sur un émulateur de stockage (HDInsight) est *wasb://\<NomDuConteneur\>@emulateurdestockage*.
 
 Le modèle d'URI offre à la fois un accès non chiffré avec le préfixe *wasb:* et un accès chiffré SSL avec *wasbs*. Dans la mesure du possible, nous vous recommandons d'utiliser *wasbs*, même lorsqu'il s'agit d'accéder à des données qui résident dans le même centre de données Azure.
 
@@ -177,7 +177,7 @@ Le script suivant télécharge un objet blob de blocs vers le dossier actuel. Av
 
 **Exemple PowerShell pour la suppression d'un fichier**
 
-Le script suivant montre comment supprimer un fichier.
+Le script suivant indique comment supprimer un fichier.
  $storageAccountName = "<azurestorageaccountname>" \# Compte de stockage utilisé pour le système de fichiers par défaut spécifié lors de l'approvisionnement.
  $containerName = "<blobstoragecontainername>" \# Le conteneur de système de fichiers par défaut a le même nom que le cluster.
  $blob = "example/data/sample.log" \# Le nom de l'objet blob à télécharger.
@@ -198,7 +198,7 @@ Le script suivant montre comment supprimer un fichier.
 
 **Exemple PowerShell pour la création d'une liste des fichiers d'un dossier**
 
-Le script suivant montre comment répertorier les fichiers d'un dossier. L'exemple suivant montre comment utiliser la cmdlet Invoke-Hive pour exécuter la commande dfs ls pour répertorier un dossier.
+Le script suivant indique comment créer une liste des fichiers à l'intérieur d'un « dossier ». L'exemple suivant montre comment utiliser la cmdlet Invoke-Hive pour exécuter la commande dfs ls afin de lister le contenu d'un dossier.
 
     $storageAccountName = "<AzureStorageAccountName>"   # The storage account used for the default file system specified at provision.
     $containerName = "<BlobStorageContainerName>"  # The default file system container has the same name as the cluster.
@@ -218,9 +218,9 @@ Le script suivant montre comment répertorier les fichiers d'un dossier. L'exemp
     Write-Host "List the files in $blobPrefix ..."
     Get-AzureStorageBlob -Container $containerName -Context $storageContext -prefix $blobPrefix
 
-**Exemple PowerShell permettant d'accéder à un compte de stockage non défini**
+**Exemple PowerShell pour accéder à un compte de stockage non défini**
 
-Cet exemple montre comment répertorier un dossier d'un compte de stockage qui n'est pas défini lors de l'approvisionnement.
+Cet exemple montre comment lister le contenu d'un dossier d'un compte de stockage non défini pendant le processus d'approvisionnement.
  $clusterName = "<hdinsightclustername>"
 
     $undefinedStorageAccount = "<UnboundedStorageAccountUnderTheSameSubscription>"
@@ -254,9 +254,9 @@ Pour en savoir plus, consultez les articles suivants :
   [Adressage des fichiers dans le stockage d'objets blob]: #addressing
   [Accès aux objets blob avec PowerShell]: #powershell
   [Étapes suivantes]: #nextsteps
-  [HDI.ASVArch]: ./media/hdinsight-use-blob-storage/HDI.ASVArch.png "Architecture de stockage HDInsight"
+  [HDI.ASVArch]: ./media/hdinsight-use-blob-storage/HDI.ASVArch.png "HDInsight Storage Architecture"
   [Limiter l'accès aux conteneurs et aux objets blob]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179354.aspx
-  [Utilisation d'un cluster HDInsight avec des comptes de stockage et metastores de secours]: http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
+  [Utilisation d'un cluster HDInsight avec des comptes de stockage et des metastores secondaires]: http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
   [API REST de stockage d'objets blob]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dd135733.aspx
   [compte de stockage Azure]: ../storage-create-storage-account/
   [HDI.QuickCreate]: ./media/hdinsight-use-blob-storage/HDI.QuickCreateCluster.png

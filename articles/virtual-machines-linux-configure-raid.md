@@ -1,6 +1,6 @@
-<properties linkid="manage-linux-howto-configure-raid" urlDisplayName="Configure RAID on Linux" pageTitle="Configure software RAID on avirtual machine running Linux in Azure" metaKeywords="raid in Azure, madadm Azure, stripe disks in Azure" description="Learn how to use mdadm to configure RAID on Linux in Azure." metaCanonical="http://www.windowsazure.com/fr-fr/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="szark" manager="timlt" editor=""  />
+<properties urlDisplayName="Configure RAID on Linux" pageTitle="Configuration logicielle de&nbsp;RAID sur une machine virtuelle ex&eacute;cutant&nbsp;Linux dans&nbsp;Azure" metaKeywords="raid in Azure, madadm Azure, stripe disks in Azure" description="Apprenez &agrave; utiliser&nbsp;mdadm pour configurer&nbsp;RAID sur&nbsp;Linux dans&nbsp;Azure." metaCanonical="http://www.windowsazure.com/fr-fr/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="szark" manager="timlt" editor=""  />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark" />
 
 # Configuration d'un RAID logiciel sur Linux
 
@@ -8,9 +8,9 @@ L'utilisation d'un RAID logiciel pour les machines virtuelles Linux sur Azure es
 
 ## Disques de données attachés
 
-En règle générale, au moins deux disques de données sont nécessaires pour configurer un périphérique RAID. Cet article n'abordera pas en détail la marche à suivre pour attacher des disques de données sur une machine virtuelle Linux. Veuillez consulter l'article Windows Azure [attacher un disque][] pour obtenir des instructions détaillées sur la marche à suivre pour attacher un disque de données vide à une machine virtuelle Linux sur Azure.
+En règle générale, au moins deux disques de données sont nécessaires pour configurer un périphérique RAID. Cet article n'abordera pas en détail la marche à suivre pour attacher des disques de données sur une machine virtuelle Linux. Veuillez consulter l'article Windows Azure [attacher un disque][attacher un disque] pour obtenir des instructions détaillées sur la marche à suivre pour attacher un disque de données vide à une machine virtuelle Linux sur Azure.
 
-> [WACOM.NOTE] La taille de machine virtuelle ExtraSmall ne prend pas en charge plus d'un disque de données attaché à la machine virtuelle. Consultez les [Tailles de machines virtuelles et services cloud pour Windows Azure][] pour plus d'informations concernant les tailles de machines virtuelles et le nombre de disque de données pris en charge.
+> [WACOM.NOTE] La taille de machine virtuelle ExtraSmall ne prend pas en charge plus d'un disque de données attaché à la machine virtuelle. Consultez les [Tailles de machines virtuelles et services cloud pour Windows Azure][Tailles de machines virtuelles et services cloud pour Windows Azure] pour plus d'informations concernant les tailles de machines virtuelles et le nombre de disque de données pris en charge.
 
 ## Installation de l'utilitaire mdadm
 

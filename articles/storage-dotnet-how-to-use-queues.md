@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-queue-service" urlDisplayName="Queue Service" pageTitle="How to use queue storage from .NET | Microsoft Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" description="Learn how to use Microsoft Azure Queue storage to create and delete queues and insert, peek, get, and delete queue messages." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Queue Storage" authors="tamram" />
+<properties urlDisplayName="Queue Service" pageTitle="Utilisation du stockage de files d'attente &agrave; partir de .NET | Microsoft Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" description="D&eacute;couvrez comment utiliser le stockage de files d'attente Microsoft Azure pour cr&eacute;er et supprimer des files d'attente, et ins&eacute;rer, lire, obtenir et supprimer les messages en file d'attente." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="Utilisation du stockage de files d'attente Microsoft" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -38,12 +38,14 @@ et utilisent le client de stockage Azure pour .NET. Les scénarios traités incl
 
 ## <a name="create-account"></a><span class="short-header">Création d’un compte</span>Création d’un compte de stockage Azure
 
+</h2>
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## 
 
 ## <a name="setup-connection-string"></a><span class="short-header">Configuration d'une chaîne de connexion</span>Configuration d'une chaîne de connexion de stockage Azure
 
+</h2>
 [WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
 ## <a name="configure-access"> </a><span class="short-header">Accès par programme</span> Accès au stockage de files d'attente par programme
@@ -52,7 +54,7 @@ et utilisent le client de stockage Azure pour .NET. Les scénarios traités incl
 
 Vous pouvez utiliser NuGet pour obtenir l’assembly `Microsoft.WindowsAzure.Storage.dll`. Cliquez avec le bouton droit sur votre projet dans l’**Explorateur de solutions**, puis sélectionnez **Manage NuGet Packages**. Effectuez une recherche en ligne sur « WindowsAzure.Storage », puis cliquez sur **Install** pour installer le package de stockage Azure et ses dépendances.
 
-`Microsoft.WindowsAzure.Storage.dll` est également inclus dans le Kit de développement logiciel (SDK) Azure pour .NET, téléchargeable à partir du [Centre de développement .NET][Centre de développement .NET]. L'assembly est installé dans le répertoire `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`.
+`Microsoft.WindowsAzure.Storage.dll` est également inclus dans le Kit de développement logiciel (SDK) Azure pour .NET, téléchargeable à partir du [Centre de développement .NET][Centre de développement .NET]. L'assembly est installé dans le répertoire `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`lt;sdk-version\>\\ref\\</code>.
 
 ### Déclarations d’espace de noms
 
@@ -312,6 +314,7 @@ consultez les liens suivants pour apprendre à effectuer des tâches de stockage
 
   [la section Étapes suivantes]: #next-steps
   [NuGet]: https://www.nuget.org/packages/WindowsAzure.Storage/
+  [Kit de développement logiciel (SDK) Azure pour .NET]: /fr-fr/downloads/
   [Accès au stockage de files d'attente par programme]: #configure-access
   [Présentation du stockage des files d'attente]: #what-is
   [Concepts]: #concepts
@@ -325,9 +328,6 @@ consultez les liens suivants pour apprendre à effectuer des tâches de stockage
   [Utilisation d'options supplémentaires pour l'enlèvement des messages]: #advanced-get
   [Obtention de la longueur de la file d'attente]: #get-queue-length
   [Suppression d'une file d'attente]: #delete-queue
-  [howto-queue-storage]: ../includes/howto-queue-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [storage-configure-connection-string]: ../includes/storage-configure-connection-string.md
   [Centre de développement .NET]: http://www.windowsazure.com/fr-fr/develop/net/#
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
@@ -336,6 +336,7 @@ consultez les liens suivants pour apprendre à effectuer des tâches de stockage
   [Référence de la bibliothèque de client de stockage pour .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Référence d’API REST]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179355
   [Stockage et accessibilité des données dans Windows Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx
+  [Prise en main du Kit de développement logiciel (SDK) Tâches web Azure]: /fr-fr/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
   [stockage de table]: /fr-fr/documentation/articles/storage-dotnet-how-to-use-tables/
   [stockage d’objets blob]: /fr-fr/documentation/articles/storage-dotnet-how-to-use-blobs/
   [base de données SQL]: /fr-fr/documentation/articles/sql-database-dotnet-how-to-use/

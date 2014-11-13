@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-deliver-streaming-content" urlDisplayName="Deliver Streaming Content from Media Services" pageTitle="How to Deliver Streaming Content from Media Services – Azure" metaKeywords="" description="Learn how to deliver streaming content from Media Services using a direct URL. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to: Deliver streaming content" authors="" />
+<properties urlDisplayName="Deliver Streaming Content from Media Services" pageTitle="Fourniture de contenu de diffusion en continu &agrave; partir de Media Services &ndash; Azure" metaKeywords="" description="Apprenez &agrave; fournir un contenu de diffusion en continu &agrave; partir de Media Services &agrave; l'aide d'une URL directe. Les exemples de code sont &eacute;crits en C# et utilisent le Kit de d&eacute;veloppement logiciel (SDK) Media Services pour .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Utilisation de diffusion de contenu en continu" authors="juliako" manager="dwrede" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # Utilisation de diffusion de contenu en continu
 
-Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [Fourniture d'un élément multimédia par téléchargement][].
+Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [Fourniture d'un élément multimédia par téléchargement][Fourniture d'un élément multimédia par téléchargement].
 
 En plus de télécharger du contenu multimédia à partir de Media Services, vous pouvez utiliser la diffusion en continu à débit adaptatif pour fournir du contenu. Par exemple, vous pouvez créer une URL directe, appelée un localisateur, pour la diffusion de contenu en continu sur un serveur d'origine Media Services. Les applications clientes comme Microsoft Silverlight peuvent lire le contenu en continu directement à partir du localisateur.
 
@@ -68,17 +68,17 @@ Le code suivant montre comment implémenter les étapes :
 
 </pre>
 </p>
-Pour plus d'informations sur la fourniture d'éléments multimédias, consultez les rubriques suivantes :
+Pour plus d'informations sur la fourniture des éléments multimédias, consultez les pages suivantes :
 
--   [Fourniture des éléments multimédias avec Media Services pour .NET][]
--   [Fourniture des éléments multimédias avec l'API REST de Media Services][]
+-   [Fourniture des éléments multimédias avec Media Services pour .NET][Fourniture des éléments multimédias avec Media Services pour .NET]
+-   [Fourniture des éléments multimédias avec l'API REST de Media Services][Fourniture des éléments multimédias avec l'API REST de Media Services]
 
 </p>
 ## Étapes suivantes
 
-Jusqu'à présent, nous avons traité la fourniture d'éléments multimédias par le téléchargement à partir d'Azure Storage et à l'aide de la diffusion en continu lisse. La rubrique suivante, intitulée [Fourniture de contenu HLS][], aborde la fourniture de diffusion de contenu en continu à l'aide de la diffusion en continu HTTP Apple (HLS).
+Jusqu'à présent, nous avons traité la fourniture d'éléments multimédias par le téléchargement à partir d'Azure Storage et à l'aide de la diffusion en continu lisse. La rubrique suivante, intitulée [Fourniture de contenu HLS][Fourniture de contenu HLS], aborde la fourniture de diffusion de contenu en continu à l'aide de la diffusion en continu HTTP Apple (HLS).
 
-  [Fourniture d'un élément multimédia par téléchargement]: http://go.microsoft.com/fwlink/?LinkID=301734&clcid=0x409
-  [Fourniture des éléments multimédias avec Media Services pour .NET]: http://msdn.microsoft.com/en-us/library/jj129575.aspx
-  [Fourniture des éléments multimédias avec l'API REST de Media Services]: http://msdn.microsoft.com/en-us/library/jj129578.aspx
-  [Fourniture de contenu HLS]: http://go.microsoft.com/fwlink/?LinkId=301817
+  [Fourniture d'un élément multimédia par téléchargement]: ../media-services-deliver-asset-download/
+  [Fourniture des éléments multimédias avec Media Services pour .NET]: http://msdn.microsoft.com/fr-fr/library/jj129575.aspx
+  [Fourniture des éléments multimédias avec l'API REST de Media Services]: http://msdn.microsoft.com/fr-fr/library/jj129578.aspx
+  [Fourniture de contenu HLS]: ../media-services-deliver-http-live-streaming-content/

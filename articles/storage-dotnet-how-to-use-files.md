@@ -1,6 +1,6 @@
-<properties linkid="dev-net-how-to-file-storage" urlDisplayName="File Service" pageTitle="How to use Azure File storage | Microsoft Azure" metaKeywords="Get started Azure file  Azure file share  Azure file shares  Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file PowerShell" description="Learn how to use Microsoft Azure File storage to create file shares and manage file content. Samples are written in PowerShell and C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure File storage in .NET" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="File Service" pageTitle="Utilisation du stockage de fichiers Azure | Microsoft Azure" metaKeywords="Get started Azure file  Azure file share  Azure file shares  Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file PowerShell" description="D&eacute;couvrez comment utiliser le stockage de fichiers Microsoft Azure pour cr&eacute;er des partages de fichiers et g&eacute;rer le contenu des fichiers. Les exemples sont &eacute;crits en PowerShell et C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="Utilisation du stockage de files d'attente Microsoft Azure dans .NET" authors="tamram" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Utilisation du stockage de fichiers Azure
 
@@ -53,13 +53,11 @@ Le stockage de fichiers est composé des éléments suivants :
 -   **Fichier :** fichier du partage. Un fichier peut avoir une taille de 1 To maximum.
 
 -   **Format d'URL :** les fichiers sont adressables à l'aide du format d'URL
-	suivant :
-
+    suivant :
     https://`<storage account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`
 
     L'URL de l'exemple suivant peut être utilisée pour traiter l'un des fichiers dans le
     schéma ci-dessus :
-
     `http://acmecorp.file.core.windows.net/cloudfiles/diagnostics/log.txt`
 
 Pour plus d'informations sur la façon de nommer les partages, les répertoires et les fichiers, consultez la rubrique [Affectation de noms et références aux partages, répertoires, fichiers et métadonnées][Affectation de noms et références aux partages, répertoires, fichiers et métadonnées].
@@ -70,7 +68,7 @@ Un stockage de fichiers Azure est actuellement disponible en version préliminai
 
 > [WACOM.NOTE] Le stockage de fichiers n'est actuellement disponible que pour les nouveaux comptes de stockage. Lorsque votre abonnement peut accéder au stockage de fichiers, créez un compte de stockage à utiliser avec ce guide.
 
-[WACOM.INCLUDE [create-storage-account][create-storage-account]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="use-cmdlets"></a><span class="short-header">Utilisation de PowerShell pour créer un partage de fichiers</span>Utilisation de PowerShell pour créer un partage de fichiers
 
@@ -139,11 +137,11 @@ Windows se reconnectera à votre partage de fichiers lorsque la machine virtuell
 
 Une fois une connexion à distance établie avec la machine virtuelle, vous pouvez exécuter la commande `net use` pour monter le partage de fichiers à l'aide de la syntaxe suivante. Remplacez `<storage-account>` par le nom de votre compte de stockage et `<share-name>` par le nom du partage de stockage de fichiers.
 
-	net use z: \\<storage-account>.file.core.windows.net\<share-name>
+    net use z: \<storage-account>.file.core.windows.netnet use z: \\<storage-account>.file.core.windows.net\<share-name>lt;share-name>
 
 > [WACOM.NOTE] Comme vous avez conservé les informations d'identification de votre compte de stockage à l'étape précédente, vous n'avez pas besoin de les préciser avec la commande `net use`. Si vous n'avez pas conservé vos informations d'identification, incluez-les en les transmettant comme paramètres dans la commande `net use`. Remplacez `<storage-account>` par le nom de votre compte de stockage, `<share-name>` par le nom du partage de stockage de fichiers et `<account-key>` par la clé du compte de stockage :
 
-	net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
+    net use z: \<storage-account>.file.core.windows.netnet use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>lt;share-name> /u:<storage-account> <account-key>
 
 Vous pouvez maintenant utiliser le partage de stockage de fichiers à partir de la machine virtuelle, comme vous le feriez à partir de n'importe quel autre lecteur. Vous pouvez émettre des commandes de fichier standard à partir de l'invite de commandes ou afficher le partage monté et son contenu à partir de l'Explorateur de fichiers. Vous pouvez également exécuter du code au sein de la machine virtuelle qui accède au partage de fichiers à l'aide d'API d'E/S de fichiers Windows standard, telles que celles fournies par les [espaces de noms System.IO][espaces de noms System.IO] dans .NET Framework.
 
@@ -238,9 +236,11 @@ pour obtenir des informations plus détaillées.
 -   Pour plus d'informations sur les API disponibles, consultez la documentation de référence du service de fichiers :
     -   [Référence de la bibliothèque de client de stockage pour .NET][bibliothèque cliente de stockage .NET Azure]
     -   [Référence de l'API REST du service de fichiers][Référence de l'API REST du service de fichiers]
+
 -   Consultez les billets du blog de l'équipe Azure Storage relatifs au service de fichiers :
     -   [Introduction au service de fichiers Microsoft Azure][Introduction au service de fichiers Microsoft Azure]
     -   [Conservation des connexions vers les fichiers Microsoft Azure][Conservation des connexions vers les fichiers Microsoft Azure]
+
 -   Pour plus d'informations sur les autres options de stockage de données dans Azure, consultez d'autres guides de fonctionnalités.
     -   Utilisez le [stockage d’objets blob][stockage d’objets blob] pour stocker des données non structurées.
     -   Utilisez le [stockage de table][stockage de table] pour stocker des données structurées.
@@ -261,7 +261,6 @@ pour obtenir des informations plus détaillées.
   [Objectifs de performance et évolutivité du stockage Azure]: http://msdn.microsoft.com/fr-fr/library/dn249410.aspx
   [Affectation de noms et références aux partages, répertoires, fichiers et métadonnées]: http://msdn.microsoft.com/fr-fr/library/azure/dn167011.aspx
   [page de la version préliminaire de Microsoft Azure]: /fr-fr/services/preview/
-  [create-storage-account]: ../includes/create-storage-account.md
   [Installation et configuration d’Azure PowerShell]: /fr-fr/documentation/articles/install-configure-powershell/
   [Création d'une machine virtuelle exécutant Windows Server]: /fr-fr/documentation/articles/virtual-machines-windows-tutorial/
   [Connexion à une machine virtuelle exécutant Windows Server]: /fr-fr/documentation/articles/virtual-machines-log-on-windows-server/

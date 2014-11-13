@@ -1,6 +1,6 @@
-<properties title="Query with DocumentDB SQL" pageTitle="Query with DocumentDB SQL | Azure" description="DocumentDB supports querying of documents using SQL-like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes." metaKeywords="" services="documentdb"  documentationCenter="" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Interrogation avec le langage&nbsp;SQL de DocumentDB" pageTitle="Interrogation avec le langage&nbsp;SQL de DocumentDB | Azure" description="DocumentDB prend en charge l'interrogation de documents au moyen d'une syntaxe semblable &agrave; SQL sur des documents JSON hi&eacute;rarchiques sans n&eacute;cessiter de sch&eacute;ma explicite ou de cr&eacute;ation d'index secondaires." metaKeywords="" services="documentdb"  documentationCenter="" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 
 # Interrogation de DocumentDB
 
@@ -70,7 +70,7 @@ Voici un second document comportant une différence subtile : `givenName` et `f
 
 ﻿À présent, appliquons quelques requêtes sur ces données pour comprendre certains aspects principaux du langage SQL de DocumentDB. Par exemple, la requête suivante va renvoyer les documents où le champ ID correspond à `AndersenFamily`. Comme il s'agit d'un `SELECT *`, le résultat de la requête est un document JSON complet :
 
-**Requête**
+**Query**
 
     SELECT * 
     FROM Families f 
@@ -97,7 +97,7 @@ Voici un second document comportant une différence subtile : `givenName` et `f
 
 ﻿À présent, imaginez que nous ayons besoin de remettre en forme le résultat JSON. Cette requête projette un nouvel objet JSON avec 2 champs sélectionnés, Name et City, où le nom de la ville de l'adresse est identique à celui de l'État. Dans ce cas, « NY, NY » correspond.
 
-**Requête**
+**Query**
 
     SELECT {"Name":f.id, "City":f.address.city} AS Family 
     FROM Families f 
@@ -114,7 +114,7 @@ Voici un second document comportant une différence subtile : `givenName` et `f
 
 La requête suivante renvoie tous les noms donnés des enfants de la famille dont l'ID correspond à `WakefieldFamily`.
 
-**Requête**
+**Query**
 
     SELECT c.givenName 
     FROM Families f 
@@ -132,7 +132,7 @@ Nous aimerions attirer votre attention sur quelques aspects importants du langag
 
 -   Comme le langage SQL de DocumentDB fonctionne avec les valeurs JSON, il traite des entités d'arborescence au lieu des lignes et des colonnes. C'est pourquoi ce langage vous permet de faire référence aux nœuds de l'arborescence à n'importe quel niveau arbitraire, comme `Node1.Node2.Node3…..Nodem`, tout comme le SQL relationnel se rattachant à une référence en deux parties de `<table>.<column>`.
 -   Le langage fonctionne avec des données sans schéma. C'est pourquoi le système de type doit être lié de façon dynamique. La même expression peut engendrer différents types sur différents documents. Le résultat d'une requête est une valeur JSON valide, mais n'est pas forcément un schéma fixe.
--   DocumentDB prend uniquement en charge les documents JSON stricts. Cela signifie que le système de type et les expressions peuvent uniquement traiter des types JSON. Veuillez consulter [spécification de JSON] (<http://www.json.org/>) pour plus d'informations.
+-   DocumentDB prend uniquement en charge les documents JSON stricts. Cela signifie que le système de type et les expressions peuvent uniquement traiter des types JSON. Veuillez consulter [spécification de JSON] (http://www.json.org/) pour plus d'informations.
 -   Une collection DocumentDB est un conteneur sans schéma pour vos documents JSON. Les relations des entités de données dans et entre les documents d'une collection sont capturées de façon implicite par le contenant et non par les relations PK-FK. Cet aspect est important dans le cadre des liaisons entre documents (ce sujet est abordé plus loin dans ce didacticiel).
 
 # Indexation DocumentDB
@@ -153,7 +153,7 @@ C'est pourquoi, lorsque nous avons conçu le sous-système d'indexation de Docum
 
 -   Efficacité du stockage : pour des raisons économiques, la surcharge de stockage sur disque de l'index est limitée et prévisible. Ceci est très important, car DocumentDB permet au développeur de trouver des compromis en fonction des coûts entre la surcharge d'index et les performances des requêtes.
 
-Consultez la page [exemples de DocumentDB] (<http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content>) sur MSDN pour apprendre à configurer la stratégie d'indexation d'une collection. Nous allons à présent détailler davantage le langage SQL de DocumentDB.
+Consultez la page [exemples de DocumentDB] (http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af\#content) sur MSDN pour apprendre à configurer la stratégie d'indexation d'une collection. Nous allons à présent détailler davantage le langage SQL de DocumentDB.
 
 # Notions de base sur les requêtes DocumentDB
 
@@ -180,7 +180,7 @@ Les règles de liaison appliquées par requête sont les suivantes :
 
 Vous pouvez également réduire la source à un sous-ensemble. Par exemple, si vous voulez uniquement énumérer une sous-arborescence dans chaque document, la sous-racine peut devenir la source, comme dans l'exemple suivant.
 
-**Requête**
+**Query**
 
     SELECT * 
     FROM Families.children
@@ -218,7 +218,7 @@ Vous pouvez également réduire la source à un sous-ensemble. Par exemple, si v
 
 Même si la source est un tableau dans l'exemple précédent, il est possible d'utiliser un objet en tant que source, comme indiqué dans l'exemple suivant. Toute valeur JSON valide (définie) pouvant être trouvée dans la source est incluse dans les résultats de la requête. Si certaines familles n'ont pas de valeur `address.state`, elles sont exclues du résultat de la requête.
 
-**Requête**
+**Query**
 
     SELECT * 
     FROM Families.address.state
@@ -236,7 +236,7 @@ La clause WHERE (**`WHERE <filter_condition>`**) est facultative. Elle indique l
 
 La requête suivante demande les documents contenant une propriété name dont la valeur est `AndersenFamily`. Tous les documents n'ayant pas la propriété name ou ceux dont la valeur de la propriété name ne correspond pas à `AndersenFamily` sont exclus.
 
-**Requête**
+**Query**
 
     SELECT f.address
     FROM Families f 
@@ -832,7 +832,7 @@ La clause SELECT (**`SELECT <select_list>`**) est obligatoire et indique les val
 
 L'exemple ci-dessous illustre une requête SELECT classique :
 
-**Requête**
+**Query**
 
     SELECT f.address
     FROM Families f 
@@ -852,7 +852,7 @@ L'exemple ci-dessous illustre une requête SELECT classique :
 
 Dans l'exemple suivant, nous allons projeter deux propriétés imbriquées `f.address.state` et `f.address.city` :
 
-**Requête**
+**Query**
 
     SELECT f.address.state, f.address.city
     FROM Families f 
@@ -867,7 +867,7 @@ Dans l'exemple suivant, nous allons projeter deux propriétés imbriquées `f.ad
 
 La projection prend également en charge les expressions JSON, comme le montre l'exemple suivant.
 
-**Requête**
+**Query**
 
     SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
     FROM Families f 
@@ -885,7 +885,7 @@ La projection prend également en charge les expressions JSON, comme le montre l
 
 Observons le rôle de `$1` ici. La clause `SELECT` doit créer un objet JSON et comme aucune clé n'est fournie, nous utilisons des noms de variable d'argument implicites commençant par `$1`. Par exemple, cette requête renvoie 2 variables d'argument implicites, étiquetées `$1` et `$2`.
 
-**Requête**
+**Query**
 
     SELECT { "state": f.address.state, "city": f.address.city }, 
            { "name": f.id }
@@ -910,7 +910,7 @@ Observons le rôle de `$1` ici. La clause `SELECT` doit créer un objet JSON et 
 
 Si une requête a deux propriétés portant le même nom, l'alias doit être utilisé pour renommer l'une ou l'autre des propriétés, pour éviter toute ambiguïté dans le résultat projeté.
 
-**Requête**
+**Query**
 
     SELECT 
            { "state": f.address.state, "city": f.address.city } AS AddressInfo, 
@@ -934,7 +934,7 @@ Si une requête a deux propriétés portant le même nom, l'alias doit être uti
 
 En plus des références de propriété, la clause **SELECT** prend également en charge des expressions scalaires telles que les constantes, les expressions arithmétiques, les expressions logiques, etc. Par exemple, voici une simple requête « Hello World ».
 
-**Requête**
+**Query**
 
     SELECT "Hello World"
 
@@ -946,7 +946,7 @@ En plus des références de propriété, la clause **SELECT** prend également e
 
 Voici un exemple plus complexe utilisant une expression scalaire :
 
-**Requête**
+**Query**
 
     SELECT ((2 + 11 % 7)-2)/3   
 
@@ -958,7 +958,7 @@ Voici un exemple plus complexe utilisant une expression scalaire :
 
 Dans l'exemple suivant, le résultat de l'expression scalaire est un booléen.
 
-**Requête**
+**Query**
 
     SELECT f.address.city = f.address.state AS AreFromSameCityState
     FROM Families f 
@@ -978,7 +978,7 @@ Dans l'exemple suivant, le résultat de l'expression scalaire est un booléen.
 
 Une autre fonctionnalité clé du langage SQL de DocumentDB est la possibilité de créer un tableau ou un objet. Dans l'exemple précédent, notez que nous avons créé un objet JSON. De même, vous pouvez également construire des tableaux comme indiqué ci-dessous.
 
-**Requête**
+**Query**
 
     SELECT [f.address.city, f.address.state] AS CityState 
     FROM Families f 
@@ -1004,7 +1004,7 @@ Une autre fonctionnalité clé du langage SQL de DocumentDB est la possibilité 
 
 Le mot clé **VALUE** fournit une méthode pour renvoyer une valeur JSON. Par exemple, la requête indiquée ci-dessous renvoie le `"Hello World"` scalaire au lieu de `{$1: "Hello World"}`.
 
-**Requête**
+**Query**
 
     SELECT VALUE "Hello World"
 
@@ -1016,7 +1016,7 @@ Le mot clé **VALUE** fournit une méthode pour renvoyer une valeur JSON. Par ex
 
 La requête suivante renvoie la valeur JSON sans l'étiquette `"address"` dans les résultats.
 
-**Requête**
+**Query**
 
     SELECT VALUE f.address
     FROM Families f 
@@ -1038,7 +1038,7 @@ La requête suivante renvoie la valeur JSON sans l'étiquette `"address"` dans l
 
 L'exemple suivant développe ceci pour expliquer comment renvoyer des valeurs JSON primitives, comme le niveau feuille de l'arborescence JSON.
 
-**Requête**
+**Query**
 
     SELECT VALUE f.address.state
     FROM Families f 
@@ -1054,7 +1054,7 @@ L'exemple suivant développe ceci pour expliquer comment renvoyer des valeurs JS
 
 Nous prenons en charge l'opérateur spécial (\*) pour projeter le document en l'état. Une fois utilisé, il doit être le seul champ projeté. Si une requête comme `SELECT * FROM Families f` est valide, `SELECT VALUE * FROM Families f` et `SELECT *, f.id FROM Families f` ne le sont pas.
 
-**Requête**
+**Query**
 
     SELECT * 
     FROM Families f 
@@ -1085,7 +1085,7 @@ Nous prenons en charge l'opérateur spécial (\*) pour projeter le document en l
 
 Nous avons ajouté une nouvelle construction via le mot clé **IN** dans le langage SQL de DocumentDB pour fournir une prise en charge pour l'itération via les tableaux JSON. La source FROM fournit une prise en charge pour l'itération. Commençons par l'exemple suivant :
 
-**Requête**
+**Query**
 
     SELECT * 
     FROM Families.children
@@ -1119,7 +1119,7 @@ Nous avons ajouté une nouvelle construction via le mot clé **IN** dans le lang
 
 ﻿À présent, recherchons une autre requête effectuant une itération sur les enfants de la collection. Notez la différence dans le tableau de sortie. Cet exemple fractionne `children` et regroupe les résultats en un seul tableau.
 
-**Requête**
+**Query**
 
     SELECT * 
     FROM c IN Families.children
@@ -1149,7 +1149,7 @@ Nous avons ajouté une nouvelle construction via le mot clé **IN** dans le lang
 
 Cette utilisation peut être généralisée pour filtrer chaque entrée du tableau, comme dans l'exemple suivant.
 
-**Requête**
+**Query**
 
     SELECT c.givenName
     FROM c IN Families.children
@@ -1169,7 +1169,7 @@ La syntaxe prise en charge dans le langage est <from_source1> JOIN <from_source2
 
 Les exemples suivants illustrent le fonctionnement de la syntaxe JOIN. Vous y constaterez que le résultat est vide, car le produit croisé de chaque document depuis la source et un ensemble vide est vide.
 
-**Requête**
+**Query**
 
     SELECT f.id
     FROM Families f
@@ -1182,7 +1182,7 @@ Les exemples suivants illustrent le fonctionnement de la syntaxe JOIN. Vous y co
 
 Dans l'exemple suivant, la jointure est située entre la racine du document et la sous-racine `children`. Il s'agit d'un produit croisé entre deux objets JSON. Le fait que les enfants soient compris dans un tableau n'est pas valide dans le JOIN, car nous traitons une seule racine qui est le tableau des enfants. Nous n'obtenons donc que deux résultats, car le produit croisé de chaque document avec le tableau renvoie exactement un seul document.
 
-**Requête**
+**Query**
 
     SELECT f.id
     FROM Families f
@@ -1201,7 +1201,7 @@ Dans l'exemple suivant, la jointure est située entre la racine du document et l
 
 L'exemple suivant est une jointure plus conventionnelle :
 
-**Requête**
+**Query**
 
     SELECT f.id
     FROM Families f
@@ -1231,7 +1231,7 @@ Le premier document (`AndersenFamily`) contient uniquement un élément enfant. 
 
 La véritable utilité de la syntaxe JOIN est de former des tuples à partir du produit croisé dans une forme qui serait autrement difficile à projeter. En outre, comme nous allons le voir dans l'exemple ci-dessous, vous pouvez filtrer la combinaison d'un tuple permettant à l'utilisateur de choisir une condition respectée par l'ensemble des tuples.
 
-**Requête**
+**Query**
 
     SELECT 
         f.id AS familyName,
@@ -1282,7 +1282,7 @@ Cet exemple est une extension naturelle du précédent, et effectue une double j
 
 L'exemple suivant ajoute un filtre sur `pet`. Ceci exclut tous les tuples où le nom de l'animal n'est pas « Shadow ». Notez que nous pouvons développer des tuples à partir de tableaux, filtrer n'importe quel élément d'un tuple et projeter n'importe quelle combinaison d'éléments.
 
-**Requête**
+**Query**
 
     SELECT 
         f.id AS familyName,
@@ -1321,7 +1321,7 @@ Voici un exemple de méthode d'enregistrement de fonction définie par l'utilisa
 
        UserDefinedFunction sqrtUdf = new UserDefinedFunction
        {
-           Name = "SQRT",
+           Id = "SQRT",
            Body = @"function(number) { 
                        return Math.sqrt(number);
                    };",
@@ -1335,7 +1335,7 @@ L'exemple ci-dessus crée une fonction définie par l'utilisateur dont le nom es
 
 Nous pouvons maintenant utiliser cette fonction définie par l'utilisateur dans une requête, dans une projection.
 
-**Requête**
+**Query**
 
     SELECT SQRT(c.grade)
     FROM c IN Families.children
@@ -1356,7 +1356,7 @@ Nous pouvons maintenant utiliser cette fonction définie par l'utilisateur dans 
 
 Vous pouvez également utiliser les fonctions définies par l'utilisateur dans un filtre, comme indiqué dans l'exemple suivant :
 
-**Requête**
+**Query**
 
     SELECT c.grade
     FROM c IN Familes.children
@@ -1374,7 +1374,7 @@ Pour développer la puissance des fonctions définies par l'utilisateur, étudio
 
        UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
        {
-           Name = "SEALEVEL",
+           Id = "SEALEVEL",
            Body = @"function(city) {
                 switch (city) {
                     case 'seattle':
@@ -1392,7 +1392,7 @@ Pour développer la puissance des fonctions définies par l'utilisateur, étudio
 
 L'exemple ci-dessous utilise les fonctions définies par l'utilisateur.
 
-**Requête**
+**Query**
 
     SELECT f.address.city, SEALEVEL(f.address.city) AS seaLevel
     FROM Families f 
@@ -1430,13 +1430,13 @@ LINQ est un modèle de programmation .NET qui exprime un calcul en tant que requ
 
 L'image suivante illustre l'architecture de prise en charge des requêtes LINQ à l'aide de DocumentDB. En utilisant le client DocumentDB, les développeurs peuvent créer un objet **IQueryable** dirigeant les requêtes vers le fournisseur de requête de DocumentDB qui traduit alors les requêtes LINQ en requêtes DocumentDB. Ces requêtes sont ensuite transmises au serveur DocumentDB pour récupérer un ensemble de résultats au format JSON. Les résultats renvoyés sont désérialisés en un flux d'objets .NET, côté client.
 
-![][1]
+![][0]
 
 ## Mappage .NET et JSON
 
 Le mappage entre les objets .NET et les documents JSON est naturel : chaque champ de membre de données est mappé vers un objet JSON, où le nom du champ est mappé vers la partie « clé » de l'objet tandis que la partie « valeur » est mappée de façon récursive vers la partie de valeur de l'objet. Prenons l'exemple suivant : L'objet Family créé est mappé vers le document JSON, comme indiqué ci-dessous. ﻿À l'inverse, le document JSON est mappé vers un objet .NET.
 
-**Classe C\#**
+**Classe C#**
 
     public class Family
     {
@@ -1842,7 +1842,7 @@ Le deuxième exemple illustre une requête plus complexe qui renvoie plusieurs r
 
 Si les résultats d'une requête ne tiennent pas sur une seule page, l'API REST renvoie un jeton de liaison via l'en-tête de réponse `x-ms-continuation-token`. Les clients peuvent paginer les résultats en incluant l'en-tête dans les résultats suivants. Vous pouvez aussi contrôler le nombre de résultats par page via l'en-tête de nombre `x-ms-max-item-count`.
 
-Pour gérer la stratégie de cohérence des données des requêtes, utilisez l'en-tête `x-ms-consistency-level` comme pour toutes les requêtes d'API REST. Pour maintenir la cohérence par session, vous devez aussi appliquer l'écho sur le dernier en-tête de cookie `x-ms-session-token` dans la demande de requête. Notez que la stratégie d'indexation de la collection interrogée peut également influencer la cohérence des résultats de la requête. Avec les paramètres de stratégie d'indexation par défaut, les collections de l'index sont toujours actualisées par rapport aux contenus du document et les résultats de la requête correspondront à la cohérence choisie pour les données. Si la stratégie d'indexation est passée en différé, les requêtes peuvent renvoyer des résultats obsolètes. Pour plus d'informations, veuillez consulter la rubrique [Niveaux de cohérence DocumentDB][].
+Pour gérer la stratégie de cohérence des données des requêtes, utilisez l'en-tête `x-ms-consistency-level` comme pour toutes les requêtes d'API REST. Pour maintenir la cohérence par session, vous devez aussi appliquer l'écho sur le dernier en-tête de cookie `x-ms-session-token` dans la demande de requête. Notez que la stratégie d'indexation de la collection interrogée peut également influencer la cohérence des résultats de la requête. Avec les paramètres de stratégie d'indexation par défaut, les collections de l'index sont toujours actualisées par rapport aux contenus du document et les résultats de la requête correspondront à la cohérence choisie pour les données. Si la stratégie d'indexation est passée en différé, les requêtes peuvent renvoyer des résultats obsolètes. Pour plus d'informations, veuillez consulter la rubrique [Niveaux de cohérence DocumentDB][Niveaux de cohérence DocumentDB].
 
 Si la stratégie d'indexation configurée pour la collection ne peut pas prendre en charge la requête spécifiée, le serveur DocumentDB renvoie le code d'état 400 « Demande incorrecte ». Ce code est renvoyé pour les requêtes de plage par rapport aux chemins d'accès configurés pour les recherches (d'égalité) de hachage et pour les chemins d'accès explicitement exclus de l'indexation. L'en-tête `x-ms-documentdb-query-enable-scan` peut être spécifié pour permettre à la requête d'effectuer une analyse lorsqu'un index n'est pas disponible.
 
@@ -1923,7 +1923,7 @@ Le client .NET effectue une itération automatique à travers l'ensemble des pag
 
 Les développeurs peuvent également contrôler la pagination de façon explicite en créant un `IDocumentQueryable` à l'aide de l'objet `IQueryable`, puis en lisant les valeurs `ResponseContinuationToken` avant de les transmettre en tant que `RequestContinuationToken` in `FeedOptions`. `EnableScanInQuery` peut être défini pour autoriser les analyses lorsque la stratégie d'indexation configurée ne peut pas prendre en charge la requête.
 
-Consultez la page [Exemples DocumentDB .NET] (<http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content>) pour obtenir plus d'exemples de requêtes.
+Consultez la page [Exemples DocumentDB .NET] (http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af\#content) pour obtenir plus d'exemples de requêtes.
 
 ## API JavaScript côté serveur
 
@@ -1963,20 +1963,20 @@ L'exemple suivant illustre l'utilisation de queryDocuments dans l'API JavaScript
 
 # Références
 
-1.  [Présentation d'Azure DocumentDB][introduction]
-2.  [Spécification de langage pour DocumentDB SQL](http://go.microsoft.com/fwlink/p/?LinkID=510612)
-3.  [Exemples .NET pour DocumentDB](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content)
-4.  [Niveaux de cohérence DocumentDB][consistency-levels]
-5.  ANSI SQL 2011 - [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-6.  JSON [http://json.org/](http://json.org/)
-7.  Spécifications Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
-8.  LINQ [http://msdn.microsoft.com/en-us/library/bb308959.aspx](http://msdn.microsoft.com/en-us/library/bb308959.aspx)
-9.  Techniques d'évaluation des requêtes pour les bases de données volumineuses [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+1.  [Présentation d'Azure DocumentDB][Présentation d'Azure DocumentDB]
+2.  [Spécification de langage pour DocumentDB SQL] (http://go.microsoft.com/fwlink/p/?LinkID=510612)
+3.  [Exemples .NET pour DocumentDB] (http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af\#content)
+4.  [Niveaux de cohérence DocumentDB][Niveaux de cohérence DocumentDB]
+5.  ANSI SQL 2011 - <http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681>
+6.  JSON <http://json.org/>
+7.  Spécifications Javascript <http://www.ecma-international.org/publications/standards/Ecma-262.htm>
+8.  LINQ <http://msdn.microsoft.com/fr-fr/library/bb308959.aspx>
+9.  Techniques d'évaluation des requêtes pour les bases de données volumineuses <http://dl.acm.org/citation.cfm?id=152611>
 10. Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11. Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins : Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
 13. G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
 
-[1]: ./media/documentdb-sql-query/sql-query1.png
-[introduction]: ../documentdb-introduction
-[consistency-levels]: ../documentdb-consistency-levels
+  [0]: ./media/documentdb-sql-query/sql-query1.png
+  [Niveaux de cohérence DocumentDB]: ../documentdb-consistency-levels
+  [Présentation d'Azure DocumentDB]: ../documentdb-introduction

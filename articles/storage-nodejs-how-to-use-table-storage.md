@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Learn how to use the table storage service in Azure. Code samples are written using the Node.js API." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Utilisation du stockage de tables (Node.js) | Microsoft&nbsp;Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="D&eacute;couvrez comment utiliser le service de stockage de tables dans Azure. Les exemples de code sont &eacute;crits &agrave; l'aide de l'API&nbsp;Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="Utilisation du service de Table &agrave; partir de Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Utilisation du service de Table à partir de Node.js
 
@@ -435,8 +435,6 @@ pour apprendre à effectuer des tâches de stockage plus complexes.
   [Suppression d'une entité]: #delete-entity
   [Suppression d'une table]: #delete-table
   [Utilisation des signatures d'accès partagé]: #sas
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Création et déploiement d'une application Node.js dans un site Web Azure]: /fr-fr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [Service cloud Node.js]: /fr-fr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Site Web avec WebMatrix]: /fr-fr/documentation/articles/web-sites-nodejs-use-webmatrix/
@@ -445,3 +443,4 @@ pour apprendre à effectuer des tâches de stockage plus complexes.
   [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
   [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx
   [Consultez le blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Kit de développement logiciel (SDK) Azure Storage pour Node]: https://github.com/Azure/azure-storage-node

@@ -1,25 +1,26 @@
-<properties linkid="dev-nodejs-basic-web-app-with-storage" urlDisplayName="Web App with Storage" pageTitle="Web app with table storage (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." metaCanonical="" services="cloud-services,storage" documentationCenter="Node.js" title="Node.js Web Application using Storage" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Web App with Storage" pageTitle="Application web avec stockage de tables (Node.js) | Microsoft&nbsp;Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="Ce didacticiel ajoute les services Azure&nbsp;Storage et le module Azure au didacticiel Application web avec Express." metaCanonical="" services="cloud-services,storage" documentationCenter="nodejs" title="Application&nbsp;Web Node.js utilisant le stockage" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Application Web Node.js utilisant le stockage
 
-Dans ce didacticiel, vous allez étendre l'application créée dans le didacticiel
-[Application web Node.js utilisant Express][Application web Node.js utilisant Express] en utilisant les
-bibliothèques clientes Azure Windows pour Node.js avec les services de gestion de données. Vous
-allez étendre votre application pour créer une application web de type « liste de tâches »
-que vous pouvez déployer sur Azure. La liste de tâches permet à un utilisateur
-d'extraire des tâches, d'en ajouter et de les marquer comme terminées.
+Dans ce didacticiel, vous allez enrichir l'application créée dans le didacticiel
+[Application web Node.js avec Express][Application web Node.js avec Express] à l'aide des bibliothèques clientes Azure pour Node.js afin qu'elle
+fonctionne avec les services de gestion de données. Vous
+allez étendre les fonctionnalités de votre application en vue de créer une
+application de liste de tâches web que vous pouvez déployer vers Azure. La liste de tâches permet à un
+utilisateur d'extraire des tâches, d'en ajouter de nouvelles et de marquer celles qui sont terminées.
 
-Les éléments de tâches sont stockés dans Azure Storage, Azure
-Storage fournit un stockage de données non structurées tolérant aux pannes et
-hautement disponible. Azure Storage inclut plusieurs structures de données
-dans lesquelles vous pouvez stocker les données et y accéder. Vous pouvez optimiser les services de stockage
-dans les API incluses dans le Kit de développement logiciel (SDK) Azure pour Node.js ou
-via les API REST. Pour plus d'informations, consultez la page [Stockage et accessibilité des données dans Azure][Stockage et accessibilité des données dans Azure].
+Les éléments de tâches sont stockés dans Azure Storage,
+qui offre le stockage de données non structurées à tolérance de panne
+et haute disponibilité. Azure Storage inclut plusieurs structures de données
+dans lesquelles vous pouvez stocker des données et y accéder. Vous pouvez
+également exploiter les services de stockage à partir des API incluses dans le Kit de développement logiciel (SDK) Azure pour Node.js
+ou via les API  REST. Pour plus d'informations, consultez la page [Stockage et accessibilité des données dans Azure][Stockage et accessibilité des données dans Azure].
 
-Ce didacticiel suppose que vous avez terminé les didacticiels [Application web Node.js
-](http://www.windowsazure.com/fr-fr/develop/nodejs/tutorials/getting-started/) et [Node.js avec Express][Application web Node.js utilisant Express].
+Ce didacticiel part du principe que vous avez suivi les didacticiels [Application web
+Node.js][Application web
+Node.js] et [Node.js avec Express][Application web Node.js avec Express].
 
 Vous apprendrez à effectuer les opérations suivantes :
 
@@ -32,20 +33,20 @@ Voici une capture d'écran de l'application terminée :
 
 ## Définition des informations d'identification de stockage dans Web.Config
 
-Pour accéder à Azure Storage, vous devez transmettre les informations d'identification de
-stockage. Pour ce faire, utilisez les paramètres d'application web.config.
-Ces paramètres sont transmis en tant que variables d'environnement à Node, qui
-sont ensuite lues par le Kit de développement logiciel (SDK) Azure.
+Pour accéder à Azure Storage, vous devez transmettre
+les informations d'identification de stockage. Pour ce faire, vous utilisez les paramètres d'application web.config.
+Ceux-ci sont transmis en tant que variables d'environnement à Node, qui sont alors
+lues par le Kit de développement logiciel (SDK) Azure.
 
 <div class="dev-callout">
-<strong>Remarque</strong>
-<p>Les informations d'identification de stockage sont utilis&eacute;es uniquement lorsque l'application est
-d&eacute;ploy&eacute;e sur Azure. Lorsqu'elle est ex&eacute;cut&eacute;e dans l'&eacute;mulateur, l'application
-utilise l'&eacute;mulateur de stockage.</p>
+
+**Remarque**
+Les informations d'identification de stockage sont uniquement utilisées lors du déploiement de l'application sur Azure. Lorsqu'elle est exécutée dans l'émulateur, l'application utilise l'émulateur de stockage.
+
 </div>
 
-Exécutez les étapes suivantes pour extraire les informations d'identification de compte de stockage
-et les ajouter aux paramètres web.config :
+Procédez comme suit pour extraire les informations d'identification de
+stockage et les ajouter aux paramètres web.config :
 
 1.  Si ce n'est pas déjà le cas, ouvrez Azure PowerShell à partir du menu **Démarrer** en développant **Tous les programmes, Azure**, cliquez avec le bouton droit sur **Azure PowerShell**, puis sélectionnez **Exécuter en tant qu'administrateur**.
 
@@ -58,15 +59,17 @@ et les ajouter aux paramètres web.config :
     Cette action permet d'extraire la liste des comptes de stockage et les clés de compte associées à votre service hébergé.
 
     <div class="dev-callout">
-<strong>Remarque</strong>
-<p>Dans la mesure o&ugrave; le Kit de d&eacute;veloppement logiciel (SDK) Azure cr&eacute;e un compte de stockage lorsque vous d&eacute;ployez un service, un compte de stockage doit d&eacute;j&agrave; exister puisque vous avez d&eacute;ploy&eacute; votre application dans les guides pr&eacute;c&eacute;dents.</p>
-</div>
 
-4.  Ouvrez le fichier **ServiceDefinition.csdef** qui contient les paramètres d'environnement utilisés lorsque l'application est déployée sur Azure :
+    **Remarque**
+    Dans la mesure où le Kit de développement logiciel (SDK) Azure crée un compte de stockage lorsque vous déployez un service, un compte de stockage doit déjà exister puisque vous avez déployé votre application dans les guides précédents.
+
+    </div>
+
+4.  Ouvrez le fichier **ServiceDefinition.csdef** contenant les paramètres d'environnement utilisés lorsque l'application est déployée vers Azure :
 
         PS C:\node\tasklist> notepad ServiceDefinition.csdef
 
-5.  Ajoutez le bloc suivant sous l'élément **Environment**, et remplacez {STORAGE ACCOUNT} et {STORAGE ACCESS KEY} par le nom et la clé primaire du compte de stockage que vous voulez utiliser pour le déploiement :
+5.  Insérez le bloc suivant sous l'élément **Environment**, en remplaçant {STORAGE ACCOUNT} et {STORAGE ACCESS KEY} par le nom de compte et la clé primaire du compte de stockage que vous souhaitez utiliser pour le déploiement :
 
         <Variable name="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}" />
         <Variable name="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}" />
@@ -77,7 +80,7 @@ et les ajouter aux paramètres web.config :
 
 ### Installation de modules supplémentaires
 
-1.  Utilisez la commande suivante pour installer les modules [azure], [node-uuid], [nconf] et [async] localement et pour garder une entrée pour eux dans le fichier **package.json** :
+1.  Utilisez la commande suivante pour installer les modules [azure], [node-uuid], [nconf] et [async] en local et pour enregistrer une entrée leur correspondant dans le fichier **package.json** :
 
         PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
 
@@ -106,7 +109,7 @@ Dans cette section, vous allez étendre l'application de base créée par la com
 
 ### Création du modèle
 
-1.  Dans le répertoire **WebRole1**, créez un répertoire nommé **models**.
+1.  Dans le répertoire **WebRole1**, créez un répertoire appelé **models**.
 
 2.  Dans le répertoire **models**, créez un fichier appelé **task.js**. Ce fichier contiendra le modèle des tâches créées par votre application.
 
@@ -187,7 +190,7 @@ Dans cette section, vous allez étendre l'application de base créée par la com
 
 ### Création du contrôleur
 
-1.  Dans le répertoire **WebRole1/routes**, créez un fichier nommé **tasklist.js** et ouvrez-le dans un éditeur de texte.
+1.  Dans le répertoire **WebRole1/routes**, créez un fichier **tasklist.js** et ouvrez-le dans un éditeur de texte.
 
 2.  Ajoutez le code suivant dans **tasklist.js**. Cela charge les modules azure et async, qui sont utilisés par **tasklist.js**. Cela définit également la fonction **TaskList** à qui est transmise une instance de l'objet **Task** défini précédemment :
 
@@ -250,7 +253,7 @@ Dans cette section, vous allez étendre l'application de base créée par la com
 
 1.  Dans le répertoire **WebRole1**, ouvrez le fichier **app.js** dans un éditeur de texte.
 
-2.  Au début du fichier, ajoutez le code suivant pour charger le module Azure et définir le nom de la table et la clé de partition :
+2.  Au début du fichier, ajoutez ce qui suit pour charger le module azure, et définissez le nom de la table et la clé de partition :
 
         var azure = require('azure-storage');
         var tableName = 'tasks';
@@ -343,7 +346,7 @@ Le fichier **layout.jade** du répertoire **views** sert de modèle global aux a
 
 ### Exécution de l'application dans l'émulateur
 
-Utilisez la commande suivante pour démarrer l'application dans l'émulateur.
+Utilisez la commande suivante pour lancer l'application dans l'émulateur.
 
     PS C:\node\tasklist\WebRole1> start-azureemulator -launch
 
@@ -351,7 +354,7 @@ Le navigateur s'ouvre et affiche la page suivante :
 
 ![Page Web intitulée My Task List avec une table contenant les tâches et les domaines pour ajouter une nouvelle tâche][Page Web intitulée My Task List avec une table contenant les tâches et les domaines pour ajouter une nouvelle tâche]
 
-Utilisez le formulaire pour ajouter des éléments ou pour en supprimer en les marquant comme terminés.
+Utilisez le formulaire pour ajouter des éléments ou supprimez des éléments en les marquant comme terminés.
 
 ## Publication de l'application dans Azure
 
@@ -359,7 +362,7 @@ Dans la fenêtre Windows PowerShell, appelez la cmdlet suivante pour redéployer
 
     PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -location datacentername -launch
 
-Remplacez **myuniquename** par un nom unique pour cette application. Remplacez **datacentername** par le nom d'un centre de données Azure, par exemple **Ouest des États-Unis**.
+Remplacez **myuniquename** par un nom unique pour cette application. Remplacez **datacentername** par le nom d'un centre de données Azure, tel que **Ouest des États-Unis**.
 
 Une fois le déploiement terminé, une réponse similaire à celle présentée ci-dessous doit s'afficher :
 
@@ -382,18 +385,18 @@ Comme auparavant, dans la mesure où vous avez spécifié l'option **-launch**, 
 
 ## Arrêt et suppression de votre application
 
-Après avoir déployé votre application, vous pouvez la désactiver pour
-éviter des frais ou en générer d'autres et les déployer pendant la
-période d'évaluation gratuite.
+Après avoir déployé votre application, vous pouvez la désactiver afin
+d'éviter des coûts ou de générer et de déployer d'autres applications au cours
+de la période d'évaluation gratuite.
 
-Azure facture les instances de rôle web par heure de serveur consommée.
-Le temps de serveur est consommé lorsque l'application est déployée, même si les
-instances ne s'exécutent pas et sont à l'arrêt.
+Azure facture les instances de rôle web par heures de serveur consommées.
+Une fois votre application déployée, elle consomme du temps de
+serveur, même si les instances ne sont pas exécutées et sont arrêtées.
 
 La procédure suivante présente l'arrêt et la suppression de l'application.
 
-1.  Dans la fenêtre Windows PowerShell, arrêtez le déploiement du service
-    créé dans la section précédente avec la cmdlet suivante :
+1.  Dans la fenêtre Windows PowerShell, arrêtez le déploiement du
+    service créé dans la section précédente à l'aide de la cmdlet suivante :
 
         PS C:\node\tasklist\WebRole1> Stop-AzureService
 
@@ -407,7 +410,7 @@ La procédure suivante présente l'arrêt et la suppression de l'application.
 
     La suppression du service peut prendre plusieurs minutes. Une fois le service supprimé, vous recevez un message confirmant la suppression du service.
 
-  [Application web Node.js utilisant Express]: http://www.windowsazure.com/fr-fr/develop/nodejs/tutorials/web-app-with-express/
+  [Application web Node.js avec Express]: http://www.windowsazure.com/fr-fr/develop/nodejs/tutorials/web-app-with-express/
   [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx
   [Page Web terminée dans Internet Explorer]: ./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png
   [Contenu du fichier web.cloud.config]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png

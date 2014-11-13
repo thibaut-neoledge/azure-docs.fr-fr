@@ -28,7 +28,7 @@ Suivez cette procédure pour installer et exécuter MongoDB sur une machine virt
         $ sudo mkdir -p /srv/datadrive/data
         $ sudo chown `id -u` /srv/datadrive/data
 
-    Pour plus d’informations sur l’installation de MongoDB sous Linux, consultez la page [Démarrage rapide sous Unix][].
+    Pour plus d’informations sur l’installation de MongoDB sous Linux, consultez la page [Démarrage rapide sous Unix][Démarrage rapide sous Unix].
 
 5.  Pour démarrer la base de données, exécutez :
 
@@ -52,7 +52,7 @@ Suivez cette procédure pour installer et exécuter MongoDB sur une machine virt
 
 7.  Après l’installation de MongoDB, vous devez configurer un point de terminaison pour que MongoDB soit accessible à distance. Dans le portail de gestion, cliquez sur **Virtual Machines**, sur le nom de votre nouvelle machine virtuelle, puis sur **Endpoints**.
 
-    ![Points de terminaison][]
+    ![Points de terminaison][Points de terminaison]
 
 8.  Cliquez sur **Add Endpoint** en bas de la page.
 
@@ -62,7 +62,6 @@ Suivez cette procédure pour installer et exécuter MongoDB sur une machine virt
 
     ![Points de terminaison][2]
 
-  [Sécurité et authentification]: http://www.mongodb.org/display/DOCS/Security+and+Authentication
   [Démarrage rapide sous Unix]: http://www.mongodb.org/display/DOCS/Quickstart+Unix
   [Points de terminaison]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
   [1]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png

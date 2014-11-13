@@ -1,18 +1,18 @@
-<properties linkid="manage-services-hdinsight-sample-csharp-streaming" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The C# streaming wordcount Hadoop sample in HDInsight | Azure" metaKeywords="hadoop, hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to run a sample TBD." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The C# streaming wordcount Hadoop sample in HDInsight" authors="bradsev" />
+<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="Exemple Hadoop WordCount (comptage de mots) de diffusion en continu C# dans HDInsight | Azure" metaKeywords="hadoop, hdinsight, hdinsight administration, hdinsight administration azure" description="D&eacute;couvrez comment ex&eacute;cuter un exemple &agrave; d&eacute;terminer (TBD)." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Exemple Hadoop WordCount (comptage de mots) de diffusion en continu C# dans HDInsight" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
-# Exemple de programme de diffusion en continu Hadoop de comptage de mots en langage C# dans HDInsight
+# Exemple Hadoop WordCount (comptage de mots) de diffusion en continu C# dans HDInsight
 
-Hadoop fournit une API de diffusion en continu pour MapReduce qui vous permet d'écrire des fonctions de mappage et de réduction dans d'autres langages que Java. Ce didacticiel montre comment écrire des programmes MapReduce dans le langage C# qui utilise l'interface de diffusion Hadoop et comment exécuter ces programmes sur Azure HDInsight en utilisant des cmdlets Azure PowerShell.
+Hadoop fournit une API de diffusion en continu pour MapReduce qui vous permet d'écrire des fonctions de mappage et de réduction dans d'autres langages que Java. Ce didacticiel montre comment écrire des programmes MapReduce en langage C# qui utilise l'interface de diffusion Hadoop et comment exécuter ces programmes sur Azure HDInsight en utilisant des cmdlets Azure PowerShell.
 
-Dans cet exemple, le mappeur et le raccord de réduction sont des exécutables qui lisent les saisies depuis [stdin][] (ligne par ligne), puis émettent leur résultat vers [stdout][stdin]. Le programme compte tous les mots dans le texte.
+Dans cet exemple, le mappeur et le raccord de réduction sont des exécutables qui lisent les saisies depuis [stdin][stdin] (ligne par ligne), puis émettent leur résultat vers [stdout][stdin]. Le programme compte tous les mots dans le texte.
 
-Lorsqu'un exécutable est spécifié pour les **mappeurs**, chaque tâche de mappeur lance l'exécutable en tant que processus distinct lorsque le mappeur est initialisé. Durant son exécution, la tâche du mappeur convertit votre saisie en lignes et les utilise pour alimenter le [stdin][] du processus. Dans le même temps, le mappeur collecte les résultats en forme de lignes depuis le stdout du processus, puis convertit chaque ligne en une paire clé/valeur, qui est collectée en tant que résultat du mappeur. Par défaut, la valeur va du début d'une ligne jusqu'à son premier caractère de tabulation, tandis que la valeur occupe le reste de la ligne (à l'exception du caractère de tabulation). Si la ligne ne contient pas de caractère de tabulation, elle constitue intégralement la clé, tandis que la valeur est nulle.
+Lorsqu'un exécutable est spécifié pour les **mappeurs**, chaque tâche de mappeur lance l'exécutable en tant que processus distinct lorsque le mappeur est initialisé. Durant son exécution, la tâche du mappeur convertit votre saisie en lignes et les utilise pour alimenter le [stdin][stdin] du processus. Dans le même temps, le mappeur collecte les résultats en forme de lignes depuis le stdout du processus, puis convertit chaque ligne en une paire clé/valeur, qui est collectée en tant que résultat du mappeur. Par défaut, la valeur va du début d'une ligne jusqu'à son premier caractère de tabulation, tandis que la valeur occupe le reste de la ligne (à l'exception du caractère de tabulation). Si la ligne ne contient pas de caractère de tabulation, elle constitue intégralement la clé, tandis que la valeur est nulle.
 
-Lorsqu'un exécutable est spécifié pour les **raccords de réduction**, chaque tâche de raccord de réduction lance l'exécutable en tant que processus distinct lorsque le raccord de réduction est initialisé. Durant son exécution, la tâche du raccord de réduction convertit ses paires clé/valeur en lignes et les utilise pour alimenter le [stdin][] du processus. Dans le même temps, le raccord de réduction collecte les résultats en forme de lignes depuis le [stdout][stdin] du processus, puis convertit chaque ligne en une paire clé/valeur, qui est collectée en tant que résultat du raccord de réduction. Par défaut, la valeur va du début d'une ligne jusqu'à son premier caractère de tabulation, tandis que la valeur occupe le reste de la ligne (à l'exception du caractère de tabulation).
+Lorsqu'un exécutable est spécifié pour les **raccords de réduction**, chaque tâche de raccord de réduction lance l'exécutable en tant que processus distinct lorsque le raccord de réduction est initialisé. Durant son exécution, la tâche du raccord de réduction convertit ses paires clé/valeur en lignes et les utilise pour alimenter le [stdin][stdin] du processus. Dans le même temps, le raccord de réduction collecte les résultats en forme de lignes depuis le [stdout][stdin] du processus, puis convertit chaque ligne en une paire clé/valeur, qui est collectée en tant que résultat du raccord de réduction. Par défaut, la valeur va du début d'une ligne jusqu'à son premier caractère de tabulation, tandis que la valeur occupe le reste de la ligne (à l'exception du caractère de tabulation).
 
-Pour plus d'informations sur l'interface de diffusion Hadoop, consultez la page [Diffusion Hadoop][].
+Pour plus d'informations sur l'interface de diffusion Hadoop, consultez la page [Diffusion Hadoop][Diffusion Hadoop].
 
 **Vous apprendrez à effectuer les opérations suivantes :**
 
@@ -21,26 +21,26 @@ Pour plus d'informations sur l'interface de diffusion Hadoop, consultez la page 
 
 **Conditions préalables** :
 
--   Vous devez disposer d'un compte Azure. Pour connaître les options disponibles lors de la création d'un compte, consultez la page [Version d'évaluation gratuite d'Azure][].
+-   Vous devez disposer d'un compte Azure. Pour connaître les options disponibles lors de la création d'un compte, consultez la page [Version d'évaluation gratuite d'Azure][Version d'évaluation gratuite d'Azure].
 
--   Vous devez avoir approvisionné un cluster HDInsight. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de clusters, consultez la page [Approvisionnement de clusters HDInsight][].
+-   Vous devez avoir approvisionné un cluster HDInsight. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de clusters, consultez la page [Approvisionnement de clusters HDInsight][Approvisionnement de clusters HDInsight].
 
--   Vous devez avoir installé Azure PowerShell et l'avoir configuré pour une utilisation avec votre compte. Pour des instructions sur la marche à suivre, consultez la page [Installation et configuration d'Azure PowerShell][].
+-   Vous devez avoir installé Azure PowerShell et l'avoir configuré pour une utilisation avec votre compte. Pour des instructions sur la marche à suivre, consultez la page [Installation et configuration d'Azure PowerShell][Installation et configuration d'Azure PowerShell].
 
 ## Dans cet article
 
 Cette rubrique vous montre comment exécuter l'exemple, présente le code Java du programme MapReduce, récapitule ce que vous avez appris, et indique les étapes suivantes. Elle se compose des sections suivantes :
 
-1.  [Exécution de l'exemple avec Azure PowerShell][]
-2.  [Code C# pour la diffusion Hadoop][]
-3.  [Résumé][]
-4.  [Étapes suivantes][]
+1.  [Exécution de l'exemple avec Azure PowerShell][Exécution de l'exemple avec Azure PowerShell]
+2.  [Code C# pour la diffusion Hadoop][Code C# pour la diffusion Hadoop]
+3.  [Résumé][Résumé]
+4.  [Étapes suivantes][Étapes suivantes]
 
 ## <span id="run-sample"></span></a>Exécution de l'exemple avec Azure PowerShell
 
 **Pour exécuter la tâche MapReduce, procédez comme suit :**
 
-1.  Ouvrez **Azure PowerShell**. Pour savoir comment ouvrir la fenêtre de la console Azure PowerShell, consultez la rubrique [Installation et configuration d'Azure PowerShell][].
+1.  Ouvrez **Azure PowerShell**. Pour savoir comment ouvrir la fenêtre de la console Azure PowerShell, consultez la rubrique [Installation et configuration d'Azure PowerShell][Installation et configuration d'Azure PowerShell].
 
 2.  Définissez les deux variables dans les commandes suivantes, puis exécutez-les :
 
@@ -142,7 +142,7 @@ Le code de mappeur du fichier cat.cs utilise un objet StreamReader pour lire les
         }
     }
 
-Le code du raccord de réduction du fichier wc.cs utilise un objet [StreamReader][] pour lire les caractères du flux d'entrée standard écrit par le mappeur cat.exe. Comme il lit les caractères avec la méthode [Console.Writeline][], il délimite les mots en se basant sur les espaces et les caractères de fin de ligne situés à la fin de chaque mot, puis il écrit le total dans le flux de sortie standard avec la méthode [Console.Writeline][].
+Le code du raccord de réduction du fichier wc.cs utilise un objet [StreamReader][StreamReader] pour lire les caractères du flux d'entrée standard écrit par le mappeur cat.exe. Comme il lit les caractères avec la méthode [Console.Writeline][Console.Writeline], il délimite les mots en se basant sur les espaces et les caractères de fin de ligne situés à la fin de chaque mot, puis il écrit le total dans le flux de sortie standard avec la méthode [Console.Writeline][Console.Writeline].
 
 ## <span id="summary"></span></a>Résumé
 
@@ -152,29 +152,29 @@ Dans ce didacticiel, vous avez vu comment déployer une tâche MapReduce sur HDI
 
 Pour suivre des didacticiels exécutant d'autres exemples et fournissant des instructions sur l'utilisation des tâches Pig, Hive et MapReduce sur Azure HDInsight avec Azure PowerShell, consultez les rubriques suivantes :
 
--   [Prise en main d'Azure HDInsight][]
--   [Exemple : Estimateur Pi][]
--   [Exemple : Comptage de mots][]
--   [Exemple : GraySort 10 Go][]
--   [Utilisation de Pig avec HDInsight][]
--   [Utilisation de Hive avec HDInsight][]
--   [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][]
+-   [Prise en main d'Azure HDInsight][Prise en main d'Azure HDInsight]
+-   [Exemple : Estimateur Pi][Exemple : Estimateur Pi]
+-   [Exemple : Comptage de mots][Exemple : Comptage de mots]
+-   [Exemple : GraySort 10 Go][Exemple : GraySort 10 Go]
+-   [Utilisation de Pig avec HDInsight][Utilisation de Pig avec HDInsight]
+-   [Utilisation de Hive avec HDInsight][Utilisation de Hive avec HDInsight]
+-   [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][Documentation du Kit de développement logiciel (SDK) Azure HDInsight]
 
-  [stdin]: http://msdn.microsoft.com/en-us/library/3x292kth(v=vs.110).aspx
+  [stdin]: http://msdn.microsoft.com/fr-fr/library/3x292kth(v=vs.110).aspx
   [Diffusion Hadoop]: http://wiki.apache.org/hadoop/HadoopStreaming
-  [Version d'évaluation gratuite d'Azure]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Version d'évaluation gratuite d'Azure]: http://azure.microsoft.com/fr-fr/pricing/free-trial/
   [Approvisionnement de clusters HDInsight]: ../hdinsight-provision-clusters/
   [Installation et configuration d'Azure PowerShell]: ../install-configure-powershell/
   [Exécution de l'exemple avec Azure PowerShell]: #run-sample
   [Code C# pour la diffusion Hadoop]: #java-code
   [Résumé]: #summary
   [Étapes suivantes]: #next-steps
-  [StreamReader]: http://msdn.microsoft.com/en-us/library/system.io.streamreader.aspx
-  [Console.Writeline]: http://msdn.microsoft.com/en-us/library/system.console.writeline
+  [StreamReader]: http://msdn.microsoft.com/fr-fr/library/system.io.streamreader.aspx
+  [Console.Writeline]: http://msdn.microsoft.com/fr-fr/library/system.console.writeline
   [Prise en main d'Azure HDInsight]: ../hdinsight-get-started/
   [Exemple : Estimateur Pi]: ../hdinsight-sample-pi-estimator/
   [Exemple : Comptage de mots]: ../hdinsight-sample-wordcount/
   [Exemple : GraySort 10 Go]: ../hdinsight-sample-10gb-graysort/
   [Utilisation de Pig avec HDInsight]: ../hdinsight-use-pig/
   [Utilisation de Hive avec HDInsight]: ../hdinsight-use-hive/
-  [Documentation du Kit de développement logiciel (SDK) Azure HDInsight]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+  [Documentation du Kit de développement logiciel (SDK) Azure HDInsight]: http://msdnstage.redmond.corp.microsoft.com/fr-fr/library/dn479185.aspx

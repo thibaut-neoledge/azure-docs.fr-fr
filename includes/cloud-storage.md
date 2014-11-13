@@ -4,26 +4,26 @@ La gestion et l’analyse des données du cloud sont aussi importantes que celle
 
 ## Sommaire
 
--   [Stockage d'objets blob][]
--   [Exécution d’un SGBD (système de gestion de base de données) dans une machine virtuelle][]
--   [Base de données SQL][]
+-   [Stockage d'objets blob][Stockage d'objets blob]
+-   [Exécution d’un SGBD (système de gestion de base de données) dans une machine virtuelle][Exécution d’un SGBD (système de gestion de base de données) dans une machine virtuelle]
+-   [Base de données SQL][Base de données SQL]
 
-    -   [Synchronisation des données SQL][]
-    -   [Génération de rapports de données SQL à l’aide de machines virtuelles][]
--   [Stockage de tables][]
--   [Hadoop][]
+    -   [Synchronisation des données SQL][Synchronisation des données SQL]
+    -   [Génération de rapports de données SQL à l’aide de machines virtuelles][Génération de rapports de données SQL à l’aide de machines virtuelles]
+-   [Stockage de tables][Stockage de tables]
+-   [Hadoop][Hadoop]
 
 ## <a name="blob"></a>Stockage d’objets blob
 
-« blob » est un diminutif pour « Binary Large OBject » (« Objets volumineux binaires ») : comme son nom l’indique, il s’agit d’une collection d’informations binaires. Tout en étant simples, les objets blob sont utiles. La [figure 1][] illustre les bases du stockage d’objets blob Azure.
+« blob » est un diminutif pour « Binary Large OBject » (« Objets volumineux binaires ») : comme son nom l’indique, il s’agit d’une collection d’informations binaires. Tout en étant simples, les objets blob sont utiles. La [figure 1][figure 1] illustre les bases du stockage d’objets blob Azure.
 
-<a name="Fig1"></a>![Diagramme d’objets blob][]
+<a name="Fig1"></a>![Diagramme d’objets blob][Diagramme d’objets blob]
 
 **Figure 1 : le stockage d’objets blob Azure stocke des données binaires (des objets blob) dans des conteneurs.**
 
 Pour utiliser des objets blob, commencez par créer un *compte de stockage* Azure. Durant cette opération, vous devez indiquer le centre de données Azure qui stockera les objets que vous créez en utilisant ce compte. Où qu’il réside, chaque objet blob que vous créez appartient à un conteneur de votre compte de stockage. Pour accéder à un objet blob, une application fournit une URL au format :
 
-http://&lt;*StorageAccount*&gt;.blob.core.windows.net/&lt;*Container*&gt;/&lt;*BlobName*&gt;
+http://\<*CompteStockage*\>.blob.core.windows.net/\<*Conteneur*\>/\<*NomObjetBlob*\>
 
 \<*CompteStockage*\> correspond à un identificateur unique attribué lors de la création d’un compte de stockage, tandis que \<*Conteneur*\> et \<*NomObjetBlob*\> correspondent aux noms d’un conteneur spécifique et d’un objet blob dans ce conteneur.
 
@@ -47,23 +47,23 @@ Grâce à leur simplicité, les objets blob sont adaptés à de nombreuses situa
 
 ## <a name="dbinvm"></a>Exécution d’un SGBD (système de gestion de base de données) dans une machine virtuelle
 
-De nos jours, de nombreuses applications reposent sur un type de système de gestion de base de données (SGBD). Les systèmes relationnels comme SQL Server font partie des choix les plus répandus. Cependant, les approches non relationnelles, généralement connues sous le nom de « technologies *NoSQL* », deviennent de plus en plus populaires. Pour permettre aux applications cloud d’utiliser ces options de gestion de données, les machines virtuelles Azure peuvent exécuter un SGBD (relationnel ou NoSQL). La [figure 2][] montre une machine virtuelle avec SQL Server.
+De nos jours, de nombreuses applications reposent sur un type de système de gestion de base de données (SGBD). Les systèmes relationnels comme SQL Server font partie des choix les plus répandus. Cependant, les approches non relationnelles, généralement connues sous le nom de « technologies *NoSQL* », deviennent de plus en plus populaires. Pour permettre aux applications cloud d’utiliser ces options de gestion de données, les machines virtuelles Azure peuvent exécuter un SGBD (relationnel ou NoSQL). La [figure 2][figure 2] montre une machine virtuelle avec SQL Server.
 
-<a name="Fig2"></a>![Diagramme montrant SQL Server dans une machine virtuelle][]
+<a name="Fig2"></a>![Diagramme montrant SQL Server dans une machine virtuelle][Diagramme montrant SQL Server dans une machine virtuelle]
 
 **Figure 2 : les machines virtuelles Azure permettent d’exécuter un SGBD dans une machine virtuelle de façon permanente grâce aux objets blob.**
 
 Pour les développeurs et les administrateurs de bases de données, ce scénario revient pratiquement à exécuter le même logiciel dans leur propre centre de données. Dans l’exemple indiqué ici, vous pouvez utiliser presque toutes les capacités de SQL Server, tout en disposant d’un accès administratif complet au système. Bien entendu, vous êtes également responsable de la gestion du serveur de base de données, comme s’il était exécuté en local.
 
-Comme l’indique la [figure 2][], vos bases de données semblent stockées sur le disque local de la machine virtuelle dans laquelle le serveur est exécuté. Cependant, en réalité, chacun de ces disques est écrit vers un objet blob Azure. (Cela revient à utiliser un SAN dans votre propre centre de données, avec un objet blob agissant pratiquement comme un numéro d’unité logique.) Tout comme avec n’importe quel objet blob Azure, les données contenues sont répliquées à trois reprises dans le centre de données et, si vous le demandez, géo-répliquées dans un autre centre de données dans la même région. Vous pouvez également utiliser des options telles qu’une mise en miroir de base de données SQL Server pour améliorer la fiabilité.
+Comme l’indique la [figure 2][figure 2], vos bases de données semblent stockées sur le disque local de la machine virtuelle dans laquelle le serveur est exécuté. Cependant, en réalité, chacun de ces disques est écrit vers un objet blob Azure. (Cela revient à utiliser un SAN dans votre propre centre de données, avec un objet blob agissant pratiquement comme un numéro d’unité logique.) Tout comme avec n’importe quel objet blob Azure, les données contenues sont répliquées à trois reprises dans le centre de données et, si vous le demandez, géo-répliquées dans un autre centre de données dans la même région. Vous pouvez également utiliser des options telles qu’une mise en miroir de base de données SQL Server pour améliorer la fiabilité.
 
 Une autre méthode d’utilisation de SQL Server dans une machine virtuelle consiste à créer une application hybride, où les données résident sur Azure tandis que la logique de l’application est exécutée en local. Cela peut être utile, par exemple, lorsque des applications exécutées dans plusieurs endroits ou sur plusieurs appareils mobiles doivent partager les mêmes données. Pour simplifier la communication entre la base de données du cloud et la logique locale, une organisation peut utiliser le réseau virtuel Azure pour créer une connexion de réseau privé virtuel entre un centre de données Azure et son propre centre de données local.
 
 ## <a name="sqldb"></a>Base de données SQL
 
-De nombreuses personnes pensent d’abord à exécuter un SGBD dans une machine virtuelle pour gérer des données structurées dans le cloud. Cependant, cette option n’est pas la seule possible, ni la meilleure. Dans certains cas, la gestion de données à l’aide d’une approche PaaS (Platform as a Service) s’avère plus efficace. Azure fournit une technologie PaaS nommée « Base de données SQL » qui vous permet de procéder ainsi pour les données relationnelles. La [figure 3][] illustre cette option.
+De nombreuses personnes pensent d’abord à exécuter un SGBD dans une machine virtuelle pour gérer des données structurées dans le cloud. Cependant, cette option n’est pas la seule possible, ni la meilleure. Dans certains cas, la gestion de données à l’aide d’une approche PaaS (Platform as a Service) s’avère plus efficace. Azure fournit une technologie PaaS nommée « Base de données SQL » qui vous permet de procéder ainsi pour les données relationnelles. La [figure 3][figure 3] illustre cette option.
 
-<a name="Fig3"></a>![Diagramme de base de données SQL][]
+<a name="Fig3"></a>![Diagramme de base de données SQL][Diagramme de base de données SQL]
 
 **Figure 3 : la base de données SQL fournit un service de stockage relationnel PaaS partagé.**
 
@@ -87,9 +87,9 @@ Pour finir, il est important de savoir que la base de données SQL n’est pas l
 
 ### <a name="datasync"></a>Synchronisation des données SQL
 
-Si la base de données SQL conserve trois copies de chaque base de données dans un seul centre de données Azure, elle ne réplique pas automatiquement les données entre les centres de données Azure. Au lieu de ça, elle fournit la synchronisation des données SQL, un service qui s’occupe de cette tâche. [La figure 4][] illustre ce concept.
+Si la base de données SQL conserve trois copies de chaque base de données dans un seul centre de données Azure, elle ne réplique pas automatiquement les données entre les centres de données Azure. Au lieu de ça, elle fournit la synchronisation des données SQL, un service qui s’occupe de cette tâche. [La figure 4][La figure 4] illustre ce concept.
 
-<a name="Fig4"></a>![Diagramme de la synchronisation des données SQL][]
+<a name="Fig4"></a>![Diagramme de la synchronisation des données SQL][Diagramme de la synchronisation des données SQL]
 
 **Figure 4 : La synchronisation des données SQL synchronise les données de la base de données SQL avec les données d’autres centres de données Azure et locaux.**
 
@@ -99,9 +99,9 @@ La synchronisation peut être bi-directionnelle et vous pouvez déterminer exact
 
 ### <a name="datarpt"></a>Génération de rapports de données SQL à l’aide de machines virtuelles
 
-Lorsqu’une base de données contient des données, un utilisateur peut être amené à générer des rapports à l’aide de celles-ci. Azure peut exécuter SQL Server Reporting Services (SSRS) dans les machines virtuelles Azure, ce qui revient à exécuter SQL Server Reporting Services en local. SSRS permet de générer des rapports sur les données stockées dans une base de données SQL Azure. La [figure 5][] montre le fonctionnement du processus.
+Lorsqu’une base de données contient des données, un utilisateur peut être amené à générer des rapports à l’aide de celles-ci. Azure peut exécuter SQL Server Reporting Services (SSRS) dans les machines virtuelles Azure, ce qui revient à exécuter SQL Server Reporting Services en local. SSRS permet de générer des rapports sur les données stockées dans une base de données SQL Azure. La [figure 5][figure 5] montre le fonctionnement du processus.
 
-<a name="Fig5"></a>![Diagramme de la génération de rapports SQL][]
+<a name="Fig5"></a>![Diagramme de la génération de rapports SQL][Diagramme de la génération de rapports SQL]
 
 **Figure 5 : Le service SQL Server Reporting Services exécuté dans une machine virtuelle Azure fournit des services de génération de rapport pour les données de la base de données SQL. .**
 
@@ -117,21 +117,21 @@ SSRS sur une machine virtuelle Azure vous offre des fonctionnalités complètes,
 
 Les données relationnelles sont utiles dans bien des situations, mais elles ne constituent pas toujours le meilleur choix. Si votre application doit pouvoir accéder rapidement et simplement à d’importantes quantités de données faiblement structurées, une base de données relationnelle ne fera pas l’affaire. L’usage de la technologie NoSQL semble alors être un meilleur choix.
 
-Le stockage de table Azure est un bon exemple de cette approche NoSQL. Malgré son nom, le stockage de table ne prend pas en charge les tables relationnelles standard. Au lieu de cela, ce type de stockage fournit un *stockage de clés/valeurs*, en associant un ensemble de données avec une clé particulière, puis en permettant à une application d’accéder à ces données en lui fournissant la clé. Les bases de ce concept sont illustrées par la [figure 6][].
+Le stockage de table Azure est un bon exemple de cette approche NoSQL. Malgré son nom, le stockage de table ne prend pas en charge les tables relationnelles standard. Au lieu de cela, ce type de stockage fournit un *stockage de clés/valeurs*, en associant un ensemble de données avec une clé particulière, puis en permettant à une application d’accéder à ces données en lui fournissant la clé. Les bases de ce concept sont illustrées par la [figure 6][figure 6].
 
-<a name="Fig6"></a>![Diagramme de stockage de table][]
+<a name="Fig6"></a>![Diagramme de stockage de table][Diagramme de stockage de table]
 
 **Figure 6 : Le stockage de table Azure est un stockage de clés/valeurs fournissant un accès rapide et simplifié à d’importantes quantités de données.**
 
 Comme les objets blob, chaque table est associée à un compte de stockage Azure. Les tables sont également nommées comme des objets blob, avec une URL au format
 
-http://&lt;*StorageAccount*&gt;.table.core.windows.net/&lt;*TableName*&gt;
+http://\<*CompteStockage*\>.table.core.windows.net/\<*NomTable*\>
 
 Comme l’indique cette figure, chaque table est divisée en un certain nombre de partitions, chacune d’elle pouvant être stockée sur une machine distincte. (Il s’agit d’une forme de partitionnement, comme pour la fédération SQL.) Les applications Azure, comme les applications externes, peuvent accéder à une table en utilisant le protocole OData RESTful ou la bibliothèque du client de stockage Azure.
 
 Chaque partition dans une table contient un certain nombre d’*entités*. Chacune d’entre elles contient jusqu’à 255 *propriétés*. Chaque propriété a un nom, un type (Binary, Bool, DateTime, Int ou String) et une valeur. Contrairement au stockage relationnel, ces tables n’ont pas de schéma fixe. Il est donc possible que différentes entités d’une table contiennent des propriétés de différents types. Par exemple, une entité peut simplement avoir une propriété String contenant un nom, tandis qu’une autre entité de la même table peut avoir deux propriétés Int contenant un numéro d’ID client et un degré de solvabilité.
 
-Pour identifier une entité précise dans une table, une application fournit la clé de cette entité. Celle-ci se divise en deux parties : une *clé de partition* qui identifie une partition spécifique, ainsi qu’une *clé de ligne* qui identifie une entité dans cette partition. Par exemple, dans la [figure 6][], le client demande une entité avec une clé de partition A et une clé de ligne 3, puis le stockage de table renvoie cette entité, incluant toutes les propriétés qu’elle contient.
+Pour identifier une entité précise dans une table, une application fournit la clé de cette entité. Celle-ci se divise en deux parties : une *clé de partition* qui identifie une partition spécifique, ainsi qu’une *clé de ligne* qui identifie une entité dans cette partition. Par exemple, dans la [figure 6][figure 6], le client demande une entité avec une clé de partition A et une clé de ligne 3, puis le stockage de table renvoie cette entité, incluant toutes les propriétés qu’elle contient.
 
 Cette structure permet aux tables de devenir volumineuses (une seule table peut contenir jusqu’à 100 To de données) mais aussi d’accéder rapidement aux données qu’elles contiennent. Cependant, elle a aussi ses limites. Par exemple, les mises à jour transactionnelles qui étendent les tables, ou même les partitions dans une seule table, ne sont pas prises en charge. Un ensemble de mises à jour pour une table peut uniquement être regroupé dans une transaction atomique si toutes les entités impliquées appartiennent à la même partition. Il est également impossible d’envoyer vers une table une requête basée sur les valeurs de ses propriétés, ni de prendre en charge les jonctions entre plusieurs tâches. Et contrairement aux bases de données relationnelles, les procédures stockées des tables ne sont pas prises en charge.
 
@@ -145,9 +145,9 @@ Supposons que vous souhaitez analyser des données non relationnelles. Vos donn�
 
 Pour analyser ces types de données volumineuses, notre secteur s’est majoritairement orienté vers une seule solution : la technologie Open Source Hadoop. Hadoop est exécuté sur un cluster de machines physiques ou virtuelles, transmettant les données utilisées entre ces machines tout en les traitant en parallèle. Plus Hadoop utilise de machines, plus vite il peut terminer ses tâches.
 
-Ce type de problème est naturel pour un cloud public. Plutôt que d’entretenir une horde de serveurs locaux susceptibles de rester inactifs la plupart du temps, l’exécution de Hadoop dans le cloud vous permet de créer des machines virtuelles en payant uniquement ce dont vous avez besoin. Encore mieux, comme de plus en plus de données volumineuses à analyser avec Hadoop sont créées dans le cloud, vous n’avez plus besoin de les déplacer. Pour vous permettre d’exploiter ces synergies, Microsoft fournit un service Hadoop sous Azure. La [figure 7][] montre les composants les plus importants de ce service.
+Ce type de problème est naturel pour un cloud public. Plutôt que d’entretenir une horde de serveurs locaux susceptibles de rester inactifs la plupart du temps, l’exécution de Hadoop dans le cloud vous permet de créer des machines virtuelles en payant uniquement ce dont vous avez besoin. Encore mieux, comme de plus en plus de données volumineuses à analyser avec Hadoop sont créées dans le cloud, vous n’avez plus besoin de les déplacer. Pour vous permettre d’exploiter ces synergies, Microsoft fournit un service Hadoop sous Azure. La [figure 7][figure 7] montre les composants les plus importants de ce service.
 
-<a name="Fig7"></a>![Diagramme de Hadoop][]
+<a name="Fig7"></a>![Diagramme de Hadoop][Diagramme de Hadoop]
 
 **Figure 7 : sous Azure, Hadoop exécute des tâches MapReduce qui traitent les données en parallèle en utilisant plusieurs machines virtuelles.**
 
@@ -157,7 +157,7 @@ Une application Hadoop, généralement nommée *tâche*, utilise un modèle de p
 
 Sous Azure, les données utilisées par une tâche MapReduce sont généralement stockées dans un stockage d’objets blob. Cependant, dans Hadoop, les tâches MapReduce prévoient un stockage des données dans le *HDFS (Hadoop Distributed File System, ou Système de Fichiers Distribués Hadoop)*. Par certains côtés, le HDFS est semblable au stockage d’objets blob : par exemple, il réplique les données entre plusieurs serveurs physiques. Plutôt que de dupliquer cette fonctionnalité, Hadoop sous Azure expose plutôt le stockage d’objets blob via l’API HDFS, comme l’indique cette figure. Tandis que la logique d’une tâche MapReduce pense qu’elle accède à des fichiers HDFS ordinaires, elle utilise en fait des données diffusées depuis les objets blob. Et pour prendre en charge les cas où plusieurs tâches sont exécutées sur les mêmes données, Hadoop sous Azure autorise également la copie de données depuis les objets blob en HDFS complet exécuté dans les machines virtuelles.
 
-De nos jours, les tâches MapReduce sont couramment écrites en Java, ce qui est pris en charge par Hadoop sous Azure. Nous avons également ajouté une prise en charge pour la création de tâches MapReduce dans d’autres langages, notamment C\#, F\# et JavaScript. L’objectif est de faciliter l’accès à cette technologie de données volumineuses pour un plus grand nombre de développeurs.
+De nos jours, les tâches MapReduce sont couramment écrites en Java, ce qui est pris en charge par Hadoop sous Azure. Nous avons également ajouté une prise en charge pour la création de tâches MapReduce dans d’autres langages, notamment C#, F\# et JavaScript. L’objectif est de faciliter l’accès à cette technologie de données volumineuses pour un plus grand nombre de développeurs.
 
 Avec HDFS et MapReduce, Hadoop inclut d’autres technologies vous permettant d’analyser des données sans avoir à écrire une tâche MapReduce par vous-même. Par exemple, Pig est un langage de haut niveau conçu pour les analyses de données volumineuses, tandis que Hive offre un langage SQL nommé HiveQL. Pig et Hive génèrent en fait des tâches MapReduce qui traitent des données HDFS, tout en restant simples pour leurs utilisateurs.
 Les deux sont livrés avec Hadoop sur Azure.
@@ -177,7 +177,6 @@ Plus généralement, les données de toutes sortes sont importantes. C’est pou
   [Hadoop]: #hadoop
   [figure 1]: #Fig1
   [Diagramme d’objets blob]: ./media/cloud-storage/Data_01_Blobs.png
-  [http://\<\*CompteStockage]: http://<*StorageAccount
   [figure 2]: #Fig2
   [Diagramme montrant SQL Server dans une machine virtuelle]: ./media/cloud-storage/Data_02_SQLSvrVM.png
   [figure 3]: #Fig3

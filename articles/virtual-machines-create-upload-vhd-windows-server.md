@@ -1,4 +1,4 @@
-<properties linkid="manage-windows-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Windows Server VHD to Azure" metaKeywords="Azure VHD, uploading VHD" description="Learn to create and upload a virtual hard disk (VHD) in Azure that has the Windows Server operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Create and upload a Windows Server VHD to Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Upload a VHD" pageTitle="Cr&eacute;ation et t&eacute;l&eacute;chargement d'un disque dur virtuel contenant le syst&egrave;me d'exploitation Windows Server dans Azure" metaKeywords="Azure VHD, uploading VHD" description="Apprenez &agrave; cr&eacute;er et &agrave; t&eacute;l&eacute;charger un disque dur virtuel&nbsp;(VHD) contenant le syst&egrave;me d'exploitation&nbsp;Windows Server dans&nbsp;Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Cr&eacute;ation et t&eacute;l&eacute;chargement d'un disque dur virtuel contenant le syst&egrave;me d'exploitation Windows Server dans Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="kathydav" />
 
@@ -124,6 +124,8 @@ x64
 
 </table>
 
+</p>
+</p>
 Cette procédure comprend les étapes suivantes :
 
 -   [Étape 1 : préparation de l'image pour le téléchargement][Étape 1 : préparation de l'image pour le téléchargement]

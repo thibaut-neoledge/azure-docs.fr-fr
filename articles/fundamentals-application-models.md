@@ -1,4 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="Application Model" metaKeywords="Azure, Azure, application model, Azure application model, development model, Azure development model, hosted service, Azure hosted service, web role, worker role" description="Learn about the Azure hosted service application model. Understand core concepts, design considerations, defining and configuring your application, and scaling." linkid="dev-net-fundamentals-application-model" urlDisplayName="Application Model" headerExpose="" footerExpose="" disqusComments="1" title="Application Model" authors="robb" manager="johndaw" />
+<properties umbracoNaviHide="0" pageTitle="Mod&egrave;le d'application" metaKeywords="Azure, Azure, application model, Azure application model, development model, Azure development model, hosted service, Azure hosted service, web role, worker role" description="D&eacute;couvrez le mod&egrave;le d'application de service h&eacute;berg&eacute; Azure. D&eacute;couvrez les concepts cl&eacute;s, les consid&eacute;rations en mati&egrave;re de conception, la d&eacute;finition et la configuration de votre application, et la mise &agrave; l'&eacute;chelle." urlDisplayName="Application Model" headerExpose="" footerExpose="" disqusComments="1" title="Mod&egrave;le d'application" authors="robb" manager="johndaw" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb" />
 
@@ -122,10 +122,10 @@ Azure Virtual Machines permet d'effectuer toutes ces opérations. Mais la créat
 
 **Figure 5 : les sites Web Azure prennent en charge les sites Web statiques, les applications Web populaires et les applications Web personnalisées créées avec diverses technologies.**
 
-Les sites Web Azure s'appuient sur Azure Cloud Services afin de créer une solution PaaS optimisée pour l'exécution des applications Web. Comme le montre la figure, les sites Web s'exécutent sur un ensemble de machines virtuelles, qui peut contenir plusieurs sites Web créés par plusieurs utilisateurs, ainsi que des machines virtuelles standard appartenant à un utilisateur individuel. Les machines virtuelles appartiennent à une réserve de ressources gérées par les sites Web Azure et permettent ainsi d'obtenir un niveau élevé de fiabilité et de tolérance aux pannes.
+Les sites Web Azure s'appuient sur Azure Cloud Services afin de créer une solution PaaS optimisée pour l'exécution des applications Web. Comme le montre la figure, les sites Web s'exécutent sur un ensemble de machines virtuelles, qui peut contenir plusieurs sites Web créés par plusieurs utilisateurs, ainsi que des machines virtuelles standard appartenant à un utilisateur individuel. Les machines virtuelles appartiennent à une réserve de ressources gérées par les sites web Azure et permettent ainsi d'obtenir un niveau élevé de fiabilité et de tolérance aux pannes.
 La mise en route est aisée. Avec les sites Web Azure, les utilisateurs peuvent faire leur choix dans un large éventail d'applications, d'infrastructures et de modèles, et créer un site Web en quelques secondes. Ils peuvent ensuite utiliser leurs outils de développement préférés (WebMatrix, Visual Studio ou un autre éditeur) et les options de contrôle du code source pour configurer l'intégration continue et développer comme une équipe. Les applications qui s'appuient sur une base de données MySQL peuvent utiliser un service MySQL fourni pour Azure par ClearDB, un partenaire de Microsoft.
-Les développeurs peuvent créer de volumineuses applications Web évolutives avec les sites Web. La technologie prend en charge la création d'applications avec ASP.NET, PHP, Node.js et Python. Les applications peuvent utiliser des sessions rémanentes, par exemple, et les applications Web existantes peuvent être transférées vers cette plateforme cloud sans modification. Les applications basées sur les sites Web peuvent utiliser librement d'autres aspects d'Azure, notamment Service Bus, la base de données SQL et le stockage d'objets blob. Vous pouvez également exécuter plusieurs copies d'une application dans différentes machines virtuelles, et les sites Web équilibreront automatiquement la charge des requêtes entre ces dernières. Et dans la mesure où de nouvelles instances des sites Web sont créées dans les machines virtuelles qui existent déjà, le démarrage d'une nouvelle instance d'application a lieu très rapidement, nettement plus vite que si vous attendez la création d'une machine virtuelle.
-Comme indiqué dans la [figure 5][figure 5], vous pouvez publier du code et d'autre contenu Web dans les sites Web de différentes manières. Vous pouvez utiliser FTP, FTPS ou la technologie WebDeploy de Microsoft. Les sites Web prennent également en charge la publication de code provenant des systèmes de contrôle de code source, y compris Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server et Team Foundation Service basé dans le cloud.
+Les développeurs peuvent créer de volumineuses applications web évolutives avec les sites web. La technologie prend en charge la création d'applications avec ASP.NET, PHP, Node.js et Python. Les applications peuvent utiliser des sessions rémanentes, par exemple, et les applications Web existantes peuvent être transférées vers cette plateforme cloud sans modification. Les applications basées sur les sites Web peuvent utiliser librement d'autres aspects d'Azure, notamment Service Bus, la base de données SQL et le stockage d'objets blob. Vous pouvez également exécuter plusieurs copies d'une application dans différentes machines virtuelles, et les sites Web équilibreront automatiquement la charge des requêtes entre ces dernières. Et dans la mesure où de nouvelles instances des sites web sont créées dans les machines virtuelles qui existent déjà, le démarrage d'une nouvelle instance d'application a lieu très rapidement, nettement plus vite que si vous attendez la création d'une machine virtuelle.
+Comme indiqué dans la [Figure 5][Figure 5], vous pouvez publier du code et d'autres contenus web dans les sites web de différentes manières. Vous pouvez utiliser FTP, FTPS ou la technologie WebDeploy de Microsoft. Les sites Web prennent également en charge la publication de code provenant des systèmes de contrôle de code source, y compris Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server et Team Foundation Service basé dans le cloud.
 
 ## <span id="CloudServices"></span></a>Cloud Services
 
@@ -184,12 +184,20 @@ Azure propose plusieurs modèles d'exécution, car les plateformes cloud ont bes
   [Machines virtuelles]: #VMachine
   [Sites Web]: #WebSites
   [Services cloud]: #CloudServices
+  [Quel modèle dois-je utiliser ? Faire un choix]: #WhatShouldIUse
   [figure 1]: #Fig1
+  [01\_CreatingVMs]: ./media/fundamentals-application-models/ExecModels_01_CreatingVMs.png
   [VMDepot]: http://vmdepot.msopentech.com/
   [bibliothèque Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn197896.aspx
   [La figure 2]: #Fig2
+  [02\_CloudServices]: ./media/fundamentals-application-models/ExecModels_02_CloudServices.png
   [La figure 3]: #Fig3
+  [03\_AppUsingSQLServer]: ./media/fundamentals-application-models/ExecModels_03_AppUsingSQLServer.png
   [La figure 4]: #Fig4
-  [figure 5]: #Fig5
+  [04\_SharePointFarm]: ./media/fundamentals-application-models/ExecModels_04_SharePointFarm.png
+  [05\_Websites]: ./media/fundamentals-application-models/ExecModels_05_Websites.png
+  [Figure 5]: #Fig5
   [figure 6]: #Fig6
+  [06\_CloudServices2]: ./media/fundamentals-application-models/ExecModels_06_CloudServices2.png
   [figure 7]: #Fig7
+  [07\_CombineTechnologies]: ./media/fundamentals-application-models/ExecModels_07_CombineTechnologies.png

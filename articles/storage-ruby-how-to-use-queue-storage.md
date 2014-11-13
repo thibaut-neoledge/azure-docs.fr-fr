@@ -1,16 +1,16 @@
-<properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Ruby) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Ruby" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Queue Storage Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
+<properties urlDisplayName="Queue Service" pageTitle="Utilisation du service de File d'attente (Ruby) | Microsoft&nbsp;Azure" metaKeywords="Azure Queue Service get messages Ruby" description="D&eacute;couvrez comment utiliser le service de File d'attente Azure pour cr&eacute;er et supprimer des files d'attente, ainsi que pour ins&eacute;rer, r&eacute;cup&eacute;rer et supprimer des messages. Les exemples sont &eacute;crits en Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="Utilisation du service de stockage de files d'attente &agrave; partir de Ruby" authors="guayan" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Utilisation du service de stockage de files d'attente à partir de Ruby
 
-This guide shows you how to perform common scenarios using the Windows
-Azure Queue Storage service. The samples are written using the Ruby Azure API.
-The scenarios covered include **inserting**, **peeking**, **getting**,
-and **deleting** queue messages, as well as **creating and deleting
-queues**. For more information on queues, refer to the [Next
-Steps][Next
-Steps] section.
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation
+du service de stockage de files d'attente Windows Azure. Les exemples sont écrits en utilisant l'API Ruby Azure.
+Les scénarios traités portent sur l**insertion**, la **lecture furtive**, la **récupération**
+et la **suppression** des messages de file d'attente, ainsi que sur la **création et la suppression
+ des files d'attente**. Pour plus d'informations sur les files d'attente, consultez la section [Étapes
+suivantes][Étapes
+suivantes].
 
 ## Sommaire
 
@@ -28,8 +28,8 @@ Steps] section.
 -   [Options supplémentaires pour l'enlèvement des messages de la file d'attente][Options supplémentaires pour l'enlèvement des messages de la file d'attente]
 -   [Obtention de la longueur de la file d'attente][Obtention de la longueur de la file d'attente]
 -   [Suppression d'une file d'attente][Suppression d'une file d'attente]
--   [Étapes suivantes][Next
-    Steps]
+-   [Étapes suivantes][Étapes
+    suivantes]
 
 [WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
@@ -39,8 +39,8 @@ Steps] section.
 
 ## <span id="create-a-ruby-application"></span></a>Création d'une application Ruby
 
-Créez une application Ruby. For instructions,
-see [Create a Ruby Application on Azure][Create a Ruby Application on Azure].
+Créez une application Ruby. Pour obtenir des
+instructions, consultez le guide [Création d'une application Ruby sur Azure][Création d'une application Ruby sur Azure].
 
 ## <span id="configure-your-application-to-access-storage"></span></a>Configuration de votre application pour accéder au stockage
 
@@ -61,8 +61,8 @@ Pour utiliser Azure Storage, vous devez télécharger et utiliser le package Azu
 ## <span id="setup-a-windows-azure-storage-connection"></span></a>Configuration d'une connexion Azure Storage
 
 Le module Azure lit les variables d'environnement **AZURE\_STORAGE\_ACCOUNT** et **AZURE\_STORAGE\_ACCESS\_KEY**
- pour obtenir les informations nécessaires à la connexion à votre compte Azure Storage. If these environment variables are not set,
-you must specify the account information before using **Azure::QueueService** with the following code:
+ pour obtenir les informations nécessaires à la connexion à votre compte Azure Storage. Si ces variables d'environnement ne sont
+pas définies, vous devez spécifier les informations de compte avant d'utiliser **Azure::QueueService** avec le code suivant :
 
     Azure.config.storage_account_name = "<your azure storage account>"
     Azure.config.storage_access_key = "<your Azure storage access key>"
@@ -177,11 +177,10 @@ Pour obtenir une comparaison entre le service de File d'attente Azure abordé da
   [Options supplémentaires pour l'enlèvement des messages de la file d'attente]: #how-to-additional-options-for-dequeuing-messages
   [Obtention de la longueur de la file d'attente]: #how-to-get-the-queue-length
   [Suppression d'une file d'attente]: #how-to-delete-a-queue
-  [howto-queue-storage]: ../includes/howto-queue-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [Create a Ruby Application on Azure]: /fr-fr/develop/ruby/tutorials/web-app-with-linux-vm/
+  [Création d'une application Ruby sur Azure]: /fr-fr/develop/ruby/tutorials/web-app-with-linux-vm/
   [portail de gestion Azure]: https://manage.windowsazure.com/
   [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx
   [blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Kit de développement logiciel (SDK) Azure pour Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby
   [Utilisation des files d'attente Service Bus]: /fr-fr/develop/ruby/how-to-guides/service-bus-queues/
   [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh767287.aspx

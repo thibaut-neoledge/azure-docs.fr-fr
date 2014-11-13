@@ -12,17 +12,17 @@ Cet article décrit l’ensemble de ces trois options.
 
 ## Sommaire
 
--   [Exécution de Windows Server Active Directory sur les machines virtuelles][]
+-   [Exécution de Windows Server Active Directory sur les machines virtuelles][Exécution de Windows Server Active Directory sur les machines virtuelles]
 
--   [Utilisation d’Azure Active Directory][]
+-   [Utilisation d’Azure Active Directory][Utilisation d’Azure Active Directory]
 
--   [Utilisation du contrôle d’accès Azure Active Directory][]
+-   [Utilisation du contrôle d’accès Azure Active Directory][Utilisation du contrôle d’accès Azure Active Directory]
 
 ## <a name="adinvm"></a>Exécution de Windows Server Active Directory sur les machines virtuelles
 
-L’exécution de Windows Server AD dans les machines virtuelles Azure est fort similaire à une exécution locale. La [figure 1][] illustre un exemple type.
+L’exécution de Windows Server AD dans les machines virtuelles Azure est fort similaire à une exécution locale. La [figure 1][figure 1] illustre un exemple type.
 
-![Azure Active Directory sur la machine virtuelle][]
+![Azure Active Directory sur la machine virtuelle][Azure Active Directory sur la machine virtuelle]
 
 <a name="Fig1"></a>Figure 1 : Windows Server Active Directory peut s’exécuter sur des machines virtuelles Azure connectées au centre de données local d’une organisation au moyen du réseau virtuel Azure.
 
@@ -46,7 +46,7 @@ L’exécution de Windows Server AD sur les machines virtuelles Azure peut être
 
 -   Une organisation utilisant Azure pour les récupérations d’urgence peut conserver un petit jeu de machines virtuelles actives dans le cloud, y compris un contrôleur de domaine. Ce jeu peut ensuite être préparé pour étendre ce site si nécessaire et prendre le relais en cas de défaillances ailleurs.
 
-D’autres possibilités existent également. Par exemple, vous n’êtes pas obligé de connecter Windows Server AD dans le cloud à un centre de données local. Si vous voulez exécuter une batterie de serveurs SharePoint desservant un ensemble particulier d’utilisateurs, par exemple, qui se connectent tous uniquement à l’aide d’identités basées sur le cloud, vous pouvez créer une forêt autonome sous Azure. La façon dont vous utilisez cette technologie dépend de vos objectifs. (Pour plus d’informations sur l’utilisation de Windows Server AD avec Azure, [cliquez ici][].)
+D’autres possibilités existent également. Par exemple, vous n’êtes pas obligé de connecter Windows Server AD dans le cloud à un centre de données local. Si vous voulez exécuter une batterie de serveurs SharePoint desservant un ensemble particulier d’utilisateurs, par exemple, qui se connectent tous uniquement à l’aide d’identités basées sur le cloud, vous pouvez créer une forêt autonome sous Azure. La façon dont vous utilisez cette technologie dépend de vos objectifs. (Pour plus d’informations sur l’utilisation de Windows Server AD avec Azure, [cliquez ici][cliquez ici].)
 
 ## <a name="ad"></a>Utilisation d’Azure Active Directory
 
@@ -58,7 +58,7 @@ Ce service d’annuaire peut être utilisé de deux façons principales dans le 
 
 -   Les organisations exécutant Windows Server Active Directory peuvent connecter leur annuaire local à Azure Active Directory, puis l’utiliser pour fournir à leurs utilisateurs une authentification unique aux applications SaaS.
 
-La [figure 2][] illustre la première de ces deux possibilités, dans laquelle Azure Active Directory est tout ce qu’il faut.
+La [figure 2][figure 2] illustre la première de ces deux possibilités, dans laquelle Azure Active Directory est tout ce qu’il faut.
 
 ![Azure Active Directory sur la machine virtuelle][1]
 
@@ -74,16 +74,16 @@ Ce jeton est ensuite envoyé à l’application SaaS (étape 4), qui valide la 
 
 Si l’application a besoin de plus d’informations sur l’utilisateur que celles figurant dans le jeton, elle peut en faire directement la demande auprès d’Azure AD en utilisant l’API Azure AD Graph (étape 6). Dans la version initiale d’Azure AD, le schéma d’annuaire est assez simple : il contient simplement les utilisateurs et les groupes, ainsi que les relations entre ceux-ci. Les applications peuvent utiliser ces informations pour en savoir plus sur les connexions entre les utilisateurs. Supposons par exemple qu’une application souhaite savoir qui est le responsable d’un utilisateur afin de décider s’il est autorisé à accéder à une partie des données. Pour ce faire, elle peut interroger Azure AD par le biais de l’API Graph.
 
-L’API Graph utilise un protocole RESTful ordinaire, ce qui facilite son utilisation par la plupart des clients, y compris les appareils mobiles. L’API prend également en charge les extensions définies par OData, en ajoutant des éléments tels qu’un langage de requête pour permettre aux clients d’accéder aux données de façons plus utiles. (Pour plus d’informations sur OData, consultez la page [Présentation d’OData][].) Étant donné que l’API Graph peut être utilisée pour découvrir les relations entre les utilisateurs, elle permet aux applications de comprendre le graphique social incorporé dans le schéma Azure AD pour une organisation particulière (c’est la raison pour laquelle on parle d’API Graph). En outre, pour s’authentifier auprès d’Azure AD pour les demandes de l’API Graph, une application utilise OAuth 2.0.
+L’API Graph utilise un protocole RESTful ordinaire, ce qui facilite son utilisation par la plupart des clients, y compris les appareils mobiles. L’API prend également en charge les extensions définies par OData, en ajoutant des éléments tels qu’un langage de requête pour permettre aux clients d’accéder aux données de façons plus utiles. (Pour plus d’informations sur OData, consultez la page [Présentation d’OData][Présentation d’OData].) Étant donné que l’API Graph peut être utilisée pour découvrir les relations entre les utilisateurs, elle permet aux applications de comprendre le graphique social incorporé dans le schéma Azure AD pour une organisation particulière (c’est la raison pour laquelle on parle d’API Graph). En outre, pour s’authentifier auprès d’Azure AD pour les demandes de l’API Graph, une application utilise OAuth 2.0.
 
-Si une organisation n’utilise pas Windows Server Active Directory (elle ne dispose d’aucun domaine ou serveur local) et qu’elle s’appuie uniquement sur les applications de cloud utilisant Azure AD, l’utilisation seule de cet annuaire de cloud fournit aux utilisateurs de l’entreprise une authentification unique pour toutes celles-ci. Bien que ce scénario soit de plus en plus fréquent, la plupart des organisations utilisent toujours des domaines locaux créés au moyen de Windows Server Active Directory. Azure AD dispose d’un rôle utile à jouer ici également, comme illustré dans la [figure 3][].
+Si une organisation n’utilise pas Windows Server Active Directory (elle ne dispose d’aucun domaine ou serveur local) et qu’elle s’appuie uniquement sur les applications de cloud utilisant Azure AD, l’utilisation seule de cet annuaire de cloud fournit aux utilisateurs de l’entreprise une authentification unique pour toutes celles-ci. Bien que ce scénario soit de plus en plus fréquent, la plupart des organisations utilisent toujours des domaines locaux créés au moyen de Windows Server Active Directory. Azure AD dispose d’un rôle utile à jouer ici également, comme illustré dans la [figure 3][figure 3].
 
-![Azure Active Directory in Virtual Machine][]
+![Azure Active Directory in Virtual Machine][Azure Active Directory in Virtual Machine]
 <span id="fig3"></span></a>Figure 3 : Une organisation peut fédérer Windows Server Active Directory avec Azure Active Directory pour fournir à ses utilisateurs une authentification unique pour les applications SaaS.
 
 Dans ce scénario, un utilisateur de l’organisation B tente d’accéder à une application SaaS. Auparavant, les administrateurs de l’annuaire de l’organisation doivent établir une relation de fédération avec Azure AD à l’aide d’AD FS, comme illustré dans la figure. Ces administrateurs doivent également configurer la synchronisation des données entre les applications Windows Server AD et Azure AD locales de l’organisation. Les informations de l’utilisateur et du groupe sont alors automatiquement copiées de l’annuaire local vers Azure AD. Notez ce que cela permet : En effet, l'organisation étend son annuaire local dans le cloud. La combinaison de Windows Server AD et d’Azure AD de cette façon procure à l’organisation un service d’annuaire pouvant être géré en tant qu’entité unique, tout en conservant une présence à la fois en local et dans le cloud.
 
-Pour utiliser Azure AD, l’utilisateur se connecte d’abord à son domaine Active Directory local en procédant comme d’habitude (étape 1). Lorsqu’il tente d’accéder à l’application SaaS (étape 2), en raison du processus de fédération, Azure AD envoie à l’utilisateur un jeton pour cette application (étape 3). (Pour plus d’informations sur le fonctionnement du processus de fédération, consultez la page [Identité basée sur des demandes pour Windows : technologies et scénarios][].) Comme auparavant, ce jeton contient des informations identifiant l’utilisateur et il est signé numériquement par Azure AD. Ce jeton est ensuite envoyé à l’application SaaS (étape 4), qui valide la signature du jeton et utilise son contenu (étape 5). Comme dans le scénario précédent, l’application SaaS peut utiliser l’API Graph pour en savoir plus sur cet utilisateur si nécessaire (étape 6).
+Pour utiliser Azure AD, l’utilisateur se connecte d’abord à son domaine Active Directory local en procédant comme d’habitude (étape 1). Lorsqu’il tente d’accéder à l’application SaaS (étape 2), en raison du processus de fédération, Azure AD envoie à l’utilisateur un jeton pour cette application (étape 3). (Pour plus d’informations sur le fonctionnement du processus de fédération, consultez la page [Identité basée sur des demandes pour Windows : technologies et scénarios][Identité basée sur des demandes pour Windows : technologies et scénarios].) Comme auparavant, ce jeton contient des informations identifiant l’utilisateur et il est signé numériquement par Azure AD. Ce jeton est ensuite envoyé à l’application SaaS (étape 4), qui valide la signature du jeton et utilise son contenu (étape 5). Comme dans le scénario précédent, l’application SaaS peut utiliser l’API Graph pour en savoir plus sur cet utilisateur si nécessaire (étape 6).
 
 Aujourd’hui, Azure AD n’a pas vocation à remplacer entièrement Windows Server AD en local. Comme mentionné plus haut, l’annuaire sur le cloud présente un schéma bien plus simple, et il lui manque des éléments tels que la stratégie de groupe, la possibilité de stocker des informations sur les machines et la prise en charge du protocole LDAP. (En fait, une machine Windows ne peut pas être configurée pour permettre aux utilisateurs de s’y connecter en utilisant uniquement Azure AD : ce scénario n’est pas pris en charge.) À la place, les objectifs initiaux d’Azure AD sont, entre autres, de permettre aux utilisateurs d’entreprise d’accéder aux applications dans le cloud sans avoir à conserver une connexion distincte et d’éviter aux administrateurs d’annuaire locaux d’avoir à synchroniser manuellement leur annuaire local avec chaque application SaaS utilisée par leur organisation. Toutefois, attendez-vous à ce que, à terme, ce service d’annuaire dans le cloud prenne en charge une gamme plus étendue de scénarios.
 
@@ -95,7 +95,7 @@ Supposons, par exemple, qu’une application souhaite permettre à ses utilisate
 
 Cependant, alors que chaque fournisseur d’identité émet un type de jeton, ces jetons ne sont pas normalisés ; chaque IdP dispose de son propre format. En outre, les informations figurant dans ces jetons ne sont pas non plus normalisées. Une application qui souhaite accepter des jetons émis, par exemple, par Facebook, Google et Microsoft, a pour défi d’écrire un code unique permettant de gérer chacun de ces différents formats.
 
-Mais pourquoi procéder ainsi ? Pourquoi ne pas créer plutôt un intermédiaire pouvant générer un format de jeton unique avec une représentation commune des informations d’identité ? Cette méthode faciliterait la vie des développeurs créant les applications, étant donné qu’ils n’auraient plus qu’un seul type de jeton à gérer. Le contrôle d’accès Azure Active Directory procède exactement de cette façon : il fournit un intermédiaire dans le cloud permettant d’utiliser divers jetons. La [figure 4][] illustre la façon dont cela fonctionne.
+Mais pourquoi procéder ainsi ? Pourquoi ne pas créer plutôt un intermédiaire pouvant générer un format de jeton unique avec une représentation commune des informations d’identité ? Cette méthode faciliterait la vie des développeurs créant les applications, étant donné qu’ils n’auraient plus qu’un seul type de jeton à gérer. Le contrôle d’accès Azure Active Directory procède exactement de cette façon : il fournit un intermédiaire dans le cloud permettant d’utiliser divers jetons. La [figure 4][figure 4] illustre la façon dont cela fonctionne.
 
 ![Azure Active Directory in Virtual Machine][2]
 <span id="fig4"></span></a>Figure 4 : Le contrôle d’accès Azure Active Directory permet aux applications d’accepter plus facilement les jetons d’identité émis par différents fournisseurs d’identité.
@@ -116,14 +116,14 @@ L’utilisation des identités est importante dans pratiquement chaque applicati
 
 ## À propos de l’auteur
 
-David Chappell est directeur associé de Chappell & Associates [www.davidchappell.com][] à San Francisco, en Californie. Par le biais de ses conférences, de ses livres et de ses services de conseil, il permet aux individus du monde entier de comprendre, d’utiliser et de mettre à profit les nouvelles technologies.
+David Chappell est directeur associé de Chappell & Associates [www.davidchappell.com][www.davidchappell.com] à San Francisco, en Californie. Par le biais de ses conférences, de ses livres et de ses services de conseil, il permet aux individus du monde entier de comprendre, d’utiliser et de mettre à profit les nouvelles technologies.
 
   [Exécution de Windows Server Active Directory sur les machines virtuelles]: #adinvm
   [Utilisation d’Azure Active Directory]: #ad
   [Utilisation du contrôle d’accès Azure Active Directory]: #ac
   [figure 1]: #fig1
   [Azure Active Directory sur la machine virtuelle]: ./media/identity/identity_01_ADinVM.png
-  [cliquez ici]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx
+  [cliquez ici]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156090.aspx
   [figure 2]: #fig2
   [1]: ./media/identity/identity_02_AD.png
   [Présentation d’OData]: http://download.microsoft.com/download/E/5/A/E5A59052-EE48-4D64-897B-5F7C608165B8/IntroducingOData.pdf

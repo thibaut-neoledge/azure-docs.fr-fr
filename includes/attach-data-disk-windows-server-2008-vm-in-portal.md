@@ -1,6 +1,6 @@
 Pour attacher un disque de données, procédez comme suit :
 
-1.  Dans le [portail de gestion Azure][], cliquez sur **Virtual Machines**, puis sélectionnez la machine virtuelle créée précédemment (**testwinvm**).
+1.  Dans le [portail de gestion Azure][portail de gestion Azure], cliquez sur **Virtual Machines**, puis sélectionnez la machine virtuelle créée précédemment (**testwinvm**).
 
 2.  Dans la barre de commandes, cliquez sur **Attach**, puis sur **Attach Empty Disk**.
 
@@ -8,7 +8,7 @@ Pour attacher un disque de données, procédez comme suit :
 
 3.  Les options **Nom de la machine virtuelle**, **Emplacement de stockage** et **Nom de fichier** sont déjà définies. Il vous suffit d’entrer la taille de disque souhaitée. Tapez **5** dans le champ **Size**.
 
-    ![Attacher un disque vide][]
+    ![Attacher un disque vide][Attacher un disque vide]
 
     **Remarque :** tous les disques sont créés à partir d’un fichier de disque dur virtuel dans le stockage Azure. Vous pouvez fournir le nom du fichier de disque dur virtuel ajouté au stockage. Quant au nom du disque, Azure le génère automatiquement.
 
@@ -32,19 +32,19 @@ Pour attacher un disque de données, procédez comme suit :
 
 4.  Une fois que vous êtes connecté à la machine virtuelle, ouvrez **Server Manager**. Dans le volet gauche, développez **Storage**, puis cliquez sur **Disk Management**.
 
-    ![Gestionnaire de serveur][]
+    ![Gestionnaire de serveur][Gestionnaire de serveur]
 
 5.  La fenêtre **Initalize Disk** s’affiche. Cliquez sur **OK**.
 
-    ![Initialiser le disque][]
+    ![Initialiser le disque][Initialiser le disque]
 
 6.  Cliquez avec le bouton droit sur la zone d’allocation d’espace pour le disque 2, cliquez sur **New Simple Volume**, puis terminez l’Assistant en utilisant les valeurs par défaut.
 
-    ![Nouveau volume simple][]
+    ![Nouveau volume simple][Nouveau volume simple]
 
     Le disque est à présent accessible en ligne et prêt à être utilisé avec une nouvelle lettre de lecteur.
 
-    ![Initialisation réussie][]
+    ![Initialisation réussie][Initialisation réussie]
 
   [portail de gestion Azure]: http://manage.windowsazure.com
   [Attacher un disque vide]: ./media/attach-data-disk-windows-server-2008-vm-in-portal/AttachDataDiskWinVM2.png
