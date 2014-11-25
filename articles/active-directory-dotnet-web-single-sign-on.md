@@ -1,6 +1,6 @@
 <properties urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Web Single Sign-On with .NET and Azure Active Directory" authors="terrylan" solutions="" manager="terrylan" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan" />
 
 # Authentification unique web avec .NET et Azure Active Directory
 
@@ -183,5 +183,4 @@ Ce didacticiel vous a indiqué comment créer et configurer une unique applicati
   [Étape 2 : configuration de l'application dans le client d'annuaire d'une société]: #provisionapp
   [Étape 3 : protection de l'application en utilisant WS-Federation pour la connexion des employés]: #protectapp
   [Résumé]: #summary
-  [\*thomas.levesque@awesomecomputers.onmicrosoft.com\*]: mailto:*john.doe@awesomecomputers.onmicrosoft.com*
   [Développement d'une application cloud mutualisée avec Azure Active Directory]: http://g.microsoftonline.com/0AX00en/121

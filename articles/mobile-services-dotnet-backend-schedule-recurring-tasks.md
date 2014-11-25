@@ -278,7 +278,6 @@ Félicitations, vous avez créé un nouveau travail planifié dans votre service
   [Test local de la tâche planifiée]: #run-job-locally
   [Publication du service et inscription de la tâche]: #register-job
   [Projet CodePlex LINQ to Twitter]: http://linqtotwitter.codeplex.com/
-  [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
   [0]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
   [1]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-component-model-reference.png
   [Utilisation des migrations Code First pour mettre à jour le modèle de données]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations

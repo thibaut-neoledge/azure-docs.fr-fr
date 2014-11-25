@@ -1,16 +1,16 @@
 <properties linkid="develop-php-tutorials-convert-wordpress-to-multisite" urlDisplayName="Convert a WordPress Site to a Multisite" pageTitle="Convert a WordPress Site to a Multisite" metaKeywords="WordPress, Multisite" description="Learn how to take an existing WordPress website created through the gallery in Azure and convert it to WordPress Multisite" metaCanonical="" services="web-sites" documentationCenter="PHP" title="Convert a WordPress Site to a Multisite" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Conversion d'un site WordPress en multisite
 
-*Par [Ben Lobaugh][], [Microsoft Open Technologies Inc.][]*
+*Par [Ben Lobaugh][Ben Lobaugh], [Microsoft Open Technologies Inc.][Microsoft Open Technologies Inc.]*
 
 Ce didacticiel vous explique comment prendre un site web WordPress existant créé via la galerie dans Azure et le convertir en une installation multisite WordPress. En outre, vous allez apprendre à attribuer un domaine personnalisé à chacun des sous-sites de votre installation.
 
-Ce didacticiel part du principe que vous disposez d'une installation existante de WordPress. Si ce n'est pas le cas, suivez les instructions fournies dans la page [Création d'un site Web WordPress à partir de la galerie dans Azure][].
+Ce didacticiel part du principe que vous disposez d'une installation existante de WordPress. Si ce n'est pas le cas, suivez les instructions fournies dans la page [Création d'un site Web WordPress à partir de la galerie dans Azure][Création d'un site Web WordPress à partir de la galerie dans Azure].
 
-La conversion d'une installation existante d'un site unique WordPress en multisite est généralement assez simple et un grand nombre d'étapes initiales sont tirées de la page [Création d'un réseau][] sur le [Codex WordPress][].
+La conversion d'une installation existante d'un site unique WordPress en multisite est généralement assez simple et un grand nombre d'étapes initiales sont tirées de la page [Création d'un réseau][Création d'un réseau] sur le [Codex WordPress][Codex WordPress].
 
 Commençons.
 
@@ -18,9 +18,9 @@ Commençons.
 
 Vous devez d'abord activer le multisite via le fichier `wp-config.php` avec la constante **WP\_ALLOW\_MULTISITE**. Il existe deux méthodes permettant de modifier les fichiers de votre site web : via FTP et via Git. Si vous ne savez pas comment configurer l'une de ces méthodes, consultez les didacticiels suivants :
 
--   [Site Web PHP avec MySQL et FTP][]
+-   [Site Web PHP avec MySQL et FTP][Site Web PHP avec MySQL et FTP]
 
--   [Site Web PHP avec MySQL et Git][]
+-   [Site Web PHP avec MySQL et Git][Site Web PHP avec MySQL et Git]
 
 Ouvrez le fichier `wp-config.php` avec l'éditeur de votre choix et ajoutez ce qui suit au-dessus de la ligne `/* That's all, stop editing! Happy blogging. */`.
 
@@ -34,11 +34,11 @@ Assurez-vous d'enregistrer le fichier et de le renvoyer au serveur !
 
 Connectez-vous à la zone *wp-admin* de votre site Web. Vous devez voir un nouvel élément nommé **Réseau** sous le menu **Outils**. Cliquez sur **Réseau** et entrez les informations sur votre réseau.
 
-![Écran Configuration réseau][]
+![Écran Configuration réseau][Écran Configuration réseau]
 
 Ce didacticiel utilise le schéma de site *Sous-dossiers* parce qu'il doit toujours fonctionner. Nous définirons des domaines personnalisés pour chaque sous-site ultérieurement dans le didacticiel. Toutefois, il doit être possible de configurer une installation de sous-domaine si vous mappez un domaine via le portail et que vous configurez correctement le DNS générique.
 
-Pour plus d'informations sur les configurations de sous-domaine et de sous-dossier, consultez l'article [Types de réseau multisite][] sur le Codex WordPress.
+Pour plus d'informations sur les configurations de sous-domaine et de sous-dossier, consultez l'article [Types de réseau multisite][Types de réseau multisite] sur le Codex WordPress.
 
 ## Activation du réseau
 
@@ -52,7 +52,7 @@ Un menu supplémentaire nommé **Mes sites** doit désormais être présent sur 
 
 # Ajout de domaines personnalisés
 
-Le plug-in [WordPress MU Domain Mapping][] facilite grandement l'ajout de domaines personnalisés à un site de votre réseau. Pour que ce plug-in fonctionne correctement, vous devez effectuer quelques configurations supplémentaires sur le portail et auprès de votre bureau d'enregistrement de domaines.
+Le plug-in [WordPress MU Domain Mapping][WordPress MU Domain Mapping] facilite grandement l'ajout de domaines personnalisés à un site de votre réseau. Pour que ce plug-in fonctionne correctement, vous devez effectuer quelques configurations supplémentaires sur le portail et auprès de votre bureau d'enregistrement de domaines.
 
 ## Activation du mappage de domaine sur le site web
 
@@ -83,7 +83,7 @@ Revenez sur votre site web via le portail Azure, puis cliquez sur l'onglet **CON
 
 La boîte de dialogue *Manage custom domains* s'affiche. C'est là que vous allez entrer tous les domaines que vous souhaitez attribuer à votre site web. Si un domaine n'est pas répertorié ici, cela signifie qu'il n'est pas disponible pour le mappage à l'intérieur de WordPress, indépendamment de la méthode de configuration du DNS du domaine.
 
-![Boîte de dialogue Manage custom domains][]
+![Boîte de dialogue Manage custom domains][Boîte de dialogue Manage custom domains]
 
 Après avoir tapé votre domaine dans la zone de texte, Azure vérifie l'enregistrement CNAME *awverify* que vous avez créé précédemment. Si la propagation du DNS n'est pas complète, un indicateur rouge s'affiche. Si elle est terminée, vous voyez une coche verte.
 
@@ -99,7 +99,7 @@ Il est important de remarquer que les sites web Azure acceptent les enregistreme
 
 ## Installation et configuration du plug-in
 
-Actuellement, la fonctionnalité multisite de WordPress ne dispose pas d'une méthode intégrée pour mapper les domaines personnalisés. Toutefois, il existe un plug-in nommé [WordPress MU Domain Mapping][] qui ajoute cette fonctionnalité pour vous. Connectez-vous à la partie Admin du réseau de votre site et installez le plug-in **WordPress MU Domain Mapping**.
+Actuellement, la fonctionnalité multisite de WordPress ne dispose pas d'une méthode intégrée pour mapper les domaines personnalisés. Toutefois, il existe un plug-in nommé [WordPress MU Domain Mapping][WordPress MU Domain Mapping] qui ajoute cette fonctionnalité pour vous. Connectez-vous à la partie Admin du réseau de votre site et installez le plug-in **WordPress MU Domain Mapping**.
 
 Après avoir installé et activé le plug-in, accédez à **Paramètres** \> **Mappage de domaine** pour configurer le plug-in. Dans la première zone de texte, *Adresse IP du serveur*, entrez l'adresse IP utilisée pour configurer l'enregistrement A du domaine. Définissez les *Options du domaine* de votre choix (les valeurs par défaut font souvent l'affaire), puis cliquez sur **Enregistrer**.
 

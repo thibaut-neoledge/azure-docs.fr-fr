@@ -3,7 +3,7 @@
 Notification des utilisateurs avec Notification Hubs
 ====================================================
 
-[Mobile Services](/en-us/manage/services/notification-hubs/notify-users "Mobile Services")[ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet "ASP.NET")
+[Mobile Services](/fr-fr/manage/services/notification-hubs/notify-users "Mobile Services")[ASP.NET](/fr-fr/manage/services/notification-hubs/notify-users-aspnet "ASP.NET")
 
 Ce didacticiel explique comment utiliser Azure Notification Hubs pour envoyer des notifications Push à un utilisateur particulier d'une application sur un appareil spécifique. Un serveur principal d'API Web ASP.NET est utilisé pour authentifier les clients et pour générer les notifications. Ce didacticiel fait intervenir le Notification Hub que vous avez créé dans le didacticiel précédent intitulé **Prise en main de Notification Hubs**. Le code d'inscription aux notifications est transféré du client vers le service principal. Ainsi, l'inscription n'est pas terminée tant qu'un client n'a pas été authentifié correctement par le service. Cela signifie également que les informations d'identification du Notification Hub ne sont pas distribuées avec l'application cliente. Le service contrôle également les balises demandées pendant l'inscription.
 
@@ -17,11 +17,11 @@ Configuration requise
 ---------------------
 
 -   Visual Studio 2012. Vous pouvez également utiliser Visual Studio Express 2012 pour le Web et Visual Studio Express 2012 pour Windows 8 afin de créer l'application ASP.NET et l'application Windows Store, respectivement.
--   Ce didacticiel fait intervenir l'application et le Notification Hub que vous avez créés dans le didacticiel précédent intitulé **Prise en main de Notification Hubs**. Avant de commencer, vous devez suivre le didacticiel **Prise en main de Notification Hubs** ([Windows Store C\#](/en-us/manage/services/notification-hubs/getting-started-windows-dotnet)/[iOS](/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios)/[Android](/en-us/manage/services/notification-hubs/get-started-notification-hubs-android)).
+-   Ce didacticiel fait intervenir l'application et le Notification Hub que vous avez créés dans le didacticiel précédent intitulé **Prise en main de Notification Hubs**. Avant de commencer, vous devez suivre le didacticiel **Prise en main de Notification Hubs** ([Windows Store C\#](/fr-fr/manage/services/notification-hubs/getting-started-windows-dotnet)/[iOS](/fr-fr/manage/services/notification-hubs/get-started-notification-hubs-ios)/[Android](/fr-fr/manage/services/notification-hubs/get-started-notification-hubs-android)).
 
 **Remarque**
 
-Le projet d'API Web ASP.NET créé dans ce didacticiel s'exécute sur votre ordinateur local. Vous pouvez également publier un projet d'API Web ASP.NET sur Azure. Pour plus d'informations, consultez la page [Création d'un service REST propice à la mobilité avec l'API Web ASP.NET et la base de données SQL](/en-us/develop/net/tutorials/rest-service-using-web-api/).
+Le projet d'API Web ASP.NET créé dans ce didacticiel s'exécute sur votre ordinateur local. Vous pouvez également publier un projet d'API Web ASP.NET sur Azure. Pour plus d'informations, consultez la page [Création d'un service REST propice à la mobilité avec l'API Web ASP.NET et la base de données SQL](/fr-fr/develop/net/tutorials/rest-service-using-web-api/).
 
 Création de l'application ASP.NETCréation d'une application ASP.NET avec authentification
 -----------------------------------------------------------------------------------------
@@ -295,8 +295,8 @@ L'application que vous avez créée dans le didacticiel **Prise en main de Notif
 
 2.  Suivez les étapes de l'une des versions suivantes de la procédure d'**Inscription de l'utilisateur actuel pour les notifications Push avec l'API Web ASP.NET**, selon votre plateforme cliente :
 
-    -   [Version Windows Store C\#](/en-us/manage/services/notification-hubs/register-users-aspnet-dotnet)
-    -   [Version iOS](/en-us/manage/services/notification-hubs/howto-register-user-with-aspnet-ios)
+    -   [Version Windows Store C\#](/fr-fr/manage/services/notification-hubs/register-users-aspnet-dotnet)
+    -   [Version iOS](/fr-fr/manage/services/notification-hubs/howto-register-user-with-aspnet-ios)
 
 3.  Exécutez l'application mise à jour, connectez-vous au service en utilisant la même chaîne pour le nom d'utilisateur et le mot de passe, puis vérifiez que l'ID d'inscription attribué à la notification est affiché.
 
@@ -304,7 +304,7 @@ L'application que vous avez créée dans le didacticiel **Prise en main de Notif
 
     **Remarque**
 
-    Une erreur est générée sur le serveur principal lorsqu'il n'existe pas d'inscription pour une plateforme vers laquelle l'envoi d'une notification a été demandé. Dans ce cas, cette erreur peut être ignorée. Pour voir comment éviter cette situation en utilisant des modèles, consultez la page [Envoi de notifications interplateforme aux utilisateurs avec les Notification Hubs](/en-us/manage/services/notification-hubs/notify-users-xplat-aspnet).
+    Une erreur est générée sur le serveur principal lorsqu'il n'existe pas d'inscription pour une plateforme vers laquelle l'envoi d'une notification a été demandé. Dans ce cas, cette erreur peut être ignorée. Pour voir comment éviter cette situation en utilisant des modèles, consultez la page [Envoi de notifications interplateforme aux utilisateurs avec les Notification Hubs](/fr-fr/manage/services/notification-hubs/notify-users-xplat-aspnet).
 
 4.  (Facultatif) Déployez l'application cliente sur un second appareil, puis exécutez-la et insérez du texte.
 
@@ -315,10 +315,10 @@ L'application que vous avez créée dans le didacticiel **Prise en main de Notif
 
 Maintenant que vous êtes parvenu à la fin de ce didacticiel, vous pouvez poursuivre avec les didacticiels suivants :
 
--   **Utilisation des Notification Hubs pour diffuser les dernières nouvelles ([Windows Store C\#](/en-us/manage/services/notification-hubs/breaking-news-dotnet) / [iOS](/en-us/manage/services/notification-hubs/breaking-news-dotnet))**
+-   **Utilisation des Notification Hubs pour diffuser les dernières nouvelles ([Windows Store C\#](/fr-fr/manage/services/notification-hubs/breaking-news-dotnet) / [iOS](/fr-fr/manage/services/notification-hubs/breaking-news-dotnet))**
     Ce didacticiel propre à la plateforme vous montre comment utiliser des balises pour permettre aux utilisateurs de s'abonner aux types de notifications qui les intéressent.
 
--   **[Envoi de notifications interplateforme aux utilisateurs avec les Notification Hubs](/en-us/manage/services/notification-hubs/notify-users-xplat-aspnet)**
+-   **[Envoi de notifications interplateforme aux utilisateurs avec les Notification Hubs](/fr-fr/manage/services/notification-hubs/notify-users-xplat-aspnet)**
     Ce didacticiel prolonge le présent didacticiel **Notification des utilisateurs avec les Notification Hubs** et explique comment s'inscrire aux notifications en utilisant des modèles propres à la plateforme. Cela vous permet d'envoyer des notifications à partir d'une seule méthode dans votre code côté serveur.
 
 Pour plus d'informations sur Notification Hubs, consultez la page [Azure Notification Hubs](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj927170.aspx).

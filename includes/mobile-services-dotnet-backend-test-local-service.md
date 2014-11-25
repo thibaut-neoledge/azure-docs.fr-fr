@@ -4,8 +4,8 @@ Le projet de service mobile que vous téléchargez vous permet d'exécuter votre
 
 2.  Appuyez sur la touche **F5** pour régénérer le projet et démarrer le service mobile localement.
 
-	![][]
+	![][0]
 
 	Une page Web s'affiche une fois le service mobile correctement démarré.
 
-  []: ./media/mobile-services-dotnet-backend-test-local-service/mobile-service-startup.png
+  [0]: ./media/mobile-services-dotnet-backend-test-local-service/mobile-service-startup.png

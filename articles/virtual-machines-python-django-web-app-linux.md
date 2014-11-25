@@ -1,6 +1,6 @@
-<properties urlDisplayName="Web with Django" pageTitle="Didacticiel&nbsp;Application web Python avec&nbsp;Django sur Mac - Azure" metaKeywords="" description="Didacticiel qui explique comment h&eacute;berger un site web&nbsp;Django dans Azure &agrave; l'aide d'une machine virtuelle&nbsp;Linux." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Application Web Django Hello World (mac-linux)" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties linkid="develop-python-web-app-with-django-mac" urlDisplayName="Web with Django" pageTitle="Python web app with Django on Mac - Azure tutorial" metaKeywords="" description="A tutorial that shows how to host a Django-based website on Azure using a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application (mac-linux)" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo" />
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Application Web Django Hello World (mac-linux)
 
@@ -14,8 +14,8 @@ Vous apprendrez à :
 -   Configurer une machine virtuelle Azure pour héberger Django. Ce didacticiel explique comment réaliser cette opération sous **Linux**, mais elle peut également être accomplie sur une machine virtuelle Windows Server hébergée sous Azure.
 -   Créer une application Django à partir de Linux.
 
-Dans ce didacticiel, vous allez créer une simple application web
-Hello World. L'application sera hébergée sur une machine virtuelle Azure.
+Dans ce didacticiel, vous allez créer une application
+Web Hello World simple. L'application sera hébergée sur une machine virtuelle Azure.
 
 Voici une capture d'écran de l'application terminée :
 
@@ -25,15 +25,15 @@ Voici une capture d'écran de l'application terminée :
 
 ## Création et configuration d'une machine virtuelle Azure pour héberger Django
 
-1.  Suivez les instructions fournies [ici][ici] pour créer une machine virtuelle Azure de la distribution *Ubuntu Server 14.04 LTS*.
+1.  Suivez les instructions disponibles [ici][ici] pour créer une machine virtuelle Azure de la distribution *Ubuntu Server 14.04*.
 
-**Remarque :** il *suffit* de créer la machine virtuelle. Arrêtez-vous à la section intitulée *Connexion à la machine virtuelle une fois celle-ci créée*.
+	**Remarque :** il *suffit* de créer la machine virtuelle. Arrêtez-vous à la section intitulée *Connexion à la machine virtuelle une fois celle-ci créée*.
 
 1.  Indiquez à Azure d'acheminer le trafic du port **80** du Web vers le port **80** de la machine virtuelle :
 
     -   Accédez à votre machine virtuelle nouvellement créée dans le portail Azure et cliquez sur l'onglet *ENDPOINTS*.
-    -   Cliquez sur le bouton *AJOUTER* au bas de l'écran.
-        ![add endpoint][add endpoint]
+    -   Cliquez sur le bouton *ADD ENDPOINT* en bas de l'écran.
+        ![Ajouter un point de terminaison][Ajouter un point de terminaison]
     -   Ouvrez le *PORT PUBLIC 80* du protocole *TCP* en tant que *PORT PRIVÉ 80*.
         ![port80][port80]
 
@@ -73,18 +73,19 @@ Python 2.7 est préinstallé sur la machine virtuelle Linux Ubuntu. En revanche
     -   **helloworld/helloworld/settings.py** contient les paramètres Django de votre application.
     -   **helloworld/helloworld/urls.py** contient le code de mappage entre chaque URL et sa vue.
 
-3.  Créez un fichier nommé **views.py** dans le répertoire **/var/www/helloworld/helloworld**. Celui-ci contiendra la vue qui affiche la page « Hello World ». Ouvrez votre éditeur et entrez ce qui suit :
+3.  Créez un fichier nommé **views.py** dans le répertoire **/var/www/helloworld/helloworld** (en tant que jumeau de **urls.py**). Celui-ci contiendra la vue qui affiche la page « Hello World ». Ouvrez votre éditeur et entrez ce qui suit :
 
         from django.http import HttpResponse
-        def home(request):
+        def hello(request):
             html = "<html><body>Hello World!</body></html>"
             return HttpResponse(html)
 
 4.  Remplacez le contenu du fichier **urls.py** par ce qui suit :
 
-        from django.conf.urls import patterns, url
+        from django.conf.urls.defaults import patterns, include, url
+        from helloworld.views import hello
         urlpatterns = patterns('',
-            url(r'^$', 'helloworld.views.home', name='home'),
+            (r'^$',hello),
         )
 
 ## Configuration d'Apache
@@ -115,6 +116,6 @@ Lorsque vous avez terminé ce didacticiel, arrêtez et/ou supprimez votre machin
 
   [Fenêtre de navigateur affichant la page Hello World sous Azure]: ./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-browser.png
   [ici]: /fr-fr/manage/linux/tutorials/virtual-machine-from-gallery/
-  [add endpoint]: ./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-add-endpoint.png
+  [Ajouter un point de terminaison]: ./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-add-endpoint.png
   [port80]: ./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-port80.png
   [Guide d'installation de Python]: ../python-how-to-install/

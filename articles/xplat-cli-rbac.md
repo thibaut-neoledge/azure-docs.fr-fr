@@ -1,6 +1,6 @@
 <properties pageTitle="Managing Role-Based Access Control with Azure Cross-Platform Command-Line Interface" metaKeywords="ResourceManager, Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli, RBAC" description="Managing role-based access control with cross-platform command-line interface" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Cross-Platform Command-Line Interface" authors="guayan" solutions="" manager="mohisri" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Gestion du contrôle d'accès basé sur un rôle à l'aide de l'interface de ligne de commande interplateforme
 
@@ -130,8 +130,6 @@ Pour en savoir plus sur le contrôle d'accès basé sur un rôle à l'aide de xp
 -   [Utilisation des groupes de ressources pour gérer vos ressources Azure][Utilisation des groupes de ressources pour gérer vos ressources Azure] : apprenez à créer et gérer des groupes de ressources dans le portail de gestion Azure.
 -   [Blog Azure][Blog Azure] : découvrez les nouvelles fonctionnalités d'Azure.
 
-  [Interface de ligne de commande interplateforme]: /fr-fr/documentation/articles/powershell-rbac.md "Interface de ligne de commande interplateforme"
-  [Windows PowerShell]: /fr-fr/documentation/articles/xplat-cli-rbac.md "Windows PowerShell"
   [Installation et configuration de l'interface de ligne de commande interplateforme Azure]: http://azure.microsoft.com/fr-fr/documentation/articles/xplat-cli/
   [Utilisation de l'interface de ligne de commande interplateforme Azure avec le Gestionnaire de ressources]: http://azure.microsoft.com/fr-fr/documentation/articles/xplat-cli-azure-resource-manager/
   [Connexion à vos abonnements]: #connect

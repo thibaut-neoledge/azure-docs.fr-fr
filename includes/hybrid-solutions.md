@@ -4,18 +4,18 @@ Que le logiciel s’exécute dans le cloud ou localement, il est souvent en inte
 
 ## Sommaire
 
--   [Concepts de base de Service Bus][]
--   [Files d’attente][]
--   [Rubriques][]
--   [Relais][]
+-   [Concepts de base de Service Bus][Concepts de base de Service Bus]
+-   [Files d’attente][Files d’attente]
+-   [Rubriques][Rubriques]
+-   [Relais][Relais]
 
 ## <a name="fundamentals"></a>Concepts de base de Service Bus
 
 À chaque situation correspond un style de communication. Parfois, laisser les applications envoyer et recevoir des messages via une simple file d’attente suffit. Dans d’autres situations, une file d’attente ordinaire n’est pas suffisante et une file avec mécanisme de publication et d’abonnement est une meilleure solution. Et dans certains cas, vous avez juste besoin d’une connexion entre les applications, sans file d’attente. Service Bus offre ces trois options, laissant vos applications interagir de différentes manières.
 
-Service Bus est un service cloud mutualisé, ce qui signifie que le service est partagé par plusieurs utilisateurs. Chaque utilisateur, par exemple un développeur d’applications, crée un *espace de noms*, puis définit les mécanismes de communication nécessaires au sein de ce dernier. [La figure 1][] illustre ce concept.
+Service Bus est un service cloud mutualisé, ce qui signifie que le service est partagé par plusieurs utilisateurs. Chaque utilisateur, par exemple un développeur d’applications, crée un *espace de noms*, puis définit les mécanismes de communication nécessaires au sein de ce dernier. [La figure 1][La figure 1] illustre ce concept.
 
-<a name="Fig1"></a>![Schéma d’Azure Service Bus][]
+<a name="Fig1"></a>![Schéma d’Azure Service Bus][Schéma d’Azure Service Bus]
 
 **Figure 1 : Service Bus est un service mutualisé permettant la connexion d’applications via le cloud.**
 
@@ -33,9 +33,9 @@ Il est important de comprendre que même si Service Bus fonctionne dans le clou
 
 ## <a name="queues"></a>Files d’attente
 
-Supposons que vous décidiez de connecter deux applications à l’aide d’une file d’attente Service Bus. [La figure 2][] illustre cette situation.
+Supposons que vous décidiez de connecter deux applications à l’aide d’une file d’attente Service Bus. [La figure 2][La figure 2] illustre cette situation.
 
-<a name="Fig2"></a>![Schéma des files d’attente Service Bus][]
+<a name="Fig2"></a>![Schéma des files d’attente Service Bus][Schéma des files d’attente Service Bus]
 
 **Figure 2 : les files d’attente Service Bus sont un système de files d’attente unidirectionnelles asynchrones.**
 
@@ -57,13 +57,13 @@ Les files d’attente sont utiles dans de nombreuses situations. Elles laissent 
 
 ## <a name="topics"></a>Rubriques
 
-Même si elles sont utiles, les files d’attente ne sont pas toujours la bonne solution. Parfois, les rubriques Service Bus sont plus utiles. La [figure 3][] illustre cette idée.
+Même si elles sont utiles, les files d’attente ne sont pas toujours la bonne solution. Parfois, les rubriques Service Bus sont plus utiles. La [figure 3][figure 3] illustre cette idée.
 
-<a name="Fig3"></a>![Schéma des rubriques et abonnements Service Bus][]
+<a name="Fig3"></a>![Schéma des rubriques et abonnements Service Bus][Schéma des rubriques et abonnements Service Bus]
 
 **Figure 3 : en fonction du filtre spécifié par l’application, celle-ci peut recevoir certains messages ou tous les messages envoyés à une rubrique Service Bus.**
 
-Les rubriques sont assez similaires aux files d’attente. Les expéditeurs envoient les messages à la rubrique de la même façon qu’ils envoient des messages dans la file d’attente. Ces messages ont le même aspect que dans la file d’attente. La principale différence est que les rubriques laissent chaque application créer son propre abonnement en définissant un *filtre*. L’abonné ne voit alors que les messages correspondant à ce filtre. Par exemple, la [figure 3][] présente un expéditeur et une rubrique avec trois abonnés, chacun disposant de son propre filtre :
+Les rubriques sont assez similaires aux files d’attente. Les expéditeurs envoient les messages à la rubrique de la même façon qu’ils envoient des messages dans la file d’attente. Ces messages ont le même aspect que dans la file d’attente. La principale différence est que les rubriques laissent chaque application créer son propre abonnement en définissant un *filtre*. L’abonné ne voit alors que les messages correspondant à ce filtre. Par exemple, la [figure 3][figure 3] présente un expéditeur et une rubrique avec trois abonnés, chacun disposant de son propre filtre :
 
 -   L’abonné 1 ne reçoit que les messages contenant la propriété *Seller="Ava"*.
 -   L'abonné 2 reçoit les messages contenant la propriété *Seller="Ruby"* et/ou contenant une propriété *Amount* dont la valeur est supérieure à 100 000. Peut-être que Ruby est la directrice commerciale et qu'elle veut voir à la fois ses propres ventes et toutes les meilleures ventes, quelles que soient les personnes qui les ont réalisées.
@@ -73,9 +73,9 @@ Comme pour les files d’attente, les abonnés d’une rubrique peuvent lire les
 
 ## <a name="relays"></a>Relais
 
-Les files d’attente et les rubriques permettent la communication asynchrone unidirectionnelle via un intermédiaire. Le trafic circule dans une seule direction, et il n’y a pas de connexion directe entre expéditeur et destinataire. Mais que faire si vous ne voulez pas de cette situation ? Supposons que vos applications doivent aussi bien envoyer que recevoir, ou bien que vous souhaitiez disposer d’une liaison directe entre elles, vous n’avez pas besoin d’un endroit intermédiaire où stocker les messages. Afin de résoudre ce genre de problèmes, Service Bus fournit des relais, comme illustré dans la [figure 4][].
+Les files d’attente et les rubriques permettent la communication asynchrone unidirectionnelle via un intermédiaire. Le trafic circule dans une seule direction, et il n’y a pas de connexion directe entre expéditeur et destinataire. Mais que faire si vous ne voulez pas de cette situation ? Supposons que vos applications doivent aussi bien envoyer que recevoir, ou bien que vous souhaitiez disposer d’une liaison directe entre elles, vous n’avez pas besoin d’un endroit intermédiaire où stocker les messages. Afin de résoudre ce genre de problèmes, Service Bus fournit des relais, comme illustré dans la [figure 4][figure 4].
 
-<a name="Fig4"></a>![Schéma du relais Service Bus][]
+<a name="Fig4"></a>![Schéma du relais Service Bus][Schéma du relais Service Bus]
 
 **Figure 4 : le relais Service Bus permet la communication bidirectionnelle synchrone entre applications.**
 

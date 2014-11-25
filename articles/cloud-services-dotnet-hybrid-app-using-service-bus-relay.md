@@ -1,6 +1,6 @@
 <properties linkid="dev-net-tutorials-hybrid-solution" urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Application hybride .NET locale/dans le cloud avec Service Bus Relay
 
@@ -13,7 +13,7 @@ Vous apprendrez à effectuer les opérations suivantes:
 -   Créer ou adapter un service web existant qui sera utilisé par une solution web
 -   Utiliser Azure Service Bus Relay pour partager des données entre une application Azure et un service web hébergé ailleurs.
 
-[WACOM.INCLUDE [create-account-note][create-account-note]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ### AVANTAGES DE L'UTILISATION DE SERVICE BUS RELAY POUR LES SOLUTIONS HYBRIDES
 
@@ -27,7 +27,7 @@ Les architectes de solutions commencent à utiliser le cloud, car celui-ci perme
 
 Dans ce didacticiel, vous allez créer un site web ASP.NET MVC 4 qui vous permettra de voir une liste de produits sur la page d'inventaire des produits.
 
-![][]
+![][0]
 
 Ce didacticiel part du principe que vous disposez des informations sur les produits dans un système local existant, et utilise Service Bus Relay pour atteindre ce système. La simulation met en scène un service web qui est exécuté dans une simple application console et est appuyé par un ensemble de produits en mémoire. Vous allez pouvoir exécuter cette application console sur votre propre ordinateur et déployer le rôle web dans Azure. Ainsi, vous verrez comment procède le rôle web en cours d'exécution dans le centre de données Azure pour appeler votre ordinateur, même si ce dernier réside certainement derrière au moins un pare-feu et une couche de traduction d'adresses réseau (NAT, network address translation).
 
@@ -555,8 +555,7 @@ Pour en savoir plus sur Service Bus, consultez les ressources suivantes:
 -   [Procédures Service Bus][Procédures Service Bus]
 -   [Utilisation des files d'attente Service Bus][Utilisation des files d'attente Service Bus]
 
-  [create-account-note]: ../includes/create-account-note.md
-  []: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
+  [0]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
   [1]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App2.png
   [Obtenir les outils et le Kit de développement logiciel (SDK)]: http://go.microsoft.com/fwlink/?LinkId=271920
   [2]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-41.png
@@ -568,7 +567,7 @@ Pour en savoir plus sur Service Bus, consultez les ressources suivantes:
   [7]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-27.png
   [8]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-09.png
   [9]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-06.png
-  [ici]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+  [ici]: http://http://msdn.microsoft.com/fr-fr/library/windowsazure/ff687127.aspx
   [10]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png
   [Utilisation du package NuGet Service Bus]: http://go.microsoft.com/fwlink/?LinkId=234589
   [11]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-1.png
@@ -585,8 +584,8 @@ Pour en savoir plus sur Service Bus, consultez les ressources suivantes:
   [20]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [21]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-11.png
   [22]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App1.png
-  [Modèles d'exécution Azure]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/
-  [Déploiement d'une application web ASP.NET vers un site web Azure]: http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/
+  [Modèles d'exécution Azure]: http://www.windowsazure.com/fr-fr/develop/net/fundamentals/compute/
+  [Déploiement d'une application web ASP.NET vers un site web Azure]: http://www.windowsazure.com/fr-fr/develop/net/tutorials/get-started/
   [23]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-21.png
   [24]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-22.png
   [25]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-12.png
@@ -599,6 +598,6 @@ Pour en savoir plus sur Service Bus, consultez les ressources suivantes:
   [32]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-41.png
   [33]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png
   [34]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [Azure Service Bus]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx
+  [Azure Service Bus]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee732537.aspx
   [Procédures Service Bus]: /fr-fr/documentation/services/service-bus/
-  [Utilisation des files d'attente Service Bus]: /en-us/develop/net/how-to-guides/service-bus-queues/
+  [Utilisation des files d'attente Service Bus]: /fr-fr/develop/net/how-to-guides/service-bus-queues/

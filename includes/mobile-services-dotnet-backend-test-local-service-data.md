@@ -6,7 +6,7 @@ Dans cette section, vous allez utiliser Visual Studio pour héberger le service 
 
 3.  Entrez un texte pour le nouvel élément todoitem. Cliquez ensuite sur **Enregistrer**. Un nouvel élément TodoItem est inséré dans la base de données créée par le service mobile hébergé localement dans IIS Express.
 
-    ![][]
+    ![][0]
 
 4.  Activez la case à cocher d'un des éléments pour le marquer comme terminé.
 
@@ -16,6 +16,6 @@ Dans cette section, vous allez utiliser Visual Studio pour héberger le service 
 
     ![][2]
 
-  []: ./media/mobile-services-dotnet-backend-test-local-service-data/new-local-todoitem.png
+  [0]: ./media/mobile-services-dotnet-backend-test-local-service-data/new-local-todoitem.png
   [1]: ./media/mobile-services-dotnet-backend-test-local-service-data/local-item-checked.png
   [2]: ./media/mobile-services-dotnet-backend-test-local-service-data/vs-show-local-table-data.png

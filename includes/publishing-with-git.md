@@ -2,25 +2,25 @@
 
 Le service Sites Web Azure prend en charge le déploiement continu à partir d'outils de contrôle du code source et de référentiel comme BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial et TFS. Ces outils permettent de mettre à jour le contenu et le code de votre site web, puis d'envoyer rapidement et facilement à votre convenance les modifications de votre site.
 
-Dans cet article, vous allez apprendre à utiliser Git pour publier directement à partir de votre ordinateur local sur un site web Azure (dans Azure, cette méthode de publication est appelée **Git local**). Vous allez également découvrir comment activer le déploiement continu à partir de sites web de référentiel, comme BitBucket, CodePlex, DropBox, GitHub ou Mercurial. Pour plus d'informations sur l'utilisation de TFS dans le cadre d'un déploiement continu, consultez la page [Livraison continue sur Azure au moyen de Visual Studio Online][].
+Dans cet article, vous allez apprendre à utiliser Git pour publier directement à partir de votre ordinateur local sur un site web Azure (dans Azure, cette méthode de publication est appelée **Git local**). Vous allez également découvrir comment activer le déploiement continu à partir de sites web de référentiel, comme BitBucket, CodePlex, DropBox, GitHub ou Mercurial. Pour plus d'informations sur l'utilisation de TFS dans le cadre d'un déploiement continu, consultez la page [Livraison continue sur Azure au moyen de Visual Studio Online][Livraison continue sur Azure au moyen de Visual Studio Online].
 
-> [WACOM.NOTE] Plusieurs des commandes Git décrites dans cet article sont exécutées automatiquement lors de la création d'un site web à l'aide des [outils en ligne de commande Azure pour Mac et Linux][].
+> [WACOM.NOTE] Plusieurs des commandes Git décrites dans cet article sont exécutées automatiquement lors de la création d'un site web à l'aide des [outils en ligne de commande Azure pour Mac et Linux][outils en ligne de commande Azure pour Mac et Linux].
 
 La tâche inclut les étapes suivantes :
 
--   [Installez Git.][]
--   [Création d'un référentiel local][]
--   [Ajout d'une page Web][]
--   [Activation du référentiel de sites Web][]
--   [Déploiement du projet][]
-    -   [Envoi des fichiers locaux vers Azure (Git local)][]
-    -   [Déploiement de fichiers à partir d'un site Web de référentiel tel que BitBucket, CodePlex, Dropbox, GitHub ou Mercurial][]
-    -   [Déployer une solution Visual Studio depuis BitBucket, CodePlex, Dropbox, GitHub ou Mercurial][]
--   [Résolution des problèmes][]
+-   [Installez Git.][Installez Git.]
+-   [Création d'un référentiel local][Création d'un référentiel local]
+-   [Ajout d'une page Web][Ajout d'une page Web]
+-   [Activation du référentiel de sites Web][Activation du référentiel de sites Web]
+-   [Déploiement du projet][Déploiement du projet]
+    -   [Envoi des fichiers locaux vers Azure (Git local)][Envoi des fichiers locaux vers Azure (Git local)]
+    -   [Déploiement de fichiers à partir d'un site Web de référentiel tel que BitBucket, CodePlex, Dropbox, GitHub ou Mercurial][Déploiement de fichiers à partir d'un site Web de référentiel tel que BitBucket, CodePlex, Dropbox, GitHub ou Mercurial]
+    -   [Déployer une solution Visual Studio depuis BitBucket, CodePlex, Dropbox, GitHub ou Mercurial][Déployer une solution Visual Studio depuis BitBucket, CodePlex, Dropbox, GitHub ou Mercurial]
+-   [Résolution des problèmes][Résolution des problèmes]
 
 ## <span id="Step2"></span></a>Installation de Git
 
-La procédure requise pour installer Git diffère selon les systèmes d'exploitation. Consultez la rubrique [Installation de Git][] pour accéder aux distributions et consignes d'installation propres aux différents systèmes d'exploitation.
+La procédure requise pour installer Git diffère selon les systèmes d'exploitation. Consultez la rubrique [Installation de Git][Installation de Git] pour accéder aux distributions et consignes d'installation propres aux différents systèmes d'exploitation.
 
 > [WACOM.NOTE] Sur certains systèmes d'exploitation, une version en ligne de commande et une version avec interface utilisateur graphique sont toutes deux disponibles. Les instructions fournies dans cet article utilisent la version en ligne de commande.
 
@@ -44,7 +44,7 @@ Effectuez les tâches suivantes pour créer un nouveau référentiel Git.
 
 ## <span id="Step3"></span></a>Ajout d'une page Web
 
-Le service Sites Web Azure prend en charge les applications créées dans différents langages de programmation. Pour les besoins de cet exemple, vous allez utiliser un fichier .html statique. Pour plus d'informations sur la publication de sites web dans d'autres langages de programmation sur Azure, consultez le [Centre de développement Azure][].
+Le service Sites Web Azure prend en charge les applications créées dans différents langages de programmation. Pour les besoins de cet exemple, vous allez utiliser un fichier .html statique. Pour plus d'informations sur la publication de sites web dans d'autres langages de programmation sur Azure, consultez le [Centre de développement Azure][Centre de développement Azure].
 
 1.  Au moyen d'un éditeur de texte, créez un fichier nommé **index.html** à la racine du référentiel Git (répertoire MyGitRepository créé plus tôt).
 
@@ -72,29 +72,29 @@ Le service Sites Web Azure prend en charge les applications créées dans diffé
 
 Effectuez la procédure suivante pour activer un référentiel Git pour votre site web au moyen du portail Azure :
 
-1.  Connectez-vous au [portail Azure][].
+1.  Connectez-vous au [portail Azure][portail Azure].
 
 2.  Cliquez sur le bouton NOUVEAU pour créer un site web pour lequel vous activerez un référentiel.
 
 3.  Attendez que le processus de création du site web soit terminé dans la vue **Sites web**, puis sélectionnez le site web.
 
-    ![Image affichant un site Web sélectionné][]
+    ![Image affichant un site Web sélectionné][Image affichant un site Web sélectionné]
 
 4.  Sélectionnez l'onglet **Tableau de bord**.
 
 5.  Dans la section **aperçu rapide**, sélectionnez **Configurer le déploiement à partir du contrôle de code source**. La boîte de dialogue **Configurer le déploiement** suivante apparaît.
 
-    ![git-WhereIsYourSourceCode][]
+    ![git-WhereIsYourSourceCode][git-WhereIsYourSourceCode]
 
 6.  Choisissez **Local Git**, puis cliquez sur la flèche **Suivant**.
 
 7.  Si vous configurez un référentiel pour la première fois dans Azure, vous devez créer des informations d'identification de connexion pour ce référentiel. Vous les utiliserez pour vous connecter au référentiel Azure et pour envoyer les modifications depuis votre référentiel Git local.
 
-    ![][]
+    ![][0]
 
 8.  Quelques secondes plus tard, un message vous indique que votre référentiel est prêt.
 
-    ![Instructions Git][]
+    ![Instructions Git][Instructions Git]
 
 ## <span id="Step5"></span></a>Déploiement du projet
 
@@ -134,7 +134,7 @@ Pour publier votre site web sur Azure à l'aide de Git local, procédez comme su
 
 4.  Dans la partie inférieure du portail, cliquez sur le lien **PARCOURIR** pour vérifier que la page **index.html** a été déployée. Une page contenant « Hello Git! » s'affiche.
 
-    ![Page Web contenant « Hello Git! »][]
+    ![Page Web contenant « Hello Git! »][Page Web contenant « Hello Git! »]
 
 5.  Au moyen d'un éditeur de texte, modifiez le fichier **index.html** de façon à ce qu'il contienne « Super ! », puis enregistrez le fichier.
 
@@ -146,7 +146,7 @@ Pour publier votre site web sur Azure à l'aide de Git local, procédez comme su
 
     Une fois que la commande **push** a été exécutée, actualisez le navigateur (vous devrez peut-être appuyer sur Ctrl+F5 pour qu'il soit actualisé correctement). Notez que le contenu de la page reflète à présent la dernière modification validée.
 
-    ![Page Web contenant « Super ! »][]
+    ![Page Web contenant « Super ! »][Page Web contenant « Super ! »]
 
 ### <span id="Step7"></span></a>Déployer des fichiers depuis un site web de référentiel comme BitBucket, CodePlex, Dropbox, GitHub ou Mercurial
 
@@ -154,7 +154,7 @@ L'envoi de fichiers locaux vers Azure au moyen du Git local vous permet d'envoye
 
 Bien que les deux méthodes aboutissent à un déploiement de votre projet vers un site web Azure, le déploiement continu est utile quand plusieurs personnes travaillent sur un projet et qu'elles veulent s'assurer que la version la plus récente est toujours publiée, quel qu'en soit l'auteur. Le déploiement continu s'avère également utile si vous vous servez de l'un des outils mentionnés ci-dessus en tant que référentiel central pour votre application.
 
-Le déploiement de fichiers à partir de GitHub, CodePlex ou BitBucket requiert que vous ayez publié votre projet local sur l'un de ces services. Pour plus d'informations sur la publication de votre projet sur ces services, consultez les pages [Création d'un référentiel (GitHub)][], [Utilisation de Git avec CodePlex][], [Création d'un référentiel (BitBucket)][], [Utilisation de Dropbox pour partager des référentiels Git][] et [Démarrage rapide - Mercurial][].
+Le déploiement de fichiers à partir de GitHub, CodePlex ou BitBucket requiert que vous ayez publié votre projet local sur l'un de ces services. Pour plus d'informations sur la publication de votre projet sur ces services, consultez les pages [Création d'un référentiel (GitHub)][Création d'un référentiel (GitHub)], [Utilisation de Git avec CodePlex][Utilisation de Git avec CodePlex], [Création d'un référentiel (BitBucket)][Création d'un référentiel (BitBucket)], [Utilisation de Dropbox pour partager des référentiels Git][Utilisation de Dropbox pour partager des référentiels Git] et [Démarrage rapide - Mercurial][Démarrage rapide - Mercurial].
 
 1.  Commencez par placer les fichiers de votre site web dans le référentiel sélectionné qui sera utilisé pour un déploiement continu.
 
@@ -166,7 +166,7 @@ Le déploiement de fichiers à partir de GitHub, CodePlex ou BitBucket requiert 
 
 5.  Une fois que vous avez autorisé Azure à accéder à votre compte, une liste de référentiels s'affiche.
 
-    ![git-ChooseARepositoryToDeploy][]
+    ![git-ChooseARepositoryToDeploy][git-ChooseARepositoryToDeploy]
 
 6.  Sélectionnez le référentiel que vous voulez associer à votre site web Azure. Cliquez sur la coche pour continuer.
 
@@ -174,13 +174,13 @@ Le déploiement de fichiers à partir de GitHub, CodePlex ou BitBucket requiert 
 
 7.  Azure crée une association avec le référentiel sélectionné et récupère les fichiers à partir de la branche principale. Au terme de ce processus, l'**historique de déploiement** dans la page **Déploiements** affiche un message **Déploiement actif** similaire au suivant :
 
-    ![git-githubdeployed][]
+    ![git-githubdeployed][git-githubdeployed]
 
 8.  À ce stade, votre projet a été déployé à partir du référentiel de votre choix vers votre site web Azure. Pour vérifier que le site est actif, cliquez sur le lien **Parcourir** dans la partie inférieure du portail. Le navigateur doit accéder au site web.
 
 9.  Pour vérifier que le déploiement continu a bien lieu, effectuez une modification dans votre projet, puis envoyez la mise à jour vers le référentiel que vous avez associé à ce site web. Votre site web doit se mettre à jour de façon à refléter les modifications peu après l'envoi vers le référentiel. Vous pouvez vérifier que les mises à jour ont été récupérées sur la page **Déploiements** de votre site web.
 
-    ![git-GitHubDeployed-Updated][]
+    ![git-GitHubDeployed-Updated][git-GitHubDeployed-Updated]
 
 ### <span id="Step75"></span></a>Déployer une solution Visual Studio depuis BitBucket, CodePlex, Dropbox, GitHub ou Mercurial
 
@@ -188,7 +188,7 @@ L'envoi d'une solution Visual Studio vers un site web Azure est aussi facile qu'
 
 Les étapes pour envoyer votre solution Visual Studio vers un site web Azure sont les mêmes que celles de la [section précédente][Déploiement de fichiers à partir d'un site Web de référentiel tel que BitBucket, CodePlex, Dropbox, GitHub ou Mercurial], à condition de configurer votre solution et votre référentiel de la façon suivante :
 
--   Dans la racine de votre référentiel, ajoutez un fichier `.gitignore`, puis spécifiez tous les fichiers et dossiers que vous voulez exclure de votre référentiel, comme les dossiers `Obj`, `Bin` et `packages` (consultez la [documentation de gitignore][] pour des informations sur la mise en forme). Par exemple :
+-   Dans la racine de votre référentiel, ajoutez un fichier `.gitignore`, puis spécifiez tous les fichiers et dossiers que vous voulez exclure de votre référentiel, comme les dossiers `Obj`, `Bin` et `packages` (consultez la [documentation de gitignore][documentation de gitignore] pour des informations sur la mise en forme). Par exemple :
 
         [Oo]bj/
         [Bb]in/
@@ -210,7 +210,7 @@ Les étapes pour envoyer votre solution Visual Studio vers un site web Azure son
 
 -   Ajoutez l'arborescence des répertoires de toute la solution à votre référentiel, avec le fichier .sln dans la racine du référentiel.
 
--   Dans votre solution Visual Studio, [activez la restauration de packages NuGet][] pour que Visual Studio restaure automatiquement les packages manquants.
+-   Dans votre solution Visual Studio, [activez la restauration de packages NuGet][activez la restauration de packages NuGet] pour que Visual Studio restaure automatiquement les packages manquants.
 
 Une fois que vous avez configuré votre référentiel comme indiqué ainsi que votre site web Azure pour la publication en continu depuis un des référentiels Git en ligne, vous pouvez développer votre application ASP.NET localement dans Visual Studio et déployer en continu votre code, en envoyant simplement les modifications apportées à votre référentiel Git en ligne.
 
@@ -218,11 +218,11 @@ Une fois que vous avez configuré votre référentiel comme indiqué ainsi que v
 
 Le déploiement continu fonctionne comme suit : il fournit l'**URL du déclencheur du déploiement** dans la section **déploiements** de l'onglet **Configurer** de votre site.
 
-![git-DeploymentTrigger][]
+![git-DeploymentTrigger][git-DeploymentTrigger]
 
 Quand des mises à jour sont effectuées dans votre référentiel, une demande POST est envoyée à cette URL, notifiant votre site web Azure que le référentiel a été mis à jour. À ce moment, la mise à jour est récupérée et déployée vers votre site web.
 
-Pour plus d'informations sur le moteur sous -jacent au processus de déploiement Git pour des sites web Azure, consultez [Projet Kudu][].
+Pour plus d'informations sur le moteur sous -jacent au processus de déploiement Git pour des sites web Azure, consultez [Projet Kudu][Projet Kudu].
 
 #### Spécification de la branche à utiliser
 
@@ -238,7 +238,7 @@ Lorsque vous activez le déploiement continu, la branche principale (**master**)
 
 Le déploiement continu peut être désactivé à partir du **Tableau de bord** Azure. Sous la section **aperçu rapide**, choisissez l'option de déconnexion du référentiel que vous utilisez :
 
-![git-DisconnectFromGitHub][]
+![git-DisconnectFromGitHub][git-DisconnectFromGitHub]
 
 Après avoir répondu **Oui** au message de confirmation, vous pouvez revenir à la section **aperçu rapide** et cliquer sur **Configurer le déploiement à partir du contrôle de code source** si vous voulez configurer la publication à partir d'une autre source.
 
@@ -302,10 +302,10 @@ Voici des erreurs ou des problèmes fréquemment rencontrés lors de l'utilisati
 
 ## Ressources supplémentaires
 
--   [Utilisation de PowerShell pour Azure][]
+-   [Utilisation de PowerShell pour Azure][Utilisation de PowerShell pour Azure]
 -   [Utilisation des outils en ligne de commande Azure pour Mac et Linux][outils en ligne de commande Azure pour Mac et Linux]
--   [Documentation Git][]
--   [Projet Kudu][]
+-   [Documentation Git][Documentation Git]
+-   [Projet Kudu][Projet Kudu]
 
   [Livraison continue sur Azure au moyen de Visual Studio Online]: http://www.windowsazure.com/fr-fr/develop/net/common-tasks/publishing-with-tfs/
   [outils en ligne de commande Azure pour Mac et Linux]: /fr-fr/develop/nodejs/how-to-guides/command-line-tools/
@@ -323,7 +323,7 @@ Voici des erreurs ou des problèmes fréquemment rencontrés lors de l'utilisati
   [portail Azure]: http://manage.windowsazure.com
   [Image affichant un site Web sélectionné]: ./media/publishing-with-git/git-select-website.png
   [git-WhereIsYourSourceCode]: ./media/publishing-with-git/git-WhereIsYourSourceCode.png
-  []: ./media/publishing-with-git/git_credentials.png
+  [0]: ./media/publishing-with-git/git_credentials.png
   [Instructions Git]: ./media/publishing-with-git/git-instructions.png
   [Page Web contenant « Hello Git! »]: ./media/publishing-with-git/git-hello-git.png
   [Page Web contenant « Super ! »]: ./media/publishing-with-git/git-yay.png

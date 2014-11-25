@@ -1,4 +1,4 @@
-<properties urlDisplayName="Analyze Twitter data with HDInsight Hadoop" pageTitle="Analyse des donn&eacute;es Twitter avec Hadoop dans HDInsight | Azure" metaKeywords="" description="D&eacute;couvrez comment utiliser Hive pour analyser des donn&eacute;es Twitter sur Hadoop dans HDInsight afin de d&eacute;terminer la fr&eacute;quence d'utilisation d'un mot particulier." metaCanonical="" services="HDInsight" documentationCenter="" title="Analyse des donn&eacute;es Twitter avec Hadoop dans HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze Twitter data with HDInsight Hadoop" pageTitle="Analyze Twitter data with Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how to use Hive to analyze Twitter data on Hadoop in HDInsight to find the usage frequency of a particular word." metaCanonical="" services="HDInsight" documentationCenter="" title="Analyze Twitter data with Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -23,7 +23,7 @@ Les sites web sociaux constituent l'un des principaux motifs de l'utilisation du
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
--   Une **station de travail** sur laquelle Azure PowerShell est installé et configuré. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][Installation et configuration d'Azure PowerShell]. Pour exécuter des scripts PowerShell, vous devez exécuter Azure PowerShell en tant qu'administrateur et définir la stratégie d'exécution sur *RemoteSigned*. Consultez la page [Exécution de scripts Windows PowerShell][Exécution de scripts Windows PowerShell].
+-   **Un poste de travail** sur lequel Azure PowerShell est installé et configuré. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][Installation et configuration d'Azure PowerShell]. Pour exécuter des scripts PowerShell, vous devez exécuter Azure PowerShell en tant qu'administrateur et définir la stratégie d'exécution sur *RemoteSigned*. Consultez la page [Exécution de scripts Windows PowerShell][Exécution de scripts Windows PowerShell].
 
     Avant d'exécuter vos scripts PowerShell, assurez-vous que vous êtes connecté à votre abonnement Azure à l'aide de la cmdlet suivante :
 
@@ -33,7 +33,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
         Select-AzureSubscription <AzureSubscriptionName>
 
--   Un **cluster Azure HDInsight**. Pour obtenir des instructions sur l'approvisionnement des clusters, consultez les rubriques [Prise en main de HDInsight][Prise en main de HDInsight] ou [Approvisionnement de clusters HDInsight][Approvisionnement de clusters HDInsight]. Vous aurez besoin des données suivantes pour suivre ce didacticiel :
+-   **Un cluster Azure HDInsight**. Pour obtenir des instructions sur l'approvisionnement des clusters, consultez les rubriques [Prise en main de HDInsight][Prise en main de HDInsight] ou [Approvisionnement de clusters HDInsight][Approvisionnement de clusters HDInsight]. Vous aurez besoin des données suivantes pour suivre ce didacticiel :
 
     <table>
     <colgroup>
@@ -78,7 +78,7 @@ HDInsight utilise le stockage d'objets blob Azure pour stocker des données. Il 
 
 Lorsque vous approvisionnez un cluster HDInsight, un conteneur de stockage d'objets blob est désigné comme système de fichiers par défaut, comme dans HDFS. Outre ce conteneur, vous pouvez ajouter des conteneurs supplémentaires à partir du même compte de stockage Azure ou de différents comptes de stockage Azure au cours du processus d'approvisionnement. Pour plus d'instructions sur l'ajout de comptes de stockage supplémentaires, consultez la rubrique [Approvisionnement de clusters HDInsight][Approvisionnement de clusters HDInsight].
 
-> [WACOM.NOTE] Pour simplifier le script PowerShell utilisé dans ce didacticiel, tous les fichiers sont stockés dans le conteneur du système de fichiers par défaut, situé à l'emplacement */tutorials/twitter*. Par défaut, ce conteneur porte le même nom que le cluster HDInsight. Si vous choisissez d'utiliser un conteneur différent pour stocker ces fichiers, mettez à jour le script en conséquence.
+Pour simplifier le script PowerShell utilisé dans ce didacticiel, tous les fichiers sont stockés dans le conteneur du système de fichiers par défaut, situé à l'emplacement */tutorials/twitter*. Par défaut, ce conteneur porte le même nom que le cluster HDInsight.
 
 La syntaxe WASB est :
 
@@ -100,12 +100,13 @@ Pour accéder directement au fichier à partir du compte de stockage, le nom de 
 
 Le tableau suivant répertorie les fichiers utilisés dans ce didacticiel :
 
-| Fichiers                           | Description                                                                                                                 |
-|------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| /tutorials/twitter/data/tweets.txt | Données source pour la tâche Hive.                                                                                          |
-| /tutorials/twitter/output          | Données de sortie pour la tâche Hive. Le nom de fichier de sortie de la tâche Hive du fichier par défaut est **000000\_0**. |
-| tutorials/twitter/twitter.hql      | Fichier de script HiveQL.                                                                                                   |
-| /tutorials/twitter/jobstatus       | État de la tâche Hadoop.                                                                                                    |
+<table border="1">
+<tr><th>Fichiers</th><th>Description</th></tr>
+<tr><td>/tutorials/twitter/data/tweets.txt</td><td>Données source pour la tâche Hive.                                                                                         </td></tr>
+<tr><td>/tutorials/twitter/output         </td><td>Données de sortie pour la tâche Hive. Le nom de fichier de sortie de la tâche Hive du fichier par défaut est <strong>000000\_0</strong>.</td></tr>
+<tr><td>tutorials/twitter/twitter.hql     </td><td>Fichier de script HiveQL.                                                                                                  </td></tr>
+<tr><td>/tutorials/twitter/jobstatus      </td><td>État de la tâche Hadoop.                                                                                                   </td></tr>
+</table>
 
 ## <span id="feed"></span></a>Obtention du flux Twitter
 
@@ -119,9 +120,9 @@ Pour utiliser OAuth, la première étape consiste à créer une nouvelle applica
 
 **Pour créer une application Twitter :**
 
-1.  Connectez-vous à <https://apps.twitter.com/>. Cliquez sur le lien **S'inscrire maintenant** si vous ne disposez pas d'un compte Twitter.
+1.  Connectez-vous à [][]<https://apps.twitter.com/></a>. Cliquez sur le lien **S'inscrire maintenant** si vous ne disposez pas d'un compte Twitter.
 2.  Cliquez sur **Create New App**.
-3.  Renseignez les champs **Name**, **Description** et **Website**. Vous pouvez créer une URL pour le champ du site Web. Le tableau suivant affiche quelques exemples de valeurs à utiliser :
+3.  Entrez **Name**, **Description**, **Website**. Vous pouvez créer une URL pour le champ du site Web. Le tableau suivant affiche quelques exemples de valeurs à utiliser :
 
     | Champ       | Valeur                        |
     |-------------|-------------------------------|
@@ -129,8 +130,9 @@ Pour utiliser OAuth, la première étape consiste à créer une nouvelle applica
     | Description | MyHDInsightApp                |
     | Site Web    | http://www.myhdinsightapp.com |
 
-4.  Activez la case à cocher **Yes, I agree**, puis cliquez sur **Create your Twitter application**.
-5.  Cliquez sur l'onglet **Permissions**. L'autorisation par défaut est **Read only**. Ces étapes sont suffisantes pour ce didacticiel.
+
+4.  Activez la case à cocher **Yes, I agree**, puis cliquez **Create your Twitter application**.
+5.  Cliquez sur l'onglet **Permissions**. L'autorisation par défaut est **Read only**. Ces étapes sont suffisantes pour ce didacticiel.  
 6.  Cliquez sur l'onglet **API Keys**.
 7.  Cliquez sur **Create my access token**.
 8.  Cliquez sur **Test OAuth** dans le coin supérieur droit de la page.
@@ -521,7 +523,7 @@ Dans ce didacticiel, nous avons vu comment transformer le jeu de données Json n
   [Nettoyage du didacticiel]: #cleanup
   [Étapes suivantes]: #nextsteps
   [Installation et configuration d'Azure PowerShell]: ../install-configure-powershell
-  [Exécution de scripts Windows PowerShell]: http://technet.microsoft.com/fr-fr/library/ee176961.aspx
+  [Exécution de scripts Windows PowerShell]: http://technet.microsoft.com/fr-fr/library/ee176949.aspx
   [Prise en main de HDInsight]: ../hdinsight-get-started/
   [Approvisionnement de clusters HDInsight]: ../hdinsight-provision-clusters/
   [Utilisation du stockage d'objets blob Azure avec HDInsight]: ../hdinsight-use-blob-storage/
@@ -530,7 +532,7 @@ Dans ce didacticiel, nous avons vu comment transformer le jeu de données Json n
   [données Tweets]: https://dev.twitter.com/docs/platform-objects/tweets
   [oauth.net]: http://oauth.net/
   [Guide du débutant sur OAuth]: http://hueniverse.com/oauth/
-  [*Curl*]: http://curl.haxx.se
+  []: https://apps.twitter.com/
   [ici]: http://curl.haxx.se/download.html
   [Démarrage de Windows PowerShell sur Windows 8 et Windows]: http://technet.microsoft.com/fr-fr/library/hh847889.aspx
   [Utilisation du stockage d'objets blob avec HDInsight]: ../hdinsight-use-blob-storage/#powershell

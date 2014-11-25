@@ -71,10 +71,4 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
   [Enregistrement de jetons d'authentification sur le client]: #cache-tokens
   [Actualisation des jetons expirés]: #refresh-tokens
   [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-android-get-started/
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-dotnet-backend-aad-server-extension]: ../includes/mobile-services-dotnet-backend-aad-server-extension.md
-  [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
-  [mobile-services-android-authenticate-app]: ../includes/mobile-services-android-authenticate-app.md
-  [mobile-services-android-authenticate-app-with-token]: ../includes/mobile-services-android-authenticate-app-with-token.md
-  [mobile-services-android-authenticate-app-refresh-token]: ../includes/mobile-services-android-authenticate-app-refresh-token.md
   [Autorisation côté service des utilisateurs Mobile Services]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts

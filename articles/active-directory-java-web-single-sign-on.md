@@ -1,6 +1,6 @@
 <properties linkid="develop-java-how-to-guides-web-sso" urlDisplayName="Web SSO" pageTitle="Single sign-on with Azure Active Directory (Java)" metaKeywords="Azure Java web app, Azure single sign-on, Azure Java Active Directory" description="Learn how to create a Java web application that uses single sign-on with Azure Active Directory." metaCanonical="" services="active-directory" documentationCenter="Java" title="Web Single Sign-On with Java and Azure Active Directory" authors="mbaldwin" solutions="" manager="mbaldwin" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin" />
 
 # Authentification unique web avec Java et Azure Active Directory
 
@@ -418,4 +418,3 @@ Ce didacticiel vous a montré comment créer et configurer une unique applicatio
   [Étape 2 : configuration de l'application dans le client d'annuaire d'une société]: #provisionapp
   [Étape 3 : protection de l'application en utilisant WS-Federation pour la connexion des employés]: #protectapp
   [Résumé]: #summary
-  [\*thomas.levesque@fabrikam.onmicrosoft.com\*]: mailto:*john.doe@fabrikam.onmicrosoft.com*

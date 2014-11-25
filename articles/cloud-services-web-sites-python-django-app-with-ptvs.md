@@ -1,6 +1,6 @@
 <properties linkid="develop-python-tutorials-django-with-python-tools-for-visual-studio" urlDisplayName="Django with Python Tools for Visual Studio 2.0" pageTitle="Creating Django applications with Python Tools for Visual Studio 2.0" metaKeywords="" description="Learn how to use the Python Tools for Visual Studio to create a Django application that stores data in a SQL Database or MySQL database instance and can be deployed to a website or cloud service." metaCanonical="" services="web-sites,cloud-services" documentationCenter="Python" title="Creating Django applications with Python Tools 2.0 for Visual Studio" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Création d'applications Django avec Python Tools 2.0 for Visual Studio
 
@@ -16,14 +16,14 @@
 
 Ce didacticiel se concentre sur PTVS et Azure. Pour obtenir plus d'informations sur Django et l'application de sondage de ce didacticiel, consultez [][]<https://www.djangoproject.com/></a>.
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Configuration requise
 
 Les éléments suivants sont requis pour suivre ce didacticiel :
 
--   [PTVS 2.0][]
--   [Python 2.7 (32 bits)][]
+-   [PTVS 2.0][PTVS 2.0]
+-   [Python 2.7 (32 bits)][Python 2.7 (32 bits)]
 -   Visual Studio et le Kit de développement logiciel (SDK) Azure :
   - VS 2010 Pro ou une version plus récente avec le Kit de développement logiciel (SDK) Azure 2.1
   - VS 2012 Pro ou une version plus récente avec le Kit de développement logiciel (SDK) Azure 2.1, 2.2 ou une version plus récente
@@ -36,14 +36,14 @@ Utilisez Web Platform Installer pour installer le Kit de développement logiciel
 
 ## Téléchargement d'un projet existant
 
-Si vous voulez passer à la suite de ce didacticiel, vous pouvez [télécharger le code source de ce projet][].
+Si vous voulez passer à la suite de ce didacticiel, vous pouvez [télécharger le code source de ce projet][télécharger le code source de ce projet].
 
 La base de données sqlite3 est déjà créée, avec les informations d'identification de super utilisateur suivantes :
 
     Username: tutorial
     Password: azure
 
-Le contenu du téléchargement N'INCLUT PAS d'environnement virtuel. Vous devez en créer un en suivant la procédure de la section [Création d'un environnement virtuel][]. Une fois ceci terminé, votre projet sera prêt dans la section [Débogage][].
+Le contenu du téléchargement N'INCLUT PAS d'environnement virtuel. Vous devez en créer un en suivant la procédure de la section [Création d'un environnement virtuel][Création d'un environnement virtuel]. Une fois ceci terminé, votre projet sera prêt dans la section [Débogage][Débogage].
 
 ## Création du projet
 
@@ -51,7 +51,7 @@ PTVS prend en charge les environnements virtuels Python. Nous allons créer un p
 
 1.  Ouvrez Visual Studio, accédez à Fichier/Nouveau projet, sélectionnez Application Django et utilisez le nom **tutorial**.
 
-    ![Nouveau projet][]
+    ![Nouveau projet][Nouveau projet]
 
 **Remarque :** dans l'Explorateur de solutions, sous Références, vous pouvez voir un nœud pour Django 1.4. Il est utilisé pour le déploiement d'un service cloud Azure, pour installer Python et Django sur la machine cible. Ne supprimez pas les références à Django 1.4 des notes de référence. Comme nous utilisons un environnement virtuel et que nous y installons notre propre package Django, nous utiliserons le package Django installé dans notre environnement virtuel.
 
@@ -61,17 +61,17 @@ Nous allons utiliser un environnement virtuel pour installer nos dépendances. C
 
 1.  Créez un environnement virtuel. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **Python Environments**, puis sélectionnez **Add Virtual Environment**.
 
-    ![Ajouter un environnement virtuel][]
+    ![Ajouter un environnement virtuel][Ajouter un environnement virtuel]
 
 2.  Sélectionnez Python 2.7 comme interprétateur Python de base, puis acceptez le nom **env** par défaut. PTVS installe pip et/ou virtualenv si vous ne l'avez pas déjà fait.
 
 3.  Cliquez avec le bouton droit sur **env**, puis sur **Install Python Package** : **django**
 
-    ![Installer Django][]
+    ![Installer Django][Installer Django]
 
 4.  L'installation de Django peut prendre un peu de temps, car il contient beaucoup de fichiers. Vous pouvez afficher la progression de l'installation dans la fenêtre de résultat.
 
-    ![Résultat de l'installation de Django][]
+    ![Résultat de l'installation de Django][Résultat de l'installation de Django]
 
     **Remarque :** dans de rares cas, la fenêtre de résultat peut afficher une erreur. Si cela se produit, vérifiez si l'erreur n'est pas liée au nettoyage. Parfois, le nettoyage peut échouer, alors que l'installation sera réussie (faites défiler le contenu de la fenêtre de résultat pour le vérifier). Ceci est dû au fait que certains fichiers ou dossiers temporaires créés par PTVS durant l'installation peuvent être verrouillés, ce qui empêche le processus de nettoyage de les supprimer.
 
@@ -81,7 +81,7 @@ Nous allons utiliser un environnement virtuel pour installer nos dépendances. C
 
 1.  Vérifiez que l'installation est réussie. Démarrez le site web en appuyant sur **F5** ou **CTRL+F5**. Ceci démarre le serveur de développement Django, ainsi que votre navigateur web. La page suivante doit s'afficher :
 
-    ![Navigateur web Django][]
+    ![Navigateur web Django][Navigateur web Django]
 
 ## Création de l'application de sondage
 
@@ -91,7 +91,7 @@ Un projet Django peut avoir plusieurs applications. Dans ce didacticiel, le nom 
 
 1.  Sélectionnez le **nœud de notre projet**, cliquez sur **Ajouter** pour ajouter l'**application Django** nommée **polls**. Cela crée un dossier pour l'application, qui contient un code réutilisable pour les fichiers d'application les plus communément utilisés.
 
-    ![Ajouter une application Django][]
+    ![Ajouter une application Django][Ajouter une application Django]
 
 2.  Dans **tutorial/settings.py**, ajoutez le code suivant à **INSTALLED\_APPS** :
 
@@ -261,7 +261,7 @@ Un projet Django peut avoir plusieurs applications. Dans ce didacticiel, le nom 
 
 14. Votre projet doit maintenant se composer des fichiers suivants :
 
-    ![Explorateur de solutions][]
+    ![Explorateur de solutions][Explorateur de solutions]
 
 ## Création d'une base de données sqlite3 en local
 
@@ -290,31 +290,31 @@ L'application web est presque terminée, il faut maintenant configurer une base 
 
 4.  Cliquez avec le bouton droit sur le nœud du projet et sélectionnez **Django**-\>**Django Sync DB**. Une fenêtre interactive pour la gestion de Django s'affiche. Comme la base de données n'existe pas pour le moment, vous devez créer vos informations d'identification d'administrateur. Entrez un nom d'utilisateur et un mot de passe. L'adresse électronique est facultative.
 
-    ![Base de données de synchronisation Django][]
+    ![Base de données de synchronisation Django][Base de données de synchronisation Django]
 
 5.  Démarrez le site web en appuyant sur F5 ou CTRL-F5. Ceci démarre le serveur de développement Django, ainsi que votre navigateur web. L'URL racine du site web affiche l'index des sondages, mais pour le moment, la base de données n'en contient pas.
 
-    ![Navigateur web][]
+    ![Navigateur web][Navigateur web]
 
 6.  Accédez à **http://localhost:{port}/admin**. Vous pouvez obtenir le numéro de port à partir de la fenêtre de console du serveur de développement. Connectez-vous en utilisant les informations d'identification créées à l'étape précédente.
 
-    ![Ajouter un sondage][]
+    ![Ajouter un sondage][Ajouter un sondage]
 
 7.  Utilisez l'interface d'administration pour ajouter un ou deux sondages. Ne passez pas trop de temps à ajouter des sondages à la base de données locale. Nous le ferons plus sérieusement lorsque nous basculerons plus tard vers une base de données du cloud.
 
-    ![Index des sondages][]
+    ![Index des sondages][Index des sondages]
 
 8.  Accédez à **http://localhost:{port}/**. Un index des sondages ajoutés s'affiche.
 
-    ![][]
+    ![][0]
 
 9.  Cliquez sur l'un des sondages pour accéder à la page de vote.
 
-    ![Détails du sondage][]
+    ![Détails du sondage][Détails du sondage]
 
 10. Envoyez votre vote : vous êtes redirigé vers la page des résultats, où vous pouvez constater que le compteur des votes a augmenté.
 
-    ![Résultats du sondage][]
+    ![Résultats du sondage][Résultats du sondage]
 
 ## Utilisation des feuilles de style et d'autres fichiers statiques
 
@@ -376,7 +376,7 @@ Python Tools for Visual Studio prend en charge de façon spécifique le débogag
 
 Dans les deux sections suivantes, vous allez voir comment utiliser les bases de données SQL et MySQL. Ces deux types de base de données sont des services hébergés.
 
-Vous pouvez également créer une machine virtuelle et installer un serveur de base de données. Pour savoir comment configurer MySQL sur une machine virtuelle Linux Azure, consultez [cette page][].
+Vous pouvez également créer une machine virtuelle et installer un serveur de base de données. Pour savoir comment configurer MySQL sur une machine virtuelle Linux Azure, consultez [cette page][cette page].
 
 **Remarque :** vous pouvez utiliser une base de données sqlite3 sur Azure (uniquement à des fins de développement, il est déconseillé de l'utiliser en production). Pour pouvoir déployer la base de données avec votre application Django, vous devez ajouter le fichier **db.sqlite3** à votre projet.
 
@@ -466,7 +466,7 @@ Dans le Magasin Azure, vous pouvez ajouter différents services à votre compte,
         p.choice_set.create(choice_text='Cloud Service', votes=0)
         p.choice_set.create(choice_text='Virtual Machine', votes=0)
 
-    ![Ajouter un sondage sur l'interpréteur de commandes Django][]
+    ![Ajouter un sondage sur l'interpréteur de commandes Django][Ajouter un sondage sur l'interpréteur de commandes Django]
 
 3.  L'analyse statique des modèles offre une vue limitée de l'API complète. Dans la fenêtre interactive, vous pouvez appliquer IntelliSense aux objets en direct. Cette méthode est excellente pour explorer l'API. Voici quelques opérations à essayer dans la fenêtre interactive :
 
@@ -482,7 +482,7 @@ Dans le Magasin Azure, vous pouvez ajouter différents services à votre compte,
         # get object by primary key
         Poll.objects.get(pk=1)
 
-    ![Demander un sondage sur l'interpréteur de commandes Django][]
+    ![Demander un sondage sur l'interpréteur de commandes Django][Demander un sondage sur l'interpréteur de commandes Django]
 
 4.  Démarrez le site. Vous pouvez normalement voir le sondage que vous avez ajouté avec l'interpréteur de commandes Django.
 
@@ -492,9 +492,9 @@ Maintenant que notre base de données est dans Azure, la prochaine étape consis
 
 Azure propose plusieurs options pour héberger les applications Django :
 
--   [Site web][]
--   [Service cloud][]
--   [Machine virtuelle][]
+-   [Site web][Site web]
+-   [Service cloud][Service cloud]
+-   [Machine virtuelle][Machine virtuelle]
 
 Python Tools for Visual Studio offre des capacités de publication dans Sites web Azure et Cloud Services. Elles sont décrites dans les deux prochaines sections, pour vous permettre de faire votre choix.
 
@@ -508,11 +508,11 @@ Ce didacticiel ne traite pas de l'hébergement de Django dans une machine virtue
 
 2.  Une fois le site créé, téléchargez le profil de publication.
 
-    ![Site web : télécharger un profil][]
+    ![Site web : télécharger un profil][Site web : télécharger un profil]
 
 3.  Dans Visual Studio, cliquez avec le bouton droit sur le nœud du projet, puis sélectionnez **Publier**.
 
-    ![Publier le site web][]
+    ![Publier le site web][Publier le site web]
 
 4.  Importez le fichier de profil de publication de site web téléchargé précédemment.
 
@@ -520,7 +520,7 @@ Ce didacticiel ne traite pas de l'hébergement de Django dans une machine virtue
 
 6.  Une fois celle-ci terminée, un navigateur web affiche le site web publié.
 
-    ![Navigateur du site web][]
+    ![Navigateur du site web][Navigateur du site web]
 
 ### Azure Cloud Services
 
@@ -536,7 +536,7 @@ Ce didacticiel ne traite pas de l'hébergement de Django dans une machine virtue
 
 2.  Démarrez le débogage en appuyant sur **F5**, puis l'application s'exécute et se déploie dans l'émulateur de calcul. Vérifiez que l'interface d'administration fonctionne et que vous pouvez voter dans les sondages.
 
-    ![Émulateur de calcul][]
+    ![Émulateur de calcul][Émulateur de calcul]
 
 3.  Vous pouvez maintenant redémarrer Visual Studio si vous ne voulez pas continuer l'exécution en tant qu'administrateur.
 
@@ -546,13 +546,13 @@ Ce didacticiel ne traite pas de l'hébergement de Django dans une machine virtue
 
     **Remarque :** veillez à sélectionner **Publier** sur le projet de service cloud. La boîte de dialogue **Publish Azure Application** s'affiche, permettant de publier dans un service cloud Azure. Si vous sélectionnez **Publish** sur le projet Django, la boîte de dialogue **Publier le site web** s'affiche, permettant de publier dans un site web Azure.
 
-    ![Publier le service cloud][]
+    ![Publier le service cloud][Publier le service cloud]
 
-2.  Vous devez importer votre fichier d'abonnement Azure. Cliquez sur le lien [Sign in to download credentials][] pour le télécharger depuis le portail Azure.
+2.  Vous devez importer votre fichier d'abonnement Azure. Cliquez sur le lien [Sign in to download credentials][Sign in to download credentials] pour le télécharger depuis le portail Azure.
 
 3.  Dans la page Paramètres, dans la zone de liste modifiable du service cloud, sélectionnez **Créer** pour créer un service cloud. Vous pouvez utiliser n'importe quel nom disponible.
 
-    ![Paramètres du service cloud][]
+    ![Paramètres du service cloud][Paramètres du service cloud]
 
 4.  Acceptez la configuration par défaut, puis cliquez sur **Publier**. Cette opération dure plus longtemps que la publication dans un site web, car le système doit configurer une machine virtuelle pour le service cloud. Vous pouvez afficher la progression de la publication dans la fenêtre Journal des activités Azure :
 
@@ -560,15 +560,13 @@ Ce didacticiel ne traite pas de l'hébergement de Django dans une machine virtue
 
 5.  Une fois l'opération terminée, dans la fenêtre Journal des activités Azure, cliquez sur l'URL du site web pour ouvrir un navigateur web.
 
-    ![Navigateur de service cloud][]
+    ![Navigateur de service cloud][Navigateur de service cloud]
 
 ## Conclusion
 
 Dans ce didacticiel, vous avez développé une application Django avec [Python Tools for Visual Studio][PTVS 2.0]. Vous avez utilisé 3 types de base de données : sqlite3, SQL Server et MySQL. Finalement, vous avez publié l'application dans un site web et un service cloud Azure.
 
-  [regarder le didacticiel]: http://www.youtube.com/watch?v=wkqjafvvU5w
-  []: https://www.djangoproject.com/
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
+  [0]: https://www.djangoproject.com/
   [PTVS 2.0]: http://pytools.codeplex.com
   [Python 2.7 (32 bits)]: http://www.python.org/download/
   [télécharger le code source de ce projet]: http://download-codeplex.sec.s-msft.com/Download?ProjectName=pytools&DownloadId=783376
@@ -585,7 +583,7 @@ Dans ce didacticiel, vous avez développé une application Django avec [Python T
   [Navigateur web]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-008-dev-server.png
   [Ajouter un sondage]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-009-admin-login.png
   [Index des sondages]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-009-admin-add-poll.png
-  []: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-010-index.png
+  [0]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-010-index.png
   [Détails du sondage]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-011-detail.png
   [Résultats du sondage]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-012-results.png
   [1]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-013-solution-explorer.png

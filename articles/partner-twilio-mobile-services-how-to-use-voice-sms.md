@@ -225,4 +225,3 @@ Une fois que vous avez défini une façon de fournir des réponses TwiML, vous p
   []: http://www.twilio.com/docs/api/rest/making-calls
   [Envoi de réponses TwiML à partir de votre propre site Web]: #howto_provide_twiml_responses
   [1]: https://www.twilio.com/docs/api/twiml
-  [twilio_additional_services_and_next_steps]: ../includes/twilio_additional_services_and_next_steps.md

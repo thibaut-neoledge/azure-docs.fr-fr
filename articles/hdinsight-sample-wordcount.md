@@ -1,10 +1,10 @@
-<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="Exemple Hadoop WordCount (comptage de mots) dans HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample, hadoop, mapreduce" description="D&eacute;couvrez comment ex&eacute;cuter un exemple MapReduce simple sur HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Exemple Hadoop WordCount (comptage de mots) dans HDInsight" authors="bradsev" />
+<properties linkid="manage-services-hdinsight-sample-wordcount" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The WordCount Hadoop sample in HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample, hadoop, mapreduce" description="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The WordCount Hadoop sample in HDInsight" authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
-# Exemple Hadoop WordCount (comptage de mots) dans HDInsight
+# Exemple Hadoop de comptage de mots dans HDInsight
 
-Cette rubrique présente un exemple qui explique comment exécuter un programme MapReduce Hadoop qui compte les occurrences de mots dans un fichier texte en utilisant Azure PowerShell pour exécuter le programme dans HDInsight. Le programme MapReduce WordCount est écrit en Java et s'exécute sur un cluster Hadoop géré par HDInsight. Le fichier de texte analysé dans cet exemple est l'édition des Carnets de Léonard de Vinci en livre électronique par le Project Gutenberg.
+Cette rubrique propose un exemple qui permet d'exécuter un programme Hadoop MapReduce qui compte les occurrences de mots dans un fichier texte à l'aide d'Azure PowerShell pour exécuter le programme dans HDInsight. Le programme MapReduce de comptage de mots est écrit en Java et fonctionne sur un cluster Hadoop géré par HDInsight. Le fichier texte analysé dans cet exemple est l'édition des Carnets de Léonard de Vinci en livre électronique par le Project Gutenberg.
 
 Le programme Hadoop MapReduce lit le fichier texte et comptabilise les occurrences de chaque mot. Il en résulte un nouveau fichier texte composé de lignes, chacune contenant un mot et le nombre d'occurrences de ce mot dans le document (paire clé/valeur séparée par tabulation). Ce processus se déroule en deux étapes. Le mappeur prend chaque ligne du texte saisi en tant qu'entrée, et la divise en mots. Il émet une paire clé/valeur à chaque occurrence de travail du mot défini suivi par 1. Le raccord de réduction calcule la somme du compte de mots, puis émet une seule paire clé/valeur contenant le mot défini, suivi par la somme de ses occurrences.
 
@@ -205,4 +205,3 @@ Pour suivre des didacticiels exécutant d'autres exemples et fournissant des ins
   [Exemple : Diffusion en continu en C#]: ../hdinsight-sample-csharp-streaming/
   [Utilisation de Pig avec HDInsight]: ../hdinsight-use-pig/
   [Utilisation de Hive avec HDInsight]: ../hdinsight-use-hive/
-  [Documentation du Kit de développement logiciel (SDK) Azure HDInsight]: http://msdnstage.redmond.corp.microsoft.com/fr-fr/library/dn479185.aspx

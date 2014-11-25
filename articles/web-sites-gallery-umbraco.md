@@ -1,6 +1,6 @@
 <properties title="Create an Umbraco website from the gallery in Microsoft Azure" pageTitle="Create an Umbraco website from the gallery in Microsoft Azure" description="required" metaKeywords="Azure, gallery, Umbraco, web site, website" services="web-sites" solutions="web" documentationCenter="" authors="timamm" manager="paulettm" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm" />
 
 # Création d'un site web Umbraco depuis la galerie dans Microsoft Azure
 
@@ -43,7 +43,7 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 Une fois le déploiement terminé, le tableau de démarrage dans le portail affiche le groupe de ressources créé pour Umbraco CMS, dans ce cas **UmbracoCMSgroup**. Dans la section **Résumé**, cliquez sur le nom du site web (dans ce cas, **umbracocmsgroup**) pour voir les propriétés associées. Dans la section **Résumé**, vous pouvez également sélectionner les ressources de la base de données pour voir les propriétés de la base de données correspondante.
 
-![][]
+![][0]
 
 ## Lancement et configuration de votre site web Umbraco CMS
 
@@ -104,7 +104,7 @@ Et voilà ! Vous avez créé un blog à l'aide d'Umbraco CMS en quelques minute
   [Configure resources]: ./media/web-sites-gallery-umbraco/04AppSettings.PNG
   [Create a SQL Server on Azure]: ./media/web-sites-gallery-umbraco/05NewServer.PNG
   [1]: ./media/web-sites-gallery-umbraco/06UmbracoCMSGroup.PNG
-  []: ./media/web-sites-gallery-umbraco/07UmbracoCMSGroupBlade.PNG
+  [0]: ./media/web-sites-gallery-umbraco/07UmbracoCMSGroupBlade.PNG
   [Browse to your site]: ./media/web-sites-gallery-umbraco/08UmbracoCMSGroupRunning.PNG
   [Install Umbraco wizard]: ./media/web-sites-gallery-umbraco/09InstallUmbraco7.png
   [Configure your database]: ./media/web-sites-gallery-umbraco/10ConfigureYourDatabase.png

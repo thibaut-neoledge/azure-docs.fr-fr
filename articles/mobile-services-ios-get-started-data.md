@@ -101,7 +101,6 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
 
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application avec Mobile Services.
 
-  [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
   [Téléchargement du projet d'application iOS]: #download-app
   [Création du service mobile]: #create-service
   [Ajout d'une table de données pour le stockage]: #add-table
@@ -111,9 +110,6 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
   [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F
   [application GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
   [0]: ./media/mobile-services-ios-get-started-data/mobile-quickstart-startup-ios.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
-  [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
-  [mobile-services-ios-enable-mobile-service-access]: ../includes/mobile-services-ios-enable-mobile-service-access.md
   [portail de gestion]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-ios-get-started-data/mobile-todoitem-data-browse.png
   [Validation et modification des données avec des scripts]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet

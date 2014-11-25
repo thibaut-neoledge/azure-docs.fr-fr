@@ -1,6 +1,6 @@
 <properties linkid="develop-node-website-with-mongodb-mac" urlDisplayName="Website with MongoDB" pageTitle="Node.js website with MongoDB on a VM - Azure tutorial" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." metaCanonical="http://www.windowsazure.com/fr-fr/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="nodejs" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors="larryfr"  solutions="" writer="" manager="" editor=""  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Création d'une application Node.js sur Azure avec MongoDB dans une machine virtuelle
 
@@ -502,7 +502,6 @@ Pour plus d'informations sur la sécurisation de MongoDB, consultez la page [Sé
   [Création d'une application Node.js sur Azure avec MongoDB et le module MongoLab]: /fr-fr/develop/nodejs/tutorials/website-with-mongodb-mongolab/
   [Une page Web avec une liste de tâches vide]: ./media/store-mongodb-web-sites-nodejs-use-mac/todo_list_empty.png
   [Git]: http://git-scm.com
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [guides d'installation MongoDB]: http://docs.mongodb.org/manual/installation/
   [Installer MongoDB sur Linux sur Azure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
   [portail de gestion Azure]: https://manage.windowsazure.com/

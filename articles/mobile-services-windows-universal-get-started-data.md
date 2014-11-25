@@ -168,9 +168,9 @@ Une fois que vous avez terminé les séries de données, essayez l'un de ces aut
 -   [Guide de fonctionnement Mobile Services .NET][Guide de fonctionnement Mobile Services .NET]<br />
     En savoir plus sur l'utilisation de Mobile Services avec .NET.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Téléchargement d'un projet d'application Windows Store]: #download-app
   [Création du service mobile à partir de Visual Studio]: #create-service
@@ -180,9 +180,7 @@ Une fois que vous avez terminé les séries de données, essayez l'un de ces aut
   [application GetStartedWithMobileServices]: http://go.microsoft.com/fwlink/p/?LinkId=328660
   [0]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-data-sample-download-dotnet-vs12.png
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-quickstart-startup.png
-  [mobile-services-create-new-service-vs2013]: ../includes/mobile-services-create-new-service-vs2013.md
   [classe MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-  [mobile-services-create-new-table-vs2013]: ../includes/mobile-services-create-new-table-vs2013.md
   [portail de gestion]: https://manage.windowsazure.com/
   [2]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-todoitem-data-browse.png
   [Validation et modification des données avec des scripts]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet

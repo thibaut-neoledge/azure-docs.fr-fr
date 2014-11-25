@@ -2,7 +2,7 @@ L'exemple précédent montrait une connexion standard, qui nécessite que le cli
 
 > [WACOM.NOTE]Vous pouvez mettre en cache le jeton émis par Mobile Services, que vous utilisiez l'authentification gérée par un client ou gérée par un service. Ce didacticiel utilise cette dernière.
 
-1.  La façon recommandée de chiffrer et de stocker des jetons d'authentification sur un client iOS est d'utiliser le Keychain. Pour cela, créez une classe KeychainWrapper, en copiant [KeychainWrapper.m][] et [KeychainWrapper.h][] depuis l'[exemple LensRocket][]. Nous utilisons cette classe KeychainWrapper car la classe KeychainWrapper définie dans la documentation d'Apple ne compte pas pour le comptage de référence automatique (ARC, Automatic Reference Counting).
+1.  La façon recommandée de chiffrer et de stocker des jetons d'authentification sur un client iOS est d'utiliser le Keychain. Pour cela, créez une classe KeychainWrapper, en copiant [KeychainWrapper.m][KeychainWrapper.m] et [KeychainWrapper.h][KeychainWrapper.h] depuis l'[exemple LensRocket][exemple LensRocket]. Nous utilisons cette classe KeychainWrapper car la classe KeychainWrapper définie dans la documentation d'Apple ne compte pas pour le comptage de référence automatique (ARC, Automatic Reference Counting).
 
 2.  Ouvrez le fichier de projet **QSTodoListViewController.m** et ajoutez le code suivant :
 
@@ -73,7 +73,7 @@ L'exemple précédent montrait une connexion standard, qui nécessite que le cli
             [self refresh];
         }
 
-5.  Si l'application fait une requête auprès de votre service mobile, que cette requête doit être honorée car l'utilisateur est authentifié, et que vous recevez une réponse 401 (erreur non autorisée), cela signifie que le jeton utilisateur que vous utilisez est expiré. Dans le gestionnaire d'achèvement pour chacune de nos méthodes qui interagit avec notre service mobile, nous pouvons vérifier s'il y a une réponse 401 ou bien nous pouvons gérer cette situation à un seul endroit : la méthode handleRequest de MSFilter. Pour voir comment gérer ce scénario, consultez [ce post de blog][]
+5.  Si l'application fait une requête auprès de votre service mobile, que cette requête doit être honorée car l'utilisateur est authentifié, et que vous recevez une réponse 401 (erreur non autorisée), cela signifie que le jeton utilisateur que vous utilisez est expiré. Dans le gestionnaire d'achèvement pour chacune de nos méthodes qui interagit avec notre service mobile, nous pouvons vérifier s'il y a une réponse 401 ou bien nous pouvons gérer cette situation à un seul endroit : la méthode handleRequest de MSFilter. Pour voir comment gérer ce scénario, consultez [ce post de blog][ce post de blog]
 
   [KeychainWrapper.m]: https://github.com/WindowsAzure-Samples/iOS-LensRocket/blob/master/source/client/LensRocket/Misc/KeychainWrapper.m
   [KeychainWrapper.h]: https://github.com/WindowsAzure-Samples/iOS-LensRocket/blob/master/source/client/LensRocket/Misc/KeychainWrapper.h

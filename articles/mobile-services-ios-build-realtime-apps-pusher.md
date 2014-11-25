@@ -384,7 +384,6 @@ Pour en savoir plus sur l'enregistrement et l'utilisation de scripts serveur, co
   [Installation des scripts serveur]: #install-scripts
   [Test de l'application]: #test-app
   [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started
-  [pusher-sign-up]: ../includes/pusher-sign-up.md
   [libPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
   [ici]: http://go.microsoft.com/fwlink/p/?LinkId=276998
   [0]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-files-to-group.png

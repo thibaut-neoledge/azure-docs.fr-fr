@@ -12,11 +12,11 @@ Vous pouvez utiliser le portail de gestion de base de données SQL Azure ou l’
 
 Cette rubrique comprend les étapes suivantes :
 
--   [Étape 1 : obtention de SQL Server Management Studio][]
--   [Étape 2 : connexion à la base de données SQL][]
--   [Étape 3 : création et gestion de bases de données][]
--   [Étape 4 : création et gestion de connexions][]
--   [Étape 5 : surveillance de la base de données SQL au moyen de vues de gestion dynamique][]
+-   [Étape 1 : obtention de SQL Server Management Studio][Étape 1 : obtention de SQL Server Management Studio]
+-   [Étape 2 : connexion à la base de données SQL][Étape 2 : connexion à la base de données SQL]
+-   [Étape 3 : création et gestion de bases de données][Étape 3 : création et gestion de bases de données]
+-   [Étape 4 : création et gestion de connexions][Étape 4 : création et gestion de connexions]
+-   [Étape 5 : surveillance de la base de données SQL au moyen de vues de gestion dynamique][Étape 5 : surveillance de la base de données SQL au moyen de vues de gestion dynamique]
 
 ## <span id="Step1"></span> </a>Étape 1 : obtention de Management Studio
 
@@ -26,7 +26,7 @@ dans Azure, vous pouvez utiliser l'application Management Studio installée
 avec SQL Server ou télécharger la version gratuite de SSMSE (SQL Server 2012 Management Studio Express). La procédure ci-dessous décrit
 l'installation de SSMSE.
 
-1.  Sur la page [Microsoft SQL Server 2012 Express][], sélectionnez la version x86 de Management Studio si vous utilisez un système d'exploitation 32 bits ou la version x64 si vous utilisez un système d'exploitation 64 bits. Cliquez sur **Télécharger**, puis à l’invite, exécutez le programme d’installation.
+1.  Sur la page [Microsoft SQL Server 2012 Express][Microsoft SQL Server 2012 Express], sélectionnez la version x86 de Management Studio si vous utilisez un système d'exploitation 32 bits ou la version x64 si vous utilisez un système d'exploitation 64 bits. Cliquez sur **Télécharger**, puis à l’invite, exécutez le programme d’installation.
 
 2.  Cliquez sur **Nouvelle installation autonome SQL Server ou ajout de fonctionnalités à une
     installation existante**, puis sur **OK**.
@@ -49,7 +49,7 @@ l'installation de SSMSE.
 
 La connexion à la base de données SQL requiert que vous connaissiez le nom du serveur sous Azure. Vous devrez peut-être vous connecter au portail pour obtenir ces informations.
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 
 2.  Dans le volet gauche, cliquez sur **Bases de données SQL**.
 
@@ -103,7 +103,7 @@ sont pas disponibles pour les bases de données SQL dans Azure. Par conséquent,
 Transact-SQL pour effectuer ces tâches. Les étapes ci-dessous
 donnent des exemples de ces instructions. Pour plus d'informations sur l'utilisation de
 Transact-SQL avec la base de données SQL, y compris des informations sur les commandes prises en charge,
-consultez [Informations de référence sur Transact-SQL (Base de données SQL)][].
+consultez [Informations de référence sur Transact-SQL (Base de données SQL)][Informations de référence sur Transact-SQL (Base de données SQL)].
 
 ## <span id="Step3"></span> </a>Étape 3 : création et gestion de bases de données
 
@@ -117,7 +117,7 @@ créée lors de la configuration de votre serveur.
 Pour ouvrir une fenêtre de requête dans Management Studio, ouvrez le dossier Bases de données, développez **Bases de données système**, cliquez avec le bouton droit sur **master**, puis cliquez sur **Nouvelle requête**.
 
 -   Utilisez l’instruction **CREATE DATABASE** pour créer une base de données. Pour
-    plus d'informations, consultez [CREATE DATABASE (Base de données SQL)][]. L'instruction ci-dessous crée une base de données appelée
+    plus d'informations, consultez [CREATE DATABASE (Base de données SQL)][CREATE DATABASE (Base de données SQL)]. L'instruction ci-dessous crée une base de données appelée
     **myTestDB** et spécifie qu'il s'agit d'une base de données Web Edition
     avec une taille maximale de 1 Go.
 
@@ -129,7 +129,7 @@ Cliquez sur **Exécuter** pour exécuter la requête.
 
 -   Utilisez l'instruction **ALTER DATABASE** pour modifier une base de données existante,
     par exemple si vous voulez modifier le nom, la taille maximale ou l'édition
-    (Business ou Web) de la base de données. Pour plus d'informations, consultez [ALTER DATABASE (Base de données SQL)][]. L'instruction
+    (Business ou Web) de la base de données. Pour plus d'informations, consultez [ALTER DATABASE (Base de données SQL)][ALTER DATABASE (Base de données SQL)]. L'instruction
     ci-dessous modifie la base de données que vous avez créée à l'étape
     précédente pour définir sa taille maximale à 5 Go.
 
@@ -139,7 +139,7 @@ Cliquez sur **Exécuter** pour exécuter la requête.
          EDITION='web');
 
 -   Utilisez l'instruction **DROP DATABASE** pour supprimer une base de données existante.
-    Pour plus d'informations, consultez [DROP DATABASE (Base de données SQL)][]. L’instruction ci-dessous supprime la base de données **maBDTest**
+    Pour plus d'informations, consultez [DROP DATABASE (Base de données SQL)][DROP DATABASE (Base de données SQL)]. L’instruction ci-dessous supprime la base de données **maBDTest**
     , mais ne la supprimez pas maintenant car vous en aurez besoin pour créer des connexions à la prochaine étape.
 
         DROP DATABASE myTestBase;
@@ -172,10 +172,10 @@ en vous connectant à la base de données **master** avec la connexion principal
 serveur que vous avez créée lors de la configuration de votre serveur. Vous pouvez utiliser les instructions
 **CREATE LOGIN**, **ALTER LOGIN** ou **DROP LOGIN** pour
 exécuter des requêtes sur la base de données master pour gérer les connexions
-sur l'ensemble du serveur. Pour plus d'informations, consultez [Gestion des bases de données et des connexions dans la base de données SQL][].
+sur l'ensemble du serveur. Pour plus d'informations, consultez [Gestion des bases de données et des connexions dans la base de données SQL][Gestion des bases de données et des connexions dans la base de données SQL].
 
 -   Utilisez l'instruction **CREATE LOGIN** pour créer une connexion de
-    niveau serveur. Pour plus d'informations, consultez [CREATE LOGIN (Base de données SQL)][]. L'instruction ci-dessous crée une connexion
+    niveau serveur. Pour plus d'informations, consultez [CREATE LOGIN (Base de données SQL)][CREATE LOGIN (Base de données SQL)]. L'instruction ci-dessous crée une connexion
     nommée **login1**. Remplacez **password1** par le mot de passe de
     votre choix.
 
@@ -185,7 +185,7 @@ sur l'ensemble du serveur. Pour plus d'informations, consultez [Gestion des base
     de la base de données. Toutes les connexions doivent être créées dans la base de données **master**,
     mais pour qu'une connexion puisse accéder à une autre base de données, vous
     devez lui octroyer des autorisations de niveau base de données en utilisant l'instruction **CREATE USER**
-     sur cette base de données. Pour plus d'informations, consultez [CREATE USER (Base de données SQL)][].
+     sur cette base de données. Pour plus d'informations, consultez [CREATE USER (Base de données SQL)][CREATE USER (Base de données SQL)].
 
 -   Pour fournir à login1
     des autorisations d'accès à une base de données appelée **myTestDB**, procédez comme
@@ -205,7 +205,7 @@ sur l'ensemble du serveur. Pour plus d'informations, consultez [Gestion des base
 
 -   Utilisez la procédure stockée **sp\_addrolemember** pour donner au compte
     d'utilisateur le niveau d'autorisations approprié sur la base de données. Pour
-    plus d'informations, consultez [sp\_addrolemember (Transact-SQL)][]. L’instruction ci-dessous donne à **login1User**
+    plus d'informations, consultez [sp\_addrolemember (Transact-SQL)][sp\_addrolemember (Transact-SQL)]. L’instruction ci-dessous donne à **login1User**
      des autorisations d’accès en lecture seule à la base de données en ajoutant **login1User** au
     rôle **db\_datareader**.
 
@@ -213,7 +213,7 @@ sur l'ensemble du serveur. Pour plus d'informations, consultez [Gestion des base
 
 -   Utilisez l'instruction **ALTER LOGIN** pour modifier une connexion existante,
     par exemple si vous voulez modifier le mot de passe de la connexion. Pour
-    plus d'informations, consultez [ALTER LOGIN (Base de données SQL)][]. L'instruction **ALTER LOGIN** doit être exécutée sur la base de données
+    plus d'informations, consultez [ALTER LOGIN (Base de données SQL)][ALTER LOGIN (Base de données SQL)]. L'instruction **ALTER LOGIN** doit être exécutée sur la base de données
     **master**. Revenez à la fenêtre de requête qui est connectée à cette base de données.
 
     L'instruction ci-dessous modifie la connexion **login1** pour réinitialiser le mot de passe.
@@ -227,7 +227,7 @@ sur l'ensemble du serveur. Pour plus d'informations, consultez [Gestion des base
 -   Utilisez l'instruction **DROP LOGIN** pour supprimer une connexion existante.
     La suppression d'une connexion au niveau du serveur supprime également tous les comptes d'utilisateurs
     de base de données associés. Pour plus d'informations,
-    consultez [DROP DATABASE (Base de données SQL)][]. L’instruction **DROP LOGIN**
+    consultez [DROP DATABASE (Base de données SQL)][DROP DATABASE (Base de données SQL)]. L’instruction **DROP LOGIN**
      doit être exécutée sur la base de données **principale**
     . L'instruction
     ci-dessous supprime la connexion **login1**.
@@ -245,7 +245,7 @@ sur l'ensemble du serveur. Pour plus d'informations, consultez [Gestion des base
 La base de données SQL prend en charge plusieurs vues de gestion dynamique qui
 vous permettent de surveiller une base de données individuelle. Voici quelques exemples du type de données
 de surveillance que vous pouvez récupérer au moyen de ces vues. Pour
-plus d'informations et pour accéder à d'autres exemples d’utilisation, consultez [Contrôle de la base de données SQL à l’aide de vues de gestion dynamique][].
+plus d'informations et pour accéder à d'autres exemples d’utilisation, consultez [Contrôle de la base de données SQL à l’aide de vues de gestion dynamique][Contrôle de la base de données SQL à l’aide de vues de gestion dynamique].
 
 -   L’interrogation d’une vue de gestion dynamique nécessite des autorisations **VIEW DATABASE STATE**
     . Pour accorder l'autorisation **VIEW DATABASE STATE** à un utilisateur
@@ -302,12 +302,12 @@ plus d'informations et pour accéder à d'autres exemples d’utilisation, consu
 
 ## Ressources supplémentaires
 
--   [Introduction à la base de données SQL][]
--   [Gestion des bases de données et des connexions dans la base de données SQL][]
+-   [Introduction à la base de données SQL][Introduction à la base de données SQL]
+-   [Gestion des bases de données et des connexions dans la base de données SQL][Gestion des bases de données et des connexions dans la base de données SQL]
 -   [Contrôle de la base de données SQL à l'aide de vues de gestion dynamique][Contrôle de la base de données SQL à l’aide de vues de gestion dynamique]
--   [Modèle de configuration de la base de données SQL][]
--   [Ajout d'utilisateurs à votre base de données SQL][]
--   [Informations de référence sur Transact-SQL (Base de données SQL)][]
+-   [Modèle de configuration de la base de données SQL][Modèle de configuration de la base de données SQL]
+-   [Ajout d'utilisateurs à votre base de données SQL][Ajout d'utilisateurs à votre base de données SQL]
+-   [Informations de référence sur Transact-SQL (Base de données SQL)][Informations de référence sur Transact-SQL (Base de données SQL)]
 
   [Étape 1 : obtention de SQL Server Management Studio]: #Step1
   [Étape 2 : connexion à la base de données SQL]: #Step2
@@ -316,7 +316,6 @@ plus d'informations et pour accéder à d'autres exemples d’utilisation, consu
   [Étape 5 : surveillance de la base de données SQL au moyen de vues de gestion dynamique]: #Step5
   [Microsoft SQL Server 2012 Express]: http://www.microsoft.com/fr-fr/download/details.aspx?id=29062
   [portail de gestion Azure]: http://manage.windowsazure.com/
-  [\*nom\_de\_connexion\*@\*nom\_de\_votre\_serveur\*]: mailto:*login*@*yourServerName*
   [Informations de référence sur Transact-SQL (Base de données SQL)]: http://msdn.microsoft.com/fr-fr/library/bb510741(v=sql.120).aspx
   [CREATE DATABASE (Base de données SQL)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336274.aspx
   [ALTER DATABASE (Base de données SQL)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ff394109.aspx

@@ -156,9 +156,9 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 
 -   [Utilisation du client Xamarin Component pour Azure Mobile Services][Utilisation du client Xamarin Component pour Azure Mobile Services]
 
-<!-- Anchors. -->
+
 <!-- Images -->
-<!-- URLs. -->
+
 
   [Prise en main de Mobile Services]: /fr-fr/documentation/articles/partner-xamarin-mobile-services-android-get-started/
   [Prise en main de données]: /fr-fr/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/

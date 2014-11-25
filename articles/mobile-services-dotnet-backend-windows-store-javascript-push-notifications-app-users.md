@@ -49,14 +49,11 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
 [WACOM.INCLUDE [mobile-services-windows-test-push-users](../includes/mobile-services-windows-test-push-users.md)]
 
 <!---## <a name="next-steps"> </a>Next steps  In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]-->
-<!-- Anchors. -->
-<!-- URLs. -->
+
+
 
   [notifications Push]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
   [Mise à jour du service pour demander l'authentification pour l'inscription]: #register
   [Mise à jour de l'application pour se connecter avant l'inscription]: #update-app
   [Test de l'application]: #test
   [Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
-  [mobile-services-dotnet-backend-push-notifications-app-users]: ../includes/mobile-services-dotnet-backend-push-notifications-app-users.md
-  [mobile-services-windows-store-javascript-push-notifications-app-users]: ../includes/mobile-services-windows-store-javascript-push-notifications-app-users.md
-  [mobile-services-windows-test-push-users]: ../includes/mobile-services-windows-test-push-users.md

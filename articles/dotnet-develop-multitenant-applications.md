@@ -1,6 +1,6 @@
 <properties linkid="develop-net-architecture-multi-tenant-web-application" urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 
 <div>
@@ -54,7 +54,7 @@ Une application mutualisée correctement mise en œuvre offre les avantages suiv
 
 En résumé, bien que de nombreux aspects soient à prendre en compte pour fournir un service hautement évolutif, il y a également une série d'objectifs et d'exigences communs à de nombreuses applications mutualisées. Certains peuvent ne pas concerner des scénarios spécifiques, et l'importance d'objectifs et d'exigences individuels peut différer pour chaque scénario. En tant que fournisseur de l'application mutualisée, vous aurez également des objectifs et des exigences tels que la satisfaction des objectifs et des exigences des locataires, la rentabilité, la facturation, les niveaux de service multiples, l'approvisionnement, la surveillance de la maintenabilité et l'automatisation.
 
-Pour plus d'informations sur les considérations supplémentaires d'une application mutualisée en matière de conception, consultez la page [Hébergement d'une application mutualisée dans Azure][].
+Pour plus d'informations sur les considérations supplémentaires d'une application mutualisée en matière de conception, consultez la page [Hébergement d'une application mutualisée dans Azure][Hébergement d'une application mutualisée dans Azure].
 
 Azure offre de nombreuses fonctionnalités vous permettant de résoudre les problèmes clés rencontrés lors de la conception d'un système mutualisé.
 
@@ -103,16 +103,4 @@ Azure offre une série de méthodes permettant d'approvisionner de nouveaux loca
 
 <!--links-->
 
-  [Compute]: /fr-fr/develop/net/compute/
-  [Services de données]: /fr-fr/develop/net/data/
-  [App Services]: /fr-fr/develop/net/app-services/
-  [Référence]: /fr-fr/develop/net/reference/
-  [Assistance]: /fr-fr/develop/net/guidance/
-  [Architecture]: /fr-fr/develop/net/architecture/
-  [Exemples]: /fr-fr/develop/net/samples/
-  [Didacticiels basés sur des scénarios]: /fr-fr/develop/net/end-to-end-Apps/
-  [Forums]: /fr-fr/support/forums/
-  [Présentation de l'architecture de l'application]: /fr-fr/develop/net/architecture/#overviews
-  [Modèle d'application : tests de charge]: /fr-fr/develop/net/architecture/load-testing-pattern/
-  [Modèles de conception]: /fr-fr/develop/net/architecture/#designpatterns
   [Hébergement d'une application mutualisée dans Azure]: http://msdn.microsoft.com/fr-fr/library/hh534480.aspx

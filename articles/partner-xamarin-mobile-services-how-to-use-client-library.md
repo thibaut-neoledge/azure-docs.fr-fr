@@ -463,7 +463,6 @@ Maintenant que vous avez consulté ce guide de fonctionnement, découvrez en dé
   [Utilisation de données non typées]: #untyped
   [Conception de tests]: #unit-testing
   [Étapes suivantes]: #nextsteps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [Créer une table]: http://go.microsoft.com/fwlink/?LinkId=298592
   [Schéma dynamique]: http://go.microsoft.com/fwlink/?LinkId=296271
   [GetTable]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554275.aspx

@@ -3,7 +3,7 @@
 Utilisation du service de stockage de files d'attente
 =====================================================
 
-[version 1.7](/en-us/develop/net/how-to-guides/queue-service-v17/ "version 1.7") [version 2.0](/en-us/develop/net/how-to-guides/queue-service/ "version 2.0")
+[version 1.7](/fr-fr/develop/net/how-to-guides/queue-service-v17/ "version 1.7") [version 2.0](/fr-fr/develop/net/how-to-guides/queue-service/ "version 2.0")
 
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage des files d'attente Azure. Les exemples sont écrits en C\# et utilisent l'API .NET. Les scénarios traités incluent l'**insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d'attente, ainsi que la **création et suppression des files d'attente**. Pour plus d'informations sur les files d'attente, consultez la section [Étapes suivantes](#next-steps).
 
@@ -273,7 +273,7 @@ Maintenant que vous avez appris les bases du stockage des files d'attente, suive
     -   [Référence de l'API REST](http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179355)
 -   Pour plus d'informations sur les tâches avancées que vous pouvez effectuer avec le stockage Azure, consultez la page [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx).
 -   Pour plus d'informations sur les autres options de stockage de données dans Azure, consultez d'autres guides de fonctionnalités.
-    -   Utilisez le [stockage de table](/en-us/develop/net/how-to-guides/table-services/) pour stocker des données structurées.
-    -   Utilisez le [stockage d'objets blob](/en-us/develop/net/how-to-guides/blob-storage/) pour stocker des données non structurées.
-    -   Utilisez une [base de données SQL](/en-us/develop/net/how-to-guides/sql-database/) pour stocker des données relationnelles.
+    -   Utilisez le [stockage de table](/fr-fr/develop/net/how-to-guides/table-services/) pour stocker des données structurées.
+    -   Utilisez le [stockage d'objets blob](/fr-fr/develop/net/how-to-guides/blob-storage/) pour stocker des données non structurées.
+    -   Utilisez une [base de données SQL](/fr-fr/develop/net/how-to-guides/sql-database/) pour stocker des données relationnelles.
 

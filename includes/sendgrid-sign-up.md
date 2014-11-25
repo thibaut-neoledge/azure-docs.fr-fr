@@ -1,16 +1,16 @@
-Les clients Azure peuvent débloquer 25 000 courriers électroniques gratuits chaque mois. Ces 25 000 courriers électroniques mensuels gratuits vous donnent accès aux rapports avancés, aux analyses et à toutes les API (Web, SMTP, Event, Parse, Sub-User). Pour plus d’informations sur les services supplémentaires proposés par SendGrid, consultez la page [Fonctionnalités SendGrid][].
+Les clients Azure peuvent débloquer 25 000 courriers électroniques gratuits chaque mois. Ces 25 000 courriers électroniques mensuels gratuits vous donnent accès aux rapports avancés, aux analyses et à toutes les API (Web, SMTP, Event, Parse, Sub-User). Pour plus d’informations sur les services supplémentaires proposés par SendGrid, consultez la page [Fonctionnalités SendGrid][Fonctionnalités SendGrid].
 
 ### Création d’un compte SendGrid
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 
 2.  Dans le volet inférieur du portail de gestion, cliquez sur **Nouveau**.
 
-    ![command-bar-new][]
+    ![command-bar-new][command-bar-new]
 
 3.  Cliquez sur **Store**.
 
-    ![store-sendgrid][]
+    ![store-sendgrid][store-sendgrid]
 
 4.  Dans la boîte de dialogue **Choose an Add-on**, sélectionnez **SendGrid**, puis cliquez sur la flèche droite.
 
@@ -18,7 +18,7 @@ Les clients Azure peuvent débloquer 25 000 courriers électroniques gratuits 
 
 6.  Entrez un nom pour identifier le service **SendGrid** dans les paramètres Azure ou utilisez la valeur par défaut **SendGrid**. Les noms doivent contenir entre 1 et 100 caractères et ne peuvent inclure que des lettres, des chiffres, des tirets, des points et des traits de soulignement. Le nom doit être unique dans la liste des éléments de l’Azure Store auxquels vous êtes abonné.
 
-    ![store-screen-2][]
+    ![store-screen-2][store-screen-2]
 
 7.  Choisissez une valeur pour la région ; par exemple, Bretagne.
 
@@ -26,17 +26,17 @@ Les clients Azure peuvent débloquer 25 000 courriers électroniques gratuits 
 
 9.  Sous l’onglet **Review Purchase**, vérifiez le plan et les informations tarifaires, ainsi que les conditions juridiques. Si vous acceptez les conditions juridiques, cliquez sur la coche. Votre compte SendGrid lance alors le processus de déploiement.
 
-    ![store-screen-3][]
+    ![store-screen-3][store-screen-3]
 
 10. Après la confirmation de votre achat, vous êtes redirigé vers le tableau de bord des modules et le message **Purchasing SendGrid** s’affiche.
 
-    ![sendgrid-purchasing-message][]
+    ![sendgrid-purchasing-message][sendgrid-purchasing-message]
 
     Votre compte SendGrid est immédiatement déployé et le message **Successfully purchased Add-On SendGrid** s’affiche. Votre compte et vos informations d’identification sont créés. Vous pouvez désormais envoyer des courriers électroniques.
 
     Pour modifier votre plan d’abonnement ou voir les paramètres de contact de SendGrid, cliquez sur le nom du service SendGrid pour ouvrir le tableau de bord des modules SendGrid.
 
-    ![sendgrid-add-on-dashboard][]
+    ![sendgrid-add-on-dashboard][sendgrid-add-on-dashboard]
 
     Pour envoyer un courrier électronique à l’aide de SendGrid, vous devez fournir les informations d’identification de votre compte (nom d’utilisateur et mot de passe).
 
@@ -44,17 +44,17 @@ Les clients Azure peuvent débloquer 25 000 courriers électroniques gratuits 
 
 1.  Cliquez sur **Connection Info**.
 
-    ![sendgrid-connection-info-button][]
+    ![sendgrid-connection-info-button][sendgrid-connection-info-button]
 
 2.  Dans la boîte de dialogue *Connection info*, copiez le **Mot de passe** et le nom d’utilisateur pour une utilisation ultérieure dans ce didacticiel.
 
-    ![sendgrid-connection-info][]
+    ![sendgrid-connection-info][sendgrid-connection-info]
 
     Pour définir les paramètres de remise des courriers électroniques, cliquez sur le bouton **Manage**. L’interface Web de Sendgrid.com s’ouvre et vous pouvez vous connecter et ouvrir le panneau de configuration de SendGrid.
 
-    ![sendgrid-control-panel][]
+    ![sendgrid-control-panel][sendgrid-control-panel]
 
-    Pour plus d’informations sur la mise en route de SendGrid, consultez la page [Mise en route de SendGrid][].
+    Pour plus d’informations sur la mise en route de SendGrid, consultez la page [Mise en route de SendGrid][Mise en route de SendGrid].
 
 <!--images-->
 

@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-windowsphone" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="glenga" solutions="" manager="dwrede" editor="dwrede" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 
 # Prise en main de Notification Hubs
 
@@ -9,17 +9,17 @@
 Cette rubrique montre comment utiliser Azure Notification Hubs pour envoyer des notifications Push vers une application Silverlight Windows Phone 8 ou Windows Phone 8.1. Si vous ciblez Windows Phone 8.1 (non-Silverlight), consultez la version [Windows Universel][1].
 Ce didacticiel vous apprend à créer une application Windows Phone 8 vide qui reçoit des notifications Push au moyen du Service de notifications Push Microsoft (MPNS). Une fois la création terminée, vous pouvez diffuser des notifications Push sur tous les appareils sur lesquels votre application est installée au moyen de votre concentrateur de notification.
 
-> [AZURE.NOTE] Le kit de développement logiciel (SDK) Windows Phone Notification Hubs ne prend pas en charge l'utilisation des services WNS avec les applications Silverlight Windows Phone 8.1. Pour utiliser les services WNS (plutôt que MPNS) avec des applications Silverlight Windows Phone 8.1, vous devez configurer vos informations d'identification WNS comme indiqué dans [Prise en main pour Windows Universel][1]. Ensuite, vous pouvez vous inscrire à partir du système principal comme indiqué dans le didacticiel [Notification des utilisateurs][] ou utiliser les [API REST Notification Hubs][].
+> [AZURE.NOTE] Le kit de développement logiciel (SDK) Windows Phone Notification Hubs ne prend pas en charge l'utilisation des services WNS avec les applications Silverlight Windows Phone 8.1. Pour utiliser les services WNS (plutôt que MPNS) avec des applications Silverlight Windows Phone 8.1, vous devez configurer vos informations d'identification WNS comme indiqué dans [Prise en main pour Windows Universel][1]. Ensuite, vous pouvez vous inscrire à partir du système principal comme indiqué dans le didacticiel [Notification des utilisateurs][Notification des utilisateurs] ou utiliser les [API REST Notification Hubs][API REST Notification Hubs].
 
 Ce didacticiel vous familiarise avec les étapes permettant d'activer les notifications Push :
 
-1.  [Création de votre concentrateur de notification][]
-2.  [Connexion de votre application au concentrateur de notification][]
-3.  [Envoi de notifications à partir de votre serveur principal][]
+1.  [Création de votre concentrateur de notification][Création de votre concentrateur de notification]
+2.  [Connexion de votre application au concentrateur de notification][Connexion de votre application au concentrateur de notification]
+3.  [Envoi de notifications à partir de votre serveur principal][Envoi de notifications à partir de votre serveur principal]
 
 Le didacticiel présente un scénario de diffusion simple en utilisant les Notification Hubs. Suivez scrupuleusement le didacticiel suivant pour apprendre à utiliser Notification Hubs pour accéder à des utilisateurs et groupes d'appareils spécifiques. Ce didacticiel requiert les éléments suivants :
 
--   [Visual Studio 2012 Express pour Windows Phone][] ou version ultérieure.
+-   [Visual Studio 2012 Express pour Windows Phone][Visual Studio 2012 Express pour Windows Phone] ou version ultérieure.
 
 Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacticiels concernant les Notification Hubs pour les applications Windows Phone 8.
 
@@ -27,11 +27,11 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
 
 ## <a name="configure-hub"></a>Création de votre concentrateur de notification
 
-1.  Connectez-vous au [portail de gestion Azure][] et cliquez sur **+NOUVEAU** au bas de l'écran.
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure] et cliquez sur **+NOUVEAU** au bas de l'écran.
 
 2.  Cliquez sur **Services d'application**, sur **Service Bus**, sur **Concentrateur de notification**, puis sur **Création rapide**.
 
-    ![][]
+    ![][0]
 
 3.  Tapez un nom pour votre concentrateur de notification, sélectionnez la région de votre choix, puis cliquez sur **Créer un concentrateur de notification**.
 
@@ -77,7 +77,7 @@ Vous disposez maintenant des chaînes de connexion requises pour inscrire votre 
 
     ![][9]
 
-    Une référence à la bibliothèque Messagerie Azure pour Windows est alors téléchargée, installée et ajoutée à l'aide du [package NuGet WindowsAzure.Messaging.Managed][].
+    Une référence à la bibliothèque Messagerie Azure pour Windows est alors téléchargée, installée et ajoutée à l'aide du [package NuGet WindowsAzure.Messaging.Managed][package NuGet WindowsAzure.Messaging.Managed].
 
 4.  Ouvrez le fichier App.xaml.cs et ajoutez l'instruction `using` suivante :
 
@@ -117,7 +117,7 @@ Vous disposez maintenant des chaînes de connexion requises pour inscrire votre 
 
 ## <a name="send"></a>Envoi de notifications à partir de votre serveur principal
 
-Vous pouvez envoyer des notifications en utilisant les Notification Hubs à partir des serveurs principaux en utilisant l'[interface REST][]. Dans ce didacticiel, vous envoyez des notifications avec une application console .NET. Pour obtenir un exemple expliquant comment envoyer des notifications à partir d'un serveur principal Azure Mobile Services intégré à Notification Hubs, voir **Prise en main des notifications Push dans Mobile Services** ([Service principal .NET][] | [Service principal JavaScript][Service principal .NET]). Pour obtenir un exemple expliquant comment envoyer des notifications à l'aide d'API REST, voir **Utilisation de Notification Hubs depuis Java/PHP** ([Java][] | [PHP][]).
+Vous pouvez envoyer des notifications en utilisant les Notification Hubs à partir des serveurs principaux en utilisant l'[interface REST][interface REST]. Dans ce didacticiel, vous envoyez des notifications avec une application console .NET. Pour obtenir un exemple expliquant comment envoyer des notifications à partir d'un serveur principal Azure Mobile Services intégré à Notification Hubs, voir **Prise en main des notifications Push dans Mobile Services** ([Service principal .NET][Service principal .NET] | [Service principal JavaScript][Service principal .NET]). Pour obtenir un exemple expliquant comment envoyer des notifications à l'aide d'API REST, voir **Utilisation de Notification Hubs depuis Java/PHP** ([Java][Java] | [PHP][PHP]).
 
 1.  Cliquez avec le bouton droit sur la solution, sélectionnez **Ajouter** et **Nouveau projet...** puis, sous **Visual C#**, cliquez sur **Windows**, sur **Application console** puis sur **OK**.
 
@@ -133,7 +133,7 @@ Vous pouvez envoyer des notifications en utilisant les Notification Hubs à part
 
         Install-Package WindowsAzure.ServiceBus
 
-    Cela permet d'ajouter une référence au Kit de développement logiciel (SDK) Azure Service Bus à l'aide du [package NuGet WindowsAzure.ServiceBus][].
+    Cela permet d'ajouter une référence au Kit de développement logiciel (SDK) Azure Service Bus à l'aide du [package NuGet WindowsAzure.ServiceBus][package NuGet WindowsAzure.ServiceBus].
 
 4.  Ouvrez le fichier Program.cs et ajoutez l'instruction `using` suivante :
 
@@ -167,23 +167,17 @@ Vous pouvez envoyer des notifications en utilisant les Notification Hubs à part
 
     Vous recevrez une notification toast. Un appui sur la bannière du toast charge l'application.
 
-Vous trouverez toutes les charges utiles possibles dans le [catalogue toast][] et le [catalogue de modèles de vignette][] sur MSDN.
+Vous trouverez toutes les charges utiles possibles dans le [catalogue toast][catalogue toast] et le [catalogue de modèles de vignette][catalogue de modèles de vignette] sur MSDN.
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Dans cet exemple simple, vous diffusez des notifications à tous vos appareils Windows Phone 8. Pour cibler certains utilisateurs, reportez-vous au didacticiel [Utilisation des Notification Hubs pour envoyer des notifications Push aux utilisateurs][]. Pour segmenter vos utilisateurs par groupes d'intérêt, consultez la page [Utilisation des Notification Hubs pour diffuser les dernières nouvelles][]. Découvrez plus en détail comment utiliser Notification Hubs dans [Recommandations relatives à Notification Hubs][].
+Dans cet exemple simple, vous diffusez des notifications à tous vos appareils Windows Phone 8. Pour cibler certains utilisateurs, reportez-vous au didacticiel [Utilisation des Notification Hubs pour envoyer des notifications Push aux utilisateurs][Utilisation des Notification Hubs pour envoyer des notifications Push aux utilisateurs]. Pour segmenter vos utilisateurs par groupes d'intérêt, consultez la page [Utilisation des Notification Hubs pour diffuser les dernières nouvelles][Utilisation des Notification Hubs pour diffuser les dernières nouvelles]. Découvrez plus en détail comment utiliser Notification Hubs dans [Recommandations relatives à Notification Hubs][Recommandations relatives à Notification Hubs].
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Windows Universel]: /fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universel"
-  [Windows Phone]: /fr-fr/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /fr-fr/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /fr-fr/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /fr-fr/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /fr-fr/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /fr-fr/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [1]: /fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
   [Notification des utilisateurs]: /fr-fr/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/
   [API REST Notification Hubs]: http://msdn.microsoft.com/fr-fr/library/dn223264.aspx
@@ -191,15 +185,13 @@ Dans cet exemple simple, vous diffusez des notifications à tous vos appareils W
   [Connexion de votre application au concentrateur de notification]: #connecting-app
   [Envoi de notifications à partir de votre serveur principal]: #send
   [Visual Studio 2012 Express pour Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
-  [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [portail de gestion Azure]: https://manage.windowsazure.com/
-  []: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal.png
+  [0]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal.png
   [2]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal2.png
   [3]: ./media/notification-hubs-windows-phone-get-started/notification-hub-select-from-portal.png
   [4]: ./media/notification-hubs-windows-phone-get-started/notification-hub-select-from-portal2.png
   [5]: ./media/notification-hubs-windows-phone-get-started/notification-hub-connection-strings.png
   [6]: ./media/notification-hubs-windows-phone-get-started/notification-hub-pushauth.png
-  [mode MPNS authentifié]: http://msdn.microsoft.com/fr-fr/library/windowsphone/develop/ff941099(v=vs.105).aspx
   [7]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-wp-app.png
   [8]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-wp-silverlight-app.png
   [9]: ./media/notification-hubs-windows-phone-get-started/notification-hub-windows-universal-app-install-package.png

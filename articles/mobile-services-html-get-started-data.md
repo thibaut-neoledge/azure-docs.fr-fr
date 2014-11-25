@@ -234,7 +234,6 @@ Ce didacticiel a présenté les bases de l'activation d'une application HTML pou
 
 Une fois que vous avez terminé la série de données, découvrez comment authentifier les utilisateurs de votre application en suivant le didacticiel [Prise en main de l'authentification][Prise en main de l'authentification].
 
-  [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
   [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started-html
   [Téléchargement du projet d'application HTML]: #download-app
   [Création du service mobile]: #create-service
@@ -243,7 +242,6 @@ Une fois que vous avez terminé la série de données, découvrez comment authen
   [Test de l'application avec Mobile Services]: #test-app
   [GetStartedWithData]: http://go.microsoft.com/fwlink/?LinkID=286345
   [0]: ./media/mobile-services-html-get-started-data/mobile-quickstart-startup-html.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [1]: ./media/mobile-services-html-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/mobile-services-html-get-started-data/mobile-create-todoitem-table.png
   [3]: ./media/mobile-services-html-get-started-data/mobile-services-set-cors-localhost.png

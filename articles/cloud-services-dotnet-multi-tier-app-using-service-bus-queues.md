@@ -626,7 +626,6 @@ Pour mettre en œuvre l'application que vous créez dans ce didacticiel en tant 
 
 Pour plus d'informations sur le déploiement du composant frontal sur un site Web Azure, consultez la page [Déploiement d'une application Web ASP.NET sur un site Web Azure][Déploiement d'une application Web ASP.NET sur un site Web Azure]. Pour plus d'informations sur le déploiement du composant principal dans Azure Cloud Services, consultez la page [Application ASP.NET multiniveau avec tables, files d'attente et objets blob de stockage][Application ASP.NET multiniveau avec tables, files d'attente et objets blob de stockage Azure].
 
-  [create-account-note]: ../includes/create-account-note.md
   [Étapes suivantes]: #nextsteps
   [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh767287.aspx

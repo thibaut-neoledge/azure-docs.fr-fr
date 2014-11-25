@@ -1,6 +1,6 @@
-<properties title="Cr&eacute;ation d'un compte DocumentDB" pageTitle="Cr&eacute;ation d'un compte DocumentDB | Azure" description="D&eacute;couvrez comment cr&eacute;er un compte DocumentDB et choisir des param&egrave;tres de compte sur le portail Azure en version pr&eacute;liminaire."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+<properties title="How to Create a DocumentDB Account" pageTitle="How to create a DocumentDB account | Azure" description="Find out how to create a DocumentDB account and choose account settings in the Azure Preview portal."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # Création d'un compte DocumentDB
 
@@ -15,7 +15,8 @@ Pour utiliser DocumentDB, vous devez créer un compte DocumentDB dans une régio
 
 1.  Connectez-vous à la [version préliminaire du portail de gestion Azure][version préliminaire du portail de gestion Azure].
 2.  Cliquez sur Nouveau -\> Compte DocumentDB.
-    ![][0]
+    
+	![][0]
 
     Vous pouvez également parcourir la galerie Azure, sélectionner la catégorie « Données, stockage, cache + sauvegarde », choisir **DocumentDB**, puis cliquer sur **Créer**.
 
@@ -48,7 +49,8 @@ Pour utiliser DocumentDB, vous devez créer un compte DocumentDB dans une régio
     Utilisez **Emplacement** pour indiquer l'emplacement géographique de l'hébergement de votre compte DocumentDB.
 
 3.  Une fois les options du nouveau compte DocumentDB configurées, cliquez sur **Créer**. La création du compte DocumentDB peut prendre plusieurs minutes. Pour vérifier l'état d'avancement de l'opération, vous pouvez consulter le tableau d'accueil.
-    ![][3]
+    
+	![][3]
 
     Ou à partir du concentrateur de notification.
 
@@ -59,10 +61,12 @@ Pour utiliser DocumentDB, vous devez créer un compte DocumentDB dans une régio
 4.  Une fois le compte DocumentDB créé, il est prêt à être utilisé avec les paramètres par défaut.
 
     *Remarque : la cohérence par défaut du compte DocumentDB sera configurée sur Session. Vous pouvez régler le paramètre de cohérence par défaut en utilisant la [version préliminaire du portail de gestion Azure][version préliminaire du portail de gestion Azure].*
-    ![][6]
+    
+	![][6]
 
 5.  Vous pouvez également accéder à vos comptes DocumentDB existants à partir du volet **Parcourir**.
-    ![][7]
+    
+	![][7]
 
 ## <span id="NextSteps"></span></a>Étapes suivantes
 

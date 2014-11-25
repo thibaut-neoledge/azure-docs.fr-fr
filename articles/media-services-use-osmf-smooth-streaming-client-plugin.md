@@ -1,6 +1,6 @@
-<properties urlDisplayName="Smooth Streaming Plugin" pageTitle="Plug-in Smooth Streaming pour Open Source Media Framework" metaKeywords="" description="Apprenez &agrave; utiliser le plug-in Smooth Streaming d'Azure Media Services pour Adobe Open Source Media Framework." metaCanonical="" services="media-services" documentationCenter="" title="Utilisation du plug-in Microsoft Smooth Streaming pour Adobe Open Source Media Framework" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties linkid="develop-media-services-tutorials-smooth-streaming-plugin-for-open-source-media-framework" urlDisplayName="Smooth Streaming Plugin" pageTitle="Smooth Streaming Plugin for the Open Source Media Framework" metaKeywords="" description="Learn how to use the Azure Media Services Smooth Streaming plugin for the Adobe Open Source Media Framework." metaCanonical="" services="media-services" documentationCenter="" title="How to Use the Microsoft Smooth Streaming Plugin for the Adobe Open Source Media Framework" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Utilisation du plug-in Microsoft Smooth Streaming pour Adobe Open Source Media Framework
 
@@ -28,7 +28,7 @@ Le plug-in prend en charge le chargement et la lecture de contenu Smooth Streami
 -   Plusieurs langues avec API OSMF intégrées
 -   Sélection de la qualité de lecture maximale avec API OSMF intégrées
 -   Sous-titres Sidecar avec plug-in de sous-titres OSMF
--   Adobe® Flash® Player 10.2 ou version ultérieure.
+-   Adobe® Flash® Player 10.2 or higher.
 -   Cette version ne prend en charge qu'OSMF 2.0.
 
 Les fonctionnalités suivantes ne sont pas prises en charge :
@@ -329,7 +329,7 @@ L'extrait de code qui suit montre comment charger le plug-in SS de façon dynami
 Le plug-in dynamique Smooth Streaming pour OSMF est compatible avec [Strobe Media Playback (SMP)][Strobe Media Playback (SMP)]. Vous pouvez utiliser le plug-in SS pour OSMF pour ajouter la lecture Smooth Streaming à SMP. Pour cela, copiez MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf sur un serveur Web pour le chargement HTTP, en appliquant la procédure suivante :
 
 1.  Accédez à la page d'installation de [Strobe Media Playback][Strobe Media Playback].
-2.  Définissez src sur une source Smooth Streaming (par exemple http://devplatem.vo.msecnd.net/Sintel/Sintel\_H264.ism/manifest)
+2.  Set the src to a Smooth Streaming source, (e.g. <http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest>)
 3.  Appliquez les modifications souhaitées à la configuration, puis cliquez sur Preview and Update.
 
     **Remarque** Votre serveur Web de contenu doit disposer d'un fichier crossdomain.xml valide.
@@ -378,8 +378,8 @@ Le plug-in dynamique Smooth Streaming pour OSMF est compatible avec [Strobe Medi
         </object>
         </html>
 
-6.  Enregistrez votre page HTML et publiez-la sur un serveur Web. Accédez à la page web publiée à l'aide de votre navigateur Internet compatible avec Flash® Player (Internet Explorer, Chrome, Firefox, etc.).
-7.  Accédez au contenu Smooth Streaming dans Adobe® Flash® Player.
+6.  Enregistrez votre page HTML et publiez-la sur un serveur Web. Browse to the published web page using your favorite Flash® Player enabled Internet browser (Internet Explorer, Chrome, Firefox, so on).
+7.  Enjoy Smooth Streaming content inside Adobe® Flash® Player.
 
 Pour plus d'informations sur le développement avec OSMF, consultez la page officielle [sur le développement pour OSMF][sur le développement pour OSMF].
 
@@ -387,6 +387,5 @@ Pour plus d'informations sur le développement avec OSMF, consultez la page offi
   [Utilisation de Flash Player]: http://forums.adobe.com/message/4483498#4483498
   [Adobe Flash Player 11.3 - Bug 3210964]: https://bugbase.adobe.com/index.cfm?event=bug&id=3210964
   [Plug-in OSMF]: http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf
-  [Strobe Media Playback (SMP)]: http://osmf.org/strobe_mediaplayback.html
   [Strobe Media Playback]: http://osmf.org/dev/2.0gm/setup.html
   [sur le développement pour OSMF]: http://osmf.org/resources.html

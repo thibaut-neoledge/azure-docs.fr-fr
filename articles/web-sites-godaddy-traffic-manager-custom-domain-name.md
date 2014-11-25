@@ -61,20 +61,13 @@ Pour associer votre domaine personnalisé à un site web Azure, vous devez ajout
 
 ## <a name="enabledomain"></a>Activer Traffic Manager pour votre site web
 
-[WACOM.INCLUDE [modes][1]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [Go Daddy]: https://godaddy.com
-  [tmwebsitefooter]: ../includes/custom-dns-web-site-traffic-manager-notes.md
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [Présentation des enregistrements DNS]: #understanding-records
   [Configurer vos sites web pour le mode Standard]: #bkmk_configsharedmode
   [Ajouter un enregistrement DNS pour votre domaine personnalisé]: #bkmk_configurecname
   [Activer Traffic Manager pour votre site web]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
-  [modes]: ../includes/custom-dns-web-site-modes-traffic-manager.md
   [page des domaines personnalisés de GoDaddy]: ./media/web-sites-custom-domain-name/godaddy-customdomain.png
   [Onglet DNS Zone File]: ./media/web-sites-custom-domain-name/godaddy-zonetab.png
   [éditeur de fichier de zone]: ./media/web-sites-custom-domain-name/godaddy-quickaddcname.png
-  [1]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

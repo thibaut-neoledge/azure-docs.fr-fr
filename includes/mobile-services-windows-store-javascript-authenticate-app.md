@@ -34,7 +34,7 @@
 
     Cela crée une variable membre pour le stockage de l'utilisateur actuel et une méthode pour gérer le processus d'authentification. L'utilisateur est authentifié à l'aide d'une connexion Facebook. Si vous utilisez un fournisseur d'identité différent de Facebook, remplacez la valeur transmise à la méthode **login** ci-dessus par l'une des valeurs suivantes : *microsoftaccount*, *twitter*, *google* ou *windowsazureactivedirectory*.
 
-    > [WACOM.NOTE] Si vous avez enregistré les informations du package de l'application Windows Store avec Mobile Services, vous devez appeler la méthode [login][] en fournissant la valeur **true** pour le paramètre *useSingleSignOn*. Si vous ne le faites pas, vos utilisateurs seront toujours invités à se connecter à chaque appel de la méthode de connexion.
+    > [WACOM.NOTE] Si vous avez enregistré les informations du package de l'application Windows Store avec Mobile Services, vous devez appeler la méthode [login][login] en fournissant la valeur **true** pour le paramètre *useSingleSignOn*. Si vous ne le faites pas, vos utilisateurs seront toujours invités à se connecter à chaque appel de la méthode de connexion.
 
 2.  Appuyez sur la touche F5 pour exécuter l'application et vous connecter à l'application avec le fournisseur d'identité choisi.
 

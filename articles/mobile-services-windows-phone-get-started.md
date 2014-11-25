@@ -103,11 +103,9 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [version principale .NET]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
   [0]: ./media/mobile-services-windows-phone-get-started/mobile-quickstart-completed-wp8.png
   [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A30A4DDE2&returnurl=http%3A%2F%2FFfr-fr%2Fdocumentation%2Farticles%2Fmobile-services-windows-phone-get-started%2F
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-windows-phone-get-started/mobile-portal-quickstart-wp8.png
   [2]: ./media/mobile-services-windows-phone-get-started/mobile-quickstart-steps-wp8.png
   [Visual Studio 2012 Express pour Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374

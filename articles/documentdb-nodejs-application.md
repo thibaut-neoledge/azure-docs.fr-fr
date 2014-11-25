@@ -1,6 +1,6 @@
 <properties title="Build a Node.js web application using DocumentDB" pageTitle="Build a Node.js web application using DocumentDB | Azure" description="Learn how to use Azure DocumentDB to store and access data from a Node.js application hosted on Azure." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="ryancraw" manager="jhubbard" editor="cgronlun" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="ryancraw"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="ryancraw" />
 
 # <a name="_Toc395783175">Création d'une application web Node.js avec DocumentDB</a>
 
@@ -31,23 +31,23 @@ DocumentDB.
 Avant de suivre les instructions de cet article, vérifiez que les éléments
 suivants sont installés :
 
-[Node.js][] version v0.10.29 ou supérieure
+[Node.js][Node.js] version v0.10.29 ou supérieure
 
-[Git][]
+[Git][Git]
 
-[Visual Studio 2013][] Update 3
+[Visual Studio 2013][Visual Studio 2013] Update 3
 
-[Outils Node.js pour Visual Studio][]
+[Outils Node.js pour Visual Studio][Outils Node.js pour Visual Studio]
 
 **Remarque :** bien que nous utilisions Visual Studio pour créer, déboguer et déployer notre
 projet Node.js dans ce didacticiel, vous pouvez utiliser votre
 éditeur préféré et exécuter Node.js directement sur la plateforme de votre
-choix en procédant comme vous le feriez normalement pour exécuter un projet Node.js. Vous pouvez ensuite utiliser les outils de l'[interface de ligne de commande Azure][] pour
+choix en procédant comme vous le feriez normalement pour exécuter un projet Node.js. Vous pouvez ensuite utiliser les outils de l'[interface de ligne de commande Azure][interface de ligne de commande Azure] pour
 déployer votre application vers Sites Web Azure
 
 # <a name="_Toc395637761">Création d'un compte de base de données DocumentDB</a>
 
-Pour configurer un compte de base de données DocumentDB dans Azure, ouvrez le [portail de gestion Azure][],
+Pour configurer un compte de base de données DocumentDB dans Azure, ouvrez le [portail de gestion Azure][portail de gestion Azure],
 puis cliquez sur la vignette Galerie Azure sur la page d'accueil ou sur « + » dans le coin inférieur gauche de l'écran.
 
 ![Alt text](./media/documentdb-nodejs-application/image2.png)
@@ -498,35 +498,15 @@ votre réalisation exécutée dans Azure !
 Félicitations ! Vous venez de créer votre première application web
 Express Node.js avec Azure DocumentDB et de la publier sur Sites Web Azure.
 
-Vous pouvez télécharger le code source de l'application de référence complète [ici][].
+Vous pouvez télécharger le code source de l'application de référence complète [ici][ici].
 
 </h1>
 
   [Alt text]: ./media/documentdb-nodejs-application/image1.png
   [Node.js]: http://nodejs.org/
   [Git]: http://git-scm.com/
-  [Visual Studio 2013]: http://msdn.microsoft.com/en-us/vstudio/cc136611.aspx
+  [Visual Studio 2013]: http://msdn.microsoft.com/fr-fr/vstudio/cc136611.aspx
   [Outils Node.js pour Visual Studio]: https://nodejstools.codeplex.com/
   [interface de ligne de commande Azure]: http://azure.microsoft.com/fr-fr/documentation/articles/xplat-cli/
   [portail de gestion Azure]: http://portal.azure.com
-  [1]: ./media/documentdb-nodejs-application/image2.png
-  [2]: ./media/documentdb-nodejs-application/image3.png
-  [3]: ./media/documentdb-nodejs-application/image4.png
-  [4]: ./media/documentdb-nodejs-application/image5.png
-  [5]: ./media/documentdb-nodejs-application/image6.png
-  [6]: ./media/documentdb-nodejs-application/image7.png
-  [7]: ./media/documentdb-nodejs-application/image8.png
-  [8]: ./media/documentdb-nodejs-application/image9.png
-  [9]: ./media/documentdb-nodejs-application/image10.png
-  [10]: ./media/documentdb-nodejs-application/image11.png
-  [11]: ./media/documentdb-nodejs-application/image12.png
-  [12]: ./media/documentdb-nodejs-application/image13.png
-  [13]: ./media/documentdb-nodejs-application/image14.png
-  [14]: ./media/documentdb-nodejs-application/image15.png
-  [15]: ./media/documentdb-nodejs-application/image16.png
-  [16]: ./media/documentdb-nodejs-application/image17.png
-  [17]: ./media/documentdb-nodejs-application/image18.png
-  [18]: ./media/documentdb-nodejs-application/image19.png
-  [19]: ./media/documentdb-nodejs-application/image20.png
-  [20]: ./media/documentdb-nodejs-application/image21.png
   [ici]: http://go.microsoft.com/fwlink/?LinkID=509839&clcid=0x409

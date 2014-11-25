@@ -1,24 +1,24 @@
 <properties linkid="web-sites-backup" urlDisplayName="Azure Websites Backups" pageTitle="Azure Websites Backups" metaKeywords="Azure Web Sites, Backups" description="Learn how to create backups of your Azure websites." metaCanonical="" services="web-sites" documentationCenter="" title="Azure Websites Backups" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Sauvegardes de Sites Web Azure
 
 La fonctionnalité de sauvegarde et restauration de Sites Web Azure vous permet de créer facilement des sauvegardes de sites web, manuellement ou automatiquement. Vous pouvez restaurer votre site web à une étape précédente, ou créer un site web basé sur les sauvegardes de votre site d'origine.
 
-Pour plus d'informations sur la restauration d'un site web Azure depuis une sauvegarde, consultez [Restauration d'un site web Azure][].
+Pour plus d'informations sur la restauration d'un site web Azure depuis une sauvegarde, consultez [Restauration d'un site web Azure][Restauration d'un site web Azure].
 
 ## Dans cet article
 
--   [Sauvegarde automatique et facile (vidéo)][]
--   [Éléments sauvegardés][]
--   [Exigences et restrictions][]
--   [Pour créer une sauvegarde manuelle][]
--   [Pour configurer des sauvegardes automatisées][]
--   [Stockage des sauvegardes][]
--   [Remarques][]
--   [Étapes suivantes][]
-    -   [En savoir plus sur les comptes de stockage][]
+-   [Sauvegarde automatique et facile (vidéo)][Sauvegarde automatique et facile (vidéo)]
+-   [Éléments sauvegardés][Éléments sauvegardés]
+-   [Exigences et restrictions][Exigences et restrictions]
+-   [Pour créer une sauvegarde manuelle][Pour créer une sauvegarde manuelle]
+-   [Pour configurer des sauvegardes automatisées][Pour configurer des sauvegardes automatisées]
+-   [Stockage des sauvegardes][Stockage des sauvegardes]
+-   [Remarques][Remarques]
+-   [Étapes suivantes][Étapes suivantes]
+    -   [En savoir plus sur les comptes de stockage][En savoir plus sur les comptes de stockage]
 
 <a name="video"></a>
 
@@ -46,7 +46,7 @@ Ces informations sont sauvegardées dans le compte de stockage Azure que vous in
 
 ## Exigences et restrictions
 
--   La fonction de sauvegarde et de restauration implique que le site se situe au niveau Standard. Pour plus d'informations sur la mise à l'échelle de votre site web au niveau Standard, consultez [Mise à l'échelle de sites web][].
+-   La fonction de sauvegarde et de restauration implique que le site se situe au niveau Standard. Pour plus d'informations sur la mise à l'échelle de votre site web au niveau Standard, consultez [Mise à l'échelle de sites web][Mise à l'échelle de sites web].
 
 -   La fonctionnalité de sauvegarde et restauration demande un compte Azure Storage appartenant au même abonnement que le site web que vous sauvegardez. À défaut de disposer d'un compte de stockage, vous pouvez en créer un en cliquant sur le bouton **Stockage** (icône grille) situé dans le volet de gauche du portail Azure, puis en sélectionnant **Nouveau** dans la barre de commandes du bas. Pour plus d'informations sur les comptes de stockage Azure, consultez les [liens][En savoir plus sur les comptes de stockage] situés en bas de cet article.
 
@@ -56,25 +56,25 @@ Ces informations sont sauvegardées dans le compte de stockage Azure que vous in
 
 1.  Dans le portail Azure de votre site web, choisissez l'onglet **Sauvegardes**.
 
-    ![Page Sauvegardes][]
+    ![Page Sauvegardes][Page Sauvegardes]
 
 2.  Sélectionnez le compte de stockage dans lequel vous souhaitez sauvegarder votre site web. Ce compte de stockage doit relever du même abonnement que le site web que vous sauvegardez.
 
-    ![Sélection d'un compte de stockage][]
+    ![Sélection d'un compte de stockage][Sélection d'un compte de stockage]
 
 3.  Dans l'option **Bases de données incluses**, sélectionnez les bases de données connectées au site web (serveur SQL ou MySQL) que vous souhaitez sauvegarder.
 
-    ![Sélection des bases de données à inclure][]
+    ![Sélection des bases de données à inclure][Sélection des bases de données à inclure]
 
     > [WACOM.NOTE] Pour permettre l'affichage d'une base de données dans cette liste, sa chaîne de connexion doit être présente dans la section **Chaînes de connexion** de l'onglet Configurer du portail.
 
 4.  Dans la barre de commandes, cliquez sur **Backup Now**.
 
-    ![Bouton Backup Now][]
+    ![Bouton Backup Now][Bouton Backup Now]
 
     Un message de progression s'affiche au cours du processus de sauvegarde :
 
-    ![Message de progression de la sauvegarde][]
+    ![Message de progression de la sauvegarde][Message de progression de la sauvegarde]
 
 Vous pouvez à tout moment effectuer une sauvegarde manuelle. Dans la version préliminaire, seules deux sauvegardes manuelles peuvent être effectuées par 24 heures (peut faire l'objet de modifications).
 
@@ -84,37 +84,37 @@ Vous pouvez à tout moment effectuer une sauvegarde manuelle. Dans la version pr
 
 1.  Sur la page Sauvegardes, activez **Sauvegarde automatisée**.
 
-    ![Activation des sauvegardes automatisées][]
+    ![Activation des sauvegardes automatisées][Activation des sauvegardes automatisées]
 
 2.  Sélectionnez le compte de stockage dans lequel vous souhaitez sauvegarder votre site web. Ce compte de stockage doit relever du même abonnement que le site web que vous sauvegardez.
 
-    ![Sélection d'un compte de stockage][]
+    ![Sélection d'un compte de stockage][Sélection d'un compte de stockage]
 
 3.  Dans la zone **Fréquence**, indiquez la fréquence de sauvegarde automatisée de votre choix. (Dans la version préliminaire, le nombre de jours correspond à la seule unité de temps disponible.)
 
-    ![Sélection de la fréquence de sauvegarde][]
+    ![Sélection de la fréquence de sauvegarde][Sélection de la fréquence de sauvegarde]
 
     Le nombre de jours doit être situé entre 1 et 90 compris (d'une fois par jour à tous les 90 jours).
 
 4.  Utilisez l'option **Date de début** pour indiquer la date et l'heure de début des sauvegardes automatisées souhaitées.
 
-    ![Sélection d'une date de début][]
+    ![Sélection d'une date de début][Sélection d'une date de début]
 
     Les heures disponibles correspondent à des incréments d'une demi-heure.
 
-    ![Sélection d'une heure de début][]
+    ![Sélection d'une heure de début][Sélection d'une heure de début]
 
     > [WACOM.NOTE] Azure stocke les heures de sauvegarde au format UTC, mais les affiche selon l'heure de l'ordinateur que vous utilisez pour afficher le portail.
 
 5.  Dans la section **Bases de données incluses**, sélectionnez les bases de données connectées au site web (serveur SQL ou MySQL) que vous souhaitez sauvegarder. Pour permettre l'affichage d'une base de données dans cette liste, sa chaîne de connexion doit être présente dans la section **Chaînes de connexion** de l'onglet Configurer du portail.
 
-    ![Sélection des bases de données à inclure][]
+    ![Sélection des bases de données à inclure][Sélection des bases de données à inclure]
 
     > [WACOM.NOTE] Si vous avez sélectionné une ou plusieurs bases de données dans la sauvegarde et spécifié une fréquence inférieure à 7 jours, vous serez informé du fait que de fréquentes sauvegardes peuvent augmenter les coûts de vos bases de données.
 
 6.  Dans la barre de commandes, cliquez sur le bouton **Enregistrer** pour enregistrer les modifications de votre configuration (ou sélectionnez **Ignorer** pour ne pas les enregistrer).
 
-    ![Bouton enregistrer][]
+    ![Bouton enregistrer][Bouton enregistrer]
 
 <a name="aboutbackups"></a>
 
@@ -126,9 +126,9 @@ Les noms des fichiers de sauvegarde .zip et .xml se composent du nom de votre si
 
 Le fichier XML stocké avec le fichier zip indique le nom du fichier de base de données sous *description\_base\_données* \> *bases\_données* \> *description\_sauvegarde\_base\_données* \> *nom\_fichier*.
 
-Le fichier de sauvegarde de base de données est stocké à la racine du fichier .zip. Pour une base de données SQL, il s'agit d'un fichier BACPAC (pas d'extension de fichier) qui peut être importé. Pour créer une base de données SQL basée sur l'exportation du fichier BACPAC, suivez les étapes indiquées dans l'article [Importer un fichier BACPAC pour créer une nouvelle base de données utilisateur][].
+Le fichier de sauvegarde de base de données est stocké à la racine du fichier .zip. Pour une base de données SQL, il s'agit d'un fichier BACPAC (pas d'extension de fichier) qui peut être importé. Pour créer une base de données SQL basée sur l'exportation du fichier BACPAC, suivez les étapes indiquées dans l'article [Importer un fichier BACPAC pour créer une nouvelle base de données utilisateur][Importer un fichier BACPAC pour créer une nouvelle base de données utilisateur].
 
-Pour plus d'informations sur la restauration d'un site web Azure (y compris les bases de données) via le portail de gestion Azure, consultez [Restauration d'un site web Microsoft Azure][].
+Pour plus d'informations sur la restauration d'un site web Azure (y compris les bases de données) via le portail de gestion Azure, consultez [Restauration d'un site web Microsoft Azure][Restauration d'un site web Microsoft Azure].
 
 > [WACOM.NOTE] Toute modification apportée aux fichiers de votre conteneur **websitebackups** peut invalider la sauvegarde et la rendre impossible à restaurer.
 
@@ -145,21 +145,21 @@ Pour plus d'informations sur la restauration d'un site web Azure (y compris les 
 
 ## Étapes suivantes
 
-Pour plus d'informations sur la restauration d'un site web Azure depuis une sauvegarde, consultez [Restauration d'un site web Azure][].
+Pour plus d'informations sur la restauration d'un site web Azure depuis une sauvegarde, consultez [Restauration d'un site web Azure][Restauration d'un site web Azure].
 
-Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite de Microsoft Azure][].
+Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite de Microsoft Azure][Version d'évaluation gratuite de Microsoft Azure].
 
 <a name="moreaboutstorage"></a>
 
 ### En savoir plus sur les comptes de stockage
 
-[Présentation des comptes de stockage][]
+[Présentation des comptes de stockage][Présentation des comptes de stockage]
 
-[Création d’un compte de stockage][]
+[Création d’un compte de stockage][Création d’un compte de stockage]
 
-[Surveillance d'un compte de stockage][]
+[Surveillance d'un compte de stockage][Surveillance d'un compte de stockage]
 
-[Présentation de la facturation du stockage Windows][]
+[Présentation de la facturation du stockage Windows][Présentation de la facturation du stockage Windows]
 
 <!-- IMAGES -->
 

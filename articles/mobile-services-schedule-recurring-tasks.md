@@ -165,7 +165,6 @@ Félicitations, vous avez créé un nouveau travail planifié dans votre service
   [Inscription pour l'accès à Twitter et stockage des informations d'identification]: #get-oauth-credentials
   [Création de la nouvelle table Updates]: #create-table
   [Création d'un nouveau travail planifié]: #add-job
-  [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
   [0]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
   [1]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
   [2]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png

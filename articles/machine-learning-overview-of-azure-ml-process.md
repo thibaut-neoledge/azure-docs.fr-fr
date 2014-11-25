@@ -1,6 +1,6 @@
 <properties title="Azure Machine Learning API service operations" pageTitle="Machine Learning API service operations | Azure" description="Creating and managing Azure Machine Learning web services" metaKeywords="" services="" solutions="" documentationCenter="" authors="derrickv" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="derrickv"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="derrickv" />
 
 # Opérations du service API Azure Machine Learning
 
@@ -28,7 +28,7 @@ Azure ML permet la création de services web à partir d'expériences ML défini
 
 Le schéma suivant montre les étapes générales en deux parties : d'abord l'élaboration d'un modèle, puis sa publication sous forme de service web. Ce document se concentre sur le côté droit du schéma de la Figure 1 - Publication d'un service web d'évaluation, puis explique les concepts impliqués dans ce processus.
 
-![][]
+![][0]
 
 Figure 1 : approvisionnement, élaboration et publication d'un service web d'évaluation
 
@@ -218,7 +218,7 @@ Une fois l'expérience mise à jour et le nouveau modèle formé créé et éval
 
 
 
-  []: ./media/machine-learning-overview-of-azure-ml-process/oamlp1.png
+  [0]: ./media/machine-learning-overview-of-azure-ml-process/oamlp1.png
   [1]: ./media/machine-learning-overview-of-azure-ml-process/oamlp2.png
   [2]: ./media/machine-learning-overview-of-azure-ml-process/oamlp3.png
   [3]: ./media/machine-learning-overview-of-azure-ml-process/oamlp4.png

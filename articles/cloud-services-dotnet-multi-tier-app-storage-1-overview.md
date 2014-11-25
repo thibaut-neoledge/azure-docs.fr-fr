@@ -1082,6 +1082,3 @@ Pour obtenir des liens sur les ressources supplémentaires pour utiliser les tab
   [bloc applicatif de mise à l'échelle automatique]: /fr-fr/develop/net/how-to-guides/autoscaling/
   [ASP.NET Identity]: http://asp.net/identity
   [dernier didacticiel de cette série]: /fr-fr/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/#nextsteps
-  [Prise en main du Kit de développement logiciel (SDK) Azure WebJobs]: /fr-fr/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
-  [Création du rôle de travail A (planificateur de messages) pour l'application Azure Email Service]: /fr-fr/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
-  [Création du rôle de travail B (expéditeur de messages) pour l'application Azure Email Service]: /fr-fr/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/ 

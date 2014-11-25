@@ -396,9 +396,9 @@ La fonctionnalité suivante est une nouveauté de la version de novembre du Kit 
 
     La prise en charge asynchrone a été ajoutée à toutes les méthodes.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+  
 
-  [Forum MSDN sur Azure Media Services]: http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=MediaServices
+  [Forum MSDN sur Azure Media Services]: http://social.msdn.microsoft.com/forums/azure/fr-fr/home?forum=MediaServices
   [Problèmes actuellement connus]: #issues
   [Historique des versions de l'API REST]: #rest_version_history
   [Version d'octobre 2014]: #october_changes_14

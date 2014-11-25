@@ -30,7 +30,7 @@ La recherche standard est facturable, car vous bénéficiez d'une infrastructure
 
 Pour planifier la capacité nécessaire et comprendre l'impact de la facturation, nous vous recommandons les liens suivants :
 
--   [Limites et contraintes](http://msdn.microsoft.com/en-us/library/dn798934.aspx)
+-   [Limites et contraintes](http://msdn.microsoft.com/fr-fr/library/dn798934.aspx)
 -   [Tarification](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
 Lorsque vous êtes prêt à vous inscrire, consultez la rubrique [Configuration de Search dans la version préliminaire du portail Azure](../search-configure/).
@@ -92,10 +92,10 @@ Dans cette version préliminaire publique, l'analyse des ressources se limite au
 
 Dans la section Utilisation du tableau de bord des services, vous pouvez déterminer rapidement si les niveaux des ressources de partition sont adaptés à votre application.
 
-L'API du service Search vous permet d'obtenir le nombre de documents et d'index. Des limites strictes sont associées à ces valeurs sur la base du niveau de tarification. Pour plus d'informations, consultez [Limites et contraintes](http://msdn.microsoft.com/en-us/library/dn798934.aspx).
+L'API du service Search vous permet d'obtenir le nombre de documents et d'index. Des limites strictes sont associées à ces valeurs sur la base du niveau de tarification. Pour plus d'informations, consultez [Limites et contraintes](http://msdn.microsoft.com/fr-fr/library/dn798934.aspx).
 
--   [Obtenir des statistiques d'index](http://msdn.microsoft.com/en-us/library/dn798942.aspx)
--   [Nombre de documents](http://msdn.microsoft.com/en-us/library/dn798924.aspx)
+-   [Obtenir des statistiques d'index](http://msdn.microsoft.com/fr-fr/library/dn798942.aspx)
+-   [Nombre de documents](http://msdn.microsoft.com/fr-fr/library/dn798924.aspx)
 
 > [WACOM.NOTE] Il arrive qu'une limite soit surévaluée en raison des options de mise en cache. Lors de l'utilisation du service partagé, par exemple, il se peut que le nombre de documents dépasse la limite stricte fixée à 10 000 documents. Cette surévaluation est temporaire et sera détectée lors de la prochaine vérification de l'application des limites.
 
@@ -135,7 +135,7 @@ Contrairement à la suppression de réplicas, qui n'exige aucune opération supp
 
 Aucune méthode de détection ne vous permet d'identifier les fragments d'index qui sont stockés sur des partitions spécifiques. Chaque partition fournit environ 25 Go de stockage. Vous devrez donc réduire l'espace de stockage à une taille pouvant être prise en charge par le nombre de partitions dont vous disposez. Si vous souhaitez revenir à une seule partition, celle-ci devra contenir les 12 fragments.
 
-Pour faciliter la planification, vous pouvez vérifier le stockage (voir la page [Obtenir des statistiques d'index](http://msdn.microsoft.com/en-us/library/dn798942.aspx)) afin de connaître l'espace réellement utilisé.
+Pour faciliter la planification, vous pouvez vérifier le stockage (voir la page [Obtenir des statistiques d'index](http://msdn.microsoft.com/fr-fr/library/dn798942.aspx)) afin de connaître l'espace réellement utilisé.
 
 <!---->
 

@@ -1,6 +1,6 @@
 <properties linkid="develop-php-how-to-guides-web-sso" urlDisplayName="Web SSO" pageTitle="Single sign-on with Azure Active Directory (PHP)" metaKeywords="Azure PHP web app, Azure single sign-on, Azure PHP Active Directory" description="Learn how to create a PHP web application that uses single sign-on with Azure Active Directory." metaCanonical="" services="active-directory" documentationCenter="PHP" title="Web Single Sign-On with PHP and Azure Active Directory" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Authentification unique web avec PHP et Azure Active Directory
 
@@ -199,4 +199,3 @@ Un exemple illustrant l'utilisation d'Azure Active Directory et de l'authentific
   [Étape 2 : configuration de l'application dans le client d'annuaire d'une société]: #provisionapp
   [Étape 3 : protection de l'application en utilisant WS-Federation pour la connexion des employés]: #protectapp
   [Résumé]: #summary
-  [\*thomas.levesque@fabrikam.onmicrosoft.com\*]: mailto:*john.doe@fabrikam.onmicrosoft.com*

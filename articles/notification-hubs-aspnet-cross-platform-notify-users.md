@@ -1,10 +1,10 @@
 <properties linkid="manage-services-notification-hubs-notify-users-xplat-aspnet" urlDisplayName="Notify Users xplat aspnet" pageTitle="Send cross-platform notifications to users with Notification Hubs (ASP.NET)" metaKeywords="" description="Learn how to use Notification Hubs templates to send, in a single request, a platform-agnostic notification that targets all platforms." metaCanonical="" services="notification-hubs" documentationCenter="" title="Send cross-platform notifications to users with Notification Hubs" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Envoi de notifications interplateforme aux utilisateurs avec Notification Hubs
 
-Dans le didacticiel précédent [Notification des utilisateurs avec Notification Hubs][], vous avez appris à envoyer des notifications Push à tous les appareils inscrits par un utilisateur authentifié. Dans ce didacticiel, l'envoi d'une notification à chaque plateforme cliente prise en charge nécessitait plusieurs demandes. Notification Hubs prend en charge des modèles qui permettent de spécifier le mode de réception préféré d'un appareil déterminé. Cela simplifie l'envoi de notifications interplateforme. Cette rubrique montre comment exploiter les modèles pour envoyer, dans une même demande, une notification qui cible toutes les plateformes, quelles qu'elles soient. Pour plus d'informations sur les modèles, consultez la page [Vue d'ensemble des concentrateurs de notification][].
+Dans le didacticiel précédent [Notification des utilisateurs avec Notification Hubs][Notification des utilisateurs avec Notification Hubs], vous avez appris à envoyer des notifications Push à tous les appareils inscrits par un utilisateur authentifié. Dans ce didacticiel, l'envoi d'une notification à chaque plateforme cliente prise en charge nécessitait plusieurs demandes. Notification Hubs prend en charge des modèles qui permettent de spécifier le mode de réception préféré d'un appareil déterminé. Cela simplifie l'envoi de notifications interplateforme. Cette rubrique montre comment exploiter les modèles pour envoyer, dans une même demande, une notification qui cible toutes les plateformes, quelles qu'elles soient. Pour plus d'informations sur les modèles, consultez la page [Vue d'ensemble des concentrateurs de notification][Vue d'ensemble des concentrateurs de notification].
 
 <div class="dev-callout"><b>Remarque</b>
     <p>Notification Hubs permet &agrave; un appareil d'inscrire plusieurs mod&egrave;les avec la m&ecirc;me balise. Dans ce cas, un message entrant ciblant cette balise d&eacute;clenche l'envoi de plusieurs notifications &agrave; destination de l'appareil, une pour chaque mod&egrave;le. Cela vous permet d'afficher le m&ecirc;me message dans plusieurs notifications visuelles, par exemple, sous la forme d'un badge et d'une notification toast dans une application Windows Store.</p>
@@ -72,18 +72,18 @@ Pour envoyer des notifications interplateforme à l'aide de modèles, procédez 
 
 Maintenant que vous avez terminé ce didacticiel, vous trouverez des informations supplémentaires sur Notification Hubs et les modèles dans les rubriques suivantes :
 
--   **Utilisation de Notification Hubs pour envoyer les dernières nouvelles ([Windows Store C#][] / [iOS][Windows Store C#])**
+-   **Utilisation de Notification Hubs pour envoyer les dernières nouvelles ([Windows Store C#][Windows Store C#] / [iOS][Windows Store C#])**
     Présente un autre scénario d'utilisation des modèles.
 
--   **[Vue d'ensemble des concentrateurs de notification][]**
+-   **[Vue d'ensemble des concentrateurs de notification][Vue d'ensemble des concentrateurs de notification]**
     Rubrique générale offrant des informations plus détaillées sur les modèles.
 
--   **[Procédures Notification Hubs pour Windows Store][]**
+-   **[Procédures Notification Hubs pour Windows Store][Procédures Notification Hubs pour Windows Store]**
     Fait notamment référence au langage d'expression de modèles.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Notification des utilisateurs avec Notification Hubs]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
   [Vue d'ensemble des concentrateurs de notification]: http://go.microsoft.com/fwlink/p/?LinkId=317339

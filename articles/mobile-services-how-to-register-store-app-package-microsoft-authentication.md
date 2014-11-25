@@ -18,5 +18,4 @@ Après l'inscription du package de votre application, pensez à fournir la valeu
 
   [Démarrage rapide : ajout de notifications Push pour un service mobile]: http://go.microsoft.com/fwlink/p/?LinkId=309101
   [Authentification unique de votre application Windows Store avec Live Connect]: /fr-fr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-  [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
   [LoginAsync]: http://go.microsoft.com/fwlink/p/?LinkId=311594

@@ -49,7 +49,7 @@ Cliquez sur le plan pour ouvrir un volet qui permet de gérer votre plan d'hébe
 
 Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite de Microsoft Azure][Version d'évaluation gratuite de Microsoft Azure].
 
-<!-- Images. -->
+
 
   [Cliquez ici]: http://go.microsoft.com/fwlink/?LinkID=394421
   [En savoir plus sur la gestion des plans d'hébergement web]: http://go.microsoft.com/fwlink/?LinkID=394411

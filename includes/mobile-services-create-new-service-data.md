@@ -1,19 +1,19 @@
 Ensuite, vous créez un service mobile pour remplacer la liste en mémoire pour le stockage de données. Suivez cette procédure pour créer un service mobile.
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 2.  En bas du volet de navigation, cliquez sur **+NEW**.
 
-    ![plus-new][]
+    ![plus-new][plus-new]
 
 3.  Développez **Calcul** et **Service Mobile**, puis cliquez sur **Créer**.
 
-    ![mobile-create][]
+    ![mobile-create][mobile-create]
 
     La boîte de dialogue **Nouveau service mobile** s'affiche.
 
 4.  Sur la page **Create a mobile service**, sélectionnez **Create a free 20 MB SQL Database**, puis entrez un nom de sous-domaine pour le nouveau service mobile dans la zone de texte **URL** et patientez lors de la vérification du nom. Une fois la vérification du nom terminée, cliquez sur la flèche droite pour aller sur la page suivante.
 
-    ![mobile-create-page1][]
+    ![mobile-create-page1][mobile-create-page1]
 
     La page **Spécifier les paramètres de la base de données** s'affiche.
 
@@ -23,7 +23,7 @@ Ensuite, vous créez un service mobile pour remplacer la liste en mémoire pour 
 
 5.  Dans **Nom**, tapez le nom de la nouvelle base de données, puis le **Nom de connexion**, qui est le nom de connexion de l'administrateur pour le nouveau serveur de base de données SQL, tapez et confirmez le mot de passe, puis cliquez sur le bouton de vérification pour terminer le processus.
 
-	![mobile-create-page2][]
+	![mobile-create-page2][mobile-create-page2]
 
 	<div class="dev-callout"> 
 	<b>Remarque</b> 

@@ -337,7 +337,7 @@ Téléchargez le [projet d'exemple terminé](http://go.microsoft.com/fwlink/p/?L
 
 Dans cet exemple simple, un utilisateur reçoit une notification Push avec les données venant d'être insérées. Le jeton de l'appareil utilisé par APNS est fourni au service mobile par le client dans la requête. Dans le didacticiel suivant, [Notifications Push pour les utilisateurs d'application](/fr-fr/develop/mobile/tutorials/push-notifications-to-users-ios), vous allez créer une table Devices distincte dans laquelle stocker les jetons d'appareil et envoyer une notification Push à tous les canaux stockés en cas d'insertion.
 
-<!-- Anchors. -->
+
 [Generate the certificate signing request]: #certificates
 [Register your app and enable push notifications]: #register
 [Create a provisioning profile for the app]: #profile
@@ -347,7 +347,7 @@ Dans cet exemple simple, un utilisateur reçoit une notification Push avec les d
 [Insert data to receive notifications]: #test
 [Next Steps]:#next-steps
 
-<!-- Images. -->
+
 
 
 

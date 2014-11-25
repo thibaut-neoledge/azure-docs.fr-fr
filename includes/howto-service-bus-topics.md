@@ -2,7 +2,7 @@
 
 Les rubriques et les abonnements Service Bus prennent en charge un modèle de **communication de messagerie de publication et d'abonnement**. Lors de l'utilisation de rubriques et d'abonnements, les composants d'une application distribuée ne communiquent pas directement entre eux ; ils échangent plutôt des messages via une rubrique, qui fait office d'intermédiaire.
 
-![TopicConcepts][]
+![TopicConcepts][TopicConcepts]
 
 Contrairement aux files d’attente Service Bus, où chaque message est traité par un seul consommateur, les rubriques et les abonnements fournissent une forme de communication **un-à-plusieurs**, à l'aide d'un modèle de publication et d'abonnement. Il est possible d'inscrire plusieurs abonnements à une rubrique. Lorsqu'un message est envoyé à une rubrique, il est alors mis à disposition de chaque abonnement pour être géré ou traité indépendamment.
 
@@ -16,13 +16,13 @@ Pour commencer à utiliser les rubriques et les abonnements Service Bus dans Azu
 
 Pour créer un espace de noms de service :
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 
 2.  Dans le volet de navigation gauche du portail de gestion, cliquez sur **Service Bus**.
 
 3.  Dans le volet inférieur du portail de gestion, cliquez sur **Créer**.
 
-	![][]
+	![][0]
 
 4.  Dans la boîte de dialogue **Ajouter un nouvel espace de noms**, entrez un nom d'espace de noms. Le système vérifie immédiatement la disponibilité du nom.
 
@@ -43,7 +43,7 @@ Pour effectuer des opérations de gestion, comme la création d'une rubrique ou 
 ### Pour obtenir les informations de gestion du portail
 
 1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour afficher la liste des espaces de noms disponibles :   
-    ![][]
+    ![][0]
 
 2.  Sélectionnez l'espace de noms que vous venez de créer dans la liste affichée :   
     ![][3]
@@ -55,7 +55,7 @@ Pour effectuer des opérations de gestion, comme la création d'une rubrique ou 
 
 ### Pour obtenir les informations de gestion de l’Explorateur de serveurs
 
-Pour obtenir les informations de connexion en utilisant Visual Studio plutôt que le Portail de gestion, suivez la procédure décrite [ici][], dans la section intitulé **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l’arborescence **Microsoft Azure** dans l’Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Properties** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s’affichent dans le volet **Properties** de Visual Studio.
+Pour obtenir les informations de connexion en utilisant Visual Studio plutôt que le Portail de gestion, suivez la procédure décrite [ici][ici], dans la section intitulé **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l’arborescence **Microsoft Azure** dans l’Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Properties** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s’affichent dans le volet **Properties** de Visual Studio.
 
 Notez la valeur **SharedAccessKey** ou copiez-la dans le Presse-papiers :
 
@@ -63,10 +63,10 @@ Notez la valeur **SharedAccessKey** ou copiez-la dans le Presse-papiers :
 
   [TopicConcepts]: ./media/howto-service-bus-topics/sb-topics-01.png
   [portail de gestion Azure]: http://manage.windowsazure.com
-  []: ./media/howto-service-bus-topics/sb-queues-13.png
+  [0]: ./media/howto-service-bus-topics/sb-queues-13.png
   [1]: ./media/howto-service-bus-topics/sb-queues-04.png
   [2]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
   [3]: ./media/howto-service-bus-topics/sb-queues-09.png
   [4]: ./media/howto-service-bus-topics/sb-queues-06.png
-  [ici]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+  [ici]: http://http://msdn.microsoft.com/fr-fr/library/windowsazure/ff687127.aspx
   [5]: ./media/howto-service-bus-topics/VSProperties.png

@@ -1,4 +1,4 @@
-Le service de notification Push Apple (APNS) utilise des certificats pour authentifier votre service mobile. Suivez ces instructions pour créer les certificats requis et les télécharger dans votre service mobile. Pour obtenir la documentation complète des fonctionnalités APNS, consultez la page [Service de notification Push Apple][].
+Le service de notification Push Apple (APNS) utilise des certificats pour authentifier votre service mobile. Suivez ces instructions pour créer les certificats requis et les télécharger dans votre service mobile. Pour obtenir la documentation complète des fonctionnalités APNS, consultez la page [Service de notification Push Apple][Service de notification Push Apple].
 
 ## Génération du fichier de demande de signature de certificat
 
@@ -8,7 +8,7 @@ Vous devez d'abord générer le fichier de demande de signature de certificat (C
 
 2.  Cliquez sur **Trousseaux d'accès**, développez **Assistant de certification**, puis cliquez sur **Demander un certificat à une autorité de certification**.
 
-    ![][]
+    ![][0]
 
 3.  Sélectionnez votre **Adresse de messagerie de l'utilisateur** et votre **Nom commun**, vérifiez que la case à cocher **Enregistré sur le disque** est activée, puis cliquez sur **Continuer**. Laissez le champ **Adresse de messagerie d'autorité de certification** vide, car il n'est pas requis.
 
@@ -26,7 +26,7 @@ Ensuite, vous allez inscrire votre application auprès d'Apple, activer les noti
 
 Pour pouvoir envoyer des notifications Push vers une application iOS à partir des services mobiles, vous devez inscrire votre application auprès d'Apple, ainsi qu'aux notifications Push.
 
-1.  Si vous n'avez pas déjà inscrit votre application, accédez au [Portail de mise en service iOS][] du centre de développement Apple, connectez-vous avec votre ID Apple, cliquez sur **Identifiers**, sur **App IDs**, puis sur le signe **+** pour inscrire une nouvelle application.
+1.  Si vous n'avez pas déjà inscrit votre application, accédez au [Portail de mise en service iOS][Portail de mise en service iOS] du centre de développement Apple, connectez-vous avec votre ID Apple, cliquez sur **Identifiers**, sur **App IDs**, puis sur le signe **+** pour inscrire une nouvelle application.
 
     ![][3]
 
@@ -123,7 +123,7 @@ Plus tard, vous devrez utiliser ce certificat pour générer un fichier .p12 et 
 Ceci vérifie que le projet Xcode utilise le nouveau profil pour la signature du code. Vous devez ensuite télécharger le certificat vers Azure.
 
   [Service de notification Push Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-  []: ./media/enable-apple-push-notifications/mobile-services-ios-push-step5.png
+  [0]: ./media/enable-apple-push-notifications/mobile-services-ios-push-step5.png
   [1]: ./media/enable-apple-push-notifications/mobile-services-ios-push-step6.png
   [2]: ./media/enable-apple-push-notifications/mobile-services-ios-push-step7.png
   [Portail de mise en service iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456

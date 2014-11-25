@@ -1,10 +1,10 @@
 ## <a name="add-select-images"></a>Mise à jour de l'application cliente de démarrage rapide pour capturer et télécharger des images
 
-Dans cette section, vous allez mettre à jour le projet du didacticiel [Prise en main de Mobile Services][] pour prendre des photos et les télécharger dans le stockage d'objets blob Azure. Pour capturer l'image, ce didacticiel utilise la tâche [CameraCaptureTask][] de l'espace de noms `Microsoft.Phone.Tasks`. Cette classe lance l'interface utilisateur de l'appareil photo sur l'appareil Windows Phone afin de capturer la photo, puis enregistre automatiquement l'image dans la Pellicule de l'appareil Windows Phone. Si vous ne souhaitez pas enregistrer les images dans la Pellicule, utilisez la classe [PhotoCamera][] de l'espace de noms `Microsoft.Devices`.
+Dans cette section, vous allez mettre à jour le projet du didacticiel [Prise en main de Mobile Services][Prise en main de Mobile Services] pour prendre des photos et les télécharger dans le stockage d'objets blob Azure. Pour capturer l'image, ce didacticiel utilise la tâche [CameraCaptureTask][CameraCaptureTask] de l'espace de noms `Microsoft.Phone.Tasks`. Cette classe lance l'interface utilisateur de l'appareil photo sur l'appareil Windows Phone afin de capturer la photo, puis enregistre automatiquement l'image dans la Pellicule de l'appareil Windows Phone. Si vous ne souhaitez pas enregistrer les images dans la Pellicule, utilisez la classe [PhotoCamera][PhotoCamera] de l'espace de noms `Microsoft.Devices`.
 
 1.  Dans l'Explorateur de solutions de Visual Studio, sous le projet, développez **Propriétés**. Ouvrez ensuite le fichier WMAppManifest.xml et, dans l'onglet **Capacités**, activez l'appareil photo en cliquant sur **ID\_CAP\_ISV\_CAMERA**. Fermez le fichier pour enregistrer vos modifications.
 
-    ![][]
+    ![][0]
 
     Votre application pourra ainsi utiliser un appareil photo associé à l'ordinateur. Les utilisateurs seront invités à autoriser l'accès à l'appareil photo lors de la première exécution de l'application.
 
@@ -42,7 +42,7 @@ Dans cette section, vous allez mettre à jour le projet du didacticiel [Prise en
             </phone:LongListSelector>
         </Grid>
 
-    Un nouveau bouton est ajouté pour lancer la tâche [CameraCaptureTask][], de même qu'une image au modèle **ItemTemplate**, et sa source de liaison est définie en tant qu'URI de l'image téléchargée dans le service de stockage d'objets blob.
+    Un nouveau bouton est ajouté pour lancer la tâche [CameraCaptureTask][CameraCaptureTask], de même qu'une image au modèle **ItemTemplate**, et sa source de liaison est définie en tant qu'URI de l'image téléchargée dans le service de stockage d'objets blob.
 
 3.  Ouvrez le fichier projet MainPage.xaml.cs et ajoutez les instructions **using** suivantes :
 
@@ -65,7 +65,7 @@ Dans cette section, vous allez mettre à jour le projet du didacticiel [Prise en
         [JsonProperty(PropertyName = "imageUri")]
         public string ImageUri { get; set; } 
 
-5.  Dans le fichier projet MainPage.xaml.cs, mettez à jour la classe MainPage. Ajoutez le code suivant pour déclarer la tâche [CameraCaptureTask][] et un objet de flux qui référencera l'image capturée :
+5.  Dans le fichier projet MainPage.xaml.cs, mettez à jour la classe MainPage. Ajoutez le code suivant pour déclarer la tâche [CameraCaptureTask][CameraCaptureTask] et un objet de flux qui référencera l'image capturée :
 
         // Using the CameraCaptureTask to allow the user to capture a todo item image //
         CameraCaptureTask cameraCaptureTask;
@@ -177,7 +177,7 @@ La dernière étape consiste à tester l'application et à confirmer que les té
   [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started
   [CameraCaptureTask]: http://msdn.microsoft.com/fr-fr/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
   [PhotoCamera]: http://msdn.microsoft.com/fr-fr/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
-  []: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png
+  [0]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png
   [1]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-wp8.png
   [2]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-camera-wp8.png
   [3]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-camera-accept-wp8.png

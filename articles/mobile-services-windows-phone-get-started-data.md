@@ -179,7 +179,6 @@ Une fois que vous avez terminé la série de données, vous pouvez essayer l'un 
 
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application avec Mobile Services.
 
-  [mobile-services-selector-get-started-data-legacy]: ../includes/mobile-services-selector-get-started-data-legacy.md
   [Téléchargement du projet d'application Windows Phone 8]: #download-app
   [Création du service mobile]: #create-service
   [Ajout d'une table de données pour le stockage]: #add-table
@@ -189,8 +188,6 @@ Une fois que vous avez terminé la série de données, vous pouvez essayer l'un 
   [GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=271146
   [version Windows Phone Store de l'application]: http://go.microsoft.com/fwlink/p/?LinkId=397372
   [0]: ./media/mobile-services-windows-phone-get-started-data/mobile-quickstart-startup-wp8.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
-  [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
   [1]: ./media/mobile-services-windows-phone-get-started-data/mobile-add-nuget-package-wp.png
   [2]: ./media/mobile-services-windows-phone-get-started-data/mobile-dashboard-tab.png
   [portail de gestion]: https://manage.windowsazure.com/

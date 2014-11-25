@@ -1,12 +1,12 @@
 Vous devez authentifier vos applications avant d'accéder aux ressources des API Twitter v1.1. Tout d'abord, vous devez obtenir les informations d'identification requises pour demander l'accès en utilisant OAuth 2.0. Ensuite, vous allez les stocker en toute sécurité dans les paramètres de l'application pour vos services mobiles.
 
-1.  Si vous ne l'avez pas déjà fait, suivez la procédure de la rubrique [Inscription de vos applications pour la connexion à Twitter avec Mobile Services][].
+1.  Si vous ne l'avez pas déjà fait, suivez la procédure de la rubrique [Inscription de vos applications pour la connexion à Twitter avec Mobile Services][Inscription de vos applications pour la connexion à Twitter avec Mobile Services].
 
     Twitter génère les informations d'identification requises pour vous permettre d'accéder aux API Twitter v1.1. Vous pouvez obtenir ces informations d'identification à partir du site Web Twitter Developers.
 
-2.  Rendez-vous sur le site Web [Twitter Developers][], connectez-vous avec votre compte Twitter, accédez à **My Applications**, puis sélectionnez votre application Twitter.
+2.  Rendez-vous sur le site Web [Twitter Developers][Twitter Developers], connectez-vous avec votre compte Twitter, accédez à **My Applications**, puis sélectionnez votre application Twitter.
 
-    ![][]
+    ![][0]
 
 3.  Sous l'onglet **Détails** de l'application, notez les valeurs suivantes :
 
@@ -17,7 +17,7 @@ Vous devez authentifier vos applications avant d'accéder aux ressources des API
 
     ![][1]
 
-4.  Connectez-vous au [portail de gestion Azure][], cliquez sur **Services mobiles**, puis cliquez sur votre service mobile.
+4.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure], cliquez sur **Services mobiles**, puis cliquez sur votre service mobile.
 
 5.  Cliquez sur l’onglet **Identité**, entrez les valeurs des champs **Consumer key** et **Consumer secret** obtenues sur le site de Twitter, puis cliquez sur **Enregistrer**.
 
@@ -30,13 +30,13 @@ Vous devez authentifier vos applications avant d'accéder aux ressources des API
 
     ![][3]
 
-    Ceci stocke le jeton d'accès Twitter dans les paramètres de l'application. Comme les informations d'identification sous l'onglet **Identité**, les informations d'identification d'accès sont également stockées dans les paramètres de l'application, et vous pouvez y accéder dans les scripts de votre serveur sans les coder en dur dans le fichier de script. Pour plus d'informations, consultez l'article [Paramètres de l'application][].
+    Ceci stocke le jeton d'accès Twitter dans les paramètres de l'application. Comme les informations d'identification sous l'onglet **Identité**, les informations d'identification d'accès sont également stockées dans les paramètres de l'application, et vous pouvez y accéder dans les scripts de votre serveur sans les coder en dur dans le fichier de script. Pour plus d'informations, consultez l'article [Paramètres de l'application][Paramètres de l'application].
 
-<!-- URLs. -->
+
 
   [Inscription de vos applications pour la connexion à Twitter avec Mobile Services]: /fr-fr/documentation/articles/mobile-services-how-to-register-twitter-authentication/
   [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-  []: ./media/mobile-services-register-twitter-access/mobile-twitter-my-apps.png
+  [0]: ./media/mobile-services-register-twitter-access/mobile-twitter-my-apps.png
   [1]: ./media/mobile-services-register-twitter-access/mobile-twitter-app-secrets.png
   [portail de gestion Azure]: https://manage.windowsazure.com/
   [2]: ./media/mobile-services-register-twitter-access/mobile-identity-tab-twitter-only.png

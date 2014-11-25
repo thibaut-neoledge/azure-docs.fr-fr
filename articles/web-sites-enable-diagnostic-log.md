@@ -1,21 +1,21 @@
 <properties linkid="develop-net-common-tasks-diagnostics-logging-and-instrumentation" urlDisplayName="Enable diagnostic logging" pageTitle="Enable diagnostic logging - Azure Websites" metaKeywords="Azure diagnostics web sites, Azure Management Portal diagnostics, Azure diagnostics, web site diagnostics, web site debug" description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Enable diagnostic logging for Azure Websites" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Activer la journalisation de diagnostic pour Sites Web Azure
 
 Azure fournit un outil de diagnostic intégré qui vous aide à déboguer une application hébergée dans Sites Web Azure. Cet article vous explique comment activer la journalisation de diagnostic et ajouter la fonctionnalité d'instrumentation à votre application, mais aussi comment accéder aux informations enregistrées par Azure.
 
-> [WACOM.NOTE] Cet article décrit l'utilisation du portail de gestion Azure, d'Azure PowerShell et de l'interface de ligne de commande interplateforme Azure en vue d'une utilisation avec les journaux de diagnostic. Pour plus d'informations sur l'utilisation de journaux de diagnostic avec Visual Studio, consultez la page [Résolution des problèmes liés à Sites Web Azure dans Visual Studio][].
+> [WACOM.NOTE] Cet article décrit l'utilisation du portail de gestion Azure, d'Azure PowerShell et de l'interface de ligne de commande interplateforme Azure en vue d'une utilisation avec les journaux de diagnostic. Pour plus d'informations sur l'utilisation de journaux de diagnostic avec Visual Studio, consultez la page [Résolution des problèmes liés à Sites Web Azure dans Visual Studio][Résolution des problèmes liés à Sites Web Azure dans Visual Studio].
 
 ## Sommaire
 
--   [Définition des diagnostics de site web][]
--   [Activation des diagnostics][]
--   [Téléchargement des journaux][]
--   [Diffusion en continu des journaux][]
--   [Présentation des journaux de diagnostic][]
--   [Étapes suivantes][]
+-   [Définition des diagnostics de site web][Définition des diagnostics de site web]
+-   [Activation des diagnostics][Activation des diagnostics]
+-   [Téléchargement des journaux][Téléchargement des journaux]
+-   [Diffusion en continu des journaux][Diffusion en continu des journaux]
+-   [Présentation des journaux de diagnostic][Présentation des journaux de diagnostic]
+-   [Étapes suivantes][Étapes suivantes]
 
 <a name="whatisdiag"></a>
 
@@ -29,11 +29,11 @@ Les diagnostics de site vous permettent d'activer ou de désactiver les élémen
 
 -   **Messages d'erreur détaillés** : cette option enregistre des informations d'erreur détaillées pour les codes d'erreur HTTP qui indiquent un échec (code d'état 400 ou supérieur). Il peut s'agir d'informations qui vous aident à déterminer la raison pour laquelle le serveur a renvoyé le code d'erreur.
 -   **Suivi des demandes ayant échoué** : cette option enregistre des informations sur les demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Cela peut se révéler utile si vous essayez d'améliorer les performances du site ou d'isoler la cause d'une erreur HTTP spécifique.
--   **Journalisation du serveur Web** : cette option enregistre toutes les transactions HTTP effectuées sur un site web à l'aide du [format de fichier journal étendu W3C][]. Ce rapport s'avère utile pour déterminer les mesures globales d'un site, telles que le nombre de demandes traitées ou le nombre de demandes émanant d'une adresse IP spécifique.
+-   **Journalisation du serveur Web** : cette option enregistre toutes les transactions HTTP effectuées sur un site web à l'aide du [format de fichier journal étendu W3C][format de fichier journal étendu W3C]. Ce rapport s'avère utile pour déterminer les mesures globales d'un site, telles que le nombre de demandes traitées ou le nombre de demandes émanant d'une adresse IP spécifique.
 
 ### Diagnostic d'application
 
-Le diagnostic d'application vous permet de capturer des informations générées par une application Web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace][] pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple :
+Le diagnostic d'application vous permet de capturer des informations générées par une application Web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace][System.Diagnostics.Trace] pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple :
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -49,13 +49,13 @@ L'offre Sites Web Azure journalise également les informations de déploiement q
 
 ## Activation des diagnostics
 
-Vous pouvez activer les diagnostics en accédant à la page **Configurer** de votre site web Azure sur le [portail de gestion Azure][]. Sur la page **Configurer**, utilisez les sections **Diagnostic d'application** et **Diagnostic de site** pour activer la journalisation.
+Vous pouvez activer les diagnostics en accédant à la page **Configurer** de votre site web Azure sur le [portail de gestion Azure][portail de gestion Azure]. Sur la page **Configurer**, utilisez les sections **Diagnostic d'application** et **Diagnostic de site** pour activer la journalisation.
 
 Lorsque vous activez le **Diagnostic d'application**, vous devez également sélectionner le **niveau de journalisation** et indiquer si la journalisation doit être activée dans le **système de fichiers**, le **stockage de tables** ou le **stockage d'objets blob**. Bien que ces trois emplacements de stockage fournissent les mêmes informations de base pour les événements consignés, le **stockage de tables** et le **stockage d'objets blob** consignent davantage d'informations, telles que l'ID d'instance, l'ID de thread et un horodatage plus précis, que lorsque vous optez pour la journalisation dans le **système de fichiers**.
 
 Lorsque vous activez le **Diagnostic de site**, vous devez sélectionner le **stockage** ou le **système de fichiers** pour la **journalisation du serveur Web**. Si vous sélectionnez le **stockage**, vous avez également la possibilité de sélectionner un compte de stockage, puis un conteneur d'objets blob dans lequel les journaux seront écrits. Tous les autres journaux relatifs au **diagnostic de site** sont écrits uniquement dans le système de fichiers.
 
-> [WACOM.NOTE] Les informations stockées dans le **stockage de tables** ou le **stockage d'objets blob** ne sont accessibles qu'à l'aide d'un client de stockage ou d'une application capable d'utiliser directement ces systèmes de stockage. Par exemple, Visual Studio 2013 contient un Explorateur de stockage qui peut être utilisé pour explorer un système de stockage de tables ou d'objets blob, tandis que HDInsight peut accéder aux données stockées dans un stockage d'objets blob. Vous pouvez également écrire une application qui accède à Azure Storage en utilisant l'un des [Kits de développement logiciel (SDK) Azure][].
+> [WACOM.NOTE] Les informations stockées dans le **stockage de tables** ou le **stockage d'objets blob** ne sont accessibles qu'à l'aide d'un client de stockage ou d'une application capable d'utiliser directement ces systèmes de stockage. Par exemple, Visual Studio 2013 contient un Explorateur de stockage qui peut être utilisé pour explorer un système de stockage de tables ou d'objets blob, tandis que HDInsight peut accéder aux données stockées dans un stockage d'objets blob. Vous pouvez également écrire une application qui accède à Azure Storage en utilisant l'un des [Kits de développement logiciel (SDK) Azure][Kits de développement logiciel (SDK) Azure].
 
 Les paramètres suivants sont disponibles lors de l'activation du **diagnostic d'application** :
 
@@ -67,7 +67,7 @@ Les paramètres suivants sont disponibles lors de l'activation du **diagnostic d
 
 > [WACOM.NOTE] Vous pouvez activer simultanément toute combinaison de système de fichiers, stockage de tables ou stockage d'objets blob. Des configurations de niveau de journalisation individuelles sont également possibles. Vous pouvez, par exemple, consigner les erreurs et les avertissements dans le stockage d'objets blob dans le cadre d'une solution de journalisation à long terme, tout en activant un niveau de journalisation détaillé du système de fichiers.
 
-> [WACOM.NOTE] Les diagnostics peuvent également être activés à partir du module Azure PowerShell via la cmdlet **Set-AzureWebsite**. Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell][].
+> [WACOM.NOTE] Les diagnostics peuvent également être activés à partir du module Azure PowerShell via la cmdlet **Set-AzureWebsite**. Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell][Utilisation d'Azure PowerShell].
 
 <a name="download"></a>
 
@@ -101,7 +101,7 @@ Pour télécharger les fichiers journaux, démarrez une nouvelle instance du mod
 
 Cette commande enregistre les journaux du site web spécifié par le paramètre **-Name** dans un fichier nommé **logs.zip** dans le répertoire actif.
 
-> [WACOM.NOTE] Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell][].
+> [WACOM.NOTE] Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell][Utilisation d'Azure PowerShell].
 
 ### Téléchargement avec les outils en ligne de commande Azure
 
@@ -111,7 +111,7 @@ Pour télécharger les fichiers journaux à l'aide des outils en ligne de comman
 
 Cette commande enregistre les journaux du site web nommé « websitename » dans un fichier **diagnostics.zip** dans le répertoire actif.
 
-> [WACOM.NOTE] Si vous n'avez pas installé ou configuré les outils en ligne de commande Azure de manière à utiliser votre abonnement Azure, consultez la page [Utilisation des outils en ligne de commande Azure][].
+> [WACOM.NOTE] Si vous n'avez pas installé ou configuré les outils en ligne de commande Azure de manière à utiliser votre abonnement Azure, consultez la page [Utilisation des outils en ligne de commande Azure][Utilisation des outils en ligne de commande Azure].
 
 <a name="streamlogs"></a>
 
@@ -141,7 +141,7 @@ Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le para
 
 Pour afficher la liste des chemins disponibles, utilisez le paramètre -ListPath.
 
-> [WACOM.NOTE] Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell][].
+> [WACOM.NOTE] Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell][Utilisation d'Azure PowerShell].
 
 ### Diffusion d'informations en continu avec les outils en ligne de commande Azure
 
@@ -159,7 +159,7 @@ Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le para
 
     azure site log tail websitename --path http
 
-> [WACOM.NOTE] Si vous n'avez pas installé ou configuré les outils en ligne de commande Azure de manière à utiliser votre abonnement Azure, consultez la page [Utilisation des outils en ligne de commande Azure][].
+> [WACOM.NOTE] Si vous n'avez pas installé ou configuré les outils en ligne de commande Azure de manière à utiliser votre abonnement Azure, consultez la page [Utilisation des outils en ligne de commande Azure][Utilisation des outils en ligne de commande Azure].
 
 <a name="understandlogs"></a>
 
@@ -370,7 +370,7 @@ Les données stockées dans un objet blob se présentent comme suit :
 
 Le suivi des demandes ayant échoué est stocké dans des fichiers XML nommés **fr\#\#\#\#\#\#.xml**. Pour faciliter la consultation des informations consignées, une feuille de style XSL nommée **freb.xsl** est fournie dans le même répertoire que les fichiers XML. Lorsque vous ouvrez l'un des fichiers XML dans Internet Explorer, la feuille de style XSL est utilisée afin de fournir un affichage formaté des informations de suivi. Les informations se présentent alors comme suit :
 
-![affichage d'une demande ayant échoué dans le navigateur][]
+![affichage d'une demande ayant échoué dans le navigateur][affichage d'une demande ayant échoué dans le navigateur]
 
 ### Journaux d'erreurs détaillés
 
@@ -378,7 +378,7 @@ Les journaux d'erreurs détaillés sont des documents HTML qui fournissent des i
 
 ### Journaux de serveur Web
 
-Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C][]. Ces informations peuvent être lues à l'aide d'un éditeur de texte ou analysées à l'aide d'utilitaires tels que [Log Parser][].
+Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C][format de fichier journal étendu W3C]. Ces informations peuvent être lues à l'aide d'un éditeur de texte ou analysées à l'aide d'utilitaires tels que [Log Parser][Log Parser].
 
 > [WACOM.NOTE] Les journaux générés par Sites Web Azure ne prennent pas en charge les champs **s-computername**, **s-ip** et **cs-version**.
 
@@ -386,10 +386,10 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 
 ## Étapes suivantes
 
--   [Surveillance de sites Web][]
--   [Didacticiel - Résolution des problèmes des sites Web][]
--   [Résolution des problèmes liés à Sites Web Azure dans Visual Studio][]
--   [Analyse des journaux de site Web dans HDInsight][]
+-   [Surveillance de sites Web][Surveillance de sites Web]
+-   [Didacticiel - Résolution des problèmes des sites Web][Didacticiel - Résolution des problèmes des sites Web]
+-   [Résolution des problèmes liés à Sites Web Azure dans Visual Studio][Résolution des problèmes liés à Sites Web Azure dans Visual Studio]
+-   [Analyse des journaux de site Web dans HDInsight][Analyse des journaux de site Web dans HDInsight]
 
   [Résolution des problèmes liés à Sites Web Azure dans Visual Studio]: /fr-fr/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
   [Définition des diagnostics de site web]: #whatisdiag

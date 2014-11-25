@@ -76,7 +76,7 @@ Ce didacticiel requiert les éléments suivants :
 
 Si vous voulez en savoir plus les possibilités offertes par Capptain pour votre application, consultez le site <http://www.capptain.com>
 
-<!-- Anchors. --> <!-- URLs. -->
+ 
 
   [Capptain]: http://www.capptain.com
   [Initialisation du Kit de développement logiciel (SDK) Capptain]: #initialize

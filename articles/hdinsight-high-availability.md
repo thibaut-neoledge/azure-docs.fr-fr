@@ -1,4 +1,4 @@
-<properties urlDisplayName="HDInsight High Availability" pageTitle="Disponibilit&eacute; des clusters Hadoop dans HDInsight | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight d&eacute;ploie des clusters hautement disponibles et fiables." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Disponibilit&eacute; des clusters Hadoop dans HDInsight" authors="bradsev" />
+<properties linkid="manage-services-hdinsight-high-availability" urlDisplayName="HDInsight High Availability" pageTitle="Availability of Hadoop clusters in HDInsight | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight deploys highly available and reliable clusters." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Availability of Hadoop clusters in HDInsight" authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -66,4 +66,3 @@ Pour le Kit de développement logiciel (SDK), l'histoire est similaire. La créa
   [1]: http://i.imgur.com/MYTkCHW.png
   [2]: http://i.imgur.com/eL6jzgB.png
   [Administration de HDInsight à l'aide de PowerShell]: ../hdinsight-administer-use-powershell/
-  [Utilisation du Kit de développement logiciel (SDK) HDInsight .NET]: ../hdinsight-provision-clusters/#sdk

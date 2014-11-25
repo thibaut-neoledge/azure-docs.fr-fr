@@ -4,11 +4,11 @@ Une fois la propagation des enregistrements de votre nom de domaine terminée, v
 >
 > Vous pouvez utiliser un service tel que <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> pour vérifier que l'enregistrement CNAME est disponible.
 
-1.  Dans votre navigateur, ouvrez le [portail de gestion Azure][].
+1.  Dans votre navigateur, ouvrez le [portail de gestion Azure][portail de gestion Azure].
 
 2.  Sous l'onglet **Sites Web**, cliquez sur le nom de votre site, sélectionnez **Tableau de bord**, puis **Gérer les domaines** en bas de la page.
 
-    ![][]
+    ![][0]
 
 3.  Utilisez les zones de texte **NOMS DE DOMAINE** pour entrer les noms de domaine à associer avec ce site web.
 
@@ -21,5 +21,5 @@ Une fois la propagation des enregistrements de votre nom de domaine terminée, v
 Vous devez alors pouvoir entrer le nom de domaine personnalisé dans votre navigateur et constater que vous êtes bien dirigé vers votre site web Azure.
 
   [portail de gestion Azure]: https://manage.windowsazure.com
-  []: ./media/custom-dns-web-site/dncmntask-cname-6.png
+  [0]: ./media/custom-dns-web-site/dncmntask-cname-6.png
   [1]: ./media/custom-dns-web-site/dncmntask-cname-7.png

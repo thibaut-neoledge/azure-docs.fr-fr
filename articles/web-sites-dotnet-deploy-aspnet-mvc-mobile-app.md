@@ -721,7 +721,6 @@ Web adaptées aux périphériques mobiles. Vous avez notamment vu les points sui
 <!-- Images -->
 
   [Visual Studio Express 2013 pour le Web]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [projet de départ]: http://go.microsoft.com/fwlink/?LinkID=398780&clcid=0x409
   [0]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-Fixed.png
   [outils destinés aux développeur F12 d'Internet Explorer 11]: http://msdn.microsoft.com/fr-fr/library/ie/dn255001.aspx

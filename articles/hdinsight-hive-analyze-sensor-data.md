@@ -39,5 +39,5 @@ Dans cet exemple, vous allez utiliser Hive pour traiter les données d'historiqu
 
   [A diagram of the solution architecture]: ./media/hdinsight-use-hive-sensor-data-analysis/hvac-architecture.png
   [Approvisionnement de clusters Hadoop dans HDInsight]: /fr-fr/documentation/articles/hdinsight-provision-clusters/
-  [Power View]: https://support.office.com/en-US/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US
+  [Power View]: https://support.office.com/fr-fr/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=fr-fr&rs=fr-fr&ad=US
   [Pilote ODBC Microsoft Hive]: http://www.microsoft.com/fr-fr/download/details.aspx?id=40886

@@ -330,7 +330,7 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
   [Cliquer sur Publier]: ./media/web-sites-dotnet-get-started-vs2013/clickpublish.png
   [Web One Click Publish Toolbar]: ./media/web-sites-dotnet-get-started-vs2013/weboneclickpublish.png
   [portail de gestion Azure]: /fr-fr/services/management-portal/
-  [http://manage.windowsazure.com]: 
+  [http://manage.windowsazure.com]: http://manage.windowsazure.com 
   [Portal home page with new web site called out]: ./media/web-sites-dotnet-get-started-vs2013/portalhome.png
   [Portal web site dashboard tab]: ./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png
   [Configurer]: /fr-fr/documentation/articles/web-sites-configure//

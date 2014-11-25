@@ -19,7 +19,7 @@
             </intent-filter>
         </receiver>
 
-4.  Téléchargez et décompressez le [Kit de développement logiciel (SDK) Mobile Services pour Android][], ouvrez le dossier **notifications**, copiez le fichier **notifications-1.0.1.jar** dans le dossier *libs* de votre projet Eclipse, puis actualisez le dossier *libs*.
+4.  Téléchargez et décompressez le [Kit de développement logiciel (SDK) Mobile Services pour Android][Kit de développement logiciel (SDK) Mobile Services pour Android], ouvrez le dossier **notifications**, copiez le fichier **notifications-1.0.1.jar** dans le dossier *libs* de votre projet Eclipse, puis actualisez le dossier *libs*.
 
    	<div class="dev-callout"><b>Remarque</b>
 	<p>Les num&eacute;ros &agrave; la fin du nom du fichier peuvent changer dans les versions ult&eacute;rieures du Kit de d&eacute;veloppement logiciel (SDK).</p>
@@ -113,7 +113,7 @@
 
 L'application est mise à jour et prend en charge les notifications Push.
 
-<!-- URLs. -->
+
 
   [Kit de développement logiciel (SDK) Mobile Services pour Android]: http://go.microsoft.com/fwlink/p/?LinkID=280126
   

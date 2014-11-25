@@ -168,9 +168,9 @@ Pour plus d'informations sur l'utilisation des modèles, consultez :
 
 Une référence relative à la langue d'expression du modèle se trouve dans [Notification Hubs, procédure pour iOS][Service Bus Notification Hubs (applications iOS)].
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-ios
   [Concepts de modèle]: #concepts
@@ -180,6 +180,5 @@ Une référence relative à la langue d'expression du modèle se trouve dans [No
   [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/fr-fr/library/jj927170.aspx
   [0]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized1.png
   [1]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized2.png
-  [notification-hubs-localized-back-end]: ../includes/notification-hubs-localized-back-end.md
   [Notification des utilisateurs avec Notification Hubs : ASP.NET]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
   [Notification des utilisateurs avec Notification Hubs : Mobile Services]: /fr-fr/manage/services/notification-hubs/notify-users

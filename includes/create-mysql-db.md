@@ -1,11 +1,11 @@
 # Création d'une base de données MySQL dans Azure
 
-Ce guide présente l'utilisation de [ClearDB][] pour créer une base de données MySQL à partir du [Magasin Azure][] et la création d'une base de données MySQL comme ressource liée lors de la création d'un [site Web Azure][]. [ClearDB][] est un fournisseur de services database-as-a-service à tolérance de panne permettant d'exécuter et de gérer des bases de données MySQL dans les centres de données Azure et de s'y connecter à partir d'une application.
+Ce guide présente l'utilisation de [ClearDB][ClearDB] pour créer une base de données MySQL à partir du [Magasin Azure][Magasin Azure] et la création d'une base de données MySQL comme ressource liée lors de la création d'un [site Web Azure][site Web Azure]. [ClearDB][ClearDB] est un fournisseur de services database-as-a-service à tolérance de panne permettant d'exécuter et de gérer des bases de données MySQL dans les centres de données Azure et de s'y connecter à partir d'une application.
 
 ## Sommaire
 
--   [Procédure : création d'une base de données MySQL à partir du Magasin Azure][]
--   [Procédure : création d'une base de données MySQL comme ressource liée pour un site web Azure][]
+-   [Procédure : création d'une base de données MySQL à partir du Magasin Azure][Procédure : création d'une base de données MySQL à partir du Magasin Azure]
+-   [Procédure : création d'une base de données MySQL comme ressource liée pour un site web Azure][Procédure : création d'une base de données MySQL comme ressource liée pour un site web Azure]
 
 <div class="dev-callout"> 
 <b>Remarque</b> 
@@ -14,67 +14,67 @@ Ce guide présente l'utilisation de [ClearDB][] pour créer une base de données
 
 ## <span id="CreateFromStore"></span></a>Procédure : création d'une base de données MySQL à partir du Magasin Azure
 
-Pour créer une base de données MySQL à partir du[Magasin Azure][], procédez comme suit :
+Pour créer une base de données MySQL à partir du[Magasin Azure][Magasin Azure], procédez comme suit :
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 2.  Cliquez sur **+NOUVEAU** en bas de la page, puis sélectionnez **STORE**.
 
-    ![Sélectionner un module complémentaire dans le marketplace][]
+    ![Sélectionner un module complémentaire dans le marketplace][Sélectionner un module complémentaire dans le marketplace]
 
 3.  Sélectionnez **ClearDB MySQL Database**, puis cliquez sur la flèche en bas du cadre.
 
-    ![Sélectionner la base de données MySQL ClearDB][]
+    ![Sélectionner la base de données MySQL ClearDB][Sélectionner la base de données MySQL ClearDB]
 
 4.  Sélectionnez un plan, indiquez le nom de la base de données, sélectionnez une région, puis cliquez sur la flèche en bas du cadre.
 
-    ![Acheter une base de données MySQL dans le marketplace][]
+    ![Acheter une base de données MySQL dans le marketplace][Acheter une base de données MySQL dans le marketplace]
 
 5.  Cliquez sur la coche pour effectuer l'achat.
 
-    ![Passer en revue et terminer l'achat][]
+    ![Passer en revue et terminer l'achat][Passer en revue et terminer l'achat]
 
 6.  Une fois la base de données créée, vous pouvez la gérer à partir de l'onglet **ADD-ONS** du portail de gestion.
 
-    ![Gérer une base de données MySQL dans le portail Azure][]
+    ![Gérer une base de données MySQL dans le portail Azure][Gérer une base de données MySQL dans le portail Azure]
 
 7.  Pour obtenir les informations de connexion à la base de données, cliquez sur **CONNECTION INFO** en bas de la page (comme illustré ci-dessus).
 
-    ![Informations de connexion MySql][]
+    ![Informations de connexion MySql][Informations de connexion MySql]
 
 ## <span id="CreateForWebSite"></span></a>Procédure : création d'une base de données MySQL comme ressource liée pour un site web Azure
 
-Pour créer une base de données MySQL comme ressource liée lors de la création d'un [site Web Azure][], procédez comme suit :
+Pour créer une base de données MySQL comme ressource liée lors de la création d'un [site Web Azure][site Web Azure], procédez comme suit :
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 2.  Cliquez sur **+NOUVEAU** en bas de la page, puis sélectionnez **CALCUL**, **SITE WEB** et **CRÉER AVEC BASE DE DONNÉES**.
 
-    ![Créer un site Web avec une base de données][]
+    ![Créer un site Web avec une base de données][Créer un site Web avec une base de données]
 
 3.  Indiquez une **URL** pour le site web, sélectionnez une **RÉGION**, puis choisissez **Créer une base de données MySQL** dans la liste déroulante **BASE DE DONNÉES**. Vous pouvez éventuellement remplacer le nom par défaut par la chaîne de connexion. Cliquez sur la flèche en bas de la page.
 
-    ![Détails du site Web][]
+    ![Détails du site Web][Détails du site Web]
 
 4.  Indiquez le **NOM** de la base de données, sélectionnez sa **RÉGION** (elle doit être identique à celle du site web), acceptez les conditions juridiques de ClearDB, puis cliquez sur la coche en bas du cadre.
 
-    ![Fournir des détails MySQL][]
+    ![Fournir des détails MySQL][Fournir des détails MySQL]
 
 5.  Une fois le site web créé, cliquez sur son nom pour accéder à son tableau de bord.
 
-    ![Accéder au tableau de bord du site Web][]
+    ![Accéder au tableau de bord du site Web][Accéder au tableau de bord du site Web]
 
 6.  Cliquez sur **CONFIGURE**.
 
-    ![Accéder à l'onglet Configurer][]
+    ![Accéder à l'onglet Configurer][Accéder à l'onglet Configurer]
 
 7.  Faites défiler jusqu'à la section **connection strings**, puis cliquez sur **Show Connection Strings**.
 
-    ![Afficher la chaîne de connexion][]
+    ![Afficher la chaîne de connexion][Afficher la chaîne de connexion]
 
 8.  Copiez la chaîne de connexion pour l'utiliser dans l'application.
 
-    ![Chaîne de connexion affichée][]
+    ![Chaîne de connexion affichée][Chaîne de connexion affichée]
 
-> [WACOM.NOTE] L'application du site web peut accéder aux chaînes de connexion par leur nom. Dans les applications .NET, les chaînes de connexion sont disponibles dans l'objet **connectionStrings**. Dans les autres langages de programmation, les chaînes de connexion sont accessibles par des variables d'environnement. Pour plus d'informations, consultez la rubrique [Configuration des sites Web][].
+> [WACOM.NOTE] L'application du site web peut accéder aux chaînes de connexion par leur nom. Dans les applications .NET, les chaînes de connexion sont disponibles dans l'objet **connectionStrings**. Dans les autres langages de programmation, les chaînes de connexion sont accessibles par des variables d'environnement. Pour plus d'informations, consultez la rubrique [Configuration des sites Web][Configuration des sites Web].
 
   [ClearDB]: http://www.cleardb.com/
   [Magasin Azure]: /fr-fr/gallery/store/

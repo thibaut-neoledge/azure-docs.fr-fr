@@ -8,7 +8,7 @@ Dans cette section, vous allez ajouter à votre annuaire deux nouveaux utilisate
 4.  Créez un autre utilisateur appelé **Dave**. Notez le mot de passe temporaire de cet utilisateur.
 5.  Les nouveaux utilisateurs doivent apparaître comme suit :
 
-    ![][]
+    ![][0]
 
 ### Création du groupe Ventes
 
@@ -28,7 +28,7 @@ Dans cette section, vous allez ajouter à votre annuaire deux nouveaux utilisate
 
     ![][3]
 
-  []: ./media/mobile-services-aad-rbac-create-sales-group/users.png
+  [0]: ./media/mobile-services-aad-rbac-create-sales-group/users.png
   [1]: ./media/mobile-services-aad-rbac-create-sales-group/sales-group.png
   [2]: ./media/mobile-services-aad-rbac-create-sales-group/group-membership.png
   [3]: ./media/mobile-services-aad-rbac-create-sales-group/sales-group-id.png

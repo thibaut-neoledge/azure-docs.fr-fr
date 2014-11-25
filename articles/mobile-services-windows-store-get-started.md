@@ -115,7 +115,6 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
   [0]: ./media/mobile-services-windows-store-get-started/mobile-quickstart-completed.png
   [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [Prise en main des données dans Mobile Services à l'aide de Visual Studio 2012]: /fr-fr/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012/
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-windows-store-get-started/mobile-portal-quickstart.png
   [2]: ./media/mobile-services-windows-store-get-started/mobile-quickstart-steps.png
   [Visual Studio 2013 Express pour Windows]: http://go.microsoft.com/fwlink/?LinkId=257546

@@ -2,7 +2,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 1.  Accédez à l'emplacement où vous avez enregistré les fichiers projet compressés, développez les fichiers sur votre ordinateur et ouvrez le fichier projet à l'aide de Xcode.
 
-    ![][]
+    ![][0]
 
 2.  Appuyez sur le bouton **Exécuter** pour générer le projet et démarrer l'application dans l'émulateur iPhone (configuration par défaut pour ce projet).
 
@@ -17,5 +17,5 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
     > </div>
     > </p>
 
-  []: ./media/mobile-services-ios-run-app/mobile-xcode-project.png
+  [0]: ./media/mobile-services-ios-run-app/mobile-xcode-project.png
   [1]: ./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png

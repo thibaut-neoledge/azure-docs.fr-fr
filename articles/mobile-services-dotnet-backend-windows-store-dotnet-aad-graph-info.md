@@ -167,8 +167,5 @@ Dans le prochain didacticiel, [Contrôle d'accès en fonction du rôle avec AAD 
   [Test de l'application]: #test-app
   [Didacticiel relatif aux API personnalisées]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
   [Inscription à des fins d'utilisation d'une connexion Azure Active Directory]: /fr-fr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-  [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [portail de gestion Azure]: https://manage.windowsazure.com/
-  [mobile-services-aad-graph-info-update-app]: ../includes/mobile-services-aad-graph-info-update-app.md
-  [mobile-services-aad-graph-info-test-app]: ../includes/mobile-services-aad-graph-info-test-app.md
   [Contrôle d'accès en fonction du rôle avec AAD dans Mobile Services]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/

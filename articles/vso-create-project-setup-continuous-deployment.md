@@ -1,18 +1,18 @@
 <properties linkid="create-vso-project-setup-continuous-deployment" urlDisplayName="How to create a VSO project and setup Continuous Deployment" pageTitle="How to create a Visual Studio Online team project and setup Continuous Deployment - Windows Azure" metaKeywords="Visual Studio Online create team project, continuous deployment to Azure" description="Learn how to create a Visual Studio Online team project and configure it for continuous deployment to Windows Azure." metaCanonical="" services="cloud-services, visual-studio-online" documentationCenter="" title="How to Create and Deploy a Cloud Service" authors="jimlamb" solutions="" writer="jimlamb" manager="" editor=""  />
 
-<tags ms.service="visual-studio-online" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jimlamb"></tags>
+<tags ms.service="visual-studio-online" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jimlamb" />
 
 # Création d'un projet Visual Studio Online et configuration du déploiement continu sur Windows Azure
 
-[WACOM.INCLUDE [disclaimer][]]
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 Le portail de gestion Windows Azure permet de créer un projet d'équipe sur Visual Studio Online et de configurer votre application web pour le déploiement continu sur un site web.
 
 ## Sommaire
 
--   [Création d'un projet d'équipe][]
--   [Création d'une nouvelle application Web et son ajout au contrôle de version Git][]
--   [Configuration du déploiement continu][]
+-   [Création d'un projet d'équipe][Création d'un projet d'équipe]
+-   [Création d'une nouvelle application Web et son ajout au contrôle de version Git][Création d'une nouvelle application Web et son ajout au contrôle de version Git]
+-   [Configuration du déploiement continu][Configuration du déploiement continu]
 
 ## <a name="create_team_project"></a>Création d'un projet d'équipe
 
@@ -20,8 +20,8 @@ Le portail de gestion Windows Azure permet de créer un projet d'équipe sur Vis
 2.  Cliquez sur **New** dans le coin gauche supérieur.
 3.  Cliquez sur **Team Project**.
 4.  Nommez votre projet d'équipe. Gardez à l'esprit que vous ne pouvez pas modifier le nom d'un projet d'équipe une fois qu'il a été créé.
-5.  Sélectionnez le type de contrôle de version que vous souhaitez utiliser pour le projet. Vous pouvez choisir Git - un système de contrôle de version distribué - ou TFVC (Team Foundation Version Control) - un système de contrôle de version centralisé. Vous n'êtes pas certain du système à utiliser ? En savoir plus [ici][].
-6.  Sélectionnez le modèle de processus. Pour une comparaison des modèles de processus, consultez la page [Utilisation d'artefacts de projet d'équipe][].
+5.  Sélectionnez le type de contrôle de version que vous souhaitez utiliser pour le projet. Vous pouvez choisir Git - un système de contrôle de version distribué - ou TFVC (Team Foundation Version Control) - un système de contrôle de version centralisé. Vous n'êtes pas certain du système à utiliser ? En savoir plus [ici][ici].
+6.  Sélectionnez le modèle de processus. Pour une comparaison des modèles de processus, consultez la page [Utilisation d'artefacts de projet d'équipe][Utilisation d'artefacts de projet d'équipe].
 7.  Sélectionnez le compte Visual Studio Online à utiliser pour créer ce projet d'équipe, ajouter des utilisateurs et surveiller l'utilisation des ressources.
 8.  Laissez la case à cocher **Add to Startboard** activée afin que votre nouveau projet d'équipe s'affiche automatiquement dans votre tableau d'accueil.
 9.  Cliquez sur **Create**.
@@ -57,7 +57,6 @@ Le portail de gestion Windows Azure permet de créer un projet d'équipe sur Vis
 3.  Dans la lame du build, cliquez sur le premier élément de la partie **Déploiements** pour ouvrir le site Web associé.
 4.  Sur la lame du site Web, cliquez sur la commande de niveau lame **Parcourir** afin de parcourir le site Web et de vérifier le déploiement de votre application Web.
 
-  [disclaimer]: ../includes/disclaimer.md
   [Création d'un projet d'équipe]: #create_team_project
   [Création d'une nouvelle application Web et son ajout au contrôle de version Git]: #create_web_app
   [Configuration du déploiement continu]: #continuous_deployment

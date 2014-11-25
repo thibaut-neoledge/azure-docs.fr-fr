@@ -195,7 +195,6 @@ Maintenant que vous avez appris les principes de base des rubriques Service Bus,
   [Réception des messages d'un abonnement]: #how-to-receive-messages-from-a-subscription
   [Gestion des blocages d'application et des messages illisibles]: #how-to-handle-application-crashes-and-unreadable-messages
   [Suppression de rubriques et d'abonnements]: #how-to-delete-topics-and-subscriptions
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [Création d'une application Ruby sur Azure]: /fr-fr/develop/ruby/tutorials/web-app-with-linux-vm/
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [portail de gestion Azure]: https://manage.windowsazure.com

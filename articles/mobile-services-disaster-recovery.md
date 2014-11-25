@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-recovery-disaster" urlDisplayName="Recover your mobile service in the event of a disaster" pageTitle="Recover your mobile service in the event of a disaster - Azure Mobile Services" metaKeywords="" description="Learn how to recover your mobile service in the event of a disaster." metaCanonical="" services="" documentationCenter="Mobile" title="Recover your mobile service in the event of a disaster" authors="yavorg" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg" />
 
 # Récupération de votre service mobile en cas d'incident
 
@@ -11,9 +11,9 @@ Lorsque vous déployez une application à l'aide d'Azure Mobile Services, vous p
 Pour faciliter une récupération en cas de problème de disponibilité, vous pouvez vous y préparer à l'avance :
 
 -   **Sauvegardez vos données dans la base de données SQL Azure Mobile Services**
-    Les données de votre application de service mobile sont stockées dans une base de données SQL Azure. Nous vous recommandons de les sauvegarder en suivant les prescriptions fournies par la page [Continuité des activités de l'entreprise dans la base de données SQL][].
+    Les données de votre application de service mobile sont stockées dans une base de données SQL Azure. Nous vous recommandons de les sauvegarder en suivant les prescriptions fournies par la page [Continuité des activités de l'entreprise dans la base de données SQL][Continuité des activités de l'entreprise dans la base de données SQL].
 -   **Sauvegardez les scripts de votre service mobile**
-    Nous vous recommandons de stocker les scripts de votre service mobile dans un système de contrôle de code source, tel que [Team Foundation Service][] ou [GitHub], et de ne pas compter uniquement sur les copies contenues dans le service mobile lui-même. Vous pouvez télécharger les scripts via le portail Azure à l'aide de la [fonctionnalité de contrôle de code source][] de Mobile Service ou de l'[outil en ligne de commande Azure][]. Portez une attention particulière aux fonctionnalités dites « préliminaires » (ou « preview »), car il n'est pas garanti que ces scripts puissent être récupérés et vous serez peut-être amené à les récupérer à partir de l'original de votre propre contrôle de code source.
+    Nous vous recommandons de stocker les scripts de votre service mobile dans un système de contrôle de code source, tel que [Team Foundation Service][Team Foundation Service] ou [GitHub], et de ne pas compter uniquement sur les copies contenues dans le service mobile lui-même. Vous pouvez télécharger les scripts via le portail Azure à l'aide de la [fonctionnalité de contrôle de code source][fonctionnalité de contrôle de code source] de Mobile Service ou de l'[outil en ligne de commande Azure][outil en ligne de commande Azure]. Portez une attention particulière aux fonctionnalités dites « préliminaires » (ou « preview »), car il n'est pas garanti que ces scripts puissent être récupérés et vous serez peut-être amené à les récupérer à partir de l'original de votre propre contrôle de code source.
 -   **Réservez un service mobile secondaire**
     En cas de problème de disponibilité de votre service mobile, vous risquez de devoir le redéployer dans une autre région Azure. Pour assurer la disponibilité de la capacité (par exemple, dans des cas exceptionnels comme la perte d'une région entière), nous vous recommandons de créer un service mobile secondaire dans votre autre région et de lui attribuer un mode équivalent ou supérieur à celui de votre service principal (si votre service principal est en mode partagé, vous pouvez attribuer au service secondaire le mode partagé ou réservé. Toutefois, si le service principal est réservé, le service secondaire doit l'être également).
 
@@ -22,9 +22,9 @@ Pour faciliter une récupération en cas de problème de disponibilité, vous po
 Les cas de figure suivants indiquent l'existence d'un problème susceptible d'exiger une opération de récupération :
 
 -   Les applications connectées à votre service mobile ne peuvent pas communiquer avec celui-ci pendant une période prolongée.
--   Le service mobile indique l'état **Unhealthy** (défectueux) dans le [portail Azure][].
+-   Le service mobile indique l'état **Unhealthy** (défectueux) dans le [portail Azure][portail Azure].
 -   Une bannière **Unhealthy** (défectueux) apparaît en haut de chaque onglet de votre service mobile dans le portail Azure, et les opérations de gestion génèrent des messages d'erreur.
--   Le [tableau de bord du service Azure][] indique un problème de disponibilité.
+-   Le [tableau de bord du service Azure][tableau de bord du service Azure] indique un problème de disponibilité.
 
 ## <a name="recover"></a><span class="short-header">Récupération</span>Récupération consécutive à un incident
 
@@ -66,7 +66,7 @@ Pour récupérer votre service mobile après une panne :
 
 2.  Vérifiez que le service récupéré communique avec votre base de données SQL Azure. La commande de récupération récupère le service mobile, mais elle conserve la connexion à la base de données d'origine. Si le problème qui touche la région Azure principale affecte aussi la base de données, le service récupéré risque de ne pas fonctionner correctement. Vous pouvez utiliser le tableau de bord du service Azure pour examiner l'état de la base de données pour une région donnée. Si la base de données d'origine ne fonctionne pas, vous pouvez la récupérer :
 
-    -   Récupérez votre base de données SQL Azure pour la région Azure dans laquelle vous venez de récupérer votre service mobile, comme décrit à la page [Continuité des activités de l'entreprise dans la base de données SQL][].
+    -   Récupérez votre base de données SQL Azure pour la région Azure dans laquelle vous venez de récupérer votre service mobile, comme décrit à la page [Continuité des activités de l'entreprise dans la base de données SQL][Continuité des activités de l'entreprise dans la base de données SQL].
     -   Dans le portail Azure, sous l'onglet **Configurer** de votre service mobile, choisissez « Change database » et sélectionnez la base de données nouvellement récupérée.
 
 Votre service mobile a maintenant été récupéré pour une nouvelle région Azure et il accepte désormais le trafic en provenance de vos applications Windows Store en utilisant son URL d'origine.

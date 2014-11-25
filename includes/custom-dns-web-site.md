@@ -2,19 +2,19 @@
 
 Quand vous créez un site web, Azure fournit un nom de sous-domaine convivial au sein du domaine azurewebsites.net. Ainsi, vos utilisateurs peuvent accéder à votre site web en utilisant une URL de type http://\<monsite\>.azurewebsites.net. Toutefois, si vous configurez vos sites web en mode Partagé ou Standard, vous pouvez mapper votre site web à votre nom de domaine.
 
-Vous pouvez éventuellement utiliser Azure Traffic Manager pour équilibrer le trafic entrant vers votre site web. Pour plus d'informations sur le fonctionnement de Traffic Manager avec les sites web, consultez [Contrôle du trafic des sites web Azure avec Azure Traffic Manager][].
+Vous pouvez éventuellement utiliser Azure Traffic Manager pour équilibrer le trafic entrant vers votre site web. Pour plus d'informations sur le fonctionnement de Traffic Manager avec les sites web, consultez [Contrôle du trafic des sites web Azure avec Azure Traffic Manager][Contrôle du trafic des sites web Azure avec Azure Traffic Manager].
 
-> [WACOM.NOTE] Les procédures décrites ici s'appliquent aux sites web Azure. Pour les services cloud, consultez [Configuration d'un nom de domaine personnalisé dans Azure][].
+> [WACOM.NOTE] Les procédures décrites ici s'appliquent aux sites web Azure. Pour les services cloud, consultez [Configuration d'un nom de domaine personnalisé dans Azure][Configuration d'un nom de domaine personnalisé dans Azure].
 
-> [WACOM.NOTE] La procédure suivante implique que vos sites web soient configurés en mode Partagé ou Standard, ce qui peut influer sur vos frais d'abonnement. Pour plus d'informations, consultez [Détails de la tarification des sites web][].
+> [WACOM.NOTE] La procédure suivante implique que vos sites web soient configurés en mode Partagé ou Standard, ce qui peut influer sur vos frais d'abonnement. Pour plus d'informations, consultez [Détails de la tarification des sites web][Détails de la tarification des sites web].
 
 Dans cet article :
 
--   [Présentation des enregistrements CNAME et A][]
--   [Configuration des sites Web pour le mode Partagé ou Standard][]
--   [Ajout de vos sites Web à Traffic Manager][]
--   [Ajout d'un enregistrement CNAME pour votre nom de domaine personnalisé][]
--   [Ajout d'un enregistrement A pour votre nom de domaine personnalisé][]
+-   [Présentation des enregistrements CNAME et A][Présentation des enregistrements CNAME et A]
+-   [Configuration des sites Web pour le mode Partagé ou Standard][Configuration des sites Web pour le mode Partagé ou Standard]
+-   [Ajout de vos sites Web à Traffic Manager][Ajout de vos sites Web à Traffic Manager]
+-   [Ajout d'un enregistrement CNAME pour votre nom de domaine personnalisé][Ajout d'un enregistrement CNAME pour votre nom de domaine personnalisé]
+-   [Ajout d'un enregistrement A pour votre nom de domaine personnalisé][Ajout d'un enregistrement A pour votre nom de domaine personnalisé]
 
 ## <a name="understanding-records"></a>Présentation des enregistrements CNAME et A
 
@@ -24,7 +24,7 @@ Bien que fonctionnant différemment, les enregistrements CNAME (ou enregistremen
 
 Un enregistrement CNAME associe un domaine *spécifique*, tel que **contoso.com** ou **www.contoso.com**, à un nom de domaine canonique. Dans ce cas, le nom de domaine canonique est le nom de domaine **\<monapp\>.azurewebsites.net** de votre site web Azure ou le nom de domaine **\<monapp\>.trafficmgr.com** de votre profil Traffic Manager. Une fois créé, l'enregistrement CNAME émet un alias pour le nom de domaine **\<monapp\>.azurewebsites.net** ou **\<monapp\>.trafficmgr.com**. L'entrée CNAME devient automatiquement l'adresse IP de votre nom de domaine **\<monapp\>.azurewebsites.net** ou **\<monapp\>.trafficmgr.com**. Ainsi, même si l'adresse IP de votre site web change, vous n'avez aucune action à effectuer.
 
-> [WACOM.NOTE] Certains bureaux d'enregistrement autorisent le mappage de sous-domaines uniquement lorsqu'un enregistrement CNAME est utilisé (par exemple, www.contoso.com) et non un nom racine, (tel que contoso.com). Pour plus d'informations sur les enregistrements CNAME, consultez la documentation remise par votre bureau d'enregistrement, [la page Wikipedia sur l'enregistrement CNAME][] ou le document [IETF Domain Names - Implementation and Specification][].
+> [WACOM.NOTE] Certains bureaux d'enregistrement autorisent le mappage de sous-domaines uniquement lorsqu'un enregistrement CNAME est utilisé (par exemple, www.contoso.com) et non un nom racine, (tel que contoso.com). Pour plus d'informations sur les enregistrements CNAME, consultez la documentation remise par votre bureau d'enregistrement, [la page Wikipedia sur l'enregistrement CNAME][la page Wikipedia sur l'enregistrement CNAME] ou le document [IETF Domain Names - Implementation and Specification][IETF Domain Names - Implementation and Specification].
 
 ### Enregistrement A
 
@@ -38,12 +38,12 @@ Un enregistrement A associe un domaine, tel que **contoso.com** ou **www.contos
 
 ## Configuration des sites web pour le mode Partagé ou Standard
 
-Seuls les modes Partagé et Standard autorisent la définition d'un nom de domaine personnalisé pour les sites web Azure. Avant de faire passer un site web du mode Gratuit au mode Partagé ou Standard, vous devez d'abord supprimer les limites de dépense mises en place pour l'abonnement de votre site web. Pour plus d'informations sur la tarification des modes standard et partagé, consultez la page [Tarification][].
+Seuls les modes Partagé et Standard autorisent la définition d'un nom de domaine personnalisé pour les sites web Azure. Avant de faire passer un site web du mode Gratuit au mode Partagé ou Standard, vous devez d'abord supprimer les limites de dépense mises en place pour l'abonnement de votre site web. Pour plus d'informations sur la tarification des modes standard et partagé, consultez la page [Tarification][Tarification].
 
-1.  Dans votre navigateur, ouvrez le [portail de gestion][].
+1.  Dans votre navigateur, ouvrez le [portail de gestion][portail de gestion].
 2.  Sous l'onglet **Sites web**, cliquez sur le nom de votre site.
 
-    ![][]
+    ![][0]
 
 3.  Cliquez sur l'onglet **SCALE**.
 
@@ -69,9 +69,9 @@ Seuls les modes Partagé et Standard autorisent la définition d'un nom de domai
 
 Si vous voulez utiliser votre site web avec Traffic Manager, procédez comme suit.
 
-1.  Si vous n'avez pas encore de profil Traffic Manager, utilisez les informations de [Création d'un profil Traffic Manager à l'aide de Création rapide][] pour en créer un. Notez le domaine **.trafficmgr.com** associé à votre profil Traffic Manager. Il sera utilisé dans une étape ultérieure.
+1.  Si vous n'avez pas encore de profil Traffic Manager, utilisez les informations de [Création d'un profil Traffic Manager à l'aide de Création rapide][Création d'un profil Traffic Manager à l'aide de Création rapide] pour en créer un. Notez le domaine **.trafficmgr.com** associé à votre profil Traffic Manager. Il sera utilisé dans une étape ultérieure.
 
-2.  Utilisez les informations de la rubrique [Ajout ou suppression de points de terminaison][] pour ajouter votre site web comme point de terminaison dans votre profil Traffic Manager.
+2.  Utilisez les informations de la rubrique [Ajout ou suppression de points de terminaison][Ajout ou suppression de points de terminaison] pour ajouter votre site web comme point de terminaison dans votre profil Traffic Manager.
 
     > [WACOM.NOTE] Si votre site web n'est pas répertorié lors de l'ajout d'un point de terminaison, vérifiez qu'il est configuré pour le mode Standard. Vous devez utiliser le mode Standard pour votre site web si vous voulez utiliser Traffic Manager.
 
@@ -105,11 +105,11 @@ Pour créer un enregistrement CNAME, vous devez ajouter une nouvelle entrée dan
 
     -   Connectez-vous au [portail de gestion Azure][portail de gestion], sélectionnez votre site web, sélectionnez **Tableau de bord**, puis cherchez l'entrée **URL du site** dans la section **aperçu rapide**.
 
-    -   Installez et configurez [Azure Powershell][], puis utilisez la commande suivante :
+    -   Installez et configurez [Azure Powershell][Azure Powershell], puis utilisez la commande suivante :
 
             get-azurewebsite yoursitename | select hostnames
 
-    -   Installez et configurez l'[interface de ligne de commande interplateforme Azure][], puis utilisez la commande suivante :
+    -   Installez et configurez l'[interface de ligne de commande interplateforme Azure][interface de ligne de commande interplateforme Azure], puis utilisez la commande suivante :
 
             azure site domain list yoursitename
 
@@ -144,7 +144,7 @@ Une fois la propagation de l'enregistrement CNAME comme nom de domaine terminée
 
 **Ajout d'un nom de domaine via les outils en ligne de commande**
 
-Installez et configurez l'[interface de ligne de commande interplateforme Azure][], puis utilisez la commande suivante :
+Installez et configurez l'[interface de ligne de commande interplateforme Azure][interface de ligne de commande interplateforme Azure], puis utilisez la commande suivante :
 
     azure site domain add customdomain yoursitename
 
@@ -230,7 +230,7 @@ Une fois la propagation de l'enregistrement CNAME **awverify** pour le nom de do
 
 **Ajout d'un nom de domaine via les outils en ligne de commande**
 
-Installez et configurez l'[interface de ligne de commande interplateforme Azure][], puis utilisez la commande suivante :
+Installez et configurez l'[interface de ligne de commande interplateforme Azure][interface de ligne de commande interplateforme Azure], puis utilisez la commande suivante :
 
     azure site domain add customdomain yoursitename
 
@@ -264,11 +264,10 @@ Une fois la configuration terminée, le nom de domaine personnalisé est répert
 
 ## Étapes suivantes
 
--   [Gestion des sites Web][]
+-   [Gestion des sites Web][Gestion des sites Web]
 
--   [Configuration d'un certificat SSL pour les sites Web][]
+-   [Configuration d'un certificat SSL pour les sites Web][Configuration d'un certificat SSL pour les sites Web]
 
-  [http://\<monsite]: http://<mysite
   [Contrôle du trafic des sites web Azure avec Azure Traffic Manager]: /fr-fr/documentation/articles/web-sites-traffic-manager/
   [Configuration d'un nom de domaine personnalisé dans Azure]: /fr-fr/develop/net/common-tasks/custom-dns/
   [Détails de la tarification des sites web]: /fr-fr/pricing/details/web-sites/
@@ -281,7 +280,7 @@ Une fois la configuration terminée, le nom de domaine personnalisé est répert
   [IETF Domain Names - Implementation and Specification]: http://tools.ietf.org/html/rfc1035
   [Tarification]: /fr-fr/pricing/details/
   [portail de gestion]: http://manage.windowsazure.com
-  []: ./media/custom-dns-web-site/dncmntask-cname-1.png
+  [0]: ./media/custom-dns-web-site/dncmntask-cname-1.png
   [1]: ./media/custom-dns-web-site/dncmntask-cname-2.png
   [2]: ./media/custom-dns-web-site/dncmntask-cname-3.png
   [Création d'un profil Traffic Manager à l'aide de Création rapide]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn339012.aspx

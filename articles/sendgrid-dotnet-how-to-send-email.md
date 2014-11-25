@@ -268,7 +268,6 @@ ces liens pour en savoir plus.
   [service de messagerie électronique dans le cloud]: http://sendgrid.com/solutions
   [remise de courrier électronique transactionnelle]: http://sendgrid.com/transactional-email
   []: http://sendgrid.com
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [SendGrid NuGet]: https://www.nuget.org/packages/Sendgrid
   [Package NuGet SendGrid]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid01.png
   [sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp

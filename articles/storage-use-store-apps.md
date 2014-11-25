@@ -72,6 +72,6 @@ Vous pouvez également ajouter une référence dans Microsoft.WindowsAzure.Stora
   [outils de services de données WCF pour applications Windows Store]: http://www.microsoft.com/fr-fr/download/details.aspx?id=30714
   [store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
   [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
-  [mot clé async]: http://msdn.microsoft.com/en-US/library/vstudio/hh156513.aspx
+  [mot clé async]: http://msdn.microsoft.com/fr-fr/library/vstudio/hh156513.aspx
   [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
   [Gestion des packages NuGet à l'aide de la boîte de dialogue]: http://docs.nuget.org/docs/start-here/Managing-NuGet-Packages-Using-The-Dialog

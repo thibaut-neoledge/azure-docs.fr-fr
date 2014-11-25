@@ -439,7 +439,7 @@ Ensuite, vous avez découvert ce qui se passe en cas de conflit. Vous avez ajout
 
 Au cours du processus, vous avez ajouté une classe d'assistance **QSUIAlertViewWithBlock** pour afficher une alerte destinée aux utilisateurs et, pour terminer, vous avez ajouté du code à **QSTodoListViewController** pour inviter l'utilisateur à résoudre le conflit en utilisant l'une des trois méthodes disponibles.
 
-<!-- URLs. -->
+
 
   [Prise en main des données hors connexion]: /fr-fr/documentation/articles/mobile-services-ios-get-started-offline-data/
   [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28

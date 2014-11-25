@@ -2,7 +2,7 @@
 
 2.  Dans l'application, tapez un texte explicite, comme *Suivre le didacticiel*, dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
 
-    ![][]
+    ![][0]
 
     Ceci envoie une demande POST vers le nouveau service mobile hébergé dans Azure.
 
@@ -12,5 +12,5 @@
 
     Notez que les données enregistrées à l'étape précédente sont chargées à partir du service mobile après le démarrage de l'application.
 
-  []: ./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png
+  [0]: ./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png
   [1]: ./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png

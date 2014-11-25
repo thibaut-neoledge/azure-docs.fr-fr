@@ -50,8 +50,6 @@ Maintenant que vous avez créé une API personnalisée et que vous l'avez appel�
   [Définition de l'API personnalisée]: #define-custom-api
   [Mise à jour de l'application pour appeler l'API personnalisée]: #update-app
   [Test de l'application]: #test-app
-  [mobile-services-dotnet-backend-create-custom-api]: ../includes/mobile-services-dotnet-backend-create-custom-api.md
-  [mobile-services-windows-store-javascript-call-custom-api]: ../includes/mobile-services-windows-store-javascript-call-custom-api.md
   [Définition d'une API personnalisée qui prend en charge les notifications périodiques]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications
   [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=262293
   [Stockage des scripts serveur dans le contrôle du code source]: /fr-fr/documentation/articles/mobile-services-store-scripts-source-control

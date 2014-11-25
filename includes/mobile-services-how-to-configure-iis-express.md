@@ -1,7 +1,7 @@
 
 1.  Si le service mobile est en cours d'exécution dans IIS Express, arrêtez-le. Cliquez avec le bouton droit sur l'icône de barre d'état système d'IIS Express, puis cliquez sur **stop** pour arrêter le service mobile.
 
-    ![][]
+    ![][0]
 
 
 2.  Dans la fenêtre d'invite de commandes, exécutez la commande **ipconfig** afin de rechercher une adresse IP locale valide pour votre station de travail.
@@ -27,7 +27,7 @@
             </bindings>
         </site>
 
-5.  Ouvrez la console du Pare-feu Windows et créez une règle de port pour autoriser les connexions au port. Pour plus d'informations sur la création d'une règle de port via le Pare-feu Windows, consultez la rubrique [Ajout d'une nouvelle règle de port via le Pare-feu Windows][].
+5.  Ouvrez la console du Pare-feu Windows et créez une règle de port pour autoriser les connexions au port. Pour plus d'informations sur la création d'une règle de port via le Pare-feu Windows, consultez la rubrique [Ajout d'une nouvelle règle de port via le Pare-feu Windows][Ajout d'une nouvelle règle de port via le Pare-feu Windows].
 
     > [WACOM.NOTE] Si votre ordinateur de test est associé à un domaine, les exceptions de pare-feu peuvent être contrôlées par une stratégie de domaine. Dans ce cas, vous devez contacter votre administrateur de domaine afin de bénéficier d'une exemption de port sur votre ordinateur.
 
@@ -35,8 +35,8 @@
 
     > [WACOM.NOTE] Une fois le service testé localement, vous devez supprimer la règle de Pare-feu Windows que vous avez créée.
 
-<!-- URLs. -->
 
-  []: ./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png
+
+  [0]: ./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png
   [1]: ./media/mobile-services-how-to-configure-iis-express/ipconfig.png
   [Ajout d'une nouvelle règle de port via le Pare-feu Windows]: http://go.microsoft.com/fwlink/?LinkId=392240

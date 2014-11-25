@@ -27,7 +27,7 @@
 
     Ce code envoie une notification Push (avec le texte de l'élément inséré) après l'insertion d'un élément ToDo. En cas d'erreur, le code ajoute une entrée dans le journal des erreurs consultable à partir de l'onglet **Journaux** du service mobile sur le portail de gestion.
 
-    > [WACOM.NOTE] Vous pouvez utiliser les notifications de modèle pour envoyer une notification Push unique aux clients sur plusieurs plateformes. Pour plus d'informations, consultez la page [Prise en charge de plusieurs plateformes d'appareil à partir d'un service mobile unique][].
+    > [WACOM.NOTE] Vous pouvez utiliser les notifications de modèle pour envoyer une notification Push unique aux clients sur plusieurs plateformes. Pour plus d'informations, consultez la page [Prise en charge de plusieurs plateformes d'appareil à partir d'un service mobile unique][Prise en charge de plusieurs plateformes d'appareil à partir d'un service mobile unique].
 
 2.  Publiez à nouveau le projet de service mobile dans Azure.
 

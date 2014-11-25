@@ -23,7 +23,7 @@
 
     Notez que seuls les trois premiers résultats de la table TodoItem sont affichés.
 
-6.  (Facultatif) Affichez l'URI de la requête envoyée au service mobile en utilisant un logiciel d'inspection des messages, tel que les outils destinés aux développeurs de navigateurs ou [Fiddler][].
+6.  (Facultatif) Affichez l'URI de la requête envoyée au service mobile en utilisant un logiciel d'inspection des messages, tel que les outils destinés aux développeurs de navigateurs ou [Fiddler][Fiddler].
 
     La méthode **take(3)** a été convertie en option de requête **$top=3** dans l'URI de requête.
 

@@ -239,9 +239,9 @@ La procédure suivante montre comment déployer un contrôle d'accès en fonctio
 
 [WACOM.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
-<!-- Anchors. -->
+
 <!-- Images -->
-<!-- URLs. -->
+
 
   [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
   [Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
@@ -251,12 +251,9 @@ La procédure suivante montre comment déployer un contrôle d'accès en fonctio
   [Ajout du contrôle d'accès en fonction du rôle pour les opérations de base de données]: #add-access-checking
   [Test de l'accès client]: #test-client
   [Stockage des scripts serveur]: /fr-fr/documentation/articles/mobile-services-store-scripts-source-control/
-  [mobile-services-aad-rbac-create-sales-group]: ../includes/mobile-services-aad-rbac-create-sales-group.md
   [Inscription à des fins d'utilisation d'une connexion Azure Active Directory]: /fr-fr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-  [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [référence sur les erreurs de l'API Graph]: http://msdn.microsoft.com/fr-fr/library/azure/hh974480.aspx
   [IsMemberOf]: http://msdn.microsoft.com/fr-fr/library/azure/dn151601.aspx
   [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-perms.png
   [portail de gestion Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/insert-table-op-view.png
-  [mobile-services-aad-rbac-test-app]: ../includes/mobile-services-aad-rbac-test-app.md

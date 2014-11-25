@@ -1,4 +1,4 @@
-<properties urlDisplayName="Enable SSL" pageTitle="Configuration de SSL pour un service cloud - Azure" metaKeywords="Azure SSL, Azure HTTPS, Azure SSL, Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" description="D&eacute;couvrez comment sp&eacute;cifier un point de terminaison HTTPS pour un r&ocirc;le web et t&eacute;l&eacute;charger un certificat SSL pour s&eacute;curiser votre application." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Configuration de SSL pour une application dans Azure" authors="timlt" solutions="" manager="timlt" editor="mollybos" />
+<properties linkid="dev-net-commons-tasks-enable-ssl" urlDisplayName="Enable SSL" pageTitle="Configure SSL for a cloud service - Azure" metaKeywords="Azure SSL, Azure HTTPS, Azure SSL, Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" description="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Configuring SSL for an application in Azure" authors="timlt" solutions="" manager="timlt" editor="mollybos" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
@@ -85,9 +85,9 @@ Votre application doit être configurée pour utiliser le certificat, et un poin
         ...
         </WebRole>
 
-    Toutes les modifications nécessaires ont été apportées au fichier de
-    définition de service, mais vous devez encore y ajouter les
-    informations de certificat.
+    Toutes les modifications nécessaires ont été apportées au fichier
+    de définition de service, mais vous devez encore y ajouter les informations
+    de certificat.
 
 4.  Dans votre fichier de configuration de service (CSCFG) ServiceConfiguration.Cloud.cscfg, ajoutez une section **Certificates**
      dans la section **Role** en remplaçant la
@@ -139,8 +139,8 @@ et le certificat dans Azure via le portail de gestion.
 
 ## <a name="step4"> </a><span class="short-header">Connexion avec HTTPS</span>Étape 4 : connexion de l'instance de rôle à l'aide de HTTPS
 
-Maintenant que votre déploiement est opérationnel dans Azure,
-vous pouvez vous y connecter via HTTPS.
+Maintenant que votre déploiement est opérationnel dans Azure, vous pouvez
+vous y connecter via HTTPS.
 
 1.  Dans le portail de gestion, sélectionnez le déploiement, puis cliquez sur le lien sous **Site URL**.
 

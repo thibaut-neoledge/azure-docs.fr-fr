@@ -11,6 +11,6 @@
     <div class="dev-callout"><strong>Remarque relative &agrave; la s&eacute;curit&eacute;&nbsp;:</strong><br /> <p>t&eacute;l&eacute;chargez le fichier d&rsquo;abonnement dans un dossier situ&eacute; hors de vos r&eacute;pertoires de code source (par exemple, dans le dossier T&eacute;l&eacute;chargements), puis supprimez-le une fois l&rsquo;importation termin&eacute;e. Si un utilisateur malveillant acc&egrave;de au fichier d&rsquo;abonnement, il peut modifier, cr&eacute;er et supprimer vos services Azure.</p></div>
 
 
-    Pour plus d’informations, consultez la page [Connexion à Azure à partir de Visual Studio][].
+    Pour plus d’informations, consultez la page [Connexion à Azure à partir de Visual Studio][Connexion à Azure à partir de Visual Studio].
 
   [Connexion à Azure à partir de Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=324796

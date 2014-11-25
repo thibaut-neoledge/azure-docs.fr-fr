@@ -1,4 +1,4 @@
-<properties urlDisplayName="Monitor with AppDynamics" pageTitle="Utilisation d'AppDynamics avec Azure" metaKeywords="" description="D&eacute;couvrez comment utiliser AppDynamics avec Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="Utilisation d'AppDynamics pour Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties linkid="manage-services-how-to-use-appdynamics" urlDisplayName="Monitor with AppDynamics" pageTitle="How to use AppDynamics with Azure" metaKeywords="" description="Learn how to use AppDynamics for Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How To Use AppDynamics for Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
@@ -8,13 +8,13 @@ Cette rubrique montre comment prendre en main AppDynamics pour Azure.
 
 ## Sommaire
 
--   [Présentation d'AppDynamics][Présentation d'AppDynamics]
--   [Configuration requise][Configuration requise]
--   [Inscription pour l'obtention d'un compte AppDynamics][Inscription pour l'obtention d'un compte AppDynamics]
--   [Téléchargement de l'agent .NET à partir d'AppDynamics][Téléchargement de l'agent .NET à partir d'AppDynamics]
--   [Ajout de l'agent .NET aux rôles Azure et modification du démarrage][Ajout de l'agent .NET aux rôles Azure et modification du démarrage]
--   [Publication de l'application instrumentée avec AppDynamics sur Azure][Publication de l'application instrumentée avec AppDynamics sur Azure]
--   [Surveillance de votre application][Surveillance de votre application]
+-   [Présentation d'AppDynamics](#what)
+-   [Conditions préalables](#prereq)
+-   [Inscription pour l'obtention d'un compte AppDynamics](#register)
+-   [Téléchargement de l'agent .NET à partir d'AppDynamics](#download)
+-   [Ajout de l'agent .NET aux rôles Azure et modification du démarrage](#addagent)
+-   [Publication de l'application instrumentée avec AppDynamics sur Azure](#publish)
+-   [Surveillance de votre application](#monitor)
 
 ## <span id="what"></span></a>Présentation d'AppDynamics
 
@@ -30,7 +30,7 @@ AppDynamics contient deux composants :
 
 -   Contrôleur AppDynamics : l'agent envoie ses informations à un service hébergé sur le contrôleur AppDynamics sur Azure. À l'aide d'une console basée sur navigateur web, connectez-vous au contrôleur pour surveiller, analyser et dépanner votre application.
 
-    ![Schéma AppDynamics][Schéma AppDynamics]
+    ![Schéma AppDynamics](./media/cloud-services-how-to-appdynamics/addiagram.png)
 
 ## <span id="prereq"></span></a>Conditions préalables
 
@@ -43,7 +43,7 @@ AppDynamics contient deux composants :
 
 Pour vous inscrire à AppDynamics et obtenir un compte Azure :
 
-1.  Cliquez sur **Try Free** ou **S'inscrire** pour AppDynamics sur Azure Marketplace à l'adresse <https://datamarket.azure.com/browse/Applications>.
+1.  Cliquez sur **Try Free** ou **S'inscrire** pour AppDynamics sur Azure Marketplace à l'adresse [https://datamarket.azure.com/browse/Applications](https://datamarket.azure.com/browse/Applications).
 
     Si vous choisissez **S'inscrire**, vous recevrez une version gratuite d'AppDynamics Pro for Azure avec des fonctionnalités complètes. Après 30 jours, elle deviendra une version gratuite d'AppDynamics Lite pour Azure offrant des fonctionnalités limitées. Les informations de votre carte de crédit ne vous seront pas demandées pour cette option. Vous pouvez effectuer une mise à niveau vers AppDynamics Pro pour Azure à tout moment.
 
@@ -109,7 +109,7 @@ Cette étape met en œuvre les rôles dans votre solution Visual Studio pour la
 
 5.  Pour chaque rôle web et de travail que vous souhaitez surveiller, définissez la propriété **Copier dans le répertoire de sortie** pour le fichier .msi de l'agent AppDynamics et pour le fichier startup.cmd sur **Toujours copier**.
 
-    ![Toujours copier][Toujours copier]
+    ![Toujours copier](./media/cloud-services-how-to-appdynamics/adcopyalways.png)
 
 6.  Dans le fichier ServiceDefinition.csdef pour le projet Azure, ajoutez un élément Startup Task qui appelle startup.cmd avec les paramètres de chaque élément WorkerRole et WebRole.
 
@@ -121,13 +121,13 @@ Cette étape met en œuvre les rôles dans votre solution Visual Studio pour la
 
     où :
 
-    -   *your controller host* et *your controller port* sont l'hôte et le port contrôleur attribués à votre compte, et *your account name* et *your access key* sont les données d'identification qui vous sont attribuées par AppDynamics. Ces informations sont fournies dans le courrier électronique envoyé lorsque vous vous enregistrez auprès d'AppDynamics, mais aussi sur votre page d'accueil AppDynamics. Consultez la rubrique [Inscription pour l'obtention d'un compte AppDynamics][Inscription pour l'obtention d'un compte AppDynamics].
+    -   *your controller host* et *your controller port* sont l'hôte et le port contrôleur attribués à votre compte, et *your account name* et *your access key* sont les données d'identification qui vous sont attribuées par AppDynamics. Ces informations sont fournies dans le courrier électronique envoyé lorsque vous vous enregistrez auprès d'AppDynamics, mais aussi sur votre page d'accueil AppDynamics. Consultez la rubrique [Inscription pour l'obtention d'un compte AppDynamics](#register).
 
     -   *your application name* est le nom que vous choisissez pour l'application. Ce nom identifiera l'application dans l'interface AppDynamics Controller.
 
     Votre fichier ServiceDefinition.csdef ressemblera à ceci :
 
-    ![Définition de service][Définition de service]
+    ![Définition de service](./media/cloud-services-how-to-appdynamics/adscreen.png)
 
 ## <a name="publish"></a>Publication de l'application instrumentée avec AppDynamics sur Azure
 
@@ -151,15 +151,6 @@ Pour chaque rôle instrumenté par AppDynamics :
 
 Consultez la page d'accueil de votre compte AppDynamics pour obtenir des liens vers de la documentation et des vidéos.
 
-Les mises à jour les plus récentes pour ce document sont disponibles dans sa version wiki à l'adresse <http://docs.appdynamics.com/display/ADAZ/How+To+Use+AppDynamics+for+Windows+Azure>.
+Les mises à jour les plus récentes pour ce document sont disponibles dans sa version wiki à l'adresse [http://docs.appdynamics.com/display/ADAZ/How+To+Use+AppDynamics+for+Windows+Azure](http://docs.appdynamics.com/display/ADAZ/How+To+Use+AppDynamics+for+Windows+Azure).
 
-  [Présentation d'AppDynamics]: #what
-  [Configuration requise]: #prereq
-  [Inscription pour l'obtention d'un compte AppDynamics]: #register
-  [Téléchargement de l'agent .NET à partir d'AppDynamics]: #download
-  [Ajout de l'agent .NET aux rôles Azure et modification du démarrage]: #addagent
-  [Publication de l'application instrumentée avec AppDynamics sur Azure]: #publish
-  [Surveillance de votre application]: #monitor
-  [Schéma AppDynamics]: ./media/cloud-services-how-to-appdynamics/addiagram.png
-  [Toujours copier]: ./media/cloud-services-how-to-appdynamics/adcopyalways.png
-  [Définition de service]: ./media/cloud-services-how-to-appdynamics/adscreen.png
+

@@ -127,7 +127,6 @@ Pour consulter un comparatif entre les files d'attente Azure Service Bus évoqu�
   [Envoi de messages à une file d'attente]: #how-to-send-messages-to-a-queue
   [Réception des messages d'une file d'attente]: #how-to-receive-messages-from-a-queue
   [Gestion des blocages d'application et des messages illisibles]: #how-to-handle-application-crashes-and-unreadable-messages
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Création d'une application Ruby sur Azure]: /fr-fr/develop/ruby/tutorials/web-app-with-linux-vm/
   [Files d'attente, rubriques et abonnements.]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367516.aspx
   [Utilisation du service de file d'attente Azure]: /fr-fr/develop/ruby/how-to-guides/queue-service/

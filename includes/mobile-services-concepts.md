@@ -31,5 +31,5 @@ Voici les fonctionnalités et les concepts importants de Mobile Services :
 -   **Script serveur :** code de logique métier personnalisée dans un service mobile principal JavaScript. Ce code est inscrit dans une opération de table (lecture, insertion, mise à jour, suppression), dans une API personnalisée ou dans un travail planifié.
 -   **Table :** les données utilisateur sont stockées dans les tables d’une base de données SQL. Vous pouvez créer ces tables dans le portail de gestion.
 
-<!-- Images. -->
+
 

@@ -808,7 +808,7 @@ Gardez à l'esprit qu'Azure prend en charge plusieurs formes de stockage des don
 Maintenant que vous avez appris les bases de l'administration de la base de données SQL, suivez ces liens pour effectuer des tâches d'administration plus complexes.
 
 -   Consultez la page [Base de données SQL](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg619386) sur MSDN
--   Accédez au [Wiki TechNet sur la base de données SQL](http://social.technet.microsoft.com/wiki/contents/articles/2267.sql-azure-technet-wiki-articles-index-en-us.aspx)
+-   Accédez au [Wiki TechNet sur la base de données SQL](http://social.technet.microsoft.com/wiki/contents/articles/2267.sql-azure-technet-wiki-articles-index-fr-fr.aspx)
 
 [Sign in to Azure]: #PreReq1
 [Configure SQL Database]: #PreReq2
@@ -821,7 +821,7 @@ Maintenant que vous avez appris les bases de l'administration de la base de donn
 
 [SQL Database]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg619386
 
-[SQL Database TechNet WIKI]: http://social.technet.microsoft.com/wiki/contents/articles/2267.sql-azure-technet-wiki-articles-index-en-us.aspx
+[SQL Database TechNet WIKI]: http://social.technet.microsoft.com/wiki/contents/articles/2267.sql-azure-technet-wiki-articles-index-fr-fr.aspx
 
 [How to Use SQL Database]: http://www.windowsazure.com/fr-fr/develop/net/how-to-guides/sql-azure/
 [Federations in SQL Database]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh597452.aspx
@@ -830,11 +830,11 @@ Maintenant que vous avez appris les bases de l'administration de la base de donn
 [Monitoring SQL Database Using Dynamic Management Views]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ff394114.aspx
 [Introducing Geo-Replication for Windows Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
 [How to create a storage account for an Azure Subscription]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433066.aspx
-[Download Azure SDK]: http://www.microsoft.com/en-us/download/details.aspx?id=15658
+[Download Azure SDK]: http://www.microsoft.com/fr-fr/download/details.aspx?id=15658
 [Azure Management Tools]: http://wapmmc.codeplex.com/
 [Getting Started with SQL Database Administration]: http://www.windowsazure.com/fr-fr/manage/tutorials/sql-azure-management/  
 [Managing Databases and Logins in SQL Database]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336235.aspx
-[How to use the blob storage service]: https://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/
+[How to use the blob storage service]: https://www.windowsazure.com/fr-fr/develop/net/how-to-guides/blob-storage/
 [DAC SQL Database Import Export Service Client v 1.5]: http://sqldacexamples.codeplex.com/releases/view/85948
 
 

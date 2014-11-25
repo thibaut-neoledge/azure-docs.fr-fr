@@ -12,7 +12,7 @@ Maintenant que l'application a été mise à jour pour utiliser Mobile Services 
 
 3.  Dans le portail de gestion Azure, cliquez sur Gérer pour la base de données associée à votre service mobile.
 
-    ![][]
+    ![][0]
 
 4.  Dans le portail de gestion, exécutez une requête pour afficher les modifications effectuées par l'application Windows Store. Votre requête sera semblable à la requête suivante mais le nom de votre base de données sera utilisé à la place de `todolist`.
 
@@ -22,5 +22,5 @@ Maintenant que l'application a été mise à jour pour utiliser Mobile Services 
 
 Cela conclut le didacticiel **Prise en main des données** pour Android.
 
-  []: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/manage-sql-azure-database.png
+  [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/manage-sql-azure-database.png
   [1]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/sql-azure-query.png

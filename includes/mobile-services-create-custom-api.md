@@ -1,6 +1,6 @@
-1.  Connectez-vous au [portail de gestion Azure][], cliquez sur **Mobile Services**, puis sur l'application.
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application.
 
-    ![][]
+    ![][0]
 
 2.  Cliquez sur l’onglet **API**, puis sur **Create a custom API**.
 
@@ -34,27 +34,27 @@
             })
         };
 
-	Ce code utilise l’[objet mssql][] pour accéder à la table **todoitem** directement pour définir l’indicateur complété pour tous les éléments. La fonction **exports.post** étant utilisée, les clients envoient une requête POST pour effectuer l’opération. Le nombre de lignes modifiées est renvoyé au client sous la forme d’une valeur entière.
+	Ce code utilise l’[objet mssql][objet mssql] pour accéder à la table **todoitem** directement pour définir l’indicateur complété pour tous les éléments. La fonction **exports.post** étant utilisée, les clients envoient une requête POST pour effectuer l’opération. Le nombre de lignes modifiées est renvoyé au client sous la forme d’une valeur entière.
 
 > [WACOM.NOTE]
-> Les objets [request][] et [response][] fournis aux fonctions API personnalisées sont implémentés par la [bibliothèque Express.js][]. Pour plus d'informations, consultez la page [API personnalisée][].
+> Les objets [request][request] et [response][response] fournis aux fonctions API personnalisées sont implémentés par la [bibliothèque Express.js][bibliothèque Express.js]. Pour plus d'informations, consultez la page [API personnalisée][API personnalisée].
 
 Ensuite, vous allez modifier l'application de démarrage rapide pour ajouter un bouton et du code qui appelle de manière asynchrone la nouvelle API personnalisée.
 
-<!-- Anchors. -->
 
-<!-- Images. --> 
 
-  []: ./media/mobile-services-create-custom-api/mobile-services-selection.png
+ 
+
+  [0]: ./media/mobile-services-create-custom-api/mobile-services-selection.png
   [1]: ./media/mobile-services-create-custom-api/mobile-custom-api-create.png
   [2]: ./media/mobile-services-create-custom-api/mobile-custom-api-create-dialog2.png
   [3]: ./media/mobile-services-create-custom-api/mobile-custom-api-select2.png
 
-<!-- URLs. -->
+
 
   [portail de gestion Azure]: https://manage.windowsazure.com/
-  [objet mssql]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx
-  [request]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554218.aspx
-  [response]: http://msdn.microsoft.com/en-us/library/windowsazure/dn303373.aspx
+  [objet mssql]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554212.aspx
+  [request]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554218.aspx
+  [response]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn303373.aspx
   [bibliothèque Express.js]: http://go.microsoft.com/fwlink/p/?LinkId=309046
-  [API personnalisée]: http://msdn.microsoft.com/en-us/library/windowsazure/dn280974.aspx
+  [API personnalisée]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn280974.aspx

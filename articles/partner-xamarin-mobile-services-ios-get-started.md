@@ -101,10 +101,8 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [0]: ./media/partner-xamarin-mobile-services-ios-get-started/mobile-quickstart-completed-ios.png
   [Xamarin Studio]: http://xamarin.com/download
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/partner-xamarin-mobile-services-ios-get-started/mobile-portal-quickstart-xamarin-ios.png
   [2]: ./media/partner-xamarin-mobile-services-ios-get-started/mobile-quickstart-steps-xamarin-ios.png
   [3]: ./media/partner-xamarin-mobile-services-ios-get-started/mobile-xamarin-project-ios-xs.png

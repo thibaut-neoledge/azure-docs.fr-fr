@@ -1,6 +1,6 @@
-1.  Si vous n'avez pas déjà inscrit votre application, accédez à la page [Soumettre une application][] du Centre de développement pour les applications Windows Store, connectez-vous à votre compte Microsoft, puis cliquez sur le **Nom de l'application**.
+1.  Si vous n'avez pas déjà inscrit votre application, accédez à la page [Soumettre une application][Soumettre une application] du Centre de développement pour les applications Windows Store, connectez-vous à votre compte Microsoft, puis cliquez sur le **Nom de l'application**.
 
-    ![][]
+    ![][0]
 
 2.  Tapez un nom pour l'application dans **Nom de l'application**, cliquez sur **Réserver le nom d'application**, puis sur **Enregistrer**.
 
@@ -42,7 +42,7 @@
 <p>La cl&eacute; secr&egrave;te client et le SID du package sont des informations d'identification de s&eacute;curit&eacute; importantes. Ne partagez pas ces informations secr&egrave;tes avec quiconque et ne les distribuez pas avec votre application.</p>
 </div>
 
-11. Connectez-vous au [portail de gestion Azure][], cliquez sur **Mobile Services**, puis sur l'application.
+11. Connectez-vous au [portail de gestion Azure][portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application.
 
     ![][7]
 
@@ -52,10 +52,10 @@
 
     > [WACOM.NOTE] Quand vous définissez vos informations d'identification WNS pour les notifications Push améliorées dans l'onglet **Notifications push** du portail, celles-ci sont partagées avec les Notification Hubs pour configurer le Notification Hub pour votre application.
 
-<!-- URLs. -->
+
 
   [Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-  []: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png
+  [0]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png
   [1]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-app-name.png
   [2]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-store-association.png
   [3]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-select-app-name.png

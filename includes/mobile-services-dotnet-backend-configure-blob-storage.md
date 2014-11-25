@@ -25,13 +25,13 @@ La classe TodoItem définit l'objet de données et vous devez ajouter à cette c
 
     Ces propriétés permettent de générer la signature d'accès partagé (SAP) et de stocker les informations de l'image. Notez que la casse de ces propriétés correspond à celle de la version principale JavaScript.
 
-    > [WACOM.NOTE] Lors de l'utilisation de l'initialiseur de base de données par défaut, Entity Framework supprime et recrée la base de données lorsqu'il détecte une modification du modèle de données dans la définition de Code First. Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les migrations Code First. L'initialiseur par défaut ne peut pas être utilisé avec une base de données SQL dans Azure. Pour plus d'informations, consultez la rubrique [Utilisation des migrations Code First pour mettre à jour le modèle de données][].
+    > [WACOM.NOTE] Lors de l'utilisation de l'initialiseur de base de données par défaut, Entity Framework supprime et recrée la base de données lorsqu'il détecte une modification du modèle de données dans la définition de Code First. Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les migrations Code First. L'initialiseur par défaut ne peut pas être utilisé avec une base de données SQL dans Azure. Pour plus d'informations, consultez la rubrique [Utilisation des migrations Code First pour mettre à jour le modèle de données][Utilisation des migrations Code First pour mettre à jour le modèle de données].
 
 ## <a name="update-scripts"></a>Mise à jour du contrôleur TodoItem pour générer une signature d'accès partagé
 
 La classe **TodoItemController** existante est mise à jour de manière à ce que la méthode **PostTodoItem** génère une signature d'accès partagé (SAP) lorsqu'un nouvel élément TodoItem est inséré. De plus
 
-1.  Si vous n'avez pas encore créé de compte de stockage, consultez la rubrique [Création d'un compte de stockage][].
+1.  Si vous n'avez pas encore créé de compte de stockage, consultez la rubrique [Création d'un compte de stockage][Création d'un compte de stockage].
 
 2.  Dans le portail de gestion, cliquez sur **Stockage**, sur le compte de stockage, puis sur **Gérer les clés**.
 
@@ -48,7 +48,7 @@ La classe **TodoItemController** existante est mise à jour de manière à ce qu
 
     ![][3]
 
-    La clé d'accès du compte de stockage est chiffrée et stockée dans les paramètres de l'application. Vous pouvez y accéder à partir du script serveur lors de l'exécution. Pour plus d'informations, consultez l'article [Paramètres de l'application][].
+    La clé d'accès du compte de stockage est chiffrée et stockée dans les paramètres de l'application. Vous pouvez y accéder à partir du script serveur lors de l'exécution. Pour plus d'informations, consultez l'article [Paramètres de l'application][Paramètres de l'application].
 
 5.  Dans l'Explorateur de solutions de Visual Studio, ouvrez le fichier Web.config correspondant au projet de service mobile et ajoutez les nouveaux paramètres d'application suivants, en remplaçant les espaces réservés par le nom du compte de stockage et la clé d'accès définis sur le portail :
 
@@ -123,7 +123,7 @@ La classe **TodoItemController** existante est mise à jour de manière à ce qu
 
     Cette méthode POST génère une nouvelle SAP (valide 5 minutes) pour l'élément inséré et attribue la valeur de la SAP générée à la propriété `sasQueryString` de l'élément renvoyé. La propriété `imageUri` est aussi définie sur le chemin d'accès de la ressource du nouvel objet blob pour permettre l'affichage de l'image lors de la liaison dans l'interface utilisateur du client.
 
-    > [WACOM.NOTE] Ce code créé une SAP pour un objet BLOB individuel. Si vous devez télécharger plusieurs objets blob sur un conteneur à l'aide de la même SAP, vous pouvez plutôt appeler la méthode [generateSharedAccessSignature method][] avec un nom de ressource d'objet blob vide, comme ceci :
+    > [WACOM.NOTE] Ce code créé une SAP pour un objet BLOB individuel. Si vous devez télécharger plusieurs objets blob sur un conteneur à l'aide de la même SAP, vous pouvez plutôt appeler la méthode [generateSharedAccessSignature method][generateSharedAccessSignature method] avec un nom de ressource d'objet blob vide, comme ceci :
     >
     >     blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);
     >
@@ -131,17 +131,17 @@ La classe **TodoItemController** existante est mise à jour de manière à ce qu
 
 Ensuite, vous allez mettre à jour l'application de démarrage rapide pour ajouter la fonctionnalité de téléchargement d'image à l'aide de la SAP générée sur la fonction insert.
 
-<!-- Anchors. --> 
+ 
 
-<!-- Images. --> 
+ 
 
-<!-- URLs. -->
+
 
   
   [Utilisation des migrations Code First pour mettre à jour le modèle de données]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
-  [Création d'un compte de stockage]: /en-us/manage/services/storage/how-to-create-a-storage-account
+  [Création d'un compte de stockage]: /fr-fr/manage/services/storage/how-to-create-a-storage-account
   [1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
   [2]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png
   [3]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
-  [Paramètres de l'application]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+  [Paramètres de l'application]: http://msdn.microsoft.com/fr-fr/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
   [generateSharedAccessSignature method]: http://go.microsoft.com/fwlink/?LinkId=390455

@@ -6,7 +6,7 @@ Dans cette section, vous allez tester votre nouvelle application avec le service
 
 2.  Appuyez sur la touche **F5** pour régénérer le projet et démarrer le service mobile localement.
 
-    ![][]
+    ![][0]
 
     Une page Web s'affiche une fois le service mobile correctement démarré.
 
@@ -18,4 +18,4 @@ Dans cette section, vous allez tester votre nouvelle application avec le service
 
     Une demande POST est alors envoyée au service mobile local. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans la table sont renvoyés par le service mobile et les données sont affichées dans la deuxième colonne de l'application.
 
-  []: ./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png
+  [0]: ./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png

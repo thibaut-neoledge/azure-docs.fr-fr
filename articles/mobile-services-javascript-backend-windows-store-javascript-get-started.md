@@ -1,6 +1,6 @@
 <properties pageTitle="Get Started with Mobile Services for Windows Store apps | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C# or JavaScript. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="hero-article" ms.date="08/18/2014" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="hero-article" ms.date="08/18/2014" ms.author="glenga" />
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
@@ -14,7 +14,7 @@ Dans ce didacticiel, vous allez créer un service mobile et une simple applicati
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
--   Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
+-   Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-fr%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
 -   [Visual Studio 2013 Express pour Windows][Visual Studio 2013 Express for Windows]
 
 ## Création d'un service mobile
@@ -66,15 +66,15 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 
 Pour plus d'informations sur les applications Windows universelles, consultez la page [Prise en charge de plusieurs plateformes d'appareil à partir d'un service mobile unique](/fr-fr/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs).
 
-<!-- Anchors. -->
+
 [Getting started with Mobile Services]:#getting-started
 [Create a new mobile service]:#create-new-service
 [Define the mobile service instance]:#define-mobile-service-instance
 [Next Steps]:#next-steps
 
-<!-- Images. -->
 
-<!-- URLs. -->
+
+
 [Get started with data]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-data
 [Get started with authentication]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-users
 [Get started with push notifications]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push

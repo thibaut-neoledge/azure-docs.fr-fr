@@ -1,6 +1,6 @@
 <properties linkid="dev-net-service-bus-amqp-overview" urlDisplayName="Azure Notification Hubs" pageTitle="Azure Notification Hubs" metaKeywords="Azure push notifications, Azure notification hubs, Azure messaging" description="Learn how to use push notifications in Azure. Code samples written in C# using the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Azure Notification Hubs" authors="sethm" manager="dwrede" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Azure Notification Hubs
 
@@ -29,7 +29,7 @@ Néanmoins, à un niveau supérieur, tous les systèmes de notification de plate
 3.  Pour envoyer une notification Push, le serveur principal de l'application contacte le PNS à l'aide du handle afin de cibler une instance d'application cliente spécifique.
 4.  Le PNS transmet la notification à l'appareil spécifié par le handle.
 
-![][]
+![][0]
 
 ## <span class="short-header">Défis des notifications Push</span>Défis des notifications Push
 
@@ -62,18 +62,18 @@ Notification Hubs utilise une infrastructure de notifications Push complète, mu
 
 Vous trouverez des informations supplémentaires sur Notification Hubs dans les rubriques suivantes :
 
--   **[Comment les clients utilisent Notification Hubs][]**
+-   **[Comment les clients utilisent Notification Hubs][Comment les clients utilisent Notification Hubs]**
 
--   **[Didacticiels et guides sur Notification Hubs][]**
+-   **[Didacticiels et guides sur Notification Hubs][Didacticiels et guides sur Notification Hubs]**
 
--   **Didacticiels de prise en main de Notification Hubs** ([iOS][], [Android][], [Windows Universel][], [Windows Phone][], [Kindle][], [Xamarin.iOS][], [Xamarin.Android][])
+-   **Didacticiels de prise en main de Notification Hubs** ([iOS][iOS], [Android][Android], [Windows Universel][Windows Universel], [Windows Phone][Windows Phone], [Kindle][Kindle], [Xamarin.iOS][Xamarin.iOS], [Xamarin.Android][Xamarin.Android])
 
 Les références d'API managées .NET pertinentes pour les notifications Push se trouvent aux emplacements suivants :
 
--   [Microsoft.WindowsAzure.Messaging.NotificationHub][]
--   [Microsoft.ServiceBus.Notifications][]
+-   [Microsoft.WindowsAzure.Messaging.NotificationHub][Microsoft.WindowsAzure.Messaging.NotificationHub]
+-   [Microsoft.ServiceBus.Notifications][Microsoft.ServiceBus.Notifications]
 
-  []: ./media/notification-hubs-overview/SBPushNotifications1.gif
+  [0]: ./media/notification-hubs-overview/SBPushNotifications1.gif
   [1]: ./media/notification-hubs-overview/SBPushNotifications2.gif
   [Comment les clients utilisent Notification Hubs]: http://azure.microsoft.com/fr-fr/services/notification-hubs
   [Didacticiels et guides sur Notification Hubs]: http://azure.microsoft.com/fr-fr/documentation/services/notification-hubs

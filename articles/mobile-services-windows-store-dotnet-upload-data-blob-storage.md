@@ -74,8 +74,6 @@ Maintenant que vous avez intégré votre service mobile au service BLOB et que v
   [un compte Azure Storage ;]: /fr-fr/manage/services/storage/how-to-create-a-storage-account
   [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-store-get-started
   [0]: ./media/mobile-services-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-  [mobile-services-configure-blob-storage]: ../includes/mobile-services-configure-blob-storage.md
-  [mobile-services-windows-store-dotnet-upload-to-blob-storage]: ../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md
   [Envoi de courrier électronique à partir de Mobile Services avec SendGrid]: /fr-fr/develop/mobile/tutorials/send-email-with-sendgrid/
   [Planification des travaux principaux dans Mobile Services]: /fr-fr/documentation/articles/mobile-services-schedule-recurring-tasks
   [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=262293

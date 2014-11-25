@@ -1,6 +1,6 @@
 <properties linkid="develop-php-website-with-mysql-and-webmatrix" urlDisplayName="Web w/ WebMatrix" pageTitle="PHP website with MySQL and WebMatrix - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP website that stores data in MySQL." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create and deploy a PHP-MySQL Azure Website using WebMatrix" authors="" solutions="" manager="" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Création et déploiement d'un site web Azure PHP-MySQL avec WebMatrix
 
@@ -20,7 +20,7 @@ En suivant ce didacticiel, vous allez créer une application web Tasklist simple
 
 ![Azure PHP Web Site][Azure PHP Web Site]
 
-[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Configuration requise
 
@@ -146,9 +146,9 @@ Avant de publier votre application dans Sites Web Azure, vous devez mettre à jo
 
     ![Publier dans WebMatrix][Publier dans WebMatrix]
 
-3.  Accédez à [http://[nom][http://[nom] de votre site web].azurewebsites.net/createtable.php pour créer la table `items`.
+3.  Accédez à http://[nom de votre site web].azurewebsites.net/createtable.php pour créer la table `items`.
 
-4.  Enfin, accédez à [http://[nom][http://[nom] de votre site web].azurewebsites.net/index.php pour utiliser l'application.
+4.  Enfin, accédez à http://[nom de votre site web].azurewebsites.net/index.php pour utiliser l'application.
 
 ## Modification et republication de votre application
 
@@ -175,7 +175,6 @@ Vous savez désormais comment créer et déployer un site web de WebMatrix vers
 
   [MySQL]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
   [Azure PHP Web Site]: ./media/web-sites-php-mysql-use-webmatrix/tasklist_app_windows.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Téléchargez]: http://go.microsoft.com/fwlink/?LinkId=252506
   [portail de gestion Azure]: https://manage.windowsazure.com
   [Créer un site Web Azure]: ./media/web-sites-php-mysql-use-webmatrix/NewWebSite1.jpg
@@ -194,7 +193,6 @@ Vous savez désormais comment créer et déployer un site web de WebMatrix vers
   [Lancer createtable.php dans le navigateur WebMatrix]: ./media/web-sites-php-mysql-use-webmatrix/edit_run.png
   [Création d'un site web Azure et d'une base de données SQL]: #CreateWebsite
   [Publier dans WebMatrix]: ./media/web-sites-php-mysql-use-webmatrix/edit_publish.png
-  [http://[nom]: http://[your
   [Ouvrir l'affichage distant dans WebMatrix]: ./media/web-sites-php-mysql-use-webmatrix/OpenRemoteView.png
   [WebMatrix - Open index file]: ./media/web-sites-php-mysql-use-webmatrix/Remote_editIndex.png
   [WebMatrix - Launch site in Remote]: ./media/web-sites-php-mysql-use-webmatrix/Remote_run.png

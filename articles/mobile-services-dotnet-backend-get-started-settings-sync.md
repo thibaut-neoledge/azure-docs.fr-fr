@@ -6,7 +6,7 @@
 
 > [WACOM.NOTE] Désolé, cette rubrique n'est pas encore disponible. Si ce sujet vous intéresse particulièrement, faites-le nous savoir en envoyant un tweet à [@AzureMobile], ou publiez un commentaire sur les [Forums] ou [UserVoice].
 
-<!-- URLs. -->
+
 [@AzureMobile]: https://twitter.com/AzureMobile
-[Forums]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuremobile
+[Forums]: http://social.msdn.microsoft.com/Forums/windowsazure/fr-fr/home?forum=azuremobile
 [UserVoice]: http://feedback.azure.com/forums/216254-mobile-services

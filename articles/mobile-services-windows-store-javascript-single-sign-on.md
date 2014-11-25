@@ -144,8 +144,6 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts][Au
   [Restriction des autorisations de table pour les utilisateurs authentifiés]: #permissions
   [Ajout de l'authentification à l'application]: #add-authentication
   [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started
-  [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [1]: /fr-fr/documentation/articles/mobile-services-windows-store-get-started
   [0]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-add-reference-live-js.png
   [2]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-users/#tokens

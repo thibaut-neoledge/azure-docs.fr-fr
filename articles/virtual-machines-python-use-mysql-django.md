@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-app-with-django-and-mysql" urlDisplayName="Web with Django + MySQL" pageTitle="Python web app with Django and MySQL - Azure tutorial" metaKeywords="Azure django web app, Azure Django MySQL, Azure django Python" description="A tutorial that teaches you how to use MySQL in with Django on an Azure virtual machine. Code samples written in Python." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World - MySQL Windows Edition" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Édition Windows Django Hello World - MySQL
 
@@ -235,13 +235,11 @@ Lorsque vous avez terminé ce didacticiel, arrêtez et/ou supprimez votre machin
   [Django Hello World]: http://windowsazure.com/fr-fr/documentation/articles/virtual-machines-python-django-web-app-windows-server
   [site Web MySQL]: http://dev.mysql.com/doc/
   [pilote MySQL]: http://pypi.python.org/pypi/MySQL-python/1.2.3
-  [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [ici]: /fr-fr/manage/windows/tutorials/virtual-machine-from-gallery/
   [MySQL Community Server]: http://dev.mysql.com/downloads/mysql/
   [base de données "world"]: http://dev.mysql.com/doc/index-other.html
   [ce]: http://downloads.mysql.com/docs/world.sql.zip
   [depuis ce lien]: http://code.google.com/p/soemin/downloads/detail?name=MySQL-python-1.2.3.win32-py2.7.exe&can=2&q=
-  [http://\*votreNomMV]: http://*yourVmName
 
 [0]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01.png
 [1]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01-1.png

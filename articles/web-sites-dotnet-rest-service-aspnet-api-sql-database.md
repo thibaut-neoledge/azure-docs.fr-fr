@@ -1,12 +1,12 @@
 <properties linkid="develop-dotnet-rest-service-using-web-api" urlDisplayName="REST service using Web API" pageTitle=".NET REST service using Web API - Azure tutorial" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure website by using Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande" />
 
 # Service REST à l'aide de l'API Web ASP.NET et de la base de données SQL
 
-***Par [Rick Anderson][] et Tom Dykstra. Mis à jour en mars 2014.***
+***Par [Rick Anderson][Rick Anderson] et Tom Dykstra. Mis à jour en mars 2014.***
 
-Ce didacticiel vous montre comment déployer une application web ASP.NET sur un site web Azure en utilisant l'Assistant Publier le site Web dans Visual Studio 2013 ou Visual Studio Express 2013 pour le web. (si vous préférez utiliser Visual Studio 2012, consultez [la version précédente de ce didacticiel][]).
+Ce didacticiel vous montre comment déployer une application web ASP.NET sur un site web Azure en utilisant l'Assistant Publier le site Web dans Visual Studio 2013 ou Visual Studio Express 2013 pour le web. (si vous préférez utiliser Visual Studio 2012, consultez [la version précédente de ce didacticiel][la version précédente de ce didacticiel]).
 
 Vous pouvez ouvrir gratuitement un compte Azure. Si vous n'avez pas déjà Visual Studio 2013, le Kit de développement logiciel (SDK) installe automatiquement Visual Studio Express 2013 pour le Web. Vous pouvez donc commencer vos développements Azure gratuitement.
 
@@ -22,22 +22,22 @@ Vous apprendrez ce qui suit :
 
 Vous développerez une application Web de liste de contacts simple basée sur ASP.NET MVC 5 et utilisant Entity Framework ADO.NET pour accéder à la base de données. L'illustration suivante présente l'application terminée :
 
-![capture d'écran de site Web][]
+![capture d'écran de site Web][capture d'écran de site Web]
  Dans ce didacticiel :
 
--   [Configuration de l’environnement de développement][]
--   [Configuration de l'environnement Azure][]
--   [Création d'une application ASP.NET MVC 5][]
--   [Déploiement de l'application dans Azure][]
--   [Ajout d'une base de données à l'application][]
--   [Ajout d'un contrôleur et affichage des données][]
--   [Ajout d'une interface d'API Web Restful][]
--   [Ajout d'une protection XSRF][]
--   [Publication de la mise à jour de l'application vers Azure et la base de données SQL][]
+-   [Configuration de l’environnement de développement][Configuration de l’environnement de développement]
+-   [Configuration de l'environnement Azure][Configuration de l'environnement Azure]
+-   [Création d'une application ASP.NET MVC 5][Création d'une application ASP.NET MVC 5]
+-   [Déploiement de l'application dans Azure][Déploiement de l'application dans Azure]
+-   [Ajout d'une base de données à l'application][Ajout d'une base de données à l'application]
+-   [Ajout d'un contrôleur et affichage des données][Ajout d'un contrôleur et affichage des données]
+-   [Ajout d'une interface d'API Web Restful][Ajout d'une interface d'API Web Restful]
+-   [Ajout d'une protection XSRF][Ajout d'une protection XSRF]
+-   [Publication de la mise à jour de l'application vers Azure et la base de données SQL][Publication de la mise à jour de l'application vers Azure et la base de données SQL]
 
 <a name="bkmk_setupdevenv"></a>
 <!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-dotnet-get-started/ -->
- [WACOM.INCLUDE [create-account-and-websites-note][]]
+ [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## <a name="bkmk_setupwindowsazure"></a>Configuration de l'environnement Azure
 
@@ -51,11 +51,11 @@ Votre site web Azure est exécuté dans un environnement d'hébergement, ce qui 
 
 La base de données SQL est un service de bases de données relationnelles sur le cloud, basé sur les technologies SQL Server. Les outils et applications fonctionnant avec SQL Server fonctionnent également avec la base de données SQL.
 
-1.  Dans le [portail de gestion Azure][], sous l'onglet gauche, cliquez sur **Sites Web**, puis sur **Nouveau**.
+1.  Dans le [portail de gestion Azure][portail de gestion Azure], sous l'onglet gauche, cliquez sur **Sites Web**, puis sur **Nouveau**.
 
 2.  Cliquez sur **CUSTOM CREATE**.
 
-    ![Lien Create with Database dans le portail de gestion][]
+    ![Lien Create with Database dans le portail de gestion][Lien Create with Database dans le portail de gestion]
 
     L'Assistant **Nouveau site Web - Création personnalisée** s'ouvre.
 
@@ -65,7 +65,7 @@ La base de données SQL est un service de bases de données relationnelles sur l
 
 5.  Dans la liste déroulante **Base de données**, sélectionnez **Create a free 20 MB SQL database**.
 
-    ![Create a New Website step of New Website - Create with Database wizard][]
+    ![Create a New Website step of New Website - Create with Database wizard][Create a New Website step of New Website - Create with Database wizard]
 
 6.  Cliquez sur les flèches pointant vers la droite en bas de la zone.
 
@@ -81,7 +81,7 @@ La base de données SQL est un service de bases de données relationnelles sur l
 
 11. Cliquez sur la coche située en bas de la zone pour indiquer que vous avez terminé.
 
-    ![Database Settings step of New Website - Create with Database wizard][]
+    ![Database Settings step of New Website - Create with Database wizard][Database Settings step of New Website - Create with Database wizard]
 
     L'image suivante montre l'utilisation d'une instance SQL Server et d'une connexion existantes.
 
@@ -100,16 +100,16 @@ Vous avez créé un site web Azure, mais il est encore vide. La prochaine étape
 1.  Démarrez Visual Studio 2013.
 2.  Dans le menu **File**, cliquez sur **New Project**.
 3.  Dans la boîte de dialogue **New Project**, développez **Visual C#** et sélectionnez **Web**, puis **ASP.NET MVC 5 Web Application**. Conservez la valeur par défaut **.NET Framework 4.5**. Nommez l'application **ContactManager** et cliquez sur **OK**.
-    ![Boîte de dialogue Nouveau projet][]]
+    ![Boîte de dialogue Nouveau projet][Boîte de dialogue Nouveau projet]]
 4.  Dans la boîte de dialogue **New ASP.NET Project**, sélectionnez le modèle **MVC**, activez la case à cocher **Web API**, puis cliquez sur **Change Authentication**.
 
-    ![Boîte de dialogue New ASP.NET Project][]
+    ![Boîte de dialogue New ASP.NET Project][Boîte de dialogue New ASP.NET Project]
 
 5.  Dans la boîte de dialogue **Modifier l'authentification**, cliquez sur **Aucune authentification**, puis sur **OK**.
 
-    ![Aucune authentification][]
+    ![Aucune authentification][Aucune authentification]
 
-    L'exemple d'application que vous créez ne sera pas doté de fonctionnalités nécessitant la connexion de l'utilisateur. Pour plus d'informations sur l'implémentation de fonctionnalités d'authentification et d'autorisation, consultez la section [Étapes suivantes][] à la fin de ce didacticiel.
+    L'exemple d'application que vous créez ne sera pas doté de fonctionnalités nécessitant la connexion de l'utilisateur. Pour plus d'informations sur l'implémentation de fonctionnalités d'authentification et d'autorisation, consultez la section [Étapes suivantes][Étapes suivantes] à la fin de ce didacticiel.
 
 6.  Dans la boîte de dialogue **New ASP.NET Project**, cliquez sur **OK**.
 
@@ -119,7 +119,7 @@ Vous avez créé un site web Azure, mais il est encore vide. La prochaine étape
 
 1.  Dans l'**Explorateur de solutions**, développez le dossier *Views\\Shared* et ouvrez le fichier \*\_Layout.cshtml\*.
 
-    ![\_Layout.cshtml dans l'Explorateur de solutions][]
+    ![\_Layout.cshtml dans l'Explorateur de solutions][\_Layout.cshtml dans l'Explorateur de solutions]
 
 2.  Remplacez le contenu du fichier \*\_Layout.cshtml\* par le code suivant :
 
@@ -165,7 +165,7 @@ Le balisage ci-dessus remplace le nom de l'application « My ASP.NET App » pa
 
 1.  Appuyez sur CTRL+F5 pour exécuter l'application.
     La page d'accueil de l'application apparaît dans le navigateur par défaut.
-    ![Page d'accueil Liste des tâches][]
+    ![Page d'accueil Liste des tâches][Page d'accueil Liste des tâches]
 
 Voilà, vous avez fait tout ce qu'il fallait pour créer l'application que vous allez déployer dans Azure. Après cela, vous allez ajouter les fonctionnalités de base de données.
 
@@ -173,43 +173,43 @@ Voilà, vous avez fait tout ce qu'il fallait pour créer l'application que vous 
 
 1.  Dans l'**Explorateur de solutions** de Visual Studio, cliquez avec le bouton droit sur le projet, puis dans le menu contextuel, sélectionnez **Publier**.
 
-    ![Publier dans le menu contextuel du projet][]
+    ![Publier dans le menu contextuel du projet][Publier dans le menu contextuel du projet]
 
     L'Assistant **Publier le site Web** s'ouvre.
 
 2.  Sous l'onglet **Profil** de l'Assistant **Publier le site Web**, cliquez sur **Importer**.
 
-    ![Importer les paramètres de publication][]
+    ![Importer les paramètres de publication][Importer les paramètres de publication]
 
     La boîte de dialogue **Importer le profil de publication** apparaît.
 
 	3.  Sélectionnez Importer à partir d'un site Web Azure. Si vous ne l'avez pas déjà fait, vous devez vous connecter. Cliquez sur **Se connecter**. Entrez l'utilisateur associé à votre abonnement, puis suivez la procédure de connexion.
 
-    	![se connecter][]
+    	![se connecter][se connecter]
 
 		Dans le menu déroulant, sélectionnez votre site Web puis cliquez sur **OK**.
 
-    	![Importer le profil de publication][]
+    	![Importer le profil de publication][Importer le profil de publication]
 
 4.  Sous l'onglet **Connection**, cliquez sur **Validate Connection** pour vous assurer que les paramètres sont corrects.
 
-    ![Valider la connexion][]
+    ![Valider la connexion][Valider la connexion]
 
 5.  Une fois la connexion validée, une coche verte est affichée en regard du bouton **Validate Connection**.
 
-    ![icône de connexion réussie et bouton Suivant sous l'onglet Connexion][]
+    ![icône de connexion réussie et bouton Suivant sous l'onglet Connexion][icône de connexion réussie et bouton Suivant sous l'onglet Connexion]
 
 6.  Cliquez sur **Suivant**.
 
-    ![Onglet Paramètres][]
+    ![Onglet Paramètres][Onglet Paramètres]
 
-    Vous pouvez accepter les paramètres par défaut sous cet onglet. Vous déployez une configuration de build Release et il n'est pas nécessaire de supprimer les fichiers du serveur de destination, de précompiler l'application ni d'exclure les fichiers du dossier App\_Data. Si vous voulez procéder à un débogage sur le site Azure, vous devez déployer une configuration de version de débogage (pas de production). Consultez la section [Étapes suivantes][] à la fin de ce didacticiel.
+    Vous pouvez accepter les paramètres par défaut sous cet onglet. Vous déployez une configuration de build Release et il n'est pas nécessaire de supprimer les fichiers du serveur de destination, de précompiler l'application ni d'exclure les fichiers du dossier App\_Data. Si vous voulez procéder à un débogage sur le site Azure, vous devez déployer une configuration de version de débogage (pas de production). Consultez la section [Étapes suivantes][Étapes suivantes] à la fin de ce didacticiel.
 
 7.  Sous l'onglet **Aperçu**, cliquez sur **Démarrer l'aperçu**.
 
     L'onglet affiche la liste des fichiers qui seront copiés sur le serveur. L'affichage de l'aperçu n'est pas requis pour publier l'application. Cependant, il s'agit d'une fonction utile à ne pas négliger. Dans ce cas, vous n'avez rien à faire avec la liste des fichiers affichée. À la prochaine publication, seuls les fichiers modifiés seront affichés dans la liste d'aperçu.
 
-    ![Bouton Démarrer l'aperçu sous l'onglet Aperçu][]
+    ![Bouton Démarrer l'aperçu sous l'onglet Aperçu][Bouton Démarrer l'aperçu sous l'onglet Aperçu]
 
 8.  Cliquez sur **Publier**.
 
@@ -219,7 +219,7 @@ Voilà, vous avez fait tout ce qu'il fallait pour créer l'application que vous 
 
     L'application créée est maintenant exécutée dans le cloud.
 
-    ![Page d'accueil Liste des tâches exécutée dans Azure][]
+    ![Page d'accueil Liste des tâches exécutée dans Azure][Page d'accueil Liste des tâches exécutée dans Azure]
 
 ## <a name="bkmk_addadatabase"></a>Ajout d'une base de données à l'application
 
@@ -231,11 +231,11 @@ Commencez par créer un modèle de données simple dans le code.
 
 1.  Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur le dossier Modèles, cliquez sur **Ajouter**, puis sur **Classe**.
 
-    ![Menu contextuel Ajouter une classe aux modèles][]
+    ![Menu contextuel Ajouter une classe aux modèles][Menu contextuel Ajouter une classe aux modèles]
 
 2.  Dans la boîte de dialogue **Ajouter un nouvel élément**, nommez le nouveau fichier de classe *Contact.cs*, puis cliquez sur **Ajouter**.
 
-    ![Boîte de dialogue Ajouter un nouvel élément][]
+    ![Boîte de dialogue Ajouter un nouvel élément][Boîte de dialogue Ajouter un nouvel élément]
 
 3.  Remplacez le contenu du fichier Contacts.cs par le code suivant.
 
@@ -261,7 +261,7 @@ Commencez par créer un modèle de données simple dans le code.
             }
         }
 
-La classe **Contacts** définit les données que vous allez stocker pour chaque contact, ainsi que la clé primaire ContactID requise par la base de données. Pour plus d'informations sur les modèles de données, consultez la section [Étapes suivantes][] à la fin de ce didacticiel.
+La classe **Contacts** définit les données que vous allez stocker pour chaque contact, ainsi que la clé primaire ContactID requise par la base de données. Pour plus d'informations sur les modèles de données, consultez la section [Étapes suivantes][Étapes suivantes] à la fin de ce didacticiel.
 
 ### Création de pages Web permettant aux utilisateurs de l'application d'utiliser des contacts
 
@@ -275,15 +275,15 @@ La fonctionnalité de génération de modèle automatique ASP.NET MVC peut gén�
 
 3.  Cliquez avec le bouton droit sur le dossier Contrôleurs, cliquez sur **Ajouter**, puis sur **Contrôleur**.
 
-    ![Ajouter un contrôleur dans le menu contextuel du dossier Contrôleurs][]
+    ![Ajouter un contrôleur dans le menu contextuel du dossier Contrôleurs][Ajouter un contrôleur dans le menu contextuel du dossier Contrôleurs]
 
 4.  Dans la boîte de dialogue **Add Scaffold**, sélectionnez **MVC Controller with views, using Entity Framework** et cliquez sur **Ajouter**.
 
-	![Ajouter un contrôleur][]
+	![Ajouter un contrôleur][Ajouter un contrôleur]
 
 1.  Définissez le nom du contrôleur sur **HomeController**. Sélectionnez **Contact** comme classe de modèle. Cliquez sur le bouton **New data context** et acceptez la valeur par défaut « ContactManager.Models.ContactManagerContext » pour le **Type du nouveau contexte de données**. Cliquez sur **Add**.
 
-    ![Boîte de dialogue Ajouter un contrôleur][]
+    ![Boîte de dialogue Ajouter un contrôleur][Boîte de dialogue Ajouter un contrôleur]
 
     Une boîte de dialogue affiche : « Un fichier ayant le nom HomeController existe déjà. Voulez-vous le remplacer ? ». Cliquez sur **Oui**. Nous allons remplacer le contrôleur d'accueil créé avec le nouveau projet. Nous allons utiliser le nouveau contrôleur d'accueil pour notre liste de contacts.
 
@@ -291,11 +291,11 @@ La fonctionnalité de génération de modèle automatique ASP.NET MVC peut gén�
 
 ## Activation des migrations, création de la base de données, ajout d'exemples de données et d'un initialiseur de données
 
-L'étape suivante consiste à activer la fonctionnalité [Migrations Code First][] pour créer la base de données en fonction du modèle de données que vous avez créé.
+L'étape suivante consiste à activer la fonctionnalité [Migrations Code First][Migrations Code First] pour créer la base de données en fonction du modèle de données que vous avez créé.
 
 1.  Dans le menu **Outils**, sélectionnez **Gestionnaire de package de bibliothèques**, puis **Console du Gestionnaire de package**.
 
-    ![Console du Gestionnaire de package dans le menu Outils][]
+    ![Console du Gestionnaire de package dans le menu Outils][Console du Gestionnaire de package dans le menu Outils]
 
 2.  Dans la fenêtre **Console du Gestionnaire de package**, entrez la commande suivante :
 
@@ -375,13 +375,13 @@ L'étape suivante consiste à activer la fonctionnalité [Migrations Code First]
                 );
         }
 
-    Le code ci-dessus initialise la base de données avec les informations de contact. Pour plus d'informations sur l'amorçage de la base de données, consultez la page [Débogage des bases de données Entity Framework (EF)][].
+    Le code ci-dessus initialise la base de données avec les informations de contact. Pour plus d'informations sur l'amorçage de la base de données, consultez la page [Débogage des bases de données Entity Framework (EF)][Débogage des bases de données Entity Framework (EF)].
 
 7.  Dans la **Console du Gestionnaire de package**, entrez la commande suivante :
 
         update-database
 
-    ![Commandes de la Console du Gestionnaire de package][]
+    ![Commandes de la Console du Gestionnaire de package][Commandes de la Console du Gestionnaire de package]
 
     La commande **update-database** exécute la première migration qui entraîne la création de la base de données. Par défaut, la base de données est créée en tant que base de données SQL Server Express LocalDB.
 
@@ -389,11 +389,11 @@ L'étape suivante consiste à activer la fonctionnalité [Migrations Code First]
 
 L'application affiche les données amorcées, ainsi que des liens pour les modifier, les supprimer ou obtenir des informations supplémentaires.
 
-![Affichage MVC des données][]
+![Affichage MVC des données][Affichage MVC des données]
 
 ## <a name="bkmk_addview"></a>Modification de l'affichage
 
-1.  Ouvrez le fichier *Views\\Home\\Index.cshtml*. Dans l'étape suivante, nous allons remplacer le balisage généré par un code utilisant [jQuery][] et [Knockout.js][]. Ce nouveau code récupère la liste des contacts en utilisant l'API Web et JSON, puis relie les données de contact à l'interface utilisateur en utilisant knockout.js. Pour plus d'informations, consultez la section [Étapes suivantes][] à la fin de ce didacticiel.
+1.  Ouvrez le fichier *Views\\Home\\Index.cshtml*. Dans l'étape suivante, nous allons remplacer le balisage généré par un code utilisant [jQuery][jQuery] et [Knockout.js][Knockout.js]. Ce nouveau code récupère la liste des contacts en utilisant l'API Web et JSON, puis relie les données de contact à l'interface utilisateur en utilisant knockout.js. Pour plus d'informations, consultez la section [Étapes suivantes][Étapes suivantes] à la fin de ce didacticiel.
 
 2.  Remplacez le contenu du fichier par le code suivant.
 
@@ -487,7 +487,7 @@ L'application affiche les données amorcées, ainsi que des liens pour les modif
 
 3.  Cliquez avec le bouton droit sur le dossier Contenu, puis cliquez sur **Ajouter** et sur **Nouvel élément...**.
 
-    ![Ajouter une feuille de style dans le menu contextuel du dossier Contenu][]
+    ![Ajouter une feuille de style dans le menu contextuel du dossier Contenu][Ajouter une feuille de style dans le menu contextuel du dossier Contenu]
 
 4.  Dans la boîte de dialogue **Ajouter un nouvel élément**, entrez **Style** dans la zone de recherche située en haut à droite puis sélectionnez **Feuille de style**.
     ![Boîte de dialogue Ajouter un nouvel élément][3]
@@ -552,7 +552,7 @@ L'application affiche les données amorcées, ainsi que des liens pour les modif
 
 6.  Ouvrez le fichier *App\_Start\\BundleConfig.cs*.
 
-7.  Ajoutez le code suivant pour inscrire le plug-in [Knockout][].
+7.  Ajoutez le code suivant pour inscrire le plug-in [Knockout][Knockout].
 
         bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
                     "~/Scripts/knockout-{version}.js"));
@@ -582,7 +582,7 @@ L'application affiche les données amorcées, ainsi que des liens pour les modif
 
 2.  Dans la boîte de dialogue **Add Scaffold**, entrez **Web API 2 Controller with actions, using Entity Framework**, puis cliquez sur **Ajouter**.
 
-    ![Ajouter un contrôleur API][]
+    ![Ajouter un contrôleur API][Ajouter un contrôleur API]
 
 3.  Dans la boîte de dialogue **Ajouter un contrôleur**, nommez votre contrôleur « ContactsController ». Sélectionnez « Contact (ContactManager.Models) » en tant que **Classe de modèle**. Conservez la valeur par défaut pour la **classe du contexte des données**.
 
@@ -596,7 +596,7 @@ L'application affiche les données amorcées, ainsi que des liens pour les modif
 
 2.  Entrez un contact, puis cliquez sur **Ajouter**. L'application revient à la page d'accueil et affiche le contact que vous venez d'entrer.
 
-    ![Page d'index avec éléments de liste des tâches][]
+    ![Page d'index avec éléments de liste des tâches][Page d'index avec éléments de liste des tâches]
 
 3.  Dans le navigateur, ajoutez **/api/contacts** à l'URL.
 
@@ -606,7 +606,7 @@ L'application affiche les données amorcées, ainsi que des liens pour les modif
 
     IE vous invite à ouvrir ou enregistrer les contacts.
 
-    ![Boîte de dialogue Enregistrer de l'API Web][]
+    ![Boîte de dialogue Enregistrer de l'API Web][Boîte de dialogue Enregistrer de l'API Web]
 
     Vous pouvez ouvrir les contacts renvoyés dans le Bloc-notes ou un navigateur.
 
@@ -614,7 +614,7 @@ L'application affiche les données amorcées, ainsi que des liens pour les modif
 
     ![Boîte de dialogue Enregistrer de l'API Web][5]
 
-    **Avertissement de sécurité** : pour l'instant, votre application n'est pas sécurisée et est vulnérable aux falsifications de requête intersites (CSRF, Cross Site Request Forgery). Nous résoudrons ce problème plus tard dans ce didacticiel. Pour plus d'informations, consultez la page [Prévention des falsifications de requête intersites][].
+    **Avertissement de sécurité** : pour l'instant, votre application n'est pas sécurisée et est vulnérable aux falsifications de requête intersites (CSRF, Cross Site Request Forgery). Nous résoudrons ce problème plus tard dans ce didacticiel. Pour plus d'informations, consultez la page [Prévention des falsifications de requête intersites][Prévention des falsifications de requête intersites].
 
 ## <a name="xsrf"></a><span class="short-header">XSRF</span>Ajout d'une protection XSRF
 
@@ -622,7 +622,7 @@ Une falsification de requête intersites (également connue sous le nom de XSRF 
 
 Une attaque XSRF est différente d'une attaque par hameçonnage (ou « phishing »). Les attaques par hameçonnage requièrent une interaction avec la victime. Dans ce genre d'attaque, un site Web malveillant va imiter un site Web cible et la victime est dupée pour fournir des informations sensibles à l'attaquant. Dans une attaque XSRF, il n'y a généralement pas d'interaction avec la victime. L'attaquant se repose plutôt sur le fait que le navigateur envoie automatiquement tous les cookies utiles au site Web de destination.
 
-Pour plus d'informations, consultez la page [Projet de sécurité d'application Web ouvert][] (ou OWASP pour « Open Web Application Security Project ») [XSRF][].
+Pour plus d'informations, consultez la page [Projet de sécurité d'application Web ouvert][Projet de sécurité d'application Web ouvert] (ou OWASP pour « Open Web Application Security Project ») [XSRF][XSRF].
 
 1.  Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur le projet **ContactManager**, cliquez sur **Ajouter**, puis sur **Classe**.
 
@@ -766,13 +766,13 @@ Pour publier l'application, répétez la procédure suivie précédemment.
 
 1.  Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Publier**.
 
-    ![Publier][]
+    ![Publier][Publier]
 
 2.  Cliquez sur l'onglet **Paramètres**.
 
 3.  Sous **ContactsManagerContext(ContactsManagerContext)**, cliquez sur l'icône **v** pour remplacer *Remote connection string* par la chaîne de connexion pour la base de données de contacts. Cliquez sur **ContactDB**.
 
-    ![Paramètres][]
+    ![Paramètres][Paramètres]
 
 4.  Activez la case à cocher pour **Execute Code First Migrations (runs on application start)**.
 
@@ -797,16 +797,16 @@ L'application est à présent exécutée dans le cloud et utilise la base de don
 
 ## <a name="nextsteps"></a>Étapes suivantes
 
-Une véritable application requiert une authentification et une autorisation. Vous devez utiliser la base de données d'appartenance pour cela. Le didacticiel [Déploiement d'une application ASP.NET MVC sécurisée avec une fonctionnalité d'appartenance, OAuth et une base de données SQL vers un site Web Windows Azure][] est basé sur ce didacticiel et vous montre comment déployer une application Web avec la base de données d'appartenance.
+Une véritable application requiert une authentification et une autorisation. Vous devez utiliser la base de données d'appartenance pour cela. Le didacticiel [Déploiement d'une application ASP.NET MVC sécurisée avec une fonctionnalité d'appartenance, OAuth et une base de données SQL vers un site Web Windows Azure][Déploiement d'une application ASP.NET MVC sécurisée avec une fonctionnalité d'appartenance, OAuth et une base de données SQL vers un site Web Windows Azure] est basé sur ce didacticiel et vous montre comment déployer une application Web avec la base de données d'appartenance.
 
 Une autre méthode pour stocker des données dans une application Azure consiste à utiliser le stockage Azure, qui permet de stocker des données non relationnelles sous la forme d'objets blob et de tables. Pour plus d'informations sur les API Web, ASP.NET MVC et Windows Azure, consultez les liens suivants.
 
--   [Mise en route d'Entity Framework avec MVC][]
--   [Introduction à ASP.NET MVC 5][]
--   [Votre première API Web ASP.NET][]
--   [Débogage de WAWS][]
+-   [Mise en route d'Entity Framework avec MVC][Mise en route d'Entity Framework avec MVC]
+-   [Introduction à ASP.NET MVC 5][Introduction à ASP.NET MVC 5]
+-   [Votre première API Web ASP.NET][Votre première API Web ASP.NET]
+-   [Débogage de WAWS][Débogage de WAWS]
 
-Ce didacticiel et son exemple d'application ont été écrits par [Rick Anderson][6] (Twitter [@RickAndMSFT][Rick Anderson]) avec l'aide de Tom Dykstra et Barry Dorrans (Twitter [@blowdart][]).
+Ce didacticiel et son exemple d'application ont été écrits par [Rick Anderson][6] (Twitter [@RickAndMSFT][Rick Anderson]) avec l'aide de Tom Dykstra et Barry Dorrans (Twitter [@blowdart][@blowdart]).
 
 N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce qui pourrait être amélioré... pas seulement à propos de ce didacticiel, mais aussi en ce qui concerne les produits présentés ici. Vos commentaires nous aideront à orienter nos améliorations. Nous aimerions particulièrement savoir si l'automatisation du processus de configuration et de déploiement de la base de données d'appartenance vous intéresse.
 
@@ -822,7 +822,6 @@ N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce 
   [Ajout d'une interface d'API Web Restful]: #bkmk_addwebapi
   [Ajout d'une protection XSRF]: #xsrf
   [Publication de la mise à jour de l'application vers Azure et la base de données SQL]: #bkmk_deploydatabaseupdate
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [portail de gestion Azure]: https://manage.windowsazure.com
   [Lien Create with Database dans le portail de gestion]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr6.PNG
   [Create a New Website step of New Website - Create with Database wizard]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrCWS.png

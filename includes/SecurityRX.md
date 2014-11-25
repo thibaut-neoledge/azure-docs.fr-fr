@@ -28,11 +28,12 @@ Dans les applications cloud, les développeurs ont une plus grande responsabilit
 conception, au développement et à la maintenance de leurs
 applications cloud selon des normes de sécurité élevées pour garder à distance les personnes malveillantes.
 Considérez le diagramme suivant (extrait du document PDF [Azure Security 
-Notes][] de J.D. Meier) : notez dans quelle mesure la partie infrastructure est gérée par le
+Notes][Azure Security 
+Notes] de J.D. Meier) : notez dans quelle mesure la partie infrastructure est gérée par le
 fournisseur de services cloud (dans notre cas Azure), ce
 qui permet aux développeurs d'applications de se consacrer davantage à la sécurité :
 
-![Sécurisation de l’application][]
+![Sécurisation de l’application][Sécurisation de l’application]
 
 Le point positif, c'est que l'ensemble des pratiques, principes et techniques
 de développement de la sécurité que vous connaissez déjà s'appliquent
@@ -52,7 +53,8 @@ il faut tenir compte :
 
 Pour une liste complète des menaces, attaques, vulnérabilités et
 autres contre-mesures, reportez-vous à [Aide-mémoire : infrastructure de
-sécurité des applications Web][] et à l'[Index du guide de sécurité pour les applications][] de Microsoft patterns & practices.
+sécurité des applications Web][Aide-mémoire : infrastructure de
+sécurité des applications Web] et à l'[Index du guide de sécurité pour les applications][Index du guide de sécurité pour les applications] de Microsoft patterns & practices.
 
 Dans le cloud, les mécanismes d'authentification et de contrôle d'accès sont très différents
 de ceux des applications locales. De plus,
@@ -93,9 +95,10 @@ considérez les menaces, les vulnérabilités et les attaques comme de vrais dan
 Considérons les diagrammes suivants comme une représentation synthétique des dangers
 liés à une application web déployée sur Azure (extraits du
 document PDF [Azure Security
-Notes][] de J.D. Meier) :
+Notes][Azure Security
+Notes] de J.D. Meier) :
 
-![Menaces, failles et attaques][]
+![Menaces, failles et attaques][Menaces, failles et attaques]
 
 En tant que développeur, c’est vous qui pouvez contrôler les failles. Moins vous
 en introduisez, moins vous laissez de chances aux personnes malveillantes
@@ -137,12 +140,13 @@ tels que WS-Federation et WS-Trust, et des jetons, tels que SAML
 d'écrire du code complexe lié à la sécurité dans votre application. Les ressources
 suivantes fournissent des informations détaillées sur WIF :
 
--   [Exemples Windows Identity Foundation 4.5][] dans la galerie de code MSDN.
--   [Outils Windows Identity Foundation 4.5 pour Visual Studio 11 Bêta][] dans
+-   [Exemples Windows Identity Foundation 4.5][Exemples Windows Identity Foundation 4.5] dans la galerie de code MSDN.
+-   [Outils Windows Identity Foundation 4.5 pour Visual Studio 11 Bêta][Outils Windows Identity Foundation 4.5 pour Visual Studio 11 Bêta] dans
     la galerie de code MSDN.
--   [Runtime Windows Identity Foundation (.Net 3.5/4.0)][] sur MSDN.
+-   [Runtime Windows Identity Foundation (.Net 3.5/4.0)][Runtime Windows Identity Foundation (.Net 3.5/4.0)] sur MSDN.
 -   [Exemples Windows Identity Foundation 3.5/4.0 et modèles
-    Visual Studio 2008/2010][] sur MSDN.
+    Visual Studio 2008/2010][Exemples Windows Identity Foundation 3.5/4.0 et modèles
+    Visual Studio 2008/2010] sur MSDN.
 
 **Contrôle d'accès Azure AD (anciennement appelé ACS)**.
 C'est un service cloud qui intègre le service d'émission de jeton de sécurité
@@ -152,12 +156,12 @@ fournisseurs d'identité Internet (par exemple Windows Live ID/Compte Microsoft,
 encore de fournisseurs d'identité Open ID 2.0. Les ressources suivantes fournissent des
 informations détaillées sur le contrôle d'accès Azure AD :
 
--   [Service de contrôle d’accès 2.0][]
--   [Scénarios et solutions utilisant ACS][]
--   [Rubrique de procédure du service de contrôle d’accès (ACS)][]
--   [Guide sur l’identité et le contrôle d’accès basés sur les revendications][]
--   [Kit de formation développeur dans le domaine de l’identité][]
--   [Cours de formation développeur dans le domaine de l’identité (MSDN)][]
+-   [Service de contrôle d’accès 2.0][Service de contrôle d’accès 2.0]
+-   [Scénarios et solutions utilisant ACS][Scénarios et solutions utilisant ACS]
+-   [Rubrique de procédure du service de contrôle d’accès (ACS)][Rubrique de procédure du service de contrôle d’accès (ACS)]
+-   [Guide sur l’identité et le contrôle d’accès basés sur les revendications][Guide sur l’identité et le contrôle d’accès basés sur les revendications]
+-   [Kit de formation développeur dans le domaine de l’identité][Kit de formation développeur dans le domaine de l’identité]
+-   [Cours de formation développeur dans le domaine de l’identité (MSDN)][Cours de formation développeur dans le domaine de l’identité (MSDN)]
 
 **Services AD FS (Active Directory Federation Services).** Les services
 AD FS 2.0 (Active Directory Federation Services) assurent la prise en charge des solutions d'identité
@@ -166,18 +170,18 @@ Windows Server?? et Active Directory. Les services AD FS 2.0 prennent en cha
 WS-Federation et SAML. Les ressources suivantes fournissent des informations détaillées sur les
 services AD FS :
 
--   [Plan du contenu AD FS 2.0][]
--   [Conception SSO de Web][]
--   [Conception SSO de Web fédéré][]
+-   [Plan du contenu AD FS 2.0][Plan du contenu AD FS 2.0]
+-   [Conception SSO de Web][Conception SSO de Web]
+-   [Conception SSO de Web fédéré][Conception SSO de Web fédéré]
 
 **Signatures d’accès partagé Azure.** Les signatures d'accès partagé
 vous permettent de paramétrer l'accès à une ressource d'objet blob ou de conteneur. Les
 ressources suivantes fournissent des informations détaillées sur les
 signatures d'accès partagé :
 
--   [Gestion de l’accès aux objets blob et aux conteneurs][]
--   [Nouvelle fonctionnalité de stockage : les signatures d’accès partagé][]
--   [Signatures d’accès partagé : une facilité d’utilisation accrue][]
+-   [Gestion de l’accès aux objets blob et aux conteneurs][Gestion de l’accès aux objets blob et aux conteneurs]
+-   [Nouvelle fonctionnalité de stockage : les signatures d’accès partagé][Nouvelle fonctionnalité de stockage : les signatures d’accès partagé]
+-   [Signatures d’accès partagé : une facilité d’utilisation accrue][Signatures d’accès partagé : une facilité d’utilisation accrue]
 
 ## Plan des scénarios
 
@@ -245,18 +249,20 @@ ou des fournisseurs d'identité Internet.
 Pour une solution à ces scénarios, utilisez le contrôle d'accès Azure AD
 et Windows Identity Foundation.
 
-![Contrôle d’accès Azure Active Directory][]
+![Contrôle d’accès Azure Active Directory][Contrôle d’accès Azure Active Directory]
 
 Pour implémenter ce scénario, consultez les ressources suivantes :
 
--   [Création de ma première application ASP.NET prenant en charge les revendications à l’aide d’ACS][]
--   [Hébergement de pages de connexion dans votre application Web ASP.NET][]
--   [Implémentation de l’autorisation de revendications dans une application ASP.NET prenant en charge les revendications à l’aide de WIF et ACS][]
+-   [Création de ma première application ASP.NET prenant en charge les revendications à l’aide d’ACS][Création de ma première application ASP.NET prenant en charge les revendications à l’aide d’ACS]
+-   [Hébergement de pages de connexion dans votre application Web ASP.NET][Hébergement de pages de connexion dans votre application Web ASP.NET]
+-   [Implémentation de l’autorisation de revendications dans une application ASP.NET prenant en charge les revendications à l’aide de WIF et ACS][Implémentation de l’autorisation de revendications dans une application ASP.NET prenant en charge les revendications à l’aide de WIF et ACS]
 -   [Implémentation du contrôle d'accès basé sur les rôles (RBAC)
-    dans une application ASP.NET prenant en charge les revendications à l'aide de WIF et ACS][]
+    dans une application ASP.NET prenant en charge les revendications à l'aide de WIF et ACS][Implémentation du contrôle d'accès basé sur les rôles (RBAC)
+    dans une application ASP.NET prenant en charge les revendications à l'aide de WIF et ACS]
 -   [Configuration de l'approbation entre ACS et les applications web ASP.NET
-    à l’aide de certificats X.509][]
--   [Exemple de code : formulaires ASP.NET simples][]
+    à l’aide de certificats X.509][Configuration de l'approbation entre ACS et les applications web ASP.NET
+    à l’aide de certificats X.509]
+-   [Exemple de code : formulaires ASP.NET simples][Exemple de code : formulaires ASP.NET simples]
 
 ### Service WCF (SOAP) avec identité de service
 
@@ -275,18 +281,21 @@ déploiement de vos applications sur Windows Server et IIS. Configurez le contr�
 Azure AD de sorte qu’il émette des jetons SAML qui seront gérés par WIF
 au niveau du service WCF (SOAP).
 
-![Service WCF (SOAP)][]
+![Service WCF (SOAP)][Service WCF (SOAP)]
 
 Pour implémenter ce scénario, consultez les ressources suivantes :
 
 -   [Ajout d'identités de service avec certificat X.509, mot de passe
-    ou clé symétrique][]
+    ou clé symétrique][Ajout d'identités de service avec certificat X.509, mot de passe
+    ou clé symétrique]
 -   [Authentification à l'aide d'un certificat client auprès d'un service WCF
-    protégé par ACS][]
+    protégé par ACS][Authentification à l'aide d'un certificat client auprès d'un service WCF
+    protégé par ACS]
 -   [Authentification à l'aide d'un nom d'utilisateur et d'un mot de passe client
-    auprès d'un service WCF protégé par ACS][]
--   [Exemple de code : authentification par certificat WCF][]
--   [Exemple de code : authentification du nom d’utilisateur WCF][]
+    auprès d'un service WCF protégé par ACS][Authentification à l'aide d'un nom d'utilisateur et d'un mot de passe client
+    auprès d'un service WCF protégé par ACS]
+-   [Exemple de code : authentification par certificat WCF][Exemple de code : authentification par certificat WCF]
+-   [Exemple de code : authentification du nom d’utilisateur WCF][Exemple de code : authentification du nom d’utilisateur WCF]
 
 ### Service WCF (SOAP) avec authentification, identités fédérées dans Active Directory
 
@@ -304,16 +313,18 @@ ensuite envoyé au contrôle d'accès Azure AD, qui le réémet à destination
 de l'agent. L'agent utilise le jeton pour envoyer la demande au service WCF
 (SOAP).
 
-![Service WCF (SOAP) avec AD][]
+![Service WCF (SOAP) avec AD][Service WCF (SOAP) avec AD]
 
 Pour implémenter ce scénario, consultez les ressources suivantes :
 
 -   [Ajout d'identités de service avec certificat X.509, mot de passe
-    ou clé symétrique][]
--   [Configuration d’AD FS 2.0 en tant que fournisseur d’identité][]
+    ou clé symétrique][Ajout d'identités de service avec certificat X.509, mot de passe
+    ou clé symétrique]
+-   [Configuration d’AD FS 2.0 en tant que fournisseur d’identité][Configuration d’AD FS 2.0 en tant que fournisseur d’identité]
 -   [Utilisation du service de gestion pour configurer AD FS 2.0
-    en tant que fournisseur d'identité d'entreprise][]
--   [Exemple de code : authentification fédérée WCF avec AD FS 2.0][]
+    en tant que fournisseur d'identité d'entreprise][Utilisation du service de gestion pour configurer AD FS 2.0
+    en tant que fournisseur d'identité d'entreprise]
+-   [Exemple de code : authentification fédérée WCF avec AD FS 2.0][Exemple de code : authentification fédérée WCF avec AD FS 2.0]
 
 ### Service WCF (SOAP) avec les identités de service
 
@@ -334,18 +345,21 @@ l'infrastructure WIF.
 
 Examinez le schéma suivant (WIF est facultatif) :
 
-![Service REST][]
+![Service REST][Service REST]
 
 Pour implémenter ce scénario, consultez les ressources suivantes :
 
 -   [Configuration de l'approbation entre ACS et le service WCF à l'aide
-    de clés symétriques][]
+    de clés symétriques][Configuration de l'approbation entre ACS et le service WCF à l'aide
+    de clés symétriques]
 -   [Authentification auprès d'un service WCF REST déployé sur
-    Azure à l'aide d'ACS][]
--   [Exemple de code : service Web ASP.NET][]
+    Azure à l'aide d'ACS][Authentification auprès d'un service WCF REST déployé sur
+    Azure à l'aide d'ACS]
+-   [Exemple de code : service Web ASP.NET][Exemple de code : service Web ASP.NET]
 -   [Exemple de code : application Windows Phone 7][Exemple de code : service Web ASP.NET]
 -   [Service WCF REST avec un jeton SWT émis par le service de
-    contrôle d'accès Azure (ACS)][]
+    contrôle d'accès Azure (ACS)][Service WCF REST avec un jeton SWT émis par le service de
+    contrôle d'accès Azure (ACS)]
 
 ### Service WCF (REST) avec Live ID/Compte Microsoft, Facebook, Google, Yahoo!, Open ID
 
@@ -372,17 +386,18 @@ l'utilité du contrôle de navigateur web prend tout son sens.
 
 Examinez le schéma suivant (l’infrastructure WIF étant facultative, elle n’est pas représentée ici) :
 
-![WIF est facultatif][]
+![WIF est facultatif][WIF est facultatif]
 
 Pour implémenter ce scénario, consultez les ressources suivantes :
 
--   [Authentification auprès d'un service WCF REST déployé sur Azure à l'aide d'ACS][]
--   [Configuration de Google en tant que fournisseur d’identité][]
--   [Configuration de Facebook en tant que fournisseur d’identité][]
--   [Configuration de Yahoo! en tant que fournisseur d’identité][]
+-   [Authentification auprès d'un service WCF REST déployé sur Azure à l'aide d'ACS][Authentification auprès d'un service WCF REST déployé sur Azure à l'aide d'ACS]
+-   [Configuration de Google en tant que fournisseur d’identité][Configuration de Google en tant que fournisseur d’identité]
+-   [Configuration de Facebook en tant que fournisseur d’identité][Configuration de Facebook en tant que fournisseur d’identité]
+-   [Configuration de Yahoo! en tant que fournisseur d’identité][Configuration de Yahoo! en tant que fournisseur d’identité]
 -   [Exemple de code : application Windows Phone 7][Exemple de code : service Web ASP.NET]
 -   [Service WCF REST avec un jeton SWT émis par le service de
-    contrôle d'accès Azure (ACS)][]
+    contrôle d'accès Azure (ACS)][Service WCF REST avec un jeton SWT émis par le service de
+    contrôle d'accès Azure (ACS)]
 
 ### Application Web ASP.NET vers le service WCF REST avec jeton SWT partagé
 
@@ -411,15 +426,16 @@ faire plusieurs mises en garde :
     À la place, vous pouvez analyser le jeton « manuellement », car dans ce cas, il n'est pas nécessaire
     de gérer les redirections.
 
-![Application Web ASP.NET][]
+![Application Web ASP.NET][Application Web ASP.NET]
 
 Pour implémenter ce scénario, consultez les ressources suivantes :
 
--   [Configuration de Google en tant que fournisseur d’identité][]
--   [Configuration de Facebook en tant que fournisseur d’identité][]
--   [Configuration de Yahoo! en tant que fournisseur d’identité][]
+-   [Configuration de Google en tant que fournisseur d’identité][Configuration de Google en tant que fournisseur d’identité]
+-   [Configuration de Facebook en tant que fournisseur d’identité][Configuration de Facebook en tant que fournisseur d’identité]
+-   [Configuration de Yahoo! en tant que fournisseur d’identité][Configuration de Yahoo! en tant que fournisseur d’identité]
 -   [Délégation d'application web ASP.NET vers le service WCF REST à l'aide d'un jeton
-    SWT partagé][]
+    SWT partagé][Délégation d'application web ASP.NET vers le service WCF REST à l'aide d'un jeton
+    SWT partagé]
 
 ### Contrôle d’accès en fonction du rôle dans les applications et services prenant en charge les revendications
 
@@ -447,7 +463,7 @@ revendication entrante en revendication du type de rôle,
 si bien que quand le jeton parvient à l'application ou à un service, WIF peut analyser cette revendication de rôle pour s'assurer
 que l'appel de la méthode IsInRole aboutit.
 
-![][]
+![][0]
 
 **Gestionnaire d’authentification par revendication WIF**. Dans cette implémentation,
 utilisez le gestionnaire d'authentification par revendication (ClaimsAuthenticationManager) comme point d'extensibilité de WIF. Cette approche
@@ -474,12 +490,15 @@ lors de l'implémentation de méthodes d'interface RoleManager personnalisées t
 Pour implémenter ce scénario, consultez les ressources suivantes :
 
 -   [Implémentation du contrôle d'accès basé sur les rôles (RBAC)
-    dans une application ASP.NET prenant en charge les revendications à l'aide de WIF et ACS][]
--   [implémentation de la logique de transformation des jetons à l’aide de règles][]
+    dans une application ASP.NET prenant en charge les revendications à l'aide de WIF et ACS][Implémentation du contrôle d'accès basé sur les rôles (RBAC)
+    dans une application ASP.NET prenant en charge les revendications à l'aide de WIF et ACS]
+-   [implémentation de la logique de transformation des jetons à l’aide de règles][implémentation de la logique de transformation des jetons à l’aide de règles]
 -   [Autorisation avec RoleManager pour les applications web ASP.NET prenant en charge les
-    revendications (WIF)][]
+    revendications (WIF)][Autorisation avec RoleManager pour les applications web ASP.NET prenant en charge les
+    revendications (WIF)]
 -   Exemple de code : Utilisation de revendications dans IsInRole dans le [Kit de développement logiciel (SDK) Windows Identity
-    Foundation][]
+    Foundation][Kit de développement logiciel (SDK) Windows Identity
+    Foundation]
 
 ### Autorisation basée sur les revendications dans les applications et services prenant en charge les revendications
 
@@ -498,11 +517,12 @@ implémentées dans le code de l'application.
 
 Pour implémenter ce scénario, consultez les ressources suivantes :
 
--   [implémentation de la logique de transformation des jetons à l’aide de règles][]
+-   [implémentation de la logique de transformation des jetons à l’aide de règles][implémentation de la logique de transformation des jetons à l’aide de règles]
 -   [Implémentation de l'autorisation de revendications dans une application ASP.NET
     prenant en charge les revendications à l'aide de WIF et ACS][implémentation de l’autorisation de revendications dans une application ASP.NET prenant en charge les revendications à l’aide de WIF et ACS]
 -   Exemple de code : Autorisation basée sur les revendications dans le [Kit de développement logiciel (SDK) Windows
-    Identity Foundation][]
+    Identity Foundation][Kit de développement logiciel (SDK) Windows
+    Identity Foundation]
 
 ## Scénarios d’identité et d’accès pour le service de stockage Azure
 
@@ -524,9 +544,9 @@ signatures d'accès partagé.
 
 Pour résoudre ce scénario, consultez les ressources suivantes :
 
--   [Gestion de l’accès aux objets blob et aux conteneurs][]
--   [Nouvelle fonctionnalité de stockage : les signatures d’accès partagé][]
--   [Signatures d’accès partagé : une facilité d’utilisation accrue][]
+-   [Gestion de l’accès aux objets blob et aux conteneurs][Gestion de l’accès aux objets blob et aux conteneurs]
+-   [Nouvelle fonctionnalité de stockage : les signatures d’accès partagé][Nouvelle fonctionnalité de stockage : les signatures d’accès partagé]
+-   [Signatures d’accès partagé : une facilité d’utilisation accrue][Signatures d’accès partagé : une facilité d’utilisation accrue]
 
 ## Scénarios d’identité et d’accès pour la base de données SQL Azure
 
@@ -540,14 +560,14 @@ montrez-vous particulièrement vigilant lors de la gestion de votre nom d'utilis
 
 Pour résoudre ce scénario, consultez les ressources suivantes :
 
--   [Instructions de sécurité et limitations (Base de données SQL)][]
--   [Connexion à la base de données SQL à l'aide de sqlcmd][]
--   [Connexion à la base de données SQL à l'aide d'ADO.NET][]
--   [Connexion à la base de données SQL à l'aide d'ASP.NET][]
--   [Connexion à la base de données SQL au moyen de WCF Data Services][]
--   [Connexion à la base de données SQL à l'aide de PHP][]
--   [Connexion à la base de données SQL à l'aide de JDBC][]
--   [Connexion à la base de données SQL à l'aide d'ADO.NET Entity Framework][]
+-   [Instructions de sécurité et limitations (Base de données SQL)][Instructions de sécurité et limitations (Base de données SQL)]
+-   [Connexion à la base de données SQL à l'aide de sqlcmd][Connexion à la base de données SQL à l'aide de sqlcmd]
+-   [Connexion à la base de données SQL à l'aide d'ADO.NET][Connexion à la base de données SQL à l'aide d'ADO.NET]
+-   [Connexion à la base de données SQL à l'aide d'ASP.NET][Connexion à la base de données SQL à l'aide d'ASP.NET]
+-   [Connexion à la base de données SQL au moyen de WCF Data Services][Connexion à la base de données SQL au moyen de WCF Data Services]
+-   [Connexion à la base de données SQL à l'aide de PHP][Connexion à la base de données SQL à l'aide de PHP]
+-   [Connexion à la base de données SQL à l'aide de JDBC][Connexion à la base de données SQL à l'aide de JDBC]
+-   [Connexion à la base de données SQL à l'aide d'ADO.NET Entity Framework][Connexion à la base de données SQL à l'aide d'ADO.NET Entity Framework]
 
 ## Scénarios d’identité et d’accès pour Azure Service Bus
 
@@ -563,10 +583,11 @@ consultez les ressources répertoriées ci-dessous.
 
 Pour résoudre ce scénario, consultez les ressources suivantes :
 
--   [Sécurisation de Service Bus avec ACS][] (vidéo)
+-   [Sécurisation de Service Bus avec ACS][Sécurisation de Service Bus avec ACS] (vidéo)
 -   [Sécurisation de Service Bus avec ACS][8] (vidéo)
 -   [Authentification et autorisation du Service Bus avec le service de
-    contrôle d'accès][]
+    contrôle d'accès][Authentification et autorisation du Service Bus avec le service de
+    contrôle d'accès]
 
 ## Scénarios d’identité et d’accès pour le cache en mémoire
 
@@ -581,10 +602,12 @@ lieu sûr pour éviter toute divulgation d'informations.
 Pour résoudre ce scénario, consultez les ressources suivantes :
 
 -   [Configurer un client de cache par programmation pour
-    la mise en cache Azure][]
+    la mise en cache Azure][Configurer un client de cache par programmation pour
+    la mise en cache Azure]
 -   [Configurer un client de cache à l'aide du fichier de configuration d'application
-    pour la mise en cache Azure][]
--   [Exemples de Service Bus et de mise en cache Azure][] (section Exemples
+    pour la mise en cache Azure][Configurer un client de cache à l'aide du fichier de configuration d'application
+    pour la mise en cache Azure]
+-   [Exemples de Service Bus et de mise en cache Azure][Exemples de Service Bus et de mise en cache Azure] (section Exemples
     de mise en cache)
 
 ## Scénarios d’identité et d’accès pour Azure Marketplace
@@ -607,7 +630,7 @@ Marketplace. Vous obtenez la clé partagée sur le portail Marketplace.
 
 Pour résoudre ce scénario, consultez les ressources suivantes :
 
--   [Utilisation de l’authentification HTTP de base dans votre application Marketplace][]
+-   [Utilisation de l’authentification HTTP de base dans votre application Marketplace][Utilisation de l’authentification HTTP de base dans votre application Marketplace]
 
 ### Des utilisateurs accèdent à mes jeux de données
 
@@ -623,8 +646,8 @@ puis à effectuer le processus de consentement.
 
 Pour résoudre ce scénario, consultez les ressources suivantes :
 
--   [Exemple de client Web OAuth][]
--   [Exemple de client riche OAuth][]
+-   [Exemple de client Web OAuth][Exemple de client Web OAuth]
+-   [Exemple de client riche OAuth][Exemple de client riche OAuth]
 
 ### L’application accède à l’API Marketplace
 
@@ -640,8 +663,8 @@ consultez le kit de publication Marketplace.
 
 Pour résoudre ce scénario, consultez les ressources suivantes :
 
--   [Télécharger le kit de publication d’application][]
--   [Présentation d’Azure Marketplace pour les applications][]
+-   [Télécharger le kit de publication d’application][Télécharger le kit de publication d’application]
+-   [Présentation d’Azure Marketplace pour les applications][Présentation d’Azure Marketplace pour les applications]
 
 ## Dispositifs de sécurité
 
@@ -652,8 +675,9 @@ de base pour ces technologies lors de la conception et du déploiement de votre 
 ### Windows Identity Foundation
 
 Les dispositifs de sécurité suivants s’appliquent à WIF. Les informations ci-dessous sont
-extraites des articles [Considérations sur la conception WIF][] et [Sécurité WIF (Windows Identity Foundation)
-pour les applications web ASP.NET – Menaces et contre-mesures][]
+extraites des articles [Considérations sur la conception WIF][Considérations sur la conception WIF] et [Sécurité WIF (Windows Identity Foundation)
+pour les applications web ASP.NET – Menaces et contre-mesures][Sécurité WIF (Windows Identity Foundation)
+pour les applications web ASP.NET – Menaces et contre-mesures]
 .
 
 -   **IssuerNameRegistry**. Spécifie les services d'émission de jeton de sécurité
@@ -672,13 +696,15 @@ pour les applications web ASP.NET – Menaces et contre-mesures][]
 -   **requestValidation** et **httpRuntime requestValidationType**.
     Active/désactive la fonctionnalité de validation ASP.NET. Reportez-vous aux recommandations
     décrites dans l'article [Windows Identity Foundation (WIF) : une valeur potentiellement dangereuse
-    de Request.Form a été détectée à partir du client][]
+    de Request.Form a été détectée à partir du client][Windows Identity Foundation (WIF) : une valeur potentiellement dangereuse
+    de Request.Form a été détectée à partir du client]
 
 ### Contrôle d’accès Azure AD
 
 Envisagez les dispositifs de sécurité suivants lors du déploiement du contrôle d'accès
 Azure AD. Les informations ci-dessous sont extraites des articles [Consignes de sécurité
-relatives à ACS][] et [Instructions relatives à la gestion des certificats et des clés][].
+relatives à ACS][Consignes de sécurité
+relatives à ACS] et [Instructions relatives à la gestion des certificats et des clés][Instructions relatives à la gestion des certificats et des clés].
 
 -   **Expiration des jetons STS**. Utilisez le portail de gestion du contrôle d'accès
     Azure AD pour définir un délai d'expiration des jetons agressif.
@@ -765,27 +791,24 @@ valides dans la mesure où l'application est hébergée sur des machines virtuel
 -   [Kit de formation développeur dans le domaine de l’identité][13]
 -   [Cours de formation développeur dans le domaine de l’identité (MSDN)][14]
 -   [Guide sur l’identité et le contrôle d’accès basés sur les revendications][15]
--   [Service de contrôle d’accès][]
--   [Rubrique de procédure du service de contrôle d’accès (ACS)][]
--   [Sécurisation d’une application Web ASP.NET de rôle Web Azure à l’aide du service de contrôle d’accès v2.0][]
--   [Vidéos sur le service de contrôle d’accès (ACS) Azure AD][]
--   [Cycle de vie de développement de la sécurité (SDL) Microsoft][]
--   [Outil SDL de modélisation des menaces 3.1.8][]
--   [Blogs sur la sécurité et la confidentialité][]
--   [Security Response Center][]
--   [Rapport de renseignement sur la sécurité (SIR)][]
+-   [Service de contrôle d’accès][Service de contrôle d’accès]
+-   [Rubrique de procédure du service de contrôle d’accès (ACS)][Rubrique de procédure du service de contrôle d’accès (ACS)]
+-   [Sécurisation d’une application Web ASP.NET de rôle Web Azure à l’aide du service de contrôle d’accès v2.0][Sécurisation d’une application Web ASP.NET de rôle Web Azure à l’aide du service de contrôle d’accès v2.0]
+-   [Vidéos sur le service de contrôle d’accès (ACS) Azure AD][Vidéos sur le service de contrôle d’accès (ACS) Azure AD]
+-   [Cycle de vie de développement de la sécurité (SDL) Microsoft][Cycle de vie de développement de la sécurité (SDL) Microsoft]
+-   [Outil SDL de modélisation des menaces 3.1.8][Outil SDL de modélisation des menaces 3.1.8]
+-   [Blogs sur la sécurité et la confidentialité][Blogs sur la sécurité et la confidentialité]
+-   [Security Response Center][Security Response Center]
+-   [Rapport de renseignement sur la sécurité (SIR)][Rapport de renseignement sur la sécurité (SIR)]
 -   [Cycle de vie de développement de la sécurité (SDL)][Cycle de vie de développement de la sécurité (SDL) Microsoft]
--   [Centre de développement de la sécurité (MSDN)][]
+-   [Centre de développement de la sécurité (MSDN)][Centre de développement de la sécurité (MSDN)]
 
-  [Azure Security Notes]: http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx
   [Sécurisation de l’application]: ./media/SecurityRX/01_SecuringTheApplication.gif
-  [Aide-mémoire : infrastructure de sécurité des applications Web]: http://msdn.microsoft.com/fr-fr/library/ff649461.aspx
   [Index du guide de sécurité pour les applications]: http://msdn.microsoft.com/fr-fr/library/ff650760.aspx
   [Menaces, failles et attaques]: ./media/SecurityRX/02_ThreatsVulnerabilitiesandAttacks.gif
   [Exemples Windows Identity Foundation 4.5]: http://code.msdn.microsoft.com/site/search?f%5B0%5D.Type=SearchText&f%5B0%5D.Value=wif&f%5B1%5D.Type=Topic&f%5B1%5D.Value=claims-based%20authentication
   [Outils Windows Identity Foundation 4.5 pour Visual Studio 11 Bêta]: http://visualstudiogallery.msdn.microsoft.com/e21bf653-dfe1-4d81-b3d3-795cb104066e
   [Runtime Windows Identity Foundation (.Net 3.5/4.0)]: http://www.microsoft.com/fr-fr/download/details.aspx?id=17331
-  [Exemples Windows Identity Foundation 3.5/4.0 et modèles Visual Studio 2008/2010]: http://www.microsoft.com/fr-fr/download/details.aspx?displaylang=en&id=4451
   [Service de contrôle d’accès 2.0]: http://msdn.microsoft.com/library/gg429786.aspx
   [Scénarios et solutions utilisant ACS]: http://msdn.microsoft.com/fr-fr/library/gg185920.aspx
   [Rubrique de procédure du service de contrôle d’accès (ACS)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg185939.aspx
@@ -799,40 +822,23 @@ valides dans la mesure où l'application est hébergée sur des machines virtuel
   [Nouvelle fonctionnalité de stockage : les signatures d’accès partagé]: http://blog.smarx.com/posts/new-storage-feature-signed-access-signatures
   [Signatures d’accès partagé : une facilité d’utilisation accrue]: http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days
   [Contrôle d’accès Azure Active Directory]: ./media/SecurityRX/03_WindowsAzureADAccesscontrol.gif
-  [création de ma première application ASP.NET prenant en charge les revendications à l’aide d’ACS]: http://msdn.microsoft.com/fr-fr/library/gg429779.aspx
-  [hébergement de pages de connexion dans votre application Web ASP.NET]: http://msdn.microsoft.com/fr-fr/library/gg185926.aspx
   [implémentation de l’autorisation de revendications dans une application ASP.NET prenant en charge les revendications à l’aide de WIF et ACS]: http://msdn.microsoft.com/fr-fr/library/gg185907.aspx
-  [Implémentation du contrôle d'accès basé sur les rôles (RBAC) dans une application ASP.NET prenant en charge les revendications à l'aide de WIF et ACS]: http://msdn.microsoft.com/fr-fr/library/gg185914.aspx
-  [Configuration de l'approbation entre ACS et les applications web ASP.NET à l’aide de certificats X.509]: http://msdn.microsoft.com/fr-fr/library/gg185947.aspx
   [Exemple de code : formulaires ASP.NET simples]: http://msdn.microsoft.com/fr-fr/library/gg185938.aspx
   [Service WCF (SOAP)]: ./media/SecurityRX/04_WCF(SOAP)Service.gif
-  [Ajout d'identités de service avec certificat X.509, mot de passe ou clé symétrique]: http://msdn.microsoft.com/fr-fr/library/gg185924.aspx
-  [Authentification à l'aide d'un certificat client auprès d'un service WCF protégé par ACS]: http://msdn.microsoft.com/fr-fr/library/hh289316.aspx
-  [Authentification à l'aide d'un nom d'utilisateur et d'un mot de passe client auprès d'un service WCF protégé par ACS]: http://msdn.microsoft.com/fr-fr/library/gg185954.aspx
   [Exemple de code : authentification par certificat WCF]: http://msdn.microsoft.com/fr-fr/library/gg185952.aspx
   [Exemple de code : authentification du nom d’utilisateur WCF]: http://msdn.microsoft.com/fr-fr/library/gg185927.aspx
   [Service WCF (SOAP) avec AD]: ./media/SecurityRX/05_AzureADAccessControl.gif
-  [configuration d’AD FS 2.0 en tant que fournisseur d’identité]: http://msdn.microsoft.com/fr-fr/library/gg185961.aspx
-  [Utilisation du service de gestion pour configurer AD FS 2.0 en tant que fournisseur d'identité d'entreprise]: http://msdn.microsoft.com/fr-fr/library/gg185905.aspx
   [Exemple de code : authentification fédérée WCF avec AD FS 2.0]: http://msdn.microsoft.com/fr-fr/library/hh127796.aspx
   [Service REST]: ./media/SecurityRX/06_RESTService.gif
-  [Configuration de l'approbation entre ACS et le service WCF à l'aide de clés symétriques]: http://msdn.microsoft.com/fr-fr/library/gg185958.aspx
   [Authentification auprès d'un service WCF REST déployé sur Azure à l'aide d'ACS]: http://msdn.microsoft.com/fr-fr/library/hh289317.aspx
   [Exemple de code : service Web ASP.NET]: http://msdn.microsoft.com/fr-fr/library/gg983271.aspx
-  [Service WCF REST avec un jeton SWT émis par le service de contrôle d'accès Azure (ACS)]: http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0
   [WIF est facultatif]: ./media/SecurityRX/07_WIFisOptional.gif
-  [configuration de Google en tant que fournisseur d’identité]: http://msdn.microsoft.com/fr-fr/library/gg185976.aspx
-  [configuration de Facebook en tant que fournisseur d’identité]: http://msdn.microsoft.com/fr-fr/library/gg185919.aspx
-  [configuration de Yahoo! en tant que fournisseur d’identité]: http://msdn.microsoft.com/fr-fr/library/gg185977.aspx
   [Application Web ASP.NET]: ./media/SecurityRX/08_ASPNETWebApptoREST.gif
-  [Délégation d'application web ASP.NET vers le service WCF REST à l'aide d'un jeton SWT partagé]: http://code.msdn.microsoft.com/ASPNET-Web-App-To-REST-WCF-b2b95f82
-  []: ./media/SecurityRX/09_RBAC.gif
+  [0]: ./media/SecurityRX/09_RBAC.gif
   [1]: ./media/SecurityRX/10_WIFClaimsAuthenticationManager.gif
   [2]: ./media/SecurityRX/11_SecurityTokenRequriementmapping.gif
   [3]: ./media/SecurityRX/12_CustomRoleManager.gif
   [implémentation de la logique de transformation des jetons à l’aide de règles]: http://msdn.microsoft.com/fr-fr/library/gg185955.aspx
-  [Autorisation avec RoleManager pour les applications web ASP.NET prenant en charge les revendications (WIF)]: http://blogs.msdn.com/b/alikl/archive/2010/11/18/authorization-with-rolemanager-for-claims-aware-wif-asp-net-web-applications.aspx
-  [Kit de développement logiciel (SDK) Windows Identity Foundation]: http://www.microsoft.com/downloads/details.aspx?FamilyID=c148b2df-c7af-46bb-9162-2c9422208504
   [4]: ./media/SecurityRX/13_ClaimsAuthorizationManager.gif
   [5]: ./media/SecurityRX/14_WindowsAzurestorage.gif
   [6]: ./media/SecurityRX/15_SQLAzureIdentityandAccessScenarios.gif
@@ -847,10 +853,7 @@ valides dans la mesure où l'application est hébergée sur des machines virtuel
   [7]: ./media/SecurityRX/16_WindowsAzureServiceBusIdentity.gif
   [Sécurisation de Service Bus avec ACS]: http://channel9.msdn.com/posts/Securing-Service-Bus-with-ACS
   [8]: https://skydrive.live.com/view.aspx?cid=123CCD2A7AB10107&resid=123CCD2A7AB10107%211849
-  [Authentification et autorisation du Service Bus avec le service de contrôle d'accès]: http://msdn.microsoft.com/fr-fr/library/hh403962.aspx
   [9]: ./media/SecurityRX/17_WindowsAzureCacheIdentity.gif
-  [Configurer un client de cache par programmation pour la mise en cache Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg618003.aspx
-  [Configurer un client de cache à l'aide du fichier de configuration d'application pour la mise en cache Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg278346.aspx
   [Exemples de Service Bus et de mise en cache Azure]: http://msdn.microsoft.com/fr-fr/library/ee706741.aspx
   [10]: ./media/SecurityRX/18_IAccessMyDataset.gif
   [Utilisation de l’authentification HTTP de base dans votre application Marketplace]: http://msdn.microsoft.com/fr-fr/library/gg193417.aspx
@@ -861,9 +864,6 @@ valides dans la mesure où l'application est hébergée sur des machines virtuel
   [Télécharger le kit de publication d’application]: http://go.microsoft.com/fwlink/?LinkId=221323
   [Présentation d’Azure Marketplace pour les applications]: https://datamarket.azure.com/
   [Considérations sur la conception WIF]: http://msdn.microsoft.com/fr-fr/library/ee517298.aspx
-  [Sécurité WIF (Windows Identity Foundation) pour les applications web ASP.NET – Menaces et contre-mesures]: http://blogs.msdn.com/b/alikl/archive/2010/12/02/windows-identity-foundation-wif-security-for-asp-net-web-applications-threats-amp-countermeasures.aspx
-  [Windows Identity Foundation (WIF) : une valeur potentiellement dangereuse de Request.Form a été détectée à partir du client]: http://social.technet.microsoft.com/wiki/contents/articles/1725.windows-identity-foundation-wif-a-potentially-dangerous-request-form-value-was-detected-from-the-client-wresult-t-requestsecurityto.aspx
-  [Consignes de sécurité relatives à ACS]: http://msdn.microsoft.com/fr-fr/library/gg185962.aspx
   [Instructions relatives à la gestion des certificats et des clés]: http://msdn.microsoft.com/fr-fr/library/hh204521.aspx
   [13]: http://go.microsoft.com/fwlink/?LinkId=214555
   [14]: http://go.microsoft.com/fwlink/?LinkId=214561

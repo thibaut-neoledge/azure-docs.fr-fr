@@ -1,10 +1,10 @@
 Un nouveau script pour la fonction insert est enregistré. Il génère une signature d’accès partagé (SAP) lorsqu’un nouvel élément Todo est inséré.
 
-1.  Si vous n'avez pas encore créé de compte de stockage, consultez la rubrique [Création d'un compte de stockage][].
+1.  Si vous n'avez pas encore créé de compte de stockage, consultez la rubrique [Création d'un compte de stockage][Création d'un compte de stockage].
 
 2.  Dans le portail de gestion, cliquez sur **Stockage**, sur le compte de stockage, puis sur **Gérer les clés**.
 
-    ![][]
+    ![][0]
 
 3.  Notez le **nom du compte de stockage** et la **clé d'accès**.
 
@@ -17,7 +17,7 @@ Un nouveau script pour la fonction insert est enregistré. Il génère une signa
 
     ![][2]
 
-    La clé d'accès du compte de stockage est chiffrée et stockée dans les paramètres de l'application. Vous pouvez y accéder à partir du script serveur lors de l'exécution. Pour plus d'informations, consultez l'article [Paramètres de l'application][].
+    La clé d'accès du compte de stockage est chiffrée et stockée dans les paramètres de l'application. Vous pouvez y accéder à partir du script serveur lors de l'exécution. Pour plus d'informations, consultez l'article [Paramètres de l'application][Paramètres de l'application].
 
 5.  Cliquez sur l’onglet **Données**, puis sur la table **TodoItem**.
 
@@ -82,7 +82,7 @@ Un nouveau script pour la fonction insert est enregistré. Il génère une signa
 
     Cela remplace la fonction appelée lors d'une insertion dans la table TodoItem avec le nouveau script. Ce nouveau script génère une nouvelle SAP pour la fonction insert, valide pendant 5 minutes, et attribue la valeur de la SAP générée à la propriété `sasQueryString` de l'élément renvoyé. La propriété `imageUri` est aussi définie sur le chemin d'accès de la ressource du nouvel objet blob pour permettre l'affichage de l'image lors de la liaison dans l'interface utilisateur du client.
 
-    > [WACOM.NOTE] Ce code créé une SAP pour un objet BLOB individuel. Si vous devez télécharger plusieurs objets blob sur un conteneur à l'aide de la même SAP, vous pouvez plutôt appeler la méthode [generateSharedAccessSignature method][] avec un nom de ressource d'objet blob vide, comme ceci :
+    > [WACOM.NOTE] Ce code créé une SAP pour un objet BLOB individuel. Si vous devez télécharger plusieurs objets blob sur un conteneur à l'aide de la même SAP, vous pouvez plutôt appeler la méthode [generateSharedAccessSignature method][generateSharedAccessSignature method] avec un nom de ressource d'objet blob vide, comme ceci :
     >
     >     blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);
     >
@@ -90,12 +90,12 @@ Un nouveau script pour la fonction insert est enregistré. Il génère une signa
 
 Ensuite, vous allez mettre à jour l'application de démarrage rapide pour ajouter la fonctionnalité de téléchargement d'image à l'aide de la SAP générée sur la fonction insert.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Création d'un compte de stockage]: /fr-fr/manage/services/storage/how-to-create-a-storage-account
-  []: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
+  [0]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
   [1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png
   [2]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
   [Paramètres de l'application]: http://msdn.microsoft.com/fr-fr/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7

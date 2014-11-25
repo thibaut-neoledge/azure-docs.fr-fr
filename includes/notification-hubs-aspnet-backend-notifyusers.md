@@ -50,7 +50,7 @@ La première étape consiste à créer un projet WebAPI ASP.NET. Il s'agit du se
 
         using Microsoft.ServiceBus.Notifications;
 
-12. Dans la méthode `Notifications()`, remplacez les deux espaces réservés de la ligne de code suivante par la chaîne de connexion (avec accès complet) de votre concentrateur de notification et par le nom de celui-ci. Ces valeurs sont disponibles sur le [portail de gestion Azure][] :
+12. Dans la méthode `Notifications()`, remplacez les deux espaces réservés de la ligne de code suivante par la chaîne de connexion (avec accès complet) de votre concentrateur de notification et par le nom de celui-ci. Ces valeurs sont disponibles sur le [portail de gestion Azure][portail de gestion Azure] :
 
         Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}", "{hub name}");
 

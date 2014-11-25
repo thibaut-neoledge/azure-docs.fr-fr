@@ -36,7 +36,7 @@ Les instructions du didacticiel sont valables pour les produits suivants :
 
 Si aucun de ces produits n'est installé, Visual Studio 2013 Express pour le web est automatiquement installé en même temps que le Kit de développement logiciel (SDK).
 
-[WACOM.INCLUDE [free-trial-note][free-trial-note]]
+[WACOM.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
 ## <span id="learn"></span></a>Contenu
 
@@ -137,7 +137,7 @@ Si le trafic varie au cours de la journée ou de la semaine et si le traitement 
 
 Ce didacticiel explique comment exécuter le programme frontal dans un site web et le programme principal en tant que tâche web dans le même site web. Pour plus d'informations sur le choix du meilleur environnement pour votre scénario, consultez la rubrique [Comparaison entre Sites Web Azure, Azure Cloud Services et Azure Virtual Machines][Comparaison entre Sites Web Azure, Azure Cloud Services et Azure Virtual Machines].
 
-[WACOM.INCLUDE [install-sdk-2013-only][install-sdk-2013-only]]
+[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 ## <span id="storage"></span></a>Création d'un compte de stockage Azure
 
@@ -879,13 +879,11 @@ Pour plus d'informations, consultez la page [Ressources recommandées pour les t
   [Étapes suivantes]: #next-steps
   [ASP.NET MVC]: http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started
   [Web Forms]: http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview
-  [free-trial-note]: ../includes/free-trial-note.md
   [tâches web]: /fr-fr/documentation/articles/web-sites-create-web-jobs/
   [AlwaysOn]: http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx
   [Ad table]: ./media/websites-dotnet-webjobs-sdk-get-started/adtable.png
   [Contoso Ads architecture]: ./media/websites-dotnet-webjobs-sdk-get-started/apparchitecture.png
   [Comparaison entre Sites Web Azure, Azure Cloud Services et Azure Virtual Machines]: /fr-fr/documentation/articles/choose-web-site-cloud-service-vm/
-  [install-sdk-2013-only]: ../includes/install-sdk-2013-only.md
   [portail de gestion Azure]: http://manage.windowsazure.com
   [Gestion des comptes de stockage]: /fr-fr/documentation/articles/storage-manage-storage-account/
   [New storage account]: ./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png
@@ -926,7 +924,6 @@ Pour plus d'informations, consultez la page [Ressources recommandées pour les t
   [HttpPostedFileBase]: http://msdn.microsoft.com/fr-fr/library/system.web.httppostedfilebase.aspx
   [annonce de la version bêta 0.3.0 du Kit de développement logiciel (SDK) WebJobs]: http://azure.microsoft.com/blog/2014/06/18/announcing-the-0-3-0-beta-preview-of-microsoft-azure-webjobs-sdk/http://azure.microsoft.com/blog/2014/06/18/announcing-the-0-3-0-beta-preview-of-microsoft-azure-webjobs-sdk/
   [version de service cloud de l'application]: /fr-fr/documentation/articles/cloud-services-dotnet-get-started/
-  [https://{websitename}.scm.azurewebsites.net/azurejobs/\#/functions]: https://{websitename}.scm.azurewebsites.net/azurejobs/#/functions
   [Récupération d'un tableau de bord pour un développement local avec le Kit de développement logiciel (SDK) WebJobs]: http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx
   [injection de dépendances]: http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection
   [modèles de référentiel et d'élément de travail]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo

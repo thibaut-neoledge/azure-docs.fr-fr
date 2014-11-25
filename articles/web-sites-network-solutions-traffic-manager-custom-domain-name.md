@@ -63,22 +63,15 @@ Pour associer votre domaine personnalisé à un site web Azure, vous devez ajout
 
 ## <a name="enabledomain"></a>Activer Traffic Manager pour votre site web
 
-[WACOM.INCLUDE [modes][2]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
   [Network Solutions]: /fr-fr/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [1]: https://www.networksolutions.com
-  [tmwebsitefooter]: ../includes/custom-dns-web-site-traffic-manager-notes.md
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [Présentation des enregistrements DNS]: #understanding-records
   [Configurer vos sites web pour le mode Standard]: #bkmk_configsharedmode
   [Ajouter un enregistrement DNS pour votre domaine personnalisé]: #bkmk_configurecname
   [Activer Traffic Manager pour votre site web]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
-  [modes]: ../includes/custom-dns-web-site-modes-traffic-manager.md
   [page Edit DNS]: ./media/web-sites-custom-domain-name/ns-editdns.png
   [Pages Domain Names avec Edit Advanced DNS Records mis en surbrillance]: ./media/web-sites-custom-domain-name/ns-editadvanced.png
   [page Updated Advanced DNS]: ./media/web-sites-custom-domain-name/ns-updatecnameadvanced.png
   [Formulaire cname]: ./media/web-sites-custom-domain-name/ns-cnametm.png
-  [2]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

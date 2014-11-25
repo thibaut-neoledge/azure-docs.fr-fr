@@ -1,6 +1,6 @@
 <properties linkid="develop-nodejs-common-tasks-working-with-node-modules" urlDisplayName="Working with Node.js Modules" pageTitle="Working with Node.js Modules" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Using Node.js Modules with Azure applications" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Utilisation de modules Node.js avec des applications Azure
 
@@ -41,7 +41,7 @@ Les modules natifs ne sont pas pris en charge par Sites Web Azure. Certains modu
 
 Le fichier **package.json** permet de spécifier les dépendances de niveau supérieur requises par votre application afin que la plateforme d'hébergement puisse installer les dépendances, plutôt que de vous obliger à inclure le dossier **node\_packages** dans le déploiement. Une fois que l'application a été déployée, la commande **npm install** permet d'analyser le fichier **package.json** et d'installer toutes les dépendances répertoriées.
 
-Au cours du développement, vous pouvez utiliser les paramètres **--save**, **--save-dev** ou **--save-optional** lors de l'installation de modules afin d'ajouter automatiquement une entrée pour le module à votre fichier **package.json**. Pour plus d'informations, consultez la page [npm-install][].
+Au cours du développement, vous pouvez utiliser les paramètres **--save**, **--save-dev** ou **--save-optional** lors de l'installation de modules afin d'ajouter automatiquement une entrée pour le module à votre fichier **package.json**. Pour plus d'informations, consultez la page [npm-install][npm-install].
 
 Un problème potentiel avec le fichier **package.json** est qu'il n'indique la version que pour les dépendances de niveau supérieur. Chaque module installé peut spécifier ou non la version des modules dont il dépend. Ainsi, il est possible que vous obteniez une chaîne de dépendance différente de celle utilisée en développement.
 
@@ -56,7 +56,7 @@ Un problème potentiel avec le fichier **package.json** est qu'il n'indique la v
 
 Le fichier **npm-shrinkwrap.json** tente de résoudre les limitations de contrôle de version des modules du fichier **package.json**. Alors que le fichier **package.json** n'inclut que des versions pour les modules de niveau supérieur, le fichier **npm-shrinkwrap.json** contient les exigences de version pour l'ensemble de la chaîne de dépendance des modules.
 
-Lorsque votre application est prête pour la production, vous pouvez verrouiller les exigences de version et créer un fichier **npm-shrinkwrap.json** à l'aide de la commande **npm shrinkwrap**. Elle utilise les versions actuellement installées dans le dossier **node\_modules** et les enregistre dans le fichier **npm-shrinkwrap.json**. Une fois que l'application a été déployée vers l'environnement d'hébergement, la commande **npm install** permet d'analyser le fichier **npm-shrinkwrap.json** et d'installer toutes les dépendances répertoriées. Pour plus d'informations, consultez la page [npm-install][].
+Lorsque votre application est prête pour la production, vous pouvez verrouiller les exigences de version et créer un fichier **npm-shrinkwrap.json** à l'aide de la commande **npm shrinkwrap**. Elle utilise les versions actuellement installées dans le dossier **node\_modules** et les enregistre dans le fichier **npm-shrinkwrap.json**. Une fois que l'application a été déployée vers l'environnement d'hébergement, la commande **npm install** permet d'analyser le fichier **npm-shrinkwrap.json** et d'installer toutes les dépendances répertoriées. Pour plus d'informations, consultez la page [npm-install][npm-install].
 
 > [WACOM.NOTE]
 > Lors du déploiement sur un site web Azure, si votre fichier **npm-shrinkwrap.json** fait référence à un module natif, une erreur similaire à celle ci-dessous s'affiche lors de la publication de l'application à l'aide de Git :
@@ -67,9 +67,8 @@ Lorsque votre application est prête pour la production, vous pouvez verrouiller
 
 ## Étapes suivantes
 
-Maintenant que vous savez comment utiliser les modules Node.js avec Azure, apprenez à [spécifier la version de Node.js][], [créer et déployer un site Web Node.js][] et [à utiliser les outils en ligne de commande Azure pour Mac et Linux][].
+Maintenant que vous savez comment utiliser les modules Node.js avec Azure, apprenez à [spécifier la version de Node.js][spécifier la version de Node.js], [créer et déployer un site Web Node.js][créer et déployer un site Web Node.js] et [à utiliser les outils en ligne de commande Azure pour Mac et Linux][à utiliser les outils en ligne de commande Azure pour Mac et Linux].
 
-  [Tâche de démarrage d'Azure permettant d'exécuter npm install pour éviter le déploiement des modules de nœud]: http://nodeblog.azurewebsites.net/startup-task-to-run-npm-in-azure
   [npm-install]: https://npmjs.org/doc/install.html
   [spécifier la version de Node.js]: /fr-fr/documentation/articles/nodejs-specify-node-version-azure-apps/
   [créer et déployer un site Web Node.js]: /fr-fr/documentation/articles/web-sites-nodejs-develop-deploy-mac/

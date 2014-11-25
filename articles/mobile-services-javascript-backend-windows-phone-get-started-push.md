@@ -169,7 +169,6 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
     En savoir plus sur l'implémentation de logique métier dans votre service mobile.
 
-  [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
   [Mise à jour de l'application pour l'inscription aux notifications]: #update-app
   [Mise à jour des scripts serveur pour l'envoi de notifications Push]: #update-scripts
   [Insertion de données pour recevoir des notifications Push]: #test

@@ -1,8 +1,8 @@
 Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre application avec un fournisseur d'identité. Vous devez ensuite inscrire la clé secrète cliente générée par le fournisseur avec Mobile Services.
 
-1.  Connectez-vous au [portail de gestion Azure][], cliquez sur **Mobile Services**, puis sur le service mobile.
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure], cliquez sur **Mobile Services**, puis sur le service mobile.
 
-    ![][]
+    ![][0]
 
 2.  Cliquez sur l'onglet **Tableau de bord**, puis notez la valeur **Mobile Service URL**.
 
@@ -12,11 +12,11 @@ Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre applicatio
 
 3.  Choisissez un fournisseur d'identité pris en charge dans la liste ci-dessous et suivez la procédure pour inscrire votre application auprès de ce fournisseur :
 
- -   [Compte Microsoft][]
- -   [Connexion Facebook][]
- -   [Connexion Twitter][]
- -   [Connexion Google][]
- -   [Azure Active Directory][]
+ -   [Compte Microsoft][Compte Microsoft]
+ -   [Connexion Facebook][Connexion Facebook]
+ -   [Connexion Twitter][Connexion Twitter]
+ -   [Connexion Google][Connexion Google]
+ -   [Azure Active Directory][Azure Active Directory]
 
     N'oubliez pas de noter les valeurs de l'identité du client et de la clé secrète cliente générées par le fournisseur.
 
@@ -30,10 +30,10 @@ Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre applicatio
 
     Votre service mobile et votre application sont désormais configurés pour utiliser le fournisseur d'authentification choisi.
 
-<!-- URLs. -->
+
 
   [portail de gestion Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-register-authentication/mobile-services-selection.png
+  [0]: ./media/mobile-services-register-authentication/mobile-services-selection.png
   [1]: ./media/mobile-services-register-authentication/mobile-service-uri.png
   [Compte Microsoft]: /fr-fr/documentation/articles/mobile-services-how-to-register-microsoft-authentication/
   [Connexion Facebook]: /fr-fr/documentation/articles/mobile-services-how-to-register-facebook-authentication/

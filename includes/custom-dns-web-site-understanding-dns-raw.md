@@ -24,7 +24,7 @@ Les principaux avantages d'un enregistrement A par rapport à un enregistrement 
 
 Un enregistrement CNAME mappe un nom DNS *spécifique*, tel que **mail.contoso.com** ou **www.contoso.com**, à un autre nom de domaine (canonique). Dans le cas des sites web Azure, le nom de domaine canonique est le nom de domaine **\<nomdevotresite\>.azurewebsites.net** de votre site web. Une fois créé, l'enregistrement CNAME crée un alias pour le nom de domaine **\<nomdevotresite\>.azurewebsites.net**. L'entrée CNAME devient automatiquement l'adresse IP de votre nom de domaine **\<nomdevotresite\>.azurewebsites.net**. Ainsi, même si l'adresse IP du site web change, vous n'avez aucune action à effectuer.
 
-> [WACOM.NOTE] Certains bureaux d'enregistrement de domaines autorisent le mappage de sous-domaines uniquement lorsqu'un enregistrement CNAME est utilisé par exemple, **www.contoso.com** et non un nom racine tel que **contoso.com**. Pour plus d'informations sur les enregistrements CNAME, consultez la documentation fournie par votre bureau d'enregistrement, [la page Wikipedia sur l'enregistrement CNAME][] ou le document [Noms de domaine IETF - Implémentation et spécification][].
+> [WACOM.NOTE] Certains bureaux d'enregistrement de domaines autorisent le mappage de sous-domaines uniquement lorsqu'un enregistrement CNAME est utilisé par exemple, **www.contoso.com** et non un nom racine tel que **contoso.com**. Pour plus d'informations sur les enregistrements CNAME, consultez la documentation fournie par votre bureau d'enregistrement, [la page Wikipedia sur l'enregistrement CNAME][la page Wikipedia sur l'enregistrement CNAME] ou le document [Noms de domaine IETF - Implémentation et spécification][Noms de domaine IETF - Implémentation et spécification].
 
 ### Caractéristiques DNS des sites web Azure
 
@@ -38,13 +38,13 @@ Cet enregistrement CNAME permet de vérifier que vous détenez bien le domaine q
 
 Pour connaître l'adresse IP, ainsi que les noms **awverify** et **.azurewebsites.net** pour votre site web, procédez comme suit :
 
-1.  Dans votre navigateur, ouvrez le [portail de gestion Azure][].
+1.  Dans votre navigateur, ouvrez le [portail de gestion Azure][portail de gestion Azure].
 
 2.  Sous l'onglet **Sites Web**, cliquez sur le nom de votre site, sélectionnez **Tableau de bord**, puis **Gérer les domaines** en bas de la page.
 
-    ![][]
+    ![][0]
 
-    > [WACOM.NOTE] Si **Gérer les domaines** n'est pas activé, vous utilisez un site web gratuit. Les noms de domaine personnalisés ne peuvent pas être utilisés avec les sites web gratuits. Vous devez effectuer une mise à niveau vers le mode Partagé, De base ou Standard. Pour plus d'informations sur les modes de sites web, notamment sur la modification du mode de votre site, consultez la page [Mise à l'échelle de sites Web][].
+    > [WACOM.NOTE] Si **Gérer les domaines** n'est pas activé, vous utilisez un site web gratuit. Les noms de domaine personnalisés ne peuvent pas être utilisés avec les sites web gratuits. Vous devez effectuer une mise à niveau vers le mode Partagé, De base ou Standard. Pour plus d'informations sur les modes de sites web, notamment sur la modification du mode de votre site, consultez la page [Mise à l'échelle de sites Web][Mise à l'échelle de sites Web].
 
 3.  Dans la boîte de dialogue **MANAGE CUSTOM DOMAINS** sont affichés le nom de domaine **.azurewebsites.net**, les informations **awverify** et l'adresse IP virtuelle. Enregistrez ces informations, car elles serviront lors de la création d'enregistrements DNS.
 
@@ -53,6 +53,6 @@ Pour connaître l'adresse IP, ainsi que les noms **awverify** et **.azurewebsit
   [la page Wikipedia sur l'enregistrement CNAME]: http://en.wikipedia.org/wiki/CNAME_record
   [Noms de domaine IETF - Implémentation et spécification]: http://tools.ietf.org/html/rfc1035
   [portail de gestion Azure]: https://manage.windowsazure.com
-  []: ./media/custom-dns-web-site/dncmntask-cname-6.png
+  [0]: ./media/custom-dns-web-site/dncmntask-cname-6.png
   [Mise à l'échelle de sites Web]: http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-scale/
   [1]: ./media/custom-dns-web-site/managecustomdomains.png

@@ -180,14 +180,10 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
   [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-android-get-started/
   [Prise en main des données]: /fr-fr/documentation/articles/mobile-services-android-get-started-data/
   [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
-  [Enable GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [portail de gestion Azure]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [ce guide]: http://go.microsoft.com/fwlink/p/?LinkId=391951
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
-  [Verify SDK]: ../includes/mobile-services-verify-android-sdk-version.md
-  [Add Play Services]: ../includes/mobile-services-add-Google-play-services.md
-  [mobile-services-android-getting-started-with-push]: ../includes/mobile-services-android-getting-started-with-push.md
   [2]: ./media/mobile-services-android-get-started-push/mobile-portal-data-tables.png
   [3]: ./media/mobile-services-android-get-started-push/mobile-insert-script-push2.png
   [objet gcm]: http://go.microsoft.com/fwlink/p/?LinkId=282645

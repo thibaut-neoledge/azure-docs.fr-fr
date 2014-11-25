@@ -109,10 +109,8 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [0]: ./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png
   [Outils de développement Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-android-get-started/mobile-portal-quickstart-android.png
   [2]: ./media/mobile-services-android-get-started/mobile-quickstart-steps-android.png
   [3]: ./media/mobile-services-android-get-started/mobile-services-import-android-workspace.png

@@ -1,6 +1,6 @@
 <properties title="Monitor a DocumentDB Account" pageTitle="Monitor a DocumentDB account | Azure" description="Learn how to monitor your DocumentDB account for performance metrics (such as requests and server errors) and usage metrics (such as storage consumption)." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, monitor, accounts" services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="brradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="brradsev" />
 
 # Surveillance d'un compte DocumentDB
 
@@ -23,7 +23,7 @@ Vous pouvez surveiller vos comptes DocumentDB dans la [version préliminaire du 
     -   le nombre total de demandes pour le jour en cours ;
     -   la moyenne des demandes par seconde pour le jour en cours.
 
-    ![][]
+    ![][0]
 
 3.  Cliquez sur **Total des demandes ou Moyenne des demandes par seconde** pour ouvrir le volet **Métrique**.
 4.  Le volet Métrique affiche les détails des mesures que vous avez sélectionnées. En haut du volet se trouve un graphique et en dessous un tableau qui affiche les valeurs d'agrégation des mesures sélectionnées, comme la moyenne, le minimum et le maximum. Le volet Métrique affiche également la liste des alertes définies, filtrées en fonction des mesures apparaissant dans le volet ouvert. Ainsi, si vous avez plusieurs alertes, seules celles qui sont pertinentes sont affichées ici.
@@ -110,7 +110,7 @@ La version préliminaire du portail Azure vous permet de créer des graphiques c
   [Affichage des mesures d'utilisation pour un compte DocumentDB]: #view
   [Configuration d'alertes de mesures de performances pour un compte DocumentDB]: #setup
   [Étapes suivantes]: #next
-  []: http://i.imgur.com/y7pigTT.png
+  [0]: http://i.imgur.com/y7pigTT.png
   [1]: http://i.imgur.com/6rBNPBL.png
   [2]: http://i.imgur.com/tRZEHk1.png
   [3]: http://i.imgur.com/G4UTi5U.png

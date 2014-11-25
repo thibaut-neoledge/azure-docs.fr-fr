@@ -16,7 +16,7 @@ reçus et traités par les destinataires dans l'ordre dans lequel ils ont été
 ajoutés à la file d'attente ; chaque message est reçu et traité par un
 seul consommateur de message.
 
-![QueueConcepts][]
+![QueueConcepts][QueueConcepts]
 
 Les files d'attente Service Bus constituent une technologie à usage généraliste utilisable
 dans une grande diversité de situations :
@@ -41,13 +41,13 @@ créer un espace de noms de service. Ce dernier fournit un conteneur d'étendue 
 
 Pour créer un espace de noms de service :
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 
 2.  Dans le volet de navigation gauche du portail de gestion, cliquez sur
     **Service Bus**.
 
 3.  Dans le volet inférieur du portail de gestion, cliquez sur **Créer**.
-    ![][]
+    ![][0]
 
 4.  Dans la boîte de dialogue **Ajouter un nouvel espace de noms**, entrez un nom d'espace de noms.
     Le système vérifie immédiatement la disponibilité du nom.
@@ -96,7 +96,7 @@ associées. Vous pouvez obtenir ces informations d’identification du Portail d
 
 ### Pour obtenir les informations de gestion de l’Explorateur de serveurs
 
-Pour obtenir les informations de connexion en utilisant Visual Studio plutôt que le Portail de gestion, suivez la procédure décrite [ici][], dans la section intitulé **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l’arborescence **Microsoft Azure** dans l’Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Properties** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s’affichent dans le volet **Properties** de Visual Studio.
+Pour obtenir les informations de connexion en utilisant Visual Studio plutôt que le Portail de gestion, suivez la procédure décrite [ici][ici], dans la section intitulé **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l’arborescence **Microsoft Azure** dans l’Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Properties** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s’affichent dans le volet **Properties** de Visual Studio.
 
 Notez la valeur **SharedAccessKey** ou copiez-la dans le Presse-papiers :
 
@@ -104,11 +104,11 @@ Notez la valeur **SharedAccessKey** ou copiez-la dans le Presse-papiers :
 
   [QueueConcepts]: ./media/howto-service-bus-queues/sb-queues-08.png
   [portail de gestion Azure]: http://manage.windowsazure.com
-  []: ./media/howto-service-bus-queues/sb-queues-03.png
+  [0]: ./media/howto-service-bus-queues/sb-queues-03.png
   [1]: ./media/howto-service-bus-queues/sb-queues-04.png
   [2]: ./media/howto-service-bus-queues/getting-started-multi-tier-27.png
   [3]: ./media/howto-service-bus-queues/sb-queues-13.png
   [4]: ./media/howto-service-bus-queues/sb-queues-09.png
   [5]: ./media/howto-service-bus-queues/sb-queues-06.png
-  [ici]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+  [ici]: http://http://msdn.microsoft.com/fr-fr/library/windowsazure/ff687127.aspx
   [6]: ./media/howto-service-bus-queues/VSProperties.png

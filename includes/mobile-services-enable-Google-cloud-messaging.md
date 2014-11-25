@@ -1,6 +1,6 @@
-1.  Accédez au site web [Google Cloud Console][], connectez-vous avec vos informations d'identification de compte Google, puis cliquez sur **CREATE PROJECT**.
+1.  Accédez au site web [Google Cloud Console][Google Cloud Console], connectez-vous avec vos informations d'identification de compte Google, puis cliquez sur **CREATE PROJECT**.
 
-    ![][]
+    ![][0]
 
 	> [WACOM.NOTE] Si vous disposez déjà d'un projet en cours, vous êtes redirigé vers la page **Projets** une fois la connexion établie. Pour créer un projet depuis le tableau de bord, développez **API Project**, cliquez sur **Create...** sous **Other projects**, puis entrez un nom de projet et cliquez sur **Create project**.
 
@@ -29,7 +29,7 @@
     Vous allez utiliser cette valeur de clé API afin d'activer Mobile Services pour l'authentification avec GCM et l'envoi des notifications push au nom de votre application.
 
   [Google Cloud Console]: http://cloud.google.com/console
-  []: ./media/notification-hubs-android-get-started/mobile-services-google-new-project.png
+  [0]: ./media/notification-hubs-android-get-started/mobile-services-google-new-project.png
   [1]: ./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png
   [2]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png
   [3]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png

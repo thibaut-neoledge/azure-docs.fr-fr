@@ -84,7 +84,7 @@ L'exemple précédent montrait une connexion standard, qui nécessite que le cli
 
     Dans cette version de **AuthenticateAsync**, l'application essaye d'utiliser des informations d'identification stockées dans le **coffre de mots de passe** pour accéder au service mobile. Une requête simple est envoyée pour vérifier que le jeton stocké n'est pas expiré. Quand une erreur 401 est retournée, une connexion basée sur un fournisseur habituel est tentée. Une connexion normale est également effectuée quand il n'y a pas d'informations d'identification stockées.
 
-    > [WACOM.NOTE] Cette application teste s'il y a des jetons expirés pendant la connexion, mais l'expiration des jetons peut également survenir après l'authentification, alors que l'application est en cours d'utilisation. Pour une solution permettant de gérer les erreurs d'autorisation liées à des jetons expirés, consultez le post [Mise en cache et gestion des jetons expirés dans le Kit de développement logiciel (SDK) managé d'Azure Mobile Services][].
+    > [WACOM.NOTE] Cette application teste s'il y a des jetons expirés pendant la connexion, mais l'expiration des jetons peut également survenir après l'authentification, alors que l'application est en cours d'utilisation. Pour une solution permettant de gérer les erreurs d'autorisation liées à des jetons expirés, consultez le post [Mise en cache et gestion des jetons expirés dans le Kit de développement logiciel (SDK) managé d'Azure Mobile Services][Mise en cache et gestion des jetons expirés dans le Kit de développement logiciel (SDK) managé d'Azure Mobile Services].
 
 3.  Redémarrez l'application deux fois.
 

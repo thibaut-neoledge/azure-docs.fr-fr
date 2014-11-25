@@ -158,9 +158,9 @@ Modifiez le fichier MainPage.xaml pour qu'il inclue une zone de liste modifiable
 
 Pour plus d'informations sur l'utilisation des modèles, consultez [Notification des utilisateurs avec Notification Hubs : ASP.NET][Notification des utilisateurs avec Notification Hubs : ASP.NET], [Notification des utilisateurs avec Notification Hubs : Mobile Services][Notification des utilisateurs avec Notification Hubs : Mobile Services] et [Recommandations relatives à Notification Hubs][Recommandations relatives à Notification Hubs]. Vous trouverez une référence pour le langage d'expression des modèles dans [Notification Hubs, procédures pour Windows Store][Notification Hubs, procédures pour Windows Store].
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet
   [Concepts de modèle]: #concepts
@@ -169,6 +169,5 @@ Pour plus d'informations sur l'utilisation des modèles, consultez [Notification
   [Envoi de notifications à partir de votre serveur principal]: #send
   [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/fr-fr/library/jj927170.aspx
   [Notification Hubs, procédures pour Windows Store]: http://msdn.microsoft.com/fr-fr/library/jj927172.aspx
-  [notification-hubs-localized-back-end]: ../includes/notification-hubs-localized-back-end.md
   [Notification des utilisateurs avec Notification Hubs : ASP.NET]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
   [Notification des utilisateurs avec Notification Hubs : Mobile Services]: /fr-fr/manage/services/notification-hubs/notify-users

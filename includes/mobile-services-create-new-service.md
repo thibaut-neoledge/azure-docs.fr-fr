@@ -39,7 +39,7 @@ Suivez cette procédure pour créer un service mobile.
 
 Vous avez créé un service mobile pouvant être utilisé par vos applications mobiles.
 
-<!-- URLs. -->
+
 
   [portail de gestion]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-create-new-service/plus-new.png

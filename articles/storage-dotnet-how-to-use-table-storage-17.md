@@ -3,7 +3,7 @@
 Utilisation du service de stockage de table
 ===========================================
 
-[version 1.7](/en-us/develop/net/how-to-guides/table-services-v17/ "version 1.7") [version 2.0](/en-us/develop/net/how-to-guides/table-services/ "version 2.0")
+[version 1.7](/fr-fr/develop/net/how-to-guides/table-services-v17/ "version 1.7") [version 2.0](/fr-fr/develop/net/how-to-guides/table-services/ "version 2.0")
 
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de table Azure. Les exemples sont écrits en C\# et utilisent l'API .NET. Les scénarios traités incluent la **création et la suppression d'une table, l'insertion et l'interrogation d'entités dans une table**. Pour plus d'informations sur les tables, consultez la section [Étapes suivantes](#next-steps).
 
@@ -418,6 +418,6 @@ Maintenant que vous avez appris les bases du stockage de tables, suivez ces lien
     -   [Référence d'API REST](http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179355)
 -   Pour plus d'informations sur les tâches avancées que vous pouvez effectuer avec le stockage Azure, consultez la page [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx).
 -   Pour plus d'informations sur les autres options de stockage de données dans Azure, consultez d'autres guides de fonctionnalités.
-    -   Utilisez le [stockage d'objets blob](/en-us/develop/net/how-to-guides/blob-storage/) pour stocker des données non structurées.
-    -   Utilisez une [base de données SQL](/en-us/develop/net/how-to-guides/sql-database/) pour stocker des données relationnelles.
+    -   Utilisez le [stockage d'objets blob](/fr-fr/develop/net/how-to-guides/blob-storage/) pour stocker des données non structurées.
+    -   Utilisez une [base de données SQL](/fr-fr/develop/net/how-to-guides/sql-database/) pour stocker des données relationnelles.
 

@@ -252,7 +252,6 @@ liens suivants pour en savoir plus.
   [Réception des messages d'un abonnement]: #How_to_Receive_Messages_from_a_Subscription
   [Gestion des blocages d'application et des messages illisibles]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
   [Suppression de rubriques et d'abonnements]: #How_to_Delete_Topics_and_Subscriptions
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [Guide d'installation de Python]: ../python-how-to-install/
   [Files d'attente, rubriques et abonnements]: http://msdn.microsoft.com/fr-fr/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx

@@ -1,6 +1,6 @@
 <properties linkid="manage-scenarios-how-to-manage-websites" urlDisplayName="How to manage" pageTitle="How to manage websites - Microsoft Azure service management" metaKeywords="Azure portal website management" description="A reference for the Portal website management pages in Microsoft Azure. Details are provided for each website management page." metaCanonical="" services="web-sites" documentationCenter="" title="How to Manage Websites" authors="cephalin"  solutions="" writer="mwasson" manager="wpickett" editor=""  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson" />
 
 # <a name="howtomanage"></a>Gérer des sites web via le portail de gestion Azure
 
@@ -10,7 +10,7 @@ Vous gérez vos sites web dans le portail Azure avec un ensemble de pages ou «�
 
 La page de gestion **Démarrage rapide** comprend les sections suivantes :
 
--   **Obtenir les outils** : fournit des liens vers l'[Installation de WebMatrix][] et le [Kit de développement logiciel (SDK) Microsoft Azure][].
+-   **Obtenir les outils** : fournit des liens vers l'[Installation de WebMatrix][Installation de WebMatrix] et le [Kit de développement logiciel (SDK) Microsoft Azure][Kit de développement logiciel (SDK) Microsoft Azure].
 -   **Publier votre application** : fournit des liens pour télécharger le profil de publication du site web, réinitialiser les informations d'identification du déploiement pour le site web, ajouter un emplacement de publication intermédiaire (déploiement) à un site non intermédiaire et en savoir plus sur la publication intermédiaire.
 -   **Intégrer le contrôle de code source** : configure et gère le déploiement à partir des outils de contrôle du code source ou de sites web comme TFS, CodePlex, GitHub, Dropbox, Bitbucket ou LocalGit.
 
@@ -26,9 +26,9 @@ Graphique qui résume l'utilisation du site web sous forme de mesures de certain
 -   **Erreurs de serveur http** : nombre de messages d'erreur HTTP « 5xx Erreur de serveur » envoyés.
 -   **Requêtes** : nombre de requêtes clientes envoyées au site web.
 
-**Remarque :** vous pouvez ajouter des indicateurs de performance supplémentaires dans la page de gestion **Surveiller** en choisissant **Ajouter des métriques** en bas de cette page. Pour plus d'informations, consultez la page [Surveillance des sites Web][].
+**Remarque :** vous pouvez ajouter des indicateurs de performance supplémentaires dans la page de gestion **Surveiller** en choisissant **Ajouter des métriques** en bas de cette page. Pour plus d'informations, consultez la page [Surveillance des sites Web][Surveillance des sites Web].
 
-**Web Endpoint Status** : liste des points de terminaison Web configurés pour la surveillance. Si aucun point de terminaison n'a été configuré, cliquez sur **Configure Web Endpoint Monitoring** et allez à la section **Monitoring** de la page de gestion **Configurer**. Pour plus d'informations, consultez la page [Surveillance des sites Web][].
+**Web Endpoint Status** : liste des points de terminaison Web configurés pour la surveillance. Si aucun point de terminaison n'a été configuré, cliquez sur **Configure Web Endpoint Monitoring** et allez à la section **Monitoring** de la page de gestion **Configurer**. Pour plus d'informations, consultez la page [Surveillance des sites Web][Surveillance des sites Web].
 
 **Autoscale Status** : en mode Standard, vous pouvez mettre automatiquement vos ressources à l'échelle pour ne pas dépenser plus que nécessaire. Pour activer la mise à l'échelle automatique, choisissez **Configure Autoscale**, ce qui vous amène sur la page **Scale**. Si votre site web est en mode Gratuit ou Partagé, vous devez le passer en mode Standard (vous pouvez le faire dans la page **Mettre à l'échelle**) avant de pouvoir configurer la mise à l'échelle automatique. **Journaux des opérations de mise à l'échelle automatique** vous dirige vers le portail **Services de gestion**, où vous pouvez voir l'historique de mise à l'échelle automatique de votre site web. La requête par défaut concerne les dernières 24 heures, mais vous pouvez modifier la requête.
 
@@ -41,7 +41,7 @@ Une section **Quick Glance** qui comprend les informations résumées suivantes 
 -   **Afficher les modules complémentaires applicables** : ouvre la boîte de dialogue **Acheter** où vous pouvez choisir des modules complémentaires à acheter pour ajouter des fonctionnalités supplémentaires à votre site web. Il se peut que certains modules complémentaires ne soient pas disponibles dans votre région ou environnement.
 -   **Afficher les chaînes de connexion** : affichez les chaînes de connexion de base de données de votre site web.
 -   **Télécharger le profil de publication** : cliquez sur ce lien pour télécharger votre profil de publication pour votre site web. Le profil de publication contient vos informations d'identification (nom d'utilisateur et mot de passe) et les URL permettant le chargement de contenu vers votre site web via FTP et Git. Le fichier de profil est au format XML et il peut être affiché dans un éditeur de texte.
--   **Configurer les informations d'identification du déploiement** : cliquez pour créer un nom d'utilisateur et un mot de passe permettant le chargement de contenu vers votre site web via FTP ou Git. Vous pouvez utiliser ces informations d'identification pour effectuer une transmission de type push du contenu vers un site web de votre abonnement. (Consultez [Informations d'identification FTP][]). **Remarque** : l'authentification à un hôte FTP ou référentiel Git en utilisant des informations d'identification de compte Microsoft (Live ID) n'est pas prise en charge.
+-   **Configurer les informations d'identification du déploiement** : cliquez pour créer un nom d'utilisateur et un mot de passe permettant le chargement de contenu vers votre site web via FTP ou Git. Vous pouvez utiliser ces informations d'identification pour effectuer une transmission de type push du contenu vers un site web de votre abonnement. (Consultez [Informations d'identification FTP][Informations d'identification FTP]). **Remarque** : l'authentification à un hôte FTP ou référentiel Git en utilisant des informations d'identification de compte Microsoft (Live ID) n'est pas prise en charge.
 -   **Redéfinir vos informations d'identification du profil de publication** : réinitialise le profil de publication pour votre site web. Les profils de publication téléchargés précédemment ne sont plus valides.
 -   **Configurer le déploiement depuis le contrôle de code source** : affiche une boîte de dialogue où vous pouvez configurer une publication en continu à partir de Team Foundation Service, CodePlex, GitHub, Dropbox, Bitbucket ou LocalGit.
 -   **Ajouter un nouvel emplacement de déploiement** : pour les sites en mode Standard, utilisez cette fonctionnalité pour créer un module de transfert pour le site. Le module de transfert (site intermédiaire) vous permet de valider le contenu du site et la configuration avant de le basculer en production. Vous pouvez également utiliser la version intermédiaire du site pour ajouter progressivement des mises à jour du contenu, puis basculer le site en production lorsque les mises à jour sont terminées sur le module de transfert. (Vous ne pouvez pas ajouter d'emplacement à un site qui est déjà en préparation.)
@@ -52,10 +52,10 @@ Une section **Quick Glance** qui comprend les informations résumées suivantes 
 -   **Services de gestion** : cliquez sur le lien **Journaux des opérations** pour voir les journaux d'opérations de votre site web à partir du portail des services de gestion Microsoft Azure.
 -   **Adresse IP virtuelle** : affiche l'adresse IP virtuelle du site web si vous avez configuré une liaison SSL sur IP pour le site web dans la section **Liaisons SSL** de l'onglet **Configurer**.
 -   **URL du site** : spécifie l'adresse du site web accessible à tous sur Internet.
--   **Mode de calcul** : spécifie si le site web fonctionne en mode Gratuit, Partagé, De base ou Standard. Pour plus d'informations sur les modes de groupe d'échelle Web , consultez la page [Mise à l’échelle d’un site Web][].
--   **Nom d'hôte FTP** : spécifie l'URL à utiliser quand vous publiez sur le site web via FTP. (Consultez [Informations d'identification FTP][]).
--   **Nom d'hôte FTPS** : spécifie l'URL à utiliser quand vous publiez sur le site web via FTPS. (Consultez [Informations d'identification FTP][]).
--   **Utilisateur du déploiement / Utilisateur FTP** : indique le compte utilisé durant le déploiement du site web vers Microsoft Azure via FTP ou Git. (Consultez [Informations d'identification FTP][]).
+-   **Mode de calcul** : spécifie si le site web fonctionne en mode Gratuit, Partagé, De base ou Standard. Pour plus d'informations sur les modes de groupe d'échelle Web , consultez la page [Mise à l’échelle d’un site Web][Mise à l’échelle d’un site Web].
+-   **Nom d'hôte FTP** : spécifie l'URL à utiliser quand vous publiez sur le site web via FTP. (Consultez [Informations d'identification FTP][Informations d'identification FTP]).
+-   **Nom d'hôte FTPS** : spécifie l'URL à utiliser quand vous publiez sur le site web via FTPS. (Consultez [Informations d'identification FTP][Informations d'identification FTP]).
+-   **Utilisateur du déploiement / Utilisateur FTP** : indique le compte utilisé durant le déploiement du site web vers Microsoft Azure via FTP ou Git. (Consultez [Informations d'identification FTP][Informations d'identification FTP]).
 -   **Journaux de diagnostic FTP** : spécifie l'emplacement FTP des journaux de diagnostic du site web si la journalisation des diagnostics est activée sur la page de gestion **Configurer**.
 -   **Journaux de diagnostic FTPS** : spécifie l'emplacement FTPS des journaux de diagnostic du site web si la journalisation des diagnostics est activée sur la page de gestion **Configurer**.
 -   **Emplacement** : spécifie la région du centre de données qui héberge le site web.
@@ -68,17 +68,17 @@ Cet onglet s'affiche seulement si vous avez mis en place le déploiement à part
 
 ## Surveiller
 
-La page de gestion **Surveiller** propose un graphique qui affiche des informations sur l'utilisation pour le site web. Par défaut, ce graphique affiche les mêmes indicateurs de performance que sur la page **Tableau de bord** comme décrit ci-dessus dans la section Tableau de bord. Le graphique peut également être configuré pour afficher les mesures des réussites HTTP, redirections HTTP, erreurs HTTP 401, erreurs HTTP 403, erreurs HTTP 404 et erreurs HTTP 406. Pour plus d'informations sur ces indicateurs, consultez la page [Surveillance des sites Web][].
+La page de gestion **Surveiller** propose un graphique qui affiche des informations sur l'utilisation pour le site web. Par défaut, ce graphique affiche les mêmes indicateurs de performance que sur la page **Tableau de bord** comme décrit ci-dessus dans la section Tableau de bord. Le graphique peut également être configuré pour afficher les mesures des réussites HTTP, redirections HTTP, erreurs HTTP 401, erreurs HTTP 403, erreurs HTTP 404 et erreurs HTTP 406. Pour plus d'informations sur ces indicateurs, consultez la page [Surveillance des sites Web][Surveillance des sites Web].
 
 ## WebJobs
 
-La page de gestion WebJobs vous permet de créer des tâches à la demande, planifiées ou exécutées en continu pour votre site web. Pour plus d'informations, consultez la page [Utilisation de la fonctionnalité WebJobs dans les sites Web Microsoft Azure][].
+La page de gestion WebJobs vous permet de créer des tâches à la demande, planifiées ou exécutées en continu pour votre site web. Pour plus d'informations, consultez la page [Utilisation de la fonctionnalité WebJobs dans les sites Web Microsoft Azure][Utilisation de la fonctionnalité WebJobs dans les sites Web Microsoft Azure].
 
 ## Configurer
 
 La page de gestion **Configurer** est utilisée pour définir les paramètres propres à une application.
 
-Pour plus d'informations, consultez [Configuration des sites web][].
+Pour plus d'informations, consultez [Configuration des sites web][Configuration des sites web].
 
 ## Mise à l’échelle
 
@@ -94,7 +94,7 @@ La page de gestion **Ressources liées** propose une liste des ressources Micros
 
 ## Sauvegarde
 
-La page de gestion **Sauvegardes** vous permet de créer des sauvegardes automatisées ou manuelles de votre site web, de restaurer votre site web à un état antérieur ou de créer un site web basé sur l'une de vos sauvegardes. Pour plus d'informations, consultez les pages [Sauvegarde des sites Web Microsoft Azure][] et [Restauration d'un site Web Microsoft Azure][].
+La page de gestion **Sauvegardes** vous permet de créer des sauvegardes automatisées ou manuelles de votre site web, de restaurer votre site web à un état antérieur ou de créer un site web basé sur l'une de vos sauvegardes. Pour plus d'informations, consultez les pages [Sauvegarde des sites Web Microsoft Azure][Sauvegarde des sites Web Microsoft Azure] et [Restauration d'un site Web Microsoft Azure][Restauration d'un site Web Microsoft Azure].
 
 ## Icônes de la page de gestion
 

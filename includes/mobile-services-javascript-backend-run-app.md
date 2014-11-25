@@ -14,11 +14,11 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 5.  De retour dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItems**.
 
-    ![][]
+    ![][0]
 
     Cela vous permet de parcourir les données insérées par l'application dans la table.
 
     ![][1]
 
-  []: ./media/mobile-services-javascript-backend-run-app/mobile-data-tab.png
+  [0]: ./media/mobile-services-javascript-backend-run-app/mobile-data-tab.png
   [1]: ./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png

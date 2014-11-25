@@ -235,9 +235,9 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 
     Apprenez comment transmettre des notifications à des utilisateurs authentifiés spécifiques. Il s'agit d'une solution appropriée pour l'envoi de notifications uniquement vers des utilisateurs spécifiques.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/fr-fr/library/jj927170.aspx
   [Ajout d'une sélection de catégories à l'application]: #adding-categories
@@ -247,7 +247,6 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
   [Prise en main de Notification Hubs]: /fr-fr/manage/services/notification-hubs/get-started-notification-hubs-ios/
   [0]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
   [1]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios3.png
-  [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [2]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios1.png
   [Utilisation des Notification Hubs pour diffuser les dernières nouvelles localisées]: /fr-fr/manage/services/notification-hubs/breaking-news-localized-dotnet/
   [Notification des utilisateurs avec Notification Hubs]: /fr-fr/manage/services/notification-hubs/notify-users/

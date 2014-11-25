@@ -1,6 +1,6 @@
-<properties urlDisplayName="Website with Storage" pageTitle="Site web Node.js avec stockage de tables | Microsoft&nbsp;Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="Ce didacticiel vous explique comment utiliser le service de Table Azure pour stocker des donn&eacute;es d'une application Node h&eacute;berg&eacute;e sur un site web Azure." metaCanonical="" services="web-sites,storage" documentationCenter="nodejs" title="Application Web Node.js avec le service de Table Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Website with Storage" pageTitle="Node.js website with table storage | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure website." metaCanonical="" services="web-sites,storage" documentationCenter="Node.js" title="Node.js Web Application using the Azure Table Service" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Application Web Node.js avec le service de Table Azure
 
@@ -470,7 +470,7 @@ Pour tester l'application sur votre machine locale, procédez comme suit :
 
         npm start
 
-3.  Ouvrez un navigateur Web et accédez à l'adresse http://127.0.0.1:3000. Cette opération doit entraîner l'affichage d'une page Web similaire à la suivante :
+3.  Ouvrez un navigateur web et accédez à l'adresse <http://127.0.0.1:3000>. Une page web semblable à la suivante doit s'afficher :
 
     ![Une page Web affiche une liste de tâches vide.][Une page Web avec une liste de tâches vide]
 
@@ -550,11 +550,11 @@ Avant d'utiliser les outils en ligne de commande avec Azure, vous devez téléch
 
     Vous êtes invité à entrer le nom du site web et le centre de données dans lequel il sera placé. Indiquez un nom unique et sélectionnez le centre de données géographiquement proche de votre emplacement.
 
-    Le paramètre `--git` crée un référentiel Git sur Azure pour ce site web. Il initialise également un référentiel Git dans le répertoire en cours si aucun n'existe déjà. Il crée également une télécommande [Git remote][Git remote] appelée « azure », qui sera utilisée pour publier l'application sur Azure. Enfin, il crée un fichier **web.config**, qui contient les paramètres utilisés par Azure pour héberger les applications Node.
+    L'option `--git` crée un référentiel Git sur Azure pour ce site web. Il initialise également un référentiel Git dans le répertoire en cours si aucun n'existe déjà. Il crée également une télécommande [Git remote][Git remote] appelée « azure », qui sera utilisée pour publier l'application sur Azure. Enfin, il crée un fichier **web.config**, qui contient les paramètres utilisés par Azure pour héberger les applications Node.
 
     > [WACOM.NOTE] Si cette commande est exécutée depuis un répertoire qui contient déjà un référentiel Git, le répertoire n'est pas réinitialisé.
 
-    > [WACOM.NOTE] Si le paramètre `--git` est omis mais que le répertoire contient un référentiel Git, la télécommande « azure » est quand même créée.
+    > [WACOM.NOTE] Si le paramètre `--git` est omis, le répertoire contient un référentiel Git et le site « azure » distant est tout de même créé.
 
     Une fois cette commande terminée, le résultat doit ressembler à ce qui suit. Notez que la ligne qui commence par **Website created at** contient l'URL du site web.
 
@@ -591,7 +591,7 @@ Avant d'utiliser les outils en ligne de commande avec Azure, vous devez téléch
         To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
          * [new branch]      master -> master
 
-4.  Une fois l'opération push terminée, accédez à l'URL de site web renvoyée précédemment par la commande `azure create site` pour voir votre application.
+4.  À la fin de l'opération d'envoi, accédez à l'URL du site web renvoyée précédemment par la commande `azure create site` pour afficher votre application.
 
 ### Passage à une variable d'environnement
 
@@ -632,19 +632,16 @@ Une fois les modifications déployées sur Azure, votre application Web doit co
 
 ## Étapes suivantes
 
-Bien que les étapes de cet article décrivent l'utilisation du service de Table pour stocker des informations, vous pouvez aussi utiliser MongoDB. Pour plus d'informations, consultez la page [Application web Node.js avec MongoDB][Application web Node.js avec MongoDB].
+Bien que les étapes de cet article décrivent l'utilisation du service de Table pour stocker des informations, vous pouvez aussi utiliser MongoDB. Pour plus d'informations, consultez la page [Application Web Node.js avec MongoDB][Application Web Node.js avec MongoDB].
 
 ## Ressources supplémentaires
 
-[Outil en ligne de commande Azure pour Mac et Linux] [Création et déploiement d'une application Node.js vers Sites Web Azure] : /fr-fr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-[Publication vers Sites Web Azure avec Git][Publication vers Sites Web Azure avec Git] : /fr-fr/documentation/articles/web-sites-publish-source-control/
-[Centre de développement Azure] : /fr-fr/develop/nodejs/
+[Outil en ligne de commande Azure pour Mac et Linux](/fr-fr/documentation/articles/xplat-cli/)
 
   [node]: http://nodejs.org
   [Git]: http://git-scm.com
   [Une page Web avec une liste de tâches vide]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png
   [portail Azure]: http://windowsazure.com
-  [+nouveau]: ./media/storage-nodejs-use-table-storage-web-site/plus-new.png
   [compte de stockage]: ./media/storage-nodejs-use-table-storage-web-site/new-storage.png
   [création rapide]: ./media/storage-nodejs-use-table-storage-web-site/quick-storage.png
   [clés d'accès]: ./media/storage-nodejs-use-table-storage-web-site/manage-access-keys.png
@@ -661,5 +658,4 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
   [configurer le lien]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
   [paramètres d'application]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
   [enregistrer les paramètres d'application]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
-  [Application web Node.js avec MongoDB]: /fr-fr/documentation/articles/web-sites-nodejs-store-data-mongodb/
-  [Publication vers Sites Web Azure avec Git]: /fr-fr/documentation/articles/web-sites-publish-source-control/
+  [Application Web Node.js avec MongoDB]: /fr-fr/documentation/articles/web-sites-nodejs-store-data-mongodb/

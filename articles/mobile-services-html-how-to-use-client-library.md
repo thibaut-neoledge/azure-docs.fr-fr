@@ -608,7 +608,6 @@ Maintenant que vous avez consulté ce guide de fonctionnement, découvrez en dé
   [Utilisation des promesses]: #promises
   [Personnalisation des en-têtes de requête]: #customizing
   [Étapes suivantes]: #nextsteps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [Prise en main des données dans Windows Store JavaScript]: http://www.windowsazure.com/fr-fr/develop/mobile/tutorials/get-started-with-data-js
   [Prise en main des données dans HTML/JavaScript]: http://www.windowsazure.com/fr-fr/develop/mobile/tutorials/get-started-with-data-html/
   [Référence des options de requête système OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502

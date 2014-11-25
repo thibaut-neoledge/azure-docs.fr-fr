@@ -3,7 +3,7 @@
 Notification des utilisateurs avec Notification Hubs
 ====================================================
 
-[Mobile Services](/en-us/manage/services/notification-hubs/notify-users "Mobile Services") [ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet "ASP.NET")
+[Mobile Services](/fr-fr/manage/services/notification-hubs/notify-users "Mobile Services") [ASP.NET](/fr-fr/manage/services/notification-hubs/notify-users-aspnet "ASP.NET")
 
 Ce didacticiel explique comment utiliser Azure Notification Hubs pour envoyer des notifications Push à un utilisateur particulier d'une application sur un appareil spécifique. Un serveur principal Azure Mobile Services est utilisé pour authentifier les clients et générer des notifications. Ce didacticiel fait intervenir le Notification Hub que vous avez créé dans le didacticiel précédent intitulé **Prise en main de Notification Hubs**. Le code d'inscription aux notifications est transféré du client vers le service principal. Ainsi, l'inscription n'est pas terminée tant qu'un client n'a pas été authentifié correctement par le service. Cela signifie également que les informations d'identification du Notification Hub ne sont pas distribuées avec l'application cliente. Le service contrôle également les balises demandées pendant l'inscription.
 
@@ -18,9 +18,9 @@ Configuration requise
 
 Avant de commencer ce didacticiel, vous devez suivre les didacticiels suivants :
 
--   **Prise en main de Notification Hubs** ([Windows Store C\#](/en-us/manage/services/notification-hubs/getting-started-windows-dotnet)/[iOS](/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios)/[Android](/en-us/manage/services/notification-hubs/get-started-notification-hubs-android)).
+-   **Prise en main de Notification Hubs** ([Windows Store C\#](/fr-fr/manage/services/notification-hubs/getting-started-windows-dotnet)/[iOS](/fr-fr/manage/services/notification-hubs/get-started-notification-hubs-ios)/[Android](/fr-fr/manage/services/notification-hubs/get-started-notification-hubs-android)).
 
--   **Prise en main de l'authentification dans Mobile Services** ([Windows Store C\#](/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/)/[iOS](/en-us/develop/mobile/tutorials/get-started-with-users-ios/)/[Android](/en-us/develop/mobile/tutorials/get-started-with-users-android/))
+-   **Prise en main de l'authentification dans Mobile Services** ([Windows Store C\#](/fr-fr/develop/mobile/tutorials/get-started-with-users-dotnet/)/[iOS](/fr-fr/develop/mobile/tutorials/get-started-with-users-ios/)/[Android](/fr-fr/develop/mobile/tutorials/get-started-with-users-android/))
 
 Ce didacticiel fait intervenir l'application et le Notification Hub que vous avez créés dans le didacticiel précédent intitulé **Prise en main de Notification Hubs**. Il exploite également le service mobile authentifié que vous avez configuré lorsque vous avez suivi **Prise en main de l'authentification dans Mobile Services**.
 
@@ -144,8 +144,8 @@ Vous devez ensuite mettre à jour l'application TodoList pour demander une inscr
 
 1.  Suivez les étapes permettant d'**inscrire l'utilisateur actuel afin qu'il reçoive des notifications Push via un service mobile**, selon la plateforme client que vous utilisez :
 
-    -   [Version Windows Store C\#](/en-us/manage/services/notification-hubs/register-users-mobile-services-dotnet)
-    -   [Version iOS](/en-us/manage/services/notification-hubs/register-users-ios)
+    -   [Version Windows Store C\#](/fr-fr/manage/services/notification-hubs/register-users-mobile-services-dotnet)
+    -   [Version iOS](/fr-fr/manage/services/notification-hubs/register-users-ios)
 
 2.  Exécutez l'application mise à jour, connectez-vous à Facebook, puis vérifiez que l'ID d'inscription attribué à la notification est affiché.
 
@@ -223,7 +223,7 @@ Maintenant que les notifications sont configurées, il est temps de tester l'app
 
     **Remarque**
 
-    Une erreur est générée sur le serveur principal lorsqu'il n'existe pas d'inscription pour une plateforme vers laquelle l'envoi d'une notification a été demandé. Dans ce cas, cette erreur peut être ignorée. Pour voir comment éviter cette situation en utilisant des modèles, consultez la page [Envoi de notifications interplateforme aux utilisateurs avec les Notification Hubs](/en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/).
+    Une erreur est générée sur le serveur principal lorsqu'il n'existe pas d'inscription pour une plateforme vers laquelle l'envoi d'une notification a été demandé. Dans ce cas, cette erreur peut être ignorée. Pour voir comment éviter cette situation en utilisant des modèles, consultez la page [Envoi de notifications interplateforme aux utilisateurs avec les Notification Hubs](/fr-fr/manage/services/notification-hubs/notify-users-xplat-mobile-services/).
 
 3.  (Facultatif) Déployez l'application cliente sur un second appareil, puis exécutez-la et insérez du texte.
 
@@ -234,10 +234,10 @@ Maintenant que les notifications sont configurées, il est temps de tester l'app
 
 Maintenant que vous êtes parvenu à la fin de ce didacticiel, vous pouvez poursuivre avec les didacticiels suivants :
 
--   **Utilisation des Notification Hubs pour diffuser les dernières nouvelles ([Windows Store C\#](/en-us/manage/services/notification-hubs/breaking-news-dotnet) / [iOS](/en-us/manage/services/notification-hubs/breaking-news-ios))**
+-   **Utilisation des Notification Hubs pour diffuser les dernières nouvelles ([Windows Store C\#](/fr-fr/manage/services/notification-hubs/breaking-news-dotnet) / [iOS](/fr-fr/manage/services/notification-hubs/breaking-news-ios))**
     Ce didacticiel propre à la plateforme vous montre comment utiliser des balises pour permettre aux utilisateurs de s'abonner aux types de notifications qui les intéressent.
 
--   **[Envoi de notifications interplateforme aux utilisateurs avec les Notification Hubs](/en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services)**
+-   **[Envoi de notifications interplateforme aux utilisateurs avec les Notification Hubs](/fr-fr/manage/services/notification-hubs/notify-users-xplat-mobile-services)**
     Ce didacticiel prolonge le présent didacticiel **Notification des utilisateurs avec les Notification Hubs** et explique comment s'inscrire aux notifications en utilisant des modèles propres à la plateforme. Cela vous permet d'envoyer des notifications à partir d'une seule méthode dans votre code côté serveur.
 
 Pour plus d'informations sur Notification Hubs, consultez la page [Azure Notification Hubs](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj927170.aspx).

@@ -1,28 +1,28 @@
 <properties linkid="develop-mobile-tutorials-command-line-administration" urlDisplayName="Command Line Administration" pageTitle="Administering a Mobile Service at the command line - Azure tutorial" metaKeywords="" description="Learn how to create, deploy, and manage your Azure Mobile Service using command-line tools." metaCanonical="" services="" documentationCenter="Mobile" title="Automate mobile services with command-line tools" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Automatisation des services mobiles avec les outils en ligne de commande
 
 Cette rubrique explique comment utiliser les outils en ligne de commande Azure pour automatiser la création et la gestion d'Azure Mobile Services. Elle montre également comment installer et prendre en main les outils en ligne de commande et les utiliser pour effectuer les tâches Mobile Services suivantes :
 
--   [Création d'un service mobile][]
--   [Création d'une table][]
--   [Enregistrement d'un script dans une opération de table][]
--   [Affichage de la liste des tables][]
--   [Suppression d'une table existante][]
--   [Affichage de la liste des services mobiles][]
--   [Suppression d'un service mobile existant][]
+-   [Création d'un service mobile][Création d'un service mobile]
+-   [Création d'une table][Création d'une table]
+-   [Enregistrement d'un script dans une opération de table][Enregistrement d'un script dans une opération de table]
+-   [Affichage de la liste des tables][Affichage de la liste des tables]
+-   [Suppression d'une table existante][Suppression d'une table existante]
+-   [Affichage de la liste des services mobiles][Affichage de la liste des services mobiles]
+-   [Suppression d'un service mobile existant][Suppression d'un service mobile existant]
 
 Lorsqu'elles sont combinées dans un seul script ou dans un fichier de commandes, ces commandes individuelles automatisent le processus de création, de vérification et de suppression d'un service mobile.
 
 Pour utiliser les outils en ligne de commande Azure afin de gérer Mobile Services, vous devez disposer d'un compte Azure sur lequel la fonctionnalité Azure Mobile Services est activée.
 
--   Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][].
+-   Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][Version d'évaluation gratuite d'Azure].
 
--   Si vous disposez d'un compte, mais que vous devez activer la version préliminaire d'Azure Mobile Services, consultez la rubrique [Activation des fonctionnalités préliminaires d'Azure][].
+-   Si vous disposez d'un compte, mais que vous devez activer la version préliminaire d'Azure Mobile Services, consultez la rubrique [Activation des fonctionnalités préliminaires d'Azure][Activation des fonctionnalités préliminaires d'Azure].
 
-Cette rubrique présente une sélection de tâches d'administration courantes prises en charge par les outils en ligne de commande Azure. Pour plus d'informations, consultez la [documentation sur les outils en ligne de commande Azure][].
+Cette rubrique présente une sélection de tâches d'administration courantes prises en charge par les outils en ligne de commande Azure. Pour plus d'informations, consultez la [documentation sur les outils en ligne de commande Azure][documentation sur les outils en ligne de commande Azure].
 
 <!--+  You must download and install the Azure command-line tools to your local machine. To do this, follow the instructions in the first section of this topic.   + (Optional) To be able to execute HTTP requests directly from the command-line, you must use cURL or an equivalent tool. cURL runs on a variety of platforms. Locate and install cURL for your specific platform from the <a href=http://go.microsoft.com/fwlink/p/?LinkId=275676 target="_blank">cURL download  page</a>.-->
 
@@ -30,11 +30,11 @@ Cette rubrique présente une sélection de tâches d'administration courantes pr
 
 La liste suivante contient des informations permettant d’installer les outils en ligne de commande en fonction de votre système d’exploitation :
 
--   **Windows** : téléchargez le [programme d'installation des outils en ligne de commande Azure][]. Ouvrez le fichier .msi téléchargé et suivez les étapes d’installation indiquées.
+-   **Windows** : téléchargez le [programme d'installation des outils en ligne de commande Azure][programme d'installation des outils en ligne de commande Azure]. Ouvrez le fichier .msi téléchargé et suivez les étapes d’installation indiquées.
 
--   **Mac** : téléchargez le [programme d'installation du Kit de développement logiciel (SDK) Azure][]. Ouvrez le fichier .pkg téléchargé et suivez les étapes d’installation indiquées.
+-   **Mac** : téléchargez le [programme d'installation du Kit de développement logiciel (SDK) Azure][programme d'installation du Kit de développement logiciel (SDK) Azure]. Ouvrez le fichier .pkg téléchargé et suivez les étapes d’installation indiquées.
 
--   **Linux** : installez la dernière version de [Node.js][] (voir [Install Node.js via Package Manager][] (en anglais)), puis exécutez la commande suivante :
+-   **Linux** : installez la dernière version de [Node.js][Node.js] (voir [Install Node.js via Package Manager][Install Node.js via Package Manager] (en anglais)), puis exécutez la commande suivante :
 
         npm install azure-cli -g
 
@@ -61,7 +61,7 @@ Pour afficher la liste des options des commandes `account`, utilisez l’option 
 
         azure account -help
 
-Après avoir importé vos paramètres de publication, veillez à supprimer le fichier `.publishsettings` pour des raisons de sécurité. Pour plus d'informations, consultez la page [Installation des outils en ligne de commande Azure pour Mac et Linux][]. Vous êtes désormais prêt à créer et à gérer Azure Mobile Services à partir de la ligne de commande ou dans des fichiers de commandes.
+Après avoir importé vos paramètres de publication, veillez à supprimer le fichier `.publishsettings` pour des raisons de sécurité. Pour plus d'informations, consultez la page [Installation des outils en ligne de commande Azure pour Mac et Linux][Installation des outils en ligne de commande Azure pour Mac et Linux]. Vous êtes désormais prêt à créer et à gérer Azure Mobile Services à partir de la ligne de commande ou dans des fichiers de commandes.
 
 ## <a name="create-service"></a><span class="short-header">Création d'un service</span>Création d'un service mobile
 
@@ -105,7 +105,7 @@ La commande suivante crée une table dont l'autorisation `read` est définie sur
 
         azure mobile table create <service-name> <table-name> -p read=public,delete=admin
 
-Le tableau suivant présente une comparaison entre la valeur d'autorisation du script et la valeur d'autorisation du [portail de gestion Azure][].
+Le tableau suivant présente une comparaison entre la valeur d'autorisation du script et la valeur d'autorisation du [portail de gestion Azure][portail de gestion Azure].
 
 <table>
 <tr><th> Valeur du script                      </th><th> Valeur du portail de gestion             </th></tr>
@@ -149,7 +149,7 @@ La déclaration de fonction du fichier de script doit également correspondre à
             ...
         } 
 
-Pour plus d'informations sur l'enregistrement des scripts, consultez la page [Référence de script serveur Mobile Services][].
+Pour plus d'informations sur l'enregistrement des scripts, consultez la page [Référence de script serveur Mobile Services][Référence de script serveur Mobile Services].
 
   [Création d'un service mobile]: #create-service
   [Création d'une table]: #create-table

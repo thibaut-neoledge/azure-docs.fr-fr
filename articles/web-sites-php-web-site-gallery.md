@@ -13,6 +13,5 @@ Vous savez maintenant comment créer et déployer un site Web à partir de la ga
 -   [Créer un site Web Azure PHP MySQL et le déployer avec Git][Créer un site Web Azure PHP MySQL et le déployer avec Git] : créez intégralement un site Web PHP et déployez-le sur un site Web Azure à l'aide de Git
 -   [More PHP tutorials][More PHP tutorials] (Plus de didacticiels PHP) : créez d'autres types d'applications utilisant PHP et Azure
 
-  [website-from-gallery]: ../includes/website-from-gallery.md
   [Créer un site Web Azure PHP MySQL et le déployer avec Git]: /fr-fr/develop/php/tutorials/website-w-mysql-and-git/
   [More PHP tutorials]: /fr-fr/develop/php/tutorials/

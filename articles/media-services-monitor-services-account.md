@@ -1,6 +1,6 @@
-<properties urlDisplayName="How to monitor" pageTitle="Surveillance d'un compte Media Services - Azure" metaKeywords="" description="Explique comment configurer la surveillance de votre compte Media Services dans Azure." metaCanonical="" services="media-services" documentationCenter="" title="Surveillance d'un compte Media Services" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties linkid="manage-services-mediaservices-monitor-a-media-services-account" urlDisplayName="How to monitor" pageTitle="Monitor a Media Services Account - Azure" metaKeywords="" description="Describes how to configure monitoring for your Media Services account in Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Monitor a Media Services Account" authors="migree" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree" />
 
 # <span id="monitormediaservicesaccount"></span></a>Surveillance d'un compte Media Services
 
@@ -8,7 +8,7 @@ Le tableau de bord Azure Media Services présente des mesures d'utilisation et d
 
 Vous pouvez surveiller le nombre de travaux d'encodage en file d'attente, de tâches d'encodage ayant échoué, de travaux d'encodage actifs, représentés par les données d'entrée et de sortie de l'encodeur, ainsi que l'utilisation du stockage d'objets blob associée à votre compte Media Services. En outre, si vous diffusez du contenu en continu à vos clients, vous pouvez également récupérer diverses mesures de diffusion en continu. Vous pouvez choisir de surveiller vos données sur les 6 dernières heures, les dernières 24 heures ou les 7 derniers jours.
 
-> [WACOM.NOTE] La surveillance des données de stockage dans le portail de gestion Azure occasionne des frais supplémentaires. Pour plus d'informations, consultez la page [Storage Analytics et facturation][Storage Analytics et facturation].
+**Remarque** La surveillance des données de stockage dans le portail de gestion Azure occasionne des frais supplémentaires. Pour plus d'informations, consultez la page [Storage Analytics et facturation][Storage Analytics et facturation].
 
 ## <span id="configuremonitoring"></span></a> Surveillance d'un compte Media Services
 
@@ -23,7 +23,7 @@ Vous pouvez surveiller le nombre de travaux d'encodage en file d'attente, de tâ
 1.  Cliquez sur le nom **COMPTE DE STOCKAGE** sous la section **aperçu rapide**.
 2.  Cliquez sur le lien **page de configuration**, puis faites défiler l'écran vers le bas jusqu'aux paramètres de **surveillance** pour les services BLOB, de Table et de File d'attente, présentés ci-dessous.
 
-    > [WACOM.NOTE] Les objets blob sont le seul type de stockage pris en charge dans Media Services.
+    **Remarque** Les objets blob sont le seul type de stockage pris en charge dans Media Services.
 
     ![StorageOptions][StorageOptions]
 
@@ -39,14 +39,13 @@ Vous pouvez surveiller le nombre de travaux d'encodage en file d'attente, de tâ
 
 -   Pour définir la stratégie de rétention de données, dans **Rétention (en jours)**, tapez le nombre de jours durant lesquels les données sont conservées (de 1 à 365 jours). Si vous ne souhaitez pas définir de stratégie de rétention, entrez 0. Dans ce cas, il vous appartient de supprimer ou non les données de surveillance. Nous vous recommandons de définir une stratégie de rétention en fonction de la durée de conservation que vous souhaitez appliquer aux données d'analyse de votre compte, de sorte que les données d'analyse anciennes et non utilisées puissent être supprimées par le système sans frais.
 
-1.  Une fois la configuration de la surveillance terminée, cliquez sur **Enregistrer**.
-    De même que les mesures Media Services, les données de surveillance doivent commencer à s'afficher dans le tableau de bord au bout d'une heure environ.
-    Les mesures sont stockées dans le compte de stockage dans quatre tables nommées $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue et $MetricsCapacityBlob. Pour plus d'informations, consultez la page [À propos des métriques Storage Analytics][À propos des métriques Storage Analytics].
+1.  When you finish the monitoring configuration, click **Save**.
+    Similar to Media Services metrics, you should start seeing monitoring data on the dashboard after about an hour.
+    Metrics are stored in the storage account in four tables named $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue, and $MetricsCapacityBlob. Pour plus d'informations, consultez la page [À propos des métriques Storage Analytics][À propos des métriques Storage Analytics].
 
 <!-- Images -->
 
   [Storage Analytics et facturation]: http://go.microsoft.com/fwlink/?LinkId=256667
   [portail de gestion]: http://go.microsoft.com/fwlink/?LinkID=256666
-  [MediaServices\_Dashboard]: ./media/media-services-monitor-services-account/media-services-dashboard.png
   [StorageOptions]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
   [À propos des métriques Storage Analytics]: http://go.microsoft.com/fwlink/?LinkId=256668

@@ -257,5 +257,4 @@ MSDN [Files d'attente, rubriques et abonnements Service Bus][Files d'attente, ru
   [Réception des messages d'une file d'attente]: #bkmk_HowToReceiveMsgs
   [Gestion des blocages d'application et des messages illisibles]: #bkmk_HowToHandleAppCrashes
   [Étapes suivantes]: #bkmk_NextSteps
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Files d'attente, rubriques et abonnements Service Bus]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367516.aspx

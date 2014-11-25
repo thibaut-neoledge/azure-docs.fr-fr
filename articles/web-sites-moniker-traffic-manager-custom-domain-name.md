@@ -71,22 +71,15 @@ Pour associer votre domaine personnalisé à un site web Azure, vous devez ajout
 
 ## <a name="enabledomain"></a>Activer Traffic Manager pour votre site web
 
-[WACOM.INCLUDE [modes][3]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
   [Moniker]: /fr-fr/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [1]: https://moniker.com
-  [tmwebsitefooter]: ../includes/custom-dns-web-site-traffic-manager-notes.md
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [Présentation des enregistrements DNS]: #understanding-records
   [Configurer vos sites web pour le mode Standard]: #bkmk_configsharedmode
   [Ajouter un enregistrement DNS pour votre domaine personnalisé]: #bkmk_configurecname
   [Activer Traffic Manager pour votre site web]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
-  [modes]: ../includes/custom-dns-web-site-modes-traffic-manager.md
   [Page My Domains pour Moniker]: .\media\web-sites-moniker-custom-domain-name\Moniker_MyDomains.png
   [Page Zone Template Management de Moniker]: .\media\web-sites-moniker-custom-domain-name\Moniker_ZoneManager.png
   [Page Create Zone Template de Moniker]: .\media\web-sites-moniker-custom-domain-name\Moniker_CreateZoneTemplate_TM.png
   [2]: .\media\web-sites-moniker-custom-domain-name\Moniker_ZoneAssignment.png
-  [3]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

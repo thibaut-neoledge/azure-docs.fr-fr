@@ -119,4 +119,4 @@ Azure Machine Learning dispose également d'un forum communautaire sur MSDN, où
   [forum des commentaires des utilisateurs]: http://go.microsoft.com/fwlink/?LinkId=404231
   [forum de commentaires des utilisateurs]: https://windowsazure.uservoice.com/forums/257792-machine-learning
   [http://azure.microsoft.com/fr-fr/support/options/]: http://azure.microsoft.com/fr-fr/support/options/
-  [Forum Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning
+  [Forum Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/fr-fr/home?forum=MachineLearning

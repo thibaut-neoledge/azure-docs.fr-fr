@@ -25,15 +25,15 @@ Conditions préalables
 
 -   Vous devez avoir suivi l'un des didacticiels suivants :
 
-    -   [Création d'un réseau virtuel dans Azure](/en-us/manage/services/networking/create-a-virtual-network/)
+    -   [Création d'un réseau virtuel dans Azure](/fr-fr/manage/services/networking/create-a-virtual-network/)
 
         OU
 
-    -   [Création d'un réseau virtuel pour la connectivité entre différents locaux](/en-us/manage/services/networking/cross-premises-connectivity/)
+    -   [Création d'un réseau virtuel pour la connectivité entre différents locaux](/fr-fr/manage/services/networking/cross-premises-connectivity/)
 
 -   Vous devez avoir un compte Windows Live avec au moins un abonnement actif en cours de validité.
 
--   Vous devez utiliser les noms des éléments du didacticiel [Création d'un réseau virtuel dans Azure](/en-us/manage/services/networking/create-a-virtual-network/) ou [Création d'un réseau virtuel pour la connectivité entre différents locaux](/en-us/manage/services/networking/cross-premises-connectivity/) :
+-   Vous devez utiliser les noms des éléments du didacticiel [Création d'un réseau virtuel dans Azure](/fr-fr/manage/services/networking/create-a-virtual-network/) ou [Création d'un réseau virtuel pour la connectivité entre différents locaux](/fr-fr/manage/services/networking/cross-premises-connectivity/) :
 
     -   Le groupe d'affinités que vous avez attribué à votre réseau virtuel
 
@@ -120,7 +120,7 @@ Création et déploiement d'une machine virtuelle vers un réseau virtuel
 Étapes suivantes
 ----------------
 
-Pour installer un contrôleur de domaine supplémentaire pour votre domaine Active Directory local sur la machine virtuelle que vous venez de créer, consultez la rubrique [Installation d'un contrôleur de domaine Active Directory de réplica dans un réseau virtuel Azure](/en-us/manage/services/networking/replica-domain-controller/).
+Pour installer un contrôleur de domaine supplémentaire pour votre domaine Active Directory local sur la machine virtuelle que vous venez de créer, consultez la rubrique [Installation d'un contrôleur de domaine Active Directory de réplica dans un réseau virtuel Azure](/fr-fr/manage/services/networking/replica-domain-controller/).
 
 Voir aussi
 ----------

@@ -150,6 +150,5 @@ liens suivants pour en savoir plus.
   [Envoi de messages à une file d'attente]: #send-messages
   [Réception des messages d'une file d'attente]: #receive-messages
   [Gestion des blocages d'application et des messages illisibles]: #handle-crashes
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Guide d'installation de Python]: ../python-how-to-install/
   [Files d'attente, rubriques et abonnements.]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367516.aspx

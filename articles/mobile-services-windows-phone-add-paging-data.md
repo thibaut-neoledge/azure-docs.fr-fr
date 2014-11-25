@@ -29,6 +29,5 @@ Vous voici parvenu à la fin de la série de didacticiels présentant les princi
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
   [Prise en main des données]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-data/
-  [mobile-services-windows-dotnet-paging]: ../includes/mobile-services-windows-dotnet-paging.md
   [Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-users/
   [Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-push/

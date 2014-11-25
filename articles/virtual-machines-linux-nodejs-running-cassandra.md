@@ -1,4 +1,4 @@
-<properties urlDisplayName="Cassandra with Linux" pageTitle="Ex&eacute;cution de&nbsp;Cassandra avec&nbsp;Linux sur&nbsp;Azure" metaKeywords="" description="Explique comment ex&eacute;cuter un cluster&nbsp;Cassandra sur&nbsp;Linux dans des machines virtuelles&nbsp;Azure." metaCanonical="" services="virtual-machines" documentationCenter="nodejs" title="Ex&eacute;cution de Cassandra avec Linux sur Azure et acc&egrave;s au cluster depuis Node.js" authors="hanuk" solutions="" manager="timlt" editor="" />
+<properties linkid="services-linux-cassandra-with-linux" urlDisplayName="Cassandra with Linux" pageTitle="Run Cassandra with Linux on Azure" metaKeywords="" description="Explains how to run a Cassandra cluster on Linux in Azure Virtual Machines." metaCanonical="" services="virtual-machines" documentationCenter="nodejs" title="Running Cassandra with Linux on Azure and Accessing it from Node.js" authors="hanuk" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="hanuk" />
 
@@ -47,7 +47,7 @@ La séquence standard pour créer un cluster est la suivante :
 
 **Étape 1 : génération de la paire de clés SSH**
 
-Au moment du déploiement, Azure requiert une clé publique X509 encodée PEM ou DER. Générez une paire de clés publiques/privées en suivant les instructions de la rubrique [Utilisation de SSH avec Linux sur Azure][Utilisation de SSH avec Linux sur Azure]. Si vous prévoyez d'utiliser putty.exe comme client SSH sur Windows ou Linux, vous devez convertir la clé privée RSA codée PEM au format PPK en utilisant puttygen.exe. Les instructions se trouvent dans la rubrique [Génération d'une paire de clés SSH pour le déploiement d'une machine virtuelle Linux sur Microsoft Azure][Génération d'une paire de clés SSH pour le déploiement d'une machine virtuelle Linux sur Microsoft Azure].
+Au moment du déploiement, Azure requiert une clé publique X509 encodée PEM ou DER. Générez une paire de clés publiques/privées en suivant les instructions de la rubrique [Utilisation de SSH avec Linux sur Azure][Utilisation de SSH avec Linux sur Azure]. Si vous envisagez d'utiliser putty.exe en tant que client SSH sur Windows ou Linux, vous devez convertir la clé privée RSA encodée PEM au format PPK via puttygen.exe.Pour ce faire, suivez les instructions de la page [Génération d'une paire de clés SSH pour le déploiement d'une machine virtuelle Linux sur Windows Azure][Génération d'une paire de clés SSH pour le déploiement d'une machine virtuelle Linux sur Windows Azure].
 
 **Étape 2 : création d'une machine virtuelle Ubuntu**
 
@@ -61,14 +61,11 @@ Entrez ensuite les informations suivantes sur l'écran VM Configuration :
 <col width="33%" />
 <col width="33%" />
 </colgroup>
-<thead>
 <tr class="header">
 <th align="left">Nom du champ</th>
 <th align="left">Valeur du champ</th>
 <th align="left">Remarques</th>
 </tr>
-</thead>
-<tbody>
 <tr class="odd">
 <td align="left">Nom de la machine virtuelle</td>
 <td align="left">hk-cas1</td>
@@ -104,17 +101,17 @@ Entrez ensuite les informations suivantes sur l'écran VM Configuration :
 <td align="left"><em>Nom de fichier du certificat de clé publique</em></td>
 <td align="left">Clé publique SSH encodée DER ou PEM générée avec OpenSSL ou d'autres outils</td>
 </tr>
-</tbody>
 </table>
 
 Entrez les informations suivantes sur l'écran VM Mode :
 
-| Nom du champ                          | Valeur du champ                 | Remarques                                                                                                                                 |
-|---------------------------------------|---------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| Standalone Virtual VM                 | « cocher » la case d'option     | S'applique à la première machine virtuelle. Pour les machines virtuelles suivantes, nous utiliserons l'option « Connect to Existing VM ». |
-| Nom DNS                               | *nom unique*.cloudapp.net       | Donnez un nom d'équilibrage de charge non spécifique à la machine.                                                                        |
-| Compte de stockage                    | *Compte de stockage par défaut* | Utilisez le compte de stockage par défaut que vous avez créé.                                                                             |
-| Region/Affinity Group/Virtual Network | Ouest des États-Unis            | Sélectionnez une région à partir de laquelle vos applications Web auront accès au cluster Cassandra.                                      |
+<table border="1">
+<tr><th> Nom du champ                          </th><th> Valeur du champ                 </th><th> Remarques                                                                                                                                 </th></tr>
+<tr><td> Standalone Virtual VM                 </td><td> « cocher » la case d'option     </td><td> S'applique à la première machine virtuelle. Pour les machines virtuelles suivantes, nous utiliserons l'option « Connect to Existing VM ». </td></tr>
+<tr><td> Nom DNS                               </td><td> *nom unique*.cloudapp.net       </td><td> Donnez un nom d'équilibrage de charge non spécifique à la machine.                                                                        </td></tr>
+<tr><td> Compte de stockage                    </td><td> *Compte de stockage par défaut* </td><td> Utilisez le compte de stockage par défaut que vous avez créé.                                                                             </td></tr>
+<tr><td> Region/Affinity Group/Virtual Network </td><td> Ouest des États-Unis            </td><td> Sélectionnez une région à partir de laquelle vos applications Web auront accès au cluster Cassandra.                                      </td></tr>
+</table>
 
 Répétez la procédure ci-dessus pour toutes les machines virtuelles qui appartiendront au cluster Cassandra. À ce stade, toutes les machines appartiennent au même réseau et peuvent mutuellement s'adresser des requêtes Ping. Si la commande Ping ne fonctionne pas, vérifiez la configuration du pare-feu de la machine virtuelle (par exemple, iptables) pour vous assurer que le protocole ICMP est autorisé. Veillez à désactiver ICMP une fois la connectivité réseau testée afin de réduire le vecteur d'attaque.
 
@@ -228,7 +225,6 @@ Sauf si vous avez modifié ce champ dans cassandra.yaml
 </table>
 À l'issue de ces opérations, le champ LOAD BALANCED du point de terminaison Cassandra de la première machine virtuelle sera défini sur « NON ». Ignorez ce paramètre pour le moment, car il sera remplacé par « OUI » lorsque nous aurons ajouté ce point de terminaison aux machines virtuelles suivantes.
 
-</p>
 e. Sélectionnez maintenant la deuxième machine virtuelle et ajoutez le point de terminaison en répétant la procédure ci-dessus. La seule différence est que vous devez sélectionner ici « Load-balance traffic on an existing endpoint » et choisir « cassandra-960 » dans la liste déroulante. À ce stade, le mappage des points de terminaison avec les deux machines virtuelles modifie l'état du champ LOAD BALANCED qui passe de « NON » à « OUI ».
 
 Répétez le point « e » pour les nœuds suivants du cluster.
@@ -251,7 +247,7 @@ Cassandra requiert une machine virtuelle Java. Par conséquent, installez la der
 
 1.  Connectez-vous à la machine virtuelle Linux (Ubuntu) via SSH.
 
-2.  Utilisez wget pour télécharger Cassandra à partir du miroir suggéré à l'adresse (http://cassandra.apache.org/download/)[http://cassandra.apache.org/download/] vers le répertoire « ~/downloads », sous le nom « apache-cassandra-bin.tar.gz ». Veuillez noter que le numéro de la version n'apparaît pas dans le fichier téléchargé afin que la publication reste non spécifique à la version.
+2.  Utilisez wget pour télécharger Cassandra à partir du miroir suggéré à l'adresse (<http://cassandra.apache.org/download/>)[<http://cassandra.apache.org/download/>] vers le répertoire « ~/downloads », sous le nom « apache-cassandra-bin.tar.gz ». Veuillez noter que le numéro de la version n'apparaît pas dans le fichier téléchargé afin que la publication reste non spécifique à la version.
 
 3.  Décompressez le fichier .tar dans le répertoire de connexion par défaut en exécutant la commande suivante :
 
@@ -302,7 +298,7 @@ Modifiez « conf/cassandra.yaml » en remplaçant **listen\_address** et **rpc
 
 Répétez les étapes 1 à 5 pour tous les nœuds du cluster.
 
-Maintenant que toutes les machines virtuelles individuelles sont prêtes et dotées du logiciel requis, il est temps d'établir la communication entre les nœuds via la configuration de l'amorçage. Pour plus d'informations sur la configuration d'un cluster à plusieurs nœuds, consultez la page <http://wiki.apache.org/cassandra/MultinodeCluster>.
+Maintenant que toutes les machines virtuelles individuelles sont prêtes et dotées du logiciel requis, il est temps d'établir la communication entre les nœuds via la configuration de l'amorçage. Pour plus d'informations sur la configuration d'un cluster à plusieurs nœuds, consultez la page [][]<http://wiki.apache.org/cassandra/MultinodeCluster></a>.
 
 **Étape 6 : configuration d'un cluster à plusieurs nœuds**
 
@@ -317,7 +313,7 @@ Le nom par défaut du cluster est défini sur « Test Cluster » ; remplacez-
 Les adresses IP spécifiées ici seront utilisées par les nouveaux nœuds pour en savoir plus sur la topologie en anneau. Définissez les nœuds les plus fiables comme amorces au format virgules de séparation : "*host1*,*host2* ». Exemple : « hk-ub1,hk-ub2 ».
 
 Nous accepterons les jetons par défaut fournis par les serveurs d'amorçage, car il ne s'agit pas du propos de cet exercice. Pour une génération optimale des jetons, reportez-vous au script Python de la page :
-<http://wiki.apache.org/cassandra/GettingStarted>.
+[][1]<http://wiki.apache.org/cassandra/GettingStarted></a>.
 
 Redémarrez Cassandra sur tous les nœuds pour appliquer les modifications précédentes.
 
@@ -387,7 +383,7 @@ Si la configuration est correcte, l'outil affichera les informations présentée
 <td align="left">rack1</td>
 <td align="left">Up</td>
 <td align="left">Normal</td>
-<td align="left">18,35 Ko</td>
+<td align="left">18,35 KB</td>
 <td align="left">25.98%</td>
 <td align="left">149463697837832744402916220269706844972</td>
 </tr>
@@ -467,7 +463,7 @@ Pour préparer le stockage des données du client, nous devons d'abord créer un
        con.shutdown();
     } 
 
-La fonction createKeyspace utilise une fonction de rappel comme argument afin d'exécuter la fonction de création de la COLUMNFAMILY, car KEYSPACE est une condition préalable à la création de la famille de colonnes. Notez que nous devons nous connecter au KEYSPACE « système » pour la définition du KEYSPACE de l'application. Dans ces extraits, le [langage CQL (Cassandra Query Language)][langage CQL (Cassandra Query Language)] est systématiquement utilisé pour les interactions avec le cluster. Dans la mesure où le langage CQL composé dans le script ci-dessus ne dispose d'aucune marque de paramètre, nous utilisons un ensemble de paramètres vide (« [] ») pour la méthode PooledConnection.execute().
+La fonction createKeyspace utilise une fonction de rappel comme argument afin d'exécuter la fonction de création de la COLUMNFAMILY, car KEYSPACE est une condition préalable à la création de la famille de colonnes. Notez que nous devons nous connecter au KEYSPACE « système » pour la définition du KEYSPACE de l'application. Dans ces extraits, le [langage CQL (Cassandra Query Language)][langage CQL (Cassandra Query Language)] est systématiquement utilisé pour les interactions avec le cluster. Dans la mesure où le langage CQL composé dans le script ci-dessus ne dispose d'aucune marque de paramètre, nous utilisons un ensemble de paramètres vide (« \[\] ») pour la méthode PooledConnection.execute().
 
 Une fois l'espace de clé créé, la fonction createColumnFamily(), présentée dans l'extrait suivant, est exécutée pour créer les définitions COLUMNFAMILY requises :
 
@@ -582,9 +578,10 @@ La fonctionnalité Azure Virtual Machines permet de créer des machines virtuell
   [Déploiement d'une machine virtuelle]: ./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux2.png
   [Schéma de la séquence de création d'un cluster]: ./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux4.png
   [Utilisation de SSH avec Linux sur Azure]: http://www.windowsazure.com/fr-fr/manage/linux/how-to-guides/ssh-into-linux/
-  [Génération d'une paire de clés SSH pour le déploiement d'une machine virtuelle Linux sur Microsoft Azure]: http://blogs.msdn.com/b/hanuk/archive/2012/06/07/generating-ssh-key-pair-for-linux-vm-deployment-on-windows-azure.aspx
+  [Génération d'une paire de clés SSH pour le déploiement d'une machine virtuelle Linux sur Windows Azure]: http://blogs.msdn.com/b/hanuk/archive/2012/06/07/generating-ssh-key-pair-for-linux-vm-deployment-on-windows-azure.aspx
   [Création d'une machine virtuelle exécutant Linux]: http://www.windowsazure.com/fr-fr/manage/linux/tutorials/virtual-machine-from-gallery/
   [Capture de l'image d'une machine virtuelle Linux]: https://www.windowsazure.com/fr-fr/manage/linux/how-to-guides/capture-an-image/
+  []: http://wiki.apache.org/cassandra/MultinodeCluster
+  [1]: http://wiki.apache.org/cassandra/GettingStarted
   [cassandra-client]: https://github.com/racker/node-cassandra-client
   [Lignes et colonnes]: ./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux3.png
-  [langage CQL (Cassandra Query Language)]: http://cassandra.apache.org/doc/cql/CQL.html

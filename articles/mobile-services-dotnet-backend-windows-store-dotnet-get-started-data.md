@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-dotnet-backend-windows-store-dotnet-get-started-data" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Prise en main des données dans Mobile Services
 
@@ -15,7 +15,7 @@ Cette rubrique montre comment utiliser Azure Mobile Services en tant que source 
 
 Le service mobile que vous allez créer dans ce didacticiel est un service mobile principal .NET. Le service principal .NET vous permettra d'utiliser les langages .NET et Visual Studio pour la logique métier côté serveur dans le service mobile. Il vous permettra également d'exécuter et de déboguer votre service mobile sur votre ordinateur local. Pour créer un service mobile vous permettant d'écrire votre logique métier côté serveur en JavaScript, consultez la version principale JavaScript de cette rubrique.
 
-> [WACOM.NOTE]Cette rubrique vous montre comment ajouter Azure Mobile Services à un projet Windows Store. Vous pouvez utiliser les outils de Visual Studio 2013 pour ajouter le même service mobile principal .NET à un projet d'application Windows universelle. Pour plus d'informations, consultez la page [version de l'application universelle Windows][] de ce didacticiel.
+> [WACOM.NOTE]Cette rubrique vous montre comment ajouter Azure Mobile Services à un projet Windows Store. Vous pouvez utiliser les outils de Visual Studio 2013 pour ajouter le même service mobile principal .NET à un projet d'application Windows universelle. Pour plus d'informations, consultez la page [version de l'application universelle Windows][version de l'application universelle Windows] de ce didacticiel.
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 
@@ -238,8 +238,6 @@ Une fois que vous avez terminé les séries de données, essayez l'un de ces aut
 
     En savoir plus sur l'utilisation de Mobile Services avec .NET.
 
-  [Serveur principal .NET]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ ".NET backend"
-  [JavaScript backend]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/ "JavaScript backend"
   [version de l'application universelle Windows]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data
   [Téléchargement d'un projet d'application Windows Store]: #download-app
   [Création d'un service mobile]: #create-service

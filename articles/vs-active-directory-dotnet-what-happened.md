@@ -1,6 +1,6 @@
 <properties title="Prise en main de l'authentification Active Directory&nbsp;-&nbsp;Que s'est-il pass&eacute;&nbsp;?" pageTitle="Prise en main de l'authentification Active Directory&nbsp;-&nbsp;Que s'est-il pass&eacute;&nbsp;?" metaKeywords="Azure, Getting Started, Active Directory" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
 
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb"></tags>
+<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
 
 > [AZURE.SELECTOR]
 >

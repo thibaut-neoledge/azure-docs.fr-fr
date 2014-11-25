@@ -1,10 +1,10 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-3-web-role" pageTitle="Azure Cloud Service Tutorial: ASP.NET Web Role with Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, ASP.NET MVC tutorial, Azure web role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande"></tags>
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
 
 # Développement du rôle Web pour l'application Azure Email Service: 3 sur 5.
 
-Voici le troisième didacticiel de notre série sur le développement et le déploiement de l'exemple d'application Azure Email Service. Pour plus d'informations sur l'application et notre série de didacticiels, consultez [le premier didacticiel de cette série][].
+Voici le troisième didacticiel de notre série sur le développement et le déploiement de l'exemple d'application Azure Email Service. Pour plus d'informations sur l'application et notre série de didacticiels, consultez [le premier didacticiel de cette série][le premier didacticiel de cette série].
 
 Ce didacticiel vous apprendra à effectuer les opérations suivantes:
 
@@ -14,16 +14,16 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes:
 
 ## Sections de ce didacticiel
 
--   [Création de la solution Visual Studio][]
--   [Mise à jour du package NuGet de la bibliothèque cliente de stockage][]
--   [Configuration des projets pour utiliser l'émulateur de stockage][]
--   [Configuration du suivi et gestion des redémarrages][]
--   [Ajout de code pour créer des tables, une file d'attente et un conteneur d'objets blob dans la méthode Application\_Start][]
--   [Création et test de la liste de diffusion][]
--   [Création et test du contrôleur et des vues Subscriber][]
--   [Création et test du contrôleur et des vues Message][]
--   [Création et test du contrôleur et des vues Unsubscribe][]
--   [Étapes suivantes][]
+-   [Création de la solution Visual Studio][Création de la solution Visual Studio]
+-   [Mise à jour du package NuGet de la bibliothèque cliente de stockage][Mise à jour du package NuGet de la bibliothèque cliente de stockage]
+-   [Configuration des projets pour utiliser l'émulateur de stockage][Configuration des projets pour utiliser l'émulateur de stockage]
+-   [Configuration du suivi et gestion des redémarrages][Configuration du suivi et gestion des redémarrages]
+-   [Ajout de code pour créer des tables, une file d'attente et un conteneur d'objets blob dans la méthode Application\_Start][Ajout de code pour créer des tables, une file d'attente et un conteneur d'objets blob dans la méthode Application\_Start]
+-   [Création et test de la liste de diffusion][Création et test de la liste de diffusion]
+-   [Création et test du contrôleur et des vues Subscriber][Création et test du contrôleur et des vues Subscriber]
+-   [Création et test du contrôleur et des vues Message][Création et test du contrôleur et des vues Message]
+-   [Création et test du contrôleur et des vues Unsubscribe][Création et test du contrôleur et des vues Unsubscribe]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <a name="cloudproject"></a>Création de la solution Visual Studio
 
@@ -35,27 +35,27 @@ Commencez par créer une solution Visual Studio avec un projet pour votre applic
 
 2.  Dans le menu **File**, sélectionnez **New Project**.
 
-    ![Menu New Project][]
+    ![Menu New Project][Menu New Project]
 
 3.  Développez **C\#** puis sélectionnez **Cloud** sous **Installed Templates**, puis sélectionnez **Azure Cloud Service**.
 
 4.  Nommez l'application **AzureEmailService** puis cliquez sur **OK**.
 
-    ![New Project dialog box][]
+    ![New Project dialog box][New Project dialog box]
 
 5.  Dans la boîte de dialogue **New Azure Cloud Service**, sélectionnez **ASP.NET Web Role** puis cliquez sur la flèche pointant vers la droite.
 
-    ![New Azure Cloud Project dialog box][]
+    ![New Azure Cloud Project dialog box][New Azure Cloud Project dialog box]
 
 6.  Dans la colonne de droite, passez le pointeur de la souris sur **WebRole1**, puis cliquez sur l'icône en forme de crayon et renommez le rôle web.
 
 7.  Nommez-le MvcWebRole , puis appuyez sur Entrée.
 
-    ![New Azure Cloud Project dialog box - renaming the web role][]
+    ![New Azure Cloud Project dialog box - renaming the web role][New Azure Cloud Project dialog box - renaming the web role]
 
 8.  Suivez la même procédure pour ajouter un **Worker Role**, nommez-le WorkerRoleA, puis cliquez sur **OK**.
 
-    ![Boîte de dialogue New Azure Cloud Project: ajouter un rôle de travail][]
+    ![Boîte de dialogue New Azure Cloud Project: ajouter un rôle de travail][Boîte de dialogue New Azure Cloud Project: ajouter un rôle de travail]
 
 9.  Dans la boîte de dialogue **Nouveau projet ASP.NET**, sélectionnez le modèle **MVC**, activez la case à cocher **API web**, puis cliquez sur **Modifier l'authentification**.
 
@@ -63,7 +63,7 @@ Commencez par créer une solution Visual Studio avec un projet pour votre applic
 
 10. Dans la boîte de dialogue **Modifier l'authentification**, cliquez sur **Aucune authentification**, puis sur **OK**.
 
-    ![No authentication][]
+    ![No authentication][No authentication]
 
 11. Dans la boîte de dialogue **New ASP.NET Project**, cliquez sur **OK**.
 
@@ -71,7 +71,7 @@ Commencez par créer une solution Visual Studio avec un projet pour votre applic
 
 Dans cette section, vous allez mettre à jour les en-têtes, pieds de page et éléments de menu affichés sur chaque page de l'interface Web d'administration. L'application aura trois ensembles de pages Web d'administration: une pour les listes de diffusion, une pour les abonnés aux listes de diffusion et une pour les messages.
 
-1.  Si vous n'avez pas encore téléchargé la [solution complète][], veuillez le faire avant de passer à l'étape suivante.
+1.  Si vous n'avez pas encore téléchargé la [solution complète][solution complète], veuillez le faire avant de passer à l'étape suivante.
 
     Rappel: lorsque vous devez ajouter des éléments à votre code, copiez les fichiers du projet téléchargé dans le nouveau projet, au lieu de copier et de coller des extraits de code. Ce didacticiel affiche et explique les principales parties du code que vous copiez.
 
@@ -93,11 +93,11 @@ Dans cette section, vous allez mettre à jour les en-têtes, pieds de page et é
 
     Si vous êtes habitué à démarrer des projets web qui ne sont pas des projets de service cloud Azure, vous remarquerez que l'affichage de la page d'accueil prend un peu plus de temps.
 
-    ![page d'accueil][]
+    ![page d'accueil][page d'accueil]
 
     Ce délai est dû au fait que Visual Studio démarre l'émulateur de calcul Azure et l'émulateur de stockage Azure. Vous pouvez afficher l'icône d'émulateur de calcul dans la barre d'état système Windows:
 
-    ![Émulateur de calcul dans la barre d'état système][]
+    ![Émulateur de calcul dans la barre d'état système][Émulateur de calcul dans la barre d'état système]
 
 2.  Fermez le navigateur.
 
@@ -107,15 +107,15 @@ L'infrastructure d'API utilisée avec les tables, les files d'attente et les obj
 
 1.  Dans le menu **Outils** de Visual Studio, passez la souris sur **Library Package Manager**, puis cliquez sur **Manage NuGet Packages for Solution**.
 
-    ![Manage NuGet Packages for Solution dans le menu][]
+    ![Manage NuGet Packages for Solution dans le menu][Manage NuGet Packages for Solution dans le menu]
 
 2.  Dans le volet gauche de la boîte de dialogue **Manage NuGet Packages**, sélectionnez **Mises à jour**, puis faites défiler jusqu'au package **Azure Storage** et cliquez sur **Mettre à jour**.
 
-    ![Package Azure Storage dans la boîte de dialogue Manage NuGet Packages][]
+    ![Package Azure Storage dans la boîte de dialogue Manage NuGet Packages][Package Azure Storage dans la boîte de dialogue Manage NuGet Packages]
 
 3.  Dans la boîte de dialogue **Select Projects**, vérifiez que les deux projets sont sélectionnés, puis cliquez sur **OK**.
 
-    ![Sélectionner les deux projets dans la boîte de dialogue Select Projects][]
+    ![Sélectionner les deux projets dans la boîte de dialogue Select Projects][Sélectionner les deux projets dans la boîte de dialogue Select Projects]
 
 4.  Acceptez les termes du contrat de licence pour terminer l'installation du package, puis fermez la boîte de dialogue **Manage NuGet Packages**.
 
@@ -125,7 +125,7 @@ Le code du rôle web et du rôle de travail que vous allez ajouter utiliseront u
 
 1.  Dans l'**Explorateur de solution**, cliquez avec le bouton droit sur **MvcWebRole** sous **Rôles** dans le projet cloud **AzureEmailService**, puis sélectionnez **Propriétés**.
 
-    ![Propriétés de rôle Web][]
+    ![Propriétés de rôle Web][Propriétés de rôle Web]
 
 2.  Assurez-vous que l'option **Toutes les configurations** est sélectionnée dans la liste déroulante **Configuration du service**.
 
@@ -137,7 +137,7 @@ Le code du rôle web et du rôle de travail que vous allez ajouter utiliseront u
 
 6.  Cliquez sur le bouton **...** situé à l'extrême droite de la ligne pour ouvrir la boîte de dialogue **Chaîne de connexion de compte de stockage**.
 
-    ![Clic droit, Propriétés][]
+    ![Clic droit, Propriétés][Clic droit, Propriétés]
 
 7.  Dans la boîte de dialogue **Créer une chaîne de connexion de stockage**, cliquez sur l'option **Émulateur de stockage Azure**, puis sur **OK**.
 
@@ -161,7 +161,7 @@ Vous pouvez ajouter manuellement des paramètres au fichier *ServiceDefinition.c
 -   Vous n'avez qu'à ajouter le nouveau paramètre à un seul endroit, puis le code XML correspondant est ajouté aux trois fichiers.
 -   Le code XML adéquat est généré pour les trois fichiers de paramètres. Le fichier *ServiceDefinition.csdf* définit les paramètres de chaque fichier de configuration *.cscfg*. Si le fichier *ServiceDefinition.csdf* et les deux fichiers de configuration *.cscfg* ne sont pas cohérents, Visual Studio affiche le message d'erreur suivant: *Le modèle de service actuel n'est pas synchronisé.. Veuillez vérifier que la configuration du service et les fichiers de définition sont corrects.*
 
-    ![Erreur Configuration de service et fichiers de définition incorrects][]
+    ![Erreur Configuration de service et fichiers de définition incorrects][Erreur Configuration de service et fichiers de définition incorrects]
 
 Si vous obtenez cette erreur, l'éditeur de propriétés ne fonctionnera pas tant que le problème de cohérence n'aura pas été résolu manuellement en modifiant les fichiers.
 
@@ -169,9 +169,9 @@ Si vous obtenez cette erreur, l'éditeur de propriétés ne fonctionnera pas tan
 
 1.  Dans le projet MvcWebRole, ajoutez le fichier *WebRole.cs* à partir du projet téléchargé.
 
-Ceci ajoute une méthode qui configure la journalisation et l'appelle à partir de la méthode `OnStart` qui s'exécute lorsque le rôle web démarre. Le code de la nouvelle méthode `ConfigureDiagnostics` est expliqué dans le [second didacticiel][].
+Ceci ajoute une méthode qui configure la journalisation et l'appelle à partir de la méthode `OnStart` qui s'exécute lorsque le rôle web démarre. Le code de la nouvelle méthode `ConfigureDiagnostics` est expliqué dans le [second didacticiel][second didacticiel].
 
-Ceci ajoute également du code qui s'exécute lorsque le rôle web reçoit une notification qui l'informe qu'il doit s'arrêter. Les applications Azure Cloud Service sont redémarrées environ deux fois par mois pour des mises à jour du système d'exploitation (pour plus d'informations sur ces mises à jour, consultez le billet [Redémarrages d'instances de rôle pour cause de mise à jour du système d'exploitation][]). Lorsqu'une application web va être arrêtée, un événement `OnStop` est généré. Le rôle web réutilisable créé par Visual Studio ne remplace pas la méthode `OnStop`, l'application aura uniquement quelques secondes pour terminer le traitement des requêtes HTTP avant son arrêt. Vous pouvez ajouter du code pour remplacer la méthode `OnStop` pour assurer une gestion appropriée des arrêts.
+Ceci ajoute également du code qui s'exécute lorsque le rôle web reçoit une notification qui l'informe qu'il doit s'arrêter. Les applications Azure Cloud Service sont redémarrées environ deux fois par mois pour des mises à jour du système d'exploitation (pour plus d'informations sur ces mises à jour, consultez le billet [Redémarrages d'instances de rôle pour cause de mise à jour du système d'exploitation][Redémarrages d'instances de rôle pour cause de mise à jour du système d'exploitation]). Lorsqu'une application web va être arrêtée, un événement `OnStop` est généré. Le rôle web réutilisable créé par Visual Studio ne remplace pas la méthode `OnStop`, l'application aura uniquement quelques secondes pour terminer le traitement des requêtes HTTP avant son arrêt. Vous pouvez ajouter du code pour remplacer la méthode `OnStop` pour assurer une gestion appropriée des arrêts.
 
 Le fichier que vous venez d'ajouter contient le remplacement de méthode `OnStop` suivant.
 
@@ -192,7 +192,7 @@ Lorsqu'un rôle est placé en hors connexion par Azure, le programme d'équilibr
 
 Dans le code affiché pour la méthode `OnStop`, un compteur de performances ASP.NET est créé pour `Requests Current`. La valeur de compteur `Requests Current` contient le nombre actuel de demandes, notamment celles en file d'attente, en cours d'exécution ou en attente d'écriture vers le client. La valeur `Requests Current` est vérifiée chaque seconde: lorsqu'elle atteint zéro, la méthode `OnStop` est renvoyée. Une fois la méthode `OnStop` renvoyée, le rôle s'arrête.
 
-Les données de suivi ne sont pas enregistrées lorsqu'elles sont appelées depuis la méthode `OnStop` sans effectuer de [transfert à la demande][]. Vous pouvez afficher les informations de suivi `OnStop` en temps réel avec l'utilitaire [dbgview][] à partir d'une connexion Bureau à distance.
+Les données de suivi ne sont pas enregistrées lorsqu'elles sont appelées depuis la méthode `OnStop` sans effectuer de [transfert à la demande][transfert à la demande]. Vous pouvez afficher les informations de suivi `OnStop` en temps réel avec l'utilitaire [dbgview][dbgview] à partir d'une connexion Bureau à distance.
 
 ## <a name="createifnotexists"></a>Ajout de code pour créer des tables, une file d'attente et un conteneur d'objets blob dans la méthode Application\_Start
 
@@ -268,15 +268,15 @@ La classe d'entité `MailingList` est utilisée pour les lignes de la table `Mai
             public string Description { get; set; }
         }
 
-    L'API Azure Storage requiert que les classes d'entité pour les opérations de table dérivent de [TableEntity][]. `TableEntity` définit les champs `PartitionKey`, `RowKey`, `TimeStamp` et `ETag`. Les propriétés `TimeStamp` et `ETag` sont utilisées par le système. L'utilisation de la propriété `ETag` pour la gestion des conflits d'accès concurrentiels est abordée plus tard dans ce didacticiel.
+    L'API Azure Storage requiert que les classes d'entité pour les opérations de table dérivent de [TableEntity][TableEntity]. `TableEntity` définit les champs `PartitionKey`, `RowKey`, `TimeStamp` et `ETag`. Les propriétés `TimeStamp` et `ETag` sont utilisées par le système. L'utilisation de la propriété `ETag` pour la gestion des conflits d'accès concurrentiels est abordée plus tard dans ce didacticiel.
 
-    Il existe également une classe [DynamicTableEntity][], que vous pouvez utiliser lorsque vous voulez utiliser les lignes de table en tant que collections Dictionnaire de paires clé-valeur au lieu d'utiliser des classes de modèle prédéfinies. Pour plus d'informations, consultez le billet [Présentation approfondie des tables de bibliothèque du client de stockage Azure 2.0][].
+    Il existe également une classe [DynamicTableEntity][DynamicTableEntity], que vous pouvez utiliser lorsque vous voulez utiliser les lignes de table en tant que collections Dictionnaire de paires clé-valeur au lieu d'utiliser des classes de modèle prédéfinies. Pour plus d'informations, consultez le billet [Présentation approfondie des tables de bibliothèque du client de stockage Azure 2.0][Présentation approfondie des tables de bibliothèque du client de stockage Azure 2.0].
 
     La clé de partition de table `mailinglist` est le nom de la liste. Dans cette classe d'entité, vous pouvez accéder à la valeur de clé de partition en utilisant la propriété `PartitionKey` (définie dans la classe `TableEntity`) ou la propriété `ListName` (définie dans la classe `MailingList`). La propriété `ListName` utilise `PartitionKey` en tant que variable de stockage. Le fait de définir la propriété `ListName` vous permet d'utiliser un nom de variable plus explicite dans le code et facilite la programmation de l'interface utilisateur web, car les attributs de mise en forme et de validation DataAnnotations peuvent être ajoutés à la propriété `ListName`, mais ils ne peuvent pas être ajoutés directement dans la propriété `PartitionKey`.
 
     L'attribut `RegularExpression` de la propriété `ListName` oblige MVC à valider les entrées utilisateur pour vérifier que la valeur du nom de la liste entrée contient uniquement des caractères alphanumérique ou des traits de soulignement. Cette restriction a été implémentée pour que les noms de liste restent simples et faciles à utiliser dans les chaînes de requête des URL.
 
-    > [WACOM.NOTE] Si vous voulez que la mise en forme des noms de liste soit moins restrictive, vous pouvez autoriser d'autres caractères et noms de liste URL-encode lorsqu'ils sont utilisés dans des chaînes de requête. Cependant, certains caractères sont interdits dans les clés de partition ou de lignes de tables Azure, et vous devrez exclure au moins ces caractères. Pour plus d'informations sur les caractères interdits ou posant problème dans les champs de clé de partition ou de ligne, consultez l'article [Présentation du modèle de données du service de table][] et le billet [Caractère % dans PartitionKey ou RowKey][].
+    > [WACOM.NOTE] Si vous voulez que la mise en forme des noms de liste soit moins restrictive, vous pouvez autoriser d'autres caractères et noms de liste URL-encode lorsqu'ils sont utilisés dans des chaînes de requête. Cependant, certains caractères sont interdits dans les clés de partition ou de lignes de tables Azure, et vous devrez exclure au moins ces caractères. Pour plus d'informations sur les caractères interdits ou posant problème dans les champs de clé de partition ou de ligne, consultez l'article [Présentation du modèle de données du service de table][Présentation du modèle de données du service de table] et le billet [Caractère % dans PartitionKey ou RowKey][Caractère % dans PartitionKey ou RowKey].
 
     La classe `MailingList` définit un constructeur par défaut qui définit `RowKey` sur la chaîne « mailinglist » codée en dur, car toutes les lignes MailingList de cette table contiennent cette valeur en tant que clé de ligne. Pour plus d'informations sur la structure de table, consultez le [premier didacticiel de cette série][le premier didacticiel de cette série]. Vous pouvez choisir n'importe quelle valeur constante dans ce cas, tant qu'elle reste toujours différente d'une valeur d'adresse électronique, qui est la clé de ligne des lignes subscriber de cette table.
 
@@ -305,7 +305,7 @@ La classe d'entité `MailingList` est utilisée pour les lignes de la table `Mai
 
     La méthode suivante, `FindRowAsync`, est appelée lorsque le contrôleur doit rechercher une entrée spécifique de la liste de diffusion dans la table `MailingList` (par exemple, lorsque vous voulez modifier une entrée de cette liste). Le code récupère une seule entité `MailingList` en utilisant la clé de partition et les valeurs de clé de ligne qui lui sont transmises. Les lignes modifiées par ce contrôleur sont celles dont la clé de ligne est « MailingList ». Vous auriez donc pu coder « MailingList » en dur, mais le fait de spécifier une clé de partition et une clé de ligne est un modèle utilisé pour les méthodes `FindRow` dans tous les contrôleurs.
 
-    > [WACOM.NOTE] L'application utilise un code asynchrone ASP.NET 4.5 pour les opérations d'E/S dans le rôle web afin d'utiliser les ressources serveur plus efficacement. Pour plus d'informations sur le code asynchrone dans l'application web, consultez [Utilisation de la prise en charge asynchrone .NET 4.5 pour éviter le blocage des appels][].
+    > [WACOM.NOTE] L'application utilise un code asynchrone ASP.NET 4.5 pour les opérations d'E/S dans le rôle web afin d'utiliser les ressources serveur plus efficacement. Pour plus d'informations sur le code asynchrone dans l'application web, consultez [Utilisation de la prise en charge asynchrone .NET 4.5 pour éviter le blocage des appels][Utilisation de la prise en charge asynchrone .NET 4.5 pour éviter le blocage des appels].
 
         private async Task<MailingList> FindRowAsync(string partitionKey, string rowKey)
         {
@@ -319,7 +319,7 @@ La classe d'entité `MailingList` est utilisée pour les lignes de la table `Mai
             return mailingList;
         }
 
-    Le code de cette méthode `FindRow` renvoie une ligne de liste de diffusion. Le code de la méthode `FindRow` du contrôleur `Subscriber` renvoie une ligne d'abonné à partir de la même table `mailinglist`. Le code des deux méthodes est identique, à l'exception du type de modèle utilisé avec la méthode [TableOperation.Retrieve][].
+    Le code de cette méthode `FindRow` renvoie une ligne de liste de diffusion. Le code de la méthode `FindRow` du contrôleur `Subscriber` renvoie une ligne d'abonné à partir de la même table `mailinglist`. Le code des deux méthodes est identique, à l'exception du type de modèle utilisé avec la méthode [TableOperation.Retrieve][TableOperation.Retrieve].
 
         private async Task<Subscriber> FindRowAsync(string partitionKey, string rowKey)
         {
@@ -351,11 +351,11 @@ La classe d'entité `MailingList` est utilisée pour les lignes de la table `Mai
             token = currentSegment.ContinuationToken;
         }
 
-    La méthode `ExecuteQuerySegmentedAsync` décompose les résultats volumineux en segments. Elle renvoie jusqu'à 1 000 lignes. Lorsque vous exécutez une requête qui doit extraire plus de 1 000 lignes, vous obtenez 1 000 lignes et un jeton de liaison. Vous pouvez utiliser ce jeton pour exécuter une autre requête qui démarre là où la précédente s'est terminée. Le code affiché est simplifié pour un exemple d'application: il agrège tous les segments en une seule liste. Pour une application de production, vous devez implémenter le code de pagination. Pour plus d'informations sur les grands ensembles de résultats et les jetons de liaison, consultez les billets [Comment tirer le meilleur parti des tables Azure][] et [Tables Azure: utilisation des jetons de liaison][].
+    La méthode `ExecuteQuerySegmentedAsync` décompose les résultats volumineux en segments. Elle renvoie jusqu'à 1 000 lignes. Lorsque vous exécutez une requête qui doit extraire plus de 1 000 lignes, vous obtenez 1 000 lignes et un jeton de liaison. Vous pouvez utiliser ce jeton pour exécuter une autre requête qui démarre là où la précédente s'est terminée. Le code affiché est simplifié pour un exemple d'application: il agrège tous les segments en une seule liste. Pour une application de production, vous devez implémenter le code de pagination. Pour plus d'informations sur les grands ensembles de résultats et les jetons de liaison, consultez les billets [Comment tirer le meilleur parti des tables Azure][Comment tirer le meilleur parti des tables Azure] et [Tables Azure: utilisation des jetons de liaison][Tables Azure: utilisation des jetons de liaison].
 
-    Lorsque vous créez l'objet `OperationContext`, vous pouvez définir la valeur de propriété `ClientID` pour fournir un identificateur unique qui sera inclus dans les journaux écrits par Azure Storage. Vous pouvez utiliser cet identificateur pour suivre les journaux d'opération de stockage dans le code ayant provoqué l'activité du service de stockage. Pour plus d'informations sur la journalisation d'Azure Storage, consultez [Journalisation d'Azure Storage: utilisation de journaux pour suivre les requêtes de stockage][].
+    Lorsque vous créez l'objet `OperationContext`, vous pouvez définir la valeur de propriété `ClientID` pour fournir un identificateur unique qui sera inclus dans les journaux écrits par Azure Storage. Vous pouvez utiliser cet identificateur pour suivre les journaux d'opération de stockage dans le code ayant provoqué l'activité du service de stockage. Pour plus d'informations sur la journalisation d'Azure Storage, consultez [Journalisation d'Azure Storage: utilisation de journaux pour suivre les requêtes de stockage][Journalisation d'Azure Storage: utilisation de journaux pour suivre les requêtes de stockage].
 
-    Avec l'API SCL 2.1 et ses versions ultérieures, vous pouvez également utiliser LINQ pour vos requêtes de table. Pour obtenir un exemple de code illustrant l'utilisation de LINQ, consultez ce scénario [PhluffyFotos][].
+    Avec l'API SCL 2.1 et ses versions ultérieures, vous pouvez également utiliser LINQ pour vos requêtes de table. Pour obtenir un exemple de code illustrant l'utilisation de LINQ, consultez ce scénario [PhluffyFotos][PhluffyFotos].
 
     Si vous n'indiquez pas de stratégie de nouvelle tentative, l'API effectue automatiquement trois nouvelles tentatives en augmentant progressivement le délai d'expiration. Dans le cas d'une interface Web où un utilisateur attend l'affichage d'une page, ce délai serait trop long. C'est pourquoi ce code indique des nouvelles tentatives linéaires (pour que la limite de délai n'augmente pas à chaque fois) ainsi qu'une limite de délai raisonnable pour l'utilisateur. La stratégie de nouvelle tentative est indiquée dans l'objet `webUIRetryPolicy` transmis à la méthode `ExecuteQuerySegmentedAsync`. L'objet `webUIRetryPolicy` est défini dans le constructeur du contrôleur:
 
@@ -559,11 +559,11 @@ Dans le fichier *Index.cshtml*, les liens hypertexte **Edit** et **Delete** spé
 
 1.  Exécutez le projet en appuyant sur CTRL+F5.
 
-    ![Page d'index MailingList vide][]
+    ![Page d'index MailingList vide][Page d'index MailingList vide]
 
 2.  Utilisez la fonction **Create** pour ajouter des listes de diffusion, puis essayez les fonctions **Edit** et **Delete** pour vérifier qu'elles fonctionnent correctement.
 
-    ![Page d'index MailingList avec des lignes][]
+    ![Page d'index MailingList avec des lignes][Page d'index MailingList avec des lignes]
 
 ## <a name="subscriber"></a><span class="short-header">Subscriber</span>Création et test du contrôleur et des vues Subscriber
 
@@ -768,11 +768,11 @@ Dans le fichier *Edit.cshtml*, notez le champ masqué inclus pour la valeur `Sub
 
 1.  Exécutez le projet en appuyant sur CTRL+F5, puis cliquez sur **Subscribers**.
 
-    ![Page d'index Subscriber vide][]
+    ![Page d'index Subscriber vide][Page d'index Subscriber vide]
 
 2.  Utilisez la fonction **Create** pour ajouter des listes de diffusion, puis essayez les fonctions **Edit** et **Delete** pour vérifier qu'elles fonctionnent correctement.
 
-    ![Page d'index Subscribers avec des lignes][]
+    ![Page d'index Subscribers avec des lignes][Page d'index Subscribers avec des lignes]
 
 ## <a name="message"></a>Création et test du contrôleur et des vues Message
 
@@ -1007,7 +1007,7 @@ Ceci permet d'empêcher l'utilisateur de modifier un message lorsque le rôle de
 
 1.  Exécutez le projet en appuyant sur CTRL+F5, ou en cliquant sur **Messages**.
 
-    ![Page d'index Empty Message vide][]
+    ![Page d'index Empty Message vide][Page d'index Empty Message vide]
 
 2.  Utilisez la fonction **Create** pour ajouter des listes de diffusion, puis essayez les fonctions **Edit** et **Delete** pour vérifier qu'elles fonctionnent correctement.
 
@@ -1082,7 +1082,7 @@ La méthode `HttpGet Index` utilise le GUID et le nom de la liste de la chaîne 
             return View(unsubscribeVM);
         }
 
-Remarque: SubscriberGUID n'est pas dans la clé de partition ou de ligne: les performances de cette requête diminuent lorsque la taille de partition (le nombre d'adresses électronique dans une liste de diffusion) augmente. Pour plus d'informations sur les alternatives pour améliorer la mise à l'échelle de cette requête, consultez [le premier didacticiel de cette série][].
+Remarque: SubscriberGUID n'est pas dans la clé de partition ou de ligne: les performances de cette requête diminuent lorsque la taille de partition (le nombre d'adresses électronique dans une liste de diffusion) augmente. Pour plus d'informations sur les alternatives pour améliorer la mise à l'échelle de cette requête, consultez [le premier didacticiel de cette série][le premier didacticiel de cette série].
 
 La méthode `HttpPost Index` utilise de nouveau le GUID et le nom de la liste pour obtenir les informations sur les abonnés et remplit les propriétés du modèle de vue. Ensuite, si vous cliquez sur le bouton **Confirm**, la ligne subscriber de la table `MailingList` est supprimée. Si vous cliquez sur le bouton **Confirm**, il définit également la propriété `Confirm` sur `true` ; sinon, il définit la propriété `Confirm` sur `false`. La valeur de la propriété `Confirm` entraîne l'affichage de la version « confirmée » ou « annulée » de la page **Désabonnement**.
 
@@ -1188,7 +1188,7 @@ Dans le corps de la page, la propriété `Confirmed` détermine ce qui sera affi
 
 6.  Dans la boîte de dialogue **Modifier l'entité**, sélectionnez et copiez la valeur `SubscriberGUID`.
 
-    ![Azure Storage Explorer][]
+    ![Azure Storage Explorer][Azure Storage Explorer]
 
 7.  Revenez à la fenêtre de votre navigateur. Dans la barre d'adresse du navigateur, remplacez « Subscriber » dans l'URL par « unsubscribe?ID=[guidvalue]&listName=[listname] » où [guidvalue] est le GUID que vous avez copié à partir de l'explorateur de stockage Azure, et [listname] le nom de la liste de diffusion. Par exemple:
 
@@ -1196,17 +1196,17 @@ Dans le corps de la page, la propriété `Confirmed` détermine ce qui sera affi
 
     La version de la page **Unsubscribe** demandant à l'utilisateur de confirmer son désabonnement est affichée:
 
-    ![Unsubscribe page][]
+    ![Unsubscribe page][Unsubscribe page]
 
 8.  Cliquez sur **Confirm**: la confirmation du désabonnement de cette adresse électronique est affichée.
 
-    ![Unsubscribe confirmed page][]
+    ![Unsubscribe confirmed page][Unsubscribe confirmed page]
 
 9.  Revenez à la page **Subscribers** **Index** pour vérifier que la ligne subscriber n'est plus là.
 
 ## <a name="nextsteps"></a>Étapes suivantes
 
-Comme expliqué dans [le premier didacticiel de cette série][], ce didacticiel ne traite pas des composants du processus d'inscription, car la méthode du service de l'API web ASP.NET n'implémente pas de sécurité de secret partagé. Cependant, la restriction d'IP que vous avez configurée dans le second didacticiel protège également la méthode de service et vous pouvez ajouter la fonctionnalité d'abonnement en copiant les fichiers suivants à partir du projet téléchargé.
+Comme expliqué dans [le premier didacticiel de cette série][le premier didacticiel de cette série], ce didacticiel ne traite pas des composants du processus d'inscription, car la méthode du service de l'API web ASP.NET n'implémente pas de sécurité de secret partagé. Cependant, la restriction d'IP que vous avez configurée dans le second didacticiel protège également la méthode de service et vous pouvez ajouter la fonctionnalité d'abonnement en copiant les fichiers suivants à partir du projet téléchargé.
 
 Pour la méthode de service de l'API Web ASP.NET:
 
@@ -1218,9 +1218,9 @@ Pour la page web affichée lorsqu'un abonné clique sur le lien **Confirm** dans
 -   Controllers\\SubscribeController.cs
 -   Views\\Subscribe\\Index.cshtml
 
-Dans le [prochain didacticiel][] vous allez configurer et programmer un rôle de travail A, qui planifie l'envoi des courriers électroniques.
+Dans le [prochain didacticiel][prochain didacticiel] vous allez configurer et programmer un rôle de travail A, qui planifie l'envoi des courriers électroniques.
 
-Pour obtenir des liens sur les ressources supplémentaires pour utiliser les tables, les files d'attente et les objets blob Azure Storage, consultez le [dernier didacticiel de cette série][].
+Pour obtenir des liens sur les ressources supplémentaires pour utiliser les tables, les files d'attente et les objets blob Azure Storage, consultez le [dernier didacticiel de cette série][dernier didacticiel de cette série].
 
 <div>
 
@@ -1228,7 +1228,7 @@ Pour obtenir des liens sur les ressources supplémentaires pour utiliser les tab
 
 </div>
 
-  [le premier didacticiel de cette série]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
+  [le premier didacticiel de cette série]: /fr-fr/develop/net/tutorials/multi-tier-web-site/1-overview/
   [Création de la solution Visual Studio]: #cloudproject
   [Mise à jour du package NuGet de la bibliothèque cliente de stockage]: #updatescl
   [Configuration des projets pour utiliser l'émulateur de stockage]: #configurestorage
@@ -1255,17 +1255,17 @@ Pour obtenir des liens sur les ressources supplémentaires pour utiliser les tab
   [Propriétés de rôle Web]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-web-role/mtas-mvcwebrole-properties-menu.png
   [Clic droit, Propriétés]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-web-role/mtas-elip.png
   [Erreur Configuration de service et fichiers de définition incorrects]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-web-role/mtas-er1.png
-  [second didacticiel]: /en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
+  [second didacticiel]: /fr-fr/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
   [Redémarrages d'instances de rôle pour cause de mise à jour du système d'exploitation]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
-  [transfert à la demande]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433075.aspx
-  [dbgview]: http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx
-  [TableEntity]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storage.table.tableentity.aspx
-  [DynamicTableEntity]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storage.table.dynamictableentity.aspx
+  [transfert à la demande]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433075.aspx
+  [dbgview]: http://technet.microsoft.com/fr-fr/sysinternals/bb896647.aspx
+  [TableEntity]: http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.windowsazure.storage.table.tableentity.aspx
+  [DynamicTableEntity]: http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.windowsazure.storage.table.dynamictableentity.aspx
   [Présentation approfondie des tables de bibliothèque du client de stockage Azure 2.0]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx
-  [Présentation du modèle de données du service de table]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179338.aspx
+  [Présentation du modèle de données du service de table]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179338.aspx
   [Caractère % dans PartitionKey ou RowKey]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/05/28/partitionkey-or-rowkey-containing-the-percent-character-causes-some-windows-azure-tables-apis-to-fail.aspx
   [Utilisation de la prise en charge asynchrone .NET 4.5 pour éviter le blocage des appels]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async
-  [TableOperation.Retrieve]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx
+  [TableOperation.Retrieve]: http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx
   [Comment tirer le meilleur parti des tables Azure]: http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx
   [Tables Azure: utilisation des jetons de liaison]: http://blog.smarx.com/posts/windows-azure-tables-expect-continuation-tokens-seriously
   [Journalisation d'Azure Storage: utilisation de journaux pour suivre les requêtes de stockage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx
@@ -1279,5 +1279,5 @@ Pour obtenir des liens sur les ressources supplémentaires pour utiliser les tab
   [Azure Storage Explorer]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-web-role/mtas-ase-edit-entity-unsubscribe.png
   [Unsubscribe page]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-web-role/mtas-unsubscribe-query-page.png
   [Unsubscribe confirmed page]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-web-role/mtas-unsubscribe-confirmation-page.png
-  [prochain didacticiel]: /en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
-  [dernier didacticiel de cette série]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/#nextsteps
+  [prochain didacticiel]: /fr-fr/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
+  [dernier didacticiel de cette série]: /fr-fr/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/#nextsteps

@@ -40,10 +40,10 @@ La vignette affiche le nombre de tâches qui ont été exécutées ; l'image pr
 Voir aussi
 ----------
 
--   [Administration de HDInsight](/en-us/manage/services/hdinsight/howto-administer-hdinsight/)
--   [Déploiement d'un cluster HDInsight par programme](/en-us/manage/services/hdinsight/howto-deploy-cluster/)
--   [Exécution de tâches à distance sur votre cluster HDInsight par programme](/en-us/manage/services/hdinsight/howto-execute-jobs-programmatically/)
--   [Didacticiel : Prise en main d'Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+-   [Administration de HDInsight](/fr-fr/manage/services/hdinsight/howto-administer-hdinsight/)
+-   [Déploiement d'un cluster HDInsight par programme](/fr-fr/manage/services/hdinsight/howto-deploy-cluster/)
+-   [Exécution de tâches à distance sur votre cluster HDInsight par programme](/fr-fr/manage/services/hdinsight/howto-execute-jobs-programmatically/)
+-   [Didacticiel : Prise en main d'Azure HDInsight](/fr-fr/manage/services/hdinsight/get-started-hdinsight/)
 
 [hdi-monitor-cluster-tile]: ./media/hdinsight-monitor/HDI.TileMonitorCluster.PNG
 [hdi-monitor-page]: ./media/hdinsight-monitor/HDI.MonitorPage.PNG

@@ -1,15 +1,15 @@
 <properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Step 2: Upload data into a Machine Learning experiment | Azure" description="Step 2: Upload existing public data into Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
 
-Vous voici arrivé à la deuxième étape du didacticiel pas à pas [Développement d'une solution de prévision avec Azure ML][] :
+Vous voici arrivé à la deuxième étape du didacticiel pas à pas [Développement d'une solution de prévision avec Azure ML][Développement d'une solution de prévision avec Azure ML] :
 
-1.  [Création d'un espace de travail ML][]
+1.  [Création d'un espace de travail ML][Création d'un espace de travail ML]
 2.  **Téléchargement de données existantes**
-3.  [Création d'une expérience][]
-4.  [Formation et évaluation des modèles][]
-5.  [Publication du service web][]
-6.  [Accès au service web][]
+3.  [Création d'une expérience][Création d'une expérience]
+4.  [Formation et évaluation des modèles][Formation et évaluation des modèles]
+5.  [Publication du service web][Publication du service web]
+6.  [Accès au service web][Accès au service web]
 
 ------------------------------------------------------------------------
 
@@ -53,7 +53,7 @@ Une fois les données converties au format CSV, nous devons les télécharger ve
 6.  Pour le type de données, sélectionnez « Generic CSV File With no header (.nh.csv) ».
 7.  Ajoutez la description de votre choix.
 8.  Cliquez sur **OK**  
-![Upload the dataset][].
+![Upload the dataset][Upload the dataset].
 
 Les données sont téléchargées dans un module Jeu de données utilisable dans une expérience.
 

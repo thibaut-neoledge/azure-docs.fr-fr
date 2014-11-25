@@ -1,6 +1,6 @@
 <properties title="Azure Websites Web Hosting Plans In-Depth Overview" pageTitle="Azure Websites Web Hosting Plans In-Depth Overview - Windows Azure feature guide" description="Learn how Web Hosting Plans for Azure Websites work, and how they benefit your management experience." metaKeywords="Azure Web Sites, Azure Websites, WHP, Web Hosting Plan, Web Hosting Plans, Resource Groups" services="web-sites" solutions="web" documentationCenter="Infrastructure" authors="Byron Tardif and Yochay Kiryaty" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Byron Tardif and Yochay Kiryaty"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Byron="" Tardif="" and="" Yochay="" Kiryaty" />
 </br>
 
 # Vue d'ensemble approfondie des plans d'hébergement Sites Web Azure
@@ -19,7 +19,7 @@ Un site web peut être associé à un seul plan d'hébergement web. Un plan d'h�
 Un groupe de ressources peut contenir plusieurs plans d'hébergement web, chacun ayant ses propres caractéristiques et possibilités utilisées par les sites associés. L'image suivante illustre cette relation :
 </br>
 </br>
-![Resource Groups and Web Hosting Plans][]
+![Resource Groups and Web Hosting Plans][Resource Groups and Web Hosting Plans]
 </br>
 </br>
 Le fait qu'un seul groupe de ressources puisse avoir plusieurs plans d'hébergement web vous permet d'affecter différents sites à différentes ressources, essentiellement des machines virtuelles qui exécutent vos sites web. Par exemple, cela permet de séparer les ressources entre les sites de développement, de test et de production, lorsque vous souhaitez affecter un plan d'hébergement web avec ses propres ressources dédiées à vos sites de production et un second plan d'hébergement web à vos sites de développement et de test.
@@ -33,7 +33,7 @@ Le fait de disposer de plusieurs plans d'hébergement web dans un seul groupe de
 Lorsque vous créez un site web, vous devez envisager de créer un groupe de ressources lorsque le site web qui va être créé représente une nouvelle application web. Dans ce cas, la bonne option consiste à créer un groupe de ressources, un plan d'hébergement web associé et des sites web. Lorsque vous créez un site web avec la nouvelle version préliminaire du portail Azure, en utilisant la galerie ou le nouveau site web + l'option SQL, le portail crée par défaut un groupe de ressources et un plan d'hébergement web pour votre nouveau site. En cas de besoin, vous pouvez ignorer ces valeurs par défaut.
 </br>
 </br>
-![Creating a new Web Hosting Plan][]
+![Creating a new Web Hosting Plan][Creating a new Web Hosting Plan]
 </br>
 </br>
 Vous pouvez toujours ajouter un nouveau site web ou d'autres ressources à un groupe de ressources existant. Lorsque vous créez un site web dans le contexte d'un groupe de ressources existant, l'Assistant du nouveau site web prend par défaut la ressource et le plan d'hébergement web existants. Là encore, en cas de besoin, vous pouvez ignorer ces options par défaut. Lorsque vous ajoutez un nouveau site web à un groupe de ressources existant, vous pouvez ajouter le site à un plan d'hébergement web existant (il s'agit de l'option par défaut dans la nouvelle version préliminaire du portail Azure) ou vous pouvez créer un plan d'hébergement web auquel ajouter le site.
@@ -51,13 +51,13 @@ N'oubliez pas que vous ne pouvez pas déplacer les plans d'hébergement web ni l
 Si vous avez déjà des sites web dans Sites Web Azure, vous remarquerez qu'ils sont tous affichés dans la version préliminaire du portail Azure. Vous pouvez voir tous vos sites web dans une liste plate en cliquant sur le bouton **Parcourir** dans le volet de navigation gauche et en sélectionnant **Sites web** :
 </br>
 </br>
-![See all your website as a flat list][]
+![See all your website as a flat list][See all your website as a flat list]
 </br>
 </br>
 Vous pouvez également voir tous les groupes de ressources qui ont été créés pour vous en cliquant sur le bouton **Parcourir** dans le volet de navigation gauche et en sélectionnant **Groupes de ressources** :
 </br>
 </br>
-![See all the resource groups that have been created][]
+![See all the resource groups that have been created][See all the resource groups that have been created]
 </br>
 </br>
 Vous pouvez également constater qu'il existe un groupe de ressources autogénéré par défaut dans chaque région dans laquelle vous avez déjà des sites web. Le nom du groupe de ressources autogénéré des sites web est *Default-Web-<location name>*, où le nom de l'emplacement représente une région Azure (par exemple *Default-Web-WestUS*). Dans chaque groupe de ressources, vous retrouvez tous vos sites pour la région du groupe. Chaque site que vous avez créé et que vous allez créer dans la version complète ou préliminaire du portail Azure est et sera disponible sur les deux portails.
@@ -84,18 +84,18 @@ Comme chaque site web doit être associé à un plan d'hébergement web, nous av
     Dans l'interface de la nouvelle **version préliminaire du portail Azure**, cliquez sur **NOUVEAU** et sélectionnez **Site web** pour ouvrir le volet de création du site web. Dans la première image ci-dessous, en bas à gauche, est affichée l'icône **NOUVEAU**. Dans la deuxième image, vous pouvez voir le volet de création du **site web**, le volet **Plan d'hébergement web** et le volet **Option de tarification** :
     </br>
     </br>
-    ![Create a new website][]
+    ![Create a new website][Create a new website]
     </br>
     </br>
-    ![Website, Web Hosting Plan and pricing tier blades][]
+    ![Website, Web Hosting Plan and pricing tier blades][Website, Web Hosting Plan and pricing tier blades]
     </br>
     </br>
-    Pour cet exemple, nous créons le site web **contosomarketing** que nous plaçons dans le nouveau plan d'hébergement web appelé **contoso**. L'option de tarification sélectionnée pour ce plan d'hébergement web est **Petit Standard**. Pour plus d'informations sur les options de tarification des plans d'hébergement web ainsi que sur les fonctionnalités et les options de tarification et de mise à l'échelle disponibles dans chacun, consultez la page des [spécifications des plans d'hébergement Sites Web Azure][].
+    Pour cet exemple, nous créons le site web **contosomarketing** que nous plaçons dans le nouveau plan d'hébergement web appelé **contoso**. L'option de tarification sélectionnée pour ce plan d'hébergement web est **Petit Standard**. Pour plus d'informations sur les options de tarification des plans d'hébergement web ainsi que sur les fonctionnalités et les options de tarification et de mise à l'échelle disponibles dans chacun, consultez la page des [spécifications des plans d'hébergement Sites Web Azure][spécifications des plans d'hébergement Sites Web Azure].
     </br>
     Notez bien qu'un plan d'hébergement web peut également être créé dans le portail Azure existant. Pour ce faire, dans l'Assistant **Création rapide**, sélectionnez **Créer un plan d'hébergement web** dans le menu déroulant **PLAN D'HÉBERGEMENT WEB** :
     </br>
     </br>
-    ![Create new web hosting plan in the existing portal][]
+    ![Create new web hosting plan in the existing portal][Create new web hosting plan in the existing portal]
     </br>
     </br>
     Pour cet exemple, nous créons le site **northwind** et un plan d'hébergement web. Cette opération aboutit au nouveau plan d'hébergement web **default0**, qui contient le site web **northwind**. Tous les plans d'hébergement web créés à l'aide de cette méthode suivent cette convention d'attribution de noms, et aucun plan ne peut être renommé. Les plans d'hébergement web créés à l'aide de cette méthode ont l'option de tarification **Gratuit**.
@@ -111,13 +111,13 @@ Comme chaque site web doit être associé à un plan d'hébergement web, nous av
     Dans le volet de création de site web, sélectionnez le plan d'hébergement :
     </br>
     </br>
-    ![Select a hosting plan][]
+    ![Select a hosting plan][Select a hosting plan]
     </br>
     </br>
     Un site peut être créé dans un plan d'hébergement web spécifique en utilisant le portail Azure existant. Cette opération est effectuée avec l'Assistant **Création rapide**. Après avoir tapé l'URL du site web, dans le menu déroulant **PLAN D'HÉBERGEMENT WEB**, sélectionnez un plan auquel ajouter le site :
     </br>
     </br>
-    ![Select a hosting plan in the existing portal][]
+    ![Select a hosting plan in the existing portal][Select a hosting plan in the existing portal]
     </br>
     </br>
     **Question** : Comment changer un site de plan d'hébergement web ?
@@ -127,7 +127,7 @@ Comme chaque site web doit être associé à un plan d'hébergement web, nous av
     Pour changer un site de plan, ouvrez le volet de site web du site à déplacer. Cliquez ensuite sur **Plan d'hébergement web** :
     </br>
     </br>
-    ![Choose a new or existing web hosting plan][]
+    ![Choose a new or existing web hosting plan][Choose a new or existing web hosting plan]
     </br>
     </br>
     Le volet du plan d'hébergement web s'ouvre. À ce stade, vous pouvez choisir un plan d'hébergement web ou en créer un. Les plans d'un autre emplacement géographique ou d'un autre groupe de ressources sont grisés et ne peuvent pas être sélectionnés.
@@ -142,13 +142,13 @@ Comme chaque site web doit être associé à un plan d'hébergement web, nous av
     L'image ci-dessous présente les volets **Plan d'hébergement web** et **Option de tarification**. Cliquer sur l'option **Option de tarification** dans le volet **Plan d'hébergement web** développe le volet **Option de tarification** dans lequel vous pouvez changer l'option de tarification du plan d'hébergement web :
     </br>
     </br>
-    ![The Web Hosting Plan blade and the Pricing Tier][]
+    ![The Web Hosting Plan blade and the Pricing Tier][The Web Hosting Plan blade and the Pricing Tier]
     </br>
     </br>
     La seconde méthode permettant de mettre à l'échelle un plan consiste à augmenter son nombre d'instances. L'image ci-dessous présente les volets **Plan d'hébergement web** et **Échelle**. Cliquer sur la zone Échelle du volet **Plan d'hébergement web** le développe et permet de changer le nombre d'instances du plan :
     </br>
     </br>
-    ![Changing the instance count of a hosting plan][]
+    ![Changing the instance count of a hosting plan][Changing the instance count of a hosting plan]
     </br>
     </br>
     Dans l'image ci-dessous, comme le plan d'hébergement web est configuré pour utiliser l'option de tarification **Standard**, l'option **Échelle automatique** est activée.
@@ -156,7 +156,7 @@ Comme chaque site web doit être associé à un plan d'hébergement web, nous av
     Cette opération peut être effectuée dans la version complète du portail Azure, sous l'onglet **Échelle**, comme indiqué ci-dessous :
     </br>
     </br>
-    ![Changing the instance count of a hosting plan in the existing portal][]
+    ![Changing the instance count of a hosting plan in the existing portal][Changing the instance count of a hosting plan in the existing portal]
     </br>
     </br>
     **Question** : Comment supprimer un plan d'hébergement web ?
@@ -164,7 +164,7 @@ Comme chaque site web doit être associé à un plan d'hébergement web, nous av
     **Réponse** : Pour supprimer un plan d'hébergement web, vous devez d'abord supprimer tous les sites web associés. Lorsque tous les sites web d'un plan d'hébergement web sont supprimés, il est possible de supprimer un plan d'hébergement web dans le volet du même nom :
     </br>
     </br>
-    ![Deleting a web hosting plan][]
+    ![Deleting a web hosting plan][Deleting a web hosting plan]
     </br>
     </br>
     Dans la version complète du portail Azure, la suppression du dernier site web d'un plan d'hébergement web supprime automatiquement le plan associé.
@@ -174,13 +174,13 @@ Comme chaque site web doit être associé à un plan d'hébergement web, nous av
     **Réponse** : Les plans d'hébergement web peuvent être surveillés en utilisant les options de surveillance du volet du plan d'hébergement web :
     </br>
     </br>
-    ![Monitoring a web hosting plan][]
+    ![Monitoring a web hosting plan][Monitoring a web hosting plan]
     </br>
     </br>
     Les contrôles de surveillance peuvent être personnalisés en cliquant sur le contrôle avec le bouton droit et en sélectionnant **modifier la requête** :
     </br>
     </br>
-    ![Editing the monitoring controls][]
+    ![Editing the monitoring controls][Editing the monitoring controls]
     </br>
     </br>
     Les mesures exposées sont les suivantes :

@@ -87,6 +87,6 @@
 
 4.  Appuyez sur le bouton **Tous**. Un message d'alerte s'affiche pour indiquer le nombre d'éléments marqués comme terminés, puis la requête filtrée est de nouveau exécutée pour supprimer tous les éléments de la liste.
 
-    ![][]
+    ![][0]
 
-  []: ./media/mobile-services-ios-call-custom-api/mobile-custom-api-ios-completed.png
+  [0]: ./media/mobile-services-ios-call-custom-api/mobile-custom-api-ios-completed.png

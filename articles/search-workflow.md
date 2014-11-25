@@ -18,7 +18,7 @@ Nous partons du principe que vous avez déjà approvisionné le service. Si tel 
 
 Les requêtes (du moins les requêtes autres que celles du système) ciblent un index de recherche contenant des attributs et des données de recherche. Au cours de cette étape, vous allez définir le schéma d'index au format JSON et exécuter une demande HTTPS PUT pour que cet index soit créé dans le service.
 
-Les index sont généralement codés dans votre environnement de développement local. Il n'existe aucun éditeur ou outil intégré pour la définition d'index. Pour plus d'informations sur la création d'index, consultez la page [Création d'un index (API Azure Search)](http://msdn.microsoft.com/en-us/library/dn798941.aspx) sur MSDN.
+Les index sont généralement codés dans votre environnement de développement local. Il n'existe aucun éditeur ou outil intégré pour la définition d'index. Pour plus d'informations sur la création d'index, consultez la page [Création d'un index (API Azure Search)](http://msdn.microsoft.com/fr-fr/library/dn798941.aspx) sur MSDN.
 
 <h2 id="sub-2">Étape 2 : Ajout de documents</h2>
 
@@ -36,8 +36,8 @@ Dans des conditions de surcharge, les échecs de téléchargement ne sont pas ra
 
 Une fois les documents indexés, vous pouvez exécuter des requêtes de recherche. Vous pouvez interroger un index à la fois, en utilisant soit OData, soit une syntaxe de requête simple :
 
--   [Syntaxe d'expression OData pour Azure Search](http://msdn.microsoft.com/en-us/library/dn798921.aspx)
--   [Syntaxe de requête simple dans Azure Search](http://msdn.microsoft.com/en-us/library/dn798920.aspx)
+-   [Syntaxe d'expression OData pour Azure Search](http://msdn.microsoft.com/fr-fr/library/dn798921.aspx)
+-   [Syntaxe de requête simple dans Azure Search](http://msdn.microsoft.com/fr-fr/library/dn798920.aspx)
 
 <h2 id="sub-4">Étape 4 : Mise à jour ou suppression d'index et de documents</h2>
 
@@ -51,7 +51,7 @@ De nombreuses applications de recherche utilisent plusieurs formats de stockage 
 
 Tous les champs d'un document ne peuvent pas faire l'objet d'une recherche. Par exemple, si votre application est un catalogue en ligne de musique ou de vidéos, il est conseillé de stocker des fichiers binaires dans des objets blob ou une autre forme de stockage. Les fichiers binaires ne pouvant pas faire l'objet d'une recherche, il n'est pas nécessaire de les conserver dans l'espace de stockage Azure Search. Vous devez stocker les images, vidéos et fichiers audio dans d'autres services ou emplacements, avec un champ dans le document affecté au stockage de l'URL vers l'emplacement du fichier.
 
-Pour plus d'informations sur la création d'index ou de documents, consultez la page [API Rest Azure Search](http://msdn.microsoft.com/en-us/library/dn798935.aspx).
+Pour plus d'informations sur la création d'index ou de documents, consultez la page [API Rest Azure Search](http://msdn.microsoft.com/fr-fr/library/dn798935.aspx).
 
 <!--Anchors-->
 [Step 1: Create the index]: #sub-1

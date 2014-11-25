@@ -4,13 +4,13 @@ Pour pouvoir stocker des données d'application dans le nouveau service mobile, 
 
 2.  Cliquez sur l'onglet **Données**, puis sur **+Create**.
 
-    ![mobile-data-tab-empty][]
+    ![mobile-data-tab-empty][mobile-data-tab-empty]
 
     La boîte de dialogue **Create new table** s’affiche.
 
 3.  Dans **Nom de la table**, tapez *TodoItem*, puis cliquez sur le bouton de vérification.
 
-    ![mobile-create-todoitem-table][]
+    ![mobile-create-todoitem-table][mobile-create-todoitem-table]
 
 Une nouvelle table de stockage **TodoItem** est créée avec les autorisations par défaut. Cela signifie que quiconque possédant la clé de l'application, qui est distribuée avec l'application, peut accéder aux données de la table et les modifier.
 

@@ -7,8 +7,8 @@
 > [WACOM.NOTE] Désolé, cette rubrique n'est pas encore disponible. Si ce sujet vous intéresse particulièrement, faites-le nous savoir en envoyant un tweet à [@AzureMobile], ou publiez un commentaire sur les [Forums] ou sur [UserVoice].
 > **En attendant, consultez le [billet de blog] qui traite de ce contenu en partie.**
 
-<!-- URLs. -->
+
 [@AzureMobile]: https://twitter.com/AzureMobile
-[Forums]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuremobile
+[Forums]: http://social.msdn.microsoft.com/Forums/windowsazure/fr-fr/home?forum=azuremobile
 [UserVoice]: http://feedback.azure.com/forums/216254-mobile-services
 [billet de blog]: http://blogs.msdn.com/b/azuremobile/archive/2014/05/12/connecting-to-an-external-database-with-node-js-backend-in-azure-mobile-services.aspx

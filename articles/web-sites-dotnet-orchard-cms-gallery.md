@@ -73,7 +73,6 @@ Azure lance les opérations de configuration et de déploiement. Pendant la conf
   [Orchard]: http://www.orchardproject.net/
   [télécharger des thèmes et modules complémentaires]: http://gallery.orchardproject.net/
   [Blog Orchard]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-08.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Création]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-01.png
   [Créer à partir de la galerie]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-02.png
   [Liste de provenance Orchard]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-03.png

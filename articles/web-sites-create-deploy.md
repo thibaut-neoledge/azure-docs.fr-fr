@@ -75,4 +75,3 @@ Pour plus d’informations, consultez la page [Sites Web Azure][Azure Web Sites]
   [suppression d'un site web]: #deleteawebsite
   [Étapes suivantes]: #nextsteps
   [portail de gestion Azure]: http://manage.windowsazure.com/
-  [website-from-gallery]: ../includes/website-from-gallery.md

@@ -710,9 +710,9 @@ Transmettez l'URL de service et la clé d'application au constructeur **MobileSe
 -   [Ajout de notifications Push][Ajout de notifications Push] ; par exemple, lorsqu'une personne ajoute un nouveau joueur ou met à jour un score.
 -   [Prise en main de l'authentification][Prise en main de l'authentification]
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [API web ASP.NET]: http://asp.net/web-api
   [Vue d'ensemble]: #overview

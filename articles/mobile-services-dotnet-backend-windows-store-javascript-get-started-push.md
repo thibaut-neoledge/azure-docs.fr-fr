@@ -90,7 +90,6 @@ Pour plus d'informations sur les rubriques Mobile Services et Notifications Hubs
      
     Découvrez plus en détail comment utiliser Mobile Services avec les applications JavaScript.
 
-  [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
   [version de l'application universelle Windows]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-push
   [Inscription de votre application avec WNS et configuration de Mobile Services]: #register
   [Mise à jour de l'application pour l'inscription aux notifications]: #update-app
@@ -99,11 +98,7 @@ Pour plus d'informations sur les rubriques Mobile Services et Notifications Hubs
   [Insertion de données pour recevoir des notifications Push]: #test
   [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started
   [Prise en main des données]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data
-  [mobile-services-notification-hubs-register-windows-store-app]: ../includes/mobile-services-notification-hubs-register-windows-store-app.md
   [0]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/enable-toast.png
-  [mobile-services-dotnet-backend-update-server-push]: ../includes/mobile-services-dotnet-backend-update-server-push.md
-  [mobile-services-dotnet-backend-configure-local-push]: ../includes/mobile-services-dotnet-backend-configure-local-push.md
-  [mobile-services-windows-store-test-push]: ../includes/mobile-services-windows-store-test-push.md
   [Envoyer des notifications Push aux utilisateurs authentifiés]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-push-notifications-app-users/
   [Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users
   [Présentation de Notification Hubs]: /fr-fr/documentation/articles/notification-hubs-overview/

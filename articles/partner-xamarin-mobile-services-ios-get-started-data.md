@@ -205,11 +205,10 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
 
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application avec Mobile Services.
 
-<!-- Anchors. -->
-<!-- Images. -->
+
+
 <!-- URLs. TODO:: update download link, github link, and completed example project with new Xamarin.iOs projects -->
 
-  [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
   [Téléchargement du projet d'application Xamarin.iOS]: http://go.microsoft.com/fwlink/p/?LinkId=331302
   [Création du service mobile]: #create-service
   [Ajout d'une table de données pour le stockage]: #add-table
@@ -218,7 +217,6 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
   [composant Azure Mobile Services]: http://components.xamarin.com/view/azure-mobile-services/
   [XCode 5.0]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [0]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-quickstart-startup-ios.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [1]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-create-todoitem-table.png
   [3]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-dashboard-tab.png

@@ -200,9 +200,9 @@ Utilisation de la console Hive pour interroger les données de la table Hive
 
 Vous avez vu comment exécuter une tâche Hadoop à partir de la console JavaScript interactive et comment contrôler les résultats à partir d'une tâche en utilisant cette console. Vous avez également vu comment utiliser la console Hive interactive pour contrôler et traiter les résultats d'une tâche Hadoop en créant et en interrogeant une table contenant le résultat d'un programme MapReduce. Vous avez vu des exemple d'instructions Pig Latin et Hive QL utilisées dans les consoles. Enfin, vous avez vu comment la nature de l'expérience REPL interactive des consoles JavaScript et Hive simplifie l'utilisation d'un cluster Hadoop. Pour en savoir plus, consultez les articles suivants :
 
--   [Utilisation de Pig avec HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
--   [Utilisation de Hive avec HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
--   [Utilisation de MapReduce avec HDInsight](/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
+-   [Utilisation de Pig avec HDInsight](/fr-fr/manage/services/hdinsight/using-pig-with-hdinsight/)
+-   [Utilisation de Hive avec HDInsight](/fr-fr/manage/services/hdinsight/using-hive-with-hdinsight/)
+-   [Utilisation de MapReduce avec HDInsight](/fr-fr/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
 
 [hdi-hive-showdescribetable]: ./media/hdinsight-interactive-console/HDI.Hive.ShowDescribeTable.PNG "Hive Table Confirmation")
 

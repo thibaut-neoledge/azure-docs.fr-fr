@@ -258,7 +258,6 @@ liens suivants pour en savoir plus.
   [Envoi de messages à une file d'attente]: #send-messages
   [Réception des messages d'une file d'attente]: #receive-messages
   [Gestion des blocages d'application et des messages illisibles]: #handle-crashes
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Création et déploiement d'une application Node.js dans un site Web Azure]: /fr-fr/develop/nodejs/tutorials/create-a-website-(mac)/
   [Service cloud Node.js]: /fr-fr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Site Web avec WebMatrix]: /fr-fr/develop/nodejs/tutorials/web-site-with-webmatrix/

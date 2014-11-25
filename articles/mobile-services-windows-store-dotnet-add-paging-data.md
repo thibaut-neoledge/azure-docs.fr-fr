@@ -34,7 +34,6 @@ Vous voici parvenu à la fin de la série de didacticiels présentant les princi
     En savoir plus sur l'utilisation de Mobile Services avec .NET.
 
   [Prise en main des données]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
-  [mobile-services-windows-dotnet-paging]: ../includes/mobile-services-windows-dotnet-paging.md
   [Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
   [Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-push/
   [Guide de fonctionnement Mobile Services .NET]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library

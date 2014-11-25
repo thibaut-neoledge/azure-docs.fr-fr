@@ -129,7 +129,7 @@ Voici un exemple de tâche planifiée qui supprime les enregistrements qui ont �
 
 Pour en savoir plus sur les tâches planifiées avec le serveur principal JavaScript de Mobiles Services, consultez la page suivante : [Planification de tâches récurrentes avec le serveur principal JavaScript de Mobile Services][3].
 
-<!-- Anchors. --> <!-- Images --> <!-- URLs. -->
+ <!-- Images --> 
 
   [type de bit SQL]: http://msdn.microsoft.com/fr-fr/library/ms177603.aspx
   [opération de requête REST]: http://msdn.microsoft.com/fr-fr/library/azure/jj677199.aspx

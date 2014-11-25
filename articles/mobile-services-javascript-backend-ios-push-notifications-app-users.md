@@ -67,8 +67,8 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
 
 [WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../includes/mobile-services-ios-push-notifications-app-users-test-app.md)]
 
-<!-- Anchors. -->
-<!-- URLs. -->
+
+
 
   [notifications Push]: /fr-fr/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
   [Mise à jour du service pour demander l'authentification pour l'inscription]: #register
@@ -76,6 +76,3 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
   [Test de l'application]: #test
   [version dédiée à Windows Store]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users
   [Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-ios-get-started-users/
-  [mobile-services-javascript-backend-register-windows-store-app]: ../includes/mobile-services-javascript-backend-push-notifications-app-users.md
-  [mobile-services-ios-push-notifications-app-users-login]: ../includes/mobile-services-ios-push-notifications-app-users-login.md
-  [mobile-services-ios-push-notifications-app-users-test-app]: ../includes/mobile-services-ios-push-notifications-app-users-test-app.md

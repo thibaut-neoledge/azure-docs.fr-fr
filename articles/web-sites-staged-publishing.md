@@ -1,6 +1,6 @@
 <properties linkid="web-sites-staged-publishing" urlDisplayName="How to stage sites on Microsoft Azure" pageTitle="Staged Deployment on Microsoft Azure Websites" metaKeywords="Microsoft Azure Web Sites, Staged Deployment, Site Slots" description="Learn how to use staged publishing on Microsoft Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Staged Deployment on Microsoft Azure Websites" authors="cephalin"  solutions="" writer="cephalin" manager="wpickett" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="9/9/2014" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="9/9/2014" ms.author="cephalin" />
 
 <a name="Overview"></a>
 
@@ -18,13 +18,13 @@ Quatre emplacements de déploiement, en plus de l'emplacement de production, son
 
 ## Sommaire
 
--   [Ajout d'un emplacement de déploiement à un site Web][]
--   [﻿À propos de la configuration des emplacements de déploiement][]
--   [Basculement des emplacements de déploiement][]
--   [Basculement du site de production vers le site intermédiaire][]
--   [Suppression de l'emplacement d'un site][]
--   [Cmdlets Azure PowerShell pour les emplacements de site][]
--   [Commandes de l'interface de ligne de commande interplateforme Azure (xplat-cli) pour les emplacements de site][]
+-   [Ajout d'un emplacement de déploiement à un site Web][Ajout d'un emplacement de déploiement à un site Web]
+-   [﻿À propos de la configuration des emplacements de déploiement][﻿À propos de la configuration des emplacements de déploiement]
+-   [Basculement des emplacements de déploiement][Basculement des emplacements de déploiement]
+-   [Basculement du site de production vers le site intermédiaire][Basculement du site de production vers le site intermédiaire]
+-   [Suppression de l'emplacement d'un site][Suppression de l'emplacement d'un site]
+-   [Cmdlets Azure PowerShell pour les emplacements de site][Cmdlets Azure PowerShell pour les emplacements de site]
+-   [Commandes de l'interface de ligne de commande interplateforme Azure (xplat-cli) pour les emplacements de site][Commandes de l'interface de ligne de commande interplateforme Azure (xplat-cli) pour les emplacements de site]
 
 <a name="Add"></a>
 
@@ -34,34 +34,34 @@ Le site doit être exécuté en plan d'hébergement **Standard** pour activer pl
 
 1.  Sur la page Démarrage rapide ou dans la section Aperçu rapide de la page Tableau de bord de votre site Web, cliquez sur **Add a new deployment slot**.
 
-    ![Add a new deployment slot][]
+    ![Add a new deployment slot][Add a new deployment slot]
 
     > [WACOM.NOTE]
     > Si le site Web n'est pas déjà en mode **Standard**, le message **Vous devez être en mode Standard pour activer la publication intermédiaire** s'affiche. À ce moment, vous pouvez sélectionner **Mise à niveau** et accéder à l'onglet **Mise à l'échelle** de votre site Web, avant de continuer.
 
 2.  Dans la boîte de dialogue **Add New Deployment Slot**, attribuez un nom à l'emplacement et indiquez si vous souhaitez cloner la configuration du site Web depuis un autre emplacement de déploiement existant. Cliquez sur la coche pour continuer.
 
-    ![Source de configuration][]
+    ![Source de configuration][Source de configuration]
 
     Lorsque vous créez un emplacement pour la première fois, seules deux options vous seront proposées : cloner, ou non, la configuration de l'emplacement de production par défaut.
 
     Après avoir créé plusieurs emplacements, vous pourrez cloner la configuration depuis un emplacement autre que l'emplacement de production :
 
-    ![Sources de configuration][]
+    ![Sources de configuration][Sources de configuration]
 
 3.  Dans la liste des sites Web, développez la coche à gauche du nom de votre site Web pour afficher l'emplacement de déploiement. Il portera le nom du site suivi du nom de l'emplacement de déploiement.
 
-    ![Liste des sites avec emplacement de déploiement][]
+    ![Liste des sites avec emplacement de déploiement][Liste des sites avec emplacement de déploiement]
 
 4.  Lorsque vous cliquez sur le nom de l'emplacement de site de déploiement, une page s'ouvre. Elle contient plusieurs onglets, comme n'importe quel autre site Web. ***nom de votre site Web*(*nom de l'emplacement de déploiement*)** s'affiche en haut de la page du portail, pour vous rappeler que vous affichez l'emplacement de site de déploiement.
 
-    ![Titre de l'emplacement de déploiement][]
+    ![Titre de l'emplacement de déploiement][Titre de l'emplacement de déploiement]
 
-5.  Cliquez sur l'URL du site mentionné dans la vue Tableau de bord. Notez que l'emplacement du déploiement dispose de son propre nom d'hôte et qu'il est également un site actif. Pour limiter l'accès du public à l'emplacement de déploiement, consultez la page [Sites Web Azure – limiter l'accès Web aux emplacements de déploiement de production][].
+5.  Cliquez sur l'URL du site mentionné dans la vue Tableau de bord. Notez que l'emplacement du déploiement dispose de son propre nom d'hôte et qu'il est également un site actif. Pour limiter l'accès du public à l'emplacement de déploiement, consultez la page [Sites Web Azure – limiter l'accès Web aux emplacements de déploiement de production][Sites Web Azure – limiter l'accès Web aux emplacements de déploiement de production].
 
     -   
 
-Il n' y a aucun contenu. Vous pouvez effectuer un déploiement sur l'emplacement d'une autre branche référentielle, ou d'un référentiel complètement différent. Vous pouvez également modifier la configuration de l'emplacement. Utilisez le profil de publication ou les informations d'identification associées à l'emplacement de déploiement pour les mises à jour de contenu. Par exemple, vous pouvez [publier sur cet emplacement avec Git][].
+Il n' y a aucun contenu. Vous pouvez effectuer un déploiement sur l'emplacement d'une autre branche référentielle, ou d'un référentiel complètement différent. Vous pouvez également modifier la configuration de l'emplacement. Utilisez le profil de publication ou les informations d'identification associées à l'emplacement de déploiement pour les mises à jour de contenu. Par exemple, vous pouvez [publier sur cet emplacement avec Git][publier sur cet emplacement avec Git].
 
 <a name="AboutConfiguration"></a>
 
@@ -99,11 +99,11 @@ Lorsque vous clonez la configuration depuis un autre emplacement de déploiement
 
 1.  Pour basculer un emplacement de déploiement, sélectionnez-le dans la liste des sites Web que vous souhaitez basculer puis, dans la barre de commandes, cliquez sur le bouton **Swap**.
 
-    ![Bouton Swap][]
+    ![Bouton Swap][Bouton Swap]
 
 2.  La boîte de dialogue Swap Deployments s'affiche. Elle vous permet de choisir l'emplacement de site source et le site de destination.
 
-    ![Boîte de dialogue Swap Deployments][]
+    ![Boîte de dialogue Swap Deployments][Boîte de dialogue Swap Deployments]
 
 3.  Cliquez sur la coche pour terminer l'opération. Une fois l'opération terminée, l'emplacement de site est basculé.
 
@@ -119,7 +119,7 @@ Si vous identifiez des erreurs de production après un basculement d'emplacement
 
 Dans la barre de commandes située en bas de la page du portail Sites Web Azure, cliquez sur **Supprimer**. Vous pourrez choisir de supprimer le site Web et tous ses emplacements de déploiement ou de supprimer uniquement l'emplacement de déploiement.
 
-![Supprimer un emplacement de déploiement][]
+![Supprimer un emplacement de déploiement][Supprimer un emplacement de déploiement]
 
 **Remarques** :
 
@@ -131,7 +131,7 @@ Dans la barre de commandes située en bas de la page du portail Sites Web Azure,
 
 -   Par défaut, vos emplacements de déploiement (sites) partagent les mêmes ressources que vos emplacements de production (sites) et exécutent les mêmes machines virtuelles. Si vous démarrez un test de contrainte sur un emplacement intermédiaire, votre environnement de production sera soumis à une charge de contrainte similaire.
 
-    > [WACOM.NOTE] Dans la [version préliminare du portail Azure][], vous pouvez éviter que cela se produise sur un emplacement de production en déplaçant temporairement l'emplacement hors production vers un autre plan d'hébergement Web. Notez que les emplacements de test et de production doivent une fois de plus partager le même plan d'hébergement Web avant de pouvoir basculer l'emplacement de test en production.
+    > [WACOM.NOTE] Dans la [version préliminare du portail Azure][version préliminare du portail Azure], vous pouvez éviter que cela se produise sur un emplacement de production en déplaçant temporairement l'emplacement hors production vers un autre plan d'hébergement Web. Notez que les emplacements de test et de production doivent une fois de plus partager le même plan d'hébergement Web avant de pouvoir basculer l'emplacement de test en production.
 
 <!-- ======== AZURE POWERSHELL CMDLETS =========== -->
 
@@ -141,7 +141,7 @@ Dans la barre de commandes située en bas de la page du portail Sites Web Azure,
 
 Azure PowerShell est un module fournissant des cmdlets pour gérer Azure via Windows PowerShell, notamment la prise en charge des emplacements de déploiement Sites Web Azure.
 
--   Pour plus d'informations sur l'installation et la configuration d'Azure PowerShell et sur l'authentification d'Azure PowerShell avec votre abonnement Azure, consultez l'article [Installation et configuration d'Azure PowerShell][].
+-   Pour plus d'informations sur l'installation et la configuration d'Azure PowerShell et sur l'authentification d'Azure PowerShell avec votre abonnement Azure, consultez l'article [Installation et configuration d'Azure PowerShell][Installation et configuration d'Azure PowerShell].
 
 -   Pour répertorier les cmdlets disponibles pour les sites Web Azure dans PowerShell, appelez `help AzureWebsite`.
 
@@ -203,7 +203,7 @@ Si vous n'avez plus besoin d'un emplacement de déploiement, vous pouvez le supp
 
 L'interface de ligne de commande interplateforme Azure (xplat-cli) fournit des commandes interplateforme fonctionnant avec Azure, notamment la prise en charge de la gestion des emplacements de déploiement sur les sites Web Azure.
 
--   Pour obtenir des instructions sur l'installation et la configuration de l'interface xplat-cli, et notamment des informations sur la connexion de cette dernière à votre abonnement Azure, consultez l'article [Installation et configuration de l'interface de ligne de commande interplateforme Azure][].
+-   Pour obtenir des instructions sur l'installation et la configuration de l'interface xplat-cli, et notamment des informations sur la connexion de cette dernière à votre abonnement Azure, consultez l'article [Installation et configuration de l'interface de ligne de commande interplateforme Azure][Installation et configuration de l'interface de ligne de commande interplateforme Azure].
 
 -   Pour répertorier les commandes disponibles pour les sites Web Azure dans l'interface xplat-cli, appelez `azure site -h`.
 
@@ -247,9 +247,9 @@ Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, util
 
 ## Étapes suivantes
 
-[Sites Web Azure – limiter l'accès Web aux emplacements de déploiement de production][]
+[Sites Web Azure – limiter l'accès Web aux emplacements de déploiement de production][Sites Web Azure – limiter l'accès Web aux emplacements de déploiement de production]
 
-[Version d'évaluation gratuite de Microsoft Azure][]
+[Version d'évaluation gratuite de Microsoft Azure][Version d'évaluation gratuite de Microsoft Azure]
 
 <!-- IMAGES -->
 

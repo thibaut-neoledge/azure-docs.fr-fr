@@ -82,6 +82,6 @@ Cette rubrique est la dernière consacrée à l'utilisation d'Azure Media Servic
   [Prise en main du Kit de développement logiciel (SDK) Media Services pour .NET]: http://go.microsoft.com/fwlink/?linkid=252966
   [Création d'applications avec le Kit de développement logiciel (SDK) Media Services pour .NET]: http://go.microsoft.com/fwlink/?linkid=247821
   [Création d'applications avec l'API REST d'Azure Media Services]: http://go.microsoft.com/fwlink/?linkid=252967
-  [Forum Media Services]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
+  [Forum Media Services]: http://social.msdn.microsoft.com/Forums/fr-fr/MediaServices/threads
   [Surveillance d'un compte Media Services]: ../media-services-monitor-services-account/
   [Gestion du contenu dans Media Services]: ../media-services-manage-content/

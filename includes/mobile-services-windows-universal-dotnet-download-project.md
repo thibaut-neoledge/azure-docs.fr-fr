@@ -10,7 +10,7 @@ Ce didacticiel est basé sur l'[application GetStartedWithMobileServices][applic
 
 4.  Dans l'application, tapez du texte dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
 
-    ![][]
+    ![][0]
 
     Notez que le texte enregistré est affiché.
 
@@ -21,5 +21,5 @@ Ce didacticiel est basé sur l'[application GetStartedWithMobileServices][applic
 6.  Répétez les étapes 3 et 4 pour vérifier que l'exemple se comporte de la même manière.
 
   [application GetStartedWithMobileServices]: http://go.microsoft.com/fwlink/p/?LinkID=510826
-  []: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png
+  [0]: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png
   [1]: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup-wp8.png

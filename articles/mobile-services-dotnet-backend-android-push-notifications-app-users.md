@@ -57,6 +57,3 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
   [Mise à jour de l'application pour se connecter avant l'inscription]: #update-app
   [Test de l'application]: #test
   [Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-  [mobile-services-dotnet-backend-push-notifications-app-users]: ../includes/mobile-services-dotnet-backend-push-notifications-app-users.md
-  [mobile-services-android-push-notifications-app-users]: ../includes/mobile-services-android-push-notifications-app-users.md
-  [mobile-services-android-test-push-users]: ../includes/mobile-services-android-test-push-users.md

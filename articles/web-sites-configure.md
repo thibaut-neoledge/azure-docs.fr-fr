@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-configure-websites" urlDisplayName="How to configure" pageTitle="How to configure websites - Azure service management" metaKeywords="Azure websites, configuring Azure websites, Azure SQL database, Azure MySQL" description="Learn how to configure websites in Azure, including how to configure a website to use a SQL Database or MySQL database." metaCanonical="" services="web-sites" documentationCenter="" title="How to Configure Websites" authors="mwasson" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson" />
 
 # Configuration des sites web
 
@@ -8,12 +8,12 @@ Dans le portail de gestion Azure, vous pouvez changer les options de configurati
 
 ## Sommaire
 
--   [changement des options de configuration d'un site web][]
--   [configuration d'un site web pour utiliser une base de données SQL][]
--   [configuration d'un site web pour utiliser une base de données MySQL][]
--   [configuration d'un nom de domaine personnalisé][]
--   [configuration d'un site web pour utiliser SSL][]
--   [Étapes suivantes][]
+-   [changement des options de configuration d'un site web][changement des options de configuration d'un site web]
+-   [configuration d'un site web pour utiliser une base de données SQL][configuration d'un site web pour utiliser une base de données SQL]
+-   [configuration d'un site web pour utiliser une base de données MySQL][configuration d'un site web pour utiliser une base de données MySQL]
+-   [configuration d'un nom de domaine personnalisé][configuration d'un nom de domaine personnalisé]
+-   [configuration d'un site web pour utiliser SSL][configuration d'un site web pour utiliser SSL]
+-   [Étapes suivantes][Étapes suivantes]
 
 ## <a name="howtochangeconfig"></a> changement des options de configuration d'un site web
 
@@ -21,7 +21,7 @@ Dans le portail de gestion Azure, vous pouvez changer les options de configurati
 
 Pour changer les options de configuration d'un site web :
 
-1.  Dans le [portail de gestion][], ouvrez les pages de gestion du site web.
+1.  Dans le [portail de gestion][portail de gestion], ouvrez les pages de gestion du site web.
 2.  Cliquez sur l’onglet **Configurer**.
 
 L'onglet **Configurer** comporte les sections suivantes :
@@ -38,11 +38,11 @@ L'onglet **Configurer** comporte les sections suivantes :
 
 Pour des raisons techniques, l'activation de Java pour votre site web désactive les options .NET, PHP et Python.
 
-**Mode Pipeline géré**. Définit le [mode pipeline][] d'IIS. Laissez la valeur par défaut, Intégré, sauf si vous avez un site web qui demande une version plus ancienne d'IIS.
+**Mode Pipeline géré**. Définit le [mode pipeline][mode pipeline] d'IIS. Laissez la valeur par défaut, Intégré, sauf si vous avez un site web qui demande une version plus ancienne d'IIS.
 
 **Plateforme**. Indique si votre application s'exécute dans un environnement 32 bits ou 64 bits. L'environnement 64 bits demande le mode De base ou Standard. Les modes Gratuit et Partagé s'exécutent uniquement dans un environnement 32 bits.
 
-**WebSockets**. Affectez la valeur **ACTIF** pour activer le protocole WebSocket. Par exemple, si votre site web utilise [ASP.NET SignalR][] ou [socket.io][].
+**WebSockets**. Affectez la valeur **ACTIF** pour activer le protocole WebSocket. Par exemple, si votre site web utilise [ASP.NET SignalR][ASP.NET SignalR] ou [socket.io][socket.io].
 
 **Toujours actif**. Par défaut, les sites web sont déchargés s'ils sont inactifs pendant un certain temps. Cela permet au système d'économiser des ressources. En mode De base ou Standard, vous pouvez activer l'option **Toujours actif** pour garder le site chargé en permanence. Si votre site exécute des travaux web en continu, activez l'option **Toujours actif**. Sinon, les travaux web risquent de ne pas s'exécuter de façon fiable.
 
@@ -52,17 +52,17 @@ Remarque : si vous avez activé le déploiement à partir du contrôle de code 
 
 ### Certificats
 
-En mode De base ou Standard, vous pouvez télécharger des certificats SSL pour un domaine personnalisé. Pour plus d'informations, consultez [Activation du protocole HTTPS pour un site web Azure][].
+En mode De base ou Standard, vous pouvez télécharger des certificats SSL pour un domaine personnalisé. Pour plus d'informations, consultez [Activation du protocole HTTPS pour un site web Azure][Activation du protocole HTTPS pour un site web Azure].
 
 Vos certificats téléchargés sont répertoriés ici. Après avoir téléchargé un certificat, vous pouvez l'attribuer à n'importe quel site web dans votre abonnement et votre région. Les certificats avec caractères génériques peuvent être utilisés pour n'importe quel site du domaine pour lequel ils sont valides. Un certificat peut être supprimé uniquement s'il n'existe aucune liaison active pour ce dernier.
 
 ### Noms de domaine
 
-Affichez ou ajoutez des noms de domaine supplémentaires pour le site web. Pour plus d'informations, consultez [Configuration d'un nom de domaine personnalisé pour un site web Azure][].
+Affichez ou ajoutez des noms de domaine supplémentaires pour le site web. Pour plus d'informations, consultez [Configuration d'un nom de domaine personnalisé pour un site web Azure][Configuration d'un nom de domaine personnalisé pour un site web Azure].
 
 ### Liaisons SSL
 
-Si vous avez téléchargé des certificats SSL, vous pouvez les lier à des noms de domaine personnalisés. Pour plus d'informations, consultez [Activation du protocole HTTPS pour un site web Azure][].
+Si vous avez téléchargé des certificats SSL, vous pouvez les lier à des noms de domaine personnalisés. Pour plus d'informations, consultez [Activation du protocole HTTPS pour un site web Azure][Activation du protocole HTTPS pour un site web Azure].
 
 ### Déploiements
 
@@ -78,7 +78,7 @@ Pour configurer le déploiement à partir du contrôle de code source, consultez
 
 Options liées à l'écriture des journaux de diagnostic à partir d'une application web qui prend en charge la journalisation :
 
--   **Système de fichiers**. Écrit les journaux dans le système de fichiers du site web. La journalisation du système de fichiers a une durée de 12 heures. Vous pouvez accéder aux journaux à partir du partage FTP du site web. (Consultez [Informations d'identification FTP][]).
+-   **Système de fichiers**. Écrit les journaux dans le système de fichiers du site web. La journalisation du système de fichiers a une durée de 12 heures. Vous pouvez accéder aux journaux à partir du partage FTP du site web. (Consultez [Informations d'identification FTP][Informations d'identification FTP]).
 -   **Stockage de tables**. Écrit les journaux dans le stockage de tables Azure. Il n'y a aucune limite de temps. En outre, la journalisation reste activée jusqu'à ce que vous la désactiviez.
 -   **Stockage d'objets BLOB**. Écrit les journaux dans le stockage d'objets Blob Azure. Il n'y a aucune limite de temps. En outre, la journalisation reste activée jusqu'à ce que vous la désactiviez.
 
@@ -94,13 +94,13 @@ Options de collecte d'informations de diagnostic pour votre site web.
 
 **Journalisation du serveur Web**. Active la journalisation du serveur web. Les journaux sont enregistrés au format de fichier journal étendu W3C. Vous pouvez les enregistrer dans Azure Storage ou dans le système de fichiers du site web.
 
--   Si vous choisissez **Système de fichiers**, les journaux sont enregistrés sur le site FTP indiqué sous « Journaux de diagnostic FTP » dans la page Tableau de bord. (Consultez [Informations d'identification FTP][]).
+-   Si vous choisissez **Système de fichiers**, les journaux sont enregistrés sur le site FTP indiqué sous « Journaux de diagnostic FTP » dans la page Tableau de bord. (Consultez [Informations d'identification FTP][Informations d'identification FTP]).
 -   Si vous choisissez **Système de fichiers**, utilisez la zone **Quota** pour définir l'espace disque maximal alloué aux fichiers journaux. L'espace est compris entre 20 Mo et 100 Mo. La valeur par défaut est de 35 Mo. Lorsque le quota est atteint, les fichiers les plus anciens sont remplacés par les plus récents. Si vous devez conserver plus de 100 Mo de données d'historique, utilisez Azure Storage, car sa capacité de stockage est bien supérieure.
 -   Éventuellement, cliquez sur **Définir la rétention** pour supprimer automatiquement les fichiers après un certain délai. Par défaut, les journaux ne sont jamais supprimés.
 
-**Messages d'erreur détaillés**. Si cette option est activée, les messages d'erreur détaillés sont enregistrés en tant que fichiers .htm. Pour afficher les fichiers, accédez au site FTP indiqué sous « Journaux de diagnostic FTP » dans la page Tableau de bord. Les fichiers sont enregistrés sous /LogFiles/DetailedErrors sur le site FTP. (Consultez [Informations d'identification FTP][]).
+**Messages d'erreur détaillés**. Si cette option est activée, les messages d'erreur détaillés sont enregistrés en tant que fichiers .htm. Pour afficher les fichiers, accédez au site FTP indiqué sous « Journaux de diagnostic FTP » dans la page Tableau de bord. Les fichiers sont enregistrés sous /LogFiles/DetailedErrors sur le site FTP. (Consultez [Informations d'identification FTP][Informations d'identification FTP]).
 
-**Suivi des demandes ayant échoué**. Si cette option est activée, les requêtes ayant échoué sont journalisées dans des fichiers XML. Pour afficher les fichiers, accédez au site FTP indiqué sous « Journaux de diagnostic FTP » dans la page Tableau de bord. (Consultez [Informations d'identification FTP][]). Les fichiers sont enregistrés sous /LogFiles/W3SVC*xxx*, où xxx est un identificateur unique. Ce dossier contient un fichier XSL et un ou plusieurs fichiers XML. Veillez à télécharger le fichier XSL, car il fournit des fonctionnalités de mise en forme et de filtrage du contenu des fichiers XML.
+**Suivi des demandes ayant échoué**. Si cette option est activée, les requêtes ayant échoué sont journalisées dans des fichiers XML. Pour afficher les fichiers, accédez au site FTP indiqué sous « Journaux de diagnostic FTP » dans la page Tableau de bord. (Consultez [Informations d'identification FTP][Informations d'identification FTP]). Les fichiers sont enregistrés sous /LogFiles/W3SVC*xxx*, où xxx est un identificateur unique. Ce dossier contient un fichier XSL et un ou plusieurs fichiers XML. Veillez à télécharger le fichier XSL, car il fournit des fonctionnalités de mise en forme et de filtrage du contenu des fichiers XML.
 
 **Débogage distant**. Active le débogage à distance. Quand cette option est activée, vous pouvez utiliser le débogueur distant de Visual Studio pour vous connecter directement à votre site web Azure. Le débogage à distance reste activé pendant 48 heures.
 
@@ -110,13 +110,13 @@ Options de collecte d'informations de diagnostic pour votre site web.
 
 En mode De base ou Standard, vous pouvez tester la disponibilité des points de terminaison HTTP ou HTTPS, à partir de trois emplacements géo-distribués au maximum. Un test de surveillance échoue si le code de réponse HTTP est une erreur (4xx ou 5xx) ou si la réponse prend plus de 30 secondes. Un point de terminaison est considéré comme disponible s'il passe avec succès les différents tests de surveillance à partir de tous les emplacements spécifiés.
 
-Pour plus d'informations, consultez la page [surveillance de l'état d'un point de terminaison web][].
+Pour plus d'informations, consultez la page [surveillance de l'état d'un point de terminaison web][surveillance de l'état d'un point de terminaison web].
 
 ### Analyse développeur
 
 Choisissez **Module complémentaire** pour sélectionner un module complémentaire d'analyse dans une liste, ou pour accéder au Magasin Azure et en choisir un. Sélectionnez **Personnalisé** pour choisir un fournisseur d'analyses dans une liste ; New Relic, par exemple. Si vous utilisez un fournisseur personnalisé, vous devez entrer la clé de licence dans la zone **Clé de fournisseur**.
 
-Pour plus d'informations sur l'utilisation de New Relic avec Sites Web Azure, consultez [Gestion des performances de l'application New Relic sur des sites web Azure][].
+Pour plus d'informations sur l'utilisation de New Relic avec Sites Web Azure, consultez [Gestion des performances de l'application New Relic sur des sites web Azure][Gestion des performances de l'application New Relic sur des sites web Azure].
 
 ### Paramètres de l'application
 
@@ -194,17 +194,17 @@ Une autre solution consiste à créer le site web avec l'option **Création pers
 
 ## <a name="howtodomain"></a> Configuration d'un nom de domaine personnalisé
 
-Pour plus d'informations sur la configuration de votre site web afin d'utiliser un nom de domaine personnalisé, consultez [Configuration d'un nom de domaine personnalisé pour un site web Azure][].
+Pour plus d'informations sur la configuration de votre site web afin d'utiliser un nom de domaine personnalisé, consultez [Configuration d'un nom de domaine personnalisé pour un site web Azure][Configuration d'un nom de domaine personnalisé pour un site web Azure].
 
 ## <a name="howtoconfigSSL"></a> configuration d'un site web pour utiliser SSL
 
-Pour plus d'informations sur la configuration du protocole SSL pour un domaine personnalisé sur Azure, consultez l'article [Activation du protocole HTTPS pour un site Web Azure][].
+Pour plus d'informations sur la configuration du protocole SSL pour un domaine personnalisé sur Azure, consultez l'article [Activation du protocole HTTPS pour un site Web Azure][Activation du protocole HTTPS pour un site Web Azure].
 
 ## <a name="next"></a>Étapes suivantes
 
--   [Mise à l'échelle de sites Web][]
+-   [Mise à l'échelle de sites Web][Mise à l'échelle de sites Web]
 
--   [Surveillance de sites Web][]
+-   [Surveillance de sites Web][Surveillance de sites Web]
 
   [changement des options de configuration d'un site web]: #howtochangeconfig
   [configuration d'un site web pour utiliser une base de données SQL]: #howtoconfigSQL

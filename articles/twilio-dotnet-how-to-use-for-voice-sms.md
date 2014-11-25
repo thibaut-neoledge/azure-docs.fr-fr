@@ -1,6 +1,6 @@
 <properties linkid="develop-net-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (.NET) - Azure" metaKeywords="Azure Twilio, Azure phone calls, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." metaCanonical="" services="" documentationCenter=".NET" title="How to use Twilio for voice and SMS capabilities from Azure" authors="MicrosoftHelp@twilio.com" solutions="" manager="" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com" />
 
 # Utilisation de Twilio pour les fonctionnalités vocales et de SMS depuis Azure
 
@@ -268,7 +268,7 @@ Lorsque votre application démarre un appel à l'API Twilio, par exemple via la 
 
 <div class="dev-callout">
 <b>Remarque</b>
-<p>TwiML est con&ccedil;u pour &ecirc;tre utilis&eacute; par des services Web, vous pouvez donc afficher TwiML dans votre navigateur. Par exemple, cliquez sur [http://twimlets.com/message](twimlet_message_url) pour afficher un &eacute;l&eacute;ment &lt;Response&gt;&nbsp;; autre exemple, cliquez sur [http://twimlets.com/message?Message%5B0%5D=Hello%20World](twimlet_message_url_hello_world) pour afficher un &eacute;l&eacute;ment &lt;Response&gt; contenant un &eacute;l&eacute;ment &lt;Say&gt;.</p>
+<p>TwiML est con&ccedil;u pour &ecirc;tre utilis&eacute; par des services Web, vous pouvez donc afficher TwiML dans votre navigateur. Par exemple, cliquez sur [http://twimlets.com/message](http://twimlets.com/message) pour afficher un &eacute;l&eacute;ment &lt;Response&gt;&nbsp;; autre exemple, cliquez sur [http://twimlets.com/message?Message%5B0%5D=Hello%20World](http://twimlets.com/message?Message%5B0%5D=Hello%20World) pour afficher un &eacute;l&eacute;ment &lt;Response&gt; contenant un &eacute;l&eacute;ment &lt;Say&gt;.</p>
 </div>
 
 Au lieu de compter sur l'URL Twilio, vous pouvez créer votre propre site d'URL qui renvoie des réponses HTTP. Vous pouvez créer le site dans tout langage qui renvoie des réponses HTTP. Cette rubrique part du principe que vous hébergerez l'URL à partir d'un gestionnaire générique ASP.NET.
@@ -359,7 +359,7 @@ Une fois que vous avez défini une façon de fournir des réponses TwiML, vous p
 
 Pour plus d'informations sur l'utilisation de Twilio sur Azure avec ASP.NET, consultez la page [Appel téléphonique à l'aide de Twilio dans un rôle Web sur Azure][Appel téléphonique à l'aide de Twilio dans un rôle Web sur Azure].
 
-[WACOM.INCLUDE [twilio\_additional\_services\_and\_next\_steps][twilio\_additional\_services\_and\_next\_steps]]
+[WACOM.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
 
   [Étapes suivantes]: #NextSteps
   [Présentation de Twilio]: #WhatIs
@@ -383,7 +383,7 @@ Pour plus d'informations sur l'utilisation de Twilio sur Azure avec ASP.NET, con
   [page du compte Twilio]: https://www.twilio.com/user/account
   [Gestion des numéros]: https://www.twilio.com/user/account/phone-numbers/verified#
   [Aide sur les numéros de téléphone Twilio]: https://www.twilio.com/help/faq/phone-numbers
-  [Création d'un projet Azure avec Visual Studio]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx
+  [Création d'un projet Azure avec Visual Studio]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee405487.aspx
   [installées à l'aide de l'extension du gestionnaire de packages NuGet]: http://www.twilio.com/docs/csharp/install
   [GitHub]: https://github.com/twilio/twilio-csharp
   []: http://nuget.org/
@@ -391,4 +391,3 @@ Pour plus d'informations sur l'utilisation de Twilio sur Azure avec ASP.NET, con
   [3]: http://twimlets.com/message
   [4]: https://www.twilio.com/docs/api/twiml
   [Appel téléphonique à l'aide de Twilio dans un rôle Web sur Azure]: ../partner-twilio-cloud-services-dotnet-phone-call-web-role/
-  [twilio\_additional\_services\_and\_next\_steps]: ../includes/twilio_additional_services_and_next_steps.md

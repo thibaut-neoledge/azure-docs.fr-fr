@@ -50,7 +50,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 
 ## Ajout de notifications Push à votre application
 
-1.  Dans Xcode, ouvrez le fichier QSAppDelegate.h puis ajoutez la propriété suivante sous la propriété \***window** :
+1.  Dans Xcode, ouvrez le fichier QSAppDelegate.h puis ajoutez la propriété suivante sous la propriété ***window** :
 
         @property (strong, nonatomic) NSString *deviceToken;
 
@@ -120,9 +120,9 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
             @"deviceToken" : delegate.deviceToken
         };
 
-    This adds a reference to the  **QSAppDelegate** to obtain the device token and then modifies the request payload to include that device token.
+   Ceci ajoute une référence au **QSAppDelegate** pour obtenir le jeton d'appareil, puis modifie la charge de la demande pour intégrer ce jeton d'appareil.
 
-    > [WACOM.NOTE] Vous devez ajouter ce code avant d'appeler la méthode <strong>addItem</strong>.
+   > [WACOM.NOTE] Vous devez ajouter ce code avant d'appeler la méthode <strong>addItem</strong>.
 
 L'application est mise à jour et prend en charge les notifications Push.
 
@@ -194,8 +194,6 @@ Dans cet exemple simple, un utilisateur reçoit une notification Push avec les d
   [Insertion de données pour recevoir des notifications]: #test
   [Xcode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started-ios
-  [Activation des notifications Push Apple]: ../includes/enable-apple-push-notifications.md
-  [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
   [0]: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png
   [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
@@ -204,3 +202,4 @@ Dans cet exemple simple, un utilisateur reçoit une notification Push avec les d
   [4]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
   [5]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png
   [Notifications Push pour les utilisateurs d'application]: /fr-fr/develop/mobile/tutorials/push-notifications-to-users-ios
+  [Kit de développement logiciel (SDK) Mobile Services iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533

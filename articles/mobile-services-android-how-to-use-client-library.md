@@ -806,7 +806,6 @@ La référence Javadocs pour l'API cliente Android se trouve [][]<http://dl.wind
   [Personnalisation des en-têtes de requête]: #headers
   [Personnalisation de la sérialisation]: #serialization
   [Étapes suivantes]: #next-steps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [Créer une table]: http://go.microsoft.com/fwlink/p/?LinkId=298592
   [Schéma dynamique]: http://go.microsoft.com/fwlink/p/?LinkId=296271
   [MobileServiceClient]: http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html

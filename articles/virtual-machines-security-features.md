@@ -1,6 +1,6 @@
-<properties title="Offres de s&eacute;curit&eacute; pour les machines virtuelles Azure" pageTitle="Offres de s&eacute;curit&eacute; pour les machines virtuelles Azure" description="Aper&ccedil;u rapide des principales fonctions de s&eacute;curit&eacute; des machines virtuelles&nbsp;Azure - Liens vers des informations d&eacute;taill&eacute;es" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
+<properties title="Security offerings for Azure Virtual Machines" pageTitle="Security offerings for Azure Virtual Machines" description="Quick overview of key security features for Azure VMs and links to details" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="7/29/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # Offres de sécurité pour les machines virtuelles Azure
 
@@ -22,12 +22,6 @@ Azure propose plusieurs options pour les solutions antivirus/anti-programmes mal
 
 Les listes de contrôle d'accès réseau vous permettent d'accepter ou de refuser le trafic entrant vers un point de terminaison de machine virtuelle. Cette capacité de filtrage des paquets offre une couche de sécurité supplémentaire. Pour plus d'informations sur ce sujet et des liens vers des instructions, consultez la page [À propos des listes de contrôle d'accès (ACL) réseau][À propos des listes de contrôle d'accès (ACL) réseau].
 
-## Ressources supplémentaires
-
-[Ressources][Ressources] du Centre de gestion de la confidentialité Microsoft Azure
-
   [Installation et configuration de Symantec Endpoint Protection sur une machine virtuelle Azure]: http://go.microsoft.com/fwlink/p/?LinkId=404207
   [Installation et configuration de Trend Micro Deep Security comme service sur une machine virtuelle Azure]: http://go.microsoft.com/fwlink/p/?LinkId=404206
   [Déploiement de solutions anti-programmes malveillants sur des machines virtuelles Azure]: http://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/
-  [À propos des listes de contrôle d'accès (ACL) réseau]: http://go.microsoft.com/fwlink/?LinkId=506655
-  [Ressources]: http://azure.microsoft.com/fr-fr/support/trust-center/resources/

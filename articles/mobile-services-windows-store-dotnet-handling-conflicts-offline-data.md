@@ -194,7 +194,7 @@ Cette procédure interrompt l'opération Push, mais conserve toutes les modifica
 
 Lorsqu'une opération Push est annulée, `PushAsync` génère une `MobileServicePushFailedException`, et la propriété d'exception `PushResult.Status` a la valeur `MobileServicePushStatus.CancelledByOperation`.
 
-<!-- Anchors. --> <!-- Images --> <!-- URLs -->
+ <!-- Images --> <!-- URLs -->
 
   [Prise en main des données hors connexion]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
   [Téléchargement d'un projet d'application Windows Store]: #download-app

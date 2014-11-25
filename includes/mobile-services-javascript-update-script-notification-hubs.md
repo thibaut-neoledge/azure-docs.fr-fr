@@ -2,7 +2,7 @@ Enfin, vous devez mettre à jour le script inscrit dans l'opération d'insertion
 
 1.  Cliquez sur **TodoItem**, puis sur **Script** et sélectionnez **Insérer**.
 
-    ![][]
+    ![][0]
 
 2.  Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
 
@@ -31,4 +31,4 @@ Enfin, vous devez mettre à jour le script inscrit dans l'opération d'insertion
 
     À l'issue de l'insertion, ce script d'insertion envoie une notification Push (avec le texte de l'élément inséré) à tous les enregistrements d'application Windows Store.
 
-  []: ./media/mobile-services-javascript-update-script-notification-hubs/mobile-insert-script-push2.png
+  [0]: ./media/mobile-services-javascript-update-script-notification-hubs/mobile-insert-script-push2.png

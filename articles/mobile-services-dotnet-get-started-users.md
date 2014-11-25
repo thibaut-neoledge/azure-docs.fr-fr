@@ -3,7 +3,7 @@
 Prise en main de l'authentification dans Mobile Services
 ========================================================
 
-[Windows Store C\#](/en-us/develop/mobile/tutorials/get-started-with-users-dotnet "Windows Store C#")[Windows Store JavaScript](/en-us/develop/mobile/tutorials/get-started-with-users-js "Windows Store JavaScript")[Windows Phone](/en-us/develop/mobile/tutorials/get-started-with-users-wp8 "Windows Phone")[iOS](/en-us/develop/mobile/tutorials/get-started-with-users-ios "iOS")[Android](/en-us/develop/mobile/tutorials/get-started-with-users-android "Android")[HTML](/en-us/develop/mobile/tutorials/get-started-with-users-html "HTML")[Xamarin.iOS](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android "Xamarin.Android")
+[Windows Store C\#](/fr-fr/develop/mobile/tutorials/get-started-with-users-dotnet "Windows Store C#")[Windows Store JavaScript](/fr-fr/develop/mobile/tutorials/get-started-with-users-js "Windows Store JavaScript")[Windows Phone](/fr-fr/develop/mobile/tutorials/get-started-with-users-wp8 "Windows Phone")[iOS](/fr-fr/develop/mobile/tutorials/get-started-with-users-ios "iOS")[Android](/fr-fr/develop/mobile/tutorials/get-started-with-users-android "Android")[HTML](/fr-fr/develop/mobile/tutorials/get-started-with-users-html "HTML")[Xamarin.iOS](/fr-fr/develop/mobile/tutorials/get-started-with-users-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/fr-fr/develop/mobile/tutorials/get-started-with-users-xamarin-android "Xamarin.Android")
 
 Cette rubrique montre comment authentifier les utilisateurs dans Azure Mobile Services à partir de votre application. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
 
@@ -17,11 +17,11 @@ Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'
 2.  [Restriction des autorisations de table pour les utilisateurs authentifiés](#permissions)
 3.  [Ajout de l'authentification à l'application](#add-authentication)
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez aussi d'abord suivre le didacticiel [Prise en main de Mobile Services](/en-us/develop/mobile/tutorials/get-started).
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez aussi d'abord suivre le didacticiel [Prise en main de Mobile Services](/fr-fr/develop/mobile/tutorials/get-started).
 
 **Remarque**
 
-Ce didacticiel présente la méthode de base fournie par Mobile Services pour authentifier les utilisateurs à l'aide de différents fournisseurs d'identité. Cette méthode est facilement configurable et prend en charge plusieurs fournisseurs. Elle requiert toutefois que les utilisateurs se connectent à chaque fois que l'application démarre. Pour utiliser plutôt Live Connect afin de fournir une authentification unique dans votre application Windows Store, consultez la rubrique [Authentification unique pour les applications Windows Store à l'aide de Live Connect](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet).
+Ce didacticiel présente la méthode de base fournie par Mobile Services pour authentifier les utilisateurs à l'aide de différents fournisseurs d'identité. Cette méthode est facilement configurable et prend en charge plusieurs fournisseurs. Elle requiert toutefois que les utilisateurs se connectent à chaque fois que l'application démarre. Pour utiliser plutôt Live Connect afin de fournir une authentification unique dans votre application Windows Store, consultez la rubrique [Authentification unique pour les applications Windows Store à l'aide de Live Connect](/fr-fr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet).
 
 Inscription de votre applicationInscription de votre application pour l'authentification et configuration de Mobile Services
 ----------------------------------------------------------------------------------------------------------------------------
@@ -40,10 +40,10 @@ Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre applicatio
 
 3.  Choisissez un fournisseur d'identité pris en charge dans la liste ci-dessous et suivez la procédure pour inscrire votre application auprès de ce fournisseur :
 
-	-   [Compte Microsoft](/en-us/develop/mobile/how-to-guides/register-for-microsoft-authentication/)
-	-   [Connexion Facebook](/en-us/develop/mobile/how-to-guides/register-for-facebook-authentication/)
-	-   [Connexion Twitter](/en-us/develop/mobile/how-to-guides/register-for-twitter-authentication/)
-	-   [Connexion Google](/en-us/develop/mobile/how-to-guides/register-for-google-authentication/)
+	-   [Compte Microsoft](/fr-fr/develop/mobile/how-to-guides/register-for-microsoft-authentication/)
+	-   [Connexion Facebook](/fr-fr/develop/mobile/how-to-guides/register-for-facebook-authentication/)
+	-   [Connexion Twitter](/fr-fr/develop/mobile/how-to-guides/register-for-twitter-authentication/)
+	-   [Connexion Google](/fr-fr/develop/mobile/how-to-guides/register-for-google-authentication/)
 	-   [Azure Active Directory](/fr-fr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/)
 
     	N'oubliez pas de noter les valeurs de l'identité du client et de la clé secrète cliente générées par le fournisseur.
@@ -56,7 +56,7 @@ Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre applicatio
 
 	![][13]
 
-2.  (Facultatif) Suivez la procédure décrite dans la rubrique [Inscription du package de votre application Windows Store pour l'authentification Microsoft](/en-us/develop/mobile/how-to-guides/register-windows-store-app-package).
+2.  (Facultatif) Suivez la procédure décrite dans la rubrique [Inscription du package de votre application Windows Store pour l'authentification Microsoft](/fr-fr/develop/mobile/how-to-guides/register-windows-store-app-package).
 
     **Remarque**
 
@@ -75,7 +75,7 @@ Restrictions des autorisationsRestrictions des autorisations pour les utilisateu
 
 	![][15]
 
-3.  Dans Visual Studio 2012 Express pour Windows 8, ouvrez le projet que vous avez créé avec le didacticiel [Prise en main de Mobile Services](/en-us/develop/mobile/tutorials/get-started).
+3.  Dans Visual Studio 2012 Express pour Windows 8, ouvrez le projet que vous avez créé avec le didacticiel [Prise en main de Mobile Services](/fr-fr/develop/mobile/tutorials/get-started).
 
 4.  Appuyez sur la touche F5 pour exécuter cette application basée sur le démarrage rapide ; vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est générée après le démarrage de l'application.
 
@@ -137,15 +137,15 @@ Ajout de l'authentificationAjout de l'authentification à l'application
 Étapes suivantes
 ----------------
 
-Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet), vous allez utiliser la valeur de l'ID utilisateur fournie par Mobile Services en fonction de l'utilisateur authentifié et l'utiliser pour filtrer les données renvoyées par Mobile Services. Obtenez plus d'informations sur Mobile Services avec .NET dans [le guide de fonctionnement Mobile Services .NET](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)
+Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts](/fr-fr/develop/mobile/tutorials/authorize-users-in-scripts-dotnet), vous allez utiliser la valeur de l'ID utilisateur fournie par Mobile Services en fonction de l'utilisateur authentifié et l'utiliser pour filtrer les données renvoyées par Mobile Services. Obtenez plus d'informations sur Mobile Services avec .NET dans [le guide de fonctionnement Mobile Services .NET](/fr-fr/develop/mobile/how-to-guides/work-with-net-client-library)
 
-<!-- Anchors. -->
+
 [Inscription de votre application pour l'authentification et configuration de Mobile Services]: #register
 [Restriction des autorisations de table pour les utilisateurs authentifiés]: #permissions
 [Ajout de l'authentification à l'application]: #add-authentication
 [Next Steps]:#next-steps
 
-<!-- Images. -->
+
 
 
 
@@ -164,18 +164,18 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts](/e
 [15]: ./media/mobile-services-dotnet-get-started-users/mobile-portal-change-table-perms.png
 
 
-<!-- URLs. -->
+
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Single sign-on for Windows Store apps by using Live Connect]: ./mobile-services-single-sign-on-win8-dotnet.md
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
-[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-users-js
+[Get started with Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started
+[Get started with data]: /fr-fr/develop/mobile/tutorials/get-started-with-data-dotnet
+[Get started with authentication]: /fr-fr/develop/mobile/tutorials/get-started-with-users-dotnet
+[Get started with push notifications]: /fr-fr/develop/mobile/tutorials/get-started-with-push-dotnet
+[Authorize users with scripts]: /fr-fr/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
+[JavaScript and HTML]: /fr-fr/develop/mobile/tutorials/get-started-with-users-js
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
-[Register your Windows Store app package for Microsoft authentication]: /en-us/develop/mobile/how-to-guides/register-windows-store-app-package
+[Mobile Services .NET How-to Conceptual Reference]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library
+[Register your Windows Store app package for Microsoft authentication]: /fr-fr/develop/mobile/how-to-guides/register-windows-store-app-package

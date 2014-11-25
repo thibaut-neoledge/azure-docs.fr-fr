@@ -14,7 +14,7 @@ Les applications Azure sont des applications à plusieurs instances largement di
 informations plus complètes sur les pratiques mentionnées.
 
 **Remarque** : cette rubrique suppose que la conception de votre
-application est en cours ou bien que vous avez déployé votre application Azure, mais qu'un problème s'est produit. Elle ne présente pas le déploiement des applications dans Azure. Pour plus d'informations sur le développement et le déploiement de votre application Azure, consultez la page [https://www.windowsazure.com/en-us/develop/overview/][1].
+application est en cours ou bien que vous avez déployé votre application Azure, mais qu'un problème s'est produit. Elle ne présente pas le déploiement des applications dans Azure. Pour plus d'informations sur le développement et le déploiement de votre application Azure, consultez la page [https://www.windowsazure.com/fr-fr/develop/overview/][1].
 
 Cette rubrique décrit tout d'abord certaines des meilleures pratiques pour vous aider à concevoir votre application afin d'être en mesure de résoudre simplement les problèmes éventuels. (Si vous ne concevez pas votre application de façon à pouvoir suivre le flux du code, il peut
 être très difficile de repérer les problèmes lorsqu'ils surviennent.)
@@ -238,7 +238,7 @@ Les sites Web Azure permettent la configuration des options suivantes :
 * messages d'erreur détaillés ;
 * suivi des demandes ayant échoué.
 
-Pour plus d'informations, consultez la rubrique : [Résolution des problèmes d'un site Web Azure](/en-us/develop/net/best-practices/troubleshooting-web-sites/).
+Pour plus d'informations, consultez la rubrique : [Résolution des problèmes d'un site Web Azure](/fr-fr/develop/net/best-practices/troubleshooting-web-sites/).
 
 Lorsque les journaux de serveur Web sont activés pour les sites Web Azure, le site Web enregistre toutes les transactions HTTP dans un fichier journal selon le [format de journal étendu du W3C][26]. Vous pouvez ensuite utiliser [Log Parser][27] pour lancer des requêtes sur le fichier journal. Vous trouverez des exemples de requêtes sur [Log Parser Plus][28] et [Exemples d'utilisation de Log Parser sur TechNet][29]. Si vous souhaitez générer le type de sortie CHART sur un ordinateur équipé d'Office 2007/2010, installez les [Composants Web d'Office 2003][30] selon les instructions de [Log Parser Plus][31].
 
@@ -520,12 +520,12 @@ Pour plus d'informations sur les erreurs liées aux quotas, consultez la page [P
 
 
 
-[1]: https://www.windowsazure.com/en-us/develop/overview/
+[1]: https://www.windowsazure.com/fr-fr/develop/overview/
 [2]: http://msdn.microsoft.com/fr-fr/library/hh680918%28v=pandp.50%29.aspx
 [3]: http://nuget.org/packages/Microsoft.Experience.CloudFx
 [4]: http://msdn.microsoft.com/fr-fr/magazine/ff714589.aspx
 [5]: http://www.microsoft.com/download/en/details.aspx?id=11324
-[6]: http://www.microsoft.com/en-us/server-cloud/system-center/operations-manager.aspx
+[6]: http://www.microsoft.com/fr-fr/server-cloud/system-center/operations-manager.aspx
 [7]: http://wapmmc.codeplex.com/
 [8]: http://cerebrata.com/Products/AzureDiagnosticsManager/
 [9]: http://cerebrata.com/Products/CloudStorageStudio/
@@ -536,7 +536,7 @@ Pour plus d'informations sur les erreurs liées aux quotas, consultez la page [P
 [14]: http://pingdom.com/
 [15]: http://www.alertbot.com/products/website-monitoring/default.aspx
 [16]: http://www.apicasystem.com/integration-partners/
-[17]: http://www.microsoft.com/en-us/server-cloud/system-center/avicode.aspx
+[17]: http://www.microsoft.com/fr-fr/server-cloud/system-center/avicode.aspx
 [18]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh369930.aspx
 [19]: http://azurevmassist.codeplex.com/
 [20]: https://github.com/dannycoates/node-inspector
@@ -548,11 +548,11 @@ Pour plus d'informations sur les erreurs liées aux quotas, consultez la page [P
 [26]: http://go.microsoft.com/fwlink/?LinkID=90561
 [27]: http://go.microsoft.com/fwlink/?LinkId=246619
 [28]: http://logparserplus.com/Examples
-[29]: http://technet.microsoft.com/en-us/library/ee692659.aspx
+[29]: http://technet.microsoft.com/fr-fr/library/ee692659.aspx
 [30]: http://www.microsoft.com/downloads/en/details.aspx?familyid=7287252C-402E-4F72-97A5-E0FD290D4B76&displaylang=enBlockquote
 [31]: http://logparserplus.com/article/2
 [32]: http://msdn.microsoft.com/fr-fr/library/7a50syb3%28v=vs.90%29.aspx
-[33]: http://technet.microsoft.com/en-us/edge/Video/hh867800
+[33]: http://technet.microsoft.com/fr-fr/edge/Video/hh867800
 [34]: https://www.suse.com/documentation/
 [35]: https://help.ubuntu.com/
 [36]: http://centos.org/
@@ -580,7 +580,7 @@ Pour plus d'informations sur les erreurs liées aux quotas, consultez la page [P
 [58]: http://social.technet.microsoft.com/wiki/contents/articles/1104.troubleshoot-and-optimize-queries-with-sql-azure.aspx
 [59]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2011/DBI314
 [60]: http://blogs.msdn.com/b/sqlazure/archive/2010/07/27/10043069.aspx?PageIndex=2#comments
-[61]: http://www.microsoft.com/en-us/download/details.aspx?id=10631
+[61]: http://www.microsoft.com/fr-fr/download/details.aspx?id=10631
 [62]: http://go.microsoft.com/fwlink/p/?LinkId=166622
 [63]: http://social.technet.microsoft.com/wiki/contents/articles/4235.retry-logic-for-transient-failures-in-sql-azure.aspx
 [64]: http://code.msdn.microsoft.com/windowsazure/SQL-Azure-Retry-Logic-2d0a8401

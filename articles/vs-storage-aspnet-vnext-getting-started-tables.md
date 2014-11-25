@@ -1,6 +1,6 @@
 <properties title="Prise en main d'Azure Storage" pageTitle="Prise en main d'Azure Storage" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb"></tags>
+<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
 
 > [AZURE.SELECTOR]
 >
@@ -44,5 +44,4 @@ Pour plus d'informations, consultez la page [ASP.NET vNext][ASP.NET vNext].
   [Objets blob]: /documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs/
   [Files d’attente]: /documentation/articles/vs-storage-aspnet-vnext-getting-started-queues/
   [Utilisation du stockage de tables à partir de .NET]: http://azure.microsoft.com/fr-fr/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "Utilisation du stockage de tables à partir de .NET"
-  [vs-storage-getting-started-tables-include]: ../includes/vs-storage-getting-started-tables-include.md
   [ASP.NET vNext]: http://www.asp.net/vnext

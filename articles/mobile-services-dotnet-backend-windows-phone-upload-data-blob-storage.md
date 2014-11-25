@@ -54,6 +54,4 @@ Avant de pouvoir utiliser une signature d'accès partagé en vue de télécharge
   [Téléchargement des images pour tester l'application]: #test
   [un compte Azure Storage ;]: /fr-fr/documentation/articles/storage-create-storage-account/
   [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started
-  [mobile-services-dotnet-backend-configure-blob-storage]: ../includes/mobile-services-dotnet-backend-configure-blob-storage.md
   [0]: ./media/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-  [mobile-services-windows-phone-upload-to-blob-storage]: ../includes/mobile-services-windows-phone-upload-to-blob-storage.md

@@ -337,7 +337,6 @@ consultez ces liens pour en savoir plus :
 -   Exemples Service Bus : à télécharger depuis [Exemples Azure][Exemples Azure].
 
   [Étapes suivantes]: #next_steps
-  [create-account-note]: ../includes/create-account-note.md
   [Concepts de relais]: ./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png
   [portail de gestion Azure]: http://manage.windowsazure.com
   [0]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png

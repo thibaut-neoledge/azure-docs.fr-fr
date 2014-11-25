@@ -179,7 +179,6 @@ Pour plus d'informations sur les rubriques Mobile Services et Notifications Hubs
 
     En savoir plus sur l'utilisation de Mobile Services avec .NET.
 
-  [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
   [Mise à jour de l'application pour l'inscription aux notifications]: #update-app
   [Mise à jour du serveur pour l'envoi de notifications Push]: #update-server
   [Activation des notifications push pour les tests en local]: #local-testing
@@ -192,7 +191,6 @@ Pour plus d'informations sur les rubriques Mobile Services et Notifications Hubs
   [portail de gestion Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-push-tab.png
   [Configuration d'un service Web authentifié afin d'envoyer des notifications Push pour Windows Phone]: http://msdn.microsoft.com/fr-fr/library/windowsphone/develop/ff941099(v=vs.105).aspx
-  [mobile-services-dotnet-backend-configure-local-push]: ../includes/mobile-services-dotnet-backend-configure-local-push.md
   [2]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push3-wp8.png
   [3]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push5-wp8.png
   [ShellToastNotificationReceived]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived.aspx

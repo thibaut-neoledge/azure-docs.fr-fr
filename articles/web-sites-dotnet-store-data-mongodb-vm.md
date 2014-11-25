@@ -483,7 +483,6 @@ Vous avez déployé votre application ASP.NET sur un site web Azure. Pour affich
 
 
   [MongoDB]: http://www.mongodb.org
-  [create-account-and-websites-and-vms-note]: ../includes/create-account-and-websites-and-vms-note.md
   [Création d’une machine virtuelle et installation de MongoDB]: #virtualmachine
   [Création et exécution de l'application My Task List ASP.NET sur votre ordinateur de développement]: #createapp
   [Création d'un site Web Azure]: #createwebsite

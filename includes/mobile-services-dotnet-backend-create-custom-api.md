@@ -4,7 +4,7 @@
 
 2.  Développez **Azure Mobile Services**, cliquez sur **Azure Mobile Services Custom Controller**, cliquez sur **Add**, indiquez un **nom de contrôleur** pour `CompleteAllController`, puis cliquez à nouveau sur **Add**.
 
-    ![Boîte de dialogue Web API Add Scaffold][]
+    ![Boîte de dialogue Web API Add Scaffold][Boîte de dialogue Web API Add Scaffold]
 
     Une nouvelle classe de contrôleur vide appelée **CompleteAllController** est créée.
 
@@ -55,7 +55,7 @@
 
     Dans le code ci-dessus, remplacez `todolistContext` par le nom de la DbContext pour votre modèle de données, qui doit correspondre au nom du service mobile auquel est ajouté `Context`. Remplacez également le nom de schéma mentionné dans l'instruction UPDATE par le nom de votre service mobile.
 
-    Ce code utilise la [classe de base de données][] pour accéder à la table **TodoItems** directement afin de définir l'indicateur complété pour tous les éléments. Cette méthode prend en charge une requête POST et le nombre de lignes modifiées est renvoyé au client sous la forme d'une valeur entière.
+    Ce code utilise la [classe de base de données][classe de base de données] pour accéder à la table **TodoItems** directement afin de définir l'indicateur complété pour tous les éléments. Cette méthode prend en charge une requête POST et le nombre de lignes modifiées est renvoyé au client sous la forme d'une valeur entière.
 
     > [WACOM.NOTE] Les autorisations par défaut sont définies, ce qui signifie que tous les utilisateurs de l'application peuvent appeler l'API personnalisée. Toutefois, la clé de l'application n'étant pas distribuée ou stockée de façon sécurisée, elle ne peut pas être considérée comme une information d'identification sécurisée. De ce fait, vous devez restreindre l'accès aux utilisateurs authentifiés pour les opérations qui modifient les données ou affectent le service mobile.
 

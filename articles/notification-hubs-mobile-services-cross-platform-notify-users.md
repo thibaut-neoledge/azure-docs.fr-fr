@@ -110,9 +110,9 @@ Maintenant que vous avez terminé ce didacticiel, vous trouverez des information
 -   **[Procédures Notification Hubs pour Windows Store][Procédures Notification Hubs pour Windows Store]**
     Fait notamment référence au langage d'expression de modèles.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Notification des utilisateurs avec Notification Hubs]: /fr-fr/manage/services/notification-hubs/notify-users
   [Vue d'ensemble des concentrateurs de notification]: http://go.microsoft.com/fwlink/p/?LinkId=317339

@@ -1,6 +1,6 @@
 Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour stocker les éléments dans Mobile Services et non dans la collection locale.
 
-1.  Si vous n'avez pas déjà le [Kit de développement logiciel (SDK) Mobile Services pour Android][], téléchargez-le maintenant et développez les fichiers compressés.
+1.  Si vous n'avez pas déjà le [Kit de développement logiciel (SDK) Mobile Services pour Android][Kit de développement logiciel (SDK) Mobile Services pour Android], téléchargez-le maintenant et développez les fichiers compressés.
 
 2.  Copiez le répertoire `.jar` du dossier `mobileservices` du Kit de développement logiciel (SDK) vers le dossier `libs` du projet GetStartedWithData.
 
@@ -43,7 +43,7 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 
 11. Cliquez sur l'onglet **Tableau de bord** et notez la valeur **URL du site**, puis cliquez sur **Gérer les clés** et notez la valeur de **Clé de l'application**.
 
-    ![][]
+    ![][0]
 
     Ces valeurs sont nécessaires pour accéder au service mobile à partir de votre code d'application.
 
@@ -124,7 +124,7 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 
     Cela permet d'interroger le service mobile et de renvoyer tous les éléments qui ne sont pas marqués comme Complete. Les éléments sont ajoutés à l'adaptateur pour la liaison.
 
-<!-- URLs. -->
+
 
   [Kit de développement logiciel (SDK) Mobile Services pour Android]: http://go.microsoft.com/fwlink/p/?LinkID=280126
-  []: ./media/download-android-sample-code/mobile-dashboard-tab.png
+  [0]: ./media/download-android-sample-code/mobile-dashboard-tab.png

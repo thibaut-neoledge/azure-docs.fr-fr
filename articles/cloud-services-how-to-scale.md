@@ -1,8 +1,10 @@
-<properties urlDisplayName="How to scale" pageTitle="Mise &agrave; l'&eacute;chelle d'un service cloud - Azure" metaKeywords="Azure link resource, scaling cloud service" description="D&eacute;couvrez comment mettre &agrave; l'&eacute;chelle un service cloud et ses ressources li&eacute;es dans Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="Mise &agrave; l'&eacute;chelle d'une application" authors="davidmu" solutions="" manager="timlt" editor="" />
+<properties linkid="manage-services-how-to-scale-a-cloud-service" urlDisplayName="How to scale" pageTitle="How to scale a cloud service - Azure" metaKeywords="Azure link resource, scaling cloud service" description="Learn how to scale a cloud service and linked resources in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Scale an Application" authors="davidmu" solutions="" manager="jeffreyg" editor="mattshel" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="davidmu" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="davidmu" />
 
 # Mise à l'échelle d'une application
+
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 Sur la page Scale du portail de gestion Azure, vous pouvez mettre à l'échelle manuellement votre application ou définir des paramètres afin que la mise à l'échelle soit automatique. Vous pouvez mettre à l'échelle des applications qui exécutent des rôles Web, des rôles de travail ou des machines virtuelles. Pour mettre à l'échelle une application qui exécute des instances de rôles Web ou de rôles de travail, vous ajoutez ou supprimez des instances de rôle pour absorber la charge de travail.
 

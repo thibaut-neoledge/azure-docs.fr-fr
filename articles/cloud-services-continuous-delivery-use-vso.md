@@ -1,4 +1,4 @@
-<properties urlDisplayName="Publishing with Visual Studio Online" pageTitle="Livraison continue avec Visual Studio Online dans Azure" metaKeywords="" description="D&eacute;couvrez comment configurer vos projets d'&eacute;quipe Visual Studio Online afin de les g&eacute;n&eacute;rer et de les d&eacute;ployer automatiquement vers des sites web ou des services cloud Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Livraison continue sur Azure au moyen de Visual Studio Online" authors="ghogen" solutions="" manager="douge" editor="" />
+<properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with Visual Studio Online" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online" authors="ghogen" solutions="" manager="douge" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
 
@@ -43,180 +43,215 @@ Suivez les instructions disponibles [ici][1] pour créer votre projet d'équipe 
     Si vous voulez créer un site Web, choisissez le modèle de projet Application Web ASP.NET, puis sélectionnez MVC. Consultez la page [Prise en main d'Azure et ASP.NET][Prise en main d'Azure et ASP.NET].
 
 2.  Ouvrez le menu contextuel pour la solution et sélectionnez **Ajouter la solution au contrôle de code source**.
-    ![][0]
+  
+  ![][0]
 
 3.  Acceptez ou modifiez les valeurs par défaut et choisissez le bouton **OK**. Au terme du processus, les icônes du contrôle de code source apparaissent dans l'Explorateur de solutions.
-    ![][2]
+ 
+   ![][2]
 
 4.  Ouvrez le menu contextuel de la solution et choisissez **Archiver**.
-    ![][3]
+ 
+   ![][3]
 
 5.  Dans la zone Modifications en attente de Team Explorer, tapez un commentaire pour l'archivage et choisissez le bouton **Archiver**.
-    ![][4]
+ 
+   ![][4]
 
- Remarquez les options permettant d'inclure ou d'exclure des modifications spécifiques lorsque vous archivez. Si des modifications souhaitées ont été exclues, choisissez le lien **Tout inclure**.
+Remarquez les options permettant d'inclure ou d'exclure des modifications spécifiques lorsque vous archivez. Si des modifications souhaitées ont été exclues, choisissez le lien **Tout inclure**.
+
 ![][5]
 
 ## <a name="step3"> </a><span class="short-header">Connexion du projet à Azure</span>Étape 3 : connexion du projet à Azure
 
 1.  Maintenant que vous disposez d'un projet d'équipe VSO contenant du code source, vous êtes prêt à connecter votre projet d'équipe à Azure. Dans le [portail Azure][portail Azure], sélectionnez votre service cloud ou site Web, ou créez-en un en sélectionnant l'icône + en bas à gauche et en choisissant **Service cloud** ou **Site Web**, puis **Création rapide**. Choisissez le lien **Configurer la publication avec Visual Studio Online**.
-    ![][6]
+
+   ![][6]
 
 2.  Dans l'Assistant, tapez le nom de votre compte Visual Studio Online dans la zone de texte et cliquez sur le lien **Autoriser maintenant**. Vous serez peut-être invité à vous connecter.
-    ![][7]
+ 
+   ![][7]
 
 3.  Dans la boîte de dialogue contextuelle OAuth, choisissez **Accepter** pour configurer votre projet d'équipe dans VSO.
-    ![][8]
+ 
+   ![][8]
 
 4.  Si le processus d'autorisation aboutit, une zone déroulante affiche une liste de vos projets d'équipe Visual Studio Online. Sélectionnez le nom du projet d'équipe que vous avez créé aux étapes précédentes et choisissez la coche de l'Assistant.
-    ![][9]
+  
+  ![][9]
 
 5.  Une fois votre projet lié, des instructions s'affichent pour vous permettre d'archiver les modifications dans votre projet d'équipe Visual Studio Online. Lors du prochain archivage, Visual Studio Online générera et déploiera votre projet sur Azure. Essayez maintenant en cliquant sur le lien **Archiver depuis Visual Studio**, puis sur le lien **Lancer Visual Studio** (ou le bouton **Visual Studio** équivalent en bas de l'écran du portail).
-    ![][10]
 
-## <a name="step4"> </a><span class="short-header">Déclenchement d'une régénération</span>Étape 4 : Déclenchement d'une régénération et redéploiement de votre projet
+   ![][10]
+
+## <a name="step4"> </a><span class="short-header">Déclenchement d'une régénération</span>Étape 4 : déclenchement d'une régénération d'un redéploiement de votre projet
 
 1.  Dans Visual Studio Team Explorer, cliquez sur le lien **Explorateur du contrôle de code source**.
-    ![][11]
+ 
+   ![][11]
 
 2.  Accédez à votre fichier solution et ouvrez-le.
-    ![][12]
+
+   ![][12]
 
 3.  Dans l'Explorateur de solutions, ouvrez un fichier et modifiez-le. Par exemple, modifiez le fichier \_Layout.cshtml sous le dossier Views\\Shared dans un rôle Web MVC.
-    ![][13]
+  
+  ![][13]
 
 4.  Modifiez le logo du site et appuyez sur Ctrl+S pour enregistrer le fichier.
-    ![][14]
+  
+  ![][14]
 
 5.  Dans Team Explorer, choisissez le lien **Modifications en attente**.
-    ![][15]
+  
+  ![][15]
 
 6.  Tapez un commentaire et choisissez le bouton **Archiver**.
-    ![][16]
+ 
+   ![][16]
 
 7.  Choisissez le bouton Accueil pour revenir à la page d'accueil de Team Explorer.
-    ![][17]
+ 
+   ![][17]
 
 8.  Choisissez le lien **Builds** pour afficher les builds en cours.
-    ![][18]
+  
+  ![][18]
+
     Team Explorer indique qu'une build est disponible pour archivage.
-    ![][19]
+  
+  ![][19]
 
 9.  Double-cliquez sur le nom de la build en cours pour afficher un journal détaillé lors du processus de génération.
-    ![][20]
+  
+  ![][20]
 
 10. Pendant la création de la build, examinez la définition de build qui a été créée lorsque vous avez lié TFS à Azure au moyen de l'Assistant. Ouvrez le menu contextuel de la définition de build et choisissez **Modifier la définition de build**.
-    ![][21]
+  
+  ![][21]
+
     Dans l'onglet **Déclencher**, vous allez voir que la définition de build prévoit par défaut un processus de génération pour chaque archivage.
-    ![][22]
+  
+  ![][22]
+
     Dans l'onglet **Processus**, vous pouvez voir que l'environnement de déploiement est défini sur le nom de votre service cloud ou site Web. Si vous travaillez avec des sites Web, les propriétés que vous verrez seront différentes de celles affichées ici.
-    ![][23]
+   
+  ![][23]
+
+
     Spécifiez des valeurs pour les propriétés si vous souhaitez d'autres valeurs que celles par défaut. Les propriétés pour la publication Azure se trouvent dans la section Déploiement.
     Le tableau suivant présente les propriétés disponibles dans la section Déploiement :
+  
+<table>
+<tr>
+<td>
+<strong>Propriété</strong>
+</td>
+<td>
+<strong>Valeur par défaut</strong>
+</td>
+</tr>
+</p>
+<tr>
+<td>
+Autoriser les certificats non reconnus
 
-    <table>
+</td>
+<td>
+Si la valeur est false, les certificats SSL doivent être signés par une autorité racine.
 
-    <tr>
-    <td>
-    **Propriété**
+</td>
+</tr>
+<tr>
+<td>
+Autoriser la mise à niveau
 
-    </td>
-    <td>
-    **Valeur par défaut**
+</td>
+<td>
+Autorise le déploiement à mettre à jour un déploiement existant au lien d'en créer un nouveau. Préserve l’adresse IP.
 
-    </td>
-    </tr>
-    </p>
-    > <tr>
-    > <td>
-    > Autoriser les certificats non approuvés
-    >
-    > </td>
-    > <td>
-    > Si cette propriété a la valeur false, des certificats SSL doivent être signés par une autorité racine.
-    >
-    > </td>
-    > </tr>
-    > <tr>
-    > <td>
-    > Autoriser la mise à niveau
-    >
-    > </td>
-    > <td>
-    > Permet au déploiement de mettre à jour un déploiement existant au lieu d'en créer un. Conserve l'adresse IP.
-    >
-    > </td>
-    > </tr>
-    > <tr>
-    > <td>
-    > Ne pas supprimer
-    >
-    > </td>
-    > <td>
-    > Si cette propriété a la valeur true, ne remplacez pas un déploiement sans rapport (la mise à niveau est autorisée).
-    >
-    > </td>
-    > </tr>
-    > <tr>
-    > <td>
-    > Chemin d'accès des paramètres de déploiement
-    >
-    > </td>
-    > <td>
-    > Chemin d'accès à votre fichier .pubxml pour un site web, relatif au dossier racine du référentiel. Ignorée pour les services cloud.
-    >
-    > </td>
-    > </tr>
-    > <tr>
-    > <td>
-    > Environnement de déploiement SharePoint
-    >
-    > </td>
-    > <td>
-    > Identique au nom du service
-    >
-    > </td>
-    > </tr>
-    > <tr>
-    > <td>
-    > Environnement de déploiement Windows Azure
-    >
-    > </td>
-    > <td>
-    > Nom du site web ou du service cloud
-    >
-    > </td>
-    > </tr>
-    > </table>
+</td>
+</tr>
+<tr>
+<td>
+Ne pas supprimer
+
+</td>
+<td>
+Si la valeur est true, n'écrase pas un déploiement non lié existant (la mise à jour est autorisée).
+
+</td>
+</tr>
+<tr>
+<td>
+Chemin vers les paramètres de déploiement
+
+</td>
+<td>
+Le chemin vers votre fichier .pubxml pour un site Web, relatif au répertoire racine du référentiel. Ignoré pour les services cloud.
+
+</td>
+</tr>
+<tr>
+<td>
+Environnement de déploiement Sharepoint
+
+</td>
+<td>
+Identique au nom du service
+
+</td>
+</tr>
+<tr>
+<td>
+Environnement de déploiement Windows Azure
+
+</td>
+<td>
+Le nom du site Web ou du service cloud
+
+</td>
+</tr>
+</table>
 
 Si vous utilisez plusieurs configurations de service (fichiers .cscfg), vous pouvez spécifier la configuration du service désiré dans le paramètre **Build, Advanced, MSBuild arguments**. Par exemple, pour utiliser ServiceConfiguration.Test.cscfg, définissez l'option de ligne d'argument MSBuild /p:TargetProfile=Test.
+
 ![][24]
 
 1.  À ce stade, la création de la build doit être terminée.
-    ![][25]
+  
+  ![][25]
 
 2.  Si vous double-cliquez sur le nom de la build, Visual Studio affiche un **Résumé de la build**, y compris tous les résultats de test provenant de projets de test unitaires associés.
-    ![][26]
+  
+  ![][26]
 
 3.  Dans le [portail Azure][portail Azure], vous pouvez afficher le déploiement associé sous l'onglet Déploiements lorsque l'environnement intermédiaire est sélectionné.
+
     ![][27]
 
 4.  Accédez à l'URL de votre site. Dans le cas d'un site Web, cliquez simplement sur le bouton Parcourir dans la barre de commandes. Dans le cas d'un service cloud, choisissez l'URL dans la section **Aperçu rapide** de la page **Tableau de bord** représentant l'environnement intermédiaire d'un service cloud. Les déploiements résultant de l'intégration continue de services cloud sont publiés dans l'environnement intermédiaire par défaut. Vous pouvez changer cela en définissant la propriété Environnement du service cloud de substitution sur Production. Cet écran indique où se trouve l'URL de site dans la page de tableau de bord du service cloud :
-    ![][28]
+ 
+   ![][28]
+
     Un nouvel onglet de navigateur apparaît pour afficher votre site en cours d'exécution.
-    ![][29]
+  
+  ![][29]
 
 5.  Pour les services cloud, si vous apportez d'autres modifications à votre projet, vous déclenchez d'autres builds et vous accumulez plusieurs déploiements. Le plus récent est marqué comme étant actif.
+
     ![][30]
 
 ## <a name="step5"> </a><span class="short-header">Redéploiement d'une build antérieure</span>Étape 5 : redéploiement d'une build antérieure
 
 Cette étape (facultative) s'applique aux services cloud. Dans le portail de gestion, sélectionnez un déploiement antérieur et cliquez sur le bouton **Redéployer** pour revenir à un archivage antérieur de votre site. Notez que cette action va déclencher une nouvelle build dans TFS, et créer une nouvelle entrée dans l'historique de vos déploiements.
+
 ![][31]
 
 ## <a name="step6"> </a><span class="short-header">Modification du déploiement de production</span>Étape 6 : modification du déploiement de production
 
 Cette étape s'applique uniquement aux services cloud, pas aux sites Web. Une fois que vous êtes prêt, vous pouvez promouvoir l'environnement intermédiaire en environnement de production en choisissant le bouton Swap dans le portail de gestion. L'environnement intermédiaire récemment déployé passe à l'état de production et l'environnement de production précédent, le cas échéant, devient un environnement intermédiaire. Le déploiement actif peut être différent pour les environnements de production et intermédiaire, mais l'historique de déploiement des builds récentes est identique quel que soit l'environnement.
+
 ![][32]
 
 ## <a name="step7"> </a><span class="short-header">Exécution de tests unitaires</span>Étape 7 : exécution de tests unitaires
@@ -224,10 +259,12 @@ Cette étape s'applique uniquement aux services cloud, pas aux sites Web. Une fo
 Pour mettre en place un « portail de qualité » dans vos déploiements intermédiaires ou instantanés, vous pouvez exécuter des tests unitaires. S'ils échouent, vous pouvez interrompre le déploiement.
 
 1.  Dans Visual Studio, ajoutez un projet de test unitaire.
-    ![][33]
+  
+  ![][33]
 
 2.  Ajoutez les références de projet aux projets que vous souhaitez tester.
-    ![][34]
+  
+  ![][34]
 
 3.  Ajoutez quelques tests unitaires. Pour commencer, essayez de réaliser un faux test qui réussira toujours.
 
@@ -251,19 +288,26 @@ Pour mettre en place un « portail de qualité » dans vos déploiements inter
 4.  Modifiez la définition de la build, choisissez l'onglet Processus et étendez le nœud de test.
 
 5.  Définissez le paramètre **Fail build on test failure** sur True. Cela signifie que le déploiement ne sera pas réalisé à moins que le test ne réussisse.
-    ![][35]
+ 
+   ![][35]
 
 6.  Placez une nouvelle build dans la file d'attente.
-    ![][36]
-    ![][37]
+ 
+   ![][36]
+ 
+   ![][37]
 
 7.  Pendant que la build est en cours de traitement, suivez sa progression.
-    ![][38]
-    ![][39]
+ 
+   ![][38]
+
+   ![][39]
 
 8.  Lorsque la build est terminée, consultez les résultats de test.
-    ![][40]
-    ![][41]
+  
+  ![][40]
+
+   ![][41]
 
 9.  Essayez de créer un nouveau test qui échouera. Ajoutez un nouveau test en copiant le premier, en le renommant et en plaçant la ligne de code NotImplementedException en commentaire.
 
@@ -275,11 +319,14 @@ Pour mettre en place un « portail de qualité » dans vos déploiements inter
         }
 
 10. Archivez le changement pour mettre une nouvelle build dans la file d'attente.
-    ![][42]
+  
+  ![][42]
 
 11. Consultez les résultats du test pour obtenir des détails sur l'échec.
-    ![][43]
-    ![][44]
+ 
+   ![][43]
+ 
+   ![][44]
 
 Pour en savoir plus sur le test unitaire dans Visual Studio Online, consultez [Exécuter des tests unitaires dans votre build][Exécuter des tests unitaires dans votre build].
 
@@ -292,9 +339,6 @@ Pour plus d'informations, consultez la page [Visual Studio Online][Visual Studio
   [Étape 2 : archivage d'un projet dans le contrôle de code source]: #step2
   [Étape 3 : connexion du projet à Azure]: #step3
   [Étape 4 : exécution des modifications et déclenchement d'une régénération et d'un redéploiement]: #step4
-  [Étape 5 : redéploiement d'une build antérieure (facultatif)]: #step5
-  [Étape 6 : modification du déploiement de production (services cloud uniquement)]: #step6
-  [Étape 7 : exécution de tests unitaires (facultatif)]: #step7
   [1]: http://go.microsoft.com/fwlink/?LinkId=512980
   [la version Git de cette procédure pas à pas]: http://go.microsoft.com/fwlink/p/?LinkId=397358
   [Prise en main d'Azure et ASP.NET]: http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-dotnet-get-started/

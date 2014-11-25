@@ -502,8 +502,8 @@ L'exemple de code suivant crée deux objets d'entité et ajoute chacun d'eux à 
   *  [Référence d'API REST][8]
  *  Pour plus d'informations sur les tâches avancées que vous pouvez effectuer avec le stockage Azure, consultez la page [Stockage et accessibilité des données dans Windows Azure][9].
  *  Pour plus d'informations sur les autres options de stockage de données dans Azure, consultez d'autres guides de fonctionnalités.
-  *  Utilisez le [stockage d'objets blob](/en-us/develop/net/how-to-guides/blob-storage/) pour stocker des données non structurées.
-  *  Utilisez une [base de données SQL](/en-us/develop/net/how-to-guides/sql-database/) pour stocker des données relationnelles.
+  *  Utilisez le [stockage d'objets blob](/fr-fr/develop/net/how-to-guides/blob-storage/) pour stocker des données non structurées.
+  *  Utilisez une [base de données SQL](/fr-fr/develop/net/how-to-guides/sql-database/) pour stocker des données relationnelles.
   
 
 

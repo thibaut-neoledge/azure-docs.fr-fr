@@ -50,7 +50,7 @@
             await dialog.ShowAsync();
         }
 
-    Cette méthode gère l'événement **Click** pour le nouveau bouton. La méthode [InvokeApiAsync][] est appelée sur le client pour envoyer une requête POST à la nouvelle API personnalisée. Le résultat renvoyé par l'API personnalisée apparaît dans la boîte de message, avec les erreurs éventuelles.
+    Cette méthode gère l'événement **Click** pour le nouveau bouton. La méthode [InvokeApiAsync][InvokeApiAsync] est appelée sur le client pour envoyer une requête POST à la nouvelle API personnalisée. Le résultat renvoyé par l'API personnalisée apparaît dans la boîte de message, avec les erreurs éventuelles.
 
 ## <a name="test-app"></a>Test de l'application
 
@@ -62,9 +62,9 @@
 
 4.  Cliquez sur le bouton **Complete All**.
 
-    ![][]
+    ![][0]
 
     Un message s'affiche pour indiquer le nombre d'éléments marqués comme terminés, puis la requête filtrée est de nouveau exécutée pour supprimer tous les éléments de la liste.
 
   [InvokeApiAsync]: http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
-  []: ./media/mobile-services-windows-store-dotnet-call-custom-api/mobile-custom-api-windows-store-completed.png
+  [0]: ./media/mobile-services-windows-store-dotnet-call-custom-api/mobile-custom-api-windows-store-completed.png

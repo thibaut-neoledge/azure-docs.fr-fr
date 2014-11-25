@@ -1,6 +1,6 @@
 <properties linkid="develop-nodejs-common-tasks-specifying-a-node-version" urlDisplayName="Specifying a Node.js Version" pageTitle="Specifying a Node.js Version" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Specifying a Node.js version in an Azure application" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Spécification d'une version Node.js dans une application Azure
 
@@ -49,7 +49,7 @@ Bien qu'Azure fournisse plusieurs versions par défaut de Node.js, vous pouvez u
 
     Ce code permet d'afficher la version de Node.js qui est utilisée lorsque vous naviguez sur le site web.
 
-2.  Créez un site web et prenez note de son nom. Par exemple, la commande suivante utilise les [outils en ligne de commande Azure][] pour créer un site web Azure nommé **mywebsite**, puis active un référentiel Git pour le site web.
+2.  Créez un site web et prenez note de son nom. Par exemple, la commande suivante utilise les [outils en ligne de commande Azure][outils en ligne de commande Azure] pour créer un site web Azure nommé **mywebsite**, puis active un référentiel Git pour le site web.
 
         azure site create mywebsite --git
 
@@ -77,7 +77,7 @@ Bien qu'Azure fournisse plusieurs versions par défaut de Node.js, vous pouvez u
 
 ## Étapes suivantes
 
-Maintenant que vous savez comment spécifier la version de Node.js utilisée par votre application, découvrez comment [utiliser des modules][], [créer et déployer un site Web Node.js][] et [utiliser des outils en ligne de commande Azure pour Mac et Linux][outils en ligne de commande Azure].
+Maintenant que vous savez comment spécifier la version de Node.js utilisée par votre application, découvrez comment [utiliser des modules][utiliser des modules], [créer et déployer un site Web Node.js][créer et déployer un site Web Node.js] et [utiliser des outils en ligne de commande Azure pour Mac et Linux][outils en ligne de commande Azure].
 
   [outils en ligne de commande Azure]: /fr-fr/documentation/articles/xplat-cli/
   [utiliser des modules]: /fr-fr/documentation/articles/nodejs-use-node-modules-azure-apps/

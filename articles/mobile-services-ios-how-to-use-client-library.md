@@ -1,11 +1,11 @@
 <properties linkid="mobile-services-how-to-ios-client" urlDisplayName="iOS Client Library" pageTitle="How to use the iOS client library - Azure Mobile Services" metaKeywords="Azure Mobile Services, Mobile Service iOS client library, iOS client library" description="Learn how to use the iOS client library for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use the iOS client library for Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Utilisation de la bibliothèque cliente iOS pour Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding"> 
-  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
+  <a href="/fr-fr/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/fr-fr/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/fr-fr/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a><a href="/fr-fr/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/fr-fr/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
 </div>
 
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du client iOS pour Azure Mobile Services. Les exemples sont écrits en objective-C et nécessitent le [Kit de développement logiciel (SDK) Mobile Services][Kit de développement logiciel (SDK) Mobile Services]. Ce didacticiel requiert également le [Kit de développement logiciel (SDK) iOS][Kit de développement logiciel (SDK) iOS]. Les scénarios traités incluent l'interrogation, l'insertion, la mise à jour et la suppression de données, l'authentification des utilisateurs et la gestion des erreurs. Si vous débutez avec Mobile Services, suivez le didacticiel [Démarrage rapide Mobile Services][Démarrage rapide Mobile Services]. Ces didacticiels de démarrage rapide vous aideront à configurer et à créer votre premier service mobile.
@@ -29,7 +29,7 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utili
 
 <!--- [How to: Design unit tests] - [How to: Customize the client]     - [Customize request headers]     - [Customize data type serialization] - [Next steps][Next steps]-->
 
-[WACOM.INCLUDE [mobile-services-concepts][mobile-services-concepts]]
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ## <a name="Setup"></a>Configuration et conditions préalables
 
@@ -458,18 +458,13 @@ For more information see, New topic about processing headers in the server-side.
 ## <a name="next-steps"></a>Next steps
 --> 
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
 
-  [.NET Framework]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /en-us/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /en-us/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
-  [Xamarin]: /en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
+
+
+
   [Kit de développement logiciel (SDK) Mobile Services]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [Kit de développement logiciel (SDK) iOS]: https://developer.apple.com/xcode
-  [Démarrage rapide Mobile Services]: /en-us/develop/mobile/tutorials/get-started-ios
+  [Démarrage rapide Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started-ios
   [Présentation de Mobile Services]: #what-is
   [Concepts]: #concepts
   [Configuration et conditions préalables]: #Setup
@@ -484,18 +479,17 @@ For more information see, New topic about processing headers in the server-side.
   [Liaison des données dans l'interface utilisateur]: #binding
   [Authentification des utilisateurs]: #authentication
   [Gestion des erreurs]: #errors
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
-  [Création d’une table]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193162.aspx
+  [Création d’une table]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj193162.aspx
   [**Link Binary With Libraries**]: https://developer.apple.com/library/ios/recipes/xcode_help-project_editor/Articles/AddingaLibrarytoaTarget.html
   [Renvoi de données dans les pages]: #paging
-  [Accès aux paramètres personnalisés]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
+  [Accès aux paramètres personnalisés]: /fr-fr/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
   [objet NSDictionary]: http://go.microsoft.com/fwlink/p/?LinkId=301965
   [Codes de contrôle ASCII C0 et C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-  [Interface de ligne de commande pour la gestion des tables Mobile Services]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+  [Interface de ligne de commande pour la gestion des tables Mobile Services]: http://www.windowsazure.com/fr-fr/manage/linux/other-resources/command-line-tools/#Mobile_Tables
   [Schéma dynamique]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-  [Prise en main de l'authentification]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
-  [Utilisation de scripts pour autoriser les utilisateurs]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios
-  [Autorisations]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx
+  [Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-ios
+  [Utilisation de scripts pour autoriser les utilisateurs]: /fr-fr/develop/mobile/tutorials/authorize-users-in-scripts-ios
+  [Autorisations]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj193161.aspx
   [Kit de développement logiciel (SDK) Live Connect]: http://go.microsoft.com/fwlink/p/?LinkId=301960
   [Gestion des jetons arrivés à expiration]: http://go.microsoft.com/fwlink/p/?LinkId=301955
-  [Validation et modification de données dans Mobile Services à l'aide de scripts serveur]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios
+  [Validation et modification de données dans Mobile Services à l'aide de scripts serveur]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-ios

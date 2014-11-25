@@ -392,8 +392,6 @@ liens pour en savoir plus :
     en provenance d'une file d'attente Service Bus : [Didacticiel .NET sur la messagerie répartie Service Bus][Didacticiel .NET sur la messagerie répartie Service Bus].
 
   [Étapes suivantes]: #nextsteps
-  [create-account-note]: ../includes/create-account-note.md
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [0]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
   [Files d'attente, rubriques et abonnements]: http://msdn.microsoft.com/fr-fr/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/fr-fr/library/microsoft.servicebus.messaging.sqlfilter.aspx

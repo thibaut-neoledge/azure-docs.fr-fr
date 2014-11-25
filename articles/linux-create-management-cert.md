@@ -59,7 +59,7 @@ Vous obtenez un fichier .pfx que vous pouvez convertir dans d'autres formats en 
 
 openssl.exe pkcs12 -in publicAndprivate.pfx -nocerts -out privateKey.pem
 
-Sur Windows, vous pouvez décoder et extraire le fichier PFX avec PowerShell ou un décodeur base 64 Windows gratuit tel que [http://www.fourmilab.ch/webtools/base64/base64.zip]() en exécutant la commande :
+Sur Windows, vous pouvez décoder et extraire le fichier PFX avec PowerShell ou un décodeur base 64 Windows gratuit tel que [http://www.fourmilab.ch/webtools/base64/base64.zip](http://www.fourmilab.ch/webtools/base64/base64.zip) en exécutant la commande :
 
     base64 -d key.txt ->key.pfx
 

@@ -26,7 +26,6 @@ Comme il s'agit de l'annuaire cloud de votre organisation, vous décidez quels s
 
 Si votre organisation utilise déjà la version locale d'Active Directory, vous pouvez utiliser les capacités d'intégration d'annuaire d'Azure, comme la synchronisation d'un annuaire et l'authentification unique, pour prolonger davantage la portée de vos identités locales existantes dans le cloud pour une administration et une expérience utilisateur optimales. [En savoir plus][3]
 
-  [disclaimer]: ../includes/disclaimer.md
   [En savoir plus]: http://windows.microsoft.com/fr-fr/windows-live/sign-in-what-is-microsoft-account
   [1]: http://technet.microsoft.com/fr-fr/library/jj573650
   [2]: http://technet.microsoft.com/fr-fr/library/hh967619

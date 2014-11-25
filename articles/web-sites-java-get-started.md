@@ -1,14 +1,14 @@
 <properties linkid="develop-java-tutorials-web-site-get-started" urlDisplayName="Get started with Azure" pageTitle="Get started with Microsoft Azure Websites using Java" metaKeywords="" description="This tutorial shows you how to deploy a Java website to Microsoft Azure." metaCanonical="" services="web-sites" documentationCenter="Java" title="Get started with Azure and Java" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Prise en main de sites web Azure et de Java
 
 Ce didacticiel vous montre comment créer un site web sur Microsoft Azure avec Java, soit via la galerie d'applications Azure, soit via l'interface utilisateur de configuration de site web Azure.
 
-Si vous ne souhaitez pas utiliser ces techniques (par exemple, si vous préférez personnaliser votre conteneur d'applications), voir [Téléchargement d'un site Web Java personnalisé sur Azure][]
+Si vous ne souhaitez pas utiliser ces techniques (par exemple, si vous préférez personnaliser votre conteneur d'applications), voir [Téléchargement d'un site Web Java personnalisé sur Azure][Téléchargement d'un site Web Java personnalisé sur Azure]
 
-> [WACOM.NOTE] Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN][] ou [obtenir une évaluation gratuite][].
+> [WACOM.NOTE] Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN][activer les avantages de votre abonnement MSDN] ou [obtenir une évaluation gratuite][obtenir une évaluation gratuite].
 
 # Créer un site web Java avec la galerie d'applications Azure
 
@@ -16,11 +16,11 @@ Ces informations vous indiquent comment utiliser la galerie d'applications Azure
 
 L'exemple suivant montre comment s'affiche un site web conçu avec Tomcat à partir de la galerie d'applications :
 
-![Site Web utilisant Apache Tomcat][]
+![Site Web utilisant Apache Tomcat][Site Web utilisant Apache Tomcat]
 
 L'exemple suivant montre comment s'affiche un site web conçu avec Jetty à partir de la galerie d'applications :
 
-![Site Web utilisant Jetty][]
+![Site Web utilisant Jetty][Site Web utilisant Jetty]
 
 1.  Connectez-vous au portail de gestion Microsoft Azure.
 2.  Cliquez sur **Nouveau**, sur **Calculer**, sur **Site Web**, puis sur **À partir de la galerie**.
@@ -56,7 +56,7 @@ Une fois que vous avez créé le site web avec un conteneur d'applications, con
 
 # Étapes suivantes
 
-Vous avez maintenant un serveur d'applications Java exécuté en tant que site web Java sur Azure. Pour ajouter votre propre application ou page Web, voir [Ajout d'une application ou d'une page Web à votre site Web Java][].
+Vous avez maintenant un serveur d'applications Java exécuté en tant que site web Java sur Azure. Pour ajouter votre propre application ou page Web, voir [Ajout d'une application ou d'une page Web à votre site Web Java][Ajout d'une application ou d'une page Web à votre site Web Java].
 
   [Téléchargement d'un site Web Java personnalisé sur Azure]: ../web-sites-java-custom-upload
   [activer les avantages de votre abonnement MSDN]: /fr-fr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F

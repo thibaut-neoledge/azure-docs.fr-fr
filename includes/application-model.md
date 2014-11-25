@@ -10,15 +10,15 @@ Azure.<span id="compare"></span></a>
 
 ## Sommaire<span id="_GoBack"></span></a>
 
--   [Avantages du modèle d’application Azure][]
--   [Principaux concepts des services hébergés][]
--   [Considérations relatives à la conception des services hébergés][]
--   [Conception de votre application pour l’extensibilité][]
--   [Définition et configuration des services hébergés][]
--   [Fichier de définition de service][]
--   [Fichier de configuration de service][]
--   [Création et déploiement d’un service hébergé][]
--   [Références][]
+-   [Avantages du modèle d’application Azure][Avantages du modèle d’application Azure]
+-   [Principaux concepts des services hébergés][Principaux concepts des services hébergés]
+-   [Considérations relatives à la conception des services hébergés][Considérations relatives à la conception des services hébergés]
+-   [Conception de votre application pour l’extensibilité][Conception de votre application pour l’extensibilité]
+-   [Définition et configuration des services hébergés][Définition et configuration des services hébergés]
+-   [Fichier de définition de service][Fichier de définition de service]
+-   [Fichier de configuration de service][Fichier de configuration de service]
+-   [Création et déploiement d’un service hébergé][Création et déploiement d’un service hébergé]
+-   [Références][Références]
 
 ## <span id="benefits"></span> </a>Avantages du modèle d’application Azure
 
@@ -82,7 +82,7 @@ des rôles et des instances de rôle.
 
 ##### Figure 1 : rôle unique avec trois instances (machines virtuelles) exécutées dans un centre de données Azure
 
-![image][]
+![image][image]
 
 ##### Figure 2 : deux rôles, contenant chacun deux instances (machines virtuelles) exécutées dans un centre de données Azure
 
@@ -108,7 +108,7 @@ utilisant l'URL. Vous ne distribuez ni ne publiez généralement pas l’URL
 *préfixe*.cloudapp.net Azure. Vous allez plutôt acheter un nom DNS
 auprès du bureau d'enregistrement DNS de votre choix, puis configurer votre nom DNS pour rediriger
 les demandes du client vers l'URL Azure. Pour plus d’informations, consultez la page
-[Configuration d’un nom de domaine personnalisé dans Azure][].
+[Configuration d’un nom de domaine personnalisé dans Azure][Configuration d’un nom de domaine personnalisé dans Azure].
 
 ## <span id="considerations"></span> </a>Considérations relatives à la conception des services hébergés
 
@@ -141,7 +141,7 @@ il est extrêmement important que les données de votre application soient conse
 par plusieurs instances de rôle. C'est pour cette raison qu'Azure
 propose différentes options de stockage, comme des objets blob, des tables et la base de données SQL. Pour plus
 d'informations sur ces technologies de stockage,consultez l'article
-[Offres de stockagede données dans Azure][]. La figure ci-dessous montre comment
+[Offres de stockagede données dans Azure][Offres de stockagede données dans Azure]. La figure ci-dessous montre comment
 le programme d'équilibrage de la charge du centre de données Azure
 distribue les demandes des clients vers différentes instances de rôle
 ayant accès au même stockage de données.
@@ -231,7 +231,7 @@ de rôle.
 Comme mentionné plus haut, le fichier de définition de service (CSDEF) est un fichier XML
 décrivant les différents rôles constituant votre
 application. Le schéma complet pour le fichier XML peut être trouvé ici :
-[<http://msdn.microsoft.com/fr-fr/library/windowsazure/ee758711.aspx>][].
+[<http://msdn.microsoft.com/fr-fr/library/windowsazure/ee758711.aspx>][<http://msdn.microsoft.com/fr-fr/library/windowsazure/ee758711.aspx>].
 Le fichier CSDEF contient un élément WebRole ou WorkerRole pour chaque rôle
 que vous voulez dans votre application. Déployer un rôle en tant que rôle web (à l'aide de l'élément
 WebRole) signifie que le code s'exécutera sur une instance de rôle
@@ -264,7 +264,7 @@ actuellement, ainsi que les attributs de chacune d'elles :
 Chaque machine virtuelle que vous utilisez comme instance de rôle vous est facturée à l'heure.
 Les données que vos instances de rôle envoient hors du centre de données
 vous sont également facturées. Vous ne devez pas payer pour les données entrant dans le centre de données. Pour
-plus d'informations, consultez [Tarifs Azure][]. En général, il est
+plus d'informations, consultez [Tarifs Azure][Tarifs Azure]. En général, il est
 conseillé d'utiliser de nombreuses petites instances de rôle plutôt que quelques grandes
 instances, de façon à ce que votre application soit plus résiliente face aux défaillances. En effet,
 moins vous aurez d'instances de rôle, plus la défaillance de l'une
@@ -279,7 +279,8 @@ les plus utiles pour vous :
 -   **Certificats** : vous pouvez utiliser des certificats pour chiffrer des données ou si
     votre service web prend en charge SSL. Chaque certificat doit être téléchargé
     sur Azure. Pour plus d'informations, consultez [Gestion des certificats
-    dans Azure][]. Ce paramètre XML installe les certificats précédemment
+    dans Azure][Gestion des certificats
+    dans Azure]. Ce paramètre XML installe les certificats précédemment
     téléchargés dans le magasin de certificats de l'instance de rôle pour
     permettre au code de votre application de les utiliser.
 
@@ -340,7 +341,8 @@ CSCFG :
     est décrit sur cette page web :
     [][5]<http://msdn.microsoft.com/fr-fr/library/hh560567.aspx></a>. Pour plus
     d'informations sur les versions des systèmes d'exploitation invité, consultez [Gestion des mises à niveau vers les systèmes
-    d'exploitation invités d'Azure][].
+    d'exploitation invités d'Azure][Gestion des mises à niveau vers les systèmes
+    d'exploitation invités d'Azure].
 
 -   **Instances** : la valeur de cet élément indique le nombre d'instances
     de rôle que vous voulez configurer en exécutant le code pour un rôle
@@ -360,7 +362,7 @@ CSCFG :
 
 ## <span id="hostedservices"></span> </a>Création et déploiement d’un service hébergé
 
-Pour créer un service hébergé, vous devez d'abord accéder au [portail de gestion Azure][] et configurer un service hébergé en indiquant un
+Pour créer un service hébergé, vous devez d'abord accéder au [portail de gestion Azure][portail de gestion Azure] et configurer un service hébergé en indiquant un
 préfixe DNS et le centre de données sur lequel vous voulez exécuter
 votre code. Ensuite, dans votre environnement de développement, vous créez votre fichier de définition de
 service, vous générez le code et le package de votre application, et vous placez tous ces fichiers
@@ -383,18 +385,18 @@ du rôle \#2.
 ![image][6]
 
 Pour plus d'informations sur le déploiement, la mise à niveau et la reconfiguration de vos
-rôles, consultez l'article [Déploiement et mise à niveau des applications Azure][]
+rôles, consultez l'article [Déploiement et mise à niveau des applications Azure][Déploiement et mise à niveau des applications Azure]
 <span id="Ref"></span></a>.
 
 ## <span id="references"></span> </a>Références
 
--   [Création d’un service hébergé pour Azure][]
+-   [Création d’un service hébergé pour Azure][Création d’un service hébergé pour Azure]
 
--   [Gestion des services hébergés dans Azure][]
+-   [Gestion des services hébergés dans Azure][Gestion des services hébergés dans Azure]
 
--   [Migration des applications vers Azure][]
+-   [Migration des applications vers Azure][Migration des applications vers Azure]
 
--   [Configuration d’une application Azure][]
+-   [Configuration d’une application Azure][Configuration d’une application Azure]
 
 <div style="width: 700px; border-top: solid; margin-top: 5px; padding-top: 5px; border-top-width: 1px;">
 
@@ -419,10 +421,8 @@ rôles, consultez l'article [Déploiement et mise à niveau des applications Azu
   [3]: ./media/application-model/application-model-6.jpg
   [4]: ./media/application-model/application-model-7.jpg
   [Tarifs Azure]: http://www.windowsazure.com/fr-fr/pricing/calculator/
-  [Gestion des certificats dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg981929.aspx
   []: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee758710.aspx
   [5]: http://msdn.microsoft.com/fr-fr/library/hh560567.aspx
-  [Gestion des mises à niveau vers les systèmes d'exploitation invités d'Azure]: http://msdn.microsoft.com/fr-fr/library/ee924680.aspx
   [portail de gestion Azure]: http://manage.windowsazure.com/
   [6]: ./media/application-model/application-model-8.jpg
   [Déploiement et mise à niveau des applications Azure]: http://www.windowsazure.com/fr-fr/develop/net/fundamentals/deploying-applications/

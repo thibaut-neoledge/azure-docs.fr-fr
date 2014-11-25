@@ -1,12 +1,12 @@
 <properties linkid="dev-nodejs-website-with-socketio" urlDisplayName="Website Using Socket.IO" pageTitle="Node.js Website using Socket.io - Azure tutorial" metaKeywords="Azure Node.js socket.io tutorial, Azure Node.js socket.io, Azure Node.js tutorial" description="A tutorial that demonstrates using socket.io in a node.js website hosted on Azure." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build a Node.js Chat Application with Socket.IO on an Azure Website" authors="larryfr" solutions="" videoId="" scriptId="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Création d'une application de conversation instantanée Node.js avec Socket.IO sur un site web Azure
 
 Socket.IO offre une communication en temps réel entre votre serveur node.js et vos clients à l'aide de WebSockets. Il prend également en charge l'utilisation d'autres transports (tels que l'interrogation longue) qui fonctionnent avec des navigateurs plus anciens. Ce didacticiel vous explique comment héberger une application de conversation instantanée socket.IO en tant que site web Azure. Pour plus d'informations sur Socket.IO, consultez le site [][]<http://socket.io/></a>.
 
-> [WACOM.NOTE] Les procédures de cette tâche s'appliquent à l'offre Sites Web Azure. Pour les services cloud, consultez la page [Création d'une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure][].
+> [WACOM.NOTE] Les procédures de cette tâche s'appliquent à l'offre Sites Web Azure. Pour les services cloud, consultez la page [Création d'une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure][Création d'une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure].
 
 ## <span id="Download"></span></a>Téléchargement de l'exemple de conversation instantanée
 
@@ -14,7 +14,7 @@ Pour ce projet, nous allons utiliser un exemple de conversation instantanée du 
 Socket.IO](https://github.com/Automattic/socket.io). Procédez comme suit pour télécharger l'exemple
 et l'ajouter au projet que vous avez déjà créé.
 
-1.  Téléchargez une [version archivée ZIP ou GZ][] du projet Socket.IO (la version 1.0.6 a été utilisée pour ce document).
+1.  Téléchargez une [version archivée ZIP ou GZ][version archivée ZIP ou GZ] du projet Socket.IO (la version 1.0.6 a été utilisée pour ce document).
 
 2.  Extrayez l'archive et copiez le répertoire **examples\\chat**
     dans un nouvel emplacement. Par exemple,
@@ -76,7 +76,7 @@ installer les modules nécessaires :
 
 Suivez cette procédure pour créer un site web Azure, activer la publication Git, puis activer la prise en charge de WebSocket pour le site web.
 
-> [WACOM.NOTE] Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][].
+> [WACOM.NOTE] Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][Version d'évaluation gratuite d'Azure].
 
 1.  Sur la ligne de commande, accédez au répertoire **\\node\\chat**, puis utilisez la commande suivante pour créer un site web Azure et activer un référentiel Git pour le site web et le répertoire local. Ceci crée également un Git distant nommé « Azure ».
 
@@ -106,9 +106,9 @@ Suivez cette procédure pour créer un site web Azure, activer la publication Gi
     > [WACOM.NOTE]
     > La commande « azure site set -w » fonctionne uniquement avec les versions 0.7.4 et ultérieures de l'interface de ligne de commande interplateforme Azure. Vous pouvez également activer la prise en charge de WebSocket depuis le portail de gestion Azure.
     >
-    > Pour activer WebSockets à partir du [portail de gestion Azure][], sélectionnez Configurer la page pour votre site web, sélectionnez « ON » pour l'entrée Web Sockets, puis cliquez sur Enregistrer.
+    > Pour activer WebSockets à partir du [portail de gestion Azure][portail de gestion Azure], sélectionnez Configurer la page pour votre site web, sélectionnez « ON » pour l'entrée Web Sockets, puis cliquez sur Enregistrer.
     >
-    > ![websockets][]
+    > ![websockets][websockets]
 
 5.  Pour afficher le site web sur Azure, utilisez la commande suivante pour lancer votre navigateur web et accéder au site web hébergé :
 
@@ -117,17 +117,17 @@ Suivez cette procédure pour créer un site web Azure, activer la publication Gi
 Votre application s'exécute à présent dans Azure et peut relayer
 des messages de conversation instantanée entre différents clients en utilisant Socket.IO.
 
-> [WACOM.NOTE] Par souci de simplification, cet exemple présente simplement une conversation instantanée entre des utilisateurs connectés à la même instance. Cela veut dire que si le service cloud crée deux instances de rôle de travail, un utilisateur pourra utiliser la conversation instantanée pour communiquer uniquement avec les autres utilisateurs connectés à la même instance de rôle de travail. Pour mettre à l'échelle l'application afin d'utiliser plusieurs instances de rôle, vous pouvez utiliser une technologie telle que Service Bus pour partager l'état de stockage Socket.IO entre plusieurs instances. Pour en savoir plus, consultez les exemples d'utilisation des files d'attente et rubriques de Service Bus dans le [référentiel GitHub Kit de développement logiciel (SDK) Azure pour Node.js][].
+> [WACOM.NOTE] Par souci de simplification, cet exemple présente simplement une conversation instantanée entre des utilisateurs connectés à la même instance. Cela veut dire que si le service cloud crée deux instances de rôle de travail, un utilisateur pourra utiliser la conversation instantanée pour communiquer uniquement avec les autres utilisateurs connectés à la même instance de rôle de travail. Pour mettre à l'échelle l'application afin d'utiliser plusieurs instances de rôle, vous pouvez utiliser une technologie telle que Service Bus pour partager l'état de stockage Socket.IO entre plusieurs instances. Pour en savoir plus, consultez les exemples d'utilisation des files d'attente et rubriques de Service Bus dans le [référentiel GitHub Kit de développement logiciel (SDK) Azure pour Node.js][référentiel GitHub Kit de développement logiciel (SDK) Azure pour Node.js].
 
 ## Montée en charge
 
-Vous pouvez faire monter en charge les applications Socket.IO en utilisant un **adaptateur** pour distribuer les messages et les événements entre plusieurs instances d'application. Plusieurs adaptateurs sont disponibles, mais [socket.io-redis][] est très facile à utiliser avec la fonctionnalité de cache Redis Azure.
+Vous pouvez faire monter en charge les applications Socket.IO en utilisant un **adaptateur** pour distribuer les messages et les événements entre plusieurs instances d'application. Plusieurs adaptateurs sont disponibles, mais [socket.io-redis][socket.io-redis] est très facile à utiliser avec la fonctionnalité de cache Redis Azure.
 
-> [WACOM.NOTE] Une autre condition requise à la montée en charge d'une solution Socket.IO est la prise en charge des sessions rémanentes. Celles-ci sont activées par défaut pour Sites Web Azure par l'intermédiaire d'Azure Request Routing. Pour plus d'informations, consultez [Affinité d'instance dans Sites Web Azure][].
+> [WACOM.NOTE] Une autre condition requise à la montée en charge d'une solution Socket.IO est la prise en charge des sessions rémanentes. Celles-ci sont activées par défaut pour Sites Web Azure par l'intermédiaire d'Azure Request Routing. Pour plus d'informations, consultez [Affinité d'instance dans Sites Web Azure][Affinité d'instance dans Sites Web Azure].
 
 ### Création d'un cache Redis
 
-Pour créer un cache, effectuez les étapes décrites dans [Création d'un cache dans le cache Azure Redis][].
+Pour créer un cache, effectuez les étapes décrites dans [Création d'un cache dans le cache Azure Redis][Création d'un cache dans le cache Azure Redis].
 
 > [WACOM.NOTE] Enregistrez le **Nom d'hôte** et la **Clé primaire** de votre cache, car ils seront nécessaires lors des étapes suivantes.
 
@@ -177,7 +177,7 @@ Vous pouvez vous connecter à votre site web à partir de plusieurs navigateurs 
 
 ### Limites de connexions
 
-L'offre Sites Web Azure est disponible en plusieurs références SKU, qui déterminent les ressources accessibles à votre site, notamment le nombre de connexions WebSocket autorisées. Pour plus d'informations, consultez la page de [tarification des sites web][].
+L'offre Sites Web Azure est disponible en plusieurs références SKU, qui déterminent les ressources accessibles à votre site, notamment le nombre de connexions WebSocket autorisées. Pour plus d'informations, consultez la page de [tarification des sites web][tarification des sites web].
 
 ### Les messages ne sont pas envoyés avec WebSockets
 

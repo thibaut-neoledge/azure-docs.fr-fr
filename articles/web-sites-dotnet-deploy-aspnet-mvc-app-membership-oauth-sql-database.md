@@ -703,7 +703,6 @@ N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce 
   [Utilisation de l’API d’appartenance]: #mbrDB
   [Déploiement de l’application dans Azure]: #bkmk_deploytowindowsazure11
   [Étapes suivantes]: #nextsteps
-  [install-sdk-2013-only]: ../includes/install-sdk-2013-only.md
   [Visual Studio 2013 Update 2 RC]: http://go.microsoft.com/fwlink/?LinkId=390521
   [portail de gestion Azure]: https://manage.windowsazure.com
   [Bouton Nouveau du portail de gestion]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rxWSnew2.png

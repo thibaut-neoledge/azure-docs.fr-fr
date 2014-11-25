@@ -275,7 +275,6 @@ ces liens pour en savoir plus.
   [service de messagerie électronique dans le cloud]: http://sendgrid.com/solutions
   [remise de courrier électronique transactionnelle]: http://sendgrid.com/transactional-email
   []: http://sendgrid.com
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
   [SMTP et API Web]: http://docs.sendgrid.com/documentation/get-started/integrate/examples/smtp-vs-rest/
   [Paramètres de filtre]: http://docs.sendgrid.com/documentation/api/smtp-api/filter-settings/

@@ -45,7 +45,5 @@ Maintenant que vous avez créé une API personnalisée et que vous l'avez appel�
   [Mise à jour de l'application pour appeler l'API personnalisée]: #update-app
   [Test de l'application]: #test-app
   [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [mobile-services-dotnet-backend-create-custom-api]: ../includes/mobile-services-dotnet-backend-create-custom-api.md
-  [mobile-services-ios-call-custom-api]: ../includes/mobile-services-ios-call-custom-api.md
   [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=262293
   [Stockage des scripts serveur dans le contrôle du code source]: /fr-fr/documentation/articles/mobile-services-store-scripts-source-control

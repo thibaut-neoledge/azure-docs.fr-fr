@@ -97,8 +97,8 @@
 
 4.  Cliquez sur le bouton **Complete All**.
 
-    ![][]
+    ![][0]
 
     Un message s'affiche pour indiquer le nombre d'éléments marqués comme terminés, puis la requête filtrée est de nouveau exécutée pour supprimer tous les éléments de la liste.
 
-  []: ./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png
+  [0]: ./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png

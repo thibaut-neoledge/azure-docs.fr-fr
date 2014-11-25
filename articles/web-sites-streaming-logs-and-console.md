@@ -1,6 +1,6 @@
 <properties pageTitle="Streaming logs and console" description="Streaming logs and console overview" title="Streaming logs and console" authors="adamab" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab" />
 
 ## Journaux en continu et console
 
@@ -40,7 +40,7 @@ Dans une application node.js, vous pouvez écrire le code suivant pour atteindre
 
 Les diagnostics sont activés par site web. Dans le [portail][portail], cliquez sur le bouton **Browse** dans la barre de menus à gauche et cliquez sur **Websites** pour afficher la liste de tous vos sites web.
 
-![][]
+![][0]
 
 Cliquez sur le nom du site web que vous souhaitez configurer. Cliquez ensuite sur la partie **DIAGNOSTIC LOGS** et définissez le commutateur **Application Logging (Filesystem)** sur **ON**. L'option **Level** s'affiche et vous permet de modifier le niveau de gravité des suivis à capturer. Si vous souhaitez simplement vous familiariser avec la fonctionnalité, définissez-la sur **Verbose** pour être sûr que toutes vos instructions de suivi seront ajoutées.
 
@@ -68,9 +68,9 @@ dir
 cd
 `````````````````````````
 
-<!-- Images. -->
+
 
   [portail]: https://portal.azure.com
-  []: ./media/web-sites-streaming-logs-and-console/browse-sites.png
+  [0]: ./media/web-sites-streaming-logs-and-console/browse-sites.png
   [1]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
   [2]: ./media/web-sites-streaming-logs-and-console/console.png

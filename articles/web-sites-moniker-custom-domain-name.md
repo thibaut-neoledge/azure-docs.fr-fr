@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website to use a domain name registered with Moniker" pageTitle="Configure a Moniker domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, domain name" description="Learn how to configure an Azure website to use a domain name registered with Moniker" services="web-sites" documentationCenter="" authors="larryfr,jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth" />
 
 # Configuration d'un nom de domaine personnalisé pour un site web Azure (Moniker)
 
@@ -8,28 +8,28 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/fr-fr/documentation/articles/web-sites-moniker-custom-domain-name/" title="Sites web" class="current">Site web</a> | <a href="/fr-fr/documentation/articles/web-sites-moniker-traffic-manager-custom-domain-name/" title="Site web &agrave; l'aide de Traffic Manager">Site web &agrave; l'aide de Traffic Manager</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro][]]
+[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
-Cet article contient des instructions permettant d'utiliser un nom de domaine personnalisé acheté auprès de [Moniker.com][] avec le service Sites Web Azure.
+Cet article contient des instructions permettant d'utiliser un nom de domaine personnalisé acheté auprès de [Moniker.com][Moniker.com] avec le service Sites Web Azure.
 
-[WACOM.INCLUDE [introfooter][]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 Dans cet article :
 
--   [Présentation des enregistrements DNS][]
--   [Configurer vos sites web pour le mode De base, Partagé ou Standard][]
--   [Ajouter un enregistrement DNS pour votre domaine personnalisé][]
--   [Activer le domaine sur votre site Web][]
+-   [Présentation des enregistrements DNS][Présentation des enregistrements DNS]
+-   [Configurer vos sites web pour le mode De base, Partagé ou Standard][Configurer vos sites web pour le mode De base, Partagé ou Standard]
+-   [Ajouter un enregistrement DNS pour votre domaine personnalisé][Ajouter un enregistrement DNS pour votre domaine personnalisé]
+-   [Activer le domaine sur votre site Web][Activer le domaine sur votre site Web]
 
 ## <a name="understanding-records"></a>Présentation des enregistrements DNS
 
-[WACOM.INCLUDE [understandingdns][]]
+[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
 ## <a name="bkmk_configsharedmode"></a>Configurer vos sites web pour le mode De base, Partagé ou Standard
 
-[WACOM.INCLUDE [modes][]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
 <a name="bkmk_configurecname"></a>
 
@@ -39,17 +39,17 @@ Pour associer votre domaine personnalisé à un site web Azure, vous devez ajout
 
 1.  Connectez-vous à votre compte Moniker.com, puis sélectionnez **My Domains** et cliquez sur **Manage Templates**.
 
-    ![Page My Domains pour Moniker][]
+    ![Page My Domains pour Moniker][Page My Domains pour Moniker]
 
 2.  Sur la page **Zone Template Management**, sélectionnez **Create New Template**.
 
-    ![Page Zone Template Management de Moniker][]
+    ![Page Zone Template Management de Moniker][Page Zone Template Management de Moniker]
 
 3.  Indiquez le nom de modèle sous **Template Name**.
 
 4.  Créez ensuite un enregistrement DNS en commençant par sélectionner un type d'enregistrement, dans **Record Type**. Remplissez ensuite les champs **Hostname** (non d'hôte) et **Address** (adresse).
 
-    ![Page Create Zone Template de Moniker][]
+    ![Page Create Zone Template de Moniker][Page Create Zone Template de Moniker]
 
     -   Lors de l'ajout d'un enregistrement CNAME, définissez le champ **Hostname** sur le sous-domaine que vous souhaitez utiliser. Par exemple, **www**. Vous devez définir le champ **Address** sur le nom de domaine **.azurewebsites.net** de votre site web Azure. Par exemple, **contoso.azurwebsites.net**.
 
@@ -79,31 +79,14 @@ Pour associer votre domaine personnalisé à un site web Azure, vous devez ajout
 
 ## <a name="enabledomain"></a>Activer le nom de domaine de votre site web
 
-[WACOM.INCLUDE [modes][2]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
-  [Domaine personnalisé]: /fr-fr/documentation/articles/web-sites-custom-domain-name "Domaine personnalisé"
-  [GoDaddy]: /fr-fr/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [Network Solutions]: /fr-fr/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
-  [Register.com]: /fr-fr/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /fr-fr/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /fr-fr/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /fr-fr/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /fr-fr/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /fr-fr/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [Site web]: /fr-fr/documentation/articles/web-sites-moniker-custom-domain-name/ "Sites web"
-  [Site web à l'aide de Traffic Manager]: /fr-fr/documentation/articles/web-sites-moniker-traffic-manager-custom-domain-name/ "Site web à l'aide de Traffic Manager"
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro.md
   [Moniker.com]: https://moniker.com
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [Présentation des enregistrements DNS]: #understanding-records
   [Configurer vos sites web pour le mode De base, Partagé ou Standard]: #bkmk_configsharedmode
   [Ajouter un enregistrement DNS pour votre domaine personnalisé]: #bkmk_configurecname
   [Activer le domaine sur votre site Web]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-raw.md
-  [modes]: ../includes/custom-dns-web-site-modes.md
   [Page My Domains pour Moniker]: .\media\web-sites-moniker-custom-domain-name\Moniker_MyDomains.png
   [Page Zone Template Management de Moniker]: .\media\web-sites-moniker-custom-domain-name\Moniker_ZoneManager.png
   [Page Create Zone Template de Moniker]: .\media\web-sites-moniker-custom-domain-name\Moniker_CreateZoneTemplate.png
   [1]: .\media\web-sites-moniker-custom-domain-name\Moniker_ZoneAssignment.png
-  [2]: ../includes/custom-dns-web-site-enable-on-web-site.md

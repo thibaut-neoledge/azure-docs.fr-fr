@@ -103,22 +103,18 @@ Les visiteurs de votre site ne verront pas le sous-domaine awverify. Il sert uni
 
 ## Activation du nom de domaine sur votre site Web
 
-[WACOM.INCLUDE [modes][2]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
-<!-- Anchors. -->
+
 <!-- Images -->
 
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
   [contoso.azurewebsites.net subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [Vue d'ensemble]: #overview
   [Types d'enregistrement DNS]: #dns-record-types
   [Recherche de l'adresse IP virtuelle]: #find-the-virtual-ip-address
   [Création des enregistrements DNS]: #create-the-dns-records
   [Activation du nom de domaine sur votre site Web]: #enable-the-domain-name-on-your-website
-  [modes]: ../includes/custom-dns-web-site-modes.md
   [portail de gestion Azure]: https://manage.windowsazure.com
   [Mise à l'échelle de sites Web]: http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-scale/
   [0]: media/web-sites-custom-domain-name/dncmntask-cname-6.png
   [1]: media/web-sites-custom-domain-name/ipaddress.png
-  [2]: ../includes/custom-dns-web-site-enable-on-web-site.md

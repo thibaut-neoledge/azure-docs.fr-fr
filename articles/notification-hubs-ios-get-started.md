@@ -172,9 +172,9 @@ Vous trouverez toutes les charges utiles possibles dans le [Guide de programmati
 
 Dans cet exemple simple, vous avez envoyé des notifications à tous vos appareils iOS. Afin de cibler des utilisateurs spécifiques, consultez le didacticiel [Utilisation de Notification Hubs pour envoyer des notifications Push aux utilisateurs][Utilisation de Notification Hubs pour envoyer des notifications Push aux utilisateurs], et, si vous souhaitez segmenter vos utilisateurs par groupes d'intérêt, vous pouvez lire [Utilisation de Notification Hubs pour envoyer les dernières nouvelles][Utilisation de Notification Hubs pour envoyer les dernières nouvelles]. Découvrez plus en détail comment utiliser Notification Hubs dans [Recommandations relatives à Notification Hubs][Recommandations relatives à Notification Hubs].
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Génération de la demande de signature de certificat]: #certificates
   [Inscription de votre application et activation des notifications Push]: #register
@@ -183,7 +183,6 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
   [Connexion de votre application au concentrateur de notification]: #connecting-app
   [Envoi de notifications à partir de votre serveur principal]: #send
   [XCode 4,5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [Activer les notifications Push Apple]: ../includes/enable-apple-push-notifications.md
   [0]: ./media/notification-hubs-ios-get-started/mobile-services-ios-push-27.png
   [portail de gestion Azure]: https://manage.windowsazure.com/
   [1]: ./media/notification-hubs-ios-get-started/notification-hub-create-from-portal.png

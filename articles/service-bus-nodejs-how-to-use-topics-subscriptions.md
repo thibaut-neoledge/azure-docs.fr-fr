@@ -429,7 +429,6 @@ liens suivants pour en savoir plus.
   [Gestion des blocages d'application et des messages illisibles]: #handle-crashes
   [Suppression de rubriques et d'abonnements]: #delete
   [1]: #next-steps
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [Création et déploiement d'une application Node.js dans un site Web Azure]: /fr-fr/develop/nodejs/tutorials/create-a-website-(mac)/
   [Service cloud Node.js]: /fr-fr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Site Web avec WebMatrix]: /fr-fr/develop/nodejs/tutorials/web-site-with-webmatrix/

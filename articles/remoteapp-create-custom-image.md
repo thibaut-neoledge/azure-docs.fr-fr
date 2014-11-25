@@ -1,6 +1,6 @@
 <properties title="How to create a custom template image for RemoteApp" pageTitle="How to create a custom template nimage for RemoteApp" description="Learn how to create a custom template image for RemoteApp. You can use this template with either a hybrid or cloud deployment." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/12/2014" ms.author="elizapo" ms.manager="kathyw"></tags>
+<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/12/2014" ms.author="elizapo" ms.manager="kathyw" />
 
 # Création d'une image de modèle personnalisée pour RemoteApp
 
@@ -106,7 +106,6 @@ Maintenant que vous avez votre image de modèle personnalisée, vous devez tél�
 -   [Création d'un déploiement hybride de RemoteApp][Création d'un déploiement hybride de RemoteApp]
 -   [Création d'un déploiement cloud de RemoteApp][Création d'un déploiement cloud de RemoteApp]
 
-  []: http://azure.microsoft.com/fr-fr/services/remoteapp/
   [Azure PowerShell]: http://azure.microsoft.com/fr-fr/documentation/articles/install-configure-powershell/
   [Création d'un déploiement hybride de RemoteApp]: http://azure.microsoft.com/fr-fr/documentation/articles/remoteapp-create-hybrid-deployment/
   [Création d'un déploiement cloud de RemoteApp]: http://azure.microsoft.com/fr-fr/documentation/articles/remoteapp-create-cloud-deployment/

@@ -284,8 +284,5 @@ Dans cette section, vous allez créer un attribut d'autorisation personnalisé p
   [Ajout du contrôle d'accès en fonction du rôle pour les opérations de base de données]: #add-access-checking
   [Test de l'accès client]: #test-client
   [Stockage des scripts serveur]: /fr-fr/documentation/articles/mobile-services-store-scripts-source-control/
-  [mobile-services-aad-rbac-create-sales-group]: ../includes/mobile-services-aad-rbac-create-sales-group.md
   [Inscription à des fins d'utilisation d'une connexion Azure Active Directory]: /fr-fr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-  [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/add-authorize-aad-role-class.png
-  [mobile-services-aad-rbac-test-app]: ../includes/mobile-services-aad-rbac-test-app.md

@@ -3,8 +3,8 @@
 # Utilisation du service de stockage d'objets blob Azure dans .NET
 
 <div class="dev-center-tutorial-selector">
-<a href="/en-us/develop/net/how-to-guides/blob-storage-v17/" title="version 1.7" class="current">version 1.7</a>
-<a href="/en-us/develop/net/how-to-guides/blob-storage/" title="version 2.0">version 2.0</a> 
+<a href="/fr-fr/develop/net/how-to-guides/blob-storage-v17/" title="version 1.7" class="current">version 1.7</a>
+<a href="/fr-fr/develop/net/how-to-guides/blob-storage/" title="version 2.0">version 2.0</a> 
 </div>
 
 Ce guide explique le déroulement des scénarios courants dans le cadre de l'utilisation du service de stockage d'objets blob Azure. Les exemples sont écrits en C# et utilisent l'API .NET. Les scénarios traités incluent le **téléchargement (vers une cible)**, la **création de listes**, le **téléchargement (à partir d'une source)** et la **suppression** d'objets blob. Pour plus d'informations sur les objets blob, consultez la section [Étapes suivantes](#next-steps).
@@ -168,7 +168,7 @@ Pour créer une liste d'objets blob dans un conteneur, commencez par obtenir une
         Console.WriteLine(blobItem.Uri);
     } 
 
-Le service BLOB suit également le concept de répertoires dans des conteneurs. Vous pouvez donc organiser vos objets blob selon une structure proche de celle des dossiers. Par exemple, vous pouvez avoir un conteneur nommé << photos >>, dans lequel vous pouvez télécharger des objets blob nommés << rootphoto1 >>, << 2010/photo1 >>, << 2010/photo2 >> et << 2011/photo1 >>. Vous créez ainsi virtuellement les répertoires << 2010 >> et << 2011 >> dans le conteneur << photos >>. Lorsque vous appelez **ListBlobs** pour le conteneur << photos >>, la collection renvoyée contient les objets **CloudBlobDirectory** et **CloudBlob** qui représentent les répertoires et objets blob contenus au niveau supérieur. Dans ce cas, les répertoires << 2010 >> et << 2011 >> et la photo << rootphoto1 >> sont renvoyés. Vous pouvez éventuellement transmettre une nouvelle classe **BlobRequestOptions** avec **UseFlatBlobListing** défini sur **true**. Cela permet de renvoyer chaque objet blob, indépendamment du répertoire. Pour plus d'informations, consultez [CloudBlobContainer.ListBlobs][].
+Le service BLOB suit également le concept de répertoires dans des conteneurs. Vous pouvez donc organiser vos objets blob selon une structure proche de celle des dossiers. Par exemple, vous pouvez avoir un conteneur nommé << photos >>, dans lequel vous pouvez télécharger des objets blob nommés << rootphoto1 >>, << 2010/photo1 >>, << 2010/photo2 >> et << 2011/photo1 >>. Vous créez ainsi virtuellement les répertoires << 2010 >> et << 2011 >> dans le conteneur << photos >>. Lorsque vous appelez **ListBlobs** pour le conteneur << photos >>, la collection renvoyée contient les objets **CloudBlobDirectory** et **CloudBlob** qui représentent les répertoires et objets blob contenus au niveau supérieur. Dans ce cas, les répertoires << 2010 >> et << 2011 >> et la photo << rootphoto1 >> sont renvoyés. Vous pouvez éventuellement transmettre une nouvelle classe **BlobRequestOptions** avec **UseFlatBlobListing** défini sur **true**. Cela permet de renvoyer chaque objet blob, indépendamment du répertoire. Pour plus d'informations, consultez [CloudBlobContainer.ListBlobs][CloudBlobContainer.ListBlobs].
 
 <h2> <a name="download-blobs"> </a><span  class="short-header">Téléchargement d'objets blob</span> Téléchargement d'objets blob</h2>
 
@@ -224,8 +224,8 @@ Maintenant que vous avez appris les bases du stockage d'objets blob, suivez ces 
   *  [Référence d'API REST][3]
 *  Pour plus d'informations sur les tâches avancées que vous pouvez effectuer avec le stockage Azure, consultez la page [Stockage et accessibilité des données dans Azure][4].
 *  Pour plus d'informations sur les autres options de stockage de données dans Azure, consultez d'autres guides de fonctionnalités.
-  *  Utilisez le [stockage de table](/en-us/develop/net/how-to-guides/table-services/) pour stocker des données structurées.
-  *  Utilisez une [base de données SQL](/en-us/develop/net/how-to-guides/sql-database/) pour stocker des données relationnelles.
+  *  Utilisez le [stockage de table](/fr-fr/develop/net/how-to-guides/table-services/) pour stocker des données structurées.
+  *  Utilisez une [base de données SQL](/fr-fr/develop/net/how-to-guides/sql-database/) pour stocker des données relationnelles.
   
 
 

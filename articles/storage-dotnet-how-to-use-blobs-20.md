@@ -263,7 +263,7 @@ fichier C# dans lequel vous souhaitez accéder au stockage Azure par programme 
     Block blob of length 399751: https://<a ccountname>.blob.core.windows.net/photos/2011/photo7.jpg
     Block blob of length 505623: https://<a ccountname>.blob.core.windows.net/photos/photo1.jpg
 
- Pour plus d'informations, consultez [CloudBlobContainer.ListBlobs][].
+ Pour plus d'informations, consultez [CloudBlobContainer.ListBlobs][CloudBlobContainer.ListBlobs].
 
 ## <a name="download-blobs"> </a><span  class="short-header">Téléchargement d'objets blob</span>Téléchargement d'objets blob
 
@@ -346,9 +346,9 @@ fichier C# dans lequel vous souhaitez accéder au stockage Azure par programme 
 *  Pour plus d'informations sur les autres options de stockage de données
   dans Azure, consultez d'autres guides de fonctionnalités.
   *  Utilisez le [stockage de
-    table](/en-us/develop/net/how-to-guides/table-services/) pour stocker des données structurées.
+    table](/fr-fr/develop/net/how-to-guides/table-services/) pour stocker des données structurées.
   *  Utilisez une [base de données
-    SQL](/en-us/develop/net/how-to-guides/sql-database/) pour stocker des données relationnelles.
+    SQL](/fr-fr/develop/net/how-to-guides/sql-database/) pour stocker des données relationnelles.
   
 
 

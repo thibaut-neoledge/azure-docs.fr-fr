@@ -110,18 +110,11 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
     En savoir plus sur l'envoi d'une notification Push très basique sur votre application avec Mobile Services.
 
 
-  [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
   [Téléchargement d'un projet d'application Android]: #download-app
   [Création du service mobile]: #create-service
   [Ajout d'une table de données pour le stockage]: #add-table
   [Mise à jour de l'application pour utiliser Mobile Services]: #update-app
   [Test de l'application avec Mobile Services]: #test-app
-  [download-android-sample-code]: ../includes/download-android-sample-code.md
-  [Verify SDK]: ../includes/mobile-services-verify-android-sdk-version.md
-  [mobile-services-android-run-sample-code]: ../includes/mobile-services-android-run-sample-code.md
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
-  [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
-  [mobile-services-android-getting-started-with-data]: ../includes/mobile-services-android-getting-started-with-data.md
   [portail de gestion]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-android-get-started-data/mobile-todoitem-data-browse.png
   [Validation et modification des données avec des scripts]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet

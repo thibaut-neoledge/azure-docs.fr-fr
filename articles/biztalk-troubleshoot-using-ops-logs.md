@@ -1,6 +1,6 @@
 <properties linkid="biztalk-troubleshoot-using-ops-logs" urlDisplayName="BizTalk Services: Troubleshoot using operation logs" pageTitle="BizTalk Services: Troubleshoot using ops logs | Azure" metaKeywords="" description="BizTalk Services: Troubleshoot using ops logs" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Troubleshoot using ops logs" authors="mandia"  solutions="" writer="nitinme" manager="dwrede" editor="cgronlun"  />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # BizTalk Services : résolution de problèmes à l'aide des journaux des opérations
 
@@ -99,9 +99,6 @@ Le tableau ci-dessous répertorie les opérations suivies à l'aide des services
 -   [BizTalk Services : Nom et clé de l'émetteur][BizTalk Services : Nom et clé de l'émetteur]
 -   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services][Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services]
 
-  [API REST BizTalk Services]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn232347.aspx
-  [Opérations suivies à l'aide des services de gestion Azure]: #bizops
-  [Messages de suivi]: http://msdn.microsoft.com/library/windowsazure/hh949805.aspx
   [Affichage des journaux des opérations]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
   [Sauvegarde d'un service BizTalk]: http://go.microsoft.com/fwlink/p/?LinkID=325584
   [Restauration d'un service BizTalk depuis une sauvegarde]: http://go.microsoft.com/fwlink/p/?LinkID=325582

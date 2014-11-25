@@ -333,8 +333,6 @@ MSDN [Files d'attente, rubriques et abonnements Service Bus][Files d'attente, ru
   [Gestion des blocages d'application et des messages illisibles]: #HandleCrashes
   [Suppression de rubriques et d'abonnements]: #DeleteTopicsAndSubscriptions
   [Étapes suivantes]: #NextSteps
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [extension OpenSSL]: http://php.net/openssl
-  [get-client-libraries]: ../includes/get-client-libraries.md
   [Propriété SqlExpression]: http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Files d'attente, rubriques et abonnements Service Bus]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367516.aspx

@@ -102,17 +102,13 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 
     En savoir plus sur le diagnostic et la résolution de problèmes liés à un service principal Mobile Services .NET.
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [version principale JavaScript]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started
   [0]: ./media/mobile-services-windows-phone-get-started/mobile-quickstart-completed-wp8.png
   [Version d'évaluation gratuite d'Azure]: http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A30A4DDE2&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-phone-get-started%2F
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
-  [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
   [1]: ./media/mobile-services-dotnet-backend-windows-phone-get-started/mobile-portal-quickstart-wp8.png
   [2]: ./media/mobile-services-dotnet-backend-windows-phone-get-started/mobile-quickstart-steps-wp8.png
-  [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md
   [Connexion à un service Web local à partir de l'émulateur Windows Phone 8]: http://go.microsoft.com/fwlink/p/?LinkId=391930
-  [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
   [MobileServiceClient]: http://msdn.microsoft.com/fr-fr/library/Windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
   [3]: ./media/mobile-services-dotnet-backend-windows-phone-get-started/mobile-quickstart-startup-wp8.png
   [Configuration du serveur Web local pour autoriser les connexions à un service mobile local]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express

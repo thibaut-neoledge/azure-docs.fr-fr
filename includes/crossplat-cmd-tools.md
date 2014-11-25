@@ -1,15 +1,15 @@
 # Utilisation des outils en ligne de commande Azure pour Mac et Linux
 
-Ce guide explique comment utiliser les outils en ligne de commande Azure pour Mac et Linux afin de créer et de gérer des services dans Azure. Les scénarios abordés sont les suivants : **installation des outils**, **importation de vos paramètres de publication**, **création et gestion de sites web Azure** et **création et gestion de machines virtuelles Azure**. Pour accéder à une documentation de référence exhaustive, consultez la page [Documentation de l’outil en ligne de commande Azure pour Mac et Linux][].
+Ce guide explique comment utiliser les outils en ligne de commande Azure pour Mac et Linux afin de créer et de gérer des services dans Azure. Les scénarios abordés sont les suivants : **installation des outils**, **importation de vos paramètres de publication**, **création et gestion de sites web Azure** et **création et gestion de machines virtuelles Azure**. Pour accéder à une documentation de référence exhaustive, consultez la page [Documentation de l’outil en ligne de commande Azure pour Mac et Linux][Documentation de l’outil en ligne de commande Azure pour Mac et Linux].
 
 ## Sommaire
 
--   [Présentation des outils en ligne de commande Azure pour Mac et Linux][]
--   [Installation des outils en ligne de commande Azure pour Mac et Linux][]
--   [Création d’un compte Azure][]
--   [Téléchargement et importation des paramètres de publication][]
--   [Création et gestion d’un site Web Azure][]
--   [Création et gestion d’une machine virtuelle Azure][]
+-   [Présentation des outils en ligne de commande Azure pour Mac et Linux][Présentation des outils en ligne de commande Azure pour Mac et Linux]
+-   [Installation des outils en ligne de commande Azure pour Mac et Linux][Installation des outils en ligne de commande Azure pour Mac et Linux]
+-   [Création d’un compte Azure][Création d’un compte Azure]
+-   [Téléchargement et importation des paramètres de publication][Téléchargement et importation des paramètres de publication]
+-   [Création et gestion d’un site Web Azure][Création et gestion d’un site Web Azure]
+-   [Création et gestion d’une machine virtuelle Azure][Création et gestion d’une machine virtuelle Azure]
 
 ## <span id="Overview"></span></a>Présentation des outils en ligne de commande Azure pour Mac et Linux
 
@@ -27,9 +27,9 @@ Pour obtenir la liste complète des commandes prises en charge, tapez `azure -he
 
 La liste suivante contient des informations permettant d’installer les outils en ligne de commande en fonction de votre système d’exploitation :
 
--   **Mac** : téléchargez le [programme d'installation du Kit de développement logiciel (SDK) Azure][]. Ouvrez le fichier .pkg téléchargé et suivez les étapes d’installation indiquées.
+-   **Mac** : téléchargez le [programme d'installation du Kit de développement logiciel (SDK) Azure][programme d'installation du Kit de développement logiciel (SDK) Azure]. Ouvrez le fichier .pkg téléchargé et suivez les étapes d’installation indiquées.
 
--   **Linux** : installez la dernière version de [Node.js][] (voir [Install Node.js via Package Manager][] (en anglais)), puis exécutez la commande suivante :
+-   **Linux** : installez la dernière version de [Node.js][Node.js] (voir [Install Node.js via Package Manager][Install Node.js via Package Manager] (en anglais)), puis exécutez la commande suivante :
 
         npm install azure-cli -g
 
@@ -37,7 +37,7 @@ La liste suivante contient des informations permettant d’installer les outils 
 
         sudo npm install azure-cli -g
 
--   **Windows** : exécutez le programme d’installation de Windows (fichier .msi), disponible ici : [Outils en ligne de commande Azure][].
+-   **Windows** : exécutez le programme d’installation de Windows (fichier .msi), disponible ici : [Outils en ligne de commande Azure][Outils en ligne de commande Azure].
 
 Pour tester l’installation, tapez `azure` à l’invite. Si l’installation a réussi, une liste de toutes les commandes `azure` disponibles apparaît.
 
@@ -47,7 +47,7 @@ Pour utiliser les outils en ligne de commande Azure pour Mac et Linux, vous avez
 
 Ouvrez un navigateur Web et accédez à [][]<http://www.windowsazure.com></a>, puis cliquez sur **free trial** dans le coin supérieur droit.
 
-![Site Web Azure][]
+![Site Web Azure][Site Web Azure]
 
 Suivez les instructions pour créer un compte.
 
@@ -176,7 +176,7 @@ Une machine virtuelle Azure est créée à partir d’une image de machine virtu
 
 Vous pouvez approvisionner et démarrer une machine virtuelle à partir de l'une des images disponibles au moyen de la commande `vm create`. L’exemple suivant indique comment créer une machine virtuelle Linux (appelée `myVM`) à partir d’une image de la galerie d’images (CentOS 6.2). Le nom d'utilisateur racine et le mot de passe de la machine virtuelle sont respectivement `myusername` et `Mypassw0rd`. (Notez que le paramètre `--location` spécifie le centre de données dans lequel la machine virtuelle est créée. Si vous omettez le paramètre `--location`, vous êtes invité à choisir un emplacement.)
 
-    azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd myusername --location "West US"
+    azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-fr-fr-30GB.vhd myusername --location "West US"
 
 Vous pouvez transmettre l’indicateur `--ssh` (Linux) ou `--rdp` (Windows) à `vm create` pour autoriser les connexions à distance à la machine virtuelle qui vient d’être créée.
 

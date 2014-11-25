@@ -1,6 +1,6 @@
 <properties linkid="web-sites-create-web-jobs" urlDisplayName="Use WebJobs to run background tasks in Microsoft Azure Websites" pageTitle="Use WebJobs to run background tasks in Microsoft Azure Websites" metaKeywords="Microsoft Azure Web Sites, Web Jobs, background tasks" description="Learn how to run background tasks in Microsoft Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Use WebJobs to run background tasks in Microsoft Azure Websites" authors="cephalin"  solutions="" writer="timamm" manager="wpickett" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Utilisation de WebJobs pour exécuter des tâches en arrière-plan dans les sites Web Azure
 
@@ -8,17 +8,17 @@ Microsoft Azure WebSites propose trois méthodes pour exécuter des programmes o
 
 ## Sommaire
 
--   [Types de fichier acceptables pour les scripts][]
--   [Création d'une tâche à la demande][]
--   [Création d'une tâche exécutée en continu][]
--   [Création d'une tâche planifiée][]
-    -   [Tâches planifiées et Azure Scheduler][]
--   [Affichage de l'historique des tâches][]
--   [Remarques][]
--   [Étapes suivantes][]
-    -   [Amélioration des résultats avec le Kit de développement logiciel (SDK) Azure WebJobs][]
-    -   [Autres méthodes de déploiement][]
-    -   [Ressources supplémentaires][]
+-   [Types de fichier acceptables pour les scripts][Types de fichier acceptables pour les scripts]
+-   [Création d'une tâche à la demande][Création d'une tâche à la demande]
+-   [Création d'une tâche exécutée en continu][Création d'une tâche exécutée en continu]
+-   [Création d'une tâche planifiée][Création d'une tâche planifiée]
+    -   [Tâches planifiées et Azure Scheduler][Tâches planifiées et Azure Scheduler]
+-   [Affichage de l'historique des tâches][Affichage de l'historique des tâches]
+-   [Remarques][Remarques]
+-   [Étapes suivantes][Étapes suivantes]
+    -   [Amélioration des résultats avec le Kit de développement logiciel (SDK) Azure WebJobs][Amélioration des résultats avec le Kit de développement logiciel (SDK) Azure WebJobs]
+    -   [Autres méthodes de déploiement][Autres méthodes de déploiement]
+    -   [Ressources supplémentaires][Ressources supplémentaires]
 
 <a name="acceptablefiles"></a>
 
@@ -44,7 +44,7 @@ Les types de fichier suivants sont acceptés en tant que scripts exécutables :
 
 1.  Dans la barre de commandes de la page **WebJobs**, cliquez sur **Ajouter**. La boîte de dialogue **New Job** s'affiche.
 
-    ![Tâche à la demande][]
+    ![Tâche à la demande][Tâche à la demande]
 
 2.  Sous **Nom**, entrez un nom pour la tâche. Le nom doit commencer par une lettre ou un chiffre et ne peut pas contenir de caractères spéciaux, à part les tirets et les traits de soulignement (« - » et « \_ »).
 
@@ -54,11 +54,11 @@ Les types de fichier suivants sont acceptés en tant que scripts exécutables :
 
 5.  Pour télécharger le script vers votre site Web, activez la case à cocher située dans le coin inférieur droit de la boîte de dialogue. Le nom que vous avez indiqué pour cette tâche apparaît dans la liste :
 
-    ![Liste des tâches][]
+    ![Liste des tâches][Liste des tâches]
 
 6.  Pour exécuter le script, sélectionnez son nom dans la liste, puis cliquez sur **Exécuter une fois** dans la barre de commandes située en bas de la page du portail.
 
-    ![Exécuter une fois][]
+    ![Exécuter une fois][Exécuter une fois]
 
 <a name="CreateContinuous"></a>
 
@@ -66,7 +66,7 @@ Les types de fichier suivants sont acceptés en tant que scripts exécutables :
 
 1.  Pour créer une tâche exécutée en continu, procédez comme pour la création d'une tâche à exécution unique, mais dans la zone **How to Run**, sélectionnez **Run continuously**.
 
-    ![Nouvelle tâche en continu][]
+    ![Nouvelle tâche en continu][Nouvelle tâche en continu]
 
 2.  Pour démarrer ou arrêter une tâche exécutée en continu, sélectionnez-la dans la liste, puis cliquez sur **Démarrer** ou **Arrêter** dans la barre de commandes.
 
@@ -81,21 +81,21 @@ Les types de fichier suivants sont acceptés en tant que scripts exécutables :
 
 1.  Pour créer une tâche planifiée, procédez comme pour les tâches précédentes, mais dans la zone **How to Run**, sélectionnez **Run on a schedule**.
 
-    ![Nouvelle tâche planifiée][]
+    ![Nouvelle tâche planifiée][Nouvelle tâche planifiée]
 
 2.  Sélectionnez la **région Scheduler** pour votre tâche, puis cliquez sur la flèche située dans le coin inférieur droit de la boîte de dialogue pour passer à l'écran suivant.
 
 3.  Dans la boîte de dialogue **Create Job**, sélectionnez un type de **périodicité** : **One-time job** ou **Recurring job**.
 
-    ![Périodicité de la planificiation][]
+    ![Périodicité de la planificiation][Périodicité de la planificiation]
 
 4.  Sélectionnez également une date/heure de **début** : **Now** ou **At a specific time**.
 
-    ![Heure de début de la planification][]
+    ![Heure de début de la planification][Heure de début de la planification]
 
 5.  Si vous voulez démarrer votre tâche à un moment précis, sélectionnez la date/heure de début sous **Starting On**.
 
-    ![Début de la planification à une heure spécifique][]
+    ![Début de la planification à une heure spécifique][Début de la planification à une heure spécifique]
 
 6.  Si vous sélectionnez une tâche récurrente, l'option **Recur Every** vous permet d'indiquer la fréquence d'occurrence, tandis que l'option **Ending On** vous permet d'indiquer une date/heure de fin.
 
@@ -103,19 +103,19 @@ Les types de fichier suivants sont acceptés en tant que scripts exécutables :
 
 7.  Si vous sélectionnez **Semaines**, vous pouvez sélectionner la zone **On a Particular Schedule** et indiquer les jours de la semaine où vous voulez exécuter la tâche.
 
-    ![Planifier les jours de la semaine][]
+    ![Planifier les jours de la semaine][Planifier les jours de la semaine]
 
 8.  Si vous sélectionnez **Mois** et la zone **On a Particular Schedule**, vous pouvez configurer la tâche pour qu'elle démarre certains **jours** du mois.
 
-    ![Planifier à des dates spécifiques dans le mois][]
+    ![Planifier à des dates spécifiques dans le mois][Planifier à des dates spécifiques dans le mois]
 
 9.  Si vous sélectionnez **Jours de la semaine**, vous pouvez choisir les jours de la semaine durant lesquels exécuter la tâche.
 
-    ![Planifier des jours de semaine spécifiques dans le mois][]
+    ![Planifier des jours de semaine spécifiques dans le mois][Planifier des jours de semaine spécifiques dans le mois]
 
 10. Enfin, vous pouvez également utiliser l'option **Occurrences** pour choisir la semaine du mois (première, deuxième, troisième, etc.) durant laquelle exécuter la tâche, les jours de votre choix.
 
-    ![Planifier des jours de semaine spécifiques certaines semaines du mois][]
+    ![Planifier des jours de semaine spécifiques certaines semaines du mois][Planifier des jours de semaine spécifiques certaines semaines du mois]
 
 11. Lorsque vous avez créé une ou plusieurs tâches, leurs noms sont affichés sous l'onglet WebJobs avec leur statut, leur type de planification et d'autres informations. L'historique répertorie les 30 dernières tâches.
 
@@ -129,15 +129,15 @@ Les tâches planifiées peuvent être configurées davantage dans le portail d'A
 
 1.  Sur la page WebJobs, cliquez sur le lien **schedule** de la tâche pour accéder à la page du portail d'Azure Scheduler.
 
-    ![Lien vers Azure Scheduler][]
+    ![Lien vers Azure Scheduler][Lien vers Azure Scheduler]
 
 2.  Sur la page Scheduler, cliquez sur la tâche.
 
-    ![Tâches sur la page du portail Scheduler][]
+    ![Tâches sur la page du portail Scheduler][Tâches sur la page du portail Scheduler]
 
 3.  La page **Job Action** s'ouvre : vous pouvez y configurer les tâches plus en détail.
 
-    ![Action de tâche PageInScheduler][]
+    ![Action de tâche PageInScheduler][Action de tâche PageInScheduler]
 
 <!-- ================ ViewJobHistory ================= -->
 
@@ -147,25 +147,25 @@ Les tâches planifiées peuvent être configurées davantage dans le portail d'A
 
 1.  Pour afficher l'historique d'exécution d'une tâche, notamment celui des tâches créées avec le Kit de développement logiciel (SDK) WebJobs, cliquez sur le lien correspondant sous la colonne **Logs**. Vous pouvez utiliser l'icône de Presse-papiers pour copier l'URL de la page du fichier journal dans le Presse-papiers.
 
-    ![Lien vers les journaux][]
+    ![Lien vers les journaux][Lien vers les journaux]
 
 2.  En cliquant sur le lien, vous ouvrez la page de détail WebJobs pour la tâche. Cette page permet de savoir le nom de la commande exécutée, la date/heure de sa dernière exécution et si elle a réussi ou échoué. Sous **Recent job runs**, cliquez une fois pour afficher les détails supplémentaires.
 
-    ![WebJobDetails][]
+    ![WebJobDetails][WebJobDetails]
 
 3.  La page **WebJob Run Details** apparaît. Cliquez sur **Toggle Output** pour afficher le texte du contenu du journal. Le journal de sortie est au format texte.
 
-    ![Détails d'exécution de la tâche WebJob][]
+    ![Détails d'exécution de la tâche WebJob][Détails d'exécution de la tâche WebJob]
 
 4.  Pour afficher le texte de sortie dans une nouvelle fenêtre de navigateur, cliquez sur le lien **télécharger**. Pour télécharger le texte, cliquez avec le bouton droit sur le lien et utilisez les options de votre navigateur pour enregistrer le contenu du fichier.
 
-    ![Télécharger la sortie du journal][]
+    ![Télécharger la sortie du journal][Télécharger la sortie du journal]
 
 5.  Le lien **WebJobs** situé en haut de la page permet d'obtenir une liste des tâches Web sur le tableau de bord d'historique.
 
-    ![Lien vers la liste des tâches Web][]
+    ![Lien vers la liste des tâches Web][Lien vers la liste des tâches Web]
 
-    ![Liste des tâches dans le tableau de bord d'historique][]
+    ![Liste des tâches dans le tableau de bord d'historique][Liste des tâches dans le tableau de bord d'historique]
 
     En cliquant sur l'un de ces liens, vous pouvez accéder à la page Détails de WebJob pour la tâche sélectionnée.
 
@@ -193,7 +193,7 @@ Les tâches planifiées peuvent être configurées davantage dans le portail d'A
 
 Le Kit de développement logiciel (SDK) Azure WebJobs simplifie la tâche de programmation d'un WebJob fonctionnant avec les files d'attente, objets blob et tables de stockage Azure ou les files d'attente Azure Service Bus. Le tableau de bord, qui est maintenant intégré au portail Azure, permet d'améliorer la surveillance et les diagnostics des programmes que vous écrivez en utilisant le Kit de développement logiciel (SDK). Les fonctionnalités de surveillance et de diagnostics sont basées sur le Kit de développement logiciel (SDK) et ne nécessitent pas l'ajout de code spécifique à votre programme.
 
-Pour plus d'informations, consultez le didacticiel [Mise en route du Kit de développement logiciel (SDK) WebJobs Azure][].
+Pour plus d'informations, consultez le didacticiel [Mise en route du Kit de développement logiciel (SDK) WebJobs Azure][Mise en route du Kit de développement logiciel (SDK) WebJobs Azure].
 
 <!-- =========== Alternative Methods of Deployment ============= -->
 
@@ -201,27 +201,27 @@ Pour plus d'informations, consultez le didacticiel [Mise en route du Kit de dév
 
 ### Autres méthodes de déploiement
 
-Visual Studio 2013 comprend des fonctionnalités permettant d'automatiser le déploiement de projets d'application console sous forme de WebJobs. Pour plus d'informations, consultez [Déploiement d'Azure WebJobs vers les sites Web Azure][].
+Visual Studio 2013 comprend des fonctionnalités permettant d'automatiser le déploiement de projets d'application console sous forme de WebJobs. Pour plus d'informations, consultez [Déploiement d'Azure WebJobs vers les sites Web Azure][Déploiement d'Azure WebJobs vers les sites Web Azure].
 
-Vous pouvez également utiliser FTP, Git ou Web Deploy pour le déploiement des WebJobs. Pour plus d’informations, consultez les pages [Déploiement Git d'une application de console .NET vers Azure en utilisant WebJobs][] et [Déploiement d'Azure WebJobs][].
+Vous pouvez également utiliser FTP, Git ou Web Deploy pour le déploiement des WebJobs. Pour plus d’informations, consultez les pages [Déploiement Git d'une application de console .NET vers Azure en utilisant WebJobs][Déploiement Git d'une application de console .NET vers Azure en utilisant WebJobs] et [Déploiement d'Azure WebJobs][Déploiement d'Azure WebJobs].
 
 <a name="AdditionalResources"></a>
 
 ### Ressources supplémentaires
 
--   Pour obtenir une liste annotée des liens vers la fonctionnalité WebJobs, consultez la page [Azure WebJobs - Ressources recommandées][].
+-   Pour obtenir une liste annotée des liens vers la fonctionnalité WebJobs, consultez la page [Azure WebJobs - Ressources recommandées][Azure WebJobs - Ressources recommandées].
 
 -   Vidéos sur WebJobs :
 
-    [Azure WebJobs 101 : notions de base sur WebJobs avec Jamie Espinosa][]
+    [Azure WebJobs 101 : notions de base sur WebJobs avec Jamie Espinosa][Azure WebJobs 101 : notions de base sur WebJobs avec Jamie Espinosa]
 
-    [Azure WebJobs 102 : tâches WebJobs planifiées et tableau de bord WebJobs avec Jamie Espinosa][]
+    [Azure WebJobs 102 : tâches WebJobs planifiées et tableau de bord WebJobs avec Jamie Espinosa][Azure WebJobs 102 : tâches WebJobs planifiées et tableau de bord WebJobs avec Jamie Espinosa]
 
-    [Azure Scheduler 101 : Kevin Lam vous explique comment planifier vos tâches][]
+    [Azure Scheduler 101 : Kevin Lam vous explique comment planifier vos tâches][Azure Scheduler 101 : Kevin Lam vous explique comment planifier vos tâches]
 
 ### Prise en main
 
-Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite de Microsoft Azure][].
+Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite de Microsoft Azure][Version d'évaluation gratuite de Microsoft Azure].
 
 <!-- LINKS --> 
 <!-- IMAGES -->

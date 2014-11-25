@@ -1,14 +1,14 @@
 ### Création d’un compte Blitline
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
 
 2.  Dans le volet inférieur du portail de gestion, cliquez sur **Nouveau**.
 
-    ![command-bar-new][]
+    ![command-bar-new][command-bar-new]
 
 3.  Cliquez sur **Store**.
 
-    ![blitline-store][]
+    ![blitline-store][blitline-store]
 
 4.  Dans la boîte de dialogue **Choose an Add-on**, sélectionnez **Blitline**, puis cliquez sur la flèche droite.
 
@@ -16,7 +16,7 @@
 
 6.  Entrez un nom pour identifier le service **Blitline** dans les paramètres Azure ou utilisez la valeur par défaut **Blitline**. Les noms doivent contenir entre 1 et 100 caractères et ne peuvent inclure que des lettres, des chiffres, des tirets, des points et des traits de soulignement. Le nom doit être unique dans la liste des éléments de l’Azure Store auxquels vous êtes abonné.
 
-    ![store-screen-1][]
+    ![store-screen-1][store-screen-1]
 
 7.  Choisissez une valeur pour la région ; par exemple, Bretagne.
 
@@ -30,11 +30,11 @@ Pour utiliser Blitline, vous devez disposer de l’ID de l’application.
 
 1.  Cliquez sur **Connection Info**.
 
-    ![blitline-connection-info-button][]
+    ![blitline-connection-info-button][blitline-connection-info-button]
 
 2.  Dans la boîte de dialogue *Connection info*, l’ID de l’application s’affiche.
 
-    ![blitline-connection-info][]
+    ![blitline-connection-info][blitline-connection-info]
 
 <!--images-->
 

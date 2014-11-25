@@ -87,7 +87,6 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
     En savoir plus sur l'implémentation de logique métier dans votre service mobile.
 
-  [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
   [version application Windows universelle]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
   [Inscription de votre application avec WNS et configuration de Mobile Services]: #register
   [Mise à jour de l'application pour l'inscription aux notifications]: #update-app
@@ -95,10 +94,7 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
   [Insertion de données pour recevoir des notifications Push]: #test
   [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-store-get-started
   [Prise en main des données]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-data
-  [mobile-services-notification-hubs-register-windows-store-app]: ../includes/mobile-services-notification-hubs-register-windows-store-app.md
   [0]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-app-enable-toast-win8.png
-  [mobile-services-javascript-update-script-notification-hubs]: ../includes/mobile-services-javascript-update-script-notification-hubs.md
-  [mobile-services-windows-store-test-push]: ../includes/mobile-services-windows-store-test-push.md
   [Envoi de notifications Push à des utilisateurs authentifiés]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users/
   [Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-users
   [Présentation de Notification Hubs]: /fr-fr/documentation/articles/notification-hubs-overview/

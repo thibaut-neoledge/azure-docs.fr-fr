@@ -10,10 +10,9 @@ Cette rubrique vous explique comment activer les notifications Push sur votre ap
 
 À présent, vous pouvez utiliser ce certificat .p12 pour permettre aux services de s'authentifier avec APNS et d'envoyer des notifications Push de la part de votre application.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [portail de gestion Azure]: https://manage.windowsazure.com/
   [Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
-  [Enable Apple Push Notifications]: ../includes/enable-apple-push-notifications.md

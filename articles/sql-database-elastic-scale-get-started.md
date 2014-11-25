@@ -118,4 +118,4 @@ Pour plus d'informations sur la fonctionnalité d'infrastructure élastique, con
   [Élasticité des partitions dans le Centre de scripts]: http://go.microsoft.com/?linkid=9862617
   [annonce sur l'infrastructure élastique]: http://go.microsoft.com/?linkid=9862608
   [1]: http://go.microsoft.com/?linkid=9862609
-  [Forum Base de données SQL Azure]: http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=ssdsgetstarted
+  [Forum Base de données SQL Azure]: http://social.msdn.microsoft.com/forums/azure/fr-fr/home?forum=ssdsgetstarted

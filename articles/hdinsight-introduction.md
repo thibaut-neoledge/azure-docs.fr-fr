@@ -1,4 +1,4 @@
-<properties urlDisplayName="HDInsight Introduction" pageTitle="Pr&eacute;sentation de Hadoop dans HDInsight | Azure" metaKeywords="" description="D&eacute;couvrez comment Azure HDInsight utilise les clusters Apache Hadoop dans le cloud pour fournir une infrastructure logicielle permettant de g&eacute;rer et d'analyser les donn&eacute;es volumineuses, ainsi que de g&eacute;n&eacute;rer des rapports &agrave; leur sujet." metaCanonical="" services="hdinsight" documentationCenter="" title="Pr&eacute;sentation de Hadoop dans HDInsight" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-introduction-hdinsight" urlDisplayName="HDInsight Introduction" pageTitle="Introduction to Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how Azure HDInsight uses Apache Hadoop clusters in the cloud, to provide a software framework to manage, analyze, and report on big data." metaCanonical="" services="hdinsight" documentationCenter="" title="Introduction to Hadoop in HDInsight" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -173,7 +173,6 @@ HDInsight (et les technologies Hadoop en général) est particulièrement indiqu
   [Prise en main d'Azure HDInsight]: ../hdinsight-get-started/
   [Exécution des exemples HDInsight]: ../hdinsight-run-samples/
   [Données volumineuses et Azure]: http://azure.microsoft.com/fr-fr/solutions/big-data/
-  [Kit de développement logiciel (SDK) Azure HDInsight]: http://msdnstage.redmond.corp.microsoft.com/fr-fr/library/dn479185.aspx
   [Page d'accueil Azure]: http://azure.microsoft.com/fr-fr/
   [Base de données SQL Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336279.aspx
   [Portail de gestion pour la base de données SQL]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg442309.aspx

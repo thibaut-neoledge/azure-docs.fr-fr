@@ -301,7 +301,7 @@ Maintenant que vous avez appris les bases du stockage des files d'attente, suive
     -   [Référence de l'API REST](http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179355)
 -   Pour plus d'informations sur les tâches avancées que vous pouvez effectuer avec le stockage Azure, consultez la page [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx).
 -   Pour plus d'informations sur les autres options de stockage de données dans Azure, consultez d'autres guides de fonctionnalités.
-    -   Utilisez le [stockage de table](/en-us/develop/net/how-to-guides/table-services/) pour stocker des données structurées.
-    -   Utilisez le [stockage d'objets blob](/en-us/develop/net/how-to-guides/blob-storage/) pour stocker des données non structurées.
-    -   Utilisez une [base de données SQL](/en-us/develop/net/how-to-guides/sql-database/) pour stocker des données relationnelles.
+    -   Utilisez le [stockage de table](/fr-fr/develop/net/how-to-guides/table-services/) pour stocker des données structurées.
+    -   Utilisez le [stockage d'objets blob](/fr-fr/develop/net/how-to-guides/blob-storage/) pour stocker des données non structurées.
+    -   Utilisez une [base de données SQL](/fr-fr/develop/net/how-to-guides/sql-database/) pour stocker des données relationnelles.
 

@@ -1,8 +1,8 @@
-<properties urlDisplayName="Upload Data" pageTitle="T&eacute;l&eacute;chargement de donn&eacute;es pour les t&acirc;ches Hadoop dans HDInsight | Azure" metaKeywords="" description="Apprenez &agrave; t&eacute;l&eacute;charger des donn&eacute;es et &agrave; y acc&eacute;der dans HDInsight avec l'Explorateur du stockage Azure, Azure PowerShell, la ligne de commande Hadoop ou Sqoop." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="T&eacute;l&eacute;chargement de donn&eacute;es pour les t&acirc;ches Hadoop dans HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-upload-data-for-hadoop-jobs-in-hdinsight" urlDisplayName="Upload Data" pageTitle="Upload data for Hadoop jobs in HDInsight | Azure" metaKeywords="" description="Learn how to upload and access data in HDInsight using Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Upload data for Hadoop jobs in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
-# Téléchargement de données pour les tâches Hadoop dans HDInsight
+# Téléchargement de données pour des tâches Hadoop dans HDInsight
 
 Azure HDInsight fournit un système HDFS (Hadoop Distributed File System) complet pour le stockage d'objets blob Azure. Il a été conçu en tant qu'extension HDFS pour offrir aux clients une expérience transparente en permettant à l'ensemble complet de composants de l'écosystème Hadoop de fonctionner directement sur les données qu'il gère. Le stockage d'objets blob Azure et HDFS sont des systèmes de fichiers distincts qui sont optimisés pour le stockage de données et pour les calculs réalisés à partir de ces données. Pour connaître les avantages que constitue l'utilisation du stockage d'objets blob Azure, consultez la page [Utilisation du stockage d'objets blob Azure avec HDInsight][Utilisation du stockage d'objets blob Azure avec HDInsight].
 
@@ -77,9 +77,9 @@ Lorsque vous utilisez les outils d'Azure Explorer, vous pouvez remarquer la pré
 
 ## <span id="storageexplorer"></span></a>Téléchargement de données vers le stockage d'objets blob avec Azure Storage Explorer
 
-*Azure Storage Explorer* est un outil utile pour examiner et modifier les données de votre compte Azure Storage. Il est gratuit et vous pouvez le télécharger depuis la page <http://azurestorageexplorer.codeplex.com/>.
+*Azure Storage Explorer* est un outil utile pour examiner et modifier les données de votre compte Azure Storage. Il est gratuit et vous pouvez le télécharger depuis la page [][]<http://azurestorageexplorer.codeplex.com/></a>.
 
-Avant de l'utiliser, vous devez connaître le nom et la clé de votre compte Azure Storage. Pour des instructions sur la façon d'obtenir ces informations, consultez la section « Affichage, copie et régénération de clés d'accès de stockage » de la page [Gestion des comptes de stockage][Gestion des comptes de stockage].
+Avant de l'utiliser, vous devez connaître le nom et la clé de votre compte Azure Storage. Pour obtenir des instructions sur l'obtention de ces informations, consultez la section «  Affichage, copie et régénération de clés d'accès de stockage » de la rubrique [Gestion des comptes de stockage][Gestion des comptes de stockage].
 
 1.  Exécutez Azure Storage Explorer.
 
@@ -198,6 +198,7 @@ Maintenant que vous savez comment obtenir des données avec HDInsight, utilisez 
   [Importation de données à partir d'une base de données SQL Azure vers le stockage d'objets blob avec Sqoop]: #sqoop
   [Téléchargement d'AzCopy]: http://aka.ms/WaCopy
   [Installation et configuration d'Azure PowerShell]: ../install-configure-powershell/
+  []: http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer"
   [Gestion des comptes de stockage]: ../storage-manage-storage-account/
   [HDI.AzureStorageExplorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
   [HDI.ASEAddAccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png

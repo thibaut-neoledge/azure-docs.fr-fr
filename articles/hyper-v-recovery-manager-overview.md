@@ -1,6 +1,6 @@
 <properties linkid="Azure Site Recovery Overview" urlDisplayName="Azure Site Recovery Overview" pageTitle="Azure Site Recovery Overview" metaKeywords="Azure Site Recovery, on-premises, clouds, Azure, VMM, Hyper-V" description="Deploy Azure Site Recovery to protect virtual machines on Hyper-V host servers that are located in VMM clouds. You can deploy from one on-premises site to another, or from an on-premises site to Azure." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Azure Site Recovery Overview" editor="jimbe" manager="cfreeman" authors="raynew" />
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew"></tags>
+<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew" />
 
 # Vue d'ensemble d'Azure Site Recovery
 
@@ -106,7 +106,3 @@ Pour toute question, visitez le <a href="http://go.microsoft.com/fwlink/?LinkId=
 
 </div>
 
-  [Prise en main d'Azure Site Recovery : protection d'un serveur local vers un autre]: http://go.microsoft.com/fwlink/?LinkId=398765
-  [Prise en main d'Azure Site Recovery : protection d'un serveur local vers Azure]: http://go.microsoft.com/fwlink/?LinkId=398764
-  [conditions requises pour les coffres]: %20http://go.microsoft.com/fwlink/?LinkId=386485
-  [forum Azure Recovery Services]: http://go.microsoft.com/fwlink/?LinkId=313628

@@ -1,6 +1,6 @@
-<properties title="Cr&eacute;ation d'un d&eacute;ploiement cloud de RemoteApp" pageTitle="Cr&eacute;ation d'un d&eacute;ploiement cloud de RemoteApp" description="D&eacute;couvrez comment cr&eacute;er un d&eacute;ploiement de RemoteApp qui enregistre les donn&eacute;es dans le cloud Azure." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
+<properties title="How to create a hybrid deployment of RemoteApp" pageTitle="How to create a hybrid deployment of RemoteApp" description="Learn how to create a deployment of RemoteApp that connects to your internal network." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo"  />
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/05/2014" ms.author="elizapo" ms.manager="kathyw" />
+<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="elizapo" />
 
 # Création d'un déploiement cloud de RemoteApp
 
@@ -20,10 +20,9 @@ Ce didacticiel vous familiarise avec la procédure de création d'un déploiemen
 
 Avant de créer le service, vous devez effectuer les étapes suivantes :
 
--   Vous inscrire pour bénéficier de la version préliminaire de RemoteApp. Pour ce faire, rendez-vous à l'adresse suivante [http://azure.microsoft.com/fr-fr/services/remoteapp/][http://azure.microsoft.com/fr-fr/services/remoteapp/].
+-   Vous inscrire pour bénéficier de la version préliminaire de RemoteApp. Pour ce faire, rendez-vous à l'adresse suivante [][]http://azure.microsoft.com/fr-fr/services/remoteapp/</a>.
 -   Collecter des informations sur les utilisateurs et groupes auxquels vous souhaitez accorder l'accès. Il peut s'agir d'informations sur le compte Microsoft ou sur le compte professionnel Active Directory pour les utilisateurs ou les groupes.
 -   Cette procédure part du principe que vous allez utiliser l'image de modèle fournie dans le cadre de votre abonnement ou que vous avez déjà téléchargé l'image de modèle que vous souhaitez utiliser. Si vous devez télécharger une autre image de modèle, rendez-vous sur la page Images de modèle. Il vous suffit de cliquer sur **télécharger une image de modèle** et de suivre les étapes de l'Assistant.
--   Vous voulez fournir des applications personnalisées ou des programmes métier ? Créez une [image de modèle personnalisée][image de modèle personnalisée] et utilisez-la dans votre déploiement sur le cloud.
 
 ## **Étape 1 : Création d'un service RemoteApp**
 
@@ -34,7 +33,7 @@ Avant de créer le service, vous devez effectuer les étapes suivantes :
 4.  Sélectionnez l'abonnement à utiliser pour créer ce service.
 5.  Sélectionnez le modèle à utiliser pour ce service.
 
-    **Conseil :** votre abonnement à RemoteApp s'accompagne d'une image de modèle qui contient des programmes Office 2013, certains étant publiés (tels que Word) et d'autres étant prêts pour la publication. Vous pouvez également créer une [image de modèle personnalisée][image de modèle personnalisée] et l'utiliser dans votre déploiement sur le cloud.
+    **Conseil :** votre abonnement à RemoteApp s'accompagne d'une image de modèle qui contient des programmes Office 2013, certains étant publiés (tels que Word) et d'autres étant prêts pour la publication.
 
 6.  Cliquez sur **Créer un service RemoteApp**.
 
@@ -61,15 +60,14 @@ Maintenant que vous avez créé votre service RemoteApp, vous devez ajouter les 
 1.  Sur la page Démarrage rapide, cliquez sur **Configurer l'accès utilisateur**.
 2.  Entrez le nom du groupe ou du compte professionnel (à partir d'Active Directory) ou le compte Microsoft auquel vous souhaitez accorder l'accès.
 
-    Dans le cas des utilisateurs, veillez à utiliser le format « user@domain.com ». Dans le cas des groupes, entrez le nom.
+    Dans le cas des utilisateurs, veillez à utiliser le format <user@domain.com>. Dans le cas des groupes, entrez le nom.
 
 3.  Une fois les utilisateurs ou groupes validés, cliquez sur **Enregistrer**.
 
 ## Étapes suivantes
 
-Félicitations ! Vous avez créé et déployé correctement votre déploiement cloud RemoteApp. L'étape suivante consistera à faire en sorte que vos utilisateurs téléchargent et installent le client Bureau à distance. L'URL du client est disponible sur la page Démarrage rapide de RemoteApp. Les utilisateurs devront ensuite se connecter au client et accéder aux programmes RemoteApp que vous avez publiés.
+Félicitations ! Vous avez créé et déployé correctement votre déploiement cloud RemoteApp. L'étape suivante consistera à faire en sorte que vos utilisateurs téléchargent et installent le client Bureau à distance. L'URL du client est disponible sur la page Démarrage rapide de RemoteApp. Les utilisateurs devront ensuite se connecter à Azure et accéder aux programmes RemoteApp que vous avez publiés.
 
-  [http://azure.microsoft.com/fr-fr/services/remoteapp/]: http://azure.microsoft.com/fr-fr/services/remoteapp/
-  [image de modèle personnalisée]: http://azure.microsoft.com/fr-fr/documentation/articles/remoteapp-create-custom-image/
+  []: http://azure.microsoft.com/fr-fr/services/remoteapp/
   [portail de gestion Windows Azure]: http://manage.windowsazure.com
   [Programme de synchronisation d'annuaires]: http://msdn.microsoft.com/fr-fr/library/azure/hh967642.aspx

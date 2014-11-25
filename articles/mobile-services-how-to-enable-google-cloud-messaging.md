@@ -10,10 +10,9 @@ Cette rubrique vous indique comment activer votre application Android pour les n
 
 À présent, vous pouvez utiliser cette valeur de clé API pour permettre aux services de s'authentifier avec GCM et d'envoyer des notifications Push de la part de votre application.
 
-<!-- Anchors. -->
-<!-- Images. --> 
-<!-- URLs. -->
+
+ 
+
 
   [portail de gestion Azure]: https://manage.windowsazure.com/
   [Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
-  [Enable GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md

@@ -1,10 +1,10 @@
 Suivez cette procédure pour créer un service mobile.
 
-1.  Connectez-vous au [portail de gestion][].
+1.  Connectez-vous au [portail de gestion][portail de gestion].
 
 2.  En bas du volet de navigation, cliquez sur **+NEW**.
 
-    ![][]
+    ![][0]
 
 3.  Développez **Calcul** et **Service Mobile**, puis cliquez sur **Créer**.
 
@@ -33,10 +33,10 @@ Suivez cette procédure pour créer un service mobile.
 
 Vous avez créé un service mobile pouvant être utilisé par vos applications mobiles.
 
-<!-- URLs. -->
+
 
   [portail de gestion]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-dotnet-backend-create-new-service/plus-new.png
+  [0]: ./media/mobile-services-dotnet-backend-create-new-service/plus-new.png
   [1]: ./media/mobile-services-dotnet-backend-create-new-service/mobile-create.png
   [2]: ./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page1.png
   [3]: ./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page2.png

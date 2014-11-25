@@ -1,4 +1,4 @@
-<properties urlDisplayName="Jenkins Continuous Integration" pageTitle="Utilisation d'Azure&nbsp;Storage avec une solution d'int&eacute;gration continue Jenkins | Microsoft&nbsp;Azure" metaKeywords="" description="Ce didacticiel d&eacute;crit l'utilisation du service BLOB Azure comme r&eacute;f&eacute;rentiel d'artefacts de build cr&eacute;&eacute;s par une solution d'int&eacute;gration continue Jenkins." metaCanonical="" services="storage" documentationCenter="Java" title="Utilisation d'Azure Storage avec une solution d'int&eacute;gration continue Jenkins" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties linkid="develop-java-tutorials-jenkins-continuous-integration" urlDisplayName="Jenkins Continuous Integration" pageTitle="Using Azure Storage with a Jenkins Continuous Integration Solution | Microsoft Azure" metaKeywords="" description="This tutorial show how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution." metaCanonical="" services="storage" documentationCenter="Java" title="Using Azure Storage with a Jenkins Continuous Integration solution" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
@@ -6,7 +6,7 @@
 
 *Par [Microsoft Open Technologies Inc.][Microsoft Open Technologies Inc.]*
 
-Les informations suivantes expliquent comment utiliser le service BLOB Azure comme référentiel pour les artefacts de build créés par une solution d'intégration continue (CI) Jenkins ou comme source de fichiers téléchargeables pour un processus de génération. Cela peut s'avérer utile dans plusieurs scénarios, notamment lorsque vous codez dans un environnement de développement agile (avec Java ou d'autres langages), que les builds s'exécutent sur la base d'une intégration continue et que vous avez besoin d'un référentiel pour vos artefacts de build, de manière, par exemple, à pouvoir les partager avec d'autres membres de l'organisation, vos clients, ou conserver une archive. Il existe un autre scénario dans lequel votre tâche de build proprement dite requiert d'autres fichiers, comme des dépendances à télécharger dans le cadre de l'entrée de génération.
+Les informations suivantes montrent comment utiliser le service BLOB Azure comme référentiel d'artefacts de build créés par une solution d'intégration continue Jenkins (CI) ou comme source de fichiers téléchargeables à utiliser dans un processus de génération. Cela peut s'avérer utile dans plusieurs scénarios, notamment lorsque vous codez dans un environnement de développement agile (avec Java ou d'autres langages), que les builds s'exécutent sur la base d'une intégration continue et que vous avez besoin d'un référentiel pour vos artefacts de build, de manière, par exemple, à pouvoir les partager avec d'autres membres de l'organisation, vos clients, ou conserver une archive. Il existe un autre scénario dans lequel votre tâche de build proprement dite requiert d'autres fichiers, comme des dépendances à télécharger dans le cadre de l'entrée de génération.
 
 Dans ce didacticiel, vous allez utiliser le plug-in Azure Storage pour Jenkins CI mis à disposition par Microsoft Open Technologies, Inc.
 
@@ -45,7 +45,7 @@ Pour utiliser le service BLOB avec votre solution Jenkins CI, vous avez besoin d
 
     Si vous ne disposez pas d'une solution Jenkins CI, vous pouvez en exécuter une à l'aide de la technique suivante :
 
-    1.  Sur un ordinateur compatible Java, téléchargez le fichier jenkins.war à l'adresse <http://jenkins-ci.org>.
+    1.  Sur un ordinateur Java, téléchargez jenkins.war à partir du site <http://jenkins-ci.org>.
     2.  Accédez au dossier contenant le fichier jenkins.war, ouvrez une invite de commandes et exécutez la commande suivante :
 
         `java -jar jenkins.war`
@@ -103,7 +103,7 @@ Pour les besoins de la formation, nous devons d'abord créer une tâche qui cré
 
 5.  Dans la section **Post-build Actions** de la configuration de la tâche, cliquez sur **Add post-build action** et choisissez **Upload artifacts to Azure Blob storage**.
 6.  Dans le champ **Nom du compte de stockage**, sélectionnez le compte de stockage à utiliser.
-7.  Dans le champ **Nom du conteneur**, indiquez le nom du conteneur. Le conteneur est créé s'il n'existe pas déjà au téléchargement des artefacts de build. Vous pouvez utiliser des variables d'environnement : pour cet exemple, entrez **${JOB\_NAME}** comme nom de conteneur.
+7.  Pour **Nom du conteneur**, spécifiez le nom du conteneur. Le conteneur est créé s'il n'existe pas déjà au téléchargement des artefacts de build. Vous pouvez utiliser des variables d'environnement : pour cet exemple, entrez **${JOB\_NAME}** comme nom de conteneur.
 
     **Conseil**
 
@@ -112,7 +112,7 @@ Pour les besoins de la formation, nous devons d'abord créer une tâche qui cré
 8.  Cliquez sur **Rendre le nouveau conteneur public par défaut** pour cet exemple. Si vous voulez utiliser un conteneur privé, vous devez créer une signature d'accès partagé pour autoriser l'accès. La procédure n'entre pas dans le cadre de cette rubrique. Pour en savoir plus sur les signatures d'accès partagé, consultez la page [Créer et utiliser une signature d'accès partagé][Créer et utiliser une signature d'accès partagé].
 9.  [Facultatif] Cliquez sur **Nettoyer le conteneur avant le téléchargement** si vous souhaitez que le contenu du conteneur soit effacé avant le téléchargement des artefacts de build (ne sélectionnez pas cette option si vous ne souhaitez pas effacer le contenu du conteneur).
 10. Pour **Liste des artefacts à télécharger**, entrez \*\*text/\*.txt\*\*.
-11. Dans le cadre de ce didacticiel, entrez **${BUILD\_ID}/${BUILD\_NUMBER}** pour **Chemin virtuel commun pour les artefacts téléchargés**.
+11. Pour **Chemin d'accès virtuel pour les artefacts téléchargés**, pour les besoins de ce didacticiel, entrez **${BUILD\_ID}/${BUILD\_NUMBER}**.
 12. Cliquez sur **Save** pour enregistrer vos paramètres.
 13. Dans le tableau de bord Jenkins, cliquez sur **Build Now** pour exécuter **MyJob**. Examinez l'état dans la sortie de la console. Les messages d'état du stockage Azure sont inclus dans la sortie de la console lorsque l'action post-build commence à télécharger les artefacts de build.
 14. Une fois la tâche terminée correctement, vous pouvez examiner les artefacts de build en ouvrant l'objet blob public.
@@ -123,7 +123,7 @@ Pour les besoins de la formation, nous devons d'abord créer une tâche qui cré
     4.  Cliquez sur **Conteneurs**.
     5.  Cliquez sur le conteneur nommé **myjob**, qui correspond à la version en minuscules du nom de tâche attribué à la création de la tâche Jenkins. Les noms de conteneurs et les noms d'objets blob sont en minuscules (et sensibles à la casse) dans le stockage Azure. La liste d'objets blob du conteneur nommé **myjob** contient normalement les fichiers **hello.txt** et **date.txt**. Copiez l'URL correspondant à l'un de ces éléments et ouvrez-la dans le navigateur. Le fichier texte qui a été téléchargé apparaît comme un artefact de build.
 
-Une seule action post-build qui télécharge les artefacts dans le stockage d'objet blob Azure peut être créée par tâche. Notez que l'action post-build permettant de télécharger des artefacts sur le stockage d'objets blob Azure peut spécifier différents fichiers (y compris des caractères génériques) et chemins d'accès aux fichiers dans **Liste des artefacts à télécharger** grâce à l'ajout d'un point-virgule comme séparateur. Par exemple, si votre build Jenkins produit des fichiers JAR et des fichiers TXT dans le dossier **build** de votre espace de travail et que vous souhaitez télécharger ces deux types de fichier vers le stockage d'objets blob Azure, entrez ce qui suit dans le champ **Liste des artefacts à télécharger** : **build/\*.jar;build/\*.txt**. Vous pouvez aussi utiliser un double signe deux-points pour indiquer le chemin à utiliser dans le nom de l'objet blob. Par exemple, si vous souhaitez que les fichiers JAR soient téléchargés à l'aide de **binaries** dans le chemin d'accès des objets blob et que les fichiers TXT soient téléchargés à l'aide de **notices** dans le chemin d'accès des objets blob, entrez ce qui suit dans le champ **Liste des artefacts à télécharger** : **build/\*.jar::binaries;build/\*.txt::notices**.
+Une seule action post-build qui télécharge les artefacts dans le stockage d'objet blob Azure peut être créée par tâche. Notez que l'action post-build permettant de télécharger des artefacts sur le stockage d'objets blob Azure peut spécifier différents fichiers (y compris des caractères génériques) et chemins d'accès aux fichiers dans **Liste des artefacts à télécharger** grâce à l'ajout d'un point-virgule comme séparateur. Par exemple, si votre build Jenkins produit des fichiers JAR et des fichiers TXT dans le dossier **build** de votre espace de travail et que vous voulez télécharger ces deux types de fichiers dans le stockage d'objets blob Azure, utilisez la valeur suivante pour **Liste des artefacts à télécharger** : **build/\*.jar;build/\*.txt**. Vous pouvez aussi utiliser un double signe deux-points pour indiquer le chemin à utiliser dans le nom de l'objet blob. Par exemple, si vous souhaitez que les fichiers JAR soient téléchargés à l'aide de **binaries** dans le chemin d'accès des objets blob et que les fichiers TXT soient téléchargés à l'aide de **notices** dans le chemin d'accès des objets blob, entrez ce qui suit dans le champ **Liste des artefacts à télécharger** : **build/\*.<jar::binaries;build/>\*.txt::notices**.
 
 ## <a name="howtocreatebuildstep"></a><span class="short header">Création d'une étape de génération</span>Création d'une étape de génération pour télécharger des éléments depuis un stockage d'objets blob Azure
 
@@ -133,7 +133,7 @@ La procédure suivante explique comment configurer une étape de génération po
 2.  Dans le champ **Nom du compte de stockage**, sélectionnez le compte de stockage à utiliser.
 3.  Dans le champ **Nom du conteneur**, indiquez le nom du conteneur dans lequel se trouvent les objets blob que vous souhaitez télécharger. Vous pouvez utiliser des variables d'environnement.
 4.  Dans le champ **Nom d'objet blob**, indiquez le nom de l'objet blob. Vous pouvez utiliser des variables d'environnement. Vous pouvez aussi utiliser un astérisque comme caractère générique après avoir indiqué la ou les premières lettres du nom de l'objet blob. Par exemple, **projet\*** désignera tous les objets blob dont le nom commence par **projet**.
-5.  [Facultatif] Dans le champ **Chemin de téléchargement**, indiquez l'emplacement de l'ordinateur Jenkins où vous souhaitez télécharger les fichiers depuis le stockage d'objets blob Azure. Vous pouvez utiliser des variables d'environnement. Si vous n'entrez rien dans le champ **Chemin de téléchargement**, les fichiers du stockage d'objets blob Azure seront téléchargés dans l'espace de travail de la tâche.
+5.  [Facultatif] Dans **Chemin de téléchargement**, indiquez l'emplacement de l'ordinateur Jenkins où vous souhaitez télécharger les fichiers depuis le stockage d'objets blob Azure. Vous pouvez utiliser des variables d'environnement. Si vous n'entrez rien dans le champ **Chemin de téléchargement**, les fichiers du stockage d'objets blob Azure seront téléchargés dans l'espace de travail de la tâche.
 
 Si vous souhaitez télécharger d'autres éléments depuis le stockage d'objets blob Azure, vous pouvez créer des étapes de génération supplémentaires.
 

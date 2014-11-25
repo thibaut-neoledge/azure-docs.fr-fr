@@ -188,8 +188,8 @@ Ce didacticiel a présenté les bases de l'activation d'une application iOS pour
 -   [Utilisation des scripts serveur dans Mobile Services][Utilisation des scripts serveur dans Mobile Services]
     En savoir plus sur la mise en œuvre d'une logique métier dans votre service mobile.
 
-<!-- Anchors. -->
-<!-- Images. -->
+
+
 <!-- URLs.   -->
 
   [Génération de la demande de signature de certificat]: #certificates
@@ -201,8 +201,6 @@ Ce didacticiel a présenté les bases de l'activation d'une application iOS pour
   [Insertion de données pour recevoir des notifications]: #test
   [XCode 4,5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-ios-get-started
-  [Enable Apple Push Notifications]: ../includes/enable-apple-push-notifications.md
-  [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
   [0]: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png
   [objet apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333

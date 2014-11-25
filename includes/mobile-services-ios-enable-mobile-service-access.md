@@ -1,6 +1,6 @@
 Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour stocker les éléments dans Mobile Services et non dans la collection locale.
 
-1.  Si vous n'avez pas encore installé le [Kit de développement logiciel (SDK) Mobile Services pour iOS][], faites-le maintenant.
+1.  Si vous n'avez pas encore installé le [Kit de développement logiciel (SDK) Mobile Services pour iOS][Kit de développement logiciel (SDK) Mobile Services pour iOS], faites-le maintenant.
 
 2.  Dans l'Explorateur de projets dans Xcode, ouvrez les fichiers TodoService.m et TodoService.h situés dans le dossier Quickstart, puis ajoutez l'instruction import suivante :
 
@@ -30,7 +30,7 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 
 6.  Cliquez sur l'onglet **Tableau de bord** et notez la valeur **URL du site**, puis cliquez sur **Gérer les clés** et notez la valeur de **Clé de l'application**.
 
-    ![][]
+    ![][0]
 
     Ces valeurs sont nécessaires pour accéder au service mobile à partir de votre code d'application.
 
@@ -112,4 +112,4 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 Maintenant que l'application a été mise à jour pour utiliser Mobile Services pour le stockage principal, le moment est venu de tester l'application avec Mobile Services.
 
   [Kit de développement logiciel (SDK) Mobile Services pour iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-  []: ./media/mobile-services-ios-enable-mobile-service-access/mobile-dashboard-tab.png
+  [0]: ./media/mobile-services-ios-enable-mobile-service-access/mobile-dashboard-tab.png

@@ -1,4 +1,4 @@
-<properties urlDisplayName="HDInsight Administration" pageTitle="Gestion des clusters Hadoop dans HDInsight avec Azure PowerShell | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, Hadoop, administration, administer" description="D&eacute;couvrez comment effectuer des t&acirc;ches d'administration pour les clusters Hadoop dans HDInsight au moyen d'Azure PowerShell." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Gestion des clusters Hadoop dans HDInsight au moyen d'Azure PowerShell" authors="jgao" />
+<properties linkid="manage-services-hdinsight-administer-hdinsight-hadoop-clusters-using-powershell" urlDisplayName="HDInsight Administration" pageTitle="Manage Hadoop clusters in HDInsight with Azure PowerShell | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, Hadoop, administration, administer" description="Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Manage Hadoop clusters in HDInsight using Azure PowerShell" authors="jgao" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -28,8 +28,6 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 ## <span id="provision"></span></a>Approvisionnement d'un cluster HDInsight
 
 HDInsight utilise un conteneur de stockage d'objets blob Azure comme système de fichiers par défaut. Un compte Azure Storage et un conteneur de stockage sont nécessaires avant de pouvoir créer un cluster HDInsight.
-
-[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 **Pour créer un compte Azure Storage**
 

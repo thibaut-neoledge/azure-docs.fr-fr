@@ -1,6 +1,6 @@
 <properties title="Prise en main d'Azure Storage" pageTitle="Prise en main d'Azure Storage" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb"></tags>
+<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
 
 > [AZURE.SELECTOR]
 >
@@ -37,4 +37,3 @@ Pour pouvoir exploiter une file d'attente, vous devez avant tout obtenir la cha�
   [Objets blob]: /documentation/articles/vs-storage-cloud-services-getting-started-blobs
   [Tables]: /documentation/articles/vs-storage-cloud-services-getting-started-tables/
   [Utilisation du service de stockage de files d'attente à partir de .NET]: http://azure.microsoft.com/fr-fr/documentation/articles/storage-dotnet-how-to-use-queues/ "Utilisation du service de stockage de files d'attente à partir de .NET"
-  [vs-storage-getting-started-queues-include]: ../includes/vs-storage-getting-started-queues-include.md
