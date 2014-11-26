@@ -175,7 +175,8 @@ Pour continuer sur votre lancée, vous pouvez ajouter une page Détails qui s'ou
 
 Vous pouvez également vous référer à l'[API REST Azure Search][documentation sur l'API REST Azure Search] sur MSDN.
 
-<!--Anchors--> <!--Image references-->
+<!--Anchors-->
+<!--Image references-->
 
   [Configuration requise]: #sub-1
   [Création d'un index Azure Search]: #sub-2

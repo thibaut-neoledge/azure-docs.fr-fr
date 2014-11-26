@@ -94,7 +94,8 @@ Pour plus d'informations sur la fonctionnalité d'infrastructure élastique, con
 -   Channel 9 : [Vue d'ensemble de l'infrastructure élastique][1]
 -   Forum de discussion : [Forum Base de données SQL Azure][Forum Base de données SQL Azure]
 
-<!--Anchors--> <!--Image references-->
+<!--Anchors-->
+<!--Image references-->
 
   [Vue d'ensemble de l'infrastructure élastique]: http://go.microsoft.com/?linkid=9862592
   [Documentation sur l'infrastructure élastique]: ./sql-database-elastic-scale-documentation-map.md

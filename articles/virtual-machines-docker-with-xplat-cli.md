@@ -100,7 +100,9 @@ Le démon Docker sur l'hôte est configuré pour écouter et authentifier les co
 
 Vous êtes prêt à consulter le [Guide d'utilisation Docker][Guide d'utilisation Docker] et à utiliser votre machine virtuelle Docker. Pour créer une machine virtuelle Docker dans le nouveau portail, consultez la page [Utilisation de l'extension Docker VM avec le portail][Utilisation de l'extension Docker VM avec le portail].
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
+<!--Anchors-->
+<!--Image references-->
+<!--Link references-->
 
   [Docker]: https://www.docker.com/
   [conteneurs Linux]: http://en.wikipedia.org/wiki/LXC

@@ -102,7 +102,8 @@ Pour plus de détails sur l'utilisation des services Azure à partir de vos rôl
 -   [Files d'attente de Service Bus][Files d'attente de Service Bus]
 -   [Rubriques Service Bus][Rubriques Service Bus]
 
-<!--Link references--> <!--External Link references-->
+<!--Link references-->
+<!--External Link references-->
 
   [Python Tools pour Visual Studio]: http://pytools.codeplex.com
   [Configuration requise]: #prerequisites

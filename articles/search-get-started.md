@@ -367,7 +367,9 @@ Vous êtes prêt à passer à l'étape suivante ? Les liens suivants fournissen
 
 -   [Cloud Cover, épisode 152 : Génération d'un index dans Azure Search][Cloud Cover, épisode 152 : Génération d'un index dans Azure Search]
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
+<!--Anchors-->
+<!--Image references-->
+<!--Link references-->
 
   [Scénarios et fonctionnalités d'Azure Search]: http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/
   [Démarrage du service gratuit]: #sub-1
