@@ -1,30 +1,63 @@
-<properties title="Track usage with custom events and metrics" pageTitle="Track usage" description="Log user activities." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani" />
+﻿<properties title="Track usage in web applications with Application Insights" pageTitle="Suivi de l'utilisation dans les applications web" description="Log user activities." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani" />
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+ 
+# Suivi de l'utilisation des applications web
 
-# Suivi de l'utilisation
+Découvrez comment votre application web est utilisée. Configurez l'analyse d'utilisation pour savoir quelles sont pages consultées par les utilisateurs, combien d'utilisateurs reviennent sur votre site et la fréquence à laquelle ils le visitent. Ajoutez quelques [événements et métriques personnalisés][track] pour analyser en détail les fonctionnalités les plus populaires, les erreurs les plus courantes, et ainsi adapter votre application pour combler vos utilisateurs.
 
-## <a name="webclient"></a>Configuration de l'analyse de l'utilisation Web
+Les données de télémétrie sont collectées côtés client et serveur. Les données client sont collectées à partir de tous les navigateurs web actuels, tandis que les données serveur peuvent être collectées si votre plateforme est ASP.NET (mais il n'est pas nécessaire qu'elle soit exécutée sur Azure). 
 
-Si vous ne l'avez pas encore fait, [ajoutez Application Insights à votre projet Web][start].
+* [Configuration de l'analyse de l'utilisation Web](#webclient)
+* [Analyse de l'utilisation](#usage)
+* [Nombre de pages personnalisées pour les applications de page unique](#spa)
+* [Inspection des événements de pages individuelles](#inspect)
+* [Suivi détaillé avec des événements et des mesures personnalisés](#custom)
+* [Vidéo](#video)
+
+## <a name="webclient"></a>Configuration de l'analyse du client web
+
+#### Obtention d'un ressource Application Insights dans Azure
+
+**Si vous développez une application ASP.NET** et que vous ne l'avez pas encore fait, [ajoutez Application Insights au ][début] de votre projet web. 
+
+**Si la plateforme de votre site web n'est pas ASP.NET :** Connectez-vous à [Microsoft Azure](http://azure.com), accédez à la [version préliminaire du portail](https://portal.azure.com), puis ajoutez une ressource Application Insights.
+
+![](./media/appinsights/appinsights-11newApp.png)
+
+Vous pouvez y revenir plus tard en utilisant le bouton Parcourir.
+
+
+
+#### Ajout de notre script dans vos pages web
+
+Dans Démarrage rapide, récupérez le script pour les pages web.
+
+![](./media/appinsights/appinsights-06webcode.png)
+
+Insérez-le juste avant la balise </head> de chaque page que vous voulez suivre. Si votre site Web possède une page maître, vous pouvez y placer le script. Par exemple, dans un projet ASP.NET MVC, vous devez placer le script dans View\Shared\_Layout.cshtml
 
 ## <a name="usage"></a>Analyse de l'utilisation
 
-Dans le volet d'aperçu de l'application, les vignettes d'utilisation suivantes s'affichent :
+Exécutez votre site Web, utilisez-le un instant pour générer des données de télémétrie, puis attendez quelques minutes. Vous pouvez l'exécuter en appuyant sur F5 sur votre machine de développement, ou le déployer sur votre serveur.
+
+Dans le volet d'aperçu de l'application, les vignettes d'utilisation suivantes s'affichent :
 
 ![](./media/appinsights/appinsights-47usage.png)
 
-### Sessions par navigateur
+*Pas de données ? Cliquez sur **Actualiser** en haut de la page.*
 
-Une *session* est une période qui débute lorsqu'un utilisateur ouvre n'importe quelle page de votre site Web et se termine après un délai d'expiration de 30 minutes sans que l'utilisateur ait envoyé aucune demande Web.
+* **Sessions par navigateur**
 
-Cliquez sur d'autres éléments pour faire un zoom dans le graphique.
+    Une *session* est une période qui débute lorsqu'un utilisateur ouvre n'importe quelle page de votre site Web et se termine après un délai d'expiration de 30 minutes sans que l'utilisateur ait envoyé aucune demande Web. 
 
-### Principaux affichages de page
+    Cliquez sur d'autres éléments pour faire un zoom dans le graphique.
 
-Affiche les décomptes totaux des 24 dernières heures.
+* **Principaux affichages de page**
 
-Cliquez sur la vignette des affichages de page pour obtenir un historique plus détaillé.
+    Affiche les décomptes totaux des 24 dernières heures.
+
+    Cliquez sur la vignette des affichages de page pour obtenir un historique plus détaillé.
 
 ![](./media/appinsights/appinsights-49usage.png)
 
@@ -34,17 +67,22 @@ Cliquez sur un graphique pour voir les autres métriques qui peuvent être affic
 
 ![](./media/appinsights/appinsights-63usermetrics.png)
 
-## Compteurs de page personnalisés
+> [AZURE.NOTE] Désactivez la case à cocher *toutes* pour activer toutes les métriques. Les métriques peuvent uniquement être affichées selon certaines combinaisons. Lorsque vous sélectionnez une métrique, celles qui lui sont incompatibles sont désactivées.
 
-Par défaut, un compteur de page est activé chaque fois qu'une nouvelle page est chargée dans le navigateur client. Mais vous pouvez vouloir consulter d'autres affichages de page. Par exemple, si une page affiche son contenu dans des onglets, il se peut que vous désiriez compter une page lorsque l'utilisateur passe d'un onglet à l'autre. Ou il se peut que le code JavaScript dans une page charge du nouveau contenu sans modifier l'URL du navigateur.
 
-Insérez par exemple l'appel JavaScript suivant à l'emplacement approprié dans votre code client :
+
+## <a name="spa"></a> Nombre de pages personnalisées pour les applications de page unique
+
+Par défaut, un compteur de page est activé chaque fois qu'une nouvelle page est chargée dans le navigateur client.  Mais vous pouvez vouloir consulter d'autres affichages de page. Par exemple, si une page affiche son contenu dans des onglets, il se peut que vous désiriez compter une page lorsque l'utilisateur passe d'un onglet à l'autre. Ou il se peut que le code JavaScript dans une page charge du nouveau contenu sans modifier l'URL du navigateur. 
+
+Insérez par exemple l'appel JavaScript suivant à l'emplacement approprié dans votre code client :
 
     appInsights.trackPageView(myPageName);
 
-Le nom d'une page peut contenir les mêmes caractères qu'une URL, mais tout ce qui se trouve après « \# » ou « ? » sera ignoré.
+Le nom d'une page peut contenir les mêmes caractères qu'une URL, mais tout ce qui se trouve après " # " ou " ? " sera ignoré.
 
-## Inspection des événements d'affichage de page individuels
+
+## <a name="inspect"></a> Inspection des événements d'affichage de page individuels
 
 La télémétrie de l'affichage de page est généralement analysée par Application Insights, et vous ne consultez que des rapports cumulés, avec une moyenne entre tous les utilisateurs. Toutefois, à des fins de débogage, vous pouvez également consulter des événements d'affichage de page individuels.
 
@@ -54,31 +92,28 @@ Dans le volet Recherche de diagnostic, définissez Filtres sur Affichage de page
 
 Sélectionnez n'importe quel événement pour afficher plus de détails.
 
-> [WACOM.NOTE] Si vous utilisez [Rechercher][diagnostic], notez que les mots en entier doivent correspondre : « Concernan » et « oncernant » ne correspondront pas à « Concernant », mais « Concernan\* » correspondra. En outre, un terme de recherche ne peut pas commencer par un caractère générique. Par exemple, effectuer une recherche sur « \*oncernan » ne correspondra pas à « Concernant ».
+> [AZURE.NOTE] Si vous utilisez [Rechercher][Diagnostic], notez que les mots en entier doivent correspondre : " Concernan " et " oncernant " ne correspondront pas à " Concernant ", mais " Concernan* " correspondra. En outre, un terme de recherche ne peut pas commencer par un caractère générique. Par exemple, effectuer une recherche sur " *oncernan " ne correspondra pas à " Concernant ". 
 
 > [En savoir plus sur la recherche de diagnostic][diagnostic]
 
-## Suivi de l'utilisation
+## <a name="custom"></a> Suivi détaillé avec des événements et des mesures personnalisés
+
+Vous souhaitez savoir ce que vos utilisateurs font avec votre application ? En insérant des appels dans votre code côtés client et serveur, vous pouvez envoyer vos propres données de télémétrie à Application Insights. Par exemple, vous pouvez découvrir combien d'utilisateurs ont créé des commandes sans les achever, quelles erreurs de validation surviennent le plus souvent ou quel est le score moyen d'un jeu.
+
+[En savoir plus sur les événements personnalisés et les API de métriques][track].
+
+## <a name="video"></a>Vidéo : Suivi de l'utilisation
 
 > [AZURE.VIDEO tracking-usage-with-application-insights]
 
-## En savoir plus
+## <a name="next"></a>Étapes suivantes
 
--   [Application Insights - prise en main][start]
--   [Analyse d'un serveur Web en direct dès maintenant][redfield]
--   [Analyse des performances dans les applications Web][perf]
--   [Recherche des journaux de diagnostic][diagnostic]
--   [Suivi de la disponibilité avec les tests Web][availability]
--   [Suivi de l'utilisation][usage]
--   [Questions et réponses, et résolution des problèmes][qna]
+[Suivi de l'utilisation avec des événements et des mesures personnalisés][tracks]
 
-<!--Link references-->
 
-  [start]: ../app-insights-start-monitoring-app-health-usage/
-  []: ./media/appinsights/appinsights-47usage.png
-  [diagnostic]: ../app-insights-search-diagnostic-logs/
-  [redfield]: ../app-insights-monitor-performance-live-website-now/
-  [perf]: ../app-insights-web-monitor-performance/
-  [availability]: ../app-insights-monitor-web-app-availability/
-  [usage]: ../app-insights-web-track-usage/
-  [qna]: ../app-insights-troubleshoot-faq/
+
+
+[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+
+
+
