@@ -422,7 +422,7 @@ Comme Mobile Services utilise Node.js sur le serveur, vos scripts ont déjà acc
 
 Voici une partie des modules les plus utiles pouvant être utilisés dans vos scripts à l'aide de la fonction globale **require** :
 
--   **azure** : expose la fonctionnalité du Kit de développement logiciel (SDK) Azure pour Node.js.Pour plus d'informations, consultez la page [Kit de développement logiciel (SDK) Azure pour Node.js][Kit de développement logiciel (SDK) Azure pour Node.js].
+-   **azure** : expose la fonctionnalité du Kit de développement logiciel (SDK) Azure pour Node.js.Pour plus d'informations, consultez la page [Kit de développement logiciel SDK Azure pour Node.js][Kit de développement logiciel SDK Azure pour Node.js].
 -   **crypto** : fournit la fonctionnalité crypto d'OpenSSL. Pour plus d'informations, consultez la [documentation Node.js][documentation Node.js].
 -   **path** : contient des utilitaires pour utiliser les chemins de fichier. Pour plus d'informations, consultez la [documentation Node.js][5].
 -   **querystring** : contient des utilitaires pour utiliser les chaînes de requête. Pour plus d'informations, consultez la [documentation Node.js][6].
