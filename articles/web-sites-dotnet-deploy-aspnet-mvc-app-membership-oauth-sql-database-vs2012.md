@@ -524,8 +524,8 @@ Ce didacticiel utilise SQL Server Management Studio (SSMS) pour créer les scrip
 
 Installez SSMS depuis le [Centre de téléchargement de Microsoft SQL Server 2012 Express][Centre de téléchargement de Microsoft SQL Server 2012 Express] :
 
--   [ENU\x64\SQLManagementStudio\_x64\_ENU.exe][ENU\x64\SQLManagementStudio\_x64\_ENU.exe] pour les systèmes 64 bits.
--   [ENU\x86\SQLManagementStudio\_x86\_ENU.exe][ENU\x86\SQLManagementStudio\_x86\_ENU.exe] pour les systèmes 32 bits.
+-   [ENU\x64\SQLManagementStudio\_x64\_ENU.exe](http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe) pour les systèmes 64 bits.
+-   [ENU\x86\SQLManagementStudio\_x86\_ENU.exe](http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe) pour les systèmes 32 bits.
 
 Si vous ne choisissez pas la bonne version pour votre système, l'installation échouera. Vous devrez donc utiliser l'autre version.
 

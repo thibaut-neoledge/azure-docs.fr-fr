@@ -451,7 +451,7 @@ Dans cette section, vous allez appliquer l’attribut [Authorize][Authorize] pou
 
 ## Activation du protocole SSL pour le projet
 
-1.  Activez le protocole SSL. Dans l’Explorateur de solutions, cliquez sur le projet **GestionnaireContacts**, puis appuyez sur F4 pour afficher la boîte de dialogue Propriétés. Définissez **SSL activé** sur True. Copiez l’**URL SSL**. L'URL SSL est <https://localhost:44300/> sauf si vous avez déjà créé des sites web SSL.
+1.  Activez le protocole SSL. Dans l’Explorateur de solutions, cliquez sur le projet **GestionnaireContacts**, puis appuyez sur F4 pour afficher la boîte de dialogue Propriétés. Définissez **SSL activé** sur True. Copiez l’**URL SSL**. L'URL SSL est https://localhost:44300/ sauf si vous avez déjà créé des sites web SSL.
 
     ![activer SSL][activer SSL]
 
@@ -469,7 +469,7 @@ Dans cette section, vous allez appliquer l’attribut [Authorize][Authorize] pou
 
 	![sélecteur de navigateur][sélecteur de navigateur]
 
-    You can select multiple browsers and have Visual Studio update each browser when you make changes. For more information see [Using Browser Link in Visual Studio 2013](http://www.asp.net/visual-studio/overview/2013/using-browser-link).
+    Vous pouvez sélectionner plusieurs navigateurs et faire en sorte que Visual Studio mette à jour chaque navigateur lorsque vous apportez des modifications. Pour plus d’informations, consultez la page [Utilisation du lien de navigateur dans Visual Studio 2013](http://www.asp.net/visual-studio/overview/2013/using-browser-link).
 
 1.  Appuyez sur Ctrl+F5 pour exécuter l’application. Suivez les instructions pour approuver le certificat auto-signé généré par IIS Express.
 

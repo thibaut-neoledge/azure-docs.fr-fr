@@ -1222,11 +1222,7 @@ Dans le [prochain didacticiel][prochain didacticiel] vous allez configurer et pr
 
 Pour obtenir des liens sur les ressources supplémentaires pour utiliser les tables, les files d'attente et les objets blob Azure Storage, consultez le [dernier didacticiel de cette série][dernier didacticiel de cette série].
 
-<div>
-
-[Didacticiel 4][prochain didacticiel]
-
-</div>
+<div><a href="/fr-fr/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/" class="site-arrowboxcta download-cta">Didacticiel 4</a></div>
 
   [le premier didacticiel de cette série]: /fr-fr/develop/net/tutorials/multi-tier-web-site/1-overview/
   [Création de la solution Visual Studio]: #cloudproject
