@@ -1,0 +1,3 @@
+﻿####En savoir plus
+
+Vous n'utilisez pas encore l'infrastructure élastique de la base de données SQL Azure ? Découvrez le [Guide de mise en route](./sql-database-elastic-scale-get-started.md) et la [documentation](./sql-database-elastic-scale-documentation-map.md).  Pour toute question, veuillez nous contacter sur le [forum consacré à la base de données SQL](http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=ssdsgetstarted) et, en ce qui concerne les demandes liées aux fonctionnalités, merci de les ajouter sur le [forum de commentaires de la base de données SQL](http://feedback.azure.com/forums/217321-sql-database).

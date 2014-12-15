@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Utilisation de Cache Redis Azure" metaKeywords="" description="Learn how to create a use a cache in Azure Redis Cache" metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Utilisation de Cache Redis Azure" metaKeywords="" description="Learn how to create a use a cache in Azure Redis Cache" metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="sdanie" />
 
@@ -61,7 +61,7 @@ Dans **Nom DNS**, entrez le nom de sous-domaine à utiliser pour le point de ter
 Utilisez **Option de tarification** pour sélectionner la taille du cache et les fonctionnalités appropriées. Cache Redis est disponible dans les deux options suivantes.
 
 -	**De base**, avec un seul nœud et plusieurs tailles jusqu'à 53 Go.
--	**Standard** : combinaison Maître/Esclave à deux nœuds, contrat SLA de 99,9 %, plusieurs tailles jusqu'à 53 Go.
+-	**Standard** : combinaison périphérique principal/secondaire à deux nœuds, contrat SLA de 99,9 %, plusieurs tailles jusqu'à 53 Go.
 
 Dans **Abonnement**, sélectionnez l'abonnement Azure que vous voulez utiliser pour le cache.
 
@@ -218,7 +218,7 @@ Entrez **RedisSessionStateProvider** dans la zone de texte **Recherche en ligne*
 
 Le package NuGet télécharge et ajoute les références d'assembly nécessaires et ajoute la section suivante dans le fichier web.config qui contient la configuration requise pour que votre application ASP.NET utilise le fournisseur d'état de session Cache Redis.
 
-  <sessionState mode="Custom" customProvider="MySessionStateStore">
+	<sessionState mode="Custom" customProvider="MySessionStateStore">
       <providers>
         <!--
           <add name="MySessionStateStore" 
