@@ -62,7 +62,7 @@ Sur le tableau de bord, vous pouvez choisir jusqu'à six mesures sur les neuf di
 
 -   Pour masquer une mesure représentée sur le graphique, désactivez la case à cocher à côté de son en-tête.
 
-    ![Monitoring\_nmore][Monitoring\_nmore]
+    ![Monitoring\_nmore](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
 
 1.  Par défaut, le graphique indique les tendances, affichant uniquement la valeur actuelle de chaque mesure (option **Relative** dans la partie supérieure du graphique). Pour afficher un axe Y afin de voir les valeurs absolues, sélectionnez **Absolute**.
 
@@ -86,7 +86,7 @@ Utilisez les procédures suivantes pour choisir les mesures de stockage à affic
 
     La page **Monitor** s'ouvre. Par défaut, le tableau des mesures affiche un sous-ensemble des mesures disponibles pour la surveillance. L'écran Monitor par défaut illustré ci-dessous représente un compte de stockage avec une surveillance détaillée configurée pour les trois services. Utilisez **Add Metrics** pour sélectionner parmi les mesures disponibles celles qui doivent faire l'objet d'une surveillance.
 
-    ![Monitoring\_VerboseDisplay][Monitoring\_VerboseDisplay]
+    ![Monitoring\_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
     <div class="dev-callout"> 
 <b>Remarque</b> 

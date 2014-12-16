@@ -1,119 +1,132 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-users-html" urlDisplayName="Get Started with Authentication (HTML5)" pageTitle="Get started with authentication (HTML 5) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your HTML app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Get Started with Authentication (HTML5)" pageTitle="Prise en main de l'authentification (HTML 5) | Centre de développement mobile" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your HTML app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga" />
 
-# Prise en main de l'authentification dans Mobile Services
+# Ajout de l'authentification à votre application Mobile Services 
 
 [WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-Cette rubrique montre comment authentifier les utilisateurs dans Azure Mobile Services à partir de votre application HTML ou PhoneGap. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
+Cette rubrique montre comment authentifier les utilisateurs dans Azure Mobile Services à partir de votre application HTML ou PhoneGap.  Dans ce didacticiel, ajoutez l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité qui est pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.  
 
-Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
+Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
 
-1.  [Inscription de votre application pour l'authentification et configuration de Mobile Services][Inscription de votre application pour l'authentification et configuration de Mobile Services]
-2.  [Restriction des autorisations de table pour les utilisateurs authentifiés][Restriction des autorisations de table pour les utilisateurs authentifiés]
-3.  [Ajout de l'authentification à l'application][Ajout de l'authentification à l'application]
+1. [Inscription de votre application pour l'authentification et configuration de Mobile Services]
+2. [Restriction des autorisations de table pour les utilisateurs authentifiés]
+3. [Ajout de l'authentification à l'application]
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez aussi d'abord suivre le didacticiel [Prise en main de Mobile Services][Prise en main de Mobile Services].
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez aussi d'abord suivre le didacticiel [Prise en main de Mobile Services]. 
 
-## <a name="register"></a>Inscription de votre application pour l'authentification et configuration de Mobile Services
+##<a name="register"></a>Inscription de votre application pour l'authentification et configuration de Mobile Services
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
+[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-## <a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
+##<a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
-1.  Dans le répertoire de l'application, lancez un des fichiers de commande suivants à partir du sous-dossier **server**.
 
-    -   **launch-windows** (pour les ordinateurs Windows)
-    -   **launch-mac.command** (pour les ordinateurs Mac OS X)
-    -   **launch-linux.sh** (pour les ordinateurs Linux)
+3. Dans le répertoire de l'application, lancez un des fichiers de commande suivants à partir du sous-dossier **server**.
 
-    > [WACOM.NOTE]Sur un ordinateur Windows, appuyez sur la touche « `R` » lorsque PowerShell vous demande de confirmer l'exécution du script. Vous pouvez recevoir un avertissement de votre navigateur Web vous recommandant de ne pas exécuter le script, car il a été téléchargé depuis Internet. Lorsque cela se produit, vous devez demander au navigateur de continuer à charger le script.
+	+ **launch-windows** (pour les ordinateurs Windows) 
+	+ **launch-mac.command** (pour les ordinateurs Mac OS X)
+	+ **launch-linux.sh** (pour les ordinateurs Linux)
 
-    Ceci démarre un serveur Web sur votre ordinateur local pour pouvoir héberger la nouvelle application.
+	>[WACOM.NOTE]Sur un ordinateur Windows, appuyez sur la touche `R` lorsque PowerShell vous demande de confirmer l'exécution du script. Vous pouvez recevoir un avertissement de votre navigateur Web vous recommandant de ne pas exécuter le script, car il a été téléchargé depuis Internet. Lorsque cela se produit, vous devez demander au navigateur de continuer à charger le script.
 
-2.  Ouvrez l'URL <http://localhost:8000/> dans un navigateur Web pour démarrer l'application.
+	Ceci démarre un serveur Web sur votre ordinateur local pour pouvoir héberger la nouvelle application.
 
-    Le chargement des données échoue. Cela se produit, car l'application essaye d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table *TodoItem* requiert désormais l'authentification.
+2. Ouvrez l'URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> dans un navigateur Web pour démarrer l'application. 
 
-3.  (Facultatif) Ouvrez le débogueur de script de votre navigateur Web et rechargez la page. Vérifiez qu'une erreur d'accès refusé se produit.
+	Le chargement des données échoue. Cela se produit car l'application essaye d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table _TodoItem_ requiert désormais l'authentification.
+
+3. (Facultatif) Ouvrez le débogueur de script de votre navigateur web et rechargez la page. Vérifiez qu'une erreur d'accès refusé se produit. 
 
 Ensuite, vous allez mettre à jour l'application pour autoriser l'authentification avant de demander des ressources à partir du service mobile.
 
-## <a name="add-authentication"></a>Ajout de l'authentification à l'application
+##<a name="add-authentication"></a>Ajout de l'authentification à l'application
 
-> [WACOM.NOTE]La connexion étant effectuée dans une fenêtre contextuelle, vous devez appeler la méthode **login** à partir de l'événement Click du bouton. Sinon, certains navigateurs suppriment la fenêtre de connexion.
+>[WACOM.NOTE]La connexion étant effectuée dans une fenêtre contextuelle, vous devez appeler la méthode <strong>login</strong> à partir de l'événement Click du bouton. Sinon, certains navigateurs suppriment la fenêtre de connexion.
 
-1.  Ouvrez le fichier projet index.html, recherchez l'élément H1, puis ajoutez juste en dessous l'extrait de code suivant :
+1. Ouvrez le fichier projet index.html, recherchez l'élément H1, puis ajoutez juste en dessous l'extrait de code suivant :
 
-        <div id="logged-in">
-            You are logged in as <span id="login-name"></span>.
-            <button id="log-out">Log out</button>
+	    <div id="logged-in">
+            Vous êtes connecté en tant que <span id="login-name"></span>.
+            <button id="log-out">Se déconnecter</button>
         </div>
         <div id="logged-out">
-            You are not logged in.
-            <button>Log in</button>
+            Vous n'êtes pas connecté.
+            <button>Se connecter</button>
         </div>
 
-    Cela vous permet de vous connecter à Mobile Services à partir de la page.
+	Cela vous permet de vous connecter à Mobile Services à partir de la page.
 
-2.  Dans le fichier app.js, recherchez la ligne de code tout en bas du fichier qui appelle la fonction refreshTodoItems, puis remplacez-la par le code suivant :
+2. Dans le fichier app.js, recherchez la ligne de code tout en bas du fichier qui appelle la fonction refreshTodoItems, puis remplacez-la par le code suivant : 
+	
+		function refreshAuthDisplay() {
+			var isLoggedIn = client.currentUser !== null;
+			$("#logged-in").toggle(isLoggedIn);
+			$("#logged-out").toggle(!isLoggedIn);
 
-        function refreshAuthDisplay() {
-            var isLoggedIn = client.currentUser !== null;
-            $("#logged-in").toggle(isLoggedIn);
-            $("#logged-out").toggle(!isLoggedIn);
+			if (isLoggedIn) {
+				$("#login-name").text(client.currentUser.userId);
+				refreshTodoItems();
+			}
+		}
 
-            if (isLoggedIn) {
-                $("#login-name").text(client.currentUser.userId);
-                refreshTodoItems();
-            }
-        }
+		function logIn() {
+			client.login("facebook").then(refreshAuthDisplay, function(error){
+				alert(error);
+			});
+		}
 
-        function logIn() {
-            client.login("facebook").then(refreshAuthDisplay, function(error){
-                alert(error);
-            });
-        }
+		function logOut() {
+			client.logout();
+			refreshAuthDisplay();
+			$('#summary').html('<strong>You must login to access data.</strong>');
+		}
 
-        function logOut() {
-            client.logout();
-            refreshAuthDisplay();
-            $('#summary').html('<strong>You must login to access data.</strong>');
-        }
+		// On page init, fetch the data and set up event handlers
+		$(function () {
+			refreshAuthDisplay();
+			$('#summary').html('<strong>You must login to access data.</strong>');		    
+			$("#logged-out button").click(logIn);
+			$("#logged-in button").click(logOut);
+		});
 
-        // On page init, fetch the data and set up event handlers
-        $(function () {
-            refreshAuthDisplay();
-            $('#summary').html('<strong>You must login to access data.</strong>');          
-            $("#logged-out button").click(logIn);
-            $("#logged-in button").click(logOut);
-        });
+    Cela crée un ensemble de fonctions pour gérer le processus d'authentification. L'utilisateur est authentifié à l'aide d'une connexion Facebook. Si vous utilisez un fournisseur d'identité différent de Facebook, remplacez la valeur transmise à la méthode <strong>login</strong> ci-dessus par l'une des valeurs suivantes : <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, <em>google</em> ou <em>aad</em>.
 
-    Cela crée un ensemble de fonctions pour gérer le processus d'authentification. L'utilisateur est authentifié à l'aide d'une connexion Facebook. Si vous utilisez un fournisseur d'identité différent de Facebook, remplacez la valeur transmise à la méthode **login** ci-dessus par l'une des valeurs suivantes : *microsoftaccount*, *facebook*, *twitter*, *google* ou *aad*.
+	>[WACOM.NOTE]Dans une application PhoneGap, vous devez également ajouter les plug-ins suivants au projet :
+	><ul><li><code>ajouter des plug-in https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
+	><li><code>ajouter des plug-in https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
-    > [WACOM.NOTE]Dans une application PhoneGap, vous devez également ajouter les plug-ins suivants au projet :
-    >
-    > -   `phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git`
-    > -   `phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git`
-    >
-    > </p>
+9. Revenez au navigateur où votre application s'exécute, puis actualisez la page. 
 
-3.  Revenez au navigateur où votre application s'exécute, puis actualisez la page.
+	   Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
 
-    Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
-
-    > [WACOM.NOTE]Lorsque vous utilisez Internet Explorer, vous pouvez recevoir cette erreur après la connexion : `Cannot reach window opener. It may be on a different Internet Explorer zone`. Cela survient lorsque la fenêtre contextuelle s'exécute dans une zone de sécurité différente (Internet) de localhost (Intranet). Cela affecte les applications uniquement lors du développement sur localhost. Pour contourner ce problème, ouvrez l'onglet **Sécurité** dans les **Options Internet**, cliquez sur **Intranet local**, puis sur **Sites** et désactivez **Détecter automatiquement le réseau Intranet**. N'oubliez pas d'activer à nouveau ce paramètre lorsque vous avez fini de tester
+	>[WACOM.NOTE]Quand vous utilisez Internet Explorer, vous pouvez recevoir cette erreur après la connexion : <code>window opener inaccessible. Il peut être dans une zone Internet Explorer différente</code>. Cela survient lorsque la fenêtre contextuelle s'exécute dans une zone de sécurité différente (Internet) de localhost (Intranet). Cela affecte les applications uniquement lors du développement sur localhost. Pour contourner ce problème, ouvrez l'onglet <strong>Sécurité</strong> dans les <strong>Options Internet</strong>, cliquez sur <strong>Intranet local</strong>, puis sur <strong>Sites</strong> et désactivez <strong>Détecter automatiquement le réseau Intranet</strong>. N'oubliez pas d'activer à nouveau ce paramètre lorsque vous avez fini de tester.
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts][Autorisation des utilisateurs avec des scripts], vous allez utiliser la valeur de l'ID utilisateur fournie par Mobile Services en fonction de l'utilisateur authentifié et l'utiliser pour filtrer les données renvoyées par Mobile Services. Obtenez plus d'informations sur l'utilisation de Mobile Services avec HTML/JavaScript dans le [Guide de fonctionnement Mobile Services HTML/JavaScript][Guide de fonctionnement Mobile Services HTML/JavaScript]
+Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], vous allez prendre la valeur de l'ID utilisateur fournie par Mobile Services en fonction de l'utilisateur authentifié et l'utiliser pour filtrer les données renvoyées par Mobile Services. Obtenez plus d'informations sur l'utilisation de Mobile Services avec HTML/JavaScript dans le [Guide de fonctionnement Mobile Services HTML/JavaScript]
 
-  [Inscription de votre application pour l'authentification et configuration de Mobile Services]: #register
-  [Restriction des autorisations de table pour les utilisateurs authentifiés]: #permissions
-  [Ajout de l'authentification à l'application]: #add-authentication
-  [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-html-get-started
-  [Autorisation des utilisateurs avec des scripts]: /fr-fr/documentation/articles/mobile-services-html-authorize-users-in-scripts
-  [Guide de fonctionnement Mobile Services HTML/JavaScript]: /fr-fr/documentation/articles/mobile-services-html-how-to-use-client-library
+<!-- Anchors. -->
+[Inscription de votre application pour l'authentification et configuration de Mobile Services]: #register
+[Restriction des autorisations de table pour les utilisateurs authentifiés]: #permissions
+[Ajout de l'authentification à l'application]: #add-authentication
+[Étapes suivantes]:#next-steps
+
+<!-- Images. -->
+
+[4]: ./media/mobile-services-html-get-started-users/mobile-services-selection.png
+[5]: ./media/mobile-services-html-get-started-users/mobile-service-uri.png
+[13]: ./media/mobile-services-html-get-started-users/mobile-identity-tab.png
+[14]: ./media/mobile-services-html-get-started-users/mobile-portal-data-tables.png
+[15]: ./media/mobile-services-html-get-started-users/mobile-portal-change-table-perms.png
+
+<!-- URLs. -->
+[Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-html-get-started
+[Prise en main des données]: /fr-fr/documentation/articles/mobile-services-html-get-started-data
+[Autorisation des utilisateurs avec des scripts]: /fr-fr/documentation/articles/mobile-services-html-authorize-users-in-scripts
+
+[Portail de gestion Azure]: https://manage.windowsazure.com/
+[Guide de fonctionnement de Mobile Services avec HTML/JavaScript]: /fr-fr/documentation/articles/mobile-services-html-how-to-use-client-library

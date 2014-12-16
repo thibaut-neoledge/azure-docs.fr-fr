@@ -36,7 +36,7 @@ Effectuez les tâches suivantes pour créer un projet Azure Cloud Services, avec
 
 2.  Créez un répertoire **node** sur votre disque C et accédez au répertoire c:\\node :
 
-    ![A command prompt displaying the commands 'mkdir c:\node' and 'cd node'.][A command prompt displaying the commands 'mkdir c:\node' and 'cd node'.]
+    ![A command prompt displaying the commands 'mkdir c:\node' and 'cd node'.][mkdir]
 
 3.  Entrez la cmdlet suivante pour créer une solution :
 
@@ -200,7 +200,7 @@ Après avoir déployé votre application, vous pouvez la désactiver afin de vou
 </div>
 
   [Comparaison des sites Web Azure, des services cloud et des machines virtuelles]: http://azure.microsoft.com/fr-fr/documentation/articles/choose-web-site-cloud-service-vm/
-  [A browser window displaying the hello world page. The URL indicates the page is hosted on Azure.]: https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/fr-fr/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png
+  [A browser window displaying the hello world page. The URL indicates the page is hosted on Azure.]: https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png
   [Icône Azure PowerShell]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
   [Le résultat de la nouvelle commande helloworld New-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
   [Présentation de la création d'un service hébergé pour Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj155995.aspx
@@ -212,3 +212,4 @@ Après avoir déployé votre application, vous pouvez la désactiver afin de vou
   [1]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
   [État de la commande Stop-AzureService.]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
   [État de la commande Remove-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+  [mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png

@@ -568,3 +568,4 @@ Vous pouvez supprimer un groupe d'affinités en transmettant son nom à la méth
   [tables]: ../storage-php-how-to-use-table-storage/
   [files d'attente]: ../storage-php-how-to-use-queues/
   [AffinityGroup]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/AffinityGroup.php
+  [Kit de développement logiciel (SDK) Azure pour PHP]: ../php-download-sdk/

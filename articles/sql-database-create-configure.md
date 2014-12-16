@@ -1,65 +1,84 @@
-<properties linkid="manage-services-how-to-configure-a-sqldb" urlDisplayName="How to configure" pageTitle="How to configure a SQL Database - Azure" metaKeywords="Azure creating SQL Server, Azure configuring SQL Server" description="Learn how to create and configure a logical server using SQL Server in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure SQL Database" authors="" solutions="" manager="" editor="" />
+﻿<properties urlDisplayName="How to create and configure an Azure SQL DB" pageTitle="Création et configuration d'une base de données SQL Azure - Didacticiel Azure" metaKeywords="Création base de données SQL Azure, configuration de base de données SQL Azure" description="How to create and configure an Azure SQL Database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure an Azure SQL Database" authors="sidneyh" solutions="" manager="jhubbard" editor="" />
 
-Création et configuration d'une base de données SQL
-===================================================
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sidneyh" />
 
-Cette rubrique vous donne des explications sur la création et la configuration d'un serveur logique. La nouvelle version préliminaire du portail de gestion Azure propose une refonte des workflows qui vous permettent de commencer par la création d'une base de données avant de créer un serveur.
+<h1><a id="configLogical"></a>Création et configuration d'une base de données SQL Azure</h1>
 
-Dans cette rubrique, nous allons commencer par la création d'un serveur. Vous pouvez privilégier cette méthode si vous souhaitez télécharger des bases de données SQL Server existantes.
+Dans cette rubrique, vous allez créer et configurer une base de données SQL Azure à l'aide du portail de gestion Azure. Dans ce workflow, nous allons commencer par la création d'un serveur. Vous pouvez privilégier cette méthode si vous souhaitez télécharger des bases de données SQL Server existantes.
 
-Sommaire
---------
+##Sommaire##
+* [ Création d'un serveur logique](#createLogical)
+* [ Configuration du pare-feu pour le serveur logique](#configFWLogical)
 
--   [Création d'un serveur logique](#createLogical)
--   [Configuration du pare-feu pour le serveur logique](#configFWLogical)
+<h2><a id="createLogical"></a> Création d'un serveur logique</h2>
 
-Création d'un serveur logique
------------------------------
+1. Connectez-vous au [portail de gestion](http://manage.windowsazure.com).
 
-1.  Connectez-vous au [portail de gestion](http://manage.windowsazure.com).
+2. En bas de la page, cliquez sur **NOUVEAU**.
 
-2.  Cliquez sur **Base de données SQL**, puis sur **SERVEURS** dans la page d'accueil de la base de données SQL.
+	![Click SQL Databases][1]
 
-3.  Cliquez sur **Ajouter** en bas de la page.
+3. Cliquez sur **Data Services**, puis sur **Base de données SQL**, puis sur **Création rapide**.
 
-4.  Sur la page Paramètres du serveur, entrez un nom d'administrateur en un mot (sans espace).
+	![Click New, Data Services, and Quick Create][2]
+	 
+5. Dans **Paramètres du serveur de base de données SQL**, sélectionnez un abonnement.
 
-    La base de données SQL utilise l'authentification SQL sur une connexion chiffrée. Une nouvelle connexion d'authentification SQL Server attribuée au rôle serveur administrateur système fixe est créée avec le nom indiqué.
+	![Select a subscription][3]
 
-    L'identifiant de connexion ne peut pas correspondre à une adresse électronique, à un compte d'utilisateur Windows, ni à un Windows Live ID. Les revendications et l'authentification Windows ne sont pas prises en charge sur la base de données SQL.
+6. Dans **Paramètres du serveur de base de données SQL**, entrez un nom de connexion en un seul mot sans espaces. 
 
-5.  Fournissez un mot de passe fort de plus de huit caractères, combinant des majuscules et des minuscules, et comportant un chiffre ou un symbole.
+	La base de données SQL utilise l'authentification SQL sur une connexion chiffrée. Une nouvelle connexion d'authentification SQL Server attribuée au rôle serveur administrateur système fixe est créée avec le nom indiqué. 
 
-6.  Choisissez une région. La région détermine l'emplacement géographique du serveur. Choisissez une région qui est pertinente pour ce serveur, car il n'est pas possible de basculer facilement d'une région à l'autre. Choisissez un emplacement le plus proche possible de vous. Vous économisez ainsi sur les coûts de la bande passante de sortie et réduisez la latence des données en maintenant l'application et la base de données Azure dans la même région.
+	L'identifiant de connexion ne peut pas correspondre à une adresse électronique, à un compte d'utilisateur Windows, ni à un Windows Live ID. Les revendications et l'authentification Windows ne sont pas prises en charge sur la base de données SQL.
+	
+7. Fournissez un mot de passe fort de plus de huit caractères, combinant des majuscules et des minuscules, et comportant un chiffre ou un symbole.
 
-7.  Veillez à ce que l'option **Autoriser les services** reste activée pour pouvoir vous connecter à cette base de données avec le portail de gestion pour la base de données SQL, les services de stockage et d'autres services sur Azure.
+7. Choisissez une région. La région détermine l'emplacement géographique du serveur. Choisissez une région qui est pertinente pour ce serveur, car il n'est pas possible de basculer facilement d'une région à l'autre. Choisissez un emplacement le plus proche possible de vous. Vous économisez sur les coûts de la bande passante de sortie et réduisez la latence des données en maintenant l'application et la base de données Azure dans la même région.
 
-8.  Une fois que vous avez terminé, cliquez sur la coche en bas de la page.
+8. Veillez à ce que l'option **Autoriser les services Microsoft Azure à accéder au serveur** reste activée pour pouvoir vous connecter à cette base de données avec le portail de gestion, les services de stockage et d'autres services sur Azure. 
+
+9. Une fois que vous avez terminé, cliquez sur la coche en bas de la page.
+
+###Nom du serveur généré automatiquement
 
 Comme vous pouvez le remarquer, vous n'avez spécifié aucun nom de serveur. La base de données SQL génère automatiquement le nom du serveur pour garantir l'absence d'entrées DNS en double. Le nom du serveur se présente sous la forme d'une chaîne alphanumérique de dix caractères. Vous ne pouvez pas changer le nom de votre serveur de base de données SQL.
 
 À l'étape suivante, vous allez configurer le pare-feu de telle sorte que les connexions des applications exécutées sur votre réseau soient autorisées à y accéder.
 
-Configuration du pare-feu pour le serveur logique
--------------------------------------------------
+## Configuration du pare-feu pour le serveur logique
 
-1.  Dans le [portail de gestion](http://manage.windowsazure.com), cliquez sur **Bases de données SQL**, sur **Serveurs**, puis sur le serveur que vous venez de créer.
+1. Dans le [portail de gestion](http://manage.windowsazure.com), cliquez sur **bases de données SQL**, puis cliquez sur **Serveurs**
 
-2.  Cliquez sur **Configurer**.
+	![Click Servers][4]
+2. Dans la liste, cliquez sur le serveur que vous venez de créer.
 
-3.  Copiez l'adresse IP actuelle du client. Si vous vous connectez depuis un réseau, il s'agit de l'adresse IP sur laquelle votre routeur ou serveur proxy est à l'écoute. La base de données SQL détecte l'adresse IP utilisée par la connexion actuelle afin que vous puissiez créer une règle de pare-feu pour accepter les demandes de connexion provenant de cet appareil.
+2. Cliquez sur **Configurer**.
 
-4.  Collez l'adresse IP dans les plages de début et de fin. Plus tard, si vous êtes confronté à des erreurs de connexion indiquant que la plage est trop étroite, vous pourrez modifier cette règle pour élargir la plage.
+	![Click Configure][5]
 
-    Si les ordinateurs clients utilisent des adresses IP attribuées dynamiquement, vous devez indiquer une plage suffisamment large afin d'inclure les adresses IP attribuées aux ordinateurs de votre réseau. Optez pour une plage restreinte au départ, puis étendez-la selon vos besoins.
+3. Dans la section **Adresses IP autorisées**, cliquez sur **AJOUTEZ AUX ADRESSES IP AUTORISÉES**. Il s'agit de l'adresse IP sur laquelle votre routeur ou serveur proxy est actuellement à l'écoute. La base de données SQL détecte l'adresse IP utilisée par la connexion actuelle et crée une règle de pare-feu pour accepter les demandes de connexion provenant de cet appareil. 
+	![Click Add to the allowed IP addresses][6]
 
-5.  Entrez un nom pour la règle de pare-feu, par exemple, le nom de l'ordinateur ou de l'entreprise.
+	Un nom par défaut est généré pour la règle. Modifiez le nom selon vos souhaits. 
+	
 
-6.  Cliquez sur la coche pour enregistrer la règle.
+4. Lorsque vous vous connectez à la base de données à partir d'un autre ordinateur, vous devez créer une nouvelle règle pour permettre à l'adresse IP de se connecter. Utilisez les zones de début et de fin pour créer une plage d'adresses IP.
 
-7.  Cliquez sur **Enregistrer** en bas de la page pour achever cette étape. Si **Enregistrer** n'est pas visible, actualisez la page du navigateur.
+	Si les ordinateurs clients utilisent des adresses IP attribuées dynamiquement, vous pouvez indiquer une plage suffisamment large afin d'inclure les adresses IP attribuées aux ordinateurs de votre réseau. Optez pour une plage restreinte au départ, puis étendez-la selon vos besoins.
 
-Vous avez à présent un serveur logique, une règle de pare-feu qui autorise les connexions entrantes provenant de votre adresse IP et une connexion administrateur. À l'étape suivante, repassez sur votre ordinateur local afin d'effectuer les étapes de configuration restantes.
+7. Cliquez sur **Enregistrer** en bas de la page pour achever cette étape. 
 
-**Remarque :** le serveur logique que vous venez de créer est temporaire et hébergé dynamiquement sur plusieurs serveurs physiques d'un centre de données. Si vous supprimez le serveur, sachez qu'il s'agit d'une action irréversible. Veillez à sauvegarder toutes les bases de données que vous téléchargez par la suite sur le serveur.
+Vous disposez à présent d'un serveur logique, d'une règle de pare-feu qui autorise les connexions entrantes provenant de votre adresse IP et d'une connexion administrateur. 
+
+**Remarque :** le serveur logique que vous venez de créer est virtuel et hébergé dynamiquement sur plusieurs serveurs physiques d'un centre de données. La suppression du serveur est une action irréversible. Veillez à sauvegarder toutes les bases de données que vous téléchargez par la suite sur le serveur. 
+
+
+<!--Image references-->
+[1]: ./media/sql-database-create-configure/click-new.png
+[2]: ./media/sql-database-create-configure/new-data-services-sql-storage-quick-create.png
+[3]: ./media/sql-database-create-configure/server-settings.png
+[4]: ./media/sql-database-create-configure/click-servers.png
+[5]: ./media/sql-database-create-configure/click-configure.png
+[6]: ./media/sql-database-create-configure/allowed-ip-addresses.png
 

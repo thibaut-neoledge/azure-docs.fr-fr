@@ -46,7 +46,7 @@ l'ajouter au projet créé précédemment.
     . Copiez le contenu de ce répertoire dans le répertoire
     **C:\\node\\chatapp\\WorkerRole1** créé précédemment.
 
-    ![Explorateur affichant le contenu du répertoire examples\chat extrait de l'archive][Explorateur affichant le contenu du répertoire examples\chat extrait de l'archive]
+    ![Explorateur affichant le contenu du répertoire examples\chat extrait de l'archive][chat-example-view]
 
     Les éléments mis en surbrillance sur cette capture d'écran sont les fichiers copiés depuis le répertoire **examples\\chat**.
 
@@ -155,3 +155,4 @@ Ce didacticiel vous a montré comment créer une application de conversation ins
   [Résultat de la commande npm install]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
   [Deux fenêtres du navigateur affichant des messages de conversation instantanée des utilisateurs User1 et User2]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-8.png
   [Création d'une application de conversation instantanée Node.js avec Socket.IO sur un site web Azure]: /fr-fr/develop/nodejs/tutorials/website-using-socketio/
+  [chat-example-view]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png

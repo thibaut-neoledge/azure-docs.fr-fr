@@ -9,7 +9,7 @@ Cette rubrique répertorie les étapes à suivre pour créer un service Azure Bi
 -   [Création d'un service BizTalk][Création d'un service BizTalk]
 -   [Étapes postérieures à l'approvisionnement][Étapes postérieures à l'approvisionnement]
 -   [Explication des exigences][Explication des exigences]
--   [Connexions hybrides (nouveauté)][Connexions hybrides (nouveauté)]
+-   [Connexions hybrides (nouveauté)](#HC)
 
 <div class="dev-callout"> 
 <b>Conseil</b> 
@@ -323,7 +323,7 @@ Après avoir créé un service BizTalk, passez en revue les différents onglets 
 -   [BizTalk Services : Sauvegarde et restauration][BizTalk Services : Sauvegarde et restauration]
 -   [BizTalk Services : Limitation][BizTalk Services : Limitation]
 -   [BizTalk Services : Nom et clé de l'émetteur][BizTalk Services : Nom et clé de l'émetteur]
--   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services][Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services]
+-   [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 -   [Connexions hybrides][Connexions hybrides]
 
   [Création d'un service BizTalk]: #BizTalk

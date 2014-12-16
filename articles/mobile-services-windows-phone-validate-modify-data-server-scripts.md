@@ -1,61 +1,45 @@
-<properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-wp8" urlDisplayName="Validate Data" pageTitle="Use server scripts to validate data (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your Windows Phone 8 app." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="" editor="" />
+﻿<properties urlDisplayName="Validate Data" pageTitle="Utilisation de scripts serveur pour valider les données (Windows Phone) | Centre de développement mobile" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your Windows Phone app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 
 # Validation et modification de données dans Mobile Services à l'aide de scripts serveur
 
-<div class="dev-center-tutorial-selector sublanding"> 
-<a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store&nbsp;C#">Windows Store&nbsp;C#</a>
-<a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
-<a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone" class="current">Windows Phone</a>
-<a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a>
-<a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a>
-<a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a>
-<a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a>
-<a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
-</div>
-
-<div class="dev-center-tutorial-subselector">
-    <a href="/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/" title=".NET backend">Serveur principal .NET</a> | 
-    <a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-wp8"  title="JavaScript backend" class="current">JavaScript backend</a>
-</div>
+[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
-<p>Cette rubrique vous montre comment exploiter les scripts serveur dans Azure Mobile Services. Il est possible d'utiliser les scripts serveur inscrits dans un service mobile pour effectuer diverses op&eacute;rations sur les donn&eacute;es ins&eacute;r&eacute;es et mises &agrave; jour, qu'il s'agisse de les valider ou de les modifier. Ce didacticiel vous apprend &agrave; d&eacute;finir et &agrave; inscrire les scripts serveur qui valident et modifient les donn&eacute;es. Le comportement des scripts serveur ayant souvent un impact sur le client, vous allez &eacute;galement mettre &agrave; jour votre application Windows Phone&nbsp;8 pour tirer profit de ces nouveaux comportements.</p>
+<p>Cette rubrique vous montre comment exploiter les scripts serveur dans Azure Mobile Services. Il est possible d'utiliser les scripts serveur inscrits dans un service mobile pour effectuer diverses opérations sur les données insérées et mises à jour, qu'il s'agisse de les valider ou de les modifier. Ce didacticiel vous apprend à définir et à inscrire les scripts serveur qui valident et modifient les données. Le comportement des scripts serveur ayant souvent un impact sur le client, vous allez également mettre à jour votre application Windows Phone 8 pour tirer profit de ces nouveaux comportements.</p>
+</div>
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=298629" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-validate-modify-data-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=298629" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">11:36</span></div>
 </div>
 
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=298629" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-validate-modify-data-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=298629" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vid&eacute;o</span></a> <span class="time">11:36:00</span></div>
+Ce didacticiel vous familiarise avec ces étapes de base :
 
-</div>
+1. [Ajout de la validation de longueur de chaîne]
+2. [Mise à jour du client pour la prise en charge de la validation]
+3. [Ajout d'un horodatage lors d'une insertion]
+4. [Mise à jour du client pour l'affichage de l'horodatage]
 
-Ce didacticiel vous familiarise avec ces étapes de base :
-
-1.  [Ajout de la validation de longueur de chaîne][Ajout de la validation de longueur de chaîne]
-2.  [Mise à jour du client pour la prise en charge de la validation][Mise à jour du client pour la prise en charge de la validation]
-3.  [Ajout d'un horodatage lors d'une insertion][Ajout d'un horodatage lors d'une insertion]
-4.  [Mise à jour du client pour l'affichage de l'horodatage][Mise à jour du client pour l'affichage de l'horodatage]
-
-Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données][Prise en main des données]. Avant de commencer, vous devez suivre le didacticiel [Prise en main des données][Prise en main des données].
+Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Ajout de Mobile Services à une application existante](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started-data/). Avant de commencer ce didacticiel, vous devez suivre intégralement celui-ci :  
 
 ## <a name="string-length-validation"></a>Ajout de la validation
 
-Il est toujours souhaitable de valider la longueur des données soumises par les utilisateurs. Vous devez d'abord inscrire un script qui valide la longueur des données de chaîne envoyées au service mobile et refuse les chaînes trop longues, en l'occurrence, celles qui font plus de 10 caractères.
+Il est toujours souhaitable de valider la longueur des données soumises par les utilisateurs. Vous devez d'abord inscrire un script qui valide la longueur des données de chaîne envoyées au service mobile et refuse les chaînes trop longues, en l'occurrence, celles qui font plus de 10 caractères.
 
-1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application.
+1. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application. 
 
-    ![][0]
+	![][0]
 
-2.  Cliquez sur l'onglet **Données**, puis sur la table **TodoItem**.
+2. Cliquez sur l'onglet **Données**, puis sur la table **TodoItem**.
 
-    ![][1]
+	![][1]
 
-3.  Cliquez sur **Script**, puis sélectionnez l'opération **Insert**.
+3. Cliquez sur **Script**, puis sélectionnez l'opération **Insert**.
 
-    ![][2]
+	![][2]
 
-4.  Remplacez le script existant par la fonction suivante, puis cliquez sur **Enregistrer**.
+4. Remplacez le script existant par la fonction suivante, puis cliquez sur **Enregistrer**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -65,29 +49,29 @@ Il est toujours souhaitable de valider la longueur des données soumises par les
             }
         }
 
-    Ce script vérifie la longueur de la propriété **TodoItem.text** et envoie une réponse indiquant une erreur lorsque la chaîne dépasse 10 caractères. Sinon, la méthode **execute** est appelée pour effectuer l'insertion.
+    Ce script vérifie la longueur de la propriété **TodoItem.text** et envoie une réponse indiquant une erreur lorsque la chaîne dépasse 10 caractères. Sinon, la méthode **execute** est appelée pour effectuer l'insertion.
 
     <div class="dev-callout"> 
-<b>Remarque</b> 
-<p>Sous l'onglet <strong>Script</strong>, vous pouvez supprimer un script inscrit en cliquant sur <strong>Effacer</strong>, puis sur <strong>Enregistrer</strong>.</p></div>
+	<b>Remarque</b> 
+	<p>Sous l'onglet <strong>Script</strong>, vous pouvez supprimer un script inscrit en cliquant sur <strong>Effacer</strong>, puis sur <strong>Enregistrer</strong>.</p></div>	
 
 ## <a name="update-client-validation"></a>Mise à jour du client
 
 Maintenant que le service mobile valide les données et envoie des réponses d'erreur, vous devez mettre à jour l'application afin qu'elle traite les réponses d'erreur de la validation.
 
-1.  Dans Visual Studio 2012 Express pour Windows Phone, ouvrez le projet que vous avez modifié en suivant le didacticiel [Prise en main des données][Prise en main des données].
+1. Dans Visual Studio 2012 Express pour Windows Phone, ouvrez le projet que vous avez modifié en suivant le didacticiel [Prise en main des données].
 
-2.  Appuyez sur la touche **F5** pour exécuter l'application, puis tapez une chaîne de texte de plus de 10 caractères dans la zone de texte, puis cliquez sur **Enregistrer**.
+2. Appuyez sur la touche **F5** pour exécuter l'application, tapez une chaîne de texte de plus de 10 caractères dans la zone de texte, puis cliquez sur **Enregistrer**.
 
-    Notez que l'application génère une exception **MobileServiceInvalidOperationException** non prise en charge suite à la réponse 400 (Requête incorrecte) renvoyée par le service mobile.
+   	Notez que l'application génère une exception **MobileServiceInvalidOperationException** non prise en charge suite à la réponse 400 (Requête incorrecte) renvoyée par le service mobile.
 
-3.  Ouvrez le fichier MainPage.xaml.cs, puis remplacez la méthode **InsertTodoItem** par le code suivant :
+6. 	Ouvrez le fichier MainPage.xaml.cs, puis remplacez la méthode **InsertTodoItem** par le code suivant :
 
         private async void InsertTodoItem(TodoItem todoItem)
         {
             // This code inserts a new TodoItem into the database. 
-            // When the operation completes and Mobile Services has 
-            // assigned an Id, the item is added to the collection.
+			// When the operation completes and Mobile Services has 
+			// assigned an Id, the item is added to the collection.
             try
             {
                 await todoTable.InsertAsync(todoItem);
@@ -99,25 +83,27 @@ Maintenant que le service mobile valide les données et envoie des réponses d'e
                     string.Format("{0} (HTTP {1})",
                     e.Response.ReasonPhrase,
                     (int)e.Response.StatusCode), 
-                    MessageBoxButton.OK);
+					MessageBoxButton.OK);
             }
         }
 
-    Cette version de la méthode inclut la gestion d'erreurs pour l'exception **MobileServiceInvalidOperationException** qui affiche la réponse indiquant une erreur dans un MessageBox.
+   	Cette version de la méthode inclut la gestion d'erreurs pour l'exception **MobileServiceInvalidOperationException** qui affiche la réponse indiquant une erreur dans un MessageBox.
 
 ## <a name="add-timestamp"></a>Ajout d'un horodatage
 
 Les tâches précédentes ont permis de valider une insertion, qui est acceptée ou rejetée. Maintenant, vous allez mettre à jour les données insérées en utilisant un script serveur qui ajoute une propriété d'horodatage à l'objet avant son insertion.
 
 <div class="dev-callout"><b>Remarque</b>
-<p>La propri&eacute;t&eacute; d'horodatage <b>createdAt</b> illustr&eacute;e ici est d&eacute;sormais redondante. Mobile Services cr&eacute;e automatiquement une propri&eacute;t&eacute; syst&egrave;me <b>__createdAt</b> pour chaque table. Vous pouvez utiliser cette propri&eacute;t&eacute; syst&egrave;me dans votre application en ajoutant simplement le membre suivant &agrave; la classe TodoItem&nbsp;:</p>
+<p>La propriété d'horodatage <b>createdAt</b> illustrée ici est désormais redondante. Mobile Services crée automatiquement une propriété système <b>__createdAt</b> pour chaque table. Vous pouvez utiliser cette propriété système dans votre application en ajoutant simplement le membre suivant à la classe TodoItem.</p>
 <pre><code>
 [JsonProperty(PropertyName = "__createdAt")]
 public DateTime createdAt { set; get; }
 </code></pre>
 </div>
 
-1.  Sous l'onglet **Scripts** du [portail de gestion][portail de gestion Azure], remplacez le script **Insert** actuel par la fonction suivante, puis cliquez sur **Enregistrer**.
+
+
+1. Sous l'onglet **Scripts** du [portail de gestion], remplacez le script **Insert** actuel par la fonction suivante, puis cliquez sur **Enregistrer**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -128,27 +114,27 @@ public DateTime createdAt { set; get; }
             }
         }
 
-    Cette fonction enrichit le script d'insertion précédent en ajoutant une nouvelle propriété d'horodatage **createdAt** à l'objet avant son insertion par l'appel à **request**.**execute**.
+    Cette fonction enrichit le script d'insertion précédent en ajoutant une nouvelle propriété d'horodatage **createdAt** à l'objet avant son insertion par l'appel à **request**.**execute**. 
 
     <div class="dev-callout"><b>Remarque</b>
-<p>Le sch&eacute;ma dynamique doit &ecirc;tre activ&eacute; la premi&egrave;re fois que ce script d'insertion s'ex&eacute;cute. Avec le sch&eacute;ma dynamique activ&eacute;, Mobile Services ajoute automatiquement la colonne <strong>createdAt</strong> &agrave; la table <strong>TodoItem</strong>. Par d&eacute;faut, le sch&eacute;ma dynamique est activ&eacute; pour un nouveau service mobile. Il doit &ecirc;tre d&eacute;sactiv&eacute; avant que l'application soit publi&eacute;e sur le Windows Phone Store.</p>
-</div>
+	<p>Le schéma dynamique doit être activé la première fois que ce script d'insertion s'exécute. Avec le schéma dynamique activé, Mobile Services ajoute automatiquement la colonne <strong>createdAt</strong> à la table <strong>TodoItem</strong>. Par défaut, le schéma dynamique est activé pour un nouveau service mobile. Il doit être désactivé avant que l'application soit publiée sur le Windows Phone Store.</p>
+    </div>
 
-2.  Dans Visual Studio, appuyez sur la touche **F5** pour exécuter l'application, puis tapez une chaîne de texte (de moins de 10 caractères) dans la zone de texte, puis cliquez sur **Enregistrer**.
+2. Dans Visual Studio, appuyez sur la touche **F5** pour exécuter l'application, tapez une chaîne de texte (de moins de 10 caractères) dans la zone de texte, puis cliquez sur **Enregistrer**.
 
-    Notez que le nouvel horodatage n'apparaît pas dans l'interface utilisateur de l'application.
+   	Notez que le nouvel horodatage n'apparaît pas dans l'interface utilisateur de l'application.
 
-3.  De retour dans le portail de gestion, cliquez sur l'onglet **Parcourir** dans la table **todoitem**.
-
-    Notez qu'une colonne **createdAt** apparaît désormais à l'écran et qu'une valeur d'horodatage est associée au nouvel élément inséré.
-
+3. De retour dans le portail de gestion, cliquez sur l'onglet **Parcourir** de la table **todoitem**.
+   
+   	Notez qu'une colonne **createdAt** apparaît désormais à l'écran et qu'une valeur d'horodatage est associée au nouvel élément inséré.
+  
 L'application Windows Phone doit ensuite être mise à jour pour afficher cette nouvelle colonne.
 
 ## <a name="update-client-timestamp"></a>Nouvelle mise à jour du client
 
 Le client Mobile Services ignore les données d'une réponse qu'elle ne peut pas sérialiser en propriétés de type défini. L'étape finale consiste à mettre à jour le client de manière à afficher ces nouvelles données.
 
-1.  Dans Visual Studio, ouvrez le fichier MainPage.xaml.cs, puis remplacez la classe **TodoItem** existante par la définition suivante :
+1. Dans Visual Studio, ouvrez le fichier MainPage.xaml.cs, puis remplacez la classe **TodoItem** existante par la définition suivante :
 
         public class TodoItem
         {
@@ -159,28 +145,28 @@ Le client Mobile Services ignore les données d'une réponse qu'elle ne peut pas
 
             [JsonProperty(PropertyName = "complete")]
             public bool Complete { get; set; }
-
+        
             [JsonProperty(PropertyName = "createdAt")]
             public DateTime? CreatedAt { get; set; }
         }
-
+	
     Cette nouvelle définition de classe inclut la nouvelle propriété d'horodatage en tant que type DateTime nullable.
-
+  
     <div class="dev-callout"><b>Remarque</b>
-<p>L'attribut <strong>DataMemberAttribute</strong> indique au client de mapper la nouvelle propri&eacute;t&eacute; <strong>CreatedAt</strong> dans l'application vers la colonne <strong>createdAt</strong> d&eacute;finie dans la table TodoItem (dont la casse est diff&eacute;rente). En utilisant cet attribut, votre application peut avoir des noms de propri&eacute;t&eacute;s pour les objets qui diff&egrave;rent des noms de colonnes dans la base de donn&eacute;es SQL. Sans cet attribut, une erreur se produirait en raison de la diff&eacute;rence de casse.</p>
-</div>
+	<p>L'attribut <strong>DataMemberAttribute</strong> indique au client de mapper la nouvelle propriété <strong>CreatedAt</strong> dans l'application vers la colonne <strong>createdAt</strong> définie dans la table TodoItem (dont la casse est différente). En utilisant cet attribut, votre application peut avoir des noms de propriétés pour les objets qui diffèrent des noms de colonnes dans la base de données SQL. Sans cet attribut, une erreur se produirait en raison de la différence de casse.</p>
+    </div>
 
-2.  Ajoutez l'élément XAML suivant juste en dessous de l'élément **CheckBoxComplete** dans le fichier MainPage.xaml :
-
+5. Ajoutez l'élément XAML suivant juste en dessous de l'élément **CheckBoxComplete** dans le fichier MainPage.xaml :
+	      
         <TextBlock Name="WhenCreated" Text="{Binding CreatedAt}" VerticalAlignment="Center"/>
 
-    La nouvelle propriété **CreatedAt** s'affiche dans une zone de texte.
+   	La nouvelle propriété **CreatedAt** s'affiche dans une zone de texte. 
+	
+6. Appuyez sur la touche **F5** pour exécuter l'application. 
 
-3.  Appuyez sur **F5** pour lancer l'application.
+   	Notez que l'horodatage ne s'affiche que pour les éléments insérés une fois que le script d'insertion a été mis à jour.
 
-    Notez que l'horodatage ne s'affiche que pour les éléments insérés une fois que le script d'insertion a été mis à jour.
-
-4.  Remplacez la méthode **RefreshTodoItems** existante par le code suivant :
+7. Remplacez la méthode **RefreshTodoItems** existante par le code suivant :
 
         private async void RefreshTodoItems()
         {
@@ -194,42 +180,50 @@ Le client Mobile Services ignore les données d'une réponse qu'elle ne peut pas
             ListItems.ItemsSource = items;
         }
 
-    Cette méthode met à jour la requête pour éliminer également les éléments non associés à une valeur d'horodatage.
+   	Cette méthode met à jour la requête pour éliminer également les éléments non associés à une valeur d'horodatage.
+	
+8. Appuyez sur la touche **F5** pour exécuter l'application.
 
-5.  Appuyez sur **F5** pour lancer l'application.
-
-    Notez que tous les éléments créés sans valeur d'horodatage disparaissent de l'interface utilisateur.
+   	Notez que tous les éléments créés sans valeur d'horodatage disparaissent de l'interface utilisateur.
 
 Vous avez maintenant terminé ce didacticiel.
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Maintenant que vous avez terminé ce didacticiel, pensez à suivre le dernier didacticiel dans la série des données :
+Maintenant que vous avez terminé ce didacticiel, pensez à suivre le dernier didacticiel dans la série des données : 
 
-Les scripts serveur sont également utilisés dans le cadre du processus d'autorisation des utilisateurs et pour l'envoi de notifications Push. Pour plus d'informations, reportez-vous aux didacticiels suivants : [Affinage des requêtes au moyen de la pagination][Affinage des requêtes au moyen de la pagination].
+Les scripts serveur sont également utilisés dans le cadre du processus d'autorisation des utilisateurs et pour l'envoi de notifications Push. Pour plus d'informations, reportez-vous aux didacticiels suivants : [Affinage des requêtes au moyen de la pagination].
 
--   [Autorisation des utilisateurs avec des scripts][Autorisation des utilisateurs avec des scripts]
+* [Autorisation des utilisateurs avec des scripts]
+  <br/>En savoir plus sur le filtrage des données en fonction de l'ID d'un utilisateur authentifié.
 
-    En savoir plus sur le filtrage des données en fonction de l'ID d'un utilisateur authentifié.
+* [Prise en main des notifications Push] 
+  <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
--   [Prise en main des notifications Push][Prise en main des notifications Push]
+* [Référence de script serveur Mobile Services]
+  <br/>En savoir plus sur l'enregistrement et l'utilisation des scripts serveur.
 
-    En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
+<!-- Anchors. -->
+[Ajout de la validation de longueur de chaîne]: #string-length-validation
+[Mise à jour du client pour la prise en charge de la validation]: #update-client-validation
+[Ajout d'un horodatage lors d'une insertion]: #add-timestamp
+[Mise à jour du client pour l'affichage de l'horodatage]: #update-client-timestamp
+[Étapes suivantes]: #next-steps
 
--   [Référence de script serveur Mobile Services][Référence de script serveur Mobile Services]
+<!-- Images. -->
+[0]: ./media/mobile-services-windows-phone-validate-modify-data-server-scripts/mobile-services-selection.png
+[1]: ./media/mobile-services-windows-phone-validate-modify-data-server-scripts/mobile-portal-data-tables.png
+[2]: ./media/mobile-services-windows-phone-validate-modify-data-server-scripts/mobile-insert-script-users.png
 
-    En savoir plus sur l'enregistrement et l'utilisation des scripts serveur.
 
-  [Ajout de la validation de longueur de chaîne]: #string-length-validation
-  [Mise à jour du client pour la prise en charge de la validation]: #update-client-validation
-  [Ajout d'un horodatage lors d'une insertion]: #add-timestamp
-  [Mise à jour du client pour l'affichage de l'horodatage]: #update-client-timestamp
-  [Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-wp8
-  [portail de gestion Azure]: https://manage.windowsazure.com/
-  [0]: ./media/mobile-services-windows-phone-validate-modify-data-server-scripts/mobile-services-selection.png
-  [1]: ./media/mobile-services-windows-phone-validate-modify-data-server-scripts/mobile-portal-data-tables.png
-  [2]: ./media/mobile-services-windows-phone-validate-modify-data-server-scripts/mobile-insert-script-users.png
-  [Affinage des requêtes au moyen de la pagination]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-wp8
-  [Autorisation des utilisateurs avec des scripts]: /fr-fr/develop/mobile/tutorials/authorize-users-in-scripts-wp8
-  [Prise en main des notifications Push]: /fr-fr/develop/mobile/tutorials/get-started-with-push-wp8
-  [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=262293
+<!-- URLs. -->
+[Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started/#create-new-service
+[Autorisation des utilisateurs avec des scripts]: /fr-fr/develop/mobile/tutorials/authorize-users-in-scripts-wp8
+[Affinage des requêtes au moyen de la pagination]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-wp8
+[Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-wp8
+[Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-wp8
+[Prise en main des notifications Push]: /fr-fr/develop/mobile/tutorials/get-started-with-push-wp8
+
+[Portail de gestion]: https://manage.windowsazure.com/
+[Portail de gestion Azure]: https://manage.windowsazure.com/

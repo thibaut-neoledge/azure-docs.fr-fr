@@ -1,51 +1,39 @@
-<properties linkid="develop-mobile-tutorials-dotnet-backend-validate-modify-and-augment-data-dotnet" urlDisplayName="Validate and Modify Data" pageTitle="Use the .Net backend to validate and modify data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to validate, modify, and augment data for your Windows Store app with .Net backend Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="" editor="" />
+﻿<properties urlDisplayName="Validate and Modify Data" pageTitle="Utilisation du service principal .Net pour valider et modifier des données (Windows Store) | Centre de développement mobile" metaKeywords="" description="Learn how to validate, modify, and augment data for your Windows Store app with .Net backend Windows Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
-# Validation et modification de données dans Mobile Services à l'aide du .Net principal
+# Validation et modification de données dans Mobile Services à l'aide du service principal .Net
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/" title="Windows Store&nbsp;C#" class="current">Windows Store&nbsp;C#</a>
-<a href="/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/" title="Windows Store JavaScript">Windows Store JavaScript</a>
-<a href="/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/" title="Windows Phone">Windows Phone</a>
-<a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a>
-<a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a>
-<a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a>
-<a href="/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
-</div>
+[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
-<div class="dev-center-tutorial-subselector">
-    <a href="/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/" title=".NET backend" class="current">Serveur principal .NET</a> | 
-    <a href="/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/"  title="JavaScript backend">JavaScript backend</a>
-</div>
+Cette rubrique montre comment utiliser le code dans vos services principaux .NET Azure Mobile Services pour valider et modifier des données. Le service .Net principal est un service HTTP intégré à l'infrastructure API Web et à Entity Framework. Si vous connaissez la classe `ApiController` définie avec l'infrastructure API Web, la classe `TableController` fournie par Mobile Services s'avèrera très intuitive. `TableController` est dérivée de la classe `ApiController` et fournit des fonctionnalités supplémentaires pour créer une interface avec une table de base de données. Vous pouvez l'utiliser pour effectuer des opérations sur les données insérées et mises à jour, qu'il s'agisse de les valider ou de les modifier, comme cela est expliqué dans ce didacticiel. 
 
-Cette rubrique montre comment utiliser le code dans les Azure Mobile Services .Net principaux pour valider et modifier des données. Le service .Net principal est un service HTTP intégré à l'infrastructure API Web et à Entity Framework. Si vous connaissez la classe `ApiController` définie avec l'infrastructure API Web, la classe `TableController` fournie par Mobile Services s'avèrera très intuitive. `TableController` est dérivée de la classe `ApiController` et fournit des fonctionnalités supplémentaires pour créer une interface avec une table de base de données. Vous pouvez l'utiliser pour effectuer des opérations sur les données insérées et mises à jour, qu'il s'agisse de les valider ou de les modifier, comme cela est expliqué dans ce didacticiel.
+Ce didacticiel vous familiarise avec ces étapes de base :
 
-Ce didacticiel vous familiarise avec ces étapes de base :
+1. [Ajout de la validation de longueur de chaîne]
+2. [Mise à jour du client pour la prise en charge de la validation]
+3. [Test de la longueur de chaîne]
+4. [Ajout d'un horodatage pour CompleteDate]
+5. [Mise à jour du client pour l'affichage de CompleteDate]
 
-1.  [Ajout de la validation de longueur de chaîne][Ajout de la validation de longueur de chaîne]
-2.  [Mise à jour du client pour la prise en charge de la validation][Mise à jour du client pour la prise en charge de la validation]
-3.  [Test de la longueur de chaîne][Test de la longueur de chaîne]
-4.  [Ajout d'un horodatage pour CompleteDate][Ajout d'un horodatage pour CompleteDate]
-5.  [Mise à jour du client pour l'affichage de CompleteDate][Mise à jour du client pour l'affichage de CompleteDate]
+Ce didacticiel s'appuie sur la procédure et l'exemple de code présentés dans le didacticiel précédent, [Prise en main] ou [Prise en main des données]. Avant de commencer ce didacticiel, vous devez suivre le didacticiel [Prise en main] ou [Prise en main des données].  
 
-Ce didacticiel s'appuie sur la procédure et l'exemple de code présentés dans le didacticiel précédent, [Prise en main][Prise en main] ou [Prise en main des données][Prise en main des données]. Avant de commencer, vous devez suivre le didacticiel [Prise en main][Prise en main] ou [Prise en main des données][Prise en main des données].
-
-## <a name="string-length-validation"></a>Ajout de la validation
+## <a name="string-length-validation"></a>Add validation
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
 
-## <a name="update-client-validation"></a>Mise à jour du client
 
-Maintenant que le service mobile est configuré pour valider les données et envoyer des réponses d'erreur pour une longueur de texte incorrecte, vous devez mettre à jour l'application afin qu'elle traite les réponses d'erreur de la validation. L'erreur sera levée comme `MobileServiceInvalidOperationException` à partir de l'appel de l'application cliente vers `IMobileServiceTable<TodoItem].InsertAsync()`.
+## <a name="update-client-validation"></a>Update the client
 
-1.  Dans la fenêtre de l'explorateur de solutions dans Visual Studio, accédez au projet client, puis ouvrez le fichier MainPage.xaml.cs. Ajoutez les instructions **using** suivantes au fichier :
+Maintenant que le service mobile est configuré pour valider les données et envoyer des réponses d'erreur pour une longueur de texte incorrecte, vous devez mettre à jour l'application afin qu'elle traite les réponses d'erreur de la validation. L'erreur sera levée en tant que `MobileServiceInvalidOperationException` à partir de l'appel de l'application cliente à `IMobileServiceTable<TodoItem].InsertAsync()`.
+
+1. Dans la fenêtre de l'explorateur de solutions dans Visual Studio, accédez au projet client, puis ouvrez le fichier MainPage.xaml.cs. Ajoutez les instructions **using** suivantes au fichier :
 
         using Windows.UI.Popups;
         using Newtonsoft.Json;
         using Newtonsoft.Json.Linq;
 
-2.  Dans MainPage.xaml.cs, remplacez la méthode **InsertTodoItem** existante par le code suivant :
+2. Dans MainPage.xaml.cs, remplacez la méthode **InsertTodoItem** existante par le code suivant :
 
         private async void InsertTodoItem(TodoItem todoItem)
         {
@@ -72,35 +60,40 @@ Maintenant que le service mobile est configuré pour valider les données et env
             }
         }
 
-    Cette version de la méthode inclut la gestion des erreurs de type **MobileServiceInvalidOperationException** ; la réponse indiquant le message d'erreur désérialisée à partir du contenu de la réponse s'affiche dans une boîte de dialogue.
+   	Cette version de la méthode inclut la gestion des erreurs de type **MobileServiceInvalidOperationException** ; la réponse indiquant le message d'erreur désérialisée à partir du contenu de la réponse s'affiche dans une boîte de dialogue de message.
 
 ## <a name="test-length-validation"></a>Test de la longueur de chaîne
 
-1.  Dans l'explorateur de solutions pour Visual Studio, cliquez avec le bouton droit sur le projet de service todolist, puis cliquez sur **Définir comme projet de démarrage**. Puis appuyez sur la touche **F5** pour démarrer l'application hébergeant le service en local dans IIS Express.
+1. Dans l'Explorateur de solutions pour Visual Studio, cliquez avec le bouton droit sur le projet de service todolist, puis cliquez sur **Définir comme projet de démarrage**. Appuyez ensuite sur la touche **F5** pour démarrer l'application hébergeant le service en local dans IIS Express.
 
-2.  Entrez le texte du nouvel élément todo, dont la longueur doit dépasser les 10 caractères, puis cliquez sur **Enregistrer**.
-
-    ![][0]
-
-3.  En case de texte incorrect, vous obtiendrez une boîte de dialogue de message semblable à la suivante.
+2. Entrez le texte du nouvel élément todo, dont la longueur doit dépasser les 10 caractères, puis cliquez sur **Enregistrer**.
 
     ![][1]
 
-## <a name="add-timestamp"></a>Ajout d'un horodatage pour CompleteDate
+3. En case de texte incorrect, vous obtiendrez une boîte de dialogue de message semblable à la suivante.
+
+    ![][2]
+
+## <a name="add-timestamp"></a>Add a timestamp field for CompleteDate
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
 
-## <a name="update-client-timestamp"></a>Mise à jour du client pour l'affichage de CompleteDate
 
-L'étape finale consiste à mettre à jour le client de manière à afficher les nouvelles données **CompleteDate**.
 
-1.  Dans l'explorateur de solutions pour Visual Studio, dans le projet client todolist, ouvrez le fichier MainPage.xaml et remplacez l'élément **CheckBoxComplete** par la définition ci-dessous. Puis enregistrez le fichier. Le gestionnaire d'événement sur **CheckBoxComplete** est modifié pour pouvoir gérer l'événement `click`. Ajoutez un bloc de texte en regard de la case à cocher, et liez-le à la date d'horodatage complète.
 
+## <a name="update-client-timestamp"></a>Update the client to display the CompleteDate
+
+L'étape finale consiste à mettre à jour le client de manière à afficher les nouvelles données **CompleteDate**. 
+
+
+1. Dans l'Explorateur de solutions pour Visual Studio, dans le projet client todolist, ouvrez le fichier MainPage.xaml et remplacez l'élément **CheckBoxComplete** par la définition ci-dessous. Puis enregistrez le fichier. Cela modifie le gestionnaire d'événements sur ** CheckBoxComplete ** pour pouvoir gérer l'événement `click`. Ajoutez un bloc de texte en regard de la case à cocher, et liez-le à la date d'horodatage complète.
+	      
         <CheckBox Name="CheckBoxComplete" IsChecked="{Binding Complete, Mode=TwoWay}" 
           Click="CheckBoxComplete_Clicked" Content="{Binding Text}" Margin="10,5" VerticalAlignment="Center"/>
         <TextBlock Name="textCompleteDate" Text="{Binding CompleteDate}" VerticalAlignment="Center"/>
 
-2.  Dans l'explorateur de solutions pour Visual Studio, dans le projet client todolist, ouvrez le fichier MainPage.xaml.cs et remplacez l'événement `CheckBoxComplete_Checked` par le gestionnaire d'événement `CheckBoxComplete_Clicked` ci-dessous. Vous pouvez donc afficher la date complète une fois l'élément terminé.
+
+2. Dans l'Explorateur de solutions pour Visual Studio, dans le projet client todolist, ouvrez le fichier MainPage.xaml et remplacez le gestionnaire d'événements `CheckBoxComplete_Checked` par le gestionnaire d'événements `CheckBoxComplete_Clicked` comme suit. Vous pouvez donc afficher la date complète une fois l'élément terminé.
 
         private void CheckBoxComplete_Clicked(object sender, RoutedEventArgs e)
         {
@@ -109,7 +102,8 @@ L'étape finale consiste à mettre à jour le client de manière à afficher les
             UpdateCheckedTodoItem(item);
         }
 
-3.  Dans le fichier MainPage.xaml.cs, remplacez la classe **TodoItem** par la définition suivante incluant la nouvelle propriété **CompleteDate** en tant que type nullable.
+
+2. Dans le fichier MainPage.xaml.cs, remplacez la classe **TodoItem** existante par la définition suivante incluant la nouvelle propriété **CompleteDate** en tant que type nullable.
 
         public class TodoItem
         {
@@ -121,10 +115,14 @@ L'étape finale consiste à mettre à jour le client de manière à afficher les
             [JsonProperty(PropertyName = "CompleteDate")]
             public DateTime? CompleteDate { get; set; }
         }
+	
+    >[WACOM.NOTE] L'attribut <code>DataMemberAttribute</code> indique au client de mapper la nouvelle propriété <code>CompleteDate</code> dans l'application à la colonne <code>CompleteDate</code> définie dans la table TodoItem. En utilisant cet attribut, votre application peut avoir des noms de propriétés pour les objets qui diffèrent des noms de colonnes dans la base de données SQL.
+    
 
-    > [WACOM.NOTE] L'attribut `DataMemberAttribute`  indique au client de mapper la nouvelle propriété `CompleteDate` dans l'application vers la colonne `CompleteDate` définie dans la table TodoItem. En utilisant cet attribut, votre application peut avoir des noms de propriétés pour les objets qui diffèrent des noms de colonnes dans la base de données SQL.
+	
 
-4.  Dans le fichier MainPage.xaml.cs, supprimez ou commentez la fonction clause `.Where` dans la méthode **RefreshTodoItems** existante, pour que les todoitems terminés soient inclus dans les résultats.
+
+4. Dans le fichier MainPage.xaml.cs, supprimez ou commentez la fonction clause `.Where` dans la méthode **RefreshTodoItems** existante, pour que les todoitems terminés soient inclus dans les résultats.
 
             // This query filters out completed TodoItems and 
             // items without a timestamp. 
@@ -132,7 +130,8 @@ L'étape finale consiste à mettre à jour le client de manière à afficher les
                //.Where(todoItem => todoItem.Complete == false)
                .ToCollectionAsync();
 
-5.  Dans MainPage.xaml.cs, mettez à jour la méthode **UpdateCheckedTodoItem** comme suit, pour que les éléments soient actualisés après une mise à jour et que les éléments terminés ne soient pas supprimés de la liste. Puis enregistrez le fichier.
+
+5. Dans MainPage.xaml.cs, mettez à jour la méthode **UpdateCheckedTodoItem** comme suit, pour que les éléments soient actualisés après une mise à jour et que les éléments terminés ne soient pas supprimés de la liste. Enregistrez ensuite le fichier.	
 
         private async void UpdateCheckedTodoItem(TodoItem item)
         {
@@ -142,48 +141,63 @@ L'étape finale consiste à mettre à jour le client de manière à afficher les
             RefreshTodoItems();
         }
 
-6.  Dans la fenêtre de l'explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur la **Solution**, puis cliquez sur **Régénérer la solution** pour régénérer le client et le service principal .NET. Vérifiez que les deux projets ont été générés sans erreurs.
 
-    ![][2]
-
-7.  Appuyez sur **F5** pour lancer l'application cliente et le service en local. Ajoutez certains nouveaux éléments et cliquez pour indiquer que certains éléments sont terminés, pour afficher l'horodatage **CompleteDate** en cours de mise à jour.
+6. Dans la fenêtre de l'Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur la **Solution**, puis cliquez sur **Régénérer la solution** pour régénérer le client et le service principal .Net. Vérifiez que les deux projets ont été générés sans erreur.
 
     ![][3]
+	
+7. Appuyez sur **F5** pour lancer l'application cliente et le service en local. Ajoutez certains nouveaux éléments et cliquez pour indiquer que certains éléments sont terminés, pour afficher l'horodatage **CompleteDate** en cours de mise à jour.
 
-8.  Dans l'explorateur de solutions pour Visual Studio, cliquez avec le bouton droit sur le projet de service todolist, puis cliquez sur **Publier**. Publiez votre service .NET principal sur Microsoft Azure en utilisant le fichier de configuration de publication que vous avez téléchargé à partir du portail Azure.
+    ![][4]
 
-9.  Mettez à jour le fichier App.xaml.cs pour le projet client en annulant les marques de commentaire de la connexion à l'adresse du service mobile. Testez l'application par rapport au .NET principal hébergé dans votre compte Azure.
+8. Dans l'Explorateur de solutions pour Visual Studio, cliquez avec le bouton droit sur le projet de service todolist, puis cliquez sur **Publier**. Publiez votre service principal .NET sur Microsoft Azure en utilisant le fichier de configuration de publication que vous avez téléchargé du portail Azure.
+
+9. Mettez à jour le fichier App.xaml.cs pour le projet client en annulant les marques de commentaire de la connexion à l'adresse du service mobile. Testez l'application par rapport au .NET principal hébergé dans votre compte Azure.
+
+
+
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Maintenant que vous avez terminé ce didacticiel, pensez à suivre le dernier didacticiel dans la série des données : [Affinage des requêtes au moyen de la pagination][Affinage des requêtes au moyen de la pagination].
+Maintenant que vous avez terminé ce didacticiel, pensez à suivre le dernier didacticiel de la série des données : [Affinage des requêtes au moyen de la pagination].
 
-Les scripts serveur sont également utilisés dans le cadre du processus d'autorisation des utilisateurs et pour l'envoi de notifications Push. Pour plus d'informations, reportez-vous aux didacticiels suivants :
+Les scripts serveur sont également utilisés dans le cadre du processus d'autorisation des utilisateurs et pour l'envoi de notifications Push. Pour plus d'informations, reportez-vous aux didacticiels suivants :
 
--   [Autorisation des utilisateurs côté service][Autorisation des utilisateurs côté service]
+* [Autorisation côté service des utilisateurs]
+  <br/>Découvrez comment filtrer les données en fonction de l'ID d'un utilisateur authentifié.
 
-    En savoir plus sur le filtrage des données en fonction de l'ID d'un utilisateur authentifié.
+* [Prise en main des notifications Push] 
+  <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
--   [Prise en main des notifications Push][Prise en main des notifications Push]
+* [Guide de fonctionnement Mobile Services .NET]
+  <br/>Découvrez plus en détail comment utiliser Mobile Services avec .NET.
 
-    En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
+<!-- Anchors. -->
+[Ajout de la validation de longueur de chaîne]: #string-length-validation
+[Mise à jour du client pour la prise en charge de la validation]: #update-client-validation
+[Test de la longueur de chaîne]: #test-length-validation
+[Ajout d'un horodatage pour CompleteDate]: #add-timestamp
+[Mise à jour du client pour l'affichage de CompleteDate]: #update-client-timestamp
+[Étapes suivantes]: #next-steps
 
--   [Guide de fonctionnement Mobile Services .NET][Guide de fonctionnement Mobile Services .NET]
+<!-- Images. -->
+[1]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/mobile-services-invalid-text-length.png
+[2]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/mobile-services-invalid-text-length-exception-dialog.png
+[3]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/mobile-services-rebuild-solution.png
+[4]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/mobile-services-final-local-app-run.png
 
-    En savoir plus sur l'utilisation de Mobile Services avec .NET.
 
-  [Ajout de la validation de longueur de chaîne]: #string-length-validation
-  [Mise à jour du client pour la prise en charge de la validation]: #update-client-validation
-  [Test de la longueur de chaîne]: #test-length-validation
-  [Ajout d'un horodatage pour CompleteDate]: #add-timestamp
-  [Mise à jour du client pour l'affichage de CompleteDate]: #update-client-timestamp
-  [Prise en main]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
-  [Prise en main des données]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-  [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/mobile-services-invalid-text-length.png
-  [1]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/mobile-services-invalid-text-length-exception-dialog.png
-  [2]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/mobile-services-rebuild-solution.png
-  [3]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/mobile-services-final-local-app-run.png
-  [Affinage des requêtes au moyen de la pagination]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-dotnet
-  [Autorisation des utilisateurs côté service]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts/
-  [Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
-  [Guide de fonctionnement Mobile Services .NET]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library
+
+<!-- URLs. -->
+[Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started/#create-new-service
+[Autorisation côté service des utilisateurs]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts/
+[Affinage des requêtes au moyen de la pagination]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-dotnet
+[Mise en route]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+[Prise en main des données]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
+[Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
+[Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
+[JavaScript et HTML]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-js
+
+[Portail de gestion]: https://manage.windowsazure.com/
+[Portail de gestion Azure]: https://manage.windowsazure.com/
+[Guide de fonctionnement Mobile Services .NET]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library

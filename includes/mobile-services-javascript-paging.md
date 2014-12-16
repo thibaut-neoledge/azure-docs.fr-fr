@@ -1,10 +1,12 @@
-1.  Dans Visual Studio, ouvrez le projet que vous avez modifié lorsque vous avez suivi le didacticiel **Prise en main des données**.
+﻿
 
-2.  Appuyez sur la touche **F5** pour exécuter l'application, puis tapez du texte dans **Insert a TodoItem** et cliquez sur **Enregistrer**.
+1. Dans Visual Studio, ouvrez le projet que vous avez modifié lorsque vous avez suivi le didacticiel **Prise en main des données**.
 
-3.  Répétez les étapes précédentes au moins trois fois de telle sorte que plus de trois éléments soient stockés dans la table TodoItem.
+2. Appuyez sur la touche **F5** pour exécuter l'application, puis tapez du texte dans **Insérer une tâche** et cliquez ensuite sur **Enregistrer**.
 
-4.  Dans le fichier default.js, remplacez la méthode **RefreshTodoItems** existante par le code suivant :
+3. Répétez les étapes précédentes au moins trois fois de telle sorte que plus de trois éléments soient stockés dans la table TodoItem. 
+
+2. Dans le fichier default.js, remplacez la méthode **RefreshTodoItems** par le code suivant :
 
         var refreshTodoItems = function () {
             // Define a filtered query that returns the top 3 items.
@@ -17,18 +19,18 @@
                 });
         };
 
-    Cette requête, lorsqu'elle est exécutée pendant la liaison des données, renvoie les trois premiers éléments marqués comme terminés.
+  	Cette requête, lorsqu'elle est exécutée pendant la liaison des données, renvoie les trois premiers éléments marqués comme terminés.
 
-5.  Appuyez sur **F5** pour lancer l'application.
+3. Appuyez sur la touche **F5** pour exécuter l'application.
 
-    Notez que seuls les trois premiers résultats de la table TodoItem sont affichés.
+  	Notez que seuls les trois premiers résultats de la table TodoItem sont affichés. 
 
-6.  (Facultatif) Affichez l'URI de la requête envoyée au service mobile en utilisant un logiciel d'inspection des messages, tel que les outils destinés aux développeurs de navigateurs ou [Fiddler][Fiddler].
+4. (Facultatif) Affichez l'URI de la demande envoyée au service mobile en utilisant un logiciel d'inspection des messages, tel que les outils destinés aux développeurs de navigateurs ou [Fiddler]. 
 
-    La méthode **take(3)** a été convertie en option de requête **$top=3** dans l'URI de requête.
+La méthode **take(3)** a été convertie en option de requête **$top=3** dans l'URI de requête.
 
-7.  Mettez à nouveau à jour la méthode **RefreshTodoItems** avec le code suivant :
-
+5. Mettez à nouveau à jour la méthode **RefreshTodoItems** avec le code suivant :
+            
         var refreshTodoItems = function () {
             // Define a filtered query that skips the first 3 items and 
             // then returns the next 3 items.
@@ -42,16 +44,15 @@
                 });
         };
 
-    Cette requête ignore les trois premiers résultats et renvoie les trois résultats suivants. Il s'agit en fait de la deuxième « page » de données, dont la taille est de trois éléments.
+Cette requête ignore les trois premiers résultats et renvoie les trois résultats suivants. Il s'agit en fait de la deuxième " page " de données, dont la taille est de trois éléments.
 
     <div class="dev-callout"><b>Remarque</b>
-<p>Ce didacticiel s'appuie sur un sc&eacute;nario simplifi&eacute; dans lequel les valeurs de pagination cod&eacute;es en dur sont transmises aux m&eacute;thodes <strong>Take</strong> et <strong>Skip</strong>. Dans une application r&eacute;elle, vous pouvez utiliser des requ&ecirc;tes semblables &agrave; celles indiqu&eacute;es plus haut avec un contr&ocirc;le pager ou une interface utilisateur comparable pour permettre aux utilisateurs d'acc&eacute;der aux pages pr&eacute;c&eacute;dentes et suivantes.  Vous pouvez &eacute;galement appeler la m&eacute;thode <strong>includeTotalCount</strong> pour obtenir le nombre total d'&eacute;l&eacute;ments disponibles sur le serveur, avec les donn&eacute;es pagin&eacute;es.</p>
-</div>
+    <p>Ce didacticiel s'appuie sur un scénario simplifié dans lequel les valeurs de pagination codées en dur sont transmises aux méthodes <strong>Take</strong> et <strong>Skip</strong>. Dans une application réelle, vous pouvez utiliser des requêtes semblables à celles indiquées plus haut avec un contrôle pager ou une interface utilisateur comparable pour permettre aux utilisateurs d'accéder aux pages précédentes et suivantes.  Vous pouvez également appeler la méthode <strong>includeTotalCount</strong> pour obtenir le nombre total d'éléments disponibles sur le serveur, avec les données paginées.</p>
+    </div>
 
-8.  (Facultatif) Là aussi, affichez l'URI de la requête envoyée au service mobile.
+6. (Facultatif) Là aussi, affichez l'URI de la requête envoyée au service mobile. 
 
-    La méthode **skip(3)** a été convertie en option de requête **$skip=3** dans l'URI de requête.
+La méthode **skip(3)** a été convertie en option de requête **$skip=3** dans l'URI de requête.
 
 <!-- URLs -->
-
-  [Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412
+[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412

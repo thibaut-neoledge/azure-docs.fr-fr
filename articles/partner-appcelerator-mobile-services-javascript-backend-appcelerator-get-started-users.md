@@ -1,56 +1,46 @@
-<properties pageTitle="Get started with authentication (Appcelerator) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your iOS app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="" editor="" />
+﻿<properties pageTitle="Prise en main de l'authentification (Appcelerator) | Centre de développement mobile" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your iOS app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator="" team;mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="Appcelerator team;mahender" />
 
 # Prise en main de l'authentification dans Mobile Services
 
-<div class="dev-center-tutorial-selector sublanding">
-    <a href="/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users" title="Windows Store&nbsp;C#">Windows Store&nbsp;C#</a>
-    <a href="/fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-users" title="Windows Store JavaScript">Windows Store JavaScript</a>
-    <a href="/fr-fr/documentation/articles/mobile-services-windows-phone-get-started-users" title="Windows Phone">Windows Phone</a>
-    <a href="/fr-fr/documentation/articles/mobile-services-ios-get-started-users" title="iOS">iOS</a>
-    <a href="/fr-fr/documentation/articles/mobile-services-android-get-started-users" title="Android">Android</a>
-    <a href="/fr-fr/documentation/articles/mobile-services-html-get-started-users" title="HTML">HTML</a>
-    <a href="/fr-fr/documentation/articles/partner-xamarin-mobile-services-ios-get-started-users" title="Xamarin.iOS">Xamarin.iOS</a>
-    <a href="/fr-fr/documentation/articles/partner-xamarin-mobile-services-android-get-started-users" title="Xamarin.Android">Xamarin.Android</a>
-    <a href="/fr-fr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users" title="Appcelerator" class="current">Appcelerator</a>
-</div>
+[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
 Cette rubrique montre comment authentifier les utilisateurs dans Microsoft Azure Mobile Services à partir de votre application. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
 
-Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
+Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
 
-1.  [Inscription de votre application pour l'authentification et configuration de Mobile Services][Inscription de votre application pour l'authentification et configuration de Mobile Services]
-2.  [Restriction des autorisations de table pour les utilisateurs authentifiés][Restriction des autorisations de table pour les utilisateurs authentifiés]
-3.  [Ajout de l'authentification à l'application][Ajout de l'authentification à l'application]
+1.  [Inscription de votre application pour l'authentification et configuration de Mobile Services]
+2.  [Restriction des autorisations de table pour les utilisateurs authentifiés]
+3.  [Ajout de l'authentification à l'application]
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez aussi d'abord suivre le didacticiel [Prise en main de Mobile Services][Prise en main de Mobile Services].
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez aussi d'abord suivre le didacticiel [Prise en main de Mobile Services].
 
-Ce didacticiel requiert Appcelerator Titanium Studio 3.2.1 (ou version ultérieure) et iOS 7.0 et/ou (version ultérieure) et Android 4.3 (ou version ultérieure).
+Ce didacticiel requiert Appcelerator Titanium Studio 3.2.1 (ou version ultérieure) et iOS 7.0 et/ou (version ultérieure) et Android 4.3 (ou version ultérieure).
 
-## <a name="register"></a>Inscription de votre application pour l'authentification et configuration de Mobile Services
+##<a name="register"></a>Inscription de votre application pour l'authentification et configuration de Mobile Services
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
+[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-## <a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
+##<a name="permissions"></a> Restriction des autorisations pour les utilisateurs authentifiés
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-1.  Dans Appcelerator Titanium Studio, ouvrez le projet que vous avez créé lorsque vous avez suivi le didacticiel [Prise en main de Mobile Services][Prise en main de Mobile Services].
+3.	Dans Appcelerator Titanium Studio, ouvrez le projet que vous avez créé lorsque vous avez suivi le didacticiel [Prise en main de Mobile Services].
 
-2.  Appuyez sur le bouton Exécuter pour générer le projet et démarrer l'application dans l'émulateur iPhone. Vérifiez qu'une exception non gérée avec un code d'état 401 (Non autorisé) est générée après le démarrage de l'application.
-
+4.	Appuyez sur le bouton Exécuter pour générer le projet et démarrer l'application dans l'émulateur iPhone. Vérifiez qu'une exception non gérée avec un code d'état 401 (Non autorisé) est générée après le démarrage de l'application.
+    
     Cela se produit car l'application tente d'accéder à Mobile Services en tant qu'utilisateur non authentifié, alors que la table TodoItem requiert désormais l'authentification.
 
 Ensuite, vous allez mettre à jour l'application pour authentifier les utilisateurs avant de demander des ressources à partir du service mobile.
 
-## <a name="add-authentication"></a>Ajout de l'authentification à l'application
+##<a name="add-authentication"></a>Ajout de l'authentification à l'application
 
-1.  Ouvrez le fichier projet index.js et, dans la méthode Lister des événements de table, recherchez `case 2:`.
+1.	Ouvrez le fichier projet index.js et, dans la méthode Lister des événements de table, recherchez `case 2:`
 
     Dans votre application, vous pouvez soit inviter l'utilisateur à choisir parmi les fournisseurs d'identité disponibles, soit spécifier automatiquement l'un de ces fournisseurs.
 
-2.  Pour proposer tous les fournisseurs d'identité disponibles, utilisez le code suivant :
+2.	Pour proposer tous les fournisseurs d'identité disponibles, utilisez le code suivant :
 
         var azureMobileServiceModule = require( 'com.winwire.azuremobileservices');
         var azureMobileServices = new azureMobileServiceModule.AzureMobileServices();
@@ -78,7 +68,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
         });
         dialog.show();
 
-3.  Pour fournir un fournisseur d'identité particulier, utilisez le code suivant :
+3.	Pour fournir un fournisseur d'identité particulier, utilisez le code suivant :
 
         var azureMobileServiceModule = require( 'com.winwire.azuremobileservices');
         var azureMobileServices = new azureMobileServiceModule.AzureMobileServices();
@@ -90,17 +80,20 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
             }
         });
 
-> [WACOM.NOTE] Si vous utilisez un fournisseur d'identité autre que Google, remplacez la valeur transmise à la méthode **authorizeClient** par l'une des valeurs suivantes : *MicrosoftAccount*, *facebook*, *twitter* ou *windowsazureactivedirectory*.
+>[WACOM.NOTE] Si vous utilisez un fournisseur d'identité autre que Google, remplacez la valeur transmise à la méthode **authorizeClient** par l'une des valeurs suivantes : *microsoftaccount*, *facebook*, *twitter* ou *windowsazureactivedirectory*.
 
-1.  Appuyez sur le bouton Exécuter pour générer le projet, démarrez l'application dans le simulateur iPhone ou Android, puis cliquez sur l'option Avec connexion pour vous connecter avec le fournisseur d'identité.
+4.	Appuyez sur le bouton Exécuter pour générer le projet, démarrez l'application dans le simulateur iPhone ou Android, puis cliquez sur l'option Avec connexion pour vous connecter avec le fournisseur d'identité.
 
     Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
 
 
+<!-- Anchors. -->
 
+[Inscription de votre application pour l'authentification et configuration de Mobile Services]: #register
+[Restriction des autorisations de table pour les utilisateurs authentifiés]: #permissions
+[Ajout de l'authentification à l'application]: #add-authentication
 
+<!-- Images. -->
 
-  [Inscription de votre application pour l'authentification et configuration de Mobile Services]: #register
-  [Restriction des autorisations de table pour les utilisateurs authentifiés]: #permissions
-  [Ajout de l'authentification à l'application]: #add-authentication
-  [Prise en main de Mobile Services]: /fr-fr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+<!-- URLs. -->
+[Prise en main de Mobile Services]: /fr-fr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started

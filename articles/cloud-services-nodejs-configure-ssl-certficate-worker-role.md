@@ -82,23 +82,24 @@ Lorsqu'une application Node.js est déployée dans un rôle de travail, le certi
 
 2.  Ouvrez le fichier **c:\\node\\securesite\\workerrole1\\server.js** en utilisant le Bloc-notes, puis remplacez le contenu du fichier par le code suivant :
 
-        var https = require('https');
-        var fs = require('fs');
+		var https = require('https');
+		var fs = require('fs');
 
-        var options = {
-            pfx: fs.readFileSync('certificate.pfx'),
-            passphrase: "password"
-        };
-        var port = process.env.PORT || 8000;
-        https.createServer(options, function (req, res) {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
-            res.end('Hello World\n');
-        }).listen(port);
+		var options = {
+			pfx: fs.readFileSync('certificate.pfx'),
+			passphrase: "password"
+		};
+		var port = process.env.PORT || 8000;
+		https.createServer(options, function (req, res) {
+ 		    res.writeHead(200, { 'Content-Type': 'text/plain' });
+		    res.end('Hello World\n');
+		}).listen(port);
+
 
     <div class="dev-callout">
-<strong>Remarque</strong>
-<p>Vous devez remplacer &laquo;&nbsp;certificate.pfx&nbsp;&raquo; par le nom du fichier de certificat et &laquo;&nbsp;password&nbsp;&raquo; par le mot de passe (le cas &eacute;ch&eacute;ant) du fichier de certificat.</p>
-</div>
+    <strong>Remarque</strong>
+    <p>Vous devez remplacer &laquo;&nbsp;certificate.pfx&nbsp;&raquo; par le nom du fichier de certificat et &laquo;&nbsp;password&nbsp;&raquo; par le mot de passe (le cas &eacute;ch&eacute;ant) du fichier de certificat.</p>
+    </div>
 
 3.  Enregistrez le fichier **server.js**.
 
@@ -108,8 +109,8 @@ Une fois le fichier **server.js** modifié, l'application écoute les communicat
 
 Comme votre application écoute à présent le port 443, vous devez également modifier la définition du service pour autoriser les communications sur ce port.
 
-1.  Dans le répertoire du service, ouvrez le fichier de définition
-    du service (**ServiceDefinition.csdef**), mettez à jour l'élément http **InputEndpoint** dans la section **Endpoints** pour autoriser la communication sur le port 443 :
+1.  Dans le répertoire du service, ouvrez le fichier de définition du service
+    (**ServiceDefinition.csdef**), mettez à jour l'élément http **InputEndpoint** dans la section **Endpoints** pour autoriser la communication sur le port 443 :
 
         <WorkerRole name="WorkerRole1" vmsize="Small">
         ...
@@ -120,7 +121,7 @@ Comme votre application écoute à présent le port 443, vous devez également 
         ...
         </WorkerRole>
 
-    Une fois ces modifications effectuées, enregistrez le fichier **ServiceDefinition.csdef**.
+	Une fois ces modifications effectuées, enregistrez le fichier **ServiceDefinition.csdef**.
 
 2.  Republiez votre service dans le cloud pour actualiser votre
     configuration mise à jour. À l'invite Azure PowerShell,

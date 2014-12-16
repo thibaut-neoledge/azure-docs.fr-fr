@@ -1,70 +1,62 @@
-1.  Si vous n'avez pas déjà inscrit votre application, accédez à la page [Soumettre une application][Soumettre une application] du Centre de développement pour les applications Windows Store, connectez-vous à votre compte Microsoft, puis cliquez sur le **Nom de l'application**.
+﻿
 
-    ![][0]
+1. Si vous n'avez pas déjà inscrit votre application, accédez à la page [Soumettre une application] du Centre de développement pour les applications Windows Store, connectez-vous à votre compte Microsoft, puis cliquez sur le **Nom de l'application**.
 
-2.  Tapez un nom pour l'application dans **Nom de l'application**, cliquez sur **Réserver le nom d'application**, puis sur **Enregistrer**.
+   	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png)
 
-    ![][1]
+2. Tapez un nom pour l'application dans **Nom de l'application**, cliquez sur **Réserver le nom d'application**, puis sur **Enregistrer**.
 
-    La nouvelle inscription au Windows Store pour votre application est créée.
+   	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-win8-app-name.png)
 
-3.  Dans Visual Studio, ouvrez le projet que vous avez créé quand vous avez suivi le didacticiel **Prise en main de Mobile Services**.
+   	La nouvelle inscription au Windows Store pour votre application est créée.
 
-4.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet, cliquez sur **Store**, puis sur **Associer l'application au Windows Store...**.
+3. Dans Visual Studio, ouvrez le projet que vous avez créé avec le didacticiel **Prise en main de Mobile Services**.
 
-    ![][2]
+4. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet, cliquez sur **Store**, puis sur **Associer l'application au Windows Store...** 
 
-    L'Assistant **Associer votre application au Windows Store** s'affiche.
+  	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-store-association.png)
 
-5.  Dans l'Assistant, cliquez sur **Se connecter**, puis connectez-vous avec votre compte Microsoft.
+   	L'Assistant **Associer votre application au Windows Store** s'affiche.
 
-6.  Sélectionnez l’application inscrite à l’étape 2, cliquez sur **Suivant**, puis sur **Associer**.
+5. Dans l'Assistant, cliquez sur **Se connecter**, puis connectez-vous avec votre compte Microsoft.
 
-    ![][3]
+6. Sélectionnez l'application inscrite à l'étape 2, cliquez sur **Suivant**, puis sur **Associer**.
 
-    Cela ajoute les informations d'inscription Windows Store requises au manifeste de l'application.
+   	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-select-app-name.png)
 
-7.  (Facultatif) Répétez les étapes 4 à 6 pour inscrire aussi le projet Windows Phone Store d'une application Windows universelle.
+   	Cela ajoute les informations d'inscription Windows Store requises au manifeste de l'application.    
 
-8.  De retour sur la page du centre de développement Windows pour la nouvelle application, cliquez sur **Services**.
+7. (Facultatif) Répétez les étapes 4 à 6 pour inscrire aussi le projet Windows Phone Store d'une application Windows universelle.
 
-    ![][4]
+8. De retour sur la page du centre de développement Windows pour la nouvelle application, cliquez sur **Services**. 
 
-9.  Sur la page Services, cliquez sur **Live Services site** sous **Azure Mobile Services**.
+   	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-win8-edit-app.png) 
 
-    ![][5]
+9. Sur la page Services, cliquez sur **Live Services site** sous **Azure Mobile Services**.
 
-10. Cliquez sur **Authentification de votre service** et notez les valeurs des options **Clé secrète client** et **Identificateur de sécurité (SID) du package**.
+	![](./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-win8-edit2-app.png)
 
-    ![][6]
+10. Cliquez sur **Authentification de votre service** et notez les valeurs des options **Clé secrète client** et **Identificateur de sécurité (SID) du package**. 
 
-    <div class="dev-callout"><b>Remarque relative &agrave; la s&eacute;curit&eacute;</b>
-<p>La cl&eacute; secr&egrave;te client et le SID du package sont des informations d'identification de s&eacute;curit&eacute; importantes. Ne partagez pas ces informations secr&egrave;tes avec quiconque et ne les distribuez pas avec votre application.</p>
-</div>
+   	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-win8-app-push-auth.png)
 
-11. Connectez-vous au [portail de gestion Azure][portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application.
+    <div class="dev-callout"><b>Remarque relative à la sécurité</b>
+	<p>La clé secrète client et le SID du package sont des informations d'identification de sécurité importantes. Ne partagez pas ces informations secrètes avec quiconque et ne les distribuez pas avec votre application.</p>
+    </div> 
 
-    ![][7]
+11. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application.
 
-12. Cliquez sur l'onglet **Notifications push**, entrez les valeurs **Question secrète du client** et **SID du package** obtenues auprès de WNS, puis cliquez sur **Enregistrer**.
+   	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-selection.png)
 
-    > [WACOM.NOTE] Quand vous suivez ce didacticiel avec un service mobile plus ancien, vous êtes susceptible de voir un lien dans le bas de l'onglet **Notifications Push** avec le texte **Activer la transmission push améliorée**. Cliquez sur ce lien pour mettre à niveau votre service mobile et l'intégrer avec Notification Hubs. Cette modification est irréversible. Pour plus d'informations sur l'activation des notifications Push améliorées dans un service mobile de production, consultez [ce guide][ce guide].
+12. Cliquez sur l'onglet **Notifications push**, entrez les valeurs **Clé secrète du client** et **SID du package** obtenues auprès de WNS, puis cliquez sur **Enregistrer**.
 
-    ![][8]
+	>[WACOM.NOTE]Si vous suivez ce didacticiel avec un service mobile plus ancien, vous êtes susceptible de voir un lien dans le bas de l'onglet **Notifications Push** avec le texte **Activer la transmission push améliorée**. Cliquez sur ce lien pour mettre à niveau votre service mobile et l'intégrer avec Notification Hubs. Cette modification est irréversible. Pour plus d'informations sur l'activation des notifications Push améliorées dans un service mobile de production, consultez <a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">ce guide</a>. 
 
-    > [WACOM.NOTE] Quand vous définissez vos informations d'identification WNS pour les notifications Push améliorées dans l'onglet **Notifications push** du portail, celles-ci sont partagées avec les Notification Hubs pour configurer le Notification Hub pour votre application.
+   	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-push-tab.png)
 
+	>[WACOM.NOTE]Quand vous définissez vos informations d'identification WNS pour les notifications Push améliorées dans l'onglet **Notifications push** du portail, celles-ci sont partagées avec Notification Hubs pour configurer le concentrateur de notification de votre application.
 
-
-  [Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-  [0]: ./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png
-  [1]: ./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-win8-app-name.png
-  [2]: ./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-store-association.png
-  [3]: ./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-select-app-name.png
-  [4]: ./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-win8-edit-app.png
-  [5]: ./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-win8-edit2-app.png
-  [6]: ./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-win8-app-push-auth.png
-  [portail de gestion Azure]: https://manage.windowsazure.com/
-  [7]: ./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-selection.png
-  [ce guide]: http://go.microsoft.com/fwlink/p/?LinkId=391951
-  [8]: ./media/mobile-services-notification-hubs-register-windows-store-app/mobile-push-tab.png
+<!-- URLs. -->
+[Prise en main de Mobile Services]w
+[Page Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Portail de gestion Azure]: https://manage.windowsazure.com/

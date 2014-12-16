@@ -95,7 +95,7 @@ de gestion associées.
 
 ## Création d'une application .NET exécutant une tâche qui nécessite beaucoup de ressources
 
-1.  Sur votre ordinateur de développement (qui n'est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour .NET][Kit de développement logiciel (SDK) Azure pour .NET].
+1.  Sur votre ordinateur de développement (qui n'est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour .NET](http://www.windowsazure.com/fr-fr/develop/net/).
 2.  Créez une application console .NET avec le projet nommé **TSPSolver**. Assurez-vous que l'infrastructure cible est définie sur .**NET Framework 4** (et non **.NET Framework 4 Client Profile**). Elle peut être définie après la création d'un projet comme suit : dans le menu de Visual Studio, cliquez successivement sur **Projets**, sur **Propriétés** et sur l'onglet **Application**, puis définissez la valeur pour **Framework cible**.
 3.  Ajoutez la bibliothèque Microsoft ServiceBus. Dans l'Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur **TSPSolver**, cliquez sur **Ajouter une référence**, cliquez sur l'onglet **Parcourir**, accédez à **C:\\Program Files\\Microsoft SDKs\\Windows Azure.NET SDK\\2012-06\\ref** et sélectionnez **Microsoft.ServiceBus.dll** en tant que référence.
 4.  Ajoutez la bibliothèque System Runtime Serialization. Dans l'Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur **TSPSolver**, cliquez sur **Ajouter une référence**, cliquez sur l'onglet **.NET**, et sélectionnez **System.Runtime.Serialization** en tant que référence.

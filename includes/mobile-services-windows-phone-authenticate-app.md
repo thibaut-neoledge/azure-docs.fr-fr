@@ -1,5 +1,5 @@
-1.  Ouvrez le fichier projet mainpage.xaml.cs et ajoutez l'extrait de code suivant à la classe MainPage :
-
+﻿1. Ouvrez le fichier projet mainpage.xaml.cs et ajoutez l'extrait de code suivant à la classe MainPage :
+	
         private MobileServiceUser user;
         private async System.Threading.Tasks.Task Authenticate()
         {
@@ -22,14 +22,12 @@
             }
         }
 
-    Cela crée une variable membre pour le stockage de l'utilisateur actuel et une méthode pour gérer le processus d'authentification. L'utilisateur est authentifié à l'aide d'une connexion Facebook.
+Cela crée une variable membre pour le stockage de l'utilisateur actuel et une méthode pour gérer le processus d'authentification. L'utilisateur est authentifié à l'aide d'une connexion Facebook.
 
-    > [WACOM.NOTE]Si vous utilisez un fournisseur d'identité différent de Facebook, remplacez la valeur de **MobileServiceAuthenticationProvider** ci-dessus par la valeur de votre fournisseur.
-    >
-    > </div>
-    > </p>
+    >[WACOM.NOTE]Si vous utilisez un fournisseur d'identité autre que Facebook, remplacez la valeur de <strong>MobileServiceAuthenticationProvider</strong> ci-dessus par la valeur de votre fournisseur.</p>
+    </div>
 
-2.  Supprimez le remplacement de méthode **OnNavigatedTo** existant (ou convertissez-le en commentaires) et remplacez-le par la méthode suivante qui gère l'événement **Loaded** pour la page.
+2. Supprimez ou placez en commentaire le remplacement de méthode **OnNavigatedTo** existant et remplacez-le par la méthode suivante qui gère l'événement **Loaded** pour la page. 
 
         async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
@@ -37,9 +35,9 @@
             RefreshTodoItems();
         }
 
-    Cette méthode appelle la nouvelle méthode **Authenticate**.
+Cette méthode appelle la nouvelle méthode **Authenticate**. 
 
-3.  Remplacez le constructeur MainPage par le code suivant :
+3. Remplacez le constructeur MainPage par le code suivant :
 
         // Constructor
         public MainPage()
@@ -48,10 +46,8 @@
             this.Loaded += MainPage_Loaded;
         }
 
-    Ce constructeur enregistre également le gestionnaire pour l'événement Loaded.
+   	Ce constructeur enregistre également le gestionnaire pour l'événement Loaded.
+		
+4. Appuyez sur la touche F5 pour exécuter l'application et vous connecter à l'application avec le fournisseur d'identité choisi. 
 
-4.  Appuyez sur la touche F5 pour exécuter l'application et vous connecter à l'application avec le fournisseur d'identité choisi.
-
-    Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
-
-
+   	Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.

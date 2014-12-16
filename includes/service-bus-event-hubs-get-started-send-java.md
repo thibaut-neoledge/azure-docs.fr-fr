@@ -1,0 +1,95 @@
+﻿## Envoi de messages vers les concentrateurs d'événements
+Dans cette section, nous allons écrire une application console Java pour envoyer des événements à votre concentrateur d'événements. Nous allons utiliser le fournisseur JMS AMQP du [projet Apache Qpid](http://qpid.apache.org/). Cette approche est similaire à l'utilisation des files d'attente et des rubriques Service Bus avec AMQP en partant du langage Java comme indiqué [ici](http://azure.microsoft.com/fr-fr/documentation/articles/service-bus-java-how-to-use-jms-api-amqp/). Pour plus d'informations, reportez-vous à la [documentation Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) et à [Java Messaging Service](http://www.oracle.com/technetwork/java/jms/index.html).
+
+1. Dans Eclipse, créez un projet Java nommé **Sender**.
+
+2. Téléchargez la dernière version de la bibliothèque **Qpid JMS AMQP 1.0** [ici](http://qpid.apache.org/components/qpid-jms/index.html).
+
+3. Extrayez les fichiers de l'archive et copiez les fichiers JAR suivants à partir du répertoire " qpid-amqp-1-0-client-jms\<version>\lib " dans votre projet **Sender** sur Eclipse.
+
+4. Dans l'Explorateur de package d'Eclipse, cliquez avec le bouton droit sur le projet **Sender** et sélectionnez **Propriétés**. Dans le volet gauche de la boîte de dialogue, cliquez sur **Chemin d'accès de la génération Java**, cliquez sur l'onglet **Bibliothèques**, puis sur le bouton **Ajouter des archives JAR**. Sélectionnez tous les fichiers JAR précédemment copiés, puis cliquez sur **OK**.
+
+	![][8]
+
+5. Créez un fichier nommé **servicebus.properties** à la racine du projet **Sender**, avec le contenu suivant. N'oubliez pas de remplacer la valeur de votre nom de concentrateur d'événements et de l'espace de noms (ce dernier se présente généralement sous la forme {event hub name}-ns). Vous devez également remplacer une version codée URL de la clé pour le **SendRule** précédemment créé. Vous pouvez la coder par URL [ici](http://www.w3schools.com/tags/ref_urlencode.asp).
+
+		# servicebus.properties - sample JNDI configuration
+
+		# Register a ConnectionFactory in JNDI using the form:
+		# connectionfactory.[jndi_name] = [ConnectionURL]
+		connectionfactory.SBCF = amqps://SendRule:{Send Rule key}@{namespace name}.servicebus.windows.net/?sync-publish=false
+
+		# Register some queues in JNDI using the form
+		# queue.[jndi_name] = [physical_name]
+		# topic.[jndi_name] = [physical_name]
+		queue.EventHub = {event hub name}
+
+5. Créez une classe nommée **Sender**. Ajoutez les instructions " import " suivantes :
+
+		import java.io.BufferedReader;
+		import java.io.IOException;
+		import java.io.InputStreamReader;
+		import java.io.UnsupportedEncodingException;
+		import java.util.Hashtable;
+		
+		import javax.jms.BytesMessage;
+		import javax.jms.Connection;
+		import javax.jms.ConnectionFactory;
+		import javax.jms.Destination;
+		import javax.jms.JMSException;
+		import javax.jms.MessageProducer;
+		import javax.jms.Session;
+		import javax.naming.Context;
+		import javax.naming.InitialContext;
+		import javax.naming.NamingException; 
+
+8. Ensuite, ajoutez le code suivant :
+
+		public static void main(String[] args) throws NamingException,
+				JMSException, IOException, InterruptedException {
+			// Configure JNDI environment
+			Hashtable<String, String> env = new Hashtable<String, String>();
+			env.put(Context.INITIAL_CONTEXT_FACTORY,
+					"org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory");
+			env.put(Context.PROVIDER_URL, "servicebus.properties");
+			Context context = new InitialContext(env);
+	
+			ConnectionFactory cf = (ConnectionFactory) context.lookup("SBCF");
+	
+			Destination queue = (Destination) context.lookup("EventHub");
+	
+			// Create Connection
+			Connection connection = cf.createConnection();
+	
+			// Create sender-side Session and MessageProducer
+			Session sendSession = connection.createSession(false,
+					Session.AUTO_ACKNOWLEDGE);
+			MessageProducer sender = sendSession.createProducer(queue);
+	
+			System.out.println("Press Ctrl-C to stop the sender process");
+			System.out.println("Press Enter to start now");
+			BufferedReader commandLine = new java.io.BufferedReader(
+					new InputStreamReader(System.in));
+			commandLine.readLine();
+	
+			while (true) {
+				sendBytesMessage(sendSession, sender);
+				Thread.sleep(200);
+			}
+		}
+		
+		private static void sendBytesMessage(Session sendSession, MessageProducer sender) throws JMSException, UnsupportedEncodingException {
+	        BytesMessage message = sendSession.createBytesMessage();
+	        message.writeBytes("Test AMQP message from JMS".getBytes("UTF-8"));
+	        sender.send(message);
+	        System.out.println("Sent message");
+	    }
+
+
+
+<!-- Links -->
+[Portail de gestion Azure]: https://manage.windowsazure.com/
+
+
+<!-- Images -->
+[8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
