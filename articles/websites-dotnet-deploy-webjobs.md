@@ -1,221 +1,192 @@
-<properties linkid="websites-dotnet-deploy-webjobs" urlDisplayName="Deploy Azure WebJobs to Azure Websites" pageTitle="Deploy Azure WebJobs to Azure Websites" metaKeywords="Azure Websites, WebJobs, background tasks" description="Learn how to deploy Azure WebJobs to Azure Websites using Visual Studio." metaCanonical="" services="web-sites" documentationCenter="" title="Deploy Azure WebJobs to Azure Websites" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
+﻿<properties urlDisplayName="Deploy Azure WebJobs to Azure Websites" pageTitle="Déploiement d'Azure WebJobs sur des sites web Azure" metaKeywords="Azure Websites, WebJobs, background tasks" description="Learn how to deploy Azure WebJobs to Azure Websites using Visual Studio." metaCanonical="" services="web-sites" documentationCenter="" title="Deploy Azure WebJobs to Azure Websites" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos" />
 
-# Déploiement de tâches web Azure sur des sites web Azure
+<tags ms.service="web-sites" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="11/12/2014" ms.author="tdykstra" />
 
-Cette rubrique explique comment utiliser Visual Studio pour déployer un projet d'application console sur un site web Azure sous forme de [tâche web Azure][tâche web Azure]. Vous pouvez également déployer des tâches web en utilisant le portail de gestion Azure. Pour plus d'informations sur cette méthode, consultez la page [Utilisation de tâches web pour exécuter des tâches en arrière-plan dans les sites web Microsoft Azure][Utilisation de tâches web pour exécuter des tâches en arrière-plan dans les sites web Microsoft Azure].
+# Déploiement d'Azure WebJobs sur des sites web Azure
 
-## Sommaire
+Cette rubrique explique comment utiliser Visual Studio pour déployer un projet d'application console sur un site web Azure sous forme de [tâche web Azure](http://go.microsoft.com/fwlink/?LinkId=390226). Vous pouvez également déployer des tâches web en utilisant le portail de gestion Azure. Pour plus d'informations sur cette méthode, consultez la page [Utilisation de tâches web pour exécuter des tâches en arrière-plan dans les sites web Microsoft Azure](/fr-fr/documentation/articles/web-sites-create-web-jobs/).
 
--   [Vue d'ensemble][Vue d'ensemble]
--   [Configuration requise][Configuration requise]
--   [Activation du déploiement de tâches web pour un projet d'application console existant][Activation du déploiement de tâches web pour un projet d'application console existant]
--   [Création d'un projet compatible avec les tâches web][Création d'un projet compatible avec les tâches web]
--   [Boîte de dialogue Ajouter une tâche web Azure][Boîte de dialogue Ajouter une tâche web Azure]
--   [Fichier webjob-publish-settings.json][Fichier webjob-publish-settings.json]
--   [Fichier webjobs-list.json][Fichier webjobs-list.json]
--   [Déploiement d'un projet de tâches web][Déploiement d'un projet de tâches web]
--   [Étapes suivantes][Étapes suivantes]
+## Sommaire ##
 
-## <span id="overview"></span></a>Vue d'ensemble
+- [Vue d'ensemble](#overview)
+- [Configuration requise](#prerequisites)
+- [Activation du déploiement de tâches web pour un projet d'application console existant](#convert)
+- [Création d'un projet compatible avec les tâches web](#create)
+- [Boîte de dialogue Ajouter une tâche web Azure](#configure)
+- [Fichier webjob-publish-settings.json](#publishsettings)
+- [Fichier webjobs-list.json](#webjobslist)
+- [Déploiement d'un projet de tâches web](#deploy)
+- [Étapes suivantes](#next-steps)
 
-Lorsque Visual Studio déploie un projet d'application console compatible avec des tâches web, il exécute deux tâches :
+## <a id="overview"></a>Vue d'ensemble
 
--   Il copie des fichiers exécutables dans le dossier approprié sur le site web Azure (*App\_Data/jobs/continuous* pour les tâches web continues, *App\_Data/jobs/triggered* pour les tâches web planifiées et à la demande).
--   Il configure des [tâches Azure Scheduler][tâches Azure Scheduler] pour les tâches web dont l'exécution est prévue à des horaires précis (inutile pour les tâches web continues).
+Lorsque Visual Studio déploie un projet d'application console compatible avec des tâches web, il exécute deux tâches :
 
-Un projet compatible avec les tâches web se voit ajouter les éléments suivants :
+* Il copie des fichiers exécutables dans le dossier approprié sur le site web Azure (*App_Data/jobs/continuous* pour les tâches web WebJobs continues, *App_Data/jobs/triggered* pour les tâches web WebJobs planifiées et à la demande).
+* Il configure des [tâches Azure Scheduler](#scheduler) pour les tâches web WebJobs dont l'exécution est prévue à des heures précises. (inutile pour les tâches web continues).
 
--   Le package NuGet [Microsoft.Web.WebJobs.Publish][Microsoft.Web.WebJobs.Publish].
--   Un fichier [webjob-publish-settings.json][Fichier webjob-publish-settings.json] qui contient des paramètres de déploiement et de planification.
+Un projet compatible avec les tâches web se voit ajouter les éléments suivants :
 
-![Diagram showing what is added to a Console App to enable deployment as a WebJob][Diagram showing what is added to a Console App to enable deployment as a WebJob]
+* Le package NuGet [Microsoft.Web.WebJobs.Publish](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/).
+* Un fichier [webjob-publish-settings.json](#publishsettings) qui contient des paramètres de déploiement et de planification. 
 
-Vous pouvez ajouter ces éléments à un projet d'application console existant ou utiliser un modèle pour créer un projet d'application console compatible avec les tâches web.
+![Diagram showing what is added to a Console App to enable deployment as a WebJob](./media/websites-dotnet-deploy-webjobs/convert.png)
 
-Vous pouvez déployer un projet sous forme de tâche web ou le lier à un projet web afin qu'il soit déployé automatiquement lorsque vous déployez le projet web. Pour lier les projets, Visual Studio inclut le nom du projet compatible avec les tâches web dans un fichier [webjobs-list.json][Fichier webjobs-list.json] dans le projet web.
+Vous pouvez ajouter ces éléments à un projet d'application console existant ou utiliser un modèle pour créer un projet d'application console compatible avec les tâches web. 
 
-![Diagram showing WebJob project linking to web project][Diagram showing WebJob project linking to web project]
+Vous pouvez déployer un projet sous forme de tâche web ou le lier à un projet web afin qu'il soit déployé automatiquement lorsque vous déployez le projet web. Pour lier les projets, Visual Studio inclut le nom du projet compatible avec les tâches web dans un fichier [webjobs-list.json](#webjobslist) dans le projet web.
 
-## Configuration requise
+![Diagram showing WebJob project linking to web project](./media/websites-dotnet-deploy-webjobs/link.png)
+ 
 
-Les fonctionnalités de déploiement des tâches web sont disponibles dans Visual Studio 2013 lorsque vous installez le Kit de développement logiciel (SDK) Azure version 2.4 ou ultérieure :
 
--   [Kit de développement logiciel (SDK) Azure pour Visual Studio 2013][Kit de développement logiciel (SDK) Azure pour Visual Studio 2013].
+## Conditions préalables
 
-Les fonctionnalités de déploiement des tâches web sont également incluses dans la [Visual Studio 2013 Update 3][Visual Studio 2013 Update 3].
+Les fonctionnalités de déploiement WebJobs sont disponibles dans Visual Studio 2013 lorsque vous installez le Kit de développement logiciel (SDK) Azure version 2.4 ou ultérieure :
 
-## <span id="convert"></span></a>Activation du déploiement de tâches web pour un projet d'application console existant
+* [Kit de développement logiciel (SDK) Azure pour Visual Studio 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409).
 
-Deux options s'offrent à vous :
+Les fonctionnalités de déploiement WebJobs sont également incluses dans [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) et mises à jour ultérieures.
 
--   [Activation d'un déploiement automatique avec un projet web][Activation d'un déploiement automatique avec un projet web].
+## <a id="convert"></a>Activation du déploiement de tâches web pour un projet d'application console existant
 
-    Configurez un projet d'application console existant afin qu'il soit déployé automatiquement sous forme de tâche web lorsque vous déployez un projet web. Utilisez cette option lorsque vous voulez exécuter votre tâche web dans le même site web sur lequel vous exécutez l'application web liée.
+Deux options s'offrent à vous :
 
--   [Activation d'un déploiement sans projet web][Activation d'un déploiement sans projet web].
+* [Activation d'un déploiement automatique avec un projet web](#convertlink).
 
-    Configurez un projet d'application console existant pour déployer une tâche web seule, sans lien avec un projet web. Utilisez cette option lorsque vous voulez exécuter une tâche web dans un site web seul, sans application web fonctionnant sur ce dernier. Vous pouvez utiliser cette méthode afin de faire évoluer vos ressources de tâches web indépendamment de vos ressources d'application web.
+	Configurez un projet d'application console existant afin qu'il soit déployé automatiquement sous forme de tâche web lorsque vous déployez un projet web. Utilisez cette option lorsque vous voulez exécuter votre tâche web dans le même site web sur lequel vous exécutez l'application web liée.
 
-### <span id="convertlink"></span></a>Activation d'un déploiement automatique de tâches web avec un projet web
+* [Activation d'un déploiement sans projet web](#convertnolink).
 
-1.  Cliquez avec le bouton droit sur le projet web dans l'**Explorateur de solutions**, puis cliquez sur **Ajouter** \> **Projet existant sous forme de tâche web Azure**.
+	Configurez un projet d'application console existant pour déployer une tâche web seule, sans lien avec un projet web. Utilisez cette option lorsque vous voulez exécuter une tâche web dans un site web seul, sans application web fonctionnant sur ce dernier. Vous pouvez utiliser cette méthode afin de faire évoluer vos ressources de tâches web indépendamment de vos ressources d'application web.
 
-    ![Existing Project as Azure WebJob][Existing Project as Azure WebJob]
+### <a id="convertlink"></a>Activation d'un déploiement automatique de tâches web avec un projet web
+  
+1. Cliquez avec le bouton droit sur le projet web dans l'**Explorateur de solutions**, puis cliquez sur **Ajouter** > **Projet existant sous forme de tâche web Azure**.
 
-    La boîte de dialogue [Ajouter une tâche web Azure][Boîte de dialogue Ajouter une tâche web Azure] s'affiche.
+	![Existing Project as Azure WebJob](./media/websites-dotnet-deploy-webjobs/eawj.png)
+	
+	La boîte de dialogue [Ajouter une tâche web Azure](#configure) s'affiche.
 
-2.  Dans la liste déroulante **Nom du projet**, sélectionnez le projet d'application console à ajouter sous forme de tâche web.
+1. Dans la liste déroulante **Nom du projet**, sélectionnez le projet d'application console à ajouter sous forme de tâche web WebJob.
 
-    ![Selecting project in Add Azure WebJob dialog][Selecting project in Add Azure WebJob dialog]
+	![Selecting project in Add Azure WebJob dialog](./media/websites-dotnet-deploy-webjobs/aaw1.png)
 
-3.  Remplissez la boîte de dialogue [Ajouter une tâche web Azure][Boîte de dialogue Ajouter une tâche web Azure], puis cliquez sur **OK**.
+2. Remplissez la boîte de dialogue [Ajouter une tâche web Azure](#configure), puis cliquez sur **OK**. 
 
-### <span id="convertnolink"></span></a>Activation d'un déploiement de tâches web sans projet web
+### <a id="convertnolink"></a>Activation d'un déploiement de tâches web sans projet web
+  
+1. Cliquez avec le bouton droit sur le projet d'application console dans l'**Explorateur de solutions**, puis cliquez sur **Publier sous forme de tâche web Azure**. 
 
-1.  Cliquez avec le bouton droit sur le projet d'application console dans l'**Explorateur de solutions**, puis cliquez sur **Publier sous forme de tâche web Azure**.
+	![Publish as Azure WebJob](./media/websites-dotnet-deploy-webjobs/paw.png)
+	
+	La boîte de dialogue [Ajouter une tâche web Azure](#configure) s'affiche avec le projet sélectionné dans la zone **Nom du projet**.
 
-    ![Publish as Azure WebJob][Publish as Azure WebJob]
+2.  Remplissez la boîte de dialogue [Ajouter une tâche web Azure](#configure), puis cliquez sur **OK**.
 
-    La boîte de dialogue [Ajouter une tâche web Azure][Boîte de dialogue Ajouter une tâche web Azure] s'affiche avec le projet sélectionné dans la zone **Nom du projet**.
+	L'Assistant **Publier le site Web** s'ouvre.  Si vous ne voulez pas publier immédiatement, fermez l'Assistant. Les paramètres que vous avez saisis sont enregistrés au cas où vous souhaiteriez [déployer le projet](#deploy).
 
-2.  Remplissez la boîte de dialogue [Ajouter une tâche web Azure][Boîte de dialogue Ajouter une tâche web Azure], puis cliquez sur **OK**.
+## <a id="create"></a>Création d'un projet compatible avec les tâches web
 
-    L'Assistant **Publier le site Web** s'ouvre. Si vous ne voulez pas publier immédiatement, fermez l'Assistant. Les paramètres que vous avez saisis sont enregistrés au cas où vous souhaiteriez [déployer le projet][Déploiement d'un projet de tâches web].
+Pour créer un projet compatible avec les tâches web, vous pouvez utiliser le modèle de projet d'application console et activer le déploiement des tâches web comme expliqué dans [la section précédente](#convert). Vous pouvez également utiliser le modèle de nouveau projet de tâche web :
 
-## <span id="create"></span></a>Création d'un projet compatible avec les tâches web
+* [Utilisation du modèle de nouveau projet de tâche web pour une tâche web indépendante](#createnolink)
 
-Pour créer un projet compatible avec les tâches web, vous pouvez utiliser le modèle de projet d'application console et activer le déploiement des tâches web comme expliqué dans [la section précédente][Activation du déploiement de tâches web pour un projet d'application console existant]. Vous pouvez également utiliser le modèle de nouveau projet de tâche web :
+	Créez un projet et configurez-le pour qu'il se déploie seul sous forme de tâche web, sans lien avec un projet web. Utilisez cette option lorsque vous voulez exécuter une tâche web dans un site web seul, sans application web fonctionnant sur ce dernier. Vous pouvez utiliser cette méthode afin de faire évoluer vos ressources de tâches web indépendamment de vos ressources d'application web.
 
--   [Utilisation du modèle de nouveau projet de tâche web pour une tâche web liée à un projet web][Utilisation du modèle de nouveau projet de tâche web pour une tâche web liée à un projet web]
+* [Utilisation du modèle de nouveau projet de tâche web pour une tâche web liée à un projet web](#createlink)
 
-    Créez un projet configuré pour être déployé automatiquement sous forme de tâche web lorsqu'un projet web dans la même solution est déployé. Utilisez cette option lorsque vous voulez exécuter votre tâche web dans le même site web sur lequel vous exécutez l'application web liée.
+	Créez un projet configuré pour être déployé automatiquement sous forme de tâche web lorsqu'un projet web dans la même solution est déployé. Utilisez cette option lorsque vous voulez exécuter votre tâche web dans le même site web sur lequel vous exécutez l'application web liée.
 
--   [Utilisation du modèle de nouveau projet de tâche web pour une tâche web indépendante][Utilisation du modèle de nouveau projet de tâche web pour une tâche web indépendante]
+Dans la version 2.4 du Kit de développement logiciel (SDK), le modèle de nouveau projet de tâche web n'est pas plus simple que la création d'un projet d'application console et l'activation d'un déploiement de tâche web. À l'avenir, le modèle de nouveau projet de tâche web sera plus pratique pour le développement du [Kit de développement logiciel (SDK) WebJobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs), car il installera automatiquement les packages NuGet appropriés. En attendant, vous pouvez configurer un projet à l'aide du Kit de développement logiciel (SDK) WebJobs en installant manuellement les packages, comme illustré dans le [didacticiel du Kit de développement logiciel (SDK) WebJobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). 
 
-    Créez un projet et configurez-le pour qu'il se déploie seul sous forme de tâche web, sans lien avec un projet web. Utilisez cette option lorsque vous voulez exécuter une tâche web dans un site web seul, sans application web fonctionnant sur ce dernier. Vous pouvez utiliser cette méthode afin de faire évoluer vos ressources de tâches web indépendamment de vos ressources d'application web.
 
-Dans la version 2.4 du Kit de développement logiciel (SDK), le modèle de nouveau projet de tâche web n'est pas plus simple que la création d'un projet d'application console et l'activation d'un déploiement de tâche web. À l'avenir, le modèle de nouveau projet de tâche web sera plus pratique pour le développement du [Kit de développement logiciel (SDK) WebJobs][Kit de développement logiciel (SDK) WebJobs], car il installera automatiquement les packages NuGet appropriés. En attendant, vous pouvez configurer un projet à l'aide du Kit de développement logiciel (SDK) WebJobs en installant manuellement les packages, comme illustré dans le [didacticiel du Kit de développement logiciel (SDK) WebJobs][Kit de développement logiciel (SDK) WebJobs].
+### <a id="createnolink"></a>Utilisation du modèle de nouveau projet de tâche web pour une tâche web indépendante
+  
+1. Cliquez sur **Fichier** > **Nouveau projet**, puis dans la boîte de dialogue **Nouveau projet**, cliquez sur **Cloud** > **Tâche web Microsoft Azure**.
 
-### <span id="createlink"></span></a>Utilisation du modèle de nouveau projet de tâche web pour une tâche web liée à un projet web
+	![New Project dialog showing WebJob template](./media/websites-dotnet-deploy-webjobs/np.png)
+	
+2. Suivez les instructions affichées précédemment pour [faire du projet de l'application console un projet WebJobs indépendant](#convertnolink).
 
--   Cliquez avec le bouton droit sur le projet web dans l'**Explorateur de solutions**, puis cliquez sur **Ajouter** \> **Nouveau projet de tâche web Azure**.
+### <a id="createlink"></a>Utilisation du modèle de nouveau projet de tâche web pour une tâche web liée à un projet web
 
-    ![New Azure WebJob Project menu entry][New Azure WebJob Project menu entry]
+1. Cliquez avec le bouton droit sur le projet web dans l'**Explorateur de solutions**, puis cliquez sur **Ajouter** > **Nouveau projet sous forme de tâche web Azure**.
 
-    La boîte de dialogue [Ajouter une tâche web Azure][Boîte de dialogue Ajouter une tâche web Azure] s'affiche.
+	![New Azure WebJob Project menu entry](./media/websites-dotnet-deploy-webjobs/nawj.png)
 
--   Remplissez la boîte de dialogue [Ajouter une tâche web Azure][Boîte de dialogue Ajouter une tâche web Azure], puis cliquez sur **OK**.
+	La boîte de dialogue [Ajouter une tâche web Azure](#configure) s'affiche.
 
-### <span id="createnolink"></span></a>Utilisation du modèle de nouveau projet de tâche web pour une tâche web indépendante
+2. Remplissez la boîte de dialogue [Ajouter une tâche web Azure](#configure), puis cliquez sur **OK**.
 
-1.  Cliquez sur **Fichier** \> **Nouveau projet**, puis dans la boîte de dialogue **Nouveau projet**, cliquez sur **Cloud** \> **Tâche web Microsoft Azure**.
+## <a id="configure"></a>Boîte de dialogue Ajouter une tâche web Azure
 
-    ![New Project dialog showing WebJob template][New Project dialog showing WebJob template]
+La boîte de dialogue **Ajouter une tâche web Azure** vous permet de saisir le nom de la tâche web et les paramètres de planification associés. 
 
-2.  Suivez les instructions affichées précédemment pour [faire du projet de l'application console un projet de tâche web indépendant][Activation d'un déploiement sans projet web].
+![Add Azure WebJob dialog](./media/websites-dotnet-deploy-webjobs/aaw2.png)
 
-## <span id="configure"></span></a>Boîte de dialogue Ajouter une tâche web Azure
+Les champs de cette boîte de dialogue correspondent à ceux de la boîte de dialogue **Nouvelle tâche** du portail de gestion Azure. Pour plus d'informations, consultez la page [Utilisation de tâches web pour exécuter des tâches en arrière-plan dans les sites web Microsoft Azure](/fr-fr/documentation/articles/web-sites-create-web-jobs/).
 
-La boîte de dialogue **Ajouter une tâche web Azure** vous permet de saisir le nom de la tâche web et les paramètres de planification associés.
+Pour une tâche web planifiée (mais pas pour les tâches web continues), Visual Studio crée une collection de tâches [Azure Scheduler](/fr-fr/services/scheduler/) s'il n'en existe pas encore, et crée une tâche dans la collection :
 
-![Add Azure WebJob dialog][Add Azure WebJob dialog]
+* La collection de tâches de planification est appelée *WebJobs-{nom_région}* où *{nom_région}* fait référence à la région où le site web est hébergé. Par exemple : WebJobs-WestUS.
+.* La tâche du planificateur est appelée *{nom_site_web}-{nom_tâche_web}*. Par exemple : MyWebSite-MyWebJob. 
+ 
+>[WACOM.NOTE]
+> 
+>* Pour plus d'informations sur le déploiement en ligne de commande, consultez la page [Activation de la livraison continue ou en ligne de commande Azure WebJobs](/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
+>*Si vous configurez une **tâche récurrente** et que vous configurez une fréquence de récurrence sur un nombre de minutes précis, le service Azure Scheduler n'est pas gratuit. D'autres fréquences (heures, jours, etc.) sont libres.
+>* Si vous déployez une tâche web WebJob et que vous modifiez ultérieurement le mode d'exécution continue en non continue ou vice-versa, Visual Studio crée une tâche web WebJob dans Azure lorsque vous procédez à un nouveau déploiement. Si vous modifiez d'autres paramètres de planification, mais que vous conservez le même mode d'exécution ou passez à une tâche planifiée ou à la demande, Visual Studio met à jour la tâche existante plutôt que d'en créer une.
 
-Les champs de cette boîte de dialogue correspondent à ceux de la boîte de dialogue **Nouvelle tâche** du portail de gestion Azure. Pour plus d'informations, consultez la page [Utilisation de tâches web pour exécuter des tâches en arrière-plan dans les sites web Microsoft Azure][Utilisation de tâches web pour exécuter des tâches en arrière-plan dans les sites web Microsoft Azure].
+## <a id="publishsettings"></a>webjob-publish-settings.json
 
-Pour une tâche web planifiée (mais pas pour les tâches web continues), Visual Studio crée une collection de tâches [Azure Scheduler][Azure Scheduler] s'il n'en existe pas encore, et crée une tâche dans la collection :
+Lorsque vous configurez une application console pour un déploiement WebJobs, Visual Studio installe le package NuGet [Microsoft.Web.WebJobs.Publish NuGet](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) 
+et stocke les informations de planification dans un fichier *webjob-publish-settings.json* dans le dossier *Properties* du projet WebJob . Voici un exemple de ce fichier :
 
--   La collection de tâches de planification est appelée *WebJobs-{nom\_région}* où *{nom\_région}* fait référence à la région où le site web est hébergé. Par exemple : WebJobs-WestUS.
--   La tâche du planificateur est appelée *{nom\_site\_web}-{nom\_tâche\_web}*. Par exemple : MyWebSite-MyWebJob.
+		{
+		  "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",
+		  "webJobName": "WebJob1",
+		  "startTime": "2014-06-23T00:00:00-08:00",
+		  "endTime": "2014-06-27T00:00:00-08:00",
+		  "jobRecurrenceFrequency": "Minute",
+		  "interval": 5,
+		  "runMode": "Scheduled"
+		}
 
-> [WACOM.NOTE]
+Vous pouvez modifier ce fichier directement. Visual Studio est doté d'IntelliSense. Le schéma de fichier est stocké à l'adresse [http://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) et peut y être consulté.  
+
+>[WACOM.NOTE]
 >
-> -   Le déploiement en ligne de commande à l'aide de MSBuild ne configure pas la planification des tâches web planifiées. Cette fonctionnalité n'est disponible que lorsque vous procédez au déploiement en utilisant Visual Studio.
-> -   Si vous configurez une **tâche récurrente** et que vous configurez une fréquence de récurrence sur un nombre de minutes précis, le service Azure Scheduler n'est pas libre. D'autres fréquences (heures, jours, etc.) sont libres.
-> -   Si vous déployez une tâche web et que vous modifiez ultérieurement le mode d'exécution continue en non continue ou vice-versa, Visual Studio crée une tâche web dans Azure lorsque vous procédez à un nouveau déploiement. Si vous modifiez d'autres paramètres de planification, mais que vous conservez le même mode d'exécution ou passez à une tâche planifiée ou à la demande, Visual Studio met à jour la tâche existante plutôt que d'en créer une.
+>*Si vous configurez une **tâche récurrente** et que vous configurez une fréquence de récurrence sur un nombre de minutes précis, le service Azure Scheduler n'est pas gratuit. D'autres fréquences (heures, jours, etc.) sont libres.
 
-## <span id="publishsettings"></span></a>webjob-publish-settings.json
+## <a id="webjobslist"></a>webjobs-list.json
 
-Lorsque vous configurez une application console pour un déploiement de tâches web, Visual Studio installe le package NuGet [Microsoft.Web.WebJobs.Publish][Microsoft.Web.WebJobs.Publish]
-et stocke les informations de planification sous le nom de fichier *webjob-publish-settings.json* dans le dossier *Propriétés* du projet de tâches web. Voici un exemple de ce fichier :
+Lorsque vous liez un projet compatible avec WebJobs à un projet web, Visual Studio stocke le nom du projet WebJobs sous le nom de fichier *webjobs-list.json* dans le dossier *Properties* du projet web. La liste peut contenir plusieurs projets de tâches web, comme illustré dans l'exemple suivant :
 
-        {
-          "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",
-          "webJobName": "WebJob1",
-          "startTime": "2014-06-23T00:00:00-08:00",
-          "endTime": "2014-06-27T00:00:00-08:00",
-          "jobRecurrenceFrequency": "Minute",
-          "interval": 5,
-          "runMode": "Scheduled"
-        }
+		{
+		  "$schema": "http://schemastore.org/schemas/json/webjobs-list.json",
+		  "WebJobs": [
+		    {
+		      "filePath": "../ConsoleApplication1/ConsoleApplication1.csproj"
+		    },
+		    {
+		      "filePath": "../WebJob1/WebJob1.csproj"
+		    }
+		  ]
+		}
 
-Vous pouvez modifier ce fichier directement. Visual Studio est doté d'IntelliSense. Le schéma de fichier est stocké à l'adresse [][]<http://schemastore.org></a> et peut y être consulté.
+Vous pouvez modifier ce fichier directement. Visual Studio est doté d'IntelliSense. Le schéma de fichier est stocké à l'adresse [http://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) et peut y être consulté.
+  
+## <a id="deploy"></a>Déploiement d'un projet de tâches web
 
-> [WACOM.NOTE]
->
-> -   Si vous configurez une **tâche récurrente** et que vous configurez une fréquence de récurrence sur un nombre de minutes précis, le service Azure Scheduler n'est pas libre. D'autres fréquences (heures, jours, etc.) sont libres.
+Lorsqu'il est lié à un projet web, un projet de tâches web est déployé automatiquement avec ce dernier. Pour plus d'informations sur le déploiement du projet web, consultez la rubrique [Déploiement d'un site web Azure](/fr-fr/documentation/articles/websites-dotnet-deploy/).
 
-## <span id="webjobslist"></span></a>webjobs-list.json
+Pour déployer un projet de tâches web seul, cliquez avec le bouton droit sur le projet dans l'**Explorateur de solutions**, puis sur **Publier sous forme de tâche web Azure**. 
 
-Lorsque vous liez un projet compatible avec des tâches web à un projet web, Visual Studio stocke le nom du projet de tâches web sous le nom de fichier *webjobs-list.json* dans le dossier *Propriétés* du projet web. La liste peut contenir plusieurs projets de tâches web, comme illustré dans l'exemple suivant :
-
-        {
-          "$schema": "http://schemastore.org/schemas/json/webjobs-list.json",
-          "WebJobs": [
-            {
-              "filePath": "../ConsoleApplication1/ConsoleApplication1.csproj"
-            },
-            {
-              "filePath": "../WebJob1/WebJob1.csproj"
-            }
-          ]
-        }
-
-Vous pouvez modifier ce fichier directement. Visual Studio est doté d'IntelliSense. Le schéma de fichier est stocké à l'adresse [][1]<http://schemastore.org></a> et peut y être consulté.
-
-## <span id="deploy"></span></a>Déploiement d'un projet de tâches web
-
-Lorsqu'il est lié à un projet web, un projet de tâches web est déployé automatiquement avec ce dernier. Pour plus d'informations sur le déploiement du projet web, consultez la rubrique [Déploiement d'un site web Azure][Déploiement d'un site web Azure].
-
-Pour déployer un projet de tâches web seul, cliquez avec le bouton droit sur le projet dans l'**Explorateur de solutions**, puis sur **Publier sous forme de tâche web Azure**.
-
-![Publish as Azure WebJob][Publish as Azure WebJob]
-
+![Publish as Azure WebJob](./media/websites-dotnet-deploy-webjobs/paw.png)
+	
 Pour une tâche web indépendante, l'Assistant **Publier le site Web** utilisé pour les projets web s'affiche, mais avec moins de paramètres modifiables.
 
-## <span id="nextsteps"></span></a>Étapes suivantes
+## <a id="nextsteps"></a>Étapes suivantes
 
-Pour plus d'informations sur le Kit de développement logiciel (SDK) WebJobs Azure, consultez [Tâches web Azure - Ressources recommandées][Tâches web Azure - Ressources recommandées].
-
-  [tâche web Azure]: http://go.microsoft.com/fwlink/?LinkId=390226
-  [Utilisation de tâches web pour exécuter des tâches en arrière-plan dans les sites web Microsoft Azure]: /fr-fr/documentation/articles/web-sites-create-web-jobs/
-  [Vue d'ensemble]: #overview
-  [Configuration requise]: #prerequisites
-  [Activation du déploiement de tâches web pour un projet d'application console existant]: #convert
-  [Création d'un projet compatible avec les tâches web]: #create
-  [Boîte de dialogue Ajouter une tâche web Azure]: #configure
-  [Fichier webjob-publish-settings.json]: #publishsettings
-  [Fichier webjobs-list.json]: #webjobslist
-  [Déploiement d'un projet de tâches web]: #deploy
-  [Étapes suivantes]: #next-steps
-  [tâches Azure Scheduler]: #scheduler
-  [Microsoft.Web.WebJobs.Publish]: http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/
-  [Diagram showing what is added to a Console App to enable deployment as a WebJob]: ./media/websites-dotnet-deploy-webjobs/convert.png
-  [Diagram showing WebJob project linking to web project]: ./media/websites-dotnet-deploy-webjobs/link.png
-  [Kit de développement logiciel (SDK) Azure pour Visual Studio 2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
-  [Visual Studio 2013 Update 3]: http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409
-  [Activation d'un déploiement automatique avec un projet web]: #convertlink
-  [Activation d'un déploiement sans projet web]: #convertnolink
-  [Existing Project as Azure WebJob]: ./media/websites-dotnet-deploy-webjobs/eawj.png
-  [Selecting project in Add Azure WebJob dialog]: ./media/websites-dotnet-deploy-webjobs/aaw1.png
-  [Publish as Azure WebJob]: ./media/websites-dotnet-deploy-webjobs/paw.png
-  [Utilisation du modèle de nouveau projet de tâche web pour une tâche web liée à un projet web]: #createlink
-  [Utilisation du modèle de nouveau projet de tâche web pour une tâche web indépendante]: #createnolink
-  [Kit de développement logiciel (SDK) WebJobs]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs
-  [New Azure WebJob Project menu entry]: ./media/websites-dotnet-deploy-webjobs/nawj.png
-  [New Project dialog showing WebJob template]: ./media/websites-dotnet-deploy-webjobs/np.png
-  [Add Azure WebJob dialog]: ./media/websites-dotnet-deploy-webjobs/aaw2.png
-  [Azure Scheduler]: /fr-fr/services/scheduler/
-  []: http://schemastore.org/schemas/json/webjob-publish-settings.json
-  [1]: http://schemastore.org/schemas/json/webjobs-list.json
-  [Déploiement d'un site web Azure]: /fr-fr/documentation/articles/websites-dotnet-deploy/
-  [Tâches web Azure - Ressources recommandées]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources
+Pour plus d'informations sur le déploiement d'Azure WebJobs à partir de Visual Studio et à l'aide d'un processus de livraison continue, consultez la page [Azure WebJobs - Ressources recommandées - Déploiement](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).

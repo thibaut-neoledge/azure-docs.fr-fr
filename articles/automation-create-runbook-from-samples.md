@@ -54,7 +54,7 @@ Pour commencer à utiliser Automation, vous aurez besoin d'un abonnement Azure a
 
 2.  Dans le portail de gestion, cliquez sur **Create an Automation Account**.
 
-    > [WACOM.NOTE] If you’ve already created an automation account, you can skip to step 4.
+    > [WACOM.NOTE] Si vous avez déjà un compte Automation, passez à l'étape 4.
 
     ![Créer un compte][Créer un compte]
 
