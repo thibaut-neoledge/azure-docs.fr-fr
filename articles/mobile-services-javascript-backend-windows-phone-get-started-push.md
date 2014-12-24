@@ -15,9 +15,9 @@ Ce didacticiel vous familiarise avec les étapes de base permettant d'activer le
 2. [Mise à jour des scripts serveur pour l'envoi de notifications Push](#update-scripts)
 3. [Insertion de données pour recevoir des notifications Push](#test)
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de le lancer, suivez d'abord le didacticiel [Prise en main de Mobile Services] ou [Prise en main des données] pour connecter votre projet au service mobile. Lorsqu'un service mobile n'est pas connecté, l'Assistant Ajouter une notification Push crée cette connexion pour vous. 
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de le lancer, suivez d'abord le didacticiel  [Prise en main de Mobile Services]  ou  [Prise en main des données]  pour connecter votre projet au service mobile. Lorsqu'un service mobile n'est pas connecté, l'Assistant Ajouter une notification Push crée cette connexion pour vous. 
 
->[WACOM.NOTE]Pour envoyer des notifications Push à une application Windows Phone 8.1 Store, suivez la version [application Windows Store](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push) de ce didacticiel.
+>[WACOM.NOTE]Pour envoyer des notifications Push à une application Windows Phone 8.1 Store, suivez la version  [application Windows Store](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push)  de ce didacticiel.
 
 ##<a id="update-app"></a> Mise à jour de l'application pour l'inscription aux notifications
 
@@ -56,15 +56,15 @@ Pour permettre à votre application de recevoir les notifications Push, vous dev
 
 	>[WACOM.NOTE]Dans ce didacticiel, le service mobile envoie une notification toast à l'appareil. Lorsque vous envoyez une notification par vignette, vous devez appeler la méthode **BindToShellTile** sur le canal.
 
-4. En haut du gestionnaire d'événements **Application_Launching** dans App.xaml.cs, ajoutez l'appel suivant à la nouvelle méthode **AcquirePushChannel** :
+4. En haut du gestionnaire d'événements **Application_Launching** dans App.xaml.cs, ajoutez l'appel suivant à la nouvelle méthode  **AcquirePushChannel** :
 
         AcquirePushChannel();
 
-	Cela permet de s'assurer que l'inscription est demandée à chaque chargement de la page. Dans votre application, vous souhaitez effectuer cette inscription régulièrement pour vous assurer de son exactitude. 
+	Dans votre application, vous souhaitez effectuer cette inscription régulièrement pour vous assurer de son exactitude. Dans votre application, vous souhaitez effectuer cette inscription régulièrement pour vous assurer de son exactitude. 
 
 5. Appuyez sur la touche **F5** pour exécuter l'application. Une boîte de dialogue s'affiche avec la clé d'inscription.
   
-6.	Dans l'Explorateur de solutions, développez **Propriétés**, ouvrez le fichier WMAppManifest.xml, cliquez sur l'onglet **Fonctionnalités** et veillez à ce que la fonctionnalité **ID___CAP___PUSH_NOTIFICATION** soit activée.
+6.	Dans l'Explorateur de solutions, développez**Propriétés**, ouvrez le fichier WMAppManifest.xml, cliquez sur l'onglet **Fonctionnalités** et veillez à ce que la fonctionnalité  **ID___CAP___PUSH_NOTIFICATION** soit activée.
 
    	![][1]
 
@@ -78,7 +78,7 @@ Enfin, vous devez mettre à jour le script inscrit dans l'opération d'insertion
 
    	![][10]
 
-2. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
+2. Remplacez le script existant par la fonction suivante, puis cliquez sur **Enregistrer** :
 
 		function insert(item, user, request) {
 		// Define a payload for the Windows Phone toast notification.
@@ -106,15 +106,15 @@ Enfin, vous devez mettre à jour le script inscrit dans l'opération d'insertion
 
 	À l'issue de l'insertion, ce script d'insertion envoie une notification Push (avec le texte de l'élément inséré) à toutes les inscriptions d'applications Windows Phone.
 
-3. Cliquez sur l'onglet **Notifications Push**, cochez **Activez des notifications push non authentifiées**, puis cliquez sur **Enregistrer**.
+3. Cliquez sur l'onglet **Notifications Push**, cochez **Activez des notifications push non authentifiées**, then click **, puis cliquez sur **.
 
-	>[WACOM.NOTE]Si vous suivez ce didacticiel avec un service mobile plus ancien, vous êtes susceptible de voir un lien dans le bas de l'onglet **Notifications Push** avec le texte **Activer la transmission push améliorée**. Cliquez sur ce lien pour mettre à niveau votre service mobile et l'intégrer avec Notification Hubs. Cette modification est irréversible. Pour plus d'informations sur l'activation des notifications Push améliorées dans un service mobile de production, consultez <a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">ce guide</a>.
+	>[WACOM.NOTE]Si vous suivez ce didacticiel avec un service mobile plus ancien, vous êtes susceptible de voir un lien dans le bas de l'onglet**Notifications Push**avec le texte **Activer la transmission push améliorée**. Cliquez sur ce lien pour mettre à niveau votre service mobile et l'intégrer avec Notification Hubs. Cette modification est irréversible. Pour plus d'informations sur l'activation des notifications Push améliorées dans un service mobile de production, consultez  <a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">ce guide</a>.
 
 	![][11]
 
 	Le service mobile peut ainsi se connecter à MPNS en mode non authentifié pour envoyer les notifications Push.
 
-	>[WACOM.NOTE]Ce didacticiel utilise MPNS en mode non authentifié. Dans ce mode, MPNS limite le nombre de notifications à envoyer à un canal d'appareil. Pour supprimer cette restriction, vous devez générer et télécharger un certificat en cliquant sur **Télécharger** et en sélectionnant le certificat. Pour plus d'informations sur la génération du certificat, consultez la rubrique [Configuration d'un service Web authentifié afin d'envoyer des notifications Push pour Windows Phone].
+	>[WACOM.NOTE]Ce didacticiel utilise MPNS en mode non authentifié. Dans ce mode, MPNS limite le nombre de notifications à envoyer à un canal d'appareil. Pour supprimer cette restriction, vous devez générer et télécharger un certificat en cliquant sur**Télécharger** et en sélectionnant le certificat. Pour plus d'informations sur la génération du certificat, consultez la rubrique  [Configuration d'un service Web authentifié afin d'envoyer des notifications Push pour Windows Phone].
 
 ##<a id="test"></a> Test des notifications Push dans votre application
 
@@ -130,7 +130,7 @@ Enfin, vous devez mettre à jour le script inscrit dans l'opération d'insertion
 
 	![][5]
 
-	>[WACOM.NOTE]Vous ne recevrez pas cette notification pendant que vous vous trouvez encore dans l'application. Pour recevoir une notification toast pendant que l'application est active, vous devez gérer l'événement [ShellToastNotificationReceived](http://msdn.microsoft.com/fr-fr/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived(v=vs.105).aspx).
+	>[WACOM.NOTE]Vous ne recevrez pas cette notification pendant que vous vous trouvez encore dans l'application. Pour recevoir une notification toast pendant que l'application est active, vous devez gérer l'événement  [ShellToastNotificationReceived](http://msdn.microsoft.com/fr-fr/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived(v=vs.105).aspx).
 
 
 
@@ -176,7 +176,7 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [11]: ./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-push-tab.png
 
 <!-- URLs. -->
-[Page Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mes Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Kit de développement logiciel (SDK) Live]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started
