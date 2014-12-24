@@ -437,7 +437,7 @@ Pour utiliser la nouvelle collection sur Windows Phone, appliquez les méthodes 
 
 Lorsque vous utilisez la collection créée par l'appel de `ToCollectionAsync` ou `ToCollection`, vous obtenez une collection qui peut être liée à des contrôles d'interface utilisateur. Cette collection prend en charge la pagination, ce qui signifie qu'un contrôle peut demander à la collection de " charger plus d'éléments ", ce qu'elle fera pour le contrôle. À ce stade, aucun code utilisateur n'intervient ; c'est le contrôle qui démarre le flux. Toutefois, sachant que la collection charge les données à partir du réseau, ce chargement peut parfois échouer. Face à ces échecs, vous pouvez ignorer la méthode `OnException` au niveau de `MobileServiceIncrementalLoadingCollection` pour traiter les exceptions résultant des appels à `LoadMoreItemsAsync` émis par les contrôles.
 
-Enfin, imaginez que votre table contient de nombreux champs, mais que vous ne souhaitez en afficher qu'une partie dans votre contrôle. Vous pouvez suivre les instructions fournies plus haut dans la section <a href="#selectingSélection de colonnes spécifiques</a>  pour sélectionner les colonnes à afficher dans l'interface utilisateur.
+Enfin, imaginez que votre table contient de nombreux champs, mais que vous ne souhaitez en afficher qu'une partie dans votre contrôle. Vous pouvez suivre les instructions fournies plus haut dans la section <a href="#selecting">Sélection de colonnes spécifiques</a>  pour sélectionner les colonnes à afficher dans l'interface utilisateur.
 
 <h2><a name="authentication"></a> Authentification des utilisateurs</h2>
 
