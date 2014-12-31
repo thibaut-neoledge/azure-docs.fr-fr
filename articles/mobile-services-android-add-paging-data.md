@@ -4,7 +4,7 @@
 
 # Affinage des requêtes Mobile Services au moyen de la pagination
 
-€
+[WACOM.INCLUDE [mobile-services-selector-add-paging-data](../includes/mobile-services-selector-add-paging-data.md)]
 
 Cette rubrique montre comment utiliser la pagination pour gérer la quantité de données renvoyée vers votre application Android à partir d'Azure Mobile Services. Dans le cadre de ce didacticiel, vous allez utiliser les méthodes de requête **top** et **skip** sur le client pour demander des " pages " spécifiques de données.
 

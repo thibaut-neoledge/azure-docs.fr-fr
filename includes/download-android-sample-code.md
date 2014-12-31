@@ -18,4 +18,4 @@
 >[AZURE.NOTE]Si vous souhaitez obtenir l'exemple de fichier utilisé dans la version précédente du Kit de développement logiciel (SDK) de Mobile Services Android, vous pouvez l'obtenir [ici][GitHub].
 
 <!-- URLs. -->
-[GitHub] :  http://go.microsoft.com/fwlink/p/?LinkID=282122
+[GitHub]:  http://go.microsoft.com/fwlink/p/?LinkID=282122
