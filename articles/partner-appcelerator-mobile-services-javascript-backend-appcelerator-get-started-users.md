@@ -1,6 +1,6 @@
 ﻿<properties pageTitle="Prise en main de l'authentification (Appcelerator) | Centre de développement mobile" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your iOS app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="Appcelerator team;mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
 # Prise en main de l'authentification dans Mobile Services
 
@@ -16,7 +16,7 @@ Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez aussi d'abord suivre le didacticiel [Prise en main de Mobile Services].
 
-Ce didacticiel requiert Appcelerator Titanium Studio 3.2.1 (ou version ultérieure) et iOS 7.0 et/ou (version ultérieure) et Android 4.3 (ou version ultérieure).
+Ce didacticiel requiert Appcelerator Titanium Studio 3.2.1 (ou version ultérieure) et iOS 7.0 (et/ou version ultérieure) et Android 4.3 (ou version ultérieure).
 
 ##<a name="register"></a>Inscription de votre application pour l'authentification et configuration de Mobile Services
 
@@ -36,7 +36,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 ##<a name="add-authentication"></a>Ajout de l'authentification à l'application
 
-1.	Ouvrez le fichier projet index.js et, dans la méthode Lister des événements de table, recherchez `case 2:`
+1.	Ouvrez le fichier projet index.js puis, dans la méthode Lister des événements de table, recherchez " case 2 : "
 
     Dans votre application, vous pouvez soit inviter l'utilisateur à choisir parmi les fournisseurs d'identité disponibles, soit spécifier automatiquement l'un de ces fournisseurs.
 
@@ -97,3 +97,5 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 <!-- URLs. -->
 [Prise en main de Mobile Services]: /fr-fr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+
+<!--HONumber=35_1-->

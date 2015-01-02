@@ -1,33 +1,29 @@
 ﻿<properties urlDisplayName="Table Service" pageTitle="Utilisation du stockage de tables (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Learn how to use the table storage service in Azure. Code samples are written using the Node.js API." metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
 
 # Utilisation du service de Table à partir de Node.js
 
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de
-Table Windows Azure. Les exemples sont écrits en utilisant
-l'API Node.js. Les scénarios traités incluent **la création et la suppression
-d'une table, l'insertion et l'interrogation d'entités dans une table**. Pour plus
-d'informations sur les tables, consultez la section [Étapes suivantes][Étapes suivantes].
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de Table Azure. Les exemples sont écrits en utilisant l'API Node.js. Les scénarios traités incluent la**création et la suppression d'une table, l'insertion et l'interrogation d'entités dans une table**. Pour plus d'informations sur les tables, consultez la section [Étapes suivantes][].
 
 ## Sommaire
 
-* [Présentation du service de Table][Présentation du service de Table]   
-* [Concepts][Concepts]   
-* [Création d'un compte de stockage Azure](#create-account)
+* [Présentation du service de Table][]   
+* [Concepts][]   
+* [Création d'un compte Azure Storage](#create-account)
 * [Création d'une application Node.js](#create-app)
 * [Configuration de votre application pour accéder au stockage](#configure-access)
-* [Configuration d'une connexion Azure Storage](#setup-connection-string)  
-* [ Création d'une table](#create-table)
-* [ Ajout d'une entité à une table](#add-entity)
-* [ Mise à jour d'une entité](#update-entity)
-* [ Utilisation des groupes d'entités](#change-entities)
-* [ Extraction d'une entité](#query-for-entity)
-* [ Interrogation d'un ensemble d'entités](#query-set-entities)
-* [ Suppression d'une entité](#delete-entity)
-* [ Suppression d'une table](#delete-table)   
-* [ Utilisation des signatures d'accès partagé](#sas)
-* [Étapes suivantes][Étapes suivantes]
+* [Configuration de votre application pour accéder au stockage](#setup-connection-string)  
+* [Procédure : Création d'une table](#create-table)
+* [Procédure : Ajout d'une entité à une table](#add-entity)
+* [Procédure : Mise à jour d'une entité](#update-entity)
+* [Procédure : Utilisation des groupes d'entités](#change-entities)
+* [Procédure : Extraction d'une entité](#query-for-entity)
+* [Procédure : Interrogation d'un ensemble d'entités](#query-set-entities)
+* [Procédure : Suppression d'une entité](#delete-entity)
+* [Procédure : Suppression d'une table](#delete-table)   
+* [Procédure : Utilisation des signatures d'accès partagé](#sas)
+* [Étapes suivantes][]
 
 [WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
@@ -37,7 +33,7 @@ d'informations sur les tables, consultez la section [Étapes suivantes][Étapes 
 
 ## <a name="create-app"> </a>Création d'une application Node.js
 
-Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure], [Service cloud Node.js][Service cloud Node.js] (avec Windows PowerShell) ou [Site Web avec WebMatrix].
+Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les page [Création et déploiement d'une application Node.js dans un site Web Azure], [Service cloud Node.js][Node.js Cloud Service] (avec Windows PowerShell) ou [Site Web avec WebMatrix].
 
 ## <a name="configure-access"> </a>Configuration de votre application pour accéder au stockage
 
@@ -46,7 +42,7 @@ communiquent avec les services REST de stockage.
 
 ### Utilisation de Node Package Manager (NPM) pour obtenir le package
 
-1.  Utilisez une interface de ligne de commande telle que **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix) pour accéder au dossier dans lequel vous avez créé votre exemple d'application.
+1.  Utilisez une interface de ligne de commande telle que **PowerShell** (Windows,) **Terminal** (Mac) ou **Bash** (Unix) pour accéder au dossier dans lequel vous avez créé votre exemple d'application.
 
 2.  Tapez **npm install azure-storage** dans la fenêtre de commande, ce qui doit aboutir à la sortie suivante :
 
@@ -60,15 +56,11 @@ communiquent avec les services REST de stockage.
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  Vous pouvez exécuter manuellement la commande **ls** pour vérifier que le dossier
-    **node\_modules** a été créé. Dans ce dossier,
-    recherchez le package **azure-storage** qui contient les bibliothèques dont vous avez besoin
-    pour accéder au stockage.
+3.  Vous pouvez exécuter manuellement la commande **ls** pour vérifier que le dossier     **node\_modules** a été créé. Dans ce dossier, recherchez le dossier **azure-storage**, qui contient les bibliothèques dont vous avez besoin pour accéder au stockage.
 
 ### Importation du package
 
-À l'aide d'un éditeur de texte, comme le Bloc-notes, ajoutez la commande suivante au début du fichier
-**server.js** de l'application dans laquelle vous souhaitez utiliser le stockage :
+À l'aide d'un éditeur de texte, comme le Bloc-notes, ajoutez la commande suivante au début du fichier **server.js** de l'application dans laquelle vous souhaitez utiliser le stockage :
 
     var azure = require('azure-storage');
 
@@ -80,21 +72,19 @@ Pour obtenir un exemple de configuration des variables d'environnement dans le p
 
 ## <a name="create-table"> </a>Création d'une table
 
-Le code suivant crée un objet **TableService** et l'utilise pour
-créer une table. Ajoutez le code suivant vers le début du fichier **server.js** :
+Le code suivant crée un objet  **TableService** et l'utilise pour créer une table. Ajoutez le code suivant vers le début du fichier **server.js**.
 
     var tableSvc = azure.createTableService();
 
-L'appel de **createTableIfNotExists** crée une table avec le nom spécifié si elle
-n'existe pas déjà. Dans l'exemple suivant, la table 'mytable' est créée, si elle n'existe pas déjà :
+L'appel de  **createTableIfNotExists** crée une table avec le nom spécifié si elle n'existe pas déjà. Dans l'exemple suivant, la table 'mytable' est créée, si elle n'existe pas déjà :
 
     tableSvc.createTableIfNotExists('mytable', function(error, result, response){
-		if (!error) {
-			// La table existe ou est créée
+		if(!error){
+			// Table exists or created
 		}
 	});
 
-Le `result` a la valeur `true` si une table est créée, et la valeur `false` si la table existe déjà. `response` contient des informations sur la requête.
+Le résultat sera `true` si une nouvelle table est créée et `false` si la table existe déjà. `response` contiendra des informations sur la demande.
 
 ###Filtres
 
@@ -108,15 +98,14 @@ Après le prétraitement des options de la requête, la méthode doit appeler " 
 
 Dans ce rappel, et après le traitement de returnObject (la réponse de la requête au serveur), le rappel doit appeler la fonction next, si elle existe, pour continuer à traiter d'autres filtres ou simplement appeler finalCallback pour terminer l'utilisation du service.
 
-Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet **TableService** qui utilise le filtre **ExponentialRetryPolicyFilter** :
+Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de développement logiciel (SDK) Azure pour Node.js : **ExponentialRetryPolicyFilter** et **LinearRetryPolicyFilter**. Le code suivant crée un objet  **TableService** qui utilise le filtre  **ExponentialRetryPolicyFilter** :
 
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var tableSvc = azure.createTableService().withFilter(retryOperations);
 
 ## <a name="add-entity"> </a>Ajout d'une entité à une table
 
-Pour ajouter une entité, commencez par créer un objet qui définit les
-propriétés de l'entité. Toutes les entités doivent contenir une propriété **PartitionKey** et **RowKey**, qui sont des identificateurs uniques de l'entité.
+Pour ajouter une entité, commencez par créer un objet qui définit les propriétés de l'entité. Toutes les entités doivent contenir des propriétés **PartitionKey** et **RowKey**, qui sont des identificateurs uniques de l'entité.
 
 * **PartitionKey** : détermine la partition dans laquelle l'entité est stockée.
 
@@ -133,7 +122,7 @@ Voici un exemple de définition d'une entité. Notez que **dueDate** est défini
 	  dueDate: {'_':new Date(2015, 6, 20), '$':'Edm.DateTime'}
 	};
 
-> [WACOM.NOTE]Il existe également un champ **Timestamp** pour chaque enregistrement, qui est défini par Azure lorsqu'une entité est ajoutée ou mise à jour.
+> [WACOM.NOTE] Il existe également un champ **Timestamp** pour chaque enregistrement, qui est défini par Azure lorsqu'une entité est ajoutée ou mise à jour.
 
 Vous pouvez également utiliser **entityGenerator** pour créer des entités. L'exemple suivant crée la même entité de tâche en utilisant **entityGenerator**.
 
@@ -149,14 +138,14 @@ Pour ajouter une entité à votre table, transmettez l'objet d'entité à
 la méthode **insertEntity**.
 
 	tableSvc.insertEntity('mytable',task, function (error, result, response) {
-		if (!error) {
-			// Entité insérée
+		if(!error){
+			// Entity inserted
 		}
 	});
 
-Si l'opération aboutit, `result` contient l'élément [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) de l'enregistrement inséré et `response` contient des informations sur l'opération.
+Si l'opération réussit, `result` contient l'[ETag](http://en.wikipedia.org/wiki/HTTP_ETag) de l'enregistrement inséré et `response` contient des informations sur l'opération.
 
-> [WACOM.NOTE]Par défaut, **insertEntity** ne renvoie pas l'entité insérée comme information `response`. Si vous prévoyez d'exécuter d'autres opérations sur cette entité, ou si vous voulez mettre en cache les informations, il peut être utile de la faire renvoyer dans `result`. Pour ce faire, activez **echoContent** comme suit :
+> [WACOM.NOTE] Par défaut, **insertEntity** ne renvoie pas l'entité insérée dans le cadre des informations `response` . Si vous prévoyez d'exécuter d'autres opérations sur cette entité, ou si vous voulez mettre en cache les informations, il peut être utile de la faire renvoyer dans `result`. Pour ce faire, activez  **echoContent** comme suit :
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
 
@@ -175,14 +164,14 @@ Plusieurs méthodes permettent de mettre à jour une entité existante :
 L'exemple suivant illustre la mise à jour d'une entité avec **updateEntity** :
 
 	tableSvc.updateEntity('mytable', updatedTask, function(error, result, response){
-      if (!error) {
-        // Entité mise à jour
+      if(!error) {
+        // Entity updated
       }
     });
 
 > [WACOM.NOTE] Par défaut, la mise à jour d'une entité ne vérifie pas si les données en cours de mise à jour ont déjà été modifiées par un autre processus. Pour activer la prise en charge de mises à jour simultanées :
 > 
-> 1. Obtenez l'ETag de l'objet mis à jour. Il est renvoyé dans la `response` d'une opération sur une entité et peut être extrait dans `response['.metadata'].etag`.
+> 1. Obtenez l'ETag de l'objet mis à jour. Il est renvoyé dans la  `response` d'une opération sur une entité et peut être récupéré par le biais de `response['.metadata'].etag`.
 > 
 > 2. Lors d'une opération de mise à jour sur une entité, ajoutez les informations ETag précédemment extraites dans la nouvelle entité. Par exemple :
 > 
@@ -195,12 +184,9 @@ Avec **updateEntity** et **mergeEntity**, si l'entité mise à jour n'existe pas
 Le `result` des opérations de mise à jour réussies contient l'**Etag** de l'entité mise à jour.
 
 ## <a name="change-entities"> </a>Utilisation de groupes d'entités
+Il est parfois intéressant de soumettre un lot d'opérations simultanément pour assurer un traitement atomique par le serveur. Pour ce faire, utilisez la classe **TableBatch** pour créer un traitement par lots, puis la méthode **executeBatch** de **TableService** pour exécuter les opérations du traitement par lots.
 
-Il est parfois intéressant de soumettre un lot d'opérations
-simultanément pour assurer un traitement atomique par le serveur. Pour ce faire,
-utilisez la classe **TableBatch** pour créer un traitement par lots, puis la méthode **executeBatch** de **TableService** pour exécuter les opérations du traitement par lots.
-
- L'exemple suivant illustre la soumission par lot de deux entités :
+ The following example demonstrates submitting two entities in a batch:
 
     var task1 = { 
 	  PartitionKey: {'_':'hometasks'},
@@ -221,8 +207,8 @@ utilisez la classe **TableBatch** pour créer un traitement par lots, puis la m�
 	batch.insertEntity(task2, {echoContent: true});
 
 	tableSvc.executeBatch('mytable', batch, function (error, result, response) {
-	  if (!error) {
-	    // Lot terminé
+	  if(!error) {
+	    // Batch completed
 	  }
 	});
 
@@ -247,8 +233,8 @@ Les opérations ajoutées à un traitement par lots peuvent être inspectées en
 Si vous voulez renvoyer une entité donnée d'après **PartitionKey** et **RowKey**, utilisez la méthode **retrieveEntity**.
 
     tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
-	  if (!error) {
-	    // result contient l'entité
+	  if(!error){
+	    // result contains the entity
 	  }
     });
 
@@ -263,9 +249,9 @@ requête en utilisant des clauses telles que :
 
 * **where** : clause where.
 
-	* **and** : condition where `and`.
+	* **et ** : condition where `and`.
 
-	* **or** : condition where `or`.
+	* **ou** : condition where `or`.
 
 * **top** : nombre d'éléments à extraire.
 
@@ -279,12 +265,12 @@ L'exemple suivant crée une requête qui renvoie les 5 premiers éléments avec 
 Comme **select** n'est pas utilisé, tous les champs sont renvoyés. Pour exécuter la requête dans une table, utilisez **queryEntities**. L'exemple suivant utilise cette requête pour renvoyer des entités de " mytable ".
 
 	tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
-	  if (!error) {
-	    // la requête a réussi
+	  if(!error) {
+	    // query was successful
 	  }
 	});
 
-En cas de réussite, `result.entries` contient un tableau d'entités qui correspondent à la requête. Si la requête n'a pas pu renvoyer toutes les entités, `result.continuationToken` peut servir de troisième paramètre de **queryEntities** pour extraire plus de résultats. Pour la requête initiale, le deuxième paramètre doit être *null*.
+En cas de réussite, `result.entries` contient un tableau d'entités qui correspondent à la requête. Si la requête n'a pas pu renvoyer toutes les entités, `result.continuationToken` est non-*null* et peut servir de troisième paramètre de **queryEntities** pour extraire plus de résultats. Pour la requête initiale, le troisème paramètre doit être *null*.
 
 ###Interrogation d'un sous-ensemble de propriétés d'entité
 
@@ -300,7 +286,7 @@ Ceci permet de réduire la consommation de bande passante et peut améliorer les
 
 Vous pouvez supprimer une entité en utilisant ses clés de partition et de ligne. Dans cet
 exemple, l'objet **task1** contient les valeurs **RowKey** et
-**PartitionKey** de l'entité à supprimer. L'objet est
+**PartitionKey** de l'entité à supprimer. L'objet est ensuite
 transmis à la méthode **deleteEntity**.
 
 	var task = { 
@@ -309,26 +295,26 @@ transmis à la méthode **deleteEntity**.
 	};
 
     tableSvc.deleteEntity('mytable', task, function(error, response){
-	  if (!error) {
-		// Entité supprimée
+	  if(!error) {
+		// Entity deleted
 	  }
 	});
 
-> [WACOM.NOTE] Vous avez intérêt à utiliser les ETag pour supprimer des éléments afin de vous assurer que les éléments n'ont pas été modifiés par un autre processus. Consultez la rubrique [ Mise à jour d'une entitétransmis à la méthode ][ Mise à jour d'une entitétransmis à la méthode ] pour plus d'informations sur l'utilisation des ETags.
+> [WACOM.NOTE] Vous avez intérêt à utiliser les ETag pour supprimer des éléments afin de vous assurer que les éléments n'ont pas été modifiés par un autre processus. Consultez la rubrique [Procédure : Mise à jour d'une entité][] pour plus d'informations sur l'utilisation des ETags.
 
 ## <a name="delete-table"> </a>Suppression d'une table
 
 Le code suivant permet de supprimer une table d'un compte de stockage.
 
     tableSvc.deleteTable('mytable', function(error, response){
-		if (!error) {
-			// Table supprimée
+		if(!error){
+			// Table deleted
 		}
 	});
 
 Si vous ne savez pas si la table existe, utilisez **deleteTableIfExists**.
 
-## <a name="sas"></a> Utilisation des signatures d'accès partagé
+## <a name="sas"></a>Utilisation Utilisation des signatures d'accès partagé
 
 Les signatures d'accès partagé sont un moyen sécurisé de fournir un accès précis aux tables sans fournir le nom ni les clés de votre compte de stockage. Elles servent souvent à fournir un accès limité à vos données, par exemple pour autoriser une application mobile à interroger des enregistrements.
 
@@ -354,15 +340,15 @@ L'exemple suivant génère une nouvelle stratégie d'accès partagé qui autoris
 
 Notez que les informations sur l'hôte doivent également être fournies, car elles sont obligatoires lorsque le détenteur de la signature d'accès partagé tente d'accéder à la table.
 
-L'application cliente utilise les signatures d'accès partagé avec **TableServiceWithSAS** pour effectuer les opérations sur la table. L'exemple suivant se connecte à la table et exécute une requête.
+L'application cliente utilise les signatures d'accès partagé avec  **TableServiceWithSAS** pour effectuer les opérations sur la table. L'exemple suivant se connecte à la table et exécute une requête.
 
 	var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
 	var query = azure.TableQuery()
 	  .where('PartitionKey eq ?', 'hometasks');
 		
 	sharedTableService.queryEntities(query, null, function(error, result, response) {
-	  if (!error) {
-		// result contient les entités
+	  if(!error) {
+		// result contains the entities
 	  }
 	});
 
@@ -396,12 +382,12 @@ Une liste de contrôle d'accès est implémentée à l'aide d'un tableau de stra
 L'exemple suivant obtient la liste de contrôle d'accès active pour la table **hometasks**, puis ajoute les nouvelles stratégies à l'aide de **setTableAcl**. Cette approche permet :
 
 	tableSvc.getTableAcl('hometasks', function(error, result, response) {
-      if (!error) {
-		//transmettez la nouvelle stratégie dans signedIdentifiers
+      if(!error){
+		//push the new policy into signedIdentifiers
 		result.signedIdentifiers.push(sharedAccessPolicy);
 		tableSvc.setTableAcl('hometasks', result, function(error, result, response){
-	  	  if (!error) {
-	    	// liste de contrôle d'accès définie
+	  	  if(!error){
+	    	// ACL set
 	  	  }
 		});
 	  }
@@ -416,27 +402,38 @@ Lorsque la liste de contrôle d'accès est définie, vous pouvez créer une sign
 Maintenant que vous connaissez les bases du stockage de tables, consultez les liens suivants
 pour apprendre à réaliser des tâches de stockage plus complexes.
 
--   Consultez la référence MSDN suivante : [stockage et accessibilité des données dans Azure][stockage et accessibilité des données dans Azure].
--   [Consultez le blog de l'équipe Azure Storage][Consultez le blog de l'équipe Azure Storage].
--   Consultez le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Node][Kit de développement logiciel (SDK) Azure Storage pour Node] sur GitHub.
+-   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][].
+-   [Consultez le blog de l'équipe Azure Storage][].
+-   Consultez le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Node][] sur GitHub.
 
   [Kit de développement logiciel (SDK) Azure Storage pour Node]: https://github.com/Azure/azure-storage-node
   [Étapes suivantes]: #next-steps
+  [Présentation du service de Table]: #what-is
   [Concepts]: #concepts
+  [Création d'un compte Azure Storage]: #create-account
   [Création d'une application Node.js]: #create-app
   [Configuration de votre application pour accéder au stockage]: #configure-access
-  [Configuration d'une connexion Azure Storage]: #setup-connection-string
-  [ Création d'une table]: #create-table
-  [ Ajout d'une entité à une table]: #add-entity
-  [ Mise à jour d'une entité]: #update-entity
-  [ Utilisation des groupes d'entités]: #change-entities
-  [ Interrogation d'un ensemble d'entités]: #query-set-entities
-  [ Suppression d'une entité]: #delete-entity
-  [ Suppression d'une table]: #delete-table
+  [Configuration de votre application pour accéder au stockage]: #setup-connection-string
+  [Procédure : Création d'une table]: #create-table
+  [Procédure : Ajout d'une entité à une table]: #add-entity
+  [Procédure : Mise à jour d'une entité]: #update-entity
+  [Procédure : Utilisation des groupes d'entités]: #change-entities
+  [Procédure : Interrogation d'une entité]: #query-for-entity
+  [Procédure : Interrogation d'un ensemble d'entités]: #query-set-entities
+  [Procédure : Interrogation d'un sous-ensemble de propriétés d'entité]: #query-entity-properties
+  [Procédure : Suppression d'une entité]: #delete-entity
+  [Procédure : Suppression d'une table]: #delete-table
 
+  [OData.org]: http://www.odata.org/
+  [utilisation de l'API REST]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh264518.aspx
+  [Azure Management Portal]: http://manage.windowsazure.com
 
   [Service cloud Node.js]: /fr-fr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx
   [Consultez le blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Site Web avec WebMatrix]: /fr-fr/documentation/articles/web-sites-nodejs-use-webmatrix/
-  [Application web Node.js avec stockage]: /fr-fr/documentation/articles/storage-nodejs-use-table-storage-web-site/
-  [Création et déploiement d'une application Node.js dans un site Web Azure]: /fr-fr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Site web avec WebMatrix]: /fr-fr/documentation/articles/web-sites-nodejs-use-webmatrix/
+  [Service cloud Node.js avec stockage]: /fr-fr/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
+  [Application Web Node.js avec stockage]: /fr-fr/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Création et déploiement d'une application Node.js dans Site Web Azure]: /fr-fr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+
+<!--HONumber=35_1-->

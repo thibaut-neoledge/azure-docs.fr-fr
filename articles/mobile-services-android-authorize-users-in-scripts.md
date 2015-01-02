@@ -6,9 +6,11 @@
 
 [WACOM.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]	
 
-Cette rubrique montre comment utiliser des scripts serveur pour autoriser les utilisateurs authentifiés à accéder aux données dans Azure Mobile Services à partir d'une application Android.  Dans ce didacticiel, vous inscrivez les scripts dans Mobile Services pour filtrer les requêtes en fonction de l'ID utilisateur d'un utilisateur authentifié, garantissant que chaque utilisateur peut voir uniquement ses propres données.
+Cette rubrique explique comment utiliser des scripts serveur pour autoriser les utilisateurs authentifiés à accéder aux données dans Azure Mobile Services à partir d'une application Android.  Dans ce didacticiel, vous allez inscrire les scripts dans Mobile Services pour filtrer les requêtes sur la base de la valeur userId d'un utilisateur authentifié, en vous assurant que chaque utilisateur parvient à voir uniquement ses propres données.
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie sur le didacticiel précédent [Prise en main de l'authentification]. Avant de commencer, vous devez suivre le didacticiel [Prise en main de l'authentification].  
+##Conditions préalables
+
+[WACOM.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]  
 
 ## <a name="register-scripts"></a>Inscription des scripts
 Étant donné que l'application de démarrage rapide lit et insère les données, vous devez inscrire les scripts de ces opérations dans la table TodoItem.
@@ -21,7 +23,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 
    	![][1]
 
-3. Cliquez sur **Script**, puis sélectionnez l'opération **Insérer**.
+3. Cliquez sur **Script**,puis sélectionnez l'opération **Insert**.
 
    	![][2]
 
@@ -35,7 +37,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
     Ce script ajoute une valeur userId à l'élément, qui correspond à l'ID de l'utilisateur authentifié, avant de l'insérer dans la table TodoItem. 
 
     <div class="dev-callout"><b>Remarque</b>
-	<p>Le schéma dynamique doit être activé la première fois que ce script d'insertion s'exécute. Avec le schéma dynamique activé, Mobile Services ajoute automatiquement la colonne <strong>userId</strong> à la table <strong>TodoItem</strong> lors de la première exécution. Par défaut, le schéma dynamique est activé pour un nouveau service mobile. Il doit être désactivé avant que l'application soit publiée sur le Windows Store.</p>
+	<p>Le schéma dynamique doit être activé la première fois que ce script d'insertion s'exécute. Lorsque le schéma dynamique est activé, Mobile Services ajoute automatiquement la colonne <strong>userId</strong> à la table <strong>TodoItem</strong> lors de la première exécution. Par défaut, le schéma dynamique est activé pour un nouveau service mobile. Il doit être désactivé avant que l'application soit publiée sur le Windows Store.</p>
     </div>
 
 
@@ -56,11 +58,11 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 
    	Remarquez que cette fois, bien que certains éléments provenant des didacticiels précédents figurent déjà dans la table TodoItem, aucun élément n'est renvoyé. Cela se produit parce que les éléments précédents ont été insérés sans la colonne userId et comportent maintenant des valeurs null.
 
-3. Dans l'application, entrez du texte dans **Insérer une tâche**, puis cliquez sur **Enregistrer**.
+3. Dans l'application, entrez du texte dans **Insert a TodoItem**, puis cliquez sur**Enregistrer**.
 
    	Cette action insère à la fois le texte et la valeur userId dans la table TodoItem du service mobile. Étant donné que le nouvel élément dispose de la valeur userId correcte, il est renvoyé par le service mobile et affiché dans la seconde colonne.
 
-5. De retour dans la table **todoitem** sur le [portail de gestion][portail de gestion Azure], cliquez sur **Parcourir** et vérifiez que chaque élément récemment ajouté présente une valeur userId associée.
+5. De retour dans la table **todoitem** sur le [portail de gestion][Azure Management Portal], cliquez sur **Parcourir** et vérifiez que chaque élément récemment ajouté présente une valeur userId associée.
 
 6. (Facultatif) Si vous disposez de comptes de connexion supplémentaires, vous pouvez vous assurer que les utilisateurs peuvent uniquement afficher leurs propres données en fermant l'application, puis en la réexécutant. Une fois que la boîte de dialogue des informations d'identification apparaît, entrez une autre connexion, puis vérifiez que les éléments entrés sous le compte précédent ne s'affichent pas.
 
@@ -75,10 +77,10 @@ Cela met fin à la série de didacticiels établissant les principes de base de 
   <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
 * [Référence de script serveur Mobile Services]
-  <br/>En savoir plus sur l'inscription et l'utilisation de scripts serveur.
+  <br/>En savoir plus sur l'inscription et l'utilisation des scripts serveur.
 
 <!-- Anchors. -->
-[Enregistrer des scripts serveur]: #register-scripts
+[Inscription des scripts serveur]: #register-scripts
 [Étapes suivantes]:#next-steps
 
 <!-- Images. -->
@@ -96,3 +98,5 @@ Cela met fin à la série de didacticiels établissant les principes de base de 
 [Prise en main des notifications Push]: /fr-fr/develop/mobile/tutorials/get-started-with-push-android
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
+
+<!--HONumber=35_1-->

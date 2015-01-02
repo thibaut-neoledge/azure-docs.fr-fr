@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Web w/ WebMatrix" pageTitle="Site web PHP avec MySQL et WebMatrix - Didacticiel Azure" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP website that stores data in MySQL." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create and deploy a PHP-MySQL Azure Website using WebMatrix" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="Web w/ WebMatrix" pageTitle="Site web PHP avec MySQL et WebMatrix - Didacticiel Azure" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP website that stores data in MySQL." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create and deploy a PHP-MySQL Azure Website using WebMatrix" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/14/2014" ms.author="tomfitz" />
 
 
 
@@ -10,9 +10,9 @@
 
 Ce didacticiel explique comment utiliser WebMatrix pour développer et déployer une application PHP-MySQL sur un site web Azure. WebMatrix est un outil de développement web gratuit de Microsoft doté de tous les éléments nécessaires pour développer un site web. WebMatrix prend en charge le PHP et inclut Intellisence pour le développement PHP.
 
-Ce didacticiel part du principe que vous avez installé [MySQL][install-mysql] sur votre ordinateur pour pouvoir tester une application en local. Cependant, cette installation n'est pas obligatoire pour suivre ce didacticiel. Vous pouvez en effet déployer votre application directement sur Sites Web Azure.
+Ce didacticiel part du principe que vous avez installé [MySQL][install-mysql] sur votre ordinateur pour pouvoir tester localement une application. Cependant, cette installation n'est pas obligatoire pour suivre ce didacticiel. Vous pouvez en effet déployer votre application directement sur Sites Web Azure.
 
-﻿À la fin de ce guide, vous disposerez d'un site web PHP-MySQL exécuté dans Azure.
+À la fin de ce guide, vous disposerez d'un site web PHP-MySQL exécuté dans Azure.
  
 Vous apprendrez à effectuer les opérations suivantes :
 
@@ -24,7 +24,10 @@ En suivant ce didacticiel, vous allez créer une application web Tasklist simple
 
 ![Azure PHP Web Site][running-app]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+> [WACOM.NOTE]
+> Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Vous pouvez <a href="http://azure.microsoft.com/fr-fr/pricing/member-offers/msdn-benefits-details/">activer les avantages de votre abonnement MSDN</a> ou <a href="http://azure.microsoft.com/fr-fr/pricing/free-trial/">vous inscrire à une version d'évaluation gratuite</a>.
+> 
+> Si vous voulez prendre en main Azure Web Sites avant de créer un compte, accédez à <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, où vous pourrez immédiatement et gratuitement créer un site de départ ASP.NET de courte durée dans Azure Web Sites. Aucune carte de crédit n'est requise, vous ne prenez aucun engagement.
 
 ##Configuration requise
 
@@ -38,7 +41,7 @@ En suivant ce didacticiel, vous allez créer une application web Tasklist simple
 	* **markitemcomplete.php** : définit l'état d'un élément sur Terminé.
 	* **taskmodel.php** : contient les fonctionnalités permettant d'ajouter, d'obtenir, de mettre à jour et de supprimer des éléments de la base de données.
 
-1. Créez une base de données MySQL locale intitulée " tasklist ". Vous pouvez le faire soit depuis l'espace de travail des bases de données dans WebMatrix (après son installation, comme décrit plus loin dans ce didacticiel), soit depuis l'invite de commandes MySQL avec la commande suivante :
+1. Créez une base de données MySQL locale intitulée tasklist. Vous pouvez le faire soit depuis l'espace de travail des bases de données dans WebMatrix (après son installation, comme décrit plus loin dans ce didacticiel), soit depuis l'invite de commandes MySQL avec la commande suivante :
 
 		mysql> create database tasklist;
 
@@ -47,7 +50,7 @@ En suivant ce didacticiel, vous allez créer une application web Tasklist simple
 <h2><a id="CreateWebsite"></a>Création d'un site web Azure et d'une base de données MySQL</h2>
 
 1. Connectez-vous au [portail de gestion][preview-portal].
-1. Cliquez sur l'icône **+ Nouveau** dans le coin inférieur gauche du portail.
+1. Cliquez sur l'icône **+ Nouveau** en bas à gauche du portail.
 
 	![Create New Azure Web Site][NewWebSite1]
 
@@ -56,17 +59,17 @@ En suivant ce didacticiel, vous allez créer une application web Tasklist simple
 	![Custom Create a new Web Site][NewWebSite2]
 
 	> [WACOM.NOTE]
-	> Vous ne pouvez pas créer de base de données MySQL pour un site web après avoir créé ce dernier. Vous devez créer un site web et une base de données MySQL comme décrit dans les étapes précédentes.
+	> Vous ne pouvez pas créer de base de données MySQL pour un site web après la création de ce dernier. Vous devez créer un site web et une base de données MySQL comme décrit dans les étapes précédentes.
 
-1. 	Entrez une valeur pour **URL** et, dans la liste déroulante **BASE DE DONNÉES**, sélectionnez **Créer une base de données MySQL**, puis sélectionnez un centre de données pour votre site web dans la liste déroulante **﻿RÉGION**. Cliquez sur la flèche située en bas de la boîte de dialogue.
+1. Entrez une valeur pour **URL**, sélectionnez **Créer une base de données MySQL** dans la liste déroulante **BASE DE DONNÉES**, puis sélectionnez un centre de données pour votre site web dans la liste déroulante **RÉGION**. Cliquez sur la flèche située en bas de la boîte de dialogue.
 
 	![Fill in web site details][NewWebSite3]
 
-5. Entrez un **NOM** pour votre base de données, sélectionnez un centre de données pour votre base de données dans la liste déroulante **RÉGION**, puis activez la case à cocher qui indique que vous acceptez les conditions juridiques. Cliquez sur la coche située en bas de la boîte de dialogue.
+5. Entrez une valeur pour le **NOM** de votre base de données, sélectionnez le centre de données de votre base de données dans la liste déroulante **RÉGION**, puis cochez la case qui indique que vous acceptez les conditions juridiques. Cliquez sur la coche située en bas de la boîte de dialogue.
 
 	![Create new MySQL database][NewWebSite4]
 
-	Lorsque le site web est créé, le texte **Création du site web " [NOM DU SITE] " réussie** apparaît.
+	Une fois le site web créé, le texte **La création du site web '[NOM_SITE]' a réussi**.
 
 	Vous devez ensuite obtenir les informations de connexion MySQL.
 
@@ -75,11 +78,11 @@ En suivant ce didacticiel, vous allez créer une application web Tasklist simple
 
 	![Open web site dashboard][NewWebSite5]
 
-7. Cliquez sur l'onglet **CONFIGURER** :
+7. Cliquez sur l'onglet **Configurer** :
 
 	![Configure tab][NewWebSite6]
 
-8. Faites défiler jusqu'à la section **chaînes de connexion**. Les valeurs pour " Database ", " Data Source ", " User Id " et " Password " sont (respectivement) le nom de la base de données, le nom du serveur, le nom d'utilisateur et le mot de passe utilisateur. Notez les informations de connexion à la base de données, car vous en aurez besoin ultérieurement.
+8. Faites défiler jusqu'à la section **chaînes de connexion**. Les valeurs des champs Base de données, Source de données, ID d'utilisateur et Mot de passe sont (respectivement) le nom de la base de données, le nom du serveur, le nom d'utilisateur et le mot de passe utilisateur. Notez les informations de connexion à la base de données, car vous en aurez besoin ultérieurement.
 
 	![Connection string][ConnectionString]
 
@@ -95,7 +98,7 @@ Vous pouvez installer WebMatrix à partir du [portail de gestion][preview-portal
 
 2. Une fois WebMatrix installé, il tentera d'ouvrir votre site en tant que projet WebMatrix. Vous pouvez choisir de modifier votre site directement ou de télécharger une copie locale. Pour ce didacticiel, sélectionnez " Modifier une copie locale ". 
 
-3. Lorsque vous êtes invité à télécharger votre site, sélectionnez **Oui, installer à partir de la galerie de modèles**.
+3. Quand vous êtes invité à télécharger votre site, choisissez **Oui, installer à partir de la galerie de modèles**.
 
 	![Download web site][download-site]
 
@@ -103,21 +106,21 @@ Vous pouvez installer WebMatrix à partir du [portail de gestion][preview-portal
 
 	![Site from template][site-from-template]
 
-5. Sélectionnez le modèle **Site vide**. Nommez le site, puis cliquez sur **SUIVANT**.
+5. Sélectionnez le modèle **Site vide**. Indiquez un nom pour le site, puis cliquez sur **SUIVANT**.
 
 	![Provide name for site][site-from-template-2]
 
 	WebMatrix ouvre votre site ainsi que certains fichiers par défaut.
 
-Durant les prochaines étapes, vous allez développer l'application Tasklist en ajoutant les fichiers téléchargés auparavant et en apportant quelques modifications. Cependant, vous pouvez ajouter vos propres fichiers ou en créer.
+	Durant les prochaines étapes, vous allez développer l'application Tasklist en ajoutant les fichiers téléchargés auparavant et en apportant quelques modifications. Cependant, vous pouvez ajouter vos propres fichiers ou en créer.
 
 6. Ajoutez les fichiers de votre application en cliquant sur **Ajouter existant** :
 
 	![WebMatrix - Add existing files][edit_addexisting]
 
-	Dans la boîte de dialogue qui s'affiche, accédez aux fichiers téléchargés auparavant, sélectionnez-les tous, puis cliquez sur Ouvrir. ﻿Lorsque vous y êtes invité, remplacez le fichier " index.php ". 
+	Dans la boîte de dialogue qui s'affiche, accédez aux fichiers téléchargés auparavant, sélectionnez-les tous, puis cliquez sur Ouvrir. Lorsque vous y êtes invité, remplacez le fichier index.php. 
 
-7. Vous devez ensuite ajouter les informations de connexion à votre base de données MySQL locale au fichier " taskmodel.php ". Ouvrez le fichier " taskmodel.php " en double-cliquant dessus, puis mettez à jour les informations de connexion à la base de données dans la fonction " connect ". (**Remarque** : passez à l'étape [Publication de votre application](#Publish) si vous ne voulez pas tester votre application en local, mais plutôt la publier directement sur Sites Web Azure).
+7. Vous devez ensuite ajouter les informations de connexion de votre base de données MySQL locale dans le fichier taskmodel.php. Ouvrez le fichier taskmodel.php en double-cliquant dessus, puis mettez à jour les informations de connexion de la base de données dans la fonction connect. (**Remarque** : Allez directement à la section [Publier votre application](#Publish) si vous ne voulez pas tester votre application localement, mais plutôt la publier directement dans Azure Web Sites.)
 
 		// DB connection info
 		$host = "localhost";
@@ -125,20 +128,20 @@ Durant les prochaines étapes, vous allez développer l'application Tasklist en 
 		$pwd = "your password";
 		$db = "tasklist";
 
-	Enregistrez le fichier " taskmodel.php ".
+	Enregistrez le fichier taskmodel.php.
 
-8. Pour exécuter l'application, vous devez créer la table " items ". Cliquez avec le bouton droit sur le fichier " createtable.php ", puis sélectionnez **Lancer dans le navigateur**. Ceci lancera " createtable.php " dans votre navigateur et exécutera le code créant la table " items " dans la base de données " tasklist ".
+8. Pour exécuter l'application, vous devez créer la table items. Cliquez avec le bouton droit sur le fichier createtable.php et sélectionnez **Lancer dans le navigateur**. Ceci lancera createtable.php dans votre navigateur et exécutera le code qui crée la table items dans la base de données tasklist.
 
 	![WebMatrix - Launch createtable.php in browser][edit_run]
 
-9. ﻿À présent, vous pouvez tester l'application en local. Cliquez avec le bouton droit sur le fichier " index.php ", puis sélectionnez **Lancer dans le navigateur**. Testez l'application en ajoutant des éléments, en les marquant comme terminés et en les supprimant.  
+9. À présent, vous pouvez tester localement l'application. Cliquez avec le bouton droit sur le fichier index.php et sélectionnez **Lancer dans le navigateur**. Testez l'application en ajoutant des éléments, en les marquant comme terminés et en les supprimant.  
 
 
 <h2><a id="Publish"></a>Publication de votre application</h2>
 
-Avant de publier votre application dans Sites Web Azure, vous devez mettre à jour les informations de connexion à la base de données dans " taskmodel.php " en utilisant les informations de connexion que vous avez obtenues précédemment (dans la section [Création d'un site web Azure et d'une base de données MySQL](#CreateWebsite)).
+Avant de publier votre application dans Azure Web Sites, vous devez mettre à jour les informations de connexion de la base de données dans taskmodel.php avec les informations de connexion que vous avez obtenues précédemment (dans la section [Création d'un site web Azure et d'une base de données MySQL](#CreateWebsite) ).
 
-1. Ouvrez le fichier " taskmodel.php " en double-cliquant dessus, puis mettez à jour les informations de connexion à la base de données dans la fonction " connect ".
+1. Ouvrez le fichier taskmodel.php en double-cliquant dessus, puis mettez à jour les informations de connexion de la base de données dans la fonction connect.
 
 		// DB connection info
 		$host = "value of Data Source";
@@ -146,24 +149,24 @@ Avant de publier votre application dans Sites Web Azure, vous devez mettre à jo
 		$pwd = "value of Password";
 		$db = "value of Database";
 	
-	Enregistrez le fichier " taskmodel.php ".
+	Save the `taskmodel.php` file.
 
-2. Dans WebMatrix, cliquez sur **Publier**, puis dans la boîte de dialogue **Aperçu de publication**, cliquez sur **Continuer**.
+2. Cliquez sur **Publier** dans WebMatrix, puis sur**Continuer** dans la boîte de dialogue **Aperçu de publication**.
 
 	![WebMatrix - Publish][edit_publish]
 
-3. Accédez à http://[nom de votre site Web].azurewebsites.net/createtable.php pour créer la table " items ".
+3. Accédez à http://[nom de votre site web].azurewebsites.net/createtable.php pour créer la table items.
 
 4. Enfin, accédez à http://[nom de votre site web].azurewebsites.net/index.php pour utiliser l'application.
 	
 ##Modification et republication de votre application
 
-Vous pouvez facilement modifier votre application en modifiant la copie locale du site que vous avez téléchargée précédemment, puis en la republiant, ou en apportant directement vos modifications en mode Distant. Ici, nous allons simplement modifier le titre dans le fichier " index.php ", puis l'enregistrer directement dans le site.
+Vous pouvez facilement modifier votre application en modifiant la copie locale du site que vous avez téléchargée précédemment, puis en la republiant, ou en apportant directement vos modifications en mode Distant. Ici, nous allons simplement modifier le titre dans le fichier index.php, puis l'enregistrer directement dans le site en ligne.
 
-1. Dans WebMatrix, cliquez sur l'onglet Distant de votre site, puis sélectionnez **Ouvrir l'affichage distant**. Ceci ouvre votre site à distance pour vous permettre de le modifier directement.
+1. Dans WebMatrix, cliquez sur l'onglet Distant de votre site, puis sélectionnez **Ouvrir l'affichage distant**. Ceci ouvrira votre site à distance pour vous permettre de le modifier directement.
 	 ![WebMatrix - Open Remote View][OpenRemoteView]
  
-2. Double-cliquez sur le fichier " index.php " pour l'ouvrir.
+2. Double-cliquez sur le fichier index.php pour l'ouvrir.
 	![WebMatrix - Open index file][Remote_editIndex]
 
 3. Remplacez **My ToDo List** par **My Task List** dans les balises **title** et **h1**, puis enregistrez le fichier.
@@ -179,7 +182,7 @@ Vous savez désormais comment créer et déployer un site web de WebMatrix vers 
 
 * [WebMatrix pour Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
 
-* [Site Web WebMatrix](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
+* [Site web WebMatrix](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
 
 
@@ -232,3 +235,5 @@ Vous savez désormais comment créer et déployer un site web de WebMatrix vers 
 
 
 
+
+<!--HONumber=35_1-->

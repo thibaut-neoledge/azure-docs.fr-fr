@@ -1,34 +1,34 @@
-﻿<properties urlDisplayName="How to deploy" pageTitle="Déploiement d'une base de données SQL - Azure" metaKeywords="" description="Learn how to deploy a SQL Server database to Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="Lori Clark" solutions="" manager="jeffreyg" editor="" />
+﻿<properties urlDisplayName="How to deploy" pageTitle="Déploiement d'une base de données SQL - Azure" metaKeywords="" description="Learn how to deploy a SQL Server database to Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Lori Clark" />
-
-
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="jeffreyg" />
 
 
 
 
-<h1><a id="howtodeploySQLdb"></a>Déploiement d'une base de données vers Azure</h1>
 
-Il existe plusieurs façons de déployer une base de données SQL Server locale vers Azure. Cette tâche implique l'utilisation de l'Assistant Déploiement d'une base de données vers SQL Azure pour télécharger un exemple de base de données.
+
+<h1><a id="howtodeploySQLdb"></a>Déploiement d'une base de données dans Azure</h1>
+
+Il existe plusieurs façons de déployer une base de données SQL Server locale dans Azure. Cette tâche implique l'utilisation de l'Assistant Déploiement d'une base de données vers SQL Azure pour télécharger un exemple de base de données.
 
 L'exemple de base de données School est très simple et tous ses objets sont compatibles avec la base de données SQL. Il est donc inutile de modifier ou de préparer une base de données pour la migration. En tant que nouvel administrateur, déployez une première base de données simple pour découvrir les étapes impliquées avant d'utiliser vos propres bases de données. 
 
-**Remarque :** pour plus d'informations sur la préparation d'une base de données locale pour la migration dans Azure, consultez le guide de migration des bases de données SQL. Téléchargez également le kit de formation Azure. Une session est consacrée à une approche alternative de la migration d'une base de données locale.
+**Remarque :** pour plus d'informations sur la préparation d'une base de données locale en vue de sa migration vers Azure, consultez le guide de migration Base de données SQL. Téléchargez également le kit de formation Azure. Une session est consacrée à une approche alternative de la migration d'une base de données locale.
 
 ##Sommaire##
-* [ Création de la base de données School sur un serveur local](#schooldb)
-* [ Déploiement dans la base de données SQL](#deploydb)
-* [ Vérification du déploiement de la base de données](#verify)
+* [Procédure : création de la base de données school sur un serveur local](#schooldb)
+* [Procédure : déploiement vers Base de données SQL](#deploydb)
+* [Procédure : vérification du déploiement de la base de données](#verify)
 
-<h2><a id="schooldb"></a> Création de la base de données School sur un serveur local</h2>
+<h2><a id="schooldb"></a>Procédure : création de la base de données school sur un serveur local</h2>
 
-Les scripts pour la création de cette base de données sont disponibles dans la rubrique [Prise en main de l'administration de la base de données SQL][]. Dans ce guide, vous allez exécuter ces scripts dans Management Studio pour créer une version locale de la base de données School.
+Les scripts de création de cette base de données sont disponibles dans la rubrique [Prise en main de l'administration de Base de données SQL][]. Dans ce guide, vous allez exécuter ces scripts dans Management Studio pour créer une version locale de la base de données school.
 
 1. Dans Management Studio, connectez-vous à un serveur local. Cliquez avec le bouton droit sur **Bases de données**, cliquez sur **Nouvelle base de données**, puis entrez *school*.
 
 2. Cliquez avec le bouton droit sur *school*, puis cliquez sur **Nouvelle requête**. 
 
-3. Copiez, puis exécutez le script Créer un schéma du didacticiel. 
+3. Copiez, puis exécutez le script Create Schema du didacticiel. 
 
 <div style="width:auto; height:300px; overflow:auto"><pre>
 	-- Create the Department table.
@@ -522,42 +522,42 @@ Copiez, puis exécutez le script Insert Data.
 	GO
 </pre></div>
 
-   Vous disposez maintenant d'une base de données locale que vous pouvez exporter vers Azure. Vous allez ensuite exécuter un Assistant qui crée un fichier .bacpac, le charge dans Azure et l'importe dans la base de données SQL.
+   Vous disposez maintenant d'une base de données locale que vous pouvez exporter dans Azure. Vous allez ensuite exécuter un Assistant qui crée un fichier .bacpac, le charge dans Azure et l'importe dans la base de données SQL.
 
 
-<h2><a id="deploydb"></a> Déploiement dans la base de données SQL</h2>
+<h2><a id="deploydb"></a>Procédure : déploiement vers Base de données SQL</h2>
 
 1. Dans Management Studio, connectez-vous à une instance SQL Server locale qui contient la base de données que vous souhaitez migrer.
 
-2. Cliquez avec le bouton droit sur la base de données School que vous venez de créer, pointez sur **Tâches** et cliquez sur **Déploiement d'une base de données vers SQL Azure**.
+2. Cliquez avec le bouton droit sur la base de données school que vous venez de créer, pointez sur **Tâches**, puis cliquez sur **Déployer une base de données vers SQL Azure**.
 
-3. Dans Paramètres de déploiement, entrez un nom pour la base de données, par exemple *school*. 
+3. Dans Paramètres de déploiement, attribuez un nom à la base de données, tel que *school*. 
 
-4. Cliquez sur **Connecter**.
+4. Cliquez sur **Se connecter**.
 
 5. Dans Nom du serveur, entrez les 10 caractères du nom du serveur, suivis de .database.windows.net.
 
-6. Dans la zone Authentification, choisissez **Authentification SQL Server**.
+6. Dans Authentification, choisissez **Authentification SQL Server**.
 
 7. Entrez le nom et le mot de passe de connexion administrateur que vous avez fournis lors de la création du serveur logique de base de données SQL.
 
 8. Cliquez sur **Options**.
 
-9. Dans Propriétés de connexion, dans Connexion à une base de données, tapez **master**.
+9. Dans Propriétés de connexion, dans Se connecter à la base de données, tapez **master**.
 
-10. Cliquez sur **Connecter**. Cette étape termine la spécification de la connexion et vous ramène à l'Assistant.
+10. Cliquez sur **Se connecter**. Cette étape termine la spécification de la connexion et vous ramène à l'Assistant.
 
 
 11. Cliquez sur **Suivant**, puis sur **Terminer** pour exécuter l'Assistant.
 
 
-<h2><a id="verify"></a> Vérification du déploiement de la base de données</h2>
+<h2><a id="verify"></a>Procédure : vérification du déploiement de la base de données</h2>
 
 1. Dans Management Studio, dans l'Explorateur d'objets, actualisez les bases de données pour afficher celle que vous venez de créer.
 
-2. Développez le dossier Bases de données. La base de données **school** doit s'afficher dans la liste.
+2. Développez le dossier Bases de données. La base de données **school** doit figurer dans la liste.
 
-3. Cliquez avec le bouton droit sur la base de données School, puis cliquez sur **Nouvelle requête**.
+3. Cliquez avec le bouton droit sur la base de données school, puis cliquez sur **Nouvelle requête**.
 
 4. Exécutez la requête suivante pour vérifier que les données sont accessibles.
 
@@ -581,5 +581,7 @@ Copiez, puis exécutez le script Insert Data.
 		ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
 </pre></div>
 
-[Prise en main de l'administration de la base de données SQL]: /fr-fr/manage/services/sql-databases/getting-started-w-sql-databases/  
+[Prise en main de l'administration de Base de données SQL]: /fr-fr/manage/services/sql-databases/getting-started-w-sql-databases/  
 
+
+<!--HONumber=35_1-->

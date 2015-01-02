@@ -1,103 +1,162 @@
-<properties title="Get started with SQL database auditing" pageTitle="Get started with SQL database auditing | Azure" description="Get started with SQL database auditing" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId=""  />
+﻿<properties title="Get started with SQL database auditing" pageTitle="Prise en main de l'audit de base de données SQL | Azure" description="Prise en main de l'audit de base de données SQL" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId="" manager="jeffreyg" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg" />
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
+ 
+# Prise en main de l'audit de base de données SQL 
+<p> L'audit de base de données SQL Azure effectue le suivi des événements de base de données et consigne les événements audités dans un journal dans votre compte Azure Storage. L'audit est disponible en version préliminaire pour les services De base, Standard et Premium.
 
-# Prise en main de l'audit de base de données SQL
+L'audit peut vous aider à respecter une conformité réglementaire, à comprendre l'activité de la base de données et à découvrir des discordances et anomalies susceptibles d'indiquer des problèmes pour l'entreprise ou des violations de la sécurité. 
 
-L'audit de base de données SQL Azure effectue le suivi des événements de base de données et consigne les événements audités dans un journal dans votre compte Azure Storage. L'audit est disponible en version préliminaire pour les services De base, Standard et Premium. Pour l'utiliser, [inscrivez-vous pour la version préliminaire][inscrivez-vous pour la version préliminaire].
+Les outils d'audit permettent et facilitent le respect des normes liées à la conformité, mais ne garantissent pas cette dernière. Pour plus d'informations sur les programmes Azure prenant en charge la conformité aux normes, consultez le <a href="http://azure.microsoft.com/fr-fr/support/trust-center/compliance/" target="_blank">Centre de gestion de la confidentialité Azure</a>.
 
-L'audit peut vous aider à respecter une conformité réglementaire, à comprendre l'activité de la base de données et à découvrir des discordances et anomalies susceptibles d'indiquer des problèmes pour l'entreprise ou des violations de la sécurité.
++ [Principes fondamentaux de l'audit de base de données SQL Azure] 
++ [Configuration de l'audit pour votre base de données]
++ [Analyse des journaux et des rapports d'audit]
 
-Les outils d'audit permettent et facilitent le respect des normes liées à la conformité, mais ne garantissent pas cette dernière. Pour plus d'informations sur les programmes Azure prenant en charge la conformité aux normes, consultez le [Centre de gestion de la confidentialité Azure][Centre de gestion de la confidentialité Azure].
+##<a id="subheading-1">Principes fondamentaux de l'audit de base de données SQL Azure</a>
 
--   [Principes fondamentaux de l'audit de base de données SQL Azure][Principes fondamentaux de l'audit de base de données SQL Azure]
--   [Configuration de l'audit de votre base de données][Configuration de l'audit de votre base de données]
--   [Analyse des journaux et des rapports d'audit][Analyse des journaux et des rapports d'audit]
+Vous configurez l'audit dans la version préliminaire du portail Azure, mais peu importe que vous ayez créé la base de données à partir du portail Azure ou de sa version préliminaire. Éléments rendus possibles par l'audit de bases de données :
 
-## <span id="subheading-1"></span>Principes fondamentaux de l'audit de base de données SQL Azure</a>
+- La **rétention** d'une piste d'audit d'événements sélectionnés. Définissez les catégories d'actions et d'événements de base de données à enregistrer.
+- **La génération de rapports** sur les activités de la base de données. Utilisez des rapports préconfigurés et un tableau de bord pour une prise en main rapide de la génération de rapports d'activités et d'événements.
+- L'**analyse** des rapports. Repérez les événements suspects, les activités inhabituelles et les tendances.
 
-Vous configurez l'audit dans la version préliminaire du portail Azure, mais peu importe que vous ayez créé la base de données à partir du portail Azure ou de sa version préliminaire. Éléments rendus possibles par l'audit de bases de données :
+Avec l'audit, vous pouvez suivre les activités et événements suivants :
 
--   **La rétention** d'une piste d'audit d'événements sélectionnés. Définissez les catégories d'actions et d'événements de base de données à enregistrer.
--   **La génération de rapports** sur les activités de la base de données. Utilisez des rapports préconfigurés et un tableau de bord pour une prise en main rapide de la génération de rapports d'activités et d'événements.
--   **L'analyse** des rapports. Repérez les événements suspects, les activités inhabituelles et les tendances.
+- **accès aux données ;**
+- **modifications de schéma (DDL) ;**
+- **modifications de données (DML) ;**
+- **comptes, rôles et autorisations (DCL) ;**
+- **exceptions de sécurité.**
 
-Avec l'audit, vous pouvez suivre les activités et événements suivants :
-
--   **Accès aux données**
--   **Modifications de schéma (DDL)**
--   **Modifications de données (DML)**
--   **Comptes, rôles et autorisations**
--   **Exceptions de sécurité**
-
-Pour d'autres informations sur les activités et événements enregistrés, consultez la page [Référence sur le format du journal d'audit (téléchargement d'un fichier doc)][Référence sur le format du journal d'audit (téléchargement d'un fichier doc)].
+Pour plus d'informations sur les activités et les événements journalisés, consultez le document de <a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">référence sur les formats des journaux d'audit (fichier à télécharger)</a>. 
 
 Vous devez également choisir le compte de stockage dans lequel enregistrer les journaux d'audit.
 
-### Chaîne de connexion sécurisée
-
+###Chaîne de connexion sécurisée
 Lors de la configuration de l'audit, Azure vous fournit une chaîne de connexion sécurisée pour la base de données. Seules les applications clientes utilisant cette chaîne de connexion verront leurs événements et activités enregistrés. Vous devez donc mettre à jour les applications clientes existantes de façon à utiliser le nouveau format de chaîne.
 
-Format de chaîne de connexion classique : \<*nom du serveur*\>.database.windows.net
+Format de chaîne de connexion classique : <*nom du serveur*>.database.windows.net
 
-Chaîne de connexion sécurisée : \<*nom du serveur*\>.database.**secure**.windows.net
+Chaîne de connexion sécurisée : <*nom du serveur*>.database.**secure**.windows.net
 
-## <span id="subheading-2"></span></a>Configuration de l'audit de votre base de données
 
-1.  [Inscrivez-vous pour la version préliminaire de l'audit][inscrivez-vous pour la version préliminaire].
-2.  Veillez également à [vous inscrire pour la version préliminaire des nouveaux niveaux de service][vous inscrire pour la version préliminaire des nouveaux niveaux de service] et à créer une base de données De base, Standard ou Premium.
-3.  Lancez la [version préliminaire du portail Azure][version préliminaire du portail Azure] à l'adresse <https://portal.azure.com>.
-4.  Cliquez sur la base de données sur laquelle vous voulez faire un audit, puis cliquez sur **Version préliminaire de l'audit** pour activer la version préliminaire de l'audit et ouvrir le volet de configuration de l'audit.
+##<a id="subheading-2"></a>Configuration de l'audit de votre base de données
 
-    ![][0]
+1. Lancez la <a href="https://portal.azure.com" target="_blank">version préliminaire du portail Azure</a> à l'adresse https://portal.azure.com. Vous pouvez aussi lancer le <a href= "https://manage.windowsazure.com/" target="_bank">portail Azure classique</a> à l'adresse https://manage.windowsazure.com/. Consultez les détails ci-dessous.
+2. Accédez au volet de configuration de la base de données que voulez auditer. Faites défiler l'écran vers le bas jusqu'à la section **Opérations**, puis cliquez sur **Audit** pour activer l'audit et lancer le volet de configuration de l'audit.
 
-5.  Dans le volet de configuration de l'audit, sélectionnez le compte de stockage Azure dans lequel les journaux seront enregistrés. **Conseil :** utilisez le même compte de stockage pour toutes les bases de données auditées afin de profiter au mieux des modèles de rapport préconfigurés.
+	![][1]
 
-    ![][1]
+3. Dans le volet de configuration de l'audit, sélectionnez le compte de stockage Azure dans lequel les journaux seront enregistrés. **Conseil :** utilisez le même compte de stockage pour toutes les bases de données auditées afin de profiter au mieux des modèles de rapport préconfigurés.
 
-6.  Sous **Options d'audit**, cliquez sur **Tous** pour enregistrer tous les événements ou choisissez des types d'événement spécifiques.
+	![][2]
 
-    ![][2]
+4. Sous **Options d'audit**, cliquez sur **Tous** pour journaliser tous les événements ou choisissez des types d'événement spécifiques.
 
-7.  Cochez **Enregistrer comme configuration par défaut** si vous voulez appliquer ces paramètres à toutes les futures bases de données du serveur et à toutes celles dont l'audit n'a pas encore été configuré. Il est possible de remplacer ces paramètres ultérieurement pour chaque base de données en suivant cette même procédure.
+	![][3]
 
-    ![][3]
+5. Activez **Enregistrer ces paramètres par défaut pour le serveur** si vous voulez appliquer ces paramètres à toutes les futures bases de données du serveur et à toutes celles dont l'audit n'a pas encore été configuré. Il est possible de remplacer ces paramètres ultérieurement pour chaque base de données en suivant cette même procédure. 
 
-8.  Cliquez sur **Afficher les chaînes de connexion de la base de données**, puis copiez ou notez la chaîne de connexion sécurisée de votre application. Utilisez-la pour toute application cliente sur laquelle effectuer un audit.
+6. Cliquez sur **Afficher les chaînes de connexion de la base de données**, puis copiez ou notez la chaîne de connexion sécurisée de votre application. Utilisez-la pour toute application cliente sur laquelle effectuer un audit.
 
-    ![][4]
+	![][5]
 
-9.  Cliquez sur **OK**.
+7. Cliquez sur **OK**.
 
-## <span id="subheading-3"></span>Analyse des journaux et des rapports d'audit</a>
 
-Les journaux d'audit sont agrégés dans une table de stockage Azure unique **AuditLogs** au sein du compte de stockage Azure choisi lors de la configuration. Vous pouvez afficher les fichiers journaux à l'aide d'un outil tel que [l'Explorateur de stockage Azure][l'Explorateur de stockage Azure].
 
-Un modèle de rapport de tableau de bord préconfiguré est disponible sous forme de [feuille de calcul Excel téléchargeable][feuille de calcul Excel téléchargeable] afin de vous aider à analyser rapidement les données de journal. Pour utiliser le modèle sur vos journaux d'audit, il vous faut Excel 2013 ou une version ultérieure et Power Query, téléchargeable [ici][ici].
+##<a id="subheading-3">Analyse des journaux et des rapports d'audit</a>
 
-Le modèle contient des données d'exemple fictives. Vous pouvez configurer Power Query de façon à ce qu'il importe votre journal d'audit directement à partir de votre compte de stockage Azure.
+Les journaux d'audit sont agrégés dans une table de stockage Azure unique nommée **AuditLogs** au sein du compte de stockage Azure que vous avez choisi lors de la configuration. Vous pouvez afficher les fichiers journaux à l'aide d'un outil comme <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Azure Storage Explorer</a>.
 
-Pour des instructions plus détaillées sur la façon de travailler avec le modèle de rapport, consultez la page [Procédure (téléchargement doc)][Procédure (téléchargement doc)].
+Un modèle de rapport de tableau de bord préconfiguré est disponible sous forme de <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">feuille de calcul Excel téléchargeable</a> pour vous aider à analyser rapidement les données de journal. Pour utiliser le modèle sur vos journaux d'audit, vous avez besoin d'Excel version 2013 ou ultérieure et de Power Query, que vous pouvez télécharger <a href="http://www.microsoft.com/fr-fr/download/details.aspx?id=39379">ici</a>. 
 
-![][5]
+Le modèle contient des données d'exemple fictives. Vous pouvez configurer Power Query de façon à ce qu'il importe votre journal d'audit directement à partir de votre compte de stockage Azure. 
+
+Pour obtenir des instructions plus détaillées sur l'utilisation du modèle de rapport, consultez la <a href="http://go.microsoft.com/fwlink/?LinkId=506731">procédure (document à télécharger)</a>.
+
+![][6]
+
+
+##<a id="subheading-4"></a>Configuration de l'audit pour votre base de données à partir du portail Azure classique
+
+1. Lancez le <a href= "https://manage.windowsazure.com/" target="_bank">portail Azure classique</a> à l'adresse https://manage.windowsazure.com/. 
+2. Cliquez sur la base de données que vous voulez auditer, puis sur l'onglet **Audit et sécurité**.
+3. Dans la section Audit, cliquez sur " Activé ".
+
+![][7]
+
+4. Modifiez le **TYPE D'ÉVÉNEMENT**, si nécessaire.
+
+![][8]
+
+5. Sélectionnez un **COMPTE DE STOCKAGE**.
+6. Cliquez sur **ENREGISTRER**.
+7. Cliquez sur **Afficher la chaîne de connexion sécurisée** pour la chaîne de connexion.
+
+
+##<a id="subheading-3">Pratiques d'utilisation dans un environnement de production</a>
+La description fournie dans cette section fait référence aux captures d'écran précédentes. Vous pouvez soit utiliser <a href="https://portal.azure.com" target="_blank">la version préliminaire du portail Azure,</a> soit <a href= "https://manage.windowsazure.com/" target="_bank">le portail Azure classique</a> .
+ 
+
+##<a id="subheading-4"></a>Accès sécurisé
+
+Dans un environnement de production, vous êtes susceptible d'imposer l'audit sur l'ensemble du trafic entre tous les outils et applications et la base de données. Pour cela, faites passer l'**Accès sécurisé** de *Facultatif* à *Requis*, puis enregistrez la stratégie. Dès lors que *Requis* est défini, il n'est plus possible d'accéder à la base de données par le biais de la chaîne de connexion d'origine. Seule la chaîne de connexion sécurisée le permet.
+
+
+![][9]
+
+
+##<a id="subheading-4"></a>Régénération des clés de stockage
+
+Dans un environnement de production, vous êtes susceptible d'actualiser de temps en temps vos clés de stockage. Le service d'audit ne conserve pas les clés de compte de stockage. Au moment de l'enregistrement, une clé de signature d'accès partagé (SAP) en lecture seule est produite pour la table d'audit (le client est le seul à pouvoir lire les journaux d'audit). C'est pourquoi, au moment d'actualiser vos clés, vous devez réenregistrer la stratégie. Pour ce faire, procédez comme suit :
+
+
+1. Dans le volet de configuration de l'audit (décrit plus haut dans la section de configuration de l'audit), faites passer la **clé d'accès de stockage** de *Primaire* à *Secondaire*, puis choisissez **ENREGISTRER**.
+![][10]
+2. Revenez au volet de configuration du stockage, puis **régénérez** la *clé d'accès primaire*.
+
+3. Revenez au volet de configuration de l'audit, faites passer la **clé d'accès de stockage** de *Secondaire* à *Primaire*, puis cliquez sur **ENREGISTRER**.
+
+4. Retournez dans l'interface utilisateur de stockage, puis **régénérez** la *clé d'accès secondaire* (en vue du prochain cycle d'actualisation des clés).
+  
+##<a id="subheading-4"></a>Automation
+Pour PowerShell, reportez-vous au <a href="https://github.com/Azure/azure-powershell" target="_blank">Kit de développement logiciel (SDK) PowerShell</a>.
+
+Pour l'API REST, reportez-vous à l' <a href="http://download.microsoft.com/download/D/8/D/D8D90BA1-977F-466B-A839-7823FF37FD02/04-Azure SQL DB Auditing REST API.docx">API REST pour Base de données SQL Azure</a>
+
+
+
+
 
 <!--Anchors-->
-<!--Image references-->
-<!--Link references-->
+[Principes fondamentaux de l'audit de base de données SQL Azure]: #subheading-1
+[Configuration de l'audit pour votre base de données]: #subheading-2
+[Analyse des journaux et des rapports d'audit]: #subheading-3
+[Configuration de l'audit pour votre base de données à partir du portail Azure classique]: #subheading-4
 
-  [inscrivez-vous pour la version préliminaire]: http://go.microsoft.com/fwlink/?LinkId=404163
-  [Centre de gestion de la confidentialité Azure]: http://azure.microsoft.com/fr-fr/support/trust-center/compliance/
-  [Principes fondamentaux de l'audit de base de données SQL Azure]: #subheading-1
-  [Configuration de l'audit de votre base de données]: #subheading-2
-  [Analyse des journaux et des rapports d'audit]: #subheading-3
-  [vous inscrire pour la version préliminaire des nouveaux niveaux de service]: https://account.windowsazure.com/PreviewFeatures?fid=premiumdb
-  [version préliminaire du portail Azure]: https://portal.azure.com
-  [0]: ./media/sql-database-auditing-get-started/sql-database-get-started-auditingpreview.png
-  [1]: ./media/sql-database-auditing-get-started/sql-database-get-started-storageaccount.png
-  [2]: ./media/sql-database-auditing-get-started/sql-database-auditing-eventtype.png
-  [3]: ./media/sql-database-auditing-get-started/sql-database-get-started-saveconfigasdefault.png
-  [4]: ./media/sql-database-auditing-get-started/sql-database-get-started-connectionstring.png
-  [l'Explorateur de stockage Azure]: http://azurestorageexplorer.codeplex.com/
-  [feuille de calcul Excel téléchargeable]: http://go.microsoft.com/fwlink/?LinkId=403540
-  [ici]: http://www.microsoft.com/fr-fr/download/details.aspx?id=39379
-  [5]: ./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png
+
+<!--Image references-->
+[1]: ./media/sql-database-auditing-get-started/sql-database-get-started-auditingpreview.png
+[2]: ./media/sql-database-auditing-get-started/sql-database-get-started-storageaccount.png
+[3]: ./media/sql-database-auditing-get-started/sql-database-auditing-eventtype.png
+[5]: ./media/sql-database-auditing-get-started/sql-database-get-started-connectionstring.png
+[6]: ./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png
+[7]: ./media/sql-database-auditing-get-started/sql-database-auditing-classic-portal-enable.png
+[8]: ./media/sql-database-auditing-get-started/sql-database-auditing-classic-portal-configure.png
+[9]: ./media/sql-database-auditing-get-started/sql-database-auditing-security-enabled-access.png
+[10]: ./media/sql-database-auditing-get-started/sql-database-auditing-storage-account.png
+
+
+
+
+
+
+<!--Link references-->
+[Lien 1 vers une autre rubrique de documentation azure.microsoft.com]: ../virtual-machines-windows-tutorial/
+[Lien 2 vers une autre rubrique de documentation azure.microsoft.com]: ../web-sites-custom-domain-name/
+[Lien 3 vers une autre rubrique de documentation azure.microsoft.com]: ../storage-whatis-account/
+
+
+<!--HONumber=35_1-->

@@ -1,193 +1,194 @@
-<properties urlDisplayName="Upload a SUSE Linux VHD" pageTitle="Cr&eacute;ation et t&eacute;l&eacute;chargement d'un disque dur virtuel&nbsp;SUSE dans&nbsp;Azure" metaKeywords="Azure VHD, uploading Linux VHD, SUSE, SLES, openSUSE" description="Apprenez &agrave; cr&eacute;er et &agrave; t&eacute;l&eacute;charger un disque dur virtuel&nbsp;(VHD)&nbsp;Azure contenant un syst&egrave;me d'exploitation&nbsp;SUSE&nbsp;Linux." metaCanonical="" services="virtual-machines" documentationCenter="" title="Cr&eacute;ation et t&eacute;l&eacute;chargement d'un disque dur virtuel contenant un syst&egrave;me d'exploitation&nbsp;SUSE&nbsp;Linux" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties urlDisplayName="Upload a SUSE Linux VHD" pageTitle="Création et téléchargement d'un disque dur virtuel SUSE dans Azure" metaKeywords="Azure VHD, uploading Linux VHD, SUSE, SLES, openSUSE" description="Learn to create and upload an Azure virtual hard disk (VHD) that contains a SUSE Linux operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains a SUSE Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="kathydav, szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="szarkos" />
 
-# Préparation d'une machine virtuelle SLES ou openSUSE pour Azure
 
--   [Préparation d'une machine virtuelle SLES 11 SP3 pour Azure][Préparation d'une machine virtuelle SLES 11 SP3 pour Azure]
--   [Préparation d'une machine virtuelle openSUSE 13.1+ pour Azure][Préparation d'une machine virtuelle openSUSE 13.1+ pour Azure]
+# Préparation d'une machine virtuelle SLES ou openSUSE pour Azure
 
-## Configuration requise
+- [Préparation d'une machine virtuelle SLES 11 SP3 pour Azure](#sles11)
+- [Préparation d'une machine virtuelle openSUSE 13.1+ pour Azure](#osuse)
 
-Cet article suppose que vous avez déjà installé un système d'exploitation SUSE ou openSUSE Linux dans un disque dur virtuel. Il existe de nombreux outils de création de fichiers .vhd, par exemple une solution de virtualisation telle que Hyper-V. Pour des instructions à ce sujet, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle][Installation du rôle Hyper-V et configuration d'une machine virtuelle].
+##Conditions préalables##
 
-**Notes d'installation SLES/openSUSE**
+Cet article suppose que vous avez déjà installé un système d'exploitation SUSE ou openSUSE Linux dans un disque dur virtuel. Il existe de nombreux outils de création de fichiers .vhd, par exemple une solution de virtualisation telle que Hyper-V. Pour obtenir des instructions à ce sujet, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx). 
 
--   [SUSE Studio][SUSE Studio] peut facilement créer et gérer vos images SLES/openSUSE pour Azure et Hyper-V. Cette approche est recommandée pour personnaliser vos images SUSE et openSUSE. Les images officielles suivantes dans SUSE Studio Gallery peuvent être téléchargées ou clonées dans votre SUSE Studio :
 
--   [SLES 11 SP3 pour Azure dans SUSE Studio Gallery][SLES 11 SP3 pour Azure dans SUSE Studio Gallery]
--   [openSUSE 13.1 pour Azure dans SUSE Studio Gallery][openSUSE 13.1 pour Azure dans SUSE Studio Gallery]
+**Notes d'installation SLES/openSUSE**
 
--   Azure ne prend pas en charge le nouveau format VHDX. Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de la cmdlet convert-vhd.
+ - [SUSE Studio](http://www.susestudio.com) peut facilement créer et gérer vos images SLES/openSUSE pour Azure et Hyper-V. Cette approche est recommandée pour personnaliser vos images SUSE et openSUSE. Les images officielles suivantes dans SUSE Studio Gallery peuvent être téléchargées ou clonées dans votre SUSE Studio :
 
--   Lors de l'installation du système Linux, il est recommandé d'utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. Les techniques LVM ou [RAID][RAID] sont utilisables sur les disques de données si vous le souhaitez.
+  - [SLES 11 SP3 pour Azure dans SUSE Studio Gallery](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
+  - [openSUSE 13.1 pour Azure dans SUSE Studio Gallery](https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure)
 
--   Ne configurez pas une partition d'échange sur le disque du système d'exploitation. L'agent Linux est configurable pour créer un fichier d'échange sur le disque de ressources temporaire. Les étapes ci-dessous fournissent plus d'informations à ce sujet.
+- Azure ne prend pas en charge le nouveau format VHDX. Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de la cmdlet convert-vhd.
 
--   La taille des disques durs virtuels doit être un multiple de 1 Mo.
+- Lors de l'installation du système Linux, il est recommandé d'utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner.  Les techniques LVM ou [RAID](../virtual-machines-linux-configure-raid) sont utilisables sur les disques de données si vous le souhaitez.
 
-## <span id="sles11"></span> </a>Préparation de SUSE Linux Enterprise Server 11 SP3
+- Ne configurez pas une partition d'échange sur le disque du système d'exploitation. L'agent Linux est configurable pour créer un fichier d'échange sur le disque de ressources temporaire.  Les étapes ci-dessous fournissent plus d'informations à ce sujet.
 
-1.  Dans le panneau central de Hyper-V Manager, sélectionnez la machine virtuelle.
+- La taille des disques durs virtuels doit être un multiple de 1 Mo.
 
-2.  Cliquez sur **Connect** pour ouvrir la fenêtre de la machine virtuelle.
 
-3.  Ajoutez le référentiel contenant le dernier noyau et l'agent Linux Azure. Exécutez la commande `zypper lr`. Par exemple, avec SLES 11 SP3, le résultat devrait ressembler à l'exemple suivant :
+## <a id="sles11"> </a>Préparation de SUSE Linux Enterprise Server 11 SP3 ##
 
-        # | Alias                        | Name               | Enabled | Refresh
-        --+------------------------------+--------------------+---------+--------
-        1 | susecloud:SLES11-SP1-Pool    | SLES11-SP1-Pool    | No      | Yes
-        2 | susecloud:SLES11-SP1-Updates | SLES11-SP1-Updates | No      | Yes
-        3 | susecloud:SLES11-SP2-Core    | SLES11-SP2-Core    | No      | Yes
-        4 | susecloud:SLES11-SP2-Updates | SLES11-SP2-Updates | No      | Yes
-        5 | susecloud:SLES11-SP3-Pool    | SLES11-SP3-Pool    | Yes     | Yes
-        6 | susecloud:SLES11-SP3-Updates | SLES11-SP3-Updates | Yes     | Yes
+1. Dans le panneau central de Hyper-V Manager, sélectionnez la machine virtuelle.
 
-    Si la commande renvoie un message d'erreur similaire au suivant :
+2. Cliquez sur **Connecter** pour ouvrir la fenêtre de la machine virtuelle.
 
-        "No repositories defined. Use the 'zypper addrepo' command to add one or more repositories."
+3. Ajoutez le référentiel contenant le dernier noyau et l'agent Linux Azure. Exécutez la commande `zypper lr`. Par exemple, avec SLES 11 SP3, le résultat devrait ressembler à l'exemple suivant :
 
-    Utilisez les commandes suivantes pour ajouter ces référentiels :
+		# | Alias                        | Name               | Enabled | Refresh
+		--+------------------------------+--------------------+---------+--------
+		1 | susecloud:SLES11-SP1-Pool    | SLES11-SP1-Pool    | No      | Yes
+		2 | susecloud:SLES11-SP1-Updates | SLES11-SP1-Updates | No      | Yes
+		3 | susecloud:SLES11-SP2-Core    | SLES11-SP2-Core    | No      | Yes
+		4 | susecloud:SLES11-SP2-Updates | SLES11-SP2-Updates | No      | Yes
+		5 | susecloud:SLES11-SP3-Pool    | SLES11-SP3-Pool    | Yes     | Yes
+		6 | susecloud:SLES11-SP3-Updates | SLES11-SP3-Updates | Yes     | Yes
 
-        # sudo zypper ar -f http://azure-update.susecloud.net/repo/$RCE/SLES11-SP3-Pool/sle-11-x86_64 SLES11-SP3-Pool 
-        # sudo zypper ar -f http://azure-update.susecloud.net/repo/$RCE/SLES11-SP3-Updates/sle-11-x86_64 SLES11-SP3-Updates
+	Si la commande renvoie un message d'erreur similaire au suivant :
 
-    Si un des référentiels de mise à jour concernés n'est pas activé, exécutez la commande suivante :
+		"No repositories defined. Use the 'zypper addrepo' command to add one or more repositories."
 
-        # sudo zypper mr -e [REPOSITORY NUMBER]
+	Utilisez les commandes suivantes pour ajouter ces référentiels :
 
-4.  Mettez à jour le noyau vers la dernière version disponible :
+		# sudo zypper ar -f http://azure-update.susecloud.net/repo/$RCE/SLES11-SP3-Pool/sle-11-x86_64 SLES11-SP3-Pool 
+		# sudo zypper ar -f http://azure-update.susecloud.net/repo/$RCE/SLES11-SP3-Updates/sle-11-x86_64 SLES11-SP3-Updates
 
-        # sudo zypper up kernel-default
+	Si un des référentiels de mise à jour concernés n'est pas activé, exécutez la commande suivante :
 
-    Ou, pour mettre à jour le système avec les derniers correctifs :
+		# sudo zypper mr -e [REPOSITORY NUMBER]
 
-        # sudo zypper update
+4. Mettez à jour le noyau vers la dernière version disponible :
 
-5.  Installez l'agent Linux Azure :
+		# sudo zypper up kernel-default
 
-        # sudo zypper install WALinuxAgent
+	Ou, pour mettre à jour le système avec les derniers correctifs :
 
-6.  Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier « /boot/grub/menu.lst » dans un éditeur de texte et vérifiez que le noyau par défaut comprend les paramètres suivants :
+		# sudo zypper update
 
-        console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+5. Installez l'agent Linux Azure :
 
-    Ceci permet d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour l'assistance d'Azure.
+		# sudo zypper install WALinuxAgent
 
-7.  Il est recommandé de modifier le fichier « /etc/sysconfig/network/dhcp » et le paramètre `DHCLIENT_SET_HOSTNAME` comme suit :
+6. Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier " /boot/grub/menu.lst " dans un éditeur de texte et vérifiez que le noyau par défaut comprend les paramètres suivants :
 
-        DHCLIENT_SET_HOSTNAME="no"
+		console=ttyS0 earlyprintk=ttyS0 rootdelay=300
 
-8.  Sous « /etc/sudoers », commentez ou supprimez les lignes suivantes (si elles sont présentes) :
+	Ceci permet d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour l'assistance d'Azure.
 
-        Defaults targetpw   # ask for the password of the target user i.e. root
-        ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+7.	Il est recommandé de modifier le fichier " /etc/sysconfig/network/dhcp " et le paramètre `DHCLIENT_SET_HOSTNAME` comme suit :
 
-9.  Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. C'est généralement le cas par défaut.
+		DHCLIENT_SET_HOSTNAME="no"
 
-10. Ne créez pas d'espace swap sur le disque du système d'exploitation.
+8.	Sous " /etc/sudoers ", commentez ou supprimez les lignes suivantes (si elles sont présentes) :
 
-    L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
+		Defaults targetpw   # ask for the password of the target user i.e. root
+		ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
 
-        ResourceDisk.Format=y
-        ResourceDisk.Filesystem=ext4
-        ResourceDisk.MountPoint=/mnt/resource
-        ResourceDisk.EnableSwap=y
-        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+9.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu.  C'est généralement le cas par défaut.
 
-11. Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
+10.	Ne créez pas d'espace swap sur le disque du système d'exploitation.
 
-        # sudo waagent -force -deprovision
-        # export HISTSIZE=0
-        # logout
+	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
 
-12. Cliquez sur **Action -\> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
+		ResourceDisk.Format=y
+		ResourceDisk.Filesystem=ext4
+		ResourceDisk.MountPoint=/mnt/resource
+		ResourceDisk.EnableSwap=y
+		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-------------------------------------------------------------------------
+11.	Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
 
-## <span id="osuse"></span> </a>Préparation de openSUSE 13.1+
+		# sudo waagent -force -deprovision
+		# export HISTSIZE=0
+		# logout
 
-1.  Dans le volet central du Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
+12. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-2.  Cliquez sur **Connecter** pour ouvrir la fenêtre de la machine virtuelle.
 
-3.  Sur l'interpréteur de commandes, exécutez la commande '`zypper lr`'. Si cette commande renvoie un résultat similaire au suivant (les numéros de version peuvent varier) :
+----------
 
-        # | Alias                 | Name                  | Enabled | Refresh
-        --+-----------------------+-----------------------+---------+--------
-        1 | Cloud:Tools_13.1      | Cloud:Tools_13.1      | Yes     | Yes
-        2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Yes     | Yes
-        3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | Yes     | Yes
+## <a id="osuse"> </a>Préparation d'openSUSE 12.3+ ##
 
-    cela signifie que les référentiels sont configurés comme attendu ; aucune modification n'est nécessaire.
+1. Dans le volet central du Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
 
-    Si la commande renvoie « Aucun référentiel défini... », utilisez les commandes suivantes pour ajouter ces référentiels :
+2. Cliquez sur **Connecter** pour ouvrir la fenêtre de la machine virtuelle
 
-        # sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_13.1 Cloud:Tools_13.1 
-        # sudo zypper ar -f http://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
-        # sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
+3. Sur l'interpréteur de commandes, exécutez la commande ' '`zypper lr`'. Si cette commande renvoie un résultat similaire au suivant (les numéros de version peuvent varier) :
 
-    Vous pouvez alors réexécuter la commande `zypper lr` pour vérifier que ces référentiels ont été ajoutés. Si un des référentiels de mise à jour concernés n'est pas activé, exécutez la commande suivante :
+		# | Alias                 | Name                  | Enabled | Refresh
+		--+-----------------------+-----------------------+---------+--------
+		1 | Cloud:Tools_13.1      | Cloud:Tools_13.1      | Yes     | Yes
+		2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Yes     | Yes
+		3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | Yes     | Yes
 
-        # sudo zypper mr -e [NUMBER OF REPOSITORY]
+	cela signifie que les référentiels sont configurés comme attendu ; aucune modification n'est nécessaire.
 
-4.  Mettez à jour le noyau vers la dernière version disponible :
+	Si la commande renvoie " Aucun référentiel défini... ", utilisez les commandes suivantes pour ajouter ces référentiels :
 
-        # sudo zypper up kernel-default
+		# sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_13.1 Cloud:Tools_13.1 
+		# sudo zypper ar -f http://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
+		# sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
 
-    Ou, pour mettre à jour le système avec les derniers correctifs :
+	You can then verify the repositories have been added by running the command '`zypper lr`' again. Si un des référentiels de mise à jour concernés n'est pas activé, exécutez la commande suivante :
 
-        # sudo zypper update
+		# sudo zypper mr -e [NUMBER OF REPOSITORY]
 
-5.  Installez l'agent Linux Azure.
 
-        # sudo zypper install WALinuxAgent
+4. Mettez à jour le noyau vers la dernière version disponible :
 
-6.  Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier « /boot/grub/menu.lst » dans un éditeur de texte et vérifiez que le noyau par défaut comprend les paramètres suivants :
+		# sudo zypper up kernel-default
 
-        console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+	Ou, pour mettre à jour le système avec les derniers correctifs :
 
-    Ceci permet d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour l'assistance d'Azure. Supprimez également les paramètres suivants de la ligne de démarrage du noyau (s'ils sont présents) :
+		# sudo zypper update
 
-        libata.atapi_enabled=0 reserve=0x1f0,0x8
+5.	Installez l'agent Linux Azure.
 
-7.  Il est recommandé de modifier le fichier « /etc/sysconfig/network/dhcp » et le paramètre `DHCLIENT_SET_HOSTNAME` comme suit :
+		# sudo zypper install WALinuxAgent
 
-        DHCLIENT_SET_HOSTNAME="no"
+6.	Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier " /boot/grub/menu.lst " dans un éditeur de texte et vérifiez que le noyau par défaut comprend les paramètres suivants :
 
-8.  **Important :** sous « /etc/sudoers », commentez ou supprimez les lignes suivantes (si elles sont présentes) :
+		console=ttyS0 earlyprintk=ttyS0 rootdelay=300
 
-        Defaults targetpw   # ask for the password of the target user i.e. root
-        ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+	Ceci permet d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour l'assistance d'Azure. Supprimez également les paramètres suivants de la ligne de démarrage du noyau (s'ils sont présents) :
 
-9.  Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. C'est généralement le cas par défaut.
+		libata.atapi_enabled=0 reserve=0x1f0,0x8
 
-10. Ne créez pas d'espace swap sur le disque du système d'exploitation.
+7.	Il est recommandé de modifier le fichier " /etc/sysconfig/network/dhcp " et le paramètre `DHCLIENT_SET_HOSTNAME` comme suit :
 
-    L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
+		DHCLIENT_SET_HOSTNAME="no"
 
-        ResourceDisk.Format=y
-        ResourceDisk.Filesystem=ext4
-        ResourceDisk.MountPoint=/mnt/resource
-        ResourceDisk.EnableSwap=y
-        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+8.	**Important :** Sous " /etc/sudoers ", commentez ou supprimez les lignes suivantes (si elles sont présentes) :
 
-11. Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
+		Defaults targetpw   # ask for the password of the target user i.e. root
+		ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
 
-        # sudo waagent -force -deprovision
-        # export HISTSIZE=0
-        # logout
+9.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu.  C'est généralement le cas par défaut.
 
-12. Vérifiez que l'agent Linux Azure est exécuté au démarrage :
+10.	Ne créez pas d'espace swap sur le disque du système d'exploitation.
 
-        # sudo systemctl enable waagent.service
+	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
 
-13. Cliquez sur **Action -\> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
+		ResourceDisk.Format=y
+		ResourceDisk.Filesystem=ext4
+		ResourceDisk.MountPoint=/mnt/resource
+		ResourceDisk.EnableSwap=y
+		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-  [Préparation d'une machine virtuelle SLES 11 SP3 pour Azure]: #sles11
-  [Préparation d'une machine virtuelle openSUSE 13.1+ pour Azure]: #osuse
-  [Installation du rôle Hyper-V et configuration d'une machine virtuelle]: http://technet.microsoft.com/library/hh846766.aspx
-  [SUSE Studio]: http://www.susestudio.com
-  [SLES 11 SP3 pour Azure dans SUSE Studio Gallery]: http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure
-  [openSUSE 13.1 pour Azure dans SUSE Studio Gallery]: https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure
-  [RAID]: ../virtual-machines-linux-configure-raid
+11.	Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
+
+		# sudo waagent -force -deprovision
+		# export HISTSIZE=0
+		# logout
+
+12. Vérifiez que l'agent Linux Azure est exécuté au démarrage :
+
+		# sudo systemctl enable waagent.service
+
+13. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
+
+
+
+<!--HONumber=35_1-->

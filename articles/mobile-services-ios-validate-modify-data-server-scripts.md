@@ -18,9 +18,9 @@ Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés
 
 ## <a name="string-length-validation"></a>Ajout de la validation
 
-Il est toujours souhaitable de valider la longueur des données soumises par les utilisateurs. Vous devez d'abord inscrire un script qui valide la longueur des données de chaîne envoyées au service mobile et refuse les chaînes trop longues, en l'occurrence, celles qui font plus de 10 caractères.
+Il est toujours souhaitable de valider la longueur des données soumises par les utilisateurs. Vous devez d'abord inscrire un script qui valide la longueur des données de chaîne envoyées au service mobile et refuse les chaînes trop longues, en l'occurrence, celles qui font plus de 10 caractères.
 
-1. Connectez-vous au [portail de gestion Azure][portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application.
+1. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur votre application.
 
    	![][0]
 
@@ -28,7 +28,7 @@ Il est toujours souhaitable de valider la longueur des données soumises par les
 
    	![][1]
 
-3. Cliquez sur **Script**, puis sélectionnez l'opération **Insert**.
+3. Cliquez sur **Script**, puis sélectionnez l'opération **Insérer**.
 
    	![][2]
 
@@ -42,27 +42,27 @@ Il est toujours souhaitable de valider la longueur des données soumises par les
             }
         }
 
-    Ce script vérifie la longueur de la propriété **text** et envoie une réponse indiquant une erreur lorsque la chaîne dépasse 10 caractères. Sinon, la méthode **execute** est appelée pour effectuer l'insertion.
+    Ce script vérifie la longueur de la propriété **text** et envoie une réponse indiquant une erreur lorsque la chaîne dépasse 10 caractères. Sinon, la méthode **execute** est appelée pour effectuer l'insertion.
 
     <div class="dev-callout">
 	<b>Remarque</b>
-	<p>Sous l'onglet <strong>Script</strong>, vous pouvez supprimer un script inscrit en cliquant sur <strong>Effacer</strong>, puis sur <strong>Enregistrer</strong>.</p></div>
+	<p>Vous pouvez supprimer un script inscrit dans l'onglet <strong>Script</strong> en cliquant sur <strong>Effacer</strong>, puis sur <strong>Enregistrer</strong>.</p></div>
 
 ## <a name="update-client-validation"></a>Mise à jour du client
 
 Maintenant que le service mobile valide les données et envoie des réponses d'erreur, vous devez mettre à jour l'application afin qu'elle traite les réponses d'erreur de la validation.
 
-1. Dans Xcode, ouvrez le projet que vous avez modifié avec le didacticiel [Prise en main des données][Prise en main des données].
+1. Dans Xcode, ouvrez le projet que vous avez modifié avec le didacticiel [Prise en main des données].
 
-2. Appuyez sur le bouton **Exécuter** (Commande + R) pour générer le projet et démarrer l'application, puis tapez un texte de plus de 10 caractères dans la zone de texte et cliquez sur l'icône représentant un signe plus (**+**).
+2. Appuyez sur le bouton **Exécuter** (Commande+R) pour générer le projet et démarrer l'application, puis tapez un texte de plus de 10 caractères dans la zone de texte et cliquez sur l'icône Plus (**+**).
 
-   	Notez que l'application génère une exception non prise en charge suite à la réponse 400 (Requête incorrecte) renvoyée par le service mobile.
+   	Notez que l'application génère une exception non prise en charge suite à la réponse 400 (Requête incorrecte) renvoyée par le service mobile.
 
-3. Dans le fichier QSTodoService.m, recherchez la ligne de code suivante dans la méthode **addItem** :
+3. Dans le fichier QSTodoService.m, recherchez la ligne de code suivante dans la méthode **addItem** :
 
         [self logErrorIfNotNil:error];
 
-   	Après cette ligne de code, remplacez le reste du bloc completion par le code suivant:
+   	Après cette ligne de code, remplacez le reste du bloc completion par le code suivant :
 
         BOOL goodRequest = !((error) && (error.code == MSErrorMessageErrorCode));
 
@@ -101,11 +101,11 @@ Maintenant que le service mobile valide les données et envoie des réponses d'e
 
   	Notez que l'erreur est traitée et que le message d'erreur est affiché pour l'utilisateur.
 
-<!--## <a name="add-timestamp"></a>Add a timestamp
+## <a name="add-timestamp"></a>Ajout d'un horodatage
 
-The previous tasks validated an insert and either accepted or rejected it. Now, you will update inserted data by using a server script that adds a timestamp property to the object before it gets inserted.
+Les tâches précédentes ont permis de valider une insertion, qui est acceptée ou rejetée. Maintenant, vous allez mettre à jour les données insérées en utilisant un script serveur qui ajoute une propriété d'horodatage à l'objet avant son insertion.
 
-1. In the **Scripts** tab in the [Management Portal], replace the current **Insert** script with the following function, and then click **Save**.
+1. Sous l'onglet **Scripts** du [portail de gestion], remplacez le script **Insert** actuel par la fonction suivante, puis cliquez sur **Enregistrer**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -116,27 +116,27 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
             }
         }
 
-    This function augments the previous insert script by adding a new **createdAt** timestamp property to the object before it gets inserted by the call to **request**.**execute**.
+    Cette fonction enrichit le script d'insertion précédent en ajoutant une nouvelle propriété d'horodatage **createdAt** à l'objet avant son insertion par l'appel à **request**.**execute**.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <strong>createdAt</strong> column to the <strong>TodoItem</strong> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published.</p>
+    <div class="dev-callout"><b>Remarque</b>
+	<p>Le schéma dynamique doit être activé la première fois que ce script d'insertion s'exécute. Avec le schéma dynamique activé, Mobile Services ajoute automatiquement la colonne <strong>createdAt</strong> à la table <strong>TodoItem</strong> lors de la première exécution. Par défaut, le schéma dynamique est activé pour un nouveau service mobile. Il doit être désactivé pour que l'application soit publiée.</p>
     </div>
 
-2. In Visual Studio, press the **F5** key to run the app, then type text (shorter than 10 characters) in **Insert a TodoItem** and click **Save**.
+2. Dans Visual Studio, appuyez sur la touche **F5** pour exécuter l'application, puis tapez une chaîne de texte (inférieure à 10 caractères) dans **Insert a TodoItem** et cliquez sur **Enregistrer**.
 
-   	Notice that the new timestamp does not appear in the app UI.
+   	Notez que le nouvel horodatage n'apparaît pas dans l'interface utilisateur de l'application.
 
-3. Back in the Management Portal, click the **Browse** tab in the **todoitem** table.
+3. De retour dans le portail de gestion, cliquez sur l'onglet **Parcourir** dans la table **todoitem**.
 
-   	Notice that there is now a **createdAt** column, and the new inserted item has a timestamp value.
+   	Notez qu'une colonne **createdAt** apparaît désormais à l'écran et qu'une valeur d'horodatage est associée au nouvel élément inséré.
 
-Next, you need to update the iOS app to display this new column.
+L'application iOS doit ensuite être mise à jour pour afficher cette nouvelle colonne.
 
-## <a name="update-client-timestamp"></a>Update the client again
+## <a name="update-client-timestamp"></a>Nouvelle mise à jour du client
 
-The Mobile Service client will ignore any data in a response that it cannot serialize into properties on the defined type. The final step is to update the client to display this new data.
+Le client Mobile Services ignore les données d'une réponse qu'elle ne peut pas sérialiser en propriétés de type défini. L'étape finale consiste à mettre à jour le client de manière à afficher ces nouvelles données.
 
-1. In Visual Studio, open the file MainPage.xaml.cs, then replace the existing **TodoItem** class with the following definition:
+1. Dans Visual Studio, ouvrez le fichier MainPage.xaml.cs, puis remplacez la classe **TodoItem** existante par la définition suivante :
 
 	    public class TodoItem
 	    {
@@ -152,23 +152,23 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 	        public DateTime? CreatedAt { get; set; }
 	    }
 
-    This new class definition includes the new timestamp property, as a nullable DateTime type.
+    Cette nouvelle définition de classe inclut la nouvelle propriété d'horodatage en tant que type DateTime nullable.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>The <strong>DataMemberAttribute</strong> tells the client to map the new <strong>CreatedAt</strong> property in the app to the <strong>createdAt</strong> column defined in the TodoItem table, which has a different casing. By using this attribute, your app can have property names on objects that differ from column names in the SQL Database. Without this attribute, an error would occur because of the casing differences.</p>
+    <div class="dev-callout"><b>Remarque</b>
+	<p>L'attribut <strong>DataMemberAttribute</strong> indique au client de mapper la nouvelle propriété <strong>CreatedAt</strong> dans l'application à la colonne <strong>createdAt</strong> définie dans la table TodoItem (dont la casse est différente). En utilisant cet attribut, votre application peut avoir des noms de propriétés pour les objets qui diffèrent des noms de colonnes dans la base de données SQL. Sans cet attribut, une erreur se produirait en raison de la différence de casse.</p>
     </div>
 
-5. Add the following XAML element just below the **CheckBoxComplete** element in the MainPage.xaml file:
+2. Ajoutez l'élément XAML suivant juste en dessous de l'élément **CheckBoxComplete** dans le fichier MainPage.xaml :
 
         <TextBlock Name="WhenCreated" Text="{Binding CreatedAt}" VerticalAlignment="Center"/>
 
    	La nouvelle propriété **CreatedAt** s'affiche dans une zone de texte.
 
-6. Appuyez sur la touche **F5** pour exécuter l'application.
+3. Appuyez sur la touche **F5** pour exécuter l'application.
 
    Notez que l'horodatage ne s'affiche que pour les éléments insérés une fois que le script d'insertion a été mis à jour.
 
-7. Remplacez la méthode **RefreshTodoItems** existante par le code suivant :
+4. Remplacez la méthode **RefreshTodoItems** existante par le code suivant :
 
         private void RefreshTodoItems()
         {
@@ -184,11 +184,11 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
    	Cette méthode met à jour la requête pour éliminer également les éléments non associés à une valeur d'horodatage.
 
-8. Appuyez sur la touche **F5** pour exécuter l'application.
+5. Appuyez sur la touche **F5** pour exécuter l'application.
 
    	Notez que tous les éléments créés sans valeur d'horodatage disparaissent de l'interface utilisateur.
 
-Vous avez maintenant terminé ce didacticiel.-->
+Vous avez maintenant terminé ce didacticiel.
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
@@ -196,14 +196,14 @@ Maintenant que vous avez terminé ce didacticiel, pensez à suivre le dernier di
 
 Les scripts serveur sont également utilisés dans le cadre du processus d'autorisation des utilisateurs et pour l'envoi de notifications Push. Pour plus d'informations, reportez-vous aux didacticiels suivants :
 
-* [Autorisation des utilisateurs avec des scripts]
+* [Autoriser les utilisateurs avec des scripts]
   <br/>En savoir plus sur le filtrage des données en fonction de l'ID d'un utilisateur authentifié.
 
 * [Prise en main des notifications Push]
   <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
 * [Référence de script serveur Mobile Services]
-  <br/>En savoir plus sur l'enregistrement et l'utilisation des scripts serveur.
+  <br/>En savoir plus sur l'inscription et l'utilisation de scripts serveur.
 
 <!-- Anchors. -->
 [Ajout de la validation de longueur de chaîne]: #string-length-validation
@@ -221,12 +221,12 @@ Les scripts serveur sont également utilisés dans le cadre du processus d'autor
 
 <!-- URLs. -->
 [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started-ios
-[Autorisation des utilisateurs avec des scripts]: /fr-fr/develop/mobile/tutorials/authorize-users-in-scripts-ios
-[Affinage des requêtes au moyen de la pagination]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-ios
-[Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-ios
-[Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-ios
-[Prise en main des notifications Push]: /fr-fr/develop/mobile/tutorials/get-started-with-push-ios
+[Prise en main de Mobile Services]: /en-us/develop/mobile/tutorials/get-started-ios
+[Autoriser les utilisateurs avec des scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Affinage des requêtes à la pagination.]: /en-us/develop/mobile/tutorials/add-paging-to-data-ios
+[Prise en main des données]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
+[Prise en main de l'authentification]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
+[Prise en main des notifications Push]: /en-us/develop/mobile/tutorials/get-started-with-push-ios
 
 [Portail de gestion]: https://manage.windowsazure.com/
 [Portail de gestion Azure]: https://manage.windowsazure.com/

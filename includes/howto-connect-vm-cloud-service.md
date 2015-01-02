@@ -1,52 +1,30 @@
-<properties authors="kathydav" editor="tysonn" manager="donaldg" />
+﻿<properties authors="kathydav" editor="tysonn" manager="timlt" /> 
 
-# Connexion des machines virtuelles dans un service cloud
 
-Lors de la création d’une machine virtuelle, un service cloud est automatiquement créé pour la contenir. Vous pouvez créer plusieurs machines virtuelles dans le même service cloud pour leur permettre de communiquer les unes avec les autres, pour équilibrer la charge du trafic réseau et pour garantir leur haute disponibilité.
+#Connexion des machines virtuelles dans un service cloud
 
-Pour plus d’informations sur l’équilibrage de charge des machines virtuelles, consultez la page [Équilibrage de charge des machines virtuelles][Équilibrage de charge des machines virtuelles]. Pour plus d’informations sur la gestion de la disponibilité d’une application, consultez la page [Gestion de la disponibilité des machines virtuelles][Gestion de la disponibilité des machines virtuelles].
+Lors de la création d'une machine virtuelle, un service cloud est automatiquement créé pour la contenir. Vous pouvez créer plusieurs machines virtuelles dans le même service cloud pour qu'elles puissent communiquer entre elles. 
 
-Dans un premier temps, vous devez créer une machine virtuelle et un service cloud. Vous pouvez ensuite connecter d’autres machines virtuelles à la première machine virtuelle dans le même service cloud.
+> [WACOM.NOTE] Quand les machines virtuelles sont dans le même service cloud, vous pouvez aussi en équilibrer la charge et gérer leur disponibilité, ce qui requiert des étapes supplémentaires. Pour plus d'informations, consultez [Équilibrage de charge des machines virtuelles](../../articles/load-balance-virtual-machines/) et [Gestion de la disponibilité des machines virtuelles](../../articles/manage-availability-virtual-machines/). 
 
-1.  Créez une machine virtuelle en suivant la procédure indiquée à la page [Création d’une machine virtuelle personnalisée][Création d’une machine virtuelle personnalisée].
+Tout d'abord, vous devez créer une machine virtuelle avec un nouveau service cloud. Ensuite, vous allez créer des machines virtuelles supplémentaires dans le même service cloud. Elle sont ainsi " liées ". 
 
-2.  Après avoir créé la première machine virtuelle personnalisée, dans la barre de commandes du [portail de gestion][portail de gestion], cliquez sur **New**.
+1. Créez une machine virtuelle en suivant la procédure indiquée à la page [Comment créer une machine virtuelle personnalisée](../../articles/virtual-machines-create-custom/).
 
-    ![Création d’une machine virtuelle][Création d’une machine virtuelle]
+2. Suivez la même procédure de base pour créer les autres machines virtuelles, sauf que vous allez les ajouter au service cloud au lieu de créer un service cloud. Par exemple, si vous avez créé un service cloud nommé *EndpointTest*, choisissez ce service. Le graphique suivant illustre cet exemple :
 
-3.  Cliquez sur **Virtual Machine**, puis sur **From Gallery**.
+	![Add a virtual machine to an existing cloud service](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
 
-    ![Création d’une machine virtuelle personnalisée][1]
+14. Complétez le reste des champs dans cette page et la suivante, puis cliquez sur la coche pour créer la machine virtuelle connectée.
 
-    La boîte de dialogue **Select the virtual machine operating system** s’affiche.
+#Ressources
 
-4.  Sur la page **Choose an image**, sélectionnez une image, puis cliquez sur la flèche pour continuer.
+Une fois que vous avez créé une machine virtuelle, il convient d'ajouter un disque de données pour que vos services et charges de travail disposent d'un emplacement de stockage des données. Consultez l'une des rubriques suivantes :
 
-    La première page **Virtual machine configuration** s’affiche.
+[Comment attacher un disque de données à une machine virtuelle Linux](http://azure.microsoft.com/fr-fr/documentation/articles/virtual-machines-linux-how-to-attach-disk/)
 
-5.  Dans **Virtual Machine Name**, tapez le nom que vous souhaitez utiliser pour la machine virtuelle.
+[Comment attacher un disque de données à une machine virtuelle Windows](http://azure.microsoft.com/fr-fr/documentation/articles/storage-windows-attach-disk/)
 
-6.  Dans **Taille**, sélectionnez la taille à utiliser pour la machine virtuelle. Celle-ci dépend du nombre de cœurs nécessaires à votre application.
 
-7.  Dans **New User Name**, tapez le nom du compte administratif que vous voulez utiliser pour gérer le serveur.
 
-8.  Dans **New Password**, tapez un mot de passe fort pour le compte administratif. Dans **Confirm Password**, entrez de nouveau le mot de passe.
-
-9.  Pour une machine virtuelle s’exécutant sous le système d’exploitation Linux, vous pouvez choisir de sécuriser la machine avec une clé SSH.
-
-10. Dans **Cloud Service**, sélectionnez le service cloud dans lequel placer la nouvelle machine virtuelle.
-
-11. Dans **Storage Account**, sélectionnez le compte de stockage du fichier .vhd ou laissez la valeur par défaut pour créer le compte de stockage automatiquement. Un seul compte de stockage est créé automatiquement. Toutes les autres machines virtuelles créées avec ce paramètre sont placées dans ce compte de stockage. Vous êtes limité à 20 comptes de stockage.
-
-12. Pour utiliser un groupe à haute disponibilité, sélectionnez celui créé lors de la création de la première machine virtuelle.
-
-13. Vérifiez la configuration par défaut du point de terminaison et modifiez-la si besoin.
-
-14. Cliquez sur la coche pour créer la machine virtuelle connectée.
-
-  [Équilibrage de charge des machines virtuelles]: ../../articles/load-balance-virtual-machines/
-  [Gestion de la disponibilité des machines virtuelles]: ../../articles/manage-availability-virtual-machines/
-  [Création d’une machine virtuelle personnalisée]: ../../articles/virtual-machines-create-custom/
-  [portail de gestion]: http://manage.windowsazure.com
-  [Création d’une machine virtuelle]: ./media/howto-connect-vm-cloud-service/Create.png
-  [1]: ./media/howto-connect-vm-cloud-service/CreateNew.png
+<!--HONumber=35_1-->

@@ -2,27 +2,27 @@
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
-# Ajout de notifications Push à votre application Mobile Services
+# Ajout de notifications push à votre application Mobile Services
 
 [WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push vers une application iOS via le service de notifications Push Apple (APNS). Dans ce didacticiel, vous allez activer des notifications Push dans le [projet de démarrage rapide](http://azure.microsoft.com/fr-fr/documentation/articles/mobile-services-ios-get-started/) à l'aide d'Azure Notification Hubs. Une fois la procédure terminée, votre service mobile envoie une notification Push chaque fois qu'un enregistrement est inséré.
+Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push vers une application iOS à l'aide du service de notifications Push Apple (APNS). Dans ce didacticiel, vous allez activer des notifications Push à l'aide d'Azure Notification Hubs dans le [projet de démarrage rapide](http://azure.microsoft.com/fr-fr/documentation/articles/mobile-services-ios-get-started/). Une fois la procédure terminée, votre service mobile envoie une notification Push chaque fois qu'un enregistrement est inséré.
 
 Ce didacticiel vous familiarise avec les étapes de base permettant d'activer les notifications Push :
 
-1. [Génération de la demande de signature de certificat]
-2. [Inscription de votre application et activation des notifications Push]
-3. [Création d'un profil de mise en service pour l'application]
-4. [Configuration de Mobile Services]
-5. [Ajout de notifications Push à l'application]
-6. [Mise à jour des scripts pour l'envoi de notifications Push]
-7. [Insertion de données pour recevoir des notifications]
+1. [Génération de la demande de signature de certificat](#certificates)
+2. [Inscription de votre application et activation des notifications Push](#register)
+3. [Création d'un profil de mise en service pour l'application](#profile)
+4. [Configuration de Mobile Services](#configure)
+5. [Ajout de notifications Push à l'application](#add-push)
+6. [Mise à jour des scripts pour l'envoi de notifications Push](#update-scripts)
+7. [Insertion de données pour recevoir des notifications](#test)
 
 Ce didacticiel requiert les éléments suivants :
 
 + [Kit de développement logiciel (SDK) Mobile Services iOS]
-+ [XCode 4.5][Installation de Xcode]
-+ Un appareil compatible iOS 6,0 (ou version ultérieure)
++ [XCode 4.5][Install Xcode]
++ Un appareil compatible iOS 6.0 (ou version ultérieure)
 + Un abonnement au programme pour développeurs iOS
 
    > [WACOM.NOTE] En raison de la configuration requise pour les notifications Push, vous devez déployer et tester les notifications Push sur un appareil compatible iOS (iPhone ou iPad) au lieu d'un émulateur.
@@ -30,16 +30,49 @@ Ce didacticiel requiert les éléments suivants :
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez effectuer le didacticiel [Prise en main de Mobile Services].
 
 
-[WACOM.INCLUDE [Activation des notifications Push Apple](../includes/enable-apple-push-notifications.md)]
+[WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
 
-## Configuration de Mobile Services pour l'envoi de requêtes Push
+## <a id="configure"></a>Configuration de Mobile Services pour l'envoi de demandes push
 
 [WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
-## Ajout de notifications Push à votre application
+## <a id="update-scripts"></a>Mise à jour du script d'insertion inscrit dans le portail de gestion
 
-1. Dans QSAppDelegate.m, insérez l'extrait de code suivant pour importer le Kit de développement logiciel (SDK) Mobile Services iOS :
+1. Dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItem**.
+
+   	![][21]
+
+2. Dans **todoitem**, cliquez sur l'onglet **Script** et sélectionnez **Insérer**.
+
+  	![][22]
+
+   	La fonction appelée lors d'une insertion dans la table **TodoItem** s'affiche.
+
+3. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
+
+        function insert(item, user, request) {
+            request.execute();
+            // Set timeout to delay the notification, to provide time for the
+            // app to be closed on the device to demonstrate push notifications
+            setTimeout(function() {
+                push.apns.send(null, {
+                    alert: "Alert: " + item.text,
+                    payload: {
+                        inAppMessage: "Hey, a new item arrived: '" + item.text + "'"
+                    }
+                });
+            }, 2500);
+        }
+
+   	Ceci inscrit un nouveau script d'insertion, qui utilise l'[objet apns] pour envoyer une notification Push (le texte inséré) à l'appareil fourni dans la demande d'insertion.
+
+
+   	> [WACOM.NOTE] Ce script reporte l'envoi de la notification pour vous laisser le temps de fermer l'application pour recevoir une notification Push.
+
+## <a id="add-push"></a>Ajout de notifications Push à votre application
+
+1. Dans QSAppDelegate.m, insérez l'extrait de code suivant pour importer le Kit de développement logiciel (SDK) Mobile Services pour iOS :
 
         #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
@@ -54,7 +87,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
             return YES;
         }
 
-3. Dans QSAppDelegate.m, ajoutez la méthode de gestionnaire suivante à l'implémentation : Veillez à copier les valeurs URL du service mobile et Clé d'application, et les utiliser à la place des espaces réservés :
+3. Dans QSAppDelegate.m, ajoutez la méthode de gestionnaire suivante à l'implémentation. Veillez à copier l'URL et la clé d'application du service mobile et à les coller à la place des espaces réservés :
 
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
         (NSData *)deviceToken {
@@ -91,48 +124,15 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 
 L'application est mise à jour et prend en charge les notifications Push.
 
-## Mise à jour du script de la fonction insert inscrite dans le portail de gestion
+## <a id="test"></a>Test des notifications Push dans votre application
 
-1. Dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItem**.
-
-   	![][21]
-
-2. Dans **todoitem**, cliquez sur l'onglet **Script**, puis sélectionnez **Insérer**.
-
-  	![][22]
-
-   	La fonction appelée lors d'une insertion dans la table **TodoItem** s'affiche.
-
-3. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
-
-        function insert(item, user, request) {
-            request.execute();
-            // Set timeout to delay the notification, to provide time for the
-            // app to be closed on the device to demonstrate push notifications
-            setTimeout(function() {
-                push.apns.send(null, {
-                    alert: "Alert: " + item.text,
-                    payload: {
-                        inAppMessage: "Hey, a new item arrived: '" + item.text + "'"
-                    }
-                });
-            }, 2500);
-        }
-
-   	Ceci inscrit un nouveau script d'insertion, qui utilise [apns object] pour envoyer une notification Push (le texte inséré) à l'appareil fourni dans la demande d'insertion.
-
-
-   	> [WACOM.NOTE] Ce script reporte l'envoi de la notification pour vous laisser le temps de fermer l'application pour recevoir une notification Push.
-
-## Test des notifications Push dans votre application
-
-1. Appuyez sur le bouton **Exécuter** pour générer le projet, puis démarrez l'application sur un appareil compatible iOS, et enfin cliquez sur **OK** pour accepter les notifications Push.
+1. Cliquez sur le bouton **Exécuter** pour générer le projet et démarrer l'application sur un appareil compatible iOS, puis cliquez sur **OK** pour accepter les notifications Push.
 
   	![][23]
 
-    > [WACOM.NOTE] Vous devez accepter explicitement les notifications Push de votre application. Cette demande s'effectue uniquement lors du premier démarrage de l'application.
+    > [WACOM.NOTE] Vous devez accepter explicitement les notifications Push depuis votre application. Cette demande s'effectue uniquement lors du premier démarrage de l'application.
 
-2. Dans l'application, entrez un texte explicite, tel que _Nouvelle tâche Mobile Services_ puis cliquez sur l'icône Ajouter (**+**).
+2. Dans l'application, entrez un texte explicite, tel que _Nouvelle tâche Mobile Services_ et cliquez sur l'icône Ajouter (**+**).
 
   	![][24]
 
@@ -146,48 +146,41 @@ L'application est mise à jour et prend en charge les notifications Push.
 
 Vous avez terminé ce didacticiel.
 
-## Étapes suivantes
+## <a id="next-steps"></a>Étapes suivantes
 
 Ce didacticiel a présenté les bases de l'activation d'une application iOS pour utiliser Mobile Services et Notification Hubs afin d'envoyer des notifications Push. Nous vous invitons maintenant à suivre l'un des didacticiels suivants :
 
 + [Envoi de notifications Push aux utilisateurs authentifiés]
-	<br/>En savoir plus sur l'utilisation de balises pour envoyer des notifications Push depuis un service mobile vers des utilisateurs authentifiés uniquement.
+	<br/>En savoir plus sur l'utilisation de balises pour envoyer des notifications Push depuis un service mobile uniquement à un utilisateur authentifié.
 
-+ [Envoi de notifications aux abonnés]
++ [Envoi de notifications diffusées aux abonnés]
 	<br/>En savoir plus sur l'inscription des utilisateurs et la réception des notifications Push pour les catégories qui les intéressent.
 <!---
 + [Send template-based notifications to subscribers]
-	<br/>En savoir plus sur l'utilisation de modèles pour envoyer des notifications Push depuis un service mobile, sans avoir à gérer des charges utiles propres à la plateforme sur votre serveur principal.
+	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
 -->
 Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
 * [Prise en main des données]
-  <br/>En savoir plus sur le stockage et l'interrogation des données à l'aide de services mobiles.
+  <br/>En savoir plus sur le stockage et l'interrogation des données à l'aide de Mobile Services.
 
 * [Prise en main de l'authentification]
-  <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec des types de comptes différents à l'aide de services mobiles.
+  <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec des types de comptes différents utilisant des services mobiles.
 
 * [Présentation de Notification Hubs]
   <br/>Découvrez comment Notification Hubs opère pour envoyer des notifications à vos applications sur toutes les principales plateformes clientes.
 
 * [Débogage des applications Notification Hubs](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>Instructions de dépannage et de débogage des solutions Notification Hubs. 
+  </br>Obtenez des conseils sur le dépannage et le débogage des solutions Notification Hubs. 
 
-* [Guide de fonctionnement Mobile Services Objective-C]
+* [Guide de fonctionnement de Mobile Services avec Objective-C]
   <br/>En savoir plus sur l'utilisation de Mobile Services avec Objective-C et iOS.
 
 * [Référence de script serveur Mobile Services]
-  <br/>En savoir plus sur l'implémentation d'une logique métier dans votre service mobile.
+  <br/>En savoir plus sur l'implémentation de logique métier dans votre service mobile.
 
 <!-- Anchors. -->
-[Génération de la demande de signature de certificat]: #certificates
-[Inscription de votre application et activation des notifications Push]: #register
-[Création d'un profil de mise en service pour l'application]: #profile
-[Configuration de Mobile Services]: #configure
-[Mise à jour des scripts pour l'envoi de notifications Push]: #update-scripts
-[Ajout de notifications Push à l'application]: #add-push
-[Insertion de données pour recevoir des notifications]: #test
-[Étapes suivantes]:#next-steps
+
 
 <!-- Images. -->
 [5]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step5.png
@@ -228,9 +221,9 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
 <!-- URLs.   -->
 [Installation de Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Portail d'approvisionnement iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[Portail de mise en service iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Kit de développement logiciel (SDK) Mobile Services iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Service de notifications Push Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+[Service de notification Push Apple (APN, Apple Push Notification)]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-ios-get-started
 [Prise en main des données]: /fr-fr/documentation/articles/mobile-services-ios-get-started-data
 [Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-ios-get-started-users
@@ -242,7 +235,9 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Envoi de notifications Push aux utilisateurs authentifiés]: /fr-fr/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/
 
 [Présentation de Notification Hubs]: /fr-fr/documentation/articles/notification-hubs-overview/
-[Envoi de notifications aux abonnés]: /fr-fr/documentation/articles/notification-hubs-ios-send-breaking-news/
+[Envoi de notifications diffusées aux abonnés]: /fr-fr/documentation/articles/notification-hubs-ios-send-breaking-news/
 [Envoi de notifications basées sur un modèle aux abonnés]: /fr-fr/documentation/articles/notification-hubs-ios-send-localized-breaking-news/
 
-[Guide de fonctionnement Mobile Services Objective-C]: /fr-fr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+[Guide de fonctionnement de Mobile Services avec Objective-C]: /fr-fr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+
+<!--HONumber=35_1-->

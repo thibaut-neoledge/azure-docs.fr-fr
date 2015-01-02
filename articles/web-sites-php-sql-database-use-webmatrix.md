@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Web w/ SQL + WebMatrix" pageTitle="Site web PHP avec Base de données SQL et WebMatrix - Azure" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP website that stores data in SQL Database." metaCanonical="" services="" documentationCenter="" title="Create and Deploy a PHP Website and SQL Database using WebMatrix" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="Web w/ SQL + WebMatrix" pageTitle="Site web PHP avec une base de données SQL et WebMatrix - Didacticiel Azure" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP website that stores data in SQL Database." metaCanonical="" services="" documentationCenter="" title="Create and Deploy a PHP Website and SQL Database using WebMatrix" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/17/2014" ms.author="tomfitz" />
 
 
 
@@ -8,15 +8,15 @@
 
 #Création et déploiement d'un site web PHP et d'une base de données SQL avec WebMatrix
 
-Ce didacticiel explique comment utiliser WebMatrix pour développer et déployer dans un site web Azure une application PHP qui utilise une base de données SQL Azure. WebMatrix est un outil de développement web gratuit de Microsoft doté de tous les éléments nécessaires pour développer un site web. WebMatrix prend en charge le PHP et inclut Intellisence pour le développement PHP. 
+Ce didacticiel explique comment utiliser WebMatrix pour développer et déployer dans un site web Azure une application PHP qui utilise une base de donnée SQL Azure. WebMatrix est un outil de développement web gratuit de Microsoft doté de tous les éléments nécessaires pour développer un site web. WebMatrix prend en charge le PHP et inclut Intellisense pour le développement PHP. 
 
-Ce didacticiel part du principe que vous avez installé [SQL Server Express][install-SQLExpress] sur votre ordinateur pour pouvoir tester une application en local. Cependant, cette installation n'est pas obligatoire pour suivre ce didacticiel. Vous pouvez en effet déployer votre application directement sur Sites Web Azure.
+Ce didacticiel part du principe que vous avez installé [SQL Server Express][install-SQLExpress] sur votre ordinateur pour pouvoir tester localement une application. Cependant, cette installation n'est pas obligatoire pour suivre ce didacticiel. Vous pouvez en effet déployer votre application directement sur Sites Web Azure.
 
-﻿Une fois que vous aurez terminé ce guide, vous disposerez d'un site web contenant une base de données PHP-SQL qui s'exécute dans Azure.
+Une fois que vous aurez terminé ce guide, vous disposerez d'un site web contenant une base de données PHP-SQL qui s'exécute dans Azure.
  
 Vous apprendrez à effectuer les opérations suivantes :
 
-* création d'un site web Azure et d'une base de données SQL à l'aide du portail de gestion Azure. Comme PHP est activé par défaut dans Sites Web Azure, aucune action particulière n'est requise pour exécuter votre code PHP.
+* création d'un site web Azure et d'une base de données SQL à l'aide du portail de gestion Azure Comme PHP est activé par défaut dans Sites Web Azure, aucune action particulière n'est requise pour exécuter votre code PHP.
 * développement d'une application PHP avec WebMatrix ;
 * publication et republication de votre application dans Azure avec WebMatrix.
  
@@ -24,21 +24,24 @@ En suivant ce didacticiel, vous allez créer une application web Tasklist simple
 
 ![Azure PHP Web Site][running-app]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+> [WACOM.NOTE]
+> Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Vous pouvez <a href="http://azure.microsoft.com/fr-fr/pricing/member-offers/msdn-benefits-details/">activer les avantages de votre abonnement MSDN</a> ou <a href="http://azure.microsoft.com/fr-fr/pricing/free-trial/">vous inscrire à une version d'évaluation gratuite</a>.
+> 
+> Si vous voulez prendre en main Azure Web Sites avant de créer un compte, accédez à <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, où vous pourrez immédiatement et gratuitement créer un site de départ ASP.NET de courte durée dans Azure Web Sites. Aucune carte de crédit n'est requise, vous ne prenez aucun engagement.
 
 ##Configuration requise
 
 1. [Téléchargez][tasklist-sqlazure-download] les fichiers de l'application Tasklist. Il s'agit d'une application PHP simple qui vous permet d'ajouter, de marquer comme terminés et de supprimer des éléments d'une liste de tâches. Ces derniers sont stockés dans une base de données SQL (SQL Server Express pour le test local). L'application se compose des fichiers suivants :
 
-* **index.php** : affiche les tâches et fournit un formulaire pour ajouter un élément à la liste.
-* **additem.php** : ajoute un élément à la liste.
-* **getitems.php** : obtient tous les éléments de la base de données.
-* **markitemcomplete.php** : définit l'état d'un élément sur Terminé.
-* **deleteitem.php** : supprime un élément.
-* **taskmodel.php** : contient les fonctionnalités permettant d'ajouter, d'obtenir, de mettre à jour et de supprimer des éléments de la base de données.
-* **createtable.php** : crée la table de base de données SQL pour l'application. Ce fichier sera appelé une seule fois.
+	* **index.php** : affiche les tâches et fournit un formulaire pour ajouter un élément à la liste.
+	* **additem.php** : ajoute un élément à la liste.
+	* **getitems.php** : obtient tous les éléments de la base de données.
+	* **markitemcomplete.php** : définit l'état d'un élément sur Terminé.
+	* **deleteitem.php** : supprime un élément.
+	* **taskmodel.php** : contient les fonctionnalités permettant d'ajouter, d'obtenir, de mettre à jour et de supprimer des éléments de la base de données.
+	* **createtable.php** : crée la table de base de données SQL pour l'application. Ce fichier sera appelé une seule fois.
 
-2. Créez une base de données SQL Server nommée " tasklist ". Pour cela, utilisez l'invite de commandes " sqlcmd " avec ces commandes :
+2. Créez une base de données SQL Server nommée tasklist. Pour cela, utilisez l'invite de commandes sqlcmd avec ces commandes :
 
 		>sqlcmd -S <server name>\sqlexpress -U <user name> -P <password>
 		1> create database tasklist
@@ -49,7 +52,7 @@ En suivant ce didacticiel, vous allez créer une application web Tasklist simple
 ## Création d'un site web et d'une base de données SQL
 
 1. Connectez-vous au [portail de gestion][preview-portal].
-2. Cliquez sur l'icône **+ Nouveau** dans le coin inférieur gauche du portail.
+2. Cliquez sur l'icône **+ Nouveau** en bas à gauche du portail.
 
 	![Create New Azure Web Site][NewWebSite1]
 
@@ -57,15 +60,15 @@ En suivant ce didacticiel, vous allez créer une application web Tasklist simple
 
 	![Custom Create a new Web Site][NewWebSite2]
 
-	Entrez une valeur pour **URL** et, dans la liste déroulante **BASE DE DONNÉES**, sélectionnez **Créer une nouvelle base de données SQL**, puis sélectionnez un centre de données pour votre site web dans la liste déroulante **﻿RÉGION**. Cliquez sur la flèche située en bas de la boîte de dialogue.
+	Entrez une valeur dans le champ **URL**, sélectionnez **Créer une base de données SQL** dans la liste déroulante **BASE DE DONNÉES**, puis sélectionnez un centre de données pour votre site web dans la liste déroulante **RÉGION**. Cliquez sur la flèche située en bas de la boîte de dialogue.
 
 	![Fill in web site details][NewWebSite3_SQL]
 
-4. Entrez une valeur pour le **NOM** de votre base de données, puis sélectionnez **NOUVEAU serveur de base de données SQL**. Entrez un nom et un mot de passe de connexion au serveur (et confirmez le mot de passe). Sélectionnez la région dans laquelle votre serveur de base de données SQL sera créé.
+4. Entrez une valeur dans le champ **NOM** de votre base de données et sélectionnez **Nouveau serveur de base de données SQL**. Entrez un nom et un mot de passe de connexion au serveur (et confirmez le mot de passe). Sélectionnez la région dans laquelle votre serveur de base de données SQL sera créé.
 
 	![Fill in SQL Database settings][NewWebSite4_SQL]
 
-	Lorsque le site web est créé, le texte **Création du site web " [NOM DU SITE] " réussie** apparaît. Ensuite, vous obtenez les informations de connexion à la base de données.
+	Une fois le site web créé, le texte **La création du site web " [NOM_SITE] " a réussi**. Ensuite, vous obtenez les informations de connexion à la base de données.
 
 5. Cliquez sur **RESSOURCES LIÉES**, puis sélectionnez le nom de la base de données.
 
@@ -75,7 +78,7 @@ En suivant ce didacticiel, vous allez créer une application web Tasklist simple
 
 	![Connection string][NewWebSite7]
 	
-Dans la section **PHP** de la boîte de dialogue qui s'affiche, notez les valeurs pour " UID ", " PWD ", " Database " et " $serverName ". Ces informations vous serviront plus tard.
+Dans la section **PHP** de la boîte de dialogue qui s'affiche, notez les valeurs des champs UID, PWD, Database et $serverName. Ces informations vous serviront plus tard.
 
 ##Installation de WebMatrix
 
@@ -89,7 +92,7 @@ Vous pouvez installer WebMatrix à partir du [portail de gestion][preview-portal
 
 2. Une fois WebMatrix installé, il tentera d'ouvrir votre site en tant que projet WebMatrix. Vous pouvez choisir de modifier votre site directement ou de télécharger une copie locale. Pour ce didacticiel, sélectionnez " Modifier une copie locale ". 
 
-3. Lorsque vous êtes invité à télécharger votre site, sélectionnez **Oui, installer à partir de la galerie de modèles**.
+3. Quand vous êtes invité à télécharger votre site, choisissez **Oui, installer à partir de la galerie de modèles**.
 
 	![Download web site][download-site]
 
@@ -97,7 +100,7 @@ Vous pouvez installer WebMatrix à partir du [portail de gestion][preview-portal
 
 	![Site from template][site-from-template]
 
-5. Sélectionnez le modèle **Site vide**. Nommez le site, puis cliquez sur **SUIVANT**.
+5. Sélectionnez le modèle **Site vide**. Indiquez un nom pour le site, puis cliquez sur **SUIVANT**.
 
 	![Provide name for site][site-from-template-2]
 
@@ -107,13 +110,13 @@ WebMatrix ouvre votre site ainsi que certains fichiers par défaut.
 
 Durant les prochaines étapes, vous allez développer l'application Tasklist en ajoutant les fichiers téléchargés auparavant et en apportant quelques modifications. Cependant, vous pouvez ajouter vos propres fichiers ou en créer.
 
-1. Tandis que votre site est ouvert dans WebMatrix, ajoutez vos fichiers d'application en cliquant sur **Ajouter existant** :
+1. Quand votre site est ouvert dans WebMatrix, ajoutez les fichiers de votre application en cliquant sur **Ajouter existant** :
 
 	![WebMatrix - Add existing files][edit_addexisting]
 
-	Dans la boîte de dialogue qui s'affiche, accédez aux fichiers téléchargés auparavant, sélectionnez-les tous, puis cliquez sur Ouvrir. ﻿Lorsque vous y êtes invité, remplacez le fichier " index.php ". 
+	Dans la boîte de dialogue qui s'affiche, accédez aux fichiers téléchargés auparavant, sélectionnez-les tous, puis cliquez sur Ouvrir. Lorsque vous y êtes invité, remplacez le fichier index.php. 
 
-2. Vous devez ensuite ajouter les informations de connexion à votre base de données SQL Server locale au fichier " taskmodel.php ". Ouvrez le fichier " taskmodel.php " en double-cliquant dessus, puis mettez à jour les informations de connexion à la base de données dans la fonction " connect ". (**Remarque** : passez à l'étape [Publication de votre application](#Publish) si vous ne voulez pas tester votre application en local, mais plutôt la publier directement sur Sites Web Azure).
+2. Ensuite, vous devez ajouter les informations de connexion de votre base de données SQL Server locale au fichier taskmodel.php. Ouvrez le fichier taskmodel.php en double-cliquant dessus, puis mettez à jour les informations de connexion de la base de données dans la fonction connect. (**Remarque** : Allez directement à la section [Publier votre application](#Publish) si vous ne voulez pas tester votre application localement, mais plutôt la publier directement dans Azure Web Sites.)
 
 		// DB connection info
 		$host = "localhost\sqlexpress";
@@ -121,20 +124,20 @@ Durant les prochaines étapes, vous allez développer l'application Tasklist en 
 		$pwd = "your password";
 		$db = "tasklist";
 
-	Enregistrez le fichier " taskmodel.php ".
+	Enregistrez le fichier taskmodel.php.
 
-3. Pour exécuter l'application, vous devez créer la table " items ". Cliquez avec le bouton droit sur le fichier " createtable.php ", puis sélectionnez **Lancer dans le navigateur**. Ceci lancera " createtable.php " dans votre navigateur et exécutera le code créant la table " items " dans la base de données " tasklist ".
+3. Pour exécuter l'application, vous devez créer la table items. Cliquez avec le bouton droit sur le fichier createtable.php et sélectionnez **Lancer dans le navigateur**. Ceci lancera createtable.php dans votre navigateur et exécutera le code qui crée la table items dans la base de données tasklist.
 
 	![WebMatrix - Launch createtable.php in browser][edit_run]
 
-4. ﻿À présent, vous pouvez tester l'application en local. Cliquez avec le bouton droit sur le fichier " index.php ", puis sélectionnez **Lancer dans le navigateur**. Testez l'application en ajoutant des éléments, en les marquant comme terminés et en les supprimant.   
+4. À présent, vous pouvez tester localement l'application. Cliquez avec le bouton droit sur le fichier index.php et sélectionnez **Lancer dans le navigateur**. Testez l'application en ajoutant des éléments, en les marquant comme terminés et en les supprimant.   
 
 
 <h2><a id="Publish"></a>Publication de votre application</h2>
 
-Avant de publier votre application dans Sites Web Azure, vous devez mettre à jour les informations de connexion à la base de données dans " taskmodel.php " en utilisant les informations de connexion que vous avez obtenues précédemment (dans la section [Création d'un site web Azure et d'une base de données SQL](#CreateWebsite)).
+Avant de publier votre application dans Azure Web Sites, vous devez mettre à jour les informations de connexion de la base de données dans taskmodel.php avec les informations de connexion que vous avez obtenues précédemment (dans la section [Création d'un site web Azure et d'une base de données MySQL](#CreateWebsite) ).
 
-1. Ouvrez le fichier " taskmodel.php " en double-cliquant dessus, puis mettez à jour les informations de connexion à la base de données dans la fonction " connect ".
+1. Ouvrez le fichier taskmodel.php en double-cliquant dessus, puis mettez à jour les informations de connexion de la base de données dans la fonction connect.
 
 		// DB connection info
 		$host = "value of $serverName";
@@ -144,22 +147,22 @@ Avant de publier votre application dans Sites Web Azure, vous devez mettre à jo
 	
 	Save the `taskmodel.php` file.
 
-2. Dans WebMatrix, cliquez sur **Publier**, puis dans la boîte de dialogue **Aperçu de publication**, cliquez sur **Continuer**.
+2. Cliquez sur **Publier** dans WebMatrix, puis sur**Continuer** dans la boîte de dialogue **Aperçu de publication**.
 
 	![WebMatrix - Publish][edit_publish]
 
-3. Accédez à http://[nom de votre site Web].azurewebsites.net/createtable.php pour créer la table " items ".
+3. Accédez à http://[nom de votre site web].azurewebsites.net/createtable.php pour créer la table items.
 
 4. Enfin, accédez à http://[nom de votre site web].azurewebsites.net/index.php pour lancer l'application.
 	
 ##Modification et republication de votre application
 
-Vous pouvez facilement modifier votre application en modifiant la copie locale du site que vous avez téléchargée précédemment, puis en la republiant, ou en apportant directement vos modifications en mode Distant. Ici, nous allons simplement modifier le titre dans le fichier " index.php ", puis l'enregistrer directement dans le site.
+Vous pouvez facilement modifier votre application en modifiant la copie locale du site que vous avez téléchargée précédemment, puis en la republiant, ou en apportant directement vos modifications en mode Distant. Ici, nous allons simplement modifier le titre dans le fichier index.php, puis l'enregistrer directement dans le site en ligne.
 
-1. Dans WebMatrix, cliquez sur l'onglet Distant de votre site, puis sélectionnez **Ouvrir l'affichage distant**. Ceci ouvre votre site à distance pour vous permettre de le modifier directement.
+1. Dans WebMatrix, cliquez sur l'onglet Distant de votre site, puis sélectionnez **Ouvrir l'affichage distant**. Ceci ouvrira votre site à distance pour vous permettre de le modifier directement.
 	 ![WebMatrix - Open Remote View][OpenRemoteView]
  
-2. Double-cliquez sur le fichier " index.php " pour l'ouvrir.
+2. Double-cliquez sur le fichier index.php pour l'ouvrir.
 	![WebMatrix - Open index file][Remote_editIndex]
 
 3. Remplacez **My ToDo List** par **My Task List** dans les balises **title** et **h1**, puis enregistrez le fichier.
@@ -176,7 +179,7 @@ Vous savez désormais comment créer et déployer un site web de WebMatrix vers 
 
 * [WebMatrix pour Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
 
-* [Site Web WebMatrix](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
+* [Site web WebMatrix](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
 
 
@@ -233,3 +236,5 @@ Vous savez désormais comment créer et déployer un site web de WebMatrix vers 
 
 
 
+
+<!--HONumber=35_1-->

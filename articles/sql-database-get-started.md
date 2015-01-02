@@ -1,8 +1,6 @@
-﻿<properties urlDisplayName="How to create and provision" pageTitle="Prise en main de la base de données SQL - Azure" metaKeywords="" description="Get started creating and managing SQL Databases in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="loclar"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
+﻿<properties urlDisplayName="How to create and provision" pageTitle="Prise en main de la base de données SQL - Azure" metaKeywords="" description="Get started creating and managing SQL Databases in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="jeffryg"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="loclar" />
-
-
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jeffreyg" />
 
 
 #Prise en main de Microsoft SQL Azure
@@ -24,12 +22,12 @@ Vous allez créer et mettre en service un exemple de base de données sur la pla
 * [Étape 6 : insertion des données](#insertData)
 * [Étape 7 : interrogation des données de l'exemple et des données système dans le portail de gestion pour la base de données SQL](#QueryDBSysData)
 * [Étape 8 : création d'une connexion de base de données et attribution d'autorisations](#DBLogin)
-* [Étape 9 : connexion depuis d'autres applications](#ClientConnection)
+* [Étape 9 : connexion à partir d'une application](#ClientConnection)
 
 
 <h2 id="Subscribe">Étape 1 : création d'un compte Microsoft Azure</h2>
 
-1. Ouvrez un navigateur Web et accédez à la page [http://azure.microsoft.com](http://azure.microsoft.com).
+1. Ouvrez un navigateur web et accédez à la page [http://azure.microsoft.com](http://azure.microsoft.com).
 Pour commencer avec un compte gratuit, cliquez sur Version d'évaluation gratuite dans le coin supérieur droit, puis suivez la procédure.
 
 2. Votre compte est maintenant créé. Vous êtes prêt à commencer.
@@ -42,15 +40,15 @@ Pour commencer avec un compte gratuit, cliquez sur Version d'évaluation gratuit
 
 	![Navigation pane][Image1]
 
-2. Cliquez sur **Nouveau** en bas de la page. Lorsque vous cliquez sur **Nouveau**, une liste des éléments que vous avez créés s'affiche à l'écran.
+2. Cliquez sur **Nouveau** au bas de la page. Quand vous cliquez sur **Nouveau**, une liste des éléments que vous avez créés s'affiche à l'écran.
 
-3. Cliquez sur **Base de données SQL**, puis sur **Custom Create**. 
+3. Cliquez sur **Base de données SQL**, puis sur **Création personnalisée**. 
 
 	![Navigation pane][Image2]
 
 Cette option vous permet de créer en même temps un serveur et une base de données SQL dont vous serez l'administrateur. En tant qu'administrateur système, vous pouvez exécuter d'autres tâches, notamment vous connecter au portail de gestion pour la base de données SQL, comme vous le ferez plus tard dans ce didacticiel.  
 
-4.  Lorsque vous cliquez sur **Custom Create**, la page Paramètres de la base de données s'affiche. Sur cette page, fournissez les informations de base pour créer une base de données SQL vide sur le serveur. L'ajout des tables et des données se fera à une étape ultérieure. 
+4.  La page Paramètres de la base de données s'affiche une fois que vous avez cliqué sur **Création personnalisée**. Sur cette page, fournissez les informations de base pour créer une base de données SQL vide sur le serveur. L'ajout des tables et des données se fera à une étape ultérieure. 
 
     Remplissez la page Paramètres de la base de données comme suit :
 
@@ -60,9 +58,9 @@ Cette option vous permet de créer en même temps un serveur et une base de donn
 
 * Utilisez les paramètres par défaut pour les options relatives à l'édition, la taille maximale et le classement. 
 
-* Choisissez **New SQL Database Server**. Lorsque vous sélectionnez un nouveau serveur, une seconde page s'affiche, dont nous allons nous servir pour définir le compte d'administrateur et la région. 
+* Choisissez **Nouveau serveur de base de données SQL**. Lorsque vous sélectionnez un nouveau serveur, une seconde page s'affiche, dont nous allons nous servir pour définir le compte d'administrateur et la région. 
 
-* Cliquez ensuite sur la flèche pour passer à la page suivante.
+* Quand vous avez terminé, cliquez sur la flèche pour passer à la page suivante.
 
 
 7. Remplissez la page Paramètres du serveur comme suit : 
@@ -75,13 +73,13 @@ Cette option vous permet de créer en même temps un serveur et une base de donn
 
 * Choisissez une région. La région détermine l'emplacement géographique du serveur. Choisissez une région qui est pertinente pour ce serveur, car il n'est pas possible de basculer facilement d'une région à l'autre. Choisissez un emplacement le plus proche possible de vous. Vous économisez sur les coûts de la bande passante de sortie et réduisez la latence des données en maintenant l'application et la base de données Azure dans la même région.
 
-* Veillez à ce que la case à cocher **Allow Azure Services to access this server**   reste activée pour pouvoir vous connecter à cette base de données avec le portail de gestion pour la base de données SQL, Excel dans Office 365 ou Azure SQL Reporting.
+* Veillez à ce que la case à cocher **Allow Azure Services to access this server** reste activée pour pouvoir vous connecter à cette base de données via le portail de gestion pour Base de données SQL, Excel dans Office 365 ou Azure SQL Reporting.
 
 * Une fois que vous avez terminé, cliquez sur la coche en bas de la page.
 
 Comme vous pouvez le remarquer, vous n'avez spécifié aucun nom de serveur. Dans la mesure où le serveur de la base de données SQL doit être accessible dans le monde entier, la base de données SQL configure les entrées DNS appropriées à la création du serveur. Le nom généré garantit l'absence de conflit avec d'autres entrées DNS. Vous ne pouvez pas changer le nom de votre serveur de base de données SQL.
 
-Pour voir le nom du serveur qui héberge la base de données **School** que vous venez de créer, cliquez sur **SQL Databases** dans le volet de navigation de gauche, puis cliquez sur la base de données **School** dans l'affichage en liste de **SQL Databases**. Sur la page **Quick Start** page, faites défiler jusqu'à voir le nom du serveur.
+Pour afficher le nom du serveur qui héberge la base de données **School** que vous venez de créer, cliquez sur **Bases de données SQL** dans le volet de navigation de gauche, puis cliquez sur la base de données **School** dans l'affichage de liste **Bases de données SQL**. Sur la page **Démarrage rapide**, faites défiler l'écran vers le bas jusqu'à ce que le nom du serveur apparaisse.
 
 À l'étape suivante, vous allez configurer le pare-feu de telle sorte que les connexions des applications exécutées sur votre ordinateur soient autorisées à accéder aux bases de données sur votre serveur de base de données SQL.
 
@@ -91,18 +89,18 @@ Pour voir le nom du serveur qui héberge la base de données **School** que vous
 
 Pour configurer le pare-feu de telle sorte que les connexions puissent y transiter, vous allez entrer des informations sur la page du serveur.
 
-**Remarque :** le service de base de données SQL est disponible uniquement avec le port TCP 1433 utilisé par le protocole TDS. Assurez-vous par conséquent que le pare-feu sur votre réseau et l'ordinateur local autorise les communications TCP sortantes sur le port 1433. Pour plus d'informations, consultez la page [Pare-feu de la base de données SQL](http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-fr-fr.aspx).
+**Remarque :** le service Base de données SQL est disponible uniquement avec le port TCP 1433 utilisé par le protocole TDS. Assurez-vous par conséquent que le pare-feu sur votre réseau et l'ordinateur local autorise les communications TCP sortantes sur le port 1433. Pour plus d'informations, consultez la page traitant du [pare-feu de Base de données SQL](http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-fr-fr.aspx).
 
 
-1. Dans le volet de navigation sur la gauche, cliquez sur **Bases de données SQL**.
+1. Dans le volet de navigation de gauche, cliquez sur **Bases de données SQL**.
 
 2. Cliquez sur **Serveurs** en haut de la page. Cliquez ensuite sur le serveur que vous venez de créer pour ouvrir la page du serveur.
 
-3. Sur la page du serveur, cliquez sur **Configurer** afin d'ouvrir les paramètres **Adresses IP autorisées**, puis cliquez sur le lien **Ajouter aux adresses IP autorisées**. Cela créera une règle de pare-feu afin d'autoriser les demandes de connexion du routeur ou du serveur proxy sur lequel votre appareil écoute.
+3. Sur la page du serveur, cliquez sur **Configurer** pour ouvrir les paramètres **Adresses IP autorisées**, puis cliquez sur le lien **Ajoutez aux adresses IP autorisées**. Cela créera une règle de pare-feu afin d'autoriser les demandes de connexion du routeur ou du serveur proxy sur lequel votre appareil écoute.
 
 4. Vous pouvez créer des règles de pare-feu supplémentaires en spécifiant un nom de règle ainsi que les valeurs de début et de fin de la plage d'adresses IP.
 
-5. Pour autoriser les interactions entre ce serveur et d'autres services Azure, cliquez sur **Oui** pour l'option **Microsoft Azure Services**. 
+5. Pour autoriser les interactions entre ce serveur et les autres services Azure, cliquez sur **Oui** pour l'option **Services Microsoft Azure**. 
 
 7. Pour enregistrer les modifications, cliquez sur **ENREGISTRER** au bas de la page.
 
@@ -122,28 +120,28 @@ Au fur et à mesure que vous développerez vos compétences, vous aurez envie d'
 
 Dans cette étape, vous allez exécuter deux scripts. Le premier crée un schéma qui définit des tables, des colonnes et des relations. Le second script ajoute les données. Chaque opération s'effectue indépendamment sur une connexion distincte. Si vous avez déjà créé des bases de données dans SQL Server, l'une des différences que vous pourrez constater dans la base de données SQL concerne les commandes CREATE et INSERT : elles doivent être exécutées dans des lots distincts. La base de données SQL impose cette exigence pour minimiser les attaques contre les données pendant leur transport. 
 
-**Remarque :** le schéma et les valeurs des données proviennent de cet [article MSDN](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee621790.aspx "MSDN article") et ont été modifiés pour fonctionner avec la base de données SQL.
+**Remarque :** le schéma et les valeurs des données sont tirés de cet [article MSDN](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee621790.aspx "MSDN article") et ont été modifiés pour fonctionner avec Base de données SQL.
 
-1. Accédez à la page d'accueil. Dans le [portail de gestion](http://manage.windowsazure.com), la seconde base de données **School** apparaît dans la liste des éléments sur la page d'accueil.
+1. Accédez à la page d'accueil. Dans le [portail de gestion](http://manage.windowsazure.com), la base de données **School** figure dans la liste des éléments de la page d'accueil.
 
 	![Navigation pane][Image8]
 
-2. Cliquez sur **School** pour la sélectionner, puis sur gérer **Gérer** au bas de la page. Le portail de gestion pour la base de données SQL s'ouvre. Ce portail est distinct du portail de gestion Azure. Vous allez utiliser ce portail pour exécuter les commandes et les requêtes Transact-SQL.
+2. Cliquez sur **School** pour sélectionner la base de données, puis sur **Gérer** au bas de la page. Le portail de gestion pour la base de données SQL s'ouvre. Ce portail est distinct du portail de gestion Azure. Vous allez utiliser ce portail pour exécuter les commandes et les requêtes Transact-SQL.
 
-3. Entrez le nom et le mot de passe de connexion administrateur afin de vous connecter à la base de données **School**. Il s'agit de la connexion administrateur que vous avez spécifiée à la création du serveur.
+3. Entrez le nom et le mot de passe de connexion administrateur pour vous connecter à la base de données **School**. Il s'agit de la connexion administrateur que vous avez spécifiée à la création du serveur.
 
-4. Dans le portail de gestion de la base de données SQL, cliquez sur **Nouvelle requête** dans le ruban. Une fenêtre de requête vide va s'ouvrir dans l'espace de travail. À l'étape suivante, vous allez copier dans cette fenêtre une série de scripts prédéfinis qui ajouteront une structure et des données à votre base de données vide.
+4. Dans le portail de gestion de Base de données SQL, cliquez sur **Nouvelle requête** dans le ruban. Une fenêtre de requête vide va s'ouvrir dans l'espace de travail. À l'étape suivante, vous allez copier dans cette fenêtre une série de scripts prédéfinis qui ajouteront une structure et des données à votre base de données vide.
 
 
 
 <h2 id="createschema">Étape 5 : création du schéma</h2>
 
-Vous allez à présent créer le schéma en utilisant le script suivant. Le script commence par rechercher s'il existe une table existante de même nom pour s'assurer qu'il n'y aura pas de conflit de nom, puis crée la table avec l'instruction [CREATE TABLE](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336258.aspx). Par ailleurs, ce script utilise l'instruction [ALTER TABLE](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336286.aspx) pour spécifier la clé primaire et les relations de la table.
+Vous allez à présent créer le schéma en utilisant le script suivant. Le script commence par vérifier qu'il n'existe pas une table de même nom pour s'assurer qu'il n'y aura pas de conflit de nom, puis crée la table avec l'instruction [CREATE TABLE](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336258.aspx) . Ensuite, ce script utilise l'instruction [ALTER TABLE](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336286.aspx) pour spécifier la clé primaire et les relations de la table.
 
 Copiez le script et collez-le dans la fenêtre de requête. Cliquez sur **Exécuter** en haut de la fenêtre pour exécuter le script.
 
 <div style="width:auto; height:600px; overflow:auto"><pre>
-	-- Créez la table Department.
+	-- Create the Department table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[Department]') 
 		AND type in (N'U'))
@@ -162,7 +160,7 @@ Copiez le script et collez-le dans la fenêtre de requête. Cliquez sur **Exécu
     END;
 	GO
 
-	-- Créez la table Person.
+	-- Create the Person table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[Person]') 
 		AND type in (N'U'))
@@ -181,7 +179,7 @@ Copiez le script et collez-le dans la fenêtre de requête. Cliquez sur **Exécu
 	END;
 	GO
 
-	-- Créez la table OnsiteCourse.
+	-- Create the OnsiteCourse table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[OnsiteCourse]') 
 		AND type in (N'U'))
@@ -199,7 +197,7 @@ Copiez le script et collez-le dans la fenêtre de requête. Cliquez sur **Exécu
 	END;
 	GO
 
-	-- Créez la table OnlineCourse.
+	-- Create the OnlineCourse table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[OnlineCourse]') 
 		AND type in (N'U'))
@@ -215,7 +213,7 @@ Copiez le script et collez-le dans la fenêtre de requête. Cliquez sur **Exécu
 	END;
 	GO
 
-	-- Créez la table StudentGrade.
+	--Create the StudentGrade table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[StudentGrade]') 
 		AND type in (N'U'))
@@ -233,7 +231,7 @@ Copiez le script et collez-le dans la fenêtre de requête. Cliquez sur **Exécu
 	END;
 	GO
 
-	-- Créez la table CourseInstructor.
+	-- Create the CourseInstructor table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[CourseInstructor]') 
 		AND type in (N'U'))
@@ -250,7 +248,7 @@ Copiez le script et collez-le dans la fenêtre de requête. Cliquez sur **Exécu
 	END;
 	GO
 
-	-- Créez la table Course.
+	-- Create the Course table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[Course]') 
 		AND type in (N'U'))
@@ -268,7 +266,7 @@ Copiez le script et collez-le dans la fenêtre de requête. Cliquez sur **Exécu
 	END;
 	GO
 
-	-- Créez la table OfficeAssignment.
+	-- Create the OfficeAssignment table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[OfficeAssignment]')
 		AND type in (N'U'))
@@ -285,7 +283,7 @@ Copiez le script et collez-le dans la fenêtre de requête. Cliquez sur **Exécu
 	END;
 	GO
 
-	-- Définissez la relation entre OnsiteCourse et Course.
+	-- Define the relationship between OnsiteCourse and Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_OnsiteCourse_Course]')
        AND parent_object_id = OBJECT_ID(N'[dbo].[OnsiteCourse]'))
@@ -297,7 +295,7 @@ Copiez le script et collez-le dans la fenêtre de requête. Cliquez sur **Exécu
        CONSTRAINT [FK_OnsiteCourse_Course];
 	GO
 
-	-- Définissez la relation entre OnlineCourse et Course.
+	-- Define the relationship between OnlineCourse and Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_OnlineCourse_Course]')
        AND parent_object_id = OBJECT_ID(N'[dbo].[OnlineCourse]'))
@@ -308,7 +306,7 @@ Copiez le script et collez-le dans la fenêtre de requête. Cliquez sur **Exécu
 	ALTER TABLE [dbo].[OnlineCourse] CHECK 
        CONSTRAINT [FK_OnlineCourse_Course];
 	GO
-	-- Définissez la relation entre StudentGrade et Course.
+	-- Define the relationship between StudentGrade and Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_StudentGrade_Course]')
        AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'))
@@ -320,7 +318,7 @@ Copiez le script et collez-le dans la fenêtre de requête. Cliquez sur **Exécu
        CONSTRAINT [FK_StudentGrade_Course];
 	GO
 
-	-- Définissez la relation entre StudentGrade et Course.
+	--Define the relationship between StudentGrade and Student.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_StudentGrade_Student]')
        AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'))	
@@ -332,7 +330,7 @@ Copiez le script et collez-le dans la fenêtre de requête. Cliquez sur **Exécu
        CONSTRAINT [FK_StudentGrade_Student];
 	GO
 
-	-- Définissez la relation entre CourseInstructor et Course.
+	-- Define the relationship between CourseInstructor and Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
   	 WHERE object_id = OBJECT_ID(N'[dbo].[FK_CourseInstructor_Course]')
   	 AND parent_object_id = OBJECT_ID(N'[dbo].[CourseInstructor]'))
@@ -344,7 +342,7 @@ Copiez le script et collez-le dans la fenêtre de requête. Cliquez sur **Exécu
  	  CONSTRAINT [FK_CourseInstructor_Course];
 	GO
 
-	-- Définissez la relation entre CourseInstructor et Person.
+	-- Define the relationship between CourseInstructor and Person.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
  	  WHERE object_id = OBJECT_ID(N'[dbo].[FK_CourseInstructor_Person]')
 	   AND parent_object_id = OBJECT_ID(N'[dbo].[CourseInstructor]'))
@@ -356,7 +354,7 @@ Copiez le script et collez-le dans la fenêtre de requête. Cliquez sur **Exécu
   	 CONSTRAINT [FK_CourseInstructor_Person];
 	GO
 
-	-- Définissez la relation entre Course et Department.
+	-- Define the relationship between Course and Department.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_Course_Department]')
        AND parent_object_id = OBJECT_ID(N'[dbo].[Course]'))
@@ -367,7 +365,7 @@ Copiez le script et collez-le dans la fenêtre de requête. Cliquez sur **Exécu
 	ALTER TABLE [dbo].[Course] CHECK CONSTRAINT [FK_Course_Department];
 	GO
 
-	-- Définissez la relation entre OfficeAssignment et Person.
+	--Define the relationship between OfficeAssignment and Person.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
 	  WHERE object_id = OBJECT_ID(N'[dbo].[FK_OfficeAssignment_Person]')
  	  AND parent_object_id = OBJECT_ID(N'[dbo].[OfficeAssignment]'))
@@ -384,10 +382,10 @@ Copiez le script et collez-le dans la fenêtre de requête. Cliquez sur **Exécu
 
 <h2 id="insertData">Étape 6 : insertion des données</h2>
 
-Ouvrez une nouvelle fenêtre de requête, puis collez-y le script suivant. Exécutez le script pour insérer les données. Ce script utilise l'instruction [INSERT](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336284.aspx) pour ajouter des valeurs à chaque colonne.
+Ouvrez une nouvelle fenêtre de requête, puis collez-y le script suivant. Exécutez le script pour insérer les données. Ce script utilise l'instruction [INSERT](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336284.aspx) pour ajouter les valeurs à chaque colonne.
 
 <div style="width:auto; height:600px; overflow:auto"><pre>
-	-- Insérez des données dans la table Person.
+	-- Insert data into the Person table.
 	SET IDENTITY_INSERT dbo.Person ON;
 	GO
 	INSERT INTO dbo.Person (PersonID, LastName, FirstName, HireDate, EnrollmentDate)
@@ -459,7 +457,7 @@ Ouvrez une nouvelle fenêtre de requête, puis collez-y le script suivant. Exéc
 	INSERT INTO dbo.Person (PersonID, LastName, FirstName, HireDate, EnrollmentDate)
 	VALUES (34, 'Van Houten', 'Roger', '2000-12-07', null);
 	GO
-	SET IDENTITY_INSERT dbo.Person ON;
+	SET IDENTITY_INSERT dbo.Person OFF;
 	GO
 	
 </pre></div>
@@ -493,7 +491,7 @@ Exécutez cette commande pour renvoyer la liste des utilisateurs actuellement co
 
 	SELECT user_name(),suser_sname()
 
-Exécutez cette procédure stockée pour renvoyer la liste de tous les objets dans la base de données **School**.
+Exécutez cette procédure stockée pour renvoyer la liste de tous les objets de la base de données **School**.
 
 	EXEC SP_help
 
@@ -507,7 +505,7 @@ Dans la base de données SQL, vous pouvez créer des informations de connexion e
 
 
 1. Création d'une connexion d'authentification SQL Server
-2. Création d'un utilisateur de bases de données et
+2. Création d'un utilisateur de base de données et
 3. Attribution d'autorisations avec l'appartenance à un rôle.
 
 Une connexion d'authentification SQL Server est utilisée pour les connexions au serveur. Tous les utilisateurs qui accèdent à une base de données sur un serveur de base de données SQL le font en fournissant un nom et un mot de passe de connexion d'authentification SQL Server. 
@@ -516,16 +514,16 @@ Pour créer une connexion, vous devez d'abord vous connecter à la base de donn�
 
 <h4 id="CreateLogin">Création d'une connexion d'authentification SQL Server</h4>
 
-1. Dans le [portail de gestion](http://manage.windowsazure.com), sélectionnez **Bases de données SQL**, cliquez sur **Serveurs**, choisissez le serveur, puis cliquez sur la flèche blanche pour ouvrir la 
+1. Dans le [portail de gestion](http://manage.windowsazure.com), sélectionnez **Bases de données SQL**, cliquez sur **Serveurs**, choisissez le serveur, puis cliquez sur la flèche blanche pour ouvrir la
 page du serveur.
 
-2. Sur la page Démarrage rapide, cliquez sur **Gérer le serveur** afin d'ouvrir une nouvelle connexion au portail de gestion pour la base de données SQL. 
+2. Sur la page Démarrage rapide, cliquez sur **Gérer le serveur** pour ouvrir une nouvelle connexion au portail de gestion pour Base de données SQL. 
 
-3. Spécifiez **master** pour la base de données à laquelle vous connecter, puis connectez-vous avec votre nom d'utilisateur et votre mot de passe. Il s'agit de la connexion administrateur que vous avez spécifiée à la création du serveur.
+3. Spécifiez la base de données **master** à laquelle vous connecter, puis connectez-vous avec votre nom d'utilisateur et votre mot de passe. Il s'agit de la connexion administrateur que vous avez spécifiée à la création du serveur.
 
-4. Le portail de gestion de la base de données SQL s'ouvre dans une nouvelle fenêtre de navigateur, et vous êtes connecté à la base de données principale **master**.
+4. Le portail de gestion de Base de données SQL s'ouvre dans une nouvelle fenêtre de navigateur, et vous êtes connecté à la base de données **master**.
 
-5. Si une erreur similaire à celle affichée ci-dessous apparaît sur la page, ignorez-la. Cliquez sur **Nouvelle requête** pour ouvrir une fenêtre de requête vous permettant d'exécuter des commandes Transact-SQL sur la base de données principale (**master**).
+5. Si une erreur similaire à celle affichée ci-dessous apparaît sur la page, ignorez-la. Cliquez sur **Nouvelle requête** pour ouvrir une fenêtre de requête vous permettant d'exécuter des commandes Transact-SQL sur la base de données **master**.
 
 	![Navigation pane][Image15]
 
@@ -540,9 +538,9 @@ page du serveur.
 
 Une fois que vous avez créé une connexion d'authentification SQL, l'étape suivante consiste à attribuer les niveaux de base de données et d'autorisation associés. À cet effet, vous créez un **utilisateur de base de données** sur chaque base de données.
 
-1. Revenez à la page du portail de gestion de la base de données SQL qui permet de se connecter à la base de données **School**. Si vous avez fermé la fenêtre du navigateur, démarrez une nouvelle connexion à la base de données **School** en suivant la procédure décrite dans la leçon précédente, " Ajout de données et d'un schéma avec un script Transact-SQL ". 
+1. Revenez à la page du portail de gestion Base de données SQL qui permet de se connecter à la base de données**School**. Si vous avez fermé la fenêtre du navigateur, lancez une nouvelle connexion à la base de données **School** en suivant la procédure décrite dans la leçon précédente, " Ajout de données et d'un schéma avec un script Transact-SQL ". 
 
-	Sur la page du portail de gestion de la base de données SQL, le nom de la base de données **School** est visible dans le coin supérieur gauche.
+	Sur la page du portail de gestion Base de données SQL, le nom de la base de données **School** est visible dans le coin supérieur gauche.
 
 	![Navigation pane][Image12]
 
@@ -558,54 +556,105 @@ Une fois que vous avez créé une connexion d'authentification SQL, l'étape sui
 
         EXEC sp_addrolemember 'db_datareader', 'SQLDBUser';
 
-Vous disposez à présent d'une nouvelle connexion d'authentification SQL Server qui possède une autorisation d'accès en lecture seule à la base de données **School**. Cette procédure vous permet de créer d'autres connexions d'authentification SQL Server pour autoriser différents niveaux d'accès à vos données.
+Vous disposez à présent d'une nouvelle connexion d'authentification SQL Server qui bénéficie d'une autorisation d'accès en lecture seule à la base de données **School**. Cette procédure vous permet de créer d'autres connexions d'authentification SQL Server pour autoriser différents niveaux d'accès à vos données.
 
 
+<h2 id="ClientConnection">Étape 9 : connexion à partir d'une application</h2>
+
+Vous pouvez utiliser ADO.NET pour vous connecter à Base de données SQL Microsoft Azure. Contrairement à une connexion locale, vous devez tenir compte de la limitation et des autres défaillances de service susceptibles de mettre fin à une connexion ou de bloquer temporairement de nouvelles connexions. Cet état est connu sous le nom d' " erreur temporaire ". Pour gérer les erreurs temporaires, vous devez implémenter une stratégie de nouvelle tentative. Au moment de vous connecter à Base de données SQL Azure, vous pouvez trouver dans le document traitant du [bloc d'application de traitement des erreurs temporaires](http://go.microsoft.com/fwlink/?LinkId=519356) (partie de Enterprise Library 6 - avril 2013) des stratégies de détection qui vous permettront d'identifier un état d'erreur temporaire.
+
+<h4>Exemple C# d'application console</h4>
 
 
-<h2 id="ClientConnection">Étape 9 : connexion depuis d'autres applications</h2>
+	static void Main(string[] args)
+    {
+        //NOTE: Use appropriate exception handling in a production application.
 
-Maintenant que vous avez une base de données opérationnelle, vous pouvez vous y connecter à partir d'un classeur Excel.
+        //Replace
+        //  builder["Server"]: {servername} = Your Azure SQL Database server name
+        //  builder["User ID"]: {username}@{servername} = Your Azure SQL Database user name and server name
+        //  builder["Password"]: {password} = Your Azure SQL Database password
 
-<h4>Connexion à partir d'Excel</h4>
+        System.Data.SqlClient.SqlConnectionStringBuilder builder = new System.Data.SqlClient.SqlConnectionStringBuilder();
+        builder["Server"] = "{servername}";
+        builder["User ID"] = "{username}@{servername}";
+        builder["Password"] = "{password}";
 
+        builder["Database"] = "AdventureWorks2012";
+        builder["Trusted_Connection"] = false;
+        builder["Integrated Security"] = false;
+        builder["Encrypt"] = true;
 
-Si Microsoft Excel est installé sur votre ordinateur, vous pouvez utiliser la procédure suivante pour vous connecter à votre exemple de base de données.
+        //1. Define an Exponential Backoff retry strategy for Azure SQL Database throttling (ExponentialBackoff Class). An exponential back-off strategy will gracefully back off the load on the service.
+        int retryCount = 4;
+        int minBackoffDelayMilliseconds = 2000;
+        int maxBackoffDelayMilliseconds = 8000;
+        int deltaBackoffMilliseconds = 2000;
 
-1. Dans Excel, sous l'onglet Données, cliquez sur **À partir d'autres sources**, puis cliquez sur **À partir de SQL Server**.
+        ExponentialBackoff exponentialBackoffStrategy = 
+          new ExponentialBackoff("exponentialBackoffStrategy",
+              retryCount,
+              TimeSpan.FromMilliseconds(minBackoffDelayMilliseconds), 
+              TimeSpan.FromMilliseconds(maxBackoffDelayMilliseconds),
+              TimeSpan.FromMilliseconds(deltaBackoffMilliseconds));
 
-2. Dans l'Assistant Connexion de données, entrez le nom de domaine complet de votre serveur de base de données SQL, suivi d'une connexion d'authentification SQL Server munie de l'autorisation d'accès à la base de données. 
+        //2. Set a default strategy to Exponential Backoff.
+        RetryManager manager = new RetryManager(new List<RetryStrategy>
+        {  
+            exponentialBackoffStrategy 
+        }, "exponentialBackoffStrategy");
 
-  Vous pouvez trouver le nom du serveur sur le portail de gestion Azure, sur la base de données SQL, sur la page du serveur, sur le tableau de bord, dans **Manage URL**. Le nom du serveur est constitué d'une série de lettres et de chiffres, suivie de " .database.windows.net ". Indiquez ce nom dans l'Assistant Connecteur de base de données, sans inclure le préfixe http:// ou https://.
+        //3. Set a default Retry Manager. A RetryManager provides retry functionality, or if you are using declarative configuration, you can invoke the RetryPolicyFactory.CreateDefault
+            RetryManager.SetDefault(manager);
 
-  Entrez une connexion d'authentification SQL Server. À des fins de test, vous pouvez utiliser la connexion administrateur que vous avez créée lors de la configuration du serveur. Pour l'accès régulier aux données, utilisez une connexion utilisateur de base de données similaire à celle que vous venez de créer.
+        //4. Define a default SQL Connection retry policy and SQL Command retry policy. A policy provides a retry mechanism for unreliable actions and transient conditions.
+        RetryPolicy retryConnectionPolicy = manager.GetDefaultSqlConnectionRetryPolicy();
+        RetryPolicy retryCommandPolicy = manager.GetDefaultSqlCommandRetryPolicy();
 
-![Navigation pane][Image16]
+        //5. Create a function that will retry the connection using a ReliableSqlConnection.
+        retryConnectionPolicy.ExecuteAction(() =>
+        {
+            using (ReliableSqlConnection connection = new ReliableSqlConnection(builder.ConnectionString))
+            {
+                connection.Open();
 
-3.  Sur la page suivante, choisissez la base de données **School**, puis **Person**. Cliquez sur **Terminer**. Si vous êtes invité à indiquer vos informations de connexion, saisissez-les, puis cliquez sur **OK**.
+                IDbCommand command = connection.CreateCommand();
+                command.CommandText = "SELECT Name FROM Production.Product";
 
-4. La boîte de dialogue Importer des données s'affiche et vous invite à choisir comment et où vous souhaitez importer vos données. Les options par défaut étant sélectionnées, cliquez sur **OK**.
+                //6. Create a function that will retry the command calling ExecuteCommand() from the ReliableSqlConnection
+                retryCommandPolicy.ExecuteAction(() =>
+                {
+                    using (IDataReader reader = connection.ExecuteCommand<IDataReader>(command))
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString(0);
 
-	![Navigation pane][Image19]
+                            Console.WriteLine(name);
+                        }
+                    }
+                });                  
+            }
+        });
 
-5. Dans la feuille de calcul, vous devez voir un résultat défini avec 34 lignes de la table Person, notamment PersonID, LastName, FirstName, HireDate et EnrollmentDate, tout comme les résultats de la requête de l'étape 7. 
+        Console.ReadLine();
+    }
 
-Avec Excel seul, vous ne pouvez importer qu'une seule table à la fois. Une meilleure approche consiste à utiliser le complément PowerPivot pour Excel, qui vous permet d'importer et d'utiliser plusieurs tables comme un seul jeu de données. L'utilisation de PowerPivot n'entre pas dans le cadre de ce didacticiel, mais vous pouvez obtenir plus d'informations dans cette rubrique consacrée à [PowerPivot pour Excel](http://go.microsoft.com/fwlink/?LinkId=396969).
 
 
 <h2 id="NextSteps">Étapes suivantes</h2>
 
 À présent que vous êtes familiarisé avec la base de données SQL et les portails de gestion, vous pouvez essayer d'autres outils et techniques employés par les administrateurs de bases de données SQL Server.
 
-Pour gérer activement votre nouvelle base de données, songez à installer et utiliser SQL Server Management Studio. Management Studio est le principal outil d'administration de base de données pour gérer les bases de données SQL Server, y compris celles qui s'exécutent sur Azure. Avec Management Studio, vous pouvez enregistrer les requêtes pour un usage ultérieur, ajouter de nouvelles tables et procédures stockées, et aiguiser vos compétences relatives à Transact-SQL dans un environnement enrichi de création de scripts, qui inclut un vérificateur de syntaxe, Intellisense et des modèles. Pour la prise en main, suivez les instructions décrites dans la page [Gestion des bases de données SQL avec SQL Server Management Studio](http://www.azure.microsoft.com/fr-fr/documentation/articles/sql-database-manage-azure-ssms/).
+Pour gérer activement votre nouvelle base de données, songez à installer et utiliser SQL Server Management Studio. Management Studio est le principal outil d'administration de base de données pour gérer les bases de données SQL Server, y compris celles qui s'exécutent sur Azure. Avec Management Studio, vous pouvez enregistrer les requêtes pour un usage ultérieur, ajouter de nouvelles tables et procédures stockées, et aiguiser vos compétences relatives à Transact-SQL dans un environnement enrichi de création de scripts, qui inclut un vérificateur de syntaxe, Intellisense et des modèles. Pour la prise en main, suivez les instructions de la page [Gestion des bases de données SQL avec SQL Server Management Studio](http://www.azure.microsoft.com/fr-fr/documentation/articles/sql-database-manage-azure-ssms/).
 
 Une bonne maîtrise du langage de définition des requêtes et des données Transact-SQL est essentielle pour les administrateurs de base de données. Si vous débutez avec Transact-SQL, commencez par le [didacticiel : écriture d'instructions Transact-SQL](http://msdn.microsoft.com/fr-fr/library/ms365303.aspx) pour apprendre quelques techniques de base.
 
 Il existe d'autres méthodes pour transférer une base de données locale vers la base de données SQL. Si vous possédez déjà des bases de données ou si vous avez téléchargé des exemples de base de données pour vous entraîner, essayez les autres approches suivantes :
 
-* [Migration de bases de données vers la base de données SQL](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee730904.aspx)
-* [Copie de bases de données dans la base de données SQL](http://msdn.microsoft.com/fr-fr/library/windowsazure/ff951624.aspx)
-* [Déploiement d'une base de données SQL Server vers une machine virtuelle Azure](http://msdn.microsoft.com/fr-fr/library/dn195938(v=sql.120).aspx)
+* [Migration de bases de données vers Base de données SQL](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee730904.aspx)
+* [Copie de bases de données dans Base de données SQL](http://msdn.microsoft.com/fr-fr/library/windowsazure/ff951624.aspx)
+* [Déploiement d'une base de données SQL Server vers une machine virtuelle Azure](http://msdn.microsoft.com/fr-fr/library/dn195938(v=sql.120).aspx).
 
 
 
@@ -630,3 +679,5 @@ Il existe d'autres méthodes pour transférer une base de données locale vers l
 [Image19]: ./media/sql-database-get-started/19ExcelImport_SQLTut.png
 [Image20]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
 
+
+<!--HONumber=35_1-->

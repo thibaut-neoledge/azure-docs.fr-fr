@@ -1,6 +1,6 @@
 ﻿<properties urlDisplayName="Blob Service" pageTitle="Utilisation du stockage d'objets blob (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Blob Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
 
 
 
@@ -8,49 +8,44 @@
 
 # Utilisation du service BLOB à partir de Node.js
 
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation
-du service Blob Azure. Les exemples sont écrits en utilisant
-l'API Node.js. Les scénarios traités incluent **le chargement**, **l'énumération**,
-**le téléchargement** et **la suppression** d'objets blob. Pour plus d'informations sur les objets blob,
-consultez la section [Étapes suivantes][Étapes suivantes].
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service Blob Azure. Les exemples sont écrits en utilisant l'API Node.js. Les scénarios traités incluent **le chargement**, **l'énumération**, **le téléchargement** et **la suppression** d'objets blob. Pour plus d'informations sur les objets blob,
+consultez la section [Étapes suivantes][].
 
 ## Sommaire
 
-* [Présentation du service BLOB][Présentation du service BLOB]    
-* [Concepts][Concepts]    
-* [Création d'un compte de stockage Azure][Création d'un compte de stockage Azure]    
-* [Création d'une application Node.js][Création d'une application Node.js]  
-* [Configuration de votre application pour accéder au stockage][Configuration de votre application pour accéder au stockage]     
-* [Configuration d'une chaîne de connexion Azure Storage][Configuration d'une chaîne de connexion Azure Storage]  
-* [ Création d'un conteneur][ Création d'un conteneur]  
-* [ Téléchargement d'un objet blob dans un conteneur][ Téléchargement d'un objet blob dans un conteneur]  
-* [ Création d'une liste d'objets blob dans un conteneur][ Création d'une liste d'objets blob dans un conteneur]  
-* [ Téléchargement d'objets blob][ Téléchargement d'objets blob]  
-* [ Suppression d'un objet blob][ Suppression d'un objet blob]  
-* [ Accès simultané][ Accès simultané]     
-* [ Utilisation des signatures d'accès partagé][ Utilisation des signatures d'accès partagé]     
-* [Étapes suivantes][Étapes suivantes]
+* [Présentation du service BLOB][]    
+* [Concepts][]    
+* [Création d'un compte Azure Storage][]    
+* [Création d'une application Node.js][]  
+* [Configuration de votre application pour accéder au stockage][]     
+* [Configuration d'une chaîne de connexion Azure Storage][]  
+* [ Création d'un conteneur][]  
+* [ Téléchargement d'un objet blob dans un conteneur][]  
+* [ Création d'une liste d'objets blob dans un conteneur][]  
+* [ Téléchargement d'objets blob][]  
+* [ Suppression d'un objet blob][]  
+* [ Accès simultané][]     
+* [ Utilisation des signatures d'accès partagé][]     
+* [Étapes suivantes][]
 
-[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[WACOM.INCLUDE [présentation-stockage-blob](../includes/howto-blob-storage.md)]
 
 ##<a name="create-account"></a>Création d'un compte Azure Storage
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[WACOM.INCLUDE [création-compte-stockage](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>Création d'une application Node.js
 
-Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure], [Service cloud Node.js][Service cloud Node.js] (avec Windows PowerShell) ou [Site Web avec WebMatrix].
+Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site web Azure], [Service cloud Node.js][Node.js Cloud Service] (avec Windows PowerShell) ou [Site web avec WebMatrix].
 
 ## <a name="configure-access"> </a>Configuration de votre application pour accéder au stockage
 
-Pour utiliser le stockage Azure, vous avez besoin du Kit de développement logiciel (SDK) Azure Storage pour Node.js, qui inclut un ensemble de bibliothèques pratiques qui
-communiquent avec les services REST de stockage.
+Pour utiliser le stockage Azure, vous avez besoin du Kit de développement logiciel (SDK) Azure Storage pour Node.js, qui inclut un ensemble de bibliothèques pratiques qui communiquent avec les services REST de stockage.
 
 ### Utilisation de Node Package Manager (NPM) pour obtenir le package
 
 1.  Utilisez une interface de ligne de commande telle que **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix) pour accéder au dossier dans lequel vous avez créé votre exemple d'application.
 
-2.  Tapez **npm install azure-storage** dans la fenêtre de commande, ce qui doit
-    aboutir à la sortie suivante :
+2.  Tapez **npm install azure-storage** dans la fenêtre de commande, ce qui doit aboutir à la sortie suivante :
 
         azure-storage@0.1.0 node_modules\azure-storage
 		├── extend@1.2.1
@@ -62,15 +57,11 @@ communiquent avec les services REST de stockage.
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  Vous pouvez exécuter manuellement la commande **ls** pour vérifier que le dossier
-    **node\_modules** a été créé. Dans ce dossier, recherchez le package
-    **azure-storage** qui contient les bibliothèques dont vous avez besoin pour accéder
-    au stockage.
+3.  Vous pouvez exécuter manuellement la commande **ls** pour vérifier que le dossier **node\_modules** a été créé. Dans ce dossier, recherchez le package **azure-storage** qui contient les bibliothèques dont vous avez besoin pour accéder au stockage.
 
 ### Importation du package
 
-À l'aide d'un éditeur de texte, comme le Bloc-notes, ajoutez la commande suivante au début du fichier
-**server.js** de l'application dans laquelle vous souhaitez utiliser le stockage :
+À l'aide d'un éditeur de texte, comme le Bloc-notes, ajoutez la commande suivante au début du fichier **server.js** de l'application dans laquelle vous souhaitez utiliser le stockage :
 
     var azure = require('azure-storage');
 
@@ -78,51 +69,51 @@ communiquent avec les services REST de stockage.
 
 Le module Azure lit les variables d'environnement AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY ou AZURE\_STORAGE\_CONNECTION\_STRING pour obtenir les informations obligatoires pour se connecter à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **createBlobService**.
 
-Pour obtenir un exemple de configuration des variables d'environnement dans le portail de gestion pour un site web Azure, consultez la rubrique [Application web Node.js avec stockage]
+Pour obtenir un exemple de configuration des variables d'environnement dans le portail de gestion pour un site web Azure, consultez la rubrique [Application web Node.js avec stockage].
 
-## <a name="create-container"> </a> Création d'un conteneur
+## <a name="create-container"> </a>Création d'un conteneur
 
 L'objet **BlobService** permet d'utiliser des conteneurs et des objets blob. Le
- code suivant crée un objet **BlobService**. Ajoutez le code suivant vers
+code suivant crée un objet **BlobService**. Ajoutez ce qui suit vers
 le début de **server.js** :
 
     var blobSvc = azure.createBlobService();
 
-> [WACOM.NOTE] Vous pouvez accéder à un objet blob de façon anonyme en utilisant **createBlobServiceAnonymous** et en fournissant l'adresse hôte. Par exemple, `var blobSvc = azure.createBlobService('https://myblob.blob.core.windows.net/');`.
+> [WACOM.NOTE] Vous pouvez accéder à un objet blob de façon anonyme en utilisant **createBlobServiceAnonymous** et en fournissant l'adresse hôte. Par exemple, " var blobSvc = azure.createBlobService('https://myblob.blob.core.windows.net/'); ".
 
 Tous les objets blob résident dans un conteneur. Pour créer un conteneur, utilisez **createContainerIfNotExists**. Le code suivant crée un conteneur nommé " mycontainer ".
 
 	blobSvc.createContainerIfNotExists('mycontainer', function(error, result, response){
-      if (!error) {
-        // Le conteneur existe et permet 
-        // l'accès en lecture anonyme au contenu 
-        // et aux métadonnées des objets blob du conteneur
+      if(!error){
+        // Container exists and allows 
+        // anonymous read access to blob 
+        // content and metadata within this container
       }
 	});
 
-Si le conteneur est créé, `result` a la valeur true. Si le conteneur existe déjà, `result` a la valeur false. `response` contient des informations sur l'opération, y compris les informations [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) du conteneur.
+Si le conteneur est créé, " result " a la valeur true. Si le conteneur existe déjà, " result " a la valeur false. " response " contient des informations concernant l'opération, y compris les informations [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) relatives au conteneur.
 
 ###Sécurité du conteneur
 
-Par défaut, les nouveaux conteneurs sont privés et ne sont pas accessibles de façon anonyme. Pour que le conteneur soit public afin de permettre l'accès anonyme, définissez le niveau d'accès au conteneur sur **blob** ou **container**.
+Par défaut, les nouveaux conteneurs sont privés et ne sont pas accessibles de façon anonyme. Pour que le conteneur soit public afin de permettre l'accès anonyme, définissez le niveau d'accès au conteneur sur **Objet blob** ou **Conteneur**.
 
-* **blob** : permet l'accès en lecture anonyme au contenu de l'objet blob et aux métadonnées de ce conteneur, mais pas aux métadonnées du conteneur, comme la liste de tous les objets blob d'un conteneur. 
+* **Objet blob** : permet l'accès en lecture anonyme au contenu et aux métadonnées de l'objet blob de ce conteneur, mais pas aux métadonnées du conteneur telles que la liste de tous les objets blob d'un conteneur. 
 
-* **container** : permet l'accès en lecture anonyme au contenu et aux métadonnées de l'objet blob, ainsi qu'aux métadonnées de conteneur. 
+* **Conteneur** : permet l'accès en lecture anonyme au contenu et aux métadonnées de l'objet blob, ainsi qu'aux métadonnées du conteneur. 
 
-L'exemple suivant illustre le niveau d'accès défini sur **blob** : 
+L'exemple suivant illustre le niveau d'accès défini sur **Objet blob** : 
 
     blobSvc.createContainerIfNotExists('mycontainer', {publicAccessLevel : 'blob'}, function(error, result, response){
-      if (!error) {
-        // Le conteneur existe et est privé
+      if(!error){
+        // Container exists and is private
       }
 	});
 
 Vous pouvez également modifier le niveau d'accès d'un conteneur en le spécifiant via **setContainerAcl**. Dans l'exemple suivant, le niveau d'accès du conteneur est modifié :
 
     blobSvc.setContainerAcl('mycontainer', null, 'container', function(error, result, response){
-	  if (!error) {
-		// Niveau d'accès du conteneur défini sur 'container'
+	  if(!error){
+		// Container access level set to 'container'
 	  }
 	});
 
@@ -145,7 +136,7 @@ Deux filtres qui implémentent la logique de relance sont inclus dans le Kit de 
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var blobSvc = azure.createBlobService().withFilter(retryOperations);
 
-## <a name="upload-blob"> </a> Téléchargement d'un objet blob dans un conteneur
+## <a name="upload-blob"> </a>Utilisation Téléchargement d'un objet blob dans un conteneur
 
 Un objet blob peut être de blocs ou de pages. Les objets blob de blocs permettent un téléchargement plus efficace des données volumineuses, alors que les objets blob de pages sont optimisés pour les opérations de lecture/écriture. Pour plus d'informations, consultez la page [Présentation des objets blob de blocs et de pages](http://msdn.microsoft.com/fr-fr/library/azure/ee691964.aspx).
 
@@ -164,12 +155,12 @@ Pour télécharger des données dans un objet blob de blocs, utilisez :
 L'exemple suivant télécharge le contenu du fichier **test.txt** dans **myblob**.
 
 	blobSvc.createBlockBlobFromLocalFile('mycontainer', 'myblob', 'test.txt', function(error, result, response){
-	  if (!error) {
-	    // fichier chargé
+	  if(!error){
+	    // file uploaded
 	  }
 	});
 
-Le `result` retourné par ces méthodes contient les informations sur l'opération, comme l'**ETag** de l'objet blob.
+Le résultat (" result ") renvoyé par ces méthodes contient les informations sur l'opération, comme l'**ETag** de l'objet blob.
 
 ###Objets blob de pages
 
@@ -188,30 +179,30 @@ Pour télécharger des données dans un objet blob de pages, utilisez :
 L'exemple suivant télécharge le contenu du fichier **test.txt** dans **mypageblob**.
 
 	blobSvc.createPageBlobFromLocalFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
-	  if (!error) {
-	    // fichier chargé
+	  if(!error){
+	    // file uploaded
 	  }
 	});
 
 > [WACOM.NOTE] Les objets blob de pages sont constitués de " pages " de 512 octets. Une erreur peut se produire lors du téléchargement de données lorsque leur taille n'est pas un multiple de 512.
 
-## <a name="list-blob"> </a> Création d'une liste d'objets blob dans un conteneur
+## <a name="list-blob"> </a>Création d'une liste d'objets blob dans un conteneur
 
 Pour créer une liste d'objets blob dans un conteneur, utilisez la méthode **listBlobsSegmented**. Pour renvoyer les objets blob avec un préfixe donné, utilisez **listBlobsSegmentedWithPrefix**.
 
     blobSvc.listBlobsSegmented('mycontainer', null, function(error, result, response){
-      if (!error) {
-        // le résultat contient les entrées
+      if(!error){
+        // result contains the entries
 	  }
 	});
 
-Le `result` contient une collection `entries`, qui est un tableau d'objets décrivant chaque objet blob. Si tous les objets blob ne peuvent pas être renvoyés, `result` fournit également un `continuationToken`, qui peut servir de deuxième paramètre pour extraire d'autres entrées.
+Le résultat (" result ") contient une collection d'entrées (" entries "), qui est un tableau d'objets décrivant chaque objet blob. Si tous les objets blob ne peuvent pas être renvoyés, le " result " fournit également un " continuationToken ", qui peut servir de deuxième paramètre pour extraire d'autres entrées.
 
-## <a name="download-blob"> </a> Téléchargement d'objets blob
+## <a name="download-blob"> </a>Téléchargement d'objets blob
 
 Pour télécharger les données d'un objet blob, utilisez :
 
-* **getBlobToFile** : permet d'écrire le contenu de l'objet blob dans un fichier
+* **getBlobToFile** : permet d'écrire le contenu de l'objet blob dans un fichier.
 
 * **getBlobToStream** : permet d'écrire le contenu de l'objet blob dans un flux.
 
@@ -223,40 +214,40 @@ L'exemple suivant présente l'utilisation de **getBlobToStream** pour téléchar
 
     var fs=require('fs');
 	blobSvc.getBlobToStream('mycontainer', 'myblob', fs.createWriteStream('output.txt'), function(error, result, response){
-	  if (!error) {
-	    // objet blob récupéré
+	  if(!error){
+	    // blob retrieved
 	  }
 	});
 
-Le `result` contient les informations de l'objet blob, y compris les informations **ETag**.
+Le " result " contient les informations de l'objet blob, y compris les informations **ETag**.
 
-## <a name="delete-blob"> </a> Suppression d'un objet blob
+## <a name="delete-blob"> </a>Suppression d'un objet blob
 
-Pour supprimer un objet blob, appelez **deleteBlob**. L'exemple suivant supprime l'objet blob **myblob**.
+Pour supprimer un objet blob, appelez **deleteBlob**. L'exemple suivant supprime l'objet blob nommé **myblob**.
 
     blobSvc.deleteBlob(containerName, 'myblob', function(error, response){
-	  if (!error) {
-		// L'objet blob a été supprimé
+	  if(!error){
+		// Blob has been deleted
 	  }
 	});
 
-##<a name="concurrent-access"></a> Accès simultané
+##<a name="concurrent-access"></a>Accès simultané
 
-Pour activer la prise en charge de l'accès simultané à un objet blob par plusieurs clients ou instances de processus, vous pouvez utiliser **ETags** ou **leases**.
+Pour activer la prise en charge de l'accès simultané à un objet blob par plusieurs clients ou instances de processus, vous pouvez utiliser un **ETag** ou un **bail**.
 
 * **Etag** permet de détecter la modification de l'objet blob ou du conteneur par un autre processus.
 
-* **Lease** permet d'obtenir l'accès exclusif, renouvelable, en écriture ou en suppression à un objet blob pour une période donnée.
+* **Le bail** permet d'obtenir l'accès exclusif, renouvelable, en écriture ou en suppression à un objet blob pour une période donnée.
 
 ###ETag
 
 Les ETag doivent être utilisés si vous avez besoin que plusieurs clients ou instances écrivent simultanément sur l'objet blob. Les ETag vous permettent de déterminer si le conteneur ou l'objet blob a été modifié depuis sa création ou son premier accès en lecture, ce qui vous évite d'écraser des changements effectués par un autre client ou processus.
 
-Les conditions ETag peuvent être définies à l'aide du paramètre facultatif `options.accessConditions`. L'exemple suivant télécharge le fichier **test.txt** uniquement si l'objet blob existe déjà et a la valeur ETag dans `etagToMatch`.
+Les conditions ETag peuvent être définies à l'aide du paramètre facultatif " options.accessConditions ". L'exemple suivant télécharge le fichier **test.txt** uniquement si l'objet blob existe déjà et a la valeur ETag dans " etagToMatch ".
 
 	blobSvc.createBlockBlobFromLocalFile('mycontainer', 'myblob', 'test.txt', { accessConditions: { 'if-match': etagToMatch} }, function(error, result, response){
-      if (!error) {
-	    // fichier chargé
+      if(!error){
+	    // file uploaded
 	  }
 	});
 
@@ -270,27 +261,27 @@ Si la valeur a été modifiée, cela signifie qu'un autre client ou qu'une autre
 
 ###Lease
 
-Il est possible d'acquérir un nouveau bail à l'aide de la méthode **acquireLease**, en spécifiant l'objet blob ou le conteneur concerné. Par exemple, le code suivant permet d'acquérir un bail sur **myblob**.
+Il est possible d'acquérir un nouveau bail à l'aide de la méthode **acquireLease**, en spécifiant l'objet blob ou le conteneur concerné. Par exemple, le code suivant permet d'acquérir un bail pour **myblob**.
 
 	blobSvc.acquireLease('mycontainer', 'myblob', function(error, result, response){
-	  if (!error) {
+	  if(!error) {
 	    console.log(result);
 	  }
 	});
 
-Les opérations suivantes sur **myblob** doivent fournir le paramètre `options.leaseId`. L'ID du bail est renvoyé comme `result.id` à partir de **acquireLease**.
+Les opérations suivantes sur **myblob** doivent fournir le paramètre " options.leaseId ". L'ID du bail est renvoyé comme " result.id " à partir de **acquireLease**.
 
-> [WACOM.NOTE] Par défaut, la durée du bail est infinie. Vous pouvez spécifier une durée finie (entre 15 et 60 secondes) en fournissant le paramètre `options.leaseDuration`.
+> [WACOM.NOTE] Par défaut, la durée du bail est infinie. Vous pouvez spécifier une durée finie (entre 15 et 60 secondes) en fournissant le paramètre " options.leaseDuration ".
 
 Pour supprimer un bail, utilisez **releaseLease**. Pour terminer un bail, mais empêcher d'autres utilisateurs d'obtenir un nouveau bail avant la fin de la durée d'origine, utilisez **breakLease**.
 
-## <a name="sas"></a> Utilisation des signatures d'accès partagé
+## <a name="sas"></a>Utilisation Utilisation des signatures d'accès partagé
 
 Les signatures d'accès partagé sont un moyen sécurisé de fournir un accès précis aux objets blob et aux conteneurs sans fournir le nom ni les clés de votre compte de stockage. Elles servent souvent à fournir un accès limité à vos données, par exemple pour autoriser une application mobile à accéder à des objets blob.
 
 > [WACOM.NOTE] Vous pouvez bien sûr autoriser l'accès anonyme aux objets blob, mais les signatures d'accès partagé permettent de mieux contrôler les accès, car elles doivent être générées.
 
-Une application approuvée, comme un service cloud, génère une signature d'accès partagé à l'aide de **generateSharedAccessSignature** de **BlobService**, et la fournit à une application non approuvée ou à moitié approuvée. Par exemple, une application mobile. La signature d'accès partagé est générée à l'aide d'une stratégie, qui décrit les dates de début et de fin de validité de la signature, et le niveau d'accès accordé au détenteur de la signature.
+Une application approuvée, comme un service cloud, génère une signature d'accès partagé à l'aide de **generateSharedAccessSignature** de **BlobService** et la fournit à une application non approuvée ou à moitié approuvée. Par exemple, une application mobile. La signature d'accès partagé est générée à l'aide d'une stratégie, qui décrit les dates de début et de fin de validité de la signature, et le niveau d'accès accordé au détenteur de la signature.
 
 L'exemple suivant génère une nouvelle stratégie d'accès partagé qui autorise le détenteur de la signature d'accès partagé à effectuer des opérations de lecture sur l'objet blob **myblob** et expire 100 minutes après son heure de création.
 
@@ -316,8 +307,8 @@ L'application cliente utilise ensuite les signatures d'accès partagé avec **Bl
 
 	var sharedBlobSvc = azure.createBlobServiceWithSas(host, blobSAS);
 	sharedBlobSvc.getBlobProperties('mycontainer', 'myblob', function (error, result, response) {
-	  if (!error) {
-	    // infos récupérées
+	  if(!error) {
+	    // retrieved info
 	  }
 	});
 
@@ -351,12 +342,12 @@ Une liste de contrôle d'accès est implémentée à l'aide d'un tableau de stra
 L'exemple suivant obtient la liste de contrôle d'accès active pour **mycontainer**, puis ajoute les nouvelles stratégies à l'aide de **setBlobAcl**. Cette approche permet :
 
 	blobSvc.getBlobAcl('mycontainer', function(error, result, response) {
-      if (!error) {
-		//transmettez la nouvelle stratégie dans signedIdentifiers
+      if(!error){
+		//push the new policy into signedIdentifiers
 		result.signedIdentifiers.push(sharedAccessPolicy);
 		blobSvc.setBlobAcl('mycontainer', result, function(error, result, response){
-	  	  if (!error) {
-	    	// liste de contrôle d'accès définie
+	  	  if(!error){
+	    	// ACL set
 	  	  }
 		});
 	  }
@@ -371,13 +362,15 @@ Lorsque la liste de contrôle d'accès est définie, vous pouvez créer une sign
 Maintenant que vous connaissez les bases du stockage d'objets blob, consultez les liens suivants
 pour apprendre à réaliser des tâches de stockage plus complexes.
 
--   Consultez la référence MSDN suivante : [stockage et accessibilité des données dans Azure][stockage et accessibilité des données dans Azure].
--   Consultez le [blog de l'équipe Azure Storage][blog de l'équipe Azure Storage].
--   Consultez le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Node][Kit de développement logiciel (SDK) Azure Storage pour Node] sur GitHub.
+-   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][].
+-   Consultez le [blog de l'équipe Azure Storage][].
+-   Consultez le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Node][] sur GitHub.
 
   [Kit de développement logiciel (SDK) Azure Storage pour Node]: https://github.com/Azure/azure-storage-node
   [Étapes suivantes]: #next-steps
+  [Présentation du service BLOB]: #what-is
   [Concepts]: #concepts
+  [Création d'un compte Azure Storage]: #create-account
   [Création d'une application Node.js]: #create-app
   [Configuration de votre application pour accéder au stockage]: #configure-access
   [Configuration d'une chaîne de connexion Azure Storage]: #setup-connection-string
@@ -388,7 +381,14 @@ pour apprendre à réaliser des tâches de stockage plus complexes.
   [ Suppression d'un objet blob]: #delete-blobs
   [ Accès simultané]: #concurrent-access
   [ Utilisation des signatures d'accès partagé]: #sas
-[Création et déploiement d'une application Node.js dans un site Web Azure]: /fr-fr/develop/nodejs/tutorials/create-a-website-(mac)/
+[Création et déploiement d'une application Node.js dans un site web Azure]: /fr-fr/develop/nodejs/tutorials/create-a-website-(mac)/
+  [Service cloud Node.js avec stockage]: /fr-fr/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
   [Application web Node.js avec stockage]: /fr-fr/documentation/articles/storage-nodejs-use-table-storage-web-site/
- [Site Web avec WebMatrix]: /fr-fr/documentation/articles/web-sites-nodejs-use-webmatrix/
+ [Site web avec WebMatrix]: /fr-fr/documentation/articles/web-sites-nodejs-use-webmatrix/
+  [avec API REST]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh264518.aspx
+  [Portail de gestion Azure]: http://manage.windowsazure.com
   [Service cloud Node.js]: /fr-fr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx
+  [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
+
+<!--HONumber=35_1-->

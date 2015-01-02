@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Debug HDInsight Hadoop Errors" pageTitle="Débogage de Hadoop dans HDInsight : messages d'erreur | Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" description="Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover." services="hdinsight" title="Debug Hadoop in HDInsight: Error messages" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="bradsev" />
+﻿c<properties urlDisplayName="Debug HDInsight Hadoop Errors" pageTitle="Débogage de Hadoop dans HDInsight : messages d'erreur | Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" description="Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover." services="hdinsight" title="Debug Hadoop in HDInsight: Error messages" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
 
 # Débogage de Hadoop dans HDInsight : messages d'erreur
 
@@ -11,7 +11,7 @@ Certains de ces messages d'erreur peuvent également apparaître dans le portail
 
 ![HDI.Debugging.ErrorMessages.Portal][image-hdi-debugging-error-messages-portal]
 
-Les erreurs auxquelles un utilisateur peut être confronté dans Azure PowerShell ou dans le portail Azure sont répertoriées dans l'ordre alphabétique des noms dans la section [Erreurs HDInsight](#hdinsight-error-messages). Chaque erreur répertoriée est liée à une entrée de la section [Description et atténuation des erreurs](#discription-mitigation-errors) qui fournit les informations suivantes sur l'erreur :
+Les erreurs qu'un utilisateur peut rencontrer dans Azure PowerShell ou sur le portail Azure sont répertoriées par ordre alphabétique dans la section [Erreurs HDInsight](#hdinsight-error-messages) où elles sont liées à une entrée dans la section [Description et atténuation des erreurs](#discription-mitigation-errors) fournissant les informations suivantes pour l'erreur :
  	
 - **Description** : message d'erreur visible pour les utilisateurs	
 - **Atténuation** : mesures à prendre pour la récupération à la suite de l'erreur. 
@@ -82,7 +82,7 @@ Les erreurs auxquelles un utilisateur peut être confronté dans Azure PowerShel
 - **Atténuation** : retentez l'opération. 
 
 <h3><a id="ClusterDnsNameInvalidReservedWord"></a>ClusterDnsNameInvalidReservedWord</h3>
-- **Description** : le nom DNS du cluster *nom_DNS* est incorrect. Assurez-vous que le nom commence et se termine par un caractère alphanumérique et contient uniquement le caractère spécial '-'.
+- **Description** : le nom DNS du cluster *nom_DNS* est incorrect. Assurez-vous que le nom commence et se termine par un caractère alphanumérique et contient uniquement le caractère spécial '-'.  
 - **Atténuation** : assurez-vous que vous avez utilisé pour votre cluster un nom DNS correct, qui commence et se termine par un caractère alphanumérique et ne contient aucun caractère spécial à l'exception du tiret '-', puis retentez l'opération.
 
 <h3><a id="ClusterNameUnavailable"></a>ClusterNameUnavailable</h3>
@@ -99,7 +99,7 @@ Les erreurs auxquelles un utilisateur peut être confronté dans Azure PowerShel
 - **Atténuation** : fournissez un nom d'utilisateur de cluster correct et retentez l'opération.
 
 <h3><a id="ClusterUserNameInvalidReservedWord"></a>ClusterUserNameInvalidReservedWord</h3>
-- **Description** : le nom DNS du cluster *nom_DNS_cluster* est incorrect. Assurez-vous que le nom commence et se termine par un caractère alphanumérique et contient uniquement le caractère spécial '-'.
+- **Description** : le nom DNS du cluster *nom_DNS_cluster* est incorrect. Assurez-vous que le nom commence et se termine par un caractère alphanumérique et contient uniquement le caractère spécial '-'.  
 - **Atténuation** : fournissez un nom DNS de cluster correct et retentez l'opération.
 
 <h3><a id="ContainerNameMisMatchWithDnsName"></a>ContainerNameMisMatchWithDnsName</h3>
@@ -111,7 +111,7 @@ Les erreurs auxquelles un utilisateur peut être confronté dans Azure PowerShel
 - **Atténuation** : retentez l'opération.
 
 <h3><a id="DeploymentDeletionFailure"></a>DeploymentDeletionFailure</h3> 	
-- **Description** : échec de la suppression du déploiement pour le cluster
+- **Description** : échec de la suppression du déploiement pour le cluster  
 - **Atténuation** : retentez l'opération.
 
 <h3><a id="DnsMappingNotFound"></a>DnsMappingNotFound</h3> 
@@ -123,7 +123,7 @@ Les erreurs auxquelles un utilisateur peut être confronté dans Azure PowerShel
 - **Atténuation** : fournissez un nom unique pour le conteneur et retentez l'opération de création. 
 
 <h3><a id="DuplicateClusterInHostedService"></a>DuplicateClusterInHostedService</h3>
-- **Description** : le service hébergé *nom_service_hébergé* contient déjà un cluster. Un service hébergé ne peut pas contenir plusieurs clusters.
+- **Description** : le service hébergé *nom_service_hébergé* contient déjà un cluster. Un service hébergé ne peut pas contenir plusieurs clusters.  
 - **Atténuation** : hébergez le cluster dans un autre service hébergé. 
 
 <h3><a id="FailureToUpdateDeploymentStatus"></a>FailureToUpdateDeploymentStatus</h3>
@@ -263,3 +263,5 @@ Les erreurs auxquelles un utilisateur peut être confronté dans Azure PowerShel
 
 
 
+
+<!--HONumber=35_1-->

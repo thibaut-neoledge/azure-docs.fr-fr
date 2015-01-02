@@ -1,16 +1,17 @@
-﻿<properties urlDisplayName="Breaking News" pageTitle="Didacticiel sur l'utilisation de Notification Hubs pour envoyer les dernières nouvelles - iOS" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to iOS devices." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="elioda" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Breaking News" pageTitle="Didacticiel Utilisation de Notification Hubs pour diffuser les dernières nouvelles - Android" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to Android devices." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="11/22/2014" ms.author="ricksal" />
 
-# Utilisation des Notification Hubs pour diffuser les dernières nouvelles
+
+# Utilisation de Notification Hubs pour diffuser les dernières nouvelles
 <div class="dev-center-tutorial-selector sublanding">     	
 	<a href="/fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal" >Windows Universal</a><a href="/fr-fr/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/fr-fr/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS">iOS</a>
 	<a href="/fr-fr/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android" class="current">Android</a>
 </div>
 
-Cette rubrique vous présente l'utilisation d'Azure Notification Hubs pour diffuser des notifications relatives aux dernières nouvelles vers une application Android. Lorsque vous aurez terminé, vous pourrez vous inscrire aux catégories de dernières nouvelles qui vous intéressent et recevoir uniquement des notifications Push pour ces catégories. Ce scénario est un modèle courant pour de nombreuses applications pour lesquelles des notifications doivent être envoyées à des groupes d'utilisateurs qui ont manifesté antérieurement leur intérêt, par exemple, lecteur RSS, applications pour fans de musique, etc.
+Cette rubrique vous présente l'utilisation d'Azure Notification Hubs pour diffuser des notifications relatives aux dernières nouvelles vers une application Android. Lorsque vous aurez terminé, vous pourrez vous inscrire aux catégories de dernières nouvelles qui vous intéressent et recevoir uniquement des notifications Push pour ces catégories. Ce scénario est un modèle courant pour de nombreuses applications pour lesquelles des notifications doivent être envoyées à des groupes d'utilisateurs qui ont signalé antérieurement un intérêt, par exemple, lecteur RSS, applications pour fans de musique, etc. 
 
-Les scénarios de diffusion sont activés en incluant une ou plusieurs balises (_tags_) lors de la création d'une inscription dans le Notification Hub. Lorsque des notifications sont envoyées à une balise, tous les appareils pour lesquels cette balise est inscrite reçoivent la notification. Les balises étant de simples chaînes, il n'est pas nécessaire de les mettre en service à l'avance. Pour plus d'informations sur les balises, consultez la page [Recommandations relatives à Notification Hubs]. 
+Les scénarios de diffusion sont activés en incluant une ou plusieurs _balises_ lors de la création d'une inscription dans le concentrateur de notification. Lorsque des notifications sont envoyées à une balise, tous les appareils pour lesquels cette balise est inscrite reçoivent la notification. Les balises étant de simples chaînes, il n'est pas nécessaire de les mettre en service à l'avance. Pour plus d'informations sur les balises, consultez la page [Recommandations relatives à Notification Hubs]. 
 
 Ce didacticiel vous familiarise avec les étapes de base pour activer ce scénario :
 
@@ -23,7 +24,7 @@ Cette rubrique s'appuie sur l'application que vous avez créée dans [Prise en m
 
 ##<a name="adding-categories"></a>Ajout d'une sélection de catégories à l'application
 
-La première étape consiste à ajouter des éléments de l'interface utilisateur à l'activité principale existante qui permettent à l'utilisateur de sélectionner des catégories auxquelles s'inscrire. Les catégories sélectionnées par un utilisateur sont stockées sur l'appareil. Lorsque l'application démarre, une inscription d'appareil est créée dans votre Notification Hub avec les catégories sélectionnées sous forme de balises. 
+La première étape consiste à ajouter des éléments de l'interface utilisateur à l'activité principale existante qui permettent à l'utilisateur de sélectionner des catégories auxquelles s'inscrire. Les catégories sélectionnées par un utilisateur sont stockées sur l'appareil. Lorsque l'application démarre, une inscription d'appareil est créée dans votre concentrateur de notification avec les catégories sélectionnées sous forme de balises. 
 
 1. Ouvrez votre fichier res/layout/activity_main.xml et remplacez le contenu par ce qui suit :
 			
@@ -152,13 +153,13 @@ La première étape consiste à ajouter des éléments de l'interface utilisateu
 
 	Cette classe utilise le stockage local pour stocker les catégories de nouvelles que cet appareil doit recevoir. Elle comporte également des méthodes pour s'inscrire à ces catégories.
 
-4. Dans le code ci-dessus, remplacez les espaces réservés `<hub name>` et `<connection string with listen access>` par le nom du concentrateur de notification et la chaîne de connexion pour *DefaultListenSharedAccessSignature* obtenue précédemment.
+4. Dans le code ci-dessus, remplacez les espaces réservés <hub name> et <connection string with listen access> par le nom du concentrateur de notification et la chaîne de connexion pour DefaultListenSharedAccessSignature obtenue précédemment.
 
 	<div class="dev-callout"><strong>Remarque</strong> 
 		<p>Les informations d'identification distribuées avec une application cliente n'étant généralement pas sécurisées, vous ne devez distribuer que la clé d'accès d'écoute avec votre application cliente. L'accès d'écoute permet à votre application de s'inscrire à des notifications, mais les inscriptions existantes ne peuvent pas être modifiées et les notifications ne peuvent pas être envoyées. La clé d'accès complet est utilisée dans un service de serveur principal sécurisé pour l'envoi de notifications et la modification d'inscriptions existantes.</p>
 	</div> 
 
-4. Dans votre classe **MainActivity**, supprimez vos champs privés pour **NotificationHub** et **GoogleCloudMessaging**, puis ajoutez un champ pour **Notifications** :
+4. Dans la classe **MainActivity**, supprimez les champs privés pour **NotificationHub** et **GoogleCloudMessaging**, puis ajoutez un champ pour **Notifications** :
 
 		// private GoogleCloudMessaging gcm;
 		// private NotificationHub hub;
@@ -213,7 +214,7 @@ Votre application peut désormais stocker un ensemble de catégories dans le sto
 Les étapes suivantes permettent l'inscription auprès du concentrateur de notification au démarrage en utilisant les catégories qui ont été stockées dans le stockage local. 
 
 <div class="dev-callout"><strong>Remarque</strong> 
-	<p>Comme la valeur de registrationId affectée par Google Cloud Messaging (GCM) peut changer à n'importe quel moment, vous devez vous inscrire fréquemment aux notifications afin d'éviter les défaillances de notification. Cet exemple s'inscrit aux notifications chaque fois que l'application démarre. Pour les applications exécutées fréquemment, plus d'une fois par jour, vous pouvez probablement ignorer l'inscription afin de préserver la bande passante si moins d'un jour s'est écoulé depuis l'inscription précédente.</p>
+	<p>Comme la valeur de registrationId affectée par Google Cloud Messaging (GCM) peut changer à n'importe quel moment, vous devez vous inscrire fréquemment aux notifications afin d'éviter les défaillances. Cet exemple s'inscrit aux notifications chaque fois que l'application démarre. Pour les applications exécutées fréquemment, plus d'une fois par jour, vous pouvez probablement ignorer l'inscription afin de préserver la bande passante si moins d'un jour s'est écoulé depuis l'inscription précédente.</p>
 </div> 
 
 1. Ajoutez le code suivant à la classe **Notifications** :
@@ -225,13 +226,13 @@ Les étapes suivantes permettent l'inscription auprès du concentrateur de notif
 
 	Ainsi, les catégories définies dans la classe sont renvoyées.
 
-2. Maintenant, ajoutez ce code à la fin de la méthode **onCreate**, dans la classe **MainActivity** :
+2. Maintenant, ajoutez ce code à la fin de la méthode **onCreate** dans la classe **MainActivity** :
 
 		notifications.subscribeToCategories(notifications.retrieveCategories());
 
-	Cette opération garantit que chaque fois que l'application démarre, elle récupère les catégories du stockage local et demande une inscription pour ces catégories. La méthode **InitNotificationsAsync** a été créée dans le cadre du didacticiel [Prise en main de Notification Hubs] mais n'est pas nécessaire dans cette rubrique.
+	Cette opération garantit que chaque fois que l'application démarre, elle récupère les catégories du stockage local et demande une inscription pour ces catégories. La méthode **InitNotificationsAsync** a été créée dans le cadre du didacticiel [Prise en main de Notification Hubs], mais n'est pas nécessaire dans cette rubrique.
 
-3. Ensuite, ajoutez la méthode suivante à **MainActivity** :
+3. Ajoutez ensuite la méthode suivante à **MainActivity** :
 
 		@Override
 		protected void onStart() {
@@ -275,21 +276,21 @@ L'application est désormais terminée et peut stocker un ensemble de catégorie
 
 	+ **Application console .NET :** démarrez l'application console.
 
-	+ **Java/PHP :** exécutez votre application/script.
+	+ **Java/PHP :** exécutez l'application ou le script.
 
 	Les notifications pour les catégories sélectionnées apparaissent comme notifications toast.
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par catégorie. Envisagez de suivre l'un des didacticiels suivants qui soulignent d'autres scénarios avancés Notification Hubs :
+Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par catégorie. Envisagez de suivre un des didacticiels suivants qui soulignent d'autres scénarios avancés Notification Hubs :
 
-+ [Utilisation des Notification Hubs pour diffuser les dernières nouvelles localisées]
++ [Utilisation de Notification Hubs pour diffuser les dernières nouvelles localisées]
 
 	Apprenez à développer l'application relative aux dernières nouvelles pour permettre l'envoi de notifications localisées. 
 
 + [Notification des utilisateurs avec Notification Hubs]
 
-	Apprenez à transmettre des notifications à des utilisateurs authentifiés spécifiques. Il s'agit d'une solution appropriée pour l'envoi de notifications uniquement vers des utilisateurs spécifiques.
+	Apprenez comment transmettre des notifications à des utilisateurs authentifiés spécifiques. Il s'agit d'une solution appropriée pour l'envoi de notifications uniquement vers des utilisateurs spécifiques.
 
 
 <!-- Anchors. -->
@@ -306,12 +307,14 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 [get-started]: /fr-fr/documentation/articles/notification-hubs-android-get-started/
 [Utilisation de Notification Hubs pour diffuser les dernières nouvelles localisées]: /fr-fr/manage/services/notification-hubs/breaking-news-localized-dotnet/ 
 [Notification des utilisateurs avec Notification Hubs]: /fr-fr/manage/services/notification-hubs/notify-users
-[Mobile service]: /fr-fr/develop/mobile/tutorials/get-started/
+[Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started/
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/fr-fr/library/jj927170.aspx
-[Vue d'ensemble des concentrateurs de notification pour Windows Store]: http://msdn.microsoft.com/fr-fr/library/jj927172.aspx
-[Page Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Mes Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Guide de fonctionnement Notification Hubs pour Windows Store]: http://msdn.microsoft.com/fr-fr/library/jj927172.aspx
+[Page Soumette une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Mes applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Kit de développement logiciel (SDK) Live]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [objet wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+
+<!--HONumber=35_1-->

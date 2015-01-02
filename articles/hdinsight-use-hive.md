@@ -1,203 +1,239 @@
-<properties linkid="manage-services-hdinsight-howto-hive" urlDisplayName="Use Hadoop Hive in HDInsight" pageTitle="Use Hadoop Hive in HDInsight | Azure" metaKeywords="" description="Learn how to use Hive with HDInsight. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data and report basic statistics." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop Hive in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties urlDisplayName="Use Hadoop Hive in HDInsight" pageTitle="Utilisation de Hadoop Hive dans HDInsight | Azure" metaKeywords="" description="Learn how to use Hive with HDInsight. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data and report basic statistics." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop Hive in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/25/2014" ms.author="jgao" />
 
 # Utilisation de Hive avec Hadoop dans HDInsight
 
-[Apache Hive][Apache Hive] permet d'exécuter une tâche MapReduce par l'intermédiaire d'un langage de script similaire à SQL, appelé *HiveQL*, qui peut être appliqué pour synthétiser, interroger et analyser de gros volumes de données. Dans cet article, vous allez utiliser HiveQL pour interroger les données dans un fichier journal Apache log4j et générer des rapports sur les statistiques de base.
+[Apache Hive][apache-hive] permet d'exécuter une tâche MapReduce via un langage de création de scripts semblable à SQL, nommé *HiveQL*. Hive est un système d'entrepôt de données pour Hadoop qui facilite la synthèse de données, les requêtes et l'analyse d'ensembles de données volumineux. Dans cet article, vous allez utiliser HiveQL pour interroger un exemple de fichier de données fourni dans le cadre de l'approvisionnement du cluster HDInsight.
 
-**Configuration requise :**
 
--   Vous devez avoir configuré un **cluster HDInsight**. Pour une description de la procédure à suivre avec le portail Azure, consultez la page [Prise en main de HDInsight][Prise en main de HDInsight]. Pour des instructions sur les autres méthodes disponibles pour créer ce type de clusters, consultez la page [Configuration de clusters HDInsight][Configuration de clusters HDInsight].
+**Configuration requise :**
 
--   Vous devez avoir installé **Azure PowerShell** sur votre station de travail. Pour des instructions sur la marche à suivre, consultez la page [Installation et configuration d'Azure PowerShell][Installation et configuration d'Azure PowerShell].
+- Vous devez avoir approvisionné un **cluster HDInsight**. Pour une description de la procédure à suivre avec le portail Azure, consultez la rubrique [Prise en main de HDInsight][hdinsight-get-started]. Pour des instructions sur les autres méthodes disponibles pour créer ce type de clusters, consultez la rubrique [Approvisionnement de clusters HDInsight][hdinsight-provision].
 
-**Durée de réalisation estimée :** 30 minutes
+- Vous devez avoir installé **Azure PowerShell** sur votre poste de travail. Pour des instructions sur la marche à suivre, consultez la page [Installation et configuration d'Azure PowerShell][powershell-install-configure].
 
-## Dans cet article
+##Dans cet article
 
--   [Hive : cas d'emploi][Hive : cas d'emploi]
--   [Téléchargement des fichiers de données vers le stockage d'objets blob Azure][Téléchargement des fichiers de données vers le stockage d'objets blob Azure]
--   [Exécution de requêtes Hive avec PowerShell][Exécution de requêtes Hive avec PowerShell]
--   [Étapes suivantes][Étapes suivantes]
+* [Hive : cas d'emploi](#usage)
+* [Téléchargement de données pour des tables Hive](#uploaddata)
+* [Exécution de requêtes Hive avec PowerShell](#runhivequeries)
+* [Exécution de requêtes Hive à l'aide de HDInsight Tools pour Visual Studio](#runhivefromvs)
+* [Utilisation de Tez pour des performances améliorées](#usetez)
+* [Étapes suivantes](#nextsteps)
 
-## <span id="usage"></span></a>Hive : cas d'emploi
+##<a id="usage"></a>Hive : cas d'emploi
 
-Les bases de données sont une solution appropriée lorsque vous gérez de petits ensembles de données pour lesquels des requêtes à faible latence sont possibles. Mais quand il s'agit d'ensembles de données volumineux contenant des téraoctets de données, les bases de données SQL classiques, souvent, ne sont pas une solution idéale. Jusqu'à présent, les administrateurs de base de données procédaient généralement à un changement d'échelle pour gérer ces ensembles de données plus volumineux, en achetant des équipements plus performants au fur et à mesure que la charge de la base de données augmentait et que les performances se dégradaient.
+![HDI.HIVE.Architecture][image-hdi-hive-architecture]
 
-Hive résout les problèmes associés aux données volumineuses en autorisant les utilisateurs à procéder à une montée en charge lorsqu'ils interrogent de vastes ensembles de données. Hive interroge les données parallèlement dans plusieurs nœuds avec MapReduce, distribuant la base de données sur un nombre croissant d'hôtes au fur et à mesure que la charge augmente.
+Hive projette une structure sur des données non structurées, puis vous laisse interroger ces données. Hive fournit une couche d'abstraction au-dessus de l'infrastructure MapReduce Java, ce qui permet aux utilisateurs d'interroger les données sans connaissance de Java ou MapReduce. HiveQL, le langage de requête de Hive, vous permet d'écrire des requêtes avec des instructions semblables à T-SQL. Les requêtes HiveQL sont compilées pour MapReduce par HDInsight et exécutées sur le cluster. Hive présente d'autres avantages :
 
-Hive et HiveQL offrent également une alternative à l'écriture de tâches MapReduce en Java lors de l'interrogation des données. Ils fournissent un wrapper simple, similaire à un wrapper SQL, qui permet d'écrire les requêtes en HiveQL, lesquelles sont ensuite compilées pour MapReduce par HDInsight et exécutées sur le cluster.
+- Hive permet aux programmeurs familiers de l'infrastructure MapReduce de raccorder des mappeurs et des réducteurs personnalisés pour effectuer une analyse plus complexe qui n'est peut-être pas prise en charge par les fonctionnalités intégrées du langage HiveQL.
+- Hive convient le mieux pour le traitement par lots de grosses quantités de données immuables (comme les journaux Web). Il ne convient pas pour les applications de transactions qui ont besoin de temps de réponse rapides, notamment les systèmes de gestion de base de données.
+- Hive est optimisé pour l'évolutivité (il est possible d'ajouter davantage de machines dynamiquement au cluster Hadoop), l'extensibilité (dans l'infrastructure MapReduce et avec d'autres interfaces de programmation) et la tolérance aux pannes. La latence ne fait pas partie des éléments clés considérés dans la conception.
 
-Hive permet également aux programmeurs familiers de l'infrastructure MapReduce de raccorder des mappeurs et des réducteurs personnalisés pour effectuer une analyse plus complexe qui n'est peut-être pas prise en charge par les fonctionnalités intégrées du langage HiveQL.
+##<a id="uploaddata"></a>Téléchargement de données pour des tables Hive
 
-Hive convient le mieux pour le traitement par lots de grosses quantités de données immuables (comme les journaux Web). Il ne convient pas pour les applications de transactions qui ont besoin de temps de réponse rapides, notamment les systèmes de gestion de base de données. Hive est optimisé pour l'évolutivité (il est possible d'ajouter davantage de machines dynamiquement au cluster Hadoop), l'extensibilité (dans l'infrastructure MapReduce et avec d'autres interfaces de programmation) et la tolérance aux pannes. La latence ne fait pas partie des éléments clés considérés dans la conception.
+HDInsight utilise un conteneur de stockage d'objets blob Azure comme système de fichiers par défaut pour les clusters Hadoop. Quelques exemples de fichiers de données sont ajoutés au stockage d'objets blob dans le cadre de l'approvisionnement du cluster. Cet article utilise un exemple de fichier *log4j* distribué avec le cluster HDInsight et stocké dans **/example/data/sample.log**, dans votre conteneur de stockage d'objets blob. Chaque journal à l'intérieur du fichier est constitué d'une ligne de champs qui contient un champ [LOG LEVEL] pour indiquer le type et la gravité. Par exemple :
 
-En général, les applications enregistrent les erreurs, les exceptions et les autres problèmes codés dans un fichier journal. Les administrateurs peuvent ainsi utiliser les données des fichiers journaux pour examiner les problèmes qui sont susceptibles de survenir et générer des mesures concernant les erreurs ou d'autres questions telles que les performances. Ces fichiers journaux atteignent généralement une taille assez importante et contiennent énormément de données qui doivent être traitées et exploitées pour l'intelligence sur l'application.
+	2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
 
-Les fichiers journaux sont donc un exemple paradigmatique de données volumineuses. HDInsight fournit un système d'entrepôt de données Hive qui facilite la synthèse de données, les requêtes ad-hoc et l'analyse de ces ensembles de données volumineux stockés dans des systèmes de fichiers compatibles avec Hadoop, tels que le stockage d'objets blob Azure.
+Dans l'exemple ci-dessus, le niveau de journal est ERROR.
 
-## <span id="uploaddata"></span></a>Téléchargement des fichiers de données vers le stockage d'objets blob
+> [AZURE.NOTE] Vous pouvez également générer vos propres fichiers log4j à l'aide de l'utilitaire de journalisation [Apache Log4j][apache-log4j], puis les télécharger vers le conteneur d'objets blob. Pour des instructions, consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-upload-data]. Pour plus d'informations sur l'utilisation du stockage d'objets blob Azure avec HDInsight, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage].
 
-HDInsight utilise le conteneur de stockage d'objets blob Azure comme système de fichiers par défaut. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][Utilisation du stockage d'objets blob Azure avec HDInsight].
+HDInsight peut accéder aux fichiers stockés dans un stockage d'objets blob à l'aide du préfixe **wasb**. Par exemple, pour accéder au fichier sample.log, vous devez utiliser la syntaxe suivante :
 
-Dans cet article, vous allez utiliser un exemple de fichier log4j distribué avec le cluster HDInsight qui est stocké dans *\\example\\data\\sample.log*. Chaque journal à l'intérieur du fichier est constitué d'une ligne de champs qui contient un champ `[LOG LEVEL]` pour indiquer le type et la gravité. Par exemple :
+	wasb:///example/data/sample.log
 
-    2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937 
+Étant donné que WASB est le stockage par défaut pour HDInsight, vous pouvez également accéder au fichier en utilisant **/example/data/sample.log**.
 
-Pour accéder aux fichiers, utilisez la syntaxe suivante :
+> [AZURE.NOTE] La syntaxe ci-dessus, **wasb:///**, permet d'accéder à des fichiers stockés dans le conteneur de stockage par défaut de votre cluster HDInsight. Si vous avez indiqué d'autres comptes de stockage lors de l'approvisionnement du cluster et souhaitez accéder aux fichiers qui y sont stockés, vous pouvez accéder aux données en indiquant le nom du conteneur et l'adresse du compte de stockage. Par exemple, **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 
-    wasb://<containerName>@<AzureStorageName>.blob.core.windows.net
-
-Par exemple :
-
-    wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log
-
-Remplacez *mycontainer* par le nom du conteneur et *mystorage* par le nom du compte de stockage d'objets blob.
-
-Comme le fichier est stocké dans le système de fichiers par défaut, vous pouvez également y accéder avec la syntaxe suivante :
-
-    wasb:///example/data/sample.log
-    /example/data/sample.log
-
-Pour générer vos propres fichiers log4j, utilisez l'utilitaire de journalisation [Apache Log4j][Apache Log4j]. Pour des informations sur le téléchargement des données vers le stockage d'objets blob Azure, consultez la page [Téléchargement de données vers HDInsight][Téléchargement de données vers HDInsight].
-
-## <span id="runhivequeries"></span></a> Exécution de requêtes Hive avec PowerShell
-
-Dans la dernière section, vous avez téléchargé un fichier log4j nommé sample.log vers le conteneur du système de fichiers par défaut. Dans cette section, vous allez exécuter HiveQL pour créer une table hive, charger des données dans la table hive, puis interroger les données pour savoir combien il y a eu de journaux d'erreurs.
-
-Cet article fournit les instructions pour exécuter une requête Hive en utilisant les cmdlets d'Azure PowerShell. Avant de parcourir cette section, vous devez configurer l'environnement local et la connexion à Azure, comme décrit dans la section **Configuration requise** au début de cette rubrique.
+##<a id="runhivequeries"></a> Exécution de requêtes Hive avec PowerShell
 
 Les requêtes Hive peuvent être exécutées dans PowerShell avec la cmdlet **Start-AzureHDInsightJob** ou **Invoke-Hive**.
 
-**Pour exécuter les requêtes Hive avec Start-AzureHDInsightJob**
+* **Start-AzureHDInsightJob** est un exécuteur de tâches générique, utilisé pour lancer des tâches Hive, Pig et MapReduce sur un cluster HDInsight. **Start-AzureHDInsightJob** est asynchrone et renvoie des résultats avant la fin de la tâche. Les informations relatives à la tâche sont renvoyées et peuvent être utilisées avec des cmdlets, telles que **Wait-AzureHDInsightJob**, **Stop-AzureHDInsightJob** et **Get-AzureHDInsightJobOutput**.  **Get-AzureHDInsightJobOutput** doit être utilisée pour récupérer des informations écrites sur **STDOUT** ou **STDERR** par la tâche.
 
-1.  Ouvrez une fenêtre de console Azure PowerShell. Pour les instructions, consultez la page [Installation et configuration d'Azure PowerShell][Installation et configuration d'Azure PowerShell].
-2.  Exécutez la commande suivante pour vous connecter à votre abonnement Azure :
+* **Invoke-Hive** exécute une requête Hive, attend qu'elle soit terminée et récupère la sortie en une seule opération.
 
-        Add-AzureAccount
+1. Ouvrez une fenêtre de console Azure PowerShell. Pour des instructions, consultez la page [Installation et configuration d'Azure PowerShell][powershell-install-configure].
+2. Exécutez la commande suivante pour vous connecter à votre abonnement Azure :
 
-    Vous êtes invité à entrer les informations d'identification de votre compte Azure.
+		Add-AzureAccount
 
-3.  Définissez les variables dans le script suivant et exécutez ce dernier :
+	Vous êtes invité à entrer les informations d'identification de votre compte Azure.
 
-        # Provide Azure subscription name, and the Azure Storage account and container that is used for the default HDInsight file system.
-        $subscriptionName = "<SubscriptionName>"
-        $storageAccountName = "<AzureStorageAccountName>"
-        $containerName = "<AzureStorageContainerName>"
+2. Définissez les variables dans le script suivant et exécutez-le :
 
-        # Provide HDInsight cluster name Where you want to run the Hive job
-        $clusterName = "<HDInsightClusterName>"
+		# Provide Azure subscription name, and the Azure Storage account and container that is used for the default HDInsight file system.
+		$subscriptionName = "<SubscriptionName>"
+		$storageAccountName = "<AzureStorageAccountName>"
+		$containerName = "<AzureStorageContainerName>"
 
-4.  Exécutez le script suivant pour définir les requêtes HiveQL :
+		# Provide HDInsight cluster name Where you want to run the Hive job
+		$clusterName = "<HDInsightClusterName>"
 
-        # HiveQL queries
-        # Use the internal table option. 
-        $queryString = "DROP TABLE log4jLogs;" +
-                       "CREATE TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ';" +
-                       "LOAD DATA INPATH 'wasb://$containerName@$storageAccountName.blob.core.windows.net/example/data/sample.log' OVERWRITE INTO TABLE log4jLogs;" +
-                       "SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;"
+3. Exécutez le script suivant pour créer une table nommée **log4jLogs** à l'aide de l'exemple de données.
 
-        # Use the external table option. 
-        $queryString = "DROP TABLE log4jLogs;" +
-                        "CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION 'wasb://$containerName@$storageAccountName.blob.core.windows.net/example/data/';" +
-                        "SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;"
+		# HiveQL
+		# Create an EXTERNAL table
+		$queryString = "DROP TABLE log4jLogs;" +
+		               "CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION 'wasb:///example/data/';" +
+		               "SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;"
 
-    La commande HiveQL LOAD DATA provoque le transfert du fichier de données dans le dossier \\hive\\warehouse\\. La commande DROP TABLE supprime la table et le fichier de données. Si vous utilisez l'option de table interne et que vous souhaitez réexécuter le script, vous devez télécharger à nouveau le fichier sample.log. Si vous voulez conserver le fichier de données, vous devez utiliser la commande CREATE EXTERNAL TABLE, comme indiqué dans le script.
+	Les instructions HiveQL effectuent les opérations suivantes :
 
-    Vous pouvez également utiliser la table externe si le fichier de données se trouve dans un conteneur ou un compte de stockage différent.
+	* **DROP TABLE** : supprime la table et le fichier de données, si la table existe déjà.
+	* **CREATE EXTERNAL TABLE** : crée une table " externe " dans Hive. Les tables externes stockent uniquement la définition de table dans Hive ; les données restent à leur emplacement d'origine
+	* **ROW FORMAT** : indique à Hive le mode de formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
+	* **STORED AS TEXTFILE LOCATION** : indique à Hive l'emplacement des données (répertoire example/data) et précise qu'elles sont stockées sous la forme de texte.
+	* **SELECT** : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette commande doit renvoyer une valeur de **3**, car trois lignes contiennent cette valeur.
 
-    Utilisez la commande DROP TABLE en premier si vous réexécutez le script et que la table log4jlogs existe déjà.
+	> [AZURE.NOTE] Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, ou par une autre opération MapReduce, mais souhaitez toujours que les requêtes Hive utilisent les données les plus récentes.
+	>
+	> La suppression d'une table externe ne supprime **pas** les données, mais seulement la définition de la table.
 
-5.  Exécutez le script suivant pour créer une définition de tâche Hive :
 
-        # Create a Hive job definition 
-        $hiveJobDefinition = New-AzureHDInsightHiveJobDefinition -Query $queryString 
+4. Exécutez le script suivant pour créer une définition de tâche Hive à partir de la requête précédente.
 
-    Vous pouvez également utiliser le commutateur -File pour spécifier un fichier de script HiveQL sur HDFS.
+		# Create a Hive job definition
+		$hiveJobDefinition = New-AzureHDInsightHiveJobDefinition -Query $queryString
 
-6.  Exécutez le script suivant pour envoyer la tâche Hive :
+	Vous pouvez également utiliser le commutateur -File pour spécifier un fichier de script HiveQL sur HDFS.
 
-        # Submit the job to the cluster 
-        Select-AzureSubscription $subscriptionName
-        $hiveJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $hiveJobDefinition
+5. Exécutez le script suivant pour envoyer la tâche Hive :
 
-7.  Exécutez le script suivant pour attendre que la tâche Hive soit terminée :
+		# Submit the job to the cluster
+		Select-AzureSubscription $subscriptionName
+		$hiveJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $hiveJobDefinition
 
-        # Wait for the Hive job to complete
-        Wait-AzureHDInsightJob -Job $hiveJob -WaitTimeoutInSeconds 3600
+6. Exécutez le script suivant pour attendre que la tâche Hive soit terminée :
 
-8.  Exécutez le script suivant pour imprimer la sortie standard :
-9.  # Print the standard error and the standard output of the Hive job.
-        Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $hiveJob.JobId -StandardOutput
+		# Wait for the Hive job to complete
+		Wait-AzureHDInsightJob -Job $hiveJob -WaitTimeoutInSeconds 3600
 
-    ![HDI.HIVE.PowerShell][HDI.HIVE.PowerShell]
+7. Exécutez le script suivant pour imprimer la sortie standard :
 
-    Voici le résultat :
+		# Print the standard error and the standard output of the Hive job.
+		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $hiveJob.JobId -StandardOutput
 
-        [ERROR] 3
 
-**Pour envoyer des requêtes Hive avec Invoke-Hive**
+ 	![HDI.HIVE.PowerShell][image-hdi-hive-powershell]
 
-1.  Ouvrez une fenêtre de console Azure PowerShell.
-2.  Exécutez la commande suivante pour vous connecter à votre abonnement Azure :
+	Voici le résultat :
 
-        Add-AzureAccount
+		[ERROR] 3
 
-    Vous êtes invité à entrer les informations d'identification de votre compte Azure.
+	ce qui signifie que le fichier *sample.log* contenait trois instances de journaux ERROR.
 
-3.  Définissez la variable, puis exécutez-la :
+4. Avant d'utiliser **Invoke-Hive**, vous devez définir le cluster à utiliser.
 
-        $clusterName = "<HDInsightClusterName>"
+		# Connect to the cluster
+		Use-AzureHDInsightCluster $clusterName
 
-4.  Exécutez le script suivant pour appeler des requêtes HiveQL :
+4. Utilisez le script suivant pour créer une table " interne " nommée **errorLogs** à l'aide de la cmdlet **Invoke-Hive**.
 
-        Use-AzureHDInsightCluster $clusterName 
-        $response = Invoke-Hive -Query @"
-            SELECT * FROM hivesampletable
-                WHERE devicemake LIKE "HTC%"
-                LIMIT 10; 
-        "@
+		# Run a query to create an 'internal' Hive table
+		$response = Invoke-Hive -Query @"
+		CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
+		INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
+		"@
+		# print the output on the console
+		Write-Host $response
 
-        Write-Host $response
+	Ces instructions effectuent les opérations suivantes :
 
-    La sortie est la suivante :
+	* **CREATE TABLE IF NOT EXISTS** : crée une table, le cas échéant. Le mot-clé **EXTERNAL** n'étant pas utilisé, il s'agit d'une table " interne ", stockée dans l'entrepôt de données Hive et gérée intégralement par Hive.
+	* **STORED AS ORC** : stocke les données au format ORC (Optimized Row Columnar). Il s'agit d'un format particulièrement efficace et optimisé pour le stockage de données Hive.
+	* **INSERT OVERWRITE ... SELECT** : sélectionne des lignes de la table **log4jLogs** qui contiennent **[ERROR]**, puis insère les données dans la table **errorLogs**.
 
-    ![Sortie de la cmdlet Invoke-Hive de PowerShell][Sortie de la cmdlet Invoke-Hive de PowerShell]
+	> [AZURE.NOTE] Contrairement aux tables **EXTERNAL**, la suppression d'une table interne entraîne également la suppression des données sous-jacentes.
 
-    Pour les requêtes HiveQL plus longues, il est recommandé d'utiliser le fichier de script Here-Strings ou HiveQL de PowerShell. Les exemples suivants montrent comment utiliser la cmdlet Invoke-Hive pour exécuter un fichier de script HiveQL. Ce dernier doit être téléchargé vers WASB.
+	La sortie se présente comme suit :
 
-        Invoke-Hive -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"
+	![PowerShell Invoke-Hive output][img-hdi-hive-powershell-output]
 
-    Pour plus d'informations sur Here-Strings, consultez la page [Utilisation du fichier de script Here-Strings de PowerShell][Utilisation du fichier de script Here-Strings de PowerShell].
+	> [AZURE.NOTE] Pour les requêtes HiveQL plus longues, vous pouvez utiliser les fichiers de script Here-Strings ou HiveQL de PowerShell. L'extrait de code suivant montre comment utiliser la cmdlet *Invoke-Hive* pour exécuter un fichier de script HiveQL. Ce dernier doit être téléchargé vers WASB.
+	>
+	> `Invoke-Hive -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
+	>
+	> Pour plus d'informations sur Here-Strings, consultez la page [Utilisation de Here-Strings dans Windows PowerShell][powershell-here-strings].
 
-## <span id="nextsteps"></span></a>Étapes suivantes
+5. Pour vérifier que seules les lignes contenant **[ERROR]** dans la colonne t4 ont été stockées dans la table **errorLogs**, utilisez l'instruction suivante afin de renvoyer toutes les lignes à partir de **errorLogs**.
 
-Bien que Hive facilite l'interrogation des données avec un langage de requête similaire à SQL, d'autres composants disponibles avec HDInsight fournissent des fonctionnalités supplémentaires telles que le transfert et la transformation des données. Pour en savoir plus, consultez les articles suivants :
+		#Select all rows
+		$response = Invoke-Hive -Query "SELECT * from errorLogs;"
+		Write-Host $response
 
--   [Prise en main d'Azure HDInsight][Prise en main de HDInsight]
--   [Analyse des données sur les retards de vol avec HDInsight][Analyse des données sur les retards de vol avec HDInsight]
--   [Utilisation d'Oozie avec HDInsight][Utilisation d'Oozie avec HDInsight]
--   [Envoi de tâches Hadoop par programme][Envoi de tâches Hadoop par programme]
--   [Téléchargement de données vers HDInsight][Téléchargement de données vers HDInsight]
--   [Utilisation de Pig avec HDInsight][Utilisation de Pig avec HDInsight]
--   [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][Documentation du Kit de développement logiciel (SDK) Azure HDInsight]
+	Trois lignes de données doivent normalement être renvoyées. Elles contiennent toutes **[ERROR]** dans la colonne t4.
 
-  [Apache Hive]: http://hive.apache.org/
-  [Prise en main de HDInsight]: ../hdinsight-get-started/
-  [Configuration de clusters HDInsight]: ../hdinsight-provision-clusters/
-  [Installation et configuration d'Azure PowerShell]: ../install-configure-powershell/
-  [Hive : cas d'emploi]: #usage
-  [Téléchargement des fichiers de données vers le stockage d'objets blob Azure]: #uploaddata
-  [Exécution de requêtes Hive avec PowerShell]: #runhivequeries
-  [Étapes suivantes]: #nextsteps
-  [Utilisation du stockage d'objets blob Azure avec HDInsight]: ../hdinsight-use-blob-storage
-  [Apache Log4j]: http://en.wikipedia.org/wiki/Log4j
-  [Téléchargement de données vers HDInsight]: ../hdinsight-upload-data/
-  [HDI.HIVE.PowerShell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
-  [Sortie de la cmdlet Invoke-Hive de PowerShell]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
-  [Utilisation du fichier de script Here-Strings de PowerShell]: http://technet.microsoft.com/fr-fr/library/ee692792.aspx
-  [Analyse des données sur les retards de vol avec HDInsight]: ../hdinsight-analyze-flight-delay-data/
-  [Utilisation d'Oozie avec HDInsight]: ../hdinsight-use-oozie/
-  [Envoi de tâches Hadoop par programme]: ../hdinsight-submit-hadoop-jobs-programmatically/
-  [Utilisation de Pig avec HDInsight]: ../hdinsight-use-pig/
+
+> [AZURE.NOTE] Si besoin est, vous pouvez également importer le résultat de vos requêtes dans Microsoft Excel pour une analyse plus approfondie. Pour des instructions, consultez la rubrique [Connexion d'Excel à Hadoop à l'aide de Power Query][import-to-excel].
+
+##<a id="runhivefromvs"></a>Exécution de requêtes Hive avec Visual Studio
+HDInsight Tools for Visual Studio est fourni avec le Kit de développement logiciel (SDK) Azure pour .NET version 2.5 ou ultérieure.  L'utilisation des outils de Visual Studio vous permet de vous connecter à un cluster HDInsight, de créer des tables Hive et d'exécuter des requêtes Hive.  Pour plus d'informations, consultez la rubrique [Prise en main de HDInsight Hadoop Tools pour Visual Studio][1].
+
+
+
+##<a id="usetez"></a>Utilisation de Tez pour des performances améliorées
+
+[Apache Tez][apache-tez] est une infrastructure qui permet une exécution à l'échelle beaucoup plus efficace pour les applications qui manipulent de grandes quantités de données telles que Hive. Dans la dernière version de HDInsight, Hive prend en charge l'exécution sur Tez.  Cette fonctionnalité est actuellement désactivée par défaut et doit être activée.  Dans les prochaines versions du cluster, elle sera activée par défaut. Pour pouvoir tirer parti de Tez, vous devez définir la valeur suivante pour une requête Hive :
+
+		set hive.execution.engine=tez;
+
+Vous pouvez le faire individuellement pour chaque requête en plaçant cette instruction au début de la requête.  Il est également possible d'activer cette fonctionnalité par défaut sur un cluster en définissant la valeur de configuration à la création du cluster.  Pour plus d'informations, consultez la rubrique [Approvisionnement de clusters HDInsight][hdinsight-provision].
+
+Les [documents de conception Hive sur Tez][hive-on-tez-wiki] contiennent des informations détaillées sur les options d'implémentation et les configurations de réglage.
+
+
+##<a id="nextsteps"></a>Étapes suivantes
+
+Bien que Hive facilite l'interrogation des données avec un langage de requête similaire à SQL, d'autres composants disponibles avec HDInsight fournissent des fonctionnalités supplémentaires telles que le transfert et la transformation des données. Pour en savoir plus, consultez les articles suivants :
+
+* [Prise en main de HDInsight Hadoop Tools pour Visual Studio][1]
+* [Utilisation d'Oozie avec HDInsight][hdinsight-use-oozie]
+* [Envoi de tâches Hadoop par programme][hdinsight-submit-jobs]
+* [Utilisation de Pig avec HDInsight](../hdinsight-use-pig/)
+* [Analyse des données sur les retards de vol avec HDInsight][hdinsight-analyze-flight-data]
+* [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][hdinsight-sdk-documentation]
+* [Téléchargement de données vers HDInsight][hdinsight-upload-data]
+* [Prise en main d'Azure HDInsight](../hdinsight-get-started/)
+
+
+[1]: ../hdinsight-hadoop-visual-studio-tools-get-started/
+
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/fr-fr/library/dn479185.aspx
+
+[azure-purchase-options]: http://azure.microsoft.com/fr-fr/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/fr-fr/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/fr-fr/pricing/free-trial/
+
+[apache-tez]: http://tez.apache.org
+[apache-hive]: http://hive.apache.org/
+[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
+[import-to-excel]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-connect-excel-power-query/
+
+
+[hdinsight-use-oozie]: ../hdinsight-use-oozie/
+[hdinsight-analyze-flight-data]: ../hdinsight-analyze-flight-delay-data/
+
+
+
+[hdinsight-storage]: ../hdinsight-use-blob-storage
+
+[hdinsight-provision]: ../hdinsight-provision-clusters/
+[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
+[hdinsight-upload-data]: ../hdinsight-upload-data/
+[hdinsight-get-started]: ../hdinsight-get-started/
+
+[Powershell-install-configure]: ../install-configure-powershell/
+[powershell-here-strings]: http://technet.microsoft.com/fr-fr/library/ee692792.aspx
+
+[image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
+[img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
+[image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
+
+<!--HONumber=35_1-->

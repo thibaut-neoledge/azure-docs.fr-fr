@@ -1,103 +1,101 @@
-<properties linkid="manage-services-how-to-manage-a-storage-account" urlDisplayName="How to manage" pageTitle="How to manage storage accounts | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="Learn how to manage storage accounts in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Manage Storage Accounts" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
+﻿<properties urlDisplayName="How to manage" pageTitle="Gestion des comptes de stockage | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="Learn how to manage storage accounts in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Manage Storage Accounts" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="tamram" />
 
-# <span id="managestorageaccounts"></span></a>Gestion des comptes de stockage
 
-## Sommaire
 
--   [Gestion de la réplication du compte de stockage][Gestion de la réplication du compte de stockage]
--   [Affichage, copie et régénération de clés d'accès de stockage][Affichage, copie et régénération de clés d'accès de stockage]
--   [Suppression d'un compte de stockage][Suppression d'un compte de stockage]
+<h1><a id="managestorageaccounts"></a>Gestion des comptes de stockage</h1>
 
-## <span id="georeplication"></span></a> Replicate your storage account data for durability and high availability
+##Sommaire##
+
+* [Procédure : Gestion de la réplication du compte de stockage](#georeplication)
+* [Procédure : Affichage, copie et régénération de clés d'accès de stockage](#regeneratestoragekeys)
+* [Procédure : Suppression d'un compte de stockage](#deletestorageaccount)
+
+<h2><a id="georeplication"></a>Réplication de vos données de compte de stockage pour la durabilité et la haute disponibilité</h2>
 
 [WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
-### Pour spécifier les paramètres de réplication d'un compte de stockage
+### Spécification des paramètres de réplication d'un compte de stockage ###
 
-1.  Dans le [portail de gestion Azure][portail de gestion Azure], cliquez sur **Storage**, puis sur le nom du compte de stockage pour afficher le tableau de bord.
+1. Dans le [portail de gestion Azure](https://manage.windowsazure.com), cliquez sur **Stockage**, puis sur le nom de votre compte de stockage pour afficher le tableau de bord.
 
-2.  Cliquez sur **Configurer**.
+2. Cliquez sur **Configurer**.
 
-3.  Dans le champ **Réplication**, sélectionnez le type de réplication souhaité pour votre compte de stockage.
+3. Dans le champ **Réplication**, sélectionnez le type de réplication souhaité pour votre compte de stockage.
 
-4.  Cliquez sur **Enregistrer**, puis confirmez votre choix si vous y êtes invité.
+4. Cliquez sur **Enregistrer**, puis confirmez votre choix si vous y êtes invité.
 
-## <span id="regeneratestoragekeys"></span></a> Affichage, copie et régénération de clés d'accès de stockage
 
-Lorsque vous créez un compte de stockage, Azure génère deux clés d'accès de stockage de 512 bits, qui servent à l'authentification lors de l'accès au compte de stockage. En fournissant deux clés d'accès de stockage, Azure vous permet de régénérer les clés sans interrompre votre service de stockage ni l'accès à ce service.
+<h2><a id="regeneratestoragekeys"></a>Affichage copie et régénération de clés d'accès de stockage</h2>
+Lorsque vous créez un compte de stockage, Azure génère deux clés d'accès de stockage de 512 bits, qui servent à l'authentification lors de l'accès au compte de stockage. En fournissant deux clés d'accès de stockage, Azure vous permet de régénérer les clés sans interrompre votre service de stockage ni l'accès à ce service.
 
-Dans le [portail de gestion][portail de gestion], utilisez **Manage Keys** sur le tableau de bord ou la page **Storage** pour afficher, copier et régénérer les clés d'accès de stockage qui servent à accéder aux services Blob, de Table et de File d'attente.
+Dans le [portail de gestion](http://manage.windowsazure.com), utilisez **Gérer les clés** sur le tableau de bord ou la page **Stockage** pour afficher, copier et régénérer les clés d'accès de stockage qui servent à accéder aux services BLOB, de Table et de File d'attente. 
 
-### Copie d'une clé d'accès de stockage
+### Copie d'une clé d'accès de stockage ###
 
-L'option **Manage Keys** sert à copier une clé d'accès de stockage à utiliser dans une chaîne de connexion. Cette dernière nécessite le nom du compte de stockage et une clé pour l'authentification. Pour plus d'informations sur la configuration des chaînes de connexion pour accéder aux services de stockage Azure, consultez la page [Configuration des chaînes de connexion Azure][Configuration des chaînes de connexion Azure].
+L'option **Gérer les clés** sert à copier une clé d'accès de stockage à utiliser dans une chaîne de connexion. Cette dernière nécessite le nom du compte de stockage et une clé pour l'authentification. Pour plus d'informations sur la configuration des chaînes de connexion pour accéder aux services de stockage Azure, consultez la page [Configuration des chaînes de connexion Azure](http://msdn.microsoft.com/fr-fr/library/ee758697.aspx).
 
-1.  Dans le [portail de gestion][portail de gestion], cliquez sur **Storage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
+1. Dans le [portail de gestion](http://manage.windowsazure.com), cliquez sur **Stockage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
 
-2.  Cliquez sur **Manage Keys**.
+2. Cliquez sur **Gérer les clés**.
 
-    **Manage Access Keys** s'affiche.
+ 	**Manage Access Keys** opens.
 
-    ![Managekeys][Managekeys]
+	![Managekeys](./media/storage-manage-storage-account/Storage_ManageKeys.png)
 
-3.  Pour copier une clé d'accès de stockage, sélectionnez le texte de la clé. Cliquez ensuite avec le bouton droit, puis cliquez sur **Copier**.
+ 
+3. Pour copier une clé d'accès de stockage, sélectionnez le texte de la clé. Cliquez ensuite avec le bouton droit, puis cliquez sur **Copier**.
 
-### Régénération des clés d'accès de stockage
-
-Vous devez modifier périodiquement les clés d'accès à votre compte de stockage pour garantir la sécurité des connexions de stockage. Vous bénéficiez de deux clés d'accès, ce qui vous permet de conserver des connexions au compte de stockage à l'aide d'une clé d'accès lorsque vous régénérez l'autre clé.
+### Régénération des clés d'accès de stockage ###
+Vous devez modifier périodiquement les clés d'accès à votre compte de stockage pour garantir la sécurité des connexions de stockage. Vous bénéficiez de deux clés d'accès, ce qui vous permet de conserver des connexions au compte de stockage à l'aide d'une clé d'accès lorsque vous régénérez l'autre clé. 
 
 <div class="dev-callout"> 
     <b>Avertissement</b> 
-    <p>La r&eacute;g&eacute;n&eacute;ration des cl&eacute;s d'acc&egrave;s a une incidence sur les machines virtuelles, les services de m&eacute;dias et toutes les applications qui d&eacute;pendent du compte de stockage. All clients that use the access key to access the storage account must be updated to use the new key.
+    <p>La régénération des clés d'accès a une incidence sur les machines virtuelles, les services de médias et toutes les applications qui dépendent du compte de stockage. Tous les clients qui utilisent la clé d'accès pour accéder au compte de stockage doivent être mis à jour pour utiliser la nouvelle clé.
     </p> 
     </div>
 
-**Machines virtuelles** : si votre compte de stockage contient des machines virtuelles en cours d'exécution, vous devez redéployer toutes les machines virtuelles après avoir régénéré les clés d'accès. Pour éviter le redéploiement, arrêtez les machines virtuelles avant de régénérer les clés d'accès.
+**Machines virtuelles** : si votre compte de stockage contient des machines virtuelles en cours d'exécution, vous devez redéployer toutes les machines virtuelles après avoir régénéré les clés d'accès. Pour éviter le redéploiement, arrêtez les machines virtuelles avant de régénérer les clés d'accès.
+ 
+**Services de média** : si des services de médias sont liés à votre compte de stockage, vous devez resynchroniser les clés d'accès avec ces services après avoir régénéré les clés.
+ 
+**Applications** : si des applications web ou des services cloud utilisent le compte de stockage, vous perdez les connexions en régénérant les clés, à moins de les substituer. Pour ce faire :
 
-**Services de médias** : si des services de médias sont liés à votre compte de stockage, vous devez resynchroniser les clés d'accès avec ces services après avoir régénéré les clés.
+1. Mettez à jour les chaînes de connexion dans votre code d'application pour désigner la clé d'accès secondaire du compte de stockage. 
 
-**Applications** : si des applications Web ou des services cloud utilisent le compte de stockage, vous perdez les connexions en régénérant les clés, à moins de les substituer. Pour ce faire :
+2. Régénérez la clé d'accès principale de votre compte de stockage. Dans le [portail de gestion](http://manage.windowsazure.com), à partir du tableau de bord ou de la page **Configurer**, cliquez sur **Gérer les clés**. Cliquez sur **Régénérer** sous la clé d'accès primaire, puis sur **Oui** pour confirmer que vous souhaitez générer une nouvelle clé.
 
-1.  Mettez à jour les chaînes de connexion dans votre code d'application pour désigner la clé d'accès secondaire du compte de stockage.
+3. Mettez à jour les chaînes de connexion dans votre code pour désigner la nouvelle clé d'accès principale.
 
-2.  Régénérez la clé d'accès principale de votre compte de stockage. Dans le [portail de gestion][portail de gestion], depuis le tableau de bord ou la page **Configurer**, cliquez sur **Manage Keys**. Cliquez sur **Régénérer** sous la clé d'accès principal, puis sur **Oui** pour confirmer que vous souhaitez générer une nouvelle clé.
+4. Régénérez la clé d'accès secondaire.
 
-3.  Mettez à jour les chaînes de connexion dans votre code pour désigner la nouvelle clé d'accès principale.
 
-4.  Régénérez la clé d'accès secondaire.
+<h2><a id="deletestorageaccount"></a>Utilisation Suppression d'un compte de stockage</h2>
 
-## <span id="deletestorageaccount"></span></a> Suppression d'un compte de stockage
-
-Pour supprimer un compte de stockage obsolète, utilisez **Supprimer** sur le tableau de bord ou la page **Configurer**. **Supprimer** a pour effet d'éliminer l'intégralité du compte de stockage, y compris tous les objets blob, les tables et les files d'attente du compte.
+Pour supprimer un compte de stockage obsolète, utilisez l'option **Supprimer** sur le tableau de bord ou la page **Configurer**. **L'option Supprimer** a pour effet d'éliminer l'intégralité du compte de stockage, y compris tous les objets blob, les tables et les files d'attente du compte. 
 
 <div class="dev-callout">
-    <b>Avertissement</b>
-    <p>Il n'existe aucun moyen de restaurer le contenu d'un compte de stockage supprim&eacute;. Make 
-    sure you back up anything you want to save before you delete the account.
-    </p>
-    <p>
-    If your storage account contains any VHD files or disks for an Azure 
-    virtual machine, then you must delete any images and disks that are using those VHD files 
-    before you can delete the storage account. Arr&ecirc;tez au pr&eacute;alable la machine virtuelle si elle est en cours d'ex&eacute;cution, puis supprimez-la. Pour supprimer des disques, acc&eacute;dez &agrave; l'onglet Disques et supprimez tous les disques contenus dans le compte de stockage. Pour supprimer des images, acc&eacute;dez &agrave; l'onglet Images et supprimez toutes les images stock&eacute;es dans le compte.
-    </p>
+	<b>Avertissement</b>
+	<p>Il n'existe aucun moyen de restaurer le contenu d'un compte de stockage supprimé. Assurez-vous 
+	de sauvegarder tout ce que vous souhaitez enregistrer avant de supprimer le compte.
+	</p>
+	<p>
+	Si votre compte de stockage contient des fichiers de disque dur virtuel 
+	ou des disques pour une machine virtuelle Azure, vous devez supprimer l'ensemble des images 
+	et des disques qui utilisent ces fichiers avant de pouvoir supprimer le compte de stockage. Arrêtez au préalable la machine virtuelle si elle est en cours d'exécution, puis supprimez-la. Pour supprimer des disques, accédez à l'onglet Disques et supprimez tous les disques contenus dans le compte de stockage. Pour supprimer des images, accédez à l'onglet Images et supprimez toutes les images stockées dans le compte.
+	</p>
 </div>
 
-1.  Dans le [portail de gestion][portail de gestion], cliquez sur **Storage**.
 
-2.  Cliquez sur un endroit quelconque de l'entrée du compte de stockage, à l'exception du nom, puis sur **Supprimer**.
+1. Dans le [portail de gestion](http://manage.windowsazure.com), cliquez sur **Stockage**.
 
-    -Ou-
+2. Cliquez sur un endroit quelconque de l'entrée du compte de stockage, à l'exception du nom, puis sur **Supprimer**.
 
-    Cliquez sur le nom du compte de stockage pour ouvrir le tableau de bord, puis cliquez sur **Supprimer**.
+	 -Ou-
 
-3.  Cliquez sur **Oui** pour confirmer que vous souhaitez supprimer le compte de stockage.
+	Cliquez sur le nom du compte de stockage pour ouvrir le tableau de bord, puis cliquez sur **Supprimer**.
 
-  [Gestion de la réplication du compte de stockage]: #georeplication
-  [Affichage, copie et régénération de clés d'accès de stockage]: #regeneratestoragekeys
-  [Suppression d'un compte de stockage]: #deletestorageaccount
-  [portail de gestion Azure]: https://manage.windowsazure.com
-  [portail de gestion]: http://manage.windowsazure.com
-  [Configuration des chaînes de connexion Azure]: http://msdn.microsoft.com/fr-fr/library/ee758697.aspx
-  [Managekeys]: ./media/storage-manage-storage-account/Storage_ManageKeys.png
+3. Cliquez sur **Oui** pour confirmer que vous souhaitez supprimer le compte de stockage.
+
+<!--HONumber=35_1-->

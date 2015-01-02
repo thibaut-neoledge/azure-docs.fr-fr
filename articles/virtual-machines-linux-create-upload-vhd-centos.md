@@ -1,345 +1,350 @@
-<properties urlDisplayName="Upload a CentOS-based VHD" pageTitle="Cr&eacute;ation et t&eacute;l&eacute;chargement d'un disque dur virtuel&nbsp;Linux CentOS dans&nbsp;Azure" metaKeywords="Azure VHD, uploading Linux VHD, CentOS" description="Apprenez &agrave; cr&eacute;er et &agrave; t&eacute;l&eacute;charger un disque dur virtuel&nbsp;(VHD)&nbsp;Azure contenant le syst&egrave;me d'exploitation&nbsp;Linux CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Cr&eacute;ation et t&eacute;l&eacute;chargement d'un disque dur virtuel contenant le syst&egrave;me d'exploitation&nbsp;Linux CentOS" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties urlDisplayName="Upload a CentOS-based VHD" pageTitle="Création et téléchargement d'un disque dur virtuel Linux CentOS dans Azure" metaKeywords="Azure VHD, uploading Linux VHD, CentOS" description="Learn to create and upload an Azure virtual hard disk (VHD) that contains a CentOS-based Linux operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains a CentOS-based Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="kathydav, szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="szarkos" />
 
-# Préparation d'une machine virtuelle CentOS pour Azure
+# Préparation d'une machine virtuelle CentOS pour Azure
 
--   [Préparation d'une machine virtuelle CentOS 6.x pour Azure][Préparation d'une machine virtuelle CentOS 6.x pour Azure]
--   [Préparation d'une machine virtuelle CentOS 7.0+ pour Azure][Préparation d'une machine virtuelle CentOS 7.0+ pour Azure]
+- [Préparation d'une machine virtuelle CentOS 6.x pour Azure](#centos6)
+- [Préparation d'une machine virtuelle CentOS 7.0+ pour Azure](#centos7)
 
-## Configuration requise
+##Conditions préalables##
 
-Cet article suppose que vous avez déjà installé un système d'exploitation CentOS (ou une distribution dérivée similaire) de Linux dans un disque dur virtuel. Il existe de nombreux outils de création de fichiers .vhd, par exemple une solution de virtualisation telle que Hyper-V. Pour des instructions à ce sujet, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle][Installation du rôle Hyper-V et configuration d'une machine virtuelle].
+Cet article suppose que vous avez déjà installé un système d'exploitation CentOS (ou une distribution dérivée similaire) de Linux dans un disque dur virtuel. Il existe de nombreux outils de création de fichiers .vhd, par exemple une solution de virtualisation telle que Hyper-V. Pour obtenir des instructions à ce sujet, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx). 
 
-**Notes d'installation CentOS**
 
--   Azure ne prend pas en charge le nouveau format VHDX. Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de la cmdlet convert-vhd.
+**Notes d'installation CentOS**
 
--   Lors de l'installation du système Linux, il est recommandé d'utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. Les techniques LVM ou [RAID][RAID] sont utilisables sur les disques de données si vous le souhaitez.
+- Azure ne prend pas en charge le nouveau format VHDX. Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de la cmdlet convert-vhd.
 
--   NUMA n'est pas pris en charge pour les machines virtuelles plus volumineuses à cause d'un bogue dans les versions du noyau Linux antérieures à 2.6.37. Ce problème affecte essentiellement les distributions utilisant le noyau Red Hat 2.6.32 en amont. L'installation manuelle de l'Agent Linux Azure (waagent) désactive automatiquement NUMA dans la configuration GRUB pour le noyau Linux. Les étapes ci-dessous fournissent plus d'informations à ce sujet.
+- Lors de l'installation du système Linux, il est recommandé d'utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner.  Les techniques LVM ou [RAID](../virtual-machines-linux-configure-raid) sont utilisables sur les disques de données si vous le souhaitez.
 
--   Ne configurez pas une partition d'échange sur le disque du système d'exploitation. L'agent Linux est configurable pour créer un fichier d'échange sur le disque de ressources temporaire. Les étapes ci-dessous fournissent plus d'informations à ce sujet.
+- NUMA n'est pas pris en charge pour les tailles de machines virtuelles plus élevées en raison d'un bogue dans les versions du noyau Linux inférieures à 2.6.37. Ce problème touche spécialement les distributions utilisant le noyau Red Hat 2.6.32 en amont. L'installation manuelle de l'Agent Linux Azure (waagent) désactive automatiquement NUMA dans la configuration GRUB pour le noyau Linux. Les étapes ci-dessous fournissent plus d'informations à ce sujet.
 
--   La taille des disques durs virtuels doit être un multiple de 1 Mo.
+- Ne configurez pas une partition d'échange sur le disque du système d'exploitation. L'agent Linux est configurable pour créer un fichier d'échange sur le disque de ressources temporaire.  Les étapes ci-dessous fournissent plus d'informations à ce sujet.
 
-## <span id="centos6"></span> </a>CentOS 6.x
+- La taille des disques durs virtuels doit être un multiple de 1 Mo.
 
-1.  Dans le Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
 
-2.  Cliquez sur **Connecter** pour ouvrir une fenêtre de console de la machine virtuelle.
+## <a id="centos6"> </a>CentOS 6.x ##
 
-3.  Exécutez la commande suivante pour désinstaller NetworkManager :
+1. Dans le Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
 
-        # sudo rpm -e --nodeps NetworkManager
+2. Cliquez sur **Connecter** pour ouvrir une fenêtre de console de la machine virtuelle.
 
-    **Remarque :** si le package n'est pas déjà installé, la commande échoue et un message d'erreur s'affiche. Ceci est normal.
+3. Exécutez la commande suivante pour désinstaller NetworkManager :
 
-4.  Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le texte suivant :
+		# sudo rpm -e --nodeps NetworkManager
 
-        NETWORKING=yes
-        HOSTNAME=localhost.localdomain
+	**Remarque :** si le package n'est pas déjà installé, la commande échoue et un message d'erreur s'affiche. Ceci est normal.
 
-5.  Créez un fichier nommé **ifcfg-eth0** dans le répertoire `/etc/sysconfig/network-scripts/` et entrez-y le texte suivant :
+4.	Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le code suivant :
 
-        DEVICE=eth0
-        ONBOOT=yes
-        BOOTPROTO=dhcp
-        TYPE=Ethernet
-        USERCTL=no
-        PEERDNS=yes
-        IPV6INIT=no
+		NETWORKING=yes
+		HOSTNAME=localhost.localdomain
 
-6.  Déplacez (ou supprimez) les règles udev afin d'éviter la génération de règles statiques pour l'interface Ethernet. Ces règles entraînent des problèmes lors du clonage de machines virtuelles dans Microsoft Azure ou Hyper-V :
+5.	Créez un fichier nommé **ifcfg-eth0** dans le répertoire `/etc/sysconfig/network-scripts/` et entrez-y le code suivant :
 
-        # sudo mkdir -m 0700 /var/lib/waagent
-        # sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/ 2>/dev/null
-        # sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/ 2>/dev/null
+		DEVICE=eth0
+		ONBOOT=yes
+		BOOTPROTO=dhcp
+		TYPE=Ethernet
+		USERCTL=no
+		PEERDNS=yes
+		IPV6INIT=no
 
-7.  Assurez-vous que le service réseau commencera aux heures de démarrage en exécutant la commande suivante :
+6.	Déplacez (ou supprimez) les règles udev afin d'éviter la génération de règles statiques pour l'interface Ethernet. Ces règles entraînent des problèmes lors du clonage de machines virtuelles dans Microsoft Azure ou Hyper-V :
 
-        # sudo chkconfig network on
+		# sudo mkdir -m 0700 /var/lib/waagent
+		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/ 2>/dev/null
+		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/ 2>/dev/null
 
-8.  **CentOS 6.3 uniquement** : installez les pilotes pour les services d'intégration Linux
+7. Assurez-vous que le service réseau commencera aux heures de démarrage en exécutant la commande suivante :
 
-    **Important : cette opération s'applique uniquement à CentOS 6.3 et aux versions antérieures**. Sous CentOS 6.4+, les services d'intégration Linux sont *déjà disponibles dans le noyau*.
+		# sudo chkconfig network on
 
-    a) Récupérez le fichier .iso qui contient les pilotes des services d'intégration Linux sur le [Centre de téléchargement Microsoft][Centre de téléchargement Microsoft].
 
-    b) Dans Hyper-V Manager, dans le volet **Actions**, cliquez sur **Settings**.
+8. **CentOS 6.3 uniquement** : installez les pilotes pour les services d'intégration Linux
 
-    ![Ouvrez les paramètres Hyper-V][Ouvrez les paramètres Hyper-V]
+	**Important : cette opération s'applique uniquement à CentOS 6.3 et aux versions antérieures.**  Sous CentOS 6.4+, les services d'intégration Linux sont déjà disponibles dans le noyau*.
 
-    c) Dans le volet **Hardware**, cliquez sur **IDE Controller 1**.
+	a) Récupérez le fichier .iso qui contient les pilotes des services d'intégration Linux à partir du [Centre de téléchargement Microsoft](http://www.microsoft.com/fr-fr/download/details.aspx?id=41554).
 
-    ![Ajoutez le lecteur DVD via le support d'installation][Ajoutez le lecteur DVD via le support d'installation]
+	b) Dans le Gestionnaire Hyper-V, dans le volet **Actions**, cliquez sur  **Paramètres**.
 
-    d) Dans la zone **IDE Controller**, cliquez sur **DVD Drive**, puis sur **Add**.
+	![Open Hyper-V settings](./media/virtual-machines-linux-create-upload-vhd/settings.png)
 
-    e) Sélectionnez **Image file**, accédez à **Linux IC v3.2.iso**, puis cliquez sur **Open**.
+	c) Dans le volet **Matériel**, cliquez sur **Contrôleur IDE 1**.
 
-    f) Sur la page **Settings**, cliquez sur **OK**.
+	![Add DVD drive with install media](./media/virtual-machines-linux-create-upload-vhd/installiso.png)
 
-    g) Cliquez sur **Connect** pour ouvrir la fenêtre de la machine virtuelle.
+	d) Dans la zone **Contrôleur IDE**, cliquez sur **Lecteur DVD**, puis sur **Ajouter**.
 
-    h) Dans la fenêtre d'invite de commande, saisissez la commande suivante :
+	e) Sélectionnez **Fichier image**, accédez à **Linux IC v3.2.iso**, puis cliquez sur **Ouvrir**.
 
-        # sudo mount /dev/cdrom /media
-        # sudo /media/install.sh
-        # sudo reboot
+	f) Dans la page **Paramètres**, cliquez sur **OK**.
 
-9.  Exécutez la commande suivante pour installer le package python-pyasn1 :
+	g) Cliquez sur **Connecter** pour ouvrir la fenêtre de la machine virtuelle.
 
-        # sudo yum install python-pyasn1
+	h) Dans la fenêtre d'invite de commandes, saisissez la commande suivante :
 
-10. Si vous voulez utiliser les miroirs OpenLogic hébergés dans les centres de données Azure, remplacez le fichier /etc/yum.repos.d/CentOS-Base.repo par les référentiels suivants. Cette action ajoute également le référentiel **[openlogic]** qui comprend les packages de l'agent Linux Azure :
+		# sudo mount /dev/cdrom /media
+		# sudo /media/install.sh
+		# sudo reboot
 
-        [openlogic]
-        name=CentOS-$releasever - openlogic packages for $basearch
-        baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
-        enabled=1
-        gpgcheck=0
+9. Exécutez la commande suivante pour installer le package python-pyasn1 :
 
-        [base]
-        name=CentOS-$releasever - Base
-        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
-        gpgcheck=1
-        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+		# sudo yum install python-pyasn1
 
-        #released updates
-        [updates]
-        name=CentOS-$releasever - Updates
-        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
-        gpgcheck=1
-        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+10. Si vous voulez utiliser les miroirs OpenLogic hébergés dans les centres de données Azure, remplacez le fichier /etc/yum.repos.d/CentOS-Base.repo par les référentiels suivants.  Cette action ajoute également le référentiel **[openlogic]** qui comprend les packages de l'agent Linux Azure :
 
-        #additional packages that may be useful
-        [extras]
-        name=CentOS-$releasever - Extras
-        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
-        gpgcheck=1
-        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+		[openlogic]
+		name=CentOS-$releasever - openlogic packages for $basearch
+		baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
+		enabled=1
+		gpgcheck=0
+		
+		[base]
+		name=CentOS-$releasever - Base
+		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
+		gpgcheck=1
+		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+		
+		#released updates
+		[updates]
+		name=CentOS-$releasever - Updates
+		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
+		gpgcheck=1
+		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+		
+		#additional packages that may be useful
+		[extras]
+		name=CentOS-$releasever - Extras
+		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
+		gpgcheck=1
+		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+		
+		#additional packages that extend functionality of existing packages
+		[centosplus]
+		name=CentOS-$releasever - Plus
+		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/centosplus/$basearch/
+		gpgcheck=1
+		enabled=0
+		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+		
+		#contrib - packages by Centos Users
+		[contrib]
+		name=CentOS-$releasever - Contrib
+		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/contrib/$basearch/
+		gpgcheck=1
+		enabled=0
+		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
-        #additional packages that extend functionality of existing packages
-        [centosplus]
-        name=CentOS-$releasever - Plus
-        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/centosplus/$basearch/
-        gpgcheck=1
-        enabled=0
-        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+	**Remarque :** la suite de ce guide suppose que vous utilisez au moins le référentiel [openlogic] qui sera utilisé pour installer l'agent Linux Azure ci-dessous.
 
-        #contrib - packages by Centos Users
-        [contrib]
-        name=CentOS-$releasever - Contrib
-        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/contrib/$basearch/
-        gpgcheck=1
-        enabled=0
-        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
-    **Remarque :** la suite de ce guide suppose que vous utilisez au moins le référentiel [openlogic] qui sera utilisé pour installer l'agent Linux Azure ci-dessous.
+11.	Ajoutez la ligne suivante au fichier /etc/yum.conf :
 
-11. Ajoutez la ligne suivante au fichier /etc/yum.conf :
+		http_caching=packages
 
-        http_caching=packages
+	Et **sur CentOS 6.3 uniquement**, ajoutez la ligne suivante :
 
-    **Sur CentOS 6.3 uniquement**, ajoutez la ligne suivante :
+		exclude=kernel*
 
-        exclude=kernel*
+12. Désactivez le module yum " fastestmirror " en modifiant le fichier  " /etc/yum/pluginconf.d/fastestmirror.conf ". Sous `[main]`entrez le texte suivant :
 
-12. Désactivez le module yum « fastestmirror » en modifiant le fichier "/etc/yum/pluginconf.d/fastestmirror.conf". Sous `[main]`, tapez :
+		set enabled=0
 
-        set enabled=0
+13.	Exécutez la commande suivante pour effacer les métadonnées yum actuelles :
 
-13. Exécutez la commande suivante pour effacer les métadonnées yum actuelles :
+		# yum clean all
 
-        # yum clean all
+14. **CentOS 6.3 uniquement** : mettez à jour le noyau avec la commande suivante :
 
-14. **CentOS 6.3 uniquement** : mettez à jour le noyau avec la commande suivante :
+		# sudo yum --disableexcludes=all install kernel
 
-        # sudo yum --disableexcludes=all install kernel
+15.	Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier " /boot/grub/menu.lst " dans un éditeur de texte et vérifiez que le noyau par défaut comprend les paramètres suivants :
 
-15. Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier « /boot/grub/menu.lst » dans un éditeur de texte et vérifiez que le noyau par défaut comprend les paramètres suivants :
+		console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
 
-        console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
+	Ce permet également d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d'Azure. Cela désactive NUMA en raison d'une erreur dans la version de noyau utilisée par CentOS 6.
 
-    Ce permet également d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d'Azure. Cela désactive NUMA en raison d'une erreur dans la version de noyau utilisée par CentOS 6.
+	Outre les précautions ci-dessus, il est recommandé de *supprimer* les paramètres suivants :
 
-    Outre les précautions ci-dessus, il est recommandé de *supprimer* les paramètres suivants :
+		rhgb quiet crashkernel=auto
 
-        rhgb quiet crashkernel=auto
+	Le démarrage graphique et transparent n'est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série.
 
-    Le démarrage graphique et transparent n'est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série.
+	L'option `crashkernel` peut rester configurée le cas échéant, mais notez que ce paramètre réduit d'au moins 128 Mo la mémoire disponible dans la machine virtuelle, ce qui peut poser un problème sur les plus petites machines virtuelles.
 
-    L'option `crashkernel` peut rester configurée le cas échéant, mais notez que ce paramètre réduit d'au moins 128 Mo la mémoire disponible dans la machine virtuelle, ce qui peut poser un problème sur les plus petites machines virtuelles.
 
-16. Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. C'est généralement le cas par défaut.
+16.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu.  C'est généralement le cas par défaut.
 
-17. Installez l'agent linux Azure en exécutant la commande suivante :
+17. Installez l'agent linux Azure en exécutant la commande suivante :
 
-        # sudo yum install WALinuxAgent
+		# sudo yum install WALinuxAgent
 
-    L'installation du package WALinuxAgent entraîne la suppression des packages NetworkManager et NetworkManager-gnome, s'ils n'avaient pas déjà été supprimés comme indiqué à l'étape 2.
+	L'installation du package WALinuxAgent entraîne la suppression des packages NetworkManager et NetworkManager-gnome, s'ils n'avaient pas déjà été supprimés comme indiqué à l'étape 2.
 
-18. Ne créez pas d'espace swap sur le disque du système d'exploitation.
+18.	Ne créez pas d'espace swap sur le disque du système d'exploitation.
 
-    L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
+	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
 
-        ResourceDisk.Format=y
-        ResourceDisk.Filesystem=ext4
-        ResourceDisk.MountPoint=/mnt/resource
-        ResourceDisk.EnableSwap=y
-        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+		ResourceDisk.Format=y
+		ResourceDisk.Filesystem=ext4
+		ResourceDisk.MountPoint=/mnt/resource
+		ResourceDisk.EnableSwap=y
+		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-19. Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
+19.	Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
 
-        # sudo waagent -force -deprovision
-        # export HISTSIZE=0
-        # logout
+		# sudo waagent -force -deprovision
+		# export HISTSIZE=0
+		# logout
 
-20. Cliquez sur **Action -\> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
+20. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-------------------------------------------------------------------------
 
-## <span id="centos7"></span> </a>CentOS 7.0+
+----------
 
-**Modifications de CentOS 7 (et dans les distributions dérivées)**
 
-La préparation d'une machine virtuelle CentOS 7 pour Azure est très similaire à CentOS 6 ; cependant, certaines différences importantes méritent d'être notées :
+## <a id="centos7"> </a>CentOS 7.0+ ##
 
--   Le package NetworkManager n'est plus en conflit avec l'agent Azure Linux. Ce package est installé par défaut ; nous recommandons de ne pas le supprimer.
--   GRUB2 est maintenant utilisé comme chargeur de démarrage (bootloader) par défaut ; la modification des paramètres du noyau a donc changé (voir ci-dessous).
--   XFS est maintenant le système de fichiers par défaut. Le système de fichiers ext4 est toujours utilisable si vous le souhaitez.
+**Modifications de CentOS 7 (et dans les distributions dérivées)**
+
+La préparation d'une machine virtuelle CentOS 7 pour Azure est très similaire à CentOS 6 ; cependant, certaines différences importantes méritent d'être notées :
+
+ - Le package NetworkManager n'est plus en conflit avec l'agent Azure Linux. Ce package est installé par défaut ; nous recommandons de ne pas le supprimer.
+ - GRUB2 est maintenant utilisé comme chargeur de démarrage (bootloader) par défaut ; la modification des paramètres du noyau a donc changé (voir ci-dessous).
+ - XFS est maintenant le système de fichiers par défaut. Le système de fichiers ext4 est toujours utilisable si vous le souhaitez.
+
 
 **Configuration**
 
-1.  Dans le Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
+1. Dans le Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
 
-2.  Cliquez sur **Connecter** pour ouvrir une fenêtre de console de la machine virtuelle.
+2. Cliquez sur **Connecter** pour ouvrir une fenêtre de console de la machine virtuelle.
 
-3.  Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le texte suivant :
+3.	Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le code suivant :
 
-        NETWORKING=yes
-        HOSTNAME=localhost.localdomain
+		NETWORKING=yes
+		HOSTNAME=localhost.localdomain
 
-4.  Créez un fichier nommé **ifcfg-eth0** dans le répertoire `/etc/sysconfig/network-scripts/` et entrez-y le texte suivant :
+4.	Créez un fichier nommé **ifcfg-eth0** dans le répertoire `/etc/sysconfig/network-scripts/` et entrez-y le code suivant :
 
-        DEVICE=eth0
-        ONBOOT=yes
-        BOOTPROTO=dhcp
-        TYPE=Ethernet
-        USERCTL=no
-        PEERDNS=yes
-        IPV6INIT=no
+		DEVICE=eth0
+		ONBOOT=yes
+		BOOTPROTO=dhcp
+		TYPE=Ethernet
+		USERCTL=no
+		PEERDNS=yes
+		IPV6INIT=no
 
-5.  Déplacez (ou supprimez) les règles udev afin d'éviter la génération de règles statiques pour l'interface Ethernet. Ces règles entraînent des problèmes lors du clonage de machines virtuelles dans Microsoft Azure ou Hyper-V :
+5.	Déplacez (ou supprimez) les règles udev afin d'éviter la génération de règles statiques pour l'interface Ethernet. Ces règles entraînent des problèmes lors du clonage de machines virtuelles dans Microsoft Azure ou Hyper-V :
 
-        # sudo mkdir -m 0700 /var/lib/waagent
-        # sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/ 2>/dev/null
-        # sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/ 2>/dev/null
+		# sudo mkdir -m 0700 /var/lib/waagent
+		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/ 2>/dev/null
+		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/ 2>/dev/null
 
-6.  Assurez-vous que le service réseau commencera aux heures de démarrage en exécutant la commande suivante :
+6. Assurez-vous que le service réseau commencera aux heures de démarrage en exécutant la commande suivante :
 
-        # sudo chkconfig network on
+		# sudo chkconfig network on
 
-7.  Exécutez la commande suivante pour installer le package python-pyasn1 :
+7. Exécutez la commande suivante pour installer le package python-pyasn1 :
 
-        # sudo yum install python-pyasn1
+		# sudo yum install python-pyasn1
 
-8.  Si vous voulez utiliser les miroirs OpenLogic hébergés dans les centres de données Azure, remplacez le fichier /etc/yum.repos.d/CentOS-Base.repo par les référentiels suivants. Cette action ajoute également le référentiel **[openlogic]** qui comprend les packages de l'agent Linux Azure :
+8. Si vous voulez utiliser les miroirs OpenLogic hébergés dans les centres de données Azure, remplacez le fichier /etc/yum.repos.d/CentOS-Base.repo par les référentiels suivants.  Cette action ajoute également le référentiel **[openlogic]** qui comprend les packages de l'agent Linux Azure :
 
-        [openlogic]
-        name=CentOS-$releasever - openlogic packages for $basearch
-        baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
-        enabled=1
-        gpgcheck=0
+		[openlogic]
+		name=CentOS-$releasever - openlogic packages for $basearch
+		baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
+		enabled=1
+		gpgcheck=0
+		
+		[base]
+		name=CentOS-$releasever - Base
+		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
+		gpgcheck=1
+		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+		
+		#released updates
+		[updates]
+		name=CentOS-$releasever - Updates
+		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
+		gpgcheck=1
+		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+		
+		#additional packages that may be useful
+		[extras]
+		name=CentOS-$releasever - Extras
+		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
+		gpgcheck=1
+		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+		
+		#additional packages that extend functionality of existing packages
+		[centosplus]
+		name=CentOS-$releasever - Plus
+		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/centosplus/$basearch/
+		gpgcheck=1
+		enabled=0
+		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+		
+		#contrib - packages by Centos Users
+		[contrib]
+		name=CentOS-$releasever - Contrib
+		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/contrib/$basearch/
+		gpgcheck=1
+		enabled=0
+		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 
-        [base]
-        name=CentOS-$releasever - Base
-        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
-        gpgcheck=1
-        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 
-        #released updates
-        [updates]
-        name=CentOS-$releasever - Updates
-        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
-        gpgcheck=1
-        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+	**Remarque :** la suite de ce guide suppose que vous utilisez au moins le référentiel [openlogic] qui sera utilisé pour installer l'agent Linux Azure ci-dessous.
 
-        #additional packages that may be useful
-        [extras]
-        name=CentOS-$releasever - Extras
-        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
-        gpgcheck=1
-        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+9.	Exécutez la commande suivante pour effacer les métadonnées yum actuelles et installer les mises à jour le cas échéant :
 
-        #additional packages that extend functionality of existing packages
-        [centosplus]
-        name=CentOS-$releasever - Plus
-        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/centosplus/$basearch/
-        gpgcheck=1
-        enabled=0
-        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+		# sudo yum clean all
+		# sudo yum -y update
 
-        #contrib - packages by Centos Users
-        [contrib]
-        name=CentOS-$releasever - Contrib
-        baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/contrib/$basearch/
-        gpgcheck=1
-        enabled=0
-        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+10.	Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier " /etc/default/grub " dans un éditeur de texte et modifiez le paramètre `GRUB_CMDLINE_LINUX`, par exemple :
 
-    **Remarque :** la suite de ce guide suppose que vous utilisez au moins le référentiel [openlogic] qui sera utilisé pour installer l'agent Linux Azure ci-dessous.
+		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
-9.  Exécutez la commande suivante pour effacer les métadonnées yum actuelles et installer les mises à jour le cas échéant :
+	Ce permet également d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d'Azure. Outre les précautions ci-dessus, il est recommandé de *supprimer* les paramètres suivants :
 
-        # sudo yum clean all
-        # sudo yum -y update
+		rhgb quiet crashkernel=auto
 
-10. Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier « /etc/default/grub » dans un éditeur de texte et modifiez le paramètre `GRUB_CMDLINE_LINUX`, par exemple :
+	Le démarrage graphique et transparent n'est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série.
 
-        GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
+	L'option `crashkernel` peut rester configurée le cas échéant, mais notez que ce paramètre réduit d'au moins 128 Mo la mémoire disponible dans la machine virtuelle, ce qui peut poser un problème sur les plus petites machines virtuelles.
 
-    Ce permet également d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d'Azure. Outre les précautions ci-dessus, il est recommandé de *supprimer* les paramètres suivants :
+11. Lorsque vous avez fini de modifier le fichier " /etc/default/grub ", exécutez la commande suivante pour régénérer la configuration grub :
 
-        rhgb quiet crashkernel=auto
+		# sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-    Le démarrage graphique et transparent n'est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série.
+12.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu.  C'est généralement le cas par défaut.
 
-    L'option `crashkernel` peut rester configurée le cas échéant, mais notez que ce paramètre réduit d'au moins 128 Mo la mémoire disponible dans la machine virtuelle, ce qui peut poser un problème sur les plus petites machines virtuelles.
+13. Installez l'agent linux Azure en exécutant la commande suivante :
 
-11. Lorsque vous avez fini de modifier le fichier « /etc/default/grub », exécutez la commande suivante pour régénérer la configuration grub :
+		# sudo yum install WALinuxAgent
 
-        # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+14.	Ne créez pas d'espace swap sur le disque du système d'exploitation.
 
-12. Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. C'est généralement le cas par défaut.
+	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
 
-13. Installez l'agent linux Azure en exécutant la commande suivante :
+		ResourceDisk.Format=y
+		ResourceDisk.Filesystem=ext4
+		ResourceDisk.MountPoint=/mnt/resource
+		ResourceDisk.EnableSwap=y
+		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-        # sudo yum install WALinuxAgent
+15.	Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
 
-14. Ne créez pas d'espace swap sur le disque du système d'exploitation.
+		# sudo waagent -force -deprovision
+		# export HISTSIZE=0
+		# logout
 
-    L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
+16. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-        ResourceDisk.Format=y
-        ResourceDisk.Filesystem=ext4
-        ResourceDisk.MountPoint=/mnt/resource
-        ResourceDisk.EnableSwap=y
-        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-15. Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
 
-        # sudo waagent -force -deprovision
-        # export HISTSIZE=0
-        # logout
-
-16. Cliquez sur **Action -\> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
-
-  [Préparation d'une machine virtuelle CentOS 6.x pour Azure]: #centos6
-  [Préparation d'une machine virtuelle CentOS 7.0+ pour Azure]: #centos7
-  [Installation du rôle Hyper-V et configuration d'une machine virtuelle]: http://technet.microsoft.com/library/hh846766.aspx
-  [RAID]: ../virtual-machines-linux-configure-raid
-  [Centre de téléchargement Microsoft]: http://www.microsoft.com/fr-fr/download/details.aspx?id=41554
-  [Ouvrez les paramètres Hyper-V]: ./media/virtual-machines-linux-create-upload-vhd/settings.png
-  [Ajoutez le lecteur DVD via le support d'installation]: ./media/virtual-machines-linux-create-upload-vhd/installiso.png
+<!--HONumber=35_1-->

@@ -1,77 +1,80 @@
-<properties urlDisplayName="Azure Storage in Windows Store apps" pageTitle="Utilisation du stockage&nbsp;Azure dans les applications Windows&nbsp;Store | Azure" metaKeywords="" description="Apprenez &agrave; utiliser les objets blob, les files d'attente et les tables&nbsp;Azure pour stocker les donn&eacute;es d'une application Windows&nbsp;Store." metaCanonical="" services="storage" documentationCenter="" title="Utilisation d'Azure Storage dans les applications Windows Store" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
+﻿<properties urlDisplayName="Azure Storage in Windows Store apps" pageTitle="Utilisation du stockage Azure dans les applications Windows Store | Azure" metaKeywords="" description="Learn how to use Azure blobs, queues, and tables to store data for a Windows Store app." metaCanonical="" services="storage" documentationCenter="" title="How to use Azure Storage in Windows Store Apps" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="tamram" />
+
+
+
+
 
 # Utilisation d'Azure Storage dans les applications Windows Store
 
 Ce guide montre comment commencer le développement d'une application Windows Store utilisant Azure Storage.
 
-## Téléchargement des outils nécessaires
+## Téléchargement des outils nécessaires ##
 
--   [Visual Studio 2012][Visual Studio 2012] permet de générer, de déboguer, de localiser, de mettre en package et de déployer des applications Windows Store en toute simplicité.
--   La [bibliothèque du client Azure Storage pour Windows Runtime][bibliothèque du client Azure Storage pour Windows Runtime] contient des types utilisés pour communiquer avec Azure Storage, en package dans un composant Windows Runtime.
--   Les [outils de services de données WCF pour applications Windows Store][outils de services de données WCF pour applications Windows Store] développent l'expérience Ajouter une référence de service avec la prise en charge OData côté client pour les applications Windows Store dans Visual Studio 2012.
+- [Visual Studio 2012](http://msdn.microsoft.com/fr-fr/library/windows/apps/br211384) permet de générer, de déboguer, de localiser, de mettre en package et de déployer des applications Windows Store en toute simplicité.
+- [La Bibliothèque cliente Microsoft Azure Storage pour Windows Runtime](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) fournit une bibliothèque de classe pour l'utilisation d'Azure Storage.
+- [Les Outils des services de données WCF pour applications du Windows Store](http://www.microsoft.com/fr-fr/download/details.aspx?id=30714) étendent l'expérience Ajouter une référence de service avec la prise en charge d'OData côté client pour les applications du Windows Store dans Visual Studio 2012 et versions ultérieures.
 
-## Développement d'applications
+## Développement d'applications ##
 
-### Préparation
+<h3>Préparation</h3>
 
-Créez un projet d'application Windows Store dans Visual Studio 2012 :
+Créez un projet d'application Windows Store dans Visual Studio 2012 ou version ultérieure :
 
 ![store-apps-storage-vs-project][store-apps-storage-vs-project]
 
-Ensuite, ajoutez une référence à la bibliothèque cliente Azure Storage. Pour cela, cliquez avec le bouton droit sur **Références**, puis choisissez **Ajouter une référence** et recherchez la bibliothèque cliente Storage pour Windows Runtime que vous avez téléchargée :
+Ensuite, ajoutez une référence à la bibliothèque cliente Azure Storage. Pour cela, cliquez avec le bouton droit sur **Références**, puis choisissez **Ajouter une référence** et recherchez la bibliothèque cliente Storage pour Windows Runtime que vous avez téléchargée :
 
 ![store-apps-storage-choose-library][store-apps-storage-choose-library]
 
-### Utilisation de la bibliothèque avec les services blob et de file d'attente
+<h3>Utilisation de la bibliothèque avec les services blob et de file d'attente</h3>
 
-À ce stade, votre application est prête à communiquer avec les services Blob et de file d'attente. Ajoutez les instructions **using** suivantes afin que les types Azure Storage soient référencés directement :
+À ce stade, votre application est prête à appeler les services Blob et de file d'attente. Ajoutez les instructions **using** suivantes afin que les types Azure Storage soient référencés directement :
 
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
-
-Ensuite, ajoutez un bouton sur votre page. Ajoutez le code suivant dans son événement **Cliquer** et modifiez votre méthode de gestionnaire d'événements grâce au [mot clé async][mot clé async] :
-
+    
+Ensuite, ajoutez un bouton sur votre page. Ajoutez le code suivant à son événement **Click** et modifiez votre méthode de gestionnaire d'événements grâce au [mot clé async](http://msdn.microsoft.com/en-US/library/vstudio/hh156513.aspx) :
+    
     var credentials = new StorageCredentials(accountName, accountKey);
     var account = new CloudStorageAccount(credentials, true);
     var blobClient = account.CreateCloudBlobClient();
     var container = blobClient.GetContainerReference("container1");
     await container.CreateIfNotExistsAsync();
-
-Ce code part du principe que vous avez deux variables de chaîne, *accountName* et *accountKey*, qui représentent le nom de votre compte de stockage et la clé de compte qui lui est associée.
+    
+Ce code part du principe que vous avez deux variables de chaîne, *accountName* and *accountKey*, qui représentent le nom de votre compte de stockage et la clé de compte qui lui est associée.
 
 Générez et exécutez l'application. Si vous cliquez sur le bouton, l'application vérifiera tout d'abord si un conteneur nommé *container1* existe dans votre compte et le créera si ce n'est pas le cas.
 
-### Utilisation de la bibliothèque avec le service de Table
+<h3>Utilisation de la bibliothèque avec le service de Table</h3>
 
-Les types utilisés pour communiquer avec le service de Table dépendent des services de données WCF pour la bibliothèque d'applications Windows Store. Ensuite, ajoutez une référence aux bibliothèques WCF requises en utilisant la console du Gestionnaire de package :
+Les types utilisés pour communiquer avec le service de Table dépendent des services de données WCF pour la bibliothèque d'applications Windows Store. Ensuite, ajoutez une référence aux bibliothèques WCF requises en utilisant la console du Gestionnaire de package :
 
 ![store-apps-storage-package-manager][store-apps-storage-package-manager]
 
-Utilisez la commande suivante pour faire pointer le Gestionnaire de package sur l'emplacement de votre ordinateur :
+Utilisez la commande suivante pour faire pointer le Gestionnaire de package sur l'emplacement de votre ordinateur :
+    
+    Install-Package Microsoft.Data.OData.WindowsStore -Source "C:\Program Files (x86)\Microsoft WCF Data Services\5.0\bin\NuGet"
 
-    Install-Package Microsoft.Data.OData.WindowsStore -Source "C:\Program Files (x86)\Microsoft WCF Data Services.0\bin\NuGet"
+Cette commande ajoutera automatiquement toutes les références requises à votre projet. Si vous ne souhaitez pas utiliser la console du Gestionnaire de package, vous pouvez également ajouter le dossier NuGet de services de données WCF sur votre ordinateur local dans la liste des sources de package, puis ajouter la référence via l'interface utilisateur comme décrit dans [Gestion des packages NuGet à l'aide de la boîte de dialogue](http://docs.nuget.org/docs/start-here/Managing-NuGet-Packages-Using-The-Dialog).
 
-Cette commande ajoutera automatiquement toutes les références requises à votre projet. Si vous ne souhaitez pas utiliser la console du Gestionnaire de package, vous pouvez également ajouter le dossier NuGet de services de données WCF sur votre ordinateur local dans la liste des sources de package, puis ajouter la référence via l'interface utilisateur comme décrit dans [Gestion des packages NuGet à l'aide de la boîte de dialogue][Gestion des packages NuGet à l'aide de la boîte de dialogue].
-
-Une fois le package NuGet de services de données WCF référencé, modifiez le code dans l'événement **Cliquer** de votre bouton :
-
+Une fois le package NuGet de services de données WCF référencé, modifiez le code dans l'événement **Click** de votre bouton :
+    
     var credentials = new StorageCredentials(accountName, accountKey);
     var account = new CloudStorageAccount(credentials, true);
     var tableClient = account.CreateCloudTableClient();
     var table = tableClient.GetTableReference("table1");
     await table.CreateIfNotExistsAsync();
-
+    
 Ce code vérifie qu'une table nommée *table1* existe dans votre compte et la crée si ce n'est pas le cas.
 
 Vous pouvez également ajouter une référence dans Microsoft.WindowsAzure.Storage.Table.dll, disponible dans le même package que vous avez téléchargé. Cette bibliothèque contient des fonctionnalités supplémentaires, telles qu'une sérialisation basée sur la réflexion et des requêtes génériques. Notez que cette bibliothèque ne prend pas en charge le code JavaScript.
 
-  [Visual Studio 2012]: http://msdn.microsoft.com/fr-fr/library/windows/apps/br211384
-  [bibliothèque du client Azure Storage pour Windows Runtime]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx
-  [outils de services de données WCF pour applications Windows Store]: http://www.microsoft.com/fr-fr/download/details.aspx?id=30714
-  [store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
-  [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
-  [mot clé async]: http://msdn.microsoft.com/fr-fr/library/vstudio/hh156513.aspx
-  [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
-  [Gestion des packages NuGet à l'aide de la boîte de dialogue]: http://docs.nuget.org/docs/start-here/Managing-NuGet-Packages-Using-The-Dialog
+
+
+[store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
+[store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
+[store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
+
+<!--HONumber=35_1-->

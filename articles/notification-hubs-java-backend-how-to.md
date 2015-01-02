@@ -1,13 +1,13 @@
-﻿<properties urlDisplayName="How to use Notification Hubs with Java" pageTitle="Utilisation de Notification Hubs avec Java" metaKeywords="" description="Learn how to use Azure Notification Hubs from a Java back-end." metaCanonical="" services="mobile-services,notification-hubs,push,java" documentationCenter="" title="How to use Notification Hubs with Java" authors="elioda" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="How to use Notification Hubs with Java" pageTitle="Utilisation de Notification Hubs avec Java" metaKeywords="" description="Learn how to use Azure Notification Hubs from a Java back-end." metaCanonical="" services="mobile-services,notification-hubs,push,java" documentationCenter="" title="How to use Notification Hubs with Java" authors="piyushjo" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="java" ms.topic="article" ms.date="11/14/2014" ms.author="piyushjo" />
 
 # Utilisation de Notification Hubs à partir de Java/PHP
 <div class="dev-center-tutorial-selector sublanding"> 
     	<a href="/fr-fr/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/fr-fr/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a>
 </div>
 
-Vous pouvez accéder à toutes les fonctionnalités de Notification Hubs à partir d'un serveur principal Java/PHP/Ruby en utilisant l'interface REST des concentrateurs de notifications, comme décrit dans la rubrique MSDN [API REST de Notification Hubs](http://msdn.microsoft.com/fr-fr/library/dn223264.aspx).
+Vous pouvez accéder à toutes les fonctionnalités de Notification Hubs à partir d'un serveur principal Java/PHP/Ruby en utilisant l'interface REST de Notification Hubs, comme décrit dans la rubrique MSDN [API REST de Notification Hubs](http://msdn.microsoft.com/fr-fr/library/dn223264.aspx).
 
 Dans cette rubrique, nous vous montrons comment :
 
@@ -15,7 +15,7 @@ Dans cette rubrique, nous vous montrons comment :
 * suivre le [didacticiel de prise en main](http://azure.microsoft.com/fr-fr/documentation/articles/notification-hubs-ios-get-started/) pour la plateforme mobile de votre choix, en implémentant la partie concernant le serveur principal en Java.
 
 ##<a name="client-interface"></a>Interface client
-L'interface client principale peut fournir les mêmes méthodes que celles disponibles dans le [Kit de développement logiciel (SDK) .NET Notification Hubs](http://msdn.microsoft.com/fr-fr/library/jj933431.aspx), ce qui vous permet de traduire directement l'ensemble des didacticiels et des exemples actuellement disponibles sur ce site, enrichis par les contributions de la communauté Internet.
+L'interface cliente principale peut fournir les mêmes méthodes que celles disponibles dans le [Kit de développement logiciel (SDK) .NET Notification Hubs](http://msdn.microsoft.com/fr-fr/library/jj933431.aspx). Cela vous permettra de traduire directement tous les didacticiels et les exemples actuellement disponibles sur ce site et ceux mis à la disposition sur Internet par la communauté.
 
 Tout le code est disponible dans l'[exemple de wrapper REST Java].
 
@@ -37,10 +37,10 @@ Pour envoyer une notification iOS native :
 	hub.sendNotification(n);
 
 ##<a name="implementation"></a>Implémentation
-Si ce n'est pas déjà fait, suivez notre [didacticiel de prise en main] jusqu'à la dernière section, où vous devrez implémenter le serveur principal.
-En outre, si vous le souhaitez, vous pouvez utiliser le code de l'[exemple de wrapper Java REST] et accéder directement à la section du didacticiel [Suivi du didacticiel](#complete-tutorial).
+Si ce n'est déjà fait, suivez notre [didacticiel de prise en main] jusqu'à la dernière section, dans laquelle vous devrez implémenter le serveur principal.
+De même, vous pouvez éventuellement utiliser le code de l'[exemple de wrapper REST Java] et accéder directement à la section [Suivi du didacticiel](#complete-tutorial) .
 
-Tous les détails de l'implémentation d'un wrapper REST complet se trouvent sur [MSDN](http://msdn.microsoft.com/fr-fr/library/dn530746.aspx). Dans cette section, nous allons décrire l'implémentation Java des principales étapes requises pour accéder aux points de terminaison REST de Notification Hubs :
+Tous les détails concernant l'implémentation d'un wrapper REST complet sont disponibles sur [MSDN](http://msdn.microsoft.com/fr-fr/library/dn530746.aspx). Dans cette section, nous allons décrire l'implémentation Java des principales étapes requises pour accéder aux points de terminaison REST de Notification Hubs :
 
 1. Analyse de la chaîne de connexion
 2. Génération du jeton d'autorisation
@@ -90,8 +90,8 @@ Voici la classe principale implémentant le client, dont le constructeur analyse
 
 
 ### Création du jeton de sécurité
-Les détails de la création de jetons de sécurité sont disponibles [ici](http://msdn.microsoft.com/fr-fr/library/dn495627.aspx).
-La méthode suivante doit être ajoutée à la classe **NotificationHub** pour créer le jeton sur base de l'URI de la demande actuelle et des informations d'identification extraites de la chaîne de connexion.
+Les détails concernant la création d'un jeton de sécurité sont disponibles [ici](http://msdn.microsoft.com/fr-fr/library/dn495627.aspx).
+La méthode suivante doit être ajoutée à la classe **NotificationHub** pour créer le jeton à partir de l'URI de la demande actuelle et des informations d'identification extraites de la chaîne de connexion.
 
 	private String generateSasToken(URI uri) {
 		String targetUri;
@@ -237,7 +237,7 @@ Commençons par définir une classe représentant une notification.
 
 Cette classe est un conteneur pour un corps de notification natif ou un ensemble de propriétés dans le cas d'un modèle de notification, et un ensemble d'en-têtes contenant le format (plateforme native ou modèle) et des propriétés spécifiques de la plateforme (telles que la propriété expiration d'Apple et les en-têtes WNS). Nous définissons également des constructeurs pratiques pour générer les types de notification couramment utilisés.
 
-Pour connaître toutes les options disponibles, reportez-vous à la [documentation sur les API REST de Notification Hubs](http://msdn.microsoft.com/fr-fr/library/dn495827.aspx) et aux formats spécifiques des plateformes de notification.
+Consultez la [documentation sur les API REST de Notification Hubs](http://msdn.microsoft.com/fr-fr/library/dn495827.aspx) , ainsi que les formats des plateformes de notification spécifiques pour toutes les options disponibles.
 
 Munis de cette classe, nous pouvons à présent écrire les méthodes d'envoi des notifications à l'intérieur de la classe **NotificationHub**.
 
@@ -308,7 +308,7 @@ Ajoutez ensuite le code d'envoi en fonction de la plateforme mobile cible.
 
 ### Windows Store et Windows Phone 8.1 (non-Silverlight)
 
-	String toast = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello from Java!</text></binding></visual></toast>";
+
 	Notification n = Notification.createWindowsNotification(toast);
 	hub.sendNotification(n);
 
@@ -346,11 +346,13 @@ L'exécution de votre code Java produit normalement une notification qui appara�
 Dans cette rubrique, nous vous avons montré comment créer un client REST Java simple pour Notification Hubs. À ce stade, vous pouvez :
 
 * télécharger l'intégralité de l'[exemple de wrapper REST Java], qui contient tout le code ci-dessus plus la gestion de l'inscription ;
-* poursuivre l'apprentissage de la fonction de balisage dans le [didacticiel Nouvelles de dernière minute] ;
-* vous familiariser avec l'envoi de notifications Push à des utilisateurs individuels dans le [didacticiel Envoi de notifications à des utilisateurs]
+* poursuivre l'apprentissage de la fonctionnalité de balisage de Notification Hubs dans le [didacticiel Nouvelles de dernière minute] ;
+* vous familiariser avec l'envoi de notifications Push à des utilisateurs individuels dans le [didacticiel Envoi de notifications à des utilisateurs].
 
 
 
 
-[Exemple de wrapper Java REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-java
+[Exemple de wrapper REST Java]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-java
 [Didacticiel de prise en main]: http://azure.microsoft.com/fr-fr/documentation/articles/notification-hubs-ios-get-started/
+
+<!--HONumber=35_1-->
