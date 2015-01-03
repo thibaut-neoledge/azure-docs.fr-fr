@@ -1,9 +1,9 @@
-﻿<properties urlDisplayName="Blob Storage with  Hadoop in HDInsight" pageTitle="Interrogation de données volumineuses (" Big Data ") à partir d'un stockage d'objets blob compatible Hadoop | Azure" metaKeywords="" description="HDInsight uses Hadoop-compatible Blob storage as the big data store for HDFS. Learn how to query from Blob storage, and store results of your analysis." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Query big data from Hadoop-compatible Blob storage for analysis in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
+﻿<properties urlDisplayName="Blob Storage with  Hadoop in HDInsight" pageTitle="Interrogation de données volumineuses (Big Data) à partir d'un stockage d'objets blob compatible Hadoop | Azure" metaKeywords="" description="HDInsight uses Hadoop-compatible Blob storage as the big data store for HDFS. Learn how to query from Blob storage, and store results of your analysis." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Query big data from Hadoop-compatible Blob storage for analysis in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
 
 
-#Interrogation de données volumineuses (" Big Data ") à partir d'un stockage d'objets blob compatible Hadoop en vue d'une analyse dans HDInsight
+#Interrogation de données volumineuses ("Big Data") à partir d'un stockage d'objets blob compatible Hadoop en vue d'une analyse dans HDInsight
 
 Le stockage d'objets blob est une solution de stockage Azure compatible avec Hadoop qui est à la fois robuste, polyvalente et économique. Cette solution s'intègre en toute transparence à HDInsight. Grâce à une interface HDFS (Hadoop Distributed File System), l'ensemble des composants de HDInsight peut fonctionner directement sur les données dans le stockage d'objets blob. Dans ce didacticiel, vous apprendrez comment configurer un conteneur pour le stockage d'objets blob, puis traiter les données qu'il contient.
 
@@ -77,7 +77,7 @@ Voici les avantages offerts par le stockage de données dans un stockage d'objet
 * **Archivage de données :** le stockage de données dans le stockage d'objets blob permet de supprimer les clusters HDInsight ayant servi aux calculs, sans perte de données utilisateur. 
 * **Coût de stockage des données :** le stockage à long terme des données dans DFS est plus coûteux que le stockage des données dans un stockage d'objets blob, car le coût d'un cluster de calcul est plus élevé que celui d'un conteneur de stockage d'objets blob. De plus, comme vous n'avez pas à recharger les données pour chaque génération de cluster de calcul, vous faites également des économies sur les chargements de données.
 * **Montée en charge élastique :** même si le système HDFS offre un système de fichiers monté en charge, cette capacité est déterminée par le nombre de nœuds que vous configurez pour votre cluster. Au lieu de procéder ainsi, il est parfois plus simple de profiter des capacités d'évolution flexible du stockage d'objets blob, que vous obtenez automatiquement.
-* **Géo-réplication :** vous pouvez géo-répliquer vos conteneurs de stockage d'objets blob via le portail Azure. Si cette fonctionnalité permet la récupération géographique et la redondance des données, un basculement vers un emplacement géo-répliqué affecte sérieusement les performances et peut entraîner des frais supplémentaires. Nous vous recommandons donc de peser sérieusement le pour et le contre avant de choisir la géo-réplication.
+* **Géo-réplication:** vous pouvez géo-répliquer vos conteneurs de stockage d'objets blob via le portail Azure. Si cette fonctionnalité permet la récupération géographique et la redondance des données, un basculement vers un emplacement géo-répliqué affecte sérieusement les performances et peut entraîner des frais supplémentaires. Nous vous recommandons donc de peser sérieusement le pour et le contre avant de choisir la géo-réplication.
 
 Certains packages et tâches MapReduce peuvent créer des résultats intermédiaires que vous ne voulez pas stocker dans un conteneur de stockage d'objets blob. Dans ce cas, vous pouvez toujours choisir de stocker les données dans un système HDFS local. En fait, HDInsight utilise DFS pour plusieurs de ces résultats intermédiaires dans les tâches Hive et d'autres processus. 
 
@@ -156,7 +156,7 @@ Si ni &lt;BlobStorageContainerName&gt; ni &lt;StorageAccountName&gt; n'a été s
 > [WACOM.NOTE] Le nom de fichier est <i>hadoop-examples.jar</i> sur les clusters HDInsight versions 1.6 et 2.1.
 
 
-&lt;path&gt; correspond au nom du chemin d'accès du fichier ou du répertoire HDFS. Comme les conteneurs de stockage d'objets blob constituent simplement un magasin de clé-valeur, il n'y a pas de système de fichiers hiérarchique. Un signe " / " à l'intérieur d'une clé d'objet blob est interprété comme un séparateur de répertoire. Par exemple, le nom d'objet blob pour *hadoop-mapreduce-examples.jar* est :
+&lt;path&gt; correspond au nom du chemin d'accès du fichier ou du répertoire HDFS. Comme les conteneurs de stockage d'objets blob constituent simplement un magasin de clé-valeur, il n'y a pas de système de fichiers hiérarchique. Un signe "/ " à l'intérieur d'une clé d'objet blob est interprété comme un séparateur de répertoire. Par exemple, le nom d'objet blob pour *hadoop-mapreduce-examples.jar* est :
 
 	example/jars/hadoop-mapreduce-examples.jar
 	

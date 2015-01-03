@@ -9,7 +9,7 @@
 
 Les numéros de version complets des clusters HDInsight déployés avec cette version sont les suivants :
 
-* HDInsight 	2.1.9.406.1221105	(HDP 1.3.9.0-01351)
+* HDInsight 	2.1.9.406.1221105	(HDP 1.3.9.0-01351 )
 * HDInsight 	3.0.5.406.1221105	(HDP 2.0.9.0-2097)
 * HDInsight 	3.1.1.406.1221105	(HDP 2.1.9.0-2196)
 * Kit de développement logiciel (SDK) HDInsight N/A
@@ -246,7 +246,7 @@ Pour plus d'informations sur les paramètres de configuration de mémoire utilis
 
 Erreur de Kit de développement logiciel (SDK)/HDInsight PowerShell : " *Le cluster n'est pas configuré pour l'accès aux services Http* " :
 
-* Il s'agit d'un [problème de compatibilité](https://social.msdn.microsoft.com/Forums/azure/en-US/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) connu pouvant survenir en raison d'une différence entre la version de Kit de développement logiciel (SDK)/PowerShell et la version du cluster. Les clusters créés le 15/08 ou ultérieurement prennent en charge la nouvelle capacité d'approvisionnement dans les réseaux virtuels. Mais cette capacité n'est pas interprétée correctement par les versions antérieures du Kit de développement logiciel/PowerShell. Il en résulte un échec dans certaines opérations de soumission de tâches. Si vous utilisez des API SDK ou des cmdlets PowerShell pour envoyer des tâches (**Use-AzureHDInsightCluster**, **Invoke-Hive**), ces opérations peuvent échouer avec le message d'erreur " *Le cluster <nom_cluster> n'est pas configuré pour l'accès aux services Http " ou, en fonction de l'opération, avec d'autres types de message d'erreur tels que " *Impossible de se connecter au cluster* ".
+* Il s'agit d'un [problème de compatibilité](https://social.msdn.microsoft.com/Forums/azure/en-US/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) connu pouvant survenir en raison d'une différence entre la version de Kit de développement logiciel (SDK)/PowerShell et la version du cluster. Les clusters créés le 15/08 ou ultérieurement prennent en charge la nouvelle capacité d'approvisionnement dans les réseaux virtuels. Mais cette capacité n'est pas interprétée correctement par les versions antérieures du Kit de développement logiciel/PowerShell. Il en résulte un échec dans certaines opérations de soumission de tâches. Si vous utilisez des API SDK ou des cmdlets PowerShell pour envoyer des tâches (**Use-AzureHDInsightCluster**, **Invoke-Hive**), ces opérations peuvent échouer avec le message d'erreur " *Le cluster <nom_cluster> n'est pas configuré pour l'accès aux services Http " ou, en fonction de l'opération, avec d'autres types de message d'erreur tels que “*Impossible de se connecter au cluster*”.
 
 * Ces problèmes de compatibilité sont résolus dans les dernières versions du Kit de développement logiciel (SDK) HDInsight et Azure PowerShell. Nous vous recommandons de mettre à jour le Kit de développement logiciel (SDK) HDInsight à la version 1.3.1.6 ou ultérieure et les outils Azure PowerShell à la version 0.8.8 ou ultérieure. Vous pouvez obtenir l'accès au Kit de développement logiciel (SDK) HDInsight le plus récent depuis [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) et les outils  Azure PowerShell Tools à la rubrique [Installation et configuration d'Azure PowerShell](http://azure.microsoft.com/fr-fr/documentation/articles/install-configure-powershell/).
 
@@ -264,7 +264,7 @@ Erreur de Kit de développement logiciel (SDK)/HDInsight PowerShell : " *Le clus
 * Nous ajoutons la nouvelle configuration WebHCat suivante (HIVE-7155) qui fixe la limite de mémoire par défaut pour une tâche de contrôleur Templeton à 1 Go (l'ancienne valeur par défaut était de 512 Mo) :
 	
 	* templeton.mapper.memory.mb (=1024)
-	* Cette modification résout l'erreur suivante que certaines requêtes Hive rencontraient en raison des limites de mémoire plus basses : " Container is running beyond physical memory limits " (Le conteneur a dépassé les limites de la mémoire physique).
+	* Cette modification résout l'erreur suivante que certaines requêtes Hive rencontraient en raison des limites de mémoire plus basses : “Container is running beyond physical memory limits” (Le conteneur a dépassé les limites de la mémoire physique).
 	* Pour revenir aux anciens paramètres par défaut, vous pouvez définir cette valeur de configuration sur 512 via le Kit de développement logiciel (SDK) PowerShell au moment de la création du cluster, avec la commande suivante :
 	
 		Add-AzureHDInsightConfigValues -Core @{"templeton.mapper.memory.mb"="512";}
@@ -298,7 +298,7 @@ Vous pouvez vous attendre à ce que le Kit de développement logiciel (SDK) et P
 <tr><th>HDP</th><th>Changements</th></tr>
 <tr><td>HDP 1.3 / HDI 2.1</td><td>Pas de changements</td></tr>
 <tr><td>HDP 2.0 / HDI 3.0</td><td>Pas de changements</td></tr>
-<tr><td>HDP 2.1 / HDI 3.1</td><td>zookeeper : ['3.4.5.2.1.3.0-1948'] -> ['3.4.5.2.1.3.2-0002']</td></tr>
+<tr><td>HDP 2.1 / HDI 3.1</td><td>zookeeper: ['3.4.5.2.1.3.0-1948'] -> ['3.4.5.2.1.3.2-0002']</td></tr>
 
 
 </table><br>
@@ -356,7 +356,7 @@ D'un point de vue plus général et même orthogonal, les metastores Oozie sont 
 seule la syntaxe " wasb:// " est prise en charge dans les clusters HDInsight 3.0 et 3.1. L'ancienne syntaxe " asv:// " est prise en charge dans les clusters HDInsight 2.1 et 1.6, mais pas dans les clusters HDInsight 3.0 ou les versions ultérieures. Cela signifie que toutes les tâches envoyées vers un cluster HDInsight 3.0 ou 3.1 utilisant explicitement la syntaxe " asv:// " échoueront. Vous devez plutôt utiliser la syntaxe wasb://. De même, les tâches créées avec un metastore existant contenant des références explicites aux ressources utilisant la syntaxe asv:// et envoyées vers un cluster HDInsight 3.0 ou 3.1 échoueront également. Vous devrez recréer ces metastores en utilisant la syntaxe wasb:// pour adresser les ressources. 
 
 
-**Ports** : les ports utilisés par le service HDInsight ont changé. Les numéros de ports utilisés étaient inclus dans la plage de ports éphémères du système d'exploitation Windows. Les ports sont alloués automatiquement à partir d'une plage éphémère prédéfinie pour des communications à durée de vie limitée basées sur un protocole Internet. Le nouvel ensemble de numéros de ports du service HDP (Hortonworks Data Platform) autorisés est désormais à l'extérieur de cette plage pour éviter tout conflit avec les ports utilisés par les services exécutés sur le nœud principal. Les nouveaux numéros de ports ne devraient pas entraîner des modifications radicales. Les numéros utilisés sont les suivants :
+**Ports**: les ports utilisés par le service HDInsight ont changé. Les numéros de ports utilisés étaient inclus dans la plage de ports éphémères du système d'exploitation Windows. Les ports sont alloués automatiquement à partir d'une plage éphémère prédéfinie pour des communications à durée de vie limitée basées sur un protocole Internet. Le nouvel ensemble de numéros de ports du service HDP (Hortonworks Data Platform) autorisés est désormais à l'extérieur de cette plage pour éviter tout conflit avec les ports utilisés par les services exécutés sur le nœud principal. Les nouveaux numéros de ports ne devraient pas entraîner des modifications radicales. Les numéros utilisés sont les suivants :
 
  **HDInsight 1.6 (HDP 1.1)**
 <table border="1">
@@ -387,7 +387,7 @@ seule la syntaxe " wasb:// " est prise en charge dans les clusters HDInsight 3.0
 
 ###Dépendances 
 
-Les dépendances suivantes ont été ajoutées à HDInsight 3.x (HDP2.x) :
+Les dépendances suivantes ont été ajoutées à HDInsight 3.x (HDP2.x):
 
 * guice-servlet
 * optiq-core
@@ -438,7 +438,7 @@ Les dépendances suivantes ont été ajoutées à HDInsight 3.x (HDP2.x) :
 * jetty-all
 * commons-dbcp
 
-Les dépendances suivantes n'existent plus dans HDInsight 3.x (HDP2.x) :
+Les dépendances suivantes n'existent plus dans HDInsight 3.x (HDP2.x):
 
 * jdeb
 * kfs
@@ -462,25 +462,25 @@ Les dépendances suivantes n'existent plus dans HDInsight 3.x (HDP2.x) :
 
 ###Changements de version 
 
-Les changements de version suivants ont eu lieu entre HDInsight 2.x (HDP1.x) et HDInsight 3.x (HDP2.x) :
+Les changements de version suivants ont eu lieu entre HDInsight 2.x (HDP1.x) et HDInsight 3.x (HDP2.x):
 
-* metrics-core : ['2.1.2'] -> ['3.0.0']
-* derbynet : ['10.4.2.0'] -> ['10.10.1.1']
-* datanucleus : ['rdbms-3.0.8'] -> ['rdbms-3.2.9']
-* jasper-compiler : ['5.5.12'] -> ['5.5.23']
-* log4j : ['1.2.15', '1.2.16'] -> ['1.2.16', '1.2.17']
-* derbyclient : ['10.4.2.0'] -> ['10.10.1.1']
-* httpcore : ['4.2.4'] -> ['4.2.5']
-* hsqldb : ['1.8.0.10'] -> ['2.0.0']
-* jets3t : ['0.6.1'] -> ['0.9.0']
-* protobuf-java : ['2.4.1'] -> ['2.5.0']
-* derby : ['10.4.2.0'] -> ['10.10.1.1']
-* jasper : ['runtime-5.5.12'] -> ['runtime-5.5.23']
-* commons-daemon : ['1.0.1'] -> ['1.0.13']
-* datanucleus-core : ['3.0.9'] -> ['3.2.10']
-* datanucleus-api-jdo : ['3.0.7'] -> ['3.2.6']
-* zookeeper : ['3.4.5.1.3.9.0-01320'] -> ['3.4.5.2.1.3.0-1948']
-* bonecp : ['0.7.1.RELEASE'] -> ['0.8.0.RELEASE']
+* metrics-core: ['2.1.2'] -> ['3.0.0']
+* derbynet: ['10.4.2.0'] -> ['10.10.1.1']
+* datanucleus: ['rdbms-3.0.8'] -> ['rdbms-3.2.9']
+* jasper-compiler: ['5.5.12'] -> ['5.5.23']
+* log4j: ['1.2.15', '1.2.16'] -> ['1.2.16', '1.2.17']
+* derbyclient: ['10.4.2.0'] -> ['10.10.1.1']
+* httpcore: ['4.2.4'] -> ['4.2.5']
+* hsqldb: ['1.8.0.10'] -> ['2.0.0']
+* jets3t: ['0.6.1'] -> ['0.9.0']
+* protobuf-java: ['2.4.1'] -> ['2.5.0']
+* derby: ['10.4.2.0'] -> ['10.10.1.1']
+* jasper: ['runtime-5.5.12'] -> ['runtime-5.5.23']
+* commons-daemon: ['1.0.1'] -> ['1.0.13']
+* datanucleus-core: ['3.0.9'] -> ['3.2.10']
+* datanucleus-api-jdo: ['3.0.7'] -> ['3.2.6']
+* zookeeper: ['3.4.5.1.3.9.0-01320'] -> ['3.4.5.2.1.3.0-1948']
+* bonecp: ['0.7.1.RELEASE'] -> ['0.8.0.RELEASE']
 
 
 ###Pilotes
