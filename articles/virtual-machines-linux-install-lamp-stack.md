@@ -108,4 +108,4 @@ Il existe de nombreuses ressources pour configurer une pile LAMP sur Ubuntu.
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

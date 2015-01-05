@@ -52,4 +52,4 @@ Pour supprimer un site web, utilisez l'icône **Supprimer** du portail de gestio
 
 Pour plus d'informations, consultez [Azure Web Sites](/fr-fr/documentation/services/web-sites/).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

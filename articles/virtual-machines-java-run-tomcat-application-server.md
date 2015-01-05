@@ -146,4 +146,4 @@ ous pouvez désormais afficher votre site Web Tomcat dans un navigateur externe,
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

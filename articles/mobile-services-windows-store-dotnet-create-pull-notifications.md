@@ -157,4 +157,4 @@ Maintenant que vous avez créé une notification périodique, vous pouvez consul
 [Guide de fonctionnement Mobile Services .NET]: /fr-fr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

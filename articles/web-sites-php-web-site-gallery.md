@@ -16,4 +16,4 @@ Vous savez maintenant comment créer et déployer un site Web à partir de la ga
 - [Plus de didacticiels PHP](/fr-fr/develop/php/tutorials/) - Création d'autres types d'applications utilisant PHP et Azure
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

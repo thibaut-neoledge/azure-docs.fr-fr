@@ -357,4 +357,4 @@ Pour choisir une ou plusieurs de ces options pour votre application, consultez l
   [sqldatabase]: http://www.windowsazure.com/fr-fr/documentation/services/sql-database/
   [Storage]: http://www.windowsazure.com/fr-fr/documentation/services/storage/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

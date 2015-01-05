@@ -33,4 +33,4 @@ Connectez-vous à la machine virtuelle Linux à l'aide de l'authentification par
 Dans ce cas, l'utilisateur **n'est pas** invité à fournir un mot de passe. Après une pression sur `<entrée>`, `sudo` exécute la commande avec les privilèges `root`.
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

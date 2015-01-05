@@ -48,4 +48,4 @@ Le disque reste dans le stockage, mais il n'est plus attaché à une machine vir
 [À propos des disques et des images] :http://go.microsoft.com/fwlink/p/?LinkId=263439
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

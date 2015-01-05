@@ -56,4 +56,4 @@ L'image est prête à être utilisée comme modèle pour la création de machine
 [Association d'un disque de données avec une machine virtuelle]: ../storage-windows-attach-disk/
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

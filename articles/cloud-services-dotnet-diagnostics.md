@@ -767,4 +767,4 @@ Le tableau suivant compare les fonctionnalités prises en charge par Azure Diagn
 [Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/fr-fr/library/dn495145.aspx
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/fr-fr/library/dn495168.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -27,4 +27,4 @@ Une fois que vous avez créé une machine virtuelle, il convient d'ajouter un di
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

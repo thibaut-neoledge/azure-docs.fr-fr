@@ -127,4 +127,4 @@ La capacité à purger immédiatement le contenu n'est actuellement pas prise en
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [portail de gestion précédent]: ../../Shared/Media/previous-portal.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

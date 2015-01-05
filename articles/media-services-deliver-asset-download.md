@@ -73,4 +73,4 @@ Pour plus d'informations sur la fourniture des éléments multimédias, consulte
 <h2>Étapes suivantes</h2>
 Cette rubrique vous a indiqué comment télécharger un élément multimédia depuis Azure Storage. Pour plus d'informations sur les autres méthodes possibles pour fournir des éléments multimédias, consultez la page [Fourniture de contenu de diffusion en continu](../media-services-deliver-streaming-content/) .
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

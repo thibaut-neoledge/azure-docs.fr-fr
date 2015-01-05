@@ -303,4 +303,4 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 
 	Azure vous permet d'exécuter des applications web dans des Sites Web (comme vous l'avez vu dans ce didacticiel), mais aussi dans Cloud Services ou Virtual Machines. Pour plus d'informations, consultez [Modèles d'exécution Azure](/fr-fr/develop/net/fundamentals/compute/) et [Comparaison entre Azure Web Sites, Azure Cloud Services et Azure Virtual Machines](/fr-fr/manage/services/web-sites/choose-web-app-service/).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

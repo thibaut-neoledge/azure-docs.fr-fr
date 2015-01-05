@@ -829,4 +829,4 @@ Pour plus d'informations sur Azure Storage et AzCopy, consultez les ressources s
 - [AzCopy : Chargement/téléchargement des fichiers pour les objets blob Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -159,4 +159,4 @@ Dans cet exemple, après l'exécution de cette commande, un nouveau périphériq
 	Pour plus d'informations sur la modification adéquate des paramètres de noyau, reportez-vous à la documentation de votre distribution. Par exemple, dans de nombreuses distributions (CentOS, Oracle Linux, SLES 11), ces paramètres peuvent être ajoutés manuellement au fichier " `/boot/grub/menu.lst` ".  Sur Ubuntu, ce paramètre peut être ajouté à la variable `GRUB_CMDLINE_LINUX_DEFAULT` dans " /etc/default/grub ".
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

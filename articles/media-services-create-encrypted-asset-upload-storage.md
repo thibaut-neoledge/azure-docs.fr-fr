@@ -122,4 +122,4 @@ Maintenant que vous avez chargé un élément multimédia dans Media Services, c
 
 [Obtention d'un processeur multimédia]: ../media-services-get-media-processor/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

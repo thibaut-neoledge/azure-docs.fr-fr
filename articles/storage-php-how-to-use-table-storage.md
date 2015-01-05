@@ -481,4 +481,4 @@ Maintenant que vous avez appris les principes de base du service de Table Azure,
 [filters]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dd894038.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

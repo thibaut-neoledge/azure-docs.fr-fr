@@ -284,4 +284,4 @@ Consultez la session [Envoi de tâches MapReduce](#mapreduce) dans cet article.
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

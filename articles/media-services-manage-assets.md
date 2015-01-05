@@ -82,4 +82,4 @@ Pour plus d'informations sur la gestion des éléments multimédias, consultez l
 <h2>Étapes suivantes</h2>
 Maintenant que vous savez comment gérer les éléments multimédias, passez à la rubrique [Fourniture d'un élément multimédia par téléchargement](../media-services-deliver-asset-download/) .
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -73,4 +73,4 @@ Pour obtenir des instructions pas à pas sur la création d'informations d'ident
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

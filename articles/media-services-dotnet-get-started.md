@@ -685,4 +685,4 @@ Cette procédure pas à pas a décrit une séquence de tâches de programmation 
 [Étapes suivantes]:#next-steps
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

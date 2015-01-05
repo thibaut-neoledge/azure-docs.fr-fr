@@ -87,4 +87,4 @@ Si vous voulez en savoir plus les possibilités offertes par Capptain pour votre
 [Capptain]: http://www.capptain.com
 [Mobile Services niveau Standard]: /fr-fr/pricing/details/mobile-services/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

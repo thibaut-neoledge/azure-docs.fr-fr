@@ -199,4 +199,4 @@ L'instrumentalisation d'exécutables Azure dans l'émulateur de calcul n'est pas
 [16]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally012.png
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

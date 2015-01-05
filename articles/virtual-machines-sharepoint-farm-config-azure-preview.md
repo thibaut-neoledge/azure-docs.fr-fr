@@ -106,4 +106,4 @@ Voici les informations de configuration :
 	-	Phrase secrète de la batterie de serveurs SharePoint : défini lors de la configuration initiale.
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

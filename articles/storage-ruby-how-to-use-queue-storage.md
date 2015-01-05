@@ -161,4 +161,4 @@ Maintenant que vous avez appris les bases du stockage des files d'attente, suive
 
 Pour obtenir une comparaison du service de File d'attente Azure discuté dans cet article et des files d'attente Service Bus Azure discutées dans l'article [Utilisation des files d'attente Service Bus](/fr-fr/develop/ruby/how-to-guides/service-bus-queues/) , consultez [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh767287.aspx)
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

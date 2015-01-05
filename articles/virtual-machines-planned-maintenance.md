@@ -57,4 +57,4 @@ Pour la configuration de machines virtuelles à instance unique uniquement, Azur
 [Les machines virtuelles gèrent la disponibilité]: ../virtual-machines-windows-tutorial/
 [Présentation de la maintenance planifiée et non planifiée]: ../virtual-machines-manage-availability/#Understand-planned-versus-unplanned-maintenance/ 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

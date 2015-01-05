@@ -191,4 +191,4 @@ Cet article suppose que vous avez déjà installé un système d'exploitation SU
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

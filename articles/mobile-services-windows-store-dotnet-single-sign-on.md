@@ -157,4 +157,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Guide de fonctionnement Mobile Services .NET]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

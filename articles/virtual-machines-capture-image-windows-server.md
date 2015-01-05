@@ -74,4 +74,4 @@ L'image est prête à être utilisée comme modèle pour la création de machine
 [Capture d'image réussie]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Utiliser l'image capturée]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

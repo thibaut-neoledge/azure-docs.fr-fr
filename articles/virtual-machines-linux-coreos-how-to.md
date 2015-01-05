@@ -206,4 +206,4 @@ Vous devez avoir un cluster CoreOS exécutant trois nœuds sur Azure. Dès lors,
 [Docker]: http://docker.io
 [YAML]: http://yaml.org/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

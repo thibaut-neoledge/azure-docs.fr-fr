@@ -68,4 +68,4 @@ Pour créer votre batterie SharePoint avec Batterie de serveurs SharePoint, proc
 La batterie de serveurs SharePoint utilise des scripts et le module Azure Resource Manager pour créer automatiquement l'infrastructure et les configurations serveur relatives à ces batteries de serveurs SharePoint. Pour plus d'informations, consultez [Utilisation de Windows PowerShell avec Resource Manager](http://azure.microsoft.com/fr-fr/documentation/articles/powershell-azure-resource-manager/).
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

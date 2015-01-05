@@ -523,4 +523,4 @@ Un déploiement réussi de SharePoint Server sur Azure Virtual Machines requiert
 </ul>
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

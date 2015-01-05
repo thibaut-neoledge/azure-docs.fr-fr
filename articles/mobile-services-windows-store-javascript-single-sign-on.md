@@ -173,4 +173,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

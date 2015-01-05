@@ -120,4 +120,4 @@ Maintenant que vous avez acquis les bases du stockage de files d'attente, suivez
   [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -72,4 +72,4 @@ Suivez cette procédure pour ajouter, modifier ou supprimer l'ACL sur un point d
 
 6. Utilisez les lignes dans la liste pour ajouter, supprimer ou modifier les règles d'une ACL. La valeur Sous-réseau distant correspond à la plage d'adresses IP que la règle peut autoriser ou refuser. Les règles sont évaluées dans l'ordre, en commençant par la première règle et en terminant par la dernière. Cela signifie que les règles doivent être répertoriées de la moins restrictive à la plus restrictive. Pour plus d'informations et des exemples, consultez [À propos des listes de contrôle d'accès réseau](http://go.microsoft.com/fwlink/p/?LinkId=303816).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

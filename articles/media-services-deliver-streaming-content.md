@@ -78,4 +78,4 @@ Pour plus d'informations sur la fourniture des éléments multimédias, consulte
 <h2>Étapes suivantes</h2>
 Jusqu'à présent, nous avons traité la fourniture d'éléments multimédias par le téléchargement à partir d'Azure Storage et à l'aide de la diffusion en continu lisse. La rubrique suivante [Livraison de contenu HLS](../media-services-deliver-http-live-streaming-content/) présente la fourniture de contenu de diffusion en continu à l'aide de Apple HTTP Live Streaming (HLS).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -132,4 +132,4 @@ La **Date d'obsolescence** est la date après laquelle la version du cluster ne 
 
 [zookeeper]: http://zookeeper.apache.org/ 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

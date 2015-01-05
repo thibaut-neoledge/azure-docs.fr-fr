@@ -28,4 +28,4 @@ La technologie relationnelle a été pendant longtemps l'approche prédominante 
 
 **Téléchargement :** <a href="http://go.microsoft.com/fwlink/p/?LinkId=330292" target="_blank">" Compréhension des technologies NoSQL sur Azure " (fichier PDF)</a>
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

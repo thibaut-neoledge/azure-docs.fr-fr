@@ -9,4 +9,4 @@ Comme annoncé lors de la conférence TechEd 2014, nous publierons bientôt le K
 
 [iOS, Mobile Services et Microsoft Azure Storage]: http://chrisrisner.com/iOS-and-Mobile-Services-and-Windows-Azure-Storage
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

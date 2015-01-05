@@ -168,4 +168,4 @@ Maintenant que vous avez terminé ce didacticiel, vous savez comment stocker vos
 [Documentation sur les API Node.js : Modules]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

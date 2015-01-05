@@ -280,4 +280,4 @@ Apprenez à effectuer une [analyse des sentiments](http://en.wikipedia.org/wiki/
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

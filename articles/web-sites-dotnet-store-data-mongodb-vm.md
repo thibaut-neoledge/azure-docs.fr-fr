@@ -516,4 +516,4 @@ Vous avez déployé votre application ASP.NET sur un site web Azure.  Pour affic
 [Création d'un site web Azure]: #createwebsite
 [Déploiement de l'application ASP.NET sur le site web à l'aide de Git]: #deployapp
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

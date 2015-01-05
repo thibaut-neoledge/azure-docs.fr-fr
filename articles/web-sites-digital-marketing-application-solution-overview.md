@@ -185,4 +185,4 @@ Sites Web Azure constitue un bon choix pour les contenus web réutilisables pers
   
   
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

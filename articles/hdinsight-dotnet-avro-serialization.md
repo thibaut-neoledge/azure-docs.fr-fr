@@ -1395,4 +1395,4 @@ Pour nettoyer le cluster, exécutez la commande suivante :
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

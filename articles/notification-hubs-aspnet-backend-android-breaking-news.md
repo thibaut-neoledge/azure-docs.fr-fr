@@ -317,4 +317,4 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [objet wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -104,4 +104,4 @@ Le tableau comprend aussi un lien vers le [Correctif de compatibilité du noyau 
 </table>
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

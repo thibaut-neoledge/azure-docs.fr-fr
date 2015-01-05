@@ -219,4 +219,4 @@ Pour publier votre application, vous devez d'abord importer vos paramètres de p
 [Procédure : Importation des paramètres de publication]: /fr-fr/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
 [Procédure : Déploiement d'un service cloud sur Azure].: /fr-fr/develop/php/how-to-guides/powershell-cmdlets/#Deploy
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -349,4 +349,4 @@ Vous pouvez également utiliser l'AMQP 1.0 de Service Bus depuis d'autres langag
 * [AMQP de Service Bus : guide du développeur](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj841071.aspx)
 * [Utilisation des files d'attente Service Bus](http://www.windowsazure.com/fr-fr/develop/net/how-to-guides/service-bus-queues/)
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

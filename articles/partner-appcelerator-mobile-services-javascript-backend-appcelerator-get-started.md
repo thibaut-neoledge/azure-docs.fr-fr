@@ -116,4 +116,4 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Get started with authentication]: /fr-fr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
 [Get started with push notifications]: /fr-fr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

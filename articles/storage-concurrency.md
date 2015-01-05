@@ -267,4 +267,4 @@ Pour plus d'informations concernant Azure Storage, consultez la page :
 - Architecture de stockage - [Windows Azure Storage : Service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

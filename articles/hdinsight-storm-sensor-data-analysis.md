@@ -1337,4 +1337,4 @@ Vous avez à présent appris à utiliser Storm pour lire des données à partir 
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

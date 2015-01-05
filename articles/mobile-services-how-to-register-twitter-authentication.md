@@ -56,4 +56,4 @@ Vous pouvez désormais utiliser une connexion Twitter pour l'authentification da
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

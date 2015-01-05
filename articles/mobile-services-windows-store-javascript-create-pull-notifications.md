@@ -148,4 +148,4 @@ Maintenant que vous avez créé une notification périodique, vous pouvez consul
 [Notifications périodiques]: http://msdn.microsoft.com/fr-fr/library/windows/apps/jj150587.aspx
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

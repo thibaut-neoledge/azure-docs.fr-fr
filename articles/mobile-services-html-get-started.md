@@ -155,4 +155,4 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 [Guide de fonctionnement de Mobile Services avec HTML/JavaScript]: /fr-fr/develop/mobile/how-to-guides/work-with-html-js-client
 [CORS (Cross-Origin Resource Sharing, partage des ressources cross-origin)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn155871.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -405,4 +405,4 @@ Cette commande sert à spécifier un autre chemin pour les données binaires ope
 	  </Instances>
 	</SharedConfig>
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

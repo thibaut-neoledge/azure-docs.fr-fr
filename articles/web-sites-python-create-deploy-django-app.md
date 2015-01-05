@@ -139,4 +139,4 @@ Après la copie des fichiers, exécutez la commande **git status** pour afficher
 
 Maintenant, vous pouvez accéder au répertoire DjangoApplication et utiliser manage.py comme vous le faites habituellement pour commencer à ajouter de nouvelles applications à votre projet Django.  
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

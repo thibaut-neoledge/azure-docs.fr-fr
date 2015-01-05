@@ -293,4 +293,4 @@ Pour en savoir plus sur la surveillance des points de terminaison d'un site Web,
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

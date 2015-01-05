@@ -116,4 +116,4 @@ Pour plus d'informations sur la protection PlayReady, consultez la rubrique :
 <h2>Étapes suivantes</h2>
 Maintenant que vous savez comment protéger des éléments multimédias avec Media Services, consultez la rubrique [Gestion des éléments multimédias](../media-services-manage-assets/) .
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

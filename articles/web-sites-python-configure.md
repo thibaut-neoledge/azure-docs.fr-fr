@@ -130,4 +130,4 @@ Accédez à votre site web pour tester la configuration correcte. Dans le cas de
 ![](./media/web-sites-python-configure/configure-python-result.png)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

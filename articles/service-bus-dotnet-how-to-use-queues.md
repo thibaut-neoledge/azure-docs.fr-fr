@@ -238,4 +238,4 @@ liens pour en savoir plus :
   [Files d'attente, rubriques et abonnements.]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367516.aspx
   [Didacticiel .NET sur la messagerie répartie Service Bus]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367512.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

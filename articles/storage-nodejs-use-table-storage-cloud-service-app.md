@@ -397,4 +397,4 @@ La procédure suivante présente l'arrêt et la suppression de l'application.
   [Application Web Node.js]: http://www.windowsazure.com/fr-fr/develop/nodejs/tutorials/getting-started/
  
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

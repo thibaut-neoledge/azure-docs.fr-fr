@@ -389,4 +389,4 @@ Vous avez vu comment créer et configurer une instance de SQL Server sur une mac
 [Image33]: ./media/virtual-machines-provision-sql-server/33Connect-SSMS.png
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

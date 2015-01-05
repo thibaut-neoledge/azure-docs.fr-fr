@@ -71,4 +71,4 @@ Pour le Kit de développement logiciel (SDK), l'histoire est similaire. La créa
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

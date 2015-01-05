@@ -139,4 +139,4 @@ Ensuite, vous allez activer la surveillance New Relic de votre service mobile da
 [New Relic Mobile]: http://newrelic.com/mobile-monitoring
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -164,4 +164,4 @@ Maintenant que vous avez acquis les bases du stockage de tables, suivez ces lien
   [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx
   [Consultez le blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

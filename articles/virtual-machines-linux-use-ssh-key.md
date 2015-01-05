@@ -137,4 +137,4 @@ Le fichier  **myCert.pem** est la clé publique à utiliser pour déployer une m
 
 5.	Cliquez sur **Ouvrir** pour vous connecter à votre machine virtuelle
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

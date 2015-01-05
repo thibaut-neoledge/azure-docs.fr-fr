@@ -177,4 +177,4 @@ Pour supprimer un compte de stockage obsolète, utilisez l'option **Supprimer** 
 
  
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

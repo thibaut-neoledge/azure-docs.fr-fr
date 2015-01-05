@@ -309,4 +309,4 @@ Dans le cas des tâches d'exportation, vous pouvez afficher et copier les clés 
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

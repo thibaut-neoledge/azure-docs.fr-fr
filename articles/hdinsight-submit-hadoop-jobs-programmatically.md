@@ -709,4 +709,4 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 
 [apache-hive]: http://hive.apache.org/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

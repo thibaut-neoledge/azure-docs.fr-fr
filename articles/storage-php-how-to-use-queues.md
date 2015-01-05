@@ -387,4 +387,4 @@ Maintenant que vous avez appris les principes de base du service de File d'atten
 [Azure Management Portal]: http://manage.windowsazure.com/
 [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

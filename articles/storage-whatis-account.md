@@ -177,4 +177,4 @@ Pour supprimer un compte de stockage obsolète, utilisez **Supprimer** dans le t
  
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

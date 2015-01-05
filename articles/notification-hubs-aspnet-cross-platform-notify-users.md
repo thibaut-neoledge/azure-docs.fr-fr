@@ -99,4 +99,4 @@ Maintenant que vous avez terminé ce didacticiel, vous trouverez des information
 [Modèles]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Procédures Notification Hubs pour Windows Store]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj927172.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -680,4 +680,4 @@ Il existe d'autres méthodes pour transférer une base de données locale vers l
 [Image20]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

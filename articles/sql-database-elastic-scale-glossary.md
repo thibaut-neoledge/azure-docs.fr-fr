@@ -66,4 +66,4 @@ Les termes suivants sont définis pour la fonctionnalité d'infrastructure élas
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

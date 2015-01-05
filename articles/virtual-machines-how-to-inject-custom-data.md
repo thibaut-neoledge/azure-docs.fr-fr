@@ -61,4 +61,4 @@ Si votre machine virtuelle Azure est une image Ubuntu, vous pouvez utiliser clou
 [Interface de ligne de commande interplateforme Microsoft Azure](https://github.com/Azure/azure-sdk-tools-xplat)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -17,4 +17,4 @@ Une machine virtuelle *personnalisée* correspond à une machine virtuelle que v
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

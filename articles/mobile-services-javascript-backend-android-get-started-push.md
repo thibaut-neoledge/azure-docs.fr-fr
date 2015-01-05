@@ -222,4 +222,4 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Envoi de notifications diffusées aux abonnés]: /fr-fr/documentation/articles/notification-hubs-android-send-breaking-news/
 [Envoi de notifications basées sur un modèle aux abonnés]: /fr-fr/documentation/articles/notification-hubs-android-send-localized-breaking-news/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

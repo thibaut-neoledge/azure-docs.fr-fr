@@ -250,4 +250,4 @@ Pour plus d'informations, consultez la page [Visual Studio Online](http://go.mic
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

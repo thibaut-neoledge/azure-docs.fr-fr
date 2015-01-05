@@ -37,4 +37,4 @@ Dans cet exemple, vous allez utiliser Hive pour traiter les données d'historiqu
 
 3. Suivez les instructions fournies dans la page web pour terminer l'exemple.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -22,4 +22,4 @@
 </table>
 <sup>1</sup> Vous pouvez augmenter le nombre de cœurs par compte de lots, mais le nombre maximal n'est pas spécifié. Contactez l'assistance clientèle pour vous informer sur les possibilités d'augmentation.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

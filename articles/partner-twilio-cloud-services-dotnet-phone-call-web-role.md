@@ -188,4 +188,4 @@ Ce code vous est fourni afin de vous présenter les fonctions de base de l'utili
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

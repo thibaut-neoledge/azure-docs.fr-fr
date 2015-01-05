@@ -253,4 +253,4 @@ Pour créer le site (.COM) de votre organisation, les tâches standard incluent 
   
   
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

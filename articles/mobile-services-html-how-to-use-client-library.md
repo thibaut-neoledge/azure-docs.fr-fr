@@ -645,4 +645,4 @@ Maintenant que vous avez consulté ce guide de fonctionnement, découvrez en dé
 [Interface de ligne de commande pour la gestion des tables Mobile Services]: http://www.windowsazure.com/fr-fr/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [Référence des options de requête système OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

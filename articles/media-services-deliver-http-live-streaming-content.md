@@ -87,4 +87,4 @@ Cette rubrique est la dernière consacrée à l'utilisation d'Azure Media Servic
 [Création d'applications avec le Kit de développement logiciel (SDK) Media Services pour .NET]: http://go.microsoft.com/fwlink/?linkid=247821
 [Media Services Forum]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

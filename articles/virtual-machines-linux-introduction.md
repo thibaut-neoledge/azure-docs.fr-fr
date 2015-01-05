@@ -134,4 +134,4 @@ Sous Linux, le disque de données peut être nommé par le noyau " /dev/sdc ", e
  - Voir aussi : [Configuration d'un RAID logiciel sur Linux](../virtual-machines-linux-configure-raid/)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

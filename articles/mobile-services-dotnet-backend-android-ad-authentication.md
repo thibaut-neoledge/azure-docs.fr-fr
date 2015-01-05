@@ -16,4 +16,4 @@ Apprenez à authentifier votre application et à accéder à des ressources avec
 <!-- URLs. -->
 [Accès à des ressources sécurisées par Azure Active Directory avec iOS et Android]: http://chrisrisner.com/Accessing-Resources-Secured-by-Azure-Active-Directory-with-iOS-and-Android
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

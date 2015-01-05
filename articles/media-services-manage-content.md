@@ -102,4 +102,4 @@ Si la valeur relative à la taille du fichier n'est pas mise à jour après l'ar
 [encoder]: ./media/media-services-manage-content/EncoderDialog2.png
 [branding]: ./media/branding-reporting.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -66,4 +66,4 @@ L'accès à Media Services requiert deux comptes associés :
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

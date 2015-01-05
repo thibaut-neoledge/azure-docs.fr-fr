@@ -9,4 +9,4 @@ Cette rubrique n'est plus prise en charge. Aucun projet Windows Store autonome n
 
 Pour obtenir des instructions sur l'ajout de Mobile Services à une application Windows Store existante, consultez la page [Ajout de Mobile Services à une application existante](/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

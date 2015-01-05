@@ -141,4 +141,4 @@ Pour plus d'informations sur les rubriques Mobile Services suivantes :
 [Envoi de notifications aux utilisateurs]: /fr-fr/manage/services/notification-hubs/notify-users/
 [Envoi de notifications Push aux utilisateurs authentifiés]: /fr-fr/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

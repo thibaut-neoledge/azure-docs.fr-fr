@@ -143,4 +143,4 @@ Différents partenaires Microsoft fournissent des Kits de développement logicie
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -213,4 +213,4 @@ Azure permet d'héberger des applications intranet sécurisées dans le cloud. A
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

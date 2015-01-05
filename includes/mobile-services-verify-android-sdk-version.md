@@ -19,4 +19,4 @@ Dans ce cas, la version du Kit de développement logiciel (SDK) Android install�
 	
 3. Dans l'Explorateur de package d'Eclipse, cliquez avec le bouton droit sur le nœud de projet, choisissez **Propriétés**, puis dans la colonne de gauche, choisissez **Android**. Vérifiez que la version du Kit de développement logiciel (SDK) définie pour **Cible de la génération du projet** est identique à celle de **targetSdkVersion**.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

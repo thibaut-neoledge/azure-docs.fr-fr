@@ -390,4 +390,4 @@ Le plug-in dynamique Smooth Streaming pour OSMF est compatible avec [Strobe Medi
 
 Pour plus d'informations sur le développement avec OSMF, consultez la page officielle [sur le développement pour OSMF](http://osmf.org/resources.html).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

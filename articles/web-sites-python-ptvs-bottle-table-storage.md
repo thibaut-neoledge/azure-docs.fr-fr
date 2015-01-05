@@ -209,4 +209,4 @@ Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Bottle
 [Azure Storage]: http://azure.microsoft.com/fr-fr/documentation/services/storage/
 [SDK Azure pour Python]: https://github.com/Azure/azure-sdk-for-python
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

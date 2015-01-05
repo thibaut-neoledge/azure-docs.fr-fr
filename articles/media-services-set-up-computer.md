@@ -70,4 +70,4 @@ Maintenant que vous avez configuré votre ordinateur et créé une solution Visu
 [Création d'un compte Media Services]: ../media-services-create-account/
 [Création d'un élément multimédia chiffré et téléchargement dans le stockage]: ../media-services-create-encrypted-asset-upload-storage/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -233,4 +233,4 @@ Même si MapReduce est doté de puissantes capacités de diagnostic, il peut êt
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

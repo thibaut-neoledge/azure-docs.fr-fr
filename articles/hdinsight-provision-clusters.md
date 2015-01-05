@@ -645,4 +645,4 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 
   [89e2276a]: /fr-fr/documentation/articles/hdinsight-use-sqoop/ "Use Sqoop with HDInsight"
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

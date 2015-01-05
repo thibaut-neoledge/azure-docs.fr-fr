@@ -401,4 +401,4 @@ Maintenant que vous avez appris les principes de base de l'utilisation du bloc a
   [Réduction des coûts d'hébergement et de l'impact environnemental de TechNet et MSDN grâce à la mise à l'échelle automatique Azure]: http://msdn.microsoft.com/fr-fr/library/jj838718(PandP.50).aspx
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

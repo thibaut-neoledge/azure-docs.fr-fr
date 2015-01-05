@@ -270,4 +270,4 @@ Action à réaliser... Élément à utiliser...
 [storesendgrid]: http://azure.microsoft.com/fr-fr/gallery/store/sendgrid/sendgrid-azure/
 [cdn]: http://azure.microsoft.com/fr-fr/documentation/articles/cdn-how-to-use/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

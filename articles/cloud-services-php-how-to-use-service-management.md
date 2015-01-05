@@ -561,4 +561,4 @@ Vous pouvez supprimer un groupe d'affinités en transmettant son nom à la méth
 
 [Schéma de configuration de service Azure (.cscfg)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee758710.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

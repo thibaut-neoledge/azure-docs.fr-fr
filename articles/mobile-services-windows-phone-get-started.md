@@ -8,4 +8,4 @@ Cette rubrique n'est plus prise en charge. Aucun projet de démarrage rapide Win
 
 Un projet de démarrage rapide peut être téléchargé pour les applications Windows Phone Store 8.1 dans le cadre d'un projet Windows universel. Pour plus d'informations, consultez la page [Prise en main de Mobile Services](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/). 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -235,4 +235,4 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

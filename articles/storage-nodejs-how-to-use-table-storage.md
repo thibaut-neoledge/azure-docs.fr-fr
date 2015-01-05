@@ -436,4 +436,4 @@ pour apprendre à réaliser des tâches de stockage plus complexes.
   [Application Web Node.js avec stockage]: /fr-fr/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [Création et déploiement d'une application Node.js dans Site Web Azure]: /fr-fr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

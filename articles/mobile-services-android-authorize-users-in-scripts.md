@@ -99,4 +99,4 @@ Cela met fin à la série de didacticiels établissant les principes de base de 
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

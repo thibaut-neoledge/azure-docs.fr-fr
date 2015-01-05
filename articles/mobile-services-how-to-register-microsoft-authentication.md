@@ -50,4 +50,4 @@ Vous pouvez désormais utiliser un compte Microsoft pour l'authentification dans
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

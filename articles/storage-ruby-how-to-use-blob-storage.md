@@ -149,4 +149,4 @@ Maintenant que vous avez appris les bases du stockage d'objets blob, suivez ces 
 -   Consultez le [blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 -   Consultez le référentiel [Kit de développement logiciel (SDK) Azure pour Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

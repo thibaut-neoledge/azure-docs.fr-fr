@@ -181,4 +181,4 @@ Ce didacticiel vous a indiqué comment créer et configurer une unique applicati
 [ASP.NET MVC 3]: http://www.microsoft.com/fr-fr/download/details.aspx?id=4211
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

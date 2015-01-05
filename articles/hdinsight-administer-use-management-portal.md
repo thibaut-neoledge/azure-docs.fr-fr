@@ -237,4 +237,4 @@ Cet article vous a appris à créer un cluster HDInsight à l'aide du portail de
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Hadoop command line"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

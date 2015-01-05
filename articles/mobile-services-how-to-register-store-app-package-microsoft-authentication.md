@@ -24,4 +24,4 @@ Une fois que vous avez inscrit le package de votre application, indiquez la vale
 [Prise en main des utilisateurs C#]: /fr-fr/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Prise en main des utilisateurs JavaScript]: /fr-fr/develop/mobile/tutorials/get-started-with-users-js/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -81,4 +81,4 @@ Vous êtes maintenant prêt à exécuter les applications.
 [EventProcessorHost]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Vue d'ensemble des concentrateurs d'événements]: http://msdn.microsoft.com/fr-fr/library/azure/dn836025.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

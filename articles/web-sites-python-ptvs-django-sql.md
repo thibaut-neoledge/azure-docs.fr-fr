@@ -212,4 +212,4 @@ Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Django
 [Documentation de Django]: https://www.djangoproject.com/
 [Base de données SQL]: /fr-fr/documentation/services/sql-database/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -873,4 +873,4 @@ Vous savez à présent télécharger un fichier vers le stockage d'objets blob, 
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

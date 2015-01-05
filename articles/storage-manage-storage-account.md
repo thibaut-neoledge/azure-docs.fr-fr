@@ -98,4 +98,4 @@ Pour supprimer un compte de stockage obsolète, utilisez l'option **Supprimer** 
 
 3. Cliquez sur **Oui** pour confirmer que vous souhaitez supprimer le compte de stockage.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

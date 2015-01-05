@@ -90,4 +90,4 @@ private static string JobIdAsFileName(string jobID)
 <h2>Étapes suivantes</h2>
 Vous savez maintenant créer une tâche et suivre sa progression. L'étape suivante consiste à protéger les éléments multimédias. Pour plus d'informations, consultez la page [Protection d'éléments multimédias avec Azure Media Services](http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

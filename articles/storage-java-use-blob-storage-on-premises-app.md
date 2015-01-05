@@ -371,4 +371,4 @@ Pour une présentation d'autres classes et méthodes de stockage d'objets blob, 
   [Gestion des comptes de stockage]: http://www.windowsazure.com/fr-fr/manage/services/storage/how-to-manage-a-storage-account/
   [Utilisation du service de stockage d'objets blob à partir de Java]: http://www.windowsazure.com/fr-fr/develop/java/how-to-guides/blob-storage/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->
