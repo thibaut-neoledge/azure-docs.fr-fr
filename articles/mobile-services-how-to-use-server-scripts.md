@@ -926,7 +926,7 @@ Pour éviter de surcharger votre journal, il est conseillé de supprimer ou de d
 [ Mappage des types JSON vers des types de base de données]: #JSON-types
 [ Chargement des modules Node.js]: #modules-helper-functions
 [ Écriture de la sortie dans les journaux de service mobile]: #write-to-logs
-[Contrôle du code source, code partagé et fonctions d'assistance]: #shared-code
+[Contrôle du code source et du code partagé]: #shared-code
 [Utilisation de l'outil en ligne de commande]: #command-prompt
 [Utilisation des tables]: #working-with-tables
 [Ancre d'API personnalisée]: #custom-api
@@ -983,15 +983,15 @@ Pour éviter de surcharger votre journal, il est conseillé de supprimer ou de d
 [Push iOS]: /fr-fr/develop/mobile/tutorials/get-started-with-push-ios/
 [Push Android]: /fr-fr/develop/mobile/tutorials/get-started-with-push-android/
 [Kit de développement logiciel (SDK) Azure pour Node.js]: http://go.microsoft.com/fwlink/p/?LinkId=275539
-[Envoyer la demande HTTP]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj631641.aspx
+[Envoyer une requête HTTP]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj631641.aspx
 [Envoi de courrier électronique à partir de Mobile Services avec SendGrid]: /fr-fr/develop/mobile/tutorials/send-email-with-sendgrid/
 [Prise en main de l'authentification]: http://go.microsoft.com/fwlink/p/?LinkId=287177
-[API crypto]: http://go.microsoft.com/fwlink/p/?LinkId=288802
-[API path]: http://go.microsoft.com/fwlink/p/?LinkId=288803
+[crypto API]: http://go.microsoft.com/fwlink/p/?LinkId=288802
+[path API]: http://go.microsoft.com/fwlink/p/?LinkId=288803
 [API querystring]: http://go.microsoft.com/fwlink/p/?LinkId=288804
-[API url]: http://go.microsoft.com/fwlink/p/?LinkId=288805
+[url API]: http://go.microsoft.com/fwlink/p/?LinkId=288805
 [API util]: http://go.microsoft.com/fwlink/p/?LinkId=288806
-[API zlib]: http://go.microsoft.com/fwlink/p/?LinkId=288807
+[zlib API]: http://go.microsoft.com/fwlink/p/?LinkId=288807
 [API personnalisée]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn280974.aspx
 [Appel d'une API personnalisée à partir du client]: /fr-fr/develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api
 [bibliothèque express.js]: http://go.microsoft.com/fwlink/p/?LinkId=309046
