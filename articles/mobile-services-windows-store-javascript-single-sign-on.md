@@ -53,7 +53,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
   	Cette action permet d'ajouter une référence au Kit de développement logiciel (SDK) Live dans le projet.
 
-3. Ouvrez le fichier projet default.html et ajoutez l'élément <script> suivant dans l'élément <head>. 
+3. Ouvrez le fichier projet default.html et ajoutez l'élément &lt;script&gt suivant dans l'élément &lt;head&gt;. 
 
         <script src="///LiveSDKHTML/js/wl.js"></script>
 
