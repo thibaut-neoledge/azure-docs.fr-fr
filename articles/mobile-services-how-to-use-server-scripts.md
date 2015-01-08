@@ -403,7 +403,7 @@ Les deux itinéraires de l'exemple d'API personnalisée ci-dessus peuvent être 
 
 ##<a name="scheduler-scripts"></a>Planificateur de travaux
 
-Mobile Services vous permet de définir des scripts serveur qui sont exécutés comme des travaux selon une planification fixe ou à la demande à partir du portail de gestion. Les travaux planifiés sont utiles pour effectuer des tâches périodiques comme le nettoyage des données de table et le traitement par lots. Pour plus d'informations, consultez la page [Planifier les travaux].
+Mobile Services vous permet de définir des scripts serveur qui sont exécutés comme des travaux selon une planification fixe ou à la demande à partir du portail de gestion. Les travaux planifiés sont utiles pour effectuer des tâches périodiques comme le nettoyage des données de table et le traitement par lots. Pour plus d'informations, consultez la page [Planifier des travaux].
 
 Les scripts qui sont enregistrés pour des travaux planifiés ont une fonction principale du même nom que le travail planifié. Étant donné qu'un script planifié n'est pas appelé par une requête HTTP, aucun contexte ne peut être transmis au runtime du serveur et la fonction ne prend pas de paramètre. Comme d'autres types de scripts, vous pouvez avoir des fonctions de sous-routine et des modules partagés. Pour plus d'informations, consultez la rubrique [Contrôle du code source, code partagé et fonctions d'assistance].
 
@@ -926,7 +926,7 @@ Pour éviter de surcharger votre journal, il est conseillé de supprimer ou de d
 [ Mappage des types JSON vers des types de base de données]: #JSON-types
 [ Chargement des modules Node.js]: #modules-helper-functions
 [ Écriture de la sortie dans les journaux de service mobile]: #write-to-logs
-[Contrôle du code source et du code partagé]: #shared-code
+[Contrôle du code source, code partagé et fonctions d'assistance]: #shared-code
 [Utilisation de l'outil en ligne de commande]: #command-prompt
 [Utilisation des tables]: #working-with-tables
 [Ancre d'API personnalisée]: #custom-api
@@ -990,7 +990,7 @@ Pour éviter de surcharger votre journal, il est conseillé de supprimer ou de d
 [path API]: http://go.microsoft.com/fwlink/p/?LinkId=288803
 [API querystring]: http://go.microsoft.com/fwlink/p/?LinkId=288804
 [url API]: http://go.microsoft.com/fwlink/p/?LinkId=288805
-[API util]: http://go.microsoft.com/fwlink/p/?LinkId=288806
+[util API]: http://go.microsoft.com/fwlink/p/?LinkId=288806
 [zlib API]: http://go.microsoft.com/fwlink/p/?LinkId=288807
 [API personnalisée]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn280974.aspx
 [Appel d'une API personnalisée à partir du client]: /fr-fr/develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api
