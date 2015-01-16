@@ -1,4 +1,4 @@
-﻿<properties title="How to Configure PHP in Azure Websites" pageTitle="Configuration de PHP dans Azure Web Sites" metaKeywords="Azure, Azure Web Sites, configuration, PHP" description="Learn how to configure the default PHP installation or add a custom PHP installation in Azure Websites." services="Web Sites" documentationCenter="PHP" authors="tomfitz" manager="wpickett" />
+<properties title="How to Configure PHP in Azure Websites" pageTitle="Configuration de PHP dans Azure Web Sites" metaKeywords="Azure, Azure Web Sites, configuration, PHP" description="Découvrez comment configurer l'installation PHP par défaut ou ajouter une installation PHP personnalisée dans Sites Web Azure." services="Web Sites" documentationCenter="PHP" authors="tomfitz" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/18/2014" ms.author="tomfitz" />
 
@@ -94,14 +94,14 @@ Maintenant que vous avez appris à configurer PHP dans Sites Web Azure, suivez l
 
 
 [version d'évaluation gratuite]: https://www.windowsazure.com/fr-fr/pricing/free-trial/
-[Didacticiels du Centre de développement PHP]: https://www.windowsazure.com/fr-fr/develop/php/tutorials/
-[Configuration d'Azure Web Sites]: https://www.windowsazure.com/fr-fr/manage/services/web-sites/how-to-configure-websites/
+[didacticiels du Centre de développement]: https://www.windowsazure.com/fr-fr/develop/php/tutorials/
+[Configuration de sites web]: https://www.windowsazure.com/fr-fr/manage/services/web-sites/how-to-configure-websites/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
-[Liste des directives de php.ini]: http://www.php.net/manual/en/ini.list.php
+[Liste des directives du php.ini]: http://www.php.net/manual/en/ini.list.php
 [.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
 [ini_set()]: http://www.php.net/manual/en/function.ini-set.php
-[configurer]: ./media/web-sites-php-configure/configure.png
+[configure]: ./media/web-sites-php-configure/configure.png
 [app-settings]: ./media/web-sites-php-configure/app-settings.png
 [save-button]: ./media/web-sites-php-configure/save-button.png
 [http://windows.php.net/download/]: http://windows.php.net/download/

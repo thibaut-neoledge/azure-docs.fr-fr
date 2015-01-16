@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="" pageTitle="Création et utilisation d'une signature d'accès partagé avec le service BLOB | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Explore generating and using shared access signatures with the Blob service" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
+﻿<properties urlDisplayName="" pageTitle="Création et utilisation d'une signature d'accès partagé avec le service BLOB | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Présentation de la génération et de l'utilisation de signatures d'accès partagé avec le service BLOB" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
 

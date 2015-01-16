@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Prise en main des notification Push à l'aide d'un service mobile principal .NET" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your universal Windows app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
+<properties pageTitle="Prise en main des notification Push à l'aide d'un service mobile principal .NET" metaKeywords="" description="Découvrez comment utiliser Azure Mobile Services et Notification Hubs pour envoyer des notifications Push à votre application universelle Windows." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/27/2014" ms.author="glenga" />
 
@@ -28,10 +28,10 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 [WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 <ol start="6">
-<li><p>Accédez au dossier de projet <code>\services\mobileServices\scripts</code>, copiez le fichier de script <<em>nom_de_votre_service</em>>.push.register.js dans le dossier <code>\js</code> partagé, puis supprimez ce fichier des deux projets d'application Windows et Windows Phone individuels.</p></li> 
+<li><p>Accédez au dossier de projet <code>\services\mobileServices\scripts</code>, copiez le fichier de script &lt;<em>your_service_name</em>&gt;.push.register.js dans le dossier <code>\js</code> partagé, puis supprimez ce fichier des deux projets d'application Windows et Windows Phone individuels.</p></li> 
 <li><p>Ouvrez ce fichier de script dans le dossier de projet <code>\js</code> partagé, identifiez le code dans l'écouteur d'événements <em>activé</em> qui enregistre l'URL de canal d'appareil avec le hub de notification, puis supprimez la fonction de promesse <strong>done</strong>.</p>
 <p>Ce didacticiel permet d'envoyer des notifications lorsqu'un nouvel élément est inséré, pas lorsqu'une API personnalisée est appelée.</p></li>
-<li><p>Dans le projet d'application Windows, ouvrez le fichier default.html et modifiez le chemin d'accès de la référence du fichier de script vers le dossier de projet <code>\js</code> partagé, pour qu'il se présente comme suit :</p><pre><code><script src="/js/your_service_name.push.register.js"></script></code></pre></li>
+<li><p>Dans le projet d'application Windows, ouvrez le fichier default.html et modifiez le chemin d'accès de la référence du fichier de script vers le dossier de projet <code>\js</code> partagé, pour qu'il se présente comme suit :</p><pre><code>&lt;script src="/js/your_service_name.push.register.js"&gt;&lt;/script&gt;</code></pre></li>
 <li><p>Répétez cette étape pour le projet d'application Windows Phone.</p>
 <p>Les deux projets utilisent maintenant une version partagée du script d'inscription Push.</p></li>
 </ol>

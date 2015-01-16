@@ -1,4 +1,4 @@
-﻿<properties title="How to customize monitoring" pageTitle="Personnalisation de la surveillance" description="Learn how to customize monitoring charts in Azure." authors="awills" manager="kamrani" />
+﻿<properties title="How to customize monitoring" pageTitle="Personnalisation de la surveillance" description="Découvrez comment personnaliser les graphiques d'analyse dans Azure." authors="awills" manager="kamrani" />
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="awills" />
 

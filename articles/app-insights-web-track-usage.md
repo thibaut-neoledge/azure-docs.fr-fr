@@ -1,4 +1,4 @@
-﻿<properties title="Track usage in web applications with Application Insights" pageTitle="Suivi de l'utilisation dans les applications web" description="Log user activities." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani" />
+﻿<properties title="Track usage in web applications with Application Insights" pageTitle="Suivi de l'utilisation dans les applications web" description="Enregistrez les activités de l'utilisateur dans un journal." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani" />
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
  

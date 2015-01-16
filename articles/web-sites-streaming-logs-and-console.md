@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Journaux de diffusion en continu et console" description="Streaming logs and console overview" title="Streaming logs and console" authors="adamab" manager="wpickett" />
+﻿<properties pageTitle="Journaux de diffusion en continu et console" description="Vue d'ensemble des journaux et de la console de diffusion en continu" title="Streaming logs and console" authors="adamab" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab" />
 

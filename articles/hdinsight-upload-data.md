@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Upload Data" pageTitle="Téléchargement de données pour les tâches Hadoop dans HDInsight | Azure" metaKeywords="" description="Learn how to upload and access data in HDInsight using Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Upload data for Hadoop jobs in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties urlDisplayName="Upload Data" pageTitle="Téléchargement de données pour les tâches Hadoop dans HDInsight | Azure" metaKeywords="" description="Apprenez à télécharger des données et à y accéder dans HDInsight avec l'Explorateur du stockage Azure, Azure PowerShell, la ligne de commande Hadoop ou Sqoop." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Upload data for Hadoop jobs in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
 

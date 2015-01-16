@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Prise en main des concentrateurs d'événements" metaKeywords="Azure Service Bus, Concentrateur d'événements, prise en main concentrateurs d'événements" description="Follow this tutorial to get started using Azure Event Hubs sending events with Java and receiving them in an Apache Storm cluster" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+﻿<properties pageTitle="Prise en main des concentrateurs d'événements" metaKeywords="Azure Service Bus, Concentrateur d'événements, prise en main concentrateurs d'événements" description="Suivez ce didacticiel pour commencer à utiliser les concentrateurs d'événements Azure envoyant des événements avec Java et les recevant dans un cluster Storm Apache" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="java" ms.devlang="java" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 

@@ -1,4 +1,4 @@
-﻿<properties title="Managing Concurrency in Microsoft Azure Storage" pageTitle="required" description="Gestion de l'accès concurrentiel pour les services BLOB, de File d'attente, de Fable et de fichier" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="tamram" manager="adinah" videoId="Optional" scriptId="Optional" />
+﻿<properties title="Managing Concurrency in Microsoft Azure Storage" pageTitle="required" description="Gestion de l'accès concurrentiel pour les services BLOB, de File d'attente, de table et de fichier" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="tamram" manager="adinah" videoId="Optional" scriptId="Optional" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/08/2014" ms.author="tamram" />
 

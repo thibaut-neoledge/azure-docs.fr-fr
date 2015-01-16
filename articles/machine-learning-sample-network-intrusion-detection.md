@@ -1,4 +1,4 @@
-﻿<properties title="Azure Machine Learning Sample: Network intrusion detection" pageTitle="Exemple sous Machine Learning : détection d'intrusions dans un réseau | Azure" description="A sample Azure Machine Learning experiment that uses a classification model to determine which network activities are a part of network intrusion." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties title="Azure Machine Learning Sample: Network intrusion detection" pageTitle="Exemple sous Machine Learning : détection d'intrusions dans un réseau | Azure" description="Un exemple d'expérience Azure Machine Learning qui utilise un modèle de classification pour déterminer quelles activités réseau font partie d'une intrusion." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="garye" />
 

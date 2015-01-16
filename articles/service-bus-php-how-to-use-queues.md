@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Queues" pageTitle="Utilisation des files d'attente Service Bus (PHP) - Azure" metaKeywords="files d'attente Azure Service Bus, files d'attente Azure, messagerie Azure, files d'attente Azure PHP" description="Learn how to use Service Bus queues in Azure. Code samples written in PHP." metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="" />
+﻿<properties urlDisplayName="Service Bus Queues" pageTitle="Utilisation des files d'attente Service Bus (PHP) - Azure" metaKeywords="files d'attente Azure Service Bus, files d'attente Azure, messagerie Azure, files d'attente Azure PHP" description="Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en PHP." metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/13/2014" ms.author="sethm" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Install Python" pageTitle="Installation de Python et du Kit de développement logiciel (SDK) - Azure" metaKeywords="Azure Python SDK" description="Learn how to install Python and the SDK to use with Azure." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="huvalo" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Install Python" pageTitle="Installation de Python et du Kit de développement logiciel (SDK) - Azure" metaKeywords="Azure Python SDK" description="Découvrez comment installer Python et le Kit de développement logiciel (SDK) à utiliser avec Azure." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="11/10/2014" ms.author="huvalo" />
 

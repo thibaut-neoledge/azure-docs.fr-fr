@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Push Notifications" pageTitle="Prise en main des notifications Push (Xamarin.iOS) - Mobile Services" metaKeywords="" description="Learn how to use push notifications in Xamarin.iOS apps with Azure Mobile Services." metaCanonical="" disqusComments="0" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="yuaxu" manager="dwrede" services="mobile-services"/>
+<properties urlDisplayName="Get Started with Push Notifications" pageTitle="Prise en main des notifications Push (Xamarin.iOS) - Mobile Services" metaKeywords="" description="Découvrez comment utiliser les notifications Push dans les applications Xamarin.iOS avec Azure Mobile Services." metaCanonical="" disqusComments="0" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="yuaxu" manager="dwrede" services="mobile-services"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="Java" ms.topic="article" ms.date="10/20/2014" ms.author="yuaxu" />
 
@@ -261,7 +261,18 @@ Votre service mobile est maintenant configuré pour fonctionner avec APNS.
 
 8. Dans **TodoListViewController**, modifiez l'action **OnAdd** pour que le jeton d'appareil soit stocké dans **AppDelegeate**, puis stockez-le dans la table **TodoItem** à ajouter.
 
-€ le portail de gestion.
+        string deviceToken = ((AppDelegate)UIApplication.SharedApplication.Delegate).DeviceToken;
+
+        var newItem = new TodoItem() 
+        {
+            Text = itemText.Text, 
+            Complete = false,
+            DeviceToken = deviceToken
+        };
+
+L'application est mise à jour et prend en charge les notifications Push.
+
+## <a name="update-scripts"></a>Mise à jour du script d'insertion inscrit dans le portail de gestion
 
 1. Dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItem**. 
 

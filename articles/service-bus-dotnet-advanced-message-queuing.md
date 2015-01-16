@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus AMQP" pageTitle="Utilisation d'AMQP 1.0 avec l'API .NET Service Bus - Azure" metaKeywords="" description="Learn how to use Advanced Message Queuing Protodol (AMQP) 1.0 with the Azure .NET Service Bus API." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to use AMQP 1.0 with the Service Bus .NET API" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+<properties urlDisplayName="Service Bus AMQP" pageTitle="Utilisation d'AMQP 1.0 avec l'API .NET Service Bus - Azure" metaKeywords="" description="Découvrez comment utiliser le protocole Advanced Message Queuing Protodol (AMQP) 1.0 avec l'API .NET Azure Service Bus." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to use AMQP 1.0 with the Service Bus .NET API" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
@@ -19,7 +19,7 @@ Ce manuel d'utilisation explique comment utiliser les fonctionnalités de messag
 
 <h2>Prise en main de Service Bus</h2>
 
-Ce guide présume que vous disposez déjà d'un espace de noms Services Bus contenant une file d'attente nommée " queue1 ". Dans le cas contraire, vous pouvez créer l'espace de noms et la file d'attente à l'aide du [portail de gestion Azure](http://manage.windowsazure.com). Pour plus d'informations sur la création d'espaces de noms et de files d'attente Service Bus, consultez le manuel d'utilisation intitulé " [Utilisation des files d'attente Service Bus](https://www.windowsazure.com/fr-fr/develop/net/how-to-guides/service-bus-queues/) ".
+Ce guide présume que vous disposez déjà d'un espace de noms Services Bus contenant une file d'attente nommée " queue1 ". Dans le cas contraire, vous pouvez créer l'espace de noms et la file d'attente à l'aide du [portail de gestion Azure](http://manage.windowsazure.com). Pour plus d'informations sur la création d'espaces de noms et de files d'attente Service Bus, consultez le manuel d'utilisation intitulé " [Utilisation des files d'attente Service Bus](https://www.windowsazure.com/fr-fr/develop/net/how-to-guides/service-bus-queues/) ".
 
 <h2>Téléchargement du Kit de développement logiciel (SDK) Service Bus.</h2>
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get started with custom authentication" pageTitle="Prise en main de l'authentification personnalisée | Centre de développement mobile" metaKeywords="" description="Learn how to authenticate users with a username and password." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with custom authentication" authors="mahender" manager="dwrede" />
+﻿<properties urlDisplayName="Get started with custom authentication" pageTitle="Prise en main de l'authentification personnalisée | Centre de développement mobile" metaKeywords="" description="Découvrez comment authentifier les utilisateurs à l'aide d'un nom d'utilisateur et d'un mot de passe." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with custom authentication" authors="mahender" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
 

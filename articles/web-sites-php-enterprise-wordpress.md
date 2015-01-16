@@ -1,4 +1,4 @@
-﻿<properties title="Enterprise class WordPress on Azure Websites" pageTitle="WordPress pour entreprise dans Azure Web Sites" description="Découvrez comment héberger un site WordPress pour entreprise dans Azure Web Sites" metaKeywords="wordpress azure, wordpress website, wordpress azure website" services="web-sites" solutions="web" documentationCenter="" authors="tomfitz" manager="wpickett" videoId="" scriptId="" />
+﻿<properties title="Enterprise class WordPress on Azure Websites" pageTitle="WordPress pour entreprise dans Azure Web Sites" description="Découvrez comment héberger un site WordPress pour entreprise dans Sites Web Azure" metaKeywords="wordpress azure, wordpress website, wordpress azure website" services="web-sites" solutions="web" documentationCenter="" authors="tomfitz" manager="wpickett" videoId="" scriptId="" />
 
 <tags ms.service="web-sites" ms.devlang="php" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="11/11/2014" ms.author="tomfitz" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="Prise en main des données (Windows Store) | Centre de développement mobile" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Data" pageTitle="Prise en main des données (Windows Store) | Centre de développement mobile" metaKeywords="" description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application Windows Store." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
@@ -44,7 +44,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 	<p>Ce code permet d'accéder à votre nouveau service mobile dans votre application en utilisant une variable globale. Le client est créé en fournissant l'URI et la clé de l'application du nouveau service mobile. Dans la mesure où une référence à ce script a été ajoutée dans le fichier default.html, cette variable est disponible pour tous les fichiers de script qui sont également référencés sur cette page.</p>
 </li>
 <li><p>Ouvrez le fichier de projet default.html, identifiez la référence au nouveau fichier de script service.js et assurez-vous que le chemin d'accès référencé se présente comme suit :</p>
-<pre><code><script src="/services/mobileServices/scripts/todolist.js"></script></code></pre>
+<pre><code>&lt;script src="/services/mobileServices/scripts/todolist.js"&gt;</script></code></pre>
 <p>Visual Studio comporte actuellement un bogue qui génère un nom de dossier incorrect dans le chemin d'accès.</p></li>
 <li><p>Cliquez avec le bouton droit sur le projet d'application Windows Phone, cliquez sur <strong>Ajouter</strong>, puis sur <strong>Service connecté...</strong>, sélectionnez le service mobile que vous venez de créer, puis cliquez sur <strong>OK</strong>. </p>
 <p>Le même nouveau fichier de code est ajouté au projet d'application Windows Phone Store. Assurez-vous de corriger également le chemin d'accès référencé ajouté au fichier default.html.</p></li>
@@ -103,7 +103,7 @@ Une fois que vous avez terminé les séries de données, essayez l'un de ces aut
 
 [Téléchargement d'un projet d'application Windows Store]: #download-app
 [Création d'un service mobile à partir de Visual Studio]: #create-service
-[Test du projet de service mobile en local]: #test-the-service-locally
+[Test local d'un projet de service mobile]: #test-the-service-locally
 [Mise à jour de l'application pour utiliser le service mobile]: #update-app
 [Test de l'application sur le service hébergé en local]: #test-locally-hosted
 [Publication du service mobile sur Azure]: #publish-mobile-service
@@ -150,6 +150,6 @@ Une fois que vous avez terminé les séries de données, essayez l'un de ces aut
 [Portail de gestion]: https://manage.windowsazure.com/
 [Kit de développement logiciel (SDK) Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Site d'exemples de code développeur]:  http://go.microsoft.com/fwlink/p/?LinkID=510826
-[Guide de fonctionnement de Mobile Services .NET]: /fr-fr/documentation/articles/mobile-services-html-how-to-use-client-library/
+[Guide de fonctionnement Mobile Services .NET]: /fr-fr/documentation/articles/mobile-services-html-how-to-use-client-library/
 [Classe MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   

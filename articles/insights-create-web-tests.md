@@ -1,4 +1,4 @@
-﻿<properties title="How to create web test" pageTitle="Création de tests web" description="Learn how to create web tests in Azure." authors="awills" manager="kamrani" />
+﻿<properties title="How to create web test" pageTitle="Création de tests web" description="Découvrez comment créer des tests web dans Azure." authors="awills" manager="kamrani" />
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-29" ms.author="awills"  />
 

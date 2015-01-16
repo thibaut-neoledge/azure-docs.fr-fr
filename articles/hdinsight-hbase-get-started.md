@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started" pageTitle="Configuration et interrogation de tables HBase à l'aide de Hive dans HDInsight | Azure" metaKeywords="" description="Get started using HBase with Hadoop in HDInsight. Learn how to create HBase tables and query them using Hive." metaCanonical="" services="hdinsight" documentationCenter="" title="Set up HBase clusters and query them using Hive on Hadoop in HDInsight" authors="bradsev" solutions="big-data" manager="paulettm" editor="cgronlun" />
+﻿<properties urlDisplayName="Get Started" pageTitle="Configuration et interrogation de tables HBase à l'aide de Hive dans HDInsight | Azure" metaKeywords="" description="Prise en main de HBase avec Hadoop dans HDInsight Apprenez à créer des tables HBase et à les interroger à l'aide de Hive." metaCanonical="" services="hdinsight" documentationCenter="" title="Set up HBase clusters and query them using Hive on Hadoop in HDInsight" authors="bradsev" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/9/2014" ms.author="bradsev" />
 

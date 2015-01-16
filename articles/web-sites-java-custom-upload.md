@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Upload custom Java website" pageTitle="Télécharger un site web Java personnalisé vers Azure" metaKeywords="" description="This tutorial shows you how to upload a custom Java website to Azure." metaCanonical="" services="web-sites" documentationCenter="Java" title="Upload a custom Java website to Azure" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="Upload custom Java website" pageTitle="Télécharger un site web Java personnalisé vers Azure" metaKeywords="" description="Ce didacticiel vous montre comment télécharger un site web Java personnalisé vers Azure." metaCanonical="" services="web-sites" documentationCenter="Java" title="Upload a custom Java website to Azure" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 

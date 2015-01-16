@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to create" pageTitle="Création, gestion ou suppression d'un compte de stockage | Azure" metaKeywords="" description="Learn how to create, manage, or delete a storage account in the Azure management portal." metaCanonical="" services="storage" documentationCenter="" title="How To Create a Storage Account" solutions="" authors="tamram" manager="adinah" />
+﻿<properties urlDisplayName="How to create" pageTitle="Création, gestion ou suppression d'un compte de stockage | Azure" metaKeywords="" description="Découvrez comment créer, gérer ou supprimer un compte de stockage dans le portail de gestion Azure." metaCanonical="" services="storage" documentationCenter="" title="How To Create a Storage Account" solutions="" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="tamram" />
 

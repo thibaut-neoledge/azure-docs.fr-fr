@@ -1,4 +1,4 @@
-﻿ <properties urlDisplayName="User Names in Linux" pageTitle="Sélection de noms d'utilisateur pour Linux dans Azure" metaKeywords="" description="Learn how to select user names for a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecting User Names for Linux on Azure" authors="szark" solutions="" manager="timlt" editor="" />
+﻿ <properties urlDisplayName="User Names in Linux" pageTitle="Sélection de noms d'utilisateur pour Linux dans Azure" metaKeywords="" description="Apprenez à sélectionner des noms d'utilisateur pour une machine virtuelle Linux dans Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecting User Names for Linux on Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="szark" />
 

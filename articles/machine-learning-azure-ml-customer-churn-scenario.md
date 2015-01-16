@@ -1,4 +1,4 @@
-﻿<properties title="Analyzing Customer Churn using Microsoft Azure Machine Learning" pageTitle="Analyse de l'attrition des clients à l'aide de Microsoft Machine Learning | Azure" description="Case study of developing an integrated model for analyzing and scoring customer churn" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Analyzing Customer Churn using Microsoft Azure Machine Learning" pageTitle="Analyse de l'attrition des clients à l'aide de Microsoft Machine Learning | Azure" description="Étude de cas de développement d'un modèle intégré pour l'analyse et l'évaluation des résiliations" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="barga" />
 

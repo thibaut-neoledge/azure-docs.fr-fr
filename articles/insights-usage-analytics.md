@@ -1,4 +1,4 @@
-﻿<properties title="How to use end user analytics in Azure" pageTitle="Utilisation de Analyses de l'utilisateur final" description="End user analytics for Microsoft Azure websites." authors="awills" manager="kamrani" />
+﻿<properties title="How to use end user analytics in Azure" pageTitle="Utilisation de Analyses de l'utilisateur final" description="Analyse d'utilisateur final pour les sites web Microsoft Azure." authors="awills" manager="kamrani" />
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-02" ms.author="awills" />
 

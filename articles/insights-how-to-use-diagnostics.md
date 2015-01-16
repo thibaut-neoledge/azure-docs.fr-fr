@@ -1,4 +1,4 @@
-﻿<properties title="How to use diagnostics" pageTitle="Utilisation des diagnostics" description="Learn how to set up diagnostics for your resources in Azure." authors="stepsic" manager="kamrani" />
+﻿<properties title="How to use diagnostics" pageTitle="Utilisation des diagnostics" description="Découvrez comment configurer des diagnostics pour vos ressources dans Azure." authors="stepsic" manager="kamrani" />
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="stepsic" />
 

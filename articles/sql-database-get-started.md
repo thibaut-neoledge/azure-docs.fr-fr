@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to create and provision" pageTitle="Prise en main de la base de données SQL - Azure" metaKeywords="" description="Get started creating and managing SQL Databases in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="jeffryg"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
+﻿<properties urlDisplayName="How to create and provision" pageTitle="Prise en main de la base de données SQL - Azure" metaKeywords="" description="Commencez à créer et à gérer des bases de données SQL dans Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="jeffryg"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jeffreyg" />
 
@@ -654,7 +654,7 @@ Il existe d'autres méthodes pour transférer une base de données locale vers l
 
 * [Migration de bases de données vers Base de données SQL](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee730904.aspx)
 * [Copie de bases de données dans Base de données SQL](http://msdn.microsoft.com/fr-fr/library/windowsazure/ff951624.aspx)
-* [Déploiement d'une base de données SQL Server vers une machine virtuelle Azure](http://msdn.microsoft.com/fr-fr/library/dn195938(v=sql.120).aspx).
+* [Déploiement d'une base de données SQL Server vers une machine virtuelle Azure](http://msdn.microsoft.com/fr-fr/library/dn195938.aspx).
 
 
 

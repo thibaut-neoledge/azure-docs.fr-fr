@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Continuous Delivery" pageTitle="Livraison continue pour les services cloud avec TFS dans Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="kempb" solutions="" manager="douge" editor="" />
+<properties urlDisplayName="Continuous Delivery" pageTitle="Livraison continue pour les services cloud avec TFS dans Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="Découvrez comment configurer la livraison continue pour les applications cloud Azure. Exemples de code pour les instructions en ligne de commande MSBuild et les scripts PowerShell." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="kempb" solutions="" manager="douge" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="12/3/2014" ms.author="kempb" />
 
@@ -162,7 +162,7 @@ Cette section décrit la création d'un script Windows PowerShell qui publie le 
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
     Vous pouvez également exporter le fichier de certificat PFX avec une clé privée et télécharger les certificats sur chaque service cloud ciblé à l'aide du portail de gestion Azure. Pour plus d'informations, consultez l'article suivant :
-    [http://msdn.microsoft.com/fr-fr/library/windowsazure/gg443832.aspx][].
+    [http://msdn.microsoft.com/fr-fr/library/windowsazure/gg443832.aspx][(http://msdn.microsoft.com/fr-fr/library/windowsazure/gg443832.aspx).
 
     **Mise à niveau du déploiement et suppression du déploiement -> Nouveau déploiement**
 
@@ -560,12 +560,12 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 
 Pour activer le débogage distant lors de l'utilisation de la remise continue, consultez [les instructions suivantes](http://go.microsoft.com/fwlink/p/?LinkID=402354). 
 
-  [Livraison continue sur Azure au moyen de Visual Studio Online] : ../cloud-services-continuous-delivery-use-vso/
-  [Étape 1 : configuration du serveur de builds] : #step1
-  [Étape 2 : génération d'un package à l'aide des commandes MSBuild] : #step2
-  [Étape 3 : génération d'un package avec TFS Team Build (facultatif)] : #step3
-  [Étape 4 : publication d'un package à l'aide d'un script PowerShell] : #step4
-  [Étape 5 : publication d'un package à l'aide de TFS Team Build (facultatif)] : #step5
+  [Livraison continue sur Azure au moyen de Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso/
+  [Étape 1 : configuration du serveur de builds]: #step1
+  [Étape 2 : génération d'un package à l'aide des commandes MSBuild]: #step2
+  [Étape 3 : génération d'un package avec TFS Team Build (facultatif)]: #step3
+  [Étape 4 : publication d'un package à l'aide d'un script PowerShell]: #step4
+  [Étape 5 : publication d'un package à l'aide de TFS Team Build (facultatif)]: #step5
   [Service Team Foundation Build]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
@@ -577,11 +577,11 @@ Pour activer le débogage distant lors de l'utilisation de la remise continue, c
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
   [Vue d'ensemble de Team Foundation Build]: http://go.microsoft.com/fwlink/?LinkId=238798
   [Configuration d'un ordinateur de build]: http://go.microsoft.com/fwlink/?LinkId=238799
-  [0] : ./media/cloud-services-dotnet-continuous-delivery/tfs-01.png
-  [2] : ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
+  [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01.png
+  [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
   [Cmdlets Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=256262
   [fichier .publishsettings]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
-  [fin de cet article] : #script
+  [à la fin de cet article]: #script
   
   [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png
   [4]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png

@@ -1,4 +1,4 @@
-﻿
+
 
 1. Si vous n'avez pas déjà inscrit votre application, accédez à la page [Soumettre une application] du Centre de développement pour les applications Windows Store, connectez-vous à votre compte Microsoft, puis cliquez sur le **Nom de l'application**.
 
@@ -57,6 +57,6 @@
 	>[WACOM.NOTE]Quand vous définissez vos informations d'identification WNS pour les notifications Push améliorées dans l'onglet **Notifications push** du portail, celles-ci sont partagées avec Notification Hubs pour configurer le concentrateur de notification de votre application.
 
 <!-- URLs. -->
-[Prise en main de Mobile Services]w
-[Page Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-store-get-started/
+[Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Portail de gestion Azure]: https://manage.windowsazure.com/

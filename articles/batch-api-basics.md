@@ -1,5 +1,5 @@
 ﻿
-<properties title="API basics for Azure Batch" pageTitle="Concepts de base concernant les API dans Azure Batch" description="Concepts to introduce developers to the Azure Batch APIs and Batch service" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="timlt" />
+<properties title="API basics for Azure Batch" pageTitle="Concepts de base concernant les API dans Azure Batch" description="Concepts permettant de présenter les API et les services par lots d'Azure Batch aux développeurs" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="timlt" />
 
 <tags ms.service="batch" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="10/27/2014" ms.author="yidingz, karran.batta" />
 

@@ -1,4 +1,4 @@
-﻿<properties umbracoNaviHide="0" pageTitle="Présentation des sites web" metaKeywords="Azure Web Sites, Azure deployment, Azure configuration changes, Azure deployment update, Azure .NET deployment, Azure .NET deployment" description="Learn how to configure Websites in Azure to use a SQL or MySQL database, and learn how to configure diagnostics and download logs." urlDisplayName="How to Configure Websites" title="What are Websites" authors="cephalin" manager="wpickett" />
+﻿<properties umbracoNaviHide="0" pageTitle="Présentation des sites web" metaKeywords="Azure Web Sites, Azure deployment, Azure configuration changes, Azure deployment update, Azure .NET deployment, Azure .NET deployment" description="Découvrez comment configurer Sites Web Azure pour qu'il utilise une base de données SQL ou MySQL et comment configurer les journaux de diagnostic et de téléchargement." urlDisplayName="How to Configure Websites" title="What are Websites" authors="cephalin" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/11/2014" ms.author="cephalin" />
 

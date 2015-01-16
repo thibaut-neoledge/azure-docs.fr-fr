@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Prise en main de Mobile Services pour Xamarin.Android" metaKeywords="application Xamarin.Android Azure, service mobile XamarinAndroid, prise en main de Xamarin.Android Azure" writer ="craigd" description="Learn how to use Azure Mobile Services with your Xamarin.Android app." metaCanonical="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="donnam" manager="dwrede" />
+﻿<properties pageTitle="Prise en main de Mobile Services pour Xamarin.Android" metaKeywords="application Xamarin.Android Azure, service mobile XamarinAndroid, prise en main de Xamarin.Android Azure" writer ="craigd" description="Découvrez comment utiliser Azure Mobile Services avec votre application Xamarin.Android." metaCanonical="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="donnam" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/11/2014" ms.author="donnam" />
 

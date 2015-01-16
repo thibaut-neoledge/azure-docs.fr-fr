@@ -1,4 +1,4 @@
-﻿<properties title="Hybrid Connection: Connect an Azure Website to an On-Premises Resource" pageTitle="Connexion hybride : Connexion d'un site web Azure à une ressource locale" description="Create a connection between an Azure website and an on-premises resource that uses a static TCP port" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+<properties title="Hybrid Connection: Connect an Azure Website to an On-Premises Resource" pageTitle="Connexion hybride : Connexion d'un site web Azure à une ressource locale" description="Création d'une connexion entre un site web Azure et une ressource locale utilisant un port TCP statique" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 
@@ -168,28 +168,28 @@ Maintenant que l'infrastructure de connexion hybride est terminée, vous pouvez 
 [Connexion à une instance SQL Server locale à partir d'Azure Mobile Services au moyen de connexions hybrides (vidéo Channel 9)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
 
 <!-- IMAGES -->
-[New] :./media/web-sites-hybrid-connection-get-started/B01New.png
-[NewWebsite] :./media/web-sites-hybrid-connection-get-started/B02NewWebsite.png
-[WebsiteCreationBlade] :./media/web-sites-hybrid-connection-get-started/B03WebsiteCreationBlade.png
-[WebSiteRunningBlade] :./media/web-sites-hybrid-connection-get-started/B04WebSiteRunningBlade.png
-[Browse] :./media/web-sites-hybrid-connection-get-started/B05Browse.png
-[DefaultWebSitePage] :./media/web-sites-hybrid-connection-get-started/B06DefaultWebSitePage.png
-[CreateHCHCIcon] :./media/web-sites-hybrid-connection-get-started/C01CreateHCHCIcon.png
-[CreateHCAddHC] :./media/web-sites-hybrid-connection-get-started/C02CreateHCAddHC.png
-[TwinCreateHCBlades] :./media/web-sites-hybrid-connection-get-started/C03TwinCreateHCBlades.png
-[CreateHCCreateBTS] :./media/web-sites-hybrid-connection-get-started/C04CreateHCCreateBTS.png
-[CreateBTScomplete] :./media/web-sites-hybrid-connection-get-started/C05CreateBTScomplete.png
-[CreateHCSuccessNotification] :./media/web-sites-hybrid-connection-get-started/C06CreateHCSuccessNotification.png
-[CreateHCOneConnectionCreated] :./media/web-sites-hybrid-connection-get-started/C07CreateHCOneConnectionCreated.png
-[HCIcon] :./media/web-sites-hybrid-connection-get-started/D01HCIcon.png
-[NotConnected] :./media/web-sites-hybrid-connection-get-started/D02NotConnected.png
-[NotConnectedBlade] :./media/web-sites-hybrid-connection-get-started/D03NotConnectedBlade.png
-[ClickListenerSetup] :./media/web-sites-hybrid-connection-get-started/D04ClickListenerSetup.png
-[ClickToInstallHCM] :./media/web-sites-hybrid-connection-get-started/D05ClickToInstallHCM.png
-[ApplicationRunWarning] :./media/web-sites-hybrid-connection-get-started/D06ApplicationRunWarning.png
-[UAC] :./media/web-sites-hybrid-connection-get-started/D07UAC.png
-[HCMInstalling] :./media/web-sites-hybrid-connection-get-started/D08HCMInstalling.png
-[HCMInstallComplete] :./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png
-[HCStatusConnected] :./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
+[New]:./media/web-sites-hybrid-connection-get-started/B01New.png
+[NewWebsite]:./media/web-sites-hybrid-connection-get-started/B02NewWebsite.png
+[WebsiteCreationBlade]:./media/web-sites-hybrid-connection-get-started/B03WebsiteCreationBlade.png
+[WebSiteRunningBlade]:./media/web-sites-hybrid-connection-get-started/B04WebSiteRunningBlade.png
+[Browse]:./media/web-sites-hybrid-connection-get-started/B05Browse.png
+[DefaultWebSitePage]:./media/web-sites-hybrid-connection-get-started/B06DefaultWebSitePage.png
+[CreateHCHCIcon]:./media/web-sites-hybrid-connection-get-started/C01CreateHCHCIcon.png
+[CreateHCAddHC]:./media/web-sites-hybrid-connection-get-started/C02CreateHCAddHC.png
+[TwinCreateHCBlades]:./media/web-sites-hybrid-connection-get-started/C03TwinCreateHCBlades.png
+[CreateHCCreateBTS]:./media/web-sites-hybrid-connection-get-started/C04CreateHCCreateBTS.png
+[CreateBTScomplete]:./media/web-sites-hybrid-connection-get-started/C05CreateBTScomplete.png
+[CreateHCSuccessNotification]:./media/web-sites-hybrid-connection-get-started/C06CreateHCSuccessNotification.png
+[CreateHCOneConnectionCreated]:./media/web-sites-hybrid-connection-get-started/C07CreateHCOneConnectionCreated.png
+[HCIcon]:./media/web-sites-hybrid-connection-get-started/D01HCIcon.png
+[NotConnected]:./media/web-sites-hybrid-connection-get-started/D02NotConnected.png
+[NotConnectedBlade]:./media/web-sites-hybrid-connection-get-started/D03NotConnectedBlade.png
+[ClickListenerSetup]:./media/web-sites-hybrid-connection-get-started/D04ClickListenerSetup.png
+[ClickToInstallHCM]:./media/web-sites-hybrid-connection-get-started/D05ClickToInstallHCM.png
+[ApplicationRunWarning]:./media/web-sites-hybrid-connection-get-started/D06ApplicationRunWarning.png
+[UAC]:./media/web-sites-hybrid-connection-get-started/D07UAC.png
+[HCMInstalling]:./media/web-sites-hybrid-connection-get-started/D08HCMInstalling.png
+[HCMInstallComplete]:./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png
+[HCStatusConnected]:./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
 
 <!--HONumber=35.1-->
