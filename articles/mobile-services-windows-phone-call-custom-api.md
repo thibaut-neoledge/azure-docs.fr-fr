@@ -10,19 +10,19 @@ Cette rubrique explique comment appeler une API personnalisée à partir d'une a
 
 L'API personnalisée créée dans cette rubrique permet d'envoyer une seule requête POST qui définit l'indicateur complété sur " true " pour toutes les tâches (éléments todo) de la table. En l'absence de cette API personnalisée, le client doit envoyer des demandes individuelles de mise à jour de l'indicateur pour chaque élément todo de la table.
 
-Vous allez ajouter cette fonctionnalité à l'application que vous avez créée en suivant le didacticiel [Ajout de Mobile Services à une application existante](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started-data/). À cet effet, vous allez exécuter la procédure suivante :
+Vous allez ajouter cette fonctionnalité à l'application que vous avez créée avec le didacticiel [Ajout de Mobile Services à une application existante](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started-data/) . À cet effet, vous allez exécuter la procédure suivante :
 
 1. [Définition de l'API personnalisée]
 2. [Mise à jour de l'application pour appeler l'API personnalisée]
 3. [Test de l'application] 
 
-Ce didacticiel est basé sur l'exemple GetStartedWithData, qui est une simple application TodoList. Avant de commencer ce didacticiel, vous devez terminer celui intitulé : [Ajout de Mobile Services à une application existante](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started-data/).
+Ce didacticiel se base sur l'exemple GetStartedWithData, une application TodoList simple. Avant de commencer, vous devez suivre le didacticiel [Ajout de Mobile Services à une application existante](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started-data/).
 
 ## <a name="define-custom-api"></a>Définition de l'API personnalisée
 
-[WACOM.INCLUDE [mobile-services-create-custom-api](../includes/mobile-services-create-custom-api.md)]
+[WACOM.INCLUDE [mobile-services-créer-personnalisée-api](../includes/mobile-services-create-custom-api.md)]
 
-[WACOM.INCLUDE [mobile-services-windows-phone-call-custom-api](../includes/mobile-services-windows-phone-call-custom-api.md)]
+[WACOM.INCLUDE [mobile-services-windows-phone-appel-personnalisée-api](../includes/mobile-services-windows-phone-call-custom-api.md)]
 
 ## Étapes suivantes
 
@@ -32,7 +32,7 @@ Maintenant que vous avez créé une API personnalisée et que vous l'avez appel�
   <br/>En savoir plus sur la création d'API personnalisées.
 
 * [Stockage de scripts serveur dans un contrôle de code source]
-  <br/> Apprenez à utiliser la fonctionnalité de contrôle du code source pour développer et publier plus facilement et de manière plus sécurisée le code de script de l'API personnalisée.
+  <br/> Apprenez à utiliser la fonctionnalité de contrôle de code source pour développer et publier plus facilement et de manière plus sécurisée le code de script d'API personnalisées.
 
 <!-- Anchors. -->
 [Définition de l'API personnalisée]: #define-custom-api
@@ -51,3 +51,5 @@ Maintenant que vous avez créé une API personnalisée et que vous l'avez appel�
 [Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-push/
 
 [Stockage de scripts serveur dans un contrôle de code source]: /fr-fr/documentation/articles/mobile-services-store-scripts-source-control
+
+<!--HONumber=35.2-->

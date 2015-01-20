@@ -1,11 +1,11 @@
 ﻿<properties title="Monitor and manage Azure Data Factory using Azure PowerShell" pageTitle="Surveillance et gestion d'Azure Data Factory à l'aide d'Azure PowerShell" description="Découvrez comment utiliser Azure PowerShell pour analyser et gérer les fabriques de données Azure que vous avez créées." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
 # Surveillance et gestion d'Azure Data Factory à l'aide d'Azure PowerShell
-Le tableau suivant répertorie les cmdlets vous pouvez utiliser pour surveiller et gérer des fabriques de données Azure à l'aide d'Azure PowerShell. 
+Le tableau suivant répertorie les applets de commande vous pouvez utiliser pour surveiller et gérer des fabriques de données Azure à l'aide d'Azure PowerShell. 
 
-> [WACOM.NOTE] Consultez [Référence des cmdlets Data Factory][cmdlet-reference] pour une documentation complète sur les cmdlets de fabrique de données. 
+> [WACOM.NOTE] Consultez la [référence des applets de commande Data Factory][cmdlet-reference] pour obtenir une documentation complète sur les applets de commande Data Factory. 
 
 
 - [Get-AzureDataFactory](#get-azuredatafactory)
@@ -38,7 +38,7 @@ Cette commande renvoie toutes les fabriques de données dans le groupe de ressou
 Cette commande retourne des détails sur la fabrique de données ADFTutorialDataFactory du groupe de ressources ADFTutorialResourceGroup. 
 
 ## <a name="get-azuredatafactorylinkedservice"></a> Get-AzureDataFactoryLinkedService ##
-La cmdlet Get-AzureDataFactoryLinkedService obtient des informations sur un service lié spécifique ou tous les services liés dans une fabrique de données Azure.
+L'applet de commande Get-AzureDataFactoryLinkedService obtient des informations sur un service lié spécifique ou tous les services liés dans une fabrique de données Azure.
 
 ### Exemple 1 ###
 
@@ -47,7 +47,7 @@ La cmdlet Get-AzureDataFactoryLinkedService obtient des informations sur un serv
 Cette commande retourne des informations sur tous les services liés dans la fabrique de données Azure ADFTutorialDataFactory.
 
 
-Vous pouvez utiliser le paramètre -DataFactory au lieu de DataFactoryName et ResourceGroupName. Il permet d'entrer les noms de groupe de ressources et de fabrique une seule fois et d'utiliser Data Factory en tant que paramètre pour toutes les cmdlets qui ont pour paramètres ResourceGroupName et DataFactoryName.
+Vous pouvez utiliser le paramètre -DataFactory au lieu de DataFactoryName et ResourceGroupName. Il permet d'entrer les noms de groupe de ressources et de fabrique une seule fois, et d'utiliser Data Factory en tant que paramètre pour toutes les applets de commande qui ont pour paramètres ResourceGroupName et DataFactoryName.
 
     $df = Get-AzureDataFactory -ResourceGroup ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
 	
@@ -68,7 +68,7 @@ Vous pouvez utiliser le paramètre -DataFactory au lieu de -ResourceGroup et -Da
 
 
 ## <a name="get-azuredatafactorytable"></a> Get-AzureDataFactoryTable
-La cmdlet Get-AzureDataFactoryTable obtient des informations sur une table spécifique ou toutes les tables dans une fabrique de données Azure. 
+L'applet de commande Get-AzureDataFactoryTable obtient des informations sur une table spécifique ou toutes les tables dans une fabrique de données Azure. 
 
 ### Exemple 1
 
@@ -92,7 +92,7 @@ Cette commande retourne des informations sur la table EmpTableFromBlob de la fab
 
 
 ## <a name="get-azuredatafactorypipeline"></a>Get-AzureDataFactoryPipeline
-La cmdlet Get-AzureDataFactoryPipeline obtient des informations sur un pipeline spécifique ou tous les pipelines dans une fabrique de données Azure.
+L'applet de commande Get-AzureDataFactoryPipeline obtient des informations sur un pipeline spécifique ou tous les pipelines dans une fabrique de données Azure.
 
 ### Exemple 1
 
@@ -107,7 +107,7 @@ Cette commande retourne des informations sur tous les pipelines de la fabrique d
 Obtient des informations sur le pipeline ADFTutorialPipeline dans la fabrique de données Azure ADFTutorialDataFactory.
 
 ## <a name="get-azuredatafactoryslice"> </a> Get-AzureDataFactorySlice
-La cmdlet Get-AzureDataFactorySlice obtient toutes les tranches d'une table dans une fabrique de données Azure qui sont produites après StartDateTime et avant EndDateTime. La tranche de données dont l'état est Ready est prête à être consommée par des tranches dépendantes.
+L'applet de commande Get-AzureDataFactorySlice obtient toutes les tranches d'une table dans une fabrique de données Azure qui sont produites après StartDateTime et avant EndDateTime. La tranche de données dont l'état est Ready est prête à être consommée par des tranches dépendantes.
 
 Le tableau suivant répertorie tous les états d'une tranche et leurs descriptions.
 
@@ -179,7 +179,7 @@ Le tableau suivant répertorie tous les états d'une tranche et leurs descriptio
 
 </table>
 
-Pour chacune des tranches, vous pouvez explorer plus en détail et obtenir plus d'informations sur l'exécution qui produit la tranche à l'aide des cmdlets Get-AzureDataFactoryRun et Save-AzureDataFactoryLog.
+Pour chacune des tranches, vous pouvez explorer plus en détail et obtenir plus d'informations sur l'exécution qui produit la tranche à l'aide des applets de commande Get-AzureDataFactoryRun et Save-AzureDataFactoryLog.
 
 ### Exemple
 
@@ -189,7 +189,7 @@ Cette commande obtient toutes les tranches de la table EmpSQLTable dans la fabri
 
 ## <a name="get-azuredatafactoryrun"></a> Get-AzureDataFactoryRun
 
-La cmdlet Get-AzureDataFactoryRun obtient toutes les exécutions d'une tranche de données d'une table dans une fabrique de données Azure.  Celle-ci se compose de tranches sur l'axe temporel. La largeur d'une tranche est déterminée par la planification en heure/jour. L'exécution est une unité de traitement d'une tranche. Une tranche peut être exécutée une ou plusieurs fois en cas de nouvelles tentatives ou de défaillance. Elle est identifiée par son heure de début. Pour la cmdlet Get-AzureDataFactoryRun, vous devez donc passer l'heure de début de la tranche à partir des résultats de cmdlet Get-AzureDataFactorySlice.
+L'applet de commande Get-AzureDataFactoryRun récupère toutes les exécutions d'une tranche de données d'une table dans une fabrique de données Azure.  Une table dans une fabrique de données Azure se compose de tranches sur l'axe temporel. La largeur d'une tranche est déterminée par la planification en heure/jour. L'exécution est une unité de traitement d'une tranche. Une tranche peut être exécutée une ou plusieurs fois en cas de nouvelles tentatives ou de défaillance. Elle est identifiée par son heure de début. Pour l'applet de commande Get-AzureDataFactoryRun, vous devez donc passer l'heure de début de la tranche à partir des résultats de l'applet de commande Get-AzureDataFactorySlice.
 
 Par exemple, pour obtenir une exécution de la tranche suivante, vous utilisez 2015-04-02T20:00:00. 
 
@@ -211,9 +211,9 @@ Par exemple, pour obtenir une exécution de la tranche suivante, vous utilisez 2
 Cette commande obtient toutes les exécutions des tranches de la table EmpSQLTable dans la fabrique de données Azure ADFTutorialDataFactory à partir de 16H00 le 21/05/2014.
 
 ## <a name="save-azuredatafactorylog"></a> Save-AzureDataFactoryLog
-La cmdlet Save-AzureDataFactoryLog télécharge les fichiers journaux associés au traitement Azure HDInsight des projets Pig ou Hive, ou pour les activités personnalisées sur votre disque dur local. Vous exécutez d'abord la cmdlet Get-AzureDataFactoryRun pour obtenir un ID d'une activité à exécuter pour une tranche de données, puis vous utilisez cet ID pour récupérer les fichiers journaux du stockage d'objets blob (binary large object) associé au cluster HDInsight. 
+L'applet de commande Save-AzureDataFactoryLog télécharge les fichiers journaux associés au traitement Azure HDInsight des projets Pig ou Hive, ou pour les activités personnalisées sur votre disque dur local. Vous exécutez d'abord l'applet de commande Get-AzureDataFactoryRun pour obtenir l'ID d'une activité à exécuter pour une tranche de données, puis vous utilisez cet ID pour récupérer les fichiers journaux du stockage d'objets blob (Binary Large Object) associé au cluster HDInsight. 
 
-Si vous ne spécifiez pas le paramètre **-DownloadLogs**, la cmdlet renvoie simplement l'emplacement des fichiers journaux. 
+Si vous ne spécifiez pas le paramètre **-DownloadLogs**, l'applet de commande retourne simplement l'emplacement des fichiers journaux. 
 
 Si vous spécifiez le paramètre **-DownloadLogs** sans spécifier de répertoire de sortie (paramètre **-Output**), les fichiers journaux sont téléchargés dans le dossier **Documents** par défaut. 
 
@@ -242,7 +242,7 @@ Cette commande renvoie l'emplacement des fichiers journaux. Notez que le paramè
 
 
 ## <a name="get-azuredatafactorygateway"></a> Get-AzureDataFactoryGateway
-La cmdlet Get-AzureDataFactoryGateway obtient des informations sur une passerelle spécifique ou toutes les passerelles dans une fabrique de données Azure. Vous devez installer une passerelle sur votre ordinateur local pour pouvoir ajouter un serveur SQL Server local comme un service lié à une fabrique de données.
+L'applet de commande Get-AzureDataFactoryGateway obtient des informations sur une passerelle spécifique ou toutes les passerelles dans une fabrique de données Azure. Vous devez installer une passerelle sur votre ordinateur local pour pouvoir ajouter un serveur SQL Server local en tant que service lié à une fabrique de données.
 
 ### Exemple 1
     Get-AzureDataFactoryGateway -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
@@ -269,10 +269,10 @@ Cette commande définit la période active pour les tranches de données traité
 Définit l'état d'une tranche pour une table. Les dates de début et de fin de la tranche doivent se situer dans la période active du pipeline.
 
 ### Valeurs prises en charge pour l'état
-Chaque tranche de données pour une table passe par différentes étapes. Ces étapes sont légèrement différentes selon si les stratégies de validation sont spécifiées.
+Chaque tranche de données pour une table passe par différentes étapes. Ces étapes sont légèrement différentes si des stratégies de validation sont spécifiées.
 
 
-- Si les stratégies de validation ne  sont pas spécifiées : PendingExecution -> InProgress -> Ready
+- Si les stratégies de validation ne sont pas spécifiées : PendingExecution -> InProgress -> Ready
 - Si les stratégies de validation sont spécifiées : PendingExecution -> Pending Validation -> InProgress -> Ready
 
 Le tableau suivant fournit les descriptions des états possibles d'une tranche et indique si l'état peut être défini à l'aide de Set-AzureDataFactorySliceStatus ou non.
@@ -281,7 +281,7 @@ Le tableau suivant fournit les descriptions des états possibles d'une tranche e
 	<tr>
 		<th>Statut</th>
 		<th>Description</th>
-		<th>Peut être défini à l'aide d'une cmdlet></th>
+		<th>Peut être défini à l'aide d'une applet de commande></th>
 	</tr>	
 
 	<tr>
@@ -353,7 +353,7 @@ Pour chaque table d'une fabrique de données Azure, quand vous définissez l'ét
 	<tr>
 		<th>Type de mise à jour</th>
 		<th>Description</th>
-		<th>Peut être défini à l'aide d'une cmdlet</th>
+		<th>Peut être défini à l'aide d'une applet de commande</th>
 	</tr>
 
 	<tr>
@@ -370,7 +370,7 @@ Pour chaque table d'une fabrique de données Azure, quand vous définissez l'ét
 
 </table>
 ## <a name="suspend-azuredatafactorypipeline"></a> Suspend-AzureDataFactoryPipeline
-La cmdlet Suspend-AzureDataFactoryPipeline interrompt le pipeline spécifié dans une fabrique de données Azure. Vous pouvez reprendre ultérieurement le pipeline à l'aide de la cmdlet Resume-AzureDataFactoryPipeline.
+L'applet de commande Suspend-AzureDataFactoryPipeline interrompt le pipeline spécifié dans une fabrique de données Azure. Vous pouvez reprendre plus tard le pipeline à l'aide de l'applet de commande Resume-AzureDataFactoryPipeline.
 
 ### Exemple
 
@@ -379,7 +379,7 @@ La cmdlet Suspend-AzureDataFactoryPipeline interrompt le pipeline spécifié dan
 Cette commande interrompt le pipeline ADFTutorialPipeline dans la fabrique de données Azure ADFTutorialDataFactory.
 
 ## <a name="resume-azuredatafactorypipeline"></a> Resume-AzureDataFactoryPipeline
-La cmdlet Resume-AzureDataFactoryPipeline reprend le pipeline spécifié dont l'état actuel est interrompu dans une fabrique de données Azure. 
+L'applet de commande Resume-AzureDataFactoryPipeline reprend le pipeline spécifié dont l'état actuel est interrompu dans une fabrique de données Azure. 
 
 ### Exemple
 
@@ -392,13 +392,13 @@ Cette commande reprend le pipeline ADFTutorialPipeline dans la fabrique de donn�
 Article | Description
 ------ | ---------------
 [Surveillance et gestion d'Azure Data Factory à l'aide du portail Azure en version préliminaire][monitor-manage-using-portal] | Cet article explique comment surveiller et gérer une fabrique de données Azure à l'aide du portail Azure en version préliminaire.
-[Activation de vos pipelines pour les utiliser avec des données locales][use-onpremises-datasources] | Cet article contient une procédure pas à pas permettant de copier les données d'une base de données SQL Server locale vers un objet blob Azure.
-[Utilisation de Pig et Hive avec Data Factory][use-pig-and-hive-with-data-factory] | Cet article contient une procédure pas à pas permettant d'exécuter un script Hive/Pig à l'aide de HDInsight Activity pour traiter les données d'entrée afin de produire des données de sortie. 
+[Activation de vos pipelines pour les utiliser avec des données locales][use-onpremises-datasources] | Cet article contient une procédure pas à pas qui permet de copier les données d'une base de données SQL Server locale vers un objet blob Azure.
+[Utilisation de Pig et Hive avec Data Factory][use-pig-and-hive-with-data-factory] | Cet article contient une procédure pas à pas qui permet d'exécuter un script hive/pig à l'aide de l'activité HDInsight pour traiter des données d'entrée et produire des données de sortie.
 [Didacticiel : Déplacement et traitement des fichiers journaux à l'aide de Data Factory][adf-tutorial] | Cet article contient une procédure pas à pas permettant d'implémenter un scénario proche du monde réel à l'aide d'Azure Data Factory pour transformer les données des fichiers journaux en données détaillées.
-[Utilisation des activités personnalisées de Data Factory][use-custom-activities] | Cet article contient une procédure pas à pas permettant de créer une activité personnalisée et de l'utiliser dans un pipeline. 
-[Résolution des problèmes liés à Data Factory][troubleshoot] | Cet article décrit comment résoudre les problèmes liés à Azure Data Factory.
-[Référence du développeur Azure Data Factory][developer-reference] | Ces informations de référence du développeur comportent des informations complètes sur les cmdlets, le script JSON, les fonctions, etc. 
-[Référence des cmdlets Azure Data Factory][cmdlet-reference] | Ces informations de référence comportent des détails sur toutes les **cmdlets Data Factory**.
+[Utilisation des activités personnalisées de Data Factory][use-custom-activities] | Cet article contient une procédure pas à pas qui permet de créer une activité personnalisée et de l'utiliser dans un pipeline.
+[Résolution des problèmes liés à Data Factory][troubleshoot] | Cet article explique comment résoudre des problèmes liés à Azure Data Factory.
+[Référence du développeur Azure Data Factory][developer-reference] | Ces informations de référence du développeur comportent des informations complètes sur les applets de commande, le script JSON, les fonctions, etc. 
+[Référence des applets de commande Azure Data Factory][cmdlet-reference] | Ces informations de référence comportent des détails sur toutes les **applets de commande Data Factory**.
 
 [use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
 [use-pig-and-hive-with-data-factory]: ../data-factory-pig-hive-activities
@@ -409,3 +409,5 @@ Article | Description
 [troubleshoot]: ../data-factory-troubleshoot
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
+
+<!--HONumber=35.2-->

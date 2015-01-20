@@ -1,6 +1,6 @@
-﻿<properties title="Monitor your app's health and usage with Application Insights" pageTitle="Surveillez l'intégrité et l'utilisation de votre application avec Application Insights" description="Prise en main d'Application Insights. Analysez l'utilisation, la disponibilité et les performances de vos applications locales ou Microsoft Azure." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+﻿<properties title="Monitor your app's health and usage with Application Insights" pageTitle="Surveillez l'intégrité et l'utilisation de votre application avec Application Insights" description="Prise en main d'Application Insights Analysez l'utilisation, la disponibilité et les performances de vos applications locales ou Microsoft Azure." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-21" ms.author="awills" />
  
 # Analyse des performances dans les applications Web
 
@@ -21,9 +21,9 @@ Application Insights est capable d'analyser des applications Web ASP.NET héberg
 
 Si vous n'avez pas encore ajouté Application Insights à votre projet (il n'inclut pas ApplicationInsights.config), sélectionnez l'une des options suivantes pour commencer :
 
-* [Ajout de Application Insights à votre projet dans Visual Studio][greenbrown] - Recommandé. Vous pouvez effectuer une analyse passive des performances, insérer des journalisations de diagnostic et procéder au suivi de l'utilisation.
-* [Analyse des performances d'un site Web en direct dès maintenant][redfield] - De cette façon, vous n'avez plus besoin de mettre à jour le projet de l'application ni de redéployer le site Web.
-* [Vous pouvez déjà consulter les métriques des sites web Microsoft Azure](../insights-how-to-customize-monitoring/)  via le filtre Monitoring. 
+* [Ajout d'Application Insights à votre projet d'application dans Visual Studio][greenbrown] - Recommandé. Vous pouvez effectuer une analyse passive des performances, insérer des journalisations de diagnostic et procéder au suivi de l'utilisation.
+* [Analyse des performances d'un site web en direct dès maintenant][redfield] - Ainsi, vous n'avez plus besoin de mettre à jour le projet de l'application, ni de redéployer le site web.
+* [Pour un site web Microsoft Azure](../insights-how-to-customize-monitoring/)  Vous pouvez déjà voir les métriques dans la thématique Surveillance du site web. 
 
 
 ## <a name="view"></a>Afficher des rapports
@@ -55,7 +55,7 @@ Cliquez sur n'importe quelle vignette pour plus de détails et afficher les rés
 
 ![Click through to more data and select a time range](./media/appinsights/appinsights-48metrics.png)
 
-Cliquez sur un graphique pour sélectionner les métriques qu'il affiche :
+Cliquez sur un graphique pour choisir les métriques à afficher, ou ajoutez un nouveau graphique et sélectionnez ses métriques :
 
 ![Click a graph to choose metrics](./media/appinsights/appinsights-61perfchoices.png)
 
@@ -112,26 +112,37 @@ Pour savoir quelles autres métriques vous pouvez afficher, cliquez sur un graph
 ![Deselect all metrics to see the whole set](./media/appinsights/appinsights-62allchoices.png)
 
 
-La sélection de n'importe quelle métrique masquera les autres métriques qui peuvent s'afficher sur le même graphique.
+La sélection d'une métrique désactive les autres métriques qui peuvent s'afficher sur le même graphique.
 
+## Définir des alertes
+
+Pour être averti par courrier électronique en cas de valeurs inhabituelles pour une métrique, ajoutez une alerte. Vous pouvez choisir d'envoyer le courrier électronique aux administrateurs de compte ou à des adresses de messagerie spécifiques.
+
+![](./media/appinsights/appinsights-413setMetricAlert.png)
+
+Définissez la ressource avant les autres propriétés. Ne choisissez pas les ressources de test web si vous souhaitez définir des alertes pour les métriques de performances ou d'utilisation.
+
+Veillez à noter les unités dans lesquelles vous êtes invité à entrer la valeur seuil.
+
+*Je ne vois pas le bouton Ajouter une alerte.* - Vous disposez probablement d'un accès en lecture seule. 
 
 ## <a name="diagnosis"></a>Problèmes de diagnostic
 
 Voici quelques conseils pour identifier et diagnostiquer les problèmes de performances :
 
-* Configurez les [tests web][availability] pour être alerté en cas de défaillance ou de réponse incorrecte/lente de votre site Web. 
+* Configurez les [tests web][availability] pour être alerté en cas de défaillance ou de réponse incorrecte/lente de votre site web. 
 * Comparez le nombre de demandes avec les autres métriques afin de savoir si ces défaillances ou réponses lentes sont liées à la charge du site Web.
-* [Insérez et recherchez des déclarations de trace][diagnostic] dans votre code afin de vous aider à identifier les problèmes.
+* [Insérez et recherchez des déclarations de trace][diagnostic] dans votre code pour faciliter l'identification des problèmes.
 
 ## <a name="next"></a>Étapes suivantes
 
-[Tests web][availability] - faites envoyer des tests web à votre application à intervalles réguliers et depuis n'importe où dans le monde.
+[Tests web][availability] - Faites envoyer des requêtes web à votre application à intervalles réguliers, depuis n'importe quel emplacement dans le monde.
 
-[Capture et recherche de traces de diagnostic][diagnostic] - Insérez des appels de trace et passez au crible les résultats afin d'identifier les problèmes.
+[Capture et recherche de traces de diagnostic][diagnostic] - Insérez des appels de trace et passez au crible les résultats pour identifier les problèmes.
 
 [Suivi de l'utilisation][usage] - Découvrez ce que les utilisateurs font avec votre application.
 
-[Résolution des problèmes][qna] - et questions et réponses
+[Résolution des problèmes][qna] - avec questions et réponses
 
 
 
@@ -139,3 +150,5 @@ Voici quelques conseils pour identifier et diagnostiquer les problèmes de perfo
 
 
 
+
+<!--HONumber=35.2-->

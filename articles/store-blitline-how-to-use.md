@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Blitline Image Processing Service" pageTitle="Utilisation de Blitline pour le traitement d'image - Guide des fonctionnalités Azure " metaKeywords="" description="Découvrez comment utiliser le service Blitline pour traiter les images au sein d'une application Azure." metaCanonical="" services="" documentationCenter=".NET" title="How to use Blitline with Azure and Azure Storage" authors="need to identify contact" solutions="" manager="need to identify contact" editor="" />
+﻿<properties urlDisplayName="Blitline Image Processing Service" pageTitle="Utilisation de Blitline pour le traitement d'image - Guide des fonctionnalités Azure " metaKeywords="" description="Découvrez comment utiliser le service Blitline pour traiter les images au sein d'une application Azure." metaCanonical="" services="" documentationCenter=".NET" title="How to use Blitline with Azure and Azure Storage" authors="jason@blitline.com" solutions="" manager="jason@blitline.com" editor="jason@blitline.com" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="pennij" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/09/2014" ms.author="support@blitline.com" />
 
 
 
@@ -14,21 +14,21 @@ Ce guide explique comment accéder aux services Blitline et comment envoyer des 
 ## Sommaire
 
 [Présentation de Blitline][]
-[Éléments non proposés par Blitline][]
+[Ce que Blitline n'est PAS][]
 [Création d'un compte Blitline][]
 [Création d'une tâche Blitline][]
-[Enregistrement d'une image sur votre compte Azure Storage][]
+[Enregistrement d'une image dans votre Azure Storage][]
 [Étapes suivantes][]
 
 ## <a id="whatis"></a>Présentation de Blitline
 
 Blitline est un service de traitement d'image sur le cloud. Il offre un traitement d'image de niveau entreprise pour un prix dérisoire par rapport à ce qu'il vous en coûterait si vous le génériez vous-même.
 
-Le traitement d'image s'effectue à de très nombreuses reprises. Il est généralement intégralement repensé pour chaque site Web. Nous sommes bien placés pour le savoir, car nous en avons conçu un nombre incalculable de fois. Un jour, nous avons décidé qu'il était temps de proposer ce service à tout un chacun. Nous savons effectuer cette action, de façon rapide et efficace, afin de faire gagner du temps de travail à tous.
+Le traitement d'image s'effectue à de très nombreuses reprises. Il est généralement intégralement reconçu pour chaque site Web. Nous sommes bien placés pour le savoir, car nous en avons conçu un nombre incalculable de fois. Un jour, nous avons décidé qu'il était temps de proposer ce service à tout un chacun. Nous savons effectuer cette action, de façon rapide et efficace, afin de faire gagner du temps de travail à tous.
 
 Pour plus d'informations, consultez la page [http://www.blitline.com](http://www.blitline.com).
 
-## <a id="whatisnot"></a>Éléments non proposés par Blitline
+## <a id="whatisnot"></a>Ce que Blitline n'est PAS
 
 Pour clarifier l'utilité de Blitline, il est plus simple d'identifier les éléments non proposés avant de poursuivre.
 
@@ -62,7 +62,7 @@ Vous en trouverez l'exemple le plus simple ci-dessous :
 
 Dans cet exemple, JSON prendra une image " src " " ...boys.jpeg " et la redimensionnera au format 240 x 140.
 
-Vous trouverez l'ID d'application dans votre onglet **INFORMATIONS DE CONNEXION** ou **GÉRER** sur Azure. Il s'agit de votre identifiant secret qui vous permet d'exécuter des tâches sur Blitline.
+Vous trouverez l'ID d'application sous votre onglet **INFORMATIONS DE CONNEXION** ou **GÉRER** sur Azure. Il s'agit de votre identifiant secret qui vous permet d'exécuter des tâches sur Blitline.
 
 Le paramètre " save " identifie les informations relatives à l'endroit où vous souhaitez placer l'image après l'avoir traitée. Dans cet exemple sans importance, nous n'avons pas défini d'endroit. Si aucun endroit n'est défini, Blitline la stockera localement (et temporairement) dans un emplacement de cloud unique. Vous pourrez obtenir cet emplacement grâce au JSON renvoyé par Blitline lorsque vous effectuez le Blitline. L'identificateur " image " est requis et vous est renvoyé pour l'identification de cette image sauvegardée particulière.
 
@@ -137,8 +137,10 @@ Rendez-vous sur blitline.com pour découvrir toutes nos autres fonctions :
 
   [Étapes suivantes]: #nextsteps
   [Présentation de Blitline]: #whatis
-  [Éléments non proposés par Blitline]: #whatisnot
+  [Ce que Blitline n'est PAS]: #whatisnot
   [Création d'un compte Blitline]: #createaccount
   [Création d'une tâche Blitline]: #createjob
-  [Enregistrement d'une image sur votre compte Azure Storage]: #saveazure
+  [Enregistrement d'une image dans votre Azure Storage]: #saveazure
 
+
+<!--HONumber=35.2-->

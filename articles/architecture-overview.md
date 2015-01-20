@@ -1,63 +1,45 @@
-<properties linkid="develop-net-architecture sublanding" urlDisplayName="" pageTitle="Architecture" metaKeywords="" description="Architecture overview that covers common design patterns" metaCanonical="" services="" documentationCenter="" videoId="" scriptId="" title="Architecture Overview" authors="robb" solutions="" manager="johndaw" editor="mattshel" />
+﻿<properties urlDisplayName="" pageTitle="Architecture" metaKeywords="" description="Vue d'ensemble de l'architecture couvrant les modèles de conception courants" metaCanonical="" services="" documentationCenter="" videoId="" scriptId="" title="Architecture Overview" authors="robb" solutions="" manager="johndaw" editor="mattshel" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="robb" />
 
-# Architecture
+#Architecture
+Ressources pour la création d'applications basées sur Microsoft Azure.
 
-Découvrez comment implémenter les modèles de conception courants dans Azure.
+##Plans d'architecture Microsoft
 
-### Ensemble Symbole/Icône Azure
+Microsoft publie actuellement un ensemble de plans d'architecture de haut niveau qui montrent comment créer des types spécifiques de systèmes à l'aide des services Microsoft Azure. Chaque plan comprend un fichier Visio 2D que vous pouvez télécharger et modifier, un fichier PDF 3D plus coloré pour présenter le plan, ainsi qu'une vidéo qui décrit pas à pas le fichier PDF 3D. Consultez 
+[Plans d'architecture Microsoft](http://msdn.microsoft.com/dn630664).
 
-[Téléchargez l'ensemble Symbole/Icône Azure][Téléchargez l'ensemble Symbole/Icône Azure] pour créer des supports techniques qui décrivent ou utilisent des éléments Azure, tels que des schémas d'architecture, des supports de formation, des présentations, des feuilles de données, des éléments d'infographie et des livres blancs. Vous pouvez télécharger les symboles au format PPT, Visio ou PNG. Comme nous apprécions de recevoir des commentaires de nos clients, des instructions sont disponibles à ce sujet dans le téléchargement.
+![Microsoft Architecture Blueprint 3D diagram][BluePrint]
 
-![Ensemble Symbole/Icône Azure][Ensemble Symbole/Icône Azure]
+##Ensemble Symbole/Icône Azure
 
-## Modèles de conception
+[Téléchargez l'ensemble Symbole/Icône Azure](http://www.microsoft.com/fr-fr/download/details.aspx?id=41937) pour créer des supports techniques qui décrivent ou utilisent des éléments Azure, tels que des schémas d'architecture, des supports de formation, des présentations, des feuilles de données, des éléments d'infographie et des livres blancs. Vous pouvez télécharger les symboles au format PPT, Visio ou PNG. Comme nous apprécions de recevoir des commentaires de nos clients, des instructions sont disponibles à ce sujet dans le téléchargement.
 
-### [Consommateurs concurrents][Consommateurs concurrents]
+Les schémas 2D des [plans d'architecture Microsoft](http://msdn.microsoft.com/dn630664) utilisent ces symboles. 
 
-![Consommateurs concurrents][1]
+L'ensemble de symboles est étendu pour inclure les symboles relatifs au cloud et à l'entreprise dans la prochaine version. Il arrive que de nouveaux services Azure soient disponibles avant que le téléchargement ne soit mis à jour. Pour obtenir un aperçu du nouvel ensemble de symboles des nouveaux services Azure, envoyez un message électronique à [AzureSymbols@microsoft.com](mailto:AzureSymbols@microsoft.com).  
 
-Autorisez plusieurs consommateurs concurrents à traiter les messages reçus sur le même canal de messagerie. Ce modèle permet à un système de traiter plusieurs messages simultanément pour optimiser le débit, améliorer l'extensibilité et la disponibilité, et équilibrer la charge de travail.
+Si vous avez utilisé les symboles, veillez à répondre à la courte [enquête](http://aka.ms/azuresymbolssurveyv1) en 5 questions pour nous faire savoir s'ils sont utiles et comment vous vous en servez.   
 
-### [Répartition de la responsabilité des requêtes et commandes][Répartition de la responsabilité des requêtes et commandes]
+![Azure Symbol/Icon set][azure_symbols]
 
-![Répartition de la responsabilité des requêtes et commandes][2]
+##Modèles de conception
+Microsoft Patterns and Practices a publié le livre [Cloud Design Patterns (Modèles de conception pour le cloud)](http://msdn.microsoft.com/fr-fr/library/dn568099.aspx), disponible à la fois sur MSDN et sous forme de téléchargement au format PDF. Il existe également une affiche grand format qui énumère tous les modèles. 
 
-Faites la distinction entre les opérations qui lisent des données et celles qui les mettent à jour en utilisant des interfaces distinctes. Ce modèle permet d'optimiser les performances, l'extensibilité et la sécurité, de prendre en charge l'évolution du système au fil du temps grâce à une flexibilité accrue et d'empêcher les commandes de mise à jour d'entraîner des conflits de fusion au niveau du domaine.
+![Patterns and Practices Cloud Patterns Poster][PnPPoster]
 
-### [Choix de l'instance responsable][Choix de l'instance responsable]
+##Éléments d'infographie relatifs à l'architecture
+Microsoft publie plusieurs affiches/éléments d'infographie relatifs à l'architecture. Cela inclut la [création d'applications cloud réalistes](http://azure.microsoft.com/fr-fr/documentation/infographics/building-real-world-cloud-apps/) et leur [montée en charge à l'aide de Cloud Services](http://azure.microsoft.com/fr-fr/documentation/infographics/cloud-services/). 
 
-![Choix de l'instance responsable][3]
 
-Coordonnez les actions réalisées par un ensemble d'instances de tâche collaborant dans une application distribuée en choisissant l'une de ces instances comme responsable chargée de la gestion des autres instances. Ce modèle permet de s'assurer que les instances de tâche n'entrent pas en conflit les unes avec les autres, n'entraînent pas la contention des ressources partagées ou n'interfèrent pas de manière accidentelle avec le travail effectué par d'autres instances de tâche.
+![Azure Architecture Infographics][AzureInfographic]
 
-### [Canaux et filtres][Canaux et filtres]
 
-![Canaux et filtres][4]
 
-Décomposez une tâche qui effectue un traitement complexe en une série d'éléments distincts pouvant être réutilisés. Ce modèle permet d'améliorer les performances, l'extensibilité et la réutilisabilité en autorisant le déploiement et l'extensibilité des éléments de tâche qui effectuent le traitement de manière indépendante.
+[Plan]: ./media/architecture-overview/BluePrintThumb.png
+[azure_symbols]: ./media/architecture-overview/AzureSymbols.png
+[PnPPoster]: ./media/architecture-overview/PnPPatternPosterThumb.png
+[AzureInfographic]: ./media/architecture-overview/AzureArchInfographicThumb.png
 
-### [Clé valet][Clé valet]
-
-![Clé valet][5]
-
-Utilisez un jeton ou une clé qui fournit aux clients un accès direct restreint à une ressource ou un service spécifique afin de décharger les opérations de transfert de données à partir du code de l'application. Ce modèle est particulièrement utile dans les applications qui utilisent des files d'attente ou systèmes de stockage hébergés sur le cloud. Il permet de réduire les coûts et d'accroître l'extensibilité et les performances.
-
-### Conseils supplémentaires
-
-Pour plus d'informations sur les modèles de conception courants dans Azure, consultez la page [Modèles de conception du cloud][Modèles de conception du cloud].
-
-  [Téléchargez l'ensemble Symbole/Icône Azure]: http://www.microsoft.com/fr-fr/download/details.aspx?id=41937
-  [Ensemble Symbole/Icône Azure]: ./media/architecture-overview/AzureSymbols.png
-  [Consommateurs concurrents]: http://msdn.microsoft.com/fr-fr/library/dn568101.aspx
-  [1]: ./media/architecture-overview/CompetingConsumers.png
-  [Répartition de la responsabilité des requêtes et commandes]: http://msdn.microsoft.com/fr-fr/library/dn568103.aspx
-  [2]: ./media/architecture-overview/CQRS.png
-  [Choix de l'instance responsable]: http://msdn.microsoft.com/fr-fr/library/dn568104.aspx
-  [3]: ./media/architecture-overview/LeaderElection.png
-  [Canaux et filtres]: http://msdn.microsoft.com/fr-fr/library/dn568100.aspx
-  [4]: ./media/architecture-overview/PipesAndFilters.png
-  [Clé valet]: http://msdn.microsoft.com/fr-fr/library/dn568102.aspx
-  [5]: ./media/architecture-overview/ValetKey.png
-  [Modèles de conception du cloud]: http://msdn.microsoft.com/fr-fr/library/dn568099.aspx
+<!--HONumber=35.2-->

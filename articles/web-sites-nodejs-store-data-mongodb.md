@@ -1,11 +1,11 @@
-﻿<properties urlDisplayName="Website with MongoDB" pageTitle="Création d'un site web avec MongoDB dans une machine virtuelle - Didacticiel Azure" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" description="Un didacticiel qui explique comment utiliser MongoDB pour stocker des données et y accéder à partir d'une application Node hébergée sur Azure." metaCanonical="http://www.windowsazure.com/fr-fr/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="nodejs" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors="larryfr"  solutions="" writer="" manager="wpickett" editor=""  />
+﻿<properties urlDisplayName="Website with MongoDB" pageTitle="Site web Node.js avec MongoDB sur une machine virtuelle - Didacticiel Azure" metaKeywords="didacticiel Azure MongoDB, MongoDB stocker des données, accès aux données MongoDB Node, application Azure Node" description="Didacticiel qui explique comment utiliser MongoDB pour stocker des données et y accéder à partir d'une application Node hébergée sur Azure." metaCanonical="http://www.windowsazure.com/fr-fr/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="nodejs" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors="larryfr"  solutions="" writer="" manager="wpickett" editor=""  />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 
 # Création d'une application Node.js sur Azure avec MongoDB dans une machine virtuelle
 
-Ce didacticiel vous présente comment utiliser [MongoDB] sur une machine virtuelle Azure pour stocker des données et y accéder depuis une application [Node] hébergée dans un site web Azure. [MongoDB] est une base de données NoSQL libre qui offre des performances élevées.
+Ce didacticiel explique comment utiliser [MongoDB] sur une machine virtuelle Azure pour stocker des données et accéder à ces données depuis une application [Node] hébergée dans un site web Azure. [MongoDB] est une base de données NoSQL open source qui offre des performances élevées.
 
 Vous apprendrez à effectuer les opérations suivantes :
 
@@ -13,17 +13,17 @@ Vous apprendrez à effectuer les opérations suivantes :
 * Accès à MongoDB depuis une application Node
 * Utilisation des outils interplateforme pour Azure pour créer un site web Azure
 
-Dans ce didacticiel, vous allez concevoir une application web simple pour la gestion des tâches qui vous permet de créer et de récupérer des tâches et de les marquer comme terminées. Les tâches sont stockées dans MongoDB.
+Dans ce didacticiel, vous allez concevoir une application Web simple pour la gestion des tâches qui vous permet de créer et de récupérer des tâches et de les marquer comme terminées. Les tâches sont stockées dans MongoDB.
 
-> [WACOM.NOTE] Ce didacticiel utilise une instance MongoDB installée sur une machine virtuelle. Si vous souhaitez utiliser une instance MongoDB hébergée fournie par MongoLab, consultez la page <a href="/fr-fr/develop/nodejs/tutorials/website-with-mongodb-mongolab/">Création d'une application Node.js sur Azure avec MongoDB et le module MongoLab</a>.
+> [WACOM.NOTE] Ce didacticiel utilise une instance MongoDB installée sur une machine virtuelle. Si vous préférez utiliser une instance hébergée de MongoDB fournie par MongoLabs, consultez <a href="/fr-fr/develop/nodejs/tutorials/website-with-mongodb-mongolab/">Création d'une application Node.js sur Azure avec MongoDB à l'aide du module MongoLab</a>.
  
-Les fichiers de projets de ce didacticiel sont stockés dans un répertoire appelé **tasklist** et l'application terminée ressemble à ce qui suit :
+Les fichiers de projets de ce didacticiel sont stockés dans un répertoire nommé **tasklist** et l'application terminée ressemble à ce qui suit :
 
 ![A web page displaying an empty tasklist][node-mongo-finished]
 
-> [WACOM.NOTE] De nombreuses étapes ci-dessous mentionnent l'utilisation de la ligne de commande. Pour ces étapes, utilisez la ligne de commande de votre système d'exploitation, par exemple __Windows PowerShell__ (Windows) ou __Bash__ (Unix Shell). Sur les systèmes OS X, vous pouvez accéder à la ligne de commande via l'application Terminal.
+> [WACOM.NOTE] Plusieurs des étapes ci-dessous vous demandent d'utiliser la ligne de commande. Pour ces étapes, utilisez la ligne de commande de votre système d'exploitation, par exemple __Windows PowerShell__ (Windows) ou __Bash__ (Unix Shell). Sur les systèmes OS X, vous pouvez accéder à la ligne de commande via l'application Terminal.
 
-##Configuration requise
+##Conditions préalables
 
 Les étapes de ce didacticiel font référence à Node.js. Vous devez donc disposer d'une version récente de [Node.js][node] dans votre environnement de développement.
 
@@ -39,11 +39,11 @@ De plus, [Git] doit être accessible depuis la ligne de commande de votre enviro
 
 After you have created the virtual machine in Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.-->
 
-Bien qu'il soit possible de créer une nouvelle machine virtuelle, puis d'y installer MongoDB selon les instructions des [guides d'installation MongoDB][installguides], la plus grande partie de ce travail a déjà été effectuée par la communauté. Il est disponible dans VM Depot. Les étapes qui suivent présentent l'utilisation d'une image VM Depot sur laquelle Mongo DB est déjà installé et configuré. 
+Bien qu'il soit possible de créer une nouvelle machine virtuelle puis d'y installer MongoDB selon les [guides d'installation MongoDB][installguides], la plus grande partie de ce travail a déjà été effectuée par la communauté. Il est disponible dans le VM Depot. Les étapes qui suivent présentent l'utilisation d'une image VM Depot sur laquelle Mongo DB est déjà installé et configuré. 
 
-> [WACOM.NOTE] L'image de communauté utilisée par ce didacticiel stocke les données MongoDB sur le disque du système d'exploitation. Bien que cela soit suffisant pour les besoins du didacticiel, le stockage de données MongoDB sur un disque de données offrira de meilleures performances. Pour obtenir les étapes nécessaires à la création d'une nouvelle machine virtuelle, y compris un disque de données, et au stockage de données MongoDB sur le disque de données, consultez la page [Installation de MongoDB sur Linux sur Azure][mongodbonazure].
+> [WACOM.NOTE] L'image de communauté utilisée par ce didacticiel stocke les données MongoDB sur le disque du système d'exploitation. Bien que cela soit suffisant pour les besoins du didacticiel, le stockage de données MongoDB sur un disque de données offrira de meilleures performances. Pour obtenir les étapes nécessaires à la création d'une nouvelle machine virtuelle, y compris un disque de données, et au stockage de données MongoDB sur le disque de données, consultez [Installer MongoDB sur Linux sur Azure][mongodbonazure].
 
-1. Connectez-vous au [portail de gestion Azure][azureportal], sélectionnez __Virtual Machines__, sélectionnez __Images__, puis sélectionnez __VM Depot__.
+1. Connectez-vous au [portail de gestion Azure][azureportal], sélectionnez __Machines virtuelles__, __Images__, puis __Dépôt de machines virtuelles__.
 
 	![screenshot of selecting VM Depot][selectdepo]
 
@@ -51,7 +51,7 @@ Bien qu'il soit possible de créer une nouvelle machine virtuelle, puis d'y inst
 
 	![screenshot of selected mongodb v2.2.3 on hardened ubuntu image][selectedimage]
 
-	> [WACOM.NOTE] Veillez à sélectionner __More__ pour voir toutes les informations sur l'image. Certaines images comportent des éléments de configuration supplémentaire qui sont nécessaires une fois la machine virtuelle créée à partir de l'image.
+	> [WACOM.NOTE] Sélectionnez __Plus__ pour voir toutes les informations sur l'image. Certaines images comportent des éléments de configuration supplémentaire qui sont nécessaires une fois la machine virtuelle créée à partir de l'image.
 
 	Cliquez sur la flèche située en bas pour passer à l'écran suivant.
 
@@ -59,13 +59,13 @@ Bien qu'il soit possible de créer une nouvelle machine virtuelle, puis d'y inst
 	
 	![screenshot of choose a storage account][selectstorage]
 
-	> [WACOM.NOTE] Cette opération lance un processus de copie qui copie l'image de VM Depot vers le compte de stockage spécifié. Elle peut prendre un peu de temps, 15 minutes ou plus.
+	> [WACOM.NOTE] Cette opération lance un processus de copie qui copie l'image du dépôt de machines virtuelles vers le compte de stockage spécifié. Elle peut prendre un peu de temps, 15 minutes ou plus.
 
-4. Une fois que l'état de l'image passe à __Pending registration__, sélectionnez __Register__ et entrez un nom convivial pour la nouvelle image. Cliquez sur la coche pour continuer.
+4. Une fois que l'état de l'image passe à __Enregistrement en attente__, sélectionnez __Inscrire__ et entrez un nom convivial pour la nouvelle image. Cliquez sur la coche pour continuer.
 
-	![screenshot of registering an image][s'inscrire]
+	![screenshot of registering an image][register]
 
-5. Une fois l'état de l'image sur __Available__, sélectionnez __+ New__, __Virtual Machine__, __From Gallery__. Dans l'étape __Choose an Image__, sélectionnez __My Images__, puis sélectionnez l'image créée dans les étapes précédentes. Cliquez sur la flèche pour continuer.
+5. Une fois que l'état de l'image est passé à __Disponible__, sélectionnez __+ Nouveau__, __Machine virtuelle__, __À partir de la galerie__. À l'étape __Choisir une image__, sélectionnez __Mes images__, puis l'image créée lors des étapes précédentes. Cliquez sur la flèche pour continuer.
 
 	![screenshot of the image][myimage]
 
@@ -73,7 +73,7 @@ Bien qu'il soit possible de créer une nouvelle machine virtuelle, puis d'y inst
 
 	![screenshot of the vm name, user name, etc.][vmname]
 
-	>[WACOM.NOTE] Dans ce didacticiel, vous n'allez pas utiliser SSH pour vous connecter à distance à la machine virtuelle. Sélectionnez **Use a password** et indiquez un mot de passe si vous ne maîtrisez pas l'utilisation des certificats avec SSH.
+	>[WACOM.NOTE] Dans ce didacticiel, vous n'allez pas utiliser SSH pour vous connecter à distance à la machine virtuelle. Sélectionnez **Utiliser un mot de passe** et indiquez un mot de passe si vous ne maîtrisez pas l'utilisation des certificats avec SSH.
 	>
 	> Pour plus d'informations sur l'utilisation de SSH avec une machine virtuelle Linux sur Azure, consultez la page [Utilisation de SSH avec Linux sur Azure][sshazure].
 
@@ -99,7 +99,7 @@ Bien qu'il soit possible de créer une nouvelle machine virtuelle, puis d'y inst
 
 	![screenshot of the endpoint configuration][vmendpoint]
 
-9. Une fois que l'état de la machine virtuelle est passé à __Running__, vous pouvez ouvrir un navigateur web et accéder à __http://&lt;YourVMDNSName&gt;.cloudapp.net:28017/__ pour vérifier que MongoDB fonctionne. En bas de la page, un journal contient des informations sur le service, qui ressemblent à celles-ci :
+9. Une fois que l'état de la machine virtuelle est passé à __En cours d'exécution__, vous pouvez ouvrir un navigateur web et accéder à __http://&lt;YourVMDNSName&gt;.cloudapp.net:28017/__ pour vérifier que MongoDB fonctionne. En bas de la page, un journal contient des informations sur le service, qui ressemblent à celles-ci :
 
 		Fri Mar  7 18:57:16 [initandlisten] MongoDB starting : pid=1019 port=27017 dbpath=/var/lib/mongodb 64-bit host=localhost.localdomain
            18:57:16 [initandlisten] db version v2.2.3, pdfile version 4.5
@@ -119,15 +119,15 @@ Dans cette section, vous allez créer une nouvelle application Node dans votre e
 
 ###Installation express et création de la structure
 
-1. Dans la ligne de commande, accédez au répertoire **tasklist**. Si le répertoire **tasklist** n'existe pas, créez-le.
+1. Sur la ligne de commande, accédez au répertoire **tasklist**. Si le répertoire **tasklist** n'existe pas, créez-le.
 
-	> [WACOM.NOTE] Ce didacticiel fait référence au dossier __tasklist__. Le chemin complet de ce dossier n'est pas mentionné, en raison des différences entre les systèmes d'exploitation. Créez ce dossier dans un emplacement facile d'accès sur votre système de fichiers local, par exemple __~/node/tasklist__ ou __c:\node\tasklist__
+	> [WACOM.NOTE] Ce didacticiel fait référence au dossier __tasklist__. Le chemin complet de ce dossier n'est pas mentionné, en raison des différences entre les systèmes d'exploitation. Créez ce dossier à un emplacement facile d'accès sur votre système de fichiers local, par exemple __~/node/tasklist__ ou __c:\node\tasklist__
 
 2. Entrez la commande suivante pour installer la commande express.
 
 	npm install express-generator -g
  
-	> [WACOM.NOTE] L'emploi du paramètre '-g' sur certains systèmes d'exploitation peut entraîner l'erreur suivante : ___Error: EPERM, chmod '/usr/local/bin/express'___ et une instruction demandant que le compte soit exécuté en tant qu'administrateur. Si cette erreur survient, utilisez la commande sudo pour exécuter npm avec des privilèges plus élevés.
+	> [WACOM.NOTE] L'emploi du paramètre '-g' sur certains systèmes d'exploitation peut entraîner l'erreur suivante : ___Error: EPERM, chmod '/usr/local/bin/express' et une instruction demandant que le compte soit exécuté en tant qu'administrateur. Si cette erreur survient, utilisez la commande `sudo` pour exécuter npm avec des privilèges plus élevés.
 
     Le résultat de cette commande doit ressembler à ceci :
 
@@ -143,7 +143,7 @@ Dans cette section, vous allez créer une nouvelle application Node dans votre e
 
 	Le résultat de cette commande doit ressembler à ceci :
 
- create : .
+		   create : .
 		   create : ./package.json
 		   create : ./app.js
 		   create : ./public
@@ -167,9 +167,9 @@ Dans cette section, vous allez créer une nouvelle application Node dans votre e
 		   run the app:
 		     $ DEBUG=my-application ./bin/www
 
-		Une fois la commande terminée, vous devez disposer de plusieurs nouveaux répertoires et fichiers dans le répertoire **tasklist**.
+	Une fois la commande terminée, vous devez disposer de plusieurs nouveaux répertoires et fichiers dans le répertoire **tasklist**.
 
-3. Copiez le fichier **tasklist/bin/www**  dans un fichier nommé **server.js** dans le dossier **tasklist**. Sites Web Azure s'attend à ce que le point d'entrée pour une application Node.js soit **server.js** ou **app.js**. Comme **app.js** existe déjà mais qu'il ne s'agit pas d'un point d'entrée, nous devons utiliser **server.js**.
+3. Copiez le fichier **tasklist/bin/www** dans un fichier nommé **server.js** dans le dossier **tasklist**. Sites Web Azure s'attend à ce que le point d'entrée pour une application Node.js soit **server.js** ou **app.js**. Comme **app.js** existe déjà mais qu'il ne s'agit pas d'un point d'entrée, nous devons utiliser **server.js**.
 
 4. Modifiez le fichier **server.js** pour supprimer l'un des caractères " . " de la ligne suivante.
 
@@ -179,15 +179,15 @@ Dans cette section, vous allez créer une nouvelle application Node dans votre e
 
 		var app = require('./app');
 
-	Cela est nécessaire car **server.js** (anciennement **bin/www**,) se trouve maintenant dans le même dossier que le fichier **app.js** requis.
+	Cela est nécessaire car **server.js** (anciennement **bin/www**,) se trouve maintenant dans le même dossier que le fichier **app.js** nécessaire.
 
 ###Installation de modules supplémentaires
 
-Le fichier **package.json** est un des fichiers créés par la commande **express**. Il contient une liste de modules supplémentaires qui sont nécessaires pour les applications Express. Ensuite, lorsque vous déployez cette application vers un site web Azure, ce fichier permet de déterminer quels modules doivent être installés sur Azure pour prendre en charge votre application.
+Le fichier **package.json** est l'un des fichiers créés par la commande **express**. Il contient une liste de modules supplémentaires qui sont nécessaires pour les applications Express. Ensuite, lorsque vous déployez cette application vers un site web Azure, ce fichier permet de déterminer quels modules doivent être installés sur Azure pour prendre en charge votre application.
 	
 1. Dans le dossier **tasklist**, utilisez la commande suivante pour installer les modules décrits dans le fichier **package.json** :
 
-         npm install
+        npm install
 
     Le résultat de cette commande doit ressembler à ceci :
 
@@ -236,11 +236,11 @@ Le fichier **package.json** est un des fichiers créés par la commande **expres
 
 2. Ensuite, entrez la commande suivante pour installer le module Mongoose en local et pour enregistrer une entrée lui correspondant dans le fichier **package.json** :
 
-		 npm install mongoose --save
+		npm install mongoose --save
 
 	Le résultat de cette commande doit ressembler à ceci :
 
-		 mongoose@3.8.8 node_modules\mongoose
+		mongoose@3.8.8 node_modules\mongoose
 		├── regexp-clone@0.0.1
 		├── sliced@0.0.5
 		├── muri@0.3.1
@@ -259,9 +259,9 @@ Dans cette section, vous allez étendre l'application de base créée par la com
 
 ### Création du modèle
 
-1. Dans le répertoire **tasklist** , créez un répertoire appelé **models**.
+1. Dans le répertoire **tasklist**, créez un répertoire nommé **models**.
 
-2. Dans le répertoire **models** , créez un fichier appelé **task.js**. Ce fichier contiendra le modèle des tâches créées par votre application.
+2. Dans le répertoire **models**, créez un fichier nommé **task.js**. Ce fichier contiendra le modèle des tâches créées par votre application.
 
 3. Au début du fichier **task.js**, ajoutez le code suivant pour référencer les bibliothèques nécessaires :
 
@@ -270,7 +270,7 @@ Dans cette section, vous allez étendre l'application de base créée par la com
 
 4. Ensuite, vous allez ajouter du code pour définir et exporter le modèle. Ce modèle sera utilisé pour assurer les interactions avec la base de données MongoDB.
 
-         var TaskSchema = new Schema({
+        var TaskSchema = new Schema({
 	        itemName      : String,
 	        itemCategory  : String,
 	        itemCompleted : { type: Boolean, default: false },
@@ -285,7 +285,7 @@ Dans cette section, vous allez étendre l'application de base créée par la com
 
 1. Dans le répertoire **tasklist/routes**, créez un nouveau fichier **tasklist.js** et ouvrez-le dans un éditeur de texte.
 
-2. Ajoutez le code suivant à **tasklist.js**. Ce code charge le module mongoose et le modèle de tâches défini dans **task.js**. La fonction TaskList est utilisée pour créer la connexion au serveur MongoDB basée sur la valeur **connection** :
+2. Ajoutez le code suivant à **tasklist.js**. Ce code charge le module mongoose et le modèle de tâches défini dans **task.js**. La fonction TaskList est utilisée pour créer la connexion au serveur MongoDB en fonction de la valeur **connection** :
 
 		var mongoose = require('mongoose'),
 	        task = require('../models/task.js');
@@ -296,9 +296,9 @@ Dans cette section, vous allez étendre l'application de base créée par la com
   		  mongoose.connect(connection);
 		}
 
-2. Continuez à modifier le fichier **tasklist.js** en ajoutant les méthodes utilisées pour afficher les tâches **(showTasks)**, ajouter les tâches **(addTask)** et marquer les tâches comme terminées **(completeTasks)** :
+2. Continuez à modifier le fichier **tasklist.js** en ajoutant les méthodes utilisées pour afficher les tâches (**showTasks**), ajouter les tâches (**addTask**) et marquer les tâches comme terminées (**completeTasks**) :
 
-		 TaskList.prototype = {
+		TaskList.prototype = {
   		  showTasks: function(req, res) {
       	    task.find({itemCompleted: false}, function foundTasks(err, items) {
       		  res.render('index',{title: 'My ToDo List ', tasks: items})
@@ -344,7 +344,7 @@ Dans cette section, vous allez étendre l'application de base créée par la com
 
 2. Ajoutez le code qui suit au début du fichier **app.js**. Il initialise **TaskList** avec la chaîne de connexion du serveur MongoDB :
 
-         var TaskList = require('./routes/tasklist');
+        var TaskList = require('./routes/tasklist');
 		var taskList = new TaskList(process.env.MONGODB_URI);
 
 	Notez la deuxième ligne. Vous accédez à une variable d'environnement que vous configurerez ultérieurement qui contient les informations de connexion de votre instance Mongo. Si vous disposez d'une instance Mongo locale pour le développement, vous pouvez définir cette valeur de façon temporaire sur " localhost " au lieu de process.env.MONGODB_URI.
@@ -366,11 +366,11 @@ Dans cette section, vous allez étendre l'application de base créée par la com
 
 ###Modification de la vue d'index
 
-1. Accédez au répertoire **views** et ouvrez le fichier **index.jade** dans un éditeur de texte.
+1. Passez dans le répertoire **views** et ouvrez le fichier **index.jade** dans un éditeur de texte.
 
 2. Remplacez le contenu du fichier **index.jade** par le code qui suit. Ce code définit la vue pour l'affichage des tâches existantes, ainsi qu'un formulaire pour l'ajout de nouvelles tâches et pour marquer les tâches existantes comme terminées.
 
-		 h1= title
+		h1= title
 		form(action="/completetask", method="post")
 		  table(border="1")
 		    tr
@@ -402,89 +402,89 @@ Dans cette section, vous allez étendre l'application de base créée par la com
 		        input(name="item[category]", type="textbox")
 		  input(type="submit", value="Add item")
 
-3. Enregistrez et fermez le fichier **index.jade**.
+3. Fermez et enregistrez le fichier **index.jade**.
 
 <!-- ##Run your application locally
 
-To test the application on your local machine, perform the following steps:
+Pour tester l'application sur votre machine locale, procédez comme suit :
 
-1. From the command-line, change directories to the **tasklist** directory.
+1. Sur la ligne de commande, accédez au répertoire **tasklist**.
 
-2. Set the MONGODB_URI environment variable on your development environment to point to the virtual machine hosting MongoDB. In the examples below, replace __mymongodb__ with your virtual machine name.
+2. Définissez la variable d'environnement MONGODB_URI sur votre environnement de développement pour qu'elle pointe vers la machine virtuelle hébergeant MongoDB. Dans les exemples ci-dessous, remplacez __mymongodb__ par le nom de votre machine virtuelle.
 
-	On a Windows system, use the following to set the environment variable.
+	Sur un système Windows, utilisez ce qui suit pour définir la variable d'environnement.
 
 		set MONGODB_URI=mongodb://mymongodb.cloudapp.net/tasks
 
-	On an OS X or Linux-based system, use the following to set the environment variable.
+	Sur un système OS X ou Linux, utilisez ce qui suit pour définir la variable d'environnement.
 
 		set MONGODB_URI=mongodb://mymongodb.cloudapp.net/tasks
 		export MONGODB_URI
 
-	This will instruct the application to connect to MongoDB on the __mymongodb.cloudapp.net__ virtual machine created earlier, and to use a DB named 'tasks'.
+	Cette commande indique à l'application qu'elle doit se connecter à MongoDB sur la machine virtuelle __mymongodb.cloudapp.net__ créée précédemment et utiliser une base de données nommée " tasks ".
 
-2. Use the following command to launch the application locally:
+2. Utilisez la commande suivante pour lancer l'application en local :
 
         node app.js
 
-3. Open a web browser and navigate to http://localhost:3000. This should display a web page similar to the following:
+3. Ouvrez un navigateur web et accédez à l'adresse http://localhost:3000. Une page web semblable à la suivante doit s'afficher :
 
     ![A webpage displaying an empty tasklist][node-mongo-finished]
 
-4. Use the provided fields for **Item Name** and **Item Category** to enter information, and then click **Add item**.
+4. Utilisez les champs **Item Name** et **Item Category** pour entrer les informations, puis cliquez sur **Add item**.
 
     ![An image of the add item field with populated values.][node-mongo-add-item]
 
-5. The page should update to display the item in the ToDo List table.
+5. La page se met à jour et affiche l'élément dans la table ToDo List.
 
     ![An image of the new item in the list of tasks][node-mongo-list-items]
 
-6. To complete a task, simply check the checkbox in the Complete column, and then click **Update tasks**. While there is no visual change after clicking **Update tasks**, the document entry in MongoDB has now been marked as completed.
+6. Pour terminer une tâche, cochez simplement la case dans la colonne Complete, puis cliquez sur **Update tasks**. Bien qu'il n'y ait aucune modification visuelle après un clic sur **Update tasks**, l'entrée du document dans MongoDB a maintenant été marquée comme terminée.
 
-7. To stop the node process, go to the command-line and press the **CTRL** and **C** keys. -->
+7. Pour arrêter le processus node, accédez à la ligne de commande et appuyez sur les touches **Ctrl** et **C**. -->
 
 ##Déploiement de votre application dans Azure
 
 Les étapes de cette section utilisent les outils en ligne de commande Azure pour créer un site web Azure, puis Git pour déployer votre application. Pour effectuer ces étapes, vous devez disposer d'un abonnement Azure.
 
-> [WACOM.NOTE] Ces étapes peuvent également être effectuées depuis le portail Azure. Pour savoir comment utiliser le portail Azure pour déployer une application Node.js, consultez la page <a href="/fr-fr/develop/nodejs/tutorials/create-a-website-(mac)/">Création et déploiement d'une application Node.js sur un site web Azure</a>.
+> [WACOM.NOTE] Ces étapes peuvent également être effectuées depuis le portail Azure. Pour savoir comment utiliser le portail Azure pour déployer une application Node.js, consultez <a href="/fr-fr/develop/nodejs/tutorials/create-a-website-(mac)/">Création et déploiement d'une application Node.js sur un site web Azure</a>.
 
 > [WACOM.NOTE] S'il s'agit du premier site web Azure que vous avez créé, utilisez le portail Azure pour déployer cette application.
 
 ###Installation de l'interface de ligne de commande interplateforme Azure
 
-L'interface de ligne de commande interplateforme Azure (xplat-cli) vous permet d'effectuer des opérations de gestion sur les services Azure. Si vous n'avez pas déjà installé et configuré xplat-cli dans votre environnement de développement, consultez les instructions sur la page [Installation et configuration de l'interface de ligne de commande interplateforme Azure][xplatcli].
+L'interface de ligne de commande interplateforme Azure (xplat-cli) vous permet d'effectuer des opérations de gestion sur les services Azure. Si vous n'avez pas encore installé et configuré l'interface de ligne de commande xplat-cli dans votre environnement de développement, consultez les instructions dans [Installation de l'interface de ligne de commande interplateforme Azure][xplatcli].
 
 ###Création d'un site web Azure
 
-1. Dans la ligne de commande, accédez au répertoire **tasklist**.
+1. Sur la ligne de commande, accédez au répertoire **tasklist**.
 
 2. Pour créer un site web Azure, utilisez la commande suivante. Remplacez " myuniquesitename " par le nom de site unique de votre site web. Cette valeur est utilisée comme une partie de l'URL du site web final.
 
-		 azure site create myuniquesitename --git
+		azure site create myuniquesitename --git
 		
 	Vous êtes invité à préciser le centre de données dans lequel sera situé le site. Sélectionnez le centre de données le plus proche de vous du point de vue géographique.
 	
-	Le paramètre --git crée un référentiel Git local dans le dossier **tasklist** s'il n'en existe pas. Il crée également une télécommande [Git remote] appelée " azure ", qui sera utilisée pour publier l'application sur Azure. Il crée un fichier [iisnode.yml], qui contient les paramètres utilisés par Azure pour héberger les applications Node. Enfin, il crée également un fichier .gitignore afin d'exclure le dossier node-modules de la publication sur .git.
+	Le paramètre `--git` crée un référentiel Git local dans le dossier **tasklist** s'il n'en existe pas. Il crée également une télécommande [Git remote] nommée " azure ", qui sera utilisée pour publier l'application sur Azure. Il crée un fichier [iisnode.yml], qui contient les paramètres utilisés par Azure pour héberger les applications Node. Enfin, il crée également un fichier .gitignore afin d'exclure le dossier node-modules de la publication sur .git.
 	
 	> [WACOM.NOTE] Si cette commande est exécutée depuis un répertoire qui contient déjà un référentiel Git, le répertoire n'est pas réinitialisé.
 	
-	> [WACOM.NOTE] Si le paramètre --git est omis, mais que le répertoire contient un référentiel Git, la commande distante " azure " est quand même créée.
+	> [WACOM.NOTE] Si le paramètre " --git " est omis, mais que le répertoire contient un référentiel Git, la commande distante " azure " est quand même créée.
 	
-	Une fois cette commande terminée, le résultat doit ressembler à ce qui suit. Notez que la ligne qui commence par **Created website at** contient l'URL du site web.
+	Une fois cette commande terminée, le résultat doit ressembler à ce qui suit. Notez que la ligne qui commence par **Created website at** contient l'URL du site Web.
 
-info:   Executing command site create
-info:   Using location southcentraluswebspace
-info:   Executing `git init`
-info:   Creating default web.config file
-info:   Creating a new web site
-info:   Created web site at  mongodbtasklist.azurewebsites.net
-info:   Initializing repository
-info:   Repository initialized
-info:   Executing `git remote add azure http://username@mongodbtasklist.azurewebsites.net/mongodbtasklist.git`
-info:   site create command OK
+		info:   Executing command site create
+		info:   Using location southcentraluswebspace
+		info:   Executing `git init`
+		info:   Creating default web.config file
+		info:   Creating a new web site
+		info:   Created web site at  mongodbtasklist.azurewebsites.net
+		info:   Initializing repository
+		info:   Repository initialized
+		info:   Executing `git remote add azure http://username@mongodbtasklist.azurewebsites.net/mongodbtasklist.git`
+		info:   site create command OK
 
-	> [WACOM.NOTE> S'il s'agit du premier site web Azure pour votre abonnement, vous êtes invité à utiliser le portail pour créer le site web. Pour plus d'informations, consultez la page <a href="/fr-fr/develop/nodejs/tutorials/create-a-website-(mac)/">Création et déploiement d'une application Node.js sur Sites Web Azure</a>.
+	> [WACOM.NOTE> S'il s'agit du premier site web Azure pour votre abonnement, vous êtes invité à utiliser le portail pour créer le site web. Pour plus d'informations, consultez la rubrique <a href="/fr-fr/develop/nodejs/tutorials/create-a-website-(mac)/">Création et déploiement d'une application Node.js sur Sites Web Azure</a>.
 
 ###Définir la variable d'environnement MONGODB_URI
 
@@ -492,11 +492,11 @@ L'application s'attend à ce que la chaîne de connexion de l'instance MongoDB s
 
 	azure site config add MONGODB_URI=mongodb://mymongodb.cloudapp.net/tasks
 
-Cette opération crée un paramètre d'application pour le site web, utilisé pour remplir la variable d'environnement MONGODB_URI lue par le site web. Remplacez la valeur de " mymongodb.cloudapp.net " par le nom de la machine virtuelle sur laquelle MongoDB a été installé.
+Ceci crée un paramètre d'application pour le site web, utilisé pour remplir la variable d'environnement MONGODB_URI lue par le site web. Remplacez la valeur de " mymongodb.cloudapp.net " par le nom de la machine virtuelle sur laquelle MongoDB a été installé.
 
 ###Publication de l'application
 
-1. 	Dans la fenêtre Terminal, accédez au répertoire **tasklist** si vous ne vous y trouvez pas déjà.
+1. Dans la fenêtre Terminal, accédez au répertoire **tasklist** si vous ne vous y trouvez pas déjà.
 
 2. Utilisez les commandes suivantes pour ajouter, puis valider les fichiers dans le référentiel :
 
@@ -507,39 +507,39 @@ Cette opération crée un paramètre d'application pour le site web, utilisé po
 
 		git push azure master
 	
-	Vous devez voir des informations similaires à ce qui suit. À mesure que le déploiement s'effectue, Azure télécharge tous les modules npm. 
+	You will see output similar to the following. As the deployment takes place Azure will download all npm modules. 
 
- Counting objects: 17, done.
+		Counting objects: 17, done.
 		Delta compression using up to 8 threads.
 		Compressing objects: 100% (13/13), done.
 		Writing objects: 100% (17/17), 3.21 KiB, done.
 		Total 17 (delta 0), reused 0 (delta 0)
- remote: New deployment received.
- remote: Updating branch 'master'.
- remote: Preparing deployment for commit id 'ef276f3042'.
- remote: Preparing files for deployment.
- remote: Running NPM.
+		remote: New deployment received.
+		remote: Updating branch 'master'.
+		remote: Preparing deployment for commit id 'ef276f3042'.
+		remote: Preparing files for deployment.
+		remote: Running NPM.
 		...
- remote: Deploying Web.config to enable Node.js activation.
- remote: Deployment successful.
+		remote: Deploying Web.config to enable Node.js activation.
+		remote: Deployment successful.
 		To https://username@mongodbtasklist.azurewebsites.net/MongoDBTasklist.git
  		 * [new branch]      master -> master
  
-4. Une fois l'opération push terminée, accédez au site web à l'aide de la commande " azure site browse " pour voir votre application.
+4. Une fois l'opération Push terminée, accédez au site web à l'aide de la commande `azure site browse` pour voir votre application.
 
 ##Étapes suivantes
 
-Bien que les étapes de cet article décrivent l'utilisation de MongoDB pour stocker des informations, vous pouvez aussi utiliser Azure Table Service. Pour plus d'informations, consultez la page [Application Web Node.js avec Azure Table Service].
+Bien que les étapes de cet article décrivent l'utilisation de MongoDB pour stocker des informations, vous pouvez aussi utiliser Azure Table Service. Pour plus d'informations, consultez la page [Application Web Node.js avec le service de Table Azure].
 
-Pour savoir comment utiliser une instance hébergée de MongoDB fournie par MongoLab, consultez la page [Création d'une application Node.js sur Azure avec MongoDB et le module MongoLab](/fr-fr/develop/nodejs/tutorials/website-with-mongodb-mongolab/).
+Pour savoir comment utiliser une instance hébergée de MongoDB fournie par MongoLabs, consultez la page [Création d'une application Node.js sur Azure avec MongoDB et le module MongoLab].(/fr-fr/develop/nodejs/tutorials/website-with-mongodb-mongolab/).
 
-Pour plus d'informations sur la sécurisation de MongoDB, consultez la page [MongoDB Security][mongosecurity].
+Pour plus d'informations sur la sécurisation de MongoDB, consultez la page [Sécurité de MongoDB][mongosecurity].
 
 ##Ressources supplémentaires
 
-[Outils en ligne de commande pour Mac et Linux]    
-[Création et déploiement d'une application Node.js sur Sites Web Azure]    
-[Publication sur Sites Web Azure avec Git]    
+[Outil en ligne de commande Azure pour Mac et Linux]
+[Création et déploiement d'une application Node.js sur Sites Web Azure]
+[Publication sur Sites Web Azure avec Git]
 
 [mongosecurity]: http://docs.mongodb.org/manual/security/
 [node]: http://nodejs.org
@@ -547,8 +547,8 @@ Pour plus d'informations sur la sécurisation de MongoDB, consultez la page [Mon
 [Git]: http://git-scm.com
 [Express]: http://expressjs.com
 [Mongoose]: http://mongoosejs.com
-[gratuitement]: /fr-fr/pricing/free-trial
-[Git distant]: http://git-scm.com/docs/git-remote
+[for free]: /fr-fr/pricing/free-trial
+[Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
 [Outil en ligne de commande Azure pour Mac et Linux]: /fr-fr/develop/nodejs/how-to-guides/command-line-tools/
@@ -556,7 +556,7 @@ Pour plus d'informations sur la sécurisation de MongoDB, consultez la page [Mon
 [Création et déploiement d'une application Node.js sur Sites Web Azure]: /fr-fr/develop/nodejs/tutorials/create-a-website-(mac)/
 [Publication sur Sites Web Azure avec Git]: /fr-fr/develop/nodejs/common-tasks/publishing-with-git/
 [Installation de MongoDB sur une machine virtuelle Linux]: /fr-fr/manage/linux/common-tasks/mongodb-on-a-linux-vm/
-[Application Web Node.js avec le Azure Table Service]: /fr-fr/develop/nodejs/tutorials/web-site-with-storage/
+[Application web Node.js avec le service de Table Azure]: /fr-fr/develop/nodejs/tutorials/web-site-with-storage/
 [node-mongo-finished]: ./media/store-mongodb-web-sites-nodejs-use-mac/todo_list_empty.png
 [node-mongo-express-results]: ./media/store-mongodb-web-sites-nodejs-use-mac/express_output.png
 [node-mongo-add-item]: ./media/store-mongodb-web-sites-nodejs-use-mac/todo_add_item.png
@@ -570,10 +570,12 @@ Pour plus d'informations sur la sécurisation de MongoDB, consultez la page [Mon
 [selectdepo]: ./media/web-sites-nodejs-store-data-mongodb/browsedepot.png
 [selectedimage]: ./media/web-sites-nodejs-store-data-mongodb/selectimage.png
 [selectstorage]: ./media/web-sites-nodejs-store-data-mongodb/storageaccount.png
-[s'inscrire]: ./media/web-sites-nodejs-store-data-mongodb/register.png
+[register]: ./media/web-sites-nodejs-store-data-mongodb/register.png
 [myimage]: ./media/web-sites-nodejs-store-data-mongodb/myimages.png
 [vmname]: ./media/web-sites-nodejs-store-data-mongodb/vmname.png
 [vmconfig]: ./media/web-sites-nodejs-store-data-mongodb/vmconfig.png
 [vmendpoint]: ./media/web-sites-nodejs-store-data-mongodb/endpoints.png
 [sshazure]: http://www.windowsazure.com/fr-fr/documentation/articles/linux-use-ssh-key/
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/ 
+
+<!--HONumber=35.2-->

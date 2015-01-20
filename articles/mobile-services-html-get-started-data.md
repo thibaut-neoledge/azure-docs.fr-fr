@@ -4,9 +4,9 @@
 
 # Ajout de Mobile Services à une application existante
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
+[WACOM.INCLUDE [mobile-services-sélecteur-prise-en-main-données](../includes/mobile-services-selector-get-started-data.md)]
 
-Cette rubrique montre comment utiliser Azure Mobile Services pour tirer parti des données dans une application HTML. Dans ce didacticiel, vous allez télécharger une application qui stocke les données en mémoire, créer un service mobile, intégrer le service mobile à l'application, puis vous connecter au portail de gestion Azure pour afficher les modifications apportées aux données pendant l'exécution de l'application.
+Cette rubrique montre comment utiliser Azure Mobile Services pour tirer parti des données dans une application HTML. Dans ce didacticiel, vous allez télécharger une application qui stocke les données en mémoire, créer un service mobile, intégrer le service mobile à l'application, puis vous connecter au portail de gestion Azure pour afficher les modifications apportées aux données lors de l'exécution de l'application.
 
 >[WACOM.NOTE]Ce didacticiel vise à mieux vous faire comprendre en quoi Mobile Services vous permet de stocker et de récupérer des données à partir d'une application HTML à l'aide d'Azure. À cet effet, il vous guide tout au long des nombreuses étapes exécutées automatiquement dans le démarrage rapide Mobile Services. Si vous n'avez aucune expérience de Mobile Services, nous vous invitons à suivre d'abord le didacticiel <a href="/fr-fr/develop/mobile/tutorials/get-started-html">Prise en main de Mobile Services</a>.
 
@@ -16,19 +16,19 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 2. [Création du service mobile]
 3. [Ajout d'une table de données pour le stockage]
 4. [Mise à jour de l'application pour utiliser Mobile Services]
-5. [Test de l'application avec Mobile Services]
+5. [Test de l'application par rapport à Mobile Services]
 
-<div class="dev-callout"><strong>Remarque</strong> <p>Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.</p></div> 
+<div class="dev-callout"><strong>Remarque</strong> <p>Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F" target="_blank">version d'évaluation gratuite Azure</a>.</p></div> 
 
 ###Conditions supplémentaires
 
-Vous pouvez héberger l'application GetStartedWithData sur n'importe quel serveur web. Cependant, des scripts sont fournis afin de vous permettre d'exécuter l'application sur `http://localhost:8000`.
+Vous pouvez héberger l'application GetStartedWithData sur n'importe quel serveur Web. Toutefois, des scripts sont fournis afin de vous permettre d'exécuter l'application sur " http://localhost:8000 ".
  
 + Pour utiliser localhost, l'un des serveurs Web suivants doit être exécuté sur votre ordinateur local pour pouvoir suivre ce didacticiel :
 
-	+  **Sur Windows** : IIS Express. IIS Express est installé par le [programme d'installation de la plate-forme Web Microsoft].   
+	+  **Sur Windows** : IIS Express. IIS Express est installé par [Microsoft Web Platform Installer].   
 	+  **Sur Mac OS X** : Python, qui doit déjà être installé.
-	+  **Sur Linux** : Python. Vous devez installer la [dernière version de Python]. 
+	+  **Sur Linux** : Python. Vous devez installer [la dernière version de Python]. 
 	
 	Vous pouvez utiliser n'importe quel serveur Web pour héberger l'application, mais les serveurs précédents sont les seuls pris en charge par les scripts téléchargés.  
 
@@ -36,37 +36,37 @@ Vous pouvez héberger l'application GetStartedWithData sur n'importe quel serveu
 
 <h2><a name="download-app"></a>Téléchargement du projet GetStartedWithData</h2>
 
-Ce didacticiel est basé sur l'[application GetStartedWithData], qui est une application HTML5. L'interface utilisateur de cette application est identique à l'application générée par le démarrage rapide de Mobile Services, excepté que les éléments ajoutés sont stockés en local dans la mémoire. 
+Ce didacticiel est basé sur [l'application GetStartedWithData], qui est une application HTML5. L'interface utilisateur de cette application est identique à l'application générée par le démarrage rapide de Mobile Services, sauf que les éléments ajoutés sont stockés en local dans la mémoire. 
 
-1. [Téléchargez les fichiers du projet d'application HTML][application GetStartedWithData].
+1. [Téléchargez les fichiers du projet d'application HTML][GetStartedWithData app].
 
 2. Dans un éditeur HTML, ouvrez le projet téléchargé et étudiez le fichier app.js.
 
-   	Les éléments ajoutés sont stockés dans un objet **Array** en mémoire (**staticItems**). Actualisez la page pour afficher les données. Elles ne persistent pas.
+   	Notez que les éléments ajoutés sont stockés dans un objet **Array** en mémoire (**staticItems**). Actualisez la page pour afficher les données. Elles ne persistent pas.
 
-3. Lancez l'un des fichiers de commande suivants depuis le sous-dossier **server**.
+3. Lancez un des fichiers de commande depuis le sous-dossier **server**.
 
 	+ **launch-windows** (pour les ordinateurs Windows) 
 	+ **launch-mac.command** (pour les ordinateurs Mac OS X)
 	+ **launch-linux.sh** (pour les ordinateurs Linux)
 
 	<div class="dev-callout"><b>Remarque</b>
-		<p>Sur un ordinateur Windows, appuyez sur la touche `R` lorsque PowerShell vous demande de confirmer l'exécution du script. Vous pouvez recevoir un avertissement de votre navigateur Web vous recommandant de ne pas exécuter le script, car il a été téléchargé depuis Internet. Lorsque cela se produit, vous devez demander au navigateur de continuer à charger le script.</p>
+		<p>Sur un ordinateur Windows, appuyez sur la touche " R " lorsque PowerShell vous demande de confirmer l'exécution du script. Vous pouvez recevoir un avertissement de votre navigateur Web vous recommandant de ne pas exécuter le script, car il a été téléchargé depuis Internet. Lorsque cela se produit, vous devez demander au navigateur de continuer à charger le script.</p>
 	</div>
 	
 	Ceci démarre un serveur Web sur votre ordinateur local pour pouvoir héberger la nouvelle application.
 
-4. Ouvrez l'URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> dans un navigateur Web pour démarrer l'application.
+4. Ouvrez l'URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> dans un navigateur web pour démarrer l'application.
 
 5. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, dans **Entrer une nouvelle tâche**, puis cliquez sur **Ajouter**.
 
    	![][0]  
 
-   	Le texte enregistré est ajouté au tableau **staticItems** et la page est actualisée pour afficher le nouvel élément.
+   	Notez que le texte enregistré est ajouté au tableau **staticItems** et que la page est actualisée pour afficher le nouvel élément.
 
-<h2><a name="create-service"></a>Création d'un service mobile dans le portail de gestion</h2>
+<h2><a name="create-service"></a>Création d'un service mobile dans portail de gestion</h2>
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
+[WACOM.INCLUDE [mobile-services-créer-nouveau-service-données](../includes/mobile-services-create-new-service-data.md)]
 
 <h2><a name="add-table"></a>Ajout d'une nouvelle table au service mobile</h2>
 
@@ -88,7 +88,7 @@ Pour pouvoir stocker des données d'application dans le nouveau service mobile, 
 
     <div class="dev-callout"> 
 	<b>Remarque</b> 
-	<p>Le même nom de table est utilisé dans le démarrage rapide avec Mobile Services. Toutefois, chaque table est créée dans un schéma spécifique pour un service mobile donné. Cela vise à éviter les collisions de données quand plusieurs services mobiles utilisent la même base de données.</p> 
+	<p>Le même nom de table est utilisé dans le démarrage rapide avec Mobile Services. Toutefois, chaque table est créée dans un schéma spécifique pour un service mobile donné. Cela vise à éviter les collisions de données lorsque plusieurs services mobiles utilisent la même base de données.</p> 
 	</div>
 
 4. Cliquez sur la nouvelle table **TodoItem** et vérifiez qu'aucune ligne de données n'est présente.
@@ -129,12 +129,12 @@ Pour pouvoir stocker des données d'application dans le nouveau service mobile, 
 	<p>Lorsque le schéma dynamique est activé sur votre service mobile, de nouvelles colonnes sont créées automatiquement lorsque des objets JSON sont envoyés au service mobile par une opération d'insertion ou de mise à jour.</p>
     </div>
 
-6. Sous l'onglet **Configurer** vérifiez que `localhost` figure déjà dans la liste **Autoriser les demandes à partir des noms d'hôte** sous **Partage des ressources cross-origin (CORS)**. Si cela n'est pas le cas, entrez `localhost` dans le champ **Nom d'hôte**, puis cliquez sur **Enregistrer**.
+6. Sous l'onglet **Configurer**, vérifiez que " localhost " figure déjà dans la liste **Autoriser les demandes à partir des noms d'hôte** sous **Partage des ressources cross-origin (CORS)**. Si cela n'est pas le cas, entrez " localhost " dans le champ **Nom d'hôte**, puis cliquez sur **Enregistrer**.
 
   	![][11]
 
 	<div class="dev-callout"><b>Remarque</b>
-		<p>Si vous déployez l'application de démarrage rapide sur un autre serveur que localhost, vous devez ajouter le nom d'hôte du serveur Web à la liste <strong>Autoriser les demandes à partir des noms d'hôte</strong>. Pour plus d'informations, consultez la page <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/dn155871.aspx" target="_blank">Partage des ressources cross-origin</a>.</p>
+		<p>Si vous déployez l'application de démarrage rapide sur un autre serveur web que localhost, vous devez ajouter le nom d'hôte du serveur web à la liste <strong>Autoriser les demandes à partir des noms d'hôte</strong> . Pour plus d'informations, consultez la rubrique <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/dn155871.aspx" target="_blank">Partage des ressources cross-origin (CORS)</a>.</p>
 	</div>
 
 Vous pouvez maintenant utiliser le nouveau service mobile en tant que stockage des données pour l'application.
@@ -164,7 +164,7 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 
 6. Supprimez les marques de commentaire sur les lignes de code suivantes :
 
-		 var itemCount = 0;
+		var itemCount = 0;
 		var staticItems = [];
 
 	Les données seront stockées dans le service mobile et non dans le tableau en mémoire.
@@ -212,7 +212,7 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 		}
 	   
 
-   Ce code envoie une requête au service mobile, qui renvoie tous les éléments. Le résultat est itéré et les données s'affichent sur la page. 
+   Ce code envoie une requête au service mobile, qui renvoie tous les éléments. Le résultat est retraité et les données s'affichent sur la page. 
 
 9. Remplacez les gestionnaires d'événements **$(document.body).on('change', '.item-text')** et **$(document.body).on('change', '.item-complete')** par le code suivant :
         
@@ -235,11 +235,11 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 			todoItemTable.del({ id: getTodoItemId(this) }).then(refreshTodoItems);
 		});
 
-	Ce code envoie une demande de suppression au service mobile quand l'utilisateur clique sur le bouton **Supprimer**.
+	Ce code envoie une demande de suppression au service mobile lorsque l'utilisateur clique sur le bouton **Supprimer**.
 
 Maintenant que l'application a été mise à jour pour utiliser Mobile Services pour le stockage principal, le moment est venu de tester l'application avec Mobile Services.
 
-<h2><a name="test-app"></a>Test de l'application avec votre nouveau service mobile</h2>
+<h2><a name="test-app"></a>Test de l'application sur base de votre nouveau service mobile</h2>
 
 4. Rechargez l'URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> dans un navigateur web pour démarrer l'application.
 
@@ -257,19 +257,19 @@ Maintenant que l'application a été mise à jour pour utiliser Mobile Services 
 
    	![][9]
   
-   	La table **TodoItem** contient désormais des données, dont les valeurs d'ID ont été générées par Mobile Services, et les colonnes ont été automatiquement ajoutées à la table pour correspondre à la classe TodoItem dans l'application.
+   	Notez que la table **TodoItem** contient à présent des données, dont les valeurs d'ID ont été générées par Mobile Services, et que des colonnes ont été automatiquement ajoutées à la table de manière à correspondre à la classe TodoItem au sein de l'application.
 
-5. Dans l'application, cochez un des éléments dans la liste, puis revenez à l'onglet Parcourir dans le portail et cliquez sur **Actualiser**. 
+5. Dans l'application, cochez un des éléments dans la liste, puis revenez à l'onglet Parcourir du portail et cliquez sur **Actualiser**. 
 
-  	Notez que la valeur terminée est passée de **false** à **true**.
+  	Notez que la valeur complète est passée de **false** à **true**.
 
-6. Dans le fichier projet app.js, recherchez la méthode **RefreshTodoItems** et remplacez la ligne de code qui définit `query` par ce qui suit :
+6. Dans le fichier projet app.js, recherchez la méthode **RefreshTodoItems** et remplacez la ligne de code qui définit " query " par ce qui suit :
 
    		var query = todoItemTable.where({ complete: false });
 
 7. Rechargez la page, vérifiez un des autres éléments de la liste.
 
-   	Notez que l'élément coché n'est plus affiché dans la liste. Chaque mise à jour provoque un aller-retour sur le serveur mobile, qui renvoie les données filtrées.
+   	Notez que l'élément coché n'est plus affiché dans la liste. Chaque mise à jour provoque un aller-retour vers le serveur mobile, qui renvoie les données filtrées.
 
 Vous voici parvenu à la fin du didacticiel **Prise en main des données**.
 
@@ -277,11 +277,11 @@ Vous voici parvenu à la fin du didacticiel **Prise en main des données**.
 
 Ce didacticiel a présenté les bases de l'activation d'une application HTML pour utiliser les données dans Mobile Services. Ensuite, pensez à suivre l'un des didacticiels suivants basés sur l'application GetStartedWithData que vous avez créée dans ce didacticiel :
 
-* [Validation et modification de données avec des scripts]
-  <br/>Découvrez plus en détail comment utiliser des scripts serveur dans Mobile Services pour valider et modifier les données envoyées à partir de votre application.
+* [Validation et modification de données à l'aide de scripts]
+  <br/>Obtenez plus d'informations sur l'utilisation des scripts serveur dans Mobile Services pour valider et modifier les données envoyées à partir de votre application.
 
 * [Affinage des requêtes au moyen de la pagination]
-  <br/>Découvrez comment utiliser la pagination dans les requêtes pour contrôler la quantité de données traitées dans une demande unique.
+  <br/>Apprenez à utiliser la pagination dans les requêtes pour contrôler la quantité de données traitées dans une seule requête.
  
 Une fois que vous avez terminé la série de données, découvrez comment authentifier les utilisateurs de votre application en suivant le didacticiel [Prise en main de l'authentification].
 
@@ -290,7 +290,7 @@ Une fois que vous avez terminé la série de données, découvrez comment authen
 [Création du service mobile]: #create-service
 [Ajout d'une table de données pour le stockage]: #add-table
 [Mise à jour de l'application pour utiliser Mobile Services]: #update-app
-[Test de l'application avec Mobile Services]: #test-app
+[Test de l'application par rapport à Mobile Services]: #test-app
 [Étapes suivantes]:#next-steps
 
 <!-- Images. -->
@@ -308,7 +308,7 @@ Une fois que vous avez terminé la série de données, découvrez comment authen
 [11]: ./media/mobile-services-html-get-started-data/mobile-services-set-cors-localhost.png
 
 <!-- URLs. -->
-[Validation et modification de données avec des scripts]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-html
+[Validation et modification de données à l'aide de scripts]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-html
 [Affinage des requêtes au moyen de la pagination]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-html
 [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started
 [Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-html
@@ -319,5 +319,7 @@ Une fois que vous avez terminé la série de données, découvrez comment authen
 
 [Guide de fonctionnement de Mobile Services avec HTML/JavaScript]: /fr-fr/develop/mobile/how-to-guides/work-with-html-js-client
 
-[Partage de ressources cross-origin]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn155871.aspx
+[Partage des ressources cross-origin (CORS)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn155871.aspx
 
+
+<!--HONumber=35.2-->

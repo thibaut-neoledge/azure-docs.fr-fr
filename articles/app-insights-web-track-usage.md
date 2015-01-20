@@ -1,27 +1,27 @@
 ﻿<properties title="Track usage in web applications with Application Insights" pageTitle="Suivi de l'utilisation dans les applications web" description="Enregistrez les activités de l'utilisateur dans un journal." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-21" ms.author="awills" />
  
 # Suivi de l'utilisation des applications web
 
 Découvrez comment votre application web est utilisée. Configurez l'analyse d'utilisation pour savoir quelles sont pages consultées par les utilisateurs, combien d'utilisateurs reviennent sur votre site et la fréquence à laquelle ils le visitent. Ajoutez quelques [événements et métriques personnalisés][track] pour analyser en détail les fonctionnalités les plus populaires, les erreurs les plus courantes, et ainsi adapter votre application pour combler vos utilisateurs.
 
-Les données de télémétrie sont collectées côtés client et serveur. Les données client sont collectées à partir de tous les navigateurs web actuels, tandis que les données serveur peuvent être collectées si votre plateforme est ASP.NET (mais il n'est pas nécessaire qu'elle soit exécutée sur Azure). 
+Les données de télémétrie sont collectées côtés client et serveur. Les données client sont collectées à partir de tous les navigateurs web actuels, tandis que les données serveur peuvent être collectées si votre plateforme est ASP.NET. (Toutefois, il n'est pas nécessaire qu'elle soit exécutée sur Azure.) 
 
-* [Configuration de l'analyse de l'utilisation Web](#webclient)
+* [Configuration de l'analyse de l'utilisation web](#webclient)
 * [Analyse de l'utilisation](#usage)
 * [Nombre de pages personnalisées pour les applications de page unique](#spa)
 * [Inspection des événements de pages individuelles](#inspect)
 * [Suivi détaillé avec des événements et des mesures personnalisés](#custom)
 * [Vidéo](#video)
 
-## <a name="webclient"></a>Configuration de l'analyse du client web
+## <a name="webclient"></a> Configuration de l'analyse du client web
 
-#### Obtention d'un ressource Application Insights dans Azure
+#### Obtention d'une ressource Application Insights dans Azure
 
-**Si vous développez une application ASP.NET** et que vous ne l'avez pas encore fait, [ajoutez Application Insights au ][début] de votre projet web. 
+**Si vous développez une application ASP.NET** et si vous ne l'avez pas encore fait, [ajoutez Application Insights à votre projet web][start]. 
 
-**Si la plateforme de votre site web n'est pas ASP.NET :** Connectez-vous à [Microsoft Azure](http://azure.com), accédez à la [version préliminaire du portail](https://portal.azure.com), puis ajoutez une ressource Application Insights.
+**Si la plateforme de votre site web n'est pas ASP.NET :** connectez-vous à [Microsoft Azure](http://azure.com), accédez au [portail en version préliminaire](https://portal.azure.com), puis ajoutez une ressource Application Insights.
 
 ![](./media/appinsights/appinsights-11newApp.png)
 
@@ -35,7 +35,7 @@ Dans Démarrage rapide, récupérez le script pour les pages web.
 
 ![](./media/appinsights/appinsights-06webcode.png)
 
-Insérez-le juste avant la balise </head> de chaque page que vous voulez suivre. Si votre site Web possède une page maître, vous pouvez y placer le script. Par exemple, dans un projet ASP.NET MVC, vous devez placer le script dans View\Shared\_Layout.cshtml
+Insérez-le juste avant la balise &lt;/head&gt; de chaque page que vous voulez suivre. Si votre site Web possède une page maître, vous pouvez y placer le script. Par exemple, dans un projet ASP.NET MVC, vous devez placer le script dans View\Shared\_Layout.cshtml
 
 ## <a name="usage"></a>Analyse de l'utilisation
 
@@ -45,11 +45,11 @@ Dans le volet d'aperçu de l'application, les vignettes d'utilisation suivantes 
 
 ![](./media/appinsights/appinsights-47usage.png)
 
-*Pas de données ? Cliquez sur **Actualiser** en haut de la page.*
+*Aucune donnée pour le moment ? Cliquez sur **Actualiser** en haut de la page.*
 
 * **Sessions par navigateur**
 
-    Une *session* est une période qui débute lorsqu'un utilisateur ouvre n'importe quelle page de votre site Web et se termine après un délai d'expiration de 30 minutes sans que l'utilisateur ait envoyé aucune demande Web. 
+    Une *session* est une période qui débute quand un utilisateur ouvre une page de votre site web. Elle prend fin après un délai d'expiration de 30 minutes sans envoi de requête web de la part de l'utilisateur. 
 
     Cliquez sur d'autres éléments pour faire un zoom dans le graphique.
 
@@ -57,17 +57,16 @@ Dans le volet d'aperçu de l'application, les vignettes d'utilisation suivantes 
 
     Affiche les décomptes totaux des 24 dernières heures.
 
-    Cliquez sur la vignette des affichages de page pour obtenir un historique plus détaillé.
+    Cliquez sur la vignette des affichages de page pour obtenir un historique plus détaillé. Pour obtenir un historique plus long, vous pouvez changer l'intervalle de temps du rapport.
 
 ![](./media/appinsights/appinsights-49usage.png)
 
-Cliquez sur Plage de temps pour afficher un historique plus long, jusqu'à sept jours.
 
-Cliquez sur un graphique pour voir les autres métriques qui peuvent être affichées.
+Cliquez sur un graphique pour voir les autres métriques que vous pouvez afficher, ou ajoutez un nouveau graphique et sélectionnez les métriques à afficher.
 
 ![](./media/appinsights/appinsights-63usermetrics.png)
 
-> [AZURE.NOTE] Désactivez la case à cocher *toutes* pour activer toutes les métriques. Les métriques peuvent uniquement être affichées selon certaines combinaisons. Lorsque vous sélectionnez une métrique, celles qui lui sont incompatibles sont désactivées.
+> [AZURE.NOTE] Décochez la case *toutes* pour activer toutes les métriques. Les métriques peuvent uniquement être affichées selon certaines combinaisons. Lorsque vous sélectionnez une métrique, celles qui lui sont incompatibles sont désactivées.
 
 
 
@@ -92,7 +91,7 @@ Dans le volet Recherche de diagnostic, définissez Filtres sur Affichage de page
 
 Sélectionnez n'importe quel événement pour afficher plus de détails.
 
-> [AZURE.NOTE] Si vous utilisez [Rechercher][Diagnostic], notez que les mots en entier doivent correspondre : " Concernan " et " oncernant " ne correspondront pas à " Concernant ", mais " Concernan* " correspondra. En outre, un terme de recherche ne peut pas commencer par un caractère générique. Par exemple, effectuer une recherche sur " *oncernan " ne correspondra pas à " Concernant ". 
+> [AZURE.NOTE] Si vous utilisez [Rechercher][diagnostic], notez que les mots en entier doivent correspondre : " Concernan " et " oncernant " ne correspondront pas à " Concernant ", mais " Concernan* " correspondra. En outre, un terme de recherche ne peut pas commencer par un caractère générique. Par exemple, effectuer une recherche sur " *oncernan " ne correspondra pas à " Concernant ". 
 
 > [En savoir plus sur la recherche de diagnostic][diagnostic]
 
@@ -102,13 +101,13 @@ Vous souhaitez savoir ce que vos utilisateurs font avec votre application ? En i
 
 [En savoir plus sur les événements personnalisés et les API de métriques][track].
 
-## <a name="video"></a>Vidéo : Suivi de l'utilisation
+## <a name="video"></a> Vidéo : Suivi de l'utilisation
 
 > [AZURE.VIDEO tracking-usage-with-application-insights]
 
-## <a name="next"></a>Étapes suivantes
+## <a name="next"></a> Étapes suivantes
 
-[Suivi de l'utilisation avec des événements et des mesures personnalisés][tracks]
+[Suivi de l'utilisation avec des événements et des métriques personnalisés][track]
 
 
 
@@ -117,3 +116,6 @@ Vous souhaitez savoir ce que vos utilisateurs font avec votre application ? En i
 
 
 
+
+
+<!--HONumber=35.2-->

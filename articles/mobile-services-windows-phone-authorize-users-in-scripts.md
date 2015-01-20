@@ -10,8 +10,8 @@
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
-<p>Cette rubrique explique comment utiliser des scripts serveur pour autoriser les utilisateurs authentifiés à accéder aux données dans Azure Mobile Services à partir d'une application Windows Phone 8. Dans ce didacticiel, vous allez inscrire les scripts dans Mobile Services pour filtrer les requêtes sur la base de la valeur userId d'un utilisateur authentifié, en vous assurant que chaque utilisateur peut voir uniquement ses propres données.</p>
-<p>Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie sur le didacticiel précédent <a href="/fr-fr/develop/mobile/tutorials/get-started-with-users-wp8">Prise en main de l'authentification</a>. Avant de commencer, vous devez suivre le didacticiel <a href="/fr-fr/develop/mobile/tutorials/get-started-with-users-wp8">Prise en main de l'authentification</a>.</p>
+<p>Cette rubrique explique comment utiliser des scripts serveur pour autoriser les utilisateurs authentifiés à accéder aux données dans Azure Mobile Services à partir d'une application Windows Phone 8. Dans ce didacticiel, vous allez inscrire les scripts dans Mobile Services pour filtrer les requêtes sur la base de la valeur userId d'un utilisateur authentifié, en vous assurant que chaque utilisateur parvient à voir uniquement ses propres données.</p>
+<p>Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie sur le didacticiel précédent <a href="/fr-fr/develop/mobile/tutorials/get-started-with-users-wp8">Prise en main de l'authentification</a>. Avant de commencer ce didacticiel, vous devez d'abord suivre intégralement celui-ci : <a href="/fr-fr/develop/mobile/tutorials/get-started-with-users-wp8">Prise en main de l'authentification</a>.</p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=298630" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-scripts-for-authentication-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=298630" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">15:00</span></div>
 </div> 
@@ -19,7 +19,7 @@
 ## <a name="register-scripts"></a>Inscription des scripts
 Étant donné que l'application de démarrage rapide lit et insère les données, vous devez inscrire les scripts de ces opérations dans la table TodoItem.
 
-1. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application. 
+1. Connectez-vous au [portail de gestion Azure], puis cliquez sur **Mobile Services** et sur l'application. 
 
    	![][0]
 
@@ -41,7 +41,7 @@
     Ce script ajoute une valeur userId à l'élément, qui correspond à l'ID de l'utilisateur authentifié, avant de l'insérer dans la table TodoItem. 
 
     <div class="dev-callout"><b>Remarque</b>
-	<p>Le schéma dynamique doit être activé la première fois que ce script d'insertion s'exécute. Avec le schéma dynamique activé, Mobile Services ajoute automatiquement la colonne <strong>userId</strong> à la table <strong>TodoItem</strong> lors de la première exécution. Par défaut, le schéma dynamique est activé pour un nouveau service mobile. Il doit être désactivé avant que l'application soit publiée sur le Windows Phone Store.</p>
+	<p>Le schéma dynamique doit être activé la première fois que ce script d'insertion s'exécute. Avec le schéma dynamique activé, Mobile Services ajoute automatiquement la colonne <strong>userId</strong> dans la table <strong>TodoItem</strong> lors de la première exécution. Par défaut, le schéma dynamique est activé pour un nouveau service mobile. Il doit être désactivé avant que l'application soit publiée sur le Windows Phone Store.</p>
     </div>
 
 
@@ -68,7 +68,7 @@
 
    	Cette action insère à la fois le texte et la valeur userId dans la table TodoItem du service mobile. Étant donné que le nouvel élément présente la valeur userId correcte, il est renvoyé par le service mobile.
 
-5. De retour dans la table **todoitem** sur le [portail de gestion][portail de gestion Azure], cliquez sur **Parcourir** et vérifiez que chaque élément récemment ajouté présente une valeur userId associée.
+5. De retour dans la table **todoitem** sur le [portail de gestion][Azure Management Portal], cliquez sur **Parcourir** et vérifiez que chaque élément nouvellement ajouté présente désormais une valeur userId associée.
 
 ## Étapes suivantes
 
@@ -84,7 +84,7 @@ Cela met fin à la série de didacticiels établissant les principes de base de 
   <br/>En savoir plus sur l'enregistrement et l'utilisation des scripts serveur.
 
 <!-- Anchors. -->
-[Enregistrement des scripts serveur]: #register-scripts
+[Enregistrement de scripts serveur]: #register-scripts
 [Étapes suivantes]:#next-steps
 
 <!-- Images. -->
@@ -102,3 +102,5 @@ Cela met fin à la série de didacticiels établissant les principes de base de 
 [Prise en main des notifications Push]: /fr-fr/develop/mobile/tutorials/get-started-with-push-wp8
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
+
+<!--HONumber=35.2-->

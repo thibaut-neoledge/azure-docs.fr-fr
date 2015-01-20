@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="" pageTitle="Utilisation des groupes de ressources pour gérer vos ressources Azure" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="terrylan" editor=""  />
+﻿<properties urlDisplayName="" pageTitle="Utilisation des groupes de ressources pour gérer vos ressources Azure" metaKeywords="" <MORAVIA_NOTRANSLATE></MORAVIA_NOTRANSLATE> metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="timlt" editor=""  />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Nafisa Bhojawala" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="12/02/2014" ms.author="davidmu" />
 
 
 # Utilisation des groupes de ressources pour gérer vos ressources Azure
@@ -22,7 +22,7 @@ Lorsqu'une ressource est créée dans la version préliminaire du portail, elle 
 ![](http://i.imgur.com/USKkQdW.png)
 
 <br><br />
-Lorsque vous créez une application qui comporte quelques ressources fonctionnant ensemble (par exemple un site web + une base de données), elle est toujours créée dans son propre groupe de ressources, ce qui vous permet de gérer le cycle de vie de l'ensemble des ressources associées en utilisant le groupe. Vous pouvez ajouter des ressources au groupe ou en supprimer au fil de l'évolution de votre application. 
+Quand vous créez une application qui comporte quelques ressources fonctionnant ensemble (par exemple un site web + une base de données), elle est toujours créée dans son propre groupe de ressources, ce qui vous permet de gérer le cycle de vie de l'ensemble des ressources associées à l'aide du groupe de ressources. Vous pouvez ajouter des ressources au groupe ou en supprimer au fil de l'évolution de votre application. 
 
 ![](http://i.imgur.com/Me0jbio.png)
 
@@ -70,3 +70,5 @@ Remarque : il est déconseillé de placer un projet d'équipe dans le même grou
 Comme les groupes de ressources permettent de gérer le cycle de vie de l'ensemble des ressources englobées, la suppression d'un groupe de ressources entraîne celle de toutes les ressources qu'il contient. Vous pouvez également supprimer des ressources individuelles d'un groupe de ressources. Soyez prudent lorsque vous supprimez un groupe de ressources, car d'autres ressources peuvent y être liées. Vous pouvez voir toutes les ressources liées dans la carte des ressources et prendre les mesures nécessaires pour éviter des conséquences fâcheuses lorsque vous supprimez des groupes de ressources. 
 
 ![](http://i.imgur.com/ZTXoISb.png)
+
+<!--HONumber=35.2-->

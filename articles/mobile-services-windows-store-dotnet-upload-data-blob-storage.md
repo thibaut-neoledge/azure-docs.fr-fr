@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Utilisation de Mobile Services pour télécharger des données dans le stockage d'objets blob (Windows Store) | Mobile Services" metaKeywords="" description="Découvrez comment utiliser Mobile Services pour télécharger des images vers le stockage d'objets blob Azure et y accéder à partir de votre application Windows Store." metaCanonical="" services="mobile-services,storage" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
+﻿<properties pageTitle="Utilisation de Mobile Services pour télécharger des images dans le stockage d'objets blob (Windows Store) | Mobile Services" metaKeywords="" description="Découvrez comment utiliser Mobile Services pour télécharger des images vers le stockage d'objets blob Azure et y accéder à partir de votre application Windows Store." metaCanonical="" services="mobile-services,storage" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 
@@ -20,7 +20,7 @@ Dans ce didacticiel, vous allez ajouter une fonctionnalité à l'application de 
 Ce didacticiel requiert les éléments suivants :
 
 + Microsoft Visual Studio 2012 Express pour Windows 8 ou version ultérieure ;
-+ [un compte Azure Storage ;][How To Create a Storage Account]
++ [un compte Azure Storage][How To Create a Storage Account] ;
 + un appareil photo ou tout autre appareil de capture d'image raccordé à votre ordinateur.
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez effectuer le didacticiel [Prise en main de Mobile Services]. 
@@ -29,9 +29,9 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 
 Avant de pouvoir utiliser une signature d'accès partagé en vue de télécharger des images vers un stockage d'objets blob, vous devez ajouter le package NuGet qui installe la bibliothèque du client de stockage pour les applications du Windows Store.
 
-1. Dans l'**Explorateur de solutions** de Visual Studio, cliquez avec le bouton droit sur le nom du projet, puis sélectionnez **Manage NuGet Packages**.
+1. Dans l'**Explorateur de solutions** de Visual Studio, cliquez avec le bouton droit sur le nom du projet, puis sélectionnez **Gérer les packages NuGet**.
 
-2. Dans le volet gauche, sélectionnez la catégorie **En ligne**, recherchez " WindowsAzure.Storage ", cliquez sur **Installer**au niveau du package**Azure Storage**, puis acceptez les contrats de licence. 
+2. Dans le volet gauche, sélectionnez la catégorie **En ligne**, recherchez " WindowsAzure.Storage ", cliquez sur **Installer** au niveau du package **Azure Storage**, puis acceptez le contrat de licence. 
 
   	![][2]
 
@@ -39,7 +39,7 @@ Avant de pouvoir utiliser une signature d'accès partagé en vue de télécharge
 
 Dans la prochaine étape, vous allez mettre à jour l'application de démarrage rapide pour capturer et télécharger des images.
 
-##<a name="update-scripts"></a>Mise à jour du script de la fonction insert inscrite dans le portail de gestion
+##<a name="update-scripts"></a>Mise à jour du script d'insertion inscrit dans le portail de gestion
 
 [WACOM.INCLUDE [mobile-services-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
 
@@ -51,7 +51,7 @@ Maintenant que vous avez intégré votre service mobile au service BLOB et que v
 
 + [Envoi de courrier électronique à partir de Mobile Services avec SendGrid]
  
-  Découvrez comment ajouter une fonctionnalité de messagerie à votre service mobile à l'aide du service de messagerie SendGrid. Cette rubrique montre comment ajouter des scripts côté serveur pour envoyer du courrier électronique à l'aide de SendGrid.
+  Découvrez comment ajouter la fonctionnalité de messagerie électronique à votre service mobile en utilisant le service de messagerie SendGrid. Cette rubrique montre comment ajouter des scripts côté serveur pour envoyer du courrier électronique à l'aide de SendGrid.
 
 + [Planification des travaux principaux dans Mobile Services]
 
@@ -81,12 +81,14 @@ Maintenant que vous avez intégré votre service mobile au service BLOB et que v
 <!-- URLs. -->
 [Envoi de courrier électronique à partir de Mobile Services avec SendGrid]: /fr-fr/develop/mobile/tutorials/send-email-with-sendgrid/
 [Planification des travaux principaux dans Mobile Services]: /fr-fr/documentation/articles/mobile-services-schedule-recurring-tasks
-[Envoi de notifications push aux applications Windows Store à l'aide de Service Bus à partir d'un .NET principal]: http://go.microsoft.com/fwlink/?LinkId=277073&clcid=0x409
+[Envoi de notifications Push aux applications Windows Store en utilisant Service Bus à partir d'un serveur principal .NET]: http://go.microsoft.com/fwlink/?LinkId=277073&clcid=0x409
 [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-store-get-started
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Création d'un compte de stockage]: /fr-fr/manage/services/storage/how-to-create-a-storage-account
-[Bibliothèque cliente Azure Storage pour les applications Windows Store]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
+[Bibliothèque cliente d'Azure Storage pour les applications Windows Store]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
 [Guide de fonctionnement Mobile Services .NET]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library
 [Paramètres de l'application]: http://msdn.microsoft.com/fr-fr/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+
+<!--HONumber=35.2-->

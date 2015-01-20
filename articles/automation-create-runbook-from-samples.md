@@ -1,153 +1,129 @@
-<properties linkid="automation-create-runbook-from-samples" urlDisplayName="Get Started with Azure Automation" pageTitle="Get Started with Azure Automation" metaKeywords="" description="Learn how to import and run an automation job in Azure." metaCanonical="" services="automation" documentationCenter="" title="Get Started with Azure Automation" authors="bwren" solutions="" manager="stevenka" editor="" />
+﻿<properties urlDisplayName="Get Started with Azure Automation" pageTitle="Prise en main d'Azure Automation" metaKeywords="" description="Découvrez comment importer et exécuter une tâche d'automatisation dans Azure." metaCanonical="" services="automation" documentationCenter="" title="Get Started with Azure Automation" authors="bwren" solutions="" manager="stevenka" editor="" />
 
-<tags ms.service="automation" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bwren" />
+<tags ms.service="automation" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="bwren" />
+
 
 # Prise en main d'Azure Automation
 
-L'automatisation Microsoft Azure permet aux développeurs d'automatiser les tâches répétitives, manuelles, de longue durée et susceptibles d'engendrer des erreurs qui sont couramment exécutées dans un environnement cloud. Vous pouvez créer, surveiller, gérer et déployer des ressources dans votre environnement Azure en utilisant des runbooks, qui sont finalement des workflows Windows PowerShell. Pour en savoir plus sur Automation, consultez le [Guide de présentation d'Automation][Guide de présentation d'Automation].
+L'automatisation Microsoft Azure permet aux développeurs d'automatiser les tâches répétitives, manuelles, de longue durée et susceptibles d'engendrer des erreurs qui sont couramment exécutées dans un environnement cloud. Vous pouvez créer, surveiller, gérer et déployer des ressources dans votre environnement Azure en utilisant des runbooks, qui sont finalement des workflows Windows PowerShell. Pour en savoir plus sur Automation, consultez le [Guide de présentation d'Automation](http://go.microsoft.com/fwlink/p/?LinkId=392861). 
 
-Ce didacticiel va vous guider lors de l'importation d'un exemple de runbook « HelloWorld » dans Azure Automation, puis lors de son exécution et de l'affichage de sa sortie.
+Ce didacticiel va vous guider lors de l'importation d'un exemple de runbook " HelloWorld " dans Azure Automation, puis lors de son exécution et de l'affichage de sa sortie.
 
-> [WACOM.NOTE] To learn how to automate Azure operations using the [Azure PowerShell cmdlets][Azure PowerShell cmdlets] see [Azure Automation: Authenticating to Azure using Azure Active Directory][Azure Automation: Authenticating to Azure using Azure Active Directory].
+>[WACOM.NOTE] Pour apprendre à automatiser les opérations Azure à l'aide des [applets de commande Azure PowerShell](http://msdn.microsoft.com/fr-fr/library/jj156055.aspx) consultez <a href="http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/">Azure Automation : authentification auprès d'Azure à l'aide d'Azure Active Directory</a>.
 
 ## Exemples et runbooks utilitaires
 
-L'équipe Azure Automation a créé un certain nombre d'exemples de runbooks pour vous aider à démarrer avec Automation. Ils couvrent différents concepts élémentaires d'Automation et ont été conçus pour vous apprendre à écrire vos propres runbooks.
+L'équipe Azure Automation a créé un certain nombre d'exemples de runbooks pour vous aider à démarrer avec Automation.  Ils couvrent différents concepts élémentaires d'Automation et ont été conçus pour vous apprendre à écrire vos propres runbooks.  
 
-L'équipe Automation a également créé des runbooks utilitaires qui peuvent vous servir de blocs fonctionnels pour des tâches Automation plus importantes.
+L'équipe Automation a également créé des runbooks utilitaires qui peuvent vous servir de blocs fonctionnels pour des tâches Automation plus importantes.  
 
-> [WACOM.NOTE] Il est d'usage d'écrire de petits runbooks, modulaires et réutilisables. Nous vous recommandons également, lorsque vous connaissez suffisamment Automation, de créer vos propres runbooks utilitaires pour les scénarios courants.
+>[WACOM.NOTE] Il est d'usage d'écrire de petits Runbooks, modulaires et réutilisables. Nous vous recommandons également, lorsque vous connaissez suffisamment Automation, de créer vos propres runbooks utilitaires pour les scénarios courants.  
 
-Vous pouvez afficher et télécharger les exemples et les runbooks utilitaires de l'équipe Automation sur le [Centre de scripts][Centre de scripts].
+Vous pouvez afficher et télécharger les exemples et les Runbooks utilitaires de l'équipe Automation sur le [Centre de scripts](http://go.microsoft.com/fwlink/p/?LinkId=393029), ou les importer directement depuis la [galerie de Runbooks](http://aka.ms/runbookgallery). 
 
 ## Communauté Automation et commentaires
 
-Les runbooks de la communauté et d'autres équipes Microsoft sont également publiés sur le [Centre de scripts][1].
+Les Runbooks de la communauté et d'autres équipes Microsoft sont également publiés sur le [Centre de scripts](http://go.microsoft.com/fwlink/?LinkID=391681) et dans la [galerie de Runbooks](http://aka.ms/runbookgallery). 
 
-**Envoyez-nous vos commentaires !** Si vous recherchez une solution de runbook ou un module d'intégration Automation, envoyez une demande de script au Centre de scripts. Si vous avez une idée de nouvelle fonctionnalité pour Automation, envoyez-la sur le site [User Voice][User Voice].
+<strong>Envoyez-nous vos commentaires !</strong>  Si vous recherchez une solution de Runbook ou un module d'intégration Automation, envoyez une demande de script au Centre de scripts. Si vous avez une idée de nouvelle fonctionnalité pour Automation, envoyez-la sur le site [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback).
 
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ## Étapes générales pour ce didacticiel
 
-1.  [Inscription à la version préliminaire d'Automation][Inscription à la version préliminaire d'Automation]
-2.  [Téléchargement d'un exemple de runbook][Téléchargement d'un exemple de runbook]
-3.  [Importation, exécution et affichage de la sortie de l'exemple de runbook][Importation, exécution et affichage de la sortie de l'exemple de runbook]
+1. [Création d'un compte Automation](#automationaccount)
+2. [Importation d'un Runbook à partir de la galerie de Runbooks](#importrunbook)
+3. [Publication du Runbook](#publishrunbook)
+4. [Démarrage du Runbook](#startrunbook)
 
-## <a name="preview"></a>Inscription à la version préliminaire d'Azure Automation
 
-Pour commencer à utiliser Automation, vous aurez besoin d'un abonnement Azure actif, pour lequel la fonctionnalité préliminaire Microsoft Azure Automation est activée.
+## <a name="automationaccount"></a>Création d'un compte Automation
 
--   Sur la page **Fonctionnalités préliminaires**, cliquez sur **try it now**.
+1.	Connectez-vous au [Portail de gestion Azure](http://manage.windowsazure.com).
 
-    ![Activer la fonctionnalité préliminaire][Activer la fonctionnalité préliminaire]
+2.	Dans le Portail de gestion, cliquez sur **Créer un compte Automation**.
 
-## <a name="download-sample"></a>Téléchargement d'un exemple de runbook sur le Centre de scripts
+	>[WACOM.NOTE] Si vous avez déjà créé un compte Automation, passez à l'étape 4.
 
-1.  Accédez au [Centre de scripts][Centre de scripts] et cliquez sur **Hello World for Azure Automation**.
+	![Create Account](./media/automation/automation_01_CreateAccount.png)
 
-2.  Cliquez sur le nom de fichier **Write-HelloWorld.ps1**, en regard de **Download**, et enregistrez le fichier sur l'ordinateur.
+3.	Dans la page **Ajouter un nouveau compte Automation**, entrez un nom pour le compte, puis cliquez sur la coche.
 
-## <a name="import-sample"></a>Importation, exécution et affichage de la sortie de l'exemple de runbook dans Azure Automation
+	![Add New Account](./media/automation/automation_02_addnewautoacct.png)
 
-1.  Connectez-vous au [portail de gestion Azure][portail de gestion Azure].
+## <a name="importrunbook"></a>Importation d'un runbook à partir de la galerie de runbooks
+ 
+4.	Dans la page **Automation**, cliquez sur le compte que vous venez de créer.
+ 
+	![New Account](./media/automation/automation_03_NewAutoAcct.png)
 
-2.  Dans le portail de gestion, cliquez sur **Create an Automation Account**.
+5.	Cliquez sur **RUNBOOKS**.
 
-    > [WACOM.NOTE] Si vous avez déjà un compte Automation, passez à l'étape 4.
+	![Runbooks Tab](./media/automation/automation_04_RunbooksTab.png)
+  
+6.	Cliquez sur **Nouveau** > **Runbook** > **À partir de la galerie**.
 
-    ![Créer un compte][Créer un compte]
+	![Runbook Gallery](./media/automation/automation_05_ImportGallery.png)
 
-3.  Sur la page **Add a New Automation Account**, entrez un nom pour le compte et cliquez sur la coche.
+7.  Sélectionnez la catégorie **Didacticiel**, puis **Hello World pour Azure Automation**. Cliquez sur le bouton avec la flèche vers la droite.
 
-    ![Ajouter un nouveau compte][Ajouter un nouveau compte]
+	![Import Runbook](./media/automation/automation_06_ImportRunbook.png)
 
-4.  Sur la page **Automation**, cliquez sur le compte que vous venez de créer.
+8.  Relisez le contenu du runbook, puis cliquez sur le bouton avec la flèche vers la droite.
 
-    ![Nouveau compte][Nouveau compte]
+	![Runbook Definition](./media/automation/automation_07_RunbookDefinition.png)
 
-5.  Cliquez sur **RUNBOOKS**.
+8.	Relisez les détails du runbook, puis cliquez sur le bouton avec la coche.
 
-    ![Onglet Runbooks][Onglet Runbooks]
+	![Runbook Details](./media/automation/automation_08_RunbookDetails.png)
 
-6.  Cliquez sur **IMPORT**.
+## <a name="publishrunbook"></a>Publication du runbook 
 
-    ![Importer][Importer]
+9.	Une fois le Runbook importé, cliquez sur **Write-HelloWorld**.
 
-7.  Accédez au script **Write-HelloWorld.ps1** que vous avez téléchargé et cliquez sur la coche.
+	![Imported Runbook](./media/automation/automation_07_ImportedRunbook.png)
 
-    ![Naviguer][Naviguer]
+9.	Cliquez sur **AUTEUR**, puis sur **BROUILLON**.  
 
-8.  Cliquez sur **Write-HelloWorld**.
+	Vous pouvez modifier le contenu d'un runbook en mode Brouillon. Vous n'avez aucune modification à apporter à ce runbook.
 
-    ![Runbook importé][Runbook importé]
+	![Author Draft](./media/automation/automation_08_AuthorDraft.png)  
+ 
+10.	Cliquez sur **PUBLIER** pour promouvoir le Runbook afin qu'il soit prêt à être utilisé.
 
-9.  Cliquez sur **AUTHOR**, puis sur **DRAFT**. Vous n'avez aucune modification à apporter à ce runbook.
+	![Publish](./media/automation/automation_085_Publish.png)
+   
+11.	Quand vous êtes invité à enregistrer et publier le Runbook, cliquez sur **Oui**.
+ 
+	![Save and Pub prompt](./media/automation/automation_09_SavePubPrompt.png)
 
-    Vous pouvez voir le contenu de **Write-HelloWorld.ps1**. Vous pouvez modifier le contenu d'un runbook en mode Brouillon.
+## <a name="startrunbook"></a>Démarrage du runbook
 
-    ![Créer un brouillon][Créer un brouillon]
+12.	Une fois le Runbook **Write-HelloWorld** ouvert, cliquez sur **DÉMARRER**.
 
-10. Cliquez sur **PUBLISH** pour promouvoir le runbook afin qu'il soit prêt à être utilisé.
+	![Published](./media/automation/automation_10_PublishStart.png)
+ 
+13.	Dans la page **Spécifier les valeurs de paramètre de Runbook**, tapez un **nom** qui servira de paramètre d'entrée pour le script Write-HelloWorld.ps1 et cliquez sur la coche.
 
-    ![Publier][Publier]
+	![Runbook Parameters](./media/automation/automation_11_RunbookParams.png)
+  
+14.	Cliquez sur **TÂCHES** pour vérifier l'état de la tâche de Runbook que vous venez de commencer, puis cliquez sur l'horodatage dans la colonne **DÉBUT DE LA TÂCHE** pour afficher le résumé de la tâche.
 
-11. Lorsque vous êtes invité à enregistrer et publier le runbook, cliquez sur **Yes**.
+	![Runbook Status](./media/automation/automation_12_RunbookStatus.png)
 
-    ![Invite d'enregistrement et de publication][Invite d'enregistrement et de publication]
+15.	Dans la page **RÉSUMÉ** sont affichés le résumé, les paramètres d'entrée et la sortie de la tâche.
+ 
+	![Runbook Summary](./media/automation/automation_13_RunbookSummary_callouts.png)
 
-12. Cliquez sur **PUBLISHED**, puis sur **START**.
 
-    ![Publié][Publié]
-
-13. Sur la page **Specify the runbook parameter values**, tapez un **nom** qui servira de paramètre d'entrée pour le script Write-HelloWorld.ps1 et cliquez sur la coche.
-
-    ![Paramètres du runbook][Paramètres du runbook]
-
-14. Cliquez sur **JOBS** pour vérifier l'état de la tâche de runbook que vous venez de commencer, et cliquez sur l'horodatage dans la colonne **JOB START** pour afficher le résumé de la tâche.
-
-    ![État du runbook][État du runbook]
-
-15. Sur la page **SUMMARY** sont affichés le résumé, les paramètres d'entrée et la sortie de la tâche.
-
-    ![Résumé du runbook][Résumé du runbook]
-
-# Gestion des services Azure à partir d'un runbook
-
-L'exemple ci-dessus affiche un simple runbook qui ne gère pas les services Azure. Les [cmdlets Azure][Azure PowerShell cmdlets] nécessitent une authentification auprès d'Azure. Vous pouvez suivre les instructions données dans [Azure Automation : authentification auprès d'Azure à l'aide d'Azure Active Directory][Azure Automation: Authenticating to Azure using Azure Active Directory] afin de configurer la gestion de votre abonnement Azure par le biais d'Azure Automation.
+# Gestion des services Azure à partir d'un runbook 
+L'exemple ci-dessus affiche un simple runbook qui ne gère pas les services Azure. Les [applets de commande Azure](http://msdn.microsoft.com/fr-fr/library/jj156055.aspx) nécessitent une authentification auprès d'Azure. Vous pouvez suivre les instructions données dans [Azure Automation : authentification auprès d'Azure à l'aide d'Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/) pour configurer la gestion de votre abonnement Azure par le biais d'Azure Automation.
 
 # Voir aussi
 
--   [Vue d'ensemble d'Automation][Vue d'ensemble d'Automation]
--   [Guide de création du runbook][Guide de création du runbook]
--   [Forum Automation][Forum Automation]
--   [Azure Automation : authentification auprès d'Azure à l'aide d'Azure Active Directory][Azure Automation: Authenticating to Azure using Azure Active Directory]
+- [Vue d'ensemble d'Automation](http://go.microsoft.com/fwlink/p/?LinkId=392860)
+- [Guide de création du Runbook](http://go.microsoft.com/fwlink/p/?LinkID=301740)
+- [Forum Automation](http://go.microsoft.com/fwlink/p/?LinkId=390561)
+- [Azure Automation : authentification auprès d'Azure à l'aide d'Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
 
-  [Guide de présentation d'Automation]: http://go.microsoft.com/fwlink/p/?LinkId=392861
-  [Azure PowerShell cmdlets]: http://msdn.microsoft.com/fr-fr/library/jj156055.aspx
-  [Azure Automation: Authenticating to Azure using Azure Active Directory]: http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/
-  [Centre de scripts]: http://go.microsoft.com/fwlink/p/?LinkId=393029
-  [1]: http://go.microsoft.com/fwlink/?LinkID=391681
-  [User Voice]: http://feedback.windowsazure.com/forums/34192--general-feedback
-  [Inscription à la version préliminaire d'Automation]: #preview
-  [Téléchargement d'un exemple de runbook]: #download-sample
-  [Importation, exécution et affichage de la sortie de l'exemple de runbook]: #import-sample
-  [Activer la fonctionnalité préliminaire]: ./media/automation/automation_00_EnablePreview.png
-  [portail de gestion Azure]: http://manage.windowsazure.com
-  [Créer un compte]: ./media/automation/automation_01_CreateAccount.png
-  [Ajouter un nouveau compte]: ./media/automation/automation_02_addnewautoacct.png
-  [Nouveau compte]: ./media/automation/automation_03_NewAutoAcct.png
-  [Onglet Runbooks]: ./media/automation/automation_04_RunbooksTab.png
-  [Importer]: ./media/automation/automation_05_Import.png
-  [Naviguer]: ./media/automation/automation_06_Browse.png
-  [Runbook importé]: ./media/automation/automation_07_ImportedRunbook.png
-  [Créer un brouillon]: ./media/automation/automation_08_AuthorDraft.png
-  [Publier]: ./media/automation/automation_085_Publish.png
-  [Invite d'enregistrement et de publication]: ./media/automation/automation_09_SavePubPrompt.png
-  [Publié]: ./media/automation/automation_10_PublishStart.png
-  [Paramètres du runbook]: ./media/automation/automation_11_RunbookParams.png
-  [État du runbook]: ./media/automation/automation_12_RunbookStatus.png
-  [Résumé du runbook]: ./media/automation/automation_13_RunbookSummary_callouts.png
-  [Vue d'ensemble d'Automation]: http://go.microsoft.com/fwlink/p/?LinkId=392860
-  [Guide de création du runbook]: http://go.microsoft.com/fwlink/p/?LinkID=301740
-  [Forum Automation]: http://go.microsoft.com/fwlink/p/?LinkId=390561
+<!--HONumber=35.2-->
