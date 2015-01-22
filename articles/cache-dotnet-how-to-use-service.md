@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="" pageTitle="Utilisation de Service de cache géré Azure" metaKeywords="" <MORAVIA_NOTRANSLATE></MORAVIA_NOTRANSLATE> metaCanonical="" services="cache" documentationCenter="" title="How to Use Azure Managed Cache Service" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="" pageTitle="Utilisation de Service de cache géré Azure" metaKeywords="" description="" metaCanonical="" services="cache" documentationCenter="" title="How to Use Azure Managed Cache Service" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
 
