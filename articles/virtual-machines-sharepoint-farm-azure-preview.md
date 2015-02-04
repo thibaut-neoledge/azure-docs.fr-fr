@@ -1,8 +1,8 @@
-﻿<properties title="SharePoint Server Farm" pageTitle="Batterie de serveurs SharePoint" description="Décrit la nouvelle fonctionnalité Batterie de serveurs SharePoint de la version préliminaire du portail Azure" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
+<properties title="SharePoint Server Farm" pageTitle="Batterie de serveurs SharePoint" description="Décrit la nouvelle fonctionnalité Batterie de serveurs SharePoint de la version préliminaire du portail Azure" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="josephd" />
 
-#Batterie de serveurs SharePoint#
+# Batterie de serveurs SharePoint#
 
 Avec la batterie de serveurs SharePoint, la version préliminaire du portail Azure crée automatiquement une batterie SharePoint Server 2013 préconfigurée. Cela peut vous faire gagner un temps précieux lorsque vous avez besoin d'une batterie de serveurs SharePoint de base ou à haute disponibilité pour un environnement de test et de développement ou si vous envisagez l'adoption de SharePoint Server 2013 comme solution de collaboration pour votre entreprise.
 
@@ -47,7 +47,7 @@ Remarques :
 - La version préliminaire du portail Azure crée ces deux batteries de serveurs dans un réseau virtuel sur le cloud uniquement avec une présence web accessible sur Internet. Il n'existe pas de connexion VPN de site à site en amont vers le réseau de votre entreprise. 
 - Vous pouvez administrer ces serveurs par l'intermédiaire de connexions Bureau à distance.
 
-##Parcours de la configuration##
+## Parcours de la configuration##
 
 Pour créer votre batterie SharePoint avec Batterie de serveurs SharePoint, procédez comme suit :
 
@@ -63,7 +63,7 @@ Pour créer votre batterie SharePoint avec Batterie de serveurs SharePoint, proc
 10. Pour indiquer l'emplacement (région), cliquez sur la flèche.
 11. Quand vous avez terminé, cliquez sur **Créer**.
 
-##Azure Resource Manager##
+## Azure Resource Manager##
 
 La batterie de serveurs SharePoint utilise des scripts et le module Azure Resource Manager pour créer automatiquement l'infrastructure et les configurations serveur relatives à ces batteries de serveurs SharePoint. Pour plus d'informations, consultez [Utilisation de Windows PowerShell avec Resource Manager](http://azure.microsoft.com/fr-fr/documentation/articles/powershell-azure-resource-manager/).
 

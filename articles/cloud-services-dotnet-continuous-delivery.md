@@ -6,7 +6,7 @@
 
 Le processus décrit dans cet article vous explique comment configurer la remise continue pour les applications cloud Azure. Il vous permet de créer automatiquement des packages et de les déployer dans Azure après chaque intégration du code. Le processus de génération du package décrit dans cet article est équivalent à la commande Package de Visual Studio et les étapes de la publication sont les mêmes que pour la commande Publish dans Visual Studio. Cet article présente les méthodes que vous allez utiliser pour créer un serveur de builds avec des instructions de ligne de commande MSBuild et des scripts Windows PowerShell. Il explique également comment configurer les définitions Visual Studio Team Foundation Server - Team Build à utiliser avec les commandes MSBuild et les scripts PowerShell. Ce processus est personnalisable en fonction de votre environnement de génération et des environnements Azure cibles.
 
-Vous pouvez également utiliser Visual Studio Online, une version de TFS hébergée sur Azure, pour effectuer ces opérations plus facilement. Pour plus d'informations, consultez la page [Remise continue pour Azure avec Visual Studio Online][].
+Vous pouvez également utiliser Visual Studio Online, une version de TFS hébergée sur Azure, pour effectuer ces opérations plus facilement. Pour plus d'informations, consultez la page [Livraison continue sur Azure au moyen de Visual Studio Online][].
 
 Avant de commencer, vous devez publier votre application à partir de Visual Studio. Ceci vous assure que toutes les ressources sont disponibles et initialisées lorsque vous tentez d'automatiser le processus de publication.
 
@@ -25,14 +25,14 @@ Avant de pouvoir créer un package Azure à l'aide de MSBuild, vous devez instal
 Visual Studio ne doit pas obligatoirement être installé sur le serveur de builds. Si vous voulez utiliser le service Team Foundation Build pour gérer votre serveur de builds, suivez les instructions figurant dans la documentation du [Service Team Foundation Build][].
 
 1.  Sur le serveur de builds, installez [.NET Framework 4][], [.NET Framework 4.5][] ou [.NET Framework 4.5.2][], incluant MSBuild.
-2.  Installez les outils [Azure Authoring Tools][] (recherchez WindowsAzureAuthoringTools-x86.msi ou WindowsAzureAuthoringTools-x64.msi en fonction du processeur de votre serveur de builds). Les versions plus anciennes des fichiers peuvent comporter WindowsAzure dans leur nom.
+2.  Installez les outils [Outils de création Azure][] (recherchez WindowsAzureAuthoringTools-x86.msi ou WindowsAzureAuthoringTools-x64.msi en fonction du processeur de votre serveur de builds). Les versions plus anciennes des fichiers peuvent comporter WindowsAzure dans leur nom.
 3. Installez les [bibliothèques Azure][] (recherchez MicrosoftAzureLibsForNet-x86.msi ou MicrosoftAzureLibsForNet-x64.msi).
 4.  Copiez le fichier Microsoft.WebApplication.targets depuis une installation Visual Studio vers le serveur de builds. Si Visual Studio est installé sur l'ordinateur, le fichier se trouve dans le répertoire C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\v11.0\\WebApplications (v12.0 pour Visual Studio 2013). Vous devez le copier dans le même répertoire sur le serveur de builds.
-5.  Installez les outils [Azure Tools for Visual Studio][]. Recherchez MicrosoftAzureTools.VS110.exe pour créer des projets Visual Studio 2012 et MicrosoftAzureTools.VS120.exe pour créer des projets Visual Studio 2013, et MicrosoftAzureTools.VS140.exe pour créer des projets Visual Studio 2015 Preview.
+5.  Installez les outils [Outils Azure pour Visual Studio][]. Recherchez MicrosoftAzureTools.VS110.exe pour créer des projets Visual Studio 2012 et MicrosoftAzureTools.VS120.exe pour créer des projets Visual Studio 2013, et MicrosoftAzureTools.VS140.exe pour créer des projets Visual Studio 2015 Preview.
 
 <h2><a name="step2"> </a>Étape 2 : génération d'un package à l'aide des commandes MSBuild</h2>
 
-Cette section décrit la création d'une commande MSBuild qui génère un package Azure. Exécutez cette étape sur le serveur de builds afin de vérifier que tout est correctement configuré et que la commande MSBuild fonctionne comme vous le souhaitez. Vous pouvez ajouter cette ligne de commande aux scripts existants sur le serveur de builds ou l'utiliser dans une définition de build TFS, comme décrit dans la section qui suit. Pour plus d'informations sur les paramètres de ligne de commande et MSBuild, consultez la page [Référence de la ligne de commande MSBuild]][].
+Cette section décrit la création d'une commande MSBuild qui génère un package Azure. Exécutez cette étape sur le serveur de builds afin de vérifier que tout est correctement configuré et que la commande MSBuild fonctionne comme vous le souhaitez. Vous pouvez ajouter cette ligne de commande aux scripts existants sur le serveur de builds ou l'utiliser dans une définition de build TFS, comme décrit dans la section qui suit. Pour plus d'informations sur les paramètres de ligne de commande et MSBuild, consultez la page [Référence de la ligne de commande MSBuild][].
 
 1.  Si Visual Studio est installé sur le serveur de builds, cliquez sur **Démarrer**, sur **Tous les programmes**, puis sélectionnez **Visual Studio Commmand Prompt** dans le dossier **Visual Studio Tools**.
 
@@ -123,6 +123,7 @@ Cette section décrit la création d'un script Windows PowerShell qui publie le 
 6.  Assurez-vous que les comptes valides de service cloud et de stockage créés dans votre abonnement peuvent être utilisés par le script de publication. Le compte de stockage (stockage d'objets blob) est utilisé pour télécharger et stocker de façon temporaire le package de déploiement et le fichier de configuration pendant la création du déploiement.
 
     -   Pour créer un service cloud, vous pouvez appeler ce script ou utiliser le portail de gestion Azure. Le nom du service cloud sera utilisé comme préfixe dans le nom de domaine complet. Il doit donc être unique. 
+
             New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
     -   Pour créer un compte de stockage, vous pouvez appeler ce script ou utiliser le portail de gestion Azure. Le nom du compte de stockage sera utilisé comme préfixe dans le nom de domaine complet. Il doit donc être unique. Vous pouvez essayer d'utiliser le même nom que le service cloud.
@@ -162,7 +163,7 @@ Cette section décrit la création d'un script Windows PowerShell qui publie le 
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
     Vous pouvez également exporter le fichier de certificat PFX avec une clé privée et télécharger les certificats sur chaque service cloud ciblé à l'aide du portail de gestion Azure. Pour plus d'informations, consultez l'article suivant :
-    [http://msdn.microsoft.com/fr-fr/library/windowsazure/gg443832.aspx][(http://msdn.microsoft.com/fr-fr/library/windowsazure/gg443832.aspx).
+    [http://msdn.microsoft.com/fr-fr/library/windowsazure/gg443832.aspx](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg443832.aspx).
 
     **Mise à niveau du déploiement et suppression du déploiement -> Nouveau déploiement**
 

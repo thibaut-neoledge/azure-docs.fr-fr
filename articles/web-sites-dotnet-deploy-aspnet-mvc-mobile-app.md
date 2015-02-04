@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle="Site web mobile .NET ASP.NET MVC 5 - Didacticiels Azure" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="Un didacticiel qui explique comment déployer une application web sur un site web Azure à l'aide des fonctionnalités mobiles de l'application web ASP.NET MVC 5." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle="Site web mobile .NET ASP.NET MVC 5 - Didacticiels Azure" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="Un didacticiel qui explique comment déployer une application web sur un site web Azure à l'aide des fonctionnalités mobiles de l'application web ASP.NET MVC 5." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande" />
 
@@ -171,7 +171,7 @@ Dans chaque appel Html.ActionLink pour la barre de navigation, supprimez " Parco
 
 Copiez le fichier *Views\\Home\\AllTags.cshtml* dans
 *Views\\Home\\AllTags.Mobile.cshtml*. Ouvrez le nouveau fichier et remplacez l'élément 
-`<h2> " Tags " par " Tags (M) " :
+`<h2>` " Tags " par " Tags (M) " :
 
     <h2>Tags (M)</h2>
 
@@ -210,7 +210,7 @@ Vous pouvez également ajouter manuellement la ligne suivante à la section usin
 
 Enregistrez les modifications. Copiez le fichier *Views\\Shared\\\_Layout.Mobile.cshtml* dans *Views\\Shared\\\_Layout.iPhone.cshtml*. Ouvrez le nouveau fichier et remplacez le titre " MVC5 Application (Mobile) " par " MVC5 Application (iPhone) ".
 
-Copiez le fichier *Views\\Home\\AllTags.Mobile.cshtml* dans *Views\\Home\\AllTags.iPhone.cshtml*. Dans le nouveau fichier, remplacez l'élément <h2> " Tags (M) " par " Tags (iPhone) ".
+Copiez le fichier *Views\\Home\\AllTags.Mobile.cshtml* dans *Views\\Home\\AllTags.iPhone.cshtml*. Dans le nouveau fichier, remplacez l'élément `<h2>` " Tags (M) " par " Tags (iPhone) ".
 
 Exécutez l'application. Lancez un émulateur de navigateur mobile, vérifiez que son agent utilisateur est défini sur " iPhone " et accédez à la vue *AllTags*. Si vous utilisez l'émulateur dans les outils de développement F12 d'Internet Explorer 11,configurez l'émulation comme suit :
 

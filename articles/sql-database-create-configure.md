@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to create and configure an Azure SQL DB" pageTitle="Création et configuration d'une base de données SQL Azure - Didacticiel Azure" metaKeywords="Création base de données SQL Azure, configuration de base de données SQL Azure" description="Création et configuration d'une base de données SQL Azure" metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure an Azure SQL Database" authors="sidneyh" solutions="" manager="jhubbard" editor="" />
+<properties urlDisplayName="How to create and configure an Azure SQL DB" pageTitle="Création et configuration d'une base de données SQL Azure - Didacticiel Azure" metaKeywords="Création base de données SQL Azure, configuration de base de données SQL Azure" description="Création et configuration d'une base de données SQL Azure" metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure an Azure SQL Database" authors="sidneyh" solutions="" manager="jhubbard" editor="" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sidneyh" />
 
@@ -6,7 +6,7 @@
 
 Dans cette rubrique, vous allez créer et configurer une base de données SQL Azure à l'aide du portail de gestion Azure. Dans ce workflow, nous allons commencer par la création d'un serveur. Vous pouvez privilégier cette méthode si vous souhaitez télécharger des bases de données SQL Server existantes.
 
-##Sommaire##
+## Sommaire##
 * [ Création d'un serveur logique](#createLogical)
 * [ Configuration du pare-feu pour le serveur logique](#configFWLogical)
 
@@ -40,7 +40,7 @@ Dans cette rubrique, vous allez créer et configurer une base de données SQL Az
 
 9. Une fois que vous avez terminé, cliquez sur la coche en bas de la page.
 
-###Nom du serveur généré automatiquement
+### Nom du serveur généré automatiquement
 
 Comme vous pouvez le remarquer, vous n'avez spécifié aucun nom de serveur. La base de données SQL génère automatiquement le nom du serveur pour garantir l'absence d'entrées DNS en double. Le nom du serveur se présente sous la forme d'une chaîne alphanumérique de dix caractères. Vous ne pouvez pas changer le nom de votre serveur de base de données SQL.
 
@@ -71,7 +71,7 @@ Comme vous pouvez le remarquer, vous n'avez spécifié aucun nom de serveur. La 
 
 Vous disposez à présent d'un serveur logique, d'une règle de pare-feu qui autorise les connexions entrantes provenant de votre adresse IP et d'une connexion administrateur. 
 
-**Remarque :** le serveur logique que vous venez de créer est virtuel et hébergé dynamiquement sur plusieurs serveurs physiques d'un centre de données. La suppression du serveur est une action irréversible. Veillez à sauvegarder toutes les bases de données que vous téléchargez par la suite sur le serveur. 
+**Remarque:** le serveur logique que vous venez de créer est virtuel et hébergé dynamiquement sur plusieurs serveurs physiques d'un centre de données. La suppression du serveur est une action irréversible. Veillez à sauvegarder toutes les bases de données que vous téléchargez par la suite sur le serveur. 
 
 
 <!--Image references-->

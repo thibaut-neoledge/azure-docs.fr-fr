@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Azure Import/Export Service" pageTitle="Utilisation du service Import/Export pour transférer des données vers le stockage d'objets blob | Microsoft Azure" metaKeywords="" description="Découvrez comment créer des tâches d'importation et d'exportation dans le portail de gestion Azure pour transférer des données vers le stockage d'objets blob." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="adinah" />
+<properties urlDisplayName="Azure Import/Export Service" pageTitle="Utilisation du service Import/Export pour transférer des données vers le stockage d'objets blob | Microsoft Azure" metaKeywords="" description="Découvrez comment créer des tâches d'importation et d'exportation dans le portail de gestion Azure pour transférer des données vers le stockage d'objets blob." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="tamram" />
 
@@ -265,7 +265,7 @@ Dans le cas des tâches d'exportation, vous pouvez afficher et copier les clés 
 
 	<div class="dev-callout">
 	<strong>Important</strong>
-	<p>You must provide your tracking number to the Azure Import/Export service; otherwise your job cannot be processed.</p>
+	<p>Vous devez fournir votre numéro de suivi au service Azure Import/Export ; à défaut, votre tâche n'est pas traitée.</p>
 	</div>
 
 **Les retours d'expédition sont-ils facturés ?**

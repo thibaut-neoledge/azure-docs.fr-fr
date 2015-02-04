@@ -1,13 +1,13 @@
-﻿#Recommandations en matière de sécurité Azure
+# Recommandations en matière de sécurité Azure
 
-##Résumé
+## Résumé
 
 Lors du développement d'applications pour Azure, les identités et
 les accès doivent être vos principales préoccupations en matière de sécurité.
 Cette rubrique explique ces questions de sécurité quant aux identités et aux accès dans le cloud, et comment vous
 pouvez protéger au mieux vos applications cloud.
 
-##Vue d'ensemble
+## Vue d'ensemble
 
 La sécurité d'une application est subordonnée à sa surface d'exposition. En effet, les risques
 de sécurité d'une application sont proportionnels à sa surface d'exposition. Pour
@@ -66,7 +66,7 @@ basés sur le cloud (par exemple avec le contrôle d'accès
 Azure Active Directory, précédemment appelé Service de contrôle d'accès
 ou ACS).
 
-##Menaces, failles et attaques
+## Menaces, failles et attaques
 
 Une menace est un mauvais résultat potentiel que vous voulez éviter, comme la
 divulgation d'informations sensibles ou un service qui devient indisponible.
@@ -122,7 +122,7 @@ de l'implémentation des mécanismes d'identité et d'accès dans votre applicat
 -   En cas de défaillance, votre mécanisme d'autorisation est-il suffisamment
     sûr pour éviter d'exposer des informations sensibles ou d'autoriser un accès illimité ?
 
-##Contre-mesures
+## Contre-mesures
 
 La meilleure contre-mesure face à une attaque consiste
 non pas à implémenter vos propres mécanismes d'identité et d'accès, mais à utiliser ceux
@@ -178,7 +178,7 @@ signatures d'accès partagé :
 -   [Nouvelle fonctionnalité de stockage : les signatures d'accès partagé](http://blog.smarx.com/posts/new-storage-feature-signed-access-signatures)
 -   [Signatures d'accès partagé : une facilité d'utilisation accrue](http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days)
 
-##Plan des scénarios
+## Plan des scénarios
 
 Cette section décrit brièvement les principaux scénarios abordés dans cette rubrique.
 Utilisez-la comme un outil pour déterminer la bonne solution de gestion des identités convenant à votre
@@ -228,13 +228,13 @@ l'application.
     vous devez accéder de façon sécurisée à des jeux de données
     Azure Marketplace.
 
-##Scénarios d'identité et d'accès Azure
+## Scénarios d'identité et d'accès Azure
 
 Cette section décrit des scénarios d'identité et d'accès courants pour
 différentes architectures d'application. Servez-vous du plan des scénarios
 pour vous orienter rapidement.
 
-###Application ASP.NET Web Forms avec authentification fédérée
+### Application ASP.NET Web Forms avec authentification fédérée
 
 Dans ce scénario d'architecture d'application, votre application web peut être
 déployée sur Azure ou en local. Les utilisateurs de
@@ -257,7 +257,7 @@ Pour implémenter ce scénario, consultez les ressources suivantes :
     à l'aide de certificats X.509](http://msdn.microsoft.com/fr-fr/library/gg185947.aspx)
 -   [Exemple de code : formulaires ASP.NET simples](http://msdn.microsoft.com/fr-fr/library/gg185938.aspx)
 
-###Service WCF (SOAP) avec identité de service
+### Service WCF (SOAP) avec identité de service
 
 Dans ce scénario d'architecture d'application, votre service WCF (SOAP) peut être
 déployée sur Azure ou en local. Une application web
@@ -288,7 +288,7 @@ Pour implémenter ce scénario, consultez les ressources suivantes :
 -   [Exemple de code : authentification par certificat WCF](http://msdn.microsoft.com/fr-fr/library/gg185952.aspx)
 -   [Exemple de code : authentification du nom d'utilisateur WCF](http://msdn.microsoft.com/fr-fr/library/gg185927.aspx)
 
-###Service WCF (SOAP) avec authentification, identités fédérées dans Active Directory
+### Service WCF (SOAP) avec authentification, identités fédérées dans Active Directory
 
 Dans ce scénario d'architecture d'application, votre service WCF (SOAP) peut être
 déployée sur Azure ou en local. Vous devez contrôler l'accès à ce
@@ -316,7 +316,7 @@ Pour implémenter ce scénario, consultez les ressources suivantes :
 -   [Exemple de code : authentification fédérée WCF avec AD FS 2.0
 ](http://msdn.microsoft.com/fr-fr/library/hh127796.aspx)
 
-###Service WCF (SOAP) avec les identités de service
+### Service WCF (SOAP) avec les identités de service
 
 Dans ce scénario, votre service WCF (REST) peut être déployé sur 
 Azure ou en local. Une application web ou un autre service web accède à ce service
@@ -348,7 +348,7 @@ Pour implémenter ce scénario, consultez les ressources suivantes :
 -   [Service WCF REST avec un jeton SWT émis par le service de
     contrôle d'accès Azure (ACS)](http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0)
 
-###Service WCF (REST) avec Live ID/Compte Microsoft, Facebook, Google, Yahoo!, Open ID
+### Service WCF (REST) avec Live ID/Compte Microsoft, Facebook, Google, Yahoo!, Open ID
 
 Dans ce scénario, votre service WCF (REST) peut être déployé dans 
 Azure ou en local. Vous devez contrôler l'accès à ce service en utilisant
@@ -386,7 +386,7 @@ Pour implémenter ce scénario, consultez les ressources suivantes :
     contrôle d'accès Azure (ACS)](http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0)
 
 
-###Application Web ASP.NET vers le service WCF REST avec jeton SWT partagé
+### Application Web ASP.NET vers le service WCF REST avec jeton SWT partagé
 
 Dans ce scénario, vous disposez d'une application distribuée avec une application web
 ASP.NET frontale et un service REST en aval, et vous voulez conserver le contexte
@@ -423,7 +423,7 @@ Pour implémenter ce scénario, consultez les ressources suivantes :
 -   [Délégation d'application web ASP.NET vers le service WCF REST à l'aide d'un jeton
     Jeton](http://code.msdn.microsoft.com/ASPNET-Web-App-To-REST-WCF-b2b95f82)
 
-###Contrôle d'accès en fonction du rôle dans les applications et services prenant en charge les revendications
+### Contrôle d'accès en fonction du rôle dans les applications et services prenant en charge les revendications
 
 Dans ce scénario, vous devez implémenter l'autorisation dans votre application ou service
 web en fonction des rôles utilisateurs : seuls les utilisateurs qui ont le rôle
@@ -483,7 +483,7 @@ Pour implémenter ce scénario, consultez les ressources suivantes :
 -   Exemple de code : Utilisation de revendications dans IsInRole dans le [Kit de développement logiciel (SDK) Windows Identity
     Foundation](http://www.microsoft.com/downloads/details.aspx?FamilyID=c148b2df-c7af-46bb-9162-2c9422208504)
 
-###Autorisation basée sur les revendications dans les applications et services prenant en charge les revendications
+### Autorisation basée sur les revendications dans les applications et services prenant en charge les revendications
 
 Dans ce scénario, vous devez implémenter une logique d'autorisation
 complexe dans votre application ou service web. Or, la méthode IsInRole()
@@ -507,7 +507,7 @@ Pour implémenter ce scénario, consultez les ressources suivantes :
     Identity Foundation](http://www.microsoft.com/downloads/details.aspx?FamilyID=c148b2df-c7af-46bb-9162-2c9422208504)
 
 
-##Scénarios d'identité et d'accès pour le service de stockage Azure
+## Scénarios d'identité et d'accès pour le service de stockage Azure
 
 Dans ce scénario, vous devez partager de façon sécurisée
 conteneurs de stockage Azure.
@@ -532,7 +532,7 @@ Pour résoudre ce scénario, consultez les ressources suivantes :
 -   [Signatures d'accès partagé : une facilité d'utilisation accrue](http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days)
 
 
-##Scénarios d'identité et d'accès pour la base de données SQL Azure
+## Scénarios d'identité et d'accès pour la base de données SQL Azure
 
 La base de données SQL prend en charge uniquement l'authentification SQL Server. L'authentification
     Windows (sécurité intégrée) n'est pas prise en charge. Les utilisateurs
@@ -553,7 +553,7 @@ Pour résoudre ce scénario, consultez les ressources suivantes :
 -   [ Connexion à la base de données SQL à l'aide de JDBC](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg715284.aspx)
 -   [ Connexion à la base de données SQL à l'aide d'ADO.NET Entity Framework](http://msdn.microsoft.com/fr-fr/library/windowsazure/ff951633.aspx)
 
-##Scénarios d'identité et d'accès pour Azure Service Bus
+## Scénarios d'identité et d'accès pour Azure Service Bus
 
 Service Bus et le contrôle d'accès Azure AD ont une relation
 spéciale en ce sens que chaque espace de noms du service Service Bus
@@ -572,7 +572,7 @@ Pour résoudre ce scénario, consultez les ressources suivantes :
 -   [Authentification et autorisation du Service Bus avec le service de
     contrôle d'accès](http://msdn.microsoft.com/fr-fr/library/hh403962.aspx)
 
-##Scénarios d'identité et d'accès pour le cache en mémoire
+## Scénarios d'identité et d'accès pour le cache en mémoire
 
 Le cache en mémoire (antérieurement appelé Cache Azure)
 s'appuie sur le contrôle d'accès Azure AD pour l'authentification. Il utilise des clés partagées
@@ -592,14 +592,14 @@ Pour résoudre ce scénario, consultez les ressources suivantes :
 -   [Exemples de Service Bus et de mise en cache Azure](http://msdn.microsoft.com/fr-fr/library/ee706741.aspx) (section Exemples
     de mise en cache)
 
-##Scénarios d'identité et d'accès pour Azure Marketplace
+## Scénarios d'identité et d'accès pour Azure Marketplace
 
 Chaque accès à un jeu de données Azure Marketplace, qu'il soit gratuit ou payant,
 passe obligatoirement par l'authentification de l'utilisateur. Quand vous
 créez une application, vous devez inclure le processus d'authentification
 dans votre code. Examinez les scénarios courants suivants :
 
-###J'accède à mon jeu de données
+### J'accède à mon jeu de données
 
 Dans ce scénario, vous créez une application qui utilise des jeux de données
 de votre abonnement Marketplace. Vous êtes l'utilisateur de l'application.
@@ -614,7 +614,7 @@ Pour résoudre ce scénario, consultez les ressources suivantes :
 
 -   [Utilisation de l'authentification HTTP de base dans votre application Marketplace](http://msdn.microsoft.com/fr-fr/library/gg193417.aspx)
 
-###Des utilisateurs accèdent à mes jeux de données
+### Des utilisateurs accèdent à mes jeux de données
 
 Dans ce scénario, vous créez une application permettant aux utilisateurs
 d'accéder à vos jeux de données. L'application peut être déployée sur Azure,
@@ -631,7 +631,7 @@ Pour résoudre ce scénario, consultez les ressources suivantes :
 -   [Exemple de client Web OAuth](http://go.microsoft.com/fwlink/?LinkId=219162)
 -   [Exemple de client riche OAuth](http://go.microsoft.com/fwlink/?LinkId=219163)
 
-###L'application accède à l'API Marketplace
+### L'application accède à l'API Marketplace
 
 Dans ce scénario, vous créez une application qui accède à
 l'API Marketplace. Cette API requiert une authentification pour que
@@ -648,17 +648,15 @@ Pour résoudre ce scénario, consultez les ressources suivantes :
 -   [Télécharger le kit de publication d'application](http://go.microsoft.com/fwlink/?LinkId=221323)
 -   [Présentation d'Azure Marketplace pour les applications](https://datamarket.azure.com/)
 
-##Dispositifs de sécurité
+## Dispositifs de sécurité
 
 Cette section décrit les dispositifs de sécurité pour Windows Identity Foundation
 et le contrôle d'accès Azure AD. Utilisez-la comme liste de contrôle de sécurité
 de base pour ces technologies lors de la conception et du déploiement de votre application.
 
-###Windows Identity Foundation
+### Windows Identity Foundation
 
-	Les dispositifs de sécurité suivants s'appliquent à WIF. Les informations ci-dessous sont extraites
-des articles [Considérations sur la conception WIF](http://msdn.microsoft.com/fr-fr/library/ee517298.aspx) et [Sécurité WIF (Windows Identity Foundation)
-pour les applications web ASP.NET - Menaces et contre-mesures](http://blogs.msdn.com/b/alikl/archive/2010/12/02/windows-identity-foundation-wif-security-for-asp-net-web-applications-threats-amp-countermeasures.aspx)
+Les dispositifs de sécurité suivants s'appliquent à WIF. Les informations ci-dessous sont extraitesdes articles [Considérations sur la conception WIF](http://msdn.microsoft.com/fr-fr/library/ee517298.aspx) et [Sécurité WIF (Windows Identity Foundation) pour les applications web ASP.NET - Menaces et contre-mesures](http://blogs.msdn.com/b/alikl/archive/2010/12/02/windows-identity-foundation-wif-security-for-asp-net-web-applications-threats-amp-countermeasures.aspx)
 .
 
 -   **IssuerNameRegistry**. Spécifie les services d'émission de jeton de sécurité
@@ -679,7 +677,7 @@ pour les applications web ASP.NET - Menaces et contre-mesures](http://blogs.msdn
     décrites dans l'article [Windows Identity Foundation (WIF) : une valeur potentiellement dangereuse
     de Request.Form a été détectée à partir du client](http://social.technet.microsoft.com/wiki/contents/articles/1725.windows-identity-foundation-wif-a-potentially-dangerous-request-form-value-was-detected-from-the-client-wresult-t-requestsecurityto.aspx)
 
-###Contrôle d'accès Azure AD
+### Contrôle d'accès Azure AD
 
 Envisagez les dispositifs de sécurité suivants lors du déploiement du contrôle d'accès
 Azure AD. Les informations ci-dessous sont extraites des articles [Consignes de sécurité
@@ -755,17 +753,17 @@ relatives à ACS](http://msdn.microsoft.com/fr-fr/library/gg185962.aspx) et [Ins
     de ses certificats. Vous commencerez à recevoir des exceptions dès
     l'expiration du certificat.
 
-##Hébergement partagé à l'aide de sites web Azure
+## Hébergement partagé à l'aide de sites web Azure
 
 Tous les scénarios et solutions décrits dans cette rubrique sont
 valides dans la mesure où l'application est hébergée sur des sites web Azure.
 
-##Azure Virtual Machines
+## Azure Virtual Machines
 
 Tous les scénarios et solutions décrits dans cette rubrique sont
 valides dans la mesure où l'application est hébergée sur des machines virtuelles Azure.
 
-##Ressources
+## Ressources
 
 -   [Kit de formation développeur dans le domaine de l'identité](http://go.microsoft.com/fwlink/?LinkId=214555)
 -   [Cours de formation développeur dans le domaine de l'identité (MSDN)](http://go.microsoft.com/fwlink/?LinkId=214561)

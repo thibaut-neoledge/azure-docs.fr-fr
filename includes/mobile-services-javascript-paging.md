@@ -1,4 +1,4 @@
-﻿
+
 
 1. Dans Visual Studio, ouvrez le projet que vous avez modifié lorsque vous avez suivi le didacticiel **Prise en main des données**.
 
@@ -44,7 +44,7 @@ La méthode **take(3)** a été convertie en option de requête **$top=3** dans 
                 });
         };
 
-Cette requête ignore les trois premiers résultats et renvoie les trois résultats suivants. Il s'agit en fait de la deuxième " page " de données, dont la taille est de trois éléments.
+   	Cette requête ignore les trois premiers résultats et renvoie les trois résultats suivants. Il s'agit en fait de la deuxième " page " de données, dont la taille est de trois éléments.
 
     <div class="dev-callout"><b>Remarque</b>
     <p>Ce didacticiel s'appuie sur un scénario simplifié dans lequel les valeurs de pagination codées en dur sont transmises aux méthodes <strong>Take</strong> et <strong>Skip</strong>. Dans une application réelle, vous pouvez utiliser des requêtes semblables à celles indiquées plus haut avec un contrôle pager ou une interface utilisateur comparable pour permettre aux utilisateurs d'accéder aux pages précédentes et suivantes.  Vous pouvez également appeler la méthode <strong>includeTotalCount</strong> pour obtenir le nombre total d'éléments disponibles sur le serveur, avec les données paginées.</p>
@@ -52,7 +52,7 @@ Cette requête ignore les trois premiers résultats et renvoie les trois résult
 
 6. (Facultatif) Là aussi, affichez l'URI de la requête envoyée au service mobile. 
 
-La méthode **skip(3)** a été convertie en option de requête **$skip=3** dans l'URI de requête.
+   	La méthode **skip(3)** a été convertie en option de requête **$skip=3** dans l'URI de requête.
 
 <!-- URLs -->
 [Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412

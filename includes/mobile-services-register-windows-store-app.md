@@ -1,5 +1,5 @@
-﻿
-1. Si vous n'avez pas déjà inscrit votre application, accédez à la page [Soumettre une application] du Centre de développement pour les applications Windows Store, connectez-vous à votre compte Microsoft, puis cliquez sur le **Nom de l'application**.
+
+1. Si vous n'avez pas déjà inscrit votre application, accédez à la [page Soumettre une application] du Centre de développement pour les applications Windows Store, connectez-vous à votre compte Microsoft, puis cliquez sur le **Nom de l'application**.
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-submit-win8-app.png)
 
@@ -23,7 +23,7 @@
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-select-app-name.png)
 
-Cela ajoute les informations d'inscription Windows Store requises au manifeste de l'application.    
+   	Cela ajoute les informations d'inscription Windows Store requises au manifeste de l'application.    
 
 7. De retour sur la page du centre de développement Windows pour la nouvelle application, cliquez sur **Services**. 
 
@@ -65,6 +65,6 @@ Vous êtes maintenant prêt à utiliser un compte Microsoft pour l'authentificat
  
 
 <!-- URLs. -->
-[Prise en main de Mobile Services] : /fr-fr/develop/mobile/tutorials/get-started/#create-new-service
+[Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started/#create-new-service
 [Page Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Portail de gestion Azure]: https://manage.windowsazure.com/

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Use Hadoop Oozie in HDInsight" pageTitle="Utilisation de Hadoop Oozie dans HDInsight | Azure" metaKeywords="" description="Utilisez Hadoop Oozie dans HDInsight, une solution pour les données volumineuses. Découvrez comment définir un workflow Oozie et envoyer une tâche Oozie." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadop Oozie in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Use Hadoop Oozie in HDInsight" pageTitle="Utilisation de Hadoop Oozie dans HDInsight | Azure" metaKeywords="" description="Utilisez Hadoop Oozie dans HDInsight, une solution pour les données volumineuses. Découvrez comment définir un workflow Oozie et envoyer une tâche Oozie." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadop Oozie in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
 
@@ -31,7 +31,7 @@ Le workflow que vous implémentez contient deux actions :
 		2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
 		...
 
-	The Hive script output is similar to:
+	La sortie du script Hive doit ressembler à ceci :
 	
 		[DEBUG] 434
 		[ERROR] 3
@@ -53,7 +53,7 @@ Le workflow que vous implémentez contient deux actions :
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un poste de travail sur lequel **Azure PowerShell est installé et configuré. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][powershell-install-configure]. Pour exécuter des scripts PowerShell, vous devez exécuter Azure PowerShell en tant qu'administrateur et définir la stratégie d'exécution sur *RemoteSigned*. Consultez la page [Exécution de scripts Windows PowerShell][powershell-script].
+- **Un poste de travail sur lequel**Azure PowerShell est installé et configuré. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][powershell-install-configure]. Pour exécuter des scripts PowerShell, vous devez exécuter Azure PowerShell en tant qu'administrateur et définir la stratégie d'exécution sur *RemoteSigned*. Consultez la page [Exécution de scripts Windows PowerShell][powershell-script].
 - **Un cluster HDInsight**. Pour plus d'informations sur la création d'un cluster HDInsight, consultez la rubrique [Approvisionnement de clusters HDInsight][hdinsight-provision] ou [Prise en main de HDInsight][hdinsight-get-started]. Vous aurez besoin des données suivantes pour suivre ce didacticiel :
 
 	<table border = "1">
@@ -87,9 +87,9 @@ Les définitions des workflows Oozie sont écrites en hPDL (un langage de défin
 
 L'action Hive dans le workflow appelle un fichier de script HiveQL. Le fichier de script contient trois instructions HiveQL :
 
-1. **L'instruction DROP TABLE **supprime la table Hive log4j si elle existe.
-2. **L'instruction CREATE TABLE ** crée une table externe Hive log4j pointant vers l'emplacement du fichier journal log4j. Le séparateur de champ est " , ". Le séparateur de ligne par défaut est " \n ".  La table externe Hive est utilisée pour éviter que le fichier de données soit supprimé de son emplacement d'origine au cas où vous souhaiteriez exécuter à plusieurs reprises le workflow Oozie.
-3. **L'instruction INSERT OVERWRITE ** compte les occurrences de chaque type de niveau de journalisation à partir de la table Hive log4j et enregistre la sortie dans un emplacement Azure Storage - Blob (WASB). 
+1. **L'instruction DROP TABLE** supprime la table Hive log4j si elle existe.
+2. **L'instruction CREATE TABLE** crée une table externe Hive log4j pointant vers l'emplacement du fichier journal log4j. Le séparateur de champ est " , ". Le séparateur de ligne par défaut est " \n ".  La table externe Hive est utilisée pour éviter que le fichier de données soit supprimé de son emplacement d'origine au cas où vous souhaiteriez exécuter à plusieurs reprises le workflow Oozie.
+3. **L'instruction INSERT OVERWRITE** compte les occurrences de chaque type de niveau de journalisation à partir de la table Hive log4j et enregistre la sortie dans un emplacement Azure Storage - Blob (WASB). 
 
 Il existe un problème connu de chemin d'accès à Hive. Vous le rencontrez lors de l'envoi d'une tâche Oozie. Les instructions permettant d'y remédier sont disponibles sur la page [Wiki TechNet][technetwiki-hive-error].
 
@@ -462,7 +462,7 @@ Azure PowerShell ne fournit actuellement aucune cmdlet pour la définition de t�
 	    $oozieServerSatus = $jsonResponse[0].("systemMode")
 	    Write-Host "Oozie server status is $oozieServerSatus..."
 	
-5. Append the following to the script. This part creates and starts an Oozie job:	
+5. Ajoutez ce qui suit au script. Cette partie crée et démarre une tâche Oozie :	
 
 	    # create Oozie job
 	    Write-Host "Sending the following Payload to the cluster:" -ForegroundColor Green
@@ -479,7 +479,7 @@ Azure PowerShell ne fournit actuellement aucune cmdlet pour la définition de t�
 	    $clusterUriStartJob = "https://$clusterName.azurehdinsight.net:443/oozie/v2/job/" + $oozieJobId + "?action=start"
 	    $response = Invoke-RestMethod -Method Put -Uri $clusterUriStartJob -Credential $creds | Format-Table -HideTableHeaders #-debug
 		
-6. Append the following to the script. This part checks the Oozie job status:		
+6. Ajoutez ce qui suit au script. Cette partie vérifie le statut de la tâche Oozie :		
 
 	    # get job status
 	    Write-Host "Sleeping for $waitTimeBetweenOozieJobStatusCheck seconds until the job metadata is populated in the Oozie metastore..." -ForegroundColor Green

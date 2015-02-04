@@ -1,3 +1,5 @@
+
+
 Par défaut, toutes les requêtes adressées aux ressources du service mobile sont réservées aux clients qui présentent la clé de l'application, ce qui n'offre pas de sécurisation stricte de l'accès aux ressources. Pour sécuriser vos ressources, vous devez limiter l'accès aux clients authentifiés.
 
 1.  Dans Visual Studio, ouvrez le projet qui contient votre service mobile.

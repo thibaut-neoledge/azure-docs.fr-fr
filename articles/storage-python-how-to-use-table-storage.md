@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Table Service" pageTitle="Utilisation du stockage de tables (Python) | Microsoft Azure" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" description="Découvrez comment utiliser le service de Table de Python pour créer, supprimer, insérer et interroger une table." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Table Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Utilisation du stockage de tables (Python) | Microsoft Azure" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" description="Découvrez comment utiliser le service de Table de Python pour créer, supprimer, insérer et interroger une table." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Table Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm" />
 
@@ -6,7 +6,8 @@
 
 
 
-# Utilisation du service de stockage de tables à partir de Python Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de tables Azure. Les exemples sont écrits en utilisant l'API Python. Les scénarios traités incluent la**création et la suppression d'une table, l'insertion et l'interrogation d'entités dans une table**. Pour plus d'informations sur les tables, consultez la section [Étapes suivantes][].
+# Utilisation du service de stockage de tables à partir de Python 
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de tables Azure. Les exemples sont écrits en utilisant l'API Python. Les scénarios traités incluent la**création et la suppression d'une table, l'insertion et l'interrogation d'entités dans une table**. Pour plus d'informations sur les tables, consultez la section [Étapes suivantes][].
 
 ## Sommaire
 
@@ -46,18 +47,10 @@ Le code suivant permet de créer un objet  **TableService** en utilisant le nom 
 
 ## <a name="add-entity"> </a>Ajout d'une entité à une table
 
-Pour ajouter une entité, commencez par créer un dictionnaire définissant les
-noms et valeurs des propriétés de votre entité. Notez que pour chaque entité, vous devez
-spécifier les clés **PartitionKey** et **RowKey**. Elles représentent
-les identificateurs uniques de vos entités, dont les valeurs peuvent être interrogées
-bien plus rapidement que d'autres propriétés. Le système utilise **PartitionKey** pour
-distribuer automatiquement les entités de la table sur plusieurs nœuds de stockage.
-Les entités partageant la même clé **PartitionKey** sont stockées sur le même nœud. Exemple
-**RowKey** est l'identifiant unique de l'entité dans la partition dont
-il fait partie.
+Pour ajouter une entité, commencez par créer un dictionnaire définissant les noms et valeurs des propriétés de votre entité. Notez que pour chaque entité, vous devez spécifier les clés **PartitionKey** et **RowKey**. Elles représentent les identificateurs uniques de vos entités, dont les valeurs peuvent être interrogées
+bien plus rapidement que d'autres propriétés. Le système utilise **PartitionKey** pour distribuer automatiquement les entités de la table sur plusieurs nœuds de stockage. Les entités partageant la même clé **PartitionKey** sont stockées sur le même nœud. Exemple **RowKey** est l'identifiant unique de l'entité dans la partition dont il fait partie.
 
-Pour ajouter une entité à votre table, transmettez un objet dictionnaire
-à la méthode **insert\_entity**.
+Pour ajouter une entité à votre table, transmettez un objet dictionnaire à la méthode **insert\_entity**.
 
 	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the trash', 'priority' : 200}
 	table_service.insert_entity('tasktable', task)
@@ -73,8 +66,7 @@ Vous pouvez également transmettre une instance de la classe **Entity** à la m�
 
 ## <a name="update-entity"> </a>Mise à jour d'une entité
 
-Ce code montre comment remplacer l'ancienne version d'une entité existante
-par une version mise à jour.
+Ce code montre comment remplacer l'ancienne version d'une entité existante par une version mise à jour.
 
 	task = {'description' : 'Take out the garbage', 'priority' : 250}
 	table_service.update_entity('tasktable', 'tasksSeattle', '1', task)
@@ -100,8 +92,7 @@ Il est parfois intéressant de soumettre un lot d'opérations simultanément pou
 
 ## <a name="query-for-entity"> </a>Interrogation d'une entité
 
-Pour interroger une entité dans une table, utilisez la méthode **get\_entity**, en
-transmettant les clés **PartitionKey** et **RowKey**.
+Pour interroger une entité dans une table, utilisez la méthode **get\_entity**, en transmettant les clés **PartitionKey** et **RowKey**.
 
 	task = table_service.get_entity('tasktable', 'tasksSeattle', '1')
 	print(task.description)

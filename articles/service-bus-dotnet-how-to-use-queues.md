@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Queues" pageTitle="Utilisation des files d'attente Service Bus (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en C# à l'aide de l'API .NET." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+<properties urlDisplayName="Service Bus Queues" pageTitle="Utilisation des files d'attente Service Bus (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en C# à l'aide de l'API .NET." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
@@ -14,13 +14,13 @@
 
 [WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-##Configuration de l'application pour l'utilisation de Service Bus
+## Configuration de l'application pour l'utilisation de Service Bus
 
 Quand vous créez une application qui utilise Service Bus, vous devez
 ajouter une référence à l'assembly Service Bus et inclure les
 espaces de noms correspondants.
 
-##Obtention du package NuGet Service Bus
+## Obtention du package NuGet Service Bus
 
 Le package **NuGet** Service Bus est le moyen le plus simple de se procurer l'API Service Bus et de configurer votre application avec toutes les dépendances Service Bus. L'extension Visual Studio NuGet facilite l'installation et la mise à jour des bibliothèques et des outils de Visual Studio et Visual Studio Express 2012 pour le Web.
 
@@ -34,12 +34,12 @@ Pour installer le package NuGet dans votre application, procédez comme suit :
 Vous êtes maintenant en mesure d'écrire du code pour Service Bus.
 
 
-##Configuration d'une chaîne de connexion Service Bus
+## Configuration d'une chaîne de connexion Service Bus
 
 Service Bus utilise une chaîne de connexion pour stocker les points de terminaison et les informations d'identification. Vous pouvez placer votre chaîne de connexion dans un fichier de configuration, au lieu de la coder en dur dans le code :
 
-- Quand vous utilisez Azure Cloud Services, il est recommandé de stocker votre chaîne de connexion en utilisant le système de configuration de service Azure (fichiers *.csdef et*.cscfg).
-- Quand vous utilisez Sites Web Azure ou Azure Virtual Machines, il est recommandé de stocker votre chaîne de connexion en utilisant le système de configuration .NET (par exemple, un fichier web.config).
+- Quand vous utilisez Azure Cloud Services, il est recommandé de stocker votre chaîne de connexion en utilisant le système de configuration de service Azure (fichiers `*.csdef` et`*.cscfg`).
+- Quand vous utilisez Sites Web Azure ou Azure Virtual Machines, il est recommandé de stocker votre chaîne de connexion en utilisant le système de configuration .NET (par exemple, un fichier `web.config`).
 
 Dans les deux cas, vous pouvez récupérer votre chaîne de connexion en utilisant la méthode CloudConfigurationManager.GetSetting, tel qu'indiqué plus loin dans ce guide.
 
@@ -85,7 +85,7 @@ Quand vous utilisez Sites Web Azure ou Azure Virtual Machines, il est recommand�
 
 Utilisez l'émetteur et les valeurs de clé récupérées sur le portail de gestion, comme décrit dans la section précédente.
 
-##Création d'une file d'attente
+## Création d'une file d'attente
 
 Vous pouvez effectuer des opérations de gestion pour les files d'attente Service Bus via la classe **NamespaceManager**. La classe **NamespaceManager** fournit des méthodes pour créer, énumérer et supprimer des files d'attente. 
 
@@ -128,7 +128,7 @@ Les surcharges de la méthode **CreateQueue** vous permettent de paramétrer les
 
 **Remarque :** vous pouvez utiliser la méthode **QueueExists** sur les objets **NamespaceManager** pour vérifier s'il existe déjà une file d'attente d'un nom déterminé dans un espace de noms de service.
 
-##Envoi de messages à une file d'attente
+## Envoi de messages à une file d'attente
 
 Pour envoyer un message à une file d'attente Service Bus, votre application crée un objet **QueueClient** en utilisant la chaîne de connexion.
 
@@ -160,7 +160,7 @@ Les messages envoyés aux files d'attente Service Bus (et ceux en provenance de 
 
 Les files d'attente Service Bus prennent en charge une taille de message maximale de 256 Ko (l'en-tête, qui comprend les propriétés d'application standard et personnalisées, peut avoir une taille maximale de 64 Ko). Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go.
 
-##Réception des messages d'une file d'attente
+## Réception des messages d'une file d'attente
 
 Le moyen le plus simple de recevoir les messages d'une file d'attente est d'utiliser un objet **QueueClient**. Ces objets peuvent fonctionner dans deux modes différents : **ReceiveAndDelete** et **PeekLock**.
 
@@ -197,7 +197,7 @@ L'exemple ci-dessous montre comment les messages peuvent être reçus et traité
        }
     } 
 
-##Gestion des blocages d'application et des messages illisibles
+## Gestion des blocages d'application et des messages illisibles
 
 Service Bus intègre des fonctionnalités destinées à faciliter la récupération à la suite d'erreurs survenues dans votre application ou de difficultés à traiter un message. Si une application réceptrice ne parvient pas à traiter le message pour une raison quelconque, elle appelle la méthode **Abandon** pour le message reçu (au lieu de la méthode **Complete**). Cela amène Service Bus à déverrouiller le message dans la file d'attente et à le rendre à nouveau disponible en réception, pour la même application consommatrice ou pour une autre.
 
@@ -205,15 +205,14 @@ De même, il faut savoir qu'un message verrouillé dans une file d'attente est a
 
 Si l'application subit un incident après le traitement du message, mais avant l'émission de la demande **Complete**, le message est à nouveau remis à l'application au moment où elle redémarre. Dans ce type de traitement, souvent appelé **Au moins une fois**, chaque message est traité au moins une fois, mais, dans certains cas, un même message peut être remis une nouvelle fois. Si le scénario ne peut pas tolérer le traitement en double, les développeurs d'application doivent ajouter une logique supplémentaire à leur application pour traiter la remise de messages en double, Pour ce faire, il suffit souvent d'utiliser la propriété **MessageId** du message, qui reste constante pendant les tentatives de remise.
 
-##Étapes suivantes
+## Étapes suivantes
 
 Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez ces
 liens pour en savoir plus :
 
 -   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements.][]
 -   Créez une application opérationnelle capable d'envoyer et de recevoir des messages à destination et
-    en provenance d'une file d'attente Service Bus : [Didacticiel .NET sur la messagerie répartie Service Bus
-    ].
+ en provenance d'une file d'attente Service Bus : [Didacticiel .NET sur la messagerie répartie Service Bus].
 
   [Étapes suivantes]: #next-steps
   [Présentation des files d'attente Service Bus]: #what-queues

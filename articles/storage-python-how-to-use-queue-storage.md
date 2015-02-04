@@ -1,10 +1,11 @@
-﻿<properties urlDisplayName="Queue Service" pageTitle="Utilisation du service de File d'attente (Python) | Microsoft Azure" metaKeywords="Azure Queue Service messaging Python" description="Découvrez comment utiliser le service de File d'attente Azure pour créer et supprimer des files d'attente, ainsi que pour insérer, récupérer et supprimer des messages. Les exemples sont écrits en Python." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Queue Service" pageTitle="Utilisation du service de File d'attente (Python) | Microsoft Azure" metaKeywords="Azure Queue Service messaging Python" description="Découvrez comment utiliser le service de File d'attente Azure pour créer et supprimer des files d'attente, ainsi que pour insérer, récupérer et supprimer des messages. Les exemples sont écrits en Python." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm" />
 
 
 
-# Utilisation du service de stockage de files d'attente à partir de Python Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de files d'attente Azure. Les exemples sont écrits en utilisant l'API Python. Les scénarios traitent de l' **insertion**, de la **lecture furtive**, de l'**obtention** et de la **suppression** de messages de la file d'attente, et de la **création et suppression de files d'attente**. Pour plus d'informations sur les files d'attente, consultez la section [Étapes suivantes][].
+# Utilisation du service de stockage de files d'attente à partir de Python 
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de files d'attente Azure. Les exemples sont écrits en utilisant l'API Python. Les scénarios traitent de l' **insertion**, de la **lecture furtive**, de l'**obtention** et de la **suppression** de messages de la file d'attente, et de la **création et suppression de files d'attente**. Pour plus d'informations sur les files d'attente, consultez la section [Étapes suivantes][].
 
 ## Sommaire
 

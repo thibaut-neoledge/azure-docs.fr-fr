@@ -1,4 +1,4 @@
-﻿<properties writer="ricksal" pageTitle="Appel d'une API personnalisée à partir d'un client Android | Centre de développement mobile" metaKeywords="" description="Découvrez comment définir une API personnalisée et l'appeler depuis une application Android qui utilise Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="ricksal,glenga" manager="dwrede" />
+<properties writer="ricksal" pageTitle="Appel d'une API personnalisée à partir d'un client Android | Centre de développement mobile" metaKeywords="" description="Découvrez comment définir une API personnalisée et l'appeler depuis une application Android qui utilise Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="ricksal,glenga" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal,glenga" />
 
@@ -19,7 +19,7 @@ Vous allez ajouter cette fonctionnalité à l'application que vous avez créée 
 
 >[AZURE.NOTE] Le code source de l'application terminée est disponible <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/CallCustomApi/Android" target="_blank">ici</a>.
 
-##Conditions préalables
+## Conditions préalables
 
 [WACOM.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]
 

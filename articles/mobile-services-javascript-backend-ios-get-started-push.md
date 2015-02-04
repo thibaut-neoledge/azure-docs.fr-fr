@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="Prise en main des notifications Push (iOS) | Centre de développement mobile" metaKeywords="" description="Découvrez comment utiliser Azure Mobile Services pour envoyer des notifications Push à votre application iOS." metaCanonical="http://www.windowsazure.com/fr-fr/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
+<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="Prise en main des notifications Push (iOS) | Centre de développement mobile" metaKeywords="" description="Découvrez comment utiliser Azure Mobile Services pour envoyer des notifications Push à votre application iOS." metaCanonical="http://www.windowsazure.com/fr-fr/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
@@ -41,7 +41,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 
 1. Dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItem**.
 
-   	![][21]
+  	![][21]
 
 2. Dans **todoitem**, cliquez sur l'onglet **Script** et sélectionnez **Insérer**.
 
@@ -155,10 +155,10 @@ Ce didacticiel a présenté les bases de l'activation d'une application iOS pour
 
 + [Envoi de notifications diffusées aux abonnés]
 	<br/>En savoir plus sur l'inscription des utilisateurs et la réception des notifications Push pour les catégories qui les intéressent.
-<!---
-+ [Send template-based notifications to subscribers]
-	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
--->
+
+<!---+ [Send template-based notifications to subscribers]
+	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.-->
+
 Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
 * [Prise en main des données]
@@ -220,7 +220,7 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
 <!-- URLs.   -->
-[Installation de Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Portail de mise en service iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Kit de développement logiciel (SDK) Mobile Services iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Service de notification Push Apple (APN, Apple Push Notification)]: http://go.microsoft.com/fwlink/p/?LinkId=272584

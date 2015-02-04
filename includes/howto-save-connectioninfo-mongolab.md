@@ -17,7 +17,7 @@ Même s’il est possible de coller un URI MongoLab dans votre code, il est reco
 8.  Cliquez sur **Enregistrer** dans la barre d’outils.  
     ![SaveWebSite][SaveWebSite]
 
-**Remarque :**Azure ajoute le préfixe **CUSTOMCONNSTR\_** à cette variable, ce qui explique que le code ci-dessus fasse référence à **CUSTOMCONNSTR\_MONGOLAB\_URI.**
+**Remarque : **Azure ajoute le préfixe **CUSTOMCONNSTR\_** à cette variable, ce qui explique que le code ci-dessus fasse référence à **CUSTOMCONNSTR\_MONGOLAB\_URI.**
 
   [WebSiteEntry]: ./media/howto-save-connectioninfo-mongolab/entry-website.png
   [WebSiteDashboardConfig]: ./media/howto-save-connectioninfo-mongolab/focus-mongolab-websitedashboard-config.png

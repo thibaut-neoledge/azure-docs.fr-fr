@@ -25,8 +25,8 @@ Le service de table contient les composants suivants :
 ![Table1][Table1]
 
 -   **Format d'URL :** le code traite les tables dans un compte à l'aide du
-    format d'adresse suivant :
-    http://`<storage account>`.table.core.windows.net/`<table>`
+    format d'adresse suivant :   
+    http://`<storage account>`.table.core.windows.net/`<table>`  
 
     Vous pouvez traiter les tables Azure directement à l'aide de cette adresse avec le
     protocole OData. Pour plus d'informations, consultez [OData.org][OData.org]

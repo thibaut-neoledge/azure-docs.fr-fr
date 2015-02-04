@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SharePoint on Azure" pageTitle="Déploiement de SharePoint 2010 sur des machines virtuelles Azure" metaKeywords="" description="Présentation des scénarios pris en charge pour l'utilisation de SharePoint 2010 sur des machines virtuelles Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="SharePoint 2010 Deployment on Azure Virtual Machines" authors="josephd" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="SharePoint on Azure" pageTitle="Déploiement de SharePoint 2010 sur des machines virtuelles Azure" metaKeywords="" description="Présentation des scénarios pris en charge pour l'utilisation de SharePoint 2010 sur des machines virtuelles Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="SharePoint 2010 Deployment on Azure Virtual Machines" authors="josephd" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/16/2014" ms.author="josephd" />
 
@@ -213,7 +213,7 @@ Vous pouvez déployer SharePoint 2010 sur Azure en procédant comme suit :
 <li>Configurez SharePoint à l'aide de Windows PowerShell. Pour plus d'informations, consultez <a href="http://technet.microsoft.com/fr-fr/library/cc262839.aspx">Installation de SharePoint Server 2010 à l'aide de Windows PowerShell</a>.
 <ul>
 <li>Vous pouvez également utiliser AutoSPInstaller du projet CodePlex qui est composé de scripts Windows PowerShell, d'un fichier d'entrée XML et d'un fichier de commandes Microsoft Windows. AutoSPInstaller fournit une infrastructure pour un script d'installation SharePoint 2010 basé sur Windows PowerShell. Pour plus d'informations, consultez <a href="http://autospinstaller.codeplex.com/">CodePlex : AutoSPInstaller</a>.
-
+<ul>
 <strong>Remarque</strong> : assurez-vous de configurer la sécurité sur le point de terminaison du portail de gestion et de définir un port entrant sur le pare-feu Windows de la machine virtuelle. Puis, assurez-vous que vous pouvez démarrer une session Windows PowerShell à distance sur l'un des serveurs d'applications SharePoint en ouvrant une session Windows PowerShell avec les informations d'identification Administrateur.
 </li>
 </ul>
@@ -231,7 +231,7 @@ Vous pouvez déployer SharePoint 2010 sur Azure en procédant comme suit :
 Vous pouvez également créer vos propres images et les charger dans Azure sous la forme d'un fichier de disque dur virtuel. Pour créer et charger un fichier de disque dur virtuel sur Azure, procédez comme suit :
 
 <ol>
-<li>Create the Hyper-V-enabled image: Use Hyper-V Manager to create the Hyper-V-enabled VHD. For more information, go to <a href="http://technet.microsoft.com/fr-fr/library/cc742509">Créez des disques durs virtuels</a>.</li>
+<li>Créez l'image Hyper-V : utilisez le Gestionnaire Hyper-V pour créer le disque dur virtuel Hyper-V. Pour plus d'informations, consultez la page <a href="http://technet.microsoft.com/fr-fr/library/cc742509">Créez des disques durs virtuels</a>.</li>
 <li>Créez un compte de stockage dans Azure : un compte de stockage dans Azure est requis pour charger un fichier de disque dur virtuel pouvant être utilisé pour la création d'une machine virtuelle. Vous pouvez créer ce compte à l'aide du portail de gestion Azure. Pour plus d'informations, consultez <a href="/fr-fr/manage/windows/common-tasks/upload-a-vhd/">Création d'un compte de stockage dans Azure</a>.</li>
 <li>Préparez l'image pour le chargement : avant de pouvoir télécharger l'image sur Azure, elle doit être généralisée en utilisant la commande Sysprep. Pour plus d'informations, consultez <a href="http://technet.microsoft.com/fr-fr/library/bb457073.aspx">Utilisation de Sysprep : introduction</a>.</li>
 <li>Chargez l'image dans Azure : pour charger une image contenue dans un fichier de disque dur virtuel, vous devez créer et installer un certificat de gestion. Obtenez l'empreinte numérique du certificat et l'ID d'abonnement. Définissez la connexion et téléchargez le fichier VHD à l'aide de l'outil en ligne de commande CSUpload. Pour plus d'informations, consultez <a href="/fr-fr/manage/windows/common-tasks/upload-a-vhd/">Téléchargement de l'image sur Azure</a>.</li>
@@ -264,7 +264,7 @@ La figure 4 montre un environnement de développement et de test SharePoint dans
 Pour implémenter un environnement de développement et de test SharePoint sur Azure, procédez comme suit :
 
 <ol>
-<li><em>Provision</em>: First, provision a VPN connection between on-premises and Azure using Azure Virtual Network. (Because Active Directory is not being used here, a VPN tunnel is needed.) For more information, go to <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156007.aspx">Réseau virtuel Azure (Considérations relatives à la conception et scénarios de connexion sécurisés)</a>. Puis, utilisez le portail de gestion pour mettre en service une nouvelle machine virtuelle en utilisant une image stockée provenant de la bibliothèque d'images.
+<li><em>Configuration</em> : tout d'abord, mettez une connexion VPN en service entre les éléments locaux et Azure à l'aide d'Azure Virtual Network. (Active Directory n'étant pas utilisé ici, un tunnel VPN est requis.) Pour plus d'informations, consultez la page <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156007.aspx">Réseau virtuel Azure (Considérations relatives à la conception et scénarios de connexion sécurisés)</a>. Puis, utilisez le portail de gestion pour mettre en service une nouvelle machine virtuelle en utilisant une image stockée provenant de la bibliothèque d'images.
 <ul>
 <li>Vous pouvez charger les machines virtuelles locales de développement et de test SharePoint sur votre compte de stockage Azure et référencer ces dernières par l'intermédiaire de la bibliothèque d'images afin de générer l'environnement requis.</li>
 <li>Vous pouvez utiliser l'image SQL Server 2012 au lieu de l'image Windows Server 2008 R2 SP1. Pour plus d'informations, consultez <a href="/fr-fr/manage/windows/common-tasks/install-sql-server/">Configuration d'une machine virtuelle SQL Server sur Azure</a>.</li>
@@ -333,7 +333,7 @@ Dans ce scénario, des serveurs Web frontaux supplémentaires pour SharePoint Se
 Pour implémenter une batterie de serveurs SharePoint publique sur Azure, procédez comme suit :
 
 <ol>
-<li><em>Deploy Active Directory</em>: The fundamental requirements for deploying Active Directory on Azure Virtual Machines are similar"but not identical"to deploying it on VMs (and, to some extent, physical machines) on-premises. For more information about the differences, as well as guidelines and other considerations, go to <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156090">Recommandations en matière de déploiement d'Active Directory sur des machines virtuelles Azure</a>. Pour déployer Active Directory dans Azure :
+<li><em>Déployer Active Directory</em>: les exigences fondamentales de déploiement d'Active Directory sur Azure Virtual Machines sont similaires « mais pas identiques » au déploiement sur des machines virtuelles (et, dans une certaine mesure, sur des machines physiques) locales. Pour plus d'informations sur les différences ainsi que pour des instructions et autres considérations, consultez la page <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156090">Recommandations en matière de déploiement d'Active Directory sur des machines virtuelles Azure</a>. Pour déployer Active Directory dans Azure :
 <ul>
 <li>Définissez et créez un réseau virtuel où les machines virtuelles peuvent être affectées à des sous-réseaux spécifiques. Pour plus d'informations, consultez <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Configuration de la mise en réseau virtuel</a>.</li>
 <li>Utilisez le portail de gestion pour créer et déployer le contrôleur de domaine sur une nouvelle machine virtuelle sur Azure. Pour plus d'informations, consultez <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Déploiement et création du contrôleur de domaine</a>.
@@ -388,9 +388,9 @@ Pour monter en charge le déploiement des composants décisionnels, un nouveau s
 Pour monter en charge un environnement décisionnel sur Azure, procédez comme suit :
 
 <ol>
-<li><em>Provision</em>:
+<li><em>Configuration</em>:
 <ul>
-<li>Provision a VPN connection between on premises and Azure using Azure Virtual Network. For more information, go to <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156007.aspx">Réseau virtuel Azure (Considérations relatives à la conception et scénarios de connexion sécurisés)</a>.</li>
+<li>Mettez une connexion VPN en service entre les éléments locaux et Azure à l'aide d'Azure Virtual Network. Pour plus d'informations, consultez la page <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156007.aspx">Réseau virtuel Azure (Considérations relatives à la conception et scénarios de connexion sécurisés)</a>.</li>
 <li>Utilisez le portail de gestion pour mettre en service une nouvelle machine virtuelle à partir d'une image stockée provenant de la bibliothèque d'images.
 <ul>
 <li>Vous pouvez charger des images de charge de travail décisionnelles SharePoint Server ou SQL Server dans la bibliothèque d'images, et tout utilisateur autorisé peut sélectionner ces machines virtuelles de composants décisionnels pour créer un environnement monté en charge.</li>
@@ -443,7 +443,7 @@ Pour implémenter un site Web SharePoint entièrement personnalisé sur Azure, u
 Les étapes suivantes expliquent comment créer un environnement personnalisé de batteries de serveurs SharePoint à partir d'images prégénérées disponibles dans la bibliothèque d'images. Notez, néanmoins, que vous pouvez également charger des machines virtuelles de batterie de serveurs SharePoint dans la bibliothèque d'images, et les utilisateurs autorisés peuvent choisir ces machines virtuelles pour créer la batterie de serveurs SharePoint requise sur Azure.
 
 <ol>
-<li>Deploy Active Directory<em>: The fundamental requirements for deploying Active Directory on Azure Virtual Machines are similar"but not identical"to deploying it on VMs (and, to some extent, physical machines) on premises. For more information about the differences, as well as guidelines and other considerations, go to <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156090">Recommandations en matière de déploiement d'Active Directory sur des machines virtuelles Azure</a>. Pour déployer Active Directory dans Azure :</em>
+<li>Déployer Active Directory<em> : les exigences fondamentales de déploiement d'Active Directory sur Azure Virtual Machines sont similaires « mais pas identiques » au déploiement sur des machines virtuelles (et, dans une certaine mesure, sur des machines physiques) locales. Pour plus d'informations sur les différences ainsi que pour des instructions et autres considérations, consultez la page <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156090">Recommandations en matière de déploiement d'Active Directory sur des machines virtuelles Azure</a>. Pour déployer Active Directory dans Azure :</em>
 <ul>
 <li>Définissez et créez un réseau virtuel où les machines virtuelles peuvent être affectées à des sous-réseaux spécifiques. Pour plus d'informations, consultez <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Configuration de la mise en réseau virtuel</a>.</li>
 <li>Utilisez le portail de gestion pour créer et déployer le contrôleur de domaine sur une nouvelle machine virtuelle sur Azure. Pour plus d'informations, consultez <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Déploiement et création du contrôleur de domaine</a>.

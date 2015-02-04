@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Diagnostics" pageTitle="Utilisation des diagnostics (.NET) - Guide des fonctionnalités Azure" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Découvrez comment utiliser les données de diagnostic dans Azure pour le débogage, la mesure des performances, la surveillance, l'analyse du trafic, etc." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="raynew" solutions="" manager="johndaw" editor="" />
+<properties urlDisplayName="Diagnostics" pageTitle="Utilisation des diagnostics (.NET) - Guide des fonctionnalités Azure" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Découvrez comment utiliser les données de diagnostic dans Azure pour le débogage, la mesure des performances, la surveillance, l'analyse du trafic, etc." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="raynew" solutions="" manager="johndaw" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/23/2014" ms.author="raynew" />
 
@@ -187,7 +187,7 @@ Remplacez le contenu de WorkerRole.cs par le code suivant : La classe SampleEven
 
 <h3>Étape 4 : création de votre fichier de configuration Diagnostics et installation de l'extension</h3>
 1.	Téléchargez la définition de schéma de fichier de configuration publique en exécutant la commande PowerShell suivante :
-2.	
+
 		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
 2.	Ajoutez un fichier XML à votre projet **WorkerRole1** en cliquant avec le bouton droit sur le projet **WorkerRole1**, puis sélectionnez **Ajouter** -> **Nouvel élément...** -> **Éléments Visual C#** -> **Données** -> **Fichier XML**. Nommez le fichier " WadExample.xml ".
@@ -245,7 +245,7 @@ Cette procédure pas à pas part du principe que vous disposez d'un abonnement A
 
 <h3>Étape 1 : création d'une machine virtuelle</h3>
 1.	Sur votre ordinateur de développement, lancez Visual Studio 2013.
-2.	Dans l'**Explorateur de serveurs ** Visual Studio, cliquez avec le bouton droit sur **Windows Azure**, puis sélectionnez **Machine virtuelle** -> **Créer une machine virtuelle**.
+2.	Dans l'**Explorateur de serveurs** Visual Studio, cliquez avec le bouton droit sur **Windows Azure**, puis sélectionnez **Machine virtuelle** -> **Créer une machine virtuelle**.
 3.	Sélectionnez votre abonnement Azure dans la boîte de dialogue **Choisissez un abonnement**, puis cliquez sur **Suivant**.
 4.	Sélectionnez **Windows Server 2012 R2 Datacenter** dans la boîte de dialogue **Sélectionnez une image de machine virtuelle**, puis cliquez sur **Suivant**.
 5.	Dans **Paramètres de base de la machine virtuelle**, définissez le nom de la machine virtuelle sur " wadexample ". Définissez votre nom d'utilisateur et votre mot de passe administrateur, puis cliquez sur **Suivant**.
@@ -754,14 +754,14 @@ Le tableau suivant compare les fonctionnalités prises en charge par Azure Diagn
 [Forum Aux Questions (FAQ)]: #faq
 [Comparaison d'Azure Diagnostics 1.0 et 1.2]: #comparing
 [Ressources supplémentaires]: #additional
-[Classe EventSource]: http://msdn.microsoft.com/fr-fr/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
+[classe EventSource]: http://msdn.microsoft.com/fr-fr/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
   
 [Configuration d'Azure Diagnostics]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn186185.aspx
 [Débogage d'une application Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee405479.aspx   
 [Collecte des données de journalisation avec Azure Diagnostics]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433048.aspx
 [Meilleures pratiques de dépannage pour développer des applications Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh771389.aspx
-[Version d'évaluation gratuite]: http://azure.microsoft.com/fr-fr/pricing/free-trial/
-[Installation et configuration d'Azure PowerShell version 0.8.7 ou versions ultérieures]: http://azure.microsoft.com/fr-fr/documentation/articles/install-configure-powershell/
+[évaluation gratuite]: http://azure.microsoft.com/fr-fr/pricing/free-trial/
+[installé et configuré Azure PowerShell version 0.8.7 ou ultérieure]: http://azure.microsoft.com/fr-fr/documentation/articles/install-configure-powershell/
 [Schéma de configuration Azure Diagnostics 1.2]: http://msdn.microsoft.com/fr-fr/library/azure/dn782207.aspx
 [Set-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/fr-fr/library/dn495270.aspx
 [Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/fr-fr/library/dn495145.aspx

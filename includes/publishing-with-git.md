@@ -1,4 +1,4 @@
-﻿# Publication de sites web sur Azure avec Git
+# Publication de sites web sur Azure avec Git
 
 Le service Sites Web Azure prend en charge le déploiement continu à partir d'outils de contrôle du code source et de référentiel comme BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial et TFS. Ces outils permettent de mettre à jour le contenu et le code de votre site web, puis d'envoyer rapidement et facilement à votre convenance les modifications de votre site.
 
@@ -247,7 +247,7 @@ Voici des erreurs ou des problèmes fréquemment rencontrés lors de l'utilisati
 
 ****
 
-**Symptôme** : Impossible d'accéder à " [URL du site] " : Impossible de se connecter à [Adresse_scm]
+**Symptôme** : Unable to access '[siteURL]':Failed to connect to [scmAddress]
 
 **Cause** : Cette erreur se produit si le site web n'est pas actif et en cours d'exécution.
 
@@ -284,7 +284,7 @@ Voici des erreurs ou des problèmes fréquemment rencontrés lors de l'utilisati
 
 ****
 
-**Symptôme** : Erreur : des modifications ont été validées dans le référentiel distant, mais votre site web n'a pas été mis à jour.
+**Symptôme** : Error - Changes commited to remote repository but your website not updated.
 
 **Cause** : cette erreur peut se produire si vous déployez une application Node.js contenant un fichier package.json spécifiant des modules obligatoires supplémentaires.
 

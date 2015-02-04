@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Linux Agent guide" pageTitle="Guide d'utilisation de l'agent Linux pour Azure" metaKeywords="" description="Apprenez à installer et à configurer l'agent Linux (waagent) pour gérer l'interaction de votre machine virtuelle avec le contrôleur de structure Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="szarkos" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Linux Agent guide" pageTitle="Guide d'utilisation de l'agent Linux pour Azure" metaKeywords="" description="Apprenez à installer et à configurer l'agent Linux (waagent) pour gérer l'interaction de votre machine virtuelle avec le contrôleur de structure Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="szarkos" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="szarkos" />
 
@@ -99,15 +99,15 @@ Le fichier journal de l'agent est conservé sur /var/log/waagent.log.
 - install : installation manuelle de l'agent
  * Vérifie le système en termes de dépendances requises.
 
- * Crée le script SysV init (/etc/init.d/waagent), le fichier de configuration logrotate (/etc/logrotate.d/waagent and configures the image to run the init script on boot
+ * Crée le script SysV init (/etc/init.d/waagent), le fichier de configuration logrotate (/etc/logrotate.d/waagent) et configure l'image pour exécuter le script init au démarrage.
 
- * Writes sample configuration file to /etc/waagent.conf
+ * Écrit l'exemple de fichier de configuration sur /etc/waagent.conf
 
- * Any existing configuration file is moved to /etc/waagent.conf.old
+ * Tout fichier de configuration existant est déplacé sur /etc/waagent.conf.old
 
- * Detects kernel version and applies the VNUMA workaround if necessary
+ * Détecte la version du noyau et applique la solution de contournement VNUMA si nécessaire.
 
- * Moves udev rules that may interfere with networking (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) dans /var/lib/waagent/  
+ * Déplace les règles udev qui peuvent interférer avec la mise en réseau (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) sur /var/lib/waagent/.
 
 - uninstall : supprime waagent et les fichiers associés.
  * Annule l'enregistrement du script init du système et le supprime.

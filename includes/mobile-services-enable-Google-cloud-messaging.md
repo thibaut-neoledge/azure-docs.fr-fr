@@ -1,8 +1,11 @@
+
+
+
 1.  Accédez au site web [Google Cloud Console][Google Cloud Console], connectez-vous avec vos informations d'identification de compte Google, puis cliquez sur **CREATE PROJECT**.
 
     ![][0]
 
-	> [WACOM.NOTE] Si vous disposez déjà d'un projet en cours, vous êtes redirigé vers la page **Projets** une fois la connexion établie. Pour créer un projet depuis le tableau de bord, développez **API Project**, cliquez sur **Create...** sous **Other projects**, puis entrez un nom de projet et cliquez sur **Create project**.
+	>[WACOM.NOTE] Si vous disposez déjà d'un projet en cours, vous êtes redirigé vers la page **Projets** une fois la connexion établie. Pour créer un projet depuis le tableau de bord, développez **API Project**, cliquez sur **Create...** sous **Other projects**, puis entrez un nom de projet et cliquez sur **Create project**.
 
 2.  Entrez un nom de projet, acceptez les conditions de service et cliquez sur **Create**. Procédez à la vérification de SMS demandée et cliquez à nouveau sur **Create**.
 

@@ -1,4 +1,4 @@
-﻿## Envoi de messages vers les concentrateurs d'événements
+## Envoi de messages vers les concentrateurs d'événements
 Dans cette section, nous allons écrire une application en C pour envoyer des événements à votre concentrateur d'événements. Nous allons utiliser la bibliothèque Proton AMQP du projet [Apache Qpid](http://qpid.apache.org/). Cette approche est similaire à l'utilisation des files d'attente et des rubriques Service Bus avec AMQP en partant du langage C comme indiqué [ici](https://code.msdn.microsoft.com/windowsazure/Using-Apache-Qpid-Proton-C-afd76504). Pour plus d'informations, reportez-vous à la documentation [Qpid Proton](http://qpid.apache.org/proton/index.html).
 
 1. Sur la page [Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html), cliquez sur le lien **Installing Qpid Proton** et suivez les instructions en fonction de votre environnement. Nous partirons du principe qu'il s'agit d'un environnement Linux, p.ex. une [machine virtuelle Linux Azure](http://azure.microsoft.com/fr-fr/documentation/articles/virtual-machines-linux-tutorial/) dotée du système d'exploitation Ubuntu 14.04.
@@ -104,4 +104,4 @@ Dans cette section, nous allons écrire une application en C pour envoyer des é
 
 		gcc sender.c -o sender -lqpid-proton
 
-	 Dans le code ci-dessus, nous utilisons une fenêtre sortante de 1 pour forcer l'envoi des messages dès que possible. En général, votre application doit essayer d'envoyer les messages par lot pour augmenter le débit. Reportez-vous à la page [Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) pour plus d'informations sur l'utilisation de la bibliothèque Qpid Proton dans l'ensemble des environnements et à partir des plateformes pour lesquelles des liaisons sont fournies (actuellement Perl, PHP, Python et Ruby).
+> [AZURE.NOTE] Dans le code ci-dessus, nous utilisons une fenêtre sortante de 1 pour forcer l'envoi des messages dès que possible. En général, votre application doit essayer d'envoyer les messages par lot pour augmenter le débit. Reportez-vous à la page [Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) pour plus d'informations sur l'utilisation de la bibliothèque Qpid Proton dans l'ensemble des environnements et à partir des plateformes pour lesquelles des liaisons sont fournies (actuellement Perl, PHP, Python et Ruby).

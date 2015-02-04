@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="AzCopy" pageTitle="Utilisation de AzCopy avec Microsoft Azure Storage" metaKeywords="Get started Azure AzCopy   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure file   Azure file storage   Azure file share   AzCopy" description="Apprenez à utiliser l'utilitaire AzCopy pour télécharger, charger et copier des objets blob et le contenu de fichiers." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="How to use AzCopy with Microsoft Azure Storage" authors="tamram" manager="adinah" editor="cgronlun" />
+<properties urlDisplayName="AzCopy" pageTitle="Utilisation de AzCopy avec Microsoft Azure Storage" metaKeywords="Get started Azure AzCopy   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure file   Azure file storage   Azure file share   AzCopy" description="Apprenez à utiliser l'utilitaire AzCopy pour télécharger, charger et copier des objets blob et le contenu de fichiers." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="How to use AzCopy with Microsoft Azure Storage" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/17/2014" ms.author="tamram" />
 
@@ -10,7 +10,7 @@ AzCopy est un utilitaire de ligne de commande conçu pour charger, télécharger
 > Ce guide couvre également l'utilisation d'AzCopy 4.0.0, qui est une version préliminaire d'AzCopy. Dans ce guide, les fonctions fournies uniquement dans la version préliminaire sont désignées comme *version préliminaire*.<br />
 > Notez que pour AzCopy 4.x, les options de ligne de commande et leurs fonctions sont susceptibles d'être modifiées dans les prochaines versions.
 
-##Sommaire
+## Sommaire
 
 - [Téléchargement et installation d'AzCopy](#install)
 - [Présentation de la syntaxe des lignes de commande d'AzCopy](#syntax)
@@ -21,13 +21,13 @@ AzCopy est un utilitaire de ligne de commande conçu pour charger, télécharger
 - [Versions d'AzCopy](#versions)
 - [Étapes suivantes](#next-steps)
 
-##<a id="install"></a> Téléchargement et installation d'AzCopy
+## <a id="install"></a> Téléchargement et installation d'AzCopy
 
 1. Téléchargez la [dernière version d'AzCopy](http://aka.ms/downloadazcopy)ou la [version préliminaire la plus récente](http://aka.ms/downloadazcopypr).
 2. Exécutez le programme d'installation. Par défaut, l'installation d'AzCopy crée un dossier nommé `AzCopy` sous `%ProgramFiles(x86)%\Microsoft SDKs\Azure\` (sur un ordinateur exécutant Windows 64 bits) ou `%ProgramFiles%\Microsoft SDKs\Azure\` (sur un ordinateur exécutant Windows 32 bits). Cependant, vous pouvez modifier le chemin d'installation à partir de l'Assistant Installation.
 3. Si vous le souhaitez, vous pouvez ajouter l'emplacement d'installation d'AzCopy au chemin de votre système.
 
-##<a id="syntax"></a> Compréhension de la syntaxe des lignes de commande d'AzCopy
+## <a id="syntax"></a> Compréhension de la syntaxe des lignes de commande d'AzCopy
 
 Ensuite, ouvrez une fenêtre Commande, puis naviguez jusqu'au répertoire d'installation d'AzCopy sur votre ordinateur, où se trouve l'exécutable `AzCopy.exe`. La syntaxe de base d'une commande AzCopy est :
 
@@ -373,13 +373,13 @@ Les paramètres AzCopy sont décrits dans le tableau ci-dessous. Vous pouvez ég
 
 <br/>
 
-##<a id="limit-writes"></a> Limitation des écritures simultanées lors de la copie des données
+## <a id="limit-writes"></a> Limitation des écritures simultanées lors de la copie des données
 
 Lorsque vous copiez des objets blob ou des fichiers avec AzCopy, gardez en tête qu'une autre application peut être en train de modifier les données pendant que vous les copiez. Si possible, assurez-vous que les données que vous copiez ne sont pas modifiées pendant l'opération de copie. Par exemple, lorsque vous copiez un disque dur virtuel (VHD) associé à une machine virtuelle Azure, assurez-vous qu'aucune autre application n'est en train d'écrire sur le disque VHD. Sinon, vous pouvez commencer par créer une capture instantanée du disque VHD et copier ensuite la capture instantanée.
 
 Si vous ne pouvez pas empêcher d'autres applications d'écrire sur les objets blob ou les fichiers pendant qu'ils sont copiés, gardez en tête qu'au moment où la tâche sera terminée, les ressources copiées n'auront peut-être plus une parité complète avec les ressources source.
 
-##<a id="copy-blobs"></a> Copie d'objets blob Azure avec AzCopy
+## <a id="copy-blobs"></a> Copie d'objets blob Azure avec AzCopy
 
 Les exemples ci-dessous démontrent différents scénarios de copie d'objets blob avec AzCopy.
 
@@ -733,7 +733,7 @@ Remarque : les dossiers vides ne sont pas copiés.
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:ab* /S
 
-##<a id="copy-entities"></a> Copie d'entités de table Azure avec AzCopy (version préliminaire uniquement)
+## <a id="copy-entities"></a> Copie d'entités de table Azure avec AzCopy (version préliminaire uniquement)
 
 Les exemples ci-dessous illustrent différents scénarios de copie d'entités de table Azure avec AzCopy.
 
@@ -791,7 +791,7 @@ L'option `/EntityOperation` indique comment insérer des entités dans la table.
 Remarque : vous ne pouvez pas spécifier l'option `/PKRS` dans le scénario d'importation. À la différence du scénario d'exportation dans lequel vous devez spécifier l'option `/PKRS` pour démarrer des opérations simultanées, AzCopy lance par défaut des opérations simultanées lorsque vous importez des entités. Le nombre par défaut d'opérations simultanées démarrées est égal au nombre de processeurs Core ; cependant, vous pouvez spécifier un nombre différent d'opérations simultanées avec l'option `/NC`. Pour plus d'informations, tapez `AzCopy /?:NC` sur la ligne de commande.
 
 
-##<a id="versions"></a> Versions d'AzCopy
+## <a id="versions"></a> Versions d'AzCopy
 
 | Version | Nouveautés                                                                                      				|
 |---------|-----------------------------------------------------------------------------------------------------------------|
@@ -808,7 +808,7 @@ Remarque : vous ne pouvez pas spécifier l'option `/PKRS` dans le scénario d'im
 | V2.1    | Fournit plus de 20 options pour prendre en charge le chargement, le téléchargement et les opérations de copie des objets blob efficacement.		|
 
 
-##<a id="next-steps"></a> Étapes suivantes
+## <a id="next-steps"></a> Étapes suivantes
 
 Pour plus d'informations sur Azure Storage et AzCopy, consultez les ressources suivantes :
 

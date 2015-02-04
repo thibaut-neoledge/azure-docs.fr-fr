@@ -1,12 +1,12 @@
-﻿<properties title="Getting started using Storm with Hadoop in HDInsight" pageTitle="Prise en main d'Apache Storm avec Microsoft Azure HDInsight (Hadoop)" description="Découvrez comment utiliser Apache Storm pour traiter des données en temps réel avec HDInsight (Hadoop)" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Getting started using Storm with Hadoop in HDInsight" pageTitle="Prise en main d'Apache Storm avec Microsoft Azure HDInsight (Hadoop)" description="Découvrez comment utiliser Apache Storm pour traiter des données en temps réel avec HDInsight (Hadoop)" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
 
-#Prise en main de Storm avec HDInsight (Hadoop)
+# Prise en main de Storm avec HDInsight (Hadoop)
 
 Apache Storm est un système de calcul en temps réel, évolutif, distribué, à tolérance de panne, qui permet de traiter des flux de données. Avec Azure HDInsight, vous pouvez créer un cluster Hadoop basé sur le cloud qui effectue des analyses de données en temps réel avec Storm.
 
-##Ce didacticiel vous apprendra à effectuer les opérations suivantes :
+## Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 * [Approvisionnement d'un cluster Storm HDInsight](#provision)
 
@@ -20,7 +20,7 @@ Apache Storm est un système de calcul en temps réel, évolutif, distribué, à
 
 * [Étapes suivantes](#next)
 
-##Avant de commencer
+## Avant de commencer
 
 Ce didacticiel requiert les éléments suivant :
 
@@ -30,7 +30,7 @@ Ce didacticiel requiert les éléments suivant :
 
 * Si vous ne connaissez pas Apache Storm, nous vous conseillons de commencer par lire l'article [Présentation de Storm HDInsight](/fr-fr/documentation/articles/hdinsight-storm-overview) .
 
-##<a id="provision"></a>Approvisionnement d'un cluster Storm dans le portail Azure
+## <a id="provision"></a>Approvisionnement d'un cluster Storm dans le portail Azure
 
 [WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
@@ -58,11 +58,11 @@ Ce didacticiel requiert les éléments suivant :
 
 	![storage account](./media/hdinsight-storm-getting-started/wizard4.png)
 
-##Utilisation de Storm HDInsight
+## Utilisation de Storm HDInsight
 
 Pour obtenir la version préliminaire de Storm HDInsight, vous devez vous connecter au cluster en utilisant le Bureau à distance pour utiliser Storm. Pour vous connecter au cluster HDInsight et utiliser la commande Storm, procédez comme suit :
 
-###<a id="connect"></a>Connexion au cluster
+### <a id="connect"></a>Connexion au cluster
 
 1. Activez la connectivité Bureau à distance à votre cluster HDInsight à l'aide du [portail de gestion Azure][management]. Dans le portail, sélectionnez votre cluster HDInsight, puis choisissez __Activer Distant__ en bas de la page __Configuration__.
 
@@ -90,7 +90,7 @@ Pour obtenir la version préliminaire de Storm HDInsight, vous devez vous connec
 
 Le cluster HDInsight s'affiche avec plusieurs exemples de topologies Storm. L'exemple **WordcountTopology** est utilisé dans les étapes suivantes. Pour plus d'informations sur les exemples fournis avec Storm HDInsight, consultez la section [Étapes suivantes](#next).
 
-###<a id="run"></a>Exécution d'une topologie Storm
+### <a id="run"></a>Exécution d'une topologie Storm
 
 Pour exécuter la topologie **WordCountTopology**, utilisez les commandes suivantes :
 
@@ -102,7 +102,7 @@ Cette commande indique à Storm que nous voulons exécuter la topologie **wordco
 
 Notez qu'aucun élément n'est renvoyé lorsque vous entrez la commande. **Une fois lancée, une topologie Storm s'exécute jusqu'à ce que vous l'arrêtiez.** La topologie WordCountTopology va générer des phrases aléatoires tout en comptant le nombre de fois qu'elle rencontre chaque mot, jusqu'à ce que vous l'arrêtiez.
 
-###<a id="monitor"></a>Surveillance de l'état d'une topologie Storm
+### <a id="monitor"></a>Surveillance de l'état d'une topologie Storm
 
 L'exemple WordCountTopology n'écrit pas de résultat dans un répertoire, mais nous pouvons utiliser les pages web de l'interface utilisateur de Storm pour afficher l'état de la topologie, ainsi que le résultat.
 
@@ -143,7 +143,7 @@ L'exemple WordCountTopology n'écrit pas de résultat dans un répertoire, mais 
 
 	À partir de cet extrait de code, vous pouvez voir le spout émis, " snow white and the seven dwarfs ", qui a été divisé en plusieurs mots. De même, un compte du nombre de traitements de chaque mot par la topologie depuis son démarrage est conservé. Par exemple, le mot " dwarfs " a été émis 8 360 fois par le spout lorsque le résultat précédent a été consulté.
 
-###<a id="stop"></a>Arrêt d'une topologie Storm
+### <a id="stop"></a>Arrêt d'une topologie Storm
 
 La topologie **WordCountTopology** continuera à s'exécuter jusqu'à ce que vous l'arrêtiez. Pour ce faire, utilisez la commande suivante.
 
@@ -151,7 +151,7 @@ La topologie **WordCountTopology** continuera à s'exécuter jusqu'à ce que vou
 
 Si vous affichez la page web d'interface utilisateur Storm immédiatement après cette commande, vous remarquerez que l'état de **wordcount** de la **Topology summary** est remplacé par la mention KILLED. Après quelques secondes, la topologie n'est plus répertoriée dans la section **Topology summary**.
 
-##<a id="next"></a>Étapes suivantes
+## <a id="next"></a>Étapes suivantes
 
 * **Exemples de fichiers** : le cluster Storm HDInsight contient plusieurs exemples dans le répertoire **%storm_home%\contrib**. Chaque exemple doit contenir les éléments suivants :
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Create Web and Worker Roles" pageTitle="Créer des rôles web et de travail" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="PHP" title="How to create PHP web and worker roles" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="Create Web and Worker Roles" pageTitle="Créer des rôles web et de travail" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="PHP" title="How to create PHP web and worker roles" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/28/2014" ms.author="tomfitz" />
 
@@ -194,7 +194,7 @@ Un résultat similaire au suivant doit s'afficher :
 	Role is running at http://127.0.0.1:81
 	Started
 
-Pour voir votre application exécutée dans l'émulateur, ouvrez un navigateur web et accédez à l'adresse locale illustrée dans le résultat (" http://127.0.0.1:81 " dans l'exemple ci-dessus).
+Pour voir votre application exécutée dans l'émulateur, ouvrez un navigateur web et accédez à l'adresse locale illustrée dans le résultat (`http://127.0.0.1:81` dans l'exemple ci-dessus).
 
 Pour arrêter les émulateurs, exécutez la commande suivante :
 
@@ -202,21 +202,21 @@ Pour arrêter les émulateurs, exécutez la commande suivante :
 
 ##<a name="Publish"></a>Utilisation Publication de votre application
 
-Pour publier votre application, vous devez d'abord importer vos paramètres de publication au moyen de la cmdlet **Import-PublishSettingsFile**, puis vous pouvez publier votre application au moyen de la cmdlet **Publish-AzureServiceProject**. Pour plus d'informations sur chacune de ces cmdlets, consultez respectivement les rubriques[ Importation de paramètres de publication] et [ Déploiement d'un service cloud sur Azure].
+Pour publier votre application, vous devez d'abord importer vos paramètres de publication au moyen de la cmdlet **Import-PublishSettingsFile**, puis vous pouvez publier votre application au moyen de la cmdlet **Publish-AzureServiceProject**. Pour plus d'informations sur chacune de ces cmdlets, consultez respectivement les rubriques[Importation de paramètres de publication] et [Déploiement d'un service cloud sur Azure].
 
 [execution model-web sites]: /fr-fr/develop/net/fundamentals/compute/#WebSites
 [execution model-vms]: /fr-fr/develop/net/fundamentals/compute/#VMachine
 [execution model-cloud services]: /fr-fr/develop/net/fundamentals/compute/#CloudServices
 [Kit de développement logiciel (SDK) Azure pour PHP]: /fr-fr/develop/php/common-tasks/download-php-sdk/
-[installer ps et les émulateurs]: http://go.microsoft.com/fwlink/?LinkId=253447&clcid=0x409
+[install ps and emulators]: http://go.microsoft.com/fwlink/?LinkId=253447&clcid=0x409
 [Présentation d'un service cloud]: /fr-fr/manage/services/cloud-services/what-is-a-cloud-service/
 [définition de service (.csdef)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee758711.aspx
 [configuration de service (.cscfg)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
-[client natif sql]: http://msdn.microsoft.com/fr-fr/sqlserver/aa937733.aspx
-[pilotes sqlsrv]: http://php.net/sqlsrv
+[sql native client]: http://msdn.microsoft.com/fr-fr/sqlserver/aa937733.aspx
+[sqlsrv drivers]: http://php.net/sqlsrv
 [programme d'installation sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
-[Procédure : Importation des paramètres de publication]: /fr-fr/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
-[Procédure : Déploiement d'un service cloud sur Azure].: /fr-fr/develop/php/how-to-guides/powershell-cmdlets/#Deploy
+[Importation de paramètres de publication]: /fr-fr/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
+[Déploiement d'un service cloud sur Azure]: /fr-fr/develop/php/how-to-guides/powershell-cmdlets/#Deploy
 
 <!--HONumber=35.1-->

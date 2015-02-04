@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Définition d'une API personnalisée qui prend en charge les notifications Pull - Azure Mobile Services" metaKeywords="" description="Découvrez comment définir une API personnalisée qui prend en charge les notifications périodiques dans les applications Windows Store utilisant Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Définition d'une API personnalisée qui prend en charge les notifications Pull - Azure Mobile Services" metaKeywords="" description="Découvrez comment définir une API personnalisée qui prend en charge les notifications périodiques dans les applications Windows Store utilisant Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
 # Définition d'une API personnalisée qui prend en charge les notifications périodiques
@@ -66,7 +66,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 		    }
 		};
 
-	This code returns the top 3 uncompleted items from the TodoItem table, then loads them into a JSON object passed to the **wns**.**createTileSquareText01** function. This function returns the following tile template XML:
+	Ce code renvoie les trois premiers éléments non terminés de la table TodoItem, puis les charge dans un objet JSON transmis à la fonction **wns**.**createTileSquareText01**. Cette fonction renvoie le code XML de modèle de vignette suivant :
 
 		<tile>
 			<visual>

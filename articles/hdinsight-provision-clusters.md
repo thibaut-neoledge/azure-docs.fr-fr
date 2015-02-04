@@ -1,8 +1,8 @@
-﻿<properties urlDisplayName="HDInsight Administration" pageTitle="Approvisionnement de clusters Hadoop dans HDInsight | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Découvrez comment approvisionner des clusters pour Azure HDInsight en utilisant le portail de gestion, PowerShell ou la ligne de commande." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Provision Hadoop clusters in HDInsight" authors="jgao" />
+<properties urlDisplayName="HDInsight Administration" pageTitle="Approvisionnement de clusters Hadoop dans HDInsight | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Découvrez comment approvisionner des clusters pour Azure HDInsight en utilisant le portail de gestion, PowerShell ou la ligne de commande." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Provision Hadoop clusters in HDInsight" authors="jgao" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="jgao" />
 
-#Approvisionnement de clusters Hadoop dans HDInsight à l'aide d'options personnalisées
+# Approvisionnement de clusters Hadoop dans HDInsight à l'aide d'options personnalisées
 
 Dans cet article, vous allez découvrir les différentes méthodes pour approvisionner de façon personnalisée un cluster Hadoop sur Azure HDInsight, en utilisant le portail de gestion Azure, PowerShell, des outils de ligne de commande ou le Kit de développement logiciel (SDK) .NET HDInsight. Cet article présente l'approvisionnement des clusters Hadoop. Pour obtenir des instructions sur l'approvisionnement d'un cluster HBase, consultez la page [Approvisionnement d'un cluster HBase dans HDInsight][hdinsight-hbase-custom-provision]. Consultez <a href="http://go.microsoft.com/fwlink/?LinkId=510237">Différence entre Hadoop et HBase</a> pour découvrir les raisons qui pourraient vous pousser à choisir un produit plutôt que l'autre.
 
@@ -22,7 +22,7 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 - Un abonnement Azure. Azure est une plateforme disponible par abonnement. Les cmdlets HDInsight PowerShell permettent d'effectuer les tâches associées à votre abonnement. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les [formules d'abonnement][azure-purchase-options], les [offres spéciales membres][azure-member-offers] ou la [version d'évaluation gratuite][azure-free-trial].
 
-##Dans cet article
+## Dans cet article
 
 * [Options de configuration](#configuration)
 * [Utilisation du portail de gestion Azure](#portal)
@@ -31,15 +31,15 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 * [Utilisation du Kit de développement logiciel (SDK) HDInsight .NET](#sdk)
 * [Étapes suivantes](#nextsteps)
 
-##<a id="configuration"></a>Options de configuration
+## <a id="configuration"></a>Options de configuration
 
-###Stockage supplémentaire
+### Stockage supplémentaire
 
 Durant la configuration, vous devez spécifier un compte de stockage d'objet blob Azure, ainsi qu'un conteneur par défaut. Ceci est utilisé par le cluster comme emplacement de stockage par défaut. Vous pouvez éventuellement spécifier des objets blob supplémentaires qui seront également associés à votre cluster.
 
 Pour plus d'informations sur l'utilisation des magasins d'objets blob secondaires, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight](http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-use-blob-storage/).
 
-###Metastore
+### Metastore
 
 Le Metastore contient des informations sur les tables Hive, les partitions, les schémas, les colonnes, etc. Ces informations sont utilisées par Hive pour localiser l'emplacement de stockage des données sur HDFS (ou WASB pour HDInsight.) Hive utilise par défaut une base de données intégrée pour stocker ces informations.
 
@@ -50,7 +50,7 @@ Lors de l'approvisionnement d'un cluster HDInsight, vous pouvez indiquer une bas
 Vous pouvez installer des composants supplémentaires ou personnaliser la configuration des clusters pendant la création d'un cluster HDInsight. Vous pouvez personnaliser les clusters en écrivant des scripts qui sont exécutés pendant leur création. Ces scripts sont appelés à l'aide de l'option **Action de script**, une option de configuration qui peut être utilisée à partir de cmdlets HDInsight PowerShell ou du Kit de développement logiciel (SDK) HDInsight .NET. Pour plus d'informations, consultez la rubrique [Personnalisation d'un cluster HDInsight à l'aide d'une action de script][hdinsight-customize-cluster].
 
 
-###Réseau virtuel
+### Réseau virtuel
 
 [Azure Virtual Network](http://azure.microsoft.com/fr-fr/documentation/services/virtual-network/) vous permet de créer un réseau sécurisé et persistant contenant les ressources dont vous avez besoin pour votre solution. Un réseau virtuel vous permet de :
 
@@ -76,7 +76,7 @@ Pour plus d'informations sur les fonctions, les avantages et les capacités d'Az
 >
 > Il est vivement recommandé de désigner un seul sous-réseau pour un cluster.
 
-##<a id="portal"></a> Utilisation du portail de gestion Azure
+## <a id="portal"></a> Utilisation du portail de gestion Azure
 
 Les clusters HDInsight utilisent un conteneur de stockage d'objets blob Azure comme système de fichiers par défaut. Un compte Azure Storage se trouvant dans le même centre de données est nécessaire avant de pouvoir créer un cluster HDInsight. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage]. Pour plus d'informations sur la création d'un compte de stockage Azure, consultez la rubrique [Création d'un compte de stockage][azure-create-storageaccount].
 
@@ -182,7 +182,7 @@ Les clusters HDInsight utilisent un conteneur de stockage d'objets blob Azure co
 
 	> [WACOM.NOTE] Une fois qu'un compte de stockage Azure a été choisi pour votre cluster HDInsight, vous ne pouvez ni le supprimer, ni le remplacer par un autre.
 
-##<a id="powershell"></a> Utilisation d'Azure PowerShell
+## <a id="powershell"></a> Utilisation d'Azure PowerShell
 Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Cette section fournit des instructions sur l'approvisionnement d'un cluster HDInsight en utilisant Pour plus d'informations sur la configuration d'un poste de travail pour exécuter les cmdlets HDInsight Powershell, consultez la rubrique  [Installation et configuration d'Azure PowerShell][powershell-install-configure]. Pour plus d'informations sur l'utilisation de PowerShell avec HDInsight, consultez la rubrique [Administration de HDInsight avec PowerShell][hdinsight-admin-powershell]. Pour obtenir la liste des cmdlets PowerShell pour HDInsight, consultez la rubrique [Référence des cmdlets HDInsight][hdinsight-powershell-reference].
 
 > [WACOM.NOTE] Bien que vous puissiez utiliser les scripts de cette section pour configurer un cluster HDInsight sur un réseau virtuel Azure, ceux-ci ne permettent pas de créer un réseau de ce type. Pour plus d'informations sur la création d'un réseau virtuel Azure, consultez la rubrique [Tâches de configuration d'un réseau virtuel](http://msdn.microsoft.com/fr-fr/library/azure/jj156206.aspx).
@@ -314,7 +314,7 @@ Tout en approvisionnant un cluster, vous pouvez utiliser d'autres options de con
 		Get-AzureHDInsightCluster -Name <ClusterName>
 
 
-##<a id="cli"></a> Utilisation de la ligne de commande interplateforme
+## <a id="cli"></a> Utilisation de la ligne de commande interplateforme
 
 > [WACOM.NOTE] Depuis le 29/08/2014, l'interface de ligne de commande interplateforme ne permet plus d'associer un cluster à un réseau virtuel Azure.
 
@@ -471,7 +471,7 @@ Généralement, vous approvisionnez un cluster HDInsight, vous exécutez les tâ
 
 
 
-##<a id="sdk"></a> Utilisation du Kit de développement logiciel (SDK) HDInsight .NET
+## <a id="sdk"></a> Utilisation du Kit de développement logiciel (SDK) HDInsight .NET
 Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèques clientes .NET facilitant l'utilisation d'HDInsight à partir d'une application .NET.
 
 Les procédures suivantes sont nécessaires pour approvisionner un cluster HDInsight en utilisant le Kit de développement logiciel (SDK) :
@@ -589,7 +589,7 @@ Lorsque l'application est ouverte dans Visual Studio, appuyez sur **F5** pour l'
 
 
 
-##<a id="nextsteps"></a> Étapes suivantes
+## <a id="nextsteps"></a> Étapes suivantes
 Cet article vous a présenté différentes méthodes pour configurer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
 * [Prise en main d'Azure HDInsight][hdinsight-get-started] - Apprenez à utiliser votre cluster HDInsight

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Table Service" pageTitle="Utilisation du stockage de tables (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Découvrez comment utiliser le service de stockage de tables dans Azure. Les exemples de code sont écrits à l'aide de l'API Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Utilisation du stockage de tables (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Découvrez comment utiliser le service de stockage de tables dans Azure. Les exemples de code sont écrits à l'aide de l'API Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
 
@@ -33,7 +33,7 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utili
 
 ## <a name="create-app"> </a>Création d'une application Node.js
 
-Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les page [Création et déploiement d'une application Node.js dans un site Web Azure], [Service cloud Node.js][Node.js Cloud Service] (avec Windows PowerShell) ou [Site Web avec WebMatrix].
+Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les page [Création et déploiement d'une application Node.js dans Site Web Azure], [Service cloud Node.js][Service cloud Node.js] (avec Windows PowerShell) ou [Site Web avec WebMatrix].
 
 ## <a name="configure-access"> </a>Configuration de votre application pour accéder au stockage
 
@@ -186,7 +186,7 @@ Le `result` des opérations de mise à jour réussies contient l'**Etag** de l'e
 ## <a name="change-entities"> </a>Utilisation de groupes d'entités
 Il est parfois intéressant de soumettre un lot d'opérations simultanément pour assurer un traitement atomique par le serveur. Pour ce faire, utilisez la classe **TableBatch** pour créer un traitement par lots, puis la méthode **executeBatch** de **TableService** pour exécuter les opérations du traitement par lots.
 
- The following example demonstrates submitting two entities in a batch:
+ L'exemple suivant illustre la soumission par lot de deux entités :
 
     var task1 = { 
 	  PartitionKey: {'_':'hometasks'},

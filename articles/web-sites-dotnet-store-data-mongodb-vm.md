@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website with MongoDB VM" pageTitle="Site web .NET avec MongoDB sur une machine virtuelle - Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="Un didacticiel qui explique comment utiliser Git pour déployer une application ASP.NET vers un site web Azure connecté à MongoDB sur une machine virtuelle." metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create an Azure website that connects to MongoDB running on a virtual machine in Azure" authors="cephalin" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Website with MongoDB VM" pageTitle="Site web .NET avec MongoDB sur une machine virtuelle - Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="Un didacticiel qui explique comment utiliser Git pour déployer une application ASP.NET vers un site web Azure connecté à MongoDB sur une machine virtuelle." metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create an Azure website that connects to MongoDB running on a virtual machine in Azure" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 
@@ -359,7 +359,7 @@ Pour configurer le menu Liste des tâches, ouvrez le fichier *\Views\Home\Index.
 	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-To add the ability to create a new task, right-click the *Views\Home\\* folder and **Add** a **View**.  Name the view *Create*. Replace the code with the following:
+Pour permettre la création d'une tâche, cliquez avec le bouton droit sur le dossier *Views\Home\\* et **ajoutez** une **vue**, que vous nommez  *Create*. Remplacez le code par ce qui suit :
 
 	@model MyTaskListApp.Models.MyTask
 	

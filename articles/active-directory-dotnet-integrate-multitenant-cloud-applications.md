@@ -57,7 +57,7 @@ Pour générer un ID client et une clé secrète client, vous devez entrer les p
 
 **Domaine d'application** : nom d'hôte de votre application, « contoso.com », par exemple. Cette propriété ne doit contenir aucun numéro de port. Pendant le développement, cette propriété doit être définie sur « localhost ».
 
-**App Redirect URL** : URL de redirection à laquelle Azure AD envoie une réponse après la connexion de l'utilisateur et lorsqu'une organisation a autorisé votre application, par exemple : « <https://contoso.com/> ». Pendant le développement, cette propriété doit être définie sur « https://localhost:\<numéro de port\> ».
+**App Redirect URL** : URL de redirection à laquelle Azure AD envoie une réponse après la connexion de l'utilisateur et lorsqu'une organisation a autorisé votre application, par exemple : « https://contoso.com/ ». Pendant le développement, cette propriété doit être définie sur « https://localhost:&#60;numéro de port&#62; ».
 
 ### Étape 3 : configuration de votre application pour l'utilisation de l'ID client et de la clé secrète client
 

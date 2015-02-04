@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Web w/ Storage" pageTitle="Site web PHP avec stockage de tables - Didacticiel Azure" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" description="Ce didacticiel vous montre comment créer un site web PHP et utiliser le service de stockage de tables Azure sur le serveur principal." metaCanonical="" services="web-sites,storage" documentationCenter="PHP" title="Create a PHP Website using Azure Storage" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Web w/ Storage" pageTitle="Site web PHP avec stockage de tables - Didacticiel Azure" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" description="Ce didacticiel vous montre comment créer un site web PHP et utiliser le service de stockage de tables Azure sur le serveur principal." metaCanonical="" services="web-sites,storage" documentationCenter="PHP" title="Create a PHP Website using Azure Storage" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz" />
 
@@ -83,7 +83,7 @@ Il convient d'exécuter quatre étapes de base avant de pouvoir passer un appel 
 
 		$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
-	`$tableRestProxy` contains a method for every REST call available on Azure Tables.
+	`$tableRestProxy` contient une méthode pour chaque appel REST disponible sur les tables Azure.
 
 
 ## Création d'une table
@@ -189,7 +189,7 @@ La page d'accueil de l'application Tasklist doit répertorier toutes les tâches
 			echo "<h3>No items on list.</h3>";
 		?>
 
-* Last, you must insert the form that feeds data into the task insertion script and complete the HTML:
+* Enfin, vous devez insérer le formulaire qui fournit les données au script d'insertion de la tâche et compléter le code HTML :
 
 			<hr/>
 			<form action="additem.php" method="post">

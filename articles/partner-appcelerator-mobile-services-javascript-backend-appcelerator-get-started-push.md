@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Prise en main des notifications Push (Appcelerator) | Centre de développement mobile" metaKeywords="" description="Découvrez comment utiliser Azure Mobile Services pour envoyer des notifications Push à votre application Appcelerator." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Prise en main des notifications Push (Appcelerator) | Centre de développement mobile" metaKeywords="" description="Découvrez comment utiliser Azure Mobile Services pour envoyer des notifications Push à votre application Appcelerator." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
@@ -268,7 +268,7 @@ Votre service mobile est désormais configuré pour utiliser APNS et GCM.
     
     </table>
 
->[WACOM.NOTE]  Dans Mac OS, Library est un dossier masqué. Pour le rendre visible, vous devez exécuter la commande suivante, puis relancer le Finder : " **defaults write com.apple.finder AppleShowAllFiles TRUE** "
+>[WACOM.NOTE]  Dans Mac OS, Library est un dossier masqué. Pour le rendre visible, vous devez exécuter la commande suivante, puis relancer le Finder : `**defaults write com.apple.finder AppleShowAllFiles TRUE**`
 
 3.	Dans Appcelerator Titanium Studio, ouvrez le fichier index.js et ajoutez le code suivant à la fin du fichier. Ce code inscrira votre appareil aux notifications Push.
 
@@ -358,11 +358,11 @@ Votre service mobile est désormais configuré pour utiliser APNS et GCM.
 
 5.	Pour Android, remplacez le code ci-dessus par le code suivant :
 
-       var request = {
-    	'text' : alertTextField.getValue(),
-    	'complete' : false,
-    	'handle' : Alloy.Globals.tempRegId
-    }; 
+           var request = {
+    	    'text' : alertTextField.getValue(),
+    	    'complete' : false,
+    	    'handle' : Alloy.Globals.tempRegId
+           }; 
     
     
 
@@ -377,11 +377,11 @@ Votre service mobile est désormais configuré pour utiliser APNS et GCM.
 
 7.	Pour iOS, remplacez le code ci-dessus par le code suivant :
 
-       var request = {
-    	'text' : alertTextField.getValue(),
-    	'complete' : false,
-    	'deviceToken' : Alloy.Globals.tempRegId
-    };
+           var request = {
+    	    'text' : alertTextField.getValue(),
+    	    'complete' : false,
+    	    'deviceToken' : Alloy.Globals.tempRegId
+           };
     
  
 Votre application a été mise à jour pour prendre en charge les notifications Push sur les plateformes iOS et Android.
@@ -417,7 +417,7 @@ Votre application a été mise à jour pour prendre en charge les notifications 
             }, 2500);
         }
   
-   	> [WACOM.NOTE] Ce script reporte l'envoi de la notification pour vous laisser le temps de fermer l'application pour recevoir une notification Push.  
+> [WACOM.NOTE] Ce script reporte l'envoi de la notification pour vous laisser le temps de fermer l'application pour recevoir une notification Push.  
 
 **Pour Android :**
 
@@ -451,22 +451,24 @@ Ce code inscrit un nouveau script d'insertion, qui utilise l'[objet Push Mobile 
 [5]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image064.png
 [6]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image066.png
 
+
+
 <!-- Anchors. -->
-[Génération de la demande de signature de certificat] : #certificates
-[Inscription de votre application et activation des notifications Push] : #register
-[Création d'un profil d'approvisionnement pour l'application] : #profile
-[Activation de Google Cloud Messaging] : #register-gcm
-[Création du module GCM pour Titanium] : #gcm-module
-[Configuration de Mobile Services] : #configure
-[Ajout de notifications Push à l'application] : #add-push
+[Génération de la demande de signature de certificat]: #certificates
+[Inscription de votre application et activation des notifications Push]: #register
+[Création d'un profil d'approvisionnement pour l'application]: #profile
+[Activation de Google Cloud Messaging]: #register-gcm
+[Création du module GCM pour Titanium]: #gcm-module
+[Configuration de Mobile Services]: #configure
+[Ajout de notifications Push à l'application]: #add-push
 [Mise à jour des scripts pour l'envoi de notifications Push]: #update-scripts
-[Insertion de données pour recevoir des notifications] : #test
+[Insertion de données pour recevoir des notifications]: #test
 
 <!-- URLs. -->
 [Prise en main de Mobile Services]: /fr-fr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
-[Utilisation des modules Titanium] : http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
-[Portail de gestion Microsoft Azure] : https://manage.windowsazure.com/
-[Objet Push Mobile Services] : http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
+[Utilisation des modules Titanium]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
+[Portail de gestion Microsoft Azure]: https://manage.windowsazure.com/
+[Objet Push Mobile Services]: http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
 [Installation des outils de développement Java]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
 
 <!--HONumber=35.1-->

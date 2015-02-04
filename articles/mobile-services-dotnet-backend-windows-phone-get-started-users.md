@@ -1,6 +1,6 @@
-﻿<properties pageTitle="Prise en main de l'authentification (Windows Phone) | Centre de développement mobile" metaKeywords="authentication, Facebook, GOogle, Twitter, Microsoft Account, login" description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Windows Phone via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Glenn Gailey" manager="dwrede" editor="" />
+<properties pageTitle="Prise en main de l'authentification (Windows Phone) | Centre de développement mobile" metaKeywords="authentication, Facebook, GOogle, Twitter, Microsoft Account, login" description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Windows Phone via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Glenn Gailey" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="Glenn Gailey" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="Glenn="" Gailey" />
 
 # Ajout d'une authentification à votre application Mobile Services
 
@@ -20,7 +20,7 @@ Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez aussi d'abord suivre le didacticiel [Prise en main de Mobile Services]. 
 
 
-##<a name="register"></a> Inscription de votre application pour l'authentification et configuration de Mobile Services
+## <a name="register"></a> Inscription de votre application pour l'authentification et configuration de Mobile Services
 
 [WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
@@ -39,11 +39,11 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 Ensuite, vous allez mettre à jour l'application pour authentifier les utilisateurs avant de demander des ressources à partir du service mobile.
 
-##<a name="add-authentication"></a>Ajout de l'authentification à l'application
+## <a name="add-authentication"></a>Ajout de l'authentification à l'application
 
 [WACOM.INCLUDE [mobile-services-windows-phone-authenticate-app](../includes/mobile-services-windows-phone-authenticate-app.md)]
 
-##<a name="tokens"></a>Stockage de jetons d'authentification sur le client
+## <a name="tokens"></a>Stockage de jetons d'authentification sur le client
 
 [WACOM.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../includes/mobile-services-windows-phone-authenticate-app-with-token.md)] 
 
@@ -72,5 +72,5 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [JavaScript et HTML]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
-[Guide de fonctionnement Mobile Services .NET]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library
+[le guide de fonctionnement Mobile Services .NET]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library
 [Inscription du package de votre application Windows Store pour l'authentification Microsoft]: /fr-fr/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication

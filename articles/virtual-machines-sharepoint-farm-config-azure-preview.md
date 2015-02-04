@@ -1,9 +1,9 @@
-﻿<properties title="SharePoint Server Farm Configuration Details" pageTitle="Informations de configuration de la batterie de serveurs SharePoint" description="Décrit la configuration par défaut des batteries de serveurs SharePoint" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
+<properties title="SharePoint Server Farm Configuration Details" pageTitle="Informations de configuration de la batterie de serveurs SharePoint" description="Décrit la configuration par défaut des batteries de serveurs SharePoint" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="josephd" />
 
 
-#Informations de configuration de la batterie de serveurs SharePoint#
+# Informations de configuration de la batterie de serveurs SharePoint#
 
 Avec la batterie de serveurs SharePoint, la version préliminaire du portail Microsoft Azure crée automatiquement une batterie SharePoint Server 2013 préconfigurée. Deux configurations de batterie sont disponibles :
 
@@ -14,7 +14,7 @@ Les sections suivantes fournissent des informations de configuration pour chaque
 
 Pour plus d'informations, consultez [Batterie de serveurs SharePoint](../virtual-machines-sharepoint-farm-azure-preview/).
 
-##Batterie de serveurs SharePoint de base##
+## Batterie de serveurs SharePoint de base##
 
 La batterie de serveurs SharePoint de base se compose de trois machines virtuelles dans la configuration suivante :
 
@@ -57,7 +57,7 @@ Voici les informations de configuration :
 	-	Phrase secrète de la batterie de serveurs SharePoint : défini lors de la configuration initiale.
 
 
-##Haute disponibilité##
+## Haute disponibilité##
 
 La batterie de serveurs SharePoint à haute disponibilité se compose de neuf machines virtuelles dans la configuration suivante :
 
