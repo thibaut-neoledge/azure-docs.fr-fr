@@ -1,4 +1,5 @@
-﻿<properties urlDisplayName="Validate and Modify Data" pageTitle="Utilisation du service principal .Net pour valider et modifier des données (Windows Store) | Centre de développement mobile" metaKeywords="" description="Découvrez comment valider, modifier et compléter les données pour votre application Windows Store avec Microsoft Azure Mobile Services sur le serveur principal .Net." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
+
+<properties urlDisplayName="Validate and Modify Data" pageTitle="Utilisation du service principal .Net pour valider et modifier des données (Windows Store) | Centre de développement mobile" metaKeywords="" description="Découvrez comment valider, modifier et compléter les données pour votre application Windows Store avec Microsoft Azure Mobile Services sur le serveur principal .Net." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
@@ -18,12 +19,12 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 
 Ce didacticiel s'appuie sur la procédure et l'exemple de code présentés dans le didacticiel précédent, [Prise en main] ou [Prise en main des données]. Avant de commencer ce didacticiel, vous devez suivre le didacticiel [Prise en main] ou [Prise en main des données].  
 
-## <a name="string-length-validation"></a>Add validation
+## <a name="string-length-validation"></a>Ajout de la validation
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
 
 
-## <a name="update-client-validation"></a>Update the client
+## <a name="update-client-validation"></a>Mise à jour du client
 
 Maintenant que le service mobile est configuré pour valider les données et envoyer des réponses d'erreur pour une longueur de texte incorrecte, vous devez mettre à jour l'application afin qu'elle traite les réponses d'erreur de la validation. L'erreur sera levée en tant que `MobileServiceInvalidOperationException` à partir de l'appel de l'application cliente à `IMobileServiceTable<TodoItem].InsertAsync()`.
 
@@ -74,19 +75,19 @@ Maintenant que le service mobile est configuré pour valider les données et env
 
     ![][2]
 
-## <a name="add-timestamp"></a>Add a timestamp field for CompleteDate
+## <a name="add-timestamp"></a>Ajout d'un horodatage pour CompleteDate
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
 
 
 
 
-## <a name="update-client-timestamp"></a>Update the client to display the CompleteDate
+## <a name="update-client-timestamp"></a>Mise à jour du client pour l'affichage de CompleteDate
 
 L'étape finale consiste à mettre à jour le client de manière à afficher les nouvelles données **CompleteDate**. 
 
 
-1. Dans l'Explorateur de solutions pour Visual Studio, dans le projet client todolist, ouvrez le fichier MainPage.xaml et remplacez l'élément **CheckBoxComplete** par la définition ci-dessous. Puis enregistrez le fichier. Cela modifie le gestionnaire d'événements sur ** CheckBoxComplete ** pour pouvoir gérer l'événement `click`. Ajoutez un bloc de texte en regard de la case à cocher, et liez-le à la date d'horodatage complète.
+1. Dans l'Explorateur de solutions pour Visual Studio, dans le projet client todolist, ouvrez le fichier MainPage.xaml et remplacez l'élément **CheckBoxComplete** par la définition ci-dessous. Puis enregistrez le fichier. Cela modifie le gestionnaire d'événements sur **CheckBoxComplete** pour pouvoir gérer l'événement `click`. Ajoutez un bloc de texte en regard de la case à cocher, et liez-le à la date d'horodatage complète.
 	      
         <CheckBox Name="CheckBoxComplete" IsChecked="{Binding Complete, Mode=TwoWay}" 
           Click="CheckBoxComplete_Clicked" Content="{Binding Text}" Margin="10,5" VerticalAlignment="Center"/>
@@ -192,7 +193,7 @@ Les scripts serveur sont également utilisés dans le cadre du processus d'autor
 [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started/#create-new-service
 [Autorisation côté service des utilisateurs]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts/
 [Affinage des requêtes au moyen de la pagination]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Mise en route]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+[Prise en main]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
 [Prise en main des données]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
 [Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
 [Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/

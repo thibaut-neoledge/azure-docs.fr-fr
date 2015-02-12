@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to create and provision" pageTitle="Prise en main de la base de données SQL - Azure" metaKeywords="" description="Commencez à créer et à gérer des bases de données SQL dans Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="jeffryg"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
+<properties urlDisplayName="How to create and provision" pageTitle="Prise en main de la base de données SQL - Azure" metaKeywords="" description="Commencez à créer et à gérer des bases de données SQL dans Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="jeffryg"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jeffreyg" />
 
@@ -73,7 +73,7 @@ Cette option vous permet de créer en même temps un serveur et une base de donn
 
 * Choisissez une région. La région détermine l'emplacement géographique du serveur. Choisissez une région qui est pertinente pour ce serveur, car il n'est pas possible de basculer facilement d'une région à l'autre. Choisissez un emplacement le plus proche possible de vous. Vous économisez sur les coûts de la bande passante de sortie et réduisez la latence des données en maintenant l'application et la base de données Azure dans la même région.
 
-* Veillez à ce que la case à cocher **Allow Azure Services to access this server** reste activée pour pouvoir vous connecter à cette base de données via le portail de gestion pour Base de données SQL, Excel dans Office 365 ou Azure SQL Reporting.
+* Veillez à ce que la case à cocher **Autoriser les services Azure à accéder au serveur** reste activée pour pouvoir vous connecter à cette base de données via le portail de gestion pour Base de données SQL, Excel dans Office 365 ou Azure SQL Reporting.
 
 * Une fois que vous avez terminé, cliquez sur la coche en bas de la page.
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Upload a SUSE Linux VHD" pageTitle="Création et téléchargement d'un disque dur virtuel SUSE dans Azure" metaKeywords="Azure VHD, uploading Linux VHD, SUSE, SLES, openSUSE" description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation SUSE Linux." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains a SUSE Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Upload a SUSE Linux VHD" pageTitle="Création et téléchargement d'un disque dur virtuel SUSE dans Azure" metaKeywords="Azure VHD, uploading Linux VHD, SUSE, SLES, openSUSE" description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation SUSE Linux." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains a SUSE Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="szarkos" />
 
@@ -131,7 +131,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation SU
 		# sudo zypper ar -f http://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
 		# sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
 
-	You can then verify the repositories have been added by running the command '`zypper lr`' again. Si un des référentiels de mise à jour concernés n'est pas activé, exécutez la commande suivante :
+	Vous pouvez alors réexécuter la commande '`zypper lr`' pour vérifier que ces référentiels ont été ajoutés. Si un des référentiels de mise à jour concernés n'est pas activé, exécutez la commande suivante :
 
 		# sudo zypper mr -e [NUMBER OF REPOSITORY]
 

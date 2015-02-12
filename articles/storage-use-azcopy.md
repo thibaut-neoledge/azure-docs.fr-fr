@@ -713,7 +713,7 @@ Les exemples ci-dessous démontrent différents scénarios de copie de fichiers 
 
 	AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/myfolder1/ /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-Remarque : si la source spécifiée est un partage de fichiers Azure, vous devez soit spécifier le nom de fichier exact, (*par ex.* `abc.txt`) pour copier un seul fichier, soit spécifier l'option `/S` to copy all files in the share recursively. Une erreur se produit si vous tentez de spécifier à la fois un modèle de fichier et l'option `/S`.
+Remarque : si la source spécifiée est un partage de fichiers Azure, vous devez soit spécifier le nom de fichier exact, (*par ex.* `abc.txt`) pour copier un seul fichier, soit spécifier l'option `/S` pour copier récursivement tous les fichiers du partage. Une erreur se produit si vous tentez de spécifier à la fois un modèle de fichier et l'option `/S`.
 
 ### Téléchargement de fichiers et de dossiers d'un partage de fichiers Azure vers le système de fichiers, récursivement
 

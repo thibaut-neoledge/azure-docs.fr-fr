@@ -1,10 +1,10 @@
-﻿<properties urlDisplayName="Install MySQL" pageTitle="Installation de MySQL sur une machine virtuelle exécutant OpenSUSE Linux dans Azure" metaKeywords="Azure, MySQL" description="Découvrez comment installer MySQL sur une machine virtuelle dans Azure." metaCanonical="" services="" documentationCenter="" title="Install MongoDB on a virtual machine running CentOS Linux in Azure" authors="kathydav" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Install MySQL" pageTitle="Installation de MySQL sur une machine virtuelle exécutant OpenSUSE Linux dans Azure" metaKeywords="Azure, MySQL" description="Découvrez comment installer MySQL sur une machine virtuelle dans Azure." metaCanonical="" services="" documentationCenter="" title="Install MongoDB on a virtual machine running CentOS Linux in Azure" authors="kathydav" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="kathydav" />
 
 # Installation de MySQL sur une machine virtuelle exécutant OpenSUSE Linux dans Azure
 
-[MySQL][MySQL] est une base de données SQL open source connue.  Vous pouvez créer une machine virtuelle exécutant OpenSUSE Linux à l'aide du [portail de gestion Azure][AzurePortal], you can create a virtual machine running OpenSUSE Linux.  Vous pouvez alors installer et configurer une base de données MySQL sur la machine virtuelle.
+[MySQL][MySQL] est une base de données SQL open source connue.  Vous pouvez créer une machine virtuelle exécutant OpenSUSE Linux à l'aide du [portail de gestion Azure][AzurePortal].  Vous pouvez alors installer et configurer une base de données MySQL sur la machine virtuelle.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 

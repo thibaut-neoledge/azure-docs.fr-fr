@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate and Modify Data" pageTitle="Utilisation du service principal .Net pour valider et modifier des données (Windows Store) | Centre de développement mobile" metaKeywords="" description="Découvrez comment valider, modifier et compléter les données pour votre application Windows Store JavaScript avec Microsoft Azure Mobile Services sur le serveur principal .Net." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate and Modify Data" pageTitle="Utilisation du service principal .Net pour valider et modifier des données (Windows Store) | Centre de développement mobile" metaKeywords="" description="Découvrez comment valider, modifier et compléter les données pour votre application Windows Store JavaScript avec Microsoft Azure Mobile Services sur le serveur principal .Net." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="wesmc" />
 
@@ -142,7 +142,7 @@ Les scripts serveur sont également utilisés dans le cadre du processus d'autor
   <br/>Découvrez plus en détail comment utiliser Mobile Services avec .NET.
 
 <!-- Anchors. -->
-[Ajout de la validation de la longueur de chaîne]: #string-length-validation
+[Ajout de la validation de longueur de chaîne]: #string-length-validation
 [Mise à jour du client pour la prise en charge de la validation]: #update-client-validation
 [Test de la longueur de chaîne]: #test-length-validation
 [Ajout d'un horodatage pour CompleteDate]: #add-timestamp

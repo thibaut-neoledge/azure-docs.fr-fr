@@ -2,13 +2,13 @@
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 
-#Connexion d'un site web Azure à une ressource locale au moyen de connexions hybrides
+# Connexion d'un site web Azure à une ressource locale au moyen de connexions hybrides
 
 Vous pouvez connecter un site web sur Microsoft Azure à n'importe quelle ressource locale qui utilise un port TCP statique, par exemple, SQL Server, MySQL, les API web HTTP, les services mobiles et la plupart des services web personnalisés. Cette section montre comment créer une connexion hybride entre un site web Azure et une base de données SQL Server locale.
 
 > [WACOM.NOTE] La partie Sites web de la fonctionnalité Connexions hybrides n'est disponible que dans le [portail Azure Preview](https://portal.azure.com). Pour créer une connexion dans BizTalk Services, consultez [Connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
-##Configuration requise
+## Configuration requise
 - Un abonnement Azure. Pour un abonnement gratuit, consultez [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/fr-fr/pricing/free-trial/). 
 
 - Pour utiliser une base de données SQL Server ou SQL Server Express locale avec une connexion hybride, TCP/IP doit être activé sur un port statique. L'utilisation d'une instance par défaut sur SQL Server est recommandée, car elle utilise le port statique 1433. Pour des informations sur l'installation et la configuration de SQL Server Express pour son utilisation avec des connexions hybrides, consultez [Connexion à une instance SQL Server locale à partir d'un site web Azure au moyen de connexions hybrides](http://go.microsoft.com/fwlink/?LinkID=397979).
@@ -21,7 +21,7 @@ Vous pouvez connecter un site web sur Microsoft Azure à n'importe quelle ressou
 > [WACOM.NOTE] Les étapes décrites dans cet article partent du principe que vous utilisez le navigateur à partir de l'ordinateur qui hébergera l'agent de connexion hybride local.
 
 
-##Dans cet article##
+## Dans cet article##
 
 
 [Création d'un site web dans le portail Azure Preview](#CreateSite)
@@ -153,7 +153,7 @@ Maintenant que l'infrastructure de connexion hybride est terminée, vous pouvez 
 
 - Pour des informations sur l'utilisation d'une connexion hybride avec un service mobile, consultez [Connexion à une instance SQL Server locale à partir d'un service mobile Azure au moyen de connexions hybrides](http://azure.microsoft.com/fr-fr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
 
-###Ressources supplémentaires
+### Ressources supplémentaires
 
 [Vue d'ensemble des connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274)
 

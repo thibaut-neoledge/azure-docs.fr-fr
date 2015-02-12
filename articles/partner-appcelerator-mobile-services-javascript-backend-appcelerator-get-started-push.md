@@ -231,7 +231,7 @@ Votre service mobile est désormais configuré pour utiliser APNS et GCM.
 
 ## <a name="add-push"></a>Ajout de notifications Push à votre application
 
-1.	Dans tiapp.xml, sélectionnez l'onglet tiapp.xml (qui se trouve en bas, à côté de l'onglet " Vue d'ensemble ") et recherchez la balise <android>. Sous la balise, ajoutez le code suivant :
+1.	Dans tiapp.xml, sélectionnez l'onglet tiapp.xml (qui se trouve en bas, à côté de l'onglet " Vue d'ensemble ") et recherchez la balise `<android>`. Sous la balise, ajoutez le code suivant :
 
         <modules>
             <module platform="android">ModuleId</module>
