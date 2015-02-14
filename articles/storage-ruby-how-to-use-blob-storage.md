@@ -1,13 +1,30 @@
-﻿<properties urlDisplayName="Blob Service" pageTitle="Utilisation du stockage d'objets blob (Ruby) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Ruby" description="Découvrez comment utiliser le service BLOB Azure pour charger, télécharger, répertorier et supprimer du contenu d'objet blob. Les exemples sont écrits en Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Blob Service from Ruby" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Utilisation du stockage d'objets blob (Ruby) | Microsoft Azure" 
+	description="Découvrez comment utiliser le service BLOB Azure pour charger, télécharger, répertorier et supprimer du contenu d'objet blob. Les exemples sont écrits en Ruby." 
+	services="storage" 
+	documentationCenter="ruby" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ruby" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="tomfitz"/>
 
 
 
 
 
 #Utilisation du service BLOB à partir de Ruby
- Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service BLOB Azure. Les exemples sont écrits à l'aide de l'API Ruby. Les scénarios traités portent sur **le chargement, le téléchargement, l'énumération** et la **suppression** d'objets blob. Pour plus d'informations sur les objets blob, consultez la section [Étapes suivantes](#next-steps) .
+
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service BLOB Azure. Les exemples sont écrits à l'aide de l'API Ruby.
+Les scénarios traités incluent le **chargement, le téléchargement**, l'**énumération et la suppression** d'objets blob.
+Pour plus d'informations sur les objets blob, consultez la section [Étapes suivantes](#next-steps) .
 
 ##Sommaire
 
@@ -16,25 +33,25 @@
 * [Création d'un compte Azure Storage](#CreateAccount)
 * [Création d'une application Ruby](#CreateRubyApp)
 * [Configuration de votre application pour accéder au stockage](#ConfigAccessStorage)
-* [Configuration de votre application pour accéder au stockage](#SetupStorageConnection)
+* [Configuration d'une connexion Azure Storage](#SetupStorageConnection)
 * [Procédure : Création d'un conteneur](#CreateContainer)
 * [Procédure : Téléchargement d'un objet blob dans un conteneur](#UploadBlob)
-* [Procédure : Énumération des objets blob dans un conteneur](#ListBlobs)
+* [Procédure : Création d'une liste d'objets blob dans un conteneur](#ListBlobs)
 * [Procédure : Téléchargement d'objets blob](#DownloadBlobs)
 * [Procédure : Suppression d'un objet blob](#DeleteBlob)
 * [Étapes suivantes](#NextSteps)
 
 
-[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
-## <a id="CreateAccount"></a>Création d'un compte de stockage Azure
+## <a id="CreateAccount"></a>Création d'un compte Azure Storage
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a id="CreateRubyApp"></a>Création d'une application Ruby
 
 Créez une application Ruby. Pour obtenir des instructions, 
-consultez le guide [Création d'une application Ruby sur Azure](/fr-fr/develop/ruby/tutorials/web-app-with-linux-vm/).
+consultez le guide [Création d'une application Ruby sur Azure](/fr-FR/develop/ruby/tutorials/web-app-with-linux-vm/).
 
 ## <a id="ConfigAccessStorage"></a>Configuration de votre application pour accéder au stockage
 
@@ -42,7 +59,7 @@ Pour utiliser Azure Storage, vous devez télécharger et utiliser le package Azu
 
 ### Utilisation de RubyGems pour obtenir le package
 
-1. Ouvrez une interface de ligne de commande, telle que **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix).
+1. Utiliser une interface de ligne de commande comme **PowerShell** (Windows), **Terminal** (Mac), ou **Bash** (Unix).
 
 2. Tapez " gem install azure " dans la fenêtre de commande pour installer gem et les dépendances.
 
@@ -54,7 +71,7 @@ Pour utiliser Azure Storage, vous devez télécharger et utiliser le package Azu
 
 ## <a id="SetupStorageConnection"></a>Configuration d'une connexion Azure Storage
 
-Le module Azure lit les variables d'environnement **AZURE\_STORAGE\_ACCOUNT** et **AZURE\_STORAGE\_ACCESS_KEY** 
+Le module azure lit les variables d'environnement **AZURE\_STORAGE\_ACCOUNT** et **AZURE\_STORAGE\_ACCESS_KEY** 
 pour obtenir les informations obligatoires pour se connecter à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte avant d'utiliser **Azure::BlobService** avec le code suivant :
 
 	Azure.config.storage_account_name = "<your azure storage account>"
@@ -63,7 +80,7 @@ pour obtenir les informations obligatoires pour se connecter à votre compte de 
 
 Pour obtenir ces valeurs :
 
-1. Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com/).
+1. Connectez-vous au [Portail de gestion Azure](https://manage.windowsazure.com/).
 2. Accédez au compte de stockage que vous voulez utiliser.
 3. Cliquez sur **GÉRER LES CLÉS** au bas du volet de navigation.
 4. Dans la boîte de dialogue contextuelle, vous voyez le nom du compte de stockage et la clé d'accès primaire ou secondaire. Vous pouvez utiliser soit la clé d'accès primaire, soit la clé d'accès secondaire.
@@ -83,7 +100,7 @@ L'exemple suivant crée un conteneur ou imprime l'erreur le cas échéant.
 
 Si vous souhaitez que les fichiers du conteneur soient publics, vous pouvez définir le niveau d'accès du conteneur. 
 
-Vous pouvez simplement modifier l'appel à <strong>create\_container()</strong> pour transmettre l'option **:public\_access\_level** :
+Vous pouvez modifier l'appel <strong>create\_container()</strong> afin de transmettre l'option **:public\_access\_level** :
 
 	container = azure_blob_service.create_container("test-container", 
 	  :public_access_level => "<public access level>")
@@ -91,12 +108,12 @@ Vous pouvez simplement modifier l'appel à <strong>create\_container()</strong> 
 
 Les valeurs valides pour l'option **:public\_access\_level** sont les suivantes :
 
-* **Objet Blob :** spécifie un accès public total en lecture pour le conteneur et les données d'objets blob. Les clients peuvent énumérer les objets blob à l'intérieur du conteneur via une demande anonyme, mais ne peuvent pas énumérer les conteneurs dans le compte de stockage.
+* **objet blob :** spécifie un accès en lecture public complet pour les données de conteneur et d'objets blob. Les clients peuvent énumérer les objets blob du conteneur via une demande anonyme, mais ne peut pas énumérer les conteneurs dans le compte de stockage.
 
-* **Conteneur :** spécifie un accès public en lecture pour les objets blob. Les données d'objets blob à l'intérieur de ce conteneur peuvent être lues via une demande anonyme, mais les données du conteneur ne sont pas disponibles. Les clients ne peuvent pas énumérer les objets blob à l'intérieur du conteneur via une demande anonyme.
+* **conteneur :** spécifie un accès en lecture public pour les objets blob. Les données blob de ce conteneur peuvent être lues via une demande anonyme, mais les données de conteneur ne seront pas disponibles. Les clients ne peuvent pas énumérer les objets blob du conteneur via une demande anonyme.
 
-Vous pouvez également modifier le niveau d'accès public d'un conteneur en utilisant la méthode **set\_container\_acl()** pour spécifier le niveau d'accès public.
- 
+Vous pouvez également modifier le niveau d'accès public d'un conteneur en utilisant la méthode **set\_container\_acl()** afin de spécifier le niveau d'accès public.
+
 Dans l'exemple suivant, le niveau d'accès public du **conteneur** est modifié :
 
 	azure_blob_service.set_container_acl('test-container', "container")
@@ -105,7 +122,7 @@ Dans l'exemple suivant, le niveau d'accès public du **conteneur** est modifié 
 
 Pour télécharger du contenu dans un objet blob, utilisez la méthode **create\_block\_blob()** pour créer l'objet blob, utiliser un fichier ou une chaîne en tant que contenu de l'objet blob. 
 
-Le code suivant télécharge le fichier **test.png** en tant que nouvel objet blob nommé" image-blob " dans le conteneur.
+Le code suivant télécharge le fichier **test.png** en tant que nouvel objet blob nommé " image-blob " dans le conteneur.
 
 	content = File.open("test.png", "rb") { |file| file.read }
 	blob = azure_blob_service.create_block_blob(container.name,
@@ -129,7 +146,7 @@ Cette action génère les URL de tous les objets blob de tous les conteneurs pou
 
 ## <a id="DownloadBlobs"></a>Procédure : Téléchargement d'objets blob
 
-Pour télécharger des objets blob, utilisez la méthode **get\_blob()** pour extraire le contenu. 
+Pour télécharger des objets blob, utilisez la méthode **get\_blob()** afin d'extraire le contenu. 
 
 L'exemple suivant illustre l'utilisation de **get\_blob()** pour télécharger le contenu d'" image-blob " et l'écrire dans un fichier local.
 
@@ -145,8 +162,7 @@ Pour supprimer un objet blob, utilisez la méthode **delete\_blob()**. L'exemple
 
 Maintenant que vous avez appris les bases du stockage d'objets blob, suivez ces liens pour apprendre des tâches de stockage plus complexes.
 
--   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg433040.aspx)
--   Consultez le [blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
--   Consultez le référentiel [Kit de développement logiciel (SDK) Azure pour Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub
-
-<!--HONumber=35.1-->
+-   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/fr-FR/library/windowsazure/gg433040.aspx)
+-   Visitez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
+-   Accédez au [référentiel du Kit de développement logiciel (SDK) Azure pour Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub.
+<!--HONumber=42-->

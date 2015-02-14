@@ -1,26 +1,27 @@
 ﻿
-1. Appuyez sur le bouton **Exécuter** pour générer le projet, puis démarrez l'application sur un appareil compatible iOS, et enfin cliquez sur **OK** pour accepter les notifications Push. Vérifiez que la connexion et l'authentification réussissent.
+1. **[Run]** を押して、プロジェクトをビルドし、iOS 対応のデバイスでアプリケーションを開始します。**[OK]** をクリックして、プッシュ通知を受け入れます。ログインおよび認証が成功することを確認します。
 
   	![][23]
 
-    > [WACOM.NOTE]Vous devez accepter explicitement les notifications Push de votre application. Cette demande s'effectue uniquement lors du premier démarrage de l'application.
+    > [AZURE.NOTE] アプリケーションからのプッシュ通知を明示的に受け入れる必要があります。これが必要であるのは、初めてアプリケーションを実行するときだけです。
 
-2. Dans l'application, entrez un texte explicite, tel que _Nouvelle tâche Mobile Services_ puis cliquez sur l'icône Ajouter (**+**).
+2. アプリケーションで、意味のあるテキスト (たとえば、「_A new Mobile Services task_」) を入力し、プラス (**+**) アイコンをクリックします。
 
   	![][24]
 
-3. Vérifiez que vous avez reçu une notification, puis cliquez sur **OK** pour fermer celle-ci.
+3. 通知が受信されたことを確認し、**[OK]** をクリックして通知を破棄します。
 
   	![][25]
 
-4. Répétez l'étape 2 et fermez immédiatement l'application, puis vérifiez que la notification Push suivante est affichée.
+4. 手順 2 を繰り返してすぐにアプリケーションを閉じ、次のプッシュが表示されることを確認します。
 
   	![][26]
 
-Vous avez terminé ce didacticiel.
+これで、このチュートリアルは終了です。
 
 [23]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
 [24]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png
 [25]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
 [26]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png
 
+<!--HONumber=42-->

@@ -1,63 +1,63 @@
 
-1. Si vous n'avez pas déjà inscrit votre application, accédez à la [page Soumettre une application] du Centre de développement pour les applications Windows Store, connectez-vous à votre compte Microsoft, puis cliquez sur le **Nom de l'application**.
+1. アプリケーションをまだ登録していない場合は、Windows ストア アプリのデベロッパー センターで[アプリの提出のページ]に移動し、Microsoft アカウントでログインして、**[アプリの名前]** をクリックします。
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-submit-win8-app.png)
 
-2. Tapez un nom pour l'application dans **Nom de l'application**, cliquez sur **Réserver le nom d'application**, puis sur **Enregistrer**.
+2. **[アプリ名]** にアプリケーションの名前を入力し、**[アプリの名前の予約]** をクリックして、**[保存]** をクリックします。
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-app-name.png)
 
-   	La nouvelle inscription au Windows Store pour votre application est créée.
+   	これでアプリケーションの新しい Windows ストア登録が作成されます。
 
-3. Dans Visual Studio, ouvrez le projet que vous avez créé avec le didacticiel [Prise en main de Mobile Services].
+3. Visual Studio で、チュートリアル「[モバイル サービスの使用]」を実行したときに作成したプロジェクトを開きます。
 
-4. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet, cliquez sur **Store**, puis sur **Associer l'application au Windows Store...** 
+4. ソリューション エクスプローラーでプロジェクトを右クリックし、**[ストア]**、**[アプリケーションをストアと関連付ける]** の順にクリックします。 
 
   	![](./media/mobile-services-register-windows-store-app/mobile-services-store-association.png)
 
-   	L'Assistant **Associer votre application au Windows Store** s'affiche.
+   	**アプリケーションを Windows ストアと関連付ける**ウィザードが表示されます。
 
-5. Dans l'Assistant, cliquez sur **Se connecter**, puis connectez-vous avec votre compte Microsoft.
+5. ウィザードで **[サインイン]** をクリックし、Microsoft アカウントでログインします。
 
-6. Sélectionnez l'application inscrite à l'étape 2, cliquez sur **Suivant**, puis sur **Associer**.
+6. ステップ 2. で登録したアプリケーションを選択し、**[次へ]**、**[関連付け]** の順にクリックします。
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-select-app-name.png)
 
-   	Cela ajoute les informations d'inscription Windows Store requises au manifeste de l'application.    
+   	この操作により、必要な Windows ストア登録情報がアプリケーション マニフェストに追加されます。    
 
-7. De retour sur la page du centre de développement Windows pour la nouvelle application, cliquez sur **Services**. 
+7. 新しいアプリケーションの Windows デベロッパー センター ページに戻り、**[サービス]** をクリックします。 
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-edit-app.png) 
 
-8. Sur la page Services, cliquez sur **Live Services site** sous **Azure Mobile Services**.
+8. [サービス] ページで **[Azure のモバイル サービス]** の **[Live サービス サイト]** をクリックします。
 
 	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-edit2-app.png) 
 
-9. Dans **Paramètres de l'application**, prenez note des valeurs **ID client**, **Clé secrète client** et **Identificateur de sécurité (SID) du package**. 
+9. **[アプリケーション設定]** の **[クライアント ID]**、 **[クライアント シークレット]**、**[パッケージ セキュリティ ID (SID)]** の値をメモしておきます。 
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-app-push-auth.png)
 
-    >[WACOM.NOTE]La clé secrète client et le SID du package sont des informations d'identification de sécurité importantes. Ne partagez pas ces informations secrètes avec quiconque et ne les distribuez pas avec votre application.
+    >[AZURE.NOTE]クライアント シークレットとパッケージ SID は、重要なセキュリティ資格情報です。これらの機密情報は、他のユーザーと共有したり、アプリケーションで配信したりしないでください。
 
-10. (Facultatif) Cliquez sur **Paramètres de l'API**, activez **Sécurité de redirection renforcée**, entrez une valeur de `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` dans **URL de redirection**, puis cliquez sur **Enregistrer**.
+10. (オプション) **[API 設定]** をクリックし、**[高度なリダイレクト セキュリティ]** をオンにし、**[リダイレクト URL]** の  `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` で値を設定し、**[保存]** をクリックします。
 
 	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-app-push-auth-2.png)
 
-	Cela permet d'activer l'authentification du compte Microsoft sur votre application.
+	これで、アプリでの Microsoft アカウント認証が可能になります。
 
-11. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application.
+11. [Azure 管理ポータル] にログオンし、**[モバイル サービス]** をクリックして、アプリケーションをクリックします。
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-selection.png)
 
-12. Cliquez sur l'onglet **Notifications push**, entrez les valeurs **Clé secrète client** et **SID du package** obtenues auprès de WNS à l'étape 4, puis cliquez sur **Enregistrer**.
+12. **[プッシュ]** タブをクリックし、ステップ 4. で WNS から取得した **[クライアント シークレット]** と **[パッケージ SID]** の値を入力して、**[保存]** をクリックします。
 
    	![](./media/mobile-services-register-windows-store-app/mobile-push-tab.png)
 
-13. Cliquez sur l'onglet **Identité**. Notez que les valeurs **Clé secrète client** et **SID du package** ont déjà été définies lors de l'étape précédente. Entrez l'**ID client** que vous aviez noté et cliquez ensuite sur **Enregistrer**.
+13. **[ID]** タブをクリックします。前のステップで入力した **[クライアント シークレット]** と **[パッケージ SID]** の値が既に設定されていることに注意してください。先ほどのメモのとおりに **[クライアント ID]** を入力し、**[保存]** をクリックします。
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-identity-tab.png)
  
-Vous êtes maintenant prêt à utiliser un compte Microsoft pour l'authentification dans votre application.  
+これで、アプリケーションで認証に Microsoft アカウントを使用する準備ができました。  
 
 <!-- Anchors. -->
 
@@ -65,6 +65,7 @@ Vous êtes maintenant prêt à utiliser un compte Microsoft pour l'authentificat
  
 
 <!-- URLs. -->
-[Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started/#create-new-service
-[Page Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Portail de gestion Azure]: https://manage.windowsazure.com/
+[モバイル サービスの使用]: /fr-FR/develop/mobile/tutorials/get-started/#create-new-service
+[アプリの提出のページ]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Azure 管理ポータル]: https://manage.windowsazure.com/
+<!--HONumber=42-->

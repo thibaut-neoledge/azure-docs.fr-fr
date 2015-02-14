@@ -1,12 +1,12 @@
 ﻿
 
-Enfin, vous devez mettre à jour le script inscrit dans l'opération d'insertion sur la table TodoItem pour envoyer les notifications.
+最後に、通知を送信するためには、TodoItem テーブルの挿入操作に登録されているスクリプトを更新する必要があります。
 
-1. Cliquez sur **TodoItem**, sur **Script**, puis sélectionnez **Insérer**. 
+1. **[TodoItem]** をクリックし、**[スクリプト]** タブをクリックして、**[挿入]** を選択します。 
 
    	![](./media/mobile-services-javascript-update-script-notification-hubs/mobile-insert-script-push2.png)
 
-2. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
+2. insert 関数を次のコードに置き換え、**[保存]** をクリックします。
 
 		function insert(item, user, request) {
 		// Define a payload for the Windows Store toast notification.
@@ -31,5 +31,6 @@ Enfin, vous devez mettre à jour le script inscrit dans l'opération d'insertion
 		        });
 		}
 
-	À l'issue de l'insertion, ce script d'insertion envoie une notification Push (avec le texte de l'élément inséré) à tous les enregistrements d'application Windows Store.
+	この insert スクリプトによって、挿入が成功した後、すべての Windows ストア アプリケーション登録にプッシュ通知が (挿入された項目のテキストと共に) 送信されます。
 
+<!--HONumber=42-->

@@ -1,26 +1,24 @@
 ﻿
-1. Connectez-vous au [portail de gestion Azure], cliquez sur **Services mobiles**, cliquez sur votre service mobile, puis sur l'onglet **Tableau de bord**.
+1. [Azure の管理ポータル]にログオンし、**[Mobile Services]** をクリックし、モバイル サービスをクリックして、**[ダッシュボード]** タブをクリックします。
 
 	![Select your mobile service](./media/mobile-services-enable-source-control/mobile-services-selection.png)
 
-2. (Facultatif) Si vous avez déjà défini les informations d'identification du contrôle de code source Mobile Services ou Web Sites pour votre abonnement Azure, vous pouvez passer directement à l'étape 4. Sinon, cliquez sur **Définir le contrôle de code source** sous **Aperçu rapide** et cliquez sur **Oui** pour confirmer.
+2. (オプション) Azure サブスクリプションの Mobile Services または Websites のソース管理の資格情報が設定済みの場合は、以下をスキップして手順 4 に進むことができます。それ以外の場合は、**[概要]** の下の **[ソース管理の設定]** をクリックして、**[はい]** をクリックして確定します。
 
 	![Set up source control](./media/mobile-services-enable-source-control/mobile-setup-source-control.png)
 
 
-3. Fournissez un **Nom d'utilisateur**, un **Nouveau mot de passe**, confirmez le mot de passe, puis cliquez sur le bouton de vérification. 
+3. **[ユーザー名]** と **[新しいパスワード]** を指定し、パスワードを確認して、チェック ボタンをクリックします。 
 
 	![Set source control credentials](./media/mobile-services-enable-source-control/mobile-source-control-credentials.png)
 
-	Le référentiel Git est créé dans votre service mobile. Notez les informations d'identification que vous venez de fournir, car elles vont seront utiles pour accéder à ce référentiel et à d'autres référentiels Mobile Services de votre abonnement.
+	Git リポジトリがモバイル サービスに作成されます。指定した資格情報をメモしておきます。このリポジトリおよびサブスクリプション内のその他の Mobile Services リポジトリにアクセスするときに、必要になります。
 
-4. Cliquez sur l'onglet **Configurer** et examinez les champs **Contrôle de code source**.
+4. **[構成]** タブをクリックし、**[ソース管理]** フィールドがあることを確認します。
 
 	![Configure source control](./media/mobile-services-enable-source-control/mobile-source-control-configure.png)
 
-	L'URL du référentiel Git s'affiche. Vous l'utiliserez pour cloner le référentiel sur votre ordinateur local.
+	Git リポジトリの URL が表示されます。ローカル コンピューターにリポジトリを複製するために、この URL を使用します。
 
-Avec le contrôle de code source activé dans votre service mobile, vous pouvez utiliser Git pour cloner le référentiel sur votre ordinateur local.
- 
-
-<!--HONumber=35.1-->
+モバイル サービスのソース管理が有効な場合は、Git を使用して、リポジトリをローカル コンピューターに複製できます。
+ <!--HONumber=42-->

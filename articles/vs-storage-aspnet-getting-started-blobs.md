@@ -1,21 +1,35 @@
-﻿<properties title="Getting Started with Azure Storage" pageTitle="Prise en main d'Azure Storage" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="kempb" />
+﻿<properties 
+	pageTitle="Prise en main d'Azure Storage" 
+	description="" 
+	services="storage" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="kempb" />
+<tags 
+	ms.service="storage" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Mise en route](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
-> - [Que s'est-il passé ?](/documentation/articles/vs-storage-aspnet-what-happened/)
+> - [Getting Started](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
+> - [What Happened](/documentation/articles/vs-storage-aspnet-what-happened/)
 
 ## Prise en main d'Azure Storage (projets ASP.NET)
 
 > [AZURE.SELECTOR]
-> - [Objets blob](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
-> - [Files d'attente](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
+> - [Blobs](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
+> - [Queues](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
 > - [Tables](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
 
-Le stockage d'objets blob Azure est un service permettant de stocker de grandes quantités de données non structurées accessibles depuis n'importe où dans le monde via HTTP ou HTTPS. Les objets blob peuvent être de toutes tailles. Il peut s'agir d'images, de fichiers audio ou vidéo, de données brutes ou de fichiers de documents.
+Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. Les objets blob peuvent être de toutes tailles. Il peut s'agir d'images, de fichiers audio ou vidéo, de données brutes ou de fichiers de documents.
 
-Pour commencer, vous devez créer un compte de stockage Azure, puis un ou plusieurs conteneurs pour le stockage. Par exemple, vous pouvez créer un compte de stockage appelé " Scrapbook ", puis créer des conteneurs pour ce compte de stockage, un que vous appellerez " images " pour stocker les images et un autre nommé " audio " pour vos fichiers audio. Une fois que vous avez créé les conteneurs, vous pouvez y charger des fichiers blob. Pour plus d'informations sur la manipulation par programme des objets blob, consultez la page [Utilisation du stockage d'objets blob à partir de .NET](http://azure.microsoft.com/fr-fr/documentation/articles/storage-dotnet-how-to-use-blobs/ "How to use Blob Storage from .NET").
+Pour commencer, vous devez créer un compte de stockage Azure, puis un ou plusieurs conteneurs pour le stockage. Par exemple, vous pouvez créer un compte de stockage appelé " Scrapbook ", puis créer des conteneurs pour ce compte de stockage, un que vous appellerez " images " pour stocker les images et un autre nommé " audio " pour vos fichiers audio. Une fois que vous avez créé les conteneurs, vous pouvez y charger des fichiers blob. See [How to use Blob Storage from .NET](http://azure.microsoft.com/fr-fr/documentation/articles/storage-dotnet-how-to-use-blobs/ "How to use Blob Storage from .NET") for more information on programmatically manipulating blobs.
 
 Ajoutez les déclarations d'espace de noms suivantes en haut de chaque fichier C# pour lequel vous souhaitez accéder à Azure Storage par programmation :
 	
@@ -23,12 +37,13 @@ Ajoutez les déclarations d'espace de noms suivantes en haut de chaque fichier C
 	using Microsoft.WindowsAzure.Storage.Auth;
 	using Microsoft.WindowsAzure.Storage.Blob;
 
-#####Obtention de la chaîne de connexion de stockage
-Pour pouvoir exploiter un objet blob, vous devez avant tout obtenir la chaîne de connexion du compte de stockage dans lequel résideront les objets blob. Pour représenter les informations de votre compte de stockage, vous pouvez utiliser le type **CloudStorageAccount**. Pour les projets ASP.NET, vous pouvez utiliser le type **ConfigurationManager** afin d'obtenir votre chaîne de connexion de stockage et les informations sur votre compte de stockage à partir de la configuration du service Azure, comme illustré dans le code suivant :
+##### Obtention de la chaîne de connexion de stockage
+Before you can do anything with a blob, you need to get the connection string for the storage account the blobs will live in. You can use the **CloudStorageAccount** type to represent your storage account information. For ASP.NET projects, you can you use the **ConfigurationManager** type to retrieve your storage connection string and storage account information from the Azure service configuration, as shown in the following code.
 
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
       CloudConfigurationManager.GetSetting("<storageAccountName>_AzureStorageConnectionString"));
 
-[WACOM.INCLUDE [vs-storage-getting-started-blobs-include](../includes/vs-storage-getting-started-blobs-include.md)]
+[AZURE.INCLUDE [vs-storage-getting-started-blobs-include](../includes/vs-storage-getting-started-blobs-include.md)]
 
-Pour plus d'informations, consultez la page [ASP.NET](http://www.asp.net).
+For more information, see [ASP.NET](http://www.asp.net).
+<!--HONumber=42-->

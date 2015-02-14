@@ -1,16 +1,16 @@
 ﻿
 
-1. Dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **Enregistrements**. 
+1. 管理ポータルで、**[データ]** タブをクリックし、**Registrations** テーブルをクリックします。 
 
 	![](./media/mobile-services-update-registrations-script/mobile-portal-data-tables-registrations.png)
 
-2. Dans **Enregistrements**, cliquez sur l'onglet **Script**, puis sélectionnez **Insérer**.
+2. **[Registrations]** で、**[スクリプト]** タブをクリックし、**[挿入]** をクリックします。
    
 	![](./media/mobile-services-update-registrations-script/mobile-insert-script-registrations.png)
 
-La fonction appelée lors d'une insertion dans la table **Enregistrements** s'affiche.
+	**Registrations** テーブルで挿入が発生したときに呼び出される関数が表示されます。
 
-3. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
+3. insert 関数を次のコードに置き換え、**[保存]** をクリックします。
 
 		function insert(item, user, request) {
 			var registrationTable = tables.getTable('Registrations');
@@ -26,5 +26,6 @@ La fonction appelée lors d'une insertion dans la table **Enregistrements** s'af
     	    }
 	    }
 
-   Le nouveau script de la fonction insert est enregistré. Il stocke les informations d'inscription dans une nouvelle table.
+   これにより、新しいテーブルに登録情報を格納する新しい挿入スクリプトが登録されます。
 
+<!--HONumber=42-->

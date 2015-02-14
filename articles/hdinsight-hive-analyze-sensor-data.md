@@ -1,6 +1,20 @@
-﻿<properties title="Analyzing sensor data using Hive with HDInsight" pageTitle="Analyse des données de capteur à l'aide de Hive et de Microsoft Azure HDInsight (Hadoop)" description="Découvrez comment utiliser Hive et Excel pour analyser et visualiser des données de capteur avec HDInsight (Hadoop)" metaKeywords="Azure hdinsight hive, Azure hdinsight hive sensor, azure hadoop hive, azure hadoop sensor, azure hadoop excel, azure hdinsight excel" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+﻿<properties 
+	pageTitle="Analyse des données de capteur au moyen de Hive et de Microsoft Azure HDInsight (Hadoop)" 
+	description="Découvrez comment utiliser Hive et Excel pour analyser et visualiser des données de capteur avec HDInsight (Hadoop)" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/30/2014" 
+	ms.author="larryfr"/>
 
 #Analyse des données de capteur au moyen de Hive avec HDInsight
 
@@ -15,13 +29,13 @@ Dans cet exemple, vous allez utiliser Hive pour traiter les données d'historiqu
 
 ![A diagram of the solution architecture](./media/hdinsight-use-hive-sensor-data-analysis/hvac-architecture.png)
 
-##Configuration requise :
+##Conditions préalables :
 
-* Un cluster HDInsight (Hadoop) ; consultez la rubrique [Approvisionnement de clusters Hadoop dans HDInsight](/fr-fr/documentation/articles/hdinsight-provision-clusters/) pour plus d'informations sur la création d'un cluster
+* Un cluster HDInsight (Hadoop) - Consultez la rubrique [Approvisionnement de clusters Hadoop dans HDInsight](/fr-fr/documentation/articles/hdinsight-provision-clusters/) pour des informations sur la création d'un cluster.
 
 * Microsoft Excel 2013
 
-	> [WACOM.NOTE] Microsoft Excel est utilisé pour la visualisation des données avec [Power View](https://support.office.com/en-US/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US)qui, pour l'instant, est disponible uniquement sur Windows.
+	> [AZURE.NOTE] Microsoft Excel est utilisé pour la visualisation des données avec [Power View](https://support.office.com/en-US/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US), qui est actuellement disponible uniquement dans Windows.
 
 * [Pilote ODBC Microsoft Hive](http://www.microsoft.com/fr-fr/download/details.aspx?id=40886)
 
@@ -33,8 +47,7 @@ Dans cet exemple, vous allez utiliser Hive pour traiter les données d'historiqu
 
 	À l'invite, authentifiez-vous au moyen du nom d'utilisateur et du mot de passe d'administrateur que vous avez utilisés lors de l'approvisionnement de ce cluster.
 
-2. Dans la page web qui s'ouvre, cliquez sur l'onglet **Galerie de mise en route** puis, sous la catégorie **Exemples**, cliquez sur l'exemple **Analyse du journal du site web**.
+2. Dans la page web qui s'ouvre, cliquez sur l'onglet **Galerie de mise en route**, puis sous la catégorie **Exemples**, cliquez sur l'exemple **Analyse du journal du site web**.
 
 3. Suivez les instructions fournies dans la page web pour terminer l'exemple.
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

@@ -1,7 +1,7 @@
-﻿
+
 L'exemple précédent montrait une connexion standard, qui nécessite que le client contacte le fournisseur d'identité et le service mobile à chaque démarrage de l'application. Cette méthode est non seulement inefficace, mais vous pouvez rencontrer des problèmes d'utilisation si de nombreux clients tentent de lancer votre application en même temps. Une meilleure approche consiste à mettre en cache le jeton d'autorisation renvoyé par Mobile Services et à l'utiliser en premier avant de faire appel à la connexion via un fournisseur. 
 
->[WACOM.NOTE]Vous pouvez mettre en cache le jeton émis par Mobile Services, que vous utilisiez l'authentification gérée par un client ou gérée par un service. Ce didacticiel utilise cette dernière.
+>[AZURE.NOTE] Vous pouvez mettre en cache le jeton émis par Mobile Services, que vous utilisiez l'authentification gérée par un client ou gérée par un service. Ce didacticiel utilise cette dernière.
 
 
 1. Dans Eclipse, ouvrez le fichier ToDoActivity.java et ajoutez les instructions import suivantes :
@@ -10,14 +10,14 @@ L'exemple précédent montrait une connexion standard, qui nécessite que le cli
         import android.content.SharedPreferences;
         import android.content.SharedPreferences.Editor;
 
-2. Ajoutez les membres suivants à la classe " ToDoActivity ".
+2. Ajouter les membres suivants à la classe `ToDoActivity`.
 
     	public static final String SHAREDPREFFILE = "temp";	
 	    public static final String USERIDPREF = "uid";	
     	public static final String TOKENPREF = "tkn";	
 
 
-3. Dans le fichier ToDoActivity.java, ajoutez la définition suivante pour la méthode " cacheUserToken ".
+3. Dans le fichier ToDoActivity.java, ajoutez la définition suivante pour la méthode `cacheUserToken`.
  
     	private void cacheUserToken(MobileServiceUser user)
 	    {
@@ -30,10 +30,10 @@ L'exemple précédent montrait une connexion standard, qui nécessite que le cli
   
     Cette méthode stocke l'ID d'utilisateur et le jeton dans un fichier de préférences marqué comme privé. Ceci doit protéger l'accès au cache afin que les autres applications de l'appareil n'aient pas accès au jeton, car les préférences sont exécutées dans le bac à sable (sandbox) de l'application. Toutefois, si une personne tente d'accéder à l'appareil, il est possible qu'elle puisse accéder au cache du jeton par d'autres moyens. 
 
-    >[WACOM.NOTE]Vous pouvez protéger davantage le jeton avec un chiffrement si l'accès du jeton à vos données est considéré comme étant très sensible et qu'une personne puisse accéder à l'appareil. Toutefois, une solution sécurisée complète sort du cadre de ce didacticiel et dépend de vos besoins en matière de sécurité.
+    >[AZURE.NOTE] Vous pouvez protéger davantage le jeton avec chiffrement si le jeton accès à vos données est considéré comme très sensible et que quelqu'un peut accéder au périphérique. Toutefois, une solution sécurisée complète sort du cadre de ce didacticiel et dépend de vos besoins en matière de sécurité.
 
 
-4. Dans le fichier ToDoActivity.java, ajoutez la définition suivante pour la méthode " loadUserTokenCache ".
+4. Dans le fichier ToDoActivity.java, ajoutez la définition suivante pour la méthode `loadUserTokenCache`.
 
     	private boolean loadUserTokenCache(MobileServiceClient client)
 	    {
@@ -54,7 +54,7 @@ L'exemple précédent montrait une connexion standard, qui nécessite que le cli
 
 
 
-5. Dans le fichier *ToDoActivity.java*, remplacez la méthode " authenticate " par la méthode suivante qui utilise un cache de jeton. Modifiez le fournisseur de connexion si vous souhaitez utiliser un compte autre que Microsoft.
+5. Dans le fichier *ToDoActivity.java*, remplacez la méthode `authenticate` par la méthode suivante qui utilise un cache de jeton. Modifiez le fournisseur de connexion si vous souhaitez utiliser un compte autre que Microsoft.
 
 		private void authenticate() {
 			// We first try to load a token cache if one exists.
@@ -89,3 +89,4 @@ L'exemple précédent montrait une connexion standard, qui nécessite que le cli
 
 
 
+<!--HONumber=42-->

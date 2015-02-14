@@ -1,12 +1,13 @@
 ﻿
-1. Dans Visual Studio, appuyez sur la touche F5 pour exécuter l'application.
+1. Visual Studio で、F5 キーを押してアプリケーションを実行します。
 
-2. Connectez-vous avec le fournisseur d'identité sélectionné et vérifiez que l'authentification réussit. 
+2. 選択した ID プロバイダーを使用してログインし、認証が成功することを確認します。 
 
-3. Dans l'application, tapez du texte dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
+3. アプリケーションで、**[Insert a TodoItem]** にテキストを入力し、**[Save]** をクリックします。
 
-   	Notez qu'une fois l'insertion terminée, l'application reçoit une notification Push de WNS.
+   	挿入が完了すると、アプリケーションは、WNS からプッシュ通知を受け取ります。
 
-4. (Facultatif) Répétez les étapes 1 à 3 sur un autre appareil client et en utilisant un autre compte lors de la connexion.  
+4. (省略可能) 異なるクライアント デバイスで手順 1 ～ 3 を繰り返します。ログインの際は異なるアカウントを使用します。  
 
-	Vérifiez que la notification est reçue seulement sur cet appareil, car l'appareil précédent n'a pas été balisé avec l'identifiant de l'utilisateur actuel. 
+	前のデバイスは現在のユーザー ID でタグ付けされていないので、このデバイス上でのみ、通知が受信されることを確認します。 
+<!--HONumber=42-->

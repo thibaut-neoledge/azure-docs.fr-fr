@@ -8,19 +8,19 @@ Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la comma
 
 1. Suivez la procédure [Prise en main de Storm avec HDInsight](http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-storm-getting-started/) pour créer un cluster HDInsight et le connecter par le biais du Bureau à distance.
 
-2. Copiez le fichier " %STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar " dans votre environnement de développement local. Il contient la commande events-storm-spout.
+2. Copiez le fichier `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` dans votre environnement de développement local. Il contient la commande events-storm-spout.
 
 3. Utilisez la commande suivante pour installer le package dans le magasin Maven local. Vous pouvez ainsi l'ajouter en tant que référence dans le projet Storm à une étape ultérieure.
 
 		mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
 
-4. Dans Eclipse, créez un projet Maven (cliquez sur **Fichier**, **Nouveau**, puis **Projet**).
+4. Dans Eclipse, créez un nouveau projet Maven (cliquez sur **Fichier**, **Nouveau**, puis **Projet**).
 
    	![][12]
 
 5. Sélectionnez l'option **Utiliser l'emplacement d'espace de travail par défaut**, puis cliquez sur **Suivant**
 
-6. Sélectionnez l'archétype **maven-archetype-quickstart**, puis cliquez sur **Suivant**
+6. Sélectionnez l'archétype **maven-archetype-quickstart**, puis cliquez sur **Suivant**.
 
 7. Insérez un **GroupId** et un **ArtifactId**, puis cliquez sur **Terminer**
 
@@ -73,7 +73,7 @@ Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la comma
 		
 		eventhub.receiver.credits = 10
 
-	La valeur de **eventhub.receiver.credits** détermine le nombre d'événements traités par lot avant leur introduction dans le pipeline Storm. Par souci de simplicité, cet exemple définit cette valeur sur 10. En production, elle doit généralement être définie sur des valeurs plus élevées ; par exemple, 1024.
+	La valeur de **eventhub.receiver.credits** détermine le nombre d'événements traités par lot avant leur introduction dans le pipeline Storm. Par souci de simplicité, cet exemple définit cette valeur à 10. En production, il doit généralement être définie sur des valeurs plus élevées ; par exemple 1024.
 
 10. Créez une classe nommée **LoggerBolt** en utilisant le code suivant :
 
@@ -220,7 +220,7 @@ Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la comma
 	Cette classe crée une commande " spout " de concentrateurs d'événements en utilisant les propriétés du fichier de configuration pour l'instancier. Il est important de noter que cet exemple crée autant de tâches " spout " que le nombre de partitions dans le concentrateur d'événements, afin d'utiliser le parallélisme maximal autorisé par ce concentrateur d'événements.
 
 <!-- Links -->
-[Vue d'ensemble des concentrateurs événements]: http://msdn.microsoft.com/fr-fr/library/azure/dn821413.aspx
+[Vue d'ensemble des concentrateurs d'événements]: http://msdn.microsoft.com/fr-fr/library/azure/dn821413.aspx
 [HDInsight Storm]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-storm-overview/
 [Didacticiel Analyse des données de capteur dans HDInsight]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-storm-sensor-data-analysis/
 
@@ -228,4 +228,4 @@ Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la comma
 
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png<!--HONumber=42-->

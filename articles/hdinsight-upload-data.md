@@ -1,40 +1,54 @@
-﻿<properties urlDisplayName="Upload Data" pageTitle="Téléchargement de données pour les tâches Hadoop dans HDInsight | Azure" metaKeywords="" description="Apprenez à télécharger des données et à y accéder dans HDInsight avec l'Explorateur du stockage Azure, Azure PowerShell, la ligne de commande Hadoop ou Sqoop." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Upload data for Hadoop jobs in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties 
+	pageTitle="Téléchargement de données pour les tâches Hadoop dans HDInsight | Azure" 
+	description="Apprenez à télécharger des données et à y accéder dans HDInsight avec l'Explorateur de stockage Azure, Azure PowerShell, la ligne de commande Hadoop ou Sqoop." 
+	services="storage, hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/12/2014" 
+	ms.author="jgao"/>
 
 
 
-#Téléchargement de données pour les tâches Hadoop dans HDInsight
+# Téléchargement de données pour les tâches Hadoop dans HDInsight
 
-Azure HDInsight fournit un système HDFS (Hadoop Distributed File System) complet pour le stockage d'objets blob Azure. Il a été conçu en tant qu'extension HDFS pour offrir aux clients une expérience transparente en permettant à l'ensemble complet de composants de l'écosystème Hadoop de fonctionner directement sur les données qu'il gère. Le stockage d'objets blob Azure et HDFS sont des systèmes de fichiers distincts qui sont optimisés pour le stockage de données et pour les calculs réalisés à partir de ces données. Pour connaître les avantages que constitue l'utilisation du stockage d'objets blob Azure, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage]. 
+Azure HDInsight fournit un système HDFS (Hadoop Distributed File System) complet pour le stockage d'objets blob Azure. Il a été conçu en tant qu'extension HDFS pour offrir aux clients une expérience transparente en permettant à l'ensemble complet de composants de l'écosystème Hadoop de fonctionner directement sur les données qu'il gère. Le stockage d'objets blob Azure et HDFS sont des systèmes de fichiers distincts qui sont optimisés pour le stockage de données et pour les calculs réalisés à partir de ces données. Pour connaître les avantages que constitue l'utilisation du stockage d'objets blob Azure, consultez la page [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage]. 
 
 Les clusters Azure HDInsight sont généralement déployés pour exécuter des tâches MapReduce et sont supprimés une fois ces tâches terminées. Conserver les données dans les clusters HDFS une fois les calculs terminés serait une façon onéreuse de stocker ces données. Le stockage d'objets blob Azure constitue une option de stockage à long terme économique, partageable, hautement évolutive et disponible pour les données qui doivent être traitées à l'aide de HDInsight. Le stockage de données dans un objet blob permet de libérer en toute sécurité les clusters HDInsight utilisés pour les calculs, sans perte de données. 
 
-Vous pouvez accéder au stockage d'objets blob Azure via [AzCopy][azure-azcopy], [Azure PowerShell][azure-powershell], la [bibliothèque cliente Azure Storage pour .NET][azure-storage-client-library] ou des outils d'explorateur. Voici certains des outils disponibles :
+Le stockage d'objets Blob Azure est accessible via [AzCopy][azure-azcopy], [Azure PowerShell][azure-powershell], la [bibliothèque du client de stockage Azure pour .NET][azure-storage-client-library] ou via les outils de l'Explorateur. Voici certains des outils disponibles :
 
-* [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/)
+* [Explorateur de stockage Azure](http://azurestorageexplorer.codeplex.com/)
 * [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/)
 * [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)
 * [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx)
 * [Azure Explorer PRO](http://www.cloudberrylab.com/microsoft-azure-explorer-pro.aspx)
 
-**Configuration requise**
+**Conditions préalables**
 
 Notez la configuration requise avant de commencer la lecture de cet article :
 
-* Un cluster Azure HDInsight. Pour obtenir des instructions, consultez le didacticiel [Prise en main d'Azure HDInsight][hdinsight-get-started] ou la rubrique [Approvisionnement de clusters HDInsight][hdinsight-provision].
+* Un cluster Azure HDInsight. Pour obtenir des instructions, consultez le didacticiel [Prise en main d'Azure HDInsight][hdinsight-get-started] ou la rubrique [Configuration de clusters HDInsight][hdinsight-provision].
 
-##Dans cet article
+## Dans cet article
 
 * [Téléchargement de données vers le stockage d'objets blob avec AzCopy](#azcopy)
 * [Téléchargement de données vers le stockage d'objets blob avec Azure PowerShell](#powershell)
-* [Téléchargement de données vers le stockage d'objets blob avec Azure Storage Explorer](#storageexplorer)
+* [Téléchargement de données vers le stockage d'objets blob avec l'Explorateur de stockage Azure](#storageexplorer)
 * [Téléchargement de données vers le stockage d'objets blob avec la ligne de commande Hadoop](#commandline)
 * [Importation de données à partir d'une base de données SQL Azure vers le stockage d'objets blob avec Sqoop](#sqoop)
 
-##<a id="azcopy"></a>Téléchargement de données vers le stockage d'objets blob avec AzCopy##
+## <a id="azcopy"></a>Téléchargement de données vers le stockage d'objets blob avec AzCopy##
 
-AzCopy est un utilitaire de ligne de commande conçu pour simplifier le transfert de données vers et depuis un compte Azure Storage. Vous pouvez l'utiliser comme un outil indépendant ou l'incorporer dans une application existante. [Téléchargez AzCopy][azure-azcopy-download].
+AzCopy est un utilitaire de ligne de commande conçu pour simplifier le transfert de données vers et depuis un compte Azure Storage. Vous pouvez l'utiliser comme un outil indépendant ou l'incorporer dans une application existante. [Téléchargement d'AzCopy][azure-azcopy-download].
 
 La syntaxe d'AzCopy est :
 
@@ -42,13 +56,13 @@ La syntaxe d'AzCopy est :
 
 Pour plus d'informations, consultez la page [AzCopy : téléchargement de fichiers pour les objets blob Azure][azure-azcopy]
 
-##<a id="powershell"></a>Téléchargement de données vers le stockage d'objets blob avec Azure PowerShell##
+## <a id="powershell"></a>Téléchargement de données vers le stockage d'objets blob avec Azure PowerShell##
 
-Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Vous pouvez utiliser Azure PowerShell pour télécharger des données vers le stockage d'objets blob, pour traiter les données avec des tâches MapReduce. Pour plus d'informations sur la configuration de votre poste de travail pour exécuter Azure PowerShell, consultez la rubrique [Installation et configuration d'Azure PowerShell][powershell-install-configure].
+Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Vous pouvez utiliser Azure PowerShell pour télécharger des données vers le stockage d'objets blob, pour traiter les données avec des tâches MapReduce. Pour plus d'informations sur la configuration de votre poste de travail pour exécuter Azure PowerShell, consultez l'article [Installation et configuration d'Azure PowerShell][powershell-install-configure].
 
 **Téléchargement d'un fichier local vers un stockage d'objets blob**
 
-1. Ouvrez la fenêtre de la console Azure PowerShell, comme indiqué dans la rubrique [Installation et configuration d'Azure PowerShell][powershell-install-configure].
+1. Ouvrez la fenêtre de la console Azure PowerShell, comme indiqué dans la section [Installation et configuration d'Azure PowerShell][powershell-install-configure].
 2. Définissez les valeurs des cinq premières variables dans le script suivant :
 
 		$subscriptionName = "<AzureSubscriptionName>"
@@ -70,7 +84,7 @@ Azure PowerShell est un environnement de création de scripts vous permettant de
 		
 3. Collez le script dans la fenêtre de la console Azure PowerShell pour l'exécuter.
 
-Les conteneurs de stockage d'objets blob stockent des données en tant que paires clé/valeur et sans hiérarchie de répertoires. Cependant, vous pouvez utiliser le caractère " / " dans le nom de la clé pour la faire apparaître comme un fichier stocké dans une structure de répertoires. Par exemple, une clé d'objet blob peut être *input/log1.txt*. Il n'existe pas de répertoire " input ", mais le caractère " / " figurant dans le nom de la clé lui donne l'aspect d'un chemin d'accès de fichier. Dans le script précédent, vous pouvez donner une structure de dossiers au fichier, en configurant la variable $blobname. Par exemple : *$blobname="myfolder/myfile.txt"*.
+Les conteneurs de stockage d'objets blob stockent des données en tant que paires clé/valeur et sans hiérarchie de répertoires. Cependant, vous pouvez utiliser le caractère " / " dans le nom de la clé pour la faire apparaître comme un fichier stocké dans une structure de répertoires. Par exemple, une clé d'objet blob peut être *input/log1.txt*. Il n'existe pas de répertoire " input ", mais le caractère " / " figurant dans le nom de la clé lui donne l'aspect d'un chemin d'accès de fichier. Dans le script précédent, vous pouvez donner une structure de dossiers au fichier, en configurant la variable $blobname. Par exemple *$blobname="myfolder/myfile.txt"*.
 
 Lorsque vous utilisez les outils d'Azure Explorer, vous pouvez remarquer la présence de certains fichiers de 0 octet. Ces fichiers ont deux utilités :
 
@@ -84,11 +98,11 @@ Lorsque vous utilisez les outils d'Azure Explorer, vous pouvez remarquer la pré
 
 
 
-##<a id="storageexplorer"></a>Téléchargement de données vers le stockage d'objets blob avec Azure Storage Explorer
+## <a id="storageexplorer"></a>Téléchargement de données vers le stockage d'objets blob avec l'Explorateur de stockage Azure
 
-*Azure Storage Explorer* est un outil utile pour examiner et modifier les données de votre compte Azure Storage. Il s'agit d'un outil gratuit que vous pouvez télécharger depuis la page [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
+L'*Explorateur de stockage Azure* est un outil utile pour examiner et modifier les données de votre compte Azure Storage. Il s'agit d'un outil gratuit que vous pouvez télécharger depuis la page [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
-Avant de l'utiliser, vous devez connaître le nom et la clé de votre compte Azure Storage. Pour des instructions sur la façon d'obtenir ces informations, consultez la section " Affichage, copie et régénération de clés d'accès de stockage " de la rubrique [Création, gestion ou suppression d'un compte de stockage][azure-create-storageaccount].  
+Avant de l'utiliser, vous devez connaître le nom et la clé de votre compte Azure Storage. Pour des instructions sur la façon d'obtenir ces informations, consultez la section Affichage, copie et régénération de clés d'accès de stockage de la rubrique [Création, gestion ou suppression d'un compte de stockage][azure-create-storageaccount].  
 
 1. Exécutez Azure Storage Explorer.
 
@@ -99,12 +113,12 @@ Avant de l'utiliser, vous devez connaître le nom et la clé de votre compte Azu
 	![HDI.ASEAddAccount][image-ase-addaccount]
 
 3. Entrez le **nom du compte de stockage** et la **clé du compte de stockage**, puis cliquez sur **Ajouter le compte de stockage**. Vous pouvez ajouter plusieurs comptes de stockage, et chaque compte sera affiché sous un onglet. 
-4. Sous **Type de stockage**, cliquez sur **Objets BLOB**.
+4. Sous **Type de stockage**, cliquez sur **Objets blob**.
 
 	![HDI.ASEBlob][image-ase-blob]
 
-5. Dans **Conteneur**, cliquez sur le conteneur associé à votre cluster HDInsight. Lorsque vous créez un cluster HDInsight, vous devez indiquer un conteneur.  Sinon, le processus de création de cluster en crée un pour vous.
-6. Sous **Objet BLOB**, cliquez sur **Télécharger**.
+5. ﻿Dans **Conteneur**, cliquez sur le conteneur associé à votre cluster HDInsight. Lorsque vous créez un cluster HDInsight, vous devez indiquer un conteneur.  Sinon, le processus de création de cluster en crée un pour vous.
+6. Sous **Objets blob**, cliquez sur **Téléchargement**.
 7. Indiquez un fichier à télécharger, puis cliquez sur **Ouvrir**.
 
 
@@ -178,7 +192,7 @@ Avant de l'utiliser, vous devez connaître le nom et la clé de votre compte Azu
 
 
 
-##<a id="commandline"></a> Téléchargement de données vers le stockage d'objets blob avec la ligne de commande Hadoop
+## <a id="commandline"></a> Téléchargement de données vers le stockage d'objets blob avec la ligne de commande Hadoop
 
 Pour utiliser la ligne de commande Hadoop, vous devez d'abord vous connecter au cluster avec le Bureau à distance. 
 
@@ -188,7 +202,7 @@ Pour utiliser la ligne de commande Hadoop, vous devez d'abord vous connecter au 
 2. Cliquez sur **HDINSIGHT**. Une liste de clusters Hadoop déployés s'affiche.
 3. Cliquez sur le cluster HDInsight sur lequel vous voulez télécharger des données.
 4. En haut de la page, cliquez sur **CONFIGURATION**.
-5. Cliquez sur**ACTIVER DISTANT** si vous n'avez pas activé le Bureau à distance, puis suivez les instructions.  Sinon, passez à l'étape suivante.
+5. Cliquez sur **ENABLE REMOTE** si vous n'avez pas activé le Bureau à distance, puis suivez les instructions.  Sinon, passez à l'étape suivante.
 4. En bas de la page, cliquez sur **CONNECTER**.
 7. Cliquez sur **Ouvrir**.
 8. Entrez vos informations d'identification, puis cliquez sur **OK**.
@@ -213,19 +227,19 @@ Pour utiliser la ligne de commande Hadoop, vous devez d'abord vous connecter au 
 		hadoop dfs -lsr /example/data
 
 
-##<a id="sqoop"></a> Importation de données vers HDFS à partir d'une base de données ou d'un serveur SQL avec Sqoop
+## <a id="sqoop"></a> Importation de données vers HDFS à partir d'une base de données ou d'un serveur SQL avec Sqoop
 
 Sqoop est un outil conçu pour transférer des données entre Hadoop et des bases de données relationnelles. Il permet d'importer des données depuis un système de gestion de base de données relationnelle (ou SGBDR) tel que SQL, MySQL ou Oracle vers HDFS, de transformer les données dans Hadoop avec MapReduce ou Hive, puis de les réexporter dans un SGBDR. Pour plus d'informations, consultez le [guide d'utilisation de Sqoop][apache-sqoop-guide].
 
 Avant d'importer les données, vous devez connaître le nom du serveur de base de données SQL Azure, le mot de passe du compte et le nom de la base de données. 
 
-Une base de données SQL Azure autorise par défaut les connexions aux services Azure tels que Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l'activer à partir du portail de gestion Azure. Pour obtenir des instructions sur la création d'une base de données SQL et la configuration des règles de pare-feu, consultez la rubrique [Création et configuration d'une base de données SQL][sqldatabase-create-configue]. 
+Par défaut, une base de données SQL Azure autorise les connexions aux services Azure tels que Azure HDInsight. Si ce paramètre de pare-feu est désactivé, vous devez l'activer à partir du portail de gestion Azure. Pour obtenir des instructions sur la création d'une base de données SQL et la configuration des règles de pare-feu, consultez la rubrique [Création et configuration d'une base de données SQL][sqldatabase-create-configure]. 
 
 La procédure suivante utilise PowerShell pour envoyer une tâche Sqoop. 
 
 **Importation de données vers HDInsight avec Sqoop et PowerShell**
 
-1. Ouvrez la fenêtre de la console Azure PowerShell, comme indiqué dans la rubrique [Installation et configuration d'Azure PowerShell][powershell-install-configure].
+1. Ouvrez la fenêtre de la console Azure PowerShell, comme indiqué dans la section [Installation et configuration d'Azure PowerShell][powershell-install-configure].
 2. Définissez les valeurs des huit premières variables dans le script suivant :
 
 		$subscriptionName = "<AzureSubscriptionName>"
@@ -283,7 +297,7 @@ Maintenant que vous savez comment obtenir des données avec HDInsight, utilisez 
 [hdinsight-use-pig]: ../hdinsight-use-pig
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 
-[sqldatabase-create-configue]: ../sql-database-create-configure/
+[sqldatabase-create-configure]: ../sql-database-create-configure/
 
 [apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
@@ -294,5 +308,4 @@ Maintenant que vous savez comment obtenir des données avec HDInsight, utilisez 
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

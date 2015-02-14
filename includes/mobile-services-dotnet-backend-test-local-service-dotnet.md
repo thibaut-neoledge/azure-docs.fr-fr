@@ -17,4 +17,4 @@ Dans cette section, vous allez tester votre nouvelle application avec le service
 
 4. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
 
-	Une demande POST est alors envoyée au service mobile local. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans la table sont renvoyés par le service mobile et les données sont affichées dans la deuxième colonne de l'application.
+	Une demande POST est alors envoyée au service mobile local. Les données de la demande sont insérées dans la table TodoItem. Les éléments stockés dans la table sont renvoyés par le service mobile et les données sont affichées dans la deuxième colonne de l'application.<!--HONumber=42-->

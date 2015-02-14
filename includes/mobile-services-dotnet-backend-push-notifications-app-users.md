@@ -8,9 +8,9 @@
  
 	Ceci impose l'authentification de l'utilisateur avant l'inscription aux notifications Push. 
 
-2. Cliquez avec le bouton droit sur le projet, cliquez sur **Ajouter**, puis sur **Classe...**.
+2. Cliquez avec le bouton droit sur le projet, cliquez sur **Ajouter**, puis cliquez sur **Classe...**.
 
-3. Appelez la nouvelle classe vide PushRegistrationHandler, puis cliquez sur **Ajouter**.
+3. Appelez la nouvelle classe vide `PushRegistrationHandler` puis cliquez sur **Ajouter**.
 
 4. En haut de la page de code, ajoutez les instructions **using** suivantes :
 
@@ -77,7 +77,7 @@
         }
     }
 
-	La méthode **Register** est appelée lors de l'inscription. Ceci vous permet d'ajouter une balise à l'inscription, qui est l'ID de l'utilisateur connecté. Les balises fournies sont validées de façon à empêcher un utilisateur de s'inscrire pour l'ID d'un autre utilisateur. Quand une notification est envoyée à cet utilisateur, elle est reçue sur cet appareil et sur tous les autres appareils inscrits par l'utilisateur. 
+	La méthode **Register** est appelée lors de l'inscription. Ceci vous permet d'ajouter une balise à l'inscription, qui est l'ID de l'utilisateur connecté. Les balises fournies sont validées pour empêcher un utilisateur de s'inscrire avec l'ID d'un autre utilisateur Lorsqu'une notification est envoyée à cet utilisateur, elle est reçue sur ce périphérique et tout autre périphérique enregistré par l'utilisateur. 
 
 6. Développez le dossier Controllers, ouvrez le fichier de projet TodoItemController.cs, localisez la méthode **PostTodoItem** et remplacez la ligne de code qui appelle **SendAsync** par le code suivant :
 
@@ -90,4 +90,4 @@
 7. Republiez le projet de service mobile.
 
 Le service utilise maintenant la balise de l'identifiant utilisateur pour envoyer une notification Push (avec le texte de l'élément inséré) à toutes les inscriptions créées par l'utilisateur connecté.
-
+ <!--HONumber=42-->

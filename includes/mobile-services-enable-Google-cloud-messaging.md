@@ -1,39 +1,34 @@
+﻿
 
 
+1. <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console Web</a> サイトに移動し、Google アカウント資格情報でサインインして、**[Create Project]** をクリックします。
 
-1.  Accédez au site web [Google Cloud Console][Google Cloud Console], connectez-vous avec vos informations d'identification de compte Google, puis cliquez sur **CREATE PROJECT**.
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
 
-    ![][0]
+	>[AZURE.NOTE]既にプロジェクトがある場合は、ログイン後に <strong>[Projects]</strong> ページが表示されます。ダッシュボードで新しいプロジェクトを作成するには、<strong>[API Project]</strong> を展開し、<strong>[Other projects]</strong> の下の <strong>[Create]</strong> をクリックして、プロジェクト名を入力してから <strong>[Create project]</strong> をクリックします。
 
-	>[WACOM.NOTE] Si vous disposez déjà d'un projet en cours, vous êtes redirigé vers la page **Projets** une fois la connexion établie. Pour créer un projet depuis le tableau de bord, développez **API Project**, cliquez sur **Create...** sous **Other projects**, puis entrez un nom de projet et cliquez sur **Create project**.
+2. プロジェクトの名前を入力し、サービスの条件に同意して、**[Create]** をクリックします。要求された SMS の確認を実行し、**[Create]** をもう一度クリックします。
 
-2.  Entrez un nom de projet, acceptez les conditions de service et cliquez sur **Create**. Procédez à la vérification de SMS demandée et cliquez à nouveau sur **Create**.
+3. **[Projects]** セクションに表示されたプロジェクト番号をメモしておきます。 
 
-3.  Notez le numéro du projet dans la section **Projects**.
+	チュートリアルの後の方で、クライアントの PROJECT_ID 変数に、この値を設定します。
 
-	Plus loin dans le didacticiel, vous allez définir cette valeur en tant que variable PROJECT\_ID dans le client.
+4. 左側の列の **[APIs & auth]** をクリックして、下にスクロールし、トグルをクリックして **[Google Cloud Messaging for Android]** を有効にし、サービスの条件に同意します。 
 
-4.  Dans la colonne de gauche, cliquez sur **APIs & auth**, puis faites défiler la page et cliquez sur la touche bascule pour activer **Google Cloud Messaging for Android** et accepter les conditions de service.
+	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 
-	![][1]
+5. **[Credentials]**、**[Create new Key]** の順にクリックします。 
 
-5.  Cliquez sur **Credentials**, puis sur **CREATE NEW KEY**
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
 
-    ![][2]
+6. **[Create a new key]** で、**[Server key]** をクリックします。次のウィンドウで **[Create]** をクリックします。
 
-6.  Dans **Create a new key**, cliquez sur **Server key**. Dans la fenêtre suivante, cliquez sur **Create**.
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
 
-    ![][3]
+7. **[API KEY]** の値をメモしておきます。
 
-7.  Prenez note de la valeur de **API key**.
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png) 
 
-    ![][4]
+	この API キー値を使用して、Mobile Services が GCM で認証し、アプリケーションの代わりにプッシュ通知を送信できるようにします。
 
-    Vous allez utiliser cette valeur de clé API afin d'activer Mobile Services pour l'authentification avec GCM et l'envoi des notifications push au nom de votre application.
-
-  [Google Cloud Console]: http://cloud.google.com/console
-  [0]: ./media/notification-hubs-android-get-started/mobile-services-google-new-project.png
-  [1]: ./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png
-  [2]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png
-  [3]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png
-  [4]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png
+<!--HONumber=42-->

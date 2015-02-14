@@ -1,11 +1,11 @@
-﻿## <a name="register-mobile-service-aad"></a>Inscription de votre service mobile auprès d'Azure Active Directory
+## <a name="register-mobile-service-aad"></a>Inscription de votre service mobile auprès d'Azure Active Directory
 
 
 Dans cette section, vous allez inscrire votre service mobile auprès d'Azure Active Directory et configurer des autorisations pour permettre l'emprunt d'identité d'authentification unique.
 
-1. Inscrivez votre application auprès d'Azure Active Directory en suivant la rubrique [Inscription auprès d'Azure Active Directory].
+1. Inscrivez votre application auprès d'Azure Active Directory en suivant la rubrique [Inscription auprès de l'annuaire Azure Active Directory].
 
-2. Dans le [portail de gestion Azure], revenez à l'extension Azure Active Directory et cliquez sur votre annuaire actif.
+2. Sur le [portail de gestion Azure], revenez à l'extension Azure Active Directory et cliquez sur votre annuaire actif.
 
 3. Cliquez sur l'onglet **Applications**, puis sur votre application.
 
@@ -36,5 +36,5 @@ Dans cette section, vous allez inscrire votre service mobile auprès d'Azure Act
 6. Sur le portail de gestion Azure, cliquez de nouveau sur **Gérer le manifeste**, puis sur **Télécharger le manifeste sur le serveur**.  Accédez au manifeste que vous venez de mettre à jour et téléchargez-le sur le serveur.
 
 <!-- URLs. -->
-[Inscription à Azure Active Directory]: /fr-fr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-[Portail de gestion Azure]: https://manage.windowsazure.com/
+[Inscription auprès de l'annuaire Azure Active Directory]: /fr-FR/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Portail de gestion Azure]: https://manage.windowsazure.com/<!--HONumber=42-->

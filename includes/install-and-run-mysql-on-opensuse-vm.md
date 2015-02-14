@@ -25,7 +25,7 @@
 
 		# rcmysql stop
 
-5. Avertissement ! Après l'installation, le mot de passe racine MySQL est vide par défaut.  Il est recommandé d'exécuter le script **mysql_secure_installation** qui permet de sécuriser MySQL. Lors de l'exécution de **mysql_secure_installation**, vous êtes invité à modifier le mot de passe racine MySQL, à supprimer les comptes d'utilisateurs anonymes, à désactiver les connexions racine à distance, à supprimer les bases de données de test et à recharger la table des privilèges. Il est recommandé de répondre oui à toutes ces options et de modifier le mot de passe racine. Pour exécuter le script, saisissez la commande suivante :
+5. Avertissement ! Après l'installation, le mot de passe racine MySQL est vide par défaut.  Il est recommandé d'exécuter le script **mysql\_secure\_installation**, qui permet de sécuriser MySQL. Lors de l'exécution de **mysql\_secure\_installation**, vous êtes invité à modifier le mot de passe racine MySQL, à supprimer les comptes d'utilisateurs anonymes, à désactiver les connexions racine à distance, à supprimer les bases de données de test et à recharger la table des privilèges. Il est recommandé de répondre oui à toutes ces options et de modifier le mot de passe racine. Pour exécuter le script, saisissez la commande suivante :
 
 		$ mysql_secure_installation
 
@@ -35,7 +35,7 @@
 
 	Entrez le mot de passe racine MySQL (que vous avez modifié à l'étape précédente) pour ouvrir une invite de commandes vous permettant d'écrire des instructions SQL pour interagir avec la base de données.
 
-7. Pour créer un utilisateur MySQL, exécutez la commande suivante à l'invite **mysql>** :
+7. Pour créer un utilisateur MySQL, exécutez la commande suivante dans l'invite **mysql>** :
 
 		mysql> CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 
@@ -52,7 +52,7 @@
 
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
 
-	où `ip-address` est l'adresse IP de l'ordinateur à partir duquel vous vous connectez à MySQL.
+	où `ip-address` est l'adresse IP de l'ordinateur sur lequel vous vous connectez à MySQL.
 	
 10. Pour quitter l'utilitaire d'administration de base de données MySQL, exécutez la commande suivante :
 
@@ -62,7 +62,7 @@
 
 	![Endpoints][Image7]
 
-12. Cliquez sur **Ajouter** au bas de la page.
+12. Cliquez sur **Ajouter** en bas de la page.
 	![Endpoints][Image8]
 
 13. Ajoutez un point de terminaison avec le nom " MySQL ", le protocole **TCP** ainsi que les ports **Public** et **Privé** définis sur " 3306 ". Il permet l'accès à distance à MySQL.
@@ -82,5 +82,4 @@
 [AzurePreviewPortal]: http://manage.windowsazure.com
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

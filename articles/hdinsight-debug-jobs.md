@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Debug HDInsight Hadoop Errors" pageTitle="Débogage de Hadoop dans HDInsight : messages d'erreur | Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" description="Découvrez les messages d'erreur susceptibles de s'afficher lorsque vous administrez HDInsight au moyen de PowerShell, ainsi que la procédure de récupération." services="hdinsight" title="Debug Hadoop in HDInsight: Error messages" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="bradsev" />
+﻿<properties 
+	pageTitle="Débogage de Hadoop dans HDInsight : messages d'erreur | Azure" 
+	description="Découvrez les messages d'erreur susceptibles de s'afficher lorsque vous administrez HDInsight au moyen de PowerShell, ainsi que la procédure de récupération." 
+	services="hdinsight" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	authors="bradsev" 
+	documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 # Débogage de Hadoop dans HDInsight : messages d'erreur
 
@@ -13,8 +27,8 @@ Certains de ces messages d'erreur peuvent également apparaître dans le portail
 
 Les erreurs qu'un utilisateur peut rencontrer dans Azure PowerShell ou sur le portail Azure sont répertoriées par ordre alphabétique dans la section [Erreurs HDInsight](#hdinsight-error-messages) où elles sont liées à une entrée dans la section [Description et atténuation des erreurs](#discription-mitigation-errors) fournissant les informations suivantes pour l'erreur :
  	
-- **Description** : message d'erreur visible pour les utilisateurs	
-- **Atténuation** : mesures à prendre pour la récupération à la suite de l'erreur. 
+- **Description** : message d'erreur visible par les utilisateurs	
+- **Atténuation** : mesures à prendre pour la récupération à la suite de l'erreur 
 
 ###Erreurs HDInsight
 
@@ -74,7 +88,7 @@ Les erreurs qu'un utilisateur peut rencontrer dans Azure PowerShell ou sur le po
 - **Atténuation** : vous devez fournir un metastore SQL Azure correct et relancer la requête.  
 
 <h3><a id="AzureRegionNotSupported"></a>AzureRegionNotSupported</h3>
-- **Description** : impossible de créer un cluster dans la région *nom_région*. Utilisez une région HDInsight valide et relancez la requête.   
+- **Description** : Impossible de créer un cluster dans la région *nameOfYourRegion*. Utilisez une région HDInsight valide et relancez la requête.   
 - **Atténuation** : créez le cluster dans une région qui prend actuellement en charge les clusters : Asie du Sud-Est, Europe du Nord, Europe de l'Ouest, Est des États-Unis ou Ouest des États-Unis.  
 
 <h3><a id="ClusterContainerRecordNotFound"></a>ClusterContainerRecordNotFound</h3>
@@ -82,11 +96,11 @@ Les erreurs qu'un utilisateur peut rencontrer dans Azure PowerShell ou sur le po
 - **Atténuation** : retentez l'opération. 
 
 <h3><a id="ClusterDnsNameInvalidReservedWord"></a>ClusterDnsNameInvalidReservedWord</h3>
-- **Description** : le nom DNS du cluster *nom_DNS* est incorrect. Assurez-vous que le nom commence et se termine par un caractère alphanumérique et contient uniquement le caractère spécial '-'.  
+- **Description** : le nom DNS du cluster *yourDnsName* est incorrect. Assurez-vous que le nom commence et se termine par un caractère alphanumérique et contient uniquement le caractère spécial '-'.  
 - **Atténuation** : assurez-vous que vous avez utilisé pour votre cluster un nom DNS correct, qui commence et se termine par un caractère alphanumérique et ne contient aucun caractère spécial à l'exception du tiret '-', puis retentez l'opération.
 
 <h3><a id="ClusterNameUnavailable"></a>ClusterNameUnavailable</h3>
-- **Description** : le nom de cluster *nom_cluster* n'est pas disponible. Choisissez un autre nom.  
+- **Description** : le nom de cluster *yourClusterName* n'est pas disponible. Choisissez un autre nom.  
 - **Atténuation** : vous devez spécifier un nom de cluster qui est unique et qui n'existe pas, puis refaire une tentative. Si vous utilisez le portail, l'interface utilisateur vous avertira si un nom de cluster est déjà utilisé pendant la procédure de création. 
  
 
@@ -99,11 +113,11 @@ Les erreurs qu'un utilisateur peut rencontrer dans Azure PowerShell ou sur le po
 - **Atténuation** : fournissez un nom d'utilisateur de cluster correct et retentez l'opération.
 
 <h3><a id="ClusterUserNameInvalidReservedWord"></a>ClusterUserNameInvalidReservedWord</h3>
-- **Description** : le nom DNS du cluster *nom_DNS_cluster* est incorrect. Assurez-vous que le nom commence et se termine par un caractère alphanumérique et contient uniquement le caractère spécial '-'.  
+- **Description** : le nom DNS du cluster *yourDnsClusterName* est incorrect. Assurez-vous que le nom commence et se termine par un caractère alphanumérique et contient uniquement le caractère spécial '-'.  
 - **Atténuation** : fournissez un nom DNS de cluster correct et retentez l'opération.
 
 <h3><a id="ContainerNameMisMatchWithDnsName"></a>ContainerNameMisMatchWithDnsName</h3>
-- **Description** : le nom du conteneur dans l'URI *URI_conteneur* et le nom DNS *nom_DNS* dans le corps de la requête doivent être identiques.  
+- **Description** : le nom du conteneur dans l'URI *yourcontainerURI* et le nom DNS *yourDnsName* dans le corps de la requête doivent être identiques.  
 - **Atténuation** : assurez-vous que le nom de votre conteneur et le nom de votre DNS sont identiques, puis retentez l'opération.
 
 <h3><a id="DataNodeDefinitionNotFound"></a>DataNodeDefinitionNotFound</h3>
@@ -119,11 +133,11 @@ Les erreurs qu'un utilisateur peut rencontrer dans Azure PowerShell ou sur le po
 - **Atténuation** : supprimez le cluster et recréez-en un.
 
 <h3><a id="DuplicateClusterContainerRequest"></a>DuplicateClusterContainerRequest</h3>
-- **Description** : tentative de création d'un conteneur de cluster en double. Il existe un enregistrement pour *nom_conteneur*, mais les valeurs Etag ne correspondent pas.   
+- **Description** : tentative de création d'un conteneur de cluster en double. Il existe un enregistrement pour *nameOfYourContainer* mais les valeurs Etag ne correspondent pas.   
 - **Atténuation** : fournissez un nom unique pour le conteneur et retentez l'opération de création. 
 
 <h3><a id="DuplicateClusterInHostedService"></a>DuplicateClusterInHostedService</h3>
-- **Description** : le service hébergé *nom_service_hébergé* contient déjà un cluster. Un service hébergé ne peut pas contenir plusieurs clusters.  
+- **Description** : le service hébergé  *nameOfYourHostedService* contient déjà un cluster. Un service hébergé ne peut pas contenir plusieurs clusters.  
 - **Atténuation** : hébergez le cluster dans un autre service hébergé. 
 
 <h3><a id="FailureToUpdateDeploymentStatus"></a>FailureToUpdateDeploymentStatus</h3>
@@ -131,7 +145,7 @@ Les erreurs qu'un utilisateur peut rencontrer dans Azure PowerShell ou sur le po
 - **Atténuation** : retentez l'opération. Si le problème se reproduit plusieurs fois, contactez CSS. 
 
 <h3><a id="HdiRestoreClusterAltered"></a>HdiRestoreClusterAltered</h3>
-- **Description** : Le cluster *nom_cluster* a été supprimé dans le cadre de la maintenance. Recréez le cluster.     
+- **Description** : le cluster *yourClusterName* a été supprimé dans le cadre de la maintenance. Recréez le cluster.     
 - **Atténuation** : recréez le cluster.
 
 <h3><a id="HeadNodeConfigNotFound"></a>HeadNodeConfigNotFound</h3>
@@ -139,27 +153,27 @@ Les erreurs qu'un utilisateur peut rencontrer dans Azure PowerShell ou sur le po
 - **Atténuation** : retentez l'opération.
 
 <h3><a id="HostedServiceCreationFailure"></a>HostedServiceCreationFailure</h3>
-- **Description** : impossible de créer le service hébergé *nom_service_hébergé*. Relancez la requête.  
+- **Description** : impossible de créer le service hébergé *nameOfYourHostedService*. Relancez la requête.  
 - **Atténuation** : relancez la requête.
 
 <h3><a id="HostedServiceHasProductionDeployment"></a>HostedServiceHasProductionDeployment</h3>
-- **Description** : le service hébergé *nom_service_hébergé* a déjà un déploiement de production. Un service hébergé ne peut pas contenir plusieurs déploiements de production. Relancez la requête avec un nom de cluster différent.   
+- **Description** : le service hébergé  *nameOfYourHostedService* a déjà un déploiement de production. Un service hébergé ne peut pas contenir plusieurs déploiements de production. Relancez la requête avec un nom de cluster différent.   
 - **Atténuation** : utilisez un nom de cluster différent et relancez la requête.
 
 <h3><a id="HostedServiceNotFound"></a>HostedServiceNotFound</h3>
-- **Description** : le service hébergé *nom_service_hébergé* pour le cluster est introuvable.  
+- **Description** : le service hébergé *nameOfYourHostedService* pour le cluster est introuvable.  
 - **Atténuation** : si le cluster est dans l'état d'erreur, supprimez-le et retentez l'opération. 
 
 <h3><a id="HostedServiceWithNoDeployment"></a>HostedServiceWithNoDeployment</h3>
-- **Description** : aucun déploiement n'est associé au service hébergé *nom_service_hébergé*.  
+- **Description** : aucun déploiement n'est associé au service hébergé *nameOfYourHostedService*.  
 - **Atténuation** : si le cluster est dans l'état d'erreur, supprimez-le et retentez l'opération. 
 
 <h3><a id="InsufficientResourcesCores"></a>InsufficientResourcesCores</h3>
-- **Description** : l'ID d'abonnement *ID_abonnement* n'a plus de cœurs pour créer le cluster *nom_cluster*. Requis : *ressources_requises*, Disponible : *ressources_disponibles*.  
+- **Description** : l'ID d'abonnement *yourSubscriptionId* n'a plus de cœurs pour créer le cluster *yourClusterName*. Requis : *resourcesRequired*, Disponible : *resourcesAvailable*.  
 - **Atténuation** : libérez des ressources dans votre abonnement ou augmentez les ressources disponibles pour l'abonnement et essayez de recréer le cluster.
 
 <h3><a id="InsufficientResourcesHostedServices"></a>InsufficientResourcesHostedServices</h3>
-- **Description** : L'ID d'abonnement *ID_abonnement* n'a pas de quota pour un nouveau service hébergé permettant de créer le cluster *nom_cluster*.  
+- **Description** : l'ID d'abonnement *yourSubscriptionId* n'a pas de quota pour un nouveau service hébergé permettant de créer le cluster *yourClusterName*.  
 - **Atténuation** : libérez des ressources dans votre abonnement ou augmentez les ressources disponibles pour l'abonnement et essayez de recréer le cluster.
 
 <h3><a id="InternalErrorRetryRequest"></a>InternalErrorRetryRequest</h3>
@@ -167,7 +181,7 @@ Les erreurs qu'un utilisateur peut rencontrer dans Azure PowerShell ou sur le po
 - **Atténuation** : relancez la requête. 
 
 <h3><a id="InvalidAzureStorageLocation"></a>InvalidAzureStorageLocation</h3>
-- **Description** : l'emplacement du stockage Azure *nom_région_données* n'est pas un emplacement correct. Assurez-vous que la région est correcte et relancez la requête.   
+- **Description** : l'emplacement du stockage Azure *dataRegionName* n'est pas un emplacement correct. Assurez-vous que la région est correcte et relancez la requête.   
 - **Atténuation** : sélectionnez un emplacement de stockage qui prend en charge HDInsight, vérifiez que votre cluster est en colocation et retentez l'opération. 
 
 <h3><a id="InvalidNodeSizeForDataNode"></a>InvalidNodeSizeForDataNode</h3>
@@ -179,19 +193,19 @@ Les erreurs qu'un utilisateur peut rencontrer dans Azure PowerShell ou sur le po
 - **Atténuation** : spécifiez la taille de nœud prise en charge pour le nœud principal et retentez l'opération.
 
 <h3><a id="InvalidRightsForDeploymentDeletion"></a>InvalidRightsForDeploymentDeletion</h3>
-- **Description** : l'ID d'abonnement *ID_abonnement* utilisé ne dispose pas d'autorisations suffisantes pour exécuter l'opération de suppression sur le cluster *nom_cluster*.  
+- **Description** : l'ID d'abonnement *yourSubscriptionId* utilisé ne dispose pas d'autorisations suffisantes pour exécuter l'opération de suppression sur le cluster *yourClusterName*.  
 - **Atténuation** : si le cluster est dans l'état d'erreur, supprimez-le et retentez l'opération.  
 
 <h3><a id="InvalidStorageAccountBlobContainerName"></a>InvalidStorageAccountBlobContainerName</h3>
-- **Description** : le nom du conteneur d'objets blob du compte de stockage externe *nom_conteneur* est incorrect. Assurez-vous que le nom commence par une lettre et contient uniquement des lettres minuscules, des chiffres et des tirets.  
+- **Description** : le nom du conteneur d'objets blob du compte de stockage externe *yourContainerName* est incorrect. Assurez-vous que le nom commence par une lettre et contient uniquement des lettres minuscules, des chiffres et des tirets.  
 - **Atténuation** : spécifiez un nom correct pour le conteneur d'objets blob du compte de stockage et retentez l'opération.
 
 <h3><a id="InvalidStorageAccountConfigurationSecretKey"></a>InvalidStorageAccountConfigurationSecretKey</h3>
-- **Description** : les détails de la clé secrète doivent être définis dans la configuration du compte de stockage externe *nom_compte_stockage*.  
+- **Description** : les détails de la clé secrète doivent être définis dans la configuration du compte de stockage externe   *yourStorageAccountName*.  
 - **Atténuation** : spécifiez une clé secrète correcte pour le compte de stockage et retentez l'opération.
 
 <h3><a id="InvalidVersionHeaderFormat"></a>InvalidVersionHeaderFormat</h3>
-- **Description** : l'en-tête de version *entête_version* n'est pas au format correct : aaaa-mm-jj.  
+- **Description** : l'en-tête de version  *yourVersionHeader* n'est pas au format correct aaaa-mm-jj.  
 - **Atténuation** : spécifiez un format correct pour l'en-tête de version et retentez l'opération. 
 
 <h3><a id="MoreThanOneHeadNode"></a>MoreThanOneHeadNode</h3>
@@ -203,7 +217,7 @@ Les erreurs qu'un utilisateur peut rencontrer dans Azure PowerShell ou sur le po
 - **Atténuation** : relancez la requête. 
 
 <h3><a id="ParameterNullOrEmpty"></a>ParameterNullOrEmpty</h3>
-- **Description** : Le paramètre *nom_paramètre* ne peut pas être null ou vide.  
+- **Description** : le paramètre *yourParameterName* ne peut pas être null ou vide.  
 - **Atténuation** : spécifiez une valeur correcte pour le paramètre. 
 
 <h3><a id="PreClusterCreationValidationFailure"></a>PreClusterCreationValidationFailure</h3>
@@ -211,39 +225,39 @@ Les erreurs qu'un utilisateur peut rencontrer dans Azure PowerShell ou sur le po
 - **Atténuation** : Assurez-vous que les valeurs d'entrée sont correctes et relancez la requête. 
 
 <h3><a id="RegionCapabilityNotAvailable"></a>RegionCapabilityNotAvailable</h3>
-- **Description** : capacité de région non disponible pour la région *nom_région* et l'ID d'abonnement *ID_abonnement*.  
+- **Description** : capacité de région non disponible pour la région *yourRegionName* et l'ID d'abonnement *yourSubscriptionId*.  
 - **Atténuation** : spécifiez une région qui prend en charge les clusters HDInsight. Les régions publiquement prises en charge sont les suivantes : Asie du Sud-Est, Europe du Nord, Europe de l'Ouest, Est des États-Unis ou Ouest des États-Unis. 
 
 <h3><a id="StorageAccountNotColocated"></a>StorageAccountNotColocated</h3>
-- **Description** : le compte de stockage *nom_compte_stockage* se trouve dans la région *nom_région_actuelle*. La région doit être la même que celle du cluster *nom_région_cluster*.  
+- **Description** : le compte de stockage *yourStorageAccountName* se trouve dans la région *currentRegionName*. La région doit être la même que celle du cluster *yourClusterRegionName*.  
 - **Atténuation** : spécifiez un compte de stockage dans la même région que votre cluster ou, si vos données se trouvent déjà dans le compte de stockage, créez un cluster dans la même région que le compte de stockage existant. Si vous utilisez le portail, l'interface utilisateur vous avertira de ce problème à l'avance. 
 
 <h3><a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive</h3>
-- **Description** : l'ID d'abonnement *ID_abonnement* n'est pas actif.  
+- **Description** : l'ID d'abonnement *yourSubscriptionId* n'est pas actif.  
 - **Atténuation** : Réactivez votre abonnement ou obtenez un nouvel abonnement valide.
 
 <h3><a id="SubscriptionIdNotFound"></a>SubscriptionIdNotFound</h3>
-- **Description** : l'ID d'abonnement *ID_abonnement* est introuvable.  
+- **Description** : l'ID d'abonnement *yourSubscriptionId* est introuvable.  
 - **Atténuation** : vérifiez que votre ID d'abonnement est correct et retentez l'opération. 
 
 <h3><a id="UnableToResolveDNS"></a>UnableToResolveDNS</h3>
-- **Description** : impossible de résoudre le DNS *URL_DNS*. Veillez à fournir l'URL complète du point de terminaison d'objet blob.  
+- **Description** : impossible de résoudre le DNS *yourDnsUrl*. Veillez à fournir l'URL complète du point de terminaison d'objet blob.  
 - **Atténuation** : fournissez une URL d'objet blob correcte. L'URL DOIT être entièrement correcte, notamment commencer par *http://* et se terminer par *.com*. L'URL complète se trouve généralement sous l'onglet Stockage du portail manage.windowsazure.com.  
 
 <h3><a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource</h3>
-- **Description** : impossible de vérifier l'emplacement de la ressource *URL_DNS*. Veillez à fournir l'URL complète du point de terminaison d'objet blob.  
+- **Description** : impossible de vérifier l'emplacement de la ressource *yourDnsUrl*. Veillez à fournir l'URL complète du point de terminaison d'objet blob.  
 - **Atténuation** : fournissez une URL d'objet blob correcte. L'URL DOIT être entièrement correcte, notamment commencer par *http://* et se terminer par *.com*. L'URL complète se trouve généralement sous l'onglet Stockage du portail manage.windowsazure.com. 
 
 <h3><a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable</h3>
-- **Description** : capacité de version non disponible pour la version *version_spécifiée* et l'ID d'abonnement *ID_abonnement*.  
+- **Description** : capacité de version non disponible pour la version *specifiedVersion* et l'ID d'abonnement *yourSubscriptionId*.  
 - **Atténuation** : choisissez une version qui est disponible et retentez l'opération. 
 
 <h3><a id="VersionNotSupported"></a>VersionNotSupported</h3>
-- **Description** : Version *version_spécifiée* non prise en charge.   
+- **Description** : version *specifiedVersion* non prise en charge.   
 - **Atténuation** : choisissez une version qui est prise en charge et retentez l'opération.
 
 <h3><a id="VersionNotSupportedInRegion"></a>VersionNotSupportedInRegion</h3>
-- **Description** : la version *version_spécifiée* n'est pas disponible dans la région Azure *région_spécifiée*.  
+- **Description** : la version *specifiedVersion* n'est pas disponible dans la région *specifiedRegion*.  
 - **Atténuation** : choisissez une version qui est prise en charge dans la région spécifiée et retentez l'opération. 
 
 <h3><a id="WasbAccountConfigNotFound"></a>WasbAccountConfigNotFound</h3>
@@ -263,5 +277,4 @@ Les erreurs qu'un utilisateur peut rencontrer dans Azure PowerShell ou sur le po
 
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

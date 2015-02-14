@@ -1,40 +1,54 @@
-﻿<properties urlDisplayName="Table Service" pageTitle="Utilisation du stockage de tables (Java) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Découvrez comment utiliser le service de stockage de tables dans Azure. Les exemples de code sont écrits en Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Table storage service from Java" authors="robmcm" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Utilisation du stockage de tables (Java) | Microsoft Azure" 
+	description="Découvrez comment utiliser le service de stockage de tables dans Azure. Les exemples de code sont écrits en Java." 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Utilisation du stockage de tables à partir de Java
 
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de table Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure Storage pour Java][]. Les scénarios traités incluent **la création**, **l'énumération** et **la suppression** de tables, ainsi que **l'insertion**, **l'interrogation**, **la modification** et **la suppression** des entités d'une table. Pour plus d'informations sur les tables, consultez la section [Étapes suivantes](#NextSteps) .
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de table Azure. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure Storage pour Java][]. Les scénarios abordés sont les suivants : **création**, **suppression** et **affichage d'une liste** de tables, **insertion**, **interrogation** , **modification** et **suppression** des entités d'une table. Pour plus d'informations sur les tables, consultez la section [Étapes suivantes](#NextSteps).
 
-Remarque : Un Kit de développement logiciel (SDK) est disponible pour les développeurs qui utilisent Azure Storage sur des appareils Android. Pour plus d'informations, consultez la page [Kit de développement logiciel (SDK) Azure Storage pour Android][]. 
+Remarque : un Kit de développement logiciel (SDK) est disponible pour les développeurs qui utilisent Azure Storage sur des appareils Android. Pour plus d'informations, consultez la page [Kit de développement logiciel (SDK) Azure Storage pour Android][]. 
 
 ## <a name="Contents"> </a>Sommaire
 
 * [Présentation du stockage de tables](#what-is)
 * [Concepts](#Concepts)
-* [Création d'un compte Azure Storage](#CreateAccount)
+* [Création d'un compte de stockage Azure](#CreateAccount)
 * [Création d'une application Java](#CreateApplication)
 * [Configuration de votre application pour accéder au stockage de tables](#ConfigureStorage)
 * [Configuration d'une chaîne de connexion de stockage Azure](#ConnectionString)
-* [ Création d'une table](#CreateTable)
-* [ Création d'une liste de tables](#ListTables)
-* [ Ajout d'une entité à une table](#AddEntity)
-* [ Insertion d'un lot d'entités](#InsertBatch)
-* [ Extraction de toutes les entités d'une partition](#RetrieveEntities)
-* [ Extraction d'un ensemble d'entités dans une partition](#RetrieveRange)
-* [ Extraction d'une seule entité](#RetriveSingle)
-* [ Modification d'une entité](#ModifyEntity)
-* [ Interrogation d'un sous-ensemble de propriétés d'entité](#QueryProperties)
-* [ Insertion ou remplacement d'une entité](#InsertOrReplace)
-* [ Suppression d'une entité](#DeleteEntity)
-* [ Suppression d'une table](#DeleteTable)
+* [Procédure : Création d'une table](#CreateTable)
+* [Procédure : Création d'une liste de tables](#ListTables)
+* [Procédure : Ajout d'une entité à une table](#AddEntity)
+* [Procédure : Insertion d'un lot d'entités](#InsertBatch)
+* [Procédure : Extraction de toutes les entités d'une partition](#RetrieveEntities)
+* [Procédure : Extraction d'un ensemble d'entités dans une partition](#RetrieveRange)
+* [Procédure : Extraction d'une seule entité](#RetriveSingle)
+* [Procédure : Modification d'une entité](#ModifyEntity)
+* [Procédure : Interrogation d'un sous-ensemble de propriétés d'entité](#QueryProperties)
+* [Procédure : Insertion ou remplacement d'une entité](#InsertOrReplace)
+* [Procédure : Suppression d'une entité](#DeleteEntity)
+* [Procédure : Suppression d'une table](#DeleteTable)
 * [Étapes suivantes](#NextSteps)
 
-[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
+[AZURE.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
-##<a name="CreateAccount"></a>Création d'un compte de stockage Azure
+##<a name="CreateAccount"></a>Création d'un compte Azure Storage
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"></a>Création d'une application Java
 
@@ -42,7 +56,7 @@ Dans ce guide, vous allez utiliser des fonctionnalités de stockage qui peuvent 
 
 Pour ce faire, vous devez installer le Kit de développement Java (JDK) et créer un compte Azure Storage dans votre abonnement Azure. Vous devez ensuite vérifier que votre système de développement répond à la configuration minimale requise et aux dépendances répertoriées dans le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Java][] sur GitHub. Si tel est le cas, vous pouvez suivre les instructions relatives au téléchargement et à l'installation des bibliothèques Azure Storage pour Java sur votre système à partir du référentiel. Une fois ces tâches effectuées, vous pouvez créer une application Java utilisant les exemples de cet article.
 
-## <a name="ConfigureStorage"> </a>Configuration de votre application pour accéder au stockage de table
+## <a name="ConfigureStorage"></a>Configuration de votre application pour accéder au stockage de table
 
 Ajoutez l'instruction import suivante au début du fichier Java dans lequel vous voulez utiliser des API de stockage Windows Azure pour accéder aux tables :
 
@@ -51,9 +65,9 @@ Ajoutez l'instruction import suivante au début du fichier Java dans lequel vous
     import com.microsoft.azure.storage.table.*;
     import com.microsoft.azure.storage.table.TableQuery.*;
 
-## <a name="ConnectionString"> </a>Configuration d'une chaîne de connexion de stockage Azure
+## <a name="ConnectionString"></a>Configuration d'une chaîne de connexion de stockage Azure
 
-Un client de stockage Azure utilise une chaîne de connexion de stockage pour stocker des points de terminaison et des informations d'identification permettant d'accéder aux services de gestion des données. Lors de l'exécution d'une application cliente, vous devez spécifier la chaîne de connexion de stockage au format suivant, en utilisant le nom de votre compte de stockage et la clé d'accès primaire pour le compte de stockage, répertoriés sur le portail de gestion pour les valeurs *AccountName* et *AccountKey*. Cet exemple vous montre comment déclarer un champ statique pour qu'il contienne une chaîne de connexion :
+Un client de stockage Azure utilise une chaîne de connexion de stockage pour stocker des points de terminaison et des informations d'identification permettant d'accéder aux services de gestion des données. Lors de l'exécution d'une application cliente, vous devez spécifier la chaîne de connexion de stockage au format suivant, en utilisant le nom de votre compte de stockage et la clé d'accès primaire pour le compte de stockage, répertoriés sur le portail de gestion pour les valeurs  *AccountName* et *AccountKey*. Cet exemple vous montre comment déclarer un champ statique pour qu'il contienne une chaîne de connexion :
 
     // Define the connection-string with your values.
     public static final String storageConnectionString = 
@@ -61,7 +75,7 @@ Un client de stockage Azure utilise une chaîne de connexion de stockage pour st
         "AccountName=your_storage_account;" + 
         "AccountKey=your_storage_account_key";
 
-Dans une application exécutée au sein d'un rôle dans Microsoft Azure, cette chaîne peut être stockée dans le fichier de configuration de service, *ServiceConfiguration.cscfg*, et elle est accessible en appelant la méthode **RoleEnvironment.getConfigurationSettings**. Voici un exemple de code vous permettant d'extraire la chaîne de connexion à partir d'un élément **Setting** nommé *StorageConnectionString* dans le fichier de configuration de service :
+Dans une application exécutée au sein d'un rôle dans Microsoft Azure, cette chaîne peut être stockée dans le fichier de configuration de service  *ServiceConfiguration.cscfg* et elle est accessible en appelant la méthode **RoleEnvironment.getConfigurationSettings**. Voici un exemple de code vous permettant d'extraire la chaîne de connexion à partir d'un élément **Setting** nommé *StorageConnectionString* dans le fichier de configuration de service :
 
     // Retrieve storage account from connection-string.
     String storageConnectionString = 
@@ -69,9 +83,11 @@ Dans une application exécutée au sein d'un rôle dans Microsoft Azure, cette c
 
 Les exemples ci-dessous partent du principe que vous avez utilisé l'une de ces deux méthodes pour obtenir la chaîne de connexion de stockage.
 
-## <a name="CreateTable"> </a>Utilisation Création d'une table
+## <a name="CreateTable"></a>Procédure : Création d'une table
 
-Un objet **CloudTableClient** vous permet d'obtenir les objets de référence pour les tables et entités. Le code suivant crée un objet **CloudTableClient** et l'utilise pour créer un objet **CloudTable** représentant une table nommée " people ". Remarque : d'autres méthodes permettent de créer des objets **CloudStorageAccount**. Pour plus d'informations, reportez-vous à la classe **CloudStorageAccount** sur la page [Référence du Kit de développement logiciel (SDK) du client Azure Storage].)
+Un objet **CloudTableClient** vous permet d'obtenir les objets de référence pour les tables
+et entités. Le code suivant crée un objet **CloudTableClient**.
+et l'utilise pour créer un objet **CloudTable** représentant une table nommée " people ". Remarque : d'autres méthodes permettent de créer des objets **CloudStorageAccount**. Pour plus d'informations, reportez-vous à la classe **CloudStorageAccount** sur la page Référence du [Kit de développement logiciel (SDK) du client Azure Storage].)
 
     try
     {
@@ -93,7 +109,7 @@ Un objet **CloudTableClient** vous permet d'obtenir les objets de référence po
         e.printStackTrace();
     }
 
-## <a name="ListTables"></a>Utilisation Création d'une liste de tables
+## <a name="ListTables"></a>Procédure : Création d'une liste de tables
 
 Pour obtenir une liste de tables, appelez la méthode **CloudTableClient.listTables()** afin de récupérer une liste de noms de tables pouvant être itérée.
 
@@ -119,9 +135,9 @@ Pour obtenir une liste de tables, appelez la méthode **CloudTableClient.listTab
         e.printStackTrace();
     }
 
-## <a name="AddEntity"> </a>Ajout d'une entité à une table
+## <a name="AddEntity"></a>Procédure : Ajout d'une entité à une table
 
-Les entités mappent vers les objets Java en utilisant une implémentation de classe personnalisée **TableEntity**. Par souci pratique, la classe **TableServiceEntity** implémente **TableEntity** et utilise les réflexions pour mapper les propriétés vers les méthodes " getter " et " setter " nommées pour les propriétés. Pour ajouter une entité à une table, commencez par créer une classe définissant les propriétés de votre entité. Le code suivant définit une classe d'entité utilisant le prénom du client en tant que clé de ligne et son nom de famille en tant que clé de partition. Ensemble, les clés de partition et de ligne d'une entité identifient l'entité de façon unique dans la table. Les requêtes d'entités dont les clés de partition sont identiques sont plus rapides que celles d'entités dont les clés de partition sont différentes.
+Les entités mappent vers les objets Java en utilisant une implémentation de classe personnalisée **TableEntity**. Par souci pratique, la classe **TableServiceEntity** implémente **TableEntity** et utilise les reflets pour mapper les propriétés vers les méthodes " getter " et " setter " nommées pour les propriétés. Pour ajouter une entité à une table, commencez par créer une classe définissant les propriétés de votre entité. Le code suivant définit une classe d'entité utilisant le prénom du client en tant que clé de ligne et son nom de famille en tant que clé de partition. Ensemble, les clés de partition et de ligne d'une entité identifient l'entité de façon unique dans la table. Les requêtes d'entités dont les clés de partition sont identiques sont plus rapides que celles d'entités dont les clés de partition sont différentes.
 
     public class CustomerEntity extends TableServiceEntity {
         public CustomerEntity(String lastName, String firstName) {
@@ -151,7 +167,7 @@ Les entités mappent vers les objets Java en utilisant une implémentation de cl
         }
     }
 
-Les opérations de table impliquant des entités ont besoin d'un objet **TableOperation**. Cet objet définit l'opération à effectuer sur une entité, qui peut être exécutée avec un objet **CloudTable**. Le code suivant crée une instance de la classe **CustomerEntity** avec des données client à stocker. Le code appelle ensuite **TableOperation.insertOrReplace** pour créer un objet **TableOperation** afin d'insérer une entité dans une table et y associe le nouvel élément **CustomerEntity**. Enfin, le code appelle la méthode **execute** sur l'objet **CloudTable**, en spécifiant la table " people " et le nouvel élément **TableOperation**, qui envoie ensuite une demande vers le service de stockage pour insérer la nouvelle entité client dans la table " people " ou la remplacer si elle existe déjà.
+Les opérations de table impliquant des entités ont besoin d'un objet **TableOperation**. Cet objet définit l'opération à effectuer sur une entité, qui peut être exécutée avec un objet **CloudTable**. Le code suivant crée une instance de la classe **CustomerEntity** avec des données client à stocker. Le code appelle ensuite **TableOperation.insertOrReplace** pour créer un objet **TableOperation** pour insérer une entité dans une table et y associe le nouvel élément **CustomerEntity**. Enfin, le code appelle la méthode **execute** sur l'élément **CloudTable** en spécifiant la table " people " et le nouvel élément **TableOperation**, qui envoie ensuite une demande vers le service de stockage pour insérer la nouvelle entité client dans la table " people " ou la remplacer si elle existe déjà.
 
     try
     {
@@ -182,7 +198,7 @@ Les opérations de table impliquant des entités ont besoin d'un objet **TableOp
         e.printStackTrace();
     }
 
-## <a name="InsertBatch"> </a>Insertion d'un lot d'entités
+## <a name="InsertBatch"></a>Procédure : Insertion d'un lot d'entités
 
 Vous pouvez insérer un lot d'entités dans le service de Table en une seule opération d'écriture. Le code suivant crée un objet **TableBatchOperation**, puis y ajoute trois opérations d'insertion. Chaque opération d'insertion est ajoutée en créant un objet d'entité, en définissant ses valeurs, puis en appelant la méthode **insert** sur l'objet **TableBatchOperation** pour associer la nouvelle entité avec une nouvelle opération d'insertion. Le code appelle ensuite la méthode **execute** sur l'objet **CloudTable**, en spécifiant la table " people " et l'objet **TableBatchOperation**, qui envoie le lot d'opérations de table vers le service de stockage en une seule demande.
 
@@ -235,9 +251,9 @@ Quelques remarques sur les opérations par lots :
 - Toutes les entités d'une opération par lot doivent avoir la même clé de partition.
 - Une opération par lot est limitée à une charge utile de données de 4 Mo.
 
-## <a name="RetrieveEntities"> </a>Utilisation Extraction de toutes les entités d'une partition
+## <a name="RetrieveEntities"></a>Procédure : Extraction de toutes les entités d'une partition
 
-Pour exécuter une requête de table pour les entités d'une partition, utilisez une requête **TableQuery**. Appelez **TableQuery.from** pour créer une requête sur une table donnée qui renvoie un type de résultat spécifique. Le code suivant indique un filtre pour les entités où 'Smith' est la clé de partition. **TableQuery.generateFilterCondition** est une méthode d'aide à la création de filtres pour requêtes. Appelez **where** sur la référence renvoyée par la méthode **TableQuery.from** pour appliquer le filtre à la requête. Lorsque la requête est exécutée avec un appel vers **execute** sur l'objet **CloudTable**, elle renvoie un élément **Iterator** avec le type de résultat **CustomerEntity** spécifié. Vous pouvez ensuite utiliser l'élément **Iterator** renvoyé dans une boucle for each pour traiter les résultats. Ce code imprime les champs de chaque entité dans les résultats de requête vers la console.
+Pour exécuter une requête de table pour les entités d'une partition, utilisez une requête **TableQuery**. Appelez **TableQuery.from** pour créer une requête sur une table donnée qui renvoie un type de résultat spécifique. Le code suivant indique un filtre pour les entités où 'Smith' est la clé de partition. **TableQuery.generateFilterCondition** est une méthode d'aide à la création de filtres pour requêtes. Appelez **where** sur la référence renvoyée par la méthode **TableQuery.from** pour appliquer le filtre à la requête. Lorsque la requête est exécutée avec un appel vers **execute** sur l'objet **CloudTable**, elle renvoie un élément **Iterator** avec le type de résultat **CustomerEntity** spécifié. Vous pouvez ensuite utiliser l'élément **Iterator** renvoyé dans une boucle foreach pour traiter les résultats. Ce code imprime les champs de chaque entité dans les résultats de requête vers la console.
 
     try
     {
@@ -281,7 +297,7 @@ Pour exécuter une requête de table pour les entités d'une partition, utilisez
         e.printStackTrace();
     }
 
-## <a name="RetrieveRange"> </a>Utilisation Extraction d'un ensemble d'entités dans une partition
+## <a name="RetrieveRange"></a>Procédure : Extraction d'un ensemble d'entités dans une partition
 
 Si vous ne voulez pas interroger toutes les entités d'une partition, vous pouvez définir une plage en utilisant les opérateurs de comparaison dans un filtre. Le code suivant combine deux filtres pour obtenir toutes les entités dans la partition " Smith " où la clé de ligne (prénom) commence par une lettre allant jusqu'à " E ", puis imprime les résultats de la requête. Si vous utilisez les entités ajoutées à la table de la section de ce guide consacrée à l'insertion de lot, seulement deux entités sont renvoyées (Ben et Denise Smith). Jeff Smith n'est pas inclus.
 
@@ -338,7 +354,7 @@ Si vous ne voulez pas interroger toutes les entités d'une partition, vous pouve
         e.printStackTrace();
     }
 
-## <a name="RetriveSingle"> </a>Utilisation Extraction d'une seule entité
+## <a name="RetriveSingle"></a>Procédure : Extraction d'une seule entité
 
 Vous pouvez écrire une requête pour extraire une seule entité. Le code suivant appelle **TableOperation.retrieve** avec les clés de partition et de ligne pour spécifier le client " Jeff Smith ", ce qui évite de créer une requête **TableQuery** et d'utiliser des filtres pour parvenir au même résultat. Lors de son exécution, l'opération d'extraction renvoie une seule entité, plutôt que plusieurs. La méthode **getResultAsType** cible le résultat selon le type de cible d'attribution, à savoir un objet **CustomerEntity**. Si ce type n'est pas compatible avec celui spécifié pour la requête, une exception est levée. La valeur null est renvoyée si aucune entité n'a de correspondance exacte avec la clé de partition et de ligne. La méthode la plus rapide pour extraire une seule entité dans le service de table consiste à spécifier une clé de partition et une clé de ligne.
 
@@ -377,9 +393,9 @@ Vous pouvez écrire une requête pour extraire une seule entité. Le code suivan
         e.printStackTrace();
     }
 
-## <a name="ModifyEntity"> </a>Modification d'une entité
+## <a name="ModifyEntity"></a>Procédure : Modification d'une entité
 
-Pour modifier une entité, extrayez-la dans le service de Table, apportez les modifications souhaitées à l'objet d'entité, puis enregistrez les modifications sur le service de Table via une opération de remplacement ou de fusion. Le code suivant modifie le numéro de téléphone d'un client existant. Plutôt que d'appeler **TableOperation.insert** comme nous l'avons fait pour l'opération d'insertion, ce code appelle **TableOperation.replace**. La méthode **CloudTable.execute** appelle le service de Table et l'entité est remplacée, sauf si une autre application l'a changée après son extraction par cette application. Lorsque c'est le cas, une exception est levée et l'entité doit être extraite, modifiée, puis de nouveau enregistrée. Ce modèle de nouvelle tentative d'accès concurrentiel optimiste est courant dans un système de stockage distribué.
+Pour modifier une entité, extrayez-la dans le service de Table, apportez les modifications souhaitées à l'objet d'entité, puis enregistrez les modifications sur le service de Table via une opération de remplacement ou de fusion. Le code suivant modifie le numéro de téléphone d'un client existant. Plutôt que d'appeler **TableOperation.insert** comme nous l'avons fait pour l'opération d'insertion, ce code appelle **TableOperation.replace**. La méthode **CloudTable.execute** appelle le service de table et l'entité est remplacée, sauf si une autre application l'a changée après son extraction par cette application. Lorsque c'est le cas, une exception est levée et l'entité doit être extraite, modifiée, puis de nouveau enregistrée. Ce modèle de nouvelle tentative d'accès concurrentiel optimiste est courant dans un système de stockage distribué.
 
     try
     {
@@ -416,9 +432,9 @@ Pour modifier une entité, extrayez-la dans le service de Table, apportez les mo
         e.printStackTrace();
     }
 
-## <a name="QueryProperties"> </a>Utilisation Interrogation d'un sous-ensemble de propriétés d'entité
+## <a name="QueryProperties"></a>Procédure : Interrogation d'un sous-ensemble de propriétés d'entité
 
-Vous pouvez utiliser une requête de table pour extraire uniquement quelques propriétés d'une entité. Cette technique, nommée " projection ", réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. La requête contenue dans le code suivant utilise la méthode **select** pour renvoyer uniquement les adresses de messagerie des entités dans la table. Les résultats sont projetés dans un ensemble d'éléments **String** avec l'aide d'un élément **EntityResolver**, qui effectue la conversion de type des entités renvoyées depuis le serveur. Pour plus d'informations sur la projection, consultez ce [billet de blog][]. Notez que la projection n'est pas prise en charge sur l'émulateur de stockage local : ce code s'exécute donc uniquement lors de l'utilisation d'un compte sur le service de table.
+Vous pouvez utiliser une requête de table pour extraire uniquement quelques propriétés d'une entité. Cette technique, nommée " projection ", réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. La requête contenue dans le code suivant utilise la méthode **select** pour renvoyer uniquement les adresses de messagerie des entités dans la table. Les résultat sont projetés dans un ensemble d'éléments **String** avec l'aide d'un élément **EntityResolver**, qui effectue la conversion de type des entités renvoyées depuis le serveur. Pour plus d'informations sur la projection, consultez ce [billet de blog][]. Notez que la projection n'est pas prise en charge sur l'émulateur de stockage local : ce code s'exécute donc uniquement lors de l'utilisation d'un compte sur le service de table.
 
     try
     {
@@ -457,7 +473,7 @@ Vous pouvez utiliser une requête de table pour extraire uniquement quelques pro
         e.printStackTrace();
     }
 
-## <a name="InsertOrReplace"> </a>Utilisation Insertion ou remplacement d'une entité
+## <a name="InsertOrReplace"></a>Procédure : Insertion ou remplacement d'une entité
 
 Il arrive souvent de vouloir ajouter une entité à une table sans savoir si elle existe dans la table. Une opération d'insertion ou de remplacement permet d'envoyer une seule requête pour insérer l'entité si elle n'existe pas ou la remplacer si elle existe. À partir des exemples précédents, le code suivant insère ou remplace l'entité " Walter Harp ". Après la création d'une entité, ce code appelle la méthode **TableOperation.insertOrReplace**. Ce code appelle ensuite la commande **execute** sur l'objet **CloudTable** avec la table et l'opération de table " insertion " ou " remplacement " comme paramètre. Pour mettre à jour seulement une partie de l'entité, il est possible d'utiliser la méthode **TableOperation.insertOrMerge** à la place. Notez que l'opération d'insertion ou de remplacement n'est pas prise en charge sur l'émulateur de stockage local : ce code s'exécute donc uniquement lors de l'utilisation d'un compte sur le service de Table. Pour plus d'informations sur les opérations d'insertion ou de remplacement et d'insertion ou de fusion, consultez ce [billet de blog][].
 
@@ -490,9 +506,9 @@ Il arrive souvent de vouloir ajouter une entité à une table sans savoir si ell
         e.printStackTrace();
     }
 
-## <a name="DeleteEntity"> </a>Suppression d'une entité
+## <a name="DeleteEntity"></a>Procédure : Suppression d'une entité
 
-Il est facile de supprimer une entité après l'avoir extraite. Une fois que l'entité est extraite, appelez **TableOperation.delete** avec l'entité à supprimer. Appelez ensuite la commande **execute** sur l'objet **CloudTable**. Le code suivant extrait et supprime une entité de client.
+Il est facile de supprimer une entité après l'avoir extraite. Une fois que l'entité est extraite, appelez **TableOperation.delete** avec l'entité à supprimer. Appelez ensuite la commande **execute** sur l'élément **CloudTable**. Le code suivant extrait et supprime une entité de client.
 
     try
     {
@@ -525,7 +541,7 @@ Il est facile de supprimer une entité après l'avoir extraite. Une fois que l'e
         e.printStackTrace();
     }
 
-## <a name="DeleteTable"> </a>Suppression d'une table
+## <a name="DeleteTable"></a>Procédure : Suppression d'une table
 
 Pour finir, le code suivant supprime une table d'un compte de stockage. Une table supprimée ne pourra plus être recréée pendant un certain temps (moins de quarante secondes le plus souvent).
 
@@ -548,7 +564,7 @@ Pour finir, le code suivant supprime une table d'un compte de stockage. Une tabl
         e.printStackTrace();
     }
 
-## <a name="NextSteps"> </a>Étapes suivantes
+## <a name="NextSteps"></a>Étapes suivantes
 
 Maintenant que vous avez appris les bases du stockage de tables, suivez ces liens pour apprendre des tâches de stockage plus complexes.
 
@@ -557,12 +573,11 @@ Maintenant que vous avez appris les bases du stockage de tables, suivez ces lien
 - [API REST d'Azure Storage]
 - [Blog de l'équipe Azure Storage]
 
-[Kit de développement logiciel (SDK) Azure pour Java]: http://www.windowsazure.com/fr-fr/develop/java/
+[Kit de développement logiciel (SDK) Azure pour Java]: http://www.windowsazure.com/fr-FR/develop/java/
 [Kit de développement logiciel (SDK) Azure Storage pour Java]: https://github.com/azure/azure-storage-java
 [Kit de développement logiciel (SDK) Azure Storage pour Android]: https://github.com/azure/azure-storage-android
 [Référence du Kit de développement logiciel (SDK) du client Azure Storage]: http://dl.windowsazure.com/storage/javadoc/
-[API REST d'Azure Storage]: http://msdn.microsoft.com/fr-fr/library/azure/gg433040.aspx
+[API REST d'Azure Storage]: http://msdn.microsoft.com/fr-FR/library/azure/gg433040.aspx
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [billet de blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

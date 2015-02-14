@@ -1,37 +1,35 @@
 ﻿
 
-Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre application auprès d'un fournisseur d'identité. Vous devez ensuite inscrire la clé secrète cliente générée par le fournisseur auprès de Mobile Services.
+ユーザーを認証できるようにするには、アプリケーションを ID プロバイダーに登録する必要があります。その後、プロバイダーによって生成されたクライアント シークレットをモバイル サービスに登録する必要があります。
 
-1. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur votre service mobile.
+1. [Azure 管理ポータル]にログオンし、**[モバイル サービス]** をクリックして、目的のモバイル サービスをクリックします。
 
    	![](./media/mobile-services-register-authentication/mobile-services-selection.png)
 
-2. Cliquez sur l'onglet **Tableau de bord**, puis notez la valeur **URL du service mobile**.
+2. **[ダッシュボード]** タブをクリックし、**[モバイル サービス URL]** の値をメモしておきます。
 
    	![](./media/mobile-services-register-authentication/mobile-service-uri.png)
 
-    Il se peut que le fournisseur d'identité vous demande cette valeur lorsque vous inscrivez votre application.
+    アプリケーションを登録するときに、この値を ID プロバイダーに指定する必要が生じる場合があります。
 
-3. Choisissez un fournisseur d'identité pris en charge dans la liste ci-dessous et suivez la procédure pour inscrire votre application auprès de ce fournisseur :
+3. 以下の一覧から、サポートされている ID プロバイダーを選択し、手順に従ってそのプロバイダーにアプリケーションを登録します。
 
- - <a href="/fr-fr/documentation/articles/mobile-services-how-to-register-microsoft-authentication/" target="_blank">Compte Microsoft</a>
- - <a href="/fr-fr/documentation/articles/mobile-services-how-to-register-facebook-authentication/" target="_blank">Connexion Facebook</a>
- - <a href="/fr-fr/documentation/articles/mobile-services-how-to-register-twitter-authentication/" target="_blank">Connexion Twitter</a>
- - <a href="/fr-fr/documentation/articles/mobile-services-how-to-register-google-authentication/" target="_blank">Connexion Google</a>
- - <a href="/fr-fr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/" target="_blank">Azure Active Directory</a>
+ - <a href="/fr-FR/documentation/articles/mobile-services-how-to-register-microsoft-authentication/" target="_blank">Microsoft アカウント</a>
+ - <a href="/fr-FR/documentation/articles/mobile-services-how-to-register-facebook-authentication/" target="_blank">Facebook ログイン</a>
+ - <a href="/fr-FR/documentation/articles/mobile-services-how-to-register-twitter-authentication/" target="_blank">Twitter ログイン</a>
+ - <a href="/fr-FR/documentation/articles/mobile-services-how-to-register-google-authentication/" target="_blank">Google ログイン</a>
+ - <a href="/fr-FR/documentation/articles/mobile-services-how-to-register-active-directory-authentication/" target="_blank">Azure Active Directory</a>
 
 
-    N'oubliez pas de noter les valeurs de l'identité du client et de la clé secrète cliente générées par le fournisseur.
+    プロバイダーによって生成されるクライアント ID およびシークレット値をメモしておいてください。
 
-    <div class="dev-callout"><b>Remarque relative à la sécurité</b>
-	<p>La clé secrète générée par le fournisseur est une information d'identification de sécurité importante. Ne partagez pas cette clé secrète avec quiconque et ne la distribuez pas avec votre application.</p>
-    </div>
+    > [AZURE.IMPORTANT]プロバイダーによって生成されるシークレットは、重要なセキュリティ資格情報です。このシークレットは、他のユーザーと共有したり、アプリケーションと共に配布したりしないでください。
 
-4. De retour dans le portail de gestion, cliquez sur l'onglet **Identité**, entrez les valeurs de l'identificateur d'application et de la clé secrète partagée fournies par votre fournisseur d'identité, puis cliquez sur **Enregistrer**.
+4. 管理ポータルに戻って **[識別]** タブをクリックし、アプリケーションの識別子と、ID プロバイダーから取得した共有シークレット値を入力して、**[保存]** をクリックします。
 
    	![](./media/mobile-services-register-authentication/mobile-identity-tab.png)
 
-	Votre service mobile et votre application sont désormais configurés pour utiliser le fournisseur d'authentification choisi.
+	これで、モバイル サービスとアプリケーションの両方が、選択した認証プロバイダーと連係するように構成されました。
 
 <!-- URLs. -->
-[Portail de gestion Azure]: https://manage.windowsazure.com/
+[Azure 管理ポータル]: https://manage.windowsazure.com/<!--HONumber=42-->

@@ -2,9 +2,9 @@
 
 1. Si vous n'avez pas déjà le [Kit de développement logiciel (SDK) Mobile Services pour Android], téléchargez-le maintenant et développez les fichiers compressés.
 
-2. Copiez les fichiers .jar du dossier " mobileservices " du Kit de développement logiciel (SDK) vers le dossier " libs " du projet GetStartedWithData.
+2. Copiez les fichiers `.jar` du dossier `mobileservices` du Kit de développement logiciel (SDK) vers le dossier `libs` du projet GetStartedWithData.
 
-3. Dans l'Explorateur de package d'Eclipse, cliquez avec le bouton droit sur le dossier " libs ", puis cliquez sur **Actualiser** pour que les fichiers .jar copiés s'affichent.
+3. Dans l'Explorateur de package d'Eclipse, cliquez avec le bouton droit sur le dossier `libs`, puis cliquez sur **Actualiser**, pour que les fichiers .jar copiés s'affichent.
 
   	La référence au Kit de développement logiciel (SDK) Mobile Services est ajoutée à l'espace de travail.
 
@@ -37,14 +37,14 @@
 
 		public List<ToDoItem> toDoItemList = new ArrayList<ToDoItem>();
 
-8. Enregistrez le fichier et le projet indiquera des erreurs de build. Recherchez les trois emplacements restants où la variable toDoItemList est utilisée et placez les sections indiquées en commentaire. Cela supprime complètement la liste en mémoire. 
+8. Enregistrez le fichier et le projet indiquera des erreurs de build. Recherchez les trois emplacements restants où la variable `toDoItemList` est utilisée et placez les sections indiquées en commentaire. Cela supprime complètement la liste en mémoire. 
 
 9. Nous ajoutons maintenant notre service mobile. Annulez les marques de commentaire sur les lignes de code suivantes :
 
 		private MobileServiceClient mClient;
 		private private MobileServiceTable<ToDoItem> mToDoTable;
 
-10. Recherchez la classe *ProgressFilter* en bas du fichier et annulez les marques de commentaire sur cette dernière. Cette classe affiche un indicateur " chargement " lorsque *MobileServiceClient* exécute des opérations réseau.
+10. Recherchez la classe *ProgressFilter* en bas du fichier et annulez les marques de commentaire sur cette dernière. Cette classe affiche un indicateur 'loading' lorsque *MobileServiceClient* exécute des opérations réseau.
 
 
 11. Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
@@ -73,7 +73,7 @@
 
   	Cela crée une instance de *MobileServiceClient* utilisée pour accéder au service mobile. Cela crée également l'instance de *MobileServiceTable* utilisée pour traiter par proxy le stockage des données dans le service mobile.
 
-14. Dans le code ci-dessus, remplacez MobileServiceUrl et AppKey par l'URL et la clé d'application de votre service mobile, dans cet ordre.
+14. Dans le code ci-dessus, remplacez `MobileServiceUrl` et `AppKey` par l'URL et la clé d'application de votre service mobile, dans cet ordre.
 
 
 
@@ -155,4 +155,4 @@
 		
 
 <!-- URLs. -->
-[Kit de développement logiciel (SDK) Mobile Services pour Android]: http://aka.ms/Iajk6q
+[Kit de développement logiciel (SDK) Mobile Services pour Android]: http://aka.ms/Iajk6q<!--HONumber=42-->

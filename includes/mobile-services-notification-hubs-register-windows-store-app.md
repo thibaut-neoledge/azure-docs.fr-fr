@@ -1,62 +1,61 @@
+﻿
 
-
-1. Si vous n'avez pas déjà inscrit votre application, accédez à la page [Soumettre une application] du Centre de développement pour les applications Windows Store, connectez-vous à votre compte Microsoft, puis cliquez sur le **Nom de l'application**.
+1. アプリケーションをまだ登録していない場合は、Windows ストア アプリのデベロッパー センターで[アプリの提出のページ]に移動し、Microsoft アカウントでログインして、**[アプリの名前]** をクリックします。
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png)
 
-2. Tapez un nom pour l'application dans **Nom de l'application**, cliquez sur **Réserver le nom d'application**, puis sur **Enregistrer**.
+2. **[アプリ名]** にアプリケーションの名前を入力し、**[アプリの名前の予約]** をクリックして、**[保存]** をクリックします。
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-win8-app-name.png)
 
-   	La nouvelle inscription au Windows Store pour votre application est créée.
+   	これでアプリケーションの新しい Windows ストア登録が作成されます。
 
-3. Dans Visual Studio, ouvrez le projet que vous avez créé avec le didacticiel **Prise en main de Mobile Services**.
+3. Visual Studio で、チュートリアル「**モバイル サービスの使用**」を実行したときに作成したプロジェクトを開きます。
 
-4. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet, cliquez sur **Store**, puis sur **Associer l'application au Windows Store...** 
+4. ソリューション エクスプローラーでプロジェクトを右クリックし、**[ストア]**、**[アプリケーションをストアと関連付ける]** の順にクリックします。 
 
   	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-store-association.png)
 
-   	L'Assistant **Associer votre application au Windows Store** s'affiche.
+   	**アプリケーションを Windows ストアと関連付ける**ウィザードが表示されます。
 
-5. Dans l'Assistant, cliquez sur **Se connecter**, puis connectez-vous avec votre compte Microsoft.
+5. ウィザードで **[サインイン]** をクリックし、Microsoft アカウントでログインします。
 
-6. Sélectionnez l'application inscrite à l'étape 2, cliquez sur **Suivant**, puis sur **Associer**.
+6. ステップ 2. で登録したアプリケーションを選択し、**[次へ]**、**[関連付け]** の順にクリックします。
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-select-app-name.png)
 
-   	Cela ajoute les informations d'inscription Windows Store requises au manifeste de l'application.    
+   	この操作により、必要な Windows ストア登録情報がアプリケーション マニフェストに追加されます。    
 
-7. (Facultatif) Répétez les étapes 4 à 6 pour inscrire aussi le projet Windows Phone Store d'une application Windows universelle.
+7. (省略可能) 手順 4 ～ 6 を繰り返して、ユニバーサル Windows アプリの Windows Phone ストア プロジェクトも登録します。
 
-8. De retour sur la page du centre de développement Windows pour la nouvelle application, cliquez sur **Services**. 
+8. 新しいアプリケーションの Windows デベロッパー センター ページに戻り、**[サービス]** をクリックします。 
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-win8-edit-app.png) 
 
-9. Sur la page Services, cliquez sur **Live Services site** sous **Azure Mobile Services**.
+9. [サービス] ページで **[Azure のモバイル サービス]** の **[Live サービス サイト]** をクリックします。
 
 	![](./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-win8-edit2-app.png)
 
-10. Cliquez sur **Authentification de votre service** et notez les valeurs des options **Clé secrète client** et **Identificateur de sécurité (SID) du package**. 
+10. **[サービスの認証]** をクリックし、**[クライアント シークレット]** と **[パッケージ セキュリティ ID (SID)]** の値をメモしておきます。 
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-win8-app-push-auth.png)
 
-    <div class="dev-callout"><b>Remarque relative à la sécurité</b>
-	<p>La clé secrète client et le SID du package sont des informations d'identification de sécurité importantes. Ne partagez pas ces informations secrètes avec quiconque et ne les distribuez pas avec votre application.</p>
-    </div> 
+    > [AZURE.NOTE] クライアント シークレットとパッケージ SID は、重要なセキュリティ資格情報です。これらの機密情報は、他のユーザーと共有したり、アプリケーションで配信したりしないでください。
 
-11. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application.
+11. [Azure 管理ポータル] にログオンし、**[モバイル サービス]** をクリックして、アプリケーションをクリックします。
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-selection.png)
 
-12. Cliquez sur l'onglet **Notifications push**, entrez les valeurs **Clé secrète du client** et **SID du package** obtenues auprès de WNS, puis cliquez sur **Enregistrer**.
+12. **[プッシュ]** タブをクリックし、WNS から取得した **[クライアント シークレット]** と **[パッケージ SID]** の値を入力して、**[保存]** をクリックします。
 
-	>[WACOM.NOTE]Si vous suivez ce didacticiel avec un service mobile plus ancien, vous êtes susceptible de voir un lien dans le bas de l'onglet **Notifications Push** avec le texte **Activer la transmission push améliorée**. Cliquez sur ce lien pour mettre à niveau votre service mobile et l'intégrer avec Notification Hubs. Cette modification est irréversible. Pour plus d'informations sur l'activation des notifications Push améliorées dans un service mobile de production, consultez <a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">ce guide</a>. 
+	>[AZURE.NOTE]古いモバイル サービスを使用してこのチュートリアルを実行する場合は、**[プッシュ]** タブの下に、**[拡張プッシュの有効化]** というリンクが表示される場合があります。このリンクをクリックすると、モバイル サービスが更新され、Notification Hubs と統合されます。この変更を元に戻すことはできません。運用環境のモバイル サービスで拡張プッシュ通知を有効にする方法の詳細については、<a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">このガイダンス</a>を参照してください。 
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-push-tab.png)
 
-	>[WACOM.NOTE]Quand vous définissez vos informations d'identification WNS pour les notifications Push améliorées dans l'onglet **Notifications push** du portail, celles-ci sont partagées avec Notification Hubs pour configurer le concentrateur de notification de votre application.
+	>[AZURE.NOTE]ポータルの **[プッシュ]** タブで拡張プッシュ通知に対応する WNS の資格情報を設定した場合は、アプリに対して通知ハブを構成する目的で、それらの資格情報が Notification Hubs と共有されます。
 
 <!-- URLs. -->
-[Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-store-get-started/
-[Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Portail de gestion Azure]: https://manage.windowsazure.com/
+[モバイル サービスの使用]: /fr-FR/documentation/articles/mobile-services-windows-store-get-started/
+[アプリケーションの提出に関するページ]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Azure 管理ポータル]: https://manage.windowsazure.com/
+<!--HONumber=42-->

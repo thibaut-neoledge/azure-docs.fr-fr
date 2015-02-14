@@ -1,15 +1,29 @@
-﻿<properties urlDisplayName="HDInsight and Excel" pageTitle="Connexion d'Excel à Hadoop à l'aide de Power Query | Azure" metaKeywords="hdinsight, excel, data explorer, hive excel, hdinsight excel, power query" description="Découvrez comment tirer profit des outils décisionnels et utiliser Excel pour accéder aux données stockées dans Azure HDInsight au moyen de Power Query." metaCanonical="" services="hdinsight" documentationCenter="" title="Connect Excel to Hadoop with Power Query" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Connexion d'Excel à Hadoop à l'aide de Power Query | Azure" 
+	description="Découvrez comment tirer profit des outils décisionnels et utiliser Excel pour accéder aux données stockées dans Azure HDInsight au moyen de Power Query." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 
 
 
 #Connexion d'Excel à Hadoop à l'aide de Power Query
 
-Une fonctionnalité clé de la solution de données volumineuses de Microsoft est l'intégration d'outils décisionnels (BI) Microsoft à des clusters Hadoop dans HDInsight. Un exemple important de cette intégration est la possibilité de connecter Excel au compte Azure Storage contenant les données associées à votre cluster Hadoop en utilisant Microsoft Power Query pour Excel. Cet article vous explique comment configurer et utiliser Power Query à partir d'Excel pour interroger des données associées à un cluster Hadoop géré avec HDInsight. 
+Une fonctionnalité clé de la solution de données volumineuses de Microsoft est l'intégration de  composants BI (Business Intelligence) Microsoft à des clusters Apache Hadoop. Un exemple important de cette intégration est la possibilité de connecter Excel au compte Azure Storage contenant les données associées à votre cluster Hadoop en utilisant Microsoft Power Query pour Excel. Cet article vous explique comment configurer et utiliser Power Query à partir d'Excel pour interroger des données associées à un cluster Hadoop géré avec HDInsight. 
 
-**Configuration requise**
+**Conditions préalables**
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
@@ -40,23 +54,23 @@ Le complément Power Query pour Excel facilite l'importation de données depuis 
 
 2. Créez un classeur vide.
 
-3. Cliquez dans le menu **Power Query**, cliquez sur **À partir d'autres sources**, puis sur **Depuis Azure HDInsight**. 
+3. Cliquez sur le menu **Power Query**, cliquez sur **À partir d'autres sources**, puis sur ** 	À partir d'Azure HDInsight**. 
 
 	![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
 
-	Remarque : si vous ne voyez pas le menu **Power Query**, accédez à **Fichier** > **Options** > **Compléments** et sélectionnez **Compléments COM** dans la zone déroulante **Gestionnaire**  en bas de la page. Sélectionnez le bouton **OK** et vérifiez que la zone correspondant au complément Microsoft Office Power Query pour Excel a été activée.
+	Remarque : si vous ne voyez pas le menu **Power Query**, accédez à **Fichiers** > **Options** > **Compléments** et sélectionnez **Compléments COM** dans la zone déroulante **Gestionnaire** au bas de la page. Sélectionnez le bouton **OK** et vérifiez que la zone correspondant au complément Microsoft Office Power Query pour Excel a été activée.
 
-3. Entrez le **nom de compte** du compte de stockage d'objets blob Azure associé à votre cluster, puis cliquez sur **OK**. 
+3. Entrez le **nom du compte** de stockage d'objets blob Azure associé à votre cluster, puis cliquez sur **OK**. 
 
-4. Entrez la **clé de compte** du compte de stockage d'objets blob, puis cliquez sur **Enregistrer**. (cette opération ne doit être effectuée que la première fois où vous accédez à cet entrepôt).	
+4. Entrez la **clé du compte** de stockage d'objets blob, puis cliquez su **Enregistrer**. (cette opération ne doit être effectuée que la première fois où vous accédez à cet entrepôt).	
 
 5. Dans le volet **Navigateur** à gauche de l'**Éditeur de requête**, double-cliquez sur le nom du conteneur de stockage d'objets Blob. Par défaut, le nom du conteneur est identique à celui du cluster. 
 
-6. Localisez **HiveSampleData.txt** dans la colonne **Nom** (le chemin du dossier est **../hive/warehouse/hivesampletable/**), puis cliquez sur **Binaire** à gauche de  HiveSampleData.txt.
+6. Recherchez **HiveSampleData.txt** dans la colonne **Name** (le chemin du dossier est **../hive/warehouse/hivesampletable/**), puis cliquez sur **Binaire** à gauche de HiveSampleData.txt.
 
 	![HDI.PowerQuery.ImportData][image-hdi-powerquery-importdata]
 
-7. Le cas échéant, vous pouvez renommer le nom des colonnes. Une fois que vous êtes prêt, cliquez sur **Appliquer et fermer**.	
+7. Le cas échéant, vous pouvez renommer le nom des colonnes. Dès que vous êtes prêt, cliquez sur **Appliquer et fermer**.	
 
 	![HDI.PowerQuery.ImportedTable][image-hdi-powerquery-imported-table]
 
@@ -76,5 +90,4 @@ Dans cet article, vous avez appris à utiliser Power Query pour extraire des don
 [image-hdi-powerquery-imported-table]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportedTable.PNG 
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

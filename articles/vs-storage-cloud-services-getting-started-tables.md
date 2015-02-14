@@ -1,15 +1,29 @@
-﻿<properties title="Getting Started with Azure Storage" pageTitle="Prise en main d'Azure Storage" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="Prise en main d'Azure Storage" 
+	description="" 
+	services="storage" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="storage" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Mise en route](/documentation/articles/vs-storage-cloud-services-getting-started-tables/)
-> - [Que s'est-il passé ?](/documentation/articles/vs-storage-cloud-services-what-happened/)
+> - [Que s'est-il passé](/documentation/articles/vs-storage-cloud-services-what-happened/)
 
 ##Prise en main d'Azure Storage (Projets de service cloud)
 
 > [AZURE.SELECTOR]
-> - [Objets blob](/documentation/articles/vs-storage-cloud-services-getting-started-blobs/)
+> - [Objets BLOB](/documentation/articles/vs-storage-cloud-services-getting-started-blobs/)
 > - [Files d'attente](/documentation/articles/vs-storage-cloud-services-getting-started-queues/)
 > - [Tables](/documentation/articles/vs-storage-cloud-services-getting-started-tables/)
 
@@ -21,10 +35,11 @@ Ajoutez les déclarations d'espace de noms suivantes en haut de chaque fichier C
 	using Microsoft.WindowsAzure.Storage.Auth;
 	using Microsoft.WindowsAzure.Storage.Table;
 
-#####Obtention de la chaîne de connexion de stockage
-Pour pouvoir exploiter une table, vous devez avant tout obtenir la chaîne de connexion du compte de stockage dans lequel résideront les tables. Pour représenter les informations de votre compte de stockage, vous pouvez utiliser le type **CloudStorageAccount**. Pour les projets de service cloud, vous pouvez utiliser le type **CloudConfigurationManager** afin d'extraire votre chaîne de connexion de stockage et les informations de votre compte de stockage à partir de la configuration du service Azure, comme illustré dans le code suivant :
+##### Obtention de la chaîne de connexion de stockage
+Pour pouvoir exploiter une table, vous devez avant tout obtenir la chaîne de connexion du compte de stockage dans lequel résideront les tables. Pour représenter les informations de votre compte de stockage, vous pouvez utiliser le type **CloudStorageAccount**. Pour les projets de service cloud, vous pouvez utiliser le type **CloudConfigurationManager** afin d'extraire votre chaîne de connexion de stockage et les informations de votre compte de stockage à partir de la configuration du service Azure, comme illustré dans le code suivant.
 
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
       CloudConfigurationManager.GetSetting("<storageAccountName>_AzureStorageConnectionString"));
 
-[WACOM.INCLUDE [vs-storage-getting-started-tables-include](../includes/vs-storage-getting-started-tables-include.md)]
+[AZURE.INCLUDE [vs-storage-getting-started-tables-include](../includes/vs-storage-getting-started-tables-include.md)]
+<!--HONumber=42-->

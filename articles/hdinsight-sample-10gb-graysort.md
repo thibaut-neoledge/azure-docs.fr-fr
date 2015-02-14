@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="Exemple GraySort 10 Go | Azure" metaKeywords="hdinsight, hadoop, hdinsight administration, hdinsight administration azure" description="Découvrez comment exécuter un programme GraySort généraliste sur Hadoop avec HDInsight au moyen d'Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The 10GB GraySort sample" authors="bradsev" />
+﻿<properties 
+	pageTitle="Exemple GraySort 10 Go | Azure" 
+	description="Découvrez comment exécuter un programme GraySort généraliste pour de très gros volumes de données, au minimum 100 To, sur Hadoop avec HDInsight et Azure PowerShell." 
+	editor="cgronlun" 
+	manager="paulettm" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 # Exemple Hadoop GraySort 10 Go dans HDInsight
  
@@ -12,7 +26,7 @@ Cet exemple utilise trois ensembles de programmes MapReduce :
  
 1. **TeraGen** est un programme MapReduce que vous pouvez utiliser pour générer les lignes de données à trier.
 2. **TeraSort** échantillonne les données d'entrée et utilise MapReduce pour trier les données en une commande totale. TeraSort est un tri standard de fonctions MapReduce, sauf pour un partitionneur personnalisé qui utilise une liste triée de clés échantillonnées N-1 définissant le groupe de clés pour chaque réduction. Plus particulièrement, toutes les clés semblables à cet échantillon [i-1] <= key < sample[i] sont envoyées pour réduire i ; cela garantit que les sorties de réduction i sont toutes inférieures aux sorties de réduction i+1.
-3. **TeraValidate** est un programme MapReduce qui vérifie que la sortie est globalement triée. Il crée un mappage par fichier dans le répertoire de sortie et chaque mappage assure que chaque clé est inférieure ou égale à la précédente. La fonction de mappage génère également des enregistrements des première et dernière clés de chaque fichier et la fonction de réduction assure que la première clé du fichier i est supérieure à la dernière clé du fichier i-1. Un problème est signalé comme une sortie de la réduction avec les clés dans le désordre.
+3. **TeraValidate** est un programme MapReduce qui valide que la sortie soit globalement triée. Il crée un mappage par fichier dans le répertoire de sortie et chaque mappage assure que chaque clé est inférieure ou égale à la précédente. La fonction de mappage génère également des enregistrements des première et dernière clés de chaque fichier et la fonction de réduction assure que la première clé du fichier i est supérieure à la dernière clé du fichier i-1. Un problème est signalé comme une sortie de la réduction avec les clés dans le désordre.
 
 Les formats d'entrée et de sortie utilisés par les trois applications lisent et écrivent les fichiers texte dans le bon format. La réplication de la sortie de la réduction est définie sur 1 au lieu de 3 par défaut, car le concours benchmark ne requiert pas la réplication des données de sortie sur plusieurs nœuds.
 
@@ -22,15 +36,15 @@ Les formats d'entrée et de sortie utilisés par les trois applications lisent e
 * identification d'un programme MapReduce écrit en Java.
 
 
-**Conditions préalables** :	
+**Conditions préalables**	
 
-- Vous devez disposer d'un compte Azure. Pour connaître les options disponibles lors de la création d'un compte, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/fr-fr/pricing/free-trial/) .
+- Vous devez disposer d'un compte Azure. Pour connaître les options disponibles lors de la création d'un compte, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/fr-fr/pricing/free-trial/).
 
-- Vous devez avoir approvisionné un cluster HDInsight. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de cluster, consultez la rubrique [Approvisionnement de clusters HDInsight](../hdinsight-provision-clusters/)
+- Vous devez avoir approvisionné un cluster HDInsight. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de cluster, consultez la page [Approvisionnement de clusters HDInsight](../hdinsight-provision-clusters/)
 
 - Vous devez avoir installé Azure PowerShell et l'avoir configuré pour une utilisation avec votre compte. Pour des instructions sur la marche à suivre, consultez la page [Installation et configuration d'Azure PowerShell][powershell-install-configure].
 
-##Dans cet article
+## Dans cet article
 Cette rubrique vous explique comment exécuter la série de programmes MapReduce qui compose l'exemple, présente le code Java du programme MapReduce, résume ce que vous avez appris et décrit quelques étapes suivantes. Elle se compose des sections suivantes :
 	
 1. [Exécution de l'exemple avec Azure PowerShell](#run-sample)	
@@ -56,16 +70,16 @@ Trois tâches sont requises par l'exemple, chacune correspondant à un des progr
 		$subscriptionName = "myAzureSubscriptionName"   
 		$clusterName = "myClusterName"
                  
-4. Exécutez la commande suivante pour créer une définition de tâche MapReduce :
+3. Exécutez la commande suivante pour créer une définition de tâche MapReduce :
 
 		# Create a MapReduce job definition for the TeraGen MapReduce program
 		$teragen = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-examples.jar" -ClassName "teragen" -Arguments "-Dmapred.map.tasks=50", "100000000", "/example/data/10GB-sort-input" 
 
-	> [WACOM.NOTE] Le fichier *hadoop-examples.jar* est fourni avec les clusters HDInsight version 2.1. Ce fichier a été renommé *hadoop-mapreduce.jar* sur les clusters HDInsight version 3.0.
+	> [AZURE.NOTE] Le fichier *hadoop-examples.jar* est fourni avec les clusters HDInsight version 2.1. Ce fichier a été renommé *hadoop-mapreduce.jar* sur les clusters HDInsight version 3.0.
 	
-	L'argument *"-Dmapred.map.tasks=50"* spécifie que 50 mappages sont créés pour exécuter la tâche. L'argument *100000000* spécifie la quantité de données à générer. Le dernier argument, */example/data/10GB-sort-input*, spécifie le répertoire de sortie dans lequel les résultats sont enregistrés (et qui contient les entrées pour l'étape de tri suivante).
+	L'argument *"-Dmapred.map.tasks=50"* spécifie que 50 mappages sont créés pour exécuter la tâche. L'argument *100000000* spécifie la quantité de données à générer. Le dernier argument,  **/example/data/10GB-sort-input*, spécifie le répertoire de sortie dans lequel les résultats sont enregistrés (et qui contient les entrées pour l'étape de tri suivante).
 
-5. Exécutez les commandes suivantes pour envoyer la tâche, attendez qu'elle soit terminée, puis imprimez l'erreur standard :
+4. Exécutez les commandes suivantes pour envoyer la tâche, attendez qu'elle soit terminée, puis imprimez l'erreur standard :
 
 		# Run the TeraGen MapReduce job.
 		# Wait for the job to complete.
@@ -405,8 +419,8 @@ Cet exemple a montré comment exécuter une série de tâches MapReduce en utili
 Pour suivre des didacticiels exécutant d'autres exemples et fournissant des instructions sur l'utilisation des tâches Pig, Hive et MapReduce sur Azure HDInsight avec Azure PowerShell, consultez les rubriques suivantes :
 
 * [Prise en main d'Azure HDInsight][hdinsight-get-started]
-* [Exemple : Estimateur de la valeur de Pi][hdinsight-sample-pi-estimator]
-* [Exemple : Comptage de mots][hdinsight-sample-wordcount]
+* [Exemple : Estimateur de la valeur Pi][hdinsight-sample-pi-estimator]
+* [Exemple : Wordcount][hdinsight-sample-wordcount]
 * [Exemple : Diffusion en continu en C#][hdinsight-sample-csharp-streaming]
 * [Utilisation de Pig avec HDInsight][hdinsight-use-pig]
 * [Utilisation de Hive avec HDInsight][hdinsight-use-hive]
@@ -429,5 +443,4 @@ Pour suivre des didacticiels exécutant d'autres exemples et fournissant des ins
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

@@ -8,27 +8,27 @@
 
 	![command-bar-new][command-bar-new]
 
-3. Cliquez sur **Magasin**.
+3. Cliquez sur **Store**.
 
 	![pusher-store][pusher-store]
 
-4. Dans la boîte de dialogue **Choisir un module complémentaire**, sélectionnez **Pusher**, puis cliquez sur la flèche vers la droite.
+4. Dans la boîte de dialogue **Sélectionner un module complémentaire**, sélectionnez **Pusher**, puis cliquez sur la flèche droite.
 
 5. Dans la boîte de dialogue **Personnaliser un module complémentaire**, sélectionnez le plan **Pusher** de votre choix pour l'inscription.
 
-6. Entrez un nom pour identifier le service **Pusher** dans les paramètres Azure ou utilisez la valeur par défaut **Pusher**. Les noms doivent contenir entre 1 et 100 caractères et ne peuvent inclure que des lettres, des chiffres, des tirets, des points et des traits de soulignement. Le nom doit être unique dans la liste des éléments de l'Azure Store auxquels vous êtes abonné.
+6. Entrez un nom pour identifier le service **Pusher** dans vos paramètres Azure ou utilisez la valeur par défaut **Pusher**. Les noms doivent contenir entre 1 et 100 caractères et ne peuvent inclure que des lettres, des chiffres, des tirets, des points et des traits de soulignement. Le nom doit être unique dans la liste des éléments de l'Azure Store auxquels vous êtes abonné.
 
 	![store-screen-1][store-screen-1]
 
-8. Choisissez une valeur pour la région ; par exemple, Ouest des États-Unis. 
+8. Choisissez une valeur pour la région ; par exemple, Bretagne. 
 
 9. Cliquez sur la flèche droite.
 
-10. Sous l'onglet **Revoir achat**, vérifiez le plan et les informations tarifaires, ainsi que les conditions juridiques. Si vous acceptez les conditions juridiques, cliquez sur la coche. Votre compte Pusher lance alors le processus de déploiement. 
+10. Sous l'onglet **Revoir l'achat**, vérifiez le plan et les informations tarifaires, ainsi que les conditions juridiques. Si vous acceptez les conditions juridiques, cliquez sur la coche. Votre compte Pusher lance alors le processus de déploiement. 
 
 	![store-screen-2][store-screen-2]
 
-11. Après la confirmation de votre achat, vous êtes redirigé vers le tableau de bord des modules complémentaires et le message **Purchasing Pusher** s'affiche.
+11. Après la confirmation de votre achat, vous êtes redirigé vers le tableau de bord des modules et le message **Achat de Pusher**.
 
 	![store-screen-3][store-screen-3]
 
@@ -46,7 +46,7 @@ Lors de l'utilisation de Pusher, vous devez fournir vos paramètres de connexion
 
 	![pusher-connection-info-button][pusher-connection-info-button]
 
-2. Dans la boîte de dialogue *Informations de connexion*, l'ID de l'application, la clé et le secret s'affichent. Copiez ces valeurs pour les utiliser ultérieurement dans ce didacticiel.
+2. Dans la boîte de dialogue *Connection info*, l'ID de l'application, la clé et le secret s'affichent. Copiez ces valeurs pour les utiliser ultérieurement dans ce didacticiel.
 
 	![pusher-connection-info][pusher-connection-info]
 
@@ -59,7 +59,7 @@ Pour plus d'informations sur la mise en route de Pusher, consultez la page [Pré
 [store-screen-1]: ./media/pusher-sign-up/3-pusher-store-screen-1.png
 [store-screen-2]: ./media/pusher-sign-up/4-pusher-store-screen-2.png
 [store-screen-3]: ./media/pusher-sign-up/5-pusher-store-screen-3.png
-[tableaudebord-module-pusher]: ./media/pusher-sign-up/6-pusher-add-on-dashboard.png
+[pusher-add-on-dashboard]: ./media/pusher-sign-up/6-pusher-add-on-dashboard.png
 [pusher-connection-info-button]: ./media/pusher-sign-up/7-pusher-connection-info-button.png
 [pusher-connection-info]: ./media/pusher-sign-up/8-pusher-connection-info.png
 
@@ -68,4 +68,4 @@ Pour plus d'informations sur la mise en route de Pusher, consultez la page [Pré
 [Portail de gestion Azure]: https://manage.windowsazure.com
 [Présentation de Pusher]: http://pusher.com/docs
 
-
+<!--HONumber=42-->

@@ -1,5 +1,5 @@
-﻿<h2><a id="AdditionalServices"></a> Utilisation des services Twilio supplémentaires</h2>
-En plus des exemples présentés ici, Twilio offre des API web que vous pouvez utiliser pour tirer profit d'autres fonctionnalités de Twilio à partir de votre application Azure. Pour plus d'informations, consultez la [documentation de l'API Twilio] [twilio_api_documentation].
+﻿<h2><a id="AdditionalServices"></a>Procédure : utilisation des services Twilio supplémentaires</h2>
+En plus des exemples présentés ici, Twilio offre des API Web que vous pouvez utiliser pour tirer profit d'autres fonctionnalités de Twilio à partir de votre application Azure. Pour plus d'informations, consultez la [documentation de l'API Twilio] [twilio_api_documentation].
 
 <h2><a id="NextSteps"></a>Étapes suivantes</h2>
 Maintenant que vous avez appris les bases du service Twilio, consultez ces liens pour en savoir plus :
@@ -18,3 +18,4 @@ Maintenant que vous avez appris les bases du service Twilio, consultez ces liens
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
 
+<!--HONumber=42-->

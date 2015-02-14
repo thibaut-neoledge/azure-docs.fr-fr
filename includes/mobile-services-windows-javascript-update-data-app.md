@@ -1,7 +1,9 @@
-1.  Dans le fichier de script default.js, ajoutez la définition de fonction suivante juste en dessous de la ligne de code qui définit la liste todoItems :
 
+
+1. todoItems リストを定義するコード行のすぐ下にある default.js ファイルで、次の関数の定義を追加します。
+ 
         // Add a filter that adds a header to prevent caching. This makes sure that the 
-        // latest data is returned when the 'Refresh; button is clicked.        
+		// latest data is returned when the 'Refresh; button is clicked.        
         var noCachingFilter = function (request, next, callback) {
             if (request.type === 'GET' && !request.headers['If-Modified-Since']) {
                 request.headers['If-Modified-Since'] = 'Mon, 27 Mar 1972 00:00:00 GMT';
@@ -9,27 +11,27 @@
             next(request, callback);
         };
 
-    Cela définit une fonction de filtre qui ajoute l'en-tête `If-Modified-Since` pour empêcher la mise en cache sur le client.
+	クライアントで caching しないようにする  `If-Modified-Since` ヘッダーを追加するフィルター関数が定義されます。
+ 
+2. 次に、コメントを解除するか次のコード行を追加して、`<yourClient>` をプロジェクトをモバイル サービスに接続したときの service.js ファイルに追加された変数で置き換えます。
 
-2.  Ensuite, annulez les marques de commentaire ou ajoutez la ligne de code suivante et remplacez `<yourClient>` par la variable ajoutée au fichier service.js lorsque vous avez connecté votre projet au service mobile :
+		var todoTable = <yourClient>.withFilter(noCachingFilter).getTable('TodoItem');
 
-        var todoTable = <yourClient>.withFilter(noCachingFilter).getTable('TodoItem');
+   	This code creates a proxy object (**todoTable**) for the new database table, using the caching filter. 
 
-    Ce code crée un objet proxy (**todoTable**) pour la nouvelle table de base de données, à l'aide du filtre de mise en cache.
+3. **InsertTodoItem** 関数を次のコードに置き換えます。
 
-3.  Remplacez la fonction **InsertTodoItem** par le code suivant :
+		var insertTodoItem = function (todoItem) {
+		    // Inserts a new row into the database. When the operation completes
+		    // and Mobile Services has assigned an id, the item is added to the binding list.
+		    todoTable.insert(todoItem).done(function (item) {
+		        todoItems.push(item);
+		    });
+		};
 
-        var insertTodoItem = function (todoItem) {
-            // Inserts a new row into the database. When the operation completes
-            // and Mobile Services has assigned an id, the item is added to the binding list.
-            todoTable.insert(todoItem).done(function (item) {
-                todoItems.push(item);
-            });
-        };
+	このコードでは、新しい項目をテーブルに挿入します。
 
-    Ce code permet d'insérer un nouvel élément dans la table.
-
-4.  Remplacez la fonction **RefreshTodoItem** par le code suivant :
+3. **RefreshTodoItems** 関数を次のコードで置き換えます。
 
         var refreshTodoItems = function () {
             // This code refreshes the entries in the list by querying the table.
@@ -41,10 +43,10 @@
             });
         };
 
-    Cela définit la liaison sur la collection d'éléments de todoTable, qui contient tous les objets **TodoItem** renvoyés depuis le service mobile.
+   	これにより、todoTable 内で、モバイル サービスから返されたすべての **TodoItem** オブジェクトが格納される項目のコレクションへのバインディングが設定されます。 
 
-5.  Remplacez la fonction **UpdateCheckedTodoItem** par le code suivant :
-
+4. **UpdateCheckedTodoItem** 関数を次のコードで置き換えます。
+        
         var updateCheckedTodoItem = function (todoItem) {
             // This code takes a freshly completed TodoItem and updates the database. 
             todoTable.update(todoItem);
@@ -52,7 +54,6 @@
             todoItems.splice(todoItems.indexOf(todoItem), 1);
         };
 
-    Cela permet d'envoyer une mise à jour de l'élément au service mobile.
+   	これにより、項目の更新がモバイル サービスに送信されます。
 
-Maintenant que l'application a été mise à jour pour utiliser Mobile Services pour le stockage principal, le moment est venu de tester l'application avec Mobile Services.
-
+バックエンド ストレージのモバイル サービスを使用するようにアプリケーションを更新した後は、モバイル サービスに対してアプリケーションをテストします。<!--HONumber=42-->

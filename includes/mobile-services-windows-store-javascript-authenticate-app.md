@@ -1,6 +1,6 @@
 ﻿
 
-1. Ouvrez le fichier de projet default.js et dans la surcharge de la méthode **app.OnActivated**, remplacez l'appel à la méthode **refreshTodoItems** par le code suivant : 
+1. default.js プロジェクト ファイルを開き、**app.OnActivated** メソッドのオーバーロード内で、**refreshTodoItems** メソッドの最後の呼び出しを次のコードで置き換えます。 
 	
         var userId = null;
 
@@ -34,10 +34,10 @@
 
         authenticate();
 
-    Cela crée une variable membre pour le stockage de l'utilisateur actuel et une méthode pour gérer le processus d'authentification. L'utilisateur est authentifié à l'aide d'une connexion Facebook. Si vous utilisez un fournisseur d'identité différent de Facebook, remplacez la valeur transmise à la méthode <strong>login</strong> ci-dessus par l'une des valeurs suivantes : _microsoftaccount_, _twitter_, _google_ ou _windowsazureactivedirectory_.
+    これにより、現在のユーザーを格納するためのメンバー変数と認証プロセスを処理するためのメソッドが作成されます。ユーザーは、Facebook ログインを使用して認証されます。Facebook 以外の ID プロバイダーを使用している場合は、上の <strong>login</strong> メソッドに渡される値を_microsoftaccount_、_twitter_、_google_、_windowsazureactivedirectory_ のいずれかに変更します。
 
-    >[WACOM.NOTE]Si vous avez enregistré les informations du package de l'application Windows Store avec Mobile Services, vous devez appeler la méthode <a href="http://go.microsoft.com/fwlink/p/?LinkId=322050" target="_blank">login</a> en fournissant la valeur <strong>true</strong> pour le paramètre <em>useSingleSignOn</em>. Si vous ne le faites pas, vos utilisateurs seront toujours invités à se connecter à chaque appel de la méthode de connexion.
+    >[AZURE.NOTE]Windows ストア アプリ パッケージ情報をモバイル サービスに登録している場合は、<em>useSingleSignOn</em> パラメーターに値 <strong>true</strong> を指定して <a href="http://go.microsoft.com/fwlink/p/?LinkId=322050" target="_blank">login</a> メソッドを呼び出す必要があります。この操作を行わない場合、login メソッドが呼び出されるたびに、ユーザーにログイン プロンプトが表示されます。
 
-2. Appuyez sur la touche F5 pour exécuter l'application et vous connecter à l'application avec le fournisseur d'identité choisi. 
+2. F5 キーを押してアプリケーションを実行し、選択した ID プロバイダーでアプリケーションにサインインします。 
 
-   	Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
+   	ログインに成功すると、アプリケーションはエラーなしで実行されます。また、モバイル サービスを照会してデータを更新できるようになります。<!--HONumber=42-->

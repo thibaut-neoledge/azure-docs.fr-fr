@@ -1,6 +1,6 @@
 ﻿Notre cache de jeton doit fonctionner dans une situation normale, mais que se passe-t-il si le jeton arrive à expiration ou est révoqué ? Le jeton peut expirer lorsque l'application n'est pas en cours d'exécution. Cela signifie alors que le cache de jeton n'est pas valide. Le jeton peut également expirer lors de l'exécution de l'application lors d'un appel effectué directement par l'application ou par la bibliothèque Mobile Services. S'affiche alors le code d'état HTTP 401 Non autorisé. 
 
-Nous devons être en mesure de détecter un jeton expiré et de l'actualiser. Pour ce faire, nous utilisons un [ServiceFilter](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/ServiceFilter.html) à partir de la [bibliothèque cliente Android](http://dl.windowsazure.com/androiddocs/).
+Nous devons être en mesure de détecter un jeton expiré et de l'actualiser. Pour cela, nous utilisons un [ServiceFilter](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/ServiceFilter.html) à partir de la [bibliothèque cliente Android](http://dl.windowsazure.com/androiddocs/).
 
 Dans cette section, vous allez définir un ServiceFilter qui détecte un code d'état HTTP 401 et déclenche une actualisation du jeton et du cache associé. En outre, ce ServiceFilter bloque les autres demandes sortantes lors de l'authentification afin qu'elles puissent utiliser le jeton actualisé.
 
@@ -11,7 +11,7 @@ Dans cette section, vous allez définir un ServiceFilter qui détecte un code d'
 
 		import com.microsoft.windowsazure.mobileservices.MobileServiceException;
  
-2. Ajoutez les membres suivants à la classe " ToDoActivity ". 
+2. Ajoutez les membres suivants à la classe `ToDoActivity`. 
 
     	public boolean bAuthenticating = false;
 	    public final Object mAuthenticationLock = new Object();
@@ -74,7 +74,7 @@ Dans cette section, vous allez définir un ServiceFilter qui détecte un code d'
     	}
 
 
-5. Dans le fichier ToDoActivity.java, mettez à jour la méthode " authenticate " de la classe ToDoActivity afin qu'elle accepte un paramètre booléen pour autoriser le fait de forcer l'actualisation du jeton et du cache associé. Nous devons également informer les threads bloqués de la fin de l'authentification afin qu'ils puissent récupérer le nouveau jeton.
+5. Dans le fichier ToDoActivity.java, mettez à jour la méthode `authenticate` de la classe ToDoActivity afin qu'elle accepte un paramètre booléen pour autoriser le fait de forcer l'actualisation du jeton et du cache associé. Nous devons également informer les threads bloqués de la fin de l'authentification afin qu'ils puissent récupérer le nouveau jeton.
 
 	    /**
     	 * Authenticates with the desired login provider. Also caches the token. 
@@ -127,7 +127,7 @@ Dans cette section, vous allez définir un ServiceFilter qui détecte un code d'
 
 
 
-6. Dans le fichier ToDoActivity.java, ajoutez le code correspondant à une nouvelle classe " RefreshTokenCacheFilter " dans la classe ToDoActivity :
+6. Dans le fichier ToDoActivity.java, ajoutez le code pour une nouvelle classe `RefreshTokenCacheFilter` au sein de la classe ToDoActivity :
 
 		/**
 		* The RefreshTokenCacheFilter class filters responses for HTTP status code 401. 
@@ -206,7 +206,7 @@ Dans cette section, vous allez définir un ServiceFilter qui détecte un code d'
 
     Ce filtre de service recherche dans chaque réponse le code d'état HTTP 401 Non autorisé. S'il rencontre ce code, une nouvelle demande de connexion pour obtenir un nouveau jeton est configurée dans le thread d'interface utilisateur. Les autres appels seront bloqués jusqu'à ce que la connexion soit terminée ou jusqu'à ce que 5 tentatives aient échoué. Si le nouveau jeton est obtenu, la demande qui a déclenché le code 401 et les appels bloqués fait l'objet d'une nouvelle tentative avec le nouveau jeton. 
 
-7. Dans le fichier ToDoActivity.java, mettez à jour la méthode onCreate comme suit :
+7. Dans le fichier ToDoActivity.java, mettez à jour la méthode `onCreate` comme suit :
 
 		@Override
 	    public void onCreate(Bundle savedInstanceState) {
@@ -237,6 +237,7 @@ Dans cette section, vous allez définir un ServiceFilter qui détecte un code d'
 	    }
 
 
-       Dans ce code, " RefreshTokenCacheFilter " est utilisé en plus de " ProgressFilter ". En outre, lors de l'application de " onCreate ", nous voulons charger le cache de jeton. Ainsi, " false " est transféré à la méthode " authenticate ".
+       Dans ce code, `RefreshTokenCacheFilter` est utilisé en plus de `ProgressFilter`. En outre, lors de l'application de la méthode `onCreate`, nous voulons charger le cache de jeton. Ainsi, `false` est transféré à la méthode `authenticate`.
 
 
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Introduction to Azure Storage" pageTitle="Introduction à Azure Storage | Microsoft Azure" metaKeywords="Get started  Azure storage introduction  Azure storage overview  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage  Azure file storage  Azure file  Azure file share  Azure " description="Vue d'ensemble de Microsoft Azure Storage." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="Introduction to Microsoft Azure Storage" authors="tamram" manager="adinah" />
+﻿<properties 
+	pageTitle="Introduction à Azure Storage | Microsoft Azure" 
+	description="Vue d'ensemble de Microsoft Azure Storage." 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/11/2014" 
+	ms.author="tamram"/>
 
 # Introduction à Microsoft Azure Storage
 
@@ -26,18 +40,18 @@ Azure Storage est accessible partout dans le monde, depuis n'importe quel type d
 
 Azure Storage prend en charge les clients avec divers systèmes d'exploitation (notamment Windows et Linux) et divers langages de programmation (notamment .NET, Java, et C++) pour un développement pratique. Azure Storage expose également les ressources de données par l'intermédiaire de simples API REST, disponibles pour tout client capable d'envoyer et de recevoir des données via HTTP/HTTPS.
 
-Azure Premium Storage est à présent disponible en version préliminaire. Azure Premium Storage offre des performances élevées et une prise en charge à faible latence du disque pour des charges de travail d'E/S intensives exécutées sur Azure Virtual Machines. Avec Azure Premium Storage, vous pouvez associer plusieurs disques de données persistants à une machine virtuelle et les configurer afin qu'ils répondent à vos exigences de performance. Chaque disque de données est approvisionné par un disque SSD dans Azure Premium Storage pour une performance d'E/S maximale. Consultez la page [Stockage Premium : stockage hautes performances pour les charges de travail d'Azure Virtual Machine](http://go.microsoft.com/fwlink/?LinkId=521898) pour en savoir plus. 
+Azure Premium Storage est à présent disponible en version préliminaire. Azure Premium Storage offre des performances élevées et une prise en charge à faible latence du disque pour des charges de travail d'E/S intensives exécutées sur Azure Virtual Machines. Avec Azure Premium Storage, vous pouvez associer plusieurs disques de données persistants à une machine virtuelle et les configurer afin qu'ils répondent à vos exigences de performance. Chaque disque de données est approvisionné par un disque SSD dans Azure Premium Storage pour une performance d'E/S maximale. Consultez la page [Stockage Premium : stockage hautes performances pour les charges de travail de machines virtuelles Azure](http://go.microsoft.com/fwlink/?LinkId=521898) pour plus d'informations. 
 
 ## Présentation des services Azure Storage ##
 
-Un compte de stockage Azure est un compte sécurisé qui vous donne accès aux services d'Azure Storage. Votre compte de stockage fournit les espaces de noms uniques pour vos ressources de stockage. Deux types de comptes de stockage sont disponibles :
+Un compte de stockage Azure est un compte sécurisé qui vous donne accès à des services dans Azure Storage. Votre compte de stockage fournit les espaces de noms uniques pour vos ressources de stockage. Deux types de comptes de stockage sont disponibles :
 
 - Un compte de stockage standard qui inclut le stockage d'objets blob, de tables, de files d'attente et de fichiers.
-- Un compte de stockage premium qui, actuellement, prend uniquement en charge les disques d'Azure Virtual Machine. Azure Premium Storage est disponible sur demande via la [page de la version préliminaire d'Azure](/fr-fr/services/preview/).
+- Un compte de stockage Premium prend actuellement en charge uniquement les disques Machine virtuelle Azure. Azure Premium Storage est disponible sur demande via la [page de la version préliminaire d'Azure](/fr-FR/services/preview/).
 
-Pour pouvoir créer un compte de stockage, vous devez posséder un abonnement Azure, c'est-à-dire un plan qui vous donne accès à divers services Azure. Un seul abonnement vous permet de créer jusqu'à 100 comptes de stockage uniques. Consultez la page [Tarification - Stockage](http://www.windowsazure.com/fr-fr/pricing/details/storage/) pour en savoir plus sur la tarification selon les volumes.
+Pour pouvoir créer un compte de stockage, vous devez posséder un abonnement Azure, c'est-à-dire un plan qui vous donne accès à divers services Azure. Un seul abonnement vous permet de créer jusqu'à 100 comptes de stockage uniques. Pour plus d'informations sur la tarification des licences en volume, consultez la page [Tarification Azure Storage](http://www.windowsazure.com/fr-FR/pricing/details/storage/).
 
-Pour la prise en main d'Azure, vous pouvez bénéficier d'une [version d'évaluation gratuite](/fr-fr/pricing/free-trial/). Lorsque vous décidez d'acheter un plan, vous avez le choix entre plusieurs [options d'achat](/fr-fr/pricing/purchase-options/). Si vous êtes [abonné à MSDN](/fr-fr/pricing/member-offers/msdn-benefits-details/), vous bénéficiez de crédits mensuels gratuits que vous pouvez utiliser avec les services Azure, y compris Azure Storage.
+Pour la prise en main d'Azure, vous pouvez bénéficier d'un [essai gratuit](/fr-FR/pricing/free-trial/). Une fois que vous décidez de souscrire un abonnement, vous pouvez choisir parmi diverses [options d'achat](/fr-FR/pricing/purchase-options/).. Si vous êtes un [abonné MSDN](/fr-FR/pricing/member-offers/msdn-benefits-details/), vous obtenez des crédits mensuels gratuits que vous pouvez utiliser avec les services Azure, y compris Azure Storage.
 
 ### Comptes de stockage standard
 
@@ -46,19 +60,19 @@ Un compte de stockage standard vous donne accès au stockage d'objets blob, de t
 - Le **stockage d'objets blob** stocke les données des fichiers. Un objet blob peut correspondre à n'importe quel type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d'installation d'application. 
 - Le **stockage de tables** stocke les jeux de données structurés. Le stockage de tables est un magasin de données de clés-attributs NoSQL qui permet le développement rapide et l'accès rapide à de grosses quantités de données.
 - Le **stockage de files d'attente** fournit une messagerie fiable pour le traitement du workflow et pour la communication entre les composants des services cloud.
-- Le **stockage de fichiers (version préliminaire)** propose un stockage partagé pour les applications héritées utilisant le protocole SMB 2.1. Les machines virtuelles et les services cloud Microsoft Azure peuvent partager des données de fichiers entre plusieurs composants d'application grâce à des partages montés. Les applications locales peuvent accéder aux données de fichiers d'un partage via l'API REST du service de stockage de fichiers. Le stockage de fichiers est disponible sur demande via la [page de la version préliminaire d'Azure](/fr-fr/services/preview/). 
+- Le **stockage de fichiers (version préliminaire)** propose un stockage partagé pour les applications héritées utilisant le protocole SMB 2.1. Les machines virtuelles et les services cloud Microsoft Azure peuvent partager des données de fichiers entre plusieurs composants d'application grâce à des partages montés. Les applications locales peuvent accéder aux données de fichiers d'un partage via l'API REST du service de stockage de fichiers. Le stockage de fichiers est disponible à la demande via la page [Azure Preview](/fr-FR/services/preview/). 
 
-Chaque compte de stockage standard peut contenir jusqu'à 500 To de données d'objets blob, de files d'attente, de tables et de fichiers combinées. Consultez la page [Objectifs de performance et d'extensibilité d'Azure Storage](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx) pour en savoir plus sur la capacité d'un compte de stockage standard.
+Chaque compte de stockage standard peut contenir jusqu'à 500 To de données d'objets blob, de files d'attente, de tables et de fichiers combinées. Pour plus d'informations sur la capacité du compte de stockage, consultez la page [Objectifs d'évolutivité et de performances d'Azure Storage](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx).
 
 L'image ci-dessous affiche les relations entre les ressources de stockage Azure dans un compte de stockage standard :
 
 ![Azure Storage Resources](./media/storage-introduction/storage-concepts.png)
 
-Une fois que vous êtes prêt à créer un compte de stockage standard, consultez la page [Création, gestion ou suppression d'un compte de stockage](../storage-create-storage-account/) pour en savoir plus.
+Une fois que vous êtes prêt à créer un compte de stockage standard, consultez la page [Création, gestion ou suppression d'un compte de stockage](../storage-create-storage-account/) pour plus d'informations.
 
 ### Comptes de stockage Premium (version préliminaire)
 
-Actuellement, Azure Premium Storage prend uniquement en charge les disques d'Azure Virtual Machines. Azure Premium Storage est disponible sur demande via la [page de la version préliminaire d'Azure](/fr-fr/services/preview/). Pour une présentation détaillée d'Azure Premium Storage, consultez la page [Premium Storage : stockage hautes performances pour les charges de travail d'Azure Virtual Machine](http://go.microsoft.com/fwlink/?LinkId=521898).
+Actuellement, Azure Premium Storage prend uniquement en charge les disques d'Azure Virtual Machines. Azure Premium Storage est disponible sur demande via la [page de la version préliminaire d'Azure](/fr-FR/services/preview/). Pour une présentation détaillée d'Azure Premium Storage, consultez la page [Premium Storage : stockage hautes performances pour les charges de travail des machines virtuelles Azure](http://go.microsoft.com/fwlink/?LinkId=521898).
 
 ## Stockage d'objets blob ##
 
@@ -75,7 +89,7 @@ Chaque objet blob est organisé dans un conteneur. Les conteneurs fournissent é
 
 Le stockage d'objets blob propose deux types d'objets blob : les objets blob de bloc et les objets blob de page (disques). Les objets blob de bloc sont optimisés pour la diffusion en continu et le stockage des objets cloud. Ils conviennent pour le stockage de documents, de fichiers multimédias, de sauvegardes, etc. La taille maximale d'un objet blob de bloc est de 200 Go. Les objets blob de page sont optimisés pour représenter les disques IaaS et prendre en charge les écritures aléatoires. Leur taille maximale est de 1 To. Un disque IaaS rattaché à un réseau de machines virtuelles Azure est un disque dur virtuel stocké en tant qu'objet blob de page.
 
-Pour les jeux de données très volumineux où les contraintes du réseau rendent irréaliste le téléchargement de données vers/depuis le stockage d'objets blob via le réseau, vous pouvez expédier un disque dur à Microsoft pour importer ou exporter les données directement à partir du centre de données avec le [service Import/Export d'Azure](http://azure.microsoft.com/fr-fr/documentation/articles/storage-import-export-service/). Vous pouvez également copier des données d'objets blob dans votre compte de stockage ou à travers des comptes de stockage. 
+Pour les jeux de données très volumineux où les contraintes du réseau rendent le téléchargement de données vers/depuis le stockage d'objets blob via le réseau irréaliste, vous pouvez expédier un disque dur à Microsoft pour importer ou exporter les données directement à partir du centre de données avec le [service d'importation/exportation Azure](../articles/storage-import-export-service/). Vous pouvez également copier des données d'objets blob dans votre compte de stockage ou à travers des comptes de stockage. 
 
 ## Stockage de tables ##
 
@@ -95,7 +109,7 @@ Lors de la conception d'applications pour la mise à l'échelle, des composants 
 
 Un compte de stockage peut contenir un nombre quelconque de files d'attente. Une file d'attente peut contenir un nombre quelconque de messages, jusqu'à la limite de capacité du compte de stockage. La taille maximale des messages individuels est de 64 Ko.
 
-## Stockage de fichiers (version préliminaire) ##
+## Stockage de fichiers (aperçu) ##
 
 De nombreuses applications héritées reposent sur des partages de fichiers, une dépendance qui complique le déplacement de ces applications sur le cloud. Le stockage de fichiers offre des partages de fichiers sur le cloud permettant de migrer des applications héritées vers Azure rapidement, sans réécritures onéreuses. 
 
@@ -105,10 +119,10 @@ Un partage de stockage de fichiers étant un partage de fichiers SMB 2.1 standar
 
 Comme les autres services de stockage Azure, le stockage de fichiers expose une API REST pour l'accès aux données d'un partage. Les applications locales peuvent appeler l'API REST de stockage de fichiers pour accéder aux données d'un partage de fichiers. Ainsi, une entreprise peut choisir de migrer certaines applications héritées vers Azure tout en continuant à exécuter d'autres applications au sein de leurs locaux. Le montage d'un partage de fichiers est possible uniquement pour les applications exécutées dans Azure. Une application locale ne peut accéder au partage de fichiers que via l'API REST.
 
-Les applications distribuées peuvent également utiliser le stockage de fichiers pour stocker et partager des données d'application, et des outils de développement et de test. Par exemple, une application peut stocker des fichiers de configuration et des données de diagnostic (telles que des journaux, mesures et vidages sur incident) dans un partage de stockage de fichiers afin de les rendre disponibles pour plusieurs machines virtuelles ou rôles. Les développeurs et les administrateurs peuvent stocker des utilitaires dont ils ont besoin pour générer ou générer une application dans un partage de stockage de fichiers disponible pour tous les composants, plutôt que de les installer sur chaque machine virtuelle ou instance de rôle.
+Les applications distribuées peuvent également utiliser le stockage de fichiers pour stocker et partager des données d'application, et des outils de développement et de test. Par exemple, une application peut stocker des fichiers de configuration et des données de diagnostic (telles que des journaux, mesures et vidages sur incident) dans un partage de stockage de fichiers afin de les rendre disponibles pour plusieurs machines virtuelles ou rôles. Les développeurs et les administrateurs peuvent stocker des utilitaires dont ils ont besoin por générer ou générer une application dans un partage de stockage de fichiers disponible pour tous les composants, plutôt que de les installer sur chaque machine virtuelle ou instance de rôle.
 
 
-## Accès aux ressources d'objets blob, de tables, de files d'attente et de fichiers ##
+## Accès aux ressources d'objets blob, de files d'attente, de tables et de fichiers ##
 
 Par défaut, seul le propriétaire du compte de stockage peut accéder aux ressources dans le compte de stockage. Pour la sécurité de vos données, chaque demande concernant les ressources de votre compte doit être authentifiée. L'authentification s'appuie sur un modèle de clé partagée. Les objets blob peuvent également être configurés pour prendre en charge l'authentification anonyme. 
 
@@ -120,7 +134,7 @@ Enfin, vous pouvez spécifier qu'un conteneur et ses objets blob, ou un objet bl
 
 ## Réplication pour la durabilité et la haute disponibilité ##
 
-[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
+[AZURE.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
 ## Tarification ##
 
@@ -128,29 +142,29 @@ La facturation d'Azure Storage aux clients se base sur quatre facteurs : la capa
 
 La capacité de stockage fait référence à l'unité de compte de stockage que vous utilisez pour stocker des données. Le coût d'un simple stockage de vos données est déterminé par la quantité de données que vous stockez et leur type de réplication. Chaque opération de lecture et d'écriture vis-à-vis d'Azure Storage effectue également une demande auprès du service. L'acheminement des données fait référence aux données transférées hors d'une région Microsoft Azure. Lorsque les données de votre compte de stockage sont utilisées par une application qui n'est pas exécutée dans la même région, que cette application soit un service cloud ou un autre type d'application, vous êtes facturé pour l'acheminement des données (pour les services Windows Azure, vous pouvez grouper vos données et services dans les mêmes centres de données pour réduire ou éliminer les frais de traitement et d'acheminement des données). 
 
-La page [Tarification - Stockage](/fr-fr/pricing/details/storage/) fournit des informations de tarification détaillées pour les capacités de stockage, la réplication et les transactions. La page [Tarification - Transferts de données](/fr-fr/pricing/details/data-transfers/) fournit des informations de tarification détaillées concernant l'acheminement des données. Vous pouvez utiliser la [calculatrice de la tarification d'Azure Storage.](/fr-fr/pricing/calculator/?scenario=data-management) to help estimate your costs.
+La page [Tarification - Stockage](/fr-FR/pricing/details/storage/) fournit des informations de tarification détaillées pour les capacités de stockage, la réplication et les transactions. La page [Détails de la tarification - Transferts de données](/fr-FR/pricing/details/data-transfers/) fournit des informations de tarification détaillées pour les acheminements de données. Vous pouvez utiliser le [Calcul des coûts Azure Storage](/fr-FR/pricing/calculator/?scenario=data-management) pour faciliter l'estimation des coûts.
 
 ## Développement dans Azure Storage ##
 
-Azure Storage expose les ressources de stockage via une [API REST] (http://msdn.microsoft.com/library/windowsazure/dd179355.aspx) qui peut être appelée par n'importe quel langage capable de créer des requêtes HTTP/HTTPS. Par ailleurs, Azure Storage offre des bibliothèques de programmation pour plusieurs langages populaires. Ces bibliothèques simplifient l'utilisation d'Azure Storage sous de nombreux aspects en gérant des détails tels que l'invocation synchrone et asynchrone, le traitement par lots des opérations, la gestion des exceptions, les nouvelles tentatives automatiques, le comportement opérationnel, etc. Des bibliothèques sont actuellement disponibles pour les langages et les plateformes suivants (d'autres sont à l'étude) :
+Azure Storage expose les ressources de stockage via une [API REST](http://msdn.microsoft.com/library/windowsazure/dd179355.aspx) qui peut être appelée par n'importe quel langage capable de créer des requêtes HTTP/HTTPS. Par ailleurs, Azure Storage offre des bibliothèques de programmation pour plusieurs langages populaires. Ces bibliothèques simplifient l'utilisation d'Azure Storage sous de nombreux aspects en gérant des détails tels que l'invocation synchrone et asynchrone, le traitement par lots des opérations, la gestion des exceptions, les nouvelles tentatives automatiques, le comportement opérationnel, etc. Des bibliothèques sont actuellement disponibles pour les langages et les plateformes suivants (d'autres sont à l'étude) :
 
 - [.NET](http://go.microsoft.com/fwlink/?LinkID=390731)
 - [Code natif](http://msdn.microsoft.com/library/dn495438.aspx)
-- [Java/Android](/fr-fr/develop/java/)
-- [Node.js](/fr-fr/develop/nodejs/)
-- [PHP](/fr-fr/develop/php/)
-- [Ruby](/fr-fr/develop/ruby/)
-- [Python](/fr-fr/develop/python/)
+- [Java/Android](/fr-FR/develop/java/)
+- [Node.js](/fr-FR/develop/nodejs/)
+- [PHP](/fr-FR/develop/php/)
+- [Ruby](/fr-FR/develop/ruby/)
+- [Python](/fr-FR/develop/python/)
 - [PowerShell](http://msdn.microsoft.com/library/dn495240.aspx)
 
-## Étapes suivantes##
+## Étapes suivantes ##
 
 Pour la prise en main d'Azure Storage, explorez les ressources suivantes :
 
 ### Téléchargements
 
 - [Package NuGet d'Azure Storage - Bibliothèques clientes pour .NET, Windows Phone et Windows Runtime](https://www.nuget.org/packages/WindowsAzure.Storage/)
-- [Outils et Kit de développement logiciel (SDK) d'Azure](http://azure.microsoft.com/fr-fr/downloads/)
+- [Outils et Kit de développement logiciel (SDK) d'Azure](http://azure.microsoft.com/fr-FR/downloads/)
 - [Émulateur de stockage Azure](http://www.microsoft.com/en-in/download/details.aspx?id=43709)
 
 ### Code source
@@ -159,16 +173,16 @@ Pour la prise en main d'Azure Storage, explorez les ressources suivantes :
 
 ### HDInsight
 
-- [Documentation d'Azure Storage](/fr-fr/documentation/services/storage/)
-- [Référence de l'API REST des services d'Azure Storage](http://msdn.microsoft.com/fr-fr/library/dd179355.aspx)
-- [Référence de l'outil en ligne de commande AzCopy](http://azure.microsoft.com/fr-fr/documentation/articles/storage-use-azcopy/)
+- [Documentation d'Azure Storage](/fr-FR/documentation/services/storage/)
+- [Référence de l'API REST des services d'Azure Storage](http://msdn.microsoft.com/fr-FR/library/dd179355.aspx)
+- [Référence de l'outil en ligne de commande AzCopy](http://azure.microsoft.com/fr-FR/documentation/articles/storage-use-azcopy/)
 
 <h3>Pour les utilisateurs de PowerShell</h3>
-- [Cmdlets Azure Storage](http://msdn.microsoft.com/fr-fr/library/azure/dn806401.aspx)
+- [Cmdlets Azure Storage](http://msdn.microsoft.com/fr-FR/library/azure/dn806401.aspx)
 
 <h3>Pour les développeurs .NET</h3>
 
-- [Référence de bibliothèque cliente .NET](http://msdn.microsoft.com/fr-fr/library/wa_storage_30_reference_home.aspx)
+- [Référence de bibliothèque cliente .NET](http://msdn.microsoft.com/fr-FR/library/wa_storage_30_reference_home.aspx)
 - [Utilisation du stockage d'objets blob à partir de .NET](../storage-dotnet-how-to-use-blobs/)
 - [Utilisation du stockage de tables à partir de .NET](../storage-dotnet-how-to-use-tables/)
 - [Utilisation du service de stockage de files d'attente à partir de .NET](../storage-dotnet-how-to-use-queues/)
@@ -203,5 +217,4 @@ Pour la prise en main d'Azure Storage, explorez les ressources suivantes :
 - [Utilisation du stockage d'objets blob à partir de Python](../storage-python-how-to-use-blob-storage/)
 - [Utilisation du stockage de tables à partir de Python](../storage-python-how-to-use-table-storage/)
 - [Utilisation du stockage de files d'attente à partir de Python](../storage-python-how-to-use-queue-storage/)
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

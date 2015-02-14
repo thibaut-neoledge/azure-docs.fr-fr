@@ -31,7 +31,7 @@ Nous modifions simplement votre méthode *SendNotificationAsync* en envoyant un 
                             {"News_Mandarin", "World News in Mandarin!"}};
     await hub.SendTemplateNotificationAsync(notification, "World");
 
-Notez que ce simple appel remettra l'information localisée adéquate à **tous** vos appareils, indépendamment de leur plateforme, à mesure que votre concentrateur de notification crée et remet la charge utile native qui convient à l'ensemble des appareils abonnés à une balise spécifique.
+Notez que ce simple appel remettra l'information localisée adéquate à **tous** vos appareils, indépendamment de leur plateforme, à mesure que votre Notification Hub crée et remet la charge utile native qui convient à l'ensemble des appareils abonnés à une balise spécifique.
 
 ### Mobile Services
 
@@ -51,3 +51,4 @@ Dans votre planificateur Mobile Service, remplacez votre script par :
 	});
 	
 Remarquez comment, dans ce cas, il n'est pas obligatoire d'envoyer plusieurs notifications pour différents paramètres régionaux et différentes plateformes.
+<!--HONumber=42-->

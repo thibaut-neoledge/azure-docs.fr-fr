@@ -1,16 +1,30 @@
-﻿<properties urlDisplayName="Analyze flight delay data with Hadoop in HDInsight" pageTitle="Analyse des données sur les retards de vol avec Hadoop dans HDInsight | Azure" metaKeywords="" description="Apprenez à utiliser un script PowerShell pour configurer le cluster HDInsight, exécuter la tâche Hive, exécuter la tache Sqool et supprimer le cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze flight delay data using Hadoop in HDInsight " authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Analyse des données sur les retards de vol avec Hadoop dans HDInsight | Azure" 
+	description="Apprenez à utiliser un script PowerShell pour configurer le cluster HDInsight, exécuter la tâche Hive, exécuter la tache Sqool et supprimer le cluster." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/04/2014" 
+	ms.author="jgao"/>
 
 #Analyse des données sur les retards de vol avec Hadoop dans HDInsight
 
-Hive permet d'exécuter des tâches Hadoop MapReduce via un langage de création de scripts semblable à SQL, nommé *[HiveQL][hadoop-hiveql]*, qui peut être appliqué à la synthèse, à l'envoi de requêtes et à l'analyse d'importants volumes de données. 
+Hive permet d'exécuter des tâches Hadoop MapReduce via un langage de création de scripts semblable à SQL, nommé *[HiveQL][hadoop-hiveql]*, qui peut être appliqué à la synthèse, à l'interrogation et à l'analyse d'importants volumes de données. 
 
 L'un des principaux avantages de HDInsight est la séparation du calcul et du stockage des données. HDInsight utilise le stockage d'objets blob Azure pour stocker des données. Un processus MapReduce habituel peut être scindé en trois parties :
 
-1. **Stockage des données dans un stockage d'objets blob.**  Il peut s'agir d'un processus continu. Par exemple, les données météorologiques, les données de capteur, les journaux web, et en l'occurrence, les données liées aux retards de vol, sont enregistrées dans un stockage d'objets blob.
+1. **Stockage de données dans un stockage d'objets blob.**  Il peut s'agir d'un processus continu. Par exemple, les données météorologiques, les données de capteur, les journaux web, et en l'occurrence, les données liées aux retards de vol, sont enregistrées dans un stockage d'objets blob.
 2. **Exécution des tâches.**  Au moment de traiter les données, vous exécutez un script PowerShell (ou une application cliente) pour approvisionner un cluster HDInsight, exécuter des tâches et supprimer le cluster.  Les tâches enregistrent les données de sortie dans le stockage d'objets blob Azure. Les données de sortie sont conservées même après la suppression du cluster. De cette façon, vous ne devez payer que ce que vous avez consommé. 
-3. **Extrayez la sortie à partir du stockage d'objets blob,** ou en l'occurrence, exportez les données vers une base de données SQL Azure.
+3. **Extrayez la sortie à partir du stockage d'objets blob**ou, dans le cas présent, exportez les données vers une base de données SQL Azure.
 
 Le schéma suivant illustre le scénario et la structure de cet article :
 
@@ -29,9 +43,9 @@ Dans les annexes, vous trouverez les instructions permettant de télécharger le
 
 ##Dans ce didacticiel
 
-* [Configuration requise](#prerequisite)
+* [Conditions préalables](#prerequisite)
 * [Approvisionnement d'un cluster  HDInsight et exécution de tâches Hive/Sqoop (M1)](#runjob)
-* [Annexe A : Téléchargement des données de retard de vol dans un stockage d'objets blob Azure(A1)](#appendix-a)
+* [Annexe A : Téléchargement des données de retard de vol dans un stockage d'objets blob Azure (A1)](#appendix-a)
 * [Annexe B : Création et téléchargement d'un script HiveQL (A2)](#appendix-b)
 * [Annexe C : Préparation d'une base de données SQL Azure pour le résultat de tâche Sqoop (A3)](#appendix-c)
 * [Étapes suivantes](#nextsteps)
@@ -41,13 +55,13 @@ Dans les annexes, vous trouverez les instructions permettant de télécharger le
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * Un poste de travail sur lequel Azure PowerShell est installé et configuré. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][powershell-install-configure].
-* Un abonnement Azure. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les [formules d'abonnement][azure-purchase-options], les [offres spéciales membres][azure-member-offers] ou la [version d'évaluation gratuite][azure-free-trial].
+* Un abonnement Azure. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les pages traitant des [formules d'abonnement][azure-purchase-options], des [offres spéciales membres][azure-member-offers] ou de la [version d'évaluation gratuite][azure-free-trial].
 
 ###Présentation du stockage HDInsight
 
-Les clusters Hadoop dans HDInsight utilisent le stockage d'objets blob Azure pour stocker des données.  Il s'intitule *WASB* ou *Azure Storage - Blob*. WASB correspond à l'implémentation Microsoft du *HDFS* sur le stockage d'objets blob Azure. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage]. 
+Les clusters Hadoop dans HDInsight utilisent le stockage d'objets blob Azure pour stocker des données.  Ce stockage s'intitule   *WASB* ou  *Azure Storage - Blob*. WASB correspond à l'implémentation Microsoft  *HDFS* sur le stockage d'objets blob Azure. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage]. 
 
-Lorsque vous approvisionnez un cluster HDInsight, un conteneur de stockage d'objets blob d'un compte de stockage Azure est désigné comme système de fichiers par défaut, comme dans HDFS. Le compte de stockage est connu sous le nom de *compte de stockage par défaut*, et le conteneur d'objets blob sous le nom de *conteneur d'objets blob par défaut* ou *conteneur par défaut*. Le compte de stockage par défaut doit se situer dans le même centre de données que le cluster HDInsight. La suppression d'un cluster HDInsight ne permet pas de supprimer le conteneur par défaut ou le compte de stockage par défaut.
+Lorsque vous approvisionnez un cluster HDInsight, un conteneur de stockage d'objets blob d'un compte de stockage Azure est désigné comme système de fichiers par défaut, comme dans HDFS. Ce compte de stockage est connu sous le nom de  *default storage account*, et le conteneur d'objets blob sous le nom de  *default Blob container* ou  *default container*. Le compte de stockage par défaut doit se situer dans le même centre de données que le cluster HDInsight. La suppression d'un cluster HDInsight ne permet pas de supprimer le conteneur par défaut ou le compte de stockage par défaut.
 
 Outre le compte de stockage par défaut, d'autres comptes de stockage Azure peuvent être associés à un cluster HDInsight pendant l'approvisionnement. L'association consiste à ajouter le compte de stockage et la clé du compte de stockage au fichier de configuration. Cela permet au cluster d'accéder à ces comptes de stockage à l'exécution. Pour plus d'instructions sur l'ajout de comptes de stockage supplémentaires, consultez la rubrique [Approvisionnement de clusters Hadoop dans HDInsight][hdinsight-provision]. 
 
@@ -55,7 +69,7 @@ La syntaxe WASB est :
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
->[WACOM.NOTE] Le chemin d'accès WASB est le chemin d'accès virtuel.  Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage]. 
+>[AZURE.NOTE] Le chemin d'accès WASB est le chemin d'accès virtuel.  Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage]. 
 
 Vous pouvez accéder à un fichier stocké dans le conteneur par défaut à partir de HDInsight en utilisant l'un des URI suivants (flightdelays.hql est utilisé comme exemple) :
 
@@ -71,7 +85,7 @@ Remarquez l'absence de " / " devant le nom d'objet blob.
 
 **Fichiers utilisés dans ce didacticiel**
 
-Ce didacticiel utilise les données de ponctualité des vols des compagnies aériennes de la [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] (RITA). Les données ont été téléchargées dans un conteneur de stockage d'objets blob Azure avec l'autorisation d'accès aux objets blob publics. Étant donné qu'il s'agit d'un conteneur d'objets blob publics, il n'est pas nécessaire d'associer ce compte de stockage au cluster HDInsight exécutant le script Hive. Le script HiveQL est également téléchargé sur le même conteneur d'objets blob. Pour apprendre à obtenir/télécharger les données sur votre propre compte de stockage, et à créer/télécharger le fichier de script HiveQL, consultez l'[annexe A](#appendix-a) et l'[annexe B](#appendix-b).
+Ce didacticiel utilise les données de ponctualité des vols des compagnies aériennes de la [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] (RITA). Les données ont été téléchargées dans un conteneur de stockage d'objets blob Azure avec l'autorisation d'accès aux objets blob publics. Étant donné qu'il s'agit d'un conteneur d'objets blob publics, il n'est pas nécessaire d'associer ce compte de stockage au cluster HDInsight exécutant le script Hive. Le script HiveQL est également téléchargé sur le même conteneur d'objets blob. Pour savoir comment obtenir/télécharger les données sur votre propre compte de stockage, et comment créer/télécharger le fichier de script HiveQL, consultez l'[annexe A](#appendix-a) et l'[annexe B](#appendix-b).
 
 Le tableau suivant répertorie les fichiers utilisés dans ce didacticiel :
 
@@ -97,7 +111,7 @@ Voici quelques éléments à connaître sur les tables interne et externe Hive :
 
 Pour plus d'informations, consultez la rubrique [HDInsight : introduction aux tables interne et externe Hive][cindygross-hive-tables].
 
-> [WACOM.NOTE] Une des instructions HiveQL crée une table externe Hive. La table externe Hive conserve le fichier de données à son emplacement d'origine. La table interne Hive transfère le fichier de données vers hive\warehouse. Pour les besoins de la table interne Hive, le fichier de données doit être situé dans le conteneur par défaut. Pour les données stockées en dehors du conteneur d'objets blob par défaut, vous devez utiliser des tables externes Hive.
+> [AZURE.NOTE] Une des instructions HiveQL crée une table externe Hive. La table externe Hive conserve le fichier de données à son emplacement d'origine. La table interne Hive transfère le fichier de données vers hive\warehouse. Pour les besoins de la table interne Hive, le fichier de données doit être situé dans le conteneur par défaut. Pour les données stockées en dehors du conteneur d'objets blob par défaut, vous devez utiliser des tables externes Hive.
 
 
 
@@ -109,7 +123,7 @@ Pour plus d'informations, consultez la rubrique [HDInsight : introduction aux ta
 
 ##<a id="runjob"></a>Approvisionnement d'un cluster  HDInsight et exécution de tâches Hive/Sqoop 
 
-Hadoop MapReduce correspond au traitement par lots. La façon la plus économique d'exécuter une tâche Hive consiste à approvisionner un cluster pour la tâche, et à supprimer cette dernière une fois qu'elle est terminée. Le script suivant couvre le processus dans son intégralité. Pour plus d'informations sur l'approvisionnement d'un cluster HDInsight et l'exécution de tâches Hive, consultez les rubriques [Approvisionnement de clusters Hadoop dans HDInsight][hdinsight-provision] et [Utilisation de Hive avec HDInsight][hdinsight-use-hive]. 
+Hadoop MapReduce correspond au traitement par lots. La façon la plus économique d'exécuter une tâche Hive consiste à approvisionner un cluster pour la tâche, et à supprimer cette dernière une fois qu'elle est terminée. Le script suivant couvre le processus dans son intégralité. Pour plus d'informations sur l'approvisionnement d'un cluster HDInsight et l'exécution de tâches Hive, consultez les rubriques [Approvisionnement de clusters Hadoop dans HDInsight][hdinsight-provision] et  [Utilisation de Hive avec HDInsight][hdinsight-use-hive]. 
 
 **Pour exécuter des requêtes Hive à l'aide de PowerShell**
 
@@ -372,7 +386,7 @@ Hadoop MapReduce correspond au traitement par lots. La façon la plus économiqu
 
 	![HDI.FlightDelays.RunHiveJob.output][img-hdi-flightdelays-run-hive-job-output]
 		
-5. Connectez-vous à votre base de données SQL et consultez les retards de vol moyens par ville dans la table *AvgDelays* :
+5. Connectez-vous à votre base de données SQL et consultez les retards de vol moyens par ville dans la  *AvgDelays* table :
 
 	![HDI.FlightDelays.AvgDelays.Dataset][image-hdi-flightdelays-avgdelays-dataset]
 
@@ -380,12 +394,12 @@ Hadoop MapReduce correspond au traitement par lots. La façon la plus économiqu
 
 ---
 ##<a id="appendix-a"></a>Annexe A - Téléchargement de données de retard de vol vers le stockage d'objets blob Azure
-Avant de télécharger le fichier de données et les fichiers de script HiveQL (voir l'[annexe B])(#appendix-b), un certain de niveau de planification est nécessaire. Il s'agit de stocker les fichiers de données et le fichier HiveQL avant d'approvisionner un cluster HDInsight et d'exécuter la tâche Hive.  Deux options s'offrent à vous :
+Avant de télécharger le fichier de données et les fichiers de script HiveQL (voir l'[annexe B](#appendix-b), un certain de niveau de planification est nécessaire. Il s'agit de stocker les fichiers de données et le fichier HiveQL avant d'approvisionner un cluster HDInsight et d'exécuter la tâche Hive.  Deux options s'offrent à vous :
 
-- **Utiliser le même compte de stockage Azure qui sera utilisé par le cluster HDInsight en tant que système de fichier par défaut.** Étant donné que le cluster HDInsight disposera de la clé d'accès au compte de stockage, vous n'avez pas besoin d'effectuer des modifications supplémentaires.
-- **Utiliser un compte de stockage différent du système de fichier par défaut du cluster HDInsight.** Le cas échéant, vous devez modifier la partie d'approvisionnement du script PowerShell figurant dans [Approvisionnement d'un cluster HDInsight et exécution de tâches Hive/Sqoop](#runjob) pour inclure le compte de stockage en tant que compte de stockage supplémentaire. Pour des instructions, consultez la rubrique [Approvisionnement de clusters Hadoop dans HDInsight][hdinsight-provision]. En procédant ainsi, le cluster HDInsight connaît la clé d'accès pour le compte de stockage.
+- **Utiliser le même compte de stockage Azure que celui qui sera utilisé comme système de fichiers par défaut par le cluster HDInsight.** Étant donné que le cluster HDInsight disposera de la clé d'accès au compte de stockage, il n'est pas nécessaire d'effectuer des modifications supplémentaires.
+- **Utiliser un compte de stockage différent du système de fichiers par défaut du cluster HDInsight.** Le cas échéant, vous devez modifier la partie d'approvisionnement du script PowerShell figurant dans [Approvisionnement d'un cluster HDInsight et exécution de tâches Hive/Sqoop](#runjob) pour inclure le compte de stockage en tant que compte de stockage supplémentaire. Pour plus d'informations, consultez la rubrique [Approvisionnement de clusters Hadoop dans HDInsight][hdinsight-provision]. En procédant ainsi, le cluster HDInsight connaît la clé d'accès pour le compte de stockage.
 
->[WACOM.NOTE] Le chemin WASB pour le fichier de données est codé en dur dans le fichier de script HiveQL. Vous devez le mettre à jour en conséquence.
+>[AZURE.NOTE] Le chemin WASB pour le fichier de données est codé en dur dans le fichier de script HiveQL. Vous devez le mettre à jour en conséquence.
 
 **Pour télécharger les données de vol**
 
@@ -396,12 +410,12 @@ Avant de télécharger le fichier de données et les fichiers de script HiveQL (
 	<tr><th>Nom</th><th>Valeur</th></tr>
 	<tr><td>Filtre année</td><td>2013 </td></tr>
 	<tr><td>Filtre période</td><td>Janvier</td></tr>
-	<tr><td>Champs :</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (effacez tous les autres champs)</td></tr>
+	<tr><td>Champs :</td><td>*Années*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (effacer tous les autres champs)</td></tr>
 	</table>
 
 3. Cliquez sur **Télécharger**. 
 4. Décompressez le fichier dans le dossier **C:\Tutorials\FlightDelays\Data**.  Chaque fichier correspond à un fichier CSV d'environ 60 Go.
-5.	Donnez au fichier le nom du mois dont il contient les données. Par exemple, renommez le fichier contenant les données du mois de janvier *Janvier.csv*.
+5.	Donnez au fichier le nom du mois dont il contient les données. Par exemple, renommez le fichier contenant les données du mois de janvier  *January.csv*.
 6. Répétez les étapes 2 et 5 pour télécharger chaque fichier correspondant au 12 mois de l'année 2013. Vous devez disposer d'au moins un fichier pour exécuter le didacticiel.  
 
 **Pour télécharger les données de retard de vol vers le stockage d'objets blob Azure**
@@ -480,13 +494,13 @@ Avant de télécharger le fichier de données et les fichiers de script HiveQL (
 
 3. Appuyez sur **F5** pour exécuter le script.
 
-Si vous décidez d'utiliser une autre méthode pour télécharger les fichiers, vérifiez que le chemin d'accès au fichier est *tutorials/flightdelays/data*. La syntaxe permettant d'accéder aux fichiers est la suivante :
+Si vous décidez d'utiliser une autre méthode pour télécharger les fichiers, vérifiez que le chemin d'accès au fichier est bien  *tutorials/flightdelays/data*. La syntaxe permettant d'accéder aux fichiers est la suivante :
 
 	wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelays/data
 
 *tutorials/flightdelays/data* correspond au dossier virtuel que vous avez créé lors du téléchargement des fichiers. Assurez-vous qu'il existe 12 fichiers, un par mois.
 
->[WACOM.NOTE] Vous devez mettre à jour la requête Hive pour lire à partir du nouvel emplacement.
+>[AZURE.NOTE] Vous devez mettre à jour la requête Hive pour lire à partir du nouvel emplacement.
 
 > Vous devez configurer l'autorisation d'accès au conteneur pour qu'elle soit publique ou lier le compte de stockage au cluster HDInsight.  Dans le cas contraire, la chaîne de requête Hive ne pourra pas accéder aux fichiers de données. 
 
@@ -498,10 +512,10 @@ Si vous décidez d'utiliser une autre méthode pour télécharger les fichiers, 
 Le script HiveQL exécutera les opérations suivantes :
 
 1. **Il supprime la table delays_raw**, le cas échéant.
-2. **Il crée la table externe Hive delays_raw ** pointant vers l'emplacement WASB où se trouvent les fichiers de retard de vol. Cette requête spécifie les champs délimités par " , " et les lignes se terminant par " \n ". Cela pose un problème lorsque les valeurs des champs *contiennent* des virgules, car Hive n'est pas en mesure de différencier une virgule utilisée en tant que délimiteur de champ d'une virgule faisant partie d'une valeur de champ (ce qui est le cas pour les valeurs des champs ORIGIN\_CITY\_NAME et DEST\_CITY\_NAME). Pour y remédier, la requête crée des colonnes TEMP afin de contenir les données incorrectement réparties dans les colonnes.  
+2. **Il crée la table externe Hive delays_raw** pointant vers l'emplacement WASB où se trouvent les fichiers de retard de vol. Cette requête spécifie les champs délimités par " , " et les lignes se terminant par " \n ". Cela pose un problème lorsque les valeurs des champs *contain* des virgules, car Hive n'est pas en mesure de différencier une virgule utilisée comme délimiteur de champ d'une virgule faisant partie d'une valeur de champ (ce qui est le cas pour les valeurs des champs ORIGIN\_CITY\_NAME et DEST\_CITY\_NAME). Pour y remédier, la requête crée des colonnes TEMP afin de contenir les données incorrectement réparties dans les colonnes.  
 3. **Il supprime la table des retards**, le cas échéant.
-4. **Il crée la table des retards**. Il est conseillé de nettoyer les données avant tout traitement plus approfondi. Cette requête crée une nouvelle table, *retards*, à partir de la table *delays_raw*. Notez que les colonnes TEMP (comme indiqué précédemment) ne sont pas copiées et que la fonction *substring* est utilisée pour supprimer les guillemets présents dans les données. 
-5. **Il calcule les retards moyens liés aux conditions météo et regroupe les résultats par nom de ville.** Il transmet également les résultats à WASB. Notez que la requête supprime les apostrophes des données et exclut les lignes dans lesquelles la valeur correspondant à *weather_delay* est *null*, ce qui est nécessaire car Sqoop, utilisé plus tard dans ce didacticiel, ne gère pas ces valeurs par défaut.
+4. **Il crée la table des retards**. Il est conseillé de nettoyer les données avant tout traitement plus approfondi. Cette requête crée une table,  *delays* à partir de la table *delays_raw*. Notez que les colonnes TEMP (comme indiqué précédemment) ne sont pas copiées et que la fonction the *substring* est utilisée pour supprimer les guillemets présents dans les données. 
+5. **Il calcule les retards moyens liés aux conditions météo et regroupe les résultats par nom de ville.** Il transmet également les résultats à WASB. Notez que la requête supprime les apostrophes des données et exclut les lignes dans lesquelles la valeur correspondant à  *weather_deal*y est *null*, ce qui est nécessaire car Sqoop, utilisé plus tard dans ce didacticiel, ne gère pas ces valeurs par défaut
 
 Pour obtenir la liste complète des commandes HiveQL, consultez la rubrique [Langage de définition des données Hive][hadoop-hiveql]. Chaque commande HiveQL doit se terminer par un point virgule.
 
@@ -674,7 +688,7 @@ Pour obtenir la liste complète des commandes HiveQL, consultez la rubrique [Lan
 
 ---
 ##<a id="appendix-c"></a>Annexe C - Préparation d'une base de données SQL Azure pour le résultat de tâche Sqoop
-**Pour préparer la base de données SQL (fusionnez ceci avec le script Sqoop)**
+**Pour préparer la base de données SQL (fusionnez celle-ci avec le script Sqoop)**
 
 1. Préparez les paramètres :
 
@@ -818,11 +832,11 @@ Pour obtenir la liste complète des commandes HiveQL, consultez la rubrique [Lan
 		
 		Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
 
-	>[WACOM.NOTE] Le script utilise un service REST, http://bot.whatismyipaddress.com, pour extraire votre adresse IP externe. L'adresse IP permet de créer une règle de pare-feu pour votre serveur de base de données SQL.  
+	>[AZURE.NOTE] Le script utilise un service REST, http://bot.whatismyipaddress.com, pour extraire votre adresse IP externe. L'adresse IP permet de créer une règle de pare-feu pour votre serveur de base de données SQL.  
 
 	Voici quelques variables utilisées dans le script :
 
-	- **$ipAddressRestService** : La valeur par défaut est <u>http://bot.whatismyipaddress.com</u>. Il s'agit d'un service REST d'adresse IP publique permettant d'obtenir votre adresse IP externe. Vous pouvez utiliser d'autres services si vous voulez. Les adresses IP externes extraites au moyen du service serviront à créer une règle de pare-feu pour votre serveur de base de données SQL Azure, ce qui vous permet d'accéder à la base de données à partir de votre poste de travail (au moyen d'un script PowerShell).
+	- **$ipAddressRestService** : la valeur par défaut est <u>http://bot.whatismyipaddress.com</u>. Il s'agit d'un service REST d'adresse IP publique permettant d'obtenir votre adresse IP externe. Vous pouvez utiliser d'autres services si vous voulez. Les adresses IP externes extraites au moyen du service serviront à créer une règle de pare-feu pour votre serveur de base de données SQL Azure, ce qui vous permet d'accéder à la base de données à partir de votre poste de travail (au moyen d'un script PowerShell).
 	- **$fireWallRuleName** : il s'agit du nom de règle de pare-feu du serveur de base de données SQL Azure. Le nom par défaut est <u>FlightDelay</u>. Vous pouvez le renommer si vous voulez.
 	- **$sqlDatabaseMaxSizeGB** : cette valeur est uniquement utilisée lors de la création d'un serveur de base de données SQL Azure. La valeur par défaut est <u>10 Go</u>. Une capacité de 10 Go est suffisante pour ce didacticiel.
 	- **$sqlDatabaseName** : cette valeur est uniquement utilisée lors de la création d'une base de données SQL Azure. La valeur par défaut est <u>HDISqoop</u>. Si vous la renommez, vous devez mettre à jour le script Sqoop PowerShell en conséquence. 
@@ -872,5 +886,4 @@ Vous savez à présent télécharger un fichier vers le stockage d'objets blob, 
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

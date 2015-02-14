@@ -1,29 +1,43 @@
-﻿<properties urlDisplayName="How to monitor" pageTitle="Surveillance d'un compte de stockage | Microsoft Azure" metaKeywords="Azure monitor storage accounts, storage account management portal, storage account dashboard, storage metrics table, storage metrics chart" description="Découvrez comment surveiller un compte de stockage dans Azure en utilisant le portail de gestion." metaCanonical="" services="storage" documentationCenter="" title="How To Monitor a Storage Account" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Surveillance d'un compte de stockage | Microsoft Azure" 
+	description="Découvrez comment surveiller un compte de stockage dans Azure en utilisant le portail de gestion." 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor="cgronlun"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="tamram"/>
 
 # <a id="createstorageaccount"></a>Surveillance d'un compte de stockage dans le portail de gestion Azure
 
-Vous pouvez surveiller votre compte de stockage à partir du portail de gestion Azure. Si vous configurez votre compte de stockage pour la surveillance via le portail, Azure Storage utilise [Storage Analytics](http://msdn.microsoft.com/fr-fr/library/azure/hh343270.aspx) pour suivre les mesures des données de votre compte et de demande de journalisation. 
+Vous pouvez surveiller votre compte de stockage à partir du portail de gestion Azure. Lorsque vous configurez votre compte de stockage pour la surveillance via le portail, Azure Storage utilise [Storage Analytics](http://msdn.microsoft.com/fr-FR/library/azure/hh343270.aspx) pour effectuer le suivi des mesures pour votre compte et enregistrer les données de la demande. 
 
-> [WACOM.NOTE] L'analyse des données de surveillance dans le portail de gestion occasionne des frais supplémentaires. Pour plus d'informations, consultez la rubrique <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/hh360997.aspx">Storage Analytics et facturation</a>. 
+> [AZURE.NOTE] L'analyse des données de surveillance dans le portail de gestion occasionne des frais supplémentaires. Pour plus d'informations, consultez la page <a href="http://msdn.microsoft.com/fr-FR/library/windowsazure/hh360997.aspx">Storage Analytics et facturation</a>. <br />
 
-> [WACOM.NOTE] Le service de fichier Azure ne prend actuellement pas en charge Storage Analytics.
+> Le service de fichier Azure ne prend actuellement pas en charge Storage Analytics.
 
-> [WACOM.NOTE] Pour un guide détaillé concernant l'utilisation de Storage Analytics et d'autres outils permettant d'identifier, de diagnostiquer et de résoudre les problèmes d'Azure Storage, consultez la page [Surveillance, diagnostic et résolution des problèmes sur Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting/).
+> Pour un guide détaillé concernant l'utilisation de Storage Analytics et d'autres outils permettant d'identifier, de diagnostiquer et de résoudre les problèmes d'Azure Storage, consultez la page [Surveillance, diagnostic et résolution des problèmes sur Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting/).
 
 
 ##Sommaire##
 
-* [ Configuration de la surveillance d'un compte de stockage](#configurestoragemonitoring)
-* [ Personnalisation du tableau de bord à des fins de surveillance](#customizestoragemonitoring)
-* [ Personnalisation de la page Surveiller](#customizemonitorpage)
-* [ Ajout de mesures au tableau des mesures](#addmonitoringmetrics)
-* [ Personnalisation du graphique de mesures de la page Surveiller](#customizemetricschart)
-* [ Configuration de la journalisation](#configurelogging)
+* [Procédure : Configuration de la surveillance d'un compte de stockage](#configurestoragemonitoring)
+* [Procédure : Personnalisation du tableau de bord à des fins de surveillance](#customizestoragemonitoring)
+* [Procédure : Personnalisation de la page Surveiller](#customizemonitorpage)
+* [Procédure : Ajout de mesures à la table des mesures](#addmonitoringmetrics)
+* [Procédure : Personnalisation du graphique de mesures de la page Surveiller](#customizemetricschart)
+* [Procédure : Configuration de la journalisation](#configurelogging)
 
 
-<h2><a id="configurestoragemonitoring"></a>Configuration de la surveillance d'un compte de stockage</h2>
+<h2><a id="configurestoragemonitoring"></a>Procédure : Configuration de la surveillance d'un compte de stockage</h2>
 
 1. Dans le [portail de gestion](https://manage.windowsazure.com/), cliquez sur **Stockage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
 
@@ -31,30 +45,30 @@ Vous pouvez surveiller votre compte de stockage à partir du portail de gestion 
 
 	![MonitoringOptions](./media/storage-monitor-storage-account/Storage_MonitoringOptions.png)
 
-3. Dans **Surveillance**, définissez le niveau de surveillance et la stratégie de rétention de données pour chaque service :
+3. Dans **monitoring**, définissez le niveau de surveillance et la stratégie de rétention de données pour chaque service :
 
 -  Pour définir le niveau de surveillance, sélectionnez l'une des options suivantes :
 
-      **Minimal** : collecte des mesures telles que l'entrée/sortie, la disponibilité, la latence et les pourcentages de réussite, qui sont agrégées pour les services Blob, Table et File d'attente.
+      **Minimal** - Collecte des mesures telles que l'entrée/sortie, la disponibilité, la latence et les pourcentages de réussite, qui sont agrégées pour les services Blob, Table et File d'attente.
 
-      **Verbose** : outre les mesures minimales, collecte le même ensemble de mesures pour chaque opération de stockage de l'API Azure Storage Service. Les métriques détaillées permettent d'analyser plus précisément les problèmes survenant durant le fonctionnement d'une application. 
+      **Détaillé** - Outre les mesures minimales, collecte le même ensemble de mesures pour chaque opération de stockage de l'API Azure Storage Service. Les métriques détaillées permettent d'analyser plus précisément les problèmes survenant durant le fonctionnement d'une application. 
 
-      **Off** : désactive la surveillance. Les données de surveillance existantes sont conservées jusqu'au terme de la période de rétention.
+      **Off** - Désactive la surveillance. Les données de surveillance existantes sont conservées jusqu'au terme de la période de rétention.
 
-- Pour définir la stratégie de rétention de données, dans **Rétention (en jours)**, tapez le nombre de jours durant lesquels les données sont conservées (de 1 à 365 jours). Si vous ne souhaitez pas définir de stratégie de rétention, entrez 0. Dans ce cas, il vous appartient de supprimer ou non les données de surveillance. Nous vous recommandons de définir une stratégie de rétention en fonction de la durée de conservation que vous souhaitez appliquer aux données d'analyse de votre compte, de sorte que les données d'analyse anciennes et non utilisées puissent être supprimées par le système sans frais.
+- Pour définir la stratégie de rétention de données, dans **Retention (in days)**, tapez le nombre de jours durant lesquels les données sont conservées (de 1 à 365 jours). Si vous ne souhaitez pas définir de stratégie de rétention, entrez 0. Dans ce cas, il vous appartient de supprimer ou non les données de surveillance. Nous vous recommandons de définir une stratégie de rétention en fonction de la durée de conservation que vous souhaitez appliquer aux données d'analyse de votre compte, de sorte que les données d'analyse anciennes et non utilisées puissent être supprimées par le système sans frais.
 
 4. Une fois la configuration de la surveillance terminée, cliquez sur **Enregistrer**.
 
-Les données de surveillance doivent commencer à s'afficher dans le tableau de bord et la page **Surveiller** au bout d'une heure environ.
+Les données de surveillance doivent commencer à s'afficher dans le tableau de bord et la page **Monitor** au bout d'une heure environ.
 
-Tant que vous n'avez pas configuré la surveillance d'un compte de stockage, aucune collecte de données de surveillance n'est effectuée et les graphiques de mesures du tableau de bord, ainsi que la page **Surveiller** sont vides.
+Tant que vous n'avez pas configuré la surveillance d'un compte de stockage, aucune collecte de données de surveillance n'intervient et les graphiques de mesures du tableau de bord et la page **Monitor** sont vides.
 
 Après avoir défini les niveaux de surveillance et les stratégies de rétention, vous pouvez choisir parmi les mesures disponibles dans le portail de gestion celles à surveiller et celles à représenter sur les graphiques de mesures. Un ensemble de mesures par défaut s'affiche à chaque niveau de surveillance. Vous pouvez utiliser **Ajouter des mesures** pour ajouter ou supprimer des mesures dans la liste de mesures.
 
-Les mesures sont stockées dans le compte de stockage dans quatre tables nommées $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue et $MetricsCapacityBlob. Pour plus d'informations, consultez la page [À propos des mesures Storage Analytics](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh343258.aspx).
+Les mesures sont stockées dans le compte de stockage dans quatre tables nommées $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue et $MetricsCapacityBlob. Pour plus d'informations, consultez la page [À propos des mesures Storage Analytics](http://msdn.microsoft.com/fr-FR/library/windowsazure/hh343258.aspx).
 
 
-<h2><a id="customizestoragemonitoring"></a>Personnalisation du tableau de bord à des fins de surveillance</h2>
+<h2><a id="customizestoragemonitoring"></a>Procédure : Personnalisation du tableau de bord à des fins de surveillance</h2>
 
 Sur le tableau de bord, vous pouvez choisir jusqu'à six mesures sur les neuf disponibles pour les représenter sur le graphique de mesures. Pour chaque service (Blob, Table et File d'attente), les mesures Availability, Success Percentage et Total Requests sont disponibles. Les mesures disponibles sur le tableau de bord sont les mêmes, quel que soit le type de surveillance (minimale ou détaillée).
 
@@ -68,12 +82,12 @@ Sur le tableau de bord, vous pouvez choisir jusqu'à six mesures sur les neuf di
 
 	![Monitoring_nmore](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
   
-3. Par défaut, le graphique indique les tendances, affichant uniquement la valeur actuelle de chaque mesure (option **Relatif** dans la partie supérieure du graphique). Pour afficher un axe Y afin de voir les valeurs absolues, sélectionnez **Absolu**.
+3. Par défaut, le graphique indique les tendances, affichant uniquement la valeur actuelle de chaque mesure (option **Relative** dans la partie supérieure du graphique). Pour afficher un axe Y afin de voir les valeurs absolues, sélectionnez **Absolute**.
 
 4. Pour modifier la plage horaire des mesures affichées dans le graphique, sélectionnez 6 heures, 24 heures ou 7 jours en haut du graphique.
      
 
-<h2><a id="customizemonitorpage"></a>Personnalisation de la page Surveiller</h2>
+<h2><a id="customizemonitorpage"></a>Procédure : Personnalisation de la page Surveiller</h2>
 
 Sur la page **Surveiller**, vous pouvez afficher le jeu complet de mesures associé à votre compte de stockage. 
 
@@ -83,7 +97,7 @@ Sur la page **Surveiller**, vous pouvez afficher le jeu complet de mesures assoc
 
 Utilisez les procédures suivantes pour choisir les mesures de stockage à afficher dans les graphiques et le tableau des mesures figurant sur la page **Surveiller**. Ces paramètres n'ont aucune incidence sur la collecte, l'agrégation et le stockage de données de surveillance dans le compte de stockage.
 
-<h2><a id="addmonitoringmetrics"></a>Ajout de mesures à la table des mesures</h2>
+<h2><a id="addmonitoringmetrics"></a>Procédure : Ajout de mesures à la table des mesures</h2>
 
 
 1. Dans le [portail de gestion](https://manage.windowsazure.com/), cliquez sur **Stockage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
@@ -95,10 +109,7 @@ Utilisez les procédures suivantes pour choisir les mesures de stockage à affic
 
 	![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
-	<div class="dev-callout"> 
-	<b>Remarque</b> 
-	<p>Tenez compte des frais au moment de sélectionner les mesures. En effet, l'actualisation des écrans de surveillance s'accompagne de frais de transaction et de sortie. Pour plus d'informations, consultez la rubrique <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/hh360997.aspx">Storage Analytics et facturation</a>.</p> 
-</div>
+	> [AZURE.NOTE] Tenez compte des frais au moment de sélectionner les mesures. En effet, l'actualisation des écrans de surveillance s'accompagne de frais de transaction et de sortie. Pour plus d'informations, consultez la page [Storage Analytics et facturation](http://msdn.microsoft.com/fr-FR/library/windowsazure/hh360997.aspx).
 
 3. Cliquez sur **Ajouter des métriques**. 
 
@@ -124,7 +135,7 @@ Utilisez les procédures suivantes pour choisir les mesures de stockage à affic
 
 	![DeleteMetric](./media/storage-monitor-storage-account/Storage_DeleteMetric.png)
 
-<h2><a id="customizemetricschart"></a>Personnalisation du graphique de mesures de la page Surveiller</h2>
+<h2><a id="customizemetricschart"></a>Procédure : Personnalisation du graphique de mesures de la page Surveiller</h2>
 
 1. Sur la page **Surveiller** du compte de stockage, dans le tableau des mesures, sélectionnez les mesures (six au maximum) à représenter sur le graphique de mesures. Pour sélectionner une mesure, cliquez sur la case à cocher à sa gauche. Pour supprimer une mesure du graphique, désactivez la case à cocher.
 
@@ -134,7 +145,7 @@ Utilisez les procédures suivantes pour choisir les mesures de stockage à affic
 
 
 
-<h2><a id="configurelogging"></a>Configuration de la journalisation</h2>
+<h2><a id="configurelogging"></a>Procédure : Configuration de la journalisation</h2>
 
 Pour chaque service de stockage accessible à votre compte de stockage (Blob, Table et File d'attente), vous pouvez enregistrer des journaux de diagnostic pour les demandes de lecture, d'écriture et/ou de suppression. De même, vous pouvez définir la stratégie de rétention de données de chaque service.
 
@@ -153,6 +164,5 @@ Pour chaque service de stockage accessible à votre compte de stockage (Blob, Ta
 
 4. Cliquez sur **Enregistrer**.
 
-Les journaux de diagnostic sont enregistrés dans un conteneur d'objets blob nommé $logs dans votre compte de stockage. Pour plus d'informations sur l'accès au conteneur $logs, consultez la page [À propos de la journalisation Storage Analytics](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh343262.aspx).
-
-<!--HONumber=35.1-->
+Les journaux de diagnostic sont enregistrés dans un conteneur d'objets blob nommé $logs dans votre compte de stockage. Pour plus d'informations sur l'accès au conteneur $logs, consultez la page [À propos de la journalisation Storage Analytics](http://msdn.microsoft.com/fr-FR/library/windowsazure/hh343262.aspx).
+<!--HONumber=42-->

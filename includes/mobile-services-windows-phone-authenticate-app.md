@@ -1,4 +1,4 @@
-1. Ouvrez le fichier projet mainpage.xaml.cs et ajoutez l'extrait de code suivant à la classe MainPage :
+1. mainpage.xaml.cs プロジェクト ファイルを開き、次のコード スニペットを MainPage クラスに追加します。
 	
         private MobileServiceUser user;
         private async System.Threading.Tasks.Task Authenticate()
@@ -22,12 +22,12 @@
             }
         }
 
-    Cela crée une variable membre pour le stockage de l'utilisateur actuel et une méthode pour gérer le processus d'authentification. L'utilisateur est authentifié à l'aide d'une connexion Facebook.
+    これにより、現在のユーザーを格納するためのメンバー変数と認証プロセスを処理するためのメソッドが作成されます。ユーザーは、Facebook ログインを使用して認証されます。
 
-    >[WACOM.NOTE]Si vous utilisez un fournisseur d'identité autre que Facebook, remplacez la valeur de <strong>MobileServiceAuthenticationProvider</strong> ci-dessus par la valeur de votre fournisseur.</p>
+    >[AZURE.NOTE]Facebook 以外の ID プロバイダーを使用している場合は、上の <strong>MobileServiceAuthenticationProvider</strong> の値をプロバイダーに対応する値に変更してください。</p>
     </div>
 
-2. Supprimez ou placez en commentaire le remplacement de méthode **OnNavigatedTo** existant et remplacez-le par la méthode suivante qui gère l'événement **Loaded** pour la page. 
+2. 既存の **OnNavigatedTo** メソッド オーバーライドを削除またはコメントアウトして、ページの **Loaded** イベントを処理する次のメソッドに置き換えます。 
 
         async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
@@ -35,9 +35,9 @@
             RefreshTodoItems();
         }
 
-Cette méthode appelle la nouvelle méthode **Authenticate**. 
+   	このメソッドでは、新しい **Authenticate** メソッドが呼び出されます。 
 
-3. Remplacez le constructeur MainPage par le code suivant :
+3. MainPage コンストラクターを次のコードに置き換えます。
 
         // Constructor
         public MainPage()
@@ -46,8 +46,9 @@ Cette méthode appelle la nouvelle méthode **Authenticate**.
             this.Loaded += MainPage_Loaded;
         }
 
-   	Ce constructeur enregistre également le gestionnaire pour l'événement Loaded.
+   	このコンストラクターでは、Loaded イベントのハンドラーも登録されます。
 		
-4. Appuyez sur la touche F5 pour exécuter l'application et vous connecter à l'application avec le fournisseur d'identité choisi. 
+4. F5 キーを押してアプリケーションを実行し、選択した ID プロバイダーでアプリケーションにサインインします。 
 
-   	Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
+   	ログインに成功すると、アプリケーションはエラーなしで実行されます。また、モバイル サービスを照会してデータを更新できるようになります。
+<!--HONumber=42-->

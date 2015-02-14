@@ -1,15 +1,15 @@
 ﻿
-Ensuite, vous devez changer la façon dont les notifications Push sont inscrites pour vous assurer que l'utilisateur est authentifié avant de tenter une inscription. L'application cliente se met à jour selon la façon dont vous avez implémenté les notifications Push.
+次に、登録が試行される前にユーザーが認証されていることを確認するために、プッシュ通知が登録される方法を変更する必要があります。クライアント アプリケーションの更新は、プッシュ通知を実装する方法によって異なります。
 
-###Utilisation de l'Assistant Ajout de notification Push dans Visual Studio 2013 Update 2 ou ultérieur
+###Visual Studio 2013 Update 2 以降のバージョンでプッシュ通知の追加ウィザードを使用する
 
-Dans cette méthode, l'Assistant a généré un nouveau fichier push.register.cs dans votre projet.
+このメソッドでは、ウィザードによってプロジェクトに新しい push.register.cs ファイルが作成されています。
 
->[WACOM.NOTE]L'Assistant Ajout de notification Push est actuellement pris en charge pour un service mobile principal .NET uniquement.
+>[AZURE.NOTE]プッシュ通知の追加ウィザードは、現在 .NET バックエンド モバイル サービスについてのみサポートされています。
 
-1. Dans Visual Studio, dans l'Explorateur de solutions, ouvrez le fichier de projet app.xaml.cs et, dans le gestionnaire d'événements **OnLaunched**, placez en commentaire ou supprimez l'appel à la méthode **UploadChannel**. 
+1. Visual Studio のソリューション エクスプローラーで、app.xaml.cs プロジェクト ファイルを開き、**OnLaunched** イベント ハンドラーで、**UploadChannel** メソッドの呼び出しをコメント化または削除します。 
 
-2. Ouvrez le fichier de projet push.register.cs et remplacez la méthode **UploadChannel** par le code suivant :
+2. push.register.cs プロジェクト ファイルを開き、**UploadChannel** メソッドを次のコードと置き換えます。
 
 		public async static void UploadChannel()
 		{
@@ -29,9 +29,9 @@ Dans cette méthode, l'Assistant a généré un nouveau fichier push.register.cs
 		    }
 		}
 
-	Ceci garantit que l'inscription est effectuée à l'aide de la même instance du client que celle qui a les informations d'identification de l'utilisateur authentifié. Si ce n'est pas le cas, l'inscription échouera avec une erreur Non autorisé (401).
+	これにより、認証されたユーザー資格情報を持つ同じクライアント インスタンスによって登録が確実に行われます。そうしなければ、登録は失敗し、認証エラー (401) を返します。
 
-3. Ouvrez le fichier de projet MainPage.xaml.cs et remplacez la méthode **OnNavigatedTo** par le code suivant :
+3. MainPage.xaml.cs プロジェクト ファイルを開き、**OnNavigatedTo** メソッドのオーバーライドを次のコードに置き換えます。
 
 	    protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -40,21 +40,21 @@ Dans cette méthode, l'Assistant a généré un nouveau fichier push.register.cs
             RefreshTodoItems();
         }
 
-	Dans ce code, vous devez remplacer le nom de la classe push généré (" todolistPush ") par le nom de classe généré par l'Assistant, qui a généralement le format <code><em>mobile_service</em>Push</code>.
+	このコードでは、生成されたプッシュ クラス名 (`todolistPush`) をウィザードによって生成されるクラス名 (形式は通常、<code><em>mobile_service</em>Push</code>) に置き換える必要があります。
 
-###Notifications Push activées manuellement		
+###手動で有効にされたプッシュ通知		
 
-Dans cette méthode, vous avez ajouté du code pour l'inscription provenant du didacticiel directement dans le fichier de projet app.xaml.cs.
+このメソッドでは、チュートリアルから、直接 app.xaml.cs プロジェクト ファイルに登録コードを追加しました。
 
-1. Dans Visual Studio, dans l'Explorateur de solutions, ouvrez le fichier de projet app.xaml.cs et, dans le gestionnaire d'événements **OnLaunched**, placez en commentaire ou supprimez l'appel à **InitNotificationsAsync**. 
+1. Visual Studio のソリューション エクスプローラーで、app.xaml.cs プロジェクト ファイルを開き、**OnLaunched** イベント ハンドラーで、**InitNotificationsAsync** メソッドの呼び出しをコメント化または削除します。 
  
-2. Remplacez la méthode d'accessibilité **InitNotificationsAsync** " private " par " public " et ajoutez le modificateur " static ". 
+2. **InitNotificationsAsync** メソッドへのアクセス制限を  `private` から  `public` に変更し、 `static` 修飾子を追加します。 
 
-3. Ouvrez le fichier de projet MainPage.xaml.cs et remplacez la méthode **OnNavigatedTo** par le code suivant :
+3. MainPage.xaml.cs プロジェクト ファイルを開き、**OnNavigatedTo** メソッドのオーバーライドを次のコードに置き換えます。
 
 	    protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             await AuthenticateAsync();            
             App.InitNotificationsAsync();
             RefreshTodoItems();
-        }
+        }<!--HONumber=42-->

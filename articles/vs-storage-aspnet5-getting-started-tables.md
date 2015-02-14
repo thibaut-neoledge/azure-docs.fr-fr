@@ -1,15 +1,29 @@
-﻿<properties title="Getting Started with Azure Storage" pageTitle="Prise en main d'Azure Storage" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="Prise en main d'Azure Storage" 
+	description="" 
+	services="storage" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="storage" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Mise en route](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
-> - [Que s'est-il passé ?](/documentation/articles/vs-storage-aspnet5-what-happened/)
+> - [Que s'est-il passé](/documentation/articles/vs-storage-aspnet5-what-happened/)
 
 ## Prise en main d'Azure Storage (Projets ASP.NET vNext)
 
 > [AZURE.SELECTOR]
-> - [Objets blob](/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
+> - [Objets BLOB](/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
 > - [Files d'attente](/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
 > - [Tables](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
 
@@ -30,18 +44,18 @@ Pour accéder par programme aux tables des projets ASP.NET 5, vous devez ajouter
                 .AddJsonFile("config.json")
                 .AddEnvironmentVariables();
 
-#####Obtention de la chaîne de connexion de stockage
+##### Obtention de la chaîne de connexion de stockage
 Pour pouvoir exploiter une table, vous devez avant tout obtenir la chaîne de connexion du compte de stockage dans lequel résideront les tables. Pour représenter les informations de votre compte de stockage, vous pouvez utiliser le type **CloudStorageAccount**. Si vous travaillez dans un projet ASP.NET vNext, vous pouvez appeler la méthode get de l'objet Configuration pour obtenir votre chaîne de connexion de stockage et les informations de votre compte de stockage à partir de la configuration du service Azure, comme illustré dans le code suivant :
 
-**REMARQUE :** les API qui effectuent des appels vers le stockage Azure dans ASP.NET 5 sont asynchrones. Pour plus d'informations, consultez la page [Programmation asynchrone avec Async et Await](http://msdn.microsoft.com/library/hh191443.aspx). Le code ci-dessous suppose que les méthodes de programmation asynchrone sont utilisées.
+**Remarque :** les API qui effectuent des appels vers le stockage Azure dans ASP.NET 5 sont asynchrones. Voir [la programmation asynchrone avec Async et Await](http://msdn.microsoft.com/library/hh191443.aspx) pour plus d'informations. Le code ci-dessous suppose que les méthodes de programmation async sont utilisés.
 
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
       config.Get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
 
-#####Création d'une table
+##### Création d'une table
 Un objet **CloudTableClient** vous permet d'obtenir les objets de référence pour les tables et entités. Le code suivant crée un objet **CloudTableClient** et l'utilise pour créer une table. Il tente de référencer la table nommée " people ". S'il ne trouve aucune table ainsi nommée, il en crée une.
 
-**REMARQUE :** tous les codes indiqués dans ce guide partent du principe que l'application développée est un projet de service cloud Azure et utilisent une chaîne de connexion de stockage enregistrée dans la configuration de service de l'application Azure. En outre, utilisez l'intégralité de ce code avant le code des sections suivantes.
+**Remarque :** tout le code dans ce guide part du principe que l'application en cours de construction est un projet de Service Cloud Azure et utilise une chaîne de connexion de stockage stockée dans la configuration du service d'application Windows Azure. En outre, utilisez tout ce code devant le code dans les sections suivantes.
 
 	// Create the table client.
 	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -50,8 +64,8 @@ Un objet **CloudTableClient** vous permet d'obtenir les objets de référence po
 	CloudTable table = tableClient.GetTableReference("people");
 	await table.CreateIfNotExistsAsync();
 
-#####Ajout d'une entité à une table
-Pour ajouter une entité à une table, commencez par créer une classe définissant les propriétés de votre entité. Le code suivant définit une classe d'entité nommée **CustomerEntity**, utilisant le prénom du client en tant que clé de ligne et son nom de famille en tant que clé de partition.
+##### Ajout d'une entité à une table
+Pour ajouter une entité à une table, commencez par créer une classe définissant les propriétés de votre entité. Le code suivant définit une classe d'entité nommée **CustomerEntity**, qui utilise le prénom du client en tant que clé de ligne et son nom de famille en tant que clé de partition.
 
 	public class CustomerEntity : TableEntity
 	{
@@ -68,7 +82,7 @@ Pour ajouter une entité à une table, commencez par créer une classe définiss
 	    public string PhoneNumber { get; set; }
 	}
 
-Les opérations de table impliquant des entités sont effectuées en utilisant l'objet **CloudTable** créé à l'étape précédente, " Création d'une table ". L'objet **TableOperation** représente l'opération à effectuer. L'exemple de code suivant montre comment créer des objets **CloudTable** et **CustomerEntity**. Pour préparer l'opération, un objet **TableOperation** est créé pour insérer l'entité du client dans la table. Pour terminer, l'opération est exécutée en appelant CloudTable.ExecuteAsync.
+Les opérations de table impliquant des entités sont effectuées en utilisant l'objet **CloudTable** créé à l'étape précédente, " Création d'une table ". L'objet **TableOperation** représente l'opération à effectuer. L'exemple de code suivant montre comment créer des objets **CloudTable** et **CustomerEntity**. Pour préparer l'opération, un objet **TableOperation** est créé pour insérer l'entité du client dans la table. Enfin, l'opération est exécutée en appelant CloudTable.ExecuteAsync.
 
 	// Create a new customer entity.
 	CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
@@ -81,7 +95,7 @@ Les opérations de table impliquant des entités sont effectuées en utilisant l
 	// Execute the insert operation.
 	await table.ExecuteAsync(insertOperation);
 
-#####Insertion d'un lot d'entités
+##### Insertion d'un lot d'entités
 Vous pouvez insérer plusieurs entités dans une table en une seule opération d'écriture. L'exemple de code suivant crée deux objets d'entité (" Jeff Smith " et " Ben Smith ") et les ajoute à un objet **TableBatchOperation** en utilisant la méthode Insert. L'opération est ensuite exécutée par l'appel de CloudTable.ExecuteBatchAsync.
 
 	// Create the CloudTable object that represents the "people" table.
@@ -107,8 +121,8 @@ Vous pouvez insérer plusieurs entités dans une table en une seule opération d
 	// Execute the batch operation.
 	await table.ExecuteBatchAsync(batchOperation);
 
-#####Recherche de toutes les entités d'une partition
-Pour exécuter une requête de table portant sur toutes les entités d'une partition, utilisez un objet **TableQuery**. L'exemple de code suivant indique un filtre pour les entités où Smith est la clé de partition. Il imprime les champs de chaque entité dans les résultats de requête vers la console.
+##### Recherche de toutes les entités d'une partition
+Pour exécuter une requête de table portant sur toutes les entités d'une partition, utilisez un objet **TableQuery**. L'exemple de code suivant indique un filtre pour les entités où 'Smith' est la clé de partition. Il imprime les champs de chaque entité dans les résultats de requête vers la console.
 
 	// Construct the query operation for all customer entities where PartitionKey="Smith".
     TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
@@ -130,8 +144,8 @@ Pour exécuter une requête de table portant sur toutes les entités d'une parti
     return View();
 
 
-#####Obtention d'une seule entité
-Vous pouvez écrire une requête pour obtenir une seule entité. Le code suivant utilise un objet **TableOperation** pour spécifier le client " Ben Smith ". Cette méthode renvoie une seule entité (et non une collection). De plus, la valeur renvoyée dans TableResult.Result est un objet **CustomerEntity**. La méthode la plus rapide pour extraire une seule entité du service **Table** consiste à spécifier une clé de partition et une clé de ligne.
+##### Obtention d'une seule entité
+Vous pouvez écrire une requête pour obtenir une seule entité. Le code suivant utilise un objet **TableOperation** pour spécifier un client nommé 'Ben Smith'. Cette méthode renvoie une seule entité (et non une collection). De plus, la valeur renvoyée dans TableResult.Result est un objet **CustomerEntity**. La méthode la plus rapide pour extraire une seule entité dans le service de **Table** consiste à spécifier une clé de partition et une clé de ligne.
 
 	// Create the CloudTable object that represents the "people" table.
 	CloudTable table = tableClient.GetTableReference("people");
@@ -148,7 +162,7 @@ Vous pouvez écrire une requête pour obtenir une seule entité. Le code suivant
 	else
 	   Console.WriteLine("The phone number could not be retrieved.");
 
-#####Suppression d'une entité
+##### Suppression d'une entité
 Une fois l'entité trouvée, vous pouvez la supprimer. Le code suivant recherche l'entité de client " Ben Smith ", puis la supprime.
 
 	// Create the CloudTable that represents the "people" table.
@@ -178,4 +192,5 @@ Une fois l'entité trouvée, vous pouvez la supprimer. Le code suivant recherche
 	   Console.WriteLine("Couldn't delete the entity.");
 
 [En savoir plus sur Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
-Voir également [Consultation des ressources de stockage avec l'Explorateur de serveurs](http://msdn.microsoft.com/fr-fr/library/azure/ff683677.aspx) et [ASP.NET 5](http://www.asp.net/vnext).
+Voir aussi [Consultation des ressources de stockage avec l'Explorateur de serveurs](http://msdn.microsoft.com/fr-fr/library/azure/ff683677.aspx) et [ASP.NET 5](http://www.asp.net/vnext).
+<!--HONumber=42-->

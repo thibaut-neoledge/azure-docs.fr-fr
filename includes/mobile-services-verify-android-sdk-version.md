@@ -1,22 +1,20 @@
-﻿En raison des développements en cours, la version du Kit de développement logiciel (SDK) Android installée dans Eclipse peut être différente de celle du code. Le Kit de développement logiciel (SDK) Android utilisé dans ce didacticiel correspond à la version 21, dernière version disponible au moment de la rédaction de ce document. Le numéro de la version peut être supérieur à mesure que de nouvelles versions du Kit de développement logiciel (SDK) apparaissent, et nous vous recommandons d'utiliser la dernière version disponible.
+﻿Android SDK の開発が継続中であるため、Eclipse にインストールされている Android SDK のバージョンが、コードのバージョンと一致しない可能性があります。このチュートリアルで参照している Android SDK は、記事の執筆時点で最新のバージョンであるバージョン 21 です。SDK の新しいリリースが登場するにつれてバージョン番号が大きくなる可能性があるので、入手可能な最新バージョンを使用することをお勧めします。
 
-Deux symptômes permettent d'identifier des versions différentes :
+バージョンの不一致の場合に見られる現象は、次の 2 つです。
 
-1. Consultez le volet inférieur de la console Eclipse. Des messages d'erreur de type " **Impossible de résoudre la cible 'android-n'** " peuvent apparaître.
+1. Eclipse コンソールの下部にあるウィンドウに注目します。"**ターゲット  'android-n' を解決できません**" という形式のエラー メッセージが表示される場合があります。
 
-2. Les objets Android standard du code dont la résolution doit reposer sur les instructions `import` peuvent générer des messages d'erreur.
+2.  `import` ステートメントに基づく解決が必要なコード内の標準の Android オブジェクトによって、エラー メッセージが生成される場合があります。
 
-Dans ce cas, la version du Kit de développement logiciel (SDK) Android installée dans Eclipse peut être différente de celle du Kit de développement logiciel (SDK) cible du projet téléchargé.  Pour vérifier la version, apportez les modifications suivantes :
+このいずれかが発生した場合、Eclipse にインストールされている Android SDK のバージョンが、ダウンロードしたプロジェクトの SDK ターゲットと一致していない可能性があります。バージョンを確認するには、次の変更を加えます。
 
 
-1. Dans Eclipse, cliquez sur **Window**, puis sur **Android SDK Manager**. Si vous n'avez pas installé la dernière version de la plateforme de Kit de développement logiciel (SDK), cliquez pour l'installer. Prenez note du numéro de la version.
+1. Eclipse で **[Window]** をクリックし、**[Android SDK Manager]** をクリックします。SDK プラットフォームの最新バージョンをまだインストールしていない場合は、これをクリックしてインストールします。バージョン番号をメモしておきます。
 
-2. Ouvrez le fichier de projet **AndroidManifest.xml**. Dans l'élément **uses-sdk**, vérifiez que **targetSdkVersion** est défini sur la dernière version installée. La balise **uses-sdk** peut se présenter comme suit :
+2. プロジェクト ファイル **AndroidManifest.xml** を開きます。**uses-sdk** 要素の中で、**targetSdkVersion** が、インストール済みの最新のバージョンに設定されていることを確認します。**uses-sdk** タグは、次のようになります。
  
 	 	    <uses-sdk
 	 	        android:minSdkVersion="8"
 	 	        android:targetSdkVersion="21" />
 	
-3. Dans l'Explorateur de package d'Eclipse, cliquez avec le bouton droit sur le nœud de projet, choisissez **Propriétés**, puis dans la colonne de gauche, choisissez **Android**. Vérifiez que la version du Kit de développement logiciel (SDK) définie pour **Cible de la génération du projet** est identique à celle de **targetSdkVersion**.
-
-<!--HONumber=35.1-->
+3. Eclipse Package Explorer でプロジェクト ノードを右クリックし、**[Properties]** を右クリックして、左の列から **[Android]** を選択します。**[Project Build Target]** が、**[targetSdkVersion]** と同じ SDK バージョンに設定されていることを確認します。<!--HONumber=42-->

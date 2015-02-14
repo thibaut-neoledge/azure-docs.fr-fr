@@ -2,9 +2,9 @@
 
 ##Bibliothèques clientes Azure pour Java - Téléchargement manuel
 
-Les bibliothèques Azure pour Java sont distribuées sous la [Licence Apache, version 2.0][license]. Cliquez [ici][zip-download] pour obtenir un fichier .zip contenant les bibliothèques et toutes les dépendances.  Cela est proposé par Microsoft Open Technologies, Inc. Pour plus d'informations sur la licence, consultez les fichiers license.txt et ThirdPartyNotices.txt fournis dans le fichier .zip.
+Les bibliothèques Azure pour Java sont distribuées sous la [Licence Apache, Version 2.0][licence]. Cliquez [ici][téléchargement-zip] pour obtenir un fichier .zip contenant les bibliothèques et toutes les dépendances.  Cela est proposé par Microsoft Open Technologies, Inc. Pour plus d'informations sur la licence, consultez les fichiers license.txt et ThirdPartyNotices.txt fournis dans le fichier .zip.
 
-##Bibliothèques Azure pour Java - Maven
+##Bibliothèques Azure pour Java - Mavenn
 
 Si votre projet est déjà configuré pour être assemblé avec Maven, ajoutez la dépendance suivante au fichier pom.xml.
 
@@ -56,7 +56,8 @@ Si votre projet est déjà configuré pour être assemblé avec Maven, ajoutez l
 
 
 
-Dans l'élément " <version> ", remplacez *n.n.n* par un numéro de version valide, que vous pouvez obtenir dans le [référentiel des bibliothèques Azure sur Maven](http://go.microsoft.com/fwlink/?LinkID=286274).
+Dans l'élément `<version>`, remplacez *n.n.n* par un numéro de version valide, que vous pouvez obtenir dans le [référentiel des bibliothèques Azure sur Maven](http://go.microsoft.com/fwlink/?LinkID=286274).
 
-[license]: http://www.apache.org/licenses/LICENSE-2.0.html
-[zip-download]:  http://go.microsoft.com/fwlink/?LinkId=253887
+[licence]: http://www.apache.org/licenses/LICENSE-2.0.html
+[téléchargement zip]:  http://go.microsoft.com/fwlink/?LinkId=253887
+<!--HONumber=42-->

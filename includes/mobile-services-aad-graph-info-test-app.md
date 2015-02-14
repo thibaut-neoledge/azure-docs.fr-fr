@@ -6,7 +6,8 @@ Les instructions et les captures d'écran ci-dessous s'appliquent au test d'un c
 
     ![](./media/mobile-services-aad-graph-info-test-app/bob-login.png)
 
-2. L'API personnalisée s'exécute en renvoyant les informations d'annuaire de l'utilisateur de manière personnalisée. Dans cet exemple, pour afficher son adresse, l'utilisateur doit disposer des informations suivantes : *rue*, *ville*, *état* et *codePostal*.
+2. L'API personnalisée s'exécute en renvoyant les informations d'annuaire de l'utilisateur de manière personnalisée. Dans cet exemple, pour afficher son adresse, l'utilisateur doit disposer des informations suivantes : *streetAddress*, *city*, *state* et *postalCode*.
 
     ![](./media/mobile-services-aad-graph-info-test-app/custom-greeting.png)
 
+<!--HONumber=42-->

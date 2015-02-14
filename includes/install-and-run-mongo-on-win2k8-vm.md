@@ -1,16 +1,13 @@
 ﻿Suivez cette procédure pour installer et exécuter MongoDB sur une machine virtuelle exécutant Windows Server.
 
-<div class="dev-callout">
-<b>Important</b>
-<p>Les fonctionnalités de sécurité MongoDB, comme l'authentification et la liaison d'adresse IP, ne sont pas activées par défaut. Elles doivent être activées avant le déploiement de MongoDB dans un environnement de production.  Consultez <a href="http://www.mongodb.org/display/DOCS/Security+and+Authentication">Sécurité et authentification</a> pour plus d'informations.</p>
-</div>
+> [AZURE.IMPORTANT] Les fonctionnalités de sécurité MongoDB, comme l'authentification et la liaison d'adresse IP, ne sont pas activées par défaut. Elles doivent être activées avant le déploiement de MongoDB dans un environnement de production.  Pour plus d'informations, consultez la page [Sécurité et authentification](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
 
 1. Une fois que vous êtes connecté à la machine virtuelle à l'aide du Bureau à distance, ouvrez Internet Explorer à partir du menu **Démarrer**.
-2. Sélectionnez le bouton **Outils** dans le coin supérieur droit.  Dans **Options Internet**, sélectionnez l'onglet **Sécurité**, puis l'icône **Sites de confiance**, enfin cliquez sur le bouton **Sites**. Ajoutez *http://\*.mongodb.org* à la liste des sites de confiance.
+2. Sélectionnez le bouton **Outils** dans le coin supérieur droit.  Dans **Options Internet**, sélectionnez l'onglet **Sécurité**, l'icône **Sites de confiance**, puis cliquez sur le bouton **Sites**. Ajoutez *http://\*.mongodb.org* à la liste des sites de confiance.
 3. Accédez à [Téléchargements - MongoDB] [MongoDownloads].
 4. Recherchez la version la plus récente sous la section **Version de production (Recommandé)** et cliquez sur le lien ***2008+** dans la colonne Windows 64 bits.  Cliquez sur **Enregistrer sous**, puis enregistrez le fichier .zip sur le Bureau.
 5. Cliquez avec le bouton droit sur le fichier .zip, puis sélectionnez **Extraire tout...**  Spécifiez " C: ", puis cliquez sur **Extraire**.  Une fois les fichiers extraits, vous pouvez renommer le dossier d'installation pour lui donner un nom plus simple.  " MongoDB ", par exemple.
-6. Créez les répertoires de données et du journal MongoDB dans le disque de données (lecteur **F:**, par exemple) créé lors des étapes précédentes. Dans le menu **Démarrer**, sélectionnez **Invite de commandes** pour ouvrir une fenêtre d'invite de commandes.  Type :
+6. Créez les répertoires de données et du journal MongoDB dans le disque de données (lecteur **F:**, par exemple) créé lors des étapes précédentes. Dans le menu **Démarrer**, sélectionnez **Invite de commande** pour ouvrir une fenêtre d'invite de commandes.  Type :
 
 		C:\> F:
 		F:\> mkdir \MongoData
@@ -24,7 +21,7 @@
 
 	Tous les messages du journal sont dirigés vers le fichier *F:\MongoLogs\mongolog.log* lorsque le serveur mongod.exe démarre et préalloue les fichiers journaux. Il se peut que plusieurs minutes soient nécessaires pour que MongaDB préalloue les fichiers journaux et commence à écouter les connexions.
 
-8. Pour lancer l'interpréteur de commandes d'administration de MongoDB, ouvrez une autre fenêtre de commande à partir de **Démarrer** et entrez le type suivant :
+8. Pour lancer l'interpréteur de commandes d'administration de MongoDB, ouvrez une autre fenêtre de commande à partir du menu **Démarrer** et tapez le texte suivant :
 
 		C:\> cd \my_mongo_dir\bin  
 		C:\my_mongo_dir\bin> mongo  
@@ -74,11 +71,11 @@
 12. Si vous n'avez configuré aucun point de terminaison pour la base de données MongoDB lors de la création de la machine virtuelle, vous pouvez le faire maintenant. La règle de pare-feu et le point de terminaison sont tous deux nécessaires pour vous connecter à distance à la base de données MongoDB. Dans le portail de gestion, cliquez sur **Machines virtuelles**, sur le nom de la nouvelle machine virtuelle, puis sur **Points de terminaison**.
 
 	![Endpoints][Image7]
-13. Cliquez sur **Ajouter un point de terminaison** au bas de la page. Sélectionnez **Ajouter un point de terminaison**, puis cliquez sur **Suivant**.
+13. Cliquez sur **Ajouter un point de terminaison** en bas de la page. Sélectionnez **Ajouter un point de terminaison** et cliquez sur **Suivant**.
 	
 	![Endpoints][Image8]
 
-14. Ajoutez un point de terminaison avec le nom " Mongo ", le protocole **TCP**, ainsi que les ports **Public** et **Privé** définis sur " 27017 ". Cela permet d'accéder à distance à MongoDB.
+14. Ajoutez un point de terminaison avec le nom " Mongo ", le protocole **TCP** ainsi que les ports **Public** et **Privé** définis sur " 27017 ". Cela permet d'accéder à distance à MongoDB.
 
 	![Endpoints][Image9]
 
@@ -96,5 +93,4 @@
 [Image7]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint.png
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

@@ -1,28 +1,35 @@
-1.  Cliquez sur l'onglet **Applications** dans la page d'annuaire du [portail de gestion Azure][portail de gestion Azure].
+﻿1. [Azure の管理ポータル](https://manage.windowsazure.com/)でディレクトリ ページの **[アプリケーション]** タブをクリックします。
+  
+2. 統合アプリケーションの登録をクリックします。
 
-2.  Cliquez sur l'inscription d'application intégrée.
+3. アプリケーション ページで **[構成]** をクリックし、ページの **[キー]** セクションまで下にスクロールします。 
+4. 新しいキーの期間として、**[1 年]** をクリックします。その後、**[保存]** をクリックすると、ポータルに新しいキー値が表示されます。
+5. 保存後に表示された **[クライアント ID]** と **[キー]** をコピーします。キー値は保存後に 1 回しか表示されないことに注意してください。 
 
-3.  Cliquez sur **Configurer** dans la page d'application et accédez à la section **clés** de la page.
-4.  Cliquez sur la durée **1 an** pour une nouvelle clé. Cliquez ensuite sur **Enregistrer**. Le portail affiche alors la nouvelle valeur de clé.
-5.  Copiez les valeurs **ID client** et **Clé** affichées après l'enregistrement. Notez que la valeur de clé n'est affichée qu'une seule fois après l'enregistrement.
+    ![](./media/mobile-services-generate-aad-app-registration-access-key/client-id-and-key.png)
 
-    ![][0]
+6. 統合アプリケーションの構成ページの最下部までスクロールして、アプリケーションの **[ディレクトリ データの読み取り]** アクセス許可を有効にし、**[保存]** をクリックします。
 
-6.  Accédez au bas de la page de configuration d'application intégrée, activez l'autorisation **Lire les données d'annuaire** pour l'application et cliquez sur **Enregistrer**.
+    ![](./media/mobile-services-generate-aad-app-registration-access-key/app-perms.png)
 
-    ![][1]
 
-7.  Dans le [portail de gestion Azure][portail de gestion Azure], revenez à votre service mobile, puis cliquez sur l'onglet **Configurer**. Accédez à la section **paramètres d'application**, ajoutez les paramètres d'application suivants et cliquez sur **Enregistrer**.
+7. [Azure の管理ポータル](https://manage.windowsazure.com/)で、モバイル サービスに戻り、**[構成]** タブをクリックします。**[アプリケーション設定]** セクションまで下にスクロールし、次のアプリケーション設定を追加して、**[保存]** をクリックします。 
 
-    | Nom de paramètre d'application | Description                                                                                            |
-    |--------------------------------|--------------------------------------------------------------------------------------------------------|
-    | AAD\_CLIENT\_ID                | ID client que vous avez copié à partir de votre application intégrée lors des étapes ci-dessus.        |
-    | AAD\_CLIENT\_KEY               | Clé d'application que vous avez générée dans votre application intégrée AAD lors des étapes ci-dessus. |
-    | AAD\_TENANT\_DOMAIN            | Nom de domaine AAD. Doit être semblable à mydomain.onmicrosoft.com                                     |
+    <table border="1">
+    <tr>
+    <th>アプリケーション設定の名前</th><th>説明</th>
+    </tr>
+    <tr>
+    <td>AAD_CLIENT_ID</td><td>前の手順で統合アプリケーションからコピーしたクライアント ID。</td>
+    </tr>
+    <tr>
+    <td>AAD_CLIENT_KEY</td><td>前の手順で AAD 統合アプリケーションで生成されたアプリケーション キー。</td>
+    </tr>
+    <tr>
+    <td>AAD_TENANT_DOMAIN</td><td>AAD ドメイン名。"mydomain.onmicrosoft.com" のような形式にする必要があります。</td>
+    </tr>
+    </table><br/>
 
-    ![][2]
-
-  [portail de gestion Azure]: https://manage.windowsazure.com/
-  [0]: ./media/mobile-services-generate-aad-app-registration-access-key/client-id-and-key.png
-  [1]: ./media/mobile-services-generate-aad-app-registration-access-key/app-perms.png
-  [2]: ./media/mobile-services-generate-aad-app-registration-access-key/aad-app-settings.png
+ 
+    ![](./media/mobile-services-generate-aad-app-registration-access-key/aad-app-settings.png)
+  <!--HONumber=42-->

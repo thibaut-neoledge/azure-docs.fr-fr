@@ -1,42 +1,43 @@
+﻿
+1. MainPage.xaml.cs ファイルで、次の using ステートメントを追加またはコメント解除します。 
 
-1.  Dans le fichier MainPage.xaml.cs, ajoutez les instructions using suivantes ou supprimez leurs marques de commentaire :
+		using Microsoft.WindowsAzure.MobileServices;
 
-        using Microsoft.WindowsAzure.MobileServices;
+2. TodoItem クラス定義を次のコードで置き換えます。 
 
-2.  Remplacez la définition de la classe TodoItem par le code suivant :
+	    public class TodoItem
+	    {
+	        public string Id { get; set; }
+	
+	        [Newtonsoft.Json.JsonProperty(PropertyName = "text")]  
+	        public string Text { get; set; }
+	
+	        [Newtonsoft.Json.JsonProperty(PropertyName = "complete")]  
+	        public bool Complete { get; set; }
+	    }
+	
+	**JsonPropertyAttribute** は、クライアント型のプロパティ名と基になるデータ テーブル内の列名との間のマッピングを定義するために使用します。
 
-        public class TodoItem
-        {
-            public string Id { get; set; }
+	>[AZURE.NOTE] ユニバーサル Windows アプリ プロジェクトでは、TodoItem クラスは共有する DataModel フォルダーにある別のコード ファイルで定義されます。
 
-            [Newtonsoft.Json.JsonProperty(PropertyName = "text")]  
-            public string Text { get; set; }
+3. MainPage.xaml.cs では、既存の items コレクションを定義する行をコメントアウトするか削除します。その後、コメントを解除するか、次の行を追加して、_&lt;yourClient&gt;_ を、モバイル サービスにプロジェクトを接続したとき App.xaml.cs ファイルに追加された  `MobileServiceClient` フィールドで置き換えます。 
 
-            [Newtonsoft.Json.JsonProperty(PropertyName = "complete")]  
-            public bool Complete { get; set; }
-        }
+		private MobileServiceCollection<TodoItem, TodoItem> items;
+		private IMobileServiceTable<TodoItem> todoTable = 
+		    App.<yourClient>.GetTable<TodoItem>();
+		  
+	このコードは、モバイル サービス対応のバインディング コレクション (items) とデータベース テーブルのプロキシ クラス (todoTable) を作成します。 
 
-    Le **JsonPropertyAttribute** est utilisé pour définir le mappage entre les noms des propriétés dans le type de client et les noms des colonnes dans la table de données sous-jacente.
+4. **InsertTodoItem** メソッド内で、**TodoItem.Id** プロパティを設定するコード行を削除し、**async** 修飾子をメソッドに追加して、次のコード行をコメント解除します。 
 
-    >[WACOM.NOTE] In a universal Windows app project, the TodoItem class is defined in the seperate code file in the shared DataModel folder.
+		await todoTable.InsertAsync(todoItem);
 
-3.  Dans MainPage.xaml.cs, mettez en commentaire ou supprimez la ligne définissant la collection des éléments existants, puis annulez les marques de commentaire ou ajoutez les lignes de commande suivantes, en remplaçant *\<yourClient\>* par le champ `MobileServiceClient` ajouté dans le fichier App.xaml.cs lorsque vous avez connecté votre projet au service mobile :
 
-        private MobileServiceCollection<TodoItem, TodoItem> items;
-        private IMobileServiceTable<TodoItem> todoTable = 
-            App.<yourClient>.GetTable<TodoItem>();
+	このコードでは、新しい項目をテーブルに挿入します。 
 
-    Ce code crée une collection de liaisons (éléments) prenant en charge des services mobiles et une classe proxy pour la table de la base de données (todoTable).
+5. **refreshTodoItems** メソッドを次のコードで置き換えます。 
 
-4.  Dans la méthode **InsertTodoItem**, supprimez la ligne de code définissant la propriété **TodoItem.Id**, ajoutez le modificateur **async** à la méthode, puis annulez les marques de commentaire dans la ligne de code suivante :
-
-        await todoTable.InsertAsync(todoItem);
-
-    Ce code permet d'insérer un nouvel élément dans la table.
-
-5.  Remplacez la méthode **RefreshTodoItems** par le code suivant :
-
-        private async void RefreshTodoItems()
+		private async void RefreshTodoItems()
         {
             MobileServiceInvalidOperationException exception = null;
             try
@@ -59,13 +60,12 @@
             }    
         }
 
-    Cela définit la liaison sur la collection d'éléments dans `todoTable`, qui contient tous les objets **TodoItem** renvoyés depuis le service mobile. Si un problème survient lors de l'exécution de la requête, un message apparait pour afficher les erreurs.
+	これにより、 `todoTable` にある項目のコレクションへのバインディングが設定されます。これには、モバイル サービスから返された **TodoItem** オブジェクトがすべて含まれます。クエリの実行に問題がある場合、エラーを示すメッセージ ボックスが表示されます。 
 
-6.  Dans la méthode **UpdateCheckedTodoItem**, ajoutez le modificateur **async** à la méthode, puis annulez les marques de commentaire sur la ligne de code suivante :
+6. **UpdateCheckedTodoItem** メソッド内で、**async** 修飾子をメソッドに追加して、次のコード行をコメント解除します。 
 
-        await todoTable.UpdateAsync(item);
+		await todoTable.UpdateAsync(item);
 
-    Cela permet d'envoyer une mise à jour de l'élément au service mobile.
+	これにより、項目の更新がモバイル サービスに送信されます。 
 
-Maintenant que l'application a été mise à jour pour utiliser Mobile Services pour le stockage principal, le moment est venu de tester l'application avec Mobile Services.
-
+バックエンド ストレージのモバイル サービスを使用するようにアプリケーションを更新した後は、モバイル サービスに対してアプリケーションをテストします。<!--HONumber=42-->

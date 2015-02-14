@@ -1,7 +1,7 @@
 ﻿## Envoi de messages vers les concentrateurs d'événements
 Dans cette section, vous allez écrire une application console Windows pour envoyer des événements à votre concentrateur d'événements.
 
-1. Dans Visual Studio, créez un projet d'application de bureau Visual C# à l'aide du modèle de projet **d'application console**. Nommez le projet **Sender**.
+1. Dans Visual Studio, créez un projet d'application de bureau Visual C# à l'aide du modèle de projet **d'application de console**. Nommez le projet **Sender**.
 
    	![][7]
 
@@ -9,17 +9,17 @@ Dans cette section, vous allez écrire une application console Windows pour envo
 
 	La boîte de dialogue Gérer les packages NuGet s'affiche.
 
-3. Recherchez " Microsoft Azure Service Bus ", cliquez sur **Installer** et acceptez les conditions d'utilisation. 
+3. Recherchez `Microsoft Azure Service Bus`, cliquez sur **Installer** et acceptez les conditions d'utilisation. 
 
 	![][8]
 
 	Cette opération lance le téléchargement, l'installation et ajoute une référence au <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">Package NuGet Azure Service Bus</a>.
 
-4. Ajoutez l'instruction " using " suivante au début du fichier **Program.cs** :
+4. Ajoutez l'instruction `using` suivante en haut du fichier **Program.cs** :
 
 		using Microsoft.ServiceBus.Messaging;
 
-5. Ajoutez les champs " static " suivants à la classe **Program** en remplaçant les valeurs par le nom du concentrateur d'événements que vous avez créé dans la section précédente et en attribuant **les droits d'envoi** à la chaîne de connexion :
+5. Ajoutez les champs  `static` suivants à la classe **Program**, en remplaçant les valeurs par le nom du concentrateur d'événements que vous avez créé dans la section précédente et en attribuant les droits d'**envoi** à la chaîne de connexion :
 
 		static string eventHubName = "{event hub name}";
         static string connectionString = "{send connection string}";
@@ -60,4 +60,4 @@ Dans cette section, vous allez écrire une application console Windows pour envo
 
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
+[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png<!--HONumber=42-->

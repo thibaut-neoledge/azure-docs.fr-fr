@@ -1,25 +1,22 @@
-Ce didacticiel est basé sur l'[application GetStartedWithMobileServices][application GetStartedWithMobileServices], qui est un projet d'application Windows universelle dans Visual Studio 2013. L'interface utilisateur de cette application est identique à l'application générée par le démarrage rapide de Mobile Services, sauf que les éléments ajoutés sont stockés en local dans la mémoire.
+﻿
+このチュートリアルは、Visual Studio 2013 のユニバーサル Windows アプリ プロジェクトである [GetStartedWithMobileServices アプリケーション](http://go.microsoft.com/fwlink/p/?LinkID=510826) に基づいています。このアプリケーションの UI は、追加された項目がメモリにローカルに格納される点を除き、モバイル サービスのクイック スタートで生成したアプリケーションと同じです。 
 
-1.  Téléchargez la version C# de l'exemple d'application GetStartedWithMobileServices sur le [site d'exemples de code développeur].
+1. C# バージョンの GetStartedWithMobileServices サンプル アプリケーションを[デベロッパー サンプル コード集のサイト]からダウンロードします。 
 
-2.  Dans Visual Studio 2013, ouvrez le projet téléchargé et examinez le fichier MainPage.xaml.cs que vous trouverez dans le dossier de projet partagé GetStartedWithData.
+2. Visual Studio 2013 では、ダウンロードしたプロジェクトを開き、GetStartedWithData.Shared プロジェクト フォルダーで検出された MainPage.xaml.cs ファイルを調べます。
 
-    Notez que les objets **TodoItem** ajoutés sont stockés dans un **ObservableCollection\<TodoItem\>** en mémoire.
+   	追加された **TodoItem** オブジェクトはメモリ内の **ObservableCollection&lt;TodoItem&gt;** に格納されます。
 
-3.  Appuyez sur la touche **F5** pour régénérer le projet et démarrer l'application.
+3. **F5** キーを押してプロジェクトをリビルドし、アプリケーションを開始します。
 
-4.  Dans l'application, tapez du texte dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
+4. アプリケーションで、**[Insert a TodoItem]** に任意のテキストを入力し、**[Save]** をクリックします。
 
-    ![][0]
+   	![](./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png) 
 
-    Notez que le texte enregistré est affiché.
+   	Notice that the saved text is displayed.
 
-5.  Cliquez avec le bouton droit sur le projet Windows Phone 8.1, cliquez sur **Définir comme projet de démarrage**, puis appuyez sur la touche **F5** pour exécuter l'application Windows Store.
+5. Windows Phone 8.1 プロジェクトを右クリックし、**[スタートアップ プロジェクトに設定]** をクリックしてから、**F5** キーを押して Windows Phone ストア アプリを起動します。  
 
-    ![][1]
+	![](./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup-wp8.png)
 
-6.  Répétez les étapes 3 et 4 pour vérifier que l'exemple se comporte de la même manière.
-
-  [application GetStartedWithMobileServices]: http://go.microsoft.com/fwlink/p/?LinkID=510826
-  [0]: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png
-  [1]: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup-wp8.png
+6. 手順 3 と 4 を繰り返して、サンプルが同じように動作することを確認します。<!--HONumber=42-->

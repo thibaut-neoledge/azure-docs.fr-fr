@@ -1,73 +1,73 @@
 ﻿
-Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour stocker les éléments dans Mobile Services et non dans la collection locale.
+モバイル サービスの準備が整ったら、ローカル コレクションの代わりにモバイル サービスに項目を格納するようにアプリケーションを更新します。
 
-1. Si vous n'avez pas encore installé le [Kit de développement logiciel (SDK) Mobile Services pour iOS](https://go.microsoft.com/fwLink/p/?LinkID=266533), faites-le maintenant. Une fois installé, copiez le répertoire WindowsAzureMobileServices.framework et remplacez le répertoire WindowsAzureMobileServices.framework inclus dans le projet téléchargé. De cette façon, vous utilisez le Kit de développement logiciel (SDK) Azure Mobile Services le plus récent.
+1. [モバイル サービス iOS SDK](https://go.microsoft.com/fwLink/p/?LinkID=266533) をまだインストールしていない場合は、ここでインストールしてください。インストールしたら、WindowsAzureMobileServices.framework ディレクトリをコピーし、ダウンロードしたプロジェクトに含まれる WindowsAzureMobileServices.framework ディレクトリを上書きします。この方法で、最新の Azure Mobile Services SDK を使用します。
 
-2. Dans le fichier TodoService.h, recherchez la ligne de code de commentaire suivante :
+2. TodoService.h ファイルで、次のコメントがあるコード行を見つけます。
 
         // TODO - create an MSClient proeprty
 
-   	À la suite de ce commentaire, ajoutez la ligne de code suivante :
+   	このコメントの後ろに次のコード行を追加します。
 
         @property (nonatomic, strong)   MSClient *client;
 
-   	Cela permet de créer une propriété qui représente le client MSClient qui se connecte au service
+   	これで、サービスに接続された MSClient を表すプロパティが作成されます。
 
-3. Dans le fichier TodoService.m, recherchez la ligne de code de commentaire suivante :
+3. TodoService.m ファイルで、次のコメントがあるコード行を見つけます。
 
         // TODO - create an MSTable property for your items
 
-   	À la suite de ce commentaire, ajoutez la ligne de code suivante dans la déclaration @interface :
+   	このコメントの後ろに、@interface 宣言の内部に次のコード行を追加します。
 
         @property (nonatomic, strong)   MSTable *table;
 
-   	Cela permet de créer une représentation de propriété pour la table de votre service mobile.
+   	これで、モバイル サービス テーブルのプロパティ表現が作成されます。
 
-4. Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
+4. 管理ポータルで、**[モバイル サービス]** をクリックし、先ほど作成したモバイル サービスをクリックします。
 
-5. Cliquez sur l'onglet **Tableau de bord** et notez la valeur **URL du site**, puis cliquez sur **Gérer les clés** et notez la valeur de **Clé de l'application**.
+5. **[ダッシュボード]** タブをクリックし、**サイトの URL** をメモに記録します。次に、**[キーの管理]** をクリックし、**アプリケーション キー**をメモに記録します。
 
    	![](./media/mobile-services-ios-enable-mobile-service-access/mobile-dashboard-tab.png)
 
-  	Ces valeurs sont nécessaires pour accéder au service mobile à partir de votre code d'application.
+  	これらの値は、アプリケーション コードからモバイル サービスにアクセスするときに必要になります。
 
-6. Revenez dans Xcode, ouvrez le fichier TodoService.m et recherchez la ligne de code de commentaire suivante :
+6. Xcode に戻り、TodoService.m ファイルを開いて、次のコメントがあるコード行を見つけます。
 
         // Initialize the Mobile Service client with your URL and key.
 
-    À la suite de ce commentaire, ajoutez la ligne de code suivante :
+    このコメントの後ろに次のコード行を追加します。
 
         self.client = [MSClient clientWithApplicationURLString:@"APPURL" applicationKey:@"APPKEY"];
 
-    Cela permet de créer une instance du client Mobile Services.
+    これで、モバイル サービス クライアントのインスタンスが作成されます。
 
-7. Remplacez les valeurs **APPURL** et **APPKEY** de ce code par l'URL et la clé d'application du service mobile que vous avez acquises à l'étape 6.
+7. このコードの **APPURL** と **APPKEY** の値を、手順 6 で取得したモバイル サービスの URL とアプリケーション キーで置き換えます。
 
-8. Recherchez la ligne de code de commentaire suivante :
+8. 次のコメントがあるコード行を見つけます。
 
         // Create an MSTable instance to allow us to work with the TodoItem table.
 
-    À la suite de ce commentaire, ajoutez la ligne de code suivante :
+    このコメントの後ろに次のコード行を追加します。
 
         self.table = [self.client tableWithName:@"TodoItem"];
 
-    Cela permet de créer l'instance de table TodoItem.
+    これで、TodoItem テーブルのインスタンスが作成されます。
 
-9. Recherchez la ligne de code de commentaire suivante :
+9. 次のコメントがあるコード行を見つけます。
 
  	    // Create a predicate that finds items where complete is false
 
-    À la suite de ce commentaire, ajoutez la ligne de code suivante :
+    このコメントの後ろに次のコード行を追加します。
 
         NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
-    Cela permet de créer une requête qui renvoie toutes les tâches non terminées.
+    これで、まだ完了していないタスクをすべて返すクエリが作成されます。
 
-10. Recherchez la ligne de code de commentaire suivante :
+10. 次のコメントがあるコード行を見つけます。
 
         // Query the TodoItem table and update the items property with the results from the service
 
-   	Remplacez ce commentaire et l'appel de bloc **completion** suivant par le code ci-dessous :
+   	そのコメントとそれに続く **completion** ブロックの呼び出しを、次のコードに置き換えます。
 
         [self.table readWhere:predicate completion:^(NSArray *results, NSInteger totalCount, NSError *error)
 		{
@@ -75,7 +75,7 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
            completion();
         }];
 
-11. Recherchez la méthode **addItem**, puis remplacez le corps de la méthode par le code suivant :
+11. **addItem** メソッドを見つけ、メソッドの本体を次のコードに置き換えます。
 
         // Insert the item into the TodoItem table and add to the items array on completion
         [self.table insert:item completion:^(NSDictionary *result, NSError *error) {
@@ -86,13 +86,13 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
             completion(index);
         }];
 
-    Ce code envoie une requête d'insertion au service mobile.
+    このコードにより、挿入要求がモバイル サービスに送信されます。
 
-12. Recherchez la méthode **completeItem**, puis la ligne de code commentée suivante :
+12. **completeItem** メソッドを探し、次のコメントがあるコード行を見つけます。
 
         // Update the item in the TodoItem table and remove from the items array on completion
 
-    Remplacez le corps de la méthode à partir de ce point jusqu'à la fin de la méthode, par le code suivant :
+    メソッド本文のその位置から末尾までを次のコードに置き換えます。
 
         // Update the item in the TodoItem table and remove from the items array on completion
         [self.table update:mutable completion:^(NSDictionary *item, NSError *error) {
@@ -106,9 +106,9 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
             completion(index);
 	    }];
 
-   	Ce code supprime les éléments TodoItems une fois ceux-ci terminés.
+   	このコードにより、完了マークが付けられた後で TodoItems が削除されます。
 
-13. Dans TodoListController.m, recherchez la méthode **onAdd** et remplacez-le par le code suivant :
+13. TodoListController.m で、**onAdd** メソッドを見つけ、次のコードで上書きします。
 
       - (IBAction)onAdd:(id)sender
       {
@@ -130,4 +130,5 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
       }
 
 
-Maintenant que l'application a été mise à jour pour utiliser Mobile Services pour le stockage principal, le moment est venu de tester l'application avec Mobile Services.
+バックエンド ストレージのモバイル サービスを使用するようにアプリケーションを更新した後は、モバイル サービスに対してアプリケーションをテストします。
+<!--HONumber=42-->

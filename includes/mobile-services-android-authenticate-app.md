@@ -36,17 +36,15 @@
 
 	Cela crée une méthode pour gérer le processus d'authentification. L'utilisateur est authentifié à l'aide d'un nom d'utilisateur Google. Une boîte de dialogue affiche l'identifiant de l'utilisateur authentifié. Vous ne pouvez pas poursuivre sans authentification positive.
 
-    <div class="dev-callout"><b>Remarque</b>
-	<p>Si vous utilisez un fournisseur d'identité différent de Google, remplacez la valeur transmise à la méthode <strong>login</strong> ci-dessus par l'une des valeurs suivantes : <em>MicrosoftAccount</em>, <em>Facebook</em>, <em>Twitter</em> ou <em>MicrosoftAzureActiveDirectory</em>.</p>
-    </div>
+    > [AZURE.NOTE] Si vous utilisez un fournisseur d'identité différent de Google, remplacez la valeur transmise à la méthode **login** ci-dessus par l'une des valeurs suivantes : _MicrosoftAccount_, _Facebook_, _Twitter_ ou _windowsazureactivedirectory_.
 
-3. Dans la méthode **onCreate**, ajoutez la ligne de code suivante après le code qui permet d'instancier l'objet " MobileServiceClient ".
+3. Dans la méthode **onCreate**, ajoutez la ligne de code suivante après le code qui permet d'instancier l'objet `MobileServiceClient`.
 
 		authenticate();
 
 	Cet appel lance le processus d'authentification.
 
-4. Déplacez le code restant après " authenticate(); " dans la méthode **onCreate** vers une nouvelle méthode **createTable** qui ressemble à ceci :
+4. Déplacez le code restant après `authenticate();`dans la méthode **onCreate** vers une nouvelle méthode **createTable**, qui ressemble à ceci :
 
 		private void createTable() {
 	
@@ -66,4 +64,4 @@
 
 9. À partir du menu **Exécuter**, cliquez sur **Exécuter** pour démarrer l'application et vous connecter avec le fournisseur d'identité choisi. 
 
-   	Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
+   	Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.<!--HONumber=42-->

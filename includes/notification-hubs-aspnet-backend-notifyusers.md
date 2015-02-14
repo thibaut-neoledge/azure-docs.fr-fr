@@ -6,10 +6,10 @@ Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET af
 > 
 > ![][4]
 
-> [AZURE.NOTE] Veillez à installer le [Kit de développement logiciel (SDK) Azure](http://azure.microsoft.com/fr-fr/downloads/) Visual Studio pour le déploiement de sites web.
+> [AZURE.NOTE] Assurez-vous que le [Kit de développement logiciel (SDK) Azure](http://azure.microsoft.com/fr-fr/downloads/) Visual Studio est installé, pour le déploiement du site web.
 
 1. Démarrez Visual Studio ou Visual Studio Express.
-2. Dans Visual Studio, cliquez sur **Fichier**, sur **Nouveau**, sur **Projet**, développez **Modèles**, **Visual C#**, puis cliquez sur **Web** et **Application web ASP.NET**, tapez le nom **AppBackend**, puis cliquez sur **OK**. 
+2. Dans Visual Studio, cliquez sur **fichier**, puis cliquez sur **nouveau**, puis **projet**, développez **modèles**, **Visual C#**, puis cliquez sur **Web** et **Application Web ASP.NET**, tapez le nom **AppBackend**, puis cliquez sur **OK**. 
 	
 	![][1]
 
@@ -17,27 +17,27 @@ Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET af
 
 	![][2]
 
-4. Dans la boîte de dialogue **Configurer un site Azure**, choisissez l'abonnement, la région et la base de données à utiliser pour ce projet. Cliquez sur **OK** pour créer le projet.
+4. Dans la boîte de dialogue **Configurer un site Azure** choisissez l'abonnement, la région et la base de données à utiliser pour ce projet. Cliquez ensuite sue **OK** pour créer le projet.
 
 	![][5]
 
 5. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet **AppBackend**, puis cliquez sur **Gérer les packages NuGet**.
 
-6. Sur le côté gauche, cliquez sur **En ligne**, et recherchez **servicebus** dans la zone **Rechercher**.
+6. Sur le côté gauche, cliquez sur **En ligne**, puis recherchez **servicebus** dans la zone **Rechercher**.
 
 7. Dans la liste de résultats, cliquez sur **Windows Azure Service Bus**, puis sur **Installer**. Procédez à l'installation, puis fermez la fenêtre du Gestionnaire de package NuGet.
 
 	![][14]
 
-8. Nous allons maintenant créer une classe **Notifications.cs**. Accédez à l'Explorateur de solutions, cliquez avec le bouton droit sur le dossier **Modèles**, cliquez sur **Ajouter**, puis sur **Classe**. Après avoir nommé la nouvelle classe **Notifications.cs**, cliquez sur **Ajouter** pour générer la classe. Ce module représente les différentes notifications sécurisées qui seront envoyées. Dans les implémentations complètes, les notifications sont stockées dans une base de données. Par souci de simplicité, ce didacticiel les stocke en mémoire.
+8. Nous allons maintenant créer une classe **Notifications.cs**. Accédez à l'Explorateur de solutions, cliquez avec le bouton droit de la souris sur le dossier **Modèles**, puis cliquez sur **Ajouter** et sur **Classe**. Après avoir nommé la nouvelle classe **Notifications.cs**, cliquez sur **Ajouter** pour générer la classe. Ce module représente les différentes notifications sécurisées qui seront envoyées. Dans les implémentations complètes, les notifications sont stockées dans une base de données. Par souci de simplicité, ce didacticiel les stocke en mémoire.
 
 	![][6]
 
-9. Dans Notifications.cs, ajoutez l'instruction " using " suivante en haut du fichier :
+9. Dans Notifications.cs, ajoutez l'instruction `using` suivante en haut du fichier :
 
         using Microsoft.ServiceBus.Notifications;
 
-10. Remplacez ensuite la définition de classe " Notifications " par ce qui suit et veillez à remplacer les deux espaces réservés par la chaîne de connexion (avec accès complet) pour votre concentrateur de notification et le nom du concentrateur (disponible sur le [portail de gestion Azure](http://manage.windowsazure.com)) :
+10. Remplacez ensuite la définition de classe `Notifications` par ce qui suit et veillez à remplacer les deux espaces réservés par la chaîne de connexion (avec accès complet) pour votre concentrateur de notification et le nom du concentrateur (disponible sur le [portail de gestion Azure](http://manage.windowsazure.com)) :
 
 		public class Notifications
         {
@@ -50,9 +50,9 @@ Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET af
             }
         }
 
-11. Nous allons ensuite créer une classe **AuthenticationTestHandler.cs.**. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet **AppBackend**, puis cliquez sur **Ajouter** et sur **Classe**. Nommez la nouvelle classe **AuthenticationTestHandler.cs**, puis cliquez sur **Ajouter** pour générer la classe. Cette classe permet d'authentifier les utilisateurs via l'*Authentification de base*. Notez que votre application peut utiliser n'importe quel schéma d'authentification.
+11. Nous allons ensuite créer une classe **AuthenticationTestHandler.cs**. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet **AppBackend**, puis cliquez sur **Ajouter** et sur **Classe**. Nommez la nouvelle classe **AuthenticationTestHandler.cs**, puis cliquez sur **Ajouter** pour générer la classe. Cette classe est utilisée pour authentifier les utilisateurs à l'aide de *Basic Authentication*. Notez que votre application peut utiliser n'importe quel schéma d'authentification.
 
-12. Dans AuthenticationTestHandler.cs, ajoutez les instructions " using " suivantes :
+12. Dans AuthenticationTestHandler.cs, ajoutez les instructions `using` suivantes :
 
         using System.Net.Http;
         using System.Threading.Tasks;
@@ -61,7 +61,7 @@ Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET af
         using System.Security.Principal;
         using System.Net;
 
-13. Dans AuthenticationTestHandler.cs, remplacez la définition de classe " AuthenticationTestHandler " par ce qui suit :
+13. Dans AuthenticationTestHandler.cs, remplacez la définition de classe `AuthenticationTestHandler` par la suivante :
 
 		public class AuthenticationTestHandler : DelegatingHandler
 	    {
@@ -110,19 +110,19 @@ Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET af
 	        }
 	    }
 
-	> [AZURE.NOTE] **Remarque de sécurité** : La classe " AuthenticationTestHandler " n'offre pas de véritable authentification. Elle sert uniquement à simuler l'authentification de base et n'est pas sécurisée. Vous devez mettre en œuvre un mécanisme d'authentification sécurisé dans vos applications de production et vos services.				
+	> [AZURE.NOTE] **Remarque relative à la sécurité** : La classe `AuthenticationTestHandler` n'offre pas de véritable authentification. Elle sert uniquement à simuler l'authentification de base et n'est pas sécurisée. Vous devez mettre en œuvre un mécanisme d'authentification sécurisé dans vos applications de production et vos services.				
 
-14. Ajoutez le code suivant à la fin de la méthode " Register " dans la classe **App_Start/WebApiConfig.cs** :
+14. Ajoutez le code suivant à la fin de la méthode `Register` dans la classe **App_Start/WebApiConfig.cs** :
 
 		config.MessageHandlers.Add(new AuthenticationTestHandler());
 
-15. Créez ensuite un contrôleur **RegisterController**. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le dossier **Contrôleurs**, puis cliquez sur **Ajouter** et sur **Contrôleur**. Cliquez sur l'élément **Web API 2 Controller -- Empty**, puis sur **Ajouter**. Nommez la nouvelle classe **RegisterController**, puis cliquez de nouveau sur **Ajouter** pour générer le contrôleur.
+15. Nous allons ensuite créer un nouveau contrôleur **RegisterController**. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le dossier **Contrôleurs**, puis cliquez sur **Ajouter** et sur **Contrôleur**. Cliquez sur l'élément **Web API 2 Controller -- Empty**, et cliquez sur **Ajouter**. Nommez la nouvelle classe **RegisterController**, puis cliquez de nouveau sur **Ajouter** pour générer le contrôleur.
 
 	![][7]
 
 	![][8]
 
-16. Dans RegisterController.cs, ajoutez les instructions " using " suivantes :
+16. Dans RegiterController.cs, ajoutez les instructions `using` suivantes :
 
         using Microsoft.ServiceBus.Notifications;
         using AppBackend.Models;
@@ -130,7 +130,7 @@ Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET af
         using Microsoft.ServiceBus.Messaging;
         using System.Web;
 
-17. Ajoutez le code suivant dans la définition de classe " RegisterController ". Notez que nous ajoutons à ce code la balise de l'utilisateur qui a été authentifié par le gestionnaire. Vous pouvez également ajouter des contrôles facultatifs afin de vérifier que l'utilisateur dispose des droits d'inscription nécessaires pour les balises requises.
+17. Ajoutez le code suivant dans la définition de classe `RegisterController`. Notez que nous ajoutons à ce code la balise de l'utilisateur qui a été authentifié par le gestionnaire. Vous pouvez également ajouter des contrôles facultatifs afin de vérifier que l'utilisateur dispose des droits d'inscription nécessaires pour les balises requises.
 
 		private NotificationHubClient hub;
 
@@ -235,15 +235,15 @@ Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET af
             }
         }
 
-18. Créez un contrôleur **NotificationsController**, de la même façon que nous avons créé **RegisterController**. Ce composant expose une méthode permettant à l'appareil de récupérer la notification en toute sécurité et offre un moyen pour un utilisateur de déclencher une transmission de type push sécurisée vers les appareils. Notez que la notification envoyée ici au concentrateur de notification est brute puisqu'elle comporte uniquement son ID (sans message).
+18. Créez un nouveau contrôleur **NotificationsController**, de la même façon que nous avons créé **RegisterController**. Ce composant expose une méthode permettant à l'appareil de récupérer la notification en toute sécurité et offre un moyen pour un utilisateur de déclencher une transmission de type push sécurisée vers les appareils. Notez que la notification envoyée ici au concentrateur de notification est brute puisqu'elle comporte uniquement son ID (sans message).
 
-19. Dans NotificationsController.cs, ajoutez les instructions " using " suivantes :
+19. Dans NotificationsController.cs, ajoutez les instructions `using` suivantes :
 
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
 
-20. Ajoutez le code suivant dans la définition de classe **NotificationsController** et veillez à placer en commentaires les extraits de code pour les plateformes que vous n'utilisez pas.
+20. Ajoutez le code suivant dans la définition de classe  **NotificationsController** et veillez à placer en commentaires les extraits de code pour les plateformes que vous n'utilisez pas.
 
         public async Task<HttpResponseMessage> Post()
         {
@@ -281,7 +281,7 @@ Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET af
 
     ![][B16]
 
-25. Notez la propriété de l'**URL de destination** sous l'onglet **Connexion**. Plus loin dans ce didacticiel, nous utiliserons cette URL comme *point de terminaison principal*. Cliquez sur **Publier**.
+25. Notez la propriété **URL de destination** sous l'onglet **Connexion**. Plus loin dans ce didacticiel, nous utiliserons cette URL comme *backend endpoint*. Cliquez sur **Publier**.
 
     ![][B18]
 
@@ -298,3 +298,4 @@ Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET af
 [B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
+<!--HONumber=42-->

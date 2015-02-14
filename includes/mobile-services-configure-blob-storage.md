@@ -6,14 +6,14 @@
 
   	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png)
 
-2. Notez le **nom du compte de stockage** et la **clé d'accès**.
+2. Notez le **nom de compte de stockage** et la **clé d'accès**.
 
    	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png)
 
 3. Dans votre service mobile, cliquez sur l'onglet **Configurer**, faites défiler jusqu'à **Paramètres de l'application** et entrez une paire **Nom** et **Valeur** pour chacun des paramètres suivants obtenus à partir du compte de stockage, puis cliquez sur **Enregistrer**.
 
-	+ STORAGE_ACCOUNT_NAME
-	+ STORAGE_ACCOUNT_ACCESS_KEY
+	+ `STORAGE_ACCOUNT_NAME`
+	+ `STORAGE_ACCOUNT_ACCESS_KEY`
 
 	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png)
 
@@ -37,7 +37,7 @@
 		
 		    if ((typeof item.containerName !== "undefined") && (
 		    item.containerName !== null)) {
-		        // Set the BLOB store container name on the item, which must be lowercase.
+		        // Set the BLOB store container name on the item, qui doit être en minuscules.
 		        item.containerName = item.containerName.toLowerCase();
 		
 		        // If it does not already exist, create the container 
@@ -80,9 +80,9 @@
 
  	![](./media/mobile-services-configure-blob-storage/mobile-insert-script-blob.png)
 
-   	Cela remplace la fonction appelée lors d'une insertion dans la table TodoItem avec le nouveau script. Ce nouveau script génère une nouvelle SAP pour la fonction " insert ", valide pendant 5 minutes, et attribue la valeur de la SAP générée à la propriété sasQueryString de l'élément renvoyé. La propriété imageUri est également définie sur le chemin d'accès de la ressource du nouvel objet blob pour permettre l'affichage de l'image lors de la liaison dans l'interface utilisateur du client.
+   	Cela remplace la fonction appelée lors d'une insertion dans la table TodoItem avec le nouveau script. Ce nouveau script génère une nouvelle SAP pour la fonction insert, valide pendant 5 minutes, et attribue la valeur de la SAP générée à la propriété `sasQueryString` de l'élément renvoyé. La propriété `imageUri` est aussi définie sur le chemin d'accès de la ressource du nouvel objet blob pour permettre l'affichage de l'image lors de la liaison dans l'interface utilisateur du client.
 
-	>[WACOM.NOTE] Ce code créé une SAP pour un objet blob individuel. Si vous devez télécharger plusieurs objets blob sur un conteneur à l'aide de la même SAP, vous pouvez plutôt appeler la méthode <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">generateSharedAccessSignature method</a> avec un nom de ressource d'objet blob vide, comme ceci : 
+	>[AZURE.NOTE] Ce code crée une SAP pour un objet blob individuel. Si vous devez télécharger plusieurs objets blob sur un conteneur à l'aide de la même SAP, vous pouvez plutôt appeler la méthode <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">generateSharedAccessSignature method</a> avec un nom de ressource d'objet blob vide, comme ceci : 
 	<pre><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
 
 Ensuite, vous allez mettre à jour l'application de démarrage rapide pour ajouter la fonctionnalité de téléchargement d'image à l'aide de la SAP générée sur la fonction insert.
@@ -92,5 +92,6 @@ Ensuite, vous allez mettre à jour l'application de démarrage rapide pour ajout
 <!-- Images. -->
 
 <!-- URLs. -->
-[Création d'un compte de stockage]: /fr-fr/manage/services/storage/how-to-create-a-storage-account
-[Paramètres de l'application]: http://msdn.microsoft.com/fr-fr/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Création d'un compte de stockage]: /fr-FR/manage/services/storage/how-to-create-a-storage-account
+[Paramètres de l'application]: http://msdn.microsoft.com/fr-FR/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+<!--HONumber=42-->

@@ -1,13 +1,13 @@
-## Envoi de messages vers les concentrateurs d'événements
-Dans cette section, nous allons écrire une application en C pour envoyer des événements à votre concentrateur d'événements. Nous allons utiliser la bibliothèque Proton AMQP du projet [Apache Qpid](http://qpid.apache.org/). Cette approche est similaire à l'utilisation des files d'attente et des rubriques Service Bus avec AMQP en partant du langage C comme indiqué [ici](https://code.msdn.microsoft.com/windowsazure/Using-Apache-Qpid-Proton-C-afd76504). Pour plus d'informations, reportez-vous à la documentation [Qpid Proton](http://qpid.apache.org/proton/index.html).
+﻿## Envoi de messages vers les concentrateurs d'événements
+Dans cette section, nous allons écrire une application en C pour envoyer des événements à votre concentrateur d'événements. Nous allons utiliser la bibliothèque Proton AMQP du projet [Apache Qpid](http://qpid.apache.org/). Cette approche est similaire à l'utilisation des files d'attente et des rubriques Service Bus avec AMQP en partant du langage C comme indiqué [ici](https://code.msdn.microsoft.com/windowsazure/Using-Apache-Qpid-Proton-C-afd76504). Pour plus d'informations, consultez la [documentation Qpid Proton](http://qpid.apache.org/proton/index.html).
 
-1. Sur la page [Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html), cliquez sur le lien **Installing Qpid Proton** et suivez les instructions en fonction de votre environnement. Nous partirons du principe qu'il s'agit d'un environnement Linux, p.ex. une [machine virtuelle Linux Azure](http://azure.microsoft.com/fr-fr/documentation/articles/virtual-machines-linux-tutorial/) dotée du système d'exploitation Ubuntu 14.04.
+1. Dans la [page Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html), cliquez sur le lien **Installation de Qpid Proton** et observez les instructions correspondant à votre environnement. Nous partirons du principe qu'il s'agit d'un environnement Linux, par exemple une [machine virtuelle Azure Linux](http://azure.microsoft.com/fr-fr/documentation/articles/virtual-machines-linux-tutorial/) dotée du système d'exploitation Ubuntu 14.04.
 
 2. Pour compiler la bibliothèque Proton, installez les packages suivants :
 
 		sudo apt-get install build-essential cmake uuid-dev openssl libssl-dev
 
-3. Téléchargez la [bibliothèque Qpid Proton](http://qpid.apache.org/proton/index.html) et extrayez-la, p.ex. :
+3. Téléchargez la [bibliothèque Qpid Proton](http://qpid.apache.org/proton/index.html) et effectuez son extraction, par exemple :
 		
 		wget http://apache.fastbull.org/qpid/proton/0.7/qpid-proton-0.7.tar.gz
 		tar xvfz qpid-proton-0.6.tar.gz
@@ -19,7 +19,7 @@ Dans cette section, nous allons écrire une application en C pour envoyer des é
 		cmake -DCMAKE_INSTALL_PREFIX=/usr ..
 		sudo make install
 
-5. Dans le répertoire de travail, créez un fichier nommé **sender.c** dont le contenu est le suivant. N'oubliez pas de remplacer les valeurs par votre nom de concentrateur d'événements et d'espace de noms (ce dernier se présente généralement sous la forme {event hub name}-ns). Vous devez également remplacer une version codée URL de la clé pour le **SendRule** précédemment créé. Vous pouvez la coder par URL [ici](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. Dans le répertoire de travail, créez un fichier nommé **sender.c** dont le contenu est le suivant. N'oubliez pas de remplacer la valeur de votre nom de concentrateur d'événements et le nom de l'espace de noms (ce dernier est généralement `{event hub name}-ns`). Vous devez également remplacer une version codée URL de la clé pour le **SendRule** précédemment créé. Vous pouvez la coder par URL [ici](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 		#include "proton/message.h"
 		#include "proton/messenger.h"
@@ -100,8 +100,10 @@ Dans cette section, nous allons écrire une application en C pour envoyer des é
 			return 0;
 		}
 
-6. Compilez le fichier (en supposant que **GCC** est défini) :
+6. Compilez le fichier (en supposant que **gcc** est défini) :
 
 		gcc sender.c -o sender -lqpid-proton
 
-> [AZURE.NOTE] Dans le code ci-dessus, nous utilisons une fenêtre sortante de 1 pour forcer l'envoi des messages dès que possible. En général, votre application doit essayer d'envoyer les messages par lot pour augmenter le débit. Reportez-vous à la page [Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) pour plus d'informations sur l'utilisation de la bibliothèque Qpid Proton dans l'ensemble des environnements et à partir des plateformes pour lesquelles des liaisons sont fournies (actuellement Perl, PHP, Python et Ruby).
+> [AZURE.NOTE] Dans le code ci-dessus, nous utilisons une fenêtre sortante de 1 pour forcer l'envoi des messages dès que possible. En général, votre application doit essayer d'envoyer les messages par lot pour augmenter le débit. Consultez la [page Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) pour plus d'informations sur l'utilisation de la bibliothèque Qpid Proton dans l'ensemble des environnements et à partir des plateformes pour lesquelles des liaisons sont fournies (actuellement Perl, PHP, Python et Ruby).
+
+<!--HONumber=42-->

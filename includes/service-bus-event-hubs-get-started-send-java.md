@@ -1,17 +1,17 @@
 ﻿## Envoi de messages vers les concentrateurs d'événements
-Dans cette section, nous allons écrire une application console Java pour envoyer des événements à votre concentrateur d'événements. Nous allons utiliser le fournisseur JMS AMQP du [projet Apache Qpid](http://qpid.apache.org/). Cette approche est similaire à l'utilisation des files d'attente et des rubriques Service Bus avec AMQP en partant du langage Java comme indiqué [ici](http://azure.microsoft.com/fr-fr/documentation/articles/service-bus-java-how-to-use-jms-api-amqp/). Pour plus d'informations, reportez-vous à la [documentation Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) et à [Java Messaging Service](http://www.oracle.com/technetwork/java/jms/index.html).
+Dans cette section, nous allons écrire une application console Java pour envoyer des événements à votre concentrateur d'événements. Nous allons utiliser le fournisseur JMS AMQP du [projet Apache Qpid](http://qpid.apache.org/). Cette approche est similaire à l'utilisation des files d'attente et des rubriques Service Bus avec AMQP en partant du langage Java comme indiqué [ici](http://azure.microsoft.com/fr-fr/documentation/articles/service-bus-java-how-to-use-jms-api-amqp/). Pour plus d'informations, consultez la [documentation Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) et la page [Service de messagerie Java](http://www.oracle.com/technetwork/java/jms/index.html).
 
 1. Dans Eclipse, créez un projet Java nommé **Sender**.
 
 2. Téléchargez la dernière version de la bibliothèque **Qpid JMS AMQP 1.0** [ici](http://qpid.apache.org/components/qpid-jms/index.html).
 
-3. Extrayez les fichiers de l'archive et copiez les fichiers JAR suivants à partir du répertoire " qpid-amqp-1-0-client-jms\<version>\lib " dans votre projet **Sender** sur Eclipse.
+3. Extrayez les fichiers de l'archive et copiez les fichiers JAR suivants à partir du répertoire d'archive `qpid-amqp-1-0-client-jms\<version>\lib`, dans votre projet Eclipse **Sender**.
 
-4. Dans l'Explorateur de package d'Eclipse, cliquez avec le bouton droit sur le projet **Sender** et sélectionnez **Propriétés**. Dans le volet gauche de la boîte de dialogue, cliquez sur **Chemin d'accès de la génération Java**, cliquez sur l'onglet **Bibliothèques**, puis sur le bouton **Ajouter des archives JAR**. Sélectionnez tous les fichiers JAR précédemment copiés, puis cliquez sur **OK**.
+4. Dans l'Explorateur de Package d'Eclipse, cliquez avec le bouton droit sur le projet **Sender** et sélectionnez **Propriétés**. Dans le volet gauche de la boîte de dialogue, cliquez sur **Chemin d'accès de la génération Java**, puis cliquez sur l'onglet **Bibliothèques** et sur le bouton **Ajouter des archives JAR**. Sélectionnez tous les fichiers JAR précédemment copiés, puis cliquez sur **OK**.
 
 	![][8]
 
-5. Créez un fichier nommé **servicebus.properties** à la racine du projet **Sender**, avec le contenu suivant. N'oubliez pas de remplacer la valeur de votre nom de concentrateur d'événements et de l'espace de noms (ce dernier se présente généralement sous la forme {event hub name}-ns). Vous devez également remplacer une version codée URL de la clé pour le **SendRule** précédemment créé. Vous pouvez la coder par URL [ici](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. Créez un fichier nommé **servicebus.properties** à la racine du projet **Sender**, avec le contenu suivant. N'oubliez pas de remplacer la valeur de votre nom de concentrateur d'événements et le nom de l'espace de noms (ce dernier est généralement `{event hub name}-ns`). Vous devez également remplacer une version codée URL de la clé pour le **SendRule** précédemment créé. Vous pouvez la coder par URL [ici](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 		# servicebus.properties - sample JNDI configuration
 
@@ -24,7 +24,7 @@ Dans cette section, nous allons écrire une application console Java pour envoye
 		# topic.[jndi_name] = [physical_name]
 		queue.EventHub = {event hub name}
 
-5. Créez une classe nommée **Sender**. Ajoutez les instructions " import " suivantes :
+5. Créez une nouvelle classe appelée **Sender**. Ajoutez les instructions `import` suivantes :
 
 		import java.io.BufferedReader;
 		import java.io.IOException;
@@ -92,4 +92,4 @@ Dans cette section, nous allons écrire une application console Java pour envoye
 
 
 <!-- Images -->
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
+[8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png<!--HONumber=42-->

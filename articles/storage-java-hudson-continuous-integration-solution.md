@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Hudson Continuous Integration" pageTitle="Utilisation de Hudson avec le service BLOB Azure | Microsoft Azure" metaKeywords="Hudson, Azure storage, Azure Blob service, Azure storage, Azure hudson" description="Description de l'utilisation de la solution Hudson avec le stockage d'objets blob Azure comme référentiel pour des artefacts de build." metaCanonical="" services="storage" documentationCenter="Java" title="Using Azure Storage with a Hudson Continuous Integration solution" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties 
+	pageTitle="Utilisation de Hudson avec le service BLOB Azure | Microsoft Azure" 
+	description="Description de l'utilisation de la solution Hudson avec le stockage d'objets blob Azure comme référentiel pour des artefacts de build." 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 #Utilisation d'Azure Storage avec une solution d'intégration continue Hudson
 
@@ -14,10 +28,10 @@ Dans ce didacticiel, vous allez utiliser le plug-in Azure Storage pour Hudson CI
 
 -   [Présentation d'Hudson][]
 -   [Avantages de l'utilisation du service BLOB][]
--   [Configuration requise][]
+-   [Conditions préalables][]
 -   [Utilisation du service BLOB avec Hudson CI][]
--   [Installation du plug-in Azure Storage][]
--   [Configuration du plug-in Azure Storage pour l'utilisation de votre compte de stockage][]
+-   [Comment installer le plug-in de stockage Azure][]
+-   [Comment configurer le plug-in de stockage Azure pour utiliser votre compte de stockage][]
 -   [Création d'une action post-build qui télécharge les artefacts de votre build sur votre compte de stockage][]
 -   [Création d'une étape de génération pour télécharger des éléments depuis un stockage d'objets blob Azure][]
 -   [Composants utilisés par le service BLOB][]
@@ -49,15 +63,15 @@ Pour utiliser le service BLOB avec votre solution Hudson CI, vous avez besoin de
 
         `java -jar hudson-3.1.2.war`
 
-    3. Dans votre navigateur, ouvrez " http://localhost:8080/ ". Le tableau de bord Hudson s'ouvre.
+    3. Dans votre navigateur, ouvrez `http://localhost:8080/`. Le tableau de bord Hudson s'ouvre.
 
-    4. Lors de la première utilisation d'Hudson, effectuez l'installation initiale à l'adresse " http://localhost:8080/ ". 
+    4. Lors de la première utilisation d'Hudson, procédez à l'installation initiale à l'adresse `http://localhost:8080/`. 
 
-    5. Une fois l'installation initiale effectuée, annulez l'instance en cours d'exécution du WAR Hudson, redémarrez ce dernier, puis rouvrez le tableau de bord Hudson, " http://localhost:8080/ ", que vous allez utiliser pour installer et configurer le plug-in Azure Storage.
+    5. Une fois l'installation initiale effectuée, annulez l'instance en cours d'exécution du WAR Hudson, redémarrez le WAR Hudson, puis rouvrez le tableau de bord Hudson, `http://localhost:8080/`, que vous allez utiliser pour installer et configurer le plug-in Azure Storage.
 
         Une solution Hudson CI type serait configurée pour s'exécuter en tant que service, mais l'exécution du WAR Hudson depuis la ligne de commande est suffisante pour les besoins de ce didacticiel.
 
-- Un compte Azure. Pour créer un compte Azure, consultez la page <http://www.windowsazure.com>.
+- Un compte Azure. Vous pouvez vous inscrire pour un compte Azure <http://www.windowsazure.com>.
 
 - Un compte de stockage Azure. Si vous ne disposez pas déjà d'un compte de stockage, vous pouvez en créer un en suivant la procédure décrite à la page [Création d'un compte de stockage][].
 
@@ -67,7 +81,7 @@ Pour utiliser le service BLOB avec votre solution Hudson CI, vous avez besoin de
 
 Pour utiliser le service BLOB avec Hudson, vous devez installer le plug-in Azure Storage, configurer le plug-in pour utiliser votre compte de stockage, puis créer une action post-build qui télécharge vos artefacts de build sur votre compte de stockage. Les étapes de cette procédure sont décrites dans les sections suivantes.
 
-## <a id="howtoinstall"></a>Installation du plug-in Azure Storage ##
+## <a id="howtoinstall"></a>Comment installer le plug-in de stockage Azure ##
 
 1. Dans le tableau de bord Hudson, cliquez sur **Gérer Hudson**.
 2. Sur la page **Gérer Hudson**, cliquez sur **Gérer les plug-ins**.
@@ -77,16 +91,16 @@ Pour utiliser le service BLOB avec Hudson, vous devez installer le plug-in Azure
 6. Cliquez sur **Installer**.
 7. Une fois l'installation terminée, redémarrez Hudson.
 
-## <a id="howtoconfigure"></a>Configuration du plug-in Azure Storage pour l'utilisation de votre compte de stockage ##
+## <a id="howtoconfigure"></a>Comment configurer le plug-in de stockage Azure pour utiliser votre compte de stockage ##
 
 1. Dans le tableau de bord Hudson, cliquez sur **Gérer Hudson**.
-2. Sur la page **Gérer Hudson**, cliquez sur **Configurer système**.
+2. Sur la page **Gérer Hudson**, cliquez sur **Configuration du système**.
 3. Dans la section **Configuration du compte Microsoft Azure Storage** :
     1. Entrez le nom de votre compte de stockage, que vous pouvez obtenir à partir du portail Azure, <https://manage.windowsazure.com>.
     2. Entrez la clé de votre compte de stockage, que vous pouvez obtenir à partir du portail Azure.
     3. Utilisez la valeur par défaut pour **URL du point de terminaison de service BLOB** si vous vous servez du cloud public Azure. Si vous vous servez d'un autre cloud Azure, utilisez le point de terminaison spécifié dans le portail de gestion Azure pour votre compte de stockage. 
     4. Cliquez sur **Valider les informations d'identification de stockage** pour valider votre compte de stockage. 
-    5. [Facultatif] Si vous avez d'autres comptes de stockage que vous souhaitez rendre disponibles pour votre solution Hudson CI, cliquez sur **Ajouter d'autres comptes de stockage**.
+    5. [Facultatif] si vous avez d'autres comptes de stockage que vous souhaitez rendre disponibles pour votre solution Hudson CI, cliquez sur **Ajouter d'autres comptes de stockage**.
     6. Cliquez sur **Enregistrer** pour enregistrer vos paramètres.
 
 ## <a id="howtocreatepostbuild"></a>Création d'une action post-build qui télécharge les artefacts de votre build sur votre compte de stockage ##
@@ -106,20 +120,20 @@ Pour les besoins de la formation, nous devons d'abord créer une tâche qui cré
  
 5. Dans la section **Actions post-build** de la configuration de la tâche, cliquez sur **Télécharger les artefacts vers le stockage d'objets blob Microsoft Azure**.
 6. Pour **Nom du compte de stockage**, sélectionnez le compte de stockage à utiliser.
-7. Pour **Nom du conteneur**, spécifiez le nom du conteneur. Le conteneur est créé s'il n'existe pas déjà au téléchargement des artefacts de build. Vous pouvez utiliser des variables d'environnement : pour cet exemple, entrez **${NOM_TÂCHE}** pour le nom du conteneur.
+7. Dans le champ **Nom du conteneur**, indiquez le nom du conteneur. Le conteneur est créé s'il n'existe pas déjà au téléchargement des artefacts de build. Vous pouvez utiliser des variables d'environnement : pour cet exemple, entrez **${NOM_TÂCHE}** pour le nom du conteneur.
 
     **Conseil**
     
     Sous la section **Commande** où vous avez entré un script pour **Exécuter la commande par lot de Windows**, un lien permet d'accéder aux variables d'environnement reconnues par Hudson. Cliquez sur ce lien pour découvrir les noms des variables d'environnement avec leurs descriptions. Notez que les variables d'environnement qui contiennent des caractères spéciaux, telle la variable d'environnement **BUILD_URL**, ne sont pas autorisées comme nom de conteneur ou chemin virtuel commun.
 
 8. Cliquez sur **Rendre le nouveau conteneur public par défaut** pour cet exemple. Si vous voulez utiliser un conteneur privé, vous devez créer une signature d'accès partagé pour autoriser l'accès. La procédure n'entre pas dans le cadre de cette rubrique. Pour en savoir plus sur les signatures d'accès partagé, consultez la page [Créer et utiliser une signature d'accès partagé](http://go.microsoft.com/fwlink/?LinkId=279889).
-9. [Facultatif] Cliquez sur **Nettoyer le conteneur avant le téléchargement** si vous souhaitez que le contenu du conteneur soit effacé avant le téléchargement des artefacts de build (ne sélectionnez pas cette option si vous ne souhaitez pas effacer le contenu du conteneur).
+9. [Facultatif] cliquez sur **Nettoyer le conteneur avant le téléchargement** si vous souhaitez que le contenu du conteneur soit effacé avant le téléchargement des artefacts de build (ne sélectionnez pas cette option si vous ne souhaitez pas effacer le contenu du conteneur).
 10. Pour **Liste des artefacts à télécharger**, entrez **text/*.txt**.
-11. Pour **Chemin virtuel commun pour les artefacts téléchargés**, entrez **${BUILD\_ID}/${BUILD\_NUMBER}**.
+11. Pour **Common virtual path for uploaded artifacts**, entrez **${BUILD\_ID}/${BUILD\_NUMBER}**.
 12. Cliquez sur **Enregistrer** pour enregistrer vos paramètres.
 13. Dans le tableau de bord Hudson, cliquez sur **Générer maintenant** pour exécuter **MyJob**. Examinez l'état dans la sortie de la console. Les messages d'état du stockage Azure sont inclus dans la sortie de la console lorsque l'action post-build commence à télécharger les artefacts de build.
 14. Une fois la tâche terminée correctement, vous pouvez examiner les artefacts de build en ouvrant l'objet blob public.
-    1. Connectez-vous au portail de gestion Azure à l'adresse <https://manage.windowsazure.com>.
+    1. Connectez-vous au portail de gestion Azure, <https://manage.windowsazure.com>.
     2. Cliquez sur **Stockage**.
     3. Cliquez sur le nom du compte de stockage que vous avez utilisé pour Hudson.
     4. Cliquez sur **Conteneurs**.
@@ -134,7 +148,7 @@ La procédure suivante explique comment configurer une étape de génération po
 1. Dans la section **Génération** de la configuration de la tâche, cliquez sur **Ajouter une étape de génération** et choisissez **Télécharger à partir du stockage d'objets blob Azure**.
 2. Pour **Nom du compte de stockage**, sélectionnez le compte de stockage à utiliser.
 3. Dans le champ **Nom du conteneur**, indiquez le nom du conteneur dans lequel se trouvent les objets blob que vous souhaitez télécharger. Vous pouvez utiliser des variables d'environnement.
-4. Dans le champ **Nom de l'objet blob**, indiquez le nom de l'objet blob. Vous pouvez utiliser des variables d'environnement. Vous pouvez aussi utiliser un astérisque comme caractère générique après avoir indiqué la ou les premières lettres du nom de l'objet blob. Par exemple, **projet\*** désignera tous les objets blob dont le nom commence par **projet**.
+4. Dans le champ **Nom d'objet blob**, indiquez le nom de l'objet blob. Vous pouvez utiliser des variables d'environnement. Vous pouvez aussi utiliser un astérisque comme caractère générique après avoir indiqué la ou les premières lettres du nom de l'objet blob. Par exemple, **projet\*** désignera tous les objets blob dont le nom commence par **projet**.
 5. [Facultatif] Dans le champ **Chemin de téléchargement**, indiquez l'emplacement de l'ordinateur Hudson où vous souhaitez télécharger les fichiers depuis le stockage d'objets blob Azure. Vous pouvez utiliser des variables d'environnement. (Si vous n'entrez rien dans le champ **Chemin de téléchargement**, les fichiers du stockage d'objets blob Azure seront téléchargés dans l'espace de travail de la tâche.)
 
 Si vous souhaitez télécharger d'autres éléments depuis le stockage d'objets blob Azure, vous pouvez créer des étapes de génération supplémentaires.
@@ -147,23 +161,23 @@ La section suivante présente les composants du service BLOB.
 
 - **Compte de stockage** : tous les accès à Azure Storage passent par un compte de stockage. Il s'agit du plus haut niveau d'espace de noms permettant d'accéder aux objets blob. Un compte peut contenir un nombre illimité de conteneurs, tant que sa taille totale ne dépasse pas 100 To.
 - **Conteneur** : un conteneur regroupe un ensemble d'objets blob. Tous les objets blob doivent figurer dans un conteneur. Un compte peut contenir un nombre illimité de conteneurs. Un conteneur peut stocker un nombre illimité d'objets blob.
-- **Blob** : fichier de n'importe quel type et de n'importe quelle taille. Il existe deux types d'objets blob qui peuvent être enregistrés dans un stockage Azure : les objets blob de blocs et les objets blob de pages. La plupart des fichiers sont des objets blob de blocs. Un seul objet blob de blocs peut avoir une taille maximale de 200 Go. Ce didacticiel utilise des objets blob de blocs. Les objets blob de pages, autre type d'objets blob, peuvent avoir une taille de 1 To et sont plus efficaces lorsque des plages d'octets dans un fichier sont modifiées fréquemment. Pour plus d'informations sur les objets blob, consultez la page [Présentation des objets blob de blocs et de pages](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee691964.aspx).
+- **Objet blob** : fichier de n'importe quel type et de n'importe quelle taille. Il existe deux types d'objets blob qui peuvent être enregistrés dans un stockage Azure : les objets blob de blocs et les objets blob de pages. La plupart des fichiers sont des objets blob de blocs. Un seul objet blob de blocs peut avoir une taille maximale de 200 Go. Ce didacticiel utilise des objets blob de blocs. Les objets blob de pages, autre type d'objets blob, peuvent avoir une taille de 1 To et sont plus efficaces lorsque des plages d'octets dans un fichier sont modifiées fréquemment. Pour plus d'informations sur les objets blob, consultez la page [Présentation des objets blob de blocs et des objets blob de pages](http://msdn.microsoft.com/fr-FR/library/windowsazure/ee691964.aspx).
 - **Format d'URL** : Les objets blob sont adressables à l'aide du format d'URL suivant :
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
     
     Le format ci-dessus s'applique au cloud public Azure. Si vous utilisez un autre cloud Azure, utilisez le point de terminaison dans le portail de gestion Azure pour déterminer votre URL de point de terminaison.
 
-    Dans le format ci-dessus, " storageaccount " représente le nom de votre compte de stockage, " container_name " représente le nom de votre conteneur et " blob_name " représente le nom de votre objet blob, respectivement. Le nom du conteneur contient plusieurs chemins d'accès, séparés par une barre oblique (**/**). Dans ce didacticiel, nous avons utilisé **MyJob** comme exemple de nom de conteneur et **${BUILD\_ID}/${BUILD\_NUMBER}** comme chemin virtuel commun. L'URL de l'objet blob a donc la forme suivante :
+    Dans le format ci-dessus, `storageaccount` représente le nom de votre compte de stockage, `container_name` représente le nom de votre conteneur et `blob_name` représente le nom de votre objet blob, respectivement. Le nom du conteneur contient plusieurs chemins d'accès, séparés par une barre oblique **/**. Dans ce didacticiel, nous avons utilisé **MyJob** comme exemple de nom de conteneur et **${BUILD\_ID}/${BUILD\_NUMBER}** comme chemin virtuel commun. L'URL de l'objet blob a donc la forme suivante :
 
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
   [Présentation d'Hudson]: #overview
   [Avantages de l'utilisation du service BLOB]: #benefits
-  [Configuration requise]: #prerequisites
+  [Conditions préalables]: #prerequisites
   [Utilisation du service BLOB avec Hudson CI]: #howtouse
-  [Installation du plug-in Azure Storage]: #howtoinstall
-  [Configuration du plug-in Azure Storage pour l'utilisation de votre compte de stockage]: #howtoconfigure
+  [Comment installer le plug-in de stockage Azure]: #howtoinstall
+  [Comment configurer le plug-in de stockage Azure pour utiliser votre compte de stockage]: #howtoconfigure
   [Création d'une action post-build qui télécharge les artefacts de votre build sur votre compte de stockage]: #howtocreatepostbuild
   [Création d'une étape de génération pour télécharger des éléments depuis un stockage d'objets blob Azure]: #howtocreatebuildstep
   [Composants utilisés par le service BLOB]: #components
@@ -171,5 +185,4 @@ La section suivante présente les composants du service BLOB.
   [Présentation d'Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
   [ms-open-tech]: http://msopentech.com
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

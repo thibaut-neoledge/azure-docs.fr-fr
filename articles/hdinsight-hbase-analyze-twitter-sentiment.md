@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Analyze realt-time Twitter sentiment with Hbase in HDInsight" pageTitle="Analyse de sentiments Twitter en temps réel avec HBase dans HDInsight | Azure" metaKeywords="" description="Learn how to do real-time analysis of big data using HBase in an HDInsight (Hadoop) cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze real-time Twitter sentiment with HBase in HDInsight" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Analyse de sentiments Twitter en temps réel avec HBase dans HDInsight | Azure" 
+	description="Apprenez à effectuer une analyse des données volumineuses en temps réel à l'aide de HBase dans un cluster HDInsight (Hadoop)." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/27/2015" 
+	ms.author="jgao"/>
 
 # Analyse de sentiments Twitter en temps réel avec HBase dans HDInsight
 
@@ -11,10 +25,12 @@ Les sites Web sociaux constituent l'un des principaux motifs de l'utilisation du
 
 ![][img-app-arch]
 
-- Recevoir en temps réel des tweets avec emplacement en utilisant une API de diffusion Twitter.
-- Évaluer les sentiments de ces tweets.
-- Stocker les informations de sentiments dans HBase à l'aide du Kit de développement logiciel (SDK) Microsoft HBase.
-- Représenter graphiquement les résultats statistiques en temps réel à l'aide d'une application Web ASP.NET. Visuellement, les tweets ressembleront à ceci :
+- Application de diffusion en continu
+	- Recevoir en temps réel des tweets avec emplacement en utilisant une API de diffusion Twitter.
+	- Évaluer les sentiments de ces tweets.
+	- Stocker les informations de sentiments dans HBase à l'aide du Kit de développement logiciel (SDK) Microsoft HBase.
+- Application Web Azure
+	- Représenter graphiquement les résultats statistiques en temps réel à l'aide d'une application Web ASP.NET. Visuellement, les tweets ressembleront à ceci :
 
 	![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
 	
@@ -53,25 +69,25 @@ Un exemple de solution Visual Studio complète est accessible à l'adresse [http
 
 ##Dans cet article
 
-- [Configuration requise](#prerequisites)
+- [Conditions préalables](#prerequisites)
 - [Création d'une application Twitter](#twitter)
 - [Création d'un service de diffusion Twitter simple](#streaming)
 - [Création d'un site Web Azure afin de visualiser les sentiments Twitter](#web)
 - [Étapes suivantes](#nextsteps)
 
-##<a id="prerequisites"></a>Configuration requise
+##<a id="prerequisites"></a>Conditions préalables
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un cluster HBase dans HDInsight**. Pour les instructions sur la configuration du cluster, voir la section [Prise en main de HBase avec Hadoop dans HDInsight][hBase-get-started]. Vous aurez besoin des données suivantes pour suivre ce didacticiel :
+- **Un cluster HBase dans HDInsight**. Pour plus d'informations sur l'approvisionnement du cluster, consultez la rubrique [Prise en main de HBase avec Hadoop dans HDInsight][hBase-get-started]. Vous aurez besoin des données suivantes pour suivre ce didacticiel :
 
 	<table border="1">
 	<tr><th>Propriété du cluster</th><th>Description</th></tr>
-	<tr><td>Nom du cluster HBase</td><td>Nom de votre cluster HBase dans HDInsight. Par exemple : https://myhbase.azurehdinsight.net/</td></tr>
-	<tr><td>Nom d'utilisateur du cluster</td><td>Nom du compte utilisateur Hadoop. Le nom d'utilisateur Hadoop par défaut est <strong>admin</strong>.</td></tr>
-	<tr><td>Mot de passe utilisateur du cluster</td><td>Mot de passe utilisateur du cluster Hadoop.</td></tr>
+	<tr><td>Nom du cluster HBase</td><td>Il s'agit du nom de votre cluster HBase dans HDInsight. Par exemple :: https://myhbase.azurehdinsight.net/</td></tr>
+	<tr><td>Nom d'utilisateur du cluster</td><td>Le nom du compte utilisateur Hadoop. Le nom d'utilisateur Hadoop par défaut est <strong>admin</strong>.</td></tr>
+	<tr><td>Mot de passe utilisateur du cluster</td><td>Le mot de passe utilisateur du cluster Hadoop.</td></tr>
 	</table>
 
-- **Un poste de travail** où Visual Studio 2013 a été installé. Pour les instructions, voir la section [Installation de Visual Studio](http://msdn.microsoft.com/fr-fr/library/e2h7fzkw.aspx).
+- **Un poste de travail sur lequel **Visual Studio 2013 est installé. Pour plus d'informations, consultez la rubrique [Installation de Visual Studio](http://msdn.microsoft.com/fr-fr/library/e2h7fzkw.aspx).
 
 
 
@@ -79,29 +95,29 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 ##<a id="twitter"></a>Création de l'ID et des secrets d'une application Twitter
 
-Les API de diffusion Twitter utilisent [OAuth](http://oauth.net/) pour autoriser les demandes. 
+Les API de diffusion Twitter utilisent [OAuth](http://oauth.net/) pour autoriser les demandes. Pour utiliser OAuth, la première étape consiste à créer une nouvelle application sur le site du développeur Twitter.
 
-Pour utiliser OAuth, la première étape consiste à créer une nouvelle application sur le site du développeur Twitter.
+**Création de l'ID et des secrets d'une application Twitter :**
 
-**Pour créer l'ID et les secrets d'une application Twitter :**
-
-1. Connectez-vous à [https://apps.twitter.com/](https://apps.twitter.com/). Cliquez sur le lien **S'inscrire maintenant** si vous ne disposez pas d'un compte Twitter.
-2. Cliquez sur **Create New App**.
-3. Renseignez les champs **Name**, **Description** et **Website**. Le champ Website n'est pas réellement utilisé. Il n'est pas nécessaire que ce soit une URL valide. Le tableau suivant affiche quelques exemples de valeurs à utiliser :
+1. Connectez-vous à [https://apps.twitter.com/](https://apps.twitter.com/). Cliquez sur le lien **S'inscrire maintenant** si vous ne disposez pas d'un compte Twitter
+2. Cliquez sur **Créer une application**.
+3. Renseignez les champs **Nom**, **Description** et **Site web**. Le champ Website n'est pas réellement utilisé. Il n'est pas nécessaire que ce soit une URL valide. Le tableau suivant affiche quelques exemples de valeurs à utiliser :
 
 	<table border="1">
-	<tr><th>Valeur du </th><th>champ</th></tr>
-	<tr><td>Name</td><td>MyHDInsightHBaseApp</td></tr>
+	<tr><th>Champ</th><th>Valeur</th></tr>
+	<tr><td>Nom</td><td>MyHDInsightHBaseApp</td></tr>
 	<tr><td>Description</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>Website</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
+	<tr><td>Site Web</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
 	</table>
 
-4. Activez la case à cocher **Yes, I agree**, puis cliquez sur **Create your Twitter application**.
-5. Cliquez sur l'onglet **Permissions**. L'autorisation par défaut est **Read only**. Ces étapes sont suffisantes pour ce didacticiel. 
-6. Cliquez sur l'onglet **API Keys**.
-7. Cliquez sur **Create my access token**.
-8. Cliquez sur **Test OAuth** dans le coin supérieur droit de la page.
-9. Renseignez les valeurs **API key**, **API secret**, **Access token** et **Access token secret**. Vous en aurez besoin plus loin dans le didacticiel.
+	> [WACOM.NOTE] Le nom de l'application Twitter doit être unique.  
+
+4. Activez la case à cocher **J'accepte**, puis cliquez sur **Créer votre application Twitter**.
+5. Cliquez sur l'onglet **Autorisations**. L'autorisation par défaut est **Lecture seule**. Ces étapes sont suffisantes pour ce didacticiel. 
+6. Cliquez sur l'onglet **Clés et jetons d'accès**.
+7. Cliquez sur **Créer mon jeton d'accès**.
+8. Cliquez sur **Tester OAuth** dans le coin supérieur droit de la page.
+9. Renseignez les valeurs **Clé de consommateur**, **Question secrète du client**, **Jeton d'accès** et **Question secrète du jeton d'accès**. Vous en aurez besoin plus loin dans le didacticiel.
 
 	![hdi.hbase.twitter.sentiment.twitter.app][img-twitter-app]
 
@@ -138,14 +154,20 @@ Pour utiliser OAuth, la première étape consiste à créer une nouvelle applica
 
 Créez une application console pour recevoir des tweets, calculer le résultat des sentiments des tweets et envoyer les mots tweets traités à HBase.
 
-**Pour créer la   solution Visual Studio :**
+**Téléchargement du fichier dictionnaire des sentiments :**
+
+1. Accédez à [https://github.com/maxluk/tweet-sentiment](https://github.com/maxluk/tweet-sentiment).
+2. Cliquez sur **Download ZIP**.
+3. Extrayez ce fichier localement.
+4. Prenez note du chemin d'accès au fichier **../tweet-sentiment/SimpleStreamingService/data/dictionary/dictionary.tsv**. Vous en aurez besoin dans l'application.
+
+**Création de la solution Visual Studio :**
 
 1. Ouvrez **Visual Studio**.
 2. Dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
 3. Tapez ou sélectionnez les valeurs suivantes :
 
-	- Modèles : **Visual C#**
-	- Modèle : **Application console**
+	- Modèle : **Visual C# / Windows Desktop / Application console**
 	- Nom : **TweetSentimentStreaming** 
 	- Emplacement : **C:\Tutorials**
 	- Nom de la solution : **TweetSentimentStreaming**
@@ -154,27 +176,26 @@ Créez une application console pour recevoir des tweets, calculer le résultat d
  
 
 
-**Pour installer les packages NuGet et ajouter les références SDK :**
+**Installation de packages NuGet et ajout de références SDK :**
 
 1. Dans le menu **Outils**, cliquez sur **Gestionnaire de package NuGet**, puis sur **Console du Gestionnaire de package**. Le panneau de console s'ouvre au bas de la page.
 2. Utilisez les commandes suivantes pour installer le package [Tweetinvi](https://www.nuget.org/packages/TweetinviAPI/), utilisé pour accéder à l'API Twitter, et le package [Protobuf-net](https://www.nuget.org/packages/protobuf-net/), utilisé pour sérialiser et désérialiser des objets.
 
 		Install-Package TweetinviAPI
 		Install-Package protobuf-net 
-
-	> [WACOM.NOTE][WACOM.NOTE] Le package Microsoft Hbase SDK Nuget n'est plus disponible depuis le 26 août 2014. Le référentiel Github est accessible à l'adresse [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net). En attendant la disponibilité du SDK, vous devrez créer la dll vous-même. Pour obtenir des instructions, voir la section [Prise en main de HBase avec Hadoop dans HDInsight][hdinsight-hbase-get-started].
-
+		Install-Package Microsoft.HBase.Client
+	
 3. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur **Références**, puis cliquez sur **Ajouter une référence**.
-4. Dans le volet gauche, développez **Assemblys**, puis cliquez sur **Framework**.
-5. Dans le volet droit, cochez la case devant **System.Configuration**, puis cliquez sur **OK**.
+4. Dans le volet de gauche, développez **Assemblys**, puis cliquez sur **Framework**.
+5. Dans le volet de droite, cochez la case en regard de **System.Configuration**, puis cliquez sur **OK**.
 
 
 
-**Pour définir une classe de service de diffusion Tweeter :**
+**Définition d'une classe de service de diffusion Tweeter :**
 
 1. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur le projet **TweetSentimentStreaming**, cliquez sur **Ajouter**, puis sur **Classe**.
 2. Dans **Nom**, entrez **HBaseWriter**, puis cliquez sur **Ajouter**.
-3. Dans **HBaseWriter.cs**, ajoutez les instructions using suivantes au début du fichier :
+3. Dans **HBaseWriter.cs**, ajoutez les instructions " using " suivantes au début du fichier :
 
 		using System.IO;		
 		using System.Threading;
@@ -400,9 +421,9 @@ Créez une application console pour recevoir des tweets, calculer le résultat d
 
 	Le code fournit les fonctionnalités suivantes :
 
-	- **Connexion à Hbase [ HBaseWriter() ]** : utilisez le Kit de développement logiciel (SDK) HBase pour créer un objet *ClusterCredentials* avec l'URL du cluster et les informations d'identification utilisateur Hadoop, puis créez un objet *HBaseClient* à l'aide de l'objet ClusterCredentials.
-	- **Création d'une table Hbase [ HBaseWriter() ]** : l'appel de méthode est *HBaseClient.CreateTable()*.
-	- **Écriture dans une table Hbase [ WriterThreadFunction() ]** : l'appel de méthode est *HBaseClient.StoreCells()*.
+	- **Connexion à Hbase [ HBaseWriter()]** : utilisez le Kit de développement logiciel (SDK) HBase pour créer un objet  *ClusterCredentials* avec l'URL du cluster et les informations d'identification utilisateur Hadoop, puis créez un objet  *HBaseClient* à l'aide de l'objet ClusterCredentials.
+	- **Création d'une table Hbase [ HBaseWriter() ]**: l'appel de méthode est  *HBaseClient.CreateTable()*.
+	- **Écriture dans une table Hbase  [ WriterThreadFunction() ]**: l'appel de méthode est  *HBaseClient.StoreCells()*.
 
 **Pour terminer le Program.cs :**
 
@@ -479,13 +500,7 @@ Créez une application console pour recevoir des tweets, calculer le résultat d
             }
         }
 
-**Pour télécharger le fichier dictionnaire des sentiments :**
 
-1. Accédez à [https://github.com/maxluk/tweet-sentiment](https://github.com/maxluk/tweet-sentiment).
-2. Cliquez sur **Download ZIP**.
-3. Extrayez ce fichier localement.
-4. Copiez le fichier à partir de **../tweet-sentiment/SimpleStreamingService/data/dictionary/dictionary.tsv**.
-5. Collez le fichier dans votre solution sous **TweetSentimentStreaming/TweetSentimentStreaming/data/dictionary/dictionary.tsv**.
 
 **Pour exécuter le service de diffusion :**
 
@@ -527,7 +542,7 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 **Pour créer une application Web ASP.NET MVC :**
 
 1. Ouvrez Visual Studio.
-2. Cliquez sur **Fichier**, **Nouveau**, puis sur **Projet**.
+2. Cliquez sur **Fichier**, sur **Nouveau**, puis sur **Projet**.
 3. Entrez les éléments suivants :
 
 	- Catégorie de modèles : **Visual C#/Web**
@@ -544,19 +559,19 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 11. Dans **Configurer les paramètres du site Windows Azure**, sélectionnez la **Région** la plus proche de vous. Il n'est pas nécessaire de spécifier un serveur de base de données. 
 12. Cliquez sur **OK**.
 
-**Pour installer les packages Nuget :**
+**Pour installer des packages Nuget :**
 
 1. Dans le menu **Outils**, cliquez sur **Gestionnaire de package NuGet**, puis sur **Console du Gestionnaire de package**. Le panneau de console est ouvert au bas de la page.
 2. Utilisez la commande suivante pour installer le package [Protobuf-net](https://www.nuget.org/packages/protobuf-net/), utilisé pour sérialiser et désérialiser des objets.
 
 		Install-Package protobuf-net 
 
-	> [WACOM.NOTE][WACOM.NOTE] Le package Microsoft Hbase SDK Nuget n'est plus disponible depuis le 20 août 2014. Le référentiel Github est accessible à l'adresse [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net). En attendant la disponibilité du SDK, vous devrez créer la dll vous-même. Pour obtenir des instructions, voir la section [Prise en main de HBase avec Hadoop dans HDInsight][hdinsight-hbase-get-started].
+	> [AZURE.NOTE] Le package Microsoft Hbase SDK Nuget n'est plus disponible depuis le 20 août 2014. Le référentiel Github est accessible à l'adresse [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net). En attendant la disponibilité du SDK, vous devrez créer la dll vous-même. Pour obtenir des instructions, consultez la rubrique [Prise en main de HBase avec Hadoop dans HDInsight][hdinsight-hbase-get-started].
 
 **Pour ajouter une classe HBaseReader :**
 
 1. Dans l'**Explorateur de solutions**, développez **TweetSentiment**.
-2. Cliquez avec le bouton droit de la souris sur **Modèles**, **Ajouter**, puis sur **Classe**.
+2. Cliquez avec le bouton droit de la souris sur **Modèles**, cliquez sur **Ajouter**, puis sur **Classe**
 3. Dans Nom, entrez **HBaseReader.cs**, puis cliquez sur **Ajouter**.
 4. Remplacez le code par ce qui suit :
 
@@ -670,9 +685,9 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 4. Dans la classe **HBaseReader**, modifiez les valeurs de constante suivantes :
 
 	- **CLUSTERNAME** : le nom du cluster HBase. Par exemple, *https://<HBaseClusterName>.azurehdinsight.net/*. 
-    - **HADOOPUSERNAME** : le nom d'utilisateur Hadoop du cluster HBase. Le nom par défaut correspond à *admin*.
-    - **HADOOPUSERPASSWORD** : le mot de passe utilisateur Hadoop du cluster HBase.
-    - **HBASETABLENAME** = "tweets_by_words";
+    - **HADOOPUSERNAME**: le nom d'utilisateur Hadoop du cluster HBase. Le nom par défaut est  *admin*.
+    - **HADOOPUSERPASSWORD**: le mot de passe utilisateur Hadoop du cluster HBase.
+    - **HBASETABLENAME** = " tweets_by_words " ;
 
 	Le nom de la table HBase est " tweets_by_words ". Les valeurs doivent correspondre aux valeurs que vous avez envoyées au service de diffusion pour que l'application Web lise les données de la même table HBase.
 
@@ -682,7 +697,7 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 **Pour ajouter un contrôleur TweetsController :**
 
 1. Dans l'**Explorateur de solutions**, développez **TweetSentimentWeb**.
-2. Cliquez avec le bouton droit de la souris sur **Contrôleurs**, **Ajouter**, puis sur **Contrôleur**.
+2. Cliquez avec le bouton droit de la souris sur **Contrôleurs**, cliquez sur **Ajouter**, puis sur **Contrôleur**.
 3. Cliquez sur **Contrôleur API 2 Web - Vide**, puis sur **Ajouter**.
 4. Dans Nom du contrôleur, entrez **TweetsController**, puis cliquez sur **Ajouter**.
 5. Dans l'**Explorateur de solutions**, double-cliquez sur TweetsController.cs pour ouvrir le fichier.
@@ -711,17 +726,17 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 		    }
 		}
 
-**Pour ajouter heatmap.js**
+**Pour ajouter heatmap.js** :
 
 1. Dans l'**Explorateur de solutions**, développez **TweetSentimentWeb**.
-2. Cliquez avec le bouton droit de la souris sur **Scripts**, **Ajouter**, puis sur **Fichier JavaScript**.
+2. Cliquez avec le bouton droit de la souris sur **Scripts**, cliquez sur **Ajouter**, puis sur **Fichier JavaScript**.
 3. Dans Nom de l'élément, entrez **heatmap.js**.
 4. Copiez et collez le code suivant dans le fichier. Le code a été écrit par Alastair Aitchison. Pour plus d'informations, rendez-vous à l'adresse [http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/](http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/).
 
 		/*******************************************************************************
-		* Auteur : Alastair Aitchison
-		* Site Web : http://alastaira.wordpress.com
-		* Date : 15 avril 2011
+		* Author: Alastair Aitchison
+		* Website: http://alastaira.wordpress.com
+		* Date: 15th April 2011
 		* 
 		* Description: 
 		* This JavaScript file provides an algorithm that can be used to add a heatmap
@@ -735,7 +750,7 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 		* Chrome 10 browsers. If you can confirm whether it works on other browsers or
 		* not, I'd love to hear from you!
 		
-		* Usage                 :
+		* Usage:
 		* The HeatMapLayer constructor requires:
 		* - A reference to a map object
 		* - An array or Microsoft.Maps.Location items
@@ -970,7 +985,7 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 **Pour ajouter tweetStream.js :**
 
 1. Dans l'**Explorateur de solutions**, développez **TweetSentimentWeb**.
-2. Cliquez avec le bouton droit de la souris sur **Scripts**, **Ajouter**, puis sur **Fichier JavaScript**.
+2. Cliquez avec le bouton droit de la souris sur **Scripts**, cliquez sur **Ajouter**, puis sur **Fichier JavaScript**.
 3. Dans Nom de l'élément, entrez **twitterStream.js**.
 4. Copiez et collez le code suivant dans le fichier :
 
@@ -985,7 +1000,7 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 		function initialize() {
 		    // Initialize the map
 		    var options = {
-		        informations d'identification : "AvFJTZPZv8l3gF8VC3Y7BPBd0r7LKo8dqKG02EAlqg9WAi0M7la6zSIT-HwkMQbx",
+		        credentials: "AvFJTZPZv8l3gF8VC3Y7BPBd0r7LKo8dqKG02EAlqg9WAi0M7la6zSIT-HwkMQbx",
 		        center: new Microsoft.Maps.Location(23.0, 8.0),
 		        mapTypeId: Microsoft.Maps.MapTypeId.ordnanceSurvey,
 		        labelOverlay: Microsoft.Maps.LabelOverlay.hidden,
@@ -1018,14 +1033,14 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 		
 		        colourgradient: {
 		            0.0: 'rgba(0, 255, 255, 0)',
-		            0,1: 'rgba(0, 255, 255, 1)',
-		            0,2: 'rgba(0, 255, 191, 1)',
-		            0,3: 'rgba(0, 255, 127, 1)',
-		            0,4: 'rgba(0, 255, 63, 1)',
-		            0,5: 'rgba(0, 127, 0, 1)',
-		            0,7: 'rgba(0, 159, 0, 1)',
-		            0,8: 'rgba(0, 191, 0, 1)',
-		            0,9: 'rgba(0, 223, 0, 1)',
+		            0.1: 'rgba(0, 255, 255, 1)',
+		            0.2: 'rgba(0, 255, 191, 1)',
+		            0.3: 'rgba(0, 255, 127, 1)',
+		            0.4: 'rgba(0, 255, 63, 1)',
+		            0.5: 'rgba(0, 127, 0, 1)',
+		            0.7: 'rgba(0, 159, 0, 1)',
+		            0.8: 'rgba(0, 191, 0, 1)',
+		            0.9: 'rgba(0, 223, 0, 1)',
 		            1.0: 'rgba(0, 255, 0, 1)'
 		        }
 		    };
@@ -1042,14 +1057,14 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 		
 		        colourgradient: {
 		            0.0: 'rgba(0, 255, 255, 0)',
-		            0,1: 'rgba(0, 255, 255, 1)',
-		            0,2: 'rgba(0, 191, 255, 1)',
-		            0,3: 'rgba(0, 127, 255, 1)',
-		            0,4: 'rgba(0, 63, 255, 1)',
-		            0,5: 'rgba(0, 0, 127, 1)',
-		            0,7: 'rgba(0, 0, 159, 1)',
-		            0,8: 'rgba(0, 0, 191, 1)',
-		            0,9: 'rgba(0, 0, 223, 1)',
+		            0.1: 'rgba(0, 255, 255, 1)',
+		            0.2: 'rgba(0, 191, 255, 1)',
+		            0.3: 'rgba(0, 127, 255, 1)',
+		            0.4: 'rgba(0, 63, 255, 1)',
+		            0.5: 'rgba(0, 0, 127, 1)',
+		            0.7: 'rgba(0, 0, 159, 1)',
+		            0.8: 'rgba(0, 0, 191, 1)',
+		            0.9: 'rgba(0, 0, 223, 1)',
 		            1.0: 'rgba(0, 0, 255, 1)'
 		        }
 		    };
@@ -1161,7 +1176,7 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 		    if (liveTweetsNeg.length == 0) {
 		        return "";
 		    }
-		    else{
+		    else {
 		        var ratio = liveTweetsPos.length / liveTweetsNeg.length;
 		        var str = parseFloat(Math.round(ratio * 10) / 10).toFixed(1);
 		        return "Positive/Negative Ratio: " + str;
@@ -1171,7 +1186,7 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 
 **Pour modifier layout.cshtml :**
 
-1. Dans l'**Explorateur de solutions**, développez **TweetSentimentWeb**, **Affichages**, **Partagé**, puis double-cliquez sur **Layout.cshtml**.
+1. Dans l'**Explorateur de solutions**, développez successivement **TweetSentimentWeb**, **Affichages** et **Partagé**, puis double-cliquez sur **Layout.cshtml**.
 2. Remplacez le contenu par ce qui suit :
 
 		<!DOCTYPE html>
@@ -1234,9 +1249,9 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 
 
 
-**Pour modifier Index.cshtml**
+**Pour modifier le fichier Index.cshtml** :
 
-1. Dans l'**Explorateur de solutions**, développez **TweetSentimentWeb**, **Affichages**, **Accueil**, puis double-cliquez sur **Index.cshtml**.
+1. Dans l'**Explorateur de solutions**, développez successivement **TweetSentimentWeb**, **Affichages** et **Accueil**, puis double-cliquez sur **Index.cshtml**.
 2. Remplacez le contenu par ce qui suit :
 
 		@{
@@ -1247,9 +1262,9 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 		    <div id="map_canvas"/>
 		</div>
 
-**Pour modifier le fichier site.css :**
+**Pour modifier le fichier site.css** :
 
-1. Dans l'**Explorateur de solutions**, développez **TweetSentimentWeb**, **Contenu**, puis double-cliquez sur **Site.css**..
+1. Dans l'**Explorateur de solutions**, développez **TweetSentimentWeb** et **Contenu**, puis double-cliquez sur **Site.css**.
 2. Ajoutez le code suivant au fichier.
 		
 		/* make container, and thus map, 100% width */
@@ -1270,7 +1285,7 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 		  font-size: 30px;
 		}
 
-**Pour modifier le fichier global.asax :**
+**Pour modifier le fichier global.asax** :
 
 1. Dans l'**Explorateur de solutions**, développez **TweetSentimentWeb**, puis double-cliquez sur **Global.asax**.
 2. Ajoutez les instructions using suivantes :
@@ -1291,11 +1306,11 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 
 	![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
 2. Dans la zone de texte, entrez un mot clé, puis cliquez sur **OK**.  En fonction des données collectées dans la table HBase, il se peut que certains mots clés soient introuvables. Essayez quelques mots clés communs tels que " amour ", " xbox ", " playstation ", etc. 
-3. Passez entre **Positif**, **Neutre** et **Négatif** pour comparer les sentiments sur le sujet.
+3. Basculez entre **Positif**, **Neutre** et **Négatif** pour comparer les sentiments sur le sujet.
 4. Laissez le service de diffusion s'exécuter une heure de plus, puis effectuez une recherche sur le même mot clé et comparez les résultats.
 
  
-Vous pouvez également déployer l'application sur un site Web Azure.  [Pour les instructions, consultez la page ][Prise en main des sites Web Azure et de ASP.NET].
+Vous pouvez également déployer l'application sur un site Web Azure.  Pour plus d'informations, consultez la page [Prise en main des sites Web Azure et d'ASP.NET][website-get-started].
  
 ##<a id="nextsteps"></a>Étapes suivantes
 
@@ -1349,3 +1364,4 @@ Dans ce didacticiel, nous avons appris à recevoir des tweets, analyser les sent
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
 [hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
 
+<!--HONumber=42-->

@@ -1,15 +1,29 @@
-﻿<properties title="Getting Started with Azure Storage" pageTitle="Prise en main d'Azure Storage" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="Prise en main d'Azure Storage" 
+	description="" 
+	services="storage" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="storage" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Mise en route](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
-> - [Que s'est-il passé ?](/documentation/articles/vs-storage-aspnet-what-happened/)
+> - [Que s'est-il passé](/documentation/articles/vs-storage-aspnet-what-happened/)
 
 ## Prise en main d'Azure Storage (projets ASP.NET)
 
 > [AZURE.SELECTOR]
-> - [Objets blob](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
+> - [Objets BLOB](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
 > - [Files d'attente](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
 > - [Tables](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
 
@@ -21,12 +35,12 @@ Ajoutez les déclarations d'espace de noms suivantes en haut de chaque fichier C
 	using Microsoft.WindowsAzure.Storage.Auth;
 	using Microsoft.WindowsAzure.Storage.Queue;
 
-#####Obtention de la chaîne de connexion de stockage
-Pour pouvoir exploiter une file d'attente, vous devez avant tout obtenir la chaîne de connexion du compte de stockage dans lequel résideront les files d'attente. Pour représenter les informations de votre compte de stockage, vous pouvez utiliser le type **CloudStorageAccount**. Pour les projets ASP.NET, vous pouvez utiliser le type **ConfigurationManager** afin d'obtenir votre chaîne de connexion de stockage et les informations sur votre compte de stockage à partir de la configuration du service Azure, comme illustré dans le code suivant :
+##### Obtention de la chaîne de connexion de stockage
+Pour pouvoir exploiter une file d'attente, vous devez avant tout obtenir la chaîne de connexion du compte de stockage dans lequel résideront les files d'attente. Pour représenter les informations de votre compte de stockage, vous pouvez utiliser le type **CloudStorageAccount**. Pour les projets ASP.NET, vous pouvez utiliser le type **ConfigurationManager** afin d'obtenir votre chaîne de connexion de stockage et les informations sur votre compte de stockage à partir de la configuration du service Azure, comme illustré dans le code suivant.
 
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
       ConfigurationManager.GetSetting("<storageAccountName>_AzureStorageConnectionString"));
 
-[WACOM.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
+[AZURE.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
 
-Pour plus d'informations, consultez la page [ASP.NET](http://www.asp.net).
+Pour plus d'informations, consultez la page [ASP.NET](http://www.asp.net).<!--HONumber=42-->

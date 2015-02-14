@@ -1,58 +1,63 @@
-Pour plus d'informations sur les disques des machines virtuelles Azure, consultez la rubrique [À propos des disques des machines virtuelles dans Azure][À propos des disques des machines virtuelles dans Azure].
+﻿
+Pour plus d'informations sur les disques, consultez la page [À propos des disques des machines virtuelles dans Azure](http://go.microsoft.com/fwlink/p/?LinkId=403697).
 
-## <span id="attachempty"></span></a> Attacher un disque vide
-
+##<a id="attachempty"></a>Procédure : Attacher un disque vide
 Pour ajouter un disque de données, le plus simple consiste à attacher un disque vide, car Azure crée le fichier de disque dur virtuel (.vhd) pour vous et le stocke dans le compte de stockage.
 
-1.  Cliquez sur **Machines virtuelles**, puis sélectionnez la machine virtuelle appropriée.
+1. Cliquez sur **Machines virtuelles**, puis sélectionnez la machine virtuelle appropriée.
 
-2.  Dans la barre de commandes, cliquez sur **Attach**, puis sélectionnez **Attach Empty Disk**.
+2. Dans la barre de commandes, cliquez sur **Attacher**, puis sur **Attacher un disque vide**.
 
-    ![Attacher un disque vide][Attacher un disque vide]
 
-    La boîte de dialogue **Attach Empty Disk** apparaît.
+	![Attacher un disque vide](./media/howto-attach-disk-window-linux/AttachEmptyDisk.png)
 
-    ![Attacher un nouveau disque vide][Attacher un nouveau disque vide]
+3.	La boîte de dialogue **Attacher un disque vide** apparaît.
 
-3.  Dans **Nom de fichier**, acceptez le nom généré automatiquement ou entrez un nom descriptif. Le disque de données créé à partir du fichier de disque dur virtuel (.vhd) utilisera toujours le nom généré automatiquement.
 
-4.  Dans le champ **Size**, entrez la taille du disque de données.
+	![Attacher un nouveau disque vide](./media/howto-attach-disk-window-linux/AttachEmptyDetail.png)
 
-5.  Cliquez sur la coche pour attacher le disque de données vide.
+ 
+	Effectuez les actions suivantes :
 
-    Le disque de données est désormais répertorié dans le tableau de bord de la machine virtuelle.
+	- Dans **Nom de fichier**, acceptez le nom par défaut ou tapez-en un autre pour le fichier .vhd, qui est utilisé pour le disque. Le disque de données utilise un nom généré automatiquement, même si vous tapez un autre nom pour le fichier .vhd.
 
-    ![Disque de données vide correctement attaché][Disque de données vide correctement attaché]
+	- Tapez la **Taille (Go)** du disque de données. 
 
-## <span id="attachexisting"></span></a> Association d'un disque existant
+	- Cliquez sur la coche pour continuer.
 
-Pour attacher un disque existant, vous devez disposer d'un fichier .vhd dans un compte de stockage. Utilisez le cmdlet [Add-AzureVhd][Add-AzureVhd] pour télécharger le fichier .vhd dans le compte de stockage. Après avoir créé et téléchargé le fichier .vhd, vous pouvez l'attacher à une machine virtuelle.
+4.	Une fois créé et attaché, le disque de données est répertorié dans le tableau de bord de la machine virtuelle.
 
-1.  Cliquez sur **Machines virtuelles**, puis sélectionnez la machine virtuelle appropriée.
+	![Disque de données vide correctement attaché](./media/howto-attach-disk-window-linux/AttachEmptySuccess.png)
 
-2.  Dans la barre de commandes, cliquez sur **Attach**, puis sur **Attach Disk**.
+##<a id="attachexisting"></a>Procédure : Association d'un disque existant
 
-    ![Attacher un disque de données][Attacher un disque de données]
+Pour attacher un disque existant, vous devez disposer d'un fichier .vhd dans un compte de stockage. Utilisez l'applet de commande [Add-AzureVhd](http://go.microsoft.com/FWLink/p/?LinkID=391684) pour télécharger le fichier .vhd sur le compte de stockage. Après avoir créé et téléchargé le fichier .vhd, vous pouvez l'attacher à une machine virtuelle. 
 
-    La boîte de dialogue **Attach Disk** s’affiche.
+1. Cliquez sur **Machines virtuelles**, puis sélectionnez la machine virtuelle appropriée.
 
-    ![Entrer les détails du disque de données][Entrer les détails du disque de données]
+2. Dans la barre de commandes, cliquez sur **Attacher**, puis sélectionnez **Attacher un disque**.
 
-3.  Sélectionnez le disque de données que vous souhaitez attacher à la machine virtuelle.
-4.  Cliquez sur la coche pour attacher le disque de données à la machine virtuelle.
 
-    Le disque de données est désormais répertorié dans le tableau de bord de la machine virtuelle.
+	![Attacher un disque de données](./media/howto-attach-disk-window-linux/AttachExistingDisk.png)
 
-    ![Disque de données correctement attaché][Disque de données correctement attaché]
+	La boîte de dialogue **Attacher un disque** apparaît.
 
-> [WACOM.NOTE]
+
+
+	![Entrer les détails du disque de données](./media/howto-attach-disk-window-linux/AttachExistingDetail.png)
+
+3. Sélectionnez le disque de données que vous souhaitez attacher à la machine virtuelle.
+
+4. Cliquez sur la coche pour attacher le disque de données à la machine virtuelle.
+ 
+5.	Une fois attaché, le disque de données est répertorié dans le tableau de bord de la machine virtuelle.
+
+
+	![Disque de données correctement attaché](./media/howto-attach-disk-window-linux/AttachExistingSuccess.png)
+
+> [AZURE.NOTE] 
 > Après avoir ajouté un disque de données, vous devez vous connecter à la machine virtuelle et initialiser le disque. La machine virtuelle pourra alors utiliser ce disque pour le stockage.
 
-  [À propos des disques des machines virtuelles dans Azure]: http://go.microsoft.com/fwlink/p/?LinkId=403697
-  [Attacher un disque vide]: ./media/howto-attach-disk-window-linux/AttachDiskWindows.png
-  [Attacher un nouveau disque vide]: ./media/howto-attach-disk-window-linux/AttachNewDiskWindows.png
-  [Disque de données vide correctement attaché]: ./media/howto-attach-disk-window-linux/AttachEmptySuccess.png
-  [Add-AzureVhd]: http://go.microsoft.com/FWLink/p/?LinkID=391684
-  [Attacher un disque de données]: ./media/howto-attach-disk-window-linux/AttachExistingDiskWindows.png
-  [Entrer les détails du disque de données]: ./media/howto-attach-disk-window-linux/AttachExistingDisk.png
-  [Disque de données correctement attaché]: ./media/howto-attach-disk-window-linux/AttachSuccess.png
+
+
+<!--HONumber=42-->
