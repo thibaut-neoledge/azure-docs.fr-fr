@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Interrogation de données volumineuses (" Big Data ") à partir d'un stockage d'objets blob compatible Hadoop | Azure" 
+	pageTitle="Interrogation de données volumineuses (Big Data) à partir d'un stockage d'objets blob compatible Hadoop | Azure" 
 	description="HDInsight utilise le stockage d'objets blob Hadoop comme magasin de données volumineuses pour HDFS. Apprenez à interroger depuis le stockage d'objets blob et à stocker les résultats de votre analyse." 
 	services="storage, hdinsight" 
 	documentationCenter="" 
