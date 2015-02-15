@@ -127,7 +127,7 @@ Vous avez également la possibilité de créer votre propre conteneur d'objets b
 
 
 ### Création d'un conteneur avec Azure PowerShell
-Vous pouvez utiliser [Azure PowerShell][powershell-install] pour créer des conteneurs d'objets blob. Voici un exemple de script PowerShell :
+Vous pouvez utiliser [Azure PowerShell][powershell-install] pour créer des conteneurs d'objets blob. Voici un exemple de script PowerShell:
 
 	$subscriptionName = "<SubscriptionName>"	# Azure subscription name
 	$storageAccountName = "<AzureStorageAccountName>" # The storage account that you will create
