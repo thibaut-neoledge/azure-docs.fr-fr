@@ -129,4 +129,5 @@ Plus tard, vous devrez utiliser ce certificat pour générer un fichier .p12 et 
 9. Sous **Cibles**, cliquez sur **Démarrage rapide**, développez **Identité de signature du code**, puis sélectionnez le nouveau profil sous **Débogage**. Ceci vérifie que le projet Xcode utilise le nouveau profil pour la signature du code. Vous devez ensuite télécharger le certificat vers Azure.
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step17.png)
+
 <!--HONumber=42-->

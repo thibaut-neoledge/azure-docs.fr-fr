@@ -90,4 +90,5 @@
 7. Republiez le projet de service mobile.
 
 Le service utilise maintenant la balise de l'identifiant utilisateur pour envoyer une notification Push (avec le texte de l'élément inséré) à toutes les inscriptions créées par l'utilisateur connecté.
- <!--HONumber=42-->
+ 
+<!--HONumber=42-->

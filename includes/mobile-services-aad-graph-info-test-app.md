@@ -10,4 +10,5 @@ Les instructions et les captures d'écran ci-dessous s'appliquent au test d'un c
 
     ![](./media/mobile-services-aad-graph-info-test-app/custom-greeting.png)
 
+
 <!--HONumber=42-->

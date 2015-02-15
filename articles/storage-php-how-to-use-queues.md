@@ -400,4 +400,5 @@ Maintenant que vous avez appris les principes de base du service de File d'atten
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Portail de gestion Azure]: http://manage.windowsazure.com/
 [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-FR/library/windowsazure/gg433040.aspx
+
 <!--HONumber=42-->

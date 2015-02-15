@@ -120,4 +120,5 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[Guide du développeur pour les concentrateurs d'événements]: http://msdn.microsoft.com/fr-fr/library/azure/dn789972.aspx<!--HONumber=42-->
+[Guide du développeur pour les concentrateurs d'événements]: http://msdn.microsoft.com/fr-fr/library/azure/dn789972.aspx
+<!--HONumber=42-->

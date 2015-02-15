@@ -580,4 +580,5 @@ Maintenant que vous avez appris les bases du stockage de tables, suivez ces lien
 [API REST d'Azure Storage]: http://msdn.microsoft.com/fr-FR/library/azure/gg433040.aspx
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [billet de blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+
 <!--HONumber=42-->

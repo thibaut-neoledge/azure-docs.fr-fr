@@ -7,4 +7,5 @@ Développez le déploiement souhaité :
 Cliquez sur **Afficher le journal** pour afficher la sortie du script de déploiement personnalisé :
 
 ![](./media/web-sites-python-troubleshoot-deployment/portal-deployment-log.png)
+
 <!--HONumber=42-->

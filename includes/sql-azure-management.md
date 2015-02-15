@@ -244,4 +244,5 @@ La base de données SQL prend en charge plusieurs vues de gestion dynamique vous
   [Présentation de la base de données SQL]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336230.aspx
   [Modèle de déploiement de la base de données SQL]: http://msdn.microsoft.com/fr-fr/library/ee336227.aspx
   [Ajout d'utilisateurs à votre base de données SQL]: http://blogs.msdn.com/b/sqlazure/archive/2010/06/21/10028038.aspx
+
 <!--HONumber=42-->

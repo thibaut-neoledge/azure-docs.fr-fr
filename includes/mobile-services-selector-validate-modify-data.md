@@ -11,4 +11,5 @@
 - [(Xamarin Android | Javascript)](/fr-FR/documentation/articles/partner-xamarin-mobile-services-android-validate-modify-data-server-scripts/)
 - [(HTML | Javascript)](/fr-FR/documentation/articles/mobile-services-html-validate-modify-data-server-scripts/)
 
+
 <!--HONumber=42-->

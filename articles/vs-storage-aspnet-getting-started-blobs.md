@@ -46,4 +46,5 @@ Before you can do anything with a blob, you need to get the connection string fo
 [AZURE.INCLUDE [vs-storage-getting-started-blobs-include](../includes/vs-storage-getting-started-blobs-include.md)]
 
 For more information, see [ASP.NET](http://www.asp.net).
+
 <!--HONumber=42-->

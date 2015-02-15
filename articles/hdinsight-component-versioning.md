@@ -145,4 +145,5 @@ La **Date d'obsolescence** est la date après laquelle la version du cluster ne 
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
 [zookeeper]: http://zookeeper.apache.org/ 
+
 <!--HONumber=42-->

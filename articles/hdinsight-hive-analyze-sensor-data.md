@@ -50,4 +50,5 @@ Dans cet exemple, vous allez utiliser Hive pour traiter les données d'historiqu
 2. Dans la page web qui s'ouvre, cliquez sur l'onglet **Galerie de mise en route**, puis sous la catégorie **Exemples**, cliquez sur l'exemple **Analyse du journal du site web**.
 
 3. Suivez les instructions fournies dans la page web pour terminer l'exemple.
+
 <!--HONumber=42-->

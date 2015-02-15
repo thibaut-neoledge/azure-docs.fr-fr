@@ -156,4 +156,5 @@ Une fois ajouté, le disque de données que vous venez d'attacher à la machine 
 	>[AZURE.NOTE] La suppression ultérieure d'un disque de données sans modifier fstab pourrait entraîner l'échec du démarrage de la machine virtuelle. S'il s'agit d'une occurrence courante, la plupart des distributions proposent les options `nofail` et/ou `nobootwait` fstab qui permettent à un système de démarrer même si le disque n'est pas présent. Pour plus d'informations sur ces paramètres, consultez la documentation de votre distribution.
 
 
+
 <!--HONumber=42-->

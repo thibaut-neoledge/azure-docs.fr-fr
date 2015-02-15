@@ -386,4 +386,5 @@ pour apprendre à réaliser des tâches de stockage plus complexes.
   [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-FR/library/windowsazure/gg433040.aspx
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
  [Site Web avec WebMatrix]: /fr-FR/documentation/articles/web-sites-nodejs-use-webmatrix/
+
 <!--HONumber=42-->

@@ -173,4 +173,5 @@ Maintenant que vous avez appris les bases du stockage des files d'attente, suive
 - Accédez au [référentiel du Kit de développement logiciel (SDK) Azure pour Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub.
 
 Pour obtenir une comparaison entre le service de File d'attente Azure abordé dans cette rubrique et les files d'attente Azure Service Bus abordées dans la rubrique [Utilisation des files d'attente Service Bus](/fr-FR/develop/ruby/how-to-guides/service-bus-queues/), consultez la page [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences](http://msdn.microsoft.com/fr-FR/library/windowsazure/hh767287.aspx)
+
 <!--HONumber=42-->

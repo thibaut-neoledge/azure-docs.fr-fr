@@ -38,4 +38,5 @@
 
 5. Regénérez le projet de service principal .NET todolist et vérifiez qu'aucune erreur de génération n'est survenue. 
 
-Mettez ensuite à jour l'application client pour afficher les nouvelles données **CompleteDate**.<!--HONumber=42-->
+Mettez ensuite à jour l'application client pour afficher les nouvelles données **CompleteDate**.
+<!--HONumber=42-->

@@ -12,4 +12,5 @@
 - [(Xamarin Android | .NET)](/fr-FR/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push/)
 - [(Xamarin Android | Javascript)](/fr-FR/documentation/articles/partner-xamarin-mobile-services-android-get-started-push/)
 
+
 <!--HONumber=42-->

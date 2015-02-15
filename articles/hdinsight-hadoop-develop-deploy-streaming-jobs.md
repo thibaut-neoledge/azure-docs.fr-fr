@@ -562,4 +562,5 @@ Dans ce didacticiel, vous avez appris à développer une tâche MapReduce de dif
 
 
 
+
 <!--HONumber=42-->

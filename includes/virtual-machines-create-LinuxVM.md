@@ -30,4 +30,5 @@ Dans la barre de commandes, cliquez sur **Nouveau**.
 15.  Sous **Agent de machine virtuelle**, consultez les extensions disponibles. Ces extensions proposent différentes fonctionnalités qui facilitent l'utilisation et la gestion des machines virtuelles. Pour plus d'informations, consultez la page [Extensions de machine virtuelle Azure](http://go.microsoft.com/FWLink/p/?LinkID=390493). 
 
 
-Une fois la machine virtuelle et le service cloud créés par Azure, le portail de gestion répertorie la nouvelle machine virtuelle sous **Machines virtuelles** et le service cloud sous **Services Cloud**. Ces derniers démarrent automatiquement.<!--HONumber=42-->
+Une fois la machine virtuelle et le service cloud créés par Azure, le portail de gestion répertorie la nouvelle machine virtuelle sous **Machines virtuelles** et le service cloud sous **Services Cloud**. Ces derniers démarrent automatiquement.
+<!--HONumber=42-->

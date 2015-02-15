@@ -1364,4 +1364,5 @@ Dans ce didacticiel, nous avons appris à recevoir des tweets, analyser les sent
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
 [hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
 
+
 <!--HONumber=42-->

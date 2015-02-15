@@ -106,4 +106,5 @@ Dans cette section, nous allons écrire une application en C pour envoyer des é
 
 > [AZURE.NOTE] Dans le code ci-dessus, nous utilisons une fenêtre sortante de 1 pour forcer l'envoi des messages dès que possible. En général, votre application doit essayer d'envoyer les messages par lot pour augmenter le débit. Consultez la [page Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) pour plus d'informations sur l'utilisation de la bibliothèque Qpid Proton dans l'ensemble des environnements et à partir des plateformes pour lesquelles des liaisons sont fournies (actuellement Perl, PHP, Python et Ruby).
 
+
 <!--HONumber=42-->

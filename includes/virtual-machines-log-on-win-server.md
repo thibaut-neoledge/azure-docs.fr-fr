@@ -30,4 +30,5 @@ Cliquez sur **Oui** pour vérifier l'identité de la machine virtuelle.
 
 Vous pouvez désormais travailler à distance avec l'ordinateur virtuel.
 
+
 <!--HONumber=42-->

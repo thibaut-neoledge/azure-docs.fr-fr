@@ -13,4 +13,5 @@
 - [(Xamarin Android | Javascript)](/fr-FR/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/)
 - [(HTML | Javascript)](/fr-FR/documentation/articles/mobile-services-html-get-started-data/)
 
+
 <!--HONumber=42-->

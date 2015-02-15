@@ -137,4 +137,5 @@ Cet exemple montre comment créer un enregistrement A pour le domaine racine. Po
   [Boîte de dialogue Validation du domaine personnalisé]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
   [Mappage du contenu CDN à un domaine personnalisé]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg680307.aspx
   [vip]: ./media/custom-dns/csvip.png
-  [csurl]: ./media/custom-dns/csurl.png<!--HONumber=42-->
+  [csurl]: ./media/custom-dns/csurl.png
+<!--HONumber=42-->

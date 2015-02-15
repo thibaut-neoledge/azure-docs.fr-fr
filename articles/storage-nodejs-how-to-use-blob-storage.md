@@ -412,4 +412,5 @@ pour apprendre à réaliser des tâches de stockage plus complexes.
   [Service cloud Node.js]: /fr-FR/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-FR/library/windowsazure/gg433040.aspx
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
+
 <!--HONumber=42-->

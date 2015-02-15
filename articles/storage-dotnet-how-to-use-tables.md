@@ -484,4 +484,5 @@ Maintenant que vous avez appris les bases du stockage de tables, suivez ces lien
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
+
 <!--HONumber=42-->

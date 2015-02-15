@@ -98,4 +98,5 @@ Pour supprimer un compte de stockage que vous n'utilisez plus, utilisez **Suppri
 	Cliquez sur le nom du compte de stockage pour ouvrir le tableau de bord, puis cliquez sur **Supprimer**.
 
 3. Cliquez sur **Oui** pour confirmer que vous souhaitez supprimer le compte de stockage.
+
 <!--HONumber=42-->

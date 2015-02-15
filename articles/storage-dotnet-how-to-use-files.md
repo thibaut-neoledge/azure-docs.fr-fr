@@ -277,4 +277,5 @@ pour obtenir des informations plus détaillées.
 
 [files-concepts]: ./media/storage-dotnet-how-to-use-files/files-concepts.png
 
+
 <!--HONumber=42-->

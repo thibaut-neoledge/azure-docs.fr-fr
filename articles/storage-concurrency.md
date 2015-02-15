@@ -280,4 +280,5 @@ Pour plus d'informations concernant Azure Storage, consultez la page :
 - Prise en main du stockage d'[objets blob](http://azure.microsoft.com/fr-FR/documentation/articles/storage-dotnet-how-to-use-blobs/), de [tables](http://azure.microsoft.com/fr-FR/documentation/articles/storage-dotnet-how-to-use-tables/) et de [files d'attente](http://azure.microsoft.com/fr-FR/documentation/articles/storage-dotnet-how-to-use-queues/)
 - Architecture de stockage - [Windows Azure Storage : un service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
+
 <!--HONumber=42-->

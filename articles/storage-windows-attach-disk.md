@@ -67,4 +67,5 @@ Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas,
 > [AZURE.NOTE] Le nombre de disques que vous pouvez attacher à une machine virtuelle dépend de la taille de celle-ci. Par exemple, vous pouvez uniquement attacher 4 disques à l'A2 Standard, mais vous pouvez joindre 32 disques à la D14 Standard et 64 disques au G5 Standard. Vous pouvez trouver plus d'informations sur le nombre de disques pouvant être attachés, selon la taille de la machine virtuelle [ici](https://msdn.microsoft.com/fr-FR/library/azure/dn197896.aspx).
 
 
+
 <!--HONumber=42-->

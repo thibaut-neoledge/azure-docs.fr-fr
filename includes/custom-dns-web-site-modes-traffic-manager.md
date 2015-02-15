@@ -2,4 +2,5 @@
 
 Pour plus d'informations sur les modes de sites web, notamment sur la modification du mode de votre site, consultez la page [Mise à l'échelle de sites Web].(/fr-fr/documentation/articles/web-sites-scale/).
 
+
 <!--HONumber=42-->

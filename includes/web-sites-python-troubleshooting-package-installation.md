@@ -67,4 +67,5 @@ Nous vous recommandons de supprimer l'environnement virtuel existant sur le site
 [Création d'une machine virtuelle exécutant Windows]: http://azure.microsoft.com/fr-fr/documentation/articles/virtual-machines-windows-tutorial/
 [Compilateur Microsoft Visual C++ pour Python 2.7]: http:://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
+
 <!--HONumber=42-->

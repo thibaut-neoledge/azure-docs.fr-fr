@@ -22,4 +22,5 @@ Après avoir testé l'application cliente sur le service mobile local, la derni�
 
 	Une fois la publication effectuée, vous accédez à une page vous confirmant l'exécution du service mobile sur Azure, cette fois.
 
+
 <!--HONumber=42-->

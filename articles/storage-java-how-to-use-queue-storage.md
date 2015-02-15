@@ -407,4 +407,5 @@ Maintenant que vous avez appris les bases du stockage des files d'attente, suive
 [Référence du Kit de développement logiciel (SDK) du client Azure Storage]: http://dl.windowsazure.com/storage/javadoc/
 [API REST d'Azure Storage]: http://msdn.microsoft.com/fr-FR/library/azure/gg433040.aspx
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
+
 <!--HONumber=42-->

@@ -46,4 +46,5 @@ Le disque reste dans le stockage, mais il n'est plus attaché à une machine vir
 [attachdisk]:/fr-fr/manage/windows/how-to-guides/attach-a-disk/
 
 [À propos des disques et des images]:http://go.microsoft.com/fwlink/p/?LinkId=263439
+
 <!--HONumber=42-->

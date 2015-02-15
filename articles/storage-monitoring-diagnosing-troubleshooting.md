@@ -1234,4 +1234,5 @@ Au moment de la rédaction du présent document, Application Insights était à 
 [8]: ./media/storage-monitoring-diagnosing-troubleshooting/wireshark-screenshot-3.png
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
+
 <!--HONumber=42-->

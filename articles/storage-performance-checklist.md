@@ -384,4 +384,5 @@ Il est conseillé d'utiliser des files d'attente pour rendre l'architecture de v
 
 ##Conclusion
 Dans cet article, nous avons passé en revue quelques-unes des pratiques utilisées le plus couramment pour optimiser les performances lors de l'utilisation d'Azure Storage. Nous invitons tous les développeurs d'applications à évaluer chacune d'elles et à prendre en compte les recommandations énoncées afin de bénéficier de performances optimales pour les applications qui utilisent Azure Storage.
+
 <!--HONumber=42-->

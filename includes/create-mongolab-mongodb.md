@@ -33,4 +33,5 @@ Pour créer une base de données MongoDB à partir de [Microsoft Azure Store], p
 [waws]: /fr-fr/manage/services/web-sites/
 [Microsoft Azure Store]: /fr-fr/store/overview/
 [portail]: http://windows.azure.com/
+
 <!--HONumber=42-->

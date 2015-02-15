@@ -405,4 +405,5 @@ La procédure suivante présente l'arrêt et la suppression de l'application.
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/fr-FR/library/windowsazure/gg433040.aspx
   [Node.js Web Application]: http://www.windowsazure.com/fr-FR/develop/nodejs/tutorials/getting-started/
  
+
 <!--HONumber=42-->

@@ -383,4 +383,5 @@ du service de stockage d'objets blob à partir de Java].
   [Création d'un compte de stockage]: http://www.windowsazure.com/fr-FR/manage/services/storage/how-to-create-a-storage-account/
   [Gestion des comptes de stockage]: http://www.windowsazure.com/fr-FR/manage/services/storage/how-to-manage-a-storage-account/
   [Utilisation du service de stockage d'objets blob à partir de Java]: http://www.windowsazure.com/fr-FR/develop/java/how-to-guides/blob-storage/
+
 <!--HONumber=42-->

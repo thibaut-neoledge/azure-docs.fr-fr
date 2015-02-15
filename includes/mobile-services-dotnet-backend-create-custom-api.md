@@ -64,4 +64,5 @@
 
 Ensuite, vous allez modifier l'application de démarrage rapide pour ajouter un bouton et du code qui appelle de manière asynchrone la nouvelle API personnalisée.
 
+
 <!--HONumber=42-->

@@ -103,4 +103,5 @@ Ce processus de suppression d'un message en deux étapes garantit que, si votre 
 
 [En savoir plus sur Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
 Voir aussi [Consultation des ressources de stockage dans l'Explorateur de serveurs](http://msdn.microsoft.com/fr-fr/library/azure/ff683677.aspx) et [ASP.NET 5](http://www.asp.net/vnext).
+
 <!--HONumber=42-->

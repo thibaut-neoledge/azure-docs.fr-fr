@@ -234,4 +234,5 @@ Les signatures d'accès partagé sont utiles pour fournir des autorisations d'ac
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
+
 <!--HONumber=42-->

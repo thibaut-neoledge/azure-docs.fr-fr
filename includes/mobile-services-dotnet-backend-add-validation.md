@@ -41,4 +41,5 @@ Il est toujours souhaitable de valider la longueur des données soumises par les
 
 <!-- URLs. -->
 [Prise en main]: /fr-FR/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+
 <!--HONumber=42-->

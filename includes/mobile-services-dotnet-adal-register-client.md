@@ -29,4 +29,5 @@
 Votre service mobile est maintenant configuré dans AAD de manière à accepter des connexions via l'authentification unique à partir de votre application.
 
 
-[Portail de gestion Azure]: https://manage.windowsazure.com/<!--HONumber=42-->
+[Portail de gestion Azure]: https://manage.windowsazure.com/
+<!--HONumber=42-->

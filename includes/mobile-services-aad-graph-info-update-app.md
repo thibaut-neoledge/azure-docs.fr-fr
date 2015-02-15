@@ -49,4 +49,5 @@ Les instructions ci-dessous s'appliquent à la mise à jour d'une application cl
 
 
 4. Enregistrez vos modifications, puis configurez le service de manière à vérifier l'absence d'erreurs de syntaxe.  
+
 <!--HONumber=42-->

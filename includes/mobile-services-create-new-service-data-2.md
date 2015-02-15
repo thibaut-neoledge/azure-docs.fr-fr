@@ -56,4 +56,5 @@
 
 Vous pouvez maintenant utiliser le nouveau service mobile en tant que stockage des données pour l'application.
 
+
 <!--HONumber=42-->

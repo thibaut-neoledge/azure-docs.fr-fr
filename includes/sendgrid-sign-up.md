@@ -76,4 +76,5 @@
 [Processus d'approvisionnement de SendGrid]: https://support.sendgrid.com/hc/fr-fr/articles/200181628-Why-is-my-account-being-provisioned-
 [Toutes les API]: https://sendgrid.com/docs/API_Reference/index.html
 
+
 <!--HONumber=42-->

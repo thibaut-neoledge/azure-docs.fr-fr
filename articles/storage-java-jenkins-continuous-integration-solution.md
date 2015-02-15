@@ -187,4 +187,5 @@ La section suivante présente les composants du service BLOB.
   [Création d'un compte de stockage]: http://go.microsoft.com/fwlink/?LinkId=279823
   [Présentation de Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
   [ms-open-tech]: http://msopentech.com
+
 <!--HONumber=42-->

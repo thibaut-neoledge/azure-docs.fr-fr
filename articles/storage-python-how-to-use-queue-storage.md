@@ -139,4 +139,5 @@ Maintenant que vous avez acquis les bases du stockage de files d'attente, suivez
   [Procédure : Suppression d'une file d'attente]: #delete-queue
   [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-FR/library/windowsazure/gg433040.aspx
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
+
 <!--HONumber=42-->

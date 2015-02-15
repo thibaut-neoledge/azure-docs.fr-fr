@@ -51,4 +51,5 @@ Ensuite, vous allez modifier l'application de démarrage rapide pour ajouter un 
 <!-- URLs. -->
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [objet MSSQL]: http://msdn.microsoft.com/fr-FR/library/windowsazure/jj554212.aspx
+
 <!--HONumber=42-->

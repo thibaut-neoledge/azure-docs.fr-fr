@@ -60,4 +60,5 @@ Dans l'élément `<version>`, remplacez *n.n.n* par un numéro de version valide
 
 [licence]: http://www.apache.org/licenses/LICENSE-2.0.html
 [téléchargement zip]:  http://go.microsoft.com/fwlink/?LinkId=253887
+
 <!--HONumber=42-->

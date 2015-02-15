@@ -206,4 +206,5 @@ Si vous affichez la page web d'interface utilisateur Storm immédiatement après
 [stormstarter]: https://github.com/apache/storm/tree/master/examples/storm-starter
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [azureportal]: https://manage.windowsazure.com/
+
 <!--HONumber=42-->

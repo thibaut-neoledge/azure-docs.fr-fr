@@ -121,4 +121,5 @@ L'utilisation des identités est importante dans pratiquement chaque application
 ##À propos de l'auteur
 
 David Chappell est directeur associé de Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) à San Francisco, en Californie. Par le biais de ses conférences, de ses livres et de ses services de conseil, il permet aux individus du monde entier de comprendre, d'utiliser et de mettre à profit les nouvelles technologies.
+
 <!--HONumber=42-->

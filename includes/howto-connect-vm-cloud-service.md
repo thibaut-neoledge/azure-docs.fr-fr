@@ -26,4 +26,5 @@ Une fois que vous avez créé une machine virtuelle, il convient d'ajouter un di
 [Comment attacher un disque de données à une machine virtuelle Windows](http://azure.microsoft.com/fr-fr/documentation/articles/storage-windows-attach-disk/)
 
 
+
 <!--HONumber=42-->

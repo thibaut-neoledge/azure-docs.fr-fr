@@ -334,4 +334,5 @@ Voici des erreurs ou des problèmes fréquemment rencontrés lors de l'utilisati
 [Démarrage rapide - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Utilisation de Dropbox pour partager les référentiels Git]: https://gist.github.com/trey/2722927
 [Livraison continue sur Azure au moyen de Visual Studio Online]: http://www.windowsazure.com/fr-fr/develop/net/common-tasks/publishing-with-tfs/
+
 <!--HONumber=42-->

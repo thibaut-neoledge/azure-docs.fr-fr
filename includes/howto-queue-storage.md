@@ -28,4 +28,5 @@ L'URL suivante désigne l'une des files d'attente du diagramme :
 - **Message :** message de tout format, d'une taille maximale de 64 Ko.
 
 
+
 <!--HONumber=42-->

@@ -170,4 +170,5 @@ Maintenant que vous avez acquis les bases du stockage de tables, suivez ces lien
   [Procédure : Suppression d'une table]: #delete-table
   [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-FR/library/windowsazure/gg433040.aspx
   [Visitez le blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
+
 <!--HONumber=42-->

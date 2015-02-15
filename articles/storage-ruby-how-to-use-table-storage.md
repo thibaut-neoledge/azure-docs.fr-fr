@@ -179,4 +179,5 @@ Maintenant que vous avez appris les bases du stockage de tables, suivez ces lien
 * Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/fr-FR/library/windowsazure/gg433040.aspx)
 * Visitez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 * Accédez au [référentiel du Kit de développement logiciel (SDK) Azure pour Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub.
+
 <!--HONumber=42-->

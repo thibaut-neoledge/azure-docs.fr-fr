@@ -165,4 +165,5 @@ Pour chaque service de stockage accessible à votre compte de stockage (Blob, Ta
 4. Cliquez sur **Enregistrer**.
 
 Les journaux de diagnostic sont enregistrés dans un conteneur d'objets blob nommé $logs dans votre compte de stockage. Pour plus d'informations sur l'accès au conteneur $logs, consultez la page [À propos de la journalisation Storage Analytics](http://msdn.microsoft.com/fr-FR/library/windowsazure/hh343262.aspx).
+
 <!--HONumber=42-->

@@ -444,4 +444,5 @@ Maintenant que vous avez appris les bases du stockage de tables, suivez ces lien
   [Node.js Cloud Service with Storage]: /fr-FR/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
   [Application web Node.js avec stockage]: /fr-FR/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [Création et déploiement d'une application Node.js dans un site Web Azure]: /fr-FR/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+
 <!--HONumber=42-->

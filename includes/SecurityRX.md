@@ -466,4 +466,5 @@ L'ensemble des scénarios et des solutions décrits dans cette rubrique sont val
 
 [Conception web SSO]: http://technet.microsoft.com/fr-fr/library/dd807033(WS.10).aspx
 [Conception web SSO fédérée]: http://technet.microsoft.com/fr-fr/library/dd807050(WS.10).aspx
+
 <!--HONumber=42-->

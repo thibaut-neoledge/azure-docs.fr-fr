@@ -19,4 +19,5 @@ Vous pouvez éventuellement tester les notifications push en exécutant votre se
 
 5. Dans **appSettings**, remplacez la valeur du paramètre d'application **MS_NotificationHubName** par le nom du concentrateur de notification.
 
-Le projet de service mobile est désormais configuré pour se connecter au concentrateur de notification Azure lorsqu'il est exécuté localement. Notez qu'il est impératif d'utiliser le même nom de concentrateur de notification et la même chaîne de connexion que sur le portail car ces paramètres de projet Web.config sont remplacés par les paramètres du portail lors d'une exécution sous Azure.<!--HONumber=42-->
+Le projet de service mobile est désormais configuré pour se connecter au concentrateur de notification Azure lorsqu'il est exécuté localement. Notez qu'il est impératif d'utiliser le même nom de concentrateur de notification et la même chaîne de connexion que sur le portail car ces paramètres de projet Web.config sont remplacés par les paramètres du portail lors d'une exécution sous Azure.
+<!--HONumber=42-->

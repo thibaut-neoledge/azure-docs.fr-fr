@@ -39,4 +39,5 @@ Ce package ajoute les références .NET suivantes :
 ##### Chaîne de connexion pour Azure Storage ajoutée 
 Dans le fichier web.config de votre projet, un élément a été créé avec la clé et la chaîne de connexion du compte de stockage sélectionné.
 
-Pour plus d'informations, consultez la page [ASP.NET](http://www.asp.net).<!--HONumber=42-->
+Pour plus d'informations, consultez la page [ASP.NET](http://www.asp.net).
+<!--HONumber=42-->

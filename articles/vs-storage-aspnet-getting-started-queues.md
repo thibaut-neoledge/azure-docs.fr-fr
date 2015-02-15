@@ -43,4 +43,5 @@ Pour pouvoir exploiter une file d'attente, vous devez avant tout obtenir la cha√
 
 [AZURE.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
 
-Pour plus d'informations, consultez la page [ASP.NET](http://www.asp.net).<!--HONumber=42-->
+Pour plus d'informations, consultez la page [ASP.NET](http://www.asp.net).
+<!--HONumber=42-->
