@@ -10,7 +10,7 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="na"
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="2/16/2015"
@@ -44,7 +44,7 @@ XCode 4.5 et iOS 5.0 ou versions ultérieures sont requis pour suivre ce didacti
 
 <ol start="3">
 <li><p>Dans Xcode, ouvrez le projet que vous avez créé avec le didacticiel <a href="/fr-fr/documentation/articles/mobile-services-ios-get-started">Prise en main de Mobile Services</a>.</p></li>
-<li><p>Appuyez sur le bouton <strong>Exécuter</strong> pour générer le projet et démarrer l'application dans l'émulateur iPhone ; vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est générée après le démarrage de l'application.<p>
+<li><p>Appuyez sur le bouton <strong>Exécuter</strong> pour générer le projet et démarrer l'application dans l'émulateur iPhone ; vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est générée après le démarrage de l'application.</p>
 
    	<p>Cela se produit car l'application tente d'accéder à Mobile Services en tant qu'utilisateur non authentifié, alors que la table <em>TodoItem</em> requiert désormais l'authentification.</p></li>
 </ol>
