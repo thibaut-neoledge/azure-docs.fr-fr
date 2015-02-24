@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="Get Started with Authentication (iOS)" pageTitle="Prise en main de l'authentification (iOS) | Centre de développement mobile" metaKeywords="application d'inscription Azure, authentification Azure, authentification d'application, authentifier les services mobiles, Mobile Services iOS" description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application iOS via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties
+	pageTitle="Prise en main de l'authentification (iOS) | Centre de développement mobile"
+	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application iOS via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft."
+	services="mobile-services"
+	documentationCenter="ios"
+	authors="krisragh"
+	manager="dwrede"
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm=""
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="2/16/2015"
+	ms.author="krisragh"/>
+
 
 # Ajout d'une authentification à votre application Mobile Services
 

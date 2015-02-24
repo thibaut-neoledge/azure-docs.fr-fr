@@ -1,7 +1,20 @@
-﻿<properties urlDisplayName="Schedule Backend Tasks" pageTitle="Planification de tâches de serveur principal avec le planificateur - Mobile Services" metaKeywords="" description="Azure Mobile Services Scheduler permet de planifier des tâches pour votre application mobile." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Planification de tâches de serveur principal avec le planificateur - Mobile Services" 
+	description="Azure Mobile Services Scheduler permet de planifier des tâches pour votre application mobile." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
-
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="glenga"/>
 # Planification des travaux récurrents dans Mobile Services 
 
 <div class="dev-center-tutorial-subselector">

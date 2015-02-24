@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="Get Started with Authentication (HTML5)" pageTitle="Prise en main de l'authentification (HTML 5) | Centre de développement mobile" metaKeywords="" description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application HTML via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Prise en main de l'authentification (HTML 5) | Centre de développement mobile" 
+	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application HTML via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="02/15/2015" 
+	ms.author="glenga"/>
+
 
 # Ajouter une authentification à votre application Mobile Services 
 

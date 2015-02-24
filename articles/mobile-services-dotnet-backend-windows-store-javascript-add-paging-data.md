@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Ajout de la pagination aux données (JavaScript) - Azure Mobile Services" metaKeywords="" description="Découvrez comment utiliser la pagination pour gérer la quantité de données renvoyées vers votre application Windows Store JavaScript à partir de Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Ajout de la pagination aux données (JavaScript) - Azure Mobile Services" 
+	description="Découvrez comment utiliser la pagination pour gérer la quantité de données renvoyées vers votre application Windows Store JavaScript à partir de Mobile Services." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="glenga"/>
 
 
 # Affinage des requêtes Mobile Services au moyen de la pagination
