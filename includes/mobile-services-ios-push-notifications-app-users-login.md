@@ -1,7 +1,7 @@
 ﻿
-次に、登録が試行される前にユーザーが認証されていることを確認するために、プッシュ通知が登録される方法を変更する必要があります。 
+Ensuite, vous devez changer la façon dont les notifications Push sont inscrites pour vous assurer que l'utilisateur est authentifié avant de tenter une inscription. 
 
-1. **QSAppDelegate.m** で、**didFinishLaunchingWithOptions** の実装をまとめて削除します。
+1. Dans **QSAppDelegate.m**, supprimez complètement l'implémentation de**didFinishLaunchingWithOptions** :
 
 		
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
@@ -13,7 +13,7 @@
 		    return YES;
 		}
 
-2. プロジェクト ファイル **QSTodoListViewController.m** を開き、**viewDidLoad** メソッド内で、前に削除したコードを付けたします。
+2. Ouvrez le fichier de projet **QSTodoListViewController.m** et, dans la méthode **viewDidLoad**, ajoutez le code supprimé au-dessus de l'ajout :
 
 	
 		- (void)viewDidAppear:(BOOL)animated
@@ -32,5 +32,4 @@
 		    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
 		    UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 		}
-
-<!--HONumber=42-->
+<!--HONumber=41-->

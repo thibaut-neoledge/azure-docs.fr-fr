@@ -1,12 +1,11 @@
 ﻿
-1. Visual Studio で、F5 キーを押してアプリケーションを実行します。
+1. Dans Visual Studio, appuyez sur la touche F5 pour exécuter l'application.
 
-2. アプリケーションで、**[Insert a TodoItem]** にテキストを入力し、**[Save]** をクリックします。
+2. Dans l'application, tapez du texte dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
 
    	![](./media/mobile-services-windows-store-test-push/mobile-quickstart-push1.png)
 
-   	挿入が完了すると、アプリケーションは、WNS からプッシュ通知を受け取ります。
+   	Notez qu'une fois l'insertion terminée, l'application reçoit une notification Push de WNS.
 
    	![](./media/mobile-services-windows-store-test-push/mobile-quickstart-push2.png)
-
-<!--HONumber=42-->
+<!--HONumber=41-->

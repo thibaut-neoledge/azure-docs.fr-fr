@@ -1,9 +1,9 @@
 ﻿
-1. 共有プロジェクト ファイル MainPage.cs を開き、次の using ステートメントを追加します。
+1. Ouvrez le fichier de projet partagé MainPage.cs et ajoutez l'instruction using suivante :
 
         using Windows.UI.Popups;
 
-2. MainPage クラスに、次のコード スニペットを追加します。
+2. Ajoutez l'extrait de code suivant à la classe MainPage :
 	
 		// Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -35,15 +35,15 @@
             }
         }
 
-    このユーザーは、Facebook ログインを使用して認証されます。Facebook 以外の ID プロバイダーを使用している場合は、上の **MobileServiceAuthenticationProvider** の値をプロバイダーに対応する値に変更してください。
+    Cet utilisateur est authentifié à l'aide d'une connexion Facebook. Si vous utilisez un fournisseur d'identité différent de Facebook, remplacez la valeur de **MobileServiceAuthenticationProvider** ci-dessus par la valeur de votre fournisseur.
 
-3. 既存の **OnNavigatedTo** メソッドのオーバーライドで、**RefreshTodoItems** メソッドの呼び出しをコメントアウトするか、削除します。
+3. Commentez ou supprimer l'appel de la méthode **RefreshTodoItems** dans la méthode à substituer **OnNavigatedTo** existante.
 
-	これを行うと、ユーザーが認証されるまでデータが読み込まれなくなります。
+	Cela empêche les données d'être chargées avant que l'utilisateur ne soit authentifié.
 
-	>[AZURE.NOTE]Windows Phone ストア 8.1 アプリから正常に認証するためには、**OnNavigated** メソッドが呼び出された後、ページの **Loaded** イベントが発生した後に LoginAsync を呼び出す必要があります。このチュートリアルでは、アプリに **[サイン イン]** ボタンを追加してこれを行います。
+	>[AZURE.NOTE]Pour s'authentifier à partir d'une application Windows Phone Store 8.1, vous devez appeler LoginAsync après l'appel de la méthode **OnNavigated** et après que l'événement de page **Loaded** a été déclenché. Pour cela, dans ce didacticiel, un bouton **Se connecter** est ajouté à l'application.
 
-4. MainPage クラスに、次のコード スニペットを追加します。
+4. Ajoutez l'extrait de code suivant à la classe MainPage :
 
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -55,18 +55,18 @@
             RefreshTodoItems();
         }
 		
-5. Windows ストア アプリ プロジェクトで、MainPage.xaml プロジェクト ファイルを開き、**[保存]** ボタンを定義する要素の直前に次の **Button** 要素を追加します。
+5. Dans le projet d'application Windows Store, ouvrez le fichier de projet MainPage.xaml, puis ajoutez l'élément **Bouton** suivant juste avant l'élément définissant le bouton **Enregistrer** :
 
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. Windows Phone ストア アプリの前の手順を繰り返しますが、今回は、**TextBlock** 要素の後の **TitlePanel** に**ボタン**を追加します。
+6. Répétez l'étape précédente pour le projet d'application Windows Phone Store, mais cette fois, ajoutez le **Bouton** dans **TitlePanel**, après l'élément **TextBlock**.
 
-5. 共有された App.xaml.cs プロジェクト ファイルを開き、次の using ステートメントが存在しない場合はこれを追加します。
+5. Ouvrez le fichier de projet partagé App.xaml.cs, puis ajoutez l'instruction using suivante, si elle n'est pas déjà présente :
 
         using Microsoft.WindowsAzure.MobileServices;  
  
-6. App.xaml.cs プロジェクト ファイルに次のコードを追加します。
+6. Dans le fichier de projet App.xaml.cs, ajoutez le code suivant :
 
         protected override void OnActivated(IActivatedEventArgs args)
         {
@@ -83,11 +83,10 @@
             base.OnActivated(args);
         }
 
-	**OnActivated** メソッドが既に存在する場合は、`#if...#endif` コード ブロックを追加します。
+	Si la méthode **OnActivated** existe déjà, ajoutez simplement le bloc de code " #if... #endif ".
 
-8. F5 キーを押して Windows ストア アプリを実行します。**[サイン イン]** ボタンをクリックして、選択した ID プロバイダーでアプリにサイン インします。 
+8. Appuyez sur la touche F5 pour exécuter l'application Windows Store, puis cliquez sur le bouton **Se connecter** pour vous connecter à l'application avec le fournisseur d'identité choisi. 
 
-   	ログインに成功すると、アプリケーションはエラーなしで実行されます。また、モバイル サービスを照会してデータを更新できるようになります。
+   	Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
 
-9. Windows Phone ストア アプリ プロジェクトを右クリックし、**[スタートアップ プロジェクトに設定]** をクリックしてから、Windows Phone ストア アプリも正常に実行していることを確認する前の手順を繰り返します。  
-<!--HONumber=42-->
+9. Cliquez avec le bouton droit sur le projet d'application Windows Phone Store, cliquez sur **Définir comme projet de démarrage**, puis répétez l'étape précédente pour vérifier que l'application Windows Phone Store s'exécute correctement.  <!--HONumber=41-->

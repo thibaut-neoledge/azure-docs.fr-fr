@@ -1,26 +1,26 @@
 
 
-TodoItem テーブル内のデータにアクセスするために認証が必要なため、モバイル サービスによって割り当てられた userID の値を使用して、返されたデータをフィルター処理します。
+Maintenant que l'authentification est requise pour accéder aux données de la table TodoItem, vous pouvez utiliser la valeur userID attribuée par Mobile Services pour filtrer les données renvoyées.
 
->[AZURE.NOTE]以下のメソッドには、**User** の **Authorizationlevel** で適用される **AuthorizeLevel** 属性があります。これにより、テーブルへのアクセス許可が、認証されたユーザーのみに制限されます。
+>[AZURE.NOTE]Les méthodes ci-dessous exigent que l'attribut **AuthorizeLevel** soit appliqué à **Authorizationlevel** de **User**. L'accès à la table est ainsi limité aux utilisateurs authentifiés.
 
-1. Visual Studio 2013 で、モバイル サービス プロジェクトを開きます。DataObjects フォルダーを展開し、TodoItem.cs プロジェクト ファイルを開きます。
+1. Dans Visual Studio 2013, ouvrez votre projet de service mobile, développez le dossier DataObjects, puis ouvrez le fichier projet TodoItem.cs.
 
-	TodoItem クラスは、データ オブジェクトを定義します。フィルター処理に使用するためには、UserId プロパティを追加する必要があります。
+	La classe TodoItem définit l'objet de données et vous devez ajouter une propriété UserId pour le filtrage.
 
-2. 次の新しい UserId プロパティを **TodoItem** クラスに追加します。
+2. Ajoutez la nouvelle propriété UserId suivante à la classe **TodoItem** :
 
 		public string UserId { get; set; }
 
-	>[AZURE.NOTE] データベースの既定の初期化子を使用する場合は、Code First のモデル定義内でのデータ モデルの変更が検出されるたびに、Entity Framework がデータベースを削除して再作成します。このようなデータ モデルの変更を行ってデータベース内で既存のデータを保持するには、Code First Migrations を使用する必要があります。Azure 内の SQL データベースに対して、既定の初期化子を使用することはできません。詳細については、[Code First Migrations を使用してデータ モデルを更新する方法に関するページ](/fr-FR/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations) を参照してください。
+	>[AZURE.NOTE] Lors de l'utilisation de l'initialiseur de base de données par défaut, Entity Framework supprime et recrée la base de données lorsqu'il détecte une modification du modèle de données dans la définition du modèle Code First. Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les migrations Code First. L'initialiseur par défaut ne peut pas être utilisé avec une base de données SQL dans Azure. Pour plus d'informations, consultez la rubrique [Utilisation des migrations Code First pour mettre à jour le modèle de données](/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
 
-3. ソリューション エクスプローラーで、Controllers フォルダーを展開し、TodoItemController.cs プロジェクト ファイルを開いて、次の **using** ステートメントを追加します。
+3. Dans l'Explorateur de solutions, développez le dossier Contrôleurs, ouvrez le fichier projet TodoItemController.cs et ajoutez l'instruction **using** :
 
 		using Microsoft.WindowsAzure.Mobile.Service.Security;
 
-	**TodoItemController** クラスは、TodoItem テーブルに対するデータ アクセスを実装します。 
+	La classe **TodoItemController** implémente l'accès aux données pour la table TodoItem. 
  
-4. **PostTodoItem** メソッドを見つけ、メソッドの先頭に次のコードを追加します。
+4. Recherchez la méthode **PostTodoItem** et ajoutez le code suivant au début de celle-ci :
 
 		// Get the logged-in user.
 	    var currentUser = User as ServiceUser;
@@ -28,18 +28,17 @@ TodoItem テーブル内のデータにアクセスするために認証が必�
 	    // Set the user ID on the item.
 	    item.UserId = currentUser.Id;
 
-    このコードは、UserId の値 (認証済みのユーザーの ID) を TodoItem テーブルに挿入する前に、項目に追加するためのものです。 
+    Ce code ajoute à l'élément une valeur UserId correspondant à l'ID de l'utilisateur authentifié avant de l'insérer dans la table TodoItem. 
 	
 
-5. **GetAllTodoItems** メソッドを見つけ、既存の **return** ステートメントを次のコード行と置き換えます。
+5. Recherchez la méthode **GetAllTodoItems** et remplacez l'instruction **return** existante par la ligne de code suivante :
 
         // Get the logged-in user.
         var currentUser = User as ServiceUser;
 
         return Query().Where(todo => todo.UserId == currentUser.Id);
 
-   	このクエリは、返される TodoItem オブジェクトにフィルター処理を実施して、それぞれのユーザーが自分で挿入した項目のみを受け取るためのものです。 
+   Cette requête filtre les objets TodoItem retournés de façon à ce que chaque utilisateur reçoive seulement les éléments qu'il a insérés. 
 
-6. モバイル サービス プロジェクトを Azure に対して再発行します。
-
-<!--HONumber=42-->
+6. Publiez à nouveau le projet de service mobile dans Azure.
+<!--HONumber=41-->

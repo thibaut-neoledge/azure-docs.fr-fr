@@ -1,21 +1,21 @@
-﻿1.[Azure 管理ポータル]で、新しいモバイル サービスまたはそのクラウド アイコン タブをクリックして、[概要] ページに移動します。
+﻿1. Dans le [portail de gestion Azure], cliquez sur votre nouveau service mobile ou sur son onglet d'icône cloud pour accéder à la page de présentation.
 
     ![](./media/mobile-services-ios-download-service-locally/mobile-portal-quickstart-ios.png)
 
-2. **[iOS]** プラットフォームをクリックします。**[作業の開始]** セクションで、**[新しい iOS アプリを作成する]** を展開します。 
+2. Cliquez sur la plateforme **iOS**. Dans la section **Prise en main**, développez **Créer une application iOS**. 
 
     ![](./media/mobile-services-ios-download-service-locally/download-service-project.png)
 
-3. [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) 以降をダウンロードしてインストールします (まだインストールしていない場合)。
+3. Si ce n'est pas déjà fait, téléchargez et installez [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) ou une version ultérieure.
 
-4. **[サービスのダウンロードとクラウドへの発行]** の下の **[ダウンロード]** をクリックします。
+4. Cliquez sur **Télécharger** sous **Télécharger et publier votre service dans le cloud**.
 
-	これにより、モバイル サービスを実装する Visual Studio プロジェクトがダウンロードされます。圧縮されたプロジェクト ファイルをローカル コンピューターに保存し、保存場所を書き留めておいてください。
+	Cela permet de télécharger le projet Visual Studio qui implémente votre service mobile. Enregistrez le fichier projet compressé sur votre ordinateur local et notez l'emplacement où vous l'avez enregistré.
 
 
-5. **[作業の開始]** セクションの一番下の **[サービスのダウンロードとクラウドへの発行]** という手順までスクロールします。下のスクリーン ショットに表示されるリンクをクリックして、ダウンロードしたモバイル サービスの発行プロファイル ファイルをダウンロードします。 
+5. En bas de cette section** Prise en main **accédez à l'étape intitulée **Télécharger et publier votre service dans le cloud**. Cliquez sur le lien présenté dans la capture d'écran ci-dessous afin de télécharger un fichier de profil de publication pour le service mobile que vous venez de télécharger. 
 
-    > [AZURE.NOTE] Azure アカウントに関連する機密性の高い情報が含まれているために、ファイルは安全な場所に保存します。このファイルは、このチュートリアルで後でモバイル サービスを発行した後、削除されます。 
+    > [AZURE.NOTE] Enregistrez le fichier en lieu sûr, car il contient des informations sensibles sur votre compte Azure. Vous supprimerez ce fichier après la publication du service mobile, comme expliqué plus loin dans ce didacticiel. 
 
     ![](./media/mobile-services-ios-download-service-locally/download-publish-profile.png)
 
@@ -24,7 +24,6 @@
 
 
 <!-- URLs. -->
-[Azure 管理ポータル]: https://manage.windowsazure.com/
+[Portail de gestion Azure]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=41-->

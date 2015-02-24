@@ -1,12 +1,12 @@
-﻿##<a name="add-select-images"></a>アプリケーションの更新イメージをキャプチャおよびアップロードするクイック スタート クライアント アプリケーションの更新
+﻿##<a name="add-select-images"></a>Mise à jour de l'application cliente de démarrage rapide pour capturer et télécharger des images
 
-1. Visual Studio 2012 で、Package.appxmanifest ファイルを開き、**[機能]** タブの **[Web カメラ]** 機能と **[マイク]** 機能を有効にします。
+1. Dans Visual Studio 2012, ouvrez le fichier Package.appxmanifest et dans l'onglet **Capacités**, activez les capacités **Webcam** et **Microphone**.
 
    	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-app-manifest-camera.png)
  
-   	これにより、コンピューターに接続されたカメラをアプリケーションで使用できます。ユーザーは、アプリケーションを最初に実行したときに、カメラのアクセスを許可することを求められます。
+   	Votre application pourra ainsi utiliser un appareil photo associé à l'ordinateur. Les utilisateurs seront invités à autoriser l'accès à l'appareil photo lors de la première exécution de l'application.
 
-1. MainPage.xaml ファイルを開き、最初の **Task** 要素の直後にある **StackPanel** 要素を次のコードに置き換えます。
+1. Ouvrez le fichier MainPage.xaml et remplacez l'élément **StackPanel** situé directement après le premier élément **Task** par le code suivant :
 
         <StackPanel Orientation="Horizontal" Margin="72,0,0,0">
             <TextBox Name="TextInput" Margin="5" MaxHeight="40" MinWidth="300"></TextBox>
@@ -16,7 +16,7 @@
                     Click="ButtonSave_Click"/>
         </StackPanel>
 
-2. **DataTemplate** 内の **StackPanel** 要素を次のコードに置き換えます。
+2. Remplacez l'élément **StackPanel** de **DataTemplate** par le code suivant :
 
         <StackPanel Orientation="Vertical">
             <CheckBox Name="CheckBoxComplete" IsChecked="{Binding Complete, Mode=TwoWay}" 
@@ -26,9 +26,9 @@
                     MaxHeight="250"/>
         </StackPanel> 
 
-   	これにより、イメージが **ItemTemplate** に追加され、バインド ソースが、Blob ストレージ サービスのアップロードされたイメージの URI として設定されます。
+   	Une image est ajoutée au modèle **ItemTemplate** et sa source de liaison est définie en tant qu'URI de l'image téléchargée dans le service de stockage d'objets blob.
 
-3. MainPage.xaml.cs プロジェクト ファイルを開き、次の **using** ステートメントを追加します。
+3. Ouvrez le fichier projet MainPage.xaml.cs et ajoutez les instructions **using** suivantes :
 	
 		using Windows.Media.Capture;
 		using Windows.Storage;
@@ -36,7 +36,7 @@
 		using Microsoft.WindowsAzure.Storage.Auth;
 		using Microsoft.WindowsAzure.Storage.Blob;
     
-4. TodoItem クラスで、次のプロパティを追加します。
+4. Dans la classe TodoItem, ajoutez les propriétés suivantes :
 
         [JsonProperty(PropertyName = "containerName")]
         public string ContainerName { get; set; }
@@ -50,9 +50,9 @@
         [JsonProperty(PropertyName = "imageUri")]
         public string ImageUri { get; set; } 
 
-   	>[AZURE.NOTE]新しいプロパティを TodoItem オブジェクトに追加するには、モバイル サービスで動的スキーマを有効にする必要があります。動的スキーマが有効になっていると、TodoItem テーブルに、これらの新しいプロパティに対応する新しい列が自動的に追加されます。
+   	>[AZURE.NOTE]Pour ajouter de nouvelles propriétés à l'objet TodoItem, le schéma dynamique doit être activé dans votre service mobile. Lorsque le schéma dynamique est activé, de nouvelles colonnes sont automatiquement ajoutées à la table TodoItem. Celles-ci sont mappées vers ces nouvelles propriétés.
 
-5. MainPage クラスで、次のコードを追加します。
+5. Dans la classe MainPage, ajoutez le code suivant :
 
         // Use a StorageFile to hold the captured image for upload.
         StorageFile media = null;
@@ -65,9 +65,9 @@
 				.CaptureFileAsync(CameraCaptureUIMode.PhotoOrVideo);
         }
 
-  	このコードにより、イメージをキャプチャしてイメージをストレージ ファイルに保存する、カメラ UI が表示されます。
+  	Ce code affiche l'interface utilisateur de l'appareil photo pour capturer une image et enregistre cette image dans un fichier de stockage.
 
-6. 既存の  `InsertTodoItem` メソッドを次のコードに置き換えます。
+6. Remplacez la méthode existante `InsertTodoItem` par le code suivant :
  
         private async void InsertTodoItem(TodoItem todoItem)
         {
@@ -114,33 +114,32 @@
             items.Add(todoItem);
         }
 
-	このコードは、新しい TodoItem を挿入する要求をモバイル サービスに送信します (イメージ ファイル名を含む)。応答には、SAS (その後、BLOB ストア内のイメージの挿入に使用される) と、データ バインド用のイメージの URI が含まれます。
+	Ce code envoie une requête au service mobile pour insérer un nouvel élément TodoItem, avec le nom du fichier image. La réponse contient la signature d'accès partagé, qui est ensuite utilisée pour insérer l'image dans le stockage d'objets BLOB, ainsi que l'URI de l'image pour la liaison des données.
 
-最後の手順では、アプリケーションをテストし、アップロードが成功するかどうかを検証します。
+La dernière étape consiste à tester l'application et à confirmer que les téléchargements ont abouti.
 		
-##<a name="test"></a>アプリケーションのイメージのアップロードをテストする
+##<a name="test"></a>Test du téléchargement des images dans votre application
 
-1. Visual Studio で、F5 キーを押してアプリケーションを実行します。
+1. Dans Visual Studio, appuyez sur la touche F5 pour exécuter l'application.
 
-2. **[Insert a TodoItem]** のテキスト ボックスにテキストを入力し、**[Photo]** をクリックします。
+2. Entrez le texte dans la zone de texte située sous **Insert a TodoItem**, puis cliquez sur **Photo**.
 
    	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar.png)
 
-  	これにより、カメラ キャプチャ UI が表示されます。 
+  	L'interface utilisateur de capture de l'appareil photo s'affiche. 
 
-3. 写真を撮るイメージをクリックし、**[OK]** をクリックします。
+3. Cliquez sur l'image pour prendre une photo, puis sur **OK**.
   
    	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-camera.png)
 
-4. **[Upload]** をクリックし、新しい項目を挿入してイメージをアップロードします。
+4. Cliquez sur **Télécharger** pour insérer le nouvel élément et télécharger l'image.
 
 	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar2.png)
 
-5. 新しい項目がアップロード イメージと共にリスト ビューに表示されます。
+5. Le nouvel élément et l'image téléchargée apparaissent dans la vue liste.
 
 	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-ie.png)
 
-   	>[AZURE.NOTE]新しい項目の <code>imageUri</code> プロパティが <strong>Image</strong> コントロールにバインドされると、イメージは Blob ストレージ サービスから自動的にダウンロードされます。
+   	>[AZURE.NOTE]L'image est automatiquement téléchargée depuis le service de stockage d'objets blob lorsque la propriété <code>imageUri</code> du nouvel élément est liée au contrôle <strong>Image</strong>.
 
-
-<!--HONumber=42-->
+<!--HONumber=41-->

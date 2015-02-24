@@ -1,13 +1,13 @@
 ﻿
-##<a name="update-app"></a>カスタム API を呼び出すようにアプリケーションを更新する
+##<a name="update-app"></a>Mise à jour de l'application pour appeler l'API personnalisée
 
-1. Visual Studio でクイック スタート プロジェクトの default.html ファイルを開いて、 `buttonRefresh` という **button** 要素を探し、その直後に次の要素を新たに追加します。 
+1. Dans Visual Studio, ouvrez le fichier default.html dans votre projet de démarrage rapide, recherchez l'élément **Button** intitulé `buttonRefresh` et ajoutez le nouvel élément juste après : 
 
 		<button id="buttonCompleteAll" style="margin-left: 5px">Complete All</button>
 
-	新しいボタンがページに追加されます。 
+	Le nouveau bouton est ajouté à la page. 
 
-2.  `js` プロジェクト フォルダー内の default.js コード ファイルを開いて、**refreshTodoItems** 関数を探し、次のコードが含まれていることを確認します。
+2. Ouvrez le fichier de code default.js dans le dossier du projet `js`, recherchez la fonction **refreshTodoItems** et vérifiez que cette fonction contient le code suivant :
 
 	    todoTable.where({ complete: false })
 	       .read()
@@ -16,9 +16,9 @@
 	           listItems.winControl.itemDataSource = todoItems.dataSource;
 	       });            
 
-	ここでは、完了済みの項目が返されないように、項目をフィルターで処理しています。
+	Les éléments sont filtrés de manière à ce que les éléments terminés ne soient pas renvoyés par la requête.
 
-3. **refreshTodoItems** 関数の後に、次のコードを追加します。
+3. Après la fonction **refreshTodoItems**, ajoutez le code suivant :
 
 		var completeAllTodoItems = function () {
 		    var okCommand = new Windows.UI.Popups.UICommand("OK");
@@ -46,19 +46,18 @@
             completeAllTodoItems();
         });
 
-	これは、新しいボタンの **Click** イベントを処理するメソッドです。POST 要求を新しいカスタム API に送信する **InvokeApiAsync** メソッドがクライアントで呼び出されます。カスタム API から返された結果は、メッセージ ダイアログに表示されます。エラーが発生した場合はそれらも表示されます。
+	Cette méthode gère l'événement **Click** pour le nouveau bouton. La méthode **InvokeApiAsync** est appelée sur le client pour envoyer une requête POST à la nouvelle API personnalisée. Le résultat renvoyé par l'API personnalisée apparaît dans la boîte de message, avec les erreurs éventuelles.
 
-## <a name="test-app"></a>アプリケーションをテストする
+## <a name="test-app"></a>Test de l'application
 
-1. Visual Studio で **F5** キーを押してプロジェクトをリビルドし、アプリケーションを開始します。
+1. Dans Visual Studio, appuyez sur la touche **F5** pour régénérer le projet et démarrer l'application.
 
-2. アプリケーションで、**[Insert a TodoItem]** に任意のテキストを入力し、**[Save]** をクリックします。
+2. Dans l'application, tapez du texte dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
 
-3. 前の手順を繰り返して、複数の Todo 項目をリストに追加します。
+3. Répétez l'étape précédente jusqu'à ce que vous ayez ajouté plusieurs éléments todo dans la liste.
 
-4. **[Complete All]** ボタンをクリックします。
+4. Cliquez sur le bouton **Complete All**.
 
   	![](./media/mobile-services-windows-store-javascript-call-custom-api/mobile-custom-api-windows-store-completed.png)
 
-	完了としてマークされた項目の数を示すメッセージ ダイアログが表示され、フィルター処理済みのクエリが再度実行されて、すべての項目がリストから消去されます。
-<!--HONumber=42-->
+	Un message s'affiche pour indiquer le nombre d'éléments marqués comme terminés, puis la requête filtrée est de nouveau exécutée pour supprimer tous les éléments de la liste.<!--HONumber=41-->

@@ -1,28 +1,26 @@
-﻿モバイル サービスのオフライン機能をサポートするために、 `IMobileServiceSyncTable` インターフェイスを使用して、ローカル ストアにより  `MobileServiceClient.SyncContext` を初期化しました。この場合は、ローカル ストアは、SQLite データベースでした。
+﻿Pour pouvoir prendre en charge les fonctionnalités hors connexion des services mobiles, nous avons utilisé l'interface `IMobileServiceSyncTable` et initialisé `MobileServiceClient.SyncContext` avec un magasin local. Dans ce cas, le magasin local était une base de données SQLite.
 
-モバイル サービスに対する通常の CRUD 操作は、まるでアプリケーションが接続されているかのように機能しますが、すべての操作はローカル ストアに対して実施されます。
+Les opérations CRUD normales pour les services mobiles fonctionnent comme si l'application était toujours connectée, mais toutes les opérations ont lieu sur base du magasin local.
 
-ローカル ストアをサーバーと同期しようとする場合は、 `IMobileServiceSyncTable.PullAsync` と  `MobileServiceClient.SyncContext.PushAsync` の各メソッドを使用しました。
+Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avons utilisé les méthodes `IMobileServiceSyncTable.PullAsync` et `MobileServiceClient.SyncContext.PushAsync`.
 
-*  変更内容をサーバーにプッシュするために、 `IMobileServiceSyncContext.PushAsync()` を呼び出しました。このメソッドは、すべてのテーブルに対して変更をプッシュするため、同期テーブルではなく  `IMobileServicesSyncContext` のメンバーです。
+*  Pour transmettre par push les modifications au serveur, nous avons appelé `IMobileServiceSyncContext.PushAsync()`. Cette méthode est membre de `IMobileServicesSyncContext` à la place de la table de synchronisation parce qu'elle envoie par Push les modifications sur toutes les tables.
 
-    何らかの方法で (CUD 操作により) ローカルで変更されたレコードだけが、サーバー宛てに送信されます。
+    Seuls les enregistrements qui ont été modifiés d'une certaine façon en local (par le biais d'opérations CUD) seront envoyés au serveur.
    
-* サーバー上のテーブルからアプリケーションにデータをプルするために、 `IMobileServiceSyncTable.PullAsync` を呼び出しました。
+* Pour envoyer par Pull les données d'une table sur le serveur vers l'application, nous avons appelé `IMobileServiceSyncTable.PullAsync`.
 
-    プルは必ず、最初にプッシュを実行します。これは、ローカル ストアのすべてのテーブルとリレーションシップの一貫性を確実に保つためです。
+    Une opération Pull émet toujours d'abord une opération Push. Cela a pour but de garantir que toutes les tables dans le magasin local, ainsi que les relations, restent cohérentes.
 
-    クライアントに格納されているデータをフィルターするためのクエリを指定できる  `PullAsync()` のオーバーロードもあります。クエリが渡されない場合、 `PullAsync()` は、対応するテーブル (またはクエリ) 内のすべての行をプルします。アプリケーションと同期する必要がある変更のみをフィルター処理するクエリを渡すことができます。
+    Il existe également des surcharges de `PullAsync()` qui permettent de spécifier une requête afin de filtrer les données stockées sur le client. Si une requête n'est pas transmise, `PullAsync()` extrait toutes les lignes de la table (ou requête) correspondante. Vous pouvez transmettre la requête pour filtrer uniquement les modifications avec lesquelles votre application doit se synchroniser.
 
-* 増分同期を有効にするには、クエリ ID を  `PullAsync()` に渡します。クエリ ID は、最後のプル操作の結果の最後に更新されたタイムスタンプを格納するのに使用されます。クエリ ID は、アプリ内の各論理クエリに対して一意の、わかりやすい文字列にする必要があります。クエリにパラメーターがある場合は、同じパラメーター値をクエリ ID の一部に含める必要があります。
+* Pour activer la synchronisation incrémentielle, transmettez un ID de requête à `PullAsync()`. L'ID de requête est utilisé pour stocker le dernier horodateur mis à jour par les résultats de la dernière opération d'extraction. L'ID de requête doit être une chaîne descriptive unique pour chaque requête logique de votre application. Si la requête possède un paramètre, la même valeur de paramètre doit alors faire partie de l'ID de requête.
 
-    たとえば、userid でフィルターする場合は、次のようにクエリ ID に含めます。
+    Par exemple, si vous filtrez selon userid, il doit faire partie de l'ID de la requête :
 
         await PullAsync("todoItems" + userid, syncTable.Where(u => u.UserId = userid));
 
-    増分同期を無効にする場合は、 `null` をクエリ ID として渡します。この場合、 `PullAsync` への呼び出しごとにすべてのレコードが再取得され、場合によっては非効率となります。
+    Si vous souhaitez désactiver la synchronisation incrémentielle, transmettez `null` en tant qu'ID de requête. Dans ce cas, tous les enregistrements seront extraits à chaque appel `PullAsync`, ce qui est potentiellement inefficace.
 
-* モバイル サービス データベースでレコードが削除されたときに、デバイスのローカル ストアからレコードを削除するには、[論理的な削除] を有効にする必要があります。[CO1]有効にしない場合は、アプリで定期的に  `IMobileServiceSyncTable.PurgeAsync()` を呼び出して、ローカル ストアを削除する必要があります。
-
-<!--HONumber=42-->
-[CO1]unknown term: Soft Delete. I used the term from Term Studio.
+* Pour supprimer des enregistrements du magasin local du périphérique lorsqu'ils ont été supprimés dans la base de données de votre service mobile, vous devez activer la [Suppression réversible]. Sinon, votre application doit appeler périodiquement `IMobileServiceSyncTable.PurgeAsync()` afin de vider le magasin local.
+<!--HONumber=41-->

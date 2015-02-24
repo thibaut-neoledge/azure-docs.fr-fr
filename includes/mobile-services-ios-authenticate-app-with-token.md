@@ -1,13 +1,13 @@
 ﻿
-前の例では、標準のサインインを示しました。標準のサインインでは、アプリケーションが開始するたびに、クライアントは ID プロバイダーとモバイル サービスの両方にアクセスする必要があります。この方法は非効率であるだけでなく、多くの顧客が同時にアプリケーションを開始すると、使用率に関連した問題が発生する場合があります。よって、Mobile Services から返される承認トークンをキャッシュし、最初にその承認トークンの使用を試してから、プロバイダー ベースのサインインを使用するほうが効果的です。 
+L'exemple précédent montrait une connexion standard, qui nécessite que le client contacte le fournisseur d'identité et le service mobile à chaque démarrage de l'application. Cette méthode est non seulement inefficace, mais vous pouvez rencontrer des problèmes d'utilisation si de nombreux clients tentent de lancer votre application en même temps. Une meilleure approche consiste à mettre en cache le jeton d'autorisation renvoyé par Mobile Services et à l'utiliser en premier avant de faire appel à la connexion via un fournisseur. 
 
 
->[AZURE.NOTE] クライアントによって管理される認証とサービスによって管理される認証のどちらを使用する場合でも、Mobile Services が発行したトークンをキャッシュすることができます。このチュートリアルでは、サービスによって管理される認証を使用します。
+>[AZURE.NOTE] Vous pouvez mettre en cache le jeton émis par Mobile Services, que vous utilisiez l'authentification gérée par un client ou gérée par un service. Ce didacticiel utilise cette dernière.
 
-1. iOS クライアントで認証トークンを暗号化し、格納する場合は、Keychain の使用をお勧めします。これを行うには、クラス KeychainWrapper を作成し、[KeychainWrapper.m](https://github.com/WindowsAzure-Samples/iOS-LensRocket/blob/master/source/client/LensRocket/Misc/KeychainWrapper.m) と [KeychainWrapper.h](https://github.com/WindowsAzure-Samples/iOS-LensRocket/blob/master/source/client/LensRocket/Misc/KeychainWrapper.h) を [LensRocket sample](https://github.com/WindowsAzure-Samples/iOS-LensRocket) からコピーします。この KeychainWrapper を使用する理由は、Apple のドキュメントで定義されている KeychainWrapper では Automatic Reference Counting (ARC) について詳細に説明されていないためです。
+1. La façon recommandée de chiffrer et de stocker des jetons d'authentification sur un client iOS est d'utiliser le Keychain. Pour ce faire, créez une classe KeychainWrapper, en copiant [KeychainWrapper.m](https://github.com/WindowsAzure-Samples/iOS-LensRocket/blob/master/source/client/LensRocket/Misc/KeychainWrapper.m) et [KeychainWrapper.h](https://github.com/WindowsAzure-Samples/iOS-LensRocket/blob/master/source/client/LensRocket/Misc/KeychainWrapper.h) depuis l'exemple [LensRocket](https://github.com/WindowsAzure-Samples/iOS-LensRocket). Nous utilisons cette classe KeychainWrapper car la classe KeychainWrapper définie dans la documentation d'Apple ne compte pas pour le comptage de référence automatique (ARC, Automatic Reference Counting).
 
 
-2. プロジェクト ファイル **QSTodoListViewController.m** を開き、次のコードを追加します。
+2. Ouvrez le fichier de projet **QSTodoListViewController.m** et ajoutez le code suivant :
 
 		
 		- (void) saveAuthInfo{
@@ -29,7 +29,7 @@
 		
 
 
-3. **QSTodoListViewController.m** 内の **viewDidAppear** メソッドの最後に、saveAuthInfo の呼び出しを追加します。この呼び出しを使用すれば、ユーザー ID とトークンのプロパティの格納が簡単になります。  
+3. À la fin de la méthode **viewDidAppear** dans **QSTodoListViewController.m**, ajoutez un appel à saveAuthInfo. Avec cet appel, nous stockons simplement les propriétés userId et token.  
 
 
 
@@ -49,7 +49,7 @@
 		}
 
   
-4. ユーザーのトークンと ID をキャッシュする方法を説明したので、次に、アプリの起動時にそれをロードする方法について説明します。**self.todoService** が初期化されたら、**QSTodoListViewController.m** 内の **viewDidLoad** メソッドに loadAuthInfo の呼び出しを追加します。 
+4. Maintenant que nous avons vu comment nous pouvons mettre en cache le jeton et l'identifiant de l'utilisateur, voyons comment nous pouvons charger cela quand l'application démarre. Dans la méthode **viewDidLoad** dans **QSTodoListViewController.m**, ajoutez un appel à loadAuthInfo, après que **self.todoService** a été initialisé. 
 		
 		- (void)viewDidLoad
 		{
@@ -82,7 +82,6 @@
 		    [self refresh];
 		}
 
-5. アプリが Mobile Service に要求を送った場合、ユーザーが認証されるので、401 応答 (認証エラー) を受信します。これは、渡したユーザー トークンが期限切れになっていることを意味します。提供しているメソッドで Mobile Service と対話するすべてのメソッドについては、それぞれの完了ハンドラーで、401 応答が発生しているかどうかを調べることが可能であり、または 1 つの場所 (MSFilter の handleRequest メソッド) で処理を行うことができます。このシナリオへの対処方法については、[このブログ記事](http://www.thejoyofcode.com/Handling_expired_tokens_in_your_application_Day_11_.aspx)を参照してください。
+5. Si l'application fait une requête auprès de votre service mobile, que cette requête doit être honorée car l'utilisateur est authentifié, et que vous recevez une réponse 401 (erreur non autorisée), cela signifie que le jeton utilisateur que vous utilisez est expiré. Dans le gestionnaire d'achèvement pour chacune de nos méthodes qui interagit avec notre service mobile, nous pouvons vérifier s'il y a une réponse 401 ou bien nous pouvons gérer cette situation à un seul endroit : la méthode handleRequest de MSFilter.  Pour savoir comment gérer ce scénario, consultez [ce billet de blog](http://www.thejoyofcode.com/Handling_expired_tokens_in_your_application_Day_11_.aspx)
 
-
-<!--HONumber=42-->
+<!--HONumber=41-->

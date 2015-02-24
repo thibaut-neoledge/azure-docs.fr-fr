@@ -1,15 +1,15 @@
 ﻿
-次に、登録が試行される前にユーザーが認証されていることを確認するために、プッシュ通知が登録される方法を変更する必要があります。クライアント アプリケーションの更新は、プッシュ通知を実装する方法によって異なります。
+Ensuite, vous devez changer la façon dont les notifications Push sont inscrites pour vous assurer que l'utilisateur est authentifié avant de tenter une inscription. L'application cliente se met à jour selon la façon dont vous avez implémenté les notifications Push.
 
-###Visual Studio 2013 Update 2 以降のバージョンでプッシュ通知ウィザードを使用する
+###Utilisation de l'Assistant Notification Push dans Visual Studio 2013 Update 2 ou ultérieur
 
-このメソッドでは、ウィザードによってプロジェクトに新しい push.register.js ファイルと service.js ファイルが作成されています。
+Dans cette méthode, l'Assistant a généré de nouveaux fichiers push.register.js et service.js dans votre projet.
 
->[AZURE.NOTE]プッシュ通知の追加ウィザードは、現在 .NET バックエンド モバイル サービスについてのみサポートされています。
+>[AZURE.NOTE]L'Assistant Ajout de notification Push est actuellement pris en charge pour un service mobile principal .NET uniquement.
 
-1. Visual Studio のソリューション エクスプローラーで、push.register.js プロジェクト ファイルを開き、**addEventListener** の呼び出しをコメント化または削除します。 
+1. Dans Visual Studio, dans l'Explorateur de solutions, ouvrez le fichier de projet push.register.js et placez en commentaire ou supprimez l'appel à **addEventListener**. 
 
-2. default.js プロジェクト ファイルで、既存の **login** 関数を次のコードに置き換えます。
+2. Dans le fichier de projet default.js, remplacez la fonction **login** existante par le code suivant :
  
 		// Request authentication from Mobile Services using a Facebook login.
 		var login = function () {
@@ -37,11 +37,11 @@
 		    });
 		}  
 
-###手動で有効にされたプッシュ通知		
+###Notifications Push activées manuellement		
 
-このメソッドでは、チュートリアルから、直接 default.js プロジェクト ファイルに登録コードを追加しました。
+Dans cette méthode, vous avez ajouté du code pour l'inscription provenant du didacticiel directement dans le fichier de projet default.js.
 
-1. Visual Studio のソリューション エクスプローラーで、default.js プロジェクト ファイルを開き、**onActivated** イベント ハンドラー内で、次に示すように **createPushNotificationChannelForApplicationAsync** 関数を呼び出すコード行を特定します。
+1. Dans Visual Studio, dans l'Explorateur de solutions, ouvrez le fichier de projet default.js et, dans le gestionnaire d'événements **onActivated**, recherchez la ligne de code qui appelle la fonction **createPushNotificationChannelForApplicationAsync** et qui ressemble à ceci :
 
 		// Request a push notification channel.
 		Windows.Networking.PushNotifications
@@ -52,7 +52,7 @@
 		        client.push.registerNative(channel.uri);
 		    }); 
  
-2. このコード行を、**refreshTodoItems** の呼び出しの直前にある **login** 関数内に移動します。結果、**login** 関数は次のようになります。
+2. Déplacez cette ligne de code dans la fonction **login**, juste avant l'appel à **refreshTodoItems**. La fonction **login** doit alors se présenter comme ceci :
  
 		// Request authentication from Mobile Services using a Facebook login.
 		var login = function () {
@@ -79,5 +79,4 @@
 		        });
 		    });
 		}  
-
-<!--HONumber=42-->
+<!--HONumber=41-->

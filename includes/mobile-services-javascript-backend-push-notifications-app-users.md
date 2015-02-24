@@ -1,15 +1,15 @@
 ﻿
-1. [Azure 管理ポータル]にログオンし、**[モバイル サービス]** をクリックして、目的のモバイル サービスをクリックします。
+1. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur le service mobile.
 
    	![](./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-selection.png)
 
-2. **[プッシュ]** タブをクリックし、**[権限]** に対して **[認証されたユーザーのみ]** を選択し、**[スクリプトの編集]** をクリックします。
+2. Cliquez sur l'onglet **Notifications Push**, sélectionnez **Seuls les utilisateurs authentifiés** pour **Autorisations**, puis cliquez sur **Modifier le script**.
 
    	![](./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-push-registration-endpoint.png)
 	
-	これにより、プッシュ通知登録のコールバック関数をカスタマイズできます。Git を使用してソース コードを編集する場合は、 `.\service\extensions\push.js` で、この同じ登録関数が見つかります。
+	Ceci vous permet de personnaliser la fonction de rappel d'inscription aux notifications Push. Si vous utilisez Git pour modifier votre code source, cette même fonction d'inscription peut être trouvée dans `.\service\extensions\push.js`.
 
-3. 既存の **register** 関数を次のコードに置き換えます。
+3. Remplacez la méthode **register** existante par le code suivant :
 
 		exports.register = function (registration, registrationContext, done) {   
 		    // Get the ID of the logged-in user.
@@ -42,7 +42,6 @@
 			}
 		}
 
-	これによって、ログインしているユーザーの ID であるタグが登録に追加されます。ユーザーが別のユーザーの IDで登録するのを防ぐために、指定したタグが検証されます。このユーザーに通知が送信されると、このデバイスと、ユーザーが登録した他のすべてのデバイスで受信されます。
+	Ceci ajoute une balise à l'inscription, qui est l'ID de l'utilisateur connecté. Les balises fournies sont validées pour empêcher un utilisateur de s'inscrire avec l'ID d'un autre utilisateur Lorsqu'une notification est envoyée à cet utilisateur, elle est reçue sur ce périphérique et tout autre périphérique enregistré par l'utilisateur.
 
-4. 戻る矢印をクリックし、**[データ]** タブをクリックし、**[TodoItem]** をクリックし、**[スクリプト]** をクリックし、**[挿入]** を選択します。 
-<!--HONumber=42-->
+4. Cliquez sur la flèche Précédent, cliquez sur l'onglet **Données**, cliquez sur **TodoItem**, cliquez sur **Script** et sélectionnez **Insérer**. <!--HONumber=41-->

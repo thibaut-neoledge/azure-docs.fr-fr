@@ -1,25 +1,22 @@
-﻿
-このチュートリアルの最後に、新しいアプリケーションをビルドして実行します。
 
-1. 圧縮されたプロジェクト ファイルの保存場所を参照し、ファイルをコンピューター上に展開して、Visual Studio でソリューション ファイルを開きます。
+La dernière étape de ce didacticiel consiste à générer et à exécuter votre nouvelle application.
 
-2. **F5** キーを押してプロジェクトをリビルドし、アプリケーションを開始します。
+1. Accédez à l'emplacement où vous avez enregistré les fichiers projet compressés, développez les fichiers sur votre ordinateur et ouvrez le fichier solution dans Visual Studio.
 
-3. アプリケーションで、**[Insert a TodoItem]** ボックスに意味のあるテキスト (たとえば、「*チュートリアルの完了*」) を入力し、**[Save]** をクリックします。
+2. Appuyez sur la touche **F5** pour régénérer le projet et démarrer l'application.
 
-   	これで、Azure でホストされている新しいモバイル サービスに POST 要求が送信されます。要求のデータは TodoItem テーブルに挿入されます。テーブルに格納された項目はモバイル サービスによって返され、データはアプリケーションの 2 番目の列に表示されます。
+3. Dans l'application, tapez un texte explicite, comme *Suivre le didacticiel*, dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
 
-4. (オプション) 汎用的な Windows ソリューションで、既定のスタートアップ プロジェクトをもう 1 つのアプリケーションに変更し、そのアプリケーションをもう一度実行します。
+   Ceci envoie une demande POST vers le nouveau service mobile hébergé dans Azure. Les données de la demande sont insérées dans la table TodoItem. Les éléments stockés dans la table sont renvoyés par le service mobile et les données sont affichées dans la deuxième colonne de l'application.
 
-	アプリケーションが開始すると、前の手順で保存したデータが、モバイル サービスから読み込まれる点に注目してください。
+4. (Facultatif) Dans une solution Windows universelle, remplacez le projet de démarrage par défaut par l'autre application et réexécutez cette dernière.
+
+	Notez que les données enregistrées à l'étape précédente sont chargées à partir du service mobile après le démarrage de l'application.
  
-4. 管理ポータルに戻り、**[データ]** タブ、**TodoItems** テーブルの順にクリックします。
+4. De retour dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItems**.
 
-   	![](./media/mobile-services-javascript-backend-run-app/mobile-data-tab.png)
+   ![](./media/mobile-services-javascript-backend-run-app/mobile-data-tab.png)
 
-   	これで、アプリケーションによってテーブルに挿入されたデータを参照できます。
+   Cela vous permet de parcourir les données insérées par l'application dans la table.
 
-   	![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
-
-
-<!--HONumber=42-->
+   ![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)<!--HONumber=41-->

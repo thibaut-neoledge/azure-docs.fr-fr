@@ -1,14 +1,14 @@
 ﻿
-前の例では、標準のサインインを示しました。標準のサインインでは、アプリケーションが開始するたびに、クライアントは ID プロバイダーとモバイル サービスの両方にアクセスする必要があります。この方法は非効率であるだけでなく、多くの顧客が同時にアプリケーションを開始すると、使用率に関連した問題が発生する場合があります。よって、Mobile Services から返される承認トークンをキャッシュし、最初にその承認トークンの使用を試してから、プロバイダー ベースのサインインを使用するほうが効果的です。 
+L'exemple précédent montrait une connexion standard, qui nécessite que le client contacte le fournisseur d'identité et le service mobile à chaque démarrage de l'application. Cette méthode est non seulement inefficace, mais vous pouvez rencontrer des problèmes d'utilisation si de nombreux clients tentent de lancer votre application en même temps. Une meilleure approche consiste à mettre en cache le jeton d'autorisation renvoyé par Mobile Services et à l'utiliser en premier avant de faire appel à la connexion via un fournisseur. 
 
->[AZURE.NOTE]クライアントによって管理される認証とサービスによって管理される認証のどちらを使用する場合でも、Mobile Services が発行したトークンをキャッシュすることができます。このチュートリアルでは、サービスによって管理される認証を使用します。
+>[AZURE.NOTE]Vous pouvez mettre en cache le jeton émis par Mobile Services, que vous utilisiez l'authentification gérée par un client ou gérée par un service. Ce didacticiel utilise cette dernière.
 
-1. MainPage.xaml.cs プロジェクト ファイルを開き、次の **using** ステートメントを追加します。
+1. Ouvrez le fichier de projet MainPage.xaml.cs et ajoutez les instructions **using** suivantes :
 
 		using System.Linq;		
 		using Windows.Security.Credentials;
 
-2. **AuthenticateAsync** メソッドを次のコードに置き換えます。
+2. Remplacez la méthode **AuthenticateAsync** par le code suivant :
 
         private async System.Threading.Tasks.Task AuthenticateAsync()
         {
@@ -83,11 +83,10 @@
             }
         }
 
-	この **AuthenticateAsync** バージョンで、アプリはモバイル サービスにアクセスするために、**PasswordVault** に格納された資格情報の使用を試みます。保存されたトークンの有効期限が切れていないことを確認するための単純なクエリが送信されます。401 が返されると、通常のプロバイダー ベースのサインインが試行されます。保存された資格情報がないときも通常のサインインが実行されます。
+	Dans cette version de **AuthenticateAsync**, l'application essaye d'utiliser des informations d'identification stockées dans le **coffre de mots de passe** pour accéder au service mobile. Une requête simple est envoyée pour vérifier que le jeton stocké n'est pas expiré. Quand une erreur 401 est retournée, une connexion basée sur un fournisseur habituel est tentée. Une connexion normale est également effectuée quand il n'y a pas d'informations d'identification stockées.
 
-	>[AZURE.NOTE]このアプリケーションは、ログイン中に期限切れのトークンをテストしますが、認証後にアプリケーションを使用している際にトークンの期限切れが発生する場合があります。トークンの期限切れに関連する認証エラーを処理するためのソリューションについては、投稿「[Azure Mobile Services マネージ SDK での有効期限切れトークンのキャッシュと処理](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx)」を参照してください。 
+	>[AZURE.NOTE]Cette application teste s'il y a des jetons expirés pendant la connexion, mais l'expiration des jetons peut également survenir après l'authentification, alors que l'application est en cours d'utilisation. Pour une solution permettant de gérer les erreurs d'autorisation liées à des jetons expirés, consultez le post [Mise en cache et gestion des jetons expirés dans le Kit de développement logiciel (SDK) managé d'Azure Mobile Services](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
 
-3. アプリケーションを 2 回再起動します。
+3. Redémarrez l'application deux fois.
 
-	最初の再起動では、プロバイダーによるサインインが再度必要になります。ただし、2 回目の再起動ではキャッシュされた資格情報が使用され、サインインは回避されます。 
-<!--HONumber=42-->
+	Notez que lors du premier démarrage, la connexion avec le fournisseur est à nouveau requise. Cependant, lors du second redémarrage, les informations d'identification mises en cache sont utilisées et l'étape de connexion est ignorée. <!--HONumber=41-->

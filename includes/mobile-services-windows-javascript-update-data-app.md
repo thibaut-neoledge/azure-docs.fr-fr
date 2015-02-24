@@ -1,6 +1,6 @@
+﻿
 
-
-1. todoItems リストを定義するコード行のすぐ下にある default.js ファイルで、次の関数の定義を追加します。
+1. Dans le fichier de script default.js, ajoutez la définition de fonction suivante juste en dessous de la ligne de code qui définit la liste todoItems :
  
         // Add a filter that adds a header to prevent caching. This makes sure that the 
 		// latest data is returned when the 'Refresh; button is clicked.        
@@ -11,15 +11,15 @@
             next(request, callback);
         };
 
-	クライアントで caching しないようにする  `If-Modified-Since` ヘッダーを追加するフィルター関数が定義されます。
+	Cela définit une fonction de filtre qui ajoute l'en-tête `If-Modified-Since` pour empêcher la mise en cache sur le client.
  
-2. 次に、コメントを解除するか次のコード行を追加して、`<yourClient>` をプロジェクトをモバイル サービスに接続したときの service.js ファイルに追加された変数で置き換えます。
+2. Ensuite, annulez les marques de commentaire ou ajoutez la ligne de code suivante et remplacez `<yourClient>` par la variable ajoutée au fichier service.js lorsque vous avez connecté votre projet au service mobile :
 
 		var todoTable = <yourClient>.withFilter(noCachingFilter).getTable('TodoItem');
 
    	This code creates a proxy object (**todoTable**) for the new database table, using the caching filter. 
 
-3. **InsertTodoItem** 関数を次のコードに置き換えます。
+3. Replace the **InsertTodoItem** function with the following code:
 
 		var insertTodoItem = function (todoItem) {
 		    // Inserts a new row into the database. When the operation completes
@@ -29,9 +29,9 @@
 		    });
 		};
 
-	このコードでは、新しい項目をテーブルに挿入します。
+	Ce code permet d'insérer un nouvel élément dans la table.
 
-3. **RefreshTodoItems** 関数を次のコードで置き換えます。
+3. Remplacez la fonction **RefreshTodoItem** par le code suivant :
 
         var refreshTodoItems = function () {
             // This code refreshes the entries in the list by querying the table.
@@ -43,9 +43,9 @@
             });
         };
 
-   	これにより、todoTable 内で、モバイル サービスから返されたすべての **TodoItem** オブジェクトが格納される項目のコレクションへのバインディングが設定されます。 
+   	Cela définit la liaison sur la collection d'éléments dans todoTable, qui contient tous les objets **TodoItem** renvoyés depuis le service mobile. 
 
-4. **UpdateCheckedTodoItem** 関数を次のコードで置き換えます。
+4. Remplacez la fonction **UpdateCheckedTodoItem** par le code suivant :
         
         var updateCheckedTodoItem = function (todoItem) {
             // This code takes a freshly completed TodoItem and updates the database. 
@@ -54,7 +54,6 @@
             todoItems.splice(todoItems.indexOf(todoItem), 1);
         };
 
-   	これにより、項目の更新がモバイル サービスに送信されます。
+   	Cela permet d'envoyer une mise à jour de l'élément au service mobile.
 
-バックエンド ストレージのモバイル サービスを使用するようにアプリケーションを更新した後は、モバイル サービスに対してアプリケーションをテストします。
-<!--HONumber=42-->
+Maintenant que l'application a été mise à jour pour utiliser Mobile Services pour le stockage principal, le moment est venu de tester l'application avec Mobile Services.<!--HONumber=41-->

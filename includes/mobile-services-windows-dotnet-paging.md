@@ -1,12 +1,12 @@
 ﻿
 
-1. Visual Studio で、「**モバイル サービスでのデータの使用**」チュートリアルを実行したときに変更したプロジェクトを開きます。
+1. Dans Visual Studio, ouvrez le projet que vous avez modifié lorsque vous avez suivi le didacticiel **Prise en main des données**.
 
-2. **F5** キーを押してアプリケーションを実行し、**[Insert a TodoItem]** ボックスにテキストを入力して、**[Save]** をクリックします。
+2. Appuyez sur la touche **F5** pour exécuter l'application, puis tapez du texte dans **Insert a TodoItem** et cliquez sur **Enregistrer**.
 
-3. 前の手順を少なくとも 3 回繰り返して、TodoItem テーブルに項目を 3 つ以上保存します。 
+3. Répétez les étapes précédentes au moins trois fois de telle sorte que plus de trois éléments soient stockés dans la table TodoItem. 
 
-2. MainPage.xaml.cs ファイルで、**RefreshTodoItems** メソッドを次のコードに置き換えます。
+2. Dans le fichier MainPage.xaml.cs, remplacez la méthode **RefreshTodoItems** par le code suivant :
 
         private async void RefreshTodoItems()
         {
@@ -18,17 +18,17 @@
             ListItems.ItemsSource = items;
         }
 
-  	このクエリは、データ バインド中に実行されると、完了マークが付けられていない上位 3 つの項目を返します。
+  	Cette requête, lorsqu'elle est exécutée pendant la liaison des données, renvoie les trois premiers éléments marqués comme terminés.
 
-3. **F5** キーを押してアプリケーションを実行します。
+3. Appuyez sur la touche **F5** pour exécuter l'application.
 
-  	TodoItem テーブルから最初の 3 つの結果だけが表示されることに注目してください。 
+  	Notez que seuls les trois premiers résultats de la table TodoItem sont affichés. 
 
-4. (省略可能) ブラウザー開発者ツールや [Fiddler] などのメッセージ検査ソフトウェアを使用して、モバイル サービスに送信された要求の URI を表示します。 
+4. (Facultatif) Affichez l'URI de la requête envoyée au service mobile en utilisant un logiciel d'inspection des messages, tel que les outils destinés aux développeurs de navigateurs ou [Fiddler]. 
 
-   	クエリの URI では、 `Take(3)` メソッドがクエリ オプション `$top=3` に変換されていることに注目してください。
+   	Notez que la méthode `Take(3)` a été convertie en option de requête `$top=3` dans l'URI de requête.
 
-5. 再度 **RefreshTodoItems** メソッドを次のコードに置き換えます。
+5. Mettez à nouveau à jour la méthode **RefreshTodoItems** avec le code suivant :
             
         private async void RefreshTodoItems()
         {
@@ -42,14 +42,13 @@
             ListItems.ItemsSource = items;
         }
 
-   	このクエリでは、最初の 3 つの結果をスキップし、その後の 3 つを返します。ページ サイズが 3 つの項目である場合、これは実質的にデータの 2 番目の "ページ" になります。
+   	Cette requête ignore les trois premiers résultats et renvoie les trois résultats suivants. Il s'agit en fait de la deuxième " page " de données, dont la taille est de trois éléments.
 
-    >[AZURE.NOTE]このチュートリアルでは、ハードコーディングされたページング値を <strong>Take</strong> メソッドおよび <strong>Skip</strong> メソッドに渡すことで簡略化したシナリオを使用しています。実際のアプリケーションでは、ユーザーが前後のページに移動できるように、ページャー コントロールまたは同等の UI と共に上記と同様のクエリを使用することができます。また、<strong>IncludeTotalCount</strong> メソッドを呼び出して、ページングされたデータと共に、サーバーで使用できる項目の合計数を取得することもできます。
+    >[AZURE.NOTE]Ce didacticiel s'appuie sur un scénario simplifié dans lequel les valeurs de pagination codées en dur sont transmises aux méthodes <strong>Take</strong> et <strong>Skip</strong>. Dans une application réelle, vous pouvez utiliser des requêtes semblables à celles indiquées plus haut avec un contrôle pager ou une interface utilisateur comparable pour permettre aux utilisateurs d'accéder aux pages précédentes et suivantes. Vous pouvez également appeler la méthode <strong>IncludeTotalCount</strong> pour obtenir le nombre total d'éléments disponibles sur le serveur, avec les données paginées.
 
-6. (省略可能) 再度、モバイル サービスに送信された要求の URI を表示します。 
+6. (Facultatif) Là aussi, affichez l'URI de la requête envoyée au service mobile. 
 
-   	クエリの URI では、 `Skip(3)` メソッドがクエリ オプション `$skip=3` に変換されていることに注目してください。
+   	La méthode `Skip(3)` a été convertie en option de requête `$skip=3` dans l'URI de requête.
 
 <!-- URLs -->
-[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412
-<!--HONumber=42-->
+[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412<!--HONumber=41-->

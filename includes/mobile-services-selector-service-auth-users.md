@@ -1,17 +1,16 @@
-﻿> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(iOS | .NET)](/fr-FR/documentation/articles/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/)
-- [(iOS | JavaScript)](/fr-FR/documentation/articles/mobile-services-ios-authorize-users-in-scripts/)
-- [(Windows Store C# | .NET)](/fr-FR/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts/)
-- [(Windows Store C# | JavaScript)](/fr-FR/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts/)
-- [(Windows Store JavaScript | .NET)](/fr-FR/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/)
-- [(Windows Store JavaScript | JavaScript)](/fr-FR/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts/)
-- [(Windows Phone | .NET)](/fr-FR/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/)
-- [(Windows Phone | Javascript)](/fr-FR/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/)
-- [(Android | .NET)](/fr-FR/documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts/)
-- [(Android | JavaScript)](/fr-FR/documentation/articles/mobile-services-android-authorize-users-in-scripts/)
-- [(HTML | JavaScript)](/fr-FR/documentation/articles/mobile-services-html-authorize-users-in-scripts/)
-- [(Xamarin iOS | JavaScript)](/fr-FR/documentation/articles/partner-xamarin-mobile-services-ios-authorize-users-in-scripts/)
+﻿> [AZURE.SELECTOR-LIST (Plateforme | Principal)]
+- [(iOS | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/)
+- [(iOS | JavaScript)](/en-us/documentation/articles/mobile-services-ios-authorize-users-in-scripts/)
+- [(Windows Store C# | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts/)
+- [(Windows Store C# | JavaScript)](/en-us/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts/)
+- [(Windows Store JavaScript | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/)
+- [(Windows Store JavaScript | JavaScript)](/en-us/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts/)
+- [(Windows Phone | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/)
+- [(Windows Phone | JavaScript)](/en-us/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/)
+- [(Android | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts/)
+- [(Android | JavaScript)](/en-us/documentation/articles/mobile-services-android-authorize-users-in-scripts/)
+- [(HTML | JavaScript)](/en-us/documentation/articles/mobile-services-html-authorize-users-in-scripts/)
+- [(IOS Xamarin | JavaScript)](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-authorize-users-in-scripts/)
 data/)
-- [(Xamarin Android | JavaScript)](/fr-FR/documentation/articles/partner-xamarin-mobile-services-android-authorize-users-in-scripts/)
-
-<!--HONumber=42-->
+- [(Xamarin Android | JavaScript)](/en-us/documentation/articles/partner-xamarin-mobile-services-android-authorize-users-in-scripts/)
+<!--HONumber=41-->

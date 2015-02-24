@@ -1,7 +1,7 @@
 ﻿
-##<a name="update-app"></a>カスタム API を呼び出すようにアプリケーションを更新する
+##<a name="update-app"></a>Mise à jour de l'application pour appeler l'API personnalisée
 
-1. Visual Studio でクイック スタート プロジェクトの MainPage.xaml ファイルを開き、 `ButtonRefresh` という **Button** 要素を探して、次の XAML コードに置き換えます。 
+1. DDans Visual Studio, ouvrez le fichier MainPage.xaml dans votre projet de démarrage rapide, recherchez l'élément **Button** intitulé `ButtonRefresh` et remplacez-le par le code XAML suivant : 
 
 		<StackPanel Orientation="Horizontal">
 	        <Button Margin="72,0,0,0" Name="ButtonRefresh" 
@@ -10,24 +10,24 @@
 	                Click="ButtonCompleteAll_Click">Complete All</Button>
 	    </StackPanel>
 
-	新しいボタンがページに追加されます。 
+	Le nouveau bouton est ajouté à la page. 
 
-2. MainPage.xaml.cs コード ファイルを開き、次のクラス定義コードを追加します。
+2. Ouvrez le fichier de code MainPage.xaml.cs et ajoutez le code de définition de classe suivant :
 
 	    public class MarkAllResult
 	    {
 	        public int Count { get; set; }
 	    }
 
-	このクラスは、カスタム API から返される行数の値を保持する目的で使用します。 
+	Cette classe permet de conserver la valeur de nombre de lignes renvoyée par l'API personnalisée. 
 
-3. **MainPage** クラスの **RefreshTodoItems** メソッドを探し、 `query` が、次の **Where** メソッドを使用して定義されていることを確認します。
+3. Recherchez la méthode **RefreshTodoItems** dans la classe **MainPage** et vérifiez que la `query` est définie en utilisant la méthode **Where** suivante :
 
         .Where(todoItem => todoItem.Complete == false)
 
-	ここでは、完了済みの項目が返されないように、項目をフィルターで処理しています。
+	Les éléments sont filtrés de manière à ce que les éléments terminés ne soient pas renvoyés par la requête.
 
-3. **MainPage** クラス内で、次のメソッドを追加します。
+3. Dans la classe **MainPage**, ajoutez la méthode suivante :
 
 		private async void ButtonCompleteAll_Click(object sender, RoutedEventArgs e)
 		{
@@ -51,20 +51,19 @@
 		    await dialog.ShowAsync();
 		}
 
-	これは、新しいボタンの **Click** イベントを処理するメソッドです。POST 要求を新しいカスタム API に送信する [InvokeApiAsync](http://msdn.microsoft.com/fr-FR/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx) メソッドがクライアントで呼び出されます。カスタム API から返された結果は、メッセージ ダイアログに表示されます。エラーが発生した場合はそれらも表示されます。
+	Cette méthode gère l'événement **Click** pour le nouveau bouton. La méthode [InvokeApiAsync](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx) est appelée sur le client pour envoyer une requête POST à la nouvelle API personnalisée. Le résultat renvoyé par l'API personnalisée apparaît dans la boîte de message, avec les erreurs éventuelles.
 
-## <a name="test-app"></a>アプリケーションをテストする
+## <a name="test-app"></a>Test de l'application
 
-1. Visual Studio で **F5** キーを押してプロジェクトをリビルドし、アプリケーションを開始します。
+1. Dans Visual Studio, appuyez sur la touche **F5** pour régénérer le projet et démarrer l'application.
 
-2. アプリケーションで、**[Insert a TodoItem]** に任意のテキストを入力し、**[Save]** をクリックします。
+2. Dans l'application, tapez du texte dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
 
-3. 前の手順を繰り返して、複数の Todo 項目をリストに追加します。
+3. Répétez l'étape précédente jusqu'à ce que vous ayez ajouté plusieurs éléments todo dans la liste.
 
-4. **[Complete All]** ボタンをクリックします。
+4. Cliquez sur le bouton **Complete All**.
 
   	![](./media/mobile-services-windows-store-dotnet-call-custom-api/mobile-custom-api-windows-store-completed.png)
 
-	完了としてマークされた項目の数を示すメッセージ ダイアログが表示され、フィルター処理済みのクエリが再度実行されて、すべての項目がリストから消去されます。
-
-<!--HONumber=42-->
+	Un message s'affiche pour indiquer le nombre d'éléments marqués comme terminés, puis la requête filtrée est de nouveau exécutée pour supprimer tous les éléments de la liste.
+<!--HONumber=41-->

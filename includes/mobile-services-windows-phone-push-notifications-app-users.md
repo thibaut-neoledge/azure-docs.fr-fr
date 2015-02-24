@@ -1,16 +1,15 @@
 ﻿
-次に、登録を試みる前にユーザーが認証されるように、プッシュ通知を登録する方法を変更する必要があります。 
+Vous devez ensuite modifier la méthode d'enregistrement des notifications Push afin de vous assurer que l'utilisateur est bien authentifié avant toute tentative d'inscription. 
 
-1. Visual Studio のソリューション エクスプローラーで、**Application_Launching** イベント ハンドラー内の app.xaml.cs プロジェクト ファイルを開き、**AcquirePushChannel** メソッドの呼び出しをコメントアウトまたは削除します。 
+1. Dans l'Explorateur de solutions de Visual Studio, ouvrez le fichier projet app.xaml.cs et supprimez (ou placez en commentaires) l'appel de la méthode **AcquirePushChannel** dans le gestionnaire d'événements **Application_Launching**. 
  
-2. **AcquirePushChannel** メソッドへのアクセス制限を  `private` から  `public` に変更し、 `static` 修飾子を追加します。 
+2. Modifiez l'accessibilité de la méthode **AcquirePushChannel** de `private` à `public` et ajoutez le modificateur `static`. 
 
-3. MainPage.xaml.cs プロジェクト ファイルを開き、**OnNavigatedTo** メソッドのオーバーライドを次のコードに置き換えます。
+3. Ouvrez le fichier de projet MainPage.xaml.cs et remplacez la méthode **OnNavigatedTo** par le code suivant :
 
 	    protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             await AuthenticateAsync();            
             App.AcquirePushChannel();
             RefreshTodoItems();
-        }
-<!--HONumber=42-->
+        }<!--HONumber=41-->

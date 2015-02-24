@@ -1,11 +1,10 @@
 ﻿
-次に示すのは、完了したアプリの画面キャプチャです。
+Voici les captures d'écran générées à partir de l'application terminée :
 
 ![](./media/mobile-services-windows-universal-get-started/mobile-quickstart-completed.png)
-<br/>Windows ストア アプリ
+<br/>Application Windows Store
 
 ![](./media/mobile-services-windows-universal-get-started/mobile-quickstart-completed-wp8.png)
-<br/>Windows Phone ストア アプリ
+<br/>Application Windows Phone Store
 
-このチュートリアルを完了することは、Windows ストア アプリおよび Windows Phone ストア アプリの他のすべてのモバイル サービス チュートリアルの前提条件です。 
-<!--HONumber=42-->
+Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacticiels Mobile Services pour les applications Windows Store et Windows Phone Store. <!--HONumber=41-->
