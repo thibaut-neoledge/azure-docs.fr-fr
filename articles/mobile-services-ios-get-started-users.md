@@ -43,7 +43,7 @@ XCode 4.5 et iOS 5.0 ou versions ultérieures sont requis pour suivre ce didacti
 [WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 <ol start="3">
-<li><p>Dans Xcode, ouvrez le projet que vous avez créé avec le didacticiel <a href="/fr-fr/documentation/articles/mobile-services-ios-get-started">Prise en main de Mobile Services</a>.</p></li>
+<li><p>Dans Xcode, ouvrez le projet que vous avez créé avec le didacticiel <a href="/fr-fr/documentation/articles/mobile-services-ios-get-started">Prise en main de Mobile Services</a></p></li>
 <li><p>Appuyez sur le bouton <strong>Exécuter</strong> pour générer le projet et démarrer l'application dans l'émulateur iPhone ; vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est générée après le démarrage de l'application.</p>
 
    	<p>Cela se produit car l'application tente d'accéder à Mobile Services en tant qu'utilisateur non authentifié, alors que la table <em>TodoItem</em> requiert désormais l'authentification.</p></li>
@@ -90,6 +90,7 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 
 
 <!-- URLs. -->
+[Service-side authorization of Mobile Services users]: /en-us/documentation/articles/mobile-services-javascript-backend-service-side-authorization/
 [Page Soumette une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mes Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Kit de développement logiciel (SDK) Live pour Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
