@@ -1,4 +1,4 @@
-﻿<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="Utilisation du service de messagerie SendGrid (PHP) - Azure" metaKeywords="Azure SendGrid, service de messagerie électronique Azure, Azure SendGrid PHP, Azure messagerie électronique PHP" description="Découvrez comment envoyer un courrier électronique avec le service de messagerie SendGrid dans Azure. Exemples de code écrits en PHP." documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
+<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="Utilisation du service de messagerie SendGrid (PHP) - Azure" metaKeywords="Azure SendGrid, service de messagerie électronique Azure, Azure SendGrid PHP, Azure messagerie électronique PHP" description="Découvrez comment envoyer un courrier électronique avec le service de messagerie SendGrid dans Azure. Exemples de code écrits en PHP." documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" />
 
@@ -399,15 +399,15 @@ ces liens pour en savoir plus.
   [Utilisation de SendGrid à partir de votre application PHP]: #bkmk_UsingSendGridfromPHP
   [Procédure : Envoi d'un courrier électronique]: #bkmk_HowToSendEmail
   [Procédure : Ajout d'une pièce jointe]: #bkmk_HowToAddAttachment
-  [ Utilisation de filtres pour activer les pieds de page, le suivi et l'analyse]: #bkmk_HowToUseFilters
+  [Procédure : Utilisation de filtres pour activer les pieds de page, le suivi et l'analyse]: #bkmk_HowToUseFilters
   [ Utilisation de services SendGrid supplémentaires]: #bkmk_HowToUseAdditionalSvcs
   [https://sendgrid.com]: https://sendgrid.com
   [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
   [offre spéciale]: https://www.sendgrid.com/windowsazure.html
   [Empaquetage et déploiement d'applications PHP pour Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh674499(v=VS.103).aspx
   [http://swiftmailer.org/download]: http://swiftmailer.org/download
-  [curl (fonction)]: http://php.net/curl
-  [Service de messagerie cloud]: https://sendgrid.com/email-solutions
+  [fonction curl]: http://php.net/curl
+  [service de messagerie électronique dans le cloud]: https://sendgrid.com/email-solutions
   [Remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
   [Bibliothèque sendgrid-php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/

@@ -1,4 +1,4 @@
-﻿<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Étape 2 : Téléchargement de données dans une expérience Machine Learning | Azure" description="Étape 2 : téléchargement des données publiques existantes dans Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
+<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Étape 2 : Téléchargement de données dans une expérience Machine Learning | Azure" description="Étape 2 : téléchargement des données publiques existantes dans Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
 
@@ -23,7 +23,7 @@ Voici la seconde étape du didacticiel pas à pas [Développement d'une solution
 
 ----------
 
-#Étape 2 : Téléchargement de données existantes dans une expérience Azure Machine Learning  
+# Étape 2 : Téléchargement de données existantes dans une expérience Azure Machine Learning  
 
 Pour développer un modèle de prévision pour un risque de crédit, nous allons utiliser le modèle " UCI Statlog (German Credit Data) Data Set " qui se trouve dans le référentiel de UCI Machine Learning. Vous le trouverez ici :  
 <a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
@@ -38,7 +38,7 @@ Nous allons utiliser ces données pour former un modèle d'analyse prédictive. 
 
 Voici une évolution intéressante. La description du jeu de données précise que classer par erreur une personne comme risque de crédit faible alors qu'elle constitue un risque de crédit élevé est 5 fois plus coûteux pour l'institution financière que commettre l'erreur inverse. Pour intégrer facilement cet avertissement dans notre expérience, il suffit de multiplier par 5 la valeur des entrées représentant une personne constituant un risque de crédit élevé. Ensuite, si le modèle classe par erreur une personne dans la catégorie des risques de crédit faibles, cette erreur sera commise 5 fois, une fois pour chaque doublon. Cela augmentera le coût de cette erreur dans les résultats de formation.  
 
-##Conversion du format du jeu de données
+## Conversion du format du jeu de données
 Le jeu de données d'origine utilise un format séparé par des espaces. ML Studio fonctionne mieux avec un fichier séparé par des virgules (CSV). Nous allons donc convertir le jeu de données en remplaçant les espaces par des virgules.  
 
 Pour ce faire, utilisez la commande Windows PowerShell suivante :   
@@ -49,7 +49,7 @@ Vous pouvez aussi le faire en utilisant la commande Unix sed :
 
 	sed 's/ /,/g' german.data > german.csv  
 
-##Téléchargement du jeu de données vers ML Studio
+## Téléchargement du jeu de données vers ML Studio
 
 Une fois les données converties au format CSV, nous devons les télécharger vers ML Studio.  
 

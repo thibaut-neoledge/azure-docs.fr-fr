@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Cloud Service" pageTitle="Guide de démarrage Node.js - Didacticiel Azure" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="Didacticiel détaillé qui vous aide à développer une application web Node.js simple et à la déployer sur Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Cloud Service" pageTitle="Guide de démarrage Node.js - Didacticiel Azure" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="Didacticiel détaillé qui vous aide à développer une application web Node.js simple et à la déployer sur Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
@@ -24,7 +24,7 @@ Dans ce didacticiel, vous allez créer une application Web simple, hébergée da
 
 Voici une capture d'écran de l'application terminée :
 
-<p><img src="https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/fr-fr/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png" alt="Fenêtre du navigateur affichant la page hello world. L'URL indique que la page est hébergée sur Azure.">
+<p><img src="https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png" alt="Fenêtre du navigateur affichant la page hello world. L'URL indique que la page est hébergée sur Azure.">
 </p>
 
 
@@ -57,15 +57,15 @@ Effectuez les tâches suivantes pour créer un projet Azure Cloud Services, avec
 	Les fichiers créés par l'applet de commande **New-AzureServiceProject** sont :
 
 	-   **ServiceConfiguration.Cloud.cscfg**,
-        **ServiceConfiguration.Local.cscfg** and **ServiceDefinition.csdef** are
-        Azure-specific files necessary for publishing your
+        **ServiceConfiguration.Local.cscfg** et **ServiceDefinition.csdef** sont
+        des fichiers propres à Azure, nécessaires à la publication de votre
         application.
 		
-	For more information about these files, see
-        [Overview of Creating a Hosted Service for Azure][].
+	Pour plus d'informations sur ces fichiers, consultez la page
+        [Vue d'ensemble de la création d'un service hébergé pour Azure][].
 
-	-   **deploymentSettings.json** stores local settings that are used by
-        the Azure PowerShell deployment cmdlets.
+	-   **deploymentSettings.json** stocke les paramètres locaux utilisés par les
+        cmdlets de déploiement Azure PowerShell.
 
 4.  Entrez la commande suivante pour ajouter un nouveau rôle web à l'aide de l'applet de commande **Add-AzureNodeWebRole** :
 

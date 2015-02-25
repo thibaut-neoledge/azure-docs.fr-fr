@@ -1,4 +1,4 @@
-﻿<properties title="Step 3: Create a new Azure Machine Learning experiment" pageTitle="Étape 3 : Création d'une expérience Machine Learning | Azure" description="Étape 3 : création d'une expérience d'apprentissage dans Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+<properties title="Step 3: Create a new Azure Machine Learning experiment" pageTitle="Étape 3 : Création d'une expérience Machine Learning | Azure" description="Étape 3 : création d'une expérience d'apprentissage dans Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
 
@@ -33,7 +33,7 @@ Nous devons créer une expérience dans ML Studio, qui utilise le jeu de donnée
 3.	Dans la palette des modules à gauche du canevas d'expérience, développez **Jeux de données enregistrés**.
 4.	Recherchez le jeu de données que vous avez créé et faites-le glisser sur le canevas. Vous pouvez également le rechercher en entrant son nom dans la zone **Rechercher** au-dessus de la palette.  
 
-##Préparation des données
+## Préparation des données
 Vous pouvez voir les 100 premières lignes de données et quelques informations statistiques concernant tout le jeu de données en cliquant avec le bouton droit sur le port de sortie du jeu de données et en sélectionnant **Visualiser**. Notez que ML Studio a déjà identifié le type de données pour chaque colonne. Il a également donné des en-têtes génériques aux colonnes, car le fichier de données n'en avait pas.  
 
 Les en-têtes de colonne ne sont pas essentiels, mais ils facilitent l'utilisation des données dans le modèle. En outre, lors de la publication de ce modèle dans un service web, les en-têtes permettent à l'utilisateur du service d'identifier les colonnes.  
@@ -59,7 +59,7 @@ L'expérience doit ressembler à ceci :
 
 ![Adding Metadata Editor][2]
  
-##Création de jeux de données d'apprentissage et de test
+## Création de jeux de données d'apprentissage et de test
 L'étape suivante de l'expérience consiste à générer des jeux de données séparés qui serviront pour l'apprentissage et le test de notre modèle. Pour ce faire, nous utilisons le module **Fractionner**.  
 
 1.	Recherchez le module **Fractionner**, faites-le glisser sur le canevas, et connectez-le au dernier module **Éditeur de métadonnées**.

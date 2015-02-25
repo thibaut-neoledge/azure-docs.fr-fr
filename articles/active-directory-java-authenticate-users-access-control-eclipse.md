@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Access Control" pageTitle="Utilisation de Access Control (Java) - Guide des fonctionnalités Azure" metaKeywords="" description="Apprenez à développer et à utiliser le contrôle d'accès avec Java dans Azure." metaCanonical="" services="active-directory" documentationCenter="Java" title="How to Authenticate Web Users with Azure Access Control Service Using Eclipse" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="Access Control" pageTitle="Utilisation de Access Control (Java) - Guide des fonctionnalités Azure" metaKeywords="" description="Apprenez à développer et à utiliser le contrôle d'accès avec Java dans Azure." metaCanonical="" services="active-directory" documentationCenter="Java" title="How to Authenticate Web Users with Azure Access Control Service Using Eclipse" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 
@@ -173,8 +173,10 @@ application web Java soit reconnue comme application par partie de confiance val
         Application **.
     2.  Dans **Mode**, sélectionnez **Entrer les paramètres manuellement**.
     3.  Dans **Domaine**, entrez l'URI auquel s'applique le jeton de sécurité émis par ACS.. Pour suivre notre exemple, entrez **http://localhost:8080/**.
+
         ![Relying party realm for use in compute emulator][relying_party_realm_emulator]
     4.  Dans **URL de renvoi,** entrez l'adresse URL vers laquelle ACS renvoie le jeton de sécurité. Pour suivre notre exemple, entrez **http://localhost:8080/MyACSHelloWorld/index.jsp**
+
         ![Relying party return URL for use in compute emulator][relying_party_return_url_emulator]
     5.  Acceptez les valeurs par défaut dans les autres champs.
 
@@ -208,6 +210,7 @@ Au cours de cette tâche, vous allez télécharger un certificat .PFX qui sera u
     2. Dans la section **Type**, sélectionnez **Certificat X.509**.
     3. Dans la section **Certificat**, cliquez sur le bouton Parcourir, puis accédez au fichier de certificat X.509 que vous souhaitez utiliser. Il s'agit d'un fichier .PFX. Sélectionnez le fichier, cliquez sur **Ouvrir**,  puis saisissez le mot de passe du certificat dans la zone **Mot de passe**. Dans le cadre d'un test, vous pouvez utiliser un certificat auto-signé. Pour créer un certificat auto-signé, utilisez le bouton **Nouveau** de la boîte de dialogue **Bibliothèque de filtres ACS** (décrite ultérieurement), ou servez-vous de l'utilitaire **encutil.exe** présent sur le [site web du projet][] de kit de démarrage Azure pour Java (par Microsoft Open Technologies).
     4. Vérifiez que **Convertir en principal** est sélectionné. Votre page **Ajouter un certificat ou une clé de signature de jetons** doit avoir l'aspect suivant.
+
         ![Add token-signing certificate][add_token_signing_cert]
     5. Cliquez sur **Enregistrer** pour enregistrer vos paramètres et fermer la page **Ajouter un certificat ou une clé de signature de jetons**.
 
@@ -358,9 +361,11 @@ Votre certificat doit maintenant être inclus dans votre déploiement. Que le ce
 [Déploiement de l'émulateur de calcul]: #deploy_compute_emulator
 [Déploiement sur Azure]: #deploy_azure
 [Étapes suivantes]: #next_steps
-[Site web de projet]: http://wastarterkit4java.codeplex.com/releases/view/61026
+[site web du projet]: http://wastarterkit4java.codeplex.com/releases/view/61026
 [Procédure d'affichage SAML renvoyées par le Service de contrôle d'accès Azure]: /fr-fr/develop/java/how-to-guides/view-saml-returned-by-acs/
+[Affichage des données SAML renvoyées par ACS]: /fr-fr/develop/java/how-to-guides/view-saml-returned-by-acs/
 [Service de contrôle d'accès 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
+[Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
 [Kit de développement logiciel (SDK) Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=4451
 [Portail de gestion Azure]: https://manage.windowsazure.com

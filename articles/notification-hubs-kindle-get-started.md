@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started" pageTitle="Prise en main d'Azure Notification Hubs" metaKeywords="" description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started" pageTitle="Prise en main d'Azure Notification Hubs" metaKeywords="" description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-kindle" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
@@ -14,7 +14,7 @@ Ce didacticiel requiert les éléments suivants :
 + Le Kit de développement logiciel (SDK) Android (nous présumons que vous utiliserez Eclipse), que vous pouvez télécharger <a href="http://go.microsoft.com/fwlink/?LinkId=389797">ici</a>.
 + Suivez les étapes se trouvant <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">ici</a> pour configurer votre environnement de développement pour Kindle.
 
-##Ajout d'une nouvelle application au portail des développeurs
+## Ajout d'une nouvelle application au portail des développeurs
 
 1. Tout d'abord, créez une application dans le [portail des développeurs].
 
@@ -59,7 +59,7 @@ Dans le portail, ajoutez la clé secrète client et l'ID client à l'onglet **Co
 
 <div class="dev-callout"><b>Remarque</b>
     <p>Lors de la création d'une application, utilisez au moins l'API de niveau 17.</p>
-    </div>
+</div>
 
 Ajoutez les bibliothèques ADM à votre projet Eclipse
 
@@ -256,7 +256,7 @@ Pour envoyer un message à l'aide de .NET :
 
 <!-- URLs. -->
 [portail des développeurs]: https://developer.amazon.com/home.html
-[télécharger le Kit de développement logiciel (SDK)]: https://developer.amazon.com/public/resources/development-tools/sdk
+[téléchargez le Kit de développement logiciel (SDK)]: https://developer.amazon.com/public/resources/development-tools/sdk
 
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
 [1]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal2.png

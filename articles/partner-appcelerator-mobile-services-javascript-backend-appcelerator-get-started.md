@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Prise en main d'Azure Mobile Services pour Appcelerator Titanium" metaKeywords="" description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement Appcelerator. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Prise en main d'Azure Mobile Services pour Appcelerator Titanium" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
@@ -20,80 +20,80 @@ Si vous créez pour Android, vous avez également besoin du Kit de développemen
 
 [WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
-## Création d'une application Appcelerator
+## Création d'une	 application Appcelerator
 
 1. Dans le portail Mobile Services, sélectionnez l'onglet **Données** de votre service mobile.
 
-2. Cliquez sur **Ajouter une table** et créez une table nommée 
+2. Cliquez sur **Ajouter une table** et créez une table nommée **TodoItem**.
 
-3. Download a new Appcelerator [Todolist application] and unzip the project.
+3. Téléchargez une nouvelle [application Todolist] Appcelerator et décompressez le projet.
 
-4. If you haven&#39;t already done so, download and install [Appcelerator Titanium Studio][Appcelerator Titanium] and SDK v3.2.1 or greater. You also need Xcode (v 5.0 +) &/or Android SDK (v 4.3+) to run the project.
+4. Si vous ne l'avez pas déjà fait, téléchargez et installez [Appcelerator Titanium Studio][Appcelerator Titanium] et le Kit de développement logiciel (SDK) v3.2.1 ou une version supérieure. Vous avez également besoin de Xcode (v 5.0 +) et/ou du Kit de développement logiciel (SDK) Android (v 4.3+) pour exécuter le projet.
 
-5. Back in the Mobile Services portal, under **Dashboard**, select **Manage Keys** and copy out the **Application Key**.
+5. De retour dans le portail Mobile Services, sous **Tableau de bord**, sélectionnez **Gérer les clés** et faites une copie de la **Clé de l'application**.
 
-5. In the app's index.js, replace `<---App Name---->` and `<------------APP KEY------------>` with the values from your mobile service.
+5. Dans le fichier index.js de l'application, remplacez <---App Name----> et <------------APP KEY------------> par les valeurs de votre service mobile.
 
-## Run your new Appcelerator app ##
+## Exécution de votre nouvelle application Appcelerator ##
 
-The final stage of this tutorial is to build and run your new app.
+La dernière étape de ce didacticiel consiste à générer et à exécuter votre nouvelle application.
 
-1. Open Titanium studio and go to **File -> Import** to import the project, which you downloaded previously.
+1. Ouvrez Titanium Studio et accédez à **File -> Import** pour importer le projet que vous avez téléchargé précédemment.
 
     ![][0]
 
-2.	In next screen select **Existing Projects into Workspace** and click **Next**.
+2.	Dans l'écran suivant, sélectionnez **Existing Projects into Workspace** (Projets existants dans l'espace de travail) et cliquez sur **Next** (Suivant).
 
     ![][1]
 
-3.	In project selection screen use Browse option and locate the Azure Titanium Project, which you have downloaded from Azure Management Portal.
+3.	Dans l'écran de sélection des projets, utilisez l'option Browse (Parcourir) et recherchez le projet Titanium Azure que vous avez téléchargé sur le portail de gestion Azure.
 
     ![][2]
 
-4.	Finally it displays the project, which you have selected in projects section. Optionally, you can check &quot;Copy projects into workspace&quot; option, which will copy downloaded project into your workspace. Lastly click on Finish to open the project in your Titanium Studio.
+4.	Le projet que vous avez sélectionné dans la section Projects (Projets) s'affiche. Vous pouvez aussi activer l'option " Copy projects into workspace " (Copier les projets dans l'espace de travail) pour copier le projet téléchargé dans votre espace de travail. Pour finir, cliquez sur Finish (Terminer) pour ouvrir le projet dans Titanium Studio.
 
     ![][3]
 
-5.	Select on which platform (iOS/Android) you are interested to run the project.
+5.	Sélectionnez la plateforme (iOS/Android) sur laquelle vous voulez exécuter le projet.
 
     ![][4]
 
-6.	Press the Run button to build the project and start the app in the iPhone simulator or in the Android emulator.
+6.	Appuyez sur le bouton Run (Exécuter) pour générer le projet et démarrer l'application dans le simulateur iPhone ou l'émulateur Android.
 
-7.	Select your choice based on Azure Management Portal settings.
+7.	Faites votre choix en vous basant sur les paramètres du portail de gestion Azure.
 
     ![][5]
 
-8.	In next screen, click the plus (+) icon and type meaning full text such as &quot;Complete this tutorial&quot; and click Save button.<br />
+8.	Dans l'écran suivant, cliquez sur l'icône représentant un signe plus (+), tapez un texte pertinent tel que " Suivre ce didacticiel ", puis cliquez sur le bouton Save (Enregistrer).<br />
 
     ![][6]
 
     ![][7]
 
-This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
+Ceci envoie une demande POST vers le nouveau service mobile hébergé dans Microsoft Azure. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans la table sont renvoyés par le service mobile et les données sont affichées dans la liste.
 
 ![][8]
 
 
->[WACOM.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the TodoService.m file.
+>[WACOM.NOTE] Dans le fichier TodoService.m, vous pouvez vérifier le code qui permet d'accéder à votre service mobile pour exécuter une requête et insérer des données.
 
-4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
+4. De retour dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItems**.
 
    	![][9]
 
-   	This lets you browse the data inserted by the app into the table.
+   	Cela vous permet de parcourir les données insérées par l'application dans la table.
 
    	![][10]
 
 
-## <a name="next-steps"> </a>Next Steps
-Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
+## <a name="next-steps"> </a>Étapes suivantes
+Maintenant que vous avez effectué le démarrage rapide, découvrez comment exécuter d'autres tâches importantes dans Mobile Services : 
 
-* [Get started with authentication]
-  <br/>Learn how to authenticate users of your app with an identity provider.
+* [Prise en main de l'authentification]
+  <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec un fournisseur d'identité.
 
-* [Get started with push notifications] 
-  <br/>Learn how to send a very basic push notification to your app.
+* [Prise en main des notifications Push] 
+  <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
 
 
@@ -111,9 +111,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [10]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/mobile-data-browse.png
 
 <!-- URLs. -->
-[Todolist application]: http://go.microsoft.com/fwlink/p/?LinkId=506859
+[Application Todolist]: http://go.microsoft.com/fwlink/p/?LinkId=506859
 [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
-[Get started with authentication]: /fr-fr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
-[Get started with push notifications]: /fr-fr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
-
-<!--HONumber=35.1-->
+[Prise en main de l'authentification]: /fr-fr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
+[Prise en main des notifications Push]: /fr-fr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push

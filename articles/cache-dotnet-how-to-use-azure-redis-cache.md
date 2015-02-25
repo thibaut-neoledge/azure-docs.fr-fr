@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Utilisation de Cache Redis Azure" metaKeywords="" description="Découvrez comment créer et utiliser un cache dans Azure Redis Cache." metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Utilisation de Cache Redis Azure" metaKeywords="" description="Découvrez comment créer et utiliser un cache dans Azure Redis Cache." metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
 
@@ -59,7 +59,7 @@ Dans **Nom DNS**, entrez le nom de sous-domaine à utiliser pour le point de ter
 Utilisez **Option de tarification** pour sélectionner la taille du cache et les fonctionnalités appropriées. Cache Redis est disponible dans les deux options suivantes.
 
 -	**De base** : un seul nœud et plusieurs tailles jusqu'à 53 Go.
--	**Standard** : combinaison Maître/Esclave à deux nœuds, contrat SLA de 99,9 %, plusieurs tailles jusqu'à 53 Go.
+-	**Standard** : combinaison périphérique principal/secondaire à deux nœuds, contrat SLA de 99,9 %, plusieurs tailles jusqu'à 53 Go.
 
 Dans **Abonnement**, sélectionnez l'abonnement Azure que vous voulez utiliser pour le cache.
 
@@ -122,15 +122,15 @@ Pour utiliser un cache par programmation, vous avez besoin d'une référence au 
 
 >[AZURE.NOTE] Le client StackExchange.Redis a besoin de .NET Framework 4 ou version ultérieure.
 
-La connexion à Cache Redis Azure est gérée par la classe " ConnectionMultiplexer ". Cette classe est conçue pour être partagée et réutilisée dans toute votre application cliente et ne doit pas être créée pour chaque opération. 
+La connexion à Cache Redis Azure est gérée par la classe `ConnectionMultiplexer`. Cette classe est conçue pour être partagée et réutilisée dans toute votre application cliente et ne doit pas être créée pour chaque opération. 
 
-Pour vous connecter à Cache Redis Azure et recevoir en retour une instance d'une classe " ConnectionMultiplexer " connectée, appelez la méthode statique " Connect " et passez le point de terminaison du cache et la clé comme dans l'exemple suivant. Utilisez la clé Azure générée sur le portail du service comme paramètre du mot de passe.
+Pour vous connecter à Cache Redis Azure et recevoir en retour une instance d'une classe `ConnectionMultiplexer` connectée, appelez la méthode statique " Connect " et passez le point de terminaison du cache et la clé comme dans l'exemple suivant. Utilisez la clé Azure générée sur le portail du service comme paramètre du mot de passe.
 
 	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,ssl=true,password=...");
 
 >[AZURE.NOTE] Avertissement : ne stockez jamais des informations d'identification dans du code source. Pour ne pas alourdir cet exemple, elles sont montrées dans le code source. Consultez la rubrique [Sites web Windows Azure : fonctionnement des chaînes d'application et de connexion][] pour plus d'informations sur le stockage des informations d'identification.
 
-Si vous ne souhaitez pas utiliser SSL, définissez " ssl=false ", ou passez le point de terminaison et la clé.
+Si vous ne souhaitez pas utiliser SSL, définissez `ssl=false`, ou passez le point de terminaison et la clé.
 
 >[AZURE.NOTE] Le port non SSL est désactivé par défaut pour les nouveaux caches. Pour obtenir des instructions sur l'activation du port non SSL, consultez la section relative aux ports d'accès dans la rubrique [Configurer un cache dans Cache Redis Azure][].
 
@@ -144,7 +144,7 @@ Le point de terminaison et les clés du cache peuvent être obtenus dans le vole
 
 ![Manage keys][ManageKeys]
 
-Une fois la connexion établie, retournez une référence à la base de données du cache Redis en appelant la méthode " ConnectionMultiplexer.GetDatabase ".
+Une fois la connexion établie, retournez une référence à la base de données du cache Redis en appelant la méthode `ConnectionMultiplexer.GetDatabase`.
 
 	// connection referes to a previously configured ConnectionMultiplexer
 	IDatabase cache = connection.GetDatabase();
@@ -171,7 +171,7 @@ Maintenant que vous savez vous connecter à une instance Cache Redis Azure et re
 <a name="add-object"></a>
 ## Ajout et récupération d'objets dans le cache
 
-Les objets peuvent être stockés et récupérés dans le cache à l'aide des méthodes " StringSet " et " StringGet ".
+Les objets peuvent être stockés et récupérés dans le cache à l'aide des méthodes `StringSet` et `StringGet`.
 
 	// If key1 exists, it is overwritten.
 	cache.StringSet("key1", "value1");
@@ -180,7 +180,7 @@ Les objets peuvent être stockés et récupérés dans le cache à l'aide des m�
 
 >[AZURE.NOTE] Redis stocke la plupart des données sous la forme de chaînes Redis, mais ces chaînes peuvent contenir de nombreux types de données, notamment des données binaires sérialisées, qui peuvent être utilisées lors du stockage d'objets .NET dans le cache.
 
-Quand vous appelez " StringGet ", l'objet est retourné, s'il existe. Sinon, la valeur null est retournée. Dans ce cas, vous pouvez extraire la valeur de la source de données de votre choix et la stocker dans le cache pour un usage ultérieur. On parle alors de modèle de type cache-aside.
+Quand vous appelez `StringGet`, l'objet est retourné, s'il existe. Sinon, la valeur null est retournée. Dans ce cas, vous pouvez extraire la valeur de la source de données de votre choix et la stocker dans le cache pour un usage ultérieur. On parle alors de modèle de type cache-aside.
 
     string value = cache.StringGet("key1");
     if (value == null)
@@ -197,7 +197,7 @@ Quand vous appelez " StringGet ", l'objet est retourné, s'il existe. Sinon, la 
 <a name="specify-expiration"></a>
 ## Spécification de l'expiration d'un élément dans le cache
 
-Pour spécifier l'expiration d'un élément dans le cache, utilisez le paramètre " TimeSpan " de " StringSet ".
+Pour spécifier l'expiration d'un élément dans le cache, utilisez le paramètre `TimeSpan` de `StringSet`.
 
 	cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 
@@ -218,7 +218,7 @@ Tapez **RedisSessionStateProvider** dans la zone de texte **Rechercher en ligne*
 
 Le package NuGet télécharge et ajoute les références d'assembly nécessaires et ajoute la section suivante dans le fichier web.config qui contient la configuration requise pour que votre application ASP.NET utilise le fournisseur d'état de session Cache Redis.
 
-  <sessionState mode="Custom" customProvider="MySessionStateStore">
+	<sessionState mode="Custom" customProvider="MySessionStateStore">
       <providers>
         <!--
           <add name="MySessionStateStore" 
@@ -344,11 +344,11 @@ suivez ces liens pour apprendre à exécuter les tâches de mise en cache plus c
 [Mise en cache Azure]: http://go.microsoft.com/fwlink/?LinkId=252658
 [Procédure : définition de façon déclarative de la capacité de mise en cache d'une page ASP.NET]: http://msdn.microsoft.com/fr-fr/library/zd1ysf1y.aspx
 [Procédure : Définition par programmation de la capacité de mise en cache d'une page]: http://msdn.microsoft.com/fr-fr/library/z852zf6b.aspx
-[Configuration d'un cache dans Cache Redis Azure]: http://msdn.microsoft.com/fr-fr/library/azure/dn793612.aspx
+[Configurer un cache dans Cache Redis Azure]: http://msdn.microsoft.com/fr-fr/library/azure/dn793612.aspx
 
 [Modèle de configuration StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
 
-[Utilisation des objets .NET dans le cache]: http://msdn.microsoft.com/fr-fr/library/dn690521.aspx#Objects
+[Utilisation d'objets .NET dans le cache]: http://msdn.microsoft.com/fr-fr/library/dn690521.aspx#Objects
 
 
 [Installation du gestionnaire de package NuGet]: http://go.microsoft.com/fwlink/?LinkId=240311
@@ -364,11 +364,11 @@ suivez ces liens pour apprendre à exécuter les tâches de mise en cache plus c
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
 [Documentation du client du cache StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
-
+[documentation du client de cache StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
 [Redis]: http://redis.io/documentation
 [Types de données Redis]: http://redis.io/topics/data-types
-[une présentation de 15 minutes des types de données Redis]: http://redis.io/topics/data-types-intro
+[quinze minutes de présentation des types de données Redis]: http://redis.io/topics/data-types-intro
 
-[Sites web Microsoft Azure : fonctionnement des chaînes d'application et de connexion]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
+[Sites web Windows Azure : fonctionnement des chaînes d'application et de connexion]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
 <!--HONumber=35.2-->

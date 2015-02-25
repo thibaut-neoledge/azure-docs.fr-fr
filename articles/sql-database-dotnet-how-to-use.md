@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SQL Database" pageTitle="Utilisation de la base de données SQL (.NET) - Guide de fonctionnalités Azure" metaKeywords="Prise en main de SQL Azure, Commencer avec SQL Azure, connexion de base de données SQL Azure, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" description="Prise en main d'une base de données SQL Découvrez comment créer une instance de base de données SQL et vous-y connecter à l'aide d'ADO.NET, d'ODBC et du fournisseur EntityClient." metaCanonical="" services="sql-database" documentationCenter=".NET" title="How to use Azure SQL Database in .NET applications" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
+<properties urlDisplayName="SQL Database" pageTitle="Utilisation de la base de données SQL (.NET) - Guide de fonctionnalités Azure" metaKeywords="Prise en main de SQL Azure, Commencer avec SQL Azure, connexion de base de données SQL Azure, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" description="Prise en main d'une base de données SQL Découvrez comment créer une instance de base de données SQL et vous-y connecter à l'aide d'ADO.NET, d'ODBC et du fournisseur EntityClient." metaCanonical="" services="sql-database" documentationCenter=".NET" title="How to use Azure SQL Database in .NET applications" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
 
@@ -208,8 +208,7 @@ Voici par exemple la chaîne de connexion suivante :
 
     metadata=res://*/SchoolModel.csdl|res://*/SchoolModel.ssdl|res://*/SchoolModel.msl;provider=System.Data.SqlClient;provider connection string="Data Source=xxxxxxxxxx.database.windows.net;Initial Catalog=School;Persist Security Info=True;User ID=MyAdmin;Password=***********"
 
-Pour plus d'informations, consultez [Fournisseur EntityClient pour Entity
-Framework][].
+Pour plus d'informations, consultez [Fournisseur EntityClient pour Entity Framework][].
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -227,15 +226,15 @@ Vous avez découvert les notions de base de la connexion à la base de données 
   [Connexion à l'aide d'ODBC]: #using-ODBC
   [Connexion à l'aide du fournisseur EntityClient]: #using-entity
   [Étapes suivantes]: #next-steps
-  [Version d'évaluation gratuite Azure] : {localLink:2187} " Version d'évaluation gratuite "
+  <!--[Version d'évaluation gratuite Azure] : {localLink:2187} " Version d'évaluation gratuite "-->
   [Portail de gestion Azure]: http://manage.windowsazure.com
   [Création d'un serveur de base de données SQL]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-server.aspx
   [Portail de gestion de la base de données SQL]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg442309.aspx
   [Pare-feu de la base de données SQL]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-firewall.aspx
   [Support des outils et utilitaires (base de données SQL)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee621784.aspx
   [Création d'une base de données SQL sur Azure]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-database.aspx
-  [Contrat de niveau de service] : {localLink:1132} " SLA "
-  [Fournisseur EntityClient d'Entity Framework]: http://msdn.microsoft.com/fr-fr/library/bb738561.aspx
+  <!--[Contrat de niveau de service] : {localLink:1132} " SLA "-->
+  [Fournisseur EntityClient pour Entity Framework]: http://msdn.microsoft.com/fr-fr/library/bb738561.aspx
   [Développement : rubriques de procédures (Base de données SQL)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee621787.aspx
   [Base de données SQL]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336279.aspx
 

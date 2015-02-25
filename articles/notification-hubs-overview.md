@@ -1,9 +1,9 @@
-﻿<properties urlDisplayName="Azure Notification Hubs" pageTitle="Azure Notification Hubs" metaKeywords="notifications Push Azure, concentrateurs de notification Azure, messagerie Azure" description="Découvrez comment utiliser les notifications Push dans Azure. Exemples de code écrits en C# à l'aide de l'API .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Azure Notification Hubs" authors="sethm" manager="dwrede" />
+<properties urlDisplayName="Azure Notification Hubs" pageTitle="Azure Notification Hubs" metaKeywords="notifications Push Azure, concentrateurs de notification Azure, messagerie Azure" description="Découvrez comment utiliser les notifications Push dans Azure. Exemples de code écrits en C# à l'aide de l'API .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Azure Notification Hubs" authors="sethm" manager="dwrede" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 
-#Azure Notification Hubs
+# Azure Notification Hubs
 
 
 La prise en charge des notifications Push dans Azure vous permet d'accéder à une infrastructure Push conviviale, multi-plateforme et avec montée en charge qui simplifie fortement l'implémentation des notifications Push pour les applications consommateur et entreprise pour les plateformes mobiles.

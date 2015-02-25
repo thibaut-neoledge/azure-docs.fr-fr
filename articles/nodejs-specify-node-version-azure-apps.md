@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Specifying a Node.js Version" pageTitle="Spécification d'une version Node.js" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Specifying a Node.js version in an Azure application" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="Specifying a Node.js Version" pageTitle="Spécification d'une version Node.js" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Specifying a Node.js version in an Azure application" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
@@ -10,7 +10,7 @@
 
 Lors de l'hébergement d'une application Node.js, vous pouvez vous assurer que votre application utilise une version spécifique de Node.js. Il existe diverses façons d'accomplir cela pour les applications hébergées sur Azure.
 
-##Versions par défaut
+## Versions par défaut
 
 Actuellement, Azure fournit les versions suivantes de Node.js : 0.6.17, 0.6.20 et 0.8.4. Sauf indication contraire, 0.6.20 est la version par défaut qui sera utilisée.
 
@@ -20,7 +20,7 @@ Actuellement, Azure fournit les versions suivantes de Node.js : 0.6.17, 0.6.20 e
 </div>
 
 
-##Contrôle de version avec package.json
+## Contrôle de version avec package.json
 
 Vous pouvez spécifier la version de Node.js à utiliser en ajoutant ce qui suit dans votre fichier **package.json** :
 
@@ -32,7 +32,7 @@ Vous pouvez spécifier la version de Node.js à utiliser en ajoutant ce qui suit
 
 Étant donné que la version 0.6.22 n'est pas l'une des versions disponibles dans l'environnement d'hébergement, la version la plus élevée de la série 0.8 qui est disponible sera utilisée à la place : 0.8.4.
 
-##Contrôle de version des services cloud avec PowerShell
+## Contrôle de version des services cloud avec PowerShell
 
 Si vous hébergez l'application dans un service cloud et que vous la déployez au moyen d'Azure PowerShell, vous pouvez remplacer la version Node.js par défaut en utilisant la cmdlet PowerShell **Set-AzureServiceProjectRole**. Par exemple :
 
@@ -40,7 +40,7 @@ Si vous hébergez l'application dans un service cloud et que vous la déployez a
 
 Vous pouvez également utiliser **Get-AzureServiceProjectRoleRuntime** pour extraire une liste des versions de Node.js disponibles pour les applications hébergées en tant que service cloud.
 
-##Utilisation d'une version personnalisée avec Sites Web Azure
+## Utilisation d'une version personnalisée avec Sites Web Azure
 
 Bien qu'Azure fournisse plusieurs versions par défaut de Node.js, vous pouvez utiliser une version qui n'est pas fournie par défaut. Si votre application est hébergée en tant que site web Azure, vous pouvez pour cela utiliser le fichier **iisnode.yml**. La procédure suivante explique comment utiliser une version personnalisée de Node.Js avec un site web Azure :
 
@@ -80,11 +80,11 @@ Bien qu'Azure fournisse plusieurs versions par défaut de Node.js, vous pouvez u
 
 	Une fois l'application publiée, ouvrez le site web dans un navigateur. Le message suivant doit apparaître : " Hello from Azure running node version: v0.8.1 ".
 
-##Étapes suivantes
+## Étapes suivantes
 
 Maintenant que vous savez comment spécifier la version de Node.js utilisée par votre application, découvrez comment [utiliser des modules], [créer et déployer un site web Node.js] et [utiliser des outils en ligne de commande Azure pour Mac et Linux].
 
-[Utilisation des outils en ligne de commande Azure pour Mac et Linux]: /fr-fr/documentation/articles/xplat-cli/
+[utiliser des outils en ligne de commande Azure pour Mac et Linux]: /fr-fr/documentation/articles/xplat-cli/
 [Outils en ligne de commande Azure]: /fr-fr/documentation/articles/xplat-cli/
 [utiliser des modules]: /fr-fr/documentation/articles/nodejs-use-node-modules-azure-apps/
 [créer et déployer un site web Node.js]: /fr-fr/documentation/articles/web-sites-nodejs-develop-deploy-mac/

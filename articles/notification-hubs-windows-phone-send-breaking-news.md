@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Utilisation de Notification Hubs pour diffuser les dernières nouvelles (Windows Phone)" metaKeywords="" description="Utilisez Azure Notification Hubs afin d'utiliser dans les inscriptions une balise permettant d'envoyer les dernières nouvelles à une application Windows Phone." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Utilisation de Notification Hubs pour diffuser les dernières nouvelles (Windows Phone)" metaKeywords="" description="Utilisez Azure Notification Hubs afin d'utiliser dans les inscriptions une balise permettant d'envoyer les dernières nouvelles à une application Windows Phone." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="12/03/2014" ms.author="glenga" />
 
@@ -13,10 +13,10 @@ Les scénarios de diffusion sont activés en incluant une ou plusieurs _balises_
 
 Ce didacticiel vous familiarise avec les étapes de base pour activer ce scénario :
 
-1. [Ajout d'une sélection de catégories à l'application]
-2. [Inscription à des notifications]
-3. [Envoi de notifications à partir de votre serveur principal]
-4. [Exécution de l'application et génération de notifications]
+1. [Ajout d'une sélection de catégories à l'application](#adding-categories)
+2. [Inscription à des notifications](#register)
+3. [Envoi de notifications à partir de votre serveur principal](#send)
+4. [Exécution de l'application et génération de notifications](#test-app)
 
 Cette rubrique s'appuie sur l'application que vous avez créée dans [Prise en main de Notification Hubs]. Avant de commencer ce didacticiel, vous devez suivre celui intitulé [Prise en main de Notification Hubs].
 
@@ -223,13 +223,6 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 	Apprenez comment transmettre des notifications à des utilisateurs authentifiés spécifiques. Il s'agit d'une solution appropriée pour l'envoi de notifications uniquement vers des utilisateurs spécifiques.
 -->
 
-<!-- Ancres. -->
-[Ajout d'une sélection de catégories à l'application] : #adding-categories
-[Inscription à des notifications] : #register
-[Envoi de notifications à partir de votre serveur principal] : #send
-[Exécution de l'application et génération de notifications] : #test-app
-[Étapes suivantes] : #next-steps
-
 <!-- Images. -->
 [1]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-breakingnews.png
 [2]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-registration.png
@@ -238,14 +231,14 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 
 
 <!-- URLs.-->
-[Prise en main de Notification Hubs] : /fr-fr/manage/services/notification-hubs/get-started-notification-hubs-wp8/
-[Utilisation de Notification Hubs pour diffuser les dernières nouvelles localisées] : ./breakingnews-localized-wp8.md 
-[Notification des utilisateurs avec Notification Hubs] : /fr-fr/manage/services/notification-hubs/notify-users/
-[Service mobile] : /fr-fr/develop/mobile/tutorials/get-started
-[Recommandations relatives à Notification Hubs] : http://msdn.microsoft.com/fr-fr/library/jj927170.aspx
-[Procédure Notification Hubs pour Windows Phone] : ??
+[Prise en main de Notification Hubs]: /fr-fr/manage/services/notification-hubs/get-started-notification-hubs-wp8/
+[Utilisation de Notification Hubs pour diffuser les dernières nouvelles localisées]: ./breakingnews-localized-wp8.md 
+[Notification des utilisateurs avec Notification Hubs]: /fr-fr/manage/services/notification-hubs/notify-users/
+[Service mobile]: /fr-fr/develop/mobile/tutorials/get-started
+[Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/fr-fr/library/jj927170.aspx
+[Procédure Notification Hubs pour Windows Phone]: ??
 
-[Portail de gestion Azure] : https://manage.windowsazure.com/
+[Portail de gestion Azure]: https://manage.windowsazure.com/
 
 
 

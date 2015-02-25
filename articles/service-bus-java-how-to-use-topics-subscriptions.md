@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Topics" pageTitle="Utilisation des rubriques Service Bus (Java) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Java" description="Découvrez comment utiliser les rubriques et abonnements Service Bus dans Azure. Les exemples de code sont écrits pour les applications Java." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Topics/Subscriptions" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="Service Bus Topics" pageTitle="Utilisation des rubriques Service Bus (Java) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Java" description="Découvrez comment utiliser les rubriques et abonnements Service Bus dans Azure. Les exemples de code sont écrits pour les applications Java." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Topics/Subscriptions" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 
@@ -287,8 +287,7 @@ application réceptrice ne parvient pas à traiter le message pour une raison qu
 elle appelle la méthode **unlockMessage** sur le message reçu.
 (au lieu de la méthode **deleteMessage**). Cela amène Service Bus
 à déverrouiller le message dans la rubrique et à le rendre à nouveau disponible
-en réception, pour la même application consommatrice ou pour une autre
-.
+en réception, pour la même application consommatrice ou pour une autre.
 
 Il existe également un délai d'expiration pour un message verrouillé dans la
 rubrique et si l'application ne parvient pas à traiter le message avant l'

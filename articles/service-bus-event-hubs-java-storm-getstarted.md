@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Prise en main des concentrateurs d'événements" metaKeywords="Azure Service Bus, Concentrateur d'événements, prise en main concentrateurs d'événements" description="Suivez ce didacticiel pour commencer à utiliser les concentrateurs d'événements Azure envoyant des événements avec Java et les recevant dans un cluster Storm Apache" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Prise en main des concentrateurs d'événements" metaKeywords="Azure Service Bus, Concentrateur d'événements, prise en main concentrateurs d'événements" description="Suivez ce didacticiel pour commencer à utiliser les concentrateurs d'événements Azure envoyant des événements avec Java et les recevant dans un cluster Storm Apache" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="java" ms.devlang="java" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 
@@ -85,9 +85,9 @@ Les ressources suivantes sont disponibles pour les applications de développemen
 <!-- Links -->
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Vue d'ensemble des concentrateurs événements]: http://msdn.microsoft.com/fr-fr/library/azure/dn836025.aspx
+[Vue d'ensemble des concentrateurs d'événements]: http://msdn.microsoft.com/fr-fr/library/azure/dn836025.aspx
 
 [Apache Storm]: https://storm.incubator.apache.org
-[Présentation de Storm HDInsight]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-storm-overview/
-[Analyse des données de capteur avec Storm et HDInsight]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-storm-sensor-data-analysis/
-[Développement d'applications de traitement de données de diffusion avec SCP.NET et C# sur Storm dans HDInsight]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
+[Vue d'ensemble HDInsight Storm]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-storm-overview/
+[Le didacticiel Analyse des données de capteur avec Storm et HDInsight]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[Le didacticiel Développement d'applications de traitement de données de diffusion avec SCP.NET et C# sur Storm dans HDInsight]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/

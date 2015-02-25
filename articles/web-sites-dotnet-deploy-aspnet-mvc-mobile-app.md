@@ -136,8 +136,9 @@ Pour voir à quoi ressemblerait l'application web sans Bootstrap, ouvrez le fich
               //"~/Content/bootstrap.css",
               "~/Content/site.css"));
 
-Appuyez sur Ctrl+F5 pour exécuter l'application.
- La barre de navigation réductible a maintenant la forme d'une simple liste non triée classique. Recliquez sur **Parcourir par balise**, puis cliquez sur **ASP.NET**. Dans la vue de l'émulateur mobile, vous pouvez à présent constater que l'affichage n'est plus adapté à l'écran et que vous devez faire défiler la page horizontalement pour voir le côté droit du tableau.
+Appuyez sur `Ctrl+F5` pour exécuter l'application.
+
+La barre de navigation réductible a maintenant la forme d'une simple liste non triée classique. Recliquez sur **Parcourir par balise**, puis cliquez sur **ASP.NET**. Dans la vue de l'émulateur mobile, vous pouvez à présent constater que l'affichage n'est plus adapté à l'écran et que vous devez faire défiler la page horizontalement pour voir le côté droit du tableau.
 
 ![][SessionsByTagASP.NETNoBootstrap]
 
@@ -556,7 +557,7 @@ Ce didacticiel vous a guidé dans l'utilisation d'ASP.NET MVC 5 pour développer
 Voir aussi
 --------
 
--   [9 principes de base de la conception web réactive][http://blog.froont.com/9-basic-principles-of-responsive-web-design/]
+-   [9 principes de base de la conception web réactive](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
 -   [Site][BootstrapSite] Bootstrap
 -   [Blog Bootstrap officiel][]
 -   [Tutoriel Bootstrap Twitter de Tutorial Republic][]

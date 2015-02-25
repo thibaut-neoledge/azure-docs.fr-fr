@@ -1,4 +1,4 @@
-﻿<properties title="Step 1: Create an Azure Machine Learning workspace" pageTitle="Étape 1 : Création d'un espace de travail Machine Learning | Azure" description="Étape 1 : création d'un espace de travail Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Step 1: Create an Azure Machine Learning workspace" pageTitle="Étape 1 : Création d'un espace de travail Machine Learning | Azure" description="Étape 1 : création d'un espace de travail Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
 
@@ -27,7 +27,7 @@ Voici la première étape du didacticiel pas à pas [Développement d'une soluti
 
 Pour utiliser ML Studio, vous devez disposer d'un espace de travail ML. Cet espace de travail contient les outils dont vous avez besoin pour créer, gérer et publier des expériences.  
 
-##Création d'un espace de travail  
+## Création d'un espace de travail  
 
 1.	Connectez-vous à votre compte Microsoft Azure.
 2.	Dans le volet des services Microsoft Azure, cliquez sur **MACHINE LEARNING**.  

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Localized Breaking News" pageTitle="Didacticiel sur l'utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées" metaKeywords="" description="Découvrez comment utiliser Azure Service Bus Notification Hubs pour envoyer des notifications de dernières nouvelles localisées." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Localized Breaking News" pageTitle="Didacticiel sur l'utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées" metaKeywords="" description="Découvrez comment utiliser Azure Service Bus Notification Hubs pour envoyer des notifications de dernières nouvelles localisées." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 # Utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées
@@ -25,7 +25,7 @@ Ce scénario comporte deux parties :
 
 
 
-##Configuration requise ##
+## Configuration requise ##
 
 Vous devez avoir suivi le didacticiel [Utilisation de Notifications Hubs pour envoyer les dernières nouvelles] et avoir le code à disposition, car le présent didacticiel est basé sur ce code. 
 
@@ -204,7 +204,8 @@ Pour plus d'informations sur l'utilisation de modèles, consultez [Notification 
 [Mobile Service]: /fr-fr/develop/mobile/tutorials/get-started
 [Notification des utilisateurs avec Notification Hubs : ASP.NET]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
 [Notification des utilisateurs avec Notification Hubs : Mobile Services]: /fr-fr/manage/services/notification-hubs/notify-users
-[Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet 
+[Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet 
+[Utilisation de Notifications Hubs pour envoyer les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet 
 
 [Page Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mes Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -221,4 +222,4 @@ Pour plus d'informations sur l'utilisation de modèles, consultez [Notification 
 [objet wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/fr-fr/library/jj927170.aspx
 [Procédures Notification Hubs pour iOS]: http://msdn.microsoft.com/fr-fr/library/jj927168.aspx
-[Vue d'ensemble des concentrateurs de notification pour Windows Store]: http://msdn.microsoft.com/fr-fr/library/jj927172.aspx
+[Notification Hubs, procédures pour Windows Store]: http://msdn.microsoft.com/fr-fr/library/jj927172.aspx

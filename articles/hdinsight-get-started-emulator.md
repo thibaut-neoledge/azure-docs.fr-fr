@@ -1,21 +1,6 @@
-﻿<properties 
-	pageTitle="Prise en main de l'émulateur HDInsight | Azure" 
-	description="Découvrez comment utiliser l'émulateur HDInsight pour Azure." 
-	editor="cgronlun" 
-	manager="paulettm" 
-	services="hdinsight" 
-	author="nitinme" 
-	authors="nitinme" 
-	documentationCenter=""/>
+<properties pageTitle="Prise en main de l'émulateur HDInsight | Azure" description="Découvrez comment utiliser l'émulateur HDInsight pour Azure." editor="cgronlun" manager="paulettm" services="hdinsight" author="nitinme" authors="nitinme" documentationCenter=""/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/06/2015" 
-	ms.author="nitinme"/>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/06/2015" ms.author="nitinme"/>
 
 # Prise en main de l'émulateur HDInsight 
 
@@ -84,7 +69,7 @@ L'installation doit avoir installé trois icônes sur votre Bureau. Celles-ci so
 
 L'installation doit également avoir installé plusieurs services locaux. La capture d'écran suivante présente la fenêtre Services :
 
-![HDI.Emulator.Services][0]
+![HDI.Emulator.Services][image-hdi-emulator-services]
 
 Les services liés à l'émulateur HDInsight ne sont pas démarrés par défaut. Pour lancer ces services, à partir de la ligne de commande Hadoop, exécutez **start\_local\_hdp_services.cmd** sous <lecteur_système\>\hdp. Pour démarrer automatiquement les services après le redémarrage de l'ordinateur, exécutez **set-onebox-autostart.cmd**.  
 
@@ -469,7 +454,7 @@ Dans ce didacticiel, vous avez installé un émulateur HDInsight et exécuté ce
 - [Développement de programmes MapReduce en Java pour HDInsight][hdinsight-develop-mapreduce]
 - [Développement de programmes MapReduce de diffusion en continu Hadoop en C# pour HDInsight][hdinsight-develop-deploy-streaming]
 - [Notes de publication de l'émulateur HDInsight][hdinsight-emulator-release-notes]
-- [Forum MSDN sur HDInsight](http://social.msdn.microsoft.com/Forums/en-US/hdinsight)
+- [Forum MSDN sur HDInsight](http://social.msdn.microsoft.com/Forums/fr-fr/hdinsight)
 
 
 

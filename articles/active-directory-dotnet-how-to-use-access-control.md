@@ -6,7 +6,7 @@
 
 Ce guide vous montre comment utiliser le contrôle d'accès Azure Active Directory (également appelé Access Control Service, Service de contrôle d'accès, ou ACS) pour authentifier les utilisateurs de fournisseurs d'identité tels que Microsoft, Google, Yahoo et Facebook lorsqu'ils tentent d'accéder à une application Web.
 
-## <span class="short-header">Sommaire</span>Sommaire
+<h2>Sommaire</h2>
 
 -   [Qu'est-ce qu'ACS ?][Qu'est-ce qu'ACS ?]
 -   [Concepts][Concepts]
@@ -20,7 +20,7 @@ Ce guide vous montre comment utiliser le contrôle d'accès Azure Active Directo
 -   [Ajout d'un fournisseur d'identité][Ajout d'un fournisseur d'identité]
 -   [Étapes suivantes][Étapes suivantes]
 
-## <span class="short-header">Qu'est-ce qu'ACS ?</span>Qu'est-ce qu'ACS ?
+<h2>Qu'est-ce qu'ACS ?</h2>
 
 La plupart des développeurs ne sont pas des experts en matière d'identité et ne souhaitent pas passer du temps à développer des mécanismes d'authentification et d'autorisation pour leurs applications et services. ACS est un service Azure qui vous permet d'authentifier rapidement les utilisateurs lorsqu'ils accèdent à vos applications et services Web sans ajouter de logique d'authentification complexe à votre code.
 
@@ -36,7 +36,7 @@ Les fonctionnalités suivantes sont disponibles dans ACS :
 
 Pour plus d'informations sur ACS, consultez la page [Access Control Service 2.0][Access Control Service 2.0].
 
-## <span class="short-header">Concepts</span>Concepts
+<h2>Concepts</h2>
 
 ACS est basé sur les principes de l'identité basée sur des demandes, une approche cohérente permettant de créer des mécanismes d'authentification pour les applications exécutées localement ou dans le cloud. Cette approche permet aux applications et aux services d'obtenir les informations d'identité dont ils ont besoin pour les utilisateurs internes ou externes à leur organisation et sur Internet.
 
@@ -76,7 +76,7 @@ La figure suivante présente le fonctionnement de l'authentification ACS avec un
     contenant ces demandes de sortie.
 7.  ACS demande au client d'envoyer le jeton de sécurité qu'ACS a émis à la partie de confiance. La partie de confiance valide la signature du jeton de sécurité, extrait les demandes à des fins d'utilisation par la logique métier de l'application et renvoie la page demandée à l'origine.
 
-## <span class="short-header">Configuration requise</span>Configuration requise
+<h2>Configuration requise</h2>
 
 Pour réaliser les tâches présentées dans ce guide, vous avez besoin des éléments suivants :
 
@@ -84,7 +84,7 @@ Pour réaliser les tâches présentées dans ce guide, vous avez besoin des él�
 -   Microsoft Visual Studio 2012
 -   Identity and Access Tool for Visual Studio 2012 (téléchargement disponible à la page [Identity and Access Tool][Identity and Access Tool])
 
-## <span class="short-header">Création d'un espace de noms de contrôle d'accès</span>Création d'un espace de noms de contrôle d'accès
+<h2>Création d'un espace de noms de contrôle d'accès</h2>
 
 Pour utiliser le contrôle d'accès Active Directory, créez un espace de noms de contrôle d'accès. L'espace de noms fournit une étendue unique pour
 l'adressage des ressources ACS au sein de votre application.
@@ -105,7 +105,7 @@ l'adressage des ressources ACS au sein de votre application.
 
 Azure crée et active l'espace de noms.
 
-## <span class="short-header">Création d'une application ASP.NET MVC</span>Création d'une application ASP.NET MVC
+<h2>Création d'une application ASP.NET MVC</h2>
 
 Au cours de cette étape, vous allez créer une application ASP.NET MVC. Lors des prochaines étapes, vous intègrerez cette application Web Forms simple à ACS.
 
@@ -149,7 +149,7 @@ Comme ACS ne définit pas User.Identity.Name actuellement, nous devons apporter 
 
 1.  Appuyez sur F5 pour exécuter l'application. L'application ASP.NET MVC par défaut apparaît dans le navigateur Web.
 
-## <span class="short-header">Intégration d'une application Web à ACS</span>Intégration d'une application Web à ACS
+<h2>Intégration d'une application Web à ACS</h2>
 
 Au cours de cette tâche, vous allez intégrer votre application Web ASP.NET à ACS.
 
@@ -193,7 +193,7 @@ Au cours de cette tâche, vous allez intégrer votre application Web ASP.NET à 
 
     ![][12]
 
-## <span class="short-header">Test de l'intégration avec ACS</span>Test de l'intégration avec ACS
+<h2>Test de l'intégration avec ACS</h2>
 
 Cette tâche explique comment tester l'intégration de votre application par partie de confiance et ACS.
 
@@ -211,19 +211,21 @@ Dans cette section, nous allons modifier l'application de manière à ce qu'elle
 
 1.  Ouvrez le fichier *Controllers\\HomeController.cs*. Ajoutez une instruction **using** pour **System.Threading** :
 
-    using System.Threading;
+     using System.Threading;
 
 2.  Dans la classe HomeController, ajoutez la méthode *Claims* :
 
-    public ActionResult Claims()
-    {
-     ViewBag.Message = "Votre page de demande.";
+         public ActionResult Claims()
+         
+        {
+         
+          ViewBag.Message = "Your claims page.";
 
-        ViewBag.ClaimsIdentity = Thread.CurrentPrincipal.Identity;
+          ViewBag.ClaimsIdentity = Thread.CurrentPrincipal.Identity;
 
-        return View();
+          return View();
 
-    }
+         }
 
 3.  Cliquez avec le bouton droit sur la méthode *Claims*, puis sélectionnez **Ajouter une vue**.
 
@@ -323,7 +325,7 @@ Vous pouvez passer en revue et modifier ces paramètres de configuration dans le
 
 Dans la prochaine section, nous utiliserons les fonctionnalités du portail de gestion ACS pour modifier l'application Web. Vous verrez par vous-même à quel point cela est facile.
 
-## <span class="short-header">Ajout d'un fournisseur d'identité</span>Ajout d'un fournisseur d'identité
+<h2>Ajout d'un fournisseur d'identité</h2>
 
 Utilisons le portail de gestion ACS pour modifier l'authentification de l'application MvcACS. Dans cet exemple, nous allons ajouter Google comme fournisseur d'identité pour MvcACS.
 
@@ -349,7 +351,7 @@ Lorsque vous exécutez l'application, quelque chose se produit. Lorsqu'une appli
 
 Une fois que l'utilisateur a sélectionné un fournisseur d'identité, le navigateur le redirige vers la page de connexion correspondante.
 
-## <span class="short-header">Étapes suivantes</span>Étapes suivantes
+<h2>Étapes suivantes</h2>
 
 Vous avez créé une application Web intégrée à ACS. Ce n'est que le début. Vous allez en apprendre davantage sur ce scénario.
 
@@ -359,6 +361,7 @@ Vous pouvez également ajouter des règles à l'espace de noms pour déterminer 
 
 Pour en savoir plus sur les fonctionnalités ACS et découvrir d'autres scénarios, consultez la page [Access Control Service 2.0][Access Control Service 2.0].
 
+  [Qu'est-ce qu'ACS ?]: #what-is
   [Concepts]: #concepts
   [Configuration requise]: #pre
   [Création d'un espace de noms de contrôle d'accès]: #create-namespace

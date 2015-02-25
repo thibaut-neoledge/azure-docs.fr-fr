@@ -1,4 +1,4 @@
-﻿<properties umbracoNaviHide="0" pageTitle="Gestion d'une base de données SQL" metaKeywords="Base de données SQL Azure, Base de données SQL, gestion de base de données sql, ajout de connexions, connexion à la base de données sql" description="Découvrez comment gérer la base de données SQL Azure." urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
+<properties umbracoNaviHide="0" pageTitle="Gestion d'une base de données SQL" metaKeywords="Base de données SQL Azure, Base de données SQL, gestion de base de données sql, ajout de connexions, connexion à la base de données sql" description="Découvrez comment gérer la base de données SQL Azure." urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
 
@@ -7,7 +7,7 @@
 
 Cette rubrique montre comment effectuer des tâches simples de gestion dans la base de données SQL Azure. 
 
-##Sommaire##
+## Sommaire##
 
 * [ Connexion à la base de données SQL dans Azure à l'aide de Management Studio](#connect)
 * [ Ajout de connexions et d'utilisateurs à la base de données SQL dans Azure](#addlogins)
@@ -23,7 +23,7 @@ Management Studio comprend des fonctionnalités qui ne sont actuellement pas dis
 
 Avant de pouvoir vous connecter, il est parfois nécessaire de créer une exception de pare-feu qui autorise des requêtes sortantes sur le port 1433 sur votre système local. Le port 1433 des ordinateurs qui sont sécurisés par défaut n'est généralement pas ouvert. 
 
-##Configuration du pare-feu pour le serveur local
+## Configuration du pare-feu pour le serveur local
 
 1. Dans Pare-feu Windows avec fonctions avancées de sécurité, créez une règle sortante.
 
@@ -32,7 +32,7 @@ Avant de pouvoir vous connecter, il est parfois nécessaire de créer une except
 3. Indiquez un nom explicite, tel que *WindowsAzureSQLDatabase (tcp-out) port 1433*. 
 
 
-##Connexion à un serveur logique
+## Connexion à un serveur logique
 
 1. Dans Management Studio et Se connecter au serveur, vérifiez que le moteur de base de données est sélectionné, entrez le nom du serveur logique au format suivant : *servername*.database.widnows.net
 
@@ -45,7 +45,7 @@ Avant de pouvoir vous connecter, il est parfois nécessaire de créer une except
 4. Dans Connexion à une base de données, spécifiez **master**.
 
 
-##Connexion à un serveur local
+## Connexion à un serveur local
 
 1. Dans Management Studio et Se connecter au serveur, vérifiez que le moteur de base de données est sélectionné, entrez le nom d'une instance locale au format suivant : *servername*\\*instancename*. Si le serveur est local et une instance par défaut, entrez *localhost*.
 
@@ -62,7 +62,7 @@ Les connexions que vous créez doivent être des connexions d'authentification S
 
 Le second script attribue les autorisations aux utilisateurs de la base de données. Dans ce script, vous allez vous connecter à une base de données déjà chargée sur Azure.
 
-##Création de connexions
+## Création de connexions
 
 1. Dans Management Studio, connectez-vous à un serveur logique sur Azure, développez le dossier Bases de données, cliquez avec le bouton droit sur **master**, puis sélectionnez **Nouvelle requête**.
 
@@ -82,7 +82,7 @@ Le second script attribue les autorisations aux utilisateurs de la base de donn�
 </pre></div>
 
 
-##Création d'utilisateurs de base de données
+## Création d'utilisateurs de base de données
 
 1. Développez le dossier Bases de données, cliquez avec le bouton droit sur **school**, puis sélectionnez **Nouvelle requête**.
 
@@ -104,7 +104,7 @@ Le second script attribue les autorisations aux utilisateurs de la base de donn�
     GRANT VIEW DATABASE STATE to 'sqlops';
 </pre></div>
 
-##Affichage et test de connexions
+## Affichage et test de connexions
 
 1. Dans une nouvelle fenêtre de requête, connectez-vous à **master**, puis exécutez l'instruction suivante : 
 
@@ -125,8 +125,8 @@ Le second script attribue les autorisations aux utilisateurs de la base de donn�
 
 Vous avez maintenant créé et testé plusieurs connexions. Pour plus d'informations, consultez les pages [Gestion des bases de données et des connexions dans Base de données SQL Azure][] et [Contrôle de Base de données SQL Azure à l'aide de vues de gestion dynamique][].
 
-[Gestion des bases de données et des connexions dans la base de données SQL]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336235.aspx
-[Contrôle de la base de données SQL à l'aide de vues de gestion dynamique]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ff394114.aspx
+[Gestion des bases de données et des connexions dans Base de données SQL Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336235.aspx
+[Contrôle de Base de données SQL Azure à l'aide de vues de gestion dynamique]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ff394114.aspx
 [Gestion de la base de données SQL à l'aide de Management Studio]: http://www.windowsazure.com/fr-fr/develop/net/common-tasks/sql-azure-management/
 
 

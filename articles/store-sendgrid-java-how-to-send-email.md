@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SendGrid Email Service" pageTitle="Utilisation du service de messagerie SendGrid (Java) - Azure" metaKeywords="Azure SendGrid, service de messagerie électronique Azure, Azure SendGrid Java, Azure messagerie électronique Java" description="Découvrez comment envoyer un courrier électronique avec le service de messagerie SendGrid dans Azure. Exemples de code écrits en Java." metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="SendGrid Email Service" pageTitle="Utilisation du service de messagerie SendGrid (Java) - Azure" metaKeywords="Azure SendGrid, service de messagerie électronique Azure, Azure SendGrid Java, Azure messagerie électronique Java" description="Découvrez comment envoyer un courrier électronique avec le service de messagerie SendGrid dans Azure. Exemples de code écrits en Java." metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
 
@@ -82,7 +82,7 @@ Obtenez les bibliothèques javax.mail, par exemple depuis <http://www.oracle.com
         Session mailSession = Session.getDefaultInstance(properties, auth);
 
 4.  Créez votre message et entrez des valeurs **﻿À**, **De**, **Objet** et du contenu. Cette étape est présentée dans la section [ Création d'une section de courrier électronique](#bkmk_HowToCreateEmail) .
-5.  Envoyez le message via un objet     <span class="auto-style1">javax.mail.Transport</span> . Cette étape est présentée dans la section [ Envoi d'un courrier électronique][How to: Send an Email].
+5.  Envoyez le message via un objet     <span class="auto-style1">javax.mail.Transport</span> . Cette étape est présentée dans la section [ Envoi d'un courrier électronique][Procédure : Envoi d'un courrier électronique].
 
 ## <a name="bkmk_HowToCreateEmail"> </a>Utilisation Création d'un courrier électronique
 
@@ -201,12 +201,12 @@ ces liens pour en savoir plus.
   [Étapes suivantes]: #bkmk_NextSteps
   [Présentation du service de messagerie électronique SendGrid]: #bkmk_WhatIsSendGrid
   [Création d'un compte SendGrid]: #bkmk_CreateSendGridAcct
-  [ Utilisation des bibliothèques javax.mail]: #bkmk_HowToUseJavax
-  [ Création d'une section de courrier électronique]: #bkmk_HowToCreateEmail
-  [ Envoi d'un courrier électronique]: #bkmk_HowToSendEmail
-  [ Ajout d'une pièce jointe]: #bkmk_HowToAddAttachment
-  [ Utilisation de filtres pour activer les pieds de page, le suivi et l'analyse]: #bkmk_HowToUseFilters
-  [ Mise à jour des propriétés de courrier électronique]: #bkmk_HowToUpdateEmail
+  [Procédure : Utilisation des bibliothèques javax.mail]: #bkmk_HowToUseJavax
+  [Procédure : Création d'un courrier électronique]: #bkmk_HowToCreateEmail
+  [Procédure : Envoi d'un courrier électronique]: #bkmk_HowToSendEmail
+  [Procédure : Ajout d'une pièce jointe]: #bkmk_HowToAddAttachment
+  [Procédure : Utilisation de filtres pour activer les pieds de page, le suivi et l'analyse]: #bkmk_HowToUseFilters
+  [Procédure : Mise à jour des propriétés de courrier électronique]: #bkmk_HowToUpdateEmail
   [Procédure : Utilisation de services SendGrid supplémentaires]: #bkmk_HowToUseAdditionalSvcs
   [http://sendgrid.com]: https://sendgrid.com
   [http://sendgrid.com/pricing.html]: http://sendgrid.com/pricing.html
@@ -216,7 +216,7 @@ ces liens pour en savoir plus.
   [Paramètres de filtre]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
   [Documentation sur l'API SendGrid]: https://sendgrid.com/docs/API_Reference/index.html
   [http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
-  [cloud-based email service]: https://sendgrid.com/email-solutions
-  [transactional email delivery]: https://sendgrid.com/transactional-email
+  [service de messagerie électronique dans le cloud]: https://sendgrid.com/email-solutions
+  [remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
 
 <!--HONumber=35.2-->

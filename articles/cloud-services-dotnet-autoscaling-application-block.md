@@ -28,6 +28,7 @@ Ce guide explique le déroulement des scénarios courants dans le cadre de l'uti
 Le bloc applicatif de mise à l'échelle automatique vous permet de mettre automatiquement à l'échelle votre application Azure en fonction de règles que vous définissez spécifiquement pour cette application. Vous pouvez utiliser ces règles pour préserver le rendement de votre application Azure face à l'évolution de sa charge de travail, tout en contrôlant les coûts liés à l'hébergement de votre application dans Azure. Outre la mise à l'échelle par augmentation ou diminution du nombre d'instances de rôle dans votre application, le bloc vous permet également d'utiliser d'autres actions de mise à l'échelle telles que la limitation de certaines fonctionnalités dans votre application ou l'utilisation d'actions personnalisées.
 
 Vous pouvez choisir d'héberger le bloc dans un rôle Azure ou dans une application locale. 
+
 Le bloc applicatif de mise à l'échelle automatique fait partie intégrante de [Microsoft Enterprise Library 5.0 Integration Pack for Azure][Microsoft Enterprise Library 5.0 Integration Pack for Azure].
 
 ## <a id="Concepts"> </a>Concepts
@@ -397,6 +398,6 @@ Maintenant que vous avez appris les principes de base de l'utilisation du bloc a
   [Guide du développeur Enterprise Library 5.0 Integration Pack for Azure]: http://msdn.microsoft.com/fr-fr/library/hh680949(PandP.50).aspx
   [Réduction des coûts d'hébergement Azure avec Sage via la mise à l'échelle automatique]: http://msdn.microsoft.com/fr-fr/library/jj838716(PandP.50).aspx
   [Réduction des coûts d'hébergement et de l'impact environnemental de TechNet et MSDN grâce à la mise à l'échelle automatique Azure]: http://msdn.microsoft.com/fr-fr/library/jj838718(PandP.50).aspx
-
+  [portail de gestion Azure]: http://manage.windowsazure.com
 
 <!--HONumber=35.1-->

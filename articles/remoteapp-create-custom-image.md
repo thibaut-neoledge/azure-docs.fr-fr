@@ -1,8 +1,8 @@
-﻿<properties title="How to create a custom template image for RemoteApp" pageTitle="Création d'une image de modèle personnalisée pour RemoteApp" description="Découvrez comment créer une image de modèle personnalisée pour RemoteApp. Vous pouvez utiliser ce modèle avec un déploiement hybride ou cloud." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
+<properties title="How to create a custom template image for RemoteApp" pageTitle="Création d'une image de modèle personnalisée pour RemoteApp" description="Découvrez comment créer une image de modèle personnalisée pour RemoteApp. Vous pouvez utiliser ce modèle avec un déploiement hybride ou cloud." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
 
 <tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" ms.manager="mbaldwin" />
 
-#Création d'une image de modèle personnalisée pour RemoteApp
+# Création d'une image de modèle personnalisée pour RemoteApp
 Azure RemoteApp utilise une image de modèle Windows Server 2012 R2 pour héberger tous les programmes que vous souhaitez partager avec vos utilisateurs. Pour créer une image de modèle RemoteApp personnalisée, vous pouvez commencer par une image existante ou en créer une. Vous trouverez, ci-dessous, les exigences relatives à l'image qui peut être téléchargée en vue d'être utilisée avec Azure RemoteApp :
 
 
