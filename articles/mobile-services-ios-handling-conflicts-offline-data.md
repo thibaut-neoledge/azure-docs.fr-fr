@@ -1,43 +1,47 @@
-﻿<properties urlDisplayName="Handle Conflicts with Offline Data" pageTitle="Gestion des conflits liés aux données hors connexion dans Mobile Services (iOS) | Centre de développement mobile" metaKeywords="" description="Découvrez comment gérer les conflits à l'aide d'Azure Mobile Services lors de la synchronisation des données hors connexion dans votre application iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="krisragh" manager="dwrede"/>
+﻿<properties pageTitle="Gestion des conflits liés aux données hors connexion dans Mobile Services (iOS) | Centre de développement mobile" description="Apprenez à gérer les conflits à l'aide d'Azure Mobile Services lors de la synchronisation des données hors connexion dans votre application iOS" documentationCenter="ios" authors="krisragh" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="dotnet" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/26/2015" ms.author="krisragh,donnam"/>
 
 
 # Gestion des conflits liés à la synchronisation des données hors connexion dans Mobile Services
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="Windows Store C#">Windows Store C#</a>
-<a href="/fr-fr/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone">Windows Phone</a>
-<a href="/fr-fr/documentation/articles/mobile-services-ios-handling-conflicts-offline-data" title="iOS" class="current">iOS</a>
-</div>
+[WACOM.INCLUDE [mobile-services-selector-offline-conflicts](../includes/mobile-services-selector-offline-conflicts.md)]
 
 Cette rubrique vous explique comment synchroniser les données et gérer les conflits lors de l'utilisation des fonctionnalités hors connexion d'Azure Mobile Services. Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données hors connexion]. Avant de commencer, vous devez suivre le didacticiel [Prise en main des données hors connexion].
 
->[WACOM.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">version d'évaluation gratuite Azure</a>.
+>[AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+
+Ce didacticiel vous familiarise avec ces étapes de base :
+
+1. [Mise à jour du projet d'application de manière à autoriser les modifications]
+2. [Mise à jour du contrôleur d'affichage de la liste des tâches]
+3. [Ajout d'un contrôleur d'affichage des tâches]
+4. [Ajout d'un contrôleur d'affichage des tâches et d'un segue au storyboard]
+5. [Ajout des détails des éléments au contrôleur d'affichage des tâches]
+6. [Ajout de la prise en charge de la sauvegarde des modifications]
+7. [Problème de gestion de conflit]
+8. [Mise à jour de QSTodoService pour prendre en charge la gestion des conflits]
+9. [Ajout d'une assistance à l'affichage des alertes de l'interface utilisateur pour prendre en charge la gestion des conflits]
+10. [Ajout d'un gestionnaire de conflits au contrôleur d'affichage de la liste des tâches]
+11. [Test de l'application]
 
 ## Didacticiel Prise en main des données hors connexion
 
 Suivez les instructions du didacticiel [Prise en main des données hors connexion] et terminez ce projet. Le projet achevé de ce didacticiel va nous servir de point de départ pour le présent didacticiel.
 
-## Mise à jour du projet d'application de manière à autoriser les modifications
+## <a name="update-app"></a>Mise à jour du projet d'application de manière à autoriser les modifications
 
 Mettons à jour le projet achevé du didacticiel [Prise en main des données hors connexion] de manière à autoriser la modification des éléments. Actuellement, si vous exécutez cette même application sur deux téléphones, modifiez localement le même élément sur les deux téléphones et effectuez une transmission de type push pour envoyer les modifications au serveur, l'opération échoue avec un conflit.
 
 Les fonctions de synchronisation hors connexion du Kit de développement logiciel (SDK) vous permettent de gérer ces conflits par code et de décider dynamiquement ce que vous voulez faire des éléments en conflit. Nous pouvons expérimenter cette fonctionnalité en modifiant le projet de démarrage rapide.
 
-### Mise à jour du contrôleur d'affichage de la liste des tâches
+### <a name="update-list-view"></a>Mise à jour du contrôleur d'affichage de la liste des tâches
 
-1. Mettons à jour le storyboard de l'iPhone. Si vous utilisez un iPad, suivez la même procédure pour le storyboard de l'iPad.
-
-2. Sélectionnez **MainStoryboard_iPhone.storyboard** dans l'Explorateur de projets Xcode, puis sélectionnez **Contrôleur d'affichage de la liste des tâches**. Dans le menu supérieur, cliquez sur **Éditeur -> Incorporer dans -> Contrôleur de navigation**
-
-      ![][update-todo-list-view-controller-1]
-
-3. Ensuite, dans le **Contrôleur d'affichage de la liste des tâches**, sélectionnez la cellule d'affichage de table et définissez Mode accessoire sur **Indicateur de divulgation**. L'indicateur de divulgation indique aux utilisateurs que s'ils appuient sur le contrôleur d'affichage de table associé, une nouvelle vue s'affichera. L'indicateur de divulgation ne produit aucun événement.
+1. Sélectionnez **MainStoryboard_iPhone.storyboard** dans l'Explorateur de projets Xcode, puis sélectionnez **Contrôleur d'affichage de la liste des tâches**. Sélectionnez la cellule d'affichage de table et définissez Mode accessoire sur **Indicateur de divulgation**. L'indicateur de divulgation indique aux utilisateurs que s'ils appuient sur le contrôleur d'affichage de table associé, une nouvelle vue s'affichera. L'indicateur de divulgation ne produit aucun événement.
 
       ![][update-todo-list-view-controller-2]
 
-4. Dans **TodoListViewController.m**, supprimez les opérations suivantes avec leurs contenus. Nous n'en avons pas besoin :
+2. Dans **TodoListViewController.m**, supprimez les opérations suivantes avec leurs contenus. Nous n'en avons pas besoin :
 
         -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 
@@ -46,28 +50,29 @@ Les fonctions de synchronisation hors connexion du Kit de développement logicie
         -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
          forRowAtIndexPath:(NSIndexPath *)indexPath
 
-### Ajout d'un contrôleur d'affichage des tâches
+### <a name="add-view-controller"></a>Ajout d'un contrôleur d'affichage des tâches
 
-1. Ajoutez une nouvelle classe Objective-C appelée **QSTodoItemViewController**, dérivée de **UIViewController**, à votre projet :
+1. Créez une nouvelle classe Cocoa Touch appelée **QSItemViewController**, dérivée de **UIViewController**.
 
-      ![][add-todo-item-view-controller-1]
+2. Dans **QSItemViewController.h**, ajoutez la définition de type suivante :
 
-      ![][add-todo-item-view-controller-2]
+        typedef void (^ItemEditCompletionBlock) (NSDictionary *editedItem);
 
-2. Dans **QSTodoItemViewController.h**, ajoutez une propriété pour contenir l'élément à modifier :
+3. Dans **QSItemViewController.h**, ajoutez une propriété pour l'élément à modifier et une propriété pour le rappel invoqué après que l'utilisateur appuie sur le bouton Retour dans la vue détaillée :
 
         @property (nonatomic, weak) NSMutableDictionary *item;
+        @property (nonatomic, strong) ItemEditCompletionBlock editCompleteBlock;
 
-3. Dans **QSTodoItemViewController.m**, ajoutez deux propriété privées pour les deux champs de la tâche que nous allons modifier : l'état d'achèvement et le texte de la tâche :
+4. Dans **QSItemViewController.m**, ajoutez deux propriétés privées pour les deux champs de la tâche que nous allons modifier, l'état d'achèvement et le texte de la tâche :
 
-        @interface QSTodoItemViewController ()
+        @interface QSItemViewController ()
 
         @property (nonatomic, strong) IBOutlet UITextField *itemText;
         @property (nonatomic, strong) IBOutlet UISegmentedControl *itemComplete;
 
         @end
 
-4. Dans **QSTodoItemViewController.m**, mettez à jour l'implémentation du stub de **viewDidLoad** avec le code suivant :
+5. Dans **QSItemViewController.m**, mettez à jour l'implémentation du stub de **viewDidLoad** avec le code suivant :
 
         - (void)viewDidLoad
         {
@@ -87,8 +92,7 @@ Les fonctions de synchronisation hors connexion du Kit de développement logicie
                         forControlEvents:UIControlEventValueChanged];
         }
 
-5. Dans **QSTodoItemViewController.m**, ajoutez quatre méthodes supplémentaires pour gérer plusieurs événements :
-
+6. Dans **QSItemViewController.m**, ajoutez quatre méthodes supplémentaires pour gérer plusieurs événements :
 
         - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
             [textField resignFirstResponder];
@@ -105,61 +109,87 @@ Les fonctions de synchronisation hors connexion du Kit de développement logicie
             [[self view] endEditing:YES];
         }
 
-        - (void)viewWillDisappear:(BOOL)animated {
-            [self.item setValue:[self.itemText text] forKey:@"text"];
-            [self.item setValue:[NSNumber numberWithBool:self.itemComplete.selectedSegmentIndex == 0] forKey:@"complete"];
+7. Dans **QSItemViewController**, ajoutez également la méthode suivante, qui est appelée lorsque l'utilisateur appuie sur le bouton **Retour** dans la barre de navigation. Cette méthode peut être appelée sur d'autres événements, nous allons donc vérifier d'abord la vue parent. Si l'élément a été modifié, **self.item** est modifié et le rappel **editCompleteBlock** est appelé :
+
+        - (void)didMoveToParentViewController:(UIViewController *)parent
+        {
+            if (![parent isEqual:self.parentViewController]) {
+                NSNumber *completeValue = [NSNumber numberWithBool:self.itemComplete.selectedSegmentIndex == 0];
+                
+                Boolean changed =
+                    [self.item valueForKey:@"text"] != [self.itemText text] ||
+                    [self.item valueForKey:@"complete"] != completeValue;
+                
+                if (changed) {
+                    [self.item setValue:[self.itemText text] forKey:@"text"];
+                    [self.item setValue:completeValue forKey:@"complete"];
+                    
+                    self.editCompleteBlock(self.item);
+                }
+            }
         }
 
-### Ajout d'un contrôleur d'affichage des tâches et d'un segue au storyboard
+### <a name="add-segue"></a>Ajout d'un contrôleur d'affichage des tâches et d'un segue au storyboard
 
 1. Revenez au fichier **MainStoryboard_iPhone.storyboard** à l'aide de l'Explorateur de projets.
 
-2. Ajoutez un nouveau contrôleur d'affichage pour la tâche au storyboard, à droite du **Contrôleur d'affichage de la liste des tâches** existant. Définissez la classe personnalisée de ce nouveau contrôleur d'affichage sur **QSTodoItemViewController**. Pour en savoir plus, consultez la page [Ajout d'une scène à un storyboard].
+2. Ajoutez un nouveau contrôleur d'affichage pour la tâche au storyboard, à droite du **Contrôleur d'affichage de la liste des tâches** existant. Définissez la classe personnalisée de ce nouveau contrôleur d'affichage sur **QSItemViewController**. Pour en savoir plus, consultez la page [Ajout d'une scène à un storyboard].
 
-3. Ajoutez un segue push du **Contrôleur d'affichage de la liste des tâches** dans le **Contrôleur d'affichage des tâches** et nommez ce segue **detailSegue**. Pour en savoir plus, consultez la page [Ajout d'un segue entre des scènes dans un storyboard]. Ne créez pas ce segue à partir d'une cellule ou d'un bouton dans le contrôleur d'affichage d'origine, mais procédez comme suit : en maintenant la touche Ctrl enfoncée, faites glisser l'icône du contrôleur d'affichage sous le **Contrôleur d'affichage de la liste des tâches** dans l'interface du storyboard vers le **Contrôleur d'affichage des tâches**. Si vous exécutez accidentellement un segue à partir d'une cellule, vous déclencherez le segue à deux reprises lorsque vous exécuterez l'application, ce qui provoquera l'erreur suivante :
+3. Ajoutez un segue **Show** du **Contrôleur d'affichage de la liste des tâches** dans le **Contrôleur d'affichage des tâches**. Ensuite, dans l'inspecteur d'attributs, définissez l'identificateur de segue sur**detailSegue**. 
 
-        Une animation Push imbriquée peut entraîner un endommagement de la barre de navigation
+    Ne créez pas ce segue à partir d'une cellule ou d'un bouton dans le contrôleur d'affichage d'origine, mais procédez comme suit : en maintenant la touche Ctrl enfoncée, faites glisser l'icône du contrôleur d'affichage sur le **Contrôleur d'affichage de la liste des tâches** dans l'interface du storyboard vers le **Contrôleur d'affichage des tâches**.
+
+    ![][todo-list-view-controller-add-segue]
+
+    Si vous exécutez accidentellement un segue à partir d'une cellule, vous déclencherez le segue à deux reprises lorsque vous exécuterez l'application, ce qui provoquera l'erreur suivante :
+
+        Nested push animation can result in corrupted navigation bar
+
+    Pour en savoir plus sur les segues, consultez la page [Ajout d'un segue entre des scènes dans un storyboard]. 
 
 4. Ajoutez un champ texte pour le texte de l'élément et un contrôle segmenté pour l'état d'achèvement au nouveau **Contrôleur d'affichage des tâches**, avec, également, des étiquettes. Dans le contrôle segmenté, définissez le titre de **Segment 0** sur **Oui** et le titre de **Segment 1** sur **Non**. Connectez ces nouveaux champs aux outlets dans le code. Pour en savoir plus, consultez les pages [Création d'une interface utilisateur] et [Contrôles segmentés].
 
       ![][add-todo-item-view-controller-3]
 
-5. Connectez ces nouveaux champs aux outlets correspondants que vous avez déjà ajoutés à **QSTodoItemViewController.m**. Connectez le champ texte de l'élément à l'outlet **itemText** et le contrôle segmenté de l'état d'achèvement à l'outlet **itemComplete**. Pour en savoir plus, consultez la page [Création d'une connexion d'outlet].
+5. Connectez ces nouveaux champs aux outlets correspondants que vous avez déjà ajoutés à **QSItemViewController.m**. Connectez le champ texte de l'élément à l'outlet **itemText** et le contrôle segmenté de l'état d'achèvement à l'outlet **itemComplete**. Pour en savoir plus, consultez la page [Création d'une connexion d'outlet].
 
-6. Définissez le délégué du champ texte sur le contrôleur d'affichage. Ceci permet d'abandonner le champ texte lorsque vous modifiez un élément et appuyez sur ENTRÉE. En maintenant la touche Ctrl enfoncée, faites glisser le champ texte vers l'icône du contrôleur d'affichage sous le **Contrôleur d'affichage des tâches** dans l'interface du storyboard et sélectionnez l'outlet délégué ; vous indiquez ainsi au storyboard que le délégué de ce champ texte est ce contrôleur d'affichage.
+6. Définissez le délégué du champ texte sur le contrôleur d'affichage. En maintenant la touche Ctrl enfoncée, faites glisser le champ texte vers l'icône du contrôleur d'affichage sous le **Contrôleur d'affichage des tâches** dans l'interface du storyboard et sélectionnez l'outlet délégué ; vous indiquez ainsi au storyboard que le délégué de ce champ texte est ce contrôleur d'affichage.
 
 7. Vérifions que l'application fonctionne avec toutes les modifications que vous avez apportées jusqu'ici. Exécutez à présent l'application dans le simulateur. Ajoutez des éléments à la liste des tâches, puis cliquez sur ces éléments. Le contrôleur d'affichage des éléments (actuellement vide) apparaît.
 
-      ![][add-todo-item-view-controller-4]
+      ![][add-todo-item-view-controller-4]          ![][add-todo-item-view-controller-5]
 
-      ![][add-todo-item-view-controller-5]
+### <a name="add-item-details"></a>Ajout des détails des éléments au contrôleur d'affichage des tâches
 
-### Ajout des détails des éléments au contrôleur d'affichage des tâches
+1. Nous allons faire référence à **QSItemViewController** à partir de **QSTodoListViewController.m**. Par conséquent, dans **QSTodoListViewController.m**, ajoutez une ligne pour importer **QSItemViewController.h**.
 
-1. Nous allons faire référence à **QSTodoItemViewController** à partir de **QSTodoListViewController.m**. Par conséquent, dans **QSTodoListViewController.m**, ajoutez une ligne pour importer **QSTodoItemViewController.h**.
+        #import "QSItemViewController.h"
 
-        #import "QSTodoItemViewController.h"
+2. Ajoutez une nouvelle propriété à l'interface **QSTodoListViewController** dans **QSTodoListViewController.m** afin de stocker l'élément en cours de modification :
 
-2. Ajoutez deux nouvelles propriétés à l'interface **QSTodoListViewController** dans **QSTodoListViewController.m** afin de stocker l'élément en cours de modification :
-
-        @property (nonatomic)           NSInteger       editedItemIndex;
-        @property (strong, nonatomic)   NSMutableDictionary *editedItem;
+        @property (strong, nonatomic)   NSDictionary *editingItem;
 
 3. Implémentez **tableView:didSelectRowAtIndexPath:** dans **QSTodoListViewController.m** pour enregistrer l'élément en cours de modification, puis appelez le segue afin d'afficher la vue détaillée.
 
-          - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-              self.editedItemIndex = [indexPath row];
-              self.editedItem = [[self.todoService.items objectAtIndex:[indexPath row]] mutableCopy];
+        - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+            NSManagedObject *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+            self.editingItem = [MSCoreDataStore tableItemFromManagedObject:item]; // map from managed object to dictionary
+            
+            [self performSegueWithIdentifier:@"detailSegue" sender:self];
+        }
 
-              [self performSegueWithIdentifier:@"detailSegue" sender:self];
-          }
-
-4. Implémentez **prepareForSegue:sender:** dans **QSTodoListViewController.m** pour transmettre l'élément au **Contrôleur d'affichage des tâches**.
+4. Implémentez **prepareForSegue:sender:** dans **QSTodoListViewController.m** pour transmettre l'élément au **contrôleur d'affichage d'élément** et spécifiez le rappel lorsque l'utilisateur quitte la vue détaillée :
 
         - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
             if ([[segue identifier] isEqualToString:@"detailSegue"]) {
-                QSTodoItemViewController *ivc = (QSTodoItemViewController *)[segue destinationViewController];
-                ivc.item = self.editedItem;
+                QSItemViewController *ivc = (QSItemViewController *) [segue destinationViewController];
+                ivc.item = [self.editingItem mutableCopy];
+                
+                ivc.editCompleteBlock = ^(NSDictionary *editedValue) {
+                    [self.todoService updateItem:editedValue completion:^(NSUInteger index) {
+                        self.editingItem = nil;
+                    }];
+                };
             }
         }
 
@@ -167,103 +197,46 @@ Les fonctions de synchronisation hors connexion du Kit de développement logicie
 
       ![][add-todo-item-view-controller-6]
 
-### Ajout de la prise en charge de la sauvegarde des modifications
+### <a name="saving-edits"></a>Ajout de la prise en charge de la sauvegarde des modifications
 
 1. Lorsque vous cliquez sur le bouton " Retour " en mode Navigation, les modifications sont perdues. Nous avons envoyé les données vers la vue détaillée, mais les données ne sont pas renvoyées vers la vue principale. Comme nous avons déjà transmis un pointeur vers une copie de l'élément, nous pouvons nous servir de ce pointeur pour récupérer la liste des mises à jour effectuées sur l'élément et le mettre à jour sur le serveur. Pour commencer, mettez à jour la classe wrapper du serveur de **QSTodoService** dans **QSTodoService.m** en supprimant l'opération **completeItem** et en ajoutant une nouvelle opération **updateItem**. Ceci tient au fait que **completeItem** marque seulement les éléments comme terminés, tandis que **updateItem** les met à jour.
 
-        - (void)updateItem:(NSDictionary *)item atIndex:(NSInteger)index completion:(QSCompletionWithIndexBlock)completion {
-            // Cast the public items property to the mutable type (it was created as mutable)
-            NSMutableArray *mutableItems = (NSMutableArray *) items;
-
-            // Replace the original in the items array
-            [mutableItems replaceObjectAtIndex:index withObject:item];
-
+        - (void)updateItem:(NSDictionary *)item completion:(QSCompletionBlock)completion
+        {
+            // Set the item to be complete (we need a mutable copy)
+            NSMutableDictionary *mutable = [item mutableCopy];
+            
             // Update the item in the TodoItem table and remove from the items array when we mark an item as complete
-            [self.syncTable update:item completion:^(NSError *error) {
+            [self.syncTable update:mutable completion:^(NSError *error) {
                 [self logErrorIfNotNil:error];
-
-                NSInteger index = -1;
-                if (!error) {
-                    BOOL isComplete = [[item objectForKey:@"complete"] boolValue];
-                    NSString *remoteId = [item objectForKey:@"id"];
-                    index = [items indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-                        return [remoteId isEqualToString:[obj objectForKey:@"id"]];
-                    }];
-
-                    if (index != NSNotFound && isComplete)
-                    {
-                        [mutableItems removeObjectAtIndex:index];
-                    }
+                
+                if (completion != nil) {
+                    dispatch_async(dispatch_get_main_queue(), completion);
                 }
-
-                // Let the caller know that we have finished
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completion(index);
-                });
             }];
         }
 
 2. Supprimez la déclaration pour **completeItem** de **QSTodoService.h** et ajoutez cette déclaration pour **updateItem** :
 
-        - (void)updateItem:(NSDictionary *)item atIndex:(NSInteger)index completion:(QSCompletionWithIndexBlock)completion;
+        - (void)updateItem:(NSDictionary *)item completion:(QSCompletionBlock)completion;
 
-3. Dans **QSTodoListViewController.m**, ajoutez l'opération **viewWillAppear** pour appeler la méthode update chaque fois que la vue principale est affichée lorsque vous revenez du contrôleur d'affichage des détails.
+3. Testons à présent l'application. Vérifions que l'application fonctionne avec toutes les modifications que vous avez apportées jusqu'ici. Exécutez à présent l'application dans le simulateur. Ajoutez des éléments à la liste des tâches, puis cliquez sur ces éléments. Essayez de modifier un élément et revenez en arrière. Vérifiez que la description de l'élément a été mise à jour dans la vue principale de l'application. Actualisez l'application en faisant un glisser vers le bas et vérifiez que la modification est reflétée dans votre service distant.
 
-        - (void)viewWillAppear:(BOOL)animated {
-            if (self.editedItem && self.editedItemIndex >= 0) {
-                // Returning from the details view controller
-                NSDictionary *item = [self.todoService.items objectAtIndex:self.editedItemIndex];
+### <a name="conflict-handling-problem"></a>Problème de gestion de conflit
 
-                BOOL changed = ![item isEqualToDictionary:self.editedItem];
-                if (changed) {
-                    [self.tableView setUserInteractionEnabled:NO];
-
-                    // Change the appearance to look greyed out until we remove the item
-                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.editedItemIndex inSection:0];
-
-                    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-                    cell.textLabel.textColor = [UIColor grayColor];
-
-                    // Ask the todoService to update the item, and remove the row if it's been completed
-                    [self.todoService updateItem:self.editedItem atIndex:self.editedItemIndex completion:^(NSUInteger index) {
-                        if ([[self.editedItem objectForKey:@"complete"] boolValue]) {
-                            // Remove the row from the UITableView
-                            [self.tableView deleteRowsAtIndexPaths:@[ indexPath ]
-                                                  withRowAnimation:UITableViewRowAnimationTop];
-                        } else {
-                            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                                                  withRowAnimation:UITableViewRowAnimationAutomatic];
-                        }
-
-                        [self.tableView setUserInteractionEnabled:YES];
-
-                        self.editedItem = nil;
-                        self.editedItemIndex = -1;
-                    }];
-                } else {
-                    self.editedItem = nil;
-                    self.editedItemIndex = -1;
-                }
-            }
-        }
-
-4. Testons à présent l'application. Vérifions que l'application fonctionne avec toutes les modifications que vous avez apportées jusqu'ici. Exécutez à présent l'application dans le simulateur. Ajoutez des éléments à la liste des tâches, puis cliquez sur ces éléments. Essayez de modifier un élément et revenez en arrière. Vérifiez que la description de l'élément a été mise à jour dans la vue principale de l'application. Actualisez l'application en faisant un glisser vers le bas et vérifiez que la modification est reflétée dans le cloud.
-
-### Problème de gestion de conflit
-
-1. Examinons ce qui se passe lorsque deux clients différents essaient de modifier les mêmes données simultanément. L'exemple de liste ci-dessous contient un élément " Hello world 3 ". Vous allez le modifier de manière à afficher " Hello world 13 " sur un appareil et " Hello world 23 " sur un autre appareil.
+1. Examinons ce qui se passe lorsque deux clients différents essaient de modifier les mêmes données simultanément. Dans la liste d'exemples ci-dessous, il existe un élément " Mobile Services is Cool! ". Changeons cela en " J'aime Mobile Services ! " sur un appareil et en " J'aime Azure ! " sur un autre appareil.
 
       ![][conflict-handling-problem-1]
 
 2. Lancez l'application à deux endroits : sur les deux appareils iOS ou dans le simulateur et sur un appareil iOS. Si vous ne disposez pas d'un appareil physique pour effectuer un test, lancez une instance dans le simulateur et, à l'aide d'un client REST, envoyez une requête PATCH au service mobile. L'URL de la requête PATCH reflète le nom du service mobile, le nom de la table des tâches et l'ID de la table des tâches que vous modifiez, tandis que l'en-tête x-zumo-application correspond à la clé de l'application :
 
-        PATCH https://todolist.azure-mobile.net/tables/todoitem/D265929E-B17B-42D1-8FAB-D0ADF26486FA?__systemproperties=__version
+        PATCH https://donnam-tutorials.azure-mobile.net/tables/todoitem/D265929E-B17B-42D1-8FAB-D0ADF26486FA?__systemproperties=__version
         Content-Type: application/json
-        x-zumo-application: shYOoDFdKhmzLEbnMQqPYrCLhwGOVA10
+        x-zumo-application: xuAdWVDcLuCNfkTvOfaqzCCSBVHqoy96
 
         {
-            "id": "D265929E-B17B-42D1-8FAB-D0ADF26486FA",
-            "text": "Hello world 23"
+            "id": "CBBF4464-E08A-47C9-B6FB-6DCB30ACCE7E",
+            "text": "I love Azure!"
         }
 
 3. Actualisez à présent les éléments dans les deux instances de l'application. Une erreur est imprimée dans le journal de sortie dans Xcode :
@@ -274,7 +247,7 @@ Les fonctions de synchronisation hors connexion du Kit de développement logicie
 
   La raison est la suivante : sur le bloc completion, dans l'appel à **pullWithQuery:completion:**, le paramètre d'erreur est non-nil, ce qui provoque l'impression de l'erreur dans la sortie via **NSLog**.
 
-### Mise à jour de QSTodoService pour prendre en charge la gestion des conflits
+### <a name="service-add-conflict-handling"></a>Mise à jour de QSTodoService pour prendre en charge la gestion des conflits
 
 1. Laissons l'utilisateur décider comment le conflit doit être géré en le traitant dans le client. À cet effet, implémentons le protocole **MSSyncContextDelegate**. Dans **QSTodoService.h** et **QSTodoService.m**, remplacez la déclaration de la méthode de fabrique **(QSTodoService *)defaultService;** par l'instruction ci-dessous, de manière à recevoir le délégué de contexte de synchronisation en tant que paramètre :
 
@@ -282,7 +255,7 @@ Les fonctions de synchronisation hors connexion du Kit de développement logicie
 
 2. Dans **QSTodoService.m**, modifiez la ligne **init** comme indiqué ci-après, en recevant ici aussi le délégué de contexte de synchronisation en tant que paramètre :
 
-        -(QSTodoService *)initWithDelegate:(id)syncDelegate
+€
 
 3. Dans **QSTodoService.m**, remplacez l'appel **init** dans **defaultServiceWithDelegate** par **initWithDelegate** :
 
@@ -292,7 +265,7 @@ Les fonctions de synchronisation hors connexion du Kit de développement logicie
 
         self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:syncDelegate dataSource:store callback:nil];
 
-### Ajout d'une assistance à l'affichage des alertes de l'interface utilisateur pour prendre en charge la gestion des conflits
+### <a name="add-alert-view"></a>Ajout d'une assistance à l'affichage des alertes de l'interface utilisateur pour prendre en charge la gestion des conflits
 
 1. En cas de conflit, autorisons l'utilisateur à choisir la version à conserver :
   * conserver la version client (qui écrase la version sur le serveur),
@@ -367,15 +340,15 @@ Les fonctions de synchronisation hors connexion du Kit de développement logicie
 
         @end
 
-### Ajout d'un gestionnaire de conflits au contrôleur d'affichage de la liste des tâches
+### <a name="add-conflict-handling"></a>Ajout d'un gestionnaire de conflits au contrôleur d'affichage de la liste des tâches
 
-1. Dans **QSTodoListViewController.m**, remplacez l'appel à **defaultService** dans **viewDidLoad** par un appel à **defaultServiceWithDelegate**, comme indiqué ci-après :
+1. Dans **QSTodoListViewController.m**, modifiez **viewDidLoad**. Remplacez l'appel à **defaultService** par un appel à **defaultServiceWithDelegate** :
 
         self.todoService = [QSTodoService defaultServiceWithDelegate:self];
 
 2. Dans **QSTodoListViewController.h**, ajoutez **&lt;MSSyncContextDelegate&gt;** à la déclaration d'interface. Nous implémentons ainsi le protocole **MSSyncContextDelegate**.
 
-        @interface QSTodoListViewController : UITableViewController<MSSyncContextDelegate>
+        @interface QSTodoListViewController : UITableViewController<MSSyncContextDelegate, NSFetchedResultsControllerDelegate>
 
 3. Ajoutez l'instruction d'importation suivante au début de **QSTodoListViewController.m** :
 
@@ -426,9 +399,14 @@ Les fonctions de synchronisation hors connexion du Kit de développement logicie
             }];
         }
 
-### Test de l'application
+### <a name="test-app"></a>Test de l'application
 
-Testons l'application qui présente des conflits. Modifiez le même élément dans deux instances différentes de l'application exécutées simultanément. Effectuez maintenant le geste d'actualisation dans les instances de l'application en faisant un glisser depuis le haut de l'écran. Vous êtes alors invité à rapprocher la modification.
+Testons l'application qui présente des conflits. Modifiez le même élément dans deux instances différentes de l'application exécutées simultanément ou utilisez l'application et un client REST. 
+
+Effectuez le geste d'actualisation dans les instances de l'application en faisant un glisser depuis le haut de l'écran. Vous êtes alors invité à résoudre le conflit :
+
+![][conflict-ui]
+
 
 ### Résumé
 
@@ -442,15 +420,28 @@ Au cours du processus, vous avez ajouté une classe d'assistance **QSUIAlertView
 
 <!-- URLs. -->
 
-[add-todo-item-view-controller-1]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-1.png
-[add-todo-item-view-controller-2]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-2.png
+[Mise à jour du projet d'application de manière à autoriser les modifications]: #update-app
+[Mise à jour du contrôleur d'affichage de la liste des tâches]: #update-list-view
+[Ajout d'un contrôleur d'affichage des tâches]: #add-view-controller
+[Ajout d'un contrôleur d'affichage des tâches et d'un segue au storyboard]: #add-segue
+[Ajout des détails des éléments au contrôleur d'affichage des tâches]: #add-item-details
+[Ajout de la prise en charge de la sauvegarde des modifications]: #saving-edits
+[Problème de gestion de conflit]: #conflict-handling-problem
+[Mise à jour de QSTodoService pour prendre en charge la gestion des conflits]: #service-add-conflict-handling
+[Ajout d'une assistance à l'affichage des alertes de l'interface utilisateur pour prendre en charge la gestion des conflits]: #add-alert-view
+[Ajout d'un gestionnaire de conflits au contrôleur d'affichage de la liste des tâches]: #add-conflict-handling
+[Test de l'application]: #test-app
+
+
 [add-todo-item-view-controller-3]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-3.png
 [add-todo-item-view-controller-4]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-4.png
 [add-todo-item-view-controller-5]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-5.png
 [add-todo-item-view-controller-6]: ./media/mobile-services-ios-handling-conflicts-offline-data/add-todo-item-view-controller-6.png
-[conflict-handling-problem-1]: ./media/mobile-services-ios-handling-conflicts-offline-data/conflict-handling-problem-1.png
-[update-todo-list-view-controller-1]: ./media/mobile-services-ios-handling-conflicts-offline-data/update-todo-list-view-controller-1.png
+[todo-list-view-controller-add-segue]: ./media/mobile-services-ios-handling-conflicts-offline-data/todo-list-view-controller-add-segue.png
 [update-todo-list-view-controller-2]: ./media/mobile-services-ios-handling-conflicts-offline-data/update-todo-list-view-controller-2.png
+[conflict-handling-problem-1]: ./media/mobile-services-ios-handling-conflicts-offline-data/conflict-handling-problem-1.png
+[conflict-ui]: ./media/mobile-services-ios-handling-conflicts-offline-data/conflict-ui.png
+
 
 [Contrôles segmentés]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/UIKitUICatalog/UISegmentedControl.html
 [Aide de l'éditeur de modèle de données de base]: https://developer.apple.com/library/mac/recipes/xcode_help-core_data_modeling_tool/Articles/about_cd_modeling_tool.html
@@ -466,4 +457,5 @@ Au cours du processus, vous avez ajouté une classe d'assistance **QSUIAlertView
 [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-ios-get-started/
 [Prise en main des données]: /fr-fr/documentation/articles/mobile-services-ios-get-started-data/
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

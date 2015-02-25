@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Définition d'une API personnalisée qui prend en charge les notifications Pull - Azure Mobile Services" metaKeywords="" description="Découvrez comment définir une API personnalisée qui prend en charge les notifications périodiques dans les applications Windows Store utilisant Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Définition d'une API personnalisée qui prend en charge les notifications Pull - Azure Mobile Services" description="Découvrez comment définir une API personnalisée qui prend en charge les notifications périodiques dans les applications Windows Store utilisant Azure Mobile Services." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
 
 # Définition d'une API personnalisée qui prend en charge les notifications périodiques
 
@@ -28,7 +28,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 
    	![][1]
 
-	La boîte de dialogue **Créer un nouvel API personnalisé** s'affiche.
+	La boîte de dialogue **Créer une API personnalisée** s'affiche.
 
 3. Définissez **Autorisation Get** sur **Tout le monde**, tapez _tiles_ dans **Nom API**, puis cliquez sur le bouton de vérification.
 
@@ -72,19 +72,17 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 		<tile>
 			<visual>
 				<binding template="TileSquareText01">
-
-
-
-
+					<text id="1">My todo list</text>
+					<text id="2">Task 1</text>
+					<text id="3">Task 2</text>
+					<text id="4">Task 3</text>
 				</binding>
 			</visual>
 		</tile>
 
 	La fonction **exports.get** est utilisée parce que le client enverra une requête GET pour accéder au modèle de vignette.
 
-   	<div class="dev-callout"><b>Remarque</b>
-   		<p>Ce script d'API personnalisée utilise le <a href="http://go.microsoft.com/fwlink/p/?LinkId=306750">module wns</a>Node.js, qui est référencé à l'aide de la fonction <strong>require</strong> . Ce module est différent de l' <a href="http://go.microsoft.com/fwlink/p/?LinkId=260591">objet wns</a> renvoyé par l' <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554217.aspx">objet push</a>, qui permet d'envoyer des notifications Push à partir de scripts serveur.</p>
-   	</div>
+   	> [AZURE.NOTE] Ce script d'API personnalisé utilise le [module wns](http://go.microsoft.com/fwlink/p/?LinkId=306750), qui est référencé en utilisant la fonction **require**. Ce module est différent de l'[objet wns](http://go.microsoft.com/fwlink/p/?LinkId=260591) renvoyé par l'[objet push](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554217.aspx), lequel est utilisé pour envoyer des notifications push à partir de scripts serveur.
 
 Vous allez ensuite modifier l'application de démarrage rapide pour démarrer des notifications périodiques qui mettent à jour la vignette dynamique en demandant la nouvelle API personnalisée.
 
@@ -128,7 +126,7 @@ Maintenant que vous avez créé une notification périodique, vous pouvez consul
   <br/>En savoir plus sur la création d'API personnalisées.
 
 * [Guide de fonctionnement Mobile Services .NET]
-  <br/>En savoir plus sur l'utilisation de Mobile Services avec .NET
+  <br/>Découvrez plus en détail comment utiliser Mobile Services avec .NET.
 
 <!-- Anchors. -->
 [Définition de l'API personnalisée]: #define-custom-api
@@ -144,7 +142,7 @@ Maintenant que vous avez créé une notification périodique, vous pouvez consul
 [4]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-live-tile.png
 
 <!-- URLs. -->
-[Notifications Push Windows et Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
+[Notifications Push de Windows & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Tableau de bord Mes applications]: http://go.microsoft.com/fwlink/?LinkId=262039
 [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started
@@ -157,4 +155,5 @@ Maintenant que vous avez créé une notification périodique, vous pouvez consul
 [Guide de fonctionnement Mobile Services .NET]: /fr-fr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

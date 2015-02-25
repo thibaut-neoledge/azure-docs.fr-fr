@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="iOS Client Library" pageTitle="Utilisation de la bibliothèque cliente iOS - Azure Mobile Services" metaKeywords="Azure Mobile Services, Mobile Service iOS client library, iOS client library" description="Découvrez comment utiliser la bibliothèque cliente iOS pour Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use the iOS client library for Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Utilisation de la bibliothèque cliente iOS - Azure Mobile Services" description="Découvrez comment utiliser la bibliothèque cliente iOS pour Azure Mobile Services." services="" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
 
 
 
@@ -10,36 +10,36 @@
   <a href="/fr-fr/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/fr-fr/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/fr-fr/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a><a href="/fr-fr/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/fr-fr/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
 </div>
 
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du client iOS pour Azure Mobile Services. Les exemples sont écrits en objective-C et nécessitent le [Kit de développement logiciel (SDK) Mobile Service].  Ce didacticiel requiert également le [Kit de développement logiciel (SDK) iOS]. Les scénarios traités incluent l'interrogation, l'insertion, la mise à jour et la suppression de données, l'authentification des utilisateurs et la gestion des erreurs. Si vous débutez avec Mobile Services, suivez le didacticiel [Démarrage rapide Mobile Services][Prise en main de Mobile Services]. Ces didacticiels de démarrage rapide vous aideront à configurer votre compte et à créer votre premier service mobile.
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du client iOS pour Azure Mobile Services. Les exemples sont écrits en objective-C et nécessitent le [Kit de développement logiciel (SDK) Mobile Services].  Ce didacticiel requiert également le [Kit de développement logiciel (SDK) iOS]. Les scénarios traités incluent l'interrogation, l'insertion, la mise à jour et la suppression de données, l'authentification des utilisateurs et la gestion des erreurs. Si vous débutez avec Mobile Services, suivez le didacticiel [Démarrage rapide Mobile Services][Prise en main de Mobile Services]. Ces didacticiels de démarrage rapide vous aideront à configurer et à créer votre premier service mobile.
 
 ## Sommaire
 
 - [Présentation de Mobile Services][]
 - [Concepts][]
 - [Configuration et conditions préalables][]
-- [ Création du client Mobile Services][]
-- [ Création d'une référence de table][]
-- [ Interrogation des données à partir d'un service mobile][]
+- [Procédure : Création du client Mobile Services][]
+- [Procédure : Création d'une référence de table][]
+- [Procédure : Interrogation des données à partir d'un service mobile][]
 	- [Filtrage des données renvoyées]
-    - [Utilisation de l'objet MSQuery][ Utilisation de MSQuery]
+    - [Utilisation de l'objet MSQuery][Procédure : Utilisation de MSQuery]
 	- [Sélection de colonnes spécifiques]
-- [ Insertion de données dans un service mobile]
-- [ Modification des données d'un service mobile]
-- [ Liaison des données dans l'interface utilisateur]
-- [ Authentification des utilisateurs]
-- [ Gestion des erreurs]
+- [Procédure : Insertion de données dans un service mobile]
+- [Procédure : Modification des données d'un service mobile]
+- [Procédure : Liaison des données dans l'interface utilisateur]
+- [Procédure : Authentification des utilisateurs]
+- [Procédure : Gestion des erreurs]
 
-<!--- [How to: Design unit tests]
-- [How to: Customize the client]
-	- [Customize request headers]
-	- [Customize data type serialization]
-- [Next steps][]-->
+<!--- [Procédure : Conception de tests]
+- [Procédure : Personnalisation du client]
+	- [Personnalisation des en-têtes de requête]
+	- [Personnalisation de la sérialisation du type de données]
+- [Étapes suivantes][]-->
 
-[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
+[AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ##<a name="Setup"></a>Configuration et conditions préalables
 
-Ce guide part du principe que vous avez créé un service mobile avec une table.  Pour plus d'informations, consultez la page [Création d'une table] ou réutilisez la table `ToDoItem` créée dans le didacticiel [Prise en main de Mobile Services]. Les exemples de cette rubrique utilisent une table nommée `ToDoItem`, qui contient les colonnes suivantes :
+Ce guide part du principe que vous avez créé un service mobile avec une table.  Pour plus d'informations, consultez la page [Création d'une table] ou réutilisez la table `ToDoItem` créée lors du didacticiel [Prise en main de Mobile Services]. Les exemples de cette rubrique utilisent une table nommée `ToDoItem`, qui contient les colonnes suivantes :
 
 + `id`
 + `text`
@@ -47,13 +47,13 @@ Ce guide part du principe que vous avez créé un service mobile avec une table.
 + `duration`
 
 
-Si vous créez une application iOS pour la première fois, veillez à ajouter `WindowsAzureMobileServices.framework` dans le paramètre [**Link Binary With Libraries**](https://developer.apple.com/library/ios/recipes/xcode_help-project_editor/Articles/AddingaLibrarytoaTarget.html) de votre application. Au cours de cette étape, cliquez sur " Ajouter un autre... ", accédez à l'emplacement du Kit de développement logiciel (SDK) Windows Azure Mobile Services, puis sélectionnez-le.
+Si vous créez une application iOS pour la première fois, veillez à ajouter `WindowsAzureMobileServices.framework` dans le paramètre [**Link Binary With Libraries**](https://developer.apple.com/library/ios/recipes/xcode_help-project_editor/Articles/AddingaLibrarytoaTarget.html) de votre application. Au cours de cette étape, cliquez sur " Ajouter un autre...", accédez à l'emplacement du Kit de développement logiciel (SDK) Windows Azure Mobile Services, puis sélectionnez-le.
 
 En outre, vous devez ajouter la référence suivante dans les fichiers appropriés ou dans le fichier .pch de votre application.
 
 	#import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
-<h2><a name="create-client"></a> Création du client Mobile Services</h2>
+<h2><a name="create-client"></a>Procédure : Création du client Mobile Services</h2>
 
 Le code suivant permet de créer l'objet client du service mobile utilisé pour accéder à votre service mobile.
 
@@ -65,14 +65,14 @@ Vous pouvez également créer votre client à partir d'un objet **NSURL** qui es
 
 	MSClient *client = [MSClient clientWithApplicationURL:[NSURL URLWithString:@"MobileServiceUrl"] applicationKey:@"AppKey"];
 
-<h2><a name="table-reference"></a> Création d'une référence de table</h2>
+<h2><a name="table-reference"></a>Procédure : Création d'une référence de table</h2>
 
 Avant de pouvoir accéder aux données depuis votre service mobile, vous devez obtenir une référence pointant vers la table à partir de laquelle vous souhaitez interroger, mettre à jour ou supprimer des éléments. Dans l'exemple suivant, `ToDoItem` est le nom de la table :
 
 	MSTable *table = [client tableWithName:@"ToDoItem"];
 
 
-<h2><a name="querying"></a> Interrogation des données à partir d'un service mobile</h2>
+<h2><a name="querying"></a>Procédure : Interrogation des données à partir d'un service mobile</h2>
 
 Une fois que vous disposez d'un objet MSTable, vous pouvez créer une requête.  La requête simple suivante extrait tous les éléments dans notre table ToDoItem.
 
@@ -90,11 +90,11 @@ Notez que, dans ce cas, nous écrivons simplement le texte de la tâche dans le 
 
 Les paramètres suivants sont fournis dans le rappel :
 
-+ _items_ : objet **NSArray** des enregistrements qui correspondent à votre requête.
-+ _totalCount_ : nombre total d'éléments dans toutes les pages de la requête (pas seulement ceux renvoyés dans la page courante). Cette valeur est définie sur -1, sauf si vous demandez explicitement le nombre total dans votre requête. Pour plus d'informations, consultez la section [Renvoi de données dans les pages].
-+ _error_ : toute erreur qui s'est produite ; sinon, `nil`.
++ _items_: objet **NSArray** des enregistrements qui correspondent à votre requête.
++ _totalCount_: nombre total d'éléments dans toutes les pages de la requête (pas seulement ceux renvoyés dans la page courante). Cette valeur est définie sur -1, sauf si vous demandez explicitement le nombre total dans votre requête. Pour plus d'informations, consultez la section [Renvoi de données dans les pages].
++ _error_: toute erreur qui s'est produite ; sinon `nil`.
 
-### <a name="filtering"></a> Filtrage des données renvoyées
+### <a name="filtering"></a>Procédure : Filtrage des données renvoyées
 
 Si vous souhaitez filtrer vos résultats, un certain nombre d'options s'offrent à vous.
 
@@ -129,7 +129,7 @@ Notez que, dans ce cas, les paramètres de rappel sont légèrement différents.
 
 ### <a name="query-object"></a>Utilisation de l'objet MSQuery
 
-Utilisez l'objet **MSQuery** lorsque vous avez besoin d'émettre une requête plus complexe que le simple filtrage de lignes, c'est-à-dire le changement d'ordre de tri de vos résultats ou la limitation du nombre d'enregistrements de données que vous récupérez, par exemple. Les deux exemples suivants montrent comment créer une instance d'objet MSQuery :
+Utilisez l'objet **MSQuery** lorsque vous avez besoin d'émettre une requête plus complexe que le simple filtrage de lignes, c'est-à-dire le changement d'ordre de tri de vos résultats ou la réduction du nombre d'enregistrements de données que vous récupérez, par exemple. Les deux exemples suivants montrent comment créer une instance d'objet MSQuery :
 
     MSQuery *query = [table query];
 
@@ -197,7 +197,7 @@ Pour limiter les champs devant être renvoyés en réponse à votre requête, il
 
 #### <a name="parameters"></a>Spécification de paramètres de chaîne de requête supplémentaires
 
-La bibliothèque cliente rend possible l'inclusion de paramètres de chaîne de requête supplémentaires dans la demande adressée au serveur. Ces paramètres peuvent être requis par vos scripts côté serveur. L'exemple suivant ajoute deux paramètres de chaîne de requête à la demande :
+La bibliothèque cliente rend possible l'inclusion de paramètres de chaîne de requête supplémentaires dans la demande adressée au serveur. Ces paramètres peuvent être requis par vos scripts côté serveur. L'exemple suivant ajoute deux paramètres de chaîne de requête à la requête :
 
 	query.parameters = @{
 		@"myKey1" : @"value1",
@@ -205,11 +205,11 @@ La bibliothèque cliente rend possible l'inclusion de paramètres de chaîne de 
 	};
 
 Ces paramètres sont ajoutés à l'URI de la requête sous la forme `myKey1=value1&myKey2=value2`.
- Pour plus d'informations, consultez la rubrique [ Accès aux paramètres personnalisés].
+Pour plus d'informations, consultez la page [Accès aux paramètres personnalisés].
 
-<h2><a name="inserting"></a> Insertion de données dans un service mobile</h2>
+<h2><a name="inserting"></a>Procédure : Insertion de données dans un service mobile</h2>
 
-Pour insérer une nouvelle ligne dans la table, créez un [objet NSDictionary] et transmettez-le à la fonction insert. Le code suivant permet d'insérer un nouvel élément todo dans la table :
+Pour insérer une nouvelle ligne dans la table, créez un objet [NSDictionary] et transmettez-le à la fonction insert. Le code suivant permet d'insérer un nouvel élément todo dans la table :
 
 	NSDictionary *newItem = @{@"text": @"my new item", @"complete" : @NO};
 	[table insert:newItem completion:^(NSDictionary *result, NSError *error) {
@@ -251,17 +251,17 @@ Vous pouvez également utiliser des scripts serveur pour définir des valeurs d'
 
 Si une application fournit la valeur d'un ID, Mobile Services la stocke en l'état. Les espaces de début et de fin sont également inclus. Ils ne sont pas supprimés de la valeur.
 
-La valeur d'`id` doit être unique et ne contenir aucun caractère présent dans les ensembles suivants :
+La valeur d' `id` doit être unique et ne contenir aucun caractère présent dans les ensembles suivants :
 
 + Caractères de contrôle : [0x0000-0x001F] et [0x007F-0x009F]. Pour plus d'informations, consultez la page [Codes de contrôle ASCII C0 et C1].
 +  Caractères imprimables : **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
 +  Les ID " . " et " .. "
 
-Vous pouvez également utiliser des ID d'entier pour vos tables. Pour utiliser un ID d'entier, vous devez créer votre table à l'aide de la commande `mobile table create` en utilisant l'option `--integerId`. Cette commande s'utilise avec l'interface de ligne de commande (CLI) pour Azure. Pour plus d'informations sur l'utilisation de l'interface de ligne de commande, consultez la page [Interface de ligne de commande pour la gestion des tables Mobile Services].
+Vous pouvez également utiliser des ID d'entier pour vos tables. Pour pouvoir utiliser un ID d'entier, vous devez créer votre table avec la commande `mobile table create` à l'aide de l'option --integerId. Cette commande s'utilise avec l'interface de ligne de commande (CLI) pour Azure. Pour plus d'informations sur l'utilisation de l'interface de ligne de commande, consultez la page [Interface de ligne de commande pour la gestion des tables Mobile Services].
 
 Lorsqu'un schéma dynamique est activé, Mobile Services génère automatiquement de nouvelles colonnes basées sur les champs de l'objet dans la demande d'insertion ou de mise à jour. Pour plus d'informations, consultez la page [Schéma dynamique].
 
-<h2><a name="modifying"></a> Modification des données d'un service mobile</h2>
+<h2><a name="modifying"></a>Procédure : Modification des données d'un service mobile</h2>
 
 Mettez à jour un objet existant en modifiant un élément renvoyé dans le résultat d'une requête précédente, puis en appelant la fonction **update**.
 
@@ -290,9 +290,9 @@ Vous pouvez également uniquement supprimer un enregistrement en utilisant direc
 		//handle errors or any additional logic as needed
 	}];
 
-Notez que, au minimum, l'attribut `id` doit être défini lorsque vous effectuez des mises à jour et des suppressions..
+Notez que, au minimum, l'attribut `id` doit être défini lorsque vous effectuez des mises à jour et des suppressions.
 
-<h2><a name="authentication"></a> Authentification des utilisateurs</h2>
+<h2><a name="authentication"></a>Procédure : Authentification des utilisateurs</h2>
 
 Mobile Services vous permet d'utiliser les fournisseurs d'identité suivants pour authentifier les utilisateurs :
 
@@ -306,11 +306,11 @@ Pour plus d'informations sur la configuration d'un fournisseur d'identité, cons
 
 Mobile Services prend en charge les deux workflows d'authentification suivants :
 
-- Sur une connexion gérée par le serveur, Mobile Services gère le processus de connexion pour le compte de votre application. La bibliothèque cliente affiche une page de connexion spécifique du fournisseur et Mobile Services procède à l'authentification avec le fournisseur choisi.
+- Sur une connexion gérée par le serveur, Mobile Services gère le processus de connexion pour le compte de votre application. La bibliothèque cliente affiche une page de connexion spécifique au fournisseur et Mobile Services procède à l'authentification avec le fournisseur choisi.
 
 - Sur une connexion gérée par le client, l'application doit demander un jeton au fournisseur d'identité, puis le présenter à Mobile Services pour authentification.
 
-Une fois l'authentification réussie, un objet utilisateur qui contient la valeur d'ID utilisateur attribuée et le jeton d'authentification est renvoyé. Cet ID utilisateur peut être utilisé dans les scripts serveur pour valider ou modifier les requêtes. Pour plus d'informations, consultez la page [Utilisation de scripts pour autoriser les utilisateurs]. Le jeton lui-même peut être mis en cache de manière sécurisée en vue d'une utilisation lors des connexions suivantes.
+Une fois l'authentification réussie, un objet utilisateur qui contient la valeur d'ID utilisateur attribuée et le jeton d'authentification est renvoyé. Cet ID utilisateur peut être utilisé dans les scripts serveur pour valider ou modifier les requêtes. Pour plus d'informations, consultez la page [Utilisation de scripts pour autoriser les utilisateurs]. Le jeton lui-même peut être mis en cache de manière sécurisée pour utilisation lors des connexions suivantes.
 
 Vous pouvez également définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Pour plus d'informations, consultez la page [Autorisations].
 
@@ -360,9 +360,9 @@ L'exemple suivant utilise le [Kit de développement logiciel (SDK) Live Connect]
 			[alert show];
 	}];
 
-This code assumes that you have previously created a **Instance LiveConnectClient** nommée `liveClient` dans le contrôleur et utilisateur connecté.
+Ce code part du principe que vous avez déjà créé une instance **LiveConnectClient** nommée `liveClient` dans le contrôleur et que l'utilisateur est connecté.
 
-###<a name="caching-tokens"></a> Mise en cache des jetons d'authentification
+###<a name="caching-tokens"></a>Procédure : Mise en cache des jetons d'authentification
 
 Pour éviter aux utilisateurs de s'authentifier chaque fois qu'ils exécutent l'application, vous pouvez mettre en cache leur identité actuelle une fois qu'ils sont connectés. Vous pouvez alors utiliser ces informations pour créer directement les utilisateurs et ignorer le processus de connexion.  Pour ce faire, vous devez stocker l'ID utilisateur et le jeton d'authentification en local. Dans l'exemple suivant, le jeton est mis en cache de manière sécurisée dans le [Trousseau d'accès] :
 
@@ -422,13 +422,11 @@ Pour éviter aux utilisateurs de s'authentifier chaque fois qu'ils exécutent l'
 			}];
 		}
 
-<div class="dev-callout"><strong>Remarque</strong>
-<p>Les jetons sont des données sensibles qui doivent être chiffrées avant d'être stockées (ce qui évitera ainsi tout préjudice en cas de perte ou de vol de l'appareil).</p>
-</div>
+> [AZURE.NOTE] Les jetons sont des données sensibles qui doivent être chiffrées avant d'être stockées (ce qui évitera ainsi tout préjudice en cas de perte ou de vol de l'appareil).
 
-Si un jeton mis en cache est utilisé, l'utilisateur n'a besoin de se connecter à nouveau que si le jeton expire. Lorsqu'un utilisateur tente de se connecter avec un jeton arrivé à expiration, une réponse avec le code 401 (Non autorisé) lui est renvoyée. Dans ce cas, l'utilisateur doit à nouveau se connecter pour obtenir un nouveau jeton, qui peut à nouveau être mis en cache. Vous pouvez utiliser des filtres pour éviter d'avoir à écrire du code qui gère les jetons arrivés à expiration chaque fois que votre application appelle le service mobile.  Les filtres vous permettent ainsi d'intercepter les appels passés à votre service mobile et ses réponses. Le code figurant dans le filtre vérifie si la réponse est associée à un code 401, déclenche le processus de connexion si le jeton est arrivé à expiration, puis relance la demande qui a généré le code 401. Pour plus d'informations, consultez la page [Gestion des jetons arrivés à expiration].
+Si un jeton mis en cache est utilisé, l'utilisateur n'a besoin de se connecter à nouveau que si le jeton expire. Lorsqu'un utilisateur tente de se connecter avec un jeton arrivé à expiration, une réponse avec le code 401 (Non autorisé) lui est renvoyée. Dans ce cas, l'utilisateur doit à nouveau se connecter pour obtenir un nouveau jeton, qui peut à nouveau être mis en cache. Vous pouvez utiliser des filtres pour éviter d'avoir à écrire du code qui gère les jetons arrivés à expiration chaque fois que votre application appelle le service mobile.  Les filtres vous permettent ainsi d'intercepter les appels passés à votre service mobile et ses réponses. Le code figurant dans le filtre vérifie si la réponse est associée à un code 401, déclenche le processus de connexion si le jeton est arrivé à expiration, puis relance la requête qui a généré le code 401. Pour plus d'informations, consultez la page [Gestion des jetons arrivés à expiration].
 
-<h2><a name="errors"></a> Gestion des erreurs</h2>
+<h2><a name="errors"></a>Procédure : Gestion des erreurs</h2>
 
 Lorsqu'un appel est passé au service mobile, le bloc completion contient un paramètre `NSError *error`. Si une erreur se produit, une valeur non nulle est renvoyée pour ce paramètre. Vous devez vérifier ce paramètre dans votre code et gérer les erreurs, le cas échéant.
 
@@ -436,31 +434,31 @@ En cas d'erreur, vous pouvez obtenir plus d'informations en incluant le fichier 
 
     #import <WindowsAzureMobileServices/MSError.h>
 
-Ce fichier définit les constantes suivantes que vous pouvez utiliser pour accéder à des données complémentaires dans `[error userInfo]` :
+Ce fichier définit les constantes suivantes que vous pouvez utiliser pour accéder à des données complémentaires dans [error userInfo] :
 
 + **MSErrorResponseKey** : données de réponse HTTP associées à l'erreur
-* **MSErrorRequestKey** : données de demande HTTP associées à l'erreur
+* **MSErrorRequestKey** : données de requête HTTP associées à l'erreur
 
 En outre, une constante est définie pour chaque code d'erreur. Le fichier MSError.h contient une description de ces codes.
 
-Pour obtenir un exemple de gestion et de validation, consultez la rubrique [Validation et modification de données dans Mobile Services à l'aide de scripts serveur]. Dans cette rubrique, la validation côté serveur est mise en œuvre à l'aide de scripts serveur. Si des données incorrectes sont soumises, une réponse indiquant une erreur est renvoyée et cette réponse est gérée par le client.
+Pour obtenir un exemple de processus et de gestion de validation, consultez la rubrique [Validation et modification de données dans Mobile Services à l'aide de scripts serveur]. Dans cette rubrique, la validation côté serveur est mise en œuvre à l'aide de scripts serveur. Si des données incorrectes sont soumises, une réponse indiquant une erreur est renvoyée et cette réponse est gérée par le client.
 
 <!--
-<h2><a name="#unit-testing"></a> Conception de tests</h2>
+<h2><a name="#unit-testing"></a>Procédure : Conception de tests</h2>
 
 _(Facultatif) Cette section explique comment écrire un test unitaire lors de l'utilisation de la bibliothèque cliente (informations de Yavor)._
 
-<h2><a name="#customizing"></a> Personnalisation du client</h2>
+<h2><a name="#customizing"></a>Procédure : Personnalisation du client</h2>
 
 _(Facultatif) Cette section explique comment envoyer des comportements client personnalisés._
 
-###<a name="custom-headers"></a> Personnalisation des en-têtes de requête
+###<a name="custom-headers"></a>Procédure : Personnalisation des en-têtes de requête
 
 _(Facultatif) Cette section explique comment envoyer des en-têtes de demande personnalisés._
 
 Pour plus d'informations, consultez la nouvelle rubrique relative au traitement des en-têtes côté serveur.
 
-###<a name="custom-serialization"></a> Personnalisation de la sérialisation
+###<a name="custom-serialization"></a>Procédure : Personnalisation de la sérialisation
 
 _(Facultatif) Cette section explique comment utiliser des attributs pour personnaliser la sérialisation des types de données._
 
@@ -474,33 +472,33 @@ Pour plus d'informations, consultez la nouvelle rubrique relative au traitement 
 [Présentation de Mobile Services]: #what-is
 [Concepts]: #concepts
 [Configuration et conditions préalables]: #Setup
-[ Création du client Mobile Services]: #create-client
-[ Création d'une référence de table]: #table-reference
-[ Interrogation des données à partir d'un service mobile]: #querying
+[Procédure : Création du client Mobile Services]: #create-client
+[Procédure : Création d'une référence de table]: #table-reference
+[Procédure : Interrogation des données à partir d'un service mobile]: #querying
 [Filtrage des données renvoyées]: #filtering
 [Tri des données renvoyées]: #sorting
 [Renvoi de données dans les pages]: #paging
 [Sélection de colonnes spécifiques]: #selecting
-[ Liaison des données dans l'interface utilisateur]: #binding
-[ Insertion de données dans un service mobile]: #inserting
-[ Modification des données d'un service mobile]: #modifying
-[ Authentification des utilisateurs]: #authentication
+[Procédure : Liaison des données dans l'interface utilisateur]: #binding
+[Procédure : Insertion de données dans un service mobile]: #inserting
+[Procédure : Modification des données d'un service mobile]: #modifying
+[Procédure : Authentification des utilisateurs]: #authentication
 [Mise en cache des jetons d'authentification]: #caching-tokens
-[ Téléchargement d'images et de fichiers volumineux]: #blobs
-[ Gestion des erreurs]: #errors
-[ Conception de tests]: #unit-testing
-[ Personnalisation du client]: #customizing
+[Procédure : Téléchargement d'images et de fichiers volumineux]: #blobs
+[Procédure : Gestion des erreurs]: #errors
+[Procédure : Conception de tests]: #unit-testing
+[Procédure : Personnalisation du client]: #customizing
 [Personnalisation des en-têtes de requête]: #custom-headers
 [Personnalisation de la sérialisation du type de données]: #custom-serialization
 [Étapes suivantes]: #next-steps
-[ Utilisation de MSQuery]: #query-object
+[Procédure : Utilisation de MSQuery]: #query-object
 
 <!-- Images. -->
 
 <!-- URLs. -->
 [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started-ios
 [Validation et modification de données dans Mobile Services à l'aide de scripts serveur]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-ios
-[Kit de développement logiciel (SDK) de Mobile Services]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Kit de développement logiciel (SDK) Mobile Services]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-ios
 [Kit de développement logiciel (SDK) iOS]: https://developer.apple.com/xcode
 
@@ -509,8 +507,11 @@ Pour plus d'informations, consultez la nouvelle rubrique relative au traitement 
 [Autorisations]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj193161.aspx
 [Utilisation de scripts pour autoriser des utilisateurs]: /fr-fr/develop/mobile/tutorials/authorize-users-in-scripts-ios
 [Schéma dynamique]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-[ Accès aux paramètres personnalisés]: /fr-fr/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
+[Accès aux paramètres personnalisés]: /fr-fr/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
 [Création d'une table]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj193162.aspx
 [Objet NSDictionary]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [Codes de contrôle ASCII C0 et C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Interface de ligne de commande pour la gestion des tables Mobile Services]: http://www.windowsazure.com/fr-fr/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+
+
+<!--HONumber=42-->

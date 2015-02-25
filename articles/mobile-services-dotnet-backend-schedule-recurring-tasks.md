@@ -1,41 +1,41 @@
-﻿<properties  pageTitle="Planification des tâches de serveur principal avec le Scheduler - Mobile Services" metaKeywords="" description="Microsoft Azure Mobile Services Scheduler permet de planifier des tâches pour votre application mobile." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga"  solutions="mobile" writer="" manager="dwrede" editor=""  />
+<properties pageTitle="Planification de tâches de serveur principal avec le planificateur - Mobile Services" description="Microsoft Azure Mobile Services Scheduler permet de planifier des tâches pour votre application mobile." services="mobile-services" documentationCenter="windows" authors="ggailey777" writer="" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # Planification des travaux récurrents dans Mobile Services 
 
 <div class="dev-center-tutorial-subselector">
-	<a href="/fr-fr/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/" title=".NET backend" class="current">Service principal .NET</a> | <a href="/fr-fr/documentation/articles/mobile-services-schedule-recurring-tasks/"  title="JavaScript backend" >JavaScript backend</a>
+	<a href="/fr-fr/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/" title=".NET backend" class="current">.NET principal</a> | <a href="/fr-fr/documentation/articles/mobile-services-schedule-recurring-tasks/"  title="JavaScript backend" >JavaScript backend</a>
 </div>
  
-This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define. In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table. Some other periodic tasks that can be scheduled include:
+Cette rubrique explique comment utiliser la fonctionnalité de planification de travaux dans le portail de gestion pour définir le code de script serveur exécuté selon une planification que vous définissez. Dans ce cas, le script effectue régulièrement une vérification auprès d'un service distant, Twitter en l'occurrence, et stocke les résultats dans une nouvelle table. D'autres tâches périodiques peuvent être planifiées, notamment les tâches suivantes :
 
-+ Archiving old or duplicate data records.
-+ Requesting and storing external data, such as tweets, RSS entries, and location information.
-+ Processing or resizing stored images.
++ Archivage des enregistrements de données anciens ou en double.
++ Demande et stockage de données externes, par exemple, des tweets, des entrées RSS et des informations d'emplacement.
++ Traitement ou redimensionnement des images stockées.
 
-This tutorial walks you through the following steps of how to use the job scheduler to create a scheduled job that requests tweet data from Twitter and stores the tweets in a new Updates table:
+Ce didacticiel explique comment utiliser la planification des travaux pour créer un travail planifié qui demande des données de tweets à Twitter et stocke les tweets dans une nouvelle table Updates. La procédure comporte les étapes suivantes :
 
-+ [Register for Twitter access and store credentials]
-+ [Download and install the LINQ to Twitter library]
-+ [Create the new Updates table]
-+ [Create a new scheduled job]
-+ [Test the scheduled job locally]
-+ [Publish the service and register the job]
++ [Inscription pour l'accès à Twitter et stockage des informations d'identification]
++ [Téléchargement et installation du LINQ dans la bibliothèque Twitter]
++ [Création de la nouvelle table Updates]
++ [Création d'un nouveau travail planifié]
++ [Test local de la tâche planifiée]
++ [Publication du service et inscription de la tâche]
 
->[WACOM.NOTE]This tutorial uses the third-party LINQ to Twitter library to simplify OAuth 2.0 access to Twitter v1.1. APIs. You must download and install the LINQ to Twitter NuGet package to complete this tutorial. For more information, see the [LINQ to Twitter CodePlex project].
+>[AZURE.NOTE]Ce didacticiel utilise la bibliothèque tierce LINQ to Twitter pour simplifier l'accès d'OAuth 2.0 aux API Twitter v1.1 . Vous devez télécharger et installer le package NuGet LINQ to Twitter pour suivre ce didacticiel. Pour plus d'informations, consultez la page [Projet CodePlex LINQ to Twitter]..
 
 ##<a name="get-oauth-credentials"></a>Inscription pour l'accès aux API de Twitter v1.1 et stockage des informations d'identification
 
-[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
+[AZURE.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
 <ol start="7">
-<li><p>Dans l'Explorateur de solutions Visual Studio, ouvrez le fichier web.config correspondant au projet de service mobile, localisez les paramètres d'application <strong>MS_TwitterConsumerKey</strong> et <strong>MS_TwitterConsumerSecret</strong> et remplacez les valeurs de ces clés par des valeurs de clé de consommateur et de secret de consommateur Twitter que vous définissez dans le portail.</p></li>
+<li><p>Dans l'Explorateur de solutions Visual Studio, ouvrez le fichier web.config correspondant au projet de service mobile, localisez les paramètres d'application <strong>MS_TwitterConsumerKey</strong> et <strong>MS_TwitterConsumerSecret</strong>, puis remplacez les valeurs de ces clés par des valeurs de clé de consommateur et de secret de consommateur Twitter que vous définissez dans le portail.</p></li>
 
 <li><p>Dans la même section, ajoutez les nouveaux paramètres d'application suivants, remplacez les espaces réservés par les valeurs du jeton d'accès et du secret de jeton d'accès Twitter que vous définissez comme paramètres d'application dans le portail :</p>
 
-<pre><code><add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
-<add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" /></code></pre>
+<pre><code>&lt;add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" /&gt;
+&lt;add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" /&gt;</code></pre>
 
 <p>Le service mobile utilise ces paramètres stockés lorsqu'il s'exécute sur l'ordinateur local, ce qui permet de tester la tâche planifiée avant de la publier. Si le service mobile est exécuté dans Azure, il utilise à la place les valeurs définies dans le portail et ignore les paramètres du projet.  </p></li>
 </ol>
@@ -44,7 +44,7 @@ This tutorial walks you through the following steps of how to use the job schedu
 
 1. Dans l'**Explorateur de solutions** de Visual Studio, cliquez avec le bouton droit sur le nom du projet, puis sélectionnez **Gérer les packages NuGet**.
 
-2. Dans le volet gauche, sélectionnez la catégorie **En ligne**, recherchez `linq2twitter`, cliquez sur **Installer** dans le package **linqtotwitter**, puis acceptez le contrat de licence. 
+2. Dans le volet gauche, sélectionnez la catégorie **En ligne**, recherchez  `linq2twitter`, cliquez sur **Installer** au niveau du package **linqtotwitter**, puis lisez et acceptez le contrat de licence. 
 
   	![][1]
 
@@ -54,12 +54,12 @@ Ensuite, vous devez créer une nouvelle table pour y stocker les tweets.
 
 ##<a name="create-table"></a>Création de la nouvelle table Updates
 
-1. Dans l'Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur le dossier DataObjects, développez **Ajouter**, cliquez sur **Classe**, tapez `Mises à jour` comme **Name**, puis cliquez sur **Ajouter**.
+1. Dans l'explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur le dossier DataObjects, développez **Ajouter**, cliquez sur **Classe**, tapez  `Updates` comme **Nom**, puis cliquez sur **Ajouter**.
 
 	Ainsi, un nouveau fichier de projet est créé pour la classe Updates.
 
-2. Cliquez avec le bouton droit sur le nœud **Références**, cliquez sur **Ajouter une référence...**, sélectionnez **Infrastructure** sous **Assemblys**, activez **System.ComponentModel.DataAnnotations**, puis cliquez sur **OK**.
-
+2. Cliquez avec le bouton droit sur **Références**, cliquez sur **Ajouter une référence...**, sélectionnez **Infrastructure** sous **Assemblys**, cochez **System.ComponentModel.DataAnnotations**, puis cliquez sur **OK**.
+	
 	![][7]
 
 	Une nouvelle référence d'assembly est alors créée.
@@ -87,7 +87,7 @@ Ensuite, vous devez créer une nouvelle table pour y stocker les tweets.
 
 	La table Updates, qui est créée dans la base de données lors du premier accès à DbSet, est utilisée par le service pour stocker les données des tweets.  
 
-	>[WACOM.NOTE] Lors de l'utilisation de l'initialiseur de base de données par défaut, Entity Framework supprime et recrée la base de données lorsqu'il détecte une modification du modèle de données dans la définition du modèle Code First. Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les migrations Code First. L'initialiseur par défaut ne peut pas être utilisé avec une base de données SQL dans Azure. Pour plus d'informations, consultez la rubrique [Utilisation des migrations Code First pour mettre à jour le modèle de données](/fr-fr/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).  
+	>[AZURE.NOTE] Lors de l'utilisation de l'initialiseur de base de données par défaut, Entity Framework supprime et recrée la base de données lorsqu'il détecte une modification du modèle de données dans la définition du modèle Code First. Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les migrations Code First. L'initialiseur par défaut ne peut pas être utilisé avec une base de données SQL dans Azure. Pour plus d'informations, consultez la rubrique [Utilisation des migrations Code First pour mettre à jour le modèle de données](/fr-fr/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).  
 
 Vous pouvez ensuite créer la tâche planifiée qui accède à Twitter et stocke les données des tweets dans la nouvelle table Updates.
 
@@ -190,7 +190,7 @@ Vous pouvez ensuite créer la tâche planifiée qui accède à Twitter et stocke
 		                        Author = tweet.User.Name,
 		                        Date = tweet.CreatedAt
 		                    };
-		
+			
 		                context.Updates.Add(newTweet);
 		            }
 		
@@ -207,7 +207,7 @@ Vous pouvez ensuite créer la tâche planifiée qui accède à Twitter et stocke
 		    }
 		}
 
-	Dans le code ci-dessus, vous devez remplacer les chaînes _todolistService_ et _todolistContext_ par l'espace de noms et le DbContext du projet téléchargé, qui sont <em>mobile&#95;service&#95;name</em>Service et <em>mobile&#95;service&#95;name</em>Context, respectivement.  
+	Dans le code ci-dessus, vous devez remplacer les chaînes _todolistService_ et _todolistContext_ par l'espace de nom et le DbContext de votre projet téléchargé, qui sont respectivement <em>mobile&#95;service&#95;name</em>Service et <em>mobile&#95;service&#95;name</em>Context.  
    	
 	Dans le code ci-dessus, la méthode de remplacement **ExecuteAsync** appelle l'API de requêtes Twitter en utilisant les informations d'identification stockées pour demander les tweets récents contenant la balise de hachage `#mobileservices`. Les tweets en double et les réponses sont supprimés des résultats avant que ces derniers ne soient stockés dans la table.
 
@@ -223,19 +223,19 @@ Les tâches planifiées peuvent être testées localement avant d'être publiée
 
 	![][8]
  
-4. Cliquez sur **Essayer**, tapez `Sample` comme valeur du paramètre **{jobName}**, puis cliquez sur **Envoyer**.
+4. Cliquez sur **Essayer**, tapez  `Sample` comme la valeur de paramètre **{jobName}**, puis cliquez sur **Envoyer**.
 
 	![][9]
 
-	Cette commande crée une nouvelle demande POST au point de terminaison de la tâche Sample. La méthode **ExecuteAsync** est lancée dans le service local. Vous pouvez définir un point de rupture dans cette méthode pour déboguer le code.
+	Cette commande crée une nouvelle demande POST au point de terminaison de l'exemple de tâche. La méthode **ExecuteAsync** est lancée dans le service local. Vous pouvez définir un point de rupture dans cette méthode pour déboguer le code.
 
-3. Dans l'Explorateur de serveurs, développez **Connexions de données**, **MSTableConnectionString** et **tables** ; cliquez avec le bouton droit sur **Mises à jour**, puis cliquez sur **Afficher les données de la table**.
+3. Dans l'Explorateur de serveurs, développez **Connexions de données**, **MSTableConnectionString** et **tables** ; cliquez avec le bouton droit sur **Mises à jours**, puis cliquez sur **Afficher les données de la table**.
 
 	Les nouveaux tweets sont entrés sous la forme de lignes dans la table des données.
 
 ##<a name="register-job"></a>Publication du service et enregistrement de la nouvelle tâche 
 
-La tâche doit être enregistrée dans l'onglet **Scheduler** afin que Mobile Services puisse l'exécuter dans la planification que vous définissez.
+La tâche doit être enregistrée sous l'onglet **Scheduler** afin que Mobile Services puisse l'exécuter dans la planification que vous définissez.
 
 3. Publiez à nouveau le projet de service mobile dans Azure.
 
@@ -247,31 +247,31 @@ La tâche doit être enregistrée dans l'onglet **Scheduler** afin que Mobile Se
 
    	![][3]
 
-    >[WACOM.NOTE]Lorsque vous exécutez votre service mobile en mode <em>Gratuit</em>, vous ne pouvez exécuter qu'une seule tâche planifiée à la fois. Aux niveaux payants, vous pouvez exécuter jusqu'à dix tâches planifiées à la fois.
+    >[AZURE.NOTE]Lorsque vous exécutez votre service mobile en mode <em>Gratuit</em>vous ne pouvez exécuter qu'une seule tâche planifiée à la fois. Aux niveaux payants, vous pouvez exécuter jusqu'à dix travaux planifiés à la fois.
 
-3. Dans la boîte de dialogue Scheduler, entrez _SampleJob_ pour le **Nom de la tâche**, définissez l'intervalle et les unités de planification, puis cliquez sur le bouton de vérification. 
+3. Dans la boîte de dialogue du planificateur, entrez _Sample_ pour **Nom du travail**, définissez l'intervalle et les unités de planification, puis cliquez sur le bouton de vérification. 
    
    	![][4]
 
-   	Cette commande crée une nouvelle tâche nommée **SampleJob**. 
+   	Cette commande crée une tâche nommée **Sample**. 
 
 4. Cliquez sur la tâche que vous venez de créer, puis cliquez sur l'onglet **Exécuter une fois** pour tester le script. 
 
   	![][5]
 
-   	Ainsi, la tâche est exécutée, tout en restant désactivée dans le Scheduler. Depuis cette page, vous pouvez activer la tâche et modifier sa planification à n'importe quel moment.
+   	Ainsi, la tâche est exécutée, tout en restant désactivée dans le planificateur. Depuis cette page, vous pouvez activer la tâche et modifier sa planification à n'importe quel moment.
 
-	>[WACOM.NOTE]Une demande POST peut encore être utilisée pour démarrer la tâche planifiée. Néanmoins, l'autorisation prend implicitement la valeur utilisateur, ce qui signifie que la demande doit inclure la clé d'application dans l'en-tête.
+	>[AZURE.NOTE]Une demande POST peut encore être utilisée pour démarrer la tâche planifiée. Néanmoins, l'autorisation prend implicitement la valeur utilisateur, ce qui signifie que la requête doit inclure la clé d'application dans l'en-tête.
 
-4. (Facultatif) Dans le [portail de gestion Azure], cliquez sur " manage " pour la base de données associée à votre service mobile.
+4. (Facultatif) Dans le [portail de gestion Azure], cliquez sur Gérer pour la base de données associée à votre service mobile.
 
     ![][6]
 
-5. Dans le portail de gestion, exécutez une requête pour afficher les modifications apportées par l'application. Votre requête sera similaire à la requête suivante, mais utilisera votre nom de service mobile comme nom de schéma au lieu de `todolist`.
+5. Dans le portail de gestion, exécutez une requête pour afficher les modifications apportées par l'application. Votre requête sera similaire à la requête suivante, mais utilisera votre nom de service mobile comme nom de schéma au lieu de  `todolist`.
 
         SELECT * FROM [todolist].[Updates]
 
-Félicitations, vous avez créé une nouvelle tâche planifiée dans votre service mobile. Celle-ci sera exécutée conformément à la planification jusqu'à ce que vous la désactiviez ou la modifiiez.
+Félicitations, vous avez créé un travail planifié dans votre service mobile. Celui-ci sera exécuté conformément à la planification jusqu'à ce que vous la désactiviez ou la modifiiez.
 
 <!-- Anchors. -->
 [Inscription pour l'accès à Twitter et stockage des informations d'identification]: #get-oauth-credentials
@@ -296,6 +296,8 @@ Félicitations, vous avez créé une nouvelle tâche planifiée dans votre servi
 <!-- URLs. -->
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Inscription des applications pour l'authentification Twitter avec Mobile Services]: /fr-fr/documentation/articles/mobile-services-how-to-register-twitter-authentication
-[Développeurs Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
+[pour les développeurs Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Paramètres de l'application]: http://msdn.microsoft.com/fr-fr/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ au projet CodePlex Twitter]: http://linqtotwitter.codeplex.com/
+
+<!--HONumber=42-->

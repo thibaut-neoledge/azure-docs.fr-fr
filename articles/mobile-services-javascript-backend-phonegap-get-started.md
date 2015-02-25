@@ -1,8 +1,8 @@
-<properties pageTitle="Prise en main de Mobile Services avec PhoneGap | Centre de développement mobile" metaKeywords="" description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement de PhoneGap pour iOS, Android et Windows Phone." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Prise en main de Mobile Services avec PhoneGap | Centre de développement mobile" description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement de PhoneGap pour iOS, Android et Windows Phone." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
@@ -18,14 +18,14 @@ Pour suivre ce didacticiel, vous devez disposer des outils PhoneGap (v3.2+ requi
 
 PhoneGap prend en charge le développement de plusieurs plateformes. Outre les outils PhoneGap, vous devez installer les outils de chacune des plateformes requises :
 
-- Windows Phone : Installez [Visual Studio 2012 Express pour Windows Phone](https://go.microsoft.com/fwLink/p/?LinkID=268374)
-- iOS : installez [Xcode] (version 4.4+ requise)
-- Android : installez les [outils de développement Android][Android SDK]
+- Windows Phone : Installation de [Visual Studio 2012 Express pour Windows Phone](https://go.microsoft.com/fwLink/p/?LinkID=268374)
+- iOS : Installation de [Xcode] (v4.4 requis)
+- Android : Installation des [outils de développement Android][Android SDK]
 	<br/>(le Kit de développement logiciel (SDK) Mobile Services pour Android prend en charge les applications destinées à Android 2.2 (et versions ultérieures). Android 4.2 (ou version ultérieure) est requis pour exécuter l'application de démarrage rapide).
 
 ## <a name="create-new-service"> </a>Création d'un service mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 <h2>Création d'une application PhoneGap</h2>
 
@@ -33,7 +33,7 @@ Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapid
 
 Dans cette section, vous allez créer une application PhoneGap connectée à votre service mobile.
 
-1.  Dans le portail de gestion, cliquez sur **Services mobiles**, puis sur le service mobile que vous venez de créer.
+1.  Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
 2. Dans l'onglet de démarrage rapide, cliquez sur **PhoneGap** sous **Choisissez une plateforme** et développez **Créer une application PhoneGap**.
 
@@ -61,7 +61,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 	+ **Windows Phone 8**
 
-	1. Windows Phone 8 : ouvrez le fichier .sln situé dans le dossier **platforms\wp8** dans Visual Studio 2012 Express pour Windows Phone.
+	1. Windows Phone 8 : ouvrez le fichier .sln situé dans le dossier **platforms\wp8** de Visual Studio 2012 Express pour Windows Phone.
 	
 	2. Appuyez sur la touche **F5** pour régénérer le projet et démarrer l'application.
 	
@@ -77,24 +77,24 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 	+ **Android**
 
-		1. Dans Eclipse, cliquez sur **Fichier**, puis sur **Importer**, développez **Android**, cliquez sur **Code Android existant dans l'espace de travail**, puis sur **Suivant.** 
+		1. Dans Eclipse, cliquez sur **Fichier**, sur **Importer**, développez **Android**, puis cliquez sur **Existing Android Code into Workspace** et sur **Suivant**. 
 		
 		2. Cliquez sur **Parcourir**, accédez à l'emplacement des fichiers projet développés, cliquez sur **OK**, veillez à ce que le projet TodoActivity soit sélectionné, puis cliquez sur **Terminer**. <p>Cette opération importe les fichiers projet dans l'espace de travail actuel.</p>
 		
-		3. Dans le menu **Exécuter**, cliquez sur **Exécuter** pour démarrer le projet dans l'émulateur Android.
+		3. À partir du menu **Exécuter**, cliquez sur **Exécuter** pour démarrer le projet dans l'émulateur Android.
 		
 			![][4]
 	
-		>[WACOM.NOTE]Afin d'exécuter le projet dans l'émulateur Android, vous devez définir au moins un AVD (appareil virtuel Android). Utilisez le gestionnaire AVD pour créer et gérer ces appareils.
+		>[AZURE.NOTE]Afin d'exécuter le projet dans l'émulateur Android, vous devez définir au moins un AVD (appareil virtuel Android). Utilisez le gestionnaire AVD pour créer et gérer ces appareils.
 			
 	
 3. Après avoir lancé l'application dans un des émulateurs mobiles ci-dessus, tapez du texte dans la zone de texte, puis cliquez sur **Ajouter**.
 
-	Ceci envoie une demande POST vers le nouveau service mobile hébergé dans Azure. Les données de la demande sont insérées dans la table **TodoItem**. Les éléments stockés dans la table sont renvoyés par le service mobile et les données sont affichées dans la liste.
+	Ceci envoie une demande POST vers le nouveau service mobile hébergé dans Azure. Les données de la requête sont insérées dans la table **TodoItem**. Les éléments stockés dans la table sont renvoyés par le service mobile et les données sont affichées dans la liste.
 
-	<div class="dev-callout"><strong>Important</strong> <p>Les modifications apportées à ce projet de plateforme seront écrasées si le projet principal est régénéré à l'aide des outils PhoneGap. Par conséquent, il est impératif d'apporter ces modifications dans le répertoire www racine du projet, comme décrit à la section suivante.</p></div>
+	> [AZURE.IMPORTANT]Les modifications apportées à ce projet de plateforme seront écrasées si le projet principal est régénéré à l'aide des outils PhoneGap. Par conséquent, il est impératif d'apporter ces modifications dans le répertoire www racine du projet, comme décrit à la section suivante.
 
-4. Dans le portail de gestion, cliquez sur l'onglet <strong>Données</strong> et sur la table <strong>TodoItems</strong> .
+4. De retour dans le portail de gestion, cliquez sur l'onglet <strong>Données</strong>, puis sur la table <strong>TodoItems</strong>.
 
 	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
 
@@ -132,7 +132,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 4. Ouvrez chaque projet dans l'environnement de développement approprié, comme décrit à la section précédente.
 
->[WACOM.NOTE]Dans le fichier js/index.js, vous pouvez vérifier le code qui permet d'accéder à votre service mobile pour exécuter une requête et insérer des données.
+>[AZURE.NOTE]Dans le fichier js/index.js, vous pouvez vérifier le code qui permet d'accéder à votre service mobile pour exécuter une requête et insérer des données.
 
 ## <a name="next-steps"> </a>Étapes suivantes
 Maintenant que vous avez effectué le démarrage rapide, découvrez comment exécuter d'autres tâches importantes dans Mobile Services : 
@@ -154,10 +154,11 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 [Prise en main des données]: /fr-fr/documentation/articles/mobile-services-html-get-started-data
 [Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-html-get-started-users
 [Prise en main des notifications Push]: /fr-fr/develop/mobile/tutorials/mobile-services-html-get-started-push
-[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+[Kit de développement logiciel (SDK) Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Portail de gestion]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio 2012 Express pour Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

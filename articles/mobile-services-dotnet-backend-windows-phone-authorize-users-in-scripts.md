@@ -1,10 +1,10 @@
-﻿<properties pageTitle="Autorisation côté service (Windows Phone) | Centre de développement mobile" metaKeywords="" description="Apprenez à autoriser les utilisateurs dans le service principal .NET d'Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Autorisation côté service (Windows Phone) | Centre de développement mobile" description="Apprenez à autoriser les utilisateurs dans le service principal .NET d'Azure Mobile Services." services="" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="glenga"/>
 
 # Autorisation côté service des utilisateurs Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]
 
 
 Cette rubrique explique comment autoriser les utilisateurs authentifiés à accéder aux données dans Azure Mobile Services à partir d'une application Windows Phone. Dans ce didacticiel, vous allez ajouter du code aux méthodes d'accès aux données de votre contrôleur filtrant les requêtes selon la valeur userId d'un utilisateur authentifié, afin de garantir que chaque utilisateur peut voir uniquement ses propres données.
@@ -13,7 +13,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 
 ## <a name="register-scripts"></a>Modification des méthodes d'accès aux données
 
-[WACOM.INCLUDE [mobile-services-filter-user-results-dotnet-backend](../includes/mobile-services-filter-user-results-dotnet-backend.md)] 
+[AZURE.INCLUDE [mobile-services-filter-user-results-dotnet-backend](../includes/mobile-services-filter-user-results-dotnet-backend.md)] 
 
 
 ## Test de l'application
@@ -30,7 +30,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 
    	Cette action insère à la fois le texte et la valeur userId dans la table TodoItem du service mobile. Étant donné que le nouvel élément présente la valeur userId correcte, il est renvoyé par le service mobile.
 
-6. (Facultatif) Si vous disposez de comptes de connexion supplémentaires, vous pouvez vous assurer que les utilisateurs peuvent uniquement afficher leurs propres données en fermant l'application (Alt+F4), puis en la réexécutant. Une fois que la boîte de dialogue des informations d'identification apparaît, entrez une autre connexion, puis vérifiez que les éléments entrés sous le compte précédent ne s'affichent pas. 
+6. (Facultatif) Si vous disposez de comptes de connexion supplémentaires, vous pouvez vous assurer que les utilisateurs peuvent uniquement afficher leurs propres données en fermant l'application (Alt+F4), puis en l'exécutant de nouveau. Une fois que la boîte de dialogue des informations d'identification apparaît, entrez une autre connexion, puis vérifiez que les éléments entrés sous le compte précédent ne s'affichent pas. 
 
 ## Étapes suivantes
 
@@ -43,10 +43,10 @@ Cela met fin à la série de didacticiels établissant les principes de base de 
   <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
   
 * [Guide de fonctionnement Mobile Services .NET]
-  <br/>Découvrez plus en détail comment utiliser Mobile Services avec .NET.
+  <br/>Découvrez plus en détail comment utiliser Mobile Services avec .NET
 
 <!-- Anchors. -->
-[Enregistrer des scripts serveur]: #register-scripts
+[Enregistrement de scripts serveur]: #register-scripts
 [Étapes suivantes]:#next-steps
 
 <!-- Images. -->
@@ -60,3 +60,6 @@ Cela met fin à la série de didacticiels établissant les principes de base de 
 [Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push
 
 [Guide de fonctionnement Mobile Services .NET]: /fr-fr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
+
+
+<!--HONumber=42-->

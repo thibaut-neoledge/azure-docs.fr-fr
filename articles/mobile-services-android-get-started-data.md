@@ -1,10 +1,10 @@
-﻿<properties linkid="develop-mobile-tutorials-get-started-with-data-android" urlDisplayName="Get Started with Data - Android" pageTitle="Prise en main des données (Android) | Centre de développement mobile" metaKeywords="données android Azure, données Azure Mobile Services, windows droid, android windows, microsoft droid, android microsoft" description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application Android." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="ricksal,glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Prise en main des données (Android) | Centre de développement mobile" description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application Android." services="mobile-services" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal,glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal,glenga"/>
 
 # Ajout de Mobile Services à une application existante
 
-[WACOM.INCLUDE [mobile-services-sélecteur-prise-en-main-données](../includes/mobile-services-selector-get-started-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -15,11 +15,10 @@
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-data-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a><span class="time">15:32</span></div>
 </div>
 
-<div class="dev-callout"><b>Remarque</b>
-<p>Ce didacticiel est conçu pour vous aider à mieux comprendre comment Mobile Services vous permet d'utiliser Azure pour stocker et récupérer des données à partir d'une application Android. À cet effet, il vous guide tout au long des nombreuses étapes exécutées automatiquement dans le démarrage rapide Mobile Services. Si vous n'avez aucune expérience de Mobile Services, nous vous invitons à suivre d'abord le didacticiel <a href="/fr-fr/develop/mobile/tutorials/get-started-android">Prise en main de Mobile Services</a>.</p>
-<p>Pour consulter le code source de l'application terminée, cliquez <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithData/Android/GetStartedWithData">ici</a>.
-</p>
-</div>
+> [AZURE.NOTE] Ce didacticiel est conçu pour vous aider à mieux comprendre comment Mobile Services vous permet d'utiliser Azure pour stocker et récupérer des données à partir d'une application Android. À cet effet, il vous guide tout au long des nombreuses étapes exécutées automatiquement dans le démarrage rapide Mobile Services. Si vous n'avez aucune expérience de Mobile Services, nous vous invitons à suivre d'abord le didacticiel [Prise en main de Mobile Services](/fr-fr/develop/mobile/tutorials/get-started-android).
+> 
+> Pour consulter le code source de l'application terminée, cliquez [ici](https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithData/Android/GetStartedWithData).
+
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 
@@ -29,13 +28,11 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 4. [Mise à jour de l'application pour utiliser Mobile Services]
 5. [Test de l'application par rapport à Mobile Services]
 
-<div class="dev-callout"><strong>Remarque</strong> <p>Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Version d'évaluation gratuite Azure</a>.</p></div> 
+> [AZURE.IMPORTANT] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AED8DE357"%20target="_blank). 
 
 Ce didacticiel requiert le [Kit de développement logiciel (SDK) Mobile Services pour Android] ; le <a href="https://go.microsoft.com/fwLink/p/?LinkID=280125" target="_blank">Kit de développement logiciel (SDK) Android</a>, qui inclut l'IDE (environnement de développement intégré) Eclipse, le plug-in ADT (outils de développement Android) et Android 4.2 ou une version ultérieure. 
 
-<div class="dev-callout"><b>Remarque</b>
-<p>Ce didacticiel fournit des instructions sur l'installation des Kits de développement logiciel (SDK) Android et Mobile Services pour Android. Le projet GetStartedWithData téléchargé requiert Android 4.2 ou une version ultérieure. Toutefois, le Kit de développement logiciel (SDK) Mobile Services requiert uniquement Android 2.2 ou une version ultérieure.</p>
-</div>
+> [AZURE.NOTE] Ce didacticiel fournit des instructions sur l'installation des Kits de développement logiciel (SDK) Android et Mobile Services pour Android. Le projet GetStartedWithData téléchargé requiert Android 4.2 ou une version ultérieure. Toutefois, le Kit de développement logiciel (SDK) Mobile Services requiert uniquement Android 2.2 ou une version ultérieure.
 
 >[AZURE.NOTE] Ce didacticiel utilise la dernière version du Kit de développement logiciel (SDK) Mobile Services. Vous pouvez trouver une version antérieure <a href="http://go.microsoft.com/fwlink/p/?LinkID=280126"> ici</a> à des fins de compatibilité descendante, mais le code contenu dans ces didacticiels ne fonctionne pas avec cette version.
 
@@ -43,28 +40,28 @@ Ce didacticiel requiert le [Kit de développement logiciel (SDK) Mobile Services
 
 ###Obtention de l'exemple de code
 
-[WACOM.INCLUDE [download-android-sample-code](../includes/download-android-sample-code.md)]
+[AZURE.INCLUDE [download-android-sample-code](../includes/download-android-sample-code.md)]
 
 ###Vérification de la version du Kit de développement logiciel (SDK) Android
 
-[WACOM.INCLUDE [Verify SDK](../includes/mobile-services-verify-android-sdk-version.md)]
+[AZURE.INCLUDE [Vérification du Kit de développement logiciel (SDK)](../includes/mobile-services-verify-android-sdk-version.md)]
 
 
 ###Inspection et exécution de l'exemple de code
 
-[WACOM.INCLUDE [mobile-services-android-run-sample-code](../includes/mobile-services-android-run-sample-code.md)]
+[AZURE.INCLUDE [mobile-services-android-run-sample-code](../includes/mobile-services-android-run-sample-code.md)]
 
 <h2><a name="create-service"></a>Création d'un service mobile dans le portail de gestion</h2>
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 <h2><a name="add-table"></a>Ajout d'une nouvelle table au service mobile</h2>
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
 <h2><a name="update-app"></a>Mise à jour de l'application afin d'utiliser le service mobile pour l'accès aux données</h2>
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-data](../includes/mobile-services-android-getting-started-with-data.md)]
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-data](../includes/mobile-services-android-getting-started-with-data.md)]
 
 
 <h2><a name="test-app"></a>Test de l'application sur la base de votre nouveau service mobile</h2>
@@ -96,10 +93,10 @@ Ce didacticiel a présenté les bases de l'activation d'une application Android 
 Ensuite, pensez à suivre l'un des didacticiels suivants basés sur l'application GetStartedWithData que vous avez créée dans ce didacticiel :
 
 * [Validation et modification de données à l'aide de scripts]
-  <br/>LEn savoir plus sur l'utilisation des scripts serveur dans Mobile Services pour valider et modifier les données envoyées à partir de votre application.
+  <br/>Obtenez plus d'informations sur l'utilisation des scripts serveur dans Mobile Services pour valider et modifier les données envoyées à partir de votre application.
 
 * [Affinage des requêtes au moyen de la pagination]
-  <br/>En savoir plus sur l'utilisation de la pagination dans les requêtes pour contrôler la quantité de données traitées dans une seule requête.
+  <br/>Apprenez à utiliser la pagination dans les requêtes pour contrôler la quantité de données traitées dans une seule requête.
 
 Une fois que vous avez terminé les séries de données, essayez ces autres didacticiels Android :
 
@@ -138,6 +135,7 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
 [Portail de gestion]: https://manage.windowsazure.com/
 [Kit de développement logiciel (SDK) Mobile Services pour Android]: http://aka.ms/Iajk6q
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkID=282122
-[Kit de développement logiciel (SDK) Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

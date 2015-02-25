@@ -1,6 +1,6 @@
-﻿<properties linkid="develop-mobile-tutorials-sso-android" urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Connexion et accès aux ressources avec Active Directory (Android) | Centre de développement mobile" metaKeywords="" description="Apprenez à ajouter l'authentification à une application avec Active Directory" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory" authors="wesmc,mahender" />
+﻿<properties pageTitle="Connexion et accès aux ressources avec Active Directory (Android) | Centre de développement mobile" description="Apprenez à ajouter l'authentification à une application avec Active Directory" documentationCenter="android" authors="mattchenderson" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.topic="article" ms.date="11/21/2014" ms.author="mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
 
 # Authentification de votre application avec Active Directory
 
@@ -16,4 +16,4 @@ Apprenez à authentifier votre application et à accéder à des ressources avec
 <!-- URLs. -->
 [Accès à des ressources sécurisées par Azure Active Directory avec iOS et Android]: http://chrisrisner.com/Accessing-Resources-Secured-by-Azure-Active-Directory-with-iOS-and-Android
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

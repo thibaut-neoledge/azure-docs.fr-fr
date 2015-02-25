@@ -1,20 +1,20 @@
-﻿<properties urlDisplayName="Encrypt Assets in Media Services" pageTitle="Chiffrement des éléments multimédias dans Media Services - Azure" metaKeywords="" description="Apprenez à utiliser Microsoft PlayReady Protection pour chiffrer un élément multimédia dans Media Services. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Protect an Asset with PlayReady Protection" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Chiffrement des éléments multimédias dans Media Services - Azure" description="Apprenez à utiliser Microsoft PlayReady Protection pour chiffrer un élément multimédia dans Media Services. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
-
-
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
-<h1><a name="playready"></a>Utilisation Protection d'un élément multimédia à l'aide de la protection PlayReady</h1>
 
-Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [  Vérification de la progression d'une tâche](../media-services-check-job-progress/).
+
+<h1><a name="playready"></a>Protection d'un élément multimédia à l'aide de la protection PlayReady</h1>
+
+Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [ Vérification de la progression des tâches](../media-services-check-job-progress/).
 
 Azure Media Services vous permet d'envoyer une tâche qui s'intègre à la protection Microsoft PlayReady pour chiffrer un élément multimédia. Le code présenté ici prélève plusieurs fichiers de diffusion en continu dans un dossier d'entrée, crée une tâche et la chiffre avec la protection PlayReady. 
 
 L'exemple suivant indique comment créer une tâche simple pour appliquer la protection PlayReady.
 
-   1. Récupérez les données de configuration. Un exemple de fichier de configuration est disponible à la rubrique [Présélection de tâche pour Azure Media Encryptor](http://msdn.microsoft.com/fr-fr/library/hh973610.aspx) .
+   1. Récupérez les données de configuration. Un exemple de fichier de configuration est disponible dans la rubrique [Présélection de tâche pour Azure Media Encryptor](http://msdn.microsoft.com/fr-fr/library/hh973610.aspx).
    2. Téléchargez un fichier d'entrée MP4.
    3. Convertissez le fichier MP4 en élément multimédia de diffusion en continu lisse.
    4. Chiffrez l'élément multimédia à l'aide de PlayReady.
@@ -78,7 +78,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
 
     // Use the following event handler to check job progress. 
     job.StateChanged += new
-            EventHandler<JobStateChangedEventArgs>(StateChanged);
+            EventHandler&lt;JobStateChangedEventArgs&gt;(StateChanged);
 
     // Launch the job.
     job.Submit();
@@ -114,6 +114,7 @@ Pour plus d'informations sur la protection PlayReady, consultez la rubrique :
 </ul>
 
 <h2>Étapes suivantes</h2>
-Maintenant que vous savez comment protéger des éléments multimédias avec Media Services, consultez la rubrique [Gestion des éléments multimédias](../media-services-manage-assets/) .
+Maintenant que vous savez comment protéger des éléments multimédias avec Media Services, consultez la rubrique [Gestion des éléments multimédias](../media-services-manage-assets/).
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

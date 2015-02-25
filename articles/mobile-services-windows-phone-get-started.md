@@ -1,6 +1,6 @@
-﻿<properties pageTitle="Prise en main d'Azure Mobile Services pour les applications Windows Phone" metaKeywords="" description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement Windows Phone. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Prise en main d'Azure Mobile Services pour les applications Windows Phone" description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement Windows Phone." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/22/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/22/2014" ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
@@ -8,4 +8,4 @@ Cette rubrique n'est plus prise en charge. Aucun projet de démarrage rapide Win
 
 Un projet de démarrage rapide peut être téléchargé pour les applications Windows Phone Store 8.1 dans le cadre d'un projet Windows universel. Pour plus d'informations, consultez la page [Prise en main de Mobile Services](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/). 
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

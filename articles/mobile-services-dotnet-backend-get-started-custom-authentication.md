@@ -1,12 +1,12 @@
-﻿<properties urlDisplayName="Get started with custom authentication" pageTitle="Prise en main de l'authentification personnalisée | Centre de développement mobile" metaKeywords="" description="Découvrez comment authentifier les utilisateurs à l'aide d'un nom d'utilisateur et d'un mot de passe." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with custom authentication" authors="mahender" manager="dwrede" />
+﻿<properties pageTitle="Prise en main de l'authentification personnalisée | Centre de développement mobile" description="Découvrez comment authentifier les utilisateurs à l'aide d'un nom d'utilisateur et d'un mot de passe." documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
 
 # Prise en main de l'authentification personnalisée
 
 Cette rubrique explique comment authentifier les utilisateurs dans le service principal .NET d'Azure Mobile Services en émettant votre propre jeton d'authentification Mobile Services. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide en utilisant un nom d'utilisateur et un mot de passe personnalisés pour votre application.
 
->[WACOM.NOTE] Ce didacticiel présente une méthode avancée d'authentification de vos services mobiles avec des informations d'identification personnalisées. Le recours aux fournisseurs d'identité des réseaux sociaux intégrés sera mieux adapté pour de nombreuses applications, les utilisateurs pouvant se connecter via Facebook, Twitter, Google, un compte Microsoft ou Azure Active Directory. S'il s'agit de votre première authentification dans Mobile Services, consultez le didacticie [Prise en main des ] utilisateurs
+>[AZURE.NOTE] Ce didacticiel présente une méthode avancée d'authentification de vos services mobiles avec des informations d'identification personnalisées. Le recours aux fournisseurs d'identité des réseaux sociaux intégrés sera mieux adapté pour de nombreuses applications, les utilisateurs pouvant se connecter via Facebook, Twitter, Google, un compte Microsoft ou Azure Active Directory. S'il s'agit de votre première authentification dans Mobile Services, consultez le didacticiel [Prise en main des utilisateurs].
 
 Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
 
@@ -17,16 +17,16 @@ Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'
 5. [Configuration du service mobile afin d'exiger une authentification]
 6. [Test du flux de connexion pour le client test]
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez aussi d'abord suivre le didacticiel  [Prise en main de Mobile Services]. 
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez également commencer par suivre le didacticiel [Prise en main de Mobile Services]. 
 
->[WACOM.NOTE] Le but de ce didacticiel est de vous montrer comment émettre un jeton d'authentification pour Mobile Services. Il ne doit pas être considéré comme un guide de sécurité. Pendant le développement de votre application, vous devez être conscient des implications du stockage des mots de passe en matière de sécurité et disposer d'une stratégie pour gérer les attaques en force brute.
+>[AZURE.NOTE] Le but de ce didacticiel est de vous montrer comment émettre un jeton d'authentification pour Mobile Services. Il ne doit pas être considéré comme un guide de sécurité. Pendant le développement de votre application, vous devez être conscient des implications du stockage des mots de passe en matière de sécurité et disposer d'une stratégie pour gérer les attaques en force brute.
 
 
 ## <a name="table-setup"></a>Configuration de la table des comptes
 
 Dans la mesure où vous utilisez l'authentification personnalisée et ne dépendez d'aucun autre fournisseur d'identité, vous devez stocker les informations de connexion de vos utilisateurs. Dans cette section, vous allez créer une table pour vos comptes et configurer les mécanismes de sécurité de base. La table des comptes contiendra les noms d'utilisateur ainsi que les mots de passe salés et hachés, et vous pourrez également inclure d'autres informations utilisateur, si besoin est.
 
-1. Dans le dossier `DataObjects` de votre projet principal, créez une nouvelle entité appelée `Compte` :
+1. Dans le dossier `DataObjects` de votre projet principal, créez une entité appelée `Account` :
 
             public class Account : EntityData
             {
@@ -37,7 +37,7 @@ Dans la mesure où vous utilisez l'authentification personnalisée et ne dépend
     
     Cette entité représente une ligne dans notre nouvelle table, contenant le nom d'utilisateur, la valeur salée de cet utilisateur et le mot de passe stocké de manière sécurisée.
 
-2. Le dossier `Modèles` contient une classe `DbContext` nommée d'après votre service mobile. Dans la suite de ce didacticiel, nous allons utiliser `todoContext` comme exemple et vous allez devoir mettre à jour des extraits de code en conséquence. Ouvrez votre contexte et ajoutez la table de comptes à votre modèle de données en incluant le code suivant :
+2. Le dossier `Models` contient une classe `DbContext` nommée d'après votre service mobile. Dans la suite de ce didacticiel, nous allons utiliser `todoContext` comme exemple et vous allez devoir mettre à jour des extraits de code en conséquence. Ouvrez votre contexte et ajoutez la table de comptes à votre modèle de données en incluant le code suivant :
 
         public DbSet<Account> Accounts { get; set; }
 
@@ -105,7 +105,7 @@ Dans la mesure où vous utilisez l'authentification personnalisée et ne dépend
                 {
                     return this.Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid password (at least 8 chars required)");
                 }
-
+	
                 todoContext context = new todoContext();
                 Account account = context.Accounts.Where(a => a.Username == registrationRequest.username).SingleOrDefault();
                 if (account != null)
@@ -135,9 +135,9 @@ Dans la mesure où vous utilisez l'authentification personnalisée et ne dépend
 
 ## <a name="login-provider"></a>Création du LoginProvider
 
-La `LoginProvider` est l'une des constructions fondamentales dans le pipeline d'authentification Mobile Services. Dans cette section, vous allez créer votre propre `CustomLoginProvider`. Il ne sera pas branché sur le pipeline comme les fournisseurs intégrés, mais vous offrira une fonctionnalité pratique.
+Le `LoginProvider` est l'une des constructions fondamentales dans le pipeline d'authentification Mobile Services. Dans cette section, vous allez créer votre propre `CustomLoginProvider`.. Il ne sera pas branché sur le pipeline comme les fournisseurs intégrés, mais vous offrira une fonctionnalité pratique.
 
-1. Créez une nouvelle classe, `CustomLoginProvider`, qui dérive de `LoginProvider` :
+1. Créer une nouvelle classe, `CustomLoginProvider`, qui dérive de `LoginProvider` :
 
         public class CustomLoginProvider : LoginProvider
         {
@@ -156,7 +156,7 @@ La `LoginProvider` est l'une des constructions fondamentales dans le pipeline d'
 
         }
 
-       `LoginProvider` has three other abstract methods which you will implement later.
+       `LoginProvider` a trois autres méthodes abstraites que vous implémenterez ultérieurement.
 
 2. Créez une classe nommée `CustomLoginProviderCredentials`. Celle-ci représente des informations sur votre utilisateur et vous pourrez y accéder sur le serveur principal via `ServiceUser.getIdentitiesAsync()`. Si vous ajoutez des revendications personnalisées, assurez-vous qu'elles sont capturées dans cet objet.
 
@@ -209,7 +209,7 @@ La `LoginProvider` est l'une des constructions fondamentales dans le pipeline d'
 
 ## <a name="login-endpoint"></a>Création du point de terminaison de connexion
 
-Vous allez ensuite créer un point de terminaison pour que vos utilisateurs puissent se connecter. Le nom d'utilisateur et le mot de passe que vous recevrez seront vérifiés par rapport à la base de données. Cette vérification consistera à demander d'abord le sel de l'utilisateur, à hacher le mot de passe et à s'assurer que la valeur entrante correspond à celle de la base de données. Si c'est le cas, vous pourrez créer un `ClaimsIdentity` et le transmettre au `CustomLoginProvider`. L'application cliente recevra alors un ID utilisateur et un jeton d'authentification pour accéder à votre service mobile.
+Vous allez ensuite créer un point de terminaison pour que vos utilisateurs puissent se connecter. Le nom d'utilisateur et le mot de passe que vous recevrez seront vérifiés par rapport à la base de données. Cette vérification consistera à demander d'abord le sel de l'utilisateur, à hacher le mot de passe et à s'assurer que la valeur entrante correspond à celle de la base de données. Si c'est le cas, vous pourrez créer un objet `ClaimsIdentity` et le transmettre au `CustomLoginProvider`. L'application cliente recevra alors un ID utilisateur et un jeton d'authentification pour accéder à votre service mobile.
 
 1. Dans votre projet de service principal Mobile Services, créez un objet pour représenter une tentative de connexion entrante :
 
@@ -252,24 +252,24 @@ Vous allez ensuite créer un point de terminaison pour que vos utilisateurs puis
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
->[WACOM.NOTE] Votre `CustomLoginController` destiné à la production doit également contenir une stratégie de détection en force brute. Sinon, votre solution de connexion risque d'être vulnérable aux attaques.
+>[AZURE.NOTE] Votre `CustomLoginController` destiné à la production doit également contenir une stratégie de détection en force brute. Sinon, votre solution de connexion risque d'être vulnérable aux attaques.
 
 ## <a name="require-authentication"></a>Configuration du service mobile afin d'exiger une authentification
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
+[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 
 ## <a name="test-login"></a>Test du flux de connexion pour le client test
 
 Dans votre application cliente, vous devrez développer un écran de connexion personnalisé qui prend les noms d'utilisateurs et les mots de passe, puis les envoie dans une charge utile JSON à vos points de terminaison d'inscription et de connexion. Pour les besoins de ce didacticiel, vous allez vous contenter d'utiliser le client test intégré pour le service principal .NET de Mobile Services.
 
->[WACOM.NOTE] Les Kits de développement logiciel (SDK) Mobile Services communiquent avec le service via HTTPS. Si vous prévoyez d'accéder à ce point de terminaison via un appel REST direct, vous devez veiller à utiliser HTTPS pour appeler votre service mobile, car les mots de passe sont envoyés en clair.
+>[AZURE.NOTE] Les Kits de développement logiciel (SDK) Mobile Services communiquent avec le service via HTTPS. Si vous prévoyez d'accéder à ce point de terminaison via un appel REST direct, vous devez veiller à utiliser HTTPS pour appeler votre service mobile, car les mots de passe sont envoyés en clair.
 
-1. Dans Visual Studio, démarrez une nouvelle instance de débogage de votre projet de service principal Mobile Services en cliquant avec le bouton droit sur le projet et en sélectionnant **Déboguer->Démarrer une nouvelle instance**
+1. Dans Visual Studio, démarrez une nouvelle instance de débogage de votre projet de service principal Mobile Services en cliquant avec le bouton droit sur le projet et en sélectionnant **Déboguer->Démarrer une nouvelle instance**.
 
     ![][0]
 
-2. Cliquez sur **Faire un essai**
+2. Cliquez sur **Faire un essai**.
 
     ![][1]
 
@@ -306,3 +306,5 @@ Dans votre application cliente, vous devrez développer un écran de connexion p
 <!-- URLs. -->
 [Prise en main des utilisateurs]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
 [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
+
+<!--HONumber=42-->

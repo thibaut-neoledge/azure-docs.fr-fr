@@ -1,18 +1,32 @@
-﻿<properties title="Getting Started with Mobile Services" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
+<properties 
+	pageTitle="" 
+	description="" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/8/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Mise en route](/documentation/articles/vs-mobile-services-dotnet-getting-started/)
-> - [Que s'est-il passé ?](/documentation/articles/vs-mobile-services-dotnet-what-happened/)
+> - [Que s'est-il passé](/documentation/articles/vs-mobile-services-dotnet-what-happened/)
 
 ## Prise en main de Mobile Services (Projets .NET)
 
 La première étape à effectuer pour suivre le code figurant dans ces exemples dépend du type de service mobile auquel vous êtes connecté.
 
-Dans le cas d'un service mobile principal JavaScript, créez une table nommée TodoItem.  Pour créer une table, recherchez le service mobile sous le nœud Azure dans l'Explorateur de serveurs, cliquez avec le bouton droit sur le nœud du service mobile pour ouvrir le menu contextuel, puis choisissez **Créer une table**. Entrez " TodoItem " comme nom de table.
+Dans le cas d'un service mobile principal JavaScript, créez une table nommée TodoItem.  Pour créer une table, recherchez le service mobile sous le nœud Azure dans l'Explorateur de serveurs, cliquez avec le bouton droit sur le nœud du service mobile pour ouvrir le menu contextuel, puis choisissez **Créer une table**. Entrez "TodoItem" comme nom de table.
 
-Si vous disposez à la place d'un service mobile principal .NET, une table TodoItem existe déjà dans le modèle de projet par défaut créé par Visual Studio, mais vous devez la publier sur Azure. Pour cela, ouvrez le menu contextuel du projet de service mobile dans l'Explorateur de solutions, puis choisissez **Publier le site web**. Acceptez les valeurs par défaut, puis choisissez le bouton **Publier**.
+Si vous disposez à la place d'un service mobile principal .NET, une table TodoItem existe déjà dans le modèle de projet par défaut créé par Visual Studio, mais vous devez la publier sur Azure. Pour cela, ouvrez le menu contextuel du projet de service mobile dans l'Explorateur de solutions, puis choisissez **Publier le site Web**. Acceptez les valeurs par défaut, puis choisissez le bouton **Publier**.
 
 #####Obtenir une référence pointant vers une table
 
@@ -70,3 +84,5 @@ Supprimez une ligne de la base de données. L'élément de paramètre correspond
 
 
 [En savoir plus sur les services mobiles](http://azure.microsoft.com/documentation/services/mobile-services/)
+
+<!--HONumber=42-->

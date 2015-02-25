@@ -1,12 +1,26 @@
-﻿<properties urlDisplayName="Validate Data" pageTitle="Utilisation de scripts serveur pour valider et modifier des données (Xamarin Android) | Centre de développement mobile" metaKeywords="accéder aux données et les modifier, Azure Mobile Services, appareils mobiles, Azure, mobile, Xamarin.Android" description="Découvrez comment valider et modifier les données envoyées à l'aide de scripts serveurs à partir de votre application Xamarin.Android." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" services="mobile-services"  title="Validate and modify data in Mobile Services by using server scripts" authors="donnam" manager="dwrede" />
+﻿<properties 
+	pageTitle="Utilisation de scripts serveur pour valider et modifier des données (Xamarin Android) | Centre de développement mobile" 
+	description="Découvrez comment valider et modifier les données envoyées à l'aide de scripts serveurs à partir de votre application Xamarin.Android." 
+	documentationCenter="xamarin" 
+	services="mobile-services" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="donnam"/>
 
 # Validation et modification de données dans Mobile Services à l'aide de scripts serveur
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
-Cette rubrique vous présente l'utilisation des scripts serveur dans Azure Mobile Services. Il est possible d'utiliser les scripts serveur inscrits dans un service mobile pour effectuer diverses opérations sur les données insérées et mises à jour, qu'il s'agisse de les valider ou de les modifier. Ce didacticiel vous apprend à définir et à inscrire les scripts serveur qui valident et modifient les données. Le comportement des scripts serveur ayant souvent un impact sur le client, vous allez également mettre à jour votre application Android pour tirer profit de ces nouveaux comportements. Le code finalisé est disponible dans l'exemple d'application [ValidateModifyData][GitHub].
+Cette rubrique montre comment exploiter les scripts serveur dans Azure Mobile Services. Il est possible d'utiliser les scripts serveur inscrits dans un service mobile pour effectuer diverses opérations sur les données insérées et mises à jour, qu'il s'agisse de les valider ou de les modifier. Ce didacticiel vous apprend à définir et à inscrire les scripts serveur qui valident et modifient les données. Le comportement des scripts serveur ayant souvent un impact sur le client, vous allez également mettre à jour votre application Android pour tirer profit de ces nouveaux comportements. Le code finalisé est disponible dans l'exemple [d'application ValidateModifyData][GitHub].
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 
@@ -21,7 +35,7 @@ Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés
 
 Il est toujours souhaitable de valider la longueur des données soumises par les utilisateurs. Vous devez d'abord inscrire un script qui valide la longueur des données de chaîne envoyées au service mobile et refuse les chaînes trop longues, en l'occurrence, celles qui font plus de 10 caractères.
 
-1. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur votre application. 
+1. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application. 
 
 	![][0]
 
@@ -45,9 +59,7 @@ Il est toujours souhaitable de valider la longueur des données soumises par les
 
     Ce script vérifie la longueur de la propriété **text** et envoie une réponse indiquant une erreur lorsque la chaîne dépasse 10 caractères. Sinon, la méthode **execute** est appelée pour effectuer l'insertion.
 
-    <div class="dev-callout"> 
-	<b>Remarque</b> 
-	<p>Vous pouvez supprimer un script inscrit dans l'onglet <strong>Script</strong> en cliquant sur <strong>Effacer</strong>, puis sur <strong>Enregistrer</strong>.</p></div>
+    > [AZURE.TIP] Vous pouvez supprimer un script inscrit dans l'onglet **Script** en cliquant sur **Effacer** puis **Enregistrer**.
 
 ## <a name="update-client-validation"></a>Mise à jour du client
 
@@ -63,7 +75,7 @@ Maintenant que le service mobile valide les données et envoie des réponses d'e
 
 	Ce code affiche le message d'erreur renvoyé par le service mobile. 
 
-3. Cliquez sur **Exécuter** pour démarrer l'application, puis tapez un texte de plus de 10 caractères dans la zone de texte et cliquez sur le bouton **Ajouter**.
+3. Cliquez sur **Exécuter** pour démarrer l'application, puis tapez un texte de plus de 10 caractères dans la zone de texte et cliquez sur le bouton **Add**.
 
   	Notez que l'erreur est traitée et que le message d'erreur est affiché pour l'utilisateur.
 
@@ -84,15 +96,13 @@ Les tâches précédentes ont permis de valider une insertion, qui est acceptée
 
     Cette fonction enrichit le script d'insertion précédent en ajoutant une nouvelle propriété d'horodatage **createdAt** à l'objet avant son insertion par l'appel à **request**.**execute**. 
 
-    <div class="dev-callout"><b>Remarque</b>
-	<p>Le schéma dynamique doit être activé la première fois que ce script d'insertion s'exécute. Avec le schéma dynamique activé, Mobile Services ajoute automatiquement la colonne <strong>createdAt</strong> à la table <strong>TodoItem</strong>. Par défaut, le schéma dynamique est activé pour un nouveau service mobile. Il doit être désactivé avant que l'application ne soit publiée.</p>
-    </div>
+    > [AZURE.IMPORTANT] Le schéma dynamique doit être activé la première fois que ce script d'insertion s'exécute. Avec le schéma dynamique activé, Mobile Services ajoute automatiquement la colonne **createdAt** à la table **TodoItem** lors de la première exécution. Par défaut, le schéma dynamique est activé pour un nouveau service mobile. Il doit être désactivé avant que l'application ne soit publiée.
 
-2. Dans le menu **Exécuter**, cliquez ensuite sur **Exécuter** pour démarrer l'application, puis tapez un texte (de moins de 10 caractères) dans la zone de texte et cliquez sur le bouton **Ajouter**.
+2. Dans le menu **Exécuter**, cliquez ensuite sur **Exécuter** pour démarrer l'application, puis tapez un texte (de moins de 10 caractères) dans la zone de texte et cliquez sur **Ajouter**.
 
    	Notez que le nouvel horodatage n'apparaît pas dans l'interface utilisateur de l'application.
 
-3. De retour dans le portail de gestion, cliquez sur l'onglet **Parcourir** dans la table **TodoItem**.
+3. De retour dans le portail de gestion, cliquez sur l'onglet **Parcourir** dans la table **todoitem**.
    
    	Notez qu'une colonne **createdAt** apparaît désormais à l'écran et qu'une valeur d'horodatage est associée au nouvel élément inséré.
   
@@ -107,11 +117,9 @@ Le client Mobile Services ignore les données d'une réponse qu'elle ne peut pas
         [DataMember(Name = "createdAt")]
         public DateTime? CreatedAt { get; set; }
   
-    <div class="dev-callout"><b>Remarque</b>
-	<p>L'annotation <code>DataMember's Name</code> indique au client de mapper la nouvelle propriété <code>CreatedAt</code> de l'application sur la colonne <code>createdAt</code> définie dans la tableTodoItem, qui porte un autre nom. En utilisant cette annotation, votre application peut avoir des noms de propriétés pour les objets qui diffèrent des noms de colonnes dans la base de données SQL. Sans cette annotation, une erreur peut se produire en raison de la différence de casse.</p>
-    </div>
+    > [AZURE.NOTE] L'annotation  `DataMember's Name` demande au client de mapper la nouvelle propriété  `CreatedAt` dans l'application vers la colonne  `createdAt` définie dans la table TodoItem, qui a un nom différent. En utilisant cette annotation, votre application peut avoir des noms de propriétés pour les objets qui diffèrent des noms de colonnes dans la base de données SQL. Sans cette annotation, une erreur peut se produire en raison de la différence de casse.
 
-2. Dans la méthode GetView, ajoutez le code qui suit juste au-dessus du code actuel qui définit <code>checkBox.Text</code> sur <code>currentItem.Text</code> :
+2. Dans la méthode GetView, ajoutez le code qui suit au-dessus du code actuel qui définit <code>checkBox.Text</code> sur <code>currentItem.Text</code> :
 
        	string displayDate = "missing";
        	if (currentItem.CreatedAt.HasValue)
@@ -119,7 +127,7 @@ Le client Mobile Services ignore les données d'une réponse qu'elle ne peut pas
 
    	Ce code génère une chaîne de date formatée lorsqu'il existe une valeur d'horodatage. 
 
-3. Recherchez le code " checkBox.Text = currentItem.Text " et remplacez cette ligne de code par la suivante :
+3. Recherchez le code `checkBox.Text = currentItem.Text` et remplacez cette ligne de code par la suivante :
 
 		checkBox.Text = string.Format("{0} - {1}", currentItem.Text, displayDate);
 
@@ -176,7 +184,7 @@ Les scripts serveur sont également utilisés dans le cadre du processus d'autor
 [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started-xamarin-android
 [Autorisation des utilisateurs avec des scripts]: /fr-fr/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
-[Affinage des requêtes à la pagination.]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-xamarin-android
+[Affinage des requêtes au moyen de la pagination]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-xamarin-android
 [Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-xamarin-android
 [Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-xamarin-android
 [Prise en main des notifications Push]: /fr-fr/develop/mobile/tutorials/get-started-with-push-xamarin-android
@@ -184,3 +192,6 @@ Les scripts serveur sont également utilisés dans le cadre du processus d'autor
 [Portail de gestion]: https://manage.windowsazure.com/
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331330
+
+
+<!--HONumber=42-->

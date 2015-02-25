@@ -1,14 +1,14 @@
-﻿<properties urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="Remise de contenu de diffusion en continu HTTP (HLS) Apple - Azure" metaKeywords="" description="Apprenez à créer un localisateur renvoyant vers du contenu de diffusion en continu HTTP (HLS) Apple sur un serveur d'origine Media Services. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver Apple HLS streaming content" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Remise de contenu de diffusion en continu HTTP (HLS) Apple - Azure" description="Apprenez à créer un localisateur renvoyant vers du contenu de diffusion en continu HTTP (HLS) Apple sur un serveur d'origine Media Services. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
-
-
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
-<h1>Utilisation de contenu de diffusion en continu HLS Apple</h1>
 
-Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [  Fourniture de contenu de diffusion en continu](../media-services-deliver-streaming-content/).
+
+<h1>Distribution de contenu de diffusion en continu HLS Apple</h1>
+
+Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [ Fourniture de contenu de diffusion en continu](../media-services-deliver-streaming-content/).
 
 Cette rubrique décrit la création d'un localisateur renvoyant vers du contenu de diffusion en continu HTTP (HLS) Apple sur un serveur d'origine Media Services. Cette méthode vous permet de créer une URL renvoyant vers du contenu de diffusion en continu HTTP (HLS) Apple qui permettra la lecture de contenu en continu sur des appareils iOS Apple. Le principe de base pour la création de l'URL du localisateur est identique. Générez un localisateur renvoyant vers le chemin d'accès de l'élément multimédia de diffusion en continu HTTP (HLS) Apple sur un serveur d'origine, puis créez une URL complète renvoyant vers le fichier manifeste du contenu de diffusion en continu.
 
@@ -77,7 +77,7 @@ Cette rubrique est la dernière consacrée à l'utilisation d'Azure Media Servic
 -   [Prise en main du Kit de développement logiciel (SDK) Media Services pour .NET][]
 -   [Création d'applications avec le Kit de développement logiciel (SDK) Media Services pour .NET][]
 -   [Création d'applications avec l'API REST d'Azure Media Services][]
--   [Media Services Forum][]
+-   [Forum Media Services][]
 -	[Surveillance d'un compte Media Services](../media-services-monitor-services-account/)
 -	[Gestion du contenu dans Media Services](../media-services-manage-content/)
 
@@ -85,6 +85,7 @@ Cette rubrique est la dernière consacrée à l'utilisation d'Azure Media Servic
 [Prise en main du Kit de développement logiciel (SDK) Media Services pour .NET]: http://go.microsoft.com/fwlink/?linkid=252966
 [Création d'applications avec l'API REST d'Azure Media Services]: http://go.microsoft.com/fwlink/?linkid=252967
 [Création d'applications avec le Kit de développement logiciel (SDK) Media Services pour .NET]: http://go.microsoft.com/fwlink/?linkid=247821
-[Media Services Forum]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
+[Forum Media Services]: http://social.msdn.microsoft.com/Forums/fr-fr/MediaServices/threads
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

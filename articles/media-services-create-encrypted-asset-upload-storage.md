@@ -1,12 +1,12 @@
-﻿<properties urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="Création d'un élément multimédia chiffré et chargement dans Azure Storage" metaKeywords="" description="Apprenez à obtenir du contenu multimédia dans Media Services en créant et en chargeant un élément multimédia chiffré." metaCanonical="" services="media-services" documentationCenter="" title="How to: Create an encrypted Asset and upload to storage" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Création d'un élément multimédia chiffré et chargement dans Azure Storage" description="Apprenez à obtenir du contenu multimédia dans Media Services en créant et en chargeant un élément multimédia chiffré." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
 <h1><a name="create-asset"> </a><span class="short header">Création d'un élément multimédia chiffré et chargement dans le stockage</span></h1>
 
-Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [Configuration de votre ordinateur pour le développement Media Services](http://go.microsoft.com/fwlink/?LinkID=301751&clcid=0x409).
+Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente était [Configuration de votre ordinateur pour le développement Media Services](http://go.microsoft.com/fwlink/?LinkID=301751&clcid=0x409).
 
 Pour charger du contenu multimédia dans Media Services, créez d'abord un élément multimédia, ajoutez-y des fichiers, puis chargez l'élément. Ce processus est appelé réception de contenu.  
 
@@ -16,7 +16,7 @@ Lorsque vous créez des éléments multimédias, vous pouvez spécifier trois op
 - **AssetCreationOptions.CommonEncryptionProtected** : pour les fichiers CENC (Common Encryption Protected). Par exemple, un ensemble de fichiers pour lesquels le chiffrement PlayReady est déjà activé. 
 - **AssetCreationOptions.StorageEncrypted** : chiffrement de stockage. Chiffre un fichier d'entrée clair avant de le charger sur le stockage Azure.
 
-> WACOM.NOTE
+> AZURE.NOTE
 > Media Services fournit pour vos éléments multimédias un chiffrement de stockage sur disque, et non pas sur le réseau comme pour la gestion des droits numériques (DRM).
 
 L'exemple de code qui suit effectue les opérations suivantes : 
@@ -85,7 +85,7 @@ static public IAsset CreateAssetAndUploadMultipleFiles( AssetCreationOptions ass
         throw new FileNotFoundException(String.Format("No files in directory, check folderPath: {0}", folderPath));
     }
 
-    var uploadTasks = new List<Task>();
+    var uploadTasks = new List&lt;Task&gt;();
     foreach (var filePath in filePaths)
     {
         var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
@@ -122,4 +122,5 @@ Maintenant que vous avez chargé un élément multimédia dans Media Services, c
 
 [Obtention d'un processeur multimédia]: ../media-services-get-media-processor/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

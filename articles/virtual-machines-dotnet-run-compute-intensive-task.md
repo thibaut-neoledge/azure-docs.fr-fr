@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Compute Intensive .NET Task" pageTitle="Tâche de calcul intensif .NET sur une machine virtuelle - Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="Apprenez à déployer et à exécuter une application de calcul intensif .NET sur une machine virtuelle Azure et à utiliser des files d'attente Service Bus pour surveiller la progression à distance." metaCanonical="" services="virtual-machines" documentationCenter=".NET" title="How to run a compute-intensive task in .NET on an Azure virtual machine" authors="wpickett" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties pageTitle="Tâche de calcul intensif .NET sur une machine virtuelle - Azure" description="Apprenez à déployer et à exécuter une application de calcul intensif .NET sur une machine virtuelle Azure et à utiliser des files d'attente Service Bus pour surveiller la progression à distance." services="virtual-machines" documentationCenter=".net" authors="" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="wpickett" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="wpickett"/>
 
 # Exécution d'une tâche nécessitant beaucoup de ressources dans .NET sur une machine virtuelle Azure
 
@@ -26,7 +26,7 @@ Vous trouverez ci-dessous un exemple d'application .NET qui surveille la tâche 
 
 ![Traveling Salesman Problem client][client_output]
 
-[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 <h2>Création d'une machine virtuelle</h2>
 
@@ -35,9 +35,9 @@ Vous trouverez ci-dessous un exemple d'application .NET qui surveille la tâche 
 3. Cliquez sur **Machine virtuelle**.
 4. Cliquez sur **Création rapide**.
 5. Dans l'écran **Créer une machine virtuelle**, entrez une valeur pour **Nom DNS**.
-6. Dans la liste déroulante **Image**, sélectionnez une image, telle que **Windows Server 2012**.
+6. Dans la liste déroulante **Image**, sélectionnez une image, comme **Windows Server 2012**.
 7. Entrez un nom pour l'administrateur dans le champ **Nom d'utilisateur**. Notez le nom et le mot de passe que vous allez entrer, car vous les utiliserez pour vous connecter à distance à votre machine virtuelle.
-8. Entrez un mot de passe dans le champ **Nouveau mot de passe**, puis entrez-le de nouveau dans le champ **Confirmer** field.
+8. Entrez un mot de passe dans le champ **Nouveau mot de passe**, puis entrez-le de nouveau dans le champ **Confirmer**.
 9. Dans la liste déroulante **Emplacement**, sélectionnez l'emplacement du centre de données pour votre machine virtuelle.
 10. Cliquez sur **Créer une machine virtuelle**. La création de votre machine virtuelle démarre. Vous pouvez surveiller l'état dans la section **Machines virtuelles** du portail de gestion. Lorsque son état s'affiche comme **Actif**, vous pouvez vous connecter à la machine virtuelle.
 
@@ -56,7 +56,7 @@ Pour commencer à utiliser les files d'attente Service Bus dans Azure, vous deve
 Pour créer un espace de noms de service :
 
 1.  Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com).
-2.  Dans le volet de navigation gauche du portail de gestion, cliquez sur **Service Bus**.
+2.  Dans le volet de navigation gauche du portail de gestion, cliquez sur **Bus des services**.
 3.  Dans le volet inférieur du portail de gestion, cliquez sur **Créer**.
 
     ![Create new service bus][create_service_bus]
@@ -64,22 +64,22 @@ Pour créer un espace de noms de service :
 
     ![Create a namespace dialog][create_namespace_dialog]
 5.  Après vous être assuré que le nom de l'espace de noms est disponible, choisissez la région où votre espace de noms doit être hébergé (veillez à utiliser la région dans laquelle votre machine virtuelle est hébergée).
-    <div class="dev-callout">
-    <strong>Important</strong>
-    <p>Sélectionnez la **même région** que vous utilisez ou celle que vous prévoyez d'utiliser pour votre machine virtuelle. Vous bénéficiez ainsi des meilleures performances.</p>
-    </div>
+
+    > [AZURE.IMPORTANT] Sélectionnez la **région** que vous utilisez ou celle que vous prévoyez d'utiliser pour votre machine virtuelle. Vous bénéficiez ainsi des meilleures performances.
+
 6. Si vous disposez de plusieurs abonnements Azure pour le compte avec lequel vous vous connectez, sélectionnez celui qui utilisera l'espace de noms. Si vous ne disposez que d'un abonnement pour le compte avec lequel vous vous connectez, vous ne voyez pas de liste déroulante contenant vos abonnements.
 7. Cliquez sur la coche. Le système crée l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
 
 	![Click create screenshot][click_create]
 
-L'espace de noms que vous avez créé apparaît alors dans le portail de gestion. Son activation peut prendre un peu de temps. Wait until the status is **Actif** apparaisse avant de passer à l'étape suivante.
+L'espace de noms que vous avez créé apparaît alors dans le portail de gestion. Son activation peut prendre un peu de temps. Attendez que l'état soit **Actif** avant de passer à l'étape suivante.
 
 <h2>Obtention d'informations d'identification de gestion par défaut pour l'espace de noms</h2>
 
 Pour pouvoir effectuer des opérations de gestion telles que la création d'une file d'attente sur le nouvel espace de noms, vous devez obtenir les informations d'identification de gestion associées.
 
-1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour afficher la liste des espaces de noms disponibles :   
+1.  Dans le volet de navigation gauche, cliquez sur le nœud **Bus de service** node, pour
+    afficher la liste des espaces de noms disponibles :   
     ![Available namespaces screenshot][available_namespaces]
 2.  Sélectionnez l'espace de noms que vous venez de créer dans la liste affichée :   
     ![Namespace list screenshot][namespace_list]
@@ -90,7 +90,7 @@ Pour pouvoir effectuer des opérations de gestion telles que la création d'une 
 <h2>Création d'une application .NET exécutant une tâche qui nécessite beaucoup de ressources</h2>
 
 1. Sur votre ordinateur de développement (qui n'est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour .NET](http://www.windowsazure.com/fr-fr/develop/net/).
-2. Créez une application console .NET avec le projet nommé **TSPSolver**. Assurez-vous que l'infrastructure cible est définie sur .**NET Framework 4** ou version ultérieure (et non **.NET Framework 4 Client Profile**). Elle peut être définie après la création d'un projet comme suit : dans le menu de Visual Studio, cliquez successivement sur **Projets**, sur **Propriétés**et sur l'onglet **Application**, puis définissez la valeur pour **Framework cible**.
+2. Créez une application console .NET avec le projet nommé **TSPSolver**. Assurez-vous que l'infrastructure cible est définie sur .**NET Framework 4** ou version ultérieure (et non **.NET Framework 4 Client Profile**). Elle peut être définie après la création d'un projet comme suit : dans le menu de Visual Studio, cliquez successivement sur **Projets**, sur **Propriétés** et sur l'onglet **Application**, puis définissez la valeur pour **Framework cible**.
 3. Ajoutez la bibliothèque Microsoft ServiceBus. Dans l'Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur **TSPSolver**, cliquez sur **Ajouter une référence**, sur l'onglet **Parcourir**, accédez au Kit SDK Azure .NET (par exemple à l'emplacement **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**) et sélectionnez **Microsoft.ServiceBus.dll** comme référence.
 4. Ajoutez la bibliothèque System Runtime Serialization. Dans l'Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur **TSPSolver**, cliquez sur **Ajouter une référence**, sur l'onglet **.NET**, puis sélectionnez **System.Runtime.Serialization** comme référence.
 5. Utilisez l'exemple de code disponible à la fin de cette section pour le contenu de **Program.cs**.
@@ -322,7 +322,7 @@ Pour pouvoir effectuer des opérations de gestion telles que la création d'une 
 
 <h2>Création d'une application .NET surveillant la progression de la tâche qui nécessite beaucoup de ressources</h2>
 
-1. Sur votre ordinateur de développement, créez une application console .NET avec **TSPClient** comme nom de projet. Assurez-vous que l'infrastructure cible est définie sur .**NET Framework 4** ou version ultérieure (et non **.NET Framework 4 Client Profile**). Elle peut être définie après la création d'un projet comme suit : dans le menu de Visual Studio, cliquez successivement sur **Projets**, sur **Propriétés**et sur l'onglet **Application**, puis définissez la valeur pour **Framework cible**.
+1. Sur votre ordinateur de développement, créez une application console .NET avec **TSPClient** comme nom de projet. Assurez-vous que l'infrastructure cible est définie sur .**NET Framework 4** ou version ultérieure (et non **.NET Framework 4 Client Profile**). Elle peut être définie après la création d'un projet comme suit : dans le menu de Visual Studio, cliquez successivement sur **Projets**, sur **Propriétés** et sur l'onglet **Application**, puis définissez la valeur pour **Framework cible**.
 2. Ajoutez la bibliothèque Microsoft ServiceBus. Dans l'Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur **TSPSolver**, cliquez sur **Ajouter une référence**, sur l'onglet **Parcourir**, accédez au Kit SDK Azure .NET (par exemple à l'emplacement **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**) et sélectionnez **Microsoft.ServiceBus.dll** comme référence.
 3. Ajoutez la bibliothèque System Runtime Serialization. Dans l'Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur **TSPClient**, cliquez sur **Ajouter une référence**, sur l'onglet **.NET**, puis sélectionnez **System.Runtime.Serialization** comme référence.
 4. Utilisez l'exemple de code disponible à la fin de cette section pour le contenu de **Program.cs**.
@@ -446,9 +446,9 @@ Exécutez l'application nécessitant beaucoup de ressources pour créer la file 
 <h3>Exécution de l'application nécessitant beaucoup de ressources</h3>
 
 1. Connectez-vous à votre machine virtuelle.
-2. Créez un dossier nommé **c:\TSP**. C'est celui où vous exécuterez votre application.
-3. Copiez TSPSolver.exe et Microsoft.ServiceBus.dll, tous deux disponibles dans le dossier **bin** de votre projet TSPSolver, dans  **c:\TSP**.
-4. Créez un fichier nommé **c:\TSP\cities.txt** avec le contenu suivant :
+2. Créez un dossier intitulé **c:\TSP**. C'est celui où vous exécuterez votre application.
+3. Copiez TSPSolver.exe et Microsoft.ServiceBus.dll, tous deux disponibles dans le dossier **bin** de votre projet TSPSolver, dans **c:\TSP**.
+4. Créez un fichier intitulé **c:\TSP\cities.txt** avec le contenu suivant :
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -514,7 +514,7 @@ Exécutez l'application nécessitant beaucoup de ressources pour créer la file 
 
 Le solveur s'exécutera jusqu'à ce qu'il ait examiné tous les itinéraires.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Plus le nombre spécifié est élevé, plus l'exécution du solveur est longue. Par exemple, une exécution portant sur 14 villes peut prendre quelques minutes, et une exécution portant sur 15 villes peut prendre des heures. Au-delà de 16 villes, l'exécution peut prendre des jours (voire des semaines, des mois et des années). Cette lenteur est due à la hausse rapide du nombre de permutations évaluées par le solveur à mesure que le nombre de villes augmente.
  
 <h3>Exécution de la surveillance de l'application cliente</h3>
@@ -550,4 +550,7 @@ Au lieu d'utiliser TSPSolver pour créer et supprimer la file d'attente, vous po
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

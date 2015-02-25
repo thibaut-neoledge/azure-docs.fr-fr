@@ -1,30 +1,45 @@
-﻿<properties pageTitle="Prise en main de Mobile Services pour Xamarin.Android" metaKeywords="application Xamarin.Android Azure, service mobile XamarinAndroid, prise en main de Xamarin.Android Azure" writer ="craigd" description="Découvrez comment utiliser Azure Mobile Services avec votre application Xamarin.Android." metaCanonical="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="donnam" manager="dwrede" />
+﻿<properties 
+	pageTitle="Prise en main de Mobile Services pour Xamarin.Android 
+	writer="craigd" 
+	description="Découvrez comment utiliser Azure Mobile Services avec votre application Xamarin.Android." 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/11/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="hero-article" 
+	ms.date="11/11/2014" 
+	ms.author="donnam"/>
 
 # <a name="getting-started"></a>Prise en main de Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 <p>Ce didacticiel vous montre comment ajouter un service principal cloud à une application Xamarin.Android en utilisant Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application <em>To do list</em> qui stocke les données d'application dans le nouveau service mobile.</p>
 <p>Voici une capture d'écran de l'application terminée :</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-xamarin-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">10:05:00</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-xamarin-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Xamarin-and-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">10:05</span></div>
 </div>
 
 ![][0]
 
 Pour suivre ce didacticiel, vous avez besoin de [Xamarin.Android], qui installe Xamarin Studio et un plug-in Visual Studio (sous Windows), ainsi que la dernière plateforme Android. Le Kit de développement logiciel (SDK) Android 4.2 ou une version ultérieure est nécessaire. 
 
-Le projet de démarrage rapide téléchargé contient le composant Azure Mobile services pour Xamarin.Android. Même si ce projet cible Android 4.2 ou une version ultérieure, le Kit de développement logiciel (SDK) Mobile Services n'a besoin que d'Android 2.2 (ou une version ultérieure).
+Le projet de démarrage rapide téléchargé contient le composant Azure Mobile Services pour Xamarin.Android. Alors que ce projet requiert Android 4.2 ou une version ultérieure, le Kit de développement logiciel (SDK) Mobile Services requiert uniquement Android 2.2 ou une version ultérieure.
 
-<div class="dev-callout"><strong>Remarque</strong> <p>Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10&nbsp;services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A9C9624B5" target="_blank">Version d'évaluation gratuite d'Azure</a>.</p></div>
+> [AZURE.IMPORTANT] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank).
 
-## <a name="create-new-service"> </a>Création d'un service mobile
+## <a name="create-new-service"></a>Créer un nouveau service mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## <h2>Création d'une application Xamarin.Android</h2>
 
@@ -42,9 +57,9 @@ Dans cette section, vous allez créer une application Xamarin.Android connectée
 
 	![][7]
 
-3. Cliquez sur **Create TodoItem table** pour créer une table permettant de stocker les données d'application.
+3. Cliquez sur **Create TodoItems table** pour créer une table permettant de stocker les données d'application.
 
-4. Sous **Download and run app**, cliquez sur **Télécharger**. 
+4. Sous **Télécharger et exécuter l'application**, cliquez sur **Télécharger**. 
 
 	Cette opération télécharge le projet de votre exemple d'application _To do list_ connectée à votre service mobile. Enregistrez le fichier projet compressé sur votre ordinateur local et notez l'emplacement où vous l'avez enregistré.
 
@@ -54,7 +69,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 1. Accédez à l'emplacement où vous avez enregistré les fichiers projet compressés, puis développez les fichiers sur votre ordinateur.
 
-2. Dans Xamarin Studio ou Visual Studio, cliquez sur **Fichier**, puis sur **Ouvrir**, accédez aux exemples de fichiers non compressés et sélectionnez **XamarinTodoQuickStart.Android.sln** pour l'ouvrir.
+2. Dans Xamarin Studio ou Visual Studio, cliquez sur **Fichier** puis **Ouvrir**, accédez aux exemples de fichiers non compressés et sélectionnez **XamarinTodoQuickStart.Android.sln** pour l'ouvrir.
 
  	![][8]
 
@@ -62,18 +77,18 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 3. Appuyez sur le bouton **Exécuter** pour générer le projet et démarrer l'application. Vous êtes invité à sélectionner un émulateur ou un périphérique USB connecté. 
 
-	<div class="dev-callout"><strong>Remarque</strong> <p>Afin d'exécuter le projet dans l'émulateur Android, vous devez définir au moins un AVD (appareil virtuel Android). Utilisez le gestionnaire AVD pour créer et gérer ces appareils.</p></div>
+	> [AUZRE.NOTE] Afin d'exécuter le projet dans l'émulateur Android, vous devez définir au moins un AVD (appareil virtuel Android). Utilisez le gestionnaire AVD pour créer et gérer ces appareils.
 
-4. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, puis cliquez sur **Ajouter**.
+4. Dans l'application, entrez un texte explicite, comme " Suivre le didacticiel ", puis cliquez sur **Ajouter**.
 
 	![][10]
 
 	Ceci envoie une demande POST vers le nouveau service mobile hébergé dans Azure. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans la table sont renvoyés par le service mobile et les données sont affichées dans la liste.
 
-	> [WACOM.NOTE] 
+	> [AZURE.NOTE] 
    	> Vous pouvez vérifier le code qui se trouve dans le fichier ToDoActivity.cs C# et permet d'accéder au service mobile pour exécuter une requête et insérer des données.
 
-6. De retour dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItems**.
+6. Dans le portail de gestion, cliquez sur l'onglet **Données**, puis cliquez sur la table **TodoItems**.
 
 	![][11]
 
@@ -84,11 +99,8 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 ## <a name="next-steps"> </a>Étapes suivantes
 Maintenant que vous avez effectué le démarrage rapide, découvrez comment exécuter d'autres tâches importantes dans Mobile Services : 
 
-* [Prise en main des données]
-  <br/>En savoir plus sur le stockage et l'interrogation des données à l'aide de Mobile Services.
-
 * [Prise en main de la synchronisation des données hors connexion]
-  <br/>En savoir plus sur la synchronisation des données hors connexion pour rendre votre application réactive et robuste.
+  <br/>Découvrez comment le démarrage rapide utilise les données synchronisées hors connexion pour rendre votre application réactive et robuste.
 
 * [Prise en main de l'authentification]
   <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec un fournisseur d'identité.
@@ -127,3 +139,6 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 [Kit de développement logiciel (SDK) Mobile Services pour Android]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Portail de gestion]: https://manage.windowsazure.com/
+
+
+<!--HONumber=42-->

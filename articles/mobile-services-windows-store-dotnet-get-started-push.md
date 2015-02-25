@@ -1,8 +1,8 @@
-﻿<properties pageTitle="Prise en main des notifications push (Windows Store) | Centre de développement mobile" metaKeywords="" description="Découvrez comment utiliser Azure Mobile Services pour envoyer des notifications Push à votre application Windows Store (push hérité)." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services (legacy push)" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Prise en main des notifications Push (Windows Store) | Centre de développement mobile" description="Découvrez comment utiliser Azure Mobile Services pour envoyer des notifications Push à votre application Windows Store (push hérité)." services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/11/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/11/2014" ms.author="glenga"/>
 
-# Ajout de notifications Push à votre application Mobile Services (push hérité)
+# Ajout de notifications push à votre application Mobile Services (transmission de type push héritée)
 
 <div class="dev-center-tutorial-selector sublanding">
     <a href="/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#" class="current">Windows Store C#</a>
@@ -19,7 +19,7 @@
 
 Cette rubrique vous explique comment, via Visual Studio 2013, utiliser Azure Mobile Services pour envoyer des notifications Push à votre application Windows Store. Le didacticiel vous apprend à ajouter des notifications Push au projet de démarrage rapide à l'aide du Service de notifications Windows Push (WNS), directement à partir de Visual Studio. Une fois la procédure terminée, votre service mobile envoie une notification Push chaque fois qu'un enregistrement est inséré.
 
->[WACOM.NOTE]Cette rubrique prend en charge les services mobiles <em>existants</em> qui <em>n'ont pas encore été mis à niveau</em> pour utiliser l'intégration à Notification Hubs. Lorsque vous créez un <em>nouveau</em> service mobile, cette fonctionnalité intégrée est automatiquement activée. Pour les nouveaux services mobiles, consultez la rubrique [Prise en main des notifications Push](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/).
+>[AZURE.NOTE]Cette rubrique prend en charge les services mobiles <em>existants</em> qui n'<em>ont pas encore été mis à niveau</em> pour utiliser l'intégration à Notification Hubs. Lorsque vous créez un <em>service mobile</em>, cette fonctionnalité intégrée est automatiquement activée. Pour les nouveaux services mobiles, consultez la rubrique [Prise en main des notifications Push].(/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/).
 >
 >Mobile Services s'intègre à Azure Notification Hubs pour prendre en charge une fonctionnalité de notification Push supplémentaire, comme les modèles, les plateformes multiples et la mise à l'échelle améliorée. <em>Vous devez mettre à niveau vos services mobiles existants pour utiliser Notification Hubs lorsque cela est possible</em>. Une fois la mise à niveau effectuée, consultez cette version de la [Prise en main des notifications Push](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/).
 
@@ -31,21 +31,20 @@ Ce didacticiel vous familiarise avec les étapes de base permettant d'activer le
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de le lancer, suivez d'abord le didacticiel [Prise en main de Mobile Services] ou [Prise en main des données] pour connecter votre projet au service mobile. Lorsqu'un service mobile n'est pas connecté, l'Assistant Ajouter une notification Push crée cette connexion pour vous. 
 
-<h2><a name="register"></a>Ajout et configuration de notifications push dans l'application</h2>
+<h2><a name="register"></a>Ajout et configuration des notifications Push dans l'application</h2>
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
+[AZURE.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 <ol start="6">
 <li><p>Développez <strong>services</strong>, <strong>mobile services</strong>, votre nom de service, ouvrez le fichier de code généré, puis contrôlez la méthode <strong>UploadChannel</strong> qui récupère l'ID d'installation et le canal de l'appareil, et insère ces données dans la nouvelle table de canaux.</p> 
 
 <p>L'Assistant a également ajouté l'appel de cette méthode au gestionnaire d'événements <strong>OnLaunched</strong> dans le fichier de code App.xaml.cs. Ainsi, une tentative d'inscription de l'appareil est effectuée chaque fois que l'application est lancée.</p></li> 
-<li><p>Dans l'Explorateur de serveurs, développez <strong>Azure</strong>, <strong>Mobile Services</strong>, votre nom de service et <strong>Canaux</strong>, puis ouvrez le fichier insert.js.</p> 
+<li><p>Dans l'Explorateur de serveurs, développez <strong>Azure</strong>, <strong>Mobile Services</strong>, votre nom de service et <strong>channels</strong>, puis ouvrez le fichier insert.js.</p> 
 
 <p>Ce fichier, qui est stocké dans votre service mobile, contient du code JavaScript qui est exécuté lorsqu'un client envoie une demande d'inscription d'un appareil en insérant les données dans la table de canaux.</p> 
 
-<div class="dev-callout"><b>Remarque</b>
-	<p>La version initiale de ce fichier contient du code qui vérifie si l'appareil en question est déjà inscrit. Elle inclut une autre portion du code qui envoie une notification Push lorsqu'une nouvelle inscription est ajoutée à la table de canaux. Le code qui envoie une notification Push peut être inclus dans tout fichier script inscrit. L'emplacement de ce script dépend du mode de déclenchement de la notification. Les scripts peuvent être enregistrés pour une opération sur une table de type insertion, mise à jour, suppression ou lecture (tâche planifiée ou API personnalisée). Pour plus d'informations, consultez la page <a href="http://go.microsoft.com/fwlink/p/?LinkID=287178">Utilisation des scripts serveur dans Mobile Services</a>.</p>
-</div>
+> [AZURE.NOTE] La version initiale de ce fichier contient du code qui vérifie si l'appareil en question est déjà inscrit. Elle inclut une autre portion du code qui envoie une notification Push lorsqu'une nouvelle inscription est ajoutée à la table de canaux. Le code qui envoie une notification Push peut être inclus dans tout fichier script inscrit. L'emplacement de ce script dépend du mode de déclenchement de la notification. Les scripts peuvent être enregistrés pour une opération sur une table de type insertion, mise à jour, suppression ou lecture (tâche planifiée ou API personnalisée). Pour plus d'informations, consultez la page [Utilisation des scripts serveur dans Mobile Services](http://go.microsoft.com/fwlink/p/?LinkID=287178).
+
 </li> 
 <li><p>Appuyez sur la touche F5 pour exécuter l'application et vérifiez que vous recevez immédiatement une notification du service mobile.</p>
 <p>Cette notification, générée par l'insertion d'une ligne dans la nouvelle table de canaux, correspond à l'inscription de l'appareil.</p>
@@ -55,13 +54,13 @@ Le code généré permet de démontrer facilement l'émission d'une notification
 
 <h2><a name="update-scripts"></a>Mise à jour du code de notification Push</h2>
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013-2](../includes/mobile-services-create-new-push-vs2013-2.md)]
+[AZURE.INCLUDE [mobile-services-create-new-push-vs2013-2](../includes/mobile-services-create-new-push-vs2013-2.md)]
 
 <h2><a name="test"></a>Test des notifications Push dans votre application</h2>
 
 1. Dans Visual Studio, appuyez sur la touche F5 pour exécuter l'application.
 
-2. Dans l'application, tapez du texte dans **Insérer un TodoItem**, puis cliquez sur **Enregistrer**.
+2. Dans l'application, tapez du texte dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
 
    	![][13]
 
@@ -71,7 +70,7 @@ Le code généré permet de démontrer facilement l'émission d'une notification
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Ce didacticiel a présenté les bases de l'activation d'une application du Windows Store pour utiliser des données dans Mobile Services. Ensuite, pensez à suivre l'un des didacticiels suivants basés sur l'application GetStartedWithData que vous avez créée dans ce didacticiel :
+Ce didacticiel a présenté les bases de l'activation d'une application Windows Store pour utiliser les données dans Mobile Services. Ensuite, pensez à suivre l'un des didacticiels suivants basés sur l'application GetStartedWithData que vous avez créée dans ce didacticiel :
 
 + [Prise en main de Notification Hubs]
   <br/>En savoir plus sur l'utilisation de Notification Hubs dans votre application Windows Store.
@@ -82,8 +81,8 @@ Ce didacticiel a présenté les bases de l'activation d'une application du Windo
 + [Envoi de notifications aux utilisateurs]
 	<br/>En savoir plus sur l'envoi de notifications Push depuis un service mobile à certains utilisateurs sur n'importe quel appareil.
 
-+ [Envoi de notifications interplateforme aux utilisateurs]
-	<br/>Apprenez à utiliser des modèles pour envoyer des notifications Push à partir d'un service mobile, sans avoir à gérer des charges utiles propres à la plateforme sur votre serveur principal.
++ [Envoi de notifications Push aux utilisateurs authentifiés]
+	<br/>En savoir plus sur l'utilisation de modèles pour envoyer des notifications Push depuis un service mobile, sans avoir à gérer des charges utiles propres à la plateforme sur votre serveur principal.
 
 Pour plus d'informations sur les rubriques Mobile Services suivantes :
 
@@ -91,10 +90,10 @@ Pour plus d'informations sur les rubriques Mobile Services suivantes :
   <br/>En savoir plus sur le stockage et l'interrogation des données à l'aide de Mobile Services.
 
 * [Prise en main de l'authentification]
-  <br/>Découvrez comment authentifier les utilisateurs de votre application avec un compte Windows.
+  <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec un compte Windows.
 
 * [Référence de script serveur Mobile Services]
-  <br/>En savoir plus sur l'enregistrement et l'utilisation des scripts serveur.
+  <br/>En savoir plus sur l'inscription et l'utilisation des scripts serveur.
 
 * [Guide de fonctionnement Mobile Services .NET]
   <br/>Découvrez plus en détail comment utiliser Mobile Services avec .NET.
@@ -124,9 +123,9 @@ Pour plus d'informations sur les rubriques Mobile Services suivantes :
 
 
 <!-- URLs. -->
-[Page Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Mes applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Kit de développement logiciel (SDK) Live]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Page Soumette une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Mes Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Kit de développement logiciel (SDK) Live pour Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started/
 [Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-dotnet/
 [Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-dotnet
@@ -138,11 +137,14 @@ Pour plus d'informations sur les rubriques Mobile Services suivantes :
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [objet wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Guide de fonctionnement Mobile Services .NET]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library/
-[Validation et modification de données avec des scripts]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Affinement des requêtes au moyen de la pagination]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-dotnet
+[Validation et modification de données à l'aide de scripts]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Affinage des requêtes au moyen de la pagination]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-dotnet
 [Prise en main de Notification Hubs]: /fr-fr/manage/services/notification-hubs/getting-started-windows-dotnet/
 [Présentation de Notification Hubs]: /fr-fr/develop/net/how-to-guides/service-bus-notification-hubs/
 [Envoi de notifications aux abonnés]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet/
 [Envoi de notifications aux utilisateurs]: /fr-fr/manage/services/notification-hubs/notify-users/
-[Envoi de notifications interplateforme aux utilisateurs]: /fr-fr/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[Envoi de notifications Push aux utilisateurs authentifiés]: /fr-fr/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=262293
+
+
+<!--HONumber=42-->

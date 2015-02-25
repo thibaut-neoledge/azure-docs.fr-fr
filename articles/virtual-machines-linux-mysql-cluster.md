@@ -1,6 +1,6 @@
-﻿<properties title="Using load-balanced sets to clusterize MySQL on Linux" pageTitle="Utilisation de jeux d'équilibrage de la charge pour regrouper MySQL sur Linux" description="Article qui illustre les modèles de configuration d'un cluster Linux à charge équilibrée et haute disponibilité sur Azure en utilisant MySQL à titre d'exemple" metaKeywords="mysql, linux, cluster, azure, ha, high availability, corosync, pacemaker, drbd, heartbeat" services="virtual-machines" solutions="" documentationCenter="" authors="jparrel" videoId="" scriptId="" manager="timlt" />
+<properties pageTitle="Utilisation de jeux d'équilibrage de la charge pour regrouper MySQL sur Linux" description="Article qui illustre les modèles de configuration d'un cluster Linux à charge équilibrée et haute disponibilité sur Azure en utilisant MySQL à titre d'exemple" services="virtual-machines" documentationCenter="" authors="bureado" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/23/2014" ms.author="jparrel" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/23/2014" ms.author="jparrel"/>
 
 # Utilisation de jeux d'équilibrage de la charge pour regrouper MySQL sur Linux
 
@@ -11,7 +11,7 @@
 * [Configuration de Pacemaker](#setting-up-pacemaker)
 * [Test](#testing)
 * [STONITH](#stonith)
-* [Limitations](#limitations)
+* [Limites](#limitations)
 
 ## Introduction
 
@@ -48,23 +48,23 @@ Un réseau est créé et un sous-réseau est créé à l'intérieur de ce dernie
 
 La première machine virtuelle Ubuntu 13.10 est créée à l'aide d'une image de la galerie Ubuntu prise en charge, appelée `hadb01`. Un service cloud est créé au cours du processus. Il se nomme hadb. Nous l'avons appelé ainsi pour illustrer la nature partagée et l'équilibre de charge du service lorsque nous lui ajouterons des ressources supplémentaires. La création de `hadb01` est sans incident. Elle est réalisée à l'aide du portail. Un point de terminaison est automatiquement créé pour SSH et notre réseau créé est sélectionné. Nous choisissons également de créer un groupe à haute disponibilité pour les machines virtuelles.
 
-Une fois la première machine virtuelle créée (techniquement, lors de la création du service cloud), nous créons la deuxième machine virtuelle, `hadb02`. Pour celle-ci, nous utilisons également la machine virtuelle Ubuntu 13.10 de la galerie à l'aide du portail, mais nous choisissons d'utiliser un service cloud existant, `hadb.cloudapp.net`, au lieu d'en créer un. Le réseau et le groupe à haute disponibilité doivent être automatiquement sélectionnés. Un point de terminaison SSH est également créé.
+Une fois la première machine virtuelle créée (techniquement, lors de la création du service cloud), nous créons la deuxième machine virtuelle, `hadb02`. Pour celle-ci, nous utilisons également la machine virtuelle Ubuntu 13.10 de la galerie à l'aide du portail, mais nous choisissons d'utiliser un service cloud existant `hadb.cloudapp.net`, au lieu d'en créer un. Le réseau et le groupe à haute disponibilité doivent être automatiquement sélectionnés. Un point de terminaison SSH est également créé.
 
-Une fois les deux machines virtuelles créées, nous notons le port SSH pour `hadb01` (TCP 22) et `hadb02` (attribués automatiquement par Azure).
+Une fois les deux machines virtuelles créées, nous notons le port SSH pour `hadb01` (TCP 22) et `hadb02` (attribués automatiquement par Azure)
 
 ### Stockage associé
 
-Nous associons un nouveau disque aux deux machines virtuelles et créons de nouveaux disques de 5 Go au cours du processus. Les disques sont hébergés dans le conteneur de disques durs virtuels utilisé pour nos disques de système d'exploitation principaux. Une fois les disques créés et associés, il est inutile de redémarrer Linux, car le noyau voit le nouvel appareil (généralement `/dev/sdc` ; vous pouvez vérifier `dmesg` pour le résultat).
+Nous associons un nouveau disque aux deux machines virtuelles et créons de nouveaux disques de 5 Go au cours du processus. Les disques sont hébergés dans le conteneur de disques durs virtuels utilisé pour nos disques de système d'exploitation principaux. Une fois les disques créés et associés, il est inutile de redémarrer Linux, car le noyau voit le nouvel appareil (généralement `/dev/sdc` ; vous pouvez vérifier `dmesg` pour le résultat)
 
-Sur chaque machine virtuelle, nous poursuivons en créant une nouvelle partition à l'aide de `cfdisk` (partition Linux principale) et écrivons la nouvelle table de partition. **Ne créez pas de système de fichiers sur cette partition** .
+Sur chaque machine virtuelle, nous poursuivons en créant une nouvelle partition à l'aide de `cfdisk` (partition Linux principale) et écrivons la nouvelle table de partition. **Ne créez pas de système de fichiers sur cette partition**.
 
 ## Configuration du cluster
 
-Sur les deux machines virtuelles Ubuntu, nous devons utiliser APT pour installer Corosync, Pacemaker et DRBD. Using `apt-get` :
+Sur les deux machines virtuelles Ubuntu, nous devons utiliser APT pour installer Corosync, Pacemaker et DRBD. Avec  `apt-get` :
 
     sudo apt-get install corosync pacemaker drbd8-utils.
 
-**N'installez pas MySQL pour l'instant** . Les scripts d'installation Debian et Ubuntu initialisent un répertoire de données MySQL sur `/var/lib/mysql`, mais le répertoire étant remplacé par un système de fichiers DRBD, nous devons faire cela ultérieurement.
+**N'installez pas MySQL pour l'instant**. Les scripts d'installation Debian et Ubuntu initialisent un répertoire de données MySQL sur `/var/lib/mysql`, mais le répertoire étant remplacé par un système de fichiers DRBD, nous devons faire cela ultérieurement.
 
 À présent, nous devons également vérifier (à l'aide de `/sbin/ifconfig`) que les deux machines virtuelles utilisent des adresses du sous-réseau 10.10.10.0/24 et qu'elles peuvent s'envoyer des commandes ping en utilisant leur nom. Si vous le souhaitez, vous pouvez également utiliser `ssh-keygen` et `ssh-copy-id` pour vérifier que les deux machines virtuelles peuvent communiquer via SSH sans avoir besoin de mot de passe.
 
@@ -87,16 +87,16 @@ Nous allons créer une ressource DRBD utilisant la partition `/dev/sdc1` sous-ja
       }
     }
 
-Après cela, lancez la ressource à l'aide de `drbdadm` sur les deux machines virtuelles :
+Après cela, lancez la ressource à l'aide de `drbdadm` dans les deux machines virtuelles :
 
     sudo drbdadm -c /etc/drbd.conf role r0
     sudo drbdadm up r0
 
-Enfin, sur la machine virtuelle principale (`hadb01`), forcez la propriété (principale) de la ressource DRBD :
+Enfin, sur la machine virtuelle principale (`hadb01`) forcez la propriété (principale) de la ressource DRBD :
 
     sudo drbdadm primary --force r0
 
-Si vous examinez le contenu de /proc/drbd (`sudo cat /proc/drbd`) sur les deux machines virtuelles, vous devriez voir `Primary/Secondary` sur `hadb01` et `Secondary/Primary` sur `hadb02`, ce qui est cohérent avec la solution à ce stade. Le disque de 5 Go sera synchronisé sur le réseau 10.10.10.0/24 gratuitement pour les clients.
+Si vous examinez le contenu de /proc/drbd (`sudo cat /proc/drbd`) sur les deux machines virtuelles, vous devez voir `Primary/Secondary` sur `hadb01` and ` et Secondary/Primary` sur `hadb02`, ce qui est cohérent avec la solution jusqu'à présent. Le disque de 5 Go sera synchronisé sur le réseau 10.10.10.0/24 gratuitement pour les clients.
 
 Une fois le disque synchronisé, vous pouvez créer le système de fichiers sur `hadb01`. À des fins de test, nous avons utilisé ext2, mais l'instruction suivante créera un système de fichiers ext3 :
 
@@ -104,7 +104,7 @@ Une fois le disque synchronisé, vous pouvez créer le système de fichiers sur 
 
 ### Installation de la ressource DRBD
 
-Sur `hadb01`, nous sommes maintenant prêts à installer des ressources DRBD. Debian et les distributions dérivées utilisent `/var/lib/mysql` comme répertoire de données MySQL. Puisque nous n'avons pas installé MySQL, nous allons créer le répertoire et monter la ressource DRBD. Sur `hadb01` :
+Sur `hadb01` , nous sommes maintenant prêts à installer des ressources DRBD. Le système Debian et ses dérivés utilisent `/var/lib/mysql` en tant que répertoire de données MySQL. Puisque nous n'avons pas installé MySQL, nous allons créer le répertoire et monter la ressource DRBD. Sur `hadb01` :
 
     sudo mkdir /var/lib/mysql
     sudo mount /dev/drbd1 /var/lib/mysql
@@ -142,7 +142,7 @@ Si vous ne prévoyez pas de faire basculer DRBD maintenant, la première option,
 
 **Avertissement** : cette dernière instruction désactive de manière efficace l'authentification de l'utilisateur racine dans ce tableau. Elle doit être remplacée par vos instructions GRANT de production et n'est incluse qu'à titre d'exemple.
 
-Vous devez également activer la mise en réseau pour MySQL si vous souhaitez effectuer des requêtes depuis l'extérieur des machines virtuelles, ce qui est l'objet de ce guide. Sur les deux machines virtuelles, ouvrez `/etc/mysql/my.cnf` et accédez à `bind-address`, en remplaçant 127.0.0.1 par 0.0.0.0. Après avoir enregistré le fichier, émettez une commande `sudo service mysql restart` sur votre machine virtuelle principale actuelle.
+Vous devez également activer la mise en réseau pour MySQL si vous souhaitez effectuer des requêtes depuis l'extérieur des machines virtuelles, ce qui est l'objet de ce guide. Sur les deux machines virtuelles, ouvrez `/etc/mysql/my.cnf` et accédez à `bind-address` pour remplacer 127.0.0.1 par 0.0.0.0. Après avoir enregistré le fichier, émettez une commande `sudo service mysql restart` sur votre machine virtuelle principale actuelle.
 
 ### Création du jeu d'équilibrage de la charge MySQL
 
@@ -178,9 +178,9 @@ Corosync est l'infrastructure de clusters sous-jacente nécessaire au fonctionne
 
 La principale contrainte de Corosync sur Azure est qu'il préfère les communications multidiffusion sur diffusion aux communications monodiffusion, alors que les réseaux Microsoft Azure ne prennent en charge que la monodiffusion.
 
-Heureusement, Corosync dispose d'un mode de monodiffusion fonctionnel. La seule contrainte réelle est que, puisque tous les nœuds communiquent entre eux de façon *automagique*, vous devez les définir dans vos fichiers de configuration en incluant leurs adresses IP. Nous pouvons utiliser les fichiers d'exemple Corosync pour la monodiffusion et ne modifier que l'adresse de liaison, les listes de nœuds et le répertoire de journalisation (Ubuntu utilise `/var/log/corosync` alors que les fichiers d'exemple utilisent `/var/log/cluster`) en activant les outils de quorum. 
+Heureusement, Corosync dispose d'un mode de monodiffusion fonctionnel. La seule contrainte réelle est que, puisque tous les nœuds communiquent entre eux de façon *automatique*, vous devez les définir dans vos fichiers de configuration en incluant leurs adresses IP. Nous pouvons utiliser les fichiers d'exemple Corosync pour la monodiffusion et ne modifier que l'adresse de liaison, les listes de nœuds et le répertoire de journalisation (Ubuntu utilise `/var/log/corosync` alors que les fichiers d'exemple utilisent `/var/log/cluster`) en activant les outils de quorum. 
 
-**Remarquez la directive `transport: udpu` ci-dessous et les adresses IP des nœuds, définies manuellement**.
+**Remarquez la directive `transport: udpu` ci-dessous et les adresses IP définies manuellement pour les nœuds**.
 
 Sur `/etc/corosync/corosync.conf` pour les deux nœuds :
 
@@ -326,11 +326,13 @@ Un exemple de code pour la ressource est disponible sur [GitHub](https://github.
 
 Les limites suivantes s'appliquent :
 
-- Le script de ressource DRBD linbit qui gère DRBD comme ressource dans Pacemaker utilise `drbdadm down` lors de l'arrêt d'un nœud, même si celui-ci est juste passé en veille. Cette situation n'est pas idéale, car l'esclave ne synchronisera pas la ressource DRBD lorsque le maître recevra des écritures. Si le maître n'échoue pas par commande, l'esclave peut prendre un état de système de fichiers antérieur. Cela peut être résolu de deux façons :
+- Le script de ressources DRBD linbit qui gère DRBD comme ressource dans Pacemaker utilise `drbdadm down` lors de l'arrêt d'un nœud, même si celui-ci est juste passé en veille. Cette situation n'est pas idéale, car l'esclave ne synchronisera pas la ressource DRBD lorsque le maître recevra des écritures. Si le maître n'échoue pas par commande, l'esclave peut prendre un état de système de fichiers antérieur. Cela peut être résolu de deux façons :
   - en appliquant un `drbdadm up r0` dans tous les nœuds du cluster grâce à une surveillance locale (non groupée), ou
-  - en modifiant le script linbit DRBD, en vous assurant que `down` n'est pas appelé, dans `/usr/lib/ocf/resource.d/linbit/drbd`.
+  - En modifiant le script DRBD linbit en veillant à ce que `down` ne soit pas appelé dans `/usr/lib/ocf/resource.d/linbit/drbd`.
 - L'équilibrage de charge a besoin d'au moins 5 secondes pour répondre. Les applications doivent donc être conscientes des clusters et plus tolérantes en matière de délai. D'autres architectures peuvent également aider, par exemple les files d'attente intégrées, les intergiciels de requête, etc.
 - Un réglage de MySQL est nécessaire pour veiller à ce que l'écriture soit effectuée à un rythme raisonnable et que les caches soient vidés le plus souvent possible afin de limiter la perte de mémoire.
 - Les performances d'écriture dépendront de l'interconnexion des machines virtuelles dans le commutateur virtuel, car il s'agit du mécanisme utilisé par DRBD pour répliquer le périphérique.
 
-<!--HONumber=35.1-->
+
+
+<!--HONumber=42-->

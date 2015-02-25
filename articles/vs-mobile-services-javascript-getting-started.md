@@ -1,6 +1,20 @@
-﻿<properties title="Getting Started with Mobile Services" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
+<properties 
+	pageTitle="" 
+	description="" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/8/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Mise en route](/documentation/articles/vs-mobile-services-javascript-getting-started/)
@@ -10,13 +24,13 @@
 
 La première étape à effectuer pour suivre le code figurant dans ces exemples dépend du type de service mobile auquel vous êtes connecté.
 
-Dans le cas d'un service mobile principal JavaScript, créez une table nommée TodoItem.  Pour créer une table, recherchez le service mobile sous le nœud Azure dans l'Explorateur de serveurs, cliquez avec le bouton droit sur le nœud du service mobile pour ouvrir le menu contextuel, puis choisissez **Créer une table**. Entrez " TodoItem " comme nom de table.
+Dans le cas d'un service mobile principal JavaScript, créez une table nommée TodoItem.  Pour créer une table, recherchez le service mobile sous le nœud Azure dans l'Explorateur de serveurs, cliquez avec le bouton droit sur le nœud du service mobile pour ouvrir le menu contextuel, puis choisissez **Créer une table**. Entrez "TodoItem" comme nom de table.
 
 Si vous disposez à la place d'un service mobile principal .NET, une table TodoItem existe déjà dans le modèle de projet par défaut créé par Visual Studio, mais vous devez la publier sur Azure. Pour cela, ouvrez le menu contextuel du projet de service mobile dans l'Explorateur de solutions, puis choisissez **Publier le site web**. Acceptez les valeurs par défaut, puis choisissez le bouton **Publier**.
 
 #####Obtenir une référence pointant vers une table
 
-L'objet client a été ajouté à votre projet.  Son nom correspond à celui de votre service mobile, auquel la mention " Client " a été ajoutée. Le code ci-dessous permet d'obtenir une référence pointant vers une table qui contient des données destinées à un objet TodoItem. Cette référence peut ensuite être utilisée pour lire et mettre à jour la table de données.
+L'objet client a été ajouté à votre projet.  Son nom correspond à celui de votre service mobile, auquel la mention "Client" a été ajoutée. Le code ci-dessous permet d'obtenir une référence pointant vers une table qui contient des données destinées à un objet TodoItem. Cette référence peut ensuite être utilisée pour lire et mettre à jour la table de données.
 
 	var todoTable = yourMobileServiceClient.getTable('TodoItem');
 
@@ -56,7 +70,7 @@ Vous pouvez utiliser la méthode where pour modifier la requête. Voici un exemp
         listItems.winControl.itemDataSource = todoItems.dataSource;
     });
 
-Pour consulter plus d'exemples de requêtes, reportez-vous à l'objet [query](http://msdn.microsoft.com/library/azure/jj613353.aspx).
+Pour consulter plus d'exemples de requêtes, reportez-vous à l'[objet query](http://msdn.microsoft.com/library/azure/jj613353.aspx).
 
 #####Mettre une entrée à jour
 
@@ -77,3 +91,5 @@ Supprimez une ligne dans une table de données. Appelez la méthode [done]() sur
 
 
 [En savoir plus sur les services mobiles](http://azure.microsoft.com/documentation/services/mobile-services/)
+
+<!--HONumber=42-->

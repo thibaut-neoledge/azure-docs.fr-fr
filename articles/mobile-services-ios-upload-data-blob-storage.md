@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Utilisation de Mobile Services pour télécharger des données dans le stockage d'objets blob (iOS) | Mobile Services" metaKeywords="" description="Découvrez comment utiliser Mobile Services pour télécharger des données dans le stockage d'objets blob Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload data to Azure Storage by using Mobile Services" authors="yuaxu" writer="yuaxu" manager="dwrede" services="mobile-services,storage"/>
+﻿<properties pageTitle="Utilisation de Mobile Services pour télécharger des données dans le stockage d'objets blob (iOS) | Mobile Services" description="Découvrez comment utiliser Mobile Services pour télécharger des données dans le stockage d'objets blob Azure." documentationCenter="ios" authors="ysxu" writer="yuaxu" manager="dwrede" services="mobile-services, storage" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.topic="article" ms.date="09/23/2014" ms.author="yuaxu"/>
 
@@ -9,4 +9,4 @@ Comme annoncé lors de la conférence TechEd 2014, nous publierons bientôt le K
 
 [iOS, Mobile Services et Microsoft Azure Storage]: http://chrisrisner.com/iOS-and-Mobile-Services-and-Windows-Azure-Storage
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

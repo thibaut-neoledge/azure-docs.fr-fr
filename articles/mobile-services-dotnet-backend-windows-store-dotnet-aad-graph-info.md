@@ -1,10 +1,10 @@
-﻿<properties urlDisplayName="Accessing Azure Active Directory Graph Information" pageTitle="Accès aux informations d'Azure Active Directory Graph (Windows Store) | Centre de développement mobile" metaKeywords="" description="Découvrez comment accéder aux informations Azure Active Directory à l'aide de l'API Graph dans votre application Windows Store." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Accessing Azure Active Directory Graph Information" authors="wesmc" manager="dwrede" />
+<properties pageTitle="Accès aux informations de graphique Azure Active Directory (Windows Store) | Centre de développement mobile" description="Découvrez comment accéder aux informations Azure Active Directory à l'aide de l'API Graph dans votre application Windows Store." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc"/>
 
 # Accès aux informations Azure Active Directory Graph
 
-[WACOM.INCLUDE [mobile-services-selector-aad-graph](../includes/mobile-services-selector-aad-graph.md)]
+[AZURE.INCLUDE [mobile-services-selector-aad-graph](../includes/mobile-services-selector-aad-graph.md)]
 
 
 
@@ -22,13 +22,13 @@ Ce didacticiel vous familiarise avec la procédure suivante :
 3. [Mise à jour de l'application pour utiliser l'API personnalisée]
 4. [Test de l'application]
 
-##Configuration requise 
+##Conditions préalables 
 
 Avant de commencer ce didacticiel, vous devez suivre les didacticiels Mobile Services suivants :
 
-+ [Prise en main de l'authentification]<br/>Ajoute une exigence de connexion à l'exemple d'application TodoList.
++ [Prise en main de l'authentification]<br/>Ajoute une condition de connexion à l'exemple d'application TodoList.
 
-+ [Didacticiel relatif aux API personnalisées]<br/>Explique comment appeler une API personnalisée. 
++ [Didacticiel de l'API personnalisée]<br/>Explique comment appeler une API personnalisée. 
 
 
 
@@ -37,7 +37,7 @@ Avant de commencer ce didacticiel, vous devez suivre les didacticiels Mobile Ser
 
 Avec le didacticiel [Ajout d'authentification à votre application], vous avez créé une inscription pour l'application intégrée pendant l'étape [Inscription pour utiliser une connexion Azure Active Directory]. Dans cette section, vous allez générer la clé devant être utilisée pour lire les informations d'annuaire avec l'ID client de cette application intégrée. 
 
-[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
+[AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 
 ## <a name="create-api"></a>Création d'une API personnalisée GetUserInfo
@@ -46,20 +46,20 @@ Dans cette section, vous allez créer l'API personnalisée GetUserInfo devant ut
 
 Si vous n'avez encore jamais utilisé d'API personnalisées avec Mobile Services, suivez le [didacticiel relatif aux API personnalisées] avant de poursuivre.
 
-1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de service mobile principal .NET, puis cliquez sur **Gérer les packages NuGet**.
+1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de service mobile .NET principal, puis sélectionnez **Gérer les packages NuGet**.
 2. Dans la boîte de dialogue Gestionnaire de package NuGet, entrez **ADAL** dans les critères de recherche afin de localiser et d'installer la **bibliothèque d'authentification Active Directory** pour votre service mobile.
 3. Dans le gestionnaire de package NuGet, installez également la **bibliothèque cliente Microsoft Azure Active Directory Graph** pour votre service mobile.
 
 4. Dans Visual Studio, cliquez avec le bouton droit sur le dossier **Controllers** du projet de service mobile, puis cliquez sur **Ajouter** pour ajouter un nouveau **contrôleur personnalisé Microsoft Azure Mobile Services** nommé `GetUserInfoController`. Le client appellera cette API pour obtenir des informations utilisateur d'Active Directory.
 
-5. Dans le nouveau fichier GetUserInfoController.cs, ajoutez les instructions `using`.
+5. Dans le nouveau fichier GetUserInfoController.cs, ajoutez les instructions `using` suivantes.
 
         using Microsoft.WindowsAzure.Mobile.Service.Security;
         using Microsoft.Azure.ActiveDirectory.GraphClient;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
         using System.Globalization;
 
-6. Dans GetUserInfoController.cs, ajoutez la méthode `GetAADToken` suivante à la classe.
+6. Dans ce même fichier GetUserInfoController.cs, ajoutez la méthode `GetAADToken` suivante à la classe.
 
         private string GetAADToken()
         {
@@ -93,7 +93,7 @@ Si vous n'avez encore jamais utilisé d'API personnalisées avec Mobile Services
 
     Cette méthode utilise les paramètres d'application configurés pour le service mobile dans le [portail de gestion Azure] afin d'obtenir un jeton d'accès à Active Directory.
 
-7. Dans GetUserInfoController.cs, ajoutez la méthode `GetAADUser` suivante à la classe.
+7. Dans ce même fichier GetUserInfoController.cs, ajoutez la méthode `GetAADUser` suivante à la classe.
 
         private User GetAADUser()
         {
@@ -131,7 +131,7 @@ Si vous n'avez encore jamais utilisé d'API personnalisées avec Mobile Services
     Cette méthode obtient l'ID objet Active Directory pour l'utilisateur autorisé, puis utilise la bibliothèque cliente Graph pour obtenir les informations relatives à l'utilisateur à partir d'Active Directory.
 
 
-8. Dans le fichier GetUserInfoController.cs, remplacez ensuite la méthode `Get` par la méthode suivante, qui renvoie l'objet `User` de la bibliothèque cliente Graph et nécessite qu'un utilisateur autorisé appelle l'API.
+8. Dans le fichier GetUserInfoController.cs, remplacez ensuite la méthode `Get` par la méthode suivante, qui renvoie l'objet `User` de la bibliothèque cliente Graph et requiert qu'un utilisateur autorisé appelle l'API.
 
         // GET api/GetUserInfo
         [AuthorizeLevel(AuthorizationLevel.User)]
@@ -145,17 +145,17 @@ Si vous n'avez encore jamais utilisé d'API personnalisées avec Mobile Services
 10. Publiez le projet de service mobile sur votre compte Azure. 
 
 
-## <a name="update-app"></a>Mise à jour de l'application pour utiliser GetUserInfo
+## <a name="update-app"></a>Mise à jour de l'application pour utiliser l'API personnalisée GetUserInfo
 
 Dans cette section, vous allez mettre à jour la méthode `AuthenticateAsync` implémentée dans le didacticiel [Ajout d'authentification à votre application] pour appeler l'API personnalisée et renvoyer des informations supplémentaires sur l'utilisateur à partir d'AAD. 
 
-[WACOM.INCLUDE [mobile-services-aad-graph-info-update-app](../includes/mobile-services-aad-graph-info-update-app.md)]
+[AZURE.INCLUDE [mobile-services-aad-graph-info-update-app](../includes/mobile-services-aad-graph-info-update-app.md)]
   
 
 
 ## <a name="test-app"></a>Test de l'application
 
-[WACOM.INCLUDE [mobile-services-aad-graph-info-test-app](../includes/mobile-services-aad-graph-info-test-app.md)]
+[AZURE.INCLUDE [mobile-services-aad-graph-info-test-app](../includes/mobile-services-aad-graph-info-test-app.md)]
 
 
 
@@ -163,7 +163,7 @@ Dans cette section, vous allez mettre à jour la méthode `AuthenticateAsync` im
 
 ##<a name="next-steps"></a>Étapes suivantes
 
-Dans le didacticiel suivant, [Contrôle d'accès en fonction du rôle avec AAD dans Mobile Services], vous utiliserez le contrôle d'accès en fonction du rôle avec Azure Active Directory (AAD) pour contrôler l'appartenance aux groupes avant d'autoriser l'accès. 
+Dans le prochain didacticiel, [Contrôle d'accès en fonction du rôle avec AAD dans Mobile Services], vous utiliserez le contrôle d'accès en fonction du rôle avec Azure Active Directory (AAD) pour contrôler l'appartenance aux groupes avant d'autoriser l'accès. 
 
 
 
@@ -179,11 +179,14 @@ Dans le didacticiel suivant, [Contrôle d'accès en fonction du rôle avec AAD d
 
 <!-- URLs. -->
 [Ajout d'authentification à votre application]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
-[Inscription à Azure Active Directory]: /fr-fr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Inscription auprès de l'annuaire Azure Active Directory]: /fr-fr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Didacticiel de l'API personnalisée]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
-[Stockage de scripts serveur]: /fr-fr/documentation/articles/mobile-services-store-scripts-source-control/
+[Stockage des scripts serveur]: /fr-fr/documentation/articles/mobile-services-store-scripts-source-control/
 [Inscription pour utiliser une connexion Azure Active Directory]: /fr-fr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Bibliothèque cliente Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
-[Obtention de l'utilisateur]: http://msdn.microsoft.com/fr-fr/library/azure/dn151678.aspx
+[Get User]: http://msdn.microsoft.com/fr-fr/library/azure/dn151678.aspx
 [Contrôle d'accès en fonction du rôle avec AAD dans Mobile Services]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/
+
+
+<!--HONumber=42-->

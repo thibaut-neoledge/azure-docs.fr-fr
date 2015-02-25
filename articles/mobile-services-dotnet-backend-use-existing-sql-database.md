@@ -1,10 +1,11 @@
-﻿<properties urlDisplayName="Build a service using an existing SQL database with the Mobile Services .NET backend" pageTitle="Création d'un service à l'aide d'une base de données SQL existante avec le serveur principal .NET de Mobile Services - Azure Mobile Services" metaKeywords="" description="Découvrez comment utiliser une base de données locale ou de cloud existante avec votre service mobile .NET" metaCanonical="" services="mobile-services,biztalk-services" documentationCenter="Mobile" title="Build a service using an existing SQL database with the Mobile Services .NET backend" authors="mahender" solutions="" manager="dwrede" editor="mollybos" />
+﻿<properties pageTitle="Création d'un service à l'aide d'une base de données SQL existante avec le serveur principal .NET de Mobile Services - Azure Mobile Services" description="Découvrez comment utiliser une base de données locale ou de cloud existante avec votre service mobile .NET" services="mobile-services, biztalk-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+
 
 # Création d'un service à l'aide d'une base de données SQL existante avec le serveur principal Mobile Services .NET
 
-Le serveur principal .NET de Mobile Services permet de tirer facilement parti des ressources existantes pour la création d'un service mobile. L'un des scénarios les plus intéressants consiste à utiliser une base de données SQL existante (localement ou sur le cloud), qui peut déjà être utilisée par d'autres applications, pour rendre les données existantes disponibles pour les clients mobiles. Dans ce cas, il est nécessaire que le modèle de base de données (ou *schéma*) reste inchangé, afin que les solutions existantes continuent de fonctionner.
+Le serveur principal .NET de Mobile Services permet de tirer facilement parti des ressources existantes pour la création d'un service mobile. L'un des scénarios les plus intéressants consiste à utiliser une base de données SQL existante (localement ou sur le cloud), qui peut déjà être utilisée par d'autres applications, pour rendre les données existantes disponibles pour les clients mobiles. Dans ce cas, il est nécessaire que le modèle de base de données (ou  *schema*) reste inchangé, afin que les solutions existantes continuent de fonctionner.
 
 Ce didacticiel se compose des sections suivantes :
 
@@ -17,7 +18,7 @@ Ce didacticiel se compose des sections suivantes :
 <a name="ExistingModel"></a>
 ## Exploration du modèle de base de données existant
 
-Ce didacticiel fait appel à la base de données créée avec votre service mobile. Cependant, le modèle créé par défaut ne sera pas utilisé. Nous allons plutôt créer un modèle arbitraire qui représentera une application existante que vous possédez peut-être. Pour plus de détails sur la connexion à une base de données locale, consultez la rubrique [Connexion à un serveur SQL Server local à partir d'un service mobile Azure au moyen de connexions hybrides](/fr-fr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
+Ce didacticiel fait appel à la base de données créée avec votre service mobile. Cependant, le modèle créé par défaut ne sera pas utilisé. Nous allons plutôt créer un modèle arbitraire qui représentera une application existante que vous possédez peut-être. Pour plus de détails sur la connexion à une base de données locale, consultez la rubrique [Connexion à un serveur SQL serveur local à partir d'un service mobile Azure au moyen de connexions hybrides](/fr-fr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
 
 1. Créez tout d'abord un projet de serveur Mobiles Services dans **Visual Studio 2013 Update 2** ou avec le projet de démarrage rapide, que vous pouvez télécharger sous l'onglet Mobile Services pour votre service dans le [portail de gestion Azure](http://manage.windowsazure.com). Dans le cadre de ce didacticiel, nous partons du principe que le nom de votre projet de serveur est **ShoppingService**.
 
@@ -64,7 +65,7 @@ Ce didacticiel fait appel à la base de données créée avec votre service mobi
             }
         }
 
-    Notez que ces deux classes possèdent une *relation* : chaque classe **Order** (Commande) est associée à une seule classe **Customer** (Client) et une classe **Customer** peut être associée à plusieurs classes **Orders**. L'existence de relations est courante dans les modèles de données existants.
+    Notez que ces deux classes partagent une  *relationship* : chaque élément **Order** est associé à un élément **Customer** et un élément **Customer** peut être associé à plusieurs éléments **Order**. L'existence de relations est commune dans les modèles de données existants.
 
 4. Créez un fichier **ExistingContext.cs** dans le dossier **Models** et implémentez-le de la façon suivante :
 
@@ -93,7 +94,7 @@ La structure ci-dessus imite un modèle Entity Framework existant, que vous util
 
 Le modèle de données que vous souhaitez utiliser avec votre service mobile peut être arbitrairement complexe ; il peut contenir des centaines d'entités liées par différentes relations. Lors de la création d'une application mobile, il est généralement préférable de simplifier le modèle de données et d'éliminer les relations (ou de les gérer manuellement) afin de minimiser la charge utile envoyée depuis et vers l'application et le service. Dans cette section, nous allons créer un ensemble d'objets simplifiés (nommés " objets de transfert de données "), qui sont mappés aux données que vous possédez dans votre base de données, mais ne contiennent que l'ensemble minimal de propriétés nécessaire à votre application mobile.
 
-1. Créez le fichier **MobileCustomer.cs** dans le dossier **DataObjects** de votre projet de service et utilisez l'implémentation suivante :
+1. Créez le **MobileCustomer.cs** de fichier dans le dossier **DataObjects** de votre projet de service et utilisez l'implémentation suivante :
 
         using Microsoft.WindowsAzure.Mobile.Service;
 
@@ -105,7 +106,7 @@ Le modèle de données que vous souhaitez utiliser avec votre service mobile peu
             }
         }
 
-    Notez que cette classe est semblable à la classe **Customer** dans le modèle, à la différence près que la propriété de relation avec la classe **Order** est supprimée. Pour qu'un objet fonctionne correctement avec la synchronisation hors connexion de Mobile Services, un ensemble de *propriétés système* lui est nécessaire pour un accès concurrentiel optimiste. Vous noterez donc que l'objet de transfert de données hérite d'[**EntityData**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx), qui contient ces propriétés. La propriété **CustomerId** basée sur un entier, issue du modèle original, est remplacée par la propriété **Id** basée sur une chaîne depuis **EntityData**, qui sera l'**Id** utilisé par Mobile Services.
+    Notez que cette classe est semblable à la classe **Customer** dans le modèle, à la différence près que la propriété de relation avec la classe **Order** est supprimée. Pour qu'un objet fonctionne correctement avec la synchronisation hors connexion de Mobile Services, un ensemble de  *system properties* lui est nécessaire pour un accès concurrentiel optimiste. Vous noterez donc que l'objet de transfert de données hérite d'[**EntityData**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx), qui contient ces propriétés. La propriété **CustomerId** basée sur un entier, issue du modèle original, est remplacée par la propriété **Id** basée sur une chaîne depuis **EntityData**, qui sera l'**Id** utilisé par Mobile Services.
 
 2. Créez le fichier **MobileOrder.cs** dans le dossier **DataObjects** de votre projet de service.
 
@@ -143,7 +144,7 @@ Le modèle de données que vous souhaitez utiliser avec votre service mobile peu
         using System.ComponentModel.DataAnnotations;
         using System;
 
-    Puis, ajoutez ces propriétés supplémentaires à chacune des classes :
+    Then, add these extra properties to each of the classes:
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Index]
@@ -166,16 +167,16 @@ Le modèle de données que vous souhaitez utiliser avec votre service mobile peu
         [Timestamp]
         public byte[] Version { get; set; }
 
-4. Les propriétés système ajoutées possèdent des comportements intégrés (par exemple, mise à jour automatique des paramètres Créé/mis à jour le) qui se produisent de manière transparente avec les opérations de base de données. Pour activer ces comportements, nous devons apporter une modification au fichier **ExistingContext.cs**. À son début, ajoutez ce qui suit :
+4. Les propriétés système ajoutées possèdent des comportements intégrés (par exemple, mise à jour automatique des paramètres créé/mis à jour le) qui se produisent de manière transparente avec les opérations de base de données. Pour activer ces comportements, nous devons apporter une modification au fichier **ExistingContext.cs**. À son début, ajoutez ce qui suit :
     
         using System.Data.Entity.ModelConfiguration.Conventions;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
         using System.Linq;
 
-    Puis, dans le corps du fichier **ExistingContext**, remplacez [**OnModelCreating**](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx) :
+    Puis, dans le corps de **ExistingContext**, remplacez [**OnModelCreating**](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx) :
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
+        {	
             modelBuilder.Conventions.Add(
                 new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
@@ -266,9 +267,9 @@ AutoMapper mappe désormais les objets les uns aux autres. Toutes les propriét�
 <a name="DomainManager"></a>
 ## Implémentation d'une logique spécifique du domaine
 
-L'étape suivante consiste à implémenter un [**MappedEntityDomainManager**](http://msdn.microsoft.com/library/dn643300.aspx), qui fait office de couche d'abstraction entre notre magasin de données mappé et le contrôleur qui servira le trafic HTTP à partir de nos clients. Nous pourrons également écrire notre contrôleur dans la section suivante, uniquement en termes d'objets de transfert de données. Le **MappedEntityDomainManager** que nous ajoutons ici gérera la communication avec le magasin de données original, tout en permettant d'y implémenter une logique qui lui est spécifique.
+L'étape suivante consiste à implémenter un [**MappedEntityDomainManager**](http://msdn.microsoft.com/library/dn643300.aspx), qui fait office de couche d'abstraction entre notre banque de données mappée et le contrôleur qui servira le trafic HTTP à partir de nos clients. Nous pourrons également écrire notre contrôleur dans la section suivante, uniquement en termes d'objets de transfert de données. Le **MappedEntityDomainManager** que nous ajoutons ici gérera la communication avec la banque de données originale, tout en permettant d'y implémenter une logique qui lui est spécifique.
 
-1. Ajoutez **MobileCustomerDomainManager.cs** au dossier **Models** de votre projet. Collez l'implémentation suivante :
+1. Ajoutez un fichier **MobileCustomerDomainManager.cs** au dossier **Models** de votre projet. Collez l'implémentation suivante :
 
         using AutoMapper;
         using Microsoft.WindowsAzure.Mobile.Service;
@@ -359,7 +360,7 @@ L'étape suivante consiste à implémenter un [**MappedEntityDomainManager**](ht
 
     Une partie importante de cette classe est la méthode **GetKey**, dans laquelle nous indiquons comment localiser la propriété d'ID de l'objet dans le modèle de données original. 
 
-2. Ajoutez **MobileOrderDomainManager.cs** au dossier **Models** de votre projet :
+2. Ajoutez un fichier **MobileOrderDomainManager.cs** au dossier **Models** de votre projet :
 
         using AutoMapper;
         using Microsoft.WindowsAzure.Mobile.Service;
@@ -578,7 +579,7 @@ Nous pouvons désormais créer des contrôleurs pour exposer nos objets de trans
 
 3. Vous pouvez désormais exécuter votre service. Appuyez sur **F5** et utilisez le client de test intégré dans la page d'aide pour modifier les données.
 
-Veuillez noter que les deux implémentations de contrôleur exercent une utilisation exclusive des objets de transfert de données **MobileCustomer** et **MobileOrder** et ignorent le modèle sous-jacent. Ces objets de transfert de données sont immédiatement sérialisés en JSON et peuvent être utilisés pour échanger des données avec le Kit de développement logiciel (SDK) client Mobile Services sur toutes les plateformes. Par exemple, en cas de génération d'une application Windows Store, le type côté client correspondant sera semblable à celui présenté ci-dessous. Le type sera analogue sur les autres plateformes clientes. 
+Veuillez noter que les deux implémentations de contrôleur exercent une utilisation exclusive des objets de transfert de données **MobileCustomer** et **MobileOrder** et ignorent le modèle sous-jacent. Ces objets de transfert de données sont immédiatement sérialisés en JSON et peuvent être utilisés pour échanger des données avec le Kit de développement logiciel (SDK) client Mobile Services sur toutes les plateformes. Par exemple, en cas de génération d'une application Windows Store, le type côté client correspondant sera semblable à celui présenté ci-dessous. Le type sera analogue sur les autres plateformes client. 
 
     using Microsoft.WindowsAzure.MobileServices;
     using System;
@@ -606,4 +607,6 @@ Veuillez noter que les deux implémentations de contrôleur exercent une utilisa
 
     }
 
-Vous pouvez ensuite créer l'application cliente pour accéder au service.
+Vous pouvez ensuite créer l'application cliente pour accéder au service. 
+
+<!--HONumber=42-->

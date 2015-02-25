@@ -1,10 +1,10 @@
-﻿<properties pageTitle="Utilisation de Mobile Services pour télécharger des images dans le stockage d'objets blob (Windows Store) | Mobile Services" metaKeywords="" description="Découvrez comment utiliser Mobile Services pour télécharger des images dans le stockage d'objets blob Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" writer="glenga" services="mobile-services, storage" manager="dwrede" />
+﻿<properties pageTitle="Utilisation de Mobile Services pour télécharger des images dans le stockage d'objets blob (Windows Store) | Mobile Services" description="Découvrez comment utiliser Mobile Services pour télécharger des images dans le stockage d'objets blob Azure." documentationCenter="windows" authors="ggailey777" writer="glenga" services="mobile-services" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # Téléchargement d'images vers Azure Storage à l'aide de Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-upload-data-blob-storage](../includes/mobile-services-selector-upload-data-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
 Cette rubrique vous montre comment utiliser Azure Mobile Services pour permettre à votre application de télécharger et de stocker les images générées par l'utilisateur dans Azure Storage. Mobile Services utilise une base de données SQL pour stocker les données. Toutefois, les données BLOB (Binary Large Object) sont stockées avec plus d'efficacité dans le service de stockage d'objets blob Azure. 
 
@@ -23,17 +23,17 @@ Ce didacticiel requiert les éléments suivants :
 
 + Microsoft Visual Studio 2013 ou une version ultérieure.
 + Gestionnaire de package Nuget pour Microsoft Visual Studio ;
-+ [Compte Azure Storage][Création d'un compte Storage]
++ [Compte de stockage Azure][Création d'un compte de stockage]
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez effectuer le didacticiel [Prise en main de Mobile Services]. 
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez suivre le didacticiel [Prise en main de Mobile Services]. 
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../includes/mobile-services-dotnet-backend-configure-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../includes/mobile-services-dotnet-backend-configure-blob-storage.md)]
 
-##<a name="install-storage-client"></a>Installation du client Storage pour les applications du Windows Store
+##<a name="install-storage-client"></a>Installation du client de stockage pour les applications du Windows Store
 
 Avant de pouvoir utiliser une signature d'accès partagé en vue de télécharger des images depuis votre application vers un stockage d'objets blob, vous devez ajouter le package NuGet qui installe la bibliothèque du client de stockage pour les applications du Windows Store.
 
-1. Dans l'**Explorateur de solutions** de Visual Studio, cliquez avec le bouton droit sur le projet d'application cliente, puis sélectionnez **Gérer les packages NuGet**.
+1. Dans l'**Explorateur de solutions** de Visual Studio, cliquez sur le projet d'application cliente et sélectionnez **Gérer les packages NuGet**.
 
 2. Dans le volet gauche, sélectionnez la catégorie **En ligne**, sélectionnez **Inclure la version préliminaire**, recherchez **WindowsAzure.Storage-Preview**, cliquez sur **Installer** au niveau du package **Azure Storage**, puis acceptez les contrats de licence. 
 
@@ -43,7 +43,7 @@ Avant de pouvoir utiliser une signature d'accès partagé en vue de télécharge
 
 Dans la prochaine étape, vous allez mettre à jour l'application de démarrage rapide pour capturer et télécharger des images.
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
 
  
 <!-- Anchors. -->
@@ -65,8 +65,11 @@ Dans la prochaine étape, vous allez mettre à jour l'application de démarrage 
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Création d'un compte de stockage]: /fr-fr/documentation/articles/storage-create-storage-account/
-[Bibliothèque cliente Azure Storage pour les applications du Windows Store]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
+[Bibliothèque cliente d'Azure Storage pour les applications Windows Store]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
 [Guide de fonctionnement Mobile Services .NET]: /fr-fr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 [Kit de développement logiciel (SDK) Windows Phone 8.0]: http://www.microsoft.com/fr-fr/download/details.aspx?id=35471
 
 
+
+
+<!--HONumber=42-->

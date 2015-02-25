@@ -1,13 +1,13 @@
-﻿<properties urlDisplayName="Create a Media Processor" pageTitle="Création d'un processeur multimédia - Azure" metaKeywords="" description="Apprenez à créer un composant processeur multimédia pour encoder, chiffrer ou déchiffrer un contenu multimédia, ou convertir son format pour Azure Media Services. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Get a Media Processor Instance" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Création d'un processeur multimédia - Azure" description="Apprenez à créer un composant processeur multimédia pour encoder, chiffrer ou déchiffrer un contenu multimédia, ou convertir son format pour Azure Media Services. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
 
 
 <h1>Obtention d'une instance de processeur multimédia</h1>
-Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [  Création d'un élément multimédia chiffré et chargement dans le stockage](../media-services-create-encrypted-asset-upload-storage/).
+Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [ Création d'un élément multimédia chiffré et chargement dans le stockage](../media-services-create-encrypted-asset-upload-storage/).
 
 Dans Media Services, un processeur multimédia est un composant qui gère une tâche de traitement spécifique, telle que l'encodage, la conversion de format, le chiffrement ou le déchiffrement de contenu multimédia. Le plus souvent, vous devez créer un processeur multimédia lorsque vous créez une tâche visant à encoder, à chiffrer ou à convertir le format du contenu multimédia.
 
@@ -51,7 +51,7 @@ Le tableau suivant vous indique le nom et la description de chaque processeur mu
 
 <br />
 
-La méthode suivante montre comment obtenir une instance de processeur multimédia. L'exemple de code implique l'utilisation d'une variable au niveau du module, nommée **_context**, pour conserver une référence au contexte, tel que décrit dans la section [  Connexion à Media Services par programme].
+La méthode suivante montre comment obtenir une instance de processeur multimédia. L'exemple de code implique l'utilisation d'une variable au niveau du module, nommée **context**, pour conserver une référence au contexte, tel que décrit dans la section [ Connexion à Media Services par programme]
 
 <pre><code>
 private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
@@ -71,6 +71,6 @@ Maintenant que vous savez comment obtenir une instance de processeur multimédia
 
 [Encodage d'un élément multimédia]: ../media-services-encode-asset/
 [Chaînes de présélection des tâches pour l'Encodeur multimédia Azure]: http://msdn.microsoft.com/fr-fr/library/jj129582.aspx
-[  Connexion à Media Services par programme]: ../media-services-set-up-computer/
+[ Connexion à Media Services par programme]: ../media-services-set-up-computer/
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

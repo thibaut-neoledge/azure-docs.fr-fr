@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Prise en main de l'authentification (Appcelerator) | Centre de développement mobile" 
 	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application iOS via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
 	services="mobile-services" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-appcelerator" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/24/2014" 
@@ -18,7 +18,7 @@
 
 # Prise en main de l'authentification dans Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
 Cette rubrique montre comment authentifier les utilisateurs dans Microsoft Azure Mobile Services à partir de votre application. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
 
@@ -28,17 +28,17 @@ Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'
 2.  [Restriction des autorisations de table pour les utilisateurs authentifiés]
 3.  [Ajout de l'authentification à l'application]
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez aussi d'abord suivre le didacticiel [Prise en main de Mobile Services].
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez également commencer par suivre le didacticiel [Prise en main de Mobile Services].
 
-Ce didacticiel requiert Appcelerator Titanium Studio 3.2.1 (ou version ultérieure) et iOS 7.0 (et/ou version ultérieure) et Android 4.3 (ou version ultérieure).
+Ce didacticiel requiert Appcelerator Titanium Studio 3.2.1 (ou version ultérieure) et iOS 7.0 et/ou (version ultérieure) et Android 4.3 (ou version ultérieure).
 
 ##<a name="register"></a>Inscription de votre application pour l'authentification et configuration de Mobile Services
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-inscription-authentification](../includes/mobile-services-register-authentication.md)] 
 
 ##<a name="permissions"></a> Restriction des autorisations pour les utilisateurs authentifiés
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
+[AZURE.INCLUDE [mobile-services-restriction-autorisations-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 3.	Dans Appcelerator Titanium Studio, ouvrez le projet que vous avez créé lorsque vous avez suivi le didacticiel [Prise en main de Mobile Services].
 
@@ -50,7 +50,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 ##<a name="add-authentication"></a>Ajout de l'authentification à l'application
 
-1.	Ouvrez le fichier projet index.js puis, dans la méthode Lister des événements de table, recherchez " case 2 : "
+1.	Ouvrez le fichier projet index.js puis, dans la méthode Lister des événements de table, recherchez `case 2:`
 
     Dans votre application, vous pouvez soit inviter l'utilisateur à choisir parmi les fournisseurs d'identité disponibles, soit spécifier automatiquement l'un de ces fournisseurs.
 
@@ -94,7 +94,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
             }
         });
 
->[WACOM.NOTE] Si vous utilisez un fournisseur d'identité autre que Google, remplacez la valeur transmise à la méthode **authorizeClient** par l'une des valeurs suivantes : *microsoftaccount*, *facebook*, *twitter* ou *windowsazureactivedirectory*.
+>[AZURE.NOTE] Si vous utilisez un fournisseur d'identité autre que Google, modifiez la valeur transmise à la méthode **authorizeClient** par l'une des valeurs suivantes : *microsoftaccount*, *facebook*, *twitter* ou *windowsazureactivedirectory*.
 
 4.	Appuyez sur le bouton Exécuter pour générer le projet, démarrez l'application dans le simulateur iPhone ou Android, puis cliquez sur l'option Avec connexion pour vous connecter avec le fournisseur d'identité.
 
@@ -112,4 +112,4 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 <!-- URLs. -->
 [Prise en main de Mobile Services]: /fr-fr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

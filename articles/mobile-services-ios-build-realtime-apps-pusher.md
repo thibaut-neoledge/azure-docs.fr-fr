@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Build Realtime Apps with Pusher" pageTitle="Création d'applications en temps réel avec Pusher (iOS) - Mobile Services" metaKeywords="" description="Découvrez comment utiliser Pusher pour envoyer des notifications à votre application Azure Media Services sur iOS." metaCanonical="" services="" documentationCenter="Mobile" title="Build Real-time Apps with Mobile Services and Pusher" authors="donnam" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Création d'applications en temps réel avec Pusher (iOS) - Mobile Services" description="Découvrez comment utiliser Pusher pour envoyer des notifications à votre application Azure Media Services sur iOS." services="" documentationCenter="ios" authors="lindydonna" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="donnam"/>
 
 
 # Génération d'applications en temps réel avec Mobile Services et Pusher
@@ -10,9 +10,9 @@
 
 Cette rubrique vous explique comment ajouter une fonctionnalité en temps réel à votre application basée sur Azure Mobile Services. Une fois cette opération terminée, vos données TodoList seront synchronisées en temps réel sur toutes les instances en cours d'exécution de votre application.
 
-Le didacticiel [Notifications Push pour les utilisateurs][] vous montre comment utiliser des notifications Push pour informer les utilisateurs de la présence de nouveaux éléments dans la liste ToDo. Les notifications Push constituent une excellente façon de présenter des changements occasionnels. Cependant, une application a parfois besoin d'envoyer des notifications en temps réel fréquentes. L'API Pusher permet d'ajouter des notifications en temps réel à votre service mobile. Dans ce didacticiel, nous allons utiliser Pusher avec Mobile Services pour maintenir une liste ToDo synchronisée quand des modifications sont apportées dans une instance en cours d'exécution de l'application.
+Le didacticiel [Notifications Push pour les utilisateurs][] vous montre comment utiliser des notifications Push pour informer les utilisateurs de la présence de nouveaux éléments dans la liste ToDo. Les notifications Push constituent une excellente façon de présenter des changements occasionnels. Cependant, une application a parfois besoin d'envoyer des notifications en temps réel fréquentes. L'API Pusher permet d'ajouter des notifications en temps réel à votre service mobile. Dans ce didacticiel, nous allons utiliser Pusher avec Mobile Services pour maintenir une liste ToDo synchronisée lorsque des modifications sont apportées dans une instance en cours d'exécution de l'application.
 
-Pusher est un service basé sur le cloud qui, tout comme Mobile Services, facilite grandement la génération d'applications en temps réel. Vous pouvez utiliser Pusher pour générer rapidement des sondages en direct, des salles de chat, des jeux multijoueurs, des applications de collaboration, pour diffuser des données et du contenu en direct. Et ce ne sont que des exemples ! Pour plus d'informations, consultez la page [http://pusher.com](http://pusher.com).
+Pusher est un service basé sur le cloud qui, tout comme Mobile Services, facilite grandement la génération d'applications en temps réel. Vous pouvez utiliser Pusher pour générer rapidement des sondages en direct, des salles de chat, des jeux multijoueurs, des applications de collaboration, pour diffuser des données et du contenu en direct. Et ce ne sont que des exemples ! Pour plus d'informations, consultez la rubrique [http://pusher.com](http://pusher.com).
 
 Ce didacticiel vous présente les étapes de base permettant d'ajouter une collaboration en temps réel à l'application de liste ToDo :
 
@@ -25,7 +25,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 
 ## <a name="sign-up"></a>Création d'un compte Pusher
 
-[WACOM.INCLUDE [pusher-sign-up](../includes/pusher-sign-up.md)]
+[AZURE.INCLUDE [pusher-sign-up](../includes/pusher-sign-up.md)]
 
 ## <a name="update-app"></a>Mise à jour de votre application
 
@@ -39,30 +39,30 @@ La bibliothèque [libPusher][] vous permet d'accéder à Pusher à partir d'iOS.
 
 2. Créez un groupe nommé _libPusher_ dans votre projet.
 
-3. Dans Finder, décompressez le fichier. zip téléchargé, sélectionnez les dossiers **libPusher-combined.a** et **/headers**, et faites-les glisser dans le groupe **libPusher** de votre projet.
-
-4. Cochez la case **Copier des éléments dans le dossier du groupe de destination**, puis cliquez sur **Terminer**.
+3. Dans Finder, décompressez le fichier. zip téléchargé, sélectionnez les dossiers **libPusher-combined.a** et **/headers** et faites-les glisser dans le groupe **libPusher** de votre projet.
+	
+4. Activez la case à cocher **Copier des éléments dans le dossier du groupe de destination**, puis cliquez sur **Terminer**
 
 	![][add-files-to-group]
 
    Les fichiers libPusher seront copiés dans votre projet.
 
-5. Dans la racine de projet de l'Explorateur de projets, cliquez sur **Phases de génération**, puis cliquez sur **Ajouter phase de génération** et **Ajouter copie de fichiers**.
+5. Dans la racine de projet de l'Explorateur de projets, cliquez sur **Phases de génération**, puis sur **Ajouter phase de génération** et sur **Ajouter copie de fichiers**.
 
 6. Faites glisser le fichier **libPusher-combined.a** depuis l'Explorateur de projets dans la nouvelle phase de génération.
 
-7. Modifiez la **destination** par **Frameworks**, puis cliquez sur **Copier seulement en installant**.
+7. Modifiez la **Destination** en **Frameworks** et cliquez sur **Copier seulement en installant**.
 
 	![][add-build-phase]
 
-8. Ajoutez les bibliothèques suivantes dans la zone **Lier binaire aux bibliothèques** :
+8. Ajoutez les bibliothèques suivantes dans la zone **Lier binaire avec bibliothèques** :
 
 	- libicucore.dylib
 	- CFNetwork.framework
 	- Security.framework
 	- SystemConfiguration.framework
 
-9. Enfin dans **Paramètres de génération**, localisez le paramètre de génération cible **Autres indicateurs de l'éditeur de liens** et ajoutez l'indicateur **-all_load**.
+9. Enfin, dans **Paramètres de génération**, localisez le paramètre de génération cible **Autres indicateurs de l'éditeur de liens** et ajoutez l'indicateur **-all_load**.
 
 	![][add-linker-flag]
 
@@ -133,7 +133,7 @@ La bibliothèque est désormais installée et prête à l'emploi.
 
 	QSTodoService vous permet désormais de trouver des éléments par **id**, ainsi que d'ajouter et de terminer des éléments localement sans envoyer des requêtes explicites au service distant.
 
-4. Remplacez les méthodes existantes **addItem** et **completeItem** par le code ci-dessous :
+4. Remplacez les méthodes **addItem** et **completeItem** existantes par le code suivant :
 
 		-(void) addItem:(NSDictionary *)item
 		{
@@ -242,14 +242,14 @@ La bibliothèque est désormais installée et prête à l'emploi.
 		    itemText.text = @"";
 		}
 
-13. Recherchez la méthode (void)viewDidLoad dans le fichier **QSTodoListViewController.m** et ajoutez un appel à la méthode **setupPusher**. Les premières lignes doivent se présenter comme suit :
+13. Dans le fichier **QSTodoListViewController.m**, recherchez la méthode (void)viewDidLoad et ajoutez un appel vers la méthode **setupPusher** pour que les premières lignes soient :
 
 		- (void)viewDidLoad
 		{
 		    [super viewDidLoad];
 		    [self setupPusher];
 
-14. À la fin de la méthode **tableView:commitEditingStyle:forRowAtIndexPath**, remplacez l'appel en **completeItem** grâce au code suivant :
+14. À la fin de la méthode **tableView:commitEditingStyle:forRowAtIndexPath**, remplacez l'appel vers **completeItem** par le code suivant :
 
 		// Ask the todoService to set the item's complete value to YES
 	    [self.todoService completeItem:item];
@@ -275,14 +275,14 @@ Il ne reste plus qu'à configurer vos scripts serveur. Nous allons insérer un s
 
 
 
-3. Dans **TodoItem**, cliquez sur l'onglet **Script**, puis sélectionnez **Insérer**.
+3. Dans **TodoItem**, cliquez sur l'onglet **Script** et sélectionnez **Insérer**.
 
 
 	![][2]
 
 
 
-	La fonction appelée pendant une insertion dans la table **TodoItem** s'affiche.
+	La fonction appelée lors d'une insertion dans la table **TodoItem** s'affiche.
 
 
 4. Remplacez la fonction d'insertion par le code suivant :
@@ -320,9 +320,9 @@ Il ne reste plus qu'à configurer vos scripts serveur. Nous allons insérer un s
 
 5. Remplacez les espaces réservés du script ci-dessus par les valeurs que vous avez copiées précédemment dans la boîte de dialogue Informations de connexion :
 
-	- **`**your_app_id**`**: the app&#95;id value
-	- **`**your_app_key**`**: the app&#95;key value
-	- **`**your_app_key_secret**`**: the app&#95;key&#95;secret
+	- **`**your_app_id**`** : la app&#95;id value
+	- **`**your_app_key**`** : la app&#95;key value
+	- **`**your_app_key_secret**`** : la app&#95;key&#95;secret
 
 
 6. Cliquez sur le bouton **Enregistrer**. Vous avez à présent configuré un script pour publier un événement dans Pusher à chaque fois qu'un nouvel élément est inséré dans la table **TodoItem**.
@@ -402,7 +402,7 @@ Maintenant que vous avez pu constater combien il était simple d'utiliser le ser
 -   Documentation d'API Pusher : <http://pusher.com/docs>
 -   Didacticiels Pusher : <http://pusher.com/tutorials>
 
-Pour en savoir plus sur l'inscription et l'utilisation de scripts serveur, consultez la page [Référence de script serveur Mobile Services].
+Pour en savoir plus sur l'enregistrement et l'utilisation de scripts serveur, consultez la page [Référence de script serveur Mobile Services].
 
 <!-- Anchors. -->
 [Création d'un compte Pusher]: #sign-up
@@ -428,3 +428,6 @@ Pour en savoir plus sur l'inscription et l'utilisation de scripts serveur, consu
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 
 [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+
+
+<!--HONumber=42-->

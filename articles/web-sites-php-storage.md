@@ -1,31 +1,45 @@
-<properties urlDisplayName="Web w/ Storage" pageTitle="Site web PHP avec stockage de tables - Didacticiel Azure" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" description="Ce didacticiel vous montre comment créer un site web PHP et utiliser le service de stockage de tables Azure sur le serveur principal." metaCanonical="" services="web-sites,storage" documentationCenter="PHP" title="Create a PHP Website using Azure Storage" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Site Web PHP avec stockage de tables - Didacticiel Azure" 
+	description="Ce didacticiel vous montre comment créer un site Web PHP et utiliser le service de stockage de tables Azure sur le serveur principal." 
+	services="web-sites, storage" 
+	documentationCenter="php" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="tomfitz"/>
 
-#Création d'un site web PHP avec Azure Storage
+#Création d'un site Web PHP avec Azure Storage
 
-Ce didacticiel vous montre comment créer un site web PHP et utiliser le service de stockage de tables Azure sur le serveur principal. Il part du principe que vous avez installé [PHP][install-php] et un serveur web sur votre ordinateur. Les instructions de ce didacticiel s'appliquent à n'importe quel système d'exploitation, notamment Windows, Mac et Linux. À la fin de ce guide, vous disposerez d'un site web PHP s'exécutant dans Azure et capable d'accéder au service de stockage de tables.
+Ce didacticiel vous montre comment créer un site Web PHP et utiliser le service de stockage de tables Azure sur le serveur principal. Il part du principe que vous avez installé [PHP][install-php] et un serveur Web sur votre ordinateur. Les instructions de ce didacticiel s'appliquent à n'importe quel système d'exploitation, notamment Windows, Mac et Linux. À la fin de ce guide, vous disposerez d'un site Web PHP s'exécutant dans Azure et capable d'accéder au service de stockage de tables.
  
 Vous apprendrez à effectuer les opérations suivantes :
 
 * installer les bibliothèques clientes Azure et les ajouter dans votre application ;
 * utiliser les bibliothèques clientes pour créer des tables, et créer des entités de la table, exécuter des requêtes sur celles-ci ou les supprimer ;
 * créer un compte Azure Storage et configurer votre application afin de l'utiliser ;
-* créer un site web Azure et le déployer avec Git.
+* créer un site Web Azure et le déployer avec Git.
  
 Vous allez créer une application Web Tasklist simple dans PHP. Voici une capture d'écran de l'application terminée :
 
 ![Azure PHP web site][ws-storage-app]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##Installation des bibliothèques clientes Azure
 
 Pour installer manuellement les bibliothèques clientes PHP pour Azure via Composer, procédez comme suit :
 
-1. [Installez Git.][install-git]
+1. [Installez Git][install-git]
 
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
 	> Sous Windows, vous devez aussi ajouter l'exécutable Git à votre variable d'environnement PATH.
 
 2. Créez un fichier nommé **composer.json** à la racine de votre projet et ajoutez-y le code suivant :
@@ -43,7 +57,7 @@ Pour installer manuellement les bibliothèques clientes PHP pour Azure via Compo
 			"minimum-stability": "dev"
 		}
 
-3. Téléchargez **[composer.phar][composer-phar]** à la racine de votre projet.
+3. Téléchargez **[composer.phar][composer-phar]** à la racine du projet.
 
 4. Ouvrez une invite de commandes et exécutez cette commande à la racine du projet :
 
@@ -83,7 +97,7 @@ Il convient d'exécuter quatre étapes de base avant de pouvoir passer un appel 
 
 		$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
-	`$tableRestProxy` contient une méthode pour chaque appel REST disponible sur les tables Azure.
+	`$tableRestProxy` contains a method for every REST call available on Azure Tables.
 
 
 ## Création d'une table
@@ -157,7 +171,7 @@ La page d'accueil de l'application Tasklist doit répertorier toutes les tâches
 			
 		for ($i = 0; $i < count($entities); $i++) {
 
-* Une fois que vous avez obtenu un objet Entity, le modèle permettant de lire des données est `Entity->getPropertyValue('[name]')` :
+* Une fois que vous avez obtenu un objet `Entity`, le modèle permettant de lire des données est `Entity->getPropertyValue('[name]')` :
 
 			if ($i == 0) {
 				echo "<table border='1'>
@@ -189,7 +203,7 @@ La page d'accueil de l'application Tasklist doit répertorier toutes les tâches
 			echo "<h3>No items on list.</h3>";
 		?>
 
-* Enfin, vous devez insérer le formulaire qui fournit les données au script d'insertion de la tâche et compléter le code HTML :
+* Last, you must insert the form that feeds data into the task insertion script and complete the HTML:
 
 			<hr/>
 			<form action="additem.php" method="post">
@@ -235,7 +249,7 @@ Votre application peut maintenant lire tous les éléments stockés dans la tabl
 		$entity->addProperty('date', EdmType::STRING, $_POST['date']);
 		$entity->addProperty('complete', EdmType::BOOLEAN, false);
 
-* Vous pouvez alors transmettre l'objet `$entity` que vous venez de créer à la méthode `insertEntity` :
+* Vous pouvez alors transmettre l'objet`$entity` que vous venez de créer à la méthode `insertEntity` :
 
 		try{
 			$tableRestProxy->insertEntity('tasks', $entity);
@@ -253,7 +267,7 @@ Votre application peut maintenant lire tous les éléments stockés dans la tabl
 	
 ## Mise à jour d'une entité
 
-L'application de liste de tâches est capable de marquer un élément comme étant terminé et d'annuler également cette action. La page d'accueil transmet *RowKey* et *PartitionKey* d'une entité et l'état cible (marqué==1, non marqué==0).
+L'application de liste de tâches est capable de marquer un élément comme étant terminé et d'annuler également cette action. La page d'accueil transmet le *RowKey* et *PartitionKey* d'une entité et l'état cible (marked==1, unmarked==0).
 
 * Créez un fichier nommé **markitem.php** et ajoutez la portion d'initialisation :
 
@@ -303,25 +317,25 @@ La suppression d'un élément est réalisée par un appel unique à `deleteItem`
 		?>
 
 
-## Création d'un compte de stockage Azure
+## Création d'un compte Azure Storage
 
 Afin que votre application stocke des données dans le cloud, vous devez créer au préalable un compte de stockage dans Azure, puis transmettre les informations d'authentification adéquates à la classe *Configuration*.
 
-1. Connectez-vous au [portail de gestion Azure][management-portal].
+1. Connectez-vous au [Portail de gestion Azure][management-portal].
 
 2. Cliquez sur l'icône **+ Nouveau** dans le coin inférieur gauche du portail.
 
 	![Create New Azure web site][new-website]
 
-3. Cliquez sur **Services de données**, **Stockage**, puis**Création rapide**.
+3. Cliquez sur **Services de données**, **Stockage**, puis sur **Création rapide**.
 
 	![Custom Create a new web site][storage-quick-create]
 	
-	Entrez une valeur pour **URL**, puis sélectionnez le centre de données de votre site web dans la liste déroulante **RÉGION**. Cliquez sur le bouton **Créer un compte de stockage** au bas de la boîte de dialogue.
+	Entrez une valeur pour **URL**, puis sélectionnez le centre de données de votre site Web dans la liste déroulante **REGION**. Cliquez sur le bouton **Créer un compte de stockage** au bas de la boîte de dialogue.
 
 	![Fill in web site details][storage-quick-create-details]
 
-	Quand le compte de stockage est créé, le texte **La création du compte de stockage '[NOM]' s'est terminée correctement** apparaît.
+	Quand le compte de stockage est créé, le texte **La création du compte de stockage " [NOM] " s'est terminée correctement** apparaît.
 
 4. Vérifiez que l'onglet **Stockage** est sélectionné, puis sélectionnez le compte de stockage que vous venez de créer dans la liste.
 
@@ -333,29 +347,29 @@ Afin que votre application stocke des données dans le cloud, vous devez créer 
 
 	![Select Manage Keys][storage-access-keys]
 
-7. Ouvrez **init.php** et remplacez `[YOUR_STORAGE_ACCOUNT_NAME]` et `[YOUR_STORAGE_ACCOUNT_KEY]` par le nom du compte et le nom de la clé que vous avez notés au cours de la dernière étape. Enregistrez le fichier.
+7. Ouvrez **init.php** et remplacez `[YOUR_STORAGE_ACCOUNT_NAME]` et `[YOUR_STORAGE_ACCOUNT_KEY]` par le nom du compte et le nom de la clé que vous avez notés lors de l'étape précédente. Enregistrez le fichier.
 
 
-## Création d'un site web Azure et configuration de la publication Git
+## Création d'un site Web Azure et configuration de la publication Git
 
-Pour créer un site web Azure, procédez comme suit :
+Pour créer un site Web Azure, procédez comme suit :
 
-1. Connectez-vous au [portail de gestion Azure][management-portal].
+1. Connectez-vous au [Portail de gestion Azure][management-portal].
 2. Cliquez sur l'icône **+ Nouveau** dans le coin inférieur gauche du portail.
 
 	![Create New Azure Web Site][new-website]
 
-3. Cliquez sur **Calculer**, **Site web**, puis **Création rapide**.
+3. Cliquez sur **Calcul**, sur **Site Web**, puis sur **Création rapide**.
 
 	![Custom Create a new web site][website-quick-create]
 	
-	Entrez une valeur pour **URL**, puis sélectionnez le centre de données de votre site web dans la liste déroulante **RÉGION**. Cliquez sur le bouton **Créer un site web** au bas de la boîte de dialogue.
+	Entrez une valeur pour **URL**, puis sélectionnez le centre de données de votre site Web dans la liste déroulante **REGION**. Cliquez sur le bouton **Créer un site Web** en bas de la boîte de dialogue.
 
 	![Fill in web site details][website-quick-create-details]
 
-	Quand le site web est créé, le texte **La création du site web '[NOM DU SITE]' s'est terminée correctement** apparaît. Vous pouvez maintenant activer la publication Git.
+	Quand le site Web est créé, le texte " **La création du site Web[NOM DU SITE] s'est terminée correctement "** apparaît. Vous pouvez maintenant activer la publication Git.
 
-5. Cliquez sur le nom du site web affiché dans la liste des sites web pour ouvrir le tableau de bord **DÉMARRAGE RAPIDE** du site web.
+5. Cliquez sur le nom du site Web affiché dans la liste des sites Web pour ouvrir le tableau de bord **DÉMARRAGE RAPIDE** du site Web.
 
 	![Open web site dashboard][go-to-dashboard]
 
@@ -368,7 +382,7 @@ Pour créer un site web Azure, procédez comme suit :
 
 	![where is your source code][where-is-code]
 
-7. Pour activer la publication Git, vous devez fournir un nom d'utilisateur et un mot de passe. Notez le nom d'utilisateur et le mot de passe que vous créez (si vous avez déjà configuré un référentiel Git, ignorez cette étape).
+7. Pour activer la publication Git, vous devez fournir un nom d'utilisateur et un mot de passe. Notez le nom d'utilisateur et le mot de passe que vous créez. (si vous avez déjà configuré un référentiel Git, ignorez cette étape).
 
 	![Create publishing credentials][credentials]
 
@@ -391,7 +405,7 @@ Pour exécuter l'application avec Git, procédez comme suit :
 			
 	Lorsque le gestionnaire de package Composer télécharge les bibliothèques clientes Azure et leurs dépendances, il procède par clonage du référentiel GitHub où elles résident. Au cours de la prochaine étape, l'application sera déployée via Git avec la création d'un référentiel à partir du dossier racine de celle-ci. Git ignorera le sous-référentiel dans lequel résident les bibliothèques clientes à moins que les fichiers propres au référentiel ne soient supprimés.
 
-2. Ouvrez GitBash (ou un terminal, si Git est dans votre `PATH`), remplacez les répertoires du répertoire racine de votre application, puis exécutez les commandes suivantes (**Remarque :** cette procédure est identique à celle indiquée à la fin de la section **Création d'un site web Azure et configuration de la publication Git**) :
+2. Ouvrez GitBash (ou un terminal, si Git est dans votre `PATH`), remplacez les répertoires du répertoire racine de votre application, puis exécutez les commandes suivantes (**Remarque :** cette procédure est identique à celle indiquée à la fin de la section **Création d'un site Web Azure et configuration de la publication Git**) :
 
 		git init
 		git add .
@@ -401,8 +415,8 @@ Pour exécuter l'application avec Git, procédez comme suit :
 
 	Vous êtes invité à entrer le mot de passe que vous avez créé précédemment.
 
-3. Accédez à **http://[nom de domaine de votre site web]/createtable.php** pour créer la table pour l'application.
-4. Accédez à **http://[nom de domaine de votre site web]/index.php** pour commencer à utiliser l'application.
+3. Accédez à **http://[votre domaine de site Web]/createtable.php** pour créer la table de l'application.
+4. Accédez à **http://[votre domaine de site Web]/index.php** pour commencer à utiliser l'application.
 
 Après la publication de votre application, vous pouvez y apporter des modifications, puis utiliser Git pour les publier. 
 
@@ -419,7 +433,7 @@ Pour publier des modifications apportées à votre application, procédez comme 
 
 	Vous êtes invité à entrer le mot de passe que vous avez créé précédemment.
 
-3. Accédez à **http://[nom de domaine de votre site web]/index.php** pour voir vos modifications. 
+3. Accédez à **http://[votre domaine de site Web]/index.php** pour voir vos modifications. 
 
 [install-php]: http://www.php.net/manual/en/install.php
 
@@ -451,4 +465,5 @@ Pour publier des modifications apportées à votre application, procédez comme 
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
 [where-is-code]: ./media/web-sites-php-storage/where_is_code.png
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

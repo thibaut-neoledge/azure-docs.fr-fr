@@ -1,10 +1,10 @@
-﻿<properties urlDisplayName="Using Offline Data" pageTitle="Utilisation des données hors connexion dans Mobile Services (Windows Store) | Centre de développement mobile" metaKeywords="" description="Découvrez comment utiliser Azure Mobile Services pour mettre en cache et synchroniser les données hors connexion dans votre application Windows Store." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using offline data sync in Mobile Services" authors="wesmc" manager="dwrede" />
+﻿<properties pageTitle="Utilisation des données hors connexion dans Mobile Services (Windows Store) | Centre de développement mobile" description="Découvrez comment utiliser Azure Mobile Services pour mettre en cache et synchroniser les données hors connexion dans votre application Windows Store" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="12/10/2014" ms.author="wesmc"/>
 
 # Utilisation de la synchronisation des données hors connexion dans Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
 
 
 <div class="dev-onpage-video-clear clearfix">
@@ -13,16 +13,16 @@
 </p>
 <p>Si vous préférez regarder une vidéo, le clip sur la droite suit la même procédure que ce didacticiel.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="label">visionner le didacticiel</a> <a style="background-image: url('http://video.ch9.ms/ch9/ea1c/ffed2371-4db1-4a8e-8869-80013859ea1c/BuildOfflineAppsAzureMobileServices_220.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">14:36</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('http://video.ch9.ms/ch9/ea1c/ffed2371-4db1-4a8e-8869-80013859ea1c/BuildOfflineAppsAzureMobileServices_220.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">14:36</span></div>
 </div>
 
 
 Dans ce didacticiel, vous allez mettre à jour le projet d'application universelle issu du didacticiel [Prise en main de Mobile Services] pour pouvoir prendre en charge les fonctionnalités hors connexion d'Azure Mobile Services. Ensuite, vous allez ajouter les données dans le cadre d'un scénario hors connexion déconnecté, synchroniser ces éléments dans la base de données en ligne, puis vous connecter au portail de gestion Azure pour afficher les modifications apportées aux données lors de l'exécution de l'application.
 
 
->[WACOM.NOTE] Ce didacticiel vise à mieux vous faire comprendre en quoi Mobile Services vous permet de stocker et de récupérer des données dans une application Windows Store à l'aide d'Azure. Si vous n'avez aucune expérience de Mobile Services, commencez par suivre le didacticiel [Prise en main de Mobile Services].
+>[AZURE.NOTE] Ce didacticiel vise à mieux vous faire comprendre en quoi Mobile Services vous permet de stocker et de récupérer des données dans une application Windows Store à l'aide d'Azure. Si vous n'avez aucune expérience de Mobile Services, commencez par suivre le didacticiel [Prise en main de Mobile Services].
 >
->Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">version d'évaluation gratuite Azure</a>. 
+>Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite Azure</a>. 
 >
 >Le didacticiel Windows Phone 8 antérieur pour Visual Studio 2012 est encore disponible ici : [Didacticiel Windows Phone 8 pour Visual Studio 2012].
 
@@ -30,9 +30,8 @@ Dans ce didacticiel, vous allez mettre à jour le projet d'application universel
 Ce didacticiel vous familiarise avec ces étapes de base :
 
 1. [Mise à jour de l'application pour prendre en charge les fonctionnalités hors connexion]
-2. [Test de l'application dans un scénario hors connexion] 
+2. [Mise à jour du comportement de synchronisation de l'application]
 3. [Mise à jour de l'application pour reconnecter votre service mobile]
-4. [Test de l'application connectée au service mobile]
 
 Ce didacticiel requiert les éléments suivants :
 
@@ -40,163 +39,131 @@ Ce didacticiel requiert les éléments suivants :
 * Exécution du didacticiel [Prise en main de Mobile Services]
 * [Kit de développement logiciel (SDK) Azure Mobile Services version 1.3.0 (ou ultérieure)][Nuget - Kit de développement logiciel (SDK) Mobile Services]
 * [Azure Mobile Services SQLite Store version 1.0.0 (ou version ultérieure)][Nuget - magasin SQLite]
-* SQLite pour Windows 8.1
+* [SQLite pour Windows 8.1](www.sqlite.org/downloads)
 
->[AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">version d'évaluation gratuite Azure</a>. 
+>[AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite Azure</a>. 
 
 ## <a name="enable-offline-app"></a>Mise à jour de l'application pour prendre en charge les fonctionnalités hors connexion
 
-Les fonctionnalités hors connexion d'Azure Mobile Services vous permettent d'interagir avec une base de données locale lorsque vous vous trouvez dans un scénario hors connexion avec votre version de Mobile Service. Pour pouvoir utiliser ces fonctionnalités dans votre application, initialisez " MobileServiceClient.SyncContext " dans un magasin local. Ensuite, référencez votre tableau via l'interface " IMobileServiceSyncTable ". Dans ce didacticiel, nous utilisons SQLite pour le magasin local.
+Les fonctionnalités hors connexion d'Azure Mobile Services vous permettent d'interagir avec une base de données locale lorsque vous vous trouvez dans un scénario hors connexion avec votre version de Mobile Service. Pour pouvoir utiliser ces fonctionnalités dans votre application, vous initialisez  `MobileServiceClient.SyncContext` dans un magasin local. Ensuite, vous référencez votre table par le biais de l'interface  `IMobileServiceSyncTable`. Dans ce didacticiel, nous utilisons SQLite pour le magasin local.
 
->[AZURE.NOTE] Vous pouvez ignorer cette section et obtenir simplement l'exemple de projet qui dispose déjà d'une prise en charge en mode hors connexion à partir du référentiel d'exemples Github pour Mobile Services. Cet exemple de projet avec prise en charge en mode hors connexion se trouve ici : [Exemple hors connexion TodoList].
-
+>[AZURE.NOTE] Vous pouvez ignorer cette section et simplement obtenir l'exemple de projet prenant déjà en charge le mode hors connexion dans le référentiel d'exemples de Github pour Mobile Services. Cet exemple de projet avec prise en charge en mode hors connexion se trouve ici : [Exemple hors connexion TodoList].
 
 1. Installez le runtime SQLite pour Windows 8.1 et Windows Phone 8.1. 
 
-    * **Runtime Windows 8.1 :** Installez le runtime SQLite pour Windows 8.1 à partir de ce lien [SQLite pour Windows 8.1].
-    * **Windows Phone 8.1 :** Installez le runtime SQLite pour Windows Phone 8.1 à partir de ce lien [SQLite pour Windows Phone 8.1].
+    * **Runtime Windows 8.1 :** installez [SQLite pour Windows 8.1].
+    * **Windows Phone 8.1 :** installez [SQLite pour Windows Phone 8.1].
 
     >[AZURE.NOTE] Si vous utilisez Internet Explorer et que vous cliquez sur le lien pour installer SQLite, vous serez peut-être invité à télécharger le fichier .vsix en tant que fichier .zip. Enregistrez le fichier à un emplacement sur votre disque dur avec l'extension .vsix plutôt que .zip. Ensuite, double-cliquez sur le fichier .vsix dans l'Explorateur Windows pour exécuter l'installation.
 
-2. Dans Visual Studio, ouvrez le projet que vous avez terminé dans le didacticiel [Prise en main de Mobile Services]. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **Références** pour les projets de plateforme Runtime Windows 8.1 et Windows Phone 8.1, et ajoutez une référence à SQLite, qui se trouve dans la section **Extensions**. 
+2. Dans Visual Studio, ouvrez le projet que vous avez terminé dans le didacticiel [Prise en main de Mobile Services]. Installez le package NuGet **WindowsAzure.MobileServices.SQLiteStore** pour les projets Runtime Windows 8.1 et Windows Phone 8.1.
 
-    ![][1]
-    </br>**Runtime Windows 8.1**
+    * **Windows 8.1 :** dans l'explorateur de solutions, cliquez avec le bouton droit sur le projet Windows 8.1, puis cliquez sur **Gérer les packages NuGet** pour exécuter le gestionnaire de package NuGet. Recherchez **SQLiteStore** pour installer le package  `WindowsAzure.MobileServices.SQLiteStore`.
+    * **Windows Phone 8.1 :** cliquez avec le bouton droit sur le projet Windows Phone 8.1, puis cliquez sur **Gérer les packages NuGet** pour exécuter le gestionnaire de packages NuGet. Recherchez **SQLiteStore** pour installer le package  `WindowsAzure.MobileServices.SQLiteStore`.
 
-    ![][11]
-    </br>**Windows Phone 8.1**
-
-3. Le runtime SQLite vous oblige à remplacer l'architecture de processeur du projet en cours de conception par **x86**, **x64** ou **ARM**. L'option **Tout processeur** n'est pas prise en charge. Dans l'Explorateur de solutions de Visual Studio, cliquez sur la solution en haut, puis modifiez la zone déroulante d'architecture de processeur en spécifiant l'un des paramètres pris en charge que vous souhaitez tester.
-
-    ![][13]
-
-4. Installez le package NuGet **WindowsAzure.MobileServices.SQLiteStore** pour les projets Runtime Windows 8.1 et Windows Phone 8.1.
-
-    * **Windows 8.1 :** Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet Windows 8.1, puis cliquez sur **Gérer les packages Nuget** pour exécuter le gestionnaire de package NuGet. Recherchez **SQLiteStore** pour installer le package WindowsAzure.MobileServices.SQLiteStore.
-    * **Windows Phone 8.1 :** Cliquez avec le bouton droit sur le projet Windows Phone 8.1, puis cliquez sur **Gérer les packages Nuget** pour exécuter le gestionnaire de package NuGet. Recherchez **SQLiteStore** pour installer le package WindowsAzure.MobileServices.SQLiteStore.     
-
-    >[WACOM.NOTE] Si l'installation crée une référence à une version antérieure de SQLite, supprimez simplement cette référence en double. 
+    >[AZURE.NOTE] Si l'installation crée une référence à une version antérieure de SQLite, supprimez simplement cette référence en double. 
 
     ![][2]
 
-5. Dans l'Explorateur de solutions de Visual Studio, dans le projet partagé, ouvrez le fichier MainPage.cs. Ajoutez les instructions using suivantes au début du fichier.
+2. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **Références** pour les projets de plateforme Runtime Windows 8.1 et Windows Phone 8.1, et vérifiez qu'il existe une référence à SQLite, qui doit se trouver dans la section **Extensions**. 
 
-        using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
-        using Microsoft.WindowsAzure.MobileServices.Sync;
+    ![][1]
+    </br>
 
-6. Dans le fichier partagé, Mainpage.cs, remplacez la déclaration de " todoTable " par une déclaration de type " IMobileServicesSyncTable " qui est initialisée en appelant " MobileServicesClient.GetSyncTable() ".
+    **Runtime Windows 8.1**
+
+    ![][11]
+    </br>
+
+    **Windows Phone 8.1**
+
+3. Le runtime SQLite vous oblige à remplacer l'architecture de processeur du projet en cours de conception par **x86**, **x64** ou **ARM**. **L'option Tout processeur** n'est pas prise en charge. Dans l'Explorateur de solutions, cliquez sur la solution en haut, puis modifiez la zone déroulante d'architecture de processeur en spécifiant l'un des paramètres pris en charge que vous souhaitez tester.
+
+    ![][13]
+
+5. Dans l'Explorateur de solutions, dans le projet partagé, ouvrez le fichier MainPage.cs. Supprimez les commentaires des instructions using suivantes situées en haut du fichier :
+
+        using Microsoft.WindowsAzure.MobileServices.SQLiteStore;  // offline sync
+        using Microsoft.WindowsAzure.MobileServices.Sync;         // offline sync
+
+6. Dans MainPage.cs, commentez la définition de  `todoTable` et supprimez le commentaire de la ligne suivante, qui appelle  `MobileServicesClient.GetSyncTable()` :
 
         //private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
-        private IMobileServiceSyncTable<TodoItem> todoTable = App.MobileService.GetSyncTable<TodoItem>();
+        private IMobileServiceSyncTable<TodoItem> todoTable = App.MobileService.GetSyncTable<TodoItem>(); // offline sync
 
 
-7. Dans le fichier partagé, MainPage.cs, mettez à jour le gestionnaire d'événements " OnNavigatedTo " de façon à ce qu'il initialise le contexte de synchronisation client avec un magasin SQLite. Le magasin SQLite est créé avec une table qui correspond au schéma de la table de service mobile et il doit contenir la propriété système **Version** que vous ajouterez à l'étape suivante.
+7. Dans MainPage.cs, dans la zone marquée  `Offline sync`, supprimez les commentaires des méthodes  `InitLocalStoreAsync` et  `SyncAsync`. La méthode  `InitLocalStoreAsync` initialise le contexte de synchronisation du client avec un magasin SQLite. 
 
-        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        private async Task InitLocalStoreAsync()
         {
             if (!App.MobileService.SyncContext.IsInitialized)
             {
-                var store = new MobileServiceSQLiteStore("localsync.db");
+                var store = new MobileServiceSQLiteStore("localstore.db");
                 store.DefineTable<TodoItem>();
                 await App.MobileService.SyncContext.InitializeAsync(store);
             }
+
+            await SyncAsync();
+        }
+
+        private async Task SyncAsync()
+        {
+            await App.MobileService.SyncContext.PushAsync();
+            await todoTable.PullAsync("todoItems", todoTable.CreateQuery());
+        }
+
+8. Dans le gestionnaire d'événements  `OnNavigatedTo`, supprimez le commentaire de l'appel vers  `InitLocalStoreAsync` :
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            await InitLocalStoreAsync(); // offline sync
             await RefreshTodoItems();
         }
 
+9. Supprimez les commentaires des 3 appels vers  `SyncAsync` dans les méthodes  `InsertTodoItem`, `UpdateCheckedTodoItem` et  `ButtonRefresh_Click` :
 
-8. Dans l'Explorateur de solutions de Visual Studio, dans le projet partagé, développez **DataModel** et ouvrez TodoItem.cs. Ajoutez une instruction " using " pour l'espace de noms MobileServices. Cela est nécessaire pour résoudre l'attribut de version de la propriété système de version.
-
-        using Microsoft.WindowsAzure.MobileServices;
-
-      Ensuite, mettez à jour la classe " TodoItem " de façon à ce qu'elle inclue la propriété système **Version** comme suit. Le schéma de table doit inclure la propriété système **Version** comme indiquée ici pour prendre en charge les fonctionnalités hors connexion.
-
-        public class TodoItem
+        private async Task InsertTodoItem(TodoItem todoItem)
         {
-          public string Id { get; set; }
-          [JsonProperty(PropertyName = "text")]
-          public string Text { get; set; }
-          [JsonProperty(PropertyName = "complete")]
-          public bool Complete { get; set; }
-          [Version]
-          public string Version { get; set; }
+            await todoTable.InsertAsync(todoItem);
+            items.Add(todoItem);
+
+            await SyncAsync(); // offline sync
         }
 
-
-
-
-9. Ensuite, mettez à jour l'interface utilisateur pour les projets Windows 8.1 et Windows Phone 8.1, afin d'inclure les boutons qui prendront en charge les opérations de synchronisation hors connexion entre la base de données hors connexion locale et la base de données des services mobiles dans Azure. 
-
-    * **Windows 8.1 :** Dans l'Explorateur de solutions de Visual Studio, sous le projet Windows 8.1, ouvrez le fichier MainPage.xaml. Recherchez le bouton **ButtonRefresh**. Remplacez cet élément de bouton par le panneau d'empilement suivant de boutons. 
-
-            <StackPanel Orientation="Horizontal">
-                <Button Margin="72,0,0,0" Height="44" Name="ButtonRefresh" Click="ButtonRefresh_Click">
-                	Refresh
-                </Button>
-                <Button Margin="10,0,0,0" Name="ButtonPull" Click="ButtonPull_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="5">Pull</TextBlock>
-                        <SymbolIcon Symbol="Download"/>
-                    </StackPanel>
-                </Button>
-                <Button Margin="10,0,0,0" Name="ButtonPush" Click="ButtonPush_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="5">Push</TextBlock>
-                        <SymbolIcon Symbol="Upload"/>
-                    </StackPanel>
-                </Button>
-            </StackPanel>
-
-    * **Windows Phone 8.1 :** Dans l'Explorateur de solutions de Visual Studio, sous le projet Windows Phone 8.1, ouvrez le fichier MainPage.xaml. Recherchez le bouton **ButtonRefresh**. Remplacez cet élément de bouton par le panneau d'empilement suivant de boutons. 
-
-            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2">
-                <Button Name="ButtonRefresh" Click="ButtonRefresh_Click" Margin="10,0,0,0">
-                    Refresh
-                </Button>
-                <Button Name="ButtonPull" Click="ButtonPull_Click" Margin="10,0,0,0">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="5">Pull</TextBlock>
-                        <SymbolIcon Symbol="Download"/>
-                    </StackPanel>
-                </Button>
-                <Button Name="ButtonPush" Click="ButtonPush_Click" Margin="10,0,0,0">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="5">Push</TextBlock>
-                        <SymbolIcon Symbol="Upload"/>
-                    </StackPanel>
-                </Button>
-        </StackPanel>
-        
-
-
-10. Dans le fichier partagé MainPage.cs, ajoutez des gestionnaires d'événements Click pour les boutons **Push** et **Pull**. Puis enregistrez le fichier. 
-        
-    Notez que l'exception " MobileServicePushFailedException " peut se produire aussi bien pour une opération d'empilage (Push) que pour une opération d'extraction (Pull). Elle peut se produire pour une extraction, car l'opération d'extraction exécute en interne une opération Push pour s'assurer que toutes les tables et toutes les relations sont synchronisées. Le didacticiel suivant, [Gestion des conflits liés à la prise en charge hors connexion de Mobile Services], montre comment gérer ces exceptions associées à la synchronisation.
-
-    Pour prendre en charge la synchronisation des enregistrements supprimés avec la synchronisation des données hors connexion, vous devez activer la [suppression réversible](/fr-fr/documentation/articles/mobile-services-using-soft-delete/). Sinon, vous devez supprimer manuellement les enregistrements dans le magasin local, ou appeler " IMobileServiceSyncTable::PurgeAsync() " pour purger le magasin local.
-
-    Dans cet exemple, nous transmettons une requête à l'appel de la méthode " PullAsync " pour prendre en charge la synchronisation incrémentielle. Cela est utile dans les cas où vous ne souhaitez vraiment pas le coût associé à l'extraction de la totalité de la table pendant la synchronisation. Dans ce scénario, nous ne nous soucions pas des modifications de texte des éléments TodoItem, mais souhaitons simplement extraire les éléments terminés pour les exclure de l'application todolist.
-
-        private async void ButtonPull_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private async Task UpdateCheckedTodoItem(TodoItem item)
         {
-            string errorString = null;
+            await todoTable.UpdateAsync(item);
+            items.Remove(item);
+            ListItems.Focus(Windows.UI.Xaml.FocusState.Unfocused);
 
-            // Prevent extra clicking while Pull is in progress
-            // and visibly show the action is in progress. 
-            ButtonPull.Focus(FocusState.Programmatic);
-            ButtonPull.IsEnabled = false;
+            await SyncAsync(); // offline sync
+        }
+
+        private async void ButtonRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonRefresh.IsEnabled = false;
+
+            await SyncAsync(); // offline sync
+            await RefreshTodoItems();
+
+            ButtonRefresh.IsEnabled = true;
+        }
+
+10. Ajoutez des gestionnaires d'exception dans la méthode  `SyncAsync` :
+
+        private async Task SyncAsync()
+        {
+            String errorString = null;
 
             try
             {
-                // All items should be synced since other clients might mark an item as complete
-                // The first parameter is a query ID that uniquely identifies the query.
-                // This is used in incremental sync to get only newer items the next time PullAsync is called
-                await todoTable.PullAsync("allTodoItems", todoTable.CreateQuery());
-
-                await RefreshTodoItems();
+                await App.MobileService.SyncContext.PushAsync();
+                await todoTable.PullAsync("todoItems", todoTable.CreateQuery()); // first param is query ID, used for incremental sync
             }
+
             catch (MobileServicePushFailedException ex)
             {
-                errorString = "Internal Push operation during pull request failed because of sync errors: " +
+                errorString = "Push failed because of sync errors: " +
                   ex.PushResult.Errors.Count + " errors, message: " + ex.Message;
             }
             catch (Exception ex)
@@ -211,154 +178,89 @@ Les fonctionnalités hors connexion d'Azure Mobile Services vous permettent d'in
                 MessageDialog d = new MessageDialog(errorString);
                 await d.ShowAsync();
             }
-
-            ButtonPull.IsEnabled = true; 
         }
 
+    Dans cet exemple, nous récupérons tous les enregistrements dans la  `todoTable` distante, mais nous aurions également pu filtrer les enregistrements en transmettant une requête. Le première paramètre de  `PullAsync` est un ID de requête utilisé pour la synchronisation incrémentielle, qui utilise l'horodatage  `UpdatedAt` pour obtenir uniquement les enregistrements modifiés depuis la dernière synchronisation. L'ID de requête doit être une chaîne descriptive unique pour chaque requête logique dans votre application. Pour refuser la synchronisation incrémentielle, transmettez  `null` en tant qu'ID de requête. Vous récupérerez ainsi tous les enregistrements de chaque opération pull potentiellement inefficace.
 
-        private async void ButtonPush_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            string errorString = null;
+    >[AZURE.NOTE] * Pour supprimer les enregistrements du magasin local du périphérique lorsqu'ils ont été supprimés dans la base de données de votre service mobile, vous devez activer [Suppression réversible]. Sinon, votre application devra appeler périodiquement  `IMobileServiceSyncTable.PurgeAsync()` pour purger le magasin local.
 
-            // Prevent extra clicking while Push is in progress
-            // and visibly show the action is in progress. 
-            ButtonPush.Focus(FocusState.Programmatic);
-            ButtonPush.IsEnabled = false;
+    Notez que  `MobileServicePushFailedException` peut survenir pour une opération push ou pull. Elle peut se produire pour une extraction, car l'opération d'extraction exécute en interne une opération Push pour s'assurer que toutes les tables et toutes les relations sont cohérentes. Le didacticiel suivant, [Gestion des conflits liés à la prise en charge hors connexion de Mobile Services], montre comment gérer ces exceptions associées à la synchronisation.
 
-            try
-            {
-                await App.MobileService.SyncContext.PushAsync();
-            }
-            catch (MobileServicePushFailedException ex)
-            {
-                errorString = "Push failed because of sync errors: " + 
-                  ex.PushResult.Errors.Count + " errors, message: " + ex.Message;
-            }
-            catch (Exception ex)
-            {
-                errorString = "Push failed: " + ex.Message +
-                  "\n\nIf you are still in an offline scenario, " +
-                  "you can try your Push again when connected with your Mobile Serice.";
-            }
+11. Dans Visual Studio, appuyez sur **F5** pour régénérer et exécuter l'application. L'application se comportera comme avant la modification de la synchronisation hors connexion, car elle effectue une opération de synchronisation lors des opérations d'insertion, de mise à jour et d'actualisation.
 
-            if (errorString != null)
-            {
-                MessageDialog d = new MessageDialog(errorString);
-                await d.ShowAsync();
-            }
+## <a name="update-sync"></a>Mise à jour du comportement de synchronisation de l'application
 
-            ButtonPush.IsEnabled = true;
-        }
+Dans cette section, vous allez modifier l'application pour qu'elle n'effectue pas de synchronisation lors des opérations d'insertion et de mise à jour, mais uniquement lorsque vous activez le bouton **Actualiser**. Ensuite, vous allez rompre la connexion de l'application avec le service mobile pour simuler un scénario hors connexion. Lorsque vous ajoutez des éléments de données, ils seront peut-être stockés dans le magasin local, mais pas synchronisées avec le service mobile.
 
-11. Générez la solution et vérifiez qu'aucune erreur de génération ne s'est produite dans les projets.
+1. Ouvrez App.xaml.cs dans le projet partagé. Modifiez les méthodes  `InsertTodoItem` et  `UpdateCheckedTodoItem` pour commenter les appels vers  `SyncAsync`.
 
-
-## <a name="test-offline-app"></a>Test de l'application dans un scénario hors connexion
-
-Dans cette section, vous rompez la connexion d'application avec le service mobile afin de simuler un scénario hors connexion. Ensuite, vous ajouterez quelques éléments de données qui seront conservés dans le magasin local.
-
-Notez que dans cette section l'application ne doit être connectée à aucun service mobile. Par conséquent, les boutons **Push** et **Pull** généreront des erreurs si vous les testez. Dans la section suivante, vous reconnecterez cette application cliente au service mobile pour tester les opérations **Push** et **Pull** afin de synchroniser le magasin avec la base de données des services mobiles.
-
-
-1. Dans l'Explorateur de solutions de Visual Studio, ouvrez le fichier App.xaml.cs dans le projet partagé. Modifiez l'initialisation de **MobileServiceClient** en spécifiant une adresse non valide, en remplaçant " **azure-mobile.NET** " par " **azure-mobile.xxx** " pour l'URL. Puis enregistrez le fichier.
+2. Modifiez App.xaml.cs dans le projet partagé. Commentez l'initialisation de **MobileServiceClient** et ajoutez les lignes suivantes, qui utilisent une URL de service mobile incorrecte :
 
          public static MobileServiceClient MobileService = new MobileServiceClient(
             "https://your-mobile-service.azure-mobile.xxx/",
             "AppKey"
         );
 
-2. Dans Visual Studio, appuyez sur **F5** pour générer et exécuter l'application. Entrez quelques nouveaux éléments todoitem et cliquez sur **Enregistrer** pour chacun d'eux. Les nouveaux éléments todo se trouvent uniquement dans le magasin local s'ils peuvent être transmis par Push vers le service mobile. L'application cliente se comporte comme si elle était connectée au service mobile et supportait toutes les opérations CRUD (Create, Read, Update et Delete, ou Créer, Lire, Mettre à jour et Supprimer).
+3. Dans  `InitLocalStoreAsync()`, commentez l'appel vers  `SyncAsync()`, de sorte que l'application effectue une synchronisation au démarrage.
 
-    ![][4]
+4. Appuyez sur **F5** pour générer et exécuter l'application. Entrez quelques nouveaux éléments todoitem et cliquez sur **Enregistrer** pour chacun d'eux. Les nouveaux éléments todo se trouvent uniquement dans le magasin local s'ils peuvent être transmis par Push vers le service mobile. L'application cliente se comporte comme si elle était connectée au service mobile et supportait toutes les opérations CRUD (Create, Read, Update et Delete, ou Créer, Lire, Mettre à jour et Supprimer).
 
-3. Fermez l'application et redémarrez-la pour vérifier que les nouveaux éléments que vous avez créés sont conservés dans le magasin local.
+5. Fermez l'application et redémarrez-la pour vérifier que les nouveaux éléments que vous avez créés sont conservés dans le magasin local.
 
 ## <a name="update-online-app"></a>Mise à jour de l'application pour reconnecter votre service mobile
 
-Dans cette section, vous allez reconnecter l'application au service mobile. Cette opération simule le passage de l'application d'un état hors connexion à un état connecté avec le service mobile.
+Dans cette section, vous allez reconnecter l'application au service mobile. Cette opération simule le passage de l'application d'un état hors connexion à un état connecté avec le service mobile. Lorsque vous appuyez sur le bouton Actualiser, les données seront synchronisées avec votre service mobile.
 
+1. Ouvrez App.xaml.cs dans le projet partagé. Supprimez les commentaires de votre précédente initialisation de  `MobileServiceClient` pour rajouter la clé d'application et l'URL du service mobile adéquates.
 
-1. Dans l'Explorateur de solutions de Visual Studio, ouvrez le fichier App.xaml.cs dans le projet partagé. Modifiez l'initialisation de **MobileServiceClient** en rétablissant l'adresse correcte, en remplaçant " **azure-mobile.xxx** " par " **azure-mobile.net** " pour l'URL. Puis enregistrez le fichier.
+2. Appuyez sur **F5** pour régénérer et exécuter le projet. Notez que les données ont le même aspect que dans le scénario hors connexion, bien que l'application soit à présent connectée au service mobile. Cela s'explique par le fait que l'application fonctionne toujours avec la table  `IMobileServiceSyncTable` pointant vers le magasin local.
 
-         public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://your-mobile-service.azure-mobile.net/",
-            "Your AppKey"
-        );
+3. Connectez-vous au portail de gestion Microsoft Azure et examinez la base de données de votre service mobile. Si votre service utilise le service principal JavaScript pour les services mobiles, vous pouvez accéder aux données à partir de l'onglet **Données** du service mobile. 
 
-
-## <a name="test-online-app"></a>Test de l'application connectée au service mobile
-
-
-Dans cette section, vous allez tester les opérations Push et Pull pour synchroniser le magasin local avec la base de données du service mobile. Vous pouvez tester le client Windows Store 8.1 ou Windows Phone 8.1. Les captures d'écran ci-dessous montrent le client Windows Store 8.1. 
-
-1. Dans Visual Studio, appuyez sur **F5** pour régénérer et exécuter l'application. Notez que les données ont le même aspect que dans le scénario hors connexion, bien que l'application soit à présent connectée au service mobile. Cela s'explique par le fait que l'application fonctionne toujours avec la table " IMobileServiceSyncTable " qui pointe sur le magasin local.
-
-    ![][4]
-
-2. Connectez-vous au portail de gestion Microsoft Azure et examinez la base de données de votre service mobile. Si votre service utilise le service principal JavaScript pour les services mobiles, vous pouvez accéder aux données à partir de l'onglet **Données** du service mobile. Si vous utilisez le service principal .NET pour votre service mobile, vous pouvez cliquer sur le bouton **Gérer** pour votre base de données dans l'extension SQL Azure afin d'exécuter une requête sur la base de votre table.
+    Si vous utilisez le .NET principal pour votre service mobile, dans Visual Studio, accédez à **Explorateur de serveurs** -> **Azure** -> **Bases de données SQL**. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez **Ouvrir dans l'Explorateur d'objets SQL Server**.
 
     Notez que les données n'ont pas été synchronisées entre la base de données et le magasin local.
 
     ![][6]
 
-3. Dans l'application, appuyez sur le bouton **Push**. Ainsi, l'application appelle " MobileServiceClient.SyncContext.PushAsync ". Suite à l'opération Push, la base de données du service mobile reçoit les données à partir du magasin. Toutefois, le magasin local ne reçoit pas les éléments à partir de la base de données du service mobile.
+4. Dans l'application, cliquez sur le bouton **Actualiser**. L'application appelle  `PushAsync` et  `PullAsync`. Cette opération push envoie les éléments de magasin local au service mobile, puis récupère les nouvelles données du service mobile.
 
-    Une opération Push est exécutée à partir de " MobileServiceClient.SyncContext " plutôt que " IMobileServicesSyncTable " et transmet par Push les modifications à toutes les tables associées à ce contexte de synchronisation. Ceci permet de prendre en compte les scénarios dans lesquels des relations existent entre les tables.
+    Une opération push est exécutée à partir de  `MobileServiceClient.SyncContext` plutôt que  `IMobileServicesSyncTable` et transmet par push les modifications à toutes les tables associées à ce contexte de synchronisation. Ceci permet de prendre en compte les scénarios dans lesquels des relations existent entre les tables.
 
-€
+    ![][7]
 
-4. Dans l'application, cochez la case en regard de quelques éléments pour les exécuter dans le magasin local. 
+5. Dans l'application, cochez la case en regard de quelques éléments pour les exécuter dans le magasin local. 
 
     ![][8]
 
-5. Cette fois, appuyez sur le bouton **Pull** dans l'application. L'application appelle " IMobileServiceSyncTable.PullAsync() " et " RefreshTodoItems ".  Notez que toutes les données de la base de données du service mobile ont été transmises par Pull vers le magasin local et affichées dans l'application. Toutefois, remarquez également que toutes les données dans le magasin local étaient toujours envoyées par Push vers la base de données du service mobile. La raison en est qu'une **opération Pull commence toujours par effectuer une opération Push**. Cela a pour but de garantir que toutes les tables dans le magasin local, ainsi que les relations, restent synchronisées.
- 
-    ![][9]
+6. Activez de nouveau le bouton **Actualiser**, ce qui déclenche l'appel de  `SyncAsync`.  `SyncAsync` appelle les opérations push et pull, mais dans ce cas nous aurions pu supprimé l'appel vers  `PushAsync`. La raison en est qu'une **opération Pull commence toujours par effectuer une opération Push**. Cela a pour but de garantir que toutes les tables dans le magasin local, ainsi que les relations, restent cohérentes.
 
     ![][10] 
   
 
 ##Résumé
 
-Pour pouvoir prendre en charge les fonctionnalités hors connexion des services mobiles, nous avons utilisé l'interface " IMobileServiceSyncTable " et initialisé " MobileServiceClient.SyncContext " avec un magasin local. Dans ce cas, le magasin local était une base de données SQLite.
-
-Les opérations CRUD normales pour les services mobiles fonctionnent comme si l'application était toujours connectée, mais toutes les opérations ont lieu sur base du magasin local.
-
-Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avons utilisé les méthodes " IMobileServiceSyncTable.PullAsync " et " MobileServiceClient.SyncContext.PushAsync ".
-
-*  Pour transmettre par Push les modifications au serveur, nous avons appelé " IMobileServiceSyncContext.PushAsync() ". Cette méthode est membre de " IMobileServicesSyncContext " à la place de la table de synchronisation parce qu'elle envoie par Push les modifications sur toutes les tables :
-
-    Seuls les enregistrements qui ont été modifiés d'une certaine façon en local (par le biais d'opérations CRUD) seront envoyés au serveur.
-   
-* Pour extraire les données d'une table sur le serveur vers l'application, nous avons appelé " IMobileServiceSyncTable.PullAsync ".
-
-    Une opération Pull émet toujours d'abord une opération Push. Cela a pour but de garantir que toutes les tables dans le magasin local, ainsi que les relations, restent synchronisées.
-
-    Les surcharges de " PullAsync() " permettent également de spécifier une requête pour prendre en charge la synchronisation incrémentielle. Si une requête n'est pas transmise, " PullAsync() " extrait toutes les lignes de la table (ou requête) correspondante. Vous pouvez transmettre la requête pour filtrer uniquement les modifications dont votre application doit effectuer la synchronisation.
-
+[AZURE.INCLUDE [mobile-services-offline-summary-csharp](../includes/mobile-services-offline-summary-csharp.md)]
 
 ## Étapes suivantes
 
 * [Gestion des conflits liés à la prise en charge hors connexion de Mobile Services]
 
+* [Utilisation de la suppression réversible dans Mobile Services][Suppression réversible]
+
 <!-- Anchors. -->
-[Mise à jour de l'application pour prendre en charge les fonctionnalités hors connexion] : #enable-offline-app
-[Test de l'application dans un scénario hors connexion] : #test-offline-app
-[Mise à jour de l'application pour reconnecter votre service mobile] : #update-online-app
-[Test de l'application connectée au service mobile] : #test-online-app
-[Étapes suivantes] : #next-steps
+[Mise à jour de l'application pour prendre en charge les fonctionnalités hors connexion]: #enable-offline-app
+[Mise à jour du comportement de synchronisation de l'application]: #update-sync
+[Mise à jour de l'application pour reconnecter votre service mobile]: #update-online-app
+[Étapes suivantes]:#next-steps
 
 <!-- Images -->
 [0]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-todoitem-data-browse.png
 [1]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
 [2]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-sqlitestore-nuget.png
-[3]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-sqlitepcl-nuget.png
-[4]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-offline-app-run1.png
-[5]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-online-app-run1.png
 [6]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-data-browse.png
 [7]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-data-browse2.png
 [8]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-online-app-run2.png
-[9]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-online-app-run3.png
 [10]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-data-browse3.png
 [11]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-add-wp81-reference-sqlite-dialog.png
 [12]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/new-synchandler-class.png
@@ -366,18 +268,20 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 
 
 <!-- URLs. -->
-[Gestion des conflits liés à la prise en charge hors connexion de Mobile Services] : /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/ 
-[Exemple hors connexion TodoList] : http://go.microsoft.com/fwlink/?LinkId=394777
-[Prise en main de Mobile Services] : /fr-fr/develop/mobile/tutorials/get-started/#create-new-service
-[Prise en main] : /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Prise en main des données] : /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-[Prise en main de Mobile Services] : /fr-fr/documentation/articles/mobile-services-windows-store-get-started/
-[SQLite pour Windows 8.1] : http://go.microsoft.com/fwlink/?LinkId=394776
-[SQLite pour Windows Phone 8.1] : http://go.microsoft.com/fwlink/?LinkId=397953
-[Didacticiel Windows Phone 8 pour Visual Studio 2012] : /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-offline-data/
+[Gestion des conflits liés à la prise en charge hors connexion de Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/ 
+[Exemple TodoList hors connexion]: http://go.microsoft.com/fwlink/?LinkId=394777
+[Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started/#create-new-service
+[Prise en main]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
+[Prise en main des données]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
+[Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-store-get-started/
+[SQLite pour Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
+[SQLite pour Windows Phone 8,1]: http://go.microsoft.com/fwlink/?LinkId=397953
+[Didacticiel Windows Phone 8 pour Visual Studio 2012]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-offline-data/
+[Suppression réversible]: /fr-fr/documentation/articles/mobile-services-using-soft-delete/
 
 
-[Nuget - Kit de développement logiciel (SDK) Mobile Services] : http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
-[Nuget - magasin SQLite] : http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
+[Nuget - Kit de développement logiciel (SDK) Mobile Services]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
+[Nuget - magasin SQLite]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

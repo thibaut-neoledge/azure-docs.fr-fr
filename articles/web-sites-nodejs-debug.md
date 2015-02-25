@@ -1,12 +1,26 @@
-<properties urlDisplayName="Debug Websites (Node)" pageTitle="Comment déboguer des sites web Azure dans Node.js " metaKeywords="debug website azure, debugging azure, troubleshooting azure web site, troubleshoot azure website node" description="Découvrez comment déboguer un site web Azure dans Node.js." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Comment déboguer des sites Web Azure dans Node.js" 
+	description="Découvrez comment déboguer un site Web Azure dans Node.js." 
+	services="web-sites" 
+	documentationCenter="nodejs" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr"/>
 
 
 
 
 
-#Débogage d'une application Node.js dans Sites Web Azure
+#Débogage d'une application Node.js dans Azure Web Sites
 
 Azure fournit un outil de diagnostic intégré qui vous aide à déboguer les applications Node.js hébergées dans Sites Web Azure. Cet article vous explique comment activer la journalisation de stdout et de stderr, comment afficher les informations sur l'erreur dans le navigateur et comment télécharger et afficher les fichiers journaux.
 
@@ -14,7 +28,7 @@ Le diagnostic des applications Node.js hébergées sur Azure est fourni par [IIS
 
 ##<a id="enablelogging"></a>Activation de la journalisation
 
-Par défaut, Sites Web Azure capture uniquement les informations de diagnostic concernant les déploiements, comme lorsque vous déployez un site web à l'aide de Git. Cette information est utile si vous rencontrez un problème lors du déploiement, comme un échec lors de l'installation d'un module référencé dans **package.json** ou si vous utilisez un script de déploiement personnalisé.
+Par défaut, Sites Web Azure capture uniquement les informations de diagnostic concernant les déploiements, comme lorsque vous déployez un site Web à l'aide de Git. Cette information est utile si vous rencontrez un problème lors du déploiement, comme un échec lors de l'installation d'un module référencé dans **package.json** ou si vous utilisez un script de déploiement personnalisé.
 
 Pour activer la journalisation des flux stdout et stderr, vous devez créer un fichier **IISNode.yml** à la racine de votre application Node.js et ajouter ce qui suit :
 
@@ -28,30 +42,21 @@ Le fichier **IISNode.yml** peut également être utilisé pour contrôler si les
 
 Une fois cette option activée, IISNode renvoie les derniers 64 Ko d'informations envoyées à stderr plutôt qu'une erreur conviviale comme " une erreur de serveur interne s'est produite ".
 
-<div class="dev-callout">
-<strong>Remarque</strong>
-<p>Bien que devErrorsEnabled soit utile pour diagnostiquer les problèmes lors du développement, l'activer dans un environnement de production peut entraîner l'envoi d'erreurs de développement aux utilisateurs finaux.</p>
-</div>
+> [AZURE.NOTE] Bien que devErrorsEnabled soit utile pour diagnostiquer les problèmes lors du développement, l'activer dans un environnement de production peut entraîner l'envoi d'erreurs de développement aux utilisateurs finaux.
 
-Si le fichier **IISNode.yml** n'existe pas dans votre application, vous devez redémarrer votre site web après la publication de l'application mise à jour. Si vous modifiez simplement les paramètres dans un fichier **IISNode.yml** existant qui a été publié précédemment, aucun redémarrage n'est nécessaire.
+Si le fichier **IISNode.yml** n'existe pas dans votre application, vous devez redémarrer votre site Web après la publication de l'application mise à jour. Si vous modifiez simplement les paramètres dans un fichier **IISNode.yml** existant qui a été publié précédemment, aucun redémarrage n'est nécessaire.
 
-<div class="dev-callout">
-<strong>Remarque</strong>
-<p>Si votre site web a été créé à l'aide des outils en ligne de commande Azure ou des applets de commande Azure PowerShell, un fichier <strong>IISNode.yml</strong> est créé automatiquement.</p>
-</div>
+> [AZURE.NOTE] Si votre site Web a été créé à l'aide des outils en ligne de commande Azure ou des applets de commande Azure PowerShell, un fichier **IISNode.yml** par défaut est automatiquement créé.
 
-Vous pouvez redémarrer le site web en le sélectionnant dans le [portail de gestion Azure], puis en sélectionnant le bouton **Redémarrer** :
+Vous pouvez redémarrer le site Web en le sélectionnant dans le [portail de gestion Azure], puis en sélectionnant le bouton **Redémarrer** :
 
 ![restart button][restart-button]
 
-Si les outils en ligne de commande Azure sont installés dans votre environnement de développement, vous pouvez utiliser la commande suivante pour redémarrer le site web :
+Si les outils en ligne de commande Azure sont installés dans votre environnement de développement, vous pouvez utiliser la commande suivante pour redémarrer le site Web :
 
 	azure site restart [sitename]
 
-<div class="dev-callout">
-<strong>Remarque</strong>
-<p>Bien que loggingEnabled et devErrorsEnabled soient les options de configuration IISNode.yml les plus fréquemment utilisées pour la capture des informations de diagnostic, IISNode.yml peut être utilisé pour configurer diverses options pour votre environnement d'hébergement. Pour obtenir une liste complète des options de configuration, consultez le fichier <a href="https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml">iisnode_schema.xml</a> .</p>
-</div>
+> [AZURE.NOTE] Bien que loggingEnabled et devErrorsEnabled soient les options de configuration IISNode.yml les plus fréquemment utilisées pour la capture des informations de diagnostic, IISNode.yml peut être utilisé pour configurer diverses options pour votre environnement d'hébergement. Pour une liste complète des options de configuration, consultez le fichier [iisnode_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml).
 
 ##<a id="viewlogs"></a>Accès aux journaux
 
@@ -59,16 +64,13 @@ Il existe trois manières d'accéder aux journaux de diagnostic : à l'aide du p
 
 	npm install azure-cli -g
 
-Une fois installés, ils sont accessibles à l'aide de la commande " azure ". Les outils en ligne de commande doivent d'abord être configurés pour utiliser votre abonnement Azure. Pour plus d'informations sur la réalisation de cette tâche, consultez la section **Téléchargement et importation des paramètres de publication** de l'article [Utilisation des outils en ligne de commande Azure].
+Une fois installés, ils sont accessibles à l'aide de la commande 'azure'. Les outils en ligne de commande doivent d'abord être configurés pour utiliser votre abonnement Azure. Pour plus d'informations sur la réalisation de cette tâche, consultez la section **Téléchargement et importation des paramètres de publication** de l'article [Utilisation des outils en ligne de commande Azure].
 
 ###FTP
 
-Pour accéder aux informations de diagnostic via FTP, accédez au [portail Azure], sélectionnez votre site web, puis sélectionnez le **Tableau de bord**. Dans la section **liens rapides**, les liens **Journaux de diagnostic FTP** et **Journaux de diagnostic FTPS** permettent d'accéder aux journaux à l'aide du protocole FTP.
+Pour accéder aux informations de diagnostic via FTP, accédez au [portail Azure], sélectionnez votre site Web, puis sélectionnez le **Tableau de bord**. Dans la section **liens rapides**, les liens **Journaux de diagnostic FTP** et **Journaux de diagnostic FTPS** permettent d'accéder aux journaux à l'aide du protocole FTP.
 
-<div class="dev-callout">
-<strong>Remarque</strong>
-<p>Si vous n'avez pas encore configuré le nom d'utilisateur et le mot de passe pour FTP ou le déploiement, vous pouvez le faire à partir de la page de gestion <strong>Démarrage rapide</strong> en sélectionnant <strong>Configurer les informations d'identification du déploiement</strong>.</p>
-</div>
+> [AZURE.NOTE] Si vous n'avez pas déjà configuré un nom d'utilisateur et un mot de passe pour le FTP ou le déploiement, vous pouvez le faire à partir de la page de gestion **Démarrage rapide** en sélectionnant **Configurer les informations d'identification du déploiement**.
 
 L'URL FTP renvoyée dans le tableau de bord concerne le répertoire **LogFiles**, qui contient les sous-répertoires suivants :
 
@@ -109,12 +111,13 @@ Pour plus d'informations sur l'utilisation des modules sur Azure, consultez la p
 Pour plus d'informations sur la spécification d'une version Node.js de votre application, consultez la page [Spécification d'une version de Node.js dans une application Azure].
 
 [IISNode]: https://github.com/tjanczuk/iisnode
-[Fichier Lisez-moi IISNode]: https://github.com/tjanczuk/iisnode#readme
-[Comment utiliser les outils en ligne de commande Azure]: /fr-fr/documentation/articles/xplat-cli/
+[IISNode Readme]: https://github.com/tjanczuk/iisnode#readme
+[Utilisation des outils en ligne de commande Azure]: /fr-fr/documentation/articles/xplat-cli/
 [Utilisation de modules Node.js avec des applications Azure]: /fr-fr/documentation/articles/nodejs-use-node-modules-azure-apps/
 [Spécification d'une version Node.js dans une application Azure]: /fr-fr/documentation/articles/nodejs-specify-node-version-azure-apps/
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

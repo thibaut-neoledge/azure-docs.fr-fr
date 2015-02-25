@@ -1,12 +1,26 @@
-<properties title="Using Mobile Services with Cordova Projects" pageTitle="" metaKeywords="Azure, Cordova, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen" />
+﻿<properties 
+	pageTitle="" 
+	description="Using mobile services in Cordova projects" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="patshea" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/11/2014" ms.author="ghogen" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/11/2014" 
+	ms.author="patshea"/>
 
 ### Utilisation de Mobile Services avec les projets Cordova dans Visual Studio 2015 Preview
 
 Pour utiliser Azure Mobile Services dans les projets Cordova dans Visual Studio 2015 Preview, vous devez appliquer la solution de contournement suivante.
 
-1. Dans votre projet Cordova ouvert dans Visual Studio 2015 Preview, ouvrez Config.xml, puis sous l'onglet **Plug-ins**, activez le plug-in **Windows Azure Mobile Services**.<br/>
+1. Dans votre projet Visual Studio 2015 Preview, ouvrez Config.xml, puis sous l'onglet **Plug-ins**, activez le plug-in **Windows Azure Mobile Services**.<br/>
 ![][1]
 
 2. Dans index.html, supprimez les lignes qui font référence à **MobileServices.Web-1.2.2.min.js**.<br/>
@@ -48,3 +62,5 @@ Pour utiliser Azure Mobile Services dans les projets Cordova dans Visual Studio 
 		});
 
 [1]: ./media/vs-mobile-services-cordova-vs2015/AzureMobileServicesPlugIn.png 
+
+<!--HONumber=42-->

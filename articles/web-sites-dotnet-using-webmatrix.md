@@ -1,23 +1,37 @@
-﻿<properties urlDisplayName="Website with WebMatrix" pageTitle="Site Web .NET avec WebMatrix - Didacticiels Azure" metaKeywords="WebMatrix Azure, WebMatrix Azure, site Web Azure WebMatrix, site Web Azure WebMatrix, Web Matrix Azure, WebMatrix Azure" description="Découvrez comment développer et déployer un site web Azure avec WebMatrix." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Develop and deploy a website with Microsoft WebMatrix" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Site Web .NET avec WebMatrix - Didacticiels Azure" 
+	description="Découvrez comment développer et déployer un site Web Azure avec WebMatrix." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/27/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/27/2014" 
+	ms.author="tomfitz"/>
 
 
 
 
 
-#Développer et déployer un site web avec Microsoft WebMatrix
-Ce guide explique comment utiliser Microsoft WebMatrix pour créer et déployer un site web sur Azure.  Vous allez utiliser un exemple d'application à partir d'un modèle de site WebMatrix.
+#Développer et déployer un site Web avec Microsoft WebMatrix
+Ce guide explique comment utiliser Microsoft WebMatrix pour créer et déployer un site Web sur Azure.  Vous allez utiliser un exemple d'application à partir d'un modèle de site WebMatrix.
 
 Vous apprendrez à effectuer les opérations suivantes :
 
 * vous connecter à Azure à partir de WebMatrix ;
 * créer un site à l'aide d'un modèle intégré avec WebMatrix ; 
-* déployer le site web personnalisé directement à partir de WebMatrix sur Azure.
+* déployer le site Web personnalisé directement à partir de WebMatrix sur Azure.
 
-> [WACOM.NOTE]
-> Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Vous pouvez <a href="http://azure.microsoft.com/fr-fr/pricing/member-offers/msdn-benefits-details/">activer vos avantages d'abonné MSDN</a> ou <a href="http://azure.microsoft.com/fr-fr/pricing/free-trial/">vous inscrire pour obtenir une version d'évaluation gratuite</a>.
-> Si vous souhaitez prendre en main Sites Web Azure avant d'ouvrir un compte, accédez à <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, où vous pouvez créer immédiatement et gratuitement un site de démarrage ASP.NET à courte durée de vie dans Sites Web Azure . Carte de crédit non nécessaire, aucun engagement.
+> [AZURE.NOTE]
+> Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Vous pouvez <a href="http://azure.microsoft.com/fr-fr/pricing/member-offers/msdn-benefits-details/">activer les avantages de votre abonnement MSDN</a> ou <a href="http://azure.microsoft.com/fr-fr/pricing/free-trial/">obtenir une version d'évaluation gratuite</a>.
+> Si vous voulez prendre en main Azure Web Sites avant de créer un compte, accédez à <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, où vous pouvez immédiatement et gratuitement créer un site de départ ASP.NET de courte durée dans Azure Web Sites. Aucune carte de crédit n'est requise, vous ne prenez aucun engagement.
 
 ## Connexion à Azure
 
@@ -41,11 +55,11 @@ Vous apprendrez à effectuer les opérations suivantes :
 
 	![Create Site from Template][sitefromtemplatedetails]
 
-3. Si vous êtes connecté à Azure, vous avez maintenant la possibilité de créer un site web Azure pour votre site local.  Choisissez un nom unique, puis sélectionnez le centre de données dans lequel vous voulez créer votre site : 
+3. Si vous êtes connecté à Azure, vous avez maintenant la possibilité de créer un site Web Azure pour votre site local.  Choisissez un nom unique, puis sélectionnez le centre de données dans lequel vous voulez créer votre site : 
 
 	![Create site on Azure][sitefromtemplateazure]
 
-	Une fois que WebMatrix a fini de créer le site web, l'environnement de développement intégré (IDE) WebMatrix s'affiche :
+	Une fois que WebMatrix a fini de créer le site Web, l'environnement de développement intégré (IDE) WebMatrix s'affiche :
 
 	![WebMatrix IDE][howtowebmatrixide] 
 
@@ -67,14 +81,14 @@ L'exemple " Bakery " comprend un formulaire de commande simulée qui envoie un m
 
     ![SendGrid added][binsendgrid]
 
-3. Ouvrez la page *Order.cshtml* en double-cliquant sur le nom du fichier.
+3. Ouvrez la page  *Order.cshtml* en double-cliquant sur le nom du fichier.
 
 	![][modify2]
 
 4. En haut du fichier, ajoutez le code ci-dessous :
 
         @using SendGrid;
-        @using System.Net.Mail;
+        @using System.Net.Mail;	
 
 4. Recherchez le commentaire indiquant //SMTP Configuration for Hotmail et supprimez ou commentez le code pour l'utilisation de WebMail.
 
@@ -137,30 +151,30 @@ L'exemple " Bakery " comprend un formulaire de commande simulée qui envoie un m
 
 7. Cliquez sur **Order Now** sur l'un des produits et envoyez-vous une commande.
 
-8. Vérifiez vos courriers électroniques et assurez-vous de recevoir la confirmation de la commande. Si vous rencontrez des difficultés avec l'envoi du courrier électronique, consultez la section [Problèmes avec l'envoi de courrier électronique du guide de résolution des problèmes ASP.NET Web Pages (Razor)][sendmailissues].
+8. Vérifiez vos courriers électroniques et assurez-vous de recevoir la confirmation de la commande. Si vous rencontrez des difficultés avec l'envoi du courrier électronique, consultez la section [Problèmes avec l'envoi de courrier électronique][sendmailissues] du guide de résolution des problèmes ASP.NET Web Pages (Razor).
  
 
-## Déployer le site web personnalisé à partir de WebMatrix sur Azure
+## Déployer le site Web personnalisé à partir de WebMatrix sur Azure
 
 1. Dans WebMatrix, cliquez sur **Publier** dans le ruban **Accueil** pour afficher la boîte de dialogue **Publier l'aperçu** pour le site Web.
 
 	![WebMatrix Publish Preview][howtopublishpreview]
 
-2. Cochez la case en regard de bakery.sdf, puis cliquez sur **Continuer**.  Une fois la publication terminée, l'URL du site web mis à jour sur Azure s'affiche en bas de l'IDE WebMatrix.  
+2. Cochez la case en regard de bakery.sdf, puis cliquez sur **Continuer**.  Une fois la publication terminée, l'URL du site Web mis à jour sur Azure s'affiche en bas de l'IDE WebMatrix.  
 
 	![Publishing Complete][publishcomplete]
 
-3. Cliquez sur le lien pour ouvrir le site web dans votre navigateur :
+3. Cliquez sur le lien pour ouvrir le site Web dans votre navigateur :
 
 	![Bakery Sample Site][bakerysample]
 
-	Vous pouvez également trouver l'URL du site Web dans le portail Azure en cliquant sur **Sites Web** pour afficher tous les sites Web de votre abonnement. L'URL de chaque site web s'affiche dans la colonne URL de la page des sites web.
+	Vous pouvez également trouver l'URL du site Web dans le portail Azure en cliquant sur **Sites Web** pour afficher tous les sites Web de votre abonnement. L'URL de chaque site Web s'affiche dans la colonne URL de la page des sites Web.
 
-## Modifier le site web et le republier sur le site web Azure
+## Modifier le site Web et le republier sur le site Web Azure
 
-Vous pouvez utiliser WebMatrix pour changer le site et le republier sur votre site web Azure. Dans la procédure suivante, vous allez ajouter une case à cocher pour indiquer si la commande est un cadeau.
+Vous pouvez utiliser WebMatrix pour changer le site et le republier sur votre site Web Azure. Dans la procédure suivante, vous allez ajouter une case à cocher pour indiquer si la commande est un cadeau.
 
-1. Ouvrez la page *Order.cshtml*.
+1. Ouvrez la page  *Order.cshtml*.
 
 2. Recherchez la définition de formulaire de la classe " shiping ". Insérez le code suivant juste après le bloc &lt;li&gt;.
 		
@@ -173,7 +187,7 @@ Vous pouvez utiliser WebMatrix pour changer le site et le republier sur votre si
 
 	![][modify5]
 
-3. Recherchez la ligne " var shipping = Request["orderShipping"]; " dans le fichier et insérez la ligne de code suivante juste après.
+3. Recherchez la ligne "var shipping = Request["orderShipping"];" dans le fichier et insérez la ligne de code suivante juste après.
 
 		var gift = Request["isGift"];
 
@@ -183,7 +197,7 @@ Vous pouvez utiliser WebMatrix pour changer le site et le republier sur votre si
 			body += "This is a gift." + "<br/>";
 		}
 
-	Votre fichier *order.cshtml* doit ressembler à l'image suivante.
+	Votre fichier  *order.cshtml* doit ressembler à l'image suivante.
 
 	![][modify6]
 
@@ -195,11 +209,11 @@ Vous pouvez utiliser WebMatrix pour changer le site et le republier sur votre si
 
 7. Dans la boîte de dialogue **Publier l'aperçu**, vérifiez que les deux fichiers Order.cshtml sont activés, puis cliquez sur Continuer.
 
-8. Cliquez sur le lien pour ouvrir le site web dans votre navigateur et tester la mise à jour sur votre site web Azure.
+8. Cliquez sur le lien pour ouvrir le site Web dans votre navigateur et tester la mise à jour sur votre site Web Azure.
 
 # Étapes suivantes
 
-Vous savez désormais comment créer et déployer un site web de WebMatrix vers Azure. Pour en savoir plus sur WebMatrix, consultez les ressources suivantes :
+Vous savez désormais comment créer et déployer un site Web de WebMatrix vers Azure. Pour en savoir plus sur WebMatrix, consultez les ressources suivantes :
 
 * [WebMatrix pour Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
 
@@ -236,4 +250,5 @@ Vous savez désormais comment créer et déployer un site web de WebMatrix vers 
 [sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email
 [sendgridexample]: http://azure.microsoft.com/fr-fr/documentation/articles/sendgrid-dotnet-how-to-send-email/
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

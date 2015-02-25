@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Optimistic concurrency" pageTitle="Gestion des conflits d'écriture de base de données avec l'accès concurrentiel optimiste (Windows Store) | Centre de développement mobile" metaKeywords="" writer = "wesmc" description="Découvrez comment gérer les conflits d'écriture de base de données sur le serveur et dans votre application Windows Store." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conflicts" authors="wesmc" manager="dwrede" />
+﻿<properties pageTitle="Gestion des conflits d'écriture dans une base de données à l'aide du contrôle d'accès concurrentiel optimiste (Windows Store) | Centre de développement mobile" writer="wesmc" description="Learn how to handle database write conflicts on both the server and in your Windows Store application." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
 
 # Gestion des conflits d'écriture dans une base de données
 
@@ -23,12 +23,12 @@ Ce didacticiel requiert les éléments suivants :
 
 + Microsoft Visual Studio 2013 Express pour Windows ou version ultérieure.
 + Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez avoir suivi le didacticiel [Prise en main de Mobile Services] et téléchargé la version de langage JavaScript du projet de démarrage. 
-+ [Compte Azure.]
++ [Compte Azure]
 + Package NuGet Microsoft Azure Mobile Services 1.1.5 ou version ultérieure. Pour obtenir la dernière version, procédez comme suit :
-	1. Dans Visual Studio, ouvrez le projet, cliquez dessus avec le bouton droit dans l'Explorateur de solutions, puis cliquez sur **Gérer les packages NuGet**. 
+	1. Dans Visual Studio, ouvrez le projet, cliquez dessus avec le bouton droit dans l'Explorateur de solutions, puis cliquez sur **Gérer les packages Nuget**. 
 
 
-	2. Développez **En ligne**, puis cliquez sur **Microsoft et .NET**. Dans la zone de texte de recherche, entrez **WindowsAzure.MobileServices.WinJS**. Cliquez sur **Installer** dans le package NuGet **Windows Azure Mobile Services pour WinJS**.
+	2. Développez **En ligne**, puis cliquez sur **Microsoft et .NET**. Dans la zone de texte de recherche, entrez **WindowsAzure.MobileServices.WinJS**. Cliquez sur **Installer** dans la package NuGet **Windows Azure Mobile Services pour WinJS**.
 
 		![][20]
 
@@ -37,11 +37,11 @@ Ce didacticiel requiert les éléments suivants :
 
 <h2><a name="uiupdate"></a>Mise à jour de l'application pour autoriser les mises à jour</h2>
 
-Dans cette section, vous allez mettre à jour l'interface utilisateur pour autoriser la mise à jour du texte de chaque élément. Le modèle de liaison comportera une case à cocher et un contrôle de classe de texte pour chaque élément dans la table de base de données. Vous pourrez mettre à jour le champ texte de TodoItem. L'application gérera l'événement `keydown` de façon à ce que l'élément puisse être mis à jour en appuyant sur la touche **Entrée**.
+Dans cette section, vous allez mettre à jour l'interface utilisateur pour autoriser la mise à jour du texte de chaque élément. Le modèle de liaison comportera une case à cocher et un contrôle de classe de texte pour chaque élément dans la table de base de données. Vous pourrez mettre à jour le champ texte de TodoItem. L'application gérera l'événement  `keydown` de façon à ce que l'élément puisse être mis à jour en appuyant sur la touche **Entrée**.
 
 
 1. Dans Visual Studio, ouvrez la version de langage JavaScript du projet TodoList que vous avez téléchargé dans le didacticiel [Prise en main de Mobile Services].
-2. Dans l'Explorateur de solutions de Visual Studio, ouvrez default.html et remplacez la définition de balise div `TemplateItem` par la balise div illustrée ci-dessous, puis enregistrez la modification. Cette action ajoute un contrôle de zone de texte vous permettant de modifier le texte d'un élément TodoItem.
+2. Dans l'Explorateur de solutions de Visual Studio, ouvrez default.html et remplacez la définition de balise div  `TemplateItem` par la balise div illustrée ci-dessous, puis enregistrez la modification. Cette action ajoute un contrôle de zone de texte vous permettant de modifier le texte d'un élément TodoItem.
 
         <div id="TemplateItem" data-win-control="WinJS.Binding.Template">
           <div style="display: -ms-grid; -ms-grid-columns: auto 1fr">
@@ -53,7 +53,7 @@ Dans cette section, vous allez mettre à jour l'interface utilisateur pour autor
         </div>
 
 
-3. Dans l'Explorateur de solutions pour Visual Studio, développez le dossier **js**. Ouvrez le fichier default.js et remplacez la fonction `updateTodoItem` par la définition suivante qui ne supprimera pas les éléments mis à jour dans l'interface utilisateur.
+3. Dans l'Explorateur de solutions pour Visual Studio, développez le dossier **js**. Ouvrez le fichier default.js et remplacez la fonction  `updateTodoItem` par la définition suivante qui ne supprimera pas les éléments mis à jour dans l'interface utilisateur.
 
         var updateTodoItem = function (todoItem) {
           // This code takes a freshly completed TodoItem and updates the database. 
@@ -61,7 +61,7 @@ Dans cette section, vous allez mettre à jour l'interface utilisateur pour autor
           };
 
 
-4. Dans le fichier default.js, l'application ajoute le gestionnaire d'événement `keydown` suivant de façon à ce que l'élément puisse être mis à jour en appuyant sur la touche **Entrée**.
+4. Dans le fichier default.js, ajoutez le gestionnaire d'événements suivant pour l'événement  `keydown` de façon à ce que ce dernier puisse être mis à jour en appuyant sur la touche **Entrée**.
 
         listItems.onkeydown = function (eventArgs) {
           if (eventArgs.key == "Enter") {
@@ -75,15 +75,15 @@ Dans cette section, vous allez mettre à jour l'interface utilisateur pour autor
 
 <h2><a name="enableOC"></a>Activation de la détection de conflits dans votre application</h2>
 
-Azure Mobile Services prend en charge le contrôle d'accès concurrentiel optimiste en suivant les modifications apportées à chaque élément en utilisant la colonne de propriété système `__version` ajoutée à chaque table. Dans cette section, nous allons permettre à l'application de détecter ces conflits d'écriture via la propriété système `__version`. Une fois la propriété système activée dans la table todoTable, l'application sera notifiée par une exception `MobileServicePreconditionFailedException` lors d'une tentative de mise à jour si l'enregistrement a été modifié depuis la dernière requête. L'application aura ensuite la possibilité de valider la modification dans la base de données ou de laisser intacte la dernière modification apportée à la base de données. Pour plus d'informations sur les propriétés système pour Mobile Services, consultez la page [Propriétés système].
+Azure Mobile Services prend en charge le contrôle d'accès concurrentiel optimiste en suivant les modifications apportées à chaque élément en utilisant la colonne de propriété système " __version " ajoutée à chaque table. Dans cette section, nous allons permettre à l'application de détecter ces conflits d'écriture via la propriété système " __version ". Une fois la propriété système activée dans la table todoTable, l'application sera notifiée par une exception  `MobileServicePreconditionFailedException` lors d'une tentative de mise à jour si l'enregistrement a été modifié depuis la dernière requête. L'application aura ensuite la possibilité de valider la modification dans la base de données ou de laisser intacte la dernière modification apportée à la base de données. Pour plus d'informations sur les propriétés système pour Mobile Services, consultez la page [Propriétés système].
 
-1. Dans le fichier default.js, sous la déclaration de la variable `todoTable` , ajoutez le code pour inclure la propriété système **__version** permettant la prise en charge de la détection des conflits d'écriture.
+1. Dans le fichier default.js, sous la déclaration de la variable  `todoTable`, ajoutez le code pour inclure la propriété système **__version** permettant la prise en charge de la détection des conflits d'écriture.
 
         var todoTable = client.getTable('TodoItem');
         todoTable.systemProperties |= WindowsAzure.MobileServiceTable.SystemProperties.Version;
 
 
-2. En ajoutant la propriété système `Version` aux propriétés système de la table, l'application est notifiée par une exception `MobileServicePreconditionFailedException` lors d'une mise à jour si l'enregistrement a été modifié depuis la dernière requête. Cette exception sera interceptée dans JavaScript au moyen d'une fonction d'erreur. L'erreur inclut la dernière version de l'élément en provenance du serveur permettant de résoudre les conflits. Dans default.js, mettez à jour la fonction `updateTodoItem` pour intercepter l'erreur et appeler une fonction `resolveDatabaseConflict`.
+2. En ajoutant la propriété système  `Version` aux propriétés système de la table, l'application est notifiée par une exception  `MobileServicePreconditionFailedException` lors d'une mise à jour si l'enregistrement a été modifié depuis la dernière requête. Cette exception sera interceptée dans JavaScript au moyen d'une fonction d'erreur. L'erreur inclut la dernière version de l'élément en provenance du serveur permettant de résoudre les conflits. Dans default.js, mettez à jour la fonction  `updateTodoItem` pour intercepter l'erreur et appeler une fonction  `resolveDatabaseConflict`.
 
         var updateTodoItem = function (todoItem) {
           // This code takes a freshly completed TodoItem and updates the database. 
@@ -106,7 +106,7 @@ Azure Mobile Services prend en charge le contrôle d'accès concurrentiel optimi
         };
 
 
-3. Dans default.js, ajoutez la définition de la fonction `resolveDatabaseConflict()` qui est référencée dans la fonction `updateTodoItem`. Notez que pour résoudre le conflit, vous devez définir la version de l'élément local sur la version mise à jour du serveur avant de mettre à jour l'élément dans la base de données. Sinon, un conflit se répétera sans cesse.
+3. Dans default.js, ajoutez la définition de la fonction  `resolveDatabaseConflict()` qui est référencée dans la fonction  `updateTodoItem`. Notez que pour résoudre le conflit, vous devez définir la version de l'élément local sur la version mise à jour du serveur avant de mettre à jour l'élément dans la base de données. Sinon, un conflit se répétera sans cesse.
 
 
         var resolveDatabaseConflict = function (localItem, serverItem) {
@@ -129,22 +129,22 @@ Azure Mobile Services prend en charge le contrôle d'accès concurrentiel optimi
 
 <h2><a name="test-app"></a>Test des conflits d'écriture dans la base de données de l'application</h2>
 
-Dans cette section, vous allez créer un package d'application Windows Store pour installer cette application sur un deuxième ordinateur ou une deuxième machine virtuelle. Vous exécuterez ensuite l'application sur les deux machines en générant un conflit d'écriture afin de tester le code. Les deux instances de l'application tenteront de mettre à jour la propriété `text`  du même élément, ce qui contraindra l'utilisateur à résoudre le conflit.
+Dans cette section, vous allez créer un package d'application Windows Store pour installer cette application sur un deuxième ordinateur ou une deuxième machine virtuelle. Vous exécuterez ensuite l'application sur les deux machines en générant un conflit d'écriture afin de tester le code. Les deux instances de l'application tenteront de mettre à jour la propriété  `text` du même élément, ce qui contraindra l'utilisateur à résoudre le conflit.
 
 
-1. Créez un package d'application Windows Store pour l'installer sur un deuxième ordinateur ou une deuxième machine virtuelle. Pour ce faire, cliquez sur **Projet**->**Store**->**Créer des packages d'application** dans Visual Studio.
+1. Créez un package d'application Windows Store pour l'installer sur un deuxième ordinateur ou une deuxième machine virtuelle. Pour ce faire, cliquez sur **Projet**->**Windows Store**->**Créer des packages d'application** dans Visual Studio.
 
 	![][0]
 
-2. Sur l'écran Créer vos packages, cliquez sur **Non**, car ce package ne sera pas téléchargé vers le Windows Store. Cliquez ensuite sur **Suivant**.
+2. Dans l'écran Créer vos packages, cliquez sur **Non**, car ce package ne sera pas téléchargé vers le Windows Store. Cliquez ensuite sur **Suivant**.
 
 	![][1]
 
-3. Sur l'écran Sélectionner et configurer des packages, acceptez les paramètres par défaut et cliquez sur **Créer**.
+3. Dans l'écran Sélectionner et configurer des packages, acceptez les paramètres par défaut et cliquez sur **Créer**.
 
 	![][10]
 
-4. Sur l'écran Création de package terminée, cliquez sur le lien **Emplacement de sortie** pour ouvrir l'emplacement du package.
+4. Dans l'écran Création de package terminée, cliquez sur le lien **Emplacement de sortie** pour ouvrir l'emplacement du package.
 
    	![][11]
 
@@ -169,7 +169,7 @@ Dans cette section, vous allez créer un package d'application Windows Store pou
 	Instance 2 de l'application	
 	![][2]
 
-8. À ce stade, le dernier élément de l'instance 2 de l'application présente une ancienne version. Dans cette instance de l'application, entrez **Test Write 2** pour la propriété `text` du dernier élément et appuyez sur **Entrée** pour mettre à jour la base de données en utilisant une ancienne propriété `_version`.
+8. À ce stade, le dernier élément de l'instance 2 de l'application présente une ancienne version. Dans cette instance de l'application, entrez **Test Write 2** pour la propriété  `text` du dernier élément et appuyez sur **Entrée** pour mettre à jour la base de données en utilisant une ancienne propriété `_version`.
 
 	Instance 1 de l'application	
 	![][4]
@@ -177,7 +177,7 @@ Dans cette section, vous allez créer un package d'application Windows Store pou
 	Instance 2 de l'application	
 	![][5]
 
-9. Comme la valeur de `__version` utilisée lors de la tentative de mise à jour ne correspond pas à la valeur de __version` du serveur, le Kit de développement logiciel (SDK) Mobile Services génère une exception `MobileServicePreconditionFailedException` en tant qu'erreur dans la fonction `updateTodoItem` ce qui permet à l'application de résoudre ce conflit. Pour résoudre ce conflit, vous pouvez cliquer sur **Oui** pour valider les valeurs de l'instance 2. Vous pouvez également cliquer sur **Non** pour ignorer les valeurs de l'instance 2 et conserver les valeurs validées de l'instance 1 de l'application. 
+9. Comme la valeur `__version` utilisée pour la tentative de mise à jour ne correspond pas à la valeur `__version` du serveur, le Kit de développement logiciel (SDK) Mobile Services lève une exception  `MobileServicePreconditionFailedException` en tant qu'erreur dans la fonction  `updateTodoItem` qui permet à l'application de résoudre ce conflit. Pour résoudre le conflit, vous pouvez cliquer sur **Oui** pour valider les valeurs de l'instance 2. Sinon, cliquez sur **Non** pour ignorer les valeurs dans l'instance 2 et conserver les valeurs validées de l'instance 1 de l'application. 
 
 	Instance 1 de l'application	
 	![][4]
@@ -191,12 +191,12 @@ Dans cette section, vous allez créer un package d'application Windows Store pou
 
 Vous pouvez détecter et résoudre les conflits d'écriture dans les scripts serveur. Cela est judicieux lorsque vous pouvez résoudre le conflit en utilisant une logique à base de script au lieu d'une interaction utilisateur. Dans cette section, vous allez ajouter un script côté serveur à la table TodoItem pour l'application. Voici la logique que ce script utilisera pour résoudre les conflits :
 
-+  Si la valeur définie du champ ` complete` de TodoItem est true, il est considéré comme terminé et `text` ne peut plus être modifié.
-+  Si le champ ` complete` de TodoItem a toujours la valeur false, les tentatives de mise à jour de `text` sont validées.
++  Si la valeur du champ " complete " de TodoItem est définie sur true, il est considéré comme terminé et  `text` ne peut plus être modifié.
++  Si le champ " complete " de TodoItem a toujours la valeur false, les tentatives de mise à jour de  `text` sont validées.
 
 Les étapes suivantes vous accompagnent tout au long des procédures d'ajout et de test du script de mise à jour serveur.
 
-1. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur votre application. 
+1. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application. 
 
    	![][7]
 
@@ -225,7 +225,7 @@ Les étapes suivantes vous accompagnent tout au long des procédures d'ajout et 
 				}
 			}); 
 		}   
-5. Exécutez l'application **todolist** sur les deux machines. Modifiez la propriété `text` de TodoItem pour le dernier élément de l'instance 2 et appuyez sur **Entrée** de façon à ce que l'application mette à jour la base de données.
+5. Exécutez l'application **todolist** sur les deux machines. Modifiez la propriété  `text` de TodoItem pour le dernier élément de l'instance 2 et appuyez sur **Entrée** de façon à ce que l'application mette à jour la base de données.
 
 	Instance 1 de l'application	
 	![][4]
@@ -241,7 +241,7 @@ Les étapes suivantes vous accompagnent tout au long des procédures d'ajout et 
 	Instance 2 de l'application	
 	![][14]
 
-7. À noter qu'aucune exception n'a été rencontrée dans l'application, car le script serveur a résolu le conflit. Et comme l'élément n'était pas marqué comme terminé, la mise à jour a abouti. Pour vérifier que la mise à jour a vraiment abouti, cliquez sur **Refresh** dans l'instance 2 pour réinterroger la base de données.
+7. À noter qu'aucune exception n'a été rencontrée dans l'application, car le script serveur a résolu le conflit. Et comme l'élément n'était pas marqué comme terminé, la mise à jour a abouti. Pour vérifier que la mise à jour a vraiment abouti, cliquez sur **Refresh** (Actualiser) dans l'instance 2 pour réinterroger la base de données.
 
 	Instance 1 de l'application	
 	![][15]
@@ -269,19 +269,19 @@ Les étapes suivantes vous accompagnent tout au long des procédures d'ajout et 
 
 Ce didacticiel a montré comment permettre à une application Windows Store de gérer les conflits d'écriture lors de l'utilisation de données dans Mobile Services. Nous vous invitons ensuite à suivre l'un des didacticiels suivants de notre série sur les données :
 
-* [Validation et modification des données avec des scripts]
+* [Validation et modification de données à l'aide de scripts]
   <br/>En savoir plus sur l'utilisation des scripts serveur dans Mobile Services pour valider et modifier les données envoyées à partir de votre application.
 
-* [Affinage des requêtes à la pagination.]
-  <br/>En savoir plus sur l'utilisation de la pagination dans les requêtes pour contrôler la quantité de données traitées dans une seule requête.
+* [Affinage des requêtes au moyen de la pagination]
+  <br/>Découvrez comment utiliser la pagination dans les requêtes pour contrôler la quantité de données traitées dans une seule requête.
 
 Une fois que vous avez terminé la série sur les données, vous pouvez également essayer l'un des didacticiels Windows Store suivants :
 
 * [Prise en main de l'authentification] 
-  <br/>En savoir plus sur l'authentification des utilisateurs de votre application.
+  <br/>Découvrez comment authentifier les utilisateurs de votre application.
 
 * [Prise en main des notifications Push] 
-  <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application avec Mobile Services.
+  <br/>Apprenez à envoyer une notification Push très basique à votre application avec Mobile Services.
  
 <!-- Anchors. -->
 [Mise à jour de l'application pour autoriser les mises à jour]: #uiupdate
@@ -316,9 +316,9 @@ Une fois que vous avez terminé la série sur les données, vous pouvez égaleme
 <!-- URLs. -->
 [Contrôle d'accès concurrentiel optimiste]: http://go.microsoft.com/fwlink/?LinkId=330935
 [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started/#create-new-service
-[Compte Azure.]: http://www.windowsazure.com/fr-fr/pricing/free-trial/
-[Validation et modification des données avec des scripts]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
-[Affinage des requêtes à la pagination.]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
+[Compte Azure]: http://www.windowsazure.com/fr-fr/pricing/free-trial/
+[Validation et modification de données à l'aide de scripts]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
+[Affinage des requêtes au moyen de la pagination]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
 [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started
 [Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
 [Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-push/
@@ -329,3 +329,6 @@ Une fois que vous avez terminé la série sur les données, vous pouvez égaleme
 [Kit de développement logiciel (SDK) Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Site d'exemples de code développeur]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
 [Propriétés système]: http://go.microsoft.com/fwlink/?LinkId=331143
+
+
+<!--HONumber=42-->

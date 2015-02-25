@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Set Up Computer for Media Services" pageTitle="Configuration de l'ordinateur pour Media Services - Azure" metaKeywords="" description="Familiarisez-vous avec les conditions préalables pour Media Services à l'aide du Kit de développement logiciel (SDK) Media Services pour .NET. Apprenez également à créer une application Visual Studio." metaCanonical="" services="media-services" documentationCenter="" title="Setting up your computer for Media Services development" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Configuration de l'ordinateur pour Media Services - Azure" description="Familiarisez-vous avec les conditions préalables pour Media Services à l'aide du Kit de développement logiciel (SDK) Media Services pour .NET. Apprenez également à créer une application Visual Studio." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
@@ -10,28 +10,28 @@
 
 Cette section contient les conditions préalables générales pour le développement Media Services à l'aide du Kit de développement logiciel (SDK) Media Services pour .NET. Elle montre également aux développeurs comment créer une application Visual Studio pour le développement à l'aide du Kit de développement logiciel (SDK) Media Services. 
 
-###Conditions préalables
+### Conditions préalables
 
 -   Un compte Media Services dans un abonnement Azure nouveau ou existant. Consultez la rubrique [Création d'un compte Media Services](../media-services-create-account/).
 -   Systèmes d'exploitation : Windows 7, Windows 2008 R2 ou Windows 8.
 -   .NET Framework 4.
 -   Visual Studio 2013, Visual Studio 2012 ou Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express). 
--   Utilisez le package [Nuget windowsazure.mediaservices](http://nuget.org/packages/windowsazure.mediaservices) pour installer le Kit de développement logiciel (SDK) Azure pour .NET. La section suivante montre comment utiliser **Nuget** pour installer le Kit de développement logiciel (SDK) Azure.
+-   Utilisez le package [NuGet windowsazure.mediaservices](http://nuget.org/packages/windowsazure.mediaservices) pour installer le Kit de développement logiciel (SDK) Azure pour .NET. La section suivante montre comment utiliser **NuGet** pour installer le Kit de développement logiciel (SDK) Azure.
   
 <h2><a name="setup-account"></a><span class="short header">Configuration d'un compte Azure pour Media Services</span></h2>
 
 Pour configurer votre compte Media Services, utilisez le portail de gestion Azure (recommandé). Consultez la rubrique [Création d'un compte Media Services][]. Une fois votre compte créé dans le portail de gestion, vous êtes prêt à configurer votre ordinateur pour le développement Media Services. 
 
-###Création d'une application dans Visual Studio
+### Création d'une application dans Visual Studio
 
 Cette section vous montre comment créer un projet dans Visual Studio et le configurer pour le développement Media Services.  Dans ce cas, le projet est une application console C# Windows, mais les étapes de configuration présentées ici s'appliquent aux autres types de projets que vous pouvez créer pour les applications Media Services (par exemple, une application Windows Forms ou Web ASP.NET).
 
-   1. Créez une **application console** C# dans Visual Studio 2013, Visual Studio 2012 ou Visual Studio 2010 SP1. Entrez le **nom**, l'**emplacement** et le **nom de la solution**, puis cliquez sur **OK**.
+   1. Créez une nouvelle **application console** en C# dans  Visual Studio 2013, Visual Studio 2012 ou Visual Studio 2010 SP1. Entrez le **nom**, l'**emplacement** et le **nom de solution**, puis cliquez sur **OK**.
    2. Veillez à définir l'infrastructure cible sur .NET Framework 4. Pour ce faire, cliquez avec le bouton droit sur le projet Visual Studio et sélectionnez Propriétés. Sous l'onglet Application, sélectionnez .NET Framework 4 comme infrastructure cible.   
-   3. Ajoutez une référence à l'assembly **System.Configuration**. Pour ajouter une référence à **System.Configuration**, dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur le nœud **Références** et sélectionnez **Ajouter une référence...**. Dans la boîte de dialogue **Gérer les références**, sélectionnez **System.Configuration** et cliquez sur **OK**.
-   4. Utilisez le package [Nuget windowsazure.mediaservices](http://nuget.org/packages/windowsazure.mediaservices) pour ajouter des références au **Kit de développement logiciel (SDK) Azure pour .NET** (tous les autres assemblys dépendants sont installés également).  
+   3. Ajoutez une référence à l'assembly **System.Configuration**. Pour ajouter une référence à **System.Configuration**, dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur le nœud **Références**, puis sélectionnez **Ajouter une référence**. Dans la boîte de dialogue **Gérer les références**, sélectionnez **System.Configuration**, puis cliquez sur **OK**.
+   4. Utilisez le package NuGet [windowsazure.mediaservices](http://nuget.org/packages/windowsazure.mediaservices) pour ajouter des références au **Kit de développement logiciel (SDK) Azure pour .NET**. (tous les autres assemblys dépendants sont installés également).  
 
-	Pour ajouter des références à l'aide de NuGet, procédez comme suit. Dans le **menu principal** de Visual Studio, sélectionnez **OUTILS** -> **Gestionnaire de package de bibliothèques** -> **Console du Gestionnaire de package**. Dans la fenêtre de la console, tapez **Install-Package windowsazure.mediaservices** et appuyez sur **Entrée**.
+	Pour ajouter des références à l'aide de NuGet, procédez comme suit. Dans le **menu principal** de Visual Studio, sélectionnez **OUTILS** -> **Gestionnaire de package de bibliothèques** -> **Console du Gestionnaire de package**. Dans la fenêtre de la console, tapez **Install-Package windowsazure.mediaservices**, puis appuyez sur **Entrée**.
    4. Remplacez les instructions using existantes au début du fichier Program.cs par le code suivant.
 
    		using System;
@@ -70,4 +70,5 @@ Maintenant que vous avez configuré votre ordinateur et créé une solution Visu
 [Création d'un compte Media Services]: ../media-services-create-account/
 [Création d'un élément multimédia chiffré et téléchargement dans le stockage]: ../media-services-create-encrypted-asset-upload-storage/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

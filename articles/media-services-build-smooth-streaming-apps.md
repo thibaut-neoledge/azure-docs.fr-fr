@@ -1,10 +1,10 @@
-﻿<properties urlDisplayName="Smooth Streaming Windows Store App" pageTitle="Application Windows Store de diffusion en continu lisse - Didacticiels Azure .NET" metaKeywords="" description="Apprenez à utiliser Azure Media Services pour créer une application Windows Store en C# avec un contrôle MediaElement XML pour lire du contenu de diffusion en continu lisse." metaCanonical="" services="media-services" documentationCenter="" title="How to Build a Smooth Streaming Windows Store Application" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Application Windows Store de diffusion en continu lisse - Didacticiels Azure .NET" description="Apprenez à utiliser Azure Media Services pour créer une application Windows Store en C# avec un contrôle MediaElement XML pour lire du contenu de diffusion en continu lisse." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
-#Génération d'une application Windows Store de diffusion en continu lisse
+# Génération d'une application Windows Store de diffusion en continu lisse
 
 Le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows 8 permet aux développeurs de générer des applications Windows Store pour la lecture de contenu de diffusion en continu lisse à la demande et en direct. Outre la lecture de contenu de diffusion en continu lisse, le Kit de développement logiciel propose également des fonctionnalités avancées comme la protection Microsoft PlayReady, la limitation du niveau de qualité, le magnétoscope numérique en direct (Live DVR), la commutation des flux audio, l'écoute des mises à jour d'état (par exemple, les modifications des niveaux de qualité), les événements d'erreur, etc. Pour plus d'informations sur les fonctionnalités prises en charge, consultez les [notes de publication](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes).
 
@@ -18,13 +18,13 @@ Le didacticiel se compose de quatre leçons :
 4. sélection des pistes de diffusion en continu lisse
 
 #Conditions préalables
-- Windows 8 32 bits ou 64 bits. Vous pouvez télécharger la [version d'évaluation de Windows 8 Entreprise](http://msdn.microsoft.com/fr-fr/evalcenter/jj554510.aspx) sur MSDN.
+- Windows 8 32 bits ou 64 bits. Vous pouvez télécharger la version d'évaluation de [Windows 8 Entreprise](http://msdn.microsoft.com/fr-fr/evalcenter/jj554510.aspx) sur MSDN.
 - Visual Studio 2012 ou Visual Studio Express 2012 pour Windows 8 installé sur Windows 8. La version d'évaluation est disponible [ici](http://www.microsoft.com/visualstudio/11/fr-fr/downloads).
 - [Kit de développement logiciel (SDK) du client Microsoft de diffusion en continu lisse pour Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
 Vous pouvez télécharger la solution terminée pour chaque leçon sur le site d'exemples de code développeur MSDN (galerie de code) : [Leçon 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "A Simple Windows 8 Smooth Streaming Media Player"), [Leçon 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "A Simple Windows 8 Smooth Streaming Media Player with a Slider Bar Control"), [Leçon 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "A Windows 8 Smooth Streaming Media Player with Stream Selection") et [Leçon 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "A Windows 8 Smooth Streaming Media Player with Track Selection").
 
-#Leçon 1 : création d'une application Windows Store de diffusion en continu lisse de base
+# Leçon 1 : création d'une application Windows Store de diffusion en continu lisse de base
 Dans cette leçon, vous allez apprendre à créer une application Windows Store dotée d'un contrôle MediaElement pour lire du contenu de diffusion en continu lisse.  L'application en cours d'exécution ressemble à ceci :
 
 ![Smooth Streaming Windows Store application example][PlayerApplication]
@@ -40,8 +40,8 @@ Cette leçon aborde les procédures suivantes :
 **Création d'un projet Windows Store**
 
 1.	Exécutez Visual Studio 2012 ou une version ultérieure.
-2.	Dans le menu **FICHIER**, cliquez sur **Nouveau**, puis sur **Projet**.
-3.	Dans la boîte de dialogue Nouveau projet, entrez ou sélectionnez les valeurs suivantes :
+2.	Dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
+3.	Dans la boîte de dialogue Nouveau projet, entrez ou sélectionnez  les valeurs suivantes :
 
 	<table border="1">
 	<tr>
@@ -78,7 +78,7 @@ Cette leçon aborde les procédures suivantes :
 
 **Ajout d'une référence au Kit de développement logiciel (SDK) du client de diffusion en continu lisse**
 
-1.	Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **SSPlayer**, puis sur **Ajouter une référence**.
+1.	Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **SSPlayer**, puis cliquez sur **Ajouter une référence**.
 2.	Tapez ou sélectionnez les valeurs suivantes :
 
 	<table border="1">
@@ -104,7 +104,7 @@ Après l'ajout des références, vous devez sélectionner la plateforme ciblée 
 **Conception de l'interface utilisateur du lecteur**
 
 1.	Dans l'Explorateur de solutions, double-cliquez sur **MainPage.xaml** pour l'ouvrir en mode Création.
-2.	Recherchez les balises **&lt;Grid&gt;** et **&lt;/Grid&gt;** dans le fichier XAML, puis collez le code suivant entre ces deux balises :
+2.	Recherchez les balises **&lt;Grid&gt;** et **&lt;/Grid&gt;**  du fichier XAML et collez le code suivant entre elles :
 
 		<Grid.RowDefinitions>
 		    <RowDefinition Height="20"/>    <!-- spacer -->
@@ -234,7 +234,7 @@ Le fichier code-behind terminé doit ressembler à ceci :
 Vous avez terminé la leçon 1.  Dans cette leçon, vous avez utilisé un contrôle MediaElement pour lire du contenu de diffusion en continu lisse.  Dans la leçon suivante, vous allez ajouter un curseur pour contrôler la progression du contenu de diffusion en continu lisse.
 
 
-#Leçon 2 : ajout d'une barre de curseur pour contrôler la progression des fichiers multimédias
+# Leçon 2 : ajout d'une barre de curseur pour contrôler la progression des fichiers multimédias
 Dans la leçon 1, vous avez créé une application Windows Store dotée d'un contrôle XAML MediaElement pour lire du contenu multimédia de diffusion en continu lisse.  Elle offre des fonctions de lecture multimédia de base, comme le démarrage, l'arrêt et la pause.  Dans cette leçon, vous allez ajouter un contrôle de curseur pour votre application.
 
 Dans le cadre de ce didacticiel, nous utiliserons un minuteur pour mettre à jour la position du curseur en fonction de la position actuelle du contrôle MediaElement.  L'heure de début et de fin du curseur doivent également être mises à jour en cas de diffusion de contenu en direct.  Pour ce faire, mieux vaut utiliser l'événement de mise à jour de la source adaptative.
@@ -271,7 +271,7 @@ Cette leçon aborde les procédures suivantes :
 		// {A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}" must be hardcoded.
 		propertySet["{A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}"] = adaptiveSourceManager;
 	
-5.	Dans le constructeur **MainPage**, modifiez les deux méthodes RegisterByteStreamHandler pour ajouter les paramètres forth :
+5.	Dans le constructeur **MainPage**, modifiez les deux méthodes RegisterByteStreamHandler pour ajouter les paramètres suivants :
 
 		// Registers Smooth Streaming byte-stream handler for ".ism" extension and, 
 		// "text/xml" and "application/vnd.ms-ss" mime-types and pass the propertyset. 
@@ -509,7 +509,7 @@ Les mêmes événements sont également disponibles sur AdaptiveSourceManager, q
 
 Vous avez terminé la leçon 2.  Dans cette leçon, vous avez ajouté un curseur à l'application. 
 
-#Leçon 3 : sélection des flux de diffusion en continu lisse
+# Leçon 3 : sélection des flux de diffusion en continu lisse
 La diffusion en continu lisse permet de diffuser du contenu en continu proposant des pistes audio multilingues sélectionnables par les utilisateurs.  Cette leçon vous expliquera comment permettre aux utilisateurs de sélectionner des flux. Cette leçon aborde les procédures suivantes :
 
 1. Modification du fichier XAML
@@ -783,7 +783,7 @@ La diffusion en continu lisse permet de diffuser du contenu en continu proposant
 
 Vous avez terminé la leçon 3.  Dans cette leçon, vous avez ajouté la fonctionnalité permettant de choisir des flux.
 
-#Leçon 4 : sélection des pistes de diffusion en continu lisse
+# Leçon 4 : sélection des pistes de diffusion en continu lisse
 Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers vidéo encodés comportant des niveaux de qualité (débit) et des résolutions différents. Cette leçon vous expliquera comment permettre aux utilisateurs de sélectionner des pistes. Cette leçon aborde les procédures suivantes :
 
 1. Modification du fichier XAML
@@ -793,7 +793,7 @@ Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers
 **Modification du fichier XAML**
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Concepteur de vues**.
-2. Recherchez la balise &lt;Grid&gt; avec le nom **gridStreamAndBitrateSelection**, ajoutez le code suivant à la fin de la balise :
+2. Recherchez la balise &lt;Grid&gt; nommée **gridStreamAndBitrateSelection**, puis ajoutez le code suivant à la fin de la balise :
 
 		<StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
 		 <StackPanel Orientation="Horizontal">
@@ -810,7 +810,7 @@ Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers
 		 </ListBox>
 		</StackPanel>
 
-3. Appuyez sur **Ctrl+S** pour enregistrer les modifications
+3. Appuyez sur **Ctrl+S** pour enregistrer les modifications.
 
 
 **Modification du fichier code-behind**
@@ -994,4 +994,5 @@ Vous avez terminé la leçon 4.  Dans cette leçon, vous avez ajouté la fonctio
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

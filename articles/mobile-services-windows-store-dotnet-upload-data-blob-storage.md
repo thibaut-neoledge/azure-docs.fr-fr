@@ -1,10 +1,10 @@
-﻿<properties pageTitle="Utilisation de Mobile Services pour télécharger des images dans le stockage d'objets blob (Windows Store) | Mobile Services" metaKeywords="" description="Découvrez comment utiliser Mobile Services pour télécharger des images vers le stockage d'objets blob Azure et y accéder à partir de votre application Windows Store." metaCanonical="" services="mobile-services,storage" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
+﻿<properties pageTitle="Utilisation de Mobile Services pour télécharger des images dans le stockage d'objets blob (Windows Store) | Mobile Services" description="Découvrez comment utiliser Mobile Services pour télécharger des images vers le stockage d'objets blob Azure et y accéder à partir de votre application Windows Store." services="mobile-services, storage" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # Téléchargement d'images vers Azure Storage à l'aide de Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-upload-data-blob-storage](../includes/mobile-services-selector-upload-data-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
 Cette rubrique vous montre comment utiliser Azure Mobile Services pour permettre à votre application de télécharger et de stocker les images générées par l'utilisateur dans Azure Storage. Mobile Services utilise une base de données SQL pour stocker les données. Toutefois, les données BLOB (Binary Large Object) sont stockées avec plus d'efficacité dans le service de stockage d'objets blob Azure. 
 
@@ -20,7 +20,7 @@ Dans ce didacticiel, vous allez ajouter une fonctionnalité à l'application de 
 Ce didacticiel requiert les éléments suivants :
 
 + Microsoft Visual Studio 2012 Express pour Windows 8 ou version ultérieure ;
-+ [un compte Azure Storage][How To Create a Storage Account] ;
++ [Compte Azure Storage][Création d'un compte Storage]
 + un appareil photo ou tout autre appareil de capture d'image raccordé à votre ordinateur.
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez effectuer le didacticiel [Prise en main de Mobile Services]. 
@@ -31,7 +31,7 @@ Avant de pouvoir utiliser une signature d'accès partagé en vue de télécharge
 
 1. Dans l'**Explorateur de solutions** de Visual Studio, cliquez avec le bouton droit sur le nom du projet, puis sélectionnez **Gérer les packages NuGet**.
 
-2. Dans le volet gauche, sélectionnez la catégorie **En ligne**, recherchez " WindowsAzure.Storage ", cliquez sur **Installer** au niveau du package **Azure Storage**, puis acceptez le contrat de licence. 
+2. Dans le volet gauche, sélectionnez la catégorie **Online**, recherchez  `WindowsAzure.Storage`, cliquez sur **Installer** au niveau du package **Azure Storage**, puis acceptez les contrats de licence. 
 
   	![][2]
 
@@ -41,9 +41,9 @@ Dans la prochaine étape, vous allez mettre à jour l'application de démarrage 
 
 ##<a name="update-scripts"></a>Mise à jour du script d'insertion inscrit dans le portail de gestion
 
-[WACOM.INCLUDE [mobile-services-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
@@ -91,4 +91,5 @@ Maintenant que vous avez intégré votre service mobile au service BLOB et que v
 [Guide de fonctionnement Mobile Services .NET]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library
 [Paramètres de l'application]: http://msdn.microsoft.com/fr-fr/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

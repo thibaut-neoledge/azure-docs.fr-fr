@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Endorsed distributions" pageTitle="Distributions approuvées de Linux dans Azure" metaKeywords="" description="Découvrez les distributions Linux approuvées sur Azure, y compris des instructions pour Ubuntu, OpenLogic et SUSE." metaCanonical="" services="virtual-machines" documentationCenter="" title="Linux on Azure-Endorsed Distributions" authors="szark" solutions="" manager="timlt" editor="tysonn" />
+<properties pageTitle="Distributions approuvées de Linux dans Azure" description="Découvrez les distributions Linux approuvées sur Azure, y compris des instructions pour Ubuntu, OpenLogic et SUSE." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="szark" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="szark"/>
 
 
 
@@ -39,7 +39,7 @@ SUSE Linux Enterprise Server sur Azure est une plateforme éprouvée qui offre u
 
 Le tableau ci-dessous présente les différentes versions de distributions, les pilotes LIS (Linux Integration Services) et les versions de l'agent Linux Azure ayant réussi les tests de compatibilité Azure. Les pilotes LIS sont soit intégrés au noyau de la distribution par défaut, soit disponibles [ici](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409). Les versions de l'agent Linux sont disponibles dans le référentiel de packages de la distribution ou sur [Github](https://github.com/azure/walinuxagent).
 
-Le tableau comprend aussi un lien vers le [Correctif de compatibilité du noyau Linux](http://go.microsoft.com/fwlink/?LinkID=403027&clcid=0x409) nécessaire au fonctionnement optimal de certaines versions du noyau/de distribution dans Azure.
+Le tableau comporte également un lien vers le [correctif de compatibilité du noyau Linux](http://go.microsoft.com/fwlink/?LinkID=403027&clcid=0x409), dont certaines versions de distribution/noyau ont besoin pour fonctionner de manière optimale dans Azure.
 
 <table border="1" width="600">
   <tr bgcolor="#E9E7E7">
@@ -53,18 +53,19 @@ Le tableau comprend aussi un lien vers le [Correctif de compatibilité du noyau 
 		<th>  Ubuntu de Canonical </th>
 		<td> Ubuntu 12.04.1+, 14.04 et 14.10 </td>
 		<td>Dans le noyau</td>
-		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275152&clcid=0x409">Nécessaire pour la version 12.04 ou 12.04.01 uniquement</a></td>
+		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275152&amp;clcid=0x409">Nécessaire pour la version 12.04 ou 12.04.01 uniquement</a></td>
 		<td>Package : dans le référentiel de packages sous walinuxagent <br />
 			Source : <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 			</tr>
 	<tr>
 		<th> CentOS par OpenLogic </th>
 		<td> CentOS 6.3+</td>
-	    <td>CentOS 6.3 : <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">pilotes LIS </a>; pilotes CentOS 6.4+ : dans le noyau</td>
-		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275153&clcid=0x409">Nécessaire pour la version 6.3 uniquement</a></td>
-		<td>Package : dans le <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">référentiel de packages Open Logic </a> sous walinuxagent<br />
+	    <td>CentOS 6.3 : <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">pilotes LIS</a> ; pilotes CentOS 6.4+ : dans le noyau</td>
+		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275153&amp;clcid=0x409">Nécessaire pour la version 6.3 uniquement</a></td>
+		<td>Package : dans le <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">référentiel de packages Open Logic</a> sous walinuxagent<br />
 			Source : <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
  		
+
 	</tr>
 	<tr>
 		<th> <a href="https://coreos.com/docs/running-coreos/cloud-providers/azure/">CoreOS</a> </th>
@@ -88,8 +89,8 @@ Le tableau comprend aussi un lien vers le [Correctif de compatibilité du noyau 
 		<td> SLES 11 SP3+</td>
         <td>Dans le noyau</td>
 		<td>N/A</td>
-		<td>Package : Dans <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> repo, name: WALinuxAgent<br />
-			Source Code: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
+		<td>Package : Dans le référentiel <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a>, nom : WALinuxAgent<br />
+			Code source : <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
 	<tr>
@@ -97,11 +98,12 @@ Le tableau comprend aussi un lien vers le [Correctif de compatibilité du noyau 
 		<td> openSUSE 13.1+</td>
 		<td>Dans le noyau</td>
 		<td>N/A</td>
-		<td>Package : Dans <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> repo, name: WALinuxAgent<br />
-			Source Code: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
+		<td>Package : Dans le référentiel <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a>, nom : WALinuxAgent<br />
+			Code source : <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
 </table>
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

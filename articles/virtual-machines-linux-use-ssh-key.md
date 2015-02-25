@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Use SSH" pageTitle="Utilisation de SSH pour se connecter à des machines virtuelles Linux dans Azure" metaKeywords="Azure SSH keys Linux, Linux vm SSH" description="Apprenez à créer et à utiliser des clés SSH avec une machine virtuelle Linux dans Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Use SSH with Linux on Azure" authors="szarkos" solutions="" manager="timlt" editor="" />
+﻿<properties pageTitle="Utilisation de SSH pour se connecter à des machines virtuelles Linux dans Azure" description="Apprenez à créer et à utiliser des clés SSH avec une machine virtuelle Linux dans Azure." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/15/2014" ms.author="szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/15/2014" ms.author="szarkos"/>
 
 #Utilisation de SSH avec Linux sur Azure
 
@@ -10,7 +10,7 @@ La version actuelle du portail de gestion Azure accepte uniquement les clés pub
 
 1. Installez l'utilitaire `openssl` si nécessaire :
 
-	**CentOS / Oracle Linux**
+	**CentOS/Oracle Linux**
 
 		# sudo yum install openssl
 
@@ -18,12 +18,12 @@ La version actuelle du portail de gestion Azure accepte uniquement les clés pub
 
 		# sudo apt-get install openssl
 
-	**SLES & openSUSE**
+	**SLES et openSUSE**
 
 		# sudo zypper install openssl
 
 
-2. Utilisez `openssl` pour générer un certificat X509 avec une paire de clés RSA 2048 bits. Veuillez répondre aux quelques questions posées par `openssl` (ou vous pouvez les laisser vides). Le contenu de ces champs n'est pas utilisé par la plateforme :
+2. Utilisez `openssl` pour générer un certificat X509 avec une paire de clés RSA 2048 bits. Répondez aux quelques questions posées par `openssl` (vous pouvez également les laisser vides). Le contenu de ces champs n'est pas utilisé par la plateforme :
 
 		# openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
 
@@ -31,7 +31,7 @@ La version actuelle du portail de gestion Azure accepte uniquement les clés pub
 
 		# chmod 600 myPrivateKey.key
 
-4.	Téléchargez `myCert.pem` lors de la création de la machine virtuelle Linux. Le processus de déploiement installe automatiquement la clé publique de ce certificat dans le fichier `authorized_keys` pour l'utilisateur spécifié dans la machine virtuelle.
+4.	Téléchargez `myCert.pem` lors de la création de la machine virtuelle Linux. Le processus d'approvisionnement installe automatiquement la clé publique de ce certificat dans le fichier `authorized_keys` pour l'utilisateur spécifié dans la machine virtuelle.
 
 5.	Si vous utilisez l'API directement, et non le portail de gestion, convertissez `myCert.pem` en `myCert.cer` (certificat codé DER X509) à l'aide de la commande suivante :
 
@@ -45,7 +45,7 @@ Les clés privées OpenSSH sont directement accessibles en lecture à partir de 
 
 	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
 
-Le fichier  **myCert.pem** est la clé publique à utiliser pour déployer une machine virtuelle Linux sur Microsoft Azure. Lors du déploiement, le fichier `.pem` est converti en clé publique compatible `openssh` et placé dans `~/.ssh/authorized_keys`.
+Le fichier **myCert.pem** est la clé publique à utiliser pour déployer une machine virtuelle Linux sur Microsoft Azure. Lors du déploiement, le fichier `.pem` est converti en clé publique compatible  `openssh` et placé dans `~/.ssh/authorized_keys`.
 
 
 ## Connexion à une machine virtuelle Azure à partir de Linux
@@ -56,16 +56,16 @@ Le fichier  **myCert.pem** est la clé publique à utiliser pour déployer une m
 
 		# ssh -i  myPrivateKey.key -p <port> username@servicename.cloudapp.net
 
-3.	(Facultatif) Vous pouvez copier `myPrivateKey.key` vers `~/.ssh/id_rsa` pour que votre client openssh puisse sélectionner la clé automatiquement sans utiliser l'option `-i`.
+3.	(Facultatif) Vous pouvez copier  `myPrivateKey.key` vers `~/.ssh/id_rsa` pour que votre client openssh puisse sélectionner la clé automatiquement sans utiliser l'option `-i`.
 
 ## Obtention d'OpenSSL sur Windows ##
 ### Utilisation de msysgit ###
 
 1.	Téléchargez et installez msysgit à partir de l'emplacement suivant : [http://msysgit.github.com/](http://msysgit.github.com/)
-2.	Exécutez `msys` à partir du répertoire installé (par exemple : c:\msysgit\msys.exe)
-3.	Basculez vers le répertoire `bin` en tapant `cd bin`
+2.	Exécutez  `msys` à partir du répertoire installé (par exemple : c:\msysgit\msys.exe)
+3.	Accédez au répertoire `bin` en tapant `cd bin`
 
-###Utilisation de GitHub pour Windows####
+###Utilisation de GitHub pour Windows###
 
 1.	Téléchargez et installez GitHub pour Windows à partir de l'emplacement suivant : [http://windows.github.com/](http://windows.github.com/)
 2.	Exécutez Git Shell à partir du menu Démarrer > Tous les programmes > GitHub, Inc
@@ -135,6 +135,9 @@ Le fichier  **myCert.pem** est la clé publique à utiliser pour déployer une m
 
 	![linuxputtyprivatekey](./media/virtual-machines-linux-use-ssh-key/linuxputtyprivatekey.png)
 
-5.	Cliquez sur **Ouvrir** pour vous connecter à votre machine virtuelle
+5.	Cliquez sur **Ouvrir** pour vous connecter à la machine virtuelle.
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

@@ -1,12 +1,12 @@
-﻿<properties urlDisplayName="Validate Data - HTML5" pageTitle="Scripts de serveur utilisateur pour valider et modifier des données (HTML 5) | Centre de développement mobile" metaKeywords="" description="Découvrez comment valider et modifier les données envoyées à l'aide de scripts serveurs à partir de votre application HTML." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Scripts de serveur utilisateur pour valider et modifier des données (HTML 5) | Centre de développement mobile" description="Découvrez comment valider et modifier les données envoyées à l'aide de scripts serveurs à partir de votre application HTML." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # Validation et modification de données dans Mobile Services à l'aide de scripts serveur 
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
-Cette rubrique vous montre comment exploiter les scripts serveur dans Azure Mobile Services. Il est possible d'utiliser les scripts serveur inscrits dans un service mobile pour effectuer diverses opérations sur les données insérées et mises à jour, qu'il s'agisse de les valider ou de les modifier. Ce didacticiel vous apprend à définir et à inscrire les scripts serveur qui valident et modifient les données. Le comportement des scripts côté serveur ayant souvent un impact sur le client, vous allez également mettre à jour votre application HTML pour tirer profit de ces nouveaux comportements.
+Cette rubrique vous montre comment exploiter les scripts serveur dans Azure Mobile Services. Il est possible d'utiliser les scripts serveur inscrits dans un service mobile pour effectuer diverses opérations sur les données insérées et mises à jour, qu'il s'agisse de les valider ou de les modifier. Ce didacticiel vous apprend à définir et à inscrire les scripts serveur qui valident et modifient les données. Le comportement des scripts serveur ayant souvent un impact sur le client, vous allez également mettre à jour votre application HTML pour tirer profit de ces nouveaux comportements.
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 
@@ -25,11 +25,11 @@ Il est toujours souhaitable de valider la longueur des données soumises par les
 
    	![][0]
 
-2. Cliquez sur l'onglet **Données**, puis cliquez sur la table **TodoItem**.
+2. Cliquez sur l'onglet **Données**, puis sur la table **TodoItem**.
 
    	![][1]
 
-3. Cliquez sur **Script**, puis sélectionnez l'opération **Insérer**.
+3. Cliquez sur **Script**, puis sélectionnez l'opération **Insert**.
 
    	![][2]
 
@@ -47,9 +47,7 @@ Il est toujours souhaitable de valider la longueur des données soumises par les
 
     Ce script vérifie la longueur de la propriété **TodoItem.text** et envoie une réponse indiquant une erreur lorsque la chaîne dépasse 10 caractères. Sinon, la fonction **execute** est appelée pour effectuer l'insertion.
 
-    <div class="dev-callout"> 
-	<b>Remarque</b> 
-	<p>Vous pouvez supprimer un script inscrit sous l'onglet <strong>Script</strong> en cliquant sur <strong>Effacer</strong>, puis sur <strong>Enregistrer</strong>.</p></div>	
+    > [AZURE.TIP] Sous l'onglet **Script**, vous pouvez supprimer un script inscrit en cliquant sur **Effacer**, puis sur **Enregistrer**.	
 
 ## <a name="update-client-validation"></a>Mise à jour du client
 
@@ -57,13 +55,11 @@ Maintenant que le service mobile valide les données et envoie des réponses d'e
 
 1. Exécutez l'un des fichiers de commandes suivants à partir du sous-dossier **server** du projet que vous avez modifié dans le didacticiel [Prise en main des données].
 
-	+ **launch-windows** (pour les ordinateurs Windows) 
-	+ **launch-mac.command** (pour les ordinateurs Mac OS X)
-	+ **launch-linux.sh** (pour les ordinateurs Linux)
+	+ **launch-windows**(ordinateurs Windows)
+	+ **launch-mac.command**(ordinateurs Mac OS X)
+	+ **launch-linux.sh**(ordinateurs Linux)
 
-	<div class="dev-callout"><b>Remarque</b>
-		<p>Sur un ordinateur Windows, appuyez sur la touche `R` lorsque PowerShell vous demande de confirmer l'exécution du script. Vous pouvez recevoir un avertissement de votre navigateur Web vous recommandant de ne pas exécuter le script, car il a été téléchargé depuis Internet. Lorsque cela se produit, vous devez demander au navigateur de continuer à charger le script.</p>
-	</div>
+	> [AZURE.NOTE] Sur un ordinateur Windows, appuyez sur la touche `R` lorsque PowerShell vous demande de confirmer l'exécution du script. Vous pouvez recevoir un avertissement de votre navigateur web vous recommandant de ne pas exécuter le script, car il a été téléchargé depuis Internet. Lorsque cela se produit, vous devez demander au navigateur de continuer à charger le script.
 
 	Un serveur Web démarre sur votre ordinateur local pour héberger l'application.
 
@@ -82,7 +78,7 @@ Maintenant que le service mobile valide les données et envoie des réponses d'e
 			evt.preventDefault();
 		});
 
-2. Dans un navigateur web, accédez à <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>, puis tapez du texte dans **Ajouter une nouvelle tâche** et cliquez sur **Ajouter**.
+2. Dans un navigateur web, accédez à <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>, puis tapez du texte dans **Add new task** et cliquez sur **Ajouter**.
 
    	Notez que l'opération échoue et que la gestion des erreurs affiche la réponse d'erreur dans une boîte de dialogue.
 
@@ -90,9 +86,7 @@ Maintenant que le service mobile valide les données et envoie des réponses d'e
 
 Les tâches précédentes ont permis de valider une insertion, qui est acceptée ou rejetée. Maintenant, vous allez mettre à jour les données insérées en utilisant un script serveur qui ajoute une propriété d'horodatage à l'objet avant son insertion.
 
-<div class="dev-callout"><b>Remarque</b>
-<p>La propriété d'horodatage <b>createdAt</b> illustrée ici est désormais redondante. Mobile Services crée automatiquement une propriété système <b>__createdAt</b> pour chaque table.</p>
-</div>
+> [AZURE.NOTE] La propriété d'horodatage **createdAt** illustrée ici est désormais redondante. Mobile Services crée automatiquement une propriété système **__createdAt** pour chaque table.
 
 1. Sous l'onglet **Scripts** du [portail de gestion], remplacez le script **Insert** actuel par la fonction suivante, puis cliquez sur **Enregistrer**.
 
@@ -109,15 +103,13 @@ Les tâches précédentes ont permis de valider une insertion, qui est acceptée
 
     Cette fonction enrichit le script d'insertion précédent en ajoutant une nouvelle propriété d'horodatage **createdAt** à l'objet avant son insertion par l'appel à **request**.**execute**. 
 
-    <div class="dev-callout"><b>Remarque</b>
-	<p>Le schéma dynamique doit être activé la première fois que ce script d'insertion s'exécute. Avec le schéma dynamique activé, Mobile Services ajoute automatiquement la colonne <strong>createdAt</strong> à la table <strong>TodoItem</strong>. Par défaut, le schéma dynamique est activé pour un nouveau service mobile. Il doit être désactivé pour que l'application soit publiée.</p>
-    </div>
+    > [AZURE.IMPORTANT] Le schéma dynamique doit être activé la première fois que ce script d'insertion s'exécute. Avec le schéma dynamique activé, Mobile Services ajoute automatiquement la colonne **createdAt** à la table **TodoItem** lors de la première exécution. Par défaut, le schéma dynamique est activé pour un nouveau service mobile. Il doit être désactivé avant que l'application ne soit publiée.
 
-2. Dans le navigateur web, rechargez la page, puis tapez un texte (de moins de 10 caractères) dans **Ajouter une nouvelle tâche** et cliquez sur **Ajouter**.
+2. Dans le navigateur Web, rechargez la page, puis tapez un texte (de moins de 10 caractères) dans **Ajouter une nouvelle tâche** et cliquez sur **Ajouter**.
 
    	Notez que le nouvel horodatage n'apparaît pas dans l'interface utilisateur de l'application.
 
-3. De retour dans le portail de gestion, cliquez sur l'onglet **Parcourir** dans la table **TodoItem**.
+3. De retour dans le portail de gestion, cliquez sur l'onglet **Parcourir** dans la table **todoitem**.
    
    	Notez qu'une colonne **createdAt** apparaît désormais à l'écran et qu'une valeur d'horodatage est associée au nouvel élément inséré.
   
@@ -125,13 +117,13 @@ L'application doit ensuite être mise à jour pour afficher cette nouvelle colon
 
 ## <a name="update-client-timestamp"></a>Nouvelle mise à jour du client
 
-Le client Mobile Services ignore les données d'une réponse qu'il ne peut pas sérialiser en propriétés de type défini. L'étape finale consiste à mettre à jour le client de manière à afficher ces nouvelles données.
+Le client Mobile Services ignore les données d'une réponse qu'elle ne peut pas sérialiser en propriétés de type défini. L'étape finale consiste à mettre à jour le client de manière à afficher ces nouvelles données.
 
 1. Dans votre éditeur, ouvrez le fichier app.js, puis remplacez la fonction **refreshTodoItems** par le code suivant :
 
 		function refreshTodoItems() {
 			var query = todoItemTable.where(function () {
-                return (this.complete === false && this.createdAt !== null);
+                return (this.complete === false);
             });
 
 			query.read().then(function(todoItems) {
@@ -156,7 +148,7 @@ Le client Mobile Services ignore les données d'une réponse qu'il ne peut pas s
 
    	Ce code affiche la partie date de la nouvelle propriété **createdAt**. 
 
-2. Dans votre éditeur, ouvrez le fichier style.css et remplacez les styles sur la classe `item-text` par le code suivant :
+2. Dans votre éditeur, ouvrez le fichier style.css et remplacez les styles sur la classe  `item-text` par le code suivant :
 
 		.item-text { width: 70%; height: 26px; line-height: 24px; 
 			border: 1px solid transparent; background-color: transparent; }
@@ -206,10 +198,13 @@ Pour plus d'informations, consultez les pages [Utilisation des scripts serveur] 
 [Utilisation des scripts serveur]: /fr-fr/develop/mobile/how-to-guides/work-with-server-scripts
 [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started-html
 [Autorisation des utilisateurs avec des scripts]: /fr-fr/develop/mobile/tutorials/authorize-users-html
-[Affinement des requêtes au moyen de la pagination]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-html
+[Affinage des requêtes au moyen de la pagination]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-html
 [Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-html
 [Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-html
 
 [Portail de gestion]: https://manage.windowsazure.com/
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Guide de fonctionnement de Mobile Services avec HTML/JavaScript]: /fr-fr/develop/mobile/how-to-guides/work-with-html-js-client
+
+
+<!--HONumber=42-->

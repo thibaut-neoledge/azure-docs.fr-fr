@@ -1,10 +1,10 @@
-﻿<properties urlDisplayName="Role Based Access Control with Azure Active Directory" pageTitle="Contrôle d'accès en fonction du rôle dans Mobile Services et Azure Active Directory (Windows Store) | Centre de développement mobile" metaKeywords="" description="Découvrez comment contrôler l'accès en fonction des rôles Azure Active Directory dans votre application Windows Store." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Role Based Access Control in Mobile Services and Azure Active Directory" authors="wesmc" manager="dwrede" />
+﻿<properties pageTitle="Contrôle d'accès en fonction du rôle dans Mobile Services et Azure Active Directory (Windows Store) | Centre de développement mobile" description="Découvrez comment contrôler l'accès en fonction des rôles Azure Active Directory dans votre application Windows Store." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc"/>
 
 # Contrôle d'accès en fonction du rôle dans Mobile Services et Azure Active Directory
 
-[WACOM.INCLUDE [mobile-services-selector-rbac](../includes/mobile-services-selector-rbac.md)]
+[AZURE.INCLUDE [mobile-services-selector-rbac](../includes/mobile-services-selector-rbac.md)]
 
 
 Le contrôle d'accès en fonction du rôle (RBAC) consiste à affecter des autorisations aux différents rôles assumés par vos utilisateurs, afin de définir des limites en fonction des appartenances. Ce didacticiel vous familiarise avec la procédure d'ajout du contrôle RBAC de base pour Azure Mobile Services.
@@ -12,12 +12,12 @@ Le contrôle d'accès en fonction du rôle (RBAC) consiste à affecter des autor
 Ce didacticiel présente le contrôle d'accès en fonction du rôle, qui contrôle l'appartenance de chaque utilisateur à un groupe Sales (Ventes) défini dans Azure Active Directory (AAD). Le contrôle sera effectué avec le projet de service mobile JavaScript principal à l'aide de l'[API Graph] pour Azure Active Directory. Seuls les utilisateurs appartenant au rôle Sales seront autorisés à accéder aux données.
 
 
->[WACOM.NOTE] L'objectif de ce didacticiel est d'approfondir vos connaissances sur l'authentification pour inclure des pratiques d'autorisation. Vous devez donc au préalable avoir suivi le didacticiel [Prise en main de l'authentification] avec le fournisseur d'authentification Azure Active Directory. Ce didacticiel poursuit la mise à jour de l'application TodoItem utilisée dans le didacticiel [Prise en main de l'authentification].
+>[AZURE.NOTE] L'objectif de ce didacticiel est d'approfondir vos connaissances sur l'authentification pour inclure des pratiques d'autorisation. Cette rubrique suppose que vous avez suivi le didacticiel [Prise en main de l'authentification] avec le fournisseur d'authentification Azure Active Directory. Ce didacticiel continue la mise à jour de l'application TodoItem utilisée dans le didacticiel [Prise en main de l'authentification].
 
 Ce didacticiel vous familiarise avec la procédure suivante :
 
-1. [Création d'un groupe Sales avec appartenance]
-2. [Génération d'une clé pour l'application intégrée]
+1. [Création d'un groupe Sales avec abonnement]
+2. [Création d'une clé pour l'application intégrée]
 3. [Ajout d'un script partagé vérifiant l'appartenance] 
 4. [Ajout du contrôle d'accès en fonction du rôle pour les opérations de base de données]
 5. [Test de l'accès client]
@@ -25,22 +25,22 @@ Ce didacticiel vous familiarise avec la procédure suivante :
 Ce didacticiel requiert les éléments suivants :
 
 * Visual Studio 2013 s'exécutant sous Windows 8.1.
-* Achèvement du didacticiel [Prise en main de l'authentification] à l'aide du fournisseur d'authentification Azure Active Directory.
-* Achèvement du didacticiel [Stockage des scripts serveur] afin de maîtriser l'utilisation d'un référentiel Git pour stocker des scripts serveur.
+* Didacticiel [Prise en main de l'authentification] avec le fournisseur d'authentification Azure Active Directory.
+* Didacticiel [Stockage des scripts] pour l'utilisation d'un référentiel Git pour stocker les scripts serveur.
  
 
 
-## <a name="create-group"></a>Création d'un groupe Sales avec appartenance
+## <a name="create-group"></a>Création d'un groupe Sales avec abonnement
 
-[WACOM.INCLUDE [mobile-services-aad-rbac-create-sales-group](../includes/mobile-services-aad-rbac-create-sales-group.md)]
-
-
-## <a name="generate-key"></a>Génération d'une clé pour l'application intégrée
+[AZURE.INCLUDE [mobile-services-aad-rbac-create-sales-group](../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 
-Avec le didacticiel [Prise en main de l'authentification], vous avez créé une inscription pour l'application intégrée lors de l'étape [Inscription à des fins d'utilisation d'une connexion Azure Active Directory]. Dans cette section, vous allez générer la clé devant être utilisée pour lire les informations d'annuaire avec l'ID client de cette application intégrée. 
+## <a name="generate-key"></a>Création d'une clé pour l'application intégrée
 
-[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
+
+Dans le didacticiel [Prise en main de l'authentification], vous avez créé une inscription pour l'application intégrée lorsque vous avez effectué l'étape [Inscription pour l'utilisation d'une connexion Azure Active Directory]. Dans cette section, vous allez générer la clé devant être utilisée pour lire les informations d'annuaire avec l'ID client de cette application intégrée. 
+
+[AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 
 
@@ -48,14 +48,14 @@ Avec le didacticiel [Prise en main de l'authentification], vous avez créé une 
 
 ## <a name="add-shared-script"></a>Ajout d'un script partagé vérifiant l'appartenance au service mobile
 
-Dans cette section, vous allez utiliser Git pour déployer un fichier de script partagé nommé *rbac.js* sur votre service mobile. Ce fichier de script partagé contient les fonctions qui utilisent l'[API Graph] pour vérifier l'appartenance au groupe de l'utilisateur. 
+Dans cette section, vous allez utiliser Git pour déployer un fichier de script partagé nommé *rbac.js* à votre service mobile. Ce fichier de script partagé contient les fonctions qui utilisent l'[API Graph] pour vérifier l'appartenance au groupe de l'utilisateur. 
 
 Si vous débutez avec le déploiement de scripts vers votre service mobile avec Git, lisez le didacticiel [Stockage des scripts serveur] avant de suivre les procédures de cette section.
 
 1. Créez un fichier de script nommé *rbac.js* dans le répertoire *./service/shared/* du référentiel local de votre service mobile.
-2. En haut du fichier, ajoutez le script suivant qui définit la fonction `getAADToken`. Étant donné le *domaine du locataire*, l'*ID client* de l'application intégrée et la *clé* d'application, cette fonction fournit un jeton d'accès Graph permettant de lire les informations de l'annuaire.
+2. En haut du fichier, ajoutez le script suivant qui définit la fonction `getAADToken`. Étant donné *tenant_domain*,  *client id* application intégrée et  *key* application, cette fonction fournit un jeton d'accès Graph permettant de lire les informations de l'annuaire.
 
-    >[WACOM.NOTE] Vous devez mettre le jeton en cache plutôt qu'en créer un pour chaque contrôle d'accès. Actualisez ensuite le cache lorsqu'une tentative d'utilisation du jeton renvoie une réponse 401 Authentication_ExpiredToken comme indiqué dans la page de [référence sur les erreurs de l'API Graph]. Par souci de simplicité, le code ci-après ne reflète pas cette possibilité, mais cela permet de réduire le trafic réseau supplémentaire vers Active Directory. 
+    >[AZURE.NOTE] Vous devez mettre le jeton en cache plutôt qu'en créer un pour chaque contrôle d'accès. Actualisez ensuite le cache lorsqu'une tentative d'utilisation du jeton renvoie une réponse 401 Authentication_ExpiredToken comme indiqué dans la [page de référence sur les erreurs de l'API Graph]. Par souci de simplicité, le code ci-après ne reflète pas cette possibilité, mais cela permet de réduire le trafic réseau supplémentaire vers Active Directory. 
 
         var appSettings = require('mobileservice-config').appSettings;
         var tenant_domain = appSettings.AAD_TENANT_DOMAIN;
@@ -84,7 +84,7 @@ Si vous débutez avec le déploiement de scripts vers votre service mobile avec 
 
 3. Ajoutez le code suivant à *rbac.js* pour définir la fonction `getGroupId`. Cette dernière utilise le jeton d'accès pour obtenir l'ID de groupe en fonction du nom de groupe utilisé dans un filtre.
  
-    >[WACOM.NOTE] Ce code recherche le groupe Active Directory par nom. Dans la plupart des cas, il est préférable de stocker l'ID du groupe en tant que paramètre d'application de service mobile et d'utiliser uniquement l'ID de groupe. En effet, le nom de groupe peut changer, mais l'ID reste le même. Cependant, un changement de nom de groupe implique au minimum un changement de la portée du rôle qui nécessite de mettre à jour le code du service mobile.   
+    >[AZURE.NOTE] Ce code recherche le groupe Active Directory par nom. Dans la plupart des cas, il est préférable de stocker l'ID du groupe en tant que paramètre d'application de service mobile et d'utiliser uniquement l'ID de groupe. En effet, le nom de groupe peut changer, mais l'ID reste le même. Cependant, un changement de nom de groupe implique au minimum un changement de la portée du rôle qui nécessite de mettre à jour le code du service mobile.   
 
         function getGroupId(groupname, accessToken, callback) {
             var req = require("request");
@@ -235,7 +235,7 @@ La procédure suivante montre comment déployer un contrôle d'accès en fonctio
 
         git commit -m "Added role based access control to table operations"
   
-7. Dans l'interface de ligne de commande de votre référentiel Git, déployez les mises à jour de votre référentiel Git local vers le service mobile en exécutant la commande suivante. Cette commande suppose que vous avez mis à jour la branche *principale*.
+7. Dans l'interface de ligne de commande de votre référentiel Git, déployez les mises à jour de votre référentiel Git local vers le service mobile en exécutant la commande suivante. Cette commande suppose que vous avez mis à jour la branche *master*.
 
         git push origin master
 
@@ -245,16 +245,16 @@ La procédure suivante montre comment déployer un contrôle d'accès en fonctio
 
 ## <a name="test-client"></a>Test de l'accès client
 
-[WACOM.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
+[AZURE.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
 
 
 
 
 <!-- Anchors. -->
-[Création d'un groupe Sales avec appartenance]: #create-group
-[Génération d'une clé pour l'application intégrée]: #generate-key
-[Ajout d'un script partagé vérifiant l'appartenance]: #add-shared-script
+[Création d'un groupe Sales avec abonnement]: #create-group
+[Création d'une clé pour l'application intégrée]: #generate-key
+[Ajout d'un script partagé vérifiant l'appartenance] : #add-shared-script
 [Ajout du contrôle d'accès en fonction du rôle pour les opérations de base de données]: #add-access-checking
 [Test de l'accès client]: #test-client
 
@@ -278,3 +278,5 @@ La procédure suivante montre comment déployer un contrôle d'accès en fonctio
 [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [Référence des erreurs de l'API Graph]: http://msdn.microsoft.com/fr-fr/library/azure/hh974480.aspx
 [IsMemberOf]: http://msdn.microsoft.com/fr-fr/library/azure/dn151601.aspx
+
+<!--HONumber=42-->

@@ -1,13 +1,13 @@
-﻿<properties urlDisplayName="Manage Assets in Media Services" pageTitle="Gestion d'éléments multimédias dans Media Services - Azure" metaKeywords="" description="Apprenez à gérer des éléments multimédias sur Media Services. Vous pouvez également gérer des travaux, des tâches, des stratégies d'accès, des localisateurs et bien d'autres éléments. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Manage Assets in storage" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Gestion d'éléments multimédias dans Media Services - Azure" description="Apprenez à gérer des éléments multimédias sur Media Services. Vous pouvez également gérer des travaux, des tâches, des stratégies d'accès, des localisateurs et bien d'autres éléments. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
-
-
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
-<h1>Utilisation des éléments multimédias dans le stockage</h1>
 
-Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [  Protection d'un élément multimédia](../media-services-protect-asset/).
+
+<h1>Gestion des éléments multimédias dans le stockage</h1>
+
+Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [ Protection d'un élément multimédia](../media-services-protect-asset/).
 
 Une fois que vous avez créé des éléments multimédias et que vous les avez téléchargés dans Media Services, vous pouvez y accéder et les gérer sur le serveur. Vous pouvez également gérer sur le serveur d'autres objets faisant partie de Media Services, entre autres, des travaux, des tâches, des stratégies d'accès et des localisateurs.
 
@@ -80,6 +80,7 @@ Pour plus d'informations sur la gestion des éléments multimédias, consultez l
 
 
 <h2>Étapes suivantes</h2>
-Maintenant que vous savez comment gérer les éléments multimédias, passez à la rubrique [Fourniture d'un élément multimédia par téléchargement](../media-services-deliver-asset-download/) .
+Maintenant que vous savez comment gérer les éléments multimédias, passez à la rubrique [Fourniture d'un élément multimédia par téléchargement](../media-services-deliver-asset-download/).
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

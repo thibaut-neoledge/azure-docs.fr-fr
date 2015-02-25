@@ -1,16 +1,16 @@
-﻿<properties pageTitle="Prise en main des notifications Push (Windows Store) | Centre de développement mobile" metaKeywords="" description="Découvrez comment utiliser Azure Mobile Services et Notification Hubs pour envoyer des notifications Push à votre application Windows Store." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor=""  />
+﻿<properties pageTitle="Prise en main des notifications Push (Windows Store) | Centre de développement mobile" description="Découvrez comment utiliser Azure Mobile Services et Notification Hubs pour envoyer des notifications Push à votre application Windows Store." services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="glenga"/>
 
 
 # Ajout de notifications push à votre application Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push-legacy](../includes/mobile-services-selector-get-started-push-legacy.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push-legacy](../includes/mobile-services-selector-get-started-push-legacy.md)]
 
 Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push à une application Windows universelle. 
 Dans ce didacticiel, vous allez activer des notifications Push dans le projet de démarrage rapide à l'aide des concentrateurs de notification Azure. Une fois la procédure terminée, votre service mobile envoie une notification Push à l'aide des concentrateurs de notification chaque fois qu'un enregistrement est inséré. Le concentrateur de notification que vous créez est fourni gratuitement avec votre service mobile, peut être géré indépendamment du service mobile et peut être utilisé par d'autres applications et services.
 
->[WACOM.NOTE]Cette rubrique vous montre comment configurer manuellement les notifications Push à l'aide de Mobile Services dans un projet Windows Store. Vous pouvez utiliser Visual Studio 2013 pour ajouter les mêmes notifications Push à un projet d'application Windows Store. Pour plus d'informations, consultez la [version sur les applications Windows universelles](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push/) de ce didacticiel. 
+>[AZURE.NOTE]Cette rubrique vous montre comment configurer manuellement les notifications Push à l'aide de Mobile Services dans un projet Windows Store. Vous pouvez utiliser Visual Studio 2013 pour ajouter les mêmes notifications Push à un projet d'application Windows Store. Pour plus d'informations, consultez la page [version application Windows universelle](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push/) de ce didacticiel. 
 
 Ce didacticiel vous familiarise avec les étapes de base permettant d'activer les notifications Push :
 
@@ -21,11 +21,11 @@ Ce didacticiel vous familiarise avec les étapes de base permettant d'activer le
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de le lancer, suivez d'abord le didacticiel [Prise en main de Mobile Services] ou [Prise en main des données] pour connecter votre projet au service mobile. Lorsqu'un service mobile n'est pas connecté, l'Assistant Ajouter une notification Push crée cette connexion pour vous. 
 
->[WACOM.NOTE]Cette rubrique prend en charge les applications Windows Phone Store 8.1. Pour ajouter des notifications Push à une application Windows Phone 8 ou Windows Phone Silverlight 8.1, consultez cette version de [Prise en main des notifications Push dans Mobile Services](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push).
+>[AZURE.NOTE]Cette rubrique prend en charge les applications Windows Phone Store 8.1. Pour ajouter des notifications Push à une application Windows Phone 8 ou Windows Phone Silverlight 8.1, consultez cette version de [Prise en main des notifications Push dans Mobile Services](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push).
 
 ##<a id="register"></a> Inscription de votre application avec WNS et configuration de Mobile Services
 
-[WACOM.INCLUDE [mobile-services-notification-hubs-register-windows-store-app](../includes/mobile-services-notification-hubs-register-windows-store-app.md)]
+[AZURE.INCLUDE [mobile-services-notification-hubs-register-windows-store-app](../includes/mobile-services-notification-hubs-register-windows-store-app.md)]
 
 Votre service mobile et votre application sont désormais configurés pour fonctionner avec WNS et Notification Hubs. Vous allez ensuite mettre à jour votre application Windows Store universelle afin de l'inscrire aux notifications.
 
@@ -33,7 +33,7 @@ Votre service mobile et votre application sont désormais configurés pour fonct
 
 Pour permettre à votre application de recevoir les notifications Push, vous devez inscrire un canal de notification.
 
-1. Dans Visual Studio, ouvrez le fichier App.xaml.cs et ajoutez les instructions using suivantes :
+1. Dans Visual Studio, ouvrez le fichier App.xaml.cs et ajoutez les instructions `using` suivantes :
 
         using Windows.Networking.PushNotifications;
 		using Windows.UI.Popups;
@@ -69,11 +69,11 @@ Pour permettre à votre application de recevoir les notifications Push, vous dev
 
 ##<a id="update-scripts"></a> Mise à jour des scripts serveur pour l'envoi de notifications Push
 
-[WACOM.INCLUDE [mobile-services-javascript-update-script-notification-hubs](../includes/mobile-services-javascript-update-script-notification-hubs.md)]
+[AZURE.INCLUDE [mobile-services-javascript-update-script-notification-hubs](../includes/mobile-services-javascript-update-script-notification-hubs.md)]
 
 ##<a id="test"></a> Test des notifications Push dans votre application
 
-[WACOM.INCLUDE [mobile-services-windows-store-test-push](../includes/mobile-services-windows-store-test-push.md)]
+[AZURE.INCLUDE [mobile-services-windows-store-test-push](../includes/mobile-services-windows-store-test-push.md)]
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
@@ -103,7 +103,7 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
   </br>Obtenez des conseils sur le dépannage et le débogage des solutions Notification Hubs. 
 
 * [Guide de fonctionnement Mobile Services .NET]
-  <br/>En savoir plus sur l'utilisation de Mobile Services avec .NET
+  <br/>En savoir plus sur l'utilisation de Mobile Services avec .NET.
 
 * [Référence de script serveur Mobile Services]
   <br/>En savoir plus sur l'implémentation de logique métier dans votre service mobile.
@@ -118,8 +118,8 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
 <!-- URLs. -->
 [Page Soumette une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Mes applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Kit de développement logiciel (SDK) Live]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Mes Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Kit de développement logiciel (SDK) Live pour Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-store-get-started
 [Prise en main des données]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
 [Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
@@ -134,4 +134,5 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Envoi de notifications diffusées aux abonnés]: /fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
 [Envoi de notifications basées sur un modèle aux abonnés]: /fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

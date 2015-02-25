@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="TSP on Virtual Machine" pageTitle="Application de calcul intensif Java sur une machine virtuelle - Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Apprenez à créer une machine virtuelle Azure qui exécute une application de calcul intensif Java qu'une autre application Java peut surveiller." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a compute-intensive task in Java on a virtual machine" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
+<properties pageTitle="Application de calcul intensif Java sur une machine virtuelle - Azure" description="Apprenez à créer une machine virtuelle Azure qui exécute une application de calcul intensif Java qu'une autre application Java peut surveiller." services="virtual-machines" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm"/>
 
 # Exécution d'une tâche nécessitant beaucoup de ressources en langage Java sur une machine virtuelle
 
@@ -26,18 +26,31 @@ Vous trouverez ci-dessous un exemple d'application Java qui surveille la tâche 
 
 ![Traveling Salesman Problem client][client_output]
 
-[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Création d'une machine virtuelle
 
 1. Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com).
 2. Cliquez sur **Nouveau**, sur **Calculer**, sur **Machine virtuelle**, puis sur **À partir de la galerie**.
-3. Dans la boîte de dialogue **Sélection de l'image de machine virtuelle**, sélectionnez  **JDK 7 Windows Server 2012**.
+3. Dans la boîte de dialogue **Sélection de l'image de machine virtuelle**, sélectionnez **JDK 7 Windows Server 2012**.
 Notez que **JDK 6 Windows Server 2012** est disponible si vous ne pouvez pas exécuter certaines de vos applications héritées dans JDK 7.
 4. Cliquez sur **Suivant**.
-4. Dans la boîte de dialogue **Configuration de la machine virtuelle** : Entrez un nom pour la machine virtuelle. Entrez la taille de la machine virtuelle. Entrez un nom pour l'administrateur dans le champ **Nom d'utilisateur**. Notez le nom et le mot de passe que vous allez entrer, car vous les utiliserez pour vous connecter à distance à votre machine virtuelle. Entrez un mot de passe dans le champ **Nouveau mot de passe**, puis entrez-le de nouveau dans le champ **Confirmer** field. Il s'agit du mot de passe du compte Administrateur. Cliquez sur **Suivant**.
-5. Dans la boîte de dialogue **Configuration de la machine virtuelle** suivante : Pour **Service de cloud computing**, utilisez la valeur par défaut **Créer un nouveau service de cloud computing**. La valeur du **Nom du cloud Service DNS** doit être unique sur cloudapp.net. Si nécessaire, modifiez cette valeur afin qu'Azure indique qu'elle est unique. Indiquez une région, un groupe d'affinités ou un réseau virtuel. Dans le cadre de ce didacticiel, indiquez une région comme **Bretagne**. Pour **Compte de stockage**, sélectionnez **Utiliser un compte de stockage généré automatiquement**. Pour **Groupe à haute disponibilité**, sélectionnez **(Aucun)**. Cliquez sur **Suivant**.
-5. Dans la dernière boîte de dialogue **Configuration de la machine virtuelle** : Validez les entrées de points de terminaison par défaut. Cliquez sur **Terminé**.
+4. Dans la boîte de dialogue **Configuration de la machine virtuelle** :
+    1. Entrez un nom pour la machine virtuelle.
+    2. Entrez la taille de la machine virtuelle.
+    3. Entrez un nom pour l'administrateur dans le champ **Nom d'utilisateur**. Notez le nom et le mot de passe que vous allez entrer, car vous les utiliserez pour vous connecter à distance à votre machine virtuelle.
+    4. Entrez un mot de passe dans le champ **Nouveau mot de passe**, puis entrez-le de nouveau dans le champ **Confirmer**. Il s'agit du mot de passe du compte Administrateur.
+    5. Cliquez sur **Suivant**.
+5. Dans la boîte de dialogue **Configuration de la machine virtuelle** suivante :
+    1. Pour **Service de cloud**, utilisez la valeur par défaut **Créer un nouveau service de cloud**.
+    2. La valeur du **Nom du cloud Service DNS** doit être unique sur cloudapp.net. Si nécessaire, modifiez cette valeur afin qu'Azure indique qu'elle est unique.
+    2. Indiquez une région, un groupe d'affinités ou un réseau virtuel. Dans le cadre de ce didacticiel, indiquez une région comme **Bretagne**.
+    2. Pour **Compte de stockage**, sélectionnez **Utiliser un compte de stockage généré automatiquement**.
+    3. Pour **Groupe à haute disponibilité**, sélectionnez **(Aucun)**.
+    4. Cliquez sur **Suivant**.
+5. Dans la dernière boîte de dialogue **Configuration de la machine virtuelle** :
+    1. Validez les entrées de points de terminaison par défaut.
+    2. Cliquez sur **Terminé**.
 
 ## Connexion distante à votre machine virtuelle
 
@@ -57,34 +70,40 @@ Pour créer un espace de noms de service :
 
 1.  Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com).
 2.  Dans le volet de navigation gauche du portail de gestion, cliquez sur **Bus des services, Contrôle d'accès et Cache**.
-3.  Dans le volet supérieur gauche du portail de gestion, cliquez sur le nœud **Service Bus**, puis sur le bouton **Nouveau**.  
+3.  Dans le volet supérieur gauche du portail de gestion, cliquez sur le nœud **Bus des
+    services**, puis sur le bouton **Nouveau**.  
     ![Service Bus Node screenshot][svc_bus_node]
-4.  Dans la boîte de dialogue **Créer un espace de noms de service**, entrez un **Espace de noms**, puis vérifiez qu'il est unique en cliquant sur le bouton **Vérifier la disponibilité**.  
+4.  Dans la boîte de dialogue **Création d'un espace de noms Service Bus**, entrez un
+    **Espace de noms**. Puis, afin de vous assurer qu'il est unique, cliquez sur le
+    bouton **Vérifier disponibilité**.  
     ![Create a New Namespace screenshot][create_namespace]
-5.  Après avoir vérifié que le nom de l'espace de noms est disponible, choisissez le pays ou la région où votre espace de noms sera hébergé, puis cliquez sur le bouton **Créer un espace de noms**.  
+5.  Après vous être assuré de la disponibilité du nom de l'espace de noms, choisissez le
+    pays ou la région où votre espace de noms doit être hébergé, puis cliquez sur le bouton **Créer l'espace de noms**.  
       
-    L'espace de noms que vous avez créé apparaît alors dans le portail de gestion. Son activation peut prendre un peu de temps. Attendez que l'état soit **Actif** avant de passer à l'étape suivante.
+    L'espace de noms que vous avez créé apparaît alors dans le portail de gestion.
+    Son activation peut prendre un peu de temps. Attendez que l'état soit **Actif** avant de passer à l'étape suivante.
 
 ## Obtention d'informations d'identification de gestion par défaut pour l'espace de noms
 
-Afin d'effectuer des opérations de gestion, comme la création d'une file d'attente, sur
-le nouvel espace de noms, vous devez obtenir les informations d'identification de gestion
-associées.
+Pour pouvoir effectuer des opérations de gestion telles que la création d'une file d'attente sur le nouvel espace de noms, vous devez obtenir les informations d'identification de gestion associées.
 
-1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour afficher la liste des espaces de noms disponibles :   
+1.  Dans le volet de navigation gauche, cliquez sur le nœud **Bus de service** node, pour
+    afficher la liste des espaces de noms disponibles :   
     ![Available Namespaces screenshot][avail_namespaces]
 2.  Sélectionnez l'espace de noms que vous venez de créer dans la liste affichée :   
     ![Namespace List screenshot][namespace_list]
 3.  Le volet **Propriétés** de droite répertorie les propriétés du nouvel espace de noms :   
     ![Properties Pane screenshot][properties_pane]
-4.  La **Clé par défaut** est masquée. Cliquez sur le bouton **Afficher** pour afficher les informations d'identification de sécurité :   
+4.  La **Clé par défaut** est masquée. Cliquez sur le bouton **Afficher** pour afficher les informations d'identification de sécurité :
     ![Default Key screenshot][default_key]
-5.  Notez l'**Émetteur par défaut** et la **Clé par défaut**, car vous devrez utiliser ces informations ci-dessous pour accomplir les opérations relatives à l'espace de noms. 
+5.  Notez l'**émetteur par défaut** et la **clé par défaut**, étant donné que vous
+    utiliserez les informations ci-dessous plus tard, afin d'effectuer les opérations avec
+    l'espace de noms. 
 
 ## Création d'une application Java exécutant une tâche qui nécessite beaucoup de ressources
 
-1. Sur votre ordinateur de développement (qui n'est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour .NET](http://www.windowsazure.com/fr-fr/develop/java/).
-2. Créez une application console Java à l'aide de l'exemple de code disponible à la fin de cette section. Dans le cadre de ce didacticiel, nous utiliserons le nom de fichier Java **TSPSolver.java**. Modifiez les espaces réservés **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** et **your\_service\_bus\_key** pour utiliser vos valeurs d'**Espace de noms**, d'**Émetteur par défaut** et de **Clé par défaut** Service Bus, respectivement.
+1. Sur votre ordinateur de développement (qui n'est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour Java](http://www.windowsazure.com/fr-fr/develop/java/).
+2. Créez une application console Java à l'aide de l'exemple de code disponible à la fin de cette section. Dans le cadre de ce didacticiel, nous utiliserons le nom de fichier Java **TSPSolver.java**. Modifiez les espaces réservés **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** et **your\_service\_bus\_key** pour utiliser respectivement vos valeurs Service Bus **Espace de noms**, **Émetteur par défaut** et **Clé par défaut**.
 3. Après le codage, exportez l'application dans une archive Java exécutable (JAR) et créez un package contenant les bibliothèques requises dans le fichier JAR généré. Dans le cadre de ce didacticiel, nous utiliserons le nom **TSPSolver.jar** pour désigner le fichier JAR généré.
 
 <p/>
@@ -274,7 +293,7 @@ associées.
 
 ## Création d'une application Java surveillant la progression de la tâche qui nécessite beaucoup de ressources
 
-1. Sur votre ordinateur de développement, créez une application console Java à l'aide de l'exemple de code disponible à la fin de cette section. Dans le cadre de ce didacticiel, nous utiliserons le nom de fichier Java **TSPClient.java**. Comme ci-dessus, modifiez les espaces réservés **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** et **your\_service\_bus\_key** pour utiliser vos valeurs d'**Espace de noms**, d'**Émetteur par défaut** et de **Clé par défaut** Service Bus, respectivement.
+1. Sur votre ordinateur de développement, créez une application console Java à l'aide de l'exemple de code disponible à la fin de cette section. Dans le cadre de ce didacticiel, nous utiliserons le nom **TSPClient.java** pour désigner le fichier Java. Comme précédemment, modifiez les espaces réservés **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** et **your\_service\_bus\_key** pour utiliser vos valeurs d'**Espace de noms**, d'**Émetteur par défaut** et de **Clé par défaut** Service Bus, respectivement.
 2. Exportez l'application dans un fichier JAR exécutable et créez un package contenant les bibliothèques requises dans le fichier JAR généré. Dans le cadre de ce didacticiel, nous utiliserons le nom **TSPClient.jar** pour désigner le fichier JAR généré.
 
 <p/>
@@ -396,8 +415,8 @@ Exécutez l'application nécessitant beaucoup de ressources pour créer la file 
 
 1. Connectez-vous à votre machine virtuelle.
 2. Créez un dossier où vous exécuterez votre application. Par exemple, **c:\TSP**.
-3. Copiez **TSPSolver.jar** dans **c:\TSP**,
-4. Créez un fichier nommé **c:\TSP\cities.txt** avec le contenu suivant :
+3. Copiez **TSPSolver.jar** vers **c:\TSP**,
+4. Créez un fichier intitulé **c:\TSP\cities.txt** avec le contenu suivant :
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -462,13 +481,13 @@ Exécutez l'application nécessitant beaucoup de ressources pour créer la file 
 
  Si vous n'entrez aucun nombre, l'exécution portera sur 10 villes. Dès que le solveur trouve les itinéraires les plus courts, il les ajoute à la file d'attente.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Plus le nombre spécifié est élevé, plus l'exécution du solveur est longue. Par exemple, une exécution portant sur 14 villes peut prendre quelques minutes, et une exécution portant sur 15 villes peut prendre des heures. Au-delà de 16 villes, l'exécution peut prendre des jours (voire des semaines, des mois et des années). Cette lenteur est due à la hausse rapide du nombre de permutations évaluées par le solveur à mesure que le nombre de villes augmente.
  
 ### Exécution de la surveillance de l'application cliente
 1. Connectez-vous à l'ordinateur où vous exécuterez l'application cliente. Il ne doit pas nécessairement s'agir de l'ordinateur qui exécute l'application **TSPSolver**.
 2. Créez un dossier où vous exécuterez votre application. Par exemple, **c:\TSP**.
-3. Copiez **TSPClient.jar** dans **c:\TSP**,
+3. Copiez **TSPClient.jar** vers **c:\TSP**,
 4. Vérifiez que le dossier Bin de JRE se trouve dans la variable d'environnement PATH.
 5. Depuis une invite de commandes, accédez au répertoire c:\TSP.
 6. Exécutez la commande suivante :
@@ -501,4 +520,5 @@ Pour quitter les applications solveur et cliente avant la fin normale, vous pouv
 
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

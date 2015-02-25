@@ -1,10 +1,24 @@
-﻿<properties urlDisplayName="Authorize Users in Scripts (Xamarin.iOS)" pageTitle="Authorisation des utilisateurs avec des scripts (Xamarin.iOS) - Azure Mobile Services" metaKeywords="autoriser les utilisateurs Azure, scripts d'autorisation Xamarin.iOS, autorisation des services mobiles" description="Découvrez comment autoriser des utilisateurs avec des scripts dans votre application Azure Mobile Services pour Xamarin.iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Use scripts to authorize users in Mobile Services" documentationCenter="Mobile" authors="donnam" manager="dwrede" />
+﻿<properties 
+	pageTitle="Autorisation des utilisateurs avec des scripts (Xamarin.iOS) - Azure Mobile Services" 
+	description="Découvrez comment autoriser des utilisateurs avec des scripts dans votre application Azure Mobile Services pour Xamarin.iOS." 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="donnam"/>
 
 # Utilisation de scripts pour autoriser les utilisateurs dans Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]	
+[AZURE.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]	
 
 Cette rubrique vous présente l'utilisation des scripts serveur pour autoriser les utilisateurs authentifiés à accéder aux données dans Azure Mobile Services à partir d'une application Xamarin.iOS.  Dans ce didacticiel, vous allez inscrire les scripts dans Mobile Services pour filtrer les requêtes sur la base de la valeur userId d'un utilisateur authentifié, en vous assurant que chaque utilisateur parvient à voir uniquement ses propres données.
 
@@ -13,7 +27,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 ## <a name="register-scripts"></a>Inscription des scripts
 Étant donné que l'application de démarrage rapide lit et insère les données, vous devez inscrire les scripts de ces opérations dans la table TodoItem.
 
-1. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur votre application. 
+1. Connectez-vous au [portail de gestion Azure], puis cliquez sur **Mobile Services** et sur l'application. 
 
    	![][0]
 
@@ -34,9 +48,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 
     Ce script ajoute une valeur userId à l'élément, qui correspond à l'ID de l'utilisateur authentifié, avant de l'insérer dans la table TodoItem. 
 
-    <div class="dev-callout"><b>Remarque</b>
-	<p>Le schéma dynamique doit être activé la première fois que ce script d'insertion s'exécute. Avec le schéma dynamique activé, Mobile Services ajoute automatiquement la colonne <strong>userId</strong> à la table <strong>TodoItem</strong> lors de la première exécution. Par défaut, le schéma dynamique est activé pour un nouveau service mobile. Il doit être désactivé avant que l'application soit publiée sur le Windows Store.</p>
-    </div>
+    > [AZURE.NOTE] Le schéma dynamique doit être activé la première fois que ce script d'insertion s'exécute. Avec le schéma dynamique activé, Mobile Services ajoute automatiquement la colonne **userId** à la table **TodoItem** lors de la première exécution. Par défaut, le schéma dynamique est activé pour un nouveau service mobile. Il doit être désactivé avant que l'application soit publiée sur le Windows Store.
 
 
 5. Répétez les étapes 3 et 4 pour remplacer l'opération **Read** existante par la fonction suivante :
@@ -46,7 +58,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
            request.execute();
         }
 
-   	Ce script filtre les objets TodoItem renvoyés de façon à ce que chaque utilisateur reçoive uniquement les éléments qu'il a inséré.
+   	Ce script filtre les objets TodoItem renvoyés de façon à ce que chaque utilisateur reçoive uniquement les éléments qu'il a insérés.
 
 ## Test de l'application
 
@@ -54,13 +66,13 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 
 2. Appuyez sur le bouton **Exécuter** pour générer le projet, démarrez l'application dans l'émulateur iPhone, puis connectez-vous avec le fournisseur d'identité de votre choix. 
 
-Remarquez que cette fois, bien que certains éléments provenant des didacticiels précédents figurent déjà dans la table TodoItem, aucun élément n'est renvoyé. Cela se produit parce que les éléments précédents ont été insérés sans la colonne userId et comportent maintenant des valeurs null.
+   	Remarquez que cette fois, bien que certains éléments provenant des didacticiels précédents figurent déjà dans la table TodoItem, aucun élément n'est renvoyé. Cela se produit parce que les éléments précédents ont été insérés sans la colonne userId et comportent maintenant des valeurs null.
 
 3. Dans l'application, entrez du texte dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
 
    	![][3]
 
-Cette action insère à la fois le texte et la valeur userId dans la table TodoItem du service mobile. Étant donné que le nouvel élément dispose de la valeur userId correcte, il est renvoyé par le service mobile et affiché dans la seconde colonne.
+   	Cette action insère à la fois le texte et la valeur userId dans la table TodoItem du service mobile. Étant donné que le nouvel élément dispose de la valeur userId correcte, il est renvoyé par le service mobile et affiché dans la seconde colonne.
 
 5. De retour dans la table **todoitem** sur le [portail de gestion][Azure Management Portal], cliquez sur **Parcourir** et vérifiez que chaque élément récemment ajouté présente une valeur userId associée.
 
@@ -77,7 +89,7 @@ Cela met fin à la série de didacticiels établissant les principes de base de 
   <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
 * [Référence de script serveur Mobile Services]
-  <br/>En savoir plus sur l'enregistrement et l'utilisation des scripts serveur.
+  <br/>En savoir plus sur l'inscription et l'utilisation des scripts serveur.
 
 <!-- Anchors. -->
 [Inscription des scripts serveur]: #register-scripts
@@ -91,7 +103,7 @@ Cela met fin à la série de didacticiels établissant les principes de base de 
 
 <!-- URLs. -->
 
-[Notifications push de Windows et Live Connect]: http://go.microsoft.com/fwlink/p/?LinkID=257677
+[Notifications Push de Windows & Live Connect]: http://go.microsoft.com/fwlink/p/?LinkID=257677
 [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [Tableau de bord Mes applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started/#create-new-service
@@ -100,3 +112,6 @@ Cela met fin à la série de didacticiels établissant les principes de base de 
 [Prise en main des notifications Push]: /fr-fr/develop/mobile/tutorials/get-started-with-push-xamarin-ios
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
+
+
+<!--HONumber=42-->

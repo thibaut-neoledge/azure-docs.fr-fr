@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Access SharePoint on behalf of the user" pageTitle="Accès à SharePoint pour l'utilisateur | Centre de développement mobile" metaKeywords="" description="Découvrez comment appeler SharePoint pour l'utilisateur" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Access SharePoint on behalf of the user" authors="mahender" manager="dwrede" />
+﻿<properties pageTitle="Accès à SharePoint pour l'utilisateur | Centre de développement mobile" description="Découvrez comment appeler SharePoint pour l'utilisateur" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
 
 # Accès à SharePoint pour le compte de l'utilisateur
 
@@ -9,7 +9,7 @@
 <p>Cette rubrique explique comment accéder aux API SharePoint pour le compte de l'utilisateur actuellement connecté.</p>
 <p>Si vous préférez regarder une vidéo, le clip sur la droite suit la même procédure que ce didacticiel. Dans la vidéo, Mat Velloso vous montre comment mettre à jour une application Windows Store pour interagir avec SharePoint Online.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('http://media.ch9.ms/ch9/f217/3f8cbf94-f36b-4162-b3da-1c00339ff217/AzureMobileServicesAADO365AuthenticationIdentityA_960.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">12:51:00</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('http://media.ch9.ms/ch9/f217/3f8cbf94-f36b-4162-b3da-1c00339ff217/AzureMobileServicesAADO365AuthenticationIdentityA_960.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">12:51</span></div>
 </div>
 
 Dans ce didacticiel, vous allez mettre à jour l'application du didacticiel " Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory " de manière à créer un document Word dans SharePoint Online lorsqu'un nouveau TodoItem est ajouté.
@@ -51,7 +51,7 @@ Pour appeler SharePoint, vous devez spécifier les points de terminaison avec le
 
     ![][2]
 
-3. Dans la section Mobile Services du portail de gestion, accédez à l'onglet Configurer, puis à la section Paramètres de l'application. Vous pouvez fournir ici une paire clé/valeur qui vous aidera à référencer les informations d'identification nécessaires.
+3. Dans la section Mobile Services du portail de gestion, accédez à l'onglet Configurer puis à la section Paramètres de l'application. Vous pouvez fournir ici une paire clé/valeur qui vous aidera à référencer les informations d'identification nécessaires.
 
     ![][3]
 
@@ -69,7 +69,7 @@ Pour accéder à SharePoint, vous avez besoin d'un jeton d'accès spécial avec 
 
 1. Ouvrez votre projet de service principal Mobile Services dans Visual Studio.
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
 2. Dans votre projet de service principal Mobile Services, créez une classe appelée SharePointUploadContext. Ajoutez-y le code suivant :
 
@@ -93,7 +93,7 @@ Pour accéder à SharePoint, vous avez besoin d'un jeton d'accès spécial avec 
         {
             //Call ADAL and request a token to SharePoint with the access token
             AuthenticationContext ac = new AuthenticationContext(authority);
-            AuthenticationResult ar = ac.AcquireToken(sharepointURL, new UserAssertion(userToken), new ClientCredential(clientId, clientSecret));
+            AuthenticationResult ar = ac.AcquireToken(sharepointURL, new ClientCredential(clientId, clientSecret), new UserAssertion(userToken));
             accessToken = ar.AccessToken;
             string upn = ar.UserInfo.UserId;
             mySiteApiPath = "/personal/" + upn.Replace('@','_').Replace('.','_') + "/_api/web"; 
@@ -203,3 +203,5 @@ Pour créer un document Word, vous allez utiliser le package NuGet OpenXML. Inst
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/fr-fr/sharepoint/
 [Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory]: http://azure.microsoft.com/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
+
+<!--HONumber=42-->

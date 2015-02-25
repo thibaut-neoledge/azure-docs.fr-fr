@@ -1,6 +1,20 @@
-﻿<properties title="Getting Started with Mobile Services" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
+<properties 
+	pageTitle="" 
+	description="" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/8/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Mise en route](/documentation/articles/vs-mobile-services-cordova-getting-started/)
@@ -14,7 +28,7 @@ Dans le cas d'un service mobile principal JavaScript, créez une table nommée T
 
 Si vous disposez à la place d'un service mobile principal .NET, une table TodoItem existe déjà dans le modèle de projet par défaut créé par Visual Studio, mais vous devez la publier sur Azure. Pour cela, ouvrez le menu contextuel du projet de service mobile dans l'Explorateur de solutions, puis choisissez **Publier le site web**. Acceptez les valeurs par défaut, puis choisissez le bouton **Publier**.
   
->[WACOM.NOTE]**Appliquez cette [solution de contournement](http://go.microsoft.com/fwlink/?LinkId=518765) pour utiliser Azure Mobile Services dans les projets Cordova.**
+>[AZURE.NOTE]**Dans les projets Cordova générés à l'aide de Visual Studio 2015 Preview, utilisez la [solution de contournement suivante](http://go.microsoft.com/fwlink/?LinkId=518765) pour travailler avec Azure Mobile Services. La solution de contournement n'est pas requise pour les projets utilisant des versions de Visual Studio 2015 ultérieures.**
 
 #####Obtenir une référence pointant vers une table
 
@@ -78,3 +92,5 @@ Supprimez une ligne d'une table de données à l'aide de la méthode **del**. Ap
 	});
 
 [En savoir plus sur les services mobiles](http://azure.microsoft.com/documentation/services/mobile-services/)
+
+<!--HONumber=42-->

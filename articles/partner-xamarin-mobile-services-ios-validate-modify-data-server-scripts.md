@@ -1,12 +1,26 @@
-﻿<properties urlDisplayName="" pageTitle="Utilisation de scripts serveur pour valider et modifier des données (Xamarin iOS) | Centre de développement mobile" metaKeywords="" description="Découvrez comment valider et modifier les données envoyées à l'aide de scripts serveurs à partir de votre application Xamarin iOS." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="donnam" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Utilisation de scripts serveur pour valider et modifier des données (Xamarin iOS) | Centre de développement mobile" 
+	description="Découvrez comment valider et modifier les données envoyées à l'aide de scripts serveurs à partir de votre application Xamarin iOS." 
+	services="mobile-services" 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="donnam"/>
 
 # Validation et modification de données dans Mobile Services à l'aide de scripts serveur
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
-Cette rubrique vous présente l'utilisation des scripts serveur dans Azure Mobile Services. Il est possible d'utiliser les scripts serveur inscrits dans un service mobile pour effectuer diverses opérations sur les données insérées et mises à jour, qu'il s'agisse de les valider ou de les modifier. Ce didacticiel vous apprend à définir et à inscrire les scripts serveur qui valident et modifient les données. Le comportement des scripts serveur ayant souvent un impact sur le client, vous allez également mettre à jour votre application iOS pour tirer profit de ces nouveaux comportements. Le code finalisé est disponible dans l'exemple d'application [ValidateModifyData ][GitHub].
+Cette rubrique montre comment exploiter les scripts serveur dans Azure Mobile Services. Il est possible d'utiliser les scripts serveur inscrits dans un service mobile pour effectuer diverses opérations sur les données insérées et mises à jour, qu'il s'agisse de les valider ou de les modifier. Ce didacticiel vous apprend à définir et à inscrire les scripts serveur qui valident et modifient les données. Le comportement des scripts serveur ayant souvent un impact sur le client, vous allez également mettre à jour votre application iOS pour tirer profit de ces nouveaux comportements. Le code finalisé est disponible dans l'exemple [d'application ValidateModifyData][GitHub].
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 
@@ -21,7 +35,7 @@ Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés
 
 Il est toujours souhaitable de valider la longueur des données soumises par les utilisateurs. Vous devez d'abord inscrire un script qui valide la longueur des données de chaîne envoyées au service mobile et refuse les chaînes trop longues, en l'occurrence, celles qui font plus de 10 caractères.
 
-1. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur votre application. 
+1. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application. 
 
 	![][0]
 
@@ -45,21 +59,19 @@ Il est toujours souhaitable de valider la longueur des données soumises par les
 
     Ce script vérifie la longueur de la propriété **text** et envoie une réponse indiquant une erreur lorsque la chaîne dépasse 10 caractères. Sinon, la méthode **execute** est appelée pour effectuer l'insertion.
 
-    <div class="dev-callout"> 
-	<b>Remarque</b> 
-	<p>Vous pouvez supprimer un script inscrit dans l'onglet <strong>Script</strong> en cliquant sur <strong>Effacer</strong>, puis sur <strong>Enregistrer</strong>.</p></div>
+    > [AZURE.NOTE] Sous l'onglet **Script**, vous pouvez supprimer un script inscrit en cliquant sur **Effacer**, puis sur **Enregistrer**.
 
 ## <a name="update-client-validation"></a>Mise à jour du client
 
 Maintenant que le service mobile valide les données et envoie des réponses d'erreur, vous devez mettre à jour l'application afin qu'elle traite les réponses d'erreur de la validation.
 
-1. Dans Xamarin Studio, ouvrez le projet que vous avez modifié en suivant le didacticiel [Prise en main des données].
+1. Dans Xamarin Studio, ouvrez le projet que vous avez modifié avec le didacticiel [Prise en main des données].
 
-2. Appuyez sur le bouton **Exécuter** pour générer le projet et démarrer l'application, puis tapez un texte de plus de 10 caractères dans la zone de texte et cliquez sur l'icône Plus (**+**).
+2. Cliquez sur **Exécuter** pour générer le projet et démarrer l'application, puis tapez un texte de plus de 10 caractères dans la zone de texte et cliquez sur l'icône plus (**+**).
 
-Notez que l'application génère une exception non prise en charge suite à la réponse 400 (Requête incorrecte) renvoyée par le service mobile.	
+	Notez que l'application génère une exception non prise en charge suite à la réponse 400 (Requête incorrecte) renvoyée par le service mobile.	
 
-3. Dans le fichier TodoService.cs, recherchez la gestion d'exception <code>try/catch</code> actuelle dans la méthode **InsertTodoItemAsync** et remplacez le code <code>catch</code> par :
+3. Dans le fichier TodoService.cs, recherchez la gestion d'exception <code>try/catch</code> actuelle dans la méthode **InsertTodoItemAsync**, et remplacez le code <code>catch</code> par :
     
     catch (Exception ex) {
         var exDetail = (ex.InnerException.InnerException as MobileServiceInvalidOperationException);
@@ -77,7 +89,7 @@ Notez que l'application génère une exception non prise en charge suite à la r
 
 	Ce code affiche une fenêtre contextuelle qui présente l'erreur à l'utilisateur. 
 
-4. Recherchez la méthode **OnAdd** dans **TodoListViewController.cs**. Mettez à jour la méthode pour vous assurer que le code <code>index</code> renvoyé n'est pas égal à <code>-1</code>, tel que renvoyé par la gestion des exceptions dans **InsertTodoItemAsync**. Dans ce cas, il ne faut pas ajouter de nouvelle ligne dans le code <code>TableView</code>.
+4. Recherchez la méthode **OnAdd** dans **TodoListViewController.cs**. Mettez à jour la méthode pour vous assurer que le code <code>index</code> renvoyé n'est pas égal à <code>-1</code>, tel que renvoyé par la gestion des exceptions **InsertTodoItemAsync**. Dans ce cas, il ne faut pas ajouter de nouvelle ligne dans le code <code>TableView</code>.
 
     if (index != -1) {
         TableView.InsertRows(new [] { NSIndexPath.FromItemSection(index, 0) },
@@ -106,7 +118,7 @@ Les scripts serveur sont également utilisés dans le cadre du processus d'autor
   <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
 * [Référence de script serveur Mobile Services]
-  <br/>En savoir plus sur l'enregistrement et l'utilisation des scripts serveur.
+  <br/>En savoir plus sur l'inscription et l'utilisation des scripts serveur.
 
 <!-- Anchors. -->
 [Ajout de la validation de longueur de chaîne]: #string-length-validation
@@ -126,7 +138,7 @@ Les scripts serveur sont également utilisés dans le cadre du processus d'autor
 [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started-xamarin-ios
 [Autorisation des utilisateurs avec des scripts]: /fr-fr/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
-[Affinage des requêtes à la pagination.]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-xamarin-ios
+[Affinage des requêtes au moyen de la pagination]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-xamarin-ios
 [Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-xamarin-ios
 [Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-xamarin-ios
 [Prise en main des notifications Push]: /fr-fr/develop/mobile/tutorials/get-started-with-push-xamarin-ios
@@ -134,3 +146,6 @@ Les scripts serveur sont également utilisés dans le cadre du processus d'autor
 [Portail de gestion]: https://manage.windowsazure.com/
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331330
+
+
+<!--HONumber=42-->

@@ -1,10 +1,24 @@
-﻿<properties pageTitle="Prise en main de Mobile Services pour les applications Xamarin iOS" metaKeywords="" description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement Xamarin iOS." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="craigd" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Prise en main de Mobile Services pour les applications Xamarin iOS" 
+	description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement Xamarin iOS." 
+	services="mobile-services" 
+	documentationCenter="xamarin" 
+	authors="conceptdev" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/22/2014" ms.author="craig.dunn@xamarin.com" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="hero-article" 
+	ms.date="11/22/2014" 
+	ms.author="craig.dunn@xamarin.com"/>
 
-# <a name="getting-started"> </a>Prise en main de Mobile Services
+# <a name="getting-started"></a>Prise en main de Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 Ce didacticiel vous montre comment ajouter un service principal cloud à une application Xamarin.iOS en utilisant Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application <em>To do list</em> qui stocke les données d'application dans le nouveau service mobile.
 
@@ -20,13 +34,13 @@ Voici une capture d'écran de l'application terminée :
 
 ![][0]
 
-Ce didacticiel nécessite XCode et [Xamarin Studio] pour OS X ou le plug-in Xamarin Visual Studio pour Visual Studio sur Windows. L'exemple s'exécute sur iOS 5.0 et les versions plus récentes.
+Ce didacticiel nécessite XCode and [Xamarin Studio] pour OS X ou le plug-in Xamarin Visual Studio pour Visual Studio sur Windows. L'exemple s'exécute sur iOS 5.0 et les versions plus récentes.
 
-<div class="dev-callout"><strong>Remarque</strong> <p>Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la rubrique <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A643EE910&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.</p></div>
+> [AZURE.IMPORTANT] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F"%20target="_blank).
 
-## <a name="create-new-service"> </a>Création d'un service mobile
+## <a name="create-new-service"></a>Créer un nouveau service mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-création-nouveau-service](../includes/mobile-services-create-new-service.md)]
 
 <h2>Création d'une application Xamarin.iOS</h2>
 
@@ -34,7 +48,7 @@ Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapid
 
 Dans cette section, vous allez créer une application Xamarin.iOS connectée à votre service mobile.
 
-1.  Dans le portail de gestion, cliquez sur **Services mobiles**, puis sur le service mobile que vous venez de créer.
+1.  Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
 2. Sous l'onglet de démarrage rapide, cliquez sur **Xamarin.iOS** sous **Choisissez une plateforme** et développez **Créer une application Xamarin.iOS**.
 
@@ -56,7 +70,7 @@ Dans cette section, vous allez créer une application Xamarin.iOS connectée à 
 
 La dernière étape de ce didacticiel consiste à générer et à exécuter votre nouvelle application.
 
-1. Accédez à l'emplacement où vous avez enregistré les fichiers projet compressés, développez les fichiers sur votre ordinateur et ouvrez le fichier solution **XamarinTodoQuickStart.iOS.sln** à l'aide de Xamarin Studio ou Visual Studio.
+1. Accédez à l'emplacement où vous avez enregistré les fichiers projet compressés, développez les fichiers sur votre ordinateur et ouvrez le fichier solution **XamarinTodoQuickStart.iOS.sln** dans Xamarin Studio ou Visual Studio.
 
 	![][8]
 
@@ -64,18 +78,15 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 2. Appuyez sur le bouton **Exécuter** pour générer le projet et démarrer l'application dans l'émulateur iPhone (configuration par défaut pour ce projet).
 
-3. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, puis cliquez sur l'icône plus (**+**).
+3. Dans l'application, tapez un texte explicite, comme " Suivre le didacticiel ", puis cliquez sur l'icône plus (**+**).
 
 	![][10]
 
 	Ceci envoie une demande POST vers le nouveau service mobile hébergé dans Azure. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans la table sont renvoyés par le service mobile et les données sont affichées dans la liste.
 
-	<div class="dev-callout"> 
-	<b>Remarque</b> 
-   	<p>Vous pouvez vérifier le code qui se trouve dans le fichier TodoService.cs C# et permet d'accéder au service mobile pour exécuter une requête et insérer des données.</p> 
- 	</div>
+	> [AZURE.NOTE] Vous pouvez vérifier le code qui se trouve dans le fichier TodoService.cs C# et permet d'accéder au service mobile pour exécuter une requête et insérer des données.
 
-4. De retour dans le portail de gestion, cliquez sur l'onglet **Données**, puis cliquez sur la table **TodoItems**.
+4. Dans le portail de gestion, cliquez sur l'onglet **Données**, puis cliquez sur la table **TodoItems**.
 
 	![][11]
 
@@ -86,11 +97,11 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 ## <a name="next-steps"> </a>Étapes suivantes
 Maintenant que vous avez effectué le démarrage rapide, découvrez comment exécuter d'autres tâches importantes dans Mobile Services : 
 
-* [Prise en main des données]
-  <br/>En savoir plus sur le stockage et l'interrogation des données à l'aide de Mobile Services.
+## Étapes suivantes
+Maintenant que vous avez effectué le démarrage rapide, découvrez comment exécuter d'autres tâches importantes dans Mobile Services : 
 
 * [Prise en main de la synchronisation des données hors connexion]
-  <br/>En savoir plus sur la synchronisation des données hors connexion pour rendre votre application réactive et robuste.
+  <br/>Découvrez comment le démarrage rapide utilise les données synchronisées hors connexion pour rendre votre application réactive et robuste.
 
 * [Prise en main de l'authentification]
   <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec un fournisseur d'identité.
@@ -98,11 +109,10 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 * [Prise en main des notifications Push] 
   <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
-
 <!-- Anchors. -->
 [Prise en main de Mobile Services]:#getting-started
 [Création d'un service mobile]:#create-new-service
-[Définition de l'instance de service mobile]:#define-mobile-service-instance
+[Définition de l'instance du service mobile]:#define-mobile-service-instance
 [Étapes suivantes]:#next-steps
 
 <!-- Images. -->
@@ -123,8 +133,9 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 [Prise en main des notifications Push]: /fr-fr/develop/mobile/tutorials/get-started-with-push-xamarin-ios
 
 [Xamarin Studio]: http://xamarin.com/download
-[Kit de développement logiciel (SDK) Mobile Services iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Kit de développement logiciel (SDK) Mobile Services pour iOS]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Portail de gestion]: https://manage.windowsazure.com/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

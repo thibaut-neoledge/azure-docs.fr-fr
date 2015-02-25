@@ -1,20 +1,21 @@
-﻿<properties title="How to Configure An Availability Set for Virtual Machines" pageTitle="Configuration d'un groupe à haute disponibilité pour des machines virtuelles" description="Indique les opérations à effectuer pour configurer un groupe à haute disponibilité pour une machine virtuelle dans Azure" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
+﻿<properties pageTitle="Configuration d'un groupe à haute disponibilité pour des machines virtuelles" description="Indique les opérations à effectuer pour configurer un groupe à haute disponibilité pour une machine virtuelle dans Azure" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="kathydav"/>
 
 #Configuration d'un groupe à haute disponibilité pour des machines virtuelles#
 
-Un groupe à haute disponibilité maintient la disponibilité de vos machines virtuelles pendant une interruption (par exemple, en cas de maintenance). Le placement de deux machines virtuelles ou plus dans un groupe à haute disponibilité crée les conditions de redondance indispensables au maintien de la disponibilité des applications ou des services exécutés par votre machine virtuelle. Pour plus d'informations sur le fonctionnement, consultez [Gestion de la disponibilité des machines virtuelles] []. 
 
-Il est recommandé d'utiliser des groupes à haute disponibilité et des points de terminaison à équilibrage de la charge pour garantir que votre application soit toujours disponible et qu'elle s'exécute correctement. Pour plus d'informations sur les points de terminaison à équilibrage de la charge, consultez la page [Équilibrage de charge pour les services d'infrastructure Azure] [].
+Un groupe à haute disponibilité maintient la disponibilité de vos machines virtuelles pendant une interruption (par exemple, en cas de maintenance). Le placement de deux machines virtuelles ou plus dans un groupe à haute disponibilité crée les conditions de redondance indispensables au maintien de la disponibilité des applications ou des services exécutés par votre machine virtuelle. Pour plus d'informations sur le fonctionnement, consultez [Gestion de la disponibilité des machines virtuelles][]. 
+
+Il est recommandé d'utiliser des groupes à haute disponibilité et des points de terminaison à équilibrage de la charge pour garantir que votre application soit toujours disponible et qu'elle s'exécute correctement. Pour plus d'informations sur les points de terminaison à équilibrage de la charge, consultez la page [Équilibrage de charge pour les services d'infrastructure Azure][].
 
 Vous pouvez placer des machines virtuelles dans un groupe à haute disponibilité en utilisant une des deux options suivantes :
 
-- [Option 1 : création simultanée d'une machine virtuelle et d'un groupe à haute disponibilité] []. Ajoutez ensuite de nouvelles machines virtuelles au groupe lorsque vous les créez.
-- [Option 2 : ajout d'une machine virtuelle existante à un groupe à haute disponibilité] [].
+- [Option 1 : création simultanée d'une machine virtuelle et d'un groupe à haute disponibilité][]. Ajoutez ensuite de nouvelles machines virtuelles au groupe lorsque vous les créez.
+- [Option 2 : ajout d'une machine virtuelle existante à un groupe à haute disponibilité][].
 
 
->[WACOM.NOTE] Les machines virtuelles que vous voulez placer dans le même groupe à haute disponibilité doivent appartenir au même service cloud.   
+>[AZURE.NOTE] Les machines virtuelles que vous voulez placer dans le même groupe à haute disponibilité doivent appartenir au même service cloud.   
 
 ## <a id="createset"> </a>Option 1 : création simultanée d'une machine virtuelle et d'un groupe à haute disponibilité##
 
@@ -22,17 +23,17 @@ Pour cela, vous pouvez utiliser le portail de gestion Azure ou des cmdlets Azure
 
 Pour utiliser le portail de gestion Azure :
 
-1. Si ce n'est pas déjà fait, connectez-vous au [portail de gestion](http://manage.windowsazure.com)Azure.
+1. Si ce n'est pas déjà fait, connectez-vous au [portail de gestion Azure](http://manage.windowsazure.com).
 
 2. Dans la barre de commandes, cliquez sur **Nouveau**.
 
-3. Cliquez sur **Machine virtuelle**, puis sur  **À partir de la galerie**.
+3. Cliquez sur **Machine virtuelle**, puis sur **À partir de la galerie**.
 
 4. Utilisez les deux premiers écrans pour sélectionner une image, un nom d'utilisateur et un mot de passe, et ainsi de suite. Pour en savoir plus, consultez la page [Création d'une machine virtuelle exécutant Windows][].
  
 5. Le troisième écran vous permet de configurer les ressources pour la mise en réseau, le stockage et la disponibilité. Effectuez les actions suivantes :
 	 
-	1. Sélectionnez l'option adaptée au service cloud. Laissez-la sur **Créer un nouveau service de cloud computing** (sauf si vous ajoutez cette nouvelle machine virtuelle à un service cloud de machine virtuelle existant). Ensuite, sous **Nom du cloud Service DNS**, tapez un nom. Ce nom fait alors partie de l'URI utilisé pour contacter la machine virtuelle. Le service cloud agit comme un groupe de communication et d'isolement. Toutes les machines virtuelles du même service cloud peuvent communiquer entre elles, être configurées pour équilibrer la charge et placées dans le même groupe à haute disponibilité. 
+	1. Sélectionnez l'option adaptée au service cloud. Laissez-la sur **Créer un nouveau service de cloud computing** (sauf si vous ajoutez cette nouvelle machine virtuelle à un service cloud de machine virtuelle existant). Ensuite, sous **Nom DNS du service cloud**, tapez un nom. Ce nom fait alors partie de l'URI utilisé pour contacter la machine virtuelle. Le service cloud agit comme un groupe de communication et d'isolement. Toutes les machines virtuelles du même service cloud peuvent communiquer entre elles, être configurées pour équilibrer la charge et placées dans le même groupe à haute disponibilité. 
 
 	2. Sous **Région/Groupe d'affinités/Réseau virtuel**, sélectionnez un réseau virtuel si vous envisagez d'en utiliser un. **Important** : si vous voulez qu'une machine virtuelle utilise un réseau virtuel, lorsque vous la créez, vous devez la lier au réseau virtuel. Vous ne pouvez pas joindre la machine virtuelle à un réseau virtuel après avoir créé celle-ci. Pour plus d'informations, consultez la page [Vue d'ensemble d'Azure Virtual Network][]. 
 	
@@ -55,9 +56,9 @@ Pour utiliser les cmdlets Azure :
 
 	`C:\PS> $image = (Get-AzureVMImage)[<index_number>].ImageName`
 
-	>[WACOM.NOTE] Exécutez `Get-AzureVMImage` sans paramètre pour obtenir la liste de toutes les images disponibles pour votre abonnement. Cette commande risque de retourner une grande liste. Pour la raccourcir, utilisez des propriétés telles que le nom de famille d'image. Pour obtenir des conseils et des exemples qui illustrent comment rechercher une image spécifique, consultez [Gérer des images à l'aide de Windows PowerShell](http://msdn.microsoft.com/fr-fr/library/azure/dn790330.aspx).
+	>[AZURE.NOTE] Exécutez `Get-AzureVMImage` sans paramètre pour obtenir la liste de toutes les images disponibles pour votre abonnement. Cette commande risque de retourner une grande liste. Pour la raccourcir, utilisez des propriétés telles que le nom de famille d'image. Pour obtenir des conseils et des exemples qui illustrent comment rechercher une image spécifique, consultez [Gérer des images à l'aide de Windows PowerShell](http://msdn.microsoft.com/fr-fr/library/azure/dn790330.aspx).
 
-3.	Spécifiez la configuration de la nouvelle machine virtuelle et utilisez le pipeline pour transmettre un objet de configuration à la cmdlet qui crée la machine virtuelle. Veillez à remplacer les espaces réservés, tels que &lt;VmName&gt; et &lt;VmSize&gt;, par vos propres valeurs.
+3.	Spécifiez la configuration de la nouvelle machine virtuelle et utilisez le pipeline pour transmettre un objet de configuration à la cmdlet qui crée la machine virtuelle. Veillez à remplacer les espaces réservés, comme &lt;VmName&gt; et &lt;VmSize&gt;, par vos propres valeurs.
 
 	`C:\PS> New-AzureVMConfig -Name "<VmName>" -InstanceSize <VmSize> -AvailabilitySetName "<SetName>" -ImageName $image | Add-AzureProvisioningConfig -Windows -AdminUsername "<UserName>" -Password "<MyPassword>" | Add-AzureDataDisk -CreateNew -DiskSizeInGB 50 -DiskLabel 'datadisk1' -LUN 0 | New-AzureVM -ServiceName "<MySvc1>" `
 
@@ -65,13 +66,13 @@ Pour utiliser les cmdlets Azure :
 
 Dans le portail de gestion, vous pouvez ajouter des machines virtuelles existantes à un groupe à haute disponibilité existant ou en créer un pour ces machines. (N'oubliez pas que les machines virtuelles doivent appartenir au même service cloud). Les opérations à effectuer sont pratiquement identiques. Dans Azure PowerShell, vous pouvez ajouter la machine virtuelle à un groupe à haute disponibilité existant. 
 
-1. Si ce n'est pas déjà fait, connectez-vous au [portail de gestion Azure](http://manage.windowsazure.com)Azure.
+1. Si ce n'est pas déjà fait, connectez-vous au [portail de gestion Azure](http://manage.windowsazure.com).
 
 2. Dans la barre de navigation, cliquez sur **Machines virtuelles**.
 
 3. Dans la liste des machines virtuelles, sélectionnez une machine virtuelle que vous voulez ajouter au groupe. Cliquez sur la ligne de la machine virtuelle pour ouvrir son tableau de bord.
 
-4. Sous les onglets sous le nom de la machine virtuelle, cliquez sur  **Configurer**. 
+4. Dans les onglets sous le nom de la machine virtuelle, cliquez sur **Configurer**. 
 
 5. Dans la zone Paramètres, recherchez **Jeu de disponibilité**. Effectuez l'une des actions suivantes :
 
@@ -85,11 +86,11 @@ Dans le portail de gestion, vous pouvez ajouter des machines virtuelles existant
 
 Pour utiliser les cmdlets Azure :
 
-Ouvrez une session Azure PowerShell et exécutez la commande suivante. Veillez à remplacer les espaces réservés, tels que &&lt;VmCloudServiceName&gt; et &lt;VmName&gt;, par vos propres valeurs.
+Ouvrez une session Azure PowerShell et exécutez la commande suivante. Veillez à remplacer les espaces réservés, comme &lt;VmCloudServiceName&gt; et &lt;VmName&gt;, par vos propres valeurs.
 
 	C:\PS> Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<MyAvSet>" | Update-AzureVM
 
->[WACOM.NOTE] Vous pouvez redémarrer la machine virtuelle pour terminer l'ajout au groupe à haute disponibilité.
+>[AZURE.NOTE] Vous pouvez redémarrer la machine virtuelle pour terminer l'ajout au groupe à haute disponibilité.
 
 
 ##Ressources supplémentaires
@@ -108,4 +109,5 @@ Ouvrez une session Azure PowerShell et exécutez la commande suivante. Veillez �
 [À propos des paramètres de configuration de machine virtuelle Azure]: http://msdn.microsoft.com/fr-fr/library/azure/dn763935.aspx
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

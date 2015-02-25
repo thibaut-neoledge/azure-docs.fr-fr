@@ -1,18 +1,18 @@
-﻿<properties urlDisplayName="Upload an Oracle Linux VHD" pageTitle="Création et téléchargement d'un disque dur virtuel Oracle Linux dans Azure" metaKeywords="Azure VHD, uploading Linux VHD, Oracle Linux" description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation Oracle Linux." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains an Oracle Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties pageTitle="Création et téléchargement d'un disque dur virtuel Oracle Linux dans Azure" description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation Oracle Linux." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="szarkos"/>
 
 # Préparation d'une machine virtuelle Oracle Linux pour Azure
 
-- [Préparation d'une machine virtuelle Oracle Linux 6.4+ Virtual Machine pour Azure](#oracle6)
-- [Préparation d'une machine virtuelle Oracle Linux 7.0+ Virtual Machine pour Azure](#oracle7)
+- [Préparation d'une machine virtuelle Oracle Linux 6.4+ pour Azure](#oracle6)
+- [Préparation d'une machine virtuelle Oracle Linux 7.0+ pour Azure](#oracle7)
 
-##Conditions préalables##
+##Configuration requise##
 
 Cet article suppose que vous avez déjà installé un système d'exploitation Oracle Linux dans un disque dur virtuel. Il existe de nombreux outils de création de fichiers .vhd, par exemple une solution de virtualisation telle que Hyper-V. Pour obtenir des instructions à ce sujet, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx). 
 
 
-**Notes générales d'installation de Oracle Linux**
+**Notes générales d'installation d'Oracle Linux**
 
 - Le noyau Oracle compatible Red Hat et leur noyau UEK3 (Unbreakable Enterprise Kernel) sont tous les deux pris en charge sur Hyper-V et Azure. Pour de meilleurs résultats, n'oubliez pas de mettre à jour le noyau lorsque vous préparez votre disque dur virtuel Oracle Linux.
 
@@ -41,14 +41,14 @@ Vous devez suivre des étapes de configuration spécifiques dans le système d'e
 
 		# sudo rpm -e --nodeps NetworkManager
 
-	**Remarque :** si le package n'est pas déjà installé, la commande échoue et un message d'erreur s'affiche. Ceci est normal.
+	**Remarque :** si le package n'est pas déjà installé, la commande échoue et un message d'erreur s'affiche. C'est tout à fait normal.
 
-4.	Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le code suivant :
+4.	Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le texte suivant :
 
 		NETWORKING=yes
 		HOSTNAME=localhost.localdomain
 
-5.	Créez un fichier nommé **ifcfg-eth0** dans le répertoire `/etc/sysconfig/network-scripts/` et entrez-y le code suivant :
+5.	Créez un fichier nommé **ifcfg-eth0** dans le répertoire `/etc/sysconfig/network-scripts/` et entrez-y le texte suivant :
 
 		DEVICE=eth0
 		ONBOOT=yes
@@ -84,7 +84,7 @@ Vous devez suivre des étapes de configuration spécifiques dans le système d'e
 
 	Le démarrage graphique et transparent n'est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série.
 
-	L'option `crashkernel` peut rester configurée le cas échéant, mais notez que ce paramètre réduit d'au moins 128 Mo la mémoire disponible dans la machine virtuelle, ce qui peut poser un problème sur les plus petites machines virtuelles.
+	L'option  `crashkernel` peut rester configurée le cas échéant, mais notez que ce paramètre réduit d'au moins 128 Mo la mémoire disponible dans la machine virtuelle, ce qui peut poser un problème sur les petites machines virtuelles.
 
 
 10.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu.  C'est généralement le cas par défaut.
@@ -135,12 +135,12 @@ La préparation d'une machine virtuelle Oracle Linux 7 pour Azure est très simi
 
 2. Cliquez sur **Connecter** pour ouvrir une fenêtre de console de la machine virtuelle.
 
-3.	Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le code suivant :
+3.	Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le texte suivant :
 
 		NETWORKING=yes
 		HOSTNAME=localhost.localdomain
 
-4.	Créez un fichier nommé **ifcfg-eth0** dans le répertoire `/etc/sysconfig/network-scripts/` et entrez-y le code suivant :
+4.	Créez un fichier nommé **ifcfg-eth0** dans le répertoire `/etc/sysconfig/network-scripts/` et entrez-y le texte suivant :
 
 		DEVICE=eth0
 		ONBOOT=yes
@@ -169,7 +169,7 @@ La préparation d'une machine virtuelle Oracle Linux 7 pour Azure est très simi
 		# sudo yum clean all
 		# sudo yum -y update
 
-9.	Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier " /etc/default/grub " dans un éditeur de texte et modifiez le paramètre `GRUB_CMDLINE_LINUX`, par exemple :
+9.	Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier " /etc/default/grub " dans un éditeur de texte et modifiez le paramètre  `GRUB_CMDLINE_LINUX`, par exemple :
 
 		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
@@ -179,7 +179,7 @@ La préparation d'une machine virtuelle Oracle Linux 7 pour Azure est très simi
 
 	Le démarrage graphique et transparent n'est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série.
 
-	L'option `crashkernel` peut rester configurée le cas échéant, mais notez que ce paramètre réduit d'au moins 128 Mo la mémoire disponible dans la machine virtuelle, ce qui peut poser un problème sur les plus petites machines virtuelles.
+	L'option  `crashkernel` peut rester configurée le cas échéant, mais notez que ce paramètre réduit d'au moins 128 Mo la mémoire disponible dans la machine virtuelle, ce qui peut poser un problème sur les petites machines virtuelles.
 
 
 10. Lorsque vous avez fini de modifier le fichier " /etc/default/grub ", exécutez la commande suivante pour régénérer la configuration grub :
@@ -212,4 +212,5 @@ La préparation d'une machine virtuelle Oracle Linux 7 pour Azure est très simi
 
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

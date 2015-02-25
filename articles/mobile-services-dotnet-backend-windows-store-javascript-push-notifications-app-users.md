@@ -1,12 +1,12 @@
-﻿<properties pageTitle="Envoi de notifications Push aux utilisateurs authentifiés" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Découvrez comment envoyer des notifications Push à " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="dwrede" editor="" />
+﻿<properties pageTitle="Envoi de notifications Push aux utilisateurs authentifiés" description="Découvrez comment envoyer des notifications Push à" services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/29/2014" ms.author="glenga"/>
 
 # Envoi de notifications Push aux utilisateurs authentifiés
 
-[WACOM.INCLUDE [mobile-services-selector-push-users](../includes/mobile-services-selector-push-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-push-users](../includes/mobile-services-selector-push-users.md)]
 
-Cette rubrique montre comment envoyer des notifications Push à un utilisateur authentifié sur un appareil inscrit. À l'inverse du précédent didacticiel relatif aux [notifications Push][Prise en main des notifications Push], celui-ci modifie votre service mobile pour exiger l'authentification des utilisateurs avant que le client puisse s'inscrire auprès du concentrateur de notification pour les notifications Push. L'inscription est également modifiée pour ajouter une balise en fonction de l'ID utilisateur assigné. Enfin, le code de serveur est mis à jour pour envoyer une notification à l'utilisateur authentifié uniquement plutôt qu'à tous les utilisateurs inscrits.
+Cette rubrique montre comment envoyer des notifications Push à un utilisateur authentifié sur un appareil inscrit. Contrairement au précédent didacticiel relatif aux [notifications Push][Prise en main des notifications Push], celui-ci modifie votre service mobile pour exiger l'authentification des utilisateurs avant que le client ne puisse s'inscrire auprès du concentrateur de notification pour les notifications Push. L'inscription est également modifiée pour ajouter une balise basée sur l'ID d'utilisateur affecté. Enfin, le code du serveur est mis à jour pour envoyer la notification uniquement à l'utilisateur authentifié, et non à toutes les inscriptions.
 
 Ce didacticiel vous familiarise avec les procédures suivantes :
 
@@ -20,7 +20,7 @@ Ce didacticiel prend en charge les applications Windows Store et Windows Phone S
 
 Avant de commencer ce didacticiel, vous devez suivre les didacticiels Mobile Services suivants :
 
-+ [Prise en main de l'authentification]<br/>Ajoute une exigence de connexion à l'exemple d'application TodoList.
++ [Prise en main de l'authentification]<br/>Ajoute une condition de connexion à l'exemple d'application TodoList.
 
 + [Prise en main des notifications Push]<br/>Configure l'exemple d'application TodoList pour les notifications Push à l'aide de Notification Hubs. 
 
@@ -28,19 +28,19 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
 
 ##<a name="register"></a>Mise à jour du service pour demander l'authentification pour l'inscription
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)] 
+[AZURE.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)] 
 
 ##<a name="update-app"></a>Mise à jour de l'application pour se connecter avant l'inscription
 
-[WACOM.INCLUDE [mobile-services-windows-store-javascript-push-notifications-app-users](../includes/mobile-services-windows-store-javascript-push-notifications-app-users.md)] 
+[AZURE.INCLUDE [mobile-services-windows-store-javascript-push-notifications-app-users](../includes/mobile-services-windows-store-javascript-push-notifications-app-users.md)] 
 
 ##<a name="test"></a>Test de l'application
 
-[WACOM.INCLUDE [mobile-services-windows-test-push-users](../includes/mobile-services-windows-test-push-users.md)] 
+[AZURE.INCLUDE [mobile-services-windows-test-push-users](../includes/mobile-services-windows-test-push-users.md)] 
 
 <!---## <a name="next-steps"> </a>Étapes suivantes
 
-Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobile Services][Autorisation des utilisateurs avec des scripts], vous allez prendre la valeur d'ID utilisateur fournie par Mobile Services sur la base d'un utilisateur authentifié et l'utiliser pour filtrer les données renvoyées par Mobile Services. Obtenez plus d'informations sur l'utilisation de Mobile Services avec .NET dans le [Guide de fonctionnement Mobile Services .NET]-->
+Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobile Services][Autorisation des utilisateurs avec des scripts], vous allez prendre la valeur d'ID utilisateur fournie par Mobile Services sur la base d'un utilisateur authentifié et l'utiliser pour filtrer les données renvoyées par Mobile Services. Pour obtenir plus d'informations sur Mobile Services  avec .NET, consultez le [Guide de fonctionnement Mobile Services .NET].-->
 
 <!-- Anchors. -->
 [Mise à jour du service pour demander l'authentification pour l'inscription]: #register
@@ -55,3 +55,6 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Guide de fonctionnement Mobile Services .NET]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library
+
+
+<!--HONumber=42-->

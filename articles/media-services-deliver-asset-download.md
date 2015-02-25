@@ -1,17 +1,17 @@
-﻿<properties urlDisplayName="Delivering Media Assets" pageTitle="Fourniture d'éléments multimédias - Azure" metaKeywords="" description="Découvrez les options disponibles pour fournir des éléments multimédias qui ont été chargés sur Media Services dans Azure. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver an Asset by Download" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Fourniture d'éléments multimédias - Azure" description="Découvrez les options disponibles pour fournir des éléments multimédias qui ont été chargés sur Media Services dans Azure. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
-
-
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
-<h1>Fourniture d'un élément multimédia par téléchargement</h1>
-Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [  Gestion des éléments multimédias](../media-services-manage-assets/).
+
+
+<h1>Distribution d'un élément multimédia par téléchargement</h1>
+Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [ Gestion des éléments](../media-services-manage-assets/).
 
 Cette rubrique présente les options disponibles pour fournir des éléments multimédias téléchargés sur Media Services. De nombreux scénarios d'application permettent de fournir du contenu Media Services. Il est possible de télécharger des éléments multimédias ou d'y accéder en utilisant un localisateur. Vous pouvez envoyer du contenu multimédia vers une autre application ou un autre fournisseur de contenu. Pour améliorer les performances et l'évolutivité, vous pouvez également fournir du contenu en utilisant un réseau de distribution de contenu (CDN), tel que Azure CDN.
 
-Cet exemple montre comment télécharger des éléments multimédias depuis Media Services. Le code lance une requête sur les tâches associées au compte Media Services par ID de tâche et accède à l'ensemble **OutputMediaAssets** du compte (qui regroupe un ou plusieurs éléments multimédias en sortie, suite à l'exécution d'une tâche). Cet exemple indique comment télécharger des éléments multimédias en sortie depuis une tâche, mais il est possible d'appliquer la même approche pour télécharger d'autres éléments.
+Cet exemple montre comment télécharger des éléments multimédias depuis Media Services. Le code lance une requête sur les tâches associées au compte Media Services par ID de tâche et accède à l'ensemble **OutputMediaAssets** du compte (qui regroupe un ou plusieurs éléments multimédias en sortie, suite à l'exécution d'une tâche). Cet  exemple indique comment télécharger des éléments multimédias en sortie depuis une tâche, mais il est possible d'appliquer la même approche pour télécharger d'autres éléments.
 
 <pre><code> 
 // Download the output asset of the specified job to a local folder.
@@ -38,7 +38,7 @@ static IAsset DownloadAssetToLocal( string jobId, string outputFolder)
         ParallelTransferThreadCount = 20
     };
 
-    var downloadTasks = new List<Task>();
+    var downloadTasks = new List&lt;Task&gt;();
     foreach (IAssetFile outputFile in outputAsset.AssetFiles)
     {
         // Use the following event handler to check download progress.
@@ -71,6 +71,7 @@ Pour plus d'informations sur la fourniture des éléments multimédias, consulte
 </ul>
 
 <h2>Étapes suivantes</h2>
-Cette rubrique vous a indiqué comment télécharger un élément multimédia depuis Azure Storage. Pour plus d'informations sur les autres méthodes possibles pour fournir des éléments multimédias, consultez la page [Fourniture de contenu de diffusion en continu](../media-services-deliver-streaming-content/) .
+Cette rubrique vous a indiqué comment télécharger un élément multimédia depuis Azure Storage. Pour plus d'informations sur les autres méthodes possibles pour fournir des éléments multimédias, consultez la page [Fourniture de contenu de diffusion en continu](../media-services-deliver-streaming-content/).
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

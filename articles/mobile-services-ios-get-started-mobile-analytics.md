@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Get Started with Mobile Analytics" pageTitle="Prise en main de Mobile Analytics | Centre de développement mobile" metaKeywords="" description="Prenez en main Mobile Analytics." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get Started with Mobile Analytics" authors="mahender" manager="dwrede"/>
+﻿<properties pageTitle="Prise en main de Mobile Analytics | Centre de développement mobile" description="Prenez en main Mobile Analytics." documentationCenter="ios" authors="mattchenderson" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="10/10/2014" ms.author="mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="multiple" ms.topic="article" ms.date="10/10/2014" ms.author="mahender"/>
 
 # Prise en main de Mobile Analytics (Capptain)
 
@@ -21,7 +21,7 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 
 Ce didacticiel requiert les éléments suivants :
 
-* Un compte [Capptain]
+* un compte [Capptain] ;
 * Une application [Mobile Services niveau Standard]
 
 ## <a name="initialize"></a>Initialisation du Kit de développement logiciel (SDK) Capptain
@@ -30,8 +30,8 @@ Ce didacticiel requiert les éléments suivants :
 
 2. Dans XCode, ajoutez le Kit de développement logiciel (SDK) Capptain à votre projet en cliquant avec le bouton droit sur votre projet et en sélectionnant " Ajouter des fichiers à... ". Choisissez le dossier CapptainSDK.
 
-3. Sélectionnez votre projet. Sous l'onglet **Créer des phases**, sélectionnez **Lier binaire avec bibliothèques** et ajoutez les infrastructures suivantes :
-    * AdSupport.framework - définissez ce lien comme facultatif
+3. Sélectionnez votre projet. Sous l'onglet **Phases de génération**, sélectionnez **Lier binaire avec bibliothèques** et ajoutez les infrastructures suivantes :
+    * AdSupport.framework - set the link as Optional
     * SystemConfiguration.framework
     * CoreTelephony.framework
     * CFNetwork.framework
@@ -57,7 +57,7 @@ Ce didacticiel requiert les éléments suivants :
 
 ## <a name="instrument"></a>Surcharge d'UIViewController
 
-1. Recherchez tous les enfants de UIViewController dans votre projet et assurez-vous que chacun hérite plutôt de CapptainViewController.
+1. Recherchez tous les enfants de  `UIViewController` dans votre projet et assurez-vous que chacun hérite plutôt de  `CapptainViewController`.
 
         #import <UIKit/UIKit.h>
         #import "CapptainViewController.h"
@@ -71,7 +71,7 @@ Ce didacticiel requiert les éléments suivants :
         @property (nonatomic, retain) IBOutlet UITextField* myTextField1;
         @property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
-2. Recherchez tous les enfants de UITableViewController dans votre projet et assurez-vous que chacun hérite plutôt de CapptainTableViewController.
+2. Recherchez tous les enfants de  `UITableViewController` dans votre projet et assurez-vous que chacun hérite plutôt de  `CapptainTableViewController`.
 
     Votre application est maintenant configurée pour envoyer les données d'analyse à Capptain.
 
@@ -87,4 +87,5 @@ Si vous voulez en savoir plus les possibilités offertes par Capptain pour votre
 [Capptain]: http://www.capptain.com
 [Mobile Services niveau Standard]: /fr-fr/pricing/details/mobile-services/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

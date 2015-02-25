@@ -1,13 +1,13 @@
-﻿<properties urlDisplayName="Upload a CentOS-based VHD" pageTitle="Création et téléchargement d'un disque dur virtuel Linux CentOS dans Azure" metaKeywords="Azure VHD, uploading Linux VHD, CentOS" description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant le système d'exploitation Linux CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains a CentOS-based Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties pageTitle="Création et téléchargement d'un disque dur virtuel Linux CentOS dans Azure" description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant le système d'exploitation Linux CentOS." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="szarkos"/>
 
 # Préparation d'une machine virtuelle CentOS pour Azure
 
 - [Préparation d'une machine virtuelle CentOS 6.x pour Azure](#centos6)
 - [Préparation d'une machine virtuelle CentOS 7.0+ pour Azure](#centos7)
 
-##Conditions préalables##
+##Configuration requise##
 
 Cet article suppose que vous avez déjà installé un système d'exploitation CentOS (ou une distribution dérivée similaire) de Linux dans un disque dur virtuel. Il existe de nombreux outils de création de fichiers .vhd, par exemple une solution de virtualisation telle que Hyper-V. Pour obtenir des instructions à ce sujet, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx). 
 
@@ -35,14 +35,14 @@ Cet article suppose que vous avez déjà installé un système d'exploitation Ce
 
 		# sudo rpm -e --nodeps NetworkManager
 
-	**Remarque :** si le package n'est pas déjà installé, la commande échoue et un message d'erreur s'affiche. Ceci est normal.
+	**Remarque :** si le package n'est pas déjà installé, la commande échoue et un message d'erreur s'affiche. C'est tout à fait normal.
 
-4.	Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le code suivant :
+4.	Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le texte suivant :
 
 		NETWORKING=yes
 		HOSTNAME=localhost.localdomain
 
-5.	Créez un fichier nommé **ifcfg-eth0** dans le répertoire `/etc/sysconfig/network-scripts/` et entrez-y le code suivant :
+5.	Créez un fichier nommé **ifcfg-eth0** dans le répertoire `/etc/sysconfig/network-scripts/` et entrez-y le texte suivant :
 
 		DEVICE=eth0
 		ONBOOT=yes
@@ -55,8 +55,9 @@ Cet article suppose que vous avez déjà installé un système d'exploitation Ce
 6.	Déplacez (ou supprimez) les règles udev afin d'éviter la génération de règles statiques pour l'interface Ethernet. Ces règles entraînent des problèmes lors du clonage de machines virtuelles dans Microsoft Azure ou Hyper-V :
 
 		# sudo mkdir -m 0700 /var/lib/waagent
-		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/ 2>/dev/null
-		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/ 2>/dev/null
+		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/
+		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/
+
 
 7. Assurez-vous que le service réseau commencera aux heures de démarrage en exécutant la commande suivante :
 
@@ -65,11 +66,11 @@ Cet article suppose que vous avez déjà installé un système d'exploitation Ce
 
 8. **CentOS 6.3 uniquement** : installez les pilotes pour les services d'intégration Linux
 
-	**Important : cette opération s'applique uniquement à CentOS 6.3 et aux versions antérieures.**  Sous CentOS 6.4+, les services d'intégration Linux sont déjà disponibles dans le noyau*.
+	**Important : cette opération s'applique uniquement à CentOS 6.3 et aux versions antérieures.**  Sous CentOS 6.4+, les services d'intégration Linux sont *déjà disponibles dans le noyau*.
 
-	a) Récupérez le fichier .iso qui contient les pilotes des services d'intégration Linux à partir du [Centre de téléchargement Microsoft](http://www.microsoft.com/fr-fr/download/details.aspx?id=41554).
+	a) Récupérez le fichier .iso qui contient les pilotes des services d'intégration Linux sur le [Centre de téléchargement Microsoft](http://www.microsoft.com/fr-fr/download/details.aspx?id=41554).
 
-	b) Dans le Gestionnaire Hyper-V, dans le volet **Actions**, cliquez sur  **Paramètres**.
+	b) Dans Hyper-V Manager, dans le volet **Actions** cliquez sur **Paramètres**.
 
 	![Open Hyper-V settings](./media/virtual-machines-linux-create-upload-vhd/settings.png)
 
@@ -81,7 +82,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation Ce
 
 	e) Sélectionnez **Fichier image**, accédez à **Linux IC v3.2.iso**, puis cliquez sur **Ouvrir**.
 
-	f) Dans la page **Paramètres**, cliquez sur **OK**.
+	f) Sur la page **Paramètres**, cliquez sur **OK**.
 
 	g) Cliquez sur **Connecter** pour ouvrir la fenêtre de la machine virtuelle.
 
@@ -146,11 +147,11 @@ Cet article suppose que vous avez déjà installé un système d'exploitation Ce
 
 		http_caching=packages
 
-	Et **sur CentOS 6.3 uniquement**, ajoutez la ligne suivante :
+	**Sur CentOS 6.3 uniquement**, ajoutez la ligne suivante :
 
 		exclude=kernel*
 
-12. Désactivez le module yum " fastestmirror " en modifiant le fichier  " /etc/yum/pluginconf.d/fastestmirror.conf ". Sous `[main]`entrez le texte suivant :
+12. Désactivez le module yum " fastestmirror " en modifiant le fichier " /etc/yum/pluginconf.d/fastestmirror.conf ". Sous `[main]` entrez le texte suivant :
 
 		set enabled=0
 
@@ -174,7 +175,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation Ce
 
 	Le démarrage graphique et transparent n'est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série.
 
-	L'option `crashkernel` peut rester configurée le cas échéant, mais notez que ce paramètre réduit d'au moins 128 Mo la mémoire disponible dans la machine virtuelle, ce qui peut poser un problème sur les plus petites machines virtuelles.
+	L'option  `crashkernel` peut rester configurée le cas échéant, mais notez que ce paramètre réduit d'au moins 128 Mo la mémoire disponible dans la machine virtuelle, ce qui peut poser un problème sur les petites machines virtuelles.
 
 
 16.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu.  C'est généralement le cas par défaut.
@@ -224,12 +225,12 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similaire 
 
 2. Cliquez sur **Connecter** pour ouvrir une fenêtre de console de la machine virtuelle.
 
-3.	Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le code suivant :
+3.	Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le texte suivant :
 
 		NETWORKING=yes
 		HOSTNAME=localhost.localdomain
 
-4.	Créez un fichier nommé **ifcfg-eth0** dans le répertoire `/etc/sysconfig/network-scripts/` et entrez-y le code suivant :
+4.	Créez un fichier nommé **ifcfg-eth0** dans le répertoire `/etc/sysconfig/network-scripts/` et entrez-y le texte suivant :
 
 		DEVICE=eth0
 		ONBOOT=yes
@@ -296,6 +297,7 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similaire 
 		gpgcheck=1
 		enabled=0
 		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+		
 
 
 	**Remarque :** la suite de ce guide suppose que vous utilisez au moins le référentiel [openlogic] qui sera utilisé pour installer l'agent Linux Azure ci-dessous.
@@ -305,7 +307,7 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similaire 
 		# sudo yum clean all
 		# sudo yum -y update
 
-10.	Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier " /etc/default/grub " dans un éditeur de texte et modifiez le paramètre `GRUB_CMDLINE_LINUX`, par exemple :
+10.	Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier " /etc/default/grub " dans un éditeur de texte et modifiez le paramètre  `GRUB_CMDLINE_LINUX`, par exemple :
 
 		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
@@ -315,7 +317,7 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similaire 
 
 	Le démarrage graphique et transparent n'est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série.
 
-	L'option `crashkernel` peut rester configurée le cas échéant, mais notez que ce paramètre réduit d'au moins 128 Mo la mémoire disponible dans la machine virtuelle, ce qui peut poser un problème sur les plus petites machines virtuelles.
+	L'option  `crashkernel` peut rester configurée le cas échéant, mais notez que ce paramètre réduit d'au moins 128 Mo la mémoire disponible dans la machine virtuelle, ce qui peut poser un problème sur les petites machines virtuelles.
 
 11. Lorsque vous avez fini de modifier le fichier " /etc/default/grub ", exécutez la commande suivante pour régénérer la configuration grub :
 
@@ -347,4 +349,5 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similaire 
 
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

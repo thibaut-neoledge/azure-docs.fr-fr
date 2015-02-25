@@ -1,11 +1,11 @@
-﻿<properties urlDisplayName="Install MySQL" pageTitle="Création d'une machine virtuelle exécutant MySQL dans Azure " metaKeywords="Azure virtual machines, Azure Windows Server, Azure installing MySQL, Azure configuring MySQL, Azure databases" description="Création d'une machine virtuelle Azure exécutant Windows Server 2008 R2 ; installation et configuration d'une base de données MySQL sur cette machine virtuelle" metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MySQL on a virtual machine running Windows Server 2008 R2 in Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties pageTitle="Création d'une machine virtuelle exécutant MySQL dans Azure" description="Création d'une machine virtuelle Azure exécutant Windows Server 2008 R2 ; installation et configuration d'une base de données MySQL sur cette machine virtuelle" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="kathydav"/>
 
 
 #Installation de MySQL sur une machine virtuelle exécutant Windows Server 2008 R2 sur Azure
 
-[MySQL](http://www.mysql.com) est une base de données SQL open source connue. À l'aide du [portail de gestion Azure][AzurePreviewPortal], vous pouvez créer une machine virtuelle exécutant Windows Server 2008 R2 à partir de la bibliothèque d'images. Vous pouvez alors installer et configurer une base de données MySQL sur la machine virtuelle.
+[MySQL](http://www.mysql.com) est une base de données SQL open source connue. Vous pouvez créer une machine virtuelle exécutant Windows Server 2008 R2 à partir de la bibliothèque d'images du [portail de gestion Azure][AzurePreviewPortal]. Vous pouvez alors installer et configurer une base de données MySQL sur la machine virtuelle.
 
 Ce didacticiel vous explique les procédures suivantes :
 
@@ -15,23 +15,23 @@ Ce didacticiel vous explique les procédures suivantes :
 
 ##Création d'une machine virtuelle exécutant Windows Server
 
-[WACOM.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
 ##Association d'un disque de données
 
-Une fois la machine virtuelle créée, attachez un disque de données. Ce disque fournit le stockage de données dont vous avez besoin pendant l'installation de MySQL. Consultez [Association d'un disque de données à une machine virtuelle Windows](http://azure.microsoft.com/fr-fr/documentation/articles/storage-windows-attach-disk/) et suivez les instructions permettant d'attacher un disque vide.
+Une fois la machine virtuelle créée, attachez un disque de données. Ce disque fournit le stockage de données dont vous avez besoin pendant l'installation de MySQL. Voir [Attacher un disque de données sur une machine virtuelle Windows](http://azure.microsoft.com/fr-fr/documentation/articles/storage-windows-attach-disk/) et suivez les instructions permettant d'attacher un disque vide.
 
 ##Se connecter à la machine virtuelle
 Ensuite, connectez-vous à la machine virtuelle pour installer MySQL.
 
-[WACOM.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
+[AZURE.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
 
 ##Installation et exécution de MySQL Community Server sur la machine virtuelle
 Pour installer, configurer et exécuter MySQL Community Server, procédez comme suit :
 
 1. Une fois que vous êtes connecté à la machine virtuelle à l'aide du Bureau à distance, ouvrez **Internet Explorer** à partir du menu **Démarrer**. 
 
-2. Sélectionnez le bouton **Outils** en haut à droite. Dans **Options Internet**, sélectionnez l'onglet **Sécurité**, l'icône **Sites de confiance**, puis cliquez sur le bouton **Sites**. Ajoutez *http://\*.mysql.com* à la liste des sites de confiance.
+2. Sélectionnez le bouton **Outils** dans le coin supérieur droit. Dans **Options Internet**, sélectionnez l'onglet **Sécurité**, puis l'icône **Sites de confiance**, enfin cliquez sur le bouton **Sites**. Ajoutez  *http://\*.mysql.com* à la liste des sites de confiance.
 
 3. Accédez à la page [Téléchargement de MySQL Community Server][MySQLDownloads].
 
@@ -83,19 +83,19 @@ Pour installer, configurer et exécuter MySQL Community Server, procédez comme 
 
 22. Cliquez sur **Exécuter**, puis attendez la fin de la configuration.
 
-23. Cliquez sur **Terminer**.
+23. Cliquez sur **Finish**.
 
 24. Cliquez sur **Démarrer**, puis sélectionnez **Client de ligne de commande MySQL 5.x** pour démarrer le client de ligne de commande.
 
 25.  Entrez le mot de passe racine dans l'invite (que vous avez défini lors d'une étape précédente) pour ouvrir une invite de commandes vous permettant d'écrire des instructions SQL afin d'interagir avec la base de données.
 
-26. Pour créer un utilisateur MySQL, exécutez la commande suivante dans l'invite **mysql>** :
+26. Pour créer un utilisateur MySQL, exécutez la commande suivante à l'invite **mysql>** :
 
 		mysql> CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 
 	Les points-virgules (;) à la fin des lignes sont requis pour terminer les commandes.
 
-27. Pour créer une base de données et accorder les autorisations à l'utilisateur mysqluser, exécutez les commandes suivantes :
+27. Pour créer une base de données et accorder les autorisations à l'utilisateur `mysqluser`, exécutez les commandes suivantes :
 
 		mysql> CREATE DATABASE testdatabase;
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
@@ -106,7 +106,7 @@ Pour installer, configurer et exécuter MySQL Community Server, procédez comme 
 
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
 
-	où ip-address est l'adresse IP de l'ordinateur à partir duquel vous vous connectez à MySQL.
+	où `ip-address` est l'adresse IP de l'ordinateur à partir duquel vous vous connectez à MySQL.
 	
 29. Pour quitter le client de ligne de commande MySQL, exécutez la commande suivante :
 
@@ -124,14 +124,14 @@ Pour installer, configurer et exécuter MySQL Community Server, procédez comme 
 
 		mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
 
-	Par exemple, si votre machine virtuelle s'appelle " testwinvm ", exécutez cette commande :
+	Par exemple, si votre machine virtuelle s'appelle "testwinvm", exécutez cette commande:
 
 		mysql -u mysqluser -p -h testwinvm.cloudapp.net
 
 ##Ressources
 Pour plus d'informations sur MySQL, consultez la [documentation MySQL](http://dev.mysql.com/doc/).
 
-[AzurePortal]: http://manage.windowsazure.com
+[AzurePreviewPortal]: http://manage.windowsazure.com
 [MySQLDownloads]: http://www.mysql.com/downloads/mysql/
 
 
@@ -142,4 +142,5 @@ Pour plus d'informations sur MySQL, consultez la [documentation MySQL](http://de
 [MySQLConfig10]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig10.png
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

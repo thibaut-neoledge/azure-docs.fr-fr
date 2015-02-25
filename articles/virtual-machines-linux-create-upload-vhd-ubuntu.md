@@ -1,11 +1,11 @@
-﻿<properties urlDisplayName="Upload an Ubuntu Linux VHD" pageTitle="Création et téléchargement d'un disque dur virtuel Linux Ubuntu dans Azure" metaKeywords="Azure VHD, uploading Linux VHD, Ubuntu" description="Apprenez à créer et à charger un disque dur virtuel (VHD) Azure contenant un système d'exploitation Linux Ubuntu." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains an Ubuntu Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
+<properties pageTitle="Création et téléchargement d'un disque dur virtuel Linux Ubuntu dans Azure" description="Apprenez à créer et à charger un disque dur virtuel (VHD) Azure contenant un système d'exploitation Linux Ubuntu." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="szarkos"/>
 
 
 # Préparation d'une machine virtuelle Linux Ubuntu pour Azure
 
-##Conditions préalables##
+##Configuration requise##
 
 Cet article suppose que vous avez déjà installé un système d'exploitation Linux Ubuntu dans un disque dur virtuel. Il existe de nombreux outils de création de fichiers .vhd, par exemple une solution de virtualisation telle que Hyper-V. Pour obtenir des instructions à ce sujet, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx). 
 
@@ -22,7 +22,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation Li
 
 ## <a id="ubuntu"> </a>Ubuntu 12.04+ ##
 
-1. Dans le volet central du Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
+1. Dans le panneau central de Hyper-V Manager, sélectionnez la machine virtuelle.
 
 2. Cliquez sur **Connecter** pour ouvrir la fenêtre de la machine virtuelle.
 
@@ -83,9 +83,9 @@ Cet article suppose que vous avez déjà installé un système d'exploitation Li
 
 	c) Modifiez le texte sous cette ligne comme suit : **set timeout=5**.
 
-	d) Exécutez 'sudo update-grub'.
+	d) Exécuter 'sudo update-grub'.
 
-6. Modifiez la ligne de démarrage du noyau afin que Grub y inclue les paramètres de noyau supplémentaires pour Azure. Pour ce faire, ouvrez le fichier " /etc/default/grub " dans un éditeur de texte. Recherchez la variable nommée `GRUB_CMDLINE_LINUX_DEFAULT` (ou ajoutez-la le cas échéant) et modifiez-la pour inclure les paramètres suivants :
+6. Modifiez la ligne de démarrage du noyau afin que Grub y inclue les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier " /etc/default/grub " dans un éditeur de texte. Recherchez la variable nommée `GRUB_CMDLINE_LINUX_DEFAULT` (ou ajoutez-la le cas échéant) et modifiez-la pour inclure les paramètres suivants :
 
 		GRUB_CMDLINE_LINUX_DEFAULT="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 
@@ -98,7 +98,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation Li
 		# sudo apt-get update
 		# sudo apt-get install walinuxagent
 
-	Notez que l'installation du package  `walinuxagent` entraîne la suppression des packages `NetworkManager` et `NetworkManager-gnome` (s'ils sont installés).
+	Notez que l'installation du package `walinuxagent` supprime les packages `NetworkManager` et `NetworkManager-gnome` (s'ils sont installés).
 
 10.	Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
 
@@ -110,4 +110,5 @@ Cet article suppose que vous avez déjà installé un système d'exploitation Li
 
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

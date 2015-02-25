@@ -1,7 +1,6 @@
-﻿
-<properties urlDisplayName=".NET Client Library" pageTitle="Utilisation de la bibliothèque cliente .NET de Mobile Services" metaKeywords="Azure Mobile Services, client .NET Mobile Services, client .NET" description="Découvrez comment utiliser un client .NET pour Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use a .NET client for Azure Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Utilisation de la bibliothèque cliente .NET pour Mobile Services" description="Découvrez comment utiliser un client .NET pour Azure Mobile Services." services="" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/10/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/10/2014" ms.author="glenga"/>
 
 
 
@@ -22,34 +21,34 @@ Ce guide vous montre comment exécuter les scénarios courants à l'aide d'un cl
 
 - [Présentation de Mobile Services]
 - [Concepts]
-- [ Création du client Mobile Services]
-- [ Création d'une référence de table]
-- [ Interrogation des données à partir d'un service mobile]
+- [Procédure : Création du client Mobile Services]
+- [Procédure : Création d'une référence de table]
+- [Procédure : Interrogation des données à partir d'un service mobile]
 	- [Filtrage des données renvoyées]
     - [Tri des données renvoyées]
 	- [Renvoi de données dans les pages]
 	- [Sélection de colonnes spécifiques]
 	- [Recherche des données par ID]
-- [ Insertion de données dans un service mobile]
-- [ Modification des données d'un service mobile]
-- [ Suppression des données d'un service mobile]
-- [ Appel d'une API personnalisée]
-- [ Utilisation de l'accès concurrentiel optimiste]
-- [ Liaison de données à l'interface utilisateur d'un service mobile]
-- [ Authentification des utilisateurs]
-- [ Gestion des erreurs]
-- [ Utilisation de données non typées]
-- [ Conception de tests]
-- [ Personnalisation du client]
+- [Procédure : Insertion de données dans un service mobile]
+- [Procédure : Modification des données d'un service mobile]
+- [Procédure : Suppression des données d'un service mobile]
+- [Procédure : Appel d'une API personnalisée]
+- [Procédure : Utilisation de l'accès concurrentiel optimiste]
+- [Procédure : Liaison de données à l'interface utilisateur d'un service mobile]
+- [Procédure : Authentification des utilisateurs]
+- [Procédure : Gestion des erreurs]
+- [Procédure : Utilisation de données non typées]
+- [Procédure : Conception de tests]
+- [Procédure : Personnalisation du client]
 	- [Personnalisation des en-têtes de requête]
 	- [Personnalisation de la sérialisation]
 - [Étapes suivantes]
 
-[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
+[AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 <h2><a name="setup"></a>Configuration et conditions préalables</h2>
 
-Nous partons du principe que vous avez créé un service mobile et une table. Pour plus d'informations, consultez la page [Créer une table](http://go.microsoft.com/fwlink/?LinkId=298592). Dans le code utilisé dans cette rubrique, la table s'intitule `TodoItem` et contient les colonnes suivantes : `Id`, `Text` et `Complete`.
+Nous partons du principe que vous avez créé un service mobile et une table. Pour plus d'informations, consultez la page [Création d'une table](http://go.microsoft.com/fwlink/?LinkId=298592). Dans le code utilisé dans cette rubrique, la table s'intitule `TodoItem` et contient les colonnes suivantes : `Id`, `Text` et `Complete`.
 
 Le type .NET côté client typé correspondant est le suivant :
 
@@ -67,7 +66,7 @@ Le type .NET côté client typé correspondant est le suivant :
 
 Lorsque le schéma dynamique est activé, Azure Mobile Services génère automatiquement de nouvelles colonnes basées sur l'objet des demandes d'insertion ou de mise à jour. Pour plus d'informations, consultez la page [Schéma dynamique](http://go.microsoft.com/fwlink/?LinkId=296271).
 
-<h2><a name="create-client"></a> Création du client Mobile Services</h2>
+<h2><a name="create-client"></a>Procédure : Création du client Mobile Services</h2>
 
 Le code suivant permet de créer l'objet `MobileServiceClient` utilisé pour accéder à votre service mobile.
 
@@ -79,22 +78,22 @@ Le code suivant permet de créer l'objet `MobileServiceClient` utilisé pour acc
 
 Dans le code ci-dessus, remplacez `AppUrl` et `AppKey` par l'URL et la clé d'application du service mobile, dans cet ordre. Tous deux sont disponibles dans le portail de gestion Azure. Pour y accéder, sélectionnez votre service mobile, puis cliquez sur " Tableau de bord ".
 
-<h2><a name="instantiating"></a> Création d'une référence de table</h2>
+<h2><a name="instantiating"></a>Procédure : Création d'une référence de table</h2>
 
-L'ensemble du code qui permet d'accéder aux données de la table Mobile Services ou de les modifier appelle des fonctions sur l'objet " MobileServiceTable ". Pour obtenir une référence à la table, appelez la fonction [GetTable](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554275.aspx) sur une instance de `MobileServiceClient`.
+L'ensemble du code qui permet d'accéder aux données de la table Mobile Services ou de les modifier appelle des fonctions sur l'objet `MobileServiceTable`. Pour obtenir une référence à la table, appelez la fonction [GetTable](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554275.aspx) sur une instance du `MobileServiceClient`.
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
 
 Il s'agit du modèle de sérialisation typé ; consultez la section traitant du <a href="#untyped">modèle de sérialisation non typé</a> ci-après.
 
-<h2><a name="querying"></a> Interrogation des données à partir d'un service mobile</h2>
+<h2><a name="querying"></a>Procédure : Interrogation des données à partir d'un service mobile</h2>
 
 Cette section explique comment émettre des requêtes à destination du service mobile. Les sous-sections décrivent différents aspects, tels que le tri, le filtrage et la pagination.
 
->[WACOM.NOTE] Une taille de page pilotée par un serveur est utilisée par défaut pour empêcher le renvoi de toutes les lignes. Cela permet d'éviter que les requêtes par défaut associées à des jeux de données volumineux aient un impact négatif sur le service. Pour obtenir le renvoi de plus de 50 lignes, utilisez la méthode `Take`, comme décrit dans la section [Renvoi de données dans les pages].  
+>[AZURE.NOTE] Une taille de page pilotée par un serveur est utilisée par défaut pour empêcher le renvoi de toutes les lignes. Cela permet d'éviter que les requêtes par défaut associées à des jeux de données volumineux aient un impact négatif sur le service. Pour obtenir le renvoi de plus de 50 lignes, utilisez la méthode `Take`, comme décrit dans la section [Renvoi de données dans les pages].  
 
-### <a name="filtering"></a> Filtrage des données renvoyées
+### <a name="filtering"></a>Procédure : Filtrage des données renvoyées
 
 Le code suivant montre comment filtrer des données en incluant une clause `Where` dans une requête. Il renvoie tous les éléments de `todoTable` dont la propriété `Complete` est égale à `false`. La fonction `Where` applique un prédicat de filtrage de ligne à la requête au niveau de la table.
 
@@ -104,7 +103,7 @@ Le code suivant montre comment filtrer des données en incluant une clause `Wher
 	   .Where(todoItem => todoItem.Complete == false)
 	   .ToListAsync();
 
-Vous pouvez afficher l'URI de la demande envoyée au service mobile en utilisant un logiciel d'inspection des messages, tel que les outils destinés aux développeurs de navigateurs ou [Fiddler]. Si vous examinez l'URI de demande ci-dessous, vous remarquerez que la chaîne de requête proprement dite est modifiée :
+Vous pouvez afficher l'URI de la requête envoyée au service mobile en utilisant un logiciel d'inspection des messages, tel que les outils destinés aux développeurs de navigateurs ou [Fiddler]. Si vous examinez l'URI de demande ci-dessous, vous remarquerez que la chaîne de requête proprement dite est modifiée :
 
 	GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1
 Cette requête serait normalement convertie approximativement sous forme de requête SQL côté serveur, comme suit :
@@ -141,9 +140,9 @@ Les deux méthodes sont équivalentes et peuvent être utilisées de manière in
 
 La clause `where` prend en charge les opérations traduites dans le sous-ensemble OData Mobile Services. Cela inclut les opérateurs relationnels (==, !=, <, <=, >, >=), les opérateurs arithmétiques (+, -, /, *, %), la précision des nombres (Math.Floor, Math.Ceiling), les fonctions de chaîne (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), les propriétés de date (Year, Month, Day, Hour, Minute, Second), les propriétés d'accès d'un objet, ainsi que les expressions qui combinent tous ces éléments.
 
-### <a name="sorting"></a> Tri des données renvoyées
+### <a name="sorting"></a>Procédure : Tri des données renvoyées
 
-Le code suivant montre comment trier des données en incluant une fonction `OrderBy` ou `OrderByDescending` dans la requête. Il renvoie des éléments de `todoTable`, triés dans l'ordre croissant sur le champ `Text`.
+Le code suivant montre comment trier des données en incluant une fonction `OrderBy` ou `OrderByDescending` dans la requête. Il renvoie des éléments de `todoTable`, triés dans l'ordre croissant par le champ `Text`.
 
 	// Sort items in ascending order by Text field
 	MobileServiceTableQuery<TodoItem> query = todoTable
@@ -155,7 +154,7 @@ Le code suivant montre comment trier des données en incluant une fonction `Orde
 					.OrderByDescending(todoItem => todoItem.Text)
  	List<TodoItem> items = await query.ToListAsync();
 
-### <a name="paging"></a> Renvoi de données dans les pages
+### <a name="paging"></a>Procédure : Renvoi de données dans les pages
 
 Par défaut, le serveur renvoie uniquement les 50 premières lignes. Vous pouvez augmenter le nombre de lignes renvoyées en appelant la méthode [Take]. Associez `Take` à la méthode [Skip] pour demander une " page " spécifique du jeu de données total renvoyé par la requête. Lorsqu'elle est exécutée, la requête suivante renvoie les trois premiers éléments de la table.
 
@@ -176,11 +175,11 @@ Vous pouvez également utiliser la méthode [IncludeTotalCount] pour faire en so
 
 	query = query.IncludeTotalCount();
 
-Il s'agit d'un scénario simplifié dans lequel les valeurs de pagination codées en dur sont transmises aux méthodes " Take " et " Skip ". Dans une application réelle, vous pouvez utiliser des requêtes semblables à celles indiquées plus haut avec un contrôle Pager ou une interface utilisateur comparable pour permettre aux utilisateurs d'accéder aux pages précédentes et suivantes.
+Il s'agit d'un scénario simplifié dans lequel les valeurs de pagination codées en dur sont transmises aux méthodes `Take` et `Skip`. Dans une application réelle, vous pouvez utiliser des requêtes semblables à celles indiquées plus haut avec un contrôle pager ou une interface utilisateur comparable pour permettre aux utilisateurs d'accéder aux pages précédentes et suivantes.
 
-### <a name="selecting"></a> Sélection de colonnes spécifiques
+### <a name="selecting"></a>Procédure : Sélection de colonnes spécifiques
 
-Vous pouvez indiquer le jeu de propriétés à inclure dans les résultats en ajoutant une clause `Select` à votre requête. Par exemple, le code suivant montre comment sélectionner un seul champ, et comment sélectionner et mettre en forme plusieurs champs :
+Vous pouvez indiquer le jeu de propriétés à inclure dans les résultats en ajoutant une clause `Select` à la requête. Par exemple, le code suivant montre comment sélectionner un seul champ et comment sélectionner et mettre en forme plusieurs champs :
 
 	// Select one field -- just the Text
 	MobileServiceTableQuery<TodoItem> query = todoTable
@@ -201,18 +200,18 @@ Toutes les fonctions décrites jusqu'ici étant cumulatives, nous pouvons contin
 					.Take(3);
 	List<string> items = await query.ToListAsync();
 
-### <a name="lookingup"></a> Recherche des données par ID
+### <a name="lookingup"></a>Procédure : Recherche des données par ID
 
 La fonction `LookupAsync` permet de rechercher des objets dans la base de données à partir d'un ID particulier.
 
 	// This query filters out the item with the ID of 37BBF396-11F0-4B39-85C8-B319C729AF6D
 	TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
 
-<a name="inserting"></a> Insertion de données dans un service mobile
+<a name="inserting"></a>Procédure : Insertion de données dans un service mobile
 
-<div class="dev-callout"><strong>Remarque</strong> <p>Si vous souhaitez effectuer des opérations d'insertion, de recherche, de suppression ou de mise à jour sur un type, vous devez créer un membre appelé <strong>Id</strong>. C'est pourquoi l'exemple de classe <strong>TodoItem</strong> contient un membre nommé <strong>Id</strong>. Les opérations de mise à jour et de suppression doivent toujours comporter une valeur d'ID valide.</p> </div>
+> [AZURE.NOTE] Si vous souhaitez effectuer des opérations d'insertion, de recherche, de suppression ou de mise à jour sur un type, vous devez créer un membre appelé **Id**. C'est pourquoi l'exemple de classe **TodoItem** a un membre appelé **Id**. Les opérations de mise à jour et de suppression doivent toujours comporter une valeur d'ID valide.
 
-Le code suivant montre comment insérer de nouvelles lignes dans une table. Le paramètre contient les données à insérer sous la forme d'un objet .NET.
+Le code suivant montre comment insérer de nouvelles lignes dans une table. Le paramètre contient les données à insérer sous forme d'objet .NET.
 
 	await todoTable.InsertAsync(todoItem);
 
@@ -242,14 +241,14 @@ Vous pouvez également utiliser des scripts serveur pour définir des valeurs d'
 
 Si une application fournit la valeur d'un ID, Mobile Services la stocke en l'état. Les espaces de début et de fin sont également inclus. Ils ne sont pas supprimés de la valeur.
 
-La valeur d'`id` doit être unique et ne contenir aucun caractère présent dans les ensembles suivants :
+La valeur d' `id` doit être unique et ne contenir aucun caractère présent dans les ensembles suivants :
 
 + Caractères de contrôle : [0x0000-0x001F] et [0x007F-0x009F]. Pour plus d'informations, consultez la page [Codes de contrôle ASCII C0 et C1].
 +  Caractères imprimables : **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
 +  Les ID " . " et " .. "
 
 
-Vous pouvez également utiliser des ID d'entier pour vos tables. Pour utiliser un ID d'entier, vous devez créer votre table à l'aide de la commande `mobile table create` en utilisant l'option `--integerId`. Cette commande s'utilise avec l'interface de ligne de commande (CLI) pour Azure. Pour plus d'informations sur l'utilisation de l'interface de ligne de commande, consultez la page [Interface de ligne de commande pour la gestion des tables Mobile Services].
+Vous pouvez également utiliser des ID d'entier pour vos tables. Pour pouvoir utiliser un ID d'entier, vous devez créer votre table avec la commande `mobile table create` à l'aide de l'option --integerId. Cette commande s'utilise avec l'interface de ligne de commande (CLI) pour Azure. Pour plus d'informations sur l'utilisation de l'interface de ligne de commande, consultez la page [Interface de ligne de commande pour la gestion des tables Mobile Services].
 
 
 Pour insérer des données non typées, vous pouvez tirer parti de Json.NET comme indiqué ci-dessous.
@@ -268,14 +267,14 @@ Voici un exemple utilisant une adresse de messagerie comme ID de chaîne unique.
 	var inserted = await table.InsertAsync(jo);
 
 
-<h2><a name="modifying"></a> Modification des données d'un service mobile</h2>
+<h2><a name="modifying"></a>Procédure : Modification des données d'un service mobile</h2>
 
-Le code suivant montre comment mettre à jour une instance existante ayant le même ID avec de nouvelles informations. Le paramètre contient les données à mettre à jour sous la forme d'un objet .NET.
+Le code suivant montre comment mettre à jour une instance existante avec le même ID avec des informations nouvelles. Le paramètre contient les données à mettre à jour sous forme d'objet .NET.
 
 	await todoTable.UpdateAsync(todoItem);
 
 
-Pour insérer des données non typées, vous pouvez tirer parti de Json.NET de cette façon. Notez que pour effectuer une mise à jour, il est nécessaire de spécifier un ID, car c'est ainsi que le service mobile identifie l'instance à mettre à jour. L'ID peut être obtenu à partir du résultat de l'appel " InsertAsync ".
+Pour insérer des données non typées, vous pouvez tirer parti de Json.NET de cette façon. Notez que pour effectuer une mise à jour, il est nécessaire de spécifier un ID, car c'est ainsi que le service mobile identifie l'instance à mettre à jour. L'ID peut être obtenu à partir du résultat de l'appel `InsertAsync`.
 
 	JObject jo = new JObject();
 	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
@@ -283,12 +282,12 @@ Pour insérer des données non typées, vous pouvez tirer parti de Json.NET de c
 	jo.Add("Complete", false);
 	var inserted = await table.UpdateAsync(jo);
 
-Si vous tentez de mettre à jour un élément sans fournir de valeur " Id ", le service n'a aucun moyen de déterminer quelle instance mettre à jour. Dans ce cas, le Kit de développement logiciel (SDK) Mobile Services génère une exception " ArgumentException ".
+Si vous tentez de mettre à jour un élément sans fournir de valeur " Id ", le service n'a aucun moyen de déterminer quelle instance mettre à jour. Dans ce cas, le Kit de développement logiciel (SDK) Mobile Services lève une exception `ArgumentException`.
 
 
-<h2><a name="deleting"></a> Suppression des données d'un service mobile</h2>
+<h2><a name="deleting"></a>Procédure : Suppression des données d'un service mobile</h2>
 
-Le code suivant montre comment supprimer une instance existante. L'instance est identifiée par le champ " Id " défini au niveau de " todoItem ".
+Le code suivant montre comment supprimer une instance existante. L'instance est identifiée par le champ " Id " défini au niveau de `todoItem`.
 
 	await todoTable.DeleteAsync(todoItem);
 
@@ -298,28 +297,28 @@ Pour supprimer des données non typées, vous pouvez tirer parti de Json.NET de 
 	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 	await table.DeleteAsync(jo);
 
-Si vous essayez de supprimer un élément sans que le champ " Id " ne soit déjà défini, le service n'a aucun moyen de déterminer quelle instance supprimer. Dans ce cas, une exception " MobileServiceInvalidOperationException " vous est renvoyée par le service. De la même manière, si vous essayez de supprimer un élément non typé sans que le champ " Id " ne soit déjà défini, le service vous renvoie à nouveau une exception " MobileServiceInvalidOperationException ".
+Si vous essayez de supprimer un élément sans que le champ " Id " ne soit déjà défini, le service n'a aucun moyen de déterminer quelle instance supprimer. Dans ce cas, une exception `MobileServiceInvalidOperationException` vous est renvoyée par le service. De la même manière, si vous essayez de supprimer un élément non typé sans que le champ " Id " ne soit déjà défini, le service vous renvoie à nouveau une exception `MobileServiceInvalidOperationException`.
 
-## <a name="#custom-api"></a> Appel d'une API personnalisée
+##<a name="#custom-api"></a>Procédure : Appel d'une API personnalisée
 
 Une API personnalisée vous permet de définir des points de terminaison personnalisés exposant une fonctionnalité de serveur qui ne mappe pas vers une opération d'insertion, de mise à jour, de suppression ou de lecture. En utilisant une API personnalisée, vous pouvez exercer davantage de contrôle sur la messagerie, notamment lire et définir des en-têtes de message HTTP et définir un autre format de corps de message que JSON. Pour voir un exemple complet, incluant la création d'une API personnalisée dans votre service mobile, consultez la section [Appel d'une API personnalisée à partir du client].
 
-Vous appelez une API personnalisée en appelant l'une des surcharges de la méthode [InvokeApiAsync] sur le client. Par exemple, la ligne de code suivante envoie une demande POST à l'API **completeAll** sur le service mobile :
+Vous appelez une API personnalisée en appelant l'une des surcharges de la méthode [InvokeApiAsync] sur le client. Par exemple, la ligne de code suivante envoie une requête POST à l'API **completeAll** sur le service mobile :
 
     var result = await App.MobileService
         .InvokeApiAsync<MarkAllResult>("completeAll",
         System.Net.Http.HttpMethod.Post, null);
 
-Notez qu'il s'agit d'un appel de méthode typé pour lequel le type de renvoi de **MarkAllResult** doit être défini. Les méthodes typées et non typées sont toutes deux prises en charge. Cet exemple est presque trivial car il est typé, n'envoie pas de charges utiles, n'a aucun paramètre de requête et ne modifie pas les en-têtes de requête. Pour des exemples plus réalistes et une discussion plus élaborée sur [InvokeApiAsync], consultez la section [API personnalisée dans les Kits de développement logiciel (SDK) clients pour Azure Mobile Services].
+Notez qu'il s'agit d'un appel de méthode typé pour lequel le type de renvoi de **MarkAllResult** doit être défini. Les méthodes typées et non typées sont toutes deux prises en charge. Cet exemple est presque trivial car il est typé, n'envoie pas de charges utiles, n'a aucun paramètre de requête et ne modifie pas les en-têtes de requête. Pour des exemples plus réalistes et une discussion plus élaborée sur [InvokeApiAsync], consultez la section [API personnalisée dans les kits de développement logiciel (SDK) clients pour Azure Mobile Services].
 
 
-## <a name="optimisticconcurrency"></a> Utilisation de l'accès concurrentiel optimiste
+##<a name="optimisticconcurrency"></a>Procédure : Utilisation de l'accès concurrentiel optimiste
 
 Dans certains scénarios, plusieurs clients peuvent écrire à un même moment des modifications dans un même élément. En l'absence de détection de conflits, la dernière écriture remplace les mises à jour précédentes, même si cela n'était pas le but recherché. Le contrôle d'accès concurrentiel optimiste considère que chaque transaction peut être validée et qu'à ce titre, elle ne fait appel à aucun verrouillage de ressources. Avant de valider une transaction, le contrôle d'accès concurrentiel optimiste vérifie qu'aucune autre transaction n'a modifié les données. Si les données ont été modifiées, la transaction de validation est annulée.
 
-Mobile Services prend en charge le contrôle d'accès concurrentiel optimiste en suivant les modifications apportées à chaque élément à l'aide de la colonne de la propriété système `__version` définie pour chaque table créée par Mobile Services. Chaque fois qu'un enregistrement est mis à jour, Mobile Services attribue une nouvelle valeur à la propriété `__version` de cet enregistrement. À chaque demande de mise à jour, la propriété `__version` de l'enregistrement inclus dans la demande est comparée à celle de l'enregistrement basé sur le serveur. Si la version transmise avec la demande ne correspond pas à celle du serveur, la bibliothèque cliente .NET de Mobile Services génère une exception `MobileServicePreconditionFailedException<T>`. Le type inclus avec l'exception est l'enregistrement du serveur contenant la version. À partir de cette information, l'application peut ensuite décider ou non de réexécuter la demande de mise à jour avec la valeur correcte de `__version` du serveur pour valider les modifications.  
+Mobile Services prend en charge le contrôle d'accès concurrentiel optimiste en suivant les modifications apportées à chaque élément à l'aide de la colonne de la propriété système __version définie pour chaque table créée par Mobile Services. Chaque fois qu'un enregistrement est mis à jour, Mobile Services attribue une nouvelle valeur à la propriété __version de cet enregistrement. À chaque demande de mise à jour, la propriété __version de l'enregistrement inclus dans la demande est comparée à celle de l'enregistrement basé sur le serveur. Si la version transmise avec la demande ne correspond pas à celle du serveur, la bibliothèque cliente .NET de Mobile Services lève une exception `MobileServicePreconditionFailedException<T>`. Le type inclus avec l'exception est l'enregistrement du serveur contenant la version. À partir de cette information, l'application peut ensuite décider ou non de réexécuter la demande de mise à jour avec la valeur correcte de __version du serveur pour valider les modifications.  
 
-Pour activer l'accès concurrentiel optimiste, l'application définit une colonne dans la classe table pour la propriété système `__version`. La définition suivante en fournit un exemple.
+Pour activer l'accès concurrentiel optimiste, l'application définit une colonne dans la classe table pour la propriété système __version. La définition suivante en fournit un exemple.
 
     public class TodoItem
     {
@@ -343,7 +342,7 @@ Dans le cas des applications utilisant des tables non typées, l'accès concurre
 	todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 
-Le code suivant montre comment résoudre un conflit d'écriture une fois qu'il est détecté. La valeur correcte de `__version` doit être incluse dans l'appel `UpdateAsync()` pour valider une résolution.
+Le code suivant montre comment résoudre un conflit d'écriture une fois qu'il est détecté. La valeur correcte de _version doit être incluse dans l'appel `UpdateAsync()` pour valider une résolution.
 
 	private async void UpdateToDoItem(TodoItem item)
 	{
@@ -401,10 +400,10 @@ Le code suivant montre comment résoudre un conflit d'écriture une fois qu'il e
 	}
 
 
-Pour obtenir un exemple plus complet d'utilisation de l'accès concurrentiel optimiste pour Mobile Services, consultez le [didacticiel Accès concurrentiel optimiste].
+Pour obtenir un exemple plus complet d'utilisation de l'accès concurrentiel optimiste pour Mobile Services, consultez le didacticiel [Accès concurrentiel optimiste].
 
 
-<h2><a name="binding"></a> Liaison de données à l'interface utilisateur d'un service mobile</h2>
+<h2><a name="binding"></a>Procédure : Liaison de données à l'interface utilisateur d'un service mobile</h2>
 
 Cette section montre comment afficher des objets de données renvoyés à l'aide d'éléments d'interface utilisateur. Pour lancer une requête sur `todoTable` afin d'extraire les éléments incomplets et de les afficher dans une liste très simple, vous pouvez exécuter l'exemple de code suivant pour lier la source de la liste à une requête. L'utilisation de `MobileServiceCollection` permet de créer une collection de liaisons prenant en charge les services mobiles.
 
@@ -420,7 +419,7 @@ Cette section montre comment afficher des objets de données renvoyés à l'aide
 	ListBox lb = new ListBox();
 	lb.ItemsSource = items;
 
-Certains contrôles de Windows Runtime prennent en charge une interface appelée [ISupportIncrementalLoading](http://msdn.microsoft.com/fr-fr/library/windows/apps/Hh701916) Cette interface permet aux contrôles de demander des données supplémentaires lorsque l'utilisateur fait défiler l'écran. Une prise en charge de cette interface peut être intégrée aux applications Windows Store via `MobileServiceIncrementalLoadingCollection`, qui traite automatiquement les appels en provenance des contrôles. Pour utiliser `MobileServiceIncrementalLoadingCollection` dans les applications Windows Store, procédez comme suit :
+Certains contrôles de Windows Runtime prennent en charge une interface appelée [ISupportIncrementalLoading](http://msdn.microsoft.com/fr-fr/library/windows/apps/Hh701916). Cette interface permet aux contrôles de demander des données supplémentaires lorsque l'utilisateur fait défiler l'écran. Une prise en charge de cette interface peut être intégrée aux applications Windows Store via `MobileServiceIncrementalLoadingCollection`, qui traite automatiquement les appels en provenance des contrôles. Pour utiliser `MobileServiceIncrementalLoadingCollection` dans les applications Windows Store, procédez comme suit :
 
 			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
 		items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -430,25 +429,26 @@ Certains contrôles de Windows Runtime prennent en charge une interface appelée
 		lb.ItemsSource = items;
 
 
-Pour utiliser la nouvelle collection sur Windows Phone, appliquez les méthodes d'extension `ToCollection` à `IMobileServiceTableQuery<T>` et `IMobileServiceTable<T>`. Pour charger réellement les données, appelez `LoadMoreItemsAsync()`.
+Pour utiliser la nouvelle collection sur Windows Phone, utilisez les méthodes d'extension `ToCollection` au niveau de `IMobileServiceTableQuery<T>` et `IMobileServiceTable<T>`. Pour charger réellement les données, appelez `LoadMoreItemsAsync()`.
 
 	MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 	await items.LoadMoreItemsAsync();
 
 Lorsque vous utilisez la collection créée par l'appel de `ToCollectionAsync` ou `ToCollection`, vous obtenez une collection qui peut être liée à des contrôles d'interface utilisateur. Cette collection prend en charge la pagination, ce qui signifie qu'un contrôle peut demander à la collection de " charger plus d'éléments ", ce qu'elle fera pour le contrôle. À ce stade, aucun code utilisateur n'intervient ; c'est le contrôle qui démarre le flux. Toutefois, sachant que la collection charge les données à partir du réseau, ce chargement peut parfois échouer. Face à ces échecs, vous pouvez ignorer la méthode `OnException` au niveau de `MobileServiceIncrementalLoadingCollection` pour traiter les exceptions résultant des appels à `LoadMoreItemsAsync` émis par les contrôles.
 
-Enfin, imaginez que votre table contient de nombreux champs, mais que vous ne souhaitez en afficher qu'une partie dans votre contrôle. Vous pouvez suivre les instructions fournies plus haut dans la section <a href="#selecting">Sélection de colonnes spécifiques</a>  pour sélectionner les colonnes à afficher dans l'interface utilisateur.
+Enfin, imaginez que votre table contient de nombreux champs, mais que vous ne souhaitez en afficher qu'une partie dans votre contrôle. Vous pouvez suivre les instructions fournies plus haut dans la section <a href="#selecting">Sélection de colonnes spécifiques</a> pour sélectionner les colonnes à afficher dans l'interface utilisateur.
 
-<h2><a name="authentication"></a> Authentification des utilisateurs</h2>
+<h2><a name="authentication"></a>Procédure : Authentification des utilisateurs</h2>
 
 Mobile Services permet aux utilisateurs d'applications de s'authentifier par l'intermédiaire de divers fournisseurs d'identité externes : Facebook, Google, Compte Microsoft, Twitter et Azure Active Directory. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l'identité des utilisateurs authentifiés pour implémenter des règles d'autorisation dans les scripts serveur. Pour plus d'informations, consultez le didacticiel " Prise en main de l'authentification " ([Windows Store][Authentification Windows Store]/[Windows Phone][Authentification Windows Phone]).
 
 Deux flux d'authentification sont pris en charge : un _flux serveur_ et un _flux client_. Le flux serveur fournit l'authentification la plus simple, car il repose sur l'interface d'authentification Web du fournisseur. En revanche, le flux client est celui qui s'intègre le plus profondément aux fonctionnalités propres à l'appareil, car il s'appuie sur les Kits de développement logiciel (SDK) propres au fournisseur et à l'appareil.
 
 <h3>Flux serveur</h3>
-Pour que Mobile Services puisse gérer le processus d'authentification dans votre application Windows Store ou Windows Phone, vous devez inscrire votre application auprès de votre fournisseur d'identité. Ensuite, dans votre service mobile, vous devez configurer l'ID d'application et le secret fournis par votre fournisseur. Pour plus d'informations, consultez le didacticiel " Prise en main de l'authentification " [Windows Store][Authentification Windows Store]/[Windows Phone][Authentification Windows Phone]).
+Pour que Mobile Services puisse gérer le processus d'authentification dans votre application Windows Store ou Windows Phone,
+vous devez inscrire votre application auprès de votre fournisseur d'identité. Ensuite, dans votre service mobile, vous devez configurer l'ID d'application et le secret fournis par votre fournisseur. Pour plus d'informations, consultez le didacticiel " Prise en main de l'authentification " ([Windows Store][Authentification Windows Store]/[Windows Phone][Authentification Windows Phone]).
 
-Une fois que vous avez inscrit votre fournisseur d'identité, il vous suffit d'appeler la méthode [LoginAsync] avec la valeur [MobileServiceAuthenticationProvider] de votre fournisseur. Par exemple, le code suivant lance une connexion de flux serveur via Facebook.
+Une fois que vous avez inscrit votre fournisseur d'identité, appelez simplement la [méthode LoginAsync] avec la valeur [MobileServiceAuthenticationProvider] de votre fournisseur. Par exemple, le code suivant initie une connexion de flux serveur via Facebook.
 
 	private MobileServiceUser user;
 	private async System.Threading.Tasks.Task Authenticate()
@@ -474,13 +474,12 @@ Une fois que vous avez inscrit votre fournisseur d'identité, il vous suffit d'a
 		}
 	}
 
-Si vous utilisez un fournisseur d'identité autre que Facebook, remplacez la valeur de [MobileServiceAuthenticationProvider] ci-dessus par la valeur de votre fournisseur.
+Si vous utilisez un fournisseur d'identité différent de Facebook, remplacez la valeur de [MobileServiceAuthenticationProvider] ci-dessus par la valeur de votre fournisseur.
 
-Dans ce cas, Mobile Services gère le flux d'authentification OAuth 2.0 en affichant la page de connexion du fournisseur sélectionné et en générant un jeton d'authentification Mobile Services après avoir établi une connexion avec le fournisseur d'identité. La [méthode LoginAsync] renvoie un [MobileServiceUser], qui fournit à la fois l'[userId] de l'utilisateur authentifié et le [MobileServiceAuthenticationToken], sous la forme d'un jeton Web JSON (JWT). Ce jeton peut être mis en cache et réutilisé jusqu'à ce qu'il arrive à expiration. Pour plus d'informations, consultez la section [Mise en cache du jeton d'authentification].
+Dans ce cas, Mobile Services gère le flux d'authentification OAuth 2.0 en affichant la page de connexion du fournisseur sélectionné et en générant un jeton d'authentification Mobile Services après avoir établi une connexion avec le fournisseur d'identité. La [méthode LoginAsync] renvoie [MobileServiceUser], qui fournit à la fois le [userId] de l'utilisateur authentifié et le [MobileServiceAuthenticationToken], sous forme de jeton JWT (JSON Web token). Ce jeton peut être mis en cache et réutilisé jusqu'à ce qu'il arrive à expiration. Pour plus d'informations, consultez [Mise en cache du jeton d'authentification].
 
-<div class="dev-callout"><b>Application Windows Store</b>
-<p>Lorsque vous utilisez le fournisseur de connexion du compte Microsoft pour authentifier les utilisateurs de votre application Windows Store, vous devez également inscrire le package de l'application auprès de Mobile Services. Lorsque vous inscrivez les informations du package de votre application Windows Store auprès de Mobile Services, le client peut réutiliser les informations d'identification du compte Microsoft pour fournir une authentification unique. Si vous ne le faites pas, vos utilisateurs se connectant via le compte Microsoft seront invités à se connecter à chaque appel de la méthode de connexion. Pour savoir comment inscrire votre package d'application Windows Store, consultez la rubrique <a href="/fr-fr/develop/mobile/how-to-guides/register-windows-store-app-package/" target="_blank">Inscription du package de votre application Windows Store pour l'authentification Microsoft</a>. Une fois les informations du package inscrites auprès de Mobile Services, appelez la méthode <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> en fournissant la valeur <strong>true</strong> au paramètre <em>useSingleSignOn</em> pour réutiliser les informations d'identification.</p>
-</div>
+> [AZURE.NOTE] **Application Windows Store**
+Lorsque vous utilisez le fournisseur de connexion du compte Microsoft pour authentifier les utilisateurs de votre application Windows Store, vous devez également inscrire le package de l'application auprès de Mobile Services. Lorsque vous inscrivez les informations du package de votre application Windows Store auprès de Mobile Services, le client peut réutiliser les informations d'identification du compte Microsoft pour fournir une authentification unique. Si vous ne le faites pas, vos utilisateurs se connectant via le compte Microsoft seront invités à se connecter à chaque appel de la méthode de connexion. Pour savoir comment inscrire votre package d'application Windows Store, consultez la rubrique [Inscription du package de votre application Windows Store pour l'authentification Microsoft](/fr-fr/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Une fois les informations du package inscrites auprès de Mobile Services, appelez la méthode [LoginAsync](http://go.microsoft.com/fwlink/p/?LinkId=311594%20target="_blank") en fournissant la valeur **true** au paramètre _useSingleSignOn_ pour réutiliser les informations d'identification.
 
 <h3>Flux client</h3>
 
@@ -558,7 +557,7 @@ Dans certains cas, l'appel à la méthode de connexion peut être évité après
 
 Dans le cas des applications Windows Phone, vous pouvez chiffrer et mettre en cache les données à l'aide de la classe [ProtectedData] et stocker les informations sensibles dans un stockage isolé.
 
-<h2><a name="errors"></a> Gestion des erreurs</h2>
+<h2><a name="errors"></a>Procédure : Gestion des erreurs</h2>
 
 Il existe plusieurs méthodes pour détecter, valider et résoudre les erreurs dans Mobile Services.
 
@@ -592,7 +591,7 @@ Maintenant que le service mobile valide les données et envoie des réponses en 
 		}
 	}
 
-<h2><a name="untyped"></a> Utilisation de données non typées</h2>
+<h2><a name="untyped"></a>Procédure : Utilisation de données non typées</h2>
 
 Le client .NET a été conçu pour des scénarios fortement typés. Toutefois, une expérience plus légèrement typée peut parfois s'avérer pratique ; tel peut-être le cas lorsque, par exemple, il s'agit de traiter des objets avec un schéma ouvert. Ce scénario est mis en œuvre comme suit. Dans les requêtes, vous renoncez à LINQ pour utiliser le format wire.
 
@@ -602,15 +601,15 @@ Le client .NET a été conçu pour des scénarios fortement typés. Toutefois, u
 	// Lookup untyped data using OData
 	JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$orderby=text");
 
-Vous obtenez en retour des valeurs JSON que vous pouvez utiliser comme conteneur de propriétés. Pour plus d'informations sur JToken et Json.NET, consultez la page [Json.NET](http://json.codeplex.com/)
+Vous obtenez en retour des valeurs JSON que vous pouvez utiliser comme conteneur de propriétés. Pour plus d'informations sur JToken et Json.NET, consultez la page [Json.NET](http://json.codeplex.com/).
 
-<h2><a name="unit-testing"></a> Conception de tests</h2>
+<h2><a name="unit-testing"></a>Procédure : Conception de tests</h2>
 
-La valeur renvoyée par `MobileServiceClient.GetTable` et les requêtes sont des interfaces. Il est donc facile de les simuler à des fins de test. Vous pouvez ainsi créer `MyMockTable: IMobileServiceTable<TodoItem>` qui implémente votre logique de test.
+La valeur renvoyée par `MobileServiceClient.GetTable` et les requêtes sont des interfaces. Il est donc facile de les simuler à des fins de test. Vous pouvez ainsi créer une `MyMockTable : IMobileServiceTable<TodoItem>` qui implémente votre logique de test.
 
-<h2><a name="customizing"></a> Personnalisation du client</h2>
+<h2><a name="customizing"></a>Procédure : Personnalisation du client</h2>
 
-### <a name="headers"></a> Personnalisation des en-têtes de requête
+### <a name="headers"></a>Procédure : Personnalisation des en-têtes de requête
 
 Vous pouvez joindre un en-tête personnalisé à chaque demande sortante ou modifier le code d'état des réponses. Pour ce faire, vous pouvez configurer un DelegatingHandler de la façon suivante :
 
@@ -638,9 +637,9 @@ Vous pouvez joindre un en-tête personnalisé à chaque demande sortante ou modi
 	}
 
 
-### <a name="serialization"></a> Personnalisation de la sérialisation
+### <a name="serialization"></a>Procédure : Personnalisation de la sérialisation
 
-La classe [MobileServiceClient](http://msdn.microsoft.com/fr-fr/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) expose une propriété `SerializerSettings` de type [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm).
+La classe [MobileServiceClient](http://msdn.microsoft.com/fr-fr/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) expose une propriété `SerializerSettings` de type [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm)
 
 Cette propriété vous permet de définir des propriétés Json.NET (il en existe beaucoup), notamment celle qui permet de convertir toutes les propriétés en minuscules :
 
@@ -653,7 +652,7 @@ Cette propriété vous permet de définir des propriétés Json.NET (il en exist
 Maintenant que vous avez consulté ce guide de fonctionnement, découvrez en détail comment effectuer des tâches importantes dans Mobile Services :
 
 * [Prise en main de Mobile Services]
-  <br/>Découvrez les bases de l'utilisation de Mobile Services.
+  <br/>Découvrez les règles de base d'utilisation de Mobile Services.
 
 * [Prise en main des données]
   <br/>En savoir plus sur le stockage et l'interrogation des données à l'aide de Mobile Services.
@@ -661,11 +660,11 @@ Maintenant que vous avez consulté ce guide de fonctionnement, découvrez en dé
 * [Prise en main de l'authentification]
   <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec un fournisseur d'identité.
 
-* [Validation et modification de données avec des scripts]
-  <br/>En savoir plus sur l'utilisation de scripts serveur dans Mobile Services pour valider et modifier les données envoyées à partir de votre application.
+* [Validation et modification de données à l'aide de scripts]
+  <br/>En savoir plus sur l'utilisation des scripts serveur dans Mobile Services pour valider et modifier les données envoyées à partir de votre application.
 
-* [Affinement des requêtes au moyen de la pagination]
-  <br/>Découvrez comment utiliser la pagination dans les requêtes pour contrôler la quantité de données traitées dans une seule demande.
+* [Affinage des requêtes au moyen de la pagination]
+  <br/>Apprenez à utiliser la pagination dans les requêtes pour contrôler la quantité de données traitées dans une seule requête.
 
 * [Autorisation des utilisateurs avec des scripts]
   <br/>Découvrez comment prendre la valeur d'ID utilisateur fournie par Mobile Services en fonction de l'utilisateur authentifié et l'utiliser pour filtrer les données renvoyées par Mobile Services.
@@ -673,30 +672,30 @@ Maintenant que vous avez consulté ce guide de fonctionnement, découvrez en dé
 <!-- Anchors. -->
 [Présentation de Mobile Services]: #what-is
 [Concepts]: #concepts
-[ Création du client Mobile Services]: #create-client
-[ Création d'une référence de table]: #instantiating
-[ Interrogation des données à partir d'un service mobile]: #querying
+[Procédure : Création du client Mobile Services]: #create-client
+[Procédure : Création d'une référence de table]: #instantiating
+[Procédure : Interrogation des données à partir d'un service mobile]: #querying
 [Filtrage des données renvoyées]: #filtering
 [Tri des données renvoyées]: #sorting
 [Renvoi de données dans les pages]: #paging
 [Sélection de colonnes spécifiques]: #selecting
 [Recherche des données par ID]: #lookingup
-[ Liaison de données à l'interface utilisateur d'un service mobile]: #binding
-[ Insertion de données dans un service mobile]: #inserting
-[ Modification des données d'un service mobile]: #modifying
-[ Suppression des données d'un service mobile]: #deleting
-[ Utilisation de l'accès concurrentiel optimiste]: #optimisticconcurrency
-[ Authentification des utilisateurs]: #authentication
-[ Gestion des erreurs]: #errors
-[ Conception de tests]: #unit-testing
-[ Interrogation des données à partir d'un service mobile]: #querying
-[ Personnalisation du client]: #customizing
-[ Utilisation de données non typées]: #untyped
+[Procédure : Liaison de données à l'interface utilisateur d'un service mobile]: #binding
+[Procédure : Insertion de données dans un service mobile]: #inserting
+[Procédure : Modification des données d'un service mobile]: #modifying
+[Procédure : Suppression des données d'un service mobile]: #deleting
+[Procédure : Utilisation de l'accès concurrentiel optimiste]: #optimisticconcurrency
+[Procédure : Authentification des utilisateurs]: #authentication
+[Procédure : Gestion des erreurs]: #errors
+[Procédure : Conception de tests]: #unit-testing
+[Procédure : Interrogation des données à partir d'un service mobile]: #querying
+[Procédure : Personnalisation du client]: #customizing
+[Procédure : Utilisation de données non typées]: #untyped
 [Personnalisation des en-têtes de requête]: #headers
 [Personnalisation de la sérialisation]: #serialization
 [Étapes suivantes]: #nextsteps
 [Mise en cache du jeton d'authentification]: #caching
-[ Appel d'une API personnalisée]: #custom-api
+[Procédure : Appel d'une API personnalisée]: #custom-api
 
 <!-- Images. -->
 
@@ -704,7 +703,7 @@ Maintenant que vous avez consulté ce guide de fonctionnement, découvrez en dé
 
 <!-- URLs. -->
 [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started
-[Kit de développement logiciel (SDK) de Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=257545
+[Kit de développement logiciel (SDK) Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Didacticiel Démarrage rapide Windows Store]: http://www.windowsazure.com/fr-fr/develop/mobile/tutorials/get-started/
 [Didacticiel Démarrage rapide Windows Phone]: http://www.windowsazure.com/fr-fr/develop/mobile/tutorials/get-started-wp8/
 [Didacticiel sur les données Windows Store]: http://www.windowsazure.com/fr-fr/develop/mobile/tutorials/get-started-with-data-dotnet/
@@ -712,13 +711,13 @@ Maintenant que vous avez consulté ce guide de fonctionnement, découvrez en dé
 [Authentification Windows Store]: http://www.windowsazure.com/fr-fr/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Authentification Windows Phone]: http://www.windowsazure.com/fr-fr/develop/mobile/tutorials/get-started-with-users-wp8/
 [PasswordVault]: http://msdn.microsoft.com/fr-fr/library/windows/apps/windows.security.credentials.passwordvault.aspx
-[Kit de développement logiciel (SDK) de Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=257545
+[Kit de développement logiciel (SDK) Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=257545
 [ProtectedData]: http://msdn.microsoft.com/fr-fr/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
-[Kit de développement logiciel (SDK) de Mobile Services]: http://nuget.org/packages/WindowsAzure.MobileServices/
+[Kit de développement logiciel (SDK) Mobile Services]: http://nuget.org/packages/WindowsAzure.MobileServices/
 [Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-dotnet/
 [Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-dotnet
-[Validation et modification de données avec des scripts]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Affinement des requêtes au moyen de la pagination]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-dotnet
+[Validation et modification de données à l'aide de scripts]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Affinage des requêtes au moyen de la pagination]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-dotnet
 [Autorisation des utilisateurs avec des scripts]: /fr-fr/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
 [Méthode LoginAsync]: http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
 [MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
@@ -736,3 +735,6 @@ Maintenant que vous avez consulté ce guide de fonctionnement, découvrez en dé
 [API personnalisée dans les Kits de développement logiciel (SDK) clients pour Azure Mobile Services]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [Appel d'une API personnalisée à partir du client]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
+
+
+<!--HONumber=42-->

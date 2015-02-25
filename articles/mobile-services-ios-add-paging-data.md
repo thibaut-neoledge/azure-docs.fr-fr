@@ -1,22 +1,20 @@
-﻿<properties urlDisplayName="Add paging to data" pageTitle="Ajout de la pagination de données (iOS) | Centre de développement mobile" metaKeywords="" description="Découvrez comment utiliser la pagination pour gérer la quantité de données renvoyées vers votre application iOS à partir de Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Ajout de la pagination de données (iOS) | Centre de développement mobile" description="Découvrez comment utiliser la pagination pour gérer la quantité de données renvoyées vers votre application iOS à partir de Mobile Services." services="mobile-services" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
 
 # Affinage des requêtes Mobile Services au moyen de la pagination
-W
-[WACOM.INCLUDE [mobile-services-selector-add-paging-data](../includes/mobile-services-selector-add-paging-data.md)]
 
-Cette rubrique montre comment utiliser la pagination pour gérer la quantité de données renvoyée à votre application iOS par Azure Mobile Services. Dans le cadre de ce didacticiel, vous allez utiliser les propriétés de requête **fetchLimit** et **fetchOffset** sur le client pour demander des " pages " spécifiques de données.
+[AZURE.INCLUDE [mobile-services-selector-add-paging-data](../includes/mobile-services-selector-add-paging-data.md)]
 
-<div class="dev-callout"><b>Remarque</b>
-<p>Pour éviter tout dépassement de capacité dans les appareils mobiles clients, Mobile Services implémente une limite automatique du nombre de pages, qui autorise par défaut un maximum de 50 éléments par réponse. En spécifiant la taille de page, vous pouvez demander explicitement jusqu'à 1 000 éléments dans la réponse.</p>
-</div>
+Cette rubrique vous présente l'utilisation de la pagination pour gérer la quantité de données renvoyée à votre application iOS par Azure Mobile Services. Dans le cadre de ce didacticiel, vous allez utiliser les propriétés de requête **fetchLimit** et **fetchOffset** sur le client pour demander des " pages " spécifiques de données.
+
+> [AZURE.NOTE] Pour éviter tout dépassement de capacité dans les appareils mobiles clients, Mobile Services implémente une limite automatique du nombre de pages, qui autorise par défaut un maximum de 50 éléments par réponse. En spécifiant la taille de page, vous pouvez demander explicitement jusqu'à 1 000 éléments dans la réponse.
 
 Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données]. Avant de commencer ce didacticiel, vous devez suivre au moins le premier didacticiel consacré à l'utilisation des séries de données, intitulé [Prise en main des données].
 
 1. Dans Xcode, ouvrez le projet que vous avez modifié avec le didacticiel [Prise en main des données].
 
-2. Appuyez sur le bouton **Exécuter** (Commande + R) pour générer le projet et démarrer l'application, puis tapez du texte dans la zone de texte et cliquez sur l'icône représentant un signe plus (  plus (**+**).
+2. Appuyez sur le bouton **Exécuter** (Commande + R) pour générer le projet et démarrer l'application, puis tapez un texte dans la zone de texte et cliquez sur l'icône représentant un signe plus (**+**).
 
 3. Répétez les étapes précédentes au moins trois fois de telle sorte que plus de trois éléments soient stockés dans la table TodoItem.
 
@@ -28,7 +26,7 @@ Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés
 
         // Create a predicate that finds active items in which complete is false
         NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
-
+	
         // Retrieve the MSTable's MSQuery instance with the predicate you just created.
         MSQuery * query = [self.table queryWithPredicate:predicate];
 
@@ -64,23 +62,21 @@ Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés
 
         query.fetchOffset = 0;
 
-   	Cette fois, affectez 3 à la valeur **query.fetchOffset**.
+   	Cette fois, définissez la valeur **query.fetchOffset** sur 3.
 
    	Cette requête ignore les trois premiers résultats et renvoie les trois résultats suivants. Il s'agit en fait de la deuxième " page " de données, dont la taille est de trois éléments.
 
-    <div class="dev-callout"><b>Remarque</b>
-    <p>Ce didacticiel utilise un scénario simplifié dans lequel les valeurs de pagination codées en dur sont définies pour les propriétés <strong>fetchOffset</strong> et <strong>fetchLimit</strong>. Dans une application réelle, vous pouvez utiliser des requêtes semblables à celles indiquées plus haut avec un contrôle pager ou une interface utilisateur comparable pour permettre aux utilisateurs d'accéder aux pages précédentes et suivantes. Vous pouvez également définir   **query.includeTotalCount = YES** pour obtenir le nombre total d'éléments disponibles sur le serveur, avec les données paginées.</p>
-    </div>
+    > [AZURE.NOTE] Ce didacticiel utilise un scénario simplifié dans lequel des valeurs de pagination codées en dur sont définies pour les propriétés **fetchOffset** et **fetchLimit**. Dans une application réelle, vous pouvez utiliser des requêtes semblables à celles indiquées plus haut avec un contrôle pager ou une interface utilisateur comparable pour permettre aux utilisateurs d'accéder aux pages précédentes et suivantes. Vous pouvez également définir **query.includeTotalCount = YES** pour obtenir le nombre total d'éléments disponibles sur le serveur, avec les données paginées.
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
 Vous voici parvenu à la fin de la série de didacticiels présentant les principes de base de l'utilisation des données dans Mobile Services. Pour plus d'informations, consultez la rubrique Mobile Services suivante :
 
 * [Prise en main de l'authentification]
-  <br/>Découvrez comment authentifier les utilisateurs de votre application avec un compte Windows.
+  <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec un compte Windows.
 
 <!--
-* [Get started with push notifications]
+* [Prise en main des notifications Push]
   <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 -->
 
@@ -98,3 +94,6 @@ Vous voici parvenu à la fin de la série de didacticiels présentant les princi
 [Prise en main des notifications Push]: /fr-fr/develop/mobile/tutorials/get-started-with-push-ios
 
 [Portail de gestion]: https://manage.windowsazure.com/
+
+
+<!--HONumber=42-->

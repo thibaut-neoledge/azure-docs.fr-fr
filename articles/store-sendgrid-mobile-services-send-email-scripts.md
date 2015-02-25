@@ -1,13 +1,27 @@
-﻿<properties urlDisplayName="Send Email Using SendGrid" pageTitle="Envoi de courrier électronique avec SendGrid - Azure Mobile Services" metaKeywords="Azure SendGrid, service SendGrid, messagerie Azure, courrier électronique mobile services" description="Découvrez comment utiliser le service SendGrid pour envoyer un courrier électronique à partir de votre application Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Send email from Mobile Services with SendGrid" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" solutions="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="Envoi de courrier électronique avec SendGrid - Azure Mobile Services" 
+	description="Découvrez comment utiliser le service SendGrid pour envoyer un courrier électronique à partir de votre application Azure Mobile Services." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="thinkingserious" 
+	manager="sendgrid" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="10/27/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="10/27/2014" 
+	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
 
 
 # Envoi de courrier électronique à partir de Mobile Services avec SendGrid
 
 Cette rubrique vous montre comment ajouter une fonctionnalité de messagerie électronique à votre service mobile. Dans ce didacticiel, vous allez ajouter des scripts côté serveur pour envoyer du courrier électronique à l'aide de SendGrid. Une fois que vous aurez terminé, votre service mobile enverra un message électronique chaque fois qu'un enregistrement sera inséré.
 
-SendGrid est un [service de messagerie électronique dans le cloud] qui fournit des fonctionnalités fiables en matière de [remise de courrier électronique transactionnelle], d'extensibilité et d'analyse en temps réel, ainsi que des API flexibles qui facilitent l'intégration personnalisée. Pour plus d'informations, consultez la page <http://sendgrid.com>.
+SendGrid est un [Service de messagerie du cloud] qui fournit des fonctionnalités fiables en matière de [remise de courrier électronique transactionnelle], d'extensibilité et d'analyse en temps réel, ainsi que des API flexibles qui facilitent l'intégration personnalisée. Pour plus d'informations, consultez les pages <http://sendgrid.com>.
 
 Ce didacticiel vous familiarise avec les étapes de base permettant d'activer la fonctionnalité de messagerie électronique :
 
@@ -19,21 +33,21 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 
 <h2><a name="sign-up"></a>Création d'un compte SendGrid</h2>
 
-[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
+[AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 <h2><a name="add-script"></a>Inscription d'un nouveau script qui envoie des messages électroniques</h2>
 
 1. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur le service mobile.
 
-2. Dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItem**. 
+2. Dans le portail de gestion, cliquez sur l'onglet **Données**, puis cliquez sur la table **TodoItem**. 
 
 	![][1]
 
-3. Dans **todoitem**, cliquez sur l'onglet **Script**, puis sélectionnez **Insérer**.
+3. Dans **todoitem**, cliquez sur l'onglet **Script** et sélectionnez **Insérer**.
    
 	![][2]
 
-La fonction appelée lors d'une insertion dans la table **TodoItem** s'affiche.
+	La fonction appelée lors d'une insertion dans la table **TodoItem** s'affiche.
 
 4. Remplacez la fonction d'insertion par le code suivant :
 
@@ -68,15 +82,13 @@ La fonction appelée lors d'une insertion dans la table **TodoItem** s'affiche.
 
 5. Remplacez les espaces réservés par les valeurs appropriées dans le script ci-dessus :
 
-	- **_username_ and _password_** : informations d'identification SendGrid que vous avez identifiées dans la section [Création d'un compte SendGrid].
+	- **_username_ and _password_** : les informations d'identification de SendGrid que vous avez identifiées dans la section [Création d'un compte SendGrid].
 
 	- **_email-address_** : adresse à laquelle le message électronique est envoyé. Dans une application réelle, vous pouvez utiliser des tables pour stocker et récupérer les adresses électroniques. Au moment de tester votre application, utilisez uniquement votre propre adresse électronique.
 
 	- **_from-address_** : adresse d'origine du message électronique. Envisagez d'utiliser une adresse de domaine inscrit appartenant à votre organisation. 
 
-     <div class="dev-callout"><b>Remarque</b>
-     <p>Si vous n'avez pas de domaine inscrit, vous pouvez utiliser le domaine de votre service mobile au format <strong>notifications@<i>votre-service-mobile</i>.azure-mobile.net</strong>. Toutefois, les messages envoyés au domaine de votre service mobile sont ignorés.</p>
-    </div> 
+     > [AZURE.NOTE] Si vous n'avez pas de domaine inscrit, vous pouvez utiliser le domaine de votre service mobile au format  *notifications@_your-mobile-service_.azure-mobile.net*. Toutefois, les messages envoyés au domaine de votre service mobile sont ignorés.
 
 6. Cliquez sur le bouton **Enregistrer**. Vous avez maintenant configuré un script pour qu'un message électronique soit envoyé chaque fois qu'un enregistrement est inséré dans la table **TodoItem**.
 
@@ -90,7 +102,7 @@ La fonction appelée lors d'une insertion dans la table **TodoItem** s'affiche.
 
 	![][3]
 
-3. Notez que vous recevez un message électronique tel que celui figurant dans la notification ci-dessous. 
+3. Vous recevez un message électronique tel que celui figurant dans la notification ci-dessous. 
 
 	![][4]
 
@@ -98,7 +110,8 @@ La fonction appelée lors d'une insertion dans la table **TodoItem** s'affiche.
 
 ## <a name="nextsteps"> </a>Étapes suivantes
 
-Maintenant que vous avez vu à quel point il est facile d'utiliser le service de messagerie électronique SendGrid avec Mobile Services, suivez ces liens pour en savoir plus sur SendGrid.
+Maintenant que vous avez vu à quel point il est facile d'utiliser le service de messagerie électronique SendGrid avec Mobile Services, suivez
+ces liens pour en savoir plus sur SendGrid.
 
 -   Documentation de l'API SendGrid :
     <https://sendgrid.com/docs>
@@ -121,6 +134,9 @@ Maintenant que vous avez vu à quel point il est facile d'utiliser le service de
 [page d'inscription]: https://sendgrid.com/windowsazure.html
 [Page d'informations d'identification d'utilisateurs multiples]: https://sendgrid.com/credentials
 [Portail de gestion Azure]: https://manage.windowsazure.com/
-[service de messagerie cloud]: https://sendgrid.com/email-solutions
+[Service de messagerie du cloud]: https://sendgrid.com/email-solutions
 [remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
 
+
+
+<!--HONumber=42-->

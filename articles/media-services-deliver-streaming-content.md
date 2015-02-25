@@ -1,11 +1,11 @@
-﻿<properties urlDisplayName="Deliver Streaming Content from Media Services" pageTitle="Fourniture de contenu de diffusion en continu à partir de Media Services - Azure" metaKeywords="" description="Apprenez à fournir un contenu de diffusion en continu à partir de Media Services à l'aide d'une URL directe. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to: Deliver streaming content" authors="juliako" manager="dwrede" />
+﻿<properties pageTitle="Fourniture de contenu de diffusion en continu à partir de Media Services - Azure" description="Apprenez à fournir un contenu de diffusion en continu à partir de Media Services à l'aide d'une URL directe. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." authors="juliako" manager="dwrede" editor="" services="media-services" documentationCenter=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
-#Utilisation de diffusion de contenu en continu
+# Fourniture de diffusion de contenu en continu
 
-Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [  Fourniture d'un élément multimédia par téléchargement](../media-services-deliver-asset-download/).
+Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [ Fourniture d'un élément multimédia par téléchargement](../media-services-deliver-asset-download/).
 
 En plus de télécharger du contenu multimédia à partir de Media Services, vous pouvez utiliser la diffusion en continu à débit adaptatif pour fournir du contenu. Par exemple, vous pouvez créer une URL directe, appelée un localisateur, pour la diffusion de contenu en continu sur un serveur d'origine Media Services. Les applications clientes comme Microsoft Silverlight peuvent lire le contenu en continu directement à partir du localisateur.
 
@@ -76,6 +76,7 @@ Pour plus d'informations sur la fourniture des éléments multimédias, consulte
 </ul>
 
 <h2>Étapes suivantes</h2>
-Jusqu'à présent, nous avons traité la fourniture d'éléments multimédias par le téléchargement à partir d'Azure Storage et à l'aide de la diffusion en continu lisse. La rubrique suivante [Livraison de contenu HLS](../media-services-deliver-http-live-streaming-content/) présente la fourniture de contenu de diffusion en continu à l'aide de Apple HTTP Live Streaming (HLS).
+Jusqu'à présent, nous avons traité la fourniture d'éléments multimédias par le téléchargement à partir d'Azure Storage et à l'aide de la diffusion en continu lisse. La rubrique suivante, intitulée [Fourniture de contenu HLS](../media-services-deliver-http-live-streaming-content/), aborde la fourniture de diffusion de contenu en continu à l'aide de la diffusion en continu HTTP Apple (HLS).
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

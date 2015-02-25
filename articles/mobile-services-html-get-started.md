@@ -1,17 +1,17 @@
-<properties pageTitle="Prise en main d'Azure Mobile Services pour les applications HTML 5" metaKeywords="" description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement HTML. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Prise en main d'Azure Mobile Services pour les applications HTML 5" description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement HTML." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="11/21/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="11/21/2014" ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>Ce didacticiel vous montre comment ajouter un service principal cloud à une application HTML en utilisant Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application <em>To do list</em> qui stocke les données d'application dans le nouveau service mobile. Vous pouvez regarder une version vidéo de ce didacticiel en cliquant sur le clip à droite.</p>
+<p>Ce didacticiel vous montre comment ajouter un service principal cloud à une application HTML en utilisant Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une application simple <em>To do list</em> qui stocke les données d'application dans le nouveau service mobile. Vous pouvez regarder une version vidéo de ce didacticiel en cliquant sur le clip à droite.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="label">voir le didacticiel</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-html-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">3:51</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="label">Regarder le didacticiel</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-html-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">03:51</span></div>
 </div>
  
 Voici une capture d'écran de l'application terminée :
@@ -20,15 +20,15 @@ Voici une capture d'écran de l'application terminée :
 
 Vous devez suivre ce didacticiel avant de pouvoir suivre les autres didacticiels Mobile Services pour les applications HTML. 
 
-<div class="dev-callout"><strong>Remarque</strong> <p>Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez les rubriques suivantes : <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.</p></div>
+> [AZURE.IMPORTANT] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank).  
 
-### Conditions supplémentaires
+###Conditions supplémentaires
 
 + L'un des serveurs web suivants doit être exécuté sur votre ordinateur local pour pouvoir suivre ce didacticiel :
 
 	+  **Sur Windows** : IIS Express. IIS Express est installé par [Microsoft Web Platform Installer].   
-	+  **Sur Mac OS X** : Python, qui doit déjà être installé.
-	+  **Sur Linux** : Python. Vous devez installer la [dernière version de Python]. 
+	+  **Sur MacOS X** : Python, qui doit déjà être installé.
+	+  **Sur Linux** : Python. Vous devez installer [la dernière version de Python]. 
 	
 	Vous pouvez utiliser n'importe quel serveur web pour héberger l'application, mais les serveurs précédents sont les seuls pris en charge par les scripts téléchargés.  
 
@@ -37,7 +37,7 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre les autres didacticiels
 
 ## <a name="create-new-service"> </a>Création d'un service mobile
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## <h2>Création d'une application HTML</h2>
 
@@ -45,10 +45,10 @@ Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapid
 
 Dans cette section, vous allez créer une application HTML connectée à votre appareil mobile.
 
-1.  Dans le portail de gestion, cliquez sur **Services mobiles**, puis sur le service mobile que vous venez de créer.
+1.  Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
    
-2. Dans l'onglet de démarrage rapide, cliquez sur **Windows** sous **Choisissez une plateforme** et développez **Créer une application HTML**.
+2. Sous l'onglet de démarrage rapide, cliquez sur **Windows** dans la section **Choisir une plateforme** et développez **Créer une application HTML**.
 
    	![][6]
 
@@ -56,48 +56,41 @@ Dans cette section, vous allez créer une application HTML connectée à votre a
 
   	![][7]
 
-3. Cliquez sur **Create TodoItems table** pour créer une table permettant de stocker les données d'application.
+3. Cliquez sur **Créer une table TodoItem** pour créer une table permettant de stocker les données d'application.
 
 4. Sous **Télécharger et exécuter l'application**, cliquez sur **Télécharger**. 
 
   	Ceci entraîne le téléchargement des fichiers de site web pour l'exemple d'application _To do list_ connectée à votre service mobile. Enregistrez le fichier compressé sur votre ordinateur local, et notez où vous l'enregistrez.
 
-5. Sous l'onglet **Configurer**, vérifiez que localhost figure déjà dans la liste**Autoriser les demandes à partir des noms d'hôte** sous **Partage des ressources cross-origin (CORS)**. Si cela n'est pas le cas, entrez localhost dans le champ **Nom d'hôte**, puis cliquez sur **Enregistrer**.
+5. Sous l'onglet **Configurer**, vérifiez que `localhost` figure déjà dans la liste **Autoriser les demandes à partir des noms d'hôte**, sous **Partage des ressources cross-origin (CORS)**. Si ce n'est pas le cas, entrez `localhost` dans le champ **Nom d'hôte**, puis cliquez sur **Enregistrer**.
 
   	![][9]
 
-	<div class="dev-callout"><b>Remarque</b>
-		<p>Si vous déployez l'application de démarrage rapide sur un autre serveur que localhost, vous devez ajouter le nom d'hôte du serveur web à la liste <strong>Autoriser les demandes à partir des noms d'hôte</strong> . Pour plus d'informations, consultez la rubrique <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/dn155871.aspx" target="_blank">CORS (Cross-Origin Resource Sharing, partage des ressources cross-origin)</a>.</p>
-	</div>
+	> [AZURE.IMPORTANT] Si vous déployez l'application de démarrage rapide sur un serveur autre que localhost, vous devez ajouter le nom d'hôte du serveur Web à la liste **Autoriser les demandes à partir des noms d'hôte**. Pour plus d'informations, consultez la page [Partage des ressources cross-origin](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn155871.aspx"%20target="_blank).
 
 ## Hébergement et exécution de votre application HTML
 
 La dernière étape de ce didacticiel consiste à héberger et exécuter votre nouvelle application sur votre ordinateur local.
 
-1. Accédez à l'emplacement sur lequel vous avez enregistré les fichiers du projet compressés, décompressez-les sur votre ordinateur, puis exécutez l'un des fichiers de commandes suivants à partir du sous-dossier **serveur**.
+1. Accédez à l'emplacement sur lequel vous avez enregistré les fichiers du projet compressés, décompressez-les sur votre ordinateur, puis exécutez l'un des fichiers de commandes suivants à partir du sous-dossier **server**.
 
-	+ **launch-windows** (pour les ordinateurs Windows) 
-	+ **launch-mac.command** (pour les ordinateurs Mac OS X)
-	+ **launch-linux.sh** (pour les ordinateurs Linux)
+	+ **launch-windows** (Pour les ordinateurs Windows) 
+	+ **launch-mac.command** (Pour les ordinateurs Mac OS X)
+	+ **launch-linux.sh** (Pour les ordinateurs Linux)
 
-	<div class="dev-callout"><b>Remarque</b>
-		<p>Sur un ordinateur Windows, appuyez sur la touche " R " lorsque PowerShell vous demande de confirmer l'exécution du script. Vous pouvez recevoir un avertissement de votre navigateur web vous recommandant de ne pas exécuter le script, car il a été téléchargé depuis Internet. Lorsque cela se produit, vous devez demander au navigateur de continuer à charger le script.</p>
-	</div>
+	> [AZURE.NOTE] Sur un ordinateur Windows, appuyez sur la touche " R " lorsque PowerShell vous demande de confirmer l'exécution du script. Vous pouvez recevoir un avertissement de votre navigateur web vous recommandant de ne pas exécuter le script, car il a été téléchargé depuis Internet. Lorsque cela se produit, vous devez demander au navigateur de continuer à charger le script.
 
 	Ceci démarre un serveur web sur votre ordinateur local pour pouvoir héberger la nouvelle application.
 
-2. Ouvrez l'URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> dans un navigateur web pour démarrer l'application.
+2. Ouvrez l'URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> dans un navigateur Web pour démarrer l'application.
 
-3. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, dans **Entrer une nouvelle tâche**, puis cliquez sur **Ajouter**.
+3. Dans l'application, tapez un texte explicite, comme _Complete the tutorial_, dans **Entrer une nouvelle tâche**, puis cliquez sur **Ajouter**.
 
    	![][10]
 
-   	Ceci envoie une demande POST vers le nouveau service mobile hébergé dans Azure. Les données de la demande sont insérées dans la table TodoItem. Les éléments stockés dans la table sont renvoyés par le service mobile et les données sont affichées dans la deuxième colonne de l'application.
+   	Ceci envoie une demande POST vers le nouveau service mobile hébergé dans Azure. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans la table sont renvoyés par le service mobile et les données sont affichées dans la deuxième colonne de l'application.
 
-	<div class="dev-callout"> 
-	<b>Remarque</b> 
-   	<p>Vous pouvez vérifier le code qui se trouve dans le fichier app.js et permet d'accéder au service mobile pour exécuter une requête et insérer des données.</p> 
- 	</div>
+	> [AZURE.NOTE] Vous pouvez vérifier le code qui se trouve dans le fichier app.js et permet d'accéder au service mobile pour exécuter une requête et insérer des données.
 
 4. De retour dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItems**.
 
@@ -153,6 +146,7 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 [Microsoft Web Platform Installer]:  http://go.microsoft.com/fwlink/p/?LinkId=286333
 [dernière version de Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
 [Guide de fonctionnement de Mobile Services avec HTML/JavaScript]: /fr-fr/develop/mobile/how-to-guides/work-with-html-js-client
-[CORS (Cross-Origin Resource Sharing, partage des ressources cross-origin)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn155871.aspx
+[Partage des ressources cross-origin]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn155871.aspx
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

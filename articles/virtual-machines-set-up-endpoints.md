@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Set up endpoints" pageTitle="Configuration de points de terminaison sur une machine virtuelle dans Azure" metaKeywords="Azure config setup, configuring vm connection" description="Apprenez à configurer les communications avec une machine virtuelle dans Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Configuration de points de terminaison sur une machine virtuelle dans Azure" description="Apprenez à configurer les communications avec une machine virtuelle dans Azure." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2014" ms.author="kathydav"/>
 
 #Configuration des points de terminaison sur une machine virtuelle
 
@@ -50,7 +50,7 @@ Des valeurs par défaut pour les ports et le protocole de ces points de terminai
 
 ###Gestion de l'ACL sur un point de terminaison###
 
-Suivez cette procédure pour ajouter, modifier ou supprimer l'ACL sur un point de terminaison.
+La liste de contrôle d'accès (ACL) sur un point de terminaison de réseau peut restreindre le trafic selon l'IP source, afin de sécuriser les points de terminaison créés sur votre machine virtuelle. Suivez cette procédure pour ajouter, modifier ou supprimer l'ACL sur un point de terminaison.
 
 **Remarque** : si le point de terminaison fait partie d'un jeu d'équilibrage de charge, chaque modification faite sur l'ACL pour un point de terminaison est appliquée à tous les points de terminaison du jeu.
 
@@ -72,4 +72,6 @@ Suivez cette procédure pour ajouter, modifier ou supprimer l'ACL sur un point d
 
 6. Utilisez les lignes dans la liste pour ajouter, supprimer ou modifier les règles d'une ACL. La valeur Sous-réseau distant correspond à la plage d'adresses IP que la règle peut autoriser ou refuser. Les règles sont évaluées dans l'ordre, en commençant par la première règle et en terminant par la dernière. Cela signifie que les règles doivent être répertoriées de la moins restrictive à la plus restrictive. Pour plus d'informations et des exemples, consultez [À propos des listes de contrôle d'accès réseau](http://go.microsoft.com/fwlink/p/?LinkId=303816).
 
-<!--HONumber=35.1-->
+
+
+<!--HONumber=42-->

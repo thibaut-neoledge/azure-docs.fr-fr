@@ -1,6 +1,6 @@
-<properties urlDisplayName="Upload a SUSE Linux VHD" pageTitle="Création et téléchargement d'un disque dur virtuel SUSE dans Azure" metaKeywords="Azure VHD, uploading Linux VHD, SUSE, SLES, openSUSE" description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation SUSE Linux." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains a SUSE Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
+<properties pageTitle="Création et téléchargement d'un disque dur virtuel SUSE dans Azure" description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation SUSE Linux." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="szarkos"/>
 
 
 # Préparation d'une machine virtuelle SLES ou openSUSE pour Azure
@@ -8,7 +8,7 @@
 - [Préparation d'une machine virtuelle SLES 11 SP3 pour Azure](#sles11)
 - [Préparation d'une machine virtuelle openSUSE 13.1+ pour Azure](#osuse)
 
-##Conditions préalables##
+##Configuration requise##
 
 Cet article suppose que vous avez déjà installé un système d'exploitation SUSE ou openSUSE Linux dans un disque dur virtuel. Il existe de nombreux outils de création de fichiers .vhd, par exemple une solution de virtualisation telle que Hyper-V. Pour obtenir des instructions à ce sujet, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx). 
 
@@ -35,39 +35,13 @@ Cet article suppose que vous avez déjà installé un système d'exploitation SU
 
 2. Cliquez sur **Connecter** pour ouvrir la fenêtre de la machine virtuelle.
 
-3. Ajoutez le référentiel contenant le dernier noyau et l'agent Linux Azure. Exécutez la commande `zypper lr`. Par exemple, avec SLES 11 SP3, le résultat devrait ressembler à l'exemple suivant :
+3. Enregistrez votre système SUSE Linux Enterprise pour lui permettre de télécharger les mises à jour et d'installer des packages.
 
-		# | Alias                        | Name               | Enabled | Refresh
-		--+------------------------------+--------------------+---------+--------
-		1 | susecloud:SLES11-SP1-Pool    | SLES11-SP1-Pool    | No      | Yes
-		2 | susecloud:SLES11-SP1-Updates | SLES11-SP1-Updates | No      | Yes
-		3 | susecloud:SLES11-SP2-Core    | SLES11-SP2-Core    | No      | Yes
-		4 | susecloud:SLES11-SP2-Updates | SLES11-SP2-Updates | No      | Yes
-		5 | susecloud:SLES11-SP3-Pool    | SLES11-SP3-Pool    | Yes     | Yes
-		6 | susecloud:SLES11-SP3-Updates | SLES11-SP3-Updates | Yes     | Yes
-
-	Si la commande renvoie un message d'erreur similaire au suivant :
-
-		"No repositories defined. Use the 'zypper addrepo' command to add one or more repositories."
-
-	Utilisez les commandes suivantes pour ajouter ces référentiels :
-
-		# sudo zypper ar -f http://azure-update.susecloud.net/repo/$RCE/SLES11-SP3-Pool/sle-11-x86_64 SLES11-SP3-Pool 
-		# sudo zypper ar -f http://azure-update.susecloud.net/repo/$RCE/SLES11-SP3-Updates/sle-11-x86_64 SLES11-SP3-Updates
-
-	Si un des référentiels de mise à jour concernés n'est pas activé, exécutez la commande suivante :
-
-		# sudo zypper mr -e [REPOSITORY NUMBER]
-
-4. Mettez à jour le noyau vers la dernière version disponible :
-
-		# sudo zypper up kernel-default
-
-	Ou, pour mettre à jour le système avec les derniers correctifs :
+4. Mettez à jour le système avec les derniers correctifs :
 
 		# sudo zypper update
 
-5. Installez l'agent Linux Azure :
+5. Installez l'agent Linux Azure à partir du référentiel SLES :
 
 		# sudo zypper install WALinuxAgent
 
@@ -77,7 +51,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation SU
 
 	Ceci permet d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour l'assistance d'Azure.
 
-7.	Il est recommandé de modifier le fichier " /etc/sysconfig/network/dhcp " et le paramètre `DHCLIENT_SET_HOSTNAME` comme suit :
+7.	Il est recommandé de modifier le fichier " /etc/sysconfig/network/dhcp " et le paramètre  `DHCLIENT_SET_HOSTNAME` comme suit :
 
 		DHCLIENT_SET_HOSTNAME="no"
 
@@ -109,11 +83,11 @@ Cet article suppose que vous avez déjà installé un système d'exploitation SU
 
 ----------
 
-## <a id="osuse"> </a>Préparation d'openSUSE 12.3+ ##
+## <a id="osuse"> </a>Préparation de openSUSE 13.1+ ##
 
 1. Dans le volet central du Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
 
-2. Cliquez sur **Connecter** pour ouvrir la fenêtre de la machine virtuelle
+2. Cliquez sur **Connecter** pour ouvrir la fenêtre de la machine virtuelle.
 
 3. Sur l'interpréteur de commandes, exécutez la commande ' '`zypper lr`'. Si cette commande renvoie un résultat similaire au suivant (les numéros de version peuvent varier) :
 
@@ -131,7 +105,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation SU
 		# sudo zypper ar -f http://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
 		# sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
 
-	Vous pouvez alors réexécuter la commande '`zypper lr`' pour vérifier que ces référentiels ont été ajoutés. Si un des référentiels de mise à jour concernés n'est pas activé, exécutez la commande suivante :
+		Vous pouvez alors réexécuter la commande '`zypper lr`'pour vérifier que ces référentiels ont été ajoutés. Si un des référentiels de mise à jour concernés n'est pas activé, exécutez la commande suivante :
 
 		# sudo zypper mr -e [NUMBER OF REPOSITORY]
 
@@ -156,11 +130,11 @@ Cet article suppose que vous avez déjà installé un système d'exploitation SU
 
 		libata.atapi_enabled=0 reserve=0x1f0,0x8
 
-7.	Il est recommandé de modifier le fichier " /etc/sysconfig/network/dhcp " et le paramètre `DHCLIENT_SET_HOSTNAME` comme suit :
+7.	Il est recommandé de modifier le fichier " /etc/sysconfig/network/dhcp " et le paramètre  `DHCLIENT_SET_HOSTNAME` comme suit :
 
 		DHCLIENT_SET_HOSTNAME="no"
 
-8.	**Important :** Sous " /etc/sudoers ", commentez ou supprimez les lignes suivantes (si elles sont présentes) :
+8.	**Important :** sous " /etc/sudoers ", commentez ou supprimez les lignes suivantes (si elles sont présentes) :
 
 		Defaults targetpw   # ask for the password of the target user i.e. root
 		ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
@@ -191,4 +165,5 @@ Cet article suppose que vous avez déjà installé un système d'exploitation SU
 
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

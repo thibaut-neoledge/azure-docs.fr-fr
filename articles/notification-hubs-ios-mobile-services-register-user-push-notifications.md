@@ -1,16 +1,16 @@
-﻿<properties urlDisplayName="Notify iOS app users by using Mobile Services" pageTitle="Inscription de l'utilisateur actif aux notifications Push au moyen d'un service mobile - Notification Hubs" metaKeywords="application d'inscription Azure, Notification Hubs, notifications Push Azure, application iOS notification Push" description="Découvrez comment demander l'inscription aux notifications Push dans une application iOS avec Azure Notification Hubs lorsque l'inscription est réalisée par Azure Mobile Services." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Register the current user for push notifications by using a mobile service" authors="yuaxu" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Inscription de l'utilisateur actuel pour les notifications Push à l'aide d'un service mobile - concentrateurs de Notification" description="Découvrez comment demander l'inscription aux notifications Push dans une application iOS avec Azure Notification Hubs lorsque l'inscription est réalisée par Azure Mobile Services." services="mobile-services, notification-hubs" documentationCenter="" authors="ysxu" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu"/>
 
 # Inscription de l'utilisateur actif aux notifications Push à l'aide d'un service mobile
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/fr-fr/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/" title="Windows Store C#">Windows Store C#</a><a href="/fr-fr/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/" title="iOS" class="current">iOS</a>
+    <a href="/fr-fr/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/" title="Windows Store C#">Windows Store c#</a><a href="/fr-fr/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/" title="iOS" class="current">iOS</a>
 </div>
 
-Cette rubrique vous montre comment demander une inscription aux notifications Push avec Azure Notification Hubs lorsque l'inscription est réalisée par Azure Mobile Services. Cette rubrique s'inscrit dans le prolongement du didacticiel [Notification des utilisateurs avec Notification Hubs]. Vous devez avoir suivi les étapes de ce didacticiel permettant de créer le service mobile authentifié. Pour plus d'informations sur les scénarios de notification des utilisateurs, consultez la rubrique [Notification des utilisateurs avec Notification Hubs].  
+Cette rubrique vous montre comment demander une inscription aux notifications Push avec Azure Notification Hubs lorsque l'inscription est réalisée par Azure Mobile Services. Cette rubrique étend le didacticiel [notification des utilisateurs avec Notification Hubs]. Vous devez avoir suivi les étapes de ce didacticiel permettant de créer le service mobile authentifié. Pour plus d'informations sur le scénario d'utilisateurs notifier, consultez [notification des utilisateurs avec Notification Hubs].  
 
-1. Dans Xcode, ouvrez le fichier QSTodoService.h dans le projet que vous avez créé en suivant le didacticiel [Prise en main de l'authentification], et ajoutez la propriété **deviceToken** suivante :
+1. Dans Xcode, ouvrez le fichier QSTodoService.h dans le projet que vous avez créé lorsque vous avez suivi le didacticiel [Prise en main de l'authentification]et ajoutez la propriété **deviceToken** suivante :
 
 		@property (nonatomic) NSData* deviceToken;
 
@@ -29,7 +29,7 @@ Cette rubrique vous montre comment demander une inscription aux notifications Pu
 
 	Cette méthode convertit le jeton d'appareil en valeur de chaîne hexadécimale.
 
-3. Dans le fichier QSAppDelegate.m, ajoutez les lignes de code suivantes à la méthode **didFinishLaunchingWithOptions** :
+3. Dans le fichier QSAppDelegate.m, ajoutez les lignes suivantes du code pour la méthode **didFinishLaunchingWithOptions** :
 
 			[[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
@@ -43,9 +43,7 @@ Cette rubrique vous montre comment demander une inscription aux notifications Pu
 
 	Cela met à jour la propriété **deviceToken**.
 
-	<div class="dev-callout"><b>Remarque</b>
-	<p>À ce stade, il ne doit pas y avoir d'autre code dans cette méthode. S'il existe déjà un appel à la méthode **registerNativeWithDeviceToken** que vous avez ajoutée lorsque vous avez suivi le didacticiel <a href="/fr-fr/manage/services/notification-hubs/get-started-notification-hubs-ios/" target="_blank">Prise en main de Notification Hubs</a>, vous devez placer l'appel en commentaire ou le supprimer.</p>
-	</div>
+	> [AZURE.NOTE] À ce stade, il ne doit pas y avoir d'autre code dans cette méthode. Si vous disposez déjà d'un appel à la méthode **registerNativeWithDeviceToken** ajoutée lorsque vous avez suivi le didacticiel [prise en main des concentrateurs de Notification](/fr-fr/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank") , vous devez commenter ou supprimer cet appel.
 
 5.  (Facultatif) Dans le fichier QSAppDelegate.m, ajoutez la méthode de gestionnaire suivante :
 
@@ -75,9 +73,9 @@ Cette rubrique vous montre comment demander une inscription aux notifications Pu
 			    }];
 			}
 
-	Cette méthode construit une charge utile json qui contient le jeton d'appareil. Elle appelle ensuite l'API personnalisée dans votre Mobile Service pour vous inscrire afin de recevoir des notifications. Cette méthode crée un jeton d'appareil pour les notifications Push et l'envoie avec le type d'appareil à la méthode API personnalisée qui crée une inscription dans Notification Hubs. Cette API personnalisée a été définie dans le cadre du didacticiel [Notification des utilisateurs avec Notification Hubs].
+	Cette méthode construit une charge utile json qui contient le jeton d'appareil. Elle appelle ensuite l'API personnalisée dans votre Mobile Service pour vous inscrire afin de recevoir des notifications. Cette méthode crée un jeton d'appareil pour les notifications Push et l'envoie avec le type d'appareil à la méthode API personnalisée qui crée une inscription dans Notification Hubs. Cette API personnalisée a été définie dans [notification des utilisateurs avec Notification Hubs].
 
-7.	Pour terminer, dans la méthode **viewDidAppear**, ajoutez un appel à cette nouvelle méthode **registerForNotificationsWithBackEnd** après l'authentification de l'utilisateur, comme dans l'exemple suivant :
+7.	Enfin, dans le **viewDidAppear** (méthode), ajouter un appel à la nouvelle **registerForNotificationsWithBackEnd** méthode une fois que l'utilisateur authentifié avec succès, comme dans l'exemple suivant :
 
 			- (void)viewDidAppear:(BOOL)animated
 			{
@@ -93,11 +91,9 @@ Cette rubrique vous montre comment demander une inscription aux notifications Pu
 			    }];
 			}
 
-	<div class="dev-callout"><b>Remarque</b>
-	<p>Cela permet de s'assurer que l'inscription est demandée à chaque chargement de la page. Dans votre application, vous souhaitez effectuer cette inscription régulièrement pour vous assurer de son exactitude.</p>
-	</div>
-
-Maintenant que l'application cliente est à jour, retournez au didacticiel [Notification des utilisateurs avec Notification Hubs] et mettez le service mobile à jour pour qu'il envoie des notifications à l'aide de Notification Hubs.
+	> [AZURE.NOTE] Cela permet de s'assurer que l'inscription est demandée à chaque chargement de la page. Dans votre application, vous souhaitez effectuer cette inscription régulièrement pour vous assurer de son exactitude.
+	
+Maintenant que l'application cliente a été mise à jour, revenez à la [notification des utilisateurs avec Notification Hubs] et mettez à jour le service mobile pour envoyer des notifications à l'aide des concentrateurs de Notification.
 
 <!-- Anchors. -->
 
@@ -109,4 +105,7 @@ Maintenant que l'application cliente est à jour, retournez au didacticiel [Noti
 [Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-ios/
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
-[Prise en main de Notification Hubs]: /fr-fr/manage/services/notification-hubs/get-started-notification-hubs-ios/
+[Prise en main des concentrateurs de Notification]: /fr-fr/manage/services/notification-hubs/get-started-notification-hubs-ios/
+
+
+<!--HONumber=42-->

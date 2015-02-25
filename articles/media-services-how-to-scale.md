@@ -1,26 +1,26 @@
-﻿<properties urlDisplayName="How to scale" pageTitle="Mise à l'échelle d'un service Media Services | Documentation Azure" metaKeywords="" description="Apprenez à mettre à l'échelle Media Services en spécifiant le nombre d'unités réservées de diffusion en continu à la demande et d'unités réservées d'encodage avec lesquelles vous voulez que votre compte soit approvisionné." metaCanonical="" services="media-services" documentationCenter="" title="How to Scale a Media Service" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Mise à l'échelle d'un service Media Services | Documentation Azure" description="Apprenez à mettre à l'échelle Media Services en spécifiant le nombre d'unités réservées de diffusion en continu à la demande et d'unités réservées d'encodage avec lesquelles vous voulez que votre compte soit approvisionné." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
-
-
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
-#Mise à l'échelle d'un service de média  
-
-[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 
-Vous pouvez mettre à l'échelle Media Services en spécifiant le nombre d' **Unités réservées de diffusion en continu à la demande** et d'**Unités réservées d'encodage** avec lesquelles vous voulez que votre compte soit approvisionné. 
+# Mise à l'échelle d'un service de média  
+
+[AZURE.INCLUDE [Clause d'exclusion de responsabilité](../includes/disclaimer.md)]
+
+
+Vous pouvez mettre à l'échelle des services de média en spécifiant le nombre d'**Unités réservées de diffusion en continu à la demande** et d'**Unités réservées d'encodage** avec lesquelles vous voulez que votre compte soit approvisionné. 
 
 
 <h2>Unités réservées de diffusion en continu à la demande</h2>
 
-Les unités réservées de diffusion en continu à la demande fournissent à la fois une capacité de sortie dédiée que vous pouvez acquérir par incréments de 200 Mbits/s et une fonctionnalité supplémentaire qui inclut actuellement des [capacités d'empaquetage dynamique](http://go.microsoft.com/fwlink/?LinkId=276874). Par défaut, la diffusion en continu à la demande est configurée dans un modèle d'instance partagée, pour lequel les ressources du serveur (calcul, sortie, capacité, etc.) sont partagées avec tous les autres utilisateurs. Afin d'améliorer la vitesse de diffusion en continu à la demande, il est recommandé d'acheter des unités réservées de diffusion en continu à la demande. 
+Les unités réservées de diffusion en continu à la demande vous fournissent une capacité de sortie dédiée qui peut être achetée par incréments de 200 Mbit/s,  ainsi que des fonctionnalités supplémentaires qui incluent actuellement l'[empaquetage dynamique](http://go.microsoft.com/fwlink/?LinkId=276874). Par défaut, la diffusion en continu à la demande est configurée dans un modèle d'instance partagée, pour lequel les ressources du serveur (calcul, sortie, capacité, etc.) sont partagées avec tous les autres utilisateurs. Afin d'améliorer la vitesse de diffusion en continu à la demande, il est recommandé d'acheter des unités réservées de diffusion en continu à la demande. 
 
 Pour changer le nombre d'unités réservées de diffusion en continu à la demande, procédez comme suit :
 
-1. Dans le [portail de gestion](https://manage.windowsazure.com/), cliquez sur **Services de média**. Cliquez ensuite sur le nom du service multimédia.
+1. Dans le [portail de gestion](https://manage.windowsazure.com/), cliquez sur **Media Services**. Cliquez ensuite sur le nom du service multimédia.
 
 2. Sélectionnez la page POINTS DE TERMINAISON DE DIFFUSION EN CONTINU. Cliquez ensuite sur le point de terminaison de diffusion en continu que vous souhaitez modifier.
 
@@ -36,7 +36,7 @@ Pour changer le nombre d'unités réservées de diffusion en continu à la deman
 	 
 	>[Azure.Note] Actuellement, le fait de passer d'une valeur positive à zéro pour le nombre d'unités de diffusion en continu à la demande peut désactiver la diffusion en continu pendant une heure.
 
-	>[Azure.Note] Le nombre d'unités le plus élevé spécifié pour la période de 24 heures est utilisé pour le calcul du coût. Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification Media Services](http://go.microsoft.com/fwlink/?LinkId=275107).
+	>[Azure.Note] Le nombre d'unités le plus élevé spécifié pour la période de 24 heures est utilisé pour le calcul du coût. Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification des services de média](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 <h2>Unités réservées d'encodage</h2>
 
@@ -44,7 +44,7 @@ Le nombre d'unités réservées d'encodage approvisionnées est égal au nombre 
 
 Pour changer le nombre d'unités réservées d'encodage, procédez comme suit :
 
-1. Dans le [portail de gestion](https://manage.windowsazure.com/), cliquez sur **Services de média**. Cliquez ensuite sur le nom du service multimédia.
+1. Dans le [portail de gestion](https://manage.windowsazure.com/), cliquez sur **Media Services**. Cliquez ensuite sur le nom du service multimédia.
 
 2. Sélectionnez la page ENCODAGE. 
 	
@@ -87,10 +87,4 @@ Pour ouvrir un ticket de support, procédez comme suit :
 
 
 
- 
-
-
-
-
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

@@ -1,6 +1,6 @@
-<properties urlDisplayName="Linux Agent guide" pageTitle="Guide d'utilisation de l'agent Linux pour Azure" metaKeywords="" description="Apprenez à installer et à configurer l'agent Linux (waagent) pour gérer l'interaction de votre machine virtuelle avec le contrôleur de structure Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="szarkos" solutions="" manager="timlt" editor="" />
+﻿<properties pageTitle="Guide d'utilisation de l'agent Linux pour Azure" description="Apprenez à installer et à configurer l'agent Linux (waagent) pour gérer l'interaction de votre machine virtuelle avec le contrôleur de structure Azure." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="szarkos"/>
 
 
 
@@ -27,7 +27,7 @@ L'agent Linux Azure (waagent) gère l'interaction entre la machine virtuelle et 
   - Garantie de la stabilité du nom de l'interface réseau
 * **Noyau**
   - Configuration de l'architecture NUMA virtuelle
-  - onsommation de l'entropie Hyper-V pour /dev/random
+  - Consommation de l'entropie Hyper-V pour /dev/random
   - Configuration des délais d'expiration SCSI de l'appareil racine (qui peut être distant)
 * **Diagnostics**
   - Redirection de la console vers le port série
@@ -101,13 +101,13 @@ Le fichier journal de l'agent est conservé sur /var/log/waagent.log.
 
  * Crée le script SysV init (/etc/init.d/waagent), le fichier de configuration logrotate (/etc/logrotate.d/waagent) et configure l'image pour exécuter le script init au démarrage.
 
- * Écrit l'exemple de fichier de configuration sur /etc/waagent.conf
+ * Écrit l'exemple de fichier de configuration sur /etc/waagent.conf.
 
- * Tout fichier de configuration existant est déplacé sur /etc/waagent.conf.old
+ * Tout fichier de configuration existant est déplacé sur /etc/waagent.conf.old.
 
  * Détecte la version du noyau et applique la solution de contournement VNUMA si nécessaire.
 
- * Déplace les règles udev qui peuvent interférer avec la mise en réseau (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) sur /var/lib/waagent/.
+ * Déplace les règles udev pouvant interférer avec la mise en réseau (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) vers /var/lib/waagent/  
 
 - uninstall : supprime waagent et les fichiers associés.
  * Annule l'enregistrement du script init du système et le supprime.
@@ -144,7 +144,7 @@ Le fichier journal de l'agent est conservé sur /var/log/waagent.log.
 
 ##Configuration
 
-Un fichier de configuration (/etc/waagent.conf) contrôles les actions de waagent. 
+Un fichier de configuration (/etc/waagent.conf) contrôle les actions de waagent. 
 Un exemple de fichier de configuration est affiché ci-dessous :
 	
 	#
@@ -176,23 +176,23 @@ Le mot clé " None " (Aucun) peut être utilisé dans le cas de certaines entré
 **Role.StateConsumer :**
 
 Type : String  
-Par défaut : None
+Par défaut : Aucun
 
 Si le chemin d'un programme exécutable est spécifié, il est appelé lorsque waagent a approvisionné l'image et que l'état " Ready " (Prêt) est sur le point d'être signalé à la structure. L'argument spécifié au programme est " Ready ". L'agent n'attend pas le retour du programme pour continuer.
 
 **Role.ConfigurationConsumer :**
 
 Type : String  
-Par défaut : None
+Par défaut : Aucun
 
-Si le chemin d'un programme exécutable est spécifié, le programme est appelé lorsque la structure signale qu'un fichier de configuration est disponible pour la machine virtuelle. Le chemin du fichier de configuration XML est fourni en tant qu'argument à l'exécutable. Il peut être appelé chaque fois que le fichier de configuration est modifié. Un exemple de fichier est fourni dans l'Annexe. Le chemin actuel de ce fichier est /var/lib/waagent/HostingEnvironmentConfig.xml.
+Si le chemin d'un programme exécutable est spécifié, le programme est appelé lorsque la structure signale qu'un fichier de configuration est disponible pour la machine virtuelle. Le chemin du fichier de configuration XML est fourni en tant qu'argument à l'exécutable. Il peut être appelé chaque fois que le fichier de configuration est modifié. Un exemple de fichier est fourni dans l'Annexe. Le chemin d'accès actuel de ce fichier est /var/lib/waagent/HostingEnvironmentConfig.xml.
 
 **Role.TopologyConsumer :**
 
 Type : String  
-Par défaut : None
+Par défaut : Aucun
 
-Si le chemin d'un programme exécutable est spécifié, le programme est appelé lorsque la structure signale qu'une nouvelle configuration de topologie de réseau est disponible pour la machine virtuelle. Le chemin du fichier de configuration XML est fourni en tant qu'argument à l'exécutable. Il peut être appelé chaque fois que la topologie de réseau est modifiée (en raison d'une réparation du service par exemple). Un exemple de fichier est fourni dans l'Annexe. Le chemin actuel de ce fichier est /var/lib/waagent/SharedConfig.xml.
+Si le chemin d'un programme exécutable est spécifié, le programme est appelé lorsque la structure signale qu'une nouvelle configuration de topologie de réseau est disponible pour la machine virtuelle. Le chemin du fichier de configuration XML est fourni en tant qu'argument à l'exécutable. Il peut être appelé chaque fois que la topologie de réseau est modifiée (en raison d'une réparation du service par exemple). Un exemple de fichier est fourni dans l'Annexe. L'emplacement actuel de ce fichier est /var/lib/waagent/SharedConfig.xml.
 
 **Provisioning.Enabled :**
 
@@ -250,14 +250,14 @@ Cette commande spécifie le type de système de fichiers pour le disque de resso
 Type : String  
 Par défaut : /mnt/resource 
 
-Cette commande spécifie le chemin où le disque de ressources est monté. Notez que le disque de ressources est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle.
+Cette commande spécifie le chemin où le disque de ressources est monté. Notez que le disque de ressources est un disque  *temporary* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle.
 
 **ResourceDisk.EnableSwap :**
 
 Type : Boolean  
 Par défaut : n 
 
-Si elle est définie, un fichier d'échange (/swapfile) est créé sur le disque de ressources et ajouté à l'espace d'échange système.
+Si elle est définie, un fichier d'échange (/swapfile) est créé sur le disque de ressources et est ajouté à l'espace d'échange système.
 
 **ResourceDisk.SwapSizeMB :**
 
@@ -290,7 +290,7 @@ Le délai d'expiration SCSI est configuré en secondes sur le disque du système
 **OS.OpensslPath :**
 
 Type : String  
-Par défaut : None
+Par défaut : Aucun
 
 Cette commande sert à spécifier un autre chemin pour les données binaires openssl à utiliser pour les opérations de chiffrement.
 
@@ -314,7 +314,7 @@ Cette commande sert à spécifier un autre chemin pour les données binaires ope
 	    <PrivilegeLevel mode="max" />
 	    <AdditionalProperties><CgiHandlers></CgiHandlers></AdditionalProperties></HostingEnvironmentSettings>
 	    <ApplicationSettings>
-	      <Setting name="__ModelData" value="<m role=&quot;LinuxVM&quot; xmlns=&quot;urn:azure:m:v1&quot;><r name=&quot;LinuxVM&quot;><e name=&quot;HTTP&quot; /><e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; /><e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput&quot; /><e name=&quot;SSH&quot; /></r></m>" />
+	      <Setting name="__ModelData" value="&lt;m role=&quot;LinuxVM&quot; xmlns=&quot;urn:azure:m:v1&quot;>&lt;r name=&quot;LinuxVM&quot;>&lt;e name=&quot;HTTP&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput&quot; />&lt;e name=&quot;SSH&quot; />&lt;/r>&lt;/m>" />
 	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="..." />
 	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2015-11-06T23:59:59.0000000-08:00" />
 	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="rdos" />
@@ -405,4 +405,7 @@ Cette commande sert à spécifier un autre chemin pour les données binaires ope
 	  </Instances>
 	</SharedConfig>
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

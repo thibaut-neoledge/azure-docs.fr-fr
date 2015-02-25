@@ -1,17 +1,17 @@
-<properties urlDisplayName="How to Encode an Asset" pageTitle="Encodage d'un élément multimédia pour Media Services - Azure" metaKeywords="" description="Apprenez à utiliser Azure Media Encoder pour encoder un contenu multimédia sur Media Services. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Encode an Asset" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Encodage d'un élément multimédia pour Media Services - Azure" description="Apprenez à utiliser Azure Media Encoder pour encoder un contenu multimédia sur Media Services. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
-#Encodage d'un élément multimédia
-Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [  Obtention d'un processeur multimédia](../media-services-get-media-processor/).
+# Codage d'un élément multimédia
+Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [ Obtention d'un processeur multimédia](../media-services-get-media-processor/).
 
-Vous pouvez encoder le contenu multimédia sur le serveur avec un grand nombre d'encodages et de formats grâce à Azure Media Encoder. Vous pouvez aussi utiliser un encodeur fourni par un partenaire Media Services. Ces encodeurs sont disponibles sur [Azure Marketplace][]. Vous pouvez définir les détails des tâches d'encodage avec les chaînes de [Préréglage des tâches][] ou avec les fichiers de configuration. 
+Vous pouvez encoder le contenu multimédia sur le serveur avec un grand nombre d'encodages et de formats grâce à Azure Media Encoder. Vous pouvez aussi utiliser un encodeur fourni par un partenaire Media Services. Ces encodeurs sont disponibles sur [Azure Marketplace][]. Vous pouvez définir les détails de la tâche d'encodage avec les chaînes de [Préréglage des tâches][] ou avec les fichiers de configuration. 
 
-##Encodage sous forme d'ensembles MP4 à débit adaptatif
+## Encodage sous forme d'ensembles MP4 à débit adaptatif
 Il est recommandé d'encoder votre fichier mezzanine en ensembles MP4 à débit adaptatif, puis d'utiliser l'empaquetage dynamique pour fournir votre contenu. Pour plus d'informations, consultez les pages [Création d'une tâche d'encodage avec le Kit de développement logiciel (SDK) Media Services pour .NET](http://msdn.microsoft.com/fr-fr/library/azure/dn282273.aspx), [Empaquetage dynamique](http://msdn.microsoft.com/fr-fr/library/azure/jj889436.aspx) et [Distribution de contenu](http://msdn.microsoft.com/fr-fr/library/azure/hh973618.aspx).
 
-##Encodage en MP4
+## Encodage en MP4
 La méthode qui suit utilise un seul élément multimédia et crée une tâche pour l'encoder au format MP4 à l'aide de la présélection " H264 Broadband 720p ", qui crée un fichier MP4 avec l'encodage H264 et une résolution de 720p :
 <pre><code>
 	static IJob CreateEncodingJob(string inputMediaFilePath, string outputFolder)
@@ -155,15 +155,16 @@ Pour plus d'informations sur le traitement des éléments multimédias, consulte
 <li><a href="http://msdn.microsoft.com/fr-fr/library/jj129574.aspx">Traitement des éléments multimédias avec l'API REST de Media Services</a></li>
 </ul>
 
-##Étapes suivantes
-Maintenant que vous savez comment créer une tâche pour encoder un élément multimédia, consultez la rubrique [Vérification de la progression d'une tâche avec Media Services](../media-services-check-job-progress/) .
+## Étapes suivantes
+Maintenant que vous savez comment créer une tâche pour encoder un élément multimédia, consultez la rubrique [Vérification de la progression d'une tâche avec Media Services](../media-services-check-job-progress/).
 
 [Azure Marketplace]: https://datamarket.azure.com/
 [Préréglage des tâches]: http://msdn.microsoft.com/fr-fr/library/dn619392.aspx
 [Obtention d'une instance de processeur multimédia]:http://go.microsoft.com/fwlink/?LinkId=301732
-[  Téléchargement d'un élément multimédia chiffré]:http://go.microsoft.com/fwlink/?LinkId=301733
-[  Fourniture d'un élément multimédia par téléchargement]:http://go.microsoft.com/fwlink/?LinkId=301734
+[Téléchargement d'un élément multimédia chiffré]:http://go.microsoft.com/fwlink/?LinkId=301733
+[Fourniture d'un élément multimédia par téléchargement]:http://go.microsoft.com/fwlink/?LinkId=301734
 [Vérification de la progression des tâches]:http://go.microsoft.com/fwlink/?LinkId=301737
 [Présélection de tâche pour Azure Media Packager]:http://msdn.microsoft.com/fr-fr/library/windowsazure/hh973635.aspx
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

@@ -1,8 +1,8 @@
-﻿<properties urlDisplayName="Media Services" pageTitle="Utilisation de Media Services (Java) - Guide des fonctionnalités Azure" metaKeywords="Azure Media Services, Azure media, Azure streaming, azure media, azure streaming, azure encoding" description="Explique comment utiliser Azure Media Services pour exécuter les tâches courantes, notamment l'encodage, le chiffrement et la diffusion en continu des ressources." metaCanonical="" services="media-services" documentationCenter="Java" title="How to Use Media Services" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties pageTitle="Utilisation de Media Services (Java) - Guide des fonctionnalités Azure" description="Explique comment utiliser Azure Media Services pour exécuter les tâches courantes, notamment l'encodage, le chiffrement et la diffusion en continu des ressources." services="media-services" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="robmcm" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="robmcm"/>
 
-#Utilisation de Media Services
+# Utilisation de Media Services
 
 Ce guide montre comment commencer à programmer avec Azure Media Services en utilisant Java. Il inclut une présentation technique de Media Services, les étapes de configuration de votre compte Azure pour Media Services et du code qui présente des tâches de programmation classiques. 
 
@@ -11,11 +11,11 @@ Ce guide montre comment commencer à programmer avec Azure Media Services en uti
 -   [Présentation de Media Services](#media_services)
 -   [Configuration d'un compte Azure pour Media Services](#setup-account)
 -   [Configuration pour le développement Media Services](#setup-dev)
--   [  Utilisation de Media Services avec Java](#connect)
+-   [Utilisation de Media Services avec Java](#connect)
 -   [Ressources supplémentaires](#additional-resources)
 
  
-##<a id="media_services"></a>Présentation de Media Services
+## <a id="media_services"></a>Présentation de Media Services
 
 Azure Media Services est une plateforme multimédia extensible qui intègre la plateforme multimédia Microsoft et les composants multimédias tiers les plus fiables au sein d'Azure. Media Services fournit dans le cloud un pipeline multimédia qui permet aux partenaires du secteur d'étendre ou de remplacer les technologies relatives aux composants. Les éditeurs de logiciels indépendants et les fournisseurs de médias peuvent utiliser Media Services pour créer des solutions multimédias de bout en bout. Cette présentation décrit l'architecture générale et les scénarios de développement courants relatifs à Media Services.
 
@@ -23,19 +23,19 @@ Le schéma suivant illustre l'architecture Media Services de base.
 
 ![Media Services Architecture](./media/media-services-dotnet-how-to-use/wams-01.png)
 
-###Prise en charge des fonctionnalités de Media Services
+### Prise en charge des fonctionnalités de Media Services
 Les fonctionnalités suivantes de la version actuelle de Media Services permettent de développer des applications multimédias dans le cloud. 
 
 - **Réception**. Les opérations de réception permettent d'intégrer des éléments multimédias au système, par exemple en les téléchargeant et en les chiffrant avant de les placer dans Azure Storage. À partir de la version finale, Media Services proposera l'intégration avec des composants partenaires pour fournir des solutions de téléchargement UDP (User Datagram Protocol) rapides.
 - **Encodage**. Les opérations d'encodage englobent l'encodage proprement dit ainsi que la transformation et la conversion des éléments multimédias. Vous pouvez exécuter des tâches d'encodage dans le cloud en utilisant l'encodeur multimédia qui est inclus dans Media Services. Les options d'encodage disponibles sont les suivantes :
    - Utilisez l'Encodeur multimédia Azure ainsi que différents codecs et formats standard, comme la diffusion en continu lisse IIS, MP4 et la conversion au format de diffusion en continu HTTP Apple.
    - Convertissez des bibliothèques entières ou des fichiers individuels avec un contrôle total sur les entrées et sorties.
-   - Un large éventail de types de fichiers, formats et codecs sont pris en charge (consultez la rubrique [Types de fichiers pris en charge pour Media Services][]).
+   - Un grand nombre de types de fichiers, de formats et de codecs sont pris en charge (voir [Types de fichiers pris en charge pour Media Services][]).
    - Conversions aux formats pris en charge. Media Services vous permet de convertir le format ISO MP4 (.mp4) au format de fichier de diffusion en continu lisse (PIFF 1.3) (.ismv; .isma). Vous pouvez également convertir le format de fichier de diffusion en continu lisse (PIFF) au format de diffusion en continu HTTP Apple (.msu8, .ts).
 - **Protection**. La protection de contenu consiste à chiffrer le contenu diffusé en continu ou à la demande afin de sécuriser son transport, son stockage et sa fourniture. Media Services fournit une solution à technologie DRM non spécifiée pour protéger le contenu.  Les technologies de gestion des droits numériques (DRM) actuellement prises en charge sont Microsoft PlayReady Protection et MPEG Common Encryption. D'autres technologies DRM seront bientôt disponibles. 
-- **Diffusion en continu**. La diffusion d'un contenu en continu implique de l'envoyer en direct ou à la demande aux clients. Vous pouvez également récupérer ou télécharger des fichiers multimédias spécifiques sur le cloud. Media Services fournit une solution au format non spécifié pour du contenu de diffusion en continu.  Media Services prend en charge l'origine de la diffusion en continu pour les formats de diffusion en continu lisse, de diffusion en continu HTTP Apple et MP4. D'autres formats seront bientôt disponibles. Vous pouvez aussi diffuser du contenu en continu en utilisant le CDN Azure ou un CDN tiers, qui offre la possibilité de passer à plusieurs millions d'utilisateurs.   
+- **Diffusion**. La diffusion d'un contenu en continu implique de l'envoyer en direct ou à la demande aux clients. Vous pouvez également récupérer ou télécharger des fichiers multimédias spécifiques sur le cloud. Media Services fournit une solution au format non spécifié pour du contenu de diffusion en continu.  Media Services prend en charge  l'origine de la diffusion en continu pour les formats de diffusion en continu lisse, de diffusion en continu HTTP Apple et MP4. D'autres formats seront bientôt disponibles. Vous pouvez aussi diffuser du contenu en continu en utilisant le CDN Azure ou un CDN tiers, qui offre la possibilité de  passer à plusieurs millions d'utilisateurs.   
 
-###Scénarios de développement de Media Services
+### Scénarios de développement de Media Services
 Media Services prend en charge différents scénarios de développement multimédias courants, comme décrit dans le tableau suivant. 
 <table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
   <thead>
@@ -60,70 +60,70 @@ Media Services prend en charge différents scénarios de développement multimé
   </tbody>
 </table>
 
-###Développement de clients Media Services
+### Développement de clients Media Services
 Élargissez la portée de votre solution Media Services en utilisant des Kits de développement logiciel (SDK) et des infrastructures de lecture afin de créer des clients multimédias. Ces clients sont destinés aux développeurs qui souhaitent créer des applications Media Services offrant des expériences utilisateur intéressantes sur un large éventail d'appareils et de plateformes. Selon les périphériques pour lesquels vous voulez créer les applications clientes, il est possible d'utiliser les Kits de développement logiciel (SDK) et les infrastructures de lecteur proposés par Microsoft et des partenaires tiers.  
 
 Vous trouverez ci-dessous la liste des Kits de développement logiciel (SDK) et des infrastructures de lecture disponibles.  Pour plus d'informations sur ce sujet, sur les Kits de développement logiciel (SDK) et les infrastructures de lecteur planifiés et sur les fonctionnalités prises en charge, consultez la rubrique [Développement de clients Media Services]. 
 
-####Prise en charge des clients Mac et PC  
+#### Prise en charge des clients Mac et PC  
 Pour les PC et Mac, vous pouvez envisager une expérience de diffusion en continu à l'aide de Microsoft Silverlight ou d'Adobe Open Source Media Framework.
 
 -	[Client de diffusion en continu lisse pour Silverlight](http://www.iis.net/download/smoothclient)
 -	[Plateforme multimédia Microsoft : Infrastructure de lecture pour Silverlight](http://smf.codeplex.com/documentation)
--	[Plug-in Smooth Streaming pour OSMF 2.0](http://go.microsoft.com/fwlink/?LinkId=275022). Pour plus d'informations sur l'utilisation de ce plug-in, consultez la rubrique [Utilisation du plug-in Smooth Streaming pour Adobe Open Source Media Framework](http://go.microsoft.com/fwlink/?LinkId=275034).
+-	[Plug-in Smooth Streaming pour OSMF 2.0](http://go.microsoft.com/fwlink/?LinkId=275022) Pour plus d'informations sur l'utilisation de ce plug-in, consultez la rubrique [Utilisation du plug-in Smooth Streaming pour Adobe Open Source Media Framework](http://go.microsoft.com/fwlink/?LinkId=275034).
 
-####Applications Windows 8
+#### Applications Windows 8
 Pour Windows 8, vous pouvez créer des applications Windows Store en utilisant les langages et constructions de développement pris en charge, comme HTML, Javascript, XAML, C# et C+.
 
 -	[Kit de développement logiciel (SDK) pour clients de diffusion en continu lisse Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). Pour plus d'informations sur la création d'une application Windows Store à l'aide de ce Kit de développement logiciel (SDK), consultez la rubrique [Création d'une application de diffusion en continu lisse Windows Store](http://go.microsoft.com/fwlink/?LinkId=271647). Pour plus d'informations sur la création d'un lecteur de diffusion en continu lisse en HTML5, consultez la rubrique [Procédure pas à pas : génération de votre premier lecteur de diffusion en continu lisse HTML5](http://msdn.microsoft.com/fr-fr/library/jj573656.aspx).
 
 -	[Plateforme multimédia Microsoft : Infrastructure de lecture pour applications Windows Store Windows 8](http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home)
 
-####Xbox
+#### Xbox
 Xbox prend en charge les applications Xbox LIVE capables d'utiliser du contenu de diffusion en continu lisse. Le Kit de développement d'applications Xbox LIVE (ADK) comprend ce qui suit :
 
 -	Client de diffusion en continu lisse pour ADK Xbox LIVE
 -	Plateforme multimédia Microsoft : Infrastructure de lecture pour ADK Xbox LIVE
 
-####Appareils intégrés ou dédiés
+#### Appareils intégrés ou dédiés
 Appareils tels que les téléviseurs connectés, les décodeurs, les lecteurs Blu-Ray, les boîtiers TV OTT et les appareils mobiles dotés d'une infrastructure de développement d'applications personnalisée et d'un pipeline multimédia personnalisé. Microsoft fournit les kits de portage suivants, qui peuvent faire l'objet d'une licence, et permet aux partenaires de procéder au portage de la diffusion en continu lisse pour la plateforme.
 
 -	[Kit de portage de client de diffusion en continu lisse](http://www.microsoft.com/fr-fr/mediaplatform/sspk.aspx)
 -	[Kit de portage d'appareil Microsoft PlayReady](http://www.microsoft.com/PlayReady/Licensing/device_technology.mspx)
 
-####Windows Phone
+#### Windows Phone
 Microsoft fournit un Kit de développement logiciel (SDK) qui permet de créer des applications vidéo premium pour Windows Phone. 
 
 -	[Client de diffusion en continu lisse pour Silverlight](http://www.iis.net/download/smoothclient)
 -	[Plateforme multimédia Microsoft : Infrastructure de lecture pour Silverlight](http://smf.codeplex.com/documentation)
 
-####Appareils iOS
-Pour les appareils iOS tels que les iPhone, iPod et iPad, Microsoft fournit un Kit de développement logiciel (SDK) grâce auquel vous pouvez créer des applications qui permettent à ces plateformes de fournir du contenu vidéo premium : Kit de développement logiciel (SDK) de diffusion en continu lisse pour appareils iOS avec PlayReady.  Ce Kit de développement logiciel (SDK) est uniquement accessible aux détenteurs de licences. Pour plus d'informations, veuillez adresser un [courrier électronique à Microsoft](mailto:askdrm@microsoft.com). Pour plus d'informations sur le développement iOS, consultez le [Centre de développement iOS](https://developer.apple.com/devcenter/ios/index.action).
+#### Appareils iOS
+Pour les appareils iOS tels que les iPhone, iPod et iPad, Microsoft fournit un Kit de développement logiciel (SDK) grâce auquel vous pouvez créer des applications qui permettent à ces plateformes de fournir du contenu vidéo premium : Kit de développement logiciel (SDK) de diffusion en continu lisse pour appareils iOS avec PlayReady.  Ce Kit de développement logiciel (SDK) est uniquement accessible aux détenteurs de licences. Pour plus d'informations, veuillez adresser un [courrier électronique à Microsoft](mailto:askdrm@microsoft.com). Pour plus d'informations sur le développement iOS, consultez la rubrique [Centre de développement iOS](https://developer.apple.com/devcenter/ios/index.action).
 
-####Appareils Android
-Différents partenaires Microsoft fournissent des Kits de développement logiciel (SDK) pour la plateforme Android. Ceux-ci permettent de lire des fichiers de diffusion en continu lisse sur un appareil Android. Envoyez un [courrier électronique à Microsoft](mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices) pour en savoir plus sur ces partenaires.
+#### Appareils Android
+Différents partenaires Microsoft fournissent des Kits de développement logiciel (SDK) pour la plateforme Android. Ceux-ci permettent de lire des fichiers de diffusion en continu lisse sur un appareil Android. Pour en savoir plus sur ces partenaires, veuillez adresser un [courrier électronique à Microsoft](mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices).
 
 
-##<a id="setup-account"></a>Configuration d'un compte Azure pour Media Services
+## <a id="setup-account"></a>Configuration d'un compte Azure pour Media Services
 
 Pour configurer votre compte Media Services, utilisez le portail de gestion Azure. Consultez la rubrique [Création d'un compte Media Services][]. Une fois votre compte créé dans le portail de gestion, vous êtes prêt à configurer votre ordinateur pour le développement Media Services. 
 
-##<a id="setup-dev"></a>Configuration pour le développement Media Services
+## <a id="setup-dev"></a>Configuration pour le développement Media Services
 
 Cette section contient la configuration requise générale pour le développement Media Services avec le Kit de développement logiciel (SDK) Media Services pour Java.
 
-###Conditions préalables
+### Conditions préalables
 
 -   Un compte Media Services dans un abonnement Azure nouveau ou existant. Consultez la rubrique [Création d'un compte Media Services][].
 -   Les bibliothèques Azure pour Java, que vous pouvez installer à partir du [Centre de développement Java pour Azure][].
 
-##<a if="connect"></a>Utilisation de Media Services avec Java
+## <a if="connect"></a>Utilisation de Media Services avec Java
 
 Le code suivant montre comment créer un élément multimédia, télécharger un fichier multimédia sur l'élément multimédia, exécuter une tâche pour transformer l'élément multimédia et télécharger les fichiers de sortie de l'élément multimédia transformé.
 
 Avant d'utiliser ce code, vous devez configurer un compte Media Services. Pour plus d'informations sur la configuration d'un compte, consultez la rubrique [Création d'un compte Media Services](http://www.windowsazure.com/fr-fr/manage/services/media-services/how-to-create-a-media-services-account/).
 
-Indiquez vos valeurs pour les variables clientId et clientSecret. Le code repose également sur un fichier stocké localement, c:/media/MPEG4-H264.mp4. Vous devez indiquer votre fichier à utiliser. Le code doit comporter un dossier de sortie, c:/output, dans lequel les fichiers de sortie sont téléchargés.
+Remplacez les valeurs des variables  `clientId` et  `clientSecret`. Le code s'appuie également sur un fichier stocké localement, `c:/media/MPEG4-H264.mp4`. Vous devez indiquer votre fichier à utiliser. Le code doit comporter un dossier de sortie, `c:/output`, c'est-à-dire là où les fichiers de sortie seront téléchargés.
 
 	import java.io.*;
 	import java.net.URI;
@@ -407,7 +407,7 @@ Indiquez vos valeurs pour les variables clientId et clientSecret. Le code repose
 
 Les éléments multimédias que vous créez sont stockés dans le stockage Azure. Toutefois, utilisez uniquement les API Azure Media Services (pas celles du stockage Azure) pour ajouter, mettre à jour ou supprimer des éléments multimédias.
 
-###Détermination des processeurs multimédias disponibles
+### Détermination des processeurs multimédias disponibles
 
 Le code ci-dessus a utilisé un processeur multimédia en y accédant via un nom de processeur multimédia spécifique (en présence de différentes versions, la plus récente est utilisée). Pour déterminer quels processeurs multimédias sont disponibles, utilisez le code suivant.
 
@@ -431,12 +431,12 @@ Sinon, le code suivant montre comment extraire l'ID d'un processeur multimédia 
     System.out.println("Processor named " + mediaProcessorName + 
                        " has ID of " + processor.getId());
 
-###Annulation d'une tâche
+### Annulation d'une tâche
 Si vous devez annuler une tâche dont le traitement n'est pas terminé, le code suivant montre comment annuler une tâche sélectionnée par son ID.
 
     mediaService.action(Job.cancel(jobId));
 
-##< id="additional-resources"></a>Ressources supplémentaires
+## <a id="additional-resources"></a>Ressources supplémentaires
 
 Pour obtenir de la documentation Media Services Javadoc, consultez la rubrique [Bibliothèques Azure contenant de la documentation Java][].
 
@@ -444,8 +444,9 @@ Pour obtenir de la documentation Media Services Javadoc, consultez la rubrique [
 
   [Création d'un compte Media Services]: http://go.microsoft.com/fwlink/?linkid=256662
   [Centre de développement Java pour Azure]: http://www.windowsazure.com/fr-fr/develop/java/
-  [Bibliothèques Azure pour Java - Maven]: http://dl.windowsazure.com/javadoc/
+  [Bibliothèques Azure contenant de la documentation Java]: http://dl.windowsazure.com/javadoc/
   [Développement de clients Media Services]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn223283.aspx
+  [Types de fichiers pris en charge pour Media Services]: http://msdn.microsoft.com/fr-fr/library/dn535852.aspx
 
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

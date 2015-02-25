@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Website" pageTitle="Création d'un site web Node.js sur Mac - Didacticiels Azure" metaKeywords="créer un nœud de site web Azure, déployer un nœud de site Azure, site web Node.js, site web de nœud" description="Découvrez comment créer et déployer un site web Node.js dans Azure. L'exemple de code est écrit en Java." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Création d'un site Web Node.js sur Mac - Didacticiels Azure" 
+	description="Découvrez comment créer et déployer un site Web Node.js dans Azure. Sample code is written in Java." 
+	services="web-sites" 
+	documentationCenter="nodejs" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr"/>
 
 
 
@@ -9,7 +23,7 @@
 
 # Génération et déploiement d'un site Web Node.js dans Azure
 
-Ce didacticiel explique comment créer une application [Node] [nodejs.org] et comment la déployer vers un site web Azure à l'aide de [Git]. Les instructions de ce didacticiel s'appliquent à tous les systèmes d'exploitation pouvant exécuter Node.
+Ce didacticiel explique comment créer une application [Node] [nodejs.org] et comment la déployer vers un site Web Azure à l'aide de [Git]. Les instructions de ce didacticiel s'appliquent à tous les systèmes d'exploitation pouvant exécuter Node.
 
 Si vous préférez regarder ce didacticiel sous forme de vidéo, le clip suivant montre des étapes similaires :
 [AZURE.VIDEO create-a-nodejs-site-deploy-from-github]
@@ -22,10 +36,10 @@ Voici une capture d'écran de l'application terminée :
 
 Suivez cette procédure pour créer un site Web Azure et activer la publication Git pour celui-ci.
 
-> [WACOM.NOTE]
-> Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Version d'évaluation gratuite Azure</a>.
+> [AZURE.NOTE]
+> Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Version d'évaluation gratuite d'Azure</a>.
 > 
-> Si vous souhaitez prendre en main Sites Web Azure avant d'ouvrir un compte, accédez à <a href="https://trywebsites.azurewebsites.net/?language=nodejs">https://trywebsites.azurewebsites.net</a>, où vous pouvez créer immédiatement et gratuitement un site de démarrage ASP.NET à courte durée de vie dans Sites Web Azure . Carte de crédit non nécessaire, aucun engagement.
+> Si vous voulez prendre en main Sites Web Azure avant de créer un compte, accédez à <a href="https://trywebsites.azurewebsites.net/?language=nodejs">https://trywebsites.azurewebsites.net</a>, où vous pouvez immédiatement et gratuitement créer un site de départ ASP.NET de courte durée dans Sites Web Azure. Aucun numéro de carte de crédit, ni engagement de quelque sorte n'est exigé.
 
 1. Connectez-vous au [portail de gestion Azure].
 
@@ -33,11 +47,11 @@ Suivez cette procédure pour créer un site Web Azure et activer la publication 
 
     ![The Azure Portal with the +NEW link highlighted.][portal-new-website]
 
-3. Cliquez sur **Site Web**, puis sur **Création rapide**. Entrez une valeur pour **URL**, puis sélectionnez un centre de données pour votre site web dans la liste déroulante **Région**. Cliquez sur la coche située en bas de la boîte de dialogue.
+3. Cliquez sur **Site Web**, puis sur **Création rapide**. Entrez une valeur pour **URL**, puis sélectionnez un centre de données pour votre site Web dans la liste déroulante **Région**. Cliquez sur la coche située en bas de la boîte de dialogue.
 
     ![The Quick Create dialog][portal-quick-create]
 
-4. Lorsque le statut du site web est défini sur **En cours d'exécution**, cliquez sur le nom du site web pour accéder au **tableau de bord**.
+4. Lorsque le statut du site Web est défini sur **En cours d'exécution**, cliquez sur le nom du site Web pour accéder au **tableau de bord**.
 
 	![Open web site dashboard][go-to-dashboard]
 
@@ -59,7 +73,7 @@ Suivez cette procédure pour créer un site Web Azure et activer la publication 
 
 ##Génération et test de votre application localement
 
-Cette section décrit la création d'un fichier **server.js** contenant l'exemple " hello world " de [nodejs.org]. Cet exemple a été modifié à partir de l'exemple d'origine en ajoutant process.env.PORT en tant que port d'écoute lors de l'exécution dans un site Web Azure.
+Cette section décrit la création d'un fichier **server.js** contenant l'exemple 'hello world' de [nodejs.org]. Cet exemple a été modifié à partir de l'exemple d'origine en ajoutant process.env.PORT en tant que port d'écoute lors de l'exécution dans un site Web Azure.
 
 1. Dans un éditeur de texte, créez un fichier nommé **server.js** dans le répertoire **helloworld**. Si le répertoire **helloworld** n'existe pas, créez-le.
 2. Ajoutez le contenu suivant au fichier **server.js**, puis enregistrez-le :
@@ -75,7 +89,7 @@ Cette section décrit la création d'un fichier **server.js** contenant l'exempl
 
         node server.js
 
-4. Ouvrez votre navigateur web et accédez à la page http://localhost:1337. Une page Web affichant " Hello World " apparaît, comme indiqué sur la capture d'écran suivante :
+4. Ouvrez votre navigateur Web et accédez à la page http://localhost:1337. Une page Web affichant " Hello World " apparaît, comme indiqué sur la capture d'écran suivante :
 
     ![A browser displaying the 'Hello World' message.][helloworld-localhost]
 
@@ -85,9 +99,8 @@ Cette section décrit la création d'un fichier **server.js** contenant l'exempl
 
 		git init
 
-	<div class="dev-callout"><strong>Si la commande Git n'est pas disponible</strong>
-	<p><a href="http://git-scm.com/" target="_blank">Git</a> est un système de contrôle de version distribué permettant de déployer votre site web Azure. Pour obtenir des instructions d'installation pour votre plateforme, consultez <a href="http://git-scm.com/download" target="_blank">la page de téléchargement de Git</a>.</p>
-	</div>
+	> [AZURE.NOTE] **Si la commande Git n'est pas disponible**
+	[Git](http://git-scm.com/%20target="_blank) est un système de contrôle de version distribué permettant de déployer votre site Web Azure. Pour obtenir des instructions d'installation pour votre plateforme, consultez la [page de téléchargement de Git](http://git-scm.com/download%20target="_blank").
 
 2. Utilisez les commandes suivantes pour ajouter des fichiers au référentiel :
 
@@ -125,11 +138,11 @@ Cette section décrit la création d'un fichier **server.js** contenant l'exempl
 
 	![Git deployment status on the portal][git-deployments-first] 
 
-5. Accédez à votre site en utilisant le bouton **Parcourir** dans la page de votre site web Azure dans le portail de gestion.
+5. Accédez à votre site en utilisant le bouton **Parcourir** dans la page de votre site Web Azure dans le portail de gestion.
 
 ##Publication des modifications apportées à votre application
 
-1. Ouvrez le fichier **server.js** dans un éditeur de texte, puis remplacez 'Hello World\n' par 'Hello Azure\n'. Enregistrez le fichier.
+1. Ouvrez le fichier **server.js** dans un éditeur de texte et remplacez 'Hello World\n' par 'Hello Azure\n'. Enregistrez le fichier.
 2. Sur la ligne de commande, accédez au répertoire **helloworld** et exécutez les commandes suivantes :
 
 		git add .
@@ -144,17 +157,17 @@ Cette section décrit la création d'un fichier **server.js** contenant l'exempl
 
 	![A web page displaying 'Hello Azure'][helloworld-completed]
 
-4. Vous pouvez revenir au déploiement précédent en le sélectionnant sous l'onglet " Déploiements " de votre site web Azure dans le portail de gestion et en utilisant le bouton **Redéployer**.
+4. Vous pouvez revenir au déploiement précédent en le sélectionnant sous l'onglet " Déploiements " de votre site Web Azure dans le portail de gestion et en utilisant le bouton **Redéployer**.
 
 ##Étapes suivantes
 
-Bien que la procédure de cet article utilise le portail Azure pour créer un site web, vous pouvez également utiliser les [outils en ligne de commande Azure pour Mac et Linux] pour effectuer les mêmes opérations.
+Bien que la procédure de cet article utilise le portail Azure pour créer un site Web, vous pouvez également utiliser les [outils en ligne de commande Azure pour Mac et Linux] pour effectuer les mêmes opérations.
 
-Node.js fournit un écosystème de modules enrichi que vos applications peuvent utiliser. Pour en savoir plus sur le fonctionnement des Sites Web Azure avec les modules, consultez la page [Utilisation des modules Node.js avec les applications Azure].(/fr-fr/documentation/articles/nodejs-use-node-modules-azure-apps/).
+Node.js fournit un écosystème de modules enrichi que vos applications peuvent utiliser. Pour en savoir plus sur le fonctionnement des Sites Web Azure avec les modules, consultez la page [Utilisation des modules Node.js avec les applications Azure](/fr-fr/documentation/articles/nodejs-use-node-modules-azure-apps/).
 
 Pour en savoir plus sur les versions de Node.js fournies avec Azure et apprendre comment indiquer la version à utiliser avec votre application, consultez la page [Spécification d'une version de Node.js dans une application Azure](/fr-fr/documentation/articles/nodejs-specify-node-version-azure-apps/).
 
-Si vous rencontrez des problèmes avec votre application après son déploiement dans Azure, consultez la page [Débogage d'une application Node.js dans les sites web Azure](/fr-fr/documentation/articles/web-sites-nodejs-debug/) pour obtenir des informations permettant de diagnostiquer vos problèmes.
+Si vous rencontrez des problèmes avec votre application après son déploiement dans Azure, consultez la page [Débogage d'une application Node.js dans les sites Web Azure](/fr-fr/documentation/articles/web-sites-nodejs-debug/) for information on diagnosing the problem.
 
 
 ##Ressources supplémentaires
@@ -185,4 +198,5 @@ Si vous rencontrez des problèmes avec votre application après son déploiement
 [go-to-dashboard]: ./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png
 [where-is-code]: ./media/web-sites-nodejs-develop-deploy-mac/where_is_code.png
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Capture an image" pageTitle="Capture de l'image d'une machine virtuelle exécutant Linux" metaKeywords="Azure Linux vm, Linux vm" description="Apprenez à capturer une image d'une machine virtuelle Azure exécutant Linux. " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Linux" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties pageTitle="Capture de l'image d'une machine virtuelle exécutant Linux" description="Apprenez à capturer une image d'une machine virtuelle Azure exécutant Linux." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="kathydav"/>
 
 
 # Capture d'une machine virtuelle Linux à utiliser comme modèle##
@@ -39,7 +39,7 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 
 7.	Dans **Nom de l'image**, entrez le nom de la nouvelle image.
 
-8.	L'approvisionnement de toutes les images Linux doit être *annulé* à l'aide de la commande `waagent` avec l'option `-deprovision`. Cliquez sur **J'ai exécuté waagent -deprovision sur la machine virtuelle.** pour indiquer que le système d'exploitation être prêt à être converti en image.
+8.	L'approvisionnement de toutes les images Linux doit être *deprovisioned* à l'aide de la commande `waagent` avec l'option `-deprovision`. Cliquez sur **J'ai exécuté waagent -deprovision sur la machine virtuelle.** pour indiquer que le système d'exploitation est prêt à être converti en image.
 
 9.	Cliquez sur la coche pour capturer l'image.
 
@@ -51,9 +51,10 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 L'image est prête à être utilisée comme modèle pour la création de machines virtuelles. Pour ce faire, vous créerez une machine virtuelle personnalisée en utilisant l'option **À partir de la galerie** et en sélectionnant l'image que vous venez de créer. Pour obtenir des instructions, consultez le guide [Création d'une machine virtuelle personnalisée] [].
 	
 [Connexion à une machine virtuelle exécutant Linux]: ../virtual-machines-linux-how-to-log-on
-[À propos des machines virtuelles dans Azure]: http://msdn.microsoft.com/fr-fr/library/azure/dn790290.aspx
+[À propos des images de machines virtuelles dans Azure]: http://msdn.microsoft.com/fr-fr/library/azure/dn790290.aspx
 [Création d'une machine virtuelle personnalisée]: ../virtual-machines-create-custom/
 [Association d'un disque de données avec une machine virtuelle]: ../storage-windows-attach-disk/
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

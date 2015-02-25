@@ -1,6 +1,6 @@
-﻿<properties pageTitle="Prise en main des notifications Push (push hérité) | Centre de développement mobile" metaKeywords="" description="Découvrez comment utiliser Azure Mobile Services pour envoyer des notifications Push à votre application Windows Phone (push hérité)." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services (legacy push)" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Prise en main des notifications Push (transmission de type push héritée) | Centre de développement mobile" description="Découvrez comment utiliser Azure Mobile Services pour envoyer des notifications Push à votre application Windows Phone (push hérité)." services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="glenga"/>
 
 
 # Prise en main des notifications Push dans Mobile Services (Push hérité)
@@ -16,13 +16,13 @@
 	<a href="/fr-fr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator">Appcelerator</a>
 </div>
 
-<div class="dev-center-tutorial-subselector"><a href="/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/" title=".NET backend">Serveur principal .NET<a href="/fr-fr/documentation/articles/mobile-services-windows-phone-get-started-push/"  title="JavaScript backend" class="current">Serveur principal JavaScript</a>
+<div class="dev-center-tutorial-subselector"><a href="/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/" title=".NET backend">.NET principal</a> | <a href="/fr-fr/documentation/articles/mobile-services-windows-phone-get-started-push/"  title="JavaScript backend" class="current">JavaScript principal</a>
 </div>
 
 Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push vers une application Windows Phone 8. 
 Dans ce didacticiel, vous ajoutez des notifications Push à l'aide du Service de notifications Push Microsoft (MPNS) au projet de démarrage rapide. Une fois la procédure terminée, votre service mobile envoie une notification Push chaque fois qu'un enregistrement est inséré.
 
->[WACOM.NOTE]Cette rubrique prend en charge les services mobiles <em>existants</em> qui <em>n'ont pas encore été mis à niveau</em> pour utiliser l'intégration à Notification Hubs. Lorsque vous créez un <em>nouveau</em> service mobile, cette fonctionnalité intégrée est automatiquement activée. Pour les nouveaux services mobiles, consultez la rubrique [Prise en main des notifications Push](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/).
+>[AZURE.NOTE]Cette rubrique prend en charge les services mobiles <em>existants</em> qui n'<em>ont pas encore été mis à niveau</em> pour utiliser l'intégration à Notification Hubs. Lorsque vous créez un <em>service mobile</em>, cette fonctionnalité intégrée est automatiquement activée. Pour les nouveaux services mobiles, consultez la rubrique [Prise en main des notifications Push](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/).
 >
 >Mobile Services s'intègre à Azure Notification Hubs pour prendre en charge une fonctionnalité de notification Push supplémentaire, comme les modèles, les plateformes multiples et la mise à l'échelle améliorée. <em>Vous devez mettre à niveau vos services mobiles existants pour utiliser Notification Hubs lorsque cela est possible</em>. Une fois la mise à niveau effectuée, consultez cette version de la [Prise en main des notifications Push](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/).
 
@@ -37,11 +37,11 @@ Ce didacticiel requiert [Visual Studio 2012 Express pour Windows Phone] ou une v
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez effectuer le didacticiel [Prise en main de Mobile Services]. 
 
-   >[WACOM.NOTE]Si vous envoyez plus de 500 messages par utilisateur et par jour, vous devez plutôt utiliser Notification Hubs. Pour plus d'informations, consultez la page <a href="/fr-fr/manage/services/notification-hubs/getting-started-windows-dotnet/">Prise en main de Notification Hubs</a>.
+   >[AZURE.NOTE]Si vous envoyez plus de 500 messages par utilisateur et par jour, vous devez plutôt utiliser Notification Hubs. Pour plus d'informations, consultez la page <a href="/fr-fr/manage/services/notification-hubs/getting-started-windows-dotnet/">Prise en main de Notification Hubs</a>.
 
 ## <a name="create-table"></a>Création d'une table
 
-[WACOM.INCLUDE [mobile-services-create-new-push-table](../includes/mobile-services-create-new-push-table.md)]
+[AZURE.INCLUDE [mobile-services-create-new-push-table](../includes/mobile-services-create-new-push-table.md)]
 
 <h2><a name="add-push"></a>Ajout de notifications Push à votre application</h2>
 		
@@ -83,9 +83,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 
    	Ce code acquiert et stocke un canal pour un abonnement aux notifications Push et le lie à la vignette par défaut de l'application.
 
-	<div class="dev-callout"><b>Remarque</b>
-		<p>Dans ce didacticiel, le service mobile envoie une notification par vignette retournée à l'appareil. Lorsque vous envoyez une notification toast, vous devez appeler la méthode <strong>BindToShellToast</strong> sur le canal. Pour la prise en charge des notifications toast, ainsi que des notifications par vignette, appelez <strong>BindToShellTile</strong> et <strong>BindToShellToast</strong></p>.
-	</div>
+	> [AZURE.NOTE] Dans ce didacticiel, le service mobile envoie une notification par vignette retournée à l'appareil. Lorsque vous envoyez une notification toast, vous devez appeler la méthode **BindToShellToast** sur le canal. Pour la prise en charge des notifications toast ainsi que des notifications par vignette, appelez **BindToShellTile** et **BindToShellToast**.
     
 4. En haut du gestionnaire d'événements **Application_Launching** dans App.xaml.cs, ajoutez l'appel suivant à la nouvelle méthode **AcquirePushChannel** :
 
@@ -102,9 +100,9 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 
 <h2><a name="update-scripts"></a>Mise à jour des scripts d'insertion inscrits dans le portail de gestion</h2>
 
-[WACOM.INCLUDE [mobile-services-update-registrations-script](../includes/mobile-services-update-registrations-script.md)]
+[AZURE.INCLUDE [mobile-services-update-registrations-script](../includes/mobile-services-update-registrations-script.md)]
 
-4. Cliquez sur **TodoItem**, sur **Script**, puis sélectionnez **Insérer**. 
+4. Cliquez sur **TodoItem**, puis sur **Script** et sélectionnez **Insérer**. 
 
    	![][10]
 
@@ -140,7 +138,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 
 <h2><a name="test"></a>Test des notifications Push dans votre application</h2>
 
-1. Dans Visual Studio, sélectionnez **Déployer la solution** dans le menu **Générer**.
+1. Dans Visual Studio, dans le menu **Générer**, sélectionnez **Déployer la solution**.
 
 2. Dans l'émulateur, balayez l'écran vers la gauche pour afficher la liste des applications installées et rechercher la nouvelle application **TodoList**.
 
@@ -179,11 +177,11 @@ Ce didacticiel présente la fonctionnalité de notification Push de base fournie
 + [Envoi de notifications aux abonnés]
 	<br/>En savoir plus sur l'inscription des utilisateurs et la réception des notifications Push pour les catégories qui les intéressent.
 
-<!--+ [Send notifications to users]
-	<br/>Learn how to send push notifications from a Mobile Service to specific users on any device.
+<!--+ [Envoi de notifications aux utilisateurs]
+	<br/>En savoir plus sur l'envoi de notifications Push depuis un service mobile à certains utilisateurs sur n'importe quel appareil.
 
-+ [Send cross-platform notifications to users]
-	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
++ [Envoi de notifications Push aux utilisateurs authentifiés]
+	<br/>En savoir plus sur l'utilisation de modèles pour envoyer des notifications Push depuis un service mobile, sans avoir à gérer des charges utiles propres à la plateforme sur votre serveur principal.
 -->
 
 Pour plus d'informations sur les rubriques Mobile Services suivantes :
@@ -192,7 +190,7 @@ Pour plus d'informations sur les rubriques Mobile Services suivantes :
   <br/>En savoir plus sur le stockage et l'interrogation des données à l'aide de Mobile Services.
 
 * [Prise en main de l'authentification]
-  <br/>Découvrez comment authentifier les utilisateurs de votre application avec un compte Windows.
+  <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec un compte Windows.
 
 * [Référence de script serveur Mobile Services]
   <br/>En savoir plus sur l'enregistrement et l'utilisation des scripts serveur.
@@ -218,7 +216,7 @@ Pour plus d'informations sur les rubriques Mobile Services suivantes :
 
 
 <!-- URLs. -->
-[Kit de développement logiciel (SDK) de Mobile Services]: https://go.microsoft.com/fwLink/p/?LinkID=268375
+[Kit de développement logiciel (SDK) Mobile Services]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 [Visual Studio 2012 Express pour Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started-wp8
 [Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-wp8
@@ -235,4 +233,7 @@ Pour plus d'informations sur les rubriques Mobile Services suivantes :
 [Présentation de Notification Hubs]: /fr-fr/develop/net/how-to-guides/service-bus-notification-hubs/
 [Envoi de notifications aux abonnés]: /fr-fr/manage/services/notification-hubs/breaking-news-wp8/
 [Envoi de notifications aux utilisateurs]: /fr-fr/manage/services/notification-hubs/notify-users/
-[Envoi de notifications interplateforme aux utilisateurs]: /fr-fr/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[Envoi de notifications Push aux utilisateurs authentifiés]: /fr-fr/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+
+
+<!--HONumber=42-->

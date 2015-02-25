@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Create a custom VM" pageTitle=" Création d'une machine virtuelle personnalisée dans Azure" metaKeywords="Azure custom vm, creating custom vm" description="Apprenez à créer une machine virtuelle personnalisée dans Azure." metaCanonical="http://www.windowsazure.com/fr-fr/manage/windows/how-to-guides/custom-create-a-vm/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties pageTitle="Création d'une machine virtuelle personnalisée dans Azure" description="Apprenez à créer une machine virtuelle personnalisée dans Azure." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="kathydav"/>
 
 #Création d'une machine virtuelle personnalisée
 
@@ -13,8 +13,9 @@ Une machine virtuelle *personnalisée* correspond à une machine virtuelle que v
 
 **Important** : si vous souhaitez que la machine virtuelle utilise un réseau virtuel pour pouvoir vous y connecter directement par nom d'hôte ou configurer des connexions entre différents locaux, veillez à spécifier le réseau virtuel lors de la création de la machine virtuelle. Vous pouvez configurer une machine virtuelle pour qu'elle rejoigne uniquement un réseau virtuel lorsque vous la créez. Pour plus d'informations sur les réseaux virtuels, consultez la page [Présentation du réseau virtuel Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
-[WACOM.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

@@ -1,6 +1,7 @@
-﻿<properties urlDisplayName="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" pageTitle="Connexion à un serveur SQL Server local à partir d'un service mobile Azure au moyen de connexions hybrides - Azure Mobile Services" metaKeywords="" description="Découvrez comment vous connecter à un serveur SQL Server local à partir d'un service mobile Azure au moyen de connexions hybrides" metaCanonical="" services="" documentationCenter="Mobile" title="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" authors="mahender" solutions="" manager="dwrede" editor="mollybos" />
+﻿<properties pageTitle="Connexion à un serveur SQL Server local à partir d'un service mobile Azure au moyen de connexions hybrides - Azure Mobile Services" description="Découvrez comment vous connecter à un serveur SQL Server local à partir d'un service mobile Azure au moyen de connexions hybrides" services="" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+
   
 # Connexion à un serveur SQL Server local à partir d'un service mobile Azure au moyen de connexions hybrides 
 
@@ -13,36 +14,36 @@ Cette rubrique vous familiarise avec ces étapes de base :
 1. [Configuration requise](#Prerequisites)
 2. [Installation de SQL Server Express, activation de TCP/IP et création d'une base de données SQL Server en local](#InstallSQL)
 3. [Création d'une connexion hybride](#CreateHC)
-4. [Installation du Gestionnaire de connexions hybrides local pour finaliser la connexion](#InstallHCM)
+4. [Installation du Gestionnaire de connexions hybrides local pour terminer la connexion](#InstallHCM)
 5. [Modification d'un service mobile pour pouvoir utiliser la connexion](#CreateService)
 
 <a name="Prerequisites"></a>
 ##Configuration requise##
 Pour réaliser ce didacticiel, vous avez besoin des produits suivants. Tous sont disponibles gratuitement, de sorte que vous pouvez commencer à développer gratuitement pour Azure.
 
-- **Visual Studio 2013** - Pour télécharger une version d'évaluation gratuite de Visual Studio 2013, consultez la page [Téléchargements Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Installez ceci avant de poursuivre.
+- **Visual Studio 2013** : pour télécharger une version d'évaluation gratuite de Visual Studio 2013, consultez [Téléchargements Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Installez ceci avant de poursuivre.
 
-- **SQL Server 2014 Express with Tools** - Téléchargez gratuitement Microsoft SQL Server Express sur la [page des bases de données Microsoft Web Platform](http://www.microsoft.com/web/platform/database.aspx). Choisissez la version **Express** (pas LocalDB). La version **Express with Tools** inclut SQL Server Management Studio, que vous utiliserez dans ce didacticiel.
+- **SQL Server 2014 Express with Tools** : téléchargez gratuitement Microsoft SQL Server Express dans la page [Base de données Microsoft Web Platform](http://www.microsoft.com/web/platform/database.aspx). Choisissez la version **Express** (pas LocalDB). La version **Express with Tools** inclut SQL Server Management Studio, que vous utiliserez dans ce didacticiel.
 
 Vous aurez également besoin d'un ordinateur local se connectant à Azure au moyen de connexions hybrides. Celui-ci doit répondre aux critères suivants :
 
 - Capacité à se connecter à Azure au moyen du port 5671
-- Capacité à atteindre *hostname*:*portnumber* dans la ressource locale à laquelle vous voulez vous connecter. La ressource peut ou non être hébergée sur le même ordinateur. 
+- En mesure d'atteindre le *hostname*:*portnumber* de la ressource locale à laquelle vous souhaitez vous connecter. La ressource peut ou non être hébergée sur le même ordinateur. 
 
 <a name="InstallSQL"></a>
 ## Installation de SQL Server Express, activation de TCP/IP et création d'une base de données SQL Server en local
 
 Pour utiliser une base de données SQL Server ou SQL Server Express locale avec une connexion hybride, TCP/IP doit être activé sur un port statique. Les instances par défaut dans SQL Server utilisent le port statique 1433, mais pas les instances nommées. 
 
-Pour plus d'informations sur la façon de configurer SQL Server pour qu'il réponde aux conditions décrites ci-dessus, consultez [Installation de SQL Server Express, activation de TCP/IP et création d'une base de données SQL Server en local](/fr-fr/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL). Si vous avez déjà installé SQL Server dans une configuration et dans un environnement qui répondent aux conditions décrites ci-dessus, vous pouvez passer directement à [Création d'une base de données SQL Server en local](/fr-fr/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB). 
+Pour obtenir des instructions détaillées sur la façon de configurer SQL Server afin de répondre aux conditions décrites ci-dessus, consultez la section [Installation de SQL Server Express, activation de TCP/IP et création d'une base de données SQL Server locale](/fr-fr/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL). Si SQL Server est déjà installé dans une configuration et dans un environnement qui répondent aux conditions décrites ci-dessus, vous pouvez passer directement à la section [Création d'une base de données SQL Server locale](/fr-fr/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB). 
 
-Pour les besoins de ce didacticiel, nous supposerons que le nom de la base de données est **OnPremisesDB**, qu'elle s'exécute sur le port **1433** et que le nom d'hôte de l'ordinateur est **onPremisesServer**.
+Dans le cadre de ce didacticiel, nous supposerons que le nom de la base de données est **OnPremisesDB**, qu'elle est en cours d'exécution sur le port **1433** et que le nom d'hôte de l'ordinateur est **onPremisesServer**.
 
 <a name="CreateHC"></a>
 ## Création d'une connexion hybride
 1. Sur l'ordinateur local, connectez-vous au [portail de gestion Azure](http://go.microsoft.com/fwlink/p/?linkid=213885&clcid=0x409).
 
-2. En bas du volet de navigation, sélectionnez **+NOUVEAU**, **Services d'application**, **BizTalk Service**, puis **Création personnalisée**
+2. En bas du volet de navigation, sélectionnez **+NOUVEAU**, **Services d'application**, **Service BizTalk**, puis **Création personnalisée**.
 
 	![Create BizTalk Service][CreateBTS]
 
@@ -58,7 +59,7 @@ Pour les besoins de ce didacticiel, nous supposerons que le nom de la base de do
 
 	Cette action crée une connexion hybride.
 
-5. Indiquez un **Nom** et un **Nom d'hôte** pour votre connexion hybride et définissez **Port** sur `1433`. 
+5. Fournissez un **Nom** et un **Nom d'hôte** pour votre connexion hybride et définissez **Port** sur `1433`.. 
   
 	![Configure Hybrid Connection][ConfigureHC]
 
@@ -73,11 +74,11 @@ Pour les besoins de ce didacticiel, nous supposerons que le nom de la base de do
 À présent, nous devons installer le Gestionnaire de connexions hybrides sur l'ordinateur local.
 
 <a name="InstallHCM"></a>
-## Installation du Gestionnaire de connexions hybrides local pour finaliser la connexion
+## Installation du Gestionnaire de connexions hybrides local pour terminer la connexion
 
 Le Gestionnaire de connexions hybrides permet à votre ordinateur local de se connecter à Azure et de relayer le trafic TCP. Vous devez installer ce logiciel sur l'ordinateur local auquel vous essayez d'accéder à partir d'Azure.
 
-1. Sélectionnez la connexion que vous venez de créer, puis dans la barre inférieure, cliquez sur **Installation locale**.
+1. Sélectionnez la connexion que vous venez de créer, puis, dans la barre inférieure, cliquez sur **Installation locale**.
 
 	![On-Premises Setup][DownloadHCM]
 
@@ -100,7 +101,7 @@ Le Gestionnaire de connexions hybrides permet à votre ordinateur local de se co
 ### Association d'une connexion hybride à un service
 1. Sous l'onglet **Services mobiles** du portail, sélectionnez un service mobile existant ou créez-en un. 
 
-	>[WACOM.NOTE]Veillez à sélectionner un service qui a été créé au moyen du serveur principal .NET ou créez un service mobile principal .NET. Pour apprendre à créer un service mobile principal .NET, consultez la page [Prise en main de Mobile Services](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) 
+	>[AZURE.NOTE]Veillez à sélectionner un service qui a été créé au moyen du serveur principal .NET ou créez un service mobile principal .NET. Pour apprendre à créer un service mobile principal .NET, consultez la page [Prise en main de Mobile Services](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) 
 
 2. Sous l'onglet **Configurer** de votre service mobile, accédez à la section **Connexions hybrides** et sélectionnez **Ajouter une connexion hybride**.
 
@@ -115,7 +116,7 @@ Le service mobile est à présent associé à la nouvelle connexion hybride.
 ### Mise à jour du service pour utiliser la chaîne de connexion en local
 Pour finir, nous devons créer un paramètre d'application permettant de stocker la valeur de la chaîne de connexion sur notre serveur SQL Server local. Nous devons ensuite modifier le service mobile pour pouvoir utiliser la nouvelle chaîne de connexion. 
 
-1. Sous l'onglet **Configurer** dans **Chaînes de connexion**, ajoutez une nouvelle chaîne de connexion nommée `OnPremisesDatabase` avec une valeur du type `Server=onPremisesServer,1433;Database=OnPremisesDB;User ID=sa;Password={password}`.
+1. Sous l'onglet **Configurer**, dans **Chaînes de connexion**, ajoutez une nouvelle chaîne de connexion nommée `OnPremisesDatabase` avec une valeur telle que `Server=onPremisesServer,1433;Database=OnPremisesDB;User ID=sa;Password={password}`.
 
 	![Connection string for on-premises database][ConnectionString]
 
@@ -125,7 +126,7 @@ Pour finir, nous devons créer un paramètre d'application permettant de stocker
 
 3. Dans Visual Studio 2013, ouvrez le projet qui définit votre service mobile basé sur .NET. 
 
-	Pour apprendre à télécharger votre projet principal .NET, consultez la page [Prise en main de Mobile Services](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/).
+	Pour apprendre à télécharger votre projet principal .NET, consultez la page [Prise en main de Mobile Services](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) ..
  
 4. Dans l'Explorateur de solutions, développez le dossier **Modèles** et ouvrez le fichier de modèle de données, se terminant par *Context.cs*.
 
@@ -145,7 +146,7 @@ Pour finir, nous devons créer un paramètre d'application permettant de stocker
 
 5. Publiez vos modifications et utilisez une application cliente connectée à votre service mobile pour appeler certaines opérations permettant de générer des modifications dans la base de données.
 
-6. Ouvrez SQL Management Studio sur l'ordinateur local sur lequel SQL Server s'exécute, puis dans l'Explorateur d'objets, développez la base de données **OnPremisesDB** et développez **Tables**. 
+6. Ouvrez SQL Management Studio sur l'ordinateur local sur lequel SQL Server s'exécute, puis, dans l'Explorateur d'objets, développez la base de données **OnPremisesDB** et développez **Tables**. 
 
 9. Cliquez avec le bouton droit sur la table **hybridService1.TodoItems** et choisissez **Sélectionner les 1 000 premières lignes** pour afficher les résultats.
 
@@ -174,3 +175,6 @@ Les modifications générées dans votre application ont été transmises par no
 [ConnectionString]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/11.png
 [SMS]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/12.png
 [DownloadHCM]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/5-1.png
+
+
+<!--HONumber=42-->

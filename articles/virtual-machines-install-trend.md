@@ -1,6 +1,6 @@
-﻿<properties title="How to install and configure Trend on an Azure VM" pageTitle="Installation et configuration de Trend Micro Deep Security comme service sur une machine virtuelle Azure" description="Décrit l'installation et la configuration de la sécurité Trend Micro sur une machine virtuelle dans Azure" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
+<properties pageTitle="Installation et configuration de Trend Micro Deep Security comme service sur une machine virtuelle Azure" description="Explique l'installation et la configuration de la sécurité Trend Micro sur une machine virtuelle dans Azure" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="kathydav"/>
 
 #Installation et configuration de Trend Micro Deep Security comme service sur une machine virtuelle Azure
 
@@ -14,7 +14,7 @@
 
 Le [portail de gestion Azure](http://manage.windowsazure.com) vous permet d'installer l'agent de machine virtuelle et l'extension de sécurité Trend lors de l'utilisation de l'option **À partir de la galerie** pour créer la machine virtuelle. Il s'agit d'une méthode simple pour ajouter une protection Trend en cas de création d'une seule machine virtuelle.
 
-L'option **À partir de la galerie** ouvre un Assistant qui vous aide à configurer la machine virtuelle. Utilisez la dernière page de l'Assistant pour installer l'agent de machine virtuelle et l'extension de sécurité Trend. Pour obtenir des instructions générales, consultez le didacticiel [Création d'une machine virtuelle exécutant Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=403943). Lorsque vous atteignez la dernière page de l'Assistant, procédez comme suit :
+L'option **À partir de la galerie** ouvre un Assistant qui vous aide à configurer la machine virtuelle. Utilisez la dernière page de l'Assistant pour installer l'agent de machine virtuelle et l'extension de sécurité Trend. Pour des instructions générales, consultez le didacticiel [Création d'une machine virtuelle exécutant Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=403943). Lorsque vous atteignez la dernière page de l'Assistant, procédez comme suit :
 
 1.	Sous Agent de machine virtuelle, cochez **Installer l'agent de machine virtuelle**.
 
@@ -28,7 +28,7 @@ L'option **À partir de la galerie** ouvre un Assistant qui vous aide à configu
 
 Pour ce faire, vous avez besoin des éléments suivants :
 
-- Le module Azure PowerShell, version 0.8.2 ou ultérieure. Pour obtenir des instructions et un lien vers la dernière version, consultez la rubrique [Installation et configuration d'Azure PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=320552).  
+- Le module Azure PowerShell, version 0.8.2 ou ultérieure. Pour des instructions et un lien vers la dernière version, consultez la rubrique [Installation et configuration d'Azure PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=320552).  
 
 - L'agent de machine virtuelle. Pour obtenir des instructions et un lien vers le téléchargement, consultez le billet de blog [Agent de machine virtuelle et extensions - 2e partie](http://go.microsoft.com/fwlink/p/?LinkId=403947).
 
@@ -39,12 +39,12 @@ Ouvrez une session Azure PowerShell et exécutez les commandes ci-après. Veille
 	<p>`$name = MyVmName`
 	<p>`$vm = Get-AzureVM -ServiceName $servicename -Name $name`
 
-	> [WACOM.NOTE] Si vous ignorez le nom du service cloud et de la machine virtuelle, exécutez Get-AzureVM pour afficher ces informations pour toutes les machines virtuelles de l'abonnement en cours.
+	> [AZURE.NOTE] Si vous ignorez le nom du service cloud et de la machine virtuelle, exécutez Get-AzureVM pour afficher ces informations pour toutes les machines virtuelles de l'abonnement en cours.
 
 2.	Ajoutez l'agent Deep Security à la machine virtuelle :
 <p> `Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA -VM $vm.VM`
 
-	> [WACOM.NOTE] Si vous voulez installer une version spécifique, exécutez la commande suivante pour obtenir la liste des versions disponibles : `Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA`. Incluez ensuite le paramètre Version lors de l'exécution de Set-AzureVMExtension.
+	> [AZURE.NOTE] Si vous voulez installer une version spécifique, exécutez la commande suivante pour obtenir la liste des versions disponibles : `Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA`. Incluez ensuite le paramètre Version lors de l'exécution de Set-AzureVMExtension.
 
 3.	Mettez à jour la machine virtuelle, qui installe l'agent Deep Security :
 <p> `Update-AzureVM -ServiceName $servicename -Name $name -VM $vm.VM`
@@ -55,7 +55,7 @@ Une fois l'agent installé, il lui faut quelques minutes pour démarrer. Vous de
 
 - L'article de Trend sur cette solution, [Sécurité cloud instantanée pour Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=404101).
 - Un [exemple de script Windows PowerShell](http://go.microsoft.com/fwlink/?LinkId=404100) pour configurer la machine virtuelle.
-- [Instructions](http://go.microsoft.com/fwlink/?LinkId=404099)  pour l'exemple.
+- Les [instructions](http://go.microsoft.com/fwlink/?LinkId=404099) de l'exemple.
 
 
 
@@ -72,4 +72,5 @@ Une fois l'agent installé, il lui faut quelques minutes pour démarrer. Vous de
 
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

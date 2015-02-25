@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Configure RAID on Linux" pageTitle="Configuration logicielle de RAID sur une machine virtuelle exécutant Linux dans Azure" metaKeywords="raid in Azure, mdadm Azure, stripe disks in Azure" description="Apprenez à utiliser mdadm pour configurer RAID sur Linux dans Azure." metaCanonical="http://www.windowsazure.com/fr-fr/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="szark" manager="timlt" editor=""  />
+<properties pageTitle="Configuration logicielle de RAID sur une machine virtuelle exécutant Linux dans Azure" description="Apprenez à utiliser mdadm pour configurer RAID sur Linux dans Azure." services="virtual-machines" documentationCenter="" authors="szarkos" writer="szark" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="szark" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="szark"/>
 
 
 
@@ -9,9 +9,9 @@ L'utilisation d'un RAID logiciel pour les machines virtuelles Linux sur Azure es
 
 
 ## Disques de données attachés
-En règle générale, au moins deux disques de données sont nécessaires pour configurer un périphérique RAID.  Cet article n'abordera pas en détail la marche à suivre pour attacher des disques de données sur une machine virtuelle Linux.  Veuillez consulter l'article Windows Azure [attacher un disque](http://www.windowsazure.com/fr-fr/documentation/articles/storage-windows-attach-disk/#attachempty)  pour obtenir des instructions détaillées sur la marche à suivre pour attacher un disque de données vide à une machine virtuelle Linux sur Azure.
+En règle générale, au moins deux disques de données sont nécessaires pour configurer un périphérique RAID.  Cet article n'abordera pas en détail la marche à suivre pour attacher des disques de données sur une machine virtuelle Linux.  Veuillez consulter l'article Windows Azure [Attacher un disque](http://www.windowsazure.com/fr-fr/documentation/articles/storage-windows-attach-disk/#attachempty) pour obtenir des instructions détaillées sur la marche à suivre pour attacher un disque de données vide à une machine virtuelle Linux sur Azure.
 
->[WACOM.NOTE] La taille de machine virtuelle ExtraSmall ne prend pas en charge plus d'un disque de données attaché à la machine virtuelle.  Pour plus d'informations, consultez la page [Tailles de machines virtuelles et services cloud pour Windows Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn197896.aspx) pour obtenir des informations détaillées sur les tailles de machine virtuelle et le nombre de disques de données pris en charge.
+>[AZURE.NOTE] La taille de machine virtuelle ExtraSmall ne prend pas en charge plus d'un disque de données attaché à la machine virtuelle.  Consultez les [Tailles de machines virtuelles et services cloud pour Windows Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn197896.aspx) pour plus d'informations concernant les tailles de machines virtuelles et le nombre de disque de données pris en charge.
 
 
 ## Installation de l'utilitaire mdadm
@@ -45,7 +45,7 @@ Dans cet exemple, nous allons créer une partition de disque unique sur /dev/sdc
 				 switch off the mode (command 'c') and change display units to
 				 sectors (command 'u').
 
-- Appuyez sur " n " à l'invite pour créer une  **n**ouvelle partition :
+- Appuyez sur " n " à l'invite pour créer une **n**ouvelle partition :
 
 		Command (m for help): n
 
@@ -65,12 +65,12 @@ Dans cet exemple, nous allons créer une partition de disque unique sur /dev/sdc
 		First cylinder (1-1305, default 1):
 		Using default value 1
 
-- Sélectionnez la taille de la partition. Par exemple, tapez " +10G " pour créer une partition de 10 Go. Vous pouvez aussi appuyer simplement sur `<entrée>` pour créer une seule partition pour l'intégralité du disque :
+- Sélectionnez la taille de la partition. Par exemple, tapez " +10G " pour créer une partition de 10 Go. Vous pouvez également taper le code `<enter>` afin de créer une seule partition pour l'intégralité du disque :
 
 		Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
 		Using default value 1305
 
-- Ensuite, remplacez l'ID et le **t**de partition de l'ID par défaut " 83 " (Linux) par l'ID " fd " (raid auto Linux) :
+- Ensuite, remplacez l'ID et le **t**ype de partition de l'ID par défaut " 83 " (Linux) par l'ID 'fd' (raid auto Linux) :
 
 		Command (m for help): t
 		Selected partition 1
@@ -107,12 +107,12 @@ Dans cet exemple, après l'exécution de cette commande, un nouveau périphériq
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
 
-	>[WACOM.NOTE] Un redémarrage peut être nécessaire après avoir apporté ces modifications sur des systèmes SUSE.
+	>[AZURE.NOTE] Un redémarrage peut être nécessaire après avoir apporté ces modifications sur des systèmes SUSE.
 
 
 ## Ajout du nouveau système de fichiers à /etc/fstab
 
-**Attention :** si vous modifiez inhcorrectement le fichier /etc/fstab, il se peut que le système ne puisse plus démarrer. En cas de doute, reportez-vous à la documentation de la distribution pour obtenir des informations sur la modification adéquate de ce fichier. Il est par ailleurs vivement recommandé de créer une sauvegarde du fichier /etc/fstab avant de le modifier.
+**Attention :** si vous ne modifiez pas le fichier /etc/fstab correctement, cela peut empêcher l'amorçage du système. En cas de doute, reportez-vous à la documentation de la distribution pour plus d'informations sur la modification adéquate de ce fichier. Il est également recommandé de créer une sauvegarde du fichier /etc/fstab avant de le modifier.
 
 1. Créez le point de montage désiré pour le nouveau système de fichiers. Par exemple :
 
@@ -132,7 +132,7 @@ Dans cet exemple, après l'exécution de cette commande, un nouveau périphériq
 
 		/dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
 
-	Then, save and close /etc/fstab.
+	Ensuite, enregistrez et fermez /etc/fstab.
 
 4. Vérifiez si l'entrée /etc/fstab est correcte :
 
@@ -159,4 +159,5 @@ Dans cet exemple, après l'exécution de cette commande, un nouveau périphériq
 	Pour plus d'informations sur la modification adéquate des paramètres de noyau, reportez-vous à la documentation de votre distribution. Par exemple, dans de nombreuses distributions (CentOS, Oracle Linux, SLES 11), ces paramètres peuvent être ajoutés manuellement au fichier " `/boot/grub/menu.lst` ".  Sur Ubuntu, ce paramètre peut être ajouté à la variable `GRUB_CMDLINE_LINUX_DEFAULT` dans " /etc/default/grub ".
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

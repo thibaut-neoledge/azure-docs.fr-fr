@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="How to monitor" pageTitle="Surveillance d'un compte Media Services - Azure" metaKeywords="" description="Explique comment configurer la surveillance de votre compte Media Services dans Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Monitor a Media Services Account" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Surveillance d'un compte Media Services - Azure" description="Explique comment configurer la surveillance de votre compte Media Services dans Azure." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
@@ -11,11 +11,11 @@ Le tableau de bord Azure Media Services présente des mesures d'utilisation et d
 
 Vous pouvez surveiller le nombre de travaux d'encodage en file d'attente, de tâches d'encodage ayant échoué, de travaux d'encodage actifs, représentés par les données d'entrée et de sortie de l'encodeur, ainsi que l'utilisation du stockage d'objets blob associée à votre compte Media Services. En outre, si vous diffusez du contenu en continu à vos clients, vous pouvez également récupérer diverses mesures de diffusion en continu. Vous pouvez choisir de surveiller vos données sur les 6 dernières heures, les dernières 24 heures ou les 7 derniers jours.
  
->[WACOM.NOTE] La surveillance des données de stockage dans le portail de gestion Azure occasionne des frais supplémentaires. Pour plus d'informations, consultez la page [Storage Analytics et facturation](http://go.microsoft.com/fwlink/?LinkId=256667).
+>[AZURE.NOTE] La surveillance des données de stockage dans le portail de gestion Azure occasionne des frais supplémentaires. Pour plus d'informations, consultez la page [Storage Analytics et facturation](http://go.microsoft.com/fwlink/?LinkId=256667).
 
-<h2><a id="configuremonitoring"></a>Utilisation Surveillance d'un compte Media Services</h2>
+<h2><a id="configuremonitoring"></a>Surveillance d'un compte Media Services</h2>
 
-1. Dans le [portail de gestion](http://go.microsoft.com/fwlink/?LinkID=256666), cliquez sur **Services de média**, puis sur le nom du compte Media Services pour ouvrir le tableau de bord. 
+1. Dans le [portail de gestion](http://go.microsoft.com/fwlink/?LinkID=256666), cliquez sur **Media Services**, puis sur le nom du compte Media Services pour ouvrir le tableau de bord. 
 
 	![MediaServices_Dashboard][dashboard]
 
@@ -23,9 +23,9 @@ Vous pouvez surveiller le nombre de travaux d'encodage en file d'attente, de tâ
 
 <h2><a id="configuringstorage"></a>Surveillance de l'utilisation de votre stockage d'objets blob (facultatif)</h2>
 1. Cliquez sur le nom **COMPTE DE STOCKAGE** sous la section **aperçu rapide**.
-2. Cliquez sur le lien **page de configuration**, puis faites défiler l'écran vers le bas jusqu'aux paramètres de **surveillance** pour les services BLOB, de Table et de File d'attente, présentés ci-dessous.
+2. Cliquez sur le lien **page de configuration**, puis faites défiler l'écran vers le bas jusqu'aux paramètres de **surveillance** pour les services blob, de Table et de File d'attente, présentés ci-dessous.
 
-	>[WACOM.NOTE] Les objets blob sont le seul type de stockage pris en charge dans Media Services.
+	>[AZURE.NOTE] Les objets blob sont le seul type de stockage pris en charge dans Media Services.
 
 	![StorageOptions][storage_options_scoped]
 
@@ -51,4 +51,5 @@ Les mesures sont stockées dans le compte de stockage dans quatre tables nommée
 [storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

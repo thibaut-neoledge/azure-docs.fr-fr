@@ -1,10 +1,10 @@
-﻿<properties urlDisplayName="Validate Data" pageTitle="Utilisation de scripts serveur pour valider et modifier des données (JavaScript) | Centre de développement mobile" metaKeywords="" description="Découvrez comment valider et modifier les données envoyées à l'aide de scripts serveurs à partir de votre application Windows Store JavaScript." metaCanonical="http://www.windowsazure.com/fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Utilisation de scripts serveur pour valider et modifier des données (JavaScript) | Centre de développement mobile" description="Découvrez comment valider et modifier les données envoyées à l'aide de scripts serveurs à partir de votre application Windows Store JavaScript." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # Validation et modification de données dans Mobile Services à l'aide de scripts serveur 
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
 Cette rubrique vous présente l'utilisation des scripts serveur dans Azure Mobile Services. Il est possible d'utiliser les scripts serveur inscrits dans un service mobile pour effectuer diverses opérations sur les données insérées et mises à jour, qu'il s'agisse de les valider ou de les modifier. Ce didacticiel vous apprend à définir et à inscrire les scripts serveur qui valident et modifient les données. Le comportement des scripts serveur ayant souvent un impact sur le client, vous allez également mettre à jour votre application Windows Store pour tirer profit de ces nouveaux comportements.
 
@@ -21,7 +21,7 @@ Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés
 
 Il est toujours souhaitable de valider la longueur des données soumises par les utilisateurs. Vous devez d'abord inscrire un script qui valide la longueur des données de chaîne envoyées au service mobile et refuse les chaînes trop longues, en l'occurrence, celles qui font plus de 10 caractères.
 
-1. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur votre application. 
+1. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur l'application. 
 
    	![][0]
 
@@ -45,9 +45,7 @@ Il est toujours souhaitable de valider la longueur des données soumises par les
 
     Ce script vérifie la longueur de la propriété **TodoItem.text** et envoie une réponse indiquant une erreur lorsque la chaîne dépasse 10 caractères. Sinon, la méthode **execute** est appelée pour effectuer l'insertion.
 
-    <div class="dev-callout"> 
-	<b>Remarque</b> 
-	<p>Vous pouvez supprimer un script inscrit dans l'onglet <strong>Script</strong> en cliquant sur <strong>Effacer</strong>, puis sur <strong>Enregistrer</strong>.</p></div>	
+    > [AZURE.TIP] Sous l'onglet **Script**, vous pouvez supprimer un script inscrit en cliquant sur **Effacer**, puis sur **Enregistrer**.	
 
 ## <a name="update-client-validation"></a>Mise à jour du client
 
@@ -81,9 +79,7 @@ Maintenant que le service mobile valide les données et envoie des réponses d'e
 
 Les tâches précédentes ont permis de valider une insertion, qui est acceptée ou rejetée. Maintenant, vous allez mettre à jour les données insérées en utilisant un script serveur qui ajoute une propriété d'horodatage à l'objet avant son insertion.
 
-<div class="dev-callout"><b>Remarque</b>
-<p>La propriété d'horodatage <b>createdAt</b> illustrée ici est désormais redondante. Mobile Services crée automatiquement une propriété système <b>__createdAt</b> pour chaque table.</p>
-</div>
+> [AZURE.NOTE] La propriété d'horodatage **createdAt** illustrée ici est désormais redondante. Mobile Services crée automatiquement une propriété système **__createdAt** pour chaque table.
 
 1. Sous l'onglet **Scripts** du [portail de gestion], remplacez le script **Insert** actuel par la fonction suivante, puis cliquez sur **Enregistrer**.
 
@@ -98,15 +94,13 @@ Les tâches précédentes ont permis de valider une insertion, qui est acceptée
 
     Cette fonction enrichit le script d'insertion précédent en ajoutant une nouvelle propriété d'horodatage **createdAt** à l'objet avant son insertion par l'appel à **request**.**execute**. 
 
-    <div class="dev-callout"><b>Remarque</b>
-	<p>Le schéma dynamique doit être activé la première fois que ce script d'insertion s'exécute. Avec le schéma dynamique activé, Mobile Services ajoute automatiquement la colonne <strong>createdAt</strong> à la table <strong>TodoItem</strong>. Par défaut, le schéma dynamique est activé pour un nouveau service mobile. Il doit être désactivé avant que l'application soit publiée sur le Windows Store.</p>
-    </div>
+    > [AZURE.NOTE] Le schéma dynamique doit être activé la première fois que ce script d'insertion s'exécute. Avec le schéma dynamique activé, Mobile Services ajoute automatiquement la colonne **createdAt** à la table **TodoItem** lors de la première exécution. Par défaut, le schéma dynamique est activé pour un nouveau service mobile. Il doit être désactivé avant que l'application soit publiée sur le Windows Store.
 
-2. Dans Visual Studio, appuyez sur la touche **F5** pour exécuter l'application, puis tapez une chaîne de texte de moins de 10 caractères dans **Insert a TodoItem** et cliquez sur **Enregistrer**.
+2. Dans Visual Studio, appuyez sur la touche **F5** pour exécuter l'application, puis tapez une chaîne de texte (inférieure à 10 caractères) dans **Insert a TodoItem** et cliquez sur **Enregistrer**.
 
    	Notez que le nouvel horodatage n'apparaît pas dans l'interface utilisateur de l'application.
 
-3. De retour dans le portail de gestion, cliquez sur l'onglet **Parcourir** dans la table **TodoItem**.
+3. De retour dans le portail de gestion, cliquez sur l'onglet **Parcourir** dans la table **todoitem**.
    
    	Notez qu'une colonne **createdAt** apparaît désormais à l'écran et qu'une valeur d'horodatage est associée au nouvel élément inséré.
   
@@ -127,7 +121,7 @@ Le client Mobile Services ignore les données d'une réponse qu'elle ne peut pas
 
    	Notez que l'horodatage ne s'affiche que pour les éléments insérés une fois que le script d'insertion a été mis à jour.
 
-7. Dans le fichier de projet default.js, remplacez la méthode **RefreshTodoItems** existante par le code suivant :
+7. Dans le fichier default.js, remplacez la méthode **RefreshTodoItems** existante par le code suivant :
 
         var refreshTodoItems = function () {
             // More advanced query that filters out completed items. 
@@ -162,7 +156,7 @@ Les scripts serveur sont également utilisés dans le cadre du processus d'autor
   <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
 * [Référence de script serveur Mobile Services]
-  <br/>En savoir plus sur l'enregistrement et l'utilisation des scripts serveur.
+  <br/>En savoir plus sur l'inscription et l'utilisation des scripts serveur.
 
 <!-- Anchors. -->
 [Ajout de la validation de longueur de chaîne]: #string-length-validation
@@ -181,7 +175,7 @@ Les scripts serveur sont également utilisés dans le cadre du processus d'autor
 [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started/#create-new-service
 [Autorisation des utilisateurs avec des scripts]: /fr-fr/develop/mobile/tutorials/authorize-users-in-scripts-js
-[Affinage des requêtes à la pagination.]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-js
+[Affinage des requêtes au moyen de la pagination]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-js
 [Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-js
 [Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-js
 [Prise en main des notifications Push]: /fr-fr/develop/mobile/tutorials/get-started-with-push-js
@@ -189,3 +183,6 @@ Les scripts serveur sont également utilisés dans le cadre du processus d'autor
 
 [Portail de gestion]: https://manage.windowsazure.com/
 [Portail de gestion Azure]: https://manage.windowsazure.com/
+
+
+<!--HONumber=42-->

@@ -1,12 +1,26 @@
-﻿<properties urlDisplayName="New Relic" pageTitle="Utilisation de New Relic avec Azure - Guides des fonctionnalités Azure" metaKeywords="" description="Apprenez à utiliser le service New Relic pour gérer et surveiller votre application Azure." metaCanonical="" services="" documentationCenter=".NET" title="New Relic Application Performance Management on Azure" authors="" solutions="" manager="carolz" editor="" />
+<properties 
+	pageTitle="Utilisation de New Relic avec Azure - Guides des fonctionnalités Azure" 
+	description="Apprenez à utiliser le service New Relic pour gérer et surveiller votre application Azure." 
+	services="" 
+	documentationCenter=".net" 
+	authors="stepsic-microsoft-com" 
+	manager="carolz" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/25/2014" ms.author="stepsic" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="stepsic"/>
 
 
 
 #Gestion des performances des applications New Relic sur Azure
 
-Ce guide explique comment ajouter la surveillance des performances New Relic de pointe à vos applications hébergées sur Azure. Nous aborderons les processus rapides et simples permettant d'ajouter New Relic à votre application et vous présenterons certaines des nouvelles fonctionnalités de New Relic. Pour plus d'informations sur l'utilisation de New Relic, consultez la section [Utilisation de New Relic].(#using-new-relic).
+Ce guide explique comment ajouter la surveillance des performances New Relic de pointe à vos applications hébergées sur Azure. Nous aborderons les processus rapides et simples permettant d'ajouter New Relic à votre application et vous présenterons certaines des nouvelles fonctionnalités de New Relic. Pour plus d'informations sur l'utilisation de New Relic, consultez la section [Utilisation de New Relic](#using-new-relic).
 
 Présentation de New Relic
 --
@@ -23,10 +37,7 @@ New Relic Pro est fourni en fonction de la taille d'instance d'Azure Cloud Servi
 
 Pour obtenir des informations de tarification, consultez la page [New Relic dans l'Azure Store](http://www.windowsazure.com/fr-fr/gallery/store/new-relic/new-relic/).
 
-<div class="dev-callout"> 
-<strong>Remarque :</strong>
-<p>la tarification n'est répertoriée que jusqu'à 10 instances de calcul. Pour un nombre supérieur à 10, contactez New Relic (sales@newrelic.com) pour une tarification en gros.</p>
-</div>
+> [AZURE.NOTE] la tarification n'est répertoriée que jusqu'à 10 instances de calcul. Pour un nombre supérieur à 10, contactez New Relic (sales@newrelic.com) pour une tarification en gros.
 
 Les clients d'Azure reçoivent un abonnement de 2 semaines gratuit à New Relic Pro lorsqu'ils déploient l'agent New Relic.
 
@@ -42,7 +53,7 @@ Pour vous inscrire à New Relic directement depuis l'Azure Store, procédez comm
 1. Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com).
 2. Dans le volet inférieur du portail de gestion, cliquez sur **Nouveau**.
 3. Cliquez sur **Store**.
-4. Dans la boîte de dialogue **Choisir un module complémentaire**, sélectionnez **New Relic**, puis cliquez sur **Suivant**.
+4. Dans la boîte de dialogue **Choisir un module complémentaire**, sélectionnez **New Relic** puis cliquez sur **Suivant**.
 5. Dans la boîte de dialogue **Personnaliser un module complémentaire**, sélectionnez le plan New Relic de votre choix.
 6. Saisissez un code de promotion, le cas échéant.
 7. Entrez un nom pour le service New Relic, qui apparaîtra dans vos paramètres Azure, ou utilisez la valeur par défaut **NewRelic**. Le nom doit être unique dans la liste des éléments de l'Azure Store auxquels vous êtes abonné.
@@ -55,8 +66,7 @@ Pour vous inscrire à New Relic directement depuis l'Azure Store, procédez comm
 
 ### Étape 2. Installer le package Nuget
 
-1. Ouvrez votre solution Visual Studio ou créez-en une en sélectionnant
-   **Fichier > Nouveau > projet**.
+1. Ouvrez votre solution Visual Studio, ou créez-en une en sélectionnant **Fichier > Nouveau > Projet**.
 
 	![Visual Studio](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget01.png)
 
@@ -68,8 +78,7 @@ Pour vous inscrire à New Relic directement depuis l'Azure Store, procédez comm
 
 	![Package manager console](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget04.png)
 
-4. À l'invite de commandes du Gestionnaire de Package, tapez `Install-Package
-   NewRelicWindowsAzure` et appuyez sur **Entrée**.
+4. À l'invite de commande du Gestionnaire de package, tapez  `Install-Package NewRelicWindowsAzure` et appuyez sur **Entrée**.
 
 	![install in package manager](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget06.png)
 
@@ -77,7 +86,7 @@ Pour vous inscrire à New Relic directement depuis l'Azure Store, procédez comm
 
 	![enter license key](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget07.png)
 
-6. Facultatif : lorsque vous y êtes invité, entrez le nom de votre application tel qu'il apparaît dans le tableau de bord New Relic. Ou utilisez le nom de votre solution par défaut.
+6. Facultatif : lorsque vous y êtes invité, saisissez le nom de votre application tel qu'il apparaît dans le tableau de bord New Relic. Ou utilisez le nom de votre solution par défaut.
 
 	![enter application name](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget08.png)
 
@@ -86,11 +95,12 @@ Pour vous inscrire à New Relic directement depuis l'Azure Store, procédez comm
 	![public the cloud project](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget09.png)
 
 
-**Remarque :** s'il s'agit de votre premier déploiement de cette application sur Azure, il vous sera demandé d'entrer vos informations d'identification Azure. Pour plus d'informations, consultez <a href="/fr-fr/develop/net/tutorials/get-started/">Déploiement d'une application web ASP.NET vers un site web Azure</a>.
+**Remarque :** s'il s'agit de votre premier déploiement de cette application sur Azure, il vous sera demandé de saisir vos
+informations d'identification Azure. Pour plus d'informations, consultez la page <a href="/fr-fr/develop/net/tutorials/get-started/">Déploiement d'une application Web ASP.NET sur un site Web Azure</a>.
 
 ![publish settings](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget10.png)
 
-### Étape 3. Vérifier les performances de votre application dans New Relic.
+### Étape 3. Vérification des performances de votre application dans New Relic.
 
 Pour consulter votre tableau de bord New Relic :
 
@@ -98,17 +108,17 @@ Pour consulter votre tableau de bord New Relic :
 2. Connectez-vous avec l'adresse électronique et le mot de passe de votre compte New Relic.
 3. Dans la barre de menus New Relic, sélectionnez **Applications > (nom de l'application)**.
 
-	Le tableau de bord **Surveillance > Présentation** s'affiche automatiquement.
+	Le tableau de bord **Surveillance > Vue d'ensemble** s'affiche automatiquement.
 
 	![New Relic monitoring dashboard](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelic_app.png)
 
-	Une fois que vous avez sélectionné une application dans la liste de votre menu **Applications**, le tableau de bord **Présentation** affiche les informations actuelles sur le serveur et le navigateur de l'application.
+	Une fois que vous avez sélectionné une application dans la liste de votre menu **Applications**, le tableau de bord **Vue d'ensemble** affiche les informations actuelles sur le serveur et le navigateur de l'application.
 
 ### <a id="using-new-relic"></a>Utilisation de New Relic
 
-Une fois que vous avez sélectionné votre application dans la liste du menu Applications, le tableau de bord Présentation affiche les informations actuelles sur le serveur et le navigateur de l'application. Pour basculer entre les deux vues, cliquez sur le bouton **Serveur d'applications** ou **Navigateur**.
+Une fois que vous avez sélectionné votre application dans la liste du menu Applications, le tableau de bord Vue d'ensemble affiche les informations actuelles sur le serveur et le navigateur de l'application. Pour basculer entre les deux vues, cliquez sur le bouton **Serveur d'applications** ou **Navigateur**.
 
-En plus des fonctions d'analyse de l' <a href="https://newrelic.com/docs/site/the-new-relic-ui#functions">interface utilisateur New Relic standard</a> et <a href="https://newrelic.com/docs/site/the-new-relic-ui#drilldown">du tableau de bord</a> , le tableau de bord Vue d'ensemble des applications offre des fonctions supplémentaires.
+En plus des fonctions de l'<a href="https://newrelic.com/docs/site/the-new-relic-ui#functions">interface utilisateur standard New Relic</a> et <a href="https://newrelic.com/docs/site/the-new-relic-ui#drilldown">d'exploration au niveau du détail du tableau de bord</a>, le tableau de bord Vue d'ensemble des applications comporte des fonctions supplémentaires.
 
 <table border="1">
   <thead>
@@ -120,23 +130,23 @@ En plus des fonctions d'analyse de l' <a href="https://newrelic.com/docs/site/th
   <tbody>
     <tr>
        <td>Afficher les informations du tableau de bord pour le serveur ou le navigateur de l'application sélectionnée</td>
-       <td>Cliquez sur le bouton <b>Serveur d'applications</b> ou <b>Navigateur</b> .</td>
+       <td>Cliquez sur le bouton <b>App Server</b> ou <b>Navigateur</b>.</td>
     </tr>
-     <tr>
-       <td>Afficher les niveaux de seuil pour le score <a href="https://newrelic.com/docs/site/apdex" target="_blank">Apdex</a> de votre application</td>
-       <td>Pointez le curseur sur l'icône ? du score <b>Apdex<b> .</b></b></td>
+<tr>
+<td>Afficher les niveaux de seuil du score <a href="https://newrelic.com/docs/site/apdex" target="_blank">Apdex</a> pour votre application</td>
+       <td>Pointez le curseur sur l'icône<b>? <b> du score Apdex.</b></b></td>
     </tr>
     <tr>
        <td>Afficher les détails Apdex du monde entier</td>
-       <td>À partir de la vue <b>Navigateur</b> de Vue d'ensemble, pointez n'importe où sur la carte Global Apdex. < br / ><b>Conseil :</b> pour accéder directement au tableau de bord <a href="https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard" target="_blank">Géographie</a>de l'application sélectionnée, cliquez sur le titre <b>Global Apdex</b> ou cliquez n'importe où sur la carte Global Apdex.</td>
+       <td>Depuis la vue <b>Navigateur</b> de la Vue d'ensemble, pointez le curseur n'importe où sur la carte Global Apdex.<br /><b>Conseil :</b> Pour accéder directement au tableau de bord <a href="https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard" target="_blank">Géographie </a>de l'application sélectionnée, cliquez sur le titre <b>Global Apdex</b> ou n'importe où dans la carte Global Apdex.</td>
     </tr>
     <tr>
-       <td>Afficher le tableau de bord <a href="https://newrelic.com/docs/applications-dashboards/web-transactions" target="_blank">Transactions</a> web</td>
-       <td>Cliquez sur la table Web Transactions du tableau de bord Vue d'ensemble des applications. Ou, pour afficher des détails sur la transaction web spécifique (y compris les <a href="https://newrelic.com/docs/site/key-transactions" target="_blank">transactions clés</a>), cliquez sur son nom.</td>
+       <td>Afficher le tableau de bord <a href="https://newrelic.com/docs/applications-dashboards/web-transactions" target="_blank">Web Transactions</a></td>
+       <td>Cliquez sur la table Web Transactions du tableau de bord Vue d'ensemble des applications. Ou, pour afficher les détails d'une transaction Web spécifique (y compris les <a href="https://newrelic.com/docs/site/key-transactions" target="_blank">transactions clés</a>), cliquez sur son nom.</td>
     </tr>
     <tr>
-       <td>Afficher le tableau <a href="https://newrelic.com/docs/site/errors" target="_blank">de bord</a> Erreurs</td>
-       <td>Cliquez sur le titre du graphique de taux d'erreur du tableau de bord Vue d'ensemble des applications.<br /><b>Conseil :</b> vous pouvez également afficher le tableau de bord Erreurs à partir d' <b>Applications</b> &gt; (votre application) &gt; Événements &gt; Erreurs.</td>
+       <td>Afficher le tableau de bord <a href="https://newrelic.com/docs/site/errors" target="_blank">Erreurs</a></td>
+       <td>Cliquez sur le titre du graphique de taux d'erreur du tableau de bord Vue d'ensemble des applications.<br /><b>Conseil :</b> Vous pouvez également afficher le tableau de bord Erreurs depuis <b>Applications</b> &gt; (votre application) &gt; Événements &gt; Erreurs.</td>
     </tr>
     <tr>
        <td>Afficher les détails du serveur de l'application</td>
@@ -149,7 +159,7 @@ En plus des fonctions d'analyse de l' <a href="https://newrelic.com/docs/site/th
         </ul>
        </p></p></td>
     </tr>
-  </tbody>
+</tbody>
 </table>
 
 Vous trouverez ci-dessous un exemple du tableau de bord Vue d'ensemble des applications lorsque vous sélectionnez la vue Navigateur.
@@ -165,7 +175,8 @@ Pour plus d'informations, consultez les ressources supplémentaires suivantes :
 vue d'ensemble de l'interface utilisateur New Relic, de la définition des droits et profils de l'utilisateur, de l'utilisation des fonctions standard et de l'exploration au niveau du détail du tableau de bord.
  * [Vue d'ensemble des applications](https://newrelic.com/docs/site/applications-overview): fonctionnalités accessibles à partir du tableau de bord Vue d'ensemble des applications de New Relic.
  * [Apdex](https://newrelic.com/docs/site/apdex): vue d'ensemble de la manière dont Apdex mesure la satisfaction des utilisateurs finaux de votre application.
- * [Surveillance des utilisateurs](https://newrelic.com/docs/features/real-user-monitoring): vue d'ensemble de la manière dont RUM détaille le temps qu'il faut aux navigateurs de vos utilisateurs pour charger vos pages web, leur provenance et les navigateurs qu'ils utilisent
- * [Recherche d'aide](https://newrelic.com/docs/site/finding-help): ressources disponibles dans le centre d'aide en ligne de New Relic.
+ * [Surveillance des utilisateurs](https://newrelic.com/docs/features/real-user-monitoring): vue d'ensemble de la manière dont RUM détaille le temps qu'il faut aux navigateurs de vos utilisateurs pour charger vos pages Web, leur provenance et les navigateurs qu'ils utilisent.
+ * [Recherche d'aide](https://newrelic.com/docs/site/finding-help) : ressources disponibles dans le centre d'aide en ligne de New Relic.
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

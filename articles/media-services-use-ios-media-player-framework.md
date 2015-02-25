@@ -1,10 +1,10 @@
-﻿<properties urlDisplayName="iOS Media Player Framework" pageTitle="Utilisation d'iOS Media Player Framework avec Azure Media Services" metaKeywords="" description="Apprenez à utiliser la bibliothèque Media Services iOS Media Player Framework pour créer des applications riches et dynamiques." metaCanonical="" services="media-services" documentationCenter="" title="How to use the Azure Media Services iOS Media Player Framework" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Utilisation d'iOS Media Player Framework avec Azure Media Services" description="Apprenez à utiliser la bibliothèque Media Services iOS Media Player Framework pour créer des applications riches et dynamiques." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="mobile-ios" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="mobile-ios" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
-#Utilisation d'Azure Media Services iOS Media Player Framework
+# Utilisation d'Azure Media Services iOS Media Player Framework
 
 La bibliothèque Azure Media Services iOS Media Player Framework simplifie la tâche des développeurs iPod, iPhone et iPad. Ils peuvent créer des applications clientes dynamiques et enrichies qui permettent de créer et de combiner instantanément des flux audio et vidéo. Par exemple, les applications qui affichent des contenus sportifs peuvent aisément insérer des publicités là où leur concepteur le souhaite et contrôler la fréquence d'affichage de ces publicités, même en cas de rembobinage du contenu principal. Les applications pédagogiques peuvent utiliser les mêmes fonctionnalités, par exemple, pour créer du contenu dans lequel les cours principaux affichent des commentaires ou des encadrés, avant de revenir au contenu principal.
 
@@ -28,7 +28,7 @@ Procédez comme suit pour vous procurer l'application et obtenir une description
 
     `git clone https://github.com/WindowsAzure/azure-media-player-framework`
 
-2. Ouvrez le projet situé dans azure-media-player-framework/src/iOS/HLSClient/ : **SamplePlayer.xcodeproj**.
+2. Ouvrez le projet situé dans `azure-media-player-framework/src/iOS/HLSClient/` : **SamplePlayer.xcodeproj**.
 
  
 3. Voici la structure de l'exemple de lecteur :
@@ -37,7 +37,7 @@ Procédez comme suit pour vous procurer l'application et obtenir une description
 
 4. Le dossier iPad contient deux fichiers .xib : **SeekbarViewController** et **SamplePlayerViewController**. Ils créent la disposition de l'interface utilisateur de l'application iPad. De même, deux fichiers .xib situés dans le dossier iPhone définissent la barre de recherche et le contrôleur. 
 
-6. La logique principale de l'application se trouve dans **SamplePlayerViewController.m** dans le dossier Partagé. La plupart des extraits de code décrits ci-dessous sont situés dans ce fichier. 
+6. La logique principale de l'application se trouve dans **SamplePlayerViewController.m** dans le dossier  `Shared`. La plupart des extraits de code décrits ci-dessous sont situés dans ce fichier. 
 
 ## Vue d'ensemble de la disposition de l'interface utilisateur
 Deux fichiers .xib définissent notre interface lecteur. Dans ce qui suit, c'est la disposition de l'iPad qui est utilisée comme exemple, mais celle de l'iPhone lui ressemble beaucoup et les principes sont les mêmes.
@@ -51,17 +51,17 @@ Deux fichiers .xib définissent notre interface lecteur. Dans ce qui suit, c'est
 
 ### SeekbarViewController_iPad.xib
 ![Seek Bar Controller](http://mingfeiy.com/wp-content/uploads/2013/01/controller.png)
-* Cliquez sur le **bouton de lecture** pour lire le contenu multimédia et faire une pause dans la lecture.
+* Cliquez sur le bouton de **lecture** pour lire le contenu multimédia et faire une pause dans la lecture.
 
 * La **Barre de recherche** présente l'ensemble de la chronologie de lecture. Pour faire une recherche, appuyez sur le bouton de recherche dans la barre de recherche, maintenez-le enfoncé en allant jusqu'au moment souhaité et relâchez-le. 
 
 **Remarque** : lorsque l'utilisateur fait une recherche dans une publicité, une nouvelle barre de recherche apparaît et indique la durée de la publicité. La barre de recherche principale indique uniquement la durée du contenu principal ; ainsi, une publicité y affiche une durée de 0.
 
-* La commande **Chronologie du lecteur** indique deux durées (Label:playerTime), par exemple, 00:23/02:10. Dans ce cas, 00:23 est la durée de lecture actuelle et 02:10 est la durée totale du média. 
+* La commande **Chronologie du lecteur** indique deux durées (`Label:playerTime`), par exemple, 00:23/02:10. Dans ce cas, 00:23 est la durée de lecture actuelle et 02:10 est la durée totale du média. 
 
-* Les **boutons Avance rapide et Retour rapide** ne fonctionnent actuellement pas comme ils le devraient ; une version mise à jour sortira bientôt.
+* Les boutons **Avance rapide et Retour rapide**  ne fonctionnent actuellement pas comme ils le devraient ; une version mise à jour sortira bientôt.
 
-* En appuyant sur le **bouton Planifier maintenant** pendant la lecture du contenu principal, une publicité (dont vous pouvez définir l'URL source dans le code-behind) est insérée. Remarque : dans la version actuelle, vous ne pouvez pas planifier de publicité pendant qu'une autre est en lecture. 
+* En appuyant sur le bouton **Planifier maintenant** pendant la lecture du contenu principal, une publicité (dont vous pouvez définir l'URL source dans le code-behind) est insérée. Remarque : dans la version actuelle, vous ne pouvez pas planifier de publicité pendant qu'une autre est en lecture. 
 
 ### Planification du contenu principal
 Planification d'un clip de contenu de 0 à 80 secondes :
@@ -83,10 +83,10 @@ Dans l'exemple de code ci-dessus :
 * L'objet **MediaTime** contrôle le clip vidéo que vous souhaitez planifier comme contenu principal. Dans l'exemple ci-dessus, le clip vidéo a une durée planifiée de 80 secondes (de 0 à 80 secondes).
 * **clipBeginMediaTime** représente l'heure de début de lecture de la vidéo. Par exemple, si **clipBeginMediaTime** = 5, ce clip vidéo commencera 5 secondes après le début de la vidéo.
 * **clipEndMediaTime** représente l'heure de fin de lecture de la vidéo. Si **clipEndMediaTime** = 100, ce clip vidéo finira à la 100e seconde de la vidéo.
-*Ensuite, nous planifions **MediaTime** en demandant à l'infrastructure **appendContentClip**. Dans l'exemple ci-dessus, [NSURL URLWithString:url] donne l'URL du contenu principal et la planification de ce média est définie grâce à **withMedia** :
- [framework appendContentClip:[NSURL URLWithString:url] withMediaTime:mediaTime andGetClipId:&clipId]).
+*Ensuite, nous planifions **MediaTime** en demandant à l'infrastructure **appendContentClip**. Dans l'exemple ci-dessus, `[NSURL URLWithString:url]` donne l'URL du contenu principal et la planification de ce média est définie grâce à **withMedia** :
+ `[framework appendContentClip:[NSURL URLWithString:url] withMediaTime:mediaTime andGetClipId:&clipId])`.
 
-**Remarque :** planifiez toujours le contenu principal avant une publicité (y compris une publicité pre-roll). 
+**Remarque** : planifiez toujours le contenu principal avant de planifier une publicité (y compris la publicité de pre-roll). 
 
 ### Variation : si deux clips de contenu principal sont en train d'être lus, vous pouvez également planifier un deuxième clip après le premier grâce au code suivant :
 
@@ -100,7 +100,7 @@ Dans l'exemple de code ci-dessus :
         [self logFrameworkError];
     }
 
-Ainsi, le code ci-dessus planifie deux flux de contenu sur la même chronologie de contenu. Le premier contenu est planifié grâce à URLWithString:url et le deuxième l'est avec URLWithString:secondContent. Le deuxième contenu démarre à 30 secondes après le début du flux multimédia et finit à 80 secondes. 
+Ainsi, le code ci-dessus planifie deux flux de contenu sur la même chronologie de contenu. Le premier est planifié d'après `URLWithString:url` et le deuxième l'est d'après `URLWithString:secondContent`. Le deuxième contenu démarre à 30 secondes après le début du flux multimédia et finit à 80 secondes. 
 
 ## Planification d'une publicité 
 Dans la version actuelle, seule une publicité **pauseTimeline=false** est prise en charge, ce qui signifie qu'à la fin d'une publicité, le lecteur reprendra là où le contenu principal s'était arrêté. 
@@ -114,7 +114,7 @@ Voici quelques points clés :
 </ul>
 ### Planification de publicités pre-roll, mid-roll, post-roll et de pods publicitaires
 
-####Planification de publicités pre-roll
+#### Planification de publicités pre-roll
 
     LinearTime *adLinearTime = [[[LinearTime alloc] init] autorelease];
     NSString *adURLString = @"http://smoothstreamingdemo.blob.core.windows.net/videoasset/WA-BumpShort_120530-1.mp4";
@@ -133,17 +133,17 @@ Voici quelques points clés :
     }
 
 L'objet **AdInfo** représente toutes les informations relatives à votre clip publicitaire :
-* **ClipURL**est l'URL de la source du clip.
-* La propriété **mediaTime** indique la durée d'apparition de la publicité. (**clipBeginMediaTime** est l'heure de début d'une publicité et **clipEndMediaTime** définit la fin de la publicité.) Dans l'exemple de code ci-dessus, nous planifions une publicité de 5 secondes qui s'étend de la 0e à la 5e seconde de la durée de la publicité.
+* **ClipURL** est l'URL de la source du clip.
+* La propriété **mediaTime** indique la durée d'apparition de la publicité. (**clipBeginMediaTime** indique l'heure de début et **clipEndMediaTime** l'heure de fin de la publicité.) Dans l'exemple de code ci-dessus, nous planifions une publicité de 5 secondes qui s'étend de la 0e à la 5e seconde de la durée de la publicité.
 * L'objet **Policy** n'est pas actuellement utilisé par l'infrastructure.
 * Vous devez définir la valeur **appendTo** sur -1 s'il ne s'agit pas d'un Ad Pod. 
 * La valeur de **type** peut être pre-roll, mid-roll, post-roll ou ad pod. Pour pre-roll ou post-roll, spécifiez le type, car aucun minutage ne leur est associé. 
 
-####Planification de publicités mid-roll
+#### Planification de publicités mid-roll
 
-Si vous ajoutez adLinearTime.startTime = 23; à l'exemple de code ci-dessus, la publicité se lancera à 23 secondes dans la chronologie du contenu principal.
+Si vous ajoutez `adLinearTime.startTime = 23;` à l'exemple de code ci-dessus, la publicité se lancera à 23 secondes dans la chronologie du contenu principal.
 
-####Planification de publicités post-roll
+#### Planification de publicités post-roll
 
     //Schedule Post Roll Ad
     NSString *postAdURLString=@"http://wamsblureg001orig-hs.cloudapp.net/aa152d7f-3c54-487b-ba07-a58e0e33280b/wp-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
@@ -160,7 +160,7 @@ Si vous ajoutez adLinearTime.startTime = 23; à l'exemple de code ci-dessus, la 
         [self logFrameworkError];
     }
 
-La seule différence par rapport à la planification d'une publicité pre-roll est postAdInfo.type = AdType_Postroll;. Le code ci-dessus planifie une publicité de 5 secondes comme post-roll. 
+La seule différence par rapport à la planification d'une publicité pre-roll est `postAdInfo.type = AdType_Postroll;`. Le code ci-dessus planifie une publicité de 5 secondes comme post-roll. 
 
 #### Planification de pods publicitaires
 Un pod publicitaire est une pause publicitaire durant laquelle plusieurs publicités sont lues dos à dos. Voici le code pour planifier deux publicités dans un pod publicitaire. 
@@ -195,14 +195,15 @@ Un pod publicitaire est une pause publicitaire durant laquelle plusieurs publici
     }
 
 Plusieurs choses sont à remarquer ici :
-* Pour le premier clip, **appendTo** est -1. Lorsque nous appelons [framework scheduleClip:adpodInfo1 atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex], adIndex reçoit une valeur unique indiquant la fin de ce premier clip dans le pod publicitaire. Ensuite, pour le deuxième clip du pod publicitaire, alignez le début de la deuxième publicité avec la fin de la première en définissant **appendTo** comme " adpodInfo2.appendTo = adIndex; ", ce qui précise que la position de fin du premier clip correspond à l'emplacement du début du deuxième. 
-* Vous devez ensuite définir le type comme AdType_Pod pour indiquer qu'il s'agit d'un pod publicitaire. 
+* Pour le premier clip, **appendTo** est -1. Lorsque nous appelons `[framework scheduleClip:adpodInfo1 atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex]`,  `adIndex` reçoit une valeur unique indiquant la fin de ce premier clip dans le pod publicitaire. Ensuite, pour le deuxième clip du pod publicitaire, alignez le début de la deuxième publicité avec la fin de la première en définissant **appendTo** comme `adpodInfo2.appendTo = adIndex;`, ce qui précise que la position de fin du premier clip correspond à l'emplacement du début du deuxième. 
+* Vous devez ensuite définir le type comme `AdType_Pod` pour indiquer qu'il s'agit d'un pod publicitaire. 
 
 ### Planification d'une publicité à lecture unique ou d'une publicité de type sticky
     AdInfo *oneTimeInfo = [[[AdInfo alloc] init] autorelease];
     oneTimeInfo.deleteAfterPlay = YES;
 
 Comme l'illustre l'exemple de code ci-dessus, si vous définissez **deleteAfterPlay** sur **YES**, cette publicité sera seulement lue une fois. De plus, si vous définissez **deleteAfterPlay** sur **NO**, la lecture de cette publicité continue ; c'est ce qu'on appelle une " sticky ad ".
-### Pour plus d'informations, consultez la rubrique [wiki de l'infrastructure Azure Media Player](https://github.com/WindowsAzure/azure-media-player-framework/wiki) .
+### Pour plus d'informations, consultez la rubrique [wiki de l'infrastructure Azure Media Player](https://github.com/WindowsAzure/azure-media-player-framework/wiki).
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

@@ -1,252 +1,158 @@
-﻿<properties urlDisplayName="Using Offline Data" pageTitle="Utilisation des données hors connexion dans Mobile Services (Xamarin iOS) | Centre de développement mobile" metaKeywords="" description="Découvrez comment utiliser Azure Mobile Services pour mettre en cache et synchroniser les données hors connexion dans votre application Xamarin iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using offline data in Mobile Services" authors="donnam" editor="wesmc" manager="dwrede"/>
+﻿<properties pageTitle="Utilisation des données hors connexion dans Mobile Services (Xamarin iOS) | Centre de développement mobile" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin iOS application" documentationCenter="xamarin" authors="lindydonna" editor="wesmc" manager="dwrede" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="12/10/2014" ms.author="donnam"/>
 
 # Utilisation de la synchronisation des données hors connexion dans Mobile Services
 
-[WACOM.INCLUDE [mobile-services-sélecteur-hors-connexion](../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
 
-Cette rubrique vous explique comment utiliser les fonctionnalités hors connexion d'Azure Mobile Services. Ces fonctionnalités vous permettent d'interagir avec une base de données locale lorsque vous vous trouvez dans un scénario hors connexion avec votre service mobile. Les fonctionnalités hors connexion vous permettent de synchroniser vos modifications locales avec le service mobile une fois que vous êtes à nouveau en ligne. 
+Cette rubrique décrit les fonctionnalités de synchronisation hors connexion d'Azure Mobile Services dans l'application de démarrage rapide todo list. La synchronisation hors connexion vous permet de créer facilement des applications qui sont utilisables même lorsque l'utilisateur final n'a pas accès au réseau.
 
-Dans ce didacticiel, vous allez mettre à jour l'application à partir du didacticiel [Prise en main de Mobile Services] ou [Prise en main de données] pour pouvoir prendre en charge les fonctionnalités hors connexion d'Azure Mobile Services. Ensuite, vous allez ajouter les données dans le cadre d'un scénario hors connexion déconnecté, synchroniser ces éléments dans la base de données en ligne, puis vous connecter au portail de gestion Azure pour afficher les modifications apportées aux données lors de l'exécution de l'application.
+La synchronisation hors connexion possède plusieurs utilisations potentielles :
 
->[WACOM.NOTE] Ce didacticiel vise à mieux vous faire comprendre en quoi Mobile Services vous permet de stocker et de récupérer des données dans une application Windows Store à l'aide d'Azure. À cet effet, il vous guide tout au long des nombreuses étapes exécutées automatiquement dans le démarrage rapide Mobile Services. Si vous n'avez aucune expérience de Mobile Services, nous vous invitons à suivre d'abord le didacticiel [Prise en main de Mobile Services].
+* Améliorer la réactivité de l'application en mettant en cache les données de serveur localement sur l'appareil
+* Rendre les applications résistantes à une connectivité réseau intermittente
+* Permettre aux utilisateurs finaux de créer et de modifier des données même en l'absence d'accès au réseau, prenant ainsi en charge des scénarios avec une connectivité faible ou nulle
+* Synchroniser des données sur plusieurs appareils et détecter des conflits lorsque le même enregistrement est modifié par deux appareils
+
+>[AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite Azure</a>. 
 >
->Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">version d'évaluation gratuite Azure</a>. 
+> Si vous n'avez aucune expérience de Mobile Services, commencez par suivre entièrement le didacticiel [Prise en main de Mobile Services].
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 
-1. [Mise à jour de l'application pour prendre en charge les fonctionnalités hors connexion]
-2. [Test de l'application connectée au service mobile]
+1. [Examen du code de synchronisation de Mobile Services]
+2. [Mise à jour du comportement de synchronisation de l'application]
+3. [Mise à jour de l'application pour reconnecter votre service mobile]
 
 Ce didacticiel requiert les éléments suivants :
 
-* XCode 4.5 et iOS 6.0 (ou versions ultérieures) 
 * Visual Studio avec l'extension [Xamarin] **ou** [Xamarin Studio] sur OS X
-* Exécution du didacticiel [Prise en main de Mobile Services] ou [Prise en main des données]
-* [Kit de développement logiciel (SDK) Azure Mobile Services version 1.3.0 (ou version ultérieure)][Mobile Services SDK Nuget]
-* [Azure Mobile Services SQLite Store version 1.0.0 (ou version ultérieure)][SQLite store nuget]
+* XCode 4.5 et iOS 6.0 (ou versions ultérieures) 
+* Exécution du didacticiel [Prise en main de Mobile Services]
 
->[WACOM.NOTE] Les instructions qui suivent partent du principe que vous utilisez Visual Studio 2012 ou version ultérieure avec l'extension Xamarin. Si vous utilisez Xamarin Studio sur OS X, utilisez la prise en charge intégrée du Gestionnaire de package NuGet.
+## <a name="review-offline"></a>Examen du code de synchronisation de Mobile Services
 
-## <a name="enable-offline-app"></a>Mise à jour de l'application pour prendre en charge les fonctionnalités hors connexion
+La synchronisation hors connexion d'Azure Mobile Services permet aux utilisateurs d'interagir avec une base de données locale quand le réseau n'est pas accessible. Pour pouvoir utiliser ces fonctionnalités dans votre application, vous initialisez  `MobileServiceClient.SyncContext` dans un magasin local. Ensuite, vous référencez votre table par le biais de l'interface  `IMobileServiceSyncTable`. 
+Cette section décrit le code relatif à la synchronisation hors dans  `QSTodoService.cs`.
 
-La synchronisation hors connexion d'Azure Mobile Services permet aux utilisateurs d'interagir avec une base de données locale quand le réseau n'est pas accessible. Pour pouvoir utiliser ces fonctionnalités dans votre application, initialisez " MobileServiceClient.SyncContext " dans un magasin local. Ensuite, référencez votre tableau via l'interface " IMobileServiceSyncTable ".
+1. Dans Visual Studio, ouvrez le projet que vous avez terminé dans le didacticiel [Prise en main de Mobile Services]. Ouvrez le fichier  `QSTodoService.cs`.
 
-Un projet avec l'état terminé de ce didacticiel est disponible [ici](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/Xamarin.iOS).
+2. Notez que le type du membre  `todoTable` est  `IMobileServiceSyncTable`. La synchronisation hors connexion utilise cette interface de table de synchronisation à la place de  `IMobileServiceTable`. Lorsqu'une table de synchronisation est utilisée, toutes les opérations vont vers le magasin local et sont uniquement synchronisées avec le service distant avec des opérations push et pull explicites.
 
-1. Dans Visual Studio, ouvrez le projet que vous avez terminé dans le didacticiel [Prise en main de Mobile Services] ou [Prise en main de données]. Dans l'Explorateur de solutions, supprimez la référence au **Kit de développement logiciel (SDK) Azure Mobile Services** dans **Composants**.
+    La méthode  `GetSyncTable()` permet d'obtenir une référence à une table de synchronisation. Pour supprimer la fonctionnalité de synchronisation hors connexion, vous utiliseriez plutôt  `GetTable()`.
 
-2. Installez le package préliminaire de Mobile Services SQLiteStore à l'aide de la commande suivante dans la Console du gestionnaire de package : 
-    
-        install-package WindowsAzure.MobileServices.SQLiteStore -Pre
+3. Avant de pouvoir effectuer des opérations de table, le magasin local doit être initialisé. Cette opération est effectuée dans la méthode  `InitializeStoreAsync` :
 
-    Cette commande installe également toutes les dépendances requises.
-    
-3. Dans le nœud Références, supprimez les références à " System.IO ", " System.Runtime " et " System.Threading.Tasks ".
+        public async Task InitializeStoreAsync()
+        {
+            var store = new MobileServiceSQLiteStore(localDbPath);
+            store.DefineTable<ToDoItem>();
 
-### Modification du fichier QSTodoService.cs 
+            // Uses the default conflict handler, which fails on conflict
+            await client.SyncContext.InitializeAsync(store);
+        }
 
-Modifiez la classe " QSTodoService " afin de permettre l'utilisation des fonctionnalités hors connexion de Mobile Services avec un magasin local SQLite.
+    Ceci crée un magasin local à l'aide de la classe  `MobileServiceSQLiteStore`, qui est fournie dans le Kit de développement logiciel (DSK) Mobile Services. Vous pouvez également fournir une implémentation de magasin local différente en implémentant  `IMobileServiceLocalStore`.
 
-1. Ajoutez les instructions using suivantes au début du fichier.
+    La méthode  `DefineTable` crée une table dans le magasin local qui correspond aux champs dans le type fourni, ici  `ToDoItem`. Ce type n'a pas besoin d'inclure toutes les colonnes qui se trouvent dans la base de données distante, il est possible de stocker uniquement un sous-ensemble de colonnes.
 
-		using Microsoft.WindowsAzure.MobileServices; 
-		using Microsoft.WindowsAzure.MobileServices.Sync; 
-		using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
+    Cette surcharge de  `InitializeAsync` utilise le gestionnaire de conflit par défaut qui échoue lorsqu'il existe un conflit. Pour obtenir un gestionnaire de conflits personnalisé, consultez le didacticiel [Gestion des conflits liés à la prise en charge hors connexion de Mobile Services].
 
-2. Modifiez le type du membre " todoTable " en remplaçant " IMobileServiceTable " par " IMobileServicesSyncTable "
+4. La méthode  `SyncAsync` déclenche l'opération de synchronisation réelle :
 
-		IMobileServiceSyncTable<ToDoItem> todoTable; 
+        public async Task SyncAsync()
+        {
+            try
+            {
+                await client.SyncContext.PushAsync();
+                await todoTable.PullAsync("allTodoItems", todoTable.CreateQuery()); // query ID is used for incremental sync
+            }
 
-3. Dans le constructeur de " QSTodoService ", modifiez l'initialiseur de " todoTable " :
+            catch (MobileServiceInvalidOperationException e)
+            {
+                Console.Error.WriteLine(@"Sync Failed: {0}", e.Message);
+            }
+        }
 
-        todoTable = client.GetSyncTable <ToDoItem> ();
+    Tout d'abord, il existe un appel vers  `IMobileServiceSyncContext.PushAsync()`. Cette méthode est membre de  `IMobileServicesSyncContext` à la place de la table de synchronisation parce qu'elle envoie par Push les modifications sur toutes les tables : Seuls les enregistrements qui ont été modifiés d'une certaine façon en local (par le biais d'opérations CUD) seront envoyés au serveur.
 
-4. Dans le constructeur de " QSTodoService ", ajoutez un appel à " SQLitePCL.CurrentPlatform.Init() " comme deuxième ligne de code :
+    Ensuite, la méthode appelle  `IMobileServiceSyncTable.PullAsync()` pour extraire les données d'une table du serveur vers l'application. Notez que s'il existe des modifications en attente dans le contexte de synchronisation, une opération pull commence toujours par émettre une opération push. Cela a pour but de garantir que toutes les tables dans le magasin local, ainsi que les relations, restent cohérentes. Ici, nous avons appelé l'opération push explicitement.
 
-		QSTodoService ()
-		{
-			CurrentPlatform.Init ();
-            SQLitePCL.CurrentPlatform.Init(); // add this line
+    Dans cet exemple, nous récupérons tous les enregistrements de la table  `TodoItem` distante, mais il est également possible de filtrer les enregistrements en transmettant une requête. Le premier paramètre vers  `PullAsync()` est un ID de requête qui est utilisé pour la synchronisation incrémentielle, qui utilise l'horodatage  `UpdatedAt` pour obtenir uniquement les enregistrements modifiés depuis la dernière synchronisation. L'ID de requête doit être une chaîne descriptive unique pour chaque requête logique dans votre application. Pour refuser la synchronisation incrémentielle, transmettez  `null` en tant qu'ID de requête. Vous récupérerez ainsi tous les enregistrements de chaque opération pull potentiellement inefficace.
 
-			// Initialize the Mobile Service client with your URL and key
-			client = new MobileServiceClient (applicationURL, applicationKey, this);
+    >[AZURE.NOTE] Pour supprimer les enregistrements du magasin local du périphérique lorsqu'ils ont été supprimés dans la base de données de votre service mobile, vous devez activer [Suppression réversible]. Sinon, votre application devra appeler périodiquement  `IMobileServiceSyncTable.PurgeAsync()` pour purger le magasin local.
 
-			// Create an MSTable instance to allow us to work with the TodoItem table
-			todoTable = client.GetSyncTable <ToDoItem> ();
-		}
- 
-5. In the class `QSTodoService`, define a new method `InitializeAsync`:
- 
-		public async Task InitializeStoreAsync()
-		{
-		    string path = "syncstore.db";
-		    var store = new MobileServiceSQLiteStore(path);
-		    store.DefineTable<ToDoItem>();
-		    await client.SyncContext.InitializeAsync(store);
-		}
+    Notez que  `MobileServicePushFailedException` peut survenir pour une opération push ou pull. Le didacticiel suivant, [Gestion des conflits liés à la prise en charge hors connexion de Mobile Services], montre comment gérer ces exceptions associées à la synchronisation.
 
-6. Dans la classe " QSTodoService ", définissez une nouvelle méthode " SyncAsync " :
- 
-		public async Task SyncAsync()
-		{
-		    try
-		    {
-		        await this.client.SyncContext.PushAsync();
-                await this.todoTable.PullAsync("todoItems", todoTable.CreateQuery());
-		    }
-		    catch (MobileServiceInvalidOperationException e)
-		    {
-		        Console.Error.WriteLine(@"Sync Failed: {0}", e.Message);
-		    }
-		}
+5. Dans la classe  `QSTodoService`, la méthode  `SyncAsync()` est appelée après les opérations qui modifient les données,  `InsertTodoItemAsync()` et  `CompleteItemAsync`. Elle est également appelée à partir de  `RefreshDataAsync()`, pour que l'utilisateur récupère les données les plus récentes chaque fois qu'il effectue une actualisation. L'application exécute également une synchronisation lors du démarrage, puisque  `QSTodoListViewController.ViewDidLoad()` appelle  `RefreshDataAsync()`.
 
-### Modification de ToDoItem.cs 
+    Comme  `SyncAsync()` est appelée chaque fois que les données sont modifiées, cette application suppose que l'utilisateur est en ligne chaque fois que des données sont modifiées. Dans la section suivante, nous mettrons à jour l'application pour que les utilisateurs puissent effectuer des modifications même lorsqu'ils ne sont pas connectés.
 
-1. Ajoutez l'instruction using : 
+## <a name="update-sync"></a>Mise à jour du comportement de synchronisation de l'application
 
-        using Microsoft.WindowsAzure.MobileServices; 
+Dans cette section, vous allez modifier l'application pour qu'elle ne se synchronise ni lors de son démarrage, ni lors des opérations d'insertion et de mise à jour, mais uniquement lors d'une actualisation. Ensuite, vous allez rompre la connexion de l'application avec le service mobile pour simuler un scénario hors connexion. Lorsque vous ajoutez des éléments data, ils seront stockés dans le magasin local, sans être immédiatement synchronisés vers le service mobile.
 
+1. Ouvrez  `QSTodoService.cs`. Modifiez les méthodes  `InsertTodoItemAsync()` et  `CompleteItemAsync()` et commentez les appels vers  `SyncAsync()`.
 
-2. Ajoutez les membres suivants à la classe " ToDoItem " :
- 
-		[Version]
-		public string Version { get; set; }
-		
-		
-		public override string ToString()
-		{
-		    return "Text: " + Text + "\nComplete: " + Complete + "\n";
-		}
+2. Dans  `QSTodoService.cs`, commentez les définitions des membres  `applicationURL` et  `applicationKey`. Ajoutez les lignes suivantes, qui font référence à une URL de service mobile incorrecte :
 
-### Modification de QSTodoListViewController.cs 
+        const string applicationURL = @"https://your-mobile-service.azure-mobile.xxx/";
+        const string applicationKey = @"AppKey";
 
-Modifiez " QSTodoListViewController " afin d'appeler la nouvelle méthode " SyncAsync " lorsque l'utilisateur effectue le geste d'actualisation.
- 
-1. Ajoutez un appel à " InitializeStoreAsync " dans " ViewDidLoad() ", après l'initialisation de " todoService " :
+3. Pour modifier l'initialisation de l'interface utilisateur afin qu'elle ne se synchronise pas lors du démarrage de l'application, modifiez la méthode  `QSTodoListViewController.ViewDidLoad()`. Supprimez l'appel vers  `RefreshAsync()` situé la fin de la méthode et remplacez-le par un appel vers  `ReloadData()` :
 
-		public override async void ViewDidLoad ()
-		{
-		    base.ViewDidLoad ();
-		
-		    todoService = QSTodoService.DefaultService;
-			await todoService.InitializeStoreAsync();
-			
-			...    // the rest of the code in the method is unchanged
-		}
+            // RefreshAsync();  // don't sync on app launch
+            TableView.ReloadData (); // load UI only
 
-2. Modifiez la méthode " AddRefreshControl " pour appeler " SyncAsync " avant l'appel de " RefreshAsync " :
+4. Générez et exécutez l'application. Ajoutez de nouveaux éléments todo. Ces nouveaux éléments todo se trouvent uniquement dans le magasin local s'ils peuvent être transmis par Push vers le service mobile. L'application cliente se comporte comme si elle était connectée au service mobile et supportait toutes les opérations CRUD (Create, Read, Update et Delete, ou Créer, Lire, Mettre à jour et Supprimer).
 
+5. Fermez l'application et redémarrez-la pour vérifier que les nouveaux éléments que vous avez créés sont conservés dans le magasin local.
 
-		RefreshControl.ValueChanged += async (sender, e) => {
-            await todoService.SyncAsync();
-			await RefreshAsync();
-		}; 
+## <a name="update-online-app"></a>Mise à jour de l'application pour reconnecter votre service mobile
 
-<!-- 
-DM: commenting this out because this tutorial doesn't show OC conflict handling
-### Edit ToDoItem.cs 
+Dans cette section, vous allez reconnecter l'application au service mobile. Cette opération simule le passage de l'application d'un état hors connexion à un état connecté avec le service mobile. Lorsque vous effectuez une actualisation, les données seront synchronisées avec votre service mobile.
 
-Modify the strongly-type data class to add a version field
+1. Ouvrez  `QSTodoService.cs`. Supprimez l'URL de service mobile incorrecte et rajoutez la clé d'application et l'URL adéquates.
 
-1. In the top of the file, add the using statement: 
+2. Régénérez et exécutez l'application. Notez que les données ont le même aspect que dans le scénario hors connexion, bien que l'application soit à présent connectée au service mobile. Cela s'explique par le fait que l'application utilise toujours la table  `IMobileServiceSyncTable` pointant vers le magasin local.
 
-        using Microsoft.WindowsAzure.MobileServices; 
+3. Connectez-vous au portail de gestion Microsoft Azure et examinez la base de données de votre service mobile. Si votre service utilise le service principal JavaScript, vous pouvez accéder aux données à partir de l'onglet **Données** du service mobile. 
 
-2. Add the following members to the class `ToDoItem`:
- 
-		[Version]
-		public string Version { get; set; }
-		
-		public override string ToString()
-		{
-		    return "Text: " + Text + "\nComplete: " + Complete + "\n";
-		}
-
--->
-
-## <a name="test-online-app"></a>Test de l'application 
-
-Dans cette section, vous allez tester la méthode " SyncAsync " qui synchronise le magasin local avec la base de données des services mobiles.
-
-1. Dans Visual Studio, appuyez sur le bouton **Exécuter** pour générer le projet et démarrer l'application dans l'émulateur iPhone (configuration par défaut pour ce projet).
-
-2. Notez que la liste des éléments dans l'application est vide. Suite aux modifications de code appliquées dans la section précédente, l'application ne lit plus les éléments à partir du service mobile, mais à partir du magasin local. 
-
-3. Ajout d'éléments à la liste ToDo
-
-    ![][1]
-
-
-4. Connectez-vous au portail de gestion Microsoft Azure et examinez la base de données de votre service mobile. Si votre service utilise le service principal JavaScript pour les services mobiles, vous pouvez accéder aux données à partir de l'onglet **Données** du service mobile. Si vous utilisez le service principal .NET pour votre service mobile, vous pouvez cliquer sur le bouton **Gérer** pour votre base de données dans l'extension SQL Azure afin d'exécuter une requête sur la base de votre table.
+    Si vous utilisez le .NET principal pour votre service mobile, dans Visual Studio, accédez à **Explorateur de serveurs** -> **Azure** -> **Bases de données SQL**. Cliquez avec le bouton droit sur votre base de données, puis sélectionnez **Ouvrir dans l'Explorateur d'objets SQL Server**.
 
     Notez que les données n'ont pas été synchronisées entre la base de données et le magasin local.
 
-5. Dans l'application, effectuez le geste d'actualisation en tirant la liste des éléments vers le bas. L'application appelle " MobileServiceClient.SyncContext.PushAsync " et " IMobileServiceSyncTable.PullAsync() ", puis " RefreshTodoItems " pour actualiser l'application avec les éléments du magasin local. 
+4. Dans l'application, effectuez le geste d'actualisation en tirant la liste des éléments vers le bas. Ainsi, l'application appelle  `RefreshDataAsync()`, qui appelle à son tour  `SyncAsync()`. Les opérations push et pull sont effectuées, tout d'abord pour envoyer les éléments du magasin local vers le service mobile, puis pour récupérer les nouvelles données à partir du service.
 
-    Suite à l'opération Push, la base de données du service mobile reçoit les données à partir du magasin. Elle est exécutée à partir de " MobileServiceClient.SyncContext " plutôt que " IMobileServicesSyncTable " et transmet par Push les modifications à toutes les tables associées à ce contexte de synchronisation. Ceci permet de prendre en compte les scénarios dans lesquels des relations existent entre les tables.
-    
-    À l'inverse, l'opération Pull récupère les enregistrements uniquement de la table spécifiée. S'il reste des opérations en attente pour cette table dans le contexte de synchronisation, une opération " PushAsync " est appelée de façon implicite par le Kit de développement logiciel (SDK) Mobile Services.
-        
-    ![][3] 
-
-
-
-    ![][2]
-
-
-  
+5. Contrôlez la base de données de votre service mobile pour confirmer que les modifications ont été synchronisées.
 
 ##Résumé
 
-Pour pouvoir prendre en charge les fonctionnalités hors connexion des services mobiles, nous avons utilisé l'interface " IMobileServiceSyncTable " et initialisé " MobileServiceClient.SyncContext " avec un magasin local. Dans ce cas, le magasin local était une base de données SQLite.
-
-Les opérations CRUD normales pour les services mobiles fonctionnent comme si l'application était toujours connectée, mais toutes les opérations ont lieu sur base du magasin local.
-
-Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avons utilisé les méthodes " IMobileServiceSyncTable.PullAsync " et " MobileServiceClient.SyncContext.PushAsync ".
-
-*  Pour transmettre par Push les modifications au serveur, nous avons appelé " IMobileServiceSyncContext.PushAsync() ". Cette méthode est membre de " IMobileServicesSyncContext " à la place de la table de synchronisation parce qu'elle envoie par Push les modifications sur toutes les tables :
-
-    Seuls les enregistrements qui ont été modifiés d'une certaine façon en local (par le biais d'opérations CUD) seront envoyés au serveur.
-   
-* Pour extraire les données d'une table sur le serveur vers l'application, nous avons appelé " IMobileServiceSyncTable.PullAsync ".
-
-    Une opération Pull émet toujours d'abord une opération Push.  
-
-    La méthode **PullAsync()** requiert un ID de requête et une requête. L'ID de requête est utilisé pour la synchronisation incrémentielle et vous devez utiliser un ID de requête différent pour chaque requête dans votre application. Le  Kit de développement logiciel (SDK) Mobile Services effectue le suivi du dernier horodateur mis à jour après chaque opération d'extraction réussie. Lors de l'extraction suivante, seuls les enregistrements nouveaux seront récupérés. Si la valeur null est spécifiée en tant qu'ID de requête, une synchronisation complète sera effectuée pour la table de synchronisation.
+[AZURE.INCLUDE [mobile-services-offline-summary-csharp](../includes/mobile-services-offline-summary-csharp.md)]
 
 ## Étapes suivantes
 
-Vous pouvez télécharger la version terminée de ce didacticiel dans notre [référentiel d'exemples GitHub](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/Xamarin.iOS).
+* [Gestion des conflits liés à la prise en charge hors connexion de Mobile Services]
 
-
-<!--* [Handling conflicts with offline support for Mobile Services]
--->
 * [Utilisation du client Xamarin Component pour Azure Mobile Services]
 
 <!-- Anchors. -->
-[Mise à jour de l'application pour prendre en charge les fonctionnalités hors connexion]: #enable-offline-app
-[Test de l'application connectée au service mobile]: #test-online-app
-[Étapes suivantes]:#next-steps
+[Examen du code de synchronisation de Mobile Services]: #review-offline
+[Mise à jour du comportement de synchronisation de l'application]: #update-sync
+[Mise à jour de l'application pour reconnecter votre service mobile]: #update-online-app
 
 <!-- Images -->
-[1]: ./media/mobile-services-xamarin-ios-get-started-offline-data/mobile-quickstart-startup-ios.png
-[2]: ./media/mobile-services-xamarin-ios-get-started-offline-data/mobile-data-browse.png
-[3]: ./media/mobile-services-xamarin-ios-get-started-offline-data/mobile-quickstart-completed-ios.png
-
-
 
 <!-- URLs. -->
 [Gestion des conflits liés à la prise en charge hors connexion de Mobile Services]: /fr-fr/documentation/articles/mobile-services-xamarin-ios-handling-conflicts-offline-data/ 
 [Prise en main des données]: /fr-fr/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
 [Prise en main de Mobile Services]: /fr-fr/documentation/articles/partner-xamarin-mobile-services-ios-get-started/
 [Utilisation du client Xamarin Component pour Azure Mobile Services]: /fr-fr/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/
+[Suppression réversible]: /fr-fr/documentation/articles/mobile-services-using-soft-delete/
 
-[Nuget - Kit de développement logiciel (SDK) Mobile Services]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
-[Nuget - magasin SQLite]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
 [Xamarin Studio]: http://xamarin.com/download
 [Extension Xamarin]: http://xamarin.com/visual-studio
-[Complément NuGet pour Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->
