@@ -45,4 +45,5 @@ Vous voici parvenu à la fin de la série de didacticiels présentant les princi
 [Guide de fonctionnement Mobile Services .NET]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library
 
 
+
 <!--HONumber=42-->

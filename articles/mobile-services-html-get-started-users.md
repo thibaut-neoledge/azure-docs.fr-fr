@@ -132,4 +132,5 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Guide de fonctionnement de Mobile Services avec HTML/JavaScript]: /fr-fr/documentation/articles/mobile-services-html-how-to-use-client-library
 
 
+
 <!--HONumber=42-->

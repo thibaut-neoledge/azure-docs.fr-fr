@@ -303,4 +303,5 @@ Pour en savoir plus, consultez les articles suivants :
 [img-hdi-quick-create]: ./media/hdinsight-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount.png  
 
+
 <!--HONumber=42-->

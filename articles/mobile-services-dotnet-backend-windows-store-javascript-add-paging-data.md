@@ -41,4 +41,5 @@ Vous voici parvenu à la fin de la série de didacticiels présentant les princi
 [Portail de gestion]: https://manage.windowsazure.com/
 
 
+
 <!--HONumber=42-->

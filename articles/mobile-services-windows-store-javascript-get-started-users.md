@@ -80,4 +80,5 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [Inscription du package de votre application Windows Store pour l'authentification Microsoft]: /fr-fr/develop/mobile/how-to-guides/register-windows-store-app-package
 
 
+
 <!--HONumber=42-->

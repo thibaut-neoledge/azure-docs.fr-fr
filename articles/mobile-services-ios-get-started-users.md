@@ -88,4 +88,5 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 
 
+
 <!--HONumber=42-->

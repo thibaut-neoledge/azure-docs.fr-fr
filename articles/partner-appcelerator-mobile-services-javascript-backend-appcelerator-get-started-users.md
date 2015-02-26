@@ -112,4 +112,5 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 <!-- URLs. -->
 [Prise en main de Mobile Services]: /fr-fr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
 
+
 <!--HONumber=42-->
