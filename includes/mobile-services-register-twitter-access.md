@@ -40,4 +40,5 @@ Vous devez authentifier vos applications avant d'accéder aux ressources des nou
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Inscription des applications pour l'authentification Twitter avec Mobile Services]: /en-us/documentation/articles/mobile-services-how-to-register-twitter-authentication
 [Développeurs Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Paramètres de l'application]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7<!--HONumber=41-->
+[Paramètres de l'application]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+<!--HONumber=41-->

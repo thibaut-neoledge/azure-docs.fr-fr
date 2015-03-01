@@ -32,4 +32,5 @@ Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre applicatio
 	Votre service mobile et votre application sont désormais configurés pour utiliser le fournisseur d'authentification choisi.
 
 <!-- URLs. -->
-[Portail de gestion Azure]: https://manage.windowsazure.com/<!--HONumber=41-->
+[Portail de gestion Azure]: https://manage.windowsazure.com/
+<!--HONumber=41-->
