@@ -1,10 +1,24 @@
-﻿<properties pageTitle="Installation de MongoDB sur une machine virtuelle Windows Server" description="Apprenez à installer MongoDB sur une machine virtuelle Azure exécutant Windows Server.." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
+<properties 
+	pageTitle="Installation de MongoDB sur une machine virtuelle Windows Server" 
+	description="Apprenez à installer MongoDB sur une machine virtuelle Azure exécutant Windows Server." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="kathydav"/>
 
-#Installation de MongoDB sur une machine virtuelle exécutant Windows Server
+# Installation de MongoDB sur une machine virtuelle exécutant Windows Server
 
-[MongoDB][MongoDB] est une base de données NoSQL open source populaire qui offre des performances élevées. Vous pouvez créer une machine virtuelle exécutant Windows Server à partir de la bibliothèque d'images du [portail de gestion Azure][AzureManagementPortal]. Vous pouvez alors installer et configurer une base de données MongoDB sur la machine virtuelle.
+[MongoDB][MongoDB] est une base de données NoSQL open source populaire qui offre des performances élevées.  Vous pouvez créer une machine virtuelle exécutant Windows Server à partir de la bibliothèque d'images du [portail de gestion Azure][AzureManagementPortal].  Vous pouvez alors installer et configurer une base de données MongoDB sur la machine virtuelle.
 
 Cet article présente les opérations suivantes :
 
@@ -28,20 +42,17 @@ Pour fournir un stockage pour la machine virtuelle, associez un disque de donné
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
 
-Pour des instructions sur la façon d'initialiser le disque, consultez la section " Initialisation d'un nouveau disque de données sous Windows Server " dans la rubrique [Association d'un disque de données avec une machine virtuelle](http://azure.microsoft.com/fr-fr/documentation/articles/storage-windows-attach-disk/).
+Pour des instructions sur la façon d'initialiser le disque, consultez la section " Initialisation d'un nouveau disque de données sous Windows Server " dans la page [Association d'un disque de données avec une machine virtuelle](http://azure.microsoft.com/documentation/articles/storage-windows-attach-disk/).
 
 ## Installation et exécution de MongoDB sur la machine virtuelle 
 
 [AZURE.INCLUDE [install-and-run-mongo-on-win2k8-vm](../includes/install-and-run-mongo-on-win2k8-vm.md)]
 
-##Résumé
+## Résumé
 Ce didacticiel vous a montré comment créer une machine virtuelle Windows Server, vous y connecter à distance et y associer un disque de données.  Vous avez également appris à installer et à configurer MongoDB sur la machine virtuelle Windows. Pour plus d'informations sur MongoDB, consultez la [documentation MongoDB][MongoDocs].
 
 [MongoDocs]: http://www.mongodb.org/display/DOCS/Home
 [MongoDB]: http://www.mongodb.org/
 [AzureManagementPortal]: http://manage.windowsazure.com
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

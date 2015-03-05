@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Tâche de calcul intensif .NET sur une machine virtuelle - Azure" description="Apprenez à déployer et à exécuter une application de calcul intensif .NET sur une machine virtuelle Azure et à utiliser des files d'attente Service Bus pour surveiller la progression à distance." services="virtual-machines" documentationCenter=".net" authors="" manager="wpickett" editor="mollybos"/>
+﻿<properties 
+	pageTitle="Tâche de calcul intensif .NET sur une machine virtuelle - Azure" 
+	description="Apprenez à déployer et à exécuter une application de calcul intensif .NET sur une machine virtuelle Azure et à utiliser des files d'attente Service Bus pour surveiller la progression à distance." 
+	services="virtual-machines" 
+	documentationCenter=".net" 
+	authors="" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="wpickett"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="wpickett"/>
 
 # Exécution d'une tâche nécessitant beaucoup de ressources dans .NET sur une machine virtuelle Azure
 
@@ -43,7 +57,7 @@ Vous trouverez ci-dessous un exemple d'application .NET qui surveille la tâche 
 
 <h2>Connexion distante à votre machine virtuelle</h2>
 
-1. Connectez-vous au [portail de gestion](https://manage.windowsazure.com).
+1. Ouvrez une session sur le [portail de gestion](https://manage.windowsazure.com).
 2. Cliquez sur **Machines virtuelles**.
 3. Cliquez sur le nom de la machine virtuelle à laquelle vous voulez vous connecter.
 4. Cliquez sur **Connecter**.
@@ -51,13 +65,15 @@ Vous trouverez ci-dessous un exemple d'application .NET qui surveille la tâche 
 
 <h2>Création d'un espace de noms Service Bus</h2>
 
-Pour commencer à utiliser les files d'attente Service Bus dans Azure, vous devez d'abord créer un espace de noms de service. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application.
+Pour commencer à utiliser les files d'attente Service Bus dans Azure, vous devez d'abord
+créer un espace de noms de service. Ce dernier fournit un conteneur d'étendue
+pour l'adressage des ressources Service Bus au sein de votre application.
 
 Pour créer un espace de noms de service :
 
 1.  Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com).
 2.  Dans le volet de navigation gauche du portail de gestion, cliquez sur **Bus des services**.
-3.  Dans le volet inférieur du portail de gestion, cliquez sur **Créer**.
+3.  Dans le volet inférieur du portail de gestion, cliquez sur  **Créer**.
 
     ![Create new service bus][create_service_bus]
 4.  Dans la boîte de dialogue **Création d'un espace de noms**, entrez un nom d'espace de noms. Le système vérifie immédiatement si le nom est disponible, puisqu'il doit être unique.
@@ -67,8 +83,8 @@ Pour créer un espace de noms de service :
 
     > [AZURE.IMPORTANT] Sélectionnez la **région** que vous utilisez ou celle que vous prévoyez d'utiliser pour votre machine virtuelle. Vous bénéficiez ainsi des meilleures performances.
 
-6. Si vous disposez de plusieurs abonnements Azure pour le compte avec lequel vous vous connectez, sélectionnez celui qui utilisera l'espace de noms. Si vous ne disposez que d'un abonnement pour le compte avec lequel vous vous connectez, vous ne voyez pas de liste déroulante contenant vos abonnements.
-7. Cliquez sur la coche. Le système crée l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
+6. Si vous disposez de plusieurs abonnements Azure pour le compte avec lequel vous vous connectez, sélectionnez celui qui utilisera l'espace de noms. (Si vous disposez uniquement d'un abonnement pour le compte avec lequel vous êtes connecté, vous ne verrez pas une liste déroulante contenant vos abonnements.)
+7. Cliquez sur la coche. Le système crée à présent l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
 
 	![Click create screenshot][click_create]
 
@@ -76,9 +92,11 @@ L'espace de noms que vous avez créé apparaît alors dans le portail de gestion
 
 <h2>Obtention d'informations d'identification de gestion par défaut pour l'espace de noms</h2>
 
-Pour pouvoir effectuer des opérations de gestion telles que la création d'une file d'attente sur le nouvel espace de noms, vous devez obtenir les informations d'identification de gestion associées.
+Afin d'effectuer des opérations de gestion, comme la création d'une file d'attente, sur
+le nouvel espace de noms, vous devez obtenir les informations d'identification de gestion
+associées.
 
-1.  Dans le volet de navigation gauche, cliquez sur le nœud **Bus de service** node, pour
+1.  Dans le volet de navigation gauche, cliquez sur le nœud **Bus de service**, pour
     afficher la liste des espaces de noms disponibles :   
     ![Available namespaces screenshot][available_namespaces]
 2.  Sélectionnez l'espace de noms que vous venez de créer dans la liste affichée :   
@@ -89,7 +107,7 @@ Pour pouvoir effectuer des opérations de gestion telles que la création d'une 
 
 <h2>Création d'une application .NET exécutant une tâche qui nécessite beaucoup de ressources</h2>
 
-1. Sur votre ordinateur de développement (qui n'est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour .NET](http://www.windowsazure.com/fr-fr/develop/net/).
+1. Sur votre ordinateur de développement (qui n'est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour .NET](http://azure.microsoft.com/develop/net/).
 2. Créez une application console .NET avec le projet nommé **TSPSolver**. Assurez-vous que l'infrastructure cible est définie sur .**NET Framework 4** ou version ultérieure (et non **.NET Framework 4 Client Profile**). Elle peut être définie après la création d'un projet comme suit : dans le menu de Visual Studio, cliquez successivement sur **Projets**, sur **Propriétés** et sur l'onglet **Application**, puis définissez la valeur pour **Framework cible**.
 3. Ajoutez la bibliothèque Microsoft ServiceBus. Dans l'Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur **TSPSolver**, cliquez sur **Ajouter une référence**, sur l'onglet **Parcourir**, accédez au Kit SDK Azure .NET (par exemple à l'emplacement **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**) et sélectionnez **Microsoft.ServiceBus.dll** comme référence.
 4. Ajoutez la bibliothèque System Runtime Serialization. Dans l'Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur **TSPSolver**, cliquez sur **Ajouter une référence**, sur l'onglet **.NET**, puis sélectionnez **System.Runtime.Serialization** comme référence.
@@ -447,7 +465,7 @@ Exécutez l'application nécessitant beaucoup de ressources pour créer la file 
 
 1. Connectez-vous à votre machine virtuelle.
 2. Créez un dossier intitulé **c:\TSP**. C'est celui où vous exécuterez votre application.
-3. Copiez TSPSolver.exe et Microsoft.ServiceBus.dll, tous deux disponibles dans le dossier **bin** de votre projet TSPSolver, dans **c:\TSP**.
+3. Copiez TSPSolver.exe et Microsoft.ServiceBus.dll, lesquels sont disponibles dans le dossier **bin** de votre projet TSPSolver, dans **c:\TSP**.
 4. Créez un fichier intitulé **c:\TSP\cities.txt** avec le contenu suivant :
 
 		City_1, 1002.81, -1841.35
@@ -520,7 +538,7 @@ Le solveur s'exécutera jusqu'à ce qu'il ait examiné tous les itinéraires.
 <h3>Exécution de la surveillance de l'application cliente</h3>
 1. Connectez-vous à l'ordinateur où vous exécuterez l'application cliente. Il ne doit pas nécessairement s'agir de l'ordinateur qui exécute l'application **TSPSolver**.
 2. Créez un dossier où vous exécuterez votre application. Par exemple, **c:\TSP**.
-3. Copiez **TSPClient.exe** et Microsoft.ServiceBus.dll, qui se trouvent tous deux dans le dossier **bin** de votre projet TSPClient, dans le dossier c:\TSP folder.
+3. Copiez **TSPClient.exe** et Microsoft.ServiceBus.dll, lesquels se trouvent dans le dossier **bin** de votre projet TSPClient, dans le dossier c:\TSP.
 4. Depuis une invite de commandes, accédez au répertoire c:\TSP.
 5. Exécutez la commande suivante :
 
@@ -530,7 +548,7 @@ Le solveur s'exécutera jusqu'à ce qu'il ait examiné tous les itinéraires.
 
 	    TSPClient 1
 
-    Le client s'exécutera jusqu'à ce qu'il voie le message de file d'attente " Terminé ". Notez que si vous exécutez plusieurs occurrences du solveur sans exécuter le client, vous serez peut-être amené à exécuter le client plusieurs fois pour vider entièrement la file d'attente. Vous pouvez également supprimer la file d'attente puis la recréer. Pour supprimer la file d'attente, exécutez la commande **TSPSolver** (et non **TSPClient**) :
+    Le client s'exécutera jusqu'à ce qu'il voie le message de file d'attente " Terminé ". Notez que si vous exécutez plusieurs occurrences du solveur sans exécuter le client, vous serez peut-être amené à exécuter le client plusieurs fois pour vider entièrement la file d'attente. Vous pouvez également supprimer la file d'attente puis la recréer. Pour supprimer la file d'attente, exécutez la commande **TSPSolver** (et non **TSPClient**)  :
 
         TSPSolver deletequeue
 
@@ -538,7 +556,7 @@ Le solveur s'exécutera jusqu'à ce qu'il ait examiné tous les itinéraires.
 
 Pour quitter les applications solveur et cliente avant la fin normale, vous pouvez appuyer sur **Ctrl+C**.
 
-<h2>Alternative pour créer et supprimer la file d'attente avec TSPSolver</h2>
+<h2>Alternative à la création et la suppression de la file d'attente avec TSPSolver</h2>
 Au lieu d'utiliser TSPSolver pour créer et supprimer la file d'attente, vous pouvez effectuer ces tâches à l'aide du [portail de gestion Azure](https://manage.windowsazure.com). Consultez la section Service Bus du portail de gestion pour accéder aux interfaces utilisateur afin de créer ou de supprimer une file d'attente, et d'extraire la chaîne de connexion, l'émetteur et la clé d'accès. Vous pouvez également afficher un tableau de bord de vos files d'attente Service Bus, vous permettant de consulter les mesures de vos messages entrants et sortants. 
 
 [solver_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png
@@ -550,7 +568,4 @@ Au lieu d'utiliser TSPSolver pour créer et supprimer la file d'attente, vous po
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

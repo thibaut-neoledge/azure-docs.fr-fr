@@ -1,26 +1,40 @@
-<properties pageTitle="Création et téléchargement d'un disque dur virtuel Linux dans Azure" description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant le système d'exploitation Linux." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
+<properties 
+	pageTitle="Création et téléchargement d'un disque dur virtuel Linux dans Azure" 
+	description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant le système d'exploitation Linux." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="kathydav, szarkos"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="kathydav, szarkos"/>
 
 # Création et téléchargement d'un disque dur virtuel contenant le système d'exploitation Linux
 
 Cet article vous montre comment créer et télécharger un disque dur virtuel pour que vous puissiez l'utiliser comme image personnelle pour créer des machines virtuelles dans Azure. Vous apprendrez comment préparer le système d'exploitation pour créer plusieurs machines virtuelles basées sur cette image.  
 
-> [AZURE.NOTE] Vous n'avez besoin d'aucune expérience préalable avec les machines virtuelles Azure pour suivre les étapes de cet article. Vous devez cependant posséder un compte Azure. Vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Création d'un compte Azure](http://www.windowsazure.com/fr-fr/develop/php/tutorials/create-a-windows-azure-account/). 
+> [AZURE.NOTE] Vous n'avez besoin d'aucune expérience préalable avec les machines virtuelles Azure pour suivre les étapes de cet article. Vous devez cependant posséder un compte Azure. Vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Création d'un compte Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/). 
 
-Une machine virtuelle Azure exécute le système d'exploitation basé sur l'image que vous avez choisie lors de sa création. Vos images sont conservées au format VHD, dans des fichiers .vhd au sein de votre compte de stockage. Pour plus d'informations sur les disques et les images dans Azure, consultez la page [Gestion des disques et des images](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj672979.aspx).
+Une machine virtuelle Azure exécute le système d'exploitation basé sur l'image que vous avez choisie lors de sa création. Vos images sont conservées au format VHD, dans des fichiers .vhd au sein de votre compte de stockage. Pour plus d'informations sur les disques et les images dans Azure, consultez la page [Gestion des disques et des images](http://msdn.microsoft.com/library/windowsazure/jj672979.aspx).
 
 Lors de la création de la machine virtuelle, vous pouvez personnaliser certains paramètres du système d'exploitation pour qu'ils correspondent à l'application que vous souhaitez exécuter. Pour obtenir des instructions, consultez le guide [Création d'une machine virtuelle personnalisée](/fr-fr/manage/windows/how-to-guides/custom-create-a-vm/).
 
 **Important** : L'accord de niveau de service de la plateforme Azure s'applique aux machines virtuelles exécutant le système d'exploitation Linux uniquement lorsqu'une des distributions reconnues est utilisée avec les détails de configuration définis dans [cet article](http://support.microsoft.com/kb/2805216). Toutes les distributions Linux fournies dans la galerie d'images Azure sont des distributions reconnues répondant à la configuration requise.
 
 
-##Configuration requise##
+## Configuration requise##
 Cet article part du principe que vous disposez des éléments suivants :
 
 - **Un certificat de gestion** : vous avez créé un certificat de gestion pour l'abonnement pour lequel vous souhaitez télécharger un disque dur virtuel, puis exporté ce certificat vers un fichier .cer. Pour plus d'informations sur la création de certificats, consultez la page [Création d'un certificat de gestion pour Azure](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx). 
 
-- **Un système d'exploitation Linux installé dans un fichier .vhd** : vous avez installé un système d'exploitation Linux pris en charge dans un disque dur virtuel. Il existe de nombreux outils de création de fichiers .vhd. Par exemple, vous pouvez utiliser une solution de virtualisation telle que Hyper-V pour créer le fichier .vhd et installer le système d'exploitation. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx). 
+- **Système d'exploitation FreeBSD installé dans un fichier .vhd**  - Vous avez installé un système d'exploitation Linux pris en charge sur un disque dur virtuel. Il existe de nombreux outils de création de fichiers .vhd. Par exemple, vous pouvez utiliser une solution de virtualisation telle que Hyper-V pour créer le fichier .vhd et installer le système d'exploitation. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx). 
 
 	**Important** : Azure ne prend pas en charge le nouveau format VHDX. Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de la cmdlet convert-vhd.
 
@@ -28,7 +42,7 @@ Cet article part du principe que vous disposez des éléments suivants :
 
 - **Outil en ligne de commande Linux Azure** : si vous utilisez un système d'exploitation Linux pour créer votre image, utilisez les [outils en ligne de commande Azure pour Linux et Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409) pour charger le fichier VHD.
 
-- **Outils Azure Powershell** : la cmdlet `Add-AzureVhd` est également utilisable pour télécharger le fichier VHD. Visitez la page [Téléchargements Azure](http://azure.microsoft.com/fr-fr/downloads/) pour télécharger les cmdlets Azure Powershell. Pour les informations de référence, consultez la page [Add-AzureVhd](http://msdn.microsoft.com/library/windowsazure/dn495173.aspx).
+- **Outils Azure Powershell** : la cmdlet `Add-AzureVhd` est également utilisable pour télécharger le fichier VHD. Visitez la page [Téléchargements Azure](http://azure.microsoft.com/downloads/) pour télécharger les cmdlets Azure Powershell. Pour les informations de référence, consultez la page [Add-AzureVhd](http://msdn.microsoft.com/library/windowsazure/dn495173.aspx).
 
 
 Cette procédure comprend les étapes suivantes :
@@ -42,7 +56,7 @@ Cette procédure comprend les étapes suivantes :
 
 Microsoft Azure prend en charge diverses distributions de Linux (voir [Distributions Linux approuvées](../linux-endorsed-distributions)). Les articles suivants vous montrent comment préparer les diverses distributions de Linux prises en charge dans Azure :
 
-- **[Distributions basées sur CentOS](../virtual-machines-linux-create-upload-vhd-centos)**
+- **[Distributions CentOS](../virtual-machines-linux-create-upload-vhd-centos)**
 - **[Oracle Linux](../virtual-machines-linux-create-upload-vhd-oracle)**
 - **[SLES et openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](../virtual-machines-linux-create-upload-vhd-ubuntu)**
@@ -71,7 +85,7 @@ Un compte de stockage représente le plus haut niveau d'espace de noms pour l'ac
 
 	![Enter storage account details](./media/virtual-machines-linux-create-upload-vhd/storage-create-account.png)
 
-- Sous **URL**, entrez un nom de sous-domaine à utiliser dans l'URL du compte de stockage. L'entrée peut être composée de 3 à 24 lettres minuscules et chiffres. Ce nom devient le nom d'hôte contenu dans l'URL utilisée pour adresser les ressources d'objets blob, de files d'attente et de tables pour l'abonnement.
+- Sous **URL**, tapez un nom de sous-domaine à utiliser dans l'URL pour le compte de stockage. L'entrée peut être composée de 3 à 24 lettres minuscules et chiffres. Ce nom devient le nom d'hôte contenu dans l'URL utilisée pour adresser les ressources d'objets blob, de files d'attente et de tables pour l'abonnement.
 	
 - Sélectionnez l'emplacement ou le groupe d'affinités pour le compte de stockage. En indiquant un groupe d'affinités, vous pouvez localiser vos services cloud dans le même centre de données, avec votre stockage.
  
@@ -102,14 +116,14 @@ Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexio
 
 	`Import-AzurePublishSettingsFile <PathToFile>`
 
-	Où `<PathToFile>` correspond au chemin d'accès complet vers le fichier .publishsettings. 
+	Où `<PathToFile>` est le chemin d'accès complet au fichier .publishsettings. 
 
-	Pour plus d'informations, consultez la page [Prise en main des cmdlets Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554332.aspx) 
+	Pour plus d'informations, consultez la page [Prise en main des cmdlets Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) 
 
 
 ## <a id="upload"> </a>Étape 4 : téléchargement de l'image sur Azure ##
 
-Lorsque vous téléchargez le fichier .vhd, vous pouvez le placer n'importe où dans votre stockage d'objets blob. Dans les exemples de commandes suivants, **BlobStorageURL** correspond à l'URL du compte de stockage que vous avez créé lors de l'étape 2 et **YourImagesFolder** est le conteneur du stockage d'objets blob où vous voulez stocker vos images. **VHDName** est l'étiquette affichée dans le portail de gestion pour identifier le disque dur virtuel. **PathToVHDFile** est le chemin d'accès complet et le nom du fichier .vhd. 
+Lorsque vous téléchargez le fichier .vhd, vous pouvez le placer n'importe où dans votre stockage d'objets blob. Dans les exemples de commande suivants, **BlobStorageURL** correspond à l'URL du compte de stockage que vous avez créé lors de l'étape 2 et **YourImagesFolder** est le conteneur du stockage d'objets blob où vous souhaitez stocker vos images. **VHDName** est l'étiquette affichée dans le portail de gestion pour identifier le disque dur virtuel. **PathToVHDFile** est le chemin d'accès complet et le nom du fichier .vhd. 
 
 Effectuez l'une des actions suivantes :
 
@@ -117,7 +131,7 @@ Effectuez l'une des actions suivantes :
 
 		`Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>`
 
-	Pour plus d'informations, consultez la page [Add-AzureVhd](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn205185.aspx).
+	Pour plus d'informations, consultez la page [Add-AzureVhd](http://msdn.microsoft.com/library/windowsazure/dn205185.aspx).
 
 - Utilisez l'outil en commande de ligne Linux pour télécharger l'image. La commande suivante permet de télécharger une image :
 
@@ -131,5 +145,4 @@ Effectuez l'une des actions suivantes :
 [Étape 4 : téléchargement de l'image sur Azure]: #upload
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

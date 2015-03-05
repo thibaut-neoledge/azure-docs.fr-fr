@@ -1,10 +1,24 @@
-<properties pageTitle="Configuration de Tomcat7 sur un ordinateur virtuel Linux avec Microsoft Azure" description="Apprenez à configurer Tomcat7 avec Microsoft Azure à l'aide d'une machine virtuelle Azure exécutant Linux." services="virtual-machines" documentationCenter="" authors="NingKuang" manager="timlt" editor="tysonn"/>
+﻿<properties 
+	pageTitle="Configuration de Tomcat7 sur un ordinateur virtuel Linux avec Microsoft Azure" 
+	description="Apprenez à configurer Tomcat7 avec Microsoft Azure à l'aide d'une machine virtuelle Azure exécutant Linux." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="NingKuang" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="ningk"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/27/2014" 
+	ms.author="ningk"/>
 
 #Configuration de Tomcat7 sur un ordinateur virtuel Linux avec Microsoft Azure 
 
-Apache Tomcat (ou simplement Tomcat, aauparavant également Jakarta Tomcat) est un serveur web open source et un conteneur de servlet développé par Apache Software Foundation (ASF). Tomcat implémente le Servlet Java et les spécifications Java Server Pages (JSP) de Sun Microsystems et fournit un environnement de serveur web HTTP Java pur dans lequel exécuter un code Java. Dans la configuration la plus simple, Tomcat s'exécute dans un processus de système d'exploitation unique. Ce processus exécute une machine virtuelle Java (JVM). Chaque requête HTTP d'un navigateur vers Tomcat est traitée comme un thread séparé dans le processus de Tomcat.  
+Apache Tomcat (ou simplement Tomcat, auparavant également Jakarta Tomcat) est un serveur web open source et un conteneur de servlet développé par Apache Software Foundation (ASF). Tomcat implémente le Servlet Java et les spécifications Java Server Pages (JSP) de Sun Microsystems et fournit un environnement de serveur web HTTP Java pur dans lequel exécuter un code Java. Dans la configuration la plus simple, Tomcat s'exécute dans un processus de système d'exploitation unique. Ce processus exécute une machine virtuelle Java (JVM). Chaque requête HTTP d'un navigateur vers Tomcat est traitée comme un thread séparé dans le processus de Tomcat.  
 
 Dans ce guide, vous installerez Tomcat7 sur une image Linux et le déploierez dans Microsoft Azure.  
 
@@ -14,7 +28,7 @@ Vous apprendrez à effectuer les opérations suivantes :
 -	Préparation de la machine virtuelle pour tomcat7.
 -	Installation de tomcat7.
 
-Nous partons du principe que le lecteur possède déjà un abonnement Azure.  Si ce n'est pas le cas, vous pouvez vous inscrire pour obtenir une évaluation gratuite sur [http://azure.microsoft.com](http://azure.microsoft.com). Si vous avez un abonnement MSDN, consultez [Tarifs préférentiels Microsoft Azure : avantages MSDN, MPN et Bizspark](http://azure.microsoft.com/fr-fr/pricing/member-offers/msdn-benefits/?c=14-39). Pour en savoir plus sur Azure, consultez [Présentation d'Azure](http://azure.microsoft.com/fr-fr/overview/what-is-azure/).
+Nous partons du principe que le lecteur possède déjà un abonnement Azure.  Si ce n'est pas le cas, vous pouvez vous inscrire pour obtenir une évaluation gratuite sur [http://azure.microsoft.com](http://azure.microsoft.com). Si vous avez un abonnement MSDN, consultez [Tarifs préférentiels Microsoft Azure : avantages MSDN, MPN et Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Pour en savoir plus sur Azure, consultez [Présentation d'Azure](http://azure.microsoft.com/overview/what-is-azure/).
 
 Cette rubrique suppose que vous avez des connaissance de base relatives à tomcat et Linux.  
 
@@ -41,8 +55,8 @@ Pour générer la clé d'authentification SSH, procédez comme suit.
 5.	Sélectionnez et copiez la clé publique dans **Key** et enregistrez-la dans un fichier nommé publicKey.pem. Ne cliquez pas sur **Save public key**, car le format de fichier de la clé publique enregistrée est différent de la clé publique que nous voulons.
 6.	Cliquez sur **Save private key** et enregistrez-la dans un fichier nommé privateKey.ppk. 
 
-###Étape 2 : création de l'image dans le portail Azure Preview.
-Dans le [portail Azure Preview](https://portal.azure.com/), cliquez sur **Nouveau** dans la barre des tâches pour créer une image, en choisissant l'image Linux selon vos besoins. L'exemple suivant utilise l'image Ubuntu 14.04. 
+###Étape 2 : création de l'image dans le portail Azure en version préliminaire.
+Dans le [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Nouveau** dans la barre des tâches pour créer une image, en choisissant l'image Linux selon vos besoins. L'exemple suivant utilise l'image Ubuntu 14.04. 
 ![][3]
  
 Pour **Nom d'hôte**, spécifiez le nom de l'URL que les clients Internet utiliseront pour accéder à cette machine virtuelle. Définissez la dernière partie du nom DNS, par exemple tomcatdemo, et Azure génère l'URL comme tomcatdemo.cloudapp.net.  
@@ -59,7 +73,7 @@ Les points de terminaison dans Azure se composent d'un protocole (TCP ou UDP) et
 
 Le port TCP 8080 est le numéro de port par défaut sur lequel tomcat écoute. L'ouverture de ce port avec un point de terminaison Azure vous permettra (à vous et à d'autres clients Internet) d'accéder aux pages tomcat.  
 
-1.	Dans le portail Azure Preview, cliquez sur **Parcourir** -> **Machine virtuelle**, puis cliquez sur la machine virtuelle que vous avez créée.  
+1.	Dans le portail Azure en version préliminaire, cliquez sur **Parcourir** -> **Machine virtuelle**, puis cliquez sur la machine virtuelle que vous avez créée.  
 ![][5]
 2.	Pour ajouter un point de terminaison à votre machine virtuelle, cliquez sur la zone **Points de terminaison**.
 ![][6] 
@@ -79,7 +93,7 @@ Le port TCP 8080 est le numéro de port par défaut sur lequel tomcat écoute. L
 ###Étape 2 : connexion à l'image que vous avez créée
 Vous pouvez choisir n'importe quel outil SSH pour vous connecter à votre machine virtuelle. Dans cet exemple, nous utilisons Putty.  
 
-Tout d'abord, obtenez le nom DNS de votre machine virtuelle à partir du portail Azure Preview. **Cliquez sur Parcourir** -> **Machines virtuelles**-> nom de votre machine virtuelle -> **Propriétés**, puis regardez dans le champ **Nom de domaine** de la vignette **Propriétés**.  
+Tout d'abord, obtenez le nom DNS de votre machine virtuelle à partir du portail Azure en version préliminaire. **Cliquez sur Parcourir** -> **Machines virtuelles**-> nom de votre machine virtuelle -> **Propriétés**, puis regardez dans le champ **Nom de domaine** de la vignette **Propriétés**.  
 
 Obtenez le numéro de port pour les connexions SSH à partir du champ **SSH**. Voici un exemple.  
 ![][8]
@@ -112,7 +126,7 @@ Dans cette phase, vous installez l'environnement d'exécution Java, tomcat et d'
 ###Environnement d'exécution Java
 Tomcat est écrit en Java. Il existe deux types de kits de développement Java (JDK) (OpenJDK et JDK Oracle). Vous pouvez choisir celui que vous souhaitez.  
 
->AZURE.NOTE: Les deux JDK ont pratiquement le même code pour les classes dans l'API Java, mais le code de la machine virtuelle est en fait différent. En ce qui concerne les bibliothèques, OpenJDK utilise généralement des bibliothèques libres tandis que celle d'Oracle sont fermées. Mais le JDK Oracle a plus de classes et quelques correctifs et il est plus stable qu'OpenJDK. 
+>AZURE.NOTE : Les deux JDK ont pratiquement le même code pour les classes dans l'API Java, mais le code de la machine virtuelle est en fait différent. En ce qui concerne les bibliothèques, OpenJDK utilise généralement des bibliothèques libres tandis que celle d'Oracle sont fermées. Mais le JDK Oracle a plus de classes et quelques correctifs et il est plus stable qu'OpenJDK. 
 
 Les commandes suivantes téléchargent les différents JDK.  
 
@@ -199,13 +213,13 @@ Vous pouvez modifier le fichier de configuration utilisateur de Tomcat pour conf
 Voici un exemple :  
 ![][17]  
 
->AZURE.NOTE: Création d'un mot de passe fort pour le nom d'utilisateur admin.  
+>AZURE.NOTE : Création d'un mot de passe fort pour le nom d'utilisateur admin.  
 
 Après avoir modifié ce fichier, vous devez redémarrer les services tomcat7 avec la commande suivante pour vous assurer que les modifications prennent effet :  
 
 	sudo /etc/init.d/tomcat7 restart  
 
-Ouvrez votre navigateur et entrez l'URL **http://<your tomcat server DNS name>/manager/html**. Par exemple, dans cet article, l'URL est http://tomcatexample.cloudapp.net/manager/html.  
+Ouvrez votre navigateur et entrez l'URL **http://<nom DNS de votre serveur tomcat>/manager/html**. Pour l'exemple de cet article, l'URL est http://tomcatexample.cloudapp.net/manager/html.  
 
 Une fois connecté, vous devez voir quelque chose de similaire à ce qui suit :  
 ![][18]
@@ -214,9 +228,9 @@ Une fois connecté, vous devez voir quelque chose de similaire à ce qui suit :
 
 ###Impossible d'accéder à une machine virtuelle avec Tomcat et Moodle à partir d'Internet
 
--	**Symptôme**
+-	**Symptôme**  
 Tomcat est en cours d'exécution, mais vous ne voyez pas la page par défaut Tomcat avec votre navigateur.
--	**Cause principale possible**
+-	**Cause principale possible**   
 	1.	Le port d'écoute tomcat n'est pas identique au Port privé du point de terminaison de votre machine virtuelle pour le trafic tomcat.  
 	
 		Vérifiez vos paramètres de points de terminaison de port public et de port privé et assurez-vous que le Port privé est identique au port d'écoute tomcat. Consultez la Phase 1 : création d'une image pour obtenir des instructions sur la configuration des points de terminaison pour votre machine virtuelle.  
@@ -229,7 +243,7 @@ Tomcat est en cours d'exécution, mais vous ne voyez pas la page par défaut Tom
 
 			sudo vi /etc/default/tomcat7  
 
-		Puis annulez le commentaire de la dernière ligne et remplacez « no » par « yes ».
+		Supprimez ensuite le commentaire de la dernière ligne, puis remplacez " non " par " oui ".  
 
 			AUTHBIND=yes
 
@@ -262,7 +276,7 @@ Tomcat est en cours d'exécution, mais vous ne voyez pas la page par défaut Tom
 
 ###Autorisation refusée quand vous téléchargez vos fichiers de projet vers /var/lib/tomcat7/webapps/  
 
--	**Symptôme**
+-	**Symptôme**  
 Quand vous utilisez un client SFTP (par exemple, FileZilla) pour vous connecter à votre machine virtuelle et que vous accédez à /var/lib/tomcat7/webapps/ pour publier votre site, un message d'erreur semblable au suivant s'affiche :  
 
 		status:	Listing directory /var/lib/tomcat7/webapps
@@ -270,7 +284,7 @@ Quand vous utilisez un client SFTP (par exemple, FileZilla) pour vous connecter 
 		Error:	/var/lib/tomcat7/webapps/info.jsp: open for write: permission denied
 		Error:	File transfer failed
 
--	**Cause principale possible**
+-	**Cause principale possible** 
 Vous n'êtes pas autorisé à accéder au dossier /var/lib/tomcat7/webapps.  
 -	**Solution**  
 Vous devez obtenir l'autorisation à partir du compte racine. Vous pouvez modifier le propriétaire par défaut de ce dossier (la racine) et choisir le nom d'utilisateur que vous avez utilisé lors de l'approvisionnement de la machine. Voici un exemple avec le nom de compte azureuser :  
@@ -309,7 +323,4 @@ Vous devez obtenir l'autorisation à partir du compte racine. Vous pouvez modifi
 [16]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-16.png
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

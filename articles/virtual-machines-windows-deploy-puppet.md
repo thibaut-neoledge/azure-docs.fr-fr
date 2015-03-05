@@ -1,6 +1,20 @@
-<properties pageTitle="À propos des machines virtuelles Puppet et Azure" description="Explique l'installation et la configuration de Puppet sur une machine virtuelle dans Azure" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="À propos des machines virtuelles Puppet et Azure" 
+	description="Explique l'installation et la configuration de Puppet sur une machine virtuelle dans Azure" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/23/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/23/2015" 
+	ms.author="kathydav"/>
 
 #À propos des machines virtuelles Puppet et Azure
 
@@ -25,12 +39,10 @@ Pour obtenir des instructions, téléchargez le " Guide de prise en main " dispo
 
 <!--Link references-->
 [Nouvelles intégrations avec Microsoft Azure et Visual Studio]: http://puppetlabs.com/blog/new-integrations-windows-azure-and-visual-studio
-[Connexion à une machine virtuelle exécutant Windows Server]: ../virtual-machines-log-on-windows-server/
+[Connexion à une Machine virtuelle exécutant Windows Server]: ../virtual-machines-log-on-windows-server/
 [Connexion à une machine virtuelle exécutant Linux]: ../virtual-machines-linux-how-to-log-on
 [Fonctionnalités et extensions de machine virtuelle Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
-[Gestion des extensions]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

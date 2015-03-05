@@ -1,6 +1,20 @@
-<properties pageTitle="Gestion de la disponibilité des machines virtuelles - Azure" description="Apprenez à utiliser plusieurs machines virtuelles afin de garantir la haute disponibilité de votre application Azure." services="virtual-machines" documentationCenter="" authors="kenazk" manager="timlt" editor="tysonn"/>
+<properties 
+	pageTitle="Gestion de la disponibilité des machines virtuelles - Azure" 
+	description="Apprenez à utiliser plusieurs machines virtuelles afin de garantir la haute disponibilité de votre application Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="kenazk" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/26/2014" ms.author="kenazk"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/26/2014" 
+	ms.author="kenazk"/>
 
 #Gestion de la disponibilité des machines virtuelles
 
@@ -29,7 +43,7 @@ Les domaines d'erreur définissent le groupe de machines virtuelles partageant u
 <!--Image reference-->
    ![UD FD configuration](./media/virtual-machines-manage-availability/ud-fd-configuration.png)
 
->[AZURE.NOTE] Pour des instructions, consultez la page [Configuration d'un groupe à haute disponibilité pour des machines virtuelles ] [].
+>[AZURE.NOTE] Pour obtenir des instructions, consultez la page [Configuration d'un groupe à haute disponibilité pour des machines virtuelles] [].
 
 ### Configuration de chaque couche application dans des groupes à haute disponibilité séparés
 Si les machines virtuelles de votre groupe à haute disponibilité sont presque identiques et ont la même fonction au sein de votre application, nous vous recommandons de configurer un groupe à haute disponibilité pour chaque couche de votre application.  Si vous placez deux couches différentes dans le même groupe à haute disponibilité, toutes les machines virtuelles de la même couche application pourraient redémarrer en même temps. En configurant deux machines virtuelles ou plus dans un groupe à haute disponibilité par couche, vous vous assurez qu'au moins une machine de chaque couche restera disponible.   
@@ -59,5 +73,4 @@ Si l'équilibrage de charge n'est pas configuré pour équilibrer le trafic entr
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

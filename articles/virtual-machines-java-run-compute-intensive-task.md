@@ -1,6 +1,20 @@
-<properties pageTitle="Application de calcul intensif Java sur une machine virtuelle - Azure" description="Apprenez à créer une machine virtuelle Azure qui exécute une application de calcul intensif Java qu'une autre application Java peut surveiller." services="virtual-machines" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor="mollybos"/>
+﻿<properties 
+	pageTitle="Application de calcul intensif Java sur une machine virtuelle - Azure" 
+	description="Apprenez à créer une machine virtuelle Azure qui exécute une application de calcul intensif Java qu'une autre application Java peut surveiller." 
+	services="virtual-machines" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Exécution d'une tâche nécessitant beaucoup de ressources en langage Java sur une machine virtuelle
 
@@ -54,7 +68,7 @@ Notez que **JDK 6 Windows Server 2012** est disponible si vous ne pouvez pas ex�
 
 ## Connexion distante à votre machine virtuelle
 
-1. Connectez-vous au [portail de gestion](https://manage.windowsazure.com).
+1. Ouvrez une session sur le [portail de gestion](https://manage.windowsazure.com).
 2. Cliquez sur **Machines virtuelles**.
 3. Cliquez sur le nom de la machine virtuelle à laquelle vous voulez vous connecter.
 4. Cliquez sur **Connecter**.
@@ -64,18 +78,20 @@ Notez que la fonctionnalité Azure Service Bus requiert l'installation du certif
 
 ## Création d'un espace de noms Service Bus
 
-Pour commencer à utiliser les files d'attente Service Bus dans Azure, vous devez d'abord créer un espace de noms de service. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application.
+Pour commencer à utiliser les files d'attente Service Bus dans Azure, vous devez d'abord créer un espace de noms de service.
+créer un espace de noms de service. Ce dernier fournit un conteneur d'étendue
+pour l'adressage des ressources Service Bus au sein de votre application.
 
 Pour créer un espace de noms de service :
 
-1.  Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com).
+1.  Ouvrez une session sur le [portail de gestion Azure](https://manage.windowsazure.com).
 2.  Dans le volet de navigation gauche du portail de gestion, cliquez sur **Bus des services, Contrôle d'accès et Cache**.
 3.  Dans le volet supérieur gauche du portail de gestion, cliquez sur le nœud **Bus des
     services**, puis sur le bouton **Nouveau**.  
     ![Service Bus Node screenshot][svc_bus_node]
 4.  Dans la boîte de dialogue **Création d'un espace de noms Service Bus**, entrez un
     **Espace de noms**. Puis, afin de vous assurer qu'il est unique, cliquez sur le
-    bouton **Vérifier disponibilité**.  
+    bouton **Vérifier la disponibilité**.  
     ![Create a New Namespace screenshot][create_namespace]
 5.  Après vous être assuré de la disponibilité du nom de l'espace de noms, choisissez le
     pays ou la région où votre espace de noms doit être hébergé, puis cliquez sur le bouton **Créer l'espace de noms**.  
@@ -85,16 +101,20 @@ Pour créer un espace de noms de service :
 
 ## Obtention d'informations d'identification de gestion par défaut pour l'espace de noms
 
-Pour pouvoir effectuer des opérations de gestion telles que la création d'une file d'attente sur le nouvel espace de noms, vous devez obtenir les informations d'identification de gestion associées.
+Afin d'effectuer des opérations de gestion, comme la création d'une file d'attente, sur
+le nouvel espace de noms, vous devez obtenir les informations d'identification de gestion
+associées.
 
 1.  Dans le volet de navigation gauche, cliquez sur le nœud **Bus de service** node, pour
     afficher la liste des espaces de noms disponibles :   
     ![Available Namespaces screenshot][avail_namespaces]
 2.  Sélectionnez l'espace de noms que vous venez de créer dans la liste affichée :   
     ![Namespace List screenshot][namespace_list]
-3.  Le volet **Propriétés** de droite répertorie les propriétés du nouvel espace de noms :   
+3.  Le volet **Propriétés** de droite répertorie les propriétés du
+    nouvel espace de noms :   
     ![Properties Pane screenshot][properties_pane]
-4.  La **Clé par défaut** est masquée. Cliquez sur le bouton **Afficher** pour afficher les informations d'identification de sécurité :
+4.  La **Clé par défaut** est masquée. Cliquez sur le bouton **Afficher** pour afficher les
+    informations d'identification de sécurité :   
     ![Default Key screenshot][default_key]
 5.  Notez l'**émetteur par défaut** et la **clé par défaut**, étant donné que vous
     utiliserez les informations ci-dessous plus tard, afin d'effectuer les opérations avec
@@ -102,8 +122,8 @@ Pour pouvoir effectuer des opérations de gestion telles que la création d'une 
 
 ## Création d'une application Java exécutant une tâche qui nécessite beaucoup de ressources
 
-1. Sur votre ordinateur de développement (qui n'est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour Java](http://www.windowsazure.com/fr-fr/develop/java/).
-2. Créez une application console Java à l'aide de l'exemple de code disponible à la fin de cette section. Dans le cadre de ce didacticiel, nous utiliserons le nom de fichier Java **TSPSolver.java**. Modifiez les espaces réservés **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** et **your\_service\_bus\_key** pour utiliser respectivement vos valeurs Service Bus **Espace de noms**, **Émetteur par défaut** et **Clé par défaut**.
+1. Sur votre ordinateur de développement (qui n'est pas nécessairement celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour Java](http://azure.microsoft.com/develop/java/).
+2. Créez une application console Java à l'aide de l'exemple de code disponible à la fin de cette section. Dans le cadre de ce didacticiel, nous utiliserons le nom de fichier Java **TSPSolver.java**. Modifiez les espaces réservés **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** et **your\_service\_bus\_key** pour utiliser vos valeurs d'**Espace de noms**, d'**Émetteur par défaut** et de **Clé par défaut** Service Bus, respectivement.
 3. Après le codage, exportez l'application dans une archive Java exécutable (JAR) et créez un package contenant les bibliothèques requises dans le fichier JAR généré. Dans le cadre de ce didacticiel, nous utiliserons le nom **TSPSolver.jar** pour désigner le fichier JAR généré.
 
 <p/>
@@ -520,5 +540,4 @@ Pour quitter les applications solveur et cliente avant la fin normale, vous pouv
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-<properties pageTitle="Connexion à une machine virtuelle exécutant Windows Server" description="Apprenez à utiliser le portail de gestion Azure pour vous connecter à une machine virtuelle exécutant Windows Server." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
+﻿<properties 
+	pageTitle="Connexion à une machine virtuelle exécutant Windows Server" 
+	description="Apprenez à utiliser le portail de gestion Azure pour vous connecter à une machine virtuelle exécutant Windows Server." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/22/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/22/2015" 
+	ms.author="kathydav"/>
 
 
 #Connexion à une machine virtuelle exécutant Windows Server#
@@ -9,4 +23,4 @@ Pour vous connecter à une machine virtuelle exécutant Windows Server, utilisez
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
 
-<!--HONumber=4-->
+<!--HONumber=45--> 

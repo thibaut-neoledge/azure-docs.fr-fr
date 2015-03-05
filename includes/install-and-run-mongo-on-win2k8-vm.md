@@ -3,11 +3,11 @@
 > [AZURE.IMPORTANT] Les fonctionnalités de sécurité MongoDB, comme l'authentification et la liaison d'adresse IP, ne sont pas activées par défaut. Elles doivent être activées avant le déploiement de MongoDB dans un environnement de production.  Pour plus d'informations, consultez la page [Sécurité et authentification](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
 
 1. Une fois que vous êtes connecté à la machine virtuelle à l'aide du Bureau à distance, ouvrez Internet Explorer à partir du menu **Démarrer**.
-2. Sélectionnez le bouton **Outils** dans le coin supérieur droit.  Dans **Options Internet**, sélectionnez l'onglet **Sécurité**, l'icône **Sites de confiance**, puis cliquez sur le bouton **Sites**. Ajoutez *http://\*.mongodb.org* à la liste des sites de confiance.
-3. Accédez à [Téléchargements - MongoDB] [MongoDownloads].
-4. Recherchez la version la plus récente sous la section **Version de production (Recommandé)** et cliquez sur le lien ***2008+** dans la colonne Windows 64 bits.  Cliquez sur **Enregistrer sous**, puis enregistrez le fichier .zip sur le Bureau.
+2. Cliquez sur le bouton **Outils** dans le coin supérieur droit.  Dans **Options Internet**, sélectionnez l'onglet **Sécurité**, cliquez sur l'icône **Sites de confiance**, puis cliquez sur le bouton **Sites**. Ajoutez *http://\*.mongodb.org* à la liste des sites de confiance.
+3. Accédez à la page des [téléchargements de MongoDB] [MongoDownloads].
+4. Recherchez la version la plus récente dans la section **Production Release (Recommended)** et cliquez sur le lien ***2008+** dans la colonne " Windows 64-bit ".  Cliquez sur **Enregistrer sous**, puis enregistrez le fichier .zip sur le Bureau.
 5. Cliquez avec le bouton droit sur le fichier .zip, puis sélectionnez **Extraire tout...**  Spécifiez " C: ", puis cliquez sur **Extraire**.  Une fois les fichiers extraits, vous pouvez renommer le dossier d'installation pour lui donner un nom plus simple.  " MongoDB ", par exemple.
-6. Créez les répertoires de données et du journal MongoDB dans le disque de données (lecteur **F:**, par exemple) créé lors des étapes précédentes. Dans le menu **Démarrer**, sélectionnez **Invite de commande** pour ouvrir une fenêtre d'invite de commandes.  Type :
+6. Créez les répertoires des données et des journaux MongoDB dans le disque de données (lecteur **F:**, par exemple) créé lors des étapes précédentes. Dans le menu **Démarrer**, sélectionnez **Invite de commande** pour ouvrir une fenêtre d'invite de commandes.  Type :
 
 		C:\> F:
 		F:\> mkdir \MongoData
@@ -19,7 +19,7 @@
 		C:\> cd \MongoDB\bin
 		C:\my_mongo_dir\bin> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
-	Tous les messages du journal sont dirigés vers le fichier *F:\MongoLogs\mongolog.log* lorsque le serveur mongod.exe démarre et préalloue les fichiers journaux. Il se peut que plusieurs minutes soient nécessaires pour que MongaDB préalloue les fichiers journaux et commence à écouter les connexions.
+	Tous les messages des journaux sont dirigés vers le fichier *F:\MongoLogs\mongolog.log* lorsque le serveur mongod.exe démarre et préalloue les fichiers journaux. Il se peut que plusieurs minutes soient nécessaires pour que MongaDB préalloue les fichiers journaux et commence à écouter les connexions.
 
 8. Pour lancer l'interpréteur de commandes d'administration de MongoDB, ouvrez une autre fenêtre de commande à partir du menu **Démarrer** et tapez le texte suivant :
 
@@ -41,7 +41,7 @@
 
 		C:\mongodb\bin>mongod --logpath "c:\mongodb\logs\logfile.log" --logappend --dbpath "c:\data" --install 
 
-	Un service nommé " Mongo DB " est créé avec " Mongo DB " comme description. L'option **--logpath** permet de spécifier un fichier journal puisque le service en cours d'exécution n'a pas de fenêtre de commande pour afficher la sortie.  L'option **--logpath** spécifie qu'au redémarrage du service, la sortie est ajoutée au fichier journal existant.  L'option **--dbpath** spécifie l'emplacement du répertoire de données. Pour plus d'informations sur les options de ligne de commande associées au service, consultez la page [Options de ligne de commande associées au service] [MongoWindowsSvcOptions].
+	Un service nommé " Mongo DB " est créé avec " Mongo DB " comme description. L'option **--logpath** permet de spécifier un fichier journal puisque le service en cours d'exécution n'a pas de fenêtre de commande pour afficher la sortie.  L'option **--logpath** spécifie qu'au redémarrage du service, la sortie est ajoutée au fichier journal existant.  L'option **--dbpath** spécifie l'emplacement du répertoire de données. Pour plus d'options de ligne de commande relatives au service, consultez la page [Options de ligne de commande relatives au service] [MongoWindowsSvcOptions].
 10. Maintenant que MongoDB est installé et en cours d'exécution, vous devez ouvrir un port dans le Pare-feu Windows pour vous connecter à distance à MongoDB.  Dans le menu **Démarrer**, sélectionnez **Outils d'administration**, puis **Pare-feu Windows avec fonctions avancées de sécurité**. 
 
 11. Dans le volet gauche, sélectionnez **Règles de trafic entrant**.  Dans le volet **Actions** situé à droite, sélectionnez **Nouvelle règle...**.
@@ -94,4 +94,4 @@
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

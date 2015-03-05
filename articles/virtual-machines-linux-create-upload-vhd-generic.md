@@ -1,20 +1,34 @@
-﻿<properties pageTitle="Création et téléchargement d'un disque dur virtuel Linux dans Azure" description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation Linux." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor="tysonn"/>
+﻿<properties 
+	pageTitle="Création et téléchargement d'un disque dur virtuel Linux dans Azure" 
+	description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation Linux." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="szarkos"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="szarkos"/>
 
 
 # <a id="nonendorsed"> </a>Informations concernant les distributions non approuvées #
 
-**Important** : Le contrat SLA de la plateforme Azure s'applique aux machines virtuelles exécutant le système d'exploitation Linux uniquement lorsqu'une des[distributions approuvées](../virtual-machines-linux-endorsed-distributions) est utilisée. Toutes les distributions Linux fournies dans la galerie d'images Azure sont des distributions reconnues répondant à la configuration requise.
+**Important** : Le contrat SLA de la plateforme Azure s'applique aux machines virtuelles exécutant le système d'exploitation Linux uniquement lorsqu'une des [distributions approuvées](../virtual-machines-linux-endorsed-distributions) est utilisée. Toutes les distributions Linux fournies dans la galerie d'images Azure sont des distributions reconnues répondant à la configuration requise.
 
 - [Linux sur Azure : Distributions approuvées](../virtual-machines-linux-endorsed-distributions)
 - [Prise en charge d'images Linux dans Microsoft Azure](http://support2.microsoft.com/kb/2941892)
 
 Toutes les distributions exécutées sur Azure doivent remplir les conditions suivantes pour fonctionner correctement sur la plateforme.  Cet article n'est pas exhaustif, car chaque distribution est différente. Il est également possible que, même en répondant à tous les critères ci-dessous, il s'avère nécessaire de modifier votre système Linux pour garantir son fonctionnement correct sur la plateforme.
 
-C'est pourquoi nous recommandons de commencer avec une de nos [distributions Linux approuvées sur Azure](../linux-endorsed-distributions) dans la mesure du possible. Les articles suivants vous montrent comment préparer les diverses distributions Linux approuvées prises en charge dans Azure :
+C'est pourquoi nous recommandons de commencer avec une de nos [distributions Linux approuvées sur Azure](../linux-endorsed-distributions)) dans la mesure du possible. Les articles suivants vous montrent comment préparer les diverses distributions Linux approuvées prises en charge dans Azure :
 
-- **[Distributions basées sur CentOS](../virtual-machines-linux-create-upload-vhd-centos)**
+- **[Distributions CentOS](../virtual-machines-linux-create-upload-vhd-centos)**
 - **[Oracle Linux](../virtual-machines-linux-create-upload-vhd-oracle)**
 - **[SLES et openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](../virtual-machines-linux-create-upload-vhd-ubuntu)**
@@ -53,19 +67,19 @@ Puis, régénérez initrd avec les modules noyau `hv_vmbus` et `hv_storvsc` :
 
 ### Redimensionnement des disques durs virtuels ###
 
-Les images de disque dur virtuel sur Azure doivent avoir une taille virtuelle alignée à 1 Mo. En règle générale, les disques durs virtuels créés à l'aide d'Hyper-V sont déjà alignés correctement. Si le disque dur virtuel n'est pas correctement aligné, un message d'erreur semblable au suivant peut s'afficher lorsque vous tentez de créer une *image* à partir de votre disque dur virtuel :
+Les images de disque dur virtuel sur Azure doivent avoir une taille virtuelle alignée à 1 Mo.  En règle générale, les disques durs virtuels créés à l'aide d'Hyper-V sont déjà alignés correctement.  Si le disque dur virtuel n'est pas correctement aligné, un message d'erreur semblable au suivant peut s'afficher lorsque vous tentez de créer une *image* à partir de votre disque dur virtuel :
 
 	"The VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs)."
 
-Pour résoudre ce problème, vous pouvez redimensionner la machine virtuelle à l'aide de la console Gestionnaire Hyper-V ou de la cmdlet Powershell [Resize-VHD](http://technet.microsoft.com/fr-fr/library/hh848535.aspx).
+Pour résoudre ce problème, vous pouvez redimensionner la machine virtuelle à l'aide de la console Gestionnaire Hyper-V ou de la cmdlet Powershell [Resize-VHD](http://technet.microsoft.com/ library/hh848535.aspx).
 
 Si vous n'utilisez pas un environnement Windows, il est recommandé d'utiliser qemu-img pour convertir (si nécessaire) et redimensionner le disque dur virtuel :
 
- 1. Redimensionner le disque dur virtuel directement à l'aide d'outils comme  `qemu-img` ou `vbox-manage` peut rendre le disque dur virtuel non démarrable. Il est donc recommandé de convertir d'abord le disque dur virtuel en image disque RAW. Si l'image de machine virtuelle a déjà été créée comme image disque RAW (c'est la valeur par défaut pour certains hyperviseurs comme KVM), vous pouvez ignorer cette étape :
+ 1. Redimensionner le disque dur virtuel directement à l'aide d'outils comme `qemu-img` ou `vbox-manage` peut rendre le disque dur virtuel non démarrable.  Il est donc recommandé de convertir d'abord le disque dur virtuel en image disque RAW.  Si l'image de machine virtuelle a déjà été créée comme image disque RAW (c'est la valeur par défaut pour certains hyperviseurs comme KVM), vous pouvez ignorer cette étape :
 
 		# qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
 
- 2. Calculez la taille requise pour l'image disque afin de vous assurer que la taille virtuelle est alignée à 1 Mo. Le script shell bash suivant peut vous y aider. Le script utilise " 'qemu-img info' " pour déterminer la taille virtuelle de l'image disque, puis calcule la taille au 1 Mo supérieur :
+ 2. Calculez la taille requise pour l'image disque afin de vous assurer que la taille virtuelle est alignée à 1 Mo.  Le script shell bash suivant peut vous y aider.  Le script utilise " `qemu-img info` " pour déterminer la taille virtuelle de l'image disque, puis calcule la taille au 1 Mo supérieur :
 
 		rawdisk="MyLinuxVM.raw"
 		vhddisk="MyLinuxVM.vhd"
@@ -134,23 +148,23 @@ L'[Agent Linux Azure](../virtual-machines-linux-agent-user-guide) (waagent) est 
 
 	Ce permet également d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d'Azure.
 
-	Outre les précautions ci-dessus, il est recommandé de *supprimer* les paramètres suivants s'ils sont présents :
+	Outre les précautions ci-dessus, il est recommandé de *remove* les paramètres suivants s'ils sont présents :
 
 		rhgb quiet crashkernel=auto
 
 	Le démarrage graphique et transparent n'est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série.
 
-	L'option  `crashkernel` peut rester configurée le cas échéant, mais notez que ce paramètre réduit d'au moins 128 Mo la mémoire disponible dans la machine virtuelle, ce qui peut poser un problème sur les petites machines virtuelles.
+	L'option `crashkernel` peut rester configurée le cas échéant, mais notez que ce paramètre réduit d'au moins 128 Mo la mémoire disponible dans la machine virtuelle, ce qui peut poser un problème sur les petites machines virtuelles.
 
 - Installation de l'agent Linux Azure
 
-	L'agent Linux Azure est requis pour approvisionner une image Linux sur Azure. De nombreuses distributions fournissent cet agent sous forme de package RPM ou Deb (ce package est généralement nommé  'WALinuxAgent' ou 'walinuxagent'). Il est également possible d'installer manuellement cet agent en suivant les instructions du [Guide de l'agent Linux](../virtual-machines-linux-agent-user-guide).
+	L'agent Linux Azure est requis pour approvisionner une image Linux sur Azure.  De nombreuses distributions fournissent cet agent sous forme de package RPM ou Deb (ce package est généralement nommé  'WALinuxAgent' ou 'walinuxagent').  Il est également possible d'installer manuellement cet agent en suivant les instructions du [Guide de l'agent Linux](../virtual-machines-linux-agent-user-guide).
 
-- Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. C'est généralement le cas par défaut.
+- Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu.  C'est généralement le cas par défaut.
 
 - Ne créez pas d'espace swap sur le disque du système d'exploitation.
 
-	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
+	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources est un disque *temporary* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -173,5 +187,4 @@ L'[Agent Linux Azure](../virtual-machines-linux-agent-user-guide) (waagent) est 
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

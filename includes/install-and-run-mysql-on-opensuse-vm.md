@@ -41,7 +41,7 @@
 
 	Notez que les points-virgules (;) à la fin des lignes sont indispensables pour finir les commandes.
 
-8. Pour créer une base de données et accorder les autorisations à l'utilisateur `mysqluser`, exécutez les commandes suivantes :
+8. Pour créer une base de données et accorder les autorisations utilisateur `mysqluser` sur cette dernière, exécutez les commandes suivantes :
 
 		mysql> CREATE DATABASE testdatabase;
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
@@ -52,7 +52,7 @@
 
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
 
-	où `ip-address` est l'adresse IP de l'ordinateur sur lequel vous vous connectez à MySQL.
+	où `ip-address` est l'adresse IP de l'ordinateur à partir duquel vous allez vous connecter à MySQL.
 	
 10. Pour quitter l'utilitaire d'administration de base de données MySQL, exécutez la commande suivante :
 
@@ -83,4 +83,4 @@
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

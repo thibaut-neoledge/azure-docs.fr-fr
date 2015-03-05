@@ -1,12 +1,26 @@
-<properties pageTitle="Distributions approuvées de Linux dans Azure" description="Découvrez les distributions Linux approuvées sur Azure, y compris des instructions pour Ubuntu, OpenLogic et SUSE." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor="tysonn"/>
+<properties 
+	pageTitle="Distributions approuvées de Linux dans Azure" 
+	description="Découvrez les distributions Linux approuvées sur Azure, y compris des instructions pour Ubuntu, OpenLogic et SUSE." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="szark"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/05/2014" 
+	ms.author="szark"/>
 
 
 
 
 
-#Linux dans les distributions approuvées par Azure
+# Linux dans les distributions approuvées par Azure
 
 Les images de distribution présentes dans la galerie Azure sont fournies par les partenaires ci-dessous, et nous collaborons avec les différentes communautés Linux pour mettre à disposition encore plus de distributions approuvées. En attendant, pour les distributions non disponibles dans la galerie, vous pouvez toujours apporter votre propre distribution Linux en suivant les instructions fournies sur [cette page](../virtual-machines-linux-create-upload-vhd/).
 
@@ -29,7 +43,7 @@ OpenLogic est l'un des principaux fournisseurs de solutions open source d'entrep
 
 La stratégie d'Oracle vise à offrir un portefeuille complet de solutions pour clouds publics et privés, tout en laissant à ses clients une grande latitude quant à la façon de déployer les logiciels Oracle dans les clouds Oracle et autres.  À la faveur du partenariat conclu entre Oracle et Microsoft, les clients peuvent déployer les logiciels Oracle dans les clouds publics et privés Microsoft tout en étant assurés de bénéficier de la certification et du support d'Oracle.  L'engagement et l'investissement d'Oracle vis-à-vis des solutions de cloud public et privé Oracle sont intacts.
 
-##SUSE##
+## SUSE##
  
 [http://www.suse.com/suse-linux-enterprise-server-on-azure](http://www.suse.com/suse-linux-enterprise-server-on-azure)
 
@@ -60,12 +74,11 @@ Le tableau comporte également un lien vers le [correctif de compatibilité du n
 	<tr>
 		<th> CentOS par OpenLogic </th>
 		<td> CentOS 6.3+</td>
-	    <td>CentOS 6.3 : <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">pilotes LIS</a> ; pilotes CentOS 6.4+ : dans le noyau</td>
+	    <td>CentOS 6.3 : <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">pilotes LIS</a>; pilotes CentOS 6.4+ : dans le noyau</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275153&amp;clcid=0x409">Nécessaire pour la version 6.3 uniquement</a></td>
-		<td>Package : dans le <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">référentiel de packages Open Logic</a> sous walinuxagent<br />
+		<td>Package : dans le <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">référentiel de packages Open Logic </a> sous walinuxagent<br />
 			Source : <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
  		
-
 	</tr>
 	<tr>
 		<th> <a href="https://coreos.com/docs/running-coreos/cloud-providers/azure/">CoreOS</a> </th>
@@ -89,7 +102,7 @@ Le tableau comporte également un lien vers le [correctif de compatibilité du n
 		<td> SLES 11 SP3+</td>
         <td>Dans le noyau</td>
 		<td>N/A</td>
-		<td>Package : Dans le référentiel <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a>, nom : WALinuxAgent<br />
+		<td>Package : Dans <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud : référentiel</a> Outils, nom : WALinuxAgent<br />
 			Code source : <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
@@ -98,12 +111,11 @@ Le tableau comporte également un lien vers le [correctif de compatibilité du n
 		<td> openSUSE 13.1+</td>
 		<td>Dans le noyau</td>
 		<td>N/A</td>
-		<td>Package : Dans le référentiel <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a>, nom : WALinuxAgent<br />
+		<td>Package : Dans <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud : référentiel</a> Outils, nom : WALinuxAgent<br />
 			Code source : <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
 </table>
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

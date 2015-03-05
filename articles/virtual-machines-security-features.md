@@ -1,6 +1,20 @@
-<properties pageTitle="Offres de sécurité pour les machines virtuelles Azure" description="Aperçu rapide des principales fonctions de sécurité des machines virtuelles Azure - Liens vers des informations détaillées" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Offres de sécurité pour les machines virtuelles Azure" 
+	description="Aperçu rapide des principales fonctions de sécurité des machines virtuelles Azure - Liens vers des informations détaillées" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/23/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-multiple" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/23/2015" 
+	ms.author="kathydav"/>
 
 #Offres de sécurité pour les machines virtuelles Azure
 
@@ -24,9 +38,8 @@ Azure propose plusieurs options pour les solutions antivirus/anti-programmes mal
 Les listes de contrôle d'accès réseau vous permettent d'accepter ou de refuser le trafic entrant vers un point de terminaison de machine virtuelle. Cette capacité de filtrage des paquets offre une couche de sécurité supplémentaire. Pour plus d'informations sur ce sujet et des liens vers des instructions, consultez la page [À propos des listes de contrôle d'accès (ACL) réseau](http://go.microsoft.com/fwlink/?LinkId=506655).
 
 ##Ressources supplémentaires
-[Ressources](http://azure.microsoft.com/fr-fr/support/trust-center/resources/) du Centre de gestion de la confidentialité Microsoft Azure
+[Ressources](http://azure.microsoft.com/support/trust-center/resources/) du Centre de gestion de la confidentialité Microsoft Azure
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

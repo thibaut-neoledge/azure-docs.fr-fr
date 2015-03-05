@@ -1,6 +1,21 @@
-<properties pageTitle="Configuration logicielle de RAID sur une machine virtuelle exécutant Linux dans Azure" description="Apprenez à utiliser mdadm pour configurer RAID sur Linux dans Azure." services="virtual-machines" documentationCenter="" authors="szarkos" writer="szark" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Configuration logicielle de RAID sur une machine virtuelle exécutant Linux dans Azure" 
+	description="Apprenez à utiliser mdadm pour configurer RAID sur Linux dans Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	writer="szark" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="szark"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/18/2014" 
+	ms.author="szark"/>
 
 
 
@@ -9,9 +24,9 @@ L'utilisation d'un RAID logiciel pour les machines virtuelles Linux sur Azure es
 
 
 ## Disques de données attachés
-En règle générale, au moins deux disques de données sont nécessaires pour configurer un périphérique RAID.  Cet article n'abordera pas en détail la marche à suivre pour attacher des disques de données sur une machine virtuelle Linux.  Veuillez consulter l'article Windows Azure [Attacher un disque](http://www.windowsazure.com/fr-fr/documentation/articles/storage-windows-attach-disk/#attachempty) pour obtenir des instructions détaillées sur la marche à suivre pour attacher un disque de données vide à une machine virtuelle Linux sur Azure.
+En règle générale, au moins deux disques de données sont nécessaires pour configurer un périphérique RAID.  Cet article n'abordera pas en détail la marche à suivre pour attacher des disques de données sur une machine virtuelle Linux.  Veuillez consulter l'article Windows Azure [Attacher un disque](http://azure.microsoft.com/documentation/articles/storage-windows-attach-disk/#attachempty) pour obtenir des instructions détaillées sur la marche à suivre pour attacher un disque de données vide à une machine virtuelle Linux sur Azure.
 
->[AZURE.NOTE] La taille de machine virtuelle ExtraSmall ne prend pas en charge plus d'un disque de données attaché à la machine virtuelle.  Consultez les [Tailles de machines virtuelles et services cloud pour Windows Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn197896.aspx) pour plus d'informations concernant les tailles de machines virtuelles et le nombre de disque de données pris en charge.
+>[AZURE.NOTE] La taille de machine virtuelle ExtraSmall ne prend pas en charge plus d'un disque de données attaché à la machine virtuelle.  Consultez les [Tailles de machines virtuelles et services cloud pour Windows Azure](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx) pour plus d'informations concernant les tailles de machines virtuelles et le nombre de disque de données pris en charge.
 
 
 ## Installation de l'utilitaire mdadm
@@ -41,7 +56,7 @@ Dans cet exemple, nous allons créer une partition de disque unique sur /dev/sdc
 		Changes will remain in memory only, until you decide to write them.
 		After that, of course, the previous content won't be recoverable.
 
-		WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
+		AVERTISSEMENT : DOS-compatible mode is deprecated. It's strongly recommended to
 				 switch off the mode (command 'c') and change display units to
 				 sectors (command 'u').
 
@@ -65,7 +80,7 @@ Dans cet exemple, nous allons créer une partition de disque unique sur /dev/sdc
 		First cylinder (1-1305, default 1):
 		Using default value 1
 
-- Sélectionnez la taille de la partition. Par exemple, tapez " +10G " pour créer une partition de 10 Go. Vous pouvez également taper le code `<enter>` afin de créer une seule partition pour l'intégralité du disque :
+- Sélectionnez la taille de la partition. Par exemple, tapez " +10G " pour créer une partition de 10 Go. Vous pouvez aussi appuyer simplement sur `<entrée>` pour créer une seule partition pour l'intégralité du disque :
 
 		Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
 		Using default value 1305
@@ -118,7 +133,7 @@ Dans cet exemple, après l'exécution de cette commande, un nouveau périphériq
 
 		# sudo mkdir /data
 
-2. Lors de la modification du fichier /etc/fstab, l'**identificateur unique universel** doit être utilisé pour faire référence au système de fichiers plutôt qu'au nom de périphérique.  Utilisez l'utilitaire `blkid` pour déterminer l'identificateur unique universel du nouveau système de fichiers :
+2. Lors de la modification du fichier /etc/fstab, l'**identificateur unique universel** doit être utilisé pour faire référence au système de fichiers plutôt qu'au nom de périphérique.  Servez-vous de l'utilitaire `blkid` pour déterminer l'identificateur unique universel (UUID) du nouveau système de fichiers :
 
 		# sudo /sbin/blkid
 		...........
@@ -148,7 +163,7 @@ Dans cet exemple, après l'exécution de cette commande, un nouveau périphériq
 
 5. Paramètres facultatifs
 
-	De nombreuses distributions comprennent les paramètres de montage `nobootwait` ou `nofail` pouvant être ajoutés au fichier /etc/fstab. Ces paramètres autorisent les échecs lors du montage d'un système de fichiers donné et permettent au système Linux de continuer à démarrer même s'il n'a pas été en mesure de monter le système de fichiers RAID. Pour plus d'informations sur ces paramètres, reportez-vous à la documentation de votre distribution.
+	De nombreuses distributions comprennent les paramètres de montage `nobootwait` et `nofail` pouvant être ajoutés au fichier /etc/fstab. Ces paramètres autorisent les échecs lors du montage d'un système de fichiers donné et permettent au système Linux de continuer à démarrer même s'il n'a pas été en mesure de monter le système de fichiers RAID. Pour plus d'informations sur ces paramètres, reportez-vous à la documentation de votre distribution.
 
 	Exemple (Ubuntu) :
 
@@ -159,5 +174,4 @@ Dans cet exemple, après l'exécution de cette commande, un nouveau périphériq
 	Pour plus d'informations sur la modification adéquate des paramètres de noyau, reportez-vous à la documentation de votre distribution. Par exemple, dans de nombreuses distributions (CentOS, Oracle Linux, SLES 11), ces paramètres peuvent être ajoutés manuellement au fichier " `/boot/grub/menu.lst` ".  Sur Ubuntu, ce paramètre peut être ajouté à la variable `GRUB_CMDLINE_LINUX_DEFAULT` dans " /etc/default/grub ".
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

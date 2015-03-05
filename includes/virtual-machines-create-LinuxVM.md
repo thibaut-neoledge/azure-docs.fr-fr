@@ -25,10 +25,10 @@ Dans la barre de commandes, cliquez sur **Nouveau**.
 
 13. Sous **Groupe à haute disponibilité**, pour les besoins de ce didacticiel, utilisez le paramètre par défaut **Aucun**. 
 
-14.	Sous **Points de terminaison**, vérifiez le point de terminaison créé automatiquement pour autoriser les connexions SSH (Secure Shell) à la machine virtuelle. Les points de terminaison permettent aux ressources disponibles sur Internet ou aux autres réseaux virtuels de communiquer avec une machine virtuelle. Vous pouvez ajouter d'autres points de terminaison maintenant ou en créer ultérieurement. Pour obtenir des instructions sur leur création à une date ultérieure, consultez la page [Configuration des points de terminaison sur une machine virtuelle](http://azure.microsoft.com/fr-fr/documentation/articles/virtual-machines-set-up-endpoints/).
+14.	Sous **Points de terminaison**, vérifiez le point de terminaison créé automatiquement pour autoriser les connexions SSH (Secure Shell) à la machine virtuelle. Les points de terminaison permettent aux ressources disponibles sur Internet ou aux autres réseaux virtuels de communiquer avec une machine virtuelle. Vous pouvez ajouter d'autres points de terminaison maintenant ou en créer ultérieurement. Pour obtenir des instructions sur leur création à une date ultérieure, consultez la page [Configuration des points de terminaison sur une machine virtuelle](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).
 
 15.  Sous **Agent de machine virtuelle**, consultez les extensions disponibles. Ces extensions proposent différentes fonctionnalités qui facilitent l'utilisation et la gestion des machines virtuelles. Pour plus d'informations, consultez la page [Extensions de machine virtuelle Azure](http://go.microsoft.com/FWLink/p/?LinkID=390493). 
 
 
 Une fois la machine virtuelle et le service cloud créés par Azure, le portail de gestion répertorie la nouvelle machine virtuelle sous **Machines virtuelles** et le service cloud sous **Services Cloud**. Ces derniers démarrent automatiquement.
-<!--HONumber=42-->
+<!--HONumber=45--> 
