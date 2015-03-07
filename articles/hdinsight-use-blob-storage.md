@@ -1,5 +1,5 @@
-﻿<properties 
-	pageTitle="Interrogation de données volumineuses (Big Data) à partir d'un stockage d'objets blob compatible Hadoop | Azure" 
+<properties 
+	pageTitle="Interrogation de données volumineuses (" Big Data ") à partir d'un stockage d'objets blob compatible Hadoop | Azure" 
 	description="HDInsight utilise le stockage d'objets blob Hadoop comme magasin de données volumineuses pour HDFS. Apprenez à interroger depuis le stockage d'objets blob et à stocker les résultats de votre analyse." 
 	services="storage, hdinsight" 
 	documentationCenter="" 
@@ -23,7 +23,7 @@ Le stockage d'objets blob est une solution de stockage Azure compatible avec Had
 
 le stockage de données dans le stockage d'objets blob permet de supprimer les clusters HDInsight ayant servi aux calculs, sans perte de données utilisateur. 
 
-> [AZURE.NOTE]	La syntaxe *asv://* n'est pas prise en charge dans les clusters HDInsight version 3.0 et ne sera pas prise en charge dans les versions ultérieures. Cela signifie que toutes les tâches envoyées vers un cluster HDInsight 3.0 utilisant explicitement la syntaxe " asv:// " échoueront. Vous devez plutôt utiliser la syntaxe *wasb://*. De même, les tâches créées avec un metastore existant contenant des références explicites aux ressources utilisant la syntaxe asv:// et envoyées vers des clusters HDInsight version 3.0 échoueront également. Vous devrez recréer ces metastores en utilisant la syntaxe wasb:// pour adresser les ressources.
+> [AZURE.NOTE]	La syntaxe *asv://* n'est pas prise en charge dans les clusters HDInsight version 3.0 et ne sera pas prise en charge dans les versions ultérieures. Cela signifie que toutes les tâches envoyées vers un cluster HDInsight 3.0 utilisant explicitement la syntaxe “asv://” échoueront. Vous devez plutôt utiliser la syntaxe *wasb://*. De même, les tâches créées avec un metastore existant contenant des références explicites aux ressources utilisant la syntaxe asv:// et envoyées vers des clusters HDInsight version 3.0 échoueront également. Vous devrez recréer ces metastores en utilisant la syntaxe wasb:// pour adresser les ressources.
 
 > HDInsight prend uniquement en charge les objets blob de blocs pour le moment.
 
@@ -127,7 +127,7 @@ Vous avez également la possibilité de créer votre propre conteneur d'objets b
 
 
 ### Création d'un conteneur avec Azure PowerShell
-Vous pouvez utiliser [Azure PowerShell][powershell-install] pour créer des conteneurs d'objets blob. Voici un exemple de script PowerShell:
+Vous pouvez utiliser [Azure PowerShell][powershell-install] pour créer des conteneurs d'objets blob. Voici un exemple de script PowerShell :
 
 	$subscriptionName = "<SubscriptionName>"	# Azure subscription name
 	$storageAccountName = "<AzureStorageAccountName>" # The storage account that you will create
@@ -302,6 +302,4 @@ Pour en savoir plus, consultez les articles suivants :
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-use-blob-storage/HDI.PowerShell.BlobCommands.png 
 [img-hdi-quick-create]: ./media/hdinsight-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount.png  
-
-
 <!--HONumber=42-->
