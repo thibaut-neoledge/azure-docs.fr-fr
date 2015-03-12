@@ -50,7 +50,7 @@ Les versions de composant associées aux versions de cluster HDInsight sont susc
 
 **Notes de publication**	
 
-Pour d'autres notes de publication sur les dernières versions de HDInsight, consultez la page [Notes de publication de HDInsight](http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-release-notes/).
+Pour d'autres notes de publication sur les dernières versions de HDInsight, consultez la page [Notes de publication de HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-release-notes/).
 
 ### Sélectionnez une version lors de l'approvisionnement d'un cluster HDInsight
 
@@ -90,7 +90,7 @@ Azure HDInsight prend désormais en charge Hadoop 2.4 avec la version 3.1 du clu
 Le tableau suivant répertorie les versions de HDInsight actuellement disponibles, les versions correspondantes de la plateforme de données Hortonworks (HDP) utilisées par ces dernières, ainsi que leurs dates de lancement. La date d'expiration du support et la date d'obsolescence sont également indiquées. Notez les points suivants :
 
 * Seuls les clusters à haute disponibilité avec deux nœuds principaux sont déployés par défaut pour les clusters HDInsight 2.1, 3.0 et 3.1. Ils ne sont pas disponibles pour les clusters HDInsight 1.6.
-* Une fois que le support a expiré pour une version particulière, il se peut qu'il ne soit plus disponible par l'intermédiaire du portail de gestion Azure. Le tableau suivant indique quelles versions sont disponibles sur le portail de gestion Azure. Les versions des clusters resteront disponibles avec le paramètre`Version` de la commande PowerShell [New-AzureHDInsightCluster](http://msdn.microsoft.com/fr-fr/library/dn593744.aspx) et le Kit de développement logiciel (SDK) .NET jusqu'à leur date d'obsolescence. 
+* Une fois que le support a expiré pour une version particulière, il se peut qu'il ne soit plus disponible par l'intermédiaire du portail de gestion Azure. Le tableau suivant indique quelles versions sont disponibles sur le portail de gestion Azure. Les versions des clusters resteront disponibles avec le paramètre`Version` de la commande PowerShell [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) et le Kit de développement logiciel (SDK) .NET jusqu'à leur date d'obsolescence. 
 
 <table border="1">
 <tr><th>Version de HDInsight</th><th>Version de HDP</a><th>Haute disponibilité</th></th><th>Date de lancement</th><th>Disponible sur le portail de gestion Azure</th><th>Date d'expiration du support</th><th>Date d'obsolescence</th></tr>
@@ -113,7 +113,7 @@ Le contrat de niveau de service est défini en termes de " fenêtre de support "
 
 La **Date d'obsolescence** est la date après laquelle la version du cluster ne peut plus être créée sur HDInsight.
 
-> [AZURE.NOTE] Les clusters HDInsight 2.1 et 3.0 fonctionnent tous deux sur le système d'exploitation invité d'Azure [Famille 4](http://msdn.microsoft.com/fr-fr/library/azure/ee924680.aspx#explanation), qui utilise la version 64 bits de Windows Server 2012 R2 et prend en charge .NET Framework 4.0, 4.5 et 4.5.1. 
+> [AZURE.NOTE] Les clusters HDInsight 2.1 et 3.0 fonctionnent tous deux sur le système d'exploitation invité d'Azure [Famille 4](http://msdn.microsoft.com/library/azure/ee924680.aspx#explanation), qui utilise la version 64 bits de Windows Server 2012 R2 et prend en charge .NET Framework 4.0, 4.5 et 4.5.1. 
 
 ## Notes de publication de Hortonworks associées aux versions de HDInsight##
 
@@ -128,7 +128,7 @@ La **Date d'obsolescence** est la date après laquelle la version du cluster ne 
 
 [image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 
-[wa-forums]: http://azure.microsoft.com/fr-fr/support/forums/
+[wa-forums]: http://azure.microsoft.com/support/forums/
 
 [connect-excel-with-hive-ODBC]: ../hdinsight-connect-excel-hive-ODBC-driver/
 
@@ -145,5 +145,4 @@ La **Date d'obsolescence** est la date après laquelle la version du cluster ne 
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
 [zookeeper]: http://zookeeper.apache.org/ 
-
 <!--HONumber=42-->

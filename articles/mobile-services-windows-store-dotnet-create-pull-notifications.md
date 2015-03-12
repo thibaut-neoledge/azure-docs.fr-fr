@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Définition d'une API personnalisée qui prend en charge les notifications Pull - Azure Mobile Services" description="Découvrez comment définir une API personnalisée qui prend en charge les notifications périodiques dans les applications Windows Store utilisant Azure Mobile Services." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Définition d'une API personnalisée qui prend en charge les notifications Pull - Azure Mobile Services" 
+	description="Découvrez comment définir une API personnalisée qui prend en charge les notifications périodiques dans les applications Windows Store utilisant Azure Mobile Services." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
 # Définition d'une API personnalisée qui prend en charge les notifications périodiques
 
@@ -45,7 +59,8 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 		exports.get = function(request, response) {
 		    var wns = require('wns');
 		    var todoItems = request.service.tables.getTable('TodoItem');
-		    todoItems.where({
+		    todoIte
+	ms.where({
 		        complete: false
 		    }).read({
 		        success: sendResponse
@@ -82,7 +97,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 
 	La fonction **exports.get** est utilisée parce que le client enverra une requête GET pour accéder au modèle de vignette.
 
-   	> [AZURE.NOTE] Ce script d'API personnalisé utilise le [module wns](http://go.microsoft.com/fwlink/p/?LinkId=306750), qui est référencé en utilisant la fonction **require**. Ce module est différent de l'[objet wns](http://go.microsoft.com/fwlink/p/?LinkId=260591) renvoyé par l'[objet push](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554217.aspx), lequel est utilisé pour envoyer des notifications push à partir de scripts serveur.
+   	> [AZURE.NOTE] Ce script d'API personnalisé utilise le [module wns](http://go.microsoft.com/fwlink/p/?LinkId=306750), qui est référencé en utilisant la fonction **require**. Ce module est différent de l'[objet wns](http://go.microsoft.com/fwlink/p/?LinkId=260591) renvoyé par l'[objet push](http://msdn.microsoft.com/library/windowsazure/jj554217.aspx), lequel est utilisé pour envoyer des notifications push à partir de scripts serveur.
 
 Vous allez ensuite modifier l'application de démarrage rapide pour démarrer des notifications périodiques qui mettent à jour la vignette dynamique en demandant la nouvelle API personnalisée.
 
@@ -150,7 +165,7 @@ Maintenant que vous avez créé une notification périodique, vous pouvez consul
 [Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
-[Notifications périodiques]: http://msdn.microsoft.com/fr-fr/library/windows/apps/jj150587.aspx
+[Notifications périodiques]: http://msdn.microsoft.com/library/windows/apps/jj150587.aspx
 
 [Guide de fonctionnement Mobile Services .NET]: /fr-fr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 

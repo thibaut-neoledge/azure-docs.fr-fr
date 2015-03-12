@@ -23,7 +23,7 @@
 Ce didacticiel vous montre comment créer une application Web ASP.NET 4.5 Web Forms sécurisée qui intègre une base de données SQL et comment la déployer vers Azure. 
 
 >[AZURE.NOTE] 
-Pour obtenir une version MVC de ce didacticiel, consultez la page [Déploiement d'une application ASP.NET MVC 5 sécurisée avec une fonctionnalité d'appartenance, OAuth et une base de données SQL vers un site Web Azure](http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
+Pour obtenir une version MVC de ce didacticiel, consultez la page [Déploiement d'une application ASP.NET MVC 5 sécurisée avec une fonctionnalité d'appartenance, OAuth et une base de données SQL vers un site Web Azure](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
 
 Vous pouvez ouvrir gratuitement un compte Azure. Si vous n'avez pas déjà Visual Studio 2013, le Kit de développement logiciel (SDK) installe automatiquement Visual Studio Express 2013 pour le Web. Vous pouvez commencer vos développements Azure gratuitement.
 
@@ -783,7 +783,7 @@ Il est important de savoir comment afficher et modifier directement la base de d
 3. Si la boîte de dialogue **Ajouter une règle de pare-feu** s'affiche, sélectionnez **Ajouter une règle de pare-feu**.  
 
 	>[AZURE.NOTE]  
-	Si vous ne pouvez pas développer **Bases de données SQL** et afficher la base de données **ContactDB** dans Visual Studio, suivez les instructions pour ouvrir un ou plusieurs ports de pare-feu. À cet effet, suivez les instructions de la rubrique **Configuration des règles de pare-feu Azure** vers la fin du [didacticiel sur MVC](http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/). Une autre méthode consiste à examiner les données de la base de données locale en créant, exécutant et ajoutant des données à l'application localement (**Ctrl+F5** dans Visual Studio).  
+	Si vous ne pouvez pas développer **Bases de données SQL** et afficher la base de données **ContactDB** dans Visual Studio, suivez les instructions pour ouvrir un ou plusieurs ports de pare-feu. À cet effet, suivez les instructions de la rubrique **Configuration des règles de pare-feu Azure** vers la fin du [didacticiel sur MVC](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/). Une autre méthode consiste à examiner les données de la base de données locale en créant, exécutant et ajoutant des données à l'application localement (**Ctrl+F5** dans Visual Studio).  
 
 4. Si la boîte de dialogue **Se connecter au serveur** s'affiche, entrez le **mot de passe** que vous avez créé au début de ce didacticiel et appuyez sur le bouton **Se connecter**.  
 
@@ -809,9 +809,9 @@ Précédemment dans ce didacticiel, vous avez utilisé du code pour ajouter des 
 Nous développons actuellement un outil qui facilitera la gestion des utilisateurs et des rôles.  
 
 ##Étapes suivantes
-Pour plus d'informations sur ASP.NET Web Forms, consultez la page [Présentation d'ASP.NET Web Forms](http://www.asp.net/web-forms) sur le site Web ASP.NET et la page [Didacticiels et guides de Microsoft Azure](http://azure.microsoft.com/fr-fr/documentation/services/web-sites/#net).
+Pour plus d'informations sur ASP.NET Web Forms, consultez la page [Présentation d'ASP.NET Web Forms](http://www.asp.net/web-forms) sur le site Web ASP.NET et la page [Didacticiels et guides de Microsoft Azure](http://azure.microsoft.com/documentation/services/web-sites/#net).
 
-Ce didacticiel a été réalisé à partir du didacticiel MVC [Déploiement d'une application ASP.NET MVC 5 sécurisée avec une fonctionnalité d'appartenance, OAuth et une base de données SQL vers un site Web Azure](http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) rédigé par Rick Anderson (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)), assisté de Tom Dykstra et Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
+Ce didacticiel a été réalisé à partir du didacticiel MVC [Déploiement d'une application ASP.NET MVC 5 sécurisée avec une fonctionnalité d'appartenance, OAuth et une base de données SQL vers un site Web Azure](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) rédigé par Rick Anderson (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)), assisté de Tom Dykstra et Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
 
 N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce qui pourrait être amélioré... pas seulement à propos de ce didacticiel, mais aussi en ce qui concerne les produits présentés ici. Vos commentaires nous aideront à orienter nos améliorations. Vous pouvez aussi demander de nouvelles rubriques et noter les rubriques existantes sur [Leçons de code](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
 

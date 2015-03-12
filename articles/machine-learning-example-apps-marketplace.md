@@ -1,6 +1,20 @@
-﻿<properties title="Machine Learning example apps in the Azure Marketplace" pageTitle="Exemples d'applications d'apprentissage automatique sur Azure Marketplace | Azure" description="Les exemples d'application Azure Machine Learning illustrent comment vous pouvez publier vos services Machine Learning sur Azure Marketplace afin que les abonnés payants puissent les utiliser dans leurs applications." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Exemples d'applications d'apprentissage automatique sur Azure Marketplace | Azure" 
+	description="Les exemples d'application du Marketplace Azure Machine Learning illustrent comment vous pouvez publier vos services Machine Learning sur Azure Marketplace afin que les abonnés payants puissent les utiliser dans leurs applications." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="luisca" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/16/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="luiscabrer"/> 
 
 # Exemples d'applications d'apprentissage automatique sur Azure Marketplace
 
@@ -17,3 +31,5 @@ Citons par exemple :
 * [Détection d'anomalie](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) : API qui permet de détecter les événements anormaux dans les données de série chronologique (par exemple, télémétrie de serveur ou données de capteur).
 
 Ces API vous permettent de consommer des services puissants d'apprentissage automatique basés sur Azure ML sans avoir à être un scientifique de données ou à passer beaucoup de temps à développer ces API vous-même ; il vous suffit d'importer vos propres données et de commencer à les utiliser.
+
+<!--HONumber=46--> 

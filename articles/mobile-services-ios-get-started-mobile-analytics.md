@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Prise en main de Mobile Analytics | Centre de développement mobile" description="Prenez en main Mobile Analytics." documentationCenter="ios" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Prise en main de Mobile Analytics | Centre de développement mobile" 
+	description="Prenez en main Mobile Analytics." 
+	documentationCenter="ios" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="multiple" ms.topic="article" ms.date="10/10/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="mahender"/>
 
 # Prise en main de Mobile Analytics (Capptain)
 

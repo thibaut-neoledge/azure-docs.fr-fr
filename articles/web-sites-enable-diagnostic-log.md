@@ -49,13 +49,13 @@ Les diagnostics de site vous permettent d'activer ou de désactiver les élémen
 
 ###Diagnostic d'application
 
-Le diagnostic d'application vous permet de capturer des informations générées par une application Web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/fr-fr/library/36hhw2t6.aspx) pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple :
+Le diagnostic d'application vous permet de capturer des informations générées par une application Web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple :
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened") ;
 
 Le diagnostic d'application vous permet de résoudre les problèmes affectant l'application en cours d'exécution en émettant des informations lorsque certains fragments de code sont utilisés. Cela est très utile lorsque vous essayez de déterminer pourquoi le code emprunte un chemin spécifique, le plus souvent lorsque le chemin entraîne une erreur ou provoque un comportement indésirable.
 
-Pour plus d'informations sur l'utilisation du diagnostic d'application avec Visual Studio, consultez la page [Résolution des problèmes liés à Sites Web Azure dans Visual Studio](http://www.windowsazure.com/fr-fr/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+Pour plus d'informations sur l'utilisation du diagnostic d'application avec Visual Studio, consultez la page [Résolution des problèmes liés à Sites Web Azure dans Visual Studio](http://azure.microsoft.com/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
 > [AZURE.NOTE] Contrairement à la modification du fichier web.config, le fait d'activer le diagnostic d'application ou de modifier les niveaux de journalisation de diagnostic ne recycle pas le domaine dans lequel l'application s'exécute.
 
@@ -69,7 +69,7 @@ Lorsque vous activez le **Diagnostic d'application**, vous devez également sél
 
 Lorsque vous activez le **Diagnostic de site**, vous devez sélectionner le **stockage** ou le **système de fichiers** pour la **journalisation du serveur Web**. Si vous sélectionnez le **stockage**, vous avez également la possibilité de sélectionner un compte de stockage, puis un conteneur d'objets blob dans lequel les journaux seront écrits. Tous les autres journaux relatifs au **diagnostic de site** sont écrits uniquement dans le système de fichiers.
 
-> [AZURE.NOTE] Les informations stockées dans le **stockage de tables** ou le **stockage d'objets blob** ne sont accessibles qu'à l'aide d'un client de stockage ou d'une application capable d'utiliser directement ces systèmes de stockage. Par exemple, Visual Studio 2013 contient un Explorateur de stockage qui peut être utilisé pour explorer un système de stockage de tables ou d'objets blob, tandis que HDInsight peut accéder aux données stockées dans un stockage d'objets blob. Vous pouvez également écrire une application qui accède à Azure Storage en utilisant l'un des [Kits de développement logiciel (SDK) Azure](http://www.windowsazure.com/fr-fr/downloads/#).
+> [AZURE.NOTE] Les informations stockées dans le **stockage de tables** ou le **stockage d'objets blob** ne sont accessibles qu'à l'aide d'un client de stockage ou d'une application capable d'utiliser directement ces systèmes de stockage. Par exemple, Visual Studio 2013 contient un Explorateur de stockage qui peut être utilisé pour explorer un système de stockage de tables ou d'objets blob, tandis que HDInsight peut accéder aux données stockées dans un stockage d'objets blob. Vous pouvez également écrire une application qui accède à Azure Storage en utilisant l'un des [Kits de développement logiciel (SDK) Azure](http://azure.microsoft.com/downloads/#).
 
 Les paramètres suivants sont disponibles lors de l'activation du **diagnostic d'application** :
 
@@ -81,7 +81,7 @@ Les paramètres suivants sont disponibles lors de l'activation du **diagnostic d
 
 > [AZURE.NOTE] Vous pouvez activer simultanément toute combinaison de système de fichiers, stockage de tables ou stockage d'objets blob. Des configurations de niveau de journalisation individuelles sont également possibles. Vous pouvez, par exemple, consigner les erreurs et les avertissements dans le stockage d'objets blob dans le cadre d'une solution de journalisation à long terme, tout en activant un niveau de journalisation détaillé du système de fichiers.
 
-> [AZURE.NOTE] Les diagnostics peuvent également être activés à partir du module Azure PowerShell via la cmdlet **Set-AzureWebsite**. Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell](http://www.windowsazure.com/fr-fr/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE] Les diagnostics peuvent également être activés à partir du module Azure PowerShell via la cmdlet **Set-AzureWebsite**. Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 <a name="download"></a><h2>Procédure : Téléchargement des journaux</h2>
 
@@ -113,7 +113,7 @@ Pour télécharger les fichiers journaux, démarrez une nouvelle instance du mod
 
 Cette commande enregistre les journaux du site Web spécifié par le paramètre **-Name** dans un fichier nommé **logs.zip** dans le répertoire actif.
 
-> [AZURE.NOTE] Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell](http://www.windowsazure.com/fr-fr/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE] Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ###Téléchargement avec les outils en ligne de commande Azure
 
@@ -123,7 +123,7 @@ Pour télécharger les fichiers journaux à l'aide des outils en ligne de comman
 
 Cette commande enregistre les journaux du site Web nommé  'websitename' dans un fichier **diagnostics.zip** dans le répertoire actif.
 
-> [AZURE.NOTE] Si vous n'avez pas installé ou configuré les outils en ligne de commande Azure de manière à utiliser votre abonnement Azure, consultez la page [Utilisation des outils en ligne de commande Azure](http://www.windowsazure.com/fr-fr/develop/nodejs/how-to-guides/command-line-tools/).
+> [AZURE.NOTE] Si vous n'avez pas installé ou configuré les outils en ligne de commande Azure de manière à utiliser votre abonnement Azure, consultez la page [Utilisation des outils en ligne de commande Azure](http://azure.microsoft.com/develop/nodejs/how-to-guides/command-line-tools/).
 
 <a name="streamlogs"></a><h2>Procédure : Diffusion en continu des journaux</h2>
 
@@ -151,7 +151,7 @@ Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le para
 
 Pour afficher la liste des chemins disponibles, utilisez le paramètre -ListPath.
 
-> [AZURE.NOTE] Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell](http://www.windowsazure.com/fr-fr/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE] Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ###Diffusion d'informations en continu avec les outils en ligne de commande Azure
 
@@ -169,7 +169,7 @@ Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le para
 
 	azure site log tail websitename --path http
 
-> [AZURE.NOTE] Si vous n'avez pas installé ou configuré les outils en ligne de commande Azure de manière à utiliser votre abonnement Azure, consultez la page [Utilisation des outils en ligne de commande Azure](http://www.windowsazure.com/fr-fr/develop/nodejs/how-to-guides/command-line-tools/).
+> [AZURE.NOTE] Si vous n'avez pas installé ou configuré les outils en ligne de commande Azure de manière à utiliser votre abonnement Azure, consultez la page [Utilisation des outils en ligne de commande Azure](http://azure.microsoft.com/develop/nodejs/how-to-guides/command-line-tools/).
 
 <a name="understandlogs"></a><h2>Procédure : Présentation des journaux de diagnostic</h2>
 

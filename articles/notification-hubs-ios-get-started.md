@@ -1,40 +1,44 @@
-﻿
-<properties urlDisplayName="Get Started" pageTitle="Prise en main d'Azure Notification Hubs" metaKeywords="" description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="yuaxu" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Prise en main d'Azure Notification Hubs" description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push." services="notification-hubs" documentationCenter="ios" authors="ysxu" manager="dwrede" editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="hero-article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 
 # Prise en main de Notification Hubs
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/fr-fr/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/fr-fr/documentation/articles/notification-hubs-ios-get-started/" title="iOS" class="current">iOS</a><a href="/fr-fr/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/fr-fr/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/fr-fr/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/fr-fr/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/fr-fr/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
 
-Cette rubrique montre comment utiliser Azure Notification Hubs pour envoyer des notifications Push vers une application iOS.
+Cette rubrique vous présente l'utilisation d'Azure Notification Hubs pour envoyer des notifications Push vers une application iOS.
 Le didacticiel vous apprend à créer une application iOS vide qui reçoit des notifications Push à l'aide du service de notification Push Apple (APN, Apple Push Notification). Une fois la création terminée, vous pouvez diffuser des notifications Push sur tous les appareils sur lesquels votre application est installée au moyen de votre concentrateur de notification.
 
 Ce didacticiel vous familiarise avec les étapes de base permettant d'activer les notifications Push :
 
 1. [Génération de la demande de signature de certificat]
 2. [Inscription de votre application et activation des notifications Push]
-3. [Création d'un profil de mise en service pour l'application]
+3. [Création d'un profil d'approvisionnement pour l'application]
 4. [Configuration de votre concentrateur de notification]
 5. [Connexion de votre application au concentrateur de notification]
 6. [Envoi de notifications à partir de votre serveur principal]
 
 Ce didacticiel présente un scénario de diffusion simple utilisant les concentrateurs de notification. Suivez scrupuleusement le didacticiel suivant pour apprendre à utiliser Notification Hubs pour accéder à des utilisateurs et groupes d'appareils spécifiques. Ce didacticiel requiert les composants requis suivants :
 
-+ [Kit de développement logiciel (SDK) Mobile Services iOS]
-+ [XCode 4,5][Install Xcode]
++ [Kit de développement logiciel (SDK) Mobile Services pour iOS]
++ [XCode 4.5][Installation de Xcode]
 + Un appareil compatible iOS 5.0 (ou version ultérieure)
 + Un abonnement au programme pour développeurs iOS
 
-   <div class="dev-callout"><b>Remarque</b>
-   <p>En raison de la configuration requise pour les notifications Push, vous devez déployer et tester les notifications Push sur un appareil compatible iOS (iPhone ou iPad) au lieu d'un émulateur.</p>
-   </div>
+   > [AZURE.NOTE] En raison de la configuration requise pour les notifications Push, vous devez déployer et tester les notifications Push sur un appareil compatible iOS (iPhone ou iPad) au lieu d'un émulateur.
 
 Vous devez accomplir ce didacticiel avant de pouvoir suivre tous les autres didacticiels Notification Hubs pour les applications iOS.
 
-<div class="dev-callout"><strong>Remarque</strong> <p>RemarquePour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.</p></div>
+> [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20target="_blank).
 
-[WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Activation des notifications Push Apple](../includes/enable-apple-push-notifications.md)]
 
 ##<a name="configure-hub"></a>Configuration de votre concentrateur de notification
 
@@ -44,15 +48,15 @@ Vous devez accomplir ce didacticiel avant de pouvoir suivre tous les autres dida
 
   Notez le nom du fichier et l'emplacement du certificat exporté.
 
->[WACOM.NOTE] Ce didacticiel permet de créer un fichier QuickStart.p12. Il est possible que le nom de votre fichier et son emplacement soient différents.
+>[AZURE.NOTE] Ce didacticiel permet de créer un fichier QuickStart.p12. Il est possible que le nom de votre fichier et son emplacement sont différents.
 
-2. Connectez-vous au [Portail de gestion Azure]et cliquez sur **+NOUVEAU** en bas de l'écran.
+2. Connectez-vous au [portail de gestion Azure] et cliquez sur **NOUVEAU** en bas de l'écran.
 
-3. Cliquez sur **App Services**, **Service Bus**, then **Notification Hub**, puis**Création rapide**.
+3. Cliquez sur **Services d'application**, sur **Service Bus**, sur **Concentrateur de notification**, puis sur **Création rapide**.
 
    	![][27]
 
-4. Tapez un nom pour votre concentrateur de notification, sélectionnez la région souhaitée, puis cliquez sur **Créer un concentrateur de notification**.
+4. Tapez un nom pour votre Notification Hub, sélectionnez une région, puis cliquez sur **Create a new Notification Hub**.
 
    	![][28]
 
@@ -60,15 +64,15 @@ Vous devez accomplir ce didacticiel avant de pouvoir suivre tous les autres dida
 
    	![][29]
 
-6. Cliquez sur l'onglet **Notification Hubs** en haut de la page, puis cliquez sur celui que vous venez de créer.
+6. Cliquez sur l'onglet **Concentrateurs de notification** en haut de la page, puis cliquez sur celui que vous venez de créer.
 
    	![][210]
 
-7. Cliquez sur l'onglet **Configurer** en haut de la page, puis cliquez sur **Télécharger** dans les paramètres de notification d'Apple. Sélectionnez ensuite le certificat **.p12** exporté précédemment ainsi que le mot de passe du certificat. Assurez-vous de choisir si vous souhaitez utiliser la **Production** (si vous souhaitez envoyer des notifications Push aux utilisateurs qui ont acheté votre application depuis le store) ou le service Push **Bac à sable (sandbox)** (au cours du développement).
+7. Cliquez sur l'onglet **Configurer** en haut de la page, puis cliquez sur **Télécharger** dans les paramètres de notification d'Apple. Sélectionnez ensuite le certificat **.p12** exporté précédemment ainsi que le mot de passe du certificat. Assurez-vous de choisir si vous souhaitez utiliser la **Production** (si vous souhaitez envoyer des notifications Push aux utilisateurs qui ont acheté votre application depuis le store) ou le service Push **Bac à sable** (sandbox) (au cours du développement).
 
    	![][211]
 
-8. Cliquez sur l'onglet **Tableau de bord** dans la partie supérieure, puis cliquez sur **Informations de connexion**. Notez les deux chaînes de connexion.
+8. Cliquez sur l'onglet **Tableau de bord** en haut, puis cliquez sur **Informations de connexion**. Notez les deux chaînes de connexion.
 
    	![][212]
 
@@ -84,7 +88,7 @@ Votre Notification Hub est configuré pour APNS, et vous disposez des chaînes d
 
    	![][32]
 
-3. Téléchargez le Kit de développement logiciel (SDK) Azure Mobile pour iOS. Ouvrez le fichier. zip et faites glisser le dossier WindowsAzureMessaging.Framework dans le dossier Structure de votre projet XCode. Sélectionnez **Copy items in destination group's folder**, puis cliquez sur **OK**.
+3. Télécharger le Kit de développement logiciel (SDK) Azure Mobile pour iOS. Ouvrez le fichier. zip et faites glisser le dossier WindowsAzureMessaging.Framework dans le dossier Structure de votre projet XCode. Sélectionnez **Copy items in destination group's folder**, puis cliquez sur **OK**.
 
    	![][33]
 
@@ -92,7 +96,7 @@ Votre Notification Hub est configuré pour APNS, et vous disposez des chaînes d
 
          #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
 
-5. Dans le fichier AppDelegate.h, ajoutez l'instruction d'importation suivante : `didFinishLaunchingWithOptions`  :
+5. Dans le fichier AppDelegate.m, ajoutez le code suivant dans la méthode `didFinishLaunchingWithOptions` :
 
          [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
@@ -124,15 +128,15 @@ Votre Notification Hub est configuré pour APNS, et vous disposez des chaînes d
 
 ##<a name="send"></a>Envoi de notifications à partir de votre serveur principal
 
-Vous pouvez envoyer des notifications à l'aide de Notification Hubs à partir de n'importe quel serveur principal utilisant l'interface REST. <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/dn223264.aspx">interface REST</a>. Dans ce didacticiel, vous envoyez des notifications avec une application console .NET. Pour obtenir un exemple expliquant comment envoyer des notifications à partir d'un serveur principal Azure Mobile Services intégré à Notification Hubs, voir **Prise en main des notifications Push dans Mobile Services** ([Service principal .NET](/fr-fr/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/) | [Service principal JavaScript](/fr-fr/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/)).  Pour obtenir un exemple expliquant comment envoyer des notifications à l'aide d'API REST, voir **Utilisation de Notification Hubs depuis Java/PHP** (Java | PHP).[Java](/fr-fr/documentation/articles/notification-hubs-java-backend-how-to/) | [PHP](/fr-fr/documentation/articles/notification-hubs-php-backend-how-to/)).
+Vous pouvez envoyer des notifications à l'aide de Notification Hubs à partir de n'importe quel serveur principal utilisant l'<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interface REST</a>. Dans ce didacticiel, vous envoyez des notifications avec une application console .NET. Pour obtenir un exemple expliquant comment envoyer des notifications à partir d'un serveur principal Azure Mobile Services intégré à Notification Hubs, voir **Prise en main des notifications Push dans Mobile Services** ([Service principal .NET](/fr-fr/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/) | [Service principal JavaScript](/fr-fr/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/)).  Pour obtenir un exemple expliquant comment envoyer des notifications à l'aide d'API REST, voir **Utilisation de Notification Hubs depuis Java/PHP** ([Java](/fr-fr/documentation/articles/notification-hubs-java-backend-how-to/) | [PHP](/fr-fr/documentation/articles/notification-hubs-php-backend-how-to/)).
 
-1. Dans Visual Studio, dans le menu **Fichier**, sélectionnez  **Nouveau**, puis **Project...**, puis sous **Visual C#**, cliquez sur **Windows** et  **Application console**, puis cliquez sur **OK**.  
+1. Dans Visual Studio, dans le menu **Fichier**, sélectionnez **Nouveau** puis **Projet...** puis, sous **Visual C#**, cliquez sur **Windows** et sur **Application console**, puis cliquez sur **OK**.  
 
    	![][20]
 
 	Un projet d'application console est créé.
 
-2. Dans le menu **Outils**, cliquez sur **Gestionnaire de package de bibliothèque**, puis sur **Console du Gestionnaire de package**.
+2. Dans le menu **Outils**, cliquez sur **Gestionnaire de package de bibliothèques**, puis sur **Console du Gestionnaire de package**.
 
 	La Console du Gestionnaire de package apparaît.
 
@@ -140,9 +144,9 @@ Vous pouvez envoyer des notifications à l'aide de Notification Hubs à partir d
 
         Install-Package WindowsAzure.ServiceBus
 
-	Cela permet d'ajouter une référence au Kit de développement logiciel (SDK) Azure Service Bus à l'aide du package NuGet WindowsAzure.ServiceBus. <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">package NuGet WindowsAzure.ServiceBus</a>.
+	Cela permet d'ajouter une référence au Kit de développement logiciel (SDK) Azure Service Bus à l'aide du <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">package NuGet WindowsAzure.ServiceBus</a>.
 
-5. Ouvrez le fichier Program.cs et ajoutez l'instruction " using " suivante : `using` suivante :
+5. Ouvrez le fichier Program.cs et ajoutez l'instruction `using` suivante :
 
         using Microsoft.ServiceBus.Notifications;
 
@@ -155,9 +159,9 @@ Vous pouvez envoyer des notifications à l'aide de Notification Hubs à partir d
             await hub.SendAppleNativeNotificationAsync(alert);
         }
 
-	Remplacez l'espace réservé " hub name " par le nom du concentrateur de notifications affiché sur le portail sous l'onglet **Notification Hubs**. Remplacez aussi l'espace réservé de chaîne de connexion par la chaîne de connexion nommée **DefaultFullSharedAccessSignature** que vous avez obtenue dans la section " Configuration de votre concentrateur de notification ".
+	Remplacez l'espace réservé " hub name " par le nom du Notification Hub affiché sur le portail sous l'onglet **Notification Hubs**. Remplacez aussi l'espace réservé de chaîne de connexion par la chaîne de connexion nommée **DefaultFullSharedAccessSignature** que vous avez obtenue dans la section " Configuration de votre concentrateur de notification ".
 
-	>[WACOM.NOTE]Assurez-vous d'utiliser la chaîne de connexion avec un accès **Total**, et non un accès **Écouter**. La chaîne d'accès Écouter n'est pas autorisée à envoyer des notifications.
+	>[AZURE.NOTE]Assurez-vous d'utiliser la chaîne de connexion avec un accès **Total**, et non un accès **Écouter**. La chaîne d'accès Écouter n'est pas autorisée à envoyer des notifications.
 
 5. Ajoutez les lignes suivantes à la méthode **Main** :
 
@@ -168,16 +172,16 @@ Vous pouvez envoyer des notifications à l'aide de Notification Hubs à partir d
 
 	Vous devez recevoir une alerte sur votre appareil. Si vous utilisez le Wi-Fi, assurez-vous que votre connexion fonctionne.
 
-Vous trouverez toutes les charges utiles possibles dans le  [Guide de programmation des notifications locales et Push].
+Vous trouverez toutes les charges utiles possibles dans le [Guide de programmation des notifications locales et Push d'Apple].
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Dans cet exemple simple, vous avez envoyé des notifications à tous vos appareils iOS. Afin de cibler des utilisateurs spécifiques, consultez le didacticiel [Utiliser Notification Hubs pour envoyer des notifications push aux utilisateurs], et, si vous souhaitez segmenter vos utilisateurs par groupes d'intérêt, vous pouvez lire [Utilisation des Notification Hubs pour diffuser les dernières nouvelles]. Découvrez plus en détail comment utiliser Notification Hubs dans [Recommandations relatives à Notification Hubs].
+Dans cet exemple simple, vous avez envoyé des notifications à tous vos appareils iOS. Afin de cibler des utilisateurs spécifiques, consultez le didacticiel [Utilisation de Notification Hubs pour envoyer des notifications Push aux utilisateurs] et, si vous souhaitez segmenter vos utilisateurs par groupes d'intérêt, vous pouvez lire [Utilisation de Notification Hubs pour envoyer les dernières nouvelles]. Découvrez plus en détail comment utiliser Notification Hubs dans [Recommandations relatives à Notification Hubs].
 
 <!-- Anchors. -->
 [Génération de la demande de signature de certificat]: #certificates
 [Inscription de votre application et activation des notifications Push]: #register
-[Création d'un profil de mise en service pour l'application]: #profile
+[Création d'un profil d'approvisionnement pour l'application]: #profile
 [Configuration de votre concentrateur de notification]: #configure-hub
 [Connexion de votre application au concentrateur de notification]: #connecting-app
 [Envoi de notifications à partir de votre serveur principal]: #send
@@ -255,18 +259,20 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 
 
 <!-- URLs. -->
-[Kit de développement logiciel (SDK) Mobile Services iOS]: http://go.microsoft.com/fwLink/?LinkID=266533
-[Page Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Kit de développement logiciel (SDK) Mobile Services pour iOS]: http://go.microsoft.com/fwLink/?LinkID=266533
+[Page Soumette une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mes Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Kit de développement logiciel (SDK) Live]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Kit de développement logiciel (SDK) Live pour Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started-ios
 [Portail de gestion Azure]: https://manage.windowsazure.com/
-[Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/fr-fr/library/jj927170.aspx
-[Installer Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
+[Installation de Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Portail d'approvisionnement iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Utiliser Notification Hubs pour envoyer des notifications push aux utilisateurs]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
-[Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet
+[Utilisation de Notification Hubs pour envoyer des notifications aux utilisateurs]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
+[Utilisation de Notification Hubs pour diffuser les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet
 
-[Guide de programmation des notifications locales et Push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[Guide de programmation des notifications Push et locales]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+
+<!--HONumber=45--> 

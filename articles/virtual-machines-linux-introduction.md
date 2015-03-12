@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Présentation de Linux dans Azure - Didacticiel Azure" 
 	description="Apprenez à utiliser des machines virtuelles Linux sur Azure." 
 	services="virtual-machines" 
@@ -20,7 +20,7 @@
 
 
 
-# Présentation de Linux sous Azure
+#Présentation de Linux sous Azure
 
 Cette rubrique présente quelques aspects de l'utilisation de machines virtuelles Linux dans le cloud Azure. Le déploiement d'une machine virtuelle Linux est un processus simple qui fait appel à une image de la galerie. 
 
@@ -55,11 +55,11 @@ La version actuelle du portail de gestion accepte uniquement les clés publiques
 
 		chmod 600 myPrivateKey.key
 
-3. Convertissez  `myCert.pem` en  `myCert.cer` (certificat codé DER X509).
+3. Convertissez `myCert.pem` en `myCert.cer` (certificat codé DER X509)
 
 		openssl  x509 -outform der -in myCert.pem -out myCert.cer
 
-4. Téléchargez  `myCert.cer` lors de la création de la machine virtuelle Linux. Le processus de déploiement installe automatiquement la clé publique de ce certificat dans le fichier `~/.ssh/authorized_keys` pour l'utilisateur spécifié dans la machine virtuelle.
+4. Téléchargez `myCert.cer` lors de la création de la machine virtuelle Linux. Le processus de déploiement installe automatiquement la clé publique de ce certificat dans le fichier `~/.ssh/authorized_keys` pour l'utilisateur spécifié dans la machine virtuelle.
 
 5. Connectez-vous à la machine virtuelle Linux à l'aide de ssh.
 
@@ -67,7 +67,7 @@ La version actuelle du portail de gestion accepte uniquement les clés publiques
 
 	Lors de la première connexion, vous êtes invité à accepter l'empreinte digitale de la clé publique de l'hôte.
 
-6. Vous pouvez éventuellement copier  `myPrivateKey.key` vers `~/.ssh/id_rsa` pour que votre client openssh puisse sélectionner la clé automatiquement sans utiliser l'option -i.
+6. Vous pouvez éventuellement copier `myPrivateKey.key` vers `~/.ssh/id_rsa` pour que votre client openssh puisse sélectionner la clé automatiquement sans utiliser l'option -i.
    Vous pouvez également modifier `~/.ssh/config` pour inclure une section pour votre machine virtuelle :
 
         Host servicename.cloudapp.net
@@ -77,16 +77,16 @@ La version actuelle du portail de gestion accepte uniquement les clés publiques
 ### Génération d'une clé à partir d'une clé existante compatible OpenSSH
 L'exemple précédent décrit la création d'une clé à utiliser avec Azure. Dans certains cas, il se peut que les utilisateurs possèdent déjà une paire de clés publique et privée compatible OpenSSH et qu'ils souhaitent utiliser les mêmes clés avec Azure.
 
-Les clés privées OpenSSH sont directement accessibles en lecture à partir de l'utilitaire  `openssl`. La commande suivante prend une clé privée SSH existante (id_rsa dans l'exemple ci-dessous) et crée la clé publique  `.pem` requise par Microsoft Azure :
+Les clés privées OpenSSH sont directement accessibles en lecture à partir de l'utilitaire `openssl`. La commande suivante prend une clé privée SSH existante (id_rsa dans l'exemple ci-dessous) et crée la clé publique `.pem` requise par Microsoft Azure :
 
 	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
 
-Le fichier **myCert.pem** est la clé publique à utiliser pour déployer une machine virtuelle Linux sur Microsoft Azure. Lors du déploiement, le fichier  `.pem` est converti en clé publique compatible  `openssh` et placé dans `~/.ssh/authorized_keys`.
+Le fichier **myCert.pem** est la clé publique à utiliser pour déployer une machine virtuelle Linux sur Microsoft Azure. Lors du déploiement, le fichier `.pem` est converti en clé publique compatible  `openssh` et placé dans `~/.ssh/authorized_keys`.
 
 
-## <a id="superuserprivileges"></a>Obtention de privilèges de superutilisateur avec  `sudo`
+## <a id="superuserprivileges"></a>Obtention de privilèges de superutilisateur avec `sudo`
 
-Le compte utilisateur qui est spécifié pendant le déploiement de l'instance de machine virtuelle dans Azure est un compte privilégié. Ce compte est configuré par l'agent Linux Azure pour pouvoir élever les privilèges au niveau root (compte superutilisateur) avec l'utilitaire  `sudo`. Une fois connecté avec ce compte utilisateur, vous êtes en mesure d'exécuter les commandes en tant que root avec la syntaxe de commande.
+Le compte utilisateur qui est spécifié pendant le déploiement de l'instance de machine virtuelle dans Azure est un compte privilégié. Ce compte est configuré par l'agent Linux Azure pour pouvoir élever les privilèges au niveau root (compte superutilisateur) avec l'utilitaire `sudo`. Une fois connecté avec ce compte utilisateur, vous êtes en mesure d'exécuter les commandes en tant que root avec la syntaxe de commande.
 
 	# sudo <COMMAND>
 
@@ -101,7 +101,7 @@ Azure fournit un filtre de paquets entrants qui limite la connectivité aux port
 
  - Consultez la rubrique : [Configuration des points de terminaison sur une machine virtuelle](../virtual-machines-set-up-endpoints/)
 
-Les images Linux de la galerie Azure n'activent pas le pare-feu  *iptables* par défaut. Si besoin est, le pare-feu peut être configuré pour fournir un filtrage supplémentaire.
+Les images Linux de la galerie Azure n'activent pas le pare-feu *iptables* par défaut. Si besoin est, le pare-feu peut être configuré pour fournir un filtrage supplémentaire.
 
 
 ## <a id="hostnamechanges"></a>Changements de nom d'hôte
@@ -130,22 +130,23 @@ Azure vous permet de capturer l'état d'une machine virtuelle existante dans une
 
 2. Arrêtez/mettez hors tension la machine virtuelle.
 
-3. Cliquez sur  *Capture* dans le portail de gestion ou utilisez les outils Powershell ou d'interface de ligne de commande pour capturer la machine virtuelle en tant qu'image.
+3. Cliquez sur *Capture* dans le portail de gestion ou utilisez les outils Powershell ou d'interface de ligne de commande pour capturer la machine virtuelle en tant qu'image.
 
  - Consultez la rubrique : [Capture d'une machine virtuelle Linux à utiliser comme modèle](../virtual-machines-linux-capture-image/)
 
 
 ## <a id="attachingdisks"></a>Attachement de disques
 
-Chaque machine virtuelle est associée à un  *resource disk* local temporaire. Étant donné que les données qui y figurent risquent de ne pas résister aux redémarrages, le disque de ressources est souvent utilisé par les applications et les processus exécutés dans la machine virtuelle pour le stockage **temporaire** des données. ainsi que pour stocker les fichiers de pagination ou d'échange du système d'exploitation.
+Chaque machine virtuelle est associée à un *disque de ressources* local temporaire. Étant donné que les données qui y figurent risquent de ne pas résister aux redémarrages, le disque de ressources est souvent utilisé par les applications et les processus exécutés dans la machine virtuelle pour le stockage **temporaire** des données. ainsi que pour stocker les fichiers de pagination ou d'échange du système d'exploitation.
 
 Sous Linux, le disque de ressources est habituellement géré par l'agent Linux Azure et monté automatiquement dans **/mnt/resource** (ou **/mnt** pour les images Ubuntu).
 
 	>[AZURE.NOTE] Notez que le disque de ressources est un disque **temporaire** et qu'il peut être effacé et reformaté lors du redémarrage de la machine virtuelle.
 
-Sous Linux, le disque de données peut être nommé  `/dev/sdc` par le noyau et les utilisateurs doivent partitionner, formater et monter cette ressource. Vous trouverez des instructions pas à pas dans le didacticiel suivant : [Association d'un disque de données à une machine virtuelle](../virtual-machines-linux-how-to-attach-disk/).
+Sous Linux, le disque de données peut être nommé `/dev/sdc` par le noyau et les utilisateurs doivent partitionner, formater et monter cette ressource. Vous trouverez des instructions pas à pas dans le didacticiel suivant : [Attachement d'un disque de données à une machine virtuelle](../virtual-machines-linux-how-to-attach-disk/).
 
  - Voir aussi : [Configuration d'un RAID logiciel sur Linux](../virtual-machines-linux-configure-raid/)
 
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

@@ -1,5 +1,5 @@
 ﻿#####Création d'une file d'attente
-Un objet **CloudQueueClient** vous permet d'obtenir les objets de référence pour les files d'attente. Le code suivant crée un objet **CloudQueueClient**. Tous les codes présentés dans cette rubrique utilisent une chaîne de connexion de stockage enregistrée dans la configuration de service de l'application Azure. Plusieurs méthodes permettent de créer un objet **CloudStorageAccount**. Consultez la documentation [CloudStorageAccount](http://msdn.microsoft.com/fr-fr/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount") pur plus d'informations.
+Un objet **CloudQueueClient** vous permet d'obtenir les objets de référence pour les files d'attente. Le code suivant crée un objet **CloudQueueClient**. Tous les codes présentés dans cette rubrique utilisent une chaîne de connexion de stockage enregistrée dans la configuration de service de l'application Azure. Plusieurs méthodes permettent de créer un objet **CloudStorageAccount**. Consultez la documentation [CloudStorageAccount](http://msdn.microsoft.com/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount") pur plus d'informations.
 
 	// Create the queue client.
 	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -46,7 +46,6 @@ Ce processus de suppression d'un message en deux étapes garantit que, si votre 
 	queue.DeleteMessage(retrievedMessage);
 
 [En savoir plus sur Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
-Voir aussi [Consultation des ressources de stockage avec l'Explorateur de serveurs](http://msdn.microsoft.com/fr-fr/library/azure/ff683677.aspx).
-
+Voir aussi [Consultation des ressources de stockage avec l'Explorateur de serveurs](http://msdn.microsoft.com/library/azure/ff683677.aspx).
 
 <!--HONumber=42-->

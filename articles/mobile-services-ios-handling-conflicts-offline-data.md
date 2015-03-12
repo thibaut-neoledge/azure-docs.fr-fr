@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Gestion des conflits liés aux données hors connexion dans Mobile Services (iOS) | Centre de développement mobile" description="Apprenez à gérer les conflits à l'aide d'Azure Mobile Services lors de la synchronisation des données hors connexion dans votre application iOS" documentationCenter="ios" authors="krisragh" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Gestion des conflits liés aux données hors connexion dans Mobile Services (iOS) | Centre de développement mobile" 
+	description="Apprenez à gérer les conflits à l'aide d'Azure Mobile Services lors de la synchronisation des données hors connexion dans votre application iOS" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/26/2015" ms.author="krisragh,donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="01/26/2015" 
+	ms.author="krisragh,donnam"/>
 
 
 # Gestion des conflits liés à la synchronisation des données hors connexion dans Mobile Services
@@ -9,7 +23,7 @@
 
 Cette rubrique vous explique comment synchroniser les données et gérer les conflits lors de l'utilisation des fonctionnalités hors connexion d'Azure Mobile Services. Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données hors connexion]. Avant de commencer, vous devez suivre le didacticiel [Prise en main des données hors connexion].
 
->[AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+>[AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite d'Azure</a>.
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 

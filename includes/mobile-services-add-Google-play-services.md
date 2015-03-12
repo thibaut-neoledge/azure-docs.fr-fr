@@ -1,33 +1,30 @@
+﻿1. Ouvrez le Gestionnaire du Kit de développement logiciel Android en cliquant sur l'icône de la barre d'outils d'Android Studio (à l'extrémité droite : en cas de doute, placez le pointeur de la souris sur l'icône). Recherchez la version cible du Kit de développement logiciel Android utilisé pour votre projet, ouvrez-la et choisissez **Google APIs**, s'il n'est pas déjà installé.
 
-
-1. Ouvrez le Gestionnaire du Kit de développement logiciel Android en cliquant sur **Fenêtre** à partir de la barre d'outils supérieure d'Eclipse. Recherchez la version cible du Kit de développement logiciel Android spécifié dans les propriétés de votre projet, ouvrez-la et choisissez **Google APIs**.
-
-2. Accédez à l'option **Extras**, développez-la et choisissez **Services Google Play**, comme indiqué ci-dessous. Cliquez sur **Packages d'installation**. Notez le chemin du Kit de développement logiciel (SDK) à utiliser à l'étape suivante. Redémarrez Eclipse.
+2. Accédez à l'option **Extras**, développez-la et choisissez **Services Google Play**, comme indiqué ci-dessous. Cliquez sur **Packages d'installation**. Notez le chemin du Kit de développement logiciel (SDK) à utiliser à l'étape suivante. 
 
    	![](./media/notification-hubs-android-get-started/notification-hub-create-android-app4.png)
 
 
-3. Installez le Kit de développement logiciel (SDK) des services Google Play dans votre projet. Dans Eclipse, cliquez sur **Fichier**, puis **Importer**. Sélectionnez **Android**, puis **Existing Android Code into Workspace**, puis cliquez sur **Suivant**. Cliquez sur **Parcourir**, naviguez jusqu'à l'emplacement du Kit de développement logiciel Android (généralement situé dans un dossier nommé `adt-bundle-windows-x86_64` inside the folder that contains Eclipse), then go to the `\extras\google\google_play_services\libproject` sous-dossier, sélectionnez le dossier google-play-services-lib, puis cliquez sur **OK**. Activez la case à cocher **Copy projects into workspace**, puis cliquez sur **Finish**.
+3. Ouvrez le fichier **build.gradle** dans le répertoire de l'application.
 
-	![](./media/mobile-services-android-get-started-push/mobile-eclipse-import-Play-library.png)
+	![](./media/mobile-services-android-get-started-push/android-studio-push-build-gradle.png)
 
-4. Vous devez ensuite référencer la bibliothèque du Kit de développement logiciel (SDK) des services Google Play que vous venez d'importer à partir de votre projet. 
+4. Ajoutez la ligne suivante sous *dependencies* : 
 
-5. Dans l'**Explorateur de package**, cliquez avec le bouton droit sur votre projet et choisissez *Properties*.
+   		compile 'com.google.android.gms:play-services-base:6.5.87'
+
+5. Sous *defaultConfig*, changez *minSdkVersion* à 9.
  
-6. Dans la fenêtre Propriétés, sélectionnez Android sur la gauche.
+6. Cliquez sur le bouton **Synchronisation du projet avec les fichiers Gradle** dans la barre d'outils.
 
-	![](./media/mobile-services-android-get-started-push/mobile-google-set-project-properties.png)
+7. Ouvrez **AndroidManifest.xml** et ajoutez cette balise à la balise *application*.
 
-
-7. Sous **cible de génération de projet**, vérifiez que `Google APIs x86` (or `Google APIs` (selon votre plateforme de développement)soit sélectionné pour le niveau de Kit de développement logiciel approprié.
-
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
  
-8. Dans la section **Bibliothèque**, choisissez **Ajouter** , sélectionnez le projet des services Google Play (*google-play-services-lib*), puis cliquez sur **OK**.
-
-9. Cliquez sur **Appliquer**, puis **OK**.
 
 
 
 
-<!--HONumber=42-->
+
+<!--HONumber=45--> 

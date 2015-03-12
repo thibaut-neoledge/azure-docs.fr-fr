@@ -44,9 +44,9 @@ Cette rubrique contient des instructions de personnalisation d'un cluster HDInsi
 
 Pour obtenir un exemple de script pour installer Spark sur un cluster HDInsight, téléchargez l'objet blob de stockage Azure en lecture seule à l'adresse [https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1). Cette section fournit des instructions sur l'utilisation de l'exemple de script lors de l'approvisionnement du cluster à l'aide du portail de gestion Azure. 
 
-> [AZURE.NOTE] L'exemple de script fonctionne uniquement avec un cluster HDInsight version 3.1.  Pour plus d'informations sur les versions des clusters HDInsight, consultez la page [Versions des clusters HDInsight](http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] L'exemple de script fonctionne uniquement avec un cluster HDInsight version 3.1.  Pour plus d'informations sur les versions des clusters HDInsight, consultez la page [Versions des clusters HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
-1. Lancez l'approvisionnement d'un cluster à l'aide de l'option **CRÉATION PERSONNALISÉE**, comme il est décrit dans la rubrique [Approvisionnement d'un cluster à l'aide d'options personnalisées](http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-provision-clusters/#portal). 
+1. Lancez l'approvisionnement d'un cluster à l'aide de l'option **CRÉATION PERSONNALISÉE**, comme il est décrit dans la rubrique [Approvisionnement d'un cluster à l'aide d'options personnalisées](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#portal). 
 2. Sur la page **Actions de script** de l'Assistant, cliquez sur **ajouter l'action de script** pour fournir des informations sur l'action de script, comme illustré ci-dessous :
 
 	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CustomProvision.Page6.png "Use Script Action to customize a cluster")
@@ -76,7 +76,7 @@ Spark fournit des API en Scala, Python et Java. Vous pouvez aussi utiliser l'int
 ###<a name="sparkshell"></a>À l'aide de l'interpréteur de commandes Spark
 Procédez comme suit pour exécuter des requêtes Spark à partir d'un interpréteur de commandes Spark interactif. Dans cette section, nous allons exécuter une requête Spark sur un exemple de fichier de données (/example/data/gutenberg/davinci.txt) qui est disponible, par défaut, sur des clusters HDInsight.
 
-1. Dans le Portail de gestion Azure, activez le Bureau à distance pour le cluster que vous avez créé et sur lequel vous avez installé R, puis accédez à distance au cluster. Pour obtenir des instructions, consultez <a href="http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connexion à des clusters HDInsight à l'aide de RDP</a>.
+1. Dans le Portail de gestion Azure, activez le Bureau à distance pour le cluster que vous avez créé et sur lequel vous avez installé R, puis accédez à distance au cluster. Pour obtenir des instructions, consultez <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connexion à des clusters HDInsight à l'aide de RDP</a>.
 
 2. Dans la session RDP, ouvrez la ligne de commande Hadoop sur le Bureau, puis naviguez jusqu'à l'emplacement d'installation de Spark (par exemple, **C:\apps\dist\spark-1.0.2**).
 
@@ -184,7 +184,7 @@ Dans cette section, vous allez vous connecter à distance au cluster sur lequel 
 
 ## <a name="usingPS"></a>Installation de Spark sur des clusters HDInsight Hadoop à l'aide de PowerShell
 
-La cmdlet **<a href = "http://msdn.microsoft.com/fr-fr/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** est utilisée dans cette section pour appeler des scripts avec une action de script afin de personnaliser un cluster. Avant de poursuivre, assurez-vous que vous avez installé et configuré PowerShell. Pour plus d'informations sur la configuration d'une station de travail pour exécuter des applets de commande HDInsight Powershell, consultez la page [Installation et configuration d'Azure PowerShell][powershell-install-configure].
+La cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** est utilisée dans cette section pour appeler des scripts avec une action de script afin de personnaliser un cluster. Avant de poursuivre, assurez-vous que vous avez installé et configuré PowerShell. Pour plus d'informations sur la configuration d'une station de travail pour exécuter des applets de commande HDInsight Powershell, consultez la page [Installation et configuration d'Azure PowerShell][powershell-install-configure].
 
 Procédez comme suit :
 
@@ -345,7 +345,7 @@ Créez un certificat auto-signé, installez-le sur votre station de travail et t
             Version = "3.1"
         };        
 
-10. Ajoutez le code suivant à la fonction Main() pour utiliser la classe [ScriptAction](http://msdn.microsoft.com/fr-fr/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) et appeler un script personnalisé pour installer Spark.
+10. Ajoutez le code suivant à la fonction Main() pour utiliser la classe [ScriptAction](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) et appeler un script personnalisé pour installer Spark.
 
 		// ADD THE SCRIPT ACTION TO INSTALL SPARK
         clusterInfo.ConfigActions.Add(new ScriptAction(
@@ -382,5 +382,6 @@ Entrez un nom de cluster, puis appuyez sur Entrée pour approvisionner un cluste
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-install-r]: ../hdinsight-hadoop-r-scripts/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
-[powershell-install-configure]: ../install-configure-powershell/
+[powershell-install-configure]: ../install-configure-powershell.
+
 <!--HONumber=42-->

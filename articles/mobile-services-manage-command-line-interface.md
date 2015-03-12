@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Administration d'un service mobile à l'aide d'une invite de commandes - Didacticiel Azure" description="Découvrez comment créer, déployer et gérer votre service mobile Azure à l'aide des outils en ligne de commande." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Administration d'un service mobile à l'aide d'une invite de commandes - Didacticiel Azure" 
+	description="Découvrez comment créer, déployer et gérer votre service mobile Azure à l'aide des outils en ligne de commande." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Automatisation des services mobiles avec les outils en ligne de commande 
 
@@ -18,9 +32,9 @@ Lorsqu'elles sont combinées dans un seul script ou dans un fichier de commandes
 
 Pour utiliser les outils en ligne de commande Azure afin de gérer Mobile Services, vous devez disposer d'un compte Azure sur lequel la fonctionnalité Azure Mobile Services est activée.
 
-+ Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/" target="_blank">Version d'évaluation gratuite Azure</a>.
++ Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">Version d'évaluation gratuite Azure</a>.
 
-+ Si vous disposez d'un compte, mais que vous devez activer la version préliminaire d'Azure Mobile Services, consultez la rubrique <a href="http://azure.microsoft.com/fr-fr/documentation/articles/php-create-account/#enable" target="_blank">Activation des fonctionnalités préliminaires d'Azure</a>.
++ Si vous disposez d'un compte, mais que vous devez activer la version préliminaire d'Azure Mobile Services, consultez la rubrique <a href="http://azure.microsoft.com/documentation/articles/php-create-account/#enable" target="_blank">Activation des fonctionnalités préliminaires d'Azure</a>.
 
 Cette rubrique présente une sélection de tâches d'administration courantes prises en charge par les outils en ligne de commande Azure. Pour plus d'informations, consultez la [documentation sur les outils en ligne de commande Azure][reference-docs].
 
@@ -137,7 +151,8 @@ La commande suivante télécharge et inscrit une fonction dans une opération su
 
 Notez que cette opération charge un fichier JavaScript (.js) à partir de l'ordinateur local. Le nom du fichier doit se composer des noms d'une table et d'une opération et doit être situé dans le sous-dossier `table` par rapport à l'emplacement où est exécutée la commande. Par exemple, l'opération suivante charge et enregistre un nouveau script `insert` appartenant à la table `TodoItems` :
 
-		azure mobile script upload todolist table/todoitems.insert.js
+		azure mobile script upload todolist table/todoite
+	ms.insert.js
 
 La déclaration de fonction du fichier de script doit également correspondre à l'opération de table enregistrée. Cela signifie que, pour un script `insert`, le script chargé contient une fonction avec la signature suivante :
 

@@ -72,7 +72,7 @@ Le site doit être exécuté en plan d'hébergement **Standard** pour activer pl
 
 	-	 
 
-Il n'y a aucun contenu. Vous pouvez effectuer un déploiement sur l'emplacement d'une autre branche référentielle, ou d'un référentiel complètement différent. Vous pouvez également modifier la configuration de l'emplacement. Utilisez le profil de publication ou les informations d'identification associées à l'emplacement de déploiement pour les mises à jour de contenu.  Par exemple, vous pouvez [publier sur cet emplacement avec Git](http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-publish-source-control/).
+Il n'y a aucun contenu. Vous pouvez effectuer un déploiement sur l'emplacement d'une autre branche référentielle, ou d'un référentiel complètement différent. Vous pouvez également modifier la configuration de l'emplacement. Utilisez le profil de publication ou les informations d'identification associées à l'emplacement de déploiement pour les mises à jour de contenu.  Par exemple, vous pouvez [publier sur cet emplacement avec Git](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control/).
 
 <a name="AboutConfiguration"></a>
 ## À propos de la configuration des emplacements de déploiement##
@@ -147,7 +147,7 @@ Dans la barre de commandes située en bas de la page du portail Sites Web Azure,
 
 Azure PowerShell est un module fournissant des cmdlets pour gérer Azure via Windows PowerShell, notamment la prise en charge de la gestion des emplacements de déploiement Sites Web Azure. 
 
-- Pour plus d'informations sur l'installation et la configuration d'Azure PowerShell et sur l'authentification d'Azure PowerShell avec votre abonnement Azure, consultez l'article [Installation et configuration d'Azure PowerShell](http://www.windowsazure.com/fr-fr/documentation/articles/install-configure-powershell).  
+- Pour plus d'informations sur l'installation et la configuration d'Azure PowerShell et sur l'authentification d'Azure PowerShell avec votre abonnement Azure, consultez l'article [Installation et configuration d'Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell).  
 
 - Pour répertorier les cmdlets disponibles pour les sites Web Azure dans PowerShell, appelez `help AzureWebsite`. 
 
@@ -202,7 +202,7 @@ Si vous n'avez plus besoin d'un emplacement de déploiement, vous pouvez le supp
 
 L'interface de ligne de commande interplateforme Azure (xplat-cli) fournit des commandes interplateformes fonctionnant avec Azure, notamment la prise en charge de la gestion des emplacements de déploiement sur les sites Web Azure. 
 
-- Pour obtenir des instructions sur l'installation et la configuration de l'interface xplat-cli, et notamment des informations sur la connexion de cette dernière à votre abonnement Azure, consultez l'article [Installation et configuration de l'interface de ligne de commande interplateforme Azure](http://www.windowsazure.com/fr-fr/documentation/articles/xplat-cli). 
+- Pour obtenir des instructions sur l'installation et la configuration de l'interface xplat-cli, et notamment des informations sur la connexion de cette dernière à votre abonnement Azure, consultez l'article [Installation et configuration de l'interface de ligne de commande interplateforme Azure](http://azure.microsoft.com/documentation/articles/xplat-cli). 
 
 -  Pour répertorier les commandes disponibles pour les sites Web Azure dans l'interface xplat-cli, appelez `azure site -h`. 
 
@@ -238,7 +238,7 @@ Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, util
 ## Étapes suivantes ##
 [Sites Web Azure - limiter l'accès Web aux emplacements de déploiement de production](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-[Version d'évaluation gratuite de Microsoft Azure](http://azure.microsoft.com/fr-fr/pricing/free-trial/)
+[Version d'évaluation gratuite de Microsoft Azure](http://azure.microsoft.com/pricing/free-trial/)
 
 
 <!-- IMAGES -->

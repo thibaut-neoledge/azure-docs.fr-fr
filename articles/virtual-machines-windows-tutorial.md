@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Création d'une machine virtuelle exécutant Windows dans Azure" 
 	description="Apprenez à créer une machine virtuelle Windows dans Azure et à connecter et attacher un disque de données" 
 	services="virtual-machines" 
@@ -20,7 +20,7 @@
 
 # Création d'une machine virtuelle exécutant Windows #
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/fr-fr/documentation/articles/virtual-machines-windows-tutorial/" title="Azure Portal" class="current">Portail Azure</a><a href="/fr-fr/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure Preview Portal">Portail Azure Preview</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/fr-fr/documentation/articles/virtual-machines-windows-tutorial/" title="Azure Portal" class="current">Portail Azure</a><a href="/fr-fr/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure Preview Portal">portail Azure Preview</a></div>
 
 Ce didacticiel vous montre combien il est facile de créer une machine virtuelle Azure. Il utilise une image Windows Server, qui n'est qu'une des nombreuses images disponibles via Azure. Cela inclut les systèmes d'exploitation Windows, les systèmes d'exploitation Linux et les images avec des applications préinstallées. Les images que vous pouvez choisir dépendent du type d'abonnement que vous possédez. Par exemple, les images de bureau sont disponibles pour les abonnés MSDN.
 
@@ -32,14 +32,14 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 - [Connexion à la machine virtuelle une fois celle-ci créée](#logon)
 - [Association d'un disque de données avec la nouvelle machine virtuelle](#attachdisk)
 
-Pour en savoir plus, consultez la page [Machines virtuelles](http://go.microsoft.com/fwlink/p/?LinkID=271224)
+Pour en savoir plus, consultez la page [Machines virtuelles](http://go.microsoft.com/fwlink/p/?LinkID=271224).
 
 
-##<a id="createvirtualmachine"> </a>Création de la machine virtuelle##
+##<a id="createvirtualmachine"> </a> Création de la machine virtuelle##
 
 Ce didacticiel vous montre comment utiliser l'option **À partir de la galerie** dans le portail de gestion pour créer la machine virtuelle. Cette option propose davantage de possibilités de configuration que l'option **Création rapide**. Par exemple, si vous voulez associer une machine virtuelle à un réseau virtuel, vous devez utiliser l'option **À partir de la galerie**.
 
-> [AZURE.NOTE] Vous pouvez également faire un essai avec le [portail Azure en version préliminaire](https://portal.azure.com), plus riche et personnalisable, pour créer une machine virtuelle, automatiser le déploiement de modèles d'application sur plusieurs machines virtuelles, utiliser les fonctions avancées de surveillance et de diagnostic des machines virtuelles, etc. Bien qu'il existe des recoupements importants entre les options de configuration des machines virtuelles disponibles dans les deux portails, ces options ne sont pas identiques.  
+> [AZURE.NOTE] Vous pouvez faire un essai avec la [version préliminaire du portail Azure](https://portal.azure.com), plus riche et personnalisable, pour créer une machine virtuelle, automatiser le déploiement de modèles d'application sur plusieurs machines virtuelles, utiliser les fonctions avancées de surveillance et de diagnostic des machines virtuelles, etc. Bien qu'il existe des recoupements importants entre les options de configuration des machines virtuelles disponibles dans les deux portails, ces options ne sont pas identiques.  
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
@@ -51,9 +51,9 @@ Cette section explique comment se connecter à la machine virtuelle de manière 
 
 ## <a id="attachdisk"> </a>Association d'un disque de données avec la nouvelle machine virtuelle ##
 
-Cette section explique comment associer un disque de données vide à la machine virtuelle. Pour plus d'informations, notamment sur l'association de disques existants, consultez la page [Association d'un disque de données](http://azure.microsoft.com/documentation/articles/storage-windows-attach-disk/).
+Cette section explique comment associer un disque de données vide à la machine virtuelle. Pour plus d'informations sur l'association de disques existants, consultez la page [Association d'un disque de données](http://azure.microsoft.com/documentation/articles/storage-windows-attach-disk/).
 
-1. Connectez-vous au [portail de gestion Azure](http://manage.windowsazure.com).
+1. Connectez-vous au [Portail de gestion Azure](http://manage.windowsazure.com).
 
 2. Cliquez sur **Machines virtuelles**, puis sélectionnez la machine virtuelle **MonTestMV**.
 
@@ -70,7 +70,7 @@ Cette section explique comment associer un disque de données vide à la machine
 5. Les options **Nom de la machine virtuelle**, **Emplacement de stockage**, **Nom de fichier** et **Préférences de cache d'hôte** sont déjà définies. Il vous suffit de spécifier la taille du disque. Par exemple, tapez **5** dans le champ**taille**. Cliquez sur la coche pour attacher le disque.
 
 
-	>[AZURE.NOTE] Tous les disques sont créés à partir des fichiers de disque dur virtuel dans le stockage Azure. **Nom de fichier** vous permet de nommer le fichier .vhd utilisé par le disque, et non le disque. Azure attribue automatiquement un nom au disque. 
+	>[AZURE.NOTE]  Tous les disques sont créés à partir des fichiers de disque dur virtuel dans le stockage Azure. **Nom de fichier** vous permet de nommer le fichier .vhd utilisé par le disque, et non le disque. Azure attribue automatiquement un nom au disque. 
 
 	![Specify the size of the empty disk](./media/virtual-machines-windows-tutorial/emptydisksize.png)	
 	
@@ -137,7 +137,9 @@ Pour en savoir plus sur la configuration des machines virtuelles Windows sur Azu
 [À propos des machines virtuelles dans Azure]: #virtualmachine
 [Création de la machine virtuelle]: #custommachine
 [Connexion à la machine virtuelle une fois celle-ci créée]: #logon
-[Attachement d'un disque de données avec la nouvelle machine virtuelle]: #attachdisk
-[Configuration de la communication avec la machine virtuelle]: #endpoints
+[Association d'un disque de données avec la nouvelle machine virtuelle]: #attachdisk
+[Configuration de la communication avec l'ordinateur virtuel]: #endpoints
 
-<!--HONumber=45--> 
+
+
+<!--HONumber=42-->

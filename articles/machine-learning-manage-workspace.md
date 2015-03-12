@@ -1,6 +1,20 @@
-﻿<properties title="Manage an Azure Machine Learning workspace" pageTitle="Gestion d'un espace de travail Machine Learning | Azure" description="Gestion de l'accès aux espaces de travail Azure Machine Learning, et déploiement et gestion des services web d'API ML" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Gestion d'un espace de travail Machine Learning | Azure" 
+	description="Gestion de l'accès aux espaces de travail Azure Machine Learning, et déploiement et gestion des services web d'API ML" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="garye"/>
 
 
 # Gestion d'un espace de travail Azure Machine Learning 
@@ -27,3 +41,5 @@ Pour en savoir plus sur le déploiement de services web de production, reportez-
 
 <!--Image references-->
 [1]: ./media/machine-learning-manage-workspace/mw1.png
+
+<!--HONumber=46--> 

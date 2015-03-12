@@ -12,4 +12,5 @@ Vous devez ensuite modifier la méthode d'enregistrement des notifications Push 
             await AuthenticateAsync();            
             App.AcquirePushChannel();
             RefreshTodoItems();
-        }<!--HONumber=41-->
+        }
+\<!--HONumber=42-->

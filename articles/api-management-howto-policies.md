@@ -1,6 +1,20 @@
-<properties pageTitle="Policies in Azure API Management" metaKeywords="" description="Learn how to create, edit, and configure policies in API Management." metaCanonical="" services="" documentationCenter="API Management" title="Policies in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Stratégies dans Gestion des API Azure" 
+	description="Apprenez à créer, à modifier et à configurer des stratégies dans Gestion des API." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/28/2015" 
+	ms.author="sdanie"/>
 
 # Stratégies dans Gestion des API Azure
 
@@ -99,3 +113,5 @@ Remarque : une stratégie globale n'a pas d'autre stratégie au-dessus d'elle. 
   [Edit]: ./media/api-management-howto-policies/api-management-policies-edit.png
   [Restriction policies]: ./media/api-management-howto-policies/api-management-policies-restrict.png
   [Save]: ./media/api-management-howto-policies/api-management-policies-save.png
+
+<!--HONumber=46--> 

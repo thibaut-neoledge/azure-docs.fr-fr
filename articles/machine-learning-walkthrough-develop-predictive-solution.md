@@ -1,6 +1,20 @@
-<properties title="D&eacute;veloppement d'une solution pr&eacute;dictive avec Azure Machine Learning" pageTitle="D&eacute;veloppement d'une solution pr&eacute;dictive avec Machine Learning | Azure" description="Proc&eacute;dure pas &agrave; pas pour cr&eacute;er une exp&eacute;rience d'analyse pr&eacute;dictive dans Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Développement d'une solution prédictive avec Machine Learning | Azure" 
+	description="Procédure pas à pas pour créer une expérience d'analyse prédictive dans Azure Machine Learning Studio" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="garye"/>
 
 # Développement d'une solution prédictive avec Azure Machine Learning
 
@@ -29,3 +43,5 @@ Cette procédure pas à pas est basée sur une version simplifiée de l'
   [Publication du service web]: ../machine-learning-walkthrough-5-publish-web-service/
   [Accès au service web]: ../machine-learning-walkthrough-6-access-web-service/
   [Exemple d'expérience de prédiction du risque de crédit]: ../machine-learning-sample-credit-risk-prediction/
+
+<!--HONumber=46--> 

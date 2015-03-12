@@ -23,7 +23,7 @@
 
 Socket.IO offre une communication en temps réel entre votre serveur node.js et vos clients à l'aide de WebSockets. Il prend également en charge l'utilisation d'autres transports (tels que l'interrogation longue) qui fonctionnent avec des navigateurs plus anciens. Ce didacticiel vous explique comment héberger une application de conversation instantanée socket.IO en tant que site Web Azure. Pour plus d'informations sur Socket.IO, consultez la page [http://socket.io/][socketio].
 
-> [AZURE.NOTE] Les procédures de cette tâche s'appliquent aux sites Web Azure. Pour les services cloud, consultez la page <a href="http://www.windowsazure.com/fr-fr/develop/nodejs/tutorials/app-using-socketio/">Création d'une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure</a>.
+> [AZURE.NOTE] Les procédures de cette tâche s'appliquent aux sites Web Azure. Pour les services cloud, consultez la page <a href="http://azure.microsoft.com/develop/nodejs/tutorials/app-using-socketio/">Création d'une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure</a>.
 
 
 ## <a id="Download"></a>Téléchargement de l'exemple de conversation instantanée
@@ -96,7 +96,7 @@ installer les modules nécessaires :
 
 Suivez cette procédure pour créer un site Web Azure, activer la publication Git, puis activer la prise en charge de WebSocket pour le site Web.
 
-> [AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+> [AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Version d'évaluation gratuite d'Azure</a>.
 
 1. Sur la ligne de commande, accédez au répertoire **\\node\chat**, puis utilisez la commande suivante pour créer un site Web Azure et activer un référentiel Git pour le site Web et le répertoire local. Ceci crée également un Git distant nommé 'azure'.
 

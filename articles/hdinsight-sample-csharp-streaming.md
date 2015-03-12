@@ -36,7 +36,7 @@ Pour plus d'informations sur l'interface de diffusion Hadoop, consultez la page 
 
 **Conditions préalables** :	
 
-- Vous devez disposer d'un compte Azure. Pour connaître les options disponibles lors de la création d'un compte, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/fr-fr/pricing/free-trial/).
+- Vous devez disposer d'un compte Azure. Pour connaître les options disponibles lors de la création d'un compte, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 - Vous devez avoir approvisionné un cluster HDInsight. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de cluster, consultez la page [Approvisionnement de clusters HDInsight](../hdinsight-provision-clusters/)
 
@@ -184,9 +184,9 @@ Pour suivre des didacticiels exécutant d'autres exemples et fournissant des ins
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/fr-fr/library/dn479185.aspx
 
 [hadoop-streaming]: http://wiki.apache.org/hadoop/HadoopStreaming
-[streamreader]: http://msdn.microsoft.com/fr-fr/library/system.io.streamreader.aspx
-[console-writeline]: http://msdn.microsoft.com/fr-fr/library/system.console.writeline
-[stdin-stdout-stderr]: http://msdn.microsoft.com/fr-fr/library/3x292kth(v=vs.110).aspx
+[streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
+[console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
+[stdin-stdout-stderr]: http://msdn.microsoft.com/library/3x292kth(v=vs.110).aspx
 
 [Powershell-install-configure]: ../install-configure-powershell/
 
@@ -200,7 +200,6 @@ Pour suivre des didacticiels exécutant d'autres exemples et fournissant des ins
 
 [hdinsight-use-hive]: ../hdinsight-use-hive/
 [hdinsight-use-pig]: ../hdinsight-use-pig/
-
 
 
 <!--HONumber=42-->

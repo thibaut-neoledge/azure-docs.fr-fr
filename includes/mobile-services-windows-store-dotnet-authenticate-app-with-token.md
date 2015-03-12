@@ -89,4 +89,5 @@ L'exemple précédent montrait une connexion standard, qui nécessite que le cli
 
 3. Redémarrez l'application deux fois.
 
-	Notez que lors du premier démarrage, la connexion avec le fournisseur est à nouveau requise. Cependant, lors du second redémarrage, les informations d'identification mises en cache sont utilisées et l'étape de connexion est ignorée. <!--HONumber=41-->
+	Notez que lors du premier démarrage, la connexion avec le fournisseur est à nouveau requise. Cependant, lors du second redémarrage, les informations d'identification mises en cache sont utilisées et l'étape de connexion est ignorée. 
+\<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Prise en main des notifications Push à l'aide d'un service mobile principal JavaScript" description="Découvrez comment utiliser Azure Mobile Services et Notification Hubs pour envoyer des notifications Push à votre application universelle Windows." services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Prise en main des notifications Push à l'aide d'un service mobile principal JavaScript" 
+	description="Découvrez comment utiliser Azure Mobile Services et Notification Hubs pour envoyer des notifications Push à votre application universelle Windows." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/27/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/27/2014" 
+	ms.author="glenga"/>
 
 
 # Ajout de notifications push à votre application Mobile Services
@@ -32,7 +46,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 <li><p>Accédez au dossier de projet<code>\Services\MobileServices\your_service_name</code>, ouvrez le fichier de code push.register.cs généré et examinez la méthode <strong>UploadChannel</strong> qui enregistre l'URL de canal d'appareil avec le concentrateur de notification.</p></li> 
 <li><p>Ouvrez le fichier de code App.xaml.cs partagé et notez qu'un appel vers la méthode <strong>UploadChannel</strong> a été ajouté au gestionnaire d'événements <strong>OnLaunched</strong>.</p> <p>Cela garantit qu'une tentative d'inscription de l'appareil est effectuée chaque fois que l'application est lancée.</p></li>
 <li><p>Répétez les étapes précédentes pour ajouter des notifications Push à un projet d'application Windows Phone Store ; ensuite, dans le fichier App.xaml.cs partagé, supprimez l'appel supplémentaire vers <strong>UploadChannel</strong> et l'encapsuleur conditionnel <code>#if...#endif</code> restant.</p> <p>Les deux projets peuvent maintenant partager un même appel vers <strong>UploadChannel</strong>.</p>
-<p>Notez que vous pouvez également simplifier le code généré en unifiant les définitions <a href="http://msdn.microsoft.com/fr-fr/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> encapsulées dans <code>#if...#endif</code> en une seule définition encapsulée, utilisée pour les deux versions de l'application.</p></li>
+<p>Notez que vous pouvez également simplifier le code généré en unifiant les définitions <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> encapsulées dans <code>#if...#endif</code> en une seule définition encapsulée, utilisée pour les deux versions de l'application.</p></li>
 </ol>
 
 Maintenant que les notifications Push sont activées dans l'application, vous devez mettre à jour le service mobile pour les envoyer. 

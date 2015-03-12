@@ -123,7 +123,7 @@ Avant de stocker des données, vous devez créer le conteneur qui remplira ce r�
 		}
 		?>
 
-	Vous trouverez les descriptions des codes et messages d'erreur sur cette page : [http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179438.aspx][msdn-errors]
+	Vous trouverez les descriptions des codes et messages d'erreur sur cette page : [http://msdn.microsoft.com/library/windowsazure/dd179438.aspx][msdn-errors]
 
 
 ##Exécution d'une requête sur une table
@@ -441,11 +441,11 @@ Pour publier des modifications apportées à votre application, procédez comme 
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [composer-phar]: http://getcomposer.org/composer.phar
 
-[msdn-errors]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179438.aspx
+[msdn-errors]: http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 
 
 
-[msdn-table-query-syntax]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dd894031.aspx
+[msdn-table-query-syntax]: http://msdn.microsoft.com/library/windowsazure/dd894031.aspx
 [ws-storage-app]: ./media/web-sites-php-storage/ws-storage-app.png
 [management-portal]: https://manage.windowsazure.com
 [new-website]: ./media/web-sites-php-storage/new_website.jpg

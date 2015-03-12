@@ -83,4 +83,5 @@ Notez que la méthode `Post` n'envoie pas de notification toast. Elle envoie une
 21. Nous allons maintenant redéployer cette application sur un site web Azure afin de la rendre accessible à tous les appareils. Cliquez avec le bouton droit sur le projet **AppBackend** et sélectionnez **Publier**.
 
 24. Sélectionnez Site web Azure comme cible de publication. Connectez-vous avec votre compte Azure et sélectionnez un site web (nouveau ou existant). Notez la propriété de l'**URL de destination** sous l'onglet **Connexion**. Plus loin dans ce didacticiel, nous utiliserons cette URL comme *backend endpoint*. Cliquez sur **Publier**.
-<!--HONumber=42-->
+
+<!--HONumber=45--> 

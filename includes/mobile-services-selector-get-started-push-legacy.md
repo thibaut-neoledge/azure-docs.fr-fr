@@ -1,12 +1,13 @@
 ﻿> [AZURE.SELECTOR-LIST (Plateforme | Principal)]
-- [(iOS | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/)
-- [(iOS | JavaScript)](/en-us/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/)
-- [(Windows Store C# | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/)
-- [(Windows Store C# | JavaScript)](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/)
-- [(Windows Store JavaScript | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/)
-- [(Windows Store JavaScript | Javascript)](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/)
-- - [(Windows Phone | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/)
-- [(Windows Phone | JavaScript)](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/)
-- [(Android | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/)
-- [(Android | JavaScript)](/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/)
-<!--HONumber=41-->
+- [(iOS | .NET)](/fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/)
+- [(iOS | JavaScript)](/fr-fr/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/)
+- [(Windows Store C# | .NET)](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/)
+- [(Windows Store C# | JavaScript)](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/)
+- [(Windows Store JavaScript | .NET)](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/)
+- [(Windows Store JavaScript | Javascript)](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/)
+- - [(Windows Phone | .NET)](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/)
+- [(Windows Phone | JavaScript)](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/)
+- [(Android | .NET)](/fr-fr/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/)
+- [(Android | JavaScript)](/fr-fr/documentation/articles/mobile-services-javascript-backend-android-get-started-push/)
+
+\<!--HONumber=42-->

@@ -1,6 +1,20 @@
-<properties urlDisplayName="Service Bus Queues" pageTitle="Utilisation des files d'attente Service Bus (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en C# à l'aide de l'API .NET." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Utilisation des files d'attente Service Bus (.NET) - Azure" 
+	description="Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en C# à l'aide de l'API .NET." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -234,7 +248,9 @@ liens pour en savoir plus :
   
   
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
-  [Files d'attente, rubriques et abonnements.]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367516.aspx
-  [Didacticiel .NET sur la messagerie répartie Service Bus]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh367512.aspx
+  [Files d'attente, rubriques et abonnements.]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
+  [Didacticiel .NET sur la messagerie répartie Service Bus]: http://msdn.microsoft.com/library/windowsazure/hh367512.aspx
 
 <!--HONumber=35.1-->
+
+<!--HONumber=46--> 

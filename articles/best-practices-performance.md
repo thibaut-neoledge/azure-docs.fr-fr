@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Performance" pageTitle="Meilleures pratiques pour les performances - Azure" metaKeywords="optimisation d'Azure, meilleures pratiques pour les performances d'Azure" description="Découvrez les meilleures pratiques favorisant les performances dans Azure." metaCanonical="" services="cloud-services,sql-database,storage,service-bus,virtual-network" documentationCenter=".NET" title="" authors="robb" solutions="" manager="johndaw" editor="" />
+﻿<properties 
+	pageTitle="Meilleures pratiques pour les performances - Azure" 
+	description="Learn about best practices for performance in Azure." 
+	services="cloud-services, sql-database, storage, service-bus, virtual-network" 
+	documentationCenter=".net" 
+	authors="Rboucher" 
+	manager="jwhit" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="9/1/2014" ms.author="robb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="9/1/2014" 
+	ms.author="robb"/>
 
 # Meilleures pratiques pour les performances dans les applications Azure #
 
@@ -103,7 +117,7 @@ Un modèle de conception courant dans lequel le stockage de table peut être env
 
 Pour plus d'informations sur le stockage de table, consultez les pages suivantes : 
 
-* [Stockage de table Microsoft Azure et base de données SQL Microsoft Azure - Comparaison et différences](http://msdn.microsoft.com/fr-fr/library/jj553018.aspx)
+* [Stockage de table Microsoft Azure et base de données SQL Microsoft Azure - Comparaison et différences](http://msdn.microsoft.com/library/jj553018.aspx)
 * [Considérations sur les performances du stockage de table Azure](http://go.microsoft.com/fwlink/?LinkId=252663) 
 * [Base de données SQL et stockage de table Azure](http://go.microsoft.com/fwlink/?LinkId=252664) 
 * [Amélioration des performances en regroupant les insertions dans le stockage de table Azure](http://go.microsoft.com/fwlink/?LinkID=252665), qui examine certains résultats de performances. 
@@ -343,3 +357,5 @@ Autres ressources
 * [Planification Azure - Guide postdécision pour intégrer Azure dans votre environnement](http://go.microsoft.com/fwlink/?LinkId=252884) 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

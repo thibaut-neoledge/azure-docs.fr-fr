@@ -1,0 +1,135 @@
+﻿<properties
+   pageTitle="Utiliser Hadoop Pig dans HDInsight | Azure"
+   description="Utilisation de Pig avec Hadoop sur HDInsight via le Bureau à distance."
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"/>
+
+<tags
+   ms.service="hdinsight"
+   ms.devlang=""
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="02/18/2015"
+   ms.author="larryfr"/>
+
+#Exécution de tâches Pig à l'aide de la commande Pig (Bureau à distance)
+
+[AZURE.INCLUDE [pig-selector](../includes/hdinsight-selector-use-pig.md)]
+
+Ce document décrit l'utilisation de la commande Pig pour exécuter interactivement des instructions Pig Latin ou en tant que traitement par lots sur un Hadoop basé sur Linux sur un cluster HDInsight. Pig Latin permet de créer des applications MapReduce en décrivant les transformations de données, plutôt que de mapper et de réduire les fonctions.
+
+##<a id="prereq"></a>Conditions préalables
+
+Pour réaliser les étapes présentées dans cet article, vous avez besoin des éléments suivants :
+
+* un cluster HDInsight basé sur Windows (Hadoop sur HDInsight)
+
+* un client Windows 7, 8 ou 10
+
+##<a id="connect"></a>une connexion de Bureau à distance
+
+Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous en suivant les instructions sur la page <a href="http://azure.microsoft.com/ documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connexion à des clusters HDInsight à l'aide de RDP</a>.
+
+##<a id="pig"></a>Utilisation de la commande Pig
+
+2. Une fois connecté, lancez la **Ligne de commande Hadoop** à l'aide de l'icône sur le bureau.
+
+2. Utilisez ce qui suit pour lancer la ligne de commande Pig.
+
+		%pig_home%\bin\pig
+
+	Cela affichera une invite `grunt>`. 
+
+3. Entrez l'instruction suivante :
+
+		LOGS = LOAD 'wasb:///example/data/sample.log';
+
+	Cette commande charge le contenu du fichier sample.log dans les JOURNAUX. Vous pouvez afficher le contenu du fichier à l'aide de la commande suivante.
+
+		DUMP LOGS;
+
+4. Transformez ensuite les données en appliquant une expression régulière pour extraire uniquement le niveau de journalisation de chaque enregistrement à l'aide de la commande suivante.
+
+		LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+
+	Vous pouvez utiliser **DUMP** pour afficher les données après la transformation. Dans cet exemple, `DUMP LEVELS;`.
+
+5. Continuez à appliquer des transformations à l'aide des instructions suivantes. Utilisez `DUMP` pour afficher le résultat de la transformation après chaque étape.
+
+	<table>
+	<tr>
+	<th>Instruction</th><th>Résultat</th>
+	</tr>
+	<tr>
+	<td>FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;</td><td>Supprime les lignes contenant une valeur null pour le niveau de journal et stocke les résultats dans FILTEREDLEVELS.</td>
+	</tr>
+	<tr>
+	<td>GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;</td><td>Regroupe les lignes par niveau de journal et stocke les résultats dans GROUPEDLEVELS.</td>
+	</tr>
+	<tr>
+	<td>FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;</td><td>Crée un nouveau jeu de données qui contient chaque valeur unique de niveau de journal et combien de fois elle se produit. Ces informations sont stockées dans FREQUENCIES</td>
+	</tr>
+	<tr>
+	<td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Trie les niveaux du journal par décompte (décroissant) et stocke ces informations dans RESULT</td>
+	</tr>
+	</table>
+
+6. Vous pouvez également enregistrer les résultats d'une transformation à l'aide de l' instruction `STORE`. Par exemple, ce qui suit enregistre le `RESULT` dans le répertoire **/example/data/pigout** sur le conteneur de stockage par défaut de votre cluster.
+
+		STORE RESULT into 'wasb:///example/data/pigout'
+
+	> [AZURE.NOTE] Les données sont stockées dans le répertoire spécifié dans des fichiers nommés **partie-nnnnn**. Si le répertoire existe déjà, vous recevrez un message d'erreur.
+
+7. Pour quitter l'invite Grunt, entrez l'instruction suivante.
+
+		QUIT;
+
+###Fichiers de commandes Pig Latin
+
+Vous pouvez également utiliser la commande Pig pour exécuter le Pig Latin contenu dans un fichier.
+
+3. Après avoir quitté l'invite Grunt, ouvrez le **bloc-notes** et créez un nouveau fichier nommé **pigbatch.pig** dans le répertoire **%PIG_HOME%**.
+
+4. Tapez ou collez les lignes suivantes dans le fichier **pigbatch.pig**, puis enregistrez-le.
+
+		LOGS = LOAD 'wasb:///example/data/sample.log';
+		LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+		FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+		GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+		FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+		RESULT = order FREQUENCIES by COUNT desc;
+		DUMP RESULT;
+
+5. Utilisez les éléments suivants pour exécuter le fichier **pigbatch.pig** à l'aide de la commande pig.
+
+		pig %PIG_HOME%\pigbatch.pig
+
+	Une fois le traitement par lots terminé, vous devez voir la sortie suivante, qui doit être la même que lorsque vous avez utilisé `DUMP RESULT;` dans les étapes précédentes.
+
+		(TRACE,816)
+		(DEBUG,434)
+		(INFO,96)
+		(WARN,11)
+		(ERROR,6)
+		(FATAL,2)
+
+##<a id="summary"></a>Résumé
+
+Comme vous pouvez le voir, la commande Pig vous permet d'exécuter interactivement des opérations MapReduce à l'aide de Pig Latin, ainsi que des instructions stockées dans un fichier de commandes.
+
+##<a id="nextsteps"></a>Étapes suivantes
+
+Pour obtenir des informations générales sur Pig sur HDInsight.
+
+* [Utilisation de Pig avec Hadoop sur HDInsight](../hdinsight-use-pig/)
+
+Pour plus d'informations sur d'autres méthodes de travail avec Hadoop sur HDInsight.
+
+* [Utilisation de Hive avec Hadoop sur HDInsight](../hdinsight-use-hive/)
+
+* [Utilisation de MapReduce avec Hadoop sur HDInsight](../hdinsight-use-mapreduce/)
+<!--HONumber=45--> 

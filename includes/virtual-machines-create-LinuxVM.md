@@ -31,4 +31,5 @@ Dans la barre de commandes, cliquez sur **Nouveau**.
 
 
 Une fois la machine virtuelle et le service cloud créés par Azure, le portail de gestion répertorie la nouvelle machine virtuelle sous **Machines virtuelles** et le service cloud sous **Services Cloud**. Ces derniers démarrent automatiquement.
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Authentification de vos applications avec Live Connect (JavaScript)" description="Découvrez comment utiliser l'authentification unique Live Connect dans Azure Mobile Services à partir d'une application Windows Store." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Authentification de vos applications avec Live Connect (JavaScript)" 
+	description="Découvrez comment utiliser l'authentification unique Live Connect dans Azure Mobile Services à partir d'une application Windows Store." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
 # Authentification unique de vos applications Windows Store avec Live Connect
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -160,7 +174,8 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 
 [13]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-identity-tab-ma-only.png
 [14]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-portal-change-table-perms.png
+[15]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-portal-change-table-per
+	ms.png
 [16]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-add-reference-live-js.png
 
 <!-- URLs. -->

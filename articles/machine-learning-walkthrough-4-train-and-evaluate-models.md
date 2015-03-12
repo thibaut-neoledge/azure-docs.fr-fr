@@ -1,6 +1,20 @@
-﻿<properties title="Step 4: Train and evaluate the predictive analytic models" pageTitle="Étape 4 : formation et évaluation des modèles d'analyse prédictive | Azure" description="Étape 4 : apprentissage, notation et évaluation de plusieurs modèles dans Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Étape 4 : formation et évaluation des modèles d'analyse prédictive | Azure" 
+	description="Étape de procédure pas à pas de solution 4 : apprentissage, notation et évaluation de plusieurs modèles dans Azure Machine Learning Studio" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="garye"/>
 
 
 Voici la quatrième étape du didacticiel pas à pas [Développement d'une solution de prévision avec Azure ML][develop] :
@@ -117,3 +131,5 @@ Comme aide supplémentaire pour suivre les modifications que vous apportez aux p
 [2]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train2.png
 [3]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train3.png
 [4]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train4.png
+
+<!--HONumber=46--> 

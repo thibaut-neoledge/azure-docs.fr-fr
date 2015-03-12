@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Prise en main de l'authentification (Android) | Centre de développement mobile" description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Android via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." services="mobile-services" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Prise en main de l'authentification (Android) | Centre de développement mobile" 
+	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Android via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="11/17/2014" ms.author="ricksal"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="ricksal"/>
 
 # Ajout d'une authentification à votre application Mobile Services
 
@@ -89,7 +103,8 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 
 [13]: ./media/mobile-services-android-get-started-users/mobile-identity-tab.png
 [14]: ./media/mobile-services-android-get-started-users/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-android-get-started-users/mobile-portal-change-table-perms.png
+[15]: ./media/mobile-services-android-get-started-users/mobile-portal-change-table-per
+	ms.png
 
 
 <!-- URLs. -->

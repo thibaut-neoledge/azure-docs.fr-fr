@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Issuer name and issuer key" pageTitle="Nom et clé de l'émetteur dans BizTalk Services | Azure" metaKeywords="BizTalk Services, BizTalk, issuer name, issuer key, Azure" description="Découvrez comment récupérer le nom et la clé de l'émetteur  pour le bus des services ou le contrôle d'accès (ACS) dans BizTalk Services." metaCanonical="" services="biztalk-services" documentationCenter="" title="BizTalk Services: Issuer Name and Issuer Key" authors="mandia" solutions="" manager="dwrede" editor="susanjo" />
+﻿<properties 
+	pageTitle="Nom et clé de l'émetteur dans BizTalk Services | Azure" 
+	description="Découvrez comment récupérer le nom et la clé de l'émetteur  pour le bus des services ou le contrôle d'accès (ACS) dans BizTalk Services. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 
 
@@ -98,3 +112,5 @@ Autres rubriques Azure BizTalk Services :
 - [BizTalk Services : Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 - [BizTalk Services : Sauvegarde et restauration](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 - [BizTalk Services : Limitation](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+
+<!--HONumber=46--> 

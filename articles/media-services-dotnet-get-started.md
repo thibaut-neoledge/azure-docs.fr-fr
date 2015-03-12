@@ -1,6 +1,20 @@
-<properties pageTitle="Prise en main du Kit de développement logiciel (SDK) Media Services pour .NET - Azure" description="Ce didacticiel vous présente les étapes d'implémentation d'une application de diffusion de contenu vidéo à la demande (VoD) avec Azure Media Services pour .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Prise en main du Kit de développement logiciel (SDK) Media Services pour .NET - Azure" 
+	description="Ce didacticiel vous présente les étapes d'implémentation d'une application de diffusion de contenu vidéo à la demande (VoD) avec Azure Media Services pour .NET." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/12/2015" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="01/12/2015" 
+	ms.author="juliako"/>
 
 
 # Distribution de vidéo à la demande avec le Kit de développement logiciel (SDK) Media Services pour .NET 
@@ -9,7 +23,7 @@
 
 
 >[AZURE.NOTE]
-> Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+> Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Version d'évaluation gratuite d'Azure</a>.
 
 Ce didacticiel vous présente les étapes d'implémentation d'une application de diffusion de contenu vidéo à la demande (VoD) avec le Kit de développement logiciel (SDK) Azure Media Services (AMS) pour .NET. 
 
@@ -44,7 +58,7 @@ Les conditions préalables suivantes sont requises pour commencer à développer
 
 1. Dans le [portail de gestion][], cliquez sur **Nouveau**, sur **Service de média**, puis sur **Création rapide**.
    
-	![Création rapide avec Media Services](./media/media-services-create-account/wams-QuickCreate.png)
+	![Media Services Quick Create](./media/media-services-create-account/wams-QuickCreate.png)
 
 2. Dans **NOM**, entrez le nom du nouveau compte. Un nom de compte Media Services se compose de chiffres ou de lettres en minuscules, sans espaces. Sa longueur est comprise entre 3 et 24 caractères. 
 
@@ -101,7 +115,7 @@ Pour changer le nombre d'unités réservées de diffusion en continu à la deman
 	 
 	>[AZURE.NOTE] Actuellement, le fait de passer d'une valeur positive à zéro pour le nombre d'unités de diffusion en continu à la demande peut désactiver la diffusion en continu pendant une heure.
 	>
-	> Le nombre d'unités le plus élevé spécifié pour la période de 24 heures est utilisé pour le calcul du coût. Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification des services de média](http://go.microsoft.com/fwlink/?LinkId=275107).
+	> Le nombre d'unités le plus élevé spécifié pour la période de 24 heures est utilisé pour le calcul du coût. Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification de Media Services](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 
 
@@ -157,7 +171,7 @@ Le code de cette section montre comment effectuer les tâches suivantes :
 
 Lorsque vous utilisez Media Services avec .NET, vous devez utiliser la classe **CloudMediaContext** pour la plupart des tâches de programmation Media Services : connexion au compte Media Services, création, mise à jour, accès et suppression des objets suivants : éléments multimédia, fichiers multimédias, travaux, stratégies d'accès, localisateurs, etc. 
  
-Remplacez la classe Program par défaut par le code ci-dessous. Le code montre comment lire les valeurs de connexion à partir du fichier App.config et comment créer l'objet CloudMediaContext pour se connecter aux Services de média. Pour plus d'informations sur la connexion à Media Services, consultez la page [Connexion à Media Services avec le Kit de développement logiciel (SDK) Media Services pour .NET](http://msdn.microsoft.com/fr-fr/library/azure/jj129571.aspx).
+Remplacez la classe Program par défaut par le code ci-dessous. Le code montre comment lire les valeurs de connexion à partir du fichier App.config et comment créer l'objet CloudMediaContext pour se connecter aux Services de média. Pour plus d'informations sur la connexion à Media Services, consultez la page [Connexion à Media Services avec le Kit de développement logiciel (SDK) Media Services pour .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
 La fonction **Main** appelle des méthodes qui seront définies ultérieurement dans cette section.
 	
@@ -220,9 +234,9 @@ La méthode **CreateFromFile** prend **AssetCreationOptions**, qui vous permet d
  
 - **None** - Aucun chiffrement. Il s'agit de la valeur par défaut. Notez qu'avec cette option, votre contenu n'est pas protégé en transit ni au repos dans le stockage.
 Si vous prévoyez de fournir un MP4 sous forme de téléchargement progressif, utilisez cette option. 
-- **StorageEncrypted** - Permet de chiffrer votre contenu en clair localement en utilisant le chiffrement AES-256 bits, puis de le télécharger vers Azure Storage où il est stocké, chiffré, au repos. Les éléments multimédias protégés par chiffrement de stockage sont automatiquement non chiffrés et placés dans un système de fichiers chiffré avant d'être encodés, puis éventuellement de nouveau chiffrés avant d'être rechargés sous la forme d'un nouvel élément multimédia de sortie. Le principal cas d'utilisation du chiffrement de stockage concerne la sécurisation de fichiers multimédias d'entrée de haute qualité avec un chiffrement renforcé au repos sur le disque.
+- **StorageEncrypted** : permet de chiffrer votre contenu en clair localement en utilisant le chiffrement AES-256 bits, puis de le télécharger vers Azure Storage où il est chiffré pour le stockage, au repos. Les éléments multimédias protégés par chiffrement de stockage sont automatiquement non chiffrés et placés dans un système de fichiers chiffré avant d'être encodés, puis éventuellement de nouveau chiffrés avant d'être rechargés sous la forme d'un nouvel élément multimédia de sortie. Le principal cas d'utilisation du chiffrement de stockage concerne la sécurisation de fichiers multimédias d'entrée de haute qualité avec un chiffrement renforcé au repos sur le disque.
 - **CommonEncryption** : utilisez cette option lorsque vous téléchargez du contenu qui a déjà été chiffré et protégé par chiffrement commun ou gestion des droits numériques (DRM) PlayReady (par exemple, une diffusion en continu lisse, " Smooth Streaming ", protégée par gestion des droits numériques (DRM) PlayReady).
-- **EnvelopeEncrypted** - Utilisez cette option lorsque vous téléchargez un contenu au format HLS chiffré avec AES. Notez que les fichiers doivent avoir été encodés et chiffrés par le gestionnaire de transformation Transform Manager.
+- **EnvelopeEncrypted** : utilisez cette option lorsque vous téléchargez un contenu au format HLS chiffré avec AES. Notez que les fichiers doivent avoir été encodés et chiffrés par le gestionnaire de transformation Transform Manager.
 
 La méthode **CreateFromFile** vous permet également de spécifier un rappel pour signaler la progression du téléchargement du fichier.
 
@@ -303,9 +317,9 @@ Ajoutez la méthode suivante à la classe Program.
 
 Pour plus d'informations sur la configuration de la protection de contenu dynamique, consultez les articles suivants :
 
-- [Utilisation du chiffrement dynamique AES-128 et du service de distribution des clés](http://msdn.microsoft.com/fr-fr/library/azure/dn783457.aspx)
-- [Utilisation du chiffrement dynamique PlayReady et du service de distribution de licence](http://msdn.microsoft.com/fr-fr/library/azure/dn783467.aspx)
-- [Distribution de contenu chiffré](http://msdn.microsoft.com/fr-fr/library/azure/dn783451.aspx)
+- [Utilisation du chiffrement dynamique AES-128 et du service de distribution des clés](http://msdn.microsoft.com/library/azure/dn783457.aspx)
+- [Utilisation du chiffrement dynamique PlayReady et du service de distribution de licence](http://msdn.microsoft.com/library/azure/dn783467.aspx)
+- [Distribution de contenu de stockage chiffré](http://msdn.microsoft.com/library/azure/dn783451.aspx)
 
 ### <a id="configure_delivery_method"></a>Configurer la stratégie de distribution de l'élément encodé.
 
@@ -471,7 +485,7 @@ URL de téléchargement progressif (audio et vidéo).
 	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-Pour tester la diffusion Smooth Streaming, utilisez [http://amsplayer.azurewebsites.net/](http://amsplayer.azurewebsites.net/) ou [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor).
+Pour tester la diffusion en continu lisse, utilisez [http://amsplayer.azurewebsites.net/](http://amsplayer.azurewebsites.net/) ou [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor).
 
 Pour tester MPEG DASH, utilisez [http://dashif.org](http://dashif.org/reference/players/javascript/).
 
@@ -491,7 +505,7 @@ Pour tester le téléchargement progressif, collez l'URL dans un navigateur (par
 
 <!-- URLs. -->
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
-  [portail de gestion]: http://manage.windowsazure.com/
+  [Portail de gestion]: http://manage.windowsazure.com/
 
 
 
@@ -500,5 +514,4 @@ Pour tester le téléchargement progressif, collez l'URL dans un navigateur (par
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Mettez votre vidéo en ligne dès maintenant.</a>
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - Empaquetage dynamique et appareils mobiles</a>
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -11,7 +11,7 @@ Vous allez configurer un blog WordPress avec un modèle par défaut. L'illustrat
 
 ![Wordpress blog][13]
 
-> [AZURE.IMPORTANT] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Création d'un compte Azure](http://www.windowsazure.com/fr-fr/develop/php/tutorials/create-a-windows-azure-account/"%20target="_blank").
+> [AZURE.IMPORTANT] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Création d'un compte Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/"%20target="_blank").
 
 ## Création d'un site web sur le portail
 
@@ -79,7 +79,6 @@ Une fois que vous avez cliqué sur **Terminé**, Azure lance les opérations de 
 [11]: ./media/website-from-gallery/wordpressgallery-07.png
 [12]: ./media/website-from-gallery/wordpressgallery-08.png
 [13]: ./media/website-from-gallery/wordpressgallery-09.png
-
 
 
 

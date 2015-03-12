@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Présentation des plans d'hébergement web" description="Surveillance des plans d'hébergement web" title="What is a web hosting plan?" services="web-sites" authors="adamab" manager="wpickett" />
+﻿<properties 
+	pageTitle="Présentation des plans d'hébergement web" 
+	description="Surveillance des plans d'hébergement web" 
+	services="web-sites" 
+	authors="adamabdelhamed" 
+	manager="wpickett" 
+	editor="" 
+	documentationCenter=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="adamab"/>
 
 # Présentation des plans d'hébergement web #
 
@@ -48,10 +62,12 @@ Cliquez sur le plan pour ouvrir un panneau qui permet de gérer votre plan d'hé
 
 ### Étapes suivantes ###
 
-Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite de Microsoft Azure](http://azure.microsoft.com/fr-fr/pricing/free-trial/).
+Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite de Microsoft Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 <!-- Images. -->
 [BrowseEverythingScreenshot]: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
 [WebHostingPlanResourceMapScreenshot]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png
 [WebHostingPlanBladeScreenshot]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-blade.png
 [BrowseWebHostingPlansScreenshot]: ./media/web-sites-web-hosting-plan-overview/browse-web-hosting-plans.png
+
+<!--HONumber=46--> 

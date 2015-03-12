@@ -692,4 +692,4 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
 
 [Création et déploiement d'une application Node.js dans un site web Azure]: /fr-FR/documentation/articles/web-sites-nodejs-develop-deploy-mac/
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

@@ -1,19 +1,36 @@
-﻿<properties pageTitle="Surveillance d'un compte Media Services - Azure" description="Explique comment configurer la surveillance de votre compte Media Services dans Azure." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Surveillance d'un compte Media Services - Azure" 
+	description="Explique comment configurer la surveillance de votre compte Media Services dans Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/05/2015" 
+	ms.author="juliako"/>
 
 
 
 
 
-<h1><a id="monitormediaservicesaccount"></a>Surveillance d'un compte Media Services</h1>
+#<a id="monitormediaservicesaccount"></a>Surveillance d'un compte Media Services
+
+Cet article fait partie des séries [workflow à la demande de vidéo Media Services](../media-services-video-on-demand-workflow) et [workflow de vidéo en flux continu Media Services](../media-services-live-streaming-workflow). 
+
 Le tableau de bord Azure Media Services présente des mesures d'utilisation et des informations de compte dont vous pouvez vous servir pour gérer votre compte Media Services.
 
 Vous pouvez surveiller le nombre de travaux d'encodage en file d'attente, de tâches d'encodage ayant échoué, de travaux d'encodage actifs, représentés par les données d'entrée et de sortie de l'encodeur, ainsi que l'utilisation du stockage d'objets blob associée à votre compte Media Services. En outre, si vous diffusez du contenu en continu à vos clients, vous pouvez également récupérer diverses mesures de diffusion en continu. Vous pouvez choisir de surveiller vos données sur les 6 dernières heures, les dernières 24 heures ou les 7 derniers jours.
  
 >[AZURE.NOTE] La surveillance des données de stockage dans le portail de gestion Azure occasionne des frais supplémentaires. Pour plus d'informations, consultez la page [Storage Analytics et facturation](http://go.microsoft.com/fwlink/?LinkId=256667).
 
-<h2><a id="configuremonitoring"></a>Surveillance d'un compte Media Services</h2>
+##<a id="configuremonitoring"></a>Procédure : d'un compte Media Services
 
 1. Dans le [portail de gestion](http://go.microsoft.com/fwlink/?LinkID=256666), cliquez sur **Media Services**, puis sur le nom du compte Media Services pour ouvrir le tableau de bord. 
 
@@ -21,7 +38,7 @@ Vous pouvez surveiller le nombre de travaux d'encodage en file d'attente, de tâ
 
 2. Pour surveiller vos travaux ou vos données d'encodage, commencez simplement à envoyer des travaux d'encodage à Media Services ou commencez à diffuser en continu du contenu pour les clients en utilisant la diffusion en continu à la demande Azure Media Services. Les premières données de surveillance devraient apparaître sur le tableau de bord après un délai d'environ une heure.
 
-<h2><a id="configuringstorage"></a>Surveillance de l'utilisation de votre stockage d'objets blob (facultatif)</h2>
+##<a id="configuringstorage"></a>Procédure : de l'utilisation de votre stockage d'objets blob (facultatif)
 1. Cliquez sur le nom **COMPTE DE STOCKAGE** sous la section **aperçu rapide**.
 2. Cliquez sur le lien **page de configuration**, puis faites défiler l'écran vers le bas jusqu'aux paramètres de **surveillance** pour les services blob, de Table et de File d'attente, présentés ci-dessous.
 
@@ -51,5 +68,4 @@ Les mesures sont stockées dans le compte de stockage dans quatre tables nommée
 [storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

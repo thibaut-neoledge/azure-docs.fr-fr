@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Hybrid Connections Overview - BizTalk Services" pageTitle="Aperçu des connexions hybrides | Azure" metaKeywords="BizTalk Services, BizTalk, websites, web sites, hybrid connections, Azure" description="En savoir plus sur les connexions hybrides, y compris sur la sécurité." metaCanonical="" services="integration-services" documentationCenter="" title="Hybrid Connections Overview" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Aperçu des connexions hybrides | Azure" 
+	description="Découvrez les connexions hybrides, y compris la sécurité, les ports TCP et les configurations prises en charge. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/17/2015" 
+	ms.author="mandia"/>
 
 
 
@@ -62,7 +76,7 @@ Les connexions hybrides utilisent l'autorisation avec signature d'accès partag�
 
 Les connexions hybrides assurent une distribution transparente et sécurisée des clés aux applications et au Gestionnaire de connexions hybrides local. 
 
-Consultez la rubrique [Création et gestion des connexions hybrides](http://azure.microsoft.com/fr-fr/documentation/articles/integration-hybrid-connection-create-manage). 
+Consultez la rubrique [Création et gestion des connexions hybrides](http://azure.microsoft.com/documentation/articles/integration-hybrid-connection-create-manage). 
 
 **L'autorisation de l'application est séparée de la connexion hybride**. Toute méthode d'autorisation appropriée peut être utilisée. Elle dépend des méthodes d'autorisation de bout en bout prises en charge dans le cloud Azure et sur les composants locaux. Par exemple, votre application Azure accède à un serveur SQL local. Dans ce scénario, l'autorisation SQL peut être la méthode d'autorisation intégralement prise en charge.
 
@@ -97,10 +111,10 @@ Les ports TCP suivants sont utilisés par les connexions hybrides :
 
 ## Suivant
 
-- [Création et gestion des connexions hybrides](http://azure.microsoft.com/fr-fr/documentation/articles/integration-hybrid-connection-create-manage)
+- [Création et gestion des connexions hybrides](http://azure.microsoft.com/documentation/articles/integration-hybrid-connection-create-manage)
 - [Connexion d'un site web Azure à une ressource locale](http://go.microsoft.com/fwlink/p/?LinkId=397538)
 - [Les connexions hybrides étape par étape : connexion à un serveur SQL local à partir d'un site web Azure](http://go.microsoft.com/fwlink/?LinkID=397979)
-- [Azure Mobile Services et connexions hybrides](http://azure.microsoft.com/fr-fr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
+- [Azure Mobile Services et connexions hybrides](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
 
 
 ## Voir aussi
@@ -114,3 +128,5 @@ Les ports TCP suivants sont utilisés par les connexions hybrides :
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
+
+<!--HONumber=46--> 

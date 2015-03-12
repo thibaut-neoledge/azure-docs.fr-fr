@@ -25,12 +25,12 @@ créer un compte de stockage à l'aide de la bibliothèque cliente de gestion de
     application Azure, sélectionnez la région où vous déploierez votre
     application.
 
-6. Vous pouvez éventuellement sélectionner le type de réplication désiré pour votre compte. La réplication géo-redondante, sélectionnée par défaut, assure la durabilité maximale. Pour plus de détails sur les options de réplication, consultez la page [Options de redondance d'Azure Storage](http://msdn.microsoft.com/fr-fr/library/azure/dn727290.aspx) et le [blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
+6. Vous pouvez éventuellement sélectionner le type de réplication désiré pour votre compte. La réplication géo-redondante, sélectionnée par défaut, assure la durabilité maximale. Pour plus de détails sur les options de réplication, consultez la page [Options de redondance d'Azure Storage](http://msdn.microsoft.com/library/azure/dn727290.aspx) et le [blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
 
 6.  Cliquez sur **CRÉER UN COMPTE DE STOCKAGE**.
 
-[Utilisation de l'API REST]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh264518.aspx
+[Utilisation de l'API REST]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
 [Portail de gestion Azure]: http://manage.windowsazure.com
 [plus-new]: ./media/create-storage-account/plus-new.png
 [quick-create-storage]: ./media/create-storage-account/quick-storage-2.png
-<!--HONumber=41-->
+<!--HONumber=42-->

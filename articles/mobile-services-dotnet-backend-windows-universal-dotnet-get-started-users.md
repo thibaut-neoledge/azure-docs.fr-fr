@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Prise en main de l'authentification (Windows Store) | Centre de développement mobile" description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Windows Store via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Prise en main de l'authentification (Windows Store) | Centre de développement mobile" 
+	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Windows Store via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="glenga"/>
 
 # Ajout de l'authentification à votre application Mobile Services 
 
@@ -31,7 +45,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 <ol start="6">
 <li><p>Dans Visual Studio, cliquez avec le bouton droit de la souris sur le projet Windows Store pour l'application TodoList, puis cliquez sur <strong>Définir comme projet de démarrage</strong>.</p></li>
-<li><p>Dans le projet partagé, ouvrez le fichier de projet App.xaml.cs, accédez à la définition de la classe <a href="http://msdn.microsoft.com/fr-fr/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> et assurez-vous qu'elle est configurée pour une connexion au service mobile exécuté dans Azure.</p>
+<li><p>Dans le projet partagé, ouvrez le fichier de projet App.xaml.cs, accédez à la définition de la classe <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> et assurez-vous qu'elle est configurée pour une connexion au service mobile exécuté dans Azure.</p>
 <p>Lorsque vous utilisez les outils Visual Studio pour connecter votre application à un service mobile, l'outil génère deux ensembles de définitions <strong>MobileServiceClient</strong>, une pour chaque plateforme cliente. Il s'agit d'un bon moment pour simplifier le code généré par l'unification des <code>#if...#endif</code> définitions <strong>MobileServiceClient</strong> encapsulées dans une seule définition non encapsulée utilisée par les deux versions de l'application. Cette opération n'est pas nécessaire si vous avez téléchargé l'application de démarrage rapide à partir du portail de gestion Azure.</p>
 </li> 
 <li><p>Appuyez sur la touche F5 pour exécuter l'application Windows Store, et vérifiez qu'une exception non prise en charge avec le code d'état 401 (Unauthorized) est déclenchée après le démarrage de l'application.</p>

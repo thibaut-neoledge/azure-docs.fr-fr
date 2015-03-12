@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Utilisation des données hors connexion dans Mobile Services (Windows Store) | Centre de développement mobile" description="Découvrez comment utiliser Azure Mobile Services pour mettre en cache et synchroniser les données hors connexion dans votre application Windows Store" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Utilisation des données hors connexion dans Mobile Services (Windows Store) | Centre de développement mobile" 
+	description="Découvrez comment utiliser Azure Mobile Services pour mettre en cache et synchroniser les données hors connexion dans votre application Windows Store" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="12/10/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/10/2014" 
+	ms.author="wesmc"/>
 
 # Utilisation de la synchronisation des données hors connexion dans Mobile Services
 
@@ -22,7 +36,7 @@ Dans ce didacticiel, vous allez mettre à jour le projet d'application universel
 
 >[AZURE.NOTE] Ce didacticiel vise à mieux vous faire comprendre en quoi Mobile Services vous permet de stocker et de récupérer des données dans une application Windows Store à l'aide d'Azure. Si vous n'avez aucune expérience de Mobile Services, commencez par suivre le didacticiel [Prise en main de Mobile Services].
 >
->Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite Azure</a>. 
+>Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite Azure</a>. 
 >
 >Le didacticiel Windows Phone 8 antérieur pour Visual Studio 2012 est encore disponible ici : [Didacticiel Windows Phone 8 pour Visual Studio 2012].
 
@@ -41,7 +55,7 @@ Ce didacticiel requiert les éléments suivants :
 * [Azure Mobile Services SQLite Store version 1.0.0 (ou version ultérieure)][Nuget - magasin SQLite]
 * [SQLite pour Windows 8.1](www.sqlite.org/downloads)
 
->[AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite Azure</a>. 
+>[AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite Azure</a>. 
 
 ## <a name="enable-offline-app"></a>Mise à jour de l'application pour prendre en charge les fonctionnalités hors connexion
 
@@ -125,7 +139,8 @@ Les fonctionnalités hors connexion d'Azure Mobile Services vous permettent d'in
         private async Task InsertTodoItem(TodoItem todoItem)
         {
             await todoTable.InsertAsync(todoItem);
-            items.Add(todoItem);
+            ite
+	ms.Add(todoItem);
 
             await SyncAsync(); // offline sync
         }
@@ -133,8 +148,10 @@ Les fonctionnalités hors connexion d'Azure Mobile Services vous permettent d'in
         private async Task UpdateCheckedTodoItem(TodoItem item)
         {
             await todoTable.UpdateAsync(item);
-            items.Remove(item);
-            ListItems.Focus(Windows.UI.Xaml.FocusState.Unfocused);
+            ite
+	ms.Remove(item);
+            ListIte
+	ms.Focus(Windows.UI.Xaml.FocusState.Unfocused);
 
             await SyncAsync(); // offline sync
         }

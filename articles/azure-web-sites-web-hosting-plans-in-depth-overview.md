@@ -1,6 +1,20 @@
-﻿<properties title="Azure Websites Web Hosting Plans In-Depth Overview" pageTitle="Vue d'ensemble approfondie des plans d'hébergement web dans Sites Web Azure - Guide des fonctionnalités Azure" description="Découvrez comment les plans d'hébergement web pour Sites Web Azure fonctionnent et en quoi ils améliorent votre expérience de gestion." metaKeywords="Azure Web Sites, Azure Websites, WHP, Web Hosting Plan, Web Hosting Plans, Resource Groups" services="web-sites" solutions="web" documentationCenter="Infrastructure" authors="Byron Tardif and Yochay Kiryaty" videoId="" scriptId="" manager="wpickett" />
+﻿<properties 
+	pageTitle="Vue d'ensemble approfondie des plans d'hébergement web dans Sites Web Azure - Guide des fonctionnalités Azure" 
+	description="Découvrez comment les plans d'hébergement web pour Sites Web Azure fonctionnent et en quoi ils améliorent votre expérience de gestion." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="btardif" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="Byron Tardif and Yochay Kiryaty" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="byvinyal, yochayk"/>
 </br>
 #Vue d'ensemble approfondie des plans d'hébergement web dans Sites web Azure#
 </br>
@@ -189,3 +203,5 @@ Ces mesures représentent l'usage moyen des instances appartenant à un plan d'h
 Les plans d'hébergement web représentent un ensemble de fonctionnalités et de capacités que vous pouvez partager sur vos sites web.  Un plan d'hébergement web vous permet d'affecter des sites à un ensemble donné de ressources, les machines virtuelles, et optimise l'affectation des ressources Azure et l'utilisation des sites web.
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

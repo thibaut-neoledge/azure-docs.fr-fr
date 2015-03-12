@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Prise en main des données (JavaScript Windows Store) | Centre de développement mobile" description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application Windows Store JavaScript." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>	
+﻿<properties 
+	pageTitle="Prise en main des données (JavaScript Windows Store) | Centre de développement mobile" 
+	description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application Windows Store JavaScript." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>	
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/19/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/19/2014" 
+	ms.author="glenga"/>
 
 
 # Ajout de services mobiles à une application existante
@@ -27,7 +41,7 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite Azure](http://azure.microsoft.com/fr-fr/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-fr%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F).
+* un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-fr%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F).
 * Visual Studio 2013, qui facilite la connexion de votre application Windows Store à Mobile Services. Pour effectuer la même procédure de base à l'aide de Visual Studio 2012, suivez la procédure de la rubrique <a href="/fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-data-vs2012">Prise en main des données dans Mobile Services à l'aide de Visual Studio 2012</a>. 
 
 <h2><a name="download-app"></a>Téléchargement du projet GetStartedWithData</h2>
@@ -67,7 +81,7 @@ Ce didacticiel est basé sur l'[application GetStartedWithMobileServices][site d
 
 [AZURE.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
->[AZURE.NOTE]Des tables sont créées avec les colonnes Id, __createdAt, __updatedAt et __version. Lorsqu'un schéma dynamique est activé, Mobile Services génère automatiquement de nouvelles colonnes basées sur l'objet JSON dans la requête d'insertion ou de mise à jour. Pour plus d'informations, consultez la page [Schéma dynamique](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj193175.aspx).
+>[AZURE.NOTE]Des tables sont créées avec les colonnes Id, __createdAt, __updatedAt et __version. Lorsqu'un schéma dynamique est activé, Mobile Services génère automatiquement de nouvelles colonnes basées sur l'objet JSON dans la requête d'insertion ou de mise à jour. Pour plus d'informations, consultez la page [Schéma dynamique](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
 
 #<a name="update-app"></a>Mise à jour de l'application pour utiliser le service mobile
 
@@ -96,12 +110,15 @@ Ce didacticiel est basé sur l'[application GetStartedWithMobileServices][site d
 6. Dans le fichier projet default.js, remplacez la fonction **RefreshTodoItems** existante par le code suivant qui filtre les éléments terminés :
 
         var refreshTodoItems = function () {                     
-            // More advanced query that filters out completed items. 
+            // More advanced query that filters out completed ite
+	ms. 
             todoTable.where({ complete: false })
                .read()
                .done(function (results) {
                    todoItems = new WinJS.Binding.List(results);
-                   listItems.winControl.itemDataSource = todoItems.dataSource;
+                   listIte
+	ms.winControl.itemDataSource = todoIte
+	ms.dataSource;
                });            
         };
 

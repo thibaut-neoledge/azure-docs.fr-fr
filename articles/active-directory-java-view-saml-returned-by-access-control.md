@@ -1,6 +1,20 @@
-<properties urlDisplayName="View ACS SAML" pageTitle="Affichage des données SAML renvoyées par ACS (Java)" metaKeywords="" description="Découvrez comment afficher SAML renvoyé par le service de contrôle d'accès dans les applications Java hébergées sur Azure." metaCanonical="" services="" documentationCenter="Java" title="How to view SAML returned by the Azure Access Control Service" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Affichage des données SAML renvoyées par ACS (Java)" 
+	description="Découvrez comment afficher SAML renvoyé par le service de contrôle d'accès dans les applications Java hébergées sur Azure." 
+	services="" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Affichage des données SAML (Security Assertion Markup Language) renvoyées par Azure Access Control Service
 
@@ -190,3 +204,5 @@ Pour en savoir plus sur les fonctionnalités ACS et découvrir des scénarios pl
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
+
+<!--HONumber=46--> 

@@ -60,5 +60,6 @@ Dans cette section, vous allez écrire une application console Windows pour envo
 
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
+[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.pn.
+
 <!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Activation de Google Cloud Messaging" description="Suivez ce didacticiel pour créer un nouveau service à l'aide d'Azure Mobile Services." services="mobile-services, notification-hubs" documentationCenter="android" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Activation de Google Cloud Messaging" 
+	description="Suivez ce didacticiel pour créer un nouveau service à l'aide d'Azure Mobile Services." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="android" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Activation de Google Cloud Messaging
 

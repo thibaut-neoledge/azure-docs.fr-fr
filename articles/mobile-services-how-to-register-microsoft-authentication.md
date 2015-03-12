@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Inscription pour l'authentification Microsoft - Mobile Services" description="Découvrez comment vous inscrire pour l'authentification Microsoft dans votre application Azure Mobile Services." authors="ggailey777" services="mobile-services" documentationCenter="" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Inscription pour l'authentification Microsoft - Mobile Services" 
+	description="Découvrez comment vous inscrire pour l'authentification Microsoft dans votre application Azure Mobile Services." 
+	authors="ggailey777" 
+	services="mobile-services" 
+	documentationCenter="" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Inscription de vos applications pour utiliser les informations d'identification d'un compte Microsoft
 

@@ -1,6 +1,20 @@
-﻿<properties title="Frequently asked questions about DocumentDB" pageTitle="Forum Aux Questions (FAQ) sur DocumentDB | Azure" description="Réponses aux questions du forum sur le service de base de données de documents NoSQL DocumentDB Azure. Découvrez ce que sont la capacité et les unités de requête et comment mettre à l'échelle en fonction des besoins de votre application." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, faq"   services="documentdb" solutions="data-management"   authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Forum Aux Questions (FAQ) sur DocumentDB | Azure" 
+	description="Réponses aux questions du forum sur le service de base de données de documents NoSQL DocumentDB Azure. Découvrez ce que sont la capacité et les unités de requête et comment mettre à l'échelle en fonction des besoins de votre application." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/22/2014" 
+	ms.author="mimig"/>
 
 
 #Forum Aux Questions (FAQ) sur DocumentDB
@@ -32,7 +46,7 @@ Oui, DocumentDB prend en charge les transactions entre documents exprimées en p
 DocumentDB est le choix idéal pour les nouvelles applications web et mobiles lorsque l'évolutivité, les performances et les requêtes de données sans schéma sont primordiales. DocumentDB permet un développement rapide et prend en charge l'itération continue de modèles de données d'application. Les applications qui gèrent du contenu généré par l'utilisateur et des données sont communément utilisées dans DocumentDB.  
 
 ###Quelles sont les limites en termes d'évolutivité et de capacité ?
-Chaque compte Azure DocumentDB prend en charge un nombre maximal d'unités de capacité, qui peut être configuré par le biais du portail Azure. S'il vous faut des unités de capacité supplémentaires, veuillez contacter le support technique afin d'augmenter le quota de votre compte.  Pour en savoir plus sur les quotas de ressources, veuillez consulter [Limites dans la version préliminaire de DocumentDB.](http://azure.microsoft.com/en-us/documentation/articles/documentdb-limits/) 
+Chaque compte Azure DocumentDB prend en charge un nombre maximal d'unités de capacité, qui peut être configuré par le biais du portail Azure. S'il vous faut des unités de capacité supplémentaires, veuillez contacter le support technique afin d'augmenter le quota de votre compte.  Pour en savoir plus sur les quotas de ressources, veuillez consulter [Limites dans la version préliminaire de DocumentDB.](http://azure.microsoft.com/documentation/articles/documentdb-limits/) 
 
 
 ###Combien coûte Microsoft Azure DocumentDB ?
@@ -87,3 +101,5 @@ Oui. DocumentDB étant un service RESTful, les liens de ressource sont immuables
 
 [preview-portal]: https://portal.azure.com
 [query]: ../documentdb-sql-query/
+
+<!--HONumber=46--> 

@@ -1,17 +1,31 @@
-﻿<properties pageTitle="Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory (Windows Store) | Centre de développement mobile" description="Découvrez comment authentifier les utilisateurs pour l'authentification unique avec la bibliothèque d'authentification AD dans votre application Windows Store." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory (Windows Store) | Centre de développement mobile" 
+	description="Découvrez comment authentifier les utilisateurs pour l'authentification unique avec la bibliothèque d'authentification AD dans votre application Windows Store." 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/14/2014" 
+	ms.author="wesmc"/>
 
 # Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
 
-Dans ce didacticiel, vous allez ajouter le processus d'authentification au projet de démarrage rapide à l'aide de la bibliothèque d'authentification Active Directory afin de prendre en charge des [opérations de connexion dirigées vers le client](http://msdn.microsoft.com/fr-fr/library/azure/jj710106.aspx)avec Azure Active Directory. Pour prendre en charge des [opérations de connexion orientées service](http://msdn.microsoft.com/fr-fr/library/azure/dn283952.aspx) avec Azure Active Directory, commencez par le didacticiel [Ajout de l'authentification à votre application Mobile Services](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/).
+Dans ce didacticiel, vous allez ajouter le processus d'authentification au projet de démarrage rapide à l'aide de la bibliothèque d'authentification Active Directory afin de prendre en charge des [opérations de connexion dirigées vers le client](http://msdn.microsoft.com/library/azure/jj710106.aspx)avec Azure Active Directory. Pour prendre en charge des [opérations de connexion orientées service](http://msdn.microsoft.com/library/azure/dn283952.aspx) avec Azure Active Directory, commencez par le didacticiel [Ajout de l'authentification à votre application Mobile Services](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/).
 
 Pour qu'il soit possible d'authentifier les utilisateurs, vous devez inscrire votre application auprès d'Azure Active Directory (AAD). Cela se déroule en deux étapes : Vous devez d'abord inscrire votre service mobile et exposer les autorisations sur celui-ci. Vous devez ensuite inscrire votre application Windows Store et lui accorder l'accès à ces autorisations.
 
 
->[AZURE.NOTE] Ce didacticiel vise à mieux vous faire comprendre en quoi Mobile Services vous permet d'effectuer une authentification Azure Active Directory unique pour les applications Windows Store à l'aide d'une [opération de connexion dirigée vers le client](http://msdn.microsoft.com/fr-fr/library/azure/jj710106.aspx). Si vous n'avez aucune expérience de Mobile Services, suivez le didacticiel [Prise en main de Mobile Services].
+>[AZURE.NOTE] Ce didacticiel vise à mieux vous faire comprendre en quoi Mobile Services vous permet d'effectuer une authentification Azure Active Directory unique pour les applications Windows Store à l'aide d'une [opération de connexion dirigée vers le client](http://msdn.microsoft.com/library/azure/jj710106.aspx). Si vous n'avez aucune expérience de Mobile Services, suivez le didacticiel [Prise en main de Mobile Services].
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 

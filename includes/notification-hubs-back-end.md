@@ -1,6 +1,6 @@
 ﻿
 Cette section montre comment envoyer des notifications à partir de .NET console application et toutes les autres.
-Si vous utilisez des Services mobiles, reportez-vous à la [prise en main Push](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/) . Si vous souhaitez utiliser Java ou PHP, consultez la rubrique [Utilisation de Notification Hubs depuis Java/PHP](/fr-fr/documentation/articles/notification-hubs-java-backend-how-to/). Vous pouvez envoyer des notifications à partir d'un serveur principal à l'aide de l'[interface REST des Notification Hubs].
+Si vous utilisez des Services mobiles, reportez-vous à la [prise en main Push](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/). Si vous souhaitez utiliser Java ou PHP, consultez la rubrique [Utilisation de Notification Hubs depuis Java/PHP](/fr-fr/documentation/articles/notification-hubs-java-backend-how-to/). Vous pouvez envoyer des notifications à partir d'un serveur principal à l'aide de l'[interface REST des Notification Hubs].
 
 Le code suivant envoie des notifications aux appareils Windows Store, Windows Phone, iOS et Android. 
 
@@ -92,13 +92,13 @@ Ignorez les étapes 1 à 3 si vous avez créé une application de console lorsqu
 [16]: ./media/notification-hubs-back-end/notification-hub-scheduler2.png
 
 <!-- URLs. -->
-[get-started]: /fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Utilisation des Notification Hubs pour envoyer des notifications aux utilisateurs] : ../notificationhubs/tutorial-notify-users-mobileservices.md
+[prise-en-main]: /fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Utilisation de Notification Hubs pour envoyer des notifications aux utilisateurs]: ../notificationhubs/tutorial-notify-users-mobileservices.md
 [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started/#create-new-service
 [Portail de gestion Azure]: https://manage.windowsazure.com/
-[Objet wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/fr-fr/library/jj927170.aspx
-[Vue d'ensemble de Notification Hubs pour Windows Store]: http://msdn.microsoft.com/fr-fr/library/jj927172.aspx
-[Interface REST Notification Hubs]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn223264.aspx
+[objet wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
+[Vue d'ensemble de Notification Hubs pour Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+[Interface REST Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

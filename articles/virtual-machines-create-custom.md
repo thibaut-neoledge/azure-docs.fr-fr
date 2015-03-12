@@ -16,9 +16,9 @@
 	ms.date="11/12/2014" 
 	ms.author="kathydav"/>
 
-# Création d'une machine virtuelle personnalisée
+#Création d'une machine virtuelle personnalisée
 
-Une machine virtuelle *custom* correspond à une machine virtuelle que vous avez créée à l'aide de l'option **À partir de la galerie** car elle propose davantage de possibilités de configuration que l'option **Création rapide**. Les choix sont les suivants :
+Une machine virtuelle *personnalisée* correspond à une machine virtuelle que vous avez créée à l'aide de l'option **À partir de la galerie** car elle propose davantage de possibilités de configuration que l'option **Création rapide**. Les choix sont les suivants :
 
 - Connexion de la MV à un réseau virtuel
 - Installation de l'agent et des extensions de machine virtuelle, par exemple un logiciel anti-programme malveillant 
@@ -31,4 +31,5 @@ Une machine virtuelle *custom* correspond à une machine virtuelle que vous avez
 
 
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

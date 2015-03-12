@@ -18,9 +18,9 @@
 
 # <a id="createstorageaccount"></a>Surveillance d'un compte de stockage dans le portail de gestion Azure
 
-Vous pouvez surveiller votre compte de stockage à partir du portail de gestion Azure. Lorsque vous configurez votre compte de stockage pour la surveillance via le portail, Azure Storage utilise [Storage Analytics](http://msdn.microsoft.com/fr-FR/library/azure/hh343270.aspx) pour effectuer le suivi des mesures pour votre compte et enregistrer les données de la demande. 
+Vous pouvez surveiller votre compte de stockage à partir du portail de gestion Azure. Lorsque vous configurez votre compte de stockage pour la surveillance via le portail, Azure Storage utilise [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx) pour effectuer le suivi des mesures pour votre compte et enregistrer les données de la demande. 
 
-> [AZURE.NOTE] L'analyse des données de surveillance dans le portail de gestion occasionne des frais supplémentaires. Pour plus d'informations, consultez la page <a href="http://msdn.microsoft.com/fr-FR/library/windowsazure/hh360997.aspx">Storage Analytics et facturation</a>. <br />
+> [AZURE.NOTE] L'analyse des données de surveillance dans le portail de gestion occasionne des frais supplémentaires. Pour plus d'informations, consultez la page <a href="http://msdn.microsoft.com/library/windowsazure/hh360997.aspx">Storage Analytics et facturation</a>. <br />
 
 > Le service de fichier Azure ne prend actuellement pas en charge Storage Analytics.
 
@@ -65,7 +65,7 @@ Tant que vous n'avez pas configuré la surveillance d'un compte de stockage, auc
 
 Après avoir défini les niveaux de surveillance et les stratégies de rétention, vous pouvez choisir parmi les mesures disponibles dans le portail de gestion celles à surveiller et celles à représenter sur les graphiques de mesures. Un ensemble de mesures par défaut s'affiche à chaque niveau de surveillance. Vous pouvez utiliser **Ajouter des mesures** pour ajouter ou supprimer des mesures dans la liste de mesures.
 
-Les mesures sont stockées dans le compte de stockage dans quatre tables nommées $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue et $MetricsCapacityBlob. Pour plus d'informations, consultez la page [À propos des mesures Storage Analytics](http://msdn.microsoft.com/fr-FR/library/windowsazure/hh343258.aspx).
+Les mesures sont stockées dans le compte de stockage dans quatre tables nommées $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue et $MetricsCapacityBlob. Pour plus d'informations, consultez la page [À propos des mesures Storage Analytics](http://msdn.microsoft.com/library/windowsazure/hh343258.aspx).
 
 
 <h2><a id="customizestoragemonitoring"></a>Procédure : Personnalisation du tableau de bord à des fins de surveillance</h2>
@@ -109,7 +109,7 @@ Utilisez les procédures suivantes pour choisir les mesures de stockage à affic
 
 	![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
-	> [AZURE.NOTE] Tenez compte des frais au moment de sélectionner les mesures. En effet, l'actualisation des écrans de surveillance s'accompagne de frais de transaction et de sortie. Pour plus d'informations, consultez la page [Storage Analytics et facturation](http://msdn.microsoft.com/fr-FR/library/windowsazure/hh360997.aspx).
+	> [AZURE.NOTE] Tenez compte des frais au moment de sélectionner les mesures. En effet, l'actualisation des écrans de surveillance s'accompagne de frais de transaction et de sortie. Pour plus d'informations, consultez la page [Storage Analytics et facturation](http://msdn.microsoft.com/library/windowsazure/hh360997.aspx).
 
 3. Cliquez sur **Ajouter des métriques**. 
 
@@ -164,6 +164,6 @@ Pour chaque service de stockage accessible à votre compte de stockage (Blob, Ta
 
 4. Cliquez sur **Enregistrer**.
 
-Les journaux de diagnostic sont enregistrés dans un conteneur d'objets blob nommé $logs dans votre compte de stockage. Pour plus d'informations sur l'accès au conteneur $logs, consultez la page [À propos de la journalisation Storage Analytics](http://msdn.microsoft.com/fr-FR/library/windowsazure/hh343262.aspx).
+Les journaux de diagnostic sont enregistrés dans un conteneur d'objets blob nommé $logs dans votre compte de stockage. Pour plus d'informations sur l'accès au conteneur $logs, consultez la page [À propos de la journalisation Storage Analytics](http://msdn.microsoft.com/library/windowsazure/hh343262.aspx).
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

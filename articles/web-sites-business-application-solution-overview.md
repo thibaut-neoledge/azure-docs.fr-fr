@@ -34,7 +34,7 @@ Ci-dessous, vous trouverez un exemple d'application métier fonctionnant sur Sit
 
 <div class="dev-callout">
 <strong>Remarque</strong>
-<p>Ce guide présente les domaines et les tâches les plus courants s'adaptant aux applications métier. Cependant, Sites Web Azure offre encore d'autres fonctionnalités, que vous pouvez utiliser pour votre implémentation spécifique. Pour les découvrir, consultez également les autres guides concernant la <a href="http://www.windowsazure.com/fr-fr/manage/services/web-sites/global-web-presence-solution-overview/">Présence sur le Web à l'international</a> et les <a href="http://www.windowsazure.com/fr-fr/manage/services/web-sites/digital-marketing-campaign-solution-overview">Campagnes marketing numériques</a>.</p>
+<p>Ce guide présente les domaines et les tâches les plus courants s'adaptant aux applications métier. Cependant, Sites Web Azure offre encore d'autres fonctionnalités, que vous pouvez utiliser pour votre implémentation spécifique. Pour les découvrir, consultez également les autres guides concernant la <a href="http://azure.microsoft.com/manage/services/web-sites/global-web-presence-solution-overview/">Présence sur le Web à l'international</a> et les <a href="http://azure.microsoft.com/manage/services/web-sites/digital-marketing-campaign-solution-overview">Campagnes marketing numériques</a>.</p>
 </div>
 
 ### Utilisation de vos ressources existantes
@@ -108,8 +108,8 @@ Dans le plan d'hébergement **Standard**, vous pourrez surveiller la réactivit�
 
 [mise à l'échelle]:/fr-fr/manage/services/web-sites/how-to-scale-websites/
 [portail de gestion Azure]:http://manage.windowsazure.com/
-[API de gestion de service]:http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460799.aspx
-[scripts PowerShell]:http://msdn.microsoft.com/fr-fr/library/windowsazure/jj152841.aspx
+[API de gestion de service]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[scripts PowerShell]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
 [10 choses que j'ai apprises rapidement grâce à l'évolution des sites Web avec Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Cache Redis Azure]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/

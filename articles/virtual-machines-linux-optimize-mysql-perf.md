@@ -67,7 +67,7 @@ Vous pouvez voir les disques ajoutés à la machine virtuelle en examinant le jo
 ####Étape 2 : Création de RAID avec les disques supplémentaires
 Suivez cet article pour obtenir la procédure détaillée d'installation RAID :  
 
-[http://azure.microsoft.com/fr-fr/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/)
+[http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/)
 
 >[AZURE.NOTE] Si vous utilisez le système de fichiers XFS, suivez les étapes ci-dessous après avoir créé le RAID.
 
@@ -154,7 +154,7 @@ Une meilleure pratique consiste à désactiver la fonctionnalité de journalisat
  
 Pour désactiver la journalisation atime, vous devez modifier le fichier de configuration système /etc/ fstab et ajouter l'option **noatime**.  
 
-Par exemple, modifiez  le fichier vim /etc/fstab, en ajoutant noatime comme suit.  
+Par exemple, modifiez le fichier vim /etc/fstab, en ajoutant noatime comme indiqué ci-dessous.  
 
 	# CLOUD_IMG: This file was created/modified by the Cloud Image build process
 	UUID=3cc98c06-d649-432d-81df-6dcd2a584d41       /        ext4   defaults,discard        0 0
@@ -205,7 +205,7 @@ Vous pouvez utiliser la même stratégie de réglage de performances pour config
 Les règles d'optimisation d'E/S principales sont :   
 
 -	Augmentez la taille du cache.
--	Réduisez le délai de réponse E/S.  
+-	Réduisez le délai de réponse E/S.
 
 Pour optimiser les paramètres du serveur MySQL, vous pouvez mettre à jour le fichier my.cnf, qui est le fichier de configuration par défaut du serveur et des ordinateurs clients.  
 
@@ -218,7 +218,7 @@ Les éléments de configuration suivants sont les principaux facteurs qui ont un
 	À partir de MySQL 5.6, le paramètre par défaut est ON. Par conséquent, aucune action n'est requise. Pour les versions antérieures à 5.6, le paramètre par défaut est OFF. Il convient de le définir sur ON, et ce avant le chargement des données, étant donné que seules les tables nouvellement créées sont affectées.
 -	**innodb_flush_log_at_trx_commit** : La valeur par défaut est 1 et l'étendue 0~2. La valeur par défaut est l'option la plus adaptée pour une base de données MySQL autonome. Choisir 2 offre la meilleure intégrité des données et convient à Master dans le cluster MySQL. Choisir 0 autorise la perte de données, ce qui peut avoir une incidence sur la fiabilité, dans certains cas avec de meilleures performances et convient à Slave dans le cluster MySQL.
 -	**Innodb_log_buffer_size** : Le tampon journal autorise les transactions à s'exécuter, sans avoir à vider le journal sur le disque avant la validation des transactions. Toutefois, s'il existe des objets binaires ou un champ de texte volumineux, le cache est consommé très rapidement et des E/S disque fréquentes seront déclenchées. Il est préférable d'augmenter la taille de la mémoire tampon si la variable d'état Innodb_log_waits n'est pas 0.
--	**query_cache_size** :  Le meilleur choix consiste à la désactiver dès le départ. Définissez query_cache_size sur 0 (ce qui est maintenant le paramètre par défaut dans MySQL 5.6) et utilisez d'autres méthodes pour accélérer les requêtes.  
+-	**query_cache_size** : Le meilleur choix consiste à la désactiver dès le départ. Définissez query_cache_size sur 0 (ce qui est maintenant le paramètre par défaut dans MySQL 5.6) et utilisez d'autres méthodes pour accélérer les requêtes.  
   
 Voir l'[annexe D](AppendixD) pour une comparaison de performances après l'optimisation.
 
@@ -253,20 +253,19 @@ Dans cet exemple, vous pouvez voir que la fonctionnalité de requête lente a é
 
 Vous trouverez ci-dessous des exemples de données de test de performances obtenues sur un environnement lab ciblé. Ils fournissent des informations générales sur la tendance des données de performances, avec différentes approches de réglage des performances. Toutefois, les résultats peuvent varier selon les versions de produit ou l'environnement. 
 
-<a name="AppendixA"></a>Annexe A :  
-**Performances du disque (IOPS) avec des niveaux RAID différents** 
+<a name="AppendixA"></a>Annexe A : **Performances du disque (IOPS) avec des niveaux RAID différents** 
 
 
 ![][9]
  
-**Commandes de test :**  
+**Commandes de test :**
 
 	fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=5G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite
 
->AZURE.NOTE : La charge de travail de ce test utilise 64 threads, pour tenter d'atteindre la limite supérieure de RAID.
+>AZURE.NOTE: La charge de travail de ce test utilise 64 threads, pour tenter d'atteindre la limite supérieure de RAID.
 
-<a name="AppendixB"></a>Annexe B :  
-**Comparaison des performances (débit) MySQL avec des niveaux RAID différents**   
+<a name="AppendixB"></a>Annexe B :
+**Comparaison des performances (débit) MySQL avec des niveaux RAID différents**
 (Système de fichiers XFS)
 
  
@@ -277,21 +276,21 @@ Vous trouverez ci-dessous des exemples de données de test de performances obten
 
 	mysqlslap -p0ps.123 --concurrency=2 --iterations=1 --number-int-cols=10 --number-char-cols=10 -a --auto-generate-sql-guid-primary --number-of-queries=10000 --auto-generate-sql-load-type=write -engine=innodb
 
-**Comparaison des performances (OLTP) MySQL avec des niveaux RAID différents**  
+**Comparaison des performances (OLTP) MySQL avec des niveaux RAID différents**
 ![][12]
 
 **Commandes de test :**
 
 	time sysbench --test=oltp --db-driver=mysql --mysql-user=root --mysql-password=0ps.123  --mysql-table-engine=innodb --mysql-host=127.0.0.1 --mysql-port=3306 --mysql-socket=/var/run/mysqld/mysqld.sock --mysql-db=test --oltp-table-size=1000000 prepare
 
-<a name="AppendixC"></a>Annexe C :   
-**Comparaison des performances (IOPS) de disque avec différentes tailles de segment**  
+<a name="AppendixC"></a>Annexe C :
+**Comparaison des performances (IOPS) de disque avec différentes tailles de segment**
 (Système de fichiers XFS)
 
  
 ![][13]
 
-**Commandes de test :**  
+**Commandes de test :**
 
 	fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=30G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite
 	fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=1G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite  
@@ -299,8 +298,8 @@ Vous trouverez ci-dessous des exemples de données de test de performances obten
 La taille des fichiers utilisés pour ce test est de 30 Go et 1 Go respectivement, avec le système de fichier RAID XFS 0 (4 disques).
 
 
-<a name="AppendixD"></a>Annexe D :  
-**Comparaison des performances (débit) MySQL avant et après l'optimisation**  
+<a name="AppendixD"></a>Annexe D :
+**Comparaison des performances (débit) MySQL avant et après l'optimisation**
 (Système de fichiers XFS)
 
   
@@ -310,11 +309,11 @@ La taille des fichiers utilisés pour ce test est de 30 Go et 1 Go respectivemen
 
 	mysqlslap -p0ps.123 --concurrency=2 --iterations=1 --number-int-cols=10 --number-char-cols=10 -a --auto-generate-sql-guid-primary --number-of-queries=10000 --auto-generate-sql-load-type=write -engine=innodb,misam
 
-**Le paramètre de configuration pour la valeur par défaut et l'optimisation est le suivant :**
+**Le paramètre de configuration pour par défaut et l'optimisation est le suivant :**
 
 |Paramètres	|Par défaut	|Optimisation
 |-----------|-----------|-----------
-|**innodb_buffer_pool_size**	|None	|7G
+|**innodb_buffer_pool_size**	|Aucun	|7G
 |**innodb_log_file_size**	|5M	|512M
 |**max_connections**	|100	|5000
 |**innodb_file_per_table**	|0	|1
@@ -329,12 +328,12 @@ Pour obtenir plus de détails sur les paramètres de configuration d'optimisatio
 
 [http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method](http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method)
 
-**Environnement de test**  
+**Environnement de test**
 
 |Matériel	|Détails
 |-----------|-------
 |Processeur	|AMD Opteron(tm) Processeur 4171 HE/4 cœurs
-|Mémoire	|14 Go
+|Mémoire	|14G
 |disque	|10 Go/disque
 |se	|Ubuntu 14.04.1 LTS
 
@@ -355,4 +354,7 @@ Pour obtenir plus de détails sur les paramètres de configuration d'optimisatio
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

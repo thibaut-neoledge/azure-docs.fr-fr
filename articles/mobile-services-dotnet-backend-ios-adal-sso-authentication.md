@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory (iOS) | Centre de développement mobile" description="Découvrez comment authentifier les utilisateurs pour l'authentification unique avec la bibliothèque d'authentification AD dans votre application iOS." documentationCenter="ios" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory (iOS) | Centre de développement mobile" 
+	description="Découvrez comment authentifier les utilisateurs pour l'authentification unique avec la bibliothèque d'authentification AD dans votre application iOS." 
+	documentationCenter="ios" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="wesmc,mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="wesmc,mahender"/>
 
 # Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory
 

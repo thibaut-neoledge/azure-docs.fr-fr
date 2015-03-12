@@ -1,6 +1,20 @@
-﻿<properties title="Forecasting-Exponential Smoothing" pageTitle="Prévisions - Lissage exponentiel | Azure" description="Service web : Prévisions - Lissage exponentiel" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Prévisions - Lissage exponentiel | Azure" 
+	description="Service web : Prévisions - Lissage exponentiel" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/> 
 
 
 #Prévisions - Lissage exponentiel 
@@ -72,7 +86,7 @@ Il existe plusieurs façons d'utiliser le service de manière automatique ([voic
 
 ##Création du service web 
 
->Ce service web a été créé à l'aide d'Azure ML. Pour un essai gratuit, ainsi que des vidéos de présentation concernant la création d'expériences et [la publication de services web](http://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consultez [azure.com/ml](http://azure.com/ml). La capture d'écran ci-dessous présente l'expérience qui a créé le service web et le code d'exemple de chaque module de l'expérience.
+>Ce service web a été créé à l'aide d'Azure ML. Pour un essai gratuit, ainsi que des vidéos de présentation concernant la création d'expériences et [la publication de services web](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consultez [azure.com/ml](http://azure.com/ml). La capture d'écran ci-dessous présente l'expérience qui a créé le service web et le code d'exemple de chaque module de l'expérience.
 
 Dans Azure ML, une nouvelle expérience a été créée. Des données d'entrée d'exemple ont été téléchargées avec un schéma de données prédéfini. Le module " Exécuter le script R ", qui est lié au schéma de données, génère le modèle de prévision ARIMA à l'aide des fonctions " ets " et " forecast " de R. 
 
@@ -117,8 +131,10 @@ Dans Azure ML, une nouvelle expérience a été créée. Des données d'entrée 
 Il s'agit d'un exemple très simple destiné aux prévisions ETS. Comme illustré dans l'exemple de code ci-dessus, aucune interception des erreurs n'est implémentée, et le service suppose que toutes les variables sont des valeurs continues/positives et que la fréquence doit être un entier supérieur à 1. La longueur des vecteurs de date et de valeur doit être identique. La variable de la date doit respecter le format " mm/jj/aaaa ".
 
 ##Forum Aux Questions
-Pour les Questions fréquemment posées relatives à l'utilisation du service web ou à la publication sur Marketplace, consultez [ce lien](http://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-marketplace-faq).
+Pour les Questions fréquemment posées relatives à l'utilisation du service web ou à la publication sur Marketplace, consultez [ce lien](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-forecasting-exponential-smoothing/ets-img1.png
 [2]: ./media/machine-learning-r-csharp-forecasting-exponential-smoothing/ets-img2.png
 [3]: ./media/machine-learning-r-csharp-forecasting-exponential-smoothing/ets-img3.png
+
+<!--HONumber=46--> 

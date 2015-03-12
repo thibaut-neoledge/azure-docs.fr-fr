@@ -1,12 +1,12 @@
 ﻿## Création du projet WebAPI
 
-Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET afin d'authentifier les clients et générer des notifications, ou modifiez un serveur principal existant à partir des projets précédents ou le didacticiel [Envoi de notifications Push aux utilisateurs authentifiés](http://azure.microsoft.com/fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/).
+Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET afin d'authentifier les clients et générer des notifications, ou modifiez un serveur principal existant à partir des projets précédents ou le didacticiel [Envoi de notifications Push aux utilisateurs authentifiés](http://azure.microsoft.com/ documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/).
 
 > [AZURE.NOTE] **Important** : Avant d'entamer ce didacticiel, vérifiez que la version la plus récente du Gestionnaire de package NuGet est installé. Pour ce faire, lancez Visual Studio. Dans le menu **Outils**, cliquez sur **Extensions et mises à jour**. Recherchez **Gestionnaire de package NuGet pour Visual Studio 2013** et vérifiez que vous disposez de la version 2.8.50313.46 (ou ultérieure). Si ce n'est pas le cas, désinstallez puis réinstallez le Gestionnaire de package NuGet.
 > 
 > ![][4]
 
-> [AZURE.NOTE] Assurez-vous que le [Kit de développement logiciel (SDK) Azure](http://azure.microsoft.com/fr-fr/downloads/) Visual Studio est installé, pour le déploiement du site web.
+> [AZURE.NOTE] Assurez-vous que le [Kit de développement logiciel (SDK) Azure](http://azure.microsoft.com/ downloads/) Visual Studio est installé, pour le déploiement du site web.
 
 1. Démarrez Visual Studio ou Visual Studio Express.
 2. Dans Visual Studio, cliquez sur **fichier**, puis cliquez sur **nouveau**, puis **projet**, développez **modèles**, **Visual C#**, puis cliquez sur **Web** et **Application Web ASP.NET**, tapez le nom **AppBackend**, puis cliquez sur **OK**. 
@@ -299,4 +299,4 @@ Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET af
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

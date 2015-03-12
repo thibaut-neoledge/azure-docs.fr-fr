@@ -1,12 +1,28 @@
-﻿<properties pageTitle="Gestion du contenu multimédia - Azure Media Services" description="Apprenez à gérer votre contenu multimédia dans Azure Media Services." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Gestion du contenu multimédia - Azure Media Services" 
+	description="Apprenez à gérer votre contenu multimédia dans Azure Media Services." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
 
 
 # Gestion du contenu dans Media Services #
+
+Cet article fait partie de la série [workflow à la demande de vidéo Media Services](../media-services-video-on-demand-workflow). 
 
 Cette rubrique présente l'utilisation du portail de gestion Azure pour gérer du contenu multimédia dans votre compte Media Services.
 
@@ -17,10 +33,12 @@ Vous pouvez actuellement effectuer les opérations suivantes à partir du portai
 - indexer le contenu ;
 - coder le contenu ;
 - lire le contenu ;
+- chiffrer ;
 - publier/annuler la publication d'un contenu ;
 
 
-## Téléchargement de contenu 
+
+##<a id="upload"></a>Procédure : de contenu 
 
 
 1. Sur le [portail de gestion](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), cliquez sur **Media Services**, puis sur le nom du compte Media Services.
@@ -41,7 +59,7 @@ Une fois le téléchargement terminé, le nouvel élément multimédia est répe
 
 Si la valeur relative à la taille du fichier n'est pas mise à jour après l'arrêt du processus de téléchargement, cliquez sur le bouton **Synchroniser les métadonnées**. La taille du fichier multimédia est alors synchronisée avec la taille réelle du fichier stocké et la valeur est actualisée sur la page Contenu.	
 
-## Indexation du contenu
+##<a id="index"></a>Procédure : Indexation du contenu
 
 Azure Media Indexer permet de rendre le contenu de vos fichiers multimédias consultable et de générer une transcription en texte intégral de sous-titrages et de mots-clés. Vous pouvez indexer votre contenu à l'aide du portail de gestion en suivant les étapes présentées ci-dessous. Toutefois, si vous souhaitez davantage de contrôle sur les fichiers et sur la tâche d'indexation, vous pouvez utiliser le Kit de développement logiciel (SDK) Media Services pour .NET ou les API REST. Pour plus d'informations, consultez la page [Indexation des fichiers multimédias avec Azure Media Indexer](https://msdn.microsoft.com/fr-fr/library/azure/dn783455.aspx).
 
@@ -55,7 +73,7 @@ Les étapes qui suivent présentent comment utiliser le portail de gestion pour 
 	
 	![Process][process]
 
-## Encodage de contenu
+##<a id="encode"></a>Procédure : Encodage de contenu
 
 Pour fournir une vidéo numérique sur Internet, vous devez compresser le contenu multimédia. Media Services propose un encodeur multimédia qui vous permet de spécifier comment vous souhaitez que votre contenu soit encodé (par exemple, le codec à utiliser, le format du fichier, la résolution et le débit). 
 
@@ -65,13 +83,12 @@ Media Services fournit l'empaquetage dynamique qui permet de distribuer un conte
 
 Pour tirer parti de l'empaquetage dynamique, vous devez effectuer les opérations suivantes :
 
-- Coder ou transcoder vos fichiers votre fichier mezzanine (source) en un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif (les étapes de codage sont décrites plus loin dans ce didacticiel).  
-- Obtenir au moins une unité de diffusion à la demande pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu. Pour plus d'informations, consultez la page [Extension des unités réservées de diffusion en continu à la demande](http://azure.microsoft.com/fr-fr/documentation/articles/media-services-how-to-scale/).
+- encoder votre fichier mezzanine (source) dans un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif (les étapes de codage sont décrites plus loin dans ce didacticiel).
+- obtenir au moins une unité de diffusion à la demande pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu. Pour plus d'informations, consultez la page [Extension des unités réservées de diffusion en continu à la demande](../media-services-manage-origins#scale_streaming_endpoints/).
 
 Avec l'empaquetage dynamique, vous devez stocker et payer les fichiers dans un seul format de stockage. Ensuite, Media Services crée et fournit la réponse appropriée en fonction des demandes des clients. 
 
 Notez qu'en plus d'utiliser les fonctionnalités d'empaquetage dynamique, les unités réservées de diffusion à la demande vous offrent une capacité de sortie dédiée qui peut être achetée par incréments de 200 Mbit/s. Par défaut, la diffusion en continu à la demande est configurée dans un modèle d'instance partagée, pour lequel les ressources du serveur (calcul, sortie, capacité, etc.) sont partagées avec tous les autres utilisateurs. Afin d'améliorer la vitesse de diffusion en continu à la demande, il est recommandé d'acheter des unités réservées de diffusion en continu à la demande.
-
 
 Cette section décrit les étapes à suivre pour encoder votre contenu avec Azure Media Encoder à l'aide du portail de gestion.
 
@@ -106,7 +123,22 @@ Cette section décrit les étapes à suivre pour encoder votre contenu avec Azur
 
 	Si la valeur relative à la taille du fichier n'est pas mise à jour à l'issue de l'encodage, appuyez sur le bouton **Synchroniser les métadonnées**. La taille du fichier multimédia de sortie est alors synchronisée avec la taille réelle du fichier stocké et la valeur est actualisée sur la page Contenu.	
 
-## Publication de contenu
+##<a id="encrypt"></a>Procédure : Chiffrage du contenu
+
+Si vous souhaitez que Media Services chiffre dynamiquement votre ressource avec une clé AES ou la DRM PlayReady, veillez à effectuer les opérations suivantes :
+
+- encoder vos fichiers votre fichier mezzanine (source) en un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif (les étapes de codage sont décrites dans la section [Encodage](#encode) ).
+- obtenir au moins une unité de diffusion à la demande pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu. Pour plus d'informations, consultez la page [Extension des unités réservées de diffusion en continu à la demande](../media-services-manage-origins#scale_streaming_endpoints/).
+- Configurez " stratégie de service de clé en clair aes par défaut " ou " stratégie de service de licence playready par défaut ". Pour plus d'informations, consultez [Configuration de la stratégie d'autorisation de clé de contenu](../media-services-portal-configure-content-key-auth-policy).  
+
+
+	Lorsque vous êtes prêt à activer le chiffrement, appuyez sur le bouton **CRYPTAGE** au bas de la page **CONTENU**.
+
+	![Encrypt][encrypt] 
+
+	Après avoir activé le chiffrement, lorsqu'un lecteur demande un flux de données, Media Services utilise la clé spécifiée pour chiffrer dynamiquement votre contenu à l'aide du chiffrement AES ou PlayReady. Pour déchiffrer le flux de données, le lecteur demande la clé au service de remise de clé. Pour déterminer si l'utilisateur est autorisé à obtenir la clé, le service évalue les stratégies d'autorisation que vous avez spécifiées pour la clé.
+
+##<a id="publish"></a>Procédure : Publication de contenu
 
 Lorsque vous publiez le contenu, vous recevrez une URL de téléchargement progressif ou de diffusion en continu. Votre client pourra lire vos vidéos à l'aide de cette URL.
 
@@ -117,7 +149,7 @@ Lorsque vous publiez le contenu, vous recevrez une URL de téléchargement progr
 
  ![PublishedContent][publishedcontent]
 
-## Lecture de contenu sur le portail
+## Procédure : Lecture de contenu sur le portail
 
 Le portail de gestion fournit un lecteur de contenu Media Services que vous pouvez utiliser pour tester votre vidéo.
 
@@ -136,6 +168,5 @@ Seuls les contenus qui ont été publiés peuvent être lus sur le portail. En o
 [contentpage]: ./media/media-services-manage-content/media-services-content-page.png
 [process]: ./media/media-services-manage-content/media-services-process-video.png
 [process2]: ./media/media-services-manage-content/media-services-process-video2.png
-
-
-<!--HONumber=42-->
+[encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
+<!--HONumber=45--> 

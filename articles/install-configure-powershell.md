@@ -1,6 +1,20 @@
-<properties linkid="Install-Config-Windows-Azure-PowerShell" urlDisplayName="Azure PowerShell" pageTitle="How to install and configure Azure PowerShell" description="Learn how to install and configure Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="tysonn" manager="stevenka" documentationCenter="" services="" solutions="" authors="stevenka" title="How to install and configure Azure PowerShell" />
+﻿<properties 
+	pageTitle="Installation et configuration d’Azure PowerShell" 
+	description="Découvrez comment installer et configurer Azure PowerShell." 
+	editor="tysonn" 
+	manager="stevenka" 
+	documentationCenter="" 
+	services="" 
+	authors="coreyp69"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka;juneb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="powershell" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/26/2014" 
+	ms.author="coreyp"/>
 
 # Installation et configuration d’Azure PowerShell
 
@@ -274,13 +288,15 @@ Voici certaines des ressources disponibles pour apprendre à utiliser Azure et W
   [Prise en main d’Azure]: http://go.microsoft.com/fwlink/p/?LinkId=320795
   [Gérer des comptes, des abonnements et des rôles d’administrateur]: http://go.microsoft.com/fwlink/?LinkId=324796
   [portail de gestion Azure]: https://manage.windowsazure.com
-  [Inscription à Microsoft Azure en tant qu'organisation]: http://azure.microsoft.com/fr-fr/documentation/articles/sign-up-organization/
+  [Inscription à Microsoft Azure en tant qu'organisation]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
   [2]: http://manage.windowsazure.com
-  [Ajout et suppression de coadministrateurs pour vos abonnements Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg456328.aspx
-  [Référence des cmdlets Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554330.aspx
+  [Ajout et suppression de coadministrateurs pour vos abonnements Azure]: http://msdn.microsoft.com/library/windowsazure/gg456328.aspx
+  [Référence des cmdlets Azure]: http://msdn.microsoft.com/library/windowsazure/jj554330.aspx
   [Forum Azure sur MSDN]: http://go.microsoft.com/fwlink/p/?LinkId=320212
   [Stackoverflow]: http://go.microsoft.com/fwlink/?LinkId=320213
   [Centre de scripts TechNet]: http://go.microsoft.com/fwlink/p/?LinkId=320211
   [Création de scripts avec Windows PowerShell]: http://go.microsoft.com/fwlink/p/?LinkId=320210
   [Exécution de scripts]: http://go.microsoft.com/fwlink/p/?LinkId=320627
   [Gestion d’Azure AD à l’aide de Windows PowerShell]: http://go.microsoft.com/fwlink/p/?LinkId=320628
+
+<!--HONumber=46--> 

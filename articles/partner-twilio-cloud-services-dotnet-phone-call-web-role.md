@@ -200,7 +200,7 @@ Ce code vous est fourni afin de vous présenter les fonctions de base de l'utili
 [twilio_say]: http://www.twilio.com/docs/api/twiml/say
 
 
-[azure_runtime_ref_dotnet]: http://msdn.microsoft.com/fr-fr/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
+[azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
 
 <!--HONumber=42-->

@@ -1,6 +1,20 @@
-<properties pageTitle="How to edit the contents of a page in Azure API Management" metaKeywords="" description="How to edit the contents of a page in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to edit the contents of a page in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Modification du contenu d'une page dans Gestion des API Azure" 
+	description="Modification du contenu d'une page dans Gestion des API Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Modification du contenu d'une page dans Gestion des API Azure
 
@@ -15,3 +29,5 @@ Cliquez sur la page « Bienvenue » pour modifier le texte s'affichant sur la 
 > La page d'accueil utilise une configuration spéciale qui lui permet d'afficher une bannière en haut. Cette bannière n'est pas modifiable depuis la section Contenu. Pour modifier cette bannière, cliquez sur **Widgets** dans le menu **Portail des développeurs**, puis sélectionnez **Page d'accueil** dans la liste déroulante **Couche actuelle** et ouvrez l'élément **Bannière** sous la section Proposé. Le contenu de ce widget peut être modifié comme sur toute autre page.
 
   [Manage content]: ./media/api-management-howto-edit-contents-of-page/api-management-customization-manage-content.png
+
+<!--HONumber=46--> 

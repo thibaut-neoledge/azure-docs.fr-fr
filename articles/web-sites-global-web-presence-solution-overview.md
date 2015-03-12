@@ -28,7 +28,7 @@ Voici un exemple de site Web .COM s'exécutant sur Sites Web Azure. Ceci montre 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/corp-website-visio.svg" width="100%" height="100%"></object>
 
 > [WACOM.NOTE]
-> Ce guide présente les domaines et les tâches parmi les plus courants s'adaptant à l'exécution de sites .COM publics dans Sites Web Azure. Toutefois, il existe d'autres solutions courantes que vous pouvez implémenter dans Sites Web Azure. Pour les découvrir, consultez également les autres guides concernant les <a href="http://www.windowsazure.com/fr-fr/manage/services/web-sites/digital-marketing-campaign-solution-overview">campagnes marketing numériques</a> et les <a href="http://www.windowsazure.com/fr-fr/manage/services/web-sites/business-application-solution-overview">applications métier</a>.
+> Ce guide présente les domaines et les tâches parmi les plus courants s'adaptant à l'exécution de sites .COM publics dans Sites Web Azure. Toutefois, il existe d'autres solutions courantes que vous pouvez implémenter dans Sites Web Azure. Pour les découvrir, consultez également les autres guides concernant les <a href="http://azure.microsoft.com/manage/services/web-sites/digital-marketing-campaign-solution-overview">campagnes marketing numériques</a> et les <a href="http://azure.microsoft.com/manage/services/web-sites/business-application-solution-overview">applications métier</a>.
 
 ### Création intégrale ou apport de ressources existantes
 
@@ -122,8 +122,8 @@ Rendez votre site .COM attrayant avec du contenu multimédia riche, tel que :
 
 [multiplication et diversification]:/fr-fr/manage/services/web-sites/how-to-scale-websites/
 [Portail de gestion Azure]:http://manage.windowsazure.com/
-[API de gestion de service]:http://msdn.microsoft.com/fr-fr/library/windowsazure/ee460799.aspx
-[scripts PowerShell]:http://msdn.microsoft.com/fr-fr/library/windowsazure/jj152841.aspx
+[API de gestion de service]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[scripts PowerShell]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
 [10 choses que j'ai appris rapidement sur la mise à l'échelle des sites Web avec Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Cache Redis Azure]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/

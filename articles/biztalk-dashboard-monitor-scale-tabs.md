@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Dashboard, Monitor, Scale, Configure and Hybrid Connections tabs" pageTitle="Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services | Azure" metaKeywords="BizTalk Services, Azure, dashboard, monitor, scale, wabs, mabs" description="Découvrez les commandes des onglets du portail de gestion pour BizTalk Services : Tableau de bord, Analyser et Mettre à l'échelle" metaCanonical="" services="biztalk-services" documentationCenter="" title=" Monitor and Scale tabs" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services | Azure" 
+	description="Découvrez les commandes et surveillez les performances sous les onglets du portail de gestion pour BizTalk Services : Tableau de bord, Surveiller, Mettre à l'échelle, Configurer et Connexions hybrides. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 
 
@@ -47,7 +61,7 @@ Selon l'édition de BizTalk Services, toutes les options énumérées peuvent ne
 
 <tr>
         <td><strong>En savoir plus sur les services BizTalk</strong></td>
-        <td>Accédez à l'<a HREF="http://azure.microsoft.com/fr-fr/documentation/services/biztalk-services/">Espace formationslearning center</a> pour en savoir plus sur Azure BizTalk Services.</td>
+        <td>Accédez à l'<a HREF="http://azure.microsoft.com/documentation/services/biztalk-services/">Espace formationslearning center</a> pour en savoir plus sur Azure BizTalk Services.</td>
 </tr>
 </table>
 
@@ -341,7 +355,7 @@ Les connexions hybrides connectent une application Azure, comme Sites web ou Mob
 
 Pour créer des connexions hybrides dans Sites web Azure, consultez [Connexion hybride : Connexion d'un site web Azure à une ressource locale](http://go.microsoft.com/fwlink/p/?LinkId=397538).
 
-Pour utiliser les connexions hybrides dans Azure Mobile Services, consultez [Azure Mobile Services et connexions hybrides](http://azure.microsoft.com/fr-fr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started).
+Pour utiliser les connexions hybrides dans Azure Mobile Services, consultez [Azure Mobile Services et connexions hybrides](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started).
 
 Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consultez [Connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
@@ -365,3 +379,5 @@ Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consu
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
 [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
+
+<!--HONumber=46--> 

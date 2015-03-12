@@ -1,19 +1,34 @@
-﻿<properties urlDisplayName="" pageTitle="Résolution des problèmes de contrôle d'accès basé sur un rôle" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Role based access control troubleshooting" authors="Stephen Siciliano"  solutions="" writer="" manager="terrylan" editor=""  />
+﻿<properties 
+	pageTitle="Résolution des problèmes de contrôle d'accès basé sur un rôle" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="stepsic-microsoft-com" 
+	writer="" 
+	manager="terrylan" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="Stephen Siciliano" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/03/2014" 
+	ms.author="stepsic"/>
 
 # Résolution des problèmes de contrôle d'accès basé sur un rôle
 
 ## Introduction
 
-Le [contrôle d'accès basé sur un rôle](http://azure.microsoft.com/fr-fr/documentation/articles/role-based-access-control-configure/) est une fonctionnalité puissante qui vous permet de déléguer l'accès affiné aux ressources dans Azure. Cela signifie que vous pouvez en toute sécurité accorder à la personne de votre choix le droit de faire ce qu'elle a besoin de faire. Toutefois, le modèle de ressources pour les ressources Azure peut parfois être complexe, et il peut s'avérer difficile de comprendre avec précision pourquoi accorder certaines autorisations.
+Le [contrôle d'accès basé sur un rôle](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) est une fonctionnalité puissante qui vous permet de déléguer l'accès affiné aux ressources dans Azure. Cela signifie que vous pouvez en toute sécurité accorder à la personne de votre choix le droit de faire ce qu'elle a besoin de faire. Toutefois, le modèle de ressources pour les ressources Azure peut parfois être complexe, et il peut s'avérer difficile de comprendre avec précision pourquoi accorder certaines autorisations.
 
 Ce document vous permet de savoir ce à quoi vous pouvez vous attendre lors de l'utilisation des nouveaux rôles dans la version préliminaire.  Cette version inclut trois rôles intégrés :
 * Propriétaire
 * Collaborateur
 * Lecteur
 
-Les propriétaires et collaborateurs disposent d'un accès complet à toutes les opérations de gestion, mais un collaborateur ne peut pas accorder d'accès à d'autres utilisateurs ou groupes. La situation du rôle de lecteur est un peu plus intéressante, et nous allons nous y attarder. [Consultez cet article](http://azure.microsoft.com/fr-fr/documentation/articles/role-based-access-control-configure/) pour découvrir la procédure détaillée vous permettant d'accorder l'accès.
+Les propriétaires et collaborateurs disposent d'un accès complet à toutes les opérations de gestion, mais un collaborateur ne peut pas accorder d'accès à d'autres utilisateurs ou groupes. La situation du rôle de lecteur est un peu plus intéressante, et nous allons nous y attarder. [Consultez cet article](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) pour découvrir la procédure détaillée vous permettant d'accorder l'accès.
 
 ## Charges de travail des sites Web
 
@@ -74,3 +89,5 @@ Les ressources suivantes sont associées aux machines virtuelles :
     * Règles d'alerte
     
 Si vous n'accédez à aucune de ces fonctionnalités, vous devez obtenir auprès de votre administrateur le rôle Collaborateur pour accéder au groupe de ressources.
+
+<!--HONumber=46--> 

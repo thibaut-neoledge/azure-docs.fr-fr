@@ -18,5 +18,4 @@ Maintenant que vous avez appris les bases du service Twilio, consultez ces liens
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
 
-
 <!--HONumber=42-->

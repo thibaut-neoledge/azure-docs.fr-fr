@@ -66,7 +66,7 @@ Pour créer une liste d'objets blob dans un conteneur, commencez par obtenir une
     	}
 	}
 
-D'autres méthodes permettent de répertorier le contenu d'un conteneur d'objets blob. Pour plus d'informations, consultez la page [Utilisation du stockage d'objets blob à partir de .NET](http://azure.microsoft.com/fr-fr/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob).
+D'autres méthodes permettent de répertorier le contenu d'un conteneur d'objets blob. Pour plus d'informations, consultez la page [Utilisation du stockage d'objets blob à partir de .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob).
 
 #####Téléchargement d'un objet blob
 Pour télécharger un objet blob, commencez par en obtenir la référence, puis appelez la méthode DownloadToStream(). L'exemple suivant utilise la méthode DownloadToStream() pour transférer le contenu de l'objet blob vers un objet de flux de données que vous pouvez ensuite enregistrer comme un fichier local.
@@ -80,7 +80,7 @@ Pour télécharger un objet blob, commencez par en obtenir la référence, puis 
     	blockBlob.DownloadToStream(fileStream);
 	}
 
-Il existe plusieurs façons d'enregistrer les objets blob sous forme de fichiers. Pour plus d'informations, consultez la page [Utilisation du stockage d'objets blob à partir de .NET](http://azure.microsoft.com/fr-fr/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs).
+Il existe plusieurs façons d'enregistrer les objets blob sous forme de fichiers. Pour plus d'informations, consultez la page [Utilisation du stockage d'objets blob à partir de .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs).
 
 #####d'un objet blob
 Pour supprimer un objet blob, tout d'abord obtenir une référence à l'objet blob, puis appelez la méthode Delete() dessus.
@@ -92,7 +92,6 @@ Pour supprimer un objet blob, tout d'abord obtenir une référence à l'objet bl
 	blockBlob.Delete();
 
 [En savoir plus sur Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
-Voir aussi [Consultation des ressources de stockage avec l'Explorateur de serveurs](http://msdn.microsoft.com/fr-fr/library/azure/ff683677.aspx).
-
+Voir aussi [Consultation des ressources de stockage avec l'Explorateur de serveurs](http://msdn.microsoft.com/library/azure/ff683677.aspx).
 
 <!--HONumber=42-->

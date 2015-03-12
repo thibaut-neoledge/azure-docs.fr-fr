@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Accès aux informations de graphique Azure Active Directory (Windows Store) | Centre de développement mobile" description="Découvrez comment accéder aux informations Azure Active Directory à l'aide de l'API Graph dans votre application Windows Store." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Accès aux informations de graphique Azure Active Directory (Windows Store) | Centre de développement mobile" 
+	description="Découvrez comment accéder aux informations Azure Active Directory à l'aide de l'API Graph dans votre application Windows Store." 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="wesmc"/>
 
 # Accès aux informations Azure Active Directory Graph
 
@@ -172,8 +186,8 @@ Dans le prochain didacticiel, [Contrôle d'accès basé sur les rôles avec Azur
 [Stockage des scripts serveur]: /fr-fr/documentation/articles/mobile-services-store-scripts-source-control/
 [Inscription à des fins d'utilisation d'une connexion Azure Active Directory]: /fr-fr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
-[API REST Graph]: http://msdn.microsoft.com/fr-fr/library/azure/hh974478.aspx
-[Get User]: http://msdn.microsoft.com/fr-fr/library/azure/dn151678.aspx
+[API REST Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
+[Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [Contrôle d'accès en fonction du rôle avec AAD dans Mobile Services]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/
 
 

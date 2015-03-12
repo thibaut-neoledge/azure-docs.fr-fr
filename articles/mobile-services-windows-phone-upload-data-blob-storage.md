@@ -1,6 +1,21 @@
-﻿<properties pageTitle="Utilisation de Mobile Services pour télécharger des images dans le stockage d'objets blob (Windows Phone) | Mobile Services" description="Découvrez comment utiliser Mobile Services pour télécharger des images dans le stockage d'objets blob Azure." documentationCenter="windows" authors="wesmc7777" writer="wesmc" services="mobile-services, storage" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Utilisation de Mobile Services pour télécharger des images dans le stockage d'objets blob (Windows Phone) | Mobile Services" 
+	description="Découvrez comment utiliser Mobile Services pour télécharger des images dans le stockage d'objets blob Azure." 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	Writer="wesmc" 
+	services="mobile-services, storage" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="10/06/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/06/2014" 
+	ms.author="wesmc"/>
 
 # Téléchargement d'images vers Azure Storage à l'aide de Mobile Services
 

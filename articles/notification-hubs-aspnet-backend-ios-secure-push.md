@@ -1,11 +1,25 @@
-﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="ceNotifications Push sécurisées avec Azure Notification Hubs" metaKeywords="notifications Push Azure, concentrateurs de notification Azure, notifications Push sécurisées" description="Découvrez comment envoyer des notifications Push sécurisées à une application iOS depuis Azure. Exemples de code écrits en Objective-C et C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
+﻿<properties 
+	pageTitle="Notifications Push sécurisées avec Azure Notification Hubs" 
+	description="Découvrez comment envoyer des notifications Push sécurisées à une application iOS depuis Azure. Code samples written in Objective-C and C#." 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor="" 
+	services="notification-hubs"/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 
 #Notifications Push sécurisées avec Azure Notification Hubs
 
 <div class="dev-center-tutorial-selector sublanding">
-    	<a href="/fr-fr/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows universel</a><a href="/fr-fr/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
+    	<a href="/fr-fr/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universel</a><a href="/fr-fr/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
 		<a href="/fr-fr/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
 </div>
 
@@ -26,13 +40,13 @@ Il est important de noter que dans le processus précédent (et dans ce didactic
 
 Ce didacticiel sur les notifications Push sécurisées montre comment envoyer une notification Push en toute sécurité. Il s'appuie sur le didacticiel **Notification des utilisateurs**. Vous devez donc suivre ce dernier au préalable.
 
-> [AZURE.NOTE] Ce didacticiel part du principe que vous avez créé et configuré votre concentrateur de notification comme décrit dans [Prise en main de Notification Hubs (iOS)](http://azure.microsoft.com/fr-fr/documentation/articles/notification-hubs-ios-get-started/).
+> [AZURE.NOTE] Ce didacticiel part du principe que vous avez créé et configuré votre concentrateur de notification comme décrit dans [Prise en main de Notification Hubs (iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/).
 
-[WACOM.INCLUDE [notification-hubs-aspnet-serveur- principal-notifications-push-sécurisées](../includes/notification-hubs-aspnet-backend-securepush.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-serveur- principal-notifications-push-sécurisées](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Modification du projet iOS
 
-Maintenant que vous avez modifié le serveur principal de votre application pour qu'il n'envoie que l'*id* d'une notification, vous devez modifier votre application iOS pour gérer cette notification et rappeler votre serveur pour récupérer le message sécurisé à afficher.
+Maintenant que vous avez modifié le serveur principal de votre application pour qu'il n'envoie que l' *id* d'une notification, vous devez modifier votre application iOS pour gérer cette notification et rappeler votre serveur pour récupérer le message sécurisé à afficher.
 
 Pour cela, nous devons écrire la logique permettant de récupérer le contenu sécurisé auprès du serveur principal de l'application.
 
@@ -46,7 +60,7 @@ Pour cela, nous devons écrire la logique permettant de récupérer le contenu s
 		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
 		@end
 
-3. Ensuite, ajoutez le code qui suit dans la section d'implémentation, en remplaçant l'espace réservé " {back-end endpoint} " par le point de terminaison de votre serveur principal que vous avez obtenu précédemment :
+3. Ensuite, ajoutez le code qui suit dans la section d'implémentation, en remplaçant l'espace réservé `{back-end endpoint}` par le point de terminaison de votre serveur principal que vous avez obtenu précédemment :
 
 		NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
 
@@ -85,7 +99,7 @@ Pour cela, nous devons écrire la logique permettant de récupérer le contenu s
 		            NSLog(@"Error status: %ld, request: %@", (long)httpResponse.statusCode, error);
 		            if (error)
 		                completion(nil, error);
-		            else {
+		            else{
 		                completion(nil, [NSError errorWithDomain:@"APICall" code:httpResponse.statusCode userInfo:nil]);
 		            }
 		        }
@@ -110,7 +124,7 @@ Pour cela, nous devons écrire la logique permettant de récupérer le contenu s
 
 		    [self retrieveSecurePayloadWithId:[[userInfo objectForKey:@"secureId"] intValue] completion:^(NSString * payload, NSError *error) {
 		        if (!error) {
-		            // show local notification
+		            // afficher une notification locale
 		            UILocalNotification* localNotification = [[UILocalNotification alloc] init];
 		            localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
 		            localNotification.alertBody = payload;
@@ -127,7 +141,7 @@ Pour cela, nous devons écrire la logique permettant de récupérer le contenu s
 
 	Notez qu'il est préférable de gérer les cas de refus ou les cas concernant les propriétés d'en-tête d'authentification manquantes au niveau du serveur. La gestion spécifique de ces cas dépend surtout de l'expérience utilisateur souhaitée. Une possibilité est d'afficher une notification avec une invite générique demandant à l'utilisateur de s'authentifier afin de récupérer la notification elle-même.
 
-## Exécuter l'application
+## Exécution de l'application
 
 Pour exécuter l'application, procédez comme suit :
 
@@ -139,4 +153,4 @@ Pour exécuter l'application, procédez comme suit :
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

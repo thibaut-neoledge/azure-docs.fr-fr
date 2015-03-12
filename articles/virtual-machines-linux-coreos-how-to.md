@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="squillace" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor=""/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,9 +13,14 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.workload="infrastructure-services" 
-	ms.date="01/02/2015" 
+	ms.date="10/27/2014" 
 	ms.author="rasquill"/>
 
+<!--Ceci est un modèle de base qui montre comment utiliser Markdown pour créer une rubrique qui inclut une table des matières, des sections avec des sous-titres, des liens vers d'autres rubriques azure.microsoft.com, des liens vers d'autres sites, du texte en gras et en italique, des listes à puces et numérotées, des extraits de code et des images.[JG1] Pour des utilisations plus sophistiquées, recherchez une rubrique publiée et copiez le Markdown ou l'HTML que vous voulez. Pour plus d'informations sur l'utilisation de Markdown, consultez http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
+
+<!--Section Propriétés (ci-dessus) : Ceci est requis dans toutes les rubriques. Merci de la remplir ! Pour plus d'informations, consultez la page http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20properties%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20values.aspx. -->
+
+<!-- Tags section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20tags%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20for%20reporting.aspx for details. -->
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Utilisation de CoreOS sur Azure
@@ -65,11 +70,11 @@ Cette section décrit la création d'un service cloud Azure comportant trois mac
  
 Suivez les instructions fournies dans la rubrique [Utilisation de SSH avec Linux sur Azure](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/) pour créer une clé SSH privée et publique. (La procédure de base figure dans les instructions ci-dessous). Vous allez utiliser ces clés pour vous connecter aux machines virtuelles du cluster et vérifier qu'elles fonctionnent et communiquent entre elles.
 
-> [AZURE.NOTE] Cette rubrique part du principe que vous ne disposez pas de ces clés et vous impose de créer les fichiers **`myPrivateKey.pem`** et **`myCert.pem`** pour des raisons de clarté. Si vous avez déjà une paire clé publique/clé privée enregistrée dans **`~/.ssh/id_rsa`**, il vous suffit de taper `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem` pour obtenir le fichier .pem nécessaire pour le téléchargement vers Azure.
+> [AZURE.NOTE] Cette rubrique part du principe que vous ne disposez pas de ces clés et vous impose de créer les fichiers **`myPrivateKey.pem`** et **`myCert.pem`** pour des raisons de clarté. Si vous avez déjà une paire clé publique/clé privée enregistrée dans **`~/.ssh/id_rsa`**, il vous suffit de taper  `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem` pour obtenir le fichier .pem nécessaire pour le téléchargement vers Azure.
 
-1. Dans un répertoire de travail, tapez `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem` pour créer la clé privée et le certificat X.509 associé. 
+1. Dans un répertoire de travail, tapez  `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem` pour créer la clé privée et le certificat X.509 associé. 
 
-2. Pour indiquer que le propriétaire de la clé privée peut lire ou écrire le fichier, tapez `chmod 600 myPrivateKey.key`. 
+2. Pour indiquer que le propriétaire de la clé privée peut lire ou écrire le fichier, tapez  `chmod 600 myPrivateKey.key`. 
 
 Les fichiers **`myPrivateKey.key`** et **`myCert.pem`** doivent alors se trouver dans votre répertoire de travail. 
 
@@ -86,7 +91,7 @@ curl https://discovery.etcd.io/new | grep ^http.* > etcdid
 
 Toujours dans le même répertoire de travail, créez, avec l'éditeur de texte de votre choix, un fichier contenant le texte ci-dessous et enregistrez-le sous le nom **`cloud-config.yaml`**. (Vous pouvez l'enregistrer sous n'importe quel nom, mais lorsque vous créerez des machines virtuelles à l'étape suivante, vous devrez référencer le nom de ce fichier dans l'option **--custom-data** de la commande **azure create vm**.)
 
-> [AZURE.NOTE] N'oubliez pas de taper `cat etcdid` pour obtenir l'ID de découverte etcd dans le fichier `etcdid` créé précédemment. Remplacez **`<token>`** dans le fichier **cloud-config.yaml** par le nombre généré à partir de votre fichier `etcdid`. Si vous ne pouvez pas finalement valider votre cluster, vous avez peut-être oublié ces étapes !
+> [AZURE.NOTE] N'oubliez pas de taper  `cat etcdid` pour obtenir l'ID de découverte etcd dans le fichier  `etcdid` créé précédemment. Remplacez **`<token>`** dans le fichier **cloud-config.yaml** par le nombre généré à partir de votre fichier `etcdid`. Si vous ne pouvez pas finalement valider votre cluster, vous avez peut-être oublié ces étapes !
 
 ```
 #cloud-config
@@ -108,28 +113,26 @@ coreos:
 Pour en savoir plus sur le fichier cloud-config, consultez la rubrique [Utilisation de Cloud-Config](https://coreos.com/docs/cluster-management/setup/cloudinit-cloud-config/) dans la documentation CoreOS.
 
 ### Utilisation de l'interface xplat-cli pour créer une machine virtuelle CoreOS
-<!--Chaque rubrique doit indiquer les étapes suivantes à effectuer et des liens vers le contenu logique suivant, afin que le client reste impliqué dans la procédure.-->
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 1. Installez [l'interface multiplateforme Azure (xplat-cli)] si ce n'est pas déjà fait et connectez-vous en utilisant un ID scolaire ou professionnel, ou téléchargez un fichier .publishsettings et importez-le dans votre compte.
-2. Localisez votre image CoreOS. Pour localiser à tout moment les images disponibles, tapez `azure vm image list | grep CoreOS` ; une liste de résultats similaire à celle indiquée ci-dessous s'affiche :
-
-	data:    2b171e93f07c4903bcad35bda10acf22__CoreOS-Stable-522.6.0              Public    Linux
-
+2. Localisez votre image CoreOS. Pour l'instant, il n'y a qu'une image -- **`2b171e93f07c4903bcad35bda10acf22__CoreOS-Alpha-475.1.0`** -- mais pour localiser les images disponibles à tout moment, tapez `azure vm image list | grep .*CoreOS.*` and you should see one or more results similar to:
+`data:    2b171e93f07c4903bcad35bda10acf22__CoreOS-Alpha-475.1.0              Public    Linux`
 3. Créez un service cloud pour votre cluster de base en tapant
-`azure service create <cloud-service-name>` où *<cloud-service-name>* correspond au nom de votre service cloud CoreOS. Cet exemple utilise le nom **`coreos-cluster`** ; vous devrez réutiliser le nom que vous avez choisi pour créer les instances CoreOS de vos machines virtuelles dans le service cloud. 
+`azure service create <nom-du-service-cloud>` où *nom-du-service-cloud* est le nom de votre service cloud CoreOS. Cet exemple utilise le nom **`coreos-cluster`** ; vous devrez réutiliser le nom que vous avez choisi pour créer les instances CoreOS de vos machines virtuelles dans le service cloud. 
 
-Remarque : si vous examinez votre travail dans le [portail](https://portal.azure.com), vous pouvez constatez que le nom de votre service cloud est à la fois celui d'un groupe de ressources et d'un domaine (voir l'image suivante) :
+Remarque : si vous examinez votre travail dans le [nouveau portail](https://portal.azure.com), vous pouvez constatez que le nom de votre service cloud est à la fois celui d'un groupe de ressources et d'un domaine (voir l'image suivante) :
 
 ![][CloudServiceInNewPortal]  
 4. Connectez-vous à votre service cloud et créez une machine virtuelle CoreOS dans ce service au moyen de la commande **azure vm create**. Vous transmettez l'emplacement de votre certificat X.509 avec l'option **--ssh-cert**. Créez l'image de votre première machine virtuelle : tapez ce qui suit en n'oubliant pas de remplacer **coreos-cluster** par le nom du service cloud que vous avez créé :
 
 ```
-azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem --no-ssh-password --vm-name=node-1 --connect=coreos-cluster --location='West US' 2b171e93f07c4903bcad35bda10acf22__CoreOS-Stable-522.6.0 core
+azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem --no-ssh-password --vm-name=node-1 --connect=coreos-cluster --location='West US' 2b171e93f07c4903bcad35bda10acf22__CoreOS-Alpha-475.1.0 core
 ```
 
-5. Créez le deuxième nœud en répétant la commande indiquée à l'étape 4, en remplaçant la valeur **--vm-name** par **node-2** et la valeur de port **--ssh** par 2022. 
+5. Créez le deuxième nœud en répétant la commande de l'étape 4 et en remplaçant la valeur **--vm-name** par **node-2** et la valeur du port **--ssh** par 2022. 
  
-6. Créez le troisième nœud en répétant la commande indiquée à l'étape 4, en remplaçant la valeur **--vm-name** par **node-3** et la valeur de port **--ssh** par 3022. 
+6. Créez le troisième nœud en répétant la commande de l'étape 4 et en remplaçant la valeur **--vm-name** par **node-3** et la valeur du port **--ssh** par 3022. 
  
 Vous constatez dans la copie d'écran ci-dessous comment le cluster CoreOS apparaît dans le nouveau portail.
 
@@ -139,17 +142,17 @@ Vous constatez dans la copie d'écran ci-dessous comment le cluster CoreOS appar
 
 Pour tester votre cluster, vérifiez que vous vous trouvez dans votre répertoire de travail. Connectez-vous ensuite à **node-1** en utilisant **ssh** et en tapant ce qui suit pour transmettre la clé privée :
 
-	ssh core@coreos-cluster.cloudapp.net -p 22 -i ./myPrivateKey.key
+`ssh core@coreos-cluster.cloudapp.net -p 22 -i ./myPrivateKey.key`
 
-Lorsque vous êtes connecté, tapez `sudo fleetctl list-machines` pour savoir si le cluster a déjà identifié toutes les machines virtuelles qui s'y trouvent. Vous devez recevoir une réponse ayant l'aspect suivant :
+Lorsque vous êtes connecté, tapez  `sudo fleetctl list-machines` pour savoir si le cluster a déjà identifié toutes les machines virtuelles qui s'y trouvent. Vous devez recevoir une réponse ayant l'aspect suivant :
 
-
-	core@node-1 ~ $ sudo fleetctl list-machines
-	MACHINE		IP		METADATA
-	442e6cfb...	100.71.168.115	-
-	a05e2d7c...	100.71.168.87	-
-	f7de6717...	100.71.188.96	-
-
+```
+core@node-1 ~ $ sudo fleetctl list-machines
+MACHINE		IP		METADATA
+442e6cfb...	100.71.168.115	-
+a05e2d7c...	100.71.168.87	-
+f7de6717...	100.71.188.96	-
+```
 
 ### Test de votre cluster CoreOS à partir de localhost
 
@@ -169,7 +172,7 @@ Pour finir, placez **fleet** pour faciliter l'utilisation (en fonction de votre 
 
 `cp bin/fleetctl /usr/local/bin`
 
-Vérifiez que **fleet** dispose de l'accès à votre `myPrivateKey.key` dans le répertoire de travail, en tapant :
+Vérifiez que **fleet** dispose de l'accès à votre `myPrivateKey.key` dans le répertoire de travail en tapant :
 
 `ssh-add ./myPrivateKey.key`
 
@@ -181,11 +184,12 @@ Vous êtes maintenant prêt à effectuer un test à distance en utilisant la mê
 
 Les résultats doivent être exactement identiques :
 
-
-	MACHINE		IP		METADATA
-	442e6cfb...	100.71.168.115	-
-	a05e2d7c...	100.71.168.87	-
-	f7de6717...	100.71.188.96	-
+```
+MACHINE		IP		METADATA
+442e6cfb...	100.71.168.115	-
+a05e2d7c...	100.71.168.87	-
+f7de6717...	100.71.188.96	-
+```
 
 ## Étapes suivantes
 
@@ -206,9 +210,7 @@ Vous devez avoir un cluster CoreOS exécutant trois nœuds sur Azure. Dès lors,
 
 
 <!--Link references-->
-[Interface interplateforme Azure (xplat-cli))]: ../xplat-cli/
-[interface multiplateforme Azure (xplat-cli)]: ../xplat-cli/
-[l'interface multiplateforme Azure (xplat-cli)]: ../xplat-cli/
+[Interface multiplateforme Azure (xplat-cli)]: ../xplat-cli/
 
 [CoreOS]: https://coreos.com/
 [Présentation de CoreOS]: https://coreos.com/using-coreos/
@@ -218,4 +220,6 @@ Vous devez avoir un cluster CoreOS exécutant trois nœuds sur Azure. Dès lors,
 [Docker]: http://docker.io
 [YAML]: http://yaml.org/
 
-<!--HONumber=45--> 
+
+
+<!--HONumber=42-->

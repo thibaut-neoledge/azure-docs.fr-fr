@@ -1,6 +1,20 @@
-﻿<properties title="How to scale a website" pageTitle="Mise à l'échelle d'un site web" description="Découvrez comment mettre votre plan d'hébergement à l'échelle dans Azure." authors="stepsic" manager="kamrani" />
+﻿<properties 
+	pageTitle="Mise à l'échelle d'un site web" 
+	description="Découvrez comment mettre votre plan d'hébergement à l'échelle dans Azure." 
+	authors="stepsic-microsoft-com" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="stepsic" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="stepsic"/>
 
 # Mise à l'échelle d'un site web
 
@@ -70,3 +84,5 @@ Avec les règles de mise à l'échelle multiples, vous pouvez définir des strat
 2. Extension de trois instances si le pourcentage du processeur est supérieur à 85 %
 
 Avec cette règle supplémentaire, si la charge dépasse 85 % avant une action de mise à l'échelle, vous obtenez deux instances supplémentaires au lieu d'une. 
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Add a Cert to the CA Store" pageTitle="Ajout d'un certificat au magasin d'autorité de certification Java - Azure" metaKeywords="Azure Twilio Java, Twilio Java Certificate, Azure Service Bus Certificate" description="Découvrez comment ajouter un certificat d'autorité de certification au magasin de certificats (cacerts) de l'autorité de certification Java pour le service Twilio ou le Azure Service Bus." metaCanonical="" services="" documentationCenter="Java" title="Adding a Certificate to the Java CA Certificates Store" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties 
+	pageTitle="Ajout d'un certificat au magasin d'autorité de certification Java - Azure" 
+	description="Découvrez comment ajouter un certificat d'autorité de certification au magasin de certificats (cacerts) de l'autorité de certification Java pour le service Twilio ou le Azure Service Bus." 
+	services="" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Ajout d'un certificat au magasin de certificats d'autorité de certification Java
 La procédure suivante explique comment ajouter un certificat d'autorité de certification au magasin de certificats d'autorité de certification Java (cacerts). Prenons comme exemple un certificat d'autorité de certification requis par le service Twilio. Les informations fournies plus loin dans cette rubrique décrivent l'installation d'un certificat d'autorité de certification pour Azure Service Bus. 
@@ -38,3 +52,5 @@ Si vous devez ajouter le certificat racine Baltimore CyberTrust, son numéro de 
 
 Pour plus d'informations sur les certificats racines utilisés par Azure, consultez le billet de blog consacré à la [migration des certificats racines Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
+
+<!--HONumber=46--> 

@@ -134,7 +134,6 @@ Une fois l'entité trouvée, vous pouvez la supprimer. Le code suivant recherche
 	   Console.WriteLine("Couldn't delete the entity.");
 
 [En savoir plus sur Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
-Voir aussi [Consultation des ressources de stockage avec l'Explorateur de serveurs](http://msdn.microsoft.com/fr-fr/library/azure/ff683677.aspx).
-
+Voir aussi [Consultation des ressources de stockage avec l'Explorateur de serveurs](http://msdn.microsoft.com/library/azure/ff683677.aspx).
 
 <!--HONumber=42-->

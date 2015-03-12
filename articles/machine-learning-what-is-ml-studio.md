@@ -1,6 +1,20 @@
-﻿<properties title="What Is Azure Machine Learning Studio?" pageTitle="Azure Machine Learning Studio - De quoi s'agit-il ? | Azure" description="Vue d'ensemble de Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Azure Machine Learning Studio - De quoi s'agit-il ? | Azure" 
+	description="Vue d'ensemble d'Azure Machine Learning Studio et de ses composants de base" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/11/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2014" 
+	ms.author="garye"/>
 
 # Azure Machine Learning Studio - De quoi s'agit-il ?
 
@@ -39,8 +53,8 @@ Une expérience se compose de jeux de données qui fournissent des données aux 
 - Tous les ports d'entrée des modules doivent comporter une connexion au flux de données. 
 - Tous les paramètres obligatoires d'un module doivent être configurés. 
 
-Pour obtenir un exemple de création d'une expérience simple, consultez la rubrique [Création d'une expérience simple dans Azure Machine Learning Studio](http://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-create-experiment/). 
-Pour une description plus complète de la création d'une solution d'analyse prédictive, consultez la rubrique [Développement d'une solution prédictive avec Azure Machine Learning](http://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).
+Pour obtenir un exemple de création d'une expérience simple, consultez la rubrique [Création d'une expérience simple dans Azure Machine Learning Studio](http://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/). 
+Pour une description plus complète de la création d'une solution d'analyse prédictive, consultez la rubrique [Développement d'une solution prédictive avec Azure Machine Learning](http://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).
 
 ### Jeux de données
 
@@ -67,3 +81,5 @@ Un module peut comporter un ensemble de paramètres utilisables pour configurer 
 
 
 [ml-studio-overview]:./media/machine-learning-what-is-ml-studio/context.jpg
+
+<!--HONumber=46--> 

@@ -42,4 +42,5 @@ De plus, le package NuGet nommé **Microsoft.Framework.ConfigurationModel.Json**
 Dans le fichier config.json de votre projet, un élément a été créé avec la clé et la chaîne de connexion du compte de stockage sélectionné.
 
 Pour plus d'informations, consultez la page [ASP.NET 5](http://www.asp.net/vnext).
+
 <!--HONumber=42-->

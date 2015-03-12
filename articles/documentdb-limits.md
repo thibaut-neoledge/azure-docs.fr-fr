@@ -1,6 +1,20 @@
-﻿<properties title="DocumentDB limits for the preview release" pageTitle="Limites dans la version préliminaire de DocumentDB | Azure" description="Découvrez les limites et l'application des quotas de DocumentDB pour la version préliminaire." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Limites dans la version préliminaire de DocumentDB | Azure" 
+	description="Découvrez les limites et l'application des quotas de DocumentDB pour la version préliminaire." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="mimig"/>
 
 
 #Limites dans la version préliminaire de DocumentDB
@@ -37,3 +51,5 @@ Le tableau suivant décrit les limites et applications de quota dans la version 
 |Nombre maximal de clauses JOIN par requête    |2
 |Nombre maximal de clauses AND par requête      |5
 |Nombre maximal de clauses OR par requête       |5
+
+<!--HONumber=46--> 

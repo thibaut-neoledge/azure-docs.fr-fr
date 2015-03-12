@@ -137,7 +137,7 @@ Maintenant que vous avez acquis les bases du stockage de files d'attente, suivez
   [Procédure : Options supplémentaires pour l'enlèvement des messages de la file d'attente]: #advanced-get
   [Procédure : Obtention de la longueur de file d'attente]: #get-queue-length
   [Procédure : Suppression d'une file d'attente]: #delete-queue
-  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-FR/library/windowsazure/gg433040.aspx
+  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Personnalisation du portail des développeurs dans Gestion des API Azure" metaKeywords="" description="Personnalisation du portail des développeurs dans Gestion des API Azure" metaCanonical="" services="api-management" documentationCenter="API Management" title="Customizing the developer portal in Azure API Management" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Personnalisation du portail des développeurs dans Gestion des API Azure" 
+	description="Personnalisation du portail des développeurs dans Gestion des API Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Personnalisation du portail des développeurs dans Gestion des API Azure
 
@@ -94,3 +108,5 @@ Cliquez sur la page " Bienvenue " pour modifier le texte s'affichant sur la page
 [LESS variables]: http://getbootstrap.com/css/
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -18,5 +18,6 @@
 
 	Une fois la configuration terminée, le nom de domaine personnalisé est répertorié dans la section **Noms de domaine** de la page **Configurer** de votre site web.
 
-Vous devez alors pouvoir entrer le nom de domaine personnalisé dans votre navigateur et constater que vous êtes bien dirigé vers votre site web Azure. 
+Vous devez alors pouvoir entrer le nom de domaine personnalisé dans votre navigateur et constater que vous êtes bien dirigé vers votre site web Azure..
+
 <!--HONumber=42-->

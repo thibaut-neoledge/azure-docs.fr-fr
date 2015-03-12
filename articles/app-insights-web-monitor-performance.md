@@ -1,6 +1,18 @@
-﻿<properties title="Monitor your app's health and usage with Application Insights" pageTitle="Surveillez l'intégrité et l'utilisation de votre application avec Application Insights" description="Prise en main d'Application Insights Analysez l'utilisation, la disponibilité et les performances de vos applications locales ou Microsoft Azure." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+﻿<properties 
+	pageTitle="Surveillez l'intégrité et l'utilisation de votre application avec Application Insights" 
+	description="Prise en main d'Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-21" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-12-11" 
+	ms.author="awills"/>
  
 # Analyse des performances dans les applications Web
 
@@ -152,3 +164,5 @@ Voici quelques conseils pour identifier et diagnostiquer les problèmes de perfo
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -107,7 +107,7 @@ Pour des didacticiels complets, rendez-vous sur la page [Didacticiels du Centre 
 [configure-php]: /fr-fr/develop/php/common-tasks/configure-php-web-site/
 [website-mysql-git]: /fr-fr/develop/php/tutorials/website-w-mysql-and-git/
 [wordpress-gallery]: /fr-fr/develop/php/tutorials/website-from-gallery/
-[websites-pricing]: http://www.windowsazure.com/fr-fr/pricing/details/#header-1
+[websites-pricing]: http://azure.microsoft.com/pricing/details/#header-1
 [scale-websites]: /fr-fr/manage/services/web-sites/how-to-scale-websites/
 
 

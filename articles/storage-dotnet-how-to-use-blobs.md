@@ -49,7 +49,7 @@ Ce guide explique le déroulement des scénarios courants dans le cadre de l'uti
 
 Nous vous recommandons d'utiliser NuGet pour obtenir l'assembly `Microsoft.WindowsAzure.Storage.dll`. Cliquez avec le bouton droit de la souris sur votre projet dans l'**Explorateur de solutions** et sélectionnez **Gérer les packages NuGet**.  Effectuez une recherche en ligne sur " WindowsAzure.Storage ", puis cliquez sur **Installer** pour lancer l'installation du package Azure Storage et de ses dépendances.
 
-`Microsoft.WindowsAzure.Storage.dll` est également inclus dans le Kit de développement logiciel (SDK) Azure pour .NET, téléchargeable à partir du <a href="http://www.windowsazure.com/fr-FR/develop/net/#">centre de développement .NET</a>. L'assembly est installé dans le répertoire `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`.
+`Microsoft.WindowsAzure.Storage.dll` est également inclus dans le Kit de développement logiciel (SDK) Azure pour .NET, téléchargeable à partir du <a href="http://azure.microsoft.com/develop/net/#">centre de développement .NET</a>. L'assembly est installé dans le répertoire `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`.
 
 ###Déclarations d'espace de noms
 Ajoutez les déclarations d'espace de noms suivantes en haut de chaque fichier C# dans lequel vous souhaitez accéder au stockage Azure par programme :
@@ -342,10 +342,10 @@ Maintenant que vous avez appris les bases du stockage d'objets blob, suivez ces 
   <ul>
     <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Référence de la bibliothèque cliente de stockage pour .NET</a>
     </li>
-    <li><a href="http://msdn.microsoft.com/fr-FR/library/windowsazure/dd179355">Référence d'API REST</a></li>
+    <li><a href="http://msdn.microsoft.com/library/windowsazure/dd179355">Référence d'API REST</a></li>
   </ul>
 </li>
-<li>Pour plus d'informations sur les tâches avancées que vous pouvez effectuer avec le stockage Azure, consultez la page <a href="http://msdn.microsoft.com/fr-FR/library/windowsazure/gg433040.aspx">Stockage et accessibilité des données dans Azure</a>.</li>
+<li>Pour plus d'informations sur les tâches avancées que vous pouvez effectuer avec le stockage Azure, consultez la page <a href="http://msdn.microsoft.com/library/windowsazure/gg433040.aspx">Stockage et accessibilité des données dans Azure</a>.</li>
 <li>Découvrez comment simplifier le code que vous écrivez pour travailler avec Azure Storage à l'aide du <a href="../websites-dotnet-webjobs-sdk/">Kit de développment logiciel WebJobs Azure.</li>
 <li>Pour plus d'informations sur les autres options de stockage de données dans Azure, consultez d'autres guides de fonctionnalités.
   <ul>
@@ -374,13 +374,13 @@ Maintenant que vous avez appris les bases du stockage d'objets blob, suivez ces 
   [Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
   
-  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-FR/library/windowsazure/gg433040.aspx
+  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Configuration des chaînes de connexion]: http://msdn.microsoft.com/fr-FR/library/windowsazure/ee758697.aspx
+  [Configuration des chaînes de connexion]: http://msdn.microsoft.com/library/windowsazure/ee758697.aspx
   [Référence de bibliothèque cliente .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Référence d'API REST]: http://msdn.microsoft.com/fr-FR/library/windowsazure/dd179355
+  [Référence d'API REST]: http://msdn.microsoft.com/library/windowsazure/dd179355
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

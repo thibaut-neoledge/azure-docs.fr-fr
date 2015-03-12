@@ -308,11 +308,11 @@ Voici des erreurs ou des problèmes fréquemment rencontrés lors de l'utilisati
 * [Documentation Git]
 * [Projet Kudu](https://github.com/projectkudu/kudu/wiki)
 
-[Centre de développement Azure]: http://www.windowsazure.com/fr-fr/develop/overview/
+[Centre de développement Azure]: http://azure.microsoft.com/develop/overview/
 [Portail Azure]: http://manage.windowsazure.com
 [Site web Git]: http://git-scm.com
 [Installation de Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Utilisation de PowerShell pour Azure]: http://www.windowsazure.com/fr-fr/develop/nodejs/how-to-guides/powershell-cmdlets/
+[Utilisation de PowerShell pour Azure]: http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/
 [Utilisation des outils en ligne de commande Azure pour Mac et Linux]: /fr-fr/develop/nodejs/how-to-guides/command-line-tools/
 [Documentation Git]: http://git-scm.com/documentation
 
@@ -333,6 +333,5 @@ Voici des erreurs ou des problèmes fréquemment rencontrés lors de l'utilisati
 [Création d'un référentiel (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Démarrage rapide - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Utilisation de Dropbox pour partager les référentiels Git]: https://gist.github.com/trey/2722927
-[Livraison continue sur Azure au moyen de Visual Studio Online]: http://www.windowsazure.com/fr-fr/develop/net/common-tasks/publishing-with-tfs/
-
+[Livraison continue sur Azure au moyen de Visual Studio Online]: http://azure.microsoft.com/develop/net/common-tasks/publishing-with-tfs/
 <!--HONumber=42-->

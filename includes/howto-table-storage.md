@@ -19,7 +19,7 @@ Le service de table contient les composants suivants :
     http://`<storage account>`.table.core.windows.net/`<table>`     
     Vous pouvez traiter les tables Azure directement à l'aide de cette adresse avec le protocole OData. Pour plus d'informations, consultez la rubrique [OData.org][]
 
--   **Compte de stockage :** tout accès au stockage Azure s'effectue via un compte de stockage. Consultez la page [Objectifs de performance et d'extensibilité d'Azure Storage](http://msdn.microsoft.com/fr-fr/library/dn249410.aspx) pour en savoir plus sur la capacité d'un compte de stockage.
+-   **Compte de stockage :** tout accès au stockage Azure s'effectue via un compte de stockage. Consultez la page [Objectifs de performance et d'extensibilité d'Azure Storage](http://msdn.microsoft.com/library/dn249410.aspx) pour en savoir plus sur la capacité d'un compte de stockage.
 
 -   **Table** : une table est une collection d'entités. Les tables n'appliquent pas de schéma sur les entités, ce qui signifie qu'une seule table peut contenir des entités ayant différents ensembles de propriétés. Le nombre de tables qu'un 
 	compte de stockage peut contenir est uniquement limité par la limite de capacité du compte de stockage.
@@ -32,4 +32,4 @@ Le service de table contient les composants suivants :
   
   [Table1]: ./media/storage-java-how-to-use-table-storage/table1.png
   [OData.org]: http://www.odata.org/
-<!--HONumber=41-->
+<!--HONumber=42-->

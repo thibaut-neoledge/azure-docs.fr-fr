@@ -1,6 +1,20 @@
-﻿<properties title="Use custom activities in an Azure Data Factory pipeline" pageTitle="Utilisation des activités personnalisées dans un pipeline Azure Data Factory" description="Découvrez comment créer des activités personnalisées et les utiliser dans un pipeline Azure Data Factory." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Utilisation des activités personnalisées dans un pipeline Azure Data Factory" 
+	description="Découvrez comment créer des activités personnalisées et les utiliser dans un pipeline Azure Data Factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 Azure Data Factory prend en charge des activités intégrées telles que **Activité de copie** et **Activité HDInsight** à utiliser dans les pipelines pour déplacer et traiter les données. Vous pouvez également créer une activité personnalisée avec votre propre logique de transformation/de traitement et utiliser l'activité dans un pipeline. L'activité personnalisée s'exécute comme une tâche de mappage sur un cluster HDInsight, ce qui vous oblige à lier un cluster HDInsight pour l'activité personnalisée dans votre pipeline.
@@ -488,7 +502,7 @@ Article | Description
 
 
 [nuget-package]: http://go.microsoft.com/fwlink/?LinkId=517478
-[azure-developer-center]: http://azure.microsoft.com/fr-fr/develop/net/
+[azure-developer-center]: http://azure.microsoft.com/develop/net/
 [adf-developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [azure-preview-portal]: https://portal.azure.com/
 
@@ -502,3 +516,5 @@ Article | Description
 [image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
+
+<!--HONumber=46--> 

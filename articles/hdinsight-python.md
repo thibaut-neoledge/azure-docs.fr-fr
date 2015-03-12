@@ -149,7 +149,7 @@ Consultez la rubrique [Exécution des exemples](#running) pour savoir comment ex
 
 ##<a name="running"></a>Exécution des exemples
 
-Ces étapes utilisent Windows Azure PowerShell. Si ce dernier n'est pas déjà installé et configuré sur votre ordinateur de développement, consultez la page [Installation et configuration d'Azure PowerShell](http://azure.microsoft.com/fr-fr/documentation/articles/install-configure-powershell/) avant d'exécuter la procédure suivante.
+Ces étapes utilisent Windows Azure PowerShell. Si ce dernier n'est pas déjà installé et configuré sur votre ordinateur de développement, consultez la page [Installation et configuration d'Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/) avant d'exécuter la procédure suivante.
 
 
 1. À l'aide des exemples Python [streaming.py](#streamingpy) et [jython.py](#jythonpy), créez des copies locales des fichiers sur votre ordinateur de développement.
@@ -279,5 +279,4 @@ Les informations sur l'erreur (STDERR) et le résultat de la tâche (STDOUT) son
 Si vous devez charger des modules Python qui ne sont pas fournis par défaut, consultez la page [Déploiement d'un module vers Azure HDInsight](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx) pour un exemple de procédure à suivre.
 
 Si vous souhaitez exécuter des tâches sur HDInsight à distance sans utiliser PowerShell, consultez la page [Utilisation d'Azure HDInsight à partir de Linux](http://blogs.msdn.com/b/benjguin/archive/2014/02/18/how-to-use-hdinsight-from-linux.aspx), qui propose un exemple d'utilisation de Python pour exécuter des tâches par l'intermédiaire de l'API REST WebHCat.
-
 <!--HONumber=42-->

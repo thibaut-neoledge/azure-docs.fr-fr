@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Contrôle d'accès en fonction du rôle dans Mobile Services et Azure Active Directory (Windows Store) | Centre de développement mobile" description="Découvrez comment contrôler l'accès en fonction des rôles Azure Active Directory dans votre application Windows Store." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Contrôle d'accès en fonction du rôle dans Mobile Services et Azure Active Directory (Windows Store) | Centre de développement mobile" 
+	description="Découvrez comment contrôler l'accès en fonction des rôles Azure Active Directory dans votre application Windows Store." 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="wesmc"/>
 
 # Contrôle d'accès en fonction du rôle dans Mobile Services et Azure Active Directory
 
@@ -263,7 +277,8 @@ La procédure suivante montre comment déployer un contrôle d'accès en fonctio
 [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/users.png
 [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/group-membership.png
 [2]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/sales-group.png
-[3]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-perms.png
+[3]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-per
+	ms.png
 [4]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/insert-table-op-view.png
 [5]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/sales-group-id.png
 [6]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/client-id-and-key.png
@@ -276,7 +291,7 @@ La procédure suivante montre comment déployer un contrôle d'accès en fonctio
 [Stockage des scripts serveur]: /fr-fr/documentation/articles/mobile-services-store-scripts-source-control/
 [Inscription à des fins d'utilisation d'une connexion Azure Active Directory]: /fr-fr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
-[Référence des erreurs de l'API Graph]: http://msdn.microsoft.com/fr-fr/library/azure/hh974480.aspx
-[IsMemberOf]: http://msdn.microsoft.com/fr-fr/library/azure/dn151601.aspx
+[Référence des erreurs de l'API Graph]: http://msdn.microsoft.com/library/azure/hh974480.aspx
+[IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 
 <!--HONumber=42-->

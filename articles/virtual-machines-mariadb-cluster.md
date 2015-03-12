@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Exécution d'un cluster MariaDB (MySQL) sur Azure" 
-	description="Création d'un cluster MySQL MariaDB + Galera sur des machines virtuelles Azure" 
+	description="Create a MariaDB + Galera MySQL cluster on Azure Virtual Machines" 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="sabbour" 
@@ -20,11 +20,11 @@
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Cluster MariaDB (MySQL) - Didacticiel Azure
 
-<p>Nous créons un cluster [Galera](http://galeracluster.com/products/) multimaîtres de [MariaDB](https://mariadb.org/en/about/), un remplacement de dernière minute solide, évolutif et fiable pour MySQL, qui fonctionnera dans un environnement à haute disponibilité dans des machines virtuelles Azure.</p>
+Nous créons un cluster [Galera](http://galeracluster.com/products/) multimaître de [MariaDBs](https://mariadb.org/en/about/), qui peut remplacer MySQL de manière robuste, évolutive et fiable, afin de travailler dans un environnement hautement disponible sur Azure Virtual Machines.
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
-+ [Présentation de l'architecture] 
++ [Présentation de l'architecture]
 + [Création du modèle]
 + [Création du cluster]
 + [Équilibrage de la charge du cluster]
@@ -107,7 +107,7 @@ Le résultat devrait ressembler à ceci : `5112500ae3b842c8b9c604889f8753c3__Op
         
         		vi /etc/fstab
         
-     - Ajoutez le périphérique afin d'activer le montage automatique au redémarrage, en remplaçant l'UUID par la valeur obtenue avec la commande **blkid** précédente
+     - Ajoutez périphérique afin d'activer le montage automatique au redémarrage, en remplaçant l'UUID par la valeur obtenue avec la commande **blkid** précédente
         
         		UUID=<UUID FROM PREVIOUS>   /mnt/data ext4   defaults,noatime   1 2
         	
@@ -152,11 +152,11 @@ Le résultat devrait ressembler à ceci : `5112500ae3b842c8b9c604889f8753c3__Op
     
     		ln -s /mnt/data/mysql /var/lib/mysql   
 
-5. Étant donné que [SELinux interférera avec les opérations de cluster](http://galeracluster.com/documentation-webpages/configuration.html#selinux), il est nécessaire de le désactiver pour la session active (jusqu'à ce qu'une version compatible soit publiée). Modifiez  `/etc/selinux/config` pour le désactiver pour les redémarrages suivants :
+5. Étant donné que [SELinux interférera avec les opérations de cluster](http://galeracluster.com/documentation-webpages/configuration.html#selinux), il est nécessaire de le désactiver pour la session active (jusqu'à ce qu'une version compatible soit publiée). Modifiez `/etc/selinux/config` pour la désactiver pour les redémarrages suivants :
     	
 	        setenforce 0
     
-       puis remplacez  `/etc/selinux/config` par  `SELINUX=permissive`
+       puis éditez `/etc/selinux/config` pour définir `SELINUX=permissive`
        
 6. Validez l'exécution de MySQL
 
@@ -215,7 +215,7 @@ Le résultat devrait ressembler à ceci : `5112500ae3b842c8b9c604889f8753c3__Op
 	
 			vi /etc/my.cnf.d/server.cnf
 		
-	- Modifiez la section **[mariadb]** et ajoutez les éléments ci-dessous
+	- Modifiez la section **[mariadb]** et ajoutez-y ce qui suit
 	
 	> [AZURE.NOTE] Il est recommandé que **innodb\_buffer\_pool_size** soit égal à 70 % de la mémoire de votre machine virtuelle. Elle a été définie à 2,45 Go ici pour la machine virtuelle Azure de taille moyenne avec 3,5 Go de RAM.
 	
@@ -271,7 +271,7 @@ Créez trois machines virtuelles à partir du modèle que vous venez de créer, 
 		--ssh 23
 		--vm-name mariadb2
         --connect mariadbha mariadb-galera-image azureuser
-et pour une MariaDB3
+et pour MariaDB3
 
 		azure vm create
         --virtual-network-name mariadbvnet
@@ -292,8 +292,8 @@ et pour une MariaDB3
 
 		sudo vi /etc/my.cnf.d/server.cnf
 		
-	Annulez les commentaires **`wsrep_cluster_name`** et **`wsrep_cluster_address`** en supprimant le caractère **#** au début, et vérifiez que ces paramètres correspondent à ce que vous voulez.
-    Remplacez également **`<ServerIP>`** dans **`wsrep_node_address`** et **`<NodeName>`** dans **`wsrep_node_name`** par l'adresse IP et le nom de la machine virtuelle, et annulez ces commentaires.
+	Annulez les commentaires **`wsrep_cluster_name`** et **`wsrep_cluster_address`** en supprimant le caractère **#** au début et vérifiez que ces paramètres correspondent à ce que vous voulez.
+    Remplacez aussi **`<ServerIP>`** dans **`wsrep_node_address`** et **`<NodeName>`** dans **`wsrep_node_name`** par l'adresse IP et le nom de la machine virtuelle et annulez également ces commentaires.
 	
 5. Démarrez le cluster sur MariaDB1 et laissez-le s'exécuter au démarrage
 
@@ -331,7 +331,7 @@ et modifiez l'intervalle de sondage sur 5 secondes, puis enregistrez
 
 ## Validation du cluster
 
-La partie la plus complexe du travail est terminée. Le cluster doit maintenant être accessible à `mariadbha.cloudapp.net:3306`, qui atteindra l'équilibreur de charge et acheminera les demandes entre les trois machines virtuelles de manière fluide et efficace.
+La partie la plus complexe du travail est terminée. Le cluster doit maintenant être accessible à " mariadbha.cloudapp.net:3306 ", qui atteindra l'équilibreur de charge et acheminera les demandes entre les trois machines virtuelles de manière fluide et efficace.
 
 Utilisez le client MySQL de votre choix pour vous connecter ou connectez-vous simplement à partir de l'une des machines virtuelles pour vérifier que ce cluster fonctionne.
 
@@ -374,11 +374,14 @@ Vous souhaiterez peut-être étudier [une autre façon de mettre MySQL en cluste
 <!--Image references-->
 
 <!--Link references-->
-[Interface de ligne de commande Azure]: http://azure.microsoft.com/documentation/articles/xplat-cli/
-[Référence des commandes de l'interface de ligne de commande Azure]: http://azure.microsoft.com/documentation/articles/command-line-tools/
+[interface de ligne de commande Azure]: http://azure.microsoft.com/documentation/articles/xplat-cli/
+[référence des commandes de l'interface de ligne de commande Azure]: http://azure.microsoft.com/documentation/articles/command-line-tools/
 [créer une clé SSH pour l'authentification]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
-[stratégie de réglage des performances]: http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
-[optimiser et tester les performances de MySQL sur les machines virtuelles Linux Azure]:http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[stratégie de réglage des performances]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[optimiser et tester les performances de MySQL sur les machines virtuelles Linux Azure]:http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [le problème n°1268 dans les outils d'interface de ligne de commande Azure]:https://github.com/Azure/azure-xplat-cli/issues/1268
-[Une autre façon de mettre MySQL en cluster sur Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
-<!--HONumber=45--> 
+[une autre façon de mettre MySQL en cluster sur Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
+
+
+
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Prise en main des données (Android) | Centre de développement mobile" description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application Android." services="mobile-services" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Prise en main des données (Android) | Centre de développement mobile" 
+	description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application Android." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal,glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/16/2014" 
+	ms.author="ricksal,glenga"/>
 
 # Ajout de Mobile Services à une application existante
 
@@ -28,7 +42,7 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 4. [Mise à jour de l'application pour utiliser Mobile Services]
 5. [Test de l'application par rapport à Mobile Services]
 
-> [AZURE.IMPORTANT] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AED8DE357"%20target="_blank). 
+> [AZURE.IMPORTANT] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AED8DE357"%20target="_blank). 
 
 Ce didacticiel requiert le [Kit de développement logiciel (SDK) Mobile Services pour Android] ; le <a href="https://go.microsoft.com/fwLink/p/?LinkID=280125" target="_blank">Kit de développement logiciel (SDK) Android</a>, qui inclut l'IDE (environnement de développement intégré) Eclipse, le plug-in ADT (outils de développement Android) et Android 4.2 ou une version ultérieure. 
 

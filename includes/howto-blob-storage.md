@@ -19,7 +19,7 @@ Le service BLOB contient les composants suivants :
 ![Blob1][Blob1]
 
 -   **Compte de stockage :** tout accès au stockage Azure s'effectue
-    via un compte de stockage. Consultez la page [Objectifs de performance et d'extensibilité d'Azure Storage](http://msdn.microsoft.com/fr-fr/library/dn249410.aspx) pour en savoir plus sur la capacité d'un compte de stockage.
+    via un compte de stockage. Consultez la page [Objectifs de performance et d'extensibilité d'Azure Storage](http://msdn.microsoft.com/library/dn249410.aspx) pour en savoir plus sur la capacité d'un compte de stockage.
 
 -   **Conteneur :** un conteneur regroupe un ensemble d'objets blob.
     Tous les objets blob doivent figurer dans un conteneur. Un compte peut contenir un
@@ -46,4 +46,4 @@ Le service BLOB contient les composants suivants :
 
 [Blob1]: ./media/howto-blob-storage/blob1.jpg
 
-<!--HONumber=41-->
+<!--HONumber=42-->

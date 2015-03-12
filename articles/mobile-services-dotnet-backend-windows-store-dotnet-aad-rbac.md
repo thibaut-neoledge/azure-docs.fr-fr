@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Contrôle d'accès en fonction du rôle dans Mobile Services et Azure Active Directory (Windows Store) | Centre de développement mobile" description="Découvrez comment contrôler l'accès en fonction des rôles Azure Active Directory dans votre application Windows Store." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Contrôle d'accès en fonction du rôle dans Mobile Services et Azure Active Directory (Windows Store) | Centre de développement mobile" 
+	description="Découvrez comment contrôler l'accès en fonction des rôles Azure Active Directory dans votre application Windows Store." 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/14/2014" 
+	ms.author="wesmc"/>
 
 # Contrôle d'accès en fonction du rôle dans Mobile Services et Azure Active Directory
 
@@ -301,6 +315,6 @@ Dans cette section, vous allez créer un attribut d'autorisation personnalisé p
 [Stockage des scripts serveur]: /fr-fr/documentation/articles/mobile-services-store-scripts-source-control/
 [Inscription à des fins d'utilisation d'une connexion Azure Active Directory]: /fr-fr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Bibliothèque cliente Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
-[IsMemberOf]: http://msdn.microsoft.com/fr-fr/library/azure/dn151601.aspx
+[IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 
 <!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties title="Lexicon Based Sentiment Analysis" pageTitle="Étape 1 : Analyse de sentiments basée sur un lexique | Azure" description="Analyse de sentiments basée sur un lexique" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Étape 1 : Analyse de sentiments basée sur un lexique | Azure" 
+	description="Analyse de sentiments basée sur un lexique" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/>
 
 
 
@@ -61,7 +75,7 @@ Il existe plusieurs façons d'utiliser le service de manière automatique ([voic
 L'entrée est " C'est une belle journée ", la sortie est " 1 ", ce qui indique un sentiment positif associé à la phrase en entrée. 
 
 ##Création du service web
->Ce service web a été créé à l'aide d'Azure ML. Pour un essai gratuit, ainsi que des vidéos de présentation concernant la création d'expériences et [la publication de services web](http://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consultez [azure.com/ml](http://azure.com/ml). La capture d'écran ci-dessous présente l'expérience qui a créé le service web et le code d'exemple de chaque module de l'expérience.
+>Ce service web a été créé à l'aide d'Azure ML. Pour un essai gratuit, ainsi que des vidéos de présentation concernant la création d'expériences et [la publication de services web](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consultez [azure.com/ml](http://azure.com/ml). La capture d'écran ci-dessous présente l'expérience qui a créé le service web et le code d'exemple de chaque module de l'expérience.
 
 
 Dans Azure ML, une nouvelle expérience a été créée. La figure ci-dessous illustre le flux d'expérience pour l'analyse de sentiments basée sur un lexique. Le fichier " sent_dict.csv " correspond au lexique de subjectivité MPQA ; il est défini en tant que l'une des entrées du module " Exécuter le script R ". Une autre entrée correspond à une critique partielle provenant d'un jeu de données de critiques Amazon à des fins de test, où nous avons effectué des opérations de sélection, de modification des noms de colonne et de fractionnement.  Nous utilisons le package de hachage pour stocker le lexique de subjectivité en mémoire et accélérer le processus de calcul du score. L'ensemble du texte sera converti en jetons par le package " tm " et comparé au mot dans le dictionnaire de sentiments. Enfin, un score sera calculé en ajoutant le poids de chaque mot subjectif dans le texte. 
@@ -129,7 +143,7 @@ Dans Azure ML, une nouvelle expérience a été créée. La figure ci-dessous il
 Du point de vue de l'algorithme, l'analyse de sentiments basée sur un lexique est un outil général d'analyse de sentiments, qui peut ne pas être plus performant que la méthode de classification pour des champs spécifiques. Le problème de la négation n'est pas correctement pris en charge. Nous codons en dur plusieurs négations dans notre programme, mais une meilleure méthode consiste à utiliser un dictionnaire de négations et à créer certaines règles. Le service web fonctionne mieux avec des phrases courtes et simples, telles que les Tweets et les billets Facebook, qu'avec les phrases longues et complexes, telles que les critiques Amazon. 
 
 ##Forum Aux Questions
-Pour les Questions fréquemment posées relatives à l'utilisation du service web ou à la publication sur Marketplace, consultez [ce lien](http://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-marketplace-faq).
+Pour les Questions fréquemment posées relatives à l'utilisation du service web ou à la publication sur Marketplace, consultez [ce lien](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-lexicon-based-sentiment-analysis/sentiment_analysis_1.png
 [2]: ./media/machine-learning-r-csharp-lexicon-based-sentiment-analysis/sentiment_analysis_2.png
@@ -141,3 +155,5 @@ Pour les Questions fréquemment posées relatives à l'utilisation du service we
 
 
 
+
+<!--HONumber=46--> 

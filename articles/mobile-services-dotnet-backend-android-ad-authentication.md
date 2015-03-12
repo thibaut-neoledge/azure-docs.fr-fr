@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Connexion et accès aux ressources avec Active Directory (Android) | Centre de développement mobile" description="Apprenez à ajouter l'authentification à une application avec Active Directory" documentationCenter="android" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Connexion et accès aux ressources avec Active Directory (Android) | Centre de développement mobile" 
+	description="Apprenez à ajouter l'authentification à une application avec Active Directory" 
+	documentationCenter="android" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender" 
+	ms.devlang="java"/>
 
 # Authentification de votre application avec Active Directory
 
@@ -15,5 +29,4 @@ Apprenez à authentifier votre application et à accéder à des ressources avec
 
 <!-- URLs. -->
 [Accès à des ressources sécurisées par Azure Active Directory avec iOS et Android]: http://chrisrisner.com/Accessing-Resources-Secured-by-Azure-Active-Directory-with-iOS-and-Android
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-﻿<properties title="Machine Learning example app: Frequently Bought Together" pageTitle="Exemple d'application Machine Learning : Frequently Bought Together | Azure" description="Un service web Machine Learning qui effectue une analyse du panier d'achat en ligne afin de proposer des recommandations de produits fréquemment achetés ensemble sur la base de l'historique des transactions fourni par l'utilisateur." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="coromt" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Exemple d'application Machine Learning : Frequently Bought Together | Azure" 
+	description="Un service web Machine Learning qui effectue une analyse du panier d'achat en ligne afin de proposer des recommandations de produits fréquemment achetés ensemble sur la base de l'historique des transactions fourni par l'utilisateur." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="CoromT" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/17/2014" ms.author="coromt" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/17/2014" 
+	ms.author="coromt"/>  
 
 # Exemple d'application Machine Learning : Frequently Bought Together
  
@@ -13,3 +27,5 @@ Une fois que vous êtes abonné au [service web]( https://datamarket.azure.com/d
 
 Ce service contient les API pour gérer la création de modèles Frequently Bought Together, pour télécharger l'historique des transactions et pour récupérer les ensembles de produits souvent achetés ensemble les mieux classés pour un produit donné.  Consultez le référentiel [Azure-MachineLearning-DataScience sur GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Apps/FrequentlyBoughtTogether) pour trouver des exemples d'utilisation de ces API.
 
+
+<!--HONumber=46--> 

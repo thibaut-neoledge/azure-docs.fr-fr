@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Récupération de votre service mobile en cas d'incident - Azure Mobile Services" description="Découvrez comment récupérer votre service mobile en cas d'urgence." services="mobile-services" documentationCenter="" authors="brettsam" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Récupération de votre service mobile en cas d'incident - Azure Mobile Services" 
+	description="Découvrez comment récupérer votre service mobile en cas d'urgence." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="brettsam" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="brettsam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="brettsam"/>
 
 # Récupération de votre service mobile en cas d'incident
 
@@ -73,14 +87,14 @@ Votre service mobile a maintenant été récupéré pour une nouvelle région Az
 <!-- Images. -->
 
 <!-- URLs. -->
-[Continuité des activités métier de base de données SQL]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh852669.aspx
+[Continuité des activités métier de base de données SQL]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
 
-[fonctionnalité de contrôle de code source]: http://www.windowsazure.com/fr-fr/develop/mobile/tutorials/store-scripts-in-source-control/
-[utilisation de l'outil de ligne de commande Azure]: http://www.windowsazure.com/fr-fr/develop/mobile/tutorials/command-line-administration/
+[fonctionnalité de contrôle de code source]: http://azure.microsoft.com/develop/mobile/tutorials/store-scripts-in-source-control/
+[utilisation de l'outil de ligne de commande Azure]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
 [Portail Azure]: http://manage.windowsazure.com/
-[Tableau de bord de service Azure]: http://www.windowsazure.com/fr-fr/support/service-dashboard/
-[Automatisation des services mobiles avec les outils en ligne de commande]: http://www.windowsazure.com/fr-fr/develop/mobile/tutorials/command-line-administration/
+[Tableau de bord de service Azure]: http://azure.microsoft.com/support/service-dashboard/
+[Automatisation des services mobiles avec les outils en ligne de commande]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
 
 
 <!--HONumber=42-->

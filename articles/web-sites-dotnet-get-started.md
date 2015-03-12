@@ -304,11 +304,11 @@ Dans ce didacticiel, vous avez appris à créer une application Web simple et à
 	Pour des informations sur l'utilisation de SSL et de votre propre nom de domaine (par exemple, www.contoso.com au lieu de contoso.azurewebsites.net), consultez les ressources suivantes :
 
 	* [Configuration d'un nom de domaine personnalisé pour un site Web Azure](/fr-fr/documentation/articles/web-sites-custom-domain-name/). 
-	* [Activation du protocole HTTPS pour un site Web Azure](http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-configure-ssl-certificate/)
+	* [Activation du protocole HTTPS pour un site Web Azure](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)
 
 * Manière d'éviter les délais de sortie de veille après les périodes d'inactivité 
 
-	Par défaut, les sites Web sont déchargés s'ils sont inactifs depuis un certain temps. La première demande après une telle période doit patienter jusqu'à ce que le site soit rechargé. Pour éviter ce temps d'attente, vous pouvez activer la fonction AlwaysOn. Pour plus d'informations, consultez la page [Configuration des sites Web](http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-configure/).
+	Par défaut, les sites Web sont déchargés s'ils sont inactifs depuis un certain temps. La première demande après une telle période doit patienter jusqu'à ce que le site soit rechargé. Pour éviter ce temps d'attente, vous pouvez activer la fonction AlwaysOn. Pour plus d'informations, consultez la page [Configuration des sites Web](http://azure.microsoft.com/documentation/articles/web-sites-configure/).
 
 * Ajout de fonctions en temps réel telles que la conversation instantanée
 

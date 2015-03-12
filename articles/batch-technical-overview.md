@@ -1,12 +1,25 @@
-﻿<properties linkid="batch-technical-overview" urlDisplayName="" pageTitle="Vue d'ensemble technique d'Azure Batch" metaKeywords="" description="En savoir plus sur les concepts, les workflows et les scénarios du service Azure Batch" metaCanonical="" services="batch" documentationCenter="" title="Azure Batch technical overview" authors="danlep" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties 
+	pageTitle="Vue d'ensemble technique d'Azure Batch" 
+	description="Découvrez les concepts, les flux de travail et les scénarios du service Azure Batch" 
+	services="batch" 
+	documentationCenter="" 
+	authors="dlepow" 
+	manager="timlt"/>
 
-<tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="danlep" />
+<tags 
+	ms.service="batch" 
+	ms.workload="big-compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2015" 
+	ms.author="danlep"/>
 
 
 #Vue d'ensemble technique d'Azure Batch
 Azure Batch vous permet d'exécuter des applications HPC (calculs complexes) et parallèles à grande échelle dans le cloud en fournissant la planification des travaux et la mise à l'échelle automatique des ressources de calcul en tant que service de plateforme. En utilisant le Kit de développement logiciel (SDK) Batch et le service Batch, vous pouvez configurer des charges de travail par lots pour qu'elles s'exécutent à la demande ou selon une planification sur une collection gérée de machines virtuelles, sans avoir à vous soucier de la complexité de la planification des travaux et de la gestion des ressources dans la plateforme sous-jacente.
  
->[WACOM.NOTE]Le service Batch est disponible en version préliminaire. Pour l'utiliser, vous avez besoin d'un compte Azure et vous devez l'activer sur votre abonnement. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Création d'un compte Azure](http://www.windowsazure.com/fr-fr/develop/php/tutorials/create-a-windows-azure-account/). 
+>[WACOM.NOTE]Le service Batch est disponible en version préliminaire. Pour l'utiliser, vous avez besoin d'un compte Azure et vous devez l'activer sur votre abonnement. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Création d'un compte Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/). 
 
 
 Cet article offre une vue d'ensemble constituée des sections suivantes :
@@ -53,7 +66,7 @@ Les API REST du service Batch prennent en charge deux scénarios de développeme
 
 <h2 id="BKMK_Entities">Concepts Batch</h2>
 
-Les sections suivantes résument les concepts clés pour l'utilisation des API et du service Batch. Pour plus d'informations, consultez [Concepts de base concernant les API dans Azure Batch](http://azure.microsoft.com/fr-fr/documentation/articles/batch-api-basics). 
+Les sections suivantes résument les concepts clés pour l'utilisation des API et du service Batch. Pour plus d'informations, consultez [Concepts de base concernant les API dans Azure Batch](http://azure.microsoft.com/documentation/articles/batch-api-basics). 
 
 * [Compte Batch](#BKMK_Account)
 * [Machines virtuelles de tâche et pools](#BKMK_TVM)
@@ -173,8 +186,8 @@ La Figure 5 illustre un flux de travail de base pour publier une application à 
 	
 <h2 id="BKMK_Resources">Ressources supplémentaires</h2>
 
-* [Prise en main de la bibliothèque Azure Batch pour .NET](http://azure.microsoft.com/fr-fr/documentation/articles/batch-dotnet-get-started/)
-* [Outils et bibliothèques de développement Azure Batch](http://azure.microsoft.com/fr-fr/documentation/articles/batch-development-libraries-tools/)
+* [Prise en main de la bibliothèque Azure Batch pour .NET](http://azure.microsoft.com/documentation/articles/batch-dotnet-get-started/)
+* [Outils et bibliothèques de développement Azure Batch](http://azure.microsoft.com/documentation/articles/batch-development-libraries-tools/)
 * [Référence de l'API REST Azure Batch](http://go.microsoft.com/fwlink/p/?LinkId=517803)
 * [Référence de l'API REST Azure Batch Apps](http://go.microsoft.com/fwlink/p/?LinkId=517804)
 
@@ -186,3 +199,5 @@ La Figure 5 illustre un flux de travail de base pour publier une application à 
 [app_pub_workflow]: ./media/batch-technical-overview/app_pub_workflow.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

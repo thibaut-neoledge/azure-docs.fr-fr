@@ -1,6 +1,20 @@
-<properties urlDisplayName="Hybrid Application" pageTitle="Applications hybrides locales/dans le cloud (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Découvrez comment créer une application hybride locale/de cloud .NET à l'aide de Azure Service Bus Relay." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Applications hybrides locales/dans le cloud (.NET) - Azure" 
+	description="Découvrez comment créer une application hybride locale/de cloud .NET à l'aide de Azure Service Bus Relay." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -163,7 +177,7 @@ associées.
 
 ###Gestion d'un espace de noms de service avec l'Explorateur de serveurs Visual Studio :
 
-Pour gérer un espace de noms et obtenir des informations de connexion en utilisant Visual Studio plutôt que le portail de gestion, suivez la procédure décrite [ici](http://http://msdn.microsoft.com/fr-fr/library/windowsazure/ff687127.aspx), dans la section intitulée **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l'arborescence **Microsoft Azure** dans l'Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Propriétés** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s'affichent dans le volet **Propriétés** de Visual Studio. 
+Pour gérer un espace de noms et obtenir des informations de connexion en utilisant Visual Studio plutôt que le portail de gestion, suivez la procédure décrite [ici](http://http://msdn.microsoft.com/library/windowsazure/ff687127.aspx), dans la section intitulée **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l'arborescence **Microsoft Azure** dans l'Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Propriétés** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s'affichent dans le volet **Propriétés** de Visual Studio. 
 
 ![][44]
 
@@ -502,7 +516,7 @@ Exécutez l'application afin de vérifier qu'elle fonctionne.
 
     <h2>﻿PRÉPARATION DE VOTRE APPLICATION EN VUE DE SON DÉPLOIEMENT SUR AZURE</h2>
 
-    Vous pouvez déployer votre application vers un service cloud Azure ou un site web Azure. Pour plus d'informations sur les différences entre les sites web et les services cloud, consultez la page [Modèles d'exécution Azure][executionmodels]. Pour plus d'informations sur le déploiement de l'application vers un site web Azure, consultez la page [Déploiement d'une application web ASP.NET vers un site web Azure](http://www.windowsazure.com/fr-fr/develop/net/tutorials/get-started/). Cette section contient une procédure pas à pas pour déployer l'application sur un service cloud Azure.
+    Vous pouvez déployer votre application vers un service cloud Azure ou un site web Azure. Pour plus d'informations sur les différences entre les sites web et les services cloud, consultez la page [Modèles d'exécution Azure][executionmodels]. Pour plus d'informations sur le déploiement de l'application vers un site web Azure, consultez la page [Déploiement d'une application web ASP.NET vers un site web Azure](http://azure.microsoft.com/develop/net/tutorials/get-started/). Cette section contient une procédure pas à pas pour déployer l'application sur un service cloud Azure.
 
     Pour déployer votre application sur un service cloud, vous ajoutez un projet de déploiement de service cloud à la solution.
     Le projet de déploiement contient des informations de configuration
@@ -790,7 +804,9 @@ Pour en savoir plus sur Service Bus, consultez les ressources suivantes :
   [43]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
   [44]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png
 
-  [sbmsdn]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee732537.aspx  
+  [sbmsdn]: http://msdn.microsoft.com/library/windowsazure/ee732537.aspx  
   [sbwacom]: /fr-fr/documentation/services/service-bus/  
   [sbwacomqhowto]: /fr-fr/develop/net/how-to-guides/service-bus-queues/
-  [executionmodels]: http://www.windowsazure.com/fr-fr/develop/net/fundamentals/compute/
+  [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
+
+<!--HONumber=46--> 

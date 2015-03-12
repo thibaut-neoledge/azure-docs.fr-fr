@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="À propos des machines virtuelles Puppet et Azure" 
 	description="Explique l'installation et la configuration de Puppet sur une machine virtuelle dans Azure" 
 	services="virtual-machines" 
@@ -39,10 +39,12 @@ Pour obtenir des instructions, téléchargez le " Guide de prise en main " dispo
 
 <!--Link references-->
 [Nouvelles intégrations avec Microsoft Azure et Visual Studio]: http://puppetlabs.com/blog/new-integrations-windows-azure-and-visual-studio
-[Connexion à une Machine virtuelle exécutant Windows Server]: ../virtual-machines-log-on-windows-server/
+[Connexion à une machine virtuelle exécutant Windows Server]: ../virtual-machines-log-on-windows-server/
 [Connexion à une machine virtuelle exécutant Linux]: ../virtual-machines-linux-how-to-log-on
 [Fonctionnalités et extensions de machine virtuelle Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Gestion des extensions]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
 
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

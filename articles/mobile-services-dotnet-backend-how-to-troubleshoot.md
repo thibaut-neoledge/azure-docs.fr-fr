@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Résolution des problèmes du service principal .NET de Mobile Services - Azure Mobile Services" description="Découvrez comment diagnostiquer et résoudre les problèmes liés à vos services mobiles à l'aide du serveur principal .NET" services="" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="mollybos"/>
+﻿<properties 
+	pageTitle="Résolution des problèmes du service principal .NET de Mobile Services - Azure Mobile Services" 
+	description="Découvrez comment diagnostiquer et résoudre les problèmes liés à vos services mobiles à l'aide du serveur principal .NET" 
+	services="" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="wesmc"/>
 # Résolution des problèmes du service principal .NET de Mobile Services
 
 Le développement avec Mobile Services est généralement simple et facile, mais, même dans ces conditions, les choses peuvent parfois aller de travers. Ce didacticiel aborde certaines techniques qui vous permettent de résoudre des problèmes courants susceptibles de se produire avec le service principal .NET de Mobile Services. 
@@ -119,7 +133,7 @@ Ce problème est facile à corriger : revenez simplement à une version prise en
 <a name="EFMigrations"></a>
 ## Dépannage des migrations Entity Framework
 
-Lorsque vous utilisez le service principal .NET de Mobile Services avec une base de données SQL, Entity Framework (EF) est utilisé comme technologie d'accès aux données vous permettant d'interroger la base de données et de rendre persistants les objets qu'elle contient. Un aspect important traité par EF pour le compte du développeur concerne la façon dont les colonnes de la base de données (autrement dit le *schema* de la base de données) changent en même temps que les classes de modèle spécifiées dans le code. Ce processus est appelé [migrations Code First](http://msdn.microsoft.com/fr-fr/data/jj591621).
+Lorsque vous utilisez le service principal .NET de Mobile Services avec une base de données SQL, Entity Framework (EF) est utilisé comme technologie d'accès aux données vous permettant d'interroger la base de données et de rendre persistants les objets qu'elle contient. Un aspect important traité par EF pour le compte du développeur concerne la façon dont les colonnes de la base de données (autrement dit le *schema* de la base de données) changent en même temps que les classes de modèle spécifiées dans le code. Ce processus est appelé [migrations Code First](http://msdn.microsoft.com/data/jj591621).
 
 Les migrations peuvent être complexes et nécessitent que l'état de la base de données reste synchronisé avec le modèle EF pour réussir. Pour des instructions sur la façon de gérer les migrations avec votre service mobile et sur les erreurs qui peuvent survenir, consultez la page [Modifications des modèles de données pour un service mobile principal .NET](/fr-fr/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/)..
 

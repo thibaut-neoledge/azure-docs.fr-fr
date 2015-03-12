@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Localized Breaking News" pageTitle="Didacticiel sur l'utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées pour iOS" metaKeywords="" description="Découvrez comment utiliser Azure Service Bus Notification Hubs pour envoyer des notifications de dernières nouvelles localisées (iOS)." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news to iOS devices" authors="yuaxu" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Didacticiel sur l'utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées pour iOS" 
+	description="Découvrez comment utiliser Azure Service Bus Notification Hubs pour envoyer des notifications de dernières nouvelles localisées (iOS)." 
+	services="notification-hubs" 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 # Utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées vers des appareils iOS
 
 <div class="dev-center-tutorial-selector sublanding">
@@ -26,7 +40,7 @@ Ce scénario comporte deux parties :
 
 
 
-##Configuration requise ##
+##Conditions préalables ##
 
 Vous devez avoir suivi le didacticiel [Utilisation de Notifications Hubs pour envoyer les dernières nouvelles] et avoir le code à disposition, car le présent didacticiel est basé sur ce code.
 
@@ -162,7 +176,7 @@ Pour adapter vos applications clientes afin qu'elles puissent recevoir des messa
 
 <h2><a name="send"></a>Envoi de notifications localisées à partir de votre serveur principal</h2>
 
-[WACOM.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
 
 
 ## Étapes suivantes
@@ -204,24 +218,26 @@ Une référence relative à la langue d'expression du modèle se trouve dans [No
 
 
 <!-- URLs. -->
-[ Service Bus Notification Hubs (applications iOS)]: http://msdn.microsoft.com/fr-fr/library/jj927168.aspx
-[Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-ios
-[Mobile service]: /fr-fr/develop/mobile/tutorials/get-started
+[Procédure : Service Bus Notification Hubs (applications iOS)]: http://msdn.microsoft.com/library/jj927168.aspx
+[Utilisation de Notification Hubs pour diffuser les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-ios
+[Mobile Service]: /fr-fr/develop/mobile/tutorials/get-started
 [Notification des utilisateurs avec Notification Hubs : ASP.NET]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
 [Notification des utilisateurs avec Notification Hubs : Mobile Services]: /fr-fr/manage/services/notification-hubs/notify-users
-[Page Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Page Soumette une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mes Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Kit de développement logiciel (SDK) Live]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Kit de développement logiciel (SDK) Live pour Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started/#create-new-service
 [Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-ios
 [Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-ios
 [Prise en main des notifications Push]: /fr-fr/develop/mobile/tutorials/get-started-with-push-ios
-[Notifications Push aux utilisateurs de l'application]: /fr-fr/develop/mobile/tutorials/push-notifications-to-users-ios
-[Autoriser les utilisateurs avec des scripts]: /fr-fr/develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Notifications Push pour les utilisateurs de l'application]: /fr-fr/develop/mobile/tutorials/push-notifications-to-users-ios
+[Autorisation des utilisateurs avec des scripts]: /fr-fr/develop/mobile/tutorials/authorize-users-in-scripts-ios
 [JavaScript et HTML]: /fr-fr/develop/mobile/tutorials/get-started-with-push-js.md
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Étapes de l'inscription de Windows Developer Preview pour Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
 [objet wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/fr-fr/library/jj927170.aspx
-[Procédures Notification Hubs pour iOS]: http://msdn.microsoft.com/fr-fr/library/jj927168.aspx
+[Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
+[Procédures Notification Hubs pour iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+
+<!--HONumber=45--> 

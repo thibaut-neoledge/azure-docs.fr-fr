@@ -156,4 +156,4 @@
 
 <!-- URLs. -->
 [Kit de développement logiciel (SDK) Mobile Services pour Android]: http://aka.ms/Iajk6q
-<!--HONumber=42-->
+\<!--HONumber=42-->

@@ -79,7 +79,7 @@ L'extrait de code C# suivant (utilisant la bibliothèque de stockage cliente 4.2
 	        throw;
 	}  
 
-Le service de stockage prend également en charge des en-têtes conditionnels supplémentaires tels que **If-Modified-Since**, **If-Unmodified-Since** et **If-None-Match**, ainsi que des associations de ces en-têtes. Pour plus d'informations, consultez la rubrique [Spécification des en-têtes conditionnels pour les opérations du service BLOB](http://msdn.microsoft.com/fr-FR/library/dd179371.aspx) sur MSDN.  
+Le service de stockage prend également en charge des en-têtes conditionnels supplémentaires tels que **If-Modified-Since**, **If-Unmodified-Since** et **If-None-Match**, ainsi que des associations de ces en-têtes. Pour plus d'informations, consultez la rubrique [Spécification des en-têtes conditionnels pour les opérations du service BLOB](http://msdn.microsoft.com/library/dd179371.aspx) sur MSDN.  
 
 Le tableau suivant résume les opérations de conteneurs qui acceptent les en-têtes conditionnels tels que **If-Match** dans la demande et qui renvoient une valeur ETag dans la réponse.  
 
@@ -121,7 +121,7 @@ Obtention pages| Oui| Oui
 (*) L'opération Lease Blob n'entraîne pas la modification de la balise ETag d'un objet blob.  
 
 ##Accès concurrentiel pessimiste pour les objets blob
-Pour verrouiller un objet blob de manière à l'utiliser de manière exclusive, vous pouvez obtenir un [bail](http://msdn.microsoft.com/fr-FR/library/azure/ee691972.aspx) pour l'objet blob. Lorsque vous obtenez un bail, vous spécifiez pendant combien de temps vous en avez besoin : cette durée peut être comprise entre 15 à 60 secondes ou peut être infinie, ce qui confère un verrouillage exclusif. Vous pouvez renouveler un bail à durée limitée et vous pouvez libérer un bail lorsque vous n'en avez plus besoin. Le service BLOB libère automatiquement les baux à durée limitée lorsqu'ils expirent.  
+Pour verrouiller un objet blob de manière à l'utiliser de manière exclusive, vous pouvez obtenir un [bail](http://msdn.microsoft.com/library/azure/ee691972.aspx) pour l'objet blob. Lorsque vous obtenez un bail, vous spécifiez pendant combien de temps vous en avez besoin : cette durée peut être comprise entre 15 à 60 secondes ou peut être infinie, ce qui confère un verrouillage exclusif. Vous pouvez renouveler un bail à durée limitée et vous pouvez libérer un bail lorsque vous n'en avez plus besoin. Le service BLOB libère automatiquement les baux à durée limitée lorsqu'ils expirent.  
 
 Les baux permettent la prise en charge de différentes stratégies de synchronisation, dont des stratégies d'écriture exclusive/de lecture partagée, d'écriture exclusive/de lecture exclusive et d'écriture partagée/de lecture exclusive. Si un bail existe, le service de stockage applique une stratégie d'écriture exclusive (opérations Placement, Définition et Suppression). Cependant, pour garantir l'exclusivité des opérations de lecture, le développeur doit veiller à ce que toutes les applications clientes utilisent un identificateur de bail et à ce que seul un client à la fois dispose d'un identificateur de bail valable. Les opérations de lecture sans identificateur de bail entraînent l'application d'une stratégie de lecture partagée.  
 
@@ -152,7 +152,7 @@ L'extrait de code C# suivant présente un exemple d'obtention d'un bail exclusif
 	        throw;
 	}  
 
-Si vous tentez de procéder à une opération d'écriture sur un objet blob faisant l'objet d'un bail sans transmettre l'identificateur de bail, un message d'erreur 412 est renvoyé. Notez que si le bail expire avant l'appel de la méthode **UploadText**, un message d'erreur **412** est également renvoyé, même si vous transmettez l'identificateur de bail. Pour plus d'informations au sujet de la gestion des délais d'expiration des baux et des identificateurs de baux, consultez la documentation REST [Lease Blob](http://msdn.microsoft.com/fr-FR/library/azure/ee691972.aspx).  
+Si vous tentez de procéder à une opération d'écriture sur un objet blob faisant l'objet d'un bail sans transmettre l'identificateur de bail, un message d'erreur 412 est renvoyé. Notez que si le bail expire avant l'appel de la méthode **UploadText**, un message d'erreur **412** est également renvoyé, même si vous transmettez l'identificateur de bail. Pour plus d'informations au sujet de la gestion des délais d'expiration des baux et des identificateurs de baux, consultez la documentation REST [Lease Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx).  
 
 Les opérations d'objets blob suivantes peuvent utiliser des baux dans le cadre de la gestion de l'accès concurrentiel pessimiste :  
 
@@ -189,9 +189,9 @@ Les opérations de conteneurs suivantes peuvent utiliser des baux dans le cadre 
 
 Pour plus d'informations, consultez les pages suivantes :  
 
-- [Spécification des en-têtes conditionnels pour les opérations du service BLOB](http://msdn.microsoft.com/fr-FR/library/azure/dd179371.aspx)
-- [Lease Container](http://msdn.microsoft.com/fr-FR/library/azure/jj159103.aspx)
-- [Lease Blob](http://msdn.microsoft.com/fr-FR/library/azure/ee691972.aspx) 
+- [Spécification des en-têtes conditionnels pour les opérations du service BLOB](http://msdn.microsoft.com/library/azure/dd179371.aspx)
+- [Lease Container](http://msdn.microsoft.com/library/azure/jj159103.aspx)
+- [Lease Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx) 
 
 #Gestion de l'accès concurrentiel dans le service de Table
 Le service de Table utilise les vérifications d'accès concurrentiel optimiste comme comportement par défaut lorsque vous travaillez avec des entités, contrairement au service BLOB où vous devez choisir de manière explicite de procéder à des vérifications d'accès concurrentiel optimiste. L'autre différence réside dans le fait que vous pouvez uniquement gérer le comportement d'accès concurrentiel des entités avec le service de Table alors qu'avec le service BLOB, vous pouvez gérer l'accès concurrentiel des conteneurs et des objets blob.  
@@ -245,7 +245,7 @@ Les développeurs utilisant des tables doivent généralement s'appuyer sur l'ac
 
 Pour plus d'informations, consultez les pages suivantes :  
 
-- [Opérations sur les entités](http://msdn.microsoft.com/fr-FR/library/azure/dd179375.aspx)  
+- [Opérations sur les entités](http://msdn.microsoft.com/library/azure/dd179375.aspx)  
 
 #Gestion de l'accès concurrentiel dans le service de File d'attente
 L'accès concurrentiel est un problème dans le cadre du service de File d'attente, où plusieurs clients récupèrent des messages à partir d'une file d'attente. Lorsqu'un message est récupéré à partir de la file d'attente, la réponse inclut le message et une valeur d'accusé pop, nécessaire à la suppression du message. Le message n'est pas automatiquement supprimé de la file d'attente mais, une fois récupéré, les autres clients ne le voient pas pendant l'intervalle défini par le paramètre visibilitytimeout. Le client qui récupère le message doit le supprimer une fois le message traité et avant expiration du délai défini par l'élément TimeNextVisible de la réponse, calculé en fonction de la valeur du paramètre visibilitytimeout. La valeur visibilitytimeout est ajoutée à l'heure à laquelle le message a été récupéré pour déterminer la valeur de l'élément TimeNextVisible.  
@@ -254,8 +254,8 @@ Le service de File d'attente ne prend pas en charge l'accès concurrentiel optim
 
 Pour plus d'informations, consultez les pages suivantes :  
 
-- [API REST du service de File d'attente](http://msdn.microsoft.com/fr-FR/library/azure/dd179363.aspx)
-- [Get Messages](http://msdn.microsoft.com/fr-FR/library/azure/dd179474.aspx)  
+- [API REST du service de File d'attente](http://msdn.microsoft.com/library/azure/dd179363.aspx)
+- [Get Messages](http://msdn.microsoft.com/library/azure/dd179474.aspx)  
 
 #Gestion de l'accès concurrentiel dans le service de Fichier
 Il est possible d'accéder au service de Fichier à l'aide de deux points de terminaison de protocole différents : SMB et REST. Le service REST ne prend pas en charge le verrouillage optimiste ou pessimiste, toutes les mises à jour sont donc effectuées selon la règle de Thomas. Les clients SMB qui montent les partages de fichiers peuvent utiliser les mécanismes de verrouillage du système de fichiers pour gérer l'accès aux fichiers partagés (possibilité de procéder à un verrouillage pessimiste incluse). Lorsqu'un client SMB ouvre un fichier, il définit le mode de partage et d'accès au fichier. Si le fichier est accessible en écriture ou en lecture/écriture et si aucun mode de partage de fichiers n'est défini, le fichier est verrouillé par le client SMB jusqu'à fermeture. En cas de tentative d'opération REST sur un fichier verrouillé par un client SMB, le service REST renvoie un code d'état 409 (Conflit) avec le code d'erreur SharingViolation.  
@@ -264,7 +264,7 @@ Si un client SMB ouvre un fichier en vue de le supprimer, il marque le fichier c
 
 Pour plus d'informations, consultez les pages suivantes :  
 
-- [Gestion des verrouillages de fichiers](http://msdn.microsoft.com/fr-FR/library/azure/dn194265.aspx)  
+- [Gestion des verrouillages de fichiers](http://msdn.microsoft.com/library/azure/dn194265.aspx)  
 
 #Résumé et étapes suivantes
 Le service Microsoft Azure Storage a été conçu pour répondre aux besoins des applications en ligne les plus complexes sans forcer les développeurs à faire des compromis ou à repenser des hypothèses de conception clés, telles que l'accès concurrentiel et la cohérence des données, qu'ils considèrent désormais comme acquises.  
@@ -275,10 +275,10 @@ Pour l'exemple complet d'application auquel il est fait référence dans ce blog
 
 Pour plus d'informations concernant Azure Storage, consultez la page :  
 
-- [Page d'accueil de Microsoft Azure Storage](http://azure.microsoft.com/fr-FR/services/storage/)
-- [Introduction à Azure Storage](http://azure.microsoft.com/fr-FR/documentation/articles/storage-introduction/)
-- Prise en main du stockage d'[objets blob](http://azure.microsoft.com/fr-FR/documentation/articles/storage-dotnet-how-to-use-blobs/), de [tables](http://azure.microsoft.com/fr-FR/documentation/articles/storage-dotnet-how-to-use-tables/) et de [files d'attente](http://azure.microsoft.com/fr-FR/documentation/articles/storage-dotnet-how-to-use-queues/)
+- [Page d'accueil de Microsoft Azure Storage](http://azure.microsoft.com/services/storage/)
+- [Introduction à Azure Storage](http://azure.microsoft.com/documentation/articles/storage-introduction/)
+- Prise en main du stockage d'[objets blob](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/), de [tables](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/) et de [files d'attente](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/)
 - Architecture de stockage - [Windows Azure Storage : un service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

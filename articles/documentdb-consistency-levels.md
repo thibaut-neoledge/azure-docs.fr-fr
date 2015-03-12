@@ -1,6 +1,20 @@
-﻿<properties title="Consistency levels in DocumentDB" pageTitle="Niveaux de cohérence dans DocumentDB" description="DocumentDB offre quatre niveaux de cohérence, avec les niveaux de performances associés, pour aider les développeurs d'applications à faire des compromis prévisibles entre cohérence, disponibilité et latence." metaKeywords="Optional" services="documentdb" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="Optional" scriptId="Optional" />
+﻿<properties 
+	pageTitle="Niveaux de cohérence dans DocumentDB" 
+	description="DocumentDB offre quatre niveaux de cohérence, avec les niveaux de performances associés, pour aider les développeurs d'applications à faire des compromis prévisibles entre cohérence, disponibilité et latence." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/05/2015" 
+	ms.author="mimig"/>
 
 #Niveaux de cohérence dans DocumentDB
 Les développeurs doivent souvent choisir entre les deux extrêmes que constituent une cohérence forte et une cohérence éventuelle. En réalité, il existe plusieurs niveaux intermédiaires entre ces deux extrêmes. Dans la plupart des scénarios réels, les applications bénéficient de compromis affinés entre cohérence, disponibilité et latence. DocumentDB offre quatre niveaux de cohérence bien définis et les niveaux de performances associés. Cela permet aux développeurs d'application de trouver des compromis prévisibles entre cohérence, disponibilité et latence.  
@@ -49,3 +63,5 @@ En douceur|	Choisir parmi Strong (Fort), Bounded Staleness (En fonction de l'obs
 [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 -	Werner Vogels. Niveau de cohérence Eventual (Éventuel) repensé.    
 [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+
+<!--HONumber=46--> 

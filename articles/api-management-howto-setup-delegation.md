@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Délégation de l'inscription des utilisateurs et des abonnements aux produits" metaKeywords="" description="Découvrez comment déléguer à un tiers l'enregistrement de l'utilisateur et la souscription à des produits dans la gestion des API Azure." metaCanonical="" services="api-management" documentationCenter="API Management" title="How to delegate user registration and product subscription in Azure API Management" authors="antonba" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Délégation de l'inscription des utilisateurs et des abonnements aux produits" 
+	description="Découvrez comment déléguer à un tiers l'enregistrement de l'utilisateur et la souscription à des produits dans la gestion des API Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="antonba" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="antonba" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/14/2015" 
+	ms.author="antonba"/>
 
 # Délégation de l'inscription des utilisateurs et des abonnements aux produits
 
@@ -150,3 +164,5 @@ Ces exemples de code montrent comment prendre la *clé de validation de déléga
 [exemple de code fourni ci-dessous]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
+
+<!--HONumber=46--> 

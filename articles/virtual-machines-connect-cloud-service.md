@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Connexion de machines virtuelles à un service cloud Azure" 
 	description="Apprenez à connecter une machine virtuelle à un service cloud Azure." 
 	services="virtual-machines, cloud-services" 
@@ -21,4 +21,6 @@
 
 [AZURE.INCLUDE [howto-connect-vm-cloud-service](../includes/howto-connect-vm-cloud-service.md)]
 
-<!--HONumber=45--> 
+
+
+<!--HONumber=42-->

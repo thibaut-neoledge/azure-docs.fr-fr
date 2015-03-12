@@ -123,7 +123,7 @@ Microsoft fournit des exemples de scripts pour installer des composants sur un c
 - [Installation et utilisation de Solr sur des clusters HDInsight](../hdinsight-hadoop-solr-install)
 - [Installation et utilisation de Giraph sur des clusters HDInsight](../hdinsight-hadoop-giraph-install)  
 
-> [AZURE.NOTE] L'exemple de script fonctionne uniquement avec un cluster HDInsight version 3.1 ou supérieure. Pour plus d'informations sur les versions des clusters HDInsight, consultez la page [Versions des clusters HDInsight](http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] L'exemple de script fonctionne uniquement avec un cluster HDInsight version 3.1 ou supérieure. Pour plus d'informations sur les versions des clusters HDInsight, consultez la page [Versions des clusters HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
 ## <a name="testScript"></a>Comment tester votre script personnalisé avec l'émulateur HDInsight
 
@@ -131,7 +131,7 @@ Pour tester un script personnalisé avant de l'utiliser dans une commande Action
 
 Cette section décrit la procédure d'utilisation de l'émulateur HDInsight en local à des fins de test. Cependant, la procédure d'utilisation d'une machine virtuelle est similaire.
 
-**Installation de l'émulateur HDInsight** : Pour exécuter des actions de script en local, l'émulateur HDInsight doit être installé. Pour plus d'informations sur l'installation, consultez la rubrique [Prise en main de l'émulateur HDInsight](http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-get-started-emulator/).
+**Installation de l'émulateur HDInsight** : Pour exécuter des actions de script en local, l'émulateur HDInsight doit être installé. Pour plus d'informations sur l'installation, consultez la rubrique [Prise en main de l'émulateur HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-get-started-emulator/).
 
 **Définition de la stratégie d'exécution pour Azure PowerShell :** ouvrez Microsoft Azure PowerShell et exécutez (en tant qu'administrateur) la commande suivante pour définir la stratégie d'exécution sur la  *LocalMachine* et pour qu'elle soit  *Unrestricted*.
  
@@ -213,5 +213,6 @@ En cas d'échec de l'exécution, la sortie décrivant cet échec est également 
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
-[powershell-install-configure]: ../install-configure-powershell/
+[powershell-install-configure]: ../install-configure-powershell.
+
 <!--HONumber=42-->

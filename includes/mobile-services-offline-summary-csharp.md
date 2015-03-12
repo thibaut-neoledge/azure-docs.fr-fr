@@ -23,4 +23,5 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
     Si vous souhaitez désactiver la synchronisation incrémentielle, transmettez `null` en tant qu'ID de requête. Dans ce cas, tous les enregistrements seront extraits à chaque appel `PullAsync`, ce qui est potentiellement inefficace.
 
 * Pour supprimer des enregistrements du magasin local du périphérique lorsqu'ils ont été supprimés dans la base de données de votre service mobile, vous devez activer la [Suppression réversible]. Sinon, votre application doit appeler périodiquement `IMobileServiceSyncTable.PurgeAsync()` afin de vider le magasin local.
-<!--HONumber=41-->
+
+\<!--HONumber=42-->

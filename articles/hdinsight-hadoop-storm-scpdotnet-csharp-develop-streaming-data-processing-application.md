@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Développement d'applications de traitement de données de diffusion avec SCP.NET et C# sur Storm | Azure" 
 	description="Découvrez comment développer des applications de traitement de données de diffusion avec SCP.NET et C# sur Storm dans HDInsight." 
 	services="hdinsight" 
@@ -48,7 +48,7 @@ Apache Storm est un système de calcul distribué qui s'exécute sur les cluster
 
 SCP fournit les bibliothèques qui facilitent la création de solutions Storm avec .NET. Les clusters Storm sur HDInsight comprennent les composants côté serveur nécessaires pour exécuter les solutions SCP que vous créez.
 
-Pour plus d'informations sur Storm sur HDInsight, consultez la rubrique [Présentation de HDInsight Storm](http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-storm-overview/).
+Pour plus d'informations sur Storm sur HDInsight, consultez la rubrique [Présentation de HDInsight Storm](http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/).
 
 ###Conception d'une application SCP
 
@@ -69,7 +69,7 @@ La conception d'une solution implique les éléments suivants :
 
 ##Installation du Kit de développement logiciel (SDK) SCP
 
-Le Kit de développement logiciel (SDK) SCP est fourni sur le cluster Storm sur HDInsight. Après avoir [créé un cluster Storm sur HDInsight](http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-storm-getting-started/), procédez comme suit pour télécharger le Kit de développement logiciel (SDK) dans votre environnement de développement local.
+Le Kit de développement logiciel (SDK) SCP est fourni sur le cluster Storm sur HDInsight. Après avoir [créé un cluster Storm sur HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-storm-getting-started/), procédez comme suit pour télécharger le Kit de développement logiciel (SDK) dans votre environnement de développement local.
 
 1. Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com).
 
@@ -972,7 +972,8 @@ Les exemples d'application suivants, écrits avec SCP, se trouvent dans votre cl
         public static CountSum Get(Context ctx, Dictionary<string, Object> parms)
         {
             /* for transactional topology, we can get txAttempt from the input parms */
-            if (parms.ContainsKey(Constants.STORM_TX_ATTEMPT))
+            if (par
+	ms.ContainsKey(Constants.STORM_TX_ATTEMPT))
             {
                 StormTxAttempt txAttempt = (StormTxAttempt)parms[Constants.STORM_TX_ATTEMPT];
                 return new CountSum(ctx, txAttempt);
@@ -1003,5 +1004,6 @@ Les exemples d'application suivants, écrits avec SCP, se trouvent dans votre cl
 
 
 [1]: ./media/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application-01.png
+
 
 <!--HONumber=42-->

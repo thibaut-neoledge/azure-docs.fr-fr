@@ -534,9 +534,9 @@ Dans ce didacticiel, vous avez appris à développer une tâche MapReduce de dif
 - [Utilisation de Hive avec HDInsight][hdinsight-use-hive]
 - [Utilisation de Pig avec HDInsight][hdinsight-use-pig]
 
-[azure-purchase-options]: http://azure.microsoft.com/fr-fr/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/fr-fr/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/fr-fr/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
@@ -556,7 +556,6 @@ Dans ce didacticiel, vous avez appris à développer une tâche MapReduce de dif
 [Powershell-install-configure]: ../install-configure-powershell/
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "MapReduce wordcount application flow"
-
 
 
 

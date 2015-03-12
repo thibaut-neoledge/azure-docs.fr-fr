@@ -55,7 +55,8 @@
 	>[AZURE.NOTE]Quand vous définissez vos informations d'identification WNS pour les notifications Push améliorées dans l'onglet **Notifications Push** du portail, celles-ci sont partagées avec Notification Hubs pour configurer le concentrateur de notification de votre application.
 
 <!-- URLs. -->
-[Prise en main de Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
+[Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-store-get-started/
 [Page Soumette une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Portail de gestion Azure]: https://manage.windowsazure.com/
-<!--HONumber=41-->
+
+\<!--HONumber=42-->

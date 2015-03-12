@@ -30,7 +30,7 @@ Vous apprendrez à effectuer les opérations suivantes :
 * déployer le site Web personnalisé directement à partir de WebMatrix sur Azure.
 
 > [AZURE.NOTE]
-> Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Vous pouvez <a href="http://azure.microsoft.com/fr-fr/pricing/member-offers/msdn-benefits-details/">activer les avantages de votre abonnement MSDN</a> ou <a href="http://azure.microsoft.com/fr-fr/pricing/free-trial/">obtenir une version d'évaluation gratuite</a>.
+> Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Vous pouvez <a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/">activer les avantages de votre abonnement MSDN</a> ou <a href="http://azure.microsoft.com/pricing/free-trial/">obtenir une version d'évaluation gratuite</a>.
 > Si vous voulez prendre en main Azure Web Sites avant de créer un compte, accédez à <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, où vous pouvez immédiatement et gratuitement créer un site de départ ASP.NET de courte durée dans Azure Web Sites. Aucune carte de crédit n'est requise, vous ne prenez aucun engagement.
 
 ## Connexion à Azure
@@ -248,7 +248,7 @@ Vous savez désormais comment créer et déployer un site Web de WebMatrix vers 
 
 
 [sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email
-[sendgridexample]: http://azure.microsoft.com/fr-fr/documentation/articles/sendgrid-dotnet-how-to-send-email/
+[sendgridexample]: http://azure.microsoft.com/documentation/articles/sendgrid-dotnet-how-to-send-email/
 
 
 <!--HONumber=42-->

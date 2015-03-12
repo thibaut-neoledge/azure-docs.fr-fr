@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Inscription du package de votre application Windows Store pour l'authentification Microsoft" description="Découvrez comment inscrire votre application Windows Store pour l'authentification Microsoft dans votre application Azure Mobile Services." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Inscription du package de votre application Windows Store pour l'authentification Microsoft" 
+	description="Découvrez comment inscrire votre application Windows Store pour l'authentification Microsoft dans votre application Azure Mobile Services." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Inscription du package de votre application Windows Store pour l'authentification Microsoft
 

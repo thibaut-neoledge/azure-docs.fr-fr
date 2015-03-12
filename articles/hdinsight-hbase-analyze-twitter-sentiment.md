@@ -87,7 +87,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 	<tr><td>Mot de passe utilisateur du cluster</td><td>Le mot de passe utilisateur du cluster Hadoop.</td></tr>
 	</table>
 
-- **Un poste de travail sur lequel **Visual Studio 2013 est installé. Pour plus d'informations, consultez la rubrique [Installation de Visual Studio](http://msdn.microsoft.com/fr-fr/library/e2h7fzkw.aspx).
+- **Un poste de travail sur lequel **Visual Studio 2013 est installé. Pour plus d'informations, consultez la rubrique [Installation de Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 
 
@@ -1351,9 +1351,9 @@ Dans ce didacticiel, nous avons appris à recevoir des tweets, analyser les sent
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-[powershell-start]: http://technet.microsoft.com/fr-fr/library/hh847889.aspx
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: ../install-configure-powershell
-[powershell-script]: http://technet.microsoft.com/fr-fr/library/ee176949.aspx
+[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-get-started]: ../hdinsight-get-started/
@@ -1363,6 +1363,5 @@ Dans ce didacticiel, nous avons appris à recevoir des tweets, analyser les sent
 [hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
 [hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
-
 
 <!--HONumber=42-->

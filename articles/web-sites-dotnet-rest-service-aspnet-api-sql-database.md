@@ -51,7 +51,7 @@ Dans ce didacticiel :
 * [Publication de la mise à jour de l'application vers Azure et la base de données SQL][deploy2]
 
 <a name="bkmk_setupdevenv"></a>
-<!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-dotnet-get-started/ -->
+<!-- the next line produces the "Set up the development environment" section as see at http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ -->
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 <h2><a name="bkmk_setupwindowsazure"></a>Configuration de l'environnement Azure</h2>
@@ -819,7 +819,7 @@ L'application est à présent exécutée dans le cloud et utilise la base de don
 
 <h2><a name="nextsteps"></a>Étapes suivantes</h2>
 
-Une véritable application requiert une authentification et une autorisation. Vous devez utiliser la base de données d'appartenance pour cela. Le didacticiel [Déploiement d'une application ASP.NET MVC sécurisée avec une fonctionnalité d'appartenance, OAuth et une base de données SQL vers un site Web Windows Azure](http://www.windowsazure.com/fr-fr/develop/net/tutorials/web-site-with-sql-database/) est basé sur ce didacticiel et vous montre comment déployer une application Web avec la base de données d'appartenance.
+Une véritable application requiert une authentification et une autorisation. Vous devez utiliser la base de données d'appartenance pour cela. Le didacticiel [Déploiement d'une application ASP.NET MVC sécurisée avec une fonctionnalité d'appartenance, OAuth et une base de données SQL vers un site Web Windows Azure](http://azure.microsoft.com/develop/net/tutorials/web-site-with-sql-database/) est basé sur ce didacticiel et vous montre comment déployer une application Web avec la base de données d'appartenance.
 
 Une autre méthode pour stocker des données dans une application Azure consiste à utiliser le stockage Azure, qui permet de stocker des données non relationnelles sous la forme d'objets blob et de tables. Pour plus d'informations sur les API Web, ASP.NET MVC et Windows Azure, consultez les liens suivants.
  
@@ -827,7 +827,7 @@ Une autre méthode pour stocker des données dans une application Azure consiste
 * [Mise en route d'Entity Framework avec MVC][EFCodeFirstMVCTutorial]
 * [Introduction à ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 * [Votre première API Web ASP.NET](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
-* [Débogage de WAWS](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+* [Débogage de WAWS](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 
 Ce didacticiel et son exemple d'application ont été écrits par [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) avec l'aide de Tom Dykstra et Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
 
@@ -849,7 +849,7 @@ N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce 
 
 <!-- links -->
 [EFCodeFirstMVCTutorial]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
-[dbcontext-link]: http://msdn.microsoft.com/fr-fr/library/system.data.entity.dbcontext(v=VS.103).aspx
+[dbcontext-link]: http://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx
 
 
 <!-- images-->

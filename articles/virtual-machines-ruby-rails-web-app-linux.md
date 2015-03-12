@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Application web Ruby on Rails sur Azure en utilisant une machine virtuelle Linux" 
 	description="Hébergement d'un site web Ruby on Rails sur Azure en utilisant une machine virtuelle Linux." 
 	services="virtual-machines" 
@@ -20,7 +20,7 @@
 
 
 
-# Application Web Ruby on Rails sur une machine virtuelle Azure
+#Application Web Ruby on Rails sur une machine virtuelle Azure
 
 Ce didacticiel décrit comment héberger un site Web basé sur Ruby on Rails sur Azure à l'aide d'une machine virtuelle Linux. Ce didacticiel part du principe que vous n'avez pas d'expérience en tant qu'utilisateur d'Azure. Une fois ce didacticiel terminé, vous aurez une application basée sur Ruby on Rails installée et fonctionnelle dans le cloud.
 
@@ -38,7 +38,7 @@ La capture d'écran suivante présente l'application terminée :
 
 ![a browser displaying Listing Posts][blog-rails-cloud]
 
-## Dans cet article
+##Dans cet article
 
 * [Configuration de l'environnement de développement](#setup)
 
@@ -54,11 +54,11 @@ La capture d'écran suivante présente l'application terminée :
 
 * [Étapes suivantes](#next)
 
-## <a id="setup"></a>Configuration de l'environnement de développement
+##<a id="setup"></a>Configuration de l'environnement de développement
 
 1. Installez Ruby dans votre environnement de développement. En fonction de votre système d'exploitation, les étapes peuvent varier.
 
-	* **Apple OS X** - Il existe plusieurs distributions Ruby pour OS X. Ce didacticiel a été validé sur OS X en utilisant [Homebrew](http://brew.sh/) pour installer **rbenv** et **ruby-build**. Vous trouverez des informations sur l'installation à la page [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
+	* **Apple OS X** - Il existe plusieurs distributions Ruby pour OS X. Ce didacticiel a été validé sur OS X en utilisant [Homebrew](http://brew.sh/) pour installer **rbenv** et **ruby-build**. Vous trouverez des informations d'installation sur la page [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
 
 	* **Linux** - Utilisez le système de gestion des packages de vos distributions. Ce didacticiel a été validé sur Ubuntu 12.10 à l'aide des packages ruby1.9.1 et ruby1.9.1-dev.
 
@@ -76,11 +76,11 @@ La capture d'écran suivante présente l'application terminée :
 
 	> [AZURE.NOTE] La version 3.2.12 du maillon Rails a été utilisée pour ce didacticiel.
 
-3. Vous devez également installer un interpréteur JavaScript, qui sera utilisé par Rails pour compiler des ressources CoffeeScript utilisées par votre application Rails. Une liste des interpréteurs pris en charge est disponible sur la page  [https://github.com/sstephenson/execjs#readme](https://github.com/sstephenson/execjs#readme).
+3. Vous devez également installer un interpréteur JavaScript, qui sera utilisé par Rails pour compiler des ressources CoffeeScript utilisées par votre application Rails. Une liste des interpréteurs pris en charge est disponible sur la page [https://github.com/sstephenson/execjs#readme](https://github.com/sstephenson/execjs#readme).
 	
 	[Node.js](http://nodejs.org/) a été utilisé au cours de la validation de ce didacticiel, car il est disponible pour les systèmes d'exploitation OS X, Linux et Windows.
 
-## <a id="create"></a>Création d'une application Rails
+##<a id="create"></a>Création d'une application Rails
 
 1. Depuis la ligne de commande ou la session terminal, créez une application Rails nommée " blog_app " à l'aide la commande suivante :
 
@@ -102,7 +102,7 @@ La capture d'écran suivante présente l'application terminée :
 
 	Elle utilise le fournisseur de base de données par défaut pour Rails, qui est la [base de données SQLite3][sqlite3]. Bien qu'il soit également possible d'utiliser une autre base de données pour une application de production, SQLite est suffisant pour les objectifs de ce didacticiel.
 
-## <a id="test"></a>Test de l'application
+##<a id="test"></a>Test de l'application
 
 Pour démarrer le serveur Rails dans votre environnement de développement, procédez comme suit :
 
@@ -130,7 +130,7 @@ Pour démarrer le serveur Rails dans votre environnement de développement, proc
 
 	Pour arrêter le processus de serveur, entrez CTRL+C dans la ligne de commande
 
-## <a id="createvm"></a>Création d'une machine virtuelle Azure
+##<a id="createvm"></a>Création d'une machine virtuelle Azure
 
 Suivez les instructions fournies [ici][vm-instructions] afin de créer une machine virtuelle Azure qui héberge Linux.
 
@@ -168,7 +168,7 @@ Après avoir créé la machine virtuelle Azure, procédez comme suit pour y inst
 
 	Bundler permet d'installer les maillons requis par votre application Rails une fois qu'elle a été copiée sur le serveur.
 
-## <a id="copy"></a>Copie de l'application vers la machine virtuelle
+##<a id="copy"></a>Copie de l'application vers la machine virtuelle
 
 Depuis votre environnement de développement, ouvrez une nouvelle ligne de commande ou une session terminal et utilisez la commande **scp** pour copier le répertoire **blog_app** sur la machine virtuelle. Le format de cette commande est le suivant :
 
@@ -199,7 +199,7 @@ Après l'opération de copie, le répertoire **blog_app** sera situé dans le r�
 
 La liste des fichiers renvoyés doit correspondre aux fichiers contenus dans le répertoire **blog_app** de votre environnement de développement.
 
-## <a id="start"></a>Installation des maillons et démarrage de Rails
+##<a id="start"></a>Installation des maillons et démarrage de Rails
 
 1. Sur la machine virtuelle, remplacez les répertoires par le répertoire **blog_app** et utilisez la commande suivante pour installer les maillons indiqués dans le fichier **Gemfile** :
 
@@ -255,13 +255,13 @@ La liste des fichiers renvoyés doit correspondre aux fichiers contenus dans le 
 
 	![posts page][blog-rails-cloud]
 
-## <a id="next"></a>Étapes suivantes
+##<a id="next"></a>Étapes suivantes
 
 Dans cet article, vous avez appris à créer et à publier une application Rails de base sur une machine virtuelle Azure. La plupart des actions que vous avez réalisées étaient manuelles et, dans un environnement de production, il serait souhaitable de les automatiser. En outre, la plupart des environnements de production hébergent l'application Rails en association avec un autre processus serveur tel que Apache ou NginX, qui traite l'acheminement des requêtes vers plusieurs instances de l'application Rails et l'envoi des ressources statiques.
 
-Pour plus d'informations sur l'automatisation du déploiement de votre application Rails ainsi que sur l'utilisation du serveur Web Unicorn et de NginX, consultez la page [Unicorn+NginX+Capistrano avec une machine virtuelle Azure][unicorn-nginx-capistrano].
+Pour plus d'informations sur l'automatisation du déploiement de votre application Rails ainsi que sur l'utilisation du serveur Web Unicorn et NginX, consultez la page [Unicorn+NginX+Capistrano avec une machine virtuelle Azure][unicorn-nginx-capistrano].
 
-Si vous souhaitez en savoir plus sur Ruby on Rails, consultez les [guides Ruby on Rails][rails-guides].
+Si vous souhaitez en savoir plus sur Ruby on Rails, consultez les guides [Ruby on Rails][rails-guides].
 
 Pour apprendre à utiliser le Kit de développement logiciel (SDK) Azure pour Ruby afin d'accéder aux services Azure depuis votre application Ruby, consultez les pages suivantes :
 
@@ -308,4 +308,5 @@ Pour apprendre à utiliser le Kit de développement logiciel (SDK) Azure pour Ru
 [new-endpoint]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
 
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-<properties pageTitle="Stockage du code d'un projet dans le contrôle du code source - Azure Mobile Services" description="Découvrez comment stocker votre projet .NET principal dans un référentiel Git local sur votre ordinateur et à le publier depuis cet emplacement." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Stockage du code d'un projet dans le contrôle du code source - Azure Mobile Services" 
+	description="Découvrez comment stocker votre projet .NET principal dans un référentiel Git local sur votre ordinateur et à le publier depuis cet emplacement." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/5/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/5/2014" 
+	ms.author="glenga"/>
 
 <div class="dev-center-tutorial-subselector">
 	<a href="/fr-fr/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend" class="current">.NET principal</a> | <a href="/fr-fr/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend">JavaScript principal</a>
@@ -99,7 +113,7 @@ Maintenant que vous avez terminé ce didacticiel, vous savez comment stocker vos
 
 <!-- URLs. -->
 [Site web Git]: http://git-scm.com
-[Contrôle de code source]: http://msdn.microsoft.com/fr-fr/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[Contrôle de code source]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Installation de Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
 [Ajout de Mobile Services à une application existante]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/

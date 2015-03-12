@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Prise en main des données (Windows Phone) | Centre de développement mobile" description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application Windows Phone." services="mobile-services" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Prise en main des données (Windows Phone) | Centre de développement mobile" 
+	description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application Windows Phone." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="wesmc"/>
 
 # Ajout de Mobile Services à une application existante
 
@@ -24,7 +38,7 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 Ce didacticiel requiert les éléments suivants:
 
 + Visual Studio 2013 (Update 2 ou une version ultérieure).
-+ Un compte Microsoft Azure Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Version d'évaluation gratuite Azure</a>.</p></div> 
++ Un compte Microsoft Azure Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Version d'évaluation gratuite Azure</a>.</p></div> 
 
 ##<a name="download-app"></a>Téléchargement du projet GetStartedWithData
 
@@ -150,13 +164,15 @@ Dans cette section, vous allez mettre à jour l'application Windows Phone pour u
             private async void InsertTodoItem(TodoItem todoItem)
             {
                 await todoTable.InsertAsync(todoItem); 
-                items.Add(todoItem);
+                ite
+	ms.Add(todoItem);
             }
             private async void RefreshTodoItems()
             {
                 items = await todoTable 
                     .ToCollectionAsync(); 
-                ListItems.ItemsSource = items;
+                ListIte
+	ms.ItemsSource = items;
             }
             private async void UpdateCheckedTodoItem(TodoItem item)
             {
@@ -325,7 +341,8 @@ Une fois que vous avez terminé les séries de données, essayez l'un de ces aut
 [13]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/new-local-todoitem.png
 [14]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/vs-show-local-table-data.png
 [15]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/local-item-checked.png
-[16]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/azure-items.png
+[16]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/azure-ite
+	ms.png
 [17]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/manage-sql-azure-database.png
 [18]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/sql-azure-query.png
 [19]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/vs-deployment-target.png

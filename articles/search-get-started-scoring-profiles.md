@@ -1,6 +1,20 @@
-﻿<properties title="Get started with scoring profiles in Azure Search" pageTitle="Prise en main des profils de score dans Azure Search" description="Prise en main des profils de score dans Azure Search" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Utilisation des profils de score dans Azure Search" 
+	description="Prise en main des profils de score dans Azure Search" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="10/16/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="02/10/2015" 
+	ms.author="heidist"/>
 
 # Prise en main des profils de score dans Azure Search
 
@@ -43,7 +57,7 @@ Quand vous avez terminé d'ajouter l'URL et " api-key " à App.config, les param
 
 Vous êtes presque prêt à générer et à exécuter l'application, mais avant cela, examinez les fichiers JSON utilisés pour créer et remplir l'index.
 
-**Schema.json** définit l'index, notamment les profils de score qui sont mis en évidence dans cette démonstration. Notez que le schéma définit tous les champs utilisés dans l'index, y compris les champs non consultables, tels que " margin ", que vous pouvez utiliser dans un profil de score. La syntaxe du profil de score est documentée dans [Ajout d'un profil de score à un index Azure Search](http://msdn.microsoft.com/fr-fr/library/azure/dn798928.aspx).
+**Schema.json** définit l'index, notamment les profils de score qui sont mis en évidence dans cette démonstration. Notez que le schéma définit tous les champs utilisés dans l'index, y compris les champs non consultables, tels que " margin ", que vous pouvez utiliser dans un profil de score. La syntaxe du profil de score est documentée dans [Ajout d'un profil de score à un index Azure Search](http://msdn.microsoft.com/library/azure/dn798928.aspx).
 
 **Data1-3.json** fournit les données, 246 albums sur une poignée de genres. Les données sont une combinaison d'informations sur des albums et des artistes réels, avec des champs fictifs comme " price " et " margin " utilisés pour illustrer les opérations de recherche. Les fichiers de données sont conformes à l'index et sont téléchargés sur votre service Azure Search. Une fois les données téléchargées et indexées, vous pouvez émettre des requêtes.
 
@@ -85,9 +99,9 @@ Maintenant que vous avez terminé les exercices de profils de score, essayez de 
 
 <h2 id="next-steps">Étapes suivantes</h2>
 
-Découvrez plus en détail les profils de score. Consultez la rubrique [Ajout d'un profil de score à un index Azure Search](http://msdn.microsoft.com/fr-fr/library/azure/dn798928.aspx) pour plus d'informations.
+Découvrez plus en détail les profils de score. Consultez la rubrique [Ajout d'un profil de score à un index Azure Search](http://msdn.microsoft.com/library/azure/dn798928.aspx) pour plus d'informations.
 
-Découvrez plus en détail la syntaxe de recherche et les paramètres de requête. Consultez la rubrique [Recherche de documents (API REST Azure Search)](http://msdn.microsoft.com/fr-fr/library/azure/dn798927.aspx) pour plus d'informations.
+Découvrez plus en détail la syntaxe de recherche et les paramètres de requête. Consultez la rubrique [Recherche de documents (API REST Azure Search)](http://msdn.microsoft.com/library/azure/dn798927.aspx) pour plus d'informations.
 
 Vous avez besoin de revenir en arrière et de vous former davantage à la création d'index ? [Regardez cette vidéo](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh) pour comprendre les notions de base.
 
@@ -104,3 +118,5 @@ Vous avez besoin de revenir en arrière et de vous former davantage à la créat
 [11]: ./media/search-get-started-scoring-profiles/AzureSearch_Scoring_AppConfig.PNG
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
+
+<!--HONumber=46--> 

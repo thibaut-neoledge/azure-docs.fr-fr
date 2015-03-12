@@ -11,7 +11,7 @@ Ensuite, vous créez un service mobile pour remplacer la liste en mémoire pour 
 
 	![mobile-create](./media/mobile-services-create-new-service-data/mobile-create.png)
 
-    La boîte de dialogue **nouveau Service Mobile** s'affiche.
+    La boîte de dialogue **Nouveau service mobile** s'affiche.
 
 4.	Sur la page **Create a mobile service**, sélectionnez **Create a free 20 MB SQL Database**, puis tapez un nom de sous-domaine pour le nouveau service mobile dans la zone de texte **URL** et patientez lors de la vérification du nom. Une fois la vérification du nom terminée, cliquez sur la flèche droite pour aller sur la page suivante.	
 
@@ -34,4 +34,4 @@ Ensuite, vous créez un service mobile pour remplacer la liste en mémoire pour 
 Vous avez créé un service mobile pouvant être utilisé par vos applications mobiles. Ensuite, vous allez ajouter une nouvelle table dans laquelle stocker les données d'application. Cette table sera utilisée par l'application au lieu de la collection en mémoire.
 
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -19,7 +19,7 @@
 
 #Restauration d'un site Web Microsoft Azure
 
-Cet article vous explique comment restaurer un site Web précédemment sauvegardé à l'aide de la fonction de sauvegarde de Sites Web Azure. Pour plus d'informations, consultez la rubrique [Sauvegarde des sites Web Microsoft Azure](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-backup/). 
+Cet article vous explique comment restaurer un site Web précédemment sauvegardé à l'aide de la fonction de sauvegarde de Sites Web Azure. Pour plus d'informations, consultez la rubrique [Sauvegarde des sites Web Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-backup/). 
 
 La fonction de restauration de Sites Web Azure vous permet de restaurer votre site Web à la demande, à une étape précédente ou de créer un site Web basé sur des sauvegardes de votre site d'origine. La création d'un site Web s'exécutant parallèlement à la dernière version peut être utile à des fins de test A/B.
 

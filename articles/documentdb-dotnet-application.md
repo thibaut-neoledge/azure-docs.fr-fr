@@ -1,7 +1,21 @@
-﻿<properties title="Build a web application with ASP.NET MVC using DocumentDB" pageTitle="Création d'une application web avec ASP.NET MVC et DocumentDB | Azure" description="Découvrez comment utiliser DocumentDB pour créer une application web de liste de tâches. Vous allez stocker les données et y accéder à partir d'une application web ASP.NET MVC hébergée sur Azure.."  metaKeywords="NoSQL, DocumentDB, database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="ryancraw" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Création d'une application web avec ASP.NET MVC et DocumentDB | Azure" 
+	description="Découvrez comment utiliser DocumentDB pour créer une application web de liste de tâches. Vous allez stocker les données et y accédez à partir d'une application web de ASP.NET MVC hébergée sur Azure." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="ryancrawcour" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="ryancraw" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="ryancraw"/>
 
 <a name="_Toc395809351">Création d'une application web avec ASP.NET MVC et DocumentDB</a>
 =======================================================================================================
@@ -587,3 +601,5 @@ Félicitations ! Vous venez de créer votre première application ASP.NET MVC à
 [Opérations CRUD de base dans ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 
 <!--HONumber=27-->
+
+<!--HONumber=46--> 

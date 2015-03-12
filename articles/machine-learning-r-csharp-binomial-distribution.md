@@ -1,6 +1,20 @@
-﻿<properties title="Binomial Distribution Suite" pageTitle="Suite de distribution binomiale | Azure" description="Suite de distribution binomiale" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Suite de distribution binomiale | Azure" 
+	description="Suite de distribution binomiale" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/> 
 
 
 #Suite de distribution binomiale
@@ -88,7 +102,7 @@ Il existe plusieurs manières de consommer le service de manière automatique (e
 
 ##Création du service web 
 
->Ce service web a été créé à l'aide d'Azure ML. Pour un essai gratuit, ainsi que des vidéos de présentation concernant la création d'expériences et [la publication de services web](http://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consultez [azure.com/ml](http://azure.com/ml). La capture d'écran ci-dessous présente l'expérience qui a créé le service web et le code d'exemple de chaque module de l'expérience.
+>Ce service web a été créé à l'aide d'Azure ML. Pour un essai gratuit, ainsi que des vidéos de présentation concernant la création d'expériences et [la publication de services web](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consultez [azure.com/ml](http://azure.com/ml). La capture d'écran ci-dessous présente l'expérience qui a créé le service web et le code d'exemple de chaque module de l'expérience.
 
 ###Calculatrice de quantile pour la distribution binomiale
 
@@ -196,7 +210,7 @@ Il existe plusieurs manières de consommer le service de manière automatique (e
 Il s'agit d'exemples très simples en rapport avec la distribution binomiale. Comme illustré dans l'exemple de code ci-dessus, l'interception des erreurs est mise œuvre de façon limitée.
 
 ##Forum Aux Questions
-Pour les Questions fréquemment posées relatives à l'utilisation du service web ou à la publication sur Marketplace, consultez [ce lien](http://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-marketplace-faq).
+Pour les Questions fréquemment posées relatives à l'utilisation du service web ou à la publication sur Marketplace, consultez [ce lien](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
 
 
 [1]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_1.png
@@ -210,3 +224,5 @@ Pour les Questions fréquemment posées relatives à l'utilisation du service we
 [5]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_5.png
 
 [6]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_6.png
+
+<!--HONumber=46--> 

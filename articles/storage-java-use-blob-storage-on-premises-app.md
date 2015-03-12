@@ -379,9 +379,9 @@ du service de stockage d'objets blob à partir de Java].
   [Conditions préalables]: #bkmk_prerequisites
   [Utilisation du stockage d'objets blob Azure pour charger un fichier]: #bkmk_uploadfile
   [Suppression d'un conteneur]: #bkmk_deletecontainer
-  [Téléchargement du Kit de développement logiciel (SDK) Azure pour Java]: http://www.windowsazure.com/fr-FR/develop/java/
-  [Création d'un compte de stockage]: http://www.windowsazure.com/fr-FR/manage/services/storage/how-to-create-a-storage-account/
-  [Gestion des comptes de stockage]: http://www.windowsazure.com/fr-FR/manage/services/storage/how-to-manage-a-storage-account/
-  [Utilisation du service de stockage d'objets blob à partir de Java]: http://www.windowsazure.com/fr-FR/develop/java/how-to-guides/blob-storage/
+  [Téléchargement du Kit de développement logiciel (SDK) Azure pour Java]: http://azure.microsoft.com/develop/java/
+  [Création d'un compte de stockage]: http://azure.microsoft.com/manage/services/storage/how-to-create-a-storage-account/
+  [Gestion des comptes de stockage]: http://azure.microsoft.com/manage/services/storage/how-to-manage-a-storage-account/
+  [Utilisation du service de stockage d'objets blob à partir de Java]: http://azure.microsoft.com/develop/java/how-to-guides/blob-storage/
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

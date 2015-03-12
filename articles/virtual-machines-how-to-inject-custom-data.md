@@ -18,7 +18,7 @@
 
 
 
-# Injection de données personnalisées dans une machine virtuelle Azure 
+#Injection de données personnalisées dans une machine virtuelle Azure 
 
 L'injection d'un script ou d'autres données dans une machine virtuelle Azure lors de son approvisionnement est un scénario très commun, que le système d'exploitation soit Microsoft Windows ou une distribution Linux. Cette rubrique montre comment :
 
@@ -40,7 +40,7 @@ Dans cette rubrique :
 + [Étapes suivantes](#nextsteps)
 
 
-## <a id="injectingCustomData"></a>Injection des données personnalisées dans votre machine virtuelle Azure
+## <a id="injectingCustomData"></a>Injection de données personnalisées dans votre machine virtuelle Azure
 
 À ce jour, cette fonctionnalité n'est prise en charge que dans l'[interface de ligne de commande interplateforme de Microsoft Azure](https://github.com/Azure/azure-sdk-tools-xplat). Bien qu'il soit possible d'utiliser n'importe laquelle des options de la commande `azure vm create`, la méthode ci-après est un exemple d'approche très basique. 
 
@@ -75,4 +75,5 @@ Si votre machine virtuelle Azure est une image Ubuntu, vous pouvez utiliser clou
 [Interface de ligne de commande interplateforme Microsoft Azure](https://github.com/Azure/azure-sdk-tools-xplat)
 
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

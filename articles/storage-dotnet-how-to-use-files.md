@@ -58,7 +58,7 @@ Le stockage de fichiers est composé des éléments suivants :
 ![files-concepts][files-concepts]
 
 
--   **Compte de stockage :** tous les accès à Azure Storage passent par un compte de stockage. Pour plus d'informations sur la capacité et les objectifs de performance du compte de stockage, consultez la page [Objectifs d'extensibilité et de performances d'Azure Storage](http://msdn.microsoft.com/fr-FR/library/dn249410.aspx).
+-   **Compte de stockage :** tous les accès à Azure Storage passent par un compte de stockage. Pour plus d'informations sur la capacité et les objectifs de performance du compte de stockage, consultez la page [Objectifs d'extensibilité et de performances d'Azure Storage](http://msdn.microsoft.com/library/dn249410.aspx).
 
 -   **Partage :** un partage de stockage de fichiers est un partage de fichiers SMB 2.1 dans Azure. Tous les répertoires et fichiers doivent être créés dans un partage parent. Un compte peut contenir un nombre illimité de partages et un partage peut stocker un nombre illimité de fichiers, dans les limites de capacité du compte de stockage.
 
@@ -72,7 +72,7 @@ L'URL de l'exemple suivant peut être utilisée pour traiter l'un des fichiers d
 
 
 
-Pour plus d'informations sur la façon de nommer les partages, les répertoires et les fichiers, consultez la rubrique [Affectation de noms et références aux partages, répertoires, fichiers et métadonnées](http://msdn.microsoft.com/fr-FR/library/azure/dn167011.aspx).
+Pour plus d'informations sur la façon de nommer les partages, les répertoires et les fichiers, consultez la rubrique [Affectation de noms et références aux partages, répertoires, fichiers et métadonnées](http://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 ##<a name="create-account"></a>Création d'un compte Azure Storage
 
@@ -155,7 +155,7 @@ Une fois une connexion à distance établie avec la machine virtuelle, vous pouv
 	   
 	net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
 
-Vous pouvez maintenant utiliser le partage de stockage de fichiers à partir de la machine virtuelle, comme vous le feriez à partir de n'importe quel autre lecteur. Vous pouvez émettre des commandes de fichier standard à partir de l'invite de commandes ou afficher le partage monté et son contenu à partir de l'Explorateur de fichiers. VVous pouvez également exécuter du code au sein de la machine virtuelle qui accède au partage de fichiers à l'aide d'API d'E/S de fichiers Windows standard, telles que celles fournies par les [espaces de noms System.IO](http://msdn.microsoft.com/fr-FR/library/gg145019(v=vs.110).aspx)dans .NET Framework. 
+Vous pouvez maintenant utiliser le partage de stockage de fichiers à partir de la machine virtuelle, comme vous le feriez à partir de n'importe quel autre lecteur. Vous pouvez émettre des commandes de fichier standard à partir de l'invite de commandes ou afficher le partage monté et son contenu à partir de l'Explorateur de fichiers. VVous pouvez également exécuter du code au sein de la machine virtuelle qui accède au partage de fichiers à l'aide d'API d'E/S de fichiers Windows standard, telles que celles fournies par les [espaces de noms System.IO](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx)dans .NET Framework. 
 
 Vous pouvez également monter le partage de fichiers à partir d'un rôle exécuté dans un service cloud Azure en vous connectant à distance à ce rôle.
 
@@ -248,7 +248,7 @@ pour obtenir des informations plus détaillées.
   <ul>
     <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Référence de la bibliothèque cliente de stockage pour .NET</a>
     </li>
-    <li><a href="http://msdn.microsoft.com/fr-FR/library/azure/dn167006.aspx">Référence de l'API REST du service de fichiers</a></li>
+    <li><a href="http://msdn.microsoft.com/library/azure/dn167006.aspx">Référence de l'API REST du service de fichiers</a></li>
   </ul>
 </li>
 <li>Consultez les billets du blog de l'équipe Azure Storage relatifs au service de fichiers :
@@ -278,4 +278,4 @@ pour obtenir des informations plus détaillées.
 [files-concepts]: ./media/storage-dotnet-how-to-use-files/files-concepts.png
 
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

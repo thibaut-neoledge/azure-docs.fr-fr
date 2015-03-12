@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Visual Studio 14 CTP" pageTitle="Installation du Kit de développement logiciel (SDK) Azure 2.4 pour Visual Studio 14 CTP2" metaKeywords="Visual Studio, Azure SDK" description="Installation du Kit de développement logiciel (SDK) Azure 2.4 et de Visual Studio 14 CTP2" metaCanonical="" services="" documentationCenter="" title="Installing Azure SDK 2.4 for Visual Studio 14 CTP" authors="ghogen" solutions="" manager="douge" editor="" />
+﻿<properties 
+	pageTitle="Installation du Kit de développement logiciel (SDK) Azure 2.4 pour Visual Studio 14 CTP2" 
+	description="Installation du Kit de développement logiciel (SDK) Azure 2.4 et de Visual Studio 14 CTP2" 
+	services="visual-studio-online" 
+	documentationCenter=".net" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
+<tags 
+	ms.service="visual-studio-online" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 # Installation du Kit de développement logiciel (SDK) Azure 2.4 pour Visual Studio " 14 " CTP
 
@@ -32,3 +46,5 @@ Pour installer le Kit de développement logiciel (SDK) Azure 2.4 pour .NET, proc
 ## Notes de publication
 
 Lisez les [notes de publication](http://go.microsoft.com/fwlink/?LinkId=507517) pour le Kit de développement logiciel (SDK) Azure 2.4.
+
+<!--HONumber=46--> 

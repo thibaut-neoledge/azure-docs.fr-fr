@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Prise en main de l'authentification personnalisée | Centre de développement mobile" description="Découvrez comment authentifier les utilisateurs à l'aide d'un nom d'utilisateur et d'un mot de passe." documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Prise en main de l'authentification personnalisée | Centre de développement mobile" 
+	description="Découvrez comment authentifier les utilisateurs à l'aide d'un nom d'utilisateur et d'un mot de passe." 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender"/>
 
 # Prise en main de l'authentification personnalisée
 

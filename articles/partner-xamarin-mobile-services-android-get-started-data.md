@@ -32,7 +32,7 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 4. [Mise à jour de l'application pour utiliser Mobile Services]
 5. [Test de l'application par rapport à Mobile Services]
 
-> [AZURE.IMPORTANT] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite Azure](http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank).
+> [AZURE.IMPORTANT] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank).
 
 Ce didacticiel requiert le [Composants Azure Mobile Services], [Xamarin.Android], et le Kit de développement logiciel (SDK) Android 4.2 ou une version ultérieure. 
 

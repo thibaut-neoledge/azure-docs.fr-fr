@@ -434,15 +434,15 @@ Maintenant que vous avez appris les bases du stockage de tables, suivez ces lien
   [How To: Delete a Table]: #delete-table
 
   [OData.org]: http://www.odata.org/
-  [using the REST API]: http://msdn.microsoft.com/fr-FR/library/windowsazure/hh264518.aspx
+  [using the REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
 
   [Service cloud Node.js]: /fr-FR/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-FR/library/windowsazure/gg433040.aspx
+  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Visitez le blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
   [Site Web avec WebMatrix]: /fr-FR/documentation/articles/web-sites-nodejs-use-webmatrix/
   [Node.js Cloud Service with Storage]: /fr-FR/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
   [Application web Node.js avec stockage]: /fr-FR/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [Création et déploiement d'une application Node.js dans un site Web Azure]: /fr-FR/documentation/articles/web-sites-nodejs-develop-deploy-mac/
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

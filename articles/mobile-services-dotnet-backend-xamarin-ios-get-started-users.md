@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Prise en main de l'authentification dans Mobile Services pour les applications Xamarin iOS - Azure Mobile Services" description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Xamarin iOS via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." services="mobile-services" documentationCenter="xamarin" authors="lindydonna" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Prise en main de l'authentification dans Mobile Services pour les applications Xamarin iOS - Azure Mobile Services" 
+	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Xamarin iOS via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
+	services="mobile-services" 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="donnam"/>
 
 # Ajout d'une authentification à votre application Mobile Services
 
@@ -121,7 +135,6 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [JavaScript et HTML]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
-
 
 
 <!--HONumber=42-->

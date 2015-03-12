@@ -288,18 +288,18 @@ Si votre fonction [a écrit des journaux](../websites-dotnet-webjobs-sdk-storage
           <httpRuntime targetFramework="4.5" />
         </system.web>
 
-* Si le débogueur ne parcourt pas le code que vous voulez déboguer, vous devez modifier le paramètre " Uniquement mon code ".  Pour plus d'informations, consultez la page [Limiter le pas à pas à Uniquement mon code](http://msdn.microsoft.com/fr-fr/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
+* Si le débogueur ne parcourt pas le code que vous voulez déboguer, vous devez modifier le paramètre " Uniquement mon code ".  Pour plus d'informations, consultez la page [Limiter le pas à pas à Uniquement mon code](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
 
 * Lorsque vous activez la fonctionnalité de débogage à distance, un compteur démarre sur le serveur : après 48 heures, la fonctionnalité est automatiquement désactivée. Cette limite de 48 heures a été définie à des fins de sécurité et de performances. Vous pouvez facilement réactiver la fonctionnalité autant de fois que nécessaire. Nous vous recommandons de la désactiver lorsque vous n'utilisez pas le débogage.
 
-* Vous pouvez manuellement attacher le débogueur à n'importe quel processus, et non uniquement au processus de site Web (w3wp.exe). Pour plus d'informations sur l'utilisation du mode débogage dans Visual Studio, consultez la page [Débogage dans Visual Studio](http://msdn.microsoft.com/fr-fr/library/vstudio/sc65sadd.aspx).
+* Vous pouvez manuellement attacher le débogueur à n'importe quel processus, et non uniquement au processus de site Web (w3wp.exe). Pour plus d'informations sur l'utilisation du mode débogage dans Visual Studio, consultez la page [Débogage dans Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
 
 <h2><a name="logsoverview"></a> Présentation des journaux de diagnostic</h2>
 
 Une application ASP.NET exécutée dans un site Web Azure peut créer les types de journaux suivants :
 
 * **Journaux de suivi d'application**<br/>
-  L'application crée ces journaux en appelant des méthodes de la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/fr-fr/library/system.diagnostics.trace.aspx).
+  L'application crée ces journaux en appelant des méthodes de la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/library/system.diagnostics.trace.aspx).
 * **Journaux de serveur Web**<br/>
   Le serveur Web crée une entrée de journal pour chaque requête HTTP vers le site.
 * **Journaux de messages d'erreur détaillés**<br/>
@@ -394,7 +394,7 @@ Pour plus d'informations sur la façon de créer des journaux d'applications dan
 
 	L'élément  `WebPageTraceListener` vous permet d'afficher la sortie de suivi en accédant à  `/trace.axd`.
 
-3. Ajoutez un <a href="http://msdn.microsoft.com/fr-fr/library/vstudio/6915t83k(v=vs.100).aspx">élément de suivi</a> sous " <system.web> " dans le fichier Web.config, comme dans l'exemple suivant :
+3. Ajoutez un <a href="http://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">élément de suivi</a> sous " <system.web> " dans le fichier Web.config, comme dans l'exemple suivant :
 
 		<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 
@@ -638,7 +638,7 @@ Les comptes de stockage offrent un espace de stockage plus important et une cons
 
 	![Storage logs in table view](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png)
 
-	Cette vue affiche des champs supplémentaires que vous ne pouvez pas consulter ailleurs. Elle vous permet également de filtrer les journaux en utilisant l'interface utilisateur du générateur de requêtes pour construire une requête. Pour plus d'informations, consultez les sections " Utilisation des ressources de tables " et " Filtrage d'entités " de la page [Consultation des ressources de stockage avec l'Explorateur de serveurs](http://msdn.microsoft.com/fr-fr/library/windowsazure/ff683677.aspx).
+	Cette vue affiche des champs supplémentaires que vous ne pouvez pas consulter ailleurs. Elle vous permet également de filtrer les journaux en utilisant l'interface utilisateur du générateur de requêtes pour construire une requête. Pour plus d'informations, consultez les sections " Utilisation des ressources de tables " et " Filtrage d'entités " de la page [Consultation des ressources de stockage avec l'Explorateur de serveurs](http://msdn.microsoft.com/library/windowsazure/ff683677.aspx).
 
 7. Pour consulter les détails d'une ligne unique, double-cliquez sur l'une des lignes.
 
@@ -727,7 +727,7 @@ Pour obtenir des réponses sur une question relative à la résolution des probl
 
 ### Débogage dans Visual Studio 
 
-Pour plus d'informations sur l'utilisation du mode débogage dans Visual Studio, consultez la rubrique MSDN [Débogage dans Visual Studio](http://msdn.microsoft.com/fr-fr/library/vstudio/sc65sadd.aspx) et [Conseils de débogage avec Visual Studio 2010](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
+Pour plus d'informations sur l'utilisation du mode débogage dans Visual Studio, consultez la rubrique MSDN [Débogage dans Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) et [Conseils de débogage avec Visual Studio 2010](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
 
 ### Débogage distant dans Azure
 
@@ -746,14 +746,14 @@ Il n'y a pas d'autre présentation du suivi ASP.NET plus détaillée et actualis
 
 * [Surveillance et télémétrie (développement d'applications de cloud plus concrètes avec Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br> 
   Chapitre de livre électronique contenant des recommandations pour le suivi dans les applications de cloud Azure.
-* [Suivi ASP.NET](http://msdn.microsoft.com/fr-fr/library/ms972204.aspx)<br/>
+* [Suivi ASP.NET](http://msdn.microsoft.com/library/ms972204.aspx)<br/>
   Une ressource ancienne mais toujours efficace pour une présentation de base du sujet.
-* [Écouteurs de suivi](http://msdn.microsoft.com/fr-fr/library/4y5y10s7.aspx)<br/>
-  Contient des informations sur les écouteurs de suivi mais ne mentionne pas l'élément [WebPageTraceListener](http://msdn.microsoft.com/fr-fr/library/system.web.webpagetracelistener.aspx).
-* [Procédure pas à pas : intégration du suivi ASP.NET avec le suivi System.Diagnostics](http://msdn.microsoft.com/fr-fr/library/b0ectfxd.aspx)<br/>
+* [Écouteurs de suivi](http://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
+  Contient des informations sur les écouteurs de suivi mais ne mentionne pas l'élément [WebPageTraceListener](http://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx).
+* [Procédure pas à pas : intégration du suivi ASP.NET avec le suivi System.Diagnostics](http://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
   Cette page également est un peu ancienne, mais vous y trouverez des informations complémentaires que l'article de présentation ne traite pas.
 * [Suivi dans les vues d'ASP.NET MVC Razor](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-  En plus du suivi dans les vues Razor, ce billet explique également comment créer un filtre d'erreur pour journaliser toutes les exceptions non gérées dans une application MVC. Pour plus d'informations sur la procédure de journalisation des exceptions non gérées dans une application Web Forms, consultez l'exemple de Global.asax dans [Exemple complet pour les gestionnaires d'erreurs](http://msdn.microsoft.com/fr-fr/library/bb397417.aspx) sur MSDN. Dans MVC ou Web Forms, si vous voulez journaliser certaines exceptions tout en laissant le Framework par défaut les gérer, vous pouvez utiliser l'exemple de code suivant :
+  En plus du suivi dans les vues Razor, ce billet explique également comment créer un filtre d'erreur pour journaliser toutes les exceptions non gérées dans une application MVC. Pour plus d'informations sur la procédure de journalisation des exceptions non gérées dans une application Web Forms, consultez l'exemple de Global.asax dans [Exemple complet pour les gestionnaires d'erreurs](http://msdn.microsoft.com/library/bb397417.aspx) sur MSDN. Dans MVC ou Web Forms, si vous voulez journaliser certaines exceptions tout en laissant le Framework par défaut les gérer, vous pouvez utiliser l'exemple de code suivant :
 
         try
         {
@@ -767,7 +767,7 @@ Il n'y a pas d'autre présentation du suivi ASP.NET plus détaillée et actualis
 
 * [Journalisation de suivi de diagnostics de diffusion à partir de l'outil en ligne de commande Azure (et Glimpse)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   Apprenez à utiliser l'outil en ligne de commande pour effectuer ce que montre ce didacticiel dans Visual Studio. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) est un outil pour le débogage d'applications ASP.NET. 
-* [Utilisation de la journalisation et des diagnostics de site Web Azure - avec David Ebbo](http://www.windowsazure.com/fr-fr/documentation/videos/azure-web-site-logging-and-diagnostics/) et [Diffusion de journaux à partir de Sites Web Azure - avec David Ebbo](http://www.windowsazure.com/fr-fr/documentation/videos/log-streaming-with-azure-web-sites/)<br>
+* [Utilisation de la journalisation et des diagnostics de site Web Azure - avec David Ebbo](http://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) et [Diffusion de journaux à partir de Sites Web Azure - avec David Ebbo](http://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   Vidéos par Scott Hanselman et David Ebbo.
 
 Pour la journalisation d'erreurs, vous pouvez éviter d'avoir à écrire votre propre code de suivi en utilisant un Framework de journalisation Open Source comme [ELMAH](http://nuget.org/packages/elmah/). Pour plus d'informations, consultez les [billets du blog de Scott Hanselman sur ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
@@ -791,7 +791,7 @@ Le site Web Microsoft TechNet comporte une section [Utilisation du suivi des dem
 
 ### Débogage de Cloud Services
 
-Si vous voulez déboguer un service cloud Azure plutôt qu'un site Web, consultez la page [Débogage de services cloud](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee405479.aspx).
+Si vous voulez déboguer un service cloud Azure plutôt qu'un site Web, consultez la page [Débogage de services cloud](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx).
 
 
 

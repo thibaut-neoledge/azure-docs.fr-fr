@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Interrogation de données volumineuses (" Big Data ") à partir d'un stockage d'objets blob compatible Hadoop | Azure" 
 	description="HDInsight utilise le stockage d'objets blob Hadoop comme magasin de données volumineuses pour HDFS. Apprenez à interroger depuis le stockage d'objets blob et à stocker les résultats de votre analyse." 
 	services="storage, hdinsight" 
@@ -23,7 +23,7 @@ Le stockage d'objets blob est une solution de stockage Azure compatible avec Had
 
 le stockage de données dans le stockage d'objets blob permet de supprimer les clusters HDInsight ayant servi aux calculs, sans perte de données utilisateur. 
 
-> [AZURE.NOTE]	La syntaxe *asv://* n'est pas prise en charge dans les clusters HDInsight version 3.0 et ne sera pas prise en charge dans les versions ultérieures. Cela signifie que toutes les tâches envoyées vers un cluster HDInsight 3.0 utilisant explicitement la syntaxe “asv://” échoueront. Vous devez plutôt utiliser la syntaxe *wasb://*. De même, les tâches créées avec un metastore existant contenant des références explicites aux ressources utilisant la syntaxe asv:// et envoyées vers des clusters HDInsight version 3.0 échoueront également. Vous devrez recréer ces metastores en utilisant la syntaxe wasb:// pour adresser les ressources.
+> [AZURE.NOTE]	La syntaxe *asv://* n'est pas prise en charge dans les clusters HDInsight version 3.0 et ne sera pas prise en charge dans les versions ultérieures. Cela signifie que toutes les tâches envoyées vers un cluster HDInsight 3.0 utilisant explicitement la syntaxe " asv:// " échoueront. Vous devez plutôt utiliser la syntaxe *wasb://*. De même, les tâches créées avec un metastore existant contenant des références explicites aux ressources utilisant la syntaxe asv:// et envoyées vers des clusters HDInsight version 3.0 échoueront également. Vous devrez recréer ces metastores en utilisant la syntaxe wasb:// pour adresser les ressources.
 
 > HDInsight prend uniquement en charge les objets blob de blocs pour le moment.
 
@@ -62,7 +62,7 @@ En plus de ce compte de stockage, pendant la configuration, vous pouvez ajouter 
 - **Conteneurs publics ou objets blob publics dans les comptes de stockage qui ne sont PAS connectés à un cluster :** vous avez l'autorisation en lecture seule pour les objets blob dans les conteneurs.
 
 	> [AZURE.NOTE]
-        > Un conteneur public vous permet d'obtenir une liste de tous ses objets blob disponibles, ainsi que ses métadonnées. Vous pouvez accéder aux  objets blob d'un objet blob public uniquement si vous connaissez leur URL exacte. Pour plus d'informations, consultez la rubrique <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/dd179354.aspx">Limitation de l'accès aux conteneurs et aux objets blob</a>.
+        > Un conteneur public vous permet d'obtenir une liste de tous ses objets blob disponibles, ainsi que ses métadonnées. Vous pouvez accéder aux  objets blob d'un objet blob public uniquement si vous connaissez leur URL exacte. Pour plus d'informations, consultez la rubrique <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">Limitation de l'accès aux conteneurs et aux objets blob</a>.
 
 - **Conteneurs privés dans les comptes de stockage qui ne sont PAS connectés à un cluster :** non accessibles dans les conteneurs d'objets blob, sauf si vous définissez le compte de stockage lorsque vous envoyez des tâches WebHCat. Ceci est expliqué plus loin dans cet article.
 
@@ -296,7 +296,7 @@ Pour en savoir plus, consultez les articles suivants :
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 [Powershell-install]: ../install-configure-powershell/
-[blob-storage-restAPI]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dd135733.aspx
+[blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
 [azure-storage-create]: ../storage-create-storage-account/
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-use-blob-storage/HDI.PowerShell.BlobCommands.png 

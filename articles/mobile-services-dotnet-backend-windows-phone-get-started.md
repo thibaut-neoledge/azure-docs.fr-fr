@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Prise en main d'Azure Mobile Services pour les applications Windows Phone" description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement Windows Phone." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Prise en main d'Azure Mobile Services pour les applications Windows Phone" 
+	description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement Windows Phone." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="11/20/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/20/2014" 
+	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 

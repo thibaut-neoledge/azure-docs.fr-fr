@@ -26,7 +26,7 @@ Ce didacticiel décrit la prise en main de l'exécution de Python sur Sites Web 
 Vous créerez une application à l'aide de l'infrastructure Web Django (voir les autres versions de ce didacticiel pour [Flask](../web-sites-python-create-deploy-flask-app) et [Bottle](../web-sites-python-create-deploy-bottle-app)).  Vous créerez le site Web à partir de la galerie Azure, vous configurerez le déploiement Git et vous clonerez le référentiel localement.  Puis, vous exécuterez l'application localement, vous apporterez des modifications, et vous les validerez et les transmettrez par push vers Azure.  Ce didacticiel vous explique comment effectuer cette opération à partir de Windows ou Mac/Linux.
 
 > [AZURE.NOTE]
-> Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Vous pouvez <a href="http://azure.microsoft.com/fr-fr/pricing/member-offers/msdn-benefits-details/">activer les avantages de votre abonnement MSDN</a> ou <a href="http://azure.microsoft.com/fr-fr/pricing/free-trial/">obtenir une version d'évaluation gratuite</a>.
+> Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Vous pouvez <a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/">activer les avantages de votre abonnement MSDN</a> ou <a href="http://azure.microsoft.com/pricing/free-trial/">obtenir une version d'évaluation gratuite</a>.
 > 
 > Si vous voulez prendre en main Sites Web Azure avant de créer un compte, accédez à <a href="https://trywebsites.azurewebsites.net/?language=python">https://trywebsites.azurewebsites.net</a>, où vous pouvez immédiatement et gratuitement créer un site de départ ASP.NET de courte durée dans Sites Web Azure. Aucun numéro de carte de crédit, ni engagement de quelque sorte n'est exigé.
 

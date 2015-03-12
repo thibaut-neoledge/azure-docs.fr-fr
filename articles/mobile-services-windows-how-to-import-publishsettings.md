@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Importation du fichier de paramètres de publication dans Visual Studio 2013 | Mobile Services" description="Découvrez comment importer un fichier de paramètres de publication d'abonnement pour votre application Azure Mobile Services dans Visual Studio 2013." documentationCenter="windows" services="mobile-services" manager="dwrede" editor="" authors="ggailey777"/>
+﻿<properties 
+	pageTitle="Importation du fichier de paramètres de publication dans Visual Studio 2013 | Mobile Services" 
+	description="Découvrez comment importer un fichier de paramètres de publication d'abonnement pour votre application Azure Mobile Services dans Visual Studio 2013." 
+	documentationCenter="windows" 
+	services="mobile-services" 
+	manager="dwrede" 
+	editor="" 
+	authors="ggailey777"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Importation du fichier de paramètres de publication de votre abonnement dans Visual Studio 2013
 

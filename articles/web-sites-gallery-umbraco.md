@@ -1,6 +1,20 @@
-﻿<properties title="Create an Umbraco website from the gallery in Microsoft Azure" pageTitle="Création d'un site web Umbraco depuis la galerie dans Microsoft Azure" description="obligatoire" metaKeywords="Azure, gallery, Umbraco, web site, website" services="web-sites" solutions="web" documentationCenter="" authors="tomfitz" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Création d'un site web Umbraco depuis la galerie dans Microsoft Azure" 
+	description="obligatoire" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="tomfitz"/>
 
 #Création d'un site web Umbraco depuis la galerie dans Microsoft Azure#
 
@@ -88,13 +102,13 @@ Et voilà ! Vous avez créé un blog à l'aide d'Umbraco CMS en quelques minutes
 
 [Didacticiels vidéo sur Umbraco](https://umbraco.com/help-and-support/video-tutorials.aspx)
 
-[Présentation de la version préliminaire du portail Microsoft Azure](http://azure.microsoft.com/fr-fr/overview/preview-portal/)
+[Présentation de la version préliminaire du portail Microsoft Azure](http://azure.microsoft.com/overview/preview-portal/)
 
-[Documentation sur la version préliminaire du portail Microsoft Azure](http://azure.microsoft.com/fr-fr/documentation/preview-portal/)
+[Documentation sur la version préliminaire du portail Microsoft Azure](http://azure.microsoft.com/documentation/preview-portal/)
 
 [Version préliminaire du portail Azure (Channel 9)](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal) 
 
-[Documentation sur les sites web Microsoft Azure](http://azure.microsoft.com/fr-fr/documentation/services/web-sites/)
+[Documentation sur les sites web Microsoft Azure](http://azure.microsoft.com/documentation/services/web-sites/)
 
 
 <!-- IMAGES -->
@@ -114,3 +128,5 @@ Et voilà ! Vous avez créé un blog à l'aide d'Umbraco CMS en quelques minutes
 [15CreateItemUnderOverflow]: ./media/web-sites-gallery-umbraco/15CreateItemUnderOverflow.PNG
 [16EnterAName]: ./media/web-sites-gallery-umbraco/16EnterAName.PNG
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
+
+<!--HONumber=46--> 

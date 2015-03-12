@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Tutorial: Create a cloud-only virtual network" pageTitle="Didacticiel : Création d'un réseau virtuel cloud" metaKeywords="" description="Ce didacticiel vous explique comment créer un exemple de Azure Virtual Network pour le cloud uniquement." metaCanonical="" services="virtual-machines,virtual-network" documentationCenter="" title="Tutorial: Create a Clound-only Virtual Network in Azure" authors="cherylmc" solutions="" manager="adinah" editor="" />
+﻿<properties 
+	pageTitle="Didacticiel : Création d'un réseau virtuel sur le cloud uniquement" 
+	description="Ce didacticiel vous explique comment créer un exemple de Azure Virtual Network pour le cloud uniquement." 
+	services="virtual-machines, virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc" />
+<tags 
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="cherylmc"/>
 
 <h1 id="vnettut1">Didacticiel : Création d'un réseau virtuel cloud dans Azure</h1>
 
@@ -25,7 +39,7 @@ Dans ce didacticiel, vous allez découvrir comment configurer un réseau virtuel
 
 ##  Configuration requise
 
-*  Vous devez avoir un compte Microsoft avec au moins un abonnement Azure actif en cours de validité. Si vous n'avez pas encore d'abonnement Azure, vous pouvez obtenir une évaluation gratuite. Pour cela, accédez à la page [Essayer Azure](http://www.windowsazure.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez [Tarifs préférentiels Microsoft Azure : avantages MSDN, MPN et Bizspark](http://azure.microsoft.com/fr-fr/pricing/member-offers/msdn-benefits-details/).
+*  Vous devez avoir un compte Microsoft avec au moins un abonnement Azure actif en cours de validité. Si vous n'avez pas encore d'abonnement Azure, vous pouvez obtenir une évaluation gratuite. Pour cela, accédez à la page [Essayer Azure](http://www.windowsazure.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez [Tarifs préférentiels Microsoft Azure : avantages MSDN, MPN et Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ##  Création du réseau virtuel pour ce didacticiel
 
@@ -71,9 +85,9 @@ Notez que l'espace d'adressage d'un réseau virtuel doit provenir des espaces d'
 
 Vous pouvez continuer à découvrir les services d'infrastructure Azure en consultant les ressources suivantes :
 
-- [Création d'une machine virtuelle personnalisée](http://www.windowsazure.com/fr-fr/manage/windows/how-to-guides/custom-create-a-vm/) Cette rubrique vous aide à installer une machine virtuelle sur votre réseau virtuel. Pour plus d'informations sur les machines virtuelles et les options d'installation, consultez [Machines virtuelles Azure](http://www.windowsazure.com/fr-fr/manage/windows/).
+- [Création d'une machine virtuelle personnalisée](http://azure.microsoft.com/manage/windows/how-to-guides/custom-create-a-vm/) Cette rubrique vous aide à installer une machine virtuelle sur votre réseau virtuel. Pour plus d'informations sur les machines virtuelles et les options d'installation, consultez [Machines virtuelles Azure](http://azure.microsoft.com/manage/windows/).
 
-- [Installation d'une nouvelle forêt Active Directory sur un réseau virtuel Azure](http://www.windowsazure.com/fr-fr/manage/services/networking/active-directory-forest/) - Cette rubrique vous aide à installer une nouvelle forêt Windows Server Active Directory (AD) sans connectivité avec un autre réseau. Il décrit les étapes nécessaires à la création d'une machine virtuelle pour une nouvelle installation de forêt. Si vous envisagez de suivre ce didacticiel, ne créez pas de machines virtuelles à l'aide du portail de gestion. Pour plus d'informations, consultez [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156090.aspx).
+- [Installation d'une nouvelle forêt Active Directory sur un réseau virtuel Azure](http://azure.microsoft.com/manage/services/networking/active-directory-forest/) - Cette rubrique vous aide à installer une nouvelle forêt Windows Server Active Directory (AD) sans connectivité avec un autre réseau. Il décrit les étapes nécessaires à la création d'une machine virtuelle pour une nouvelle installation de forêt. Si vous envisagez de suivre ce didacticiel, ne créez pas de machines virtuelles à l'aide du portail de gestion. Pour plus d'informations, consultez [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Azure](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
 Pour supprimer ce réseau virtuel, sélectionnez-le, cliquez sur **Supprimer**, puis cliquez sur **Oui**.
 
@@ -90,7 +104,7 @@ Pour plus d'informations sur les paramètres et procédures de configuration du 
 
 -  [Tâches de configuration du réseau virtuel](http://go.microsoft.com/fwlink/?LinkId=296652)
 
--  [Configurer un réseau virtuel à l'aide d'un fichier de configuration réseau](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156097.aspx)
+-  [Configurer un réseau virtuel à l'aide d'un fichier de configuration réseau](http://msdn.microsoft.com/library/windowsazure/jj156097.aspx)
 
 -  [Présentation de la résolution de noms Azure](http://go.microsoft.com/fwlink/?LinkId=248097)
 
@@ -103,3 +117,5 @@ Pour plus d'informations sur les paramètres et procédures de configuration du 
 [Image7]: ./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png
 [Image8]: ./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png
 
+
+<!--HONumber=46--> 

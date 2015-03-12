@@ -154,7 +154,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 	Ce fichier sera utilisé pour charger la configuration HBase pour un cluster HDInsight.
 
-	> [AZURE.NOTE] Il s'agit d'un fichier hbase-site.xml de base contenant les paramètres minimum pour le cluster HDInsight. Pour une version complète du fichier de configuration hbase-site.xml utilisé par HDInsight, [activez le Bureau à distance dans le cluster HDInsight](http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-administer-use-management-portal/#rdp). Le fichier hbase-site.xml est situé dans le répertoire C:\apps\dist\hbase-&lt;numéro de version>-hadoop2\conf. La portion du chemin relative au numéro de version changera lors de la mise à jour de HBase sur le cluster.
+	> [AZURE.NOTE] Il s'agit d'un fichier hbase-site.xml de base contenant les paramètres minimum pour le cluster HDInsight. Pour une version complète du fichier de configuration hbase-site.xml utilisé par HDInsight, [activez le Bureau à distance dans le cluster HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp). Le fichier hbase-site.xml est situé dans le répertoire C:\apps\dist\hbase-&lt;numéro de version>-hadoop2\conf. La portion du chemin relative au numéro de version changera lors de la mise à jour de HBase sur le cluster.
 
 3. Enregistrez le fichier __hbase-site.xml__.
 
@@ -482,7 +482,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 		    # Is the Azure module installed?
 		    if (-not(Get-Module -ListAvailable Azure))
 		    {
-		        throw "Windows Azure PowerShell not found! For help, see http://www.windowsazure.com/fr-fr/documentation/articles/install-configure-powershell/"
+		        throw "Windows Azure PowerShell not found! For help, see http://azure.microsoft.com/documentation/articles/install-configure-powershell/"
 		    }
 		
 		    # Is there an active Azure subscription?
@@ -589,5 +589,4 @@ Remplacez __hdinsightclustername__ par le nom de votre cluster HDInsight.
 ###Aucun résultat ou résultat inattendu lors de l'utilisation de Start-HBaseExample
 
 Utilisez le paramètre `-showErr` pour afficher le STDERR produit lors de l'exécution de la tâche.
-
 <!--HONumber=42-->

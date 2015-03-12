@@ -108,10 +108,10 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
 > [AZURE.NOTE] Ce didacticiel utilise une seule instance de [EventProcessorHost]. Pour augmenter le débit, il est recommandé d'exécuter plusieurs instances de [EventProcessorHost], comme illustré dans l'[exemple de traitement d'événement mis à l'échelle]. Dans ces cas, les différentes instances se coordonnent automatiquement entre elles afin d'équilibrer la charge des événements reçus. Si vous souhaitez que plusieurs récepteurs traitent *all* les événements, vous devez utiliser le concept **ConsumerGroup**. Lors de la réception des événements à partir de différents ordinateurs, il peut être utile de spécifier des noms pour les instances de [EventProcessorHost] basées sur les ordinateurs (ou rôles) dans lesquels ils sont déployés. Pour plus d'informations sur ces sujets, consultez les rubriques [Vue d'ensemble des concentrateurs d'événements] et [Guide de programmation de concentrateurs d'événements].
 
 <!-- Links -->
-[Vue d'ensemble des concentrateurs d'événements]: http://msdn.microsoft.com/fr-fr/library/azure/dn821413.aspx
+[Vue d'ensemble des concentrateurs d'événements]: http://msdn.microsoft.com/library/azure/dn821413.aspx
 [Exemple de traitement d'événement mis à l'échelle]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
-[un compte Azure Storage] ;: http://azure.microsoft.com/fr-fr/documentation/articles/storage-create-storage-account/
-[EventProcessorHost]: http://msdn.microsoft.com/fr-fr/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx 
+[un compte Azure Storage] ;: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
+[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx 
 
 <!-- Images -->
 
@@ -120,5 +120,6 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[Guide du développeur pour les concentrateurs d'événements]: http://msdn.microsoft.com/fr-fr/library/azure/dn789972.aspx
+[Guide du développeur pour les concentrateurs d'événements]: http://msdn.microsoft.com/library/azure/dn789972.asp.
+
 <!--HONumber=42-->

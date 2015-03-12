@@ -1,6 +1,18 @@
-﻿<properties title="Monitor any web site's availability and responsiveness" pageTitle="Analyse de la disponibilité et de la réactivité d'un site web" description="Configurez des tests web dans Application Insights. Recevez des alertes si un site web devient indisponible ou répond lentement." metaKeywords="analytics web test availability" authors="awills"  manager="kamrani" />
+﻿<properties 
+	pageTitle="Analyse de la disponibilité et de la réactivité d'un site web" 
+	description="Configurez des tests web dans Application Insights. Recevez des alertes si un site web devient indisponible ou répond lentement." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-30" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-27" 
+	ms.author="awills"/>
  
 # Analyse de la disponibilité et de la réactivité d'un site web
 
@@ -192,3 +204,5 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 
 
 [azurewebtest]: ../insights-create-web-tests/
+
+<!--HONumber=46--> 

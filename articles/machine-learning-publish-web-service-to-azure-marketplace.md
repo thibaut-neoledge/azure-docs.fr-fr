@@ -1,6 +1,20 @@
-<properties title="Publishing Azure ML Web Services to the Azure Marketplace" pageTitle="Publication des services web Azure ML sur Azure Marketplace | Azure" description="Publication des services web Azure ML sur Azure Marketplace" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Publication du service web Azure Machine Learning sur Azure Marketplace | Azure" 
+	description="Publication du service web Azure Machine Learning sur Azure Marketplace" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="luisca" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/03/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/03/2014" 
+	ms.author="luisca"/>
 
 # Publication des services web Azure ML sur Azure Marketplace 
 
@@ -28,14 +42,14 @@ Les étapes suivantes illustrent la publication d'un service web Azure ML sur Az
 1.	Créez et publiez un service web RRS (Request-Response Service, service de requête-réponse) Azure ML.
 2.	Depuis le portail de gestion Azure, déployez le service en production.
 3.	Utilisez l'URL du service web à publier sur Azure Marketplace.
-4.	Présentation du processus de publication : http://msdn.microsoft.com/fr-fr/library/azure/hh580725.aspx 
+4.	Présentation du processus de publication : http://msdn.microsoft.com/library/azure/hh580725.aspx 
 5.	Une fois soumise, votre offre est évaluée et doit être approuvée avant que vos clients puissent commencer à l'acheter. Le processus de publication peut prendre quelques jours ouvrés. Nous tentons de le réduire au maximum et nous proposerons une mise à jour dans nos prochaines communications.
 
 ## Consignes pour la publication sur Azure Marketplace
 
-1.	Vous devez vous enregistrer en tant qu'éditeur. Pour plus d'informations, consultez la page suivante : <http://msdn.microsoft.com/fr-fr/library/azure/hh563872.aspx>
-2.	Vous devez indiquer des informations sur votre offre, y compris un plan de tarification. Vous pouvez choisir de proposer un service payant ou gratuit. Pour plus d'informations, consultez la page suivante : <http://msdn.microsoft.com/fr-fr/library/azure/hh563873.aspx> 
-3.	Pour être payé, vous devez indiquer des informations de paiement, notamment vos renseignements bancaires et fiscaux. Pour plus d'informations, consultez la page suivante : <http://msdn.microsoft.com/fr-fr/library/azure/hh563873.aspx>
+1.	Vous devez vous enregistrer en tant qu'éditeur. Pour plus d'informations, consultez la page suivante : <http://msdn.microsoft.com/library/azure/hh563872.aspx>
+2.	Vous devez indiquer des informations sur votre offre, y compris un plan de tarification. Vous pouvez choisir de proposer un service payant ou gratuit. Pour plus d'informations, consultez la page suivante : <http://msdn.microsoft.com/library/azure/hh563873.aspx> 
+3.	Pour être payé, vous devez indiquer des informations de paiement, notamment vos renseignements bancaires et fiscaux. Pour plus d'informations, consultez la page suivante : <http://msdn.microsoft.com/library/azure/hh563873.aspx>
 
 ## Options spécifiques à l'apprentissage automatique
 
@@ -80,3 +94,5 @@ Les étapes suivantes illustrent la publication d'un service web Azure ML sur Az
 
 [image1]:./media/machine-learning-publish-web-service-to-azure-marketplace/image1.png
 [image2]:./media/machine-learning-publish-web-service-to-azure-marketplace/image2.png
+
+<!--HONumber=46--> 

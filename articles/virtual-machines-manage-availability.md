@@ -43,7 +43,7 @@ Les domaines d'erreur définissent le groupe de machines virtuelles partageant u
 <!--Image reference-->
    ![UD FD configuration](./media/virtual-machines-manage-availability/ud-fd-configuration.png)
 
->[AZURE.NOTE] Pour obtenir des instructions, consultez la page [Configuration d'un groupe à haute disponibilité pour des machines virtuelles] [].
+>[AZURE.NOTE] Pour des instructions, consultez la page [Configuration d'un groupe à haute disponibilité pour des machines virtuelles ] [].
 
 ### Configuration de chaque couche application dans des groupes à haute disponibilité séparés
 Si les machines virtuelles de votre groupe à haute disponibilité sont presque identiques et ont la même fonction au sein de votre application, nous vous recommandons de configurer un groupe à haute disponibilité pour chaque couche de votre application.  Si vous placez deux couches différentes dans le même groupe à haute disponibilité, toutes les machines virtuelles de la même couche application pourraient redémarrer en même temps. En configurant deux machines virtuelles ou plus dans un groupe à haute disponibilité par couche, vous vous assurez qu'au moins une machine de chaque couche restera disponible.   
@@ -73,4 +73,5 @@ Si l'équilibrage de charge n'est pas configuré pour équilibrer le trafic entr
 
 
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

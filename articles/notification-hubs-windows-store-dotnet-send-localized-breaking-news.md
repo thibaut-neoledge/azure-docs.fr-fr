@@ -1,6 +1,20 @@
-<properties urlDisplayName="Localized Breaking News" pageTitle="Didacticiel sur l'utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées" metaKeywords="" description="Découvrez comment utiliser Azure Service Bus Notification Hubs pour envoyer des notifications de dernières nouvelles localisées." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Didacticiel sur l'utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées" 
+	description="Découvrez comment utiliser Azure Service Bus Notification Hubs pour envoyer des notifications de dernières nouvelles localisées." 
+	services="notification-hubs" 
+	documentationCenter="windows" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="ricksal"/>
 # Utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées
 
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -11,7 +25,7 @@ Cette rubrique montre comment utiliser la fonctionnalité de **modèle** d'Azure
 
 Ce didacticiel vous familiarise avec les étapes de base pour activer ce scénario :
 
-1. [Concepts de modèle] 
+1. [Concepts de modèle]
 2. [Interface utilisateur de l'application]
 3. [Création de l'application cliente Windows Store]
 4. [Envoi de notifications à partir de votre serveur principal]
@@ -25,7 +39,7 @@ Ce scénario comporte deux parties :
 
 
 
-## Configuration requise ##
+##Conditions préalables ##
 
 Vous devez avoir suivi le didacticiel [Utilisation de Notifications Hubs pour envoyer les dernières nouvelles] et avoir le code à disposition, car le présent didacticiel est basé sur ce code. 
 
@@ -106,7 +120,7 @@ Modifiez le fichier MainPage.xaml pour qu'il inclue une zone de liste modifiable
 
 <h2><a name="building-client"></a><span class="building app">Interface utilisateur de l'application</span>Création de l'application cliente Windows Store</h2>
 
-1. Dans la classe Notifications, ajoutez un paramètre de paramètre régional aux méthodes *StoreCategoriesAndSubscribe* et *SubscribeToCategories*.
+1. Dans la classe Notifications, ajoutez un paramètre de paramètre régional aux méthodes  *StoreCategoriesAndSubscribe* et *SubscribeToCateories*.
 
 		public async Task StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
         {
@@ -123,7 +137,7 @@ Modifiez le fichier MainPage.xaml pour qu'il inclue une zone de liste modifiable
             await hub.RegisterTemplateAsync(channel.Uri, template, "newsTemplate", categories);
         }
 
-	Vous remarquerez qu'au lieu d'appeler la méthode *RegisterNativeAsync*, nous appelons *RegisterTemplateAsync* : en effet, nous inscrivons un format de notification spécifique dans lequel le modèle dépend des paramètres régionaux. Nous avons également fourni un nom pour le modèle (" newsTemplate "), parce qu'il est possible que nous inscrivions plusieurs modèles (par exemple, un pour les notifications toast et un pour les vignettes) et nous devons donc les nommer pour pouvoir les mettre à jour ou les supprimer.
+	Notez qu'au lieu d'appeler la méthode *RegisterNativeAsync*, nous appelons *RegisterTemplateAsync* : nous inscrivons un format de notification spécifique dans lequel le modèle dépend des paramètres régionaux. Nous avons également fourni un nom pour le modèle (" newsTemplate "), parce qu'il est possible que nous inscrivions plusieurs modèles (par exemple un pour les notifications toast et un pour les vignettes) et nous devons donc les nommer pour pouvoir les mettre à jour ou les supprimer.
 
 	Notez que si un appareil inscrit plusieurs modèles avec la même balise, un message entrant ciblant cette balise entraînera l'envoi de plusieurs notifications à l'appareil (un pour chaque modèle). Ce comportement s'avère utile lorsque le même message logique doit générer plusieurs notifications visuelles, par exemple affichant un badge et un toast dans une application Windows Store.
 
@@ -161,7 +175,7 @@ singleton Notifications dans la méthode *OnLaunched* :
 
 <h2><a name="send"></a>Envoi de notifications localisées à partir de votre serveur principal</h2>
 
-[WACOM.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
 
 
 
@@ -204,22 +218,23 @@ Pour plus d'informations sur l'utilisation de modèles, consultez [Notification 
 [Mobile Service]: /fr-fr/develop/mobile/tutorials/get-started
 [Notification des utilisateurs avec Notification Hubs : ASP.NET]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
 [Notification des utilisateurs avec Notification Hubs : Mobile Services]: /fr-fr/manage/services/notification-hubs/notify-users
-[Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet 
-[Utilisation de Notifications Hubs pour envoyer les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet 
+[Utilisation de Notification Hubs pour diffuser les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet 
 
-[Page Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Page Soumette une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mes Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Kit de développement logiciel (SDK) Live]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Kit de développement logiciel (SDK) Live pour Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started/#create-new-service
 [Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-dotnet
 [Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-dotnet
 [Prise en main des notifications Push]: /fr-fr/develop/mobile/tutorials/get-started-with-push-dotnet
-[Notifications Push aux utilisateurs de l'application]: /fr-fr/develop/mobile/tutorials/push-notifications-to-app-users-dotnet
-[Autoriser les utilisateurs avec des scripts]: /fr-fr/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
+[Notifications Push pour les utilisateurs de l'application]: /fr-fr/develop/mobile/tutorials/push-notifications-to-app-users-dotnet
+[Autorisation des utilisateurs avec des scripts]: /fr-fr/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
 [JavaScript et HTML]: /fr-fr/develop/mobile/tutorials/get-started-with-push-js
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [objet wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/fr-fr/library/jj927170.aspx
-[Procédures Notification Hubs pour iOS]: http://msdn.microsoft.com/fr-fr/library/jj927168.aspx
-[Notification Hubs, procédures pour Windows Store]: http://msdn.microsoft.com/fr-fr/library/jj927172.aspx
+[Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
+[Procédures Notification Hubs pour iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Vue d'ensemble de Notification Hubs pour Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+
+<!--HONumber=45--> 

@@ -23,7 +23,7 @@ Vous pouvez connecter un site Web sur Microsoft Azure à n'importe quelle ressou
 > [AZURE.NOTE] La partie Sites Web de la fonctionnalité Connexions hybrides n'est disponible que dans la [version préliminaire du portail Azure](https://portal.azure.com). Pour créer une connexion dans BizTalk Services, consultez la page [Connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
 ##Configuration requise
-- Un abonnement Azure. Pour un abonnement gratuit, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/fr-fr/pricing/free-trial/). 
+- Un abonnement Azure. Pour un abonnement gratuit, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/). 
 
 - Pour utiliser une base de données SQL Server ou SQL Server Express locale avec une connexion hybride, TCP/IP doit être activé sur un port statique. L'utilisation d'une instance par défaut sur SQL Server est recommandée, car elle utilise le port statique 1433. Pour des informations sur l'installation et la configuration de SQL Server Express pour son utilisation avec des connexions hybrides, consultez [Connexion à une instance SQL Server locale à partir d'un site Web Azure au moyen de connexions hybrides](http://go.microsoft.com/fwlink/?LinkID=397979).
 
@@ -165,7 +165,7 @@ Maintenant que l'infrastructure de connexion hybride est terminée, vous pouvez 
 
 - Pour des informations sur la création d'une application Web ASP.NET utilisant une connexion hybride, consultez [Connexion à une instance SQL Server locale à partir d'un site Web Azure au moyen de connexions hybrides](http://go.microsoft.com/fwlink/?LinkID=397979).
 
-- Pour des informations sur l'utilisation d'une connexion hybride avec un service mobile, consultez [Connexion à une instance SQL Server locale à partir d'un service mobile Azure au moyen de connexions hybrides](http://azure.microsoft.com/fr-fr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
+- Pour des informations sur l'utilisation d'une connexion hybride avec un service mobile, consultez [Connexion à une instance SQL Server locale à partir d'un service mobile Azure au moyen de connexions hybrides](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
 
 ###Ressources supplémentaires
 
@@ -173,9 +173,9 @@ Maintenant que l'infrastructure de connexion hybride est terminée, vous pouvez 
 
 [Josh Twist présente les connexions hybrides (vidéo Channel 9)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
-[Site Web des connexions hybrides](http://azure.microsoft.com/fr-fr/services/biztalk-services/)
+[Site Web des connexions hybrides](http://azure.microsoft.com/services/biztalk-services/)
 
-[BizTalk Services : Onglets Tableau de bord, Surveiller, Mettre à l'échelle, Configurer et Connexion hybride](http://azure.microsoft.com/fr-fr/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
+[BizTalk Services : Onglets Tableau de bord, Surveiller, Mettre à l'échelle, Configurer et Connexion hybride](http://azure.microsoft.com/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
 
 [Création d'un cloud hybride réel avec la portabilité transparente des applications (vidéo Channel 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 

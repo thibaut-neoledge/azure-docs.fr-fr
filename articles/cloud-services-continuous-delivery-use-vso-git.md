@@ -1,22 +1,33 @@
-﻿<properties urlDisplayName="Publishing with Visual Studio Online" pageTitle="Livraison continue avec Visual Studio Online dans Azure" metaKeywords="" description="Découvrez comment configurer vos projets d'équipe Visual Studio Online afin de les générer et de les déployer automatiquement vers des sites web ou des services cloud Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online and Git" authors="ghogen" solutions="" manager="douge" editor="" />
+﻿<properties 
+	pageTitle="Livraison continue avec Visual Studio Online dans Azure" 
+	description="Découvrez comment configurer vos projets d'équipe Visual Studio Online afin de les générer et de les déployer automatiquement vers des sites Web ou des services cloud Azure." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 
 
 
 # Livraison continue sur Azure au moyen de Visual Studio Online et de Git
 
-Vous pouvez utiliser et déployer des projets d'équipe Visual Studio Online pour héberger un référentiel Git pour votre code source, et créer et déployer automatiquement dans des sites web ou des services cloud Azure lorsque vous placez une validation dans le référentiel.
+Vous pouvez utiliser et déployer des projets d'équipe Visual Studio Online pour héberger un référentiel Git pour votre code source, et créer et déployer automatiquement dans des sites Web ou des services cloud Azure lorsque vous placez une validation dans le référentiel.
 
 Visual Studio 2013 et le Kit de développement logiciel (SDK) Azure doivent être installés sur votre système. Si Visual Studio 2013 n'est pas déjà installé, téléchargez-le en choisissant le lien **Test gratuit de Visual Studio** sur [www.visualstudio.com](http://www.visualstudio.com). Pour installer le Kit de développement logiciel (SDK) Azure, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 
-<div class="wa-note">
-  <span class="wa-icon-bulb"></span>
-  <h5><a name="note"></a>Pour suivre ce didacticiel, vous avez besoin d'un compte Visual Studio Online :</h5>
-<p>Vous pouvez <a href="http://go.microsoft.com/fwlink/p/?LinkId=512979">ouvrir un compte Visual Studio Online gratuitement</a>.</p>
-</div>
+> [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Visual Studio Online :
+> vous pouvez [ouvrir gratuitement un compte Visual Studio Online](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Pour configurer un service cloud permettant de générer et de déployer automatiquement sur Azure au moyen de Visual Studio Online, procédez comme suit :
 
@@ -24,9 +35,9 @@ Pour configurer un service cloud permettant de générer et de déployer automat
 
 -   [Étape 2 : création d'un projet et placement dans votre référentiel Git.][]
 
--   [Étape 3 : connexion du projet à Azure][]
+-   [Étape 3 : connexion du projet à Azure.][]
 
--   [Étape 4 : exécution des modifications et déclenchement d'une régénération et d'un redéploiement][]
+-   [Étape 4 : exécution des modifications et déclenchement d'une régénération et d'un redéploiement.][]
 
 -   [Étape 5 : redéploiement d'une build antérieure (facultatif)][]
 
@@ -49,26 +60,27 @@ Pour configurer un service cloud permettant de générer et de déployer automat
 1. Dans la section Solutions de Team Explorer, sélectionnez Nouveau lien pour créer un projet dans le référentiel local.<br/>
 ![][4]
 
-2. Vous pouvez déployer un site web ou un service cloud (application Azure) en suivant les étapes de cette procédure.
-Créez un projet de service cloud Azure ou un projet MVC ASP.NET. Vérifiez que le projet cible .NET Framework 4 ou 4.5, et si vous créez un projet de service cloud, ajoutez un rôle web ASP.NET MVC et un rôle de travail.
-Si vous voulez créer un site web, choisissez le modèle de projet Application Web ASP.NET, puis sélectionnez MVC. Consultez la page [Prise en main d'Azure et ASP.NET](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-dotnet-get-started/).
+2. Vous pouvez déployer un site Web ou un service cloud (application Azure) en suivant les étapes de cette procédure.
+Créez un projet de service cloud Azure
+ou un projet MVC ASP.NET. Vérifiez que le projet cible .NET Framework 4 ou 4.5, et si vous créez un projet de service cloud, ajoutez un rôle Web ASP.NET MVC et un rôle de travail.
+Si vous voulez créer un site Web, choisissez le modèle de projet Application Web ASP.NET, puis sélectionnez MVC. Consultez la page [Prise en main d'Azure et ASP.NET](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).
 
-3. Ouvrez le menu contextuel de la solution et choisissez **Valider**..<br/>
+3. Ouvrez le menu contextuel de la solution et choisissez **Valider**.<br/>
 ![][7]
 
 4. Si vous utilisez Git dans Visual Studio Online pour la première fois, vous devez fournir des informations pour vous identifier dans Git. Dans la zone **Modifications en attente** de Team Explorer, entrez votre nom d'utilisateur et votre adresse de messagerie. Tapez un commentaire pour la validation et sélectionnez **Valider**.<br/>
 ![][8]
 
-5. Remarquez les options permettant d'inclure ou d'exclure des modifications spécifiques lors de l'archivage. Si des modifications souhaitées sont exclues, choisissez le lien **Tout inclure**.<br/>
+5. Remarquez les options permettant d'inclure ou d'exclure des modifications spécifiques lorsque vous archivez. Si des modifications souhaitées sont exclues, choisissez le lien **Tout inclure**.<br/>
 
 6. Vous avez maintenant validé les modifications dans votre copie locale du référentiel. Synchronisez ensuite ces modifications avec le serveur. Sélectionnez le lien **Synchronisation**.
 
 <h2> <a name="step3"> </a>Étape 3 : connexion du projet à Azure</h2>
 
-1. Vous avez maintenant un référentiel Git dans Visual Studio Online contenant du code source : vous êtes prêt à connecter votre référentiel Git à Azure.  Dans le [portail Azure](http://manage.windowsazure.com), sélectionnez votre service cloud ou site web, ou créez-en un en sélectionnant l'icône + en bas à gauche et en choisissant **Service cloud** ou **Site Web**, puis **Création rapide**.<br.>
+1. Vous avez maintenant un référentiel Git dans Visual Studio Online contenant du code source : vous êtes prêt à connecter votre référentiel Git à Azure.  Dans le [portail Azure](http://manage.windowsazure.com), sélectionnez votre service cloud ou site Web, ou créez-en un en sélectionnant l'icône + en bas à gauche et en choisissant **Service cloud** ou **Site Web**, puis **Création rapide**.<br.>
 ![][9]
 
-3. Pour les services cloud, sélectionnez le lien **Configurer la publication avec Visual Studio Online**. Pour les sites web, cliquez sur le lien **Configurer le déploiement à partir du contrôle de code source**.<br/>
+3. Pour les services cloud, sélectionnez le lien **Configurer la publication avec Visual Studio Online**. Pour les sites Web, cliquez sur le lien **Configurer le déploiement à partir du contrôle de code source**.<br/>
 ![][10]
 
 2. Dans l'Assistant, tapez le nom de votre compte Visual Studio Online dans la zone de texte et sélectionnez le lien **Autoriser maintenant**. Vous serez peut-être invité à vous connecter.<br/>
@@ -99,7 +111,7 @@ La prochaine fois que vous placerez une validation dans votre référentiel, Vis
 5. Sélectionnez le lien **Synchronisation**.<br/>
 ![][38]
 
-6. Sélectionnez le lien **Émettre** pour placer votre validation dans le référentiel dans Visual Studio Online. (Vous pouvez également utiliser le bouton **Synchronisation** pour copier vos validations dans le référentiel. La différence est que **Synchronisation** extrait également les dernières modifications du référentiel).<br/>
+6. Sélectionnez le lien **Pousser** pour placer votre validation dans le référentiel dans Visual Studio Online. (Vous pouvez également utiliser le bouton **Synchronisation** pour copier vos validations dans le référentiel. La différence est que **Synchronisation** extrait également les dernières modifications du référentiel).<br/>
 ![][39]
 
 7. Choisissez le bouton Accueil pour revenir à la page d'accueil de Team Explorer.<br/>
@@ -116,10 +128,10 @@ Team Explorer indique qu'une build est disponible pour archivage.<br/>
 10. Pendant la création de la build, examinez la définition de build créée lorsque vous avez utilisé l'Assistant pour la liaison à Azure.  Ouvrez le menu contextuel de la définition de build et choisissez **Modifier la définition de build**.<br/>
 ![][25]
 <br/>
-Dans l'onglet **Déclencher**, vous allez voir que la définition de build prévoit par défaut un processus de génération pour chaque archivage. (Pour un service cloud, Visual Studio Online génère et déploie automatiquement la branche principale dans l'environnement intermédiaire. Vous devez quand même effectuer une opération manuelle pour le déploiement dans le site web en activité. Pour un site web qui ne comporte pas d'environnement intermédiaire, elle déploie la branche principale directement dans le site en activité.<br/>
+Dans l'onglet **Déclencher**, vous allez voir que la définition de build prévoit par défaut un processus de génération pour chaque archivage. (Pour un service cloud, Visual Studio Online génère et déploie automatiquement la branche principale dans l'environnement intermédiaire. Vous devez quand même effectuer une opération manuelle pour le déploiement dans le site Web en activité. Pour un site Web qui ne comporte pas d'environnement intermédiaire, elle déploie la branche principale directement dans le site en activité.<br/>
 ![][26]
 <br/>
-Dans l'onglet **Processus**, vous pouvez voir que l'environnement de déploiement est défini sur le nom de votre service cloud ou site web.<br/>
+Dans l'onglet **Processus**, vous pouvez voir que l'environnement de déploiement est défini sur le nom de votre service cloud ou site Web.<br/>
 ![][27]
 <br/>
 Spécifiez des valeurs pour les propriétés si vous souhaitez d'autres valeurs que celles par défaut. Les propriétés de publication dans Azure se trouvent dans la section Déploiement ; vous devrez peut-être configurer également les paramètres MSBuild. Exemple : dans un projet de service cloud, pour spécifier la configuration d'un autre service que Cloud, configurez les paramètres MSbuild avec /p:TargetProfile=*YourProfile* où *YourProfile* correspond à un fichier de configuration de service avec un nom tel que ServiceConfiguration.*YourProfile*.cscfg.
@@ -129,9 +141,9 @@ Le tableau suivant présente les propriétés disponibles dans la section Déplo
 ><tr><td>Autoriser les certificats non approuvés</td><td>Si cette propriété a la valeur false, des certificats SSL doivent être signés par une autorité racine.</td></tr>
 <tr><td>Autoriser la mise à niveau</td><td>Permet au déploiement de mettre à jour un déploiement existant au lieu d'en créer un. Conserve l'adresse IP.</td></tr>
 ><tr><td>Ne pas supprimer</td><td>Si cette propriété a la valeur true, ne remplacez pas un déploiement sans rapport (la mise à niveau est autorisée).</td></tr>
-<tr><td>Chemin d'accès des paramètres de déploiement</td><td>Chemin d'accès à votre fichier .pubxml pour un site web, relatif au dossier racine du référentiel. Ignorée pour les services cloud.</td></tr>
+<tr><td>Chemin d'accès des paramètres de déploiement</td><td>Chemin d'accès à votre fichier .pubxml pour un site Web, relatif au dossier racine du référentiel. Ignorée pour les services cloud.</td></tr>
 <tr><td>Environnement de déploiement SharePoint</td><td>Identique au nom du service</td></tr>
-<tr><td>Environnement de déploiement Windows Azure</td><td>Nom du site web ou du service cloud</td></tr>
+<tr><td>Environnement de déploiement Windows Azure</td><td>Nom du site Web ou du service cloud</td></tr>
 </table>
 <br/>
 
@@ -144,7 +156,7 @@ Le tableau suivant présente les propriétés disponibles dans la section Déplo
 13. Dans le [portail Azure](http://manage.windowsazure.com), vous pouvez afficher le déploiement associé sous l'onglet Déploiements lorsque l'environnement intermédiaire est sélectionné.<br/>
 ![][30]
 
-14.	Accédez à l'URL de votre site. Pour un site web, sélectionnez simplement le bouton **Parcourir** dans le portail. Dans le cas d'un service cloud, choisissez l'URL dans la section **Aperçu rapide** de la page **Tableau de bord** représentant l'environnement intermédiaire. Les déploiements résultant de l'intégration continue de services cloud sont publiés dans l'environnement intermédiaire par défaut. Vous pouvez changer cela en définissant la propriété Environnement du service cloud de substitution sur Production. Cet écran indique où se trouve l'URL du site dans la page du tableau de bord du service cloud : <br/>
+14.	Accédez à l'URL de votre site. Pour un site Web, sélectionnez simplement le bouton **Parcourir** dans le portail. Dans le cas d'un service cloud, choisissez l'URL dans la section **Aperçu rapide** de la page **Tableau de bord** représentant l'environnement intermédiaire. Les déploiements résultant de l'intégration continue de services cloud sont publiés dans l'environnement intermédiaire par défaut. Vous pouvez changer cela en définissant la propriété Environnement du service cloud de substitution sur Production. Cet écran indique où se trouve l'URL du site dans la page du tableau de bord du service cloud : <br/>
 ![][31]
 <br/>
 Un nouvel onglet de navigateur apparaît pour afficher votre site en cours d'exécution.<br/>
@@ -163,7 +175,7 @@ Cette étape est facultative. Dans le portail de gestion, sélectionnez un dépl
  Une fois que vous êtes prêt, vous pouvez promouvoir l'environnement intermédiaire en environnement de production en sélectionnant **Basculer** dans le portail de gestion. L'environnement intermédiaire récemment déployé passe à l'état de production et l'environnement de production précédent, le cas échéant, devient un environnement intermédiaire. Le déploiement actif peut être différent pour les environnements de production et intermédiaire, mais l'historique de déploiement des builds récentes est identique quel que soit l'environnement.<br/>
 ![][35]
 
-<h2> <a name="step7"> </a>Étape 6 : déploiement à partir d'une branche en cours d'utilisation.</h2>
+<h2> <a name="step7"> </a>Étape 7 : déploiement à partir d'une branche en cours d'utilisation.</h2>
 
 Lorsque vous utilisez Git, vous apportez généralement des modifications à une branche en cours d'utilisation et les intégrez dans une branche principale lorsque votre déploiement est terminé. Pendant la phase de déploiement d'un projet, vous pouvez générer et déployer la branche en cours d'utilisation dans Azure.
 
@@ -195,12 +207,12 @@ Lorsque vous utilisez Git, vous apportez généralement des modifications à une
 
 11. Accédez à la vue **Builds** et recherchez la build qui vient d'être déclenchée pour la branche en cours d'utilisation.
 
-Pour plus d'informations, consultez la page [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). Pour des conseils supplémentaires sur l'utilisation de Git avec Visual Studio Online, consultez la page [Partager votre code dans Git] ;(http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) pour en savoir plus sur l'utilisation d'un référentiel Git qui n'est pas géré par Visual Studio Online pour la publication dans Azure, consultez la page [Publication à partir du contrôle de code source dans Sites Web Azure](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-publish-source-control).
+Pour plus d'informations, consultez la page [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). Pour des conseils supplémentaires sur l'utilisation de Git avec Visual Studio Online, consultez la page [Partager votre code dans Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) ; pour en savoir plus sur l'utilisation d'un référentiel Git qui n'est pas géré par Visual Studio Online pour la publication dans Azure, consultez la page [Publication à partir du contrôle de code source dans Sites Web Azure](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control).
 
 [Étape 1 : création d'un référentiel Git.]: #step1
 [Étape 2 : création d'un projet et placement dans votre référentiel Git.]: #step2
-[Étape 3 : connexion du projet à Azure]: #step3
-[Étape 4 : exécution des modifications et déclenchement d'une régénération et d'un redéploiement]: #step4
+[Étape 3 : connexion du projet à Azure.]: #step3
+[Étape 4 : exécution des modifications et déclenchement d'une régénération et d'un redéploiement.]: #step4
 [Étape 5 : redéploiement d'une build antérieure (facultatif)]: #step5
 [Étape 6 : modification du déploiement de production]: #step6
 [Étape 7 : déploiement à partir d'une branche en cours d'utilisation]: #step7
@@ -250,4 +262,4 @@ Pour plus d'informations, consultez la page [Visual Studio Online](http://go.mic
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

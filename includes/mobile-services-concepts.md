@@ -37,4 +37,4 @@ Voici les fonctionnalités et les concepts importants de Mobile Services :
 
   
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

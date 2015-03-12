@@ -1,6 +1,20 @@
-﻿<properties title="How to use diagnostics" pageTitle="Utilisation des diagnostics" description="Découvrez comment configurer des diagnostics pour vos ressources dans Azure." authors="stepsic" manager="kamrani" />
+﻿<properties 
+	pageTitle="Utilisation des diagnostics" 
+	description="Découvrez comment configurer des diagnostics pour vos ressources dans Azure." 
+	authors="stepsic-microsoft-com" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="stepsic" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="stepsic"/>
 
 # Configuration des diagnostics
 
@@ -66,3 +80,5 @@ Vous pouvez alors sélectionner n'importe laquelle des métriques que vous avez 
 Le graphique affiche un aperçu de votre seuil d'alerte comparé à la mesure de la veille. Après avoir cliqué sur **Enregistrer**, vous êtes informé dans les minutes qui suivent de tout dépassement du seuil par la mesure sélectionnée. 
 
 Notez que les mesures qui ne s'affichent que dans la version préliminaire du portail ne peuvent pas être associées à des alertes dans la version complète du portail. Voilà pourquoi certaines règles d'alerte de la version préliminaire du portail ne sont pas visibles dans la version complète du portail.
+
+<!--HONumber=46--> 

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Mise à l'échelle de sites Web" 
 	description="obligatoire" 
 	services="web-sites" 
@@ -24,7 +24,7 @@ D'une part, la modification du mode de votre plan d'hébergement Web vers un niv
 
 Vous pouvez facilement modifier les modes et les configurer sous l'onglet Mettre à l'échelle du portail de gestion. Vous pouvez augmenter ou diminuer la taille des instances au besoin. L'application de ces modifications ne prend que quelques secondes et s'applique à tous les sites Web de votre plan d'hébergement Web. Vous ne devez pas modifier votre code ni redéployer vos applications.
 
-Pour plus d'informations sur les plans d'hébergement Web, consultez [Présentation des plans d'hébergement Web](http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-web-hosting-plan-overview/) et [Vue d'ensemble approfondie des plans d'hébergement Sites Web Azure](http://www.azure.microsoft.com/fr-fr/Documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/). Pour plus d'informations sur les tarifs et les fonctionnalités de chaque plan d'hébergement Web, consultez la page [Tarification - Sites Web](http://www.windowsazure.com/fr-fr/pricing/details/web-sites/).  
+Pour plus d'informations sur les plans d'hébergement Web, consultez [Présentation des plans d'hébergement Web](http://azure.microsoft.com/documentation/articles/web-sites-web-hosting-plan-overview/) et [Vue d'ensemble approfondie des plans d'hébergement Sites Web Azure](http://www.azure.microsoft.com/fr-fr/Documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/). Pour plus d'informations sur les tarifs et les fonctionnalités de chaque plan d'hébergement Web, consultez la page [Tarification - Sites Web](http://azure.microsoft.com/pricing/details/web-sites/).  
 
 > [AZURE.NOTE] Avant de passer le plan d'hébergement d'un site Web du mode **Gratuit** au mode **De base** ou **Standard**, vous devez supprimer les limites de dépense mises en place pour l'abonnement de votre site Web. Pour voir ou modifier les options de votre abonnement Sites Web Microsoft Azure, consultez la page [Abonnements Microsoft Azure][azuresubscriptions].
 
@@ -69,7 +69,7 @@ Dans cet article :
 	
 	![Save button][SaveButton]
  	
-	> [AZURE.NOTE] Vous pouvez configurer et enregistrer séparément les paramètres **Web Hosting Plan**, **Instance Size** et **Nombre d'instances** si vous le souhaitez.
+	> [AZURE.NOTE] Vous pouvez configurer et enregistrer séparément les paramètres **Plan d'hébergement web**, **Taille des instances** et **Nombre d'instances** si vous le souhaitez.
 	
 8. Un message de confirmation vous rappelle que le nouveau mode est également appliqué aux sites figurant dans le même plan d'hébergement Web que le site Web actuel. Choisissez **Oui** pour finaliser la modification. 
 	
@@ -142,7 +142,7 @@ Dans cet article :
 	
 14. Une fois que vous avez apporté des modifications aux éléments de la liste **Edit Scale Settings for Schedule**, cliquez sur l'icône **Enregistrer** dans la barre de commandes au bas de la page pour enregistrer tous les paramètres de planification en même temps (vous n'avez pas à enregistrer chaque paramètre de manière individuelle).
 
-> [AZURE.NOTE] Dans le [Portail Azure Preview ](https://portal.azure.com/), vous pouvez mettre à l'échelle non seulement en fonction du pourcentage d'utilisation de l'UC, mais également en fonction de métriques supplémentaires telles que le pourcentage de mémoire, la longueur de file d'attente de disque, la longueur de file d'attente HTTP, les données entrantes et les données sortantes. Vous pouvez aussi créer une ou plusieurs règles de mise à l'échelle descendante ou montante qui vous permettent de contrôler encore mieux la mise à l'échelle. Pour plus d'informations, consultez la page [Mise à l'échelle d'un site Web](http://azure.microsoft.com/fr-fr/documentation/articles/insights-how-to-scale/) dans la documentation du portail Azure Preview.
+> [AZURE.NOTE] Dans le [Portail Azure Preview ](https://portal.azure.com/), vous pouvez mettre à l'échelle non seulement en fonction du pourcentage d'utilisation de l'UC, mais également en fonction de métriques supplémentaires telles que le pourcentage de mémoire, la longueur de file d'attente de disque, la longueur de file d'attente HTTP, les données entrantes et les données sortantes. Vous pouvez aussi créer une ou plusieurs règles de mise à l'échelle descendante ou montante qui vous permettent de contrôler encore mieux la mise à l'échelle. Pour plus d'informations, consultez la page [Mise à l'échelle d'un site Web](http://azure.microsoft.com/documentation/articles/insights-how-to-scale/) dans la documentation du portail Azure Preview.
 
 <a name="ScalingSQLServer"></a>
 ##Mise à l'échelle d'une base de données SQL Server connectée à votre site	
@@ -179,40 +179,40 @@ Selon le mode du plan d'hébergement Web, les fonctionnalités orientées dével
 
 **Surveillance de point de terminaison Web**
 
-- La surveillance de point de terminaison Web est disponible dans les modes De base et Standard du plan d'hébergement Web. Pour plus d'informations sur la surveillance des points de terminaison Web, consultez la page [Surveillance des sites Web](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-monitor/).
+- La surveillance de point de terminaison Web est disponible dans les modes De base et Standard du plan d'hébergement Web. Pour plus d'informations sur la surveillance des points de terminaison Web, consultez la page [Surveillance des sites Web](http://azure.microsoft.com/documentation/articles/web-sites-monitor/).
 
-- Pour obtenir des informations détaillées sur toutes les autres fonctionnalités des plans d'hébergement Web, notamment la tarification et les fonctionnalités présentant de l'intérêt pour tous les utilisateurs (notamment les développeurs), consultez la page [Tarification - Sites Web](http://www.windowsazure.com/fr-fr/pricing/details/web-sites/).
+- Pour obtenir des informations détaillées sur toutes les autres fonctionnalités des plans d'hébergement Web, notamment la tarification et les fonctionnalités présentant de l'intérêt pour tous les utilisateurs (notamment les développeurs), consultez la page [Tarification - Sites Web](http://azure.microsoft.com/pricing/details/web-sites/).
 
 <a name="Next Steps"></a>	
 ## Étapes suivantes
 
-- Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite de Microsoft Azure](http://azure.microsoft.com/fr-fr/pricing/free-trial/).
+- Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite de Microsoft Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 - Pour plus d'informations sur la tarification, le support et les contrats SLA, accédez aux liens suivants.
 	
-	[Tarification - Transferts de données](http://www.windowsazure.com/fr-fr/pricing/details/data-transfers/)
+	[Tarification - Transferts de données](http://azure.microsoft.com/pricing/details/data-transfers/)
 	
-	[Plans de support Microsoft Azure](http://www.windowsazure.com/fr-fr/support/plans/)
+	[Plans de support Microsoft Azure](http://azure.microsoft.com/support/plans/)
 	
-	[Contrats de niveau de service](http://www.windowsazure.com/fr-fr/support/legal/sla/)
+	[Contrats de niveau de service](http://azure.microsoft.com/support/legal/sla/)
 	
-	[Tarification - Base de données SQL](http://www.windowsazure.com/fr-fr/pricing/details/sql-database/)
+	[Tarification - Base de données SQL](http://azure.microsoft.com/pricing/details/sql-database/)
 	
 	[Tailles de machines virtuelles et services cloud pour Microsoft Azure][vmsizes]
 	
-	[Tarification - Sites Web](http://www.windowsazure.com/fr-fr/pricing/details/web-sites/)
+	[Tarification - Sites Web](http://azure.microsoft.com/pricing/details/web-sites/)
 	
-	[Tarification - Sites Web - Connexions SSL](http://www.windowsazure.com/fr-fr/pricing/details/web-sites/#ssl-connections)
+	[Tarification - Sites Web - Connexions SSL](http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections)
 
 - Pour plus d'informations sur les meilleures pratiques liées à Sites Web Azure, notamment la création d'une architecture extensible et résiliente, consultez la page [Meilleures pratiques : Sites Web Azure](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
 - Vidéos sur la mise à l'échelle de Sites Web Azure :
 	
-	[Quand mettre à l'échelle Sites Web Azure - avec Stefan Schackow](http://www.windowsazure.com/fr-fr/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
+	[Quand mettre à l'échelle Sites Web Azure - avec Stefan Schackow](http://azure.microsoft.com/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
 	
-	[Mise à l'échelle automatique de Sites Web Azure, unité centrale ou planification - avec Stefan Schackow](http://www.windowsazure.com/fr-fr/documentation/videos/auto-scaling-azure-web-sites/)
+	[Mise à l'échelle automatique de Sites Web Azure, unité centrale ou planification - avec Stefan Schackow](http://azure.microsoft.com/documentation/videos/auto-scaling-azure-web-sites/)
 
-	[Mise à l'échelle de Sites Web Azure - avec Stefan Schackow](http://www.windowsazure.com/fr-fr/documentation/videos/how-azure-web-sites-scale/)
+	[Mise à l'échelle de Sites Web Azure - avec Stefan Schackow](http://azure.microsoft.com/documentation/videos/how-azure-web-sites-scale/)
 
 
 

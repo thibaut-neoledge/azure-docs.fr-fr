@@ -1,6 +1,20 @@
-﻿<properties title="FAQ for setting up and using the Machine Learning Recommendations API" pageTitle="Forum aux questions relatif à la configuration et à l'utilisation de l'API de Machine Learning Recommendations | Azure" description="API Microsoft RECOMMANDATIONS créée avec le FAQ sur Azure Machine Learning" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Forum aux questions relatif à la configuration et à l'utilisation de l'API de Machine Learning Recommendations | Azure" 
+	description="API Microsoft RECOMMANDATIONS créée avec le FAQ sur Azure Machine Learning" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2014" 
+	ms.author="jaymathe"/>  
 
 # Forum aux questions relatif à la configuration et à l'utilisation de l'API de Machine Learning Recommendations
 Version 1.0
@@ -88,7 +102,7 @@ Processus de mise à niveau d'un abonnement
 
 IMPORTANT : lisez attentivement la boîte de dialogue avant de mettre à niveau, car votre action aura des conséquences sur la facturation et l'utilisation du service.
 
-Cliquez [ici](http://msdn.microsoft.com/fr-fr/library/gg312164.aspx) pour plus d'informations sur les abonnements.
+Cliquez [ici](http://msdn.microsoft.com/library/gg312164.aspx) pour plus d'informations sur les abonnements.
 
 ###Quand mon abonnement à RECOMMENDATIONS prendra-t-il fin ?
 Votre abonnement prendra fin lorsque vous l'annulerez. Si vous souhaitez annuler vos abonnements, consultez les instructions ci-dessous.
@@ -143,3 +157,5 @@ Ce document ne vous accorde aucun droit légal à la propriété intellectuelle 
 (c) 2014 Microsoft. Tous droits réservés. 
 
 
+
+<!--HONumber=46--> 

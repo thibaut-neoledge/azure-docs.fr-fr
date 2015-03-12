@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Configure a Backup Vault" pageTitle="Configuration d'Azure Recovery Services pour sauvegarder facilement et rapidement Windows Server" metaKeywords="récupération d'urgence" description="Utilisez ce didacticiel pour découvrir comment utiliser le service Backup de l'offre cloud de Microsoft Azure pour sauvegarder Windows Server dans le cloud." metaCanonical="" services="recovery-services" documentationCenter="" title="Configure Azure Backup to quickly and easily back-up Windows Server" authors="markgal" solutions="" manager="johndaw" editor="tysonn" />
+﻿<properties 
+	pageTitle="Configuration d'Azure Recovery Services pour sauvegarder facilement et rapidement Windows Server" 
+	description="Utilisez ce didacticiel pour découvrir comment utiliser le service Backup de l'offre cloud de Microsoft Azure pour sauvegarder Windows Server dans le cloud." 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="markgalioto" 
+	manager="jwhit" 
+	editor="tysonn"/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="markgal" />
+<tags 
+	ms.service="site-recovery" 
+	ms.workload="backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="markgal"/>
 
 
 
@@ -61,8 +75,8 @@ Les informations d'identification de coffre remplacent les certificats pour l'in
 
 3. Dans la page de démarrage rapide, sélectionnez le type d'agent que vous souhaitez télécharger. Vous pouvez choisir **Télécharger l'agent Azure Backup**, **Windows Server et System Center Data Protection Manager**, ou **Windows Server Essentials**.  Pour plus d'informations, consultez les pages suivantes :
 
-	* [Installer l'agent Azure Backup pour Windows Server 2012 et System Center 2012 SP1 - Data Protection Manager](http://technet.microsoft.com/fr-fr/library/hh831761.aspx#BKMK_installagent)
-	* [Installer l'agent Azure Backup pour Windows Server 2012 Essentials](http://technet.microsoft.com/fr-fr/library/jj884318.aspx)
+	* [Installer l'agent Azure Backup pour Windows Server 2012 et System Center 2012 SP1 - Data Protection Manager](http://technet.microsoft.com/library/hh831761.aspx#BKMK_installagent)
+	* [Installer l'agent Azure Backup pour Windows Server 2012 Essentials](http://technet.microsoft.com/library/jj884318.aspx)
 
 Une fois l'agent installé, vous pouvez utiliser l'interface de gestion locale appropriée (telle que le composant logiciel enfichable Microsoft Management Console, la console System Center Data Protection Manager ou le tableau de bord Windows Server Essentials) pour configurer la stratégie de sauvegarde pour le serveur.
 	
@@ -101,3 +115,5 @@ Une fois l'agent installé, vous pouvez utiliser l'interface de gestion locale a
 [protected-itmes]: ./media/backup-configure-vault/RS_protecteditems.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Inscription de l'utilisateur actuel pour les notifications Push à l'aide d'un service mobile - concentrateurs de Notification" description="Découvrez comment demander l'inscription aux notifications Push dans une application iOS avec Azure Notification Hubs lorsque l'inscription est réalisée par Azure Mobile Services." services="mobile-services, notification-hubs" documentationCenter="" authors="ysxu" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Inscription de l'utilisateur actuel pour les notifications Push à l'aide d'un service mobile - concentrateurs de Notification" 
+	description="Découvrez comment demander l'inscription aux notifications Push dans une application iOS avec Azure Notification Hubs lorsque l'inscription est réalisée par Azure Mobile Services." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 
 # Inscription de l'utilisateur actif aux notifications Push à l'aide d'un service mobile
 

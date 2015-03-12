@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Service Bus Relay" pageTitle="Utilisation de Service Bus Relay (.NET) - Azure" metaKeywords="Prise en main d'Azure Service Bus Relay C# " description="Découvrez comment utiliser le service de relais Azure Service Bus pour connecter deux applications hébergées dans des emplacements différents." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Utilisation de Service Bus Relay (.NET) - Azure" 
+	description="Découvrez comment utiliser le service de relais Azure Service Bus pour connecter deux applications hébergées dans des emplacements différents." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -260,9 +274,11 @@ suivez ces liens pour en savoir plus.
   [Obtention du Package NuGet Service Bus]: #get_nuget_package
   [ Utilisation de Service Bus pour exposer et consommer un Service web SOAP avec TCP]: #how_soap
   [Portail de gestion Azure]: http://manage.windowsazure.com
-  [Authentification par signature d'accès partagé avec Service Bus]: http://msdn.microsoft.com/fr-fr/library/dn170477.aspx
-  [Génération d'un service pour Service Bus]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee173564.aspx
-  [Génération d'une application cliente Service Bus]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee173543.aspx
+  [Authentification par signature d'accès partagé avec Service Bus]: http://msdn.microsoft.com/library/dn170477.aspx
+  [Génération d'un service pour Service Bus]: http://msdn.microsoft.com/library/windowsazure/ee173564.aspx
+  [Génération d'une application cliente Service Bus]: http://msdn.microsoft.com/library/windowsazure/ee173543.aspx
   [Exemples Azure]: http://code.msdn.microsoft.com/windowsazure
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

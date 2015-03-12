@@ -1,6 +1,20 @@
-﻿<properties title="Use the sample datasets in Azure Machine Learning Studio" pageTitle="Utilisation des exemples de jeux de données dans Machine Learning Studio | Azure" description="Utilisation des exemples de jeux de données dans Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Utilisation des exemples de jeux de données dans Machine Learning Studio | Azure" 
+	description="Description des exemples de jeux de données inclus dans Azure Machine Learning Studio" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/16/2014" 
+	ms.author="garye"/>
 
 
 # Utilisation des exemples de jeux de données dans Azure Machine Learning Studio
@@ -338,3 +352,5 @@ Version sérialisée du premier conteneur passé entre les modules dans ML Studi
 </td>
 </tr>
 </table>
+
+<!--HONumber=46--> 

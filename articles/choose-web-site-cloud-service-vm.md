@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Comparaison entre Sites Web Azure, Azure Cloud Services et Azure Virtual Machines" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Découvrez quand utiliser les services Sites Web, Cloud Services et Virtual Machines Azure pour héberger des applications web." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="Azure Websites, Cloud Services, and Virtual Machines comparison" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
+﻿<properties 
+	pageTitle="Comparaison entre Sites Web Azure, Azure Cloud Services et Azure Virtual Machines" 
+	description="Découvrez quand utiliser les services Sites Web, Cloud Services et Virtual Machines Azure pour héberger des applications web." 
+	services="web-sites, virtual-machines, cloud-services" 
+	documentationCenter="" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="tdykstra"/>
 
 # Comparaison entre Sites Web Azure, Azure Cloud Services et Azure Virtual Machines
 
@@ -128,7 +142,7 @@ Les services web HTTP permettent de prendre en charge un large éventail de clie
 
 ##<a name="features"></a>Comparaison des fonctionnalités
 
-Le tableau suivant compare les fonctionnalités de Sites Web Azure, Azure Cloud Services et Azure Virtual Machines afin de vous aider dans votre choix. Pour obtenir des informations à jour sur le contrat SLA de chaque option, consultez la page des [contrats de niveau de service Azure].(/fr-fr/support/legal/sla/).
+Le tableau suivant compare les fonctionnalités de Sites Web Azure, Azure Cloud Services et Azure Virtual Machines afin de vous aider dans votre choix. Pour obtenir des informations à jour sur le contrat SLA de chaque option, consultez la page des [contrats de niveau de service Azure](/fr-fr/support/legal/sla/).
 
 <table cellspacing="0" border="1">
 <tr>
@@ -346,15 +360,17 @@ Pour choisir une ou plusieurs de ces options pour votre application, consultez l
   [Machines virtuelles]: http://go.microsoft.com/fwlink/?LinkID=306053
   [ClearDB]: http://www.cleardb.com/
   [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-  [Configuration d'un certificat SSL pour un site web Azure]: http://www.windowsazure.com/fr-fr/develop/net/common-tasks/enable-ssl-web-site/
-  [azurestore]: http://www.windowsazure.com/fr-fr/gallery/store/
-  [scripting]: http://www.windowsazure.com/fr-fr/documentation/scripts/?services=web-sites
-  [dotnet]: http://www.windowsazure.com/fr-fr/develop/net/
-  [nodejs]: http://www.windowsazure.com/fr-fr/develop/nodejs/
-  [PHP]: http://www.windowsazure.com/fr-fr/develop/php/
-  [Python]: http://www.windowsazure.com/fr-fr/develop/python/
-  [servicebus]: http://www.windowsazure.com/fr-fr/documentation/services/service-bus/
-  [sqldatabase]: http://www.windowsazure.com/fr-fr/documentation/services/sql-database/
-  [Storage]: http://www.windowsazure.com/fr-fr/documentation/services/storage/
+  [Configuration d'un certificat SSL pour un site web Azure]: http://azure.microsoft.com/develop/net/common-tasks/enable-ssl-web-site/
+  [azurestore]: http://azure.microsoft.com/gallery/store/
+  [scripting]: http://azure.microsoft.com/documentation/scripts/?services=web-sites
+  [dotnet]: http://azure.microsoft.com/develop/net/
+  [nodejs]: http://azure.microsoft.com/develop/nodejs/
+  [PHP]: http://azure.microsoft.com/develop/php/
+  [Python]: http://azure.microsoft.com/develop/python/
+  [servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
+  [sqldatabase]: http://azure.microsoft.com/documentation/services/sql-database/
+  [Storage]: http://azure.microsoft.com/documentation/services/storage/
 
 <!--HONumber=35.1-->
+
+<!--HONumber=46--> 

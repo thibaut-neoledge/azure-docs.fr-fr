@@ -9,4 +9,4 @@
 
 4. (Facultatif) Répétez les étapes 1 à 3 sur un autre appareil client en utilisant un autre compte lors de la connexion. Vérifiez que la notification est reçue seulement par les appareils qui s'authentifient avec le même compte d'utilisateur. 
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

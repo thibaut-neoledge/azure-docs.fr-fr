@@ -6,7 +6,7 @@ Pour plus d'informations sur les modèles de réception des concentrateurs d'év
 
 Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la commande " spout " des concentrateurs d'événements déjà disponible.
 
-1. Suivez la procédure [Prise en main de Storm avec HDInsight](http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-storm-getting-started/) pour créer un cluster HDInsight et le connecter par le biais du Bureau à distance.
+1. Suivez la procédure [Prise en main de Storm avec HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-storm-getting-started/) pour créer un cluster HDInsight et le connecter par le biais du Bureau à distance.
 
 2. Copiez le fichier `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` dans votre environnement de développement local. Il contient la commande events-storm-spout.
 
@@ -220,13 +220,14 @@ Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la comma
 	Cette classe crée une commande " spout " de concentrateurs d'événements en utilisant les propriétés du fichier de configuration pour l'instancier. Il est important de noter que cet exemple crée autant de tâches " spout " que le nombre de partitions dans le concentrateur d'événements, afin d'utiliser le parallélisme maximal autorisé par ce concentrateur d'événements.
 
 <!-- Links -->
-[Vue d'ensemble des concentrateurs d'événements]: http://msdn.microsoft.com/fr-fr/library/azure/dn821413.aspx
-[HDInsight Storm]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-storm-overview/
-[Didacticiel Analyse des données de capteur dans HDInsight]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[Vue d'ensemble des concentrateurs d'événements]: http://msdn.microsoft.com/library/azure/dn821413.aspx
+[HDInsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
+[Didacticiel Analyse des données de capteur dans HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 
 <!-- Images -->
 
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.pn.
+
 <!--HONumber=42-->

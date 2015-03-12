@@ -147,7 +147,7 @@ Dans une application réelle, on crée généralement des comptes distincts pour
  
 	Ce fichier contient des chaînes de connexion SQL et de stockage Azure pour utiliser des objets blob et des files d'attente. 
 
-	La chaîne de connexion SQL pointe vers une base de données [SQL Server Express LocalDB](http://msdn.microsoft.com/fr-fr/library/hh510202.aspx).
+	La chaîne de connexion SQL pointe vers une base de données [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx).
  
 	La chaîne de connexion de stockage est un exemple qui comporte des espaces réservés pour la clé d'accès et le nom du compte stockage. Vous la remplacerez par une chaîne de connexion qui comporte le nom et la clé de votre compte de stockage.  
 
@@ -652,7 +652,7 @@ Un code similaire obtient une référence à la file d'attente  *images*.
 		queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesQueue = queueClient.GetQueueReference("blobnamerequest");
 
-La plupart du code du contrôleur permet généralement d'utiliser un modèle de données Entity Framework en utilisant une classe DbContext. La méthode HttpPost  `Create` est une exception, car elle télécharge un fichier et l'enregistre dans le stockage d'objets blob. Le classeur de modèles fournit un objet [HttpPostedFileBase](http://msdn.microsoft.com/fr-fr/library/system.web.httppostedfilebase.aspx) à la méthode.
+La plupart du code du contrôleur permet généralement d'utiliser un modèle de données Entity Framework en utilisant une classe DbContext. La méthode HttpPost  `Create` est une exception, car elle télécharge un fichier et l'enregistre dans le stockage d'objets blob. Le classeur de modèles fournit un objet [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) à la méthode.
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]

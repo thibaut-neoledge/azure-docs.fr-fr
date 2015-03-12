@@ -1,6 +1,20 @@
-﻿<properties title="Monitor and manage Azure Data Factory using Azure PowerShell" pageTitle="Surveillance et gestion d'Azure Data Factory à l'aide d'Azure PowerShell" description="Découvrez comment utiliser Azure PowerShell pour analyser et gérer les fabriques de données Azure que vous avez créées." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Surveillance et gestion d'Azure Data Factory à l'aide d'Azure PowerShell" 
+	description="Découvrez comment utiliser Azure PowerShell pour analyser et gérer les fabriques de données Azure que vous avez créées." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Surveillance et gestion d'Azure Data Factory à l'aide d'Azure PowerShell
 Le tableau suivant répertorie les applets de commande vous pouvez utiliser pour surveiller et gérer des fabriques de données Azure à l'aide d'Azure PowerShell. 
@@ -411,3 +425,5 @@ Article | Description
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

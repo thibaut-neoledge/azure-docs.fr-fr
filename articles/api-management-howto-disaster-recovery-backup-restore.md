@@ -1,6 +1,20 @@
-<properties pageTitle="How to implement disaster recovery using service backup and restore in Azure API Management" metaKeywords="" description="Learn how to use backup and restore to perform disaster recovery in Azure API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="How to implement disaster recovery using service backup and restore in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure" 
+	description="Apprenez à utiliser la sauvegarde et la restauration pour effectuer une récupération d'urgence dans Gestion des API Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
 
@@ -81,7 +95,9 @@ La récupération est une opération de longue durée qui peut prendre jusqu'à 
 -   Le **niveau** du service à récupérer **doit correspondre** à celui du service sauvegardé utilisé pour la récupération.
 -   Les **modifications** de configuration du service (par ex., API, stratégies, apparence du portail des développeurs) pendant qu'une opération de sauvegarde est en cours **peuvent être écrasées**.
 
-  [Authentification des demandes Gestionnaire de ressources Azure]: http://msdn.microsoft.com/fr-fr/library/dn790557.aspx
+  [Authentification des demandes Gestionnaire de ressources Azure]: http://msdn.microsoft.com/library/dn790557.aspx
   [Sauvegarde d'un service Gestion des API]: #step1
   [Récupération d'un service Gestion des API]: #step2
-  [API REST de Gestion des API Azure]: http://msdn.microsoft.com/fr-fr/library/azure/dn781421.aspx
+  [API REST de Gestion des API Azure]: http://msdn.microsoft.com/library/azure/dn781421.aspx
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties title="Binary Classifier" pageTitle="Classifieur binaire | Azure" description="Classifieur binaire" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Classifieur binaire | Azure" 
+	description="Classifieur binaire" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/13/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/> 
 
 
 
@@ -61,7 +75,7 @@ Il existe plusieurs façons d'utiliser le service de manière automatique ([voic
 
 
 #Création du service web  
->Ce service web a été créé à l'aide d'Azure ML. Pour un essai gratuit, ainsi que des vidéos de présentation concernant la création d'expériences et [la publication de services web](http://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consultez [azure.com/ml](http://azure.com/ml). La capture d'écran ci-dessous présente l'expérience qui a créé le service web et le code d'exemple de chaque module de l'expérience.
+>Ce service web a été créé à l'aide d'Azure ML. Pour un essai gratuit, ainsi que des vidéos de présentation concernant la création d'expériences et [la publication de services web](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consultez [azure.com/ml](http://azure.com/ml). La capture d'écran ci-dessous présente l'expérience qui a créé le service web et le code d'exemple de chaque module de l'expérience.
 
 À partir d'Azure ML, une nouvelle expérience vide a été créée et deux modules " Exécuter le script R " ont été importés dans l'espace de travail. Ce service web exécute une expérience Azure Machine Learning avec un script R sous-jacent.  Cette expérience comprend 2 parties : la définition du schéma et le modèle d'apprentissage + l'évaluation.  Le premier module définit la structure attendue du jeu de données en entrée, où la première variable correspond à la variable dépendante et les autres variables sont indépendantes. Le deuxième module correspond à un modèle de régression logistique générique pour les données en entrée.    
 
@@ -85,7 +99,9 @@ Il existe plusieurs façons d'utiliser le service de manière automatique ([voic
 Il s'agit d'un exemple très simple de service web de classification binaire. Comme illustré dans l'exemple de code ci-dessus, aucune interception des erreurs n'est implémentée et le service suppose que tout correspond à une variable binaire/continue (aucune fonctionnalité de catégorie n'est autorisée) dans la mesure où le service entre uniquement des valeurs numériques au moment de la création de ce service web. En outre, le service gère actuellement une limite de taille pour les données, en raison de la nature de demande/réponse de l'appel de service web et du fait que le modèle est adapté chaque fois que le service web est appelé. 
 
 ##Forum Aux Questions
-Pour les Questions fréquemment posées relatives à l'utilisation du service web ou à la publication sur Marketplace, consultez [ce lien](http://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-marketplace-faq).
+Pour les Questions fréquemment posées relatives à l'utilisation du service web ou à la publication sur Marketplace, consultez [ce lien](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-binary-classifier/binary1.png
 [2]: ./media/machine-learning-r-csharp-binary-classifier/binary2.png
+
+<!--HONumber=46--> 

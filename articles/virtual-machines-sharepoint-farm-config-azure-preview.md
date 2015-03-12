@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Informations de configuration de la batterie de serveurs SharePoint" 
 	description="Décrit la configuration par défaut des batteries de serveurs SharePoint" 
 	services="virtual-machines" 
@@ -26,7 +26,7 @@ Avec la batterie de serveurs SharePoint, la version préliminaire du portail Mic
 
 Les sections suivantes fournissent des informations de configuration pour chaque batterie.
 
-Pour plus d'informations, consultez [Batterie de serveurs SharePoint](../virtual-machines-sharepoint-farm-azure-preview/)
+Pour plus d'informations, consultez [Batterie de serveurs SharePoint](../virtual-machines-sharepoint-farm-azure-preview/).
 
 ##Batterie de serveurs SharePoint de base##
 
@@ -125,4 +125,6 @@ Voici les informations de configuration :
 
 [SharePoint sur les services d'infrastructure Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-<!--HONumber=45--> 
+
+
+<!--HONumber=42-->

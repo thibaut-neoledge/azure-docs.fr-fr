@@ -8,7 +8,7 @@
 
 3. Si ce n'est pas déjà fait, téléchargez et installez [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) ou une version ultérieure.
 
-4. Cliquez sur **Télécharger** sous **Télécharger et publier votre service dans le cloud**.
+4. Sous **Télécharger et publier votre service dans le cloud**, cliquez sur **Télécharger**.
 
 	Cela permet de télécharger le projet Visual Studio qui implémente votre service mobile. Enregistrez le fichier projet compressé sur votre ordinateur local et notez l'emplacement où vous l'avez enregistré.
 
@@ -27,4 +27,4 @@
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Kit de développement logiciel (SDK) Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

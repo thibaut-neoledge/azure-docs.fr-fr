@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Inscription pour l'authentification unique - Azure Mobile Services" description="Découvrez comment vous inscrire pour l'authentification unique dans votre application Azure Mobile Services." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Inscription pour l'authentification unique - Azure Mobile Services" 
+	description="Découvrez comment vous inscrire pour l'authentification unique dans votre application Azure Mobile Services." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Inscription de vos applications Windows Store pour utiliser l'authentification unique Windows Live Connect
 

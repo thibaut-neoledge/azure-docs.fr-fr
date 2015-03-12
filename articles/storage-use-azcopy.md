@@ -425,7 +425,7 @@ Les exemples ci-dessous démontrent différents scénarios de copie d'objets blo
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-Pour plus d'informations sur l'utilisation de vos clés d'accès de stockage, consultez [afficher, copier et régénérer les clés d'accès de stockage]( http://azure.microsoft.com/fr-FR/documentation/articles/storage-create-storage-account/#regeneratestoragekeys).
+Pour plus d'informations sur l'utilisation de vos clés d'accès de stockage, consultez [afficher, copier et régénérer les clés d'accès de stockage]( http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#regeneratestoragekeys).
 
 ### Copie d'un objet blob via une copie côté serveur
 
@@ -885,9 +885,9 @@ Pour plus d'informations sur Azure Storage et AzCopy, consultez les ressources s
 
 ### Documentation d'Azure Storage :
 
-- [Introduction à Azure Storage](http://azure.microsoft.com/fr-FR/documentation/articles/storage-introduction/)
-- [Stockage des fichiers dans le stockage d'objets blob](http://azure.microsoft.com/fr-FR/documentation/articles/storage-dotnet-how-to-use-blobs/)
-- [Création d'un partage de fichiers SMB dans Azure avec le stockage de fichiers](http://azure.microsoft.com/fr-FR/documentation/articles/storage-dotnet-how-to-use-files/)
+- [Introduction à Azure Storage](http://azure.microsoft.com/documentation/articles/storage-introduction/)
+- [Stockage des fichiers dans le stockage d'objets blob](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/)
+- [Création d'un partage de fichiers SMB dans Azure avec le stockage de fichiers](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files/)
 
 ### Billets de blog Azure Storage :
 - [AzCopy : Présentation de la copie synchrone et du type de contenu personnalisé] (http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
@@ -900,4 +900,4 @@ Pour plus d'informations sur Azure Storage et AzCopy, consultez les ressources s
 - [AzCopy : Chargement/téléchargement des fichiers pour les objets blob Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

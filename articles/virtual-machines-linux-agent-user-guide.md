@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Guide d'utilisation de l'agent Linux pour Azure" 
 	description="Apprenez à installer et à configurer l'agent Linux (waagent) pour gérer l'interaction de votre machine virtuelle avec le contrôleur de structure Azure." 
 	services="virtual-machines" 
@@ -20,9 +20,9 @@
 
 
 
-# Guide d'utilisation de l'agent Linux Azure
+#Guide d'utilisation de l'agent Linux Azure
 
-## Introduction
+##Introduction
 
 L'agent Linux Azure (waagent) gère l'interaction entre la machine virtuelle et le contrôleur de structure Azure. Il effectue les opérations suivantes :
 
@@ -54,14 +54,14 @@ Le flux d'informations de la plateforme à l'agent se produit via deux canaux :
 
 * Un point de terminaison TCP qui expose une API REST utilisée pour obtenir la configuration du déploiement et de la topologie.
 
-### Obtention de l'agent Linux
+###Obtention de l'agent Linux
 Vous pouvez obtenir l'agent Linux le plus récent directement :
 
 - [auprès des différents fournisseurs de distribution approuvés Linux sur Azure ;](http://support.microsoft.com/kb/2805216)
 - ou sur le [référentiel Open Source Github pour l'agent Linux Azure](https://github.com/WindowsAzure/WALinuxAgent)
 
 
-### Distributions de Linux prises en charge
+###Distributions de Linux prises en charge
 * CoreOS
 * CentOS 6.2+
 * Debian 7.0+
@@ -75,7 +75,7 @@ Autres systèmes pris en charge :
 * FreeBSD 9+ (WALinuxAgent v2.0.0+)
 
 
-### Configuration requise
+###Configuration requise
 
 Waagent repose sur certains packages système pour fonctionner correctement :
 
@@ -87,7 +87,7 @@ Waagent repose sur certains packages système pour fonctionner correctement :
 * Outils de traitement de texte : sed, grep
 * Outils réseau : ip-route
 
-## Installation
+##Installation
 
 L'installation à l'aide d'un package RPM ou DEB à partir de votre référentiel de packages de distribution est la méthode privilégiée pour installer et mettre à niveau l'agent Linux Azure.
 
@@ -99,14 +99,14 @@ En cas d'installation manuelle, waagent doit être copié sur /usr/sbin/waagent 
 Le fichier journal de l'agent est conservé sur /var/log/waagent.log.
 
 
-## Options de la ligne de commande
+##Options de la ligne de commande
 
-### Indicateurs
+###Indicateurs
 
 - verbose: accroît le niveau de détail de la commande spécifiée.
 - force : ignore la confirmation interactive de certaines commandes.
 
-### Commandes
+###Commandes
 
 - help: répertorie les commandes et les indicateurs pris en charge.
 
@@ -121,7 +121,7 @@ Le fichier journal de l'agent est conservé sur /var/log/waagent.log.
 
  * Détecte la version du noyau et applique la solution de contournement VNUMA si nécessaire.
 
- * Déplace les règles udev qui peuvent interférer avec la mise en réseau (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) sur /var/lib/waagent/.  
+ * Déplace les règles udev pouvant interférer avec la mise en réseau (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) vers /var/lib/waagent/  
 
 - uninstall : supprime waagent et les fichiers associés.
  * Annule l'enregistrement du script init du système et le supprime.
@@ -156,7 +156,7 @@ Le fichier journal de l'agent est conservé sur /var/log/waagent.log.
 - daemon : exécute waagent en tant que démon afin de gérer l'interaction avec la plateforme.
    Cet argument est spécifié à waagent dans le script waagent init.
 
-## Configuration
+##Configuration
 
 Un fichier de configuration (/etc/waagent.conf) contrôle les actions de waagent. 
 Un exemple de fichier de configuration est affiché ci-dessous :
@@ -199,14 +199,14 @@ Si le chemin d'un programme exécutable est spécifié, il est appelé lorsque w
 Type : String  
 Par défaut : Aucun
 
-Si le chemin d'un programme exécutable est spécifié, le programme est appelé lorsque la structure signale qu'un fichier de configuration est disponible pour la machine virtuelle. Le chemin du fichier de configuration XML est fourni en tant qu'argument à l'exécutable. Il peut être appelé chaque fois que le fichier de configuration est modifié. Un exemple de fichier est fourni dans l'Annexe. Le chemin actuel de ce fichier est /var/lib/waagent/HostingEnvironmentConfig.xml.
+Si le chemin d'un programme exécutable est spécifié, le programme est appelé lorsque la structure signale qu'un fichier de configuration est disponible pour la machine virtuelle. Le chemin du fichier de configuration XML est fourni en tant qu'argument à l'exécutable. Il peut être appelé chaque fois que le fichier de configuration est modifié. Un exemple de fichier est fourni dans l'Annexe. Le chemin d'accès actuel de ce fichier est /var/lib/waagent/HostingEnvironmentConfig.xml.
 
 **Role.TopologyConsumer :**
 
 Type : String  
 Par défaut : Aucun
 
-Si le chemin d'un programme exécutable est spécifié, le programme est appelé lorsque la structure signale qu'une nouvelle configuration de topologie de réseau est disponible pour la machine virtuelle. Le chemin du fichier de configuration XML est fourni en tant qu'argument à l'exécutable. Il peut être appelé chaque fois que la topologie de réseau est modifiée (en raison d'une réparation du service par exemple). Un exemple de fichier est fourni dans l'Annexe. Le chemin actuel de ce fichier est /var/lib/waagent/SharedConfig.xml.
+Si le chemin d'un programme exécutable est spécifié, le programme est appelé lorsque la structure signale qu'une nouvelle configuration de topologie de réseau est disponible pour la machine virtuelle. Le chemin du fichier de configuration XML est fourni en tant qu'argument à l'exécutable. Il peut être appelé chaque fois que la topologie de réseau est modifiée (en raison d'une réparation du service par exemple). Un exemple de fichier est fourni dans l'Annexe. L'emplacement actuel de ce fichier est /var/lib/waagent/SharedConfig.xml.
 
 **Provisioning.Enabled :**
 
@@ -264,7 +264,7 @@ Cette commande spécifie le type de système de fichiers pour le disque de resso
 Type : String  
 Par défaut : /mnt/resource 
 
-Cette commande spécifie le chemin où le disque de ressources est monté. Notez que le disque de ressources est un disque *temporary* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle.
+Cette commande spécifie le chemin où le disque de ressources est monté. Notez que le disque de ressources est un disque  *temporary* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle.
 
 **ResourceDisk.EnableSwap :**
 
@@ -308,9 +308,9 @@ Par défaut : Aucun
 
 Cette commande sert à spécifier un autre chemin pour les données binaires openssl à utiliser pour les opérations de chiffrement.
 
-## Annexe
+##Annexe
 
-### Exemple de fichier de configuration de rôle
+###Exemple de fichier de configuration de rôle
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<HostingEnvironmentConfig version="1.0.0.0" goalStateIncarnation="1">
@@ -342,7 +342,7 @@ Cette commande sert à spécifier un autre chemin pour les données binaires ope
 	    </ResourceReferences>
 	  </HostingEnvironmentConfig>
 
-### Exemple de fichier de topologie de rôle
+###Exemple de fichier de topologie de rôle
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<SharedConfig version="1.0.0.0" goalStateIncarnation="2">
@@ -419,4 +419,7 @@ Cette commande sert à spécifier un autre chemin pour les données binaires ope
 	  </Instances>
 	</SharedConfig>
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

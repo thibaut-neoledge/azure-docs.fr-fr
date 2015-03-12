@@ -298,7 +298,7 @@ Dans le cas des tâches d'exportation, vous pouvez afficher et copier les clés 
 
 	> [AZURE.IMPORTANT] Notez que le support physique que vous expédiez devra peut-être franchir des frontières. Vous êtes responsable de l'application des lois applicables lorsque vous importez et/ou exportez vos données et supports physiques. Avant d'expédier le support physique, demandez à vos conseillers juridiques de vérifier que vos supports multimédias et données peuvent être envoyés légalement vers le centre de données identifié. Cela vous assurera d'atteindre Microsoft dans les délais.
 
-- Lorsque vous expédiez vos colis, vous devez respecter les [conditions d'utilisation des services Microsoft Azure](http://azure.microsoft.com/fr-FR/support/legal/services-terms/). 
+- Lorsque vous expédiez vos colis, vous devez respecter les [conditions d'utilisation des services Microsoft Azure](http://azure.microsoft.com/support/legal/services-terms/). 
 
 **Est-il possible d'acheter des lecteurs auprès de Microsoft pour des tâches d'importation/exportation ?**
 
@@ -314,4 +314,4 @@ Dans le cas des tâches d'exportation, vous pouvez afficher et copier les clés 
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

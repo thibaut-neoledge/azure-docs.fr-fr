@@ -26,7 +26,7 @@ Découvrez comment utiliser et développer une solution utilisant un cluster Sto
 
 * Un abonnement Azure
 
-* Visual Studio avec le [Kit de développement logiciel (SDK) Microsoft Azure pour .NET](http://azure.microsoft.com/fr-fr/downloads/archive-net-downloads/)
+* Visual Studio avec le [Kit de développement logiciel (SDK) Microsoft Azure pour .NET](http://azure.microsoft.com/downloads/archive-net-downloads/)
 
 * [Java et JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
@@ -1347,7 +1347,7 @@ Vous avez à présent appris à utiliser Storm pour lire des données à partir 
 
 * Pour plus d'informations sur Apache Storm, consultez la page [https://storm.incubator.apache.org/](https://storm.incubator.apache.org/)
 
-* Pour plus d'informations sur HBase avec HDInsight, consultez la [Présentation de HBase avec HDInsight](http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-hbase-overview/)
+* Pour plus d'informations sur HBase avec HDInsight, consultez la [Présentation de HBase avec HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-hbase-overview/)
 
 * Pour plus d'informations sur SignalR, consultez [ASP.NET SignalR](http://signalr.net/).
 
@@ -1356,5 +1356,4 @@ Vous avez à présent appris à utiliser Storm pour lire des données à partir 
 * Pour plus d'informations sur la création de topologies dans .NET, consultez la page [Développement d'applications de traitement des données de diffusion avec SCP.NET et C# sur Storm dans HDInsight](/fr-fr/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application)
 
 [azure-portal]: https://manage.windowsazure.com/
-
 <!--HONumber=42-->

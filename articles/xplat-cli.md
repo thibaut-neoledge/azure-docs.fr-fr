@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="Interface de ligne de commande interplateforme Azure" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Installation et configuration de l'interface en ligne de commande interplateforme Azure pour gérer Azure Services" metaCanonical="http://www.windowsazure.com/fr-fr/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="need to identify contact" documentationCenter="" solutions="" authors="carolz" services="" />
+﻿<properties 
+	pageTitle="Interface de ligne de commande interplateforme Azure" 
+	description="Installation et configuration de l'interface en ligne de commande interplateforme Azure pour gérer Azure Services" 
+	editor="tysonn" 
+	manager="timlt" 
+	documentationCenter="" 
+	authors="squillace" 
+	services=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/16/2015" 
+	ms.author="rasquill"/>
 
 #Installation et configuration de l'interface de ligne de commande interplateforme Azure
 
@@ -389,15 +403,17 @@ Si vous écrivez un script qui dépend de l'état de sortie, vérifiez que les c
 
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
-[authandsub]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
+[authandsub]: http://msdn.microsoft.com/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
 
 [Site Web Azure]: ../media/freetrial.png
 [sélectionner une fonctionnalité préliminaire]: ../media/antares-iaas-preview-02.png
 [sélectionner l'abonnement]: ../media/antares-iaas-preview-03.png
-[free-trial]: http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A7171371E
+[free-trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A7171371E
 [advanced-bash]: http://tldp.org/LDP/abs/html/
 [script]: http://en.wikipedia.org/wiki/Shell_script
-[batch]: http://technet.microsoft.com/fr-fr/library/bb490890.aspx
+[batch]: http://technet.microsoft.com/library/bb490890.aspx
 [xplatarm]: /fr-fr/documentation/articles/xplat-cli-azure-resource-manager/
 [portail]: https://manage.windowsazure.com
-[signuporg]: http://www.windowsazure.com/fr-fr/documentation/articles/sign-up-organization/
+[signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
+
+<!--HONumber=46--> 

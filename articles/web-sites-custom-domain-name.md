@@ -77,7 +77,7 @@ Ignorez cette étape si vous créez un enregistrement CNAME. Pour créer un enre
 
 1.	Dans votre navigateur, ouvrez le [Portail de gestion Azure](https://manage.windowsazure.com).
 2.	Sous l'onglet **Sites Web**, cliquez sur le nom de votre site et sélectionnez **Tableau de bord**.
-3.	Cliquez sur **Gérer les domaines** en bas de la page. (Si cette option est désactivée, assurez-vous d'utiliser le mode Partagé, De base ou Standard. Pour plus d'informations, consultez la page [Mise à l'échelle de sites Web](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-scale/).) 
+3.	Cliquez sur **Gérer les domaines** en bas de la page. (Si cette option est désactivée, assurez-vous d'utiliser le mode Partagé, De base ou Standard. Pour plus d'informations, consultez la page [Mise à l'échelle de sites Web](http://azure.microsoft.com/documentation/articles/web-sites-scale/).) 
 
 	![](media/web-sites-custom-domain-name/dncmntask-cname-6.png)
 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Prise en main de l'authentification (HTML 5) | Centre de développement mobile" description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application HTML via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Prise en main de l'authentification (HTML 5) | Centre de développement mobile" 
+	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application HTML via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-html" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="glenga"/>
 
 # Ajout d'une authentification à votre application Mobile Services 
 
@@ -121,7 +135,8 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [5]: ./media/mobile-services-html-get-started-users/mobile-service-uri.png
 [13]: ./media/mobile-services-html-get-started-users/mobile-identity-tab.png
 [14]: ./media/mobile-services-html-get-started-users/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-html-get-started-users/mobile-portal-change-table-perms.png
+[15]: ./media/mobile-services-html-get-started-users/mobile-portal-change-table-per
+	ms.png
 
 <!-- URLs. -->
 [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-html-get-started
@@ -130,7 +145,6 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Guide de fonctionnement de Mobile Services avec HTML/JavaScript]: /fr-fr/documentation/articles/mobile-services-html-how-to-use-client-library
-
 
 
 <!--HONumber=42-->

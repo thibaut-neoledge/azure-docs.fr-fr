@@ -16,7 +16,7 @@
 
 - Le stockage géo-redondant avec accès en lecture (RA-GRS) offre tous les avantages du stockage géo-redondant indiqués plus haut, mais il autorise également l'accès en lecture aux données dans la région secondaire si la région principale devient indisponible. Le stockage géo-redondant avec accès en lecture est recommandé pour bénéficier d'une disponibilité maximale en plus de la durabilité.  
 
-Pour plus d'informations sur les options de réplication, consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/) et la page [Options de redondance d'Azure Storage](http://msdn.microsoft.com/fr-fr/library/azure/dn727290.aspx).
+Pour plus d'informations sur les options de réplication, consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/) et la page [Options de redondance d'Azure Storage](http://msdn.microsoft.com/library/azure/dn727290.aspx).
 	
 Les prix des différentes options de réplication sont disponibles sur la page [Tarification et stockage](/fr-fr/pricing/details/storage/).
-<!--HONumber=41-->
+<!--HONumber=42-->

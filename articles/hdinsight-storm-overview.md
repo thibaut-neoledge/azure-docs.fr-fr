@@ -148,5 +148,4 @@ L'exemple [RollingTopWords](https://github.com/nathanmarz/storm-starter/blob/mas
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [poweredby]: https://storm.incubator.apache.org/documentation/Powered-By.html
 [gettingstarted]: /fr-fr/documentation/articles/hdinsight-storm-getting-started
-
 <!--HONumber=42-->

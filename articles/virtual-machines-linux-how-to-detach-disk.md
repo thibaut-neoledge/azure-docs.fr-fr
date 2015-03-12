@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Détachement d'un disque d'une machine virtuelle Linux dans Azure" 
 	description="Apprenez à détacher un disque de données d'une machine virtuelle Azure." 
 	services="virtual-machines" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="10/31/2014" 
 	ms.author="kathydav"/>
 
 
@@ -21,4 +21,6 @@
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../includes/howto-detach-disk-windows-linux.md)]
 
-<!--HONumber=45--> 
+
+
+<!--HONumber=42-->

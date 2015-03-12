@@ -168,7 +168,7 @@ Maintenant que vous avez acquis les bases du stockage de tables, suivez ces lien
   [Procédure : Interrogation d'un sous-ensemble de propriétés d'entité]: #query-entity-properties
   [Procédure : Suppression d'une entité]: #delete-entity
   [Procédure : Suppression d'une table]: #delete-table
-  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-FR/library/windowsazure/gg433040.aspx
+  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Visitez le blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

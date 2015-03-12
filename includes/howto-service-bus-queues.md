@@ -68,7 +68,7 @@ Afin d'effectuer des opérations de gestion, comme la création d'une file d'att
 
 ###Pour obtenir les informations de gestion de l'Explorateur de serveurs
 
-Pour obtenir des informations de connexion à l'aide de Visual Studio au lieu du portail de gestion, suivez la procédure décrite [ici](http://http://msdn.microsoft.com/fr-fr/library/windowsazure/ff687127.aspx), dans la section intitulée **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l'arborescence **Microsoft Azure** dans l'Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Propriétés** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s'affichent dans le volet **Propriétés** de Visual Studio. 
+Pour obtenir des informations de connexion à l'aide de Visual Studio au lieu du portail de gestion, suivez la procédure décrite [ici](http://http://msdn.microsoft.com/library/windowsazure/ff687127.aspx), dans la section intitulée **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l'arborescence **Microsoft Azure** dans l'Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Propriétés** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s'affichent dans le volet **Propriétés** de Visual Studio. 
 
 Notez la valeur **SharedAccessKey** u copiez-la dans le Presse-papiers :
 
@@ -78,5 +78,4 @@ Notez la valeur **SharedAccessKey** u copiez-la dans le Presse-papiers :
   [Portail de gestion Azure]: http://manage.windowsazure.com
 
   [34]: ./media/howto-service-bus-queues/VSProperties.png
-
 <!--HONumber=42-->

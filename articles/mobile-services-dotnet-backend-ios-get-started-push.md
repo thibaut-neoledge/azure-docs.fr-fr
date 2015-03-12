@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Prise en main des notifications Push (iOS) | Centre de développement mobile" description="Découvrez comment utiliser Azure Mobile Services pour envoyer des notifications Push à votre application iOS." services="mobile-services, notification-hubs" documentationCenter="ios" manager="dwrede" editor="" authors="krisragh"/>
+﻿<properties 
+	pageTitle="Prise en main des notifications Push (iOS) | Centre de développement mobile" 
+	description="Découvrez comment utiliser Azure Mobile Services pour envoyer des notifications Push à votre application iOS." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="ios" 
+	manager="dwrede" 
+	editor="" 
+	authors="krisragh"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="12/15/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="12/15/2014" 
+	ms.author="krisragh"/>
 
 
 # Ajout de notifications push à votre application Mobile Services

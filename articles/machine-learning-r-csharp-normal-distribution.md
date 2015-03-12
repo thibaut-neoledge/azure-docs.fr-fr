@@ -1,6 +1,20 @@
-﻿<properties title="Normal Distribution Web Service Suite" pageTitle="Suite de services web de distribution normale | Azure" description="Suite de services web de distribution normale" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Suite de services web de distribution normale | Azure" 
+	description="Suite de services web de distribution normale" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/>  
 
 #Suite de services web de distribution normale
 
@@ -87,7 +101,7 @@ Il existe plusieurs manières de consommer le service de manière automatique (e
 	}
 
 ##Création du service web 
->Ce service web a été créé à l'aide d'Azure ML. Pour un essai gratuit, ainsi que des vidéos d'introduction sur la création d'expériences et la [publication de services web](http://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consultez [azure.com/ml](http://azure.com/ml). 
+>Ce service web a été créé à l'aide d'Azure ML. Pour un essai gratuit, ainsi que des vidéos d'introduction sur la création d'expériences et la [publication de services web](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consultez [azure.com/ml](http://azure.com/ml). 
 
 Voici une capture d'écran de l'expérience qui a créé le service web et l'exemple de code pour chacun des modules dans l'expérience.
 
@@ -173,9 +187,11 @@ Flux d'expérience
 Il s'agit d'exemples très simples en rapport avec la distribution normale. Comme illustré dans l'exemple de code ci-dessus, l'interception des erreurs est mise œuvre de façon limitée.
 
 ##Forum Aux Questions
-Pour les Questions fréquemment posées relatives à l'utilisation du service web ou à la publication sur Marketplace, consultez [ce lien](http://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-marketplace-faq).
+Pour les Questions fréquemment posées relatives à l'utilisation du service web ou à la publication sur Marketplace, consultez [ce lien](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-normal-distribution/normal-img1.png
 [2]: ./media/machine-learning-r-csharp-normal-distribution/normal-img2.png
 [3]: ./media/machine-learning-r-csharp-normal-distribution/normal-img3.png
 [4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
+
+<!--HONumber=46--> 

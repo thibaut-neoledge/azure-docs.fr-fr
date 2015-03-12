@@ -1,6 +1,20 @@
-﻿<properties title="Common operations in the Machine Learning Recommendations API" pageTitle="Opérations courantes dans l'API de Machine Learning Recommendations | Azure" description="Exemple d'application Azure ML Recommendation" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Opérations courantes dans l'API de Machine Learning Recommendations | Azure" 
+	description="Exemple d'application Azure ML Recommendation" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/14/2014" 
+	ms.author="jaymathe"/> 
 
 
 # Opérations courantes dans l'API de Machine Learning Recommendations
@@ -78,3 +92,5 @@ Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. Au
 Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence. 
 (c) 2014 Microsoft. Tous droits réservés. 
 
+
+<!--HONumber=46--> 

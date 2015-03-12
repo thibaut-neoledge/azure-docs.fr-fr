@@ -1,6 +1,20 @@
-﻿<properties title="Interact with DocumentDB resources" pageTitle="Interaction avec les ressources DocumentDB | Azure" description="DocumentDB propose des Kits de développement logiciel (SDK) client pour .NET, Python, Node.js et JavaScript qui sont de simples wrappers sur les API REST sous-jacentes." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Interactions RESTful avec les ressources DocumentDB | Azure" 
+	description="Apprenez à effectuer des interactions RESTful avec les ressources Microsoft Azure DocumentDB à l'aide de verbes HTTP." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="mimig"/>
 
 #Interaction avec les ressources DocumentDB 
 DocumentDB fournit un modèle de programmation RESTful simple et ouvert sur HTTP. Dans sa version préliminaire, DocumentDB propose des Kits de développement logiciel (SDK) clients pour .NET, Python, Node.js et JavaScript qui sont de simples wrappers sur les API REST sous-jacentes. Dans les prochaines versions, des Kits de développement logiciel (SDK) seront également proposés pour C++ et Java. Nous vous encourageons à écrire vos propres Kits de développement logiciel (SDK) adaptés à votre environnement de programmation spécifique et à le partager avec la communauté dans la mesure où nos propres Kits de développement logiciel (SDK) sont ouverts à tous. 
@@ -334,3 +348,5 @@ DocumentDB expose un modèle d'adressage logique où chaque ressource a un URI s
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources1.png
 [2]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
+
+<!--HONumber=46--> 

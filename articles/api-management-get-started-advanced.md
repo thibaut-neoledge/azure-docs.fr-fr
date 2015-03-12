@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Prise en main de la configuration avancée du service Azure API Management" metaKeywords="" description="Découvrez comment suivre les appels, configurer les limites de débit et les stratégies de quota et comment personnaliser le portail des développeurs." metaCanonical="" services="api-management" documentationCenter="API Management" title="Get started with advanced Azure API Management configuration" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Prise en main de la configuration avancée du service Gestion des API Azure" 
+	description="Découvrez comment suivre les appels, configurer les limites de débit et les stratégies de quota et comment personnaliser le portail des développeurs." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Prise en main de la configuration avancée du service Azure API Management
 
@@ -22,3 +36,5 @@ Les didacticiels de cette section fournissent les consignes pour la configuratio
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

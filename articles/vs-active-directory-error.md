@@ -1,6 +1,20 @@
-<properties title="Error During Authentication Detection" pageTitle="Erreur lors de la détection de l'authentification" metaKeywords="" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="Erreur lors de la détection de l'authentification" 
+	description="L'Assistant de connexion Active Directory a détecté un type d'authentification incompatible" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
   
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 ###Erreur lors de la détection de l'authentification 
 L'Assistant a trouvé un type d'authentification incompatible lors de l'opération de détection du code d'authentification précédent.   
@@ -78,3 +92,5 @@ Pour détecter une ancienne forme d'authentification d'un compte professionnel, 
 Pour modifier le type d'authentification, supprimez le type d'authentification incompatible, puis réexécutez l'Assistant.
 
 Pour plus d'informations, consultez la page [Scénarios d'authentification pour Azure AD](http://msdn.microsoft.com/library/azure/dn499820.aspx).
+
+<!--HONumber=46--> 

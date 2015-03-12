@@ -126,7 +126,7 @@ Vous pouvez créer une file d'attente avec un objet **QueueRestProxy** via la m�
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/fr-FR/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -157,7 +157,7 @@ Pour ajouter un message à une file d'attente, utilisez **QueueRestProxy->create
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/fr-FR/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -186,7 +186,7 @@ Vous pouvez lire furtivement un ou plusieurs messages au début d'une file d'att
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/fr-FR/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -240,7 +240,7 @@ Votre code supprime un message d'une file d'attente en deux étapes. Tout d'abor
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/fr-FR/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -282,7 +282,7 @@ Vous pouvez modifier le contenu d'un message placé dans la file d'attente en ap
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/fr-FR/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -329,7 +329,7 @@ Il existe deux façons de personnaliser l'extraction des messages à partir d'un
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/fr-FR/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -355,7 +355,7 @@ Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/fr-FR/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -382,7 +382,7 @@ Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/fr-FR/library/windowsazure/dd179446.aspx
+		// http://msdn.microsoft.com/library/windowsazure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -399,6 +399,6 @@ Maintenant que vous avez appris les principes de base du service de File d'atten
 [télécharger]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Portail de gestion Azure]: http://manage.windowsazure.com/
-[Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-FR/library/windowsazure/gg433040.aspx
+[Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Prise en main d'Azure Site Recovery : protection entre deux sites VMM locaux à l'aide de la réplication Hyper-V" metaKeywords="Azure Site Recovery, VMM, clouds, récupération d'urgence" description="Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles Hyper-V entre des sites VMM locaux." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery:  On-Premises to On-Premises VMM Site Protection with Hyper-V Replication" editor="jimbe" manager="johndaw" authors="raynew" />
+﻿<properties 
+	pageTitle="Didacticiel : Configuration de la protection entre des sites locaux VMM" 
+	description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines between on-premises VMM sites." 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="raynew" 
+	manager="jwhit" 
+	editor="tysonn"/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/19/2014" ms.author="raynew" />
+<tags 
+	ms.service="site-recovery" 
+	ms.workload="backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="raynew"/>
 
 
 # Prise en main d'Azure Site Recovery :  protection entre deux sites VMM locaux à l'aide de la réplication Hyper-V
@@ -241,3 +255,5 @@ Pour vous assurer que les machines virtuelles et les données basculent comme pr
 </UL>
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

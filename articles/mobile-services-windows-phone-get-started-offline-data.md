@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Utilisation des données hors connexion dans Mobile Services (Windows Phone) | Centre de développement mobile" description="Découvrez comment utiliser Azure Mobile Services avec les données hors connexion de synchronisation dans votre application Windows Phone" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Utilisation des données hors connexion dans Mobile Services (Windows Phone) | Centre de développement mobile" 
+	description="Découvrez comment utiliser Azure Mobile Services avec les données hors connexion de synchronisation dans votre application Windows Phone" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="12/10/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/10/2014" 
+	ms.author="wesmc"/>
 
 # Utilisation de la synchronisation des données hors connexion dans Mobile Services
 
@@ -30,7 +44,7 @@ Ce didacticiel requiert les éléments suivants :
 * [Azure Mobile Services SQLite Store version 1.0.0 (ou version ultérieure)][Nuget - magasin SQLite]
 * [SQLite pour Windows Phone 8]
 
->[AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite d'Azure</a>. 
+>[AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite d'Azure</a>. 
 
 ## <a name="enable-offline-app"></a>Mise à jour de l'application pour prendre en charge les fonctionnalités hors connexion
 

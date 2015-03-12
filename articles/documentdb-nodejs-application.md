@@ -1,6 +1,20 @@
-<properties title="Build a Node.js web application using DocumentDB" pageTitle="Build a Node.js web application using DocumentDB | Azure" description="Learn how to use Azure DocumentDB to store and access data from a Node.js application hosted on Azure." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="ryancraw" manager="jhubbard" editor="cgronlun" scriptId="" />
+﻿<properties 
+	pageTitle="Création d'une application web Node.js avec DocumentDB | Azure" 
+	description="Apprenez à utiliser Microsoft Azure DocumentDB pour stocker des données et y accéder à partir d'une application Node.js hébergée sur Azure." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="ryancrawcour" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="ryancraw" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175">Création d'une application web Node.js avec DocumentDB</a>
 
@@ -505,8 +519,10 @@ Vous pouvez télécharger le code source de l'application de référence complè
   [Alt text]: ./media/documentdb-nodejs-application/image1.png
   [Node.js]: http://nodejs.org/
   [Git]: http://git-scm.com/
-  [Visual Studio 2013]: http://msdn.microsoft.com/fr-fr/vstudio/cc136611.aspx
+  [Visual Studio 2013]: http://msdn.microsoft.com/vstudio/cc136611.aspx
   [Outils Node.js pour Visual Studio]: https://nodejstools.codeplex.com/
-  [interface de ligne de commande Azure]: http://azure.microsoft.com/fr-fr/documentation/articles/xplat-cli/
+  [interface de ligne de commande Azure]: http://azure.microsoft.com/documentation/articles/xplat-cli/
   [portail de gestion Azure]: http://portal.azure.com
   [ici]: http://go.microsoft.com/fwlink/?LinkID=509839&clcid=0x409
+
+<!--HONumber=46--> 

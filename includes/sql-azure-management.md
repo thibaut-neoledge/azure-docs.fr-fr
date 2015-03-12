@@ -217,7 +217,7 @@ La base de données SQL prend en charge plusieurs vues de gestion dynamique vous
 * [Ajout d'utilisateurs à votre base de données SQL][]   
 * [Référence Transact-SQL (base de données SQL)][]
 
-  [Utilisation de la base de données SQL Azure]: http://www.windowsazure.com/fr-fr/develop/net/how-to-guides/sql-azure/
+  [Utilisation de la base de données SQL Azure]: http://azure.microsoft.com/develop/net/how-to-guides/sql-azure/
   [Étape 1 : obtention de SQL Server Management Studio]: #Step1
   [Étape 2 : connexion à la base de données SQL]: #Step2
   [Étape 3 : création et gestion de bases de données]: #Step3
@@ -231,18 +231,17 @@ La base de données SQL prend en charge plusieurs vues de gestion dynamique vous
   [Obtenir le nom du serveur de base de données SQL à partir du portail de gestion]: /media/portal_get_database_name.png
   [Connexion à SSMS]: /media/ssms_connect.png
   [Connexion à SSMS -- propriétés]: /media/ssms_connect_properties.png
-  [Référence Transact-SQL (base de données SQL)]: http://msdn.microsoft.com/fr-fr/library/bb510741(v=sql.120).aspx
-  [CREATE DATABASE (base de données SQL)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336274.aspx
-  [ALTER DATABASE (base de données SQL)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ff394109.aspx
-  [DROP DATABASE (base de données SQL)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336259.aspx
-  [Gestion des bases de données et des connexions dans la base de données SQL]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336235.aspx
-  [CREATE LOGIN (base de données SQL)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336268.aspx
-  [CREATE USER (base de données SQL)]: http://msdn.microsoft.com/fr-fr/library/ee336277.aspx
-  [sp_addrolemember (Transact-SQL)]: http://msdn.microsoft.com/fr-fr/library/ms187750.aspx
-  [ALTER LOGIN (base de données SQL)]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336254.aspx
-  [Contrôle de la base de données SQL à l'aide de vues de gestion dynamique]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ff394114.aspx
-  [Présentation de la base de données SQL]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336230.aspx
-  [Modèle de déploiement de la base de données SQL]: http://msdn.microsoft.com/fr-fr/library/ee336227.aspx
+  [Référence Transact-SQL (base de données SQL)]: http://msdn.microsoft.com/library/bb510741(v=sql.120).aspx
+  [CREATE DATABASE (base de données SQL)]: http://msdn.microsoft.com/library/windowsazure/ee336274.aspx
+  [ALTER DATABASE (base de données SQL)]: http://msdn.microsoft.com/library/windowsazure/ff394109.aspx
+  [DROP DATABASE (base de données SQL)]: http://msdn.microsoft.com/library/windowsazure/ee336259.aspx
+  [Gestion des bases de données et des connexions dans la base de données SQL]: http://msdn.microsoft.com/library/windowsazure/ee336235.aspx
+  [CREATE LOGIN (base de données SQL)]: http://msdn.microsoft.com/library/windowsazure/ee336268.aspx
+  [CREATE USER (base de données SQL)]: http://msdn.microsoft.com/library/ee336277.aspx
+  [sp_addrolemember (Transact-SQL)]: http://msdn.microsoft.com/library/ms187750.aspx
+  [ALTER LOGIN (base de données SQL)]: http://msdn.microsoft.com/library/windowsazure/ee336254.aspx
+  [Contrôle de la base de données SQL à l'aide de vues de gestion dynamique]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
+  [Présentation de la base de données SQL]: http://msdn.microsoft.com/library/windowsazure/ee336230.aspx
+  [Modèle de déploiement de la base de données SQL]: http://msdn.microsoft.com/library/ee336227.aspx
   [Ajout d'utilisateurs à votre base de données SQL]: http://blogs.msdn.com/b/sqlazure/archive/2010/06/21/10028038.aspx
-
 <!--HONumber=42-->

@@ -69,7 +69,7 @@ L'interface de ligne de commande peut être installé à l'aide de  *Node.js Pac
 
 **Pour installer l'interface de ligne de commande au moyen de Windows Installer**
 
-1.	Accédez à **http://azure.microsoft.com/fr-fr/downloads/**.
+1.	Accédez à **http://azure.microsoft.com/downloads/**.
 2.	Faites défiler l'écran jusqu'à la section **Outils en ligne de commande**, puis cliquez sur **Interface de ligne de commande interplateforme** et suivez les étapes de l'Assistant Web Platform Installer.
 
 ##<a id="importsettings"></a> Téléchargement et importation de paramètres de publication de compte Azure
@@ -215,9 +215,9 @@ Dans cet article, vous avez appris comment effectuer différentes tâches d'admi
 [azure-command-line-tools]: ../xplat-cli/
 [azure-command-line-tool]: ../command-line-tools/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
-[azure-purchase-options]: http://azure.microsoft.com/fr-fr/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/fr-fr/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/fr-fr/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 
 [hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/
@@ -228,5 +228,4 @@ Dans cet article, vous avez appris comment effectuer différentes tâches d'admi
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "List and show clusters"
-
 <!--HONumber=42-->

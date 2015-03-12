@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Principaux concepts du service API Management" metaKeywords="" description="Découvrez les API, les produits, les rôles et les autres concepts clés de la gestion des API." metaCanonical="" services="api-management" documentationCenter="API Management" title="API Management key concepts" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Principaux concepts du service API Management" 
+	description="Learn about APIs, products, roles, groups, and other API Management key concepts." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 #Principaux concepts du service API Management
 
@@ -90,3 +104,5 @@ Vous pouvez personnaliser l'aspect de votre portail des développeurs en ajoutan
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

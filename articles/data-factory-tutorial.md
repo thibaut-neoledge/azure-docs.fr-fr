@@ -1,6 +1,20 @@
-﻿<properties title="Tutorial: Move and process log files using Azure Data Factory" pageTitle="Déplacement et traitement des fichiers journaux à l'aide d'Azure Data Factory" description="Ce didacticiel avancé décrit un scénario proche de la réalité et l'implémente à l'aide du service Azure Data Factory." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Déplacement et traitement des fichiers journaux à l'aide d'Azure Data Factory" 
+	description="Ce didacticiel avancé décrit un scénario proche de la réalité et l'implémente à l'aide du service Azure Data Factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/28/2015" 
+	ms.author="spelluru"/>
 
 # Didacticiel : Déplacement et traitement des fichiers journaux à l'aide d'Azure Data Factory
 Cet article fournit une procédure pas à pas pour un scénario de traitement de journaux à l'aide d'Azure Data Factory pour transformer les données des fichiers journaux en informations. 
@@ -589,14 +603,14 @@ Article | Description
 [usepigandhive]: ../data-factory-pig-hive-activities
 
 [azure-preview-portal]: http://portal.azure.com
-[azure-purchase-options]: http://azure.microsoft.com/fr-fr/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/fr-fr/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/fr-fr/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [sqlcmd-install]: http://www.microsoft.com/fr-fr/download/details.aspx?id=35580
-[azure-sql-firewall]: http://msdn.microsoft.com/fr-fr/library/azure/jj553530.aspx
+[azure-sql-firewall]: http://msdn.microsoft.com/library/azure/jj553530.aspx
 
-[download-azure-powershell]: http://azure.microsoft.com/fr-fr/documentation/articles/install-configure-powershell
+[download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
@@ -675,3 +689,5 @@ Article | Description
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
+
+<!--HONumber=46--> 

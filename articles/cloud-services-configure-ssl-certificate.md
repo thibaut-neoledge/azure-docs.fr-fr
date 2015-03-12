@@ -1,19 +1,31 @@
-<properties urlDisplayName="Enable SSL" pageTitle="Configuration de SSL pour un service cloud - Azure" metaKeywords="Azure SSL, Azure HTTPS, Azure SSL, Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" description="Découvrez comment spécifier un point de terminaison HTTPS pour un rôle web et télécharger un certificat SSL pour sécuriser votre application." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Configuring SSL for an application in Azure" authors="adegeo" solutions="" manager="timlt" editor="mollybos" />
+﻿<properties 
+	pageTitle="Configuration de SSL pour un service cloud - Azure" 
+	description="Découvrez comment spécifier un point de terminaison HTTPS pour un rôle Web et télécharger un certificat SSL pour sécuriser votre application." 
+	services="cloud-services" 
+	documentationCenter=".net" 
+	authors="Thraka" 
+	manager="timlt" 
+	editor="mollybos"/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="adegeo" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/14/2014" 
+	ms.author="adegeo"/>
 
 
 
 
 # Configuration de SSL pour une application dans Azure
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
+[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 Le chiffrement SSL (Secure Socket Layer) est la méthode de sécurisation la plus couramment utilisée pour envoyer des données sécurisées sur Internet. Cette tâche présente la spécification d'un point de terminaison HTTPS pour un rôle Web et le téléchargement d'un certificat SSL pour sécuriser votre application.
 
-<div class="dev-callout">Remarque
-<p>Les procédures décrites dans cette tâche s'appliquent à Azure Cloud Services ; pour Sites Web, consultez la page. <a href="../web-sites-configure-ssl-certificate/">Configuration d'un certificat SSL pour un site web Azure</a>.</p>
-</div>
+> [AZURE.NOTE] Les procédures de cette tâche s'appliquent à Azure Cloud Services. Pour Sites Web Azure, consultez la page [Configuration d'un certificat SSL pour un site Web Azure](../articles/web-sites-configure-ssl-certificate/).
 
 Cette procédure comprend les étapes suivantes :
 
@@ -24,7 +36,7 @@ Cette procédure comprend les étapes suivantes :
 
 Cette tâche utilise un déploiement de production. Les informations concernant le déploiement intermédiaire sont fournies à la fin de cette rubrique.
 
-<h2><a name="step1"> </a>Étape 1 : Obtention d'un certificat SSL</h2>
+<h2><a name="step1"> </a>Étape 1 : obtention d'un certificat SSL</h2>
 
 Pour configurer le chiffrement SSL pour une application, vous devez d'abord obtenir un certificat SSL signé par une autorité de certification, un tiers approuvé qui émet des certificats à cet effet. Si vous n'en possédez pas, vous devez en obtenir un auprès de la société qui vend des certificats SSL.
 
@@ -43,7 +55,10 @@ Ensuite, vous devez ajouter des informations sur le certificat dans votre défin
 
 Votre application doit être configurée pour utiliser le certificat, et un point de terminaison HTTPS doit être ajouté. Suite à cette opération, les fichiers de définition de service et de configuration de service doivent être mis à jour.
 
-1.  Dans votre environnement de développement, ouvrez le fichier de définition du service (CSDEF), ajoutez une section **Certificates** dans la section **WebRole**, puis ajoutez les informations qui suivent sur le certificat :
+1.  Dans votre environnement de développement, ouvrez le fichier de définition du service
+    (CSDEF), ajoutez une section **Certificats** dans la section **WebRole**, puis
+    ajoutez les informations suivantes sur le
+    certificat :
 
         <WebRole name="CertificateTesting" vmsize="Small">
         ...
@@ -57,7 +72,9 @@ Votre application doit être configurée pour utiliser le certificat, et un poin
 
     La section **Certificates** définit le nom du certificat, son emplacement et le nom du magasin dans lequel il se trouve. Nous avons choisi de stocker le certificat dans le magasin d'autorité de certification, mais vous pouvez aussi choisir d'autres options. Pour plus d'informations, consultez la page [Association d'un certificat à un service][].
 
-2.  Dans votre fichier de définition du service, ajoutez un élément **InputEndpoint** dans la section **Endpoints** pour activer HTTPS : 
+2.  Dans votre fichier de définition du service, ajoutez un élément **InputEndpoint** dans la section
+    **Endpoints** pour activer HTTPS :
+
         <WebRole name="CertificateTesting" vmsize="Small">
         ...
             <Endpoints>
@@ -83,9 +100,13 @@ Votre application doit être configurée pour utiliser le certificat, et un poin
         ...
         </WebRole>
 
-    Toutes les modifications nécessaires ont été apportées au fichier de définition de service, mais vous devez encore y ajouter les informations de certificat.
+    Toutes les modifications nécessaires ont été
+    apportées au fichier de définition de service, mais vous devez encore y ajouter
+    les informations de certificat.
 
-4.  Dans votre fichier de configuration de service (CSCFG) ServiceConfiguration.Cloud.cscfg, ajoutez une section **Certificates** dans la section **Role** en remplaçant la valeur d'empreinte numérique ci-dessous par celle de votre certificat :
+4.  Dans votre fichier de configuration de service (CSCFG) ServiceConfiguration.Cloud.cscfg, ajoutez une section **Certificats**
+    dans la section **Role** en remplaçant la valeur d'empreinte numérique
+    ci-dessous par celle de votre certificat :
 
         <Role name="Deployment">
         ...
@@ -99,13 +120,19 @@ Votre application doit être configurée pour utiliser le certificat, et un poin
 
 (Cet exemple utilise **sha1** comme algorithme d'empreinte numérique. Spécifiez la valeur correspondant à l'algorithme d'empreinte numérique de votre certificat.)
 
-Maintenant que les fichiers de définition du service et de configuration de service ont été mis à jour, créez un package pour votre déploiement afin de le télécharger dans Azure. Si vous utilisez **cspack**, assurez-vous que vous n'utilisez pas l'indicateur **/generateConfigurationFile**, car les informations de certificat que vous venez juste d'entrer seraient écrasées.
+Maintenant que les fichiers de définition du service et de configuration de service ont
+été mis à jour, créez un package pour votre déploiement afin de le télécharger dans Azure. Si
+vous utilisez **cspack**, assurez-vous que vous n'utilisez pas
+l'indicateur **/ generateconfigurationfile**, car les
+informations de certificat que vous venez juste d'entrer seraient écrasées.
 
 <h2><a name="step3"> </a>Étape 3 : téléchargement du package de déploiement et du certificat</h2>
 
-Votre package de déploiement a été mis à jour pour utiliser le certificat, et un point de terminaison HTTPS a été ajouté. Vous pouvez maintenant télécharger le package et le certificat dans Azure via le portail de gestion.
+Votre package de déploiement a été mis à jour pour utiliser le certificat, et un
+point de terminaison HTTPS a été ajouté. Vous pouvez maintenant télécharger le package et
+le certificat dans Azure via le portail de gestion.
 
-1. Connectez-vous au [portail de gestion Azure][]. 
+1. Connectez-vous au [Portail de gestion Azure][]. 
 2. Cliquez sur **Nouveau**, sur **Service cloud**, puis sur **Création personnalisée**.
 3. Dans la boîte de dialogue **Créer un service de cloud computing**, entrez les valeurs de l'URL, de la région et du groupe d'affinités et de l'abonnement. Assurez-vous que l'option **Déployez un package de service de cloud computing** est sélectionnée, puis cliquez sur le bouton **Suivant**.
 3. Dans la boîte de dialogue **Publier votre service de cloud computing**, entrez les informations requises pour votre service cloud, sélectionnez **Production** comme environnement et assurez-vous que l'option **Ajouter des certificats** est activée. (Si un de vos rôles contient une seule instance, assurez-vous que l'option **Déployez même si un ou plusieurs rôles contiennent une seule instance** est activée.) 
@@ -113,7 +140,9 @@ Votre package de déploiement a été mis à jour pour utiliser le certificat, e
     ![Publish your cloud service][0]
 
 4.  Cliquez sur le bouton **Suivant**.
-5.  Dans la boîte de dialogue **Ajouter un certificat**, entrez l'emplacement du fichier .pfx du certificat SSL, le mot de passe du certificat, puis cliquez sur **Attacher un certificat**.  
+5.  Dans la boîte de dialogue **Ajouter un certificat**, entrez l'emplacement du
+    fichier .pfx du certificat SSL, le mot de passe du certificat, puis cliquez sur
+    **Attacher un certificat**.
 
     ![Add certificate][1]
 
@@ -132,9 +161,12 @@ vous y connecter via HTTPS.
 
     ![Determine site URL][2]
 
-2.  Dans votre navigateur web, modifiez le lien pour utiliser **https** au lieu de **http**, puis accédez à la page.
+2.  Dans votre navigateur Web, modifiez le lien pour utiliser **https** au lieu de **http**, puis accédez à la page.
 
-    **Remarque :** si vous utilisez un certificat auto-signé, lorsque vous accédez à un point de terminaison HTTPS qui lui est associé, vous obtenez une erreur de certificat dans le navigateur. Pour remédier à ce problème, utilisez un certificat signé par une autorité de certification approuvée. En attendant, vous pouvez ignorer cette erreur. (Une autre possibilité est d'ajouter le certificat auto-signé au magasin de certificats d'autorité de certification approuvé de l'utilisateur.)
+    **Remarque :** si vous utilisez un certificat auto-signé, lorsque vous
+    accédez à un point de terminaison HTTPS qui lui est associé,
+    vous obtenez une erreur de certificat dans le navigateur. Pour remédier
+    à ce problème, utilisez un certificat signé par une autorité de certification approuvée. En attendant, vous pouvez ignorer cette erreur. (Vous pouvez aussi ajouter le certificat auto-signé au magasin de certificats d'autorité de certification approuvé de l'utilisateur.)
 
     ![SSL example web site][3]
 
@@ -150,14 +182,14 @@ Si vous voulez utiliser SSL pour un déploiement intermédiaire au lieu d'un dé
   [Étape 2 : modification des fichiers de définition de service et de configuration]: #step2
   [Étape 3 : téléchargement du package de déploiement et du certificat]: #step3
   [Étape 4 : connexion de l'instance de rôle à l'aide de HTTPS]: #step4
-  [Création d'un certificat pour un rôle]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg432987.aspx
-  [Association d'un certificat à un service]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg465718.aspx
+  [Création d'un certificat pour un rôle]: http://msdn.microsoft.com/library/windowsazure/gg432987.aspx
+  [Association d'un certificat à un service]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
   [Portail de gestion Azure]: http://manage.windowsazure.com
   [0]: ./media/cloud-services-dotnet-configure-ssl-certificate/CreateCloudService.png
   [1]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificate.png
   [2]: ./media/cloud-services-dotnet-configure-ssl-certificate/CopyURL.png
   [3]: ./media/cloud-services-dotnet-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificateComplete.png  
-  [Configuration d'un certificat SSL sur un point de terminaison HTTPS]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ff795779.aspx
+  [Configuration d'un certificat SSL sur un point de terminaison HTTPS]: http://msdn.microsoft.com/library/windowsazure/ff795779.aspx
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

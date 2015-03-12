@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Batterie de serveurs SharePoint" 
 	description="Décrit la nouvelle fonctionnalité Batterie de serveurs SharePoint de la version préliminaire du portail Azure" 
 	services="virtual-machines" 
@@ -38,7 +38,7 @@ Pour obtenir des informations sur la configuration de ces deux batteries de serv
 
 Pour créer votre batterie SharePoint avec le modèle Batterie de serveurs SharePoint, procédez comme suit :
 
-1. Dans le [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Nouveau** > **Batterie de serveurs SharePoint**.
+1. Dans la version préliminaire du [portail Microsoft Azure](https://portal.azure.com/), cliquez sur **Nouveau** > **Batterie de serveurs SharePoint**.
 2. Dans le volet **Créer une batterie de serveurs SharePoint**, tapez le nom d'un groupe de ressources.
 3. Tapez un nom d'utilisateur et un mot de passe pour le compte administrateur local sur chaque machine virtuelle de votre batterie. Choisissez un nom et un mot de passe difficiles à deviner, enregistrez-les et stockez-les dans un emplacement sécurisé.
 4. Si vous voulez une batterie à haut niveau de disponibilité, cliquez sur **Activer la haute disponibilité**.
@@ -81,7 +81,7 @@ Remarques :
 
 ##Azure Resource Manager##
 
-La batterie de serveurs SharePoint utilise des scripts et le module Azure Resource Manager pour créer automatiquement l'infrastructure et les configurations serveur relatives à ces batteries de serveurs SharePoint. Pour plus d'informations, consultez [Utilisation de Windows PowerShell avec Resource Manager](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/)
+La batterie de serveurs SharePoint utilise des scripts et le module Azure Resource Manager pour créer automatiquement l'infrastructure et les configurations serveur relatives à ces batteries de serveurs SharePoint. Pour plus d'informations, consultez [Utilisation de Windows PowerShell avec Resource Manager](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/).
 
 ##Ressources supplémentaires
 
@@ -89,4 +89,6 @@ La batterie de serveurs SharePoint utilise des scripts et le module Azure Resour
 
 [Configuration d'une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
-<!--HONumber=45--> 
+
+
+<!--HONumber=42-->

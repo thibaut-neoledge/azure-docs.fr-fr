@@ -37,7 +37,7 @@ Vos commentaires sont très importants pour nous. Cet article a été rédigé p
  
 <h2><a id="components"></a>Composants d'Azure</h2>
 
-Azure regroupe les services en catégories sur le portail de gestion et sur différentes aides visuelles telles que l'[infographie Microsoft AzureInfographie Windows Azure](http://azure.microsoft.com/fr-fr/documentation/infographics/azure/ "What Is Microsoft Azure Poster Infographic"). Le portail de gestion vous permet de gérer la plupart des services dans Azure (mais pas tous). 
+Azure regroupe les services en catégories sur le portail de gestion et sur différentes aides visuelles telles que l'[infographie Microsoft AzureInfographie Windows Azure](http://azure.microsoft.com/documentation/infographics/azure/ "What Is Microsoft Azure Poster Infographic"). Le portail de gestion vous permet de gérer la plupart des services dans Azure (mais pas tous). 
 
 Ce document repose sur une **organisation différente** afin de présenter les services basés sur des fonctionnalités similaires et d'accéder aux sous-services importants intégrés à des services de plus grande taille.  
 
@@ -121,7 +121,7 @@ Vous pouvez choisir entre deux rôles, tous deux basés sur Windows Server, lors
 Azure Cloud Services est idéal pour gérer l'évolutivité et bénéficier d'un meilleur contrôle sur la plateforme qu'avec Sites Web Azure, sans toutefois contrôler le système d'exploitation sous-jacent. 
 
 ####Choix d'un modèle de calcul####
-La page Comparaison entre Sites Web Azure, Azure Cloud Services et Azure Virtual Machines (http://azure.microsoft.com/fr-fr/documentation/articles/choose-web-site-cloud-service-vm/ ) contient des informations détaillées qui vous aideront à choisir un modèle de calcul.
+La page Comparaison entre Sites Web Azure, Azure Cloud Services et Azure Virtual Machines (http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/ ) contient des informations détaillées qui vous aideront à choisir un modèle de calcul.
 
 
 
@@ -246,7 +246,7 @@ Si vous avez besoin de bande passante supplémentaire ou si vous souhaitez bén�
 
 La configuration d'une connexion ExpressRoute nécessite du temps et une certaine planification, aussi est-il préférable de commencer avec un VPN de site à site avant de migrer vers une connexion ExpressRoute.
 
-Pour plus d'informations sur ExpressRoute, consultez la rubrique [ExpressRoute - Aperçu technique](http://msdn.microsoft.com/fr-fr/library/azure/dn606309.aspx).
+Pour plus d'informations sur ExpressRoute, consultez la rubrique [ExpressRoute - Aperçu technique](http://msdn.microsoft.com/library/azure/dn606309.aspx).
 
 ###Traffic Manager###
 
@@ -268,7 +268,7 @@ Azure offre aux développeurs et aux professionnels de l'informatique un certain
 ###Kit de développement logiciel (SDK) Azure###
 En 2008, la toute première version préliminaire d'Azure prenait en charge le développement uniquement en .NET. Aujourd'hui, vous pouvez créer des applications Azure dans la quasi-totalité des langages. Actuellement, Microsoft fournit des Kits de développement logiciel (SDK) spécifiques pour .NET, Java, PHP, Node.js, Ruby et Python. Il existe aussi un Kit de développement logiciel (SDK) Azure général qui assure une prise en charge de base pour tous les langages, tels que C++.  
 
-Ces Kits de développement logiciel (SDK) vous aident à créer, à déployer et à gérer vos applications Azure. Ils sont disponibles sur [www.microsoftazure.com](http://azure.microsoft.com/fr-fr/downloads/) ou GitHub et peuvent être utilisés avec Visual Studio et Eclipse. Azure propose également des outils en ligne de commande que les développeurs peuvent utiliser avec tous les éditeurs et les environnements de développement. Cela comprend les outils pour déployer les applications sur Azure depuis des systèmes Linux et Macintosh. 
+Ces Kits de développement logiciel (SDK) vous aident à créer, à déployer et à gérer vos applications Azure. Ils sont disponibles sur [www.microsoftazure.com](http://azure.microsoft.com/downloads/) ou GitHub et peuvent être utilisés avec Visual Studio et Eclipse. Azure propose également des outils en ligne de commande que les développeurs peuvent utiliser avec tous les éditeurs et les environnements de développement. Cela comprend les outils pour déployer les applications sur Azure depuis des systèmes Linux et Macintosh. 
 
 En plus de vous aider à concevoir des applications Azure, ces Kits de développement logiciel (SDK) fournissent des bibliothèques clientes qui vous permettent de créer des logiciels utilisant les services Azure. Par exemple, vous pouvez créer une application qui lit et écrit des objets blob Azure ou concevoir un outil qui déploie des applications Azure via l'interface de gestion d'Azure. 
 
@@ -418,7 +418,7 @@ Les données sont mieux sécurisées, car les sauvegardes sont chiffrées avant 
 
 **Scénarios relatifs à Azure Backup**
 
-Si vous utilisez déjà Windows Server ou System Center, Azure Backup est une solution idéale pour sauvegarder le système de fichiers de votre serveur, vos machines virtuelles et vos bases de données SQL Server.  Il fonctionne avec des fichiers chiffrés, partiellement alloués et compressés. Il existe certaines limitations, donc vous devez [vérifier les conditions préalables Azure Backup](http://technet.microsoft.com/fr-fr/library/dn296608.aspx) en premier. 
+Si vous utilisez déjà Windows Server ou System Center, Azure Backup est une solution idéale pour sauvegarder le système de fichiers de votre serveur, vos machines virtuelles et vos bases de données SQL Server.  Il fonctionne avec des fichiers chiffrés, partiellement alloués et compressés. Il existe certaines limitations, donc vous devez [vérifier les conditions préalables Azure Backup](http://technet.microsoft.com/library/dn296608.aspx) en premier. 
 
 
 
@@ -619,7 +619,6 @@ Maintenant que vous connaissez les grandes lignes, la prochaine étape est de cr
 
 
 
-[Poster Azure Media Services]: http://azure.microsoft.com/fr-fr/documentation/infographics/media-services/
-
+[Poster Azure Media Services]: http://azure.microsoft.com/documentation/infographics/media-services/
 
 <!--HONumber=42-->

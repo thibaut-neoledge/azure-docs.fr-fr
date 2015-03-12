@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Prise en main d'Azure API Management" metaKeywords="" description="Découvrez comment créer des API, des opérations et comment prendre en main la gestion des API." metaCanonical="" services="api-management" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Prise en main de Gestion des API Azure" 
+	description="Découvrez comment créer des API et des opérations et comment prendre en main Gestion des API." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/11/2015" 
+	ms.author="sdanie"/>
 
 # Prise en main de Gestion des API Azure
 
@@ -156,7 +170,7 @@ Après l'appel d'une opération, le portail des développeurs affiche l'**URL de
 -   Personnalisation du portail des développeurs
 -   Suivi des appels avec l'inspecteur d'API
 
-[Version d'évaluation gratuite Azure]: http://www.windowsazure.com/fr-fr/pricing/free-trial/
+[Version d'évaluation gratuite Azure]: http://azure.microsoft.com/pricing/free-trial/
 
 [Création d'une instance du service API Management]: #create-service-instance
 [Création d'une API]: #create-api
@@ -203,3 +217,5 @@ Après l'appel d'une opération, le portail des développeurs affiche l'**URL de
 [api-management-invoke-get-response]: ./media/api-management-get-started-b/api-management-invoke-get-response.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

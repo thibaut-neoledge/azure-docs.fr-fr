@@ -1,6 +1,20 @@
-﻿<properties title="Create your first search solution using Azure Search" pageTitle="Création de votre première solution de recherche à l'aide du service Azure Search" description="Création de votre première solution de recherche à l'aide du service Azure Search" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Création de votre première solution de recherche à l'aide du service Azure Search" 
+	description="Création de votre première solution de recherche à l'aide du service Azure Search" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Création de votre première solution de recherche à l'aide du service Azure Search
 
@@ -29,7 +43,7 @@ Cette démonstration a pour but la prise en main d'Azure Search via les exercice
 
 <h2 id="sub-1">Configuration requise</h2>
 
-+	Visual Studio 2012 ou une version ultérieure avec ASP.NET MVC 4 et SQL Server doivent être installés. Vous pouvez télécharger les éditions Express gratuites si vous n'avez pas encore installé le logiciel : [Visual Studio 2013 Express](http://www.visualstudio.com/fr-fr/products/visual-studio-express-vs.aspx) et [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/fr-fr/evalcenter/dn434042.aspx).
++	Visual Studio 2012 ou une version ultérieure avec ASP.NET MVC 4 et SQL Server doivent être installés. Vous pouvez télécharger les éditions Express gratuites si vous n'avez pas encore installé le logiciel : [Visual Studio 2013 Express](http://www.visualstudio.com/fr-fr/products/visual-studio-express-vs.aspx) et [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
 +	Un service Azure Search. Vous aurez besoin du nom du service Azure Search et de la clé d'administration. Voir [Prise en main d'Azure Search](../search-get-started/) pour plus d'informations.
 +	[Adventure Works Azure Search Demo project sur CodePlex](http://go.microsoft.com/fwlink/p/?LinkID=510972). Sous l'onglet Source, cliquez sur **Télécharger** pour obtenir un fichier zip de la solution. 
 
@@ -89,7 +103,7 @@ Examinons de plus près le projet **CatalogIndexer** pour en comprendre le fonct
 
 4.	Accédez à ApplyChanges dans le même fichier. Cette fonction supprime l'index s'il existe déjà (DeleteCatalogIndex), puis crée un index appelé " catalog " (CreateCatalogIndex).  
 
-5.	Passez à la fonction CreateCatalogIndex. L'index est créé avec un schéma qui correspond aux colonnes de la table Products dans SQL Server. Chaque champ contient un type (Edm.String ou Edm.Double) et des attributs qui définissent l'utilité de ces champs. Consultez la [documentation sur l'API REST Azure Search](http://msdn.microsoft.com/fr-fr/library/azure/dn798935.aspx) pour plus d'informations sur ces attributs.
+5.	Passez à la fonction CreateCatalogIndex. L'index est créé avec un schéma qui correspond aux colonnes de la table Products dans SQL Server. Chaque champ contient un type (Edm.String ou Edm.Double) et des attributs qui définissent l'utilité de ces champs. Consultez la [documentation sur l'API REST Azure Search](http://msdn.microsoft.com/library/azure/dn798935.aspx) pour plus d'informations sur ces attributs.
 
 6.	Revenez à la fonction ApplyChanges. Cette fonction s'exécute en boucle dans l'ensemble des données des modifications énumérées ChangeSet. Plutôt que d'appliquer les modifications une à une, elles sont regroupées par lot de 1 000, puis appliquées au service de recherche. Cette procédure est plus efficace que d'appliquer les documents un à un.
 
@@ -147,7 +161,7 @@ Découvrons ces deux fonctions plus en détail.
 
 5.	Arrêtez l'application si elle est toujours en cours d'exécution et ouvrez le fichier **Index.cshtml** sous Vues | Accueil.  À la fin de ce fichier, une fonction JavaScript utilise " JQuery $(function ()) ". Cette fonction est appelée lors du chargement de la page. Elle utilise la fonction de remplissage automatique qu'elle lie en tant que rappel à partir de la zone de texte de recherche identifiée comme " q ". Chaque fois qu'un utilisateur tape dans la zone de texte, cette fonction de suggestion automatique est appelée et appelle à son tour /home/suggest avec les données saisies.  /home/suggest est une référence à la fonction Suggest de **HomeController.cs**.
 
-6.	Ouvrez **HomeController.cs** et accédez à la fonction Suggest. Ce code est très similaire à la fonction Search qui utilise l'objet _catalogSearch pour appeler la fonction Suggest de **CatalogSearch.cs**. Au lieu d'exécuter une requête de recherche, la fonction Suggest appelle l'[API Suggestions](http://msdn.microsoft.com/fr-fr/library/azure/dn798936.aspx). Elle utilise les termes entrés dans la zone de texte et génère une liste de suggestions possibles. Les valeurs sont renvoyées dans le fichier **Index.cshtml** et automatiquement affichées dans la zone de recherche en tant qu'options de saisie semi-automatique.
+6.	Ouvrez **HomeController.cs** et accédez à la fonction Suggest. Ce code est très similaire à la fonction Search qui utilise l'objet _catalogSearch pour appeler la fonction Suggest de **CatalogSearch.cs**. Au lieu d'exécuter une requête de recherche, la fonction Suggest appelle l'[API Suggestions](http://msdn.microsoft.com/library/azure/dn798936.aspx). Elle utilise les termes entrés dans la zone de texte et génère une liste de suggestions possibles. Les valeurs sont renvoyées dans le fichier **Index.cshtml** et automatiquement affichées dans la zone de recherche en tant qu'options de saisie semi-automatique.
 
 Vous vous demandez peut-être comment Azure Search peut savoir les champs sur lesquels baser les suggestions. Pour cela, il faut revenir au moment où vous avez créé l'index. Dans la fonction CreateCatalogIndex du fichier Program.cs du projet **CatalogIndexer**, il existe un attribut appelé Suggestions.  Chaque fois que cet attribut est défini sur True, Azure Search peut l'utiliser comme champ pour la récupération des suggestions
 
@@ -176,11 +190,11 @@ Lors de la création de AdventureWorksWeb, si le message d'erreur " Could not lo
 
 Pour continuer sur votre lancée, vous pouvez ajouter une page Détails qui s'ouvre lorsque l'utilisateur clique sur l'un des résultats de recherche. En guise de préparation, procédez comme suit :
 
-+	Consultez la documentation sur l'[API Recherche](http://msdn.microsoft.com/fr-fr/library/azure/dn798929.aspx) qui vous permet d'exécuter une requête dans Azure Search pour trouver un document spécifique (par exemple, vous pouvez transmettre l'ID de produit).
++	Consultez la documentation sur l'[API Recherche](http://msdn.microsoft.com/library/azure/dn798929.aspx) qui vous permet d'exécuter une requête dans Azure Search pour trouver un document spécifique (par exemple, vous pouvez transmettre l'ID de produit).
 +	Essayez d'ajouter une nouvelle fonction Details dans le fichier **HomeController.cs**. Ajoutez la vue **Details.cshtml** correspondante, qui reçoit les résultats de cette recherche et les affiche.
 +	Consultez cet autre exemple de code et la vidéo sur la recherche géospatiale : [Channel 9 : Azure Search et données géospatiales](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) et [CodePlex : exemple de recherche géographique Azure Search](http://azuresearchgeospatial.codeplex.com)
 
-Vous pouvez également consulter l'[API REST Azure Search](http://msdn.microsoft.com/fr-fr/library/azure/dn798935.aspx) sur MSDN.
+Vous pouvez également consulter l'[API REST Azure Search](http://msdn.microsoft.com/library/azure/dn798935.aspx) sur MSDN.
 
 
 <!--Anchors-->
@@ -201,3 +215,5 @@ Vous pouvez également consulter l'[API REST Azure Search](http://msdn.microsoft
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

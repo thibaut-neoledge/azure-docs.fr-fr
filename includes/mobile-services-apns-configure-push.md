@@ -29,4 +29,4 @@ Votre service mobile est maintenant configuré pour fonctionner avec APNS.
 <!-- URLs. -->
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

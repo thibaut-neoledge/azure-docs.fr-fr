@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2014" 
+	ms.date="02/06/2015" 
 	ms.author="nitinme"/>
 
 # Utilisation de Hive avec HDInsight pour analyser les journaux de site web
@@ -55,4 +55,4 @@ Essayez l'exemple sur la façon d'analyser les données de capteur au moyen d'Az
 [hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis/
 
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
-<!--HONumber=42-->
+<!--HONumber=45--> 

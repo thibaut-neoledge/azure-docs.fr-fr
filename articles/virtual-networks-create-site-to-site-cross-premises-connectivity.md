@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity" pageTitle="Didacticiel : Création d'un réseau virtuel entre différents locaux pour une connectivité de site à site" metaKeywords="" description="Ce didacticiel vous permet de découvrir comment créer un Azure Virtual Network avec la connectivité entre différents locaux." metaCanonical="" services="virtual-network" documentationCenter="" title="Create a Virtual Network for Site-to-Site Cross-Premises Connectivity" authors="cherylmc" solutions="" manager="adinah" editor="" />
+﻿<properties 
+	pageTitle="Didacticiel : Création d'un réseau virtuel entre différents locaux pour une connectivité de site à site" 
+	description="Ce didacticiel vous permet de découvrir comment créer un Azure Virtual Network avec la connectivité entre différents locaux." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="cherylmc" />
+<tags 
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="cherylmc"/>
 
 
 
@@ -10,9 +24,9 @@
 
 Ce didacticiel vous familiarise avec les étapes visant à créer un réseau virtuel entre différents locaux pour une connectivité de site à site. 
 
-Si vous voulez créer un réseau virtuel cloud uniquement, consultez [Didacticiel : création d'un réseau virtuel cloud dans Azure](http://azure.microsoft.com/fr-fr/documentation/articles/create-virtual-network/). Si vous voulez créer un VPN pointant vers un site en utilisant des certificats et un client VPN, consultez la page [Configuration d'un réseau privé virtuel (VPN) de point à site dans le portail de gestion](http://go.microsoft.com/fwlink/?LinkId=296653).
+Si vous voulez créer un réseau virtuel cloud uniquement, consultez [Didacticiel : création d'un réseau virtuel cloud dans Azure](http://azure.microsoft.com/documentation/articles/create-virtual-network/). Si vous voulez créer un VPN pointant vers un site en utilisant des certificats et un client VPN, consultez la page [Configuration d'un réseau privé virtuel (VPN) de point à site dans le portail de gestion](http://go.microsoft.com/fwlink/?LinkId=296653).
 
-Ce didacticiel part du principe que vous n'avez pas d'expérience en tant qu'utilisateur d'Azure. Il a pour but de vous familiariser avec la procédure requise pour créer un exemple de réseau virtuel entre différents locaux. Si vous recherchez des scénarios de conception et des informations supplémentaires sur Virtual Network, consultez l'article [Présentation d'Azure Virtual Network](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156007.aspx).
+Ce didacticiel part du principe que vous n'avez pas d'expérience en tant qu'utilisateur d'Azure. Il a pour but de vous familiariser avec la procédure requise pour créer un exemple de réseau virtuel entre différents locaux. Si vous recherchez des scénarios de conception et des informations supplémentaires sur Virtual Network, consultez l'article [Présentation d'Azure Virtual Network](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
 
 À la fin de ce didacticiel, vous disposerez d'un réseau virtuel illustratif entre différents locaux, dans lequel les services et machines virtuelles Azure peuvent être déployés.
 
@@ -28,7 +42,7 @@ Pour plus d'informations sur l'ajout d'une machine virtuelle et l'extension loca
 
 -  [Installation d'un contrôleur de domaine Active Directory de réplication dans Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=299877)
 
-Pour obtenir des instructions sur le déploiement des services de domaine Active Directory (AD DS) dans Azure Virtual Machines, consultez la page [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156090.aspx).
+Pour obtenir des instructions sur le déploiement des services de domaine Active Directory (AD DS) dans Azure Virtual Machines, consultez la page [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
 Pour plus d'informations sur les paramètres et procédures de configuration du réseau virtuel, consultez [Tâches de configuration du réseau virtuel](http://go.microsoft.com/fwlink/?LinkId=296652).
 
@@ -42,7 +56,7 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 ##  Configuration requise
 
--  Vous devez avoir un compte Microsoft avec au moins un abonnement Azure actif en cours de validité.  Si vous n'avez pas encore d'abonnement Azure, vous pouvez obtenir une évaluation gratuite. Pour cela, accédez à la page [Essayer Azure](http://www.windowsazure.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez [Tarifs préférentiels Microsoft Azure : avantages MSDN, MPN et Bizspark](http://azure.microsoft.com/fr-fr/pricing/member-offers/msdn-benefits-details/).
+-  Vous devez avoir un compte Microsoft avec au moins un abonnement Azure actif en cours de validité.  Si vous n'avez pas encore d'abonnement Azure, vous pouvez obtenir une évaluation gratuite. Pour cela, accédez à la page [Essayer Azure](http://www.windowsazure.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez [Tarifs préférentiels Microsoft Azure : avantages MSDN, MPN et Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 Si vous utilisez ce didacticiel pour configurer un réseau virtuel fonctionnel entre différents locaux et adapté aux besoins de votre entreprise, vous aurez besoin des éléments suivants&nbsp;:
 
@@ -103,7 +117,7 @@ Pour créer un réseau virtuel d'illustration connecté à un réseau d'entrepri
 
 	-  **NOM :** Pour l'exemple de ce didacticiel, tapez **YourCorpHQ**.
 
-	-  **ADRESSE IP DE PÉRIPHÉRIQUE VPN :** Pour l'exemple de ce didacticiel, tapez **3.2.1.1**. Sinon, entrez l'adresse IP publique de votre périphérique VPN. Si vous n'avez pas cette information, vous devrez l'obtenir avant de passer aux étapes suivantes de l'Assistant. Notez que votre périphérique VPN ne peut pas être situé derrière un NAT. Pour plus d'informations sur les périphériques VPN, consultez la page [À propos des périphériques VPN pour Virtual Network](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156075.aspx).
+	-  **ADRESSE IP DE PÉRIPHÉRIQUE VPN :** Pour l'exemple de ce didacticiel, tapez **3.2.1.1**. Sinon, entrez l'adresse IP publique de votre périphérique VPN. Si vous n'avez pas cette information, vous devrez l'obtenir avant de passer aux étapes suivantes de l'Assistant. Notez que votre périphérique VPN ne peut pas être situé derrière un NAT. Pour plus d'informations sur les périphériques VPN, consultez la page [À propos des périphériques VPN pour Virtual Network](http://msdn.microsoft.com/library/windowsazure/jj156075.aspx).
 
 	-  **ESPACE D'ADRESSAGE :** Pour l'exemple de ce didacticiel, tapez **10.1.0.0/16**.
 	-  **Ajouter un espace d'adressage :** ce didacticiel ne requiert pas d'espace d'adressage supplémentaire.
@@ -244,15 +258,15 @@ Si vous voulez exporter les paramètres de votre réseau virtuel dans un fichier
 
 ## Voir aussi
 
--  [Azure Virtual Network](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156007.aspx)
+-  [Azure Virtual Network](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
 
 -  [FAQ Virtual Network](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
 
--  [Configurer un réseau virtuel à l'aide d'un fichier de configuration réseau](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156097.aspx)
+-  [Configurer un réseau virtuel à l'aide d'un fichier de configuration réseau](http://msdn.microsoft.com/library/windowsazure/jj156097.aspx)
 
--  [Ajout d'une machine virtuelle à un réseau virtuel](http://www.windowsazure.com/fr-fr/manage/services/networking/add-a-vm-to-a-virtual-network/)
+-  [Ajout d'une machine virtuelle à un réseau virtuel](http://azure.microsoft.com/manage/services/networking/add-a-vm-to-a-virtual-network/)
 
--  [À propos des périphériques VPN pour Virtual Network](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156075.aspx)
+-  [À propos des périphériques VPN pour Virtual Network](http://msdn.microsoft.com/library/windowsazure/jj156075.aspx)
 
 -  [Présentation de la résolution de noms Azure](http://go.microsoft.com/fwlink/?LinkId=248097)
 
@@ -260,3 +274,5 @@ Si vous voulez exporter les paramètres de votre réseau virtuel dans un fichier
 
 
 
+
+<!--HONumber=46--> 

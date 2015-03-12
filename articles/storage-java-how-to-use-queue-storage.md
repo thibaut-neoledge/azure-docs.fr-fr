@@ -401,11 +401,11 @@ Maintenant que vous avez appris les bases du stockage des files d'attente, suive
 - [API REST d'Azure Storage]
 - [Blog de l'équipe Azure Storage]
 
-[Kit de développement logiciel (SDK) Azure pour Java]: http://www.windowsazure.com/fr-FR/develop/java/
+[Kit de développement logiciel (SDK) Azure pour Java]: http://azure.microsoft.com/develop/java/
 [Kit de développement logiciel (SDK) Azure Storage pour Java]: https://github.com/azure/azure-storage-java
 [Kit de développement logiciel (SDK) Azure Storage pour Android]: https://github.com/azure/azure-storage-android
 [Référence du Kit de développement logiciel (SDK) du client Azure Storage]: http://dl.windowsazure.com/storage/javadoc/
-[API REST d'Azure Storage]: http://msdn.microsoft.com/fr-FR/library/azure/gg433040.aspx
+[API REST d'Azure Storage]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

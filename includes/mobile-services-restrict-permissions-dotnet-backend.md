@@ -28,4 +28,5 @@ Par défaut, toutes les requêtes adressées aux ressources du service mobile so
 
 6. Publiez à nouveau votre projet de service.
 
-<!--HONumber=41-->
+
+\<!--HONumber=42-->

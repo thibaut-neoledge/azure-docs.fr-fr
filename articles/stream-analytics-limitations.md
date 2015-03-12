@@ -1,6 +1,20 @@
-﻿<properties title="Azure Stream Analytics limitations in the preview release" pageTitle=" Limitations de la version préliminaire de Stream Analytics | Azure" description="Découvrez les limitations de la version préliminaire publique d'Azure Stream Analytics" metaKeywords="" services="stream analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+﻿<properties 
+	pageTitle="Limitations de la version préliminaire de Stream Analytics | Azure" 
+	description="Découvrez les limitations de la version préliminaire publique d'Azure Stream Analytics" 
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="2/10/2015" 
+	ms.author="jgao"/>
 
 #Limitations et problèmes connus de la version préliminaire d'Azure Stream Analytics
 
@@ -131,8 +145,10 @@ L'opération LEFT OUTER JOIN est activée dans le langage des requêtes Stream A
 
 
 [microsoft.support]: http://support.microsoft.com/
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/fr-fr/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [Lien 1 vers une autre rubrique de documentation azure.microsoft.com]: ../virtual-machines-windows-tutorial/
 [Lien 2 vers une autre rubrique de documentation azure.microsoft.com]: ../web-sites-custom-domain-name/
 [Lien 3 vers une autre rubrique de documentation azure.microsoft.com]: ../storage-whatis-account/
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties title="Guide to the Net# Neural Networks Specification Language for Azure ML" pageTitle="Guide du langage de spécification de réseaux neuronaux Net# pour Azure ML " description="Syntaxe pour le langage de spécification des réseaux neuronaux Net#, avec des exemples montrant comment créer un modèle de réseau neuronal personnalisé dans Microsoft Azure ML à l'aide de Net# " metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jeannt" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Guide du langage de spécification de réseaux neuronaux Net# pour Azure ML" 
+	description="Syntaxe pour le langage de spécification des réseaux neuronaux Net#, avec des exemples montrant comment créer un modèle de réseau neuronal personnalisé dans Microsoft Azure ML à l'aide de Net#" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/08/2014" ms.author="jeannt" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2014" 
+	ms.author="jeannt"/>
 
 
 
@@ -377,3 +391,5 @@ La définition du réseau ci-après, conçu pour reconnaître les chiffres, illu
 -	Étant donné que **Sharing**[d] est uniquement faux pour d == 0, le nombre de noyaux est **MapCount** * **NodeCount**\[0] = 10 * 5 = 50. 
 
 [1]:./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
+
+<!--HONumber=46--> 

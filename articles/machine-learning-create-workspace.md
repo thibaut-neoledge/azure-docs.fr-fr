@@ -1,6 +1,20 @@
-﻿<properties title="Create an Azure Machine Learning workspace" pageTitle="Création d'un espace de travail Machine Learning | Azure" description="Création d'un espace de travail pour Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Création d'un espace de travail Machine Learning | Azure" 
+	description="Création d'un espace de travail pour Azure Machine Learning Studio" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="garye"/>
 
 
 # Création d'un espace de travail Azure Machine Learning 
@@ -31,3 +45,5 @@ Un espace de travail Microsoft Azure Machine Learning (espace de travail ML) con
 
 
 <!--Link references-->
+
+<!--HONumber=46--> 

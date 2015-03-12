@@ -58,11 +58,11 @@
 
 	Dans le code ci-dessus, remplacez `todolistContext` par le nom de la DbContext pour votre modèle de données, qui doit correspondre au nom du service mobile auquel est ajouté `Context`. Remplacez également le nom de schéma mentionné dans l'instruction UPDATE par le nom de votre service mobile. 
 
-	Ce code utilise la [classe de base de données](http://msdn.microsoft.com/fr-FR/library/system.data.entity.database.aspx) pour accéder à la table **TodoItems** directement afin de définir l'indicateur complété pour tous les éléments. Cette méthode prend en charge une requête POST et le nombre de lignes modifiées est renvoyé au client sous la forme d'une valeur entière.
+	Ce code utilise la [classe de base de données](http://msdn.microsoft.com/library/system.data.entity.database.aspx) pour accéder à la table **TodoItems** directement afin de définir l'indicateur complété pour tous les éléments. Cette méthode prend en charge une requête POST et le nombre de lignes modifiées est renvoyé au client sous la forme d'une valeur entière.
 
 	> [AZURE.NOTE] Les autorisations par défaut sont définies, ce qui signifie que tous les utilisateurs de l'application peuvent appeler l'API personnalisée. Toutefois, la clé de l'application n'étant pas distribuée ou stockée de façon sécurisée, elle ne peut pas être considérée comme une information d'identification sécurisée. De ce fait, vous devez restreindre l'accès aux utilisateurs authentifiés pour les opérations qui modifient les données ou affectent le service mobile. 
 
 Ensuite, vous allez modifier l'application de démarrage rapide pour ajouter un bouton et du code qui appelle de manière asynchrone la nouvelle API personnalisée.
 
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

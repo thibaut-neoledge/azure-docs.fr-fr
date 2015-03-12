@@ -79,4 +79,5 @@ Dans cette méthode, vous avez ajouté du code pour l'inscription provenant du d
 		        });
 		    });
 		}  
-<!--HONumber=41-->
+
+\<!--HONumber=42-->

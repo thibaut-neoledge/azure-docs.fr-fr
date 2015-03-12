@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Connexion à un serveur SQL Server local à partir d'un service mobile Azure au moyen de connexions hybrides - Azure Mobile Services" description="Découvrez comment vous connecter à un serveur SQL Server local à partir d'un service mobile Azure au moyen de connexions hybrides" services="" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor="mollybos"/>
+﻿<properties 
+	pageTitle="Connexion à un serveur SQL Server local à partir d'un service mobile Azure au moyen de connexions hybrides - Azure Mobile Services" 
+	description="Découvrez comment vous connecter à un serveur SQL Server local à partir d'un service mobile Azure au moyen de connexions hybrides" 
+	services="" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
   
 # Connexion à un serveur SQL Server local à partir d'un service mobile Azure au moyen de connexions hybrides 
@@ -156,9 +170,9 @@ Les modifications générées dans votre application ont été transmises par no
 
 ##Voir aussi##
  
-+ [Site web des connexions hybrides](http://azure.microsoft.com/fr-fr/services/biztalk-services/)
++ [Site web des connexions hybrides](http://azure.microsoft.com/services/biztalk-services/)
 + [Aperçu des connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274)
-+ [BizTalk Services : Onglets Tableau de bord, Surveiller, Mettre à l'échelle, Configurer et Connexion hybride](http://azure.microsoft.com/fr-fr/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
++ [BizTalk Services : Onglets Tableau de bord, Surveiller, Mettre à l'échelle, Configurer et Connexion hybride](http://azure.microsoft.com/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
 
 <!-- IMAGES -->
  

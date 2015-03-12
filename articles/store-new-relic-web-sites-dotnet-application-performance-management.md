@@ -36,7 +36,7 @@ Tarification spéciale New Relic par l'intermédiaire d'Azure Store
 New Relic Standard est gratuit pour les utilisateurs d'Azure.
 New Relic Pro est fourni dans plusieurs packages selon le mode de site Web que vous utilisez et la taille d'instance si vous utilisez le mode réservé.
 
-Pour obtenir des informations de tarification, consultez la page [New Relic dans l'Azure Store](http://www.windowsazure.com/fr-fr/gallery/store/new-relic/new-relic/).
+Pour obtenir des informations de tarification, consultez la page [New Relic dans l'Azure Store](http://azure.microsoft.com/gallery/store/new-relic/new-relic/).
 
 > [AZURE.NOTE] la tarification n'est répertoriée que jusqu'à 10 instances de calcul. Pour un nombre supérieur à 10, contactez New Relic (sales@newrelic.com) pour une tarification en gros.
 
@@ -238,8 +238,8 @@ vue d'ensemble de l'interface utilisateur New Relic, de la définition des droit
  * [Recherche d'aide](https://newrelic.com/docs/site/finding-help) : ressources disponibles dans le centre d'aide en ligne de New Relic.
 
 
-[webmatrixwebsite]: http://www.windowsazure.com/fr-fr/develop/net/tutorials/website-with-webmatrix/
-[vswebsite]: http://www.windowsazure.com/fr-fr/develop/net/tutorials/get-started/
+[webmatrixwebsite]: http://azure.microsoft.com/develop/net/tutorials/website-with-webmatrix/
+[vswebsite]: http://azure.microsoft.com/develop/net/tutorials/get-started/
 
 [wmnugetbutton]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetbutton.png
 [wmnugetgallery]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetgallery.png

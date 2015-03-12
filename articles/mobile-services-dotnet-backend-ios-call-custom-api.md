@@ -1,6 +1,21 @@
-﻿<properties pageTitle="Appel d'une API personnalisée à partir d'une application iOS | Mobile Services" description="Découvrez comment définir une API personnalisée et l'appeler depuis une application iOS qui utilise Microsoft Azure Mobile Services." services="mobile-services" documentationCenter="ios" authors="krisragh" writer="krisragh" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Appel d'une API personnalisée à partir d'une application iOS | Mobile Services" 
+	description="Découvrez comment définir une API personnalisée et l'appeler depuis une application iOS qui utilise Microsoft Azure Mobile Services." 
+	services="mobile-services" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	Writer="krisragh" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="krisragh"/>
 
 
 # Appel d'une API personnalisée à partir du client

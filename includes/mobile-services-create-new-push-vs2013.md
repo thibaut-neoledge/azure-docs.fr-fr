@@ -20,7 +20,7 @@ La procédure suivante permet d'inscrire votre application auprès du Windows St
 
 	Le concentrateur de notification utilisé par votre service mobile est mis à jour via l'inscription à Windows Notification Services (WNS). Vous pouvez désormais utiliser Azure Notification Hubs pour envoyer des notifications de Mobile Services vers votre application via WNS. 
 
-	>[AZURE.NOTE] Ce didacticiel montre comment envoyer des notifications depuis un service mobile principal. Vous pouvez utiliser la même inscription au concentrateur de notification pour envoyer des notifications depuis n'importe quel service principal. Pour plus d'informations, consultez la page [Vue d'ensemble des concentrateurs de notification](http://msdn.microsoft.com/fr-FR/library/azure/jj927170.aspx).
+	>[AZURE.NOTE] Ce didacticiel montre comment envoyer des notifications depuis un service mobile principal. Vous pouvez utiliser la même inscription au concentrateur de notification pour envoyer des notifications depuis n'importe quel service principal. Pour plus d'informations, consultez la page [Vue d'ensemble des concentrateurs de notification](http://msdn.microsoft.com/library/azure/jj927170.aspx).
 
 5. Une fois l'Assistant terminé, une nouvelle page **L'installation Push est presque terminée** s'ouvrira dans Visual Studio. Cette page présente une toute autre méthode permettant de configurer votre projet de service mobile pour envoyer des notifications. 
 
@@ -31,4 +31,4 @@ La procédure suivante permet d'inscrire votre application auprès du Windows St
 [Prise en main des données]: /fr-FR/develop/mobile/tutorials/get-started-with-data-dotnet/
 [Importation de votre fichier publishsettings dans Visual Studio 2013]: /fr-FR/documentation/articles/mobile-services-windows-how-to-import-publishsettings/
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

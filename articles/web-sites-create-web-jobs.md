@@ -21,7 +21,7 @@
 
 Le service Sites Web Azure propose trois méthodes pour exécuter des programmes ou des scripts dans votre site Web : à la demande, en continu ou selon un programme. L'utilisation de Microsoft Azure WebJobs n'entraîne aucun coût supplémentaire.
 
-Cet article explique comment déployer WebJobs à l'aide du portail de gestion Azure. Pour plus d'informations sur le déploiement à l'aide de Visual Studio ou d'un processus de livraison continue, consultez la page [Déploiement d'Azure WebJobs sur des sites Web Azure](http://azure.microsoft.com/fr-fr/documentation/articles/websites-dotnet-deploy-webjobs).
+Cet article explique comment déployer WebJobs à l'aide du portail de gestion Azure. Pour plus d'informations sur le déploiement à l'aide de Visual Studio ou d'un processus de livraison continue, consultez la page [Déploiement d'Azure WebJobs sur des sites Web Azure](http://azure.microsoft.com/documentation/articles/websites-dotnet-deploy-webjobs).
 
 Le Kit de développement logiciel (SDK) Azure WebJobs simplifie de nombreuses tâches de programmation. Pour plus d'informations, consultez [Présentation du Kit de développement logiciel (SDK) WebJobs](../websites-dotnet-webjobs-sdk).
 

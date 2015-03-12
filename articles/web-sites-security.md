@@ -31,7 +31,7 @@ Lors du développement d'une application Web, il est primordial de s'engager à 
  
 ##<a name="https"></a>Sécurisation des communications
 
-Si vous utilisez le nom de domaine ***.azurewebsites.net** créé pour votre site Web, vous pouvez immédiatement utiliser HTTPS, car un certificat SSL est fourni pour tous les noms de domaine ***.azurewebsites.net**. Si votre site utilise un [nom de domaine personnalisé](http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-custom-domain-name/), vous pouvez charger un certificat SSL et activer HTTPS pour le domaine personnalisé.
+Si vous utilisez le nom de domaine ***.azurewebsites.net** créé pour votre site Web, vous pouvez immédiatement utiliser HTTPS, car un certificat SSL est fourni pour tous les noms de domaine ***.azurewebsites.net**. Si votre site utilise un [nom de domaine personnalisé](http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/), vous pouvez charger un certificat SSL et activer HTTPS pour le domaine personnalisé.
 
 ##<a name="develop"></a>Sécurisation du développement 
 

@@ -1,6 +1,21 @@
-﻿<properties pageTitle="Prise en main des concentrateurs de notification Push à l'aide des services mobiles .NET runtime" description="Découvrez comment utiliser les services mobiles d'exécution Microsoft Azure .Net et Notification Hubs pour envoyer des notifications Push à votre application Windows Phone." services="mobile-services, notification-hubs" documentationCenter="windows" authors="wesmc7777" writer="wesmc" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Prise en main des concentrateurs de notification Push à l'aide des services mobiles .NET runtime" 
+	description="Découvrez comment utiliser les services mobiles d'exécution Microsoft Azure .Net et Notification Hubs pour envoyer des notifications Push à votre application Windows Phone." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	Writer="wesmc" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="wesmc"/>
 
 # Ajout de notifications push à votre application Mobile Services
 
@@ -131,7 +146,7 @@ Pour permettre à votre application de recevoir les notifications Push, vous dev
 
    	![][4]
 
-	>[AZURE.NOTE]Ce didacticiel utilise MPNS en mode non authentifié. Dans ce mode, MPNS limite le nombre de notifications à envoyer à un canal d'appareil. Pour supprimer cette restriction, vous devez générer et télécharger un certificat en cliquant sur <strong>Télécharger</strong> et en sélectionnant le certificat. Pour plus d'informations sur la génération du certificat, consultez la rubrique <a href="http://msdn.microsoft.com/fr-fr/library/windowsphone/develop/ff941099(v=vs.105).aspx">Configuration d'un service Web authentifié afin d'envoyer des notifications Push pour Windows Phone</a>.
+	>[AZURE.NOTE]Ce didacticiel utilise MPNS en mode non authentifié. Dans ce mode, MPNS limite le nombre de notifications à envoyer à un canal d'appareil. Pour supprimer cette restriction, vous devez générer et télécharger un certificat en cliquant sur <strong>Télécharger</strong> et en sélectionnant le certificat. Pour plus d'informations sur la génération du certificat, consultez la rubrique <a href="http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx">Configuration d'un service Web authentifié afin d'envoyer des notifications Push pour Windows Phone</a>.
 
 Le service mobile peut ainsi se connecter à MPNS en mode non authentifié pour envoyer les notifications Push.
 
@@ -210,7 +225,7 @@ Pour plus d'informations sur les rubriques Mobile Services et Notifications Hubs
 
 
 [Guide de fonctionnement Mobile Services .NET]: /fr-fr/documentation/articles/mobile-services-html-how-to-use-client-library
-[Applications Windows Phone Silverlight 8.1]: http://msdn.microsoft.com/fr-fr/library/windowsphone/develop/dn642082(v=vs.105).aspx
+[Applications Windows Phone Silverlight 8.1]: http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 
 

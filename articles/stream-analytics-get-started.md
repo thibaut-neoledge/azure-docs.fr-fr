@@ -1,6 +1,20 @@
-﻿<properties linkid="manage-services-Stream-Analytics-get-started" urlDisplayName="Get Started" pageTitle="Prise en main d'Azure Stream Analytics | Azure" metaKeywords="" description="Prise en main de Azure Stream Analytics pour traiter et transformer les événements dans le concentrateur d'événements Azure Service Bus et stocker les résultats dans la base de données SQL Azure." metaCanonical="" services="stream analytics" documentationCenter="" title="Get started with Azure Stream Analytics" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Prise en main d'Azure Stream Analytics | Azure" 
+	description="Prise en main de Azure Stream Analytics pour traiter et transformer les événements dans le concentrateur d'événements Azure Service Bus et stocker les résultats dans la base de données SQL Azure." 
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="stream analytics" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/28/2014" ms.author="jgao" />
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="2/17/2015" 
+	ms.author="jgao" />
 
 
 # Prise en main d'Azure Stream Analytics
@@ -73,7 +87,7 @@ Si vous disposez déjà d'une base de données SQL Azure pour ce didacticiel, ig
 1.	Dans le portail de gestion, cliquez sur **NOUVEAU**, **SERVICES DE DONNÉES**, **BASE DE DONNÉES SQL**, **CRÉATION RAPIDE**.  Spécifiez un nom de base de données sur un serveur, nouveau ou existant, de base de données SQL.
 2.	Sélectionnez la base de données nouvellement créée
 3.	Cliquez sur **TABLEAU DE BORD**, sur **Afficher les chaînes de connexion** sur le volet droit de la page, puis copiez la chaîne de connexion **ADO.NET**. Vous en aurez besoin plus loin dans le didacticiel.  
-4.	Assurez-vous que les paramètres de pare-feu au niveau du serveur permettent de vous connecter à la base de données.  Pour ce faire, ajoutez une nouvelle règle IP sous l'onglet Configuration du serveur. Pour plus d'informations, notamment sur la gestion d'adresses IP dynamiques, consultez [http://msdn.microsoft.com/fr-fr/library/azure/ee621782.aspx](http://msdn.microsoft.com/fr-fr/library/azure/ee621782.aspx).
+4.	Assurez-vous que les paramètres de pare-feu au niveau du serveur permettent de vous connecter à la base de données.  Pour ce faire, ajoutez une nouvelle règle IP sous l'onglet Configuration du serveur. Pour plus d'informations, notamment sur la gestion d'adresses IP dynamiques, consultez [http://msdn.microsoft.com/library/azure/ee621782.aspx](http://msdn.microsoft.com/library/azure/ee621782.aspx).
 
 ###Création de tables de sortie
 1.	Ouvrez Visual Studio ou SQL Server Management Studio.
@@ -264,13 +278,13 @@ Dans ce didacticiel, vous avez appris à utiliser Stream Analytics pour traiter 
 [img.stream.analytics.operation.log.details]: ./media/stream-analytics-get-started/StreamAnalytics.operation.log.details.png
 
 
-[azure.sql.database.firewall]: http://msdn.microsoft.com/fr-fr/library/azure/ee621782.aspx
-[azure.event.hubs.documentation]: http://azure.microsoft.com/fr-fr/services/event-hubs/
-[azure.sql.database.documentation]: http://azure.microsoft.com/fr-fr/services/sql-database/
+[azure.sql.database.firewall]: http://msdn.microsoft.com/library/azure/ee621782.aspx
+[azure.event.hubs.documentation]: http://azure.microsoft.com/services/event-hubs/
+[azure.sql.database.documentation]: http://azure.microsoft.com/services/sql-database/
 
-[sql.database.introduction]: http://azure.microsoft.com/fr-fr/services/sql-database/
-[event.hubs.introduction]: http://azure.microsoft.com/fr-fr/services/event-hubs/
-[azure.blob.storage]: http://azure.microsoft.com/fr-fr/documentation/services/storage/
+[sql.database.introduction]: http://azure.microsoft.com/services/sql-database/
+[event.hubs.introduction]: http://azure.microsoft.com/services/event-hubs/
+[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
 [azure.sdk.net]: ../dotnet-sdk/
 
 [stream.analytics.introduction]: ../stream-analytics-introduction/
@@ -286,3 +300,5 @@ Dans ce didacticiel, vous avez appris à utiliser Stream Analytics pour traiter 
 
 [azure.management.portal]: https://manage.windowsazure.com
 
+
+<!--HONumber=46--> 

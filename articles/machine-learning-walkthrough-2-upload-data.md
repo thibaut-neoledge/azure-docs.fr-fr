@@ -1,6 +1,20 @@
-<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Étape 2 : Téléchargement de données dans une expérience Machine Learning | Azure" description="Étape 2 : téléchargement des données publiques existantes dans Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Étape 2 : Téléchargement de données dans une expérience Machine Learning | Azure" 
+	description="Étape de procédure pas à pas de solution 2 : téléchargement des données publiques existantes dans Azure Machine Learning Studio" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/06/2015" 
+	ms.author="garye"/>
 
 Voici la seconde étape du didacticiel pas à pas [Développement d'une solution de prévision avec Azure ML][develop] :
 
@@ -70,3 +84,5 @@ Les données sont téléchargées dans un module Jeu de données utilisable dans
 **Suivant : [Création d'une expérience][create-new]**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
+
+<!--HONumber=46--> 

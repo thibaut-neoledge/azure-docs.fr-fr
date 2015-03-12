@@ -6,5 +6,4 @@
 - [(C | EventProcessorHost C#)](/fr-fr/documentation/articles/service-bus-event-hubs-c-ephcs-getstarted/)
 - [(C | Apache Storm)](/fr-fr/documentation/articles/service-bus-event-hubs-c-storm-getstarted/)
 
-
 <!--HONumber=42-->

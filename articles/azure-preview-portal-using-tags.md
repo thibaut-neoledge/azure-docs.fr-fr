@@ -1,13 +1,28 @@
-﻿<properties urlDisplayName="" pageTitle="Organisation des ressources Azure à l'aide de balises" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using tags to organize your Azure resources" authors="Michael Flanakin" solutions="" writer="" manager="carolz" editor=""  />
+﻿<properties 
+	pageTitle="Organisation des ressources Azure à l'aide de balises" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="flanakin" 
+	writer="" 
+	manager="carolz" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="micflan" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2014" 
+	ms.author="micflan"/>
 
 
 # Organisation des ressources Azure à l'aide de balises
 
 La version préliminaire du portail Azure et le Gestionnaire de ressources sous-jacentes vont organiser vos ressources et personnaliser votre expérience exactement selon vos besoins. 
 
-Dans l'ensemble du portail Azure, les abonnements sont le seul moyen de classer et regrouper vos ressources. Avec la version préliminaire du portail, [nous avons introduit des groupes de ressources](http://azure.microsoft.com/fr-fr/documentation/articles/azure-preview-portal-using-resource-groups) qui vous permettent de regrouper les entités associées. Cet avantage s'est accentué lorsque [nous avons introduit l'accès basé sur les rôles](http://azure.microsoft.com/fr-fr/documentation/articles/role-based-access-control-configure). À présent, dans cette même optique, vous pouvez baliser vos ressources avec des paires de clé/valeur pour classer et afficher plus précisément vos ressources entre les différents groupes de ressources et, dans le portail, entre les différents abonnements.
+Dans l'ensemble du portail Azure, les abonnements sont le seul moyen de classer et regrouper vos ressources. Avec la version préliminaire du portail, [nous avons introduit des groupes de ressources](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups) qui vous permettent de regrouper les entités associées. Cet avantage s'est accentué lorsque [nous avons introduit l'accès basé sur les rôles](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure). À présent, dans cette même optique, vous pouvez baliser vos ressources avec des paires de clé/valeur pour classer et afficher plus précisément vos ressources entre les différents groupes de ressources et, dans le portail, entre les différents abonnements.
 
 Regroupez vos ressources en fonction de vos équipes, de vos projets ou même de vos environnements, pour vous concentrer sur ce que vous voulez afficher, lorsque vous en avez besoin. 
 
@@ -27,9 +42,9 @@ Un volet s'ouvre. Il contient la liste des balises qui ont déjà été appliqu�
 
 ## Balisage avec PowerShell
 
-Tout d'abord, récupérez le tout dernier [module Azure PowerShell](http://azure.microsoft.com/fr-fr/documentation/articles/install-configure-powershell/). Si vous utilisez le module Azure PowerShell pour la première fois, [consultez la documentation](http://azure.microsoft.com/fr-fr/documentation/articles/install-configure-powershell) pour apprendre à l'utiliser. Cet article part du principe que vous avez déjà ajouté un compte et sélectionné un abonnement avec les ressources que vous souhaitez baliser.
+Tout d'abord, récupérez le tout dernier [module Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/). Si vous utilisez le module Azure PowerShell pour la première fois, [consultez la documentation](http://azure.microsoft.com/documentation/articles/install-configure-powershell) pour apprendre à l'utiliser. Cet article part du principe que vous avez déjà ajouté un compte et sélectionné un abonnement avec les ressources que vous souhaitez baliser.
 
-Le balisage est uniquement disponible pour les ressources et les groupes de ressources disponibles dans le [Gestionnaire de ressources](http://msdn.microsoft.com/fr-fr/library/azure/dn790568.aspx). La prochaine chose à faire consiste à passer au Gestionnaire de ressources. Pour plus d'informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](http://azure.microsoft.com/fr-fr/documentation/articles/powershell-azure-resource-manager/).
+Le balisage est uniquement disponible pour les ressources et les groupes de ressources disponibles dans le [Gestionnaire de ressources](http://msdn.microsoft.com/library/azure/dn790568.aspx). La prochaine chose à faire consiste à passer au Gestionnaire de ressources. Pour plus d'informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/).
 
   Switch-AzureMode AzureResourceManager
 
@@ -50,7 +65,7 @@ Le processus est le même pour les ressources, sauf que vous allez utiliser les 
 
 ## Balisage avec le Gestionnaire de ressources
 
-La version préliminaire du portail et PowerShell utilisent tous deux [l'API REST du Gestionnaire de ressources](http://msdn.microsoft.com/fr-fr/library/azure/dn790568.aspx) en arrière-plan. Si vous avez besoin intégrer le balisage dans un autre environnement, vous pouvez récupérer des balises avec une commande GET sur l'ID de ressource et mettre à jour l'ensemble des balises avec un appel PATCH.
+La version préliminaire du portail et PowerShell utilisent tous deux [l'API REST du Gestionnaire de ressources](http://msdn.microsoft.com/library/azure/dn790568.aspx) en arrière-plan. Si vous avez besoin intégrer le balisage dans un autre environnement, vous pouvez récupérer des balises avec une commande GET sur l'ID de ressource et mettre à jour l'ensemble des balises avec un appel PATCH.
 
 
 ## Gestion de votre classification
@@ -74,3 +89,5 @@ Pour afficher votre classification de balises dans le portail, utilisez le conce
 
 ![Pin tags to the Startboard](./media/azure-preview-portal-using-tags/pin-tags.png)
 
+
+<!--HONumber=46--> 

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Didacticiel Application web Python avec Django - Azure" 
 	description="Didacticiel qui explique comment héberger un site web Django dans Azure en utilisant une machine virtuelle Windows Server 2012 R2 Datacenter." 
 	services="virtual-machines" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/05/2015" 
+	ms.date="09/25/2014" 
 	ms.author="huvalo"/>
 
 
@@ -43,20 +43,20 @@ Voici une capture d'écran de l'application terminée :
 
 ## Création et configuration d'une machine virtuelle Azure pour héberger Django
 
-1. Suivez les instructions [ici][portal-vm] pour créer une machine virtuelle Azure de la distribution *Windows Server 2012 R2 Datacenter*.
+1. Suivez les instructions fournies [ici][portal-vm] afin de créer une machine virtuelle Azure de la distribution *Windows Server 2012 R2 Datacenter*.
 
-1. Indiquez à Azure de diriger le trafic du port **80** à partir du web vers le port **80** de la machine virtuelle :
- - Accédez à votre machine virtuelle nouvellement créée dans le portail Azure et cliquez sur l'onglet *ENDPOINTS*.
- - Cliquez sur le bouton *ADD* au bas de l'écran.
-	![add endpoint](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png)
+1. Indiquez à Azure d'acheminer le trafic du port **80** du Web vers le port **80** de la machine virtuelle :
+ - Accédez à votre machine virtuelle nouvellement créée dans le portail Azure et cliquez sur l'onglet *POINTS DE TERMINAISON*.
+ - Cliquez sur le bouton *AJOUTER* au bas de l'écran.
+	![ajout d'un point de terminaison](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png)
 
- - Ouvrez le *PUBLIC PORT 80* du protocole *TCP* en tant que *PRIVATE PORT 80*.
+ - Ouvrez le *PORT PUBLIC 80* du protocole *TCP* en tant que *PORT PRIVÉ 80*.
 ![][port80]
-1. Sous l'onglet *DASHBOARD*, cliquez sur *CONNECT* pour utiliser *Remote Desktop* pour vous connecter à distance à la machine virtuelle Azure nouvellement créée.  
+1. Dans l'onglet *TABLEAU DE BORD*, cliquez sur *CONNECTER* pour utiliser le *Bureau à distance* pour vous connecter à distance à la machine virtuelle Azure que vous venez de créer.  
 
-**Remarque importante :** toutes les instructions ci-dessous partent du principe que vous vous êtes correctement connecté à la machine virtuelle et que vous émettez les commandes depuis celle-ci et non depuis votre ordinateur local. 
+**Remarque importante :** toutes les instructions ci-dessous partent du principe que vous vous êtes correctement connecté à la machine virtuelle et que vous émettez les commandes depuis celle-ci et non depuis votre ordinateur local.
 
-## <a id="setup"> </a>Configuration de Python et Django
+## <a id="setup"> </a>Configuration de Python et de Django
 
 **Remarque :** pour le téléchargement en utilisant Internet Explorer, vous devrez peut-être configurer les paramètres IE ESC (Démarrer/Outils d'administration/Gestionnaire de serveur, Serveur local, puis cliquez sur **Configuration de sécurité renforcée d'Internet Explorer** et désactivez cette option).
 
@@ -65,6 +65,7 @@ Voici une capture d'écran de l'application terminée :
 	1. Démarrez Web Platform Installer.
 	1. Tapez WFastCGI dans la barre de recherche. 
 	1. Sélectionnez l'entrée WFactCGI pour la version de Python que vous voulez utiliser (2.7 ou 3.4).  Remarque : cela installe Python comme dépendance de WFastCGI. 
+1. Si vous avez installé Python 2.7, [suivez ces instructions pour installer pip manuellement](https://pip.pypa.io/en/latest/installing.html) (pip est déjà installé avec Python 3.4).
 1. Installez Django en utilisant pip.
 
     Python 2.7 :
@@ -118,7 +119,7 @@ Exécutez ces commandes uniquement si vous exécutez Python 2.7.
 
 ### Python 3.4
 
-Exécutez ces commandes uniquement si vous exécutez Python 3.4.
+Run these commands only if you are using Python 3.4.
 
 1. Configurez le gestionnaire Python FastCGI.
 
@@ -203,4 +204,5 @@ Lorsque vous avez terminé ce didacticiel, arrêtez et/ou supprimez votre machin
 [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

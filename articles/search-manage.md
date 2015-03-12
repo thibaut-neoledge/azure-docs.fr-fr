@@ -1,6 +1,20 @@
-﻿<properties title="Manage your Search service on Microsoft Azure" pageTitle="Gestion de votre service Search sur Microsoft Azure" description="Gestion de votre service Search sur Microsoft Azure" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<p<properties 
+	pageTitle="Gestion de votre service Search sur Microsoft Azure" 
+	description="Gestion de votre service Search sur Microsoft Azure" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Gestion de votre service Search sur Microsoft Azure
 
@@ -11,7 +25,7 @@ Azure Search est à la fois un service cloud et une API HTTP qu'il est possible 
 
 Cet article explique comment administrer un service Search dans la nouvelle version préliminaire du [portail Azure](https://portal.azure.com).
 
-Vous pouvez également utiliser l'API REST de gestion. Pour en savoir plus, veuillez consulter les articles [Prise en main de l'API REST de gestion Azure Search](http://azure.microsoft.com/fr-fr/documentation/articles/search-get-started-management-api/) et [Références de l'API REST de gestion Azure Search](http://msdn.microsoft.com/fr-fr/library/azure/dn832684.aspx).
+Vous pouvez également utiliser l'API REST de gestion. Pour en savoir plus, veuillez consulter les articles [Prise en main de l'API REST de gestion Azure Search](http://azure.microsoft.com/documentation/articles/search-get-started-management-api/) et [Références de l'API REST de gestion Azure Search](http://msdn.microsoft.com/library/azure/dn832684.aspx).
 
 <!--TOC-->
 
@@ -34,7 +48,7 @@ La recherche standard est facturable, car vous bénéficiez d'une infrastructure
 
 Pour planifier la capacité nécessaire et comprendre l'impact de la facturation, nous vous recommandons les liens suivants :
 
-+	[Limites et contraintes](http://msdn.microsoft.com/fr-fr/library/dn798934.aspx)
++	[Limites et contraintes](http://msdn.microsoft.com/library/dn798934.aspx)
 +	[Détails de la tarification](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
 Lorsque vous êtes prêt à vous inscrire, consultez [Prise en main d'Azure Search](../search-get-started/).
@@ -98,10 +112,10 @@ Dans cette version préliminaire publique, l'analyse des ressources se limite au
 
 Dans la section Utilisation du tableau de bord des services, vous pouvez déterminer rapidement si les niveaux des ressources de partition sont adaptés à votre application.
 
-L'API du service Search vous permet d'obtenir le nombre de documents et d'index. Des limites strictes sont associées à ces valeurs sur la base du niveau de tarification. Pour plus d'informations, consultez [Limites et contraintes](http://msdn.microsoft.com/fr-fr/library/dn798934.aspx). 
+L'API du service Search vous permet d'obtenir le nombre de documents et d'index. Des limites strictes sont associées à ces valeurs sur la base du niveau de tarification. Pour plus d'informations, consultez [Limites et contraintes](http://msdn.microsoft.com/library/dn798934.aspx). 
 
-+	[Obtenir des statistiques d'index](http://msdn.microsoft.com/fr-fr/library/dn798942.aspx)
-+	[Nombre de documents](http://msdn.microsoft.com/fr-fr/library/dn798924.aspx)
++	[Obtenir des statistiques d'index](http://msdn.microsoft.com/library/dn798942.aspx)
++	[Nombre de documents](http://msdn.microsoft.com/library/dn798924.aspx)
 
 > [WACOM.NOTE] Il arrive qu'une limite soit surévaluée en raison des options de mise en cache. Lors de l'utilisation du service partagé, par exemple, il se peut que le nombre de documents dépasse la limite stricte fixée à 10 000 documents. Cette surévaluation est temporaire et sera détectée lors de la prochaine vérification de l'application des limites. 
 
@@ -141,7 +155,7 @@ Contrairement à la suppression de réplicas, qui n'exige aucune opération supp
 
 Aucune méthode de détection ne vous permet d'identifier les fragments d'index qui sont stockés sur des partitions spécifiques. Chaque partition fournit environ 25 Go de stockage. Vous devrez donc réduire l'espace de stockage à une taille pouvant être prise en charge par le nombre de partitions dont vous disposez. Si vous souhaitez revenir à une seule partition, celle-ci devra contenir les 12 fragments.
 
-Pour faciliter la planification, vous pouvez vérifier le stockage (voir la page [Obtenir des statistiques d'index](http://msdn.microsoft.com/fr-fr/library/dn798942.aspx)) afin de connaître l'espace réellement utilisé. 
+Pour faciliter la planification, vous pouvez vérifier le stockage (voir la page [Obtenir des statistiques d'index](http://msdn.microsoft.com/library/dn798942.aspx)) afin de connaître l'espace réellement utilisé. 
 
 
 <!---->
@@ -157,7 +171,7 @@ L'arrêt ou le démarrage du service ne désactive pas la facturation. Pour ne p
 <!---->
 <h2 id="sub-8">Définition de rôles lors de l'accès des administrateurs</h2>
 
-Azure offre un modèle d'autorisation par rôle global pour tous les services gérés via le portail préliminaire ou dans l'API du gestionnaire de ressources Azure si vous utilisez un outil d'administration personnalisé. Les rôles Propriétaire, Collaborateur et Lecteur définissent le niveau d'administration des services pour les utilisateurs, les groupes et les principaux de sécurité Active Directory que vous assignez à chaque rôle. Pour en savoir plus sur l'appartenance à un rôle, consultez la page [Contrôle d'accès en fonction du rôle de la version préliminaire du portail de gestion Azure](http://azure.microsoft.com/fr-fr/updates/role-based-access-control-in-azure-preview-portal/).
+Azure offre un modèle d'autorisation par rôle global pour tous les services gérés via le portail préliminaire ou dans l'API du gestionnaire de ressources Azure si vous utilisez un outil d'administration personnalisé. Les rôles Propriétaire, Collaborateur et Lecteur définissent le niveau d'administration des services pour les utilisateurs, les groupes et les principaux de sécurité Active Directory que vous assignez à chaque rôle. Pour en savoir plus sur l'appartenance à un rôle, consultez la page [Contrôle d'accès en fonction du rôle de la version préliminaire du portail de gestion Azure](http://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/).
 
 Dans Azure Search, les contrôles d'accès en fonction du rôle déterminent les tâches d'administration suivantes :
 
@@ -185,7 +199,7 @@ Les administrateurs d'abonnement et de service appartiennent automatiquement au 
 </tr>
 </table>
 
-Notez que les rôles n'accordent pas de droits d'accès au point de terminaison de service. Les opérations du service Search telles que la gestion ou le remplissage d'index, tout comme les requêtes de données de recherche, sont contrôlées via des clés api, et non par des rôles. Pour en savoir plus, consultez la section " Autorisation pour les opérations de gestion et les opérations de données " de la page [Contrôle d'accès en fonction du rôle de la version préliminaire du portail de gestion Azure](http://azure.microsoft.com/fr-fr/updates/role-based-access-control-in-azure-preview-portal/).
+Notez que les rôles n'accordent pas de droits d'accès au point de terminaison de service. Les opérations du service Search telles que la gestion ou le remplissage d'index, tout comme les requêtes de données de recherche, sont contrôlées via des clés api, et non par des rôles. Pour en savoir plus, consultez la section " Autorisation pour les opérations de gestion et les opérations de données " de la page [Contrôle d'accès en fonction du rôle de la version préliminaire du portail de gestion Azure](http://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/).
 
 Les rôles offrent un contrôle d'accès après la création du service. Seuls les responsables d'abonnement peuvent ajouter un service Search à un abonnement.
 
@@ -213,3 +227,5 @@ Les rôles offrent un contrôle d'accès après la création du service. Seuls l
 [Flux de travail de développement Azure Search]: ../search-workflow/
 [Création de votre première solution de recherche Azure]: ../search-create-first-solution/
 
+
+<!--HONumber=46--> 

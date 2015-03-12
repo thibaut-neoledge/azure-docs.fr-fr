@@ -1,12 +1,26 @@
-﻿<properties pageTitle="Utilisation de la suppression réversible dans Mobile Services (Windows Store) | Centre de développement mobile" description="Découvrez comment utiliser la fonctionnalité de suppression réversible Azure Mobile Services dans votre application" documentationCenter="" authors="wesmc7777" manager="dwrede" editor="" services="mobile-services"/>
+﻿<properties 
+	pageTitle="Utilisation de la suppression réversible dans Mobile Services (Windows Store) | Centre de développement mobile" 
+	description="Découvrez comment utiliser la fonctionnalité de suppression réversible Azure Mobile Services dans votre application" 
+	documentationCenter="" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="wesmc"/>
 
 # Utilisation de la suppression réversible dans Mobile Services
 
 La suppression réversible peut être activée pour les tables créées avec un serveur principal JavaScript ou .NET. Lors de l'utilisation de la suppression réversible, une nouvelle colonne nommée *\__deleted* de [type de bit SQL] est ajoutée à la base de données. Lorsque la suppression réversible est activée, une opération de suppression ne supprime pas physiquement des lignes d'une base de données, mais définit la valeur de la colonne supprimée sur TRUE.
 
-Lors de l'interrogation des enregistrements d'une table avec la suppression réversible activée, les lignes supprimées ne sont pas renvoyées dans la requête par défaut. Pour demander ces lignes, vous devez transmettre un paramètre de requête *\__includeDeleted=true* dans votre [opération de requête REST](http://msdn.microsoft.com/fr-fr/library/azure/jj677199.aspx). Dans le Kit de développement logiciel (SDK) .NET, vous pouvez également utiliser la méthode d'assistance `IMobileServiceTable.IncludeDeleted()`.
+Lors de l'interrogation des enregistrements d'une table avec la suppression réversible activée, les lignes supprimées ne sont pas renvoyées dans la requête par défaut. Pour demander ces lignes, vous devez transmettre un paramètre de requête *\__includeDeleted=true* dans votre [opération de requête REST](http://msdn.microsoft.com/library/azure/jj677199.aspx). Dans le Kit de développement logiciel (SDK) .NET, vous pouvez également utiliser la méthode d'assistance `IMobileServiceTable.IncludeDeleted()`.
 
 La suppression réversible pour le serveur principal .NET a été prise en charge pour la première fois avec la version 1.0.402 du serveur principal .NET de Microsoft Azure Mobile Services. Les packages NuGet les plus récents sont disponibles ici : [Serveur principal .NET de Microsoft Azure Mobile Services](http://go.microsoft.com/fwlink/?LinkId=513165).
 
@@ -87,8 +101,10 @@ La tâche planifiée suivante purge les enregistrements supprimés de manière r
             Services.Log.Info("Purging old records");
             var monthAgo = DateTimeOffset.UtcNow.AddDays(-30);
      
-            var toDelete = context.TodoItems.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
-            context.TodoItems.RemoveRange(toDelete);
+            var toDelete = context.TodoIte
+	ms.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
+            context.TodoIte
+	ms.RemoveRange(toDelete);
             context.SaveChanges();
      
             return Task.FromResult(true);
@@ -153,7 +169,7 @@ Pour en savoir plus sur les tâches planifiées avec le serveur principal JavaSc
 [2]: ./media/mobile-services-using-soft-delete/enable-soft-delete-new-table.png
 
 <!-- URLs. -->
-[Type de bit SQL]: http://msdn.microsoft.com/fr-fr/library/ms177603.aspx
+[Type de bit SQL]: http://msdn.microsoft.com/library/ms177603.aspx
 [Synchronisation des données hors connexion pour Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/
 [Portail de gestion]: https://manage.windowsazure.com/
 

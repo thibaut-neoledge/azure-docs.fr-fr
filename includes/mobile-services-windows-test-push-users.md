@@ -10,4 +10,5 @@
 4. (Facultatif) Répétez les étapes 1 à 3 sur un autre appareil client et en utilisant un autre compte lors de la connexion.  
 
 	Vérifiez que la notification est reçue seulement sur cet appareil, car l'appareil précédent n'a pas été balisé avec l'identifiant de l'utilisateur actuel. 
-<!--HONumber=41-->
+
+\<!--HONumber=42-->

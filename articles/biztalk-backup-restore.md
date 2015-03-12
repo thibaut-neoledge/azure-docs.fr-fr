@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="BizTalk Services: Backup and Restore" pageTitle="BizTalk Services : Sauvegarde et restauration | Azure" metaKeywords="" description="BizTalk Services offre des fonctionnalités de sauvegarde et de restauration. Lors de la création d'une sauvegarde, une capture instantanée de la configuration BizTalk Services est prise." metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Backup and Restore" authors="mandia"  solutions="" writer="mandia" manager="dwrede" editor="cgronlun"  />
+﻿<properties 
+	pageTitle="BizTalk Services : Sauvegarde et restauration | Azure" 
+	description="BizTalk Services offre des fonctionnalités de sauvegarde et de restauration. Apprenez à créer et à restaurer une sauvegarde et à déterminer les éléments sauvegardés. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 
 # BizTalk Services : Sauvegarde et restauration
@@ -16,7 +30,7 @@ Vous pouvez également sauvegarder BizTalk Services à l'aide de l'[API REST Biz
 
 ##<a name="beforebackup"></a>Avant de commencer
 
-- Il se peut que les fonctionnalités de sauvegarde et de restauration ne soient pas disponibles dans toutes les éditions. Consultez [BizTalk Services : Tableau comparatif des éditions](http://azure.microsoft.com/fr-fr/documentation/articles/biztalk-editions-feature-chart/).
+- Il se peut que les fonctionnalités de sauvegarde et de restauration ne soient pas disponibles dans toutes les éditions. Consultez [BizTalk Services : Tableau comparatif des éditions](http://azure.microsoft.com/documentation/articles/biztalk-editions-feature-chart/).
 
 	**Remarque**  Les connexions hybrides NE sont PAS sauvegardées, quelle que soit l'édition.
 
@@ -227,3 +241,5 @@ Pour créer Azure BizTalk Services dans le portail de gestion Azure, accédez à
 [Restore]: ./media/biztalk-backup-restore/restore-ui.png
 [AutomaticBU]: ./media/biztalk-backup-restore/AutomaticBU.png
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
+
+<!--HONumber=46--> 

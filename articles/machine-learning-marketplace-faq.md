@@ -1,6 +1,20 @@
-﻿<properties title="FAQ for publishing and using Machine Learning apps in the Azure Marketplace" pageTitle="Forum aux questions pour la publication et l'utilisation d'applications Machine Learning sur Azure Marketplace | Azure" description="Forum Aux Questions (FAQ)" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Forum aux questions pour la publication et l'utilisation d'applications Machine Learning sur Azure Marketplace | Azure" 
+	description="Forum Aux Questions (FAQ)" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="luisca" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/13/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="luisca"/> 
 
 #Forum aux questions pour la publication et l'utilisation d'applications Machine Learning sur Azure Marketplace
 
@@ -16,7 +30,7 @@ Réponse : Vous devez utiliser votre compte Marketplace en tant que nom d'utilis
 
 ###Question 3 : Je vois l'erreur suivante après avoir saisi l'entrée pour le service web dans " Explorer ce jeu de données ". Pourquoi ai-je cette erreur ?
 Une erreur inattendue s'est produite pendant le traitement de votre demande. Réessayez.
-Réponse : Un ou plusieurs paramètres d'entrée de votre service web peuvent avoir dépassé la limite de longueur lors de la consommation du service web sur la page " Explorer ce jeu de données " de Marketplace. Les services peuvent être appelés avec une longueur d'entrée supérieure à l'aide de méthodes HTTP POST ; l'exemple de code est publié dans les exemples de services décrits ici : http://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-r-csharp-web-service-examples/.
+Réponse : Un ou plusieurs paramètres d'entrée de votre service web peuvent avoir dépassé la limite de longueur lors de la consommation du service web sur la page " Explorer ce jeu de données " de Marketplace. Les services peuvent être appelés avec une longueur d'entrée supérieure à l'aide de méthodes HTTP POST ; l'exemple de code est publié dans les exemples de services décrits ici : http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-web-service-examples/.
 
 ###
 
@@ -44,3 +58,5 @@ Réponse : Veuillez contacter l'équipe Marketplace à l'adresse datamarketbd@mi
 
 
 
+
+<!--HONumber=46--> 

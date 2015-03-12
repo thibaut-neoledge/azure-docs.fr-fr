@@ -401,9 +401,9 @@ La procédure suivante présente l'arrêt et la suppression de l'application.
 
 	La suppression du service peut prendre plusieurs minutes. Une fois le service supprimé, vous recevez un message confirmant la suppression du service.
 
-  [Node.js Web Application using Express]: http://www.windowsazure.com/fr-FR/develop/nodejs/tutorials/web-app-with-express/
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/fr-FR/library/windowsazure/gg433040.aspx
-  [Node.js Web Application]: http://www.windowsazure.com/fr-FR/develop/nodejs/tutorials/getting-started/
+  [Node.js Web Application using Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
+  [Node.js Web Application]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
  
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

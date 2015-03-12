@@ -1,6 +1,21 @@
-﻿<properties pageTitle="Prise en main des notifications Push (Android JavaScript) | Centre de développement mobile" description="Découvrez comment utiliser Azure Mobile Services pour envoyer des notifications Push à votre application Android JavaScript." services="mobile-services, notification-hubs" documentationCenter="android" authors="RickSaling" writer="ricksal" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Prise en main des notifications Push (Android JavaScript) | Centre de développement mobile" 
+	description="Découvrez comment utiliser Azure Mobile Services pour envoyer des notifications Push à votre application Android JavaScript." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	Writer="ricksal" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/16/2014" 
+	ms.author="ricksal"/>
 
 # Ajout de notifications push à votre application Mobile Services
 

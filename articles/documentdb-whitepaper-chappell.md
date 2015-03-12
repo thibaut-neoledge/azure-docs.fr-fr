@@ -1,6 +1,20 @@
-﻿<properties title="DocumentDB whitepaper by David Chappell" pageTitle="Livre blanc DocumentDB, par David Chappell | Azure" description="Téléchargez un livre blanc rédigé par David Chappell et décrivant DocumentDB, une base de données NoSQL gérée sur Azure." metaKeywords="" services="documentdb" solutions="" documentationCenter="" authors="adlevin" videoId="" scriptId="" manager="jhubbard" />
+﻿<properties 
+	pageTitle="Livre blanc DocumentDB, par David Chappell | Azure" 
+	description="Téléchargez un livre blanc rédigé par David Chappell sur DocumentDB, une base de données NoSQL gérée sur Azure." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="adlevin" 
+	manager="jhubbard" 
+	editor=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="adlevin" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="adlevin"/>
 
 
 
@@ -23,3 +37,5 @@ Ce livre blanc couvre également les concepts fondamentaux suivants :
 
 **Téléchargement :** [Présentation de DocumentDB - Une base de données NoSQL pour Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
 
+
+<!--HONumber=46--> 

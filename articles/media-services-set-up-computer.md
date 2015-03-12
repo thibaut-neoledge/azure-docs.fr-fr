@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Configuration de l'ordinateur pour Media Services - Azure" description="Familiarisez-vous avec les conditions préalables pour Media Services à l'aide du Kit de développement logiciel (SDK) Media Services pour .NET. Apprenez également à créer une application Visual Studio." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Configuration de l'ordinateur pour Media Services - Azure" 
+	description="Familiarisez-vous avec les conditions préalables pour Media Services à l'aide du Kit de développement logiciel (SDK) Media Services pour .NET. Apprenez également à créer une application Visual Studio." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -61,7 +75,7 @@ Pour obtenir une référence au contexte de serveur, créez une instance du type
 	_context = new CloudMediaContext(_cachedCredentials);
 
 
-Il est souvent utile de définir une variable au niveau du module de type **CloudMediaContext** pour conserver une référence au contexte de serveur. Pour plus d'informations, consultez la page [Connexion à Media Services avec le Kit de développement logiciel (SDK) Media Services pour .NET](http://msdn.microsoft.com/fr-fr/library/azure/jj129571.aspx).
+Il est souvent utile de définir une variable au niveau du module de type **CloudMediaContext** pour conserver une référence au contexte de serveur. Pour plus d'informations, consultez la page [Connexion à Media Services avec le Kit de développement logiciel (SDK) Media Services pour .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
 Le reste des exemples de code de cette rubrique utilise une variable appelée **_context** comme référence au contexte de serveur. 
 

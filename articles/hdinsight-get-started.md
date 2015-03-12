@@ -97,7 +97,7 @@ Pour plus d'informations, consultez les pages
 	
 ##<a name="provision"></a>Approvisionnement d'un cluster HDInsight
 
-Lorsque vous approvisionnez un cluster HDInsight, vous approvisionnez des ressources de calcul Azure contenant Hadoop et des applications connexes. Dans cette section, vous approvisionnez un cluster HDInsight version 3.1, qui est basé sur la version 2.4 d'Hadoop. Vous pouvez également créer des clusters Hadoop pour d'autres versions au moyen du portail Azure, des cmdlets HDInsight PowerShell ou du Kit de développement logiciel (SDK) .NET HDInsight. Pour plus d'informations, consultez la rubrique [Approvisionnement de clusters HDInsight au moyen d'options personnalisées][hdinsight-provision]. Pour plus d'informations sur les différentes versions de HDInsight et leurs contrats SLA, consultez la page [Contrôle de version des composants HDInsight](http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-component-versioning/).
+Lorsque vous approvisionnez un cluster HDInsight, vous approvisionnez des ressources de calcul Azure contenant Hadoop et des applications connexes. Dans cette section, vous approvisionnez un cluster HDInsight version 3.1, qui est basé sur la version 2.4 d'Hadoop. Vous pouvez également créer des clusters Hadoop pour d'autres versions au moyen du portail Azure, des cmdlets HDInsight PowerShell ou du Kit de développement logiciel (SDK) .NET HDInsight. Pour plus d'informations, consultez la rubrique [Approvisionnement de clusters HDInsight au moyen d'options personnalisées][hdinsight-provision]. Pour plus d'informations sur les différentes versions de HDInsight et leurs contrats SLA, consultez la page [Contrôle de version des composants HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
 [AZURE.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
@@ -267,9 +267,9 @@ Dans ce didacticiel, vous avez appris à approvisionner un cluster avec HDInsigh
 [hdinsight-weblogs-sample]: ../hdinsight-hive-analyze-website-log/
 [hdinsight-sensor-data-sample]: ../hdinsight-hive-analyze-sensor-data/
 
-[azure-purchase-options]: http://azure.microsoft.com/fr-fr/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/fr-fr/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/fr-fr/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
 
@@ -277,7 +277,7 @@ Dans ce didacticiel, vous avez appris à approvisionner un cluster avec HDInsigh
 [apache-hive]: http://go.microsoft.com/fwlink/?LinkId=510085
 [apache-mapreduce]: http://go.microsoft.com/fwlink/?LinkId=510086
 [apache-hdfs]: http://go.microsoft.com/fwlink/?LinkId=510087
-[hdinsight-hbase-custom-provision]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-hbase-get-started/
+[hdinsight-hbase-custom-provision]: http://azure.microsoft.com/documentation/articles/hdinsight-hbase-get-started/
 
 
 [powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
@@ -301,5 +301,4 @@ Dans ce didacticiel, vous avez appris à approvisionner un cluster avec HDInsigh
 
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
-
 <!--HONumber=42-->

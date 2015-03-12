@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Utilisation des données hors connexion dans Mobile Services (Xamarin iOS) | Centre de développement mobile" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin iOS application" documentationCenter="xamarin" authors="lindydonna" editor="wesmc" manager="dwrede" services=""/>
+﻿<properties 
+	pageTitle="Utilisation des données hors connexion dans Mobile Services (Xamarin iOS) | Centre de développement mobile" 
+	description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin iOS application" 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	editor="wesmc" 
+	manager="dwrede" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="12/10/2014" ms.author="donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/10/2014" 
+	ms.author="donnam"/>
 
 # Utilisation de la synchronisation des données hors connexion dans Mobile Services
 
@@ -15,7 +29,7 @@ La synchronisation hors connexion possède plusieurs utilisations potentielles :
 * Permettre aux utilisateurs finaux de créer et de modifier des données même en l'absence d'accès au réseau, prenant ainsi en charge des scénarios avec une connectivité faible ou nulle
 * Synchroniser des données sur plusieurs appareils et détecter des conflits lorsque le même enregistrement est modifié par deux appareils
 
->[AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite Azure</a>. 
+>[AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite Azure</a>. 
 >
 > Si vous n'avez aucune expérience de Mobile Services, commencez par suivre entièrement le didacticiel [Prise en main de Mobile Services].
 

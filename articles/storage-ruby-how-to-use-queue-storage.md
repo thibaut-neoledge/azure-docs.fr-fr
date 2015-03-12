@@ -23,7 +23,7 @@
 # Utilisation du service de stockage de files d'attente à partir de Ruby
 
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de files d'attente Azure. Les exemples sont écrits à l'aide de l'API Ruby Azure.
-Les scénarios traités incluent l'**insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d'attente, ainsi que la **création et la suppression des files d'attente**. Pour plus d'informations sur les files d'attente, consultez la section [Étapes suivantes].(#next-steps) .
+Les scénarios traités incluent l'**insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d'attente, ainsi que la **création et la suppression des files d'attente**. Pour plus d'informations sur les files d'attente, consultez la section [Étapes suivantes)]#next-steps) .
 
 ## Sommaire
 
@@ -168,10 +168,10 @@ Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez
 
 Maintenant que vous avez appris les bases du stockage des files d'attente, suivez ces liens pour apprendre des tâches de stockage plus complexes.
 
-- Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/fr-FR/library/windowsazure/gg433040.aspx)
+- Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure](http://msdn.microsoft.com/library/windowsazure/gg433040.aspx)
 - Visitez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 - Accédez au [référentiel du Kit de développement logiciel (SDK) Azure pour Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub.
 
-Pour obtenir une comparaison entre le service de File d'attente Azure abordé dans cette rubrique et les files d'attente Azure Service Bus abordées dans la rubrique [Utilisation des files d'attente Service Bus](/fr-FR/develop/ruby/how-to-guides/service-bus-queues/), consultez la page [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences](http://msdn.microsoft.com/fr-FR/library/windowsazure/hh767287.aspx)
+Pour obtenir une comparaison entre le service de File d'attente Azure abordé dans cette rubrique et les files d'attente Azure Service Bus abordées dans la rubrique [Utilisation des files d'attente Service Bus](/fr-FR/develop/ruby/how-to-guides/service-bus-queues/), consultez la page [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

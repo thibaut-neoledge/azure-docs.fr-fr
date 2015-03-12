@@ -1,6 +1,20 @@
-﻿<properties title="Get started with Azure Search" pageTitle="Prise en main d'Azure Search" description="Prise en main d'Azure Search" metaKeywords="" services="Azure Search" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Prise en main d'Azure Search" 
+	description="Prise en main d'Azure Search" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Prise en main d'Azure Search
 
@@ -292,7 +306,7 @@ Le code de réponse doit correspondre à 200 et la sortie de réponse doit se pr
  
    ![][19]
 
-L'exemple de requête suivant provient de la page [Opération d'index de recherche (API Azure Search)](http://msdn.microsoft.com/fr-fr/library/dn798927.aspx) sur MSDN. Plusieurs des exemples de requêtes dans cette rubrique comportent des espaces, qui ne sont pas autorisés dans Fiddler. Remplacez chaque espace par un caractère + avant de coller la chaîne de requête et d'essayer la requête dans Fiddler : 
+L'exemple de requête suivant provient de la page [Opération d'index de recherche (API Azure Search)](http://msdn.microsoft.com/library/dn798927.aspx) sur MSDN. Plusieurs des exemples de requêtes dans cette rubrique comportent des espaces, qui ne sont pas autorisés dans Fiddler. Remplacez chaque espace par un caractère + avant de coller la chaîne de requête et d'essayer la requête dans Fiddler : 
 
 **Avant le remplacement des espaces :**
 
@@ -357,9 +371,9 @@ Vous êtes prêt à passer à l'étape suivante ? Les liens suivants fournissent
 
 - [Gestion de votre solution de recherche dans Microsoft Azure](../search-manage/) 
 
-- [Présentation technique d'Azure Search](http://msdn.microsoft.com/fr-fr/library/dn798933.aspx)
+- [Présentation technique d'Azure Search](http://msdn.microsoft.com/library/dn798933.aspx)
 
-- [API REST d'Azure Search](http://msdn.microsoft.com/fr-fr/library/dn798935.aspx)
+- [API REST d'Azure Search](http://msdn.microsoft.com/library/dn798935.aspx)
 
 - [Vidéo Channel 9 : présentation d'Azure Search](http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search)
 
@@ -402,3 +416,5 @@ Vous êtes prêt à passer à l'étape suivante ? Les liens suivants fournissent
 [Création d'une application de recherche géospatiale à l'aide d'Azure Search]: ../search-create-geospatial/
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Notifications Push adressées aux utilisateurs (Windows Phone) | Centre de développement mobile" description="Découvrez comment utiliser Mobile Services pour envoyer des notifications Push aux utilisateurs de votre application Windows Phone." services="mobile-services, notification-hubs" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Notifications Push adressées aux utilisateurs (Windows Phone) | Centre de développement mobile" 
+	description="Découvrez comment utiliser Mobile Services pour envoyer des notifications Push aux utilisateurs de votre application Windows Phone." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="10/07/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/07/2014" 
+	ms.author="glenga"/>
 
 # Notifications Push adressées aux utilisateurs à l'aide de Mobile Services
 

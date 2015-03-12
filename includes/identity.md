@@ -49,7 +49,7 @@ L'exécution de Windows Server AD sur les machines virtuelles Azure peut être p
 
 - Une organisation utilisant Azure pour les récupérations d'urgence peut conserver un petit jeu de machines virtuelles actives dans le cloud, y compris un contrôleur de domaine. Ce jeu peut ensuite être préparé pour étendre ce site si nécessaire et prendre le relais en cas de défaillances ailleurs.
 
-D'autres possibilités existent également. Par exemple, vous n'êtes pas obligé de connecter Windows Server AD dans le cloud à un centre de données local. Si vous voulez exécuter une batterie de serveurs SharePoint desservant un ensemble particulier d'utilisateurs, par exemple, qui se connectent tous uniquement à l'aide d'identités basées sur le cloud, vous pouvez créer une forêt autonome sous Azure. La façon dont vous utilisez cette technologie dépend de vos objectifs. (Pour plus d'informations sur l'utilisation de Windows Server AD avec Azure, [cliquez ici](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj156090.aspx).)
+D'autres possibilités existent également. Par exemple, vous n'êtes pas obligé de connecter Windows Server AD dans le cloud à un centre de données local. Si vous voulez exécuter une batterie de serveurs SharePoint desservant un ensemble particulier d'utilisateurs, par exemple, qui se connectent tous uniquement à l'aide d'identités basées sur le cloud, vous pouvez créer une forêt autonome sous Azure. La façon dont vous utilisez cette technologie dépend de vos objectifs. (Pour plus d'informations sur l'utilisation de Windows Server AD avec Azure, [cliquez ici](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).)
 
 ## <a name="ad"></a>Utilisation d'Azure Active Directory
 
@@ -121,5 +121,4 @@ L'utilisation des identités est importante dans pratiquement chaque application
 ##À propos de l'auteur
 
 David Chappell est directeur associé de Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) à San Francisco, en Californie. Par le biais de ses conférences, de ses livres et de ses services de conseil, il permet aux individus du monde entier de comprendre, d'utiliser et de mettre à profit les nouvelles technologies.
-
 <!--HONumber=42-->

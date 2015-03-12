@@ -1,6 +1,18 @@
-﻿<properties title="Application Insights" pageTitle="Application Insights - commencer à analyser l'état d'intégrité et l'utilisation de votre application" description="Analysez l'utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+﻿<properties 
+	pageTitle="Ajout du Kit de développement logiciel (SDK) Application Insights vers votre projet web" 
+	description="Analysez l'utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Application Insights." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-02-03" 
+	ms.author="awills"/>
 
 # Application Insights - Commencer à analyser l'état d'intégrité et l'utilisation de votre application
 
@@ -102,3 +114,5 @@ Ensuite, revenez au portail et supprimez l'ancienne ressource.
 [AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 
 
+
+<!--HONumber=46--> 

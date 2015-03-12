@@ -1,6 +1,20 @@
-﻿<properties title="Introduction to Azure Data Factory" pageTitle="Présentation d'Azure Data Factory" description="Découvrez comment utiliser le service Azure Data Factory pour composer le traitement des données, le stockage de données et les services de déplacement de données afin de créer des pipelines générant des informations fiables." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Présentation d'Azure Data Factory" 
+	description="Découvrez comment utiliser le service Azure Data Factory pour composer des services de traitement de données, de stockage de données et de déplacement de données pour créer des pipelines qui génèrent des informations fiables." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/13/2015" 
+	ms.author="spelluru"/>
 
 # Présentation du service Azure Data Factory
 Le service **Azure Data Factory** est un service entièrement géré pour composer des services de stockage, de traitement et de déplacement des données dans des pipelines de production rationalisés, évolutifs et fiables.  Les développeurs peuvent utiliser Data Factory pour transformer les données semi-structurées, non structurées et structurées des sources locales et cloud en informations fiables. Les développeurs créent des flux de travail (pipelines) pilotés par les données qui rassemblent, agrègent et transforment des données locales, du cloud ou provenant de services Internet et configurent le traitement de données complexes via un script JSON simple. Le service Azure Data Factory permet la surveillance et la gestion de ces pipelines grâce à une riche expérience visuelle proposée via le portail Azure en version préliminaire. Les informations générées par les pipelines peuvent facilement être consommées à l'aide d'outils décisionnels et d'analyse et d'autres applications pour procurer une meilleure visibilité de l'activité et prendre des décisions éclairées.
@@ -175,3 +189,5 @@ La passerelle de gestion de données Microsoft est un logiciel qui connecte les 
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

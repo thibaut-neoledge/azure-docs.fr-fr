@@ -84,4 +84,5 @@ L'exemple précédent montrait une connexion standard, qui nécessite que le cli
 
 5. Si l'application fait une requête auprès de votre service mobile, que cette requête doit être honorée car l'utilisateur est authentifié, et que vous recevez une réponse 401 (erreur non autorisée), cela signifie que le jeton utilisateur que vous utilisez est expiré. Dans le gestionnaire d'achèvement pour chacune de nos méthodes qui interagit avec notre service mobile, nous pouvons vérifier s'il y a une réponse 401 ou bien nous pouvons gérer cette situation à un seul endroit : la méthode handleRequest de MSFilter.  Pour savoir comment gérer ce scénario, consultez [ce billet de blog](http://www.thejoyofcode.com/Handling_expired_tokens_in_your_application_Day_11_.aspx)
 
-<!--HONumber=41-->
+
+\<!--HONumber=42-->

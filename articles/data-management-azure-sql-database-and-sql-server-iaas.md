@@ -1,6 +1,20 @@
-<properties pageTitle="Présentation de Base de données SQL Azure et de SQL Server dans les machines virtuelles Azure" description="Présentation de Base de données SQL Azure et de SQL Server dans les machines virtuelles Azure. Passez en revue les motivations métier courantes permettant de déterminer la technologie SQL qui convient le mieux à votre application." services="virtual-machines" documentationCenter="" authors="Selcin" manager="jeffreyg" editor="tysonn"/>
+<properties 
+	pageTitle="Présentation de Base de données SQL Azure et de SQL Server dans les machines virtuelles Azure" 
+	description="Présentation de Base de données SQL Azure et de SQL Server dans les machines virtuelles Azure. Passez en revue les motivations métier courantes permettant de déterminer la technologie SQL qui convient le mieux à votre application." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="Selcin" 
+	manager="jeffreyg" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/26/2014" ms.author="selcint"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="selcint"/>
 
 # Présentation de Base de données SQL Azure et de SQL Server dans les machines virtuelles Azure
 
@@ -223,15 +237,15 @@ Merci à tous pour votre participation !
    <td valign="middle">Liens vers la documentation de la bibliothèque.</td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/fr-fr/library/azure/jj879332.aspx">Base de données SQL Azure et SQL Server -- Comparaison des performances et de l'évolutivité</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj879332.aspx">Base de données SQL Azure et SQL Server -- Comparaison des performances et de l'évolutivité</p></td>
    <td valign="middle">Cet article explique les différences de performances et les techniques de dépannage lors de l'utilisation de Base de données SQL Azure et de SQL Server localement ou dans une machine virtuelle. </td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/fr-fr/library/dn574746.aspx">Modèles d'application et stratégies de développement pour SQL Server dans les machines virtuelles Azure</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/dn574746.aspx">Modèles d'application et stratégies de développement pour SQL Server dans les machines virtuelles Azure</p></td>
    <td valign="middle">Cet article décrit les modèles d'application courants qui s'appliquent à SQL Server dans les machines virtuelles Azure et dans les scénarios hybrides incluant Base de données SQL Azure. </td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/fr-fr/library/hh680934(v=PandP.50).aspx">Bloc applicatif de gestion des erreurs temporaires de Microsoft Enterprise Library</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/hh680934(v=PandP.50).aspx">Bloc applicatif de gestion des erreurs temporaires de Microsoft Enterprise Library</p></td>
    <td valign="middle">Cette bibliothèque permet aux développeurs de renforcer leurs applications s'exécutant sur la Base de données SQL Azure en ajoutant une logique de gestion robuste des erreurs temporaires. Les erreurs temporaires sont des erreurs qui se produisent en raison d'une condition temporaire, par exemple des problèmes de connectivité réseau ou d'indisponibilité de service. La Base de données SQL Azure étant un service mutualisé, il est important de gérer ces erreurs afin de réduire les interruptions de service. </td>   
 </tr>
 </table>

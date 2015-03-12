@@ -17,4 +17,5 @@ Dans ce cas, la version du Kit de développement logiciel (SDK) Android install�
 	 	        android:minSdkVersion="8"
 	 	        android:targetSdkVersion="21" />
 	
-3. Dans l'Explorateur de package d'Eclipse, cliquez avec le bouton droit sur le nœud de projet, choisissez **Propriétés**, puis dans la colonne de gauche, choisissez **Android**. Vérifiez que la version du Kit de développement logiciel (SDK) définie pour **Cible de la génération du projet** est identique à celle de **targetSdkVersion**.<!--HONumber=41-->
+3. Dans l'Explorateur de package d'Eclipse, cliquez avec le bouton droit sur le nœud de projet, choisissez **Propriétés**, puis dans la colonne de gauche, choisissez **Android**. Vérifiez que la version du Kit de développement logiciel (SDK) définie pour **Cible de la génération du projet** est identique à celle de **targetSdkVersion**.
+\<!--HONumber=42-->

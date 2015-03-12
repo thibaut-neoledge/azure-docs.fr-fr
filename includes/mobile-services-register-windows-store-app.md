@@ -65,7 +65,8 @@ Vous êtes maintenant prêt à utiliser un compte Microsoft pour l'authentificat
  
 
 <!-- URLs. -->
-[Prise en main de Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
+[Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started/#create-new-service
 [Page Soumette une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Portail de gestion Azure]: https://manage.windowsazure.com/
-<!--HONumber=41-->
+
+\<!--HONumber=42-->

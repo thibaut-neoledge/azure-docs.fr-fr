@@ -33,7 +33,7 @@ Le stockage Azure vous est facturé en fonction de votre compte de stockage. Les
 - Les transactions font références à toutes les opérations de lecture et d'écriture vers Azure Storage. 
 - L'acheminement des données fait référence aux données transférées hors d'une région Azure. Lorsque les données de votre compte de stockage sont utilisées par une application qui n'est pas exécutée dans la même région, que cette application soit un service cloud ou un autre type d'application, vous êtes facturé pour l'acheminement des données (pour les services Azure, vous pouvez grouper vos données et services dans les mêmes centres de données pour réduire ou éliminer les frais d'acheminement des données).  
 
-La page [Tarification - Stockage](http://www.windowsazure.com/fr-FR/pricing/details/#storage) fournit des informations de tarification détaillées pour les capacités de stockage, la réplication et les transactions. La page [Détails de la tarification - Transferts de données](http://www.windowsazure.com/fr-FR/pricing/details/data-transfers/) fournit des informations de tarification détaillées pour les acheminements de données.
+La page [Tarification - Stockage](http://azure.microsoft.com/pricing/details/#storage) fournit des informations de tarification détaillées pour les capacités de stockage, la réplication et les transactions. La page [Détails de la tarification - Transferts de données](http://azure.microsoft.com/pricing/details/data-transfers/) fournit des informations de tarification détaillées pour les acheminements de données.
 
 Pour plus d'informations sur la capacité et les objectifs de performance du compte de stockage, consultez la page [Objectifs d'extensibilité et de performances d'Azure Storage](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx).
 
@@ -100,7 +100,7 @@ Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec vo
 
 Un *groupe d'affinités* est un regroupement géographique de vos services et machines virtuelles Azure avec votre compte de stockage Azure. Un groupe d'affinités peut améliorer les performances d'un service en situant les charges de travail d'un ordinateur dans le même centre de données ou près des utilisateurs cibles. De même, vous n'êtes pas facturé pour les acheminements lorsque les données d'un compte de stockage sont utilisées par un service faisant partie du même groupe d'affinités.
 
-> [AZURE.NOTE]  Pour créer un groupe d'affinités, ouvrez la zone <b>Paramètres</b> du portail de gestion, cliquez sur <b>Groupes d'affinités</b>, puis cliquez sur <b>Ajouter un groupe d'affinités</b> ou le bouton <b>Ajouter</b>. Vous pouvez également créer et gérer des groupes d'affinités à l'aide de l'API de gestion des services Azure. Pour plus d'informations, consultez la page <a href="http://msdn.microsoft.com/fr-FR/library/windowsazure/ee460798.aspx">Opérations sur les groupes d'affinités</a>.
+> [AZURE.NOTE]  Pour créer un groupe d'affinités, ouvrez la zone <b>Paramètres</b> du portail de gestion, cliquez sur <b>Groupes d'affinités</b>, puis cliquez sur <b>Ajouter un groupe d'affinités</b> ou le bouton <b>Ajouter</b>. Vous pouvez également créer et gérer des groupes d'affinités à l'aide de l'API de gestion des services Azure. Pour plus d'informations, consultez la page <a href="http://msdn.microsoft.com/library/windowsazure/ee460798.aspx">Opérations sur les groupes d'affinités</a>.
 
 
 ### <a id="replication-options"></a>Options de réplication des comptes de stockage
@@ -118,7 +118,7 @@ Dans le [portail de gestion](http://manage.windowsazure.com), utilisez **Gérer 
 
 ### Copie d'une clé d'accès de stockage ###
 
-L'option **Gérer les clés** sert à copier une clé d'accès de stockage à utiliser dans une chaîne de connexion. Cette dernière nécessite le nom du compte de stockage et une clé pour l'authentification. Pour plus d'informations sur la configuration des chaînes de connexion pour accéder aux services de stockage Azure, consultez la page [Configuration des chaînes de connexion](http://msdn.microsoft.com/fr-FR/library/ee758697.aspx).
+L'option **Gérer les clés** sert à copier une clé d'accès de stockage à utiliser dans une chaîne de connexion. Cette dernière nécessite le nom du compte de stockage et une clé pour l'authentification. Pour plus d'informations sur la configuration des chaînes de connexion pour accéder aux services de stockage Azure, consultez la page [Configuration des chaînes de connexion](http://msdn.microsoft.com/library/ee758697.aspx).
 
 1. Dans le [portail de gestion](http://manage.windowsazure.com), cliquez sur **Stockage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
 
@@ -169,11 +169,11 @@ Pour supprimer un compte de stockage que vous n'utilisez plus, utilisez **Suppri
 
 ## <a id="next"></a>Étapes suivantes
 
-- Pour en savoir plus sur Azure Storage, consultez la documentation de référence sur [azure.com](http://azure.microsoft.com/fr-FR/documentation/services/storage/) et [MSDN](http://msdn.microsoft.com/fr-FR/library/gg433040.aspx). 
+- Pour en savoir plus sur Azure Storage, consultez la documentation de référence sur [azure.com](http://azure.microsoft.com/documentation/services/storage/) et [MSDN](http://msdn.microsoft.com/library/gg433040.aspx). 
 
 - Visitez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
 
 
 
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

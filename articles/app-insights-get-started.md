@@ -1,6 +1,18 @@
-﻿<properties title="Application Insights" pageTitle="Application Insights : analysez l'intégrité et l'utilisation de votre application" description="Analysez l'utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+<properties 
+	pageTitle="Prise en main d'Application Insights" 
+	description="Analysez l'utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Application Insights." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-02-10" 
+	ms.author="awills"/>
 
 # Application Insights : analysez l'intégrité et l'utilisation de votre application
 
@@ -51,3 +63,5 @@ Vous devez posséder un compte dans [Microsoft Azure](http://azure.com) (sauf si
 [AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 
 
+
+<!--HONumber=46--> 

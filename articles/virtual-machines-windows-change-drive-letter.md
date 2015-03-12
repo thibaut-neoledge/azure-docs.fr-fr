@@ -24,7 +24,7 @@ Avant de commencer, vous aurez besoin d'un disque de données attaché à la mac
 
 Si vous souhaitez utiliser un disque de données existant sur le lecteur D, assurez-vous que vous avez également téléchargé le disque dur virtuel vers le compte de stockage. Pour plus d'instructions, consultez les étapes 3 et 4 de la rubrique [Création et téléchargement d'un disque dur virtuel Windows Server vers Azure].
 
-> [AZURE.AVERTISSEMENT] Si vous redimensionnez une machine virtuelle et que cela la déplace vers un hôte différent, le lecteur temporaire devient le lecteur D.
+> [AZURE.WARNING] Si vous redimensionnez une machine virtuelle et que cela déplace l'ordinateur virtuel vers un hôte différent, le lecteur temporaire devient le lecteur D.
 
 ##Modification de la lettre de lecteur
 
@@ -61,4 +61,5 @@ Si vous souhaitez utiliser un disque de données existant sur le lecteur D, assu
 
 
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

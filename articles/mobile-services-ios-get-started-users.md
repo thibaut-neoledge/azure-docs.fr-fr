@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Prise en main de l'authentification (iOS) | Centre de développement mobile" description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application iOS via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." services="mobile-services" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Prise en main de l'authentification (iOS) | Centre de développement mobile" 
+	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application iOS via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
+	services="mobile-services" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="krisragh"/>
 
 # Ajout d'une authentification à votre application Mobile Services
 
@@ -71,7 +85,8 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 
 [13]: ./media/mobile-services-ios-get-started-users/mobile-identity-tab.png
 [14]: ./media/mobile-services-ios-get-started-users/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-ios-get-started-users/mobile-portal-change-table-perms.png
+[15]: ./media/mobile-services-ios-get-started-users/mobile-portal-change-table-per
+	ms.png
 
 
 <!-- URLs. -->
@@ -86,7 +101,6 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [Autorisation des utilisateurs avec des scripts]: /fr-fr/develop/mobile/tutorials/authorize-users-in-scripts-ios
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
-
 
 
 <!--HONumber=42-->

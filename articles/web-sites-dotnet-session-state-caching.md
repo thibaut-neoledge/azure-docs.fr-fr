@@ -32,7 +32,7 @@ La procédure de base pour utiliser Cache Service (Preview) pour la mise en cach
 * [Utilisation de l'objet Session pour stocker et récupérer des éléments mis en cache.](#usesessionobject)
 
 <h2><a id="createcache"></a>Création du cache</h2>
-Suivez les [instructions indiquées](http://azure.microsoft.com/fr-fr/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-cache) pour créer le cache.
+Suivez les [instructions indiquées](http://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-cache) pour créer le cache.
 
 <h2><a id="configureproject"></a>Ajout du package NuGet RedisSessionStateProvider à votre application Web</h2>
 Installez le package NuGet `RedisSessionStateProvider`.  Utilisez la commande suivante pour effectuer l'installation à partir de la console du gestionnaire de package : (**Outils** > **Gestionnaire de package NuGet** > **Console du gestionnaire de package**) :
@@ -41,14 +41,14 @@ Installez le package NuGet `RedisSessionStateProvider`.  Utilisez la commande su
   
 Pour effectuer l'installation à partir d'**Outils** > **Gestionnaire de package NuGet** > **Gérer les packages NuGet pour la solution**, recherchez  `RedisSessionStateProvider` en veillant à spécifier **Inclure la version préliminaire**.
 
-Pour plus d'informations, consultez la [page NuGet RedisSessionStateProvider](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/ ) et [Configuration des clients du cache](http://azure.microsoft.com/fr-fr/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#NuGet).
+Pour plus d'informations, consultez la [page NuGet RedisSessionStateProvider](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/ ) et [Configuration des clients du cache](http://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#NuGet).
 
 <h2><a id="configurewebconfig"></a>Modification du fichier web.config</h2>
 Outre la création de références d'assembly pour le cache, le package NuGet ajoute des entrées de stub dans le fichier  *web.config*. 
 
 1. Ouvrez le fichier  *web.config*, puis recherchez l'élément **sessionState**.
 
-1. Entrez les valeurs appropriées pour  `host`,  `accessKey`,  `port` (le port SSL doit être 6380), puis affectez à  `SSL` la valeur  `true`. Ces valeurs peuvent être obtenues dans le panneau de la version préliminaire du portail de gestion Azure pour votre instance de cache. Pour plus d'informations, consultez la page [Connexion au cache](http://azure.microsoft.com/fr-fr/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#connect-to-cache).
+1. Entrez les valeurs appropriées pour  `host`,  `accessKey`,  `port` (le port SSL doit être 6380), puis affectez à  `SSL` la valeur  `true`. Ces valeurs peuvent être obtenues dans le panneau de la version préliminaire du portail de gestion Azure pour votre instance de cache. Pour plus d'informations, consultez la page [Connexion au cache](http://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#connect-to-cache).
 Le balisage suivant indique les modifications apportées au fichier  *web.config*.
 
 
@@ -99,8 +99,8 @@ Pour plus d'informations sur l'utilisation de l'état de session ASP.NET, consul
 
   *Par [Rick Anderson](https://twitter.com/RickAndMSFT)*
   
-  [installed the latest]: http://www.windowsazure.com/fr-fr/downloads/?sdk=net  
-  [Vue d'ensemble de l'état de session ASP.NET]: http://msdn.microsoft.com/fr-fr/library/ms178581.aspx
+  [installed the latest]: http://azure.microsoft.com/downloads/?sdk=net  
+  [Vue d'ensemble de l'état de session ASP.NET]: http://msdn.microsoft.com/library/ms178581.aspx
 
   [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
   [NewCacheDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CreateOptions.png

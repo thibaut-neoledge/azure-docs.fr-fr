@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="" pageTitle="Utilisation des groupes de ressources pour gérer vos ressources Azure" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="timlt" editor=""  />
+﻿<properties 
+	pageTitle="Utilisation des groupes de ressources pour gérer vos ressources Azure" 
+	description="Regroupez plusieurs ressources dans un groupe logique qui devient la limite de cycle de vie pour les ressources qu'il contient." 
+	services="multiple" 
+	documentationCenter="" 
+	authors="" 
+	writer="tomfitz" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="12/02/2014" ms.author="davidmu" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/09/2015" 
+	ms.author="tomfitz"/>
 
 
 # Utilisation des groupes de ressources pour gérer vos ressources Azure
@@ -72,3 +87,5 @@ Comme les groupes de ressources permettent de gérer le cycle de vie de l'ensemb
 ![](http://i.imgur.com/ZTXoISb.png)
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

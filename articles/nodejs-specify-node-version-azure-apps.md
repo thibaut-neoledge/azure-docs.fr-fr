@@ -1,6 +1,21 @@
-<properties urlDisplayName="Specifying a Node.js Version" pageTitle="Spécification d'une version Node.js" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Specifying a Node.js version in an Azure application" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+<properties 
+	pageTitle="Spécification d'une version Node.js" 
+	description="" 
+	services="" 
+	documentationCenter="nodejs" 
+	title="Specifying a Node.js version in an Azure application" 
+	authors="larryfr" 
+	manager="wpickett" 
+	editor="mollybos" />
 
-<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="na" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr" />
 
 
 
@@ -88,3 +103,5 @@ Maintenant que vous savez comment spécifier la version de Node.js utilisée par
 [Outils en ligne de commande Azure]: /fr-fr/documentation/articles/xplat-cli/
 [utiliser des modules]: /fr-fr/documentation/articles/nodejs-use-node-modules-azure-apps/
 [créer et déployer un site web Node.js]: /fr-fr/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Appel d'une API personnalisée à partir d'un client Windows Phone - Mobile Services" description="Découvrez comment définir une API personnalisée et l'appeler depuis une application Windows Phone qui utilise Azure Mobile Services." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Appel d'une API personnalisée à partir d'un client Windows Phone - Mobile Services" 
+	description="Découvrez comment définir une API personnalisée et l'appeler depuis une application Windows Phone qui utilise Azure Mobile Services." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="10/06/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/06/2014" 
+	ms.author="glenga"/>
 
 # Appel d'une API personnalisée à partir du client
 

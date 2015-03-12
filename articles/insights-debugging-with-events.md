@@ -1,6 +1,20 @@
-﻿<properties title="How to debug with events" pageTitle="Débogage avec des événements" description="Découvrez comment afficher les événements dans Azure." authors="hanikn" manager="kamrani" />
+﻿<properties 
+	pageTitle="Débogage avec des événements" 
+	description="Découvrez comment afficher les événements dans Azure." 
+	authors="HaniKN-MSFT" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="hanikn" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="hanikn"/>
 
 # Surveillance des événements ayant un impact sur vos ressources ou vos groupes de ressources Azure
 
@@ -18,3 +32,5 @@
     ![Resource groups](./media/insights-debugging-with-events/Insights_EventDetails.png)  
     Un nouveau panneau s'affiche, avec des détails concernant l'événement. Pour les événements **non réussis**, cette page comprend normalement une section **Sous-statut** et une section **Propriétés**, qui présentent des détails utiles pour le débogage.
 
+
+<!--HONumber=46--> 

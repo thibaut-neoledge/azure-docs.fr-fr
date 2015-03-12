@@ -1,6 +1,20 @@
-﻿<properties title="Azure Stream Analytics developer guide" pageTitle="Guide de développement pour Azure Stream Analytics | Azure" description="Découvrez comment développer des applications Azure Stream Analytics." metaKeywords="" services="stream analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+﻿<properties 
+	pageTitle="Guide de développement pour Azure Stream Analytics | Azure" 
+	description="Découvrez comment développer des applications Azure Stream Analytics." 
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="2/17/2015" 
+	ms.author="jgao"/>
 
 
 # Guide de développement pour Azure Stream Analytics 
@@ -187,11 +201,11 @@ Pour obtenir de l'aide supplémentaire, consultez le [Forum Azure Stream Analyti
 
 
 <!--Link references-->
-[azure.blob.storage]: http://azure.microsoft.com/fr-fr/documentation/services/storage/
-[azure.blob.storage.use]: http://azure.microsoft.com/fr-fr/documentation/articles/storage-dotnet-how-to-use-blobs/
+[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
+[azure.blob.storage.use]: http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/
 
-[azure.event.hubs]: http://azure.microsoft.com/fr-fr/services/event-hubs/
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/fr-fr/library/azure/dn789972.aspx
+[azure.event.hubs]: http://azure.microsoft.com/services/event-hubs/
+[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.forum]: http://go.microsoft.com/fwlink/?LinkId=512151
@@ -203,3 +217,5 @@ Pour obtenir de l'aide supplémentaire, consultez le [Forum Azure Stream Analyti
 [stream.analytics.limitations]: ../stream-analytics-limitations/
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+
+<!--HONumber=46--> 

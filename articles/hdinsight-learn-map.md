@@ -26,5 +26,4 @@ Dans HDInsight, vous pouvez travailler avec des données volumineuses dans le cl
 
 
 
-
 <!--HONumber=42-->

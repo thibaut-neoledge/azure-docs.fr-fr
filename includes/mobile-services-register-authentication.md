@@ -14,11 +14,11 @@ Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre applicatio
 
 3. Choisissez un fournisseur d'identité pris en charge dans la liste ci-dessous et suivez la procédure pour inscrire votre application auprès de ce fournisseur :
 
- - <a href="/en-us/documentation/articles/mobile-services-how-to-register-microsoft-authentication/" target="_blank">Compte Microsoft</a>
- - <a href="/en-us/documentation/articles/mobile-services-how-to-register-facebook-authentication/" target="_blank">Connexion Facebook</a>
- - <a href="/en-us/documentation/articles/mobile-services-how-to-register-twitter-authentication/" target="_blank">Connexion Twitter</a>
- - <a href="/en-us/documentation/articles/mobile-services-how-to-register-google-authentication/" target="_blank">Connexion Google</a>
- - <a href="/en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/" target="_blank">Azure Active Directory</a>
+ - <a href="/fr-fr/documentation/articles/mobile-services-how-to-register-microsoft-authentication/" target="_blank">Compte Microsoft</a>
+ - <a href="/fr-fr/documentation/articles/mobile-services-how-to-register-facebook-authentication/" target="_blank">Connexion Facebook</a>
+ - <a href="/fr-fr/documentation/articles/mobile-services-how-to-register-twitter-authentication/" target="_blank">Connexion Twitter</a>
+ - <a href="/fr-fr/documentation/articles/mobile-services-how-to-register-google-authentication/" target="_blank">Connexion Google</a>
+ - <a href="/fr-fr/documentation/articles/mobile-services-how-to-register-active-directory-authentication/" target="_blank">Azure Active Directory</a>
 
 
     N'oubliez pas de noter les valeurs de l'identité du client et de la clé secrète cliente générées par le fournisseur.
@@ -33,4 +33,4 @@ Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre applicatio
 
 <!-- URLs. -->
 [Portail de gestion Azure]: https://manage.windowsazure.com/
-<!--HONumber=41-->
+\<!--HONumber=42-->

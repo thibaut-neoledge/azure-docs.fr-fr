@@ -1,6 +1,20 @@
-<properties pageTitle="How manage developer accounts in Azure API Management" metaKeywords="" description="Learn how to create or invite developers in Azure API Management" metaCanonical="" services="" documentationCenter="API Management" title="How manage developer accounts in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+<properties 
+	pageTitle="Gestion des comptes des développeurs dans Gestion des API Azure" 
+	description="Apprenez à créer ou à inviter des développeurs dans Gestion des API Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Gestion des comptes des développeurs dans Gestion des API Azure
 
@@ -79,3 +93,5 @@ Une fois le compte de développeur créé, vous pouvez l'associer à des rôles 
   [Invite confirmation]: ./media/api-management-howto-create-or-invite-developers/api-management-invite-developer-confirmation.png
   [Configuration des modèles de courrier électronique]: ../api-management-howto-configure-notifications/#email-templates
   [Création et utilisation de groupes]: ../api-management-howto-create-groups
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-<properties urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Modèle d'application web mutualisée - Architecture Azure" metaKeywords="" description="Trouvez des présentations et des modèles de conception architecturaux qui décrivent comment implémenter une application web mutualisée dans Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="wpickett" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Modèle d'application web mutualisée - Architecture Azure" 
+	description="Trouvez des présentations et des modèles de conception architecturaux qui décrivent comment implémenter une application web mutualisée dans Azure." 
+	services="" 
+	documentationCenter=".net" 
+	authors="" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/19/2014" 
+	ms.author="wpickett"/>
 
 
 <div>
@@ -107,7 +121,9 @@ Azure offre une série de méthodes permettant d'approvisionner de nouveaux loca
 
 <!--links-->
 
-[Hébergement d'une application mutualisée dans Azure]: http://msdn.microsoft.com/fr-fr/library/hh534480.aspx
-[Conception d'applications mutualisées dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh689716
+[Hébergement d'une application mutualisée dans Azure]: http://msdn.microsoft.com/library/hh534480.aspx
+[Conception d'applications mutualisées dans Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
 
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Gestion du contrôle d'accès en fonction du rôle avec l'interface de ligne de commande interplateforme Azure" metaKeywords="ResourceManager, interface de ligne de commande interplateforme Azure, ligne de commande Azure, ligne de commande azure, azure cli, RBAC" description="Gestion du contrôle d'accès en fonction du rôle avec l'interface en ligne de commande interplateforme" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Cross-Platform Command-Line Interface" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
+﻿<properties 
+	pageTitle="Gestion du contrôle d'accès en fonction du rôle avec l'interface de ligne de commande interplateforme Azure" 
+	description="Gestion du contrôle d'accès en fonction du rôle avec l'interface en ligne de commande interplateforme" 
+	services="" 
+	documentationCenter="" 
+	authors="guangyang" 
+	manager="terrylan" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/26/2014" 
+	ms.author="guayan"/>
 
 # Gestion du contrôle d'accès en fonction du rôle à l'aide de l'interface de ligne de commande interplateforme #
 
@@ -16,8 +30,8 @@ Dans ce didacticiel, vous allez apprendre à utiliser l'interface de ligne de co
 
 Avant d'utiliser xplat-cli pour gérer le RBAC, vous devez disposer des composants suivants :
 
-- Interface de ligne de commande interplateforme Azure, version 0.8.8 ou ultérieure. Pour installer la dernière version et l'associer à votre abonnement Azure, voir la section [Installation et configuration de l'interface de ligne de commande interplateforme Azure](http://azure.microsoft.com/fr-fr/documentation/articles/xplat-cli/).
-- Consultez également les didacticiels suivants afin de vous familiariser avec la configuration et l'utilisation du gestionnaire de ressources Azure dans l'interface de ligne de commande interplateforme Azure : [Utilisation de l'interface de ligne de commande interplateforme Azure avec le Gestionnaire de ressources](http://azure.microsoft.com/fr-fr/documentation/articles/xplat-cli-azure-resource-manager/)
+- Interface de ligne de commande interplateforme Azure, version 0.8.8 ou ultérieure. Pour installer la dernière version et l'associer à votre abonnement Azure, voir la section [Installation et configuration de l'interface de ligne de commande interplateforme Azure](http://azure.microsoft.com/documentation/articles/xplat-cli/).
+- Consultez également les didacticiels suivants afin de vous familiariser avec la configuration et l'utilisation du gestionnaire de ressources Azure dans l'interface de ligne de commande interplateforme Azure : [Utilisation de l'interface de ligne de commande interplateforme Azure avec le Gestionnaire de ressources](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
 
 ## Dans ce didacticiel ##
 
@@ -33,7 +47,7 @@ Comme le RBAC ne fonctionne qu'avec le gestionnaire de ressources Azure, la prem
 
     azure config mode arm
 
-Pour plus d'informations, consultez la section [Utilisation de l'interface de ligne de commande interplateforme Azure avec le gestionnaire des ressources.](http://azure.microsoft.com/fr-fr/documentation/articles/xplat-cli-azure-resource-manager/)
+Pour plus d'informations, consultez la section [Utilisation de l'interface de ligne de commande interplateforme Azure avec le gestionnaire des ressources.](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
 
 Pour vous connecter à vos abonnements Azure, entrez :
 
@@ -48,7 +62,7 @@ Si vous disposez de plusieurs abonnements et souhaitez changer d'abonnement, ent
     # Utilisez le nom d'abonnement pour sélectionner celui que vous souhaitez utiliser.
     azure account set <nom d'abonnement>
 
-Pour plus d'informations, consultez la section [Installation et configuration de l'interface de ligne de commande multiplateforme Azure](http://azure.microsoft.com/fr-fr/documentation/articles/xplat-cli/).
+Pour plus d'informations, consultez la section [Installation et configuration de l'interface de ligne de commande multiplateforme Azure](http://azure.microsoft.com/documentation/articles/xplat-cli/).
 
 ## <a id="check"></a>Contrôle des affectations de rôles existantes ##
 
@@ -125,7 +139,9 @@ Et donc, quand vous tentez d'exécuter une autre cmdlet telle qu'" azure group c
 
 Pour en savoir plus sur le contrôle d'accès basé sur un rôle à l'aide de xplat-cli, ainsi que les rubriques associées :
 
-- [Installation et configuration de l'interface de ligne de commande interplateforme Azure](http://azure.microsoft.com/fr-fr/documentation/articles/xplat-cli/)
-- [Utilisation de l'interface de ligne de commande interplateforme Azure avec le Gestionnaire de ressources](http://azure.microsoft.com/fr-fr/documentation/articles/xplat-cli-azure-resource-manager/)
-- [Utilisation des groupes de ressources pour gérer vos ressources Azure](http://azure.microsoft.com/fr-fr/documentation/articles/azure-preview-portal-using-resource-groups) : Apprenez à créer et à gérer des groupes de ressources dans le portail de gestion Azure.
+- [Installation et configuration de l'interface de ligne de commande interplateforme Azure](http://azure.microsoft.com/documentation/articles/xplat-cli/)
+- [Utilisation de l'interface de ligne de commande interplateforme Azure avec le Gestionnaire de ressources](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
+- [Utilisation des groupes de ressources pour gérer vos ressources Azure](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups) : Apprenez à créer et à gérer des groupes de ressources dans le portail de gestion Azure.
 - [Blog Azure](http://blogs.msdn.com/windowsazure) : découvrez les nouvelles fonctionnalités d'Azure.
+
+<!--HONumber=46--> 

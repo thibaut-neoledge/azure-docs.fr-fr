@@ -123,7 +123,7 @@ Ces outils décisionnels peuvent s'avérer utiles lors de vos analyses de donné
 * <a target="_blank" href="http://www.microsoft.com/fr-fr/download/details.aspx?id=39379">Téléchargement de Microsoft Power Query pour Excel</a> 
 * <a target="_blank" href="http://www.microsoft.com/fr-fr/download/details.aspx?id=40886">Téléchargement du pilote ODBC Microsoft Hive</a>
 * <a target="_blank" href="http://www.microsoft.com/fr-fr/server-cloud/solutions/business-intelligence/analysis.aspx">En savoir plus sur SQL Server Analysis Services</a>
-* <a target="_blank" href="http://msdn.microsoft.com/fr-fr/library/ms159106.aspx">En savoir plus sur SQL Server Reporting Services</a>
+* <a target="_blank" href="http://msdn.microsoft.com/library/ms159106.aspx">En savoir plus sur SQL Server Reporting Services</a>
 
 ## <a name="advantage"></a>Avantages de Hadoop dans le cloud
 
@@ -166,9 +166,9 @@ Pour essayer Hadoop dans HDInsight, consultez les articles " Prise en main " dan
 
 ### Base de données SQL sur Azure	
 		
-* [Base de données SQL Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336279.aspx) : documentation MSDN pour la base de données SQL.
+* [Base de données SQL Azure](http://msdn.microsoft.com/library/windowsazure/ee336279.aspx) : documentation MSDN pour la base de données SQL.
 	
-* [Portail de gestion de la base de données SQL](http://msdn.microsoft.com/fr-fr/library/windowsazure/gg442309.aspx) : outil de gestion de base de données léger et simple d'utilisation pour gérer la base de données SQL dans le cloud.
+* [Portail de gestion de la base de données SQL](http://msdn.microsoft.com/library/windowsazure/gg442309.aspx) : outil de gestion de base de données léger et simple d'utilisation pour gérer la base de données SQL dans le cloud.
 
 * [Adventure Works pour la base de données SQL](http://msftdbprodsamples.codeplex.com/releases/view/37304) : page de téléchargement de l'exemple de base de données SQL.	
 
@@ -194,5 +194,4 @@ Pour essayer Hadoop dans HDInsight, consultez les articles " Prise en main " dan
 [component-versioning]: ../hdinsight-component-versioning/
 
 [zookeeper]: http://zookeeper.apache.org/ 
-
 <!--HONumber=42-->

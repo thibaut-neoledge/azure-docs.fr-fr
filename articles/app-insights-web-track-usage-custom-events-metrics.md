@@ -1,6 +1,18 @@
-﻿<properties title="Track custom usage events and metrics in your web app with Application Insights" pageTitle="Suivi des événements et des métriques d'utilisation dans votre application web avec Application Insights" description="Insérez quelques lignes de code pour découvrir ce que les utilisateurs font avec votre site web." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani"  />
+﻿<properties 
+	pageTitle="Suivi des événements et de l'utilisation dans votre application web avec l'API Application Insights" 
+	description="Insérez quelques lignes de code pour suivre l'utilisation et diagnostiquer les problèmes." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
  
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-01" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-02-06" 
+	ms.author="awills"/>
 
 # Suivi des événements et des métriques d'utilisation personnalisés dans votre application web
 
@@ -254,3 +266,5 @@ Si vous souhaitez basculer entre des groupes de valeurs de propriété par défa
 
 
 
+
+<!--HONumber=46--> 

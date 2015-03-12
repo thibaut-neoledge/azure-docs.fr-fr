@@ -1,7 +1,20 @@
-﻿
-<properties title="API basics for Azure Batch" pageTitle="Concepts de base concernant les API dans Azure Batch" description="Concepts permettant de présenter les API et les services par lots d'Azure Batch aux développeurs" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="timlt" />
+﻿<properties 
+	pageTitle="Concepts de base concernant les API dans Azure Batch" 
+	description="Concepts permettant de présenter les API et les services par lots d'Azure Batch aux développeurs" 
+	services="batch" 
+	documentationCenter=".net" 
+	authors="yidingzhou" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="batch" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="10/27/2014" ms.author="yidingz, karran.batta" />
+<tags 
+	ms.service="batch" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="big-compute" 
+	ms.date="02/02/2015" 
+	ms.author="yidingz, kabatta"/>
 
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
@@ -57,7 +70,7 @@ Un compte Batch est une entité identifiée de façon unique au sein du service 
 
 ### <a name="taskvm"></a>Machine virtuelle de tâche
 
-Une machine virtuelle de tâche est une machine virtuelle Azure dédiée à une charge de travail spécifique pour votre application. La taille d'une machine virtuelle de tâche détermine le nombre de cœurs du processeur, la capacité de mémoire et la taille du système de fichiers local qui lui est allouée. Une machine virtuelle de tâche peut être une machine virtuelle de petite, grande ou très grande taille, comme décrit dans [Tailles de machines virtuelles et services cloud pour Windows Azure](http://msdn.microsoft.com/fr-fr/library/dn197896.aspx).
+Une machine virtuelle de tâche est une machine virtuelle Azure dédiée à une charge de travail spécifique pour votre application. La taille d'une machine virtuelle de tâche détermine le nombre de cœurs du processeur, la capacité de mémoire et la taille du système de fichiers local qui lui est allouée. Une machine virtuelle de tâche peut être une machine virtuelle de petite, grande ou très grande taille, comme décrit dans [Tailles de machines virtuelles et services cloud pour Windows Azure](http://msdn.microsoft.com/library/dn197896.aspx).
 
 Les types de programme qu'une machine virtuelle de tâche peut exécuter incluent les fichiers exécutables (.exe), les fichiers de commandes (.cmd et .bat) et les fichiers de script. Une machine virtuelle de tâche a également les attributs suivants :
 
@@ -340,3 +353,5 @@ Pour chaque tâche planifiée sous un travail, un ensemble spécifique de variab
 Vous ne pouvez pas remplacer ces variables définies par le système.
 
 Vous pouvez récupérer la valeur des paramètres d'environnement à l'aide de l'opération Obtenir une tâche.
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties title="How to create a cloud collection of RemoteApp" pageTitle="Création d'une collection cloud de RemoteApp" description="Découvrez comment créer un déploiement de RemoteApp qui enregistre les données dans le cloud Azure." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
+﻿<properties 
+	pageTitle="Création d'une collection cloud de RemoteApp" 
+	description="Découvrez comment créer un déploiement de RemoteApp qui enregistre les données dans le cloud Azure." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
+	editor=""/>
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" ms.manager="kathyw" />
+<tags 
+	ms.service="remoteapp" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/17/2015" 
+	ms.author="elizapo"/>
 
 #Création d'une collection cloud de RemoteApp
 
@@ -20,10 +34,10 @@ Ce didacticiel vous guide dans la procédure de création d'une collection cloud
 
 Avant de créer la collection, vous devez effectuer les étapes suivantes :
 
-- S'inscrire à RemoteApp. Vous pouvez le faire à l'adresse [http://azure.microsoft.com/fr-fr/services/remoteapp/](http://azure.microsoft.com/fr-fr/services/remoteapp/).
+- S'inscrire à RemoteApp. Vous pouvez le faire à l'adresse [http://azure.microsoft.com/services/remoteapp/](http://azure.microsoft.com/services/remoteapp/).
 - Collecter des informations sur les utilisateurs auxquels vous souhaitez accorder l'accès. Il peut s'agir d'informations sur le compte Microsoft ou sur le compte professionnel Active Directory pour les utilisateurs.
 - Cette procédure part du principe que vous allez utiliser les images de modèle fournies dans le cadre de votre abonnement ou que vous avez déjà téléchargé l'image de modèle à utiliser. Si vous devez télécharger une autre image de modèle, rendez-vous sur la page Images de modèle. Cliquez simplement sur **Télécharger une image de modèle** et suivez les étapes de l'Assistant. 
-- Vous voulez fournir des applications personnalisées ou des programmes métier ? Créez une [image de modèle personnalisée](http://azure.microsoft.com/fr-fr/documentation/articles/remoteapp-create-custom-image/) et utilisez-la dans votre collection cloud.
+- Vous voulez fournir des applications personnalisées ou des programmes métier ? Créez une [image de modèle personnalisée](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/) et utilisez-la dans votre collection cloud.
 
 ## **Étape 1 : Création d'une collection RemoteApp** ##
 
@@ -36,7 +50,7 @@ Avant de créer la collection, vous devez effectuer les étapes suivantes :
 4. Choisissez le plan que vous souhaitez utiliser (de base ou standard).
 5. Choisissez le modèle à utiliser pour cette collection. 
 
-	**Conseil :** votre abonnement à RemoteApp inclut des [images de modèle](http://azure.microsoft.com/fr-fr/documentation/articles/remoteapp-images/) contenant des programmes Office 365 ou Office 2013 (en version d'évaluation), certains publiés (tel que Word) et d'autres prêt à publier. Vous pouvez également créer une [image de modèle personnalisée](http://azure.microsoft.com/fr-fr/documentation/articles/remoteapp-create-custom-image/) et l'utiliser dans votre collection cloud.
+	**Conseil :** votre abonnement à RemoteApp inclut des [images de modèle](http://azure.microsoft.com/documentation/articles/remoteapp-images/) contenant des programmes Office 365 ou Office 2013 (en version d'évaluation), certains publiés (tel que Word) et d'autres prêt à publier. Vous pouvez également créer une [image de modèle personnalisée](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/) et l'utiliser dans votre collection cloud.
 
 
 1. Cliquez sur **Créer une collection RemoteApp**.
@@ -48,7 +62,7 @@ Une fois votre collection RemoteApp créée, accédez à la page **Démarrage ra
 
 ## **Étape 2 : Configuration de la synchronisation d'annuaires Active Directory (facultatif)** ##
 
-Si vous souhaitez utiliser Active Directory, RemoteApp requiert une synchronisation d'annuaires entre Azure Active Directory et votre domaine Active Directory local afin de synchroniser les utilisateurs, contacts et mots de passe dans votre locataire Azure Active Directory. Voir [Configuration d'Active Directory pour Azure RemoteApp](http://azure.microsoft.com/fr-fr/documentation/articles/remoteapp-ad/) pour des informations sur la planification.
+Si vous souhaitez utiliser Active Directory, RemoteApp requiert une synchronisation d'annuaires entre Azure Active Directory et votre domaine Active Directory local afin de synchroniser les utilisateurs, contacts et mots de passe dans votre locataire Azure Active Directory. Voir [Configuration d'Active Directory pour Azure RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-ad/) pour des informations sur la planification.
 
 ## **Étape 3 : Publication d'applications RemoteApp** ##
 
@@ -80,3 +94,5 @@ Félicitations ! Vous avez créé et déployé correctement votre collection clo
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

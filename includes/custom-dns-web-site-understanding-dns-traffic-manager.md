@@ -17,5 +17,4 @@ Un enregistrement CNAME associe un nom DNS *specific*, tel que **mail.contoso.co
 Lorsque le trafic parvient à Traffic Manager, il est acheminé vers votre site web à l'aide de la méthode d'équilibrage de charge pour laquelle il est configuré. Cela se fait de manière totalement transparente pour les visiteurs de votre site web. Ils ne voient que le nom de domaine personnalisé dans votre navigateur.
 
 > [AZURE.NOTE] Certains bureaux d'enregistrement de domaines autorisent le mappage de sous-domaines uniquement lorsqu'un enregistrement CNAME est utilisé (par exemple, **www.contoso.com**) et non un nom racine (tel que **contoso.com**). Pour plus d'informations sur les enregistrements CNAME, consultez la documentation fournie par votre bureau d'enregistrement, <a href="http://en.wikipedia.org/wiki/CNAME_record">la page Wikipédia sur l'enregistrement CNAME</a> ou le document <a href="http://tools.ietf.org/html/rfc1035">Noms de domaine IETF - Implémentation et spécification</a>.
-
 <!--HONumber=42-->

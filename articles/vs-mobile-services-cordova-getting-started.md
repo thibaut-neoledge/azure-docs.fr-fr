@@ -36,7 +36,7 @@ Le code ci-dessous permet d'obtenir une référence pointant vers une table qui 
 
 	var todoTable = mobileServiceClient.getTable('TodoItem');
 
-Pour que ces exemples fonctionnent, les autorisations de la table doivent être définies sur **Toute personne avec la clé d'application**. Vous pourrez ensuite configurer l'authentification. Consultez la page [Prise en main de l'authentification](http://azure.microsoft.com/fr-fr/documentation/articles/mobile-services-html-get-started-users/).
+Pour que ces exemples fonctionnent, les autorisations de la table doivent être définies sur **Toute personne avec la clé d'application**. Vous pourrez ensuite configurer l'authentification. Consultez la page [Prise en main de l'authentification](http://azure.microsoft.com/documentation/articles/mobile-services-html-get-started-users/).
 
 #####Ajouter une entrée 
 

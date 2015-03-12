@@ -49,7 +49,7 @@ Un compte de stockage Azure est un compte sécurisé qui vous donne accès à de
 - Un compte de stockage standard qui inclut le stockage d'objets blob, de tables, de files d'attente et de fichiers.
 - Un compte de stockage Premium prend actuellement en charge uniquement les disques Machine virtuelle Azure. Azure Premium Storage est disponible sur demande via la [page de la version préliminaire d'Azure](/fr-FR/services/preview/).
 
-Pour pouvoir créer un compte de stockage, vous devez posséder un abonnement Azure, c'est-à-dire un plan qui vous donne accès à divers services Azure. Un seul abonnement vous permet de créer jusqu'à 100 comptes de stockage uniques. Pour plus d'informations sur la tarification des licences en volume, consultez la page [Tarification Azure Storage](http://www.windowsazure.com/fr-FR/pricing/details/storage/).
+Pour pouvoir créer un compte de stockage, vous devez posséder un abonnement Azure, c'est-à-dire un plan qui vous donne accès à divers services Azure. Un seul abonnement vous permet de créer jusqu'à 100 comptes de stockage uniques. Pour plus d'informations sur la tarification des licences en volume, consultez la page [Tarification Azure Storage](http://azure.microsoft.com/pricing/details/storage/).
 
 Pour la prise en main d'Azure, vous pouvez bénéficier d'un [essai gratuit](/fr-FR/pricing/free-trial/). Une fois que vous décidez de souscrire un abonnement, vous pouvez choisir parmi diverses [options d'achat](/fr-FR/pricing/purchase-options/).. Si vous êtes un [abonné MSDN](/fr-FR/pricing/member-offers/msdn-benefits-details/), vous obtenez des crédits mensuels gratuits que vous pouvez utiliser avec les services Azure, y compris Azure Storage.
 
@@ -164,7 +164,7 @@ Pour la prise en main d'Azure Storage, explorez les ressources suivantes :
 ### Téléchargements
 
 - [Package NuGet d'Azure Storage - Bibliothèques clientes pour .NET, Windows Phone et Windows Runtime](https://www.nuget.org/packages/WindowsAzure.Storage/)
-- [Outils et Kit de développement logiciel (SDK) d'Azure](http://azure.microsoft.com/fr-FR/downloads/)
+- [Outils et Kit de développement logiciel (SDK) d'Azure](http://azure.microsoft.com/downloads/)
 - [Émulateur de stockage Azure](http://www.microsoft.com/en-in/download/details.aspx?id=43709)
 
 ### Code source
@@ -174,15 +174,15 @@ Pour la prise en main d'Azure Storage, explorez les ressources suivantes :
 ### HDInsight
 
 - [Documentation d'Azure Storage](/fr-FR/documentation/services/storage/)
-- [Référence de l'API REST des services d'Azure Storage](http://msdn.microsoft.com/fr-FR/library/dd179355.aspx)
-- [Référence de l'outil en ligne de commande AzCopy](http://azure.microsoft.com/fr-FR/documentation/articles/storage-use-azcopy/)
+- [Référence de l'API REST des services d'Azure Storage](http://msdn.microsoft.com/library/dd179355.aspx)
+- [Référence de l'outil en ligne de commande AzCopy](http://azure.microsoft.com/documentation/articles/storage-use-azcopy/)
 
 <h3>Pour les utilisateurs de PowerShell</h3>
-- [Cmdlets Azure Storage](http://msdn.microsoft.com/fr-FR/library/azure/dn806401.aspx)
+- [Cmdlets Azure Storage](http://msdn.microsoft.com/library/azure/dn806401.aspx)
 
 <h3>Pour les développeurs .NET</h3>
 
-- [Référence de bibliothèque cliente .NET](http://msdn.microsoft.com/fr-FR/library/wa_storage_30_reference_home.aspx)
+- [Référence de bibliothèque cliente .NET](http://msdn.microsoft.com/library/wa_storage_30_reference_home.aspx)
 - [Utilisation du stockage d'objets blob à partir de .NET](../storage-dotnet-how-to-use-blobs/)
 - [Utilisation du stockage de tables à partir de .NET](../storage-dotnet-how-to-use-tables/)
 - [Utilisation du service de stockage de files d'attente à partir de .NET](../storage-dotnet-how-to-use-queues/)
@@ -218,4 +218,4 @@ Pour la prise en main d'Azure Storage, explorez les ressources suivantes :
 - [Utilisation du stockage de tables à partir de Python](../storage-python-how-to-use-table-storage/)
 - [Utilisation du stockage de files d'attente à partir de Python](../storage-python-how-to-use-queue-storage/)
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

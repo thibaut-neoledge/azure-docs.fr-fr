@@ -1,6 +1,20 @@
-<properties title="Getting Started with Active Directory Authentication" pageTitle="" metaKeywords="Azure, Getting Started, Active Directory" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="Prise en main d'Azure Active Directory (Projets .NET)" 
+	description="Mise en route d'Azure Active Directory dans Visual Studio" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
   
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Mise en route](/documentation/articles/vs-active-directory-dotnet-getting-started/)
@@ -62,3 +76,5 @@ Pour ajouter des contrôles SignIn/SignOut à l'une de vos vues, vous pouvez uti
 </PRE>
 
 [En savoir plus sur Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+
+<!--HONumber=46--> 

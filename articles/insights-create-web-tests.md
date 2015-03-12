@@ -1,6 +1,18 @@
-﻿<properties title="How to create web test" pageTitle="Création de tests web" description="Découvrez comment créer des tests web dans Azure." authors="awills" manager="kamrani" />
+﻿<properties 
+	pageTitle="Création de tests web" 
+	description="Découvrez comment créer des tests web dans Azure." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-29" ms.author="awills"  />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-17" 
+	ms.author="awills"/>
 
 # Tests web pour les sites web Microsoft Azure
 Votre site web Azure fonctionne-t-il encore ? Répond-il correctement et rapidement ? Testez-le régulièrement en configurant un test web. Si le site ne fonctionne plus ou répond lentement ou de façon incorrecte, vous recevez une alerte par courrier électronique, accompagnée de graphiques illustrant sa disponibilité et sa réactivité dans le temps.  
@@ -47,3 +59,5 @@ Les tests ayant échoué peuvent être analysés pour déterminer la cause de l'
 ![Open in VS](./media/insights-create-web-tests/Insights_OpenInVS.png)
 
 [availability]: ../app-insights-monitor-web-app-availability/
+
+<!--HONumber=46--> 

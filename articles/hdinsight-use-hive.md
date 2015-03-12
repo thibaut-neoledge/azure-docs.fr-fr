@@ -220,15 +220,15 @@ Bien que Hive facilite l'interrogation des données avec un langage de requête 
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/fr-fr/library/dn479185.aspx
 
-[azure-purchase-options]: http://azure.microsoft.com/fr-fr/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/fr-fr/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/fr-fr/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: ../hdinsight-use-oozie/
@@ -244,10 +244,9 @@ Bien que Hive facilite l'interrogation des données avec un langage de requête 
 [hdinsight-get-started]: ../hdinsight-get-started/
 
 [Powershell-install-configure]: ../install-configure-powershell/
-[powershell-here-strings]: http://technet.microsoft.com/fr-fr/library/ee692792.aspx
+[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
-
 <!--HONumber=42-->

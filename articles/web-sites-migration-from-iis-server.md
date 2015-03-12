@@ -106,7 +106,7 @@ Cette section présente pas à pas un exemple de migration de sites Web qui util
 
 	![](./media/web-sites-migration-from-iis-server/migration-settings.png)
 
-	>[AZURE.NOTE] La case à cocher **Activer Azure Active Directory** dans les paramètres personnalisés permet d'intégrer le site Web Azure à [Azure Active Directory](http://azure.microsoft.com/fr-fr/documentation/articles/active-directory-whatis/) (**annuaire par défaut**). Pour plus d'informations sur la synchronisation d'Azure Active Directory avec votre annuaire Azure Directory local, consultez la page [Intégration d'annuaire](http://msdn.microsoft.com/library/jj573653).
+	>[AZURE.NOTE] La case à cocher **Activer Azure Active Directory** dans les paramètres personnalisés permet d'intégrer le site Web Azure à [Azure Active Directory](http://azure.microsoft.com/documentation/articles/active-directory-whatis/) (**annuaire par défaut**). Pour plus d'informations sur la synchronisation d'Azure Active Directory avec votre annuaire Azure Directory local, consultez la page [Intégration d'annuaire](http://msdn.microsoft.com/library/jj573653).
 
 16.	 Une fois que vous avez apporté toutes les modifications souhaitées, cliquez sur **Créer** pour démarrer le processus de migration. L'outil de migration crée la base de données SQL Azure et le site Web Azure, puis publie le contenu et les bases de données du site Web. La progression de la migration est clairement indiquée dans l'outil de migration. À la fin du processus, vous pouvez également consulter un écran de résumé qui présente les détails des sites migrés et, si leur migration a réussi, donne des liens vers les sites Web Azure qui viennent d'être créés. 
 

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Command-Line Tools" pageTitle="Outils en ligne de commande Azure pour Mac et Linux" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="Découvrez comment utiliser l'outil en ligne de commande pour Mac et Linux dans Azure." metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors="carolz" solutions="" manager="need to identify contact" editor="" />
+﻿<properties 
+	pageTitle="Outils en ligne de commande Azure pour Mac et Linux" 
+	description="Découvrez comment utiliser l'outil en ligne de commande pour Mac et Linux dans Azure." 
+	services="web-sites, virtual-machines, mobile-services, cloud-services" 
+	documentationCenter="" 
+	authors="squillace" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/13/2014" 
+	ms.author="rasquill"/>
 
 #Outil en ligne de commande Azure pour Mac et Linux
 
@@ -659,7 +673,7 @@ Pour forcer la suppression, utilisez le paramètre `-q`.
 
 ##<a name="Commands_to_manage_your_Azure_certificates"></a>Commandes pour gérer vos certificats Azure
 
-Les certificats Azure sont des certificats SSL connectés à votre compte Azure. Pour plus d'informations sur les certificats Azure, consultez la page [Gérer les certificats](http://msdn.microsoft.com/fr-fr/library/azure/gg981929.aspx).
+Les certificats Azure sont des certificats SSL connectés à votre compte Azure. Pour plus d'informations sur les certificats Azure, consultez la page [Gérer les certificats](http://msdn.microsoft.com/library/azure/gg981929.aspx).
 
 **service cert list [options]**
 
@@ -1467,7 +1481,7 @@ Cette commande permet de supprimer toutes les lignes de données de la table.
 
 ###<a name="Mobile_Scripts"></a>Commandes pour gérer les scripts
 
-Les commandes de cette section permettent de gérer les scripts de serveur qui appartiennent à un service mobile. Pour plus d'informations, consultez la page [Utilisation des scripts serveur dans Mobile Services](http://www.windowsazure.com/fr-fr/develop/mobile/how-to-guides/work-with-server-scripts/).
+Les commandes de cette section permettent de gérer les scripts de serveur qui appartiennent à un service mobile. Pour plus d'informations, consultez la page [Utilisation des scripts serveur dans Mobile Services](http://azure.microsoft.com/develop/mobile/how-to-guides/work-with-server-scripts/).
 
 **mobile script list [options] [servicename]**
 
@@ -1526,7 +1540,7 @@ Cette commande permet de supprimer le script d'insertion existant de la table To
 
 ###<a name="Mobile_Jobs"></a>Commandes pour gérer les travaux planifiés
 
-Les commandes de cette section permettent de gérer les travaux planifiés qui appartiennent à un service mobile. Pour plus d'informations, consultez la page [Planifier les travaux](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj860528.aspx).
+Les commandes de cette section permettent de gérer les travaux planifiés qui appartiennent à un service mobile. Pour plus d'informations, consultez la page [Planifier les travaux](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx).
 
 **mobile job list [options] [servicename]**
 
@@ -1600,7 +1614,7 @@ Cette commande permet de supprimer le travail planifié getUpdates du serveur To
 
 ###<a name="Mobile_Scale"></a>Commandes pour mettre à l'échelle un service mobile
 
-Les commandes de cette section permettent de mettre à l'échelle un service mobile. Pour plus d'informations, consultez la page [Augmenter l'extensibilité d'un service mobile](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj193178.aspx).
+Les commandes de cette section permettent de mettre à l'échelle un service mobile. Pour plus d'informations, consultez la page [Augmenter l'extensibilité d'un service mobile](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx).
 
 **mobile scale show [options] [servicename]**
 
@@ -2377,3 +2391,5 @@ Supprime une entrée de serveur DNS de la configuration réseau.
 	Delete the DNS server entry dns-4 ( 77.88.99.11 ) %s ? (y/n) y
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
+
+<!--HONumber=46--> 

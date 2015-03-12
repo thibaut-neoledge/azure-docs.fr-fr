@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="BizTalk Services: Troubleshoot using operation logs" pageTitle="BizTalk Services : résolution de problèmes à l'aide des journaux des opérations | Azure" metaKeywords="" description="BizTalk Services : résolution des problèmes à l'aide des journaux d'opérations" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Troubleshoot using ops logs" authors="mandia"  solutions="" writer="nitinme" manager="dwrede" editor="cgronlun"  />
+﻿<properties 
+	pageTitle="BizTalk Services : Dépannage à l'aide des journaux des opérations | Azure" 
+	description="Dépannez BizTalk Services à l'aide de journaux des opérations. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="nitinme" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 
 # BizTalk Services : résolution de problèmes à l'aide des journaux des opérations
@@ -8,7 +22,7 @@
 Les journaux des opérations, une fonction des services de gestion disponibles dans le portail de gestion, vous permettent d'afficher les journaux des opérations effectuées sur vos services Azure, y compris BizTalk Services. Vous pouvez ainsi afficher les données d'historique des opérations de gestion liées à votre abonnement BizTalk Services jusqu'à 180 jours.
 
 <div class="dev-callout"><b>Remarque</b>
-<p>Cette fonctionnalité capture uniquement les journaux des opérations de gestion relatives à BizTalk Services telles que le moment où le service est démarré, sauvegardé, etc. Ces opérations sont suivies qu'elles soient effectuées via le portail de gestion Azure ou les <a href="http://msdn.microsoft.com/fr-fr/library/windowsazure/dn232347.aspx">API REST BizTalk Services</a>. Pour obtenir la liste complète des opérations suivies à l'aide des services de gestion, consultez la rubrique <a href="#bizops">Opérations suivies à l'aide des services de gestion Azure</a>.</p>
+<p>Cette fonctionnalité capture uniquement les journaux des opérations de gestion relatives à BizTalk Services telles que le moment où le service est démarré, sauvegardé, etc. Ces opérations sont suivies qu'elles soient effectuées via le portail de gestion Azure ou les <a href="http://msdn.microsoft.com/library/windowsazure/dn232347.aspx">API REST BizTalk Services</a>. Pour obtenir la liste complète des opérations suivies à l'aide des services de gestion, consultez la rubrique <a href="#bizops">Opérations suivies à l'aide des services de gestion Azure</a>.</p>
 <p>Cette fonctionnalité ne capture pas les journaux des activités liées à l'exécution de BizTalk Services (comme les messages traités par ponts, etc.). Pour afficher ces journaux, vous devez utiliser la vue Suivi du portail BizTalk Services. Pour plus d'informations, consultez la rubrique <a HREF="http://msdn.microsoft.com/library/windowsazure/hh949805.aspx">Messages de suivi</a>.</p>
 </div>
 
@@ -99,3 +113,5 @@ Le tableau ci-dessous répertorie les opérations suivies à l'aide des services
 - [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
+
+<!--HONumber=46--> 

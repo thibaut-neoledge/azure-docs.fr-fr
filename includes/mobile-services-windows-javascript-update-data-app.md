@@ -56,4 +56,5 @@
 
    	Cela permet d'envoyer une mise à jour de l'élément au service mobile.
 
-Maintenant que l'application a été mise à jour pour utiliser Mobile Services pour le stockage principal, le moment est venu de tester l'application avec Mobile Services.<!--HONumber=41-->
+Maintenant que l'application a été mise à jour pour utiliser Mobile Services pour le stockage principal, le moment est venu de tester l'application avec Mobile Services.
+\<!--HONumber=42-->

@@ -1,6 +1,19 @@
-﻿<properties pageTitle="Configuration d'un cluster de calcul hybride avec Microsoft HPC Pack" description="Découvrez comment utiliser Microsoft HPC Pack et Azure pour configurer un petit cluster de calculs complexes (HPC) hybride" services="cloud-services" documentationCenter="" authors="dlepow" manager="timlt"/>
+﻿<properties 
+	pageTitle="Configuration d'un cluster de calcul hybride avec Microsoft HPC Pack" 
+	description="Découvrez comment utiliser Microsoft HPC Pack et Azure pour configurer un petit cluster de calculs complexes (HPC) hybride" 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="dlepow" 
+	manager="timlt"/>
 
-<tags ms.service="cloud-services" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/30/2015" ms.author="danlep"/>
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="big-compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2015" 
+	ms.author="danlep"/>
 
 
 # Configuration d'un cluster de calcul hybride avec Microsoft HPC Pack
@@ -16,7 +29,7 @@ Ce didacticiel ne requiert pas d'expérience préalable avec les clusters de cal
 
 <h2 id="BKMK_Prereq">Conditions préalables</h2>
 
->[AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Création d'un compte Azure](http://www.windowsazure.com/fr-fr/develop/php/tutorials/create-a-windows-azure-account/).
+>[AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Création d'un compte Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/).
 
 Vous devez également disposer des éléments suivants pour ce didacticiel :
 
@@ -293,7 +306,7 @@ Après avoir testé le cluster, utilisez HPC Cluster Manager pour arrêter les n
 * [HPC Pack 2012 R2 et HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697)
 * [Intégration à Azure avec Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493)
 * [Microsoft HPC Pack dans les machines virtuelles Azure](http://go.microsoft.com/fwlink/p/?linkid=330375)
-* [Azure Big Compute : HPC et Batch](http://azure.microsoft.com/fr-fr/solutions/big-compute/)
+* [Azure Big Compute : HPC et Batch](http://azure.microsoft.com/solutions/big-compute/)
 
 
 [Overview]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/hybrid_cluster_overview.png

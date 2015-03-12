@@ -21,4 +21,5 @@
 	L'URL du référentiel Git s'affiche. Vous l'utiliserez pour cloner le référentiel sur votre ordinateur local.
 
 Avec le contrôle de code source activé dans votre service mobile, vous pouvez utiliser Git pour cloner le référentiel sur votre ordinateur local.
- <!--HONumber=41-->
+ 
+\<!--HONumber=42-->

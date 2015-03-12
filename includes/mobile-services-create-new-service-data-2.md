@@ -17,7 +17,7 @@
 > [AZURE.NOTE] 
 > Le même nom de table est utilisé dans le démarrage rapide avec Mobile Services. Toutefois, chaque table est créée dans un schéma spécifique pour un service mobile donné. Cela vise à éviter les collisions de données lorsque plusieurs services mobiles utilisent la même base de données.
 
-4. Cliquez sur la nouvelle table **TodoItem** et vérifiez qu'aucune ligne de données n'est présente.
+4. Cliquez sur la nouvelle table **TodoItem** et vérifiez qu'il n'y a aucune ligne de données.
 
 5. Cliquez sur l'onglet **Colonnes**. Vérifiez si les colonnes par défaut suivantes ont été automatiquement créées pour vous : 
 	
@@ -57,4 +57,4 @@
 Vous pouvez maintenant utiliser le nouveau service mobile en tant que stockage des données pour l'application.
 
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

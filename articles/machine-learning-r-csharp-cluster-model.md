@@ -1,6 +1,20 @@
-﻿<properties title="Cluster Model" pageTitle="Modèle de cluster | Azure" description="Modèle de cluster" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Modèle de cluster | Azure" 
+	description="Modèle de cluster" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/13/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="jaymathe"/> 
 
 
 #Modèle de cluster    
@@ -58,7 +72,7 @@ Il existe plusieurs façons d'utiliser le service de manière automatique ([voic
 
 
 #Création du service web  
->Ce service web a été créé à l'aide d'Azure ML. Pour un essai gratuit, ainsi que des vidéos de présentation concernant la création d'expériences et [la publication de services web](http://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consultez [azure.com/ml](http://azure.com/ml). La capture d'écran ci-dessous présente l'expérience qui a créé le service web et le code d'exemple de chaque module de l'expérience.
+>Ce service web a été créé à l'aide d'Azure ML. Pour un essai gratuit, ainsi que des vidéos de présentation concernant la création d'expériences et [la publication de services web](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consultez [azure.com/ml](http://azure.com/ml). La capture d'écran ci-dessous présente l'expérience qui a créé le service web et le code d'exemple de chaque module de l'expérience.
 
 À partir d'Azure ML, une nouvelle expérience vide a été créée et deux modules " Exécuter le script R " ont été importés dans l'espace de travail. Le schéma de données a été créé avec un simple module " Exécuter le script R " ; ensuite, le schéma de données a été lié à la section du modèle de cluster, à nouveau créée avec un module " Exécuter le script R ". Dans le module " Exécuter le script R " utilisé pour le modèle de cluster, le service web utilise ensuite la fonction " moyenne k ", qui est prédéfinie dans le module " Exécuter le script R " d'Azure ML.    
    
@@ -102,8 +116,10 @@ Il existe plusieurs façons d'utiliser le service de manière automatique ([voic
 Il s'agit d'un exemple très simple de service web de clustering. Comme illustré dans l'exemple de code ci-dessus, aucune interception des erreurs n'est implémentée et le service suppose que tout correspond à une variable continue (aucune fonctionnalité de catégorie n'est autorisée) dans la mesure où le service entre uniquement des valeurs numériques au moment de la création de ce service web. En outre, le service gère actuellement une limite de taille pour les données, en raison de la nature de demande/réponse de l'appel de service web et du fait que le modèle est adapté chaque fois que le service web est appelé. 
 
 ##Forum Aux Questions
-Pour les Questions fréquemment posées relatives à l'utilisation du service web ou à la publication sur Marketplace, consultez [ce lien](http://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-marketplace-faq).
+Pour les Questions fréquemment posées relatives à l'utilisation du service web ou à la publication sur Marketplace, consultez [ce lien](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-cluster-model/cluster-img1.png
 [2]: ./media/machine-learning-r-csharp-cluster-model/cluster-img2.png
 [3]: ./media/machine-learning-r-csharp-cluster-model/cluster-img3.png
+
+<!--HONumber=46--> 

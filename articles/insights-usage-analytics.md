@@ -1,6 +1,18 @@
-﻿<properties title="How to use end user analytics in Azure" pageTitle="Utilisation de Analyses de l'utilisateur final" description="Analyse d'utilisateur final pour les sites web Microsoft Azure." authors="awills" manager="kamrani" />
+﻿<properties 
+	pageTitle="Utilisation de Analyses de l'utilisateur final" 
+	description="Analyse d'utilisateur final pour les sites web Microsoft Azure." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-02" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-09" 
+	ms.author="awills"/>
 
 # Analyses pour les sites web Microsoft Azure
 
@@ -31,3 +43,5 @@ La partie Analytics affiche les informations suivantes :
     ![Top Pages](./media/insights-usage-analytics/Insights_TopPages.png)
 - Les pages les plus lentes de la semaine sont indiquées pour que vous puissiez les optimiser et atteindre vos objectifs.
 
+
+<!--HONumber=46--> 

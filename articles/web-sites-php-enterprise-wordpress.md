@@ -61,7 +61,7 @@ La réplication et le routage vers plusieurs bases de données MySQL peuvent êt
 
 ###Déploiement multi-régions avec stockage multimédia et mise en cache
 
-Si le site accepte les chargements ou héberge des fichiers multimédias, utilisez le stockage d'objets blob Azure. S'il vous faut une mise en cache, pensez au [Cache Redis][rediscache], à [Memcache Cloud](http://azure.microsoft.com/fr-fr/gallery/store/garantiadata/memcached/), à [MemCachier](http://azure.microsoft.com/fr-fr/gallery/store/memcachier/memcachier/) ou à l'une des autres offres de mise en cache du [Magasin Azure](http://azure.microsoft.com/fr-fr/gallery/store/).
+Si le site accepte les chargements ou héberge des fichiers multimédias, utilisez le stockage d'objets blob Azure. S'il vous faut une mise en cache, pensez au [Cache Redis][rediscache], à [Memcache Cloud](http://azure.microsoft.com/gallery/store/garantiadata/memcached/), à [MemCachier](http://azure.microsoft.com/gallery/store/memcachier/memcachier/) ou à l'une des autres offres de mise en cache du [Magasin Azure](http://azure.microsoft.com/gallery/store/).
 
 ![an Azure Website, hosted in multiple regions, using CDBR High Availability router for MySQL, with Managed Cache, Blob storage, and CDN][performance-diagram]
 
@@ -95,7 +95,7 @@ La performance du cloud s'effectue premièrement via la mise en cache et la mont
 Action à réaliser... Élément à utiliser...
 ------------------------|-----------
 **Compréhension des capacités des instances du site Web** |  [Détails sur les tarifs, incluant les capacités en termes de tailles et de modes pour les sites Web][websitepricing]
-**Ressources de cache** | [Cache Redis][rediscache], [Memcache Cloud](http://azure.microsoft.com/fr-fr/gallery/store/garantiadata/memcached/), [MemCachier](http://azure.microsoft.com/fr-fr/gallery/store/memcachier/memcachier/) ou l'une des autres offres de mise en cache du [Magasin Azure](http://azure.microsoft.com/fr-fr/gallery/store/)
+**Ressources de cache** | [Cache Redis][rediscache], [Memcache Cloud](http://azure.microsoft.com/gallery/store/garantiadata/memcached/), [MemCachier](http://azure.microsoft.com/gallery/store/memcachier/memcachier/) ou l'une des autres offres de mise en cache du [Magasin Azure](http://azure.microsoft.com/gallery/store/)
 **Mise à l'échelle de votre application** | [Mettre à l'échelle un site Web Azure][websitescale] et [Routage ClearDB à haut niveau de disponibilité][cleardbscale]. Si vous choisissez d'héberger et de gérer votre propre installation MySQL, pensez au [Cluster CGE MySQL][cge] pour la montée en charge
 
 ####Migration
@@ -193,9 +193,9 @@ Action à réaliser... Élément à utiliser...
 ------------- | -----------
 **Définition du mode et de la taille du site Web, et activation de la mise à l'échelle** | [Mise à l'échelle de sites Web][websitescale]
 **Activation des connexions permanentes de base de données** <p>Par défaut, WordPress n'utilise pas de connexions permanentes de base de données, qui peuvent ralentir les connexions à votre base de données après plusieurs connexions.</p>  | <ol><li><p>Modifiez le fichier <strong>wp-includes/wp-db.php</strong>.</p></li><li><p>Recherchez la ligne suivante :</p><code>$this->dbh = mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );</code></li><li><p>Remplacez la ligne précédente par celle-ci :</p><code>$this->dbh = mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword,  $client_flags ); <br/>if ( false !== $error_reporting ) { /br/>&nbsp;&nbsp;error_reporting( $error_reporting ); <br/>} </code></li><li><p>Recherchez la ligne suivante :</p><code>$this->dbh = @mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags ); </code></li><li><p>Remplacez la ligne ci-dessus par celle-ci :</p><code>$this->dbh = @mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword,  $client_flags ); </code></li><li><p>Enregistrez le fichier <strong>wp-includes/wp-db.php</strong> et redéployez le site.</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><h5><a name="note"></a>REMARQUE :</h5><p>ces modifications peuvent être remplacées lorsque WordPress est mis à jour.</p><p>WordPress active les mises à jour automatiques par défaut, qui peuvent être désactivées en modifiant le fichier <strong>wp-config.php</strong> et en ajoutant <code>define ( 'WP_AUTO_UPDATE_CORE', false );</code></p><p>Pour gérer les mises à jour, vous pouvez également utiliser une tâche Web qui surveille le fichier <strong>wp-db.php</strong> et exécute les modifications ci-dessus chaque fois que le fichier est mis à jour. Consultez <a href="http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx">Présentation des tâches Web</a> pour plus d'informations.</p></div>
-**Performances améliorées** | <ul><li><p><a href="http://ppe.blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx">Désactivation du cookie ARR</a> : peut améliorer les performances lorsque vous exécutez WordPress sur plusieurs instances de site Web.</p></li><li><p>Activer la mise en cache. <a href="http://msdn.microsoft.com/fr-fr/library/azure/dn690470.aspx">Cache Redis</a> (version préliminaire) peut être utilisé avec le <a href="https://wordpress.org/plugins/redis-object-cache/">Plug-in WordPress Redis object cache</a> ou l'une des offres de mise en cache proposées dans le <a href="http://azure.microsoft.com/fr-fr/gallery/store/">Magasin Azure</a></p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Comment rendre WordPress plus rapide avec Wincache</a> : Wincache est activé par défaut pour les sites Web</p></li><li><p><a href="http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-scale/">Mettez votre site Web Azure à l'échelle</a> et utilisez le <a href="http://www.cleardb.com/developers/cdbr/introduction">Routeur ClearDB haute disponibilité</a> ou le <a href="http://www.mysql.com/products/cluster/">Cluster CGE MySQL</a></p></li></ul>
-**Utilisation d'objets blob pour le stockage** | <ol><li><p><a href="http://azure.microsoft.com/fr-fr/documentation/articles/storage-create-storage-account/">Création d'un compte Azure Storage</a></p></li><li><p>Apprenez comment <a href="http://azure.microsoft.com/fr-fr/documentation/articles/cdn-how-to-use/">Utiliser le réseau de distribution de contenu (CDN)</a> pour géodistribuer les données stockées dans les objets blob.</p></li><li><p>Installez et configurez le <a href="https://wordpress.org/plugins/windows-azure-storage/">Plug-in Azure Storage pour WordPress</a>.</p><p>Pour des informations détaillées sur l'installation et la configuration du plug-in, consultez le <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">guide d'utilisation</a>.</p> </li></ol>
-**Activation du courrier électronique** | <ol><li><p><a href="http://azure.microsoft.com/fr-fr/gallery/store/sendgrid/sendgrid-azure/">Activation de SendGrid via le Magasin Azure</a></p></li><li><p><a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">Installation du plug-in SendGrid pour WordPress</a></p></li></ol>
+**Performances améliorées** | <ul><li><p><a href="http://ppe.blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx">Désactivation du cookie ARR</a> : peut améliorer les performances lorsque vous exécutez WordPress sur plusieurs instances de site Web.</p></li><li><p>Activer la mise en cache. <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">Cache Redis</a> (version préliminaire) peut être utilisé avec le <a href="https://wordpress.org/plugins/redis-object-cache/">Plug-in WordPress Redis object cache</a> ou l'une des offres de mise en cache proposées dans le <a href="http://azure.microsoft.com/gallery/store/">Magasin Azure</a></p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Comment rendre WordPress plus rapide avec Wincache</a> : Wincache est activé par défaut pour les sites Web</p></li><li><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-scale/">Mettez votre site Web Azure à l'échelle</a> et utilisez le <a href="http://www.cleardb.com/developers/cdbr/introduction">Routeur ClearDB haute disponibilité</a> ou le <a href="http://www.mysql.com/products/cluster/">Cluster CGE MySQL</a></p></li></ul>
+**Utilisation d'objets blob pour le stockage** | <ol><li><p><a href="http://azure.microsoft.com/documentation/articles/storage-create-storage-account/">Création d'un compte Azure Storage</a></p></li><li><p>Apprenez comment <a href="http://azure.microsoft.com/documentation/articles/cdn-how-to-use/">Utiliser le réseau de distribution de contenu (CDN)</a> pour géodistribuer les données stockées dans les objets blob.</p></li><li><p>Installez et configurez le <a href="https://wordpress.org/plugins/windows-azure-storage/">Plug-in Azure Storage pour WordPress</a>.</p><p>Pour des informations détaillées sur l'installation et la configuration du plug-in, consultez le <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">guide d'utilisation</a>.</p> </li></ol>
+**Activation du courrier électronique** | <ol><li><p><a href="http://azure.microsoft.com/gallery/store/sendgrid/sendgrid-azure/">Activation de SendGrid via le Magasin Azure</a></p></li><li><p><a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">Installation du plug-in SendGrid pour WordPress</a></p></li></ol>
 **Configuration d'un nom de domaine personnalisé** | [Utiliser un nom de domaine personnalisé avec un site Web Azure][customdomain]
 **Activation de HTTPS pour un nom de domaine personnalisé** | [Utiliser HTTPS avec un site Web Azure][httpscustomdomain]
 **Équilibrage de la charge ou géodistribution de votre site** | [Router le trafic avec Azure Traffic Manager][trafficmanager]. Si vous utilisez un domaine personnalisé, consultez [Utilisation d'un nom de domaine personnalisé avec un site Web Azure][customdomain] pour plus d'informations sur l'utilisation de Traffic Manager avec des noms de domaine personnalisés.
@@ -206,7 +206,7 @@ Action à réaliser... Élément à utiliser...
 
 * [Optimisation de WordPress](http://codex.wordpress.org/WordPress_Optimization)
 
-* [Conversion d'un site WordPress en multisite](http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-php-convert-wordpress-multisite/)
+* [Conversion d'un site WordPress en multisite](http://azure.microsoft.com/documentation/articles/web-sites-php-convert-wordpress-multisite/)
 
 * [Assistant Mise à niveau ClearDB pour Azure](http://www.cleardb.com/store/azure/upgrade)
 
@@ -249,40 +249,40 @@ Action à réaliser... Élément à utiliser...
 [cdbnstore]: http://www.cleardb.com/store/azure
 [storageplugin]: https://wordpress.org/plugins/windows-azure-storage/
 [sendgridplugin]: http://wordpress.org/plugins/sendgrid-email-delivery-simplified/
-[phpwebsite]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-php-configure/
-[customdomain]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-custom-domain-name/
+[phpwebsite]: http://azure.microsoft.com/documentation/articles/web-sites-php-configure/
+[customdomain]: http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/
 [trafficmanager]: http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/
-[backup]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-backup/
-[restore]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-restore/
-[rediscache]: http://msdn.microsoft.com/fr-fr/library/azure/dn690470.aspx
-[managedcache]: http://msdn.microsoft.com/fr-fr/library/azure/dn386122.aspx
-[websitescale]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-scale/
-[managedcachescale]: http://msdn.microsoft.com/fr-fr/library/azure/dn386113.aspx
+[backup]: http://azure.microsoft.com/documentation/articles/web-sites-backup/
+[restore]: http://azure.microsoft.com/documentation/articles/web-sites-restore/
+[rediscache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
+[managedcache]: http://msdn.microsoft.com/library/azure/dn386122.aspx
+[websitescale]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
+[managedcachescale]: http://msdn.microsoft.com/library/azure/dn386113.aspx
 [cleardbscale]: http://www.cleardb.com/developers/cdbr/introduction
-[staging]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-staged-publishing/
-[monitor]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-monitor/
-[log]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-enable-diagnostic-log/
-[httpscustomdomain]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-configure-ssl-certificate/
-[mysqlwindows]: http://azure.microsoft.com/fr-fr/documentation/articles/virtual-machines-mysql-windows-server-2008r2/
-[mysqllinux]: http://azure.microsoft.com/fr-fr/documentation/articles/virtual-machines-linux-mysql-use-opensuse/
+[staging]: http://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/
+[monitor]: http://azure.microsoft.com/documentation/articles/web-sites-monitor/
+[log]: http://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/
+[httpscustomdomain]: http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/
+[mysqlwindows]: http://azure.microsoft.com/documentation/articles/virtual-machines-mysql-windows-server-2008r2/
+[mysqllinux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-use-opensuse/
 [cge]: http://www.mysql.com/products/cluster/
 [websitepricing]: https://azure.microsoft.com/fr-fr/pricing/details/web-sites/
 [export]: http://en.support.wordpress.com/export/
 [import]: http://wordpress.org/plugins/wordpress-importer/
 [wordpressbackup]: http://wordpress.org/plugins/wordpress-importer/
 [wordpressdbbackup]: http://codex.wordpress.org/Backing_Up_Your_Database
-[createwordpress]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-php-web-site-gallery/
+[createwordpress]: http://azure.microsoft.com/documentation/articles/web-sites-php-web-site-gallery/
 [velvet]: https://wordpress.org/plugins/velvet-blues-update-urls/
 [mgmtportal]: https://manage.windowsazure.com/
 [wordpressbackup]: http://codex.wordpress.org/WordPress_Backups
 [wordpressdbbackup]: http://codex.wordpress.org/Backing_Up_Your_Database
 [workbench]: http://www.mysql.com/products/workbench/
 [searchandreplace]: http://interconnectit.com/124/search-and-replace-for-wordpress-databases/
-[deploy]: http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-deploy/
-[posh]: http://azure.microsoft.com/fr-fr/documentation/articles/install-configure-powershell/
-[xplat-cli]: http://azure.microsoft.com/fr-fr/documentation/articles/xplat-cli/
-[storesendgrid]: http://azure.microsoft.com/fr-fr/gallery/store/sendgrid/sendgrid-azure/
-[cdn]: http://azure.microsoft.com/fr-fr/documentation/articles/cdn-how-to-use/
+[deploy]: http://azure.microsoft.com/documentation/articles/web-sites-deploy/
+[posh]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[xplat-cli]: http://azure.microsoft.com/documentation/articles/xplat-cli/
+[storesendgrid]: http://azure.microsoft.com/gallery/store/sendgrid/sendgrid-azure/
+[cdn]: http://azure.microsoft.com/documentation/articles/cdn-how-to-use/
 
 
 <!--HONumber=42-->

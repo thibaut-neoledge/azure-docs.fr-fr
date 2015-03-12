@@ -1,6 +1,20 @@
-﻿<properties title="Get started using Azure Data Factory" pageTitle="Prise en main d'Azure Data Factory" description="Ce didacticiel vous montre comment créer un exemple de pipeline de données qui copie les données d'un objet blob vers une instance de base de données SQL Azure." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Prise en main d'Azure Data Factory" 
+	description="Ce didacticiel vous montre comment créer un exemple de pipeline de données qui copie les données d'un objet blob vers une instance de base de données SQL Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/13/2015" 
+	ms.author="spelluru"/>
 
 # Prise en main d'Azure Data Factory
 Cet article vous permet de commencer à utiliser Azure Data Factory. Le didacticiel de cet article vous montre comment créer une fabrique de données Azure, et un pipeline dans la fabrique de données pour copier des exemples de données d'un stockage d'objets blob Azure dans une base de données SQL Azure.
@@ -441,12 +455,12 @@ Article | Description
 
 
 <!--Link references-->
-[azure-purchase-options]: http://azure.microsoft.com/fr-fr/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/fr-fr/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/fr-fr/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [azure-preview-portal]: https://portal.azure.com/
-[download-azure-powershell]: http://azure.microsoft.com/fr-fr/documentation/articles/install-configure-powershell
+[download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 
 [monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
 [use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
@@ -536,3 +550,5 @@ Article | Description
 [image-data-factory-name-not-available]: ./media/data-factory-get-started/getstarted-data-factory-not-available.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

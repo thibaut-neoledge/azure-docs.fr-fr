@@ -120,7 +120,7 @@ Pour obtenir la version préliminaire de Storm sur HDInsight, vous devez vous co
 
 5. Pour afficher une liste des commandes disponibles, entrez `storm` sans paramètres.
 
-Le cluster HDInsight s'affiche avec plusieurs exemples de topologies Storm. L'exemple **WordcountTopology** est utilisé dans les étapes suivantes. Pour plus d'informations sur les exemples fournis avec Storm sur HDInsight, consultez la section [Étapes suivantes].(#next).
+Le cluster HDInsight s'affiche avec plusieurs exemples de topologies Storm. L'exemple **WordcountTopology** est utilisé dans les étapes suivantes. Pour plus d'informations sur les exemples fournis avec Storm sur HDInsight, consultez la section [Étapes suivantes)]#next).
 
 ### <a id="run"></a>Exécution d'une topologie Storm
 
@@ -206,5 +206,4 @@ Si vous affichez la page web d'interface utilisateur Storm immédiatement après
 [stormstarter]: https://github.com/apache/storm/tree/master/examples/storm-starter
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [azureportal]: https://manage.windowsazure.com/
-
 <!--HONumber=42-->

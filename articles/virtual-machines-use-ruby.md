@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Présentation d'Azure Multi-Factor Authentication" 
 	description="En savoir plus sur l'authentification multi-facteur : méthode d'authentification qui nécessite l'utilisation de plusieurs méthodes de vérification et ajoute une deuxième couche critique de sécurité aux connexions et transactions des utilisateurs." 
 	services="active-directory, multi-factor-authentication" 
@@ -44,9 +44,9 @@ Bien que l'API de gestion des services puisse être utilisée pour gérer une s�
 
 ## <a name="concepts"> </a>Concepts
 
-Les machines virtuelles Azure sont implémentées en tant que  'roles' au sein d'un service cloud. Chaque service cloud peut contenir un ou plusieurs rôles, qui sont regroupés de façon logique en déploiements. Le rôle définit les caractéristiques physiques globales de la machine virtuelle, telles que la quantité de mémoire disponible, le nombre de cœurs d'UC, etc.
+Les machines virtuelles Azure sont implémentées en tant que 'rôles' au sein d'un service cloud. Chaque service cloud peut contenir un ou plusieurs rôles, qui sont regroupés de façon logique en déploiements. Le rôle définit les caractéristiques physiques globales de la machine virtuelle, telles que la quantité de mémoire disponible, le nombre de cœurs d'UC, etc.
 
-Chaque machine virtuelle comporte un disque du système d'exploitation, qui contient le système d'exploitation amorçable. Une machine virtuelle peut avoir un ou plusieurs disques de données, qui sont des disques supplémentaires devant être utilisés pour stocker des données d'application. Les disques sont mis en œuvre en tant que disques durs virtuels stockés dans le stockage d'objets blob Azure. Les disques durs virtuels peuvent être exposés sous forme d' 'images', qui sont des modèles permettant de créer des disques utilisés par une machine virtuelle lors de sa création. Par exemple, la création d'une machine virtuelle utilisant une image Ubuntu résulte en la création d'un disque de système d'exploitation à partir de l'image Ubuntu.
+Chaque machine virtuelle comporte un disque du système d'exploitation, qui contient le système d'exploitation amorçable. Une machine virtuelle peut avoir un ou plusieurs disques de données, qui sont des disques supplémentaires devant être utilisés pour stocker des données d'application. Les disques sont mis en œuvre en tant que disques durs virtuels stockés dans le stockage d'objets blob Azure. Les disques durs virtuels peuvent être exposés sous forme d''images', qui sont des modèles permettant de créer des disques utilisés par une machine virtuelle lors de sa création. Par exemple, la création d'une machine virtuelle utilisant une image Ubuntu résulte en la création d'un disque de système d'exploitation à partir de l'image Ubuntu.
 
 La plupart des images sont fournies par Microsoft ou des partenaires, mais vous pouvez créer vos propres images ou en créer une à partir d'une machine virtuelle hébergée dans Azure.
 
@@ -66,7 +66,7 @@ Une fois que xplat-cli est configuré, vous pouvez effectuer les étapes suivant
 
 		azure account cert export
 
-	Une fois la commande terminée, le certificat est exporté dans un fichier nommé &lt;nom de l'abonnement azure&gt;.pem. Par exemple, si votre abonnement est intitulé **monsuperabonnement**, le fichier créé s'appellera **monsuperabonnement.pem**.
+	Une fois la commande exécutée, le certificat est exporté dans un fichier nommé &lt;azure-subscription-name&gt;.pem. Par exemple, si votre abonnement est intitulé **monsuperabonnement**, le fichier créé s'appellera **monsuperabonnement.pem**.
 
 Prenez note de l'ID d'abonnement et de l'emplacement du fichier PEM contenant le certificat exporté, dans la mesure où ceux-ci seront utilisés plus tard dans ce document.
 
@@ -116,9 +116,9 @@ Au moyen d'un éditeur de texte, ajoutez ce qui suit en haut de votre fichier d'
 
 Pour effectuer correctement des opérations de gestion des services dans Azure, vous devez spécifier l'ID d'abonnement et le certificat obtenu dans la section [Création d'un certificat de gestion Azure](#setup-certificate) . La façon la plus simple de procéder consiste à spécifier l'ID et le chemin d'accès au fichier de certificat au moyen des variables d'environnement suivantes :
 
-* AZURE\_MANAGEMENT\_CERTIFICATE - Chemin d'accès au fichier .PEM contenant le certificat de gestion.
+* AZURE\_MANAGEMENT\_CERTIFICATE - le chemin d'accès au fichier .PEM contenant le certificat de gestion.
 
-* AZURE\_SUBSCRIPTION\_ID - ID d'abonnement pour votre abonnement Azure.
+* AZURE\_SUBSCRIPTION\_ID - l'ID d'abonnement pour votre abonnement Azure.
 
 Vous pouvez également définir ces valeurs par programme dans votre application au moyen du code suivant :
 
@@ -179,11 +179,11 @@ Voici les options disponibles lors de l'utilisation de la méthode **create\_vir
 
 * **:tcp\_endpoints** - Ports TCP à exposer publiquement pour cette machine virtuelle. Le point de terminaison SSH (pour les machines virtuelles basées sur Linux) et le point de terminaison WinRM (pour les machines virtuelles basées sur Windows) ne doivent pas être spécifiés et seront créés automatiquement. Plusieurs ports peuvent être spécifiés, en les séparant par des virgules. Pour associer un port interne à un port public au moyen d'un numéro de port différent, utilisez le format **public port:internal port**. Par exemple, 80:8080 expose le port interne 8080 en tant que port public 80.
 
-* **:service\_location** - Emplacement du magasin de certificats cible sur la machine virtuelle. S'applique uniquement aux machines virtuelles basées sur Windows.
+* **:service\_location** - Emplacement de stockage du certificat cible sur la machine virtuelle. S'applique uniquement aux machines virtuelles basées sur Windows.
 
-* **:ssh\_private\_key\_file** - Fichier contenant la clé privée, qui sera utilisée pour sécuriser l'accès SSH à la machine virtuelle basée sur Linux. Il est également utilisé pour spécifier le certificat utilisé pour sécuriser WinRM si le transport HTTPS est sélectionné. Si **:ssh\_private\_key\_file** et **:ssh\_certificate\_file** sont omis, SSH utilisera uniquement l'authentification par mot de passe
+* **:ssh\_private\_key\_file** - Fichier contenant la clé privée, qui sera utilisée pour sécuriser l'accès SSH à la machine virtuelle basée sur Linux. Il est également utilisé pour spécifier le certificat utilisé pour sécuriser WinRM si le transport HTTPS est sélectionné. Si **: ssh\_private\_key\_file** et **: ssh\_certificate\_file** sont omis, SSH utilisera uniquement l'authentification par mot de passe
 
-* **:ssh\_certificate\_file** - Fichier contenant le fichier de certificat qui sera utilisé pour sécuriser l'accès SSH à la machine virtuelle basée sur Linux. Il est également utilisé pour spécifier le certificat utilisé pour sécuriser WinRM si le transport HTTPS est sélectionné. Si **:ssh\_private\_key\_file** et **:ssh\_certificate\_file** sont omis, SSH utilisera uniquement l'authentification par mot de passe
+* **:ssh\_certificate\_file** - Fichier contenant le fichier de certificat, qui sera utilisé pour sécuriser l'accès SSH à la machine virtuelle basée sur Linux. Il est également utilisé pour spécifier le certificat utilisé pour sécuriser WinRM si le transport HTTPS est sélectionné. Si **: ssh\_private\_key\_file** et **: ssh\_certificate\_file** sont omis, SSH utilisera uniquement l'authentification par mot de passe
 
 * **:ssh\_port** - Port public qui sera utilisé pour la communication SSH. Si aucune valeur n'est spécifiée, le port SSH 22 est utilisé par défaut.
 
@@ -232,7 +232,7 @@ Pour supprimer une machine virtuelle, utilisez la méthode **delete\_virtual\_ma
 	vm_mgr = Azure::VirtualMachineService.new
 	vm = vm_mgr.delete_virtual_machine('myvm', 'mycloudservice')
 
-> [AZURE.AVERTISSEMENT] La méthode **delete_virtual_machine** supprime le service cloud et tous les disques associés à la machine virtuelle.
+> [AZURE.WARNING] La méthode **delete_virtual_machine** supprime le service cloud et tous les disques associés à la machine virtuelle.
 
 ###Procédure : Arrêt d'une machine virtuelle
 
@@ -281,7 +281,7 @@ Les opérations de gestion d'Azure Cloud Services sont effectuées au moyen de l
 
 Pour créer un service cloud, utilisez la méthode **create\_cloud\_service** et fournissez un nom et un hachage d'options. Les options valides sont les suivantes :
 
-* **:location** - *Required*. Région dans laquelle le service cloud sera créé.
+* **:location** - *Obligatoire*. Région dans laquelle le service cloud sera créé.
 
 * **:description** - Description du service cloud.
 
@@ -326,7 +326,7 @@ Les opérations de gestion d'Azure Cloud Services sont effectuées au moyen de l
 
 Pour créer un compte de stockage, utilisez la méthode **create\_storage\_account** et fournissez un nom et un hachage d'options. Les options valides sont les suivantes :
 
-* **:location** - *Required*. Région dans laquelle le compte de stockage sera créé.
+* **:location** - *Obligatoire*. Région dans laquelle le compte de stockage sera créé.
 
 * **:description** - Description du compte de stockage.
 
@@ -364,4 +364,6 @@ Maintenant que vous avez appris les principes de base de la création par progra
 *  Consultez la référence MSDN suivante : [Machines virtuelles](http://msdn.microsoft.com/library/windowsazure/jj156003.aspx)
 * Découvrez comment héberger une [Application Ruby on Rails sur une machine virtuelle](http://azure.microsoft.com/develop/ruby/tutorials/web-app-with-linux-vm/)
 
-<!--HONumber=45--> 
+
+
+<!--HONumber=42-->

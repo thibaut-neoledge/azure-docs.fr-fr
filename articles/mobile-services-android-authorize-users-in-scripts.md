@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Autorisation côté service (Android) | Centre de développement mobile" description="Découvrez comment autoriser des utilisateurs sur le serveur principal JavaScript d'Azure Mobile Services." services="" documentationCenter="android" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Autorisation côté service (Android) | Centre de développement mobile" 
+	description="Découvrez comment autoriser des utilisateurs sur le serveur principal JavaScript d'Azure Mobile Services." 
+	services="" 
+	documentationCenter="android" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/29/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="glenga"/>
 
 # Autorisation côté service des utilisateurs Mobile Services
 

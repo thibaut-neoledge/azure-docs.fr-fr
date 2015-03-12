@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Création d'un service à l'aide d'une base de données SQL existante avec le serveur principal .NET de Mobile Services - Azure Mobile Services" description="Découvrez comment utiliser une base de données locale ou de cloud existante avec votre service mobile .NET" services="mobile-services, biztalk-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor="mollybos"/>
+﻿<properties 
+	pageTitle="Création d'un service à l'aide d'une base de données SQL existante avec le serveur principal .NET de Mobile Services - Azure Mobile Services" 
+	description="Découvrez comment utiliser une base de données locale ou de cloud existante avec votre service mobile .NET" 
+	services="mobile-services, biztalk-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
 
 # Création d'un service à l'aide d'une base de données SQL existante avec le serveur principal Mobile Services .NET

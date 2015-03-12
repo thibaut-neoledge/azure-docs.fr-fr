@@ -1,10 +1,10 @@
-﻿<properties 
+<properties 
 	pageTitle="Configuration logicielle de RAID sur une machine virtuelle exécutant Linux dans Azure" 
 	description="Apprenez à utiliser mdadm pour configurer RAID sur Linux dans Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
-	writer="szark" 
+	Writer="szark" 
 	manager="timlt" 
 	editor=""/>
 
@@ -56,7 +56,7 @@ Dans cet exemple, nous allons créer une partition de disque unique sur /dev/sdc
 		Changes will remain in memory only, until you decide to write them.
 		After that, of course, the previous content won't be recoverable.
 
-		AVERTISSEMENT : DOS-compatible mode is deprecated. It's strongly recommended to
+		WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
 				 switch off the mode (command 'c') and change display units to
 				 sectors (command 'u').
 
@@ -80,7 +80,7 @@ Dans cet exemple, nous allons créer une partition de disque unique sur /dev/sdc
 		First cylinder (1-1305, default 1):
 		Using default value 1
 
-- Sélectionnez la taille de la partition. Par exemple, tapez " +10G " pour créer une partition de 10 Go. Vous pouvez aussi appuyer simplement sur `<entrée>` pour créer une seule partition pour l'intégralité du disque :
+- Sélectionnez la taille de la partition. Par exemple, tapez " +10G " pour créer une partition de 10 Go. Vous pouvez également taper le code `<enter>` afin de créer une seule partition pour l'intégralité du disque :
 
 		Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
 		Using default value 1305
@@ -133,7 +133,7 @@ Dans cet exemple, après l'exécution de cette commande, un nouveau périphériq
 
 		# sudo mkdir /data
 
-2. Lors de la modification du fichier /etc/fstab, l'**identificateur unique universel** doit être utilisé pour faire référence au système de fichiers plutôt qu'au nom de périphérique.  Servez-vous de l'utilitaire `blkid` pour déterminer l'identificateur unique universel (UUID) du nouveau système de fichiers :
+2. Lors de la modification du fichier /etc/fstab, l'**identificateur unique universel** doit être utilisé pour faire référence au système de fichiers plutôt qu'au nom de périphérique.  Utilisez l'utilitaire `blkid` pour déterminer l'identificateur unique universel du nouveau système de fichiers :
 
 		# sudo /sbin/blkid
 		...........
@@ -163,7 +163,7 @@ Dans cet exemple, après l'exécution de cette commande, un nouveau périphériq
 
 5. Paramètres facultatifs
 
-	De nombreuses distributions comprennent les paramètres de montage `nobootwait` et `nofail` pouvant être ajoutés au fichier /etc/fstab. Ces paramètres autorisent les échecs lors du montage d'un système de fichiers donné et permettent au système Linux de continuer à démarrer même s'il n'a pas été en mesure de monter le système de fichiers RAID. Pour plus d'informations sur ces paramètres, reportez-vous à la documentation de votre distribution.
+	De nombreuses distributions comprennent les paramètres de montage `nobootwait` ou `nofail` pouvant être ajoutés au fichier /etc/fstab. Ces paramètres autorisent les échecs lors du montage d'un système de fichiers donné et permettent au système Linux de continuer à démarrer même s'il n'a pas été en mesure de monter le système de fichiers RAID. Pour plus d'informations sur ces paramètres, reportez-vous à la documentation de votre distribution.
 
 	Exemple (Ubuntu) :
 
@@ -174,4 +174,5 @@ Dans cet exemple, après l'exécution de cette commande, un nouveau périphériq
 	Pour plus d'informations sur la modification adéquate des paramètres de noyau, reportez-vous à la documentation de votre distribution. Par exemple, dans de nombreuses distributions (CentOS, Oracle Linux, SLES 11), ces paramètres peuvent être ajoutés manuellement au fichier " `/boot/grub/menu.lst` ".  Sur Ubuntu, ce paramètre peut être ajouté à la variable `GRUB_CMDLINE_LINUX_DEFAULT` dans " /etc/default/grub ".
 
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

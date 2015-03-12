@@ -1,6 +1,20 @@
-﻿<properties title="Create a simple experiment in Azure Machine Learning Studio" pageTitle="Création d'une expérience simple dans Machine Learning Studio | Azure" description="Création d'une expérience pour effectuer l'apprentissage et tester un modèle simple dans Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Création d'une expérience simple dans Machine Learning Studio | Azure" 
+	description="Création d'une expérience pour effectuer l'apprentissage et tester un modèle simple dans Azure Machine Learning Studio" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/22/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/07/2015" 
+	ms.author="garye"/>
 
 #Création d'une expérience simple dans Azure Machine Learning Studio 
  
@@ -173,7 +187,7 @@ Maintenant que votre expérience est configurée, vous pouvez créer une itérat
 
 Une fois satisfait de votre modèle, vous pouvez le publier en tant que service web permettant de prévoir des prix automobiles en utilisant de nouvelles données. Pour plus d'informations, consultez la rubrique d'aide de ML Studio, **Publication d'expériences**.
 
-Pour obtenir un didacticiel pas à pas plus avancé et détaillé sur la création, la formation, la notation et la publication d'un modèle de prévision, consultez [Procédure pas à pas : développement d'une solution prédictive avec Azure Machine Learning](http://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/). 
+Pour obtenir un didacticiel pas à pas plus avancé et détaillé sur la création, la formation, la notation et la publication d'un modèle de prévision, consultez [Procédure pas à pas : développement d'une solution prédictive avec Azure Machine Learning](http://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/). 
 
 
 <!-- Images -->
@@ -191,3 +205,5 @@ Pour obtenir un didacticiel pas à pas plus avancé et détaillé sur la créati
 [screen8a]:./media/machine-learning-create-experiment/screen8a.png
 [screen9]:./media/machine-learning-create-experiment/screen9.png
 [screen10]:./media/machine-learning-create-experiment/screen10.png
+
+<!--HONumber=46--> 

@@ -1,6 +1,21 @@
-﻿<properties pageTitle="Utilisation de Mobile Services pour stocker des données dans le stockage de tables | Mobile Services" description="Découvrez comment utiliser Mobile Services pour stocker des données dans le stockage de tables." documentationCenter="ios" authors="ysxu" writer="yuaxu" services="mobile-services, storage" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Utilisation de Mobile Services pour stocker des données dans le stockage de tables | Mobile Services" 
+	description="Découvrez comment utiliser Mobile Services pour stocker des données dans le stockage de tables." 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	Writer="yuaxu" 
+	services="mobile-services, storage" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="yuaxu"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="yuaxu"/>
 
 # Stockage des données dans le stockage de tables Azure à l'aide de Mobile Services
 

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Create and Manage Hybrid Connections - BizTalk Services" pageTitle="Création et gestion des connexions hybrides | Azure" metaKeywords="BizTalk Services, BizTalk, web sites, website, hybrid connections, Azure" description="Découvrez comment créer une connexion hybride, gérer la connexion et installer le Gestionnaire de connexions hybrides." metaCanonical="" services="integration-services" documentationCenter="" title="Create and Manage Hybrid Connections" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Création et gestion des connexions hybrides | Azure" 
+	description="Découvrez comment créer une connexion hybride, gérer la connexion et installer le Gestionnaire de connexions hybrides. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/17/2015" 
+	ms.author="mandia"/>
 
 
 #Création et gestion des connexions hybrides
@@ -78,7 +92,7 @@ Vous pouvez créer une connexion hybride dans le portail de gestion Azure avec S
 
 Pour lier le site web Azure à une connexion hybride existante, sélectionnez **Utiliser une connexion hybride existante** dans le panneau Connexions hybrides. Consultez la page [Connexion d'un site web Azure à une ressource locale](http://go.microsoft.com/fwlink/p/?LinkId=397538).
 
-Pour lier le service mobile Azure à une connexion hybride existante, sélectionnez **Ajouter une connexion hybride** lors de la modification ou de la création d'un service mobile. Consultez la page [Azure Mobile Services et connexions hybrides](http://azure.microsoft.com/fr-fr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started).
+Pour lier le service mobile Azure à une connexion hybride existante, sélectionnez **Ajouter une connexion hybride** lors de la modification ou de la création d'un service mobile. Consultez la page [Azure Mobile Services et connexions hybrides](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started).
 
 
 ##<a name="InstallHCM"></a>Installation locale du Gestionnaire de connexions hybrides
@@ -164,8 +178,8 @@ Une fois les fichiers copiés, vous pouvez utiliser l'Éditeur de stratégie de 
 
 - [Connexion d'un site web Azure à une ressource locale](http://go.microsoft.com/fwlink/p/?LinkId=397538)
 - [Les connexions hybrides étape par étape : connexion à un serveur SQL local à partir d'un site web Azure](http://go.microsoft.com/fwlink/?LinkID=397979)
-- [Azure Mobile Services et connexions hybrides](http://azure.microsoft.com/fr-fr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
-- [Aperçu des connexions hybrides](http://azure.microsoft.com/fr-fr/documentation/articles/integration-hybrid-connection-overview)
+- [Azure Mobile Services et connexions hybrides](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
+- [Aperçu des connexions hybrides](http://azure.microsoft.com/documentation/articles/integration-hybrid-connection-overview)
 
 
 ## Voir aussi
@@ -179,3 +193,5 @@ Une fois les fichiers copiés, vous pouvez utiliser l'Éditeur de stratégie de 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
+
+<!--HONumber=46--> 

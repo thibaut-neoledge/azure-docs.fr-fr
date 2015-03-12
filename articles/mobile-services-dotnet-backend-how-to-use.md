@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Utilisation du service principal .NET de Mobile Services - Azure Mobile Services" description="Découvrez les détails du modèle de programmation de serveur principal .NET pour Azure Mobile Services, y compris comment utiliser les données de table, les API, l'authentification et les tâches planifiées" services="" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="mollybos"/>
+﻿<properties 
+	pageTitle="Utilisation du service principal .NET de Mobile Services - Azure Mobile Services" 
+	description="Découvrez les détails du modèle de programmation de serveur principal .NET pour Azure Mobile Services, y compris comment utiliser les données de table, les API, l'authentification et les tâches planifiées" 
+	services="" 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="mahender"/>
 # Utilisation du service principal .NET de Mobile Services
 
 <div class="dev-center-tutorial-subselector"><a href="/fr-fr/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET backend" class="current">Service principal .NET</a> | <a href="/fr-fr/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript backend">Service principal JavaScript</a></div>

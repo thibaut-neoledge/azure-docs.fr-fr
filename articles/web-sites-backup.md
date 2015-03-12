@@ -21,7 +21,7 @@
 La fonctionnalité de sauvegarde et restauration de Sites Web Azure vous permet de créer facilement des sauvegardes de sites Web, manuellement ou automatiquement. Vous pouvez restaurer votre site Web à une étape précédente, ou créer un site Web basé sur les sauvegardes de votre site d'origine. 
 
 
-Pour plus d'informations sur la restauration d'un site Web Azure depuis une sauvegarde, consultez [Restauration d'un site Web Azure](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-restore/).
+Pour plus d'informations sur la restauration d'un site Web Azure depuis une sauvegarde, consultez [Restauration d'un site Web Azure](http://azure.microsoft.com/documentation/articles/web-sites-restore/).
 
 ##Dans cet article
 
@@ -57,7 +57,7 @@ Ces informations sont sauvegardées dans le compte de stockage Azure que vous in
 <a name="requirements"></a>
 ##Exigences et restrictions
 
-* La fonction de sauvegarde et de restauration implique que le site se situe au niveau Standard. Pour plus d'informations sur la mise à l'échelle de votre site Web au niveau Standard, consultez [Mise à l'échelle de sites Web](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-scale/). 
+* La fonction de sauvegarde et de restauration implique que le site se situe au niveau Standard. Pour plus d'informations sur la mise à l'échelle de votre site Web au niveau Standard, consultez [Mise à l'échelle de sites Web](http://azure.microsoft.com/documentation/articles/web-sites-scale/). 
 
 * La fonctionnalité de sauvegarde et restauration demande un compte Azure Storage appartenant au même abonnement que le site Web que vous sauvegardez. À défaut de disposer d'un compte de stockage, vous pouvez en créer un en cliquant sur le bouton **Stockage** (icône grille) situé dans le volet de gauche du portail Azure, puis en sélectionnant **Nouveau** dans la barre de commandes du bas. Pour plus d'informations sur les comptes de stockage Azure, consultez les [liens](#moreaboutstorage) à la fin de cet article.
 
@@ -134,9 +134,9 @@ Les noms des fichiers de sauvegarde .zip et .xml se composent du nom de votre si
 
 Le fichier XML stocké avec le fichier zip indique le nom du fichier de base de données sous *backupdescription* > *databases* > *databasebackupdescription* > *filename*.
 
-Le fichier de sauvegarde de base de données est stocké à la racine du fichier .zip. Pour une base de données SQL, il s'agit d'un fichier BACPAC (pas d'extension de fichier) qui peut être importé. Pour créer une base de données SQL basée sur l'exportation du fichier BACPAC, suivez les étapes indiquées dans l'article [Importer un fichier BACPAC pour créer une nouvelle base de données utilisateur](http://technet.microsoft.com/fr-fr/library/hh710052.aspx).
+Le fichier de sauvegarde de base de données est stocké à la racine du fichier .zip. Pour une base de données SQL, il s'agit d'un fichier BACPAC (pas d'extension de fichier) qui peut être importé. Pour créer une base de données SQL basée sur l'exportation du fichier BACPAC, suivez les étapes indiquées dans l'article [Importer un fichier BACPAC pour créer une nouvelle base de données utilisateur](http://technet.microsoft.com/library/hh710052.aspx).
 
-Pour plus d'informations sur la restauration d'un site Web Azure (y compris les bases de données) via le portail de gestion Azure, consultez [Restauration d'un site Web Microsoft Azure]( http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-restore/).
+Pour plus d'informations sur la restauration d'un site Web Azure (y compris les bases de données) via le portail de gestion Azure, consultez [Restauration d'un site Web Microsoft Azure]( http://azure.microsoft.com/documentation/articles/web-sites-restore/).
 
 > [AZURE.NOTE] Toute modification apportée aux fichiers de votre conteneur **websitebackups** peut invalider la sauvegarde et la rendre impossible à restaurer.
 
@@ -150,19 +150,19 @@ Pour plus d'informations sur la restauration d'un site Web Azure (y compris les 
 
 <a name="nextsteps"></a>
 ## Étapes suivantes
-Pour plus d'informations sur la restauration d'un site Web Azure depuis une sauvegarde, consultez [Restauration d'un site Web Azure](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-restore/).
+Pour plus d'informations sur la restauration d'un site Web Azure depuis une sauvegarde, consultez [Restauration d'un site Web Azure](http://azure.microsoft.com/documentation/articles/web-sites-restore/).
 
-Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite de Microsoft Azure](http://azure.microsoft.com/fr-fr/pricing/free-trial/).
+Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite de Microsoft Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 
 <a name="moreaboutstorage"></a>
 ### En savoir plus sur les comptes de stockage
 
-[Présentation des comptes de stockage](http://www.windowsazure.com/fr-fr/documentation/articles/storage-whatis-account/)
+[Présentation des comptes de stockage](http://azure.microsoft.com/documentation/articles/storage-whatis-account/)
 
-[ Création d'un compte de stockage](http://www.windowsazure.com/fr-fr/documentation/articles/storage-create-storage-account/)
+[ Création d'un compte de stockage](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/)
 
-[Surveillance d'un compte de stockage](http://www.windowsazure.com/fr-fr/documentation/articles/storage-monitor-storage-account/)
+[Surveillance d'un compte de stockage](http://azure.microsoft.com/documentation/articles/storage-monitor-storage-account/)
 
 [Présentation de la facturation du stockage Windows](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 

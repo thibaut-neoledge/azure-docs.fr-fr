@@ -44,7 +44,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 - **Un abonnement Azure** Pour plus d'informations sur la façon de se procurer un abonnement, consultez les pages traitant des [formules d'abonnement][azure-purchase-options], des [offres spéciales membres][azure-member-offers] ou de la [version d'évaluation gratuite][azure-free-trial].
 - **Un compte de stockage Azure** Pour plus d'informations, consultez la rubrique [Création d'un compte de stockage][azure-create-storageaccount].
-- **Un poste de travail sur lequel **Visual Studio 2013 est installé. Pour plus d'informations, consultez la rubrique [Installation de Visual Studio](http://msdn.microsoft.com/fr-fr/library/e2h7fzkw.aspx).
+- **Un poste de travail sur lequel **Visual Studio 2013 est installé. Pour plus d'informations, consultez la rubrique [Installation de Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ##<a name="create-hbase-cluster"></a>Approvisionnement d'un cluster HBase dans le portail Azure
 
@@ -322,16 +322,15 @@ Apprenez à effectuer une [analyse des sentiments](http://en.wikipedia.org/wiki/
 [hdinsight-hbase-provision-vnet]: ../hdinsight-hbase-provision-vnet
 [hdinsight-versions]: ../hdinsight-component-versioning/
 [hbase-twitter-sentiment]: ../hdinsight-hbase-analyze-twitter-sentiment/
-[azure-purchase-options]: http://azure.microsoft.com/fr-fr/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/fr-fr/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/fr-fr/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: http://azure.microsoft.com/fr-fr/documentation/articles/storage-create-storage-account/ 
+[azure-create-storageaccount]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/ 
 
 [img-hdinsight-hbase-cluster-quick-create]: ./media/hdinsight-hbase-get-started/hdinsight-hbase-quick-create.png
 [img-hdinsight-hbase-hive-editor]: ./media/hdinsight-hbase-get-started/hdinsight-hbase-hive-editor.png
 [img-hdinsight-hbase-file-browser]: ./media/hdinsight-hbase-get-started/hdinsight-hbase-file-browser.png
-
 
 
 

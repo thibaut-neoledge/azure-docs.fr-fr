@@ -33,7 +33,7 @@ Azure Traffic Manager utilise trois méthodes d'équilibrage de charge. Elles so
 	
 * **Performance** : la méthode de Performance distribue le trafic sur la base de l'aller-retour le plus court vers les clients. Cette méthode peut être utilisée pour les sites Web d'une même région ou de régions différentes. 
 
-Pour plus d'informations sur l'équilibrage de charge dans Azure Traffic Manager, consultez la rubrique [À propos des méthodes d'équilibrage de charge dans Traffic Manager](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn339010.aspx).
+Pour plus d'informations sur l'équilibrage de charge dans Azure Traffic Manager, consultez la rubrique [À propos des méthodes d'équilibrage de charge dans Traffic Manager](http://msdn.microsoft.com/library/windowsazure/dn339010.aspx).
 
 ##Sites Web Azure et profils Traffic Manager 
 Pour configurer le contrôle du trafic des sites Web, vous pouvez créer un profil dans Azure Traffic Manager, qui utilise l'une des trois méthodes d'équilibrage de charge décrites précédemment, puis ajouter les points de terminaison (ici, des sites Web) dont vous souhaitez contrôler le trafic sur le profil. Le statut de votre site Web (en cours d'exécution, arrêté ou supprimé) est régulièrement communiqué au profil, ce qui permet à Azure Traffic Manager de diriger le trafic.
@@ -56,11 +56,11 @@ Lorsque vous utilisez Azure Traffic Manager avec Azure, tenez compte des points 
 
 ## Étapes suivantes
 
-Pour une vue d'ensemble conceptuelle et technique d'Azure Traffic Manager, consultez la rubrique [Vue d'ensemble de Traffic Manager](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh744833.aspx). 
+Pour une vue d'ensemble conceptuelle et technique d'Azure Traffic Manager, consultez la rubrique [Vue d'ensemble de Traffic Manager](http://msdn.microsoft.com/library/windowsazure/hh744833.aspx). 
 
-Pour plus d'informations sur la configuration d'Azure Traffic Manager, y compris pour l'utilisation de Sites Web Azure, consultez la rubrique [Tâches de configuration Traffic Manager](http://msdn.microsoft.com/fr-fr/library/windowsazure/hh744830.aspx).
+Pour plus d'informations sur la configuration d'Azure Traffic Manager, y compris pour l'utilisation de Sites Web Azure, consultez la rubrique [Tâches de configuration Traffic Manager](http://msdn.microsoft.com/library/windowsazure/hh744830.aspx).
 
-Pour plus d'informations sur l'équilibrage de charge dans Azure Traffic Manager, consultez la rubrique [À propos des méthodes d'équilibrage de charge dans Traffic Manager](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn339010.aspx).
+Pour plus d'informations sur l'équilibrage de charge dans Azure Traffic Manager, consultez la rubrique [À propos des méthodes d'équilibrage de charge dans Traffic Manager](http://msdn.microsoft.com/library/windowsazure/dn339010.aspx).
 
 Pour plus d'informations sur l'utilisation de Traffic Manager avec Sites Web Azure, consultez les billets de blog 
 [Utilisation d'Azure Traffic Manager avec Sites Web Azure](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) et [Azure Traffic Manager peut désormais être intégré à Sites Web Azure](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).

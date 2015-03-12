@@ -16,7 +16,7 @@
 	ms.date="1/26/2015" 
 	ms.author="kathydav"/>
 
-# Installation et configuration de Symantec Endpoint Protection sur une machine virtuelle Azure
+#Installation et configuration de Symantec Endpoint Protection sur une machine virtuelle Azure
 
 Cet article décrit comment installer et configurer le client Symantec Endpoint Protection sur une machine virtuelle nouvelle ou existante exécutant Windows Server. Il s'agit du client complet, qui inclut des services tels qu'une protection antivirus et anti-programmes espions, un pare-feu et une prévention contre les intrusions. 
 
@@ -24,7 +24,7 @@ Le client est installé sous forme d'extension de sécurité en utilisant l'agen
 
 Si vous disposez d'un abonnement Symantec pour une solution locale, vous pouvez l'utiliser pour protéger vos machines virtuelles Azure. Si vous n'êtes pas encore client, vous pouvez vous inscrire pour une version d'évaluation. Pour plus d'informations sur cette solution, consultez la rubrique [Symantec Endpoint Protection sur la plateforme Azure de Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=403942). Cette page fournit également des liens vers des informations de licence, ainsi que d'autres instructions d'installation du client si vous êtes déjà un client de Symantec.
 
-## Installation de Symantec Endpoint Protection sur une nouvelle machine virtuelle
+##Installation de Symantec Endpoint Protection sur une nouvelle machine virtuelle
 
 Le [portail de gestion Azure](http://manage.windowsazure.com) vous permet d'installer l'agent de machine virtuelle et l'extension de sécurité Symantec lors de l'utilisation de l'option **À partir de la galerie** pour créer la machine virtuelle. Il s'agit d'une méthode simple pour ajouter une protection Symantec en cas de création d'une seule machine virtuelle. 
 
@@ -81,4 +81,5 @@ Pour vérifier que l'extension de sécurité Symantec a été installée et est 
 [Gestion des extensions]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

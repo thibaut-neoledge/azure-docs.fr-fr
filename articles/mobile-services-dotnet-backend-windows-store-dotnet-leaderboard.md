@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Création d'une application de classement avec le serveur principal .NET Azure Mobile Services" description="Découvrez comment créer une application Windows Store à l'aide de Azure Mobile Services avec un service principal .NET." documentationCenter="windows" authors="MikeWasson" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Création d'une application de classement avec le serveur principal .NET Azure Mobile Services" 
+	description="Découvrez comment créer une application Windows Store à l'aide de Azure Mobile Services avec un service principal .NET." 
+	documentationCenter="windows" 
+	authors="MikeWasson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="mwasson"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="mwasson"/>
 
 # Création d'une application de classement avec le serveur principal .NET Azure Mobile Services
 
@@ -80,7 +94,7 @@ Ils ne sont pas nécessaires pour le didacticiel, vous pouvez donc les supprimer
 
 ## Ajout de modèles de données
 
-Vous utiliserez [EF Code First](http://msdn.microsoft.com/en-US/data/ee712907#codefirst) pour définir les tables de base de données. Sous le dossier DataObjects, ajoutez une classe nommée `Player`.
+Vous utiliserez [EF Code First](http://msdn.microsoft.com/data/ee712907#codefirst) pour définir les tables de base de données. Sous le dossier DataObjects, ajoutez une classe nommée `Player`.
 
 	using Microsoft.WindowsAzure.Mobile.Service;
 	
@@ -109,9 +123,9 @@ Ajouter une autre classe nommée `PlayerRank`.
 	    }
 	}
 
-Notez que les deux classes héritent de la classe **EntityData**. La dérivation depuis **EntityData** facilite la consommation des données par l'application, grâce à l'utilisation de la bibliothèque cliente interplateformes pour Azure Mobile Services. **EntityData** facilite également la [gestion des conflits d'écriture de base de données](http://azure.microsoft.com/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/) pour une application.
+Notez que les deux classes héritent de la classe **EntityData**. La dérivation depuis **EntityData** facilite la consommation des données par l'application, grâce à l'utilisation de la bibliothèque cliente interplateformes pour Azure Mobile Services. **EntityData** facilite également la [gestion des conflits d'écriture de base de données](http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/) pour une application.
 
-La classe `PlayerRank` possède une [propriété de navigation](http://msdn.microsoft.com/fr-fr/data/jj713564.aspx) pointant vers l'entité `Player` associée. L'attribut **[ForeignKey]** indique à EF que la propriété `Player` représente une clé étrangère.
+La classe `PlayerRank` possède une [propriété de navigation](http://msdn.microsoft.com/data/jj713564.aspx) pointant vers l'entité `Player` associée. L'attribut **[ForeignKey]** indique à EF que la propriété `Player` représente une clé étrangère.
 
 # Ajout de contrôleurs d'API web
 
@@ -139,7 +153,7 @@ Cette étape ajoute un fichier nommé PlayerController.cs au projet.
 
 Le contrôleur dérive de **TableController<T>**. Cette classe hérite d'**ApiController**, mais est spécialisée pour Azure Mobile Services.
  
-- Routage : L'itinéraire par défaut pour un **TableController** est  `/tables/{table_name}/{id}`, où *table_name* correspond au nom de l'entité. L'itinéraire du contrôleur Player est donc */tables/player/{id}*. Cette convention de routage rend **TableController** cohérent avec l'[API REST](http://msdn.microsoft.com/fr-fr/library/azure/jj710104.aspx) Mobile Services.
+- Routage : L'itinéraire par défaut pour un **TableController** est  `/tables/{table_name}/{id}`, où *table_name* correspond au nom de l'entité. L'itinéraire du contrôleur Player est donc */tables/player/{id}*. Cette convention de routage rend **TableController** cohérent avec l'[API REST](http://msdn.microsoft.com/library/azure/jj710104.aspx) Mobile Services.
 - Accès aux données : pour les opérations de base de données, la classe **TableController** utilise l'interface **IDomainManager**, qui définit une abstraction pour l'accès aux données.  La structure utilise **EntityDomainManager**, une implémentation concrète d'**IDomainManager** qui encapsule un contexte EF. 
 
 À présent, ajoutez un deuxième contrôleur pour les entités PlayerRank. Suivez les mêmes étapes, mais choisissez PlayerRank pour la classe de modèle. Utilisez la même classe de contexte de données, n'en créez pas une. Nommez le contrôleur "PlayerRankController".

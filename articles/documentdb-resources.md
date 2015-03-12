@@ -1,6 +1,20 @@
-﻿<properties title="DocumentDB resource model and concepts" pageTitle="Modèles de ressource et concepts DocumentDB | Azure" description="La base de données de documents NoSQL DocumentDB gère les ressources, identifiées de manière unique par des URI logiques avec lesquelles les développeurs peuvent interagir en utilisant des verbes HTTP, des en-têtes de demande/réponse et des codes d'état." metaKeywords="" services="documentdb" solutions="data-management" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Modèles de ressource et concepts DocumentDB | Azure" 
+	description="Microsoft Azure DocumentDB est une base de données de documents NoSQL entièrement gérée qui utilise un modèle hiérarchique de comptes de base de données, bases de données, collections, procédures stockées, déclencheurs, fonctions définies par l'utilisateur, documents, pièces jointes, supports, utilisateurs et autorisations pour gérer les ressources."  
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="mimig"/>
 
 #Modèles de ressource et concepts DocumentDB
 
@@ -460,3 +474,5 @@ Comme avec les autres ressources, vous pouvez créer, remplacer, supprimer, lire
 [2]: ./media/documentdb-resources/resources2.png
 [3]: ./media/documentdb-resources/resources3.png
 [4]: ./media/documentdb-resources/resources4.png
+
+<!--HONumber=46--> 

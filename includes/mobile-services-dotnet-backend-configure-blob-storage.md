@@ -145,6 +145,6 @@ Ensuite, vous allez mettre à jour l'application de démarrage rapide pour ajout
 
 <!-- URLs. -->
 [Création d'un compte de stockage]: /fr-FR/manage/services/storage/how-to-create-a-storage-account
-[Paramètres de l'application]: http://msdn.microsoft.com/fr-FR/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Paramètres de l'application]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

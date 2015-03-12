@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Utilisation de la bibliothèque cliente iOS - Azure Mobile Services" description="Découvrez comment utiliser la bibliothèque cliente iOS pour Azure Mobile Services." services="" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Utilisation de la bibliothèque cliente iOS - Azure Mobile Services" 
+	description="Découvrez comment utiliser la bibliothèque cliente iOS pour Azure Mobile Services." 
+	services="" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="krisragh"/>
 
 
 
@@ -176,7 +190,8 @@ Dans l'exemple suivant, une fonction simple demande 20 enregistrements au serveu
 
 		query.includeTotalCount = YES;
 		query.fetchLimit = 20;
-		query.fetchOffset = self.loadedItems.count;
+		query.fetchOffset = self.loadedIte
+	ms.count;
 
 		[query readWithCompletion:^(NSArray *items, NSInteger totalCount, NSError *error) {
 			if(!error) {
@@ -184,7 +199,8 @@ Dans l'exemple suivant, une fonction simple demande 20 enregistrements au serveu
 				[self.loadedItems addObjectsFromArray:items];
 
 				// Set a flag to keep track if there are any additional records we need to load
-				self.moreResults = (self.loadedItems.count < totalCount);
+				self.moreResults = (self.loadedIte
+	ms.count < totalCount);
 			}
 		}];
 	}
@@ -504,14 +520,14 @@ Pour plus d'informations, consultez la nouvelle rubrique relative au traitement 
 
 [Gestion des jetons arrivés à expiration]: http://go.microsoft.com/fwlink/p/?LinkId=301955
 [Kit de développement logiciel (SDK) Live Connect]: http://go.microsoft.com/fwlink/p/?LinkId=301960
-[Autorisations]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj193161.aspx
+[Autorisations]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [Utilisation de scripts pour autoriser des utilisateurs]: /fr-fr/develop/mobile/tutorials/authorize-users-in-scripts-ios
 [Schéma dynamique]: http://go.microsoft.com/fwlink/p/?LinkId=296271
 [Accès aux paramètres personnalisés]: /fr-fr/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
-[Création d'une table]: http://msdn.microsoft.com/fr-fr/library/windowsazure/jj193162.aspx
+[Création d'une table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [Objet NSDictionary]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [Codes de contrôle ASCII C0 et C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[Interface de ligne de commande pour la gestion des tables Mobile Services]: http://www.windowsazure.com/fr-fr/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[Interface de ligne de commande pour la gestion des tables Mobile Services]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 
 
 <!--HONumber=42-->

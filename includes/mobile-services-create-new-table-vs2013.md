@@ -13,9 +13,9 @@ Avant de pouvoir stocker des données dans votre nouveau service mobile, vous de
 
 	La table TodoItem est créée sur le serveur et quiconque possédant la clé de l'application peut accéder aux données de la table et les modifier sans devoir être authentifié au préalable. 
 
-	>[AZURE.NOTE] La clé de l'application est distribuée avec l'application. Étant donné que cette clé n'est pas distribuée de façon sécurisée, elle ne peut pas être considérée comme un jeton de sécurité. Pour sécuriser l'accès aux données du service mobile, les utilisateurs doivent s'authentifier dans un premier temps. Pour plus d'informations, consultez la page [Autorisations](http://msdn.microsoft.com/fr-FR/library/windowsazure/jj193161.aspx).
+	>[AZURE.NOTE] La clé de l'application est distribuée avec l'application. Étant donné que cette clé n'est pas distribuée de façon sécurisée, elle ne peut pas être considérée comme un jeton de sécurité. Pour sécuriser l'accès aux données du service mobile, les utilisateurs doivent s'authentifier dans un premier temps. Pour plus d'informations, consultez la page [Autorisations](http://msdn.microsoft.com/library/windowsazure/jj193161.aspx).
 
 
 
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

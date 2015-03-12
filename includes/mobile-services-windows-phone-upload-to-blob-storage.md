@@ -179,7 +179,8 @@ La dernière étape consiste à tester l'application et à confirmer que les té
    >[AZURE.NOTE]L'image est automatiquement téléchargée depuis le service de stockage d'objets blob lorsque la propriété <code>imageUri</code> du nouvel élément est liée au contrôle <strong>Image</strong>.
 
 
-[Prise en main de Mobile Services]: /en-us/documentation/articles/mobile-services-windows-phone-get-started
-[CameraCaptureTask]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
-[PhotoCamera]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
-<!--HONumber=41-->
+[Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started
+[CameraCaptureTask]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
+[PhotoCamera]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
+
+\<!--HONumber=42-->

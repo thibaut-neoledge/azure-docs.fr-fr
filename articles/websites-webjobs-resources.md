@@ -89,7 +89,7 @@ Consultez également les sections suivantes sur le [déploiement de WebJobs](#de
 * [Stratégie de rétention de sauvegarde du site Web simple avec WebJobs](http://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
 * [Lenteur des sites Web et services cloud Azure à la première demande](http://wp.sjkp.dk/windows-azure-websites-and-cloud-services-slow-on-first-request/). Montre comment utiliser WebJobs pour simuler la fonctionnalité AlwaysOn qui est disponible uniquement pour le niveau Standard du service Sites Web.
 * [Arrêt progressif des tâches Web WebJobs](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.U72Il_5OWUl). Pour plus d'informations sur l'arrêt progressif du Kit de développement logiciel (SDK) WebJobs, consultez la rubrique [Arrêt progressif](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful).
-* [Mise à l'échelle de votre application Web avec Sites Web Azure](http://msdn.microsoft.com/fr-fr/magazine/dn786914.aspx)
+* [Mise à l'échelle de votre application Web avec Sites Web Azure](http://msdn.microsoft.com/magazine/dn786914.aspx)
 * Vidéos
 	* [Montée en charge de WebJobs](http://channel9.msdn.com/Shows/Azure-Friday/Azure-WebJobs-105-Scaling-out-Web-Jobs)
 	* [Vidéos sur WebJobs par Magnus Mårtensson](https://www.youtube.com/playlist?list=PLqp1ZOYYUSd81yEzMYLTw8cz91wx_LU9r)

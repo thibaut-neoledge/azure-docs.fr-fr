@@ -28,4 +28,5 @@
 
    Le nouveau script de la fonction insert est enregistré. Il stocke les informations d'inscription dans une nouvelle table.
 
-<!--HONumber=41-->
+
+\<!--HONumber=42-->

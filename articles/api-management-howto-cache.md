@@ -1,6 +1,20 @@
-<properties pageTitle="How to cache operation results in Azure API Management" metaKeywords="" description="Learn how to improve the latency, bandwidth consumption, and web service load for API Management service calls." metaCanonical="" services="" documentationCenter="API Management" title="How to cache operation results in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Mise en cache des résultats d'opérations dans Gestion des API Azure" 
+	description="Apprenez à améliorer la latence, la consommation de bande passante et la charge du service web pour les appels du service Gestion des API." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Mise en cache des résultats d'opérations dans Gestion des API Azure
 
@@ -138,3 +152,5 @@ Notez que la valeur de **sampleheader** dans la réponse est désormais **value2
   [Prise en main de la configuration avancée des API]: ../api-management-get-started-advanced
   [Stratégies de mise en cache]: ../api-management-policy-reference/#caching-policies
   [Référence de stratégie de Gestion des API]: ../api-management-policy-reference
+
+<!--HONumber=46--> 

@@ -1,15 +1,29 @@
-﻿<properties urlDisplayName="Integrate an Azure Website with Azure CDN" pageTitle="Intégration d'un site web Azure au CDN Azure" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, websites" description="Un didacticiel qui explique comment déployer un site web qui traite le contenu à partir d'un point de terminaison CDN Azure intégré" metaCanonical="" services="cdn,web-sites" documentationCenter=".NET" title="Integrate an Azure Website with Azure CDN" authors="cephalin" solutions="" manager="wpickett" editor="jimbe" />
+﻿<properties 
+	pageTitle="Intégration d'un site web Azure au CDN Azure" 
+	description="Un didacticiel qui explique comment déployer un site web qui traite le contenu à partir d'un point de terminaison CDN Azure intégré" 
+	services="cdn, web-sites" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/02/2014" ms.author="cephalin" />
+<tags 
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/02/2014" 
+	ms.author="cephalin"/>
 
 <a name="intro"></a>
 # Intégration d'un site web Azure au CDN Azure #
 
-Le service Sites web Azure peut être intégré à [Azure CDN](http://azure.microsoft.com/fr-fr/services/cdn/), afin de renforcer les capacités de mise à l'échelle globale inhérentes au service Site web Azure en servant le contenu de votre site web de façon globale à partir des nœuds du serveur proches de vos clients (une liste mise à jour de tous les emplacements de nœuds actuels se trouve [ici](http://msdn.microsoft.com/fr-fr/library/azure/gg680302.aspx). Cette intégration augmente considérablement les performances de votre site web Azure et améliore nettement l'expérience utilisateur du site web dans le monde entier. 
+Le service Sites web Azure peut être intégré à [Azure CDN](http://azure.microsoft.com/services/cdn/), afin de renforcer les capacités de mise à l'échelle globale inhérentes au service Site web Azure en servant le contenu de votre site web de façon globale à partir des nœuds du serveur proches de vos clients (une liste mise à jour de tous les emplacements de nœuds actuels se trouve [ici](http://msdn.microsoft.com/library/azure/gg680302.aspx). Cette intégration augmente considérablement les performances de votre site web Azure et améliore nettement l'expérience utilisateur du site web dans le monde entier. 
 
 L'intégration de Sites web Azure avec Azure CDN offre les avantages suivants :
 
-- Intégration du déploiement de contenu (images, scripts, et feuilles de style) dans le cadre du processus de [déploiement continu](http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-publish-source-control/) de votre site web Azure
+- Intégration du déploiement de contenu (images, scripts, et feuilles de style) dans le cadre du processus de [déploiement continu](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control/) de votre site web Azure
 - Facilité de mise à niveau des package NuGet dans votre site web Azure(par exemple, les versions de jQuery ou de Bootstrap) 
 - Gestion de votre application web et de votre contenu CDN depuis la même interface Visual Studio
 - Intégration du regroupement et de la minimisation d'ASP.NET avec Azure CDN
@@ -32,15 +46,15 @@ Vous allez déployer un rôle Web de site web Azure en utilisant le modèle ASP.
 
 Ce didacticiel nécessite les éléments suivants :
 
--	Un [compte Microsoft Azure](http://azure.microsoft.com/fr-fr/account/) actif
+-	Un [compte Microsoft Azure](http://azure.microsoft.com/account/) actif
 -	Visual Studio 2013 avec le [Kit de développement logiciel (SDK) Azure](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
 <div class="wa-note">
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>Pour suivre ce didacticiel, vous avez besoin d'un compte Azure :</h5>
   <ul>
-    <li>Vous pouvez <a href="http://azure.microsoft.com/fr-fr/pricing/free-trial/?WT.mc_id=A261C142F">ouvrir un compte Azure gratuitement</a> : vous obtenez alors des crédits dont vous pouvez vous servir pour tester les services Azure payants, et même lorsqu'ils sont épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web.</li>
-    <li>Vous pouvez <a href="http://azure.microsoft.com/fr-fr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activer les avantages de l'abonnement MSDN</a> : votre abonnement MSDN vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.</li>
+    <li>Vous pouvez <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F">ouvrir un compte Azure gratuitement</a> : vous obtenez alors des crédits dont vous pouvez vous servir pour tester les services Azure payants, et même lorsqu'ils sont épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Sites Web.</li>
+    <li>Vous pouvez <a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activer les avantages de l'abonnement MSDN</a> : votre abonnement MSDN vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.</li>
   <ul>
 </div>
 
@@ -368,7 +382,7 @@ Cela permet de déboguer le code JavaScript dans votre environnement de dévelop
 
 Procédez comme suit pour l'intégration du regroupement et de la minimisation ASP.NET à votre point de terminaison CDN.
 
-1. Une fois revenu dans *App_Start\BundleConfig.cs*, modifiez les méthodes `bundles.Add()` pour utiliser un autre [constructeur de regroupement](http://msdn.microsoft.com/fr-fr/library/jj646464.aspx), qui spécifie une adresse CDN. Pour cela, remplacez la définition de la méthode `RegisterBundles` par le code suivant :  
+1. Une fois revenu dans *App_Start\BundleConfig.cs*, modifiez les méthodes `bundles.Add()` pour utiliser un autre [constructeur de regroupement](http://msdn.microsoft.com/library/jj646464.aspx), qui spécifie une adresse CDN. Pour cela, remplacez la définition de la méthode `RegisterBundles` par le code suivant :  
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -462,9 +476,9 @@ Procédez comme suit pour l'intégration du regroupement et de la minimisation A
 
 Lorsque le point de terminaison de votre réseau de distribution de contenu (CDN) présente une défaillance pour quelque raison que ce soit, vous voulez que votre page web soit suffisamment bien conçue pour accéder à votre serveur web d'origine comme option de secours pour le chargement de JavaScript ou Bootstrap. C'est une chose de perdre des images sur votre site web à cause d'une indisponibilité CDN, c'en est une autre de perdre dans une page une fonctionnalité vitale fournie par vos scripts et vos feuilles de style.
 
-La classe [Bundle](http://msdn.microsoft.com/fr-fr/library/system.web.optimization.bundle.aspx) contient la propriété [CdnFallbackExpression](http://msdn.microsoft.com/fr-fr/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) qui vous permet de configurer le mécanisme de secours en cas de défaillance CDN. Pour utiliser cette propriété, procédez comme suit :
+La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contient la propriété [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) qui vous permet de configurer le mécanisme de secours en cas de défaillance CDN. Pour utiliser cette propriété, procédez comme suit :
 
-1. Dans votre projet ASP.NET, ouvrez *App_Start\BundleConfig.cs*, où vous avez ajouté une URL CDN dans chaque [constructeur de regroupement](http://msdn.microsoft.com/fr-fr/library/jj646464.aspx), puis apportez les modifications en surbrillance pour ajouter un mécanisme de secours aux regroupements par défaut :  
+1. Dans votre projet ASP.NET, ouvrez *App_Start\BundleConfig.cs*, où vous avez ajouté une URL CDN dans chaque [constructeur de regroupement](http://msdn.microsoft.com/library/jj646464.aspx), puis apportez les modifications en surbrillance pour ajouter un mécanisme de secours aux regroupements par défaut :  
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -576,7 +590,9 @@ La classe [Bundle](http://msdn.microsoft.com/fr-fr/library/system.web.optimizati
 
 # Informations complémentaires #
 - [Vue d'ensemble du réseau de distribution de contenu (CDN) Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Distribution de contenu depuis Azure CDN dans votre application web](http://azure.microsoft.com/fr-fr/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/)
-- [Intégration d'un service cloud à Azure CDN](http://azure.microsoft.com/fr-fr/documentation/articles/cdn-cloud-service-with-cdn/)
+- [Distribution de contenu depuis Azure CDN dans votre application web](http://azure.microsoft.com/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/)
+- [Intégration d'un service cloud à Azure CDN](http://azure.microsoft.com/documentation/articles/cdn-cloud-service-with-cdn/)
 - [Regroupement et minimisation d'ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Utilisation du réseau de distribution de contenu (CDN) Azure](http://azure.microsoft.com/fr-fr/documentation/articles/cdn-how-to-use/)
+- [Utilisation du réseau de distribution de contenu (CDN) Azure](http://azure.microsoft.com/documentation/articles/cdn-how-to-use/)
+
+<!--HONumber=46--> 

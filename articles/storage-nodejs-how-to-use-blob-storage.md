@@ -160,7 +160,7 @@ Deux filtres implémentant la logique de relance sont inclus dans le Kit de dév
 
 ## <a name="upload-blob"></a>Procédure : Téléchargement d'un objet blob dans un conteneur
 
-Un objet blob peut être de blocs ou de pages. Les objets blob de blocs permettent un téléchargement plus efficace des données volumineuses, alors que les objets blob de pages sont optimisés pour les opérations de lecture/écriture. Pour plus d'informations, consultez la page [Présentation des objets blob de blocs et de pages](http://msdn.microsoft.com/fr-FR/library/azure/ee691964.aspx).
+Un objet blob peut être de blocs ou de pages. Les objets blob de blocs permettent un téléchargement plus efficace des données volumineuses, alors que les objets blob de pages sont optimisés pour les opérations de lecture/écriture. Pour plus d'informations, consultez la page [Présentation des objets blob de blocs et de pages](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ###Objets blob de blocs
 
@@ -407,10 +407,10 @@ pour apprendre à réaliser des tâches de stockage plus complexes.
   [Node.js Cloud Service with Storage]: /fr-FR/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
   [Application web Node.js avec stockage]: /fr-FR/documentation/articles/storage-nodejs-use-table-storage-web-site/
  [Site Web avec WebMatrix]: /fr-FR/documentation/articles/web-sites-nodejs-use-webmatrix/
-  [using the REST API]: http://msdn.microsoft.com/fr-FR/library/windowsazure/hh264518.aspx
+  [using the REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
   [Service cloud Node.js]: /fr-FR/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-FR/library/windowsazure/gg433040.aspx
+  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

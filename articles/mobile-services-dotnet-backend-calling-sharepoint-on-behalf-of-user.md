@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Accès à SharePoint pour l'utilisateur | Centre de développement mobile" description="Découvrez comment appeler SharePoint pour l'utilisateur" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Accès à SharePoint pour l'utilisateur | Centre de développement mobile" 
+	description="Découvrez comment appeler SharePoint pour l'utilisateur" 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender"/>
 
 # Accès à SharePoint pour le compte de l'utilisateur
 
@@ -202,6 +216,6 @@ Pour créer un document Word, vous allez utiliser le package NuGet OpenXML. Inst
 <!-- URLs. -->
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/fr-fr/sharepoint/
-[Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory]: http://azure.microsoft.com/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
+[Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
 
 <!--HONumber=42-->

@@ -1,2 +1,3 @@
 ﻿Contient les notes attribuées par les consommateurs à des restaurants sur une échelle de 0 à 2.<p> </p><b>Usage :</b> Utilisez ce jeu de données en combinaison avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation. <p> </p><b>Recherche associée :</b> Bache, K. et Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA : University of California, School of Information and Computer Science.
+
 <!--HONumber=42-->

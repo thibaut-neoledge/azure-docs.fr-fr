@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="What is Azure AD?" pageTitle="Qu'est-ce qu'Azure Active Directory ?" metaKeywords="" description="Utilisez Azure Active Directory pour étendre vos identités locales existantes dans le cloud en vue d'une meilleure expérience administrateur et utilisateur final pendant que Microsoft assure la poursuite de l'exécution d'Active Directory dans le cloud avec une grande échelle, une haute disponibilité et la récupération d'urgence intégrée. Ou bien développez des applications Azure AD intégrées pour votre organisation ou d'autres organisations." metaCanonical="" services="active-directory" documentationCenter="" title="What is Azure Active Directory?" authors="justinha" solutions="" manager="terrylan" editor="" />
+﻿<properties 
+	pageTitle="Qu'est-ce qu'Azure Active Directory ?" 
+	description="Utilisez Azure Active Directory pour étendre vos identités locales existantes dans le cloud en vue d'une meilleure expérience administrateur et utilisateur final pendant que Microsoft assure la poursuite de l'exécution d'Active Directory dans le cloud avec une grande échelle, une haute disponibilité et la récupération d'urgence intégrée. Ou bien développez des applications Azure AD intégrées pour votre organisation ou d'autres organisations." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="Justinha" 
+	manager="terrylan" 
+	editor=""/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="justinha" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="justinha"/>
 
 
 
@@ -28,3 +42,5 @@ Les développeurs d'applications peuvent intégrer leurs applications à Azure A
 * [Inscription à Azure en tant qu'organisation](/fr-fr/manage/services/identity/organizational-account/)
 * [Identité Azure](/fr-fr/manage/windows/fundamentals/identity/)
 * [Bibliothèque Azure AD sur MSDN](http://go.microsoft.com/fwlink/?LinkId=293425)
+
+<!--HONumber=46--> 

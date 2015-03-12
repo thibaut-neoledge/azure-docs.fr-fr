@@ -29,7 +29,7 @@ Ce didacticiel vous explique comment exécuter un exemple de comptage de mots Ma
 
 **Conditions préalables** :	
 
-- Vous devez disposer d'un compte Azure. Pour connaître les options disponibles lors de la création d'un compte, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/fr-fr/pricing/free-trial/).
+- Vous devez disposer d'un compte Azure. Pour connaître les options disponibles lors de la création d'un compte, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 - Vous devez avoir approvisionné un cluster HDInsight. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de clusters, consultez la page [Prise en main d'Azure HDInsight][hdinsight-get-started] ou [Approvisionnement de clusters HDInsight](../hdinsight-provision-clusters/)
 
@@ -224,7 +224,6 @@ Pour suivre des didacticiels exécutant d'autres exemples et fournissant des ins
 [Powershell-install-configure]: ../install-configure-powershell/
 
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
-
 
 
 <!--HONumber=42-->

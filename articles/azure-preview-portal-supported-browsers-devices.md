@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="" pageTitle="Navigateurs et appareils pris en charge" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Supported browsers and devices" authors="Justin Beckwith"  solutions="" writer="" manager="need to identify contact" editor=""  />
+﻿<properties 
+	pageTitle="Navigateurs et appareils pris en charge" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="JustinBeckwith" 
+	writer="" 
+	manager="carolz" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/16/2014" ms.author="Justin Beckwith" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/16/2014" 
+	ms.author="justbe"/>
 
 #Navigateurs et appareils pris en charge
 La version préliminaire du portail Azure s'exécute sur tous les périphériques modernes, de bureau et pour tablette, et sur l'ensemble des navigateurs.
@@ -20,3 +35,5 @@ Les versions les plus récentes des navigateurs suivants sont prises en charge :
  
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -61,7 +61,7 @@ Pour déterminer dans quelle mesure les quotas d'utilisation des ressources sont
 	-	**Stockage de système de fichiers** : quand ce quota est atteint, le stockage de système de fichiers reste accessible pour les opérations de lecture, mais toutes les opérations d'écriture, y compris celles requises par l'activité normale du site Web, sont bloquées. Les opérations d'écriture reprennent quand vous réduisez l'utilisation du stockage ou que vous déplacez le site Web vers un plan d'hébergement Web doté d'un quota supérieur.
 	-	**Ressources liées** : les quotas pour toutes les ressources liées du site Web, telles que les bases de données ou le stockage, sont également affichés ici.   
 
-	Certains quotas peuvent être appliqués par plan d'hébergement Web, tandis que d'autres sont appliqués par site. Pour plus d'informations sur les quotas d'utilisation de chaque plan d'hébergement Web, consultez [Limites des sites Web](http://azure.microsoft.com/fr-fr/documentation/articles/azure-subscription-service-limits/#websiteslimits).
+	Certains quotas peuvent être appliqués par plan d'hébergement Web, tandis que d'autres sont appliqués par site. Pour plus d'informations sur les quotas d'utilisation de chaque plan d'hébergement Web, consultez [Limites des sites Web](http://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#websiteslimits).
 
 
 ##<a name="resourceusage"></a>Procédure : prévention de dépassement des quotas
@@ -106,7 +106,7 @@ La journalisation relative aux applications dans les ressources de stockage néc
 
 > [AZURE.NOTE] Les diagnostics peuvent également être activés à partir du module Azure PowerShell via l'applet de commande **Set-AzureWebsite**.
 > 
-> Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell](http://www.windowsazure.com/fr-fr/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 > [AZURE.NOTE] La journalisation des applications s'appuie sur les informations de journalisation générées par votre application. La méthode permettant de générer ce type d'informations, ainsi que le format des informations, sont propres au langage de votre application. Pour obtenir des informations sur le langage utilisé dans le cadre de la journalisation des applications, lisez les articles suivants :
 > 
@@ -173,7 +173,7 @@ Les fichiers journaux peuvent être téléchargés à l'aide de FTP, Azure Power
 
 1. À partir de l'**écran d'accueil** ou du **menu Démarrer**, recherchez **Azure PowerShell**. Cliquez avec le bouton droit sur l'entrée **Azure PowerShell** et sélectionnez **Exécuter en tant qu'administrateur**.
 
-	> [AZURE.NOTE] Si **Azure PowerShell** n'est pas installé, consultez la page [Mise en route des applets de commande Azure PowerShell](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj554332.aspx) pour plus d'informations sur l'installation et la configuration.
+	> [AZURE.NOTE] Si **Azure PowerShell** n'est pas installé, consultez la page [Mise en route des applets de commande Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) pour plus d'informations sur l'installation et la configuration.
 
 2. À l'invite Azure PowerShell, entrez la commande suivante pour télécharger les fichiers journaux :
 
@@ -201,7 +201,7 @@ Vous pouvez également afficher un flux continu de journaux d'événements à l'
 
 Cette commande affiche les informations de journalisation à l'invite de commande, sur la console PowerShell, un interpréteur de commandes ou une session terminal à partir de laquelle la commande est exécutée.
 
-> [AZURE.NOTE] Si la commande **azure** n'est pas installée, consultez la page [Utilisation des outils en ligne de commande Azure](http://www.windowsazure.com/fr-fr/develop/nodejs/how-to-guides/command-line-tools/) pour plus d'informations sur l'installation et la configuration.
+> [AZURE.NOTE] Si la commande **azure** n'est pas installée, consultez la page [Utilisation des outils en ligne de commande Azure](http://azure.microsoft.com/develop/nodejs/how-to-guides/command-line-tools/) pour plus d'informations sur l'installation et la configuration.
 
 ###Lecture des fichiers journaux###
 
@@ -276,9 +276,9 @@ Une fois que la surveillance des points de terminaison est configurée, vous pou
 
 Pour en savoir plus sur la surveillance des points de terminaison d'un site Web, visionnez les vidéos suivantes :
 
-- [Scott Guthrie présente Sites Web Azure et configure la surveillance des points de terminaison](http://www.windowsazure.com/fr-fr/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
+- [Scott Guthrie présente Sites Web Azure et configure la surveillance des points de terminaison](http://azure.microsoft.com/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
 
-- [Assurer la gestion des sites Web Azure et la surveillance des points de terminaison, avec Stefan Schackow](http://www.windowsazure.com/fr-fr/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
+- [Assurer la gestion des sites Web Azure et la surveillance des points de terminaison, avec Stefan Schackow](http://azure.microsoft.com/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
 
 

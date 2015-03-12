@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/05/2015" 
+	ms.date="09/25/2014" 
 	ms.author="huvalo"/>
 
 
@@ -43,15 +43,15 @@ Voici une capture d'écran de l'application terminée :
 
 ## Création et configuration d'une machine virtuelle Azure pour héberger Django
 
-1. Suivez les instructions [ici][portal-vm] pour créer une machine virtuelle Azure de la distribution *Ubuntu Server 14.04 LTS*.
+1. Suivez les instructions fournies [ici][portal-vm] pour créer une machine virtuelle Azure de la distribution *Ubuntu Server 14.04 LTS*.
 
-  **Remarque :** vous devez  *only* créer la machine virtuelle. Arrêtez-vous à la section intitulée *How to log on to the virtual machine after you create it*.
+  **Remarque :** vous devez  *uniquement* créer la machine virtuelle. Arrêtez-vous à la section intitulée *Connexion à la machine virtuelle une fois celle-ci créée*.
 
-1. Indiquez à Azure de diriger le trafic du port **80** à partir du web vers le port **80** de la machine virtuelle :
+1. Indiquez à Azure d'acheminer le trafic du port **80** du Web vers le port **80** de la machine virtuelle :
 	* Accédez à votre machine virtuelle nouvellement créée dans le portail Azure et cliquez sur l'onglet *ENDPOINTS*.
 	* Cliquez sur le bouton *ADD* au bas de l'écran.
 	![add endpoint](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-add-endpoint.png)
-	* Ouvrez le *PUBLIC PORT 80* du protocole *TCP* en tant que *PRIVATE PORT 80*.
+	* Ouvrez le *PORT PUBLIC 80* du protocole *TCP* en tant que *PORT PRIVÉ 80*.
 	![port80](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-port80.png)
 
 ## <a id="setup"> </a>Configuration de l'environnement de développement
@@ -135,4 +135,7 @@ Lorsque vous avez terminé ce didacticiel, arrêtez et/ou supprimez votre machin
 
 [portal-vm]: /fr-fr/manage/linux/tutorials/virtual-machine-from-gallery/
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

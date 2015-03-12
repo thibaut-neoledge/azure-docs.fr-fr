@@ -1,6 +1,20 @@
-﻿<properties title="Introduction to Microsoft Azure DocumentDB" pageTitle="Présentation de Microsoft Azure DocumentDB | Azure" description="Découvrez Azure DocumentDB, une base de données de documents NoSQL, et son intérêt pour les applications cloud et mobiles. Découvrez la façon dont il gère les données et dont vous pouvez l'utiliser lors du développement d'applications." metaKeywords="" services="documentdb" solutions="data-management"  authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Présentation de Microsoft Azure DocumentDB | Azure" 
+	description="Learn about Azure DocumentDB, a NoSQL document database, and its value to cloud and mobile applications. Learn how it manages data, and how you can use it in application development." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="mimig" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="mimig"/>
 
 #Présentation de Microsoft Azure DocumentDB
 
@@ -83,3 +97,5 @@ Pour la prise en main d'Azure DocumentDB, explorez les ressources suivantes :
 [1]: ./media/documentdb-introduction/intro.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

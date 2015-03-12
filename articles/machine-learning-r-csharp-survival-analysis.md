@@ -1,6 +1,20 @@
-﻿<properties title="Survival Analysis" pageTitle="Analyse de survie | Azure" description="Analyse de survie" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Analyse de survie | Azure" 
+	description="Probabilité d'occurrence d'un événement d'analyse de survie" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/>
 
 
 #Analyse de survie 
@@ -70,7 +84,7 @@ L'interprétation de ce test est la suivante. Supposons que l'objectif des donn�
 
 ##Création du service web
 
->Ce service web a été créé à l'aide d'Azure ML. Pour un essai gratuit, ainsi que des vidéos de présentation concernant la création d'expériences et [la publication de services web](http://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consultez [azure.com/ml](http://azure.com/ml). La capture d'écran ci-dessous présente l'expérience qui a créé le service web et le code d'exemple de chaque module de l'expérience.
+>Ce service web a été créé à l'aide d'Azure ML. Pour un essai gratuit, ainsi que des vidéos de présentation concernant la création d'expériences et [la publication de services web](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consultez [azure.com/ml](http://azure.com/ml). La capture d'écran ci-dessous présente l'expérience qui a créé le service web et le code d'exemple de chaque module de l'expérience.
 
 À partir d'Azure ML, une nouvelle expérience a été créée et deux modules " Exécuter le script R " ont été créés sur l'espace de travail. Le schéma de données a été créé avec un simple module " Exécuter le script R ", qui définit le schéma de données d'entrée pour le service web. Ce module est ensuite lié au deuxième module " Exécuter le script R " qui effectue la majeure partie du travail. Ce module réalise le prétraitement des données, la création du modèle et les prédictions. Dans l'étape de prétraitement des données, les données d'entrée représentées par une chaîne longue sont transformées et converties en une trame de données. Dans l'étape de création du modèle, un package R externe " survival_2.37-7.zip " est tout d'abord installé pour effectuer l'analyse de survie. La fonction " coxph " est ensuite exécutée après la tâche de traitement des données de série. Pour connaître les détails de la fonction " coxph " pour l'analyse de survie, consultez la documentation R. Dans l'étape de prédiction, une instance de test est fournie dans le modèle d'apprentissage avec la fonction " surfit " et la courbe de survie de cette instance de test est générée en tant que variable " curve ". Enfin, vous obtenez la probabilité de la durée d'intérêt. 
 
@@ -172,6 +186,8 @@ L'interprétation de ce test est la suivante. Supposons que l'objectif des donn�
 Ce service web accepte uniquement les valeurs numériques sous forme de variables de fonctionnalité (colonnes). La colonne " évènement " peut uniquement prendre la valeur 0 ou 1. La colonne " temps " doit contenir un entier positif.
 
 ##Forum Aux Questions
-Pour les Questions fréquemment posées relatives à l'utilisation du service web ou à la publication sur Marketplace, consultez [ce lien](http://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-marketplace-faq).
+Pour les Questions fréquemment posées relatives à l'utilisation du service web ou à la publication sur Marketplace, consultez [ce lien](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-survival-analysis/survive_img2.png
+
+<!--HONumber=46--> 

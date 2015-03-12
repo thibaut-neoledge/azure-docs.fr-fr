@@ -1,6 +1,20 @@
-﻿<properties title="Getting Started with Active Directory Authentication - What Happened" pageTitle="Prise en main de l'authentification Active Directory - Que s'est-il passé ?" metaKeywords="Azure, Getting Started, Active Directory" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="Prise en main de l'authentification Active Directory - Que s'est-il passé ?" 
+	description="Décrit ce qui est arrivé à votre projet Azure Active Directory dans Visual Studio" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
   
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="vs-what-happened" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-what-happened" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Mise en route](/documentation/articles/vs-active-directory-dotnet-getting-started/)
@@ -60,3 +74,5 @@ Les entrées de configuration ci-dessous ont été ajoutées.
 Une application Azure AD a été créée dans le répertoire que vous avez sélectionné dans l'Assistant. 
 
 [En savoir plus sur Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+
+<!--HONumber=46--> 

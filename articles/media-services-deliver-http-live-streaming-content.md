@@ -1,12 +1,26 @@
-﻿<properties pageTitle="Remise de contenu de diffusion en continu HTTP (HLS) Apple - Azure" description="Apprenez à créer un localisateur renvoyant vers du contenu de diffusion en continu HTTP (HLS) Apple sur un serveur d'origine Media Services. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Remise de contenu de diffusion en continu HTTP (HLS) Apple - Azure" 
+	description="Apprenez à créer un localisateur renvoyant vers du contenu de diffusion en continu HTTP (HLS) Apple sur un serveur d'origine Media Services. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
 
 
-<h1>Distribution de contenu de diffusion en continu HLS Apple</h1>
+<h1>Procédure : de contenu de diffusion en continu HLS Apple</h1>
 
 Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [ Fourniture de contenu de diffusion en continu](../media-services-deliver-streaming-content/).
 
@@ -65,8 +79,8 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 
 Pour plus d'informations sur la fourniture des éléments multimédias, consultez les pages suivantes :
 <ul>
-<li><a href="http://msdn.microsoft.com/fr-fr/library/jj129575.aspx">Fourniture des éléments multimédias avec Media Services pour .NET</a></li>
-<li><a href="http://msdn.microsoft.com/fr-fr/library/jj129578.aspx">Fourniture des éléments multimédias avec l'API REST de Media Services</a></li>
+<li><a href="http://msdn.microsoft.com/library/jj129575.aspx">Fourniture des éléments multimédias avec Media Services pour .NET</a></li>
+<li><a href="http://msdn.microsoft.com/library/jj129578.aspx">Fourniture des éléments multimédias avec l'API REST de Media Services</a></li>
 </ul>
 
 <h2>Étapes suivantes</h2>
@@ -85,7 +99,6 @@ Cette rubrique est la dernière consacrée à l'utilisation d'Azure Media Servic
 [Prise en main du Kit de développement logiciel (SDK) Media Services pour .NET]: http://go.microsoft.com/fwlink/?linkid=252966
 [Création d'applications avec l'API REST d'Azure Media Services]: http://go.microsoft.com/fwlink/?linkid=252967
 [Création d'applications avec le Kit de développement logiciel (SDK) Media Services pour .NET]: http://go.microsoft.com/fwlink/?linkid=247821
-[Forum Media Services]: http://social.msdn.microsoft.com/Forums/fr-fr/MediaServices/threads
+[Forum Media Services]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

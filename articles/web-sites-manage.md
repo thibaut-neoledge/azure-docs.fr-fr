@@ -83,7 +83,7 @@ Une section **Aperçu rapide** qui comprend les informations résumées suivante
 La page de gestion **Surveiller** propose un graphique qui affiche des informations sur l'utilisation pour le site Web. Par défaut, ce graphique affiche les mêmes indicateurs de performance que sur la page **Tableau de bord** comme décrit ci-dessus dans la section Tableau de bord. Le graphique peut également être configuré pour afficher les mesures des réussites HTTP, redirections HTTP, erreurs HTTP 401, erreurs HTTP 403, erreurs HTTP 404 et erreurs HTTP 406. Pour plus d'informations sur ces indicateurs, consultez la page [Surveillance des sites Web][Surveiller].
 
 ##WebJobs##
-La page de gestion WebJobs vous permet de créer des tâches à la demande, planifiées ou exécutées en continu pour votre site Web. Pour plus d'informations, consultez la page [Utilisation de la fonctionnalité WebJobs dans les sites Web Microsoft Azure](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-create-web-jobs/).
+La page de gestion WebJobs vous permet de créer des tâches à la demande, planifiées ou exécutées en continu pour votre site Web. Pour plus d'informations, consultez la page [Utilisation de la fonctionnalité WebJobs dans les sites Web Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/).
 
 ##Configurer##
 La page de gestion **Configurer** est utilisée pour définir les paramètres propres à une application.
@@ -102,7 +102,7 @@ Pour plus d'informations sur la configuration des options d'échelle pour un sit
 La page de gestion **Ressources liées** propose une liste des ressources Microsoft Azure que votre site Web utilise, notamment des bases de données SQL, des bases de données MySQL et des comptes Azure Storage. Cliquez sur le nom de la ressource pour la gérer.
 
 ##Sauvegardes##
-La page de gestion **Sauvegardes** vous permet de créer des sauvegardes automatisées ou manuelles de votre site Web, de restaurer votre site Web à un état antérieur ou de créer un site Web basé sur l'une de vos sauvegardes. Pour plus d'informations, consultez les pages [Sauvegarde des sites Web Microsoft Azure](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-backup/) et [Restauration d'un site Web Microsoft Azure](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-restore/).
+La page de gestion **Sauvegardes** vous permet de créer des sauvegardes automatisées ou manuelles de votre site Web, de restaurer votre site Web à un état antérieur ou de créer un site Web basé sur l'une de vos sauvegardes. Pour plus d'informations, consultez les pages [Sauvegarde des sites Web Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-backup/) et [Restauration d'un site Web Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-restore/).
 
 ##Icônes de la page de gestion##
 Les icônes sont affichées au bas de chaque page de gestion du site Web. Plusieurs de ces icônes apparaissent sur plusieurs pages et certaines sont affichées uniquement sur des pages spécifiques.  Les icônes suivantes sont affichées en bas de la page de gestion **Tableau de bord** :
@@ -210,11 +210,11 @@ Pour réinitialiser le mot de passe, cliquez sur **Redéfinir vos informations d
 
 [azuresdk]:http://go.microsoft.com/fwlink/?LinkId=246928
 
-[Configurer]: http://www.windowsazure.com/fr-fr/manage/services/web-sites/how-to-configure-websites
+[Configurer]: http://azure.microsoft.com/manage/services/web-sites/how-to-configure-websites
 
-[Surveiller]: http://www.windowsazure.com/fr-fr/manage/services/web-sites/how-to-monitor-websites/
+[Surveiller]: http://azure.microsoft.com/manage/services/web-sites/how-to-monitor-websites/
 
-[Mise à l'échelle]: http://www.windowsazure.com/fr-fr/manage/services/web-sites/how-to-scale-websites
+[Mise à l'échelle]: http://azure.microsoft.com/manage/services/web-sites/how-to-scale-websites
 
 
 <!-- Anchors. -->

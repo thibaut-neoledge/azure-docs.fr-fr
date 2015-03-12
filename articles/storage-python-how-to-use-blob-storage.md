@@ -114,7 +114,7 @@ Maintenant que vous avez appris les bases du stockage d'objets blob, suivez ces 
   [Procédure : Téléchargement d'objets blob]: #download-blobs
   [Procédure : Suppression d'un objet blob]: #delete-blobs
   [Procédure : Chargement et téléchargement d'objets blob volumineux]: #large-blobs
-  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-FR/library/windowsazure/gg433040.aspx
+  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

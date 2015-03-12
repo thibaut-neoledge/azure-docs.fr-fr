@@ -51,7 +51,7 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 Durant la configuration, vous devez spécifier un compte de stockage d'objet blob Azure, ainsi qu'un conteneur par défaut. Ceci est utilisé par le cluster comme emplacement de stockage par défaut. Vous pouvez éventuellement spécifier des objets blob supplémentaires qui seront également associés à votre cluster.
 
-Pour plus d'informations sur l'utilisation des magasins d'objets blob secondaires, consultez [Utilisation du stockage d'objets blob Azure avec HDInsight](http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-use-blob-storage/).
+Pour plus d'informations sur l'utilisation des magasins d'objets blob secondaires, consultez [Utilisation du stockage d'objets blob Azure avec HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-use-blob-storage/).
 
 ###Metastore
 
@@ -66,7 +66,7 @@ Vous pouvez installer des composants supplémentaires ou personnaliser la config
 
 ###Réseau virtuel
 
-[Azure Virtual Network](http://azure.microsoft.com/fr-fr/documentation/services/virtual-network/) vous permet de créer un réseau sécurisé et persistant contenant les ressources dont vous avez besoin pour votre solution. Un réseau virtuel vous permet de :
+[Azure Virtual Network](http://azure.microsoft.com/documentation/services/virtual-network/) vous permet de créer un réseau sécurisé et persistant contenant les ressources dont vous avez besoin pour votre solution. Un réseau virtuel vous permet de :
 
 * connecter différentes ressources de cloud dans un réseau privé (uniquement dans le cloud) ;
 
@@ -84,7 +84,7 @@ Vous pouvez installer des composants supplémentaires ou personnaliser la config
 
 Pour plus d'informations sur les fonctions, les avantages et les capacités d'Azure Virtual Network, consultez la page [Vue d'ensemble d'Azure Virtual Network](http://msdn.microsoft.com/library/azure/jj156007.aspx).
 
-> [AZURE.NOTE] Vous devez créer un Azure Virtual Network avant d'approvisionner un cluster HDInsight. Pour plus d'informations, consultez [Tâches de configuration de réseau virtuel](http://msdn.microsoft.com/fr-fr/library/azure/jj156206.aspx).
+> [AZURE.NOTE] Vous devez créer un Azure Virtual Network avant d'approvisionner un cluster HDInsight. Pour plus d'informations, consultez [Tâches de configuration de réseau virtuel](http://msdn.microsoft.com/library/azure/jj156206.aspx).
 >
 > Azure HDInsight prend uniquement en charge les réseaux virtuels basés sur l'emplacement et ne fonctionne pas pour le moment avec les réseaux virtuels basés sur des groupes d'affinités.
 >
@@ -126,7 +126,7 @@ Les clusters HDInsight utilisent un conteneur de stockage d'objets blob Azure co
 	<table border="1">
 	<tr><th>Nom</th><th>Valeur</th></tr>
 	<tr><td>Nœuds de données</td><td>Nombre de nœuds de données que vous souhaitez déployer. À des fins de test, créez un cluster à nœud unique. <br />La limite de taille de cluster varie pour les abonnements Azure. Contactez le support de facturation Azure pour augmenter la limite.</td></tr>
-	<tr><td>Région/Réseau virtuel</td><td><p>Choisissez la même région que pour le compte de stockage que vous avez créé dans la dernière procédure. HDInsight requiert en effet que le compte de stockage soit situé dans la même région. Plus loin dans la configuration, vous ne pourrez choisir qu'un compte de stockage situé dans la région spécifiée ici.</p><p>Les régions disponibles sont : <strong>Est de l'Asie</strong>, <strong>Asie du Sud-Est</strong>, <strong>Europe du Nord</strong>, <strong>Europe de l'Ouest</strong>, <strong>Est des États-Unis</strong>, <strong>Ouest des États-Unis</strong>, <strong>Nord du centre des États-Unis</strong>, <strong>Sud du centre des États-Unis</strong><br/>Si vous avez créé un réseau virtuel Azure, vous pouvez sélectionner le réseau pour lequel le cluster HDInsight va être configuré.</p><p>Pour plus d'informations sur la création d'un réseau virtuel Azure, consultez la rubrique <a href="http://msdn.microsoft.com/fr-fr/library/azure/jj156206.aspx">Tâches de configuration du réseau virtuel</a>.</p></td></tr>
+	<tr><td>Région/Réseau virtuel</td><td><p>Choisissez la même région que pour le compte de stockage que vous avez créé dans la dernière procédure. HDInsight requiert en effet que le compte de stockage soit situé dans la même région. Plus loin dans la configuration, vous ne pourrez choisir qu'un compte de stockage situé dans la région spécifiée ici.</p><p>Les régions disponibles sont : <strong>Est de l'Asie</strong>, <strong>Asie du Sud-Est</strong>, <strong>Europe du Nord</strong>, <strong>Europe de l'Ouest</strong>, <strong>Est des États-Unis</strong>, <strong>Ouest des États-Unis</strong>, <strong>Nord du centre des États-Unis</strong>, <strong>Sud du centre des États-Unis</strong><br/>Si vous avez créé un réseau virtuel Azure, vous pouvez sélectionner le réseau pour lequel le cluster HDInsight va être configuré.</p><p>Pour plus d'informations sur la création d'un réseau virtuel Azure, consultez la rubrique <a href="http://msdn.microsoft.com/library/azure/jj156206.aspx">Tâches de configuration du réseau virtuel</a>.</p></td></tr>
 	</table>
 
 
@@ -216,7 +216,7 @@ Les clusters HDInsight utilisent un conteneur de stockage d'objets blob Azure co
 ##<a id="powershell"></a> Utilisation d'Azure PowerShell
 Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Cette section fournit des instructions sur l'approvisionnement d'un cluster HDInsight en utilisant Pour plus d'informations sur la configuration d'un poste de travail pour exécuter les cmdlets HDInsight Powershell, consultez la rubrique [Installation et configuration d'Azure PowerShell][powershell-install-configure]. Pour plus d'informations sur l'utilisation de PowerShell avec HDInsight, consultez la rubrique [Administration de HDInsight avec PowerShell][hdinsight-admin-powershell]. Pour la liste des cmdlets PowerShell pour HDInsight, consultez la rubrique [Référence des cmdlets HDInsight][hdinsight-powershell-reference].
 
-> [AZURE.NOTE] Bien que vous puissiez utiliser les scripts de cette section pour configurer un cluster HDInsight sur un réseau virtuel Azure, ceux-ci ne permettent pas de créer un réseau de ce type. Pour plus d'informations sur la création d'un réseau Azure Virtual Network, consultez la rubrique [Tâches de configuration d'un réseau virtuel](http://msdn.microsoft.com/fr-fr/library/azure/jj156206.aspx).
+> [AZURE.NOTE] Bien que vous puissiez utiliser les scripts de cette section pour configurer un cluster HDInsight sur un réseau virtuel Azure, ceux-ci ne permettent pas de créer un réseau de ce type. Pour plus d'informations sur la création d'un réseau Azure Virtual Network, consultez la rubrique [Tâches de configuration d'un réseau virtuel](http://msdn.microsoft.com/library/azure/jj156206.aspx).
 
 Les procédures suivantes sont nécessaires pour mettre en service un cluster HDInsight en utilisant PowerShell :
 
@@ -384,7 +384,7 @@ L'interface de ligne de commande peut être installée au moyen du *Node.js Pack
 
 **Pour installer l'interface de ligne de commande au moyen de Windows Installer**
 
-1.	Accédez à **http://azure.microsoft.com/fr-fr/downloads/**.
+1.	Accédez à **http://azure.microsoft.com/downloads/**.
 2.	Faites défiler l'écran pour accéder à la section **Outils de ligne de commande**, puis cliquez sur **Interface de ligne de commande interplateforme** et suivez les étapes de l'Assistant Web Platform Installer.
 
 **Pour télécharger et importer des paramètres de publication**
@@ -630,8 +630,8 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 * [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][hdinsight-sdk-documentation] - Découvrez le Kit de développement logiciel (SDK) HDInsight
 
 
-[hdinsight-sdk-documentation]: http://msdn.microsoft.com/fr-fr/library/dn479185.aspx
-[hdinsight-hbase-custom-provision]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-hbase-get-started/
+[hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
+[hdinsight-hbase-custom-provision]: http://azure.microsoft.com/documentation/articles/hdinsight-hbase-get-started/
 
 [hdinsight-customize-cluster]: ../hdinsight-hadoop-customize-cluster/
 [hdinsight-get-started]: ../hdinsight-get-started/
@@ -639,7 +639,7 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 [hadoop-hdinsight-intro]: ../hdinsight-hadoop-introduction/
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 
 [azure-management-portal]: https://manage.windowsazure.com/
 
@@ -648,10 +648,10 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
 [apache-hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
-[azure-purchase-options]: http://azure.microsoft.com/fr-fr/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/fr-fr/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/fr-fr/pricing/free-trial/
-[hdi-remote]: http://azure.microsoft.com/fr-fr/documentation/articles/hdinsight-administer-use-management-portal/#rdp
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[hdi-remote]: http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp
 
 
 [Powershell-install-configure]: ../install-configure-powershell/
@@ -678,5 +678,4 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 [img-hdi-cluster]: ./media/hdinsight-provision-clusters/HDI.Cluster.png
 
   [89e2276a]: /fr-fr/documentation/articles/hdinsight-use-sqoop/ "Use Sqoop with HDInsight"
-
 <!--HONumber=42-->

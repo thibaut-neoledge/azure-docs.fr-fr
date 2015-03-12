@@ -26,7 +26,7 @@ Ce guide montre comment commencer le développement d'une application Windows St
 
 ## Téléchargement des outils nécessaires ##
 
-- [Visual Studio 2012](http://msdn.microsoft.com/fr-FR/library/windows/apps/br211384) permet de générer, de déboguer, de localiser, de mettre en package et de déployer des applications Windows Store en toute simplicité.
+- [Visual Studio 2012](http://msdn.microsoft.com/library/windows/apps/br211384) permet de générer, de déboguer, de localiser, de mettre en package et de déployer des applications Windows Store en toute simplicité.
 - [Windows Azure Storage Client Library pour Windows Runtime](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) fournit une bibliothèque de classes pour travailler avec Azure Storage.
 - Les [outils de services de données WCF pour applications Windows Store](http://www.microsoft.com/fr-FR/download/details.aspx?id=30714) développent l'expérience Ajouter une référence de service avec la prise en charge OData côté client pour les applications Windows Store dans Visual Studio 2012.
 
@@ -49,7 +49,7 @@ Ensuite, ajoutez une référence à la bibliothèque cliente Azure Storage. Pour
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
     
-Ensuite, ajoutez un bouton sur votre page. Ajoutez le code suivant dans son événement **Cliquer** et modifiez votre méthode de gestionnaire d'événements grâce au [mot clé async](http://msdn.microsoft.com/en-US/library/vstudio/hh156513.aspx) :
+Ensuite, ajoutez un bouton sur votre page. Ajoutez le code suivant dans son événement **Cliquer** et modifiez votre méthode de gestionnaire d'événements grâce au [mot clé async](http://msdn.microsoft.com/library/vstudio/hh156513.aspx) :
     
     var credentials = new StorageCredentials(accountName, accountKey);
     var account = new CloudStorageAccount(credentials, true);
@@ -91,4 +91,4 @@ Vous pouvez également ajouter une référence dans Microsoft.WindowsAzure.Stora
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Utilisation de l'interface de ligne de commande interplateforme Microsoft Azure avec le Gestionnaire de ressources" title="Utilisation de l'interface de ligne de commande interplateforme Microsoft Azure avec le Gestionnaire de ressources" metaKeywords="windows azure cross-platform command-line interface Resource Manager, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Utilisation de l'interface en ligne de commande interplateforme Azure avec le Gestionnaire de ressources" metaCanonical="http://www.windowsazure.com/fr-fr/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="need to identify contact" documentationCenter="" solutions="" authors="larryfr" services="" />
+﻿<properties 
+	pageTitle="Utilisation de l'interface de ligne de commande interplateforme Microsoft Azure avec le Gestionnaire de ressources" 
+	description="Utilisation de l'interface en ligne de commande interplateforme Azure avec le Gestionnaire de ressources" 
+	editor="tysonn" 
+	manager="timlt" 
+	documentationCenter="" 
+	authors="squillace" 
+	services=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/05/2015" 
+	ms.author="rasquill"/>
 
 #Utilisation de l'interface de ligne de commande interplateforme Azure avec le Gestionnaire de ressources
 
@@ -162,8 +176,10 @@ Pour afficher les informations de journalisation sur les opérations effectuées
 * Pour plus d'informations sur l'utilisation de l'interface de ligne de commande interplateforme Azure, consultez la rubrique [Installation et configuration de l'interface de ligne de commande interplateforme Azure][xplatsetup].
 * Pour plus d'informations sur l'utilisation du Gestionnaire de ressources avec Windows Azure PowerShell, consultez la rubrique [Prise en main de l'utilisation de Windows PowerShell avec le Gestionnaire de ressources][psrm]
 
-[signuporg]: http://www.windowsazure.com/fr-fr/documentation/articles/sign-up-organization/
-[adtenant]: http://technet.microsoft.com/fr-fr/library/jj573650#createAzureTenant
+[signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
+[adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [portal]: https://manage.windowsazure.com/
 [xplatsetup]: /fr-fr/documentation/articles/xplat-cli/
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
+
+<!--HONumber=46--> 

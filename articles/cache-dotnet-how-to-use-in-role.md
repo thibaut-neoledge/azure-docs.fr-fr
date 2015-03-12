@@ -1,6 +1,20 @@
-<properties urlDisplayName="Caching" pageTitle="Utilisation d'In-Role Cache (.NET) - Guide des fonctionnalités Azure" metaKeywords="Azure cache, Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" description="Découvrez comment utiliser Azure In-Role Cache. Les exemples sont écrits en C# et utilisent l'API .NET." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use In-Role Cache for Azure Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Utilisation d'In-Role Cache (.NET) - Guide des fonctionnalités Azure" 
+	description="Learn how to use Azure In-Role Cache. Les exemples sont écrits en C# et utilisent l'API .NET." 
+	services="cache" 
+	documentationCenter=".net" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="cache" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 
 
@@ -397,29 +411,31 @@ suivez ces liens pour apprendre à exécuter les tâches de mise en cache plus c
   
 <!-- LINKS -->
 [Configuration de la taille des machines virtuelles]: http://go.microsoft.com/fwlink/?LinkId=164387
-[Configuration d'un client de cache par programmation]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg618003.aspx
-[Définition par programmation de la capacité de mise en cache d'une page]: http://msdn.microsoft.com/fr-fr/library/z852zf6b.aspx
-[Définition de façon déclarative de la capacité de mise en cache d'une page ASP.NET]: http://msdn.microsoft.com/fr-fr/library/zd1ysf1y.aspx
+[Configuration d'un client de cache par programmation]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
+[Définition par programmation de la capacité de mise en cache d'une page]: http://msdn.microsoft.com/library/z852zf6b.aspx
+[Définition de façon déclarative de la capacité de mise en cache d'une page ASP.NET]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
 [Considérations sur la planification des capacités d'In-Role Cache]: http://go.microsoft.com/fwlink/?LinkId=252651
 [Éléments à prendre en considération pour la planification de capacité In-Role Cache]: http://go.microsoft.com/fwlink/?LinkId=252651
-[Exemples In-Role Cache]: http://msdn.microsoft.com/fr-fr/library/jj189876.aspx
+[Exemples In-Role Cache]: http://msdn.microsoft.com/library/jj189876.aspx
 [In-Role Cache]: http://go.microsoft.com/fwlink/?LinkId=252658
 [In-Role Cache]: http://www.microsoft.com/fr-fr/showcase/Search.aspx?phrase=azure+caching
 [Performances maximales : accélérez vos applications de service cloud avec Azure Caching]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
-[Migration vers In-Role Cache]: http://msdn.microsoft.com/fr-fr/library/hh914163.aspx
+[Migration vers In-Role Cache]: http://msdn.microsoft.com/library/hh914163.aspx
 [Installation du gestionnaire de package NuGet]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Fournisseur de caches de sortie pour In-Role Cache]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg185662.aspx
+[Fournisseur de caches de sortie pour In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/gg185662.aspx
 [Directive OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
 [Vue d'ensemble d'In-Role Cache]: http://go.microsoft.com/fwlink/?LinkId=254172
-[Fournisseur d'état de session pour In-Role Cache]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg185668.aspx
-[Fournisseur de l'état de session pour In-Role Cache]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg185668.aspx
+[Fournisseur d'état de session pour In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
+[Fournisseur de l'état de session pour In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
 [Blog de l'équipe]: http://blogs.msdn.com/b/windowsazure/
-[Résolution des problèmes et diagnostic pour In-Role Cache]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh914135.aspx
+[Résolution des problèmes et diagnostic pour In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
 [Cache Azure AppFabric : mise en cache de l'état de session]: http://www.microsoft.com/fr-fr/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Portail de gestion Azure]: http://windows.azure.com/
-[Azure Shared Caching]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg278356.aspx
+[Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
-[Quelle est l'offre Azure Cache qui me convient ?]: http://msdn.microsoft.com/fr-fr/library/azure/dn766201.aspx
-[Choix de l'offre Azure Cache appropriée]: http://msdn.microsoft.com/fr-fr/library/azure/dn766201.aspx
+[Quelle est l'offre Azure Cache qui me convient ?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
+[Choix de l'offre Azure Cache appropriée]: http://msdn.microsoft.com/library/azure/dn766201.aspx
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

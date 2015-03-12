@@ -1,6 +1,20 @@
-<properties pageTitle="Prise en main des données (iOS) | Centre de développement mobile" description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application iOS." services="mobile-services" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Prise en main des données (iOS) | Centre de développement mobile" 
+	description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application iOS." 
+	services="mobile-services" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="krisragh"/>
 
 # Ajout de Mobile Services à une application existante
 
@@ -27,7 +41,7 @@ Ce didacticiel requiert les éléments suivants :
 
 + [Kit de développement logiciel (SDK) Mobile Services pour iOS], [XCode 4.5][Installation de Xcode] et iOS 5.0 ou versions ultérieures.
 + Visual Studio 2013 (vous pouvez vous procurer [Visual Studio Express pour le web](http://go.microsoft.com/p/?linkid=9832232) gratuitement).
-+ Un compte Microsoft Azure Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Version d'évaluation gratuite Azure</a>.
++ Un compte Microsoft Azure Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Version d'évaluation gratuite Azure</a>.
 
 ##<a name="download-app"></a>Téléchargement du projet GetStartedWithData
 

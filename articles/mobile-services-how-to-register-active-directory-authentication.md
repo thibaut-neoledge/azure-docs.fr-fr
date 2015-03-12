@@ -1,13 +1,27 @@
-﻿<properties pageTitle="Inscription pour l'authentification Azure Active Directory - Mobile Services" description="Découvrez comment vous inscrire pour l'authentification Azure Active Directory dans votre application Mobile Services." authors="wesmc7777" services="mobile-services" documentationCenter="" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Inscription pour l'authentification Azure Active Directory - Mobile Services" 
+	description="Découvrez comment vous inscrire pour l'authentification Azure Active Directory dans votre application Mobile Services." 
+	authors="wesmc7777" 
+	services="mobile-services" 
+	documentationCenter="" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="wesmc"/>
 
 # Inscription de vos applications à des fins d'utilisation d'une connexion via un compte Azure Active Directory
 
 Cette rubrique montre comment inscrire vos applications afin d'utiliser Azure Active Directory comme fournisseur d'authentification pour Azure Mobile Services. 
 
 
->[AZURE.NOTE] Les étapes décrites dans cette rubrique sont destinées à être utilisées avec le didacticiel [Ajout de l'authentification à votre application Mobile Services](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) lorsque vous souhaitez utiliser les [opérations de connexion orientées service](http://msdn.microsoft.com/fr-fr/library/azure/dn283952.aspx) avec votre application. Ou bien, si votre application doit recourir aux [opérations de connexion orientées client](http://msdn.microsoft.com/fr-fr/library/azure/jj710106.aspx) pour Azure Active Directory et à un service mobile principal .NET, vous devez commencer par le didacticiel [Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory](/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/).
+>[AZURE.NOTE] Les étapes décrites dans cette rubrique sont destinées à être utilisées avec le didacticiel [Ajout de l'authentification à votre application Mobile Services](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) lorsque vous souhaitez utiliser les [opérations de connexion orientées service](http://msdn.microsoft.com/library/azure/dn283952.aspx) avec votre application. Ou bien, si votre application doit recourir aux [opérations de connexion orientées client](http://msdn.microsoft.com/library/azure/jj710106.aspx) pour Azure Active Directory et à un service mobile principal .NET, vous devez commencer par le didacticiel [Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory](/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/).
 
 
 1. Connectez-vous au [portail de gestion Azure], sélectionnez **Mobile Services**, puis cliquez sur le service mobile.

@@ -56,7 +56,7 @@ Pour des raisons techniques, l'activation de Java pour votre site Web désactive
 
 <strong>Plateforme</strong>. Indique si votre application s'exécute dans un environnement 32 bits ou 64 bits. L'environnement 64 bits demande le mode De base ou Standard. Les modes Gratuit et Partagé s'exécutent uniquement dans un environnement 32 bits.
 
-<strong>WebSockets</strong>. Affectez la valeur **ACTIF** pour activer le protocole WebSocket. Par exemple, si votre site Web utilise [ASP.NET SignalR](http://www.asp.net/signalr) ou [socket.io](http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-nodejs-chat-app-socketio/).
+<strong>WebSockets</strong>. Affectez la valeur **ACTIF** pour activer le protocole WebSocket. Par exemple, si votre site Web utilise [ASP.NET SignalR](http://www.asp.net/signalr) ou [socket.io](http://azure.microsoft.com/documentation/articles/web-sites-nodejs-chat-app-socketio/).
 
 <strong>Toujours actif</strong>. Par défaut, les sites Web sont déchargés s'ils sont inactifs pendant un certain temps. Cela permet au système d'économiser des ressources. En mode De base ou Standard, vous pouvez activer l'option <strong>Toujours actif</strong> pour garder le site chargé en permanence. Si votre site exécute des tâches Web en continu, activez l'option **Toujours actif**. Sinon, les tâches Web risquent de ne pas s'exécuter de façon fiable.
 
@@ -67,17 +67,17 @@ Remarque : si vous avez activé le déploiement à partir du contrôle de code s
 
 ### Certificats
 
-En mode De base ou Standard, vous pouvez télécharger des certificats SSL pour un domaine personnalisé. Pour plus d'informations, consultez [Activation du protocole HTTPS pour un site Web Azure](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-configure-ssl-certificate/). 
+En mode De base ou Standard, vous pouvez télécharger des certificats SSL pour un domaine personnalisé. Pour plus d'informations, consultez [Activation du protocole HTTPS pour un site Web Azure](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/). 
 
 Vos certificats téléchargés sont répertoriés ici. Après avoir téléchargé un certificat, vous pouvez l'attribuer à n'importe quel site Web dans votre abonnement et votre région. Les certificats avec caractères génériques peuvent être utilisés pour n'importe quel site du domaine pour lequel ils sont valides. Un certificat peut être supprimé uniquement s'il n'existe aucune liaison active pour ce dernier.
 
 ### Noms de domaine
 
-Affichez ou ajoutez des noms de domaine supplémentaires pour le site Web. Pour plus d'informations, consultez [Configuration d'un nom de domaine personnalisé pour un site Web Azure](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-custom-domain-name/).
+Affichez ou ajoutez des noms de domaine supplémentaires pour le site Web. Pour plus d'informations, consultez [Configuration d'un nom de domaine personnalisé pour un site Web Azure](http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/).
 
 ### Liaisons SSL
 
-Si vous avez téléchargé des certificats SSL, vous pouvez les lier à des noms de domaine personnalisés. Pour plus d'informations, consultez [Activation du protocole HTTPS pour un site Web Azure](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-configure-ssl-certificate/).
+Si vous avez téléchargé des certificats SSL, vous pouvez les lier à des noms de domaine personnalisés. Pour plus d'informations, consultez [Activation du protocole HTTPS pour un site Web Azure](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/).
 
 ### Déploiements
 
@@ -93,7 +93,7 @@ Pour configurer le déploiement à partir du contrôle de code source, consultez
 
 Options liées à l'écriture des journaux de diagnostic à partir d'une application Web qui prend en charge la journalisation : 
 
-- <strong>Système de fichiers</strong>. Écrit les journaux dans le système de fichiers du site Web. La journalisation du système de fichiers a une durée de 12 heures. Vous pouvez accéder aux journaux à partir du partage FTP du site Web. (Consultez [Informations d'identification FTP](http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-manage#ftp-credentials)).
+- <strong>Système de fichiers</strong>. Écrit les journaux dans le système de fichiers du site Web. La journalisation du système de fichiers a une durée de 12 heures. Vous pouvez accéder aux journaux à partir du partage FTP du site Web. (Consultez [Informations d'identification FTP](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials)).
 - <strong>Stockage de tables</strong>. Écrit les journaux dans le stockage de tables Azure. Il n'y a aucune limite de temps. En outre, la journalisation reste activée jusqu'à ce que vous la désactiviez. 
 - <strong>Stockage d'objets blob</strong>. Écrit les journaux dans le stockage d'objets Blob Azure. Il n'y a aucune limite de temps. En outre, la journalisation reste activée jusqu'à ce que vous la désactiviez.
 
@@ -109,13 +109,13 @@ Options de collecte d'informations de diagnostic pour votre site Web.
 
 <strong>Journalisation du serveur Web</strong>. Active la journalisation du serveur Web. Les journaux sont enregistrés au format de fichier journal étendu W3C. Vous pouvez les enregistrer dans Azure Storage ou dans le système de fichiers du site Web.
  
-- Si vous choisissez <strong>Système de fichiers</strong>, les journaux sont enregistrés sur le site FTP indiqué sous "Journaux de diagnostic FTP" dans la page Tableau de bord. (Consultez [Informations d'identification FTP](http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-manage#ftp-credentials)). 
+- Si vous choisissez <strong>Système de fichiers</strong>, les journaux sont enregistrés sur le site FTP indiqué sous "Journaux de diagnostic FTP" dans la page Tableau de bord. (Consultez [Informations d'identification FTP](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials)). 
 - Si vous choisissez **Système de fichiers**, utilisez la zone <strong>Quota</strong> pour définir l'espace disque maximal alloué aux fichiers journaux. L'espace est compris entre 25 Mo et 100 Mo. La valeur par défaut est de 35 Mo. Lorsque le quota est atteint, les fichiers les plus anciens sont remplacés par les plus récents. Si vous devez conserver plus de 100 Mo de données d'historique, utilisez Azure Storage, car sa capacité de stockage est bien supérieure.
 - Éventuellement, cliquez sur <strong>Définir la rétention</strong> pour supprimer automatiquement les fichiers après un certain délai. Par défaut, les journaux ne sont jamais supprimés.   
 
-<strong>Messages d'erreur détaillés</strong>. Si cette option est activée, les messages d'erreur détaillés sont enregistrés en tant que fichiers .htm. Pour afficher les fichiers, accédez au site FTP indiqué sous "Journaux de diagnostic FTP" dans la page Tableau de bord. Les fichiers sont enregistrés sous /LogFiles/DetailedErrors sur le site FTP. (Consultez [Informations d'identification FTP](http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-manage#ftp-credentials)).
+<strong>Messages d'erreur détaillés</strong>. Si cette option est activée, les messages d'erreur détaillés sont enregistrés en tant que fichiers .htm. Pour afficher les fichiers, accédez au site FTP indiqué sous "Journaux de diagnostic FTP" dans la page Tableau de bord. Les fichiers sont enregistrés sous /LogFiles/DetailedErrors sur le site FTP. (Consultez [Informations d'identification FTP](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials)).
 
-<strong>Suivi des demandes ayant échoué</strong>. Si cette option est activée, les requêtes ayant échoué sont journalisées dans des fichiers XML. Pour afficher les fichiers, accédez au site FTP indiqué sous "Journaux de diagnostic FTP" dans la page Tableau de bord. (Consultez [Informations d'identification FTP](http://azure.microsoft.com/fr-fr/documentation/articles/web-sites-manage#ftp-credentials)). Les fichiers sont enregistrés sous /LogFiles/W3SVC*xxx*, où xxx est un identificateur unique. Ce dossier contient un fichier XSL et un ou plusieurs fichiers XML. Veillez à télécharger le fichier XSL, car il fournit des fonctionnalités de mise en forme et de filtrage du contenu des fichiers XML.
+<strong>Suivi des demandes ayant échoué</strong>. Si cette option est activée, les requêtes ayant échoué sont journalisées dans des fichiers XML. Pour afficher les fichiers, accédez au site FTP indiqué sous "Journaux de diagnostic FTP" dans la page Tableau de bord. (Consultez [Informations d'identification FTP](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials)). Les fichiers sont enregistrés sous /LogFiles/W3SVC*xxx*, où xxx est un identificateur unique. Ce dossier contient un fichier XSL et un ou plusieurs fichiers XML. Veillez à télécharger le fichier XSL, car il fournit des fonctionnalités de mise en forme et de filtrage du contenu des fichiers XML.
 
 <strong>Débogage distant.</strong> Active le débogage à distance. Quand cette option est activée, vous pouvez utiliser le débogueur distant de Visual Studio pour vous connecter directement à votre site Web Azure. Le débogage à distance reste activé pendant 48 heures.
 
@@ -132,7 +132,7 @@ Pour plus d'informations, consultez l'article [Procédure : surveillance de l'é
 
 Choisissez <strong>Module complémentaire</strong> pour sélectionner un module complémentaire d'analyse dans une liste, ou pour accéder au Magasin Azure et en choisir un. Sélectionnez <strong>Personnalisé</strong> pour choisir un fournisseur d'analyses dans une liste ; New Relic, par exemple. Si vous utilisez un fournisseur personnalisé, vous devez entrer la clé de licence dans la zone <strong>Clé de fournisseur</strong>. 
 
-Pour plus d'informations sur l'utilisation de New Relic avec Sites Web Azure, consultez <a href="http://www.windowsazure.com/fr-fr/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/">Gestion des performances de l'application New Relic sur des sites Web Azure</a>.
+Pour plus d'informations sur l'utilisation de New Relic avec Sites Web Azure, consultez <a href="http://azure.microsoft.com/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/">Gestion des performances de l'application New Relic sur des sites Web Azure</a>.
 
 ### Paramètres de l'application
 
@@ -210,17 +210,17 @@ Une autre solution consiste à créer le site Web avec l'option **Création pers
 
 ##<a name="howtodomain"></a>Procédure : configuration d'un nom de domaine personnalisé
 
-Pour plus d'informations sur la configuration de votre site Web afin d'utiliser un nom de domaine personnalisé, consultez [Configuration d'un nom de domaine personnalisé pour un site Web Azure](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-custom-domain-name/).
+Pour plus d'informations sur la configuration de votre site Web afin d'utiliser un nom de domaine personnalisé, consultez [Configuration d'un nom de domaine personnalisé pour un site Web Azure](http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/).
 
 ##<a name="howtoconfigSSL"></a>Procédure : configuration d'un site Web pour utiliser SSL##
 
-Pour plus d'informations sur la configuration du protocole SSL pour un domaine personnalisé sur Azure, consultez l'article [Activation du protocole HTTPS pour un site Web Azure](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-configure-ssl-certificate/). 
+Pour plus d'informations sur la configuration du protocole SSL pour un domaine personnalisé sur Azure, consultez l'article [Activation du protocole HTTPS pour un site Web Azure](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/). 
 
 ##<a name="next"></a>Étapes suivantes
 
-* [Mise à l'échelle de sites Web](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-scale/)
+* [Mise à l'échelle de sites Web](http://azure.microsoft.com/documentation/articles/web-sites-scale/)
 
-* [Surveillance de sites Web](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-monitor/)
+* [Surveillance de sites Web](http://azure.microsoft.com/documentation/articles/web-sites-monitor/)
 
 
 

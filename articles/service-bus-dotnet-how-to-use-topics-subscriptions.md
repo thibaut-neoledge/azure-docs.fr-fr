@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Service Bus Topics" pageTitle="Utilisation des rubriques Service Bus (.NET) - Azure" metaKeywords="Prise en main des rubriques Azure Service Bus, Azure publication abonnement messagerie, messagerie Azure rubriques et abonnements C# " description="Découvrez comment utiliser les rubriques et abonnements Service Bus dans Azure. Les exemples de code sont écrits pour les applications .NET. " metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Utilisation des rubriques Service Bus (.NET) - Azure" 
+	description="Découvrez comment utiliser les rubriques et abonnements Service Bus dans Azure. Les exemples de code sont écrits pour les applications .NET." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -308,6 +322,8 @@ Maintenant que vous avez appris les principes de base des rubriques et des abonn
   
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
   
-  [Files d'attente, rubriques et abonnements.]: http://msdn.microsoft.com/fr-fr/library/hh367516.aspx
-  [SqlFilter]: http://msdn.microsoft.com/fr-fr/library/microsoft.servicebus.messaging.sqlfilter.aspx
-  [Didacticiel .NET sur la messagerie répartie Service Bus.]: http://msdn.microsoft.com/fr-fr/library/hh367512.aspx
+  [Files d'attente, rubriques et abonnements.]: http://msdn.microsoft.com/library/hh367516.aspx
+  [SqlFilter]: http://msdn.microsoft.com/library/microsoft.servicebus.messaging.sqlfilter.aspx
+  [Didacticiel .NET sur la messagerie répartie Service Bus.]: http://msdn.microsoft.com/library/hh367512.aspx
+
+<!--HONumber=46--> 

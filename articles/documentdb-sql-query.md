@@ -1,6 +1,20 @@
-﻿<properties title="Query with DocumentDB SQL" pageTitle="Interrogation avec le langage SQL de DocumentDB | Azure" description="DocumentDB, un service de base de données de documents NoSQL, prend en charge les requêtes en utilisant une grammaire similaire à SQL dans des documents JSON hiérarchiques sans nécessiter explicitement de schéma ou la création d'index secondaires." metaKeywords="" services="documentdb"  documentationCenter="" solutions="data-management" authors="mimig" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Interrogation avec le langage SQL de DocumentDB | Azure" 
+	description="DocumentDB, a NoSQL document database service, supports queries using SQL-like grammar over hierarchical JSON documents without requiring explicit an schema or creation of secondary indexes." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="mimig" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="mimig"/>
 
 #Interrogation de DocumentDB
 Microsoft Azure DocumentDB prend en charge l'interrogation de documents à l'aide du langage SQL sur les documents JSON hiérarchiques. DocumentDB n'utilise pas de schéma. En raison de son engagement dans le modèle de données JSON directement au sein du moteur de base de données, il fournit l'indexation automatique des documents JSON sans nécessiter un schéma explicite ou la création d'index secondaires. 
@@ -1955,7 +1969,7 @@ L'exemple suivant illustre l'utilisation de queryDocuments dans l'API JavaScript
 5.	ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6.	JSON [http://json.org/](http://json.org/)
 7.	Javascript Specification [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-8.	LINQ [http://msdn.microsoft.com/fr-fr/library/bb308959.aspx](http://msdn.microsoft.com/fr-fr/library/bb308959.aspx) 
+8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
 9.	Techniques d'évaluation des requêtes pour les bases de données volumineuses [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10.	Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11.	Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
@@ -1968,3 +1982,5 @@ L'exemple suivant illustre l'utilisation de queryDocuments dans l'API JavaScript
 [consistency-levels]: ../documentdb-consistency-levels
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

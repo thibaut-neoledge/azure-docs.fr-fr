@@ -158,6 +158,6 @@ Vous pouvez par exemple utiliser l'URI suivant pour accéder à un formulaire We
 
 ## Ressources supplémentaires
 
--   <a href="http://msdn.microsoft.com/fr-FR/library/windowsazure/gg680307.aspx">Mappage du contenu CDN à un domaine personnalisé</a>
+-   <a href="http://msdn.microsoft.com/library/windowsazure/gg680307.aspx">Mappage du contenu CDN à un domaine personnalisé</a>
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

@@ -1,6 +1,20 @@
-<properties urlDisplayName="Service Bus AMQP" pageTitle="Utilisation d'AMQP 1.0 avec l'API .NET Service Bus - Azure" metaKeywords="" description="Découvrez comment utiliser le protocole Advanced Message Queuing Protodol (AMQP) 1.0 avec l'API .NET Azure Service Bus." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to use AMQP 1.0 with the Service Bus .NET API" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Utilisation d'AMQP 1.0 avec l'API .NET Service Bus - Azure" 
+	description="Découvrez comment utiliser le protocole Advanced Message Queuing Protodol (AMQP) 1.0 avec l'API .NET Azure Service Bus." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -29,7 +43,7 @@ La prise en charge d'AMQP 1.0 est disponible dans le Kit de développement logic
 
 Par défaut, la bibliothèque cliente .NET Service Bus communique avec le service Service Bus à l'aide d'un protocole SOAP dédié. Pour utiliser AMQP 1.0 au lieu du protocole par défaut, vous avez besoin d'une configuration explicite sur la chaîne de connexion Service Bus, comme indiqué dans la section suivante. À l'exception de cette modification, le code de l'application reste inchangé lors de l'utilisation d'AMQP 1.0.
 
-Dans la version actuelle, quelques fonctionnalités de l'API ne sont pas prises en charge lors de l'utilisation d'AMQP. Celles-ci sont répertoriées plus bas dans la section " Fonctionnalités non prises en charge et restrictions ". Certains paramètres de configuration avancés ont également une signification différente lors de l'utilisation d'AMQP. Aucun de ces paramètres n'est utilisé dans ce court manuel d'utilisation, mais de plus amples informations sont disponibles dans le [guide du développeur d'AMQP 1.0 de Service Bus](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj841071.aspx).
+Dans la version actuelle, quelques fonctionnalités de l'API ne sont pas prises en charge lors de l'utilisation d'AMQP. Celles-ci sont répertoriées plus bas dans la section " Fonctionnalités non prises en charge et restrictions ". Certains paramètres de configuration avancés ont également une signification différente lors de l'utilisation d'AMQP. Aucun de ces paramètres n'est utilisé dans ce court manuel d'utilisation, mais de plus amples informations sont disponibles dans le [guide du développeur d'AMQP 1.0 de Service Bus](http://msdn.microsoft.com/library/windowsazure/jj841071.aspx).
 
 ### Configuration via App.config
 
@@ -213,7 +227,7 @@ Ce guide a expliqué comment envoyer des messages à Service Bus en utilisant .N
 
 À l'aide de l'exemple d'application .NET décrit ci-dessus et d'une application Java similaire extraite d'un manuel associé, [Utilisation de l'API Java Message Service (JMS) avec Service Bus et AMQP 1.0](http://aka.ms/ll1fm3), il est possible d'échanger des messages entre .NET et Java. 
 
-Pour plus d'informations sur les détails de la messagerie multi plates-formes utilisant Service Bus et AMQP 1.0, consultez le [guide du développeur de l'AMQP de Service Bus](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj841071.aspx).
+Pour plus d'informations sur les détails de la messagerie multi plates-formes utilisant Service Bus et AMQP 1.0, consultez le [guide du développeur de l'AMQP de Service Bus](http://msdn.microsoft.com/library/windowsazure/jj841071.aspx).
 
 ### De JMS à .NET
 
@@ -285,19 +299,21 @@ Les fonctionnalités suivantes de l'API .NET Services Bus ne sont actuellement p
 * Renouvellement du verrouillage des sessions
 * Certaines différences mineures de comportement
 
-Pour plus d'informations, consultez le [guide du développeur d'AMQP de Service Bus](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj841071.aspx). Cette rubrique inclut une liste détaillée des API non prises en charge.
+Pour plus d'informations, consultez le [guide du développeur d'AMQP de Service Bus](http://msdn.microsoft.com/library/windowsazure/jj841071.aspx). Cette rubrique inclut une liste détaillée des API non prises en charge.
 
 <h2>Résumé</h2>
 
 Ce manuel d'utilisation a expliqué comment accéder aux fonctionnalités de messagerie répartie Service Bus (rubriques de files d'attente et de publication/d'abonnement) depuis .NET en utilisant AMQP 1.0 et l'API .NET Service Bus.
 
-Vous pouvez également utiliser AMQP 1.0 de Service Bus à partir d'autres langages, notamment Java, C, Python et PHP. Les composants intégrés dans ces langages peuvent échanger des messages en toute fiabilité et avec une fidélité optimale en utilisant AMQP 1.0 dans Service Bus. Pour plus d'informations, consultez le [guide du développeur d'AMQP de Service Bus](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj841071.aspx).
+Vous pouvez également utiliser AMQP 1.0 de Service Bus à partir d'autres langages, notamment Java, C, Python et PHP. Les composants intégrés dans ces langages peuvent échanger des messages en toute fiabilité et avec une fidélité optimale en utilisant AMQP 1.0 dans Service Bus. Pour plus d'informations, consultez le [guide du développeur d'AMQP de Service Bus](http://msdn.microsoft.com/library/windowsazure/jj841071.aspx).
 
 <h2>Pour plus d'informations</h2>
 
 * [Prise en charge d'AMQP 1.0 dans Azure Service Bus](http://aka.ms/pgr3dp)
 * [Utilisation de l'API Java Message Service (JMS) avec Service Bus et AMQP 1.0](http://aka.ms/ll1fm3)
-* [AMQP de Service Bus : guide du développeur](http://msdn.microsoft.com/fr-fr/library/windowsazure/jj841071.aspx)
-* [Utilisation des files d'attente Service Bus](http://www.windowsazure.com/fr-fr/develop/net/how-to-guides/service-bus-queues/)
+* [AMQP de Service Bus : guide du développeur](http://msdn.microsoft.com/library/windowsazure/jj841071.aspx)
+* [Utilisation des files d'attente Service Bus](http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
 
-[Utilisation des files d'attente Service Bus]: http://www.windowsazure.com/fr-fr/develop/net/how-to-guides/service-bus-queues/
+[Utilisation des files d'attente Service Bus]: http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/
+
+<!--HONumber=46--> 

@@ -1,6 +1,21 @@
-<properties pageTitle="Planification de tâches de serveur principal avec le planificateur - Mobile Services" description="Microsoft Azure Mobile Services Scheduler permet de planifier des tâches pour votre application mobile." services="mobile-services" documentationCenter="windows" authors="ggailey777" writer="" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Planification de tâches de serveur principal avec le planificateur - Mobile Services" 
+	description="Microsoft Azure Mobile Services Scheduler permet de planifier des tâches pour votre application mobile." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	Writer="" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="glenga"/>
 
 # Planification des travaux récurrents dans Mobile Services 
 
@@ -297,8 +312,7 @@ Félicitations, vous avez créé un travail planifié dans votre service mobile.
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Inscription des applications pour l'authentification Twitter avec Mobile Services]: /fr-fr/documentation/articles/mobile-services-how-to-register-twitter-authentication
 [pour les développeurs Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Paramètres de l'application]: http://msdn.microsoft.com/fr-fr/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Paramètres de l'application]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ au projet CodePlex Twitter]: http://linqtotwitter.codeplex.com/
-
 
 <!--HONumber=42-->

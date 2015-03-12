@@ -1,6 +1,20 @@
-﻿<properties title="Search Service: workflow for developers" pageTitle="Service de recherche : flux de travail pour les développeurs" description="Service de recherche : workflow pour les développeurs" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Service de recherche : workflow pour les développeurs" 
+	description="Service de recherche : workflow pour les développeurs" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Azure Search : flux de travail de développement
 
@@ -21,7 +35,7 @@ Nous partons du principe que vous avez déjà approvisionné le service. Si vous
 
 Les requêtes ciblent un index de recherche qui contient des attributs et des données de recherche. Par conséquent, votre première étape après l'approvisionnement du service est de définir le schéma d'index au format JSON et d'exécuter une requête HTTPS PUT pour créer l'index dans le service. 
 
-Les index sont construits par votre code d'application. Il n'existe aucun outil ou éditeur intégré pour vous aider à définir un index dans une interface utilisateur. Les exemples qui illustrent les divers moyens de construire un index se trouvent dans les sections [Créer votre première solution de recherche à l'aide d'Azure Search](../search-create-first-solution/), dans laquelle le schéma est indiqué dans le fichier Program.cs, et [Prise en main des profils de score dans Azure Search](../search-get-started-scoring-profiles) qui fournit l'index dans un fichier de schéma autonome au format JSON. Pour plus d'informations sur la création d'index, consultez la section [Création d'un index (API Azure Search)](http://msdn.microsoft.com/fr-fr/library/dn798941.aspx) sur MSDN.
+Les index sont construits par votre code d'application. Il n'existe aucun outil ou éditeur intégré pour vous aider à définir un index dans une interface utilisateur. Les exemples qui illustrent les divers moyens de construire un index se trouvent dans les sections [Créer votre première solution de recherche à l'aide d'Azure Search](../search-create-first-solution/), dans laquelle le schéma est indiqué dans le fichier Program.cs, et [Prise en main des profils de score dans Azure Search](../search-get-started-scoring-profiles) qui fournit l'index dans un fichier de schéma autonome au format JSON. Pour plus d'informations sur la création d'index, consultez la section [Création d'un index (API Azure Search)](http://msdn.microsoft.com/library/dn798941.aspx) sur MSDN.
 
 <h2 id="sub-2">Étape 2 : Ajout de documents</h2>
 
@@ -40,8 +54,8 @@ Dans des conditions de surcharge, les échecs de téléchargement ne sont pas ra
 
 Une fois les documents indexés, vous pouvez exécuter des requêtes de recherche. Vous pouvez interroger un index à la fois, en utilisant soit OData, soit une syntaxe de requête simple :
 
-+	[Syntaxe d'expression OData pour Azure Search](http://msdn.microsoft.com/fr-fr/library/dn798921.aspx)
-+	[Syntaxe de requête simple dans Azure Search](http://msdn.microsoft.com/fr-fr/library/dn798920.aspx)
++	[Syntaxe d'expression OData pour Azure Search](http://msdn.microsoft.com/library/dn798921.aspx)
++	[Syntaxe de requête simple dans Azure Search](http://msdn.microsoft.com/library/dn798920.aspx)
 
 <h2 id="sub-4">Étape 4 : Mise à jour ou suppression d'index et de documents</h2>
 
@@ -55,7 +69,7 @@ Azure Search utilise le stockage interne pour les index et les documents utilis�
 
 Tous les champs d'un document ne peuvent pas faire l'objet d'une recherche. Par exemple, si votre application est un catalogue en ligne de musique ou de vidéos, il est conseillé de stocker les fichiers binaires dans Azure BLOB service ou sous une autre forme de stockage. Les fichiers binaires ne pouvant pas faire l'objet d'une recherche, il n'est pas nécessaire de les conserver dans l'espace de stockage Azure Search. Même si vous devez stocker des images, des vidéos et des fichiers audio dans d'autres services ou emplacements, vous devez inclure un champ indiquant l'URL de l'emplacement du fichier. De cette façon, vous pouvez renvoyer les données externes dans le cadre de vos résultats de recherche. 
 
-Pour plus d'informations sur la création d'index ou de documents, consultez la section [API Rest Azure Search](http://msdn.microsoft.com/fr-fr/library/dn798935.aspx).
+Pour plus d'informations sur la création d'index ou de documents, consultez la section [API Rest Azure Search](http://msdn.microsoft.com/library/dn798935.aspx).
 
 
 <!--Anchors-->
@@ -73,3 +87,5 @@ Pour plus d'informations sur la création d'index ou de documents, consultez la 
 [Gestion de votre service de recherche sur Microsoft Azure]: ../search-manage/
 [Création de votre première solution de recherche à l'aide du service Azure Search]: ../search-create-first-solution/
 
+
+<!--HONumber=46--> 

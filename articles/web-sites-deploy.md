@@ -103,7 +103,7 @@ Pour plus d'informations sur le déploiement dans des sites Web Azure depuis Vis
 * [Prise en main d'Azure et ASP.NET](../web-sites-dotnet-get-started/). Explique comment créer et déployer un projet Web ASP.NET MVC simple en utilisant Visual Studio et Web Deploy.
 * [Déploiement d'Azure WebJobs vers les sites Web Azure](../websites-dotnet-deploy-webjobs/). Explique comment configurer les projets d'application console pour qu'ils se déploient sous forme de tâches Web WebJobs.  
 * [Déploiement d'une application ASP.NET MVC 5 sécurisée avec une fonctionnalité d'appartenance, OAuth et une base de données SQL vers un site Web Azure](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/). Explique comment créer et déployer un projet Web ASP.NET MVC avec une base de données SQL, en utilisant Visual Studio, Web Deploy et Entity Framework Code First Migrations.
-* [Présentation d'un déploiement Web pour Visual Studio et ASP.NET](http://msdn.microsoft.com/fr-fr/library/dd394698.aspx). Une introduction de base au déploiement Web avec Visual Studio. Ancien, mais contient des informations toujours pertinentes, notamment une présentation des options de déploiement d'une base de données ainsi qu'une application Web et une liste de tâches de déploiement supplémentaires que vous devrez effectuer, ou pour lesquelles vous devrez configurer manuellement Visual Studio. Cette rubrique traite du déploiement de manière générale et non uniquement du déploiement vers les sites Web Azure.
+* [Présentation d'un déploiement Web pour Visual Studio et ASP.NET](http://msdn.microsoft.com/library/dd394698.aspx). Une introduction de base au déploiement Web avec Visual Studio. Ancien, mais contient des informations toujours pertinentes, notamment une présentation des options de déploiement d'une base de données ainsi qu'une application Web et une liste de tâches de déploiement supplémentaires que vous devrez effectuer, ou pour lesquelles vous devrez configurer manuellement Visual Studio. Cette rubrique traite du déploiement de manière générale et non uniquement du déploiement vers les sites Web Azure.
 * [Déploiement Web ASP.NET en utilisant Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Une série de didacticiels en 12 parties présentant un ensemble de tâches de déploiement plus complet que le reste de cette liste. Certaines fonctionnalités de déploiement Azure ont été ajoutées depuis la rédaction du didacticiel, mais des notes ajoutées ultérieurement expliquent ce qu'il manque. 
 * [Déploiement d'un site Web ASP.NET dans Azure avec Visual Studio 2012 directement depuis un référentiel Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Montre comment déployer un projet Web ASP.NET dans Visual Studio, en utilisant le plug-in Git pour valider le code sur Git et connecter Azure au référentiel Git. À partir de Visual Studio 2013, la prise en charge Git est intégrée et ne nécessite pas l'installation d'un plug-in.
 
@@ -111,9 +111,9 @@ Pour plus d'informations sur le déploiement dans des sites Web Azure depuis Vis
 
 Pour plus d'informations sur le déploiement dans des sites Web Azure depuis WebMatrix, consultez les ressources suivantes :
 
-* [Développement et déploiement d'un site Web avec Microsoft WebMatrix](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-dotnet-using-webmatrix/). Montre comment créer un site Web ASP.NET simple en utilisant un modèle WebMatrix et en le déployant sur un site Web Azure en utilisant WebMatrix et Web Deploy.
-* [Génération et déploiement d'un site Web Node.js dans Azure avec WebMatrix](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-nodejs-use-webmatrix/).
-* [Création et déploiement d'un site Web Azure PHP-MySQL avec WebMatrix](http://www.windowsazure.com/fr-fr/documentation/articles/web-sites-php-mysql-use-webmatrix/).
+* [Développement et déploiement d'un site Web avec Microsoft WebMatrix](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-using-webmatrix/). Montre comment créer un site Web ASP.NET simple en utilisant un modèle WebMatrix et en le déployant sur un site Web Azure en utilisant WebMatrix et Web Deploy.
+* [Génération et déploiement d'un site Web Node.js dans Azure avec WebMatrix](http://azure.microsoft.com/documentation/articles/web-sites-nodejs-use-webmatrix/).
+* [Création et déploiement d'un site Web Azure PHP-MySQL avec WebMatrix](http://azure.microsoft.com/documentation/articles/web-sites-php-mysql-use-webmatrix/).
 * [WebMatrix 3 : Git intégré et déploiement dans Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). Utilisation de WebMatrix pour procéder au déploiement depuis un référentiel de contrôle de code source Git.
 
 ##<a name="ftp"></a>Déploiement à l'aide d'un utilitaire FTP
@@ -186,12 +186,12 @@ Pour plus d'informations, consultez les ressources suivantes :
 
 ###<a name="powershell"></a>Windows PowerShell
 
-Vous pouvez utiliser des fonctions de déploiement MSBuild ou FTP à partir de [Windows PowerShell](http://msdn.microsoft.com/fr-fr/library/dd835506.aspx). Ce faisant, vous pouvez également utiliser une collection de cmdlets Windows PowerShell facilitant l'appel de l'API de gestion REST Azure.
+Vous pouvez utiliser des fonctions de déploiement MSBuild ou FTP à partir de [Windows PowerShell](http://msdn.microsoft.com/library/dd835506.aspx). Ce faisant, vous pouvez également utiliser une collection de cmdlets Windows PowerShell facilitant l'appel de l'API de gestion REST Azure.
 
 Pour plus d'informations, consultez les ressources suivantes :
 
 * [Tout automatiser (développement d'applications de cloud concrètes avec Azure)](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). Chapitre d'un livre électronique expliquant comment l'exemple d'application contenu dans le livre utilise des scripts Windows PowerShell pour créer un environnement de test Azure et y procéder à un déploiement. Consultez la section [Ressources](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources) pour obtenir des liens vers une documentation Azure PowerShell supplémentaire.
-* [Utilisation de scripts Windows PowerShell pour publier des environnements de développement et de test](http://msdn.microsoft.com/fr-fr/library/dn642480.aspx). Comment utiliser les scripts de déploiement Windows PowerShell générés par Visual Studio.
+* [Utilisation de scripts Windows PowerShell pour publier des environnements de développement et de test](http://msdn.microsoft.com/library/dn642480.aspx). Comment utiliser les scripts de déploiement Windows PowerShell générés par Visual Studio.
 
 ###<a name="api"></a>API de gestion .NET
 
@@ -216,7 +216,7 @@ Pour plus d'informations, consultez les ressources suivantes :
 Pour plus d'informations, consultez les ressources suivantes :
 
 * [Sites Web Azure simples : déploiement](http://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). Blog de David Ebbo sur un outil qu'il a créé pour faciliter l'utilisation de Web Deploy.
-* [Outil de déploiement Web](http://technet.microsoft.com/fr-fr/library/dd568996). Documentation officielle sur le site Microsoft TechNet. Ancien, mais constitue un bon point de départ.
+* [Outil de déploiement Web](http://technet.microsoft.com/library/dd568996). Documentation officielle sur le site Microsoft TechNet. Ancien, mais constitue un bon point de départ.
 * [Utilisation de Web Deploy](http://www.iis.net/learn/publish/using-web-deploy). Documentation officielle sur le site Microsoft IIS.NET. Également ancien, mais constitue un bon point de départ.
 * [StackOverflow](http://www.stackoverflow.com). L'endroit idéal pour obtenir des informations plus récentes sur l'utilisation de Web Deploy à partir de la ligne de commande.
 * [Déploiement Web ASP.NET en utilisant Visual Studio : déploiement en ligne de commande](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment). MSBuild est le moteur de génération utilisé par Visual Studio, mais il peut aussi être utilisé à partir de la ligne de commande pour déployer des applications Web dans des sites Web Azure. Ce didacticiel fait partie d'une série traitant principalement des déploiements Visual Studio.

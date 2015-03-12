@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Utilisation de Mobile Services pour télécharger des images dans le stockage d'objets blob (Windows Store) | Mobile Services" description="Découvrez comment utiliser Mobile Services pour télécharger des images vers le stockage d'objets blob Azure et y accéder à partir de votre application Windows Store." services="mobile-services, storage" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Utilisation de Mobile Services pour télécharger des images dans le stockage d'objets blob (Windows Store) | Mobile Services" 
+	description="Découvrez comment utiliser Mobile Services pour télécharger des images vers le stockage d'objets blob Azure et y accéder à partir de votre application Windows Store." 
+	services="mobile-services, storage" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="glenga"/>
 
 # Téléchargement d'images vers Azure Storage à l'aide de Mobile Services
 
@@ -89,7 +103,7 @@ Maintenant que vous avez intégré votre service mobile au service BLOB et que v
 [Création d'un compte de stockage]: /fr-fr/manage/services/storage/how-to-create-a-storage-account
 [Bibliothèque cliente d'Azure Storage pour les applications Windows Store]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
 [Guide de fonctionnement Mobile Services .NET]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library
-[Paramètres de l'application]: http://msdn.microsoft.com/fr-fr/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Paramètres de l'application]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
 
 <!--HONumber=42-->

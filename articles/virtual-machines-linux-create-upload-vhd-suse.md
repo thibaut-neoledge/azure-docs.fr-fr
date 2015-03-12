@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Création et téléchargement d'un disque dur virtuel SUSE Linux dans Azure" 
+	pageTitle="Création et téléchargement d'un disque dur virtuel SUSE dans Azure" 
 	description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation SUSE Linux." 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -22,9 +22,9 @@
 - [Préparation d'une machine virtuelle SLES 11 SP3 pour Azure](#sles11)
 - [Préparation d'une machine virtuelle openSUSE 13.1+ pour Azure](#osuse)
 
-## Configuration requise##
+##Configuration requise##
 
-Cet article suppose que vous avez déjà installé un système d'exploitation SUSE ou openSUSE Linux dans un disque dur virtuel. Il existe plusieurs outils pour créer des fichiers .vhd, par exemple une solution de virtualisation comme Hyper-V. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx). 
+Cet article suppose que vous avez déjà installé un système d'exploitation SUSE ou openSUSE Linux dans un disque dur virtuel. Il existe de nombreux outils de création de fichiers .vhd, par exemple une solution de virtualisation telle que Hyper-V. Pour obtenir des instructions à ce sujet, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx). 
 
 
 **Notes d'installation SLES/openSUSE**
@@ -36,7 +36,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation SU
 
 - Azure ne prend pas en charge le nouveau format VHDX. Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de la cmdlet convert-vhd.
 
-- Lors de l'installation du système Linux, il est recommandé d'utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner.  Les techniques LVM ou [RAID](../virtual-machines-linux-configure-raid) peuvent être utilisées sur des disques de données si vous préférez.
+- Lors de l'installation du système Linux, il est recommandé d'utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner.  Les techniques LVM ou [RAID](../virtual-machines-linux-configure-raid) sont utilisables sur les disques de données si vous le souhaitez.
 
 - Ne configurez pas une partition d'échange sur le disque du système d'exploitation. L'agent Linux est configurable pour créer un fichier d'échange sur le disque de ressources temporaire.  Les étapes ci-dessous fournissent plus d'informations à ce sujet.
 
@@ -78,7 +78,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation SU
 
 10.	Ne créez pas d'espace swap sur le disque du système d'exploitation.
 
-	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque  *temporary* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
+	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -97,13 +97,13 @@ Cet article suppose que vous avez déjà installé un système d'exploitation SU
 
 ----------
 
-## <a id="osuse"> </a>Préparation d'openSUSE 13.1+ ##
+## <a id="osuse"> </a>Préparation de openSUSE 13.1+ ##
 
 1. Dans le volet central du Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
 
 2. Cliquez sur **Connecter** pour ouvrir la fenêtre de la machine virtuelle.
 
-3. Sur l'interpréteur de commandes, exécutez la commande " `zypper lr` ". Si cette commande renvoie un résultat similaire au suivant (les numéros de version peuvent varier) :
+3. Sur l'interpréteur de commandes, exécutez la commande ' '`zypper lr`'. Si cette commande renvoie un résultat similaire au suivant (les numéros de version peuvent varier) :
 
 		# | Alias                 | Name                  | Enabled | Refresh
 		--+-----------------------+-----------------------+---------+--------
@@ -119,7 +119,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation SU
 		# sudo zypper ar -f http://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
 		# sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
 
-	Vous pouvez alors réexécuter la commande " `zypper lr` " pour vérifier que ces référentiels ont été ajoutés. Si un des référentiels de mise à jour concernés n'est pas activé, exécutez la commande suivante :
+		Vous pouvez alors réexécuter la commande '`zypper lr`'pour vérifier que ces référentiels ont été ajoutés. Si un des référentiels de mise à jour concernés n'est pas activé, exécutez la commande suivante :
 
 		# sudo zypper mr -e [NUMBER OF REPOSITORY]
 
@@ -128,7 +128,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation SU
 
 		# sudo zypper up kernel-default
 
-	Or to update the system with all the latest patches:
+	Ou, pour mettre à jour le système avec les derniers correctifs :
 
 		# sudo zypper update
 
@@ -157,7 +157,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation SU
 
 10.	Ne créez pas d'espace swap sur le disque du système d'exploitation.
 
-	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque  *temporary* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
+	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -179,4 +179,5 @@ Cet article suppose que vous avez déjà installé un système d'exploitation SU
 
 
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

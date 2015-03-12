@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Connexion à une machine virtuelle exécutant Windows Server" 
 	description="Apprenez à utiliser le portail de gestion Azure pour vous connecter à une machine virtuelle exécutant Windows Server." 
 	services="virtual-machines" 
@@ -23,4 +23,4 @@ Pour vous connecter à une machine virtuelle exécutant Windows Server, utilisez
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
 
-<!--HONumber=45--> 
+<!--HONumber=4-->

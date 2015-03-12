@@ -208,7 +208,7 @@ Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Flask 
 
 <!--External Link references-->
 [Portail de gestion Azure]: https://manage.windowsazure.com
-[Kit de développement logiciel (SDK) Azure pour .NET]: http://azure.microsoft.com/fr-fr/downloads/
+[Kit de développement logiciel (SDK) Azure pour .NET]: http://azure.microsoft.com/downloads/
 [Python Tools 2.1 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Exemples VSIX de Python Tools 2.1 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Outils Azure SDK pour VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
@@ -220,7 +220,7 @@ Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Flask 
 [Débogage distant sur Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Projets Web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
 [Projets de service cloud]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
-[Azure Storage]: http://azure.microsoft.com/fr-fr/documentation/services/storage/
+[Azure Storage]: http://azure.microsoft.com/documentation/services/storage/
 [Kit de développement logiciel (SDK) Azure pour Python]: https://github.com/Azure/azure-sdk-for-python
 
 

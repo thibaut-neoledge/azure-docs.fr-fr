@@ -29,4 +29,4 @@ La procédure suivante permet de créer un service mobile dans Azure et d'ajoute
 
 	Une fois que l'Assistant a terminé, les packages NuGet sont installés, une référence à la bibliothèque cliente Mobile Services est ajoutée au projet et son code source est mis à jour.
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

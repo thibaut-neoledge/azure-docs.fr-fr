@@ -1,6 +1,20 @@
-﻿<properties title="Manage DocumentDB capacity and performance" pageTitle="Gestion des capacités et performances de DocumentDB | Azure" description="Découvrez comment mettre à l'échelle DocumentDB en toute flexibilité pour répondre aux besoins de votre application en matière de performances et de stockage." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Gestion des capacités et performances de DocumentDB | Azure" 
+	description="Découvrez comment mettre à l'échelle DocumentDB en toute flexibilité pour répondre aux besoins de votre application en matière de performances et de stockage." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="mimig"/>
 
 #Gestion des capacités et performances de DocumentDB
 DocumentDB est un service de base de données NoSQL orienté documents, entièrement géré et hautement évolutif.  Avec DocumentDB, il n'est pas nécessaire de louer des machines virtuelles, de déployer des logiciels, de surveiller les bases de données ou de se soucier de la récupération d'urgence. DocumentDB est surveillé en continu par les ingénieurs Microsoft afin de fournir une disponibilité, des performances et une protection des données de qualité.  
@@ -66,3 +80,5 @@ Avec chaque unité de capacité achetée, votre compte est approvisionné avec u
 
 Par défaut, tous les documents sont automatiquement indexés par DocumentDB. Toutefois, si vous voulez affiner le réglage de la surcharge d'index, vous pouvez choisir de supprimer certains documents de l'indexation au moment de l'insertion ou du remplacement d'un document. Vous pouvez configurer une collection DocumentDB de manière à exclure tous les documents de la collection de l'indexation. Vous pouvez également configurer une collection DocumentDB de manière à ce qu'elle indexe de manière sélective uniquement certaines propriétés ou certains chemins d'accès avec des caractères génériques de vos documents JSON.  L'exclusion de propriétés ou documents permet également d'améliorer le débit en écriture, ce qui signifie que vous allez consommer moins d'unités de demande.   
  
+
+<!--HONumber=46--> 

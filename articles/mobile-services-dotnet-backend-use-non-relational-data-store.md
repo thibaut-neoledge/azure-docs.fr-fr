@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Création d'un service à l'aide d'un magasin de données non relationnelles - Azure Mobile Services" description="Découvrez comment utiliser un magasin de données non relationnelles tel que MongoDB ou Azure Table Storage avec votre service mobile .NET" services="" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="mollybos"/>
+﻿<properties 
+	pageTitle="Création d'un service à l'aide d'un magasin de données non relationnelles - Azure Mobile Services" 
+	description="Découvrez comment utiliser un magasin de données non relationnelles tel que MongoDB ou Azure Table Storage avec votre service mobile .NET" 
+	services="" 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender"/>
 
 # Création d'un service à l'aide du magasin de données MongoDB avec le projet .NET principal
 

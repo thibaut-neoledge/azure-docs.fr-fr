@@ -1,6 +1,18 @@
-﻿<properties title="Search diagnostic logs with Application Insights" pageTitle="Recherche des journaux de diagnostic" description="Effectuez une recherche dans les journaux générés avec Trace, NLog ou Log4Net." metaKeywords="analytics web test" authors="awills"  manager="kamrani" />
+﻿<properties 
+	pageTitle="Recherche des journaux de diagnostic" 
+	description="Effectuez une recherche dans les journaux générés avec Trace, NLog ou Log4Net." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-09" 
+	ms.author="awills"/>
  
 # Recherche dans les journaux de diagnostics avec Application Insights
 
@@ -306,3 +318,5 @@ Pas encore, mais toutes ces fonctionnalités sont prévues.
 
 
 
+
+<!--HONumber=46--> 

@@ -369,7 +369,7 @@ pour apprendre à réaliser des tâches de stockage plus complexes.
   [Procédure : Obtention de la longueur de file d'attente]: #get-queue-length
   [Procédure : Suppression d'une file d'attente]: #delete-queue
   [Procédure : Utilisation des signatures d'accès partagé]: #sas
-  [using the REST API]: http://msdn.microsoft.com/fr-FR/library/windowsazure/hh264518.aspx
+  [using the REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
   [Création et déploiement d'une application Node.js dans un site Web Azure]: /fr-FR/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [Node.js Cloud Service with Storage]: /fr-FR/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
@@ -383,8 +383,8 @@ pour apprendre à réaliser des tâches de stockage plus complexes.
   
   
   [Service cloud Node.js]: /fr-FR/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/fr-FR/library/windowsazure/gg433040.aspx
+  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
  [Site Web avec WebMatrix]: /fr-FR/documentation/articles/web-sites-nodejs-use-webmatrix/
 
-<!--HONumber=42-->
+\<!--HONumber=42-->

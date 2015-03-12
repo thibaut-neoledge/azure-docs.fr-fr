@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Offres de sécurité pour les machines virtuelles Azure" 
 	description="Aperçu rapide des principales fonctions de sécurité des machines virtuelles Azure - Liens vers des informations détaillées" 
 	services="virtual-machines" 
@@ -42,4 +42,5 @@ Les listes de contrôle d'accès réseau vous permettent d'accepter ou de refuse
 
 
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

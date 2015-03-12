@@ -275,9 +275,9 @@ Consultez la session [Envoi de tâches MapReduce](#mapreduce) dans cet article.
 * [Prise en main d'Azure HDInsight][hdinsight-get-started]
 
 
-[azure-purchase-options]: http://azure.microsoft.com/fr-fr/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/fr-fr/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/fr-fr/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-get-started]: ../hdinsight-get-started/
 [hdinsight-provision]: ../hdinsight-provision-clusters/
@@ -291,12 +291,11 @@ Consultez la session [Envoi de tâches MapReduce](#mapreduce) dans cet article.
 [hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/
 [hdinsight-upload-data]: ../hdinsight-upload-data/
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 
 [Powershell-install-configure]: ../install-configure-powershell/
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
-
 
 
 <!--HONumber=42-->
