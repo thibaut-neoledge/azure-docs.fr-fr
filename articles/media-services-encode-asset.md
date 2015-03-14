@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Encodage d'une ressource à l'aide de l'encodeur Azure Media" 
 	description="Apprenez à utiliser Azure Media Encoder pour encoder un contenu multimédia sur Media Services. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." 
 	services="media-services" 
@@ -212,7 +212,7 @@ Maintenant que vous savez comment créer une tâche pour encoder un élément mu
 [Préréglage des tâches]: http://msdn.microsoft.com/library/dn619392.aspx
 [Procédure : obtention d'une instance de processeur multimédia]:http://go.microsoft.com/fwlink/?LinkId=301732
 [Procédure : téléchargement d'un élément multimédia chiffré]:http://go.microsoft.com/fwlink/?LinkId=301733
-[Procédure : fourniture d'un élément multimédia par téléchargement].:http://go.microsoft.com/fwlink/?LinkId=301734
+[Procédure : fourniture d'un élément multimédia par téléchargement]:http://go.microsoft.com/fwlink/?LinkId=301734
 [Vérification de la progression des tâches]:http://go.microsoft.com/fwlink/?LinkId=301737
 [Présélection de tâches pour Azure Media Packager]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
 

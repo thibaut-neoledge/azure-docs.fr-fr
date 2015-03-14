@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Créer des rôles Web et de travail" 
 	description="" 
 	services="" 
@@ -100,7 +100,7 @@ Dans certains cas, au lieu de sélectionner un runtime PHP intégré et de le co
 
 Pour configurer un rôle Web pour utiliser un runtime PHP que vous fournissez, procédez comme indiqué ci-dessous.
 
-1. Créez un projet de service Azure et ajoutez un rôle Web PHP comme indiqué dans les sections [ Création d'un projet de services cloud](#CreateProject) et [ Ajout de rôles Web et de travail PHP](#AddRole) ci-dessus.
+1. Créez un projet de service Azure et ajoutez un rôle Web PHP comme indiqué dans les sections [Création d'un projet de services cloud](#CreateProject) et [ Ajout de rôles Web et de travail PHP](#AddRole) ci-dessus.
 2. Créer un dossier `php` dans le dossier `bin` qui se trouve dans le répertoire racine de votre rôle de serveur Web, puis ajoutez votre runtime PHP (tous les fichiers binaires, fichiers de configuration, sous-dossiers, etc.) au dossier `php`.
 3. (FACULTATIF) Si votre runtime PHP utilise les [pilotes Microsoft SQL Server pour PHP][sqlsrv drivers], une fois le rôle de travail mis en service, il vous faudra le configurer pour installer [SQL Server Native Client 2012][sql native client]. Pour cela, ajoutez le programme d'installation `sqlncli.msi` dans le dossier `bin` du répertoire racine de votre rôle Web. Vous pouvez télécharger ce dernier ici : [programme d'installation sqlncli.msi x64]. Le script de démarrage décrit à l'étape suivante exécutera en silence le programme d'installation lorsque le rôle sera mis en service. Si votre runtime PHP n'utilise pas les pilotes Microsoft SQL Server pour PHP, vous pouvez supprimer la ligne suivante dans le script figurant à l'étape suivante :
 
@@ -202,15 +202,15 @@ Pour publier votre application, vous devez d'abord importer vos paramètres de p
 [machines virtuelles de modèle d'exécution]: /fr-fr/develop/net/fundamentals/compute/#VMachine
 [services cloud de modèle d'exécution]: /fr-fr/develop/net/fundamentals/compute/#CloudServices
 [Kit de développement logiciel (SDK) Azure pour PHP]: /fr-fr/develop/php/common-tasks/download-php-sdk/
-[installer ps et les émulateurs]: http://go.microsoft.com/fwlink/?LinkId=253447&clcid=0x409
+[installer ps et émulateurs]: http://go.microsoft.com/fwlink/?LinkId=253447&clcid=0x409
 [Présentation d'un service cloud]: /fr-fr/manage/services/cloud-services/what-is-a-cloud-service/
 [définition de service (.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
 [configuration de service (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
-[client natif sql]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
-[pilotes sqlsrv]: http://php.net/sqlsrv
+[sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
+[sqlsrv drivers]: http://php.net/sqlsrv
 [programme d'installation sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
-[Procédure : Importation des paramètres de publication]: /fr-fr/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
-[Procédure : Déploiement d'un service cloud sur Azure]: /fr-fr/develop/php/how-to-guides/powershell-cmdlets/#Deploy
+[ Importation de paramètres de publication]: /fr-fr/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
+[ Déploiement d'un service cloud sur Azure]: /fr-fr/develop/php/how-to-guides/powershell-cmdlets/#Deploy
 
 <!--HONumber=45--> 

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Gestion des conflits liés aux données hors connexion dans Mobile Services (Windows Store) | Centre de développement mobile" 
 	description="Apprenez à gérer les conflits à l'aide d'Azure Mobile Services lors de la synchronisation des données hors connexion dans votre application Windows Store" 
 	documentationCenter="windows" 
@@ -144,14 +144,14 @@ orsqu'une opération Push est annulée,  `PushAsync` génère une  `MobileServic
 
 
 <!-- Anchors. -->
-[Téléchargement d'un projet d'application Windows Store] : #download-app
+[Téléchargement d'un projet d'application Windows Store]: #download-app
 [Création du service mobile]: #create-service
 [Ajout d'une colonne de date d'échéance pour la base de données]: #add-column
 [Mise à jour de la base de données pour les services mobiles principaux .NET]: #dotnet-backend  
 [Mise à jour de la base de données pour les services mobiles JavaScript]: #javascript-backend
 [Test de l'application sur base d'un service mobile]: #test-app
 [Mise à jour manuelle des données sur le serveur principal afin de créer un conflit]: #handle-conflict
-[Étapes suivantes]:#next-steps
+[Étapes suivantes]: #next-steps
 
 <!-- Images -->
 [0]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
@@ -169,7 +169,7 @@ orsqu'une opération Push est annulée,  `PushAsync` génère une  `MobileServic
 <!-- URLs -->
 [Exemple de code de gestion des conflits]: http://go.microsoft.com/fwlink/?LinkId=394787
 [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-store-get-started/
-[Prise en main de données hors connexion]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
+[Prise en main des données hors connexion]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
 [SQLite pour Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Gestion des conflits de base de données]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app

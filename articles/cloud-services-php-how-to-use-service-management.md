@@ -1,6 +1,6 @@
-﻿<properties 
-	pageTitle="Utilisation des API de gestion des services Azure (PHP)" 
-	description="Découvrez comment utiliser les API de gestion des services PHP Azure pour gérer les services cloud et d'autres applications Azure." 
+<properties 
+	pageTitle="Come usare le API di gestione del servizio Azure (PHP)" 
+	description="Informazioni su come usare le API di gestione del servizio PHP di Azure per gestire servizi cloud e altre applicazioni di Azure." 
 	services="" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
@@ -16,66 +16,66 @@
 	ms.date="11/17/2014" 
 	ms.author="tomfitz"/>
 
-# Utilisation de la gestion des services à partir de PHP
+# Come usare la gestione dei servizi da PHP
 
-Ce guide vous explique comment effectuer des tâches courantes de gestion des services par programme à partir de PHP. La classe [ServiceManagementService] du [Kit de développement logiciel Azure pour PHP][download-SDK-PHP] prend en charge l'accès par programme à la plupart des fonctionnalités liées à la gestion de service disponible dans le [portail de gestion][management-portal] (comme **la création, la mise à jour et la suppression de services cloud, de déploiements, de services de stockage et de groupes d'affinités**). Ces fonctionnalités peuvent être utiles pour la création d'applications nécessitant un accès par programme à la gestion des services. 
+Questa guida descrive come eseguire attività comuni di gestione dei servizi a livello di codice da PHP. La classe [ServiceManagementRestProxy] in [Azure SDK per PHP][download-SDK-PHP] supporta l'accesso a livello di codice per la maggior parte delle funzionalità correlate con la gestione di servizi disponibili nel [portale di gestione][management-portal] (ad esempio **creazione, aggiornamento ed eliminazione dei servizi cloud, distribuzioni, servizi di archiviazione e gruppi di affinità**). Questa funzionalità può rivelarsi utile nella creazione di applicazioni che richiedono accesso a livello di codice alla gestione dei servizi. 
 
-##Sommaire
+##Sommario
 
-* [Présentation de la gestion des services](#WhatIs)
-* [Concepts](#Concepts)
-* [Création d'une application PHP](#CreateApplication)
-* [Obtention des bibliothèques clientes Azure](#GetClientLibraries)
-* [Procédure : Connexion à la gestion des services](#Connect)
-* [Procédure : Affichage de la liste des emplacements disponibles](#ListAvailableLocations)
-* [Procédure : Création d'un service cloud](#CreateCloudService)
-* [Procédure : Suppression d'un service cloud](#DeleteCloudService)
-* [Procédure : Création d'un déploiement](#CreateDeployment)
-* [Procédure : Mise à jour d'un déploiement](#UpdateDeployment)
-* [Procédure : Transfert des déploiements entre les environnements intermédiaire et de production](#MoveDeployments)
-* [Procédure : Suppression d'un déploiement](#DeleteDeployment)
-* [Procédure : Création d'un service de stockage](#CreateStorageService)
-* [Procédure : Suppression d'un service de stockage](#DeleteStorageService)
-* [Procédure : Création d'un groupe d'affinités](#CreateAffinityGroup)
-* [Procédure : Suppression d'un groupe d'affinités](#DeleteAffinityGroup)
+* [Informazioni sulla gestione dei servizi](#WhatIs)
+* [Concetti](#Concepts)
+* [Creare un'applicazione PHP](#CreateApplication)
+* [Acquisire le librerie client di Azure](#GetClientLibraries)
+* [Procedura: Connettersi alla gestione dei servizi](#Connect)
+* [Procedura: Creare un elenco delle località disponibili](#ListAvailableLocations)
+* [Procedura: Creare un servizio cloud](#CreateCloudService)
+* [Procedura: Eliminare un servizio cloud](#DeleteCloudService)
+* [Procedura: Creare una distribuzione](#CreateDeployment)
+* [Procedura: Aggiornare una distribuzione](#UpdateDeployment)
+* [Procedura: Spostare distribuzioni tra gestione temporanea e produzione](#MoveDeployments)
+* [Procedura: Eliminare una distribuzione](#DeleteDeployment)
+* [Procedura: Creare un servizio di archiviazione](#CreateStorageService)
+* [Procedura: Eliminare un servizio di archiviazione](#DeleteStorageService)
+* [Procedura: Creare un gruppo di affinità](#CreateAffinityGroup)
+* [Procedura: Eliminare un gruppo di affinità](#DeleteAffinityGroup)
 
-##<a id="WhatIs"></a>Présentation de la gestion des services
-L'API de gestion des services fournit un accès par programme aux fonctionnalités de gestion des services disponibles par le biais du [portail de gestion][management-portal]. Le Kit de développement logiciel (SDK) Azure pour PHP vous permet de gérer vos services cloud, comptes de stockage et groupes d'affinités.
+##<a id="WhatIs"></a>Informazioni sulla gestione dei servizi
+L'API di gestione del servizio fornisce accesso a livello di codice alla maggior parte delle funzionalità di gestione dei servizi disponibili tramite il [portale di gestione][management-portal]. Azure SDK per PHP consente di gestire i servizi cloud, gli account di archiviazione e i gruppi di affinità.
 
-Pour utiliser l'API de gestion de Service, vous devrez [créer un compte Azure][win-azure-account]. 
+Per usare l'API di gestione del servizio, sarà necessario [creare un account Azure][win-azure-account]. 
 
-##<a id="Concepts"></a>Concepts
-Le Kit de développement logiciel (SDK) Azure pour PHP inclut l'[API de gestion des services Azure][svc-mgmt-rest-api], qui est une API REST. Toutes les opérations de l'API sont effectuées au moyen du protocole SSL et sont mutuellement authentifiées au moyen de certificats X.509 v3. La gestion des services est accessible à partir d'un service s'exécutant dans Azure, ou directement sur Internet à partir de toute application pouvant envoyer une demande HTTPS et recevoir une réponse HTTPS.
+##<a id="Concepts"></a>Concetti
+Azure SDK per PHP include l'[API di gestione del servizio Azure][svc-mgmt-rest-api], ossia un'API REST. Tutte le operazioni dell'API vengono eseguite tramite SSL e autenticate reciprocamente con certificati X.509 v3. Il servizio di gestione è accessibile da un servizio in esecuzione in Azure o direttamente tramite Internet da qualsiasi applicazione in grado di inviare una richiesta HTTPS e ricevere una risposta HTTPS.
 
-##<a id="CreateApplication"></a>Création d'une application PHP
+##<a id="CreateApplication"></a>Creare un'applicazione PHP
 
-La référence de classes dans le Kit de développement logiciel (SDK) Azure pour PHP depuis votre code constitue la seule exigence pour créer une application PHP qui utilise la gestion des services Azure. Vous pouvez utiliser tous les outils de développement pour créer votre application, y compris Bloc-notes.
+Per creare un'applicazione PHP che usa Gestione servizi di Azure, è sufficiente fare riferimento alle classi disponibili in Azure SDK per PHP dall'interno del codice. Per creare l'applicazione, è possibile usare qualsiasi strumento di sviluppo, incluso il Blocco note.
 
-Dans ce guide, vous allez utiliser des fonctionnalités de service qui peuvent être appelées dans une application PHP localement, ou dans du code qui s'exécute dans un rôle Web, un rôle de travail ou un site Web Azure.
+In questa guida si useranno le funzionalità del servizio che possono essere chiamate in un'applicazione PHP in locale o nel codice in esecuzione in un ruolo Web, in un ruolo di lavoro o in un sito Web di Azure.
 
-##<a id="GetClientLibraries"></a>Obtention des bibliothèques clientes Azure
+##<a id="GetClientLibraries"></a>Acquisire le librerie client di Azure
 
 [AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
-##<a id="Connect"></a>Procédure : Connexion à la gestion des services
+##<a id="Connect"></a>Procedura: Connettersi alla gestione dei servizi
 
-Pour vous connecter au point de terminaison de la gestion de services, vous avez besoin de votre ID d'abonnement Azure et du chemin d'accès vers un certificat de gestion valide. Vous pouvez obtenir votre ID d'abonnement par le biais du [portail de gestion][management-portal] et créer des certificats de gestion de différentes manières. Dans ce guide, nous avons utilisé [OpenSSL](http://www.openssl.org/), que vous pouvez [télécharger pour Windows](http://www.openssl.org/related/binaries.html) et exécuter sur une console.
+Per connettersi all'endpoint di gestione dei servizi, sono necessari un ID sottoscrizione di Azure e il percorso di un certificato di gestione valido. È possibile ottenere l'ID sottoscrizione tramite il [portale di gestione][management-portal], nonché creare certificati di gestione in diversi modi. In questa guida viene usato [OpenSSL](http://www.openssl.org/), che è possibile [scaricare nella versione per Windows](http://www.openssl.org/related/binaries.html) ed eseguire in una console.
 
-En fait, vous devez créer deux certificats, un pour le serveur (un fichier `.cer`) et un pour le client (un fichier `.pem`). Pour créer le fichier `.pem`, exécutez ceci :
+È in realtà necessario creare due certificati, uno per il server (un file `.cer`) e uno per il client (un file `.pem`). Per creare il file `.pem`, eseguire questo codice:
 
 	`openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
 
-Pour créer le certificat `.cer`, exécutez ceci :
+Per creare il certificato `.cer`, eseguire questo codice:
 
 	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Pour plus d'informations sur les certificats Azure, consultez la rubrique [Présentation des certificats dans Azure](http://msdn.microsoft.com/library/azure/gg981929.aspx). Pour une description complète des paramètres OpenSSL, consultez la documentation disponible sur [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
+Per altre informazioni sui certificati Azure, vedere la pagina relativa alle [informazioni generali sui certificati in Azure](http://msdn.microsoft.com/library/azure/gg981929.aspx). Per una descrizione completa dei parametri OpenSSL, vedere la documentazione disponibile all'indirizzo [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
-Si vous avez téléchargé et importé le fichier de paramètres de publication au moyen des [outils en ligne de commande Azure][command-line-tools], vous pouvez utiliser le fichier `.pem` créé par les outils au lieu de créer le vôtre. Les outils créent un fichier `.cer` pour vous, le téléchargent sur Azure et placent le fichier `.pem` correspondant dans le répertoire `.azure` de votre ordinateur (dans votre répertoire utilisateur).
+Se il file delle impostazioni di pubblicazione è stato scaricato e importato tramite gli [strumenti da riga di comando di Azure][command-line-tools], è possibile usare il file `.pem` creato dagli strumenti anziché crearne uno personalizzato. Il file `.cer` creato dagli strumenti viene caricato in Azure e contestualmente il file `.pem` viene inserito nella directory `.azure` della directory utente del computer.
 
-Une fois que vous avez créé ces fichiers, vous devez télécharger le fichier `.cer` sur Azure par le biais du [portail de gestion][management-portal]. Prenez note également de l'endroit où vous avez enregistré le fichier `.pem`.
+Dopo aver creato questi file, è necessario caricare il file `.cer` in Azure tramite il [portale di gestione][management-portal], nonché prendere nota del percorso in cui è stato salvato il file `.pem`.
 
-Une fois que vous avez obtenu votre ID d'abonnement, créé un certificat et téléchargé le fichier `.cer` sur Azure, vous pouvez vous connecter au point de terminaison de gestion Azure en créant une chaîne de connexion et en la transmettant à la méthode **createServiceManagementService** sur la classe **ServicesBuilder** :
+Dopo avere ottenuto l'ID sottoscrizione, avere creato un certificato e avere caricato il file `.cer` in Azure, è possibile connettersi all'endpoint di gestione di Azure creando una stringa di connessione che verrà passata al metodo **createServiceManagementService** nella classa **ServicesBuilder**:
 
 	require_once 'vendor\autoload.php';
 	
@@ -85,11 +85,11 @@ Une fois que vous avez obtenu votre ID d'abonnement, créé un certificat et té
 
 	$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
 
-Dans l'exemple ci-dessus, `$serviceManagementRestProxy` est un objet [ServiceManagementRestProxy]. La classe **ServiceManagementRestProxy** est la classe principale utilisée pour gérer les services Azure. 
+Nell'esempio precedente `$serviceManagementRestProxy` è un oggetto [ServiceManagementRestProxy]. La **ServiceManagementRestProxy** è la classe principale usata per gestire i servizi di Azure. 
 
-##<a id="ListAvailableLocations"></a>Procédure : Affichage de la liste des emplacements disponibles
+##<a id="ListAvailableLocations"></a>Procedura: Creare un elenco delle località disponibili
 
-Pour afficher la liste des emplacements disponibles pour les services d'hébergement, utilisez la méthode **ServiceManagementRestProxy->listLocations** :
+Per elencare le località disponibili per i servizi di hosting, usare il metodo **ServiceManagementRestProxy->listLocations**:
 
 	require_once 'vendor\autoload.php';
 
@@ -116,26 +116,26 @@ Pour afficher la liste des emplacements disponibles pour les services d'héberge
 		echo $code.": ".$error_message."<br />";
 	}
 
-Lorsque vous créez un service cloud, un service de stockage ou un groupe d'affinités, vous devez fournir un emplacement valide. La méthode **listLocations** renvoie toujours une liste à jour des emplacements disponibles actuellement. Lors de la rédaction de cet article, les emplacements disponibles étaient les suivants :
+Quando si crea un servizio cloud, un servizio di archiviazione o un gruppo di affinità, è necessario fornire una località valida. Il metodo **listLocations** restituirà sempre un elenco aggiornato delle località attualmente disponibili. Al momento della stesura di questo articolo, le località disponibili sono le seguenti:
 
-- États-Unis 
-- Europe 
-- Europe de l'Ouest 
-- Asie 
-- Asie du Sud-Est 
-- Asie de l'Est 
-- Nord du centre des États-Unis 
-- Europe du Nord 
-- Sud du centre des États-Unis 
-- Ouest des États-Unis 
-- Est des États-Unis
+- Ovunque negli Stati Uniti 
+- Ovunque in Europa 
+- Europa occidentale 
+- Ovunque in Asia 
+- Asia sudorientale 
+- East Asia 
+- Stati Uniti centro-settentrionali 
+- Europa settentrionale 
+- Stati Uniti centro-meridionali 
+- Stati Uniti occidentali 
+- Stati Uniti Orientali
 
 > [AZURE.NOTE]
-> Dans les exemples de code suivants, les emplacements sont transmis aux méthodes sous forme de chaînes. Cependant, vous avez également la possibilité de les transmettre sous forme d'énumérations au moyen de la classe <code>WindowsAzure\ServiceManagement\Models\Locations</code> . Par exemple, au lieu de transmettre " West US " (Ouest des États-Unis) à une méthode acceptant un emplacement, vous pouvez transmettre <code>Locations::WEST_US</code>.
+> Nei seguenti esempi di codice le località vengono passate ai metodi sotto forma di stringhe. È tuttavia possibile passarle sotto forma di enumerazioni usando la classe <code>WindowsAzure\ServiceManagement\Models\Locations</code> . Ad esempio, anziché passare "Stati Uniti occidentali" a un metodo che accetta una località è possibile passare <code>Locations::WEST_US</code>.
 
-##<a id="CreateCloudService"></a>Procédure : Création d'un service cloud
+##<a id="CreateCloudService"></a>Procedura: Creare un servizio cloud
 
-Lorsque vous créez une application et que vous l'exécutez dans Azure, l'ensemble constitué du code et de la configuration est appelé [service cloud] Azure (également connu sous le nom de *hosted service* dans les versions antérieures d'Azure). La méthode **createHostedServices** vous permet de créer un service hébergé en fournissant un nom de service hébergé (qui doit être unique dans Azure), une étiquette (le nom du service hébergé automatiquement codé en base64) et un objet **CreateServiceOptions**. L'objet [CreateServiceOptions] vous permet de configurer un emplacement *or* ou le groupe d'affinités pour votre service. 
+Quando si crea un'applicazione e la si esegue in Azure, la combinazione del codice e della configurazione costituisce il cosiddetto [servizio cloud] (noto come *hosted service* nelle versioni precedenti di Azure). Il metodo **createHostedServices** consente di creare un nuovo servizio ospitato specificando un nome di servizio ospitato (che deve essere univoco in Azure), un'etichetta (nome del servizio ospitato con codifica Base 64) e un oggetto **CreateServiceOptions**. L'oggetto [CreateServiceOptions] consente di impostare la posizione *or* il gruppo di affinità del servizio. 
 
 	require_once 'vendor\autoload.php';
 
@@ -165,7 +165,7 @@ Lorsque vous créez une application et que vous l'exécutez dans Azure, l'ensemb
 		echo $code.": ".$error_message."<br />";
 	}
 
-Vous pouvez afficher la liste de tous les services hébergés pour votre abonnement au moyen de la méthode **listHostedServices**, qui renvoie un objet [ListHostedServicesResult]. En appelant la méthode **getHostedServices**, vous pouvez ensuite créer une boucle sur un tableau d'objets [HostedServices] et extraire les propriétés des services :
+Per elencare tutti i servizi ospitati per la sottoscrizione, è possibile usare il metodo **listHostedServices**, che restituisce un oggetto [ListHostedServicesResult]. La chiamata al metodo **getHostedServices** consente quindi di eseguire il ciclo in una matrice di oggetti [HostedServices] e di recuperare le proprietà dei servizi:
 
 	$listHostedServicesResult = $serviceManagementRestProxy->listHostedServices();
 
@@ -179,7 +179,7 @@ Vous pouvez afficher la liste de tous les services hébergés pour votre abonnem
 		echo "------<br />";
 		}
 
-Si vous souhaitez obtenir des informations sur un service hébergé particulier, transmettez son nom à la méthode **getHostedServiceProperties** :
+Per ottenere eventuali informazioni su un particolare servizio ospitato, passare il nome del servizio ospitato al metodo **getHostedServiceProperties**:
 
 	$getHostedServicePropertiesResult = $serviceManagementRestProxy->getHostedServiceProperties("myhostedservice");
 		
@@ -190,28 +190,28 @@ Si vous souhaitez obtenir des informations sur un service hébergé particulier,
 	echo "Affinity group: ".$hosted_service->getAffinityGroup()."<br />";
 	echo "Location: ".$hosted_service->getLocation()."<br />";
 
-Une fois que vous avez créé un service cloud, vous pouvez déployer votre code sur le service avec la méthode [createDeployment](#CreateDeployment) .
+Dopo avere creato un servizio cloud è possibile distribuire il codice al servizio con il metodo [createDeployment](#CreateDeployment). 
 
-##<a id="DeleteCloudService"></a>Procédure : Suppression d'un service cloud
+##<a id="DeleteCloudService"></a>Procedura: Eliminare un servizio cloud
 
-Vous pouvez supprimer un service cloud en transmettant son nom à la méthode **deleteHostedService** :
+È possibile eliminare un servizio cloud passando il nome del servizio al metodo **deleteHostedService**:
 
 	$serviceManagementRestProxy->deleteHostedService("myhostedservice");
 
-Notez qu'avant de supprimer un service, vous devez supprimer tous les déploiements associés (Pour plus d'informations, consultez la rubrique [ Suppression d'un déploiement](#DeleteDeployment) .
+Si noti che prima di eliminare un servizio è necessario eliminare tutte le distribuzioni del servizio. Per informazioni dettagliate, vedere [Procedura: Eliminare una distribuzione](#DeleteDeployment) per informazioni dettagliate.
 
-##<a id="CreateDeployment"></a>Procédure : Création d'un déploiement
+##<a id="CreateDeployment"></a>Procedura: Creare una distribuzione
 
-La méthode **createDeployment** télécharge un nouveau [package de service] et crée un déploiement dans l'environnement intermédiaire ou de production. Les paramètres de cette méthode sont les suivants :
+Il metodo **createDeployment** consente di caricare un nuovo [pacchetto del servizio] e di creare una nuova distribuzione nell'ambiente di gestione temporanea o di produzione. I parametri per questo metodo sono i seguenti:
 
-* **$name** : nom du service hébergé.
-* **$deploymentName** : nom du déploiement.
-* **$slot** : énumération indiquant l'emplacement intermédiaire ou de production.
-* **$packageUrl** : URL du package de déploiement (fichier .cspgk). Le fichier de package doit être stocké dans un compte de stockage d'objets blob Azure sous le même abonnement que le service hébergé sur lequel le package est téléchargé. Vous pouvez créer un package de déploiement au moyen des [applets de commande Azure PowerShell] ou de l'[outil de ligne de commande cspack].
-* **$configuration** : fichier de configuration de service (fichier .cscfg).
-* **$label** : nom du service hébergé codé en base64.
+* **$name**: nome del servizio ospitato.
+* **$deploymentName**: nome della distribuzione.
+* **$slot**: enumerazione indicante lo slot di gestione temporanea o di produzione.
+* **$packageUrl**: URL del pacchetto di distribuzione (file con estensione cspgk). Il file del pacchetto deve essere archiviato in un account di archiviazione BLOB di Azure nella stessa sottoscrizione del servizio ospitato nel quale viene caricato il pacchetto. È possibile creare un pacchetto di distribuzione con i [cmdlet di Azure PowerShell] oppure con lo [strumento da riga di comando cspack].
+* **$configuration**: file di configurazione del servizio con estensione cscfg.
+* **$label**: nome del servizio ospitato con codifica Base 64.
 
-L'exemple suivant crée un déploiement dans l'emplacement de production d'un service hébergé nommé `myhostedservice` :
+Il seguente esempio crea una nuova distribuzione nello slot di produzione di un servizio ospitato denominato `myhostedservice`:
 
 
 	require_once 'vendor\autoload.php';
@@ -250,9 +250,9 @@ L'exemple suivant crée un déploiement dans l'emplacement de production d'un se
 		echo $code.": ".$error_message."<br />";
 	}
 
-Dans l'exemple ci-dessus, notez que l'état de l'opération **createDeployment** peut être extrait en transmettant le résultat renvoyé par **createDeployment** à la méthode **getOperationStatus**.
+Si noti nell'esempio precedente che è possibile recuperare lo stato dell'operazione **createDeployment** passando il risultato restituito da **createDeployment** al metodo **getOperationStatus**.
 
-Vous pouvez accéder aux propriétés de déploiement à l'aide de la méthode **getDeployment**. L'exemple suivant permet d'extraire un déploiement en spécifiant son emplacement dans l'objet [GetDeploymentOptions], mais vous pourriez tout aussi bien spécifier le nom du déploiement. Il effectue également une itération dans toutes les instances du déploiement :
+È possibile accedere alle proprietà di distribuzione con il metodo **getDeployment**. Il seguente esempio recupera una distribuzione specificando lo slot di distribuzione nell'oggetto [GetDeploymentOptions], tuttavia è anche possibile specificare il nome della distribuzione. Il seguente esempio esegue l'iterazione in tutte le istanze per la distribuzione:
 
 	$options = new GetDeploymentOptions();
 	$options->setSlot(DeploymentSlot::PRODUCTION);
@@ -272,11 +272,11 @@ Vous pouvez accéder aux propriétés de déploiement à l'aide de la méthode *
 	}
 	echo "------<br />";
 
-##<a id="UpdateDeployment"></a>Procédure : Mise à jour d'un déploiement
+##<a id="UpdateDeployment"></a>Procedura: Aggiornare una distribuzione
 
-Vous pouvez mettre un déploiement à jour à l'aide de la méthode **changeDeploymentConfiguration** ou **updateDeploymentStatus**.
+È possibile aggiornare una distribuzione usando il metodo **changeDeploymentConfiguration** o **updateDeploymentStatus**.
 
-La méthode **changeDeploymentConfiguration** vous permet de télécharger un nouveau fichier de configuration de service (`.cscfg`), qui changera n'importe quel paramètre de service (y compris le nombre d'instances dans un déploiement). Pour plus d'informations, consultez la rubrique [Schéma de configuration de service Azure (.cscfg)]. L'exemple suivant indique comment télécharger un nouveau fichier de configuration de service :
+Il metodo **changeDeploymentConfiguration** consente di caricare un nuovo file di configurazione del servizio (`.cscfg`). Ciò comporterà la modifica di tutte le impostazioni del servizio desiderate, incluso il numero di istanze in una distribuzione. Per altre informazioni, vedere [Schema di configurazione dei servizi di Azure (file .cscfg)]. Il seguente esempio illustra come caricare un nuovo file di configurazione del servizio:
 
 	require_once 'vendor\autoload.php';
 
@@ -308,9 +308,9 @@ La méthode **changeDeploymentConfiguration** vous permet de télécharger un no
 		echo $code.": ".$error_message."<br />";
 	}
 
-Dans l'exemple ci-dessus, notez que l'état de l'opération **changeDeploymentConfiguration** peut être extrait en transmettant le résultat renvoyé par **changeDeploymentConfiguration** à la méthode **getOperationStatus**.
+Si noti nell'esempio precedente che è possibile recuperare lo stato dell'operazione **changeDeploymentConfiguration** passando il risultato restituito da **changeDeploymentConfiguration** al metodo **getOperationStatus**.
 
-La méthode **updateDeploymentStatus** vous permet de définir un état de déploiement sur RUNNING ou SUSPENDED. L'exemple suivant explique comment définir l'état sur RUNNING pour un déploiement de l'emplacement de production d'un service hébergé appelé `myhostedservice` :
+Il metodo **updateDeploymentStatus** consente di impostare uno stato di distribuzione su RUNNING o SUSPENDED. Il seguente esempio illustra come impostare su RUNNING lo stato di una distribuzione nello slot di produzione di un servizio ospitato denominato `myhostedservice`:
 
 	require_once 'vendor\autoload.php';
 
@@ -338,11 +338,11 @@ La méthode **updateDeploymentStatus** vous permet de définir un état de dépl
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="MoveDeployments"></a>Procédure : des déploiements entre les environnements intermédiaire et de production
+##<a id="MoveDeployments"></a>Procedura: Spostare distribuzioni tra gestione temporanea e produzione
 
-Azure fournit deux environnements de déploiement : intermédiaire et de production. Généralement, un service est déployé dans l'environnement intermédiaire pour être testé avant son déploiement dans l'environnement de production. Lorsqu'il est temps de promouvoir le service de l'environnement intermédiaire à l'environnement de production, vous pouvez le faire sans redéployer le service. Pour cela, intervertissez les déploiements (Pour plus d'informations sur l'échange de déploiements, consultez la rubrique [Présentation de la gestion des déploiements dans Azure].)
+Azure fornisce due ambienti di distribuzione: gestione temporanea e produzione. In genere un servizio viene distribuito nell'ambiente di gestione temporanea per testarlo prima di distribuirlo nell'ambiente di produzione. L'operazione di innalzamento di livello del servizio dall'ambiente di gestione temporanea a quello di produzione può essere effettuata senza ridistribuire il servizio, ma semplicemente scambiando le distribuzioni. Per altre informazioni sullo scambio delle distribuzioni, vedere l'articolo relativo alle [informazioni generali sulla gestione delle distribuzioni in Azure].
 
-L'exemple suivant indique comment utiliser la méthode **swapDeployment** pour intervertir deux déploiements (avec les noms `v1` et `v2`). Dans l'exemple, avant l'appel de **swapDeployment**, le déploiement `v1` se trouve dans l'emplacement de production, et le déploiement `v2` dans l'emplacement intermédiaire. Après avoir appelé **swapDeployment**, `v2` en production et `v1` est en transit.  
+Il seguente esempio illustra come usare il metodo **swapDeployment** per scambiare due distribuzioni i cui nomi sono `v1` e `v2`. Nell'esempio, prima di chiamare il metodo **swapDeployment**, la distribuzione `v1` si trova nello slot di produzione, mentre la distribuzione `v2` si trova nello slot di gestione temporanea. Dopo la chiamata a **swapDeployment**, la distribuzione di `v2` risulta in produzione e la distribuzione di `v1` in gestione temporanea.  
 
 	require_once 'vendor\autoload.php';	
 
@@ -364,9 +364,9 @@ L'exemple suivant indique comment utiliser la méthode **swapDeployment** pour i
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="DeleteDeployment"></a>Procédure : Suppression d'un déploiement
+##<a id="DeleteDeployment"></a>Procedura: Eliminare una distribuzione
 
-Pour supprimer un déploiement, utilisez la méthode **deleteDeployment**. L'exemple suivant indique comment supprimer un déploiement dans l'environnement intermédiaire à l'aide de la méthode **setSlot** sur un objet [GetDeploymentOptions], puis en le transmettant à **deleteDeployment**. Au lieu de spécifier un déploiement par emplacement, vous avez la possibilité d'utiliser la méthode **setName** sur la classe [GetDepolymentOptions] pour spécifier un déploiement par nom de déploiement.
+Per eliminare una distribuzione, usare il metodo **deleteDeployment**. Il seguente esempio illustra come eliminare una distribuzione nell'ambiente di gestione temporanea usando il metodo **setSlot** su un oggetto [GetDeploymentOptions] e quindi passandolo a **deleteDeployment**. Anziché specificare una distribuzione in base allo slot, è possibile usare il metodo **setName** sulla classe [GetDeploymentOptions] per specificare una distribuzione in base al nome.
 
 	require_once 'vendor\autoload.php';
 
@@ -393,9 +393,9 @@ Pour supprimer un déploiement, utilisez la méthode **deleteDeployment**. L'exe
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="CreateStorageService"></a>Procédure : Création d'un service de stockage
+##<a id="CreateStorageService"></a>Procedura: Creare un servizio di archiviazione
 
-Un [service de stockage] vous donne accès à des [BLOB][azure-blobs], des [tables][azure-tables] et des [files d'attente][azure-queues] Azure. Pour créer un service de stockage, vous avez besoin d'un nom pour le service (comprenant entre 3 et 24 lettres minuscules et unique au sein d'Azure), d'une étiquette (nom de service automatiquement codé en base64 comprenant jusqu'à 100 caractères) et d'un emplacement ou d'un groupe d'affinités. Il n'est pas obligatoire de fournir une description. L'emplacement, le groupe d'affinités et la description se définissent dans un objet [CreateServiceOptions], qui est transmis à la méthode **createStorageService**. L'exemple suivant indique comment créer un service de stockage en spécifiant un emplacement. Si vous voulez utiliser un groupe d'affinités, vous devez au préalable créer un groupe d'affinités (consultez la rubrique [ Création d'un groupe d'affinités](#CreateAffinityGroup)) et le définir avec la méthode **CreateServiceOptions->setAffinityGroup**.
+Un [servizio di archiviazione] offre l'accesso a [BLOB][azure-blobs], [tabelle][azure-tables] e [code][azure-queues] di Azure. Per creare un servizio di archiviazione, è necessario assegnare al servizio un nome di lunghezza compresa tra 3 e 24 caratteri minuscoli e univoco in Azure, nonché un'etichetta, ovvero un nome con codifica in Base 64 composto da un massimo di 100 caratteri, e infine una località o un gruppo di affinità. Facoltativamente, è anche possibile specificare una descrizione. La località, il gruppo di affinità e la descrizione sono impostate in un oggetto [CreateServiceOptions], che viene passato al metodo **createStorageService**. Il seguente esempio illustra come creare un servizio di archiviazione specificando una località. Se si desidera usare un gruppo di affinità, è necessario prima crearlo (vedere [Procedura: Creare un gruppo di affinità](#CreateAffinityGroup)) e quindi configurarlo con il metodo **CreateServiceOptions->setAffinityGroup**.
 
 	require_once 'vendor\autoload.php';
 	 
@@ -428,9 +428,9 @@ Un [service de stockage] vous donne accès à des [BLOB][azure-blobs], des [tabl
 		echo $code.": ".$error_message."<br />";
 	}
 
-Dans l'exemple ci-dessus, notez que l'état de l'opération **createStorageService** peut être extrait en transmettant le résultat renvoyé par **createStorageService** à la méthode **getOperationStatus**.  
+Si noti nell'esempio precedente che è possibile recuperare lo stato dell'operazione **createStorageService** passando il risultato restituito da **createStorageService** al metodo **getOperationStatus**.  
 
-Vous pouvez afficher la liste de vos comptes de stockage et leurs propriétés avec la méthode **listStorageServices** :
+È possibile elencare gli account di archiviazione e le relative proprietà con il metodo **listStorageServices**:
 
 	// Create REST proxy.
 	$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
@@ -445,9 +445,9 @@ Vous pouvez afficher la liste de vos comptes de stockage et leurs propriétés a
 		echo "------<br />";
 	}
 
-##<a id="DeleteStorageService"></a>Procédure : Suppression d'un service de stockage
+##<a id="DeleteStorageService"></a>Procedura: Eliminare un servizio di archiviazione
 
-Vous pouvez supprimer un service de stockage en transmettant son nom à la méthode **deleteStorageService**. la suppression d'un service de stockage supprime toutes les données qui y sont stockées (objets blob, tables et files d'attente).
+È possibile eliminare un servizio di archiviazione passando il relativo nome al metodo **deleteStorageService**. L'eliminazione di un servizio di archiviazione comporta l'eliminazione di tutti i dati archiviati nel servizio (BLOB, tabelle e code).
 
 	require_once 'vendor\autoload.php';
 	
@@ -469,11 +469,11 @@ Vous pouvez supprimer un service de stockage en transmettant son nom à la méth
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="CreateAffinityGroup"></a>Procédure : Création d'un groupe d'affinités
+##<a id="CreateAffinityGroup"></a>Procedura: Creare un gruppo di affinità
 
-Un groupe d'affinités est un groupement logique de services Azure indiquant à Azure de localiser les services en vue de performances optimisées. Par exemple, vous pouvez créer un groupe d'affinités à l'emplacement " West US " (Ouest des États-Unis), puis créer un [service cloud](#CreateCloudService) dans ce groupe d'affinités. Si vous créez ensuite un service de stockage dans le même groupe d'affinités, Azure sait qu'il doit le placer dans l'emplacement " West US " et l'optimiser au sein du centre de données pour des performances optimales avec les services cloud dans le même groupe d'affinités.
+Un gruppo di affinità è un raggruppamento logico di servizi di Azure che consente di individuare i servizi per ottimizzare le prestazioni. È ad esempio possibile creare un gruppo di affinità nella località "Stati Uniti occidentali" e quindi creare un [servizio cloud](#CreateCloudService) in tale gruppo. Se successivamente si crea un servizio di archiviazione nello stesso gruppo di affinità, questo verrà inserito nella località "Stati Uniti occidentali" e ottimizzato per il data center al fine di garantire le migliori prestazioni con i servizi cloud nello stesso gruppo di affinità.
 
-Pour créer un groupe d'affinités, vous avez besoin d'un nom, d'une étiquette (automatiquement codée en base64) et d'un emplacement. Vous avez également la possibilité de fournir une description :
+Per creare un gruppo di affinità, sono necessari un nome, un'etichetta (con codifica in Base 64) e una località. Facoltativamente, è possibile specificare una descrizione:
 
 	require_once 'vendor\autoload.php';
 	
@@ -503,9 +503,9 @@ Pour créer un groupe d'affinités, vous avez besoin d'un nom, d'une étiquette 
 		echo $code.": ".$error_message."<br />";
 	}
 
-Une fois que vous avez créé un groupe d'affinités, vous pouvez spécifier le groupe (au lieu d'un emplacement) lors de la [création d'un service de stockage](#CreateStorageService).
+Dopo avere creato un gruppo di affinità è possibile specificare il gruppo (anziché una località) durante la [creazione di un gruppo di archiviazione](#CreateStorageService).
 
-Vous pouvez afficher la liste des groupes d'affinités et inspecter leurs propriétés en appelant la méthode **listAffinityGroups**, puis les méthodes appropriées sur la classe [AffinityGroup] :
+È possibile elencare gruppi di affinità e ispezionarne le proprietà chiamando il metodo **listAffinityGroups** e quindi chiamando i metodi appropriati sulla classe [AffinityGroup]:
 
 	$result = $serviceManagementRestProxy->listAffinityGroups();
 	
@@ -518,9 +518,9 @@ Vous pouvez afficher la liste des groupes d'affinités et inspecter leurs propri
 		echo "------<br />";
 	}
 
-##<a id="DeleteAffinityGroup"></a>Procédure : Suppression d'un groupe d'affinités
+##<a id="DeleteAffinityGroup"></a>Procedura: Eliminare un gruppo di affinità
 	
-Vous pouvez supprimer un groupe d'affinités en transmettant son nom à la méthode **deleteAffinityGroup**. Notez qu'avant de pouvoir supprimer un groupe d'affinités, ce dernier doit être dissocié de tout service (ou les services utilisant le groupe d'affinités doivent être supprimés).
+È possibile eliminare un gruppo di affinità passando il relativo nome al metodo **deleteAffinityGroup**. Si noti che per eliminare un gruppo di affinità, è prima necessario annullare la relativa associazione da qualsiasi servizio oppure eliminare i servizi che lo usano.
 
 	require_once 'vendor\autoload.php';
 	
@@ -547,7 +547,7 @@ Vous pouvez supprimer un groupe d'affinités en transmettant son nom à la méth
 [ServiceManagementRestProxy]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementRestProxy.php
 [management-portal]: https://manage.windowsazure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
-[win-azure-account]: /fr-fr/pricing/free-trial/
+[win-azure-account]: /it-it/pricing/free-trial/
 [storage-account]: ../storage-create-storage-account/
 
 [download-SDK-PHP]: ../php-download-sdk/
@@ -555,24 +555,24 @@ Vous pouvez supprimer un groupe d'affinités en transmettant son nom à la méth
 [Composer]: http://getcomposer.org/
 [ServiceManagementSettings]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementSettings.php
 
-[service cloud]: ../cloud-services-what-is/
+[servizio cloud]: ../cloud-services-what-is/
 [CreateServiceOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/CreateServiceOptions.php
 [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/ListHostedServicesResult.php
 
-[package de service]: http://msdn.microsoft.com/library/windowsazure/gg433093
-[applets de commande Azure PowerShell]: ../install-configure-powershell/
-[outil de ligne de commande cspack]: http://msdn.microsoft.com/library/windowsazure/gg432988.aspx
+[pacchetto del servizio]: http://msdn.microsoft.com/library/windowsazure/gg433093
+[Cmdlet di Azure PowerShell]: ../install-configure-powershell/
+[Strumento da riga di comando cspack]: http://msdn.microsoft.com/library/windowsazure/gg432988.aspx
 [GetDeploymentOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
 [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
 
-[Présentation de la gestion des déploiements dans Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
-[service de stockage]: ../storage-whatis-account/
+[Informazioni generali sulla gestione delle distribuzioni in Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
+[servizio di archiviazione]: ../storage-whatis-account/
 [azure-blobs]: ../storage-php-how-to-use-blobs/
 [azure-tables]: ../storage-php-how-to-use-table-storage/
 [azure-queues]: ../storage-php-how-to-use-queues/
 [AffinityGroup]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/AffinityGroup.php
 
 
-[Schéma de configuration de service Azure (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+[Schema di configurazione dei servizi di Azure (file .cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 
 <!--HONumber=45--> 
