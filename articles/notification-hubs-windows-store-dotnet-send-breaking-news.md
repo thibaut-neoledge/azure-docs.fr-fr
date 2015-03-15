@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Utilisation de Notification Hubs pour diffuser les dernières nouvelles (Windows Universal) 
+	pageTitle="Utilisation de Notification Hubs pour diffuser les dernières nouvelles (Windows Universal)" 
 	description="Utilisez Azure Notification Hubs avec des balises dans l'inscription pour envoyer les dernières nouvelles à une application Windows universelle." 
 	services="notification-hubs" 
 	documentationCenter="windows" 
