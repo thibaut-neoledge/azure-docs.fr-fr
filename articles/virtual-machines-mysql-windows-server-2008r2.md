@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Création d'une machine virtuelle exécutant MySQL dans Azure" 
 	description="Création d'une machine virtuelle Azure exécutant Windows Server 2008 R2 ; installation et configuration d'une base de données MySQL sur cette machine virtuelle" 
 	services="virtual-machines" 
@@ -147,14 +147,6 @@ Pour plus d'informations sur MySQL, consultez la [documentation MySQL](http://de
 
 [AzurePreviewPortal]: http://manage.windowsazure.com
 [MySQLDownloads]: http://www.mysql.com/downloads/mysql/
-
-
-[MySQLConfig5]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig5.png
-[MySQLConfig7]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig7.png
-[MySQLConfig8]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig8.png
-[MySQLConfig9]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig9.png
-[MySQLConfig10]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig10.png
-
 
 
 <!--HONumber=42-->
