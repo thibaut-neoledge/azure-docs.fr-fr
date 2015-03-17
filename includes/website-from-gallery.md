@@ -1,4 +1,4 @@
-﻿La galerie met à votre disposition une large gamme d'applications web développées par Microsoft, par des sociétés tierces ou par des initiatives de logiciel open source. Les applications Web créées à partir de la galerie ne requièrent pas l'installation de logiciel autre que le navigateur Web utilisé pour se connecter au portail de gestion Azure. 
+La galerie met à votre disposition une large gamme d'applications web développées par Microsoft, par des sociétés tierces ou par des initiatives de logiciel open source. Les applications Web créées à partir de la galerie ne requièrent pas l'installation de logiciel autre que le navigateur Web utilisé pour se connecter au portail de gestion Azure. 
 
 Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
@@ -53,11 +53,11 @@ Une fois que vous avez cliqué sur **Terminé**, Azure lance les opérations de 
 
 2. Dans la page de gestion **Tableau de bord**, faites défiler et cliquez sur le lien sur la gauche sous **URL du site** pour ouvrir la page d'accueil du site.
 
-	![site URL][11] 
+
 
 3. Entrez les informations de configuration appropriées requises par WordPress et cliquez sur **Installer WordPress** pour finaliser la configuration et ouvrir la page de connexion du site web.
 
-	![login to WordPress][12]
+
 
 4. Connectez-vous au nouveau site web WordPress en entrant le nom d'utilisateur et le mot de passe spécifiés sur la page **Bienvenue**.
 
@@ -76,7 +76,6 @@ Une fois que vous avez cliqué sur **Terminé**, Azure lance les opérations de 
 [8]: ./media/website-from-gallery/wordpressgallery-04.png
 [9]: ./media/website-from-gallery/wordpressgallery-05.png
 [10]: ./media/website-from-gallery/wordpressgallery-06.png
-
 [13]: ./media/website-from-gallery/wordpressgallery-09.png
 
 

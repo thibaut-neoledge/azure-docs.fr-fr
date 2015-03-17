@@ -38,11 +38,11 @@ Remarque : un Kit de développement logiciel (SDK) est disponible pour les déve
 * [Procédure : Suppression d'un conteneur d'objets blob](#DeleteContainer)
 * [Étapes suivantes](#NextSteps)
 
-[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
 <h2><a id="CreateAccount"></a>Création d'un compte Azure Storage</h2>
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## <a name="CreateApplication"></a>Création d'une application Java
 

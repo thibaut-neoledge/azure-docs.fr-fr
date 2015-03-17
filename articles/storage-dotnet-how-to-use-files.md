@@ -80,7 +80,7 @@ Un stockage de fichiers Azure est actuellement disponible en version préliminai
 
 > [AZURE.NOTE] Le stockage de fichiers n'est actuellement disponible que pour les nouveaux comptes de stockage. Lorsque votre abonnement peut accéder au stockage de fichiers, créez un compte de stockage à utiliser avec ce guide.
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ##<a name="use-cmdlets"></a>Utilisation de PowerShell pour créer un partage de fichiers
 

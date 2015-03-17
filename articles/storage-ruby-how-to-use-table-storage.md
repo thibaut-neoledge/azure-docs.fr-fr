@@ -47,7 +47,7 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utili
 
 ## <a id="create-a-windows-azure-storage-account"></a>Création d'un compte de stockage Azure
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## <a id="create-a-ruby-application"></a>Création d'une application Ruby
 

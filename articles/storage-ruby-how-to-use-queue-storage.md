@@ -47,7 +47,7 @@ Les scénarios traités incluent l'**insertion**, la **lecture furtive**, la **r
 
 ## <a id="CreateAccount"></a>Création d'un compte Azure Storage
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## <a id="create-a-ruby-application"></a>Création d'une application Ruby
 

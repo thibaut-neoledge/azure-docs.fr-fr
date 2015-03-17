@@ -45,10 +45,10 @@ consultez la section [Étapes suivantes][].
 * [Procédure : Utilisation des signatures d'accès partagé][]     
 * [Étapes suivantes][]
 
-[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
 ##<a name="create-account"></a>Création d'un compte Azure Storage
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## <a name="create-app"></a>Création d'une application Node.js
 

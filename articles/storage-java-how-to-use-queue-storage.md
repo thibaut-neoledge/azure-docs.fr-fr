@@ -45,7 +45,7 @@ Remarque : un Kit de développement logiciel (SDK) est disponible pour les déve
 
 <h2><a id="CreateAccount"></a>Création d'un compte Azure Storage</h2>
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## <a name="CreateApplication"></a>Création d'une application Java
 

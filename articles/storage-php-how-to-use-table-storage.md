@@ -43,7 +43,7 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utili
 
 ##<a id="CreateAccount"></a>Création d'un compte Azure Storage
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ##<a id="CreateApplication"></a>Création d'une application PHP
 

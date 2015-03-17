@@ -43,7 +43,7 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utili
 
 <h2><a name="create-account"></a>Création d'un compte Azure Storage</h2>
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## <a name="create-app"></a>Création d'une application Node.js
 

@@ -39,7 +39,7 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utili
 [AZURE.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <a name="create-account"></a>Création d'un compte de stockage Azure
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 
 **Remarque :** si vous devez installer Python ou les bibliothèques clientes, veuillez consulter le [Guide d'installation de Python](../python-how-to-install/).
