@@ -244,7 +244,7 @@ Ici, vous accédez à une variable d'environnement que vous configurerez plus ta
         mongoServer = client.GetServer();
         MongoDatabase database = mongoServer.GetDatabase(dbName);
         MongoCollection<Note> noteCollection = database.GetCollection<Note>(collectionName);
-  There's nothing to change here; Just be aware that this is how you get a MongoCollection object for performing inserts, updates, and queries, such as the following in **GetAllNotes()**:  
+  Vous n'avez aucune modification à apporter ici. Gardez seulement à l'esprit qu'il s'agit de la méthode d'obtention d'un objet MongoCollection permettant de réaliser des insertions, des mises à jour et des requêtes, comme celle-ci dans **GetAllNotes()**:  
 
         collection.FindAll().ToList<Note>();
 
