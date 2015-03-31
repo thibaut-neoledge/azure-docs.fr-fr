@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Informations de configuration de la batterie de serveurs SharePoint" 
 	description="Décrit la configuration par défaut des batteries de serveurs SharePoint" 
 	services="virtual-machines" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="vm-sharepoint" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/26/2015" 
+	ms.date="03/04/2015" 
 	ms.author="josephd"/>
 
 
-#Informations de configuration de la batterie de serveurs SharePoint#
+# Informations de configuration de la batterie de serveurs SharePoint
 
 Avec la batterie de serveurs SharePoint, la version préliminaire du portail Microsoft Azure crée automatiquement une batterie SharePoint Server 2013 préconfigurée. Deux configurations de batterie sont disponibles :
 
@@ -28,7 +28,7 @@ Les sections suivantes fournissent des informations de configuration pour chaque
 
 Pour plus d'informations, consultez [Batterie de serveurs SharePoint](../virtual-machines-sharepoint-farm-azure-preview/).
 
-##Batterie de serveurs SharePoint de base##
+## Batterie de serveurs SharePoint de base
 
 La batterie de serveurs SharePoint de base se compose de trois machines virtuelles dans cette configuration :
 
@@ -71,7 +71,7 @@ Voici les informations de configuration :
 	-	Phrase secrète de la batterie de serveurs SharePoint : défini lors de la configuration initiale.
 
 
-##Batterie de serveurs SharePoint haute disponibilité##
+## Batterie de serveurs SharePoint haute disponibilité
 
 La batterie de serveurs SharePoint à haute disponibilité se compose de neuf machines virtuelles dans cette configuration :
 
@@ -119,12 +119,10 @@ Voici les informations de configuration :
 	-	Mot de passe du compte de la batterie de serveurs SharePoint : défini lors de la configuration initiale.		
 	-	Phrase secrète de la batterie de serveurs SharePoint : défini lors de la configuration initiale.
 
-##Ressources supplémentaires##
+## Ressources supplémentaires
 
 [Batterie de serveurs SharePoint](../virtual-machines-sharepoint-farm-azure-preview/)
 
 [SharePoint sur les services d'infrastructure Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

@@ -1,0 +1,304 @@
+﻿<properties 
+	pageTitle="Intégration du SDK Android d'Azure Mobile Engagement" 
+	description="Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement"
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="kpiteira" 
+	manager="dwrede" 
+	editor="" />
+
+<tags 
+	ms.service="mobile-engagement" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="kapiteir" />
+
+
+#Procédures de mise à niveau
+
+Si vous avez déjà intégré une ancienne version de notre SDK à votre application, vous devez prendre en compte les points suivants pendant la mise à niveau du SDK.
+
+Vous devrez peut-être suivre plusieurs procédures si vous avez manqué des versions du SDK. Par exemple, si vous migrez de la version 1.4.0 vers 1.6.0, vous devez d'abord suivre la procédure " de la version 1.4.0 à 1.5.0 ", puis la procédure " de la version 1.5.0 à 1.6.0 ".
+
+Quelle que soit la version que vous mettez à niveau, vous devez remplacer tous les `mobile-engagement-VERSION.jar` par les nouveaux.
+
+###De la version 2.4.0 à 3.0.0
+
+La procédure suivante décrit comment migrer une intégration du SDK du service Capptain offert par Capptain SAS vers une application optimisée par Azure Mobile Engagement. 
+
+>[AZURE.IMPORTANT] Capptain et Mobile Engagement ne sont pas les mêmes services et la procédure décrite ci-dessous se contente d'expliquer la migration de l'application cliente. La migration du SDK vers l'application NE migrera PAS vos données des serveurs Capptain vers les serveurs Mobile Engagement
+
+Si vous migrez à partir d'une version antérieure, consultez le site web Capptain pour migrer d'abord vers la version 2.4, puis appliquez la procédure suivante
+
+#### Fichier JAR
+
+Remplace `capptain.jar` par `mobile-engagement-VERSION.jar` dans votre dossier `libs`.
+
+#### Fichiers de ressources
+
+Chaque fichier de ressources fourni (précédé de `capptain_`) doit être remplacé par un nouveau (précédé d'`engagement_`).
+
+Si vous avez personnalisé ces fichiers, vous devez réappliquer vos modifications aux nouveaux fichiers, **tous les identificateurs dans les fichiers de ressources ont également été renommés**.
+
+#### ID de l'application
+
+Engagement utilise désormais une chaîne de connexion pour configurer les identificateurs du SDK tels que l'identificateur d'application.
+
+Vous devez utiliser la méthode `EngagementAgent.init` dans l'activité de votre programme de lancement comme suit :
+
+			EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+			engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
+			EngagementAgent.getInstance(this).init(engagementConfiguration);
+
+La chaîne de connexion de votre application s'affiche dans le portail Azure.
+
+Supprimez tous les appels vers `CapptainAgent.configure`, car `EngagementAgent.init` remplace cette méthode.
+
+L'`appId` ne peut plus être configuré avec `AndroidManifest.xml`.
+
+Supprimez cette section de votre `AndroidManifest.xml` si elle existe :
+
+			<meta-data android:name="capptain:appId" android:value="<YOUR_APPID>"/>
+
+#### API Java
+
+Chaque appel vers n'importe quelle classe Java de notre SDK doit être renommé, par exemple, `CapptainAgent.getInstance(this)` doit être renommé en `EngagementAgent.getInstance(this)`, `extends CapptainActivity` doit être renommé en `extends EngagementActivity`, etc.
+
+Si vous avez effectué l'intégration avec les fichiers de préférences de l'agent par défaut, le nom du fichier par défaut est désormais `engagement.agent`, et la clé est `engagement:agent`.
+
+Quand vous créez des annonces web, le binder Javascript est maintenant `engagementReachContent`.
+
+#### AndroidManifest.xml
+
+De nombreuses modifications ont été apportées, le service n'est plus partagé et vous ne pouvez plus exporter un grand nombre de destinataires.
+
+La déclaration du service est plus simple, vous supprimez le filtre intent et toutes les métadonnées qu'il contient, et ajoutez `exportable=false`.
+
+En outre, tous les éléments sont renommés pour utiliser Engagement.
+
+Vous devez obtenir quelque chose similaire à ce qui suit :
+
+			<service
+			  android:name="com.microsoft.azure.engagement.service.EngagementService"
+			  android:exported="false"
+			  android:label="<Your application name>Service"
+			  android:process=":Engagement"/>
+
+Pour l'activation des journaux de tests, les métadonnées ont été déplacées dans la balise application et renommées :
+
+			<application>
+			
+			  <meta-data android:name="engagement:log:test" android:value="true" />
+			
+			  <service/>
+			
+			</application>
+
+Toutes les autres métadonnées ont simplement été renommées, en voici la liste complète (renommez uniquement celles que vous utilisez) :
+
+			<meta-data
+			  android:name="engagement:reportCrash"
+			  android:value="true"/>
+			<meta-data
+			  android:name="engagement:sessionTimeout"
+			  android:value="10000"/>
+			<meta-data
+			  android:name="engagement:burstThreshold"
+			  android:value="0"/>
+			<meta-data
+			  android:name="engagement:connection:delay"
+			  android:value="0"/>
+			<meta-data
+			  android:name="engagement:locationReport:lazyArea"
+			  android:value="false"/>
+			<meta-data
+			  android:name="engagement:locationReport:realTime"
+			  android:value="false"/>
+			<meta-data
+			  android:name="engagement:locationReport:realTime:background"
+			  android:value="false"/>
+			<meta-data
+			  android:name="engagement:locationReport:realTime:fine"
+			  android:value="false"/>
+			<meta-data
+			  android:name="engagement:agent:settings:name"
+			  android:value="engagement.agent"/>
+			<meta-data
+			  android:name="engagement:agent:settings:mode"
+			  android:value="0"/>
+			<meta-data
+			  android:name="engagement:gcm:sender"
+			  android:value="<YOUR_PROJECT_NUMBER>\n"/>
+			<meta-data
+			  android:name="engagement:adm:register"
+			  android:value="true"/>
+			<meta-data
+			  android:name="engagement:reach:notification:icon"
+			  android:value="<DRAWABLE_NAME_WITHOUT_EXTENSION>"/>
+			
+			<activity android:name="SomeActivityWithoutReachOverlay">
+			  <meta-data
+			    android:name="engagement:notification:overlay"
+			    android:value="false"/>
+			</activity>
+
+Le suivi de Google Play et SmartAd a été supprimé du SDK, il vous suffit le supprimer sans le remplacer :
+
+			<meta-data 
+				android:name="capptain:track:installReferrerForwardList"
+				android:value="com.class1,com.class2"/>
+			<meta-data
+				android:name="capptain:track:adservers"
+				android:value="smartad" />
+
+Les activités Reach sont maintenant déclarées comme suit :
+
+			<activity
+			  android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity"
+			  android:theme="@android:style/Theme.Light">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
+			    <category android:name="android.intent.category.DEFAULT"/>
+			    <data android:mimeType="text/plain"/>
+			  </intent-filter>
+			</activity>
+			<activity
+			  android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity"
+			  android:theme="@android:style/Theme.Light">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
+			    <category android:name="android.intent.category.DEFAULT"/>
+			    <data android:mimeType="text/html"/>
+			  </intent-filter>
+			</activity>
+			<activity
+			  android:name="com.microsoft.azure.engagement.reach.activity.EngagementPollActivity"
+			  android:theme="@android:style/Theme.Light">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL"/>
+			    <category android:name="android.intent.category.DEFAULT"/>
+			  </intent-filter>
+			</activity>
+			
+Si vous avez personnalisé des activités Reach, vous devez simplement remplacer les actions intent par `com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT` ou `com.microsoft.azure.engagement.reach.intent.action.POLL`.
+
+Les récepteurs de diffusion ont été renommés, et nous ajoutons maintenant `exported=false`. Voici la liste complète des récepteurs avec la nouvelle spécification, (renommez uniquement ceux que vous utilisez) :
+
+			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
+			  android:exported="false">
+			  <intent-filter>
+			    <action android:name="android.intent.action.BOOT_COMPLETED"/>
+			    <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
+			    <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
+			    <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+			  </intent-filter>
+			</receiver>
+			
+			<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
+			  android:exported="false">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
+			  </intent-filter>
+			</receiver>
+			
+			<receiver
+			  android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver"
+			  android:permission="com.google.android.c2dm.permission.SEND">
+			  <intent-filter>
+			    <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+			    <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+			    <category android:name="<your_package_name>"/>
+			  </intent-filter>
+			</receiver>
+			
+			<receiver android:name="com.microsoft.azure.engagement.adm.EngagementADMEnabler"
+			  android:exported="false">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT"/>
+			  </intent-filter>
+			</receiver>
+			
+			<receiver
+			  android:name="com.microsoft.azure.engagement.adm.EngagementADMReceiver"
+			  android:permission="com.amazon.device.messaging.permission.SEND">
+			  <intent-filter>
+			    <action android:name="com.amazon.device.messaging.intent.REGISTRATION"/>
+			    <action android:name="com.amazon.device.messaging.intent.RECEIVE"/>
+			    <category android:name="<your_package_name>"/>
+			  </intent-filter>
+			</receiver>
+			
+			<receiver android:name="<your_sub_class_of_com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver>"
+			  android:exported="false">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.DATA_PUSH" />
+			  </intent-filter>
+			</receiver>
+			
+			<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
+			   android:exported="false">
+			   <intent-filter>
+			      <action android:name="android.intent.action.BOOT_COMPLETED" />
+			   </intent-filter>
+			</receiver>
+			
+			<receiver android:name="<your_sub_class_of_com.microsoft.azure.engagement.EngagementConnectionReceiver.java>"
+			  android:exported="false">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.intent.action.CONNECTED"/>
+			    <action android:name="com.microsoft.azure.engagement.intent.action.DISCONNECTED"/>
+			  </intent-filter>
+			</receiver>
+			
+			<receiver
+			  android:name="<your_sub_class_of_com.microsoft.azure.engagement.EngagementMessageReceiver.java>"
+			  android:exported="false">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.MESSAGE"/>
+			  </intent-filter>
+			</receiver>
+
+Le récepteur de suivi a été supprimé, par conséquent, vous devez supprimer cette section :
+
+		  <receiver android:name="com.ubikod.capptain.android.sdk.track.CapptainTrackReceiver">
+		    <intent-filter>
+		      <action android:name="com.ubikod.capptain.intent.action.APPID_GOT" />
+		      <!-- possibly <action android:name="com.android.vending.INSTALL_REFERRER" /> -->
+		    </intent-filter>
+		  </receiver>
+
+Notez que la déclaration de votre implémentation du récepteur de diffusion **EngagementMessageReceiver** a changé dans le `AndroidManifest.xml`. En effet, l'API permettant d'envoyer et de supprimer des messages XMPP arbitraires d'entités XMPP arbitraires, et l'API permettant d'envoyer et de recevoir des messages entre appareils ont été supprimées. Par conséquent, vous devez également supprimer les rappels suivants de votre implémentation de **EngagementMessageReceiver** :
+
+			protected void onDeviceMessageReceived(android.content.Context context, java.lang.String deviceId, java.lang.String payload)
+
+et
+
+			protected void onXMPPMessageReceived(android.content.Context context, android.os.Bundle message)
+
+puis supprimez tout appel sur **EngagementAgent** dans :
+
+			sendMessageToDevice(java.lang.String deviceId, java.lang.String payload, java.lang.String packageName)
+
+et
+
+			sendXMPPMessage(android.os.Bundle msg)
+
+#### Proguard
+
+La configuration de Proguard peut être affectée par le changement de nom, les règles ressemblent maintenant à ce qui suit :
+
+			-dontwarn android.**
+			-keep class android.support.v4.** { *; }
+			
+			-keep public class * extends android.os.IInterface
+			-keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
+			  <methods>;
+			}
+
+<!--HONumber=47-->

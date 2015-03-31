@@ -3,9 +3,9 @@
 	description="Apprenez à créer une machine virtuelle Windows et à la configurer pour exécuter un serveur d'applications Apache Tomcat." 
 	services="virtual-machines" 
 	documentationCenter="java" 
-	auteurs = " rmcmurray " 
-	Gestionnaire = " wpickett " 
-	éditeur="mollybos"/>
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/20/2015" 
 	ms.author="robmcm"/>
 
 # Exécution d'un serveur d'applications Java sur une machine virtuelle
@@ -47,20 +47,20 @@ Notez que **JDK 6 Windows Server 2012** est disponible si vous ne pouvez pas ex�
     3. Entrez un nom pour l'administrateur dans le champ **Nom d'utilisateur**. Notez le nom et le mot de passe que vous allez entrer, car vous les utiliserez pour vous connecter à distance à votre machine virtuelle.
     4. Entrez un mot de passe dans le champ **Nouveau mot de passe**, puis entrez-le de nouveau dans le champ **Confirmer**. Il s'agit du mot de passe du compte Administrateur.
     5. Cliquez sur **Suivant**.
-6. Dans la boîte de dialogue <strong>Configuration de la machine virtuelle</strong> suivante :
+6. Dans la boîte de dialogue <strong>Configuration de la machine virtuelle</strong> :
     1. Pour **Service de cloud**, utilisez la valeur par défaut **Créer un nouveau service de cloud**.
     2. La valeur du **Nom du cloud Service DNS** doit être unique sur cloudapp.net. Si nécessaire, modifiez cette valeur afin qu'Azure indique qu'elle est unique.
     2. Indiquez une région, un groupe d'affinités ou un réseau virtuel. Dans le cadre de ce didacticiel, indiquez une région comme **Bretagne**.
     2. Pour **Compte de stockage**, sélectionnez **Utiliser un compte de stockage généré automatiquement**.
     3. Pour **Groupe à haute disponibilité**, sélectionnez **(Aucun)**.
     4. Cliquez sur **Suivant**.
-7. Dans la dernière boîte de dialogue <strong>Configuration de la machine virtuelle</strong> :
+7. Dans la boîte de dialogue <strong>Configuration de la machine virtuelle</strong> :
     1. Validez les entrées de points de terminaison par défaut.
     2. Cliquez sur **Terminé**.
 
 ## Connexion distante à votre machine virtuelle
 
-1. Connectez-vous au [portail de gestion](https://manage.windowsazure.com).
+1. Ouvrez une session sur le [portail de gestion](https://manage.windowsazure.com).
 2. Cliquez sur **Machines virtuelles**.
 3. Cliquez sur le nom de la machine virtuelle à laquelle vous voulez vous connecter.
 4. Lorsque la machine virtuelle a démarré, un menu contextuel au bas de la page autorise les connexions.
@@ -81,7 +81,7 @@ Dans le cadre de ce didacticiel, nous allons installer Tomcat.
 ## Démarrage de Tomcat
 Dans la boîte de dialogue **Completing the Apache Tomcat Setup Wizard**, si vous n'avez pas activé la case à cocher pour démarrer Tomcat immédiatement, démarrez-le en ouvrant une invite de commandes sur votre machine virtuelle, puis en exécutant **net start Tomcat7**.
 
-Tomcat doit maintenant démarrer lorsque vous lancez le navigateur de la machine virtuelle et ouvrez <http://localhost:8080>.
+Tomcat doit maintenant démarrer lorsque vous lancez le navigateur de la machine virtuelle et ouvrez  <http://localhost:8080>.
 
 Pour démarrer Tomcat depuis des machines externes, vous devez créer un point de terminaison et ouvrir un port.
 
@@ -128,7 +128,7 @@ Pour démarrer Tomcat depuis des machines externes, vous devez créer un point d
 
  ![New inbound rule name][NewRuleName]
 
-Vous pouvez désormais afficher votre site Web Tomcat dans un navigateur externe, en utilisant une URL au format **http://*your\_DNS\_name*.cloudapp.net**, où ***your\_DNS\_name*** correspond au nom DNS que vous avez indiqué lors de la création de la machine virtuelle.
+Vous pouvez désormais afficher votre site web Tomcat dans un navigateur externe, en utilisant une URL au format **http://*your\_DNS\_name*.cloudapp.net**, où ***your\_DNS\_name*** correspond au nom DNS que vous avez indiqué lors de la création de la machine virtuelle.
 
 ## Considérations relatives au cycle de vie de l'application
 * Vous pouvez créer votre propre archive Web d'application (WAR) et l'ajouter au dossier **webapps**. Par exemple, créez un projet Web dynamique JSP (Java Service Page) de base et exportez-le en tant que fichier WAR, copiez celui-ci dans le dossier **webapps** d'Apache Tomcat sur la machine virtuelle, puis exécutez-le dans un navigateur.
@@ -139,7 +139,7 @@ Vous pouvez désormais afficher votre site Web Tomcat dans un navigateur externe
     L'activation du démarrage automatique de Tomcat lui permet de redémarrer en même temps que la machine virtuelle (par exemple, après des mises à jour logicielles nécessitant un redémarrage).
 
 ## Étapes suivantes
-* Pour en savoir plus sur les autres services, comme le stockage Azure, Service Bus, la base de données SQL, etc. à inclure dans vos applications Java, consultez les informations disponibles sur la page <http://azure.microsoft.com/develop/java/>.
+* Pour en savoir plus sur les autres services, tels que le stockage Azure, Service Bus, la base de données SQL, etc. à inclure dans vos applications Java, consultez les informations disponibles sur la page <http://www.windowsazure.com/develop/java/>.
 
 [virtual_machine_tomcat]: ./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png
 
@@ -160,7 +160,4 @@ Vous pouvez désormais afficher votre site Web Tomcat dans un navigateur externe
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

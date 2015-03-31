@@ -5,7 +5,7 @@
    <th align="left" valign="middle">Limite maximale</th>
 </tr>
 <tr>
-   <td valign="middle"><p>Cœurs par <a href="http://azure.microsoft.com/fr-fr/services/batch/">compte</a>de lots</p></td>
+   <td valign="middle"><p>Cœurs par compte <a href="http://azure.microsoft.com/services/batch/">Batch</a></p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>N/A<sup>1</sup></p></td>
 </tr>
@@ -22,4 +22,4 @@
 </table>
 <sup>1</sup> Vous pouvez augmenter le nombre de cœurs par compte de lots, mais le nombre maximal n'est pas spécifié. Contactez l'assistance clientèle pour vous informer sur les possibilités d'augmentation.
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

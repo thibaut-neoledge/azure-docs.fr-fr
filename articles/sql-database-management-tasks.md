@@ -1,25 +1,35 @@
-<properties umbracoNaviHide="0" pageTitle="Gestion d'une base de données SQL" metaKeywords="Base de données SQL Azure, Base de données SQL, gestion de base de données sql, ajout de connexions, connexion à la base de données sql" description="Découvrez comment gérer la base de données SQL Azure." urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
+<properties 
+	pageTitle="Gestion de la base de données SQL" 
+	description="Découvrez comment gérer la base de données SQL Azure." 
+	headerExpose="" 
+	footerExpose="" 
+	authors="jeffgoll" 
+	manager="jeffreyg" 
+	editor="" 
+	services="sql-database" 
+	documentationCenter=""/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="jeffreyg"/>
 
 
-<h1><a id="swap"></a>Gestion de la base de données SQL</h1>
+## Vue d'ensemble
 
-Cette rubrique montre comment effectuer des tâches simples de gestion dans la base de données SQL Azure. 
+Cet article montre comment effectuer des tâches de gestion simples dans la base de données SQL Azure. 
 
-## Sommaire##
-
-* [ Connexion à la base de données SQL dans Azure à l'aide de Management Studio](#connect)
-* [ Ajout de connexions et d'utilisateurs à la base de données SQL dans Azure](#addlogins)
-
-
-<h2><a id="connect"></a> Connexion à la base de données SQL dans Azure à l'aide de Management Studio</h2>
+##  Connexion à la base de données SQL dans Azure à l'aide de Management Studio
 
 Management Studio est un outil d'administration qui permet de gérer plusieurs serveurs et instances SQL Server dans un espace de travail unique. Si vous disposez déjà d'une instance SQL Server locale, vous pouvez ouvrir une connexion sur une instance locale et un serveur logique sur Azure afin d'effectuer des tâches côte à côte.
 
 Management Studio comprend des fonctionnalités qui ne sont actuellement pas disponibles sur le portail de gestion, telles qu'un vérificateur de syntaxe et la capacité d'enregistrement de scripts et des requêtes nommées à des fins de réutilisation. La base de données SQL est simplement un point de terminaison TDS (Tabular Data Stream). Tous les outils qui fonctionnent avec TDS, notamment Management Studio, sont valides pour les opérations relatives à la base de données SQL. Les scripts que vous développez pour le serveur local s'exécuteront sur un serveur logique de la base de données SQL. 
 
-À l'étape suivante, vous allez utiliser Management Studio pour vous connecter à un serveur logique sur Azure. Cette étape implique que vous disposiez de SQL Server Management Studio version 2008 R2 ou 2012. Afin d'obtenir de l'aide pour télécharger Management Studio ou vous y connecter, consultez la page [Gestion de la base de données SQL à l'aide de Management Studio][] sur ce site.
+À l'étape suivante, vous allez utiliser Management Studio pour vous connecter à un serveur logique sur Azure. Cette étape requiert la version 2008 R2 ou 2012 de SQL Server Management Studio. Si vous avez besoin d'aide pour télécharger Management Studio ou vous y connecter, consultez la rubrique [Gestion de la base de données SQL à l'aide de Management Studio][] sur ce site.
 
 Avant de pouvoir vous connecter, il est parfois nécessaire de créer une exception de pare-feu qui autorise des requêtes sortantes sur le port 1433 sur votre système local. Le port 1433 des ordinateurs qui sont sécurisés par défaut n'est généralement pas ouvert. 
 
@@ -29,7 +39,7 @@ Avant de pouvoir vous connecter, il est parfois nécessaire de créer une except
 
 2. Choisissez **Port**, spécifiez TCP 1433, indiquez **Autoriser la connexion** et vérifiez que le profil **Public** est sélectionné.
 
-3. Indiquez un nom explicite, tel que *WindowsAzureSQLDatabase (tcp-out) port 1433*. 
+3. Choisissez un nom explicite, comme *WindowsAzureSQLDatabase (tcp-out) port 1433*. 
 
 
 ## Connexion à un serveur logique
@@ -52,7 +62,7 @@ Avant de pouvoir vous connecter, il est parfois nécessaire de créer une except
 2. Dans Authentification, choisissez **Authentification Windows**, puis entrez un compte Windows qui est membre du rôle administrateur système.
 
 
-<h2><a id="addlogins"></a> Ajout de connexions et d'utilisateurs à la base de données SQL dans Azure</h2>
+##  Ajout de connexions et d'utilisateurs à la base de données SQL Azure
 
 Après avoir déployé une base de données, vous devez configurer des connexions et attribuer des autorisations. Dans cette étape, vous allez exécuter deux scripts.
 
@@ -71,12 +81,12 @@ Le second script attribue les autorisations aux utilisateurs de la base de donn�
 <div style="width:auto; height:auto; overflow:auto"><pre>
     -- run on master, execute each line separately
     -- use this login to manage other logins on this server
-    CREATE LOGIN sqladmin WITH password='<ProvidePassword>'; 
+    CREATE LOGIN sqladmin WITH password='&lt;ProvidePassword&gt;'; 
     CREATE USER sqladmin FROM LOGIN sqladmin;
     EXEC sp_addrolemember 'loginmanager', 'sqladmin';
 
     -- use this login to create or copy a database
-    CREATE LOGIN sqlops WITH password='<ProvidePassword>';
+    CREATE LOGIN sqlops WITH password='&lt;ProvidePassword&gt;';
     CREATE USER sqlops FROM LOGIN sqlops;
     EXEC sp_addrolemember 'dbmanager', 'sqlops';
 </pre></div>
@@ -91,12 +101,12 @@ Le second script attribue les autorisations aux utilisateurs de la base de donn�
 <div style="width:auto; height:auto; overflow:auto"><pre>
     -- run on a regular database, execute each line separately
     -- use this login for read operations
-    CREATE LOGIN sqlreader WITH password='<ProvidePassword>';
+    CREATE LOGIN sqlreader WITH password='&lt;ProvidePassword&gt;';
     CREATE USER sqlreader FROM LOGIN sqlreader;
     EXEC sp_addrolemember 'db_datareader', 'sqlreader';
 
     -- use this login for write operations
-    CREATE LOGIN sqlwriter WITH password='<ProvidePassword>';
+    CREATE LOGIN sqlwriter WITH password='&lt;ProvidePassword&gt;';
     CREATE USER sqlwriter FROM LOGIN sqlwriter;
     EXEC sp_addrolemember 'db_datawriter', 'sqlwriter';
 
@@ -123,13 +133,15 @@ Le second script attribue les autorisations aux utilisateurs de la base de donn�
 
 6. Ouvrez une seconde fenêtre de requête, puis remplacez le contexte de connexion par *sqlwriter*. La même requête doit à présent s'exécuter correctement.
 
-Vous avez maintenant créé et testé plusieurs connexions. Pour plus d'informations, consultez les pages [Gestion des bases de données et des connexions dans Base de données SQL Azure][] et [Contrôle de Base de données SQL Azure à l'aide de vues de gestion dynamique][].
+Vous avez maintenant créé et testé plusieurs connexions. Pour plus d'informations, consultez les pages [Gestion des bases de données et des connexions dans Base de données SQL Azure][Gestion des bases de données et des connexions dans la base de données SQL] et [Contrôle de Base de données SQL Azure à l'aide de vues de gestion dynamique][Contrôle de la base de données SQL à l'aide de vues de gestion dynamique].
 
-[Gestion des bases de données et des connexions dans Base de données SQL Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336235.aspx
-[Contrôle de Base de données SQL Azure à l'aide de vues de gestion dynamique]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ff394114.aspx
-[Gestion de la base de données SQL à l'aide de Management Studio]: http://www.windowsazure.com/fr-fr/develop/net/common-tasks/sql-azure-management/
-
-
+[Gestion des bases de données et des connexions dans la base de données SQL]: http://msdn.microsoft.com/library/windowsazure/ee336235.aspx
+[Contrôle de la base de données SQL à l'aide de vues de gestion dynamique]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
+[Gestion de la base de données SQL à l'aide de Management Studio]: http://www.windowsazure.com/develop/net/common-tasks/sql-azure-management/
 
 
 
+
+
+
+<!--HONumber=47-->

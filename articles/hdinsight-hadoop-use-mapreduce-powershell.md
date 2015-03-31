@@ -28,21 +28,21 @@ Pour réaliser les étapes présentées dans cet article, vous avez besoin des �
 
 * Un cluster Azure HDInsight (Hadoop sur HDInsight, Linux ou Windows)
 
-* <a href="http://azure.microsoft.com/ documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
+* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
 
 ##<a id="powershell"></a>Exécution d'une tâche MapReduce avec PowerShell
 
-Azure PowerShell propose *cmdlets*, qui vous permet d'exécuter à distance des tâches MapReduce sur HDInsight. En interne, cela est accompli en utilisant des appels REST à <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (anciennement Templeton), s'exécutant sur le cluster HDInsight.
+Azure PowerShell propose des  *applets de commande* qui vous permettent d'exécuter à distance des tâches MapReduce sur HDInsight. En interne, ceci est accompli en effectuant des appels REST à <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (anciennement nommé Templeton) exécuté sur le cluster HDInsight.
 
 Les cmdlets suivantes sont utilisées lors de l'exécution des tâches MapReduce sur un cluster HDInsight à distance.
 
 * **Add-AzureAccount** : authentifie PowerShell sur votre abonnement Azure
 
-* **New-AzureHDInsightMapReduceJobDefinition** : crée une *job definition* avec les informations MapReduce spécifiées
+* **New-AzureHDInsightMapReduceJobDefinition** : crée une  *job definition* avec les informations MapReduce spécifiées
 
 * **Start-AzureHDInsightJob** : envoie la définition de la tâche à HDInsight, démarre la tâche et retourne un objet *job* pouvant être utilisé pour vérifier le statut de la tâche
 
-* **Wait-AzureHDInsightJob** : utilise l'objet de la tâche pour vérifier le statut de la tâche Il attend jusqu'à ce que le travail soit terminé ou que le délai d'attente soit dépassé.
+* **Wait-AzureHDInsightJob** : utilise l'objet de la tâche pour vérifier le statut de la tâche Il attend que la tâche soit terminée ou que le délai d'attente soit dépassé.
 
 * **Get-AzureHDInsightJobOutput** : utilisé pour récupérer la sortie de la tâche
 
@@ -141,15 +141,15 @@ L'exemple suivant récupère les informations de stockage, puis télécharge la 
 		#Use the -blob switch to filter only blobs contained in example/data/WordCountOutput
 		Get-AzureStorageBlob -Container $storageContainer -Blob example/data/WordCountOutput/* -Context $context | Get-AzureStorageBlobContent -Context $context
 
-> [AZURE.NOTE] Cet exemple stocke les fichiers téléchargés dans le  dossier **example/data/WordCountOutput** dans le répertoire depuis lequel vous exécutez le script.
+> [AZURE.NOTE] Cet exemple stocke les fichiers téléchargés danhs le dossier **example/data/WordCountOutput** dans le répertoire à partir duquel vous avez exécuté le script.
 
-La sortie de la tâche MapReduce est stockée dans des fichiers portant le nom *part-r-#####*. Ouvrez le fichier **example/data/WordCountOutput/part-r-00000** dans un éditeur de texte pour afficher les mots et les décomptes générés par la tâche.
+La sortie de la tâche MapReduce est stockée dans des fichiers portant le nom  *part-r-#####*. Ouvrez le fichier **example/data/WordCountOutput/part-r-00000** dans un éditeur de texte pour afficher les mots et les décomptes générés par la tâche.
 
 > [AZURE.NOTE] Les fichiers de résultat d'une tâche MapReduce sont immuables. Donc, si vous réexécutez cet exemple, vous devrez modifier le nom du fichier de résultat.
 
 ##<a id="troubleshooting"></a>Résolution des problèmes
 
-Si aucune information n'est renvoyée lorsque la tâche est terminée, une erreur peut avoir eu lieu au cours du traitement. Pour afficher les informations d'erreur pour ce projet, ajoutez le code suivant à la fin du fichier **mapreducejob.ps1**, enregistrez-le et exécutez-le à nouveau.
+Si aucune information n'est retournée lorsque la tâche est terminée, il se peut qu'une erreur soit survenue au cours du traitement. Pour afficher les informations d'erreur pour ce projet, ajoutez le code suivant à la fin du fichier **mapreducejob.ps1**, enregistrez-le et exécutez-le à nouveau.
 
 	# Print the output of the WordCount job.
 	Write-Host "Display the standard output ..." -ForegroundColor Green
@@ -172,4 +172,4 @@ Pour plus d'informations sur d'autres méthodes de travail avec Hadoop sur HDIns
 * [Utilisation de Hive avec Hadoop sur HDInsight](../hdinsight-use-hive/)
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](../hdinsight-use-pig/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

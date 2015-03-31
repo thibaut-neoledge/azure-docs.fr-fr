@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Téléchargement de fichiers dans un compte Media Services à l'aide de .NET" 
-	description="Apprenez à obtenir du contenu multimédia dans Media Services en créant et en chargeant des ressources." 
+	description="Apprenez à obtenir du contenu multimédia dans Media Services en créant et en chargeant des éléments multimédias." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -21,29 +21,29 @@
 #Téléchargement de fichiers dans un compte Media Services à l'aide de .NET
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-Cet article fait partie de la série [workflow à la demande de vidéo Media Services](../media-services-video-on-demand-workflow). 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) . 
 
 Dans Media Services, vous téléchargez (ou réceptionnez) vos fichiers numériques dans un élément multimédia. L'entité **Asset** peut contenir des fichiers vidéo et audio, des images, des collections de miniatures, des pistes textuelles et des légendes (et les métadonnées concernant ces fichiers).  Une fois les fichiers téléchargés, votre contenu est stocké en toute sécurité dans le cloud et peut faire l'objet d'un traitement et d'une diffusion en continu.
 
 Les fichiers de l'élément multimédia sont appelés **fichiers d'élément multimédia**. L'instance **AssetFile** et le fichier multimédia réel sont deux objets distincts. L'instance AssetFile contient des métadonnées concernant le fichier multimédia, tandis que le fichier multimédia contient le contenu multimédia réel.
 
-Lorsque vous créez des ressources, vous pouvez spécifier les options de chiffrement suivantes : 
+Lorsque vous créez des éléments multimédias, vous pouvez spécifier les options de chiffrement suivantes : 
 
-- **None** - Aucun chiffrement. Il s'agit de la valeur par défaut. Notez qu'avec cette option, votre contenu n'est pas protégé en transit ni au repos dans le stockage.
+- **None** - Aucun chiffrement. Il s'agit de la valeur par défaut. Notez qu'avec cette option, votre contenu n'est pas protégé lors du transit ou au repos dans le stockage.
 Si vous prévoyez de fournir un MP4 sous forme de téléchargement progressif, utilisez cette option. 
 - **CommonEncryption** : utilisez cette option lorsque vous téléchargez du contenu qui a déjà été chiffré et protégé par chiffrement commun ou gestion des droits numériques (DRM) PlayReady (par exemple, une diffusion en continu lisse, " Smooth Streaming ", protégée par gestion des droits numériques (DRM) PlayReady).
-- **EnvelopeEncrypted** : utilisez cette option lorsque vous téléchargez un contenu au format HLS chiffré avec AES. Notez que les fichiers doivent avoir été encodés et chiffrés par le gestionnaire de transformation Transform Manager.
-- **StorageEncrypted** : permet de chiffrer votre contenu en clair localement en utilisant le chiffrement AES-256 bits, puis de le télécharger vers Azure Storage où il est chiffré pour le stockage, au repos. Les éléments multimédias protégés par chiffrement de stockage sont automatiquement non chiffrés et placés dans un système de fichiers chiffré avant d'être encodés, puis éventuellement de nouveau chiffrés avant d'être rechargés sous la forme d'un nouvel élément multimédia de sortie. Le principal cas d'utilisation du chiffrement de stockage concerne la sécurisation de fichiers multimédias d'entrée de haute qualité avec un chiffrement renforcé au repos sur le disque.
+- **EnvelopeEncrypted** : utilisez cette option lorsque vous téléchargez du contenu au format HLS chiffré avec AES. Notez que les fichiers doivent avoir été encodés et chiffrés par le gestionnaire de transformation Transform Manager.
+- **StorageEncrypted** : permet de chiffrer votre contenu en clair localement en utilisant le chiffrement AES-256 bits, puis de le télécharger vers Azure Storage où il est chiffré pour le stockage, au repos. Les éléments multimédias protégés par le chiffrement de stockage sont automatiquement déchiffrés et placés dans un système de fichiers chiffré avant d'être encodés, puis éventuellement rechiffrés avant d'être rechargés sous la forme d'un nouvel élément multimédia de sortie. Le principal cas d'utilisation du chiffrement de stockage concerne la sécurisation de fichiers multimédias d'entrée de haute qualité avec un chiffrement renforcé au repos sur le disque.
 
 	Media Services fournit pour vos éléments multimédias un chiffrement de stockage sur disque, et non pas sur le réseau comme pour la gestion des droits numériques (DRM).
 
-Si votre ressource est chiffrée avec l'option **CommonEncrypted** ou **EnvelopeEncypted**, vous devez l'associer avec une **ContentKey**. Pour plus d'informations, consultez la page [Création d'une ContentKey](../media-services-dotnet-create-contentkey). 
+Si votre élément multimédia est chiffré avec l'option **CommonEncrypted** ou **EnvelopeEncypted**, vous devez l'associer avec une **ContentKey**. Pour plus d'informations, consultez la page [Création d'une ContentKey](../media-services-dotnet-create-contentkey). 
 
-Si votre ressource est chiffrée avec l'option **StorageEncrypted**, le Kit de développement logiciel (SDK) Media Services pour .NET créera une **ContentKey** **StorateEncrypted** pour votre ressource.
+Si votre élément multimédia est chiffré avec l'option **StorageEncrypted**, le Kit de développement logiciel (SDK) Media Services pour .NET crée une **ContentKey** **StorateEncrypted** pour votre élément multimédia.
 
->[AZURE.NOTE]Media Services utilise la valeur de la propriété IAssetFile.Name lors de la génération d'URL pour le contenu de diffusion en continu (par exemple, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Pour cette raison, l'encodage par pourcentage n'est pas autorisé. La valeur de la propriété **Name** ne peut pas comprendre un des [caractères réservés à l'encodage par pourcentage](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) suivants : !*'();:@&=+$,/?%#[]". En outre, il ne peut exister qu'un " . " pour l'extension de nom de fichier.
+>[AZURE.NOTE]Media Services utilise la valeur de la propriété IAssetFile.Name lors de la génération d'URL pour la diffusion de contenu (par exemple, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Pour cette raison, l'encodage par pourcentage n'est pas autorisé. La valeur de la propriété **Name** ne peut pas comprendre l'un des [caractères réservés à l'encodage par pourcentage](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) suivants : !*'();:@&=+$,/?%#[]". En outre, il ne peut exister qu'un " . " pour l'extension de nom de fichier.
 
-Cette rubrique montre comment utiliser le Kit de développement logiciel (SDK) Media Services pour .NET, ainsi que les extensions du Kit de développement logiciel (SDK) Media Services pour .NET pour télécharger des fichiers vers une ressource Media Services.
+Cette rubrique montre comment utiliser le Kit de développement logiciel (SDK) Media Services pour .NET, ainsi que les extensions du Kit de développement logiciel (SDK) Media Services pour .NET pour télécharger des fichiers vers un élément multimédia Media Services.
 
 ## Téléchargement de fichiers à l'aide du Kit de développement logiciel (SDK) Media Services pour .NET  
 
@@ -98,7 +98,7 @@ Le code qui suit présente la création d'un élément multimédia et le chargem
 
 Le code effectue les actions suivantes :
 	
-- 	création d'une ressource vide à l'aide de la méthode CreateEmptyAsset définie dans l'étape précédente.
+- 	création d'un élément multimédia vide à l'aide de la méthode CreateEmptyAsset définie dans l'étape précédente.
  	
 - 	création d'une instance **AccessPolicy** qui définit les autorisations et la durée de l'accès à l'élément multimédia ;
  	
@@ -171,7 +171,7 @@ Le code effectue les actions suivantes :
 
 
 
-Lorsque vous téléchargez un grand nombre de ressources, prenez en compte les points suivants.
+Lorsque vous téléchargez un grand nombre d'éléments multimédias, prenez en compte les points suivants.
 
 - Créez un objet **CloudMediaContext** par thread. La classe **CloudMediaContext** n'est pas thread-safe.
  
@@ -179,25 +179,25 @@ Lorsque vous téléchargez un grand nombre de ressources, prenez en compte les p
  
 - Conservez la valeur par défaut de 10 pour ParallelTransferThreadCount.
  
-###Réception de ressources en bloc 
+###Réception d'éléments multimédias en bloc 
 
-Le téléchargement de fichiers multimédias volumineux peut entraîner un goulot d'étranglement lors de la création de la ressource. La réception des ressources en bloc ou " réception en bloc " implique de découpler la création des ressources du processus de téléchargement. Pour utiliser une approche de réception en bloc, créez un manifeste (IngestManifest) qui décrit la ressource et ses fichiers associés. Utilisez ensuite la méthode de téléchargement de votre choix pour télécharger les fichiers associés sur le conteneur d'objets blob du manifeste. Microsoft Azure Media Services surveille le conteneur d'objets blob associé au manifeste. Une fois qu'un fichier est téléchargé vers le conteneur d'objets blob, Microsoft Azure Media Services termine la création des ressources selon la configuration de ressources au sein du manifeste (IngestManifestAsset).
+Le téléchargement de fichiers multimédias volumineux peut entraîner un goulot d'étranglement lors de la création de l'élément multimédia. La réception des éléments multimédias en bloc ou " réception en bloc " implique de découpler la création des éléments multimédias du processus de téléchargement. Pour utiliser une approche de réception en bloc, créez un manifeste (IngestManifest) qui décrit l'élément multimédia et ses fichiers associés. Utilisez ensuite la méthode de téléchargement de votre choix pour télécharger les fichiers associés sur le conteneur d'objets blob du manifeste. Microsoft Azure Media Services surveille le conteneur d'objets blob associé au manifeste. Une fois qu'un fichier est téléchargé vers le conteneur d'objets blob, Microsoft Azure Media Services termine la création des éléments multimédias selon la configuration de l'élément multimédia du manifeste (IngestManifestAsset).
 
 
 Pour créer un IngestManifest, appelez la méthode Create exposée par la collection IngestManifests sur le CloudMediaContext. Cette méthode crée un IngestManifest avec le nom de manifeste que vous fournissez.
 
 	IIngestManifest manifest = context.IngestManifests.Create(name);
 
-Créez les ressources associées à l'IngestManifest en bloc. Configurez les options de chiffrement souhaitées sur la ressource pour la réception en bloc.
+Créez les éléments multimédias associés à l'IngestManifest en bloc. Configurez les options de chiffrement souhaitées sur l'élément multimédia pour la réception en bloc.
 
 	// Create the assets that will be associated with this bulk ingest manifest
 	IAsset destAsset1 = _context.Assets.Create(name + "_asset_1", AssetCreationOptions.None);
 	IAsset destAsset2 = _context.Assets.Create(name + "_asset_2", AssetCreationOptions.None);
 
-Un IngestManifestAsset associe une ressource à un IngestManifest en bloc pour la réception en bloc. Il associe également les AssetFiles qui constitueront chaque ressource. 
+Un IngestManifestAsset associe un élément multimédia à un IngestManifest en bloc pour la réception en bloc. Il associe également les AssetFiles qui constitueront chaque élément multimédia. 
 Pour créer un IngestManifestAsset, utilisez la méthode Create dans le contexte de serveur.
 
-L'exemple suivant illustre l'ajout de deux IngestManifestAssets qui associent les deux ressources précédemment créés au manifeste de réception en bloc. Chaque IngestManifestAsset associe également un ensemble de fichiers qui seront téléchargés pour chaque ressource lors de la réception en bloc.  
+L'exemple suivant illustre l'ajout de deux IngestManifestAssets qui associent les deux éléments multimédias précédemment créés au manifeste de réception en bloc. Chaque IngestManifestAsset associe également un ensemble de fichiers qui seront téléchargés pour chaque élément multimédia lors de la réception en bloc.  
 
 	string filename1 = _singleInputMp4Path;
 	string filename2 = _primaryFilePath;
@@ -206,7 +206,7 @@ L'exemple suivant illustre l'ajout de deux IngestManifestAssets qui associent le
 	IIngestManifestAsset bulkAsset1 =  manifest.IngestManifestAssets.Create(destAsset1, new[] { filename1 });
 	IIngestManifestAsset bulkAsset2 =  manifest.IngestManifestAssets.Create(destAsset2, new[] { filename2, filename3 });
 	
-Vous pouvez utiliser n'importe quelle application de client haute vitesse capable de télécharger les fichiers de ressources sur l'URI du conteneur de stockage blob fourni par la propriété **IIngestManifest.BlobStorageUriForUpload** de l'IngestManifest. [Aspera On Demand pour l'Application Azure](https://datamarket.azure.com/application/2cdbc511-cb12-4715-9871-c7e7fbbb82a6) est un service de téléchargement haute vitesse intéressant. Vous pouvez également écrire du code pour télécharger les fichiers de ressources, comme illustré dans l'exemple de code suivant.
+Vous pouvez utiliser n'importe quelle application cliente rapide capable de télécharger les fichiers d'éléments multimédias sur l'URI du conteneur de stockage blob fourni par la propriété **IIngestManifest.BlobStorageUriForUpload** de l'IngestManifest. [Aspera On Demand pour l'Application Azure](https://datamarket.azure.com/application/2cdbc511-cb12-4715-9871-c7e7fbbb82a6) est un service de téléchargement à grande vitesse intéressant. Vous pouvez également écrire du code pour télécharger les fichiers d'éléments multimédias, comme illustré dans l'exemple de code suivant.
 	
 	static void UploadBlobFile(string destBlobURI, string filename)
 	{
@@ -231,14 +231,14 @@ Vous pouvez utiliser n'importe quelle application de client haute vitesse capabl
 	    copytask.Start();
 	}
 
-Le code pour télécharger les fichiers de ressources pour l'exemple utilisé dans cette rubrique est illustré dans l'exemple de code suivant.
+Le code pour télécharger les fichiers d'éléments multimédias pour l'exemple utilisé dans cette rubrique est illustré dans l'exemple de code suivant.
 	
 	UploadBlobFile(manifest.BlobStorageUriForUpload, filename1);
 	UploadBlobFile(manifest.BlobStorageUriForUpload, filename2);
 	UploadBlobFile(manifest.BlobStorageUriForUpload, filename3);
 	
 
-Vous pouvez déterminer la progression de la réception en bloc de toutes les ressources associées à un **IngestManifest** en interrogeant la propriété Statistics de l'**IngestManifest**. Pour mettre à jour les informations de progression, vous devez utiliser un nouveau **CloudMediaContext** chaque fois que vous interrogez la propriété Statistics.
+Vous pouvez déterminer la progression de la réception en bloc de tous les éléments multimédias associés à un **IngestManifest** en interrogeant la propriété Statistics de l'**IngestManifest**. Pour mettre à jour les informations de progression, vous devez utiliser un nouveau **CloudMediaContext** chaque fois que vous interrogez la propriété Statistics.
 
 L'exemple suivant illustre l'interrogation d'un IngestManifest par son **Id**.
 	
@@ -296,15 +296,15 @@ L'exemple ci-dessous montre comment télécharger un fichier unique à l'aide de
 	    return inputAsset;
 	}
 
-L'exemple suivant appelle la fonction UploadFile et spécifie le chiffrement de stockage en tant qu'option de création de ressource.  
+L'exemple suivant appelle la fonction UploadFile et spécifie le chiffrement de stockage en tant qu'option de création d'éléments multimédias.  
 
 
 	var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
 
 
 ##Étapes suivantes
-Maintenant que vous avez téléchargé une ressource dans Media Services, consultez la rubrique [Obtention d'un processeur multimédia][].
+Maintenant que vous avez chargé un élément multimédia dans Media Services, consultez la rubrique [Obtention d'un processeur multimédia][].
 
 [Obtention d'un processeur multimédia]: ../media-services-get-media-processor/
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

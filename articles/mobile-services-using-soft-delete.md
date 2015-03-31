@@ -10,13 +10,15 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/19/2015" 
 	ms.author="wesmc"/>
 
 # Utilisation de la suppression réversible dans Mobile Services
+
+## Vue d'ensemble
 
 La suppression réversible peut être activée pour les tables créées avec un serveur principal JavaScript ou .NET. Lors de l'utilisation de la suppression réversible, une nouvelle colonne nommée *\__deleted* de [type de bit SQL] est ajoutée à la base de données. Lorsque la suppression réversible est activée, une opération de suppression ne supprime pas physiquement des lignes d'une base de données, mais définit la valeur de la colonne supprimée sur TRUE.
 
@@ -34,16 +36,9 @@ Toutefois, les enregistrements supprimés de façon réversible prennent de la p
 
 
 
-Vue d'ensemble de cette rubrique :
-
-1. [Activation de la suppression réversible avec le serveur principal .NET]
-2. [Activation de la suppression réversible avec le serveur principal JavaScript]
-3. [Utilisation de la suppression réversible avec le serveur principal .NET]
-4. [Utilisation de la suppression réversible avec le serveur principal JavaScript]
 
 
-
-## <a name="enable-for-dotnet"></a>Activation de la suppression réversible avec le serveur principal .NET
+## Activation de la suppression réversible avec le serveur principal .NET
 
 La suppression réversible pour le serveur principal .NET a été prise en charge pour la première fois avec la version 1.0.402 du serveur principal .NET de Microsoft Azure Mobile Services. Les packages NuGet les plus récents sont disponibles ici : [Serveur principal .NET de Microsoft Azure Mobile Services](http://go.microsoft.com/fwlink/?LinkId=513165).
 
@@ -63,7 +58,7 @@ Les étapes suivantes vous guident lors de l'activation de la suppression réver
         }
 
 
-## <a name="enable-for-javascript"></a>Activation de la suppression réversible avec le serveur principal JavaScript
+## Activation de la suppression réversible avec le serveur principal JavaScript
 
 Si vous créez une table pour votre service mobile, vous pouvez activer la suppression réversible dans la page de création de la table.
 
@@ -101,22 +96,20 @@ La tâche planifiée suivante purge les enregistrements supprimés de manière r
             Services.Log.Info("Purging old records");
             var monthAgo = DateTimeOffset.UtcNow.AddDays(-30);
      
-            var toDelete = context.TodoIte
-	ms.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
-            context.TodoIte
-	ms.RemoveRange(toDelete);
+            var toDelete = context.TodoItems.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
+            context.TodoItems.RemoveRange(toDelete);
             context.SaveChanges();
      
             return Task.FromResult(true);
         }
     }
 
-Pour en savoir plus sur les tâches planifiées avec le serveur principal .NET de Mobiles services, consultez la page suivante : [Planification de tâches périodiques avec le serveur principal JavaScript de Mobiles Services](/fr-fr/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/) 
+Pour en savoir plus sur les tâches planifiées avec le serveur principal .NET de Mobiles services, consultez la page suivante : [Planification de tâches récurrentes avec le serveur principal JavaScript de Mobile Services](/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/) 
 
 
 
 
-## <a name="using-with-javascript"></a>Utilisation de la suppression réversible avec le serveur principal JavaScript
+## Utilisation de la suppression réversible avec le serveur principal JavaScript
 
 Vous pouvez utiliser les scripts de table pour ajouter une logique à la fonctionnalité de suppression réversible avec les services mobiles principaux JavaScript.
 
@@ -125,7 +118,7 @@ Pour détecter une demande d'annulation de suppression, utilisez la propriété 
     function update(item, user, request) {
         if (request.undelete) { /* any undelete specific code */; }
     }
-To include deleted records in query result in a script, set the "includeDeleted" parameter to true:
+Pour inclure les enregistrements supprimés dans les résultats de requête d'un script, définissez le paramètre includeDeleted sur True :
     
     tables.getTable('softdelete_scenarios').read({
         includeDeleted: true,
@@ -152,16 +145,11 @@ Voici un exemple de tâche planifiée qui supprime les enregistrements qui ont �
         }});
     }
 
-Pour en savoir plus sur les tâches planifiées avec le serveur principal JavaScript de Mobiles Services, consultez la page suivante : [Planification de tâches périodiques avec le serveur principal JavaScript de Mobiles Services](/fr-fr/documentation/articles/mobile-services-schedule-recurring-tasks/).
+Pour en savoir plus sur les tâches planifiées avec le serveur principal JavaScript de Mobiles Services, consultez la page suivante : [Planification de tâches récurrentes avec le serveur principal JavaScript de Mobile Services](/documentation/articles/mobile-services-schedule-recurring-tasks/).
 
 
 
 
-<!-- Anchors. -->
-[Activation de la suppression réversible avec le serveur principal .NET]: #enable-for-dotnet
-[Activation de la suppression réversible avec le serveur principal JavaScript]: #enable-for-javascript
-[Utilisation de la suppression réversible avec le serveur principal .NET]: #using-with-dotnet
-[Utilisation de la suppression réversible avec le serveur principal JavaScript]: #using-with-javascript
 
 <!-- Images -->
 [0]: ./media/mobile-services-using-soft-delete/enable-soft-delete-button.png
@@ -170,10 +158,9 @@ Pour en savoir plus sur les tâches planifiées avec le serveur principal JavaSc
 
 <!-- URLs. -->
 [Type de bit SQL]: http://msdn.microsoft.com/library/ms177603.aspx
-[Synchronisation des données hors connexion pour Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/
+[Synchronisation des données hors connexion pour Mobile Services]: /documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/
 [Portail de gestion]: https://manage.windowsazure.com/
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

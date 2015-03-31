@@ -7,20 +7,20 @@
    	![](./media/notification-hubs-android-get-started/notification-hub-create-android-app4.png)
 
 
-3. Installez le Kit de développement logiciel (SDK) des services Google Play dans votre projet. Dans Eclipse, cliquez sur **Fichier**, puis **Importer**. Sélectionnez **Android**, puis **Existing Android Code into Workspace**, puis cliquez sur **Suivant**. Cliquez sur **Parcourir**, accédez à l'emplacement du Kit de développement logiciel (SDK) Android (généralement dans un dossier nommé `adt-bundle-windows-x86_64` inside the folder that contains Eclipse), then go to the  sous-dossier `\extras\google\google_play_services\libproject`, et sélectionnez le dossier google-play-services-lib, puis cliquez sur **OK**. Activez la case à cocher **Copy projects into workspace**, puis cliquez sur **Finish**.
+3. Installez le Kit de développement logiciel (SDK) des services Google Play dans votre projet. Dans Eclipse, cliquez sur **Fichier**, puis **Importer**. Sélectionnez **Android**, puis **Existing Android Code into Workspace**, puis cliquez sur **Suivant**. Cliquez sur **Parcourir**, naviguez jusqu'à l'emplacement du Kit de développement logiciel Android (généralement dans un dossier nommé  `adt-bundle-windows-x86_64`  dans le dossier qui contient Eclipse), accédez au sous-dossier  `\extras\google\google_play_services\libproject` et sélectionnez le dossier google-play-services-lib, puis cliquez sur **OK**. Activez la case à cocher **Copy projects into workspace**, puis cliquez sur **Finish**.
 
 	![](./media/mobile-services-android-get-started-push/mobile-eclipse-import-Play-library.png)
 
 4. Vous devez ensuite référencer la bibliothèque du Kit de développement logiciel (SDK) des services Google Play que vous venez d'importer à partir de votre projet. 
 
-5. Dans l'**Explorateur de package**, cliquez avec le bouton droit sur votre projet et choisissez *Properties*.
+5. Dans l'**Explorateur de package**, cliquez avec le bouton droit sur votre projet et choisissez  *Propriétés*.
  
 6. Dans la fenêtre Propriétés, sélectionnez Android sur la gauche.
 
 	![](./media/mobile-services-android-get-started-push/mobile-google-set-project-properties.png)
 
 
-7. Sous **Cible de génération de projet**, vérifiez que `Google APIs x86` (or `Google APIs`, selon votre plateforme de développement) est sélectionné pour le niveau de Kit de développement logiciel approprié.
+7. Sous **Cible de génération du projet**, veillez à ce que  `Google APIs x86`  (ou  `Google APIs`, selon votre plateforme de développement) soit sélectionné pour le niveau de Kit de développement logiciel approprié.
 
  
 8. Dans la section **Bibliothèque**, choisissez **Ajouter**, sélectionnez le projet des services Google Play (*google-play-services-lib*), puis cliquez sur **OK**.
@@ -30,4 +30,4 @@
 
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

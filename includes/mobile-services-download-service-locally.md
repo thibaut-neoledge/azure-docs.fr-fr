@@ -27,4 +27,4 @@
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Kit de développement logiciel (SDK) Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

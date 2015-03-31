@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Déploiement de SharePoint 2010 sur des machines virtuelles Azure" 
 	description="Présentation des scénarios pris en charge pour l'utilisation de SharePoint 2010 sur des machines virtuelles Azure." 
 	services="virtual-machines" 
@@ -39,21 +39,21 @@ Ce document explique comment les organisations peuvent configurer et déployer S
 
 <h2>Passage au cloud computing</h2>
 
-Selon le cabinet Gartner, le cloud computing est défini comme un " style d'informatique où des fonctionnalités informatiques fortement extensibles sont fournies 'as a service' à des clients externes à l'aide des technologies Internet. " Les mots clés de cette définition sont " extensibles, services et Internet ". En résumé, le cloud computing peut être défini comme des services informatiques qui sont <strong>déployés et fournis sur Internet</strong> et sont <strong>extensibles à la demande</strong>.
+Selon le cabinet Gartner, le cloud computing est défini comme un " style d'informatique où des fonctionnalités informatiques fortement extensibles sont fournies 'as a service' à des clients externes à l'aide des technologies Internet. " Les mots clés de cette définition sont " extensibles, services et Internet ". En bref, le cloud computing peut être défini comme des services informatiques qui sont <strong>déployés et délivrés par le biais d'Internet</strong> et qui sont <strong>évolutifs sur demande</strong>.
 
 Indéniablement, le cloud computing représente une évolution majeure de l'informatique d'aujourd'hui. Par le passé, on ne parlait que de consolidation et de coût. Désormais, la discussion porte sur la nouvelle gamme d'avantages que le cloud computing peut offrir. Cela consiste uniquement à transformer la manière dont l'informatique est au service des organisations en maîtrisant une nouvelle forme de pouvoir. Le cloud computing modifie fondamentalement le monde de l'informatique, impactant chaque rôle : des fournisseurs de service et architectes système aux développeurs et utilisateurs finaux.
 
 Des recherches ont révélé que la souplesse, le ciblage et l'économie sont les trois moteurs principaux de l'adoption du cloud :
 
 <ul>
-<li><p><strong>Agilité</strong> : le cloud computing peut accélérer la capacité d'une organisation à capitaliser sur de nouvelles opportunités et à répondre à un changement des demandes commerciales.</p></li>
-<li><p><strong>Ciblage</strong> : le cloud computing permet aux services informatiques de réduire très fortement le coût de leur infrastructure. L'infrastructure est abstraite et les ressources sont regroupées. De ce fait, le service informatique fonctionne plus comme un utilitaire que comme un ensemble de services et de systèmes complexes. En outre, le service informatique peut se tourner vers des rôles plus innovants et stratégiques.</p></li>
-<li><p><strong>Économie</strong> : le cloud computing réduit le coût de fourniture des services informatiques et accroît l'utilisation et l'efficacité du centre de données. Les coûts de fourniture diminuent car, avec le cloud computing, les applications et les ressources passent en libre-service, et l'utilisation de ces ressources devient mesurable, de manières nouvelles et précises. L'utilisation du matériel diminue également, car les ressources d'infrastructure (stockage, capacité de calcul et réseau) sont désormais regroupées et abstraites.</p></li>
+<li><p><strong>Agilité</strong>: le cloud computing peut accélérer la capacité d'une organisation à capitaliser sur de nouvelles opportunités et à répondre à un changement des demandes commerciales.</p></li>
+<li><p><strong>Focus</strong>: le cloud computing permet aux services informatiques de réduire très fortement le coût de leur infrastructure. L'infrastructure est abstraite et les ressources sont regroupées. De ce fait, le service informatique fonctionne plus comme un utilitaire que comme un ensemble de services et de systèmes complexes. En outre, le service informatique peut se tourner vers des rôles plus innovants et stratégiques.</p></li>
+<li><p><strong>Économie</strong>: le cloud computing réduit le coût de fourniture des services informatiques et accroît l'utilisation et l'efficacité du centre de données. Les coûts de fourniture diminuent car, avec le cloud computing, les applications et les ressources passent en libre-service, et l'utilisation de ces ressources devient mesurable, de manières nouvelles et précises. L'utilisation du matériel diminue également, car les ressources d'infrastructure (stockage, capacité de calcul et réseau) sont désormais regroupées et abstraites.</p></li>
 </ul>
 
 <h2>Modèles de fourniture pour Cloud Services</h2>
 
-En termes simples, le cloud computing est l'abstraction des services informatiques. Ces services peuvent aller de l'infrastructure de base à des applications complètes. Les services abstraits de demandes et d'utilisations des utilisateurs finaux sans nécessiter de gérer (ou même de le savoir) constituent ces services. De nos jours, le secteur d'activité reconnaît trois modèles de fourniture pour Cloud Services, chacun offrant un compromis distinct entre contrôle/flexibilité et coût total :
+En termes simples, le cloud computing est l'abstraction des services informatiques. Ces services peuvent aller de l'infrastructure de base à des applications complètes. Les utilisateurs finaux demandent et consomment ces services abstraits sans avoir à gérer (ou même à connaître) ce qui le constitue. De nos jours, le secteur d'activité reconnaît trois modèles de fourniture pour Cloud Services, chacun offrant un compromis distinct entre contrôle/flexibilité et coût total :
 
 <ul>
 <li><p><strong>Infrastructure as a Service</strong> (IaaS) : infrastructure virtuelle qui héberge des machines virtuelles et, principalement, des applications existantes.</p></li>
@@ -72,19 +72,19 @@ La figure 1 décrit la taxonomie Cloud Services et la manière dont elle corresp
 Azure Virtual Machines introduit des fonctionnalités qui permettent la gestion et le contrôle complets des machines virtuelles, ainsi que de la mise en réseau virtuelle étendue. Cette offre peut fournir aux organisations des avantages robustes, tels que :
 
 <ul>
-<li><p><strong>Gestion</strong> : gérer centralement des machines virtuelles dans le cloud avec contrôle complet afin de configurer et d'entretenir l'infrastructure.</p></li>
-<li><p><strong>Mobilité des applications</strong> : déplacer des disques durs virtuels entre les environnements locaux et cloud, et vice-versa. Il n'est pas nécessaire de régénérer les applications pour une exécution dans le cloud.</p></li>
-<li><p><strong>Accès aux applications des serveurs Microsoft</strong> : exécuter les mêmes applications locales et la même infrastructure dans le cloud, notamment Microsoft SQL Server, SharePoint Server, Windows Server et Active Directory.</p></li>
+<li><p><strong>Gestion</strong>: gérer centralement des machines virtuelles dans le cloud avec contrôle complet afin de configurer et d'entretenir l'infrastructure.</p></li>
+<li><p><strong>Mobilité des applications</strong>: déplacer des disques durs virtuels entre les environnements locaux et cloud, et vice-versa. Il n'est pas nécessaire de régénérer les applications pour une exécution dans le cloud.</p></li>
+<li><p><strong>Accès aux applications des serveurs Microsoft</strong>: exécuter les mêmes applications locales et la même infrastructure dans le cloud, notamment Microsoft SQL Server, SharePoint Server, Windows Server et Active Directory.</p></li>
 </ul>
 
 Azure Virtual Machines constitue une plateforme conviviale, ouverte, flexible et puissante qui permet aux organisations de déployer et d'exécuter les machines virtuelles Windows Server et Linux en quelques minutes :
 
 <ul>
-<li><p><strong>Convivialité</strong> : avec Azure Virtual Machines, il est convivial et simple de créer, de migrer, de déployer et de gérer des machines virtuelles dans le cloud. Les organisations peuvent migrer des charges de travail vers Azure sans avoir à modifier le code existant, ou elles peuvent configurer de nouvelles machines virtuelles dans Azure en quelques clics. L'offre inclut également une assistance pour le développement de nouvelles applications de cloud en intégrant les fonctionnalités IaaS et PaaS d'Azure.</p></li>
+<li><p><strong>Convivialité</strong>: avec Azure Virtual Machines, il est convivial et simple de créer, de migrer, de déployer et de gérer des machines virtuelles dans le cloud. Les organisations peuvent migrer des charges de travail vers Azure sans avoir à modifier le code existant, ou elles peuvent configurer de nouvelles machines virtuelles dans Azure en quelques clics. L'offre inclut également une assistance pour le développement de nouvelles applications de cloud en intégrant les fonctionnalités IaaS et PaaS d'Azure.</p></li>
 
-<li><p><strong>Ouverture et flexibilité</strong> : Azure est une plateforme ouverte qui offre aux organisations de la flexibilité. Elles peuvent commencer par une image prégénérée de la bibliothèque d'images, ou elles peuvent créer et utiliser des disques durs virtuels locaux et personnalisés, et les charger dans la bibliothèque d'images. Les versions communautaire et commerciale de Linux sont également disponibles.</p></li>
+<li><p><strong>Ouverture et flexibilité</strong>: Azure est une plateforme ouverte qui offre aux organisations de la flexibilité. Elles peuvent commencer par une image prégénérée de la bibliothèque d'images, ou elles peuvent créer et utiliser des disques durs virtuels locaux et personnalisés, et les charger dans la bibliothèque d'images. Les versions communautaire et commerciale de Linux sont également disponibles.</p></li>
 
-<li><p><strong>Puissance</strong> : Azure est une plateforme de cloud clé en main destinée à l'exécution d'applications telles que SQL Server, SharePoint Server ou Active Directory dans le cloud. Les organisations peuvent créer des solutions hybrides locales et de cloud avec une connectivité VPN entre le centre de données Azure et leurs propres réseaux.</p></li>
+<li><p><strong>Puissance</strong>: Azure est une plateforme de cloud clé en main destinée à l'exécution d'applications telles que SQL Server, SharePoint Server ou Active Directory dans le cloud. Les organisations peuvent créer des solutions hybrides locales et de cloud avec une connectivité VPN entre le centre de données Azure et leurs propres réseaux.</p></li>
 </ul>
 
 <h2>SharePoint sur Azure Virtual Machines</h2>
@@ -103,11 +103,11 @@ La prise en charge et le déploiement d'une vaste infrastructure SharePoint peut
 
 <h3>Extensibilité</h3>
 
-Sans la nécessité de déployer, de tester et de préparer les serveurs et batteries de serveurs physiques SharePoint, les organisations peuvent développer et acquérir une capacité de calcul à la demande, sans préavis. Lorsque la charge de travail SharePoint s'accroît, une organisation peut rapidement développer son infrastructure dans le cloud. De même; lorsque les besoins en calcul diminuent, l'organisation peut diminuer les ressources, en ne payant que ce qu'elle utilise. Azure Virtual Machines réduit les dépenses à l'avance et les engagements à long terme, permettant aux organisations de créer et de gérer les infrastructures à l'échelle. Répétons-le, cela signifie que ces organisations peuvent innover, expérimenter et itérer en quelques heures au lieu des jours et des semaines que prennent les déploiements traditionnels.
+Sans la nécessité de déployer, de tester et de préparer les serveurs et batteries de serveurs physiques SharePoint, les organisations peuvent développer et acquérir une capacité de calcul à la demande, sans préavis. Lorsque la charge de travail SharePoint s'accroît, une organisation peut rapidement développer son infrastructure dans le cloud. De même, lorsque les besoins en calcul diminuent, l'organisation peut diminuer les ressources, en ne payant que ce qu'elle utilise. Azure Virtual Machines réduit les dépenses à l'avance et les engagements à long terme, permettant aux organisations de créer et de gérer les infrastructures à l'échelle. Répétons-le, cela signifie que ces organisations peuvent innover, expérimenter et itérer en quelques heures au lieu des jours et des semaines que prennent les déploiements traditionnels.
 
 <h3>Utilisation facturée à l'usage</h3>
 
-Azure Virtual Machines fournit une puissance, une mémoire et un stockage de calcul pour les scénarios SharePoint, dont les prix sont généralement basés sur la consommation des ressources. Les organisations ne paient que ce qu'elles utilisent et le service fournit toute la capacité requise pour exécuter l'infrastructure SharePoint. Pour plus d'informations sur la tarification et la facturation, consultez la page <a href="/fr-fr/pricing/details/">Tarification Azure</a>. Notez que des frais nominaux sont facturés pour le stockage et les données quittant le cloud Azure depuis un réseau local. Néanmoins, Azure ne facture pas le chargement des données.
+Azure Virtual Machines fournit une puissance, une mémoire et un stockage de calcul pour les scénarios SharePoint, dont les prix sont généralement basés sur la consommation des ressources. Les organisations ne paient que ce qu'elles utilisent et le service fournit toute la capacité requise pour exécuter l'infrastructure SharePoint. Pour plus d'informations sur la tarification et la facturation, consultez la page <a href="/pricing/details/">Tarification Azure</a>. Notez que des frais nominaux sont facturés pour le stockage et les données quittant le cloud Azure depuis un réseau local. Néanmoins, Azure ne facture pas le chargement des données.
 
 <h3>Flexibilité</h3>
 
@@ -115,12 +115,12 @@ Azure Virtual Machines offre aux développeurs la flexibilité de choisir leur l
 
 <h2>Processus de mise en service</h2>
 
-Cette sous-section aborde les points forts d'Azure. La <strong>bibliothèque d'images</strong> d'Azure fournit la liste des machines virtuelles préconfigurées disponibles. Les utilisateurs peuvent publier SharePoint Server, SQL Server, Windows Server et d'autres ISO/VHD vers la bibliothèque d'images. Pour simplifier la création des machines virtuelles, des images de base sont créées et publiées dans la bibliothèque. Les utilisateurs autorisés peuvent utiliser ces images pour générer la machine virtuelle souhaitée. Pour plus d'informations, consultez la page <a href="/fr-fr/manage/windows/tutorials/virtual-machine-from-gallery/">Création d'une machine virtuelle exécutant Windows Server 2008 R2</a> sur le site d'Azure. La figure 2 présente les étapes de base de création d'une machine virtuelle en utilisant le portail de gestion Azure :
+Cette sous-section aborde les points forts d'Azure. La <strong>bibliothèque d'images</strong> d'Azure fournit la liste des machines virtuelles préconfigurées disponibles. Les utilisateurs peuvent publier SharePoint Server, SQL Server, Windows Server et d'autres ISO/VHD vers la bibliothèque d'images. Pour simplifier la création des machines virtuelles, des images de base sont créées et publiées dans la bibliothèque. Les utilisateurs autorisés peuvent utiliser ces images pour générer la machine virtuelle souhaitée. Pour plus d'informations, consultez la page <a href="/manage/windows/tutorials/virtual-machine-from-gallery/">Création d'une machine virtuelle exécutant Windows Server 2008 R2</a> sur le site d'Azure. La figure 2 présente les étapes de base de création d'une machine virtuelle en utilisant le portail de gestion Azure :
 
 <p class="caption">Figure 2 : vue d'ensemble des étapes de création d'une machine virtuelle</p>
 ![azure-sharepoint-wp-2](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-2.png)
 
-Les utilisateurs peuvent charger une image préparée avec Sysprep dans le portail de gestion Azure. Pour plus d'informations, consultez la page <a href="/fr-fr/manage/windows/common-tasks/upload-a-vhd/">Création et téléchargement d'un disque dur virtuel</a>. La figure 3 présente les étapes de base de chargement d'une image afin de créer une machine virtuelle :
+Les utilisateurs peuvent charger une image préparée avec Sysprep dans le portail de gestion Azure. Pour plus d'informations, consultez la page <a href="/manage/windows/common-tasks/upload-a-vhd/">Création et téléchargement d'un disque dur virtuel</a>. La figure 3 présente les étapes de base de chargement d'une image afin de créer une machine virtuelle :
 
 <p class="caption">Figure 3 : vue d'ensemble des étapes de chargement d'une image</p>
 ![azure-sharepoint-wp-3](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-3.png)
@@ -133,66 +133,66 @@ Vous pouvez déployer SharePoint 2010 sur Azure en procédant comme suit :
 <li>Connectez-vous au <a href="http://manage.windowsazure.com/">portail de gestion Azure</a> en utilisant le compte lié à votre abonnement Azure.
 <ul>
 
-<li>Si vous n'avez pas de compte Azure, <a href="http://azure.microsoft.com/pricing/free-trial/">inscrivez-vous pour obtenir une version d'évaluation gratuite d'Azure</a>.</li>
+<li>Si vous n'avez pas de compte Azure, <a href="http://www.windowsazure.com/pricing/free-trial/">inscrivez-vous pour obtenir une version d'évaluation gratuite d'Azure</a>.</li>
 </ul>
 </li>
 
-<li>Pour créer une machine virtuelle avec le système d'exploitation de base, dans le portail de gestion Azure, cliquez sur <strong>NOUVEAU > CALCUL > MACHINE VIRTUELLE > À PARTIR DE LA GALERIE</strong>.</li>
+<li>Pour créer une MV avec le système d'exploitation de base, dans le portail de gestion Azure, cliquez sur <strong>NOUVEAU > CALCUL > MACHINE VIRTUELLE > À PARTIR DE LA GALERIE</strong>.</li>
 
-<li>La boîte de dialogue <strong>Choisir une image</strong> s'affiche. Cliquez sur l'image de la plateforme <strong>Windows Server 2008 R2 SP1</strong>, puis sur la flèche droite.</li>
+<li>La boîte de dialogue <strong>Choisir une image</strong> apparaît. Cliquez sur l'image de plateforme <strong>Windows Server 2008 R2 SP1</strong> , puis sur la flèche droite.</li>
 
-<li>La boîte de dialogue <strong><em>Configuration de la machine virtuelle</em></strong> s'affiche. Fournissez les informations suivantes :
+<li>La boîte de dialogue <strong><em>Configuration de machine virtuelle </em></strong>apparaît. Fournissez les informations suivantes :
 
 <ul>
-<li>Entrez un <strong>NOM DE MACHINE VIRTUELLE</strong>.
+<li>Entrez un <strong>Nom de machine virtuelle</strong>.
 </li>
-<li>Sélectionnez la <strong>TAILLE</strong> appropriée.
+<li>Sélectionnez la <strong>TAILLE appropriée</strong>.
 <ul>
-<li>Pour un environnement de production (serveur et base de données d'application SharePoint), il est recommandé d'utiliser A3 <em>(4 cœurs, mémoire 7 Go)</em>.</li>
+<li>Pour un environnement de production (serveur et base de données d'application SharePoint), il est recommandé d'utiliser A3 <em>(mémoire 4 cœurs, 7 Go de mémoire).</em>.</li>
 </ul>
 </li>
-<li>Dans le champ <strong>NOUVEAU NOM D'UTILISATEUR</strong>, tapez le nom d'un compte d'administrateur local.</li>
-<li>Dans la zone <strong>NOUVEAU MOT DE PASSE</strong>, tapez un mot de passe fort.</li>
-<li>Dans le champ <strong>CONFIRMER</strong>, tapez à nouveau le mot de passe et cliquez sur la flèche droite.</li>
+<li>Dans <strong>Nouveau nom d'utilisateur</strong>, tapez le nom d'un compte d'administrateur local.</li>
+<li>Dans la zone <strong>Nouveau mot de passe</strong> , tapez un mot de passe fort.</li>
+<li>Dans la zone <strong>Conformer</strong> , retapez le mot de passe et cliquez sur la flèche droite.</li>
 </ul>
-<li>La deuxième boîte de dialogue <strong>Configuration de la machine virtuelle</strong> s'affiche. Fournissez les informations suivantes :
+<li>La seconde boîte de dialogue <strong>Configuration de machine virtuelle</strong> apparaît. Fournissez les informations suivantes :
 <ul>
-<li>Dans le champ <strong>SERVICE DE CLOUD</strong>, choisissez une des options suivantes :
+<li>Dans la zone <strong>Service cloud</strong> , choisissez l'une des options suivantes :
 <ul>
-<li><strong>Créer un nouveau service cloud</strong> : dans ce cas, vous devez également fournir le nom DNS d'un service cloud.</li>
+<li><strong>Créer un nouveau service de cloud computing</strong>, auquel cas vous devez également fournir le nom DNS d'un service cloud.</li>
 <li>Sélectionnez un service cloud existant.</li>
 </ul>
-<li>Dans la zone <strong>REGION/AFFINITY GROUP/VIRTUAL NETWORK</strong>, sélectionnez la région d'hébergement pour cette image virtuelle.</li>
-<li>Dans la zone <strong>STORAGE ACCOUNT</strong>, choisissez l'une des options suivantes :
+<li>Dans la zone <strong>Région/Groupe d'affinités/Réseau virtuel </strong>, sélectionnez la région où l'image virtuelle sera hébergée.</li>
+<li>Dans la zone <strong>Compte de stockage </strong>, choisissez l'une des options suivantes :
 <ul>
 <li><strong>Utiliser un compte de stockage généré automatiquement</strong>.</li>
 <li>Sélectionnez un nom de compte de stockage existant.</li>
 <ul>
 <li>Un seul compte de stockage est automatiquement créé par région. Toutes les autres machines virtuelles comportant ce paramètre sont situées dans ce compte de stockage.</li>
 <li>Vous êtes limité à 20 comptes de stockage.</li>
-<li>Pour plus d'informations, consultez la page <a href="/fr-fr/manage/windows/common-tasks/upload-a-vhd/#createstorage">Création d'un compte de stockage dans Azure</a>.</li>
+<li>Pour plus d'informations, consultez la page <a href="/manage/windows/common-tasks/upload-a-vhd/#createstorage">Création d'un compte de stockage dans Azure</a>.</li>
 </ul>
 </li>
-<li>Dans le champ <strong>JEU DE DISPONIBILITÉ</strong>, sélectionnez <STRONG>(aucun)</STRONG>, puis cliquez sur la flèche droite.</li>
+<li>Dans la zone <strong>GROUPE À HAUTE DISPONIBILITÉ</strong> sélectionnez <STRONG>(Aucun)</STRONG>, puis cliquez sur la flèche droite.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>Dans la troisième boîte de dialogue <strong>Configuration de la machine virtuelle</strong>, cochez la case pour créer la machine virtuelle.</li>
+<li>Dans la troisième boîte de dialogue <strong>Configuration de machine virtuelle </strong>cliquez sur la coche pour créer la machine virtuelle.</li>
 
 
 <li>Connexion à la machine virtuelle :
 <ul>
 <li>Ouvrez la machine virtuelle à l'aide du Bureau à distance.</li>
-<li>Dans le portail de gestion Azure, sélectionnez votre machine virtuelle, puis la page <strong>DASHBOARD</strong>.</li>
-<li>Cliquez sur <strong>Connecter</strong>.</li>
+<li>Dans le portail de gestion Azure, sélectionnez votre machine virtuelle, puis la page <strong>Tableau de bord</strong> .</li>
+<li>Cliquez sur <strong>Connexion</strong>.</li>
 </ul>
 </li>
 <li>Créez la machine virtuelle SQL Server à l'aide des options suivantes :
 <ul>
-<li>Créez une machine virtuelle SQL Server 2012 en suivant les étapes 1 à 7 ci-dessus à l'exception de l'<strong>étape 3</strong>, utilisez l'image SQL Server 2012 au lieu de l'image Windows Server 2008 R2 SP1. Pour plus d'informations, consultez la page <a href="/fr-fr/manage/windows/common-tasks/install-sql-server/">Configuration d'une machine virtuelle SQL Server sur Azure</a>.
+<li>Créez une machine virtuelle SQL Server 2012 en suivant les étapes 1 à 7 ci-dessus. Cependant, à l' <strong>étape 3</strong>, utilisez l'image SQL Server 2012 au lieu de l'image Windows Server 2008 R2 SP1. Pour plus d'informations, consultez la page <a href="/manage/windows/common-tasks/install-sql-server/">Configuration d'une machine virtuelle SQL Server sur Azure</a>.
 <ul>
-<li>Lorsque vous sélectionnez cette option, le processus de mise en service conserve une copie des fichiers de configuration SQL Server 2012 dans le répertoire <em>C:\SQLServer_11.0_Full</em> afin que vous puissiez personnaliser l'installation. Par exemple, vous pouvez convertir l'installation d'évaluation de SQL Server 2012 en une version sous licence en utilisant votre clé de licence.</li>
+<li>Quand vous choisissez cette option, le processus de configuration conserve une copie des fichiers d'installation de SQL Server 2012 dans le chemin d'accès de répertoire <em>C:\SQLServer_11.0_Full</em> pour que vous puissiez personnaliser l'installation. Par exemple, vous pouvez convertir l'installation d'évaluation de SQL Server 2012 en une version sous licence en utilisant votre clé de licence.</li>
 </ul>
 </li>
 <li>Utilisez l'outil SQL Server System Preparation (SysPrep) pour installer SQL Server sur la machine virtuelle avec un système d'exploitation de base (comme indiqué ci-dessus aux étapes 1 à 7). Pour plus d'informations, consultez la page <a href="http://msdn.microsoft.com/library/ee210664.aspx">Installation de SQL Server 2012 à l'aide de SysPrep</a>.</li>
@@ -205,14 +205,14 @@ Vous pouvez déployer SharePoint 2010 sur Azure en procédant comme suit :
 <li>Sous-étape 1 : configurez l'abonnement Azure à l'aide de fichiers de script.</li>
 <li>Sous-étape 2 : mettez les serveurs SharePoint en service en créant une autre machine virtuelle avec un système d'exploitation de base (comme indiqué ci-dessus aux étapes 1 à 7). Pour créer un serveur SharePoint sur cette machine virtuelle, sélectionnez l'une des options suivantes :
 <ul>
-<li>Mise en service utilisant l'interface utilisateur graphique SharePoint :
+<li>Mise en service via l'interface utilisateur graphique SharePoint :
 <ul>
 <li>Pour créer et mettre en service une batterie de serveurs SharePoint, consultez la page <a href="http://technet.microsoft.com/library/ee805948.aspx#CreateConfigure">Création d'une batterie de serveurs SharePoint</a>.</li>
 <li>Pour ajouter un serveur Web ou d'applications à la batterie de serveurs, consultez la page <a href="http://technet.microsoft.com/library/cc261752.aspx">Ajout d'un serveur Web ou d'applications à la batterie de serveurs (SharePoint Server 2010)</a>.</li>
 <li>
 <p>Pour ajouter un serveur de base de données à une batterie de serveurs existante, consultez la page <a href="http://technet.microsoft.com/library/cc262781">Ajout d'un serveur de base de données à une batterie de serveurs existante</a>.</p>
 <ul>
-<li>Pour utiliser SQL Server 2012 pour votre batterie de serveurs SharePoint, vous devez télécharger et installer le Service Pack 1 pour SharePoint Server 2010 après avoir installé l'application et choisi de ne pas configurer le serveur. Pour plus d'informations, consultez la page <a href="http://www.microsoft.com/fr-fr/download/details.aspx?id=26623">Service Pack 1 pour SharePoint Server 2010</a>.</li>
+<li>Pour utiliser SQL Server 2012 pour votre batterie de serveurs SharePoint, vous devez télécharger et installer le Service Pack 1 pour SharePoint Server 2010 après avoir installé l'application et choisi de ne pas configurer le serveur. Pour plus d'informations, consultez la page <a href="http://www.microsoft.com/download/details.aspx?id=26623">Service Pack 1 pour SharePoint Server 2010</a>.</li>
 <li>Pour tirer parti des fonctionnalités de SQL Server BI, nous vous recommandons d'installer SharePoint Server en tant que batterie de serveurs plutôt qu'en tant que serveur autonome. Pour plus d'informations, consultez la page <a href="http://technet.microsoft.com/library/hh231681(v=sql.110).aspx">Installation des fonctionnalités de SQL Server 2012 Business Intelligence</a>.</li>
 </ul>
 </li>
@@ -228,7 +228,7 @@ Vous pouvez déployer SharePoint 2010 sur Azure en procédant comme suit :
 <ul>
 <li>Vous pouvez également utiliser AutoSPInstaller du projet CodePlex qui est composé de scripts Windows PowerShell, d'un fichier d'entrée XML et d'un fichier de commandes Microsoft Windows. AutoSPInstaller fournit une infrastructure pour un script d'installation SharePoint 2010 basé sur Windows PowerShell. Pour plus d'informations, consultez la page <a href="http://autospinstaller.codeplex.com/">CodePlex : AutoSPInstaller</a>.
 
-<strong>Remarque</strong> : assurez-vous de configurer la sécurité sur le point de terminaison du portail de gestion et de définir un port entrant sur le pare-feu Windows de la machine virtuelle. Puis, assurez-vous que vous pouvez démarrer une session Windows PowerShell à distance sur l'un des serveurs d'applications SharePoint en ouvrant une session Windows PowerShell avec les informations d'identification Administrateur.
+<strong>Remarque</strong>: assurez-vous de configurer la sécurité sur le point de terminaison du portail de gestion et de définir un port entrant sur le pare-feu Windows de la machine virtuelle. Puis, assurez-vous que vous pouvez démarrer une session Windows PowerShell à distance sur l'un des serveurs d'applications SharePoint en ouvrant une session Windows PowerShell avec les informations d'identification Administrateur.
 </li>
 </ul>
 </li>
@@ -246,9 +246,9 @@ Vous pouvez également créer vos propres images et les charger dans Azure sous 
 
 <ol>
 <li>Créez l'image Hyper-V : utilisez le Gestionnaire Hyper-V pour créer le disque dur virtuel Hyper-V. Pour plus d'informations, consultez la page <a href="http://technet.microsoft.com/library/cc742509">Créer des disques durs virtuels</a>.</li>
-<li>Créez un compte de stockage dans Azure : un compte de stockage dans Azure est requis pour charger un fichier de disque dur virtuel pouvant être utilisé pour la création d'une machine virtuelle. Vous pouvez créer ce compte à l'aide du portail de gestion Azure. Pour plus d'informations, consultez la page <a href="/fr-fr/manage/windows/common-tasks/upload-a-vhd/">Création d'un compte de stockage dans Azure</a>.</li>
+<li>Créez un compte de stockage dans Azure : un compte de stockage dans Azure est requis pour charger un fichier de disque dur virtuel pouvant être utilisé pour la création d'une machine virtuelle. Vous pouvez créer ce compte à l'aide du portail de gestion Azure. Pour plus d'informations, consultez la page <a href="/manage/windows/common-tasks/upload-a-vhd/">Création d'un compte de stockage dans Azure</a>.</li>
 <li>Préparez l'image pour le chargement : avant de pouvoir télécharger l'image sur Azure, elle doit être généralisée en utilisant la commande Sysprep. Pour plus d'informations, consultez la page <a href="http://technet.microsoft.com/library/bb457073.aspx">Utilisation de SysPrep : introduction</a>.</li>
-<li>Chargez l'image dans Azure : pour charger une image contenue dans un fichier de disque dur virtuel, vous devez créer et installer un certificat de gestion. Obtenez l'empreinte numérique du certificat et l'ID d'abonnement. Définissez la connexion et téléchargez le fichier VHD à l'aide de l'outil en ligne de commande CSUpload. Pour plus d'informations, consultez la page <a href="/fr-fr/manage/windows/common-tasks/upload-a-vhd/">Chargement de l'image dans Azure</a>.</li>
+<li>Chargez l'image dans Azure : pour charger une image contenue dans un fichier de disque dur virtuel, vous devez créer et installer un certificat de gestion. Obtenez l'empreinte numérique du certificat et l'ID d'abonnement. Définissez la connexion et téléchargez le fichier VHD à l'aide de l'outil en ligne de commande CSUpload. Pour plus d'informations, consultez la page <a href="/manage/windows/common-tasks/upload-a-vhd/">Chargement de l'image dans Azure</a>.</li>
 </ol>
 
 <h2>Scénarios d'utilisation</h2>
@@ -265,7 +265,7 @@ Ce scénario explique comment les organisations peuvent utiliser des batteries d
 
 Pour utiliser pleinement les machines de test de charge, les organisations peuvent configurer le développement virtualisé SharePoint et tester les machines sur Azure avec la prise en charge du système d'exploitation pour Windows Server 2008 R2. Ainsi, les équipes de développement peuvent créer et tester des applications et migrer facilement vers des environnements de production locaux ou cloud sans changement de code. Les mêmes infrastructures et jeux d'outils peuvent être utilisés en local et dans le cloud, permettant à l'équipe dispersée un accès au même environnement. Les utilisateurs peuvent également accéder à des données et applications locales en définissant une connexion VPN directe.
 
-<h4>Mise en route</h4>
+<h4>Prise en main</h4>
 
 La figure 4 montre un environnement de développement et de test SharePoint dans une machine virtuelle Azure. Pour générer ce déploiement, commencez par utiliser le même environnement de développement et de test SharePoint local utilisé pour développer les applications. Puis, chargez et déployez les applications sur la machine virtuelle Azure pour le test et le développement. Si votre organisation décide de replacer l'application en local, elle peut le faire sans avoir à modifier l'application.
 
@@ -278,17 +278,17 @@ La figure 4 montre un environnement de développement et de test SharePoint dans
 Pour implémenter un environnement de développement et de test SharePoint sur Azure, procédez comme suit :
 
 <ol>
-<li><em>Mettre en service</em> : tout d'abord, mettez une connexion VPN en service entre les éléments locaux et Azure à l'aide d'Azure Virtual Network. Active Directory n'étant pas utilisé ici, un tunnel VPN est requis. Pour plus d'informations, consultez la page <a href="http://msdn.microsoft.com/library/windowsazure/jj156007.aspx">Azure Virtual Network (considérations de conception et scénarios de connexion sécurisée)</a>. Puis, utilisez le portail de gestion pour mettre en service une nouvelle machine virtuelle en utilisant une image stockée provenant de la bibliothèque d'images.
+<li><em>Mise en service</em>: tout d'abord, mettez une connexion VPN en service entre les éléments locaux et Azure à l'aide d'Azure Virtual Network. Active Directory n'étant pas utilisé ici, un tunnel VPN est requis. Pour plus d'informations, consultez la page <a href="http://msdn.microsoft.com/library/windowsazure/jj156007.aspx">Azure Virtual Network (considérations de conception et scénarios de connexion sécurisée)</a>. Puis, utilisez le portail de gestion pour mettre en service une nouvelle machine virtuelle en utilisant une image stockée provenant de la bibliothèque d'images.
 <ul>
 <li>Vous pouvez charger les machines virtuelles locales de développement et de test SharePoint sur votre compte de stockage Azure et référencer ces dernières par l'intermédiaire de la bibliothèque d'images afin de générer l'environnement requis.</li>
-<li>Vous pouvez utiliser l'image SQL Server 2012 au lieu de l'image Windows Server 2008 R2 SP1. Pour plus d'informations, consultez la page <a href="/fr-fr/manage/windows/common-tasks/install-sql-server/">Configuration d'une machine virtuelle SQL Server sur Azure</a>.</li>
+<li>Vous pouvez utiliser l'image SQL Server 2012 au lieu de l'image Windows Server 2008 R2 SP1. Pour plus d'informations, consultez la page <a href="/manage/windows/common-tasks/install-sql-server/">Configuration d'une machine virtuelle SQL Server sur Azure</a>.</li>
 </ul>
 </li>
-<li><em>Installer</em> : installez SharePoint Server, Visual Studio et SQL Server sur les machines virtuelles à l'aide d'une connexion Bureau à distance.
+<li><em>Installer</em>: installez SharePoint Server, Visual Studio et SQL Server sur les machines virtuelles à l'aide d'une connexion Bureau à distance.
 <ul>
 <li>Sélectionnez une option d'installation de SharePoint Server :
 <ul>
-<li>Utilisez le script SharePoint 2010 Easy Setup Script pour créer un ordinateur de développeur SharePoint. Pour plus d'informations, consultez la page <a href="http://www.microsoft.com/fr-fr/download/details.aspx?id=23415">SharePoint 2010 Easy Setup Script</a>.</li>
+<li>Utilisez le script SharePoint 2010 Easy Setup Script pour créer un ordinateur de développeur SharePoint. Pour plus d'informations, consultez la page <a href="http://www.microsoft.com/download/details.aspx?id=23415">SharePoint 2010 Easy Setup Script</a>.</li>
 <li>Utilisez Windows PowerShell. Pour plus d'informations, consultez la page <a href="http://technet.microsoft.com/library/cc262839.aspx">Installer SharePoint Server 2010 à l'aide de Windows PowerShell</a>.</li>
 <li>Utilisez AutoSPInstaller du projet CodePlex. Pour plus d'informations, consultez la page <a href="http://autospinstaller.codeplex.com/">CodePlex : AutoSPInstaller</a>.</li>
 </ul>
@@ -302,20 +302,20 @@ Pour implémenter un environnement de développement et de test SharePoint sur A
 </li>
 </ul>
 </li>
-<li><em>Développer des packages et scripts de déploiement pour les applications et bases de données</em> : si vous prévoyez d'utiliser une machine virtuelle provenant de la bibliothèque d'images, les applications et bases de données locales souhaitées peuvent être déployées sur Azure Virtual Machines :
+<li><em>Développer des packages et scripts de déploiement pour les applications et bases de données</em>: si vous prévoyez d'utiliser une machine virtuelle provenant de la bibliothèque d'images, les applications et bases de données locales souhaitées peuvent être déployées sur Azure Virtual Machines :
 <ul>
 <li>Créez des packages de déploiement pour les applications et bases de données locales existantes à l'aide SQL Server Data Tools et Visual Studio.</li>
 <li>Utilisez ces packages pour déployer des applications et bases de données sur Azure Virtual Machines.</li>
 </ul>
 </li>
-<li><em>Déploiement d'applications et bases de données SharePoint</em> :
+<li><em>Déploiement d'applications et bases de données SharePoint</em>:
 <ul>
 <li>Configurez la sécurité sur le point de terminaison du portail de gestion et définissez un port entrant sur le pare-feu Windows de la machine virtuelle.</li>
 <li>Déployez des applications et bases de données SharePoint sur Azure Virtual Machines à l'aide des packages et scripts de déploiement créés à l'étape 3.</li>
 <li>Testez les applications et bases de données déployées.</li>
 </ul>
 </li>
-<li><em>Gérer les machines virtuelles</em> :
+<li><em>Gérer les machines virtuelles</em>:
 <ul>
 <li>Surveillez les machines virtuelles à l'aide du portail de gestion.</li>
 <li>Surveillez les applications à l'aide de Visual Studio et SQL Server Management Studio.</li>
@@ -335,7 +335,7 @@ En outre, à l'aide d'Azure Virtual Machines, les organisations peuvent facileme
 
 Les machines virtuelles de l'infrastructure Azure sont validées et prises en charge pour fonctionner avec d'autres produits Microsoft, tels que SQL Server et SharePoint Server. Azure et SharePoint Server fonctionnent mieux ensemble : les deux appartiennent à la famille Microsoft et sont parfaitement intégrés, pris en charge et testés ensemble pour offrir une expérience optimale. Ils ont tous deux un seul point de support pour l'application SharePoint et l'infrastructure Azure.
 
-<h4>Mise en route</h4>
+<h4>Prise en main</h4>
 
 Dans ce scénario, des serveurs Web frontaux supplémentaires pour SharePoint Server doivent être ajoutés afin de prendre en charge un trafic supplémentaire. Ces serveurs requièrent une sécurité améliorée et des contrôleurs de domaine de services de domaine Active Directory afin de prendre en charge l'authentification et l'autorisation utilisateur. La figure 5 présente la disposition de ce scénario.
 
@@ -347,19 +347,19 @@ Dans ce scénario, des serveurs Web frontaux supplémentaires pour SharePoint Se
 Pour implémenter une batterie de serveurs SharePoint publique sur Azure, procédez comme suit :
 
 <ol>
-<li><em>Déployer Active Directory</em> : les exigences fondamentales de déploiement d'Active Directory sur Azure Virtual Machines sont similaires " mais pas identiques " au déploiement sur des machines virtuelles (et, dans une certaine mesure, sur des machines physiques) locales. Pour plus d'informations sur les différences ainsi que pour des instructions et autres considérations, consultez la page <a href="http://msdn.microsoft.com/library/windowsazure/jj156090">Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Azure</a>. Pour déployer Active Directory dans Azure :
+<li><em>Déployer Active Directory</em>: les exigences fondamentales de déploiement d'Active Directory sur Azure Virtual Machines sont similaires " mais pas identiques " au déploiement sur des machines virtuelles (et, dans une certaine mesure, sur des machines physiques) locales. Pour plus d'informations sur les différences ainsi que pour des instructions et autres considérations, consultez la page <a href="http://msdn.microsoft.com/library/windowsazure/jj156090">Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Azure</a>. Pour déployer Active Directory dans Azure :
 <ul>
 <li>Définissez et créez un réseau virtuel où les machines virtuelles peuvent être affectées à des sous-réseaux spécifiques. Pour plus d'informations, consultez la page <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Configuration d'un réseau virtuel</a>.</li>
 <li>Utilisez le portail de gestion pour créer et déployer le contrôleur de domaine sur une nouvelle machine virtuelle sur Azure. Pour plus d'informations, consultez la page <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Déploiement et création du contrôleur de domaine</a>.
 <ul>
 <li>Vous pouvez également vous reporter au script Windows PowerShell pour déployer un domaine autonome dans le cloud en utilisant Azure Virtual Machines et Virtual Network. Pour plus d'informations, consultez la page <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectoryPS">Déploiement d'Active Directory dans Azure (Windows PowerShell)</a>.</li>
-<li>Pour plus d'informations sur la création d'une forêt Active Directory sur une machine virtuelle dans Azure Virtual Network, consultez la page <a href="/fr-fr/manage/services/networking/active-directory-forest/">Installation d'une nouvelle forêt Active Directory dans Azure</a>.</li>
+<li>Pour plus d'informations sur la création d'une forêt Active Directory sur une machine virtuelle dans Azure Virtual Network, consultez la page <a href="/manage/services/networking/active-directory-forest/">Installation d'une nouvelle forêt Active Directory dans Azure</a>.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><em>Mettre en service une machine virtuelle</em> : Utilisez le portail de gestion pour mettre en service une nouvelle machine virtuelle à partir d'une image stockée provenant de la bibliothèque d'images.</li>
-<li><em>Déployer une batterie de serveurs SharePoint</em> :
+<li><em>Mettre en service une machine virtuelle</em>: Utilisez le portail de gestion pour mettre en service une nouvelle machine virtuelle à partir d'une image stockée provenant de la bibliothèque d'images.</li>
+<li><em>Déployer une batterie de serveurs SharePoint</em>:
 <ul>
 <li>Utilisez la machine virtuelle nouvellement mise en service pour installer SharePoint et générer une image réutilisable. Pour plus d'informations sur l'installation de SharePoint Server, consultez la page <a href="http://technet.microsoft.com/library/cc262839.aspx">Installer SharePoint Server 2010 à l'aide de Windows PowerShell</a> ou <a href="http://autospinstaller.codeplex.com/">CodePlex : AutoSPInstaller</a>.</li>
 <li>Configurez la machine virtuelle SharePoint afin de créer la batterie de serveurs SharePoint et de s'y connecter.</li>
@@ -371,7 +371,7 @@ Pour implémenter une batterie de serveurs SharePoint publique sur Azure, procé
 </li>
 </ul>
 </li>
-<li><em>Gérer les machines virtuelles</em> :
+<li><em>Gérer les machines virtuelles</em>:
 <ul>
 <li>Surveillez les machines virtuelles à l'aide du portail de gestion.</li>
 <li>Surveillez la batterie de serveurs SharePoint à l'aide de l'administration centrale.</li>
@@ -387,9 +387,9 @@ L'aide à la décision est essentielle pour obtenir des idées clés et prendre 
 
 Ce scénario décrit comment les organisations peuvent utiliser Azure Virtual Machines pour héberger des applications décisionnelles critiques. Les organisations peuvent déployer des batteries de serveurs SharePoint dans Azure Virtual Machines et monter en charge les composants décisionnels des machines virtuelles du serveur d'applications, tels que SSRS ou Excel Services. En mettant à l'échelle les composants utilisant beaucoup de ressources dans le cloud, les machines virtuelles peuvent plus facilement et mieux prendre en charge des charges de travail spécialisées. Notez que SQL Server dans Azure Virtual Machines offre d'excellentes performances, car il est facile de mettre à l'échelle des instances de SQL Server, dans des petites installations comme des très grandes. Ainsi, les organisations jouissent d'une grande flexibilité, leur permettant de mettre en service dynamiquement (développer) ou de supprimer les privilèges d'accès (réduire) des instances décisionnelles selon les besoins immédiats en charge de travail.
 
-La migration des applications décisionnelles existantes vers Azure fournit une meilleure mise à l'échelle. Avec la puissance de SSAS, de SSRS et de SharePoint Server, les organisations peuvent créer une aide à la décision puissante et des applications et tableaux de bord de reporting pouvant être montés en charge ou réduits. Ces derniers peuvent également être intégrés de manière plus sécurisée aux données et applications locales. Azure garantit la conformité du centre de données grâce à la prise en charge de la norme ISO 27001. Pour plus d'informations, consultez le <a href="/fr-fr/support/trust-center/compliance/">Centre de gestion de la confidentialité Azure</a>.
+La migration des applications décisionnelles existantes vers Azure fournit une meilleure mise à l'échelle. Avec la puissance de SSAS, de SSRS et de SharePoint Server, les organisations peuvent créer une aide à la décision puissante et des applications et tableaux de bord de reporting pouvant être montés en charge ou réduits. Ces derniers peuvent également être intégrés de manière plus sécurisée aux données et applications locales. Azure garantit la conformité du centre de données grâce à la prise en charge de la norme ISO 27001. Pour plus d'informations, consultez le <a href="/support/trust-center/compliance/">Centre de gestion de la confidentialité Azure</a>.
 
-<h4>Mise en route</h4>
+<h4>Prise en main</h4>
 
 Pour monter en charge le déploiement des composants décisionnels, un nouveau serveur d'applications avec des services tels que PowerPivot, Power View, Excel Services ou PerformancePoint Services doit être installé. Ou, des instances décisionnelles SQL Server telles que SSAS ou SSRS doivent être ajoutées à la batterie de serveurs existante afin de prendre en charge un traitement supplémentaire des requêtes. Le serveur peut être ajouté à une nouvelle machine virtuelle Azure avec SharePoint 2010 Server ou SQL Server installé. Puis, les composants décisionnels peuvent être installés, déployés et configurés sur ce serveur (figure 6).
 
@@ -402,7 +402,7 @@ Pour monter en charge le déploiement des composants décisionnels, un nouveau s
 Pour monter en charge un environnement décisionnel sur Azure, procédez comme suit :
 
 <ol>
-<li><em>Mettre en service</em> :
+<li><em>Mise en service</em>:
 <ul>
 <li>Mettez une connexion VPN en service entre les éléments locaux et Azure à l'aide d'Azure Virtual Network. Pour plus d'informations, consultez la page <a href="http://msdn.microsoft.com/library/windowsazure/jj156007.aspx">Azure Virtual Network (considérations de conception et scénarios de connexion sécurisée)</a>.</li>
 <li>Utilisez le portail de gestion pour mettre en service une nouvelle machine virtuelle à partir d'une image stockée provenant de la bibliothèque d'images.
@@ -412,7 +412,7 @@ Pour monter en charge un environnement décisionnel sur Azure, procédez comme s
 </li>
 </ul>
 </li>
-<li><em>Installer</em> : si votre organisation ne possède pas d'images prégénérées des composants décisionnels SharePoint Server ou SQL Server, installez SharePoint Server et SQL Server sur les machines virtuelles à l'aide d'une connexion Bureau à distance.
+<li><em>Installer</em>: si votre organisation ne possède pas d'images prégénérées des composants décisionnels SharePoint Server ou SQL Server, installez SharePoint Server et SQL Server sur les machines virtuelles à l'aide d'une connexion Bureau à distance.
 <ul>
 <li>Pour plus d'informations sur l'installation de SharePoint, consultez la page <a href="http://technet.microsoft.com/library/cc262839.aspx">Installer SharePoint Server 2010 à l'aide de Windows PowerShell</a> ou <a href="http://autospinstaller.codeplex.com/">CodePlex : AutoSPInstaller</a>.</li>
 <li>Pour plus d'informations sur l'installation de SQL Server, consultez la page <a href="http://msdn.microsoft.com/library/ee210664.aspx">Installation de SQL Server à l'aide de SysPrep</a>.</li>
@@ -420,13 +420,13 @@ Pour monter en charge un environnement décisionnel sur Azure, procédez comme s
 <li>Reportez-vous aux travaux pratiques pour la création d'une batterie de serveurs SharePoint en configurant Active Directory et en utilisant une seule base de données SQL Server : <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeploySharePointVMs">Déploiement d'une batterie de serveurs SharePoint avec Azure Virtual Machines</a>.</li>
 </ul>
 </li>
-<li><em>Ajouter la machine virtuelle décisionnelle</em> :
+<li><em>Ajouter la machine virtuelle décisionnelle</em>:
 <ul>
 <li>Configurez la sécurité sur le point de terminaison du portail de gestion et définissez un port entrant sur le pare-feu Windows de la machine virtuelle.</li>
 <li>Ajoutez la machine virtuelle décisionnelle nouvellement créée à la batterie de serveurs SharePoint ou SQL Server existante.</li>
 </ul>
 </li>
-<li><em>Gérer les machines virtuelles</em> :
+<li><em>Gérer les machines virtuelles</em>:
 <ul>
 <li>Surveillez les machines virtuelles à l'aide du portail de gestion.</li>
 <li>Surveillez la batterie de serveurs SharePoint à l'aide de l'administration centrale.</li>
@@ -444,7 +444,7 @@ Dans ce scénario, une organisation peut déployer l'ensemble de sa batterie de 
 
 Les organisations peuvent utiliser Azure Virtual Machines pour héberger des applications personnalisées et des composants associés sur une infrastructure de cloud économe et fortement sécurisée. Elles peuvent également utiliser Microsoft System Center local comme outil de gestion commun pour les applications locales et cloud.
 
-<h4>Mise en route</h4>
+<h4>Prise en main</h4>
 
 Pour implémenter un site Web SharePoint entièrement personnalisé sur Azure, une organisation doit déployer un domaine Active Directory dans le cloud et mettre en service de nouvelles machines virtuelles dans ce domaine. Puis, une machine virtuelle sous SQL Server 2012 doit être créée, configurée et intégrée à la batterie de serveurs SharePoint. Enfin, la batterie de serveurs SharePoint doit être créée, équilibrée en charge et connectée à Active Directory et SQL Server (figure 7).
 
@@ -457,25 +457,25 @@ Pour implémenter un site Web SharePoint entièrement personnalisé sur Azure, u
 Les étapes suivantes expliquent comment créer un environnement personnalisé de batteries de serveurs SharePoint à partir d'images prégénérées disponibles dans la bibliothèque d'images. Notez, néanmoins, que vous pouvez également charger des machines virtuelles de batterie de serveurs SharePoint dans la bibliothèque d'images, et les utilisateurs autorisés peuvent choisir ces machines virtuelles pour créer la batterie de serveurs SharePoint requise sur Azure.
 
 <ol>
-<li>Déployer Active Directory<em> : les exigences fondamentales de déploiement d'Active Directory sur Azure Virtual Machines sont similaires " mais pas identiques " au déploiement sur des machines virtuelles (et, dans une certaine mesure, sur des machines physiques) locales. Pour plus d'informations sur les différences ainsi que pour des instructions et autres considérations, consultez la page <a href="http://msdn.microsoft.com/library/windowsazure/jj156090">Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Azure</a>. Pour déployer Active Directory dans Azure :</em>
+<li>Déployer Active Directory<em>: les exigences fondamentales de déploiement d'Active Directory sur Azure Virtual Machines sont similaires " mais pas identiques " au déploiement sur des machines virtuelles (et, dans une certaine mesure, sur des machines physiques) locales. Pour plus d'informations sur les différences ainsi que pour des instructions et autres considérations, consultez la page <a href="http://msdn.microsoft.com/library/windowsazure/jj156090">Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Azure</a>. Pour déployer Active Directory dans Azure :</em>
 <ul>
 <li>Définissez et créez un réseau virtuel où les machines virtuelles peuvent être affectées à des sous-réseaux spécifiques. Pour plus d'informations, consultez la page <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Configuration d'un réseau virtuel</a>.</li>
 <li>Utilisez le portail de gestion pour créer et déployer le contrôleur de domaine sur une nouvelle machine virtuelle sur Azure. Pour plus d'informations, consultez la page <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Déploiement et création du contrôleur de domaine</a>.
 <ul>
 <li>Vous pouvez également vous reporter au script Windows PowerShell pour déployer un domaine autonome dans le cloud en utilisant Azure Virtual Machines et Virtual Network. Pour plus d'informations, consultez la page <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectoryPS">Déploiement d'Active Directory dans Azure (Windows PowerShell)</a>.</li>
-<li>Pour plus d'informations sur la création d'une forêt Active Directory sur une machine virtuelle dans Azure Virtual Network, consultez la page <a href="/fr-fr/manage/services/networking/active-directory-forest/">Installation d'une nouvelle forêt Active Directory dans Azure</a>.</li>
+<li>Pour plus d'informations sur la création d'une forêt Active Directory sur une machine virtuelle dans Azure Virtual Network, consultez la page <a href="/manage/services/networking/active-directory-forest/">Installation d'une nouvelle forêt Active Directory dans Azure</a>.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><em>Déployer SQL Server</em> :
+<li><em>Déployer SQL Server</em>:
 <ul>
 <li>Utilisez le portail de gestion pour mettre en service une nouvelle machine virtuelle à partir d'une image stockée provenant de la bibliothèque d'images.</li>
 <li>Configurez SQL Server sur la machine virtuelle. Pour plus d'informations, consultez la page <a href="http://msdn.microsoft.com/library/ee210664.aspx">Installation de SQL Server à l'aide de SysPrep</a>.</li>
 <li>Liez la machine virtuelle au domaine Active Directory nouvellement créé.</li>
 </ul>
 </li>
-<li><em>Déployer une batterie de serveurs SharePoint multiserveur</em> :
+<li><em>Déployer une batterie de serveurs SharePoint multiserveur</em>:
 <ul>
 <li>Créez un réseau virtuel. Pour plus d'informations, consultez la page <a href="http://msdn.microsoft.com/library/windowsazure/jj156007.aspx">Azure Virtual Network (considérations de conception et scénarios de connexion sécurisée)</a>.
 <ul>
@@ -496,7 +496,7 @@ Les étapes suivantes expliquent comment créer un environnement personnalisé d
 </li>
 </ul>
 </li>
-<li><em>Gérer la batterie de serveurs SharePoint par l'intermédiaire de System Center</em> :
+<li><em>Gérer la batterie de serveurs SharePoint par l'intermédiaire de System Center</em>:
 <ul>
 <li>Utilisez l'agent Operations Manager et le nouveau Azure Integration Pack pour connecter votre System Center local à Azure Virtual Machines.</li>
 <li>Utilisez l'App Controller et l'Orchestrator locaux pour les fonctions de gestion.</li>
@@ -528,14 +528,13 @@ Un déploiement réussi de SharePoint Server sur Azure Virtual Machines requiert
 </li>
 <li>
 <p>Outils en ligne de commande et cmdlets PowerShell pour différents systèmes d'exploitation</p>
-<p><a href="/fr-fr/manage/downloads/">https://www.windowsazure.com/fr-fr/manage/downloads/</a></p>
+<p><a href="/manage/downloads/">https://www.windowsazure.com/manage/downloads/</a></p>
 </li>
 <li>
 <p>Manuels d'utilisation et documentation sur les meilleures pratiques</p>
-<p><a href="/fr-fr/manage/windows/">https://www.windowsazure.com/fr-fr/manage/windows/</a></p>
+<p><a href="/manage/windows/">https://www.windowsazure.com/manage/windows/</a></p>
 </li>
 </ul>
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

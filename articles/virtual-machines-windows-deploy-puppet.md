@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="À propos des machines virtuelles Puppet et Azure" 
 	description="Explique l'installation et la configuration de Puppet sur une machine virtuelle dans Azure" 
 	services="virtual-machines" 
@@ -16,7 +16,7 @@
 	ms.date="01/23/2015" 
 	ms.author="kathydav"/>
 
-#À propos des machines virtuelles Puppet et Azure
+# À propos des machines virtuelles Puppet et Azure
 
 <p>Puppet Enterprise est un logiciel d'automatisation pour l'élaboration, le déploiement et la gestion de votre infrastructure. Vous pouvez l'utiliser pour gérer le cycle de vie de votre infrastructure informatique, y compris la découverte, l'approvisionnement, la gestion de la configuration du système d'exploitation et des applications, l'orchestration et la création de rapports.   
 
@@ -28,7 +28,7 @@ Puppet est un système client-serveur. Puppet Master et Puppet Enterprise Agent 
 Pour obtenir des instructions, téléchargez le " Guide de prise en main " disponible sur la page [Microsoft Windows et Azure](http://puppetlabs.com/solutions/microsoft).  
 
 
-##Ressources supplémentaires
+## Ressources supplémentaires
 [Nouvelles intégrations avec Microsoft Azure et Visual Studio]
 
 [Connexion à une machine virtuelle exécutant Windows Server]
@@ -42,9 +42,7 @@ Pour obtenir des instructions, téléchargez le " Guide de prise en main " dispo
 [Connexion à une machine virtuelle exécutant Windows Server]: ../virtual-machines-log-on-windows-server/
 [Connexion à une machine virtuelle exécutant Linux]: ../virtual-machines-linux-how-to-log-on
 [Fonctionnalités et extensions de machine virtuelle Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
-[Gestion des extensions]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

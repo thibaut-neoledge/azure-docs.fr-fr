@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Stockage du code de projet dans le contrôle de code source - Azure Mobile Services" 
 	description="Découvrez comment stocker vos fichiers et modules de script serveur dans un référentiel Git local sur votre ordinateur." 
 	services="mobile-services" 
@@ -10,14 +10,14 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
 	ms.author="glenga"/>
 
 <div class="dev-center-tutorial-subselector">
-	<a href="/fr-fr/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend">.NET backend</a> | <a href="/fr-fr/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend" class="current">JavaScript backend</a>
+	<a href="/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend">Service principal .NET</a> | <a href="/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend" class="current">Service principal JavaScript</a>
 </div>
 
 # Stockage du code de projet dans le contrôle de code source
@@ -33,11 +33,11 @@ Ce didacticiel vous accompagne tout au long des étapes suivantes :
 
 Pour suivre ce didacticiel, vous devez avoir créé un service mobile en suivant le didacticiel [Prise en main de Mobile Services] ou [Ajout de Mobile Services à une application existante].
 
-##<a name="enable-source-control"></a>Activation du contrôle de code source dans votre service mobile
+## <a name="enable-source-control"></a>Activation du contrôle de code source dans votre service mobile
 
 [AZURE.INCLUDE [mobile-services-enable-source-control](../includes/mobile-services-enable-source-control.md)]
 
-##<a name="clone-repo"></a>Installation de Git et création du référentiel local
+## <a name="clone-repo"></a>Installation de Git et création du référentiel local
 
 1. Installez Git sur votre ordinateur local. 
 
@@ -50,7 +50,7 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile en suivant
 
 3. À partir de la ligne de commande, accédez au répertoire dans lequel vous allez stocker vos scripts. Par exemple, `cd SourceControl`.
 
-4. Utilisez la commande suivante pour créer une copie locale de votre nouveau référentiel Git, en remplaçant <your_git_URL> par l'URL du référentiel Git pour votre service mobile :
+4. Utilisez la commande suivante pour créer une copie locale de votre nouveau référentiel Git, en remplaçant `<your_git_URL>` par l'URL du référentiel Git pour votre service mobile :
 
 		git clone <your_git_URL>
 
@@ -73,7 +73,7 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile en suivant
 
 À présent que vous avez créé votre référentiel local, vous pouvez apporter des modifications aux scripts serveur et transmettre ces modifications au service mobile.
 
-##<a name="deploy-scripts"></a>Déploiement des fichiers de script mis à jour sur votre service mobile
+## <a name="deploy-scripts"></a>Déploiement des fichiers de script mis à jour sur votre service mobile
 
 1. Accédez au sous-dossier .\service\table et si le fichier todoitem.insert.js n'existe pas, créez-le maintenant.
 
@@ -111,7 +111,7 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile en suivant
 
 	Remarquez que le script de l'opération d'insertion affiché est identique au code JavaScript que vous venez de télécharger dans le référentiel.
 
-##<a name="use-npm"></a>Utilisation du code partagé et des modules Node.js dans vos scripts serveur
+## <a name="use-npm"></a>Utilisation du code partagé et des modules Node.js dans vos scripts serveur
 
 Mobile Services fournit un accès au jeu complet de modules principaux de Node.js, que vous pouvez utiliser dans votre code au moyen de la fonction **require**. Votre service mobile peut également utiliser les modules Node.js ne faisant pas partie du package Node.js, et vous pouvez même définir votre propre code partagé sous forme de modules Node.js. Pour plus d'informations sur la création de modules, consultez la page [Modules][Documentation de l'API Node.js : Modules] dans la documentation de référence de l'API Node.js.
 
@@ -169,15 +169,14 @@ Maintenant que vous avez terminé ce didacticiel, vous savez comment stocker vos
 
 <!-- URLs. -->
 [Site web Git]: http://git-scm.com
-[Contrôle de code source]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[Contrôle du code source]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Installation de Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-ios-get-started/
-[Ajout de Mobile Services à une application existante]: /fr-fr/documentation/articles/mobile-services-ios-get-started-data/
-[Utilisation des scripts serveur dans Mobile Services]: /fr-fr/documentation/articles/mobile-services-how-to-use-server-scripts/
+[Prise en main de Mobile Services]: /documentation/articles/mobile-services-ios-get-started/
+[Ajout de Mobile Services à une application existante]: /documentation/articles/mobile-services-ios-get-started-data/
+[Utilisation des scripts serveur dans Mobile Services]: /documentation/articles/mobile-services-how-to-use-server-scripts/
 [Portail de gestion Azure]: https://manage.windowsazure.com/
-[Appel d'une API personnalisée à partir du client]: /fr-fr/documentation/articles/mobile-services-ios-call-custom-api/
-[Documentation sur les API Node.js : Modules]: http://nodejs.org/api/modules.html
+[Appel d'une API personnalisée à partir du client]: /documentation/articles/mobile-services-ios-call-custom-api/
+[Documentation de l'API Node.js : Modules]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

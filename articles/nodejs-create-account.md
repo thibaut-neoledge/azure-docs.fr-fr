@@ -1,12 +1,10 @@
 <properties 
-	pageTitle="Centre de développement de Node.js pour Azure - Didacticiels - Création d'un compte" 
-	description="Centre de développement Azure Node.js - Didacticiels - Création d'un compte" 
+	pageTitle="Centre de développement de Node.js pour Azure - Didacticiels - Création d'un compte" description="Centre de développement Azure Node.js - didacticiels : création d'un compte Azure" 
 	services="" 
 	documentationCenter="nodejs" 
-	title="Create an account and enable preview features" 
-	authors="larryfr" 
+	authors="cephalin" 
 	manager="wpickett" 
-	editor="mollybos" />
+	editor="mollybos"/>
 
 <tags 
 	ms.service="multiple" 
@@ -14,11 +12,9 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryfr" />
+	ms.date="02/20/2015" 
+	ms.author="cephalin"/>
 
-[WACOM.INCLUDE [create-an-azure-account](../includes/create-an-azure-account.md)]
+[AZURE.INCLUDE [create-an-azure-account](../includes/create-an-azure-account.md)]
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="How to monitor" pageTitle="Surveillance d'une base de données SQL - Gestion des services Azure" metaKeywords="" description="Découvrez comment analyser une base de données SQL à l'aide du portail de gestion Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Monitor Logical Servers and Database Instances" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
+<properties 
+	pageTitle="Surveillance d'une base de données SQL - Gestion des services Azure" 
+	description="Découvrez comment analyser une base de données SQL à l'aide du portail de gestion Azure." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="jeffgoll" 
+	manager="jeffreyg" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="jeffreyg"/>
 
 
 
@@ -12,4 +26,6 @@ Les outils et techniques de surveillance que vous avez peut-être l'habitude d'u
 
 Pour plus d'informations, consultez la page [Contrôle de la base de données SQL à l'aide de vues de gestion dynamique][].
 
-[Contrôle de la base de données SQL à l'aide de vues de gestion dynamique] : http://msdn.microsoft.com/fr-fr/library/windowsazure/ff394114.aspx
+[Contrôle de la base de données SQL à l'aide de vues de gestion dynamique]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
+
+<!--HONumber=47-->

@@ -19,13 +19,13 @@
 
 #Création de ContentKeys avec REST
 
-Cet article fait partie des séries [workflow à la demande de vidéo Media Services](../media-services-video-on-demand-workflow) et [workflow de vidéo en flux continu Media Services](../media-services-live-streaming-workflow).  
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) et [workflow de vidéo en flux continu Media Services](../media-services-live-streaming-workflow) .  
 
 Media Services vous permet de créer et de fournir des ressources chiffrées. Une **ContentKey** fournit un accès sécurisé à vos **Ressources**. 
 
-Lorsque vous créez une nouvelle ressource (par exemple, avant de [télécharger des fichiers](../media-services-rest-upload-files/)), vous pouvez spécifier les options de chiffrement suivantes : **StorageEncrypted**, **CommonEncryptionProtected** ou **EnvelopeEncryptionProtected**. 
+Au moment de créer une ressource (par exemple, avant de [télécharger des fichiers](../media-services-rest-upload-files/)), vous pouvez spécifier les options de chiffrement suivantes : **StorageEncrypted**, **CommonEncryptionProtected** ou **EnvelopeEncryptionProtected**. 
 
-Lors de la fourniture des ressources à vos clients, vous pouvez [configurer les ressources devant être chiffrées dynamiquement](../media-services-rest-configure-asset-delivery-policy) avec un des deux chiffrements suivants : **DynamicEnvelopeEncryption** ou **DynamicCommonEncryption**.
+Quand vous remettez les ressources à vos clients, vous pouvez [opter pour leur chiffrement dynamique](../media-services-rest-configure-asset-delivery-policy) avec l'un des deux chiffrements suivants : **DynamicEnvelopeEncryption** ou **DynamicCommonEncryption**.
 
 Les ressources chiffrées doivent être associées à des **ContentKey**. Cet article décrit comment créer une clé de contenu.
 
@@ -34,11 +34,11 @@ Voici les étapes générales pour la génération de clés de contenu que vous 
 1. Générez de façon aléatoire une clé AES de 16 octets (pour le chiffrement commun et d'enveloppe) ou AES de 32 octets (chiffrement de stockage). 
 
 	Il s'agit de la clé de contenu de votre ressource, ce qui signifie que tous les fichiers associés à cette ressource doivent utiliser la même clé de contenu lors du déchiffrement. 
-2.	Appelez les méthodes [GetProtectionKeyId](https://msdn.microsoft.com/fr-fr/library/azure/jj683097.aspx#getprotectionkeyid) et [GetProtectionKey](https://msdn.microsoft.com/fr-fr/library/azure/jj683097.aspx#getprotectionkey) pour obtenir le certificat X.509 approprié devant être utilisé pour chiffrer votre clé de contenu.
+2.	Appelez les méthodes [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) et [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) pour obtenir le certificat X.509 approprié qui doit être utilisé pour chiffrer votre clé de contenu.
 3.	Chiffrez votre clé de contenu avec la clé publique du certificat X.509. 
 
-	Le Kit de développement logiciel (SDK) Media Services pour .NET utilise RSA avec OAEP lorsque vous effectuez le chiffrement.  Vous pouvez voir un exemple dans la [fonction EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Encryption/EncryptionUtils.cs).
-4.	Créez une valeur de somme de contrôle (basée sur l'algorithme de somme de contrôle de clé AES PlayReady), calculée à l'aide de l'identificateur de clé et de la clé de contenu. Pour plus d'informations, consultez la section " Algorithme de somme de contrôle de clé AES PlayReady " du document objet d'en-tête PlayReady situé [ici](http://www.microsoft.com/playready/documents/).
+	Le Kit de développement logiciel (SDK) Media Services pour .NET utilise RSA avec OAEP lorsque vous effectuez le chiffrement.  Vous trouverez un exemple dans la [fonction EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Encryption/EncryptionUtils.cs).
+4.	Créez une valeur de somme de contrôle (basée sur l'algorithme de somme de contrôle de clé AES PlayReady), calculée à l'aide de l'identificateur de clé et de la clé de contenu. Pour plus d'informations, consultez la section relative à l'algorithme de somme de contrôle de clé AES PlayReady du document décrivant l'objet d'en-tête PlayReady situé [ici](http://www.microsoft.com/playready/documents/).
 
 	L'exemple .NET suivant calcule la somme de contrôle à l'aide de la partie GUID de l'identificateur de clé et de la clé de contenu en clair.
 	
@@ -67,9 +67,9 @@ Notez que les exemples qui génèrent une clé AES, chiffrent la clé et calcule
 
 >[AZURE.NOTE] Lorsque vous utilisez l'API REST de Media Services, les considérations suivantes s'appliquent :
 >
->Lors de l'accès aux entités dans Media Services, vous devez définir les valeurs et les champs d'en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](../media-services-rest-how-to-use).
+>Lors de l'accès aux entités dans Media Services, vous devez définir les valeurs et les champs d'en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Configuration du développement de l'API REST Media Services](../media-services-rest-how-to-use).
 
->Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](../media-services-rest-connect_programmatically/). 
+>Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez adresser les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](../media-services-rest-connect_programmatically/). 
 
 ##Récupération de ProtectionKeyId 
  
@@ -256,4 +256,4 @@ Demande :
 Réponse :
 
 	HTTP/1.1 204 No Content
-<!--HONumber=45--> 
+<!--HONumber=47-->

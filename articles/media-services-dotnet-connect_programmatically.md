@@ -19,7 +19,7 @@
 
 # Connexion à un compte Media Services à l'aide du Kit de développement logiciel (SDK) Media Services pour .NET
 
-Cet article fait partie des séries [workflow à la demande de vidéo Media Services](../media-services-video-on-demand-workflow)  et [workflow de vidéo en flux continu Media Services](../media-services-live-streaming-workflow). 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) et [Workflow de diffusion en continu Media Services](../media-services-live-streaming-workflow) . 
 
 Cette rubrique décrit comment obtenir une connexion à Microsoft Azure Media Services par programme lorsque vous programmez avec le Kit de développement logiciel (SDK) Media Services pour .NET.
 
@@ -39,7 +39,7 @@ Pour obtenir ces valeurs, accédez au portail de gestion Azure, sélectionnez vo
 
 ## Création d'une instance CloudMediaContext
 
-Pour commencer à programmer sur Media Services, vous devez créer une instance **CloudMediaContext** qui représente le contexte du serveur. **CloudMediaContext** comprend des références à des collections importantes comme les travaux, les ressources, les fichiers, les stratégies d'accès et les localisateurs.
+Pour commencer à programmer sur Media Services, vous devez créer une instance **CloudMediaContext** qui représente le contexte du serveur. **CloudMediaContext** comprend des références à des collections importantes comme les travaux, les éléments multimédias, les fichiers, les stratégies d'accès et les localisateurs.
 
 >[AZURE.NOTE] La classe **CloudMediaContext** n'est pas thread-safe. Vous devez créer un nouveau CloudMediaContext par thread ou par ensemble d'opérations.
 
@@ -61,9 +61,9 @@ L'exemple suivant utilise le constructeur public CloudMediaContext(informations 
 Cette section montre comment réutiliser les jetons du Service de contrôle d'accès à l'aide de constructeurs CloudMediaContext acceptant MediaServicesCredentials en tant que paramètre.
 
 
-[Azure Active Directory Access Control](https://msdn.microsoft.com/fr-fr/library/hh147631.aspx) (également appelé Service de contrôle d'accès ou ACS) est un service cloud qui offre un moyen facile d'authentifier les utilisateurs et d'autoriser l'accès à leurs applications Web. Microsoft Azure Media Services contrôle l'accès à ses services via le protocole OAuth, qui requiert un jeton ACS. Media Services reçoit les jetons ACS d'un serveur d'autorisation.
+[Azure Active Directory Access Control](https://msdn.microsoft.com/library/hh147631.aspx) (également appelé Service de contrôle d'accès ou ACS) est un service cloud qui offre un moyen facile d'authentifier les utilisateurs et d'autoriser l'accès à leurs applications Web. Microsoft Azure Media Services contrôle l'accès à ses services via le protocole OAuth, qui requiert un jeton ACS. Media Services reçoit les jetons ACS d'un serveur d'autorisation.
 
-Lorsque vous développez avec le Kit de développement logiciel (SDK) Media Services, vous pouvez choisir de ne pas traiter les jetons, étant donné que le code du Kit de développement (SDK) les gère pour vous. Toutefois, laisser le Kit de développement logiciel (SDK) gérer entièrement les jetons ACS entraîne des demandes de jetons inutiles. Les demandes de jetons prennent du temps et consomment les ressources client et serveur. En outre, le serveur ACS limite les demandes si le taux est trop élevé. La limite est de 30 demandes par seconde, consultez [Limitations du Service ACS](https://msdn.microsoft.com/fr-fr/library/gg185909.aspx) pour plus de détails.
+Lorsque vous développez avec le Kit de développement logiciel (SDK) Media Services, vous pouvez choisir de ne pas traiter les jetons, étant donné que le code du Kit de développement (SDK) les gère pour vous. Toutefois, laisser le Kit de développement logiciel (SDK) gérer entièrement les jetons ACS entraîne des demandes de jetons inutiles. Les demandes de jetons prennent du temps et consomment les ressources client et serveur. En outre, le serveur ACS limite les demandes si le taux est trop élevé. La limite est de 30 demandes par seconde, consultez [Limitations du Service ACS](https://msdn.microsoft.com/library/gg185909.aspx) pour plus de détails.
 
 À compter de la version 3.0.0.0 du Kit de développement logiciel (SDK) Media Services, vous pouvez réutiliser les jetons ACS. Les constructeurs **CloudMediaContext** qui acceptent **MediaServicesCredentials** comme paramètre autorisent le partage des jetons entre plusieurs contextes. La classe MediaServicesCredentials encapsule les informations d'identification de Media Services. Si un jeton ACS est disponible et que son heure d'expiration est connue, vous pouvez créer une instance de MediaServicesCredentials avec le jeton et le transmettre au constructeur de CloudMediaContext. Notez que le Kit de développement logiciel (SDK) Media Services actualise automatiquement les jetons chaque fois qu'ils arrivent à expiration. Il existe deux façons de réutiliser les jetons ACS, comme le montrent les exemples ci-dessous.
 
@@ -99,7 +99,7 @@ Lorsque vous développez avec le Kit de développement logiciel (SDK) Media Serv
 		// If it is not valid, call MediaServicesCredentials's RefreshToken before caching.
 		SaveTokenDataToExternalStorage(accessToken, tokenExpiration);
 		
-	Use the saved token values to create MediaServicesCredentials.
+	Utilisez les valeurs de jeton enregistrées pour créer MediaServicesCredentials.
 
 
 		var accessToken = "";
@@ -117,7 +117,7 @@ Lorsque vous développez avec le Kit de développement logiciel (SDK) Media Serv
 		
 		CloudMediaContext context2 = new CloudMediaContext(credentials);
 
-	Update the token copy in case the token was updated by the Media Services SDK. 
+	Mettez à jour la copie du jeton dans le cas où celui-ci a été mis à jour par le kit SDK Media Services. 
 	
 		if(tokenExpiration != context2.Credentials.TokenExpiration)
 		{
@@ -166,7 +166,7 @@ Par exemple :
 
 ## Stockage des valeurs de connexion dans la configuration
 
-Il est fortement recommandé de stocker des valeurs de connexion, en particulier les valeurs sensibles comme votre nom de compte et le mot de passe, dans la configuration. En outre, il est fortement recommandé de chiffrer les données de configuration sensibles. Vous pouvez chiffrer le fichier de configuration en utilisant le système de fichiers EFS Windows. Pour activer EFS sur un fichier, cliquez sur le fichier, sélectionnez **Propriétés**et activez le chiffrement dans l'onglet de paramètres **Avancé**. Vous pouvez également créer une solution personnalisée pour le chiffrement des parties sélectionnées d'un fichier de configuration à l'aide de la configuration protégée. Consultez la page [Chiffrement des informations de configuration à l'aide de la configuration protégée](https://msdn.microsoft.com/fr-fr/library/53tyfkaw.aspx).
+Il est fortement recommandé de stocker des valeurs de connexion, en particulier les valeurs sensibles comme votre nom de compte et le mot de passe, dans la configuration. En outre, il est fortement recommandé de chiffrer les données de configuration sensibles. Vous pouvez chiffrer le fichier de configuration en utilisant le système de fichiers EFS Windows. Pour activer EFS sur un fichier, cliquez sur le fichier, sélectionnez **Propriétés**et activez le chiffrement dans l'onglet de paramètres **Avancé**. Vous pouvez également créer une solution personnalisée pour le chiffrement des parties sélectionnées d'un fichier de configuration à l'aide de la configuration protégée. Consultez la page [Chiffrement des informations de configuration à l'aide de la configuration protégée](https://msdn.microsoft.com/library/53tyfkaw.aspx).
 
 Le fichier App.config suivant contient les valeurs de connexion requises. Les valeurs de l'élément <appSettings> sont les valeurs requises que vous avez obtenues lors du processus d'installation du compte Media Services.
 
@@ -191,4 +191,4 @@ Pour récupérer les valeurs de connexion de configuration, vous pouvez utiliser
 
 <!-- URLs. -->
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

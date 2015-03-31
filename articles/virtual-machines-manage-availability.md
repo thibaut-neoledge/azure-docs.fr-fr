@@ -16,7 +16,7 @@
 	ms.date="11/26/2014" 
 	ms.author="kenazk"/>
 
-#Gestion de la disponibilité des machines virtuelles
+# Gestion de la disponibilité des machines virtuelles
 
 ## Présentation de la maintenance planifiée et non planifiée
 Deux types d'événements de plateforme Azure peuvent avoir un effet sur la disponibilité de vos machines virtuelles : la maintenance planifiée et la maintenance non planifiée.
@@ -33,7 +33,7 @@ Pour réduire l'effet des interruptions de service dues à un ou plusieurs de ce
 * [Combinaison de l'équilibrage de charge et des groupes à haute disponibilité] 
 * [Éviter les instances uniques de machines virtuelles dans les groupes à haute disponibilité] 
 
-### Configuration de plusieurs machines virtuelles dans un groupe à haute disponibilité pour assurer la redondance 
+### Configuration de plusieurs machines dans un groupe à haute disponibilité pour assurer la redondance 
 Pour assurer la redondance de votre application, nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité. Cette configuration assure qu'au moins une des machines virtuelles sera disponible pendant un événement de maintenance planifié ou non et répondra au niveau de 99,95 % inscrit dans les contrats de niveau de service Azure. Pour plus d'informations sur les contrats de niveau de service, consultez la section " Services cloud, machines virtuelles et réseau virtuel " de la rubrique [Contrats de niveau de service](../../../support/legal/sla/). 
 
 Chaque machine virtuelle de votre groupe à haute disponibilité se voit attribuer un domaine de mise à jour et un domaine d'erreur par la plateforme Azure sous-jacente. Pour un groupe à haute disponibilité donné, cinq domaines de mises à jour non configurables par l'utilisateur sont attribués pour indiquer les groupes de machines virtuelles et les équipements physiques sous-jacents pouvant être redémarrés en même temps. Dans le cas où un seul groupe à haute disponibilité comprend plus de cinq machines virtuelles, la sixième machine sera placée dans le même domaine de mise à jour que la première, la septième dans le même que la deuxième, etc. L'ordre de redémarrage des domaines de mise à jour ne peut être traité de manière séquentielle au cours de la maintenance planifiée, mais les domaines de mise à jour seront redémarrés un par un.
@@ -43,7 +43,7 @@ Les domaines d'erreur définissent le groupe de machines virtuelles partageant u
 <!--Image reference-->
    ![UD FD configuration](./media/virtual-machines-manage-availability/ud-fd-configuration.png)
 
->[AZURE.NOTE] Pour des instructions, consultez la page [Configuration d'un groupe à haute disponibilité pour des machines virtuelles ] [].
+>[AZURE.NOTE] Pour obtenir des instructions, consultez la page [Configuration d'un groupe à haute disponibilité pour des machines virtuelles] [].
 
 ### Configuration de chaque couche application dans des groupes à haute disponibilité séparés
 Si les machines virtuelles de votre groupe à haute disponibilité sont presque identiques et ont la même fonction au sein de votre application, nous vous recommandons de configurer un groupe à haute disponibilité pour chaque couche de votre application.  Si vous placez deux couches différentes dans le même groupe à haute disponibilité, toutes les machines virtuelles de la même couche application pourraient redémarrer en même temps. En configurant deux machines virtuelles ou plus dans un groupe à haute disponibilité par couche, vous vous assurez qu'au moins une machine de chaque couche restera disponible.   
@@ -73,5 +73,4 @@ Si l'équilibrage de charge n'est pas configuré pour équilibrer le trafic entr
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

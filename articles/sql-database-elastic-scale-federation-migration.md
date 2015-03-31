@@ -1,10 +1,24 @@
-﻿<properties title="Federations Migration" pageTitle="Migration de fédérations" description="Décrit la procédure de migration d'une application existante créée avec la fonctionnalité Fédérations vers un modèle d'infrastructure élastique." metaKeywords="sharding scaling, federations, Azure SQL DB sharding, Elastic Scale" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh"/>
+﻿<properties 
+	pageTitle="Migration de fédérations" 
+	description="Décrit la procédure de migration d'une application existante créée avec la fonctionnalité Fédérations vers un modèle d'infrastructure élastique." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="Joseidz" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="Joseidz@microsoft.com"/>
 
-#Migration de fédérations 
+# Migration de fédérations 
 
-La fonctionnalité de fédérations de Base de données SQL Azure sera déclassée en septembre 2015 en même temps que les éditions Web/Business. À cette date, les applications qui utilisent la fonctionnalité de fédérations cesseront de s'exécuter. Pour garantir une migration réussie, il est vivement recommandé que les efforts de migration commencent dès que possible afin de permettre une planification et une exécution respectant les délais. Ce document fournit le contexte, des exemples et une présentation de l'utilitaire de migration de fédérations qui illustrent la façon dont une application de fédérations actuelle peut être migrée en toute transparence vers les [API de la version préliminaire de l'infrastructure élastique de Base de données SQL Azure](http://go.microsoft.com/?linkid=9862592). L'objectif du document est de vous guider tout au long des étapes proposées pour migrer une application de fédérations sans aucun déplacement de données.
+La fonctionnalité de fédérations de Base de données SQL Azure sera déclassée en septembre 2015 en même temps que les éditions Web/Business. À cette date, les applications qui utilisent la fonctionnalité de fédérations cesseront de s'exécuter. Pour garantir une migration réussie, il est vivement recommandé que les efforts de migration commencent dès que possible afin de permettre une planification et une exécution respectant les délais. Ce document fournit le contexte, des exemples et une introduction à l'utilitaire de migration de fédérations et illustre comment migrer une application de fédérations actuelle en toute transparence vers les [API de la version préliminaire de l'infrastructure élastique de base de données SQL Azure](http://go.microsoft.com/?linkid=9862592). L'objectif du document est de vous guider tout au long des étapes proposées pour migrer une application de fédérations sans aucun déplacement de données.
 
 Il existe trois étapes principales de migration d'une application de fédérations existante vers une application qui utilise les API de l'infrastructure élastique.
 
@@ -23,15 +37,15 @@ La première étape de la migration d'une application de fédérations consiste 
  
 Commencez avec une application de fédérations existante dans un environnement de test.
  
-Servez-vous de l'**utilitaire de migration de fédérations** pour cloner les métadonnées d'une racine de fédération dans les constructions du [gestionnaire de cartes de partitions] de l'infrastructure élastique(http://go.microsoft.com/?linkid=9862595). Similaire à une racine de fédération, la base de données du gestionnaire de cartes de partitions est une base de données autonome qui comporte les cartes de partitions (c'est-à-dire les fédérations), les références aux partitions (c'est-à-dire, les membres de la fédération) et les mappages de plages respectifs. 
+Utilisez l'**utilitaire de migration de fédérations** pour cloner les métadonnées d'une racine de fédération dans les constructions du [gestionnaire des cartes de partitions](http://go.microsoft.com/?linkid=9862595) de l'infrastructure élastique. Similaire à une racine de fédération, la base de données du gestionnaire des cartes de partitions est une base de données autonome qui comporte les cartes de partitions (c'est-à-dire les fédérations), les références aux partitions (c'est-à-dire, les membres de la fédération) et les mappages de plages respectifs. 
 
-Le clonage de la racine de fédération dans le gestionnaire de cartes de partitions est une copie et une traduction des métadonnées. Aucune métadonnée n'est modifiée dans la racine de fédération. Notez que le clonage de la racine de fédération avec l'utilitaire de migration de fédérations est une opération de point-à-temps, et qu'aucune modification apportée à la racine de fédération ou aux cartes de partitions n'est répercutée dans l'autre magasin de données respectif. Si des modifications sont apportées à la racine de fédération durant le test des nouvelles API, l'utilitaire de migration de fédérations peut servir à actualiser les cartes de partitions afin de représenter l'état actuel. 
+Le clonage de la racine de fédération dans le gestionnaire de cartes de partitions est une copie et une traduction des métadonnées. Aucune métadonnée n'est modifiée dans la racine de fédération. Notez que le clonage de la racine de fédération avec l'utilitaire de migration de fédérations est une opération de point-à-temps, et qu'aucune modification apportée à la racine de fédération ou aux cartes de partitions n'est pas répercutée dans l'autre magasin de données respectif. Si des modifications sont apportées à la racine de fédération durant le test des nouvelles API, l'utilitaire de migration de fédérations peut servir à actualiser les cartes de partitions afin de représenter l'état actuel. 
 
 ![Migrate the existing app to use the Elastic Scale APIs][2]
 
 ## Modification de l'application existante 
 
-Une fois le gestionnaire de cartes de partitions en place et les membres et plages de la fédération inscrits auprès de ce dernier (opération effectuée via l'utilitaire de migration), vous pouvez modifier l'application de fédérations existante pour qu'elle utilise les API de l'infrastructure élastique. Comme indiqué dans la figure ci-dessus, les connexions de l'application via les API de l'infrastructure élastique sont routées par l'intermédiaire du gestionnaire de cartes de partitions vers les membres de la fédération appropriés (qui forment désormais également une partition). Le mappage des membres de la fédération sur le gestionnaire de cartes de partitions active deux versions d'une application : une qui utilise les fédérations et l'autre qui utilise l'infrastructure élastique. Elles doivent être exécutées côte à côte pour vérifier la fonctionnalité.   
+Une fois le gestionnaire des cartes de partitions en place et les membres et plages de la fédération inscrits auprès de ce dernier (opération effectuée via l'utilitaire de migration), vous pouvez modifier l'application de fédérations existante de sorte qu'elle utilise les API de l'infrastructure élastique. Comme indiqué dans la figure ci-dessus, les connexions de l'application via les API de l'infrastructure élastique sont routées par l'intermédiaire du gestionnaire des cartes de partitions vers les membres de la fédération appropriés (désormais également une partition). Le mappage des membres de la fédération sur le gestionnaire des cartes de partitions active deux versions d'une application : une qui utilise les fédérations et l'autre qui utilise l'infrastructure élastique. Elles doivent être exécutées côte à côte pour vérifier la fonctionnalité.   
 
 Lors de la migration de l'application, deux modifications principales doivent être apportées à l'application existante.
 
@@ -68,13 +82,13 @@ Avec les API de l'infrastructure élastique, une connexion à une partition spé
         } 
     }
 
-Les étapes décrites dans cette section sont nécessaires mais ne conviennent pas à tous les scénarios de migration qui se présentent. Pour plus d'informations, consultez la [présentation conceptuelle de l'infrastructure élastique](./sql-database-elastic-scale-introduction.md) et la page de [référence sur les API](http://go.microsoft.com/?linkid=9862604).
+Les étapes décrites dans cette section sont nécessaires mais ne conviennent pas à tous les scénarios de migration qui se présentent. Pour plus d'informations, consultez la [présentation conceptuelle de l'infrastructure élastique](./sql-database-elastic-scale-introduction.md) et la page de [référence sur les API](http://go.microsoft.com/?linkid=9862604)
 
 ## Extraction des membres de la fédération existante 
 
 ![Switch out the federation members for the shards][3]
 
-Une fois que l'application a été modifiée avec l'inclusion des API de l'infrastructure élastique, la dernière étape de la migration d'une application de fédérations est d'extraire, avec l'instruction **SWITCH OUT**, les membres de la fédération (pour plus d'informations, consultez la référence MSDN pour [ALTER FEDERATION (Base de données SQL Azure](http://msdn.microsoft.com/library/dn269988(v=sql.120).aspx)). Le résultat final de l'émission d'une instruction **SWITCH OUT** pour un membre spécifique de la fédération est la suppression de toutes les contraintes et métadonnées de la fédération transformant ainsi le membre de la fédération en une base de données SQL Azure classique, similaire à toutes les autres bases de données SQL Azure.  
+Une fois que l'application a été modifiée avec l'inclusion des API de l'infrastructure élastique, la dernière étape de la migration d'une application de fédérations est d'extraire, avec l'instruction **SWITCH OUT**, les membres de la fédération (pour plus d'informations, consultez la référence MSDN pour [ALTER FEDERATION (Base de données SQL Azure](http://msdn.microsoft.com/library/dn269988(v=sql.120).aspx). Le résultat final de l'émission d'une instruction **SWITCH OUT** pour un membre spécifique de la fédération est la suppression de toutes les contraintes et métadonnées de la fédération transformant ainsi le membre de la fédération en une base de données SQL Azure classique, similaire à toutes les autres bases de données SQL Azure.  
 
 L'émission d'une instruction **SWITCH OUT** pour un membre de la fédération est une opération unidirectionnelle qui ne peut pas être annulée. Une fois exécutée, la base de données qui en résulte ne peut pas être ajoutée à une fédération et les commandes USE FEDERATION ne fonctionnent plus pour cette base de données. 
 
@@ -84,10 +98,10 @@ Une fois que l'extraction a été exécutée sur tous les membres de la fédéra
 L'utilitaire de migration de fédérations permet d'effectuer les opérations suivantes : 
 
 1.    Cloner une racine de fédération dans un gestionnaire de cartes de partitions.  Vous pouvez choisir de placer le gestionnaire de cartes de partitions existant sur une nouvelle base de données SQL Azure (recommandé) ou sur la base de données de la racine de fédération existante.
-2.    Émettre l'instruction SWITCH OUT pour tous les membres d'une fédération.
+2.    D'émettre l'instruction SWITCH OUT pour tous les membres d'une fédération.
 
 
-##Comparaison des fonctionnalités  
+## Comparaison des fonctionnalités  
 Bien que l'infrastructure élastique offre de nombreuses fonctionnalités supplémentaires (par exemple, [l'interrogation de plusieurs partitions](./sql-database-elastic-scale-multishard-querying.md), [le fractionnement et la fusion de partitions](./sql-database-elastic-scale-overview-split-and-merge.md), [l'élasticité des partitions](./sql-database-elastic-scale-elasticity.md), [la mise en cache côté client](./sql-database-elastic-scale-shard-map-management.md), etc), certaines fonctionnalités intéressantes des fédérations ne sont pas prises en charge par l'infrastructure élastique.
   
 
@@ -125,4 +139,4 @@ Donne le même résultat que :
 [2]: ./media/sql-database-elastic-scale-federation-migration/migrate-2.png
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

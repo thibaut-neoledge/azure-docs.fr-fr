@@ -19,15 +19,15 @@
 
 
 
-#Ajout d'unités d'encodage à l'aide du Kit de développement logiciel (SDK) .NET
+#Mise à l'échelle de l'encodage avec le Kit de développement logiciel (SDK) .NET
 
-Cet article fait partie de la série [workflow à la demande de vidéo Media Services](../media-services-video-on-demand-workflow).
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) .
   
 ##Vue d'ensemble
 
 Un compte Media Services est associé à un Type d'unité réservé qui détermine la vitesse à laquelle vos tâches d'encodage sont traitées. Vous pouvez choisir entre les types d'unités réservées suivantes : De base, Standard ou Premium. Par exemple, la même tâche d'encodage s'exécute plus vite avec le type d'unité réservée Standard qu'avec le type De base. Pour plus d'informations, consultez le blog " Encodage des types d'unité réservée " rédigé par [Milan Gada](http://azure.microsoft.com/blog/author/milanga/).
 
-En plus de spécifier le type d'unité réservée, vous pouvez spécifier d'approvisionner votre compte avec des unités réservées d'encodage. Le nombre d'unités réservées d'encodage approvisionnées détermine le nombre de tâches de média pouvant être traitées simultanément dans un compte donné. Si, par exemple, votre compte a 5 unités réservées, les 5 tâches de média sont exécutées simultanément tant qu'il y a des tâches à traiter. Les autres tâches restent dans la file d'attente et sont sélectionnées séquentiellement pour le traitement dès que l'exécution d'une tâche se termine. Si aucune unité réservée n'est approvisionnée pour un compte donné, les tâches sont sélectionnées séquentiellement. Dans ce cas, le temps d'attente entre l'achèvement d'une tâche et le démarrage de la suivante dépend de la disponibilité des ressources dans le système.
+En plus de spécifier le type d'unité réservée, vous pouvez spécifier d'approvisionner votre compte avec des unités réservées d'encodage. Le nombre d'unités réservées d'encodage approvisionnées détermine le nombre de tâches multimédias pouvant être traitées simultanément dans un compte donné. Si, par exemple, votre compte a 5 unités réservées, les 5 tâches multimédias sont exécutées simultanément tant qu'il y a des tâches à traiter. Les autres tâches restent dans la file d'attente et sont sélectionnées séquentiellement pour le traitement dès que l'exécution d'une tâche se termine. Si aucune unité réservée n'est approvisionnée pour un compte donné, les tâches sont sélectionnées séquentiellement. Dans ce cas, le temps d'attente entre l'achèvement d'une tâche et le démarrage de la suivante dépend de la disponibilité des ressources dans le système.
 
 Pour modifier le type d'unité réservée et le nombre d'unités réservées d'encodage à l'aide du Kit de développement logiciel (SDK) .NET, procédez comme suit :
 
@@ -48,7 +48,7 @@ Par défaut, chaque compte Media Services a une capacité maximale de 25 unités
 Pour ouvrir un ticket de support, procédez comme suit : 
 
 1. Connectez-vous à votre compte Azure sur le [portail de gestion](http://manage.windowsazure.com).
-2. Accédez à [Support](http://azure.microsoft.com/support/contact/).
+2. Accédez à [Support](http://www.windowsazure.com/support/contact/).
 3. Cliquez sur " Obtenir un support ".
 4. Sélectionnez votre abonnement.
 5. Sous le type de support, sélectionnez " Technique ".
@@ -60,4 +60,4 @@ Pour ouvrir un ticket de support, procédez comme suit :
 11. Cliquez sur Envoyer pour ouvrir le ticket.
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

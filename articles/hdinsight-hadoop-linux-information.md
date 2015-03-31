@@ -26,7 +26,7 @@ Le nom de domaine complet (FQDN) à utiliser pour se connecter au cluster est **
 
 ##Services accessibles à distance
 
-* **Ambari (Web)** : https://&lt;clustername>.azurehdinsight.net
+* **Ambari (web)** - https://&lt;clustername>.azurehdinsight.net
 
 	> [AZURE.NOTE] Authentifiez-vous à l'aide du nom d'utilisateur et du mot de passe de l'administrateur du cluster, puis connectez-vous à Ambari. Vous devrez utiliser là aussi le nom d'utilisateur et le mot de passe de l'administrateur du cluster.
 	> 
@@ -36,31 +36,31 @@ Le nom de domaine complet (FQDN) à utiliser pour se connecter au cluster est **
 
 	Pour contourner ce problème, utilisez un tunnel SSH pour rediriger le trafic Web via proxy vers le nœud principal du cluster. Utilisez les articles suivants pour créer un tunnel SSH depuis un port sur votre machine locale vers le cluster.
 
-	* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Utilisez SSH avec Hadoop dans HDInsight sous Linux à partir de Linux, Unix, ou OS X</a> - étapes de création d'un tunnel SSH à l'aide de la commande  `ssh`
+	* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Utiliser SSH avec Hadoop sous Linux sur HDInsight à partir de Linux, Unix ou OS X</a> -Procédure pour créer un tunnel SSH à l'aide de la commande  `ssh`
 
-	* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Utilisez SSH avec Hadoop dans HDInsight sous Linux à partir de Windows</a> - étapes d'utilisation de Putty pour la création d'un tunnel SSH
+	* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Utiliser SSH avec Hadoop sous Linux sur HDInsight à partir de Windows</a> - Procédure pour utiliser Putty pour créer un tunnel SSH
 
-* **Ambari (REST)** : https://&lt;clustername>.azurehdinsight.net/ambari
-
-	> [AZURE.NOTE] Authentifiez-vous avec le nom d'utilisateur et le mot de passe de l'administrateur du cluster.
-	> 
-	> L'authentification est en clair. Utilisez toujours HTTPS pour vous assurer que la connexion est sécurisée.
-
-* **WebHCat (Templeton)** : https://&lt;clustername>.azurehdinsight.net/templeton
+* **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
 	> [AZURE.NOTE] Authentifiez-vous avec le nom d'utilisateur et le mot de passe de l'administrateur du cluster.
 	> 
 	> L'authentification est en clair. Utilisez toujours HTTPS pour vous assurer que la connexion est sécurisée.
 
-* **SSH** : &lt;clustername>-ssh.azurehdinsight.net sur le port 22
+* **WebHCat (Templeton)** - https://&lt;clustername>.azurehdinsight.net/templeton
+
+	> [AZURE.NOTE] Authentifiez-vous avec le nom d'utilisateur et le mot de passe de l'administrateur du cluster.
+	> 
+	> L'authentification est en clair. Utilisez toujours HTTPS pour vous assurer que la connexion est sécurisée.
+
+* **SSH** - &lt;clustername>-ssh.azurehdinsight.net sur le port 22
 
 	> [AZURE.NOTE] Vous pouvez accéder au nœud principal du cluster uniquement via SSH depuis une machine cliente. Une fois connecté, vous pouvez ensuite accéder aux nœuds de travail à l'aide de SSH depuis le nœud principal.
 
 ##Emplacements des fichiers
 
-Les fichiers relatifs à Hadoop peuvent être trouvés sur les nœuds du cluster à  `/usr/hdp/current`.
+Les fichiers relatifs à Hadoop se trouvent sur les nœuds du cluster dans  `/usr/hdp/current`.
 
-Des exemples de données et de fichiers jar peuvent être trouvés sur le système de fichiers DFS Hadoop (HDFS) (WASB, Stockage d'objets blob Microsoft Azure) sous '/example' ou 'wasb:///example'.
+Des exemples de données et de fichiers jar se trouvent sur le système de fichiers DFS Hadoop (HDFS) (WASB, Stockage d'objets blob Microsoft Azure) sous '/example' ou 'wasb:///example'.
 
 ##Meilleures pratiques relatives à HDFS, WASB et au stockage
 
@@ -88,7 +88,7 @@ HDInsight vous permet également d'associer de multiples comptes de stockage d'o
 
 **Portail Azure**
 
-1. Dans le <a href="https://manage.windowsazure.com/" target="_blank">Portail de gestion Azure</a>, sélectionnez votre cluster HDInsight.
+1. Dans le <a href="https://manage.windowsazure.com/" target="_blank">portail de gestion Azure</a>, sélectionnez votre cluster HDInsight.
 
 2. Sélectionnez **Tableau de bord** en haut de la page.
 
@@ -98,13 +98,13 @@ HDInsight vous permet également d'associer de multiples comptes de stockage d'o
 
 **Interface de ligne de commande multiplateforme Azure**
 
-*À venir !*
+*À venir*
 
 ###Comment accéder au stockage d'objets blob ?
 
 Outre la commande Hadoop depuis le cluster, vous pouvez accéder aux objets blob de plusieurs façons :
 
-* <a href="http://azure.microsoft.com/ documentation/articles/xplat-cli/" target="_blank">Interface de ligne de commande multiplateforme Azure</a> - après l'installation, consultez `azure storage` pour une aide sur l'utilisation du stockage, ou `azure blob` pour les commandes spécifiques aux objets blob.
+* <a href="http://azure.microsoft.com/documentation/articles/xplat-cli/" target="_blank">Interface de ligne de commande multiplateforme Azure</a> - après l'installation, voir  `azure storage` pour obtenir de l'aide sur l'utilisation du stockage ou  `azure blob` pour connaître les commandes spécifiques aux objets blob.
 
 * Un ensemble de kits de développement logiciel (SDK) :
 
@@ -120,14 +120,14 @@ Outre la commande Hadoop depuis le cluster, vous pouvez accéder aux objets blob
 
 	* <a href="https://github.com/Azure/azure-sdk-for-net" target="_blank">.NET</a>
 
-* <a href="https://msdn.microsoft.com/fr-fr/library/azure/dd135733.aspx" target="_blank">API REST de stockage</a>
+* <a href="https://msdn.microsoft.com/library/azure/dd135733.aspx" target="_blank">API REST de stockage</a>
 
 
 ##Étapes suivantes
 
-* [Utilisation de Hive avec HDInsight](../hdinsight-use-hive/)
+* [Utiliser Hive avec HDInsight](../hdinsight-use-hive/)
 * [Utilisation de Pig avec HDInsight](../hdinsight-use-pig/)
 * [Utilisation des tâches MapReduce avec HDInsight](../hdinsight-use-mapreduce)
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

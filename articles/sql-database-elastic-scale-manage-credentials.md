@@ -1,8 +1,22 @@
-﻿<properties title="Managing Elastic Scale Credentials" pageTitle="Gestion des informations d'identification de l'infrastructure élastique" description="Définition du niveau d'informations d'identification, de celui d'administrateur à celui de la lecture seule, pour les applications de mise à l'échelle flexible." metaKeywords="Azure SQL Database, elastic scale, about user credentials in elastic scale" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties 
+	pageTitle="Gestion des informations d'identification de l'infrastructure élastique" 
+	description="Définition du niveau d'informations d'identification, de celui d'administrateur à celui de la lecture seule, pour les applications de mise à l'échelle flexible." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="stuartozer" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="stuartozer@microsoft.com"/>
 
-#Gestion des informations d'identification de l'infrastructure élastique  
+# Gestion des informations d'identification de l'infrastructure élastique
 
 Les [API clientes de l'infrastructure élastique](http://go.microsoft.com/?linkid=9862605) utilisent les informations d'identification pour différents types d'opération, en particulier la création ou la manipulation d'un [gestionnaire des cartes de partitions](http://go.microsoft.com/?linkid=9862595), en faisant référence à un gestionnaire des cartes de partitions existant pour obtenir des informations sur les partitions et se connecter à ces dernières. Les informations d'identification pour ces types d'opération sont décrites ci-dessous. 
 
@@ -20,7 +34,9 @@ Les [API clientes de l'infrastructure élastique](http://go.microsoft.com/?linki
 
         "Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" 
 
-* **Informations d'identification de l'utilisateur pour l'accès au gestionnaire des cartes de partitions** :  lorsque vous instanciez le gestionnaire des cartes de partitions dans une application qui ne va pas gérer les cartes de partitions, utilisez les informations d'identification dotées des autorisations en lecture seule pour la carte de partitions globale. Les informations extraites de la carte de partitions globale avec ces informations d'identification sont utilisées pour le [routage dépendant des données](./sql-database-elastic-scale-data-dependent-routing.md) et pour remplir le cache de la carte de partitions sur le client. Les informations d'identification sont fournies via le même modèle d'appel à **GetSqlShardMapManager** que celui indiqué ci-dessus : 
+     N'utilisez pas de valeurs d'ID d'utilisateur sous la forme de " username@server ", utilisez simplement " username ".  Cela vient du fait que les informations d'identification doivent fonctionner avec la base de données du gestionnaire de cartes de partitions et les partitions, qui peuvent se trouver sur différents serveurs.
+     
+* **Informations d'identification de l'utilisateur pour l'accès au gestionnaire des cartes de partitions** :  lorsque vous instanciez le gestionnaire des cartes de partitions dans une application qui ne va pas gérer les cartes de partitions, utilisez les informations d'identification dotées des autorisations en lecture seule pour la carte de partitions globale. Les informations extraites de la table de partition globale sous ces informations d'identification sont utilisées pour [le routage dépendant des données](./sql-database-elastic-scale-data-dependent-routing.md) et pour remplir le cache de mappage de partition sur le client. Les informations d'identification sont fournies via le même modèle d'appel à **GetSqlShardMapManager** que celui indiqué ci-dessus : 
  
         // Obtain shard map manager. 
         ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
@@ -39,6 +55,8 @@ Les [API clientes de l'infrastructure élastique](http://go.microsoft.com/?linki
 
         "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;"  
 
-    Notez que la chaîne de connexion ne comporte pas de nom de serveur et de nom de base de données. En effet, l'appel de **OpenConnectionForKey** dirige automatiquement la connexion à la partition appropriée en fonction de la clé. Par conséquent, il n'est pas nécessaire de fournir les noms de la base de données et du serveur. 
+    Tout comme pour les informations d'identification de l'administrateur, n'utilisez pas de valeurs d'ID d'utilisateur sous la forme de " username@server ", utilisez simplement " username ".  Notez également que la chaîne de connexion ne comporte pas de nom de serveur et de nom de base de données. En effet, l'appel de **OpenConnectionForKey** dirige automatiquement la connexion à la partition appropriée en fonction de la clé. Par conséquent, il n'est pas nécessaire de fournir les noms de la base de données et du serveur. 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
+
+<!--HONumber=47-->

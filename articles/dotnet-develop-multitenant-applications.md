@@ -16,36 +16,6 @@
 	ms.date="11/19/2014" 
 	ms.author="wpickett"/>
 
-
-<div>
-<div class="left-nav">
-<div class="static-nav">
-<ul>
-<li class="menu-nodejs-compute"><a href="/fr-fr/develop/net/compute/">Compute</a></li>
-<li class="menu-nodejs-data"><a href="/fr-fr/develop/net/data/">Services de données</a></li>
-<li class="menu-nodejs-appservices"><a href="/fr-fr/develop/net/app-services/">App Services</a></li>
-<li><a href="/fr-fr/develop/net/reference/">du SDK</a></li>
-<li><a href="/fr-fr/develop/net/guidance/">Assistance</a></li>
-<li><a href="/fr-fr/develop/net/architecture/">Architecture</a></li>
-<li><a href="/fr-fr/develop/net/samples/">Exemples</a></li>
-<li><a href="/fr-fr/develop/net/end-to-end-Apps/">Didacticiels basés sur des scénarios</a></li>
-</ul>
-<ul class="links">
-<li class="forum"><a href="/fr-fr/support/forums/">Forums</a></li>
-</ul>
-</div>
-<div class="floating-nav jump-to"><br />
-<ul>
-<li>Dans cette section (accéder à) :</li>
-<li><a href="/fr-fr/develop/net/architecture/#overviews">Présentation de l'architecture de l'application</a></li>
-<li><strong>Modèle d'application : applications mutualisées</strong></li>
-<li><a href="/fr-fr/develop/net/architecture/load-testing-pattern/">Modèle d'application : test de charge</a></li>
-<li><a href="/fr-fr/develop/net/architecture/#designpatterns">Modèles de conception</a></li>
-</ul>
-</div>
-</div>
-</div>
-
 # Applications mutualisées dans Azure
 
 Une application mutualisée est une ressource partagée qui autorise des utilisateurs distincts, appelés " locataires ", à afficher l'application comme s'il s'agissait de la leur. Un scénario typique qui se prête à une application mutualisée est celui dans lequel tous les utilisateurs de l'application peuvent personnaliser leur expérience utilisateur, tout en ayant les mêmes besoins professionnels de base. Exemples d'applications mutualisées : Office 365, Outlook.com et visualstudio.com.
@@ -56,7 +26,7 @@ Voici une liste des objectifs et exigences les plus significatifs du point de vu
 
 - **Approvisionnement** : vous devez pouvoir approvisionner de nouveaux locataires pour l'application.  Pour les applications mutualisées incluant un grand nombre de locataires, il est généralement nécessaire d'automatiser ce processus en activant l'approvisionnement libre-service.
 - **Maintenabilité** : vous devez pouvoir mettre à niveau l'application et effectuer d'autres tâches de maintenance pendant que plusieurs locataires sont en train de l'utiliser. 
-- **Monitoring** : vous devez pouvoir surveiller l'application en toutes circonstances pour identifier et résoudre les éventuels problèmes. Cela inclut la surveillance de la façon dont chaque locataire utilise l'application.
+- **Surveillance** : vous devez pouvoir surveiller l'application en toutes circonstances pour identifier et résoudre les éventuels problèmes. Cela inclut la surveillance de la façon dont chaque locataire utilise l'application.
 
 Une application mutualisée correctement mise en œuvre offre les avantages suivants aux utilisateurs.
 
@@ -64,7 +34,7 @@ Une application mutualisée correctement mise en œuvre offre les avantages suiv
 - **Disponibilité** : les locataires individuels veulent que l'application soit constamment disponible, sans doute avec des garanties définies dans un contrat SLA. À nouveau, les activités des autres locataires ne doivent pas affecter la disponibilité de l'application.
 - **Extensibilité** : l'application peut être mise à l'échelle pour répondre aux exigences de locataires individuels. La présence et les actions des autres locataires ne doivent pas affecter les performances de l'application. 
 - **Coûts** : les coûts sont inférieurs au coût de l'exécution d'une application dédiée à un seul locataire, car une architecture mutualisée permet de partager les ressources. 
-- **Possibilités de personnalisation** : possibilité pour un locataire individuel de personnaliser l'application de diverses façons telles qu'en ajoutant ou en supprimant des fonctionnalités, en changeant les couleurs et les logos, ou même en ajoutant son propre code ou script.
+- **Possibilités de personnalisation**. possibilité de personnaliser l'application d'un locataire individuel de diverses façons telles qu'en ajoutant ou en supprimant des fonctionnalités, en changeant les couleurs et les logos, ou même en ajoutant son propre code ou script.
  
 En résumé, bien que de nombreux aspects soient à prendre en compte pour fournir un service hautement évolutif, il y a également une série d'objectifs et d'exigences communs à de nombreuses applications mutualisées. Certains peuvent ne pas concerner des scénarios spécifiques, et l'importance d'objectifs et d'exigences individuels peut différer pour chaque scénario. En tant que fournisseur de l'application mutualisée, vous aurez également des objectifs et des exigences tels que la satisfaction des objectifs et des exigences des locataires, la rentabilité, la facturation, les niveaux de service multiples, l'approvisionnement, la surveillance de la maintenabilité et l'automatisation. 
 
@@ -72,7 +42,7 @@ Pour plus d'informations sur les considérations supplémentaires d'une applicat
 
 Azure offre de nombreuses fonctionnalités vous permettant de résoudre les problèmes clés rencontrés lors de la conception d'un système mutualisé. 
 
-**Isolement** 
+**Isolement**
 
 - Segmentation des locataires de site web en fonction des en-têtes d'hôte avec ou sans communication SSL
 - Segmentation des locataires de site web en fonction des paramètres de requête
@@ -100,8 +70,8 @@ Azure offre plusieurs services de mise en réseau prenant en charge l'authentifi
 
 - Azure Virtual Network vous permet d'approvisionner et de gérer des réseaux privés virtuels (VPN) dans Azure, ainsi que de lier ceux-ci de façon sécurisée avec l'infrastructure informatique locale. 
 - Virtual Network Traffic Manager vous permet de répartir le trafic entrant sur plusieurs services Azure hébergés, qu'ils s'exécutent sur le même centre de données ou sur différents centres de données à travers le monde. 
-- Azure Active Directory (Azure AD) est un service moderne, basé sur le protocole REST, qui offre des capacités de contrôle d'accès et de gestion des identités pour vos applications dans le cloud. Utilisation d'Azure AD pour les ressources d'application : Azure AD offre une façon simple d'authentifier et d'autoriser les utilisateurs à accéder à vos applications et services web tout en permettant de ne pas prendre en compte les fonctionnalités d'authentification et d'autorisation dans votre code. 
-- Azure Service Bus offre des capacités de messagerie et de flux de données sécurisées pour les applications distribuées et hybrides, telles que les communications entre les applications hébergées sur Azure et les applications et services locaux, sans nécessiter d'infrastructures de sécurité et de pare-feu complexes. Utilisation de Service Bus Relay pour les ressources d'application : les services qui sont exposés en tant que points de terminaison peuvent appartenir au locataire (par exemple, être hébergés en dehors du système, en local), ou il peut s'agir de services approvisionnés spécifiquement pour le locataire (parce que des données critiques, spécifiques du locataire, transitent par ceux-ci). 
+- Azure Active Directory (Azure AD) est un service moderne, basé sur le protocole REST, qui offre des capacités de contrôle d'accès et de gestion des identités pour vos applications dans le cloud. Utilisation d'Azure AD pour les ressources d'application : Azure AD offre une façon simple d'authentifier et d'autoriser les utilisateurs à accéder à vos applications et services Web tout en permettant de ne pas prendre en compte les fonctionnalités d'authentification et d'autorisation dans votre code. 
+- Azure Service Bus offre des capacités de messagerie et de flux de données sécurisées pour les applications distribuées et hybrides, telles que les communications entre les applications hébergées sur Azure et les applications et services locaux, sans nécessiter d'infrastructures de sécurité et de pare-feu complexes. Utilisation de Service Bus Relay pour les ressources d'application : les services qui sont exposés en tant que points de terminaison peuvent appartenir au locataire (par exemple, être hébergés en dehors du système, en local), ou il peut s'agir de services approvisionnés spécifiquement pour le locataire (parce que des données critiques, spécifiques au locataire, transitent par ceux-ci). 
 
 
 
@@ -119,6 +89,7 @@ Azure offre une série de méthodes permettant d'approvisionner de nouveaux loca
 	- 	Utilisation de l'importation et de l'exportation de base de données pour approvisionner de nouvelles bases de données à partir d'un fichier 
 
 
+
 <!--links-->
 
 [Hébergement d'une application mutualisée dans Azure]: http://msdn.microsoft.com/library/hh534480.aspx
@@ -126,4 +97,4 @@ Azure offre une série de méthodes permettant d'approvisionner de nouveaux loca
 
 
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

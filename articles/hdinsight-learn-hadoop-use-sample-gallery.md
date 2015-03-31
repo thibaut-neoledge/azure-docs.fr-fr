@@ -1,22 +1,22 @@
-﻿<properties 
-   pageTitle="Découverte de Hadoop dans HDInsight à l'aide de la galerie d'exemples" 
-   description="Découverte de Hadoop dans HDInsight à l'aide de la galerie d'exemples HDInsight" 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="mumian" 
-   manager="paulettm" 
-   editor="cgronlun"/>
+<properties 
+	   pageTitle="Découverte de Hadoop dans HDInsight à l'aide de la galerie d'exemples" 
+	   description="Découverte de Hadoop dans HDInsight à l'aide de la galerie d'exemples HDInsight" 
+	   services="hdinsight" 
+	   documentationCenter="" 
+	   authors="mumian" 
+	   manager="paulettm" 
+	   editor="cgronlun"/>
 
 <tags 
-   ms.service="hdinsight" 
-   ms.workload="big-data" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="1/29/2015" 
-   ms.author="jgao"/>
+	   ms.service="hdinsight" 
+	   ms.workload="big-data" 
+	   ms.tgt_pltfrm="na" 
+	   ms.devlang="na" 
+	   ms.topic="article" 
+	   ms.date="1/29/2015" 
+	   ms.author="jgao"/>
 
-# Découverte de Hadoop dans HDInsight à l'aide de la galerie de prise en main de HDInsight
+# Découverte de Hadoop à l'aide de la galerie de prise en main de HDInsight
 
 La galerie de prise en main de HDInsight fournit un moyen facile et rapide d'exécuter des exemples d'applications Hadoop dans HDInsight. Certains exemples sont fournis avec des exemples de données. Vous pouvez fournir vos propres données pour le reste des exemples. 6 exemples sont actuellement disponibles, de nouveaux seront ajoutés prochainement :
 
@@ -51,8 +51,8 @@ Le clip vidéo suivant montre comment exécuter l'exemple d'analyse de tendances
 ## Étapes suivantes
 D'autres façons d'apprendre à utiliser HDInsight comprennent :
 
-- [Plan de formation pour HDInsight][hdinsight.learning.map]
-- [Graphisme d'information HDInsight][hdinsight.infographic]
+- [HDInsight learning map][hdinsight.learning.map]
+- [HDInsight infographic][hdinsight.infographic]
 
 <!--Image references-->
 [hdinsight.sample.gallery]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Getting-Started-Gallery.png
@@ -62,4 +62,4 @@ D'autres façons d'apprendre à utiliser HDInsight comprennent :
 [hdinsight.learning.map]: ../hdinsight-learning-map/
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

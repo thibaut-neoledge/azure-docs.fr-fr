@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Didacticiel Application web Python avec Django sur Mac - Azure" 
 	description="Didacticiel qui explique comment héberger un site web Django dans Azure à l'aide d'une machine virtuelle Linux." 
 	services="virtual-machines" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/05/2015" 
 	ms.author="huvalo"/>
 
 
@@ -22,18 +22,16 @@
 
 # Application Web Django Hello World (mac-linux)
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/fr-fr/develop/python/tutorials/web-app-with-django/" title="Windows">Windows</a><a href="/fr-fr/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac/Linux" class="current">Mac/Linux</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/develop/python/tutorials/web-app-with-django/" title="Windows">Windows</a><a href="/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac/Linux" class="current">Mac/Linux</a></div>
 
-Ce didacticiel explique comment héberger un site Web Django dans 
-Azure à l'aide d'une machine virtuelle Linux. Ce didacticiel part du principe que vous n'avez pas d'expérience en tant qu'utilisateur d'Azure. À la fin de ce guide, vous disposerez d'une application Django fonctionnelle dans le cloud.
+Ce didacticiel explique comment héberger un site Web Django dans Azure à l'aide d'une machine virtuelle Linux. Ce didacticiel part du principe que vous n'avez pas d'expérience en tant qu'utilisateur d'Azure. À la fin de ce guide, vous disposerez d'une application Django fonctionnelle dans le cloud.
 
 Vous apprendrez à :
 
 * Configurer une machine virtuelle Azure pour héberger Django. Ce didacticiel explique comment réaliser cette opération sous **Linux**, mais elle peut également être accomplie sur une machine virtuelle Windows Server hébergée sous Azure. 
 * Créer une application Django à partir de Linux.
 
-Dans ce didacticiel, vous allez créer une application Web Hello World
-simple. L'application sera hébergée sur une machine virtuelle Azure.
+Dans ce didacticiel, vous allez créer une application Web Hello World simple. L'application sera hébergée sur une machine virtuelle Azure.
 
 Voici une capture d'écran de l'application terminée :
 
@@ -43,15 +41,18 @@ Voici une capture d'écran de l'application terminée :
 
 ## Création et configuration d'une machine virtuelle Azure pour héberger Django
 
-1. Suivez les instructions fournies [ici][portal-vm] pour créer une machine virtuelle Azure de la distribution *Ubuntu Server 14.04 LTS*.
+1. Suivez les instructions présentées [ici][portal-vm] pour créer une machine virtuelle Azure de la distribution *Ubuntu Server 14.04 LTS*.
 
-  **Remarque :** vous devez  *uniquement* créer la machine virtuelle. Arrêtez-vous à la section intitulée *Connexion à la machine virtuelle une fois celle-ci créée*.
+  **Remarque :** vous devez *only* créer la machine virtuelle. Arrêtez-vous à la section intitulée *How to log on to the virtual machine after you create it*.
 
-1. Indiquez à Azure d'acheminer le trafic du port **80** du Web vers le port **80** de la machine virtuelle :
+1. Indiquez à Azure de diriger le trafic du port **80** à partir du web vers le port **80** de la machine virtuelle :
 	* Accédez à votre machine virtuelle nouvellement créée dans le portail Azure et cliquez sur l'onglet *ENDPOINTS*.
 	* Cliquez sur le bouton *ADD* au bas de l'écran.
+
 	![add endpoint](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-add-endpoint.png)
-	* Ouvrez le *PORT PUBLIC 80* du protocole *TCP* en tant que *PORT PRIVÉ 80*.
+
+	* Ouvrez le *PUBLIC PORT 80* du protocole *TCP* en tant que *PRIVATE PORT 80*.
+
 	![port80](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-port80.png)
 
 ## <a id="setup"> </a>Configuration de l'environnement de développement
@@ -133,9 +134,6 @@ Python 2.7 est préinstallé sur la machine virtuelle Linux Ubuntu. En revanche,
 Lorsque vous avez terminé ce didacticiel, arrêtez et/ou supprimez votre machine virtuelle Azure nouvellement créée afin de libérer des ressources pour d'autres didacticiels et éviter l'ajout de charges d'utilisation Azure.
 
 
-[portal-vm]: /fr-fr/manage/linux/tutorials/virtual-machine-from-gallery/
+[portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

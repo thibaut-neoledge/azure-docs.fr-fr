@@ -1,10 +1,24 @@
-﻿<properties title="Using Elastic Scale with Entity Framework" pageTitle="Utilisation de l'infrastructure élastique avec Entity Framework" description="La mise à l'échelle flexible facilite la mise à l'échelle et Entity Framework est facile à utiliser pour le codage de bases de données " metaKeywords="Using Elastic Scale with Entity Framework, Azure SQL Database sharding, elastic scale, Entity Framework and Elastic Scale" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties 
+	pageTitle="Utilisation de l'infrastructure élastique avec Entity Framework" 
+	description="La mise à l'échelle flexible facilite la mise à l'échelle et Entity Framework est facile à utiliser pour le codage de bases de données" 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="Joseidz" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="Joseidz@microsoft.com"/>
 
-#Utilisation de l'infrastructure élastique avec Entity Framework 
+# Utilisation de l'infrastructure élastique avec Entity Framework 
  
-Vous pouvez utiliser l'infrastructure élastique de base de données SQL Azure avec Microsoft Entity Framework (EF) pour créer des applications. L'infrastructure élastique permet d'agrandir et de réduire la capacité via le partitionnement et la mise à l'échelle de la couche Données de votre application. Ce document présente les modifications d'une application Entity Framework requises pour intégrer les fonctionnalités de l'infrastructure élastique. L'objectif est de composer une [gestion de partitions d'infrastructure élastique](http://go.microsoft.com/?linkid=9862595) et un [routage dépendant des données](./sql-database-elastic-scale-data-dependent-routing.md) avec l'approche Entity Framework **Code First**. Le didacticiel [Code First pour une nouvelle base de données](http://msdn.microsoft.com/fr-fr/data/jj193542.aspx) pour EF nous servira d'exemple tout au long de ce document. L'exemple de code qui accompagne ce document fait partie des échantillons d'infrastructure élastique figurant parmi les exemples de code Visual Studio.
+Vous pouvez utiliser l'infrastructure élastique de base de données SQL Azure avec Microsoft Entity Framework (EF) pour créer des applications. L'infrastructure élastique permet d'agrandir et de réduire la capacité via le partitionnement et la mise à l'échelle de la couche Données de votre application. Ce document présente les modifications d'une application Entity Framework requises pour intégrer les fonctionnalités de l'infrastructure élastique. Il se concentre sur la composition de la [gestion de partitions d'infrastructure élastique](http://go.microsoft.com/?linkid=9862595) et [le routage dépendant des données](./sql-database-elastic-scale-data-dependent-routing.md) avec l'approche Entity Framework **Code First**. Le didacticiel [Code First pour une nouvelle base de données](http://msdn.microsoft.com/data/jj193542.aspx) pour EF nous servira d'exemple tout au long de ce document. L'exemple de code qui accompagne ce document fait partie des échantillons d'infrastructure élastique figurant parmi les exemples de code Visual Studio.
   
 ## Téléchargement et exécution de l'exemple de code
 Pour télécharger le code utilisé dans cet article :
@@ -12,7 +26,7 @@ Pour télécharger le code utilisé dans cet article :
 * Visual Studio 2012 ou une version ultérieure est nécessaire. 
 * Démarrez Visual Studio. 
 * Dans Visual Studio, sélectionnez Fichier -> Nouveau projet. 
-* Dans la boîte de dialogue " Nouveau projet ", accédez aux **Exemples MSDN Online** pour **Visual C#** et tapez " Elastic scale " (Infrastructure élastique) dans la zone de recherche située en haut à droite.
+* Dans la boîte de dialogue " Nouveau projet ", accédez aux **Exemples en ligne** pour **Visual C#** et tapez " Elastic scale " (Infrastructure élastique) dans la zone de recherche située en haut à droite.
     
     ![Entity Framework and elastic scale sample app][1] 
 
@@ -26,7 +40,7 @@ Pour exécuter l'exemple, vous devez créer trois bases de données vides dans B
 
 Une fois que vous avez créé ces bases de données, remplissez les espaces réservés dans le fichier **Program.cs** par le nom de votre serveur de base de données SQL Azure, les noms des trois bases de données et vos informations d'identification pour vous connecter à ces bases de données. Créez la solution dans Visual Studio. Visual Studio télécharge les packages NuGet requis pour l'infrastructure élastique, Entity Framework et la gestion des erreurs temporaires dans le cadre du processus de génération. Assurez-vous que la restauration des packages NuGet est activée pour votre solution. Vous pouvez activer ce paramètre en cliquant sur le fichier de la solution dans l'Explorateur de solutions Visual Studio. 
 
-##Flux de travail Entity Framework 
+## Flux de travail Entity Framework 
 
 Les développeurs d'Entity Framework s'appuient sur l'un des quatre flux de travail suivants pour créer des applications et garantir la persistance pour les objets d'application : 
 
@@ -37,20 +51,20 @@ Les développeurs d'Entity Framework s'appuient sur l'un des quatre flux de trav
 
 Toutes ces approches s'appuient sur la classe DbContext pour gérer en toute transparence les connexions et le schéma de base de données d'une application. Comme nous le verrons plus tard dans ce document, les différents constructeurs de la classe de base DbContext permettent différents niveaux de contrôle sur la création de la connexion, de la base de données d'amorçage et du schéma. Les problèmes surviennent principalement en raison du fait que la gestion des connexions de base de données fournie par Entity Framework interfère avec les fonctionnalités de gestion de connexion des interfaces de routage dépendant des données fournies par l'infrastructure élastique de base de données Azure. 
 
-##Hypothèses relatives à l'infrastructure élastique 
+## Hypothèses relatives à l'infrastructure élastique 
 
-Vous trouverez les définitions des termes évoqués ici sur la page [Glossaire de l'infrastructure élastique](./sql-database-elastic-scale-glossary.md).
+(Vous trouverez les définitions des termes évoqués ici sur la page [Glossaire de l'infrastructure élastique](./sql-database-elastic-scale-glossary.md).
 
 L'infrastructure élastique de base de données SQL Azure permet de définir des partitions pour les données de votre application. Ces partitions sont nommées shardlets.  Les shardlets sont identifiés par une clé de partitionnement et sont mappés vers des bases de données spécifiques. Une application peut avoir autant de bases de données que nécessaire et distribuer les shardlets pour fournir suffisamment de capacité ou de performances selon les besoins de l'entreprise. Le mappage des valeurs de clé de partitionnement vers les bases de données est stocké par une carte de partitions fournie par les API de l'infrastructure élastique. Nous appelons cette fonctionnalité Gestion des cartes de partitions, ou GCP. La carte de partitions sert également de service Broker de connexion de base de données pour les demandes transportant une clé de partitionnement. Nous appelons cette fonction " routage dépendant des données ". 
  
 Le gestionnaire des cartes de partitions de l'infrastructure élastique empêche tout affichage incohérent des données shardlet pouvant perturber les utilisateurs lors des opérations de gestion de shardlet simultanées (par exemple, le déplacement des données d'une partition à l'autre). Pour ce faire, la partition mappe dans le service Broker de l'infrastructure flexible les connexions de base de données pour une application d'infrastructure élastique. Ainsi, la fonctionnalité de carte de partitions peut automatiquement arrêter une connexion de base de données si des opérations de gestion de partition peuvent affecter le shardlet pour lequel la connexion a été créée. Cette approche doit s'intégrer à certaines fonctionnalités d'Entity Framework, telles que la création de connexions à partir d'une connexion existante pour vérifier l'existence de la base de données. Nous constatons qu'en général, les constructeurs DbContext standard fonctionnent uniquement de façon fiable pour les connexions de base de données fermées pouvant être clonées en toute sécurité pour Entity Framework. Le principe de conception de l'infrastructure élastique consiste plutôt à utiliser uniquement le service Broker sur les connexions ouvertes. On pourrait penser que la fermeture d'une connexion demandée par l'infrastructure élastique avant son transfert vers le DbContext EF peut résoudre ce problème. Cependant, si l'on ferme la connexion et que l'on s'appuie sur Entity Framework pour la rouvrir, l'infrastructure élastique n'effectue ni la validation, ni les contrôles de cohérence. Par contre, la fonctionnalité de migrations d'Entity Framework utilise ces connexions pour gérer le schéma de base de données sous-jacent de façon transparente pour l'application. Idéalement, il faudrait conserver et combiner toutes les capacités de l'infrastructure élastique et d'Entity Framework dans la même application. La section suivante décrit en détail ces propriétés et les éléments requis. 
 
 
-##Configuration requise 
+## Configuration requise 
 
 Lors de l'utilisation des API d'infrastructure élastique et Entity Framework, nous souhaitons conserver les propriétés suivantes : 
 
-* **Montée en charge** : pour ajouter ou supprimer des bases de données de la couche Données de l'application partitionnée si nécessaire pour les demandes de capacité de l'application. Cela revient à contrôler la création et la suppression des bases de données et à utiliser les API du gestionnaire des cartes de partitions de l'infrastructure élastique pour gérer les bases de données et les mappages des shardlets. 
+* **Évolution** : pour ajouter ou supprimer des bases de données de la couche Données de l'application partitionnée si nécessaire pour les demandes de capacité de l'application. Cela revient à contrôler la création et la suppression des bases de données et à utiliser les API du gestionnaire des cartes de partitions de l'infrastructure élastique pour gérer les bases de données et les mappages des shardlets. 
 
 * **Cohérence** : l'application utilise le partitionnement et les capacités de routage dépendant des données de l'infrastructure élastique. Pour éviter d'obtenir des résultats de requêtes incorrects ou altérés, les connections sont demandées via le gestionnaire des cartes de partitions de l'infrastructure élastique. Cela maintient également la validation et la cohérence.
  
@@ -62,7 +76,7 @@ Le guide suivant indique comment répondre à ces impératifs pour les applicati
 
 ## Routage dépendant des données à l'aide de DbContext EF 
 
-Les connexions de base de données avec Entity Framework sont généralement gérées via des classes secondaires de **DbContext**. Créez ces sous-classes en procédant à une dérivation à partir de **DbContext**. ﻿À partir d'ici, vous allez définir vos **DbSets** qui implémentent les collections reposant sur la base de données d'objets CLR pour votre application. Dans le contexte de routage dépendant des données, nous pouvons identifier plusieurs propriétés utiles qui ne s'appliquent pas nécessairement à d'autres scénarios d'application Code First EF : 
+Les connexions de base de données avec Entity Framework sont généralement gérées via des classes secondaires de **DbContext**. Créez ces sous-classes en procédant à une dérivation à partir de **DbContext**. À partir d'ici, vous allez définir vos **DbSets** qui implémentent les collections reposant sur la base de données d'objets CLR pour votre application Dans le contexte de routage dépendant des données, nous pouvons identifier plusieurs propriétés utiles qui ne s'appliquent pas nécessairement à d'autres scénarios d'application Code First EF : 
 
 * La base de données existe déjà et a été enregistrée dans la carte de partitions de l'infrastructure élastique. 
 * Le schéma de l'application a déjà été déployé vers la base de données (voir ci-après). 
@@ -71,7 +85,7 @@ Les connexions de base de données avec Entity Framework sont généralement gé
 Pour intégrer **DbContexts** à un routage dépendant des données pour la montée en charge :
 
 1. Créez des connexions de bases de données physiques via les interfaces de l'infrastructure élastique du gestionnaire de cartes de partitions. 
-2. Encapsulez la connexion avec la classe secondaire **DbContext**.
+2. Encapsulez la connexion avec la sous-classe **DbContext**
 3. Transmettez la connexion aux classes de base **DbContext** pour vous assurer que tous les traitements côté EF se produisent également. 
 
 L'exemple de code suivant illustre cette approche. Ce code est également contenu dans le projet Visual Studio qui accompagne cet article.
@@ -107,7 +121,7 @@ L'exemple de code suivant illustre cette approche. Ce code est également conten
             return conn;
         }    
 
-#### Points principaux
+## Points principaux
 * Un nouveau constructeur remplace le constructeur par défaut dans la classe secondaire de DbContext 
 * Le nouveau constructeur accepte les arguments qui sont requis pour le routage dépendant des données via l'infrastructure élastique : 
     * la carte de partitions pour accéder aux interfaces de routage dépendant des données, 
@@ -143,10 +157,10 @@ Utilisez le nouveau constructeur pour votre classe secondaire DbContext au lieu 
 
 Le nouveau constructeur ouvre la connexion vers la partition qui héberge les données pour le shardlet identifié par la valeur de **tenantid1**. Le code du bloc **using** ne change pas pour accéder au **DbSet** pour les blogs utilisant EF sur la partition pour **tenantid1**. Cela modifie la sémantique du code dans le bloc using de sorte que toutes les opérations de base de données sont adaptées à la seule partition où **tenantid1** est conservé. Par exemple, une requête LINQ sur les blogs **DbSet** ne renvoie que des blogs stockés sur la partition actuelle, mais pas ceux stockés sur d'autres partitions.  
 
-####Gestion des erreurs temporaires
-L'équipe d'aide de Microsoft a publié l'article [Bloc d'application de gestion des erreurs temporaires](http://msdn.microsoft.com/fr-fr/library/dn440719(v=pandp.60).aspx). La bibliothèque est utilisée avec l'infrastructure élastique conjointement à EF. Toutefois, assurez-vous que toute exception temporaire renvoie à un emplacement où nous pouvons garantir que le nouveau constructeur est utilisé après une erreur temporaire afin que toute nouvelle tentative de connexion soit effectuée à l'aide des constructeurs que nous avons modifiés. Sinon, une connexion à la partition appropriée n'est pas garantie et il n'est pas certain que la connexion soit maintenue, lorsque des modifications de la carte de partitions surviennent. 
+#### Gestion des erreurs temporaires
+L'équipe d'aide de Microsoft a publié l'article [Bloc d'application de gestion des erreurs temporaires](http://msdn.microsoft.com/library/dn440719(v=pandp.60.aspx)). La bibliothèque est utilisée avec l'infrastructure élastique conjointement à EF. Toutefois, assurez-vous que toute exception temporaire renvoie à un emplacement où nous pouvons garantir que le nouveau constructeur est utilisé après une erreur temporaire afin que toute nouvelle tentative de connexion soit effectuée à l'aide des constructeurs que nous avons modifiés. Sinon, une connexion à la partition appropriée n'est pas garantie et il n'est pas certain que la connexion soit maintenue, lorsque des modifications de la carte de partitions surviennent. 
 
-L'exemple de code suivant explique comment utiliser une stratégie de récupération SQL autour des nouveaux constructeurs de classe secondaire **DbContext** : 
+L'exemple de code suivant explique comment utiliser une stratégie de récupération SQL autour des nouveaux constructeurs de sous-classe **DbContext** : 
 
     SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
     { 
@@ -162,22 +176,25 @@ L'exemple de code suivant explique comment utiliser une stratégie de récupéra
             } 
         }); 
 
-La **SqlDatabaseUtils.SqlRetryPolicy** du code ci-dessus est définie comme une **SqlDatabaseTransientErrorDetectionStrategy** avec un nombre de tentatives de 10 et un délai d'attente de 5 secondes entre chaque tentative. Cette approche correspond aux conseils pour EF et les transactions initiées par l'utilisateur (voir [Limitations des nouvelles tentatives des stratégies d'exécution (à partir d'Entity Framework 6)](http://msdn.microsoft.com/fr-fr/data/dn307226). Deux situations nécessitent que le programme d'application contrôle l'étendue vers laquelle renvoie l'exception temporaire : une réouverture de la transaction ou (comme indiqué) une recréation du contexte à partir du constructeur approprié, qui utilise les bibliothèques de l'infrastructure élastique.  
+**SqlDatabaseUtils.SqlRetryPolicy** du code ci-dessus est définie comme une **SqlDatabaseTransientErrorDetectionStrategy** avec un nombre de tentatives de 10 et un délai d'attente de 5 secondes entre chaque tentative. Cette approche est similaire aux conseils pour EF et les transactions initiées par l'utilisateur (voir [Limitations des nouvelles tentatives des stratégies d'exécution (à partir d'Entity Framework 6)](http://msdn.microsoft.com/data/dn307226). Les deux situations nécessitent que le programme d'application contrôle l'étendue dans laquelle l'exception transitoire retourne : afin de rouvrir la transaction ou (comme indiqué) de recréer le contexte à partir du constructeur approprié qui utilise les bibliothèques à infrastructure élastique.
 
+La nécessité de contrôler l'endroit où les exceptions temporaires nous amènent exclut également l'utilisation de la **SqlAzureExecutionStrategy** intégrée, fournie avec Entity Framework. **SqlAzureExecutionStrategy** rouvrirait une connexion, mais n'utiliserait pas **OpenConnectionForKey**, et passerait donc outre toute la validation effectuée au sein de l'appel **OpenConnectionForKey**. Au lieu de cela, l'exemple de code utilise la **DefaultExecutionStrategy** intégrée, également fournie avec Entity Framework. Contrairement à **SqlAzureExecutionStrategy**, elle fonctionne correctement avec la stratégie de nouvelle tentative de la gestion des erreurs temporaires. La stratégie d'exécution est définie dans la classe **ElasticScaleDbConfiguration**. Notez que nous avons décidé de ne pas utiliser **DefaultSqlExecutionStrategy** car il propose d'utiliser **SqlAzureExecutionStrategy** en cas d'exceptions temporaires, ce qui entraînerait le comportement incorrect indiqué plus haut. Pour plus d'informations sur les différentes stratégies de nouvelle tentative et Entity Framework, consultez la rubrique [Résilience des connexions dans Entity Framework](http://msdn.microsoft.com/data/dn456835.aspx).     
+
+#### Réécritures de constructeur
 Les exemples de code ci-dessus illustrent les réécritures de constructeur par défaut requises pour votre application afin d'utiliser le routage dépendant des données de l'infrastructure élastique avec Entity Framework. Le tableau suivant généralise cette approche aux autres constructeurs. 
 
 
-Constructeur actuel | Constructeur réécrit pour les données | Constructeur de base | Notes
+Constructeur en cours  | Constructeur réécrit pour les données | Constructeur de base | Remarques
 ---------- | ----------- | ------------|----------
 MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |La connexion doit dépendre de la carte de partitions et de la clé de routage dépendant des données. Vous devez contourner la création de connexion automatique par EF pour utiliser la carte de partitions à la place pour répartir la connexion. 
-MyContext(string) |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |La connexion dépend de la carte de partitions et de la clé de routage dépendant des données. Un nom de base de données fixe ou une chaîne de connexion ne fonctionnera pas, car la validation est alors contournée par une carte de partitions. 
-MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |La connexion sera créée pour la carte de partitions donnée et la clé de partitionnement avec le modèle fourni. Le modèle compilé sera transmis au c'tor de base.
+MyContext(string)|ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |La connexion dépend de la carte de partitions et de la clé de routage dépendant des données. Un nom de base de données fixe ou une chaîne de connexion ne fonctionnera pas, car la validation est alors contournée par une carte de partitions. 
+MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |La connexion sera créée avec le modèle fourni pour la carte de partitions et la clé de partitionnement données. Le modèle compilé sera transmis au c'tor de base.
 MyContext(DbConnection, bool) |ElasticScaleContext(ShardMap, TKey, bool) |DbContext(DbConnection, bool) |La connexion doit être déduite de la carte de partitions et de la clé. Elle ne peut pas être fournie comme entrée (sauf si cette entrée utilisait déjà la carte de partitions et la clé). La valeur booléenne sera transmise. 
 MyContext(string, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |La connexion doit être déduite de la carte de partitions et de la clé. Elle ne peut pas être fournie comme entrée (sauf si cette entrée utilisait la carte de partitions et la clé). Le modèle compilé sera transmis. 
-MyContext(ObjectContext, bool) |ElasticScaleContext(ShardMap, TKey, ObjectContext, bool) |DbContext(ObjectContext, bool) |Le nouveau constructeur doit garantir qu'aucune connexion du ObjectContext transmise en tant qu'entrée est réacheminée vers une connexion gérée par une infrastructure élastique. Ce document ne contient pas de présentation détaillée du ObjectContext.
+MyContext(ObjectContext, bool) |ElasticScaleContext(ShardMap, TKey, ObjectContext, bool) |DbContext(ObjectContext, bool) |Le nouveau constructeur doit garantir qu'aucune connexion dans ObjectContext transmise en tant qu'entrée est réacheminée vers une connexion gérée par une infrastructure élastique. Ce document ne contient pas de présentation détaillée d'ObjectContext.
 MyContext(DbConnection, DbCompiledModel,bool) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel, bool)| DbContext(DbConnection, DbCompiledModel, bool); |La connexion doit être déduite de la carte de partitions et de la clé. Elle ne peut pas être fournie comme entrée (sauf si cette entrée utilisait déjà la carte de partitions et la clé). Les valeurs Model et Boolean sont transmises au constructeur de classe de base. 
 
-###Déploiement de schéma de partition via des migrations Entity Framework 
+## Déploiement de schéma de partition via des migrations Entity Framework 
 
 La gestion de schéma automatique est un avantage fourni par Entity Framework. Dans le contexte d'une application d'infrastructure élastique, nous souhaitons conserver cette capacité d'approvisionnement automatique du schéma pour les partitions récemment créées en cas d'ajout de bases de données à l'application partitionnée. Le cas d'usage principal correspond à l'augmentation de la capacité de la couche Données des applications partitionnées en utilisant EF. Le fait de s'appuyer sur les fonctionnalités d'Entity Framework pour la gestion des schémas permet de réduire l'effort d'administration de base de données grâce à une application partitionnée basée sur Entity Framework. 
 
@@ -241,11 +258,11 @@ Cet exemple illustre la méthode **RegisterNewShard** qui enregistre la partitio
 Vous avez peut-être utilisé la version du constructeur héritée de la classe de base. Mais le code doit garantir que l'initialiseur par défaut pour Entity Framework est utilisé lors de la connexion. D'où le bref détour par la méthode statique avant l'appel vers le constructeur de classe de base avec la chaîne de connexion. Notez que l'inscription des partitions doit s'exécuter dans un domaine d'application ou un processus différent pour vous assurer que les paramètres de l'initialiseur d'Entity Framework n'entrent pas en conflit. 
 
 
-##Limites 
+## Limites 
 
 Les approches décrites dans ce document entraînent quelques limitations : 
 
-Les * applications EF utilisant **LocalDb** en premier doivent migrer vers une base de données SQL Server standard avant d'utiliser l'infrastructure élastique. La montée en charge d'une application via le partitionnement avec l'infrastructure élastique n'est pas possible avec **LocalDb**. Notez que le développement peut toujours utiliser **LocalDb**. 
+* Les applications EF utilisant **LocalDb** en premier doivent migrer vers une base de données SQL Server standard avant d'utiliser l'infrastructure élastique. La montée en charge d'une application via le partitionnement avec l'infrastructure élastique n'est pas possible avec **LocalDb**. Notez que le développement peut toujours utiliser **LocalDb**. 
 
 * Toutes les modifications apportées à l'application qui impliquent les modifications de schéma de base de données doivent passer par des migrations Entity Framework sur toutes les partitions. L'exemple de code pour ce document ne montre pas comment procéder. Envisagez d'utiliser la commande Update-Database avec un paramètre ConnectionString pour effectuer une itération sur toutes les partitions. Vous pouvez également extraire le script T-SQL pour la migration en attente à l'aide d'une commande Update-Database avec l'option -Script, puis appliquer le script T-SQL à vos partitions.  
 
@@ -253,12 +270,14 @@ Les * applications EF utilisant **LocalDb** en premier doivent migrer vers une b
 
 
 
-##Conclusions 
+## Conclusions 
 
-Les applications Entity Framework peuvent facilement tirer parti de l'infrastructure élastique de base de données SQL Azure. En suivant les procédures décrites dans ce document, les applications Entity Framework peuvent utiliser les capacités de l'infrastructure élastique pour le routage dépendant des données en refactorisant des constructeurs des classes secondaires **DbContext** utilisés dans l'application Entity Framework. Cela limite les modifications requises aux emplacements où les classes **DbContext** existent déjà. De plus, les applications Entity Framework peuvent continuer à bénéficier du déploiement de schéma automatique en combinant les procédures qui appellent les migrations Entity Framework nécessaires à l'enregistrement de nouvelles partitions et mappages dans la carte de partitions de l'infrastructure élastique. 
+Les applications Entity Framework peuvent facilement tirer parti de l'infrastructure élastique de base de données SQL Azure. En suivant les procédures décrites dans ce document, les applications Entity Framework peuvent utiliser les capacités de l'infrastructure élastique pour le routage dépendant des données en refactorisant des constructeurs des sous-classes **DbContext** utilisés dans l'application Entity Framework. Cela limite les modifications requises aux emplacements où les classes **DbContext** existent déjà. De plus, les applications Entity Framework peuvent continuer à bénéficier du déploiement de schéma automatique en combinant les procédures qui appellent les migrations Entity Framework nécessaires à l'enregistrement de nouvelles partitions et mappages dans la carte de partitions de l'infrastructure élastique. 
 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-using-entity-framework/sample.png
+
+<!--HONumber=47-->

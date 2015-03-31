@@ -4,7 +4,7 @@ Nous devons être en mesure de détecter un jeton expiré et de l'actualiser. Po
 
 Dans cette section, vous allez définir un ServiceFilter qui détecte un code d'état HTTP 401 et déclenche une actualisation du jeton et du cache associé. En outre, ce ServiceFilter bloque les autres demandes sortantes lors de l'authentification afin qu'elles puissent utiliser le jeton actualisé.
 
-1. Dans Eclipse, ouvrez le fichier ToDoActivity.java et ajoutez les instructions import suivantes :
+1. Ouvrez le fichier ToDoActivity.java, puis ajoutez les instructions import suivantes :
  
         import java.util.concurrent.atomic.AtomicBoolean;
 		import java.util.concurrent.ExecutionException;
@@ -186,8 +186,6 @@ Dans cette section, vous allez définir un ServiceFilter qui détecte un code d'
 	                                    public void run() {
 	                                        // Force a token refresh during authentication.
 	                                        authenticate(true);
-				// ToDoActivity.mMainActivity.authenticate(true);
-	
 	                                    }
 	                                });
 	                            }
@@ -241,4 +239,4 @@ Dans cette section, vous allez définir un ServiceFilter qui détecte un code d'
 
 
 
-\<!--HONumber=42-->
+<!--HONumber=47-->

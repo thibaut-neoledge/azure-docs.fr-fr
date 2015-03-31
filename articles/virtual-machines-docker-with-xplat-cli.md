@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="squillace" 
 	manager="timlt" 
-	editor=""/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.workload="infrastructure-services" 
-	ms.date="10/21/2014" 
+	ms.date="02/02/2015" 
 	ms.author="rasquill"/>
 # Utilisation de l'extension Docker VM à partir de l'interface interplateforme Azure (xplat-cli)
-Cette rubrique décrit la création d'une machine virtuelle avec l'extension Docker VM à partir de l'interface xplat-cli sur n'importe quelle plateforme. [Docker](https://www.docker.com/) fait partie des méthodes de virtualisation les plus prisées. Cet outil utilise des [conteneurs Linux](http://en.wikipedia.org/wiki/LXC) plutôt que des machines virtuelles pour isoler les données et le traitement sur des ressources partagées. Vous pouvez utiliser l'extension Docker VM sur [l'agent Linux Azure](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/) afin de créer une machine virtuelle Docker hébergeant un nombre indéfini de conteneurs pour vos applications sur Azure. Pour une discussion sur les conteneurs et leurs avantages, consultez le [Tableau blanc Docker de haut niveau](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+Cette rubrique décrit la création d'une machine virtuelle avec l'extension Docker VM à partir de l'interface xplat-cli sur n'importe quelle plateforme. [Docker](https://www.docker.com/) fait partie des méthodes de virtualisation les plus prisées. Cet outil utilise des [conteneurs Linux](http://en.wikipedia.org/wiki/LXC) plutôt que des machines virtuelles pour isoler les données et le traitement sur des ressources partagées. Vous pouvez utiliser l'extension Docker VM sur [l'agent Linux Azure](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/) afin de créer une machine virtuelle Docker hébergeant un nombre indéfini de conteneurs pour vos applications sur Azure. Pour une discussion sur les conteneurs et leurs avantages, consultez la page [Tableau blanc Docker de haut niveau](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
 + [Utilisation de l'extension Docker VM avec Azure]
 + [Extensions de machine virtuelle pour Linux et Windows] 
@@ -25,10 +25,10 @@ Cette rubrique décrit la création d'une machine virtuelle avec l'extension Doc
 
 
 
-## <a id='How to use the Docker VM Extension with Azure'>Utilisation de l'extension Docker VM avec Azure</a>
-Pour utiliser l'extension Docker VM avec Azure, vous devez installer une version de [l'interface de ligne de commande interplateforme Azure](https://github.com/Azure/azure-sdk-tools-xplat) (**xplat-cli** dans cette rubrique) supérieure à 0.8.6 (à la date de rédaction de ce document, la version la plus récente est 0.8.10). Vous pouvez installer cette interface sur Mac, Linux et Windows. 
+## <a id='How to use the Docker VM Extension with Azure'></a>Utilisation de l'extension Docker VM avec Azure
+Pour utiliser l'extension Docker VM avec Azure, vous devez installer une version de l'[Interface de ligne de commande interplateforme Azure ](https://github.com/Azure/azure-sdk-tools-xplat) (appelée **xplat-cli** dans cette rubrique) supérieure à 0.8.6 (à la date de rédaction de ce document, la version la plus récente est 0.8.10). Vous pouvez installer cette interface sur Mac, Linux et Windows. 
 
-> [AZURE.NOTE] Bien que vous puissiez installer l'interface xplat-cli sur Microsoft Windows, Docker a été compilé avec des dépendances de noyau propres à Linux. Par conséquent, pour utiliser Windows comme client Docker, vous devez héberger une distribution Linux complète comme machine virtuelle dans Hyper-V ou un autre hyperviseur. Vous pouvez alors utiliser l'interface et les commandes Docker de ce document et celles de Docker. Docker comporte un programme de configuration pour Windows [Boot2Docker](https://docs.docker.com/installation/windows/) que vous pouvez utiliser pour automatiser cette configuration.
+> [AZURE.NOTE] Bien que vous puissiez installer l'interface xplat-cli sur Microsoft Windows, Docker a été compilé avec des dépendances de noyau propres à Linux. Par conséquent, pour utiliser Windows comme client Docker, vous devez héberger une distribution Linux complète comme machine virtuelle dans Hyper-V ou un autre hyperviseur. Vous pouvez alors utiliser l'interface et les commandes Docker de ce document et celles de Docker. Docker comporte un programme de configuration pour Windows, [Boot2Docker](https://docs.docker.com/installation/windows/), que vous pouvez utiliser pour automatiser cette configuration.
 
 Le processus d'utilisation de Docker sur Azure est relativement simple :
 
@@ -41,7 +41,7 @@ Le processus d'utilisation de Docker sur Azure est relativement simple :
 ### Installation de l'interface de ligne de commande xplat-cli
 Pour en savoir plus sur l'installation et la configuration de l'interface de ligne de commande interplateforme Azure, consultez la page [Installation de l'interface de ligne de commande interplateforme Azure](http://azure.microsoft.com/documentation/articles/xplat-cli/#install). Pour vérifier l'installation, tapez `azure` à l'invite de commandes. Après quelques secondes, l'illustration ASCII xplat-cli doit s'afficher. Elle répertorie les commandes de base disponibles. Si l'installation s'est déroulée correctement, vous pouvez taper `azure help vm` et voir que l'une des commandes répertoriées est " docker ".
 
-> [AZURE.NOTE] Si vous utilisez une installation Ubuntu 14.04 LTS, cette image comporte une installation de nœud légèrement différente qui peut nécessiter quelques opérations supplémentaires. Vous trouverez, dans la section **Installation à l'aide d'un PPA** de cet article, [une solution](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server) qui donne d'excellents résultats. Cette section vous explique comment installer directement la version la plus récente de Node.js, ce qui semble bien fonctionner sur une distribution Ubuntu 14.04 LTS. 
+> [AZURE.NOTE] Si vous utilisez une installation Ubuntu 14.04 LTS, cette image comporte une installation de nœud légèrement différente qui peut nécessiter quelques opérations supplémentaires. Vous trouverez, [ici](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server), dans la section **Installation à l'aide d'un PPA** de cet article, une solution qui donne d'excellents résultats. Cette section vous explique comment installer directement la version la plus récente de nodejs, ce qui semble bien fonctionner sur une distribution Ubuntu 14.04 LTS. 
 
 ### Connexion de l'interface xplat-cli à votre compte Azure
 Avant de pouvoir utiliser l'interface xplat-cli, vous devez y associer les informations d'identification de votre compte Azure sur votre plateforme. La section [Connexion à votre abonnement Azure](http://azure.microsoft.com/documentation/articles/xplat-cli/#configure) explique comment télécharger et importer votre fichier **.publishsettings** ou associer votre ligne de commande xplat-cli à un ID d'organisation. 
@@ -63,7 +63,7 @@ Dans une session Bash ou Terminal, utilisez la commande xplat-cli suivante pour 
 
 `azure vm image list | grep Ubuntu-14_04`
 
-Puis sélectionnez un des noms d'images (p. ex. `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-fr-fr-30GB`) ; utilisez la commande suivante pour créer une machine virtuelle en utilisant cette image. 
+Puis sélectionnez un des noms d'images (par ex. `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-fr-fr-30GB`) ; utilisez la commande suivante pour créer une machine virtuelle en utilisant cette image. 
 
 ```
 azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-fr-fr-30GB" <username> <password>
@@ -73,11 +73,11 @@ où :
 
 + *&lt;vm-cloudservice name&gt;* est le nom de la machine virtuelle qui deviendra l'ordinateur hôte du conteneur Docker dans Azure
 
-+  *&lt;username&gt;* est le nom de l'utilisateur racine par défaut de la machine virtuelle
++  *&lt;username&gt;*  est le nom de l'utilisateur racine par défaut de la machine virtuelle
 
 + *&lt;password&gt;* est le mot de passe du compte *username* remplissant les conditions de complexité Azure 
  
-> [AZURE.NOTE] Un mot de passe doit comporter au moins 8 caractères, dont une lettre minuscule et une lettre majuscule, un chiffre et un caractère spécial parmi les suivants : `!@#$%^&+=`. Le point à la fin de la phrase précédente n'est PAS un caractère spécial. 
+> [AZURE.NOTE] Un mot de passe doit comporter au moins 8 caractères, dont une lettre minuscule et une lettre majuscule, un chiffre et un caractère spécial parmi les suivants : `!@#$%^&+=`. Le point à la fin de la phrase précédente N'EST PAS un caractère spécial. 
 
 Si la commande a été exécutée correctement, vous devriez normalement obtenir un résultat comparable à ce qui est illustré ci-dessous, suivant les arguments et options spécifiques que vous avez utilisés :
 
@@ -112,12 +112,12 @@ Le démon Docker sur l'hôte est configuré pour écouter et authentifier les co
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
 
-Vous êtes prêt à consulter le [DGuide d'utilisation Docker] et à utiliser votre machine virtuelle Docker. Pour créer une machine virtuelle Docker dans le nouveau portail, consultez la page [Utilisation de l'extension Docker VM avec le portail].
+Vous êtes prêt à consulter le [Guide d'utilisation Docker][Guide d'utilisation de Docker] et à utiliser votre machine virtuelle Docker. Pour créer une machine virtuelle Docker dans le nouveau portail, consultez la page [Utilisation de l'extension Docker VM avec le portail].
 
 <!--Anchors-->
-[Subheading 1]: #subheading-1
-[Subheading 2]: #subheading-2
-[Subheading 3]: #subheading-3
+[Sous-titre 1]: #subheading-1
+[Sous-titre 2]: #subheading-2
+[Sous-titre 3]: #subheading-3
 [Étapes suivantes]: #next-steps
 
 [Utilisation de l'extension Docker VM avec Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
@@ -131,14 +131,11 @@ Vous êtes prêt à consulter le [DGuide d'utilisation Docker] et à utiliser vo
 
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
+[Lien 1 vers une autre rubrique de documentation azure.microsoft.com]: ../virtual-machines-windows-tutorial/
 [Lien 2 vers une autre rubrique de documentation azure.microsoft.com]: ../web-sites-custom-domain-name/
 [Lien 3 vers une autre rubrique de documentation azure.microsoft.com]: ../storage-whatis-account/
 [Utilisation de l'extension Docker VM avec le portail]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 
 [Guide d'utilisation de Docker]: https://docs.docker.com/userguide/
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

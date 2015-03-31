@@ -1,6 +1,6 @@
-﻿<properties 
-	pageTitle="Envoi de notifications interplateforme aux utilisateurs avec Notification Hubs (Mobile Services))" 
-	description="Learn how to use Notification Hubs templates to send, in a single request, a platform-agnostic notification that targets all platforms." 
+<properties 
+	pageTitle="Envoi de notifications interplateforme aux utilisateurs avec Notification Hubs (Mobile Services)" 
+	description="Apprenez à utiliser les modèles de Notification Hubs pour envoyer, dans une requête unique, une notification de plateformes qui cible toutes les plateformes." 
 	services="notification-hubs" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -18,6 +18,5 @@
 
 # Envoi de notifications interplateforme aux utilisateurs avec Notification Hubs
 
-Cette rubrique a été remplacée et n'est plus valide. Pour en savoir plus sur l'utilisation d'Azure Notification Hubs avec Azure Mobile Services pour envoyer des notifications à des utilisateurs spécifiques, consultez la rubrique [Envoi de notifications Push aux utilisateurs authentifiés](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/). 
-
-<!--HONumber=45--> 
+Cette rubrique a été remplacée et n'est plus valide. Pour en savoir plus sur l'utilisation d'Azure Notification Hubs avec Azure Mobile Services pour envoyer des notifications à des utilisateurs spécifiques, consultez la rubrique [Envoi de notifications Push aux utilisateurs authentifiés](/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/). 
+<!--HONumber=47-->

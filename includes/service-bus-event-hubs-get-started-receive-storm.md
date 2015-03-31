@@ -73,7 +73,7 @@ Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la comma
 		
 		eventhub.receiver.credits = 10
 
-	La valeur de **eventhub.receiver.credits** détermine le nombre d'événements traités par lot avant leur introduction dans le pipeline Storm. Par souci de simplicité, cet exemple définit cette valeur à 10. En production, il doit généralement être définie sur des valeurs plus élevées ; par exemple 1024.
+	La valeur de **eventhub.receiver.credits** détermine le nombre d'événements traités par lot avant leur introduction dans le pipeline Storm. Par souci de simplicité, cet exemple définit cette valeur à 10. En production, il doit généralement être défini sur des valeurs plus élevées ; par exemple 1024.
 
 10. Créez une classe nommée **LoggerBolt** en utilisant le code suivant :
 
@@ -228,6 +228,5 @@ Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la comma
 
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.pn.
-
-<!--HONumber=42-->
+[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+<!--HONumber=47-->

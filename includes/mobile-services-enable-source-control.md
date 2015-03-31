@@ -22,4 +22,4 @@
 
 Avec le contrôle de code source activé dans votre service mobile, vous pouvez utiliser Git pour cloner le référentiel sur votre ordinateur local.
  
-\<!--HONumber=42-->
+<!--HONumber=47-->

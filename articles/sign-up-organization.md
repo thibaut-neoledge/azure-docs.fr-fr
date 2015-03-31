@@ -1,30 +1,41 @@
-<properties linkid="manage-services-identity-organization-account" urlDisplayName="Organization accounts" pageTitle="Sign up for Azure as an organization" metaKeywords="" description="Learn how you can use an organizational account to leverage the existing user accounts, policies, settings, or on-premise server deployments you already have improve efficiencies between your organization's on-premises identity infrastructure and Azure AD." metaCanonical="" services="active-directory" documentationCenter="" title="Sign up for Azure as an organization" authors="terrylan" solutions="" manager="terrylan" editor="" />
+﻿<properties 
+	pageTitle="Inscription à Azure en tant qu'organisation" 
+	description="Découvrez comment vous pouvez utiliser un compte professionnel ou scolaire pour tirer parti des comptes d'utilisateur, des stratégies, des paramètres ou des déploiements de serveur local que vous possédez déjà et améliorer l'efficacité entre l'infrastructure d'identité locale de votre organisation et Azure AD." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="TerryLanfear" 
+	manager="terrylan" 
+	editor="Lisatoft"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/01/2014" 
+	ms.author="terrylan"/>
 
-# Inscription à Azure en tant qu'organisation
 
-[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
-Jusqu'à récemment, vous pouviez uniquement créer un abonnement Azure à l'aide d'un compte Microsoft (Windows Live ID). Azure prend désormais en charge l'utilisation des deux méthodes suivantes pour la création d'un compte :
 
--   **Comptes Microsoft** (que vous avez créés pour votre utilisation personnelle) : ils donnent accès à tous les produits et services cloud Microsoft orientés utilisateur, tels qu'Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE ou Office Live. La création d'un compte Outlook crée automatiquement un compte Microsoft avec une adresse @Outlook.com. Une fois le compte Microsoft créé, il vous permet d'accéder aux services cloud Microsoft orientés utilisateur et/ou à Azure. [En savoir plus][En savoir plus]
+<h1>Inscription à Azure en tant qu'organisation</h1>
 
--   **Comptes professionnels** (créés par un administrateur à des fins commerciales/de formation) : ils donnent accès à tous les services cloud Microsoft professionnels destinés aux PME et aux grandes entreprises, tels qu'Azure, Windows Intune ou Office 365. Lorsque vous vous inscrivez à l'un de ces services en tant qu'organisation, un client cloud est automatiquement configuré dans Azure Active Directory pour représenter votre organisation. [En savoir plus][1]
+[AZURE.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
-    Une fois le client créé, un administrateur peut octroyer des comptes professionnels à chaque employé/étudiant et leur attribuer des licences en fonction des abonnements aux services cloud dont ils ont besoin, tels qu'Azure.
+Jusqu'à récemment, vous pouviez uniquement créer un abonnement Microsoft Azure à l'aide d'un compte Microsoft (Windows Live ID). Azure prend désormais en charge l'utilisation des deux méthodes suivantes pour la création d'un compte :
 
-Pour vous inscrire à Azure en tant qu'organisation, cliquez [**ici**][**ici**]
+* **Comptes Microsoft** (que vous avez créés pour votre utilisation personnelle) : ils donnent accès à tous les produits et services cloud Microsoft orientés utilisateur, tels qu'Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE ou Office 365. La création d'un compte Outlook crée automatiquement un compte Microsoft avec une adresse @Outlook.com. Après la création d'un compte Microsoft, ce dernier peut être utilisé pour accéder aux services de cloud Microsoft orientés vers les clients ou à Azure. [En savoir plus](http://windows.microsoft.com/windows-live/sign-in-what-is-microsoft-account)
+
+* **Comptes professionnels ou scolaires** (émis par un administrateur pour une utilisation dans l'entreprise/l'éducation) : fournissent un accès à tous les services de cloud Microsoft, petits, moyens et d'entreprise, comme Azure, Windows Intune ou Office 365. Lorsque vous vous inscrivez à un de ces services en tant qu'organisation, un répertoire est automatiquement configuré sur le cloud dans Azure Active Directory pour représenter votre société. [En savoir plus](http://technet.microsoft.com/library/jj573650) 
+
+	Une fois le répertoire créé, un administrateur peut créer des utilisateurs et leur attribuer des licences en fonction des abonnements aux services cloud dont ils ont besoin, comme Azure. 
+
+Pour vous inscrire à Azure en tant qu'organisation, cliquez [**Inscription**](http://go.microsoft.com/fwlink/?LinkId=269967) 
 
 **Ressources supplémentaires**
 
--   [Présentation d'Azure AD][Présentation d'Azure AD]
--   [Bibliothèque Azure AD sur TechNet][Bibliothèque Azure AD sur TechNet]
--   [Bibliothèque Azure AD sur MSDN][Bibliothèque Azure AD sur MSDN]
+* [Présentation d'Azure AD](/manage/services/identity/what-is-windows-azure-active-directory/) 
+* [Bibliothèque Azure AD sur MSDN](http://msdn.microsoft.com/library/windowsazure/jj673460.aspx)
 
-  [En savoir plus]: http://windows.microsoft.com/fr-fr/windows-live/sign-in-what-is-microsoft-account
-  [1]: http://technet.microsoft.com/fr-fr/library/jj573650
-  [**ici**]: http://go.microsoft.com/fwlink/?LinkId=269967
-  [Présentation d'Azure AD]: /fr-fr/manage/services/identity/what-is-windows-azure-active-directory/
-  [Bibliothèque Azure AD sur TechNet]: http://technet.microsoft.com/fr-fr/library/hh967619.aspx
-  [Bibliothèque Azure AD sur MSDN]: http://msdn.microsoft.com/library/windowsazure/jj673460.aspx
+<!--HONumber=47-->

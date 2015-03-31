@@ -1,8 +1,19 @@
-﻿<properties title="Split and Merge Service Tutorial" pageTitle="Didacticiel sur le service de fractionnement/fusion SQL Azure" description="Fractionnement et fusion avec l'infrastructure élastique" metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties 
+	title="Split and Merge Service Tutorial" 
+	pageTitle="Didacticiel sur le service de fractionnement/fusion SQL Azure" 
+	description="Fractionnement et fusion avec l'infrastructure élastique" 
+	metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" 
+	services="sql-database" documentationCenter=""  
+	manager="jhubbard" authors="torsteng"/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" ms.devlang="na" 
+	ms.topic="article" ms.date="03/05/2015" 
+	ms.author="torsteng" />
 
-#Didacticiel sur le service de fractionnement/fusion de l'infrastructure élastique
+# Didacticiel sur le service de fractionnement/fusion de l'infrastructure élastique
 
 ## Téléchargement des packages du service de fractionnement/fusion 
 1. Téléchargez la dernière version de NuGet à partir de [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget). 
@@ -12,7 +23,7 @@
 
 Les étapes ci-dessus téléchargent les fichiers de fractionnement/fusion dans le répertoire actif. Les fichiers sont placés dans un répertoire nommé **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** où *x.x.xxx.x* reflète le numéro de version. Les fichiers du service de fractionnement/fusion sont situés dans le sous-répertoire **content\splitmerge\service** et les scripts PowerShell de fractionnement/fusion (ainsi que les fichiers .dll clients nécessaires) dans le sous-répertoire **content\splitmerge\powershell**.
 
-##Configuration requise 
+## Conditions préalables 
 
 1. Créez une base de données SQL Azure qui servira de base de données d'état du service de fractionnement/fusion. Accédez au [portail de gestion Azure](https://manage.windowsazure.com). En bas à gauche, cliquez sur **Nouveau**, puis sur **Services de données** -> **Base de données SQL** -> **Création personnalisée**. Indiquez le nom de la base de données et créez un utilisateur et un mot de passe. Veillez à enregistrer le nom et le mot de passe pour une utilisation ultérieure.
 
@@ -51,11 +62,11 @@ Pour déterminer la clé d'accès, accédez au [portail de gestion Azure](https:
 ### Configuration de la sécurité 
 Pour obtenir des instructions détaillées permettant de configurer la sécurité du service, consultez la rubrique [Configurations de sécurité de l'infrastructure élastique](./sql-database-elastic-scale-configure-security.md).
 
-Dans le cadre d'un simple déploiement de test permettant de mener à bien ce didacticiel, le bon fonctionnement du service nécessite d'effectuer un nombre minimum d'étapes de configuration. Ces dernières permettent uniquement à l'ordinateur/au compte qui les exécute de communiquer avec le service.
+Dans le cadre  d'un simple déploiement de test permettant de mener à bien ce didacticiel, le bon fonctionnement du service nécessite d'effectuer un nombre minimum d'étapes de configuration. Ces dernières permettent uniquement à l'ordinateur/au compte qui les exécute de communiquer avec le service.
 
 ### Création d'un certificat auto-signé 
 
-Créez un répertoire à partir duquel vous allez exécuter la commande suivante à l'aide d'une fenêtre d'[invite de commandes développeur pour Visual Studio](http://msdn.microsoft.com/fr-fr/library/ms229859.aspx) :
+Créez un répertoire à partir duquel vous allez exécuter la commande suivante à l'aide d'une fenêtre d'[invite de commandes développeur pour Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx) :
 
     makecert ^
     -n "CN=*.cloudapp.net" ^
@@ -66,7 +77,7 @@ Créez un répertoire à partir duquel vous allez exécuter la commande suivante
 
 Un mot de passe vous est demandé pour protéger la clé privée. Entrez un mot de passe fort et confirmez-le. Vous êtes ensuite de nouveau invité à entrer le mot de passe. Cliquez sur **Oui** à la fin pour l'importer dans le magasin racine des autorités de certification approuvées.
 
-###    Création d'un fichier PFX 
+### Création d'un fichier PFX 
 
 Exécutez la commande suivante à partir de la même fenêtre que celle où makecert a été exécuté. Utilisez le même mot de passe que celui utilisé pour créer le certificat :
 
@@ -74,17 +85,17 @@ Exécutez la commande suivante à partir de la même fenêtre que celle où make
 
 ### Importation du certificat client dans le magasin personnel
 1. Dans l'Explorateur Windows, double-cliquez sur **MyCert.pfx**.
-2. Dans l' **Assistant Importation de certificat**, sélectionnez **Utilisateur actuel**, puis cliquez sur **Suivant**.
+2. Dans l'**Assistant Importation de certificat** sélectionnez **Utilisateur actuel** et cliquez sur **Suivant**.
 3. Vérifiez le chemin d'accès au fichier et cliquez sur **Suivant**.
 4. Tapez le mot de passe, laissez l'option **Inclure toutes les propriétés étendues** activée, puis cliquez sur **Suivant**.
 5. Laissez l'option **Sélectionner automatiquement le magasin de certificats[...]** activée, puis cliquez sur **Suivant**.
-6. Cliquez sur **Terminer**, puis sur **OK**.
+6. Cliquez sur **Terminer** puis sur **OK**.
 
 ### Téléchargement du fichier PFX dans le service cloud
 
 Accédez au [portail de gestion Azure](https://manage.windowsazure.com).
 
-1. Sélectionnez **Services de cloud**.
+1. Sélectionnez **Cloud Services**.
 2. Sélectionnez le service cloud créé ci-dessus pour le service de fractionnement/fusion.
 3. Dans le menu supérieur, cliquez sur **Certificats**.
 4. Cliquez sur **Télécharger** dans la barre inférieure.
@@ -93,31 +104,40 @@ Accédez au [portail de gestion Azure](https://manage.windowsazure.com).
 
 ### Mise à jour du fichier de configuration de service
 
-Collez l'empreinte de certificat copiée précédemment dans l'attribut d'empreinte/de valeur des paramètres suivants :
+Collez l'empreinte de certificat copiée précédemment dans l'attribut d'empreinte/de valeur des paramètres suivants.
+Pour le rôle web :
+
+    <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" /> 
+    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+
+Pour le rôle de travail :
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
     <Setting name="AllowedClientCertificateThumbprints" value="" />
+    <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
     <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
     <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
-Veuillez noter que pour les déploiements de production, des certificats distincts doivent être utilisés pour l'autorité de certification, le certificat de serveur et les certificats clients. Pour plus d'informations, consultez la rubrique [Configuration de sécurité](./sql-database-elastic-scale-configure-security.md).
+
+Veuillez noter que pour les déploiements de production, des certificats distincts doivent être utilisés pour l'autorité de certification, le chiffrement, le certificat de serveur et les certificats clients. Pour plus d'informations, consultez la rubrique [Configuration de la sécurité](./sql-database-elastic-scale-configure-security.md).
 
 ### Déploiement de votre service de fractionnement/fusion
 1. Accédez au [portail de gestion Azure](https://manage.windowsazure.com).
 2. Cliquez sur l'onglet **Services de cloud** sur la gauche et sélectionnez le service cloud que vous avez créé précédemment. 
 3. Cliquez sur **Tableau de bord**. 
-4. Sélectionnez l'environnement intermédiaire, puis cliquez sur **Télécharger un nouveau déploiement intermédiaire**.
+4. Choisissez l'environnement intermédiaire, puis cliquez sur **Télécharger un nouveau déploiement intermédiaire**.
 
     ![Staging][3]
 
-5. Dans la boîte de dialogue, entrez une étiquette de déploiement. Pour " Package " et " Configuration ", cliquez sur " À partir de local " et choisissez le fichier **SplitMergeService.cspkg** et le fichier .cscfg que vous avez configuré précédemment.
+5. Dans la boîte de dialogue, entrez une étiquette de déploiement. Pour  'Package' et 'Configuration', cliquez sur 'From Local' et choisissez le fichier **SplitMergeService.cspkg** et le fichier .cscfg que vous avez configuré précédemment.
 6. Assurez-vous que la case à cocher **Déployer même si un ou plusieurs rôles contiennent une seule instance** est activée.
 7. Appuyez sur le bouton en forme de coche dans le coin inférieur droit pour commencer le déploiement. Cette opération peut prendre plusieurs minutes.
 
 ![Upload][4]
 
 
-## Dépannage du déploiement
+## Résolution des problèmes de déploiement
 Si votre rôle web ne parvient pas à être en ligne, il s'agit probablement d'un problème avec la configuration de sécurité. Vérifiez que le protocole SSL est configuré comme décrit ci-dessus.
 
 Si votre rôle de travail ne parvient pas à être en ligne, mais que votre rôle web réussit, il s'agit probablement d'un problème de connexion à la base de données d'états que vous avez créée précédemment. 
@@ -131,14 +151,12 @@ Si votre rôle de travail ne parvient pas à être en ligne, mais que votre rôl
 * Assurez-vous que le nom du serveur ne commence pas par **https://**.
 * Vérifiez que votre serveur de base de données SQL Azure autorise les services Microsoft Azure à s'y connecter. Pour ce faire, ouvrez https://manage.windowsazure.com et cliquez sur " Bases de données SQL " sur la gauche, puis sur " Serveurs " en haut et sélectionnez votre serveur. Cliquez sur **Configurer** en haut et assurez-vous que le paramètre **Services Microsoft Azure** est défini sur " Oui ". (voir la section " Configuration requise " en haut de cet article).
 
-* Passez en revue les journaux de diagnostic pour votre instance de service de fractionnement/fusion. Ouvrez une instance de Visual Studio, puis dans la barre de menus, cliquez sur **Affichage** et **Explorateur de serveurs**. Cliquez sur l'icône **Microsoft Azure** pour vous connecter à votre abonnement Azure. Ensuite, accédez à Windows Azure -> Stockage -> <votre compte de stockage> -> Tables -> WADLogsTable. Pour plus d'informations, consultez la page [Consultation des ressources de stockage avec l'Explorateur de serveurs](http://msdn.microsoft.com/fr-fr/library/azure/ff683677.aspx) 
+* Passez en revue les journaux de diagnostic pour votre instance de service de fractionnement/fusion. Ouvrez une instance de Visual Studio, puis dans la barre de menus, cliquez sur **Affichage** et **Explorateur de serveurs**. Cliquez sur l'icône **Microsoft Azure** pour vous connecter à votre abonnement Azure. Ensuite, accédez à Windows Azure -> Stockage -> <votre compte de stockage> -> Tables -> WADLogsTable. Pour plus d'informations, consultez la page [Consultation des ressources de stockage avec l'Explorateur de serveurs](http://msdn.microsoft.com/library/azure/ff683677.aspx) 
 
     ![][5]
 
-    ![][6]
-
 ## Test du déploiement du service de fractionnement/fusion
-### Connexion avec un navigateur web
+### Connexion avec un navigateur Web
 
 Déterminez le point de terminaison web de votre service de fractionnement/fusion. Vous pouvez le trouver dans le portail de gestion Azure en accédant au **Tableau de bord** de votre service cloud et en effectuant une recherche dans la zone **URL du site** sur le côté droit. Remplacez **http://** par **https://**, car les paramètres de sécurité par défaut désactivent le point de terminaison HTTP. Chargez la page correspondant à cette URL dans votre navigateur.
 
@@ -151,7 +169,7 @@ Les fichiers de script inclus sont les suivants :
 1. **SetupSampleSplitMergeEnvironment.ps1** : configure une couche de données de test pour la fusion et le fractionnement (voir le tableau ci-dessous pour obtenir une description détaillée)
 2. **ExecuteSampleSplitMerge.ps1** : exécute les opérations de test sur la couche de données de test (voir le tableau ci-dessous pour obtenir une description détaillée)
 3. **GetMappings.ps1** : exemple de script de niveau supérieur qui imprime l'état actuel des mappages de partitions.
-4. **ShardManagement.psm1** : script d'assistance qui encapsule l'API ShardManagement
+4. **ShardManagement.psm1**  : script d'assistance qui encapsule l'API ShardManagement
 5. **SqlDatabaseHelpers.psm1** : script d'assistance pour la création et la gestion des bases de données SQL
 
 <table style="width:100%">
@@ -185,25 +203,25 @@ Les fichiers de script inclus sont les suivants :
   </tr>
 <tr>
     <th rowspan="4">ExecuteSampleSplitMerge.ps1 </th>
-    <td>1.    Envoie une demande de fractionnement vers le serveur web frontal du service de fractionnement/fusion, qui fractionne la moitié des données d la première partition et les envoie vers la deuxième partition.</td>
+    <td>1.    Envoie une demande de fractionnement vers le serveur web frontal du service de fractionnement/fusion, qui fractionne la moitié des données de la première partition et les envoie vers la deuxième partition.</td>
   </tr>
   <tr>
-    <td>2.    Interroge le serveur web frontal sur l'état de la demande de fractionnement et attend jusqu'à ce que la demande soit terminée.</td>
+    <td>2.    Interroge le serveur Web frontal sur l'état de la demande de fractionnement et attend jusqu'à ce que la demande soit terminée.</td>
   </tr>
   <tr>
-    <td>3.    Envoie une demande de fusion vers le serveur web frontal du service de fractionnement/fusion, qui déplace les données de la deuxième partition vers la première partition.</td>
+    <td>3.    Envoie une demande de fusion vers le serveur Web frontal du service de fractionnement/fusion, qui déplace les données de la deuxième partition vers la première partition.</td>
   </tr>
   <tr>
     <td>4.    Interroge le serveur web frontal sur l'état de la demande de fusion et attend jusqu'à ce que la demande soit terminée.</td>
   </tr>
 </table>
 
-##Utilisation de PowerShell pour vérifier le déploiement
+## Utilisation de PowerShell pour vérifier le déploiement
 
 1.    Ouvrez une nouvelle fenêtre PowerShell et accédez au répertoire dans lequel vous avez téléchargé le package de fractionnement/fusion, puis accédez au répertoire " powershell ".
 2.    Créez un serveur de base de données SQL Azure (ou choisissez un serveur existant) dans lequel le Gestionnaire des cartes de partitions et les partitions seront créés. 
 
-Remarque : le script SetupSampleSplitMergeEnvironment.ps1 crée, par défaut, ces bases de données sur le même serveur pour simplifier le script. Il ne s'agit pas d'une restriction du service de fractionnement/fusion.
+    Remarque : le script SetupSampleSplitMergeEnvironment.ps1 crée, par défaut, ces bases de données sur le même serveur pour simplifier le script. Il ne s'agit pas d'une restriction du service de fractionnement/fusion.
 
     Une connexion d'authentification SQL avec un accès en lecture/écriture aux bases de données est requis pour le service de fractionnement/fusion afin de déplacer les données et de mettre à jour la carte de partitions. Le service de fractionnement/fusion s'exécutant dans le cloud, il ne prend pas actuellement en charge l'authentification intégrée.
 
@@ -280,11 +298,11 @@ Remarque : le script SetupSampleSplitMergeEnvironment.ps1 crée, par défaut, ce
 
 ## Création de vos propres demandes 
 
-Le service peut être utilisé à l'aide de l'interface utilisateur web ou par l'importation et l'utilisation du module PowerShell SplitMerge.psm1.
+Le service peut être utilisé à l'aide de l'interface utilisateur Web ou par l'importation et l'utilisation du module PowerShell SplitMerge.psm1 qui envoie vos demandes via le rôle Web.
 
 Le service de fractionnement/fusion peut déplacer les données dans les tables partitionnées et les tables de référence. Une table partitionnée possède une colonne de clés de partitionnement et comporte des données de ligne différentes sur chaque partition. Une table de référence n'est pas partitionnée. De ce fait, elle comporte les mêmes données de ligne sur chaque partition. Les tables de référence sont utiles pour les données qui ne changent pas souvent et qui sont utilisées pour S'ASSOCIER à des tables partitionnées dans les requêtes.
 
-Pour effectuer une opération de fractionnement/fusion, vous devez déclarer les tables partitionnées et les tables de référence que vous souhaitez déplacer. Cette opération est effectuée avec l'API **SchemaInfo**. Elle se trouve dans l'espace de noms **Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.Schema**.
+Pour effectuer une opération de fractionnement/fusion, vous devez déclarer les tables partitionnées et les tables de référence que vous souhaitez déplacer. Cette opération est effectuée avec l'API **SchemaInfo**. Cette API se trouve dans l'espace de noms **Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.Schema**.
 
 1.    Pour chaque table partitionnée, créez un objet **ShardedTableInfo** décrivant le nom du schéma parent de la table (facultatif, la valeur par défaut est " dbo "), le nom de la table et le nom de la colonne de cette table qui comporte la clé de partitionnement.
 2.    Pour chaque table de référence, créez un objet **ReferenceTableInfo** décrivant le nom du schéma parent de la table (facultatif, la valeur par défaut est " dbo ") et le nom de la table.
@@ -302,7 +320,7 @@ Le message ci-dessous peut apparaître lors de l'exécution des exemples de scri
 
     Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
 
-Cette erreur signifie que votre certificat SSL n'est pas correctement configuré. Suivez les instructions de la section " Connexion avec un navigateur web ".
+Cette erreur signifie que votre certificat SSL n'est pas correctement configuré. Suivez les instructions de la section 'Connecting with a web browser'.
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
  
@@ -313,3 +331,5 @@ Cette erreur signifie que votre certificat SSL n'est pas correctement configuré
 [4]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/upload.png
 [5]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/storage.png
 [6]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/logs.png
+
+<!--HONumber=47-->

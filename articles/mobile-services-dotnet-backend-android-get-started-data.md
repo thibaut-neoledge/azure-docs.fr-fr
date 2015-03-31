@@ -10,21 +10,25 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
+	ms.date="02/03/2015" 
 	ms.author="ricksal"/>
 
-# Ajout de services mobiles à une application existante
+# Ajout de Mobile Services à une application existante
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 Cette rubrique montre comment utiliser Azure Mobile Services en tant que source de données principale pour une application Android. Dans ce didacticiel, vous allez créer un service mobile, télécharger un projet Eclipse Android pour une application qui stocke les données en mémoire, intégrer le service mobile à l'application, puis afficher les modifications apportées aux données lors de l'exécution de l'application.
 
-Le service mobile que vous allez créer dans ce didacticiel prendra en charge le runtime .NET dans le service mobile. Vous pourrez ainsi utiliser les langages .NET et Visual Studio pour la logique métier côté serveur dans le service mobile. Pour créer un service mobile vous permettant d'écrire votre logique métier côté serveur en JavaScript, consultez la [Version principale JavaScript] de cette rubrique.
+Le service mobile que vous allez créer dans ce didacticiel prendra en charge le runtime .NET dans le service mobile. Vous pourrez ainsi utiliser les langages .NET et Visual Studio pour la logique métier côté serveur dans le service mobile. Pour créer un service mobile vous permettant d'écrire votre logique métier côté serveur en JavaScript, consultez la [version relative au service principal JavaScript][] de cette rubrique.
 
 > [AZURE.IMPORTANT] Ce didacticiel nécessite Visual Studio 2013.
+
+<!-- -->
+
+> [AZURE.NOTE] Si vous souhaitez consulter la version d'Eclipse de ce didacticiel, allez à : [Prise en main des données (Eclipse)].
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 
@@ -38,7 +42,7 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 5. [Test de l'application avec le service mobile publié]
 
 
-> [AZURE.IMPORTANT] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F"%20target="_blank). 
+> [AZURE.IMPORTANT] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F"%20target="_blank). 
 
 
 <h2><a name="create-service"></a>Création d'un service mobile</h2>
@@ -46,7 +50,7 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 
-<h2><a name="download-the-service"></a>Téléchargement du service sur votre ordinateur local</h2>
+<h2><a name="download-the-service"></a>Téléchargement du service mobile sur votre ordinateur local</h2>
 
 [AZURE.INCLUDE [mobile-services-download-service-locally](../includes/mobile-services-download-service-locally.md)]
 
@@ -60,16 +64,16 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 
 <h2><a name="download-app"></a>Téléchargement du projet GetStartedWithData</h2>
 
-###Obtention de l'exemple de code
+### Obtention de l'exemple de code
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/download-android-sample-code.md)]
 
-###Vérification de la version du Kit de développement logiciel (SDK) Android
+### Vérification de la version du Kit de développement logiciel (SDK) Android
 
 [AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version.md)]
 
 
-###Inspection et exécution de l'exemple de code
+### Inspection et exécution de l'exemple de code
 
 [AZURE.INCLUDE [mobile-services-android-run-sample-code](../includes/mobile-services-android-run-sample-code.md)]
 
@@ -82,7 +86,7 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 
 Maintenant que l'application a été mise à jour pour utiliser Mobile Services pour le stockage principal, vous pouvez la tester avec Mobile Services à l'aide de l'émulateur Android ou d'un téléphone Android.
 
-1. Dans le menu **Exécuter**, cliquez sur **Exécuter** pour démarrer le projet.
+1. Dans le menu **Exécuter**, cliquez sur **Exécuter l'application** pour démarrer le projet.
 
 	Cela permet d'exécuter votre application, créée avec le Kit de développement logiciel (SDK) Android, qui utilise la bibliothèque cliente pour envoyer une requête renvoyant des éléments à partir de votre service mobile.
 
@@ -90,7 +94,7 @@ Maintenant que l'application a été mise à jour pour utiliser Mobile Services 
 
    	Cela permet d'envoyer un nouvel élément en tant qu'insertion au service mobile.
 
-    Vous pouvez redémarrer l'application pour vous assurer que les modifications ont été conservées dans la base de données sous Azure. Vous pouvez également examiner la base de données au moyen du portail de gestion Azure :  les deux prochaines étapes vous permettent de consulter les modifications dans votre base de données.
+    Vous pouvez redémarrer l'application pour vous assurer que les modifications ont été conservées dans la base de données dans Azure. Vous pouvez également examiner la base de données au moyen du portail de gestion Azure :  les deux prochaines étapes vous permettent de consulter les modifications dans votre base de données.
 
 
 4. Dans le portail de gestion Azure, cliquez sur Gérer pour la base de données associée à votre service mobile.
@@ -99,7 +103,7 @@ Maintenant que l'application a été mise à jour pour utiliser Mobile Services 
 
 5. Dans le portail de gestion, exécutez une requête pour afficher les modifications effectuées par l'application Windows Store. Votre requête sera semblable à la requête suivante, mais le nom de votre base de données sera utilisé à la place de `todolist`.
 
-        SELECT * FROM [todolist].[todoitems]	
+        SELECT * FROM [todolist].[todoitems]
 
     ![](./media/mobile-services-dotnet-backend-android-get-started-data/sql-azure-query.png)
 
@@ -114,10 +118,10 @@ Ce didacticiel a présenté les bases de l'activation d'une application Android 
 <!--Ensuite, pensez à suivre l'un des didacticiels suivants basés sur l'application GetStartedWithData que vous avez créée dans ce didacticiel :
 
 * [Validation et modification de données à l'aide de scripts]
-  <br/>Découvrez comment utiliser des scripts serveur dans Mobile Services pour valider et modifier les données envoyées à partir de votre application.
+  <br/>Obtenez plus d'informations sur l'utilisation des scripts serveur dans Mobile Services pour valider et modifier les données envoyées à partir de votre application.
 
 * [Affinage des requêtes au moyen de la pagination]
-  <br/>Découvrez comment utiliser la pagination dans les requêtes pour contrôler la quantité de données traitées dans une seule requête.
+  <br/>Apprenez à utiliser la pagination dans les requêtes pour contrôler la quantité de données traitées dans une seule requête.
 
 Une fois que vous avez terminé les séries de données, essayez
 -->
@@ -131,7 +135,7 @@ Essayez l'un de ces autres didacticiels :
   <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
 * [Guide de fonctionnement Mobile Services .NET]
-  <br/>Découvrez comment utiliser Mobile Services avec .NET
+  <br/>Découvrez plus en détail comment utiliser Mobile Services avec .NET.
   
 <!-- Anchors. -->
 
@@ -163,8 +167,7 @@ Essayez l'un de ces autres didacticiels :
 [13]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/new-local-todoitem.png
 [14]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/vs-show-local-table-data.png
 [15]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/local-item-checked.png
-[16]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/azure-ite
-	ms.png
+[16]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/azure-items.png
 [17]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/manage-sql-azure-database.png
 [18]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/sql-azure-query.png
 
@@ -177,20 +180,20 @@ Essayez l'un de ces autres didacticiels :
 
 
 <!-- URLs. -->
-[Validation et modification de données à l'aide de scripts]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Affinage des requêtes au moyen de la pagination]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
-[Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-android
-[Prise en main des notifications Push]: /fr-fr/develop/mobile/tutorials/get-started-with-push-android
-[JavaScript et HTML]: /fr-fr/develop/mobile/tutorials/get-started-with-data-js
-[Version principale JavaScript]: /fr-fr/develop/mobile/tutorials/get-started-with-data-android
+[Prise en main des données (Eclipse)]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data-EC/
+[Validation et modification de données à l'aide de scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Affinage des requêtes au moyen de la pagination]: /develop/mobile/tutorials/add-paging-to-data-dotnet
+[Prise en main de Mobile Services]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+[Prise en main de l'authentification]: /develop/mobile/tutorials/get-started-with-users-android
+[Prise en main des notifications Push]: /develop/mobile/tutorials/get-started-with-push-android
+[JavaScript et HTML]: /develop/mobile/tutorials/get-started-with-data-js
+[version relative au service principal JavaScript]: /develop/mobile/tutorials/get-started-with-data-android
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Portail de gestion]: https://manage.windowsazure.com/
 [Kit de développement logiciel (SDK) Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Site d'exemples de code développeur]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Guide de fonctionnement Mobile Services .NET]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library
+[Guide de fonctionnement Mobile Services .NET]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Classe MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-[Guide de fonctionnement Mobile Services .NET]: /fr-fr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library  
-
-<!--HONumber=42-->
+[Guide de fonctionnement Mobile Services .NET]: /documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library  
+<!--HONumber=47-->

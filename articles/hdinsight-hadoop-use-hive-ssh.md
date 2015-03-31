@@ -20,45 +20,45 @@
 
 [AZURE.INCLUDE [hive-selector](../includes/hdinsight-selector-use-hive.md)]
 
-Dans cet article, vous découvrirez comment utiliser SSH pour vous connecter à un cluster Hadoop sur HDInsight, et envoyer ensuite des requêtes Hive à l'aide de l'interface de ligne de commande (CLI) Hive.
+Dans cet article, vous découvrirez comment utiliser Secure Shell (SSH) pour vous connecter à un cluster Hadoop sur Azure HDInsight, et envoyer ensuite des requêtes Hive à l'aide de l'interface de ligne de commande (CLI) Hive.
 
-> [AZURE.NOTE] Si vous utilisez déjà sans problème les serveurs Hadoop Linux, mais que vous ignorez totalement comment fonctionne HDInsight, consultez la rubrique <a href="../hdinsight-hadoop-linux-information/" target="_blank">Ce que vous devez savoir concernant Hadoop sur HDInsight Linux</a>.
+> [AZURE.NOTE] Si vous vous êtes déjà familiarisé avec l'utilisation de serveurs Hadoop sous Linux, mais que vous découvrez HDInsight, consultez <a href="../hdinsight-hadoop-linux-information/" target="_blank">Ce qu'il faut savoir sur Hadoop dans HDInsight sous Linux</a>.
 
-##<a id="prereq"></a>Configuration requise
+##<a id="prereq"></a>Conditions préalables
 
 Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
-* Un cluster Hadoop Linux sur HDInsight
+* Un cluster Hadoop Linux sur HDInsight.
 
-* Un client SSH. Linux, Unix et Mac OS doivent disposer d'un client SSH. Les utilisateurs Windows doivent télécharger un client, tel que <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">Putty</a>.
+* Un client SSH. Mac OS, Linux et Unix doivent être accompagnés d'un client SSH. Les utilisateurs Windows doivent télécharger un client, comme <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">Putty</a>.
 
-##<a id="ssh"></a>Connexion à SSH
+##<a id="ssh"></a>Connexion avec SSH
 
-Connectez-vous au nom de domaine complet (FQDN) de votre cluster HDInsight à l'aide de la commande SSH. Le nom de domaine complet sera constitué du nom que vous avez attribué au cluster, suivi de**.azurehdinsight.net**. Vous vous connecteriez, par exemple, ci-dessous, à un cluster nommé **myhdinsight**.
+Connectez-vous au nom de domaine complet de votre cluster HDInsight à l'aide de la commande SSH. Le nom de domaine complet est le nom attribué au cluster, suivi de **.azurehdinsight.net**. Par exemple, la commande suivante permettrait de se connecter à un cluster nommé **myhdinsight** :
 
 	ssh admin@myhdinsight-ssh.azurehdinsight.net
 
-**Si vous avez fourni une clé de certificat pour l'authentification SSH** lorsque vous avez créé le cluster HDInsight, vous aurez peut-être besoin de spécifier l'emplacement de la clé privée sur votre système client.
+**Si vous avez fourni une clé de certificat pour l'authentification SSH** lorsque vous avez créé le cluster HDInsight, vous devez spécifier l'emplacement de la clé privée sur votre système client :
 
 	ssh admin@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
 
-**Si vous avez fourni un mot de passe pour l'authentification SSH** lorsque vous avez créé le cluster HDInsight, vous devrez fournir le mot de passe lorsque vous y serez invité.
+**Si vous avez fourni un mot de passe pour l'authentification SSH** lorsque vous avez créé le cluster HDInsight, vous devez fournir le mot de passe lorsque vous y êtes invité.
 
-###Putty (clients Windows)
+###PuTTy (clients Windows)
 
-Windows ne fournit aucun client SSH intégré. Nous vous recommandons d'utiliser **Putty**, qui peut être téléchargé sur <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>.
+Windows ne fournit pas de client SSH intégré. Nous vous recommandons d'utiliser **Putty**, qui peut être téléchargé à partir de <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>.
 
-Pour en savoir plus sur l'utilisation de Putty, consultez la rubrique **Utilisation de Putty pour se connecter à un ordinateur Linux** de <a href="http://azure.microsoft.com/ documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Utilisation de SSH avec Linux sur Azure</a>.
+Pour plus d'informations sur l'utilisation de Putty, consultez la section **Utilisation de Putty pour se connecter à un ordinateur Linux** de la rubrique <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Utilisation de SSH avec Linux sur Azure</a>.
 
-> [AZURE.NOTE] Si vous utilisez un certificat pour l'authentification SSH du cluster HDInsight, nous vous recommandons également de consulter la rubrique **Création d'un PPK pour Putty** de <a href="http://azure.microsoft.com/ documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Utilisation de SSH avec Linux sur Azure</a>
+> [AZURE.NOTE] Si vous avez utilisé un certificat pour l'authentification SSH pour le cluster HDInsight, vous devez également consulter la section **Créer une clé privée pour Putty** de la rubrique <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Utilisation de SSH avec Linux sur Azure</a>.
 
-##<a id="hive"></a>Utilisez la commande Hive
+##<a id="hive"></a>Utiliser la commande Hive
 
-2. Une fois connecté, démarrez l'interface de ligne de commande (CLI) Hive à l'aide de la commande suivante :
+2. Une fois connecté, démarrez l'interface de ligne de commande Hive à l'aide de la commande suivante :
 
         hive
 
-3. En utilisant l'interface de ligne de commande, saisissez les instructions suivantes pour créer une table nommée **log4jLogs** à l'aide de l'exemple de données :
+3. À l'aide de l'interface de ligne de commande, entrez les instructions suivantes pour créer une table nommée **log4jLogs** avec les exemples de données suivants :
 
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -69,16 +69,16 @@ Pour en savoir plus sur l'utilisation de Putty, consultez la rubrique **Utilisat
     Ces instructions effectuent les opérations suivantes :
 
     * **DROP TABLE** : supprime la table et le fichier de données, si la table existe déjà.
-    * **CREATE EXTERNAL TABLE** : crée une nouvelle table 'external' dans Hive. Les tables externes stockent uniquement la définition de table dans Hive ; les données restent à leur emplacement d'origine
+    * **CREATE EXTERNAL TABLE** : crée une table  'externe' dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l'emplacement d'origine.
     * **ROW FORMAT** : indique à Hive le mode de formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
-    * **STORED AS TEXTFILE LOCATION** : indique à Hive l'emplacement des données (répertoire example/data) et précise qu'elles sont stockées sous la forme de texte
-    * **SELECT** : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette commande doit renvoyer une valeur de **3**, car trois lignes contiennent cette valeur.
+    * **STORED AS TEXTFILE LOCATION** : indique à Hive l'emplacement des données (le répertoire exemple/données) et précise qu'elles sont stockées sous la forme de texte.
+    * **SELECT** : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette commande doit retourner la valeur **3**, car trois lignes contiennent cette valeur.
 
     > [AZURE.NOTE] Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, ou par une autre opération MapReduce, mais souhaitez toujours que les requêtes Hive utilisent les données les plus récentes.
     >
     > La suppression d'une table externe ne supprime **pas** les données, mais seulement la définition de la table.
 
-4. Utilisez les instructions suivantes pour créer une nouvelle table 'internal' nommée **errorLogs**.
+4. Utilisez les instructions suivantes pour créer une table  'interne' nommée **errorLogs** :
 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
@@ -87,43 +87,43 @@ Pour en savoir plus sur l'utilisation de Putty, consultez la rubrique **Utilisat
 
     * **CREATE TABLE IF NOT EXISTS** : crée une table, le cas échéant. Le mot-clé **EXTERNAL** n'étant pas utilisé, il s'agit d'une table interne, stockée dans l'entrepôt de données Hive et gérée intégralement par Hive.
     * **STORED AS ORC** : stocke les données au format ORC (Optimized Row Columnar). Il s'agit d'un format particulièrement efficace et optimisé pour le stockage de données Hive.
-    * **INSERT OVERWRITE ... SELECT** : sélectionne des lignes de la table **log4jLogs** qui contiennent **[ERROR]**, puis insère les données dans la table **errorLogs**
+    * **INSERT OVERWRITE ... SELECT** : sélectionne des lignes de la table **log4jLogs** qui contiennent **[ERROR]**, puis insère les données dans la table **errorLogs**.
 
-    Pour vérifier que seules les lignes contenant **[ERROR]** dans la colonne t4 ont été stockées dans la table **errorLogs**, utilisez l'instruction suivante afin de renvoyer toutes les lignes à partir de **errorLogs**.
+    Pour vérifier que seules les lignes contenant **[ERROR]** dans la colonne t4 ont été stockées dans la table **errorLogs**, utilisez l'instruction suivante afin de renvoyer toutes les lignes à partir de **errorLogs** :
 
         SELECT * from errorLogs;
 
     Trois lignes de données doivent normalement être renvoyées. Elles contiennent toutes **[ERROR]** dans la colonne t4.
 
-    > [AZURE.NOTE] Contrairement aux tables **EXTERNAL**, la suppression d'une table interne entraîne également la suppression des données sous-jacentes.
+    > [AZURE.NOTE] Contrairement aux tables externes, la suppression d'une table interne entraîne également la suppression des données sous-jacentes.
 
 ##<a id="summary"></a>Résumé
 
-Comme vous pouvez le constater, la commande Hive permet d'exécuter facilement, et de façon interactive, des requêtes Hive sur un cluster HDInsight, de surveiller l'état de la tâche et de récupérer le résultat.
+Comme vous pouvez le constater, la commande Hive permet d'exécuter facilement et de façon interactive des requêtes Hive sur un cluster HDInsight, de surveiller l'état de la tâche et de récupérer le résultat.
 
 ##<a id="nextsteps"></a>Étapes suivantes
 
-Pour obtenir des informations générales sur Hive dans HDInsight :
+Pour obtenir des informations générales sur Hive dans HDInsight.
 
 * [Utilisation de Hive avec Hadoop sur HDInsight](../hdinsight-use-hive/)
 
-Pour découvrir d'autres manières d'utiliser Hadoop sur HDInsight :
+Pour plus d'informations sur d'autres méthodes de travail avec Hadoop sur HDInsight :
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](../hdinsight-use-pig/)
 
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](../hdinsight-use-mapreduce/)
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/fr-fr/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
-[azure-purchase-options]: http://azure.microsoft.com/ pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/ documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: ../hdinsight-use-oozie/
@@ -145,4 +145,4 @@ Pour découvrir d'autres manières d'utiliser Hadoop sur HDInsight :
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

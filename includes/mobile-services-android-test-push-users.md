@@ -1,5 +1,5 @@
 ﻿
-1. Dans Eclipse, appuyez sur F11 pour déployer les modifications vers votre appareil Android et exécutez l'application.
+1. Dans Android Studio, appuyez sur **Exécuter** => **Exécuter l'application** pour déployer les modifications vers votre appareil Android et exécutez l'application.
 
 2. Connectez-vous avec votre fournisseur d'identité et vérifiez que l'authentification réussit. 
 
@@ -9,4 +9,4 @@
 
 4. (Facultatif) Répétez les étapes 1 à 3 sur un autre appareil client en utilisant un autre compte lors de la connexion. Vérifiez que la notification est reçue seulement par les appareils qui s'authentifient avec le même compte d'utilisateur. 
 
-\<!--HONumber=42-->
+<!--HONumber=47-->

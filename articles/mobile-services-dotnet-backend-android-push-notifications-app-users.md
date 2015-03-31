@@ -1,7 +1,7 @@
 ﻿<properties 
-	pageTitle="Envoi de notifications Push aux utilisateurs authentifiés" 
+	pageTitle="Envoi de notifications Push à des utilisateurs authentifiés" 
 	description="Découvrez comment envoyer des notifications Push à" 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services,notification-hubs" 
 	documentationCenter="android" 
 	authors="wesmc7777" 
 	manager="dwrede" 
@@ -10,66 +10,56 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="09/29/2014" 
+	ms.date="02/23/2015" 
 	ms.author="wesmc"/>
 
-# Envoi de notifications Push aux utilisateurs authentifiés
+# Envoi de notifications Push à des utilisateurs authentifiés
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../includes/mobile-services-selector-push-users.md)]
 
+## Vue d'ensemble
+
 Cette rubrique montre comment envoyer des notifications Push à un utilisateur authentifié sur un appareil inscrit. Contrairement au précédent didacticiel relatif aux [notifications Push][Prise en main des notifications Push], celui-ci modifie votre service mobile pour exiger l'authentification des utilisateurs avant que le client puisse s'inscrire auprès du concentrateur de notification pour les notifications Push. L'inscription est également modifiée pour ajouter une balise basée sur l'ID d'utilisateur affecté. Enfin, le code du serveur est mis à jour pour envoyer la notification uniquement à l'utilisateur authentifié, et non à toutes les inscriptions.
 
-Ce didacticiel vous familiarise avec les procédures suivantes :
 
-+ [Mise à jour du service pour demander l'authentification pour l'inscription]
-+ [Mise à jour de l'application pour se connecter avant l'inscription]
-+ [Test de l'application]
- 
 Ce didacticiel prend en charge les applications Android.
 
-##Configuration requise 
+## Configuration requise 
 
 Avant de commencer ce didacticiel, vous devez suivre les didacticiels Mobile Services suivants :
 
-+ [Prise en main de l'authentification]<br/>Ajoute une condition de connexion à l'exemple d'application TodoList.
++ [Ajout de l'authentification à votre application Mobile Services]<br/>Ajoute une exigence de connexion à l'exemple d'application TodoList.
 
-+ [Prise en main des notifications Push]<br/>Configure l'exemple d'application TodoList pour les notifications Push à l'aide de Notification Hubs. 
++ [Prise en main des notifications Push]<br/>Configure l'exemple d'application TodoList pour utiliser les notifications Push avec Notification Hubs. 
 
 Une fois ces deux didacticiels terminés, vous saurez comment empêcher les utilisateurs non authentifiés de s'inscrire pour recevoir les notifications Push de votre service mobile.
 
-##<a name="register"></a>Mise à jour du service pour demander l'authentification pour l'inscription
+## Mise à jour du service pour exiger l'authentification pour l'inscription
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)] 
 
-##<a name="update-app"></a>Mise à jour de l'application pour se connecter avant l'inscription
+## Mise à jour de l'application pour se connecter avant l'inscription
 
 [AZURE.INCLUDE [mobile-services-android-push-notifications-app-users](../includes/mobile-services-android-push-notifications-app-users.md)] 
 
-##<a name="test"></a>Test de l'application
+## Test de l'application
 
 [AZURE.INCLUDE [mobile-services-android-test-push-users](../includes/mobile-services-android-test-push-users.md)] 
 
 
-<!---## <a name="next-steps"> </a>Étapes suivantes
+<!---##Next steps
 
-Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobile Services][Autorisation des utilisateurs avec des scripts], vous allez prendre la valeur d'ID utilisateur fournie par Mobile Services sur la base d'un utilisateur authentifié et l'utiliser pour filtrer les données renvoyées par Mobile Services. Obtenez plus d'informations sur Mobile Services avec .NET dans le [Guide de fonctionnement Mobile Services .NET]-->
-
-<!-- Anchors. -->
-[Mise à jour du service pour demander l'authentification pour l'inscription]: #register
-[Mise à jour de l'application pour se connecter avant l'inscription]: #update-app
-[Test de l'application]: #test
-[Étapes suivantes]:#next-steps
+In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]-->
 
 
 <!-- URLs. -->
-[Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-[Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
+[Ajout de l'authentification à votre application Mobile Services]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
+[Prise en main des notifications Push]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
-[Guide de fonctionnement Mobile Services .NET]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library
+[Guide de fonctionnement Mobile Services .NET]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

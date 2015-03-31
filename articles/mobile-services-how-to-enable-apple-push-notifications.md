@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Activation des notifications Push Apple" 
 	description="Suivez ce didacticiel pour créer un nouveau service à l'aide d'Azure Mobile Services." 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services" 
 	documentationCenter="ios" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -31,11 +31,10 @@ Cette rubrique vous explique comment activer les notifications Push sur votre ap
 
 
 <!-- URLs. -->
-[Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
+[Prise en main des notifications Push]: /documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
 [Kit de développement logiciel (SDK) Mobile Services]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 
 [Portail de gestion]: https://manage.windowsazure.com/
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

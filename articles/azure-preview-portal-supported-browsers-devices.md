@@ -17,7 +17,7 @@
 	ms.date="11/16/2014" 
 	ms.author="justbe"/>
 
-#Navigateurs et appareils pris en charge
+# Navigateurs et appareils pris en charge
 La version préliminaire du portail Azure s'exécute sur tous les périphériques modernes, de bureau et pour tablette, et sur l'ensemble des navigateurs.
 
 ### Périphériques pris en charge
@@ -31,9 +31,7 @@ Les versions les plus récentes des navigateurs suivants sont prises en charge :
 - Chrome (la dernière version)
 - Firefox (la dernière version)
 
-*Safari 6 et les versions antérieures ne sont pas pris en charge. Si vous utilisez OS X, vous avez le choix entre Chrome et Firefox. Par ailleurs, vous pouvez effectuer une mise à niveau vers OS X Mavericks pour obtenir Safari 7.*
- 
+*Safari 6 et les versions antérieures ne sont pas pris en charge. Si vous utilisez OS X, vous avez le choix entre Chrome et Firefox, ou vous pouvez passer à OS X Mavericks pour utiliser Safari 7.*
 
-<!--HONumber=35.2-->
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

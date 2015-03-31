@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Utilisation d'Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Linux" 
 	description="Découvrez comment utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Linux dans Azure." 
 	services="virtual-machines" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
-#Utilisation d'Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Linux
+# Utilisation d'Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Linux
 
 Ces étapes vous montrent comment personnaliser un jeu de commandes Azure PowerShell en vue de créer et de préconfigurer une machine virtuelle Azure basée sur Linux à l'aide d'une approche modulaire. À l'aide de cette procédure, vous pouvez créer rapidement un jeu de commandes pour une nouvelle machine virtuelle basée sur Linux et étendre un déploiement existant, ou créer plusieurs jeux de commandes qui génèrent rapidement un environnement personnalisé de développement/test ou destiné aux professionnels de l'informatique.
 
@@ -24,11 +24,11 @@ Ces étapes utilisent une méthode de cases à remplir pour créer des jeux de c
 
 Si vous souhaitez connaître la rubrique associée pour configurer des machines virtuelles basées sur Windows, consultez [Utilisation d'Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows](../virtual-machines-ps-create-preconfigure-windows-vms/).
 
-##Étape 1 : Installation d'Azure PowerShell
+## Étape 1 : Installation d'Azure PowerShell
 
-Si ce n'est pas encore fait, installez Azure PowerShell sur votre ordinateur local à l'aide des instructions décrites dans [Installation et configuration d'Azure PowerShell](../install-configure-powershell/). Ouvrez ensuite une invite de commande Azure PowerShell de niveau administrateur.
+Si ce n'est pas encore fait, installez Azure PowerShell sur votre ordinateur local à l'aide des instructions décrites dans [Installation et configuration d'Azure PowerShell](../install-configure-powershell/). Ouvrez ensuite une invite de commande Azure PowerShell.
 
-##Étape 2 : Configuration de votre compte d'abonnement et de stockage
+## Étape 2 : Configuration de votre compte d'abonnement et de stockage
 
 Pour configurer votre compte d'abonnement et de stockage Azure, exécutez ces commandes dans l'invite de commandes Azure PowerShell. Remplacez tous les éléments entre guillemets, y compris les caractères < et >, par les noms appropriés.
 
@@ -39,7 +39,7 @@ Pour configurer votre compte d'abonnement et de stockage Azure, exécutez ces co
 
 Le nom de l'abonnement apparaît dans la propriété SubscriptionName du résultat de la commande **Get-AzureSubscription**. Le nom du compte de stockage apparaît dans la propriété Étiquette du résultat de la commande **Get-AzureStorageAccount** une fois que vous avez émis la commande **Select-AzureSubscription**. Vous pouvez également stocker ces commandes dans un fichier texte pour une utilisation ultérieure.
 
-##Étape 3 : Définition de la valeur ImageFamily
+## Étape 3 : Définition de la valeur ImageFamily
 
 Vous devez ensuite déterminer la valeur ImageFamily pour l'image spécifique correspondant à la machine virtuelle Azure que vous voulez créer. Vous pouvez obtenir la liste des valeurs ImageFamily disponibles à l'aide de cette commande.
 
@@ -56,7 +56,7 @@ Ouvrez une nouvelle instance de l'éditeur de texte de votre choix et copiez les
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
-##Étape 4 : Création de votre jeu de commandes
+## Étape 4 : Création de votre jeu de commandes
 
 Créez le reste de votre jeu de commandes en copiant le jeu de blocs approprié ci-dessous dans votre nouveau fichier texte, puis en renseignant les valeurs des variables et en supprimant les caractères < et >. Consultez les deux [exemples](#examples) cités à la fin de cet article pour avoir une idée du résultat final.
 
@@ -83,7 +83,7 @@ Spécifiez le nom d'utilisateur Linux initial et le mot de passe (obligatoire). 
 	$pass="<user account password>"
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $username -Password $pass
 
-Si vous enregistrez le jeu de commandes obtenu en tant que fichier, veillez à le stocker dans un emplacement sécurisé afin de protéger le nom de compte et le mot de passe.
+Si vous enregistrez le jeu de commandes obtenu dans un fichier, stockez-le dans un emplacement sécurisé afin de protéger le nom de compte et le mot de passe.
 
 Vous pouvez éventuellement spécifier un jeu de paires de clés SSH déjà déployées dans l'abonnement.
 
@@ -151,7 +151,7 @@ Option 3 : créez la machine virtuelle dans un service cloud existant et un rés
 	$vnetname="<name of the virtual network>"
 	New-AzureVM -ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
-##Étape 5 : Exécution de votre jeu de commandes
+## Étape 5 : Exécution de votre jeu de commandes
 
 Passez en revue le jeu de commandes Azure PowerShell constitué de plusieurs blocs de commandes que vous avez créé dans votre éditeur de texte à l'étape 4. Vérifiez que vous avez spécifié toutes les variables nécessaires et qu'elles ont les valeurs correctes. Vérifiez également que vous avez supprimé tous les caractères < et >.
 
@@ -164,11 +164,11 @@ Si vous comptez créer cette machine virtuelle de nouveau ou une autre similaire
 - Enregistrer ce jeu de commandes en tant que fichier texte ou fichier de script PowerShell (*.ps1)
 - Enregistrer ce jeu de commandes en tant que runbook Azure dans la section **Automation** du portail de gestion Azure 
 
-##<a id="examples"></a>Exemples
+## <a id="examples"></a>Exemples
 
 Voici deux exemples d'utilisation des étapes ci-dessus pour créer des jeux de commandes Azure PowerShell qui créent des machines virtuelles basées sur Linux dans Azure.
 
-###Exemple 1
+### Exemple 1
 
 J'ai besoin d'un jeu de commandes PowerShell permettant de créer la machine virtuelle Linux initiale pour un serveur MySQL qui :
 
@@ -206,7 +206,7 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 	$vnetname="AZDatacenter"
 	New-AzureVM -ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
-###Exemple 2
+### Exemple 2
 
 J'ai besoin d'un jeu de commandes PowerShell permettant de créer une machine virtuelle Linux pour un serveur Apache qui :
 
@@ -252,7 +252,7 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 	$vnetname="AZDatacenter"
 	New-AzureVM -ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
-##Ressources supplémentaires
+## Ressources supplémentaires
 
 [Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
@@ -267,4 +267,4 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 [Utilisation d'Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows](../virtual-machines-ps-create-preconfigure-windows-vms/)
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

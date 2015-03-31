@@ -1,9 +1,24 @@
-<properties urlDisplayName="How to create and provision" pageTitle="Prise en main de la base de données SQL - Azure" metaKeywords="" description="Commencez à créer et à gérer des bases de données SQL dans Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="jeffryg"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
+<properties 
+	pageTitle="Prise en main de la base de données SQL - Azure" 
+	description="Commencez à créer et à gérer des bases de données SQL dans Azure." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="jeffgoll" 
+	writer="" 
+	manager="jeffreyg" 
+	editor="tysonn"/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jeffreyg" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/04/2014" 
+	ms.author="jeffreyg"/>
 
 
-#Prise en main de Microsoft SQL Azure
+## Prise en main de Microsoft SQL Azure
 
 Dans ce didacticiel, vous allez vous familiariser avec les concepts de base de l'administration de la base de données SQL Microsoft Azure à l'aide du portail de gestion Azure. Si vous êtes néophyte en matière d'administration de base de données, vous pouvez suivre ces leçons pour acquérir les compétences essentielles en environ 30 minutes. 
 
@@ -12,35 +27,24 @@ Ce didacticiel ne présuppose aucune expérience préalable de SQL Server ou de 
 Vous allez créer et mettre en service un exemple de base de données sur la plateforme Azure, et interroger le système et les données utilisateur en utilisant Excel.
 
 
-##Sommaire##
-
-* [Étape 1 : création d'un compte Microsoft Azure](#Subscribe)
-* [Étape 2 : connexion à Azure et création d'une base de données](#Subscribe)
-* [Étape 3 : configuration du pare-feu](#ConfigFirewall)
-* [Étape 4 : ajout de données et d'un schéma avec un script Transact-SQL](#AddData)
-* [Étape 5 : création du schéma](#createschema)
-* [Étape 6 : insertion des données](#insertData)
-* [Étape 7 : interrogation des données de l'exemple et des données système dans le portail de gestion pour la base de données SQL](#QueryDBSysData)
-* [Étape 8 : création d'une connexion de base de données et attribution d'autorisations](#DBLogin)
-* [Étape 9 : connexion à partir d'une application](#ClientConnection)
 
 
-<h2 id="Subscribe">Étape 1 : création d'un compte Microsoft Azure</h2>
+## Étape 1 : création d'un compte Microsoft Azure
 
-1. Ouvrez un navigateur web et accédez à la page [http://azure.microsoft.com](http://azure.microsoft.com).
+1. Ouvrez un navigateur Web et accédez à la page [http://azure.microsoft.com](http://azure.microsoft.com).
 Pour commencer avec un compte gratuit, cliquez sur Version d'évaluation gratuite dans le coin supérieur droit, puis suivez la procédure.
 
 2. Votre compte est maintenant créé. Vous êtes prêt à commencer.
 
 
-<h2 id="Connect">Étape 2 : connexion à Azure et création d'une base de données</h2>
+## Étape 2 : connexion à Azure et création d'une base de données
 
 
-1. Connectez-vous au [portail de gestion](http://manage.windowsazure.com). Un volet de navigation similaire à celui illustré ci-dessous apparaît.
+1. Connectez-vous au [Portail de gestion](http://manage.windowsazure.com). Un volet de navigation similaire à celui illustré ci-dessous apparaît.
 
 	![Navigation pane][Image1]
 
-2. Cliquez sur **Nouveau** au bas de la page. Quand vous cliquez sur **Nouveau**, une liste des éléments que vous avez créés s'affiche à l'écran.
+2. Cliquez sur **Nouveau** en bas de la page. Lorsque vous cliquez sur **Nouveau**, une liste des éléments que vous avez créés s'affiche à l'écran.
 
 3. Cliquez sur **Base de données SQL**, puis sur **Création personnalisée**. 
 
@@ -73,7 +77,7 @@ Cette option vous permet de créer en même temps un serveur et une base de donn
 
 * Choisissez une région. La région détermine l'emplacement géographique du serveur. Choisissez une région qui est pertinente pour ce serveur, car il n'est pas possible de basculer facilement d'une région à l'autre. Choisissez un emplacement le plus proche possible de vous. Vous économisez sur les coûts de la bande passante de sortie et réduisez la latence des données en maintenant l'application et la base de données Azure dans la même région.
 
-* Veillez à ce que la case à cocher **Autoriser les services Azure à accéder au serveur** reste activée pour pouvoir vous connecter à cette base de données via le portail de gestion pour Base de données SQL, Excel dans Office 365 ou Azure SQL Reporting.
+* Veillez à ce que la case à cocher **Allow Azure Services to access this server**  reste activée pour pouvoir vous connecter à cette base de données via le portail de gestion pour Base de données SQL, Excel dans Office 365 ou Azure SQL Reporting.
 
 * Une fois que vous avez terminé, cliquez sur la coche en bas de la page.
 
@@ -85,11 +89,11 @@ Pour afficher le nom du serveur qui héberge la base de données **School** que 
 
 
 
-<h2 id="ConfigFirewall">Étape 3 : configuration du pare-feu</h2>
+## Étape 3 : configuration du pare-feu
 
 Pour configurer le pare-feu de telle sorte que les connexions puissent y transiter, vous allez entrer des informations sur la page du serveur.
 
-**Remarque :** le service Base de données SQL est disponible uniquement avec le port TCP 1433 utilisé par le protocole TDS. Assurez-vous par conséquent que le pare-feu sur votre réseau et l'ordinateur local autorise les communications TCP sortantes sur le port 1433. Pour plus d'informations, consultez la page traitant du [pare-feu de Base de données SQL](http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-fr-fr.aspx).
+**Remarque :** le service de base de données SQL est disponible uniquement avec le port TCP 1433 utilisé par le protocole TDS. Assurez-vous par conséquent que le pare-feu sur votre réseau et l'ordinateur local autorise les communications TCP sortantes sur le port 1433. Pour plus d'informations, consultez la page [Pare-feu de la base de données SQL](http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-fr-fr.aspx).
 
 
 1. Dans le volet de navigation de gauche, cliquez sur **Bases de données SQL**.
@@ -116,13 +120,13 @@ Au fur et à mesure que vous développerez vos compétences, vous aurez envie d'
 
 
 
-<h2 id="AddData">Étape 4 : ajout de données et d'un schéma avec un script Transact-SQL</h2>
+## Étape 4 : ajout de données et d'un schéma avec un script Transact-SQL
 
 Dans cette étape, vous allez exécuter deux scripts. Le premier crée un schéma qui définit des tables, des colonnes et des relations. Le second script ajoute les données. Chaque opération s'effectue indépendamment sur une connexion distincte. Si vous avez déjà créé des bases de données dans SQL Server, l'une des différences que vous pourrez constater dans la base de données SQL concerne les commandes CREATE et INSERT : elles doivent être exécutées dans des lots distincts. La base de données SQL impose cette exigence pour minimiser les attaques contre les données pendant leur transport. 
 
-**Remarque :** le schéma et les valeurs des données sont tirés de cet [article MSDN](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee621790.aspx "MSDN article") et ont été modifiés pour fonctionner avec Base de données SQL.
+**Remarque :** le schéma et les valeurs des données proviennent de cet [article MSDN](http://msdn.microsoft.com/library/windowsazure/ee621790.aspx "MSDN article") et ont été modifiés pour fonctionner avec la base de données SQL.
 
-1. Accédez à la page d'accueil. Dans le [portail de gestion](http://manage.windowsazure.com), la base de données **School** figure dans la liste des éléments de la page d'accueil.
+1. Accédez à la page d'accueil. Dans le [portail de gestion](http://manage.windowsazure.com), la seconde base de données **School** apparaît dans la liste des éléments sur la page d'accueil.
 
 	![Navigation pane][Image8]
 
@@ -134,9 +138,9 @@ Dans cette étape, vous allez exécuter deux scripts. Le premier crée un schém
 
 
 
-<h2 id="createschema">Étape 5 : création du schéma</h2>
+## Étape 5 : création du schéma
 
-Vous allez à présent créer le schéma en utilisant le script suivant. Le script commence par vérifier qu'il n'existe pas une table de même nom pour s'assurer qu'il n'y aura pas de conflit de nom, puis crée la table avec l'instruction [CREATE TABLE](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336258.aspx) . Ensuite, ce script utilise l'instruction [ALTER TABLE](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336286.aspx) pour spécifier la clé primaire et les relations de la table.
+Vous allez à présent créer le schéma en utilisant le script suivant. Le script commence par rechercher s'il existe une table existante de même nom pour s'assurer qu'il n'y aura pas de conflit de nom, puis crée la table avec l'instruction [CREATE TABLE](http://msdn.microsoft.com/library/windowsazure/ee336258.aspx). Par ailleurs, ce script utilise l'instruction [ALTER TABLE](http://msdn.microsoft.com/library/windowsazure/ee336286.aspx) pour spécifier la clé primaire et les relations de la table.
 
 Copiez le script et collez-le dans la fenêtre de requête. Cliquez sur **Exécuter** en haut de la fenêtre pour exécuter le script.
 
@@ -380,9 +384,9 @@ Copiez le script et collez-le dans la fenêtre de requête. Cliquez sur **Exécu
 
 
 
-<h2 id="insertData">Étape 6 : insertion des données</h2>
+## Étape 6 : insertion des données
 
-Ouvrez une nouvelle fenêtre de requête, puis collez-y le script suivant. Exécutez le script pour insérer les données. Ce script utilise l'instruction [INSERT](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee336284.aspx) pour ajouter les valeurs à chaque colonne.
+Ouvrez une nouvelle fenêtre de requête, puis collez-y le script suivant. Exécutez le script pour insérer les données. Ce script utilise l'instruction [INSERT](http://msdn.microsoft.com/library/windowsazure/ee336284.aspx) pour ajouter des valeurs à chaque colonne.
 
 <div style="width:auto; height:600px; overflow:auto"><pre>
 	-- Insert data into the Person table.
@@ -463,7 +467,7 @@ Ouvrez une nouvelle fenêtre de requête, puis collez-y le script suivant. Exéc
 </pre></div>
 
 
-<h2 id="QueryDBSysData">Étape 7 : interrogation des données de l'exemple et des données système dans le portail de gestion pour la base de données SQL</h2>
+## Étape 7 : interrogation des données de l'exemple et des données système dans le portail de gestion pour la base de données SQL
 
 Pour contrôler votre travail, exécutez une requête qui renvoie les données que vous venez d'entrer. Vous pouvez également exécuter des procédures stockées intégrées et des vues de gestion des données qui fournissent des informations sur les bases de données en cours d'exécution sur votre serveur de base de données SQL.
 
@@ -499,7 +503,7 @@ Ne fermez pas la connexion du portail à la base de données **School**. Vous en
 
 
 
-<h2 id="DBLogin">Étape 8 : création d'une connexion de base de données et attribution d'autorisations</h2>
+## Étape 8 : création d'une connexion de base de données et attribution d'autorisations
 
 Dans la base de données SQL, vous pouvez créer des informations de connexion et attribuer des autorisations avec Transact-SQL. Dans cette leçon, vous allez exécuter trois opérations avec Transact-SQL :
 
@@ -510,12 +514,11 @@ Dans la base de données SQL, vous pouvez créer des informations de connexion e
 
 Une connexion d'authentification SQL Server est utilisée pour les connexions au serveur. Tous les utilisateurs qui accèdent à une base de données sur un serveur de base de données SQL le font en fournissant un nom et un mot de passe de connexion d'authentification SQL Server. 
 
-Pour créer une connexion, vous devez d'abord vous connecter à la base de données principale (**master**).
+Pour créer une connexion, vous devez d'abord vous connecter à la base de données **master**.
 
 <h4 id="CreateLogin">Création d'une connexion d'authentification SQL Server</h4>
 
-1. Dans le [portail de gestion](http://manage.windowsazure.com), sélectionnez **Bases de données SQL**, cliquez sur **Serveurs**, choisissez le serveur, puis cliquez sur la flèche blanche pour ouvrir la
-page du serveur.
+1. Dans le [portail de gestion](http://manage.windowsazure.com), sélectionnez **Bases de données SQL**, cliquez sur **Serveurs**, choisissez le serveur, puis cliquez sur la flèche blanche pour ouvrir la page du serveur.
 
 2. Sur la page Démarrage rapide, cliquez sur **Gérer le serveur** pour ouvrir une nouvelle connexion au portail de gestion pour Base de données SQL. 
 
@@ -523,7 +526,7 @@ page du serveur.
 
 4. Le portail de gestion de Base de données SQL s'ouvre dans une nouvelle fenêtre de navigateur, et vous êtes connecté à la base de données **master**.
 
-5. Si une erreur similaire à celle affichée ci-dessous apparaît sur la page, ignorez-la. Cliquez sur **Nouvelle requête** pour ouvrir une fenêtre de requête vous permettant d'exécuter des commandes Transact-SQL sur la base de données **master**.
+5. Si une erreur similaire à celle affichée ci-dessous apparaît sur la page, ignorez-la. Cliquez sur **Nouvelle requête** pour ouvrir une fenêtre de requête vous permettant d'exécuter des commandes Transact-SQL sur la base de données principale (**master**).
 
 	![Navigation pane][Image15]
 
@@ -531,14 +534,14 @@ page du serveur.
 
         CREATE LOGIN SQLDBLogin WITH password='Password1';
 
-7. Exécutez la commande suivante pour créer une connexion SQL Server nommée " SQLDBLogin ".
+7. Exécutez la commande suivante pour créer une connexion SQL Server nommée 'SQLDBLogin'.
 
 
 <h4 id="CreateDBuser">Création d'un utilisateur de base de données et attribution d'autorisations</h4>
 
 Une fois que vous avez créé une connexion d'authentification SQL, l'étape suivante consiste à attribuer les niveaux de base de données et d'autorisation associés. À cet effet, vous créez un **utilisateur de base de données** sur chaque base de données.
 
-1. Revenez à la page du portail de gestion Base de données SQL qui permet de se connecter à la base de données**School**. Si vous avez fermé la fenêtre du navigateur, lancez une nouvelle connexion à la base de données **School** en suivant la procédure décrite dans la leçon précédente, " Ajout de données et d'un schéma avec un script Transact-SQL ". 
+1. Revenez à la page du portail de gestion Base de données SQL qui permet de se connecter à la base de données**School**. Si vous avez fermé la fenêtre du navigateur, démarrez une nouvelle connexion à la base de données **School** en suivant la procédure décrite dans la leçon précédente, " Ajout de données et d'un schéma avec un script Transact-SQL ". 
 
 	Sur la page du portail de gestion Base de données SQL, le nom de la base de données **School** est visible dans le coin supérieur gauche.
 
@@ -556,12 +559,12 @@ Une fois que vous avez créé une connexion d'authentification SQL, l'étape sui
 
         EXEC sp_addrolemember 'db_datareader', 'SQLDBUser';
 
-Vous disposez à présent d'une nouvelle connexion d'authentification SQL Server qui bénéficie d'une autorisation d'accès en lecture seule à la base de données **School**. Cette procédure vous permet de créer d'autres connexions d'authentification SQL Server pour autoriser différents niveaux d'accès à vos données.
+Vous disposez à présent d'une nouvelle connexion d'authentification SQL Server qui possède une autorisation d'accès en lecture seule à la base de données **School**. Cette procédure vous permet de créer d'autres connexions d'authentification SQL Server pour autoriser différents niveaux d'accès à vos données.
 
 
-<h2 id="ClientConnection">Étape 9 : connexion à partir d'une application</h2>
+## Étape 9 : connexion à partir d'une application
 
-Vous pouvez utiliser ADO.NET pour vous connecter à Base de données SQL Microsoft Azure. Contrairement à une connexion locale, vous devez tenir compte de la limitation et des autres défaillances de service susceptibles de mettre fin à une connexion ou de bloquer temporairement de nouvelles connexions. Cet état est connu sous le nom d' " erreur temporaire ". Pour gérer les erreurs temporaires, vous devez implémenter une stratégie de nouvelle tentative. Au moment de vous connecter à Base de données SQL Azure, vous pouvez trouver dans le document traitant du [bloc d'application de traitement des erreurs temporaires](http://go.microsoft.com/fwlink/?LinkId=519356) (partie de Enterprise Library 6 - avril 2013) des stratégies de détection qui vous permettront d'identifier un état d'erreur temporaire.
+Vous pouvez utiliser ADO.NET pour vous connecter à Base de données SQL Microsoft Azure. Contrairement à une connexion locale, vous devez tenir compte de la limitation et des autres défaillances de service susceptibles de mettre fin à une connexion ou de bloquer temporairement de nouvelles connexions. Cet état est connu sous le nom d' " erreur temporaire ". Pour gérer les erreurs temporaires, vous devez implémenter une stratégie de nouvelle tentative. Lors de la connexion à la base de données SQL Azure, le [bloc d'applications de gestion des erreurs temporaires](http://go.microsoft.com/fwlink/?LinkId=519356), qui fait partie d'Enterprise Library 6 - avril 2013, a des stratégies de détection qui identifient une condition d'erreur temporaire.
 
 <h4>Exemple C# d'application console</h4>
 
@@ -642,19 +645,19 @@ Vous pouvez utiliser ADO.NET pour vous connecter à Base de données SQL Microso
 
 
 
-<h2 id="NextSteps">Étapes suivantes</h2>
+## Étapes suivantes
 
 À présent que vous êtes familiarisé avec la base de données SQL et les portails de gestion, vous pouvez essayer d'autres outils et techniques employés par les administrateurs de bases de données SQL Server.
 
-Pour gérer activement votre nouvelle base de données, songez à installer et utiliser SQL Server Management Studio. Management Studio est le principal outil d'administration de base de données pour gérer les bases de données SQL Server, y compris celles qui s'exécutent sur Azure. Avec Management Studio, vous pouvez enregistrer les requêtes pour un usage ultérieur, ajouter de nouvelles tables et procédures stockées, et aiguiser vos compétences relatives à Transact-SQL dans un environnement enrichi de création de scripts, qui inclut un vérificateur de syntaxe, Intellisense et des modèles. Pour la prise en main, suivez les instructions de la page [Gestion des bases de données SQL avec SQL Server Management Studio](http://www.azure.microsoft.com/fr-fr/documentation/articles/sql-database-manage-azure-ssms/).
+Pour gérer activement votre nouvelle base de données, songez à installer et utiliser SQL Server Management Studio. Management Studio est le principal outil d'administration de base de données pour gérer les bases de données SQL Server, y compris celles qui s'exécutent sur Azure. Avec Management Studio, vous pouvez enregistrer les requêtes pour un usage ultérieur, ajouter de nouvelles tables et procédures stockées, et aiguiser vos compétences relatives à Transact-SQL dans un environnement enrichi de création de scripts, qui inclut un vérificateur de syntaxe, Intellisense et des modèles. Pour la prise en main, suivez les instructions décrites dans la page [Gestion des bases de données SQL avec SQL Server Management Studio](http://www.azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/).
 
-Une bonne maîtrise du langage de définition des requêtes et des données Transact-SQL est essentielle pour les administrateurs de base de données. Si vous débutez avec Transact-SQL, commencez par le [didacticiel : écriture d'instructions Transact-SQL](http://msdn.microsoft.com/fr-fr/library/ms365303.aspx) pour apprendre quelques techniques de base.
+Une bonne maîtrise du langage de définition des requêtes et des données Transact-SQL est essentielle pour les administrateurs de base de données. Si vous débutez avec Transact-SQL, commencez par le [didacticiel : écriture d'instructions Transact-SQL](http://msdn.microsoft.com/library/ms365303.aspx) pour apprendre quelques techniques de base.
 
 Il existe d'autres méthodes pour transférer une base de données locale vers la base de données SQL. Si vous possédez déjà des bases de données ou si vous avez téléchargé des exemples de base de données pour vous entraîner, essayez les autres approches suivantes :
 
-* [Migration de bases de données vers Base de données SQL](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee730904.aspx)
-* [Copie de bases de données dans Base de données SQL](http://msdn.microsoft.com/fr-fr/library/windowsazure/ff951624.aspx)
-* [Déploiement d'une base de données SQL Server vers une machine virtuelle Azure](http://msdn.microsoft.com/fr-fr/library/dn195938.aspx).
+* [Migration de bases de données vers une base de données SQL](http://msdn.microsoft.com/library/windowsazure/ee730904.aspx)
+* [Copie de bases de données dans une base de données SQL](http://msdn.microsoft.com/library/windowsazure/ff951624.aspx)
+* [Déploiement d'une base de données SQL Server vers une machine virtuelle Azure](http://msdn.microsoft.com/library/dn195938)
 
 
 
@@ -680,4 +683,4 @@ Il existe d'autres méthodes pour transférer une base de données locale vers l
 [Image20]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
 
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

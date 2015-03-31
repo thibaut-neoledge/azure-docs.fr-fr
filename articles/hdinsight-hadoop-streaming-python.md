@@ -1,5 +1,5 @@
 ﻿<properties
-   pageTitle="Développement de tâches MapReduce Python avec HDInsight | Aure"
+   pageTitle="Développement de tâches MapReduce Python avec HDInsight | Azure"
    description="Découvrez comment créer et exécuter des tâches MapReduce Python sur des clusters HDInsight Linux."
    services="hdinsight"
    documentationCenter=""
@@ -28,7 +28,7 @@ Hadoop fournit une API de diffusion en continu pour MapReduce qui vous permet d'
 
 * Un éditeur de texte
 
-* Pour les clients Windows, PuTTY et PSCP. Ces utilitaires sont disponibles sur <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>
+* Pour les clients Windows, PuTTY et PSCP. Ces utilitaires sont disponibles à partir de <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>
 
 ##Nombre de mots
 
@@ -54,7 +54,7 @@ Hadoop vous permet de spécifier un fichier qui dispose de la logique de mappage
 
 * **Format de données** : les données consommées et produites doivent représenter une paire clé/valeur, séparée par un caractère de tabulation
 
-Python peut facilement gérer ces exigences en utilisant le module **sys** pour lire depuis STDIN, et **print** pour imprimer vers STDOUT. Le simple fait de disposer un caractère de tabulation (`\t`) entre la clé et la valeur vous permettra d'effectuer, si vous le désirez, le formatage de ces données.
+Python peut facilement gérer ces exigences en utilisant le module **sys** pour lire depuis STDIN, et **print** pour imprimer vers STDOUT. Le simple fait de disposer un caractère de tabulation ((`\t`) ) entre la clé et la valeur vous permettra d'effectuer, si vous le souhaitez, le formatage de ces données.
 
 ##Création du mappeur et du raccord de réduction
 
@@ -139,7 +139,7 @@ Les deux fichiers **mapper.py** et **reducer.py** doivent se trouver sur le nœu
 
 Ceci copiera les fichiers provenant du système local sur le nœud principal.
 
-> [AZURE.NOTE] Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous serez invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin vers la clé privée. Par exemple, `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net :`
+> [AZURE.NOTE] Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous serez invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin d'accès à la clé privée. Par exemple, `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`
 
 ##Exécutez la tâche MapReduce
 
@@ -147,7 +147,7 @@ Ceci copiera les fichiers provenant du système local sur le nœud principal.
 
 		ssh username@clustername-ssh.azurehdinsight.net
 
-	> [AZURE.NOTE] Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous serez invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin vers la clé privée. Par exemple, `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`
+	> [AZURE.NOTE] Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous serez invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin d'accès à la clé privée. Par exemple,  `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`
 
 2. Exécutez la commande suivante pour démarrer la tâche MapReduce :
 
@@ -196,7 +196,7 @@ Celle-ci énumère les mots qui sont utilisés, et elle vous indique, par la mê
 
 Maintenant que vous avez découvert comment utiliser des tâches de diffusion en continu MapReduce avec HDInsight, cliquez sur les liens ci-dessous pour explorer d'autres façons d'utiliser Azure HDInsight.
 
-* [Utilisation de Hive avec HDInsight](../hdinsight-use-hive/)
+* [Utiliser Hive avec HDInsight](../hdinsight-use-hive/)
 * [Utilisation de Pig avec HDInsight](../hdinsight-use-pig/)
-* [Utilisation de MapReduce avec HDInsight](../hdinsight-use-mapreduce)
-<!--HONumber=45--> 
+* [Utilisation des tâches MapReduce avec HDInsight](../hdinsight-use-mapreduce)
+<!--HONumber=47-->

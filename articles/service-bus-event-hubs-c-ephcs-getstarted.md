@@ -1,34 +1,50 @@
-<properties pageTitle="Prise en main des concentrateurs d'événements" metaKeywords="Azure Service Bus, Concentrateur d'événements, prise en main concentrateurs d'événements" description="Suivez ce didacticiel pour commencer à utiliser les concentrateurs d'événements Azure envoyant des événements avec C et recevant en C# à l'aide de EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties 
+	pageTitle="Prise en main des concentrateurs d'événements" 
+	description="Suivez ce didacticiel pour commencer à utiliser les concentrateurs d'événements Azure envoyant des événements avec C et recevant en C# à l'aide de EventProcessorHost" 
+	services="service-bus" 
+	documentationCenter="" 
+	authors="fsautomata" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="c" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="core" 
+	ms.tgt_pltfrm="c" 
+	ms.devlang="csharp" 
+	ms.topic="hero-article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
-# <a name="getting-started"> </a>Prise en main des concentrateurs d'événements
+# Prise en main des concentrateurs d'événements
 
-[WACOM.INCLUDE [service-bus-selector-get-started](../includes/service-bus-selector-get-started.md)]
+[AZURE.INCLUDE [service-bus-selector-get-started](../includes/service-bus-selector-get-started.md)]
 
-Les concentrateurs d'événements représentent un système d'ingestion à l'extensibilité élevée en mesure d'absorber des millions d'événements par seconde, ce qui permet à une application de traiter et d'analyser les quantités énormes de données produites par vos périphériques connectés et vos applications. Une fois collectés dans des concentrateurs d'événements, vous pouvez transformer et stocker des données à l'aide de n'importe quel fournisseur d'analyses en temps réel ou d'un cluster de stockage.
+## Introduction
 
-Pour plus d'informations, consultez la page [Vue d'ensemble des concentrateurs d'événements].
+Les concentrateurs d'événements représentent un système d'ingestion à l'extensibilité élevée en mesure d'absorber des millions d'événements par seconde, ce qui permet à une application de traiter et d'analyser les quantités énormes de données produites par vos périphériques connectés et vos applications. Une fois collectées dans des concentrateurs d'événements, vous pouvez transformer et stocker des données à l'aide de n'importe quel fournisseur d'analyses en temps réel ou d'un cluster de stockage.
 
-Dans ce didacticiel, vous allez apprendre comment procéder à la réception des messages dans un concentrateur d'événements à l'aide d'une application console en C et à les récupérer en parallèle à l'aide de la bibliothèque C# d'[Event Processor Host].
+Pour plus d'informations, consultez la rubrique [Vue d'ensemble des concentrateurs d'événements].
 
-Pour effectuer ce didacticiel, vous devrez disposer des éléments suivants :
+Dans ce didacticiel, vous allez apprendre à ingérer les messages dans un concentrateur d'événements à l'aide d'une application console en C et à les récupérer en parallèle en utilisant la bibliothèque [EventProcessorHost] en C#.
 
-+ Un environnement de développement en C. Pour ce didacticiel, nous partirons du principe que la pile GCC est sur une [machine virtuelle Linux Azure](http://azure.microsoft.com/fr-fr/documentation/articles/virtual-machines-linux-tutorial/) dotée du système d'exploitation Ubuntu 14.04. Vous trouverez des instructions pour d'autres environnements en consultant les liens externes.
+Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-+ Microsoft Visual Studio Express 2013 pour Windows
++ Un environnement de développement en C. Pour ce didacticiel, nous partirons du principe que la pile GCC est sur une [machine virtuelle Linux Azure](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/) dotée du système d'exploitation Ubuntu 14.04. Vous trouverez des instructions pour d'autres environnements en consultant les liens externes.
 
-+ Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.
++ Microsoft Visual Studio Express 2013 pour Windows ;
+
++ un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">version d'évaluation gratuite d'Azure</a>.
 
 ## Création d'un concentrateur d'événements
 
-1. Connectez-vous au [portail de gestion Azure], puis cliquez sur **NOUVEAU** en bas de l'écran.
+1. Connectez-vous au [portail de gestion Azure] et cliquez sur **NOUVEAU** en bas de l'écran.
 
-2. Cliquez sur **App Services**, sur **Service Bus**, **Concentrateur d'événements**, puis **Création rapide**.
+2. Cliquez successivement sur **Services d'application**, **Service Bus**, **Concentrateur d'événements**, puis sur **Création rapide**.
 
    	![][1]
 
-3. Tapez le nom de votre concentrateur d'événements, sélectionnez la région de votre choix, puis cliquez sur **Créer un concentrateur d'événements**.
+3. Attribuez un nom à votre concentrateur d'événements, sélectionnez la région souhaitée, puis cliquez sur **Créer un concentrateur d'événements**.
 
    	![][2]
 
@@ -36,11 +52,11 @@ Pour effectuer ce didacticiel, vous devrez disposer des éléments suivants :
 
    	![][3]
 
-5. Cliquez sur l'onglet**Concentrateurs d'événements** en haut de la page, puis cliquez sur le concentrateur d'événements que vous venez de créer.
+5. Cliquez sur l'onglet **Concentrateurs d'événements** en haut de la page, puis cliquez sur le concentrateur d'événements que vous venez de créer.
 
    	![][4]
 
-6. Cliquez sur l'onglet **Configurer** en haut de la page, ajoutez une règle nommée **SendRule** avec les droits *envoi*, ajoutez une autre règle nommée **ReceiveRule** avec les droits *gestion, envoi, écoute*, puis cliquez sur **Enregistrer**.
+6. Cliquez sur l'onglet **Configurer**en haut de la page, ajoutez une règle appelée **SendRule** avec des droits *Send*, ajoutez une autre règle appelée **ReceiveRule** avec des droits *Manage, Send, Listen*, puis cliquez sur **Enregistrer**.
 
    	![][5]
 
@@ -48,16 +64,16 @@ Pour effectuer ce didacticiel, vous devrez disposer des éléments suivants :
 
    	![][6b]
 
-8. Cliquez sur l'onglet **Tableau de bord** en haut de la page, puis cliquez sur **Informations de connexion**. Notez les deux chaînes de connexion.
+8. Cliquez sur l'onglet **Tableau de bord** en haut de la page, puis sur **Informations de connexion**. Notez les deux chaînes de connexion.
 
    	![][6]
 
 Votre concentrateur d'événements est désormais créé et vous disposez des chaînes de connexion dont vous avez besoin pour envoyer et recevoir des événements.
 
-[WACOM.INCLUDE [service-bus-event-hubs-get-started-send-c](../includes/service-bus-event-hubs-get-started-send-c.md)]
+[AZURE.INCLUDE [service-bus-event-hubs-get-started-send-c](../includes/service-bus-event-hubs-get-started-send-c.md)]
 
 
-[WACOM.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
+[AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
 ## Exécution des applications
 
@@ -86,5 +102,6 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 <!-- Links -->
 [Portail de gestion Azure]: https://manage.windowsazure.com/
-[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Vue d'ensemble des concentrateurs d'événements]: http://msdn.microsoft.com/fr-fr/library/azure/dn836025.aspx
+[EventProcessorHost]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Vue d'ensemble des concentrateurs d'événements]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+<!--HONumber=47-->

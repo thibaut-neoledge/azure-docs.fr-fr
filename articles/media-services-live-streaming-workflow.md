@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="02/18/2015" 
 	ms.author="juliako"/>
 
 
@@ -28,9 +28,16 @@ Notez que vous pouvez intégrer Media Services à vos outils et processus exista
 Le diagramme suivant présente les principaux composants de la plate-forme Media Services impliqués dans le workflow de vidéo à la demande.
 ![Live workflow][live-overview]
 
+
+Pour plus d'informations, consultez [Vue d'ensemble de Media Services](../media-services-overview).
+
 ##Création d'un compte Media Services
 
 Utilisez le **portail de gestion Azure** pour la [Création d'un compte Azure Media Services](../media-services-create-account/).
+
+##Configuration des points de terminaison de diffusion en continue
+
+[travail en cours]
 
 ##Configuration d'un environnement de développement  
 
@@ -46,13 +53,13 @@ Choisissez **.NET** ou **API REST** pour vous connecter par programme à Azure M
 
 ##Utilisation de transcodeurs dynamiques
 
-Pour plus d'informations, consultez [Utilisation d'encodeurs dynamiques tiers avec Azure Media Services](https://msdn.microsoft.com/fr-fr/library/azure/dn783464.aspx).
+Pour plus d'informations, consultez [Utilisation d'encodeurs tiers en temps réel avec Azure Media Services](https://msdn.microsoft.com/library/azure/dn783464.aspx).
 
 ##Gestion des canaux, des programmes, des ressources
 
-Pour plus d'informations, consultez [Diffusion en continu](https://msdn.microsoft.com/fr-fr/library/azure/dn783466.aspx).
+Pour plus d'informations, consultez [Diffusion en direct](https://msdn.microsoft.com/library/azure/dn783466.aspx).
 
-##Configuration de la stratégie d'autorisation de clé de contenu 
+##Configurer la stratégie de protection de contenu et d'autorisation de clé de contenu 
 
 Configurez la stratégie d'autorisation de clé à l'aide de **.NET** ou de l'**API REST**.
 
@@ -75,9 +82,9 @@ Publiez des ressources (en créant des localisateurs) à l'aide du **portail de 
 
 Vous pouvez mettre à l'échelle **Media Services** en spécifiant le nombre d'**Unités réservées de diffusion en continu** avec lesquelles vous voulez que votre compte soit approvisionné. 
 
-Pour plus d'informations sur la mise à l'échelle des unités de diffusion en continu, consultez : [Mise à l'échelle des unités de diffusion en continu](../media-services-manage-origins#scale_streaming_endpoints).
+Pour plus d'informations sur la mise à l'échelle d'unités de diffusion en continu, consultez : [Mise à l'échelle des unités de diffusion en continu](../media-services-manage-origins#scale_streaming_endpoints).
 
 
 
 [live-overview]: ./media/media-services-overview/media-services-live-streaming-current.png
-<!--HONumber=45--> 
+<!--HONumber=47-->

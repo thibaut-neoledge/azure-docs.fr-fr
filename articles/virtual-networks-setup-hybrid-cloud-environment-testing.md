@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Configuration d'un environnement de cloud hybride à des fins de test" 
 	description="Apprenez à créer un environnement de cloud hybride pour les professionnels de l'informatique ou le test des développements." 
 	services="virtual-network" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
-#Configuration d'un environnement de cloud hybride à des fins de test
+# Configuration d'un environnement de cloud hybride à des fins de test
 
 Cette rubrique vous guide lors de la création d'un environnement de cloud hybride avec Microsoft Azure pour le test. Voici la configuration obtenue.
 
@@ -42,11 +42,11 @@ Il existe cinq phases principales de configuration de cet environnement de test 
 4.	Créer la connexion VPN de site à site
 5.	Configurer DC2. 
 
-Si vous ne disposez pas d'un abonnement Azure, vous pouvez vous inscrire pour une version d'évaluation gratuite sur [Essayer Azure](http://www.windowsazure.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez [Avantage Azure pour les abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si vous ne disposez pas d'un abonnement Azure, vous pouvez vous inscrire pour une version d'évaluation gratuite sur [Essayer Azure](http://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez [Avantage Azure pour les abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
->[AZURE.NOTE] Les machines virtuelles et les passerelles de réseau virtuel dans Azure entraînent un coût continu lorsqu'elles s'exécutent. Ce coût est facturé sur votre évaluation gratuite, votre abonnement MSDN ou votre abonnement payant. Pour réduire les coûts de l'exécution de cet environnement de test lorsque vous ne l'utilisez pas, consultez la section [Réduction des coûts continus de cet environnement](#costs) de cette rubrique pour plus d'informations.
+>[AZURE.NOTE] Les machines virtuelles et les passerelles de réseau virtuel dans Azure entraînent des frais lors de leur utilisation. Ce coût est facturé sur votre abonnement de version d'évaluation gratuite, votre abonnement MSDN ou votre abonnement payant. Afin de réduire les coûts d'exécution de cet environnement de test lorsque vous ne l'utilisez pas, consultez [Réduction des coûts récurrents de cet environnement](#costs) dans cette rubrique pour plus d'informations.
 
-##Phase 1 : configurer les ordinateurs sur le sous-réseau de réseau d'entreprise.
+## Phase 1 : configurer les ordinateurs sur le sous-réseau de réseau d'entreprise.
 
 Suivez les instructions de la section " Étapes pour configurer le sous-réseau de réseau d'entreprise " du [Guide de laboratoire de test : configuration de base pour Windows Server 2012 R2](http://www.microsoft.com/download/details.aspx?id=39638) pour configurer les ordinateurs DC1, APP1 et CLIENT1 sur un sous-réseau nommé Corpnet. **Ce sous-réseau doit être isolé de votre réseau d'entreprise, car il est connecté directement à Internet via l'ordinateur RRAS1.** 
 
@@ -57,11 +57,11 @@ Ensuite, connectez-vous à DC1 avec les informations d'identification CORP\User1
 	New-ADReplicationSubnet -Name "10.0.0.0/8" -Site "TestLab"
 	New-ADReplicationSubnet -Name "192.168.0.0/16" -Site "TestVNET
 
-Il s'agit de votre configuration actuelle.
+Ceci est votre configuration actuelle.
 
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_1.png)
  
-##Phase 2 : configurer RRAS1
+## Phase 2 : configurer RRAS1
 
 RRAS1 fournit le routage du trafic et les services de périphérique VPN entre les ordinateurs sur le sous-réseau de réseau d'entreprise et le réseau virtuel TestVNET. RRAS1 doit avoir deux cartes réseau installées.
 
@@ -97,11 +97,11 @@ Utilisez les commandes suivantes à partir d'une invite de commandes Windows Pow
 
 Pour la dernière commande, vérifiez qu'il y a quatre réponses à partir de l'adresse IP 10.0.0.1.
 
-Il s'agit de votre configuration actuelle.
+Ceci est votre configuration actuelle.
 
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_2.png)
 
-#Phase 3 : créer le réseau virtuel Azure intersite
+# Phase 3 : créer le réseau virtuel Azure intersite
 
 Tout d'abord, ouvrez une session sur le [portail de gestion Azure](https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/All/dashboard) avec les informations d'identification de l'abonnement Azure et créez un réseau virtuel nommé TestVNET.
 
@@ -126,7 +126,7 @@ Tout d'abord, ouvrez une session sur le [portail de gestion Azure](https://manag
 
 Ensuite, suivez les instructions de la page [Installation et configuration d'Azure PowerShell](../install-configure-powershell/) pour installer Azure PowerShell sur votre ordinateur local.
 
-Ensuite, créez un nouveau service cloud pour le réseau virtuel TestVNET. Vous devez choisir un nom unique. Par exemple, vous pouvez le nommer TestVNET-*UniqueSequence* , dans lequel *UniqueSequence* est l'abréviation de votre organisation. Par exemple, si votre organisation est nommée Tailspin Toys, vous pouvez nommer le service cloud TestVNET-Tailspin.
+Ensuite, créez un service cloud pour le réseau virtuel TestVNET. Vous devez choisir un nom unique. Par exemple, vous pouvez le nommer TestVNET-*UniqueSequence*, dans lequel *UniqueSequence* est l'abréviation de votre organisation. Par exemple, si votre organisation est nommée Tailspin Toys, vous pouvez nommer le service cloud TestVNET-Tailspin.
 
 Vous pouvez tester l'unicité du nom avec la commande Azure PowerShell suivante sur votre ordinateur local.
 
@@ -145,19 +145,19 @@ Si cette commande renvoie " False ", le nom proposé est unique. Créez et défi
 	New-AzureStorageAccount -StorageAccountName <Unique storage account name> -Location "<Same location name as your virtual network>"
 	Set-AzureStorageAccount -StorageAccountName <Unique storage account name>
 
-Il s'agit de votre configuration actuelle.
+Ceci est votre configuration actuelle.
 
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_3.png)
 
  
-#Phase 4 : créer la connexion VPN de site à site
+# Phase 4 : créer la connexion VPN de site à site
 
 Commencez par créer une passerelle de réseau virtuel.
 
 1.	Dans le portail de gestion Azure sur votre ordinateur local, cliquez sur **Réseaux** dans le volet gauche, puis vérifiez que la colonne **État** pour TestVNET est définie sur **Créé**.
 2.	Cliquez sur **TestVNET**. Dans la page Tableau de bord, vous devez voir un état **Passerelle non créée**.
-3.	Dans la barre des tâches, cliquez sur **Créer une passerelle**, puis sur **Routage dynamique**. Cliquez sur **Oui** lorsque vous y êtes invité. Attendez que la passerelle soit terminée et que son état devienne **Connexion en cours**. Cette opération peut prendre quelques minutes.
-4.	Sur la page Tableau de bord, notez l'**Adresse IP de la passerelle**. Il s'agit de l'adresse IP publique de la passerelle VPN Azure pour le réseau virtuel TestVNET. Vous avez besoin de cette adresse IP pour configurer RRAS1.
+3.	Dans la barre des tâches, cliquez sur **Créer une passerelle**, puis sur **Routage dynamique**. Cliquez sur **Oui** lorsque vous y êtes invité. Attendez que la passerelle soit établie et que son état passe à **Connexion en cours**. Cette opération peut prendre quelques minutes.
+4.	Dans la page Tableau de bord, notez l'**Adresse IP de la passerelle**. Il s'agit de l'adresse IP publique de la passerelle VPN Azure pour le réseau virtuel TestVNET. Vous avez besoin de cette adresse IP pour configurer RRAS1.
 5.	Dans la barre des tâches, cliquez sur **Gérer la clé**, puis cliquez sur l'icône de copie en regard de la clé pour la copier dans le Presse-papiers. Collez cette clé dans un document que vous enregistrez. Vous avez besoin de cette valeur de clé pour configurer RRAS1. 
 
 Ensuite, configurez RRAS1 avec le service Routage et accès distant en tant que périphérique VPN pour le sous-réseau Corpnet. Connectez-vous à RRAS1 en tant qu'administrateur local et exécutez les commandes suivantes à partir d'une invite de commandes Windows PowerShell.
@@ -207,22 +207,22 @@ Sur CLIENT1, exécutez cette commande à partir d'une invite de commandes Window
 
 	ipconfig /renew
 
-Il s'agit de votre configuration actuelle.
+Ceci est votre configuration actuelle.
  
 
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_4.png)
 
 
-#Phase 5 : configurer DC2
+# Phase 5 : Configuration de DC2
 
 Commencez par créer une machine virtuelle Azure pour DC2 avec les commandes suivantes à partir de l'invite de commandes Azure PowerShell sur votre ordinateur local.
 
 	$ServiceName="<Your cloud service name from Phase 3>"
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DC2 -InstanceSize Medium -ImageName $image
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW	
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.0.4
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles -LUN 0 -HostCaching None
@@ -234,7 +234,7 @@ Ensuite, connectez-vous à la machine virtuelle DC2.
 1.	Dans le volet gauche du portail de gestion Azure, cliquez sur **Machines virtuelles**, puis cliquez sur **En cours d'exécution** dans la colonne **État** pour DC2.
 2.	Dans la barre des tâches, cliquez sur **Se connecter**. 
 3.	Lorsque vous êtes invité à ouvrir DC2.rdp, cliquez sur **Ouvrir**.
-4.	Lorsqu'une zone de message de connexion Bureau à distance s'ouvre, cliquez sur **Se connecter**.
+4.	Lorsque le message Connexion Bureau à distance s'affiche, cliquez sur **Connecter**.
 5.	À l'invite vous demandant des informations d'identification, utilisez ce qui suit :
 	- Nom : **DC2\\**[Nom du compte de l'administrateur local]
 	- Password: [Mot de passe du compte de l'administrateur local]
@@ -251,16 +251,16 @@ Ensuite, ajoutez le disque de données supplémentaire en tant que nouveau volum
 
 1.	Dans le volet gauche du Gestionnaire de serveur, cliquez sur **Service de fichiers et de stockage**, puis cliquez sur **Disques**.
 2.	Dans le volet de contenu, dans le groupe **Disques**, cliquez sur **disque 2** (avec **Partition** définie sur **Inconnue**).
-3.	Cliquez sur **Tâches**, puis cliquez sur **Nouveau volume**.
+3.	Cliquez sur **Tâches**, puis sur **Nouveau volume**.
 4.	Dans la page Avant de commencer de l'Assistant Nouveau volume, cliquez sur **Suivant**.
-5.	Sur la page Sélectionner le serveur et le disque, cliquez sur **Disque 2**, puis sur **Suivant**. Lorsque vous y êtes invité, cliquez sur **OK**.
-6.	Sur la page Spécifier la taille du volume, cliquez sur **Suivant**.
-7.	Sur la page Affecter à la lettre d'un lecteur ou à un dossier, cliquez sur **Suivant**.
-8.	Sur la page Sélectionner les paramètres du système de fichiers, cliquez sur **Suivant**.
-9.	Sur la page Confirmer les sélections, cliquez sur **Créer**.
+5.	Dans la page Sélectionner le serveur et le disque, cliquez sur **Disque 2**, puis sur **Suivant**. À l'invite, cliquez sur **OK**.
+6.	Dans la page Spécifier la taille du volume, cliquez sur **Suivant**.
+7.	Dans la page Affecter à la lettre d'un lecteur ou à un dossier page, cliquez sur **Suivant**.
+8.	Dans la page Sélectionner les paramètres du système de fichiers, cliquez sur **Suivant**.
+9.	Dans la page Confirmer les sélections, cliquez sur **Créer**.
 10.	Lorsque vous avez terminé, cliquez sur **Fermer**.
 
-Ensuite, configurez DC2 comme un contrôleur de domaine répliqué pour le domaine corp.contoso.com. Exécutez les commandes suivantes à partir de l'invite de commandes Windows PowerShell sur DC2 :
+Ensuite, configurez DC2 comme contrôleur de domaine réplica pour le domaine corp.contoso.com. Exécutez ces commandes dans l'invite de commandes Windows PowerShell sur DC2.
 
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSDomainController -Credential (Get-Credential CORP\User1) -DomainName "corp.contoso.com" -InstallDns:$true -DatabasePath "F:\NTDS" -LogPath "F:\Logs" -SysvolPath "F:\SYSVOL"
@@ -272,41 +272,43 @@ Maintenant que le réseau virtuel TestVNET possède son propre serveur DNS (DC2)
 1.	Dans le volet gauche du portail de gestion Azure, cliquez sur **Réseaux**, puis sur **TestVNET**.
 2.	Cliquez sur **Configurer**.
 3.	Dans **Serveurs DNS**, supprimez l'entrée **10.0.0.1**.
-4.	Dans **Serveurs DNS**, ajoutez une entrée avec **DC2** comme nom et **192.168.0.4** comme adresse IP. 
+4.	Dans **Serveurs DNS**, ajoutez une entrée avec le nom **DC2** et l'adresse IP **192.168.0.4**. 
 5.	Dans la barre de commandes de la partie inférieure, cliquez sur **Enregistrer**.
 6.	Dans le volet gauche du portail de gestion Azure, cliquez sur **Machines virtuelles**, puis cliquez sur la colonne **État** située en regard de DC2.
 7.	Dans la barre de commandes, cliquez sur **Redémarrer**. Attendez que DC2 redémarre.
 
 
-Il s'agit de votre configuration actuelle.
+Ceci est votre configuration actuelle.
 
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_5.png)
 
  
 Votre environnement de cloud hybride est maintenant prêt à être testé.
 
-##Ressources supplémentaires
+## Ressources supplémentaires
 
-[Configuration d'une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](./virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Configuration d'une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
-[Configuration d'une application métier web dans un cloud hybride à des fins de test](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+[Configuration d'une application métier web dans un cloud hybride pour le test](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 
 [Configuration de la synchronisation d'annuaires Office 365 (DirSync) dans un cloud hybride pour le test](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
 
-##Réduction des coûts de cet environnement
+[Configuration d'une simulation d'environnement de cloud hybride à des fins de test](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
 
-Pour réduire les coûts d'exécution des machines virtuelles dans cet environnement, effectuez vos tests et démonstrations requis aussi rapidement que possible, puis supprimez-les ou arrêtez les machines virtuelles lorsque vous ne les utilisez pas. Par exemple, vous pouvez utiliser Azure Automation et un runbook pour arrêter automatiquement les machines virtuelles du réseau virtuel Test_VNET à la fin de chaque journée. Pour plus d'informations, consultez la page [Prise en main d'Azure Automation](../automation-create-runbook-from-samples/). 
+## Réduction des coûts récurrents de cet environnement
+
+Afin de réduire les coûts d'exécution des machines virtuelles dans cet environnement, effectuez les tests et démonstrations nécessaires aussi rapidement que possible et supprimez ou arrêtez les machines virtuelles lorsque vous ne les utilisez pas. Par exemple, vous pouvez utiliser Azure Automation et un runbook pour arrêter automatiquement les machines virtuelles du réseau virtuel Test_VNET à la fin de chaque journée. Pour plus d'informations, consultez la page [Prise en main d'Azure Automation](../automation-create-runbook-from-samples/). 
 
 La passerelle VPN Azure est implémentée comme un ensemble de deux machines virtuelles qui entraînent un coût continu. Pour plus d'informations, consultez la page [Tarification - Réseau virtuel](http://azure.microsoft.com/pricing/details/virtual-network/). Pour réduire les coûts de la passerelle VPN, créez l'environnement de test et exécutez vos tests et démonstrations requis aussi rapidement que possible ou supprimez la passerelle en procédant comme suit. 
 
 1.	À partir du portail de gestion Azure sur votre ordinateur local, cliquez sur **Réseaux** dans le volet gauche, puis sur **TestVNET**, et enfin sur **Tableau de bord**.
-2.	Dans la barre des tâches, cliquez sur **Supprimer une passerelle**. Cliquez sur **Oui** lorsque vous y êtes invité. Attendez que la passerelle soit supprimée et que son état devienne **La passerelle n'a pas été créée**.
+2.	Dans la barre des tâches, cliquez sur **Supprimer une passerelle**. Cliquez sur **Oui** lorsque vous y êtes invité. Attendez que la passerelle soit supprimée et que son état passe à **La passerelle n'a pas été créée**.
 
 Si vous supprimez la passerelle et que vous souhaitez restaurer l'environnement de test, vous devez d'abord créer une passerelle.
 
 1.	À partir du portail de gestion Azure sur votre ordinateur local, cliquez sur **Réseaux** dans le volet gauche, puis cliquez sur **TestVNET**. Sur la page Tableau de bord, vous devez voir un état **La passerelle n'a pas été créée**.
-2.	Dans la barre des tâches, cliquez sur **Créer une passerelle**, puis sur **Routage dynamique**. Cliquez sur **Oui** lorsque vous y êtes invité. Attendez que la passerelle soit terminée et que son état devienne **Connexion en cours**. Cette opération peut prendre quelques minutes.
-3.	Sur la page Tableau de bord, notez l'**Adresse IP de la passerelle**. Il s'agit de la nouvelle adresse IP publique de la passerelle VPN Azure pour le réseau virtuel TestVNET. Vous avez besoin de cette adresse IP pour reconfigurer RRAS1.
+2.	Dans la barre des tâches, cliquez sur **Créer une passerelle**, puis sur **Routage dynamique**. Cliquez sur **Oui** lorsque vous y êtes invité. Attendez que la passerelle soit établie et que son état passe à **Connexion en cours**. Cette opération peut prendre quelques minutes.
+3.	Dans la page Tableau de bord, notez l'**Adresse IP de la passerelle**. Il s'agit de la nouvelle adresse IP publique de la passerelle VPN Azure pour le réseau virtuel TestVNET. Vous avez besoin de cette adresse IP pour reconfigurer RRAS1.
 4.	Dans la barre des tâches, cliquez sur **Gérer la clé**, puis cliquez sur l'icône de copie en regard de la clé pour la copier dans le Presse-papiers. Collez cette valeur de clé dans un document et enregistrez ce dernier. Vous avez besoin de cette valeur de clé pour reconfigurer RRAS1. 
 
 Ensuite, connectez-vous à RRAS1 en tant qu'administrateur local et exécutez les commandes suivantes à partir d'une invite de commandes Windows PowerShell de niveau administrateur afin de reconfigurer RRAS1 avec la nouvelle adresse IP publique et la clé prépartagée.
@@ -316,4 +318,4 @@ Ensuite, connectez-vous à RRAS1 en tant qu'administrateur local et exécutez le
 
 Ensuite, accédez au portail de gestion Azure sur votre ordinateur local et attendez que le réseau virtuel TestVNET affiche un état connecté.
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

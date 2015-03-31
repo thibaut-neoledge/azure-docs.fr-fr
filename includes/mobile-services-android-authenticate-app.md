@@ -1,5 +1,5 @@
-﻿
-1. Dans l'Explorateur de package d'Eclipse, ouvrez le fichier ToDoActivity.java, puis ajoutez les instructions import suivantes.
+
+1. Dans l'**Explorateur de projets** dans Android Studio, ouvrez le fichier ToDoActivity.java, puis ajoutez les instructions import suivantes.
 
 		import java.util.concurrent.ExecutionException;
 		import java.util.concurrent.atomic.AtomicBoolean;
@@ -13,25 +13,25 @@
 
 2. Ajoutez la méthode suivante à la classe **ToDoActivity** : 
 	
-	private void authenticate() {
-	    // Login using the Google provider.
-	    
-		ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
-
-    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
-    		@Override
-    		public void onFailure(Throwable exc) {
-    			createAndShowDialog((Exception) exc, "Error");
-    		}   		
-    		@Override
-    		public void onSuccess(MobileServiceUser user) {
-    			createAndShowDialog(String.format(
-                        "You are now logged in - %1$2s",
-                        user.getUserId()), "Success");
-    			createTable();	
-    		}
-    	});   	
-	}
+		private void authenticate() {
+		    // Login using the Google provider.
+		    
+			ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
+	
+	    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
+	    		@Override
+	    		public void onFailure(Throwable exc) {
+	    			createAndShowDialog((Exception) exc, "Error");
+	    		}   		
+	    		@Override
+	    		public void onSuccess(MobileServiceUser user) {
+	    			createAndShowDialog(String.format(
+	                        "You are now logged in - %1$2s",
+	                        user.getUserId()), "Success");
+	    			createTable();	
+	    		}
+	    	});   	
+		}
 
 
 	Cela crée une méthode pour gérer le processus d'authentification. L'utilisateur est authentifié à l'aide d'un nom d'utilisateur Google. Une boîte de dialogue affiche l'identifiant de l'utilisateur authentifié. Vous ne pouvez pas poursuivre sans authentification positive.
@@ -44,7 +44,7 @@
 
 	Cet appel lance le processus d'authentification.
 
-4. Déplacez le code restant après `authenticate();`dans la méthode **onCreate** vers une nouvelle méthode **createTable**, qui ressemble à ceci :
+4. Déplacez le code restant après `authenticate();` dans la méthode **onCreate** vers une nouvelle méthode **createTable** qui ressemble à ceci :
 
 		private void createTable() {
 	
@@ -62,7 +62,7 @@
 			refreshItemsFromTable();
 		}
 
-9. À partir du menu **Exécuter**, cliquez sur **Exécuter** pour démarrer l'application et vous connecter avec le fournisseur d'identité choisi. 
+9. À partir du menu **Exécuter**, cliquez sur **Exécuter l'application** pour démarrer l'application et vous connecter avec le fournisseur d'identité choisi. 
 
    	Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
-\<!--HONumber=42-->
+<!--HONumber=47-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Planification de tâches de serveur principal avec le planificateur - Mobile Services" 
 	description="Azure Mobile Services Scheduler permet de planifier des tâches pour votre application mobile." 
 	services="mobile-services" 
@@ -10,17 +10,17 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/26/2014" 
+	ms.date="02/26/2015" 
 	ms.author="glenga"/>
 
 # Planification des travaux récurrents dans Mobile Services 
 
-<div class="dev-center-tutorial-subselector">
-	<a href="/fr-fr/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/" title=".NET backend">.NET backend</a> | <a href="/fr-fr/documentation/articles/mobile-services-schedule-recurring-tasks/"  title="JavaScript backend" class="current">JavaScript backend</a>
-</div>
+> [AZURE.SELECTOR-LIST (Plateforme | Principal)]
+- [(Toutes | .NET)](/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/)
+- [(Toutes | Javascript)](/documentation/articles/mobile-services-schedule-recurring-tasks/)
  
 Cette rubrique explique comment utiliser la fonctionnalité de planification de travaux dans le portail de gestion pour définir le code de script serveur exécuté selon une planification que vous définissez. Dans ce cas, le script effectue régulièrement une vérification auprès d'un service distant, Twitter en l'occurrence, et stocke les résultats dans une nouvelle table. D'autres tâches périodiques peuvent être planifiées, notamment les tâches suivantes :
 
@@ -34,47 +34,31 @@ Ce didacticiel explique comment utiliser la planification des travaux pour crée
 + [Création de la nouvelle table Updates]
 + [Création d'une nouvelle tâche planifiée]
 
-##<a name="get-oauth-credentials"></a>Inscription pour l'accès aux API de Twitter v1.1 et stockage des informations d'identification
+## <a name="get-oauth-credentials"></a>Inscription pour l'accès aux API de Twitter v1.1 et stockage des informations d'identification
 
 [AZURE.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
-##<a name="create-table"></a>Création de la nouvelle table Updates
+## <a name="create-table"></a>Création de la nouvelle table Updates
 
 Ensuite, vous devez créer une nouvelle table pour y stocker les tweets.
 
 2. Dans le portail de gestion, cliquez sur l'onglet **Données** de votre service mobile, puis cliquez sur **+Créer**.
 
-   	![][2]
-
-   	La boîte de dialogue **Créer une table** s'affiche.
-
 3. Dans **Table name**, tapez _Updates_, puis cliquez sur le bouton de vérification.
 
-   	![][3]
-
-  	Une nouvelle table de stockage **Updates** est créée. 
-
-##<a name="add-job"></a>Création d'une nouvelle tâche planifiée  
+## <a name="add-job"></a>Création d'une nouvelle tâche planifiée  
 
 Vous pouvez maintenant créer le travail planifié qui accède à Twitter et stocke les données des tweets dans la nouvelle table Updates.
 
 2. Cliquez sur l'onglet **Scheduler**, puis sur **+Créer**. 
 
-   	![][4]
-
-    >[AZURE.NOTE]Lorsque vous exécutez votre service mobile en mode <em>Gratuit</em>, vous ne pouvez exécuter qu'une seule tâche planifiée à la fois. Aux niveaux payants, vous pouvez exécuter jusqu'à dix travaux planifiés à la fois.
+    >[AZURE.NOTE]Lorsque vous exécutez votre service mobile au niveau <em>Gratuit</em> vous ne pouvez exécuter qu'un travail planifié à la fois. Aux niveaux payants, vous pouvez exécuter jusqu'à dix travaux planifiés à la fois.
 
 3. Dans la boîte de dialogue du planificateur, entrez _getUpdates_ pour **Nom du travail**, définissez l'intervalle et les unités de planification, puis cliquez sur le bouton de vérification. 
-   
-   	![][5]
 
    	Cette commande crée une tâche nommée **getUpdates**. 
 
-4. Cliquez sur la tâche que vous venez de créer, puis sur l'onglet **Script**.
-
-   	![][6] 
-
-5. Remplacez la fonction d'espace réservé **getUpdates** par le code suivant :
+4. Cliquez sur la tâche que vous venez de créer, cliquez sur l'onglet **Script** et remplacez la fonction de l'espace réservé **getUpdates** par le code suivant :
 
 		var updatesTable = tables.getTable('Updates');
 		var request = require('request');
@@ -152,21 +136,15 @@ Vous pouvez maintenant créer le travail planifié qui accède à Twitter et sto
 
    	Ce script appelle l'API de requête Twitter en utilisant les informations d'identification stockées pour demander les tweets récents qui contiennent la balise de hachage `#mobileservices`. Les tweets en double et les réponses sont supprimés des résultats avant que ces derniers ne soient stockés dans la table.
 
-    >[AZURE.NOTE]Cet exemple part du principe que quelques lignes seulement sont insérées dans la table pendant chaque exécution planifiée. Si vous utilisez le mode Gratuit du service et qu'un grand nombre de lignes sont insérées dans une boucle, vous risquez de vous trouver à court de connexions. Dans ce cas, vous devez effectuer les insertions par lots. Pour plus d'informations, consultez la page <a href="/fr-fr/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts"> Insertions en bloc</a>.
+    >[AZURE.NOTE]Cet exemple part du principe que quelques lignes seulement sont insérées dans la table pendant chaque exécution planifiée. Si vous utilisez le mode Gratuit du service et qu'un grand nombre de lignes sont insérées dans une boucle, vous risquez de vous trouver à court de connexions. Dans ce cas, vous devez effectuer les insertions par lots. Pour plus d'informations, consultez la page <a href="/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts"> Insertions en bloc</a>.
 
 6. Cliquez sur **Exécuter une fois** pour tester le script. 
-
-  	![][7]
 
    	Le travail est exécuté et enregistré, tout en restant désactivé dans le planificateur.
 
 7. Cliquez sur le bouton Précédent, sur **Données**, sur la table **Updates**, sur **Parcourir** et vérifiez que les données Twitter ont été insérées dans la table.
 
-   	![][8]
-
 8. Cliquez sur le bouton Précédent, sur **Scheduler**, sélectionnez **getUpdates**, puis cliquez sur **Activer**.
-
-   	![][9]
 
    	Cela permet d'exécuter le travail en fonction de la planification spécifiée, dans le cas présent, toutes les heures.
 
@@ -175,7 +153,7 @@ Félicitations, vous avez créé une tâche planifiée dans votre service mobile
 ## <a name="nextsteps"> </a>Étapes suivantes
 
 * [Référence de script serveur Mobile Services]
-  <br/>En savoir plus sur l'inscription et l'utilisation des scripts serveur.
+  <br/>En savoir plus sur l'enregistrement et l'utilisation des scripts serveur.
 
 <!-- Anchors. -->
 [Inscription pour l'accès à Twitter et stockage des informations d'identification]: #get-oauth-credentials
@@ -199,11 +177,10 @@ Félicitations, vous avez créé une tâche planifiée dans votre service mobile
 
 <!-- URLs. -->
 [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=262293
-[WindowsAzure.com]: http://azure.microsoft.com/
+[WindowsAzure.com]: http://www.windowsazure.com/
 [Portail de gestion Azure]: https://manage.windowsazure.com/
-[Inscription des applications pour l'authentification Twitter avec Mobile Services]: /fr-fr/develop/mobile/how-to-guides/register-for-twitter-authentication
+[Inscription des applications pour l'authentification Twitter avec Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Développeurs Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Paramètres de l'application]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

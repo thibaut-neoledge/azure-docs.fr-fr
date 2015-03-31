@@ -24,19 +24,19 @@ Le tableau de bord Storm et les fonctionnalités Storm des outils HDInsight s'ap
 
 ##Conditions préalables
 
-* **Apache Storm sur HDInsight** : consultez <a href="../hdinsight-storm-getting-started/" target="_blank">Prise en main d'Apache Storm sur HDInsight</a> pour plus d'informations sur la création d'un cluster
+* **Apache Storm sur HDInsight** : consultez <a href="../hdinsight-storm-getting-started/" target="_blank">Prise en main d'Apache Storm sur HDInsight</a> pour connaître les étapes de création d'un cluster
 
 * Pour le **tableau de bord Storm** : un navigateur Web moderne qui prend en charge HTML5
 
-* Pour **Visual Studio** : le Kit de développement logiciel (SDK) Azure 2.5.1 ou une version ultérieure et les outils HDInsight pour Visual Studio. Consultez <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">Prise en main des outils HDInsight pour Visual Studio</a> pour installer et configurer les outils HDInsight pour Visual Studio.
+* Pour **Visual Studio** : le Kit de développement logiciel (SDK) Azure 2.5.1 ou une version ultérieure et les outils HDInsight pour Visual Studio. Consultez <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">Prise en main de HDInsight Tools pour Visual Studio</a> pour installer et configurer les outils HDInsight pour Visual Studio.
 
 	L'une des versions suivantes de Visual Studio :
 
-	* Visual Studio 2012 avec <a href="http://www.microsoft.com/fr-fr/download/details.aspx?id=39305" target="_blank">la mise à jour 4</a>
+	* Visual Studio 2012 avec <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">Update 4</a>
 
-	* Visual Studio 2013 avec <a href="http://www.microsoft.com/fr-fr/download/details.aspx?id=44921" target="_blank">la mise à jour 4</a> ou <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
+	* Visual Studio 2013 avec <a href="http://www.microsoft.com/download/details.aspx?id=44921" target="_blank">Update 4</a> ou <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
 
-	* <a href="http://visualstudio.com/fr-fr/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
+	* <a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
 
 	> [AZURE.NOTE] Les outils HDInsight pour Visual Studio n'acceptent actuellement que Storm sur les versions de cluster HDInsight 3.2.
 
@@ -55,6 +55,8 @@ Dans la partie supérieure du tableau de bord Storm, sélectionnez **Soumettre l
 Dans le tableau de bord Storm, sélectionnez le lien **Interface utilisateur de Storm**. Ce lien affiche les informations sur le cluster, ainsi que les topologies en cours d'exécution.
 
 ![the storm ui][storm-dashboard-ui] 
+
+> [AZURE.NOTE] Avec certaines versions d'Internet Explorer, vous constaterez peut-être que l'interface utilisateur Storm n'est pas actualisée après votre première visite. Par exemple, elle n'affiche pas les nouvelles topologies que vous avez soumises ou indique qu'une topologie est active alors que vous l'avez précédemment arrêtée. Microsoft est conscient de ce problème et recherche actuellement une solution.
 
 ####Page principale
 
@@ -82,7 +84,7 @@ La sélection d'un lien à partir de la section **Résumé de la topologie** aff
 	
 	* **Rééquilibrer** : ajuste le parallélisme de la topologie. Il convient de rééquilibrer les topologies en cours d'exécution après avoir modifié le nombre de nœuds dans le cluster. Cela permet à la topologie d'ajuster le parallélisme pour compenser l'augmentation/la réduction du nombre de nœuds du cluster
 	
-		Pour plus d'informations, consultez la rubrique <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Comprendre le parallélisme d'une topologie Storm</a>
+		Pour plus d'informations, consultez <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Présentation du parallélisme d'une topologie Storm</a>
 	
 	* **Supprimer** : met fin à une topologie Storm après expiration du délai spécifié
 
@@ -116,7 +118,7 @@ Les outils HDInsight permettent de soumettre des topologies C# ou hybrides à vo
 
 Utilisez les étapes suivantes pour déployer un exemple sur votre Storm sur le cluster HDInsight, puis afficher et gérer la topologie.
 
-1. Si vous n'avez pas déjà installé la dernière version des outils HDInsight pour Visual Studio, consultez <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">Prise en main des outils HDInsight pour Visual Studio</a>.
+1. Si vous n'avez pas encore installé la dernière version des outils HDInsight pour Visual Studio, consultez <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">Prise en main de HDInsight Tools pour Visual Studio</a>.
 
 2. Ouvrez Visual Studio, sélectionnez **Fichier**, **Nouveau**, puis **Projet**.
 
@@ -138,7 +140,7 @@ Utilisez les étapes suivantes pour déployer un exemple sur votre Storm sur le 
 
 	Utilisez les liens pour les spouts et les bolts pour afficher des informations sur ces composants. Une nouvelle fenêtre s'ouvre pour chaque élément sélectionné.
 
-4. À partir de l'affichage **Résumé de la topologie**, sélectionnez **Supprimer** pour arrêter la topologie.
+4. À partir de l'affichage **Récapitulatif de la topologie**, sélectionnez **Supprimer** pour arrêter la topologie.
 
 	> [AZURE.NOTE] Les topologies Storm poursuivent leur exécution jusqu'à ce qu'elles ou le cluster soient supprimés.
 
@@ -164,11 +166,11 @@ Les informations renvoyées par l'API REST sont uniquement utilisables au sein d
 
 ##Étapes suivantes
 
-Maintenant que vous avez appris à déployer et surveiller des topologies à l'aide du tableau de bord Storm, découvrez le [Développement de topologies C# à l'aide des outils HDInsight pour Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/) ou le [Développement de topologies basées sur Java à l'aide de Maven](../hdinsight-storm-develop-java-topology/).
+Maintenant que vous avez appris à déployer et surveiller des topologies à l'aide du tableau de bord Storm, découvrez comment [développer des topologies C# à l'aide des outils HDInsight pour Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/) ou comment [développer des topologies basées sur Java à l'aide de Maven](../hdinsight-storm-develop-java-topology/).
 
 
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor/dashboard-link.png
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor/storm-ui-summary.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

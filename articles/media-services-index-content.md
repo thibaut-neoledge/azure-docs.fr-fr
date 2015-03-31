@@ -19,19 +19,28 @@
 
 # Indexation de fichiers multimédias avec Azure Media Indexer
 
-Cet article fait partie de la série [workflow à la demande de vidéo Media Services](../media-services-video-on-demand-workflow). 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) . 
 
 Azure Media Indexer permet de rendre le contenu de vos fichiers multimédias consultable et de générer une transcription en texte intégral de sous-titrages et de mots-clés. Vous pouvez traiter un fichier multimédia ou plusieurs dans un lot. Vous pouvez également indexer les fichiers accessibles sur Internet en spécifiant l'URL des fichiers dans le fichier manifeste.
 
 >[AZURE.NOTE] Lors de l'indexation de contenu, veillez à utiliser des fichiers multimédias avec des mots clairs (sans musique de fond, bruit, effets ou sifflement du microphone). Voici quelques exemples de contenu approprié : des réunions, des conférences ou des présentations enregistrées. Le contenu suivant peut ne pas convenir à l'indexation : des films, des émissions de télévision, des fichiers avec du son et des effets sonores mélangés, du contenu mal enregistré avec un bruit de fond (sifflement).
->
-Une tâche d'indexation génère des fichiers de sortie SAMI et TTL (entre autres).  SAMI et TTML incluent une balise appelée Recognizability, qui note une tâche d'indexation en fonction de la possibilité de reconnaître les mots de la vidéo source.  Vous pouvez utiliser la valeur de Recognizability pour vérifier l'utilité des fichiers de sortie. Un faible score sous-entend de mauvais résultats d'indexation en raison de la qualité audio.
+
+
+Un travail d'indexation génère quatre sorties pour chaque fichier d'indexation :
+
+- Un fichier de sous-titres codés au format SAMI.
+- Un fichier de sous-titres codés au format TTML (Timed Text Markup Language).
+
+	SAMI et TTML incluent une balise appelée Recognizability, qui note une tâche d'indexation en fonction de la possibilité de reconnaître les mots de la vidéo source.  Vous pouvez utiliser la valeur de Recognizability pour vérifier l'utilité des fichiers de sortie. Un faible score sous-entend de mauvais résultats d'indexation en raison de la qualité audio.
+- Un fichier de mot-clé(XML).
+- Un fichier blob d'indexation audio (AIB) à utiliser avec SQL Server.
+	
+	Pour plus d'informations, consultez [Utilisation de fichiers AIB avec Azure Media Indexer et SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
+
 
 Cette rubrique montre comment créer des tâches d'indexation afin d'**Indexer une ressource**, d'**Indexer plusieurs fichiers**, ainsi que les **fichiers accessibles sur Internet**.
 
-Pour connaître les langues prises en charge, consultez la section **Langues prises en charge**.
-
-Pour les dernières mises de Azure Media Indexer, consultez les [blogs Media Services](http://azure.microsoft.com/blog/topics/media-services/).
+Pour connaître les derniers développements d'Azure Media Indexer, consultez les [blogs Media Services](http://azure.microsoft.com/blog/topics/media-services/).
 
 ##Utilisation des fichiers de configuration et manifeste pour l'indexation des tâches
 
@@ -39,7 +48,7 @@ Vous pouvez définir plus de détails pour vos tâches d'indexation en utilisant
 
 Vous pouvez également traiter plusieurs fichiers multimédias à la fois à l'aide d'un fichier manifeste.
 
-Pour plus d'informations, consultez [Présélection de tâche pour Azure Media Indexer](https://msdn.microsoft.com/fr-fr/library/azure/dn783454.aspx)
+Pour plus d'informations, consultez [Présélection de tâches pour Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
 ##Indexation d'une ressource
 
@@ -57,7 +66,7 @@ Notez que si aucun fichier de configuration n'est spécifié, la ressource est i
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job");
 	
-	    // Get a reference to the Windows Azure Media Indexer.
+	    // Get a reference to the Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer",
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
@@ -148,16 +157,16 @@ Un fichier blob d'indexation audio (AIB) est un fichier binaire qui peut être r
 <br/>
 Il requiert l'installation du module complémentaire d'indexeur SQL sur un ordinateur exécutant Microsoft SQL server 2008 ou une version ultérieure. La recherche du fichier AIB à l'aide de la recherche de texte intégral de Microsoft SQL Server fournit des résultats de recherche plus précis que pour les fichiers de sous-titres générés par WAMI. Cela vient du fait que l'AIB contient des alternatives phonétiquement proches, tandis que les fichiers de sous-titres contiennent le mot avec le niveau de confiance le plus élevé pour chaque segment du fichier audio. Si la recherche de mots est très importante, il est recommandé d'utiliser AIB avec Microsoft SQL Server.
 <br/><br/>
-Pour télécharger le module complémentaire, cliquez sur <a href="http://aka.ms/indexersql">Module complémentaire SQL d'Azure Media Indexer</a>.
+Pour télécharger le composant additionnel, cliquez sur <a href="http://aka.ms/indexersql">Composant additionnel SQL Azure Media Indexer</a>.
 <br/><br/>
 Il est également possible d'utiliser d'autres moteurs de recherche comme Apache Lucene/Solr pour indexer la vidéo selon les sous-titres et les fichiers XML de mots clés, mais les résultats sont moins précis.</td></tr>
-<tr><td>NomFichierEntrée.smi<br/>NomFichierEntrée.ttml</td>
+<tr><td>InputFileName.smi<br/>InputFileName.ttml</td>
 <td>Fichiers de sous-titres aux formats SAMI et TTML.
 <br/><br/>
 Ils permettent de rendre un fichier audio et vidéo accessible aux malentendants.
 <br/><br/>
-SAMI et TTML incluent une balise appelée <b>Recognizability</b>, qui note une tâche d'indexation en fonction de la possibilité de reconnaître les mots de la vidéo source.  Vous pouvez utiliser la valeur de <b>Recognizability</b> pour vérifier l'utilité des fichiers de sortie. Un faible score sous-entend de mauvais résultats d'indexation en raison de la qualité audio.</td></tr>
-<tr><td>NomFichierEntrée.kw.xml</td>
+SAMI et TTML incluent une balise appelée <b>Recognizability</b>, qui note une tâche d'indexation en fonction de la possibilité de reconnaître les mots de la vidéo source.  Vous pouvez utiliser la valeur de <b>Recognizability</b> pour filtrer les fichiers de sortie en fonction de leur usage. Un faible score sous-entend de mauvais résultats d'indexation en raison de la qualité audio.</td></tr>
+<tr><td>InputFileName.kw.xml</td>
 <td>Fichier de mot-clé.
 <br/><br/>
 Un fichier de mot-clé est un fichier XML qui contient les mots clés extraits à partir du contenu de la reconnaissance vocale, avec les informations relatives à la fréquence et à la référence.
@@ -171,7 +180,7 @@ Si tous les fichiers multimédias d'entrée ne sont pas correctement indexés, l
 
 La méthode suivante télécharge plusieurs fichiers multimédias en tant que ressource et crée une tâche pour indexer tous ces fichiers en lot.
 
-Un fichier manifeste avec l'extension .lst est créé et téléchargé dans la ressource. Le fichier manifeste contient la liste de tous les fichiers de ressources. Pour plus d'informations, consultez [Présélection de tâche pour Azure Media Indexer](https://msdn.microsoft.com/fr-fr/library/azure/dn783454.aspx)
+Un fichier manifeste avec l'extension .lst est créé et téléchargé dans la ressource. Le fichier manifeste contient la liste de tous les fichiers de ressources. Pour plus d'informations, consultez [Présélection de tâches pour Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 	
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
@@ -189,7 +198,7 @@ Un fichier manifeste avec l'extension .lst est créé et téléchargé dans la r
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job - Batch Mode");
 	
-	    // Get a reference to the Windows Azure Media Indexer.
+	    // Get a reference to the Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer";
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
@@ -275,7 +284,7 @@ Alias : nom du fichier de sortie correspondant.
 <br/><br/>
 MediaLength : longueur du fichier multimédia d'entrée, en secondes. Elle peut être de 0 en cas d'erreur.
 <br/><br/>
-Error : indique si ce fichier multimédia a été indexé avec succès. 0 en cas de réussite, différent en cas d'échec. Reportez-vous à  <a href="#error_codes">Codes d'erreur</a> pour les références d'erreurs concrètes.
+Error : indique si ce fichier multimédia a été indexé avec succès. 0 en cas de réussite, différent en cas d'échec. Reportez-vous aux <a href="#error_codes">codes d'erreur</a> pour des erreurs concrètes.
 </td></tr>
 <tr><td>Media_1.aib </td>
 <td>Fichier #0 : fichier blob d'indexation audio.</td></tr>
@@ -298,7 +307,7 @@ Les mêmes sorties que pour des tâches réussies sont générées. Vous pouvez 
 
 ##Indexation de fichiers à partir d'Internet
 
-Les fichiers multimédias disponibles publiquement sur Internet peuvent également être indexés sans être copiés sur Azure Storage. Vous pouvez utiliser le fichier manifeste pour spécifier l'URL des fichiers multimédias. Pour plus d'informations, consultez [Présélection de tâche pour Azure Media Indexer](https://msdn.microsoft.com/fr-fr/library/azure/dn783454.aspx)
+Les fichiers multimédias disponibles publiquement sur Internet peuvent également être indexés sans être copiés sur Azure Storage. Vous pouvez utiliser le fichier manifeste pour spécifier l'URL des fichiers multimédias. Pour plus d'informations, consultez [Présélection de tâches pour Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
 Notez que les protocoles d'URL HTTP et HTTPS sont pris en charge.
 
@@ -318,7 +327,7 @@ La méthode et la configuration suivantes créent une tâche d'indexation d'un f
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job - Public URL");
 	
-	    // Get a reference to the Windows Azure Media Indexer.
+	    // Get a reference to the Azure Media Indexer.
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
 	    // Read configuration.
@@ -370,7 +379,7 @@ Pour obtenir une description des fichiers de sortie, consultez [Fichiers de sort
 
 Indexer prend en charge l'authentification de base avec le nom d'utilisateur et le mot de passe lors du téléchargement de fichiers depuis Internet via http ou https.
 
-Vous pouvez spécifier le **nom d'utilisateur** et le **mot de passe** dans la configuration de la tâche, comme décrit dans [Présélection de tâche pour Azure Media Indexer](https://msdn.microsoft.com/fr-fr/library/azure/dn783454.aspx).
+Vous pouvez spécifier **username** et **password** dans la configuration de la tâche comme décrit dans [Présélection de tâches pour Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
 ### <a id="error_codes"></a>Codes d'erreur
 
@@ -390,14 +399,18 @@ Vous pouvez spécifier le **nom d'utilisateur** et le **mot de passe** dans la c
 Le fichier multimédia est endommagé.
 <br/>ou<br/>
 Il n'y a aucun flux audio dans le fichier d'entrée.</td></tr>
-<tr><td>4000</td><td>Indexation en lot partiellement réussie</td><td>Impossible d'indexer certains des fichiers multimédias d'entrée. Pour plus d'informations, consultez la rubrique <a href="output_files">Fichiers de sortie</a>.</td></tr>
+<tr><td>4000</td><td>Indexation en lot partiellement réussie</td><td>Impossible d'indexer certains des fichiers multimédias d'entrée. Pour plus d'informations, consultez <a href="output_files">Fichiers de sortie</a>.</td></tr>
 <tr><td>autres</td><td>Erreurs internes</td><td>Veuillez contacter l'équipe du support technique.</td></tr>
 </table>
 
 
-##Langues prises en charge
+##<a id="supported_languages"></a>Langues prises en charge
 
 Actuellement, seul l'anglais est pris en charge.
+
+##Liens connexes
+
+[Utilisation de fichiers AIB avec Azure Media Indexer et SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
 <!-- Anchors. -->
 
@@ -405,4 +418,4 @@ Actuellement, seul l'anglais est pris en charge.
 
 <!-- URLs. -->
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -1,6 +1,21 @@
-﻿<properties writer="ricksal" pageTitle="Appel d'une API personnalisée à partir d'un client Android | Centre de développement mobile" description="Découvrez comment définir une API personnalisée et l'appeler depuis une application Android qui utilise Microsoft Azure Mobile Services." services="mobile-services" documentationCenter="android" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	writer="ricksal" 
+	pageTitle="Appel d'une API personnalisée à partir d'un client Android | Centre de développement mobile" 
+	description="Découvrez comment définir une API personnalisée et l'appeler depuis une application Android qui utilise Microsoft Azure Mobile Services." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/27/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="ricksal,glenga"/>
 
 # Appel d'une API personnalisée à partir du client
 
@@ -10,11 +25,7 @@ Cette rubrique montre comment appeler une API personnalisée à partir d'une app
 
 L'API personnalisée créée dans cette rubrique vous permet d'envoyer une seule demande POST qui définit l'indicateur *completed* sur `true` pour toutes les tâches (éléments todo) de la table de votre service mobile. En l'absence de cette API personnalisée, le client doit envoyer des demandes individuelles de mise à jour de l'indicateur pour chaque élément todo de la table.
 
-Vous allez ajouter cette fonctionnalité à l'application que vous avez créée avec le didacticiel [Prise en main de Mobile Services] ou [Prise en main des données]. À cet effet, vous allez exécuter la procédure suivante :
-
-1. [Définition de l'API personnalisée]
-2. [Mise à jour de l'application pour appeler l'API personnalisée]
-3. [Test de l'application] 
+Vous allez ajouter cette fonctionnalité à l'application que vous avez créée avec le didacticiel [Prise en main de Mobile Services] ou [Prise en main des données]. 
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez suivre le didacticiel [Prise en main de Mobile Services]. 
 
@@ -32,7 +43,7 @@ Maintenant que vous avez créé une API personnalisée et que vous l'avez appel�
   <br/>En savoir plus sur la création d'API personnalisées.
 
 * [Stockage de scripts serveur dans un contrôle de code source]
-  <br/> Apprenez à utiliser la fonctionnalité de contrôle de code source pour développer et publier plus facilement et de manière plus sécurisée le code de script d'API personnalisées.
+  <br/> Apprenez à utiliser la fonctionnalité de contrôle du code source pour développer et publier plus facilement et de manière plus sécurisée le code de script de l'API personnalisée.
 
 <!-- Anchors. -->
 [Définition de l'API personnalisée]: #define-custom-api
@@ -46,12 +57,11 @@ Maintenant que vous avez créé une API personnalisée et que vous l'avez appel�
 [Kit de développement logiciel (SDK) Mobile Services pour Android]: http://go.microsoft.com/fwlink/p/?LinkID=280126
 [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Tableau de bord Mes applications]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-android-get-started/
-[Prise en main des données]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
-[Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-[Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
+[Prise en main de Mobile Services]: /documentation/articles/mobile-services-dotnet-backend-android-get-started/
+[Prise en main des données]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
+[Prise en main de l'authentification]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
+[Prise en main des notifications Push]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
 
-[Stockage de scripts serveur dans un contrôle de code source]: /fr-fr/documentation/articles/mobile-services-store-scripts-source-control
+[Stockage de scripts serveur dans un contrôle de code source]: /documentation/articles/mobile-services-store-scripts-source-control
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

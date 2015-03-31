@@ -19,13 +19,13 @@
 #Procédure : Configuration de stratégies de remise de ressources
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
-Cet article fait partie des séries [workflow à la demande de vidéo Media Services](../media-services-video-on-demand-workflow) et [workflow de vidéo en flux continu Media Services](../media-services-live-streaming-workflow). 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) et [workflow de vidéo en flux continu Media Services](../media-services-live-streaming-workflow) . 
 
-L'une des étapes du workflow de remise de contenu Media Services consiste à configurer des stratégies de remise pour les ressources diffusées en continu. La stratégie de remise de ressources indique à Media Services comment vous souhaitez distribuer vos ressources : dans quel protocole de diffusion en continu votre ressource doit être empaquetée dynamiquement (par exemple, MPEG DASH, HLS, diffusion en continu lisse ou tous), si vous souhaitez chiffrer dynamiquement votre ressource ou non et comment (chiffrement commun ou d'enveloppe). 
+L'une des étapes du workflow de remise de contenu Media Services consiste à configurer les stratégies de remise pour les ressources que vous souhaitez diffuser en continu. La stratégie de remise de ressources indique à Media Services comment vous souhaitez distribuer vos ressources : dans quel protocole de diffusion en continu votre ressource doit être empaquetée dynamiquement (par exemple, MPEG DASH, HLS, diffusion en continu lisse ou tous), si vous souhaitez chiffrer dynamiquement votre ressource ou non et comment (chiffrement commun ou d'enveloppe). 
 
 Cette rubrique explique pourquoi et comment créer et configurer des stratégies de remise de ressources. 
 
->[AZURE.NOTE]Pour pouvoir utiliser l'empaquetage et le chiffrement dynamiques, vous devez vous assurer d'avoir au moins une unité d'échelle (également appelée unité de diffusion). Pour plus d'informations, consultez la page [Mise à l'échelle un service Media](../media-services-manage-origins#scale_streaming_endpoints). 
+>[AZURE.NOTE]Pour pouvoir utiliser l'empaquetage et le chiffrement dynamiques, vous devez vous assurer d'avoir au moins une unité d'échelle (également appelée unité de diffusion). Pour plus d'informations, consultez [Mise à l'échelle d'un service de média](../media-services-manage-origins#scale_streaming_endpoints). 
 >
 >De plus, votre ressource doit contenir un ensemble de MP4 à débit adaptatif ou des fichiers de diffusion en continu lisse à débit adaptatif.  
 
@@ -53,19 +53,19 @@ HDS
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
-Pour savoir comment publier un élément multimédia et générer une URL de diffusion en continu, consultez [Création d'une URL de diffusion en continu](../media-services-deliver-streaming-content).
+Pour savoir comment publier une ressource et générer une URL de diffusion en continu, consultez [Générer une URL de diffusion en continu](../media-services-deliver-streaming-content).
 
 >[AZURE.NOTE] Lorsque vous utilisez l'API REST de Media Services, les considérations suivantes s'appliquent :
 >
->Lors de l'accès aux entités dans Media Services, vous devez définir les valeurs et les champs d'en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](../media-services-rest-how-to-use).
+>Lors de l'accès aux entités dans Media Services, vous devez définir les valeurs et les champs d'en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Configuration du développement de l'API REST Media Services](../media-services-rest-how-to-use).
 
->Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](../media-services-rest-connect_programmatically/). 
+>Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez adresser les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](../media-services-rest-connect_programmatically/). 
 
 
 ##Stratégie de remise de ressources 
 
-###<a id="create_asset_delivery_policy"></a>Création d'une stratégie de remise de ressources
-La demande HTTP suivante crée une stratégie de remise de ressources qui indique de ne pas appliquer le chiffrement dynamique et de distribuer le flux via un des protocoles suivants :  MPEG DASH, HLS et Smooth Streaming. 
+###<a id="create_asset_delivery_policy"></a>Créer une stratégie de remise de ressources
+La requête HTTP suivante permet de créer une stratégie de remise de ressources qui précise de ne pas appliquer de chiffrement dynamique et de remettre le flux avec l'un des protocoles suivants :  MPEG DASH, HLS et Smooth Streaming. 
 
 Pour plus d'informations sur les valeurs que vous pouvez spécifier lors de la création d'une AssetDeliveryPolicy, consultez [Types utilisés lors de la définition d'AssetDeliveryPolicy](#types) .   
 
@@ -114,7 +114,7 @@ Réponse :
 	"Created":"2015-02-08T06:21:27.6908329Z",
 	"LastModified":"2015-02-08T06:21:27.6908329Z"}
 	
-###<a id="link_asset_with_asset_delivery_policy"></a>Liaison d'une ressource à la stratégie de remise de ressources
+###<a id="link_asset_with_asset_delivery_policy"></a>Lier une ressource à la stratégie de remise de ressources
 
 La demande HTTP suivante lie la ressource spécifiée à la stratégie de remise de ressources.
 
@@ -145,7 +145,7 @@ Réponse :
 Lorsque vous spécifiez la stratégie de remise DynamicEnvelopeEncryption, vous devez veiller à lier votre ressource à une clé de contenu de type EnvelopeEncryption. Pour plus d'informations, consultez les pages suivantes : [Création d'une clé de contenu](../media-services-rest-create-contentkey)).
 
 
-###<a id="get_delivery_url"></a>Obtention de l'URL de remise
+###<a id="get_delivery_url"></a>Obtenir l'URL de remise
 
 Obtenez l'URL de remise pour la méthode de remise spécifiée de la clé de contenu créée à l'étape précédente. Un client utilise l'URL retournée pour demander une clé AES ou une licence PlayReady afin de lire le contenu protégé.
 
@@ -271,9 +271,9 @@ Demande :
 Consultez [Liaison d'une ressource à la stratégie de remise de ressources](#link_asset_with_asset_delivery_policy)
 
 
-##<a id="types"></a>Types utilisés lors de la définition d'AssetDeliveryPolicy
+##<a id="types"></a>Types utilisés durant la définition de AssetDeliveryPolicy
 
-###<a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol 
+###AssetDeliveryProtocol 
 
     /// <summary>
     /// Delivery protocol for an asset delivery policy.
@@ -312,7 +312,7 @@ Consultez [Liaison d'une ressource à la stratégie de remise de ressources](#li
         All = 0xFFFF
     }
 
-###<a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
+###AssetDeliveryPolicyType
 
     /// <summary>
     /// Policy type for dynamic encryption of assets.
@@ -346,7 +346,7 @@ Consultez [Liaison d'une ressource à la stratégie de remise de ressources](#li
         DynamicCommonEncryption
     }
 
-###<a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+###ContentKeyDeliveryType
 
     /// <summary>
     /// Delivery method of the content key to the client.
@@ -369,7 +369,7 @@ Consultez [Liaison d'une ressource à la stratégie de remise de ressources](#li
         BaselineHttp
     }
 
-###<a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
+###AssetDeliveryPolicyConfigurationKey
 
     /// <summary>
     /// Keys used to get specific configuration for an asset delivery policy.
@@ -412,4 +412,4 @@ Consultez [Liaison d'une ressource à la stratégie de remise de ressources](#li
         EnvelopeEncryptionIV,
     }
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

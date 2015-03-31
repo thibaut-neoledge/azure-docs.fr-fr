@@ -1,7 +1,7 @@
 ﻿
 Pour plus d'informations sur les disques, consultez la page [À propos des disques de machine virtuelle dans Azure](http://go.microsoft.com/fwlink/p/?LinkId=403697).
 
-##<a id="attachempty"></a>Procédure : Attacher un disque vide
+## <a id="attachempty"></a>Procédure : Attacher un disque vide
 Pour ajouter un disque de données, le plus simple consiste à attacher un disque vide, car Azure crée le fichier de disque dur virtuel (.vhd) pour vous et le stocke dans le compte de stockage.
 
 1. Cliquez sur **Machines virtuelles**, puis sélectionnez la machine virtuelle appropriée.
@@ -21,7 +21,7 @@ Pour ajouter un disque de données, le plus simple consiste à attacher un disqu
 
 	- Dans **Nom de fichier**, acceptez le nom par défaut ou tapez-en un autre pour le fichier .vhd, qui est utilisé pour le disque. Le disque de données utilise un nom généré automatiquement, même si vous tapez un autre nom pour le fichier .vhd.
 
-	- Entrez la **Taille (Go)** du disque de données. 
+	- Tapez la **Taille (Go)** du disque de données. 
 
 	- Cliquez sur la coche pour continuer.
 
@@ -29,9 +29,9 @@ Pour ajouter un disque de données, le plus simple consiste à attacher un disqu
 
 	![Empty data disk successfully attached](./media/howto-attach-disk-window-linux/AttachEmptySuccess.png)
 
-##<a id="attachexisting"></a>Procédure : Association d'un disque existant
+## <a id="attachexisting"></a>Procédure : Association d'un disque existant
 
-Pour attacher un disque existant, vous devez disposer d'un fichier .vhd dans un compte de stockage. Utilisez l'applet de commande [Add-AzureVhd](http://go.microsoft.com/FWLink/p/?LinkID=391684)  pour télécharger le fichier .vhd sur le compte de stockage. Après avoir créé et téléchargé le fichier .vhd, vous pouvez l'attacher à une machine virtuelle. 
+Pour attacher un disque existant, vous devez disposer d'un fichier .vhd dans un compte de stockage. Utilisez l'applet de commande [Add-AzureVhd](http://go.microsoft.com/FWLink/p/?LinkID=391684) pour télécharger le fichier .vhd sur le compte de stockage. Après avoir créé et téléchargé le fichier .vhd, vous pouvez l'attacher à une machine virtuelle. 
 
 1. Cliquez sur **Machines virtuelles**, puis sélectionnez la machine virtuelle appropriée.
 
@@ -61,4 +61,4 @@ Pour attacher un disque existant, vous devez disposer d'un fichier .vhd dans un 
 
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

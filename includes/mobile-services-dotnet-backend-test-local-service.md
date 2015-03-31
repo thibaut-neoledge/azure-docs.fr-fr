@@ -6,4 +6,4 @@ Le projet de service mobile vous permet d'exécuter votre nouveau service mobile
 
 2. Appuyez sur la touche **F5** pour régénérer le projet et démarrer le service mobile localement. Une page Web s'affiche une fois le service mobile correctement démarré.
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

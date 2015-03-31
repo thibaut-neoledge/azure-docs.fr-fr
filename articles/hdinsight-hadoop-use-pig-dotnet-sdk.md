@@ -1,5 +1,5 @@
 ﻿<properties
-   pageTitle="Utiliser Hadoop Pig dans HDInsight | Azure"
+   pageTitle="Utilisation de Hadoop Pig dans HDInsight | Azure"
    description="Apprenez à utiliser le Kit de développement logiciel (SDK) .NET pour Hadoop afin de soumettre des tâches Pig vers Hadoop sur HDInsight."
    services="hdinsight"
    documentationCenter=""
@@ -36,7 +36,7 @@ Pour réaliser les étapes présentées dans cet article, vous avez besoin des �
 
 Pour authentifier l'application sur Azure HDInsight, vous devez créer un certificat auto-signé, l'installer sur votre station de travail de développement et le télécharger sur votre abonnement Azure.
 
-Pour savoir comment procéder, consultez <a href="http://go.microsoft.com/fwlink/?LinkId=511138" target="_blank">Création d'un certificat auto-signé</a>.
+Pour obtenir des instructions, consultez la page <a href="http://go.microsoft.com/fwlink/?LinkId=511138" target="_blank">Création d'un certificat auto-signé</a>.
 
 > [AZURE.NOTE] Lors de la création du certificat, veillez à noter le nom convivial que vous utilisez, car il vous sera utile ultérieurement.
 
@@ -44,7 +44,7 @@ Pour savoir comment procéder, consultez <a href="http://go.microsoft.com/fwlink
 
 Chaque abonnement Azure est identifié par une valeur GUID, appelée ID d'abonnement. Procédez comme suit pour trouver cette valeur.
 
-1. Visitez la <a href="https://manage.windowsazure.com/" target="_blank">console de gestion Azure</a>.
+1. Accédez à la <a href="https://manage.windowsazure.com/" target="_blank">Console de gestion Azure</a>.
 
 2. Dans la barre gauche du portail, sélectionnez **Paramètres**.
 
@@ -229,4 +229,4 @@ Pour plus d'informations sur d'autres méthodes de travail avec Hadoop sur HDIns
 
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](../hdinsight-use-mapreduce/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

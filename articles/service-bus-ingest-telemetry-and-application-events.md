@@ -1,31 +1,37 @@
-<properties pageTitle="Ingestion d'&eacute;v&eacute;nements d'application et de t&eacute;l&eacute;m&eacute;trie &agrave; grande &eacute;chelle" metaKeywords="Service Bus, telemetry, events" description="D&eacute;couvrez comment ing&eacute;rer des &eacute;v&eacute;nements d'application et de t&eacute;l&eacute;m&eacute;trie &agrave; grande &eacute;chelle dans l'ensemble de vos solutions d'entreprise." services="service-bus" documentationCenter=".NET" title="Ingestion d'&eacute;v&eacute;nements d'application et de t&eacute;l&eacute;m&eacute;trie &agrave; grande &eacute;chelle" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Ingestion d'événements d'application et de télémétrie à grande échelle" 
+	description="Découvrez comment ingérer des événements d'application et de télémétrie à grande échelle dans l'ensemble de vos solutions d'entreprise." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
-# Télémétrie de réception et échelle des événements d'application
+# Ingestion d'événements d'application et de télémétrie à grande échelle
+ 
+Les applications modernes créent une énorme quantité d'informations lorsqu'elles sont en cours d'exécution. Qu'il s'agisse d'actions de l'utilisateur dans une application mobile ou d'un parcours sur un site web, ces données télémétriques sont précieuses à la fois pour les analyses à long terme et pour la surveillance de l'état ou l'aide à la décision en temps réel. Service Bus fournit les outils dont vous avez besoin pour capturer et traiter ces informations.
 
-Les applications modernes créent une énorme quantité d'informations lorsqu'elles sont en cours d'exécution. Qu'il s'agisse d'actions de l'utilisateur dans une application mobile ou d'un parcours sur un site web, ces données télémétriques sont précieuses à la fois pour les analyses à long terme et pour la surveillance de l'état ou l'aide à la décision en temps réel. Service Bus fournit les outils dont vous avez besoin pour capturer et exploiter ces informations.
 
 ## Explorer
-
--   [Concentrateurs d'événements][Concentrateurs d'événements]
--   [Tarification des concentrateurs d'événements][Tarification des concentrateurs d'événements]
--   [Modèle d'approvisionnement en événements][Modèle d'approvisionnement en événements]
-
+- [Concentrateurs d'événements](http://msdn.microsoft.com/library/dn789973.aspx)
+- [Tarification des concentrateurs d'événements](http://azure.microsoft.com/pricing/details/event-hubs/)
+- [Modèle d'approvisionnement en événements](http://msdn.microsoft.com/library/dn589792.aspx)
+ 
 ## Créer
-
--   [Référence de l'API REST du concentrateur d'événements][Référence de l'API REST du concentrateur d'événements]
--   [Exemples de code du concentrateur d'événements][Exemples de code du concentrateur d'événements]
-
+- [Référence de l'API REST du concentrateur d'événements](http://go.microsoft.com/fwlink/?LinkId=403977)
+- [Exemples de code du concentrateur d'événements](http://go.microsoft.com/fwlink/?LinkID=402449)
+ 
 ## Services connexes
+- [Stockage](http://azure.microsoft.com/documentation/services/storage/)
+- [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
 
--   [Stockage][Stockage]
--   [HDInsight][HDInsight]
-
-  [Concentrateurs d'événements]: http://msdn.microsoft.com/fr-fr/library/dn789973.aspx
-  [Tarification des concentrateurs d'événements]: http://azure.microsoft.com/fr-fr/pricing/details/event-hubs/
-  [Modèle d'approvisionnement en événements]: http://msdn.microsoft.com/fr-fr/library/dn589792.aspx
-  [Référence de l'API REST du concentrateur d'événements]: http://go.microsoft.com/fwlink/?LinkId=403977
-  [Exemples de code du concentrateur d'événements]: http://go.microsoft.com/fwlink/?LinkID=402449
-  [Stockage]: http://azure.microsoft.com/fr-fr/documentation/services/storage/
-  [HDInsight]: http://azure.microsoft.com/fr-fr/documentation/services/hdinsight/
+<!--HONumber=47-->

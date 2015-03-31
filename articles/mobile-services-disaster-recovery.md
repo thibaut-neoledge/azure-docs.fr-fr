@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Récupération de votre service mobile en cas d'incident - Azure Mobile Services" 
 	description="Découvrez comment récupérer votre service mobile en cas d'urgence." 
 	services="mobile-services" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/11/2014" 
@@ -20,14 +20,14 @@
 
 Lorsque vous déployez une application à l'aide d'Azure Mobile Services, vous pouvez utiliser ses fonctionnalités intégrées pour assurer la continuité des activités de l'entreprise en cas de problèmes de disponibilité liés à des défaillances serveur, des perturbations réseau, une perte de données et une perte étendue de fonctionnalités. En déployant votre application à l'aide d'Azure Mobile Services, vous profitez des nombreuses fonctionnalités de tolérance de panne et d'infrastructure que vous auriez à concevoir, à implémenter et à gérer si vous deviez déployer une solution locale classique. Azure vous permet de limiter une grande partie des risques de défaillance à moindre frais.
 
-<h2><a name="prepare"></a>Préparation aux catastrophes</h2>
+<h2><a name="prepare"></a>Préparation aux sinistres</h2>
 
 Pour faciliter une récupération en cas de problème de disponibilité, vous pouvez vous y préparer à l'avance : 
 
 + **Sauvegarder vos données dans la base de données SQL du service mobile Azure**
 	<br/>Vos données d'application de service mobile sont stockées dans une base de données SQL Azure. Nous vous recommandons de les sauvegarder en suivant les prescriptions fournies par la page [Continuité des activités de l'entreprise dans la base de données SQL].
 + **Sauvegarder vos scripts de service mobile**
-	<br/>Nous vous recommandons de stocker vos scripts de service mobile dans un système de contrôle de code source tel que [Team Foundation Service] ou [GitHub], et de ne pas compter uniquement sur les copies dans le service mobile lui-même. Vous pouvez télécharger les scripts via le portail Azure à l'aide de la [fonctionnalité de contrôle de code source] de Mobile Service ou de l'[outil en ligne de commande Azure]. Portez une attention particulière aux fonctionnalités dites " préliminaires " (ou " preview "), car il n'est pas garanti que ces scripts puissent être récupérés et vous serez probablement amené à les récupérer à partir de l'original de votre propre contrôle de code source.
+	<br/>Nous vous recommandons de stocker vos scripts de service mobile dans un système de contrôle de code source tel que [Team Foundation Service] ou [GitHub] et ne pas compter uniquement sur les copies dans le service mobile lui-même. Vous pouvez télécharger les scripts via le portail Azure à l'aide de la [fonctionnalité de contrôle de code source] de Mobile Service ou de l'[outil en ligne de commande Azure]. Portez une attention particulière aux fonctionnalités dites " préliminaires " (ou " preview "), car il n'est pas garanti que ces scripts puissent être récupérés et vous serez probablement amené à les récupérer à partir de l'original de votre propre contrôle de code source.
 + **Réserver un service mobile secondaire**
 	<br/>En cas de problème de disponibilité de votre service mobile, vous devrez le redéployer vers une autre région Azure. Pour assurer la disponibilité de la capacité (par exemple, dans des cas exceptionnels comme la perte d'une région entière), nous vous recommandons de créer un service mobile secondaire dans votre autre région et de lui attribuer un mode équivalent ou supérieur à celui de votre service principal (si votre service principal est en mode partagé, vous pouvez attribuer au service secondaire le mode partagé ou réservé. Toutefois, si le service principal est réservé, le service secondaire doit l'être également).
 
@@ -87,14 +87,13 @@ Votre service mobile a maintenant été récupéré pour une nouvelle région Az
 <!-- Images. -->
 
 <!-- URLs. -->
-[Continuité des activités métier de base de données SQL]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
+[Continuité des activités de l'entreprise dans la base de données SQL]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
 
-[fonctionnalité de contrôle de code source]: http://azure.microsoft.com/develop/mobile/tutorials/store-scripts-in-source-control/
-[utilisation de l'outil de ligne de commande Azure]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
+[fonctionnalité de contrôle de code source]: http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/
+[outil en ligne de commande Azure]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 [Portail Azure]: http://manage.windowsazure.com/
-[Tableau de bord de service Azure]: http://azure.microsoft.com/support/service-dashboard/
-[Automatisation des services mobiles avec les outils en ligne de commande]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
+[tableau de bord du service Azure]: http://www.windowsazure.com/support/service-dashboard/
+[Automatisation des services mobiles avec les outils en ligne de commande]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

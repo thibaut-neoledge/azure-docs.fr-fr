@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Notifications Push adressées aux utilisateurs (Android) | Centre de développement mobile" 
 	description="Découvrez comment utiliser Mobile Services pour envoyer des notifications Push aux utilisateurs de votre application Android." 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="Java" 
 	ms.topic="article" 
 	ms.date="10/07/2014" 
@@ -18,9 +18,8 @@
 
 # Notifications Push adressées aux utilisateurs à l'aide de Mobile Services
 
-Cette rubrique est obsolète. À la place, suivez les instructions mises à jour dans les didacticiels ci-dessous :
+Cette rubrique est obsolète. Au lieu de cela, suivez les instructions mises à jour des didacticiels ci-dessous :
 
-+ [Ajout de notifications push à votre application Mobile Services](/fr-fr/documentation/articles/mobile-services-javascript-backend-android-get-started-push/)<br/>Mettez à jour votre service mobile TodoList de façon à utiliser Azure Notification Hubs pour envoyer des notifications aux utilisateurs de l'exemple d'application TodoList.
-+ [Envoi de notifications Push aux utilisateurs authentifiés](/fr-fr/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/)<br/>Prolonge le didacticiel précédent pour autoriser uniquement les utilisateurs connectés à s'inscrire aux notifications.
-
-<!--HONumber=42-->
++ [Ajout de notifications push à votre application Mobile Services](/documentation/articles/mobile-services-javascript-backend-android-get-started-push/)<br/>Met à jour votre service mobile TodoList afin d'utiliser Azure Notification Hubs pour envoyer des notifications aux utilisateurs de l'exemple d'application TodoList.
++ [Envoi de notifications Push aux utilisateurs authentifiés](/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/)<br/>Étend le didacticiel précédent pour autoriser uniquement les utilisateurs signés à s'inscrire aux notifications.
+<!--HONumber=47-->

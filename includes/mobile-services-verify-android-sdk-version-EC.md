@@ -1,10 +1,10 @@
-﻿En raison des développements en cours, la version du Kit de développement logiciel (SDK) Android installée dans Eclipse peut être différente de celle du code. Le Kit de développement logiciel (SDK) Android utilisé dans ce didacticiel correspond à la version 21, dernière version disponible au moment de la rédaction de ce document. Le numéro de la version peut être supérieur à mesure que de nouvelles versions du Kit de développement logiciel (SDK) apparaissent, et nous vous recommandons d'utiliser la dernière version disponible.
+﻿En raison des développements en cours, la version du Kit de développement logiciel (SDK) Android installée dans Eclipse peut être différente de celle du code. Le Kit de développement logiciel (SDK) Android utilisé dans ce didacticiel correspond à la version 21, dernière version disponible au moment de la rédaction de ce document. Le numéro de la version peut être supérieur à mesure que de nouvelles versions du Kit de développement logiciel (SDK) apparaissent. Nous vous recommandons d'utiliser la dernière version disponible.
 
 Deux symptômes permettent d'identifier des versions différentes :
 
 1. Consultez le volet inférieur de la console Eclipse. Des messages d'erreur de type " **Impossible de résoudre la cible 'android-n'** " peuvent apparaître.
 
-2. Les objets Android standard du code dont la résolution doit reposer sur des instructions `import` peuvent générer des messages d'erreur.
+2. Les objets Android standard du code dont la résolution doit reposer sur les instructions  `import` peuvent générer des messages d'erreur.
 
 Dans ce cas, la version du Kit de développement logiciel (SDK) Android installée dans Eclipse peut être différente de celle du Kit de développement logiciel (SDK) cible du projet téléchargé.  Pour vérifier la version, apportez les modifications suivantes :
 
@@ -18,4 +18,4 @@ Dans ce cas, la version du Kit de développement logiciel (SDK) Android install�
 	 	        android:targetSdkVersion="21" />
 	
 3. Dans l'Explorateur de package d'Eclipse, cliquez avec le bouton droit sur le nœud de projet, choisissez **Propriétés**, puis dans la colonne de gauche, choisissez **Android**. Vérifiez que la version du Kit de développement logiciel (SDK) définie pour **Cible de la génération du projet** est identique à celle de **targetSdkVersion**.
-<!--HONumber=45--> 
+<!--HONumber=47-->

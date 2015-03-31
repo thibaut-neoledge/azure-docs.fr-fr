@@ -21,28 +21,33 @@
 #Téléchargement de fichiers dans un compte Media Services à l'aide des API REST
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-Cet article fait partie de la série [workflow à la demande de vidéo Media Services](../media-services-video-on-demand-workflow). 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) . 
 
+Dans Media Services, vous téléchargez vos fichiers numériques dans une ressource. L'entité [Asset](https://msdn.microsoft.com/library/azure/hh974277.aspx) peut contenir des fichiers vidéo et audio, des images, des collections de miniatures, des pistes textuelles et des légendes (et les métadonnées concernant ces fichiers).  Une fois les fichiers téléchargés dans la ressource, votre contenu est stocké en toute sécurité dans le cloud et peut faire l'objet d'un traitement et d'une diffusion en continu. 
+
+
+>[AZURE.NOTE]Media Services utilise la valeur de la propriété IAssetFile.Name lors de la génération d'URL pour le contenu de diffusion en continu (par exemple, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Pour cette raison, l'encodage par pourcentage n'est pas autorisé. La valeur de la propriété **Name** ne peut pas comprendre un des [caractères réservés à l'encodage par pourcentage](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) suivants : !*'();:@&=+$,/?%#[]". En outre, il ne peut exister qu'un " . " pour l'extension de nom de fichier.
+
+Le flux de travail classique d'ingestion de ressources se divise en différentes parties, à savoir :
+
+- Créer une ressource
+- Chiffrer une ressource (facultatif)
+- Télécharger un fichier vers le stockage d'objets blob
+
+
+##Création d'une ressource
 
 >[AZURE.NOTE] Lorsque vous utilisez l'API REST de Media Services, les considérations suivantes s'appliquent :
 >
->Lors de l'accès aux entités dans Media Services, vous devez définir les valeurs et les champs d'en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](../media-services-rest-how-to-use).
+>Lors de l'accès aux entités dans Media Services, vous devez définir les valeurs et les champs d'en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Configuration du développement de l'API REST Media Services](../media-services-rest-how-to-use).
 
->Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](../media-services-rest-connect_programmatically/). 
+>Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez adresser les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](../media-services-rest-connect_programmatically/). 
  
-
-## <a id="upload"></a>Création d'une ressource et téléchargement d'un fichier vidéo à l'aide des API REST
-
-Dans Media Services, vous téléchargez vos fichiers numériques dans une ressource. L'entité [Asset](https://msdn.microsoft.com/fr-fr/library/azure/hh974277.aspx) peut contenir des fichiers vidéo et audio, des images, des collections de miniatures, des pistes textuelles et des légendes (et les métadonnées concernant ces fichiers).  Une fois les fichiers téléchargés dans la ressource, votre contenu est stocké en toute sécurité dans le cloud et peut faire l'objet d'un traitement et d'une diffusion en continu. 
-
-
-### Création d'une ressource
-
 Une ressource est un conteneur pour plusieurs types ou ensembles d'objets dans Media Services, y compris des fichiers vidéo, audio, des images, des collections de miniatures, des pistes textuelles et des légendes. Dans l'API REST, la création d'une ressource nécessite d'envoyer une demande POST vers Media Services et de placer les informations de propriété concernant votre ressource dans le corps de la demande.
 
 L'une des propriétés que vous pouvez spécifier lors de la création d'une ressource est **Options**. **Options** est une valeur d'énumération qui décrit les options de chiffrement permettant de créer une ressource. Une valeur valide est une des valeurs de la liste ci-dessous, et non une combinaison de valeurs. 
 
-- **None** = **0**: Aucun chiffrement ne sera utilisé. Il s'agit de la valeur par défaut. Notez qu'avec cette option, votre contenu n'est pas protégé en transit ni au repos dans le stockage.
+- **None** = **0**: Aucun chiffrement ne sera utilisé. Il s'agit de la valeur par défaut. À noter que quand vous utilisez cette option, votre contenu n'est pas protégé pendant le transit ou le repos dans le stockage.
 	Si vous prévoyez de fournir un MP4 sous forme de téléchargement progressif, utilisez cette option. 
 
 - **StorageEncrypted** = **1**: Spécifie si vous souhaitez que vos fichiers soient chiffrés avec le chiffrement AES-256 bits pour le chargement et le stockage.
@@ -51,7 +56,7 @@ L'une des propriétés que vous pouvez spécifier lors de la création d'une res
 
 - **EnvelopeEncryptionProtected** = **4**: Spécifiez si vous téléchargez des fichiers TLS chiffrés avec AES. Notez que les fichiers doivent avoir été encodés et chiffrés par le gestionnaire de transformation Transform Manager.
 
-Si votre ressource utilise le chiffrement, vous devez créer une **ContentKey** et la lier à votre ressource, comme décrit dans la rubrique suivante :[Création d'une ContentKey](../media-services-rest-create-contentkey). Notez qu'après avoir téléchargé les fichiers dans la ressource, vous devez mettre à jour les propriétés de cryptage sur l'entité **AssetFile** avec les valeurs obtenues au cours du cryptage **Asset**. Pour ce faire, utilisez la demande HTTP **MERGE**. 
+>[AZURE.NOTE]Si vous prévoyez d'utiliser le chiffrement pour votre ressource, vous devez créer un **ContentKey** et le lier à votre ressource, comme décrit dans la rubrique suivante :[Comment créer un ContentKey](../media-services-rest-create-contentkey). Notez qu'après avoir téléchargé les fichiers dans la ressource, vous devez mettre à jour les propriétés de cryptage sur l'entité **AssetFile** avec les valeurs obtenues au cours du cryptage **Asset**. Pour ce faire, utilisez la demande HTTP **MERGE**. 
 
 
 L'exemple suivant montre comment créer une ressource.
@@ -101,7 +106,7 @@ Si l'opération réussit, l'élément suivant est retourné :
 	   "StorageAccountName":"storagetestaccount001"
 	}
 	
-### Création d'un AssetFile
+##Création d'un AssetFile
 
 L'entité [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) représente un fichier audio ou vidéo stocké dans un conteneur d'objets blob. Un fichier de ressources est toujours associé à une ressource et une ressource peut contenir un ou plusieurs fichiers de ressources. La tâche de Media Services Encoder échoue si un objet de fichier de ressources n'est pas associé à un fichier numérique dans un conteneur d'objets blob.
 
@@ -166,9 +171,9 @@ Après avoir téléchargé le fichier multimédia numérique dans un conteneur d
 	}
 
 
-### Création d'AccessPolicy avec autorisation d'écriture. 
+## Création d'AccessPolicy avec autorisation d'écriture. 
 
-Avant de télécharger des fichiers dans le stockage blob, définissez les droits de la stratégie d'accès pour l'écriture sur une ressource. Pour ce faire, utilisez POST avec une demande HTTP sur le jeu d'entités AccessPolicies. Définissez une valeur DurationInMinutes lors de la création ou vous recevrez un message d'erreur 500 de serveur interne en réponse. Pour plus d'informations sur AccessPolicies, consultez [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
+Avant de télécharger des fichiers dans le stockage blob, définissez les droits de la stratégie d'accès pour l'écriture sur une ressource. Pour ce faire, utilisez POST avec une demande HTTP sur le jeu d'entités AccessPolicies. N'oubliez pas de définir une valeur DurationInMinutes après la création ou vous recevrez en réponse un message d'erreur interne de serveur 500. Pour plus d'informations sur AccessPolicies, consultez [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
 
 L'exemple suivant montre comment créer une stratégie AccessPolicy :
 		
@@ -213,9 +218,9 @@ L'exemple suivant montre comment créer une stratégie AccessPolicy :
 	   "Permissions":2
 	}
 
-### Obtention de l'URL de téléchargement
+##Obtention de l'URL de téléchargement
 
-Pour recevoir l'URL de téléchargement réelle, créez un localisateur SAS. Les localisateurs définissent l'heure de début et le type de point de terminaison de connexion pour les clients qui souhaitent accéder aux fichiers d'une ressource. Vous pouvez créer plusieurs entités de localisateurs pour une paire AccessPolicy et Asset donnée, afin de gérer les différentes demandes et besoins des clients. Chacun de ces localisateurs utilise la valeur StartTime et la valeur DurationInMinutes d'AccessPolicy pour déterminer la durée pendant laquelle une URL peut être utilisée. Pour plus d'informations, consultez la rubrique [Localisateur](http://msdn.microsoft.com/library/azure/hh974308.aspx).
+Pour recevoir l'URL de téléchargement réelle, créez un localisateur SAS. Les localisateurs définissent l'heure de début et le type de point de terminaison de connexion pour les clients qui souhaitent accéder aux fichiers d'une ressource. Vous pouvez créer plusieurs entités de localisateurs pour une paire AccessPolicy et Asset donnée, afin de gérer les différentes demandes et besoins des clients. Chacun de ces localisateurs utilise la valeur StartTime et la valeur DurationInMinutes d'AccessPolicy pour déterminer la durée pendant laquelle une URL peut être utilisée. Pour plus d'informations, consultez [Locator](http://msdn.microsoft.com/library/azure/hh974308.aspx)
 
 
 Une URL SAS a le format suivant :
@@ -281,16 +286,16 @@ Si l'opération réussit, la réponse suivante est retournée :
 	   "Name":null
 	}
 
-### Téléchargement d'un fichier dans un conteneur de stockage d'objets blob
+## Téléchargement d'un fichier dans un conteneur de stockage d'objets blob
 	
-Une fois AccessPolicy et le localisateur définis, le fichier est téléchargé vers un conteneur de stockage d'objets blob Azure à l'aide des API REST Azure Storage. Vous pouvez le télécharger dans des objets blob de page ou de blocs. 
+Après avoir défini AccessPolicy et Locator, le fichier réel est téléchargé vers un conteneur de stockage d'objets blob Microsoft Azure à l'aide des API REST Azure Storage. Vous pouvez le télécharger dans des objets blob de page ou de blocs. 
 
->[AZURE.NOTE] Vous devez ajouter le nom du fichier à télécharger à la valeur de **chemin d'accès** du Localisateur, obtenue dans la section précédente. Par exemple, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
+>[AZURE.NOTE] Vous devez ajouter le nom du fichier à télécharger dans la valeur **Path** du localisateur reçue dans la section précédente. Par exemple, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
 
-Pour plus d'informations sur l'utilisation des objets blob de stockage Azure, consultez [API REST du Service BLOB](http://msdn.microsoft.com/library/azure/dd135733.aspx).
+Pour plus d'informations sur l'utilisation d'objets blob de stockage Microsoft Azure, consultez [API REST du service BLOB](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
 
-### Mise à jour d'AssetFile 
+## Mise à jour d'AssetFile 
 
 Maintenant que vous avez téléchargé votre fichier, mettez à jour les informations de taille FileAsset (et autres). Par exemple :
 	
@@ -359,10 +364,6 @@ Si l'opération réussit, l'élément suivant est retourné :
 	...
 
  
-
-##Étapes suivantes
-Maintenant que vous avez téléchargé une ressource dans Media Services, consultez la rubrique [Obtention d'un processeur multimédia][].
-
 [Obtention d'un processeur multimédia]: ../media-services-get-media-processor/
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

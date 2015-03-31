@@ -1,4 +1,4 @@
-﻿1. Connectez-vous au [portail de gestion Azure](http://manage.windowsazure.com). Consultez l'offre d'[évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/) si vous ne possédez pas encore d'abonnement.
+﻿1. Connectez-vous au [Portail de gestion Azure](http://manage.windowsazure.com). Découvrez l'offre [Version d'évaluation gratuite](http://www.windowsazure.com/pricing/free-trial/) si vous n'êtes pas encore abonné.
 
 2. Dans la barre de commandes en bas de la fenêtre, cliquez sur **Nouveau**.
 
@@ -23,13 +23,13 @@
 6. Le troisième écran vous permet de configurer les ressources pour la mise en réseau, le stockage et la disponibilité. Voici quelques détails pour vous aider à les remplir : 
 	
 
-	- Le **Nom du cloud Service DNS** est le nom DNS global qui devient un élément de l'URI utilisé pour contacter la machine virtuelle. Vous devrez créer votre propre nom de service cloud, car il doit être unique dans Azure. Les services cloud sont importants pour les scénarios utilisant [plusieurs machines virtuelles](http://azure.microsoft.com/documentation/articles/cloud-services-connect-virtual-machine/).
+	- Le **Nom du cloud Service DNS** est le nom DNS global qui devient un élément de l'URI utilisé pour contacter la machine virtuelle. Vous devrez créer votre propre nom de service cloud, car il doit être unique dans Azure. Les services cloud sont importants pour les scénarios utilisant [plusieurs machines virtuelles](http://www.windowsazure.com/documentation/articles/cloud-services-connect-virtual-machine/).
  
 	- Pour l'option **Région/Groupe d'affinités/Réseau virtuel**, utilisez une région correspondant au lieu où vous êtes. Vous pouvez également choisir de spécifier un réseau virtuel à la place.
  
 	>[AZURE.NOTE] Si vous voulez qu'une machine virtuelle utilise un réseau virtuel, lorsque vous la créez, vous **devez** indiquer le réseau virtuel lors de la création de la machine. Vous ne pouvez pas joindre la machine virtuelle à un réseau virtuel après avoir créé celle-ci. Pour plus d'informations, consultez la page [Vue d'ensemble d'Azure Virtual Network](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
-	- Pour obtenir des détails sur la configuration de points de terminaison, consultez la page [Configuration des points de terminaison sur une machine virtuelle](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).
+	- Pour plus d'informations sur la configuration des points de terminaison, consultez la page [Configuration des points de terminaison sur une machine virtuelle](http://www.windowsazure.com/documentation/articles/virtual-machines-set-up-endpoints/).
 
 	![Configure the connected resources of the virtual machine](./media/virtual-machines-create-WindowsVM/resourceconfiguration.png)
 
@@ -43,5 +43,4 @@
 8. Une fois que vous avez créé la machine virtuelle, le portail de gestion la répertorie sous **Machines virtuelles**. Le service cloud et le compte de stockage correspondants sont également créés et répertoriés dans ces sections. La machine virtuelle et le service cloud sont démarrés automatiquement et le portail de gestion définit leur statut sur **En cours d'exécution**. 
 
 	![Configure VM Agent and the endpoints of the virtual machine](./media/virtual-machines-create-WindowsVM/vmcreated.png)
-
-<!--HONumber=42-->
+<!--HONumber=47-->

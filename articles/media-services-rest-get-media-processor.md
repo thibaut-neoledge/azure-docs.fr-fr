@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Création d'un processeur multimédia - Azure" 
+	pageTitle="Comment créer un processeur multimédia - Azure" 
 	description="Apprenez à créer un composant processeur multimédia pour encoder, chiffrer ou déchiffrer un contenu multimédia, ou convertir son format pour Azure Media Services." 
 	services="media-services" 
 	documentationCenter="" 
@@ -19,7 +19,7 @@
 
 #Procédure : obtention d'une instance de processeur multimédia
 
-Cet article fait partie de la série [workflow à la demande de vidéo Media Services](../media-services-video-on-demand-workflow). 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) . 
 
 ##Vue d'ensemble
 
@@ -38,22 +38,22 @@ Le tableau suivant vous indique le nom et la description de chaque processeur mu
   <tbody>
     <tr>
        <td>Encodeur multimédia Azure</td>
-       <td>Vous permet d'exécuter des tâches d'encodage avec l'Encodeur multimédia.</td>
-       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Chaînes de présélection des tâches pour l'Encodeur multimédia Azure</a></td>
+       <td>Permet d'exécuter les tâches d'encodage à l'aide de l'encodeur multimédia.</td>
+       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Chaînes de présélection de tâche pour l'Encodeur multimédia Azure</a></td>
     </tr>
     <tr>
         <td>Microsoft Azure Media Packager</td>
-        <td>Vous permet de convertir des éléments multimédias du format .mp4 vers un format de diffusion en continu. Permet également de convertir des éléments multimédias de diffusion en continu au format HLS (HTTP Live Streaming) d'Apple.</td>
-		<td><a href="http://msdn.microsoft.com/library/hh973635.aspx">Chaînes de présélection des tâches pour Azure Media Packager</a></td>
+        <td>Vous permet de convertir des éléments multimédias du format .mp4 vers un format de diffusion en continu. De même, il permet de convertir des éléments multimédias du format de diffusion en continu lisse au format HLS (Apple HTTP Live Streaming).</td>
+		<td><a href="http://msdn.microsoft.com/library/hh973635.aspx">Chaînes de présélection de tâche pour Azure Media Packager</a></td>
     </tr>
     <tr>
         <td>Microsoft Azure Media Encryptor</td>
         <td>Vous permet de chiffrer des éléments multimédias avec PlayReady Protection.</td>
-        <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Chaînes de présélection des tâches pour Azure Media Packager</a></td>
+        <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Chaînes de présélection de tâche pour Azure Media Packager</a></td>
     </tr>
     <tr>
         <td>Azure Media Indexer</td>
-        <td>Vous permet de faire en sorte que les fichiers et le contenu multimédias puissent faire l'objet d'une recherche, et de générer des pistes de sous-titrage et des mots clés.</td>
+        <td>Permet d'effectuer des recherches dans les fichiers multimédias et le contenu et de générer des pistes et des mots clés de sous-titrage codé.</td>
 		<td>N/A</td>
     </tr>
     <tr>
@@ -69,9 +69,9 @@ Le tableau suivant vous indique le nom et la description de chaque processeur mu
 
 >[AZURE.NOTE] Lorsque vous utilisez l'API REST de Media Services, les considérations suivantes s'appliquent :
 >
->Lors de l'accès aux entités dans Media Services, vous devez définir les valeurs et les champs d'en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](../media-services-rest-how-to-use).
+>Lors de l'accès aux entités dans Media Services, vous devez définir les valeurs et les champs d'en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Configuration du développement de l'API REST Media Services](../media-services-rest-how-to-use).
 
->Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](../media-services-rest-connect_programmatically/). 
+>Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez adresser les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](../media-services-rest-connect_programmatically/). 
 
 
 
@@ -110,9 +110,9 @@ Réponse :
 
 
 ##Étapes suivantes
-Maintenant que vous savez comment obtenir une instance de processeur multimédia, consultez la rubrique [Encodage d'un élément multimédia][] pour savoir comment utiliser l'encodeur multimédia Azure afin d'encoder un élément multimédia.
+Maintenant que vous savez comment obtenir une instance de processeur multimédia, consultez la rubrique [Encodage d'un élément multimédia][] pour savoir comment utiliser l'Encodeur multimédia Azure afin d'encoder un élément multimédia.
 
 [Encodage d'un élément multimédia]: ../media-services-rest-encode-asset/
-[Chaînes de présélection des tâches pour l'Encodeur multimédia Azure]: http://msdn.microsoft.com/library/jj129582.aspx
+[Chaînes de présélection de tâche pour l'Encodeur multimédia Azure]: http://msdn.microsoft.com/library/jj129582.aspx
 [Procédure : connexion à Media Services par programme]: ../media-services-rest-connect_programmatically/
-<!--HONumber=45--> 
+<!--HONumber=47-->

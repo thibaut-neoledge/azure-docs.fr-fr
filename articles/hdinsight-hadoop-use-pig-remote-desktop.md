@@ -1,5 +1,5 @@
 ﻿<properties
-   pageTitle="Utiliser Hadoop Pig dans HDInsight | Azure"
+   pageTitle="Utilisation de Hadoop Pig dans HDInsight | Azure"
    description="Utilisation de Pig avec Hadoop sur HDInsight via le Bureau à distance."
    services="hdinsight"
    documentationCenter=""
@@ -30,9 +30,9 @@ Pour réaliser les étapes présentées dans cet article, vous avez besoin des �
 
 * un client Windows 7, 8 ou 10
 
-##<a id="connect"></a>une connexion de Bureau à distance
+##<a id="connect"></a>Connexion avec le Bureau à distance
 
-Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous en suivant les instructions sur la page <a href="http://azure.microsoft.com/ documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connexion à des clusters HDInsight à l'aide de RDP</a>.
+Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous à lui en suivant les instructions fournies dans <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Se connecter à des clusters HDInsight avec RDP</a>.
 
 ##<a id="pig"></a>Utilisation de la commande Pig
 
@@ -42,7 +42,7 @@ Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous en 
 
 		%pig_home%\bin\pig
 
-	Cela affichera une invite `grunt>`. 
+	Cela affichera une invite  `grunt>`. 
 
 3. Entrez l'instruction suivante :
 
@@ -56,9 +56,9 @@ Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous en 
 
 		LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
 
-	Vous pouvez utiliser **DUMP** pour afficher les données après la transformation. Dans cet exemple, `DUMP LEVELS;`.
+	Vous pouvez utiliser **DUMP** pour afficher les données après la transformation. Dans ce cas, `DUMP LEVELS;`.
 
-5. Continuez à appliquer des transformations à l'aide des instructions suivantes. Utilisez `DUMP` pour afficher le résultat de la transformation après chaque étape.
+5. Continuez à appliquer des transformations à l'aide des instructions suivantes. Utilisez  `DUMP` pour afficher le résultat de la transformation après chaque étape.
 
 	<table>
 	<tr>
@@ -71,18 +71,18 @@ Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous en 
 	<td>GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;</td><td>Regroupe les lignes par niveau de journal et stocke les résultats dans GROUPEDLEVELS.</td>
 	</tr>
 	<tr>
-	<td>FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;</td><td>Crée un nouveau jeu de données qui contient chaque valeur unique de niveau de journal et combien de fois elle se produit. Ces informations sont stockées dans FREQUENCIES</td>
+	<td>FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;</td><td>Crée un jeu de données qui contient chaque valeur unique au niveau journal et le nombre de fois où elle se produit. Ces informations sont stockées dans FREQUENCIES</td>
 	</tr>
 	<tr>
 	<td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Trie les niveaux du journal par décompte (décroissant) et stocke ces informations dans RESULT</td>
 	</tr>
 	</table>
 
-6. Vous pouvez également enregistrer les résultats d'une transformation à l'aide de l' instruction `STORE`. Par exemple, ce qui suit enregistre le `RESULT` dans le répertoire **/example/data/pigout** sur le conteneur de stockage par défaut de votre cluster.
+6. Vous pouvez également enregistrer les résultats d'une transformation à l'aide de l' instruction  `STORE`. Par exemple, ce qui suit enregistre  `RESULT` dans le répertoire **/example/data/pigout** sur le conteneur de stockage par défaut de votre cluster.
 
 		STORE RESULT into 'wasb:///example/data/pigout'
 
-	> [AZURE.NOTE] Les données sont stockées dans le répertoire spécifié dans des fichiers nommés **partie-nnnnn**. Si le répertoire existe déjà, vous recevrez un message d'erreur.
+	> [AZURE.NOTE] Les données sont stockées dans le répertoire spécifié dans des fichiers nommés **part-nnnnn**. Si le répertoire existe déjà, vous recevrez un message d'erreur.
 
 7. Pour quitter l'invite Grunt, entrez l'instruction suivante.
 
@@ -108,7 +108,7 @@ Vous pouvez également utiliser la commande Pig pour exécuter le Pig Latin cont
 
 		pig %PIG_HOME%\pigbatch.pig
 
-	Une fois le traitement par lots terminé, vous devez voir la sortie suivante, qui doit être la même que lorsque vous avez utilisé `DUMP RESULT;` dans les étapes précédentes.
+	Une fois le traitement par lots terminé, vous devez voir la sortie suivante, qui doit être la même que lorsque vous avez utilisé `DUMP RESULT;` lors des étapes précédentes.
 
 		(TRACE,816)
 		(DEBUG,434)
@@ -132,4 +132,4 @@ Pour plus d'informations sur d'autres méthodes de travail avec Hadoop sur HDIns
 * [Utilisation de Hive avec Hadoop sur HDInsight](../hdinsight-use-hive/)
 
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](../hdinsight-use-mapreduce/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

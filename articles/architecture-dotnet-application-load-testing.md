@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Test de charge de modèle d'application - Modèles d'architecture Azure" 
-	description="Find architectural overviews and design patterns that describe how to implement a load testing system on Azure." 
+	description="Trouvez des présentations architecturales et des modèles de conception qui décrivent comment implémenter un système de test de charge sur Azure." 
 	services="" 
 	documentationCenter=".net" 
 	authors="Rboucher" 
@@ -18,7 +18,7 @@
 
 # Test de charge dans Azure
 
-Le service de test de charge dans le cloud peut tester la charge de vos applications web. Utilisez Visual Studio pour créer un test de charge afin de déterminer la capacité et les performances de votre application web. Aucun besoin d'utiliser vos machines virtuelles Azure. Il vous suffit de laisser le [service de test de charge dans le cloud](http://tfs.visualstudio.com/fr-fr/learn/load-testing) les créer pour vous.
+Le service de test de charge dans le cloud peut tester la charge de vos applications web. Utilisez Visual Studio pour créer un test de charge afin de déterminer la capacité et les performances de votre application web. Aucun besoin d'utiliser vos machines virtuelles Azure. Il vous suffit de laisser le [service de test de charge dans le cloud](http://tfs.visualstudio.com/learn/load-testing) les créer pour vous.
 
 <!--links-->
 
@@ -29,8 +29,6 @@ Le service de test de charge dans le cloud peut tester la charge de vos applicat
 <!--images-->
 
 
- 
 
-<!--HONumber=35.2-->
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

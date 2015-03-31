@@ -22,15 +22,15 @@
 
 Dans cet article, vous allez apprendre à utiliser les outils de HDInsight pour Visual Studio afin d'envoyer à distance des requêtes Hive vers un cluster HDInsight.
 
-> [AZURE.NOTE] Ce document ne fournit pas une description détaillée de ce que font les instructions HiveQL utilisées dans les exemples. Pour plus d'informations sur le langage HiveQL utilisé dans cet exemple, consultez <a href="../hdinsight-use-hive/" target="_blank">Utilisation de Hive avec Hadoop sur HDInsight</a>.
+> [AZURE.NOTE] Ce document ne fournit pas une description détaillée de ce que font les instructions HiveQL utilisées dans les exemples. Pour plus d'informations sur le code HiveQL utilisé dans cet exemple, consultez <a href="../hdinsight-use-hive/" target="_blank">Utilisation de Hive avec Hadoop sur HDInsight</a>.
 
 ##<a id="prereq"></a>Conditions préalables
 
-Pour réaliser les étapes présentées dans cet article, vous avez besoin des éléments suivants :
+Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
 * Un cluster Azure HDInsight (Hadoop sur HDInsight, Linux ou Windows)
 
-* Visual Studio 2012 <a href="http://www.microsoft.com/fr-fr/download/details.aspx?id=39305" target="_blank">la mise à jour 4</a>, Visual Studio 2013 <a href="http://www.microsoft.com/fr-fr/download/details.aspx?id=43721" target="_blank">la mise à jour 3</a> ou <a href="http://www.microsoft.com/fr-fr/download/details.aspx?id=43722" target="_blank">Visual Studio Express 2013</a>
+* Visual Studio 2012 <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">Update 4</a>, Visual Studio 2013  <a href="http://www.microsoft.com/download/details.aspx?id=43721" target="_blank">Update 3</a> ou <a href="http://www.microsoft.com/download/details.aspx?id=43722" target="_blank">Visual Studio Express 2013</a>
 
 ##<a id="run"></a> Exécution de requêtes Hive à l'aide des outils HDInsight pour Visual Studio
 
@@ -47,14 +47,14 @@ Pour réaliser les étapes présentées dans cet article, vous avez besoin des �
     Ces instructions effectuent les opérations suivantes
 
     * **DROP TABLE** : supprime la table et le fichier de données, si la table existe déjà.
-    * **CREATE EXTERNAL TABLE** : crée une table 'external' dans Hive. Les tables externes stockent uniquement la définition de table dans Hive ; les données restent à leur emplacement d'origine
+    * **CREATE EXTERNAL TABLE** : crée une table  'externe' dans Hive. Les tables externes stockent uniquement la définition de table dans Hive ; les données restent à leur emplacement d'origine
 
         > [AZURE.NOTE] Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, ou par une autre opération MapReduce, mais souhaitez toujours que les requêtes Hive utilisent les données les plus récentes.
         >
         > La suppression d'une table externe ne supprime **pas** les données, mais seulement la définition de la table.
 
     * **ROW FORMAT** : indique à Hive le mode de formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
-    * **STORED AS TEXTFILE LOCATION** : indique à Hive l'emplacement des données (répertoire example/data) et précise qu'elles sont stockées sous la forme de texte
+    * **STORED AS TEXTFILE LOCATION** : indique à Hive l'emplacement des données (le répertoire exemple/données) et précise qu'elles sont stockées sous la forme de texte.
     * **SELECT** : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette commande doit renvoyer une valeur de **3**, car trois lignes contiennent cette valeur.
 
 3. Dans la barre d'outils, sélectionnez le **cluster HDInsight** que vous souhaitez utiliser pour cette requête, puis sélectionnez **Envoyer** pour exécuter les instructions comme une tâche Hive. Le **résumé de tâche Hive** apparaît et affiche des informations sur la tâche en cours d'exécution. Utilisez le lien **Actualiser** pour actualiser les informations sur la tâche, jusqu'à ce que l'**état de la tâche** passe à **Terminé**.
@@ -70,12 +70,12 @@ Pour réaliser les étapes présentées dans cet article, vous avez besoin des �
 
     Ces instructions effectuent les opérations suivantes :
 
-    * **CREATE TABLE IF NOT EXISTS** : crée une table, le cas échéant. Le mot-clé **EXTERNAL** n'étant pas utilisé, il s'agit d'une table interne, stockée dans l'entrepôt de données Hive et gérée intégralement par Hive.
+    * **CREATE TABLE IF NOT EXISTS** : crée une table, le cas échéant. Le mot-clé **EXTERNAL** n'étant pas utilisé, il s'agit d'une table interne, stockée dans l'entrepôt de données Hive et gérée intégralement par Hive
 
         > [AZURE.NOTE] Contrairement aux tables **EXTERNAL**, la suppression d'une table interne entraîne également la suppression des données sous-jacentes.
 
-    * **STORED AS ORC** : stocke les données au format ORC (Optimized Row Columnar). Il s'agit d'un format particulièrement efficace et optimisé pour le stockage de données Hive.
-    * **INSERT OVERWRITE ... SELECT** : sélectionne des lignes de la table **log4jLogs** qui contiennent **[ERROR]**, puis insère les données dans la table **errorLogs**.
+    * **STORED AS ORC** : stocke les données au format ORC (Optimized Row Columnar). Il s'agit d'un format particulièrement efficace et optimisé pour le stockage de données Hive
+    * **INSERT OVERWRITE ... SELECT** : sélectionne des lignes de la table **log4jLogs** qui contiennent **[ERROR]**, puis insère les données dans la table **errorLogs**
 
 7. Dans la barre d'outils, sélectionnez la liste déroulante pour **Envoyer**, afin d'exécuter la tâche. Utilisez l'**état de la tâche** afin de déterminer si la tâche est terminée.
 
@@ -89,7 +89,7 @@ Comme vous pouvez le voir, les outils HDInsight pour Visual Studio fournissent u
 
 Pour obtenir des informations générales sur Hive dans HDInsight.
 
-* [Utilisation de Hive avec Hadoop dans HDInsight](../hdinsight-use-hive/)
+* [Utilisation de Hive avec Hadoop sur HDInsight](../hdinsight-use-hive/)
 
 Pour plus d'informations sur d'autres méthodes de travail avec Hadoop sur HDInsight.
 
@@ -102,17 +102,17 @@ Pour plus d'informations sur les outils de HDInsight pour Visual Studio.
 * [Prise en main des outils HDInsight pour Visual Studio](../hdinsight-hadoop-visual-studio-tools-get-started/)
 
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/fr-fr/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
-[azure-purchase-options]: http://azure.microsoft.com/ pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/ documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: ../hdinsight-use-oozie/
@@ -134,4 +134,4 @@ Pour plus d'informations sur les outils de HDInsight pour Visual Studio.
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

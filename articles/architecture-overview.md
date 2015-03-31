@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Architecture" 
-	description="Vue d’ensemble de l’architecture présentant les modèles de conception courants" 
+	description="Présentation de l'architecture qui couvre les modèles de conception courants" 
 	services="" 
 	documentationCenter="" 
 	authors="Rboucher" 
@@ -16,19 +16,19 @@
 	ms.date="11/25/2014" 
 	ms.author="robb"/>
 
-#Architecture
+# Architecture
 Ressources pour la création d'applications basées sur Microsoft Azure.
 
-##Plans d'architecture Microsoft
+## Plans d'architecture Microsoft
 
-Microsoft publie actuellement un ensemble de plans d'architecture de haut niveau qui montrent comment créer des types spécifiques de systèmes à l'aide des services Microsoft Azure. Chaque plan comprend un fichier Visio 2D que vous pouvez télécharger et modifier, un fichier PDF 3D plus coloré pour présenter le plan, ainsi qu'une vidéo qui décrit pas à pas le fichier PDF 3D. Consultez 
+Microsoft publie actuellement un ensemble de plans d'architecture de haut niveau qui montrent comment créer des types spécifiques de systèmes à l'aide des services Microsoft Azure. Chaque plan comprend un fichier Visio 2D que vous pouvez télécharger et modifier, un fichier PDF 3D plus coloré pour présenter le plan, ainsi qu'une vidéo qui décrit pas à pas le fichier PDF 3D. Consultez la rubrique 
 [Plans d'architecture Microsoft](http://msdn.microsoft.com/dn630664).
 
 ![Microsoft Architecture Blueprint 3D diagram][BluePrint]
 
-##Ensemble Symbole/Icône Azure
+## Ensemble Symbole/Icône Azure
 
-[Téléchargez l'ensemble Symbole/Icône Azure](http://www.microsoft.com/fr-fr/download/details.aspx?id=41937) pour créer des supports techniques qui décrivent ou utilisent des éléments Azure, tels que des schémas d'architecture, des supports de formation, des présentations, des feuilles de données, des éléments d'infographie et des livres blancs. Vous pouvez télécharger les symboles au format PPT, Visio ou PNG. Comme nous apprécions de recevoir des commentaires de nos clients, des instructions sont disponibles à ce sujet dans le téléchargement.
+[Téléchargez l'ensemble Symbole/Icône Azure](http://www.microsoft.com/download/details.aspx?id=41937) pour créer des supports techniques qui décrivent ou utilisent des éléments Azure, tels que des schémas d'architecture, des supports de formation, des présentations, des feuilles de données, des éléments d'infographie et des livres blancs. Vous pouvez télécharger les symboles au format PPT, Visio ou PNG. Comme nous apprécions de recevoir des commentaires de nos clients, des instructions sont disponibles à ce sujet dans le téléchargement.
 
 Les schémas 2D des [plans d'architecture Microsoft](http://msdn.microsoft.com/dn630664) utilisent ces symboles. 
 
@@ -38,12 +38,12 @@ Si vous avez utilisé les symboles, veillez à répondre à la courte [enquête]
 
 ![Azure Symbol/Icon set][azure_symbols]
 
-##Modèles de conception
+## Modèles de conception
 Microsoft Patterns and Practices a publié le livre [Cloud Design Patterns (Modèles de conception pour le cloud)](http://msdn.microsoft.com/library/dn568099.aspx), disponible à la fois sur MSDN et sous forme de téléchargement au format PDF. Il existe également une affiche grand format qui énumère tous les modèles. 
 
 ![Patterns and Practices Cloud Patterns Poster][PnPPoster]
 
-##Éléments d'infographie relatifs à l'architecture
+## Éléments d'infographie relatifs à l'architecture
 Microsoft publie plusieurs affiches/éléments d'infographie relatifs à l'architecture. Cela inclut la [création d'applications cloud réalistes](http://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/) et leur [montée en charge à l'aide de Cloud Services](http://azure.microsoft.com/documentation/infographics/cloud-services/). 
 
 
@@ -51,11 +51,9 @@ Microsoft publie plusieurs affiches/éléments d'infographie relatifs à l'archi
 
 
 
-[Plan]: ./media/architecture-overview/BluePrintThumb.png
+[BluePrint]: ./media/architecture-overview/BluePrintThumb.png
 [azure_symbols]: ./media/architecture-overview/AzureSymbols.png
 [PnPPoster]: ./media/architecture-overview/PnPPatternPosterThumb.png
 [AzureInfographic]: ./media/architecture-overview/AzureArchInfographicThumb.png
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

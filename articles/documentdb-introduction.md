@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Présentation de Microsoft Azure DocumentDB | Azure" 
-	description="Learn about Azure DocumentDB, a NoSQL document database, and its value to cloud and mobile applications. Learn how it manages data, and how you can use it in application development." 
+	description="Découvrez Azure DocumentDB, une base de données de documents NoSQL et sa valeur au nuage et les applications mobiles." 
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -18,14 +18,20 @@
 
 #Présentation de Microsoft Azure DocumentDB
 
-Cet article propose une introduction à Microsoft Azure DocumentDB, service de base de données NoSQL orienté documents, destiné aux développeurs, aux professionnels de l'informatique et aux décideurs économiques. En le lisant, vous serez en mesure de répondre aux questions suivantes :  
+Cet article propose une introduction à Microsoft Azure DocumentDB, service de base de données NoSQL orienté documents, destiné aux développeurs, aux professionnels de l'informatique et aux décideurs économiques. 
+
+Nous vous recommandons de commencer par regarder la vidéo suivante dans laquelle Ryan CrawCour et Scott Hanselman présentent Azure DocumentDB. 
+
+> [AZURE.VIDEO documentdb-101-with-ryan-crawcour]
+
+Ensuite, revenez à cet article dans lequel vous découvrirez les réponses aux questions suivantes :  
 
 -	[Qu'est-ce que DocumentDB et quelle valeur fournit-il au cloud et aux applications mobiles ?](#what-is-docdb)
 -	[Comment mes données sont-elles gérées dans DocumentDB et comment puis-je y accéder ?](#data-management)
 -	[Comment développer des applications à l'aide de DocumentDB ?](#develop)
 -	[Quelles sont les étapes suivantes pour créer une application DocumentDB ?](#next-steps)  
 
-##<a name="what-is-docdb"></a>Présentation d'Azure DocumentDB  
+##<a name="what-is-docdb"></a>Présentation d'Azure DocumentDB
 
 Les applications modernes produisent et consomment rapidement de très larges volumes de données, et y répondent. Elles évoluent très rapidement, ainsi que le schéma de données sous-jacent. En réponse, de plus en plus de développeurs choisissent des bases de données NoSQL sans schéma comme solutions simples, rapides et élastiques pour stocker et traiter les données tout en préservant la capacité à itérer rapidement les modèles de données d'application et les flux de données non structurées. Toutefois, de nombreuses bases de données sans schéma n'autorisent pas les requêtes non triviales et le traitement transactionnel, ce qui rend difficile la gestion avancée des données. C'est là qu'intervient DocumentDB. Microsoft a développé DocumentDB pour répondre à ces besoins lors de la gestion de données sans schéma.
 
@@ -37,16 +43,15 @@ Azure DocumentDB offre les avantages et fonctionnalités suivants :
 
 -	**Requêtes ad hoc avec une syntaxe SQL courante :** stocker des documents JSON hétérogènes dans DocumentDB et interroger ces documents via une syntaxe SQL classique. DocumentDB utilise une technologie d'indexation structurée par des journaux à simultanéité élevée et sans verrouillage pour indexer automatiquement tout le contenu des documents. Cela permet des requêtes riches en temps réel sans avoir besoin de spécifier des indicateurs de schéma, des index secondaires ou des vues.
 
--	**Exécution du code JavaScript au sein de la base de données :** exprimer la logique de l'application en tant que procédures stockées, déclencheurs et fonctions définies par l'utilisateur (UDF) à l'aide d'un code JavaScript standard. Votre logique d'application peut ainsi opérer sur les données JSON sans se soucier de l'incompatibilité entre l'application et le schéma de base de données. DocumentDB fournit l'exécution transactionnelle complète de la logique d'application JavaScript directement dans le moteur de base de données. L'intégration approfondie de JavaScript permet l'exécution d'opérations INSERT, REPLACE, DELETE et SELECT à partir d'un programme JavaScript sous forme de transaction isolée.
+-	**Exécution du code JavaScript au sein de la base de données :** exprimer la logique de l'application en tant que procédures stockées, déclencheurs et fonctions définies par l'utilisateur à l'aide d'un code JavaScript standard. Votre logique d'application peut ainsi opérer sur les données JSON sans se soucier de l'incompatibilité entre l'application et le schéma de base de données. DocumentDB fournit l'exécution transactionnelle complète de la logique d'application JavaScript directement dans le moteur de base de données. L'intégration approfondie de JavaScript permet l'exécution d'opérations INSERT, REPLACE, DELETE et SELECT à partir d'un programme JavaScript sous forme de transaction isolée.
 
--	**Niveaux de cohérence réglables :** sélectionner parmi quatre niveaux de cohérence bien définis pour atteindre un compromis optimal entre la cohérence et les performances. Pour les requêtes et les opérations de lecture, DocumentDB offre quatre niveaux de cohérence distincts : forte, péremption délimitée, session et final. Ces niveaux de cohérence granulaires et précis permettent d'obtenir un bon compromis entre la cohérence, la disponibilité et la latence.
+-	**Niveaux de cohérence réglables :** sélectionner parmi quatre niveaux de cohérence bien définis pour atteindre un compromis optimal entre la cohérence et les performances. Pour les requêtes et les opérations de lecture, DocumentDB offre quatre niveaux de cohérence distincts : Fort, En fonction de l'obsolescence, Par session et Éventuel. Ces niveaux de cohérence granulaires et précis permettent d'obtenir un bon compromis entre la cohérence, la disponibilité et la latence.
 
--	**Gestion complète :** éliminer le besoin de gérer les ressources des base de données et des machines. En tant que service entièrement géré de Microsoft Azure, il est inutile de gérer les machines virtuelles, de déployer et de configurer les logiciels ou de gérer les mises à niveau de la couche de données complexes. Chaque base de données est automatiquement sauvegardée et protégée contre les défaillances régionales. Vous pouvez facilement ajouter un compte DocumentDB et provisionner les capacités au fur et à mesure que vous en avez besoin, ce qui vous permet de vous concentrer sur votre application au lieu d'exploiter et de gérer votre base de données.
+-	**Gestion complète :** éliminer le besoin de gérer les ressources des bases de données et des machines. En tant que service entièrement géré de Microsoft Azure, il est inutile de gérer les machines virtuelles, de déployer et de configurer les logiciels ou de gérer les mises à niveau complexes de la couche de données. Chaque base de données est automatiquement sauvegardée et protégée contre les défaillances régionales. Vous pouvez facilement ajouter un compte DocumentDB et approvisionner les capacités au fur et à mesure que vous en avez besoin, ce qui vous permet de vous concentrer sur votre application au lieu d'exploiter et de gérer votre base de données.
 
 -	**Souplesse d'évolution du débit et du stockage :** mise à l'échelle simple de DocumentDB pour répondre aux besoins de vos applications. La mise à l'échelle s'effectue via les unités spécifiques de débit et de stockage SSD réservées. Vous pouvez faire évoluer DocumentDB de façon élastique avec des performances prévisibles en achetant plusieurs unités de capacité lorsque votre application croît.
 
--	**Conception ouverte :** 
--	 rapidement en utilisant les outils et compétences existants. La programmation dans DocumentDB est simple, accessible et ne nécessite pas d'adopter de nouveaux outils ou d'adhérer à des extensions personnalisées JSON ou JavaScript. Vous pouvez accéder à toutes les fonctionnalités de base de données, y compris CRUD, les requêtes et le traitement JavaScript via une interface HTTP RESTful. DocumentDB englobe les formats, normes et langages existants, tout en offrant des fonctionnalités de base de données de valeur élevée.
+-	**Ouvert par conception :** commencer rapidement à l'aide des outils et compétences existantes. La programmation de DocumentDB est simple, abordable et ne nécessite pas d'adopter de nouveaux outils ou de respecter des extensions personnalisées JSON ou JavaScript. Vous pouvez accéder à toutes les fonctionnalités de base de données y compris CRUD, l'interrogation et le traitement JavaScript via une simple interface RESTful HTTP. DocumentDB utilise les formats, les langages et les normes existants tout en offrant des fonctionnalités de base de données à forte valeur ajoutée.
 
 Vous pouvez utiliser DocumentDB pour stocker des jeux de données flexibles nécessitant l'extraction de requêtes et un traitement transactionnel. Les scénarios d'application peuvent inclure les données utilisateur des applications web et mobiles interactives, ainsi que le stockage, la récupération et le traitement des données JSON de l'application. Une base de données peut stocker un nombre illimité de documents JSON, car DocumentDB est parfaitement adapté aux applications exécutées sur Internet.
 
@@ -96,6 +101,4 @@ Pour la prise en main d'Azure DocumentDB, explorez les ressources suivantes :
 
 [1]: ./media/documentdb-introduction/intro.png
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

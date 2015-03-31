@@ -1,5 +1,5 @@
 ﻿<properties
-   pageTitle="Utilisez les clés SSH avec Hadoop dans HDInsight sous Linux à partir de Windows | Azure"
+   pageTitle="Utilisation des clés SSH avec Hadoop dans HDInsight sous Linux à partir de Windows | Azure"
    description="Apprenez à créer et utiliser des clés SSH pour l'authentification dans les clusters HDInsight sous Linux."
    services="hdinsight"
    documentationCenter=""
@@ -20,11 +20,11 @@
 
 Les clusters HDInsight sous Linux offrent la possibilité de sécuriser l'accès SSH au moyen d'un mot de passe ou d'une clé SSH. Ce document fournit des informations relatives à la connexion à HDInsight depuis les clients Windows à l'aide du client SSH PuTTY.
 
-> [AZURE.NOTE] Les étapes de cet article partent du principe que vous utilisez un client Windows. Si vous utilisez un client Linux, Unix ou OS X, consultez [Utilisation de SSH avec Hadoop dans HDInsight sous Linux à partir de Linux, Unix ou OS X](/fr-fr/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/).
+> [AZURE.NOTE] Les étapes de cet article partent du principe que vous utilisez un client Windows. Si vous utilisez un client Linux, Unix ou OS X, consultez [Utiliser SSH avec Hadoop dans HDInsight sous Linux à partir de Linux, Unix ou OS X](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/).
 
 ##Conditions préalables
 
-* **PuTTY** et **PuTTYGen** pour les clients Windows. Ces utilitaires sont disponibles sur <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>
+* **PuTTY** et **PuTTYGen** pour les clients Windows. Ces utilitaires sont disponibles à partir de <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>
 
 * Un navigateur Web moderne qui prend en charge HTML5
 
@@ -76,9 +76,9 @@ SSH est un utilitaire permettant de se connecter et d'exécuter à distance des 
 
 * **Portail de gestion Azure** : utilise un portail Web pour créer le cluster.
 
-* **Interface en ligne de commande multiplateforme Azure (xplat-cli)** : utilise les commandes de la ligne de commande pour créer le cluster.
+* **Interface de ligne de commande multiplateforme Azure (xplat-cli)** : utilise les commandes de la ligne de commande pour créer le cluster
 
-Chacune de ces méthodes nécessite une **clé publique**. Pour plus d'informations sur la création d'un cluster HDInsight sous Linux, consultez <a href="./hdinsight-hadoop-provision-linux-clusters/" target="_blank">Approvisionnement de clusters HDInsight sous Linux</a>.
+Chacune de ces méthodes nécessite une **clé publique**. Pour plus d'informations sur la création d'un cluster HDInsight sous Linux, consultez <a href="./hdinsight-hadoop-provision-linux-clusters/" target="_blank">Approvisionner des clusters HDInsight sous Linux</a>.
 
 ###Portail de gestion Azure
 
@@ -90,9 +90,9 @@ Cela crée une connexion pour l'utilisateur indiqué et active l'authentificatio
 
 ###Interface de ligne de commande multiplateforme Azure
 
-Vous pouvez utiliser l'onglet <a href="../xplat-cli/" target="_brad">Interface de ligne de commande multiplateforme Azure</a>pour créer un nouveau cluster à l'aide de la commande  `azure hdinsight cluzter create`.
+Vous pouvez utiliser l' <a href="../xplat-cli/" target="_brad">Interface de ligne de commande multiplateforme Azure</a> pour créer un cluster avec la commande  `azure hdinsight cluster create`.
 
-Pour plus d'informations sur l'utilisation de cette commande, consultez <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">Approvisionnement de clusters Hadoop sous Linux dans HDInsight à l'aide d'options personnalisées</a>
+Pour plus d'informations sur l'utilisation de cette commande, consultez <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">Approvisionnement de clusters Hadoop Linux dans HDInsight à l'aide d'options personnalisées</a>
 
 ##<a id="connect"></a>Connexion à un cluster HDInsight sous Linux
 
@@ -106,7 +106,7 @@ Pour plus d'informations sur l'utilisation de cette commande, consultez <a href=
 
 	![putty interface, select private key](./media/hdinsight-hadoop-linux-use-ssh-windows/puttykey.png)
 
-3. Dans **Catégorie**, cliquez sur **Session**. À partir de l'écran **Options de base pour votre session PuTTy**, entrez l'adresse SSH de votre serveur HDInsight dans le champ **nom d'hôte (adresse IP)**. L'adresse SSH est le nom de votre cluster, puis **-ssh.azurehdinsight.net**. Par exemple, **mycluster-ssh.azurehdinsight.net**.
+3. Dans **Catégorie**, cliquez sur **Session**. À partir de l'écran **Options de base pour votre session PuTTy**, entrez l'adresse SSH de votre serveur HDInsight dans le champ **Nom d'hôte (adresse IP)**. L'adresse SSH est le nom de votre cluster, puis **-ssh.azurehdinsight.net**. Par exemple, **mycluster-ssh.azurehdinsight.net**.
 
 	![putty interface with ssh address entered](./media/hdinsight-hadoop-linux-use-ssh-windows/puttyaddress.png)
 
@@ -146,9 +146,9 @@ Pour plus d'informations sur l'utilisation de cette commande, consultez <a href=
 
 ##<a id="tunnel"></a>Tunneling SSH
 
-SSH peut également être utilisé pour transférer des requêtes locales, telles que des demandes Web, vers le cluster HDInsight. La requête sera ensuite acheminée vers la ressource demandée comme si elle provenait du nœud principal du cluster HDInsight.
+Vous pouvez aussi utiliser SSH pour transférer des requêtes locales, telles que des demandes web, vers le cluster HDInsight. La requête sera ensuite acheminée vers la ressource demandée comme si elle provenait du nœud principal du cluster HDInsight.
 
-Cela peut être très utile pour accéder aux services Web sur le cluster HDInsight qui utilise des noms de domaine internes pour le nœud principal ou le nœud de travail dans le cluster. Par exemple, certaines rubriques de la page Web Ambari utilisent des noms de domaine internes tels que **headnode0.mycluster.d1.internal.cloudapp.net**. Ces noms ne peuvent pas être résolus en dehors du cluster. Toutefois, les requêtes en tunnel via SSH proviennent de l'intérieur du cluster et seront résolues correctement.
+Cela peut être très utile pour accéder aux services Web sur le cluster HDInsight qui utilise des noms de domaine internes pour le nœud principal ou le nœud de travail dans le cluster. Par exemple, certaines rubriques de la page Web Ambari utilisent des noms de domaine internes tels que **headnode0.mycluster.d1.internal.cloudapp.net**. Ces noms ne peuvent pas être résolus en dehors du cluster. Toutefois, les requêtes tunnelées par SSH proviennent de l'intérieur du cluster et seront résolues correctement.
 
 Suivez les étapes suivantes pour créer un tunnel SSH et configurer votre navigateur pour vous connecter au cluster.
 
@@ -176,11 +176,11 @@ Suivez les étapes suivantes pour créer un tunnel SSH et configurer votre navig
 
 	> [AZURE.NOTE] La sélection de **DNS Distant** résoudra les requêtes DNS à l'aide du cluster HDInsight. Si cette option n'est pas sélectionnée, le DNS sera résolu localement.
 
-	Vous pouvez vérifier que le trafic est acheminé via le tunnel en consultant un site tel que <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a> avec les paramètres de proxy activés et désactivés dans Firefox. Lorsqu'ils sont activés, l'adresse IP sera celle d'une machine dans le centre de données Microsoft Azure.
+	Vous pouvez vérifier que le trafic est routé via le tunnel par accédant à un site tel que <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a> avec les paramètres de proxy activés et désactivés dans Firefox. Lorsqu'ils sont activés, l'adresse IP sera celle d'une machine dans le centre de données Microsoft Azure.
 
 ###Extensions du navigateur
 
-Si la configuration du navigateur pour utiliser le tunnel fonctionne, en principe vous n'avez pas besoin d'acheminer tout le trafic via le tunnel. Les extensions de navigateur telles que <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy</a>  prennent en charge la correspondance pour les requêtes URL (FoxyProxy Standard ou Plus uniquement) de façon à ce que seules les requêtes pour des URL spécifiques soient envoyées via le tunnel.
+Si la configuration du navigateur pour utiliser le tunnel fonctionne, en principe vous n'avez pas besoin d'acheminer tout le trafic via le tunnel. Les extensions de navigateur telles que <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy</a> prennent en charge la correspondance pour les requêtes URL (FoxyProxy Standard ou Plus uniquement) pour que seules les requêtes pour des URL spécifiques soient envoyées via le tunnel.
 
 Si vous avez installé **FoxyProxy Standard**, suivez les étapes suivantes pour configurer celui-ci uniquement pour le trafic de transfert de HDInsight via le tunnel.
 
@@ -208,7 +208,7 @@ Si vous avez installé **FoxyProxy Standard**, suivez les étapes suivantes pour
 
 	* **Nom de type** - **nœud principal** : il s'agit simplement d'un nom de type convivial.
 
-	* **Type d'URL** - **\*nœud principal\*** : cela définit un type qui correspond à toute URL contenant les mots **nœud principal**.
+	* **Modèle d'URL** - **\*nœud principal\*** : cela définit un type qui correspond à toute URL contenant les mots **nœud principal**.
 
 	![foxyproxy pattern](./media/hdinsight-hadoop-linux-use-ssh-windows/foxypattern.png)
 
@@ -224,10 +224,10 @@ Après avoir suivi ces étapes, seules les requêtes pour les URL qui contiennen
 
 Maintenant que vous savez effectuer une authentification avec une clé SSH, apprenez comment utiliser MapReduce avec Hadoop dans HDInsight.
 
-* [Utilisation de Hive avec HDInsight](../hdinsight-use-hive/)
+* [Utiliser Hive avec HDInsight](../hdinsight-use-hive/)
 
 * [Utilisation de Pig avec HDInsight](../hdinsight-use-pig/)
 
 * [Utilisation des tâches MapReduce avec HDInsight](../hdinsight-use-mapreduce/)
  
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -19,25 +19,25 @@
 
 #Encodage d'une ressource à l'aide d'Azure Media Encoder
 
-Cet article fait partie de la série [workflow à la demande de vidéo Media Services](../media-services-video-on-demand-workflow). 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) . 
 
 ##Vue d'ensemble
 Pour fournir une vidéo numérique sur Internet, vous devez compresser le contenu multimédia. Les fichiers vidéo numériques sont volumineux et peuvent être trop gros pour être fournis sur Internet ou pour que les périphériques de vos clients les affichent correctement. L'encodage est le processus de compression audio et vidéo permettant à vos clients d'afficher votre contenu multimédia.
 
-Les tâches d'encodage sont une des opérations de traitement les plus courantes dans Media Services. Vous créez des tâches d'encodage pour convertir des fichiers multimédias d'un encodage à un autre. Lorsque vous les encodez, vous pouvez utiliser l'encodeur multimédia intégré de Media Services. Vous pouvez aussi utiliser un encodeur fourni par un partenaire Media Services. Ces encodeurs tiers sont disponibles sur Azure Marketplace. Vous pouvez spécifier les détails des tâches d'encodage à l'aide de chaînes de présélection définies pour votre encodeur ou en utilisant des fichiers de configuration prédéfinis. Pour voir les types de présélections disponibles, consultez Présélections de tâches pour Azure Media Services. Si vous avez utilisé un encodeur tiers, vous devez [valider vos fichiers](https://msdn.microsoft.com/fr-fr/library/azure/dn750842.aspx).
+Les tâches d'encodage sont une des opérations de traitement les plus courantes dans Media Services. Vous créez des tâches d'encodage pour convertir des fichiers multimédias d'un encodage à un autre. Lorsque vous les encodez, vous pouvez utiliser l'encodeur multimédia intégré de Media Services. Vous pouvez aussi utiliser un encodeur fourni par un partenaire Media Services. Ces encodeurs tiers sont disponibles sur Azure Marketplace. Vous pouvez spécifier les détails des tâches d'encodage à l'aide de chaînes de présélection définies pour votre encodeur ou en utilisant des fichiers de configuration prédéfinis. Pour voir les types de présélections disponibles, consultez Présélections de tâches pour Azure Media Services. Si vous avez utilisé un encodeur tiers, [validez vos fichiers](https://msdn.microsoft.com/library/azure/dn750842.aspx).
 
-Il est recommandé de toujours encoder vos fichiers mezzanine en un ensemble de fichiers MP4 à débit adaptatif, puis de convertir ce jeu de fichiers au format souhaité en utilisant l'[empaquetage dynamique](https://msdn.microsoft.com/fr-fr/library/azure/jj889436.aspx).
+Il est recommandé de toujours encoder vos fichiers mezzanine sous forme de jeu de fichiers MP4 à débit adaptatif, puis de convertir ce jeu au format souhaité au moyen de l'[empaquetage dynamique](https://msdn.microsoft.com/library/azure/jj889436.aspx).
 
 ##Création d'un travail avec une seule tâche d'encodage 
 
 >[AZURE.NOTE] Lorsque vous utilisez l'API REST de Media Services, les considérations suivantes s'appliquent :
 >
->Lors de l'accès aux entités dans Media Services, vous devez définir les valeurs et les champs d'en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](../media-services-rest-how-to-use).
+>Lors de l'accès aux entités dans Media Services, vous devez définir les valeurs et les champs d'en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Configuration du développement de l'API REST Media Services](../media-services-rest-how-to-use).
 
->Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](../media-services-rest-connect_programmatically/). 
+>Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez adresser les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](../media-services-rest-connect_programmatically/). 
 
 
-L'exemple suivant montre comment créer et publier un projet avec une tâche visant à encoder une vidéo en une résolution et une qualité spécifiques. Lors de l'encodage avec Azure Media Encoder, vous pouvez utiliser des préréglages de configuration de tâche, définis [ici](https://msdn.microsoft.com/fr-fr/library/azure/dn619389.aspx).
+L'exemple suivant montre comment créer et publier un projet avec une tâche visant à encoder une vidéo en une résolution et une qualité spécifiques. Quand vous encodez à l'aide de l'Encodeur multimédia Azure, vous pouvez utiliser les présélections de configuration de tâche spécifiés [ici](https://msdn.microsoft.com/library/azure/dn619389.aspx).
 	
 Demande :
 
@@ -110,14 +110,14 @@ Dans de nombreux scénarios d'application, les développeurs souhaitent créer u
 
 
 ##Étapes suivantes
-Maintenant que vous savez comment créer une tâche pour encoder un élément multimédia, consultez la rubrique [Vérification de la progression d'une tâche avec Media Services](../media-services-rest-check-job-progress/) .
+Maintenant que vous savez comment créer un travail d'encodage de ressource, accédez à la [procédure de vérification de la progression des tâches avec Media Services](../media-services-rest-check-job-progress/) .
 
 [Azure Marketplace]: https://datamarket.azure.com/
-[Préréglage de l'encodeur]: http://msdn.microsoft.com/library/dn619392.aspx
+[Présélection d'encodeur]: http://msdn.microsoft.com/library/dn619392.aspx
 [Procédure : obtention d'une instance de processeur multimédia]:http://go.microsoft.com/fwlink/?LinkId=301732
-[Procédure : téléchargement d'un élément multimédia chiffré]:http://go.microsoft.com/fwlink/?LinkId=301733
-[Procédure : fourniture d'un élément multimédia par téléchargement].:http://go.microsoft.com/fwlink/?LinkId=301734
+[Procédure : téléchargement d'une ressource chiffrée]:http://go.microsoft.com/fwlink/?LinkId=301733
+[Procédure : remise d'une ressource par téléchargement].:http://go.microsoft.com/fwlink/?LinkId=301734
 [Vérification de la progression des tâches]:http://go.microsoft.com/fwlink/?LinkId=301737
 [Présélection de tâches pour Azure Media Packager]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

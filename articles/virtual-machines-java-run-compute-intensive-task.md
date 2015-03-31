@@ -5,7 +5,7 @@
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/20/2015" 
 	ms.author="robmcm"/>
 
 # Exécution d'une tâche nécessitant beaucoup de ressources en langage Java sur une machine virtuelle
@@ -68,7 +68,7 @@ Notez que **JDK 6 Windows Server 2012** est disponible si vous ne pouvez pas ex�
 
 ## Connexion distante à votre machine virtuelle
 
-1. Connectez-vous au [portail de gestion](https://manage.windowsazure.com).
+1. Ouvrez une session sur le [portail de gestion](https://manage.windowsazure.com).
 2. Cliquez sur **Machines virtuelles**.
 3. Cliquez sur le nom de la machine virtuelle à laquelle vous voulez vous connecter.
 4. Cliquez sur **Connecter**.
@@ -84,41 +84,46 @@ Pour créer un espace de noms de service :
 
 1.  Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com).
 2.  Dans le volet de navigation gauche du portail de gestion, cliquez sur **Bus des services, Contrôle d'accès et Cache**.
-3.  Dans le volet supérieur gauche du portail de gestion, cliquez sur le nœud **Bus des
-    services**, puis sur le bouton **Nouveau**.  
+3.  Dans le volet supérieur gauche du portail de gestion, cliquez sur le nœud **Bus des services**, puis sur le bouton **Nouveau**.
+
     ![Service Bus Node screenshot][svc_bus_node]
-4.  Dans la boîte de dialogue **Création d'un espace de noms Service Bus**, entrez un
-    **Espace de noms**. Puis, afin de vous assurer qu'il est unique, cliquez sur le
-    bouton **Vérifier disponibilité**.  
+
+4.  Dans la boîte de dialogue **Création d'un espace de noms Service Bus**, entrez un **Espace de noms**. Puis, afin de vous assurer qu'il est unique, cliquez sur le bouton **Vérifier la disponibilité**.  
+
     ![Create a New Namespace screenshot][create_namespace]
-5.  Après vous être assuré de la disponibilité du nom de l'espace de noms, choisissez le
-    pays ou la région où votre espace de noms doit être hébergé, puis cliquez sur le bouton **Créer l'espace de noms**.  
+
+5.  Après vous être assuré de la disponibilité du nom de l'espace de noms, choisissez le pays ou la région où votre espace de noms doit être hébergé, puis cliquez sur le bouton **Créer l'espace de noms**.
       
     L'espace de noms que vous avez créé apparaît alors dans le portail de gestion.
     Son activation peut prendre un peu de temps. Attendez que l'état soit **Actif** avant de passer à l'étape suivante.
 
 ## Obtention d'informations d'identification de gestion par défaut pour l'espace de noms
 
-Pour pouvoir effectuer des opérations de gestion telles que la création d'une file d'attente sur le nouvel espace de noms, vous devez obtenir les informations d'identification de gestion associées.
+Afin d'effectuer des opérations de gestion, comme la création d'une file d'attente, sur le nouvel espace de noms, vous devez obtenir les informations d'identification de gestion l'espace de noms.
 
-1.  Dans le volet de navigation gauche, cliquez sur le nœud **Bus de service** node, pour
-    afficher la liste des espaces de noms disponibles :   
+1.  Dans le volet de navigation gauche, cliquez sur le nœud **Bus de service**, pour afficher la liste des espaces de noms disponibles :
+
     ![Available Namespaces screenshot][avail_namespaces]
-2.  Sélectionnez l'espace de noms que vous venez de créer dans la liste affichée :   
+
+2.  Sélectionnez l'espace de noms que vous venez de créer dans la liste affichée :
+
     ![Namespace List screenshot][namespace_list]
+
 3.  Le volet **Propriétés** de droite répertorie les propriétés du nouvel espace de noms :   
+
     ![Properties Pane screenshot][properties_pane]
-4.  La **Clé par défaut** est masquée. Cliquez sur le bouton **Afficher** pour afficher les informations d'identification de sécurité :
+
+4.  La **Clé par défaut** est masquée. Cliquez sur le bouton **Afficher** pour afficher les informations d'identification de sécurité :   
+
     ![Default Key screenshot][default_key]
-5.  Notez l'**émetteur par défaut** et la **clé par défaut**, étant donné que vous
-    utiliserez les informations ci-dessous plus tard, afin d'effectuer les opérations avec
-    l'espace de no
-	ms. 
+
+5.  Notez l'**émetteur par défaut** et la **clé par défaut**, étant donné que vous utiliserez les informations ci-dessous plus tard, afin d'effectuer les opérations avec
+    l'espace de noms. 
 
 ## Création d'une application Java exécutant une tâche qui nécessite beaucoup de ressources
 
-1. Sur votre ordinateur de développement (qui n'est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour Java](http://azure.microsoft.com/develop/java/).
-2. Créez une application console Java à l'aide de l'exemple de code disponible à la fin de cette section. Dans le cadre de ce didacticiel, nous utiliserons le nom de fichier Java **TSPSolver.java**. Modifiez les espaces réservés **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** et **your\_service\_bus\_key** pour utiliser respectivement vos valeurs Service Bus **Espace de noms**, **Émetteur par défaut** et **Clé par défaut**.
+1. Sur votre ordinateur de développement (qui n'est pas nécessairement celui sur lequel se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour Java](http://www.windowsazure.com/develop/java/).
+2. Créez une application console Java à l'aide de l'exemple de code disponible à la fin de cette section. Dans le cadre de ce didacticiel, nous utiliserons le nom de fichier Java **TSPSolver.java**. Modifiez les espaces réservés **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** et **your\_service\_bus\_key** pour utiliser vos valeurs d'**Espace de noms**, d'**Émetteur par défaut** et de **Clé par défaut** Service Bus, respectivement.
 3. Après le codage, exportez l'application dans une archive Java exécutable (JAR) et créez un package contenant les bibliothèques requises dans le fichier JAR généré. Dans le cadre de ce didacticiel, nous utiliserons le nom **TSPSolver.jar** pour désigner le fichier JAR généré.
 
 <p/>
@@ -500,7 +505,7 @@ Exécutez l'application nécessitant beaucoup de ressources pour créer la file 
 > Plus le nombre spécifié est élevé, plus l'exécution du solveur est longue. Par exemple, une exécution portant sur 14 villes peut prendre quelques minutes, et une exécution portant sur 15 villes peut prendre des heures. Au-delà de 16 villes, l'exécution peut prendre des jours (voire des semaines, des mois et des années). Cette lenteur est due à la hausse rapide du nombre de permutations évaluées par le solveur à mesure que le nombre de villes augmente.
  
 ### Exécution de la surveillance de l'application cliente
-1. Connectez-vous à l'ordinateur où vous exécuterez l'application cliente. Il ne doit pas nécessairement s'agir de l'ordinateur qui exécute l'application **TSPSolver**.
+1. Connectez-vous à l'ordinateur sur lequel vous exécuterez l'application cliente. Il ne doit pas nécessairement s'agir de l'ordinateur qui exécute l'application **TSPSolver**.
 2. Créez un dossier où vous exécuterez votre application. Par exemple, **c:\TSP**.
 3. Copiez **TSPClient.jar** vers **c:\TSP**,
 4. Vérifiez que le dossier Bin de JRE se trouve dans la variable d'environnement PATH.
@@ -535,5 +540,4 @@ Pour quitter les applications solveur et cliente avant la fin normale, vous pouv
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

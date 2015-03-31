@@ -1,7 +1,7 @@
-﻿<properties 
+<properties 
 	pageTitle="Déploiement d'une application web Ruby on Rails sur une machine virtuelle Azure en utilisant Capistrano - Didacticiel" 
 	description="Apprenez à déployer une application Ruby on Rails sur une machine virtuelle Azure en utilisant Capistrano, Unicorn et Nginx." 
-	authors="blackmist" 
+	authors="wpickett" 
 	manager="wpickett" 
 	editor="" 
 	services="virtual-machines" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryfr"/>
+	ms.date="02/19/2015" 
+	ms.author="wpickett"/>
 
 
-#Déploiement d'une application Web Ruby on Rails sur une machine virtuelle Azure à l'aide de Capistrano
+# Déploiement d'une application Web Ruby on Rails sur une machine virtuelle Azure à l'aide de Capistrano
 
 Ce didacticiel montre comment déployer un site web Ruby on Rails sur une machine virtuelle Azure à l'aide de [Capistrano 3](https://github.com/capistrano/capistrano/). Une fois le déploiement terminé, vous utiliserez [Nginx](http://nginx.org/) et [Unicorn](https://github.com/blog/517-unicorn) pour héberger le site web. [PostgreSQL](https://www.postgresql.org) stockera les données de l'application déployée.
 
@@ -43,7 +43,7 @@ La capture d'écran suivante présente l'application terminée :
 > 
 > Des étapes spécifiques sont exigées avec un environnement de développement Windows. Toutefois, si vous êtes confronté, pendant ou après le déploiement, à des erreurs qui ne sont pas traitées dans cet article, vous pouvez reproduire les étapes de cet article dans un environnement de développement Linux.
 
-##Dans cet article
+## Dans cet article
 
 * [Configuration de l'environnement de développement](#setup)
 
@@ -63,11 +63,11 @@ La capture d'écran suivante présente l'application terminée :
 
 * [Étapes suivantes](#next)
 
-##<a id="setup"></a>Configuration de l'environnement de développement
+## <a id="setup"></a>Configuration de l'environnement de développement
 
 1. Installez Ruby dans votre environnement de développement. En fonction de votre système d'exploitation, les étapes peuvent varier.
 
-	* **Apple OS X** - Il existe plusieurs distributions Ruby pour OS X. Ce didacticiel a été validé sur OS X en utilisant [Homebrew](http://brew.sh/) pour installer **rbenv**, **ruby-build** et **Ruby 2.0.0-p451**. Vous trouverez des informations d'installation à la page [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
+	* **Apple OS X** - Il existe plusieurs distributions Ruby pour OS X. Ce didacticiel a été validé sur OS X en utilisant [Homebrew](http://brew.sh/) pour installer **rbenv**, **ruby-build** et **Ruby 2.0.0-p451**. Vous trouverez des informations d'installation sur la page [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
 
 	* **Linux** - Utilisez le système de gestion des packages de vos distributions. Ce didacticiel a été validé sur Ubuntu 12.10 à l'aide de **rbenv**, **ruby-build** et **Ruby 2.0.0-p451**.
 
@@ -87,7 +87,7 @@ La capture d'écran suivante présente l'application terminée :
 	
 	> [AZURE.NOTE] [Node.js](http://nodejs.org/) a été utilisé pour ce didacticiel, car il est disponible pour les systèmes d'exploitation OS X, Linux et Windows.
 
-##<a id="create"></a>Création d'une application Rails
+## <a id="create"></a>Création d'une application Rails
 
 1. Depuis la ligne de commande ou la session terminal, créez une application Rails nommée " blog_app " à l'aide la commande suivante :
 
@@ -107,7 +107,7 @@ La capture d'écran suivante présente l'application terminée :
 
 		rake db:migrate
 
-	Cela a pour effet de créer le schéma de base de données pour stocker des publications à l'aide du fournisseur de base de données par défaut pour Rails, à savoir la [base de données SQLite3][sqlite3].
+	Cela a pour effet de créer le schéma de base de données pour stocker des publications à l'aide du fournisseur de base de données par défaut pour Rails, à savoir la [base de données SQLite3][sqlite3]
 
 4. Pour afficher un index des publications en tant que page d'accueil, modifiez le fichier **config/routes.rb** et ajoutez ce qui suit après la ligne `resources :posts`.
 
@@ -115,7 +115,7 @@ La capture d'écran suivante présente l'application terminée :
 
 	Cela aura pour effet d'afficher une liste de publications lorsque des utilisateurs visiteront le site web.
 
-##<a id="test"></a>Test de l'application
+## <a id="test"></a>Test de l'application
 
 1. Remplacez les répertoires par le répertoire **blog_app** si vous ne vous y trouvez pas déjà, puis lancez le serveur Rails à l'aide de la commande suivante :
 
@@ -137,7 +137,7 @@ La capture d'écran suivante présente l'application terminée :
 
 	Pour arrêter le processus de serveur, entrez CTRL+C dans la ligne de commande
 
-##<a id="repository"></a>Création d'un référentiel source
+## <a id="repository"></a>Création d'un référentiel source
 
 Lors du déploiement d'une application à l'aide de Capistrano, les fichiers sont extraits d'un référentiel. Dans le cadre de ce didacticiel, vous utiliserez [Git](http://git-scm.com/) pour le contrôle de version et [GitHub](https://github.com/) pour le référentiel.
 
@@ -155,11 +155,11 @@ Lors du déploiement d'une application à l'aide de Capistrano, les fichiers son
 
 Dans la section suivante, vous créerez la machine virtuelle sur laquelle cette application sera déployée.
 
-##<a id="createvm"></a>Création d'une machine virtuelle Azure
+## <a id="createvm"></a>Création d'une machine virtuelle Azure
 
 Suivez les instructions fournies [ici][vm-instructions] afin de créer une machine virtuelle Azure qui héberge Linux.
 
-1. Connectez-vous au [Portail de gestion Azure][management-portal]. Dans la barre de commandes, sélectionnez **Nouveau**.
+1. Connectez-vous au [portail de gestion Azure][management-portal]. Dans la barre de commandes, sélectionnez **Nouveau**.
 
 2. Sélectionnez **Machine virtuelle** et **À partir de la galerie**.
 
@@ -179,11 +179,11 @@ Suivez les instructions fournies [ici][vm-instructions] afin de créer une machi
 	> 
 	> Vous pouvez également activer l'authentification par mot de passe. Cependant, la clé SSH doit, elle aussi, être fournie, dans la mesure où elle est utilisée pour automatiser le déploiement.
 
-7. Sous **Points de terminaison**, utilisez la liste déroulante **Entrez/choisissez une valeur** pour sélectionner **HTTP**. Vous pouvez laisser les valeurs par défaut dans les autres champs de cette page. Prenez note du **Nom du cloud Service DNS**, car cette valeur sera utilisée au cours des étapes suivantes. Sélectionnez ensuite la flèche pour continuer.
+7. Sous **Points de terminaison**, utilisez la liste déroulante **Entrez/choisissez une valeur** pour sélectionner **HTTP**. Vous pouvez laisser les valeurs par défaut dans les autres champs de cette page. Prenez note du **Nom DNS du service cloud**, car cette valeur sera utilisée au cours des étapes suivantes. Sélectionnez ensuite la flèche pour continuer.
 
 8. Sur la dernière page, activez la case à cocher pour créer la machine virtuelle.
 
-###Installation de Git, Ruby et Nginx
+### Installation de Git, Ruby et Nginx
 
 Une fois la machine virtuelle créée, vous pouvez vous y connecter à l'aide de SSH et utiliser les commandes suivantes pour préparer l'environnement d'hébergement de votre application Ruby.
 
@@ -205,9 +205,8 @@ Une fois la machine virtuelle créée, vous pouvez vous y connecter à l'aide de
 	~/.rbenv/bin/rbenv rehash
 
 > [AZURE.NOTE] Vous pouvez enregistrer les lignes ci-dessus dans un script (fichier .sh) afin d'éviter les fautes de frappe lors de l'exécution des commandes.
-
-
-> [AZURE.NOTE] L'exécution de la commande **~/.rbenv/bin/rbenv install 2.0.0-p451** peut prendre quelques minutes.
+> 
+> L'exécution de la commande **~/.rbenv/bin/rbenv install 2.0.0-p451** peut prendre quelques minutes.
 
 Le script **rbenv-install.sh** effectue les opérations suivantes :
 	
@@ -227,7 +226,7 @@ Une fois l'installation terminée, utilisez la commande suivante pour vérifier 
 
 Cette commande doit renvoyer `ruby 2.0.0p451` en tant que version.
 
-###Installation de PostgreSQL
+### Installation de PostgreSQL
 
 SQLite est la base de données par défaut utilisée par Rails à des fins de développement. En règle générale, vous utiliserez un élément différent dans le cadre de la production. Les étapes suivantes installent PostgreSQL sur la machine virtuelle, puis créent un utilisateur et une base de données. Les étapes ultérieures configurent l'application Rails en vue d'utiliser PostgreSQL en cours de déploiement.
 
@@ -248,9 +247,9 @@ SQLite est la base de données par défaut utilisée par Rails à des fins de d�
 
 		psql -U my_username -W my_database
 
-	Vous devriez normalement accéder à une invite `database=>`. Pour quitter l'utilitaire psql, entrez `\q` à l'invite de commandes.
+	Vous devez normalement accéder à une invite `database=>`. Pour quitter l'utilitaire psql, entrez `\q` à l'invite de commandes.
 
-###<a id="nginx"></a>Test de Nginx
+### <a id="nginx"></a>Test de Nginx
 
 Le point de terminaison HTTP ajouté lors de la création de la machine virtuelle lui permettra d'accepter les demandes HTTP sur le port 80. Procédez comme suit pour vérifier que le site par défaut créé par Nginx est accessible.
 
@@ -268,7 +267,7 @@ Le point de terminaison HTTP ajouté lors de la création de la machine virtuell
 
 À ce stade, vous disposez d'une machine virtuelle Azure avec Ruby, Nginx et PostgreSQL qui est prête pour le déploiement. Dans la section suivante, vous modifierez votre application Rails afin d'ajouter les scripts et informations qui exécutent le déploiement.
 
-##<a id="capify"></a>Préparation du déploiement
+## <a id="capify"></a>Préparation du déploiement
 
 Modifiez l'application dans votre environnement de développement afin d'utiliser le serveur web Unicorn, PostgreSQL, et d'activer Capistrano pour le déploiement, et créez les scripts utilisés pour déployer et démarrer l'application.
 
@@ -402,9 +401,9 @@ Modifiez l'application dans votre environnement de développement afin d'utilise
         # set to production for Rails
 		set :rails_env, :production
 
-	This file provides information specific to production deployments.
+	Ce fichier fournit des informations propres aux déploiements de production.
 
-8.	Run the following commands to commit the changes to the files you modified in previous steps, and then upload the changes to GitHub.
+8.	Exécutez les commandes suivantes pour valider les modifications apportées aux fichiers lors des étapes précédentes, puis téléchargez les changements vers GitHub.
 
 		git add .
 		git commit -m "adding config files"
@@ -414,7 +413,7 @@ En principe, l'application doit maintenant être prête pour le déploiement.
 
 > [AZURE.NOTE] Pour une application plus complexe, ou pour un autre serveur d'applications ou de base de données, il se peut que vous ayez besoin de scripts de déploiement ou de configuration supplémentaires.
 
-##<a id="deploy"></a>Déploiement
+## <a id="deploy"></a>Déploiement
 
 2.	Sur votre ordinateur de développement local, utilisez la commande suivante pour déployer les fichiers de configuration utilisés par l'application sur la machine virtuelle.
 
@@ -438,23 +437,23 @@ En principe, l'application doit maintenant être prête pour le déploiement.
 
 	> [AZURE.NOTE] Sur certains systèmes, il peut arriver que l'agent SSH ne puisse pas transférer des informations d'identification à la machine virtuelle distante lors de l'authentification auprès de GitHub. Si tel est le cas, vous pouvez contourner l'erreur en modifiant le fichier **config/deploy.rb** et modifier la ligne `set :repo_url` afin d'utiliser HTTPS lors de l'accès à Github. Lors de l'utilisation du protocole HTTPS, vous devez spécifier votre nom d'utilisateur et votre mot de passe GitHub (ou votre jeton d'authentification) dans l'URL. Par exemple :
 	> 
-	> `set :repo_url, 'https://you:yourpassword@github.com/You/yourrepository.git'
+	> `set :repo_url, 'https://you:yourpassword@github.com/You/yourrepository.git`
 	> 
 	> Cela devrait normalement vous permettre de contourner l'erreur et de terminer ce didacticiel. Cette solution est toutefois déconseillée pour un déploiement de production, dans la mesure où elle stocke vos informations d'identification d'authentification en texte brut dans l'application. Il est conseillé de consulter la documentation de votre système d'exploitation traitant du transfert avec l'agent SSH.
 
 À ce stade, votre application Ruby on Rails doit s'exécuter sur votre machine virtuelle Azure. Pour le vérifier, entrez le nom DNS de votre machine virtuelle dans votre navigateur Web. Par exemple, http://railsvm.cloudapp.net. L'index des publications doit s'afficher et vous devez être en mesure de créer, de modifier et de supprimer des publications.
 
-##<a id="next"></a>Étapes suivantes
+## <a id="next"></a>Étapes suivantes
 
 Dans cet article, vous avez appris à créer et à publier une application Rails de base sur une machine virtuelle Azure à l'aide de Capistrano. L'utilisation d'une application de base, telle que celle décrite dans cet article, n'est que la partie visible de ce qu'il est possible d'effectuer à l'aide de Capistrano dans le cadre du déploiement. Pour plus d'informations sur l'utilisation de Capistrano, consultez :
 
-* [Capistranorb.com](http://capistranorb.com) - Le site de Capistrano.
-* [Azure, Ruby on Rails, Capistrano 3 et PostgreSQL](http://wootstudio.ca/articles/tutorial-windows-azure-ruby-on-rails-capistrano-3-postgresql) - Une autre approche de déploiement sur Azure impliquant des scripts de déploiement personnalisés.
-* [Didacticiel Capistrano 3](http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/) - Un didacticiel traitant de l'utilisation de Capistrano 3.
+* [Capistranorb.com](http://capistranorb.com) : site web de Capistrano.
+* [Azure, Ruby on Rails, Capistrano 3 et PostgreSQL](http://wootstudio.ca/articles/tutorial-windows-azure-ruby-on-rails-capistrano-3-postgresql) : une autre approche de déploiement sur Azure qui implique des scripts de déploiement personnalisés.
+* [Didacticiel Capistrano 3](http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/) : didacticiel traitant de l'utilisation de Capistrano 3.
 
-Pour un exemple plus basique de création et de déploiement d'une application Rails sur une machine virtuelle Azure à l'aide du protocole SSH uniquement, consultez la page [Hébergement d'une application Web Ruby on Rails à l'aide d'une machine virtuelle Linux][ruby-vm].
+Pour un exemple plus basique de création et de déploiement d'une application Rails sur une machine virtuelle Azure à l'aide du protocole SSH uniquement, consultez la page [Hébergement d'une application Web Ruby on Rails à l'aide d'une machine virtuelle Linux][ruby-vm]
 
-Si vous souhaitez en savoir plus sur Ruby on Rails, consultez les guides [Ruby on Rails][rails-guides].
+Si vous souhaitez en savoir plus sur Ruby on Rails, consultez les guides [Ruby on Rails][rails-guides]
 
 Pour apprendre à utiliser le Kit de développement logiciel (SDK) Azure pour Ruby afin d'accéder aux services Azure depuis votre application Ruby, consultez les pages suivantes :
 
@@ -464,14 +463,14 @@ Pour apprendre à utiliser le Kit de développement logiciel (SDK) Azure pour Ru
 
 * [Prise en charge d'une large bande passante avec le réseau de distribution de contenu][cdn-howto]
 
-[vm-instructions]: /fr-fr/manage/linux/tutorials/virtual-machine-from-gallery/
+[vm-instructions]: /manage/linux/tutorials/virtual-machine-from-gallery/
 
 
 [rails-guides]: http://guides.rubyonrails.org/
-[blobs]: /fr-fr/develop/ruby/how-to-guides/blob-storage/
-[tables]: /fr-fr/develop/ruby/how-to-guides/table-service/
-[cdn-howto]: /fr-fr/develop/ruby/app-services/
-[ruby-vm]: /fr-fr/develop/ruby/tutorials/web-app-with-linux-vm/
+[blobs]: /develop/ruby/how-to-guides/blob-storage/
+[tables]: /develop/ruby/how-to-guides/table-service/
+[cdn-howto]: /develop/ruby/app-services/
+[ruby-vm]: /develop/ruby/tutorials/web-app-with-linux-vm/
  
 [blog-rails]: ./media/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/blograilslocal.png
 [blog-rails-cloud]: ./media/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/blograilscloud.png 
@@ -487,7 +486,4 @@ Pour apprendre à utiliser le Kit de développement logiciel (SDK) Azure pour Ru
 [ssh-on-azure]: http://azure.microsoft.com/documentation/articles/linux-use-ssh-key/
 [capistrano]: http://capistranorb.com
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

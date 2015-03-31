@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Activation de Google Cloud Messaging" 
 	description="Suivez ce didacticiel pour créer un nouveau service à l'aide d'Azure Mobile Services." 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services" 
 	documentationCenter="android" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -31,12 +31,11 @@ Cette rubrique vous indique comment activer votre application Android pour les n
 
 
 <!-- URLs. -->
-[Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
+[Prise en main des notifications Push]: /documentation/articles/mobile-services-javascript-backend-android-get-started-push/
 [Visual Studio 2012 Express pour Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [Kit de développement logiciel (SDK) Mobile Services]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 
 [Portail de gestion]: https://manage.windowsazure.com/
-[Version principale .NET]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
+[Version principale .NET]: /documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

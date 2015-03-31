@@ -16,76 +16,55 @@
     ms.date="02/12/2015" 
     ms.author="crwilcox"/>
 
-<a name="_Toc395888515"></a><a name="_Toc395809324">Création d'une application web avec Python et Flask (MVC) à l'aide de DocumentDB</a>
-===========================================================================================================================================
+# Création d'une application web avec Python et Flask (MVC) à l'aide de DocumentDB
+------------------------------------------------------------------------
 
-<a name="_Toc395809324">
+Pour démontrer la manière dont les clients peuvent tirer parti d'Azure DocumentDB pour stocker et interroger des documents JSON, ce document propose une procédure pas à pas complète détaillant la création d'une application web de vote à l'aide d'Azure DocumentDB.
 
-<a name="_Toc395888516"></a><a name="_Toc395809325"></a><a name="_Toc389865467"></a><a name="_Toc389828008">Vue d'ensemble</a>
-========================================================================================================================
+Cette procédure pas à pas indique comment utiliser le service DocumentDB fourni par Azure pour stocker les données et y accéder à partir d'une application web Python hébergée sur Azure. Elle suppose que avez déjà une expérience de l'utilisation de Python et du service Sites Web Azure.
 
-<a name="_Toc395888517"></a><a name="_Toc395809326">Scénario</a>
-----------------------------------------------------------------
+Cette procédure pas à pas inclut les étapes suivantes :
 
-Pour démontrer la manière dont les clients peuvent tirer parti d'Azure DocumentDB pour
-stocker et interroger des documents JSON, ce document propose une procédure pas à pas
-complète détaillant la création d'une application web de vote à l'aide d'Azure Document
-DB.
+1. Création et configuration d'un compte DocumentDB
 
-Cette procédure pas à pas indique comment utiliser le service DocumentDB fourni par
-Azure pour stocker les données et y accéder à partir d'une application web Python hébergée sur
-Azure et suppose que avez déjà une expérience de l'utilisation de Python, ainsi que du
-service Sites Web Azure.
+2. Création d'une application Python MVC
 
-Vous apprendrez à effectuer les opérations suivantes :
+3. Connexion à Azure DocumentDB pour une utilisation à partir de votre application web
 
-1\. Création et configuration d'un compte DocumentDB
-
-2\. Création d'une application Python MVC
-
-3\. Connexion à Azure DocumentDB pour une utilisation à partir de votre application web
-
-4\. Déploiement de l'application web vers Sites Web Azure
+4. Déploiement de l'application web vers Sites Web Azure
 
 Dans ce didacticiel, vous allez créer une application de vote simple
 vous permettant de voter lors d'un sondage.
 
 ![Alt text](./media/documentdb-python-application/image1.png)
 
-<a name="_Toc395888520"></a><a name="_Toc395809329">Configuration requise</a>
 
+## Conditions préalables
 
-Avant de suivre les instructions de cet article, vérifiez que
-les éléments suivants sont installés :
+Avant de suivre les instructions de cet article, vérifiez que les éléments suivants sont installés :
 
-Visual Studio 2013 (ou la version gratuite [Visual Studio Express][]
-)
+- Visual Studio 2013 (ou la version gratuite [Visual Studio Express][])
 
-Python Tools pour Visual Studio, disponible [ici][]
+- Python Tools pour Visual Studio, disponible [ici][]
 
-Le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013, version 2.4 ou ultérieure, disponible
-[ici][1]
+- Kit de développement logiciel (SDK) Azure pour Visual Studio 2013, version 2.4 ou ultérieure, disponible [ici][1]
 
-Les outils en ligne de commande multiplateforme Azure, disponibles via [Microsoft
-Web Platform Installer][]
+- Python 2.7 disponible [ici][2]
 
-<a name="_Toc395888519"></a><a name="_Toc395809328">Création d'un compte de base de données DocumentDB</a>
-============================================================================================
+- Compilateur Microsoft Visual C++ pour Python 2.7 disponible [ici][3]
 
-Pour configurer un compte de base de données DocumentDB dans Azure, ouvrez le
-portail de gestion Azure, puis cliquez sur la vignette Galerie Azure sur la
-page d'accueil ou sur " + " dans le coin inférieur gauche de l'écran.
+## Étape 1 : Création d'un compte de base de données DocumentDB
+
+Pour configurer un compte de base de données DocumentDB dans Azure, ouvrez le [portail de gestion Azure][], puis cliquez sur la vignette Galerie Azure sur la page d'accueil ou sur " + " dans le coin inférieur gauche de l'écran.
 
 ![Alt text](./media/documentdb-python-application/image2.png)
 
 
-Cette opération ouvre la Galerie Azure, dans laquelle vous pouvez sélectionner l'un des nombreux
-services Azure disponibles. Dans la Galerie, sélectionnez " Données, stockage et
-sauvegarde " dans la liste des catégories.
+Cette opération ouvre Azure Marketplace, où vous pouvez sélectionner l'un des nombreux services Azure disponibles. Dans Marketplace, sélectionnez " Données + analyses " dans la liste des catégories.
 
 ![Alt text](./media/documentdb-python-application/image3.png)
 
-Sélectionnez l'option pour Azure DocumentDB.
+Recherchez ensuite documentdb et sélectionnez l'option DocumentDB.
 
 ![Alt text](./media/documentdb-python-application/image4.png)
 
@@ -93,61 +72,43 @@ Sélectionnez ensuite " Créer " en bas de l'écran.
 
 ![Alt text](./media/documentdb-python-application/image5.png)
 
-Le volet " Nouveau DocumentDB " s'ouvre. Vous pouvez y spécifier le
-nom, la région, l'échelle, le groupe de ressources et d'autres paramètres pour votre nouveau
-compte.
+Le panneau " Nouveau DocumentDB " s'ouvre. Vous pouvez y spécifier le nom, la région, l'échelle et le groupe de ressources, ainsi que d'autres paramètres de votre nouveau compte.
 
 ![Alt text](./media/documentdb-python-application/image6.png)
 
-Une fois que vous avez fourni les valeurs pour votre compte, cliquez sur " Créer ".
-Le processus de configuration commence alors la création de votre compte de base de données.
-Lorsque ce processus est terminé, une notification apparaît
-dans la zone des notifications du portail et la vignette sur
-l'écran d'accueil (si vous avez choisi d'en créer une) affiche
-l'action terminée.
+Une fois que vous avez terminé de fournir les valeurs de votre compte, cliquez sur " Créer " et le processus de configuration entame la création de votre compte de base de données.
+Une fois le processus de configuration terminé, une notification doit s'afficher dans la zone des notifications du portail et la vignette de votre écran d'accueil (si vous avez choisi d'en créer une) est modifiée pour refléter l'action terminée.
 
 ![Alt text](./media/documentdb-python-application/image7.png)
 
-Une fois la configuration terminée, un clic sur la vignette DocumentDB dans
-l'écran d'accueil affiche le volet principal correspondant au nouveau
-compte DocumentDB.
+Une fois la configuration terminée, un clic sur la vignette DocumentDB de l'écran d'accueil affiche le panneau principal correspondant au compte DocumentDB nouvellement créé.
 
 ![Alt text](./media/documentdb-python-application/image8.png)
+
+À l'aide du bouton " Clés ", accédez à votre URL de point de terminaison et à la clé primaire. Copiez-les dans le Presse-papiers et gardez-les à portée de main. Nous les utiliserons dans l'application web que nous allons créer.
+
+
+## Étape 2 : Création d'une application web Python Flask
+
+Ouvrez Visual Studio, puis accédez successivement à Fichier -\> Nouveau projet -\> Python -\> Projet web Flask et nommez le projet **tutorial**. 
+
+Si vous ne connaissez pas bien Flask, sachez qu'il s'agit d'une infrastructure web qui permet d'accélérer le développement d'applications dans Python. [Cliquez ici pour accéder aux didacticiels sur Flask][].
+
 ![Alt text](./media/documentdb-python-application/image9.png)
 
-
-
-À l'aide du bouton " Clés ", accédez à votre URL de point de terminaison et à la clé primaire.
-Copiez-les dans le Presse-papiers et gardez-les à portée de main.
-Nous les utiliserons dans l'application web que nous allons créer.
-
-</a>
-
-<a name="_Toc395888520"></a><a name="_Toc395809329">Création d'une application web Python Flask</a>
-=================================================================================================
-
-Ouvrez Visual Studio, puis accédez successivement à Fichier -> Nouveau projet -> Python -> Projet web Flask
-avec le nom **tutorial**. Un message vous demandera où
-installer les packages externes. Cliquez sur Installer dans un environnement virtuel
-, puis sur Créer. Cela configure l'environnement virtuel Python requis
-pour votre projet.
-
-Si vous ne connaissez pas bien Flask, sachez qu'il s'agit d'une infrastructure web qui permet
-d'accélérer le développement d'applications dans Python. [Cliquez ici pour accéder aux didacticiels sur Flask][].
+Un message vous demandera où installer les packages externes. Cliquez sur **Installer dans un environnement virtuel**. Veillez à utiliser Python 2.7 comme environnement de base. PyDocumentDB ne prend en effet pas Python 3.x en charge pour le moment.  Cela configure l'environnement virtuel Python requis pour votre projet.
 
 ![Alt text](./media/documentdb-python-application/image10.png)
 
-<a name="_Toc395888520"></a><a name="_Toc395809329">Ajout de packages Flask à votre projet</a>
-==================================
 
-Une fois votre projet configuré, vous devez ajouter certains packages Flask
-requis, comme par exemple, les formulaires. Cliquez avec le bouton droit sur **env**
-puis sur **Installer les packages Python suivants (respecter cet ordre est
-important)** :
+## Étape 3 : Modification de l'application web Python Flask
+
+
+### Ajout de packages Flask à votre projet
+
+Une fois votre projet configuré, vous devez ajouter certains packages Flask requis, dont pydocumentdb, le package Python pour DocumentDB. Ouvrez le fichier appelé **requirements.txt** et remplacez le contenu par le suivant :
 
     flask==0.9
-    flask-login
-    flask-openid
     flask-mail==0.7.6
     sqlalchemy==0.7.9
     flask-sqlalchemy==0.16
@@ -157,269 +118,208 @@ important)** :
     pytz==2013b
     flask-babel==0.8
     flup
+    pydocumentdb>=0.9.4-preview
+
+Cliquez avec le bouton droit sur **env**, puis cliquez sur **install from requirements.txt**
 
 ![Alt text](./media/documentdb-python-application/image11.png)
 
-**Remarque :** dans de rares cas, la fenêtre de résultat peut afficher une erreur. Si
-cela se produit, vérifiez si l'erreur n'est pas liée au nettoyage. Parfois, le
-nettoyage peut échouer, alors que l'installation sera réussie (faites défiler
-le contenu de la fenêtre de résultat pour le vérifier).
+**Remarque :** dans de rares cas, la fenêtre de sortie peut afficher une erreur. Vous devez alors déterminer si l'erreur est liée au nettoyage. Il arrive que le nettoyage échoue mais que l'installation soit correctement effectuée (faites défiler la fenêtre de sortie vers le haut pour vérifier).
 <a name="verify-the-virtual-environment"></a> Si cela se produit, vous pouvez continuer.
 
-</h1>
-<a name="_Toc395888522"></a><a name="_Toc395809331">Vérification de l'environnement virtuel</a>
-======================================================================================
 
+### Vérification de l'environnement virtuel
 
-Vérifiez que l'installation est réussie. Démarrez le site web
-en cliquant sur **F5**. Cette action démarre le serveur de développement Flask
-ainsi que votre navigateur web. La page suivante doit s'afficher :
+Vérifiez que l'installation est réussie. Démarrez le site web en appuyant sur **F5**. Cette action démarre le serveur de développement Flask, ainsi que votre navigateur web. La page suivante doit s'afficher :
 
 ![Alt text](./media/documentdb-python-application/image12.png)
 
-<a name="_Toc395888523"></a><a name="_Toc395809332">Ajout de DocumentDB à votre projet</a>
-=========================================================================================
+### Création de base de données, de collection et de définition de document
 
-Le Kit de développement logiciel (SDK) Python DocumentDB est hébergé dans PyPi. Vous pouvez l'installer avec
-pip.
+Ajoutez un fichier Python en cliquant avec le bouton droit sur le dossier appelé **tutorial** dans l'Explorateur de solutions.  Nommez le fichier **forms.py**.  Nous créons notre application de sondage.
 
-Dans l'Explorateur de solutions, développez le nœud Environnements Python, cliquez avec le bouton droit sur
-votre environnement et sélectionnez " Installer le package Python... "
-
-![Alt text](./media/documentdb-python-application/image13.png)
-
-Tapez le nom du package PyPi : " --pre pydocumentdb ". Si vous voulez
-choisir la version installée, vous pouvez l'indiquer.
-Ne pas le faire permet d'installer
-la version stable la plus récente. Veuillez noter que vous devez entrer
-l'intégralité du nom " --pre pydocumentdb ".
-
-![Alt text](./media/documentdb-python-application/image14.png)
-
-Le système lance le téléchargement et l'installation du package pydocumentdb dans votre
-environnement. Une fois ceci terminé, pydocumentdb est répertorié en tant que
-module sous votre environnement.
-
-</h1>
-<a name="_Toc395888524"></a><a name="_Toc395809333">Création de base de données, de collection et de définition de document</a>
-============================================================================================================
-
-Ajoutez le fichier Python **forms.py** et ajoutez-le au répertoire
-nommé " tutorial " dans votre Explorateur de solutions. Ajoutez le code suivant à
-forms.py. Nous créons notre application de sondage. Pour ce faire,
-nous créons trois champs booléens qui seront permutés selon les entrées de l'utilisateur.
-
-</h1>
-
-    #forms.py
     from flask.ext.wtf import Form
-    from wtforms import TextField, BooleanField
-    from wtforms.validators import Required
-    import pydocumentdb.documents as documents
+    from wtforms import RadioField
+
+    class VoteForm(Form):
+        deploy_preference  = RadioField('Deployment Preference', choices=[
+            ('Web Site', 'Web Site'),
+            ('Cloud Service', 'Cloud Service'),
+            ('Virtual Machine', 'Virtual Machine')], default='Web Site')
+
+### Ajoutez les instructions import requises à views.py
+
+Ajoutez les instructions import suivantes au début de **views.py**. Elles vont importer les packages Flask et PythonSDK de DocumentDB.
+
+
+    from forms import VoteForm
+    import config
     import pydocumentdb.document_client as document_client
-    import pydocumentdb.errors as errors
-    class LoginForm(Form):
-        openid = TextField('openid')
-        remember_me = BooleanField('remember_me', default = False)
-        remember_me1 = BooleanField('remember_me1', default = False)
-        remember_me2 = BooleanField('remember_me2', default = False)
+    
 
-<a name="_Toc395888520"></a>
-============================
+### Création de base de données, de collection et de document
 
-### <a name="_Toc395809338">Création de base de données, de collection et de document</a>
-
-\#Remarque : il est plus sûr de conserver vos informations d'identification d'authentification
-dans un fichier de configuration plutôt que dans votre application. Pour simplifier, nous les plaçons ici
-dans le code source. Créez une fonction dans views.py et nommez-la
-" create ". Ajoutez le code suivant à **views.py**. Ne supprimez pas le
-code existant.
-
-</h1>
+Ajoutez le code suivant à **views.py**. Cela permet de créer la base de données utilisée par le formulaire. Ne supprimez pas le code existant dans **views.py**. Il vous suffit d'ajouter le code à la fin.
 
     @app.route('/create')
     def create():
         """Renders the contact page."""
-        host = 'https://meetdemo.documents.azure.com:443/'
-        masterKey = '7xPDjHxJSuAUPI2BEWXF2VNVO6c3MN4q+941NAQwPphIqOGW/gE+pB1CQNp4K2F9/4T1bTl040t6JDeyCBmj3A=='
-        client = document_client.DocumentClient(host, {'masterKey': masterKey})
-        databases = client.ReadDatabases().ToArray()
-        #delete any existing databases for simplicity
-        for database in databases:
-            client.DeleteDatabase(database['_self'])
-        #create database
-        db = client.CreateDatabase({ 'id': 'sample database' })
-        # create collection
-        collection = client.CreateCollection(db['_self'],{ 'id': 'sample collection' })
-        # create document
+        client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
+    
+        # Attempt to delete the database.  This allows this to be used to recreate as well as create
+        try:
+            db = next((data for data in client.ReadDatabases() if data['id'] == config.DOCUMENTDB_DATABASE))
+            client.DeleteDatabase(db['_self'])
+        except:
+            pass
+    
+        # Create database
+        db = client.CreateDatabase({ 'id': config.DOCUMENTDB_DATABASE })
+        # Create collection
+        collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION })
+        # Create document
         document = client.CreateDocument(collection['_self'],
-        { 'id': 'sample document',
-        'Web Site': '0 votes',
-        'Cloud Service': '0 votes',
-        'Virtual Machine': '0 votes',
-        'name': 'sample document' })
-        return render_template('create.html',title='Create Page',year=datetime.now().year,
-        message='You just created a new database - sample database a collection - sample collection and a document - sample document that has your votes. Your old votes have been deleted')
-
-<a name="_Toc395888529"></a><a name="_Toc395809338">Approbation du vote des utilisateurs et mise à jour du document</a>
-=================================================================================================
-
-### <a name="_Toc395809338">Ajout des instructions import requises
-
-<a name="_Toc395888529"></a>
-============================
-
-Ajoutez les instructions import suivantes au début de **views.py**. Elles
-vont importer les packages Flask et PythonSDK de DocumentDB.
+            { 'id': config.DOCUMENTDB_DOCUMENT,
+            'Web Site': 0,
+            'Cloud Service': 0,
+            'Virtual Machine': 0,
+            'name': config.DOCUMENTDB_DOCUMENT })
+    
+        return render_template(
+            'create.html', 
+            title='Create Page', 
+            year=datetime.now().year,
+            message='You just created a new database, collection, and document.  Your old votes have been deleted')
 
 
-    from wtforms import Form, BooleanField, TextField, PasswordField, validators
-    from forms import LoginForm
-    import pydocumentdb.documents as documents
-    import pydocumentdb.document_client as document_client
-    import pydocumentdb.errors as errors
+### Lecture de la base de données, de la collection et du document et envoi du formulaire
 
-### <a name="_Toc395809338">Lecture de la base de données, de la collection et du document</a>
-
-Ajoutez le code suivant à **views.py**. Il se charge de la configuration
-du formulaire, de la lecture de la base de données, de la collection et du document. Ne supprimez pas
-le code existant dans views.py. Contentez-vous d'y ajouter ce code à la fin.
-
+Ajoutez le code suivant à **views.py**. Il se charge de la configuration du formulaire, de la lecture de la base de données, de la collection et du document. Ne supprimez pas le code existant dans **views.py**. Il vous suffit d'ajouter le code à la fin.
+    
     @app.route('/vote', methods=['GET', 'POST'])
     def vote(): 
-        form = LoginForm()
+        form = VoteForm()
         replaced_document ={}
         if form.validate_on_submit(): # is user submitted vote  
-            host = 'https://meetdemo.documents.azure.com:443/'
-            masterKey = '7xPDjHxJSuAUPI2BEWXF2VNVO6c3MN4q+941NAQwPphIqOGW/gE+pB1CQNp4K2F9/4T1bTl040t6JDeyCBmj3A=='
-            client = document_client.DocumentClient(host, {'masterKey': masterKey})
-            databases = client.ReadDatabases().ToArray()   #Read database
-            db =databases[0] #For simplicity we are assuming there is only one database
-            collections = client.ReadCollections(db['_self']).ToArray() #Read collection
-            coll =collections[0] #For simplicity we are assuming there is only one collection
-            documents = client.ReadDocuments(coll['_self']).ToArray() #Read document
-            doc = documents[0]   #For simplicity we are assuming there is only document
+            client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
+            
+            # Read databases and take first since id should not be duplicated.
+            db = next((data for data in client.ReadDatabases() if data['id'] == config.DOCUMENTDB_DATABASE))
+            
+            # Read collections and take first since id should not be duplicated.
+            coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.DOCUMENTDB_COLLECTION))
     
-### <a name="_Toc395809338">Registering the vote and modifying the document</a>
-
-            replaced_document = doc
-            if form.remember_me.data:
-                print 'choice 1'             
-                setvar = doc['Web Site']
-                finalvar = setvar.split();
-                votes = int(finalvar[0])
-                votes = votes+1
-                doc['Web Site'] = str(votes)+' '+finalvar[1]
-                replaced_document = client.ReplaceDocument(doc['_self'],
-                                                       doc)
-                print replaced_document
-            elif form.remember_me1.data:
-                print 'choice 2'             
-                setvar = doc['Cloud Service']
-                finalvar = setvar.split();
-                votes = int(finalvar[0])
-                votes = votes+1
-                doc['Cloud Service'] = str(votes)+' '+finalvar[1]
-                replaced_document = client.ReplaceDocument(doc['_self'],
-                                                       doc)
-            else:
-                print 'choice 2'             
-                setvar = doc['Virtual Machine']
-                finalvar = setvar.split();
-                votes = int(finalvar[0])
-                votes = votes+1
-                doc['Virtual Machine'] = str(votes)+' '+finalvar[1]
-                replaced_document = client.ReplaceDocument(doc['_self'],
-                                                       doc)
-
-### <a name="_Toc395809338">Affichage des résultats</a>
-
-    return render_template('results.html', 
-            title = 'Website = ' + replaced_document['Web Site'] + '\n' +'Cloud Service = ' + replaced_document['Cloud Service'] + '\n' + 'Virtual Machine = ' + replaced_document['Virtual Machine'])
-        else :        
-            return render_template('vote.html', 
-            title = 'Vote',
-            form = form,
-            providers = app.config['OPENID_PROVIDERS'])
-
-    @app.route('/results')
-    def results():
-        """Renders the results page."""
-        return render_template(
-            'results.html',
-            title='Results',
-            year=datetime.now().year,
-            message='Your application description page.')
+            # Read documents and take first since id should not be duplicated.
+            doc = next((doc for doc in client.ReadDocuments(coll['_self']) if doc['id'] == config.DOCUMENTDB_DOCUMENT))
+    
+            # Take the data from the deploy_preference and increment our database
+            doc[form.deploy_preference.data] = doc[form.deploy_preference.data] + 1
+            replaced_document = client.ReplaceDocument(doc['_self'], doc)
+    
+            # Create a model to pass to results.html
+            class VoteObject:
+                choices = dict()
+                total_votes = 0
+    
+            vote_object = VoteObject()
+            vote_object.choices = {
+                "Web Site" : doc['Web Site'],
+                "Cloud Service" : doc['Cloud Service'],
+                "Virtual Machine" : doc['Virtual Machine']
+            }
+            vote_object.total_votes = sum(vote_object.choices.values())
+    
+            return render_template(
+                'results.html', 
+                year=datetime.now().year, 
+                vote_object = vote_object)
+    
+        else :
+            return render_template(
+                'vote.html', 
+                title = 'Vote',
+                year=datetime.now().year,
+                form = form)
 
 
-### <a name="_Toc395809338">Création des fichiers html</a>
+### Création des fichiers html
 
-Ajoutez les fichiers .html suivants sous le dossier des modèles :
-create.html, results.html et vote.html.
+Sous le dossier Modèles, ajoutez les fichiers html suivants : create.html, results.html, vote.html.
 
-Ajoutez le code suivant à **create.html**. Il se charge de l'affichage
-du message indiquant la création d'une base de données, d'une collection et d'un document.
+Ajoutez le code suivant à **create.html**. Il se charge de l'affichage du message indiquant la création d'une base de données, d'une collection et d'un document.
 
     {% extends "layout.html" %}
     {% block content %}
     <h2>{{ title }}.</h2>
     <h3>{{ message }}</h3>
-    <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Click here to Vote &raquo;</a></p>
+    <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
     {% endblock %}
 
-Ajoutez le code suivant à **results.html**. Il se charge de l'affichage
-des résultats du sondage.
-    
-    {% extends "layout.html" %}
-    {% block content %}
-    <h3>Results of the vote</h3>
-    <pre>{{ title }}</pre>
-    <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote Again &raquo;</a></p>
-    {% endblock %}
-
-Ajoutez le code suivant à **vote.html**. Il se charge de l'affichage du
-sondage et de l'approbation des votes. Lors de l'enregistrement des votes, le contrôle est
-transmis à views.py où nous allons identifier le vote associé et
-ajouter le document correspondant.
+Ajoutez le code suivant à **results.html**. Il se charge de l'affichage des résultats du sondage.
 
     {% extends "layout.html" %}
     {% block content %}
-    <h1>What is your favorite way to host an application on Azure?</h1>
-    <form action="" method="post" name="login">
-    {{form.hidden_tag()}}
-    <p> </p>
-        {{form.remember_me}} Website
-        {{form.remember_me1}} Cloud
-        {{form.remember_me2}} Virtual Machine
-        <p><input type="submit" value="Cast your vote"></p>
+    <h2>Results of the vote</h2>
+    <br />
+
+    {% for choice in vote_object.choices %}
+    <div class="row">
+        <div class="col-sm-5">{{choice}}</div>
+        <div class="col-sm-5">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{vote_object.choices[choice]}}" aria-valuemin="0" 
+                     aria-valuemax="{{vote_object.total_votes}}" style="width: {{(vote_object.choices[choice]/vote_object.total_votes)*100}}%;">
+                    {{vote_object.choices[choice]}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <br />
+    <a class="btn btn-primary" href="{{ url_for('vote') }}">Vote again?</a>
+    {% endblock %}
+
+Ajoutez le code suivant à **vote.html**. Il se charge de l'affichage du sondage et de l'approbation des votes. Lors de l'enregistrement des votes, le contrôle est transmis à views.py où nous allons identifier le vote associé et ajouter le document correspondant.
+
+    {% extends "layout.html" %}
+    {% block content %}
+    <h2>What is your favorite way to host an application on Azure?</h2>
+    <form action="" method="post" name="vote">
+        {{form.hidden_tag()}}
+        {{form.deploy_preference}}
+        <button class="btn btn-primary" type="submit">Vote</button>
     </form>
     {% endblock %}
-    
-<a name="_Toc395888529"></a>
-============================
 
-Supprimez le code dans **layout.html** et remplacez-le par celui-ci : Il
-se charge de la configuration de la barre de navigation et des URL respectives pour l'acheminement.
+Remplacez le contenu de **index.html** par le code suivant. Ce code définit une page d'accueil pour votre application
 
-Supprimez le code dans index.html et remplacez-le par celui-ci : ce
-code définit une page d'accueil pour votre application.
+    {% extends "layout.html" %}
+    {% block content %}
+    <h2>Python + DocumentDB Voting Application.</h2>
+    <h3>This is a sample DocumentDB voting application using PyDocumentDB</h3>
+    <p><a href="{{ url_for('create') }}" class="btn btn-primary btn-large">Create/Clear the Voting Database &raquo;</a></p>
+    <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
+    {% endblock %}
 
-</h1>
-<a name="_Toc395888532"></a><a name="_Toc395809341">Ajout d'un fichier de configuration et modification de \_\_init\_\_.py</a>.
-----------------------------------------------------------------------------------------------------------------
+
+### Ajout d'un fichier de configuration et modification de \_\_init\_\_.py
 
 Cliquez avec le bouton droit sur le projet nommé Tutorial et ajoutez le fichier **config.py**.
-Cette configuration est requise par les formulaires dans Flask. Vous pouvez l'utiliser pour fournir une
-clé secrète. Ajoutez le code suivant à config.py :
-    
+Cette configuration est requise par les formulaires dans Flask. Vous pouvez l'utiliser pour fournir une clé secrète. Cela n'est cependant pas nécessaire dans le cadre de ce didacticiel. Ajoutez le code suivant à config.py.   Modifiez les valeurs de **DOCUMENTDB\_HOST** et **DOCUMENTDB\_KEY**.
+
     CSRF_ENABLED = True
     SECRET_KEY = 'you-will-never-guess'
-    OPENID_PROVIDERS = [
-       ]
+    
+    DOCUMENTDB_HOST = 'https://YOUR_DOCUMENTDB_NAME.documents.azure.com:443/'
+    DOCUMENTDB_KEY = 'YOUR_SECRET_KEY_ENDING_IN_=='
+    
+    DOCUMENTDB_DATABASE = 'voting database'
+    DOCUMENTDB_COLLECTION = 'voting collection'
+    DOCUMENTDB_DOCUMENT = 'voting document'
 
-De même, ajoutez le fichier **\_\_init\_\_.py**. Recherchez-le dans le
-dossier nommé Tutorial. Remplacez le code d'origine par celui-ci : il
-se charge de la connexion entre les vues et le fichier config.py.
+
+De même, remplacez le contenu de **\_\_init\_\_.py** par le contenu suivant.
 
     from flask import Flask
     app = Flask(__name__)
@@ -431,64 +331,52 @@ ressembler à ceci :
 
 ![Alt text](./media/documentdb-python-application/image15.png)
 
-<a name="_Toc395888534"></a><a name="_Toc395809343"></a><a name="_Toc395637774">Exécution locale de l'application</a>
-============================
 
-Appuyez sur F5 ou sur le bouton Démarrer dans Visual Studio.
-Votre écran doit afficher le contenu suivant.
+## Étape 4 : Exécution locale de l'application
+
+Appuyez sur F5 ou sur le bouton Démarrer dans Visual Studio. Votre écran doit afficher le contenu suivant.
 
 ![Alt text](./media/documentdb-python-application/image16.png)
 
-Cliquez sur " vote " et sélectionnez votre option.
+Cliquez sur " Créer/effacer la base de données de vote " pour générer la base de données.
 
 ![Alt text](./media/documentdb-python-application/image17.png)
 
-Chaque vote associé augmentera le compteur adéquat. Lors
-du prochain vote, vous pourrez afficher les résultats.
+Cliquez ensuite sur " Vote " et sélectionnez votre option.
 
 ![Alt text](./media/documentdb-python-application/image18.png)
 
-</h1>
-<a name="_Toc395888534"></a><a name="_Toc395809343"></a><a name="_Toc395637774">Déploiement de l'application dans Sites Web Azure</a>
-========================================================================================================================
-
-Maintenant que l'application terminée fonctionne correctement avec
-DocumentDB, nous allons la déployer vers le service Sites Web Azure. Cliquez avec le bouton droit sur
-le projet dans l'Explorateur de solutions (assurez-vous de ne pas l'exécuter
-localement), puis sélectionnez Publier.
+Chaque vote associé augmentera le compteur adéquat.
 
 ![Alt text](./media/documentdb-python-application/image19.png)
 
 
-Configurez votre site web Azure en fournissant vos informations d'identification et en créant
-un site web ou en réutilisant un site web existant.
+## Étape 5 : Déploiement de l'application dans Sites Web Azure
+
+Maintenant que l'application terminée fonctionne correctement avec DocumentDB, nous allons la déployer vers Sites Web Azure. Cliquez avec le bouton droit sur le projet dans l'Explorateur de solutions (assurez-vous de ne pas l'exécuter localement), puis sélectionnez Publier.  Sélectionnez ensuite Sites Web Microsoft Azure.
 
 ![Alt text](./media/documentdb-python-application/image20.png)
 
 
-En quelques secondes, Visual Studio achève la publication de votre application web
-et lance un navigateur dans lequel vous pouvez voir votre réalisation
-exécutée dans Azure !
+Configurez votre site web Azure en fournissant vos informations d'identification et cliquez sur Publier.
 
-</h1>
-<a name="_Toc395809338">Conclusion</a>
-==========
+![Alt text](./media/documentdb-python-application/image21.png)
 
-Félicitations ! Vous venez de créer votre première application Python avec
-Azure DocumentDB et de la publier dans Sites Web Azure.
+En quelques secondes, Visual Studio achève la publication de votre application web et lance un navigateur dans lequel vous pouvez voir votre réalisation exécutée dans Azure !
 
-Pour obtenir la solution complète, [cliquez ici][]. Remarque : vous devrez
-toujours ajouter l'environnement virtuel, installer les outils python et
-les packages, comme indiqué plus précédemment).
 
-</h1>
+## Étapes suivantes
 
-  [cliquez ici]: http://go.microsoft.com/fwlink/?LinkID=509840&clcid=0x409
+Félicitations ! Vous venez de créer votre première application Python avec Azure DocumentDB et de la publier dans Sites Web Azure.
+
+
   [Cliquez ici pour accéder aux didacticiels sur Flask]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 
-  [Visual Studio Express]: http://www.visualstudio.com/fr-fr/products/visual-studio-express-vs.aspx
-  [ici]: https://pytools.codeplex.com/releases/view/123624
+  [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
+  [ici]: http://aka.ms/ptvs
   [1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409
-  [Programme d'installation de la plate-forme web Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
-
-<!--HONumber=46--> 
+  [2]: https://www.python.org/downloads/windows/
+  [3]: http://aka.ms/vcpython27 
+  [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+  [Portail de gestion Azure]: http://portal.azure.com
+<!--HONumber=47-->

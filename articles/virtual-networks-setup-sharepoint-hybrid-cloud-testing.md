@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Configuration d'une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test" 
 	description="Découvrez comment créer une batterie de serveurs SharePoint intranet dans un environnement de cloud hybride pour le développement ou le test." 
 	services="virtual-network" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 
@@ -41,17 +41,17 @@ La configuration de l'environnement de test de cloud hybride comprend trois gran
 2.	Configuration de l'ordinateur SQL Server (SQL1).
 3.	Configuration du serveur SharePoint (SP1).
 
-Si vous n'avez pas encore d'abonnement Azure, vous pouvez obtenir une évaluation gratuite. Pour cela, accédez à la page [Essayer Azure](http://www.windowsazure.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez [Avantage Azure pour les abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si vous n'avez pas encore d'abonnement Azure, vous pouvez obtenir une évaluation gratuite. Pour cela, accédez à la page [Essayer Azure](http://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez [Avantage Azure pour les abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-##Phase 1 : Configuration de l'environnement de cloud hybride
+## Phase 1 : Configuration de l'environnement de cloud hybride
 
-Suivez les instructions de la rubrique [Configuration d'un environnement de cloud hybride à des fins de test](../virtual-networks-setup-hybrid-cloud-environment-testing/). Étant donné que cet environnement de test ne nécessite pas la présence du serveur APP1 sur le sous-réseau de réseau d'entreprise, n'hésitez pas à l'arrêter pour le moment.
+Suivez les instructions de la rubrique [Configuration d'un environnement de cloud hybride à des fins de test](../virtual-networks-setup-hybrid-cloud-environment-testing/) . Étant donné que cet environnement de test ne nécessite pas la présence du serveur APP1 sur le sous-réseau de réseau d'entreprise, n'hésitez pas à l'arrêter pour le moment.
 
 Ceci est votre configuration actuelle.
 
 ![](./media/virtual-networks-set-up-SharePoint-hybrid-cloud-for-testing/CreateSPFarmHybridCloud_1.png)
  
-##Phase 2 : Configuration de l'ordinateur SQL Server (SQL1)
+## Phase 2 : configuration de l'ordinateur SQL Server (SQL1)
 
 Dans le portail de gestion Azure, démarrez l'ordinateur DC2 si nécessaire.
 
@@ -70,7 +70,7 @@ Ensuite, créez une machine virtuelle Azure pour SQL1 avec ces commandes à l'in
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
 	$vm1=New-AzureVMConfig -Name SQL1 -InstanceSize Large -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
@@ -81,13 +81,13 @@ Ensuite, créez une machine virtuelle Azure pour SQL1 avec ces commandes à l'in
 Ensuite, connectez-vous à la nouvelle machine virtuelle SQL1 *using the local administrator account*.
 
 1.	Dans le volet gauche du portail de gestion Azure, cliquez sur **Machines virtuelles**, puis sur **En cours d'exécution** dans la colonne Statut de SQL1.
-2.	Dans la barre des tâches, cliquez sur **Connecter**. 
+2.	Dans la barre des tâches, cliquez sur **Se connecter**. 
 3.	Lorsque vous êtes invité à ouvrir SQL1.rdp, cliquez sur **Ouvrir**.
 4.	Lorsque le message Connexion Bureau à distance s'affiche, cliquez sur **Connecter**.
 5.	Si des informations d'identification vous sont demandées, utilisez celles-ci :
 	- Nom : **SQL1\\**[Nom du compte de l'administrateur local]
 	- Password: [Mot de passe du compte de l'administrateur local]
-6.	Lorsque le message de Connexion Bureau à distance relatif aux certificats s'affiche, cliquez sur **Oui**.
+6.	Lorsqu'une zone de message de connexion Bureau à distance faisant référence aux certificats s'ouvre, cliquez sur **Oui**.
 
 Ensuite, configurez les règles de pare-feu Windows pour autoriser le trafic pour le test de la connectivité de base et de SQL Server. À partir d'une invite de commandes Windows PowerShell de niveau administrateur sur SQL1, exécutez ces commandes.
 
@@ -110,7 +110,7 @@ Ensuite, ajoutez le disque de données supplémentaire comme nouveau volume avec
 9.	Dans la page Confirmer les sélections, cliquez sur **Créer**.
 10.	Lorsque vous avez terminé, cliquez sur **Fermer**.
 
-Exécutez ces commandes à l'invite de commandes Windows PowerShell sur SQL1 :
+Exécutez les commandes suivantes à l'invite de commandes Windows PowerShell sur SQL1 :
 
 	md f:\Data
 	md f:\Log
@@ -142,14 +142,14 @@ Ceci est votre configuration actuelle.
 ![](./media/virtual-networks-set-up-SharePoint-hybrid-cloud-for-testing/CreateSPFarmHybridCloud_2.png)
 
  
-##Phase 3 : Configuration du serveur SharePoint (SP1)
+## Phase 3 : Configuration du serveur SharePoint (SP1)
 
 Commencez par créer une machine virtuelle Azure pour SP1 avec ces commandes à l'invite de commandes Azure PowerShell sur votre ordinateur local.
 
 	$image= Get-AzureVMImage | where { $_.Label -eq "SharePoint Server 2013 Trial" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
 	$vm1=New-AzureVMConfig -Name SP1 -InstanceSize Large -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
@@ -191,7 +191,7 @@ Ceci est votre configuration actuelle.
  
 Votre une batterie de serveurs SharePoint intranet dans un cloud hybride est maintenant prêt pour les tests.
 
-##Ressources supplémentaires
+## Ressources supplémentaires
 
 [SharePoint sur les services d'infrastructure Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
@@ -201,6 +201,7 @@ Votre une batterie de serveurs SharePoint intranet dans un cloud hybride est mai
 
 [Configuration d'une application métier web dans un cloud hybride à des fins de test](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 
-[Configuration de la synchronisation d'annuaires Office 365 dans un cloud hybride à des fins de test](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+[Configuration de la synchronisation d'annuaires Office 365 (DirSync) dans un cloud hybride à des fins de test](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
 
-<!--HONumber=45--> 
+[Configuration d'une simulation d'environnement de cloud hybride à des fins de test](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+<!--HONumber=47-->

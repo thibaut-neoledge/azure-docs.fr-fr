@@ -20,28 +20,28 @@
 #Limites dans la version préliminaire de DocumentDB
 Le tableau suivant décrit les limites et applications de quota dans la version préliminaire de DocumentDB. Dans la plupart des cas, les limites sont appliquées de manière à obtenir un retour ou sont basées sur les contraintes du moment en termes de capacité. Si vous souhaitez assouplir les limites pour répondre aux besoins de votre activité, appelez-nous. Nous ferons de notre mieux pour vous proposer une solution respectant les contraintes de l'offre publique.    
 
-|Entité |Quota (offre standard pour la version préliminaire)|
+|Entité |Quota (offre Standard pour la version préliminaire)|
 |-------|--------|
 |Comptes de base de données     |5
 |Nombre de bases de données par compte de base de données     |100
 |Nombre d'utilisateurs par compte de base de données (pour l'ensemble des bases de données) |500 000
-|Nombre d'autorisations par compte de base de données (pour l'ensemble des bases de données)   |2 000 000
+|Nombre d'autorisations par compte de base de données (pour l'ensemble des bases de données) |2 000 000
 |Stockage de pièces jointes par compte de base de données      |2 Go
-|Nombre maximal d'unités de capacité par compte de base de données       |5
+|Nombre maximal d'unités de capacité par compte de base de données       |50
 |Nombre de collections par unité de capacité      |3
 |Stockage minimal alloué par collection avec au moins 1 document    |3,3 Go
-|Débit minimal alloué par collection avec au moins 1 document |667 unités de demande
-|Élasticité d'une collection    |de 0 à 10 Go
+|Débit minimal alloué par collection avec au moins 1 document|667 unités de demande
+|Élasticité d'une collection    |0 à 10 Go
 |Nombre maximal d'unités de demande par seconde par collection   |2 000
 |Nombre de procédures stockées, de déclencheurs et de fonctions définies par l'utilisateur par collection       |25 chacune
 |Délai maximal d'exécution pour les procédures stockées et déclencheurs     |5 secondes
 |Stockage de documents configuré par unité de capacité |10 Go
 |Unités de demande configurées par seconde par unité de capacité     |2 000
-|Stockage de documents maximal par base de données (5 unités de capacité)    |50 Go
+|Stockage de documents maximal par base de données (5 unités de capacité)    |500 Go
 |Longueur maximale de la propriété d'ID    |255 caractères
 |Nombre par défaut d'éléments par page     |100
 |Nombre maximal d'éléments par page        |1 000
-|Taille de demande maximale des documents et pièces jointes       |256 Ko
+|Taille de demande maximale des documents et pièces jointes       |512 Ko
 |Taille de demande maximale des procédures stockées, déclencheurs et fonctions définies par l'utilisateur        |256 Ko
 |Taille de réponse maximale |1 Mo
 |Nombre maximal de chemins d'accès uniques par collection       |100
@@ -52,4 +52,4 @@ Le tableau suivant décrit les limites et applications de quota dans la version 
 |Nombre maximal de clauses AND par requête      |5
 |Nombre maximal de clauses OR par requête       |5
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

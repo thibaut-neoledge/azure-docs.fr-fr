@@ -1,5 +1,5 @@
 ﻿<properties
-   pageTitle="Utiliser Hadoop Pig dans HDInsight | Azure"
+   pageTitle="Utilisation de Hadoop Pig dans HDInsight | Azure"
    description="Soumission de tâches Pig vers Hadoop sur HDInsight à l'aide de Powershell."
    services="hdinsight"
    documentationCenter=""
@@ -22,26 +22,26 @@
 
 Ce document fournit un exemple d'utilisation de PowerShell pour soumettre des tâches Pig à un Hadoop sur un cluster HDInsight. Pig vous permet d'écrire des tâches MapReduce en utilisant un langage (Pig Latin) qui modélise les transformations de données, plutôt que de mapper et de réduire les fonctions.
 
-> [AZURE.NOTE] Ce document ne fournit pas une description détaillée de ce que font les instructions Pig Latin utilisées dans les exemples. Pour plus d'informations sur le langage Pig Latin utilisé dans cet exemple, consultez <a href="../hdinsight-use-pig/" target="_blank">Utilisation de Pig avec Hadoop sur HDInsight</a>.
+> [AZURE.NOTE] Ce document ne fournit pas une description détaillée de ce que font les instructions Pig Latin utilisées dans les exemples. Pour plus d'informations sur le code Pig Latin utilisé dans cet exemple, consultez <a href="../hdinsight-use-pig/" target="_blank">Utilisation de Pig avec Hadoop sur HDInsight</a>.
 
 ##<a id="prereq"></a>Conditions préalables
 
-Pour réaliser les étapes présentées dans cet article, vous avez besoin des éléments suivants :
+Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
-* Un cluster Azure HDInsight (Hadoop sur HDInsight, Linux ou Windows)
+* Un cluster Azure HDInsight (Hadoop sur HDInsight) Windows ou Linux
 
-* <a href="http://azure.microsoft.com/ documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
+* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
 
 
 ##<a id="powershell"></a>Exécution de tâches Pig avec PowerShell
 
-Azure PowerShell propose *cmdlets*, qui vous permet d'exécuter à distance des tâches Pig sur HDInsight. En interne, cela est accompli en utilisant des appels REST à <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (anciennement Templeton), s'exécutant sur le cluster HDInsight.
+Azure PowerShell propose des  *applets de commande* qui vous permettent d'exécuter à distance des tâches Pig sur HDInsight. En interne, ceci est accompli en effectuant des appels REST à <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (anciennement nommé Templeton) exécuté sur le cluster HDInsight.
 
 Les cmdlets suivantes sont utilisées lors de l'exécution des tâches Pig sur un cluster HDInsight à distance.
 
 * **Add-AzureAccount** : authentifie PowerShell sur votre abonnement Azure
 
-* **New-AzureHDInsightPigJobDefinition** : crée une *job definition* avec les instructions Pig Latin spécifiées
+* **New-AzureHDInsightPigJobDefinition** : crée une  *définition du travail* à l'aide des instructions Pig Latin spécifiées
 
 * **Start-AzureHDInsightJob** : envoie la définition de la tâche à HDInsight, démarre la tâche et retourne un objet *job* pouvant être utilisé pour vérifier le statut de la tâche
 
@@ -118,7 +118,7 @@ Les étapes suivantes montrent comment utiliser ces cmdlets pour exécuter une t
 
 ##<a id="troubleshooting"></a>Résolution des problèmes
 
-Si aucune information n'est renvoyée lorsque la tâche est terminée, une erreur peut avoir eu lieu au cours du traitement. Pour afficher les informations d'erreur pour ce projet, ajoutez le code suivant à la fin du fichier **pigjob.ps1**, enregistrez-le et exécutez-le à nouveau.
+Si aucune information n'est retournée lorsque la tâche est terminée, il se peut qu'une erreur soit survenue au cours du traitement. Pour afficher les informations d'erreur pour ce projet, ajoutez le code suivant à la fin du fichier **pigjob.ps1**, enregistrez-le et exécutez-le à nouveau.
 
 	# Print the output of the Pig job.
 	Write-Host "Display the standard output ..." -ForegroundColor Green
@@ -141,4 +141,4 @@ Pour plus d'informations sur d'autres méthodes de travail avec Hadoop sur HDIns
 * [Utilisation de Hive avec Hadoop sur HDInsight](../hdinsight-use-hive/)
 
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](../hdinsight-use-mapreduce/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

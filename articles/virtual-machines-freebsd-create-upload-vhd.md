@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
    pageTitle="Création et téléchargement d'un disque dur virtuel FreeBSD dans Azure" 
    description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant le système d'exploitation Linux." 
    services="virtual-machines" 
@@ -20,16 +20,16 @@
 
 Cet article vous montre comment créer et télécharger un disque dur virtuel (VHD) qui contient le système d'exploitation FreeBSD, ce qui vous permet de l'utiliser comme votre image personnelle pour créer des machines virtuelles dans Azure. 
 
-## Configuration requise##
+##Configuration requise##
 Cet article part du principe que vous disposez des éléments suivants :
 
 - **Un abonnement Azure** : si vous n'en possédez pas, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Création d'un compte Azure](http://azure.microsoft.com/documentation/articles/php-create-account/). 
 
-- **Outils Azure PowerShell** : le module Microsoft Azure PowerShell est installé et configuré de façon à utiliser votre abonnement. Pour télécharger le module, consultez la page [Téléchargements Azure](http://azure.microsoft.com/downloads/). Un didacticiel sur l'installation et la configuration du module est disponible ici. Vous utiliserez la cmdlet [Téléchargements Azure](http://azure.microsoft.com/downloads/) pour télécharger le disque dur virtuel.
+- **Outils Azure PowerShell** : le module Microsoft Azure PowerShell est installé et configuré de façon à utiliser votre abonnement. Pour télécharger le module, consultez la page [Téléchargements Azure](http://azure.microsoft.com/downloads/). Un didacticiel sur l'installation et la configuration du module est disponible ici. Vous utiliserez l'applet de commande [Téléchargements Azure](http://azure.microsoft.com/downloads/) pour télécharger le disque dur virtuel.
 
-- **Système d'exploitation FreeBSD installé dans un fichier .vhd**  - Vous avez installé un système d'exploitation Linux pris en charge sur un disque dur virtuel. Il existe de nombreux outils de création de fichiers .vhd. Par exemple, vous pouvez utiliser une solution de virtualisation telle que Hyper-V pour créer le fichier .vhd et installer le système d'exploitation. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx). 
+- **Un système d'exploitation FreeBSD installé dans un fichier .vhd** : vous avez installé un système d'exploitation FreeBSD pris en charge dans un disque dur virtuel. Il existe de nombreux outils de création de fichiers .vhd. Par exemple, vous pouvez utiliser une solution de virtualisation telle que Hyper-V pour créer le fichier .vhd et installer le système d'exploitation. Pour obtenir des instructions, consultez la page [Installer le rôle Hyper-V et configurer un ordinateur virtuel](http://technet.microsoft.com/library/hh846766.aspx). 
 
-> [AZURE.NOTE] Azure ne prend pas en charge le nouveau format VHDX. Vous pouvez convertir le disque au format VHD à l'aide du Gestionnaire Hyper-V ou l'applet de commande [convert-vhd](https://technet.microsoft.com/fr-fr/library/hh848454.aspx).
+> [AZURE.NOTE] Azure ne prend pas en charge le nouveau format VHDX. Vous pouvez convertir le disque au format VHD à l'aide du Gestionnaire Hyper-V ou l'applet de commande [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx).
 
 Cette tâche comprend les cinq étapes suivantes.
 
@@ -77,14 +77,14 @@ Depuis la machine virtuelle sur laquelle le système d'exploitation FreeBSD a é
 
 6. **Installation de l'Agent Azure**
 
-    La dernière version de l'Agent Azure se trouve toujours sur [github](https://github.com/Azure/WALinuxAgent/releases). La version 2.0.10 et les versions ultérieures sont officiellement prises en charge par FreeBSD 10 (et versions ultérieures).
+    La dernière version de l'agent Azure se trouve toujours sur [github](https://github.com/Azure/WALinuxAgent/releases). La version 2.0.10 et les versions ultérieures sont officiellement prises en charge par FreeBSD 10 (et versions ultérieures).
 
 		# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.10/waagent --no-check-certificate
 		# mv waagent /usr/sbin
 		# chmod 755 /usr/sbin/waagent
 		# /usr/sbin/waagent -install
 
-    **Important** : Après l'installation, vérifiez que le logiciel est en cours d'exécution.
+    **Important**: After installation, please double check it is running.
 
 		# service -e | grep waagent
 		/etc/rc.d/waagent
@@ -112,16 +112,16 @@ Pour télécharger vers Azure un fichier .vhd permettant de créer une machine v
 
 4. Remplissez les champs comme suit :
 	
-	- Sous **URL**, tapez un nom de sous-domaine à utiliser dans l'URL pour le compte de stockage. L'entrée peut être composée de 3 à 24 lettres minuscules et chiffres. Ce nom devient le nom d'hôte dans l'URL qui est utilisée pour adresser les ressources d'objet Blob, file d'attente ou Table pour l'abonnement.
+	- Sous **URL**, tapez un nom de sous-domaine à utiliser dans l'URL pour le compte de stockage. L'entrée peut être composée de 3 à 24 lettres minuscules et chiffres. Ce nom devient le nom d'hôte contenu dans l'URL utilisée pour adresser les ressources d'objets blob, de files d'attente et de tables pour l'abonnement.
 			
 	- Sélectionnez **l'emplacement ou le groupe d'affinités** pour le compte de stockage. Un groupe d'affinités vous permet de mettre vos services cloud et de stockage sur le cloud dans le même centre de données.
 		 
-	- Indiquez si vous souhaitez utiliser la **géo-réplication** pour le compte de stockage. La géo-réplication est activée par défaut. Cette option permet une réplication gratuite de vos données vers un emplacement secondaire, pour que votre stockage puisse basculer vers cet emplacement en cas de panne sur l'emplacement principal. L'emplacement secondaire est attribué automatiquement. Vous ne pouvez pas le modifier. Si vous avez besoin de disposer d'un contrôle accru sur l'emplacement de votre stockage reposant sur le cloud du fait d'exigences juridiques ou de la stratégie de l'organisation, vous pouvez désactiver la géo-réplication. Cependant, sachez que si vous réactivez la géo-localisation ultérieurement, la réplication de vos données vers un emplacement secondaire sera facturée au tarif d'un transfert unique. Vous pouvez bénéficier d'une réduction pour les services de stockage sans géo-réplication. Vous trouverez plus d'informations sur la gestion de la géo-réplication des comptes de stockage ici : [Création, gestion ou suppression d'un compte de stockage](../storage-create-storage-account/#replication-options).
+	- Indiquez si vous souhaitez utiliser la **géo-réplication** pour le compte de stockage. La géo-réplication est activée par défaut. Cette option permet une réplication gratuite de vos données vers un emplacement secondaire, pour que votre stockage puisse basculer vers cet emplacement en cas de panne sur l'emplacement principal. L'emplacement secondaire est attribué automatiquement. Vous ne pouvez pas le modifier. Si vous avez besoin de disposer d'un contrôle accru sur l'emplacement de votre stockage reposant sur le cloud du fait d'exigences juridiques ou de la stratégie de l'organisation, vous pouvez désactiver la géo-réplication. Cependant, sachez que si vous réactivez la géo-localisation ultérieurement, la réplication de vos données vers un emplacement secondaire sera facturée au tarif d'un transfert unique. Vous pouvez bénéficier d'une réduction pour les services de stockage sans géo-réplication. Vous trouverez plus d'informations sur la gestion de la géo-réplication des comptes de stockage ici : [Créer, gérer ou supprimer un compte de stockage](../storage-create-storage-account/#replication-options).
 
 	![Enter storage account details](./media/virtual-machines-create-upload-vhd-windows-server/Storage-create-account.png)
 
 
-5. Cliquez sur **Créer un compte de stockage**. Le compte apparaît à présent sous **Stockage**.
+5. Cliquez sur **Créer un Compte de stockage**. Le compte apparaît à présent sous **Stockage**.
 
 	![Storage account successfully created](./media/virtual-machines-create-upload-vhd-windows-server/Storagenewaccount.png)
 
@@ -171,16 +171,16 @@ Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexio
 
 4. Tapez : 
 	`Import-AzurePublishSettingsFile <PathToFile>`
-
+	
 	Où `<PathToFile>` est le chemin d'accès complet au fichier .publishsettings. 
 
-   Pour plus d'informations, consultez la page [Prise en main des cmdlets Microsoft Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) 
+   Pour plus d'informations, consultez [Prise en main des applets de commande Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) 
 	
-   Pour plus d'information sur l'installation et la configuration de PowerShell, consultez la page [Installation et configuration de Microsoft Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/) 
+   Pour plus d'information sur l'installation et la configuration de PowerShell, consultez [Installation et configuration de Microsoft Azure PowerShell](http://www.windowsazure.com/documentation/articles/install-configure-powershell/). 
 
 ## Étape 4 : téléchargement du fichier .vhd ##
 
-Lorsque vous téléchargez le fichier .vhd, vous pouvez le placer n'importe où dans votre stockage d'objets blob. Dans les exemples de commande suivants, **BlobStorageURL** correspond à l'URL du compte de stockage que vous avez créé lors de l'étape 2 et **YourImagesFolder** est le conteneur du stockage d'objets blob où vous souhaitez stocker vos images. **VHDName** est l'étiquette qui apparaît dans le portail de gestion pour identifier le disque dur virtuel. **PathToVHDFile** est le chemin d'accès complet et le nom du fichier .vhd. 
+Quand vous téléchargez le fichier .vhd, vous pouvez le placer n'importe où dans votre stockage d'objets blob. Dans les exemples de commande suivants, **BlobStorageURL** correspond à l'URL du compte de stockage que vous avez créé à l'étape 2 et **YourImagesFolder** est le conteneur du stockage d'objets blob où vous souhaitez stocker vos images. **VHDName** est l'étiquette qui apparaît dans le portail de gestion pour identifier le disque dur virtuel. **PathToVHDFile** est le chemin d'accès complet et le nom du fichier .vhd. 
 
 
 1. Depuis la fenêtre Azure PowerShell utilisée lors de l'étape précédente, tapez :
@@ -208,4 +208,4 @@ Après avoir téléchargé le fichier .vhd, vous pouvez l'ajouter en tant qu'ima
 
 	![freebsd image in azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

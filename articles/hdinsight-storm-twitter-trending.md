@@ -80,7 +80,7 @@ Il effectue les opérations suivantes :
 
 ###Le spout
 
-Le spout **TwitterSpout** utilise <a href="http://twitter4j.org/en/" target="_blank">Twitter4j</a> pour extraire les tweets de Twitter. Un filtre est créé (amour, musique et café) et les tweets entrants (état) qui correspondent au filtre sont stockés dans une <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedBlockingQueue.html" target="_blank">LinkedBlockingQueue</a>. Pour finir, les éléments sont retirés de la file d'attente et émis dans la topologie.
+Le spout, **TwitterSpout**, utilise <a href="http://twitter4j.org/en/" target="_blank">Twitter4j</a> pour extraire des tweets de Twitter. Un filtre est créé (amour, musique et café) et les tweets entrants (état) qui correspondent au filtre sont stockés dans une <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedBlockingQueue.html" target="_blank">LinkedBlockingQueue</a>. Pour finir, les éléments sont retirés de la file d'attente et émis dans la topologie.
 
 ###HashtagExtractor
 
@@ -90,7 +90,7 @@ Pour extraire les hashtags, <a href="http://twitter4j.org/javadoc/twitter4j/Enti
 
 Procédez comme suit pour inscrire une nouvelle application Twitter et obtenir les informations de jeton consommateur et d'accès nécessaires pour lire à partir de Twitter.
 
-1. Accédez à <a href="" target="_blank">https://apps.twitter.com/</a> et utilisez le bouton **Créer une nouvelle application**. Lorsque vous remplissez le formulaire, laissez **URL de rappel** vide.
+1. Accédez à <a href="" target="_blank">https://apps.twitter.com/</a> et utilisez le bouton **Create new app**. Lorsque vous remplissez le formulaire, laissez **URL de rappel** vide.
 
 2. Une fois que l'application a été créée, sélectionnez l'onglet **Clés et jetons d'accès**.
 
@@ -127,11 +127,17 @@ Après le démarrage de la topologie, vous devez voir des informations de débog
 
 ##Étapes suivantes
 
-Maintenant que vous avez testé la topologie localement, découvrez comment [Déployer cette topologie vers Storm sur HDInsight](../hdinsight-storm-deploy-monitor-topology/).
+Maintenant que vous avez testé la topologie localement, découvrez comment [déployer cette topologie vers Storm sur HDInsight](../hdinsight-storm-deploy-monitor-topology/).
 
 Les rubriques Storm suivantes peuvent également vous intéresser :
 
 * [Développement de topologies Java pour Storm sur HDInsight à l'aide de Maven](../hdinsight-storm-develop-java-topology/)
 
 * [Développement de topologies C# pour Storm sur HDInsight à l'aide de Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)
-<!--HONumber=45--> 
+
+Pour obtenir plus d'exemples Storm pour HDinsight :
+
+* [Exemples Storm sur HDInsight](https://github.com/hdinsight/hdinsight-storm-examples)
+
+* [Analyse des données de capteur de hub d'événements avec Storm sur HDInsight](../hdinsight-storm-sensor-data-analysis/)
+<!--HONumber=47-->

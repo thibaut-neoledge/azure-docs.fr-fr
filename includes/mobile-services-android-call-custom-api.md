@@ -1,7 +1,7 @@
 ﻿
-##<a name="update-app"></a>Mise à jour de l'application pour appeler l'API personnalisée
+## <a name="update-app"></a>Mise à jour de l'application pour appeler l'API personnalisée
 
-1. Nous allons ajouter un bouton intitulé " Complete All " en regard du bouton existant et déplacer ces deux boutons d'une ligne. Dans Eclipse, ouvrez le fichier *res\layout\activity_to_do.xml* dans votre projet de démarrage rapide et recherchez l'élément **LinearLayout** contenant l'élément **bouton** nommé `buttonAddToDo`. Copiez l'élément **LinearLayout** et collez-le immédiatement après l'élément d'origine. Supprimez l'élément **Button** du premier élément **LinearLayout**.
+1. Nous allons ajouter un bouton intitulé " Complete All " en regard du bouton existant et déplacer ces deux boutons d'une ligne. Dans Android Studio, ouvrez le fichier *res\layout\activity_to_do.xml* dans votre projet de démarrage rapide et recherchez l'élément **LinearLayout** contenant l'élément **bouton** nommé `buttonAddToDo`. Copiez l'élément **LinearLayout** et collez-le immédiatement après l'élément d'origine. Supprimez l'élément **Button** du premier élément **LinearLayout**.
 
 2. Dans le second élément **LinearLayout**, , supprimez l'élément **EditText** et ajoutez le code suivant immédiatement après l'élément **bouton** existant : 
 
@@ -42,7 +42,7 @@
 
 
 
-5. Dans l'Explorateur de package, cliquez avec le bouton droit sur le nom du projet dans le dossier *src* (`com.example.{your projects name}`), choisissez **Nouveau** puis **Classe**. Dans la boîte de dialogue, entrez **MarkAllResult** dans le champ du nom de la classe, choisissez OK et remplacez la définition de classe qui en résulte par le code suivant :
+5. Dans l'Explorateur de projet, cliquez avec le bouton droit sur le nom du projet dans le dossier *src* (`com.example.{your projects name}`), choisissez **Nouveau** puis **Classe**. Dans la boîte de dialogue, entrez **MarkAllResult** dans le champ du nom de la classe, choisissez OK et remplacez la définition de classe qui en résulte par le code suivant :
 
 		import com.google.gson.annotations.SerializedName;
 		
@@ -75,7 +75,7 @@
 
 8. Dans le fichier **ToDoActivity.java**, ajoutez la méthode suivante :
 
-	public void completeItem(View view) {
+		public void completeItem(View view) {
 	    
 	    ListenableFuture<MarkAllResult> result = mClient.invokeApi( "completeAll2", MarkAllResult.class ); 
 	    	
@@ -97,7 +97,7 @@
 
 ## Test de l'application
 
-1. Dans le menu **Exécuter**, cliquez sur **Exécuter** pour démarrer le projet dans l'émulateur Android.
+1. Dans le menu **Exécuter**, cliquez sur **Exécuter l'application** pour démarrer le projet dans l'émulateur Android ou dans un appareil Android connecté.
 
 	Cela permet d'exécuter votre application, créée avec le Kit de développement logiciel (SDK) Android, qui utilise la bibliothèque cliente pour envoyer une requête renvoyant des éléments à partir de votre service mobile.
 
@@ -111,4 +111,4 @@
   	![](./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png)
 
 	Un message s'affiche pour indiquer le nombre d'éléments marqués comme terminés, puis la requête filtrée est de nouveau exécutée pour supprimer tous les éléments de la liste.
-\<!--HONumber=42-->
+<!--HONumber=47-->

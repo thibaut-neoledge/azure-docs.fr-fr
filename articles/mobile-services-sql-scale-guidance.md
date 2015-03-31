@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Mise à l'échelle des services mobiles soutenus par Base de données SQL Azure et Azure Mobile Services" 
 	description="Découvrez comment diagnostiquer et résoudre les problèmes d'extensibilité de vos services mobiles sous-tendus par une base de données SQL" 
 	services="mobile-services" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/11/2014" 
@@ -57,7 +57,7 @@ Pour convertir un service mobile utilisant l'édition Web ou Business en éditio
 
 Voici quelques recommandations pour sélectionner le niveau pour votre base de données :
 
-- **Basic** : à utiliser au moment du développement ou pour les petits services de production, lorsque vous pensez interroger une seule base de données à la fois.
+- **De base** : à utiliser au moment du développement ou pour les petits services de production, lorsque vous pensez interroger une seule base de données à la fois.
 - **Standard** : à utiliser pour les services de production, lorsque vous pensez interroger plusieurs bases de données simultanément.
 - **Premium** : à utiliser pour les grands services de production avec plusieurs requêtes simultanées, des pics de charge élevés et une faible latence pour chaque demande.
 
@@ -73,9 +73,9 @@ Maintenant que vous connaissez les différents niveaux de bases de données, nou
 4. Sélectionnez le nom de la **Base de données SQL** dans la section **Paramètres de base de données**. Cela ouvre l'onglet de la base de données SQL Azure dans le portail.
 5. Accédez à l'onglet **Surveiller**.
 6. Vérifiez que les mesures appropriées sont affichées en utilisant le bouton **Ajouter des métriques**. Ajoutez les éléments suivants :
-    - *Pourcentage UC* (disponible uniquement dans les niveaux Basic/Standard/Premium)
-    - *Pourcentage de lectures de données physiques* (disponible uniquement dans les niveaux Basic/Standard/Premium) 
-    - *Pourcentage d'écritures dans les journaux* (disponible uniquement dans les niveaux Basic/Standard/Premium)
+    - *Pourcentage UC* (disponible uniquement dans les niveaux De base/Standard/Premium)
+    - *Pourcentage de lectures de données physiques* (disponible uniquement dans les niveaux De base/Standard/Premium) 
+    - *Pourcentage d'écritures dans les journaux* (disponible uniquement dans les niveaux De base/Standard/Premium)
     - *Stockage* 
 7. Inspectez les métriques dans la plage horaire correspondant aux problèmes de votre service. 
 
@@ -160,7 +160,7 @@ Vous pouvez également supprimer les index dans cette vue.
 
 #### Service principal .NET
 
-Pour définir un index dans Entity Framework, utilisez l'attribut [Index] sur les champs à indexer. Par exemple :
+Pour définir un index dans Entity Framework, utilisez l'attribut `[Index]` sur les champs à indexer. Par exemple :
 
     public class TodoItem : EntityData
     {
@@ -178,19 +178,19 @@ Pour plus d'informations sur les index, consultez la page sur les [annotations d
 Voici quelques points à surveiller lors du choix des types de données pour vos objets, qui se traduisent ensuite dans le schéma de votre base de données SQL. Ajuster le schéma permet souvent d'améliorer significativement les performances, car SQL offre différents moyens d'optimiser la gestion de l'indexation et du stockage pour différents types de données :
 
 - **Utilisez la colonne d'ID fournie**. Chaque table de service mobile a une colonne d'ID par défaut configurée comme clé primaire avec un index défini. Il n'est pas nécessaire de créer une autre colonne d'ID.
-- **Utilisez les types de données appropriés dans votre modèle.** Si vous savez qu'une propriété donnée de votre modèle sera une valeur numérique ou booléenne, veillez à la définir ainsi dans votre modèle et non comme une chaîne.Dans le serveur principal JavaScript, utilisez des valeurs littérales comme `true` à la place de "true" et 5 à la place de "5". Dans le serveur principal .NET, utilisez les types `int` et `bool` lorsque vous déclarez les propriétés de votre modèle. Cela permet à SQL de créer le schéma adapté pour ces types, ce qui rend les requêtes plus efficaces.
+- **Utilisez les types de données appropriés dans votre modèle.** Si vous savez qu'une propriété donnée de votre modèle sera une valeur numérique ou booléenne, veillez à la définir ainsi dans votre modèle et non comme une chaîne. Dans le serveur principal JavaScript, utilisez des valeurs littérales comme `true` à la place de `"true"` et `5` à la place de `"5"`. Dans le serveur principal .NET, utilisez les types `int` et `bool` lorsque vous déclarez les propriétés de votre modèle. Cela permet à SQL de créer le schéma adapté pour ces types, ce qui rend les requêtes plus efficaces.
 
 <a name="Query"></a>
 ## Conception d'une requête
 
 Voici quelques instructions liées aux requêtes effectuées dans la base de données :
 
-- **Exécutez toujours les jonctions dans la base de données.** Vous devez souvent combiner les enregistrements d'au moins deux tables lorsque ces enregistrements partagent un champ (également appelé *join*). Cette opération peut être inefficace si elle est mal menée, car elle peut impliquer l'extraction de toutes les entités de toutes les tables, puis l'itération sur toutes celles-ci. Il vaut mieux laisser ce type d'opération à la base de données, mais il arrive parfois qu'il soit plus facile de l'effectuer dans le code du client ou du service mobile.
+- **Exécutez toujours les jonctions dans la base de données.** Vous devez souvent combiner les enregistrements d'au moins deux tables lorsque ces enregistrements partagent un champ (également appelé *join*). Cette opération peut être inefficace si elle est mal menée, car elle peut impliquer l'extraction de toutes les entités de toutes les tables, puis l'itération sur toutes celles-ci. Il vaut mieux laisser ce type d'opération à la base de données, mais il arrive parfois de l'effectuer par erreur sur le client ou dans le code du service mobile.
     - N'effectuez pas de jointures dans le code de votre application.
     - N'effectuez pas de jointures dans le code de votre service mobile. Lorsque vous utilisez le serveur principal JavaScript, n'oubliez pas que l'[objet table](http://msdn.microsoft.com/library/windowsazure/jj554210.aspx) ne prend pas en charge les jointures. Pensez à utiliser directement l'[objet mssql](http://msdn.microsoft.com/library/windowsazure/jj554212.aspx) pour que la jointure s'effectue dans la base de données. Pour plus d'informations, consultez la page [Joindre des tables relationnelles](http://azure.microsoft.com/documentation/articles/mobile-services-how-to-use-server-scripts/#joins). Si vous utilisez le serveur principal .NET et que vous effectuez des requêtes via LINQ, les jointures sont automatiquement gérées au niveau de la base de données par Entity Framework.
-- **Implémentez la pagination.** Effectuer des recherches dans la base de données peut aboutir au renvoi d'un grand nombre d'enregistrements au client. Pour minimiser le volume et la latence des opérations, pensez à implémenter la pagination.
+- **Implémentez la pagination.** Effectuer des recherches dans la base de données peut aboutir au renvoi d'un grand nombre d'enregistrements au client. Pour réduire le volume et la latence des opérations, pensez à implémenter la pagination.
     - Par défaut, votre service mobile limite la taille de la page à 50 enregistrements pour les requêtes entrantes, mais vous pouvez demander manuellement jusqu'à 1 000 enregistrements. Pour plus d'informations, consultez la section " Renvoi de données dans les pages " pour [Windows Store](http://azure.microsoft.com/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/#paging), [iOS](http://azure.microsoft.com/documentation/articles/mobile-services-ios-how-to-use-client-library/#paging), [Android](http://azure.microsoft.com/documentation/articles/mobile-services-android-how-to-use-client-library/#paging), [HTML/JavaScript](http://azure.microsoft.com/documentation/articles/mobile-services-html-how-to-use-client-library/#paging) et [Xamarin](http://azure.microsoft.com/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/#paging).
-    - Il n'existe pas de taille de page par défaut pour les requêtes faites à partir du code de votre service mobile. Si votre application ne prend pas en charge la pagination ou si elle ne l'exécute pas par précaution, pensez à appliquer les limites par défaut à vos requêtes. Dans le serveur principal JavaScript, utilisez l'opérateur **take** sur l'objet [query](http://msdn.microsoft.com/library/azure/jj613353.aspx). Si vous utilisez le serveur principal .NET, pensez à utiliser la méthode [Take](http://msdn.microsoft.com/library/vstudio/bb503062(v=vs.110) pour votre requête LINQ.  
+    - Il n'existe pas de taille de page par défaut pour les requêtes faites à partir du code de votre service mobile. Si votre application ne prend pas en charge la pagination ou si elle ne l'exécute pas par précaution, pensez à appliquer les limites par défaut à vos requêtes. Dans le serveur principal JavaScript, utilisez l'opérateur **take** sur l'objet [query](http://msdn.microsoft.com/library/azure/jj613353.aspx). Si vous utilisez le serveur principal .NET, pensez à utiliser la [méthode Take](http://msdn.microsoft.com/library/vstudio/bb503062(v=vs.110)) pour votre requête LINQ.  
 
 Pour plus d'informations sur l'optimisation de la conception des requêtes, y compris sur l'analyse des plans de requête, consultez la section [Conception avancée des requêtes](#AdvancedQuery) à la fin de ce document.
 
@@ -221,11 +221,11 @@ Les étapes suivantes présentent l'obtention des informations de connexion pour
 2. Sous l'onglet Mobile Services, sélectionnez le service que vous souhaitez utiliser.
 3. Sélectionnez l'onglet **Configurer**.
 4. Sélectionnez le nom de la **Base de données SQL** dans la section **Paramètres de base de données**. Cela ouvre l'onglet de la base de données SQL Azure dans le portail.
-5. Sélectionnez **Configurer des règles de pare-feu Microsoft Azure pour cette adresse IP**.
+5. Sélectionnez **Configurer des règles de pare-feu Azure pour cette adresse IP**.
 6. Notez l'adresse du serveur dans la section **Se connecter à votre base de données**, par exemple : *mcml4otbb9.database.windows.net*.
 
 #### SQL Server Management Studio
-1. Accédez à [Éditions SQL Server - Express](http://www.microsoft.com/fr-fr/server-cloud/products/sql-server-editions/sql-server-express.aspx)
+1. Accédez à [Éditions SQL Server - Express](http://www.microsoft.com/server-cloud/products/sql-server-editions/sql-server-express.aspx)
 2. Recherchez la section **SQL Server Management Studio** et cliquez sur le bouton **Télécharger** en dessous.
 3. Effectuez les étapes d'installation jusqu'au lancement de l'application :
 
@@ -249,8 +249,8 @@ Les étapes suivantes présentent l'obtention des informations de connexion pour
 
     ![Azure Management Portal - SQL Database][PortalSqlManagement]
 
-<a name="AdvancedDiagnosing" />
-### Advanced Diagnostics
+<a name="AdvancedDiagnosing" /></a>
+### Diagnostics avancés
 
 De nombreuses tâches de diagnostic peuvent être effectuées directement dans le **portail de gestion Azure**, mais certaines tâches de diagnostic avancées peuvent être réalisées uniquement via **SQL Server Management Studio** ou le **portail de gestion de base de données SQL**.  Nous allons utiliser les vues de gestion dynamique, un ensemble de vues renseignées automatiquement avec des informations de diagnostic sur votre base de données. Cette section fournit un ensemble de requêtes que nous pouvons exécuter dans ces vues pour examiner différentes mesures. Pour plus d'informations, consultez la page [Contrôle de la base de données SQL à l'aide de vues de gestion dynamique][].
 
@@ -292,7 +292,7 @@ La vue **[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)
 > [AZURE.NOTE] 
 > Exécutez cette requête sur la base de données **maître** sur votre serveur, car la vue **sys.event\_log** est présente uniquement sur cette base de données.
 
-<a name="AdvancedIndexing" />
+<a name="AdvancedIndexing" /></a>
 ### Indexation avancée
 
 Une table ou une vue peut contenir les types d'index suivants :
@@ -304,7 +304,7 @@ Une table ou une vue peut contenir les types d'index suivants :
 Pour fournir une analogie concrète : pensez à un livre ou à un guide technique. Le contenu de chaque page est un enregistrement, le numéro de page est l'index cluster et l'index de rubrique à l'arrière du livre est un index non cluster. Chaque entrée de l'index de rubrique pointe vers l'index cluster, le numéro de page.
 
 > [AZURE.NOTE] 
-> Par défaut, le serveur principal JavaScript d'Azure Mobile Services définit **\_createdAt** comme index cluster. Si vous supprimez cette colonne, ou si vous souhaitez un autre index cluster, suivez les [instructions sur la conception des index](#ClusteredIndexes) ci-dessous. Dans le serveur principal .NET, la classe `EntityData` définit `CreatedAt` comme index cluster à l'aide de l'annotation [Index(IsClustered = true)].
+> Par défaut, le serveur principal JavaScript d'Azure Mobile Services définit **\_createdAt** comme index cluster. Si vous supprimez cette colonne, ou si vous souhaitez un autre index cluster, suivez les [instructions sur la conception des index](#ClusteredIndexes) ci-dessous. Dans le serveur principal .NET, la classe `EntityData` définit `CreatedAt` comme index cluster à l'aide de l'annotation `[Index(IsClustered = true)]`.
 
 <a name="ClusteredIndexes"></a>
 #### Instructions sur la conception des index cluster
@@ -374,9 +374,9 @@ L'exemple de requête suivant exécute une jointure sur ces tables pour obtenir 
       AND migs_adv.index_advantage > 10
     ORDER BY migs_adv.index_advantage DESC;
 
-Pour plus d'informations, consultez les pages [Contrôle de Base de données SQL Azure à l'aide de vues de gestion dynamique][] et [Vues de gestion dynamique des index manquants](sys-missing-index-stats).
+Pour plus d'informations, consultez les pages [Contrôle de la base de données SQL à l'aide de vues de gestion dynamique] et [Vues de gestion dynamique des index manquants](sys-missing-index-stats).
 
-<a name="AdvancedQuery" />
+<a name="AdvancedQuery" /></a>
 ### Conception avancée des requêtes 
 
 Il est souvent difficile de diagnostiquer les requêtes les plus coûteuses pour la base de données. 
@@ -455,8 +455,8 @@ Pour analyser le plan de requête dans le **portail de gestion de base de donné
 [Portail de gestion Azure]: http://manage.windowsazure.com
 
 [Documentation de base de données SQL Azure]: http://azure.microsoft.com/documentation/services/sql-database/
-[Gestion de la base de données SQL au moyen de SQL Server Management Studio]: http://go.microsoft.com/fwlink/p/?linkid=309723&clcid=0x409
-[Contrôle de la base de données SQL à l'aide de vues de gestion dynamique] : http://go.microsoft.com/fwlink/p/?linkid=309725&clcid=0x409
+[Gestion de base de données SQL à l'aide de SQL Server Management Studio]: http://go.microsoft.com/fwlink/p/?linkid=309723&clcid=0x409
+[Contrôle de la base de données SQL à l'aide de vues de gestion dynamique]: http://go.microsoft.com/fwlink/p/?linkid=309725&clcid=0x409
 [Performances et mise à l'échelle de la base de données SQL Azure]: http://go.microsoft.com/fwlink/p/?linkid=397217&clcid=0x409
 [Résolution des problèmes de base de données SQL Azure]: http://msdn.microsoft.com/library/azure/ee730906.aspx
 
@@ -482,5 +482,4 @@ Pour analyser le plan de requête dans le **portail de gestion de base de donné
 <!-- BLOG LINKS -->
 [Combien coûte cette clé ?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

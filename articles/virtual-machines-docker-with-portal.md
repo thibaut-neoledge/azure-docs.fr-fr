@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="squillace" 
 	manager="timlt" 
-	editor=""/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,12 +13,12 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.workload="infrastructure-services" 
-	ms.date="10/21/2014" 
+	ms.date="02/11/2015" 
 	ms.author="rasquill"/>
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Utilisation de l'extension Docker VM avec le portail Azure
 
-[Docker](https://www.docker.com/) fait partie des méthodes de virtualisation les plus prisées. Cet outil utilise des [conteneurs Linux](http://en.wikipedia.org/wiki/LXC) plutôt que des machines virtuelles pour isoler les données et le traitement sur des ressources partagées. Vous pouvez utiliser l'extension Docker VM sur [l'agent Linux Azure] afin de créer une machine virtuelle Docker hébergeant un nombre indéfini de conteneurs pour vos applications sur Azure. 
+[Docker](https://www.docker.com/) fait partie des méthodes de virtualisation les plus prisées. Cet outil utilise des [conteneurs Linux](http://en.wikipedia.org/wiki/LXC) plutôt que des machines virtuelles pour isoler les données et le traitement sur des ressources partagées. Vous pouvez utiliser l'extension Docker VM sur [l'agent Linux Azure][Agent Linux Azure] afin de créer une machine virtuelle Docker hébergeant un nombre indéfini de conteneurs pour vos applications sur Azure. 
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 Dans cette section
@@ -29,18 +29,18 @@ Dans cette section
 + [Test du client Docker et de l'hôte Azure Docker]
 + [Étapes suivantes]
 
-> [AZURE.NOTE] Cette rubrique décrit la création d'une machine virtuelle Docker VM dans le portail Azure. Pour savoir comment créer une machine virtuelle Docker dans la ligne de commande, consultez la page [Utilisation de l'extension Docker VM à partir de l'interface interplateforme Azure (xplat-cli)]. Pour une discussion sur les conteneurs et leurs avantages, consultez le [Tableau blanc Docker de haut niveau](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard). 
+> [AZURE.NOTE] Cette rubrique décrit comment créer une machine virtuelle Docker à partir du portail Azure. Pour savoir comment créer une machine virtuelle Docker dans la ligne de commande, consultez la page [Utilisation de l'extension Docker VM à partir de l'interface interplateforme Azure (xplat-cli)]. Pour une discussion sur les conteneurs et leurs avantages, consultez la page [Tableau blanc Docker de haut niveau](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard). 
 
-## <a id='createvm'>Création d'une machine virtuelle à partir de la galerie d'images</a>
+## <a id='createvm'></a>Création d'une machine virtuelle à partir de la galerie d'images
 La première étape nécessite une machine virtuelle Azure à partir d'une image Linux qui prend en charge l'extension Docker VM, en utilisant une image Ubuntu 14.04 LTS de la galerie d'images comme exemple d'image de serveur et Ubuntu 14.04 Desktop comme client. Dans le portail, cliquez sur **+ Nouveau** dans le coin inférieur gauche pour créer une instance de machine virtuelle, puis sélectionnez une image Ubuntu 14.04 LTS parmi les choix proposés ou la galerie d'images complète (voir ci-dessous). 
 
 > [AZURE.NOTE] Actuellement, seules les images Ubuntu 14.04 LTS postérieures à juillet 2014 prennent en charge l'extension Docker VM.
 
 ![Create a new Ubuntu Image](./media/virtual-machines-docker-with-portal/ChooseUbuntu.png)
 
-## <a id'dockercerts'>Création de certificats Docker</a>
+## <a id'dockercerts'></a>Création de certificats Docker
 
-Après la création de la machine virtuelle, vérifiez que Docker est installé sur votre ordinateur client (pour plus d'informations, voir [Instructions d'installation de Docker](https://docs.docker.com/installation/#installation).) 
+Après la création de la machine virtuelle, vérifiez que Docker est installé sur votre ordinateur client (Pour plus d'informations, consultez la page [Instructions d'installation Docker](https://docs.docker.com/installation/#installation).) 
 
 Créez le certificat et les fichiers de clés pour les communications Docker en respectant les instructions fournies à la page [Exécution de Docker avec https] ; placez-les ensuite dans le répertoire **`~/.docker`** de votre ordinateur client. 
 
@@ -59,8 +59,9 @@ Dans la ligne de commande, utilisez **`base64`** ou un autre outil d'encodage de
  ca-key.pem  cert.pem  server-cert64.pem  server-key64.pem
 ```
 
-## <a id'adddockerextension'>Ajout de l'extension Docker VM</a>
+## <a id'adddockerextension'></a>Ajout de l'extension de machine virtuelle Docker
 Pour ajouter l'extension Docker VM, localisez l'instance de machine virtuelle que vous avez créée, accédez à **Extensions**, puis cliquez pour afficher Extensions de machine virtuelle (voir ci-dessous).
+> [AZURE.NOTE] Cette fonctionnalité est prise en charge dans la version préliminaire du portail uniquement : https://portal.azure.com/
 
 ![](./media/virtual-machines-docker-with-portal/ClickExtensions.png)
 ### Ajout d'une extension
@@ -91,7 +92,7 @@ Cliquez sur **+ Ajouter** pour ajouter un point de terminaison ; dans le cas par
 ![](./media/virtual-machines-docker-with-portal/AddEndpointFormFilledOut.png)
 
 
-## <a id='testclientandserver'>Test du client Docker et de l'hôte Azure Docker</a>
+## <a id='testclientandserver'></a>Test du client Docker et de l'hôte Azure Docker
 Localisez et copiez le nom de domaine de votre machine virtuelle. Dans la ligne de commande de votre ordinateur client, tapez `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:4243 info` (où *dockerextension* est remplacé par le sous-domaine de votre machine virtuelle). 
 
 Le résultat affiché doit avoir l'aspect suivant :
@@ -115,10 +116,12 @@ Kernel Version: 3.13.0-36-generic
 WARNING: No swap limit support
 ```
 
+Lorsque vous avez terminé les étapes ci-dessus, vous disposez maintenant d'un hôte Docker parfaitement fonctionnel exécuté sur une machine virtuelle Azure, configuré pour une connexion à distance à partir d'autres clients.
+
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
 
-Vous êtes prêt à consulter le [Guide d'utilisation Docker] et à utiliser votre machine virtuelle Docker. Si vous voulez commencer par créer rapidement et de manière répétée des machines virtuelles Docker sur Azure, consultez la rubrique [Utilisation de l'extension Docker VM à partir de l'interface interplateforme Azure (xplat-cli)]
+Vous êtes prêt à consulter le [Guide d'utilisation Docker][Guide d'utilisation de Docker] et à utiliser votre machine virtuelle Docker. Si vous souhaitez automatiser la création d'hôtes Docker sur des machines virtuelles Azure via l'interface de ligne de commande, consultez la page [Utilisation de l'extension Docker VM à partir de l'interface interplateforme Azure (xplat-cli)]
 
 <!--Anchors-->
 [Création d'une machine virtuelle à partir de la galerie d'images]: #createvm
@@ -142,12 +145,10 @@ Vous êtes prêt à consulter le [Guide d'utilisation Docker] et à utiliser vot
 
 <!--Link references-->
 [Utilisation de l'extension Docker VM à partir de l'interface interplateforme Azure (xplat-cli)]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
-[l'agent Linux Azure]: ../virtual-machines-linux-agent-user-guide/
+[Agent Linux Azure]: ../virtual-machines-linux-agent-user-guide/
 [Lien 3 vers une autre rubrique de documentation azure.microsoft.com]: ../storage-whatis-account/
 
 [Exécution de Docker avec https]: http://docs.docker.com/articles/https/
-[Guide d'utilisation Docker]: https://docs.docker.com/userguide/
+[Guide d'utilisation de Docker]: https://docs.docker.com/userguide/
 
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

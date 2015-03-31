@@ -24,13 +24,13 @@ Dans ce document, vous allez apprendre à utiliser Curl pour exécuter des tâch
 
 Curl est utilisé pour illustrer comment interagir avec HDInsight en utilisant des demandes HTTP brutes pour exécuter des tâches MapReduce. Cela fonctionne à l'aide de l'API REST WebHCat (anciennement Templeton) fournie par votre cluster HDInsight.
 
-> [AZURE.NOTE] Si vous connaissez déjà l'utilisation de serveurs Hadoop basés sur Linux, mais pas HDInsight, consultez <a href="../hdinsight-hadoop-linux-information/" target="_blank">Choses à savoir sur Hadoop basé sur Linux sur HDInsight</a>.
+> [AZURE.NOTE] Si vous vous êtes déjà familiarisé avec l'utilisation de serveurs Hadoop sous Linux, mais que vous découvrez HDInsight, consultez <a href="../hdinsight-hadoop-linux-information/" target="_blank">Ce qu'il faut savoir sur Hadoop dans HDInsight sous Linux</a>.
 
 ##<a id="prereq"></a>Conditions préalables
 
-Pour réaliser les étapes présentées dans cet article, vous avez besoin des éléments suivants :
+Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
-* Un Hadoop sur le cluster HDInsight (Linux ou Windows)
+* Un cluster Hadoop sur HDInsight (Linux ou Windows)
 
 * <a href="http://curl.haxx.se/" target="_blank">Curl</a>
 
@@ -42,7 +42,7 @@ Pour réaliser les étapes présentées dans cet article, vous avez besoin des �
 > 
 > Pour les commandes de cette section, remplacez **NOM D'UTILISATEUR** par l'utilisateur à authentifier sur le cluster et **MOT DE PASSE** par le mot de passe du compte d'utilisateur. Remplacez **NOM DU CLUSTER** par le nom de votre cluster.
 > 
-> L'API REST est sécurisée à l'aide <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">de l'authentification de base</a>. Vous devez toujours effectuer les demandes à l'aide de HTTPS pour vous assurer que vos informations d'identification sont envoyées en toute sécurité sur le serveur.
+> L'API REST est sécurisée à l'aide de <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">l'authentification de base</a>. Vous devez toujours effectuer les demandes à l'aide de HTTPS pour vous assurer que vos informations d'identification sont envoyées en toute sécurité sur le serveur.
 
 1. À partir d'une ligne de commande, utilisez la commande suivante pour vérifier que vous pouvez vous connecter à votre cluster HDInsight. 
 
@@ -54,10 +54,10 @@ Pour réaliser les étapes présentées dans cet article, vous avez besoin des �
 
     Les paramètres utilisés dans cette commande sont les suivants.
 
-    * **-u** : le nom d'utilisateur et le mot de passe utilisé pour authentifier la demande
+    * **-u** : le nom d'utilisateur et le mot de passe utilisés pour authentifier la demande
     * **-G** : indique qu'il s'agit d'une demande GET
 
-    Le début de l'URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sera le même pour toutes les demandes. 
+    Le début de l'URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, sera le même pour toutes les demandes. 
 
 2. Pour envoyer une tâche MapReduce, utilisez la commande suivante.
 
@@ -76,17 +76,17 @@ Pour réaliser les étapes présentées dans cet article, vous avez besoin des �
 
         {"id":"job_1415651640909_0026"}
 
-3. Pour vérifier le statut de la tâche, utilisez la commande suivante. Remplacez **JOBID** par la valeur retournée à l'étape précédente. Par exemple, si la valeur de retour était `{"id":"job_1415651640909_0026"}` le JOBID sera `job_1415651640909_0026`.
+3. Pour vérifier le statut de la tâche, utilisez la commande suivante. Remplacez **JOBID** par la valeur retournée à l'étape précédente. Par exemple, si la valeur de retour était  `{"id":"job_1415651640909_0026"}`, le JOBID sera `job_1415651640909_0026`.
 
         curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
 
-	Si la tâche est terminée, l'état est " TERMINÉ ".
+	Si le travail est terminé, l'état est " TERMINÉ ".
 
-    > [AZURE.NOTE] Cette demande Curl renvoie un document JSON avec des informations sur la tâche ; jq est utilisé pour récupérer la valeur d'état. 
+    > [AZURE.NOTE] Cette demande Curl renvoie un document JSON avec des informations sur la tâche ; jq est utilisé pour récupérer la valeur de statut. 
 
 4. Une fois que l'état de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats depuis le stockage d'objets blob Azure. Le paramètre `statusdir` transmis avec la requête contient l'emplacement du fichier de sortie ; dans notre cas, **wasb:///exemple/curl**. Cette adresse stocke la sortie de la tâche dans le répertoire **exemple/curl** sur le conteneur de stockage par défaut utilisé par votre cluster HDInsight.
 
-Vous pouvez répertorier et télécharger ces fichiers à l'aide de <a href="../xplat-cli/" target="_blank">l'interface de ligne de commande interplateforme Azure (xplat-cli)</a>. Par exemple, pour répertorier les fichiers dans **exemple/curl**, utilisez la commande suivante.
+Vous pouvez répertorier et télécharger ces fichiers à l'aide de l' <a href="../xplat-cli/" target="_blank">Interface de ligne de commande multiplateforme Azure (xplat-cli)</a>. Par exemple, pour répertorier les fichiers dans **exemple/curl**, utilisez la commande suivante.
 
 	azure storage blob list <container-name> example/curl
 
@@ -94,11 +94,11 @@ Pour télécharger un fichier, utilisez ce qui suit.
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE] Vous devez spécifier le nom du compte de stockage qui contient l'objet blob à l'aide des paramètres `-a` et `-k` ou définir les variables d'environnement **AZURE\_STORAGE\_ACCOUNT** et **AZURE\_STORAGE\_ACCESS\_KEY**. Consultez <a href="../hdinsight-upload-data/" target="_blank" for more information.
+> [AZURE.NOTE] Vous devez spécifier le nom du compte de stockage qui contient l'objet blob à l'aide des paramètres " -a " et " -k " ou définir les variables d'environnement **AZURE\_STORAGE\_ACCOUNT** et **AZURE\_STORAGE\_ACCESS\_KEY**. Pour plus d'informations, consultez <a href="../hdinsight-upload-data/" target="_blank" .
 
 ##<a id="summary"></a>Résumé
 
-Comme illustré dans ce document, vous pouvez utiliser les demandes HTTP brutes pour exécuter, surveiller et afficher les résultats de tâches Hive sur votre cluster HDInsight.
+Comme illustré dans ce document, vous pouvez utiliser des demandes HTTP brutes pour exécuter, surveiller et afficher les résultats de tâches Hive sur votre cluster HDInsight.
 
 Pour plus d'informations sur l'interface REST utilisée dans cet article, consultez la [Référence WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).
 
@@ -113,4 +113,4 @@ Pour plus d'informations sur d'autres méthodes de travail avec Hadoop sur HDIns
 * [Utilisation de Hive avec Hadoop sur HDInsight](../hdinsight-use-hive/)
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](../hdinsight-use-pig/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Prise en main d'Azure Mobile Services pour les applications Android" 
 	description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement Android." 
-	services="" 
+	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
 	manager="dwrede" 
@@ -22,23 +22,23 @@
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>Ce didacticiel présente l'ajout d'un service principal cloud à une application Android à l'aide d'Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application <em>To do list</em> qui stocke les données d'application dans le nouveau service mobile.</p>
+<p>Ce didacticiel présente l'ajout d'un service principal cloud à une application Android à l'aide d'Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une application simple (<em>To do list</em>) qui stocke les données d'application dans le nouveau service mobile.</p>
 <p>Voici une capture d'écran de l'application terminée :</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="label">voir le didacticiel</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-get-started-android-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a><span class="time">07:26</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-get-started-android-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a><span class="time">07:26</span></div>
 </div>
 
 ![][0]
 
-Pour suivre ce didacticiel, vous avez besoin des [Outils de développement Android][Kit de développement logiciel (SDK) Android], qui incluent l'IDE (environnement de développement intégré) Eclipse, le plug-in ADT (outils de développement Android) et la dernière plateforme Android. Android 4.2 ou une version ultérieure est nécessaire. 
+Ce didacticiel requiert les [Outils de développement Android][Kit de développement logiciel (SDK) Android] qui inclut l'IDE (environnement de développement intégré) Eclipse, le plug-in ADT (outils de développement Android) et la dernière plateforme Android. Android 4.2 ou une version ultérieure est nécessaire. 
 
 Le projet de démarrage rapide téléchargé contient le Kit de développement logiciel (SDK) Mobile Services pour Android. Alors que ce projet requiert Android 4.2 ou une version ultérieure, le Kit de développement logiciel (SDK) Mobile Services requiert uniquement Android 2.2 ou une version ultérieure.
 
-> [AZURE.IMPORTANT] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
+> [AZURE.IMPORTANT] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
 
 <!-- -->
 
->[AZURE.NOTE] Le code source de l'application terminée est disponible <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStarted/Android" target="_blank">ici</a>.
+>[AZURE.NOTE] Pour consulter le code source de l'application terminée, cliquez <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStarted/Android" target="_blank">ici</a>.
 
 ## <a name="create-new-service"> </a>Création d'un service mobile
 
@@ -60,13 +60,13 @@ Dans cette section, vous allez créer une application Android connectée à votr
 
   	![][7]
 
-3. Si vous n'avez pas déjà fait, téléchargez et installez les [Outils de développement Android][Kit de développement logiciel (SDK)] sur votre ordinateur local ou un ordinateur virtuel.
+3. Si vous ne l'avez pas déjà fait, téléchargez et installez les [Outils de développement Android][Kit de développement logiciel (SDK)] sur votre ordinateur local ou une machine virtuelle.
 
 4. Cliquez sur **Créer une table TodoItem** pour créer une table permettant de stocker les données d'application.
 
 
 5. Téléchargez maintenant votre application :
-	- La dernière version de l'application utilise Mobile Services Android SDK 2.0. Vous pouvez télécharger cette version <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures">ici</a>. Cliquez sur **Télécharger le Zip** et décompressez-le : le projet se trouve dans Prise en main sous le dossier Android.
+	- La dernière version de l'application utilise la version 2.0 du Kit de développement logiciel (SDK) Mobile Services pour Android. Vous pouvez télécharger cette version à partir d'<a href="https://github.com/RickSaling/mobile-services-samples/tree/futures">ici</a>. Cliquez sur **Télécharger le Zip** et décompressez-le : le projet se trouve dans Prise en main sous le dossier Android.
 	 
 	- Une version antérieure utilise la version précédente du Kit de développement logiciel (SDK). Pour l'utiliser, sous **Télécharger et exécuter l'application**, cliquez sur **Télécharger**. Cette opération télécharge le projet de votre exemple d'application _To do list_ connectée à votre service mobile. Les fichiers projet sont compressés. Accédez à leur emplacement et décompressez-les sur votre ordinateur.
 
@@ -75,7 +75,7 @@ Dans cette section, vous allez créer une application Android connectée à votr
 
 La dernière étape de ce didacticiel consiste à générer et à exécuter votre nouvelle application.
 
-2. Dans Eclipse, cliquez sur **Fichier** puis sur **Importer**, développez **Android**, cliquez sur **Existing Android Code into Workspace**, puis sur **Suivant**. 
+2. Dans Eclipse, cliquez sur **Fichier** puis sur **Importer**, développez **Android**, cliquez sur **Code Android existant dans l'espace de travail**, puis cliquez sur **Suivant.** 
 
  	![][14]
 
@@ -91,13 +91,13 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 	- 	Recherchez la méthode **OnCreate** dans **TodoActivity.java** et recherchez le code qui instancie le client des services mobiles. Le code est visible dans l'image précédente.
 	- 	Remplacez " MobileServiceUrl " par l'URL réelle de votre service mobile.
 	- 	Remplacez " AppKey " par la clé de votre service mobile.
-	- 	Pour plus d'informations, consultez le didacticiel <a href="http://azure.microsoft.com/ documentation/articles/mobile-services-android-get-started-data/">Ajout de Mobile Services à une application existante</a>. 
+	- 	Pour plus d'informations, consultez le didacticiel <a href="http://azure.microsoft.com/documentation/articles/mobile-services-android-get-started-data/">Ajouter des Services mobiles à une application existante</a>. 
 
 
 
 4. Dans le menu **Exécuter**, cliquez sur **Exécuter** pour démarrer le projet dans l'émulateur Android.
 
-	> [AZURE.IMPORTANT] Pour exécuter le projet dans l'émulateur Android, vous devez définir au moins un AVD (appareil virtuel Android). Utilisez le gestionnaire AVD pour créer et gérer ces appareils.
+	> [AZURE.IMPORTANT] Afin d'exécuter le projet dans l'émulateur Android, vous devez définir au moins un AVD (appareil virtuel Android). Utilisez le gestionnaire AVD pour créer et gérer ces appareils.
 
 5. Dans l'application, tapez un texte explicite, par exemple _Terminer le didacticiel_, puis cliquez sur **Ajouter**.
 
@@ -116,16 +116,16 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
    	![][12]
 
 ## <a name="next-steps"> </a>Étapes suivantes
-Maintenant que vous avez effectué le démarrage rapide, découvrez comment exécuter d'autres tâches importantes dans Mobile Services : 
+Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment effectuer d'autres tâches importantes dans Mobile Services : 
 
 * [Prise en main des données]
-  <br/>En savoir plus sur le stockage et l'interrogation des données à l'aide de Mobile Services.
+  <br/>Découvrez comment stocker et interroger des données à l'aide de Mobile Services.
 
 * [Prise en main de l'authentification]
-  <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec un fournisseur d'identité.
+  <br/>Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d'identité.
 
 * [Prise en main des notifications Push] 
-  <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
+  <br/>Découvrez comment envoyer une notification Push très simple à votre application.
 
 <!-- Anchors. -->
 [Prise en main de Mobile Services]:#getting-started
@@ -152,12 +152,12 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Prise en main des données]: /fr-fr/documentation/articles/mobile-services-android-get-started-data/
-[Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-android-get-started-users/
-[Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
+[Prise en main des données]: /documentation/articles/mobile-services-android-get-started-data/
+[Prise en main de l'authentification]: /documentation/articles/mobile-services-android-get-started-users/
+[Prise en main des notifications Push]: /documentation/articles/mobile-services-javascript-backend-android-get-started-push/
 [Kit de développement logiciel (SDK) Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Kit de développement logiciel (SDK) Mobile Services pour Android]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Portail de gestion]: https://manage.windowsazure.com/
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -1,26 +1,40 @@
-﻿<properties title="Azure Elastic Scale Glossary" pageTitle="Glossaire de l'infrastructure élastique" description="Explication des termes utilisés pour la fonctionnalité d'infrastructure élastique de Base de données SQL Azure" metaKeywords="sharding,elastic scale, Azure SQL DB sharding" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties 
+	pageTitle="Glossaire de l'infrastructure élastique Azure" 
+	description="Explication des termes utilisés pour la fonctionnalité d'infrastructure élastique de Base de données SQL Azure" 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="jhubbard" 
+	authors="sidneyh" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="sidneyh@microsoft.com"/>
 
-#Glossaire de l'infrastructure élastique
+# Glossaire de l'infrastructure élastique
 Les termes suivants sont définis pour la fonctionnalité d'infrastructure élastique de Base de données SQL Azure.
 
 ![Elastic Scale terms][1]
 
 **Base de données** : base de données SQL Azure. 
 
-**Routage dépendant des données** : fonctionnalité qui permet à une application de se connecter à une partition en fonction d'une clé de partitionnement spécifique. À comparer à l'**interrogation de plusieurs partitions**.
+**Routage dépendant des données** : fonctionnalité qui permet à une application de se connecter à une partition en fonction d'une clé de partitionnement spécifique. Comparez à la **requête sur plusieurs partitions**.
 
 **Carte de partitions globale** : jeu de mappages composé de clés de partitionnement et de leurs partitions respectives au sein d'un **ensemble de partitions**. La carte de partitions globale est stockée dans le **gestionnaire des cartes de partitions**. À comparer à la **carte de partitions locale**.
 
-**Cartes de partition de liste** : carte de partitions dans laquelle les clés de partitionnement sont mappées individuellement. À comparer à la **carte de partitions de plage**.   
+**Carte de partition de liste** : carte de partitions dans laquelle les clés de partitionnement sont mappées individuellement. À comparer à la **carte de partitions de plage**.   
 
 **Carte de partitions locale** : stockée sur une partition, la carte de partitions locale contient des mappages pour les shardlets se trouvant sur la partition.
 
 
-**Interrogation de plusieurs partitions** : possibilité d'émettre une requête sur plusieurs partitions ; les jeux de résultats sont retournés à l'aide de la sémantique UNION ALL (également appelée " requête fan-out "). À comparer au **routage dépendant des données**.
+**Requête sur plusieurs partitions** : possibilité d'émettre une requête sur plusieurs partitions ; les jeux de résultats sont retournés à l'aide de la sémantique UNION ALL (également appelée " requête fan-out "). À comparer au **routage dépendant des données**.
 
-**Cartes de partition de plage** : carte de partitions dans laquelle la stratégie de distribution des partitions est basée sur plusieurs plages de valeurs contiguës. 
+**Carte de partition de plage** : carte de partitions dans laquelle la stratégie de distribution des partitions est basée sur plusieurs plages de valeurs contiguës. 
 
 
 **Tables de référence** : tables qui ne sont pas partitionnées, mais sont répliquées sur plusieurs partitions. 
@@ -39,12 +53,12 @@ Les termes suivants sont définis pour la fonctionnalité d'infrastructure élas
 
 **Carte de partitions** : jeu de mappages composé de clés de partitionnement et de leurs partitions respectives.
 
-**Gestionnaire de cartes de partitions** : objet de gestion et magasin de données qui comporte les cartes de partitions, les emplacements des partitions et les mappages pour un ou plusieurs ensembles de partitions.
+**Gestionnaire des cartes de partitions** : objet de gestion et magasin de données qui comporte les cartes de partitions, les emplacements des partitions et les mappages pour un ou plusieurs ensembles de partitions.
 
 ![Mappings][2]
 
 
-##Verbes et adverbes
+## Verbes et adverbes
 
 **Mise à l'échelle horizontale** : mise à l'échelle (augmentation ou réduction) d'une collection de partitions en ajoutant ou supprimant des partitions dans une carte de partitions.
 
@@ -66,4 +80,4 @@ Les termes suivants sont définis pour la fonctionnalité d'infrastructure élas
 
 
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

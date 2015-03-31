@@ -28,7 +28,7 @@ Après avoir suivi les étapes décrites dans ce document, vous disposerez d'une
 
 * <a href="https://maven.apache.org/download.cgi" target="_blank">Maven</a> : Maven est un système de génération de projet pour les projets Java
 
-* un éditeur de texte comme <a href="http://www.gnu.org/software/emacs/" target="_blank">Emacs<a>, <a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>, <a href="https://atom.io/" target="_blank">Atom.io</a>, <a href="http://brackets.io/" target="_blank">Brackets.io</a>, ou le bloc-notes. Ou un environnement de développement intégré (IDE) comme <a href="https://eclipse.org/" target="_blank">Eclipse</a> (version Luna ou version ultérieure).
+* Un éditeur de texte comme <a href="http://www.gnu.org/software/emacs/" target="_blank">Emacs<a>, <a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>, <a href="https://atom.io/" target="_blank">Atom.io</a>, <a href="http://brackets.io/" target="_blank">Brackets.io</a> ou le Bloc-notes. Ou un environnement de développement intégré (IDE) comme <a href="https://eclipse.org/" target="_blank">Eclipse</a> (version Luna ou ultérieure).
 
 	> [AZURE.NOTE] Votre éditeur ou IDE peut avoir des fonctionnalités spécifiques pour l'utilisation avec Eclipse, qui ne sont pas traitées dans ce document. Pour plus d'informations sur les capacités de votre environnement d'édition, consultez la documentation du produit que vous utilisez.
 
@@ -36,7 +36,7 @@ Après avoir suivi les étapes décrites dans ce document, vous disposerez d'une
 
 Les variables d'environnement suivantes peuvent être définies par l'installation de Java et du JDK. Toutefois, vous devez vérifier qu'elles existent et contiennent les valeurs correctes pour votre système
 
-* **JAVA_HOME** : doit pointer vers le répertoire d'installation de l'environnement d'exécution Java (JRE). Par exemple, sur une distribution Unix ou Linux, il doit avoir une valeur semblable à `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à `c:\Program Files (x86)\Java\jre1.7`
+* **JAVA_HOME** : doit pointer vers le répertoire d'installation de l'environnement d'exécution Java (JRE). Par exemple, sur une distribution Unix ou Linux, il doit avoir une valeur semblable à  `/usr/lib/jvm/java-7-oracle`. Sous Windows, il a une valeur semblable à c:\Program Files (x86)\Java\jre1.7
 
 * **PATH** : doit contenir les chemins d'accès suivants :
 
@@ -72,7 +72,7 @@ Le répertoire **WordCount** contiendra les éléments suivants :
 
 ##Ajout de dépendances
 
-Puisqu'il s'agit d'une topologie Storm, vous devez ajouter une dépendance pour les composants Storm. Ouvrez le fichier **pom.xml** et ajoutez l'élément suivant dans la section **&lt;dependencies>**.
+Puisqu'il s'agit d'une topologie Storm, vous devez ajouter une dépendance pour les composants Storm. Ouvrez le fichier **pom.xml** et ajoutez ce qui suit dans la section **&lt;dependencies>**.
 
 	<dependency>
 	  <groupId>org.apache.storm</groupId>
@@ -88,7 +88,7 @@ Au moment de la compilation, Maven utilise ces informations pour rechercher **st
 
 ##Configuration de build
 
-Les plug-ins Maven permettent de personnaliser les étapes de la génération du projet, telles que la façon dont le projet est compilé ou l'empaquetage dans un fichier jar. Ouvrez le fichier **pom.xml** et ajoutez l'élément suivant juste au-dessus de la ligne `</project>`.
+Les plug-ins Maven permettent de personnaliser les étapes de la génération du projet, telles que la façon dont le projet est compilé ou l'empaquetage dans un fichier jar. Ouvrez le fichier **pom.xml** et ajoutez ce qui suit juste au-dessus de la ligne `</project>`.
 
 	<build>
 	  <plugins>
@@ -99,7 +99,7 @@ Cette section est utilisée pour ajouter des plug-ins et d'autres options de con
 
 ###Ajout de plug-ins
 
-Pour les topologies Storm, le <a href="http://mojo.codehaus.org/exec-maven-plugin/" target="_blank">plug-in Exec</a> est utile, car il permet d'exécuter facilement la topologie localement sur votre environnement de développement. Ajoutez le code suivant à la section `<plugins>` de **pom.xml** pour inclure le plug-in exec.
+Pour les topologies Storm, le <a href="http://mojo.codehaus.org/exec-maven-plugin/" target="_blank">plug-in Exec</a> est utile, car il vous permet d'exécuter facilement la topologie localement sur votre environnement de développement. Ajoutez le code suivant à la section `<plugins>` de **pom.xml** pour inclure le plug-in exec.
 
 	<plugin>
       <groupId>org.codehaus.mojo</groupId>
@@ -120,7 +120,7 @@ Pour les topologies Storm, le <a href="http://mojo.codehaus.org/exec-maven-plugi
       </configuration>
     </plugin>
 
-Un autre plug-in utile est le <a href="http://maven.apache.org/plugins/maven-compiler-plugin/" target="_blank">plug-in Compiler</a>, qui est utilisé pour modifier les options de compilation. La raison principale pour laquelle nous en avons besoin est la modification de la version de Java que Maven utilise pour la source et la cible de votre application ; nous voulons la version 1.7.
+Le <a href="http://maven.apache.org/plugins/maven-compiler-plugin/" target="_blank">plug-in du compilateur</a> est un autre plug-in utile, car il sert à modifier les options de compilation. La raison principale pour laquelle nous en avons besoin est la modification de la version de Java que Maven utilise pour la source et la cible de votre application ; nous voulons la version 1.7.
 
 Ajoutez le code suivant à la section `<plugins>` de **pom.xml** afin d'inclure le plug-in du compilateur et de définir la version source et cible comme étant la version 1.7.
 
@@ -149,9 +149,9 @@ Afin de réduire les besoins de configuration de sources de données externes, l
 
 > [AZURE.NOTE] Pour obtenir un exemple de spout effectuant des lectures à partir de la source de données externe, consultez un des exemples suivants.
 >
-> * <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java" target="_blank">TwitterSampleSpout</a> : un exemple de spout qui effectue des lectures à partir de Twitter
+> * <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java" target="_blank">TwitterSampleSpout</a> : exemple de spout qui effectue des lectures à partir de Twitter
 >
-> * <a href="https://github.com/apache/storm/tree/master/external/storm-kafka" target="_blank">Storm Kafka</a> : un spout qui effectue des lectures à partir de Kafka
+> * <a href="https://github.com/apache/storm/tree/master/external/storm-kafka" target="_blank">Storm Kafka</a> : spout qui lit à partir de Kafka
 
 Pour le spout, créez un nouveau fichier nommé **RandomSentenceSpout.java** dans le répertoire **src\main\java\com\microsoft\example** et utilisez les éléments suivants comme contenu.
 
@@ -444,7 +444,7 @@ Comme vous pouvez le voir à partir de cette sortie, les actions suivantes ont e
 
 3. Le bolt de décompte commence à émettre chaque mot et le nombre de fois où il a été émis
 
-Selon les données du bolt de décompte, 'apple' a été émis 53 fois. Le décompte continuera d'augmenter tant que la topologie est en cours d'exécution, étant donné que les mêmes phrases sont émises au hasard plusieurs fois et que le compteur n'est jamais réinitialisé.
+Selon les données du bolt de décompte,  'apple' a été émis 53 fois. Le décompte continuera d'augmenter tant que la topologie est en cours d'exécution, étant donné que les mêmes phrases sont émises au hasard plusieurs fois et que le compteur n'est jamais réinitialisé.
 
 ##Trident
 
@@ -452,9 +452,9 @@ Trident est une abstraction de haut niveau fournie par Storm, qui prend en charg
 
 Les applications Trident peuvent être créées à l'aide de projets Maven utilisant les même étapes de base que ci-dessus : seul le code est différent.
 
-Pour plus d'informations sur Trident, consultez <a href="http://storm.apache.org/documentation/Trident-API-Overview.html" target="_blank">Présentation de l'API Trident</a>.
+Pour plus d'informations sur Trident, consultez la <a href="http://storm.apache.org/documentation/Trident-API-Overview.html" target="_blank">Présentation de l'API Trident</a>.
 
-Pour obtenir un exemple d'application Trident, consultez les [Rubriques tendances Twitter avec Apache Storm sur HDInsight](../hdinsight-storm-twitter-trending/)
+Pour obtenir un exemple d'application Trident, consultez les [Rubriques de tendances Twitter avec Apache Storm sur HDInsight](../hdinsight-storm-twitter-trending/)
 
 ##Étapes suivantes
 
@@ -466,4 +466,4 @@ Vous avez appris à créer une topologie Storm à l'aide de Java. Apprenez maint
 
 * [Analyse des rubriques tendances Twitter avec Apache Storm sur HDInsight](../hdinsight-storm-twitter-trending)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

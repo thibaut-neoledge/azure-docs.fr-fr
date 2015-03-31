@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Batterie de serveurs SharePoint" 
 	description="Décrit la nouvelle fonctionnalité Batterie de serveurs SharePoint de la version préliminaire du portail Azure" 
 	services="virtual-machines" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vm-sharepoint" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/26/2015" 
+	ms.date="03/04/2015" 
 	ms.author="josephd"/>
 
-#Batterie de serveurs SharePoint#
+# Batterie de serveurs SharePoint
 
 Avec la batterie de serveurs SharePoint, la version préliminaire du portail Azure crée automatiquement une batterie SharePoint Server 2013 préconfigurée. Cela peut vous faire gagner un temps précieux lorsque vous avez besoin d'une batterie de serveurs SharePoint de base ou à haute disponibilité pour un environnement de test et de développement ou si vous envisagez l'adoption de SharePoint Server 2013 comme solution de collaboration pour votre entreprise.
 
@@ -34,11 +34,11 @@ Vous pouvez utiliser cette configuration de batterie pour tester des charges de 
  
 Pour obtenir des informations sur la configuration de ces deux batteries de serveurs, consultez [Détails de configuration de la batterie de serveurs SharePoint](../virtual-machines-sharepoint-farm-config-azure-preview/).
 
-##Parcours de la configuration##
+## Parcours de la configuration##
 
 Pour créer votre batterie SharePoint avec le modèle Batterie de serveurs SharePoint, procédez comme suit :
 
-1. Dans la version préliminaire du [portail Microsoft Azure](https://portal.azure.com/), cliquez sur **Nouveau** > **Batterie de serveurs SharePoint**.
+1. Dans le [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Nouveau** > **Batterie de serveurs SharePoint**.
 2. Dans le volet **Créer une batterie de serveurs SharePoint**, tapez le nom d'un groupe de ressources.
 3. Tapez un nom d'utilisateur et un mot de passe pour le compte administrateur local sur chaque machine virtuelle de votre batterie. Choisissez un nom et un mot de passe difficiles à deviner, enregistrez-les et stockez-les dans un emplacement sécurisé.
 4. Si vous voulez une batterie à haut niveau de disponibilité, cliquez sur **Activer la haute disponibilité**.
@@ -49,7 +49,7 @@ Pour créer votre batterie SharePoint avec le modèle Batterie de serveurs Share
 9. Pour indiquer l'abonnement, cliquez sur la flèche.
 10. Quand vous avez terminé, cliquez sur **Créer**.
 
-##Accès aux batteries de serveurs SharePoint et gestion##
+## Accès aux batteries de serveurs SharePoint et gestion##
 
 Les batteries SharePoint disposent d'un point de terminaison préconfiguré afin d'autoriser le trafic web non authentifié (port TCP 80) vers le serveur web SharePoint pour un ordinateur client connecté à Internet. Ce point de terminaison pointe vers un site d'équipe préconfiguré. Pour accéder à ce site d'équipe :
 
@@ -79,16 +79,16 @@ Remarques :
 - Vous pouvez administrer ces serveurs par l'intermédiaire de connexions Bureau à distance.
 
 
-##Azure Resource Manager##
+## Azure Resource Manager##
 
-La batterie de serveurs SharePoint utilise des scripts et le module Azure Resource Manager pour créer automatiquement l'infrastructure et les configurations serveur relatives à ces batteries de serveurs SharePoint. Pour plus d'informations, consultez [Utilisation de Windows PowerShell avec Resource Manager](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/).
+La batterie de serveurs SharePoint utilise des scripts et le module Azure Resource Manager pour créer automatiquement l'infrastructure et les configurations serveur relatives à ces batteries de serveurs SharePoint. Pour plus d'informations, consultez [Utilisation de Windows PowerShell avec Resource Manager](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/)
 
-##Ressources supplémentaires
+## Ressources supplémentaires
 
 [SharePoint sur les services d'infrastructure Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
+[Informations de configuration de la batterie de serveurs SharePoint](../virtual-machines-sharepoint-farm-config-azure-preview/)
+
 [Configuration d'une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

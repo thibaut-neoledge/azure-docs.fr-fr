@@ -22,31 +22,31 @@
 
 Ce document fournit un exemple d'utilisation de PowerShell pour exécuter des requêtes Hive sur un cluster Hadoop sur HDInsight.
 
-> [AZURE.NOTE] Ce document ne fournit pas de description détaillée des instructions HiveQL utilisées dans les exemples. Pour en savoir plus sur le HiveQL utilisé dans cet exemple, consultez la rubrique <a href="../hdinsight-use-hive/" target="_blank">Utilisation de Hive avec Hadoop sur HDInsight</a>.
+> [AZURE.NOTE] Ce document ne fournit pas une description détaillée de ce que font les instructions HiveQL utilisées dans les exemples. Pour plus d'informations sur le code HiveQL utilisé dans cet exemple, consultez <a href="../hdinsight-use-hive/" target="_blank">Utilisation de Hive avec Hadoop sur HDInsight</a>.
 
 
-##<a id="prereq"></a>Configuration requise
+##<a id="prereq"></a>Conditions préalables
 
 Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
 * Un cluster Azure HDInsight (Hadoop sur HDInsight) Windows ou Linux
 
-* <a href="http://azure.microsoft.com/ documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
+* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
 
 
 ##<a id="powershell"></a>Exécution de requêtes Hive à l'aide de PowerShell
 
-Azure PowerShell fournit *cmdlets* qui vous permet d'exécuter à distance des requêtes Hive sur HDInsight. En interne, ceci est accompli à l'aide d'appels REST vers <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat,</a> (anciennement appelé Templeton) exécutés sur le cluster HDInsight.
+Azure PowerShell fournit des  *cmdlets* qui vous permettent d'exécuter à distance des requêtes Hive sur HDInsight. En interne, ceci est accompli en effectuant des appels REST à <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (anciennement nommé Templeton) exécuté sur le cluster HDInsight.
 
 Les applets de commande suivants sont utilisés lors de l'exécution des requêtes Hive sur un cluster à distance HDInsight.
 
 * **Add-AzureAccount** : authentifie PowerShell à votre abonnement Azure
 
-* **New-AzureHDInsightHiveJobDefinition** : crée une nouvelle *job definition* à l'aide des instructions HiveQL spécifiées
+* **New-AzureHDInsightHiveJobDefinition** : crée une nouvelle  *définition du travail* à l'aide des instructions HiveQL spécifiées
 
-* **Start-AzureHDInsightJob** : envoie la définition de la tâche à HDInsight, lance l'exécution de la tâche, et renvoie un objet *job* qui peut être utilisé pour vérifier l'état de la tâche
+* **Start-AzureHDInsightJob** : envoie la définition de la tâche à HDInsight, démarre la tâche et retourne un objet *job* pouvant être utilisé pour vérifier le statut de la tâche
 
-* **Wait-AzureHDInsightJob** : utilise l'objet de la tâche pour vérifier l'état de la tâche Il attend que la tâche se termine, ou que le temps d'attente soit dépassé
+* **Wait-AzureHDInsightJob** : utilise l'objet de la tâche pour vérifier le statut de la tâche Il attend que la tâche soit terminée ou que le délai d'attente soit dépassé.
 
 * **Get-AzureHDInsightJobOutput** : utilisé pour récupérer la sortie de la tâche
 
@@ -107,21 +107,21 @@ La procédure suivante vous indique comment utiliser ces applets de commande pou
 		SELECT * FROM errorLogs;
 		"@
 
-	La sortie se présente comme suit :
+	The output will look like the following.
 
 		2012-02-03	18:35:34	SampleClass0	[ERROR]	incorrect	id	
 		2012-02-03	18:55:54	SampleClass1	[ERROR]	incorrect	id	
 		2012-02-03	19:25:27	SampleClass4	[ERROR]	incorrect	id
 
-	> [AZURE.NOTE] Pour les requêtes HiveQL plus longues, vous pouvez utiliser les fichiers de script Here-Strings ou HiveQL de PowerShell. L'extrait de code suivant montre comment utiliser le l'applet de commande *Invoke-Hive* pour exécuter un fichier de script HiveQL. Ce dernier doit être téléchargé vers WASB.
+	> [AZURE.NOTE] Pour les requêtes HiveQL plus longues, vous pouvez utiliser les fichiers de script Here-Strings ou HiveQL de PowerShell. L'extrait de code suivant montre comment utiliser l'applet de commande  *Invoke-Hive* pour exécuter un fichier de script HiveQL. Ce dernier doit être téléchargé vers WASB.
 	>
 	> `Invoke-Hive -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
 	>
-	> Pour plus d'informations sur Here-Strings, consultez la rubrique <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Utilisation de Here-Strings PowerShell Windows</a>.
+	> Pour plus d'informations sur Here-Strings, consultez la page <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Utilisation du fichier de script Here-Strings de PowerShell</a>.
 
 ##<a id="troubleshooting"></a>Résolution des problèmes
 
-Si aucune information n'est renvoyée lorsque la tâche est terminée, il se peut qu'une erreur soit survenue au cours du traitement. Pour afficher les informations d'erreur relatives à cette tâche, ajoutez les commandes suivantes à la fin du fichier **hivejob.ps1**, enregistrez-le, puis exécutez-le à nouveau.
+Si aucune information n'est retournée lorsque la tâche est terminée, il se peut qu'une erreur soit survenue au cours du traitement. Pour afficher les informations d'erreur relatives à cette tâche, ajoutez les commandes suivantes à la fin du fichier **hivejob.ps1**, enregistrez-le, puis exécutez-le à nouveau.
 
 	# Print the output of the Hive job.
 	Write-Host "Display the standard output ..." -ForegroundColor Green
@@ -135,7 +135,7 @@ Comme vous pouvez le constater, Azure PowerShell permet d'exécuter facilement d
 
 ##<a id="nextsteps"></a>Étapes suivantes
 
-Pour obtenir des informations générales sur Hive dans HDInsight :
+Pour obtenir des informations générales sur Hive dans HDInsight.
 
 * [Utilisation de Hive avec Hadoop sur HDInsight](../hdinsight-use-hive/)
 
@@ -145,4 +145,4 @@ Pour découvrir d'autres manières d'utiliser Hadoop sur HDInsight.
 
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](../hdinsight-use-mapreduce/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

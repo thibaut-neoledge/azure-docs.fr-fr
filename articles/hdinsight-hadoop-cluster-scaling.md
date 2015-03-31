@@ -64,9 +64,9 @@ L'opération de mise à l'échelle du cluster n'est pas prise en charge pour les
 
 ## Conditions préalables :
 
-* Seuls les clusters avec une version HDInsight 3.1.3 ou version ultérieure sont pris en charge. Si vous n'êtes pas sûr de la version de votre cluster, vous pouvez vérifier celle-ci depuis le portail Azure en cliquant sur le nom du cluster HDInsight ou en exécutant la commande  `Get-AzureHDInsightCluster -name <clustername>` depuis Azure PowerShell.
+* Seuls les clusters avec une version HDInsight 3.1.3 ou version ultérieure sont pris en charge. Si vous n'êtes pas sûr de la version de votre cluster, vous pouvez la vérifier depuis le portail Azure en cliquant sur le nom du cluster HDInsight ou en exécutant la commande  `Get-AzureHDInsightCluster -name <clustername>` depuis Azure PowerShell.
 
-* La version 0.8.14 d'Azure PowerShell ou une version ultérieure est requise pour effectuer l'opération à partir de PowerShell. Vous pouvez télécharger la dernière version de PowerShell depuis la section des outils en ligne de commande sur le site Web [Téléchargements Azure](http://azure.microsoft.com/ downloads/). Vous pouvez vérifier sur le portail Azure la version PowerShell que vous avez installée à l'aide de la commande suivante, depuis une fenêtre PowerShell : `(get-module Azure).Version`
+* La version 0.8.14 d'Azure PowerShell ou une version ultérieure est requise pour effectuer l'opération à partir de PowerShell. Vous pouvez télécharger la dernière version de PowerShell depuis la section des outils en ligne de commande sur le site Web [Téléchargements Azure](http://azure.microsoft.com/downloads/). Vous pouvez vérifier sur le portail Azure la version PowerShell que vous avez installée à l'aide de la commande suivante, depuis une fenêtre PowerShell : `(get-module Azure).Version`
 
 ## Utilisation de la mise à l'échelle d'un cluster
 
@@ -82,7 +82,7 @@ Pour modifier la taille du cluster Hadoop à l'aide de PowerShell, exécutez la 
 
 > [WACOM.NOTE] La machine cliente doit disposer de la version 0.8.14 d'Azure PowerShell ou une version ultérieure pour utiliser cette commande.
 
-### Kit de développement logiciel (SDK)
+### Kit SDK
 Pour modifier la taille du cluster Hadoop à l'aide du kit de développement logiciel (SDK) HDInsight, appliquez l'une des méthodes suivantes : 
 
 	ChangeClusterSize(string dnsName, string location, int newSize) 
@@ -140,5 +140,5 @@ Voici un exemple de code qui montre comment utiliser la version synchrone de cet
 	}
 
 
-Pour plus d'informations sur l'utilisation de HDInsight .NET SDK, consultez la rubrique [Approvisionnement des clusters Hadoop dans HDInsight à l'aide d'options personnalisées](http://azure.microsoft.com/ documentation/articles/hdinsight-provision-clusters/).
-<!--HONumber=45--> 
+Pour plus d'informations sur l'utilisation de HDInsight .NET SDK, consultez la rubrique [Approvisionnement des clusters Hadoop dans HDInsight à l'aide d'options personnalisées](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/).
+<!--HONumber=47-->

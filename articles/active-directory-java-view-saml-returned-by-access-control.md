@@ -18,39 +18,39 @@
 
 # Affichage des données SAML (Security Assertion Markup Language) renvoyées par Azure Access Control Service
 
-Ce guide explique comment afficher les données SAML (Security Assertion Markup Language) sous-jacentes renvoyées à votre application par Azure Access Control Service (ACS). Ce guide s'appuie sur la rubrique [Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse][] en fournissant le code nécessaire à l'affichage des données SAML. L'application terminée sera semblable à ce qui suit.
+Ce guide explique comment afficher les données SAML (Security Assertion Markup Language) sous-jacentes renvoyées à votre application par Azure Access Control Service (ACS). Ce guide s'appuie sur la rubrique [Authentification des utilisateurs Web auprès d'Azure Access Control Service à l'aide d'Eclipse][] en fournissant le code nécessaire à l'affichage des données SAML L'application terminée sera semblable à ce qui suit.
 
 ![Example SAML output][saml_output]
 
-Pour plus d'informations sur ACS, consultez la section [Étapes suivantes](#next_steps).
+Pour plus d'informations sur ACS, consultez la section [Étapes suivantes](#next_steps) .
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Le filtre ACS Azure (par Microsoft Open Technologies) est une version préliminaire de la technologie destinée à la communauté. En tant que logiciel préliminaire, il n'est pas officiellement pris en charge par Microsoft Open Technologies, Inc. ou Microsoft.
 
 ## Sommaire
 
--   [Configuration requise][]
+-   [Conditions préalables][]
 -   [Ajout de la bibliothèque JspWriter au chemin d'accès de la build et à l'assembly de déploiement][]
 -   [Modification du fichier JSP pour afficher les données SAML][]
--   [Exécution de l'application][]
+-   [Exécuter l'application][]
 -   [Étapes suivantes][]
 
 
-## <a name="pre"></a>Configuration requise
+## <a name="pre"></a>Conditions préalables
 
-Pour réaliser les tâches présentées dans ce guide, suivez l'exemple de la rubrique [Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse][] et utilisez-le comme point de départ de ce didacticiel.
+Pour réaliser les tâches présentées dans ce guide, suivez l'exemple de la rubrique [Authentification des utilisateurs Web auprès d'Azure Access Control Service à l'aide d'Eclipse][] et utilisez-le comme point de départ de ce didacticiel.
 
 ## <a name="add_library"></a>Ajout de la bibliothèque JspWriter au chemin d'accès de la build et à l'assembly de déploiement
 
-Ajoutez la bibliothèque contenant la classe **javax.servlet.jsp.JspWriter** au chemin d'accès de la build et à l'assembly de déploiement. Si vous utilisez Tomcat, utilisez la bibliothèque **jsp-api.jar**, située dans le dossier **lib** d'Apache.
+Ajoutez la bibliothèque contenant la classe **javax.servlet.jsp.JspWriter** au chemin d'accès de la build et à l'assembly de déploiement. Si vous utilisez Tomcat, utilisez la bibliothèque **jsp-api.jar** située dans le dossier **lib** d'Apache.
 
-1. Dans l'Explorateur de projets Eclipse, cliquez avec le bouton droit sur **MyACSHelloWorld**, sur **Build Path**, sur **Configure Build Path**, sur l'onglet **Libraries**, puis sur **Add External JARs**.
-2. Dans la boîte de dialogue **JAR Selection**, accédez au fichier JAR requis, sélectionnez-le, puis cliquez sur **Open**.
-3. Dans la boîte de dialogue **Properties for MyACSHelloWorld**, cliquez sur **Deployment Assembly**.
-4. Dans la boîte de dialogue **Web Deployment Assembly**, cliquez sur **Add**.
-5. Dans la boîte de dialogue **New Assembly Directive**, cliquez sur **Java Build Path Entries**, puis sur **Suivant**.
+1. Dans l'Explorateur de projets Eclipse, cliquez avec le bouton droit sur **MyACSHelloWorld**, puis cliquez sur **Chemin d'accès de la build**, sur **Configurer le chemin d'accès de la build**, sur l'onglet **Bibliothèques** et sur **Ajouter des archives JAR externes**.
+2. Dans la boîte de dialogue **Sélection de l'archive JAR**, accédez au fichier JAR requis, sélectionnez-le, puis cliquez sur **Ouvrir**.
+3. Dans la boîte de dialogue **Propriétés de MyACSHelloWorld**, cliquez sur **Assembly de déploiement**.
+4. Dans la boîte de dialogue **Assembly de déploiement Web**, cliquez sur **Ajouter**.
+5. Dans la boîte de dialogue **Nouvelle directive d'Assembly**, cliquez sur **Entrées du chemin d'accès de la génération Java**, puis sur **Suivant**.
 6. Sélectionnez la bibliothèque qui convient, puis cliquez sur **Terminer**.
-7. Cliquez sur **OK** pour fermer la boîte de dialogue **Properties for MyACSHelloWorld**.
+7. Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de MyACSHelloWorld**.
 
 ## <a name="modify_jsp"></a>Modification du fichier JSP pour afficher les données SAML
 
@@ -188,21 +188,20 @@ Modifiez le fichier **index.jsp** de manière à utiliser le code suivant.
 
 ## <a name="run_application"></a>Exécution de l'application
 
-1. Exécutez votre application dans l'émulateur de l'ordinateur ou déployez-la dans Azure en suivant la procédure décrite à la rubrique [Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse][].
-2. Lancez un navigateur et ouvrez votre application web. Une fois connecté à votre application, vous verrez les données SAML ainsi que l'assertion de sécurité fournie par le fournisseur d'identité.
+1. Exécutez votre application dans l'émulateur de l'ordinateur ou déployez-la dans Azure en suivant la procédure décrite à la rubrique [Authentification des utilisateurs Web auprès d'Azure Access Control Service à l'aide d'Eclipse][].
+2. Lancez un navigateur et ouvrez votre application Web. Une fois connecté à votre application, vous verrez les données SAML ainsi que l'assertion de sécurité fournie par le fournisseur d'identité.
 
 ## <a name="next_steps"></a>Étapes suivantes
 
 Pour en savoir plus sur les fonctionnalités ACS et découvrir des scénarios plus complexes, consultez la page [Access Control Service 2.0][].
 
-[Configuration requise]: #pre
+[Conditions préalables]: #pre
 [Modification du fichier JSP pour afficher les données SAML]: #modify_jsp
 [Ajout de la bibliothèque JspWriter au chemin d'accès de la build et à l'assembly de déploiement]: #add_library
-[Exécution de l'application]: #run_application
+[Exécuter l'application]: #run_application
 [Étapes suivantes]: #next_steps
-[Service de contrôle d'accès 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
-[Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
+[Authentification des utilisateurs Web auprès d'Azure Access Control Service à l'aide d'Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

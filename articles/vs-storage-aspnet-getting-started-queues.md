@@ -1,11 +1,11 @@
 ﻿<properties 
 	pageTitle="Prise en main d'Azure Storage" 
-	description="" 
+	description="Mise en route de l'utilisation du stockage de files d'attente Azure dans un projet ASP.NET dans Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
 	authors="kempb" 
 	manager="douge" 
-	editor=""/>
+	editor="tglee"/>
 
 <tags 
 	ms.service="storage" 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Mise en route](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
-> - [Que s'est-il passé](/documentation/articles/vs-storage-aspnet-what-happened/)
+> - [Prise en main](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
+> - [Que s'est-il passé ?](/documentation/articles/vs-storage-aspnet-what-happened/)
 
 ## Prise en main d'Azure Storage (projets ASP.NET)
 
 > [AZURE.SELECTOR]
-> - [Objets BLOB](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
+> - [Objets blob](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
 > - [Files d'attente](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
 > - [Tables](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
 
@@ -44,5 +44,4 @@ Pour pouvoir exploiter une file d'attente, vous devez avant tout obtenir la cha�
 [AZURE.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
 
 Pour plus d'informations, consultez la page [ASP.NET](http://www.asp.net).
-
-<!--HONumber=42-->
+<!--HONumber=47-->

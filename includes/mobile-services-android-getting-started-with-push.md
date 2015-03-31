@@ -1,6 +1,6 @@
-﻿1. Dans votre projet d'application, ouvrez le fichier `AndroidManifest.xml`. Dans le code des deux prochaines étapes, remplacez _`**my_app_package**`_ par le nom du package de l'application de votre projet, qui est la valeur de l'attribut `package` de la balise `manifest`. 
+﻿1. Dans votre projet d'**application**, ouvrez le fichier `AndroidManifest.xml`. Dans le code des deux prochaines étapes, remplacez _`**my_app_package**`_ par le nom du package de l'application de votre projet, qui est la valeur de l'attribut `package` de la balise `manifest`. 
 
-2. Ajoutez les nouvelles autorisations suivantes après l'élément `uses-permission` :
+2. Ajoutez les nouvelles autorisations suivantes après l'élément `uses-permission` existant :
 
         <permission android:name="**my_app_package**.permission.C2D_MESSAGE" 
             android:protectionLevel="signature" />
@@ -20,11 +20,15 @@
         </receiver>
 
 
-4. Téléchargez et décompressez le [Kit de développement logiciel (SDK) Mobile Services pour Android], ouvrez le dossier **notification**, copiez le fichier **notifications-1.0.1.jar** dans le dossier *libs* de votre projet Eclipse, puis actualisez le dossier *libs*.
+4. Ajoutez ces lignes sous *dependencies* dans le fichier **build.gradle** dans le répertoire de l'application : 
 
-    > [AZURE.NOTE] Les numéros à la fin du nom du fichier peuvent changer dans les versions ultérieures du Kit de développement logiciel (SDK).
+	    compile 'com.google.guava:guava:18.0'
+	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0-beta'
+	    compile(group: 'com.microsoft.azure', name: 'azure-notifications-handler', version: '1.0.1', ext: 'jar')
+   		compile 'com.google.android.gms:play-services-base:6.5.87'
 
-5.  Ouvrez le fichier *ToDoItemActivity.java*et ajoutez l'instruction import suivante :
+
+5. Ouvrez le fichier *ToDoItemActivity.java*et ajoutez l'instruction import suivante :
 
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
 
@@ -39,13 +43,18 @@
 
 
 
-9. Ensuite, nous devons ajouter une nouvelle classe pour gérer les notifications. Dans l'Explorateur de package, cliquez avec le bouton droit sur le package (sous le nœud `src`), cliquez sur **Nouveau**, puis sur **Classe**.
+8. Ensuite, nous devons ajouter une nouvelle classe pour gérer les notifications. Dans l'Explorateur de projets, recherchez le nœud `src`, ouvrez-le et cliquez sur le nœud de nom de package : cliquez sur **Nouveau**, puis cliquez sur **Classe Java**.
 
-10. Dans **Nom**, tapez `MyHandler`, dans **Superclasse**, tapez `com.microsoft.windowsazure.notifications.NotificationsHandler`, puis cliquez sur **Terminer**
+9. Dans **Nom** tapez `MyHandler`, puis cliquez sur **OK**. 
 
-	![](./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png)
 
-	Cela a permis de créer la classe MyHandler.
+	![](./media/mobile-services-android-get-started-push/android-studio-create-class.png)
+
+
+10. Dans le fichier MyHandler, remplacez la déclaration de classe par 
+
+		public class MyHandler extends NotificationsHandler {
+
 
 11. Ajoutez les instructions import suivantes pour la classe `MyHandler` :
 
@@ -66,7 +75,7 @@
 		Context ctx;
 
 
-13. Dans la classe `MyHandler`, ajoutez le code suivant pour remplacer la méthode **onRegistered** qui permet d'inscrire votre appareil auprès du Notification Hub du service mobile.
+13. Dans la classe `MyHandler`, ajoutez le code suivant pour remplacer la méthode **onRegistered**, qui permet d'inscrire votre appareil auprès du concentrateur de notification du service mobile.
 
 		@Override
 		public void onRegistered(Context context,  final String gcmRegistrationId) {
@@ -89,7 +98,7 @@
 
 
 
-14. Dans la classe `MyHandler` ajoutez le code suivant pour remplacer la méthode **onReceive** qui entraîne l'affichage de la notification lors de sa réception.
+14. Dans la classe `MyHandler`, ajoutez le code suivant pour remplacer la méthode **onReceive**, qui entraîne l'affichage de la notification lors de sa réception.
 
 		@Override
 		public void onReceive(Context context, Bundle bundle) {
@@ -129,4 +138,4 @@
 <!-- URLs. -->
 [Kit de développement logiciel (SDK) Mobile Services pour Android]: http://aka.ms/Iajk6q
 
-\<!--HONumber=42-->
+<!--HONumber=47-->

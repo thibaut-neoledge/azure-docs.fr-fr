@@ -2,7 +2,7 @@
 
 ### Création d'un compte SendGrid
 
-1. Connectez-vous au [portail de gestion Azure][].
+1. Connectez-vous au [Portail de gestion Azure][].
 
 2. Dans le volet inférieur du portail de gestion, cliquez sur **Nouveau**.
 
@@ -73,7 +73,8 @@
 [Fonctionnalités SendGrid]: http://sendgrid.com/features
 [Portail de gestion Azure]: https://manage.windowsazure.com
 [Prise en main de SendGrid]: http://sendgrid.com/docs
-[Processus d'approvisionnement de SendGrid]: https://support.sendgrid.com/hc/fr-fr/articles/200181628-Why-is-my-account-being-provisioned-
+[Processus d'approvisionnement de SendGrid]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [Toutes les API]: https://sendgrid.com/docs/API_Reference/index.html
 
-<!--HONumber=42-->
+
+<!--HONumber=47-->

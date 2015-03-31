@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="Vue d'ensemble d’AMQP de Service Bus - Azure" 
-	description="Découvrez comment utiliser le protocole Advanced Message Queuing Protocol (AMQP) 1.0 dans Azure." 
+	pageTitle="Vue d'ensemble d'AMQP de Service Bus - Azure" 
+	description="Découvrez comment utiliser le protocole Advanced Message Queuing Protocol (AMQP) 1.0 dans Azure." 
 	services="service-bus" 
 	documentationCenter=".net" 
 	authors="sethmanheim" 
@@ -19,8 +19,6 @@
 
 
 
-[WACOM.INCLUDE [service-bus-amqp-overview](../includes/service-bus-amqp-overview.md)]
+[AZURE.INCLUDE [service-bus-amqp-overview](../includes/service-bus-amqp-overview.md)]
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

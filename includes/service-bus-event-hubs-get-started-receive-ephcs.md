@@ -1,8 +1,8 @@
-﻿## Réception de messages avec EventProcessorHost
+## Réception de messages avec EventProcessorHost
 
 **EventProcessorHost** est une classe .NET qui simplifie la réception d'événements à partir de concentrateurs d'événements grâce à la gestion des points de contrôle permanents et des réceptions en parallèle issues des concentrateurs d'événements. **EventProcessorHost** permet de répartir des événements sur plusieurs récepteurs, même lorsqu'ils sont hébergés dans des nœuds différents. Cet exemple illustre l'utilisation de la classe **EventProcessorHost** pour un récepteur unique. L'[exemple de traitement d'événement mis à l'échelle] illustre l'utilisation d'**EventProcessorHost** pour plusieurs récepteurs.
 
-Pour plus d'informations sur les concentrateurs d'événements de réception modèles, consultez le [guide du développeur Event Hubs].
+Pour plus d'informations sur les concentrateurs d'événements de réception modèles, consultez le [guide du développeur Event Hubs][Guide du développeur pour les concentrateurs d'événements].
 
 [EventProcessorHost] est une classe .NET qui simplifie la réception d'événements à partir de concentrateurs d'événements grâce à la gestion des points de contrôle permanents et des réceptions en parallèle issues des concentrateurs d'événements. [EventProcessorHost] permet de répartir des événements sur plusieurs récepteurs, même lorsqu'ils sont hébergés dans des nœuds différents. Cet exemple illustre l'utilisation de la classe [EventProcessorHost] pour un récepteur unique. L'[exemple de traitement d'événement mis à l'échelle] illustre l'utilisation d'[EventProcessorHost] pour plusieurs récepteurs.
 
@@ -110,7 +110,7 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
 <!-- Links -->
 [Vue d'ensemble des concentrateurs d'événements]: http://msdn.microsoft.com/library/azure/dn821413.aspx
 [Exemple de traitement d'événement mis à l'échelle]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
-[un compte Azure Storage] ;: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
+[compte Azure Storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx 
 
 <!-- Images -->
@@ -120,6 +120,5 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[Guide du développeur pour les concentrateurs d'événements]: http://msdn.microsoft.com/library/azure/dn789972.asp.
-
-<!--HONumber=42-->
+[Guide du développeur pour les concentrateurs d'événements]: http://msdn.microsoft.com/library/azure/dn789972.aspx
+<!--HONumber=47-->

@@ -17,14 +17,14 @@
 	ms.author="juliako"/>
 
 
-#Procédure : de diffusion de contenu en continu
+#Procédure : diffusion de contenu en continu
 
-Cet article fait partie des séries [workflow à la demande de vidéo Media Services](../media-services-video-on-demand-workflow) et [workflow de vidéo en flux continu Media Services](../media-services-live-streaming-workflow).  
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) et [workflow de vidéo en flux continu Media Services](../media-services-live-streaming-workflow) .  
 
 ##Vue d'ensemble
 
 
-Vous pouvez diffuser un MP4 à débit adaptatif défini par la création d'un localisateur de diffusion en continu à la demande et la création d'une URL de diffusion en continu. La rubrique [Encodage d'une ressource](../media-services-rest-encode-asset) indique comment encoder dans un ensemble de fichiers MP4 à débit adaptatif. Avant de créer un localisateur, vous devez configurer la stratégie de remise de ressources comme décrit dans [cette](../media-services-rest-configure-asset-delivery-policy) rubrique. 
+Vous pouvez diffuser un MP4 à débit adaptatif défini par la création d'un localisateur de diffusion en continu à la demande et la création d'une URL de diffusion en continu. La rubrique [Encodage d'une ressource](../media-services-rest-encode-asset) indique comment encoder sous forme de jeu de fichiers MP4 à débit adaptatif. Avant de créer un localisateur, configurez une stratégie de remise de ressources comme décrit dans [cette](../media-services-rest-configure-asset-delivery-policy) rubrique. 
 
 Vous pouvez également utiliser un localisateur de diffusion en continu à la demande pour créer des URL qui pointent vers les fichiers MP4 pouvant être téléchargés progressivement.  
 
@@ -63,7 +63,7 @@ Demande :
 	
 	{"Name":"access policy","DurationInMinutes":43200.0,"Permissions":1}
 	
-Response:
+Réponse :
 	
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -156,7 +156,7 @@ exemple :
 
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-##<a id="types"></a>Types enum
+##<a id="types"></a>Types Enum
 
     [Flags]
     public enum AccessPermissions
@@ -174,4 +174,4 @@ exemple :
         Sas = 1,
         OnDemandOrigin = 2,
     }
-<!--HONumber=45--> 
+<!--HONumber=47-->

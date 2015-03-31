@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
-#Configuration de la synchronisation d'annuaires (DirSync) Office 365 dans un cloud hybride pour le test
+# Configuration de la synchronisation d'annuaires (DirSync) Office 365 dans un cloud hybride pour le test
 
 Cette rubrique vous guide lors de la création d'un environnement de cloud hybride pour le test de la synchronisation d'annuaires (DirSync) Office 365 avec la synchronisation de mot de passe hébergée dans Microsoft Azure. Voici la configuration obtenue.
 
@@ -30,7 +30,7 @@ Cette configuration simule un serveur de synchronisation d'annuaires dans un env
 - Un abonnement d'évaluation à Office 365 FastTrack.
 - Un serveur de synchronisation d'annuaires et le contrôleur de domaine secondaire dans le réseau virtuel TestVNET.
 
-Cette configuration fournit une base et un point de départ communs à partir desquels vous pouvez :
+Cette configuration fournit une base et un point de départ commun à partir duquel vous pouvez :
 
 - Développer et tester des applications pour Office 365 qui reposent sur la synchronisation avec un domaine Active Directory local à l'aide de la synchronisation de mot de passe.
 - Effectuer les tests de cette charge de travail informatique basée sur le cloud.
@@ -41,17 +41,17 @@ Il existe trois principales étapes pour configurer cet environnement de test de
 2.	Configurer la version d'évaluation d'Office 365 FastTrack.
 3.	Configurer le serveur de synchronisation d'annuaires (DS1).
 
-Si vous n'avez pas encore d'abonnement Azure, vous pouvez obtenir une version d'évaluation gratuite. Pour cela, accédez à la page [Essayer Azure](http://www.windowsazure.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez [Avantage Azure pour les abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si vous n'avez pas encore d'abonnement Azure, vous pouvez obtenir une version d'évaluation gratuite. Pour cela, accédez à la page [Essayer Azure](http://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez [Avantage Azure pour les abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-##Phase 1 : configurer l'environnement de cloud hybride
+## Phase 1 : configuration de l'environnement de cloud hybride
 
-Suivez les instructions de la rubrique [Configuration d'un environnement de cloud hybride pour le test](../virtual-networks-setup-hybrid-cloud-environment-testing/). Étant donné que cet environnement de test ne nécessite pas la présence du serveur APP1 sur le sous-réseau de réseau d'entreprise, n'hésitez pas à l'arrêter pour le moment.
+Suivez les instructions de la rubrique [Configuration d'un environnement de cloud hybride à des fins de test](../virtual-networks-setup-hybrid-cloud-environment-testing/) . Étant donné que cet environnement de test ne nécessite pas la présence du serveur APP1 sur le sous-réseau de réseau d'entreprise, n'hésitez pas à l'arrêter pour le moment.
 
-Il s'agit de votre configuration actuelle.
+Ceci est votre configuration actuelle.
 
 ![](./media/virtual-networks-set-up-DirSync-hybrid-cloud-for-testing/CreateDirSyncHybridCloud_1.png)
 
-##Phase 2 : configurer la version d'évaluation d'Office 365 FastTrack
+## Phase 2 : configurer la version d'évaluation d'Office 365 FastTrack
 
 Pour démarrer votre version d'évaluation d'Office 365 FastTrack, vous avez besoin d'un nom de société fictif et d'un compte Microsoft. Nous vous recommandons d'utiliser une variante du nom de société Contoso pour le nom de votre société, qui est une société fictive utilisée dans l'exemple de contenu de Microsoft, mais ce n'est pas requis.
 
@@ -70,17 +70,17 @@ Ensuite, inscrivez-vous à une nouvelle version d'évaluation d'Office 365 FastT
 9.	Lorsqu'Office 365 a terminé la création de votre compte, cliquez sur **Vous êtes prêt**.
 10.	Vous devez maintenant voir la page principale du portail Office 365. Dans le ruban supérieur, cliquez sur **Admin**, puis cliquez sur **Office 365**. La page Centre d'administration Office 365 s'affiche. Gardez cette page ouverte sur CLIENT1.
 
-Il s'agit de votre configuration actuelle.
+Ceci est votre configuration actuelle.
 
 ![](./media/virtual-networks-set-up-DirSync-hybrid-cloud-for-testing/CreateDirSyncHybridCloud_2.png)
 
-##Phase 3 : configurer le serveur de synchronisation d'annuaires (DS1).
+## Phase 3 : configurer le serveur de synchronisation d'annuaires (DS1).
 
 Commencez par créer une machine virtuelle Azure pour DS1 avec les commandes suivantes à l'invite de commandes Azure PowerShell sur votre ordinateur local. Avant d'exécuter ces commandes, renseignez les valeurs des variables et supprimez les caractères < et >.
 
-	$ServiceName="<The cloud service name for your TestVNET virtual network>"
+	$ServiceName="<The cloud service name for your TestVNET virtual network>"	
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DS1 -InstanceSize Medium -ImageName $image
@@ -91,15 +91,15 @@ Commencez par créer une machine virtuelle Azure pour DS1 avec les commandes sui
 Ensuite, connectez-vous à la machine virtuelle DS1.
 
 1.	Sur la page des machines virtuelles du portail de gestion Azure, cliquez sur **En cours d'exécution** dans la colonne État de la machine virtuelle DS1.
-2.	Dans la barre des tâches, cliquez sur **Connecter**. 
+2.	Dans la barre des tâches, cliquez sur **Se connecter**. 
 3.	Lorsque vous êtes invité à ouvrir DS1.rdp, cliquez sur **Ouvrir**.
-4.	Lorsqu'une zone de message de connexion Bureau à distance s'ouvre, cliquez sur **Connecter**.
-5.	À l'invite vous demandant des informations d'identification, utilisez ce qui suit :
+4.	Lorsque la boîte de message Connexion Bureau à distance s'affiche, cliquez sur **Connecter**.
+5.	Si des informations d'identification vous sont demandées, utilisez celles-ci :
 	- Nom : **CORP\User1**
 	- Password: [mot de passe du compte User1]
 6.	Lorsqu'une zone de message de connexion Bureau à distance faisant référence aux certificats s'ouvre, cliquez sur **Oui**.
 
-Puis configurez une règle de pare-feu Windows pour autoriser le trafic pour le test de la connectivité de base. À partir d'une invite de commandes de Windows PowerShell de niveau administrateur sur DS1, exécutez les commandes suivantes.
+Ensuite, configurez une règle de pare-feu Windows pour autoriser le trafic pour le test de la connectivité de base. À partir d'une invite de commandes de Windows PowerShell de niveau administrateur sur DS1, exécutez les commandes suivantes.
 
 	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
 	ping dc1.corp.contoso.com
@@ -128,7 +128,7 @@ Ensuite, activez la synchronisation d'annuaires pour votre version d'évaluation
 4.	Lorsque l'invite **Voulez-vous activer la synchronisation Active Directory ?** s'ouvre, cliquez sur **Activer**. Après cela, **La synchronisation Active Directory est activée** s'affiche à l'étape 3.
 5.	Laissez la page **Configurer et gérer la synchronisation Active Directory** ouverte sur CLIENT1.
 
-Ensuite, ouvrez une session DC1 avec le compte CORP\User1 et ouvrez une invite de commandes Windows PowerShell au niveau administrateur. Exécutez ces commandes pour créer une nouvelle unité d'organisation appelée contoso_users et ajouter deux nouveaux comptes d'utilisateur pour Camille Brunelle et Denise Bourgeois.
+Ensuite, ouvrez une session DC1 avec le compte CORP\User1 et ouvrez une invite de commandes Windows PowerShell au niveau administrateur. Exécutez ces commandes une par une pour créer une nouvelle unité d'organisation appelée contoso_users et ajouter deux nouveaux comptes d'utilisateur pour Camille Brunelle et Denise Bourgeois.
 
 	New-ADOrganizationalUnit -Name contoso_users -Path "DC=corp,DC=contoso,DC=com"
 	New-ADUser -SamAccountName marcik -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Marci Kaufman" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
@@ -168,23 +168,24 @@ Montrez ensuite la synchronisation de mot de passe d'Office 365 avec le compte A
 7.	Ouvrez une session avec les informations d'identification Office 365 de Denise Bourgeois. Son nom d'utilisateur sera denise@<*votre nom fictif*>.onmicrosoft.com. Le mot de passe est le mot de passe du compte d'utilisateur Active Directory de Denise Bourgeois.
 8.	Après l'ouverture de session réussie, vous voyez la page principale du portail d'Office 365 avec la mention **Faisons la différence aujourd'hui**.
 
-Il s'agit de votre configuration actuelle.
+Ceci est votre configuration actuelle.
 
 ![](./media/virtual-networks-set-up-DirSync-hybrid-cloud-for-testing/CreateDirSyncHybridCloud_3.png)
  
 Cet environnement est maintenant prêt à exécuter le test des applications Office 365 qui s'appuient sur la fonctionnalité de synchronisation des annuaires d'Office 365 ou à tester la fonctionnalité de synchronisation d'annuaires et les performances de DS1.
 
-##Ressources supplémentaires
+## Ressources supplémentaires
 
 [Déploiement de la synchronisation d'annuaires (DirSync) d'Office 365 dans Microsoft Azure](http://technet.microsoft.com/library/dn635310.aspx)
 
 [Solutions utilisant Office Server et le cloud](http://technet.microsoft.com/library/dn262744.aspx)
 
-[Configuration d'un environnement de cloud hybride à des fins de test](../virtual-networks-setup-hybrid-cloud-environment-testing/)
+[Configuration d'un environnement de cloud hybride pour le test](../virtual-networks-setup-hybrid-cloud-environment-testing/)
 
 [Configuration d'une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
-[Configuration d'une application métier web dans un cloud hybride pour le test](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+[Configuration d'une application métier web dans un cloud hybride à des fins de test](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 
+[Configuration d'une simulation d'environnement de cloud hybride à des fins de test](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -21,21 +21,21 @@
 #Chiffrement dynamique : Configuration de la stratégie d'autorisation de clé de contenu 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)] 
 
-Cet article fait partie des séries [workflow à la demande de vidéo Media Services](../media-services-video-on-demand-workflow) et [workflow de vidéo en flux continu Media Services](../media-services-live-streaming-workflow). 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) et [workflow de vidéo en flux continu Media Services](../media-services-live-streaming-workflow) . 
 
 ##Présentation
 
 Microsoft Azure Media Services permet de transmettre un contenu chiffré (dynamiquement) avec la norme AES (Advanced Encryption Standard) (à l'aide de clés de chiffrement 128 bits) et le DRM PlayReady. Media Services fournit également un service de distribution de clés et licences PlayReady aux clients autorisés. 
 
-Si vous souhaitez que Media Services chiffre une ressource, vous devez associer une clé de chiffrement (**CommonEncryption** ou **EnvelopeEncryption**) à la ressource (comme décrit [ici](../media-services-rest-create-contentkey/)) et configurer les stratégies d'autorisation pour la clé (comme décrit dans cet article). 
+Si vous voulez chiffrer une ressource pour Media Services, vous devez associer une clé de chiffrement (**CommonEncryption** ou **EnvelopeEncryption**) à la ressource (comme décrit [ici](../media-services-rest-create-contentkey/)), mais aussi configurer des stratégies d'autorisation pour la clé (comme décrit dans cet article). 
 
 Vous pouvez actuellement chiffrer la diffusion en continu des formats suivants : TLS, MPEG DASH et la diffusion en continu lisse. Vous ne pouvez pas chiffrer le format de diffusion en continu HDS ni les téléchargements progressifs.
 
 Lorsqu'un lecteur demande un flux de données, Media Services utilise la clé spécifiée pour chiffrer dynamiquement votre contenu à l'aide du chiffrement AES ou PlayReady. Pour déchiffrer le flux de données, le lecteur demande la clé au service de remise de clé. Pour déterminer si l'utilisateur est autorisé à obtenir la clé, le service évalue les stratégies d'autorisation que vous avez spécifiées pour la clé.
 
-Media Services prend en charge plusieurs méthodes d'authentification des utilisateurs effectuant des demandes de clé. La stratégie d'autorisation des clés de contenu peut avoir une ou plusieurs restrictions d'autorisations : **ouverte**, **jeton** ou **IP**. La stratégie de restriction à jeton doit être accompagnée d'un jeton émis par un service de jeton sécurisé (STS). Media Services prend en charge les jetons aux formats **jetons Web simples** ([SWT](https://msdn.microsoft.com/fr-fr/library/gg185950.aspx#BKMK_2)) et **jeton Web JSON** (JWT).  
+Media Services prend en charge plusieurs méthodes d'authentification des utilisateurs effectuant des demandes de clé. La stratégie d'autorisation des clés de contenu peut avoir une ou plusieurs restrictions d'autorisations : **ouverte**, **jeton** ou **IP**. La stratégie de restriction à jeton doit être accompagnée d'un jeton émis par un service de jeton sécurisé (STS). Media Services prend en charge les jetons aux formats [SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (**Simple Web Token**) et JWT (**JSON Web Token**).  
 
-Media Services ne fournit pas de Service de jeton sécurisé (STS). Vous pouvez créer un STS personnalisé ou utiliser l'ACS Microsoft Azure pour émettre des jetons. Le STS doit être configuré pour créer un jeton signé avec la clé spécifiée et émettre les revendications spécifiées dans la configuration de restriction de jeton (comme le décrit cet article). Le service de remise de clé Media Services retourne la clé de chiffrement pour le client si le jeton est valide et que les revendications du jeton correspondent à celles configurées pour la clé de contenu.
+Media Services ne fournit pas de services de jeton sécurisé. Vous pouvez créer un STS personnalisé ou utiliser l'ACS Microsoft Azure pour émettre des jetons. Le STS doit être configuré pour créer un jeton signé avec la clé spécifiée et émettre les revendications spécifiées dans la configuration de restriction de jeton (comme le décrit cet article). Le service de remise de clé Media Services retourne la clé de chiffrement pour le client si le jeton est valide et que les revendications du jeton correspondent à celles configurées pour la clé de contenu.
 
 Pour plus d'informations, consultez les pages 
 
@@ -47,7 +47,7 @@ Pour plus d'informations, consultez les pages
 
 ###Certaines considérations s'appliquent :
 
-- Pour pouvoir utiliser l'empaquetage et le chiffrement dynamiques, vous devez vous assurer d'avoir au moins une unité d'échelle (également appelée unité de diffusion). Pour plus d'informations, consultez la page [Mise à l'échelle d'un service Media](../media-services-manage-origins#scale_streaming_endpoints). 
+- Pour pouvoir utiliser l'empaquetage et le chiffrement dynamiques, vous devez vous assurer d'avoir au moins une unité d'échelle (également appelée unité de diffusion). Pour plus d'informations, consultez [Mise à l'échelle d'un service de média](../media-services-manage-origins#scale_streaming_endpoints). 
 - Votre ressource doit contenir un ensemble de MP4 à débit multiple ou des fichiers de diffusion en continu lisse à débit multiple. Pour plus d'informations, consultez [Encodage d'une ressource](../media-services-encode-asset/).  
 - Téléchargez et codez vos ressources à l'aide de **AssetCreationOptions.StorageEncrypted**.
 - Si vous prévoyez d'avoir plusieurs clés de contenu qui nécessitent la même configuration de stratégie, il est fortement recommandé de créer une stratégie d'autorisation unique et de la réutiliser avec plusieurs clés de contenu.
@@ -59,9 +59,9 @@ Pour plus d'informations, consultez les pages
 
 >[AZURE.NOTE] Lorsque vous utilisez l'API REST de Media Services, les considérations suivantes s'appliquent :
 >
->Lors de l'accès aux entités dans Media Services, vous devez définir les valeurs et les champs d'en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](../media-services-rest-how-to-use).
+>Lors de l'accès aux entités dans Media Services, vous devez définir les valeurs et les champs d'en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Configuration du développement de l'API REST Media Services](../media-services-rest-how-to-use).
 
->Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](../media-services-rest-connect_programmatically/). 
+>Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez adresser les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](../media-services-rest-connect_programmatically/). 
 
 
 ###Restriction ouverte
@@ -70,7 +70,7 @@ La restriction ouverte signifie que le système fournira la clé à toute person
 
 L'exemple suivant crée une stratégie d'autorisation ouverte et l'ajoute à la clé de contenu.
 
-####<a id="ContentKeyAuthorizationPolicies"></a>Création de ContentKeyAuthorizationPolicies
+####<a id="ContentKeyAuthorizationPolicies"></a>Créer ContentKeyAuthorizationPolicies
 
 Demande :
 		
@@ -90,7 +90,7 @@ Demande :
 	
 	{"Name":"Open Authorization Policy"}
 	
-Response:
+Réponse :
 	
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -109,7 +109,7 @@ Response:
 	
 	{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicies/@Element","Id":"nb:ckpid:UUID:db4593da-f4d1-4cc5-a92a-d20eacbabee4","Name":"Open Authorization Policy"}
 
-####<a id="ContentKeyAuthorizationPolicyOptions"></a>Création de ContentKeyAuthorizationPolicyOptions
+####<a id="ContentKeyAuthorizationPolicyOptions"></a>Créer ContentKeyAuthorizationPolicyOptions
 	
 Demande :
 
@@ -148,7 +148,7 @@ Réponse :
 	
 	{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:57829b17-1101-4797-919b-f816f4a007b7","Name":"policy","KeyDeliveryType":2,"KeyDeliveryConfiguration":"","Restrictions":[{"Name":"HLS Open Authorization Policy","KeyRestrictionType":0,"Requirements":null}]}
 
-####<a id="LinkContentKeyAuthorizationPoliciesWithOptions"></a>Lien de ContentKeyAuthorizationPolicies avec les options
+####<a id="LinkContentKeyAuthorizationPoliciesWithOptions"></a>Lier ContentKeyAuthorizationPolicies à Options
 
 Demande :
 	
@@ -172,7 +172,7 @@ Réponse :
 
 	HTTP/1.1 204 No Content
 
-####<a id="AddAuthorizationPolicyToKey"></a>Ajout de la stratégie d'autorisation à la clé de contenu
+####<a id="AddAuthorizationPolicyToKey"></a>Ajouter une stratégie d'autorisation à la clé de contenu
 
 Demande :
 
@@ -202,7 +202,7 @@ Cette section décrit comment créer une stratégie d'autorisation de clé de co
 
 Pour configurer l'option de restriction par jeton, vous devez utiliser un document XML pour décrire les exigences du jeton d'autorisation. Le XML de configuration de la restriction par jeton doit être conforme au schéma XML suivant.
 
-####<a id="schema"></a>Schéma de la restriction par jeton
+####<a id="schema"></a>Schéma de restriction par jeton
 	
 	<?xml version="1.0" encoding="utf-8"?>
 	<xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -312,7 +312,7 @@ Ajoutez AuthorizationPolicy à la ContentKey, comme illustré [ici](#AddAuthoriz
 
 Media Services vous permet de configurer les droits et les restrictions que vous souhaitez pour le runtime DRM PlayReady, qui s'appliquent lorsqu'un utilisateur tente de lire un contenu protégé. 
 
-Lorsque vous protégez votre contenu avec PlayReady, l'une des choses à spécifier dans votre stratégie d'autorisation est une chaîne XML qui définit le [modèle de licence PlayReady](https://msdn.microsoft.com/fr-fr/library/azure/dn783459.aspx). 
+Quand vous protégez votre contenu avec PlayReady, vous devez spécifier dans votre stratégie d'autorisation une chaîne XML qui définisse le [modèle de licence PlayReady](https://msdn.microsoft.com/library/azure/dn783459.aspx). 
 
 ###Restriction ouverte
 	
@@ -320,7 +320,7 @@ La restriction ouverte signifie que le système fournira la clé à toute person
 
 L'exemple suivant crée une stratégie d'autorisation ouverte et l'ajoute à la clé de contenu.
 	
-####<a id="ContentKeyAuthorizationPolicies2"></a>Création de ContentKeyAuthorizationPolicies
+####<a id="ContentKeyAuthorizationPolicies2"></a>Créer ContentKeyAuthorizationPolicies
 
 Demande :
 
@@ -410,7 +410,7 @@ Ajoutez AuthorizationPolicy à la ContentKey, comme illustré [ici](#AddAuthoriz
 
 ###Restriction par jeton
 
-Pour configurer l'option de restriction par jeton, vous devez utiliser un document XML pour décrire les exigences du jeton d'autorisation. Le XML de configuration de la restriction par jeton doit être conforme au schéma XML présenté [ici](#schema) .
+Pour configurer l'option de restriction par jeton, vous devez utiliser un document XML pour décrire les exigences du jeton d'autorisation. Le XML de configuration de la restriction par jeton doit être conforme au schéma XML présenté dans [cette](#schema) section.
 	
 ####Création de ContentKeyAuthorizationPolicies
 	
@@ -464,7 +464,7 @@ Liez ContentKeyAuthorizationPolicies avec les options comme indiqué [ici](#Cont
 Ajoutez AuthorizationPolicy à la ContentKey, comme illustré [ici](#AddAuthorizationPolicyToKey).
 
 
-##<a id="types"></a>Types utilisés lors de la définition de ContentKeyAuthorizationPolicy
+##<a id="types"></a>Types utilisés durant la définition de ContentKeyAuthorizationPolicy
 
 ###<a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
 
@@ -486,7 +486,7 @@ Ajoutez AuthorizationPolicy à la ContentKey, comme illustré [ici](#AddAuthoriz
 
 
 ##Étapes suivantes
-Maintenant que vous avez configuré la stratégie d'autorisation de la clé de contenu, consultez la rubrique [Configuration de la stratégie de remise de ressources](../media-services-rest-configure-asset-delivery-policy/).
+Maintenant que vous avez configuré la stratégie d'autorisation de la clé de contenu, accédez à la [procédure de configuration de stratégies de remise de ressources](../media-services-rest-configure-asset-delivery-policy/) .
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

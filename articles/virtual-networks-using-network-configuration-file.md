@@ -31,9 +31,9 @@ Pour créer un fichier de configuration réseau, le plus simple consiste à expo
 
 Pour modifier le fichier de configuration réseau, il vous suffit d'ouvrir le fichier, d'apporter les modifications appropriées et de les enregistrer. Vous pouvez utiliser n'importe quel éditeur *xml* pour apporter des modifications au fichier de configuration réseau. 
 
-Vous devez respecter les instructions relatives aux paramètres de schéma du fichier de configuration réseau. Lorsque vous créez votre fichier de configuration réseau, les paramètres du fichier remplacent les paramètres que vous avez actuellement pour cet abonnement dans Azure. Si vous apportez des modifications à des valeurs du fichier qui ne sont pas cohérentes avec les instructions sur les paramètres, votre réseau virtuel risque de ne pas être configuré comme vous l'avez prévu. Dans certains cas, Azure peut même vous empêcher d'importer le fichier. Pour plus d'informations sur les paramètres spécifiques du fichier de configuration réseau, consultez la page [Schéma de configuration de réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
+Vous devez respecter les instructions relatives aux paramètres de schéma du fichier de configuration réseau. Lorsque vous créez votre fichier de configuration réseau, les paramètres du fichier remplacent les paramètres que vous avez actuellement pour cet abonnement dans Azure. Si vous apportez des modifications à des valeurs du fichier qui ne sont pas cohérentes avec les instructions sur les paramètres, votre réseau virtuel risque de ne pas être configuré comme vous l'avez prévu. Dans certains cas, Azure peut même vous empêcher d'importer le fichier. Pour plus d'informations sur les paramètres spécifiques contenus dans un fichier de configuration réseau, consultez [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
 
-Azure considère tout sous-réseau qui comprend des éléments déployés comme étant " en cours d'utilisation ". Une fois le sous-réseau utilisé, il ne peut pas être modifié. Avant toute modification, déplacez tout ce que vous avez déployé sur le sous-réseau vers un autre sous-réseau qui n'est pas modifié.   Consultez la page [Déplacement d'une machine virtuelle ou d'une instance de rôle vers un autre sous-réseau](https://msdn.microsoft.com/fr-fr/library/azure/dn643636.aspx).
+Azure considère tout sous-réseau qui comprend des éléments déployés comme étant " en cours d'utilisation ". Une fois le sous-réseau utilisé, il ne peut pas être modifié. Avant toute modification, déplacez tout ce que vous avez déployé sur le sous-réseau vers un autre sous-réseau qui n'est pas modifié.   Consultez [Déplacer une machine virtuelle ou une instance de rôle vers un autre sous-réseau](https://msdn.microsoft.com/library/azure/dn643636.aspx).
 
 
 
@@ -46,7 +46,7 @@ Lorsque effectuez une exportation, tous les paramètres des réseaux virtuels de
 1. Connectez-vous au **portail de gestion**.
 2. Dans le portail de gestion, en bas de la page **réseaux**, cliquez sur **Exporter**. 
 3. Dans la fenêtre **Exporter la configuration de réseau**, vérifiez que vous avez sélectionné l'abonnement pour lequel vous voulez exporter vos paramètres réseau. Ensuite, cliquez sur la coche dans la partie inférieure droite. 
-4. Lorsque vous y êtes invité, enregistrez le fichier *NetworkConfig.xml* à l'emplacement de votre choix.
+4. Quand vous y êtes invité, enregistrez le fichier *NetworkConfig.xml* à l'emplacement de votre choix.
 ### Pour importer vos paramètres réseau
 
 
@@ -60,7 +60,7 @@ Lorsque effectuez une exportation, tous les paramètres des réseaux virtuels de
 Pour plus d'informations sur les réseaux virtuels, consultez la page
 
 -  [Présentation du réseau virtuel](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
--  [Schéma de configuration réseau - paramètres facultatifs pour les services cloud](https://msdn.microsoft.com/library/azure/jj156091.aspx)
+-  [Schéma de configuration réseau - Paramètres facultatifs pour les services cloud](https://msdn.microsoft.com/library/azure/jj156091.aspx)
 -  [À propos des paramètres de réseau virtuel dans le Portail de gestion](https://msdn.microsoft.com/library/azure/jj156074.aspx)
 -  [FAQ Virtual Network](https://msdn.microsoft.com/library/azure/dn133803.aspx)
 -  [Tâches de configuration du réseau virtuel](https://msdn.microsoft.com/library/azure/jj156206.aspx)
@@ -70,4 +70,4 @@ Pour plus d'informations sur les réseaux virtuels, consultez la page
 
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

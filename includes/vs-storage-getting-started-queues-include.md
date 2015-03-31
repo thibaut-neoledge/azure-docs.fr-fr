@@ -1,5 +1,5 @@
-﻿#####Création d'une file d'attente
-Un objet **CloudQueueClient** vous permet d'obtenir les objets de référence pour les files d'attente. Le code suivant crée un objet **CloudQueueClient**. Tous les codes présentés dans cette rubrique utilisent une chaîne de connexion de stockage enregistrée dans la configuration de service de l'application Azure. Plusieurs méthodes permettent de créer un objet **CloudStorageAccount**. Consultez la documentation [CloudStorageAccount](http://msdn.microsoft.com/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount") pur plus d'informations.
+##### Création d'une file d'attente
+Un objet **CloudQueueClient** vous permet d'obtenir les objets de référence pour les files d'attente. Le code suivant crée un objet **CloudQueueClient**. Tous les codes présentés dans cette rubrique utilisent une chaîne de connexion de stockage enregistrée dans la configuration de service de l'application Azure. Plusieurs méthodes permettent de créer un objet **CloudStorageAccount**. Consultez la documentation de [CloudStorageAccount](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount") pour en savoir plus.
 
 	// Create the queue client.
 	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -14,14 +14,14 @@ Utilisez l'objet **queueClient** pour obtenir une référence pointant vers la f
 
 **Remarque :** ajoutez ce bloc de code avant le code indiqué dans les sections suivantes.
 
-#####Insertion d'un message dans une file d'attente
-Pour insérer un message dans une file d'attente existante, commencez par créer un nouvel objet **CloudQueueMessage**. Appelez ensuite la méthode AddMessage(). Un objet **CloudQueueMessage** peut être créé à partir d'une chaîne (au format UTF-8) ou d'un tableau d'octets. Voici le code qui crée une file d'attente (si elle n'existe pas) et insère le message 'Hello, World'.
+##### Insertion d'un message dans une file d'attente
+Pour insérer un message dans une file d'attente existante, commencez par créer un objet **CloudQueueMessage**. Appelez ensuite la méthode AddMessage(). Un objet **CloudQueueMessage** peut être créé à partir d'une chaîne (au format UTF-8) ou d'un tableau d'octets. Voici le code qui crée une file d'attente (si elle n'existe pas) et insère le message  'Hello, World'.
 
 	// Create a message and add it to the queue.
 	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
 	queue.AddMessage(message);
 
-#####Lecture furtive du message suivant
+##### Lecture furtive du message suivant
 En appelant la méthode PeekMessage(), vous pouvez lire furtivement le message au début de la file d'attente sans pour autant l'en retirer.
 
 	// Peek at the next message in the queue.
@@ -30,7 +30,7 @@ En appelant la méthode PeekMessage(), vous pouvez lire furtivement le message a
 	// Display the message.
 	Console.WriteLine(peekedMessage.AsString);
 
-#####Suppression du message suivant
+##### Suppression du message suivant
 Votre code permet de supprimer (retirer) un message d'une file d'attente en deux étapes. 
 
 
@@ -47,5 +47,4 @@ Ce processus de suppression d'un message en deux étapes garantit que, si votre 
 
 [En savoir plus sur Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
 Voir aussi [Consultation des ressources de stockage avec l'Explorateur de serveurs](http://msdn.microsoft.com/library/azure/ff683677.aspx).
-
-<!--HONumber=42-->
+<!--HONumber=47-->

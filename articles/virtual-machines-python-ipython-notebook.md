@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Didacticiel IPython Notebook - Azure" 
 	description="Didacticiel qui explique le déploiement de l'interpréteur IPython Notebook sur Azure en utilisant des machines virtuelles Linux ou Windows." 
 	services="virtual-machines" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/05/2015" 
 	ms.author="huvalo"/>
 
 
@@ -26,25 +26,24 @@
 <div class="dev-onpage-left-content">
 <p>Le <a href="http://ipython.org">projet IPython</a> offre un ensemble d'outils destiné au calcul scientifique qui inclut des interpréteurs de commandes interactifs et puissants, des bibliothèques parallèles haute performance et conviviales, ainsi qu'un environnement Web nommé IPython Notebook. L'interpréteur IPython Notebook offre un environnement de travail pour le calcul interactif qui associe l'exécution de code à la création d'un document de calcul dynamique. Ces fichiers de l'interpréteur contiennent du texte arbitraire, des formules mathématiques, un code d'entrée, des résultats, des graphiques, des vidéos et d'autres sortes de support qu'un navigateur Web moderne peut afficher.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkID=254535&amp;clcid=0x409" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('/media/devcenter/python/ipy-youtube2.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=254535&amp;clcid=0x409" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">05:22</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkID=254535&amp;clcid=0x409" target="_blank" class="label">visionner le didacticiel</a> <a style="background-image: url('/media/devcenter/python/ipy-youtube2.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=254535&amp;clcid=0x409" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">05:22</span></div>
 </div>
 
-Que vous soyez complètement novice sur Python et que vous souhaitiez apprendre à vous en servir dans un environnement divertissant et interactif ou que vous souhaitiez effectuer d'importants calculs parallèles/techniques, l'interpréteur IPython Notebook est un choix optimal. La capture d'écran suivante présente les fonctionnalités de l'interpréteur IPython Notebook, et pour ce faire, en montre l'utilisation en association avec les packages SciPy et matplotlib, afin d'analyser la structure d'un enregistrement sonore :
+Que vous soyez complètement novice sur Python et que vous souhaitiez en savoir plus dans un environnement interactif ou que vous souhaitiez effectuer certains calculs parallèles/techniques sérieux, l'interpréteur IPython Notebook est un bon choix. En guise d'illustration de ses capacités, la capture d'écran suivante montre l'interpréteur IPython Notebook utilisé avec les packages SciPy et matplotlib, pour analyser la structure d'un enregistrement sonore :
 
 ![Screenshot](./media/virtual-machines-python-ipython-notebook/ipy-notebook-spectral.png)
 
-Ce document explique comment déployer l'interpréteur IPython Notebook sur MicrosoftAzure en utilisant des machines virtuelles Linux ou Windows.  En utilisant l'interpréteur IPython Notebook sur Azure, vous pouvez facilement fournir une interface accessible par le Web à des ressources de calcul évolutives avec toute la puissance de Python et de ses nombreuses bibliothèques.  Comme toute l'installation est réalisée dans le cloud, les utilisateurs peuvent accéder à ces ressources sans recourir à une configuration locale hormis un navigateur Web moderne.
+Ce document vous montre comment déployer l'interpréteur IPython Notebook sur Microsoft Azure, à l'aide des machines virtuelles (VM) Windows ou Linux.  À l'aide de l'interpréteur IPython Notebook sur Azure, vous pouvez fournir facilement une interface accessible par le web à des ressources de calcul extensibles avec toute la puissance de Python et ses nombreuses bibliothèques.  Dans la mesure où toute l'installation est effectuée dans le cloud, les utilisateurs peuvent accéder à ces ressources sans recourir à une configuration locale hormis un navigateur web moderne.
 
 [AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Création et configuration d'une machine virtuelle sur Azure
 
-La première étape consiste à créer une machine virtuelle s'exécutant sur Azure.
-Cette machine virtuelle est un système d'exploitation complet dans le cloud et sera utilisée pour exécuter l'interpréteur IPython Notebook. Azure peut exécuter à la fois des machines virtuelles Linux et Windows et nous allons étudier la configuration d'IPython sur les deux types de machines.
+La première étape consiste à créer une machine virtuelle s'exécutant sur Azure. Cette machine virtuelle est un système d'exploitation complet dans le cloud et sera utilisée pour exécuter l'interpréteur IPython Notebook. Azure peut exécuter à la fois des machines virtuelles Linux et Windows et nous allons étudier la configuration d'IPython sur les deux types de machine.
 
 ### Machine virtuelle Linux
 
-Suivez les instructions fournies [ici][portal-vm-linux] afin de créer une machine virtuelle de la distribution *OpenSUSE* ou *Ubuntu*. Ce didacticiel utilise OpenSUSE 13.1 et Ubuntu Server 14.04 LTS. Nous présumerons que le nom d'utilisateur par défaut est *azureuser*.
+Suivez les instructions fournies [ici][portal-vm-linux] pour créer une machine virtuelle de la distribution *OpenSUSE* ou *Ubuntu*. Ce didacticiel utilise OpenSUSE 13.2 et Ubuntu Server 14.04 LTS. Nous présumerons que le nom d'utilisateur par défaut est *azureuser*.
 
 ### Machine virtuelle Windows
 
@@ -52,9 +51,9 @@ Suivez les instructions fournies [ici][portal-vm-windows] afin de créer une mac
 
 ## Création d'un point de terminaison pour l'interpréteur IPython Notebook
 
-Cette étape s'applique à la fois à la machine virtuelle Linux et à la machine virtuelle Windows. Plus tard, nous configurerons IPython pour exécuter son serveur d'interpréteur sur le port 9999. Pour rendre ce port disponible publiquement, nous devons créer un point de terminaison dans le portail de gestion Azure. Celui-ci ouvre un port dans le pare-feu Azure et mappe le port public (HTTPS, 443) sur le port privé de la machine virtuelle (9999).
+Cette étape s'applique à la fois à la machine virtuelle Linux et à la machine virtuelle Windows. Plus tard, nous configurerons IPython pour exécuter son serveur d'interpréteur sur le port 9999. Pour rendre ce port disponible publiquement, nous devons créer un point de terminaison dans le portail de gestion Azure. Ce point de terminaison ouvre un port dans le pare-feu Azure et mappe le port public (HTTPS, 443) vers le port privé de la machine virtuelle (9999).
 
-Pour créer un point de terminaison, accédez au tableau de bord de la machine virtuelle, cliquez sur " Points de terminaison ", puis sur " Ajouter un point de terminaison " (nommé `ipython_nb` dans cet exemple). Sélectionnez TCP comme protocole, 443 pour le port public et 9999 pour le port privé :
+Pour créer un point de terminaison, accédez au tableau de bord de la machine virtuelle, cliquez sur " Points de terminaison ", puis sur " Ajouter un point de terminaison " et créez un nouveau point de terminaison (appelé `ipython_nb` dans cet exemple). Sélectionnez TCP comme protocole, 443 pour le port public et 9999 pour le port privé :
 
 ![Screenshot](./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-005.png)
 
@@ -81,6 +80,10 @@ Installez [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] et les au
 
 Pour installer IPython et ses dépendances, utilisez le protocole SSH dans la machine virtuelle Linux et procédez comme suit.
 
+Récupérez tout d'abord les nouvelles listes de packages :
+
+    sudo apt-get update
+
 Installez [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] et les autres dépendances IPython en procédant comme suit :
 
     sudo apt-get install python-matplotlib
@@ -90,21 +93,13 @@ Installez [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] et les au
 
 ### Windows
 
-Pour installer IPython et ses dépendances sur la machine virtuelle Windows, utilisez le Bureau à distance pour la connexion à la machine virtuelle. Puis procédez comme suit, en utilisant Windows PowerShell pour exécuter toutes les actions de ligne de commande.
+Pour installer IPython et ses dépendances sur la machine virtuelle Windows, utilisez le Bureau à distance pour la connexion à la machine virtuelle. Puis exécutez les étapes suivantes, en utilisant Windows PowerShell pour exécuter toutes les actions de ligne de commande.
 
 **Remarque** : afin de pouvoir télécharger à l'aide d'Internet Explorer, vous devez modifier certains paramètres de sécurité.  Depuis **Gestionnaire de serveur**, cliquez sur **Serveur local**, puis sur **Configuration de sécurité renforcée d'Internet Explorer**, puis désactivez-la pour les administrateurs.  Vous pourrez la réactiver une fois que vous aurez terminé l'installation d'IPython.
 
-1.  Installez Python 2.7.8 (32 bits) depuis [python.org](http://www.python.org/download). 
-    Vous devrez également ajouter `C:\Python27` et `C:\Python27\Scripts` à votre variable d'enironnement `PATH`
-    .
+1.  Téléchargez et installez la dernière version 32 bits de [Python 2.7][].  Vous devrez ajouter `C:\Python27` et `C:\Python27\Scripts` à votre variable d'environnement `PATH`.
 
-1.  Installez pip et setuptools en téléchargeant le fichier **get-pip.py**
-    de [https://pip.pypa.io/en/latest/installing.html](https://pip.pypa.io/en/latest/installing.html), puis en exécutant la commande
-    :
-
-        python get-pip.py
-
-1.  Installez [TornadoTornado][tornado] et [PyZMQ][pyzmq] et les autres dépendances IPython. Tapez :
+1.  Installez [Tornado][tornado] et [PyZMQ][pyzmq] et les autres dépendances IPython en procédant comme suit :
 
         easy_install tornado
         easy_install pyzmq
@@ -113,31 +108,31 @@ Pour installer IPython et ses dépendances sur la machine virtuelle Windows, uti
         easy_install python-dateutil
         easy_install pyparsing
 
-1.  Téléchargez et installez [NumPy][numpy] à l'aide du
-   programme d'installation binaire `.exe`, disponible sur leur site Web.  Lors de la rédaction de ce document, la dernière version était **numpy-1.9.0-win32-superpack-python2.7.exe**.
+1.  Téléchargez et installez [NumPy][numpy] en utilisant le programme d'installation binaire `.exe` disponible sur leur site Web.  Lors de la rédaction de ce document, la dernière version était **numpy-1.9.1-win32-superpack-python2.7.exe**.
 
-1.  Téléchargez et installez [Matplotlib][matplotlib] à l'aide du
-   programme d'installation binaire `.exe`, disponible sur leur site Web.  Lors de la rédaction de ce document, la dernière version était **matplotlib-1.4.0.win32-py2.7.exe**.
+1.  Installez [Matplotlib][matplotlib] en procédant comme suit :
 
-1.  Téléchargez et installez OpenSSL. Vous pouvez trouver les versions Windows d'OpenSSL à la page [http://slproweb.com/products/Win32OpenSSL.html](http://slproweb.com/products/Win32OpenSSL.html).
+        pip install matplotlib==1.4.2
 
-	* Si vous installez une version **Légère**, vous devez également installer **Visual C++ 2008 Redistributable** (également disponible depuis cette page).
+1.  Téléchargez et installez [OpenSSL][].
 
-	* Vous devez ajouter `C:\OpenSSL-Win32\bin` à votre variable d'environnement `PATH`.
+	* Vous trouverez le composant **Visual C++ 2008 Redistributable** sur la même page de téléchargement.
+
+	* Vous devrez ajouter `C:\OpenSSL-Win32\bin` à votre variable d'environnement `PATH`.
 
 	> [AZURE.NOTE] Lors de l'installation d'OpenSSL, utilisez la version 1.0.1g ou supérieure, car elle inclut un correctif pour la faille de sécurité Heartbleed.
 
-1.  Installez l'IPython en utilisant la commande :
+1.  Installez IPython en utilisant la commande  suivante:
 
-        easy_install ipython
+        pip install ipython==2.4
 
 1.  Ouvrez un port dans le pare-feu Windows.  Sur Windows Server 2012, le pare-feu bloque les connexions entrantes par défaut.  Pour ouvrir le port 9999, procédez comme suit :
 
     - Démarrez le **Pare-feu Windows avec sécurité avancée** dans l'écran Démarrer.
 
-    - Cliquez sur **Règles de trafic entrant** dans le panneau de gauche.
+    - Cliquez sur **Règles de trafic entrant** dans le volet gauche.
 
-	- Cliquez sur **Nouvelle règle...** dans le panneau Actions.
+	- Cliquez sur **Nouvelle règle...** dans le volet Actions.
 
 	- Dans l'Assistant Nouvelle règle de trafic entrant, sélectionnez **Port**.
 
@@ -147,18 +142,13 @@ Pour installer IPython et ses dépendances sur la machine virtuelle Windows, uti
 
 ### Configuration de l'interpréteur IPython Notebook
 
-Ensuite, nous configurerons l'interpréteur IPython Notebook. La première étape consiste à créer un
-profil de configuration IPython personnalisé pour encapsuler les informations de configuration :
+Ensuite, nous configurerons l'interpréteur IPython Notebook. La première étape consiste à créer un profil de configuration IPython personnalisé pour encapsuler les informations de configuration :
 
     ipython profile create nbserver
 
-Ensuite, nous utilisons la commande `cd` pour accéder au répertoire de profil afin de créer notre certificat SSL et de modifier le fichier de configuration des profils.
+Ensuite, nous utilisons la commande `cd` pour accéder au répertoire de profil afin de créer notre certificat SSL et de modifier le fichier de configuration de profils.
 
-Sur Linux (OpenSUSE) :
-
-    cd ~/.config/ipython/profile_nbserver/
-
-Sur Linux (Ubuntu) :
+Sur Linux :
 
     cd ~/.ipython/profile_nbserver/
 
@@ -166,13 +156,13 @@ Sur Windows :
 
     cd \users\azureuser\.ipython\profile_nbserver
 
-Sur les deux plateformes, créez le certificat SSL comme suit :
+Créez le certificat SSL comme suit (Linux et Windows) :
 
     openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
-Notez que puisque nous créons un certificat SSL auto-signé, lors de la connexion à l'interpréteur, votre navigateur affiche un message d'avertissement.  Pour une utilisation à long terme, vous souhaiterez utiliser un certificat correctement signé associé à votre organisation.  Comme la gestion des certificats ne figure pas dans cette démonstration, nous nous en tiendrons à un certificat auto-signé pour l'instant.
+Notez que puisque nous créons un certificat SSL auto-signé, lors de la connexion à l'intégrateur votre navigateur affichera un avertissement de sécurité.  Pour une utilisation à long terme, vous souhaiterez utiliser un certificat correctement signé associé à votre organisation.  Étant donné que la gestion des certificats est abordée dans dans cette démonstration, nous nous en tiendrons à un certificat auto-signé pour l'instant.
 
-En plus de l'utilisation d'un certificat, vous devez également fournir un mot de passe pour protéger votre interpréteur contre toute utilisation non autorisée.  Pour des raisons de sécurité, IPython utilise des mots de passe chiffrés dans son fichier de configuration. De ce fait, vous devez tout d'abord chiffrer votre mot de passe.  Pour ce faire, IPython fournit un utilitaire ; à l'exécution d'une invite de commandes :
+En plus de l'utilisation d'un certificat, vous devez également fournir un mot de passe pour protéger votre interpréteur contre toute utilisation non autorisée.  Pour des raisons de sécurité, IPython utilise des mots de passe chiffrés dans son fichier de configuration, et vous devrez donc tout d'abord chiffrer votre mot de passe.  Pour ce faire, IPython fournit un utilitaire ; à l'exécution d'une invite de commandes :
 
     python -c "import IPython;print IPython.lib.passwd()"
 
@@ -182,8 +172,7 @@ Vous serez invité à fournir un mot de passe et une confirmation, puis le mot d
     Verify password: 
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
     
-Ensuite, nous allons modifier le fichier de configuration du profil, qui est le
-fichier " ipython_notebook_config.py " dans le répertoire de profil où vous vous trouvez. Notez que ce fichier n'existe pas, il suffit de le créer.  Ce fichier comporte de nombreux champs, tous commentés par défaut.  Vous pouvez ouvrir ce fichier avec l'éditeur de texte de votre choix et vous devez vous assurer qu'il contient au moins le contenu suivant :
+Ensuite, nous allons modifier le fichier de configuration du profil, qui est le fichier `ipython_notebook_config.py` dans le répertoire de profil où vous vous trouvez. Notez que ce fichier n'existe pas, il suffit de le créer.  Ce fichier comporte de nombreux champs, tous commentés par défaut.  Vous pouvez ouvrir ce fichier avec un éditeur de texte de votre choix et vous devez vous assurer qu'il comporte au moins le contenu suivant :
 
     c = get_config()
     
@@ -192,10 +181,7 @@ fichier " ipython_notebook_config.py " dans le répertoire de profil où vous vo
     
     # You must give the path to the certificate file.
     
-    # If using a Linux VM (OpenSUSE):
-    c.NotebookApp.certfile = u'/home/azureuser/.config/ipython/profile_nbserver/mycert.pem'
-
-    # If using a Linux VM (Ubuntu):
+    # If using a Linux VM:
     c.NotebookApp.certfile = u'/home/azureuser/.ipython/profile_nbserver/mycert.pem'
     
     # And if using a Windows VM:
@@ -217,74 +203,67 @@ fichier " ipython_notebook_config.py " dans le répertoire de profil où vous vo
 
     ipython notebook --profile=nbserver
 
-Vous devez à présent être en mesure d'accéder à votre interpréteur IPython à l'adresse
-`https://[Your Chosen Name Here].cloudapp.net`.
+Vous devez à présent être en mesure d'accéder à votre interpréteur IPython à l'adresse `https://[Nom choisi ici].cloudapp.net`.
 
 Lorsque vous accédez pour la première fois à votre interpréteur, la page de connexion demande votre mot de passe :
 
 ![Screenshot](./media/virtual-machines-python-ipython-notebook/ipy-notebook-001.png)
 
-Une fois que vous êtes connecté, " IPython Notebook Dashboard " s'affiche. Il s'agit du centre de commande de toutes les opérations de l'interpréteur.  À partir de cette page, vous pouvez créer des interpréteurs, ouvrir ceux existants etc. :
+Une fois que vous êtes connecté, " Tableau de bord IPython Notebook " s'affiche.
+Il s'agit du centre de contrôle de toutes les opérations de l'intégrateur.  À partir de cette page, vous pouvez créer de nouveaux intégrateurs, ouvrir des intégrateurs existants etc. :
 
 ![Screenshot](./media/virtual-machines-python-ipython-notebook/ipy-notebook-002.png)
 
-Si vous cliquez sur le bouton " New Notebook ", une page d'ouverture s'affiche comme suit :
+Si vous cliquez sur le bouton " Nouvel intégrateur ", une page d'ouverture s'affiche comme suit :
 
 ![Screenshot](./media/virtual-machines-python-ipython-notebook/ipy-notebook-003.png)
 
-La zone marquée par une invite `In []:` est la zone d'entrée. Vous pouvez y
-saisir tout code Python valide qui s'exécutera lorsque vous appuyez sur les touches `Shift-Enter` ou cliquez sur l'icône " Lire " (triangle pointant vers la droite dans la barre d'outils).
+La zone marquée par une invite `In []:` est la zone d'entrée. Vous pouvez y taper tout code Python valide et il s'exécutera lorsque vous appuyez sur `Shift-Enter` ou cliquez sur l'icône de lecture (le triangle pointant vers la droite dans la barre d'outils).
 
-Puisque nous avons configuré l'interpréteur pour lancer la prise en charge de NumPy et matplotlib automatiquement, vous pouvez même produire des figures, par exemple :
+Puisque nous avons configuré l'intégrateur pour démarrer avec la prise en charge de NumPy et matplotlib automatiquement, vous pouvez même produire des figures, par exemple :
 
 ![Screenshot](./media/virtual-machines-python-ipython-notebook/ipy-notebook-004.png)
 
 ## Un puissant paradigme : documents de calcul dynamique avec des supports puissants
 
-L'interpréteur lui-même semble très naturel à toute personne ayant utilisé Python et un traitement de texte, car c'est une combinaison des deux à certains égards : vous pouvez exécuter des blocs de code Python, mais vous pouvez également rédiger des notes et d'autres types de texte en modifiant le style d'une cellule de " Code " à " Texte " à l'aide du menu déroulant dans la barre d'outils :
+L'interpréteur lui-même doit sembler très naturel à toute personne ayant utilisé Python et un traitement de texte, car il est une combinaison des deux à certains égards : vous pouvez exécuter des blocs de code Python, mais vous pouvez également conserver des notes et autres textes en modifiant le style d'une cellule de " Code " à " Texte ", à l'aide du menu déroulant de la barre d'outils :
 
 ![Screenshot](./media/virtual-machines-python-ipython-notebook/ipy-notebook-005.png)
 
 
-Mais il s'agit bien plus que d'un traitement de texte, car l'interpréteur IPython permet l'association de calculs et de supports puissants (texte, graphiques, vidéos et, virtuellement, tout ce qu'un navigateur Web moderne peut afficher). Par exemple, vous pouvez associer des vidéos d'explication à des calculs à des fins de formation :
+Mais l'intégrateur est bien plus qu'un traitement de texte, car il permet la combinaison de calculs et de supports puissants (texte, graphiques, vidéo et pratiquement tout ce qu'un navigateur web moderne peut afficher). Par exemple, vous pouvez combiner des vidéos explicatives à un calcul à des fins pédagogiques :
 
 ![Screenshot](./media/virtual-machines-python-ipython-notebook/ipy-notebook-006.png)
- ou intégrer des sites Web externes, qui restent actifs et utilisables, dans un fichier de l'interpréteur :
+
+ou intégrer des sites web externes, qui restent actifs et utilisables, dans un fichier de l'interpréteur :
 
 ![Screenshot](./media/virtual-machines-python-ipython-notebook/ipy-notebook-007.png)
 
-Et avec la puissance des nombreuses bibliothèques d'excellence de Python pour le calcul scientifique et technique, un simple calcul peut être effectué avec la même facilité qu'une analyse complexe de réseau, le tout dans un même environnement :
+Et grâce à la puissance des nombreuses bibliothèques d'excellence de Python pour le calcul scientifique et technique, un calcul simple peut être effectué avec la même facilité qu'une analyse de réseau complexe, dans un environnement unique :
 
 ![Screenshot](./media/virtual-machines-python-ipython-notebook/ipy-notebook-008.png)
 
-Ce paradigme d'association de la puissance du Web avec le calcul dynamique offre de nombreuses possibilités et est idéalement approprié au cloud. L'interpréteur peut être utilisé :
+Ce paradigme d'association de la puissance du web moderne avec le calcul dynamique offre de nombreuses possibilités et est idéal pour le cloud. L'intégrateur peut être utilisé :
 
 * en tant que bloc-notes de calcul afin d'enregistrer le travail exploratoire relatif à un problème ;
 
-* pour partager les résultats avec des collègues, sous la forme d'un calcul  'live' ou
-  aux formats de sortie papier (HTML, PDF) ;
+* pour partager les résultats avec des collègues, sous la forme d'un calcul 'live' ou aux formats de sortie papier (HTML, PDF) ;
 
-* pour distribuer et présenter des supports de formation en direct impliquant le calcul
-  pour que les étudiants puissent immédiatement utiliser le code réel, le modifier et
-  le réexécuter de façon interactive ;
+* pour distribuer et présenter des supports de formation en direct impliquant le calcul pour que les étudiants puissent immédiatement utiliser le code réel, le modifier et le réexécuter de façon interactive ;
 
-* pour fournir des " papiers exécutables " qui présentent les résultats de la recherche d'une manière
-  qui peut être immédiatement reproduite, validée et étendue par d'autres utilisateurs,
+* pour fournir des " papiers exécutables " qui présentent les résultats de la recherche d'une manière qui peut être immédiatement reproduite, validée et étendue par d'autres utilisateurs,
 
-* en tant que plate-forme pour le calcul collaboratif : plusieurs utilisateurs peuvent se connecter au
-  même serveur d'interpréteur afin de partager une session de calcul en direct,
+* en tant que plate-forme pour le calcul collaboratif : plusieurs utilisateurs peuvent se connecter au même serveur d'interpréteur afin de partager une session de calcul en direct,
 
 * et bien plus...
 
-Si vous accédez au référentiel de code source IPython, vous trouverez un répertoire complet avec des [exemples d'interpréteur](https://github.com/ipython/ipython/tree/master/examples/notebooks), que vous pouvez télécharger, puis expérimenter avec votre propre machine virtuelle Azure IPython.
-Téléchargez simplement les fichiers `.ipynb` depuis le site et chargez-les sur le tableau de bord de la machine virtuelle Azure de l'interpréteur (ou téléchargez-les directement dans la machine virtuelle).
+Si vous accédez au code source IPython [référentiel][repository], vous trouverez tout un répertoire avec des exemples d'intégrateur que vous pouvez télécharger et expérimenter sur votre propre machine virtuelle Azure IPython. Téléchargez simplement les fichiers `.ipynb` depuis le site et chargez-les sur le tableau de bord de la machine virtuelle Azure de l'interpréteur (ou téléchargez-les directement dans la machine virtuelle).
 
 ## Conclusion
 
-L'interpréteur IPython Notebook offre une interface haute performance pour accéder interactivement à la puissance de l'écosystème Python sur Azure.  Il couvre une large gamme de cas d'utilisation, notamment les simples exploration et apprentissage de Python, l'analyse et la visualisation des données, le calcul de simulation et parallèle. Les documents d'interpréteur résultant contiennent un enregistrement complet des calculs qui sont effectués et peuvent être partagés avec d'autres utilisateurs IPython.  L'interpréteur IPython Notebook peut être utilisé comme application locale mais est idéalement adapté pour des déploiements dans le cloud sur Azure.
+L'interpréteur IPython Notebook fournit une interface puissante pour accéder interactivement à la puissance de l'écosystème Python sur Azure.  Il couvre une large gamme d'exemples d'utilisation, notamment la simple exploration et l'apprentissage Python, l'analyse des données et la visualisation, la simulation et le calcul parallèle. Les documents d'intégrateur résultant contiennent un enregistrement complet des calculs qui sont effectués et peuvent être partagés avec d'autres utilisateurs IPython.  L'interpréteur IPython Notebook peut être utilisé comme une application locale mais est idéalement adapté pour des déploiements dans le cloud sur Azure
 
-Les fonctionnalités principales d'IPython sont également disponibles dans Visual Studio par l'intermédiaire des 
-[outils Python pour Visual Studio](http://pytools.codeplex.com) (PTVS). PTVS est un plug-in open source gratuit de Microsoft qui transforme Visual Studio en environnement de développement Python avancé qui inclut un éditeur avancé avec IntelliSense, ainsi qu'une intégration de débogage, de profilage et de calcul parallèle.
+Les fonctionnalités principales d'IPython sont également disponibles dans Visual Studio par l'intermédiaire des [outils Python pour Visual Studio][Python Tools for Visual Studio] (PTVS). PTVS est un plug-in gratuit et open source de Microsoft qui transforme Visual Studio en un environnement de développement Python avancé qui inclut un éditeur avancé avec IntelliSense, le débogage, le profilage et l'intégration de l'informatique parallèle.
 
 
 
@@ -293,10 +272,13 @@ Les fonctionnalités principales d'IPython sont également disponibles dans Visu
 [NumPy]:        http://www.numpy.org/               "NumPy"
 [Matplotlib]:   http://matplotlib.sourceforge.net/  "Matplotlib"
 
-[portal-vm-windows]: /fr-fr/manage/windows/tutorials/virtual-machine-from-gallery/
-[portal-vm-linux]: /fr-fr/manage/linux/tutorials/virtual-machine-from-gallery/
+[portal-vm-windows]: /manage/windows/tutorials/virtual-machine-from-gallery/
+[portal-vm-linux]: /manage/linux/tutorials/virtual-machine-from-gallery/
 
+[repository]: https://github.com/ipython/ipython
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
 
+[Python 2.7]: http://www.python.org/download
+[OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

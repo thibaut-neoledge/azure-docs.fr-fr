@@ -19,7 +19,7 @@
 
 # Connexion à un compte Media Services à l'aide de l'API REST
 
-Cet article fait partie des séries [workflow à la demande de vidéo Media Services](../media-services-video-on-demand-workflow) et [workflow de vidéo en flux continu Media Services](../media-services-live-streaming-workflow) . 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) et [workflow de vidéo en flux continu Media Services](../media-services-live-streaming-workflow) . 
 
 Cette rubrique décrit comment obtenir une connexion à Microsoft Azure Media Services par programme lorsque vous programmez avec l'API REST Media Services.
 
@@ -40,7 +40,7 @@ Les étapes suivantes décrivent le flux de travail habituel lors de l'utilisati
 		HTTP/1.1 301 Moved Permanently
 		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-	Vous devez enregistrer vos appels d'API suivants à https://wamsbayclus001rest-hs.cloudapp.net/api/.
+	Vous devez envoyer vos appels d'API suivants à https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
 ##obtention d'un jeton d'accès
 
@@ -63,7 +63,7 @@ L'exemple suivant montre l'en-tête et le corps de demande HTTP qui permet de r�
 
 Il convient de vérifier les valeurs client_id et client_secret dans le corps de cette demande ; client_id et client_secret correspondent aux valeurs AccountName et AccountKey, respectivement. Ces valeurs sont fournies par Media Services pour vous lorsque vous configurez votre compte. 
 
-Notez que l'AccountKey de votre compte Media Services doit être codée dans une URL lors de son utilisation en tant que valeur client_secret dans votre demande de jeton d'accès.
+Notez que la valeur AccountKey de votre compte Media Services doit être encodée dans l'URL quand vous l'utilisez comme valeur client_secret dans votre demande de jeton d'accès.
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
@@ -101,9 +101,9 @@ Veillez à analyser la valeur " expires_in " du jeton d'accès et à mettre à j
 
 ###connexion à l'URI Media Services
 
-L'URI racine pour Media Services est https://media.windows.net/. Vous devez vous connecter initialement à cet URI, et si vous obtenez une redirection 301 en réponse, vous devez effectuer les appels suivants au nouvel URI. En outre, n'utilisez pas de logique de redirection automatique/de suivi dans vos demandes. Les verbes HTTP et les corps de demande ne seront pas transférés au nouvel URI.
+L'URI racine de Media Services est https://media.windows.net/. Pour commencer, connectez-vous à cet URI. Si vous obtenez une redirection 301 en réponse, adressez les appels suivants au nouvel URI. En outre, n'utilisez pas de logique de redirection automatique/de suivi dans vos demandes. Les verbes HTTP et les corps de demande ne seront pas transférés au nouvel URI.
 
-Notez que l'URI racine pour le téléchargement des fichiers de ressource est https://votrecomptedestockage.blob.core.windows.net/, où le nom du compte de stockage est le même que celui utilisé lors de la configuration de votre compte Media Services.
+Notez que l'URI racine pour le téléchargement de fichiers de ressources est https://yourstorageaccount.blob.core.windows.net/, le nom du compte de stockage étant le même que celui que vous avez utilisé à l'étape de configuration de votre compte Media Services.
 
 L'exemple suivant montre la demande HTTP vers l'URI racine de Media Services (https://media.windows.net/). La demande obtient une redirection 301 en réponse. La demande suivante utilise le nouvel URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).     
 
@@ -169,4 +169,4 @@ L'exemple suivant montre la demande HTTP vers l'URI racine de Media Services (ht
 
 <!-- URLs. -->
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

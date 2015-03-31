@@ -27,7 +27,7 @@ Ensuite, vous allez inscrire votre application auprès d'Apple, activer les noti
 
 Pour pouvoir envoyer des notifications Push vers une application iOS à partir des services mobiles, vous devez inscrire votre application auprès d'Apple, ainsi qu'aux notifications Push.  
 
-1. Si vous n'avez pas déjà inscrit votre application, accédez au <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portail d'approvisionnement iOS</a> dans le centre de développement Apple, connectez-vous avec votre ID Apple, cliquez sur **Identificateurs**, puis cliquez sur **App IDs** et enfin cliquez sur le signe **+** pour inscrire une nouvelle application.
+1. Si vous n'avez pas encore inscrit votre application, accédez au <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portail d'approvisionnement iOS</a> dans le centre de développement Apple, connectez-vous avec votre ID Apple, cliquez sur **Identificateurs**, sur **App IDs**, puis sur le signe **+** pour inscrire une nouvelle application.
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-02.png)
 
@@ -76,7 +76,7 @@ Pour pouvoir envoyer des notifications Push vers une application iOS à partir d
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-11.png)
 
-   	Ceci entraîne le téléchargement du certificat de signature et l'enregistre sur votre ordinateur dans le dossier Téléchargements.
+   	Ceci entraîne le téléchargement du certificat de signature et son enregistrement sur votre ordinateur dans le dossier Téléchargements.
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step9.png)
 
@@ -94,7 +94,7 @@ Plus tard, vous devrez utiliser ce certificat pour générer un fichier .p12 et 
 
 ## <a id="profile"></a>Création d'un profil d'approvisionnement pour l'application
 
-1. Dans le <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portail d'approvisionnement iOS</a>, sélectionnez **Provisioning Profiles**, puis **All**, et cliquez sur le bouton **+** pour créer un nouveau profil. Ceci démarre l'assistant **Ajouter le profil d'approvisionnement iOS**.
+1. Dans le <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portail d'approvisionnement iOS</a>, sélectionnez **Provisioning Profiles**, puis **All**, et cliquez sur le bouton **+** pour créer un profil. Ceci démarre l'assistant **Ajouter le profil d'approvisionnement iOS**.
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-12.png)
 
@@ -129,4 +129,5 @@ Plus tard, vous devrez utiliser ce certificat pour générer un fichier .p12 et 
 9. Sous **Cibles**, cliquez sur **Démarrage rapide**, développez **Identité de signature du code**, puis sélectionnez le nouveau profil sous **Débogage**. Ceci vérifie que le projet Xcode utilise le nouveau profil pour la signature du code. Vous devez ensuite télécharger le certificat vers Azure.
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step17.png)
-<!--HONumber=42-->
+
+<!--HONumber=47-->
