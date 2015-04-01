@@ -1,4 +1,4 @@
-﻿<p<properties 
+﻿<properties 
 	pageTitle="Gestion de votre service Search sur Microsoft Azure" 
 	description="Gestion de votre service Search sur Microsoft Azure" 
 	services="search" 

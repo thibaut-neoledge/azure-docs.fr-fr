@@ -1,5 +1,5 @@
 <properties 
-	   pageTitle="Automatisation du déploiement de machine virtuelle Azure avec Chef 
+	   pageTitle="Automatisation du déploiement de machine virtuelle Azure avec Chef" 
 	   description ="L'art de l'automatisation de machine virtuelle Azure avec Chef" 
 	   services="virtual-machines" 
 	   documentationCenter="" 
