@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Prise en main d'Azure Notification Hubs" description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push." services="notification-hubs" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+<properties pageTitle="Prise en main d'Azure Notification Hubs" description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push." services="notification-hubs" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
@@ -28,7 +28,7 @@ Ce didacticiel présente un scénario de diffusion simple utilisant les concentr
 Ce didacticiel requiert les éléments suivants :
 
 + le Kit de développement logiciel (SDK) Android (nous présumons que vous utiliserez Eclipse), que vous pouvez télécharger <a href="http://go.microsoft.com/fwlink/?LinkId=389797">ici</a> ;
-+ le [Kit de développement logiciel (SDK) Mobile Services Android]
++ le [Kit de développement logiciel (SDK) Mobile Services pour Android]
 
 Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacticiels Notification Hubs pour les applications Android. 
 
@@ -340,8 +340,8 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 [objet wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 
-[Utilisation de Notification Hubs pour envoyer des notifications aux utilisateurs]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
-[Utilisation de Notification Hubs pour diffuser les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet
+[Utilisation de Notification Hubs pour envoyer des notifications Push aux utilisateurs]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
+[Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet
 
 
 <!--HONumber=45--> 

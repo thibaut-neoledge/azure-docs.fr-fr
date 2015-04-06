@@ -1,4 +1,4 @@
-﻿
+
 Cette section montre comment envoyer des notifications à partir de .NET console application et toutes les autres.
 Si vous utilisez des Services mobiles, reportez-vous à la [prise en main Push](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/). Si vous souhaitez utiliser Java ou PHP, consultez la rubrique [Utilisation de Notification Hubs depuis Java/PHP](/fr-fr/documentation/articles/notification-hubs-java-backend-how-to/). Vous pouvez envoyer des notifications à partir d'un serveur principal à l'aide de l'[interface REST des Notification Hubs].
 
@@ -99,6 +99,6 @@ Ignorez les étapes 1 à 3 si vous avez créé une application de console lorsqu
 [objet wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Vue d'ensemble de Notification Hubs pour Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
-[Interface REST Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
+[interface REST des Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
 <!--HONumber=45--> 

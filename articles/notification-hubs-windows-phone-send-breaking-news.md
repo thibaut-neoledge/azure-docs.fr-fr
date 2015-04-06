@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Utilisation de Notification Hubs pour diffuser les dernières nouvelles (Windows Phone)" 
 	description="Utilisez Azure Notification Hubs afin d'utiliser dans les inscriptions une balise permettant d'envoyer les dernières nouvelles à une application Windows Phone." 
 	services="notification-hubs" 
@@ -249,7 +249,7 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 
 <!-- URLs.-->
 [Prise en main de Notification Hubs]: /fr-fr/manage/services/notification-hubs/get-started-notification-hubs-wp8/
-[Utilisation de Notification Hubs pour diffuser les dernières nouvelles localisées] : ./breakingnews-localized-wp8.md 
+[Utilisation de Notification Hubs pour diffuser les dernières nouvelles localisées]: ./breakingnews-localized-wp8.md 
 [Notification des utilisateurs avec Notification Hubs]: /fr-fr/manage/services/notification-hubs/notify-users/
 [Mobile Service]: /fr-fr/develop/mobile/tutorials/get-started
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
