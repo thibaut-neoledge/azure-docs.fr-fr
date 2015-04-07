@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Prise en main de Notification Hubs pour les applications Xamarin iOS" 
 	description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push à une application Xamarin iOS." 
 	services="mobile-services" 
@@ -44,7 +44,7 @@ Ce didacticiel présente un scénario de diffusion simple utilisant les concentr
 
 Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacticiels Notification Hubs pour les applications Xamarin.iOS. 
 
-> [IMPORTANT.AZURE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-ios%2F"%20target="_blank).
+> [AZURE.IMPORTANT] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-ios%2F"%20target="_blank).
 
 Le service de notification Push Apple (APNS) utilise des certificats pour authentifier votre service mobile. Suivez ces instructions pour créer les certificats requis et les télécharger dans votre service mobile. Pour obtenir la documentation complète des fonctionnalités APNS, consultez la page [Service de notification Push Apple].
 
@@ -486,11 +486,11 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 [Installation de Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Portail d'approvisionnement iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Utilisation de Notification Hubs pour envoyer des notifications aux utilisateurs]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
-[Utilisation de Notification Hubs pour diffuser les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet
+[Utilisation de Notification Hubs pour envoyer des notifications Push aux utilisateurs]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
+[Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet
 
-[Guide de programmation des notifications Push et locales]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
-[Services de notification Push Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+[Guide de programmation des notifications locales et Push d'Apple]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[Service de notification Push Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 
 [Composant Azure Mobile Services]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Prise en main d'Azure Notification Hubs" description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push." services="notification-hubs" documentationCenter="ios" authors="ysxu" manager="dwrede" editor=""/>
+<properties pageTitle="Prise en main d'Azure Notification Hubs" description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push." services="notification-hubs" documentationCenter="ios" authors="ysxu" manager="dwrede" editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
@@ -270,9 +270,9 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 [Installation de Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Portail d'approvisionnement iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Utilisation de Notification Hubs pour envoyer des notifications aux utilisateurs]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
-[Utilisation de Notification Hubs pour diffuser les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet
+[Utilisation de Notification Hubs pour envoyer des notifications Push aux utilisateurs]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
+[Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet
 
-[Guide de programmation des notifications Push et locales]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[Guide de programmation des notifications locales et Push d'Apple]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
 <!--HONumber=45--> 

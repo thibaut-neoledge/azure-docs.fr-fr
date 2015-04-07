@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Prise en main d'Azure Notification Hubs" 
 	description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push." 
 	services="notification-hubs" 
@@ -285,8 +285,8 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 [objet wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 
-[Utilisation de Notification Hubs pour envoyer des notifications aux utilisateurs]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
-[Utilisation de Notification Hubs pour diffuser les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet
+[Utilisation des Notification Hubs pour envoyer des notifications Push aux utilisateurs]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
+[Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet
 
 [catalogue toast]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [catalogue de vignettes]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx

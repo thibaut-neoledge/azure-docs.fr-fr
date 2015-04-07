@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Didacticiel sur l'utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées pour iOS" 
 	description="Découvrez comment utiliser Azure Service Bus Notification Hubs pour envoyer des notifications de dernières nouvelles localisées (iOS)." 
 	services="notification-hubs" 
@@ -72,7 +72,7 @@ Ensuite, nous allons nous assurer que les appareils s'inscrivent avec un modèle
 		}
 	}
 
-Les modèles sont une fonctionnalité très puissante sur laquelle vous pouvez obtenir plus d'informations en lisant notre article [Recommandations relatives à Notification Hubs]. Une référence à la langue d'expression du modèle se trouve dans notre guide [ Service Bus Notification Hubs (applications iOS)].
+Les modèles sont une fonctionnalité très puissante sur laquelle vous pouvez obtenir plus d'informations en lisant notre article [Recommandations relatives à Notification Hubs]. Une référence à la langue d'expression du modèle se trouve dans notre guide [Service Bus Notification Hubs (applications iOS)].
 
 <h2><a name="ui"></a>Interface utilisateur de l'application</h2>
 
@@ -218,8 +218,8 @@ Une référence relative à la langue d'expression du modèle se trouve dans [No
 
 
 <!-- URLs. -->
-[Procédure : Service Bus Notification Hubs (applications iOS)]: http://msdn.microsoft.com/library/jj927168.aspx
-[Utilisation de Notification Hubs pour diffuser les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-ios
+[Service Bus Notification Hubs (applications iOS)]: http://msdn.microsoft.com/library/jj927168.aspx
+[Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-ios
 [Mobile Service]: /fr-fr/develop/mobile/tutorials/get-started
 [Notification des utilisateurs avec Notification Hubs : ASP.NET]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
 [Notification des utilisateurs avec Notification Hubs : Mobile Services]: /fr-fr/manage/services/notification-hubs/notify-users
@@ -238,6 +238,6 @@ Une référence relative à la langue d'expression du modèle se trouve dans [No
 [Étapes de l'inscription de Windows Developer Preview pour Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
 [objet wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
-[Procédures Notification Hubs pour iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs, procédure pour iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 
 <!--HONumber=45--> 

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Didacticiel sur l'utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées" 
 	description="Découvrez comment utiliser Azure Service Bus Notification Hubs pour envoyer des notifications de dernières nouvelles localisées." 
 	services="notification-hubs" 
@@ -41,7 +41,7 @@ Ce scénario comporte deux parties :
 
 ##Conditions préalables ##
 
-Vous devez avoir suivi le didacticiel [Utilisation de Notifications Hubs pour envoyer les dernières nouvelles] et avoir le code à disposition, car le présent didacticiel est basé sur ce code. 
+Vous devez avoir suivi le didacticiel [Utilisation de Notification Hubs pour envoyer les dernières nouvelles] et avoir le code à disposition, car le présent didacticiel est basé sur ce code. 
 
 Vous avez également besoin de Visual Studio 2012.
 
@@ -218,7 +218,7 @@ Pour plus d'informations sur l'utilisation de modèles, consultez [Notification 
 [Mobile Service]: /fr-fr/develop/mobile/tutorials/get-started
 [Notification des utilisateurs avec Notification Hubs : ASP.NET]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
 [Notification des utilisateurs avec Notification Hubs : Mobile Services]: /fr-fr/manage/services/notification-hubs/notify-users
-[Utilisation de Notification Hubs pour diffuser les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet 
+[Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet 
 
 [Page Soumette une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mes Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -235,6 +235,6 @@ Pour plus d'informations sur l'utilisation de modèles, consultez [Notification 
 [objet wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Procédures Notification Hubs pour iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-[Vue d'ensemble de Notification Hubs pour Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+[Notification Hubs, procédures pour Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 
 <!--HONumber=45--> 

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Prise en main d'Azure Notification Hubs" 
 	description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push." 
 	services="notification-hubs" 
@@ -267,7 +267,7 @@ Pour envoyer un message à l'aide de .NET :
 
 <!-- URLs. -->
 [portail des développeurs]: https://developer.amazon.com/home.html
-[télécharger le Kit de développement logiciel (SDK)]: https://developer.amazon.com/public/resources/development-tools/sdk
+[téléchargez le Kit de développement logiciel (SDK)]: https://developer.amazon.com/public/resources/development-tools/sdk
 
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
 [1]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal2.png

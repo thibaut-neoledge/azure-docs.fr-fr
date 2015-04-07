@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Prise en main d'Azure Notification Hubs" 
 	description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push." 
 	services="notification-hubs" 
@@ -215,11 +215,11 @@ Dans cet exemple simple, vous diffusez des notifications à tous vos appareils W
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
-[Procédure Notification Hubs pour Windows Phone 8]: à d.
+
 [Mode MPNS authentifié]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
-[Utilisation de Notification Hubs pour envoyer des notifications aux utilisateurs]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
-[Utilisation de Notification Hubs pour diffuser les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet
+[Utilisation des Notification Hubs pour envoyer des notifications Push aux utilisateurs]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
+[Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet
 [catalogue toast]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
-[catalogue de vignettes]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
+[catalogue de modèles de vignette]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 
 <!--HONumber=45--> 
