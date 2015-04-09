@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="11/22/2014" 
@@ -19,12 +19,12 @@
 # Authentification unique de votre application Windows Phone 8 avec Live Connect
 
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#">Windows Store C#</a><a href="/fr-fr/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/fr-fr/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone" class="current">Windows Phone</a>
+	<a href="/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#">C# Windows Store </a><a href="/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript">JavaScript Windows Store </a><a href="/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone" class="current">Windows Phone</a>
 </div>	
 
 Cette rubrique vous montre comment utiliser la solution d'authentification unique Live Connect pour authentifier les utilisateurs dans Azure Mobile Services depuis une application Windows Phone 8.  Dans ce didacticiel, vous allez ajouter le processus d'authentification au projet de démarrage rapide à l'aide de Live Connect. Après avoir été authentifié par Live Connect, l'utilisateur connecté est accueilli par son nom et son ID est affiché.  
 
->[AZURE.NOTE]Ce didacticiel montre les avantages de l'authentification unique Live Connect pour les applications Windows Phone. Cette fonction vous permet d'authentifier plus facilement un utilisateur déjà connecté avec votre service mobile. Pour une expérience d'authentification plus globale permettant la prise en charge de plusieurs fournisseurs de services d'authentification, consultez la rubrique <a href="/fr-fr/documentation/articles/mobile-services-windows-phone-get-started-users">Ajout d'authentification à votre application</a>. 
+>[AZURE.NOTE]Ce didacticiel montre les avantages de l'authentification unique Live Connect pour les applications Windows Phone. Cette fonction vous permet d'authentifier plus facilement un utilisateur déjà connecté avec votre service mobile. Pour une expérience d'authentification plus globale prenant en charge plusieurs fournisseurs de services d'authentification, consultez la rubrique <a href="mobile-services-windows-phone-get-started-users.md">Ajout d'une authentification à votre application</a>. 
 
 Ce didacticiel vous familiarise avec les étapes de base pour activer l'authentification Live Connect :
 
@@ -42,7 +42,7 @@ Ce didacticiel requiert les éléments suivants :
 
 Pour pouvoir authentifier des utilisateurs, vous devez inscrire votre application dans le Centre des développeurs Live Connect. Vous devez ensuite inscrire la clé secrète client pour intégrer Live Connect à Mobile Services.
 
-1. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur le service mobile.
+1. Connectez-vous au [portail de gestion Azure], sélectionnez **Mobile Services**, puis cliquez sur le service mobile.
 
    	![][4]
 
@@ -80,7 +80,7 @@ Votre service mobile et votre application sont désormais configurés pour utili
 
    	![][14]
 
-2. Cliquez sur l'onglet **Autorisations**, définissez toutes les autorisations sur **Seuls les utilisateurs authentifiés**, puis cliquez sur **Enregistrer**. Cela permet de s'assurer que toutes les opérations effectuées sur la table **TodoItem** requièrent un utilisateur authentifié. Cela simplifie aussi les scripts dans le didacticiel suivant, car il ne sera pas nécessaire d'autoriser la possibilité d'utilisateurs anonymes.
+2. Cliquez sur l'onglet **Autorisations**, définissez toutes les autorisations sur **Seuls les utilisateurs authentifiés**, puis cliquez sur **Enregistrer**. Cela permet de s'assurer que toutes les opérations effectuées sur la table **TodoItem** requièrent un utilisateur authentifié. De même, cela simplifie les scripts dans le didacticiel suivant, car il n'est pas nécessaire de prendre en compte les utilisateurs anonymes.
 
    	![][15]
 
@@ -140,9 +140,9 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 7. Mettez à jour la chaîne << INSERT CLIENT ID HERE >> de l'étape précédente avec la valeur d'ID client générée lorsque vous avez inscrit votre application auprès de Live Connect.
 
-    > [AZURE.NOTE] Dans une application Windows Phone 8, une instance de la classe **LiveAuthClient** est créée en transmettant la valeur d'ID cliente au constructeur de classe. Dans une [application Windows Store](/fr-fr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/), la même classe est instanciée en transmettant l'URI du domaine de redirection.
+    > [AZURE.NOTE] Dans une application Windows Phone 8, une instance de la classe **LiveAuthClient** est créée en transmettant la valeur d'ID cliente au constructeur de classe. Dans une [application Windows Store](/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/), la même classe est instanciée en transmettant l'URI du domaine de redirection.
 
-8. Supprimez le remplacement de méthode **OnNavigatedTo** existant (ou convertissez-le en commentaires) et remplacez-le par la méthode suivante qui gère l'événement **Loaded** pour la page. 
+8. Supprimez ou placez en commentaire le remplacement de méthode **OnNavigatedTo** existant et remplacez-le par la méthode suivante qui gère l'événement **Loaded** pour la page. 
 
         async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
@@ -161,7 +161,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
             this.Loaded += MainPage_Loaded;
         }
 
-   	Ce constructeur enregistre également le gestionnaire pour l'événement Loaded.
+   	Ce constructeur inscrit aussi le gestionnaire pour l'événement Loaded.
 		
 9. Appuyez sur la touche F5 pour exécuter l'application et vous connecter à Live Connect avec votre compte Microsoft. 
 
@@ -185,18 +185,16 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 
 [13]: ./media/mobile-services-windows-phone-single-sign-on/mobile-identity-tab-ma-only.png
 [14]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-change-table-per
-	ms.png
+[15]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-change-table-perms.png
 [16]: ./media/mobile-services-windows-phone-single-sign-on/mobile-add-reference-live-wp8.png
 
 <!-- URLs. -->
 [Mes Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Kit de développement logiciel (SDK) Live pour Windows et Windows Phone]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Ajout de Mobile Services à une application existante]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-data/
-[Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-users
-[Autorisation des utilisateurs avec des scripts]: /fr-fr/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/
+[Ajout de Mobile Services à une application existante]: mobile-services-windows-phone-get-started-data.md
+[Prise en main de l'authentification]: mobile-services-windows-phone-get-started-users.md
+[Autorisation des utilisateurs avec des scripts]: mobile-services-windows-phone-authorize-users-in-scripts.md
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

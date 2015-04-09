@@ -43,7 +43,7 @@ Le plug-in prend en charge le chargement et la lecture de contenu Smooth Streami
 - Plusieurs langues avec API OSMF intégrées
 - Sélection de la qualité de lecture maximale avec API OSMF intégrées
 - Sous-titres Sidecar avec plug-in de sous-titres OSMF
-- Adobe&reg; Flash&reg; Player 10.2 ou version ultérieure.
+- Adobe&reg; Flash&reg; Player 10.2 ou une version ultérieure.
 - Cette version ne prend en charge qu'OSMF 2.0.
 
 Les fonctionnalités suivantes ne sont pas prises en charge :
@@ -66,7 +66,7 @@ Les plug-ins OSMF peuvent être chargés de façon statique (à la compilation) 
 
 - Chargement dynamique : pour le chargement dynamique, un fichier précompilé (SWF) est nécessaire. Les plug-ins dynamiques sont chargés dans le runtime et ne sont pas intégrés au résultat du projet. (Résultat compilé) Les plug-ins dynamiques peuvent être chargés avec les protocoles HTTP ou FILE.
 
-Pour plus d'informations sur le chargement statique et dynamique, consultez la page [plug-in OSMF](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
+Pour plus d'informations sur le chargement statique et dynamique, consultez la page officielle des [plug-ins OSMF](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
 
 ###Chargement de SS pour OSMF statique
 L'extrait de code qui suit montre comment charger le plug-in SS de façon statique pour OSMF et lire une vidéo simple à l'aide de la classe OSMF MediaFactory. Avant d'inclure le code SS pour OSMF, assurez-vous que la référence de projet comprend le plug-in statique " MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc ".
@@ -206,7 +206,7 @@ package
 
 ###Chargement de SS pour OSMF dynamique
 
-L'extrait de code qui suit montre comment charger le plug-in SS de façon dynamique pour OSMF et lire une vidéo simple à l'aide de la classe OSMF MediaFactory. Avant d'ajouter le code SS pour OSMF, copiez le plug-in dynamique MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf dans le dossier du projet si vous voulez effectuer le chargement avec le protocole FILE ou bien copiez-le sur un serveur Web pour le chargement HTTP. Il n'est pas nécessaire d'inclure MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc dans les références du projet.
+L'extrait de code qui suit montre comment charger le plug-in SS de façon dynamique pour OSMF et lire une vidéo simple à l'aide de la classe OSMF MediaFactory. Avant d'inclure le code SS pour OSMF, copiez le plug-in dynamique "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" dans le dossier du projet si vous voulez effectuer le chargement avec le protocole FILE ou bien copiez-le sur un serveur web pour le chargement HTTP. Il n'est pas nécessaire d'inclure "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" dans les références du projet.
 
 <pre><code>
 package 
@@ -343,13 +343,13 @@ package
 </code></pre>
 
 ##Lecture Strobe Media Playback avec le plug-in dynamique SS OSMF
-Le plug-in dynamique Smooth Streaming pour OSMF est compatible avec [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). Vous pouvez utiliser le plug-in SS pour OSMF pour ajouter la lecture Smooth Streaming à SMP. Pour cela, copiez MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf sur un serveur Web pour le chargement HTTP, en appliquant la procédure suivante :
+Le plug-in dynamique Smooth Streaming pour OSMF est compatible avec [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). Vous pouvez utiliser le plug-in SS pour OSMF pour ajouter la lecture Smooth Streaming à SMP. Pour ce faire, copiez "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" sur un serveur web pour le chargement HTTP en procédant comme suit :
 
 1.	Accédez à la page d'installation de [Strobe Media Playback](http://osmf.org/dev/2.0gm/setup.html). 
 2.	Définissez src sur une source Smooth Streaming (par exemple http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
 3.	Appliquez les modifications souhaitées à la configuration, puis cliquez sur Preview and Update.
  
-	**Remarque** Votre serveur Web de contenu doit disposer d'un fichier crossdomain.xml valide. 
+	**Remarque** Votre serveur web de contenu doit disposer d'un fichier crossdomain.xml valide.
 4.	Copiez et collez le code dans une page HTML à l'aide de votre éditeur de texte, comme dans cet exemple :
 
 
@@ -399,9 +399,9 @@ Le plug-in dynamique Smooth Streaming pour OSMF est compatible avec [Strobe Medi
 		</html>
 
 
-6. 	Enregistrez votre page HTML et publiez-la sur un serveur Web. Accédez à la page web publiée à l'aide de votre navigateur Internet compatible avec Flash&reg; Player (Internet Explorer, Chrome, Firefox, etc.).
+6. 	Enregistrez votre page HTML et publiez-la sur un serveur Web. Accédez à la page web publiée à l'aide d'un navigateur Internet compatible avec Flash&reg; Player (Internet Explorer, Chrome, Firefox, etc.).
 7. 	Accédez au contenu Smooth Streaming dans Adobe&reg; Flash&reg; Player.
 
 Pour plus d'informations sur le développement avec OSMF, consultez la page officielle [sur le développement pour OSMF](http://osmf.org/resources.html).
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

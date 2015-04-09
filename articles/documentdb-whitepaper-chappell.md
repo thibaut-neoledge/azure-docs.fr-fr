@@ -18,7 +18,7 @@
 
 # Livre blanc DocumentDB, par David Chappell 
 
-**Résumé :** découvrez DocumentDB, une base de données NoSQL géré sur Microsoft Azure. DocumentDB est un choix de technologie de base de données idéal dans les cas suivants :
+**Résumé** : découvrez DocumentDB, une base de données NoSQL gérée sur Microsoft Azure. DocumentDB est un choix de technologie de base de données idéal dans les cas suivants :
 
 * Vous désirez enrichir votre application d'un modèle de données sans schéma.
 * Votre base de données a besoin d'une mise à l'échelle pour un stockage et un débit volumineux.
@@ -31,9 +31,9 @@ Ce livre blanc couvre également les concepts fondamentaux suivants :
 * les options à disposition des applications pour équilibrer les performances de façon cohérente.
 
 
-**Date de publication :** 10 septembre 2014
+**Date de publication** : 10 septembre 2014
 
-**Téléchargement :** [Présentation de DocumentDB - Une base de données NoSQL pour Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
+**Téléchargement** : [Présentation de DocumentDB - Une base de données NoSQL pour Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

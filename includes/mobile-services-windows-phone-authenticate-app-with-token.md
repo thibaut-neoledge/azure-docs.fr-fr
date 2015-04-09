@@ -85,11 +85,12 @@ L'exemple précédent montrait une connexion standard, qui nécessite que le cli
             }
         }
 
-	Dans cette version de **AuthenticateAsync**, l'application essaye d'utiliser des informations d'identification chiffrées dans le stockage local pour accéder au service mobile. Une requête simple est envoyée pour vérifier que le jeton stocké n'est pas expiré. Quand une erreur 401 est retournée, une connexion basée sur un fournisseur habituel est tentée. Une connexion normale est également effectuée quand il n'y a pas d'informations d'identification stockées.	
+	Dans cette version de la méthode **AuthenticateAsync**, l'application essaie d'utiliser des informations d'identification chiffrées dans l'espace de stockage local pour accéder au service mobile. Une requête simple est envoyée pour vérifier que le jeton stocké n'est pas expiré. Quand une erreur 401 est retournée, une connexion normale basée sur un fournisseur est tentée. Une connexion normale est également effectuée quand aucune information d'identification n'est stockée.	
 
 	>[AZURE.NOTE]Cette application teste s'il y a des jetons expirés pendant la connexion, mais l'expiration des jetons peut également survenir après l'authentification, alors que l'application est en cours d'utilisation. Pour une solution permettant de gérer les erreurs d'autorisation liées à des jetons expirés, consultez le post [Mise en cache et gestion des jetons expirés dans le Kit de développement logiciel (SDK) managé d'Azure Mobile Services](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
 	
 3. Redémarrez l'application deux fois.
 
 	Notez que lors du premier démarrage, la connexion avec le fournisseur est à nouveau requise. Cependant, lors du second redémarrage, les informations d'identification mises en cache sont utilisées et l'étape de connexion est ignorée. 
-\<!--HONumber=42-->
+
+<!--HONumber=49-->

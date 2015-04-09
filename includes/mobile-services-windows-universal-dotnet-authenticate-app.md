@@ -55,12 +55,12 @@
             RefreshTodoItems();
         }
 		
-5. Dans le projet d'application Windows Store, ouvrez le fichier de projet MainPage.xaml, puis ajoutez l'élément **Bouton** suivant juste avant l'élément définissant le bouton **Enregistrer** :
+5. Dans le projet d'application du Windows Store, ouvrez le fichier projet MainPage.xaml, puis ajoutez l'élément **Button** suivant juste avant l'élément définissant le bouton **Enregistrer** :
 
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. Répétez l'étape précédente pour le projet d'application Windows Phone Store, mais cette fois, ajoutez le **Bouton** dans **TitlePanel**, après l'élément **TextBlock**.
+6. Répétez l'étape précédente pour le projet d'application du Windows Phone Store, mais cette fois, ajoutez l'élément **Button** dans **TitlePanel**, après l'élément **TextBlock**.
 
 5. Ouvrez le fichier de projet partagé App.xaml.cs, puis ajoutez l'instruction using suivante, si elle n'est pas déjà présente :
 
@@ -83,11 +83,12 @@
             base.OnActivated(args);
         }
 
-	Si la méthode **OnActivated** existe déjà, ajoutez simplement le bloc de code " #if... #endif ".
+	If the **OnActivated** method already exists, just add the `#if...#endif` code block.
 
 8. Appuyez sur la touche F5 pour exécuter l'application Windows Store, puis cliquez sur le bouton **Se connecter** pour vous connecter à l'application avec le fournisseur d'identité choisi. 
 
    	Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
 
-9. Cliquez avec le bouton droit sur le projet d'application Windows Phone Store, cliquez sur **Définir comme projet de démarrage**, puis répétez l'étape précédente pour vérifier que l'application Windows Phone Store s'exécute correctement.  
-\<!--HONumber=42-->
+9. Cliquez avec le bouton droit sur le projet d'application du Windows Phone Store, cliquez sur **Définir comme projet de démarrage**, puis répétez l'étape précédente pour vérifier que l'application du Windows Phone Store s'exécute correctement.  
+
+<!--HONumber=49-->

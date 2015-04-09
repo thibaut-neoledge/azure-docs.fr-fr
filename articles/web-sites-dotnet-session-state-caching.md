@@ -1,55 +1,47 @@
-<properties 
-	pageTitle="Utilisation de l'état de session ASP.NET avec Sites Web Azure" 
+﻿<properties 
+	pageTitle="État de session avec Cache Redis Azure dans Azure App Service" 
 	description="Découvrez comment utiliser Azure Cache Service pour prendre en charge la mise en cache de l'état de session ASP.NET." 
-	services="cache" 
+	services="app-service\web" 
 	documentationCenter=".net" 
-	authors="riande" 
+ 	authors="Rick-Anderson" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="1/13/2015" 
-	ms.author="Rick-Anderson"/>
+	ms.date="03/24/2015" 
+	ms.author="riande"/>
 
 
-# Comment utiliser l'état de session ASP.NET avec Sites Web Azure
+# État de session avec Cache Redis Azure dans Azure App Service
 
 
-Cette rubrique vous explique comment utiliser le service Cache Redis Azure (Preview) pour l'état de session.
+Cette rubrique explique comment utiliser le service Cache Redis Azure pour l'état de session.
 
-Si votre application Web ASP.NET utilise l'état de session, vous devez configurer un fournisseur d'état de session externe (le service Redis Cache ou un fournisseur d'état de session SQL). Si vous utilisez l'état de session, mais aucun fournisseur externe, vous êtes limité à une seule instance de votre application Web. Le service Redis Cache est la solution la plus rapide et la plus simple.
+Si votre application web ASP.NET utilise l'état de session, vous devez configurer un fournisseur d'état de session externe (le service Redis Cache ou un fournisseur d'état de session SQL). Si vous utilisez l'état de session mais aucun fournisseur externe, vous êtes limité à une seule instance de votre application web. Le service Redis Cache est la solution la plus rapide et la plus simple.
 
-La procédure de base pour utiliser Cache Service (Preview) pour la mise en cache de l'état de session comprend les étapes suivantes :
+<h2><a id="createcache"></a>Créer le cache</h2>
+Suivez [les instructions fournies](cache-dotnet-how-to-use-azure-redis-cache.md#create-cache) pour créer le cache.
 
-* [Création du cache.](#createcache)
-* [Ajout du package NuGet RedisSessionStateProvider à votre application Web.](#configureproject)
-* [Modification du fichier Web.config.](#configurewebconfig)
-* [Utilisation de l'objet Session pour stocker et récupérer des éléments mis en cache.](#usesessionobject)
+<h2><a id="configureproject"></a>Ajouter le package NuGet RedisSessionStateProvider à votre application web</h2>
+Installez le package NuGet `RedisSessionStateProvider`.  Utilisez la commande suivante pour effectuer l'installation à partir de la console du gestionnaire de package (**Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**) :
 
-<h2><a id="createcache"></a>Création du cache</h2>
-Suivez les [instructions indiquées](http://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-cache) pour créer le cache.
-
-<h2><a id="configureproject"></a>Ajout du package NuGet RedisSessionStateProvider à votre application Web</h2>
-Installez le package NuGet `RedisSessionStateProvider`.  Utilisez la commande suivante pour effectuer l'installation à partir de la console du gestionnaire de package : (**Outils** > **Gestionnaire de package NuGet** > **Console du gestionnaire de package**) :
-
-  `PM> Install-Package RedisSessionStateProvider -IncludePrerelease`
+  `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
   
-Pour effectuer l'installation à partir d'**Outils** > **Gestionnaire de package NuGet** > **Gérer les packages NuGet pour la solution**, recherchez  `RedisSessionStateProvider` en veillant à spécifier **Inclure la version préliminaire**.
+Pour effectuer l'installation à partir d'**Outils** > **Gestionnaire de package NuGet** > **Gérer les packages NugGet pour la solution**, recherchez `RedisSessionStateProvider`.
 
-Pour plus d'informations, consultez la [page NuGet RedisSessionStateProvider](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/ ) et [Configuration des clients du cache](http://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#NuGet).
+Pour plus d'informations, voir la [page NuGet RedisSessionStateProvider (en anglais)](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/ ) et [Configurer les clients du cache](cache-dotnet-how-to-use-azure-redis-cache.md#NuGet).
 
-<h2><a id="configurewebconfig"></a>Modification du fichier web.config</h2>
-Outre la création de références d'assembly pour le cache, le package NuGet ajoute des entrées de stub dans le fichier  *web.config*. 
+<h2><a id="configurewebconfig"></a>Modifier le fichier Web.Config</h2>
+Outre la création de références d'assembly pour le cache, le package NuGet ajoute des entrées de stub dans le fichier *web.config*. 
 
-1. Ouvrez le fichier  *web.config*, puis recherchez l'élément **sessionState**.
+1. Ouvrez le fichier *web.config*, puis recherchez l'élément **sessionState**.
 
-1. Entrez les valeurs appropriées pour  `host`,  `accessKey`,  `port` (le port SSL doit être 6380), puis affectez à  `SSL` la valeur  `true`. Ces valeurs peuvent être obtenues dans le panneau de la version préliminaire du portail de gestion Azure pour votre instance de cache. Pour plus d'informations, consultez la page [Connexion au cache](http://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#connect-to-cache).
-Le balisage suivant indique les modifications apportées au fichier  *web.config*.
+1. Entrez les valeurs appropriées pour `host`, `accessKey`, `port` (le port SSL doit être 6380), puis définissez `SSL` sur `true`. Ces valeurs peuvent être obtenues à partir du panneau du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715) pour votre instance de cache. Pour plus d'informations, voir [Se connecter au cache](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Notez que le port non-SSL est désactivé par défaut pour les nouveaux caches. Pour plus d'informations sur l'activation du port non-SSL, voir la section relative aux [ports d'accès](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) dans la rubrique [Configurer un cache dans Cache Redis Azure (en anglais)](https://msdn.microsoft.com/library/azure/dn793612.aspx). Le balisage suivant présente les modifications apportées au fichier *web.config*.
 
 
   <pre class="prettyprint">  
@@ -82,24 +74,30 @@ Le balisage suivant indique les modifications apportées au fichier  *web.config
   &lt;/system.web&gt;</pre>
 
 
-<h2><a id="usesessionobject"></a>Utilisation de l'objet Session dans le code</h2>
-La dernière étape consiste à utiliser l'objet Session dans votre code ASP.NET. Pour ajouter des objets à l'état de session, utilisez la méthode **Session.Add**. Cette méthode utilise des paires clé-valeur pour stocker des éléments dans le cache d'état de session.
+<h2><a id="usesessionobject"></a>Utiliser l'objet Session dans le code</h2>
+La dernière étape consiste à utiliser l'objet Session dans votre code ASP.NET. Vous ajoutez des objets à l'état de session à l'aide de la méthode **Session.Add**. Cette méthode utilise des paires clé-valeur pour stocker des éléments dans le cache d'état de session.
 
     string strValue = "yourvalue";
 	Session.Add("yourkey", strValue);
 
-Le code suivant récupère cette valeur dans l'état de session.
+The following code retrieves this value from session state.
 
     object objValue = Session["yourkey"];
     if (objValue != null)
-       strValue = (string)obj;	
+       strValue = (string)objValue;	
 
-Vous pouvez également utiliser le Cache Redis pour mettre en cache des objets dans votre application Web. Pour plus d'informations, consultez la page [Application MVC dédiée aux films avec Cache Redis Azure en 15 minutes](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/).
-Pour plus d'informations sur l'utilisation de l'état de session ASP.NET, consultez la page [Vue d'ensemble de l'état de session ASP.NET][].
+Vous pouvez également utiliser le Cache Redis pour mettre en cache des objets dans votre application web. Pour plus d'informations, voir [Application MVC dédiée aux films avec Cache Redis Azure en 15 minutes (en anglais)](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/).
+Pour plus d'informations sur l'utilisation de l'état de session ASP.NET, voir [Vue d'ensemble de l'état de session ASP.NET][].
+
+>[AZURE.NOTE] Si vous souhaitez commencer à utiliser Azure App Service avant d'ouvrir un compte Azure, accédez au site permettant d'[essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web de départ de courte durée dans App Service. Aucune carte de crédit n'est requise, et vous ne prenez aucun engagement.
+
+## Nouveautés
+* Pour plus d'informations sur le remplacement de Sites Web par App Service, voir : [Azure App Service et son impact sur les services Azure existants (en anglais)](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour plus d'informations sur le remplacement de l'ancien portail par le nouveau portail, voir : [Référence en matière de navigation dans le portail en version préliminaire (en anglais)](http://go.microsoft.com/fwlink/?LinkId=529715)
 
   *Par [Rick Anderson](https://twitter.com/RickAndMSFT)*
   
-  [installed the latest]: http://azure.microsoft.com/downloads/?sdk=net  
+  [installation de la dernière version]: http://www.windowsazure.com/downloads/?sdk=net  
   [Vue d'ensemble de l'état de session ASP.NET]: http://msdn.microsoft.com/library/ms178581.aspx
 
   [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
@@ -111,5 +109,4 @@ Pour plus d'informations sur l'utilisation de l'état de session ASP.NET, consul
   [EndpointURL]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_EndpointURL.png
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

@@ -18,10 +18,10 @@
 
 #Surveillance d'un compte DocumentDB  
 
-Vous pouvez surveiller vos comptes DocumentDB dans la [version préliminaire du portail Azure](https://portal.azure.com/). Pour chaque compte DocumentDB, des mesures de performances (notamment les demandes et les erreurs de serveur) et des mesures d'utilisation (par exemple l'espace de stockage utilisé) sont disponibles.
+Vous pouvez surveiller vos comptes DocumentDB dans le [portail Azure en version préliminaire](https://portal.azure.com/). Pour chaque compte DocumentDB, des mesures de performances (notamment les demandes et les erreurs de serveur) et des mesures d'utilisation (par exemple l'espace de stockage utilisé) sont disponibles.
 
-## <a id="metrics"></a> Affichage des mesures de performances pour un compte DocumentDB
-1.	Dans la [version préliminaire du portail Azure](https://portal.azure.com/), cliquez sur **Parcourir**, puis sur **Comptes DocumentDB**. Cliquez ensuite sur le nom du compte DocumentDB dont vous souhaitez voir les mesures de performances.
+## <a id="metrics"></a>  Affichage des mesures de performances pour un compte DocumentDB
+1.	Dans le [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Parcourir**, puis sur **Comptes DocumentDB**. Cliquez ensuite sur le nom du compte DocumentDB dont vous souhaitez voir les mesures de performances.
 2.	Dans le filtre **Surveillance**, vous pouvez, par défaut, voir :
 	*	le nombre total de demandes pour le jour en cours ;
 	*	la moyenne des demandes par seconde pour le jour en cours. 
@@ -37,7 +37,7 @@ Vous pouvez surveiller vos comptes DocumentDB dans la [version préliminaire du 
 
 ## <a id="custom"></a>Personnalisation des affichages des mesures de performances pour un compte DocumentDB
 
-1.	Pour personnaliser les mesures qui s'affichent à un endroit particulier, cliquez avec le bouton droit sur le graphique de mesures, puis sélectionnez **Modifier le graphique**.  
+1.	Pour personnaliser les mesures qui s'affichent à un endroit particulier, cliquez avec le bouton droit sur le graphique des mesures, puis sélectionnez **Modifier le graphique**.  
 	![](./media/documentdb-monitor-accounts/madocdb3.png)
 
 2.	Dans le volet **Modifier le graphique**, des options permettent de modifier les mesures qui s'affichent dans la partie, ainsi que leur plage horaire.  
@@ -52,7 +52,7 @@ Vous pouvez surveiller vos comptes DocumentDB dans la [version préliminaire du 
 ## <a id="create"></a>Création de graphiques de performances côte à côte
 La version préliminaire du portail Azure vous permet de créer des graphiques côte à côte.  
 
-1.	Tout d'abord, cliquez avec le bouton droit sur le graphique que vous voulez cloner et modifier, puis sélectionnez **Personnaliser**. 
+1.	Tout d'abord, cliquez avec le bouton droit sur le graphique à cloner et à modifier, puis sélectionnez **Personnaliser**. 
 
 	![](./media/documentdb-monitor-accounts/madocdb6.png)
 
@@ -77,7 +77,7 @@ Vous pouvez maintenant considérer cette partie comme n'importe quelle mesure en
 	![](./media/documentdb-monitor-accounts/madocdb9.png)
  
 ## <a id="setup"></a>Configuration d'alertes de mesures de performances pour un compte DocumentDB
-1.	Dans la [version préliminaire du portail Azure](https://portal.azure.com/), cliquez sur **Parcourir**, puis sur **Comptes DocumentDB**. Cliquez ensuite sur le nom du compte DocumentDB pour lequel vous souhaitez configurer les alertes de mesures de performances.
+1.	Dans le [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Parcourir**, puis sur **Comptes DocumentDB**. Cliquez ensuite sur le nom du compte DocumentDB pour lequel vous souhaitez configurer les alertes de mesures de performances.
 2.	Dans le filtre **Opérations**, cliquez dans la partie **Règles d'alerte**.  
 	![](./media/documentdb-monitor-accounts/madocdb10.png)
 
@@ -95,7 +95,7 @@ Vous pouvez maintenant considérer cette partie comme n'importe quelle mesure en
 
  
 ## <a id="next"></a>Étapes suivantes
-Pour en savoir plus sur les performances et la capacité de DocumentDB, consultez la page [Gestion des capacités et performances de DocumentDB](../documentdb-manage/). 
+Pour en savoir plus sur les performances et la capacité de DocumentDB, consultez l'article [Gestion des capacités et performances de DocumentDB](documentdb-manage.md). 
 
 <!--Anchors-->
 [Affichage des mesures de performances pour un compte DocumentDB]: #How-to-view-performance-metrics-for-a-DocumentDB-account
@@ -105,4 +105,4 @@ Pour en savoir plus sur les performances et la capacité de DocumentDB, consulte
 [Configuration d'alertes de mesures de performances pour un compte DocumentDB]: #How-to-setup-performance-metric-alerts-for-a-DocumentDB-account
 [Étapes suivantes]: #Next-steps
 
-<!--HONumber=47-->
+<!--HONumber=49-->

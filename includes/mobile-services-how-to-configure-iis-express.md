@@ -4,7 +4,7 @@
     ![](./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png)
 
 
-2. Dans la fenêtre d'invite de commandes, exécutez la commande **ipconfig** afin de rechercher une adresse IP locale valide pour votre station de travail.
+2. Dans la fenêtre d'invite de commandes, exécutez la commande **ipconfig** pour rechercher une adresse IP locale valide pour votre station de travail.
 
     ![](./media/mobile-services-how-to-configure-iis-express/ipconfig.png)
 
@@ -15,7 +15,7 @@
 
 4. Configurez IIS Express de manière à autoriser les demandes de connexion à distance au service. Pour ce faire, dans le fichier applicationhost.config, recherchez l'élément de site de votre service mobile et ajoutez un nouvel élément `binding` pour le port qui utilise l'adresse IP que vous avez précédemment notée. Enregistrez ensuite le fichier applicationhost.config. 
 
-    Your updated site element should look similar to the following:
+    Votre élément de site doit être semblable à ce qui suit :
 
         <site name="todolist_Service(1)" id="2">
             <application path="/" applicationPool="Clr4IntegratedAppPool">
@@ -39,4 +39,4 @@
 <!-- URLs. -->
 [Ajout d'une nouvelle règle de port via le Pare-feu Windows]:  http://go.microsoft.com/fwlink/?LinkId=392240
 
-\<!--HONumber=42-->
+<!--HONumber=49-->

@@ -5,39 +5,34 @@
 	authors="wesmc7777" 
 	manager="dwrede" 
 	editor="" 
-	services=""/>
+	services="mobile-services"/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/25/2015" 
 	ms.author="wesmc"/>
 
 # Gestion des conflits d'écriture dans une base de données
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/fr-fr/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/" title="Windows Store C#" class="current">Windows Store C#</a>
-<a href="/fr-fr/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/" title="Windows Store JavaScript">Windows Store JavaScript</a>
-<a href="/fr-fr/develop/mobile/tutorials/handle-database-write-conflicts-wp8/" title="Windows Phone">Windows Phone</a></div>	
 
 
-Ce didacticiel vise à mieux vous faire comprendre comment gérer les conflits qui se produisent lorsque plusieurs clients écrivent dans un même enregistrement de base de données d'une application Windows Store. Dans certains scénarios, plusieurs clients peuvent écrire à un même moment des modifications dans un même élément. En l'absence de détection de conflits, la dernière écriture remplace les mises à jour précédentes, même si cela n'était pas le but recherché. Azure Mobile Services permet de détecter et de résoudre ces conflits. Cette rubrique vous accompagne tout au long de la procédure destinée à gérer les conflits d'écriture dans une base de données sur le serveur et dans votre application.
+##Vue d'ensemble
 
-Dans le cadre de ce didacticiel, vous allez ajouter une fonctionnalité à l'application de démarrage rapide afin de gérer les contentions qui se produisent lors de la mise à jour de la base de données TodoItem. Ce didacticiel vous familiarise avec ces étapes de base :
+Ce didacticiel vise à vous aider à mieux comprendre comment gérer les conflits qui se produisent quand deux ou plusieurs clients écrivent le même enregistrement de base de données dans une application Windows Store. Dans certains scénarios, plusieurs clients peuvent écrire à un même moment des modifications dans un même élément. En l'absence de détection de conflits, la dernière écriture remplace les mises à jour précédentes, même si cela n'était pas le but recherché. Azure Mobile Services permet de détecter et de résoudre ces conflits. Cette rubrique vous accompagne tout au long de la procédure destinée à gérer les conflits d'écriture dans une base de données sur le serveur et dans votre application.
 
-1. [Mise à jour de l'application pour autoriser les mises à jour]
-2. [Activation de la détection de conflits dans votre application]
-3. [Test des conflits d'écriture dans la base de données de l'application]
-4. [Gestion automatique de la résolution des conflits dans les scripts serveur]
+Dans ce didacticiel, vous allez ajouter des fonctionnalités à l'application de démarrage rapide pour gérer les conflits qui peuvent se produire pendant la mise à jour de la base de données TodoItem. 
 
+
+##Conditions préalables
 
 Ce didacticiel requiert les éléments suivants :
 
 + Microsoft Visual Studio 2012 Express pour Windows ou version ultérieure.
-+ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez effectuer le didacticiel [Prise en main de Mobile Services]. 
++ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez suivre le didacticiel [Prise en main de Mobile Services]. 
 + [Compte Azure]
 + Package NuGet Azure Mobile Services version 1.1.0 ou ultérieure. Pour obtenir la dernière version, procédez comme suit :
 	1. Dans Visual Studio, ouvrez le projet, cliquez dessus avec le bouton droit dans l'Explorateur de solutions, puis cliquez sur **Gérer les packages Nuget**. 
@@ -51,13 +46,13 @@ Ce didacticiel requiert les éléments suivants :
 
  
 
-<h2><a name="uiupdate"></a>Mise à jour de l'application pour autoriser les mises à jour</h2>
+##Mise à jour de l'application pour autoriser les mises à jour
 
-Dans cette section, vous allez mettre à jour l'interface utilisateur TodoList pour autoriser la mise à jour du texte de chaque élément composant un contrôle ListBox. Ce dernier contiendra un contrôle CheckBox et TextBox pour chaque élément de la table de base de données. Vous pourrez mettre à jour le champ texte de TodoItem. L'application gérera l'événement  `LostFocus` depuis ce TextBox pour mettre à jour l'élément dans la base de données.
+Dans cette section, vous allez mettre à jour l'interface utilisateur TodoList pour autoriser la mise à jour du texte de chaque élément composant un contrôle ListBox. Ce dernier contiendra un contrôle CheckBox et TextBox pour chaque élément de la table de base de données. Vous pourrez mettre à jour le champ texte de TodoItem. L'application gérera l'événement `LostFocus` depuis ce TextBox pour mettre à jour l'élément dans la base de données.
 
 
 1. Dans Visual Studio, ouvrez le projet TodoList que vous avez téléchargé dans le didacticiel [Prise en main de Mobile Services].
-2. Dans l'Explorateur de solutions Visual Studio, ouvrez MainPage.xaml et remplacez la définition  `ListView` par la définition  `ListView` ci-après, puis enregistrez la modification.
+2. Dans l'Explorateur de solutions de Visual Studio, ouvrez MainPage.xaml et remplacez la définition `ListView` par la définition `ListView` ci-après, puis enregistrez la modification.
 
 		<ListView Name="ListItems" Margin="62,10,0,0" Grid.Row="1">
 			<ListView.ItemTemplate>
@@ -71,12 +66,12 @@ Dans cette section, vous allez mettre à jour l'interface utilisateur TodoList p
 		</ListView>
 
 
-3. Dans MainPage.xaml.cs, ajoutez la directive  `using` en haut de la page.
+3. Dans MainPage.xaml.cs, ajoutez la directive `using` suivante en haut de la page.
 
 		using System.Threading.Tasks;
 
 
-4. Dans l'Explorateur de solutions de Visual Studio, ouvrez MainPage.xaml.cs. Ajoutez le gestionnaire d'événements dans MainPage pour l'événement TextBox  `LostFocus` comme indiqué ci-dessous.
+4. Dans l'Explorateur de solutions de Visual Studio, ouvrez MainPage.xaml.cs. Ajoutez le gestionnaire d'événements à MainPage pour l'événement `LostFocus` de TextBox comme indiqué ci-dessous.
 
 
         private async void ToDoText_LostFocus(object sender, RoutedEventArgs e)
@@ -91,7 +86,7 @@ Dans cette section, vous allez mettre à jour l'interface utilisateur TodoList p
             }
         }
 
-4. Dans MainPage.xaml.cs, ajoutez la définition pour la méthode  `UpdateToDoItem()` de MainPage référencée dans le gestionnaire d'événements, comme indiqué ci-dessous.
+4. Dans MainPage.xaml.cs, ajoutez la définition pour la méthode `UpdateToDoItem()` de MainPage référencée dans le gestionnaire d'événements, comme indiqué ci-dessous.
 
         private async Task UpdateToDoItem(TodoItem item)
         {
@@ -113,9 +108,9 @@ Dans cette section, vous allez mettre à jour l'interface utilisateur TodoList p
 
 À présent, l'application écrit les modifications apportées au texte dans chaque élément de la base de données lorsque le TextBox perd le focus.
 
-<h2><a name="enableOC"></a>Activation de la détection de conflits dans votre application</h2>
+##Activation de la détection de conflits dans votre application
 
-Dans certains scénarios, plusieurs clients peuvent écrire à un même moment des modifications dans un même élément. En l'absence de détection de conflits, la dernière écriture remplace les mises à jour précédentes, même si cela n'était pas le but recherché. [Le contrôle d'accès concurrentiel optimiste] considère que chaque transaction peut être validée et qu'à ce titre, elle ne fait appel à aucun verrouillage de ressources. Avant de valider une transaction, le contrôle d'accès concurrentiel optimiste vérifie qu'aucune autre transaction n'a modifié les données. Si les données ont été modifiées, la transaction de validation est annulée. Azure Mobile Services prend en charge le contrôle d'accès concurrentiel optimiste en suivant les modifications apportées à chaque élément en utilisant la colonne de propriété système `__version` ajoutée à chaque table. Dans cette section, nous allons permettre à l'application de détecter ces conflits d'écriture via la propriété système " __version ". L'application sera notifiée par une exception  `MobileServicePreconditionFailedException` lors d'une tentative de mise à jour si l'enregistrement a été modifié depuis la dernière requête. Il sera ensuite possible de valider la modification dans la base de données ou de laisser intacte la dernière modification apportée à la base de données. Pour plus d'informations sur les propriétés système pour Mobile Services, consultez la page [Propriétés système].
+Dans certains scénarios, plusieurs clients peuvent écrire à un même moment des modifications dans un même élément. En l'absence de détection de conflits, la dernière écriture remplace les mises à jour précédentes, même si cela n'était pas le but recherché. [Le contrôle d'accès concurrentiel optimiste] considère que chaque transaction peut être validée et qu'à ce titre, elle ne fait appel à aucun verrouillage de ressources. Avant de valider une transaction, le contrôle d'accès concurrentiel optimiste vérifie qu'aucune autre transaction n'a modifié les données. Si les données ont été modifiées, la transaction de validation est annulée. Azure Mobile Services prend en charge le contrôle d'accès concurrentiel optimiste en suivant les modifications apportées à chaque élément en utilisant la colonne de propriété système `__version` ajoutée à chaque table. Dans cette section, nous allons permettre à l'application de détecter ces conflits d'écriture via la propriété système `__version`. L'application sera notifiée par une exception `MobileServicePreconditionFailedException` pendant une tentative de mise à jour si l'enregistrement a été modifié depuis la dernière requête. Il sera ensuite possible de valider la modification dans la base de données ou de laisser intacte la dernière modification apportée à la base de données. Pour plus d'informations sur les propriétés système pour Mobile Services, consultez la page [Propriétés système].
 
 1. Dans MainPage.xaml.cs, mettez à jour la définition de la classe **TodoItem** avec le code suivant pour inclure la propriété système **__version** autorisant la prise en charge de la détection de conflits d'écriture.
 
@@ -138,7 +133,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 `````
 
 
-2. En ajoutant la propriété  `Version` à la classe  `TodoItem`, l'application est notifiée par une exception  `MobileServicePreconditionFailedException` lors d'une mise à jour si l'enregistrement a été modifié depuis la dernière requête. Cette exception inclut la dernière version de l'élément en provenance du serveur. Dans MainPage.xaml.cs, ajoutez le code suivant pour gérer l'exception dans la méthode  `UpdateToDoItem()`.
+2. En ajoutant la propriété `Version` à la classe `TodoItem`, l'application est notifiée par une exception `MobileServicePreconditionFailedException` durant une mise à jour si l'enregistrement a été modifié depuis la dernière requête. Cette exception inclut la dernière version de l'élément en provenance du serveur. Dans MainPage.xaml.cs, ajoutez le code suivant pour gérer l'exception dans la méthode `UpdateToDoItem()`.
 
         private async Task UpdateToDoItem(TodoItem item)
         {
@@ -172,7 +167,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
         }
 
 
-3. Dans MainPage.xaml.cs, ajoutez la définition de la méthode  `ResolveConflict()` référencée dans  `UpdateToDoItem()`. Notez que pour résoudre le conflit, vous devez définir la version de l'élément local sur la version mise à jour du serveur avant de valider la décision de l'utilisateur. À défaut, le conflit se répètera sans cesse.
+3. Dans MainPage.xaml.cs, ajoutez la définition pour la méthode `ResolveConflict()` référencée dans `UpdateToDoItem()`. Notez que pour résoudre le conflit, la version définie de l'élément local doit correspondre à la version mise à jour du serveur avant de valider la décision de l'utilisateur. À défaut, le conflit se répètera sans cesse.
 
 
         private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
@@ -204,9 +199,9 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 
 
-<h2><a name="test-app"></a>Test des conflits d'écriture dans la base de données de l'application</h2>
+##Test des conflits d'écriture dans la base de données de l'application
 
-Dans cette section, vous allez créer un package d'application Windows Store pour installer cette application sur un deuxième ordinateur ou une deuxième machine virtuelle. Vous exécuterez ensuite l'application sur les deux machines en générant un conflit d'écriture afin de tester le code. Les deux instances de l'application tenteront de mettre à jour la propriété  `text` du même élément, ce qui contraindra l'utilisateur à résoudre le conflit.
+Dans cette section, vous allez créer un package d'application Windows Store pour installer cette application sur un deuxième ordinateur ou une deuxième machine virtuelle. Vous exécuterez ensuite l'application sur les deux machines en générant un conflit d'écriture afin de tester le code. Les deux instances de l'application tenteront de mettre à jour la propriété `text` du même élément, ce qui contraindra l'utilisateur à résoudre le conflit.
 
 
 1. Créez un package d'application Windows Store pour l'installer sur un deuxième ordinateur ou une deuxième machine virtuelle. Pour ce faire, cliquez sur **Projet**->**Windows Store**->**Créer des packages d'application** dans Visual Studio.
@@ -238,7 +233,7 @@ Dans cette section, vous allez créer un package d'application Windows Store pou
 	![][2]
 
 
-6. Dans l'instance 1 de l'application, mettez à jour le texte du dernier élément en le remplaçant par **Test Write 1**, puis cliquez sur une autre zone de texte de sorte que le gestionnaire d'événements  `LostFocus` mette à jour la base de données. La capture d'écran ci-dessous montre un exemple.
+6. Dans l'instance 1 de l'application, mettez à jour le texte du dernier élément en le remplaçant par **Test Write 1**, puis cliquez sur une autre zone de texte de sorte que le gestionnaire d'événements `LostFocus` mette à jour la base de données. La capture d'écran ci-dessous montre un exemple.
 	
 	Instance 1 de l'application	
 	![][3]
@@ -246,7 +241,7 @@ Dans cette section, vous allez créer un package d'application Windows Store pou
 	Instance 2 de l'application	
 	![][2]
 
-7. À ce stade, l'élément correspondant de l'instance 2 de l'application présente une ancienne version. Dans cette instance de l'application, entrez **Test Write 2** pour la propriété  `text`. Cliquez ensuite sur une autre zone de texte de sorte que le gestionnaire d'événements  `LostFocus` tente de mettre à jour la base de données avec l'ancienne propriété " _version ".
+7. À ce stade, l'élément correspondant de l'instance 2 de l'application présente une ancienne version. Dans cette instance de l'application, entrez **Test Write 2** pour la propriété `text`. Cliquez ensuite sur une autre zone de texte de sorte que le gestionnaire d'événements `LostFocus` tente de mettre à jour la base de données avec l'ancienne propriété `_version`.
 
 	Instance 1 de l'application	
 	![][4]
@@ -254,7 +249,7 @@ Dans cette section, vous allez créer un package d'application Windows Store pou
 	Instance 2 de l'application	
 	![][5]
 
-8. Comme la valeur de " __version " utilisée lors de la tentative de mise à jour ne correspond pas à la valeur de " __version " du serveur, le Kit de développement logiciel (SDK) Mobile Services lève une exception  `MobileServicePreconditionFailedException`, ce qui permet à l'application de résoudre ce conflit. Pour résoudre le conflit, vous pouvez cliquer sur **Commit Local Text** pour valider les valeurs de l'instance 2. Sinon, cliquez sur **Leave Server Text** pour ignorer les valeurs dans l'instance 2 et conserver les valeurs validées de l'instance 1 de l'application. 
+8. Comme la valeur de `__version` utilisée pendant la tentative de mise à jour ne correspondait pas à la valeur de `__version`, le Kit de développement logiciel (SDK) Mobile Services lève une exception `MobileServicePreconditionFailedException`, ce qui permet à l'application de résoudre ce conflit. Pour résoudre le conflit, vous pouvez cliquer sur **Commit Local Text** pour valider les valeurs de l'instance 2. Sinon, cliquez sur **Leave Server Text** pour ignorer les valeurs dans l'instance 2 et conserver les valeurs validées de l'instance 1 de l'application. 
 
 	Instance 1 de l'application	
 	![][4]
@@ -264,12 +259,12 @@ Dans cette section, vous allez créer un package d'application Windows Store pou
 
 
 
-<h2><a name="scriptsexample"></a>Gestion automatique de la résolution des conflits dans les scripts serveur</h2>
+##Gestion automatique de la résolution des conflits dans les scripts serveur
 
 Vous pouvez détecter et résoudre les conflits d'écriture dans les scripts serveur. Cela est judicieux lorsque vous pouvez résoudre le conflit en utilisant une logique à base de script au lieu d'une interaction utilisateur. Dans cette section, vous allez ajouter un script côté serveur à la table TodoItem pour l'application. Voici la logique que ce script utilisera pour résoudre les conflits :
 
-+  Si la valeur du champ " complete " de TodoItem est définie sur true, il est considéré comme terminé et  `text` ne peut plus être modifié.
-+  Si le champ " complete " de TodoItem a toujours la valeur false, les tentatives de mise à jour de  `text` sont validées.
++  Si la valeur définie du champ ` complete` de TodoItem est true, il est considéré comme terminé et `text` ne peut plus être modifié.
++  Si le champ ` complete` de TodoItem a toujours la valeur false, les tentatives de mise à jour de `text` sont validées.
 
 Les étapes suivantes vous accompagnent tout au long des procédures d'ajout et de test du script de mise à jour serveur.
 
@@ -302,7 +297,7 @@ Les étapes suivantes vous accompagnent tout au long des procédures d'ajout et 
 				}
 			}); 
 		}   
-5. Exécutez l'application **todolist** sur les deux machines. Modifiez le  `text` de TodoItem pour le dernier élément dans l'instance 2. Cliquez ensuite sur une autre zone de texte pour que le gestionnaire d'événements  `LostFocus` mette à jour la base de données.
+5. Exécutez l'application **todolist** sur les deux machines. Modifiez la propriété `text` du TodoItem pour le dernier élément de l'instance 2. Cliquez ensuite sur une autre zone de texte pour que le gestionnaire d'événements `LostFocus` mette à jour la base de données.
 
 	Instance 1 de l'application	
 	![][4]
@@ -310,7 +305,7 @@ Les étapes suivantes vous accompagnent tout au long des procédures d'ajout et 
 	Instance 2 de l'application	
 	![][5]
 
-6. Dans l'instance 1 de l'application, entrez une valeur différente pour la dernière propriété text. Cliquez ensuite sur une autre zone de texte de sorte que le gestionnaire d'événements  `LostFocus` tente de mettre à jour la base de données avec une propriété " _version " incorrecte.
+6. Dans l'instance 1 de l'application, entrez une valeur différente pour la dernière propriété text. Cliquez ensuite sur une autre zone de texte pour que le gestionnaire d'événements `LostFocus` tente une mise à jour de la base de données avec une propriété " __version " incorrecte.
 
 	Instance 1 de l'application	
 	![][13]
@@ -334,7 +329,7 @@ Les étapes suivantes vous accompagnent tout au long des procédures d'ajout et 
 	Instance 2 de l'application	
 	![][15]
 
-9. Dans l'instance 2, essayez de mettre à jour la propriété text du dernier TodoItem et déclenchez l'événement  `LostFocus`. Le script a résolu le conflit ainsi obtenu en refusant la mise à jour, car l'élément était déjà terminé. 
+9. Dans l'instance 2, essayez de mettre à jour la propriété text du dernier TodoItem et déclenchez l'événement `LostFocus`. Le script a résolu le conflit ainsi obtenu en refusant la mise à jour, car l'élément était déjà terminé. 
 
 	Instance 1 de l'application	
 	![][17]
@@ -342,30 +337,17 @@ Les étapes suivantes vous accompagnent tout au long des procédures d'ajout et 
 	Instance 2 de l'application	
 	![][18]
 
-## <a name="next-steps"> </a>Étapes suivantes
+##Étapes suivantes
 
-Ce didacticiel a montré comment permettre à une application Windows Store de gérer les conflits d'écriture lors de l'utilisation de données dans Mobile Services. Nous vous invitons ensuite à suivre l'un des didacticiels suivants de notre série sur les données :
+Ce didacticiel a montré comment permettre à une application Windows Store de gérer les conflits d'écriture lors de l'utilisation de données dans Mobile Services. Pour la suite, envisagez de suivre l'un des didacticiels Windows Store suivants :
 
-* [Validation et modification de données à l'aide de scripts]
-  <br/>En savoir plus sur l'utilisation des scripts serveur dans Mobile Services pour valider et modifier les données envoyées à partir de votre application.
-
-* [Affinage des requêtes au moyen de la pagination]
-  <br/>Découvrez comment utiliser la pagination dans les requêtes pour contrôler la quantité de données traitées dans une seule requête.
-
-Une fois que vous avez terminé la série sur les données, vous pouvez également essayer l'un des didacticiels Windows Store suivants :
-
-* [Prise en main de l'authentification] 
+* [Ajout d'une authentification à votre application]
   <br/>Découvrez comment authentifier les utilisateurs de votre application.
 
-* [Prise en main des notifications Push] 
+* [Ajout de notifications Push à votre application]
   <br/>Apprenez à envoyer une notification Push très basique à votre application avec Mobile Services.
  
-<!-- Anchors. -->
-[Mise à jour de l'application pour autoriser les mises à jour]: #uiupdate
-[Activation de la détection de conflits dans votre application]: #enableOC
-[Test des conflits d'écriture dans la base de données de l'application]: #test-app
-[Gestion automatique de la résolution des conflits dans les scripts serveur]: #scriptsexample
-[Étapes suivantes]:#next-steps
+
 
 <!-- Images. -->
 [0]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package1.png
@@ -385,22 +367,21 @@ Une fois que vous avez terminé la série sur les données, vous pouvez égaleme
 [14]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write3.png
 [15]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-write3.png
 [16]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-checkbox.png
-[17]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-2-ite
-	ms.png
+[17]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-2-items.png
 [18]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-already-complete.png
 [19]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
 [20]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
 
 <!-- URLs. -->
 [Contrôle d'accès concurrentiel optimiste]: http://go.microsoft.com/fwlink/?LinkId=330935
-[Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started/#create-new-service
-[Compte Azure]: http://azure.microsoft.com/pricing/free-trial/
-[Validation et modification de données à l'aide de scripts]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Affinage des requêtes au moyen de la pagination]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started
-[Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-dotnet
-[Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-dotnet
-[Prise en main des notifications Push]: /fr-fr/develop/mobile/tutorials/get-started-with-push-dotnet
+[Prise en main de Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Compte Azure]: http://www.windowsazure.com/pricing/free-trial/
+[Validation et modification de données à l'aide de scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Affinage des requêtes au moyen de la pagination]: /develop/mobile/tutorials/add-paging-to-data-dotnet
+[Prise en main de Mobile Services]: /develop/mobile/tutorials/get-started
+[Prise en main des données]: /develop/mobile/tutorials/get-started-with-data-dotnet
+[Ajout d'une authentification à votre application]: /develop/mobile/tutorials/get-started-with-users-dotnet
+[Ajout de notifications Push à votre application]: /develop/mobile/tutorials/get-started-with-push-dotnet
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Portail de gestion]: https://manage.windowsazure.com/
@@ -409,5 +390,4 @@ Une fois que vous avez terminé la série sur les données, vous pouvez égaleme
 [Site d'exemples de code développeur]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
 [Propriétés système]: http://go.microsoft.com/fwlink/?LinkId=331143
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

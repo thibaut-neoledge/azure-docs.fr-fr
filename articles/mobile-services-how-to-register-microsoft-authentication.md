@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Inscription pour l'authentification Microsoft - Mobile Services" 
 	description="Découvrez comment vous inscrire pour l'authentification Microsoft dans votre application Azure Mobile Services." 
 	authors="ggailey777" 
@@ -20,9 +20,9 @@
 
 Cette rubrique montre comment inscrire votre application afin d'utiliser Live Connect comme fournisseur d'authentification pour Azure Mobile Services. 
 
->[AZURE.NOTE]Afin de configurer l'authentification de compte Microsoft pour une application Windows universelle ou fournir une authentification unique pour une application Windows Store, consultez la page [Inscription du package de votre application Windows Store pour l'authentification Microsoft](/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication).
+>[AZURE.NOTE]Pour configurer l'authentification de compte Microsoft pour une application Windows universelle ou pour fournir une authentification unique pour une application Windows Store, consultez la page [Inscription du package de votre application Windows Store pour l'authentification Microsoft](mobile-services-how-to-register-store-app-package-microsoft-authentication.md).
 
-1. Accédez à la page <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">Mes applications</a> dans le Centre des développeurs Live Connect, puis connectez-vous avec votre compte Microsoft si nécessaire. 
+1. Accédez à la page <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">Mes applications</a> dans le Centre des développeurs Live Connect, puis ouvrez une session avec votre compte Microsoft si nécessaire. 
 
 2. Cliquez sur **Créer une application**, puis tapez le **Nom de l'application** et cliquez sur **J'accepte**.
 
@@ -30,7 +30,7 @@ Cette rubrique montre comment inscrire votre application afin d'utiliser Live Co
 
    	Cette action inscrit l'application auprès de Live Connect.
 
-3. Cliquez sur **Paramètres de l'API**, fournissez une valeur de `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` dans **URL de redirection**, puis cliquez sur **Enregistrer**.
+3. Cliquez sur **Paramètres API**, fournissez la valeur `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` dans **URL de redirection**, puis cliquez sur **Enregistrer**.
 
 	>[AZURE.NOTE]Pour un service mobile principal .NET publié sur Azure avec Visual Studio, l'URL de redirection est l'URL de votre service mobile, suivie du chemin _signin-microsoft_ de votre service mobile en tant que service .NET, par exemple <code>https://todolist.azure-mobile.net/signin-microsoft</code>.  
 
@@ -57,9 +57,9 @@ Vous pouvez désormais utiliser un compte Microsoft pour l'authentification dans
 
 <!-- URLs. -->
 
-[Page Envoyer une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Page Soumette une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mes Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=47-->
+<!--HONumber=49-->

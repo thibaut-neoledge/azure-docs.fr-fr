@@ -235,8 +235,8 @@ Dans cette section, vous allez définir un ServiceFilter qui détecte un code d'
 	    }
 
 
-       Dans ce code, `RefreshTokenCacheFilter` est utilisé en plus de `ProgressFilter`. En outre, lors de l'application de la méthode `onCreate`, nous voulons charger le cache de jeton. Ainsi, `false` est transféré à la méthode `authenticate`.
+       Dans ce code, `RefreshTokenCacheFilter` est utilisé en plus de `ProgressFilter`. En outre, lors de l'application de la méthode `onCreate`, nous voulons charger le cache de jeton. Ainsi, `false` est transmis à la méthode authenticate.
 
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

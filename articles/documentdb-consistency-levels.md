@@ -54,8 +54,8 @@ Par défaut, pour les ressources définies par l'utilisateur, le niveau de cohé
 
 Mode d'indexation|	Lectures|	Requêtes  
 -------------|-------|---------
-Cohérent (par défaut)|	Choisir parmi Fort, En fonction de l'obsolescence, Par session ou Éventuel|	Choisir parmi Fort, En fonction de l'obsolescence, Par session ou Éventuel|
-En douceur|	Choisir parmi Fort, En fonction de l'obsolescence, Par session ou Éventuel|	Éventuel  
+Cohérence (par défaut)|	Choisir parmi Strong (Fort), Bounded staleness (En fonction de l'obsolescence), Session (Par session) et Eventual (Éventuel)|	Choisir parmi Strong (Fort), Bounded staleness (En fonction de l'obsolescence), Session (Par session) et Eventual (Éventuel)|
+Différé|	Choisir parmi Strong (Fort), Bounded staleness (En fonction de l'obsolescence), Session (Par session) et Eventual (Éventuel)|	Eventual (Éventuel)  
 
 À l'instar des demandes de lecture, vous pouvez réduire le niveau de cohérence d'une demande de requête donnée en spécifiant l'en-tête de demande [x-ms-consistency-level].  
 
@@ -68,7 +68,7 @@ En douceur|	Choisir parmi Fort, En fonction de l'obsolescence, Par session ou É
 [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html) 
 -	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilités en fonction de l'obsolescence (PBS) pour les quorums partiels pratiques   
 [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
--	Werner Vogels. Niveau de cohérence Éventuel repensé    
+-	Werner Vogels. Niveau de cohérence Eventual (Éventuel) repensé.    
 [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
-<!--HONumber=47-->
+<!--HONumber=49-->

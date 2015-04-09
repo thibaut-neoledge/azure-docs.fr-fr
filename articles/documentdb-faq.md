@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2014" 
+	ms.date="03/20/2015" 
 	ms.author="mimig"/>
 
 
@@ -30,7 +30,7 @@ Pour des informations sur le déploiement et l'utilisation de ce service, consul
 DocumentDB est une base de données NoSQL orientée documents qui stocke les données au format JSON.  DocumentDB prend en charge les structures imbriquées et autonomes qui peuvent être interrogées grâce à une syntaxe de requête SQL DocumentDB enrichie. DocumentDB offre un traitement transactionnel haute performance JavaScript côté serveur par le biais de procédures stockées, de déclencheurs et de fonctions définies par l'utilisateur. La base de données prend également en charge des niveaux de cohérence ajustables avec les niveaux de performances associés.
  
 ###Les bases de données DocumentDB ont-elles des tables comme un SGBDR ?
-Non, DocumentDB stocke les données dans des collections sous forme de documents JSON.  Pour plus d'informations sur les ressources de DocumentDB, consultez la rubrique [Modèle de ressource et concepts de DocumentDB](../documentdb-resources/) . 
+Non. DocumentDB stocke les données dans des collections sous forme de documents JSON.  Pour plus d'informations sur les ressources de DocumentDB, consultez l'article [Modèle de ressource et concepts de DocumentDB](documentdb-resources.md). 
 
 ###Les bases de données DocumentDB prennent-elles en charge les données sans schéma ?
 Oui, DocumentDB permet aux applications de stocker des documents JSON arbitrairement sans définition de schéma ni indice. Les données peuvent être interrogées immédiatement via l'interface de requête SQL de DocumentDB.   
@@ -42,7 +42,7 @@ Oui, DocumentDB prend en charge les transactions entre documents exprimées en p
 DocumentDB est le choix idéal pour les nouvelles applications web et mobiles lorsque l'évolutivité, les performances et la possibilité d'interroger des données sans schéma sont primordiales. DocumentDB permet un développement rapide et prend en charge l'itération continue des modèles de données d'application. Les applications qui gèrent du contenu généré par l'utilisateur et des données sont communément utilisées dans DocumentDB.  
 
 ###Quelles sont les limites en termes d'évolutivité et de capacité ?
-Chaque compte Azure DocumentDB prend en charge un nombre maximal d'unités de capacité, qui peut être configuré par le biais du portail Azure. S'il vous faut des unités de capacité supplémentaires, veuillez contacter le support technique afin d'augmenter le quota de votre compte.  Pour plus d'informations sur les quotas de ressources, consultez la rubrique [Limites dans la version préliminaire de DocumentDB.](../documentdb-limits/) 
+Chaque compte Azure DocumentDB prend en charge un nombre maximal d'unités de capacité, qui peut être configuré par le biais du portail Azure. S'il vous faut des unités de capacité supplémentaires, veuillez contacter le support technique afin d'augmenter le quota de votre compte.  Pour plus d'informations sur les quotas de ressources, consultez l'article [Limites dans la version préliminaire de DocumentDB](documentdb-limits.md).
 
 
 ###Combien coûte Microsoft Azure DocumentDB ?
@@ -51,7 +51,7 @@ Pour plus d'informations, consultez l'article [Tarification de DocumentDB](http:
 ## <a id="setup"></a> Configuration de Microsoft Azure DocumentDB
 
 ###Comment m'inscrire à Microsoft Azure DocumentDB ?
-Microsoft Azure DocumentDB (version préliminaire) est disponible dans le [portail Azure en version préliminaire][preview-portal].  Vous devez d'abord disposer d'un abonnement à Microsoft Azure.  Une fois inscrit à Microsoft Azure, vous pouvez ajouter un compte DocumentDB à votre abonnement Azure par le biais du Marketplace.   
+Microsoft Azure DocumentDB (version préliminaire) est disponible dans le nouveau [portail Azure en version préliminaire][preview-portal].  Vous devez d'abord disposer d'un abonnement à Microsoft Azure.  Une fois inscrit à Microsoft Azure, vous pouvez ajouter un compte DocumentDB à votre abonnement Azure par le biais du Marketplace.   
 
 ###Qu'est-ce que la clé principale ?
 Une clé principale est un jeton de sécurité permettant d'accéder à toutes les ressources d'un compte. Les personnes disposant de cette clé ont un accès en lecture et en écriture à toutes les ressources du compte de la base de données. Faites preuve de précaution lorsque vous distribuez des clés principales. La clé principale primaire et la clé principale secondaire sont disponibles dans le panneau Clés du [portail Azure en version préliminaire][preview-portal].
@@ -63,7 +63,7 @@ Vous pouvez créer des bases de données en utilisant un Kit de développement l
 Une collection est un conteneur de documents JSON. Elle est associée à une logique d'application JavaScript. Les requêtes et les transactions sont étendues vers les collections. Vous pouvez stocker un ensemble de documents JSON hétérogènes dans une seule collection. Tous seront indexés automatiquement.   
 
 ###Quelles sont les limites des bases de données et des collections ?
-Chaque unité de capacité achetée est dotée d'un stockage de base de données alloué et d'un débit approvisionné. Des quotas existent également pour chaque ressource gérée par le service. Pour plus d'informations, consultez la section Limites de la version préliminaire de DocumentDB de l'article [Abonnement Azure et limites de service, quotas et contraintes](../azure-subscription-service-limits/) .  
+Chaque unité de capacité achetée est dotée d'un stockage de base de données alloué et d'un débit approvisionné. Des quotas existent également pour chaque ressource gérée par le service. Pour plus d'informations, consultez l'article [Limites dans la version préliminaire de DocumentDB](documentdb-limits.md).  
 
 ###Comment configurer des utilisateurs et des autorisations ?
 Vous pouvez créer des utilisateurs et des autorisations en utilisant un Kit de développement logiciel (SDK) DocumentDB ou des API REST. Consultez la section Développement de la [page de documentation DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=402319) pour plus d'informations sur les méthodes de développement des applications.  
@@ -96,6 +96,6 @@ Oui. DocumentDB étant un service RESTful, les liens de ressource sont immuables
 
 
 [preview-portal]: https://portal.azure.com
-[query]: ../documentdb-sql-query/
+[query]: documentdb-sql-query.md
 
-<!--HONumber=47-->
+<!--HONumber=49-->

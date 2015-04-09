@@ -32,4 +32,5 @@ Vous pouvez utiliser l'[interface de ligne de commande Azure][] pour créer les 
 Lorsque ces fichiers n'existent pas, Azure crée un script de déploiement temporaire et l'exécute.  Il est identique à celui que vous créez à l'aide de la commande ci-dessus.
 
 [Interface de ligne de commande Azure]: http://azure.microsoft.com/downloads/
-<!--HONumber=42-->
+
+<!--HONumber=49-->

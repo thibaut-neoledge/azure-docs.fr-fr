@@ -1,6 +1,6 @@
-<properties 
+﻿<properties 
 	pageTitle="Prise en main de l'authentification (Appcelerator) | Centre de développement mobile" 
-	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application iOS via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
+	description="Apprenez à utiliser Mobile Services pour authentifier les utilisateurs de votre application iOS par l'intermédiaire de divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="mattchenderson" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/24/2014" 
@@ -34,23 +34,23 @@ Ce didacticiel requiert Appcelerator Titanium Studio 3.2.1 (ou version ultérieu
 
 ##<a name="register"></a>Inscription de votre application pour l'authentification et configuration de Mobile Services
 
-[AZURE.INCLUDE [mobile-services-inscription-authentification](../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 ##<a name="permissions"></a> Restriction des autorisations pour les utilisateurs authentifiés
 
-[AZURE.INCLUDE [mobile-services-restriction-autorisations-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-3.	Dans Appcelerator Titanium Studio, ouvrez le projet que vous avez créé lorsque vous avez suivi le didacticiel [Prise en main de Mobile Services].
+3.	Dans Appcelerator Titanium Studio, ouvrez le projet que vous avez créé dans le cadre du didacticiel [Prise en main de Mobile Services].
 
 4.	Appuyez sur le bouton Exécuter pour générer le projet et démarrer l'application dans l'émulateur iPhone. Vérifiez qu'une exception non gérée avec un code d'état 401 (Non autorisé) est générée après le démarrage de l'application.
     
-    Cela se produit car l'application tente d'accéder à Mobile Services en tant qu'utilisateur non authentifié, alors que la table TodoItem requiert désormais l'authentification.
+    Cela se produit, car l'application tente d'accéder à Mobile Services en tant qu'utilisateur non authentifié, alors que la table TodoItem exige à présent une authentification.
 
 Ensuite, vous allez mettre à jour l'application pour authentifier les utilisateurs avant de demander des ressources à partir du service mobile.
 
 ##<a name="add-authentication"></a>Ajout de l'authentification à l'application
 
-1.	Ouvrez le fichier projet index.js puis, dans la méthode Lister des événements de table, recherchez `case 2:`
+1.	Ouvrez le fichier projet index.js puis, dans la méthode Lister des événements de table, recherchez " case 2 : "
 
     Dans votre application, vous pouvez soit inviter l'utilisateur à choisir parmi les fournisseurs d'identité disponibles, soit spécifier automatiquement l'un de ces fournisseurs.
 
@@ -94,11 +94,11 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
             }
         });
 
->[AZURE.NOTE] Si vous utilisez un fournisseur d'identité autre que Google, modifiez la valeur transmise à la méthode **authorizeClient** par l'une des valeurs suivantes : *microsoftaccount*, *facebook*, *twitter* ou *windowsazureactivedirectory*.
+>[AZURE.NOTE] Si vous utilisez un autre fournisseur d'identité que Facebook, remplacez la valeur transmise à la méthode **authorizeClient** par l'une des valeurs suivantes :  *microsoftaccount*, *facebook*, *twitter* ou *windowsazureactivedirectory*.
 
 4.	Appuyez sur le bouton Exécuter pour générer le projet, démarrez l'application dans le simulateur iPhone ou Android, puis cliquez sur l'option Avec connexion pour vous connecter avec le fournisseur d'identité.
 
-    Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
+    Une fois que vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
 
 
 <!-- Anchors. -->
@@ -110,7 +110,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 <!-- Images. -->
 
 <!-- URLs. -->
-[Prise en main de Mobile Services]: /fr-fr/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+[Prise en main de Mobile Services]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
+<!--HONumber=49--> 
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

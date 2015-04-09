@@ -90,4 +90,4 @@ L'exemple précédent montrait une connexion standard, qui nécessite que le cli
 
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

@@ -34,7 +34,7 @@ Modifiez votre fichier requirements.txt en ajoutant l'option " --find-links " en
 
     --find-links wheelhouse
     azure==0.8.4
-			
+
 Si vous souhaitez inclure toutes les dépendances dans le dossier \wheelhouse et ne pas utiliser l'index de packages Python, forcez pip à ignorer l'index de packages en ajoutant " --no-index " en haut du fichier requirements.txt.
 
     --no-index
@@ -64,7 +64,8 @@ Si vous incluez l'environnement virtuel dans le référentiel, vous pouvez empê
 Nous vous recommandons de supprimer l'environnement virtuel existant sur le site, afin d'éviter que des fichiers soient conservés lorsque l'environnement virtuel est géré automatiquement.
 
 
-[Création d'une machine virtuelle exécutant Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
-[Compilateur Microsoft Visual C++ pour Python 2.7]: http:://aka.ms/vcpython27
+[Créer une machine virtuelle exécutant Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
+[Compilateur Microsoft Visual C++ pour Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
-<!--HONumber=42-->
+
+<!--HONumber=49-->

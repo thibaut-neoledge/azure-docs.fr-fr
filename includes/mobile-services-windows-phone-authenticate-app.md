@@ -46,10 +46,10 @@
             this.Loaded += MainPage_Loaded;
         }
 
-   	Ce constructeur enregistre également le gestionnaire pour l'événement Loaded.
+   	Ce constructeur inscrit également le gestionnaire pour l'événement Loaded.
 		
 4. Appuyez sur la touche F5 pour exécuter l'application et vous connecter à l'application avec le fournisseur d'identité choisi. 
 
    	Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
 
-\<!--HONumber=42-->
+<!--HONumber=49-->

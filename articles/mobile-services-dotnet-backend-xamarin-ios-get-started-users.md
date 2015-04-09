@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Prise en main de l'authentification dans Mobile Services pour les applications Xamarin iOS - Azure Mobile Services" 
-	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Xamarin iOS via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
+	description="Apprenez à utiliser Mobile Services pour authentifier les utilisateurs de votre application Xamarin iOS par l'intermédiaire de divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
 	services="mobile-services" 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/23/2014" 
@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-Cette rubrique explique comment authentifier les utilisateurs dans Azure Mobile Services à partir de votre application. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
+Cette rubrique montre comment authentifier les utilisateurs dans Azure Mobile Services à partir de votre application. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
 
 Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
 
@@ -72,9 +72,9 @@ Dans cette section, vous allez modifier l'application de façon à afficher un �
             }
         }
 
-> [AZURE.NOTE] Si vous utilisez un fournisseur d'identité autre que Facebook, remplacez la valeur transmise à la méthode **LoginAsync** ci-dessus par l'une des valeurs suivantes : _MicrosoftAccount_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
+> [AZURE.NOTE] Si vous utilisez un autre fournisseur d'identité que Facebook, remplacez la valeur transmise à la méthode **LoginAsync** ci-dessus par l'une des valeurs suivantes : _MicrosoftAccount_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
 
-3. Ouvrez **QSTodoListViewController.cs**. Modifiez la définition de la méthode de **ViewDidLoad** pour supprimer l'appel à **RefreshAsync()** vers la fin :
+3. Ouvrez **QSTodoListViewController.cs**. Modifiez la définition de méthode de **ViewDidLoad**pour supprimer l'appel à **RefreshAsync()** vers la fin :
 
 		public override async void ViewDidLoad ()
 		{
@@ -96,7 +96,7 @@ Dans cette section, vous allez modifier l'application de façon à afficher un �
 		}
 
 
-4. Modifiez la méthode **RefreshAsync** pour vous authentifier et afficher un écran de connexion si la propriété **User** présente la valeur null. Au code suivant en haut de la définition de méthode :
+4. Modifiez la méthode **RefreshAsync** pour vous authentifier et afficher un écran de connexion si la propriété **User** a la valeur null. Au code suivant en haut de la définition de méthode :
 
 		// start of RefreshAsync method
 		if (todoService.User == null) {
@@ -112,9 +112,9 @@ Dans cette section, vous allez modifier l'application de façon à afficher un �
 
 	Effectuez le geste d'actualisation en affichant la liste des éléments, ce qui fait apparaître l'écran de connexion. Une fois que vous avez entré des informations d'identification valides, l'application affiche la liste des tâches et vous pouvez apporter des mises à jour aux données.
 
-<!-- ## <a name="next-steps"> </a>Étapes suivantes
+<!-- ## <a name="next-steps"> </a>Next steps
 
-Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobile Services][Autorisation des utilisateurs avec des scripts], vous prendrez la valeur d'ID utilisateur fournie par Mobile Services sur la base d'un utilisateur authentifié et l'utiliserez pour filtrer les données renvoyées par Mobile Services. 
+In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
  -->
  
 <!-- Anchors. -->
@@ -128,13 +128,12 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [Page Soumette une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mes Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Kit de développement logiciel (SDK) Live pour Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/
-[Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users/
-[Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push/
-[Autorisation des utilisateurs avec des scripts]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts
-[JavaScript et HTML]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
+[Prise en main de Mobile Services]: mobile-services-dotnet-backend-xamarin-ios-get-started.md
+[Prise en main de l'authentification]: mobile-services-dotnet-backend-xamarin-ios-get-started-users.md
+[Prise en main des notifications Push]: mobile-services-dotnet-backend-xamarin-ios-get-started-push.md
+[Autorisation des utilisateurs avec des scripts]: mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
+[JavaScript et HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

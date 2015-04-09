@@ -1,50 +1,55 @@
 ﻿<properties 
-	pageTitle="Authentification et autorisation des applications métier sur Sites Web Azure" 
-	description="Découvrez les différentes options d'authentification et d'autorisation pour les applications métier déployées sur Sites Web Azure." 
-	services="web-sites" 
+	pageTitle="Utiliser Active Directory pour l'authentification dans Azure App Service" 
+	description="Découvrez les différentes options d'authentification et d'autorisation pour les applications métier déployées dans Azure App Service Web Apps" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="12/23/2014" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
-# Authentification et autorisation des utilisateurs dans les applications métier sur Sites Web Azure #
+# Utiliser Active Directory pour l'authentification dans Azure App Service #
 
-[Sites Web Azure](http://azure.microsoft.com/services/websites/) permet des scénarios d'application métier d'entreprise en prenant en charge l'authentification unique (SSO) des utilisateurs, qu'ils accèdent à l'application à partir d'un environnement local ou d'une connexion Internet publique. Il peut être intégré à [Azure Active Directory](http://azure.microsoft.com/services/active-directory/) (AAD) ou à un service de jeton sécurisé (STS) local, tel que les services ADFS (Active Directory Federation Services), pour authentifier les utilisateurs internes d'Active Directory (AD) et leur fournir une autorisation adéquate.
+[Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) permet des scénarios d'application métier d'entreprise en prenant en charge l'authentification unique (SSO) des utilisateurs qui accèdent à l'application à partir de votre environnement local ou d'une connexion Internet publique. La solution peut être intégrée à [Azure Active Directory](http://azure.microsoft.com/services/active-directory/) (AAD) ou à des services de jeton sécurisé (STS, secure token service) locaux, tels que les services ADFS (Active Directory Federation Services), pour authentifier les utilisateurs internes d'Active Directory (AD) et leur fournir une autorisation adéquate.
 
 ## Authentification et autorisation sans friction ##
 
-En seulement quelques clics, vous pouvez activer l'authentification et l'autorisation pour votre site Web. La configuration du style de case à cocher sur chaque site Web Azure fournit un contrôle d'accès de base de votre site Web métier. Cela est rendu possible par l'application du protocole HTTPS et de l'authentification au client Azure AD de votre choix avant de permettre aux utilisateurs d'accéder au contenu de tous les sites Web. Pour plus d'informations, consultez la page [Authentification et autorisation des sites Web Azure](http://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/).
+En seulement quelques clics, vous pouvez activer l'authentification et l'autorisation pour votre application web. La configuration du style de case à cocher dans chaque application web Azure fournit un contrôle d'accès de base de votre application web métier. Pour cela, le protocole HTTPS et l'authentification sont appliqués au client Azure AD de votre choix avant que les utilisateurs ne soient autorisés à accéder à l'ensemble du contenu des applications web. Pour plus d'informations, consultez la page [Authentification et autorisation des applications web](http://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/) (en anglais).
 
->[AZURE.NOTE] Cette fonctionnalité est actuellement à un stade préliminaire.
+>[AZURE.NOTE] Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
 
-## Implémentation manuelle de l'authentification et de l'autorisation ##
+## Implémenter manuellement l'authentification et l'autorisation ##
 
-Dans de nombreux scénarios, vous souhaitez personnaliser le comportement d'authentification et d'autorisation de l'application (tel qu'une page de connexion et de déconnexion), personnaliser la logique d'autorisation, le comportement d'une application mutualisée, etc. Dans ce cas, il peut être plus intéressant de configurer l'authentification et l'autorisation manuellement pour une plus grande flexibilité de ses fonctionnalités. Les deux options principales se trouvent ci-dessous.  
+Dans de nombreux scénarios, vous souhaitez personnaliser le comportement d'authentification et d'autorisation de l'application (par exemple, avec une page de connexion et de déconnexion), personnaliser la logique d'autorisation, le comportement d'une application mutualisée, etc. Dans ce cas, il peut être plus intéressant de configurer l'authentification et l'autorisation manuellement pour une plus grande flexibilité de ses fonctionnalités. Les deux options principales sont expliquées ci-dessous.  
 
--	[Azure AD](../web-sites-dotnet-lob-application-azure-ad/) - Vous pouvez implémenter l'authentification et l'autorisation pour votre site Web avec Azure AD. L'utilisation d'Azure AD comme fournisseur d'identité présente les caractéristiques suivantes :
-	-	La prise en charge des protocoles d'authentification populaires, tels que [OAuth 2.0](http://oauth.net/2/), [OpenID Connect](http://openid.net/connect/), et [SAML 2.0](http://en.wikipedia.org/wiki/SAML_2.0). Pour une liste complète des protocoles pris en charge, consultez la page [Protocoles d'authentification Azure Active Directory](http://msdn.microsoft.com/library/azure/dn151124.aspx).
-	-	La possibilité d'utiliser un fournisseur d'identité unique Azure sans aucune infrastructure locale.
-	-	La possibilité de configurer également la synchronisation d'annuaires avec un AD local (géré localement).
-	-	Azure AD et la synchronisation d'annuaires à partir de votre domaine AD local vous offre une expérience d'authentification unique (SSO) en continu sur votre site Web lorsque des utilisateurs AD y accèdent via l'intranet ou Internet. Depuis l'intranet, les utilisateurs AD peuvent automatiquement accéder au site Web via une authentification intégrée. Depuis Internet,les utilisateurs AD peuvent se connecter au site Web à l'aide de leurs informations d'identification Windows.
-	-	Il fournit une authentification unique (SSO) à [toutes les applications prises en charge par Azure AD](http://azure.microsoft.com/marketplace/active-directory/), y compris Azure, Office 365, Dynamics CRM Online, Windows InTune, et des milliers d'applications de cloud autres que Microsoft. 
-	-	Azure AD délègue la gestion des applications [par partie de confiance](http://en.wikipedia.org/wiki/Relying_party) à des rôles non administrateurs, tandis que l'accès de l'application à des données d'annuaires sensibles doit encore être configuré par des administrateurs globaux.
-	-	L'envoi d'un ensemble de types de revendications à usage général pour toutes les applications par partie de confiance. Pour la liste des types de revendications, consultez la page [Types de revendications et jetons pris en charge](http://msdn.microsoft.com/library/azure/dn195587.aspx). Les revendications ne peuvent pas être personnalisées.
-	-	[L'API Azure AD Graph](http://msdn.microsoft.com/library/azure/hh974476.aspx) permet à l'application d'accéder aux données d'annuaires dans Azure AD.
--	[Service de jeton sécurisé(STS) local, tel que les services ADFS](../web-sites-dotnet-lob-application-adfs/) - Vous pouvez implémenter l'authentification et l'autorisation pour votre site Web avec un STS tel que les services ADFS. L'utilisation locale des services ADFS présente les caractéristiques suivantes :
-	-	La topologie des services ADFS doit être déployée localement avec une surcharge de gestion et de coût.
-	-	Cela est plus intéressant lorsque la politique d'entreprise demande le stockage local des données AD.
-	-	Seuls les administrateurs ADFS peuvent configurer [les confiances et les règles de revendications de partie de confiance](http://technet.microsoft.com/library/dd807108.aspx).
+-	[Azure AD](web-sites-dotnet-lob-application-azure-ad.md) - Vous pouvez implémenter l'authentification et l'autorisation pour votre application web avec Azure AD. L'utilisation d'Azure AD comme fournisseur d'identité présente les caractéristiques suivantes :
+	-	Prise en charge de protocoles d'authentification populaires, tels que [OAuth 2.0](http://oauth.net/2/), [OpenID Connect](http://openid.net/connect/) et [SAML 2.0](http://en.wikipedia.org/wiki/SAML_2.0). Pour une liste complète des protocoles pris en charge, consultez la page [Protocoles d'authentification d'Azure Active Directory](http://msdn.microsoft.com/library/azure/dn151124.aspx).
+	-	Possibilité d'utiliser un fournisseur d'identité unique Azure sans aucune infrastructure locale.
+	-	Possibilité de configurer également la synchronisation d'annuaires avec un AD local (géré localement).
+	-	Avec Azure AD et la synchronisation d'annuaires à partir de votre domaine AD local, votre application web offre une expérience d'authentification unique (SSO) particulièrement fluide lorsque des utilisateurs AD y accèdent via l'intranet ou Internet. Depuis l'intranet, les utilisateurs AD peuvent accéder à l'application web automatiquement via une authentification intégrée. Depuis Internet,les utilisateurs AD peuvent se connecter à l'application web à l'aide de leurs informations d'identification Windows.
+	-	Il fournit une authentification unique (SSO) à [toutes les applications prises en charge par Azure AD](/marketplace/active-directory/), y compris Azure, Office 365, Dynamics CRM Online, Windows InTune et des milliers d'applications de cloud autres que Microsoft. 
+	-	Azure AD délègue la gestion des applications [par partie de confiance](http://en.wikipedia.org/wiki/Relying_party) à des rôles non-administrateurs, tandis que l'accès de l'application à des données d'annuaires sensibles doit encore être configuré par des administrateurs globaux.
+	-	Envoi d'un ensemble de types de revendications à usage général pour toutes les applications par partie de confiance. Pour la liste des types de revendications, consultez la page [Types de jeton et de revendication pris en charge](http://msdn.microsoft.com/library/azure/dn195587.aspx). Les revendications ne peuvent pas être personnalisées.
+	-	L'[API Azure AD Graph](http://msdn.microsoft.com/library/azure/hh974476.aspx) permet à l'application d'accéder aux données d'annuaires dans Azure AD.
+-	[Service de jeton sécurisé (STS, secure token service) local, tel que les services ADFS -](../web-sites-dotnet-lob-application-adfs/) - Vous pouvez implémenter l'authentification et l'autorisation pour votre application web avec un STS local, par exemple des services ADFS. L'utilisation de services ADFS locaux présente les caractéristiques suivantes :
+	-	La topologie des services ADFS doit être déployée localement, ce qui implique une surcharge de gestion et de coût.
+	-	Cette solution est plus intéressante lorsque la stratégie d'entreprise implique le stockage local des données AD.
+	-	Seuls les administrateurs ADFS peuvent configurer [les approbations et les règles de revendication des parties de confiance](http://technet.microsoft.com/library/dd807108.aspx).
 	-	Il est possible de gérer les [revendications](http://technet.microsoft.com/library/ee913571.aspx) pour chaque application.
 	-	Le service doit avoir une solution distincte pour accéder aux données AD locales via le pare-feu de l'entreprise.
 
+>[AZURE.NOTE] Si vous souhaitez commencer à utiliser Azure App Service avant d'ouvrir un compte Azure, accédez à la page d'[essai d'App Service](http://go.microsoft.com/fwlink/?LinkId=523751) (en anglais), qui vous permet de créer immédiatement une application web de départ de courte durée dans App Service. Aucune carte de crédit n'est requise, et vous ne prenez aucun engagement.
 
-<!--HONumber=42-->
+## Modifications
+* Pour plus d'informations sur les modifications entre Sites Web et App Service, consultez la page : [Azure App Service et son impact sur les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714) (en anglais)
+* Pour plus d'informations sur les modifications entre l'ancien portail et le nouveau, consultez la page : [Référence pour la navigation sur la version préliminaire du portail](http://go.microsoft.com/fwlink/?LinkId=529715) (en anglais)
+
+<!--HONumber=49-->

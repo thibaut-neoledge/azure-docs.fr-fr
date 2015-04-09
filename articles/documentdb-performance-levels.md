@@ -20,7 +20,7 @@
 
 Cet article fournit une vue d'ensemble des niveaux de performances dans [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/). 
 
-> [AZURE.IMPORTANT] Les niveaux de performances seront disponibles lors de la mise à la disposition générale d'Azure DocumentDB. Cette version est prévue pour avril 2015.
+> [AZURE.IMPORTANT] Les niveaux de performances seront fournis après la mise à disposition générale d'Azure DocumentDB. Cette version est prévue pour avril 2015.
 
 Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :  
 
@@ -69,7 +69,7 @@ Lorsqu'une collection est créée, l'affectation complète des unités de demand
 
 Après la création de collections, vous pouvez modifier le niveau de performances via les Kits de développement logiciel (SDK) DocumentDB ou via le portail de gestion Azure. 
 
-> [AZURE.IMPORTANT] Les collections DocumentDB standard sont facturées au tarif horaire et chaque collection que vous créez sera facturée pour une heure d'utilisation au moins.
+> [AZURE.IMPORTANT] Les collections DocumentDB standard sont facturées au tarif horaire et chaque collection que vous créez sera facturée pour une heure d'utilisation au minimum. 
 
 Si vous ajustez le niveau de performances d'une collection pendant une période d'une heure, vous serez facturé pour le plus haut niveau de performances défini pendant cette période. Par exemple, si vous augmentez votre niveau de performances pour une collection à 8 h 53, vous serez facturé pour le nouveau niveau à partir de 8 h 00. De même, si vous diminuez le niveau de performances à 8 h 53, le nouveau taux s'appliquera à partir de 9 h 00.
 
@@ -78,7 +78,7 @@ Les unités de demande sont réservées pour chaque collection sur la base du ni
 > [AZURE.NOTE] Lorsque votre application dépasse les niveaux de performances d'une ou plusieurs collections, les demandes sont limitées en fonction de chaque collection. Cela signifie que certaines demandes d'application peuvent réussir tandis que d'autres peuvent être limitées.
 
 ##<a id="Sub3"></a>Utilisation des niveaux de performances##
-Les collections DocumentDB vous permettent de partitionner vos données selon les modèles de requête et les besoins de performances de votre application. Pour plus d'informations sur le partitionnement des données avec DocumentDB, consultez la [documentation sur le partitionnement des données](http://azure.microsoft.com/documentation/articles/documentdb-partition-data/). Avec l'indexation automatique et la prise en charge des requêtes dans DocumentDB, il est assez courant colocaliser des documents hétérogènes au sein de la même collection. Les points clés de la décision quant à l'utilisation de collections distinctes pour les données sont les suivants :
+Les collections DocumentDB vous permettent de partitionner vos données selon les modèles de requête et les besoins de performances de votre application. Pour plus d'informations sur le partitionnement des données avec DocumentDB, consultez la [documentation sur le partitionnement des données](documentdb-partition-data.md). Avec l'indexation automatique et la prise en charge des requêtes dans DocumentDB, il est assez courant colocaliser des documents hétérogènes au sein de la même collection. Les points clés de la décision quant à l'utilisation de collections distinctes pour les données sont les suivants :
 
 - Requêtes - Une collection est l'étendue pour l'exécution des requêtes. Si vous avez besoin d'interroger un ensemble de documents, la colocalisation des documents dans une collection unique donne les modèles de lecture les plus efficaces.
 - Transactions - Une collection est le domaine de transaction des procédures stockées et des déclencheurs. Toutes les transactions sont limitées à une collection unique. 
@@ -93,12 +93,12 @@ Il est recommandé de faire en sorte que votre application utilise un petit nomb
 Pour en savoir plus sur la tarification et la gestion des données avec Azure DocumentDB, explorez les ressources suivantes :
  
 - [Tarification de DocumentDB](http://azure.microsoft.com/pricing/details/documentdb/)
-- [Gestion de la capacité de DocumentDB](http://azure.microsoft.com/documentation/articles/documentdb-manage/)
-- [Modélisation des données dans DocumentDB](http://azure.microsoft.com/documentation/articles/documentdb-modeling-data/)
-- [Partitionnement des données dans DocumentDB](http://azure.microsoft.com/documentation/articles/documentdb-partition-data/)
+- [Gestion de la capacité de DocumentDB](documentdb-manage.md) 
+- [Modélisation des données dans DocumentDB](documentdb-modeling-data.md)
+- [Partitionnement des données dans DocumentDB](documentdb-partition-data.md)
 
 Pour en savoir plus sur DocumentDB, consultez la [documentation](http://azure.microsoft.com/documentation/services/documentdb/) Azure DocumentDB. 
 
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

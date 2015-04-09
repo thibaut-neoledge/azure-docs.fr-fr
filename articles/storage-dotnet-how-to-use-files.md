@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/10/2014" 
+	ms.date="03/06/2015" 
 	ms.author="tamram"/>
 
 # Utilisation du stockage de fichiers Azure
+
+## Vue d'ensemble
 
 Dans ce guide de prise en main, nous découvrirons les bases de l'utilisation du stockage de fichiers Microsoft Azure. Nous utiliserons d'abord PowerShell pour créer un partage de fichiers Azure, ajouter un répertoire, télécharger un fichier local vers le partage et afficher la liste des fichiers du répertoire. Ensuite, nous verrons comment monter le partage de fichiers à partir d'une machine virtuelle Azure, comme tout partage SMB.
 
@@ -24,19 +26,7 @@ Pour les utilisateurs qui souhaiteraient accéder aux fichiers d'un partage à p
 
 > [AZURE.NOTE] Pour exécuter les exemples de code .NET de ce guide, la bibliothèque cliente de stockage .NET Azure 4.x ou une version ultérieure est nécessaire. La bibliothèque cliente de stockage est disponible via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/).
 
-
-##Sommaire
-
--   [Présentation du stockage de fichiers][]
--   [Concepts du stockage de fichiers][]
--   [Création d'un compte de stockage Azure][]
--   [Utilisation de PowerShell pour créer un partage de fichiers][]
--	[Montage du partage à partir d'une machine virtuelle Azure][]
--   [Création d'une application locale pour accéder au stockage de fichiers][]
--   [Étapes suivantes][]
-
-
-##<a name="what-is-file-storage"></a>Présentation du stockage de fichiers
+## Présentation du stockage de fichiers
 
 Le stockage de fichiers propose un stockage partagé pour les applications utilisant le protocole SMB 2.1. Les machines virtuelles et les services cloud Microsoft Azure peuvent partager des données de fichiers entre plusieurs composants d'application grâce à des partages montés. Les applications locales peuvent accéder aux données de fichiers d'un partage via l'API de stockage de fichiers.
 
@@ -51,103 +41,110 @@ Voici quelques utilisations courantes du partage de fichiers :
 - Stockage de données de diagnostic, comme des journaux, des indicateurs de performances et des vidages sur incident dans un emplacement partagé 
 - Stockage d'outils et d'utilitaires nécessaires au développement ou à l'administration de machines virtuelles ou de services cloud Azure
 
-##<a name="file-storage-concepts"></a>Concepts du stockage de fichiers
+## Concepts du stockage de fichiers
 
 Le stockage de fichiers est composé des éléments suivants :
 
 ![files-concepts][files-concepts]
 
 
--   **Compte de stockage :** tous les accès à Azure Storage passent par un compte de stockage. Pour plus d'informations sur la capacité et les objectifs de performance du compte de stockage, consultez la page [Objectifs d'extensibilité et de performances d'Azure Storage](http://msdn.microsoft.com/library/dn249410.aspx).
+-   **Compte de stockage :** tout accès à Azure Storage s'effectue via un compte de stockage. Consultez la page [Objectifs de performance et d'extensibilité d'Azure Storage](http://msdn.microsoft.com/library/azure/dn249410.aspx) pour en savoir plus sur la capacité d'un compte de stockage.
 
--   **Partage :** un partage de stockage de fichiers est un partage de fichiers SMB 2.1 dans Azure. Tous les répertoires et fichiers doivent être créés dans un partage parent. Un compte peut contenir un nombre illimité de partages et un partage peut stocker un nombre illimité de fichiers, dans les limites de capacité du compte de stockage.
+-   **Partage :** un partage de stockage de fichiers est un partage de fichiers SMB 2.1 dans Azure. 
+    Tous les répertoires et fichiers doivent être créés dans un partage parent. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans les limites de capacité du compte de stockage.
 
 -   **Répertoire :** hiérarchie optionnelle de répertoires.
 
 -	**Fichier :** un fichier dans le partage. La taille maximale de fichier est de 1 To.
 
--   **Format d'URL :** les fichiers sont adressables à l'aide du format d'URL suivant : https://`<storageaccount>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`
-L'URL de l'exemple suivant peut être utilisée pour traiter l'un des fichiers dans le schéma ci-dessus :
-`http://acmecorp.file.core.windows.net/cloudfiles/diagnostics/log.txt`
+-   **Format d'URL :** les fichiers sont adressables à l'aide du format d'URL
+    format:   
+    https://`<storage
+    account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`  
+    
+    L'URL de l'exemple suivant peut être utilisée pour traiter l'un des fichiers dans le schéma ci-dessus:  
+    `http://acmecorp.file.core.windows.net/cloudfiles/diagnostics/log.txt`
 
 
 
-Pour plus d'informations sur la façon de nommer les partages, les répertoires et les fichiers, consultez la rubrique [Affectation de noms et références aux partages, répertoires, fichiers et métadonnées](http://msdn.microsoft.com/library/azure/dn167011.aspx).
+Pour plus d'informations sur la façon de nommer les partages, les répertoires et les fichiers, consultez [ la rubrique Affectation de noms et références aux partages, répertoires, fichiers et métadonnées](http://msdn.microsoft.com/library/azure/dn167011.aspx).
 
-##<a name="create-account"></a>Création d'un compte Azure Storage
+## Création d'un compte Azure Storage
 
-Un stockage de fichiers Azure est actuellement disponible en version préliminaire. Pour demander un accès à cette version, allez sur la page de la [version préliminaire de Microsoft Azure](/fr-FR/services/preview/) et demandez un accès aux **fichiers Azure**. Lorsque votre demande est acceptée, vous recevez une notification indiquant que vous pouvez accéder à la version préliminaire du stockage de fichiers. Vous pouvez alors créer un compte de stockage pour accéder au stockage de fichiers.
+Un stockage de fichiers Azure est actuellement disponible en version préliminaire. Pour demander un accès à cette version, allez sur la page de la [version préliminaire de Microsoft Azure](/services/preview/), puis demandez un accès aux **fichiers Azure**. Lorsque votre demande est acceptée, vous recevez une notification indiquant que vous pouvez accéder à la version préliminaire du stockage de fichiers. Vous pouvez alors créer un compte de stockage pour accéder au stockage de fichiers.
 
 > [AZURE.NOTE] Le stockage de fichiers n'est actuellement disponible que pour les nouveaux comptes de stockage. Lorsque votre abonnement peut accéder au stockage de fichiers, créez un compte de stockage à utiliser avec ce guide.
 
 [AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
-##<a name="use-cmdlets"></a>Utilisation de PowerShell pour créer un partage de fichiers
+## Utilisation de PowerShell pour créer un partage de fichiers
 
-###Installation des applets de commande pour le stockage Azure
+Ensuite, nous utiliserons Azure PowerShell pour créer un partage de fichiers. Une fois le partage de fichiers créé, vous pouvez le monter à partir de n'importe quel système de fichiers prenant en charge SMB 2.1. 
 
-Pour vous préparer à utiliser PowerShell, téléchargez et installez les applets de commande PowerShell Azure. Consultez la rubrique [Installation et configuration d'Azure PowerShell](/fr-FR/documentation/articles/install-configure-powershell/) pour des instructions sur l'installation et le point d'installation.
+### Installation des applets de commande PowerShell pour Azure Storage
+
+Pour vous préparer à utiliser PowerShell, téléchargez et installez les applets de commande PowerShell Azure. Consultez la page [Installation et configuration d'Azure PowerShell](install-configure-powershell.md) pour connaître les instructions d'installation.
 
 > [AZURE.NOTE] Les applets de commande PowerShell du service de fichiers ne sont disponibles que dans le dernier module Azure PowerShell, version 0.8.5 et ultérieure. Il est recommandé de télécharger et d'installer le dernier module Azure PowerShell ou d'effectuer une mise à niveau vers celui-ci.
 
-Ouvrez une fenêtre Azure PowerShell en cliquant sur **Démarrer** et en tapant **Windows Azure PowerShell**. La fenêtre Azure PowerShell charge le module Azure PowerShell.
+Ouvrez une fenêtre Azure PowerShell en cliquant sur **Démarrer** et en tapant **Azure PowerShell**. La fenêtre Azure PowerShell charge le module Azure PowerShell.
 
-###Création d'un contexte pour votre compte de stockage et votre clé
+### Création d'un contexte pour votre compte de stockage et votre clé
 
 Créez maintenant le contexte du compte de stockage. Celui-ci encapsule le nom et la clé du compte. Remplacez `account-name` et `account-key` par vos nom et clé de compte dans l'exemple suivant :
 
     # create a context for account and key
     $ctx=New-AzureStorageContext account-name account-key
     
-###Création d'un partage de fichiers
+### Création d'un partage de fichiers
 
-Créez ensuite le partage de fichiers, appelé `sampleshare` dans cet exemple :
+Créez ensuite le nouveau partage, appelé `sampleshare` dans cet exemple :
 
     # create a new share
     $s = New-AzureStorageShare sampleshare -Context $ctx
 
 Vous disposez désormais d'un partage de fichier dans le stockage de fichiers. Nous allons maintenant ajouter un répertoire et un fichier.
 
-###Création d'un répertoire dans le partage de fichiers
+### Création d'un répertoire dans le partage de fichiers
 
 Créez un répertoire dans le partage. Dans l'exemple suivant, le répertoire est appelé `sampledir` :
 
     # create a directory in the share
     New-AzureStorageDirectory -Share $s -Path sampledir
 
-###Téléchargement d'un fichier local vers le répertoire
+### Téléchargement d'un fichier local vers le répertoire
 
 Téléchargez un fichier local vers le répertoire. L'exemple suivant télécharge un fichier à partir de `C:\temp\samplefile.txt`. Modifiez le chemin d'accès du fichier de façon à ce qu'il désigne un fichier valide sur votre ordinateur local : 
     
     # upload a local file to the new directory
-    Set-AzureStorageFileContent -Share $s -Source C:\temp\samplefile.txt -Chemin d'accès sampledir
+    Set-AzureStorageFileContent -Share $s -Source C:\temp\samplefile.txt -Path sampledir
 
-###Affichage de la liste des fichiers du répertoire
+### Affichage de la liste des fichiers du répertoire
 
 Pour voir le fichier dans le répertoire, vous pouvez afficher la liste des fichiers du répertoire. Cette commande affiche également la liste des sous-répertoires. Toutefois, comme il n'y en a pas dans cet exemple, seul le fichier est affiché.  
 
     # list files in the new directory
     Get-AzureStorageFile -Share $s -Path sampledir
 
-##<a name="mount-share"></a>Montage du partage à partir d'une machine virtuelle Azure
+## Montage du partage à partir d'une machine virtuelle Azure exécutant Windows
 
-Pour illustrer comment monter un partage de fichiers Azure, nous allons créer une machine virtuelle Azure, à laquelle nous accéderons à distance pour monter le partage. 
+Pour illustrer comment monter un partage de fichiers Azure, nous allons créer une machine virtuelle Azure exécutant Windows, à laquelle nous accéderons à distance pour monter le partage. 
 
-1. Tout d'abord, créez une machine virtuelle Azure en suivant les instructions de la rubrique [Création d'une machine virtuelle exécutant Windows Server](/fr-FR/documentation/articles/virtual-machines-windows-tutorial/).
-2. Ensuite, connectez-vous à distance à la machine virtuelle en suivant les instructions de la rubrique [Connexion à une machine virtuelle exécutant Windows Server](/fr-FR/documentation/articles/virtual-machines-log-on-windows-server/).
+1. Tout d'abord, créez une machine virtuelle Azure en suivant les instructions de la rubrique [Création d'une machine virtuelle exécutant Windows Server](virtual-machines-windows-tutorial.md).
+2. Ensuite, connectez-vous à distance à la machine virtuelle en suivant les instructions de la rubrique [Connexion à une machine virtuelle exécutant Windows Server](virtual-machines-log-on-windows-server.md).
 3. Ouvrez une fenêtre PowerShell sur la machine virtuelle. 
 
-###Conservation des informations d'identification de votre compte de stockage pour la machine virtuelle
+### Conservation des informations d'identification de votre compte de stockage pour la machine virtuelle
 
-Avant de monter le partage de fichiers, conservez les informations d'identification de votre compte de stockage sur la machine virtuelle. Cette étape permet à Windows de se reconnecter automatiquement au partage de fichiers lorsque la machine virtuelle redémarre. Pour conserver vos informations d'identification, exécutez la commande `cmdkey` à partir de la fenêtre PowerShell de la machine virtuelle. Remplacez `<storage-account>` par le nom de votre compte de stockage et `<account-key>` par la clé du compte de stockage :
+Avant de monter le partage de fichiers, conservez les informations d'identification de votre compte de stockage sur la machine virtuelle. Cette étape permet à Windows de se reconnecter automatiquement au partage de fichiers lorsque la machine virtuelle redémarre. Pour conserver vos informations d'identification, exécutez la commande `cmdkey` à partir de la fenêtre PowerShell de la machine virtuelle. Remplacez `<storage-account>` par le nom de votre compte de stockage, et `<account-key>` par la clé du compte de stockage :
 
 	cmdkey /add:<storage-account>.file.core.windows.net /user:<storage-account> /pass:<account-key>
 
-Windows se reconnectera à votre partage de fichiers lorsque la machine virtuelle redémarrera. Il est possible de vérifier que le partage est bien reconnecté en exécutant la commande  `net use` dans une fenêtre PowerShell.
+Windows se reconnectera à votre partage de fichiers lorsque la machine virtuelle redémarrera. Il est possible de vérifier que le partage est bien reconnecté en exécutant la commande `net use` dans une fenêtre PowerShell.
 
-###Montage du partage de fichiers à l'aide des informations d'identification conservées
+### Montage du partage de fichiers à l'aide des informations d'identification conservées
 
-Une fois une connexion à distance établie avec la machine virtuelle, vous pouvez exécuter la commande `net use` pour monter le partage de fichiers à l'aide de la syntaxe suivante. Remplacez `<storage-account>` par le nom de votre compte de stockage et `<share-name>` par le nom du partage de stockage de fichiers.
+Une fois une connexion à distance établie avec la machine virtuelle, vous pouvez exécuter la commande `net use` pour monter le partage de fichiers à l'aide de la syntaxe suivante. Remplacez `<storage-account>` par le nom de votre compte de stockage, et `<share-name>` par le nom de votre partage de stockage de fichiers.
 
 	net use z: \\<storage-account>.file.core.windows.net\<share-name>
 
@@ -155,25 +152,25 @@ Une fois une connexion à distance établie avec la machine virtuelle, vous pouv
 	   
 	net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
 
-Vous pouvez maintenant utiliser le partage de stockage de fichiers à partir de la machine virtuelle, comme vous le feriez à partir de n'importe quel autre lecteur. Vous pouvez émettre des commandes de fichier standard à partir de l'invite de commandes ou afficher le partage monté et son contenu à partir de l'Explorateur de fichiers. VVous pouvez également exécuter du code au sein de la machine virtuelle qui accède au partage de fichiers à l'aide d'API d'E/S de fichiers Windows standard, telles que celles fournies par les [espaces de noms System.IO](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx)dans .NET Framework. 
+Vous pouvez maintenant utiliser le partage de stockage de fichiers à partir de la machine virtuelle, comme vous le feriez à partir de n'importe quel autre lecteur. Vous pouvez émettre des commandes de fichier standard à partir de l'invite de commandes ou afficher le partage monté et son contenu à partir de l'Explorateur de fichiers. Vous pouvez également exécuter du code au sein de la machine virtuelle qui accède au partage de fichiers à l'aide d'API d'E/S de fichiers Windows standard, telles que celles fournies par les espaces de noms [System.IO ](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) dans .NET Framework. 
 
 Vous pouvez également monter le partage de fichiers à partir d'un rôle exécuté dans un service cloud Azure en vous connectant à distance à ce rôle.
 
-##<a name="create-console-app"></a>Création d'une application locale pour utiliser le stockage de fichiers
+## Création d'une application locale pour utiliser le stockage de fichiers
 
-Vous pouvez monter un partage de stockage de fichiers à partir d'une machine virtuelle ou d'un service cloud exécuté dans Azure, comme illustré ci-dessus. Toutefois, vous ne pouvez pas monter un partage de stockage de fichiers à partir d'une application locale. Pour accéder aux données de partage à partir d'une application locale, vous devez utiliser l'API de stockage de fichiers. Cet exemple montre comment utiliser un partage de fichiers avec la [bibliothèque cliente de stockage .NET Azure](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409). 
+Vous pouvez monter le partage de fichiers à partir d'une machine virtuelle ou d'un service cloud exécuté dans Azure, comme illustré ci-dessus. Toutefois, vous ne pouvez pas monter le partage de fichiers à partir d'une application locale. Pour accéder aux données de partage à partir d'une application locale, vous devez utiliser l'API de stockage de fichiers. Cet exemple montre comment utiliser un partage de fichiers avec la [bibliothèque cliente de stockage .NET Azure](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409). 
 
 Afin de montrer comment utiliser l'API à partir d'une application locale, nous allons créer une application console simple à exécuter sur le Bureau.
 
-###Création de l'application console et obtention de l'assembly
+### Création de l'application console et obtention de l'assembly
 
 Pour créer une application console dans Visual Studio et installer le package NuGet pour Azure Storage :
 
-1. Dans Visual Studio, sélectionnez **Fichier** -> **Nouveau Projet**, puis sélectionnez **Windows** -> **Application console** dans la liste de modèles Visual C#.
+1. Dans Visual Studio, choisissez **Fichier** -> **Nouveau projet**, puis **Windows** -> **Application console** dans la liste de modèles Visual C#.
 2. Nommez l'application console, puis cliquez sur **OK**.
 3. Une fois le projet créé, cliquez dessus avec le bouton droit dans l'Explorateur de solutions et choisissez **Gérer les packages NuGet**. Effectuez une recherche en ligne sur " WindowsAzure.Storage ", puis cliquez sur **Installer** pour lancer l'installation du package Azure Storage et de ses dépendances.
 
-###Enregistrement des informations d'identification de votre compte de stockage dans le fichier app.config
+### Enregistrement des informations d'identification de votre compte de stockage dans le fichier app.config
 
 Enregistrez ensuite vos informations d'identification dans le fichier app.config du projet. Modifiez le fichier app.config de façon à ce qu'il apparaisse de la même façon que dans l'exemple ci-après, en remplaçant `myaccount` par le nom de votre compte de stockage et `mykey` par la clé de votre compte de stockage :
 
@@ -190,20 +187,20 @@ Enregistrez ensuite vos informations d'identification dans le fichier app.config
 > [AZURE.NOTE] La dernière version de l'émulateur de stockage Azure ne prend pas en charge le stockage de fichiers. Votre chaîne de connexion doit cibler un compte de stockage Azure dans le cloud avec un accès à la version préliminaire des fichiers.
 
 
-###Ajout de déclarations d'espaces de noms
+### Ajout de déclarations d'espaces de noms
 Ouvrez le fichier program.cs à partir de l'Explorateur de solutions et ajoutez les déclarations d'espaces de noms en haut du fichier :
 
     using Microsoft.WindowsAzure;
 	using Microsoft.WindowsAzure.Storage;
 	using Microsoft.WindowsAzure.Storage.File;
 
-###Extraction de votre chaîne de connexion par programme
-Vous pouvez extraire vos informations d'identification enregistrées dans le fichier app.config en utilisant la classe  `Microsoft.WindowsAzure.CloudConfigurationManager` ou  `System.Configuration.ConfigurationManager` . L''exemple présenté ici montre comment extraire vos informations d'identification à l'aide de la classe `CloudConfigurationManager` et les encapsuler avec la classe `CloudStorageAccount`. Ajoutez le code suivant à la méthode `Main()` dans program.cs :
+### Extraction de votre chaîne de connexion par programme
+Vous pouvez extraire vos informations d'identification enregistrées dans le fichier app.config en utilisant la classe `Microsoft.WindowsAzure.CloudConfigurationManager` ou la classe `System.Configuration.ConfigurationManager `. L'exemple présenté ici montre comment récupérer vos informations d'identification à l'aide de la classe `CloudConfigurationManager` et les encapsuler avec la classe `CloudStorageAccount`. Ajoutez le code suivant à la méthode `Main()` dans program.cs :
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-###Accès au partage de stockage de fichiers par programme
+### Accès au partage de stockage de fichiers par programme
 
 Ajoutez ensuite le code suivant à la méthode `Main()` après le code affiché ci-dessus afin d'extraire la chaîne de connexion. Ce code obtient une référence vers le fichier créé plus tôt et renvoie son contenu dans la fenêtre de console.
 
@@ -239,7 +236,13 @@ Ajoutez ensuite le code suivant à la méthode `Main()` après le code affiché 
 
 Exécutez l'application console pour voir le résultat.
 
-## <a name="next-steps"></a>Étapes suivantes
+## Montage du partage à partir d'une machine virtuelle Azure exécutant Linux
+
+Lorsque vous créez une machine virtuelle Azure, vous pouvez spécifier une image Ubuntu à partir de la galerie d'images de disque pour garantir la prise en charge de SMB 2.1. Toutefois, une distribution Linux prenant en charge SMB 2.1 peut monter un partage de fichiers Azure. 
+
+Pour obtenir une démonstration du montage d'un partage de fichiers Azure sous Linux, consultez la rubrique relative au [stockage partagé sous Linux via l'aperçu de fichiers Azure - Partie 1](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1) sur Channel 9.
+
+## Étapes suivantes
 
 Maintenant que vous connaissez les bases du stockage de fichiers, consultez les liens suivants
 pour obtenir des informations plus détaillées.
@@ -259,23 +262,17 @@ pour obtenir des informations plus détaillées.
   </ul>
 </li><li>Pour plus d'informations sur les autres options de stockage de données dans Azure, consultez d'autres guides de fonctionnalités.
   <ul>
-    <li>Utilisez le <a href="/fr-FR/documentation/articles/storage-dotnet-how-to-use-blobs/">stockage d'objets blob</a> pour stocker des données non structurées.</li>
-    <li>Utilisez le <a href="/fr-FR/documentation/articles/storage-dotnet-how-to-use-tables/">stockage de table</a> pour stocker des données structurées.</li>
-    <li>Utilisez le <a href="/fr-FR/documentation/articles/storage-dotnet-how-to-use-queues/">stockage de files d'attente</a> pour stocker les messages de façon fiable.</li>
-    <li>Utilisez une <a href="/fr-FR/documentation/articles/sql-database-dotnet-how-to-use/">base de données SQL</a> pour stocker des données relationnelles.</li>
+    <li>Utilisez le <a href="/documentation/articles/storage-dotnet-how-to-use-blobs/">stockage d'objets blob</a> pour stocker des données non structurées.</li>
+    <li>Utilisez le <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">stockage de table</a> pour stocker des données structurées.</li>
+    <li>Utilisez le <a href="/documentation/articles/storage-dotnet-how-to-use-queues/">stockage de files d'attente</a> pour stocker les messages de façon fiable.</li>
+    <li>Utilisez une <a href="/documentation/articles/sql-database-dotnet-how-to-use/">base de données SQL</a> pour stocker des données relationnelles.</li>
   </ul>
 </li>
 </ul>
 
-[Étapes suivantes]: #next-steps
-[Présentation du stockage de fichiers]: #what-is-file-storage 
-[Concepts du stockage de fichiers]: #file-storage-concepts
-[Création d'un compte de stockage Azure]: #create-account
-[Utilisation de PowerShell pour créer un partage de fichiers]: #use-cmdlets
-[Montage du partage à partir d'une machine virtuelle Azure]: #mount-share
-[Création d'une application locale pour accéder au stockage de fichiers]: #create-console-app
-
 [files-concepts]: ./media/storage-dotnet-how-to-use-files/files-concepts.png
 
 
-\<!--HONumber=42-->
+<!--HONumber=49--> 
+
+<!--HONumber=49-->

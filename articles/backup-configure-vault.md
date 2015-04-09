@@ -1,43 +1,34 @@
 ﻿<properties 
-	pageTitle="Configuration d'Azure Recovery Services pour sauvegarder facilement et rapidement Windows Server" 
+	pageTitle="Configuration d'Azure Backup Services pour sauvegarder facilement et rapidement Windows Server" 
 	description="Utilisez ce didacticiel pour découvrir comment utiliser le service Backup de l'offre cloud de Microsoft Azure pour sauvegarder Windows Server dans le cloud." 
-	services="site-recovery" 
+	services="backup" 
 	documentationCenter="" 
 	authors="markgalioto" 
 	manager="jwhit" 
 	editor="tysonn"/>
 
 <tags 
-	ms.service="site-recovery" 
-	ms.workload="backup-recovery" 
+	ms.service="backup" 
+	ms.workload="storage-backup-recovery" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="03/04/2015" 
 	ms.author="markgal"/>
 
 
 
-<h1><a id="configure-a-backup-vault-tutorial"></a>Configuration d'Azure Backup pour sauvegarder rapidement et facilement Windows Server</h1>
-<div class="dev-callout"> 
-<strong>Remarque</strong>
- 
-<p>Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Ce didacticiel vous guidera dans l'activation de la fonctionnalité Azure Backup. Auparavant, vous aviez besoin de créer ou de vous procurer un certificat X.509 v3 afin d'enregistrer votre serveur de sauvegarde. Les certificats sont toujours pris en charge, mais désormais, pour faciliter l'enregistrement d'un coffre Azure avec un serveur, vous pouvez générer un droit d'information d'identification de coffre à partir de la page de démarrage rapide. </p>
-<ul> 
-<li>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez <a href="/fr-fr/pricing/free-trial/">Version d'évaluation gratuite Azure</a>.</li> 
- 
+<h1><a id="configure-a-backup-vault-tutorial"></a>Configurer Azure Backup pour sauvegarder rapidement et facilement Windows Server</h1>
 
-</ul>
- 
-
-</div>
+> [AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Ce didacticiel vous guidera dans l'activation de la fonctionnalité Azure Backup. Auparavant, vous aviez besoin de créer ou de vous procurer un certificat X.509 v3 afin d'enregistrer votre serveur de sauvegarde. Les certificats sont toujours pris en charge, mais désormais, pour faciliter l'enregistrement d'un coffre Azure avec un serveur, vous pouvez générer un droit d'information d'identification de coffre à partir de la page de démarrage rapide. 
+<ul><li>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="/pricing/free-trial/">Version d'évaluation gratuite d'Azure</a>.</li></ul>
   
 
 <p>Pour sauvegarder des fichiers et données de votre serveur Windows Server vers Azure, vous devez créer un coffre de sauvegarde dans la région géographique où vous souhaitez stocker les données. Ce didacticiel vous guidera lors de la création du coffre de stockage des sauvegardes, du téléchargement d'une information d'identification de coffre et de l'installation de l'agent de sauvegarde. Il vous présentera également les tâches de gestion de sauvegarde disponibles dans le portail de gestion.</p>
 
 
 
-<h2><a id="create"></a>Création d'un coffre de sauvegarde</h2>
+<h2><a id="create"></a>Créer un coffre de sauvegarde</h2>
 
 1. Connectez-vous au [Portail de gestion](https://manage.windowsazure.com).
 
@@ -55,7 +46,7 @@
 
 3. Si vous disposez de plusieurs abonnements associés à votre compte professionnel, choisissez le compte correct à associer avec le coffre de sauvegarde.
 
-<h2><a id="upload"></a>Téléchargement d'une information d'identification de coffre</h2>
+<h2><a id="upload"></a>Télécharger les informations d'identification du coffre</h2>
 
 Les informations d'identification de coffre remplacent les certificats pour l'inscription de votre service Azure auprès de votre serveur. Vous pouvez toujours utiliser des certificats. Toutefois, les informations d'identification de coffre sont plus faciles à utiliser, car vous utilisez le portail Azure pour les générer et les télécharger.  
 
@@ -68,7 +59,7 @@ Les informations d'identification de coffre remplacent les certificats pour l'in
 
 4. Le portail générera une information d'identification de coffre en combinant le nom du coffre et la date actuelle. Cliquez sur **Enregistrer** pour télécharger les informations d'identification de l'archivage vers le dossier de téléchargements du compte local, ou sélectionnez **Enregistrer sous** dans le menu **Enregistrer** pour spécifier l'emplacement des informations d'identification de l'archivage. Vous ne pouvez pas modifier les informations d'identification. Il n'y a donc aucune raison de cliquer sur Ouvrir. Une fois que les informations d'identification auront été téléchargées, vous serez invité à Ouvrir le dossier. Cliquez sur **x** pour fermer ce menu.
 
-<h2><a id="download"></a>Téléchargement et installation d'un agent de sauvegarde</h2>
+<h2><a id="download"></a>Télécharger et installer un agent de sauvegarde</h2>
 1. Dans le [Portail de gestion](https://manage.windowsazure.com).
 
 2. Cliquez sur **Recovery Services**, puis sélectionnez un coffre de sauvegarde pour afficher sa page de démarrage rapide.
@@ -82,7 +73,7 @@ Une fois l'agent installé, vous pouvez utiliser l'interface de gestion locale a
 	
   
 
-<h2><a id="manage"></a>Gestion des coffres et serveurs de sauvegarde</h2>
+<h2><a id="manage"></a>Gérer les coffres et les serveurs de sauvegarde</h2>
 1. Connectez-vous au [Portail de gestion](https://manage.windowsazure.com).
 
 2. Cliquez sur **Recovery Services**, puis sur le nom du coffre de sauvegarde pour afficher la page de démarrage rapide. 
@@ -114,6 +105,6 @@ Une fois l'agent installé, vous pouvez utiliser l'interface de gestion locale a
 [deleted-server]: ./media/backup-configure-vault/RS_deletedserver.png
 [protected-itmes]: ./media/backup-configure-vault/RS_protecteditems.png
 
-<!--HONumber=35.2-->
+<!--HONumber=49--> 
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

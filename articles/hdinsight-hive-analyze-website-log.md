@@ -33,7 +33,7 @@ Dans cet exemple, vous allez utiliser un cluster HDInsight pour analyser des fic
 
 - Vous devez avoir approvisionné un **cluster HDInsight**. Pour plus d'informations, consultez la rubrique [Approvisionnement de clusters HDInsight][hdinsight-provision]. 
 - Microsoft Excel 2010 ou Microsoft Excel 2013 doivent être installés.
-- Vous devez disposer d'un [pilote ODBC Microsoft Hive](http://www.microsoft.com/fr-fr/download/details.aspx?id=40886) pour importer des données à partir de Hive dans Excel.
+- Vous devez disposer d'un [pilote ODBC Microsoft Hive](http://www.microsoft.com/download/details.aspx?id=40886) pour importer des données à partir de Hive dans Excel.
 
 
 ##Exécution de l'exemple
@@ -51,8 +51,9 @@ Dans cet exemple, vous allez utiliser un cluster HDInsight pour analyser des fic
 Essayez l'exemple sur la façon d'analyser les données de capteur au moyen d'Azure HDInsight. Consultez la rubrique [Analyse des données de capteur au moyen de Hive avec HDInsight][hdinsight-sensor-data-sample].
 
 
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis/
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-sensor-data-sample]: hdinsight-use-hive-sensor-data-analysis.md
 
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
-<!--HONumber=45--> 
+
+<!--HONumber=49-->

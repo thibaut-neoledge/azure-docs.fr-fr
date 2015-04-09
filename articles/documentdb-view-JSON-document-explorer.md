@@ -26,7 +26,7 @@ Ce didacticiel vous permettra de pouvoir répondre aux questions suivantes :
 -	Comment faire pour afficher facilement les propriétés système d'un document DocumentDB via un navigateur web ?
 -	Comment faire pour effectuer facilement une ingestion en bloc de documents dans DocumentDB via un navigateur web ?
 
-##<a id="Launch"></a>Lancer et accéder à l'Explorateur de documents##
+##<a id="Launch"></a>Lancer et utiliser l'Explorateur de documents##
 
 Vous pouvez lancer l'Explorateur de documents à partir de l'un des panneaux de compte DocumentDB, de base de données et de collection.  
 
@@ -53,7 +53,7 @@ Vous pouvez lancer l'Explorateur de documents à partir de l'un des panneaux de 
 	![Screenshot of Document Explorer with filtered results](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
 
 
-	> [AZURE.IMPORTANT] La fonctionnalité de filtre de l'Explorateur de documents filtre uniquement l'ensemble de documents *** actuellement*** chargé et n'exécute pas de requête sur la collection actuellement sélectionnée.
+	> [AZURE.IMPORTANT] La fonctionnalité de filtre de l'Explorateur de documents filtre uniquement l'ensemble de documents ***actuellement*** chargé et n'exécute pas de requête sur la collection actuellement sélectionnée.
 
 6. Pour actualiser la liste des documents chargés par l'Explorateur de documents, cliquez simplement sur la commande **Actualiser** en haut du panneau.
 
@@ -124,4 +124,4 @@ L'Explorateur de documents prend en charge l'ingestion en bloc d'un ou plusieurs
 
 Pour en savoir plus sur DocumentDB, cliquez [ici](http://azure.com/docdb).
 
-<!--HONumber=47-->
+<!--HONumber=49-->

@@ -27,13 +27,13 @@ Après avoir lu cette présentation, vous serez en mesure de répondre aux quest
 -	Que sont les jetons de ressource DocumentDB ?
 -	Comment puis-je utiliser les utilisateurs et les autorisations DocumentDB pour sécuriser l'accès aux données DocumentDB ?
 
-##<a id="Sub1"></a>Concepts de contrôle d'accès DocumentDB##
+##<a id="Sub1"></a>Concepts du contrôle d'accès DocumentDB##
 
 DocumentDB fournit des concepts de premier ordre pour contrôler l'accès aux ressources DocumentDB.  Dans le cadre de cette rubrique, les ressources DocumentDB sont réparties en deux catégories :
 
 - Ressources d'administration
 	- Compte
-	- Database
+	- Base de données
 	- Utilisateur
 	- Autorisation
 - Ressources d'application
@@ -160,7 +160,7 @@ Pour obtenir facilement toutes les ressources d'autorisation associées à un ut
 ##<a name="NextSteps"></a>Étapes suivantes
 
 - Pour en savoir plus sur DocumentDB, cliquez [ici](http://azure.com/docdb).
-- Pour en savoir plus sur la gestion des clés principales et en lecture seule, cliquez [ici](http://azure.microsoft.com/documentation/articles/documentdb-manage-account/).
+- Pour en savoir plus sur la gestion des clés principales et en lecture seule, cliquez [ici](documentdb-manage-account.md).
 - Pour en savoir plus sur la construction des jetons d'autorisation DocumentDB, cliquez [ici](https://msdn.microsoft.com/library/azure/dn783368.aspx)
 
-<!--HONumber=47-->
+<!--HONumber=49-->

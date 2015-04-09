@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Prise en main de l'authentification (Android) | Centre de développement mobile" 
 	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Android via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
 	services="mobile-services" 
@@ -22,20 +22,19 @@
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-</div>
 
 ## Résumé
 
 <p>Cette rubrique montre comment authentifier des utilisateurs dans Azure Mobile Services à partir de votre application. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.</p>
+</div>
 
-
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="label">voir le didacticiel</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-authentication-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a><span class="time">10:42</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="label">Regarder le didacticiel</a><a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-authentication-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a><span class="time">10:42</span></div>
 </div> 
 
 Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
 
 
-## Configuration requise
+##Conditions préalables
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]
 
@@ -51,7 +50,7 @@ Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'
 
 4. Dans le menu **Exécuter**, cliquez sur **Exécuter l'application** ; vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est générée après le démarrage de l'application. 
 
-	 Cela se produit car l'application essaye d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table _TodoItem_ requiert désormais l'authentification.
+	 Cela se produit, car l'application tente d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table _TodoItem_  exige à présent une authentification.
 
 Ensuite, vous allez mettre à jour l'application pour authentifier les utilisateurs avant de demander des ressources à partir du service mobile.
 
@@ -77,7 +76,7 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Inscription de votre application pour l'authentification et configuration de Mobile Services]: #register
 [Restriction des autorisations de table pour les utilisateurs authentifiés]: #permissions
 [Ajout de l'authentification à l'application]: #add-authentication
-[Stockage de jetons d'authentification sur le client]: #cache-tokens
+[Stockage des jetons d'authentification sur le client]: #cache-tokens
 [Actualisation des jetons expirés]: #refresh-tokens
 [Étapes suivantes]:#next-steps
 
@@ -102,7 +101,7 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 
 <!-- URLs. -->
 
-[Page Envoyer une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Page Soumette une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mes Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Kit de développement logiciel (SDK) Live pour Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Authentification unique pour les applications Windows Store à l'aide de Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
@@ -114,4 +113,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=47-->
+<!--HONumber=49-->

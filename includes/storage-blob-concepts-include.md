@@ -1,7 +1,9 @@
-﻿## <a name="what-is"> </a>Présentation du stockage d'objets blob
+﻿## Présentation du stockage d'objets blob
 
-Le stockage d'objets blob Azure est un service permettant de stocker de gros volumes de données non structurées, telles que du texte ou des données binaires, accessibles depuis n'importe où dans le monde via
-HTTP ou HTTPS. Vous pouvez utiliser le stockage d'objets blob pour exposer les données publiquement dans le monde ou pour le stockage privé de données d'applications.
+Le stockage d'objets blob Azure est un service permettant de stocker de grandes quantités de
+données non structurées, telles que des données texte ou binaires, qui est accessible partout dans le monde via
+HTTP ou HTTPS. Vous pouvez utiliser le stockage d'objets blob pour exposer les données publiquement dans le monde, ou
+pour stocker les données d'application en privé.
 
 Voici quelques utilisations courantes du stockage d'objets blob :
 
@@ -10,16 +12,16 @@ Voici quelques utilisations courantes du stockage d'objets blob :
 -   Diffusion en continu de vidéo et d'audio
 -   Sauvegarde sécurisée et récupération d'urgence
 -   Stockage des données pour l'analyse par un service local ou hébergé par
-    Azure
+    service
 
-## <a name="concepts"> </a>Concepts
+## Concepts du service BLOB
 
 Le service BLOB contient les composants suivants :
 
 ![Blob1][Blob1]
 
 -   **Compte de stockage :** tout accès au stockage Azure s'effectue
-    via un compte de stockage. Consultez la page [Objectifs de performance et d'extensibilité d'Azure Storage](http://msdn.microsoft.com/library/dn249410.aspx) pour en savoir plus sur la capacité d'un compte de stockage.
+    via un compte de stockage. Pour plus d'informations sur la capacité du compte de stockage, voir [Objectifs de performance et d'évolutivité d'Azure Storage](http://msdn.microsoft.com/library/azure/dn249410.aspx).
 
 -   **Conteneur :** un conteneur regroupe un ensemble d'objets blob.
     Tous les objets blob doivent figurer dans un conteneur. Un compte peut contenir un
@@ -46,4 +48,5 @@ Le service BLOB contient les composants suivants :
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
-<!--HONumber=42-->
+
+<!--HONumber=49-->

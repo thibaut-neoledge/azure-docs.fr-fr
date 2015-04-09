@@ -20,13 +20,13 @@
 
 Cet article fournit une vue d'ensemble de l'[Explorateur de requête Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/), un outil du portail Azure en version préliminaire qui vous permet de créer, de modifier et d'exécuter des requêtes dans le cadre d'une collection DocumentDB. 
 
-En suivant ce didacticiel, vous serez en mesure de répondre aux questions suivantes :  
+Ce didacticiel vous permettra de pouvoir répondre aux questions suivantes :  
 
 -	Comment puis-je facilement créer, modifier et exécuter des requêtes dans le cadre d'une collection DocumentDB via un navigateur web ?
 -	Comment puis-je facilement naviguer dans les pages de résultats de la requête DocumentDB via un navigateur web ?
 -	Comment puis-je résoudre les erreurs de syntaxe de ma requête DocumentDB ? 
 
-##<a id="Launch"></a>Lancement de l'Explorateur de requête et accès##
+##<a id="Launch"></a>Lancement et utilisation de l'Explorateur de requête##
 
 L'Explorateur de requête peut être lancé à partir des panneaux de compte, de base de données et de collection DocumentDB.
   
@@ -36,7 +36,7 @@ L'Explorateur de requête peut être lancé à partir des panneaux de compte, de
 
 2. Il vous suffit de cliquer sur la vignette pour lancer l'Explorateur de requête.
 
-	Les zones de liste déroulante **Base de données** et **Collection** sont préremplies en fonction du contexte de lancement de l'Explorateur de requête.  Par exemple, si vous lancez l'Explorateur de requête à partir d'un panneau de base de données, la base de données actuelle est présélectionnée. Si vous lancez l'Explorateur de requête à partir d'un panneau de collection, la collection actuelle est présélectionnée.
+	Les zones de liste déroulante **Base de données** et **Collection** sont préremplies en fonction du contexte de lancement de l'Explorateur de requête.  Par exemple, si vous le lancez à partir d'un panneau de base de données, la base de données active est préremplie. Si vous le lancez à partir d'un panneau de collection, la collection active est préremplie.
 
 	![Screenshot of Query Explorer](./media/documentdb-query-collections-query-explorer/queryexplorerinitial.png)
 
@@ -44,7 +44,7 @@ L'Explorateur de requête peut être lancé à partir des panneaux de compte, de
 
 L'Explorateur de requête vous permet de créer, de modifier et d'exécuter facilement des requêtes dans le cadre d'une collection DocumentDB et inclut la mise en surbrillance des valeurs et des mots clés de base pour améliorer la création de requêtes.  
 
-- Lors de l'ouverture initiale de l'Explorateur de requête, la requête par défaut " SELECT * FROM c " est proposée.  Vous pouvez accepter la requête par défaut ou créer votre propre requête, puis cliquer sur le bouton **Exécuter la requête** pour afficher les résultats. L'Explorateur de requête prend en charge le langage de requête SQL DocumentDB comme indiqué dans [Interrogation de DocumentDB](../documentdb-sql-query/).
+- Lors de l'ouverture initiale de l'Explorateur de requête, la requête par défaut " SELECT * FROM c " est proposée.  Vous pouvez accepter la requête par défaut ou créer votre propre requête, puis cliquer sur le bouton **Exécuter la requête** pour afficher les résultats. L'Explorateur de requête prend en charge le langage de requête SQL DocumentDB comme indiqué dans l'article [Interrogation de DocumentDB](documentdb-sql-query.md).
 
 	![Screenshot of Query Explorer query results](./media/documentdb-query-collections-query-explorer/queryresults1.png) 
 
@@ -63,6 +63,6 @@ L'Explorateur de requête vous permet de créer, de modifier et d'exécuter faci
 ##<a name="NextSteps"></a>Étapes suivantes
 
 - Pour en savoir plus sur DocumentDB, cliquez [ici](http://azure.com/docdb).
-- Pour en savoir plus au sujet de la grammaire SQL DocumentDB prise en charge par l'Explorateur de requête, cliquez [ici](../documentdb-sql-query/).
+- Pour en savoir plus sur la syntaxe du langage SQL DocumentDB prise en charge par l'Explorateur de requête, cliquez [ici](documentdb-sql-query.md).
 
-<!--HONumber=47-->
+<!--HONumber=49-->
