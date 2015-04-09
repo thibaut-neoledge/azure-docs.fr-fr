@@ -1,245 +1,249 @@
-﻿<properties 
-	pageTitle="Déploiement intermédiaire dans Sites Web Microsoft Azure" 
-	description="Découvrez comment utiliser la publication intermédiaire sur Sites Web Microsoft Azure." 
-	services="web-sites" 
-	documentationCenter="" 
-	authors="cephalin" 
-	writer="cephalin" 
-	manager="wpickett" 
+﻿<properties
+	pageTitle="Configurer des environnements intermédiaires pour les applications web dans Azure App Service
+	description="Découvrez comment utiliser la publication intermédiaire pour les applications web dans Azure App Service.
+	services="app-service\web"
+	documentationCenter=""
+	authors="cephalin"
+	writer="cephalin"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="web-sites" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="9/9/2014" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/24/2015"
 	ms.author="cephalin"/>
 
 <a name="Overview"></a>
-#Déploiement intermédiaire dans Sites Web Microsoft Azure#
-Au lieu d'utiliser l'emplacement de production par défaut lorsque vous déployez votre application sur des sites Web Azure, vous avez la possibilité de le faire sur un emplacement de déploiement distinct, car ce sont en réalité des sites actifs possédant leurs propres noms d'hôte. Cette option est disponible dans le plan d'hébergement Web **Standard**. De plus, vous pouvez basculer les sites et les configurations de site entre deux emplacements de déploiement, y compris l'emplacement de production. Le déploiement de votre application sur un emplacement de déploiement présente les avantages suivants :
+# Configurer des environnements intermédiaires pour les applications web dans Azure App Service
 
-- Vous pouvez valider les modifications d'un site dans un emplacement de déploiement intermédiaire avant de le basculer en production.
+Lorsque vous déployez votre application web vers [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), vous pouvez la déployer vers un emplacement de déploiement distinct et non vers l'emplacement de production par défaut lors de l'exécution du mode de plan App Service **standard** ou **Premium**. Les emplacements de déploiement sont en fait des applications web dynamiques pourvues de leur propre nom d'hôte. Les éléments de contenu et de configuration des applications web peuvent être échangés entre deux emplacements de déploiement, y compris l'emplacement de production. Le déploiement de votre application sur un emplacement de déploiement présente les avantages suivants :
 
-- Après basculement, le précédent site de production se retrouve sur l'emplacement du site précédemment intermédiaire. Si les modifications basculées en production ne vous conviennent pas, vous pouvez effectuer le même basculement afin de récupérer immédiatement le contenu du précédent site qui vous plaisait. 
- 
-- Le fait de déployer un site sur un emplacement et de le basculer ensuite en production garantit que toutes les instances de l'emplacement sont initialisées avant d'être basculées en production. Cela permet de réduire les risques de défaillances lorsque vous déployez votre site. La redirection du trafic est transparente et aucune demande n'est abandonnée durant les opérations de basculement. 
+- Vous pouvez valider les modifications d'une application web dans un emplacement de déploiement intermédiaire avant de l'échanger avec l'emplacement de production.
 
-Quatre emplacements de déploiement, en plus de l'emplacement de production, sont pris en charge pour chaque site en plan **Standard**. 
+- Déployer d'abord une application web vers un emplacement et la basculer ensuite en production garantit que toutes les instances de l'emplacement sont initialisées avant d'être basculées en production. Cela élimine les temps d'arrêt lorsque vous déployez votre application web. La redirection du trafic est transparente et aucune demande n'est abandonnée durant les opérations de basculement. L'intégralité de ce flux de travail peut être automatisée en configurant [Échange automatique](#Configure-Auto-Swap-for-your-web-app) lorsque la validation préalable à l'échange n'est pas nécessaire.
 
-## Sommaire ##
-- [Ajout d'un emplacement de déploiement à un site Web](#Add)
-- [À propos de la configuration des emplacements de déploiement](#AboutConfiguration)
-- [Basculement des emplacements de déploiement](#Swap)
-- [Basculement du site de production vers le site intermédiaire](#Rollback)
-- [Suppression de l'emplacement d'un site](#Delete)
-- [Cmdlets Azure PowerShell pour les emplacements de site](#PowerShell)
-- [Commandes de l'interface de ligne de commande interplateforme Azure (xplat-cli) pour les emplacements de site](#CLI)
+- À l'issue d'un échange, l'emplacement occupé par une application web précédemment intermédiaire dispose désormais de l'application web précédemment en production. Si les modifications basculées en production ne vous conviennent pas, vous pouvez effectuer le même basculement afin de récupérer immédiatement le contenu du précédent site qui vous plaisait.
+
+Chaque mode de plan App Service prend en charge un nombre différent d'emplacements de déploiement. Pour connaître le nombre d'emplacements pris en charge par le mode de votre application web, voir [Tarification d'App Service](/pricing/details/app-service/). 
+
+- Si votre application web dispose de plusieurs emplacements, vous ne pouvez pas changer de mode.
+
+- La mise à l'échelle est uniquement disponible pour les emplacements de site de production.
+
+- La gestion des ressources liées est uniquement prise en charge pour les emplacements de site de production.
+
+	> [AZURE.NOTE] Dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715) uniquement, vous pouvez éviter cet impact potentiel dans un emplacement de production en déplaçant temporairement l'emplacement autre que de production vers un autre mode de plan App Service. Notez que l'emplacement autre que de production doit une fois encore partager le même mode que l'emplacement de production avant que vous ne puissiez échanger les deux emplacements.
 
 <a name="Add"></a>
-##Ajout d'un emplacement de déploiement à un site Web##
+## Ajouter un emplacement de déploiement à une application web ##
 
-Le site doit être exécuté en plan d'hébergement **Standard** pour activer plusieurs emplacements de déploiement. 
+Pour que vous puissiez activer plusieurs emplacements de déploiement, l'application web doit s'exécuter en mode **standard** ou **Premium**.
 
-1. Sur la page Démarrage rapide ou dans la section Aperçu rapide de la page Tableau de bord de votre site Web, cliquez sur **Ajouter un nouvel emplacement de déploiement**. 
-	
-	![Add a new deployment slot][QGAddNewDeploymentSlot]
-	
+1. Dans le [portail Azure en version préliminaire](https://portal.azure.com/), ouvrez le panneau de votre application web.
+2. Cliquez sur **Emplacements de déploiement**, puis, dans le panneau **Emplacements de déploiement**, cliquez sur **Ajouter un emplacement**.
+
+	![Ajouter un nouvel emplacement de déploiement][QGAddNewDeploymentSlot]
+
 	> [AZURE.NOTE]
-	> Si le site Web n'est pas déjà en mode **Standard**, le message **Vous devez être en mode standard pour activer la publication intermédiaire** s'affiche. À ce moment, vous pouvez sélectionner **Mise à niveau** et accéder à l'onglet **Mise à l'échelle** de votre site Web, avant de continuer.
-	
-2. Dans la boîte de dialogue **Ajouter un nouvel emplacement de déploiement**, attribuez un nom à l'emplacement et indiquez si vous souhaitez cloner la configuration du site Web depuis un autre emplacement de déploiement existant. Cliquez sur la coche pour continuer. 
-	
-	![Configuration Source][ConfigurationSource1]
-	
-	Lorsque vous créez votre tout premier connecteur, vous ne disposez que de deux possibilités : configurer le clonage de l'emplacement de production par défaut ou ne rien configurer du tout. 
-	
+	> Si l'application web n'est pas déjà en mode **standard** ou **Premium**, vous allez recevoir un message indiquant les modes pris en charge pour l'activation de la publication intermédiaire. À ce stade, vous pouvez sélectionner **Mettre à niveau** et accéder à l'onglet **Mettre à l'échelle** de votre application web avant de continuer.
+
+2. Dans le panneau **Ajouter un emplacement**, nommez l'emplacement, puis indiquez si vous souhaitez cloner la configuration de l'application web à partir d'un autre emplacement de déploiement existant. Cliquez sur la coche pour continuer.
+
+	![Source de configuration][ConfigurationSource1]
+
+	La première fois que vous ajoutez un emplacement, vous avez uniquement deux choix : cloner la configuration à partir de l'emplacement par défaut en production ou ne rien cloner du tout.
+
 	Après avoir créé plusieurs emplacements, vous pourrez cloner la configuration depuis un emplacement autre que l'emplacement de production :
-	
-	![Configuration sources][MultipleConfigurationSources]
 
-5. Dans la liste des sites Web, développez la coche à gauche du nom de votre site Web pour afficher l'emplacement de déploiement. Il portera le nom du site suivi du nom de l'emplacement de déploiement. 
-	
-	![Site List with Deployment Slot][SiteListWithStagedSite]
-	
-4. Lorsque vous cliquez sur le nom de l'emplacement du site de déploiement, une page s'ouvre, composée de plusieurs onglets, comme sur n'importe quel autre site Web. <strong><i>nom-de-votre-site-web</i>(<i>nom-de-l-emplacement-du-déploiement</i>)</strong> apparaîtra en haut de la page du portail pour vous rappeler que vous vous trouvez sur l'emplacement du site de déploiement.
-	
-	![Deployment Slot Title][StagingTitle]
-	
-5. Cliquez sur l'URL du site mentionné dans la vue Tableau de bord. Notez que l'emplacement du déploiement dispose de son propre nom d'hôte et qu'il est également un site actif. Pour limiter l'accès du public à l'emplacement de déploiement, consultez la page [Sites Web Azure - limiter l'accès Web aux emplacements de déploiement de production](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
+	![Sources de configuration][MultipleConfigurationSources]
 
-	-	 
+5. Dans le panneau **Emplacements de déploiement**, cliquez sur l'emplacement de déploiement pour ouvrir un panneau pour ce dernier, avec un ensemble de mesures et de paramètres de configuration comme toute autre application web. <strong><i>nom-votre-application-web</i>-<i>nom-emplacement-de-déploiement</i></strong> apparaît en haut du panneau pour vous rappeler que vous visionnez l'emplacement de déploiement.
 
-Il n'y a aucun contenu. Vous pouvez effectuer un déploiement sur l'emplacement d'une autre branche référentielle, ou d'un référentiel complètement différent. Vous pouvez également modifier la configuration de l'emplacement. Utilisez le profil de publication ou les informations d'identification associées à l'emplacement de déploiement pour les mises à jour de contenu.  Par exemple, vous pouvez [publier sur cet emplacement avec Git](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control/).
+	![Titre de l'emplacement de déploiement][StagingTitle]
+
+5. Cliquez sur l'URL de l'application dans le panneau de l'emplacement. Notez que l'emplacement de déploiement possède son propre nom d'hôte et qu'il s'agit d'une application dynamique. Pour limiter l'accès public à l'emplacement de déploiement, voir [Application web App Service : bloquer l'accès web aux emplacements de déploiement autres que de production](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
+
+Il n'existe pas de contenu après la création de l'emplacement de déploiement. Vous pouvez effectuer un déploiement sur l'emplacement d'une autre branche référentielle, ou d'un référentiel complètement différent. Vous pouvez également modifier la configuration de l'emplacement. Utilisez le profil de publication ou les informations d'identification associées à l'emplacement de déploiement pour les mises à jour de contenu.  Par exemple, vous pouvez [publier du contenu vers cet emplacement à l'aide de Git](web-sites-publish-source-control.md).
 
 <a name="AboutConfiguration"></a>
-## À propos de la configuration des emplacements de déploiement##
-Lorsque vous clonez la configuration depuis un autre emplacement de déploiement, celle-ci est modifiable. Les listes suivantes présentent la configuration changée lorsque vous effectuez des basculements d'emplacements.
+## Configuration d'emplacements de déploiement ##
+Lorsque vous clonez la configuration depuis un autre emplacement de déploiement, celle-ci est modifiable. Par ailleurs, après un échange, certains éléments de configuration suivent le contenu (éléments non propres à un emplacement) tandis que d'autres restent dans le même emplacement (éléments propres à un emplacement). Les listes suivantes présentent la configuration changée lorsque vous effectuez des basculements d'emplacements.
 
-**Configuration changée lors du basculement d'emplacement** :
+**Paramètres qui sont échangés** :
 
-- Paramètres généraux :
-- Chaînes de connexion
+- Paramètres généraux, par exemple versions d'infrastructure, 32/64 bits, sockets web
+- Paramètres d'application (peuvent être configurés pour respecter un emplacement)
+- Chaînes de connexion (peuvent être configurées pour respecter un emplacement)
 - Mappages de gestionnaires
 - Paramètres de surveillance et de diagnostics
+- Contenu WebJobs
 
-**Configuration inchangée lors du basculement d'emplacement** :
+**Paramètres qui ne sont pas échangés** :
 
 - Points de terminaison de publication
 - Noms de domaine personnalisés
 - Certificats SSL et liaisons
 - Paramètres de mise à l'échelle
+- Planificateurs WebJobs
 
-**Remarques** :
+Pour configurer un paramètre d'application ou une chaîne de connexion pour qu'ils respectent un emplacement (non échangé), accédez au panneau **Paramètres de l'application** d'un emplacement spécifique, puis cochez la case **Paramètre d'emplacement** correspondant aux éléments de configuration qui doivent respecter l'emplacement. Notez que si vous marquez un élément de configuration comme propre à un emplacement, cet élément ne pourra pas être échangé entre tous les emplacements de déploiement associés à l'application web.
 
-- Plusieurs emplacements de déploiement sont uniquement disponibles pour les sites en plan d'hébergement Web **Standard**.
-
-- Lorsque votre site possède plusieurs emplacements, vous ne pouvez pas modifier le plan d'hébergement.
-
-- Vous devez d'abord configurer un emplacement comme s'il était en production avant de procéder à son basculement.
-
-- Un emplacement de déploiement pointe par défaut vers la même base de données que celle du site de production. Cependant, vous pouvez le configurer pour qu'il pointe vers une autre base de données en modifiant sa ou ses chaînes de connexion de base de données. Vous pouvez ensuite restaurer sa ou ses chaînes de connexions de base de données d'origine juste avant de le basculer en production.
-
+![Paramètres d'emplacement][SlotSettings]
 
 <a name="Swap"></a>
-##Basculement des emplacements de déploiement##
+## Pour échanger les emplacements de déploiement ##
 
-1. Pour basculer un emplacement de déploiement, sélectionnez-le dans la liste des sites Web que vous souhaitez basculer puis, dans la barre de commandes, cliquez sur le bouton **Swap**. 
-	
-	![Swap Button][SwapButtonBar]
-	
-2. La boîte de dialogue Basculement des déploiements s'affiche. Elle vous permet de choisir l'emplacement de site source et le site de destination.
-	
-	![Swap Deployments Dialog][SwapDeploymentsDialog]
-	
-3. Cliquez sur la coche pour terminer l'opération. Une fois l'opération terminée, l'emplacement de site est basculé.
+>[AZURE.IMPORTANT] Avant de basculer une application web d'un emplacement de déploiement vers un emplacement de production, assurez-vous que tous les paramètres non propres à un emplacement sont configurés tels que vous le souhaitez dans la cible de l'échange.
 
+1. Pour échanger des emplacements de déploiement, cliquez sur le bouton **Déplacer** dans la barre de commandes de l'application web ou dans celle d'un emplacement de déploiement. Assurez-vous que la source et la cible de l'échange sont définies correctement. En règle générale, la cible de l'échange correspond à l'emplacement de production.  
+
+	![Bouton Déplacer][SwapButtonBar]
+
+3. Cliquez sur **OK** pour terminer l'opération. À l'issue de l'opération, les emplacements de déploiement ont été échangés.
+
+## Configurer l'échange automatique pour une application web ##
+
+L'échange automatique simplifie les scénarios des opérations de développement dans lesquels vous souhaitez déployer votre application web en continu sans démarrage à froid ni temps d'arrêt pour les clients finaux. Si un emplacement de déploiement est configuré pour l'échange automatique en production, chaque fois que vous envoyez une mise à jour de votre code par une transmission de type push vers cet emplacement, App Service échange automatiquement l'application web en production après l'avoir initialisée dans l'emplacement.
+
+>[AZURE.IMPORTANT] Lorsque vous activez l'échange automatique pour un emplacement, vérifiez que la configuration de l'emplacement est exactement celle que vous souhaitez pour l'emplacement cible (en général l'emplacement de production).
+
+La configuration de l'échange automatique pour un emplacement est facile. Pour ce faire, procédez comme suit :
+
+1. Dans le panneau **Emplacements de déploiement**, sélectionnez un emplacement autre que de production, puis cliquez sur **Tous les paramètres** pour le panneau de cet emplacement.  
+
+	![][Autoswap1]
+
+2. Cliquez sur **Paramètres de l'application**. Sélectionnez **Activé** pour **Échange automatique**, ainsi que l'emplacement cible souhaité dans **Échanger automatiquement un emplacement**, puis cliquez sur **Enregistrer** dans la barre de commandes. Assurez-vous que la configuration de l'emplacement est celle que vous souhaitez pour l'emplacement cible.
+
+	À l'issue de l'opération, un **SUCCÈS** vert clignote dans l'onglet **Notifications**.
+
+	![][Autoswap2]
+
+	>[AZURE.NOTE] Pour tester l'échange automatique pour votre application web, vous pouvez sélectionner d'abord un emplacement cible autre que de production dans **Échanger automatiquement un emplacement** pour vous familiariser avec la fonctionnalité.  
+
+3. Exécutez une transmission de code de type push vers cet emplacement de déploiement. L'échange automatique se produit peu après, et la mise à jour est appliquée dans l'URL de votre emplacement cible.
 
 <a name="Rollback"></a>
-##Basculement du site de production vers le site intermédiaire##
-Si vous identifiez des erreurs de production après un basculement d'emplacements, rétablissez ces deux emplacements comme ils étaient à l'origine, en les intervertissant immédiatement. 
+## Pour restaurer une application de production après un échange ##
+Si vous identifiez des erreurs de production après un échange d'emplacements, restaurez les deux emplacements comme ils étaient à l'origine, en les intervertissant immédiatement.
 
 <a name="Delete"></a>
-##Suppression de l'emplacement d'un site##
+## Pour supprimer un emplacement de déploiement ##
 
-Dans la barre de commandes située en bas de la page du portail Sites Web Azure, cliquez sur **Supprimer**. Vous pourrez choisir de supprimer le site Web et tous ses emplacements de déploiement ou de supprimer uniquement l'emplacement de déploiement. 
+Dans la barre de commandes du panneau d'un emplacement de déploiement, cliquez sur **Supprimer**.  
 
-![Delete a Site Slot][DeleteStagingSiteButton]
-
-**Remarques** :
-
-- La mise à l'échelle est uniquement disponible pour les emplacements de site de production. Elle ne l'est pas pour les autres emplacements de site.
-
-- La gestion des ressources liées est uniquement prise en charge pour les emplacements de site de production. 
-
-- Vous pouvez toujours publier directement sur votre emplacement de production si vous le souhaitez.
-
-- Par défaut, vos emplacements de déploiement (sites) partagent les mêmes ressources que vos emplacements de production (sites) et exécutent les mêmes machines virtuelles. Si vous démarrez un test de contrainte sur un emplacement intermédiaire, votre environnement de production sera soumis à une charge de contrainte similaire. 
-	
-	> [AZURE.NOTE] Dans le [portail Azure Preview](https://portal.azure.com) uniquement, vous pouvez éviter que cela se produise sur un emplacement de production en déplaçant temporairement l'emplacement hors production vers un autre plan d'hébergement Web. Notez que les emplacements de test et de production doivent une fois de plus partager le même plan d'hébergement Web avant de pouvoir basculer l'emplacement de test en production.
+![Supprimer un emplacement de déploiement][DeleteStagingSiteButton]
 
 <!-- ======== AZURE POWERSHELL CMDLETS =========== -->
 
 <a name="PowerShell"></a>
-##Cmdlets Azure PowerShell pour les emplacements de site 
+## Cmdlets Azure PowerShell pour les emplacements de déploiement
 
-Azure PowerShell est un module fournissant des cmdlets pour gérer Azure via Windows PowerShell, notamment la prise en charge de la gestion des emplacements de déploiement Sites Web Azure. 
+Azure PowerShell est un module qui fournit des cmdlets pour gérer Azure via Windows PowerShell, notamment la prise en charge de la gestion des emplacements de déploiement des applications web dans Azure App Service.
 
-- Pour plus d'informations sur l'installation et la configuration d'Azure PowerShell et sur l'authentification d'Azure PowerShell avec votre abonnement Azure, consultez l'article [Installation et configuration d'Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell).  
+- Pour plus d'informations sur l'installation et la configuration d'Azure PowerShell et sur l'authentification d'Azure PowerShell avec votre abonnement Azure, voir [Installation et configuration de Microsoft Azure PowerShell](install-configure-powershell.md).  
 
-- Pour répertorier les cmdlets disponibles pour les sites Web Azure dans PowerShell, appelez `help AzureWebsite`. 
-
-----------
-
-###Get-AzureWebsite
-La cmdlet **Get-AzureWebsite** permet d'obtenir des informations sur les sites Web Azure de l'abonnement en cours, comme le montre l'exemple suivant. 
-
-`Get-AzureWebsite siteslotstest`
+- Pour répertorier les cmdlets disponibles pour Azure App Service dans PowerShell, appelez `help AzureWebsite`.
 
 ----------
 
-###New-AzureWebsite
-Vous pouvez créer un emplacement de site pour n'importe quel site Web en mode Standard en utilisant la cmdlet **New-AzureWebsite** et en indiquant les noms du site et de l'emplacement. Lors de la création de l'emplacement de déploiement, indiquez la même région que celle du site, comme le montre l'exemple suivant. 
+### Get-AzureWebsite
+La cmdlet **Get-AzureWebsite** permet d'obtenir des informations sur les applications web Azure de l'abonnement en cours, comme dans l'exemple suivant.
 
-`New-AzureWebsite siteslotstest -Slot staging -Location "West US"`
-
-----------
-
-###Publish-AzureWebsiteProject
-La cmdlet **Publish-AzureWebsiteProject** permet de déployer du contenu, comme dans l'exemple suivant. 
-
-`Publish-AzureWebsiteProject -Name siteslotstest -Slot staging -Package [path].zip`
+`Get-AzureWebsite webappslotstest`
 
 ----------
 
-###Show-AzureWebsite
-Une fois les mises à jour de contenu et de configuration appliquées au nouvel emplacement, vous pouvez les valider en accédant à l'emplacement en utilisant la cmdlet **Show-AzureWebsite**, comme le montre l'exemple suivant.
+### New-AzureWebsite
+Vous pouvez créer un emplacement de déploiement à l'aide de la cmdlet **New-AzureWebsite** et en spécifiant les noms de l'application web et de l'emplacement. Lors de la création de l'emplacement de déploiement, indiquez également la même région que celle de l'application web, comme dans l'exemple suivant.
 
-`Show-AzureWebsite -Name siteslotstest -Slot staging`
-
-----------
-
-###Switch-AzureWebsiteSlot
-La cmdlet **Switch-AzureWebsiteSlot** peut effectuer un basculement pour appliquer l'emplacement de déploiement mis à jour au site de production, comme le montre l'exemple suivant. Le site de production ne subira ni temps mort, ni démarrage à froid. 
-
-`Switch-AzureWebsiteSlot -Name siteslotstest`
+`New-AzureWebsite webappslotstest -Slot staging -Location "West US"`
 
 ----------
 
-###Remove-AzureWebsite
-Si vous n'avez plus besoin d'un emplacement de déploiement, vous pouvez le supprimer en utilisant la cmdlet **Remove-AzureWebsite**, comme le montre l'exemple suivant.
+### Publish-AzureWebsiteProject
+La cmdlet **Publish-AzureWebsiteProject** permet de déployer du contenu, comme dans l'exemple suivant.
 
-`Remove-AzureWebsite -Name siteslotstest -Slot staging` 
+`Publish-AzureWebsiteProject -Name webappslotstest -Slot staging -Package [path].zip`
+
+----------
+
+### Show-AzureWebsite
+Une fois les mises à jour de contenu et de configuration appliquées au nouvel emplacement, vous pouvez les valider en accédant à l'emplacement en utilisant la cmdlet **Show-AzureWebsite**, comme dans l'exemple suivant.
+
+`Show-AzureWebsite -Name webappslotstest -Slot staging`
+
+----------
+
+### Switch-AzureWebsiteSlot
+La cmdlet **Switch-AzureWebsiteSlot** permet d'effectuer un échange pour appliquer l'emplacement de déploiement mis à jour au site de production, comme dans l'exemple suivant. L'application de production ne subira ni temps d'arrêt, ni démarrage à froid.
+
+`Switch-AzureWebsiteSlot -Name webappslotstest`
+
+----------
+
+### Remove-AzureWebsite
+Si vous n'avez plus besoin d'un emplacement de déploiement, vous pouvez le supprimer en utilisant la cmdlet **Remove-AzureWebsite**, comme dans l'exemple suivant.
+
+`Remove-AzureWebsite -Name webappslotstest -Slot staging`
 
 ----------
 
 <!-- ======== XPLAT-CLI =========== -->
 
 <a name="CLI"></a>
-##Commandes de l'interface de ligne de commande interplateforme Azure (xplat-cli) pour les emplacements de site
+## Commandes de l'interface de ligne de commande interplateforme Azure (xplat-cli) pour les emplacements de déploiement
 
-L'interface de ligne de commande interplateforme Azure (xplat-cli) fournit des commandes interplateformes fonctionnant avec Azure, notamment la prise en charge de la gestion des emplacements de déploiement sur les sites Web Azure. 
+L'interface de ligne de commande interplateforme Azure (xplat-cli) fournit des commandes interplateformes pour utiliser Azure, notamment la prise en charge de la gestion des emplacements de déploiement des applications web.
 
-- Pour obtenir des instructions sur l'installation et la configuration de l'interface xplat-cli, et notamment des informations sur la connexion de cette dernière à votre abonnement Azure, consultez l'article [Installation et configuration de l'interface de ligne de commande interplateforme Azure](http://azure.microsoft.com/documentation/articles/xplat-cli). 
+- Pour obtenir des instructions sur l'installation et la configuration de l'interface xplat-cli, notamment des informations sur la connexion de cette dernière à votre abonnement Azure, voir [Installer et configurer l'interface de ligne de commande interplateforme Azure](xplat-cli.md).
 
--  Pour répertorier les commandes disponibles pour les sites Web Azure dans l'interface xplat-cli, appelez `azure site -h`. 
-
-----------
-###azure site list
-Pour plus d'informations sur les sites Web Azure de l'abonnement en cours, appelez **azure site list**, comme le montre l'exemple suivant.
- 
-`azure site list siteslotstest`
+-  Pour répertorier les commandes disponibles pour Azure App Service dans l'interface xplat-cli, appelez `azure site -h`.
 
 ----------
-###azure site create
-Pour créer un emplacement de site pour chaque site Web en mode Standard, appelez **azure site create** et indiquez le nom d'un site existant, ainsi que le nom de l'emplacement à créer, comme le montre l'exemple suivant.
+### azure site list
+Pour plus d'informations sur les applications web de l'abonnement en cours, appelez **azure site list**, comme dans l'exemple suivant.
 
-`azure site create siteslotstest --slot staging`
+`azure site list webappslotstest`
+
+----------
+### azure site create
+Pour créer un emplacement de déploiement, appelez **azure site create** et spécifiez le nom d'une application web existante et le nom de l'emplacement à créer, comme dans l'exemple suivant.
+
+`azure site create webappslotstest --slot staging`
 
 Pour activer le contrôle de code source pour le nouvel emplacement, utilisez l'option **--git**, comme dans l'exemple suivant.
- 
-`azure site create --git siteslotstest --slot staging`
+
+`azure site create --git webappslotstest --slot staging`
 
 ----------
-###azure site swap
-Pour appliquer l'emplacement de déploiement mis à jour au site de production, utilisez la commande **azure site swap** pour effectuer un basculement, comme le montre l'exemple suivant. Le site de production ne subira ni temps mort, ni démarrage à froid. 
+### azure site swap
+Pour appliquer l'emplacement de déploiement mis à jour à l'application de production, utilisez la commande **azure site swap** pour effectuer un échange, comme dans l'exemple suivant. L'application de production ne subira ni temps d'arrêt, ni démarrage à froid.
 
-`azure site swap siteslotstest`
+`azure site swap webappslotstest`
 
 ----------
-###azure site delete
+### azure site delete
 Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, utilisez la commande **azure site delete**, comme dans l'exemple suivant.
 
-`azure site delete siteslotstest --slot staging`
+`azure site delete webappslotstest --slot staging`
 
 ----------
+
+>[AZURE.NOTE] Si vous souhaitez prendre en main Azure App Service avant de créer un compte Azure, accédez à [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pouvez immédiatement créer une application web de démarrage de courte durée dans App Service. Aucune carte de crédit n'est requise ; vous ne prenez aucun engagement.
+
 ## Étapes suivantes ##
-[Sites Web Azure - limiter l'accès Web aux emplacements de déploiement de production](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
+[Application web Azure App Service : bloquer l'accès web aux emplacements de déploiement autres que de production](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-[Version d'évaluation gratuite de Microsoft Azure](http://azure.microsoft.com/pricing/free-trial/)
+[Version d'évaluation gratuite de Microsoft Azure](/pricing/free-trial/)
 
+## Nouveautés
+* Pour obtenir un guide sur la transformation de Sites web en App Service, voir : [Azure App Service et son impact sur les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour obtenir un guide sur les modifications apportées à l'ancien portail dans le nouveau portail, voir : [Référence pour naviguer dans la version préliminaire du portail](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [QGAddNewDeploymentSlot]:  ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png
@@ -252,6 +256,8 @@ Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, util
 [SwapConfirmationDialog]:  ./media/web-sites-staged-publishing/SwapConfirmationDialog.png
 [DeleteStagingSiteButton]: ./media/web-sites-staged-publishing/DeleteStagingSiteButton.png
 [SwapDeploymentsDialog]: ./media/web-sites-staged-publishing/SwapDeploymentsDialog.png
+[Autoswap1]: ./media/web-sites-staged-publishing/AutoSwap01.png
+[Autoswap2]: ./media/web-sites-staged-publishing/AutoSwap02.png
+[SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

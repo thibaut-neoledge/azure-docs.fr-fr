@@ -20,4 +20,4 @@ Les instructions et les captures d'écran ci-dessous s'appliquent au test d'un c
 
 
 
-\<!--HONumber=42-->
+<!--HONumber=49-->

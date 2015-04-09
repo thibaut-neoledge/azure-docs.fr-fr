@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Équilibrage de charge pour les services d'infrastructure Azure" 
 	description="Décrit les deux types d'équilibrage de la charge pris en charge par Azure : Équilibrage de la charge pour les services cloud et Azure Traffic Manager pour le trafic client." 
 	services="virtual-machines" 
@@ -17,14 +17,14 @@
 	ms.author="cherylmc"/>
 
 
-# Équilibrage de charge pour les services d'infrastructure Azure#
+#Équilibrage de charge pour les services d'infrastructure Azure#
 
 Deux niveaux d'équilibrage de charge sont disponibles pour les services d'infrastructure Azure :
 
-- **Niveau DNS**:  Équilibrage de charge du trafic sur différents services cloud situés dans différents centres de données, sur différents sites Web Azure situés dans différents centres de données, ou sur des points de terminaison externes. Il s'effectue à l'aide de Traffic Manager et de la méthode d'équilibrage de charge Tourniquet.
-- **Niveau réseau**:  Équilibrage de charge du trafic Internet entrant sur différentes machines virtuelles, ou équilibrage de charge du trafic entre des machines virtuelles dans un service cloud ou un réseau virtuel. Il s'effectue à l'aide de l'équilibrage de charge Azure.
+- **Niveau DNS **:  Équilibrage de charge du trafic sur différents services cloud situés dans différents centres de données, sur différents sites Web Azure situés dans différents centres de données, ou sur des points de terminaison externes. Il s'effectue à l'aide de Traffic Manager et de la méthode d'équilibrage de charge Tourniquet.
+- **Niveau réseau **:  Équilibrage de charge du trafic Internet entrant sur différentes machines virtuelles, ou équilibrage de charge du trafic entre des machines virtuelles dans un service cloud ou un réseau virtuel. Il s'effectue à l'aide de l'équilibrage de charge Azure.
 
-## Équilibrage de charge de Traffic Manager pour des services cloud et des sites Web##
+##Équilibrage de charge de Traffic Manager pour des services cloud et des sites Web##
 
 Azure Traffic Manager vous permet de contrôler la répartition du trafic utilisateur sur des points de terminaison, tels que des services cloud, des sites Web, des sites externes et d'autres profils Traffic Manager. Traffic Manager utilise un moteur de stratégie intelligent pour les requêtes DNS des noms de domaine de vos ressources Internet. Vos services cloud ou vos sites Web peuvent être exécutés dans différents centres de données à travers le monde. 
 
@@ -32,9 +32,9 @@ Vous devez utiliser REST ou Windows PowerShell pour configurer les points de ter
 
 Azure Traffic Manager utilise trois méthodes d'équilibrage de charge pour répartir le trafic :
 
-- **Basculement**:  Utilisez cette méthode lorsque vous souhaitez utiliser un point de terminaison principal pour l'ensemble du trafic, mais également fournir des sauvegardes au cas où celui-ci deviendrait indisponible.
-- **Performances**:  Utilisez cette méthode lorsque vos points de terminaison se trouvent à des emplacements géographiques différents et que vous souhaitez que les clients étant à l'origine des demandes utilisent le point de terminaison " le plus proche " (latence la plus faible).
-- **Tourniquet (round robin)** :  Utilisez cette méthode lorsque vous souhaitez répartir la charge sur un ensemble de services cloud situés dans le même centre de données ou sur des services cloud ou des sites Web situés dans différents centres de données.
+- **Basculement **:  Utilisez cette méthode lorsque vous souhaitez utiliser un point de terminaison principal pour l'ensemble du trafic, mais également fournir des sauvegardes au cas où celui-ci deviendrait indisponible.
+- **Performances **:  Utilisez cette méthode lorsque vos points de terminaison se trouvent à des emplacements géographiques différents et que vous souhaitez que les clients étant à l'origine des demandes utilisent le point de terminaison " le plus proche " (latence la plus faible).
+- **Tourniquet (round robin) :** utilisez cette méthode lorsque vous souhaitez répartir la charge sur un ensemble de services cloud situés dans le même centre de données ou sur des services cloud ou des sites web situés dans différents centres de données.
 
 Pour plus d'informations, consultez la page [À propos des méthodes d'équilibrage de charge dans Traffic Manager](http://msdn.microsoft.com/library/azure/dn339010.aspx).
 
@@ -80,4 +80,4 @@ Pour plus d'informations, consultez la page [Équilibrage de charge interne](htt
 <!-- LINKS -->
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

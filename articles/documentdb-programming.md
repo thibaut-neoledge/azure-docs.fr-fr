@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Programmation DocumentDB : Procédures stockées, déclencheurs et fonctions définies par l'utilisateur | Azure" 
+	pageTitle="Programmation DocumentDB : procédures stockées, déclencheurs et fonctions définies par l'utilisateur | Azure" 
 	description="Découvrez comment utiliser Microsoft Azure DocumentDB pour écrire des procédures stockées, des déclencheurs et des fonctions définies par l'utilisateur en mode natif dans JavaScript." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="03/23/2015" 
 	ms.author="mimig"/>
 
 # Programmation DocumentDB : procédures stockées, déclencheurs et fonctions définies par l'utilisateur
 
-Découvrez comment l'exécution transactionnelle de JavaScript intégrée au langage de DocumentDB permet aux développeurs d'écrire **des procédures stockées**, des **déclencheurs** et des **fonctions définies par l'utilisateur** en JavaScript en mode natif. Vous pouvez ainsi écrire une logique d'application qui peut être expédiée et exécutée directement dans les partitions de stockage de base de données. 
+Découvrez comment l'exécution transactionnelle de JavaScript intégrée au langage de DocumentDB permet aux développeurs d'écrire des **procédures stockées**, des **déclencheurs** et des **fonctions définies par l'utilisateur** en JavaScript en mode natif. Vous pouvez ainsi écrire une logique d'application qui peut être expédiée et exécutée directement dans les partitions de stockage de base de données. 
 
-En lisant cet article, vous serez en mesure de répondre aux questions suivantes :
+Nous vous recommandons de commencer par visionner la vidéo suivante, dans laquelle Andrew Liu présente brièvement le modèle de programmation côté serveur de DocumentDB. 
+
+> [AZURE.VIDEO azure-demo-a-quick-intro-to-azure-documentdbs-server-side-javascript]
+
+Ensuite, revenez à cet article dans lequel vous découvrirez les réponses aux questions suivantes :  
 
 - Comment écrire une procédure stockée, un déclencheur ou une fonction définie par l'utilisateur à l'aide de JavaScript ?
 - Comment DocumentDB offre-il une garantie ACID ?
@@ -31,21 +35,21 @@ En lisant cet article, vous serez en mesure de répondre aux questions suivantes
 
 ##Introduction
 
-Cette approche du " JavaScript en tant que langage T-SQL actualisé " libère les développeurs d'applications des complexités liées aux incompatibilités de système de type et aux technologies de mappage objet/relationnel. Elle présente également une série d'avantages intrinsèques pouvant être utilisés pour créer des applications enrichies :  
+Cette approche du *" JavaScript en tant que langage T-SQL actualisé "* libère les développeurs d'applications des complexités liées aux incompatibilités de système de type et aux technologies de mappage de relationnel objet. Elle présente également une série d'avantages intrinsèques pouvant être utilisés pour créer des applications enrichies :  
 
--	**Logique procédurale :** JavaScript, en tant que langage de programmation de haut niveau, fournit une interface riche et familière pour exprimer la logique métier. Vous pouvez effectuer des séquences d'opérations complexes plus près des données.
+-	**Logique procédurale** : JavaScript est un langage de programmation de haut niveau qui fournit une interface riche et familière pour exprimer la logique métier. Vous pouvez ainsi effectuer des séquences d'opérations complexes plus près des données.
 
--	**Transactions atomiques :** DocumentDB garantit que les opérations effectuées à l'intérieur d'une procédure stockée ou d'un déclencheur de base de données sont atomiques. Cela permet à une application de combiner les opérations connexes dans un lot unique de telle sorte que soit elles réussissent toutes soit aucune ne réussit.
+-	**Transactions atomiques** : DocumentDB garantit que les opérations effectuées au sein d'une procédure stockée ou d'un déclencheur de base de données sont atomiques. Cela permet à une application de combiner plusieurs opérations connexes dans un seul lot de façon à ce que toutes réussissent ou qu'aucune ne réussisse. 
 
--	**Performances :** le fait que JSON soit intrinsèquement mappé au système de type de langage Javascript et qu'il constitue l'unité de base du stockage dans DocumentDB permet une série d'optimisations telles que la matérialisation différée de documents JSON dans le pool de mémoires tampons et leur mise à disposition à la demande pour le code en cours d'exécution. Il existe d'autres avantages en matière de performances en lien avec l'expédition de la logique métier à la base de données :
+-	**Performances** : le fait que JSON soit intrinsèquement mappé au système de type de langage JavaScript et qu'il constitue l'unité de base du stockage dans DocumentDB permet une série d'optimisations telles que la matérialisation différée de documents JSON dans le pool de mémoires tampons et leur mise à disposition à la demande pour le code en cours d'exécution. Il existe d'autres avantages en matière de performances en lien avec l'expédition de la logique métier à la base de données :
 	-	Traitement par lot - Les développeurs peuvent regrouper les opérations telles que les insertions et les envoyer en bloc. Le coût lié à la latence du trafic réseau et la surcharge en matière de stockage pour créer des transactions séparées sont considérablement réduits. 
 	-	Précompilation - DocumentDB précompile les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur pour éviter les frais de compilation JavaScript liés à chaque appel. La surcharge liée à la création du code d'octet pour la logique procédurale est amortie à une valeur minimale.
 	-	Séquencement - De nombreuses opérations requièrent un effet secondaire (" déclencheur ") qui implique potentiellement d'effectuer une ou plusieurs opérations de stockage secondaires. En dehors de l'atomicité, ceci est plus performant lors du déplacement vers le serveur. 
--	**Encapsulation :** les procédures stockées peuvent être utilisées pour regrouper la logique métier à un même endroit. Cette méthode présente deux avantages :
+-	**Encapsulation** : les procédures stockées peuvent être utilisées pour regrouper la logique métier à un même endroit. Ceci présente deux avantages :
 	-	Une couche d'abstraction est ajoutée aux données brutes, ce qui permet aux architectes de données de faire évoluer leurs applications indépendamment des données. Ceci est particulièrement avantageux lorsque les données ne présentent pas de schéma, en raison des hypothèses fragiles devant être intégrées à l'application si elles doivent gérer des données directement.  
 	-	Cette abstraction permet aux entreprises d'assurer la sécurité de leurs données en simplifiant l'accès à partir des scripts.  
 
-La création et l'exécution de déclencheurs, de procédures stockées et d'opérateurs de requête personnalisés sont prises en charge par le biais de l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) et de [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx) dans de nombreuses plateformes, dont .NET, Node.js et JavaScript. **Ce didacticiel utilise le [Kit de développement logiciel (SDK) Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** pour illustrer la syntaxe et l'utilisation des procédures stockées, des déclencheurs et des fonctions définies par l'utilisateur.   
+La création et l'exécution de déclencheurs, de procédures stockées et d'opérateurs de requête personnalisés sont prises en charge par le biais de l'[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) et de [Kits de développement logiciel (SDK)](https://msdn.microsoft.com/library/azure/dn781482.aspx) dans de nombreuses plateformes, dont .NET, Node.js et JavaScript. **Ce didacticiel utilise le [Kit de développement logiciel (SDK) Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** pour illustrer la syntaxe et l'utilisation des procédures stockées, des déclencheurs et des fonctions définies par l'utilisateur.   
 
 ##Exemple : écriture d'une simple procédure stockée 
 Commençons par une simple procédure stockée qui renvoie une réponse " Hello World ".
@@ -142,7 +146,7 @@ Notez que cette procédure stockée peut être modifiée pour accepter en entré
 L'exemple décrit ci-dessus a illustré la façon d'utiliser des procédures stockées. Nous verrons les déclencheurs et les fonctions définies par l'utilisateur plus loin dans ce didacticiel. Examinons d'abord les caractéristiques générales de la prise en charge des scripts dans DocumentDB.  
 
 ##Prise en charge du runtime
-Le [Kit de développement logiciel (SDK) côté serveur JavaScript DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) offre une prise en charge pour la plupart des fonctionnalités de langage JavaScript telles que définies par la norme [ECMA-262](../documentdb-interactions-with-resources.md).
+Le [Kit de développement logiciel (SDK) côté serveur JavaScript DocumentDB ](http://dl.windowsazure.com/documentDB/jsserverdocs/) offre une prise en charge pour la plupart des fonctionnalités de langage JavaScript répondant à la norme [ECMA-262](documentdb-interactions-with-resources.md).
  
 ##Transactions
 Une transaction dans une base de données classique peut être définie comme étant une séquence d'opérations effectuées en tant qu'unité de travail logique unique. Chaque transaction offre des **garanties ACID**. ACID est un acronyme bien connu qui est l'abréviation de quatre propriétés : Atomicité, Cohérence, Isolation et Durabilité.  
@@ -403,7 +407,7 @@ La fonction définie par l'utilisateur peut ensuite être utilisée dans des req
 		.then(function(response) { 
 		    console.log("Created", response.resource);
 	
-		    var query = 'SELECT * FROM TaxPayers t WHERE tax(t.income) > 20000'; 
+		    var query = 'SELECT * FROM TaxPayers t WHERE udf.tax(t.income) > 20000'; 
 		    return client.queryDocuments(collection.self,
 	               query).toArrayAsync();
 		}, function(error) {
@@ -601,7 +605,7 @@ Cet exemple illustre l'utilisation du [Kit de développement logiciel (SDK) .NET
 	    });
 
 
-Enfin, l'exemple suivant illustre la création d'une fonction définie par l'utilisateur et son utilisation dans une [requête SQL DocumentDB](../documentdb-sql-query.md).
+Enfin, l'exemple suivant illustre la création d'une fonction définie par l'utilisateur et son utilisation dans une [requête SQL DocumentDB](documentdb-sql-query.md).
 
 	UserDefinedFunction function = new UserDefinedFunction()
 	{
@@ -613,7 +617,7 @@ Enfin, l'exemple suivant illustre la création d'une fonction définie par l'uti
 	};
 	
 	foreach (Book book in client.CreateDocumentQuery(collection.SelfLink,
-	    "SELECT * FROM Books b WHERE LOWER(b.Title) = 'war and peace'"))
+	    "SELECT * FROM Books b WHERE udf.LOWER(b.Title) = 'war and peace'"))
 	{
 	    Console.WriteLine("Read {0} from query", book);
 	}
@@ -631,4 +635,4 @@ Explorez les [Kits de développement logiciel Azure DocumentDB](https://msdn.mic
 -	Architecture de base de données orientée services - [http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	Hébergement du runtime .NET dans Microsoft SQL Server - [http://dl.acm.org/citation.cfm?id=1007669](http://dl.acm.org/citation.cfm?id=1007669) 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

@@ -22,7 +22,7 @@ Vous pouvez afficher l'historique des modifications de votre profil Traffic Mana
 ## Pour afficher votre historique des modifications Traffic Manager
 
 
-1-Dans le volet gauche du portail de gestion, cliquez sur **Services de gestion**.
+1-Dans le volet gauche du Portail de gestion, cliquez sur **Services de gestion**.
 
 2-Dans la page Services de gestion, cliquez sur **Journaux des opérations**.
 
@@ -33,9 +33,9 @@ Vous pouvez afficher l'historique des modifications de votre profil Traffic Mana
 
 ## Voir aussi
 
-[Traffic Manager](../traffic-manager)
+[Traffic Manager](traffic-manager.md)
 
-[À propos des méthodes d'équilibrage de charge de Traffic Manager](../about-traffic-manager-balancing-methods)
+[À propos des méthodes d'équilibrage de charge de Traffic Manager](about-traffic-manager-balancing-methods.md)
 
 [Tâches de Configuration de Traffic Manager](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
@@ -45,4 +45,4 @@ Vous pouvez afficher l'historique des modifications de votre profil Traffic Mana
 
 [Opérations pour Traffic Manager (informations de référence sur l'API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
-<!--HONumber=47-->
+<!--HONumber=49-->

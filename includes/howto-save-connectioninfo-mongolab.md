@@ -18,10 +18,11 @@ Le tableau de bord du site Web s'affiche.
 1. Cliquez sur **Enregistrer** dans la barre d'outils.  
 ![SaveWebSite][button-website-save]
 
-**Remarque :** Azure ajoute le préfixe **CUSTOMCONNSTR\_** à cette variable, ce qui explique que le code ci-dessus fasse référence à **CUSTOMCONNSTR\_MONGOLAB_URI.**
+**Remarque :** Azure ajoute le préfixe **CUSTOMCONNSTR\_** à cette variable, ce qui explique que le code ci-dessus référence **CUSTOMCONNSTR\_MONGOLAB_URI.**
 
 [entry-website]: ./media/howto-save-connectioninfo-mongolab/entry-website.png
 [focus-mongolab-websitedashboard-config]: ./media/howto-save-connectioninfo-mongolab/focus-mongolab-websitedashboard-config.png
 [focus-mongolab-websiteconnectionstring]: ./media/howto-save-connectioninfo-mongolab/focus-mongolab-websiteconnectionstring.png
 [button-website-save]: ./media/howto-save-connectioninfo-mongolab/button-website-save.png
-<!--HONumber=42-->
+
+<!--HONumber=49-->

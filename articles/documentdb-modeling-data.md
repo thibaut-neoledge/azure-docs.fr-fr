@@ -38,7 +38,7 @@ Avant d'aller trop loin, revenons quelques étapes en arrière et examinons comm
 
 Lorsqu'il s'agit de travailler avec des bases de données relationnelles, on nous a appris pendant des années qu'il fallait normaliser, normaliser, normaliser.
 
-En général, la normalisation de vos données consiste à prendre une entité, une personne par exemple, et à la décomposer en éléments de données discrets. Dans l'exemple ci-dessus, une personne peut avoir plusieurs enregistrements de coordonnées, ainsi que plusieurs enregistrements d'adresse. Nous allons même plus loin et décomposons les coordonnées en extrayant des champs communs tels qu'un type. Même chose pour l'adresse : chaque enregistrement ici a un type, tel que *Home* ou *Business*. 
+En général, la normalisation de vos données consiste à prendre une entité, une personne par exemple, et à la décomposer en éléments de données discrets. Dans l'exemple ci-dessus, une personne peut avoir plusieurs enregistrements de coordonnées, ainsi que plusieurs enregistrements d'adresse. Nous allons même plus loin et décomposons les coordonnées en extrayant des champs communs tels qu'un type. Même chose pour l'adresse : chaque enregistrement ici a un type, tel que*Home* ou*Business*. 
 
 Le principe directeur lors de la normalisation des données consiste à **éviter de stocker des données redondantes** dans chaque enregistrement et à faire plutôt référence aux données. Dans cet exemple, pour lire une personne, avec ses coordonnées et ses adresses, vous devez utiliser des jointures pour agréger efficacement vos données au moment de l'exécution.
 
@@ -82,11 +82,11 @@ Avec la dénormalisation des données, votre application aura peut-être besoin 
 
 En général, utilisez des modèles de données incorporés dans les cas suivants :
 
-- Il existe des relations **contient** entre des entités.
-- Il existe des relations **un_à_plusieurs** entre des entités.
-- Il existe des données incorporées qui **changent rarement**.
-- Il existe des données incorporées qui ne croîtront pas **sans limite**.
-- Il existe des données incorporées qui sont une **partie intégrante** des données dans un document.
+- Il existe des relations de type **contient** entre des entités.
+- Il existe des relations de type **un-à-plusieurs** entre des entités.
+- Il y a des données incorporées qui **changent rarement**.
+- Il y a des données incorporées qui ne croîtront pas **sans limite**.
+- Il y a des données incorporées qui sont une **partie intégrante** des données dans un document.
 
 > [AZURE.NOTE] Normalement, les modèles de données dénormalisés offrent de meilleures performances en **lecture**.
 
@@ -114,7 +114,7 @@ Prenons cet extrait de code JSON.
 
 Une entité post avec commentaires incorporés pourrait avoir cet aspect si nous étions en train de modéliser un système de blog, ou CMS, classique. Le problème avec cet exemple est que le tableau de commentaires est **illimité**, c'est-à-dire qu'il n'existe aucune limite (pratique) au nombre de commentaires possibles pour une publication. Cela posera un problème car la taille du document risque d'augmenter considérablement.
 
-> [AZURE.TIP] Les documents dans DocumentDB ont une taille maximale. Pour plus d'informations, reportez-vous à la page [Limites de DocumentDB](../documentdb-limits).
+> [AZURE.TIP] Les documents dans DocumentDB ont une taille maximale. Pour plus d'informations, consultez [Limites de DocumentDB](documentdb-limits.md).
 
 L'augmentation de la taille du document a une incidence sur les possibilités de transmission des données par câble, ainsi que sur les possibilités de lecture et de mise à jour du document, à l'échelle.
 
@@ -264,7 +264,7 @@ Un petit changement donnera un modèle qui représente toujours les mêmes donn�
 	Publisher document: 
 	{
 	    "id": "mspress",
-	    "name": "Microsoft Press
+	    "name": "Microsoft Press"
 	}
 	
 	Book documents: 
@@ -279,7 +279,7 @@ Un petit changement donnera un modèle qui représente toujours les mêmes donn�
 Dans l'exemple ci-dessus, nous avons supprimé la collection illimitée dans le document d'éditeur (publisher). Nous avons simplement une référence à l'éditeur dans chaque document de livre (book).
 
 ###Comment modéliser des relations plusieurs-à-plusieurs ?
-Dans une base de données relationnelle  *plusieurs-à-plusieurs*, les relations sont souvent modélisées avec des tables de jointure qui relient simplement les enregistrements d'autres tables entre eux. 
+Dans une base de données relationnelle *many:many*, les relations sont souvent modélisées avec des tables de jointure qui relient simplement les enregistrements d'autres tables entre eux. 
 
 ![Join tables](./media/documentdb-modeling-data/join-table.png)
 
@@ -371,7 +371,7 @@ Examinons le code JSON suivant.
 
 Ici nous avons suivi (principalement) le modèle incorporé, où les données des autres entités sont incorporées dans le document de niveau supérieur, mais les autres données sont référencées. 
 
-Dans le document de livre (book), nous pouvons voir quelques champs intéressants lorsque nous examinons le tableau des auteurs. Il existe un champ *id* : c'est lui que nous utilisons pour faire référence à un document d'auteur (author), une pratique courante dans un modèle normalisé ; mais nous avons également *name* et *thumbnailUrl*. Nous aurions pu nous arrêter à l' *id* et laisser l'application obtenir les informations supplémentaires dont elle avait besoin à partir du document d'auteur (author) respectif à l'aide du " lien ", mais étant donné que notre application affiche le nom de l'auteur et une image miniature avec chaque livre, nous pouvons économiser un aller et retour jusqu'au serveur par livre en dénormalisant **certaines** données de l'auteur.
+Dans le document de livre (book), nous pouvons voir quelques champs intéressants lorsque nous examinons le tableau des auteurs. Il y a le champ *id*, qui est celui que nous utilisons pour faire référence à un document d'auteur (author), une pratique courante dans un modèle normalisé. Citons également les champs *name* et *thumbnailUrl*. Nous aurions pu nous arrêter à l' *id* et laisser l'application obtenir les informations supplémentaires dont elle avait besoin à partir du document d'auteur (author) respectif à l'aide du " lien ", mais étant donné que notre application affiche le nom de l'auteur et une image miniature avec chaque livre, nous pouvons économiser un aller et retour jusqu'au serveur par livre en dénormalisant **certaines** données de l'auteur.
 
 Bien sûr, si le nom de l'auteur changeait ou qu'il souhaitait mettre à jour sa photo, nous devrions procéder à une mise à jour sur chaque livre publié par lui ; mais pour notre application, si l'on se base sur l'hypothèse que les auteurs ne changent pas de nom très souvent, il s'agit d'une décision de conception acceptable.  
 
@@ -385,11 +385,12 @@ Comprendre que la modélisation des données dans un monde sans schéma reste au
 
 De même qu'il existe plusieurs façons de représenter un élément de données sur un écran, il existe plusieurs manières de modéliser vos données. Vous devez comprendre votre application et comment elle produira, utilisera et traitera les données. Ensuite, en appliquant certaines des instructions présentées ici, vous pouvez entreprendre de créer un modèle qui répond aux besoins immédiats de votre application. Lorsque vos applications doivent changer, vous pouvez exploiter la flexibilité d'une base de données sans schéma pour adopter ce changement et développer facilement votre modèle de données. 
 
-Pour en savoir plus sur DocumentDB Azure, consultez la page de [documentation]( ../../services/documentdb/) du service. 
+Pour en savoir plus sur Azure DocumentDB, consultez la page de [documentation]( ../../services/documentdb/) 
 
-Pour obtenir des informations sur le paramétrage d'index dans Azure DocumentDB, reportez-vous à l'article sur les [stratégies d'indexation](../documentdb-indexing-policies).
+Pour obtenir des informations sur le paramétrage d'index dans Azure DocumentDB, consultez l'article sur les [stratégies d'indexation](documentdb-indexing-policies.md).
 
-Pour comprendre comment répartir vos données entre plusieurs partitions, consultez la page [Partitionnement des données dans DocumentDB](../documentdb-partition-data). 
+Pour comprendre comment répartir vos données entre plusieurs partitions, consultez l'article [Partitionnement des données dans DocumentDB](documentdb-partition-data.md). 
 
-Et enfin, pour obtenir des conseils sur la modélisation des données et le partitionnement pour les applications mutualisées, consultez la page [Mise à l'échelle d'une application mutualisée avec Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
-<!--HONumber=47-->
+Et enfin, pour obtenir des conseils sur la modélisation des données et le partitionnement pour les applications mutualisées, consultez l'article [Mise à l'échelle d'une application mutualisée avec Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
+
+<!--HONumber=49-->

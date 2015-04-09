@@ -1,6 +1,4 @@
-﻿
-
-Pour authentifier les utilisateurs, inscrivez votre application auprès d'un fournisseur d'identité, puis enregistrez les informations d'identification de client générées par le fournisseur avec Azure Mobile Services.
+﻿Pour authentifier les utilisateurs, inscrivez votre application auprès d'un fournisseur d'identité, puis enregistrez les informations d'identification de client générées par le fournisseur avec Azure Mobile Services.
 
 1. Connectez-vous au portail de gestion Azure, cliquez sur **Mobile Services**, puis sur le service mobile.
 
@@ -20,4 +18,4 @@ Pour authentifier les utilisateurs, inscrivez votre application auprès d'un fou
 
     > [AZURE.IMPORTANT] Vérifiez que vous avez défini le bon URI de redirection sur le site du développeur de votre fournisseur d'identité. Comme décrit dans les instructions liées pour chaque fournisseur ci-dessus, l'URI de redirection peut être différent pour un service principal .NET et pour un service principal JavaScript. Un URI de redirection mal configuré peut faire que l'écran de connexion ne s'affiche pas correctement et que l'application fonctionne mal, de façon inattendue.
 
-<!--HONumber=47-->
+<!--HONumber=49-->

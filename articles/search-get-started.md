@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Prise en main d'Azure Search" 
 	description="Prise en main d'Azure Search" 
 	services="search" 
@@ -18,21 +18,14 @@
 
 # Prise en main d'Azure Search
 
-[WACOM.INCLUDE [Cet article utilise le portail Azure Preview](../includes/preview-portal-note.md)]
+[AZURE.INCLUDE [Cet article utilise le portail Azure Preview](../includes/preview-portal-note.md)]
 
-Microsoft Azure Search (version préliminaire publique) est un nouveau service qui vous permet d'incorporer une fonctionnalité de recherche dans des applications personnalisées. Il fournit le moteur de recherche et le stockage pour vos données, auxquels vous accédez et que vous gérez à l'aide de l'API REST. Pour en savoir plus sur les raisons pour lesquelles vous devez utiliser Azure Search, consultez [Scénarios et fonctionnalités d'Azure Search](http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/).  
+Microsoft Azure Search est un nouveau service qui permet d'incorporer des fonctionnalités de recherche dans des applications personnalisées. Il fournit le moteur de recherche et assure le stockage de vos données, dont l'accès et la gestion se fait à l'aide d'un Kit de développement logiciel (SDK) .NET ou d'une API REST. Pour en savoir plus sur les raisons pour lesquelles vous devez utiliser Azure Search, consultez [Scénarios et fonctionnalités d'Azure Search](http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/).  
 
 En tant qu'administrateur, vous pouvez ajouter le service Search à un abonnement existant gratuitement lorsque vous choisissez le service partagé, ou à un tarif réduit lorsque vous choisissez des ressources dédiées. Cet article inclut les sections suivantes :
 
-<!--Table of contents -->
-
-+ [Démarrage avec le service gratuit](#sub-1)
-+ [Passage à la recherche standard](#sub-2)
-+ [Test des opérations de service](#sub-3)
-+ [Exploration du tableau de bord du service Search](#sub-4)
-+ [Faites un essai](#next-steps)
-
-<h2 id="sub-1">Démarrage avec le service gratuit</h2>
+<a id="sub-1"></a>
+## Démarrage avec le service gratuit
 
 Les abonnés bénéficient automatiquement d'un accès gratuit à un service de recherche mutualisé et partagé pouvant être utilisé à des fins d'apprentissage, de tests de validation technique ou de projets de recherche de faible envergure. Inscrivez-vous pour accéder à la version gratuite :
 
@@ -46,21 +39,17 @@ Les abonnés bénéficient automatiquement d'un accès gratuit à un service de 
 
   	![][7]
 
-4. Dans la galerie, cliquez sur **Données, stockage, cache, +sauvegarde**.
+4. Dans la galerie, cliquez sur **Données + analyse**.
  
   	![][8]
 
-5. Cliquez sur **Tout afficher** pour développer la liste de tous les services de données. 
-
-  	![][9]
-
-6. Dans Services de données, cliquez sur **Rechercher**.
+5. Dans Services de données, cliquez sur **Rechercher**.
  
   	![][10]
 
 7. En bas de la page Rechercher, cliquez sur **CRÉER**.
 
-8. Tapez un nom de service en minuscules pour l'URL du service, sans traits d'union ni espaces, et comportant au maximum 15 caractères.
+8. Tapez le nom de service en minuscules à utiliser dans l'URL du service, sans espaces, et avec au maximum 15 caractères.
  
   	![][11]
 
@@ -78,7 +67,7 @@ Les abonnés bénéficient automatiquement d'un accès gratuit à un service de 
 
 Attendez quelques minutes que le service soit créé. Vous pouvez revenir aux paramètres de configuration pour obtenir l'URL ou les clés API. Les connexions à votre service Search requièrent que vous disposiez de l'URL et d'une clé API pour authentifier l'appel. Voici comment trouver ces valeurs rapidement :
 
-14. Accédez à **Parcourir** | **Tout** | **Données, stockage, cache, +sauvegarde** | **Tout afficher** | **Services de recherche**, cliquez sur votre service de recherche pour ouvrir le tableau de bord du service. 
+14. Accédez à l'**Accueil** pour ouvrir le tableau de bord. Cliquez sur le service de recherche pour ouvrir le tableau de bord du service. 
 
   	![][13]
 
@@ -94,8 +83,8 @@ Attendez quelques minutes que le service soit créé. Vous pouvez revenir aux pa
 
 Passez à la section [Test des opérations de service](#sub-3) pour des instructions sur la façon de se connecter au service à l'aide de ces valeurs.
 
-
-<h2 id="sub-2">Passage à la recherche standard</h2>
+<a id="sub-2"></a>
+## Passage à la recherche standard
 
 La recherche standard vous permet d'accéder à des ressources dédiées dans un centre de données Azure réservé à votre seul usage. Les charges de travail de recherche nécessitent à la fois des réplicas de stockage et de service. Lorsque vous vous inscrivez à une recherche standard, vous pouvez optimiser la configuration du service pour utiliser une plus grande partie de la ressource qui est la plus importante pour votre scénario.
 
@@ -113,9 +102,7 @@ La configuration de ressources dédiées peut prendre du temps (15 minutes ou pl
 
 3. Cliquez sur **Tout** en haut de la page.
 
-4. Dans la galerie, cliquez sur **Données, stockage, cache, +sauvegarde**.
-
-5. Cliquez sur **Tout afficher** pour développer la liste de tous les services de données.
+4. Dans la galerie, cliquez sur **Données + analyse**.
 
 6. Dans Services de données, cliquez sur **Rechercher**.
 
@@ -135,18 +122,20 @@ La recherche standard commence avec un réplica et une partition, mais elle peut
 
 2.	Utilisez les curseurs pour ajouter des réplicas, des partitions, ou les deux. 
 
-Les réplicas et les partitions supplémentaires sont facturés en unités de recherche. Le nombre total d'unités de recherche requises pour prendre en charge une configuration de ressource particulière s'affiche sur la page, à mesure que vous ajoutez des ressources. Vous pouvez consulter les [Informations de tarification](http://go.microsoft.com/fwlink/p/?LinkID=509792) pour obtenir les informations de facturation par unité.
+Les réplicas et les partitions supplémentaires sont facturés en unités de recherche. Le nombre total d'unités de recherche requises pour prendre en charge une configuration de ressource particulière s'affiche sur la page, à mesure que vous ajoutez des ressources. 
+
+Vous pouvez consulter les [Informations de tarification](http://go.microsoft.com/fwlink/p/?LinkID=509792) pour obtenir les informations de facturation par unité. Consultez [Limites et contraintes](http://msdn.microsoft.com/library/azure/dn798934.aspx) pour savoir comment configurer des combinaisons de partitions et de réplicas.
 
  ![][15]
 
-  
-<h2 id="sub-3">Test des opérations de service</h2>
+<a id="sub-3"></a>
+## Test des opérations de service
 
 La dernière étape de la configuration de Search consiste à confirmer que votre service est opérationnel et accessible à partir d'une application cliente. Cette procédure utilise Fiddler, disponible en [téléchargement gratuit à partir de Telerik](http://www.telerik.com/fiddler), pour envoyer des requêtes HTTP et afficher les réponses. Avec Fiddler, vous pouvez tester l'API immédiatement, sans avoir à écrire du code. 
 
 La procédure suivante fonctionne à la fois pour la recherche partagée et la recherche standard. Dans la procédure ci-dessous, vous allez créer un index, télécharger des documents, interroger l'index, puis interroger le système pour obtenir des informations de service.
 
-<h3>Création d'un index</h3>
+### Création d'un index
 
 1. Démarrez Fiddler. Dans le menu Fichier, désactivez **Capturer le trafic** pour masquer l'activité HTTP externe sans rapport avec la tâche actuelle. Sous l'onglet Éditeur, formulez une demande similaire à la suivante : 
 
@@ -156,7 +145,7 @@ La procédure suivante fonctionne à la fois pour la recherche partagée et la r
 
 3. Entrez une URL qui spécifie l'URL de service (figurant dans la page Propriétés), les attributs de demande et la version d'API. Voici quelques points à garder à l'esprit :
    + Utilisez le préfixe HTTPS.
-   + L'attribut de demande est " /indexes/hotels ". Cela indique à Search de créer un index intitulé " hotels ".
+   + L'attribut de demande est " /indexes/hotels ". Cela indique à Search de créer un index intitulé 'hotels'.
    + La version d'API est en minuscules et elle est spécifiée comme suit : ?api-version=2014-07-31-preview. Les versions d'API sont importantes, car Azure Search déploie régulièrement des mises à jour. En de rares cas, une mise à jour de service peut introduire une modification avec rupture dans l'API. À l'aide de versions d'API, vous pouvez continuer à utiliser votre version existante et la mettre à niveau avec une version plus récente le cas échéant.
 
     L'URL complète doit être semblable à celle figurant dans l'exemple suivant :
@@ -195,7 +184,7 @@ Patientez quelques secondes pour voir s'afficher une réponse HTTP 201 dans la l
 
 Si vous obtenez HTTP 504, vérifiez que l'URL spécifie HTTPS. Si vous voyez HTTP 400 ou 404, contrôlez le corps de la demande pour vérifier l'absence d'erreurs de copier-coller. HTTP 403 indique normalement qu'il y a un problème avec la clé API (soit la clé n'est pas valide, soit il y a un problème de syntaxe avec la façon dont elle est spécifiée).
 
-<h3>Chargement de documents</h3>
+### Chargement de documents
 
 Sous l'onglet Éditeur, votre demande de publication de documents se présente comme suit. Le corps de la demande contient les données de recherche pour 4 hôtels.
 
@@ -281,7 +270,7 @@ Sous l'onglet Éditeur, votre demande de publication de documents se présente c
 
 Après quelques secondes, la réponse HTTP 200 apparaît dans la liste de sessions. Cela indique que les documents ont été correctement créés. Si vous obtenez HTTP 207, cela signifie qu'au moins un document n'a pas pu être chargé. Si HTTP 404 s'affiche, vous avez une erreur de syntaxe dans l'en-tête ou le corps de la demande.
 
-<h3>Interrogation de l'index</h3>
+### Interrogation de l'index
 
 Maintenant qu'un index et des documents sont chargés, vous pouvez émettre des requêtes les concernant.  Sous l'onglet Éditeur, une commande GET qui interroge votre service se présentera comme suit :
 
@@ -316,7 +305,7 @@ L'exemple de requête suivant provient de la page [Opération d'index de recherc
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2014-07-31-Preview
 
-<h3>Interrogation du système</h3>
+### Interrogation du système
 
 Vous pouvez également interroger le système pour connaître le nombre de documents et l'espace de stockage utilisé. Sous l'onglet Éditeur, votre demande se présentera comme suit et la réponse renverra un nombre correspondant au nombre de documents et à l'espace utilisé.
 
@@ -343,33 +332,36 @@ Vous pouvez également interroger le système pour connaître le nombre de docum
 
  	![][21]
 
-<h2 id="sub-4">Exploration du tableau de bord du service Search</h2>
+<a id="sub-4"></a>
+## Exploration du tableau de bord du service Search
 
 Si vous ne savez plus où se trouvent les pages de configuration, procédez comme suit pour trouver le tableau de bord des services.
 
 1.	Connectez-vous au [portail Azure Preview](https://portal.azure.com) à l'aide de votre abonnement existant. 
-2.	Cliquez sur **Parcourir** | **Tout**.
+2.	Cliquez sur **Accueil**, puis sur la vignette du service Search.
 
  	![][22]
 
-3.	Choisissez **Services de recherche** dans la liste. La liste de tous les services de recherche créés sous vos abonnements doit s'afficher.
+4.	Vous accédez alors au tableau de bord du service. Notez que les commandes **Démarrer**, **Arrêter** et **Supprimer** se trouvent en haut. Le tableau de bord du service inclut des vignettes permettant l'affichage des propriétés, des clés et d'un guide de démarrage rapide avec des liens vers des informations et des instructions. Faites défiler l'écran pour afficher les informations d'utilisation.
 
-4.	Cliquez sur un service pour ouvrir le tableau de bord associé. Notez que les commandes **Démarrer**, **Arrêter** et **Supprimer** se trouvent en haut. Le tableau de bord du service inclut des vignettes permettant l'affichage des propriétés, des clés et d'un guide de démarrage rapide avec des liens vers des informations et des instructions. Faites défiler l'écran pour afficher les informations d'utilisation.
-
-5.	Cliquez sur **PROPRIÉTÉS**. Notez que la page Propriétés s'ouvre à droite. L'URL de service figure en haut de la page. Pour obtenir les clés API utilisées pour authentifier le service, cliquez sur **CLÉS**.
+5.	Cliquez sur **PROPRIÉTÉS**. Notez que la page Propriétés s'ouvre à droite. L'URL de service figure en haut de la page. Vous aurez besoin de cette URL pour vous connecter à votre service Azure Search.
 
  	![][23]
+	
+7.	Cliquez sur **CLÉS** pour afficher les clés API. Vous aurez besoin d'une clé d'administration pour vous authentifier auprès du service. Vous pouvez utiliser la clé primaire ou secondaire. Vous pouvez éventuellement créer des clés de requête pour accéder au service en lecture seule.
+
 
 <!--Next steps and links -->
-<h2 id="next-steps">Faites un essai</h2>
+<a id="next-steps"></a>
+## Faites un essai
 
 Vous êtes prêt à passer à l'étape suivante ? Les liens suivants fournissent des informations supplémentaires vous expliquant comment créer et gérer des applications de recherche utilisant Azure Search.
 
-- [Création de votre première solution de recherche Azure](../search-create-first-solution/) 
+- [Création de votre première solution de recherche Azure](search-create-first-solution.md) 
 
-- [Création d'un exemple de recherche géospatiale Azure Search](../search-create-geospatial/)
+- [Création d'un exemple de recherche géospatiale Azure Search](search-create-geospatial.md)
 
-- [Gestion de votre solution de recherche dans Microsoft Azure](../search-manage/) 
+- [Gestion de votre solution de recherche dans Microsoft Azure](search-manage.md) 
 
 - [Présentation technique d'Azure Search](http://msdn.microsoft.com/library/dn798933.aspx)
 
@@ -405,14 +397,16 @@ Vous êtes prêt à passer à l'étape suivante ? Les liens suivants fournissent
 [19]: ./media/search-get-started/AzureSearch_Configure1_14_GETQueryResponse.PNG
 [20]: ./media/search-get-started/AzureSearch_Configure1_15_Stats.PNG
 [21]: ./media/search-get-started/AzureSearch_Configure1_16_StatsResponse.PNG
-[22]: ./media/search-get-started/AzureSearch_Configure1_17_BrowseEverything.PNG
+[22]: ./media/search-get-started/AzureSearch_Configure1_17_HomeDashboard.PNG
 [23]: ./media/search-get-started/AzureSearch_Configure1_18_Explore.PNG
 
 
 <!--Link references-->
-[Gestion de votre solution de recherche dans Microsoft Azure]: ../search-manage/
-[Flux de travail du développement d'Azure Search]: ../search-workflow/
-[Création de votre première solution de recherche Azure]: ../search-create-first-solution/
-[Création d'une application de recherche géospatiale à l'aide d'Azure Search]: ../search-create-geospatial/
+[Gestion de votre solution de recherche dans Microsoft Azure] : search-manage.md
+[Flux de travail de développement Azure Search] : search-workflow.md
+[Création de votre première solution de recherche Azure] : search-create-first-solution.md
+[Création d'une application de recherche géospatiale à l'aide d'Azure Search] : search-create-geospatial.md
 
-<!--HONumber=35.2-->
+<!--HONumber=49--> 
+
+<!--HONumber=49-->

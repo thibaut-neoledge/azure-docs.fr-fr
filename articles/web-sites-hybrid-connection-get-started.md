@@ -1,128 +1,126 @@
 ﻿<properties 
-	pageTitle="Connexion hybride : Connexion d'un site Web Azure à une ressource locale" 
-	description="Création d'une connexion entre un site Web Azure et une ressource locale utilisant un port TCP statique" 
-	services="web-sites" 
+	pageTitle="Accéder à des ressources locales à l'aide de connexions hybrides dans Azure App Service" 
+	description="Créer une connexion entre une application web dans Azure App Service et une ressource locale utilisant un port TCP statique" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
-#Connexion d'un site Web Azure à une ressource locale au moyen de connexions hybrides
+#Accéder à des ressources locales à l'aide de connexions hybrides dans Azure App Service
 
-Vous pouvez connecter un site Web sur Microsoft Azure à n'importe quelle ressource locale qui utilise un port TCP statique, par exemple, SQL Server, MySQL, les API Web HTTP, les services mobiles et la plupart des services Web personnalisés. Cette section montre comment créer une connexion hybride entre un site Web Azure et une base de données SQL Server locale.
+Vous pouvez connecter une application web d'Azure App Service à n'importe quelle ressource locale utilisant un port TCP statique, par exemple, SQL Server, MySQL, les API web HTTP, les services mobiles et la plupart des services web personnalisés. Cet article vous explique comment créer une connexion hybride entre une application web d'App Service et une base de données SQL Server locale.
 
-> [AZURE.NOTE] La partie Sites Web de la fonctionnalité Connexions hybrides n'est disponible que dans la [version préliminaire du portail Azure](https://portal.azure.com). Pour créer une connexion dans BizTalk Services, consultez la page [Connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
+> [AZURE.NOTE] La partie Applications web de la fonctionnalité des connexions hybrides n'est disponible que dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Pour créer une connexion dans BizTalk Services, voir [Connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
-##Configuration requise
-- Un abonnement Azure. Pour un abonnement gratuit, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/). 
+## Conditions préalables
+- Un abonnement Azure. Pour souscrire un abonnement gratuit, voir [Évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/). 
 
-- Pour utiliser une base de données SQL Server ou SQL Server Express locale avec une connexion hybride, TCP/IP doit être activé sur un port statique. L'utilisation d'une instance par défaut sur SQL Server est recommandée, car elle utilise le port statique 1433. Pour des informations sur l'installation et la configuration de SQL Server Express pour son utilisation avec des connexions hybrides, consultez [Connexion à une instance SQL Server locale à partir d'un site Web Azure au moyen de connexions hybrides](http://go.microsoft.com/fwlink/?LinkID=397979).
+- Pour utiliser une base de données SQL Server ou SQL Server Express locale avec une connexion hybride, TCP/IP doit être activé sur un port statique. L'utilisation d'une instance par défaut sur SQL Server est recommandée, car elle utilise le port statique 1433. Pour plus d'informations sur l'installation et la configuration de SQL Server Express pour son utilisation avec des connexions hybrides, voir [Connexion à une instance SQL Server locale à partir d'un site Web Azure au moyen de connexions hybrides](http://go.microsoft.com/fwlink/?LinkID=397979).
 
 - L'ordinateur sur lequel vous installez l'agent Gestionnaire de connexions hybrides local décrit plus loin dans cet article :
 
 	- doit être capable de se connecter à Azure sur le port 5671 ;
-	- Doit être capable d'accéder au  *hostname*:*numéro_de_port* de votre ressource locale. 
+	- doit être en mesure d'accéder au *hostname*:*portnumber* de votre ressource locale. 
 
 > [AZURE.NOTE] Les étapes décrites dans cet article partent du principe que vous utilisez le navigateur à partir de l'ordinateur qui hébergera l'agent de connexion hybride local.
 
 
-##Dans cet article##
+## Créer une application web dans le portail Azure ##
 
+> [AZURE.NOTE] Si vous avez déjà créé dans le portail Azure une application web que vous voulez utiliser pour ce didacticiel, vous pouvez commencer directement à la section [Création d'une connexion hybride et d'un service BizTalk](#CreateHC) .
 
-[Création d'un site Web dans la version préliminaire du portail Azure](#CreateSite)
-
-[Création d'une connexion hybride et d'un service BizTalk](#CreateHC)
-
-[Installation du Gestionnaire de connexions hybrides local pour terminer la connexion](#InstallHCM)
-
-[Étapes suivantes](#NextSteps)
-
-
-## Création d'un site Web dans le portail Azure Preview ##
-
-> [AZURE.NOTE] Si vous avez déjà créé dans la version préliminaire du portail Azure un site Web que vous voulez utiliser pour ce didacticiel, vous pouvez commencer directement à la section [Création d'une connexion hybride et d'un service BizTalk](#CreateHC).
-
-1. Dans le coin inférieur gauche de la [version préliminaire du portail Azure](https://portal.azure.com), cliquez sur **Nouveau**, puis choisissez **Site Web**.
+1. Dans le coin inférieur gauche du [portail Azure](https://portal.azure.com), cliquez sur **Nouveau** > **Web + mobile** > **Site web**.
 	
 	![New button][New]
 	
-	![New website][NewWebsite]
+	![New web app][NewWebsite]
 	
-2. Dans le volet **Site Web**, fournissez un nom pour votre site Web, puis cliquez sur **Créer**. 
+2. Sur le panneau **Application web**, fournissez une URL > **Créer**. 
 	
 	![Website name][WebsiteCreationBlade]
 	
-3. Après quelques instants, le site Web est créé et son volet apparaît. Le volet est un tableau de bord vertical qu'il est possible de faire défiler et qui vous permet de gérer votre site.
+3. Après quelques instants, l'application web est créée et son panneau apparaît. Le volet est un tableau de bord vertical qu'il est possible de faire défiler et qui vous permet de gérer votre site.
 	
 	![Website running][WebSiteRunningBlade]
 	
 4. Pour vérifier que le site est actif, cliquez sur l'icône **Parcourir** afin d'afficher la page par défaut.
 	
-	![Click browse to see your website][Browse]
+	![Click browse to see your web app][Browse]
 	
-	![Default website page][DefaultWebSitePage]
+	![Default web app page][DefaultWebSitePage]
 	
-Vous allez ensuite créer une connexion hybride et un service BizTalk pour le site Web.
+Vous allez ensuite créer une connexion hybride et un service BizTalk pour l'application web.
 
 <a name="CreateHC"></a>
 ## Création d'une connexion hybride et d'un service BizTalk ##
 
-1. Une fois de retour dans la version préliminaire du portail, faites défiler jusqu'au volet correspondant à votre site Web et cliquez sur **Connexions hybrides**.
+1. Faites défiler le panneau de votre application web et choisissez **Connexions hybrides**.
 	
 	![Hybrid connections][CreateHCHCIcon]
 	
-2. Dans le volet Connexions hybrides, cliquez sur **Ajouter**.
+2. Dans le panneau Connexions hybrides, cliquez sur **Ajouter**.
 	
-	![Add a hybrid connnection][CreateHCAddHC]
+	<!-- ![Add a hybrid connnection][CreateHCAddHC]
+-->
 	
-3. Le volet **Ajouter une connexion hybride** s'ouvre.  Comme il s'agit de votre première connexion hybride, l'option **Nouvelle connexion hybride** est présélectionnée, et le volet **Créer une connexion hybride** s'ouvre.
+3. Le panneau **Ajouter une connexion hybride** s'affiche.  Étant donné qu'il s'agit de votre première connexion hybride, l'option **Nouvelle connexion hybride** est présélectionnée, et le panneau **Créer une connexion hybride** apparaît.
 	
 	![Create a hybrid connection][TwinCreateHCBlades]
 	
-	Dans le volet **Créer une connexion hybride** :
-	- Sous **Nom**, entrez un nom pour la connexion.
+	Dans le panneau **Créer une connexion hybride** :
+	- Dans la zone **Nom**, indiquez un nom pour la connexion.
 	- Dans la zone **Nom d'hôte**, entrez le nom de l'ordinateur local qui héberge votre ressource.
-	- Dans la zone **Port**, entrez le numéro du port utilisé par votre ressource locale (1433 pour une instance par défaut SQL Server).
+	- Dans la zone **Port**, entrez le numéro de port utilisé par votre ressource locale (1433 pour une instance SQL Server par défaut).
 	- Cliquez sur **Service BizTalk**.
 
 
-4. Le volet **Créer un service BizTalk** s'ouvre. Entrez un nom pour le service BizTalk, puis cliquez sur **OK**.
+4. Le panneau **Créer un service BizTalk** s'affiche. Entrez un nom pour le service BizTalk, puis cliquez sur **OK**.
 	
 	![Create BizTalk service][CreateHCCreateBTS]
 	
-	Le volet **Créer un service BizTalk** se ferme et vous revenez au volet **Créer une connexion hybride**.
+	Le panneau **Créer un service BizTalk** se ferme, et vous revenez au panneau **Créer une connexion hybride**.
 	
-5. Dans le volet Créer une connexion hybride, cliquez sur **OK**. 
+5. Dans le panneau Créer une connexion hybride, cliquez sur **OK**. 
 	
 	![Click OK][CreateBTScomplete]
 	
-6. Lorsque le processus est terminé, la zone des notifications du portail vous informe que la connexion a été créée.
+6. Une fois le processus terminé, la zone des notifications du portail vous informe que la connexion a été créée.
+	<!-- TODO
+
+    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
+	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+	Create hybrid conn step, you get the following error
+	Failed to create hybrid connection RelecIoudHC. The 
+	resource type could not be found in the namespace 
+	'Microsoft.BizTaIkServices for api version 2014-06-01'.
 	
+	The error indicates it couldn't find the type, not the instance.
 	![Success notification][CreateHCSuccessNotification]
-	
-7. Dans le volet du site Web, l'icône **Connexions hybrides** indique à présent que 1 connexion hybride a été créée.
+	-->
+7. Dans le panneau de l'application web, l'icône **Connexions hybrides** indique à présent que 1 connexion hybride a été créée.
 	
 	![One hybrid connection created][CreateHCOneConnectionCreated]
 	
 À ce stade, vous avez terminé une partie importante de l'infrastructure de connexion hybride cloud. Vous allez ensuite créer un élément local.
 
 <a name="InstallHCM"></a>
-## Installation du Gestionnaire de connexions hybrides local pour terminer la connexion ##
+## Installer le Gestionnaire de connexions hybrides local pour finaliser la connexion ##
 
-1. Dans le volet du site Web, cliquez sur l'icône Connexions hybrides. 
+1. Dans le panneau de l'application web, cliquez sur l'icône Connexions hybrides. 
 	
 	![Hybrid connections icon][HCIcon]
 	
-2. Dans le volet **Connexions hybrides**, la colonne **Statut** correspondant au point de terminaison ajouté récemment indique **Non connecté**. Cliquez sur la connexion pour la configurer.
+2. Dans le panneau **Connexions hybrides**, la colonne **État** correspondant au point de terminaison ajouté récemment indique **Non connecté**. Cliquez sur la connexion pour la configurer.
 	
 	![Not connected][NotConnected]
 	
@@ -130,11 +128,11 @@ Vous allez ensuite créer une connexion hybride et un service BizTalk pour le si
 	
 	![NotConnectedBlade][NotConnectedBlade]
 	
-3. Dans le volet, cliquez sur **Configuration de l'écouteur**.
+3. Dans le panneau, cliquez sur **Configuration de l'écouteur**.
 	
 	![Click Listener Setup][ClickListenerSetup]
 	
-4. Le volet **Propriétés de la connexion hybride** s'ouvre. Sous **Gestionnaire de connexions hybrides locales**, choisissez **Cliquez ici pour installer**.
+4. Le panneau **Propriétés de la connexion hybride** s'affiche. Sous **Gestionnaire de connexions hybrides local**, choisissez **Cliquez ici pour l'installer**.
 	
 	![Click here to install][ClickToInstallHCM]
 	
@@ -154,32 +152,38 @@ Vous allez ensuite créer une connexion hybride et un service BizTalk pour le si
 	
 	![Click Close][HCMInstallComplete]
 	
-	Dans le volet **Connexions hybrides**, la colonne **Statut** indique à présent **Connecté**. 
+	Dans le panneau **Connexions hybrides**, la colonne **État** indique désormais **Connecté**. 
 	
-	![État de la connexion][HCStatusConnected]
+	![Connected Status][HCStatusConnected]
 
 Maintenant que l'infrastructure de connexion hybride est terminée, vous pouvez créer une application hybride qui l'utilise. 
 
+>[AZURE.NOTE] Si vous souhaitez commencer à utiliser Azure App Service avant d'ouvrir un compte Azure, accédez au site permettant d'[essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web de départ de courte durée dans App Service. Aucune carte de crédit n'est requise, et vous ne prenez aucun engagement.
+
 <a name="NextSteps"></a>
-## Étapes suivantes##
+## Étapes suivantes ##
 
-- Pour des informations sur la création d'une application Web ASP.NET utilisant une connexion hybride, consultez [Connexion à une instance SQL Server locale à partir d'un site Web Azure au moyen de connexions hybrides](http://go.microsoft.com/fwlink/?LinkID=397979).
+- Pour plus d'informations sur la création d'une application web ASP.NET utilisant une connexion hybride, voir [Connexion à une instance SQL Server locale à partir d'un site Web Azure au moyen de connexions hybrides](http://go.microsoft.com/fwlink/?LinkID=397979).
 
-- Pour des informations sur l'utilisation d'une connexion hybride avec un service mobile, consultez [Connexion à une instance SQL Server locale à partir d'un service mobile Azure au moyen de connexions hybrides](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
+- Pour plus d'informations sur l'utilisation d'une connexion hybride avec un service mobile, voir [Connexion à une instance SQL Server locale à partir d'un service mobile Azure au moyen de connexions hybrides](mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
-###Ressources supplémentaires
+### Ressources supplémentaires
 
 [Aperçu des connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274)
 
-[Josh Twist présente les connexions hybrides (vidéo Channel 9)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
+[Josh Twist présente les connexions hybrides (vidéo Channel 9) (en anglais)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
-[Site Web des connexions hybrides](http://azure.microsoft.com/services/biztalk-services/)
+[Site web des connexions hybrides](http://azure.microsoft.com/services/biztalk-services/)
 
-[BizTalk Services : Onglets Tableau de bord, Surveiller, Mettre à l'échelle, Configurer et Connexion hybride](http://azure.microsoft.com/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
+[BizTalk Services : onglets Tableau de bord, Surveiller, Mettre à l'échelle, Configurer et Connexion hybride](../biztalk-dashboard-monitor-scale-tabs/)
 
-[Création d'un cloud hybride réel avec la portabilité transparente des applications (vidéo Channel 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
+[Création d'un cloud hybride réel avec la portabilité transparente des applications (vidéo Channel 9) (en anglais)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
-[Connexion à une instance SQL Server locale à partir d'Azure Mobile Services au moyen de connexions hybrides (vidéo Channel 9)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
+[Connexion à une instance SQL Server locale à partir d'Azure Mobile Services au moyen de connexions hybrides (vidéo Channel 9) (en anglais)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
+
+## Nouveautés
+* Pour plus d'informations sur le remplacement de Sites Web par App Service, voir : [Azure App Service et son impact sur les services Azure existants (en anglais)](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour plus d'informations sur le remplacement de l'ancien portail par le nouveau portail, voir : [Référence en matière de navigation dans le portail en version préliminaire (en anglais)](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [New]:./media/web-sites-hybrid-connection-get-started/B01New.png
@@ -206,5 +210,4 @@ Maintenant que l'infrastructure de connexion hybride est terminée, vous pouvez 
 [HCMInstallComplete]:./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png
 [HCStatusConnected]:./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

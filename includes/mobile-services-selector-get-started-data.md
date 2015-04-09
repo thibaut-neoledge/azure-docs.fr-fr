@@ -1,14 +1,14 @@
-﻿> [AZURE.SELECTOR-LIST (Plateforme | Principal)]
-- [(iOS | .NET)](/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/)
-- [(iOS | JavaScript)](/documentation/articles/mobile-services-ios-get-started-data/)
-- [(Application Windows universelle C# | .NET)](/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data/)
-- [(Application Windows universelle C# | Javascript)](/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data/)
-- [(Windows Phone | .NET)](/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/)
-- [(Windows Phone | JavaScript)](/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-data/)
-- [(Android | .NET)](/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/)
-- [(Android | JavaScript)](/documentation/articles/mobile-services-android-get-started-data/)
-- [(IOS Xamarin | JavaScript)](/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/)
-- [(Xamarin Android | JavaScript)](/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/)
-- [(HTML | JavaScript)](/documentation/articles/mobile-services-html-get-started-data/)
+﻿> [AZURE.SELECTOR-LIST (Plateforme | Serveur principal)]
+- [(iOS | .NET)](../articles/mobile-services-dotnet-backend-ios-get-started-data.md)
+- [(iOS | JavaScript)](../articles/mobile-services-ios-get-started-data.md)
+- [(Application Windows universelle C# | .NET)](../articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md)
+- [(Application Windows universelle C# | Javascript)](../articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data.md)
+- [(Windows Phone | .NET)](../articles/mobile-services-dotnet-backend-windows-phone-get-started-data.md)
+- [(Windows Phone | JavaScript)](../articles/mobile-services-javascript-backend-windows-phone-get-started-data.md)
+- [(Android | .NET)](../articles/mobile-services-dotnet-backend-android-get-started-data.md)
+- [(Android | JavaScript)](../articles/mobile-services-android-get-started-data.md)
+- [(IOS Xamarin | JavaScript)](../articles/partner-xamarin-mobile-services-ios-get-started-data.md)
+- [(Xamarin Android | JavaScript)](../articles/partner-xamarin-mobile-services-android-get-started-data.md)
+- [(HTML | JavaScript)](../articles/mobile-services-html-get-started-data.md)
 
-<!--HONumber=47-->
+<!--HONumber=49-->

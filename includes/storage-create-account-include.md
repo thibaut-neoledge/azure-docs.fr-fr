@@ -1,4 +1,4 @@
-﻿## <a name="create-account"> </a>Création d'un compte Azure Storage
+﻿## Création d'un compte Azure Storage
 
 Pour utiliser Azure Storage, vous avez besoin d'un compte de stockage. Pour 
 en créer un, procédez comme suit : (Vous pouvez également
@@ -23,14 +23,15 @@ créer un compte de stockage à l'aide de la bibliothèque cliente de gestion de
 5.  Choisissez la région ou le groupe d'affinités où localiser le
     stockage. Si vous prévoyez d'utiliser le stockage à partir de votre
     application Azure, sélectionnez la région où vous déploierez votre
-    application.
+    simple.
 
 6. Vous pouvez éventuellement sélectionner le type de réplication désiré pour votre compte. La réplication géo-redondante, sélectionnée par défaut, assure la durabilité maximale. Pour plus de détails sur les options de réplication, consultez la page [Options de redondance d'Azure Storage](http://msdn.microsoft.com/library/azure/dn727290.aspx) et le [blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
 
 6.  Cliquez sur **CRÉER UN COMPTE DE STOCKAGE**.
 
-[Utilisation de l'API REST]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
+[API REST]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Portail de gestion Azure]: http://manage.windowsazure.com
-[plus-new]: ./media/create-storage-account/plus-new.png
-[quick-create-storage]: ./media/create-storage-account/quick-storage-2.png
-<!--HONumber=42-->
+[plus-new]: ./media/storage-create-account-include/plus-new.png
+[quick-create-storage]: ./media/storage-create-account-include/quick-storage-2.png
+
+<!--HONumber=49-->

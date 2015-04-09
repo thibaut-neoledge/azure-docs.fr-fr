@@ -31,7 +31,7 @@ L'exemple précédent montrait une connexion standard, qui nécessite que le cli
             });
         }
 
-2. Remplacez la fonction **authenticate** existante par le code suivant :
+2. Remplacez la fonction **Authenticate** existante par le code suivant :
 
         var authenticate = function () {
             // Try to get a stored credential from the PasswordVault.                
@@ -76,9 +76,10 @@ L'exemple précédent montrait une connexion standard, qui nécessite que le cli
             }
         }
 
-	Dans cette version de **authenticate**, l'application essaye d'utiliser des informations d'identification stockées dans le **coffre de mots de passe** pour accéder au service mobile. Une requête simple est envoyée pour vérifier que le jeton stocké n'est pas expiré. Quand une erreur 401 est retournée, une connexion basée sur un fournisseur habituel est tentée. Une connexion normale est également effectuée quand il n'y a pas d'informations d'identification stockées.
+	Dans cette version de la méthode **Authenticate**, l'application essaie d'utiliser des informations d'identification stockées dans le **coffre de mots de passe** pour accéder au service mobile. Une requête simple est envoyée pour vérifier que le jeton stocké n'est pas expiré. Quand une erreur 401 est retournée, une connexion normale basée sur un fournisseur est tentée. Une connexion normale est également effectuée quand aucune information d'identification n'est stockée.
 
 3. Redémarrez l'application deux fois.
 
 	Notez que lors du premier démarrage, la connexion avec le fournisseur est à nouveau requise. Cependant, lors du second redémarrage, les informations d'identification mises en cache sont utilisées et l'étape de connexion est ignorée. 
-\<!--HONumber=42-->
+
+<!--HONumber=49-->

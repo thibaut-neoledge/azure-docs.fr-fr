@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Planification de tâches de serveur principal avec le planificateur - Mobile Services" 
 	description="Azure Mobile Services Scheduler permet de planifier des tâches pour votre application mobile." 
 	services="mobile-services" 
@@ -19,8 +19,8 @@
 # Planification des travaux récurrents dans Mobile Services 
 
 > [AZURE.SELECTOR-LIST (Plateforme | Principal)]
-- [(Toutes | .NET)](/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/)
-- [(Toutes | Javascript)](/documentation/articles/mobile-services-schedule-recurring-tasks/)
+- [(Toutes | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [(Toutes | Javascript)](mobile-services-schedule-recurring-tasks.md)
  
 Cette rubrique explique comment utiliser la fonctionnalité de planification de travaux dans le portail de gestion pour définir le code de script serveur exécuté selon une planification que vous définissez. Dans ce cas, le script effectue régulièrement une vérification auprès d'un service distant, Twitter en l'occurrence, et stocke les résultats dans une nouvelle table. D'autres tâches périodiques peuvent être planifiées, notamment les tâches suivantes :
 
@@ -32,13 +32,13 @@ Ce didacticiel explique comment utiliser la planification des travaux pour crée
 
 + [Inscription pour l'accès à Twitter et stockage des informations d'identification]
 + [Création de la nouvelle table Updates]
-+ [Création d'une nouvelle tâche planifiée]
++ [Création d'une tâche planifiée]
 
-## <a name="get-oauth-credentials"></a>Inscription pour l'accès aux API de Twitter v1.1 et stockage des informations d'identification
+##<a name="get-oauth-credentials"></a>Inscription pour l'accès aux API Twitter v1.1 et stockage des informations d'identification
 
 [AZURE.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
-## <a name="create-table"></a>Création de la nouvelle table Updates
+##<a name="create-table"></a>Création de la nouvelle table Updates
 
 Ensuite, vous devez créer une nouvelle table pour y stocker les tweets.
 
@@ -46,13 +46,13 @@ Ensuite, vous devez créer une nouvelle table pour y stocker les tweets.
 
 3. Dans **Table name**, tapez _Updates_, puis cliquez sur le bouton de vérification.
 
-## <a name="add-job"></a>Création d'une nouvelle tâche planifiée  
+##<a name="add-job"></a>Création d'une tâche planifiée  
 
 Vous pouvez maintenant créer le travail planifié qui accède à Twitter et stocke les données des tweets dans la nouvelle table Updates.
 
 2. Cliquez sur l'onglet **Scheduler**, puis sur **+Créer**. 
 
-    >[AZURE.NOTE]Lorsque vous exécutez votre service mobile au niveau <em>Gratuit</em> vous ne pouvez exécuter qu'un travail planifié à la fois. Aux niveaux payants, vous pouvez exécuter jusqu'à dix travaux planifiés à la fois.
+    >[AZURE.NOTE]Quand vous exécutez votre service mobile en mode <em>Gratuit</em>, vous ne pouvez exécuter qu'une seule tâche planifiée à la fois. Aux niveaux payants, vous pouvez exécuter jusqu'à dix travaux planifiés à la fois.
 
 3. Dans la boîte de dialogue du planificateur, entrez _getUpdates_ pour **Nom du travail**, définissez l'intervalle et les unités de planification, puis cliquez sur le bouton de vérification. 
 
@@ -153,12 +153,12 @@ Félicitations, vous avez créé une tâche planifiée dans votre service mobile
 ## <a name="nextsteps"> </a>Étapes suivantes
 
 * [Référence de script serveur Mobile Services]
-  <br/>En savoir plus sur l'enregistrement et l'utilisation des scripts serveur.
+  <br/>Découvrez comment inscrire et utiliser des scripts serveur.
 
 <!-- Anchors. -->
 [Inscription pour l'accès à Twitter et stockage des informations d'identification]: #get-oauth-credentials
 [Création de la nouvelle table Updates]: #create-table
-[Création d'une nouvelle tâche planifiée]: #add-job
+[Création d'une tâche planifiée]: #add-job
 [Étapes suivantes]: #next-steps
 
 <!-- Images. -->
@@ -181,6 +181,6 @@ Félicitations, vous avez créé une tâche planifiée dans votre service mobile
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Inscription des applications pour l'authentification Twitter avec Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Développeurs Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Paramètres de l'application]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Paramètres d'application]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=47-->
+<!--HONumber=49-->

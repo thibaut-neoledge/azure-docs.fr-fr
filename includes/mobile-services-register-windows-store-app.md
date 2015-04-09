@@ -1,5 +1,4 @@
-
-1. Si vous n'avez pas déjà inscrit votre application, accédez à la page [Soumettre une application][Page Soumette une application] du Centre de développement pour les applications Windows Store, connectez-vous à votre compte Microsoft, puis cliquez sur le **Nom de l'application**.
+﻿1. Si vous n'avez pas déjà inscrit votre application, accédez à la page [Soumettre une application] du Centre de développement pour les applications Windows Store, connectez-vous à votre compte Microsoft, puis cliquez sur le **Nom de l'application**.
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-submit-win8-app.png)
 
@@ -29,17 +28,17 @@
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-edit-app.png) 
 
-8. Sur la page Services, cliquez sur **Live Services site** sous **Azure Mobile Services**.
+8. Dans la page Services, cliquez sur **Site des services Microsoft Live** sous **Azure Mobile Services**.
 
 	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-edit2-app.png) 
 
-9. Dans **Paramètres de l'application**, prenez note des valeurs **ID client**, **Clé secrète client** et **Identificateur de sécurité (SID) du package**.
+9. Dans **Paramètres de l'application**, notez les valeurs **ID client**, **Clé secrète client** et **Identificateur de sécurité (SID) du package**. 
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-app-push-auth.png)
 
     >[AZURE.NOTE]La clé secrète client et le SID du package sont des informations d'identification de sécurité importantes. Ne partagez pas ces informations secrètes avec quiconque et ne les distribuez pas avec votre application.
 
-10. (Facultatif) Cliquez sur **Paramètres API**, activez **Sécurité de redirection renforcée**, entrez une valeur de `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` dans **Redirection d'URL**, puis cliquez sur **Enregistrer**.
+10. (Facultatif) Cliquez sur **Paramètres API**, activez **Sécurité de redirection renforcée**, entrez une valeur de `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` dans **URL de redirection**, puis cliquez sur **Enregistrer**.
 
 	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-app-push-auth-2.png)
 
@@ -53,7 +52,7 @@
 
    	![](./media/mobile-services-register-windows-store-app/mobile-push-tab.png)
 
-13. Cliquez sur l'onglet **Identité**. Notez que les valeurs **Clé secrète client** et **SID du package** ont déjà été définies lors de l'étape précédente. Entrez l'**ID client** que vous aviez noté, et cliquez ensuite sur **Enregistrer**.
+13. Cliquez sur l'onglet **Identité**. Notez que les valeurs **Clé secrète client** et **SID du package** ont déjà été définies lors de l'étape précédente. Entrez l'**ID client** que vous aviez noté, puis cliquez sur **Enregistrer**.
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-identity-tab.png)
  
@@ -69,4 +68,4 @@ Vous êtes maintenant prêt à utiliser un compte Microsoft pour l'authentificat
 [Page Soumette une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=47-->
+<!--HONumber=49-->

@@ -1,24 +1,20 @@
-<properties 
+﻿<properties 
 	pageTitle="Approvisionnement d'une machine virtuelle SQL Server dans Azure" 
 	description="Didacticiel qui explique la création et la configuration d'une machine virtuelle SQL Server dans Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="Selcin" 
-	manager="jhubbard" 
+	authors="jeffgoll" 
+	manager="jeffreyg" 
 	editor="monicar"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/27/2015" 
-	ms.author="selcin"/>
-
-
-
-
+	ms.date="03/06/2015" 
+	ms.author="jeffreyg"/>
 
 # Configuration d'une machine virtuelle SQL Server sur Azure #
 
@@ -31,24 +27,22 @@ Ce didacticiel présente les procédures suivantes :
 * [Procédure de configuration complète pour la connexion à la machine virtuelle en utilisant SQL Server Management Studio sur un autre ordinateur](#SSMS)
 * [Étapes suivantes](#Optional)
 
-## <a id="Provision"></a>Connexion au portail de gestion Azure et configuration d'une machine virtuelle à partir de la galerie
+##<a id="Provision">Connexion du portail de gestion Azure et configuration d'une machine virtuelle à partir de la galerie</a>
 
-1. Connectez-vous au [portail de gestion Azure](http://manage.windowsazure.com) avec votre compte. SI vous n'avez pas de compte Azure, consultez la page [Essai gratuit d'Azure](http://www.windowsazure.com/pricing/free-trial/).
+1. Connectez-vous au [portail de gestion Azure](http://manage.windowsazure.com) avec votre compte. Si vous n'avez pas de compte Azure, consultez la page [Essai gratuit d'Azure](http://www.windowsazure.com/pricing/free-trial/).
 
 2. Dans le portail de gestion Azure, en bas à gauche de la page Web, cliquez sur **+NOUVEAU**, cliquez sur **CALCUL**, cliquez sur **MACHINE VIRTUELLE**, puis sur **À PARTIR DE LA GALERIE**.
 
 3. Sur la page **Choisir une image**, cliquez sur **SQL SERVER**. Sélectionnez ensuite une image SQL Server. Cliquez sur la flèche suivante en bas à droite de la page. 
+![Choisir une image][Image34]
 
-	![Choose an Image][Image34]
 
-	Pour obtenir les informations les plus récentes sur les images SQL Server prises en charge sur Azure, consultez la page [Mise en route de SQL Server sur les machines virtuelles Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=294720) dans l'ensemble de documentation [SQL Server dans les machines virtuelles Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719). 
+Pour obtenir les informations les plus récentes sur les images SQL Server prises en charge sur Azure, consultez la page [Mise en route de SQL Server sur les machines virtuelles Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=294720) dans l'ensemble de documentation [SQL Server dans les machines virtuelles Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719). 
 
-    >[AZURE.NOTE] Si vous avez créé une machine virtuelle à l'aide de l'image de plateforme de la version d'évaluation de SQL Server, vous ne pouvez pas la mettre à jour vers une image de la version payante à la minute dans la galerie. Vous pouvez choisir l'une des deux options suivantes :
-    
-    > - Vous pouvez créer une machine virtuelle à l'aide de la version de SQL Server payante à la minute à partir de la galerie et migrer vos fichiers de base de données vers cette nouvelle machine virtuelle en suivant la procédure de la page [Migration des fichiers de base de données SQL Server et schéma entre les machines virtuelles dans Azure en utilisant des disques de données](http://go.microsoft.com/fwlink/p/?LinkId=294738). **Ou**,
-
-    > - Vous pouvez mettre à niveau une instance de la version d'évaluation de SQL Server vers une autre version de SQL Server selon le [contrat de mobilité de licence via l'assurance logicielle sur Azure](http://www.windowsazure.com/pricing/license-mobility/) en suivant la procédure décrite sur la page [Mise à niveau vers une autre version de SQL Server 2014](http://go.microsoft.com/fwlink/?LinkId=396915). Pour plus d'informations sur l'achat d'une copie sous licence de SQL Server, consultez [Achat de SQL Server](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx)
    
+>[AZURE.NOTE] Si vous avez créé une machine virtuelle à l'aide de l'image de plateforme de la version d'évaluation de SQL Server, vous ne pouvez pas la mettre à jour vers une image de la version payante à la minute dans la galerie. Vous pouvez choisir l'une des deux options suivantes :    
+Vous pouvez créer une machine virtuelle à l'aide de la version payante à la minute de SQL Server à partir de la galerie et migrer les fichiers de votre base de données vers cette nouvelle machine virtuelle en suivant les étapes de la [Procédure de migration des fichiers et du schéma de base de données SQL Server entre des machines virtuelles dans Azure en utilisant les disques de données](http://go.microsoft.com/fwlink/p/?LinkId=294738), **ou** vous pouvez mettre à niveau une instance existante de la version d'évaluation de SQL Server vers une autre version de SQL Server dans le cadre de l'accord [Mobilité de licence via la Software Assurance sur Azure](http://www.windowsazure.com/pricing/license-mobility/) (en anglais) en suivant la procédure de la page [Mise à niveau vers une version différente de SQL Server 2014](http://go.microsoft.com/fwlink/?LinkId=396915) (en anglais). Pour plus d'informations sur l'achat d'une copie sous licence de SQL Server, consultez [Achat de SQL Server](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx)
+
 
 4. Dans la première page **Configuration de la machine virtuelle**, entrez les informations suivantes :
 	- Une **DATE DE SORTIE DE LA VERSION**. Si plusieurs images sont disponibles, sélectionnez la dernière.
@@ -64,7 +58,7 @@ Ce didacticiel présente les procédures suivantes :
     > Sélectionnez A3 ou plus lorsque vous utilisez SQL Server Enterprise Edition.
    	> Sélectionnez A4 lorsque vous utilisez des images SQL Server 2012 ou 2014 Enterprise optimisées pour les charges de travail transactionnelles.  
    	> Sélectionnez A7 lorsque vous utilisez des images SQL Server 2012 ou 2014 Enterprise optimisées pour les charges de travail pour l'entreposage de données. 
-   	> TLa taille sélectionnée limite le nombre de disques de données pouvant être configurés. Pour obtenir les informations les plus récentes sur les tailles de machine virtuelle disponibles et le nombre de disques de données que vous pouvez attacher à une machine virtuelle, consultez [Tailles de machines virtuelles pour Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
+   	> La taille sélectionnée limite le nombre de disques de données que vous pouvez configurer. Pour obtenir les informations les plus récentes sur les tailles de machine virtuelle disponibles et le nombre de disques de données que vous pouvez attacher à une machine virtuelle, consultez [Tailles de machines virtuelles pour Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
 	Cliquez sur la flèche Suivant située en bas à droite pour continuer.
 
@@ -95,17 +89,21 @@ Ce didacticiel présente les procédures suivantes :
 	- Exécution
 	
 
-## <a id="RemoteDesktop"></a>Ouverture de la machine virtuelle à l'aide du Bureau à distance et achèvement de l'installation
+##<a id="RemoteDesktop">Ouverture de la machine virtuelle à l'aide du Bureau à distance et achèvement de l'installation</a>
 
 1. Une fois la configuration terminée, cliquez sur le nom de votre machine virtuelle pour accéder à la page DASHBOARD. En bas de la page, cliquez sur **Connexion**.
+2. Cliquez sur le bouton **Ouvrir**.
+![Cliquez sur le bouton Ouvrir][Image37]
 
-3. Dans la boîte de dialogue **Sécurité de Windows**, entrez le mot de passe du compte administrateur local spécifié précédemment. (Il se peut que vous soyez invité à vérifier les informations d'identification de la machine virtuelle.)
+3. Dans la boîte de dialogue **Sécurité de Windows**, cliquez sur **Utiliser un autre compte**.
+![Cliquez sur Utiliser un autre compte][Image38] 
+4. Utilisez le nom de la machine en tant que nom de domaine, suivi par le nom de votre administrateur en respectant le format suivant : `machinename\username`. Saisissez votre mot de passe et connectez-vous à la machine.
 
-4. Lors de la première connexion à cette machine virtuelle, il est possible que plusieurs processus doivent s'effectuer, par exemple, la configuration de votre bureau, les mises à jour de Windows et l'achèvement des tâches de configuration initiales de Windows (sysprep). Une fois Windows sysprep terminé, les tâches de configuration de SQL Server sont terminées. Ces tâches peuvent provoquer une latence de quelques minutes lorsqu'elles se terminent. `SELECT @@SERVERNAME` peut ne pas retourner le nom correct tant que la configuration de SQL Server n'est pas terminée et SQL Server Management Studio peut ne pas être visible sur la page de démarrage.
+4. Lors de la première connexion, plusieurs processus doivent s'effectuer, notamment la configuration de votre bureau, les mises à jour de Windows et l'achèvement des tâches de configuration initiales de Windows (sysprep). Une fois Windows sysprep terminé, les tâches de configuration de SQL Server sont terminées. L'exécution de ces tâches peut entraîner un retard de quelques minutes.  `SELECT @@SERVERNAME` peut ne pas retourner le nom correct tant que la configuration de SQL Server n'est pas terminée, et SQL Server Management Studio peut ne pas être visible sur la page de démarrage.
 
 Une fois que vous êtes connecté à la machine virtuelle avec le Bureau à distance Windows, celle-ci fonctionne comme un autre ordinateur. Connectez-vous normalement à l'instance par défaut de SQL Server avec SQL Server Management Studio (exécuté sur la machine virtuelle). 
 
-## <a id="SSMS"></a>Procédure de configuration complète pour la connexion à la machine virtuelle en utilisant SSMS (SQL Server Management Studio) sur un autre ordinateur
+##<a id="SSMS">Procédure de configuration complète pour la connexion à la machine virtuelle en utilisant SQL Server Management Studio sur un autre ordinateur</a>
 
 Avant de pouvoir vous connecter à l'instance de SQL Server à partir d'Internet, vous devez mener à bien les tâches suivantes, comme indiqué dans les sections suivantes :
 
@@ -120,47 +118,41 @@ Avant de pouvoir vous connecter à l'instance de SQL Server à partir d'Internet
 
 Le chemin de connexion est résumé dans le schéma suivant :
 
-![Connecting to a SQL Server virtual machine][Image8b]
+![Connexion à une machine virtuelle SQL Server][Image8b]
 
-## <a id="Endpoint"></a>Création d'un point de terminaison TCP pour la machine virtuelle
+##<a id="Endpoint">Création d'un point de terminaison TCP pour la machine virtuelle</a>
 
 La machine virtuelle doit avoir un point de terminaison pour écouter les communications TCP entrantes. Dans cette étape de configuration Azure, le trafic du port TCP entrant est dirigé vers un port TCP accessible à la machine virtuelle.
 
 1. Dans le portail de gestion Azure, cliquez sur **MACHINES VIRTUELLES**.
-
 	
 2. Cliquez sur la machine virtuelle que vous venez de créer. Les informations relatives à la machine virtuelle sont affichées.
 	
-
 3. En haut de la page, sélectionnez la page **POINTS DE TERMINAISON**, puis en bas de la page, cliquez sur **AJOUTER**.
 	
-
 4. Dans la page **Ajouter un point de terminaison à une machine virtuelle**, cliquez sur **Ajouter un point de terminaison autonome**, puis sur la flèche Suivant pour continuer.
-
 	
 5. Dans la page **Spécifier les détails du point de terminaison**, entrez les informations suivantes.
 
 	- Dans la zone **NOM**, entrez un nom pour le point de terminaison.
 	- Dans la zone **PROTOCOLE**, sélectionnez **TCP**. Vous pouvez taper **57500** dans la zone **PORT PUBLIC**. De la même façon, vous pouvez taper le port d'écoute par défaut de SQL Server **1433** dans la zone **Port privé**. Notez que plusieurs organisations sélectionnent différents numéros de ports pour éviter les attaques de sécurité. 
 
-
 6. Cliquez sur la coche pour continuer. Le point de terminaison est créé.
-	
 
-## <a id="FW"></a>Ouverture de ports TCP dans le pare-feu Windows pour l'instance par défaut du moteur de base de données
+##<a id="FW">Ouverture de ports TCP dans le pare-feu Windows pour l'instance par défaut du moteur de base de données</a>
 
 1. Connectez-vous à la machine virtuelle via le Bureau à distance Windows. Une fois connecté, dans l'écran d'accueil, tapez **WF.msc**, puis appuyez sur ENTRÉE. 
 
-	![Start the Firewall Program][Image12]
+	![Démarrez le programme du pare-feu][Image12]
 2. Dans **Pare-feu Windows avec fonctions avancées de sécurité**, dans le volet gauche, cliquez avec le bouton droit sur **Règles de trafic entrant**, puis cliquez sur **Nouvelle règle** dans le volet d'action.
 
-	![New Rule][Image13]
+	![Nouvelle règle][Image13]
 
 3. Dans la boîte de dialogue de l'**Assistant Nouvelle règle de trafic entrant**, sous **Type de règle**, sélectionnez **Port**, puis cliquez sur **Suivant**.
 
 4. Dans la boîte de dialogue **Protocole et ports**, utilisez le paramètre par défaut **TCP**. Dans la boîte de dialogue **Ports locaux spécifiques**, entrez le numéro de port de l'instance du moteur de base de données (**1433** pour l'instance par défaut, ou le nombre que vous avez choisi pour le port privé à l'étape du point de terminaison). 
 
-	![TCP Port 1433][Image14]
+	![Port TCP 1433][Image14]
 
 5. Cliquez sur **Suivant**.
 
@@ -168,72 +160,72 @@ La machine virtuelle doit avoir un point de terminaison pour écouter les commun
 
 	**Note de sécurité :** la sélection de l'option **Autoriser la connexion si elle est sécurisée** peut fournir une sécurité supplémentaire. Sélectionnez-la si vous souhaitez configurer des options de sécurité supplémentaires dans votre environnement.
 
-	![Allow Connections][Image15]
+	![Autoriser les connexions][Image15]
 
 7. Dans la boîte de dialogue **Profil**, sélectionnez **Public**, puis cliquez sur **Suivant**. 
 
-    **Remarque relative à la sécurité :**  la sélection de **Public** autorise l'accès via Internet. Lorsque cela est possible, sélectionnez un profil plus restrictif.
+    **Note de sécurité :** la sélection de l'option **Public** autorise l'accès sur Internet. Si possible, sélectionnez un profil plus restrictif.
 
-	![Public Profile][Image16]
+	![Profil public][Image16]
 
 8. Dans la boîte de dialogue **Nom**, tapez un nom et une description pour cette règle, puis cliquez sur **Terminer**.
 
-	![Rule Name][Image17]
+	![Nom de la règle][Image17]
 
 Le cas échéant, ouvrez des ports supplémentaires pour les autres composants. Pour plus d'informations, consultez la page [Configurer le Pare-feu Windows pour autoriser l'accès à SQL Server](http://msdn.microsoft.com/library/cc646023.aspx).
 
 
-### <a id="TCP"></a>Configuration de SQL Server pour écouter le protocole TCP
+###<a id="TCP">Configuration de SQL Server pour écouter le protocole TCP</a>
 
 1. Lorsque vous êtes connecté à la machine virtuelle, sur la page de démarrage, tapez **Gestionnaire de configuration SQL Server** et appuyez sur ENTRÉE.
 	
-	![Open SSCM][Image9]
+	![Ouverture du Gestionnaire de configuration SQL Server][Image9]
 
 2. Dans le Gestionnaire de configuration SQL Server, dans le volet de la console, développez **Configuration du réseau SQL Server**.
 
 3. Dans le volet de la console, cliquez sur **Protocoles pour MSSQLSERVER** (le nom d'instance par défaut). Dans le volet d'informations, cliquez avec le bouton droit sur TCP qui doit être activé pour les images de la galerie par défaut. Pour vos images personnalisées, cliquez sur **Activer** (si l'état est Désactivé).
 
-	![Enable TCP][Image10]
+	![Activation de TCP][Image10]
 
-5. Dans le volet de la console, cliquez sur **Services SQL Server**. Dans le volet d'informations, cliquez avec le bouton droit sur **SQL Server (_nom de l'instance_)** (l'instance par défaut est **SQL Server (MSSQLSERVER)**), puis cliquez sur **Redémarrer**, pour arrêter et redémarrer l'instance de SQL Server. 
+5. Dans le volet de la console, cliquez sur **Services SQL Server**. Dans le volet d'informations, cliquez avec le bouton droit sur **SQL Server (_nom de l'instance_)** (l'instance par défaut est **SQL Server (MSSQLSERVER)**), puis cliquez sur **Redémarrer** pour arrêter et redémarrer l'instance de SQL Server. 
 
-	![Restart Database Engine][Image11]
+	![Redémarrer le moteur de base de données][Image11]
 
 7. Fermez le Gestionnaire de configuration de SQL Server.
 
 Pour plus d'informations sur l'activation des protocoles pour le moteur de base de données SQL Server, consultez [Activer ou désactiver un protocole réseau de serveur](http://msdn.microsoft.com/library/ms191294.aspx)
 
-### <a id="Mixed"></a>Configuration de SQL Server pour l'authentification en mode mixte
+###<a id="Mixed">Configuration de SQL Server pour l'authentification en mode mixte</a>
 
 Le moteur de base de données de SQL Server ne peut pas utiliser l'authentification Windows sans un environnement de domaine. Pour vous connecter au moteur de base de données à partir d'un autre ordinateur, configurez SQL Server pour l'authentification en mode mixte qui permet l'authentification SQL Server et l'authentification Windows (il n'est pas nécessaire de configurer l'authentification en mode mixte si vous avez configuré un réseau virtuel Azure). Pour plus d'informations, consultez la rubrique [Considérations relatives à la connectivité de SQL Server sur les machines virtuelles Windows Azure](http://go.microsoft.com/fwlink/?LinkId=294723) dans l'ensemble de documentation [SQL Server dans des machines virtuelles Windows Azure](http://go.microsoft.com/fwlink/?LinkId=294719).
 
 1. Lorsque vous êtes connecté à la machine virtuelle, sur la page de démarrage, tapez **SQL Server 2014 Management Studio** et cliquez sur l'icône sélectionnée.
 
-	![Start SSMS][Image18]
+	![Démarrer SQL Server Management Studio][Image18]
 
 	Lorsque vous ouvrez Management Studio pour la première fois, il doit créer l'environnement Management Studio pour les utilisateurs. Cette opération peut prendre du temps.
 
 2. Management Studio affiche la boîte de dialogue **Se connecter au serveur**. Dans la zone **Nom du serveur**, tapez le nom de la machine virtuelle à connecter au moteur de base de données avec l'explorateur d'objets. (Au lieu d'entrer le nom de la machine virtuelle, vous pouvez également utiliser **(local)** ou un simple point pour le **nom du serveur**). Sélectionnez **Authentification Windows** et laissez **_nom_de_votre_machine_virtuelle_\votre_administrateur_local** dans la zone **Nom d'utilisateur**. Cliquez sur **Connecter**.
 
-	![Connect to Server][Image19]
+	![Connexion au serveur][Image19]
 
 3. Dans l'explorateur d'objets de SQL Server Management Studio, cliquez avec le bouton droit sur l'instance de SQL Server (le nom de la machine virtuelle), puis cliquez sur **Propriétés**.
 
-	![Server Properties][Image20]
+	![Propriétés du serveur][Image20]
 
 4. Dans la page **Sécurité**, sous **Authentification du serveur**, sélectionnez **Mode d'authentification SQL Server et Windows**, puis cliquez sur **OK**.
 
-	![Select Authentication Mode][Image21]
+	![Sélection du mode d'authentification][Image21]
 
 5. Dans la boîte de dialogue SQL Server Management Studio, cliquez sur **OK** pour confirmer l'obligation de redémarrer SQL Server.
 
 6. Dans l'explorateur d'objets, cliquez avec le bouton droit sur votre serveur, puis cliquez sur **Redémarrer**. (si SQL Server Agent est exécuté, il doit également être redémarré).
 
-	![Restart][Image22]
+	![Redémarrer][Image22]
 
 7. Dans la boîte de dialogue SQL Server Management Studio, cliquez sur **Oui** pour confirmer que vous voulez redémarrer SQL Server.
 
-### <a id="Logins"></a>Création de connexions d'authentification SQL Server
+###<a id="Logins">Création de connexions d'authentification SQL Server</a>
 
 Pour vous connecter au moteur de base de données à partir d'un autre ordinateur, vous devez créer au moins une connexion d'authentification SQL Server.
 
@@ -241,7 +233,7 @@ Pour vous connecter au moteur de base de données à partir d'un autre ordinateu
 
 2. Cliquez avec le bouton droit sur le dossier **Sécurité**, pointez sur **Nouveau** et sélectionnez **Connexion...**.
 
-	![New Login][Image23]
+	![Nouvelle connexion][Image23]
 
 3. Dans la boîte de dialogue **Nouvelle connexion**, dans la page **Général**, entrez le nom du nouvel utilisateur dans la zone **Nom de connexion**.
 
@@ -259,7 +251,7 @@ Pour vous connecter au moteur de base de données à partir d'un autre ordinateu
 
 10. Dans la liste **Langue par défaut**, gardez la valeur **par défaut**.
     
-	![Login Properties][Image24]
+	![Propriétés de connexion][Image24]
 
 11. S'il s'agit de votre première connexion, vous pouvez désigner cette connexion en tant qu'administrateur SQL Server. Dans ce cas, dans la page **Rôles du serveur**, cochez la case **administrateur système**. 
 
@@ -273,7 +265,7 @@ Pour plus d'informations sur les connexions SQL Server, consultez la page [Crée
 
 
 
-### <a id="DNS"></a>Détermination du nom DNS de la machine virtuelle
+###<a id="DNS">Détermination du nom DNS de la machine virtuelle</a>
 
 Pour vous connecter au moteur de base de données SQL Server à partir d'un autre ordinateur, vous devez connaître le nom DNS de la machine virtuelle. Il s'agit du nom utilisé par Internet pour identifier une machine virtuelle. Vous pouvez utiliser l'adresse IP, mais celle-ci peut être modifiée lorsqu'Azure déplace des ressources pour des raisons de redondance ou de maintenance. Le nom DNS reste stable, car il peut être redirigé vers une nouvelle adresse IP.  
 
@@ -281,25 +273,23 @@ Pour vous connecter au moteur de base de données SQL Server à partir d'un autr
 
 2. Dans la page **INSTANCES DE MACHINE VIRTUELLE**, dans la colonne **Aperçu rapide**, recherchez et copiez le nom DNS de la machine virtuelle.
 
-![DNS name][Image35]
+![Nom DNS][Image35]
 	
 
-### <a id="cde"></a>Connexion au moteur de base de données à partir d'un autre ordinateur
+### <a id="cde">Connexion au moteur de base de données à partir d'un autre ordinateur</a>
  
 1. Sur un ordinateur connecté à Internet, ouvrez SQL Server Management Studio.
-2. Dans la boîte de dialogue **Se connecter au serveur** ou **Se connecter au moteur de base de données**, dans la zone **Nom du serveur**, entrez le nom DNS de la machine virtuelle (déterminé pendant la tâche précédente) et le numéro d'un port de point de terminaison public au format *DNSName,portnumber* par exemple **tutorialtestVM.cloudapp.net,57500**.
+2. Dans la boîte de dialogue **Se connecter au serveur** ou **Se connecter au moteur de base de données**, dans la zone **Nom du serveur**, entrez le nom DNS de la machine virtuelle (déterminé pendant la tâche précédente) et le numéro d'un port de point de terminaison public au format  *DNSName,portnumber*, par exemple **tutorialtestVM.cloudapp.net,57500**.
 Pour obtenir le numéro de port, connectez-vous au portail de gestion Azure et cherchez la machine virtuelle. Dans le tableau de bord, cliquez sur **POINTS DE TERMINAISON** et utilisez le **PORT PUBLIC** affecté à **MSSQL**.
-
-	![Public Port][Image36]
-
+![Port public][Image36]
 3. Dans la zone **Authentification**, sélectionnez **Authentification SQL Server**.
 5. Dans la zone **Connexion**, tapez le nom d'une connexion créée précédemment.
 6. Dans la zone **Mot de passe**, tapez le mot de passe de la connexion créée précédemment.
 7. Cliquez sur **Connecter**.
 
-	![Connect using SSMS][Image33]
+	![Connexion en utilisant SSMS][Image33]
 
-### <a id="cdea"></a>Connexion au moteur de base de données à partir de votre application
+### <a id="cdea"> Connexion au moteur de base de données à partir de votre application</a>
 
 Si vous pouvez vous connecter à une instance de SQL Server exécutée sur une machine virtuelle Azure en utilisant Management Studio, vous devriez pouvoir vous connecter en utilisant une chaîne de connexion semblable à la suivante :
 
@@ -307,7 +297,7 @@ Si vous pouvez vous connecter à une instance de SQL Server exécutée sur une m
 
 Pour plus d'informations, consultez [Résolution des problèmes de connexion au moteur de base de données SQL Server](http://social.technet.microsoft.com/wiki/contents/articles/how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx).
 
-## <a id="Optional">Étapes suivantes</a>
+##<a id="Optional">Étapes suivantes</a>
 Vous avez vu comment créer et configurer une instance de SQL Server sur une machine virtuelle Azure en utilisant une image de plateforme. Lorsque vous utilisez SQL Server dans des machines virtuelles Azure, nous vous recommandons de suivre les informations d'utilisation fournies dans la documentation [SQL Server dans des machines virtuelles Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719) de la bibliothèque Azure. Cet ensemble de documentation inclut une série d'articles et de didacticiels fournissant des informations d'utilisation détaillées. Cette série inclut les sections suivantes :
 
 [SQL Server dans des machines virtuelles Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719)
@@ -403,5 +393,9 @@ Vous avez vu comment créer et configurer une instance de SQL Server sur une mac
 [Image34]: ./media/virtual-machines-provision-sql-server/choose-sql-vm.png
 [Image35]: ./media/virtual-machines-provision-sql-server/sql-vm-dns-name.png
 [Image36]: ./media/virtual-machines-provision-sql-server/sql-vm-port-number.png
+[Image37]: ./media/virtual-machines-provision-sql-server/click-open-to-connect.png
+[Image38]: ./media/virtual-machines-provision-sql-server/credentials.png
 
-<!--HONumber=47-->
+<!--HONumber=49--> 
+
+<!--HONumber=49-->

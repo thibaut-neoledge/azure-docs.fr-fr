@@ -112,7 +112,7 @@ Le service DocumentDB répond en indiquant une réponse réussie et un code d'é
 	}
 
 ##Exécution d'une procédure stockée à l'aide de POST
-Pour terminer, pour exécuter la procédure stockée de l'exemple ci-dessus, il est nécessaire d'émettre une demande POST vers l'URI de la ressource de la procédure stockée (/dbs/_rid-db/colls/_rid-coll/sprocs/sproc1). Cette opération est illustrée dans le code suivant.  
+Pour terminer, pour exécuter la procédure stockée de l'exemple ci-dessus, il est nécessaire d'émettre une demande POST vers l'URI de la ressource de procédure stockée (/dbs/_rid-db/colls/_rid-coll/sprocs/sproc1). Cette opération est illustrée dans le code suivant.  
 
 	POST /dbs/MyDb/colls/MyColl/sprocs/sproc1 HTTP/1.1
 	 [ { "id": "TestDocument", "book": "Autumn of the Patriarch"}, "Price", 200 ]
@@ -167,8 +167,8 @@ La plupart des applications web reposent sur une balise d'entité basée sur le 
 ##Options de connectivité
 DocumentDB expose un modèle d'adressage logique où chaque ressource a un URI stable et logique identifié par son lien _self. En tant que système de stockage distribué entre les régions, les ressources sous divers comptes de base de données dans DocumentDB sont partitionnées entre de nombreux ordinateurs et chaque partition est répliquée à des fins de haute disponibilité. Les réplicas qui gèrent les ressources d'une partition donnée enregistrent des adresses physiques. Alors que les adresses physiques changent au fil du temps suite aux défaillances, leurs adresses logiques restent stables et constantes. La logique de conversion des adresses physiques est conservée dans une table de routage qui est également disponible en interne en tant que ressource. DocumentDB expose deux modes de connectivité :  
 
-1.	**Mode de passerelle :** les clients ne sont pas en charge de la traduction des adresses logiques en adresses physiques ou des détails du routage. Ils s'occupent simplement des URI logiques et accèdent avec RESTful au modèle de ressource. Les clients émettent les demandes à l'aide de l'URI logique et les machines Edge traduisent l'URI logique en l'adresse physique du réplica qui gère la ressource et transfère la demande. Les machines Edge mettant en cache (et actualisant périodiquement) la table de routage, le routage est extrêmement efficace.
-2.	**Mode de connectivité direct :** les clients gèrent directement la table de routage dans leur espace de processus et l'actualise régulièrement. Le client peut directement se connecter avec les réplicas et ignorer les machines Edge.
+1.	**Mode de passerelle** : les clients ne sont pas en charge de la traduction des adresses logiques en adresses physiques ou des données du routage. Ils s'occupent simplement des URI logiques et accèdent avec RESTful au modèle de ressource. Les clients émettent les demandes à l'aide de l'URI logique et les machines Edge traduisent l'URI logique en l'adresse physique du réplica qui gère la ressource et transfère la demande. Les machines Edge mettent en cache (et actualisent périodiquement) la table de routage, ce qui rend le routage extrêmement efficace. 
+2.	**Mode de connectivité direct** : les clients gèrent directement la table de routage dans leur espace de processus et l'actualisent régulièrement. Les clients peuvent se connecter directement avec les réplicas et ignorer ainsi les machines Edge.   
 
 
 <table width="300">
@@ -191,7 +191,7 @@ DocumentDB expose un modèle d'adressage logique où chaque ressource a un URI s
             </td>
             <td width="150" valign="top">
                 <p>
-                    <strong>Kits de développement logiciel (SDK) DocumentDB</strong>
+                    <strong>Kits de développement logiciel (SDK) de DocumentDB</strong>
                 </p>
             </td>
         </tr>
@@ -253,11 +253,11 @@ Explorez la page [Référence de l'API REST Azure DocumentDB](https://msdn.micro
 
 ##Références
 -   [Référence de l'API REST Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) 
--	REST [http://en.wikipedia.org/wiki/Representational_state_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
+-	REST [http://fr.wikipedia.org/wiki/Representational_State_Transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
 -	Spécification JSON  [http://www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
 -	Spécification HTTP [http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
--	Balises d'entité [http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
--	[Interrogation de DocumentDB](../documentdb-sql-query/)
+-	Balises d'entité [http://fr.wikipedia.org/wiki/Balise-entit%C3%A9_ETag_HTTP](http://en.wikipedia.org/wiki/HTTP_ETag)
+-	[Interrogation de DocumentDB](documentdb-sql-query.md)
 -	[Référence SQL DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 -	[Programmation DocumentDB : procédures stockées, déclencheurs et fonctions définies par l'utilisateur](../documentdb-programming/)
 -	[Documentation de référence DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx)
@@ -265,4 +265,4 @@ Explorez la page [Référence de l'API REST Azure DocumentDB](https://msdn.micro
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
 
-<!--HONumber=47-->
+<!--HONumber=49-->

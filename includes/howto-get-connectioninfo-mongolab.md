@@ -1,6 +1,6 @@
-﻿Lors de l'approvisionnement d'une base de données MongoLab, MongoLab transmet un URI de connexion à Azure en utilisant le format de la chaîne de connexion standard de MongoDB. Cette valeur est utilisée pour initier une connexion MongoDB via le pilote MongoDB de votre choix. Pour plus d'informations sur les chaînes de connexion, consultez la page [Connexions](http://www.mongodb.org/display/DOCS/Connections) à l'adresse mongodb.org.
+﻿Lors de l'approvisionnement d'une base de données MongoLab, MongoLab transmet un URI de connexion à Azure en utilisant le format de la chaîne de connexion standard de MongoDB. Cette valeur est utilisée pour initier une connexion MongoDB via le pilote MongoDB de votre choix. Pour plus d'informations sur les chaînes de connexion, voir [Connections](http://www.mongodb.org/display/DOCS/Connections) sur mongodb.org.
 
-**Cet URI contient votre nom d'utilisateur et votre mot de passe pour la base de données.  Considérez ces informations comme confidentielles. Ne les partagez pas.**
+**Cet URI contient votre nom d'utilisateur et votre mot de passe pour la base de données.  Considérez ces informations comme étant sensibles, ne les partagez pas.**
 
 Pour récupérer cet URI à partir du portail Azure, procédez comme suit :
 
@@ -19,4 +19,5 @@ Votre URI MongoLab s'affiche :
 [button-connectioninfo]: ./media/howto-get-connectioninfo-mongolab/button-connectioninfo.png
 [screen-connectioninfo]: ./media/howto-get-connectioninfo-mongolab/dialog-mongolab_connectioninfo.png
 [button-addons]: ./media/howto-get-connectioninfo-mongolab/button-addons.png
-<!--HONumber=42-->
+
+<!--HONumber=49-->

@@ -1,6 +1,4 @@
-﻿
-
-Par défaut, toutes les requêtes adressées aux ressources du service mobile sont réservées aux clients qui présentent la clé de l'application, ce qui n'offre pas de sécurisation stricte de l'accès aux ressources. Pour sécuriser vos ressources, vous devez limiter l'accès aux clients authentifiés.
+﻿Par défaut, toutes les requêtes adressées aux ressources du service mobile sont réservées aux clients qui présentent la clé de l'application, ce qui n'offre pas de sécurisation stricte de l'accès aux ressources. Pour sécuriser vos ressources, vous devez limiter l'accès aux clients authentifiés.
 
 1. Dans Visual Studio, ouvrez votre projet de service mobile, développez le dossier Contrôleurs, puis ouvrez **TodoItemController.cs**. La classe **TodoItemController** implémente l'accès aux données pour la table TodoItem. Ajoutez l'instruction `using` suivante :
 
@@ -20,4 +18,4 @@ Par défaut, toutes les requêtes adressées aux ressources du service mobile so
 
 4. Publiez à nouveau votre projet.
 
-<!--HONumber=47-->
+<!--HONumber=49-->

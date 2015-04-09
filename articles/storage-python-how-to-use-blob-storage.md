@@ -1,9 +1,9 @@
 ﻿<properties 
-	pageTitle="Utilisation du stockage d'objets blob (Python) | Microsoft Azure" 
-	description="Découvrez comment utiliser le service BLOB Azure pour charger, télécharger, répertorier et supprimer des objets blob." 
+	pageTitle="Utilisation du stockage d'objets blob à partir de Python | Microsoft Azure" 
+	description="Découvrez comment utiliser le service BLOB Azure à partir de Python pour charger, répertorier, télécharger et supprimer des objets blob." 
 	services="storage" 
 	documentationCenter="python" 
-	authors="rmcmurray" 
+	authors="huguesv" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,33 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="09/19/2014" 
-	ms.author="robmcm"/>
+	ms.date="03/11/2015" 
+	ms.author="huvalo"/>
 
-# Utilisation du service de stockage d'objets blob à partir de Python
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage d'objets blob Azure. Les exemples sont écrits en utilisant l'API Python. Les scénarios traités incluent le **chargement**, le **téléchargement**, l'**énumération** et la **suppression** d'objets blob. Pour plus d'informations sur les objets blob, consultez la section [Étapes suivantes][].
+# Utilisation du stockage d'objets blob à partir de Python
 
-## Sommaire
+[AZURE.INCLUDE [storage-selector-blob-include](../includes/storage-selector-blob-include.md)]
 
-[Présentation du stockage d'objets blob][]
- [Concepts][]   
- [Création d'un compte Azure Storage][]   
- [Procédure : Création d'un conteneur][]   
- [Procédure : Téléchargement d'un objet blob dans un conteneur][]   
- [Procédure : Création d'une liste d'objets blob dans un conteneur][]   
- [Procédure : Téléchargement d'objets blob][]   
- [Procédure : Suppression d'un objet blob][]   
- [Étapes suivantes][]
+## Vue d'ensemble
+
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du
+service de stockage d'objets blob Azure. Les exemples sont écrits en Python et utilisent le [package Azure Python][]. Les scénarios traités incluent le **chargement**, l'**énumération**,
+le **téléchargement** et la **suppression** d'objets blob.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
-## <a name="create-account"></a>Création d'un compte de stockage Azure
-
 [AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
-## <a name="create-container"></a>Procédure : Création d'un conteneur
+## Procédure : Création d'un conteneur
 
-**Remarque :** si vous devez installer Python ou les bibliothèques clientes, veuillez consulter le [Guide d'installation de Python](../python-how-to-install/).
+> [AZURE.NOTE] Si vous devez installer Python ou le [package Azure Python][], veuillez consulter le [Guide d'installation de Python] (python-how-to-install.md).
 
 
 L'objet **BlobService** permet d'utiliser des conteneurs et des objets blob. Le code suivant crée un objet **BlobService**. Ajoutez ce qui suit vers le début de chaque fichier Python dans lequel vous souhaitez accéder à Azure Storage par programme :
@@ -64,57 +57,54 @@ Vous pouvez également modifier un conteneur déjà créé à l'aide du code sui
 
 Après cette modification, tous les utilisateurs d'Internet peuvent afficher les objets blob d'un conteneur public, mais vous êtes le seul à pouvoir les modifier ou les supprimer.
 
-## <a name="upload-blob"></a>Procédure : Téléchargement d'un objet blob dans un conteneur
+## Procédure : Téléchargement d'un objet blob dans un conteneur
 
-Pour télécharger des données dans un objet blob, utilisez les méthodes **put\_block\_blob\_from\_path**, **put\_block\_blob\_from\_file**, **put\_block\_blob\_from\_bytes** ou **put\_block\_blob\_from\_text**. Il s'agit de méthodes de haut niveau qui effectuent la segmentation nécessaire lorsque la taille des données est supérieure à 64 Mo.
+Pour charger des données dans un objet blob, utilisez les méthodes **put\_block\_blob\_from\_path**, **put\_block\_blob\_from\_file**, **put\_block\_blob\_from\_bytes** ou **put\_block\_blob\_from\_text**. Il s'agit de méthodes de haut niveau qui effectuent la segmentation nécessaire lorsque la taille des données est supérieure à 64 Mo.
 
-**put\_block\_blob\_from\_path**télécharge le contenu d'un fichier à partir du chemin spécifié, **put\_block\_blob\_from\_file** télécharge le contenu à partir d'un flux/fichier déjà ouvert. **put\_block\_blob\_from\_bytes**télécharge un tableau d'octets, **put\_block\_blob\_from\_text** télécharge la valeur texte spécifiée à l'aide de l'encodage spécifié (par défaut UTF-8).
+**put\_block\_blob\_from\_path** charge le contenu d'un fichier à partir du chemin d'accès spécifié ; **put\_block\_blob\_from\_file** charge le contenu à partir d'un flux/fichier déjà ouvert. **put\_block\_blob\_from\_bytes** charge un tableau d'octets ; **put\_block\_blob\_from\_text** charge la valeur de texte spécifiée à l'aide de l'encodage spécifié (par défaut, UTF-8).
 
-L'exemple suivant charge le contenu du fichier **task1.txt** dans l'objet blob **myblob**.
+L'exemple suivant charge le contenu du fichier **sunset.png** dans l'objet blob **myblob**.
 
-	blob_service.put_block_blob_from_path('mycontainer', 'myblob', 'task1.txt')
+	blob_service.put_block_blob_from_path(
+        'mycontainer',
+        'myblob',
+        'sunset.png',
+        x_ms_blob_content_type='image/png'
+    )
 
-## <a name="list-blob"></a>Procédure : Création d'une liste d'objets blob dans un conteneur
+## Procédure : Création d'une liste d'objets blob dans un conteneur
 
-Pour créer la liste des objets blob d'un conteneur, utilisez la méthode **list\_blobs** avec une boucle **for** pour afficher le nom de chaque objet blob du conteneur. Le code suivant génère le **nom** et l'**url** de chaque objet blob d'un conteneur sur la console.
+Pour énumérer les objets blob dans un conteneur, utilisez la méthode **list\_blobs** avec une boucle
+**for** pour afficher le nom de chaque objet blob du conteneur. Le code suivant génère le nom (**name**) et l'URL (**url**) de chaque objet blob d'un conteneur sur la console.
 
 	blobs = blob_service.list_blobs('mycontainer')
 	for blob in blobs:
 		print(blob.name)
 		print(blob.url)
 
-## <a name="download-blobs"></a>Procédure : Téléchargement d'objets blob
+## Procédure : Téléchargement d'objets blob
 
-Pour télécharger des données d'un objet blob, utilisez **get\_blob\_to\_path**, **get\_blob\_to\_file**, **get\_blob\_to\_bytes** ou **get\_blob\_to\_text**. Il s'agit de méthodes de haut niveau qui effectuent la segmentation nécessaire lorsque la taille des données est supérieure à 64 Mo.
+Pour télécharger des données à partir d'un objet blob, utilisez **get\_blob\_to\_path**, **get\_blob\_to\_file**, **get\_blob\_to\_bytes** ou **get\_blob\_to\_text**. Il s'agit de méthodes de haut niveau qui effectuent la segmentation nécessaire lorsque la taille des données est supérieure à 64 Mo.
 
-L'exemple suivant présente l'utilisation de **get\_blob\_to\_path** pour télécharger le contenu de l'objet blob **myblob** et le stocker dans le fichier **out-task1.txt** :
+L'exemple suivant illustre l'utilisation de **get\_blob\_to\_path** pour télécharger le contenu de l'objet blob **myblob** et le stocker dans le fichier **out-sunset.png** :
 
-	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-task1.txt')
+	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-sunset.png')
 
-## <a name="delete-blobs"></a>Procédure : Suppression d'un objet blob
+## Procédure : Suppression d'un objet blob
 
 Pour supprimer un objet blob, appelez **delete_blob**.
 
 	blob_service.delete_blob('mycontainer', 'myblob') 
 
-## <a name="next-steps"></a>Étapes suivantes
+## Étapes suivantes
 
-Maintenant que vous avez appris les bases du stockage d'objets blob, suivez ces liens pour apprendre des tâches de stockage plus complexes.
+Maintenant que vous connaissez les bases du stockage des objets blob, consultez les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes.
 
 -   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][]
--   Visitez le [Blog de l'équipe Azure Storage][]
+-   Visiter le [Blog de l'équipe Azure Storage][]
 
-  [Étapes suivantes]: #next-steps
-  [Présentation du stockage d'objets blob]: #what-is
-  [Concepts]: #concepts
-  [Création d'un compte Azure Storage]: #create-account
-  [Procédure : Création d'un conteneur]: #create-container
-  [Procédure : Téléchargement d'un objet blob dans un conteneur]: #upload-blob
-  [Procédure : Création d'une liste d'objets blob dans un conteneur]: #list-blob
-  [Procédure : Téléchargement d'objets blob]: #download-blobs
-  [Procédure : Suppression d'un objet blob]: #delete-blobs
-  [Procédure : Chargement et téléchargement d'objets blob volumineux]: #large-blobs
-  [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
-  [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
+[Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
+[Package Azure Python]: https://pypi.python.org/pypi/azure  
 
-\<!--HONumber=42-->
+<!--HONumber=49-->

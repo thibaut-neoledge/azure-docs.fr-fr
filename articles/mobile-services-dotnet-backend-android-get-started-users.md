@@ -28,13 +28,13 @@ Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez également commencer par suivre le didacticiel [Prise en main de Mobile Services]. 
 
-## <a name="register"></a>Inscription de votre application pour l'authentification et configuration de Mobile Services
+##<a name="register"></a>Inscription de votre application pour l'authentification et configuration de Mobile Services
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
 
-## <a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
+##<a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
@@ -46,7 +46,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 Ensuite, vous allez mettre à jour l'application pour authentifier les utilisateurs avant de demander des ressources à partir du service mobile.
 
-## <a name="add-authentication"></a>Ajout de l'authentification à l'application
+##<a name="add-authentication"></a>Ajout de l'authentification à l'application
 
 [AZURE.INCLUDE [mobile-services-android-authenticate-app](../includes/mobile-services-android-authenticate-app.md)]
 
@@ -58,7 +58,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 [AZURE.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../includes/mobile-services-android-authenticate-app-refresh-token.md)] 
 
-## <a name="next-steps"></a>Étapes suivantes
+##<a name="next-steps"></a>Étapes suivantes
 
 Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobile Services][Autorisation des utilisateurs avec des scripts], vous allez prendre la valeur d'ID utilisateur fournie par Mobile Services sur la base d'un utilisateur authentifié et l'utiliser pour filtrer les données renvoyées par Mobile Services. 
 
@@ -67,19 +67,19 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [Inscription de votre application pour l'authentification et configuration de Mobile Services]: #register
 [Restriction des autorisations de table pour les utilisateurs authentifiés]: #permissions
 [Ajout de l'authentification à l'application]: #add-authentication
-[Stockage de jetons d'authentification sur le client]: #cache-tokens
+[Stockage des jetons d'authentification sur le client]: #cache-tokens
 [Actualisation des jetons expirés]: #refresh-tokens
 [Étapes suivantes]:#next-steps
 
 <!-- URLs. -->
-[Prise en main de Mobile Services]: /documentation/articles/mobile-services-dotnet-backend-android-get-started/
-[Prise en main des données]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
-[Prise en main de l'authentification]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-[Prise en main des notifications Push]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
-[Autorisation des utilisateurs avec des scripts]: /documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts
+[Prise en main de Mobile Services]: mobile-services-dotnet-backend-android-get-started.md
+[Prise en main des données]: mobile-services-dotnet-backend-android-get-started-data.md
+[Prise en main de l'authentification]: mobile-services-dotnet-backend-android-get-started-users.md
+[Prise en main des notifications Push]: mobile-services-dotnet-backend-android-get-started-push.md
+[Autorisation des utilisateurs avec des scripts]: mobile-services-dotnet-backend-android-authorize-users-in-scripts.md
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Guide de fonctionnement Mobile Services .NET]: /develop/mobile/how-to-guides/work-with-net-client-library
-[Inscription du package de votre application Windows Store pour l'authentification Microsoft]: /documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
+[Inscription du package de votre application Windows Store pour l'authentification Microsoft]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!--HONumber=47-->
+<!--HONumber=49-->

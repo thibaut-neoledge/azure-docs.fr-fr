@@ -1,130 +1,89 @@
 ﻿<properties 
-	pageTitle="Restauration d'un site Web Microsoft Azure" 
-	description="Découvrez comment restaurer vos sites Web Azure depuis une sauvegarde." 
-	services="web-sites" 
+	pageTitle="Restaurer une application web dans Azure App Service" 
+	description="Découvrez comment restaurer votre application web à partir d'une sauvegarde." 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	writer="cephalin" 
-	manager="wpickett" 
-	editor="mollybos"/>
+	Gestionnaire = " wpickett " 
+	éditeur="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
-#Restauration d'un site Web Microsoft Azure
+# Restaurer une application web dans Azure App Service
 
-Cet article vous explique comment restaurer un site Web précédemment sauvegardé à l'aide de la fonction de sauvegarde de Sites Web Azure. Pour plus d'informations, consultez la rubrique [Sauvegarde des sites Web Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-backup/). 
+Cet article vous explique comment restaurer une application web que vous avez précédemment sauvegardée à l'aide de la fonctionnalité de sauvegarde d'[App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). Pour plus d'informations, voir [Sauvegardes d'App Service Web Apps](web-sites-backup.md). 
 
-La fonction de restauration de Sites Web Azure vous permet de restaurer votre site Web à la demande, à une étape précédente ou de créer un site Web basé sur des sauvegardes de votre site d'origine. La création d'un site Web s'exécutant parallèlement à la dernière version peut être utile à des fins de test A/B.
+La fonctionnalité de restauration de Web Apps vous permet de restaurer à la demande un état précédent de votre application web, ou de créer une application web à partir de l'une des sauvegardes de votre application web d'origine. La création d'une application web s'exécutant parallèlement à la dernière version peut se révéler utile à des fins de test A/B.
 
-La fonction Restaurer, accessible sous l'onglet Sauvegardes du portail Sites Web Azure, est uniquement disponible en mode Standard.
-
-##Dans cet article
-- [Pour restaurer un site Web Azure à partir d'une sauvegarde précédente](#PreviousBackup)
-- [Pour restaurer un site Web Azure directement depuis un compte de stockage](#StorageAccount)
-- [Sélection des paramètres de restauration de votre site Web et exécution de l'opération de restauration](#RestoreSettings)
-- [Affichage des journaux des opérations](#OperationLogs)
-
+La fonctionnalité de restauration de Web Apps, accessible à partir du panneau **Sauvegardes** du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), est uniquement disponible en modes Standard et Premium. Pour plus d'informations sur l'évolution de votre application vers le mode Standard ou Premium, voir [Faire évoluer une application web dans Azure App Service](web-sites-scale.md). 
+Notez que le mode Premium autorise un plus grand nombre de sauvegardes quotidiennes que le mode Standard.
 
 <a name="PreviousBackup"></a>
-##Pour restaurer un site Web Azure à partir d'une sauvegarde précédente
+## Pour restaurer une application web à partir d'une sauvegarde précédente
 
-1. Sur l'onglet **Sauvegardes**, cliquez sur **Restore now** dans la barre de commandes située en bas de la page du portail. La boîte de dialogue **Restore now** s'affiche.
+1. Sur le panneau **Paramètres** de votre application web dans le portail Azure, cliquez sur l'option **Sauvegardes** pour afficher le panneau **Sauvegardes**. Faites défiler ce panneau et sélectionnez l'un des éléments de sauvegarde en fonction des valeurs **HEURE DE LA SAUVEGARDE** et **STATUT** de la liste de sauvegardes.
 	
-	![Choose backup source][ChooseBackupSource]
+	![Choisir une source de sauvegarde][ChooseBackupSource]
 	
-2. Sous **Choisissez la source de la sauvegarde**, sélectionnez **Sauvegarde précédente pour ce site Web**.
-3. Sélectionnez la date de la sauvegarde que vous souhaitez restaurer, puis cliquez sur la flèche droite pour continuer.
-4. Suivez la procédure de la section [Sélection des paramètres de restauration de votre site Web](#RestoreSettings) de cet article.
+2. Sélectionnez **Restaurer maintenant** en haut du panneau **Sauvegardes**. 
 
+	![Choisir l'option Restaurer maintenant][ChooseRestoreNow]
+
+3. Dans le panneau **Restaurer**, pour restaurer l'application web existante, vérifiez tous les détails affichés, puis cliquez sur **OK**. 
+	
+Vous pouvez également restaurer votre application web sous la forme d'une nouvelle application web en sélectionnant la section **APPLICATION WEB** du panneau **Restaurer**, puis la section **Créer une application web**.
+	
 <a name="StorageAccount"></a>
-##Pour restaurer un site Web Azure directement depuis un compte de stockage
+## Télécharger ou supprimer une sauvegarde à partir d'un compte de stockage
+	
+1. Dans le panneau **Parcourir** principal du portail Azure, sélectionnez **Comptes de stockage**.
+	
+	La liste de vos comptes de stockage existants s'affiche. 
+	
+2. Sélectionnez le compte de stockage contenant la sauvegarde que vous souhaitez télécharger ou supprimer.
+	
+	Le panneau **STOCKAGE** s'affiche.
 
-1. Sur l'onglet **Sauvegardes**, cliquez sur **Restore now** dans la barre de commandes située en bas de la page du portail. La boîte de dialogue **Restore now** s'affiche.
+3. Sélectionnez la section **Conteneurs** du panneau **STOCKAGE** pour afficher le panneau **Conteneurs**.
 	
-	![Choose backup source][ChooseBackupSource]
+	La liste des conteneurs s'affiche. Cette liste affiche également l'URL et la date de la dernière modification de ce conteneur.
 	
-2. Sous **Choisissez la source de la sauvegarde**, sélectionnez **Fichier de compte de stockage**. Vous pouvez directement y indiquer l'URL du fichier de compte de stockage ou cliquer sur l'icône du dossier pour accéder au compte de stockage d'objets blob et indiquer le fichier de sauvegarde. Cet exemple utilise l'icône du dossier.
-	
-	![Storage Account File][StorageAccountFile]
-	
-3. Cliquez sur l'icône du dossier pour ouvrir la boîte de dialogue **Parcourir le stockage cloud**.
-	
-	![Browse Cloud Storage][BrowseCloudStorage]
-	
+	![Afficher les conteneurs][ViewContainers]
 
-4. Développez le nom du compte de stockage que vous souhaitez utiliser, puis sélectionnez **websitebackups**, qui contient vos sauvegardes.
-5. Sélectionnez le fichier .zip contenant la sauvegarde que vous souhaitez restaurer, puis cliquez sur **Ouvrir**.
-6. Le fichier de compte de stockage est sélectionné et affiche la zone correspondant au compte de stockage. Cliquez sur la flèche droite pour continuer.
+4. Sélectionnez le conteneur dans la liste pour visualiser le panneau qui répertorie des noms de fichier, ainsi que la taille de chaque fichier.
 	
-	![Storage Account File Selected][StorageAccountFileSelected]
-	
-7. Continuez avec la section suivante, [Sélection des paramètres de restauration de votre site Web et exécution de l'opération de restauration](#RestoreSettings).
-
-<a name="RestoreSettings"></a>
-##Sélection des paramètres de restauration de votre site Web et exécution de l'opération de restauration
-1. Sous **Choisissez les paramètres de restauration de votre site Web**, **Restaurer à**, sélectionnez **Site Web actuel** ou **Nouvelle instance de site Web**.
-	
-	![Choose your web site restore settings][ChooseRestoreSettings]
-	
-	Si vous sélectionnez **Site Web actuel**, votre site Web existant est remplacé par la sauvegarde que vous avez sélectionnée (restauration destructrice). Toutes les modifications apportées au site Web depuis la sélection de la sauvegarde sont définitivement supprimées et l'opération de restauration ne peut pas être annulée. Lors de l'opération de restauration, votre site Web actuel est momentanément indisponible et vous en êtes averti.
-	
-	Si vous sélectionnez **Nouvelle instance de site Web**, un nouveau site Web est créé au même emplacement avec le nom que vous indiquez. (Par défaut, le nouveau nom est **restored-***nom_ancien_site_web*.) 
-	
-	Le site que vous restaurez présente le même contenu et la même configuration que ceux situés dans le portail du site d'origine. Il comprend toutes les bases de données que vous avez choisies d'inclure à l'étape suivante.
-2. Si vous souhaitez restaurer une base de données en même temps que votre site Web, sous **Bases de données incluses**, sélectionnez le nom du serveur de base de données vers lequel vous souhaitez restaurer la base de données en utilisant le menu déroulant situé sous **Restaurer à**. Vous pouvez également choisir de créer un nouveau serveur de base de données ou sélectionner **Don't Restore** pour ne pas restaurer la base de données (option par défaut). 
-	
-	Après avoir choisi le nom du serveur, indiquez le nom de la base de données cible à restaurer dans la zone **Nom de la base de données**.
-	
-	Si votre restauration comprend une ou plusieurs bases de données, vous pouvez sélectionner **Ajuster automatiquement les chaînes de connexion** pour mettre à jour les chaînes de connexion stockées dans la sauvegarde afin qu'elles pointent vers la nouvelle base de données ou le serveur de base de données, le cas échéant. Vérifiez le bon fonctionnement des bases de données une fois la restauration terminée.
-	
-	![Choose database server host][ChooseDBServer]
-	
-	> [AZURE.NOTE] Vous ne pouvez pas restaurer une base de données SQL portant le même nom que le serveur SQL. Vous devez sélectionner un autre nom de base de données ou un autre hôte de serveur SQL vers lequel restaurer la base de données. 
-	
-	> [AZURE.NOTE] Vous pouvez restaurer une base de données MySQL portant le même nom vers le même serveur, mais le contenu stocké dans la base de données MySQL sera effacé.	
-	
-3. Si vous choisissez de restaurer une base de données existante, vous devez indiquer un nom d'utilisateur et un mot de passe. Si vous choisissez de restaurer une nouvelle base de données, vous devez indiquer son nom :
-	
-	![Restore to a new SQL database][RestoreToNewSQLDB]
-	
-	Cliquez sur la flèche droite pour continuer.	
-4. Si vous choisissez de créer une nouvelle base de données, vous devez indiquer les informations d'identification et autres données de configuration initiales de la base de données dans la boîte de dialogue suivante. Le présent exemple illustre une nouvelle base de données SQL. (Les options d'une nouvelle base de données MySQL diffèrent légèrement.)
-	
-	![New SQL database settings][NewSQLDBConfig]
-	
-5. Cliquez sur la coche pour démarrer l'opération de restauration. Une fois cette opération terminée, la nouvelle instance du site Web (s'il s'agit de l'option de restauration choisie) s'affiche dans la liste des sites Web du portail.
-	
-	![Restored Contoso web site][RestoredContosoWebSite]
+5. Lorsque vous sélectionnez un fichier, vous pouvez choisir l'option **Télécharger** ou **Supprimer**. Notez qu'il existe deux principaux types de fichier : les fichiers .zip et les fichiers .xml. 
 
 <a name="OperationLogs"></a>
-##Affichage des journaux des opérations
+## Afficher les journaux d'audit
 	
-1. Pour afficher les détails relatifs au déroulement de l'opération de restauration, accédez à l'onglet Tableau de bord du site Web. Dans la section **Aperçu rapide**, sous **Services de gestion**, cliquez sur **Journaux des opérations**.
+1. Pour visualiser les détails concernant la réussite ou l'échec de l'opération de restauration de l'application web, sélectionnez la section **Journal d'audit** du panneau **Parcourir** principal. 
 	
-	![Dashboard - Operation Logs Link][DashboardOperationLogsLink]
+	Le panneau **Journal d'audit** répertorie toutes vos opérations, ainsi que le niveau, l'état, la ressource et l'heure qui leur correspondent.
 	
-2. Vous accédez à la page **Journaux des opérations** du portail des services de gestion où vous pouvez afficher le jour correspondant à votre opération de restauration dans la liste des journaux des opérations :
+2. Faites défiler le panneau pour rechercher les opérations associées à votre application web.
+3. Pour visualiser des détails supplémentaires concernant une opération spécifique, sélectionnez cette opération dans la liste.
 	
-	![Management Services Operation Logs page][ManagementServicesOperationLogsList]
+Le panneau de détails affiche les informations disponibles relatives à l'opération.
 	
-3. Pour afficher les détails de l'opération, sélectionnez-la dans la liste, puis cliquez sur le bouton **Détails** de la barre de commandes.
+>[AZURE.NOTE] Si vous souhaitez commencer à utiliser Azure App Service avant d'ouvrir un compte Azure, accédez au site permettant d'[essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web de départ de courte durée dans App Service. Aucune carte de crédit n'est requise, et vous ne prenez aucun engagement.
 	
-	![Details Button][DetailsButton]
-	
-	La fenêtre **Détails de l'opération** s'ouvre et affiche le contenu copiable du fichier journal :
-	
-	![Operation Details][OperationDetails]
-	
+## Nouveautés
+* Pour plus d'informations sur le remplacement de Sites Web par App Service, voir : [Azure App Service et son impact sur les services Azure existants (en anglais)](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour plus d'informations sur le remplacement de l'ancien portail par le nouveau portail, voir : [Référence en matière de navigation dans le portail en version préliminaire (en anglais)](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [ChooseBackupSource]: ./media/web-sites-restore/01ChooseBackupSource.png
+[ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow.png
+[ViewContainers]: ./media/web-sites-restore/03ViewContainers.png
 [StorageAccountFile]: ./media/web-sites-restore/02StorageAccountFile.png
 [BrowseCloudStorage]: ./media/web-sites-restore/03BrowseCloudStorage.png
 [StorageAccountFileSelected]: ./media/web-sites-restore/04StorageAccountFileSelected.png
@@ -138,5 +97,4 @@ La fonction Restaurer, accessible sous l'onglet Sauvegardes du portail Sites Web
 [DetailsButton]: ./media/web-sites-restore/12DetailsButton.png
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

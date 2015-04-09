@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Modèle de ressource et concepts de DocumentDB | Azure" 
+	pageTitle="Modèles de ressource et concepts DocumentDB | Azure" 
 	description="Microsoft Azure DocumentDB est une base de données de documents NoSQL entièrement gérée qui utilise un modèle hiérarchique de comptes de base de données, bases de données, collections, procédures stockées, déclencheurs, fonctions définies par l'utilisateur, documents, pièces jointes, supports, utilisateurs et autorisations pour gérer les ressources."  
 	services="documentdb" 
 	documentationCenter="" 
@@ -32,12 +32,12 @@ En lisant cet article, vous serez en mesure de répondre aux questions suivantes
 ##Modèle de ressource hiérarchique
 Comme l'illustre le schéma suivant, le **modèle de ressource** de DocumentDB regroupe des ensembles de ressources sous un compte de base de données, chacun d'eux étant adressable via un URI stable et logique. Dans cet article, de tels ensembles de ressources sont désignés sous le nom de **flux**. 
 
->[AZURE.NOTE] DocumentDB fournit également un protocole TCP très efficace qui est également RESTful dans son modèle de communication, disponible via le [Kit de développement logiciel (SDK) .Net client](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+>[AZURE.NOTE] DocumentDB fournit également un protocole TCP très performant qui utilise aussi un modèle de communication RESTful, disponible via le [Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx)
 
 ![][1]  
-**Hierarchical resource model under a database account**   
+**Modèle de ressource hiérarchique sous un compte de base de données**   
 
-Pour commencer à travailler avec des ressources, vous devez [créer un compte de base de données DocumentDB](./documentdb-create-account.md) à l'aide de votre abonnement Azure. Un compte de base de données se compose d'un ensemble de **bases de données**. Chacune d'elles contient plusieurs **collections** et chaque collection contient des **procédures stockées, des déclencheurs, des fonctions définies par l'utilisateur, des documents** et les **pièces jointes** associées. Une base de données a également des **utilisateurs** associés. Chacun d'eux a un ensemble d'**autorisations** permettant d'accéder aux collections, aux procédures stockées, aux déclencheurs, aux fonctions définies par l'utilisateur, aux documents ou aux pièces jointes. Les bases de données, les utilisateurs, les autorisations et les collections sont des ressources définies par le système avec des schémas connus, tandis que les documents et les pièces jointes contiennent du contenu JSON arbitraire défini par l'utilisateur.  
+Pour commencer à travailler avec des ressources, vous devez [créer un compte de base de données DocumentDB](documentdb-create-account.md) à l'aide de votre abonnement Azure. Un compte de base de données se compose d'un ensemble de **bases de données**. Chacune d'elles contient plusieurs **collections** et chaque collection contient des **procédures stockées, des déclencheurs, des fonctions définies par l'utilisateur, des documents** et les **pièces jointes** associées. Une base de données a également des **utilisateurs** associés. Chacun d'eux reçoit un ensemble d'**autorisations** pour pouvoir accéder aux collections, aux procédures stockées, aux déclencheurs, aux fonctions définies par l'utilisateur, aux documents ou aux pièces jointes. Les bases de données, les utilisateurs, les autorisations et les collections sont des ressources définies par le système avec des schémas connus, tandis que les documents et les pièces jointes contiennent du contenu JSON arbitraire défini par l'utilisateur.  
 
 |Ressource 	|Description
 |-----------|-----------
@@ -48,7 +48,7 @@ Pour commencer à travailler avec des ressources, vous devez [créer un compte d
 |Collection	|Une collection est un conteneur de documents JSON. Elle est associée à une logique d'application JavaScript.
 |Procédure stockée	|Logique d'application écrite en JavaScript, inscrite avec une collection et exécutée via des transactions au sein du moteur de base de données.
 |Déclencheur	|Logique d'application écrite en JavaScript modélisant les effets secondaires associés à des opérations d'insertion, de remplacement ou de suppression.
-|Fonction définie par l'utilisateur (UDF)	|Logique d'application gratuite à effet secondaire écrite en JavaScript. Les fonctions définies par l'utilisateur permettent de modéliser un opérateur de requête personnalisé et ainsi d'étendre le langage de requête DocumentDB principal.
+|Fonctions définies par l'utilisateur	|Logique d'application gratuite à effet secondaire écrite en JavaScript. Les fonctions définies par l'utilisateur permettent de modéliser un opérateur de requête personnalisé et ainsi d'étendre le langage de requête DocumentDB principal.
 |Document	|Contenu JSON (arbitraire) défini par l'utilisateur. Par défaut, il n'est pas nécessaire de définir des schémas, ni de fournir des index secondaires pour tous les documents ajoutés à une collection.
 |Pièce jointe	|Les pièces jointes sont des documents spéciaux contenant des références et les métadonnées associées pour un élément multimédia/objet blob externe. Le développeur peut choisir de laisser DocumentDB gérer l'objet blob ou de le stocker avec un fournisseur de service de stockage d'objets blob tel que OneDrive, Dropbox, etc. 
 
@@ -70,7 +70,7 @@ Les ressources (telles que les comptes de base de données, les bases de donnée
 <tr>
 <td valign="top" ><p>_rid</p></td>
 <td valign="top" ><p>Générée par le système</p></td>
-<td valign="top" ><p>Identificateur hiérarchique, unique et généré par le système de la ressource.</p></td>
+<td valign="top" ><p>Identificateur hiérarchique et unique de la ressource. Il est généré par le système.</p></td>
 </tr>
 
 <tr>
@@ -110,11 +110,11 @@ Toutes les ressources sont adressables via des URI. La valeur de la propriété 
 |-------------------|-----------
 |/dbs	|Flux de bases de données sous un compte de base de données.
 |/dbs/{_rid-db}	|Base de données dont la propriété ID unique a la valeur {_rid-db}.
-|/dbs/{_rid-db}/colls/	|Flux de collections sous une base de données.
+|/dbs/{_rid-db}/colls/	|Flux de collections dans une base de données.
 |/dbs/{_rid-db}/colls/{_rid-coll}	|Collection dont la propriété ID unique a la valeur {_rid-coll}.
-|/dbs/{_rid-db}/users/	|Flux d'utilisateurs sous une base de données. 
+|/dbs/{_rid-db}/users/	|Flux d'utilisateurs d'une base de données. 
 |/dbs/{_rid-db}/users/{_rid-user}	|Utilisateur dont la propriété ID unique a la valeur {_rid-user}.
-|/dbs/{_rid-db}/users/{_rid-user}/permissions	|Flux d'autorisations sous une base de données. 
+|/dbs/{_rid-db}/users/{_rid-user}/permissions	|Flux d'autorisations d'une base de données. 
 |/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission}	|Autorisation dont la propriété ID unique a la valeur {_rid-permission}.  
   
 Une ressource a également un nom défini par l'utilisateur, qui est unique et exposé via la propriété d'ID de la ressource. L'ID est une chaîne de 256 caractères maximum, définie par l'utilisateur et unique dans le contexte d'une ressource parent spécifique. Par exemple, la valeur de la propriété d'ID de tous les documents d'une collection donnée est unique, mais pas systématiquement unique parmi les collections. De même, la valeur de la propriété d'ID de toutes les autorisations d'un utilisateur donné est unique, mais pas systématiquement unique parmi les utilisateurs. La propriété _rid permet de construire le lien _self adressable d'une ressource.   
@@ -130,7 +130,7 @@ Votre abonnement Azure vous permet d'approvisionner un ou plusieurs comptes de b
 
 Selon les besoins d'extensibilité et de performances de vos applications, vous pouvez ajouter ou supprimer des unités de capacité de façon incrémentielle. Chaque unité de capacité est fournie avec un ensemble de collections élastiques, ainsi qu'un stockage de documents SSD et un débit approvisionnés. Le stockage de documents approvisionné et la capacité de débit associée à une unité de capacité sont distribués dans des collections DocumentDB que vous créez sous plusieurs bases de données de votre compte de base de données. La capacité approvisionnée sous un compte de base de données est disponible pour toutes les bases de données et collections existantes ou créées dans le compte. En pratique, l'extensibilité de la taille du compte de base de données n'est pas limitée : vous pouvez ajouter n'importe quel nombre d'unités de capacité au fur et à mesure, selon les restrictions de l'offre. Les ressources gérées dans une unité de capacité sont montées en charge via le partitionnement et répliquées pour une haute disponibilité. 
 
-Vous pouvez [créer et gérer des comptes de base de données DocumentDB](./documentdb-create-account.md) via le portail Azure sous [http://portal.azure.com/](http://portal.azure.com/). La création et la gestion d'un compte de base de données requièrent un accès administratif et peuvent uniquement être effectuées sous votre abonnement Azure. 
+Vous pouvez [créer et gérer des comptes de base de données DocumentDB](documentdb-create-account.md) via le portail Azure à l'adresse [http://portal.azure.com/](http://portal.azure.com/). La création et la gestion d'un compte de base de données requièrent un accès administratif et peuvent uniquement être effectuées sous votre abonnement Azure. 
 
 ###Propriétés des comptes de base de données
 Dans le cadre de l'approvisionnement et de la gestion d'un compte de base de données, vous pouvez configurer et lire les propriétés suivantes :  
@@ -146,7 +146,7 @@ Dans le cadre de l'approvisionnement et de la gestion d'un compte de base de don
 <td valign="top" ><p>Stratégie de cohérence</p></td>
 <td valign="top" ><p>Définissez cette propriété pour configurer le niveau de cohérence par défaut pour toutes les collections sous votre compte de base de données. Vous pouvez changer le niveau de cohérence en fonction de la demande en utilisant l'en-tête de demande [x-ms-consistency-level]. À l'avenir, nous prendrons probablement en charge le changement du niveau de cohérence par collection. </p>
 
-<p>Notez que cette propriété ne s'applique qu'aux <i>ressources définies par l'utilisateur</i>. Toutes les ressources définies par le système sont configurées pour prendre en charge les requêtes/lectures avec une cohérence forte.</p></td>
+<p>Notez que cette propriété s'applique uniquement aux <i>ressources définies par l'utilisateur</i>. Toutes les ressources définies par le système sont configurées pour prendre en charge les requêtes/lectures avec une cohérence forte.</p></td>
 </tr>
 
 <tr>
@@ -225,14 +225,14 @@ DocumentDB est un véritable système de base de données sans schéma. Il ne pa
 ###Configuration de la stratégie d'indexation d'une collection
 La stratégie d'indexation de chaque collection vous permet d'établir des compromis entre les performances et les stockages associés à l'indexation. Les options de configuration d'indexation suivantes sont disponibles :  
 
--	Choisissez si la collection indexe ou non automatiquement tous les documents. Par défaut, tous les documents sont automatiquement indexés. Vous pouvez choisir de désactiver l'indexation automatique et d'ajouter de façon sélective uniquement certains documents à l'index. ﻿À l'inverse, vous pouvez choisir d'exclure certains documents. Pour ce faire, définissez la propriété automatique sur True ou False dans le paramètre indexingPolicy d'une collection et utilisez l'en-tête de demande [x-ms-indexingdirective] lors de l'insertion, du remplacement ou de la suppression d'un document.  
+-	Choisissez si la collection indexe ou non automatiquement tous les documents. Par défaut, tous les documents sont automatiquement indexés. Vous pouvez choisir de désactiver l'indexation automatique et d'ajouter de façon sélective uniquement certains documents à l'index. ﻿À l'inverse, vous pouvez choisir d'exclure certains documents. Pour ce faire, définissez la propriété automatic sur True ou False pour le paramètre indexingPolicy d'une collection et utilisez l'en-tête de demande [x-ms-indexingdirective] dans les opérations d'insertion, de remplacement ou de suppression d'un document.  
 -	Sélectionnez l'inclusion ou l'exclusion de chemins d'accès ou de modèles spécifiques dans vos documents à partir de l'index. Pour ce faire, définissez les paramètres includedPaths et excludedPaths à partir du paramètre indexingPolicy d'une collection. Vous pouvez également configurer les compromis de performances et de stockage pour les requêtes de plage de données et de hachage pour certains formats de chemin d'accès. 
 -	Choisissez entre des mises à jour d'index synchrones (cohérentes) ou asynchrones (différées). Par défaut, l'index est mis à jour de manière synchrone lors de chaque insertion, remplacement ou suppression d'un document au niveau de la collection. Cela permet aux requêtes de fournir le même niveau de cohérence que celui des lectures de document. Alors que DocumentDB est optimisé pour les écritures et prend en charge des volumes soutenus d'écritures de documents, la maintenance d'index synchrone et les requêtes cohérentes, vous pouvez configurer certaines collections de manière à ce que la mise à jour de l'index soit effectuée en différé. L'indexation en différé dynamise les performances en termes d'écriture. Cela est idéal pour les scénarios d'ingestion en bloc pour les collections comportant principalement beaucoup de lectures.
 
 Dans la version préliminaire de DocumentDB, la stratégie d'indexation peut uniquement être configurée durant la création d'une collection. Une fois la collection créée, la stratégie ne peut pas être mise à jour.
 
 ###Interrogation d'une collection
-Les documents d'une collection peuvent suivre des schémas arbitraires et vous pouvez les interroger sans fournir de schéma ou d'index secondaires à l'avance. Vous pouvez interroger une collection en utilisant le [langage de requête SQL de DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx), qui fournit des opérateurs relationnels et hiérarchiques enrichis et une extensibilité via des fonctions JavaScript définies par l'utilisateur. La syntaxe JSON permet la modélisation de documents JSON en tant qu'arborescences avec des étiquettes, comme les nœuds d'arborescence. Cette capacité est exploitée par les techniques d'indexation automatique de DocumentDB et le dialecte de requête SQL de ce dernier. Le langage de requête DocumentDB est caractérisé par trois aspects principaux :   
+Les documents d'une collection peuvent suivre des schémas arbitraires et vous pouvez les interroger sans fournir de schéma ou d'index secondaires à l'avance. Vous pouvez interroger une collection en utilisant le [langage de requête SQL de DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx), qui fournit des opérateurs relationnels et hiérarchiques enrichis ainsi qu'une extensibilité via des fonctions JavaScript définies par l'utilisateur. La syntaxe JSON permet la modélisation de documents JSON en tant qu'arborescences avec des étiquettes, comme les nœuds d'arborescence. Cette capacité est exploitée par les techniques d'indexation automatique de DocumentDB et le dialecte de requête SQL de ce dernier. Le langage de requête DocumentDB est caractérisé par trois aspects principaux :   
 
 1.	Un ensemble réduit d'opérations de requête mappant naturellement vers l'arborescence incluant des requêtes hiérarchiques et des projections. 
 2.	Un sous-ensemble d'opérations relationnelles incluant la composition, le filtrage, les projections, les agrégations et les jointures réflexives. 
@@ -241,7 +241,7 @@ Les documents d'une collection peuvent suivre des schémas arbitraires et vous p
 Le modèle de requête DocumentDB tente de garantir un équilibre entre les fonctionnalités, l'efficacité et la simplicité. Le moteur de base de données de DocumentDB compile et exécute de façon native les instructions de requête SQL. Vous pouvez interroger une collection en utilisant les [API REST Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou l'un des [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx). Le Kit de développement logiciel (SDK) .NET comprend un fournisseur LINQ. Dans une prochaine version, des mappages de traits de soulignement natifs seront fournis. Ils pourront être utilisés depuis les [Kits de développement logiciel (SDK) JavaScript de DocumentDB](https://github.com/Azure/azure-documentdb-js) côté client, ainsi que les procédures stockées et déclencheurs côté serveur.   
 
 ###Transactions multi-documents
-Les transactions de bases de données offrent un modèle de programmation prédictif et sécurisé pour la gestion des modifications simultanées des données. Dans SGBDR, la méthode classique d'écriture de logique métier consiste à écrire des **procédures stockées** et/ou des **déclencheurs**, puis à les expédier vers le serveur de base de données pour exécuter la transaction. Dans SGBDR, le programmateur de l'application doit gérer deux langages de programmation différents : 
+Les transactions de bases de données offrent un modèle de programmation prédictif et sécurisé pour la gestion des modifications simultanées des données. Dans SGBDR, la méthode classique d'écriture de logique métier consiste à écrire des **procédures stockées** et/ou des **déclencheurs** puis à les expédier vers le serveur de base de données pour exécuter la transaction. Dans SGBDR, le programmateur de l'application doit gérer deux langages de programmation différents : 
 
 - Le langage de programmation d'application (non transactionnel) (par exemple, JavaScript, Python, C#, Java, etc.). 
 - T-SQL, le langage de programmation transactionnel exécuté de manière native par la base de données.
@@ -255,7 +255,7 @@ La logique JavaScript enregistrée au niveau d'une collection peut alors émettr
 
 La possibilité d'exécuter directement JavaScript dans le moteur de base de données au sein du même espace d'adressage que le pool de mémoires tampons permet une exécution performante et transactionnelle des opérations de base de données sur les documents d'une collection. De plus, l'engagement ferme du moteur de base de données DocumentDB envers JSON et JavaScript élimine tout risque d'incohérence d'impédance entre les systèmes de type d'application et la base de données.   
 
-Une fois la collection créée, vous pouvez enregistrer des procédures stockées, des déclencheurs et des fonctions définies par l'utilisateur auprès d'une collection en utilisant des [API REST Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou l'un des [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx). Après l'enregistrement, vous pouvez les référencer et les exécuter. Prenons comme exemple la procédure stockée suivante écrite entièrement en JavaScript, qui prend deux arguments (un titre de livre et un nom d'auteur) et qui crée un document, demande un document puis le met à jour, le tout dans le cadre d'une transaction ACID implicite. Si le JavaScript lève une exception durant son exécution, l'intégralité de la transaction est annulée.
+Après avoir créé une collection, vous pouvez enregistrer des procédures stockées, des déclencheurs et des fonctions définies par l'utilisateur dans cette collection en utilisant des [API REST Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou l'un des [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx). Après l'enregistrement, vous pouvez les référencer et les exécuter. Prenons comme exemple la procédure stockée suivante écrite entièrement en JavaScript, qui prend deux arguments (un titre de livre et un nom d'auteur) et qui crée un document, demande un document puis le met à jour, le tout dans le cadre d'une transaction ACID implicite. Si le JavaScript lève une exception durant son exécution, l'intégralité de la transaction est annulée.
 
 	function businessLogic(name, author) {
 	    var context = getContext();
@@ -288,7 +288,7 @@ Une fois la collection créée, vous pouvez enregistrer des procédures stockée
 	        })
 	};
 
-Le client peut " expédier " la logique JavaScript ci-dessus à la base de données pour une exécution transactionnelle via HTTP POST. Pour plus d'informations sur l'utilisation des méthodes HTTP, reportez-vous à la section [Interactions RESTful avec les ressources DocumentDB](../documentdb-interactions-with-resources/). 
+Le client peut " expédier " la logique JavaScript ci-dessus à la base de données pour une exécution transactionnelle via HTTP POST. Pour plus d'informations sur l'utilisation de méthodes HTTP, consultez l'article [Interactions RESTful avec les ressources DocumentDB](documentdb-interactions-with-resources.md). 
 
 	client.createStoredProcedureAsync(collection._self, {id: "CRUDProc", body: businessLogic})
 	   .then(function(createdStoredProcedure) {
@@ -350,8 +350,8 @@ L'exécution d'une procédure stockée s'effectue grâce à l'émission d'une in
 	        console.log("Error");
 	    });
 
-###Annulation de l'enregistrement d'une procédure stockée
-L'annulation de l'enregistrement d'une procédure stockée s'effectue simplement grâce à l'émission d'une instruction HTTP DELETE sur une ressource de procédure stockée existante.   
+###Unregistering a stored procedure
+Un-registering a stored procedure is simply done by issuing an HTTP DELETE against an existing stored procedure resource.   
 
 	client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
 	    .then(function (response) {
@@ -439,7 +439,7 @@ L'annulation de l'enregistrement d'une fonction définie par l'utilisateur s'eff
 	        console.log("Error");
 	    });
 
-Bien que les extraits de code précédents ont montré l'enregistrement (POST), l'annulation de l'enregistrement (PUT), la lecture ou le tri (GET) et l'exécution (POST) via le [Kit de développement logiciel (SDK) JavaScript de DocumentDB](https://github.com/Azure/azure-documentdb-js), vous pouvez également utiliser les [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou d'autres [Kits clients](https://msdn.microsoft.com/library/azure/dn781482.aspx). 
+Bien que les extraits de code précédents ont montré l'enregistrement (POST), l'annulation de l'enregistrement (PUT), la lecture ou le tri (GET) et l'exécution (POST) via le [Kit de développement logiciel (SDK) JavaScript de DocumentDB](https://github.com/Azure/azure-documentdb-js), vous pouvez également utiliser les [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou d'autres [Kits de développement logiciel clients](https://msdn.microsoft.com/library/azure/dn781482.aspx). 
 
 ##Documents
 Vous pouvez insérer, remplacer, supprimer, lire, énumérer et interroger arbitrairement des documents JSON dans une collection. DocumentDB n'impose aucun schéma et ne requiert pas d'index secondaire pour prendre en charge l'interrogation des documents dans une collection.   
@@ -483,14 +483,14 @@ Indépendamment de la stratégie de partition que vous choisissez, vous pouvez m
 Comme avec les autres ressources, vous pouvez créer, remplacer, supprimer, lire ou énumérer facilement les utilisateurs dans DocumentDB en utilisant des API REST ou l'un des Kits de développement logiciel (SDK) clients. DocumentDB fournit toujours une cohérence forte pour la lecture ou l'interrogation des métadonnées d'une ressource d'utilisateur. Il est intéressant de mentionner que la suppression d'un utilisateur garantit automatiquement que vous ne pouvez pas accéder à l'une des autorisations qu'il contient. Même si DocumentDB réclame le quota d'autorisations dans le cadre de la suppression de l'utilisateur en arrière-plan, les autorisations supprimées sont de nouveau disponibles immédiatement pour utilisation.  
 
 ##Autorisations
-Pour le contrôle d'accès, les ressources comme les comptes de base de données, les bases de données, les utilisateurs et les autorisations sont considérées en tant que ressources d' *administration*, car elles requièrent des autorisations d'administration. D'un autre côté, les ressources incluant les collections, les documents, les pièces jointes, les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur sont étendues sous une base de données et considérées comme des  *ressources d'application*. Le modèle d'autorisation correspondant à ces deux types de ressources et aux rôles qui y accèdent (c'est-à-dire l'administrateur et l'utilisateur) définit deux types de  *clés d'accès * : la  *clé principale * et la  *clé de ressource *. La clé principale appartient au compte de base de données et est fournie au développeur (ou à l'administrateur) qui approvisionne le compte de base de données. Cette clé principale ayant la sémantique d'administration, elle permet d'autoriser l'accès pour les ressources d'administration et d'application. Par contre, une clé de ressource est une clé d'accès granulaire qui permet d'accéder à une ressource d'application  *spécifique*. Elle capture donc la relation entre l'utilisateur d'une base de données et les autorisations de l'utilisateur pour une ressource spécifique (comme une collection, un document, une pièce jointe, une procédure stockée, un déclencheur ou une fonction définie par l'utilisateur).   
+Pour le contrôle d'accès, les ressources telles que les comptes de base de données, les bases de données, les utilisateurs et les autorisations sont considérées comme des ressources d' *administrative*, car elles nécessitent des autorisations administratives. D'un autre côté, les ressources incluant les collections, les documents, les pièces jointes, les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur sont étendues sous une base de données et sont considérées comme des *application resources*. Le modèle d'autorisation correspondant à ces deux types de ressources et aux rôles qui y accèdent (c'est-à-dire l'administrateur et l'utilisateur) définit deux types de *access keys*: *master key* et de *resource key*. La clé principale appartient au compte de base de données et est fournie au développeur (ou à l'administrateur) qui approvisionne le compte de base de données. Cette clé principale ayant la sémantique d'administration, elle permet d'autoriser l'accès pour les ressources d'administration et d'application. Une clé de ressource est une clé d'accès granulaire qui permet d'accéder à une ressource d'application *specific*. Elle capture donc la relation entre l'utilisateur d'une base de données et les autorisations de l'utilisateur pour une ressource spécifique (comme une collection, un document, une pièce jointe, une procédure stockée, un déclencheur ou une fonction définie par l'utilisateur).   
 
 La seule façon d'obtenir une clé de ressource est de créer une ressource d'autorisation pour un utilisateur donné. Notez que pour créer ou récupérer une autorisation, une clé principale doit être présentée dans l'en-tête d'autorisation. Une ressource d'autorisation lie la ressource, son accès et l'utilisateur. Une fois la ressource d'autorisation créée, l'utilisateur doit simplement présenter la clé de ressource associée pour obtenir l'accès à la ressource correspondante. Ainsi, une clé de ressource peut être vue comme une représentation logique et compacte d'une ressource d'autorisation.  
 
 Comme avec les autres ressources, vous pouvez créer, remplacer, supprimer, lire ou énumérer facilement les autorisations dans DocumentDB en utilisant des API REST ou l'un des Kits de développement logiciel (SDK) clients. DocumentDB fournit toujours une cohérence forte pour la lecture ou l'interrogation des métadonnées d'une autorisation. 
 
 ##Étapes suivantes
-Pour en savoir plus sur l'utilisation des ressources avec des commandes HTTP, reportez-vous à la rubrique [Interactions RESTful avec les ressources DocumentDB](../documentdb-interactions-with-resources/).
+Pour en savoir plus sur l'utilisation des ressources avec des commandes HTTP, consultez l'article [Interactions RESTful avec les ressources DocumentDB](documentdb-interactions-with-resources.md).
 
 
 [1]: ./media/documentdb-resources/resources1.png
@@ -498,4 +498,4 @@ Pour en savoir plus sur l'utilisation des ressources avec des commandes HTTP, re
 [3]: ./media/documentdb-resources/resources3.png
 [4]: ./media/documentdb-resources/resources4.png
 
-<!--HONumber=47-->
+<!--HONumber=49-->

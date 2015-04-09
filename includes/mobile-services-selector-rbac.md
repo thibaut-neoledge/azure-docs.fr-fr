@@ -1,5 +1,5 @@
-﻿> [AZURE.SELECTOR-LIST (Plateforme | Principal)]
-- [(Windows Store C# | .NET)](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/)
-- [(Windows Store C# | JavaScript)](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/)
+﻿> [AZURE.SELECTOR-LIST (Plateforme | Serveur principal)]
+- [(Windows Store C# | .NET)](../articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac.md)
+- [(Windows Store C# | JavaScript)](../articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md)
 
-\<!--HONumber=42-->
+<!--HONumber=49-->

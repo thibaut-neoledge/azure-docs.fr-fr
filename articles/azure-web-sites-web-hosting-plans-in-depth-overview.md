@@ -1,205 +1,100 @@
 ﻿<properties 
-	pageTitle="Vue d'ensemble approfondie des plans d'hébergement web dans Sites Web Azure - Guide des fonctionnalités Azure" 
-	description="Découvrez comment les plans d'hébergement web pour Sites Web Azure fonctionnent et en quoi ils améliorent votre expérience de gestion." 
-	services="web-sites" 
+	pageTitle="Présentation détaillée des plans d'Azure App Service" 
+	description="Découvrez comment fonctionnent les plans d'Azure App Service et comment ils peuvent améliorer votre gestion." 
+	services="app-service" 
 	documentationCenter="" 
 	authors="btardif" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service" 
 	ms.workload="web" 
-	ms.tgt_pltfrm="ibiza" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2014" 
-	ms.author="byvinyal, yochayk"/>
+	ms.date="03/24/2014" 
+	ms.author="byvinyal"/>
 
-# Vue d'ensemble approfondie des plans d'hébergement Sites Web Azure#
+#Présentation détaillée des plans d'Azure App Service#
 
-Les plans d'hébergement web représentent un ensemble de fonctionnalités et de capacités que vous pouvez partager sur vos sites web.  Ils prennent en charge les 4 options de tarification Sites Web Azure (Gratuit, Partagé, De base et Standard), chacune ayant ses propres possibilités.  Les sites des mêmes abonnement, groupe de ressources et emplacement géographique peuvent partager un plan d'hébergement web. Tous les sites qui partagent un plan d'hébergement web peuvent tirer profit de l'ensemble des possibilités définies par ce plan. Tous les sites web associés à un plan d'hébergement web utilisent les ressources définies par ce plan. Par exemple, si votre plan d'hébergement web est configuré pour utiliser deux " petites " machines virtuelles, tous les sites associés à ce plan utiliseront les deux machines virtuelles. Comme toujours avec les Sites web Azure, les machines virtuelles que vos sites exécutent sont hautement disponibles et entièrement gérées.
+Un **plan App Service** représente un ensemble de fonctionnalités et de capacités que vous pouvez partager entre plusieurs applications dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), y compris Web Apps, Mobile Apps, Logic Apps et API Apps. Ces plans prennent en charge 5 niveaux de tarification (**Gratuit**, **Partagé**, **De base**, **Standard** et **Premium**) lesquels possèdent chacun leurs propres fonctionnalités et capacités. Les applications comprises dans un même abonnement et situées au même emplacement peuvent partager un plan. Toutes les applications qui partagent un plan peuvent tirer profit de l'ensemble des fonctionnalités définies par ce plan. Toutes les applications web associées à un plan donné utilisent les ressources définies par ce plan. Par exemple, si votre plan est configuré pour utiliser deux " petites " instances d'un niveau de service standard, toutes les applications associées à ce plan seront exécutées sur ces deux instances et auront accès aux fonctionnalités du niveau de service standard. Les instances de plans sur lesquelles sont exécutées des applications sont entièrement gérées et hautement disponibles.
 
-Dans cet article, nous allons explorer les principales caractéristiques telles que le niveau et l'échelle d'un plan d'hébergement web, et comment elles entrent en jeu lors de la gestion de vos sites web. 
+Dans cet article, nous allons explorer les principales caractéristiques telles que le niveau et l'échelle d'un plan App  Service, et comment elles entrent en jeu lors de la gestion de vos applications.
 
-## Sites web, plans d'hébergement web et groupes de ressources##
+##Applications et plan App Service
 
-Un site web peut être associé à un seul plan d'hébergement web. Un plan d'hébergement web est associé à un groupe de ressources. Le concept de groupe de ressources est une nouveauté dans Azure, qui sert de frontière au cycle de vie de chaque ressource englobée. Les groupes de ressources permettent de gérer toutes les parties d'une application en même temps. 
+Une application App Service ne peut être associée qu'à un seul plan App Service à la fois. 
 
-Vous pouvez avoir plusieurs plans d'hébergement web dans un groupe de ressources. Chaque plan aura son propre ensemble de fonctionnalités utilisées par les sites associés.  L'image suivante illustre cette relation :
+Les applications et les plans sont contenus dans un groupe de ressources. Un groupe de ressources sert de limite de cycle de vie pour chaque ressource qu'il contient. Les groupes de ressources permettent de gérer toutes les parties d'une application en même temps.
 
+La possibilité d'avoir plusieurs plans App Service dans un même groupe de ressources vous permet d'allouer différentes applications à différentes ressources physiques. Par exemple, cela permet de distinguer les ressources des environnements de développement, de test et de production. Vous pourriez, par exemple, avoir besoin d'allouer un plan à son ensemble de ressources dédiées pour vos applications de production, et un second plan pour vos environnements de développement et de test. De cette façon, les tests de charge d'une nouvelle version de vos applications ne feront pas appel aux mêmes ressources que les applications de production qui sont distribuées aux clients réels.
 
-![Resource Groups and Web Hosting Plans](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview01.png)
+Avoir plusieurs plans au sein d'un même groupe de ressources permet également de définir une application disponible pour plusieurs régions géographiques. Par exemple, une application hautement disponible qui s'exécute dans deux régions inclut deux plans, un pour chaque région, et une application associée à chaque plan. Dans ce cas, toutes les copies de l'application seront associées à un seul groupe de ressources. Le fait de disposer d'une vue unique d'un groupe de ressources avec plusieurs plans et plusieurs applications facilite la gestion, le contrôle et l'affichage de l'intégrité de l'application.
 
+## Création d'un plan App Service contre utilisation d'un plan existant
 
-La possibilité d'avoir plusieurs plans d'hébergement web dans un même groupe de ressources vous permet d'allouer différents sites à différentes ressources, principalement les machines virtuelles exécutant vos sites web. Par exemple, cette fonctionnalité permet la séparation des ressources entre les sites de développement, de test et de production, où vous pouvez allouer un plan d'hébergement web avec son propre ensemble de ressources dédié à vos sites de production, et un second plan d'hébergement web à vos sites de développement et de test. 
+Quand vous créez une application, vous devez envisager de créer un groupe de ressources quand l'application qui va être créée correspond à un tout nouveau projet. Dans ce cas, la bonne option consiste à créer un groupe de ressources, un plan et une application.
 
-Avoir plusieurs plans d'hébergement web dans un groupe de ressources unique permet de définir une application qui s'étend sur plusieurs régions. Par exemple, un site web hautement disponible qui s'exécute dans deux régions inclut deux plans d'hébergement web, un par région, ainsi qu'un site web associé à chaque plan d'hébergement web. Dans un tel cas, tous les sites sont associés à un seul groupe de ressources, qui définit une application.  Le fait de disposer d'une vue unique d'un groupe de ressources avec plusieurs plans d'hébergement web et plusieurs sites facilite la gestion, le contrôle et l'affichage de l'intégrité des sites web. Outre la gestion des ressources des sites web et des sites respectifs d'une application donnée, vous pouvez associer une ressource Azure connexe comme les bases de données SQL-Azure et les projets d'équipe. 
+Si l'application que vous allez créer est un composant d'une autre application, elle doit être créée au sein du groupe de ressources alloué pour l'application en question.
 
-## Quand créer un groupe de ressources et quand créer un plan d'hébergement web ?##
+Que la nouvelle application soit autonome ou fasse partie d'une autre application, vous pouvez choisir d'utiliser un plan App Service existant pour l'héberger ou bien en créer un. C'est plus une question de capacité et de charge attendue. Si la nouvelle application consommera beaucoup de ressources et aura des facteurs d'échelle différents des autres applications hébergées dans un plan existant, il est recommandé de l'isoler dans son propre plan.
 
-Quand vous créez un site web, vous devez envisager de créer un groupe de ressources quand le site web qui va être créé représente une nouvelle application web. Dans ce cas, la bonne option consiste à créer un groupe de ressources, un plan d'hébergement web associé et des sites web.  Lorsque vous créez un site web avec la nouvelle version préliminaire du portail Azure, en utilisant la galerie ou le nouveau site web + l'option SQL, le portail crée par défaut un groupe de ressources et un plan d'hébergement web pour votre nouveau site. Cependant, si vous le souhaitez, vous pouvez remplacer ces valeurs par défaut.
+La création d'un plan permet d'allouer un nouvel ensemble de ressources aux applications web et de mieux contrôler l'allocation de ressources, car chaque plan obtient son propre ensemble d'instances.
+ 
+La capacité à déplacer des applications d'un plan à un autre permet également de modifier la façon dont les ressources sont allouées dans toute l'application principale.
+ 
+Si vous souhaitez créer une application dans une autre région et que celle-ci n'a pas de plan existant, vous devrez en créer un dans cette région pour pouvoir y héberger votre application.
 
+##FAQ sur les plans App Service
 
-![Creating a new Web Hosting Plan](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview02.png)
+**Question** : Comment créer un plan App Service ?
 
+**Réponse** : Vous ne pouvez pas créer un plan App Service vide. Toutefois, il est possible de créer un plan explicitement au moment de la création de l'application.
 
-Vous pouvez toujours ajouter un nouveau site web ou d'autres ressources à un groupe de ressources existant. Lorsque vous créez un site web dans le contexte d'un groupe de ressources existant, l'Assistant du nouveau site web prend par défaut la ressource et le plan d'hébergement web existants. Là encore, en cas de besoin, vous pouvez ignorer ces options par défaut. Quand vous ajoutez un site web à un groupe de ressources existant, vous pouvez choisir d'ajouter le site à un plan d'hébergement web existant (option par défaut du nouveau portail Azure en version préliminaire), ou vous pouvez créer un plan d'hébergement web auquel ajouter le site.
+Pour le créer depuis le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), cliquez sur **Nouveau**, sélectionnez **Web + mobile**, puis **Web Apps**, **Mobile Apps**, **Logic Apps** ou **API Apps**. Vous pouvez ensuite sélectionner ou créer le plan App Service pour la nouvelle application.
+ 
+![FAQ sur les plans App Service](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview01.png)
 
-La création d'un plan d'hébergement vous permet d'allouer un nouveau jeu de ressources pour vos sites web, et de mieux contrôler l'allocation de ressources, car chaque plan d'hébergement web obtient son propre ensemble de machines virtuelles. Comme vous pouvez passer les sites web d'un plan d'hébergement web à un autre, sous réserve que les plans soient dans les mêmes régions, la décision de créer un nouveau plan d'hébergement est moins importante. Si un site web donné commence à consommer trop de ressources, ou si vous avez simplement besoin de séparer quelques sites web, vous pouvez créer un plan d'hébergement web et y déplacer vos sites web.
+**Question** : Comment affecter une application à un **plan App Service** ?
 
-Si vous souhaitez créer un site web dans une autre région et que celle-ci n'a pas de plan d'hébergement web existant, vous devez en créer un dans cette région pour pouvoir y associer un site web. 
+**Réponse** : Les applications peuvent être affectées à un plan existant lors du processus de création.
 
-Une chose importante à garder à l'esprit est que vous ne pouvez pas déplacer des sites web ou des plans d'hébergement web entre des groupes de ressources. Vous ne pouvez pas non plus déplacer un site web d'un plan d'hébergement web vers un plan d'une autre région. 
+Pour le créer depuis le [portail Azure](http://portal.azure.com), cliquez sur **Nouveau**, sélectionnez **Web + mobile**, puis **Web Apps**, **Mobile Apps**, **Logic Apps** ou **API Apps**. Vous pouvez ensuite sélectionner ou créer le plan App Service pour la nouvelle application. Quand vous cliquez sur **Ou sélectionner un plan existant**, vous affichez la liste des plans existants.
 
-## Groupes de ressources de la version préliminaire du portail Azure##
+![FAQ sur les plans App Service](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview02.png)
+ 
+**Question** : Comment déplacer une application vers un autre plan App Service ?
 
-Si vous avez déjà des sites web dans Sites web Azure, vous remarquerez qu'ils sont tous affichés dans le portail Azure en version préliminaire. Vous pouvez voir tous vos sites web dans une liste plate en cliquant sur le bouton **Parcourir** dans le volet de navigation gauche et en sélectionnant **Sites web** :
+**Réponse** : Vous pouvez déplacer une application vers un autre plan App Service depuis le [portail Azure](http://portal.azure.com). Les applications peuvent être déplacées d'un plan à un autre s'ils appartiennent à la même région géographique.
 
+Pour déplacer une application vers un autre plan, accédez à l'application que vous souhaitez déplacer, puis cliquez sur **Modifier le plan App Service **.
+ 
+Cette action ouvre le panneau du plan App Service. À ce stade, vous pouvez choisir un plan existant ou en créer un. Les plans appartenant à un autre emplacement géographique apparaissent en grisé et ne peuvent pas être sélectionnés.
 
-![See all your website as a flat list](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview03.png)
+![FAQ sur les plans App Service](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview03.png)
 
+Notez que chaque plan a son propre niveau de tarification. Quand vous faites passer un site du niveau de facturation **Gratuit** au niveau **Standard**, votre application pourra tirer parti de toutes les fonctionnalités et ressources du niveau **Standard**.
 
-Vous pouvez également voir tous les groupes de ressources que vous avez créés en cliquant sur le bouton **Parcourir** dans le volet de navigation gauche et en sélectionnant **Groupes de ressources** :
+**Question** : Comment mettre à l'échelle un plan App Service ?
 
+**Réponse** : Il existe trois façons de mettre à l'échelle un plan :
 
-![See all the resource groups that have been created](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview04.png)
+- Modifier le **niveau de tarification** du plan. Par exemple, un plan associé au niveau de tarification **De base** peut être converti en un plan de niveau **Standard** ou **Premium**. Toutes les applications associées à ce plan pourront alors utiliser les fonctionnalités proposées par le nouveau niveau de service.
+- Modifier la **taille des instances** du plan. Par exemple, un plan associé au niveau de tarification **De base** et utilisant des instances **petites** peut être modifié de façon à utiliser de **grandes** instances. Toutes les applications associées à ce plan pourront tirer parti de la mémoire supplémentaire et des ressources processeur offertes par l'instance plus grande.
+- Modifier le **nombre d'instances** du plan. Par exemple, un plan **Standard** comprenant 3 instances peut voir son nombre d'instances monter jusqu'à 10. Un plan **Premium** (version préliminaire) peut, quant à lui, voir son nombre d'instances monter jusqu'à 20 (sous certaines conditions). Toutes les applications associées à ce plan pourront tirer parti de la mémoire supplémentaire et des ressources processeur permises par le nombre supérieur d'instances.
 
+L'image ci-dessous présente les panneaux **Plan App Service** et **Niveau de tarification**. En cliquant sur la partie **Niveau de tarification** du panneau **Plan App Service**, vous développez le panneau **Niveau de tarification** où vous pouvez modifier le niveau de tarification et la taille des instances du plan.
+ 
+![FAQ sur les plans App Service](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview04.png)
 
-Vous remarquerez également que vous disposez d'un groupe de ressources par défaut généré automatiquement dans chaque région dans laquelle vous avez déjà des sites web. Le nom du groupe de ressources généré automatiquement pour les sites web est *Default-Web-<NOM DE L'EMPLACEMENT>*où le nom de l'emplacement représente une région Azure (par exemple *Default-Web-WestUS*). Dans chaque groupe de ressources, vous retrouvez tous vos sites pour la région du groupe. Chaque site que vous avez créé ou que vous allez créer dans la version préliminaire du portail Azure ou sa version complète sera disponible sur les deux portails. 
+##Résumé
 
-Étant donné que chaque site web doit être associé à un plan d'hébergement web, nous avons créé des plans d'hébergement web par défaut pour vos sites existants en fonction de la convention suivante, et ce dans chaque région :
+Les plans App Service représentent un ensemble de fonctionnalités et de capacités que vous pouvez partager entre vos différentes applications. Les plans App Service vous donnent la possibilité d'allouer des applications spécifiques à un ensemble donné de ressources, et d'optimiser davantage l'utilisation des ressources Azure. Ainsi, si vous souhaitez faire des économies sur votre environnement de test, vous pouvez partager un même plan entre plusieurs applications. Vous pouvez également augmenter le débit de votre environnement de production en le mettant à l'échelle dans plusieurs régions et plusieurs plans.
 
-* Tous vos sites web **gratuits** sont associés à un plan d'hébergement web **par défaut** avec l'option de tarification ayant la valeur **Gratuit**. 
+## Nouveautés
 
-* Tous vos sites web **partagés** sont associés à un plan d'hébergement web **par défaut** avec l'option de tarification ayant la valeur **Partagé**.
+* Pour savoir comment passer de Sites Web à App Service, consultez : [Azure App Service et son impact sur les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour savoir comment passer de l'ancien au nouveau portail, consultez : [Références sur la navigation dans le portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-* Tous vos sites web **standard** sont associés à un plan d'hébergement web par défaut avec le niveau de tarification ayant la valeur **Standard**. 
-
-Le nom de ce plan d'hébergement web est **DefaultServerFarm**. Il a été choisi pour prendre en charge une API héritée. Le nom **ServerFarm** peut être mal interprété, car il fait référence à un **Plan d'hébergement web**, mais il faut noter qu'il s'agit du nom d'un plan d'hébergement web, pas d'une entité à part entière. 
-
-## Forum aux questions sur les plans d'hébergement web##
-
-**Question** : Comment créer un plan d'hébergement web ?
-
-**Réponse** : Un plan d'hébergement web est un conteneur. Vous ne pouvez donc pas créer de plan d'hébergement web vide. Toutefois, un plan d'hébergement web est explicitement créé pendant la création du site.
-
-Pour ce faire, utilisez l'interface utilisateur du nouveau **portail Azure en version préliminaire**, cliquez sur **NOUVEAU**, puis sélectionnez **Site web** pour ouvrir le panneau de création de site web. Dans la première image ci-dessous, vous pouvez voir l'icône **NOUVEAU** en bas à gauche, et dans la seconde image, le panneau de création de **Site web**, le panneau **Plan d'hébergement web** et le panneau **Niveau de tarification** :
-
-
-![Create a new website](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview05.png)
-
-
-![Website, Web Hosting Plan and pricing tier blades](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview06.png)
-
-
-Pour cet exemple, nous avons choisi de créer un site web nommé **contosomarketing** et de le placer dans le nouveau plan d'hébergement web appelé **contoso**. L'option de tarification sélectionnée pour ce plan d'hébergement web est **Petit Standard**. Pour plus d'informations sur les niveaux de tarification des plans d'hébergement web, ainsi que sur les fonctionnalités, les options de tarification et d'extensibilité associées, consultez les [spécifications des plans d'hébergement web pour Sites web Azure](http://go.microsoft.com/?linkid=9845586). 
-
-Il convient de noter qu'un plan d'hébergement web peut également être créé dans le portail Azure existant. Pour cela, utilisez l'Assistant **Création rapide** et sélectionnez **Créer un plan d'hébergement web** dans le menu déroulant **PLAN D'HÉBERGEMENT WEB** :
-
-
-![Create new web hosting plan in the existing portal](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview07.png)
-
-
-Pour cet exemple, nous créons un site appelé **northwind** et nous choisissons de créer un plan d'hébergement web. Cette opération aboutit au nouveau plan d'hébergement web **default0**, qui contient le site web **northwind**. Tous les plans d'hébergement web créés à l'aide de cette méthode suivent cette convention d'attribution de noms, et aucun plan ne peut être renommé. Les plans d'hébergement web créés à l'aide de cette méthode ont le niveau de tarification **Gratuit**.
-
-**Question** : Comment affecter un site à un **plan d'hébergement web** ?
-
-**Réponse** : Les sites sont affectés à un plan d'hébergement web au cours du processus de création du site. Pour ce faire, utilisez l'interface utilisateur du nouveau **portail Azure en version préliminaire**, cliquez sur **NOUVEAU** et sélectionnez **Site web** :
-
-
-![Create a new website](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview08.png)
-
-
-Puis, dans le panneau de création de site web, sélectionnez le plan d'hébergement :
-
-
-![Select a hosting plan](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview09.png)
-
-
-Un site peut également être créé dans un plan d'hébergement web spécifique à l'aide du portail Azure existant. Cette opération est effectuée avec l'Assistant **Création rapide**. Après avoir tapé l'URL du site web, utilisez le menu déroulant **PLAN D'HÉBERGEMENT WEB** pour sélectionner un plan auquel ajouter le site :
-
-
-![Select a hosting plan in the existing portal](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview10.png)
-
-
-**Question** : Comment changer un site de plan d'hébergement web ?
-
-**Réponse** : Vous pouvez changer un site de plan d'hébergement web à l'aide de la version préliminaire du portail Azure. Les sites web peuvent être déplacés entre des plans d'hébergement web d'une même région géographique qui appartiennent au même groupe de ressources.
-
-Pour déplacer un site vers un autre plan, accédez au panneau du site web concerné.  Cliquez ensuite sur **Plan d'hébergement web** :
-
-
-![Choose a new or existing web hosting plan](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview22.png)
-
-
-Cette action ouvre le panneau du plan d'hébergement web. À ce stade, vous pouvez choisir un plan d'hébergement web ou en créer un. Les plans d'un groupe de ressources ou emplacement géographique différent apparaissent en grisé et ne peuvent pas être sélectionnés.
-
-Notez que chaque plan d'hébergement web a son propre niveau de tarification. Quand vous passez un site d'un plan d'hébergement web **Gratuit** à un plan d'hébergement web **Standard**, votre site web peut utiliser toutes les fonctionnalités et ressources du niveau Standard. 
-
-
-**Question** : Comment mettre à l'échelle un plan d'hébergement web ?
-
-**Réponse** : Deux méthodes permettent de mettre à l'échelle un plan d'hébergement web. L'une consiste à mettre à l'échelle le plan d'hébergement web et tous les sites associés. En modifiant le niveau de tarification d'un plan d'hébergement web, tous les sites associés sont soumis aux fonctionnalités et ressources définies par ce niveau de tarification. 
-
-L'image ci-dessous présente les panneaux **Plan d'hébergement web** et **Niveau de tarification**. En cliquant sur la partie **Niveau de tarification** du panneau **Plan d'hébergement web**, vous développez le panneau **Niveau de tarification** où vous pouvez modifier le niveau de tarification du plan d'hébergement web :
-
-
-![The Web Hosting Plan blade and the Pricing Tier](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview16.png)
-
-
-Une autre méthode consiste à mettre à l'échelle un plan en augmentant son nombre d'instances. L'image ci-dessous présente les panneaux **Plan d'hébergement web** et **Mettre à l'échelle**. Cliquez sur la zone Mettre à l'échelle du panneau **Plan d'hébergement web** pour le développer, ce qui vous permet de modifier le nombre d'instances du plan :
-
-
-![Changing the instance count of a hosting plan](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview17.png)
-
-
-Dans la mesure où le plan d'hébergement web dans l'image ci-dessus est configuré pour utiliser le niveau de tarification **Standard**, l'option **Mise à l'échelle automatique** est activée. 
-
-Cette opération dans le portail Azure complet peut être effectuée sous l'onglet **Mettre à l'échelle**, comme indiqué ci-dessous :
-
-
-![Changing the instance count of a hosting plan in the existing portal](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview18.png)
-
-
-**Question** : Comment supprimer un plan d'hébergement web ?
-
-**Réponse** : Pour supprimer un plan d'hébergement web, vous devez d'abord supprimer tous les sites web associés. Une fois que tous les sites web d'un plan d'hébergement web ont été supprimés, ce dernier peut être supprimé du panneau Plan d'hébergement web :
-
-
-![Deleting a web hosting plan](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview19.png)
-
-
-Dans le portail Azure complet, la suppression du dernier site web d'un plan d'hébergement web supprime automatiquement le plan d'hébergement web associé.
-
-**Question** : Comment surveiller un plan d'hébergement web ?
-
-**Réponse** : Les plans d'hébergement web peuvent être surveillés à l'aide de la section Surveillance du panneau Plan d'hébergement web :
-
-
-![Monitoring a web hosting plan](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview20.png)
-
-
-Les contrôles de surveillance peuvent être personnalisés en cliquant dessus avec le bouton droit et en sélectionnant **Modifier la requête** :
-
-
-![Editing the monitoring controls](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview21.png)
-
-
-Voici les mesures exposées :
-
-* Pourcentage UC
-
-* Pourcentage de mémoire
-
-* Longueur de file d'attente de disque 
-
-* Longueur de file d'attente HTTP. 
-
-Ces mesures représentent l'usage moyen des instances appartenant à un plan d'hébergement web. Elles peuvent toutes servir à définir des alertes et des règles d'échelle automatique.
-
-## Points essentiels et conclusions##
-
-Les plans d'hébergement web représentent un ensemble de fonctionnalités et de capacités que vous pouvez partager sur vos sites web.  Un plan d'hébergement web vous permet d'affecter des sites à un ensemble donné de ressources, les machines virtuelles, et optimise l'affectation des ressources Azure et l'utilisation des sites web. 
-
-<!--HONumber=47-->
+<!--HONumber=49-->

@@ -19,7 +19,7 @@
 
 		<uses-permission android:name="android.permission.INTERNET" />
 
-5. Dans l'Explorateur de projets, ouvrez le fichier TodoActivity.java situé dans le dossier **GetStartedWithData => Application => src => java** et supprimez les marques de commentaire des lignes de code suivantes : 
+5. Dans l'Explorateur de projets, ouvrez le fichier TodoActivity.java situé dans le dossier **GetStartedWithData => app => src => java** et supprimez les marques de commentaire des lignes de code suivantes : 
 
 
 
@@ -46,7 +46,7 @@
 
 		public List<ToDoItem> toDoItemList = new ArrayList<ToDoItem>();
 
-7. Enregistrez le fichier et le projet indiquera des erreurs de build. Recherchez les trois emplacements restants où la variable `toDoItemList` est utilisée et placez les sections indiquées en commentaire. Cela supprime complètement la liste en mémoire. 
+7. Enregistrez le fichier et le projet indiquera des erreurs de build. Recherchez les trois emplacements restants où la variable toDoItemList est utilisée, et placez les sections indiquées en commentaire. Cela supprime complètement la liste en mémoire. 
 
 8. Nous ajoutons maintenant notre service mobile. Annulez les marques de commentaire sur les lignes de code suivantes :
 
@@ -82,7 +82,7 @@
 
   	Cela crée une instance de *MobileServiceClient* utilisée pour accéder au service mobile. Cela crée également l'instance de *MobileServiceTable* utilisée pour traiter par proxy le stockage des données dans le service mobile.
 
-13. Dans le code ci-dessus, remplacez `MobileServiceUrl` et `AppKey` par l'URL et la clé d'application de votre service mobile, dans cet ordre.
+13. Dans le code ci-dessus, remplacez MobileServiceUrl et AppKey par l'URL et la clé d'application de votre service mobile, dans cet ordre.
 
 
 
@@ -165,4 +165,5 @@
 
 <!-- URLs. -->
 [Kit de développement logiciel (SDK) Mobile Services pour Android]: http://aka.ms/Iajk6q
-<!--HONumber=47-->
+
+<!--HONumber=49-->

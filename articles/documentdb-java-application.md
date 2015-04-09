@@ -13,7 +13,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="02/20/2015" 
+	ms.date="03/23/2015" 
 	ms.author="andrl"/>
 
 # Créer une application web Java avec DocumentDB #
@@ -27,25 +27,25 @@ Ce didacticiel vous montre comment créer une application de gestion des tâches
 
 ![My ToDo List application](./media/documentdb-java-application/image1.png)
 
-> [AZURE.TIP] Ce didacticiel part du principe que vous avez une certaine expérience de l'utilisation de Java. Si vous débutez avec Java ou les [outils requis](#Prerequisites), nous vous recommandons de télécharger l'ensemble du projet [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) à partir de [GitHub](https://github.com/Azure/azure-documentdb-java) et de le créer à l'aide des [instructions à la fin de cet article](#GetProject). Une fois que vous l'avez créé, vous pouvez consulter l'article pour obtenir des informations sur le code dans le contexte du projet.  
+> [AZURE.TIP] Ce didacticiel part du principe que vous avez déjà utilisé Java. Si vous débutez avec Java ou avec les [outils requis](#Prerequisites), nous vous recommandons de télécharger l'ensemble du projet [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) à partir de [GitHub](https://github.com/Azure/azure-documentdb-java) et de le créer à l'aide des [instructions fournies à la fin de cet article](#GetProject). Une fois que vous l'avez créé, vous pouvez consulter l'article pour obtenir des informations sur le code dans le contexte du projet.  
 
 ##<a id="Prerequisites"></a>Conditions préalables ##
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la rubrique [Version d'évaluation gratuite d'Azure](../../pricing/free-trial/).
+- un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](../../pricing/free-trial/).
 - [Kit de développement Java (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 - [Environnement de développement intégré (IDE) Eclipse pour développeurs Java EE](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
-- [Site web Azure avec environnement d'exécution Java (Tomcat ou Jetty, par exemple) activé.](http://azure.microsoft.com/documentation/articles/web-sites-java-get-started/)
+- [Site web Azure avec environnement d'exécution Java (Tomcat ou Jetty, par exemple) activé.](web-sites-java-get-started.md)
 
 Si vous installez ces outils pour la première fois, coreservlets.com fournit une vue d'ensemble du processus d'installation dans la section Démarrage rapide de son article [Didacticiel : Installation de TomCat7 et son utilisation avec Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html). 
 
 ##<a id="CreateDB"></a>Étape 1 : Création d'un compte de base de données DocumentDB ##
 Pour configurer un compte de base de données DocumentDB dans Azure :
 
-1. Si vous ne disposez pas d'un compte de base de données, vous devez en créer en suivant les instructions de la page [Création d'un compte de base de données](/documentation/articles/documentdb-create-account/). Si vous disposez déjà d'un compte, passez à l'étape 2.
+1. Si vous ne disposez pas d'un compte de base de données, vous devez en créer en suivant les instructions de la page [Création d'un compte de base de données](documentdb-create-account.md). Si vous disposez déjà d'un compte, passez à l'étape 2.
 2. À l'aide du panneau **Clés** indiqué dans l'illustration suivante, copiez l'**URI** et la **CLÉ PRIMAIRE** de votre point de terminaison dans votre Presse-papiers et conservez-les à portée de mains car nous allons utiliser ces valeurs dans l'application web que nous créons par la suite.
 
-![][1]
+![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][1]
 
 
 ##<a id="CreateJSP"></a>Étape 2 : création de l'application JSP ##
@@ -77,7 +77,7 @@ Pour créer l'application JSP :
 
 ##<a id="InstallSDK"></a>Étape 3 : installation du Kit de développement logiciel (SDK) Java de DocumentDB ##
 
-Le moyen le plus simple d'extraire le Kit de développement logiciel (SDK) Java de DocumentDB et ses dépendances consiste à utiliser [Apache Maven](http://maven.apache.org/).
+Le moyen le plus simple d'extraire le Kit de développement logiciel (SDK) Java de DocumentDB et ses dépendances est d'utiliser [Apache Maven](http://maven.apache.org/).
 
 Pour ce faire, vous devez convertir votre projet en projet Maven en procédant comme suit : 
 
@@ -118,7 +118,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
 
 	Dans ce projet, nous utilisons le [projet Lombok](http://projectlombok.org/) pour générer le constructeur, les méthodes getter, les méthodes setter et un générateur. Vous pouvez également écrire ce code manuellement ou faire en sorte que l'IDE le génère.
 
-2. Pour appeler le service DocumentDB, vous devez instancier un nouveau **DocumentClient**. En général, il est préférable de réutiliser le **DocumentClient** plutôt que de construire un nouveau client à chaque demande ultérieure. Nous pouvons réutiliser le client en l'encapsulant dans un **DocumentClientFactory**. Il s'agit également de l'emplacement où vous devez coller les valeurs d'URI et de CLÉ PRIMAIRE que vous avez enregistrées dans le Presse-papiers à l'[étape 1](#CreateDB). Remplacez [YOUR\_ENDPOINT\_HERE] par l'URI et [YOUR\_KEY\_HERE] par votre CLÉ PRIMAIRE.
+2. Pour appeler le service DocumentDB, vous devez instancier un nouveau **DocumentClient**. En général, il est préférable de réutiliser le **DocumentClient** plutôt que de construire un nouveau client à chaque  demande ultérieure. Nous pouvons réutiliser le client en l'encapsulant dans un **DocumentClientFactory**. Il s'agit également de l'emplacement où vous devez coller les valeurs d'URI et de CLÉ PRIMAIRE que vous avez enregistrées dans le Presse-papiers à l'[étape 1](#CreateDB). Remplacez [YOUR\_ENDPOINT\_HERE] par l'URI et [YOUR\_KEY\_HERE] par votre CLÉ PRIMAIRE.
 
 	    private static final String HOST = "[YOUR_ENDPOINT_HERE]";
 	    private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -728,7 +728,7 @@ Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une
 
 5. Génial ! Maintenant, il ne nous reste qu'à tester l'application. Exécutez l'application localement et ajoutez quelques éléments Todo en complétant le nom de l'élément et la catégorie, puis en cliquant sur **Add Task (Ajouter une tâche)**.
 
-6. Une fois que l'élément s'affiche, vous pouvez mettre à jour s'il est terminé ou pas, en activant/désactivant la case à cocher et en cliquant sur **Update Tasks (Mettre à jour les tâches)**
+6. Une fois que l'élément s'affiche, vous pouvez mettre à jour s'il est terminé ou pas, en activant/désactivant la case à cocher et en cliquant sur **Update Tasks (Mettre à jour les tâches)**.
 
 ##<a id="Deploy"></a>Étape 6 : Déploiement de votre application vers Sites Web Azure ##
 
@@ -740,31 +740,31 @@ Sites Web Azure permet de déployer facilement les applications Java en exportan
  - Dans la boîte de dialogue Destination, choisissez un emplacement d'enregistrement du fichier WAR.
  - Cliquez sur **Finish**.
 
-3. Maintenant que vous avez un fichier WAR à votre disposition, vous pouvez le télécharger simplement dans le répertoire **webapps** de Sites Web Azure. Pour des instructions sur le téléchargement du fichier, consultez la rubrique [Ajout d'une application à votre site web Java sur Azure](../web-sites-java-add-app/).
+3. Maintenant que vous avez un fichier WAR à votre disposition, vous pouvez le télécharger simplement dans le répertoire **webapps** de Sites Web Azure. Pour obtenir des instructions sur le téléchargement du fichier, consultez [Ajout d'une application à votre site web Java sur Azure](web-sites-java-add-app.md).
 
 	Une fois le fichier WAR téléchargé sur le répertoire webapps, l'environnement d'exécution détecte que vous l'avez ajouté et le télécharge automatiquement.
 4. Pour afficher votre produit fini, accédez à http://YOUR\_SITE\_NAME.azurewebsites.net/azure-documentdb-java-sample/ et commencez à ajouter vos tâches.
 
-##<a id="GetProject"></a>Obtention du projet à partir de GitHub##
+##<a id="GetProject"></a>Obtenir le projet à partir de GitHub##
 
-Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) sur GitHub, qui fait partie du référentiel [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java). Pour importer le projet todo dans Eclipse, vérifiez que vous disposez des logiciels et des ressources répertoriés dans la section [Conditions préalables](#Prerequisites) , puis procédez comme suit :
+Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) sur GitHub, qui fait partie du référentiel [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java). Pour importer le projet todo dans Eclipse, vérifiez d'abord que vous disposez des logiciels et des ressources répertoriés dans la section [Conditions préalables](#Prerequisites), puis procédez comme suit :
 
 1. Installez le [projet Lombok](http://projectlombok.org/). Lombok est utilisé pour générer des constructeurs, des méthodes getter et des méthodes setter dans le projet. Une fois que vous avez téléchargé le fichier lombok.jar, double-cliquez dessus pour l'installer ou installez-le à partir de la ligne de commande. 
 2. Si l'application Eclipse est ouverte, fermez-la et redémarrez-la pour charger Lombok.
 3. Dans Eclipse, dans le menu **File (Fichier)**, cliquez sur **Import (Importer)**.
 4. Dans la fenêtre **Import (Importer)**, cliquez sur **Git**, sur **Projects from Git (Projets provenant de Git)**, puis sur **Next (Suivant)**. 
 5. Dans l'écran **Select Repository Source (Sélectionner une source de référentiel)**, cliquez sur **Clone URI (URI du clone)**.
-6. Dans l'écran **Source Git Repository (Référentiel du Git source)**, dans la boîte de dialogue **URI**, entrez https://github.com/Azure/azure-documentdb-java.git, puis cliquez sur **Next (Suivant)**.
+6. Dans l'écran **Source Git Repository (Référentiel du Git source)**, dans la zone **URI**, tapez https://github.com/Azure/azure-documentdb-java.git, puis cliquez sur **Next (Suivant)**.
 7. Dans l'écran **Branch Selection (Sélection d'une branche)**, vérifiez que la case **master (principal)** est activée, puis cliquez sur **Next (Suivant)**.
 8. Dans l'écran **Local Destination (Destination locale)**, cliquez sur **Browse (Parcourir)** pour sélectionner un dossier dans lequel le référentiel peut être copié, puis cliquez sur **Next (Suivant)**.
 9. Dans l'écran **Select a wizard to use for importing projects (Sélectionner un Assistant à utiliser pour l'importation de projets)**, vérifiez que la case **Import existing projects (Importer des projets existants)** est activée, puis cliquez sur **Next (Suivant)**.
 10. Dans l'écran **Import Projects (Importer des projets)**, désélectionnez le projet **DocumentDB**, puis cliquez sur **Finish (Terminer)**. Le projet DocumentDB contient le Kit de développement logiciel (SDK) Java de DocumentDB, que nous allons ajouter en tant que dépendance à la place.
-11. Dans l'**Explorateur de projets**, accédez à azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java et remplacez les valeurs HOST et MASTER_KEY par l'URI et la CLÉ PRIMAIRE de votre compte DocumentDB, puis enregistrez le fichier. Pour plus d'informations, consultez l'[Étape 1. Création d'un compte de base de données DocumentDB](#CreateDB).
+11. Dans l'**Explorateur de projets**, accédez à azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java, et remplacez les valeurs HOST et MASTER_KEY par l'URI et la CLÉ PRIMAIRE de votre compte DocumentDB. Enregistrez ensuite le fichier. Pour plus d'informations, consultez l'[Étape 1. Création d'un compte de base de données DocumentDB](#CreateDB).
 12. Dans l'**Explorateur de projets**, cliquez avec le bouton droit sur **azure-documentdb-java-sample**, cliquez sur **Build Path (Chemin de build)**, puis sur **Configure Build Path (Configurer le chemin de build)**.
 13. Dans l'écran **Java Build Path (Chemin de build Java)**, dans le volet droit, sélectionnez l'onglet **Libraries (Bibliothèques)**, puis cliquez sur **Add External JARs (Ajouter des JAR externes)**. Accédez à l'emplacement du fichier lombok.jar, puis cliquez sur **Open (Ouvrir)**, puis sur **OK**.
 14. Utilisez l'étape 12 pour ouvrir à nouveau la fenêtre **Properties (Propriétés)**, puis, dans le volet de gauche, cliquez sur **Targeted Runtimes (Runtime ciblés)**.
 15. Dans l'écran **Targeted Runtimes (Runtime ciblés)**, cliquez sur **New (Nouveau)**, sélectionnez **Apache Tomcat v7.0**, puis cliquez sur **OK**.
-16. Utilisez l'étape 12 pour ouvrir à nouveau la fenêtre **Properties (Propriétés)**, puis, dans le volet de gauche, cliquez sur **Project Facets (Facettes du projet)**.
+16. Suivez l'étape 12 pour rouvrir la fenêtre **Properties (Propriétés)** et, dans le volet de gauche, cliquez sur **Project Facets (Facettes du projet)**.
 17. Dans l'écran **Project Facets (Facettes du projet)**, sélectionnez **Dynamic Web Module (Module web dynamique)** et **Java**, puis cliquez sur **OK**.
 18. Sous l'onglet **Servers (Serveurs)** au bas de l'écran, cliquez sur **Tomcat v7.0 Server at localhost (Serveur Tomcat v7.0 à localhost)**, puis cliquez sur **Add and Remove (Ajouter et supprimer)**.
 19. Dans la fenêtre **Add and Remove (Ajouter et supprimer**, déplacez **azure-dfocumentdb-java-sample** vers la zone **Configured (Configuré)**, puis cliquez sur **Finish (Terminer)**. 
@@ -772,6 +772,6 @@ Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://gi
 21. Dans un navigateur, accédez à http://localhost:8080/azure-documentdb-java-sample/ et commencez à ajouter des éléments à votre liste des tâches. Notez que si vous avez modifié les valeurs du port par défaut, définissez 8080 sur la valeur que vous avez sélectionnée.
 22. Pour déployer votre projet sur un site web Azure, consultez l'[Étape 6. Déploiement de votre application vers Sites Web Azure](#Deploy). 
 
-[1]: ./media/documentdb-java-application/keys.png
+[1]: ../includes/media/documentdb-keys/keys.png
 
-<!--HONumber=47-->
+<!--HONumber=49-->

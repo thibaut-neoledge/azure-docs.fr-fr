@@ -1,43 +1,37 @@
 ﻿<properties 
-	pageTitle="Sécurisation d'un site Web Azure." 
-	description="Découvrez comment sécuriser un site Web Azure." 
-	services="web-sites" 
+	pageTitle="Sécuriser une application web dans Azure App Service 
+	description="Découvrez comment sécuriser une application web Azure. 
+	services="app-service\web" 
 	documentationCenter="" 
-	authors="blackmist" 
+	authors="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryfr"/>
+	ms.date="03/24/2015" 
+	ms.author="cephalin"/>
 
 
-#Sécurisation d'une application Web sur un site Web Azure
+#Sécuriser une application web dans Azure App Service
 
-Lors du développement d'une application Web, il est primordial de s'engager à fournir un service sûr et sécurisé à vos clients. Dans cet article, vous découvrirez les fonctionnalités des sites Web Azure qui peuvent sécuriser votre application Web.
+Lors du développement d'une application web, il est primordial de s'engager à fournir un service sûr et sécurisé à vos clients. Dans cet article, vous allez découvrir les fonctionnalités d'[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) qui peuvent sécuriser votre application web.
 
-> [AZURE.NOTE] Ce document n'a pas pour but d'évoquer toutes les questions de sécurité concernant les applications Web. Pour démarrer l'étude de la sécurisation des applications Web, consultez la page [Open Web Application Security Project (OWASP)]( https://www.owasp.org/index.php/Main_Page), et en particulier la rubrique [top 10 project.](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), qui répertorie les 10 problèmes de sécurité actuels les plus critiques des applications Web, selon les membres de l'OWASP.
+> [AZURE.NOTE] Ce document n'a pas pour but d'évoquer toutes les questions de sécurité concernant les applications web. Pour démarrer l'étude de la sécurisation des applications web, consultez la page [Open Web Application Security Project (OWASP)]( https://www.owasp.org/index.php/Main_Page),, et en particulier la rubrique [top 10 project.](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), qui répertorie les 10 problèmes de sécurité actuels les plus critiques des applications web, selon les membres de l'OWASP.
 
-###Sommaire
+##<a name="https"></a> Sécuriser les communications
 
-* [Sécurisation des communications](#https)
-* [Sécurisation du développement](#develop)
-* [Étapes suivantes](#next)
- 
-##<a name="https"></a>Sécurisation des communications
+Si vous utilisez le nom de domaine ***.azurewebsites.net** créé pour votre application web, vous pouvez utiliser immédiatement le protocole HTTPS, car un certificat SSL est fourni pour tous les noms de domaine ***.azurewebsites.net**. Si votre site utilise un [nom de domaine personnalisé](web-sites-custom-domain-name.md), , vous pouvez charger un certificat SSL et [activer HTTPS](web-sites-configure-ssl-certificate.md) pour le domaine personnalisé.
 
-Si vous utilisez le nom de domaine ***.azurewebsites.net** créé pour votre site Web, vous pouvez immédiatement utiliser HTTPS, car un certificat SSL est fourni pour tous les noms de domaine ***.azurewebsites.net**. Si votre site utilise un [nom de domaine personnalisé](http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/), vous pouvez charger un certificat SSL et activer HTTPS pour le domaine personnalisé.
+##<a name="develop"></a> Sécuriser le développement 
 
-##<a name="develop"></a>Sécurisation du développement 
+### Profils et paramètres de publication
 
-###Profils et paramètres de publication
-
-Lorsque vous développez des applications, exécutez des tâches de gestion ou automatisez des tâches à l'aide d'utilitaires tels que **Visual Studio**, **Web Matrix**, **Azure PowerShell** ou l'**interface de ligne de commande interplateforme**vous pouvez utiliser un fichier de *publish settings* ou de *publishing profile*. Les deux vous authentifient auprès d'Azure et doivent être sécurisés pour empêcher tout accès sans autorisation.
+Lors du développement des applications, l'exécution des tâches de gestion ou l'automatisation des tâches à l'aide d'utilitaires tels que **Visual Studio**, **Web Matrix**, **Azure PowerShell** ou l'**interface de ligne de commande multiplateforme** Azure, vous pouvez utiliser un fichier *publish settings* ou un *publishing profile*. Les deux vous authentifient auprès d'Azure et doivent être sécurisés pour empêcher tout accès sans autorisation.
 
 * Un fichier de **paramètres de publication** contient :
 
@@ -47,34 +41,40 @@ Lorsque vous développez des applications, exécutez des tâches de gestion ou a
 
 * Un fichier de **profil de publication** contient :
 
-	* Des informations pour publier sur votre site Web Azure
+	* Des informations sur la publication de votre application web.
 
-Si vous faites appel à un utilitaire qui utilise des paramètres de publication ou un profil de publication, importez le fichier contenant les paramètres ou le profil de publication dans l'utilitaire, puis **supprimez** le fichier. Si vous devez garder le fichier, par exemple pour le partager avec d'autres personnes travaillant sur le projet, stockez-le dans un emplacement sécurisé comme un répertoire **chiffré** avec autorisations restreintes.
+Si vous avez recours à un utilitaire qui utilise des paramètres de publication ou un profil de publication, importez le fichier contenant les paramètres ou le profil de publication dans l'utilitaire, puis **supprimez** le fichier. Si vous devez conserver le fichier pour le partager avec d'autres personnes travaillant sur le projet par exemple, stockez-le dans un emplacement sécurisé comme un répertoire **chiffré** avec autorisations restreintes.
 
-De plus, assurez-vous que les informations d'identification importées sont sécurisées. Par exemple, **Azure PowerShell** et **l'interface de ligne de commande interplateforme Azure** stockent les informations importées dans votre **répertoire de base** (*~* sous les systèmes Linux ou OS X et */utilisateurs/nomdutilisateur* sous les systèmes Windows.) Pour plus de sécurité, vous pouvez **chiffrer** ces emplacements à l'aide d'outils de chiffrement disponibles pour votre système d'exploitation.
+De plus, assurez-vous que les informations d'identification importées sont sécurisées. Par exemple, **Azure PowerShell** et l'**interface de ligne de commande multiplateforme Azure** stockent des informations importées dans votre **répertoire de base** (*~* sur les systèmes Linux ou OS X et */users/votrenomutilisateur* sur les systèmes Windows.) Pour plus de sécurité, vous pouvez **chiffrer** ces emplacements à l'aide des outils de chiffrement disponibles pour votre système d'exploitation.
 
-###Paramètres de configuration et chaînes de connexion
-Il est d'usage courant de stocker les chaînes de connexion, les informations d'identification et autres informations sensibles dans les fichiers de configuration. Malheureusement, ces fichiers peuvent être exposés sur votre site Web, ou déposés dans un référentiel public, exposant ces informations.
+### Paramètres de configuration et chaînes de connexion
+Il est d'usage courant de stocker les chaînes de connexion, les informations d'identification et autres informations sensibles dans les fichiers de configuration. Malheureusement, ces fichiers peuvent être exposés sur votre site web, ou déposés dans un référentiel public, exposant ces informations.
 
-Les sites Web Azure vous permettent de stocker des informations de configuration comme éléments d'environnement d'exécution de sites Web sous forme de **paramètres d'application** et de **chaînes de connexion**. Ces valeurs sont exposées sur votre application au moment de l'exécution via des *environment variables* pour la plupart des langages de programmation. Pour les applications .NET, ces valeurs sont injectées dans votre configuration .NET au moment de l'exécution.
+Azure App Service vous permet de stocker les informations de configuration dans le cadre de l'environnement d'exécution Web Apps en tant que **paramètres d'application** et **chaînes de connexion**. Ces valeurs sont exposées dans votre application au moment de l'exécution via des *environment variables* pour la plupart des langages de programmation. Pour les applications .NET, ces valeurs sont injectées dans votre configuration .NET au moment de l'exécution.
 
-Les **paramètres d'application** et les **chaînes de connexion** sont configurables via le portail de gestion Azure ou les utilitaires comme PowerShell ou l'interface de ligne de commande interplateforme Azure.
+Les **paramètres d'application** et les **chaînes de connexion** sont configurables via le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715) ou des utilitaires tels que PowerShell ou l'interface de ligne de commande interplateforme Azure.
 
-Pour plus d'informations sur les paramètres d'application et les chaînes de connexion, consultez la page [Configuration de sites Web](/fr-fr/documentation/articles/web-sites-configure/).
+Pour plus d'informations sur les paramètres d'application et les chaînes de connexion, voir [Configuration des applications web](web-sites-configure.md).
 
-###FTPS
+### FTPS
 
-Azure fournit un accès FTP sécurisé au système de fichiers pour votre site Web via **FTPS**. Ceci vous permet d'accéder en toute sécurité au code d'application sur le site Web ainsi qu'aux journaux de diagnostic. Le lien FTPS de votre site Web se trouve dans le **Tableau de bord** du site, dans le [Portail de gestion Azure](https://manage.windowsazure.com).
+Azure fournit un accès FTP sécurisé au système de fichiers de votre application web via **FTPS**. Ceci vous permet d'accéder en toute sécurité au code de l'application web ainsi qu'aux journaux de diagnostic. Le lien FTPS de votre application web se trouve dans la page **Tableau de bord** dans le [portail de gestion Azure](https://manage.windowsazure.com).
 
-Pour plus d'informations sur FTPS, consultez la page [Protocole FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol).
+Pour plus d'informations sur FTPS, voir [Protocole FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol).
 
-##Étapes suivantes
+>[AZURE.NOTE] Si vous souhaitez prendre en main Azure App Service avant de créer un compte Azure, accédez à [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pouvez immédiatement créer une application web de démarrage de courte durée dans App Service. Aucune carte de crédit n'est requise ; vous ne prenez aucun engagement.
 
-Pour plus d'informations sur la sécurité de la plateforme Azure, ou pour savoir comme signaler **un incident de sécurité ou un abus**, ou pour informer Microsoft que vous allez exécuter un **test de pénétration** de votre site, consultez la section Sécurité du [Centre de gestion de la confidentialité Microsoft Azure](/fr-fr/support/trust-center/security/).
+## Étapes suivantes
 
-Pour plus d'informations sur les fichiers **web.config** or **applicationhost.config** des sites Web Azure, consultez la page [Options de configuration déverrouillées sur les sites Web Azure](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/).
+Pour plus d'informations sur la sécurité de la plateforme Azure, pour savoir comme signaler un **incident de sécurité ou un abus**, ou pour informer Microsoft que vous allez exécuter un **test de pénétration** de votre site, voir la section Sécurité du [Centre de gestion de la confidentialité Microsoft Azure](http://azure.microsoft.com/support/trust-center/security/).
 
-Pour des détails sur les informations de journalisation pour les sites Web Azure, qui peuvent être utiles pour détecter les attaques, consultez la page [Activation de la journalisation des diagnostics](/fr-fr/documentation/articles/web-sites-enable-diagnostic-log/).
+Pour plus d'informations sur les fichiers **web.config** ou **applicationhost.config** des applications web, voir [Options de configuration déverrouillées dans les applications web dans Azure App Service](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/).
 
+Pour plus d'informations sur les informations de journalisation des applications web, ce qui peut être utile pour détecter les attaques, voir [Activer la journalisation des diagnostics](web-sites-enable-diagnostic-log.md).
 
-<!--HONumber=42-->
+## Nouveautés
+* Pour obtenir un guide sur la transformation de Sites web en App Service, voir : [Azure App Service et son impact sur les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+
+* Pour obtenir un guide sur les modifications apportées à l'ancien portail dans le nouveau portail, voir : [Référence pour naviguer dans la version préliminaire du portail](http://go.microsoft.com/fwlink/?LinkId=529715)
+
+<!--HONumber=49-->
