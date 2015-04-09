@@ -308,7 +308,7 @@ Votre certificat doit maintenant être inclus dans votre déploiement. Que le ce
 [Déploiement de l'émulateur de calcul]: #deploy_compute_emulator
 [Déploiement sur Azure]: #deploy_azure
 [Étapes suivantes]: #next_steps
-[Site web de projet]: http://wastarterkit4java.codeplex.com/releases/view/61026
+[site web du projet]: http://wastarterkit4java.codeplex.com/releases/view/61026
 [Affichage des données SAML renvoyées par Azure ACS]: /develop/java/how-to-guides/view-saml-returned-by-acs/
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
