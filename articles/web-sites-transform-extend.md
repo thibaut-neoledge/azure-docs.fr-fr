@@ -1,6 +1,6 @@
 ﻿<properties
-	pageTitle="Configuration avancée et extensions des applications web Azure App Service
-	description="Utilisez les déclarations XDT (XML Document Transformation) pour transformer le fichier ApplicationHost.config dans votre application web Azure App Service et ajouter des extensions privées afin d'autoriser les actions d'administration personnalisées.
+	pageTitle="Configuration avancée et extensions des applications web Azure App Service"
+	description="Utilisez les déclarations XDT (XML Document Transformation) pour transformer le fichier ApplicationHost.config dans votre application web Azure App Service et ajouter des extensions privées afin d'autoriser les actions d'administration personnalisées."
 	authors="cephalin"
 	writer="cephalin"
 	editor="mollybos"

@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="Ressources Azure WebJobs 
-	description="Ressources recommandées pour apprendre à utiliser Azure WebJobs et le Kit de développement logiciel (SDK) Azure WebJobs. 
+	pageTitle="Ressources Azure WebJobs"
+	description="Ressources recommandées pour apprendre à utiliser Azure WebJobs et le Kit de développement logiciel (SDK) Azure WebJobs."
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="tdykstra" 

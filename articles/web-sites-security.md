@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="Sécuriser une application web dans Azure App Service 
-	description="Découvrez comment sécuriser une application web Azure. 
+	pageTitle="Sécuriser une application web dans Azure App Service"
+	description="Découvrez comment sécuriser une application web Azure."
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 

@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Contrôle du trafic des applications web Azure avec Azure Traffic Manager 
+	pageTitle="Contrôle du trafic des applications web Azure avec Azure Traffic Manager"
 	description="Cet article présente des informations résumées sur Azure Traffic Manager, qui est associé aux applications web Azure. 
 	services="app-service\web" 
 	documentationCenter="" 
