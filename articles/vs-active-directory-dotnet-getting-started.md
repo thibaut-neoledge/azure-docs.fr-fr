@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Prise en main d'Azure Active Directory (Projets .NET)" 
 	description="Mise en route d'Azure Active Directory dans Visual Studio" 
 	services="active-directory" 
@@ -6,7 +6,7 @@
 	authors="kempb" 
 	manager="douge" 
 	editor="tglee"/>
-  
+ 
 <tags 
 	ms.service="active-directory" 
 	ms.workload="web" 
@@ -16,11 +16,11 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
-> [AZURE.SELECTOR]
-> - [Mise en route](/documentation/articles/vs-active-directory-dotnet-getting-started/)
-> - [Que s'est-il passé ?](/documentation/articles/vs-active-directory-dotnet-what-happened/)
+# Prise en main d'Azure Active Directory (Projets .NET)
 
-## Prise en main d'Azure Active Directory (Projets .NET)
+> [AZURE.SELECTOR]
+> - [Prise en main](vs-active-directory-dotnet-getting-started.md)
+> - [Que s'est-il passé ?](vs-active-directory-dotnet-what-happened.md)
  
 #####Demander une authentification pour l'accès aux contrôleurs 
 
@@ -77,4 +77,4 @@ Pour ajouter des contrôles SignIn/SignOut à l'une de vos vues, vous pouvez uti
 
 [En savoir plus sur Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

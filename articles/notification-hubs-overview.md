@@ -1,7 +1,7 @@
-<properties 
+﻿<properties 
 	pageTitle="Azure Notification Hubs" 
 	description="Découvrez comment utiliser les notifications Push dans Azure. Exemples de code écrits en C# à l'aide de l'API .NET." 
-	authors="ggailey777" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor="" 
 	services="notification-hubs" 
@@ -13,16 +13,17 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
-	ms.author="glenga"/>
+	ms.date="02/24/2015" 
+	ms.author="wesmc"/>
 
 
 #Azure Notification Hubs
 
+##Vue d'ensemble
 
 La prise en charge des notifications Push dans Azure vous permet d'accéder à une infrastructure Push conviviale, multi-plateforme et avec montée en charge qui simplifie fortement l'implémentation des notifications Push pour les applications consommateur et entreprise pour les plateformes mobiles.
 
-<h2>Présentation des notifications Push</h2>
+##Présentation des notifications Push
 
 Les smartphones et les tablettes peuvent " notifier " les utilisateurs lorsqu'un événement se produit. Dans les applications Windows Store, la notification peut résulter en un _toast_ : une fenêtre non modale s'affiche avec un signal sonore, pour signaler une nouvelle transmission de type push. Sur les appareils Apple iOS, de manière similaire, la notification Push affiche une boîte de dialogue, demandant à l'utilisateur d'afficher ou de fermer la notification. Le fait de cliquer sur **Afficher** ouvre l'application qui reçoit le message.
 
@@ -34,7 +35,7 @@ Des exemples spécifiques de scénarios d'engagement mobile sont présentés ci-
 2.  Alerte d'un utilisateur par un toast qu'un élément de travail lui a été attribué, dans une application d'entreprise basée sur un workflow.
 3.  Affichage d'un badge avec le nombre de prospects actuels dans une application CRM (telle que Microsoft Dynamics CRM).
 
-<h2>Fonctionnement des notifications Push</h2>
+##Fonctionnement des notifications Push
 
 Les notifications Push sont diffusées par l'intermédiaire d'infrastructures spécifiques à des plateformes appelées _Platform Notification Systems_ (PNS). Un PNS fournit des fonctions dépouillées (c'est-à-dire sans prise en charge de la diffusion, personnalisation) et sans interface commune. Par exemple, pour envoyer une notification vers une application Windows Store, un développeur doit contacter les Services de notifications Push Windows (WNS). Pour envoyer une notification vers un appareil iOS, le même développeur doit contacter le service de notifications Push Apple (APNS) et envoyer le message une seconde fois.
 
@@ -47,7 +48,7 @@ Néanmoins, à un niveau supérieur, tous les systèmes de notification de plate
 
 ![][0]
 
-<h2>Défis des notifications Push</h2>
+##Défis des notifications Push
 
 Bien que ces systèmes soient très puissants, il reste encore beaucoup de travail au développeur d'applications pour implémenter ne serait-ce que des scénarios de notification Push courants, tels que la diffusion ou l'envoi de notifications Push à un utilisateur.
 
@@ -60,7 +61,7 @@ Les notifications Push sont l'une des fonctionnalités les plus demandées dans 
 2.  La plupart des PNS ne prennent pas en charge la diffusion sur plusieurs appareils. Il s'en suit qu'une diffusion à des millions d'appareils résulte en millions d'appels aux PNS. La capacité de mise à l'échelle de ces requêtes n'est pas insignifiante car, généralement, les développeurs d'application souhaitent maintenir la latence basse (par exemple, le dernier appareil à recevoir le message ne doit pas recevoir la notification 30 minutes après son envoi, car, dans la plupart des cas, ce retard va à l'encontre du but recherché).
 - **Le routage.** Les PNS permettent d'envoyer un message à un périphérique. Toutefois, dans la plupart des applications, les notifications sont ciblées sur des utilisateurs et/ou groupes d'intérêt (par exemple, tous les employés affectés à un certain compte client). Par conséquent, afin d'acheminer les notifications vers les appareils appropriés, le serveur principal de l'application doit maintenir un registre qui associe les groupes d'intérêts et les jetons d'appareil. Cette surcharge augmente le délai de mise sur le marché et les coûts de maintenance de l'application.
 
-<h2>Pourquoi utiliser Notification Hubs ?</h2>
+##Pourquoi utiliser Notification Hubs ?
 
 Notification Hubs offre une infrastructure de notification Push prête à l'emploi qui prend en charge les éléments suivants :
 
@@ -72,7 +73,7 @@ Notification Hubs utilise une infrastructure de notifications Push complète, mu
 
 ![][1]
 
-## Étapes suivantes
+##Étapes suivantes
 
 Vous trouverez des informations supplémentaires sur Notification Hubs dans les rubriques suivantes :
 
@@ -94,7 +95,7 @@ Les références d'API managées .NET pertinentes pour les notifications Push se
   [Didacticiels et guides sur Notification Hubs]: http://azure.microsoft.com/documentation/services/notification-hubs
   [iOS]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started
   [Android]: http://azure.microsoft.com/documentation/articles/notification-hubs-android-get-started
-  [Windows Universel]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started
+  [Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started
   [Windows Phone]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-phone-get-started
   [Kindle]: http://azure.microsoft.com/documentation/articles/notification-hubs-kindle-get-started
   [Xamarin.iOS]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-ios-get-started
@@ -102,4 +103,5 @@ Les références d'API managées .NET pertinentes pour les notifications Push se
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
   
-<!--HONumber=45--> 
+
+<!--HONumber=49-->

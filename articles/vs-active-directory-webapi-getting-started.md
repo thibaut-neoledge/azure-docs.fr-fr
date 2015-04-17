@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="" 
-	description="Informations sur l’Assistant Mise en route d’Azure Active Directory (projets d’API web)." 
+	description="Informations sur l'Assistant de prise en main d'Azure Active Directory (Projets API web)" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="kempb" 
@@ -16,12 +16,11 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
+# Prise en main d'Azure Active Directory (Projets API web)
+
 > [AZURE.SELECTOR]
-> - [Mise en route](/documentation/articles/vs-active-directory-webapi-getting-started/)
-> - [Que s'est-il passé ?](/documentation/articles/vs-active-directory-webapi-what-happened/)
-
-
-##Prise en main d'Azure Active Directory (Projets API web)
+> - [Prise en main](vs-active-directory-webapi-getting-started.md)
+> - [Que s'est-il passé ?](vs-active-directory-webapi-what-happened.md)
 
 #####Demander une authentification pour l'accès aux contrôleurs
  
@@ -29,4 +28,4 @@ Tous les contrôleurs de votre projet ont été dotés de l'attribut **Authorize
 
 [En savoir plus sur Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

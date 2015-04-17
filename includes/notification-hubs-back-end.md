@@ -1,6 +1,6 @@
 
 Cette section montre comment envoyer des notifications à partir de .NET console application et toutes les autres.
-Si vous utilisez des Services mobiles, reportez-vous à la [prise en main Push](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/). Si vous souhaitez utiliser Java ou PHP, consultez la rubrique [Utilisation de Notification Hubs depuis Java/PHP](/fr-fr/documentation/articles/notification-hubs-java-backend-how-to/). Vous pouvez envoyer des notifications à partir d'un serveur principal à l'aide de l'[interface REST des Notification Hubs].
+Si vous utilisez Mobile Services, reportez-vous aux didacticiels [Prise en main des notifications Push](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) . Si vous souhaitez utiliser Java ou PHP, consultez la rubrique [Utilisation de Notification Hubs à partir de Java/PHP](notification-hubs-java-backend-how-to.md). Vous pouvez envoyer des notifications à partir d'un serveur principal à l'aide de l'[interface REST de Notification Hubs].
 
 Le code suivant envoie des notifications aux appareils Windows Store, Windows Phone, iOS et Android. 
 
@@ -14,7 +14,7 @@ Ignorez les étapes 1 à 3 si vous avez créé une application de console lorsqu
 
         Install-Package WindowsAzure.ServiceBus
  	
-	Une référence au Kit de développement logiciel (SDK) Azure Service Bus est ajoutée à l'aide du<a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">package NuGet WindowsAzure.ServiceBus</a>. 
+	Une référence au Kit de développement logiciel (SDK) Azure Service Bus est ajoutée à l'aide du <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">package NuGet WindowsAzure.ServiceBus</a>. 
 
 3. Ouvrez le fichier Program.cs et ajoutez l'instruction `using` suivante :
 
@@ -81,9 +81,9 @@ Ignorez les étapes 1 à 3 si vous avez créé une application de console lorsqu
 		 Console.ReadLine();
 
 <!-- Anchors -->
-[À partir d'une application console]: #console
-[À partir de Mobile Services]: #mobile-services
-[Exécution de l'application et génération de notifications]: #test-app
+[From a console app]: #console
+[From Mobile Services]: #mobile-services
+[Run the app and generate notifications]: #test-app
 
 <!-- Images. -->
 [13]: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
@@ -92,13 +92,14 @@ Ignorez les étapes 1 à 3 si vous avez créé une application de console lorsqu
 [16]: ./media/notification-hubs-back-end/notification-hub-scheduler2.png
 
 <!-- URLs. -->
-[prise-en-main]: /fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Utilisation de Notification Hubs pour envoyer des notifications aux utilisateurs]: ../notificationhubs/tutorial-notify-users-mobileservices.md
-[Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started/#create-new-service
-[Portail de gestion Azure]: https://manage.windowsazure.com/
-[objet wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
-[Vue d'ensemble de Notification Hubs pour Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
-[interface REST des Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
+[get-started]: ../articles/notification-hubs-windows-store-dotnet-get-started.md
+[Use Notification Hubs to send notifications to users]: ../articles/tutorial-notify-users-mobileservices.md
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Azure Management Portal]: https://manage.windowsazure.com/
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+[Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!--HONumber=45--> 
+
+<!--HONumber=49-->

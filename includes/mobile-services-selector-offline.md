@@ -1,7 +1,8 @@
 ﻿> [AZURE.SELECTOR-LIST (Plateforme | Principal)]
-- [(iOS | Tout)](/fr-fr/documentation/articles/mobile-services-ios-get-started-offline-data/)
-- [(Application Windows universelle C# | Tout)](/fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/)
-- [(Windows Phone | Tout)](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started-offline-data/)
-- [(IOS Xamarin | Tout)](/fr-fr/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data/)
-- [(Xamarin Android | Tout)](/fr-fr/documentation/articles/mobile-services-xamarin-android-get-started-offline-data/)
-\<!--HONumber=42-->
+- [(iOS | Tout)](../articles/mobile-services-ios-get-started-offline-data.md)
+- [(Application Windows universelle C# | Tout)](../articles/mobile-services-windows-store-dotnet-get-started-offline-data.md)
+- [(Windows Phone | Tout)](../articles/mobile-services-windows-phone-get-started-offline-data.md)
+- [(IOS Xamarin | Tout)](../articles/mobile-services-xamarin-ios-get-started-offline-data.md)
+- [(Xamarin Android | Tout)](../articles/mobile-services-xamarin-android-get-started-offline-data.md)
+
+<!--HONumber=49-->

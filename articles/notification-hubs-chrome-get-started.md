@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Prise en main d'Azure Notification Hubs" 
 	description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push aux utilisateurs." 
 	services="notification-hubs" 
@@ -10,14 +10,15 @@
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-chrome" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="01/10/2015" 
+	ms.date="03/15/2015" 
 	ms.author="piyushjo"/>
+	
 # Prise en main de Notification Hubs
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/fr-fr/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/fr-fr/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/fr-fr/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/fr-fr/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/fr-fr/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/fr-fr/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/fr-fr/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a><a href="/fr-fr/documentation/articles/notification-hubs-chrome-get-started/" title="Chrome" class="current">Chrome</a></div>
+[AZURE.INCLUDE [notification-hubs-selector-get-started](../includes/notification-hubs-selector-get-started.md)]
 
 Cette rubrique montre comment utiliser Azure Notification Hubs pour envoyer des notifications Push vers une application Chrome.
 
@@ -39,7 +40,7 @@ Ce didacticiel présente un scénario de diffusion simple utilisant Notification
 
 Suivez scrupuleusement les didacticiels au sein des Étapes suivantes afin d'apprendre à utiliser Notification Hubs pour accéder à des utilisateurs et des groupes d'appareils spécifiques. 
 
->[AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http://azure.microsoft.com/ documentation/articles/notification-hubs-chrome-get-started/" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+>[AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-fr%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F).
 
 ##<a id="register"></a>Activation de Google Cloud Messaging (GCM)
 
@@ -51,7 +52,7 @@ Suivez scrupuleusement les didacticiels au sein des Étapes suivantes afin d'app
 
    	![][2]
 
-3. Dans le volet gauche, cliquez sur **APIs & auth**, puis faites défiler la page et cliquez sur la touche bascule pour activer **Google Cloud Messaging pour Android**. Vous n'êtes pas obligé d'activer *Google Cloud Messaging for Chrome*. Il est possible que le nom passe simplement à *Google Cloud Messaging* à l'avenir. 
+3. Dans le volet gauche, cliquez sur **APIs & auth**, puis faites défiler la page et cliquez sur la touche bascule pour activer **Google Cloud Messaging pour Android**. Vous n'avez pas besoin d'activer *Google Cloud Messaging for Chrome*. Il est également possible que le nom passe simplement à *Google Cloud Messaging* à l'avenir. 
 
    	![][3]
 
@@ -65,13 +66,13 @@ Suivez scrupuleusement les didacticiels au sein des Étapes suivantes afin d'app
 
 ##<a id="configure-hub"></a>Configuration de Notification Hub
 
-1. Connectez-vous au **[portail de gestion Azure]**, puis cliquez sur **+ NOUVEAU** en bas à gauche de l'écran.
+1. Connectez-vous au **[Portail de gestion Azure]**, puis cliquez sur **+ NOUVEAU** dans la partie inférieure gauche de l'écran.
 
 2. Cliquez sur **Services d'application**, sur **Service Bus**, sur **Concentrateur de notification**, puis sur **Création rapide**. Tapez un nom pour votre Notification Hub, sélectionnez une région, puis cliquez sur **Create a new Notification Hub**.
 
    	![][6]
 
-4. Accédez au concentrateur de notification que vous venez de créer. Cliquez sur l'espace de noms qui héberge votre concentrateur de notification (généralement ***nom du concentrateur de notification*-ns**).   
+4. Accédez au concentrateur de notification que vous venez de créer. Cliquez sur l'espace de noms qui héberge votre concentrateur de notification (généralement ***nom_du_concentrateur_de_notification*-ns**).   
 
    	![][7]
 
@@ -97,7 +98,7 @@ Suivez scrupuleusement les didacticiels au sein des Étapes suivantes afin d'app
 
 Votre concentrateur de notification est maintenant configuré pour fonctionner avec GCM et vous disposez des chaînes de connexion requises pour poursuivre la configuration.
 
-##<a id="connect-app"></a>Connexion de votre application Chrome à Notification Hub
+##<a id="connect-app"></a>Connecter votre application Chrome au concentrateur de notification
 
 ###Création d'une application Chrome
 L'exemple ci-dessous repose sur un [exemple GCM d'application Chrome] et utilise la méthode recommandée pour créer une application Chrome. Dans les sections ci-dessous, nous présenterons les étapes liées à Azure Notification Hub. Il est recommandé de télécharger la source de cette application Chrome depuis [l'exemple de concentrateur de notification d'application Chrome].
@@ -110,7 +111,7 @@ L'application Chrome est créée à l'aide de JavaScript et vous pouvez utiliser
 
 2. Créez un dossier et nommez-le **ChromePushApp**. Vous pouvez toutefois le nommer comme vous le souhaitez. 
 
-3. Téléchargez *cryto-js library* depuis la [bibliothèque crypto-js] dans ce dossier. Ce dossier contiendra deux sous-dossiers : *components* et *rollups*. 
+3. Téléchargez *crypto-js library* depuis la [bibliothèque crypto-js] dans ce dossier. Ce dossier de bibliothèque contient deux sous-dossiers : *components* et *rollups*. 
 
 4. Créez un fichier manifest.json. Toutes les applications Chrome reposent sur un fichier manifeste qui décrit les métadonnées de l'application, notamment ses autorisations.
 
@@ -133,17 +134,17 @@ L'application Chrome est créée à l'aide de JavaScript et vous pouvez utiliser
  
 5. Créez un fichier appelé background.js en utilisant le code suivant :
 
-		// Retourne un nouvel ID de notification utilisé dans la notification.
+		// Returns a new notification ID used in the notification.
 		function getNotificationId() {
 		  var id = Math.floor(Math.random() * 9007199254740992) + 1;
 		  return id.toString();
 		}
 		
 		function messageReceived(message) {
-		  // Un message est un objet avec une propriété de données qui
-		  // se compose de paires clé-valeur.
+		  // A message is an object with a data property that
+		  // consists of key-value pairs.
 		
-		  // Concatène toutes les paires clé-valeur pour former une chaîne d'affichage.
+		  // Concatenate all key-value pairs to form a display string.
 		  var messageString = "";
 		  for (var key in message.data) {
 		    if (messageString != "")
@@ -152,7 +153,7 @@ L'application Chrome est créée à l'aide de JavaScript et vous pouvez utiliser
 		  }
 		  console.log("Message received: " + messageString);
 		
-		  // Affiche une notification pour afficher le message GCM.
+		  // Pop up a notification to show the GCM message.
 		  chrome.notifications.create(getNotificationId(), {
 		    title: 'GCM Message',
 		    iconUrl: 'gcm_128.png',
@@ -178,14 +179,14 @@ L'application Chrome est créée à l'aide de JavaScript et vous pouvez utiliser
 		  });
 		}
 		
-		// Configurer un écouteur pour les événements de message GCM.
+		// Set up a listener for GCM message event.
 		chrome.gcm.onMessage.addListener(messageReceived);
 		
-		// Définir des écouteurs pour déclencher la première inscription.
+		// Set up listeners to trigger the first time registration.
 		chrome.runtime.onInstalled.addListener(firstTimeRegistration);
 		chrome.runtime.onStartup.addListener(firstTimeRegistration);
 
-	Il s'agit du fichier qui affiche l'adresse html de la fenêtre d'application Chrome (* register.html*) et définit également le gestionnaire *messageReceived* pour gérer les notifications Push entrantes. 
+	Il s'agit du fichier qui affiche le code html de la fenêtre de l'application Chrome (*register.html*) et qui définit également le gestionnaire *messageReceived* pour gérer les notifications Push entrantes. 
 
 6. Créez un fichier appelé *register.html* qui définit l'interface utilisateur de l'application Chrome. Notez que cet exemple utilise *CryptoJS v3.1.2*. Si vous avez téléchargé une autre version, corrigez le chemin d'accès de script src. 
 
@@ -200,14 +201,14 @@ L'application Chrome est créée à l'aide de JavaScript et vous pouvez utiliser
 		
 		<body>
 		
-		ID de l'expéditeur :<br/><input id="senderId" type="TEXT" size="20"><br/>
+		Sender ID:<br/><input id="senderId" type="TEXT" size="20"><br/>
 		<button id="registerWithGCM">Register with GCM</button>
 		<br/>
 		<br/>
 		<br/>
 		
-		Nom du concentrateur de notification :<br/><input id="hubName" type="TEXT" style="width:400px"><br/><br/> 
-		Chaîne de connexion :<br/><textarea id="connectionString" type="TEXT" style="width:400px;height:60px"></textarea> 
+		Notification Hub Name:<br/><input id="hubName" type="TEXT" style="width:400px"><br/><br/> 
+		Connection String:<br/><textarea id="connectionString" type="TEXT" style="width:400px;height:60px"></textarea> 
 		
 		<br/>
 		
@@ -222,7 +223,7 @@ L'application Chrome est créée à l'aide de JavaScript et vous pouvez utiliser
 		
 		</html>
 
-7. Créez un fichier appelé *register.js* en utilisant le code suivant. Ce fichier spécifie le script derrière *register.html*. Les applications Chrome n'autorisent pas l'exécution inline. Il convient donc de créer un script de sauvegarde distinct pour votre interface utilisateur. 
+7. Créez un fichier appelé *register.js* avec le code ci-dessous. Ce fichier spécifie le script derrière *register.html*. Les applications Chrome n'autorisent pas l'exécution inline. Il convient donc de créer un script de sauvegarde distinct pour votre interface utilisateur. 
 
 		var registrationId = "";
 		var hubName        = "", connectionString = "";
@@ -231,7 +232,7 @@ L'application Chrome est créée à l'aide de JavaScript et vous pouvez utiliser
 		window.onload = function() { 
 		   document.getElementById("registerWithGCM").onclick = registerWithGCM;  
 		   document.getElementById("registerWithNH").onclick = registerWithNH; 
-		   updateLog("Vous n'êtes pas encore inscrit. Veuillez fournir l'ID de l'expéditeur et inscrivez-vous auprès de GCM puis auprès de Notification Hubs. ") ; 
+		   updateLog("You have not registered yet. Please provider sender ID and register with GCM and then with  Notification Hubs."); 
 		} 
 		
 		function updateLog(status) {
@@ -247,7 +248,7 @@ L'application Chrome est créée à l'aide de JavaScript et vous pouvez utiliser
 		  var senderId = document.getElementById("senderId").value.trim();
 		  chrome.gcm.register([senderId], registerCallback);
 		
-		  // Empêche l'utilisateur de cliquer à nouveau sur le bouton d'inscription avant la fin de l'inscription
+		  // Prevent register button from being clicked again before the registration finishes
 		  document.getElementById("registerWithGCM").disabled = true;
 		}
 		
@@ -256,16 +257,16 @@ L'application Chrome est créée à l'aide de JavaScript et vous pouvez utiliser
 		  document.getElementById("registerWithGCM").disabled = false;
 		
 		  if (chrome.runtime.lastError) {
-		    // Lorsque l'inscription échoue, il gère l'erreur et réessaie
-		    // l'inscription plus tard.
-		    updateLog("L'inscription a échoué : " + chrome.runtime.lastError.message);
+		    // When the registration fails, handle the error and retry the
+		    // registration later.
+		    updateLog("Registration failed: " + chrome.runtime.lastError.message);
 		    return;
 		  }
 		
-		  updateLog("Inscription GCM réussie.");
+		  updateLog("Registration with GCM succeeded.");
 		  document.getElementById("registerWithNH").disabled = false;
 		
-		  // Marque la réalisation de la première inscription.
+		  // Mark that the first-time registration is done.
 		  chrome.storage.local.set({registered: true});
 		}
 		
@@ -277,12 +278,12 @@ L'application Chrome est créée à l'aide de JavaScript et vous pouvez utiliser
 		  sendNHRegistrationRequest();
 		}
 		
-		// À partir de http://msdn.microsoft.com/library/dn495627.aspx 
+		// From http://msdn.microsoft.com/library/dn495627.aspx 
 		function splitConnectionString()
 		{
 		  var parts = connectionString.split(';');
 		  if (parts.length != 3)
-		  throw "Erreur d'analyse de la chaîne de connexion";
+		  throw "Error parsing connection string";
 		
 		  parts.forEach(function(part) {
 		    if (part.indexOf('Endpoint') == 0) {
@@ -302,7 +303,7 @@ L'application Chrome est créée à l'aide de JavaScript et vous pouvez utiliser
 		  targetUri = encodeURIComponent(originalUri.toLowerCase()).toLowerCase();
 		  var expiresInMins = 10; // 10 minute expiration
 		
-		  // Définit l'expiration en secondes
+		  // Set expiration in seconds
 		  var expireOnDate = new Date();
 		  expireOnDate.setMinutes(expireOnDate.getMinutes() + expiresInMins);
 		  var expires = Date.UTC(expireOnDate.getUTCFullYear(), expireOnDate
@@ -316,7 +317,7 @@ L'application Chrome est créée à l'aide de JavaScript et vous pouvez utiliser
 		  var base64signature = signature.toString(CryptoJS.enc.Base64);
 		  var base64UriEncoded = encodeURIComponent(base64signature);
 		
-		  // construit la chaîne d'autorisation
+		  // construct authorization string
 		  sasToken = "SharedAccessSignature sr=" + targetUri + "&sig="
 		                  + base64UriEncoded + "&se=" + expires + "&skn=" + sasKeyName;
 		}
@@ -333,7 +334,7 @@ L'application Chrome est créée à l'aide de JavaScript et vous pouvez utiliser
 		      "</content>" +
 		  "</entry>";
 		
-		  // Mise à jour de la charge utile avec l'ID d'enregistrement obtenu précédemment
+		  // Update the payload with the registration id obtained earlier
 		  registrationPayload = registrationPayload.replace("{GCMRegistrationId}", registrationId);
 		
 		  var url = originalUri + "/registrations/?api-version=2014-09";
@@ -342,10 +343,10 @@ L'application Chrome est créée à l'aide de JavaScript et vous pouvez utiliser
 		  client.onload = function () {
 		    if (client.readyState == 4) {
 		      if (client.status == 200) {
-		        updateLog("Inscription Notification Hub réussie !");
+		        updateLog("Notification Hub Registration succesful!");
 		        updateLog(client.responseText);
 		      } else {
-		        updateLog("L'inscription à Notification Hub a échoué !");
+		        updateLog("Notification Hub Registration did not succeed!");
 		        updateLog("HTTP Status: " + client.status + " : " + client.statusText);
 		        updateLog("HTTP Response: " + "\n" + client.responseText);
 		      }
@@ -353,7 +354,7 @@ L'application Chrome est créée à l'aide de JavaScript et vous pouvez utiliser
 		  };
 		
 		  client.onerror = function () {
-		        updateLog("ERREUR : l'inscription à Notification Hub a échoué !");
+		        updateLog("ERROR - Notification Hub Registration did not succeed!");
 		  }
 		
 		  client.open("POST", url, true);
@@ -370,14 +371,14 @@ L'application Chrome est créée à l'aide de JavaScript et vous pouvez utiliser
 		}
 
 	Le script ci-dessus comporte les points suivants :
-	- *window.onload* définit les événements de clic de bouton des deux boutons de l'interface utilisateur : l'un gère l'inscription à GCM et l'autre utilise l'ID d'inscription renvoyé après l'inscription auprès de GCM afin de s'inscrire à Azure Notification Hubs. 
-	- la fonction *updateLog* définit une fonction de journalisation simple. 
+	- *window.onload* définit les événements de clic de bouton des deux boutons de l'interface utilisateur : l'un gère l'inscription à GCM et l'autre utilise l'ID d'inscription renvoyé après l'inscription auprès de GCM pour permettre de s'inscrire à Azure Notification Hubs. 
+	- La fonction *updateLog* définit une fonction de journalisation simple. 
 	- *registerWithGCM* est le premier gestionnaire de clic de bouton effectuant l'appel *chrome.gcm.register* vers GCM afin d'inscrire cette instance de l'application Chrome. 
-	- *registerCallback* est la fonction de rappel appelée lorsque l'appel d'inscription GCM ci-dessus est retourné. 
-	- *registerWithNH* est le deuxième gestionnaire de clic de bouton qui gère l'inscription à Notification Hubs. Il obtient le *hubName* et *connectionString* définis par l'utilisateur et crée l'appel d'API REST d'inscription à Notification Hubs. 
-	- *splitConnectionString* et *generateSaSToken* sont l'implémentation Javascript de création d'un jeton SaS qui doit être envoyé dans tous les appels d'API REST. Plus d'informations à ce sujet ici : http://msdn.microsoft.com/library/dn495627.aspx 
-	- *sendNHRegistrationRequest* est la fonction qui effectue un appel HTTP REST. 
-	- *registrationPayload* définit la charge utile xml de l'enregistrement. Plus d'informations à ce sujet ici : [Création de l'API REST NH d'inscription]. Nous mettons à jour l'ID d'enregistrement avec ce que nous avons reçu de GCM. 
+	- *registerCallback* est la fonction de rappel appelée lorsque l'appel d'inscription GCM ci-dessus est renvoyé. 
+	- *registerWithNH* est le deuxième gestionnaire de clic de bouton qui gère l'inscription à Notification Hubs. Il obtient les valeurs *hubName* et *connectionString* définies par l'utilisateur et crée l'appel d'API REST d'inscription à Notification Hubs. 
+	- *splitConnectionString* et *generateSaSToken* constituent l'implémentation Javascript de création d'un jeton SaS qui doit être envoyé dans tous les appels d'API REST. Pour plus d'informations, voir http://msdn.microsoft.com/library/dn495627.aspx. 
+	- *sendNHRegistrationRequest* est la fonction qui effectue un appel REST HTTP. 
+	- *registrationPayload* définit la charge utile xml de l'inscription. Plus d'informations à ce sujet ici : [Création de l'API REST NH d'inscription]. Nous mettons à jour l'ID d'enregistrement avec ce que nous avons reçu de GCM. 
 	- *client* est une instance de *XMLHttpRequest* qui nous permet d'effectuer la requête HTTP POST. Notez que nous mettons à jour l'en-tête *Authorization* avec sasToken. La réussite de cet appel enregistre cette instance de l'application Chrome auprès d'Azure Notification Hubs. 
 	
 
@@ -398,20 +399,20 @@ L'application Chrome est créée à l'aide de JavaScript et vous pouvez utiliser
 
    	![][18]
 
-4. Entrez le **numéro de projet** que vous avez obtenu précédemment de la **console Google Cloud** en tant qu'ID de l'expéditeur et cliquez sur **inscription auprès de GCM**. Vous devez voir un message *Registration with GCM succeeded.*
+4. Entrez le **numéro de projet** que vous avez obtenu précédemment de la **console Google Cloud** en tant qu'ID de l'expéditeur et cliquez sur **inscription auprès de GCM**. Vous devriez obtenir un message vous indiquant que *l'inscription auprès de GCM a réussi*.
 
    	![][19]
 
-5. Entrez votre **nom de concentrateur de notification** et la valeur **DefaultListenSharedAccessSignature** que vous avez obtenus à partir du portail de gestion Azure et cliquez sur **inscription à Azure Notification Hub**. Vous devez voir un message *Notification Hub Registration succesful!* et les détails de la réponse d'inscription, y compris l'ID d'inscription à Azure Notification Hubs. 
+5. Entrez votre **nom de concentrateur de notification** et la valeur **DefaultListenSharedAccessSignature** que vous avez obtenus à partir du portail de gestion Azure et cliquez sur **inscription à Azure Notification Hub**. Vous devriez voir apparaître un message indiquant que *l'inscription à Notification Hubs a réussi*, ainsi que les détails de la réponse à l'inscription qui contient l'ID d'inscription à Azure Notification Hubs. 
 
    	![][20]  
 
 ##<a name="send"></a>Envoi d'une notification à votre application Chrome
 
-Dans ce didacticiel vous enverrez des notifications avec une application de console .NET, même si vous pouvez envoyer des notifications avec Notification Hubs à partir de n'importe quel service principal à l'aide de l'<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interface REST</a>. 
+Dans ce didacticiel, vous envoyez des notifications avec une application de console .NET, même si vous pouvez envoyer des notifications avec Notification Hubs depuis n'importe quel serveur principal à l'aide de l'<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interface REST</a>. 
 
-Pour voir un exemple expliquant comment envoyer des notifications à partir d'un serveur principal Azure Mobile Services intégré à Notification Hubs, voir **Prise en main des notifications Push dans Mobile Services** ([Service principal .NET](/fr-fr/documentation/articles/mobile-services-javascript-backend-android-get-started-push/) | [Service principal JavaScript)](/fr-fr/documentation/articles/mobile-services-javascript-backend-android-get-started-push/)).  
-Pour voir un exemple montrant comment envoyer des notifications à l'aide de l'API REST, consultez **Utilisation de Notification Hubs depuis Java/PHP/Python** ([Java](/ fr-fr/documentation/articles/notification-hubs-java-backend-how-to/) | [PHP](/ fr-fr/documentation/articles/notification-hubs-php-backend-how-to/) | [Python](/ fr-fr/documentation/articles/notification-hubs-python-backend-how-to/)).
+Pour découvrir un exemple de la procédure d'envoi de notifications à partir d'un serveur principal Azure Mobile Services intégré à Notification Hubs, voir **Prise en main des notifications Push dans Mobile Services** ([serveur principal .NET](mobile-services-javascript-backend-android-get-started-push.md) | [serveur principal JavaScript](mobile-services-javascript-backend-android-get-started-push.md)).  
+Pour découvrir un exemple de la procédure d'envoi de notifications à l'aide des API REST, voir **Utilisation de Notification Hubs à partir de Java/PHP/Python** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md)).
 
 1. Dans Visual Studio, dans le menu **Fichier**, sélectionnez **Nouveau** puis **Projet...** puis, sous **Visual C#**, cliquez sur **Windows** et sur **Application console**, puis cliquez sur **OK**.  Un projet d'application console est créé.
 
@@ -436,11 +437,11 @@ Pour voir un exemple montrant comment envoyer des notifications à l'aide de l'A
             await hub.SendGcmNativeNotificationAsync(message);
         }
 
-   	Remplacez l'espace réservé " hub name " par le nom du Notification Hub affiché sur le portail sous l'onglet **Notification Hubs**. Remplacez aussi l'espace réservé de chaîne de connexion par la chaîne de connexion nommée **DefaultFullSharedAccessSignature** que vous avez obtenue dans la section " Configuration de votre concentrateur de notification ". 
+   	Prenez soin de remplacer l'espace réservé " hub name " par le nom du concentrateur affiché dans le portail sous l'onglet **Concentrateurs de notification**. Remplacez aussi l'espace réservé de chaîne de connexion par la chaîne de connexion nommée **DefaultFullSharedAccessSignature** que vous avez obtenue dans la section " Configuration de votre concentrateur de notification ". 
 
 	>[AZURE.NOTE] Assurez-vous d'utiliser la chaîne de connexion avec un accès **Total**, et non un accès **Écouter**. La chaîne d'accès Écouter n'est pas autorisée à envoyer des notifications.
 
-5. Ajoutez les lignes suivantes à la méthode **Main** :
+5. Puis ajoutez les lignes ci-après à la méthode **Main** :
 
          SendNotificationAsync();
 		 Console.ReadLine();
@@ -486,16 +487,16 @@ Afin de cibler des utilisateurs spécifiques, consultez le didacticiel [Notifica
 [Exemple de concentrateur de notification d'application Chrome]: http://google.com
 [Console Cloud Google]: http://cloud.google.com/console
 [Portail de gestion Azure]: https://manage.windowsazure.com/
-[Vue d'ensemble de Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
+[Vue d'ensemble des concentrateurs de notification]: http://msdn.microsoft.com/library/jj927170.aspx
 [Vue d'ensemble des applications Chrome]: https://developer.chrome.com/apps/about_apps
 [Exemple d'application Chrome GCM]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Applications Web installables]: https://developers.google.com/chrome/apps/docs/
 [Applications Chrome sur mobile]: https://developer.chrome.com/apps/chrome_apps_on_mobile
 [Création de l'API REST NH d'inscription]: http://msdn.microsoft.com/library/azure/dn223265.aspx
-[crypto-js library]: http://code.google.com/p/crypto-js/
+[Bibliothèque crypto-js]: http://code.google.com/p/crypto-js/
 [GCM avec les applications Chrome]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging pour Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
-[Notification des utilisateurs via Azure Notification Hubs]: http://azure.microsoft.com/ documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/
-[Dernières nouvelles via Azure Notification Hubs]: http://azure.microsoft.com/ documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+[Notification des utilisateurs via Azure Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
+[Dernières nouvelles via Azure Notification Hubs]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

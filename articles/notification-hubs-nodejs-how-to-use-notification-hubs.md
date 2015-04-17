@@ -1,57 +1,48 @@
-﻿<properties 
-	pageTitle="Notification Hubs - Centre de développement Node.js" 
-	description="Découvrez comment utiliser Notification Hubs pour envoyer des notifications Push. Les exemples de code sont écrits pour les applications Node.js." 
+<properties 
+	pageTitle="Utilisation de Notification Hubs avec Node.js" 
+	description="Découvrez comment utiliser Notification Hubs pour envoyer des notifications Push à partir d'une application Node.js." 
 	services="notification-hubs" 
 	documentationCenter="nodejs" 
-	authors="ggailey777" 
-	manager="dwrede" 
+	authors="MikeWasson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="glenga"/>
+	ms.date="02/26/2015" 
+	ms.author="mwasson"/>
 
+# Utilisation de Notification Hubs à partir de Node.js
+<div class="dev-center-tutorial-selector sublanding"> 
+    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js" class="current">Node.js</a>
+</div>
 
-
-
-
-
-# Comment utiliser Notification Hubs
+##Vue d'ensemble
 
 Ce guide vous montre comment utiliser Notification Hubs depuis les applications Node.js. Les scénarios abordés comprennent l'**envoi de notifications aux applications Android, iOS, Windows Phone et Windows Store**. Pour plus d'informations sur les concentrateurs de notification, consultez la section [Étapes suivantes](#next) .
 
-## Sommaire
-
--   [Présentation de Notification Hubs](#hub)
--   [Création d'une application Node.js](#create)
--   [Configuration de l'application pour l'utilisation de Notification Hubs](#config)
--   [Procédure : Envoi de notifications](#send)
--   [Étapes suivantes](#next)
-
-##<a id="hub"></a> Présentation de Notification Hubs
+##Présentation de Notification Hubs
 
 Azure Notification Hubs offre une infrastructure multiplateforme conviviale et extensible pour l'envoi de notifications Push aux appareils mobiles. Pour plus d'informations, consultez la rubrique [Azure Notification Hubs](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx).
 
-##<a id="create"></a>Création d'une application Node.js
+##Création d'une application Node.js
 
 Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure][nodejswebsite], [Service cloud Node.js][Service cloud Node.js] (avec Windows PowerShell) ou [Site Web avec WebMatrix].
 
-##<a id="config"></a> Configuration de l'application pour utiliser Notification Hubs
+##Configuration de l'application pour utiliser Notification Hubs
 
-Pour pouvoir utiliser Azure Notification Hub, vous devez télécharger et utiliser le
-package Azure Node.js. Ce dernier inclut des bibliothèques permettant de communiquer avec les services REST.
+Pour utiliser Azure Notification Hubs, vous devez télécharger et utiliser le package Azure Node.js. Ce dernier inclut un ensemble de bibliothèques qui
+communiquent avec les services REST.
 
 ### Utilisation de Node Package Manager (NPM) pour obtenir le package
 
 1.  Utilisez une interface de ligne de commande telle que **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix) pour accéder au dossier dans lequel vous avez créé votre exemple d'application.
 
-2.  Tapez **npm install azure** dans la fenêtre de commande, ce qui doit
-    aboutir à la sortie suivante :
+2.  Tapez **npm install azure** dans la fenêtre de commande pour générer la sortie suivante :
 
         azure@0.7.0 node_modules\azure
 		|-- dateformat@1.0.2-1.2.3
@@ -91,7 +82,7 @@ Pour obtenir la valeur de connexion **connectionstring** à partir du portail de
 
 </div>
 
-##<a id="send"></a> Envoi de notifications
+##Envoi de notifications
 
 L'objet **NotificationHubService** expose les instances d'objet suivantes pour l'envoi de notifications à des appareils et applications spécifiques :
 
@@ -150,8 +141,8 @@ L'objet **MpnsService** fournit une méthode d'**envoi** que vous pouvez utilise
 
 * Tags : identifiant de balise. Si aucune balise n'est fournie, la notification est envoyée à tous les clients.
 * Payload : charge utile XML du message.
-* TargetName : 'toast' pour les notifications toast. 'token' pour les notifications de vignette.
-* NotificationClass : priorité de la notification. Consultez la section Éléments d'en-tête HTTP de l'article [Notifications Push d'un serveur](http://msdn.microsoft.com/library/hh221551.aspx) pour les valeurs valide.
+* TargetName : " toast " pour les notifications toast. " token " pour les notifications par vignette.
+* NotificationClass : priorité de la notification. Consultez la section Éléments d'en-tête HTTP de l'article [Notifications Push d'un serveur](http://msdn.microsoft.com/library/hh221551.aspx) pour les valeurs valides.
 * Options : en-têtes de requête facultatifs.
 * Callback : fonction de rappel.
 
@@ -187,26 +178,26 @@ Le code suivant utilise l'instance **WnsService** exposée par **NotificationHub
 	  }
 	});
 
-##<a id="next"></a> Étapes suivantes
+## Étapes suivantes
 
 Maintenant que vous avez appris les principes de base de l'utilisation de Notification Hubs, consultez ces liens pour en savoir plus :
 
--   Consultez la référence MSDN suivante : [Azure Notification Hubs][].
+-   Consultez la référence MSDN suivante : [Azure Notification Hubs](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx).
 -   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Node] sur GitHub.
 
   [Kit de développement logiciel (SDK) Azure pour Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Étapes suivantes]: #nextsteps
   [Présentation des rubriques et des abonnements Service Bus]: #what-are-service-bus-topics
   [Création d'un espace de noms de service]: #create-a-service-namespace
-  [Obtention des informations d'identification de gestion par défaut pour l'espace de noms]: #obtain-default-credentials
+  [Obtention d'informations d'identification de gestion par défaut pour l'espace de noms]: #obtain-default-credentials
   [Création d'une application Node.js]: #Create_a_Nodejs_Application
   [Configuration de votre application pour l'utilisation de Service Bus]: #Configure_Your_Application_to_Use_Service_Bus
-  [Procédure : Création d'une rubrique]: #How_to_Create_a_Topic
-  [Procédure : Création d'abonnements]: #How_to_Create_Subscriptions
-  [Procédure : Envoi de messages à une rubrique]: #How_to_Send_Messages_to_a_Topic
-  [Procédure : Réception des messages d'un abonnement]: #How_to_Receive_Messages_from_a_Subscription
-  [Procédure : Gestion des blocages d'application et des messages illisibles]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
-  [Procédure : Suppression de rubriques et d'abonnements]: #How_to_Delete_Topics_and_Subscriptions
+  [Création d'une rubrique]: #How_to_Create_a_Topic
+  [Création d'abonnements]: #How_to_Create_Subscriptions
+  [Envoi de messages à une rubrique]: #How_to_Send_Messages_to_a_Topic
+  [Réception des messages d'un abonnement]: #How_to_Receive_Messages_from_a_Subscription
+  [Gestion des blocages d'application et des messages illisibles]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
+  [Suppression de rubriques et d'abonnements]: #How_to_Delete_Topics_and_Subscriptions
   [1]: #Next_Steps
   [Concepts de rubrique]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
   [Portail de gestion Azure]: http://manage.windowsazure.com
@@ -218,11 +209,12 @@ Maintenant que vous avez appris les principes de base de l'utilisation de Notifi
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
   [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
-  [Site web avec WebMatrix]: /fr-fr/develop/nodejs/tutorials/web-site-with-webmatrix/
-  [Service cloud Node.js]: /fr-fr/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Site web avec WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
+  [Service cloud Node.js]: cloud-services-nodejs-develop-deploy-app.md
 [Ancien portail de gestion]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
-  [nodejswebsite]: /fr-fr/develop/nodejs/tutorials/create-a-website-(mac)/
-  [Service cloud Node.js avec stockage]: /fr-fr/develop/nodejs/tutorials/web-app-with-storage/
-  [Application web Node.js avec stockage]: /fr-fr/develop/nodejs/tutorials/web-site-with-storage/
+  [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
+  [Service cloud Node.js avec stockage]: /develop/nodejs/tutorials/web-app-with-storage/
+  [Application web Node.js avec stockage]: /develop/nodejs/tutorials/web-site-with-storage/
 
-<!--HONumber=45--> 
+
+<!--HONumber=49-->

@@ -19,30 +19,30 @@
 #Notification des utilisateurs via Azure Notification Hubs
 
 <div class="dev-center-tutorial-selector sublanding">
-    	<a href="/fr-fr/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Windows Universel</a><a href="/fr-fr/documentation/articles/notification-hubs-/" title="iOS" class="current">iOS</a>
-		<a href="/fr-fr/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
+    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Windows Universel</a><a href="/documentation/articles/notification-hubs-/" title="iOS" class="current">iOS</a>
+		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
 
 La prise en charge des notifications Push dans Azure vous permet d'accéder à une infrastructure Push conviviale, multi-plateforme et avec montée en charge qui simplifie fortement l'implémentation des notifications Push pour les applications consommateur et entreprise pour les plateformes mobiles. Ce didacticiel explique comment utiliser Azure Notification Hubs pour envoyer des notifications Push à un utilisateur particulier d'une application sur un appareil spécifique. Un code WebAPI principal ASP.NET est utilisé pour authentifier les clients et pour générer les notifications, comme présenté dans la rubrique de conseils [Inscription auprès du serveur principal de votre application](http://msdn.microsoft.com/library/dn743807.aspx).
 
-> [AZURE.NOTE] Ce didacticiel part du principe que vous avez créé et configuré votre concentrateur de notification comme décrit dans [Prise en main de Notification Hubs (iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/). Ce didacticiel est également un prérequis pour le didacticiel [sur les notifications Push sécurisées (iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/).
-> Si vous utilisez Mobile Services comme service principal, consultez la [version consacrée à Mobile Services](/fr-fr/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/) de ce didacticiel.
+> [AZURE.NOTE] Ce didacticiel repose sur l'hypothèse que vous avez créé et configuré votre concentrateur de notification comme décrit dans [Prise en main de Notification Hubs (iOS)](notification-hubs-ios-get-started.md). Ce didacticiel constitue également une condition préalable au suivi du didacticiel [Notifications Push sécurisées (iOS)](notification-hubs-aspnet-backend-ios-secure-push.md) .
+> Si vous utilisez Mobile Services comme service principal, consultez la [version Mobile Services](mobile-services-javascript-backend-ios-push-notifications-app-users.md) de ce didacticiel.
 
 
 ## Création et configuration du concentrateur de notification
 
-Veuillez suivre les sections 1 à 5 de la rubrique [Prise en main de Notification Hubs (iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/). Pour obtenir des ressources supplémentaires sur l'approvisionnement d'appareils iOS, consultez le guide sur le site [Big Nerd Ranch](http://www.bignerdranch.com/we-teach/how-to-prepare/ios-device-provisioning.html).
+Suivez les sections 1 à 5 de l'article [Prise en main de Notification Hubs (iOS)](notification-hubs-ios-get-started.md). Pour obtenir des ressources supplémentaires sur l'approvisionnement d'appareils iOS, consultez le guide sur le site [Big Nerd Ranch](http://www.bignerdranch.com/we-teach/how-to-prepare/ios-device-provisioning.html).
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Modification de votre application iOS
 
-1. Ouvrez l'application d'affichage Page simple que vous avez créée dans les sections 1 à 5 de la rubrique [Prise en main de Notification Hubs (iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/).
+1. Ouvrez l'application d'affichage Page simple que vous avez créée aux sections 1 à 5 de l'article [Prise en main de Notification Hubs (iOS)](notification-hubs-ios-get-started.md).
 
 > [AZURE.NOTE] Dans cette section, nous partons du principe que vous avez configuré votre projet avec un nom d'organisation vide. Si ce n'est pas le cas, vous devez ajouter le nom de votre organisation à tous les noms de classe.
 
 2. Dans Main.storyboard, ajoutez les composants suivants de la bibliothèque d'objets :
-	+ Un champ UITextField avec comme texte de l'espace réservé **Username**
+	+ un champ UITextField présentant le texte d'espace réservé **Username** ;
 	+ un champ UITextField avec comme texte d'espace réservé **Mot de passe** et l'option **Sécurisé** activée dans l'Inspecteur d'attributs, sous Clé de retour de champ de texte ;
 	+ un bouton UIButton intitulé **1. Log in** et l'option **Enabled** désactivée dans Attributes Inspector, sous Control et Content ;
 	+ un bouton UIButton intitulé **2. Send Push** et l'option **Enabled** désactivée.
@@ -77,7 +77,7 @@ Veuillez suivre les sections 1 à 5 de la rubrique [Prise en main de Notificatio
 
 		@end
 
-6. Ajoutez le code qui suit dans la section d'implémentation RegisterClient.m et remplacez l'espace réservé *{backend endpoint}* par l'URL de destination que vous avez utilisée pour déployer votre serveur principal d'application dans la section précédente.
+6. Ajoutez le code ci-après à la section d'implémentation RegisterClient.m en remplaçant l'espace réservé *{backend endpoint}* par l'URL de destination que vous avez utilisée pour déployer le serveur principal de votre application à la section précédente.
 
 		NSString *const RegistrationIdLocalStorageKey = @"RegistrationId";
 		NSString *const BackEndEndpoint = @"{backend endpoint}/api/register";
@@ -206,7 +206,7 @@ Veuillez suivre les sections 1 à 5 de la rubrique [Prise en main de Notificatio
 		    [dataTask resume];
 		}
 
-	Le code ci-dessus implémente la logique expliquée dans l'article [Inscription auprès du serveur principal de votre application](http://msdn.microsoft.com/library/dn743807.aspx), et utilise NSURLSession pour passer des appels REST à votre serveur principal d'application et NSUserDefaults pour stocker en local la valeur registrationId renvoyée par le concentrateur de notification.
+	Le code ci-dessus implémente la logique expliquée dans l'article d'aide [Inscription auprès du serveur principal de votre application](http://msdn.microsoft.com/library/dn743807.aspx), et utilise NSURLSession pour adresser des appels REST au serveur principal de votre application, ainsi que NSUserDefaults pour stocker localement la valeur registrationId renvoyée par le concentrateur de notification.
 
 	Notez que cette classe a besoin que sa propriété **authorizationHeader** soit définie afin de fonctionner correctement. Cette propriété est définie par la classe **ViewController** après la connexion.
 
@@ -249,7 +249,7 @@ Veuillez suivre les sections 1 à 5 de la rubrique [Prise en main de Notificatio
 		    return YES;
 		}
 
-	Remarquez la façon dont le jeton de l'appareil active le bouton de connexion. Ceci est dû au fait que dans le cadre de l'action de connexion, le contrôleur d'affichage s'inscrit aux notifications Push avec le serveur principal d'application. De ce fait, l'action de connexion ne doit pas être accessible tant que le jeton de l'appareil n'a pas été correctement configuré. Vous pouvez découpler la connexion de l'inscription aux notifications Push dans la mesure où la connexion se produit avant l'inscription.
+	Remarquez la façon dont le jeton de l'appareil active le bouton de connexion. Ceci est dû au fait que dans le cadre de l'action de connexion, le contrôleur d'affichage s'inscrit aux notifications Push auprès du serveur principal d'application. De ce fait, l'action de connexion ne doit pas être accessible tant que le jeton de l'appareil n'a pas été correctement configuré. Vous pouvez découpler la connexion de l'inscription aux notifications Push dans la mesure où la connexion se produit avant l'inscription.
 
 10. Dans ViewController.m, ajoutez une constante pour le point de terminaison de votre serveur principal et utilisez les extraits de code suivants pour implémenter les méthodes d'action de vos boutons UIButton. Remplacez l'espace réservé du point de terminaison du serveur principal par l'URL de destination que vous avez utilisée pour votre serveur principal.
 
@@ -327,11 +327,11 @@ Veuillez suivre les sections 1 à 5 de la rubrique [Prise en main de Notificatio
 
 2. Dans l'interface utilisateur de l'application iOS, entrez un nom d'utilisateur et un mot de passe. La valeur peut être une chaîne quelconque, mais elle doit être identique pour les deux. Cliquez ensuite sur **Log In**.
 
-3. Un menu contextuel devrait apparaître pour vous informer de la réussite de l'inscription. Cliquez sur **OK**.
+3. Une fenêtre contextuelle doit s'afficher pour vous informer que l'inscription a abouti. Cliquez sur **OK**.
 
 4. Cliquez sur **Send push** et appuyez sur le bouton d'accueil. Une notification Push s'affiche peu de temps après.
 
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png
 
-<!--HONumber=45--> 
+<!--HONumber=49-->
