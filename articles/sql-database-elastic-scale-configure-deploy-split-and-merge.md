@@ -60,7 +60,7 @@ Pour déterminer la clé d'accès, accédez au [portail de gestion Azure](https:
 6.    Entrez le nom du compte de stockage et l'une des clés d'accès fournies dans les espaces réservés de la chaîne de connexion de stockage. Cette chaîne de connexion est utilisée dans les sections de rôle **SplitMergeWeb** et **SplitMergeWorker** du paramètre **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString**. Vous pouvez utiliser différents comptes de stockage pour différents rôles. 
 
 ### Configuration de la sécurité 
-Pour obtenir des instructions détaillées permettant de configurer la sécurité du service, consultez la rubrique [Configurations de sécurité de l'infrastructure élastique](./sql-database-elastic-scale-configure-security.md).
+Pour obtenir des instructions détaillées permettant de configurer la sécurité du service, consultez la rubrique [Configurations de sécurité de l'infrastructure élastique](sql-database-elastic-scale-configure-security.md).
 
 Dans le cadre  d'un simple déploiement de test permettant de mener à bien ce didacticiel, le bon fonctionnement du service nécessite d'effectuer un nombre minimum d'étapes de configuration. Ces dernières permettent uniquement à l'ordinateur/au compte qui les exécute de communiquer avec le service.
 
@@ -120,7 +120,7 @@ Pour le rôle de travail :
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
 
-Veuillez noter que pour les déploiements de production, des certificats distincts doivent être utilisés pour l'autorité de certification, le chiffrement, le certificat de serveur et les certificats clients. Pour plus d'informations, consultez la rubrique [Configuration de la sécurité](./sql-database-elastic-scale-configure-security.md).
+Veuillez noter que pour les déploiements de production, des certificats distincts doivent être utilisés pour l'autorité de certification, le chiffrement, le certificat de serveur et les certificats clients. Pour plus d'informations, consultez la rubrique [Configuration de la sécurité](sql-database-elastic-scale-configure-security.md).
 
 ### Déploiement de votre service de fractionnement/fusion
 1. Accédez au [portail de gestion Azure](https://manage.windowsazure.com).

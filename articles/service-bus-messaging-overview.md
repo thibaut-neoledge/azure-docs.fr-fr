@@ -31,10 +31,10 @@ La messagerie Service Bus comporte deux fonctionnalités distinctes : les files 
 
 Pour plus d'informations sur la messagerie Service Bus, consultez les rubriques suivantes.
 
-- [Présentation de l'architecture d'Azure Service Bus](../fundamentals-service-bus-hybrid-solutions/)
+- [Présentation de l'architecture d'Azure Service Bus](fundamentals-service-bus-hybrid-solutions.md)
 
-- [Comment utiliser les files d'attente Service Bus](../service-bus-dotnet-how-to-use-queues)
+- [Comment utiliser les files d'attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
 
-- [Comment utiliser les rubriques Service Bus](../service-bus-dotnet-how-to-use-topics-subscriptions)
+- [Comment utiliser les rubriques Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 <!--HONumber=47-->

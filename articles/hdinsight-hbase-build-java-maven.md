@@ -349,9 +349,9 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 ##Téléchargement du JAR et démarrage d'une tâche
 
-> [AZURE.NOTE] Il existe de nombreuses façons de télécharger un fichier vers votre cluster HDInsight, comme décrit dans la rubrique [Téléchargement de données pour les tâches Hadoop dans HDInsight](/fr-fr/documentation/articles/hdinsight-upload-data/). Les étapes ci-dessous utilisent [Azure PowerShell](/fr-fr/documentation/articles/install-configure-powershell/).
+> [AZURE.NOTE] Il existe de nombreuses façons de télécharger un fichier vers votre cluster HDInsight, comme décrit dans la rubrique [Téléchargement de données pour les tâches Hadoop dans HDInsight](hdinsight-upload-data.md). Les étapes ci-dessous utilisent [Azure PowerShell](install-configure-powershell.md).
 
-1. Après avoir installé et configuré [Azure PowerShell](/fr-fr/documentation/articles/install-configure-powershell/), créez un fichier nommé __hbase-runner.psm1__. Utilisez les données suivantes comme contenu de ce fichier.
+1. Après avoir installé et configuré [Azure PowerShell](install-configure-powershell.md), créez un fichier nommé __hbase-runner.psm1__. Utilisez les données suivantes comme contenu de ce fichier.
 
 		<#
 		.SYNOPSIS

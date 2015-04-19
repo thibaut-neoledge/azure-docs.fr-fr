@@ -40,7 +40,7 @@ Ce didacticiel permet de créer la [démonstration Azure Search - Adventure Work
 <h2 id="sub-1">Configuration requise</h2>
 
 +	Visual Studio 2012 ou une version ultérieure avec ASP.NET MVC 4 et SQL Server doivent être installés. Vous pouvez télécharger les éditions Express gratuites si ces logiciels ne sont pas déjà installés : [Visual Studio 2013 Express](http://www.visualstudio.com/fr-fr/products/visual-studio-express-vs.aspx) et [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
-+	Un service Azure Search. Vous aurez besoin du nom du service Azure Search et de la clé d'administration. Pour plus d'informations, consultez la section [Prise en main d'Azure Search](../search-get-started/).
++	Un service Azure Search. Vous aurez besoin du nom du service Azure Search et de la clé d'administration. Pour plus d'informations, consultez la section [Prise en main d'Azure Search](search-get-started.md).
 +	Un service Bing Maps et une clé pour y accéder. Les instructions sont fournies dans la section suivante
 +	[Exemple de recherche géospatiale Azure Search sur CodePlex](https://azuresearchgeospatial.codeplex.com/). Dans l'onglet Source, cliquez sur **Télécharger** pour obtenir un fichier .zip de la solution. 
 

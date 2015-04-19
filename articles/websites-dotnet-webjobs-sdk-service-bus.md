@@ -18,9 +18,9 @@
 
 # Comment utiliser Service Bus Azure avec SDK WebJobs
 
-Ce guide fournit des exemples de code C# qui montrent comment déclencher un processus, lorsqu'un objet blob Azure est créé ou mis à jour. Les exemples de code utilisent la version 1.x de [SDK WebJobs](../websites-dotnet-webjobs-sdk/).
+Ce guide fournit des exemples de code C# qui montrent comment déclencher un processus, lorsqu'un objet blob Azure est créé ou mis à jour. Les exemples de code utilisent la version 1.x de [SDK WebJobs](websites-dotnet-webjobs-sdk.md).
 
-Le guide suppose que vous savez [créer un projet WebJob dans Visual Studio avec des chaînes de connexion qui pointent vers votre compte de stockage](../websites-dotnet-webjobs-sdk-get-started/).
+Le guide suppose que vous savez [créer un projet WebJob dans Visual Studio avec des chaînes de connexion qui pointent vers votre compte de stockage](websites-dotnet-webjobs-sdk-get-started.md).
 
 Les extraits de code montrent uniquement les fonctions, et non le code qui crée l'objet  `JobHost` comme dans cet exemple :
 
@@ -138,7 +138,7 @@ Pour créer un message dans une rubrique, utilisez l'attribut  `ServiceBus` avec
 
 ## <a id="queues"></a>Rubriques couvertes par l'article de procédure de files d'attente de stockage
 
-Pour plus d'informations sur les scénarios de WebJobs SDK non spécifiques au Service Bus, consultez [Utilisation du stockage de file d'attente Azure avec SDK WebJobs](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
+Pour plus d'informations sur les scénarios de WebJobs SDK non spécifiques au Service Bus, consultez [Utilisation du stockage de file d'attente Azure avec SDK WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 Les sujets abordés dans cet article sont les suivants :
 

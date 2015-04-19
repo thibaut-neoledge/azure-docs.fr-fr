@@ -27,7 +27,7 @@ Dans ce didacticiel, vous allez créer un service mobile et une simple applicati
 
 >[AZURE.NOTE]Cette rubrique montre comment créer un projet de service mobile et une application Windows universelle à l'aide du portail de gestion Azure. Visual Studio 2013 Update 3 vous permet également d'ajouter un nouveau projet de service mobile dans une solution Visual Studio existante. Pour plus d'informations, consultez la page [Démarrage rapide : Ajout d'un service mobile (service principal .NET)](http://msdn.microsoft.com/library/windows/apps/dn629482.aspx).
 
->Pour ajouter un service mobile à un projet d'application Windows Phone 8.0 ou Windows Phone Silverlight 8.1, consultez la page [Prise en main de données pour Windows Phone](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data).
+>Pour ajouter un service mobile à un projet d'application Windows Phone 8.0 ou Windows Phone Silverlight 8.1, consultez la page [Prise en main de données pour Windows Phone](mobile-services-dotnet-backend-windows-phone-get-started-data.md).
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
 

@@ -26,7 +26,7 @@ pour sécuriser des données envoyées via Internet. Cette tâche explique comme
 spécifier un point de terminaison HTTPS pour une application Node.js hébergée en tant qu'Azure Cloud Service dans un rôle Web et comment télécharger un
 certificat SSL pour sécuriser votre application.
 
-> [AZURE.NOTE] Les étapes de cet article s'appliquent uniquement aux applications Node hébergées en tant qu'Azure Cloud Service dans un rôle Web. Pour les sites Web, consultez la page [Configuration d'un certificat SSL pour un site Web Azure](../web-sites-configure-ssl-certificate/).
+> [AZURE.NOTE] Les étapes de cet article s'appliquent uniquement aux applications Node hébergées en tant qu'Azure Cloud Service dans un rôle Web. Pour les sites Web, consultez la page [Configuration d'un certificat SSL pour un site Web Azure](web-sites-configure-ssl-certificate.md).
 
 Cette procédure comprend les étapes suivantes :
 

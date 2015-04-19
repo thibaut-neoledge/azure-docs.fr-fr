@@ -38,7 +38,7 @@ Une machine virtuelle *personnalisée* fait référence à une machine virtuelle
 
 	**Remarque** : Pour plus d'informations sur le placement des machines virtuelles dans le même service cloud, consultez la rubrique [Connexion de machines virtuelles dans un service cloud](http://www.windowsazure.com/fr-fr/manage/windows/how-to-guides/connect-to-a-cloud-service/).
 
-12. Dans **Région/groupe d'affinités/réseau virtuel**, sélectionnez la région, le groupe d'affinités ou le réseau virtuel à utiliser pour la machine virtuelle. Pour plus d'informations sur les groupes d'affinités, consultez la page [À propos des groupes d'affinités de réseau virtuel](http://msdn.microsoft.com/fr-fr/library/azure/jj156085.aspx).
+12. Dans **Région/groupe d'affinités/réseau virtuel**, sélectionnez la région, le groupe d'affinités ou le réseau virtuel à utiliser pour la machine virtuelle. Pour plus d'informations sur les groupes d'affinités, consultez la page [À propos des groupes d'affinités de réseau virtuel](http://msdn.microsoft.com/library/azure/jj156085.aspx).
 
 13. Dans **Compte de stockage**, sélectionnez un compte de stockage existant pour le fichier de disque dur virtuel ou utilisez un compte de stockage automatiquement généré. Un seul compte de stockage est automatiquement créé par région. Toutes les autres machines virtuelles créées avec ce paramètre sont placées dans ce compte de stockage. Vous êtes limité à 20 comptes de stockage.
 
@@ -46,7 +46,7 @@ Une machine virtuelle *personnalisée* fait référence à une machine virtuelle
 
 	**Remarque** : les machines virtuelles qui sont membres d'un groupe à haute disponibilité sont déployées sur des domaines de défaillance différents. Le placement de plusieurs machines virtuelles dans un groupe à haute disponibilité vous permet d'assurer la disponibilité de votre application lors de défaillances réseau, de défaillances matérielles d'un disque dur local et de temps d'arrêt planifiés.
 
-15.  Sous **Points de terminaison**, passez en revue les nouveaux points de terminaison qui seront créés pour autoriser les connexions à la machine virtuelle, tels que le Bureau à distance ou un client Secure Shell (SSH), par exemple. Vous pouvez également ajouter des points de terminaison maintenant ou les créer ultérieurement. Pour obtenir des instructions sur leur création à une date ultérieure, consultez la page [Configuration des points de terminaison sur une machine virtuelle](http://azure.microsoft.com/fr-fr/documentation/articles/virtual-machines-set-up-endpoints/). 
+15.  Sous **Points de terminaison**, passez en revue les nouveaux points de terminaison qui seront créés pour autoriser les connexions à la machine virtuelle, tels que le Bureau à distance ou un client Secure Shell (SSH), par exemple. Vous pouvez également ajouter des points de terminaison maintenant ou les créer ultérieurement. Pour obtenir des instructions sur leur création à une date ultérieure, consultez la page [Configuration des points de terminaison sur une machine virtuelle](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/). 
 
 16.  Sous **Agent de machine virtuelle**, indiquez si vous souhaitez installer l'agent de machine virtuelle. Cet agent fournit l'environnement dans lequel vous installez les extensions qui permettent d'interagir avec la machine virtuelle. Pour plus d'informations, consultez la page [Gestion des extensions](http://go.microsoft.com/FWLink/p/?LinkID=390493).
 
@@ -58,7 +58,7 @@ Une machine virtuelle *personnalisée* fait référence à une machine virtuelle
 ##Étapes suivantes##
 Une fois créée, la machine virtuelle démarre automatiquement. Lorsque le portail indique qu'elle est active, vous pouvez vous connecter à la machine virtuelle. Pour plus d'informations, consultez l'un des articles suivants :
 
-- [Connexion à une machine virtuelle exécutant Linux](../virtual-machines-linux-how-to-log-on)
-- [Connexion à une machine virtuelle exécutant Windows Server](../virtual-machines-log-on-windows-server)
+- [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-how-to-log-on.md)
+- [Connexion à une machine virtuelle exécutant Windows Server](virtual-machines-log-on-windows-server.md)
 
 

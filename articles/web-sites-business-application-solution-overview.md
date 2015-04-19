@@ -82,7 +82,7 @@ Dans le plan d'hébergement **Standard**, vous pourrez surveiller la réactivit�
 ## Plus de ressources
 
 - [Documentation sur les sites Web Azure](/fr-fr/documentation/services/websites/)
-- [Plan de formation pour les sites Web Azure](/fr-fr/documentation/articles/websites-learning-map/)
+- [Plan de formation pour les sites Web Azure](websites-learning-map.md)
 - [Blog Azure Web](/blog/topics/web/)
 
 

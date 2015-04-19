@@ -45,7 +45,7 @@ Si vous n'avez pas encore d'abonnement Azure, vous pouvez obtenir une évaluatio
 
 ## Phase 1 : Configuration de l'environnement de cloud hybride
 
-Suivez les instructions de la rubrique [Configuration d'un environnement de cloud hybride à des fins de test](../virtual-networks-setup-hybrid-cloud-environment-testing/) . Étant donné que cet environnement de test ne nécessite pas la présence du serveur APP1 sur le sous-réseau de réseau d'entreprise, n'hésitez pas à l'arrêter pour le moment.
+Suivez les instructions de la rubrique [Configuration d'un environnement de cloud hybride à des fins de test](virtual-networks-setup-hybrid-cloud-environment-testing.md) . Étant donné que cet environnement de test ne nécessite pas la présence du serveur APP1 sur le sous-réseau de réseau d'entreprise, n'hésitez pas à l'arrêter pour le moment.
 
 Ceci est votre configuration actuelle.
 
@@ -195,13 +195,13 @@ Votre une batterie de serveurs SharePoint intranet dans un cloud hybride est mai
 
 [SharePoint sur les services d'infrastructure Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-[Batterie de serveurs SharePoint](../virtual-machines-sharepoint-farm-azure-preview/)
+[Batterie de serveurs SharePoint](virtual-machines-sharepoint-farm-azure-preview.md)
 
-[Configuration d'un environnement de cloud hybride pour le test](../virtual-networks-setup-hybrid-cloud-environment-testing/)
+[Configuration d'un environnement de cloud hybride pour le test](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
-[Configuration d'une application métier web dans un cloud hybride à des fins de test](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+[Configuration d'une application métier web dans un cloud hybride à des fins de test](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
-[Configuration de la synchronisation d'annuaires Office 365 (DirSync) dans un cloud hybride à des fins de test](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+[Configuration de la synchronisation d'annuaires Office 365 (DirSync) dans un cloud hybride à des fins de test](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
 
-[Configuration d'une simulation d'environnement de cloud hybride à des fins de test](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+[Configuration d'une simulation d'environnement de cloud hybride à des fins de test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 <!--HONumber=47-->

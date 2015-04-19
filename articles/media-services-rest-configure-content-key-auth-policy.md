@@ -21,13 +21,13 @@
 #Chiffrement dynamique : Configuration de la stratégie d'autorisation de clé de contenu 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)] 
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) et [workflow de vidéo en flux continu Media Services](../media-services-live-streaming-workflow) . 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md) . 
 
 ##Présentation
 
 Microsoft Azure Media Services permet de transmettre un contenu chiffré (dynamiquement) avec la norme AES (Advanced Encryption Standard) (à l'aide de clés de chiffrement 128 bits) et le DRM PlayReady. Media Services fournit également un service de distribution de clés et licences PlayReady aux clients autorisés. 
 
-Si vous voulez chiffrer une ressource pour Media Services, vous devez associer une clé de chiffrement (**CommonEncryption** ou **EnvelopeEncryption**) à la ressource (comme décrit [ici](../media-services-rest-create-contentkey/)), mais aussi configurer des stratégies d'autorisation pour la clé (comme décrit dans cet article). 
+Si vous voulez chiffrer une ressource pour Media Services, vous devez associer une clé de chiffrement (**CommonEncryption** ou **EnvelopeEncryption**) à la ressource (comme décrit [ici](media-services-rest-create-contentkey.md)), mais aussi configurer des stratégies d'autorisation pour la clé (comme décrit dans cet article). 
 
 Vous pouvez actuellement chiffrer la diffusion en continu des formats suivants : TLS, MPEG DASH et la diffusion en continu lisse. Vous ne pouvez pas chiffrer le format de diffusion en continu HDS ni les téléchargements progressifs.
 
@@ -47,8 +47,8 @@ Pour plus d'informations, consultez les pages
 
 ###Certaines considérations s'appliquent :
 
-- Pour pouvoir utiliser l'empaquetage et le chiffrement dynamiques, vous devez vous assurer d'avoir au moins une unité d'échelle (également appelée unité de diffusion). Pour plus d'informations, consultez [Mise à l'échelle d'un service de média](../media-services-manage-origins#scale_streaming_endpoints). 
-- Votre ressource doit contenir un ensemble de MP4 à débit multiple ou des fichiers de diffusion en continu lisse à débit multiple. Pour plus d'informations, consultez [Encodage d'une ressource](../media-services-encode-asset/).  
+- Pour pouvoir utiliser l'empaquetage et le chiffrement dynamiques, vous devez vous assurer d'avoir au moins une unité d'échelle (également appelée unité de diffusion). Pour plus d'informations, consultez [Mise à l'échelle d'un service de média](media-services-manage-origins#scale_streaming_endpoints.md). 
+- Votre ressource doit contenir un ensemble de MP4 à débit multiple ou des fichiers de diffusion en continu lisse à débit multiple. Pour plus d'informations, consultez [Encodage d'une ressource](media-services-encode-asset.md).  
 - Téléchargez et codez vos ressources à l'aide de **AssetCreationOptions.StorageEncrypted**.
 - Si vous prévoyez d'avoir plusieurs clés de contenu qui nécessitent la même configuration de stratégie, il est fortement recommandé de créer une stratégie d'autorisation unique et de la réutiliser avec plusieurs clés de contenu.
 - Le service de remise de clé met en cache ContentKeyAuthorizationPolicy et ses objets connexes (options de stratégie et restrictions) pendant 15 minutes.  Si vous créez une ContentKeyAuthorizationPolicy et que vous spécifiez l'utilisation d'une restriction " Jeton ", puis la testez avant de mettre à jour la stratégie de restriction vers " Ouverte ", vous devrez attendre environ 15 minutes avant que la stratégie bascule vers la version " Ouverte ".
@@ -59,9 +59,9 @@ Pour plus d'informations, consultez les pages
 
 >[AZURE.NOTE] Lorsque vous utilisez l'API REST de Media Services, les considérations suivantes s'appliquent :
 >
->Lors de l'accès aux entités dans Media Services, vous devez définir les valeurs et les champs d'en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Configuration du développement de l'API REST Media Services](../media-services-rest-how-to-use).
+>Lors de l'accès aux entités dans Media Services, vous devez définir les valeurs et les champs d'en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Configuration du développement de l'API REST Media Services](media-services-rest-how-to-use.md).
 
->Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez adresser les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](../media-services-rest-connect_programmatically/). 
+>Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez adresser les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](media-services-rest-connect_programmatically.md). 
 
 
 ###Restriction ouverte
@@ -486,7 +486,7 @@ Ajoutez AuthorizationPolicy à la ContentKey, comme illustré [ici](#AddAuthoriz
 
 
 ##Étapes suivantes
-Maintenant que vous avez configuré la stratégie d'autorisation de la clé de contenu, accédez à la [procédure de configuration de stratégies de remise de ressources](../media-services-rest-configure-asset-delivery-policy/) .
+Maintenant que vous avez configuré la stratégie d'autorisation de la clé de contenu, accédez à la [procédure de configuration de stratégies de remise de ressources](media-services-rest-configure-asset-delivery-policy.md) .
 
 
 <!--HONumber=47-->

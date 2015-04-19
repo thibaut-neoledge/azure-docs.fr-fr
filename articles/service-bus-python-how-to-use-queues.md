@@ -25,7 +25,7 @@ Ce guide décrit l'utilisation des files d'attente Service Bus. Les exemples son
 
 [AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-**Remarque :** si vous devez installer Python ou le [package Azure Python][], veuillez consulter le [Guide d'installation de Python](../python-how-to-install/)
+**Remarque :** si vous devez installer Python ou le [package Azure Python][], veuillez consulter le [Guide d'installation de Python](python-how-to-install.md)
 
 
 ## Création d'une file d'attente

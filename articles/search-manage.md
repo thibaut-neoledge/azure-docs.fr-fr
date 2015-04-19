@@ -51,7 +51,7 @@ Pour planifier la capacité nécessaire et comprendre l'impact de la facturation
 +	[Limites et contraintes](http://msdn.microsoft.com/library/dn798934.aspx)
 +	[Détails de la tarification](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
-Lorsque vous êtes prêt à vous inscrire, consultez [Prise en main d'Azure Search](../search-get-started/).
+Lorsque vous êtes prêt à vous inscrire, consultez [Prise en main d'Azure Search](search-get-started.md).
 
 
 <h2 id="sub-2">Tâches d'administration</h2>

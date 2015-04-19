@@ -262,7 +262,7 @@ Démonstration de la messagerie entre .NET et JMS :
 
 * Démarrez l'exemple d'application .NET avec l'argument de ligne de commande "sendonly". Dans ce mode, l'application ne reçoit pas de messages provenant de la file d'attente, elle ne fait qu'en envoyer.
 * Démarrez l'exemple d'application Java sans argument de ligne de commande.
-* Appuyez plusieurs fois sur **Entrée** dans la console d'application .NET afin de provoquer l'envoi de messages.
+* Appuyez plusieurs fois sur **Entrée** dans la console d'application .NET, ce qui provoquera l'envoi des messages.
 * Ces messages sont reçus par l'application Java.
 
 #### Résultat de l'application .NET
@@ -309,11 +309,11 @@ Vous pouvez également utiliser AMQP 1.0 de Service Bus avec d'autres langages, 
 
 <h2>Pour plus d'informations</h2>
 
-* [Prise en charge d'AMQP 1.0 dans Azure Service Bus](http://aka.ms/pgr3dp)
+* [Prise en charge de AMQP 1.0 dans Azure Service Bus](http://aka.ms/pgr3dp)
 * [Utilisation de l'API Java Message Service (JMS) avec Service Bus et AMQP 1.0](http://aka.ms/ll1fm3)
 * [AMQP de Service Bus : guide du développeur](http://msdn.microsoft.com/library/jj841071.aspx)
 * [Utilisation des files d'attente Service Bus](http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
 
 [Utilisation des files d'attente Service Bus]: http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/
 
-<!--HONumber=49-->
+<!--HONumber=47-->

@@ -29,11 +29,11 @@ Le diagramme suivant présente les principaux composants de la plate-forme Media
 ![Live workflow][live-overview]
 
 
-Pour plus d'informations, consultez [Vue d'ensemble de Media Services](../media-services-overview).
+Pour plus d'informations, consultez [Vue d'ensemble de Media Services](media-services-overview.md).
 
 ##Création d'un compte Media Services
 
-Utilisez le **portail de gestion Azure** pour la [Création d'un compte Azure Media Services](../media-services-create-account/).
+Utilisez le **portail de gestion Azure** pour la [Création d'un compte Azure Media Services](media-services-create-account.md).
 
 ##Configuration des points de terminaison de diffusion en continue
 
@@ -82,7 +82,7 @@ Publiez des ressources (en créant des localisateurs) à l'aide du **portail de 
 
 Vous pouvez mettre à l'échelle **Media Services** en spécifiant le nombre d'**Unités réservées de diffusion en continu** avec lesquelles vous voulez que votre compte soit approvisionné. 
 
-Pour plus d'informations sur la mise à l'échelle d'unités de diffusion en continu, consultez : [Mise à l'échelle des unités de diffusion en continu](../media-services-manage-origins#scale_streaming_endpoints).
+Pour plus d'informations sur la mise à l'échelle d'unités de diffusion en continu, consultez : [Mise à l'échelle des unités de diffusion en continu](media-services-manage-origins#scale_streaming_endpoints.md).
 
 
 

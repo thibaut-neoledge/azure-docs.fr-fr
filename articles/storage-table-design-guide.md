@@ -24,7 +24,7 @@ Pour concevoir des tables évolutives et performantes, vous devez prendre en com
 
 ## À propos du service de Table Azure
 
-Cette section présente certaines des principales fonctionnalités du service de Table qui sont particulièrement adaptées aux conceptions orientées vers l'amélioration des performances et de l'extensibilité. Si vous ne connaissez pas Azure Storage et le service de Table, lisez d'abord [Introduction à Microsoft Azure Storage](../storage-introduction/) et [Utilisation du stockage de table à partir de .NET](../storage-dotnet-how-to-use-tables/) avant de lire le reste de cet article. Bien que ce guide porte sur le service de Table, il aborde également les services de File d'attente et BLOB Azure, en expliquant comment les utiliser avec le service de Table dans une solution.  
+Cette section présente certaines des principales fonctionnalités du service de Table qui sont particulièrement adaptées aux conceptions orientées vers l'amélioration des performances et de l'extensibilité. Si vous ne connaissez pas Azure Storage et le service de Table, lisez d'abord [Introduction à Microsoft Azure Storage](storage-introduction.md) et [Utilisation du stockage de table à partir de .NET](storage-dotnet-how-to-use-tables.md) avant de lire le reste de cet article. Bien que ce guide porte sur le service de Table, il aborde également les services de File d'attente et BLOB Azure, en expliquant comment les utiliser avec le service de Table dans une solution.  
  
 Qu'est-ce que le service de Table ? Comme le laisse entendre son nom, le service de Table utilise un format tabulaire pour stocker des données. Selon la terminologie standard, chaque ligne de la table représente une entité et les colonnes stockent les différentes propriétés de cette entité. Le service de Table identifie chaque entité de façon unique en utilisant une paire de clés. Il procède au suivi de mise à jour des entités en utilisant une colonne d'horodatage (cela se produit automatiquement et vous ne pouvez pas remplacer manuellement l'horodatage par une valeur de votre choix). Le service de Table utilise le dernier horodatage modifié (ou LMT, pour Last Modified Timestamp) afin de gérer l'accès concurrentiel optimiste.  
 
@@ -1133,7 +1133,7 @@ Nous vous conseillons de réfléchir également à la façon dont votre concepti
 
 #### Gérer l'accès concurrentiel  
 
-Par défaut, le service de Table implémente des contrôles d'accès concurrentiel optimiste au niveau des entités individuelles pour les opérations d' **insertion**, de **fusion** et de **suppression**, bien qu'il soit possible pour un client de forcer le service de Table pour ignorer ces contrôles. Pour plus d'informations sur la façon dont le service de Table gère l'accès concurrentiel, consultez la page [Gestion de l'accès concurrentiel dans Microsoft Azure Storage](../storage-concurrency/) sur le site web Microsoft Azure.  
+Par défaut, le service de Table implémente des contrôles d'accès concurrentiel optimiste au niveau des entités individuelles pour les opérations d' **insertion**, de **fusion** et de **suppression**, bien qu'il soit possible pour un client de forcer le service de Table pour ignorer ces contrôles. Pour plus d'informations sur la façon dont le service de Table gère l'accès concurrentiel, consultez la page [Gestion de l'accès concurrentiel dans Microsoft Azure Storage](storage-concurrency.md) sur le site web Microsoft Azure.  
 
 #### Fusion ou remplacement  
 
@@ -1449,7 +1449,7 @@ Vous pouvez utiliser des signature d'accès partagé (SAP) pour permettre aux ap
 -	Vous pouvez décharger certaines tâches effectuées par les rôles web et de travail lors de la gestion de vos entités sur les périphériques clients tels que les ordinateurs et appareils mobiles des utilisateurs finaux.  
 -	Vous pouvez affecter un ensemble d'autorisations contraintes et limitées dans le temps à un client (par exemple, pour autoriser l'accès en lecture seule à des ressources spécifiques).  
 
-Pour plus d'informations sur l'utilisation de jetons SAP avec le service de Table, consultez la page [Signatures d'accès partagé, partie 1 : présentation du modèle SAP](../storage-dotnet-shared-access-signature-part-1/).  
+Pour plus d'informations sur l'utilisation de jetons SAP avec le service de Table, consultez la page [Signatures d'accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md).  
 
 Toutefois, vous devez toujours générer les jetons SAP qui permettent à une application cliente d'accéder aux entités du service de Table : vous devez le faire dans un environnement qui dispose d'un accès sécurisé à vos clés de compte de stockage. En règle générale, vous utilisez un rôle web ou de travail pour générer les jetons SAP et les transmettre vers les applications clientes qui ont besoin d'accéder à vos entités. Comme il existe toujours une surcharge impliquée dans la génération et l'envoi de jetons SAP aux clients, vous devez envisager la meilleure méthode pour réduire cette surcharge, en particulier dans les scénarios à volumes élevés.  
 

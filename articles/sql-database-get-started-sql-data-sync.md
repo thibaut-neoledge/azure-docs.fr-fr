@@ -179,9 +179,9 @@ Félicitations ! Vous avez créé un groupe de synchronisation incluant une inst
 ## Étapes suivantes
 Pour plus d'informations sur la base de données SQL et la synchronisation des données SQL, consultez les pages suivantes :
 
-* [Inscrivez-vous à l'offre Premium pour la base de données SQL] (../sign-up-for-sql-database-premium/)
+* [Inscrivez-vous à l'offre Premium pour la base de données SQL] (sign-up-for-sql-database-premium.md)
 * [Synchronisation des données SQL (portail WA)](http://msdn.microsoft.com/library/windowsazure/jj856263.aspx)
-* [Prise en main de la base de données SQL Azure](../getting-started-w-sql-databases/)
+* [Prise en main de la base de données SQL Azure](getting-started-w-sql-databases.md)
 * [Cycle de vie des bases de données SQL Server](http://go.microsoft.com/fwlink/?LinkId=275193)
 
 

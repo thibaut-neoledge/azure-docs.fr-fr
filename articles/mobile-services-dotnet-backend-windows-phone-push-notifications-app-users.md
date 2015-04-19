@@ -28,7 +28,7 @@ Ce didacticiel vous familiarise avec les procédures suivantes :
 + [Mise à jour de l'application pour se connecter avant l'inscription]
 + [Test de l'application]
  
-Ce didacticiel concerne les applications Windows Phone 8.0 et Windows Phone 8.1 ("Silverlight"). Pour les applications Windows Phone 8.1 Store, reportez-vous à la [version dédiée à Windows Store](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users).
+Ce didacticiel concerne les applications Windows Phone 8.0 et Windows Phone 8.1 ("Silverlight"). Pour les applications Windows Phone 8.1 Store, reportez-vous à la [version dédiée à Windows Store](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 
 ##Conditions préalables 
 

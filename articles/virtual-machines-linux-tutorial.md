@@ -53,7 +53,7 @@ Ce didacticiel utilise la méthode **À partir de la galerie** pour créer une m
 
 [AZURE.INCLUDE [virtual-machines-Linux-tutorial-log-on-attach-disk](../includes/virtual-machines-Linux-tutorial-log-on-attach-disk.md)]
 
-> [AZURE.NOTE] Vous pouvez également vous connecter à votre machine virtuelle Linux à l'aide d'une clé SSH pour l'identification. Pour plus d'informations sur la configuration et la connexion avec une clé SSH, consultez la rubrique [Utilisation de SSH avec Linux sur Azure](./virtual-machines-linux-use-ssh-key/).
+> [AZURE.NOTE] Vous pouvez également vous connecter à votre machine virtuelle Linux à l'aide d'une clé SSH pour l'identification. Pour plus d'informations sur la configuration et la connexion avec une clé SSH, consultez la rubrique [Utilisation de SSH avec Linux sur Azure](virtual-machines-linux-use-ssh-key).
 
 ##Étapes suivantes 
 
@@ -65,7 +65,7 @@ Pour en savoir plus sur Linux sous Azure, consultez les articles suivants :
 
 - [À propos des paramètres de configuration de machine virtuelle Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 
-- [Extension Docker VM pour Linux sur Azure](../virtual-machines-docker-vm-extension/)
+- [Extension Docker VM pour Linux sur Azure](virtual-machines-docker-vm-extension.md)
 
 
 [Étapes suivantes]: #next

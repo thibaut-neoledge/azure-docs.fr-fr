@@ -132,7 +132,7 @@ Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite
 
 [Présentation des comptes de stockage](storage-whatis-account.md)
 
-[How to: Create a storage account](../storage-create-storage-account/)
+[How to: Create a storage account](storage-create-storage-account.md)
 
 [Surveillance d'un compte de stockage](storage-monitor-storage-account.md)
 

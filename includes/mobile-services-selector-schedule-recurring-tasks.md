@@ -1,3 +1,3 @@
 ﻿> [AZURE.SELECTOR-LIST (Serveur principal)]
-- [(.NET)](/fr-fr/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/)
-- [(JavaScript)](/fr-fr/documentation/articles/mobile-services-schedule-recurring-tasks/)
+- [(.NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [(JavaScript)](mobile-services-schedule-recurring-tasks.md)

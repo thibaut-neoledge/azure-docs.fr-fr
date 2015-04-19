@@ -23,7 +23,7 @@
 
 Cette procédure décrit la méthode la plus simple pour activer l'analyse et la surveillance Engagement dans votre application Windows Phone.
 
-Les étapes suivantes permettent d'activer la génération des journaux nécessaires pour calculer toutes les statistiques concernant les utilisateurs, les sessions, les activités, les incidents et les informations techniques. La génération des journaux nécessaires au calcul d'autres statistiques telles que les événements, les erreurs et les tâches doit être effectuée manuellement à l'aide de l'API Engagement (voir la section  [Utilisation avancée de l'API de marquage Mobile Engagement dans votre application Windows Phone](../mobile-engagement-windows-phone-use-engagement-api/)  ci-dessous) dans la mesure où ces statistiques dépendent de l'application.
+Les étapes suivantes permettent d'activer la génération des journaux nécessaires pour calculer toutes les statistiques concernant les utilisateurs, les sessions, les activités, les incidents et les informations techniques. La génération des journaux nécessaires au calcul d'autres statistiques telles que les événements, les erreurs et les tâches doit être effectuée manuellement à l'aide de l'API Engagement (voir la section  [Utilisation avancée de l'API de marquage Mobile Engagement dans votre application Windows Phone](mobile-engagement-windows-phone-use-engagement-api.md)  ci-dessous) dans la mesure où ces statistiques dépendent de l'application.
 
 ## Versions prises en charge
 
@@ -209,7 +209,7 @@ Nous vous recommandons d'appeler  `StartActivity` à l'intérieur de la méthode
 
 Vous pouvez choisir de signaler des événements, erreurs et tâches d'application spécifiques. Pour ce faire, utilisez les autres méthodes de la classe  `EngagementAgent`. L'API Engagement permet d'utiliser toutes les fonctionnalités avancées d'Engagement.
 
-Pour plus d'informations, consultez [Utilisation de l'API de marquage avancée Mobile Engagement dans votre application Windows Phone](../mobile-engagement-windows-phone-use-the-engagement-api/).
+Pour plus d'informations, consultez [Utilisation de l'API de marquage avancée Mobile Engagement dans votre application Windows Phone](mobile-engagement-windows-phone-use-the-engagement-api.md).
 
 ## Configuration avancée
 

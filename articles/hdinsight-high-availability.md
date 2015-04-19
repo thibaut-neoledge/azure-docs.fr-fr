@@ -46,7 +46,7 @@ Par défaut, les nœuds principaux sont alloués en tant que machines virtuelles
 
 Les machines virtuelles de taille très importante peuvent être configurées soit avec des cmdlets Azure PowerShell soit avec le Kit de développement logiciel (SDK) HDInsight.
 
-La création et l'approvisionnement d'un cluster à l'aide de PowerShell sont documentés sur la page [Administration de HDInsight à l'aide de PowerShell](../hdinsight-administer-use-powershell/). La configuration d'un nœud principal de très grande taille nécessite l'ajout du paramètre `-HeadNodeVMSize ExtraLarge` à la cmdlet  `New-AzureHDInsightcluster` utilisée dans ce code.
+La création et l'approvisionnement d'un cluster à l'aide de PowerShell sont documentés sur la page [Administration de HDInsight à l'aide de PowerShell](hdinsight-administer-use-powershell.md). La configuration d'un nœud principal de très grande taille nécessite l'ajout du paramètre `-HeadNodeVMSize ExtraLarge` à la cmdlet  `New-AzureHDInsightcluster` utilisée dans ce code.
 
     # Create a new HDInsight cluster in Azure PowerShell
 	# Configured with an ExtraLarge Headnode VM

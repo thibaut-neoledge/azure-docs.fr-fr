@@ -1,9 +1,9 @@
-<properties 
+﻿<properties 
 	pageTitle="Inscription de l'utilisateur actif aux notifications Push au moyen de l'API web - Notification Hubs" 
 	description="Découvrez comment demander l'inscription aux notifications Push dans une application iOS avec Azure Notification Hubs lorsque l'inscription est réalisée par l'API web ASP.NET." 
 	services="notification-hubs" 
 	documentationCenter="ios" 
-	authors="wesmc7777" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,19 +13,15 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
-	ms.author="wesmc,yuaxu"/>
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 # Inscription de l'utilisateur actif aux notifications Push à l'aide d'ASP.NET
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#">Windows Store C#</a><a href="/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
+    <a href="/fr-fr/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#">Windows Store C#</a><a href="/fr-fr/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
 </div>
 
-##Vue d'ensemble
-
-Cette rubrique montre comment demander une inscription aux notifications Push avec Azure Notification Hubs lorsque l'inscription est réalisée par l'API Web ASP.NET. Cette rubrique s'inscrit dans le prolongement du didacticiel [Notification des utilisateurs avec Notification Hubs]. Vous devez avoir suivi les étapes de ce didacticiel permettant de créer le service mobile authentifié. Pour plus d'informations sur les scénarios de notification des utilisateurs, consultez la rubrique [Notification des utilisateurs avec Notification Hubs].
-
-##Mise à jour de votre application  
+Cette rubrique montre comment demander une inscription aux notifications Push avec Azure Notification Hubs lorsque l'inscription est réalisée par l'API Web ASP.NET. Cette rubrique s'inscrit dans le prolongement du didacticiel [Notification des utilisateurs avec Notification Hubs]. Vous devez avoir suivi les étapes de ce didacticiel permettant de créer le service mobile authentifié. Pour plus d'informations sur les scénarios de notification des utilisateurs, consultez la rubrique [Notification des utilisateurs avec Notification Hubs].  
 
 1. Dans MainStoryboard_iPhone.storyboard, ajoutez les composants suivants de la bibliothèque d'objets :
 
@@ -108,7 +104,7 @@ Cette rubrique montre comment demander une inscription aux notifications Push av
 
 	Cela définit le jeton d'appareil de la requête.
 
-	> [AZURE.NOTE] À ce stade, il ne doit pas y avoir d'autre code dans cette méthode. S'il existe déjà un appel à la méthode **registerNativeWithDeviceToken** que vous avez ajoutée dans le cadre du didacticiel [Prise en main de Notification Hubs](/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank") vous devez placer l'appel en commentaire ou le supprimer.
+	> [AZURE.NOTE] À ce stade, il ne doit pas y avoir d'autre code dans cette méthode. S'il existe déjà un appel à la méthode **registerNativeWithDeviceToken** que vous avez ajoutée lorsque vous avez suivi le didacticiel [Prise en main de Notification Hubs](/fr-fr/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank"), vous devez placer l'appel en commentaire ou le supprimer.
 
 10.	Dans le fichier PushToUserAppDelegate.m, ajoutez la méthode de gestionnaire suivante :
 
@@ -230,9 +226,9 @@ Maintenant que l'application cliente est à jour, retournez au didacticiel [Noti
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[Notification des utilisateurs avec Notification Hubs]: /manage/services/notification-hubs/notify-users-aspnet
+[Notification des utilisateurs avec Notification Hubs]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
-[Prise en main de Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+[Prise en main de Notification Hubs]: /fr-fr/manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

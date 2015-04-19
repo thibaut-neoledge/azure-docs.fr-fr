@@ -313,7 +313,7 @@ de workflow du modèle de processus dans Visual Studio TFS Team Build.
     et télécharger les certificats sur chaque service cloud ciblé à l'aide du
     portail de gestion Azure. Pour plus d'informations, consultez l'article
     suivant :
-    [http://msdn.microsoft.com/fr-fr/library/windowsazure/gg443832.aspx][].
+    [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][].
 
     **Mise à niveau du déploiement et suppression du déploiement -> Nouveau déploiement**
 

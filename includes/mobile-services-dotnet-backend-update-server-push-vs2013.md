@@ -47,5 +47,5 @@ Cette procédure permet de créer un [ApiController][ApiController] personnalis�
     > [WACOM.NOTE]This POST method can be called by any client that has the application key, which is not secure. Pour sécuriser le point de terminaison, appliquez l'attribut `[AuthorizeLevel(AuthorizationLevel.User)]` à la méthode ou à la classe afin d'exiger une authentification.
 
   [ApiController]: http://go.microsoft.com/fwlink/p/?LinkId=512673
-  [TableController]: http://msdn.microsoft.com/fr-fr/library/azure/dn643359.aspx
+  [TableController]: http://msdn.microsoft.com/library/azure/dn643359.aspx
   [boîte de dialogue Add Scaffold de l'API Web]: ./media/mobile-services-dotnet-backend-update-server-push-vs2013/add-custom-api-controller.png

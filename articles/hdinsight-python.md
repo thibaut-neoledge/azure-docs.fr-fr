@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Utilisation de Python avec Hive et Pig dans Azure HDInsight" 
 	description="Découvrez comment utiliser des fonctions définies par l'utilisateur Python à partir de Hive et Pig dans Azure HDInsight." 
 	services="hdinsight" 
@@ -171,7 +171,7 @@ Ces étapes utilisent Windows Azure PowerShell. Si ce dernier n'est pas déjà i
 
 	Ce script récupère des informations concernant votre cluster HDInsight, puis extrait le compte et la clé pour le compte de stockage par défaut et télécharge les fichiers vers la racine du conteneur.
 
-	> [AZURE.NOTE] D'autres méthodes de téléchargement des scripts sont décrites dans le document [Téléchargement de données pour des tâches Hadoop dans HDInsight](/fr-fr/documentation/articles/hdinsight-upload-data/).
+	> [AZURE.NOTE] D'autres méthodes de téléchargement des scripts sont décrites dans le document [Téléchargement de données pour des tâches Hadoop dans HDInsight](hdinsight-upload-data.md).
 
 ###Utilisation du tableau de bord Hive (exemple Hive uniquement)
 
@@ -267,10 +267,9 @@ Les informations sur l'erreur (STDERR) et le résultat de la tâche (STDOUT) son
 <tr>
 <td>Pour cette tâche...</td><td>Examinez ces fichiers dans le conteneur d'objets blob</td>
 </tr>
-<tr>
-<td>Hive</td><td>/HivePython/stderr<br />/HivePython/stdout</td>
+<td>Hive</td><td>/HivePython/stderr</br>/HivePython/stdout</td>
 </tr>
-<td>Pig</td><td>/PigPython/stderr<br />/PigPython/stdout</td>
+<td>Pig</td><td>/PigPython/stderr</br>/PigPython/stdout</td>
 </tr>
 </table>
 

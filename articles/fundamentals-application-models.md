@@ -41,7 +41,7 @@ Les disques durs virtuels dans la galerie et sur VMDepot incluent des images pro
 
 
 
-Outre un disque dur virtuel, vous spécifiez la taille de la nouvelle machine virtuelle.  Les statistiques complètes pour chaque taille sont répertoriées [dans la bibliothèque Azure](http://msdn.microsoft.com/fr-fr/library/windowsazure/dn197896.aspx).  
+Outre un disque dur virtuel, vous spécifiez la taille de la nouvelle machine virtuelle.  Les statistiques complètes pour chaque taille sont répertoriées [dans la bibliothèque Azure](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx).  
 
 -	**Très petite**, avec un cœur partagé et 768 Mo de mémoire.
 -	**Petite**, avec 1 cœur et 1,75 Go de mémoire.

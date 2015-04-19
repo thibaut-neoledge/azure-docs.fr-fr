@@ -65,7 +65,7 @@ Avec les fédérations, une connexion est établie avec un membre spécifique de
 
     USE FEDERATION CustomerFederation(cid=100) WITH RESET, FILTERING=OFF`
 
-Avec les API de l'infrastructure élastique, une connexion à une partition spécifique est établie via le [routage dépendant des données](./sql-database-elastic-scale-data-dependent-routing.md) avec la méthode **OpenConnectionForKey** sur la classe **RangeShardMap**. 
+Avec les API de l'infrastructure élastique, une connexion à une partition spécifique est établie via le [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md) avec la méthode **OpenConnectionForKey** sur la classe **RangeShardMap**. 
 
     //Connect and issue queries on the shard with key=100 
     using (SqlConnection conn = rangeShardMap.OpenConnectionForKey(100, csb))  
@@ -82,7 +82,7 @@ Avec les API de l'infrastructure élastique, une connexion à une partition spé
         } 
     }
 
-Les étapes décrites dans cette section sont nécessaires mais ne conviennent pas à tous les scénarios de migration qui se présentent. Pour plus d'informations, consultez la [présentation conceptuelle de l'infrastructure élastique](./sql-database-elastic-scale-introduction.md) et la page de [référence sur les API](http://go.microsoft.com/?linkid=9862604)
+Les étapes décrites dans cette section sont nécessaires mais ne conviennent pas à tous les scénarios de migration qui se présentent. Pour plus d'informations, consultez la [présentation conceptuelle de l'infrastructure élastique](sql-database-elastic-scale-introduction.md) et la page de [référence sur les API](http://go.microsoft.com/?linkid=9862604)
 
 ## Extraction des membres de la fédération existante 
 
@@ -102,7 +102,7 @@ L'utilitaire de migration de fédérations permet d'effectuer les opérations su
 
 
 ## Comparaison des fonctionnalités  
-Bien que l'infrastructure élastique offre de nombreuses fonctionnalités supplémentaires (par exemple, [l'interrogation de plusieurs partitions](./sql-database-elastic-scale-multishard-querying.md), [le fractionnement et la fusion de partitions](./sql-database-elastic-scale-overview-split-and-merge.md), [l'élasticité des partitions](./sql-database-elastic-scale-elasticity.md), [la mise en cache côté client](./sql-database-elastic-scale-shard-map-management.md), etc), certaines fonctionnalités intéressantes des fédérations ne sont pas prises en charge par l'infrastructure élastique.
+Bien que l'infrastructure élastique offre de nombreuses fonctionnalités supplémentaires (par exemple, [l'interrogation de plusieurs partitions](sql-database-elastic-scale-multishard-querying.md), [le fractionnement et la fusion de partitions](sql-database-elastic-scale-overview-split-and-merge.md), [l'élasticité des partitions](sql-database-elastic-scale-elasticity.md), [la mise en cache côté client](sql-database-elastic-scale-shard-map-management.md), etc), certaines fonctionnalités intéressantes des fédérations ne sont pas prises en charge par l'infrastructure élastique.
   
 
 - Utilisation de **FILTERING=ON**. L'infrastructure élastique ne prend actuellement pas en charge le filtrage au niveau des lignes. Une solution consiste à créer la logique de filtrage dans la requête émise sur la partition comme suit : 

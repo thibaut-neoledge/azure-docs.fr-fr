@@ -29,7 +29,7 @@ Si vous disposez d'un abonnement Trend Micro pour une solution locale, vous pouv
 
 Le [portail de gestion Azure](http://manage.windowsazure.com) vous permet d'installer l'agent de machine virtuelle et l'extension de sécurité Trend Micro lors de l'utilisation de l'option **À partir de la galerie** pour créer la machine virtuelle. Il s'agit d'une méthode simple pour ajouter une protection Trend Micro en cas de création d'une seule machine virtuelle.
 
-L'option **À partir de la galerie** ouvre un Assistant qui vous aide à configurer la machine virtuelle. Utilisez la dernière page de l'Assistant pour installer l'agent de machine virtuelle et l'extension de sécurité Trend Micro. Pour des instructions générales, consultez le didacticiel [Création d'une machine virtuelle exécutant Windows Server](../virtual-machines-windows-tutorial/). Lorsque vous atteignez la dernière page de l'Assistant, procédez comme suit :
+L'option **À partir de la galerie** ouvre un Assistant qui vous aide à configurer la machine virtuelle. Utilisez la dernière page de l'Assistant pour installer l'agent de machine virtuelle et l'extension de sécurité Trend Micro. Pour des instructions générales, consultez le didacticiel [Création d'une machine virtuelle exécutant Windows Server](virtual-machines-windows-tutorial.md). Lorsque vous atteignez la dernière page de l'Assistant, procédez comme suit :
 
 1.	Sous Agent de machine virtuelle, cochez **Installer l'agent de machine virtuelle**.
 
@@ -43,7 +43,7 @@ L'option **À partir de la galerie** ouvre un Assistant qui vous aide à configu
 
 Pour ce faire, vous avez besoin des éléments suivants :
 
-- Le module Azure PowerShell, version 0.8.2 ou ultérieure, installé sur votre poste local. Vous pouvez vérifier la version d'Azure PowerShell installée à l'aide de la commande **Get-Module azure | format-table version**. Pour des instructions et un lien vers la dernière version, consultez la rubrique [Installation et configuration d'Azure PowerShell](../install-configure-powershell/). 
+- Le module Azure PowerShell, version 0.8.2 ou ultérieure, installé sur votre poste local. Vous pouvez vérifier la version d'Azure PowerShell installée à l'aide de la commande **Get-Module azure | format-table version**. Pour des instructions et un lien vers la dernière version, consultez la rubrique [Installation et configuration d'Azure PowerShell](install-configure-powershell.md). 
 
 - L'agent de machine virtuelle installé sur la machine virtuelle cible. 
 

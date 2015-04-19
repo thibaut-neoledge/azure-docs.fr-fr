@@ -25,7 +25,7 @@ La classe TodoItem définit l'objet de données et vous devez ajouter à cette c
 
 	Ces propriétés permettent de générer la signature d'accès partagé (SAP) et de stocker les informations de l'image. Notez que la casse de ces propriétés correspond à celle de la version principale JavaScript. 
 
-	>[AZURE.NOTE] Lors de l'utilisation de l'initialiseur de base de données par défaut, Entity Framework supprime et recrée la base de données lorsqu'il détecte une modification du modèle de données dans la définition de Code First. Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les migrations Code First. L'initialiseur par défaut ne peut pas être utilisé avec une base de données SQL dans Azure. Pour plus d'informations, consultez la rubrique [Utilisation des migrations Code First pour mettre à jour le modèle de données](/fr-FR/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
+	>[AZURE.NOTE] Lors de l'utilisation de l'initialiseur de base de données par défaut, Entity Framework supprime et recrée la base de données lorsqu'il détecte une modification du modèle de données dans la définition de Code First. Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les migrations Code First. L'initialiseur par défaut ne peut pas être utilisé avec une base de données SQL dans Azure. Pour plus d'informations, consultez la rubrique [Utilisation des migrations Code First pour mettre à jour le modèle de données](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 ##<a name="update-scripts"></a>Mise à jour du contrôleur TodoItem pour générer une signature d'accès partagé 
 

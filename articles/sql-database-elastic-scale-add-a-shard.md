@@ -44,7 +44,7 @@ Dans l'exemple ci-dessous, une base de données nommée **sample_shard_2** et to
 
 ## Ajout d'une partition pour une partie vide d'une plage existante  
 
-Il peut arriver que vous ayez déjà mappé une plage à une partition et l'ayez partiellement remplie avec des données, mais que vous souhaitiez maintenant que les données futures soient dirigées vers une autre partition. Par exemple, vous partitionnez par plage de jours et avez déjà alloué 50 jours à une partition, mais le jour 24, vous souhaitez que les données futures soient dirigées vers une autre partition. Le [service de fusion et de fractionnement](./sql-database-elastic-scale-overview-split-and-merge.md) de la version préliminaire de l'infrastructure élastique peut effectuer cette opération, mais s'il n'est pas nécessaire de déplacer des données (par exemple, les données de la plage de jours [25, 50], c'est-à-dire le jour 25 inclus et le jour 50 exclu, qui n'existe pas encore) vous pouvez effectuer cela entièrement en utilisant directement les API de gestion de carte de partition.
+Il peut arriver que vous ayez déjà mappé une plage à une partition et l'ayez partiellement remplie avec des données, mais que vous souhaitiez maintenant que les données futures soient dirigées vers une autre partition. Par exemple, vous partitionnez par plage de jours et avez déjà alloué 50 jours à une partition, mais le jour 24, vous souhaitez que les données futures soient dirigées vers une autre partition. Le [service de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge.md) de la version préliminaire de l'infrastructure élastique peut effectuer cette opération, mais s'il n'est pas nécessaire de déplacer des données (par exemple, les données de la plage de jours [25, 50], c'est-à-dire le jour 25 inclus et le jour 50 exclu, qui n'existe pas encore) vous pouvez effectuer cela entièrement en utilisant directement les API de gestion de carte de partition.
 
 ### Exemple :  Fractionnement d'une plage et affectation de la partie vide à une partition nouvellement ajoutée
 
@@ -73,7 +73,7 @@ Une base de données nommée " sample_shard_2 " et tous les objets de schéma n�
     upd.Shard = shard2; 
     sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd)); 
 
-**Important** :  Utilisez cette technique seulement si vous êtes certain que la plage de mappage mis à jour est vide.  Les méthodes ci-dessus ne vérifient pas les données de la plage déplacée, il est donc préférable d'inclure des vérifications dans votre code.  S'il existe des lignes dans la plage déplacée, la distribution des données réelle ne correspondra pas à la carte des partitions mise à jour. Dans ces cas, utilisez plutôt le [Service de fusion et de fractionnement](./sql-database-elastic-scale-overview-split-and-merge.md) pour effectuer cette opération.  
+**Important** :  Utilisez cette technique seulement si vous êtes certain que la plage de mappage mis à jour est vide.  Les méthodes ci-dessus ne vérifient pas les données de la plage déplacée, il est donc préférable d'inclure des vérifications dans votre code.  S'il existe des lignes dans la plage déplacée, la distribution des données réelle ne correspondra pas à la carte des partitions mise à jour. Dans ces cas, utilisez plutôt le [Service de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge.md) pour effectuer cette opération.  
 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]

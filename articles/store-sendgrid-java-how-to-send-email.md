@@ -193,7 +193,7 @@ consultez la [Documentation sur l'API SendGrid][].
 Maintenant que vous avez appris les notions de base du service de messagerie SendGrid, consultez
 ces liens pour en savoir plus.
 
-* Exemple montrant comment utiliser SendGrid dans un déploiement Azure : [Envoi de courriers électroniques à l'aide de SendGrid à partir de Java dans un déploiement Azure](../store-sendgrid-java-how-to-send-email-example/)
+* Exemple montrant comment utiliser SendGrid dans un déploiement Azure : [Envoi de courriers électroniques à l'aide de SendGrid à partir de Java dans un déploiement Azure](store-sendgrid-java-how-to-send-email-example.md)
 * Kit SDK SendGrid Java : <https://sendgrid.com/docs/Code_Examples/java.html>
 * Documentation de l'API SendGrid : <https://sendgrid.com/docs/API_Reference/index.html>
 * Offres spéciales SendGrid pour les clients Azure : <https://sendgrid.com/windowsazure.html>

@@ -18,7 +18,7 @@
 
 #Comment utiliser l'API Engagement sur Windows Phone
 
-Ce document vient compléter celui intitulé [Comment intégrer Mobile Engagement à votre application Windows Phone](../mobile-engagement-windows-phone-integrate-engagement/). Il fournit des informations détaillées sur l'utilisation de l'API Engagement pour signaler les statistiques de votre application.
+Ce document vient compléter celui intitulé [Comment intégrer Mobile Engagement à votre application Windows Phone](mobile-engagement-windows-phone-integrate-engagement.md). Il fournit des informations détaillées sur l'utilisation de l'API Engagement pour signaler les statistiques de votre application.
 
 Si vous souhaitez qu'Engagement signale uniquement les sessions, activités, incidents et informations techniques de votre application, la méthode la plus simple consiste à configurer toutes vos sous-classes `PhoneApplicationPage` de manière à ce qu'elles héritent de la classe  `EngagementPage`.
 

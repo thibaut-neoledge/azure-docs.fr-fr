@@ -11,7 +11,7 @@ Vous devez d'abord générer le fichier de demande de signature de certificat (C
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step5.png)
 
-3. Sélectionnez votre **Adresse de messagerie de l'utilisateur** et votre **Nom commun**. Vérifiez que la case **Enregistré sur le disque** est cochée, puis cliquez sur **Continuer**. Laissez le champ **Adresse de messagerie d'autorité de certification** vide, car il n'est pas requis.
+3. Sélectionnez votre **Adresse de messagerie de l'utilisateur** et votre **Nom commun**, vérifiez que la case **Enregistré sur le disque** est cochée, puis cliquez sur **Continuer**. Laissez le champ **Adresse de messagerie d'autorité de certification** vide, car il n'est pas requis.
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step6.png)
 
@@ -27,7 +27,7 @@ Ensuite, vous allez inscrire votre application auprès d'Apple, activer les noti
 
 Pour pouvoir envoyer des notifications Push vers une application iOS à partir des services mobiles, vous devez inscrire votre application auprès d'Apple, ainsi qu'aux notifications Push.  
 
-1. Si vous n'avez pas encore inscrit votre application, accédez au <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">portail d'approvisionnement iOS</a> dans le centre de développement Apple. Connectez-vous avec votre ID Apple, cliquez sur **Identifiers**, sur **App IDs**, puis sur le signe **+** pour inscrire une nouvelle application.
+1. Si vous n'avez pas encore inscrit votre application, accédez au <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portail d'approvisionnement iOS</a> dans le centre de développement Apple, connectez-vous avec votre ID Apple, cliquez sur **Identificateurs**, sur **App IDs**, puis sur le signe **+** pour inscrire une nouvelle application.
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-02.png)
 
@@ -88,13 +88,13 @@ Pour pouvoir envoyer des notifications Push vers une application iOS à partir d
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step10.png)
 
-    > [AZURE.NOTE] Il se peut que le nom de votre certificat soit différent. Il portera toutefois le préfixe **Apple Development iOS Push Services:**.
+    > [AZURE.NOTE] Le nom de votre certificat peut être différent, mais il est précédé par **Apple Development iOS Push Services:**.
 
 Plus tard, vous devrez utiliser ce certificat pour générer un fichier .p12 et le télécharger vers Mobile Services pour activer l'authentification avec APNS.
 
 ## <a id="profile"></a>Création d'un profil d'approvisionnement pour l'application
 
-1. Dans le <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">portail d'approvisionnement iOS</a>, sélectionnez **Provisioning Profiles**, puis **All**. Cliquez ensuite sur le bouton **+** pour créer un profil. Ceci démarre l'assistant **Ajouter le profil d'approvisionnement iOS**.
+1. Dans le <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portail d'approvisionnement iOS</a>, sélectionnez **Provisioning Profiles**, puis **All**, et cliquez sur le bouton **+** pour créer un profil. Ceci démarre l'assistant **Ajouter le profil d'approvisionnement iOS**.
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-12.png)
 
@@ -130,4 +130,4 @@ Plus tard, vous devrez utiliser ce certificat pour générer un fichier .p12 et 
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step17.png)
 
-<!--HONumber=49-->
+<!--HONumber=47-->

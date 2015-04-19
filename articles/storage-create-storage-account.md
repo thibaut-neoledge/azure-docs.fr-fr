@@ -94,7 +94,7 @@ Les points de terminaison pour votre compte de stockage sont visibles dans le ta
 
 L'URL permettant d'accéder à un objet dans un compte de stockage est constituée de l'ajout de l'emplacement de l'objet dans le compte de stockage au point de terminaison. Par exemple, une adresse d'objet blob peut avoir ce format : http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec votre compte de stockage. Consultez la rubrique [Configuration d'un nom de domaine personnalisé pour des données d'objets blob dans un compte de stockage](../storage-custom-domain-name/) pour plus d'informations.
+Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec votre compte de stockage. Consultez la rubrique [Configuration d'un nom de domaine personnalisé pour des données d'objets blob dans un compte de stockage](storage-custom-domain-name.md) pour plus d'informations.
 
 ### <a id="affinity-group"></a>Colocalisation de service avec un groupe d'affinités 
 
@@ -112,7 +112,7 @@ Un *groupe d'affinités* est un regroupement géographique de vos services et ma
 
 Lorsque vous créez un compte de stockage, Azure génère deux clés d'accès de stockage de 512 bits, qui servent à l'authentification lors de l'accès au compte de stockage. En fournissant deux clés d'accès de stockage, Azure vous permet de régénérer les clés sans interrompre votre service de stockage ni l'accès à ce service.
 
-> [AZURE.NOTE] Nous vous recommandons d'éviter de partager les clés d'accès à votre compte de stockage avec qui que ce soit. Pour autoriser l'accès aux ressources de stockage sans donner vos clés d'accès, vous pouvez utiliser une *signature d'accès partagé*. Celle-ci donne accès à votre compte à une ressource pendant une durée que vous déterminez et avec les autorisations que vous spécifiez. Pour plus d'informations, consultez le [didacticiel sur les signatures d'accès partagé](../storage-dotnet-shared-access-signature-part-1/).
+> [AZURE.NOTE] Nous vous recommandons d'éviter de partager les clés d'accès à votre compte de stockage avec qui que ce soit. Pour autoriser l'accès aux ressources de stockage sans donner vos clés d'accès, vous pouvez utiliser une *signature d'accès partagé*. Celle-ci donne accès à votre compte à une ressource pendant une durée que vous déterminez et avec les autorisations que vous spécifiez. Pour plus d'informations, consultez le [didacticiel sur les signatures d'accès partagé](storage-dotnet-shared-access-signature-part-1.md).
 
 Dans le [portail de gestion](http://manage.windowsazure.com), utilisez **Gérer les clés** du tableau de bord ou la page **Stockage** pour afficher, copier et régénérer les clés d'accès de stockage qui servent à accéder aux services Blob, de Table et de File d'attente. 
 

@@ -38,7 +38,7 @@ Cette rubrique présente quelques aspects de l'utilisation de machines virtuelle
 
 Lorsque vous créez une machine virtuelle Linux avec le portail de gestion Azure, il vous est demandé de fournir un nom d'utilisateur, un mot de passe et (éventuellement) une clé publique SSH. Le choix d'un nom d'utilisateur pour le déploiement d'une machine virtuelle Linux sur Azure est soumis à la contrainte suivante : les noms des comptes système (UID <100) déjà présents sur la machine virtuelle ne sont pas autorisés ( 'root' par exemple).
 
- - Consultez la rubrique [Utilisation de SSH avec Linux sur Azure](../linux-use-ssh-key/)
+ - Consultez la rubrique [Utilisation de SSH avec Linux sur Azure](linux-use-ssh-key.md)
 
 
 ### <a id="keygeneration"></a>Génération de clés SSH
@@ -92,14 +92,14 @@ Le compte utilisateur qui est spécifié pendant le déploiement de l'instance d
 
 Vous pouvez éventuellement obtenir un interpréteur de commandes root avec **sudo -s**.
 
-- Consultez la rubrique [Utilisation des privilèges root sur les machines virtuelles Linux dans Azure](../virtual-machines-linux-use-root-privileges/)
+- Consultez la rubrique [Utilisation des privilèges root sur les machines virtuelles Linux dans Azure](virtual-machines-linux-use-root-privileges.md)
 
 
 ## <a id="firewallconfiguration"></a>Configuration du pare-feu
 
 Azure fournit un filtre de paquets entrants qui limite la connectivité aux ports spécifiés dans le portail de gestion. Par défaut, le seul port autorisé est SSH. Vous pouvez ouvrir l'accès à d'autres ports sur votre machine virtuelle Linux en configurant des points de terminaison dans le portail de gestion :
 
- - Consultez la rubrique : [Configuration des points de terminaison sur une machine virtuelle](../virtual-machines-set-up-endpoints/)
+ - Consultez la rubrique : [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md)
 
 Les images Linux de la galerie Azure n'activent pas le pare-feu *iptables* par défaut. Si besoin est, le pare-feu peut être configuré pour fournir un filtrage supplémentaire.
 
@@ -114,7 +114,7 @@ Si vous souhaitez procéder à des changements de nom après le déploiement d'u
 
 L'agent Linux Azure inclut une fonctionnalité permettant de détecter automatiquement ce changement de nom et de configurer correctement la machine virtuelle pour conserver ce changement et le publier sur les serveurs DNS de la plateforme.
 
- - [Guide d'utilisation de l'agent Linux Azure](../virtual-machines-linux-agent-user-guide/)
+ - [Guide d'utilisation de l'agent Linux Azure](virtual-machines-linux-agent-user-guide.md)
 
 ### Images Ubuntu
 Les images Ubuntu utilisent cloud-init, qui fournit des fonctionnalités supplémentaires d'amorçage d'une machine virtuelle.
@@ -132,7 +132,7 @@ Azure vous permet de capturer l'état d'une machine virtuelle existante dans une
 
 3. Cliquez sur *Capture* dans le portail de gestion ou utilisez les outils Powershell ou d'interface de ligne de commande pour capturer la machine virtuelle en tant qu'image.
 
- - Consultez la rubrique : [Capture d'une machine virtuelle Linux à utiliser comme modèle](../virtual-machines-linux-capture-image/)
+ - Consultez la rubrique : [Capture d'une machine virtuelle Linux à utiliser comme modèle](virtual-machines-linux-capture-image.md)
 
 
 ## <a id="attachingdisks"></a>Attachement de disques
@@ -143,9 +143,9 @@ Sous Linux, le disque de ressources est habituellement géré par l'agent Linux 
 
 	>[AZURE.NOTE] Notez que le disque de ressources est un disque **temporaire** et qu'il peut être effacé et reformaté lors du redémarrage de la machine virtuelle.
 
-Sous Linux, le disque de données peut être nommé `/dev/sdc` par le noyau et les utilisateurs doivent partitionner, formater et monter cette ressource. Vous trouverez des instructions pas à pas dans le didacticiel suivant : [Attachement d'un disque de données à une machine virtuelle](../virtual-machines-linux-how-to-attach-disk/).
+Sous Linux, le disque de données peut être nommé `/dev/sdc` par le noyau et les utilisateurs doivent partitionner, formater et monter cette ressource. Vous trouverez des instructions pas à pas dans le didacticiel suivant : [Attachement d'un disque de données à une machine virtuelle](virtual-machines-linux-how-to-attach-disk.md).
 
- - Voir aussi : [Configuration d'un RAID logiciel sur Linux](../virtual-machines-linux-configure-raid/)
+ - Voir aussi : [Configuration d'un RAID logiciel sur Linux](virtual-machines-linux-configure-raid.md)
 
 
 

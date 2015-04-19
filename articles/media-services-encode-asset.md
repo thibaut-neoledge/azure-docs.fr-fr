@@ -19,7 +19,7 @@
 
 #Encodage d'une ressource à l'aide de l'encodeur Azure Media
 
-Cet article fait partie de la série [workflow à la demande de vidéo Media Services](../media-services-video-on-demand-workflow). 
+Cet article fait partie de la série [workflow à la demande de vidéo Media Services](media-services-video-on-demand-workflow.md). 
 
 ##Vue d'ensemble
 Pour fournir une vidéo numérique sur Internet, vous devez compresser le contenu multimédia. Les fichiers vidéo numériques sont volumineux et peuvent être trop gros pour être fournis sur Internet ou pour que les périphériques de vos clients les affichent correctement. L'encodage est le processus de compression audio et vidéo permettant à vos clients d'afficher votre contenu multimédia.
@@ -206,7 +206,7 @@ La méthode **CreateChainedTaskEncodingJob** suivante crée un travail qui conti
 
 
 ##Étapes suivantes
-Maintenant que vous savez comment créer une tâche pour encoder un élément multimédia, consultez la rubrique [Vérification de la progression d'une tâche avec Media Services](../media-services-check-job-progress/).
+Maintenant que vous savez comment créer une tâche pour encoder un élément multimédia, consultez la rubrique [Vérification de la progression d'une tâche avec Media Services](media-services-check-job-progress.md).
 
 [Azure Marketplace]: https://datamarket.azure.com/
 [Préréglage des tâches]: http://msdn.microsoft.com/library/dn619392.aspx

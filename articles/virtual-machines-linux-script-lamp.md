@@ -30,11 +30,11 @@ Pour cette procédure, créez deux machines virtuelles Azure exécutant Ubuntu 1
 
 Vous avez également besoin d'un compte Azure Storage et d'une clé pour accéder à celui-ci (vous pouvez l'obtenir à partir du portail Azure).
 
-Si vous avez besoin d'aide pour créer des machines virtuelles Linux sur Azure, reportez-vous à [Création d'une machine virtuelle exécutant Linux](../virtual-machines-linux-tutorial/).
+Si vous avez besoin d'aide pour créer des machines virtuelles Linux sur Azure, reportez-vous à [Création d'une machine virtuelle exécutant Linux](virtual-machines-linux-tutorial.md).
 
 Bien que les commandes d'installation spécifiques soient conçues pour Ubuntu, vous pouvez adapter les étapes générales à toute distribution prise en charge.
 
-La machine virtuelle *script-vm* doit disposer de l'interface xplat-cli, ainsi que d'une connexion opérationnelle à Azure. Pour obtenir de l'aide à ce sujet, reportez-vous à [Installation et configuration de l'interface de ligne de commande multiplateforme Azure](../xplat-cli/).
+La machine virtuelle *script-vm* doit disposer de l'interface xplat-cli, ainsi que d'une connexion opérationnelle à Azure. Pour obtenir de l'aide à ce sujet, reportez-vous à [Installation et configuration de l'interface de ligne de commande multiplateforme Azure](xplat-cli.md).
 
 ## Téléchargement d'un script
 
@@ -104,6 +104,6 @@ Voici quelques ressources supplémentaires pour l'interface xplat-cli, Linux et 
 
 [Extensions Linux Azure (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
-[Linux et informatique open-source sur Azure](../virtual-machines-linux-opensource/)
+[Linux et informatique open-source sur Azure](virtual-machines-linux-opensource.md)
 
 <!--HONumber=47-->

@@ -35,7 +35,7 @@ Si vous n'avez pas encore ajouté Application Insights à votre projet (il n'inc
 
 * [Ajout d'Application Insights à votre projet d'application dans Visual Studio][greenbrown] - Recommandé. Vous pouvez effectuer une analyse passive des performances, insérer des journalisations de diagnostic et procéder au suivi de l'utilisation.
 * [Analyse des performances d'un site web en direct dès maintenant][redfield] - Ainsi, vous n'avez plus besoin de mettre à jour le projet de l'application, ni de redéployer le site web.
-* [Pour un site web Microsoft Azure](../insights-how-to-customize-monitoring/)  Vous pouvez déjà voir les métriques dans la thématique Surveillance du site web. 
+* [Pour un site web Microsoft Azure](insights-how-to-customize-monitoring.md)  Vous pouvez déjà voir les métriques dans la thématique Surveillance du site web. 
 
 
 ## <a name="view"></a>Afficher des rapports

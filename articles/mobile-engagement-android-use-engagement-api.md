@@ -18,7 +18,7 @@
 
 #Comment utiliser l'API Engagement sur Android
 
-Ce document est un module complémentaire de la procédure [Comment intégrer Engagement sur Android](../mobile-engagement-android-integrate-engagement/): il décrit en détail comment utiliser l'API Engagement pour créer des rapports sur les statistiques de votre application.
+Ce document est un module complémentaire de la procédure [Comment intégrer Engagement sur Android](mobile-engagement-android-integrate-engagement.md): il décrit en détail comment utiliser l'API Engagement pour créer des rapports sur les statistiques de votre application.
 
 N'oubliez pas que si vous voulez qu'Engagement ne crée des rapports que sur les sessions, les activités, les blocages et les informations techniques de votre application, le plus simple est de faire hériter vos sous-classes `Activity` de la classe `EngagementActivity` correspondante.
 
@@ -28,7 +28,7 @@ L'API Engagement est fournie par la classe `EngagementAgent`. Une instance de ce
 
 ##Concepts d'Engagement
 
-Les sections suivantes décrivent les [concepts de Mobile Engagement](../mobile-engagement-concepts/), pour la plateforme Android.
+Les sections suivantes décrivent les [concepts de Mobile Engagement](mobile-engagement-concepts.md), pour la plateforme Android.
 
 ### `Session` et `activité`
 

@@ -29,7 +29,7 @@
 
 Cette rubrique montre comment utiliser Azure Mobile Services pour utiliser les données dans une application Windows Store. Dans ce didacticiel, vous allez télécharger un projet Visual Studio 2013 pour une application qui stocke les données en mémoire, créer un service mobile, intégrer le service mobile avec l'application, puis vous connecter au portail de gestion Azure pour afficher les modifications effectuées sur les données lors de l'exécution de l'application.
 
->[AZURE.NOTE]Cette rubrique montre comment utiliser Visual Studio 2013 pour ajouter Azure Mobile Services à un projet Windows Store. Vous pouvez ajouter le même service mobile principal JavaScript à un projet d'application Windows universelle. Pour plus d'informations, consultez la page [version application Windows universelle](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data) de ce didacticiel.
+>[AZURE.NOTE]Cette rubrique montre comment utiliser Visual Studio 2013 pour ajouter Azure Mobile Services à un projet Windows Store. Vous pouvez ajouter le même service mobile principal JavaScript à un projet d'application Windows universelle. Pour plus d'informations, consultez la page [version application Windows universelle](mobile-services-javascript-backend-windows-universal-javascript-get-started-data.md) de ce didacticiel.
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 

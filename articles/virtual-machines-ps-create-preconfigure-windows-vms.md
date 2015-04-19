@@ -26,7 +26,7 @@ Si vous souhaitez connaître la rubrique associée pour configurer des machines 
 
 ## Étape 1 : Installation d'Azure PowerShell
 
-Si ce n'est pas encore fait, installez Azure PowerShell sur votre ordinateur local à l'aide des instructions décrites dans [Installation et configuration d'Azure PowerShell](../install-configure-powershell/). Ouvrez ensuite une invite de commande Azure PowerShell.
+Si ce n'est pas encore fait, installez Azure PowerShell sur votre ordinateur local à l'aide des instructions décrites dans [Installation et configuration d'Azure PowerShell](install-configure-powershell.md). Ouvrez ensuite une invite de commande Azure PowerShell.
 
 ## Étape 2 : Configuration de votre compte d'abonnement et de stockage
 
@@ -265,8 +265,8 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 
 [Vue d'ensemble des machines virtuelles Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[Installation et configuration d'Azure PowerShell](../install-configure-powershell/)
+[Installation et configuration d'Azure PowerShell](install-configure-powershell.md)
 
-[Utilisation d'Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Linux](../virtual-machines-ps-create-preconfigure-linux-vms/)
+[Utilisation d'Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
 <!--HONumber=47-->

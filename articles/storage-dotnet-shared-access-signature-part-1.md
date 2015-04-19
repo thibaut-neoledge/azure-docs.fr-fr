@@ -20,7 +20,7 @@
 
 # Signatures d'accès partagé, partie 1 : présentation du modèle SAP
 
-L'utilisation d'une signature d'accès partagé (SAP) offre un moyen efficace pour octroyer aux autres clients un accès limité aux objets blobs, tables et files d'attente dans votre compte de stockage, sans être obligé d'exposer votre clé de compte. Dans la première partie de ce didacticiel consacré aux signatures d'accès partagé, nous allons vous présenter un aperçu du modèle SAP et examiner les meilleures pratiques concernant les signatures d'accès partagé. [La partie 2](../storage-dotnet-shared-access-signature-part-2/) du didacticiel décrit étape par étape la procédure de création de signatures d'accès partagé avec le service BLOB.
+L'utilisation d'une signature d'accès partagé (SAP) offre un moyen efficace pour octroyer aux autres clients un accès limité aux objets blobs, tables et files d'attente dans votre compte de stockage, sans être obligé d'exposer votre clé de compte. Dans la première partie de ce didacticiel consacré aux signatures d'accès partagé, nous allons vous présenter un aperçu du modèle SAP et examiner les meilleures pratiques concernant les signatures d'accès partagé. [La partie 2](storage-dotnet-shared-access-signature-part-2.md) du didacticiel décrit étape par étape la procédure de création de signatures d'accès partagé avec le service BLOB.
 
 ## Présentation de la signature d'accès partagé ##
 
@@ -223,7 +223,7 @@ Les signatures d'accès partagé sont utiles pour fournir des autorisations d'ac
 
 ## Étapes suivantes ##
 
-[Signatures d'accès partagé, partie 2 : création et utilisation d'une signature d'accès partagé avec le service](../storage-dotnet-shared-access-signature-part-2/)
+[Signatures d'accès partagé, partie 2 : création et utilisation d'une signature d'accès partagé avec le service](storage-dotnet-shared-access-signature-part-2.md)
 
 [Gestion de l'accès aux ressources de stockage Azure](http://msdn.microsoft.com/library/windowsazure/ee393343.aspx)
 

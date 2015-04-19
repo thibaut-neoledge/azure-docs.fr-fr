@@ -78,7 +78,7 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 * [Prise en main des notifications Push] 
   <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
-Pour plus d'informations sur les applications Windows universelles, consultez la page [Prise en charge de plusieurs plateformes d'appareil à partir d'un service mobile unique.](/fr-fr/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs).
+Pour plus d'informations sur les applications Windows universelles, consultez la page [Prise en charge de plusieurs plateformes d'appareil à partir d'un service mobile unique.](mobile-services-how-to-use-multiple-clients-single-service#shared-vs.md).
 
 <!-- Anchors. -->
 [Prise en main de Mobile Services]:#getting-started

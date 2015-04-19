@@ -53,8 +53,8 @@ L'élément clé de ce diagramme architectural est Azure Service Bus, qui fourni
 ###Conditions préalables
 Vous devez suivre les didacticiels suivants pour vous familiariser avec les concepts et les étapes habituelles de création et de configuration :
 
-1. [Programmation Service Bus Pub/Sub] : cette page présente l'utilisation des rubriques/abonnements Service Bus, la création d'un espace de noms pour contenir des rubriques/abonnements, ainsi que l'envoi et la réception de messages à partir de ceux-ci.
-2. [Notification Hubs : didacticiel Windows Universel] : cette rubrique explique comment configurer une application Windows Store et Notification Hubs pour vous inscrire et recevoir des notifications.
+1. [Programmation Service Bus Pub/Sub] : cette page présente l'utilisation des rubriques/abonnements Service Bus, la création d'un espace de noms pour contenir des rubriques/abonnements, ainsi que l'envoi et la réception de messages à partir de ceux-ci. 
+2. [Notification Hubs : didacticiel Windows universel] : cette rubrique explique comment configurer une application Windows Store et Notification Hubs pour vous inscrire et recevoir des notifications. 
 
 ###Exemple de code
 
@@ -62,7 +62,7 @@ L'exemple de code complet est disponible sur la page [Exemples de Notification H
 
 1. **EnterprisePushBackendSystem**
 	
-	a. Ce projet utilise le package NuGet *WindowsAzure.ServiceBus*. Il repose sur la [Programmation Service Bus Pub/Sub]. 
+	a. Ce projet utilise le package Nuget *WindowsAzure.ServiceBus*. Il repose sur la [Programmation Service Bus Pub/Sub]. 
 
 	b. Il s'agit d'une console d'application C# simple pour simuler un système métier qui lance le message à remettre à l'application mobile. 
 	
@@ -78,7 +78,7 @@ L'exemple de code complet est disponible sur la page [Exemples de Notification H
             SendMessage(connectionString);
         }
 	
-	c. `CreateTopic` permet de créer la rubrique Service Bus où nous enverrons les messages.
+	c. `CreateTopic` permet de créer la rubrique Service Bus où nous enverrons les messages. 
 
         public static void CreateTopic(string connectionString)
         {
@@ -126,7 +126,7 @@ L'exemple de code complet est disponible sur la page [Exemples de Notification H
 
 2. **ReceiveAndSendNotification**
 
-	a. Ce projet utilise les packages NuGet *WindowsAzure.ServiceBus* et *Microsoft.Web.WebJobs.Publish*. Il repose sur la [Programmation Service Bus Pub/Sub]. 
+	a. Ce projet utilise les packages Nuget *WindowsAzure.ServiceBus* et *Microsoft.Web.WebJobs.Publish*. Il repose sur la [Programmation Service Bus Pub/Sub]. 
 
 	b. Il s'agit d'une autre application de console C# qui s'exécutera comme un [WebJob Azure], étant donné qu'elle doit s'exécuter en continu pour écouter les messages des systèmes métiers/principaux. Cela fera partie de votre serveur principal Mobile. 
 
@@ -225,7 +225,7 @@ L'exemple de code complet est disponible sur la page [Exemples de Notification H
 	
 	b. Assurez-vous que la réception des notifications toast est activée dans votre application. 
 
-	c. Assurez-vous que le code d'inscription suivant de Notification Hubs est appelé au démarrage de l'application (après avoir remplacé *HubName* et *DefaultListenSharedAccessSignature*) :
+	c. Assurez-vous que le code d'inscription suivant de Notification Hubs est appelé au démarrage de l'application (après avoir remplacé *HubName* et *DefaultListenSharedAccessSignature* :
 
         private async void InitNotificationsAsync()
         {
@@ -268,7 +268,7 @@ L'exemple de code complet est disponible sur la page [Exemples de Notification H
 [Azure Mobile Service]: http://azure.microsoft.com/documentation/services/mobile-services/
 [Azure Service Bus]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
 [Programmation Service Bus Pub/Sub]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-[WebJob Azure]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
+[Azure WebJob]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
 [Notification Hubs : didacticiel Windows Universel]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

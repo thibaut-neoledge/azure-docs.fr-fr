@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Mise en route](/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
-> - [Que s'est-il passé](/documentation/articles/vs-storage-aspnet5-what-happened/)
+> - [Mise en route](vs-storage-aspnet5-getting-started-blobs.md)
+> - [Que s'est-il passé](vs-storage-aspnet5-what-happened.md)
 
 ## Prise en main d'Azure Storage (projets ASP.NET 5)
 
 > [AZURE.SELECTOR]
-> - [Objets BLOB](/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
-> - [Files d'attente](/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
-> - [Tables](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
+> - [Objets BLOB](vs-storage-aspnet5-getting-started-blobs.md)
+> - [Files d'attente](vs-storage-aspnet5-getting-started-queues.md)
+> - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
 Le stockage d'objets blob Azure est un service permettant de stocker de grandes quantités de données non structurées accessibles depuis n'importe où dans le monde via HTTP ou HTTPS. Les objets blob peuvent être de toutes tailles. Il peut s'agir d'images, de fichiers audio ou vidéo, de données brutes ou de fichiers de documents.
 

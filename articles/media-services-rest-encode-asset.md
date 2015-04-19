@@ -19,7 +19,7 @@
 
 #Encodage d'une ressource à l'aide d'Azure Media Encoder
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) . 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) . 
 
 ##Vue d'ensemble
 Pour fournir une vidéo numérique sur Internet, vous devez compresser le contenu multimédia. Les fichiers vidéo numériques sont volumineux et peuvent être trop gros pour être fournis sur Internet ou pour que les périphériques de vos clients les affichent correctement. L'encodage est le processus de compression audio et vidéo permettant à vos clients d'afficher votre contenu multimédia.
@@ -32,9 +32,9 @@ Il est recommandé de toujours encoder vos fichiers mezzanine sous forme de jeu 
 
 >[AZURE.NOTE] Lorsque vous utilisez l'API REST de Media Services, les considérations suivantes s'appliquent :
 >
->Lors de l'accès aux entités dans Media Services, vous devez définir les valeurs et les champs d'en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Configuration du développement de l'API REST Media Services](../media-services-rest-how-to-use).
+>Lors de l'accès aux entités dans Media Services, vous devez définir les valeurs et les champs d'en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Configuration du développement de l'API REST Media Services](media-services-rest-how-to-use.md).
 
->Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez adresser les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](../media-services-rest-connect_programmatically/). 
+>Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez adresser les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](media-services-rest-connect_programmatically.md). 
 
 
 L'exemple suivant montre comment créer et publier un projet avec une tâche visant à encoder une vidéo en une résolution et une qualité spécifiques. Quand vous encodez à l'aide de l'Encodeur multimédia Azure, vous pouvez utiliser les présélections de configuration de tâche spécifiés [ici](https://msdn.microsoft.com/library/azure/dn619389.aspx).
@@ -110,7 +110,7 @@ Dans de nombreux scénarios d'application, les développeurs souhaitent créer u
 
 
 ##Étapes suivantes
-Maintenant que vous savez comment créer un travail d'encodage de ressource, accédez à la [procédure de vérification de la progression des tâches avec Media Services](../media-services-rest-check-job-progress/) .
+Maintenant que vous savez comment créer un travail d'encodage de ressource, accédez à la [procédure de vérification de la progression des tâches avec Media Services](media-services-rest-check-job-progress.md) .
 
 [Azure Marketplace]: https://datamarket.azure.com/
 [Présélection d'encodeur]: http://msdn.microsoft.com/library/dn619392.aspx

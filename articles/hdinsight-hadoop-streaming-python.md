@@ -196,7 +196,7 @@ Celle-ci énumère les mots qui sont utilisés, et elle vous indique, par la mê
 
 Maintenant que vous avez découvert comment utiliser des tâches de diffusion en continu MapReduce avec HDInsight, cliquez sur les liens ci-dessous pour explorer d'autres façons d'utiliser Azure HDInsight.
 
-* [Utiliser Hive avec HDInsight](../hdinsight-use-hive/)
-* [Utilisation de Pig avec HDInsight](../hdinsight-use-pig/)
-* [Utilisation des tâches MapReduce avec HDInsight](../hdinsight-use-mapreduce)
+* [Utiliser Hive avec HDInsight](hdinsight-use-hive.md)
+* [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
+* [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 <!--HONumber=47-->

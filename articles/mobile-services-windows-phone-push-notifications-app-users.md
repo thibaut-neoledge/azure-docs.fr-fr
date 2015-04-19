@@ -20,7 +20,7 @@
 
 Cette rubrique est obsolète. À la place, suivez les instructions mises à jour des didacticiels ci-dessous :
 
-+ [Ajout de notifications push à votre application Mobile Services](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/)<br/>Met à jour votre service mobile TodoList afin d'utiliser Azure Notification Hubs pour envoyer des notifications aux utilisateurs de l'exemple d'application TodoList.
-+ [Envoi de notifications Push aux utilisateurs authentifiés](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users/)<br/>Développe le didacticiel précédent pour autoriser uniquement les utilisateurs authentifiés à s'inscrire aux notifications.
++ [Ajout de notifications push à votre application Mobile Services](mobile-services-javascript-backend-windows-phone-get-started-push.md)<br/>Met à jour votre service mobile TodoList afin d'utiliser Azure Notification Hubs pour envoyer des notifications aux utilisateurs de l'exemple d'application TodoList.
++ [Envoi de notifications Push aux utilisateurs authentifiés](mobile-services-javascript-backend-windows-phone-push-notifications-app-users.md)<br/>Développe le didacticiel précédent pour autoriser uniquement les utilisateurs authentifiés à s'inscrire aux notifications.
 
 <!--HONumber=42-->

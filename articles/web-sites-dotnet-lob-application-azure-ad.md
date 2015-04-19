@@ -22,7 +22,7 @@ Dans cet article, vous allez apprendre à créer en toute simplicité une applic
 
 Le locataire AAD que vous utilisez peut disposer d'un annuaire Azure uniquement, ou il peut être synchronisé avec votre annuaire Active Directory (AD) local pour créer une expérience d'authentification unique pour les employés locaux ou distants.
 
-Pour une vue d'ensemble des différentes options d'authentification et d'autorisation des entreprises pour Sites Web Azure, consultez la page [Authentification et autorisation des utilisateurs dans les applications métier dans des Sites Web Azure](../web-sites-authentication-authorization).
+Pour une vue d'ensemble des différentes options d'authentification et d'autorisation des entreprises pour Sites Web Azure, consultez la page [Authentification et autorisation des utilisateurs dans les applications métier dans des Sites Web Azure](web-sites-authentication-authorization.md).
 
 <a name="bkmk_build"></a>
 ## Ce que vous allez créer ##
@@ -339,8 +339,8 @@ Maintenant que vous avez configuré les autorisations et la fonctionnalité mét
 ## Ressources supplémentaires
 
 - [Protection de l'application à l'aide du protocole SSL et de l'attribut Authorize](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/#protect-the-application-with-ssl-and-the-authorize-attribute)
-- [Authentification et autorisation des utilisateurs dans les applications métier dans Sites Web Azure](../web-sites-authentication-authorization/)
-- [Création d'une application métier ASP.NET MVC dans Sites Web Azure qui s'authentifie auprès d'AD FS](../web-sites-dotnet-lob-application-adfs/)
+- [Authentification et autorisation des utilisateurs dans les applications métier dans Sites Web Azure](web-sites-authentication-authorization.md)
+- [Création d'une application métier ASP.NET MVC dans Sites Web Azure qui s'authentifie auprès d'AD FS](web-sites-dotnet-lob-application-adfs.md)
 - [Exemples et documentation Microsoft Azure Active Directory](https://github.com/AzureADSamples)
 - [Blog de Vittorio Bertocci](http://blogs.msdn.com/b/vbertocci/)
 - [Migration d'un projet web VS2013 de WIF vers Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)

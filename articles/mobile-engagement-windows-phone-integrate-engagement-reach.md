@@ -18,7 +18,7 @@
 
 # Comment intégrer le Kit de développement de l'outil Couverture Engagement à votre projet Windows Phone
 
-Vous devez suivre la procédure d'intégration décrite dans le document [Intégration d'Engagement sur Windows Phone](../mobile-engagement-windows-phone-integrate-engagement/) avant de suivre ce guide.
+Vous devez suivre la procédure d'intégration décrite dans le document [Intégration d'Engagement sur Windows Phone](mobile-engagement-windows-phone-integrate-engagement.md) avant de suivre ce guide.
 
 ## Intégration du SDK de l'outil Couverture d'Engagement dans votre projet Windows Phone
 

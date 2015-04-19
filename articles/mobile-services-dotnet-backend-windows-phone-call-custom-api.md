@@ -25,13 +25,13 @@ Cette rubrique explique comment appeler une API personnalisée à partir d'une a
 
 L'API personnalisée créée dans cette rubrique permet d'envoyer une seule requête POST qui définit l'indicateur complété sur `true` pour toutes les tâches (éléments todo) de la table. En l'absence de cette API personnalisée, le client doit envoyer des demandes individuelles de mise à jour de l'indicateur pour chaque élément todo de la table.
 
-Vous allez ajouter cette fonctionnalité à l'application que vous avez créée avec le didacticiel [Ajout de Mobile Services à une application existante](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/) . À cet effet, vous allez exécuter la procédure suivante:
+Vous allez ajouter cette fonctionnalité à l'application que vous avez créée avec le didacticiel [Ajout de Mobile Services à une application existante](mobile-services-dotnet-backend-windows-phone-get-started-data.md) . À cet effet, vous allez exécuter la procédure suivante:
 
 1. [Définition de l'API personnalisée]
 2. [Mise à jour de l'application pour appeler l'API personnalisée]
 3. [Test de l'application] 
 
-Ce didacticiel se base sur l'exemple GetStartedWithData, une application TodoList simple. Avant de commencer, vous devez suivre le didacticiel [Ajout de Mobile Services à une application existante](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/).
+Ce didacticiel se base sur l'exemple GetStartedWithData, une application TodoList simple. Avant de commencer, vous devez suivre le didacticiel [Ajout de Mobile Services à une application existante](mobile-services-dotnet-backend-windows-phone-get-started-data.md).
 
 ## <a name="define-custom-api"></a>Définition de l'API personnalisée
 

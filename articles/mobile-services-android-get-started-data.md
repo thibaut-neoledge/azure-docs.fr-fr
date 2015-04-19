@@ -36,7 +36,7 @@
 > [AZURE.NOTE] Le code source de l'application terminée est disponible <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithData/Android/GetStartedWithData">ici,</a>.
 
 Si vous souhaitez consulter la version d'Eclipse de ce didacticiel, allez à : 
-[Prise en main des données à l'aide d'Eclipse](/documentation/articles/mobile-services-android-get-started-data-EC/).
+[Prise en main des données à l'aide d'Eclipse](mobile-services-android-get-started-data-EC.md).
 
 > [AZURE.NOTE] Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">version d'évaluation gratuite d'Azure</a>.
 

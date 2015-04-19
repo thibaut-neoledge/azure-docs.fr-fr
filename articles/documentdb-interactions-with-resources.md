@@ -259,7 +259,7 @@ Explorez la page [Référence de l'API REST Azure DocumentDB](https://msdn.micro
 -	Balises d'entité [http://fr.wikipedia.org/wiki/Balise-entit%C3%A9_ETag_HTTP](http://en.wikipedia.org/wiki/HTTP_ETag)
 -	[Interrogation de DocumentDB](documentdb-sql-query.md)
 -	[Référence SQL DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx)
--	[Programmation DocumentDB : procédures stockées, déclencheurs et fonctions définies par l'utilisateur](../documentdb-programming/)
+-	[Programmation DocumentDB : procédures stockées, déclencheurs et fonctions définies par l'utilisateur](documentdb-programming.md)
 -	[Documentation de référence DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx)
 
 

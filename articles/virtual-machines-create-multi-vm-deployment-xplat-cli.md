@@ -63,7 +63,7 @@ Bien que vous puissiez trouver plus d'informations à l'aide de l'option -help s
 ## Étapes suivantes
 
  
-* [Linux et informatique open-source sur Azure](../virtual-machines-linux-opensource/)
-* [Comment se connecter à une machine virtuelle exécutant Linux](../virtual-machines-linux-how-to-log-on/)
+* [Linux et informatique open-source sur Azure](virtual-machines-linux-opensource.md)
+* [Comment se connecter à une machine virtuelle exécutant Linux](virtual-machines-linux-how-to-log-on.md)
 
 <!--HONumber=47-->

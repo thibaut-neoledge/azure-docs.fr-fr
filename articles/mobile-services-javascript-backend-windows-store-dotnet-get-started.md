@@ -26,7 +26,7 @@ Dans ce didacticiel, vous allez créer un service mobile et une simple applicati
 
 >[AZURE.NOTE]Cette rubrique vous présente la création d'un projet de service mobile et d'une application Windows universelle à l'aide du portail de gestion Azure. Visual Studio 2013 vous permet également d'ajouter un nouveau projet de service mobile dans une solution Visual Studio existante. Pour plus d'informations, consultez la page [Démarrage rapide : ajout d'un service mobile (service principal JavaScript)](http://msdn.microsoft.com/library/windows/apps/xaml/dn263180.aspx).
 
->Pour ajouter un service mobile à un projet d'application Windows Phone 8.0 ou Windows Phone Store 8.1, consultez la page [Prise en main de données pour Windows Phone](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started-data).
+>Pour ajouter un service mobile à un projet d'application Windows Phone 8.0 ou Windows Phone Store 8.1, consultez la page [Prise en main de données pour Windows Phone](mobile-services-windows-phone-get-started-data.md).
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
 
@@ -85,7 +85,7 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 * [Prise en main des notifications Push] 
   <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
-Pour plus d'informations sur les applications Windows universelles, consultez la page [Prise en charge de plusieurs plateformes d'appareil à partir d'un service mobile unique](/fr-fr/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs).
+Pour plus d'informations sur les applications Windows universelles, consultez la page [Prise en charge de plusieurs plateformes d'appareil à partir d'un service mobile unique](mobile-services-how-to-use-multiple-clients-single-service#shared-vs.md).
 
 <!-- Anchors. -->
 [Prise en main de Mobile Services]:#getting-started

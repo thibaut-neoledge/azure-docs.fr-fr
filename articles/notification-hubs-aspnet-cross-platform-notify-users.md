@@ -1,5 +1,4 @@
-<properties
-	pageTitle="Envoi de notifications interplateformes aux utilisateurs avec Notification Hubs (ASP.NET)" description="Découvrez comment utiliser des modèles Notification Hubs pour envoyer, dans une même demande, une notification indépendante de la plateforme qui cible toutes les plateformes." services="notification-hubs" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties pageTitle="Envoi de notifications interplateformes aux utilisateurs avec Notification Hubs (ASP.NET)" description="Learn how to use Notification Hubs templates to send, in a single request, a platform-agnostic notification that targets all platforms." services="notification-hubs" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
@@ -64,7 +63,7 @@ Pour envoyer des notifications interplateforme à l'aide de modèles, procédez 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-	Ce code permet d'envoyer une notification à toutes les plateformes à la fois et sans avoir à spécifier de charge utile native. Notification Hubs génère et remet la charge utile appropriée à chaque appareil avec la valeur de balise _tag_ fournie, comme spécifié dans les modèles inscrits.
+	Ce code permet d'envoyer une notification à toutes les plateformes à la fois et sans avoir à spécifier de charge utile native. Notification Hubs génère et remet la charge utile appropriée à chaque appareil avec la valeur de _balise_ fournie, comme spécifié dans les modèles inscrits.
 
 4. Republiez votre projet principal WebApi.
 
@@ -94,15 +93,15 @@ Maintenant que vous avez terminé ce didacticiel, vous trouverez des information
 
 
 <!-- URLs. -->
-[Envoi de notifications Push aux utilisateurs - ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Envoi de notifications Push aux utilisateurs - Mobile Services]: /manage/services/notification-hubs/notify-users/
+[Envoi de notifications Push aux utilisateurs - ASP.NET]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
+[Envoi de notifications Push aux utilisateurs - Mobile Services]: /fr-fr/manage/services/notification-hubs/notify-users/
 [Visual Studio 2012 Express pour Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 
 [Portail de gestion]: https://manage.windowsazure.com/
-[Utilisation de Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Utilisation de Notification Hubs pour diffuser les dernières nouvelles]: /fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
 [Azure Notification Hubs]: http://go.microsoft.com/fwlink/p/?LinkId=314257
-[Notification des utilisateurs avec Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
+[Notification des utilisateurs avec Notification Hubs]: /fr-fr/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/
 [Modèles]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Procédure Notification Hubs pour Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

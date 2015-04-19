@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Getting Started](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
-> - [What Happened](/documentation/articles/vs-storage-aspnet-what-happened/)
+> - [Getting Started](vs-storage-aspnet-getting-started-blobs.md)
+> - [What Happened](vs-storage-aspnet-what-happened.md)
 
 ## Prise en main d'Azure Storage (projets ASP.NET)
 
 > [AZURE.SELECTOR]
-> - [Blobs](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
-> - [Queues](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
-> - [Tables](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
+> - [Blobs](vs-storage-aspnet-getting-started-blobs.md)
+> - [Queues](vs-storage-aspnet-getting-started-queues.md)
+> - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
 Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. Les objets blob peuvent être de toutes tailles. Il peut s'agir d'images, de fichiers audio ou vidéo, de données brutes ou de fichiers de documents.
 

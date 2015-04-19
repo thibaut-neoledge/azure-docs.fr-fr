@@ -48,7 +48,7 @@ Par exemple, pour mettre en cache du contenu pendant une heure, ajoutez les él�
 
 #Voir aussi
 
-[Comment gérer l'expiration des contenus d'objets blob dans le réseau de distribution de contenu Azure (CDN)](./cdn-manage-expiration-of-blob-content.md
+[Comment gérer l'expiration des contenus d'objets blob dans le réseau de distribution de contenu Azure (CDN)](cdn-manage-expiration-of-blob-content.md
 )
 
 <!--HONumber=49-->

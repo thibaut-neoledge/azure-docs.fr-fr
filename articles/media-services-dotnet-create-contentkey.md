@@ -19,13 +19,13 @@
 
 #Création de ContentKeys avec .NET
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) et [Workflow de diffusion en continu Media Services](../media-services-live-streaming-workflow) .  
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [Workflow de diffusion en continu Media Services](media-services-live-streaming-workflow.md) .  
 
 Media Services vous permet de créer et de fournir des éléments multimédias chiffrés. Une **ContentKey** fournit un accès sécurisé à vos **Éléments multimédias**. 
 
-Lorsque vous créez un élément multimédia (par exemple avant de [télécharger des fichiers](../media-services-dotnet-upload-files/)), vous pouvez spécifier les options de chiffrement suivantes : **StorageEncrypted**, **CommonEncryptionProtected** ou **EnvelopeEncryptionProtected**. 
+Lorsque vous créez un élément multimédia (par exemple avant de [télécharger des fichiers](media-services-dotnet-upload-files.md)), vous pouvez spécifier les options de chiffrement suivantes : **StorageEncrypted**, **CommonEncryptionProtected** ou **EnvelopeEncryptionProtected**. 
 
-Lors de la remise des éléments multimédias à vos clients, vous pouvez [configurer le chiffrement dynamique des éléments multimédias](../media-services-dotnet-configure-asset-delivery-policy) avec l'un des deux chiffrements suivants : **DynamicEnvelopeEncryption** ou **DynamicCommonEncryption**.
+Lors de la remise des éléments multimédias à vos clients, vous pouvez [configurer le chiffrement dynamique des éléments multimédias](media-services-dotnet-configure-asset-delivery-policy.md) avec l'un des deux chiffrements suivants : **DynamicEnvelopeEncryption** ou **DynamicCommonEncryption**.
 
 Les éléments multimédias chiffrés doivent être associés à des **ContentKey**. Cet article décrit comment créer une clé de contenu.
 

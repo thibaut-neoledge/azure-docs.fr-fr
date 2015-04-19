@@ -18,7 +18,7 @@
 
 Vous vous demandez combien de visiteurs ont consulté votre site ?  Vous voulez savoir quelle est la durée de chargement moyenne de la page ou quels sont les navigateurs utilisés ?  En ajoutant quelques lignes de script à vos pages web, vous pouvez collecter des données sur la manière dont vos clients utilisent votre site web. 
 
-*Vous pouvez également effectuer cela pour les sites web non-Azure : [Surveillance de l'utilisation des applications web avec Application Insights](../app-insights-web-track-usage/).*
+*Vous pouvez également effectuer cela pour les sites web non-Azure : [Surveillance de l'utilisation des applications web avec Application Insights](app-insights-web-track-usage.md).*
 
 ![End User Analytics](./media/insights-usage-analytics/Insights_ConfiguredExperience.png)
 

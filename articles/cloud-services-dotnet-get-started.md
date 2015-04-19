@@ -34,7 +34,7 @@ L'application utilise le [modèle de travail centré sur les files d'attente](ht
 
 ## Autre architecture : Sites Web et Tâches Web
 
-Ce didacticiel indique comment exécuter le composant frontal et le composant principal dans un service cloud Azure. Une alternative consiste à exécuter le composant frontal dans un [site Web Azure](/fr-fr/services/web-sites/) et à utiliser la fonctionnalité [Tâches Web](http://go.microsoft.com/fwlink/?LinkId=390226) (actuellement en version préliminaire) pour le composant principal. Pour un didacticiel qui utilise Tâches Web, consultez la section [Prise en main du Kit de développement logiciel (SDK) Azure Tâches Web](/fr-fr/documentation/articles/websites-dotnet-webjobs-sdk-get-started/). Pour plus d'informations sur le choix des meilleurs services pour votre scénario, consultez [Comparaison entre Sites Web Azure, Azure Cloud Services et machines virtuelles Azure](http://azure.microsoft.com/ documentation/articles/choose-web-site-cloud-service-vm/).
+Ce didacticiel indique comment exécuter le composant frontal et le composant principal dans un service cloud Azure. Une alternative consiste à exécuter le composant frontal dans un [site Web Azure](/fr-fr/services/web-sites/) et à utiliser la fonctionnalité [Tâches Web](http://go.microsoft.com/fwlink/?LinkId=390226) (actuellement en version préliminaire) pour le composant principal. Pour un didacticiel qui utilise Tâches Web, consultez la section [Prise en main du Kit de développement logiciel (SDK) Azure Tâches Web](websites-dotnet-webjobs-sdk-get-started.md). Pour plus d'informations sur le choix des meilleurs services pour votre scénario, consultez [Comparaison entre Sites Web Azure, Azure Cloud Services et machines virtuelles Azure](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/).
 
 ## Contenu
 
@@ -47,7 +47,7 @@ Ce didacticiel indique comment exécuter le composant frontal et le composant pr
 
 ## Conditions préalables
 
-Pour utiliser ce didacticiel, vous devez maîtriser les [concepts de base des services cloud Azure](http://azure.microsoft.com/ documentation/articles/fundamentals-application-models/#CloudServices) par exemple la terminologie des  *web role* et des  *worker role*.  Vous devez également savoir utiliser les projets [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) ou [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) dans Visual Studio. L'exemple d'application utilise MVC, mais une grande part du didacticiel concerne également Web Forms. 
+Pour utiliser ce didacticiel, vous devez maîtriser les [concepts de base des services cloud Azure](http://azure.microsoft.com/documentation/articles/fundamentals-application-models/#CloudServices) par exemple la terminologie des  *web role* et des  *worker role*.  Vous devez également savoir utiliser les projets [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) ou [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) dans Visual Studio. L'exemple d'application utilise MVC, mais une grande part du didacticiel concerne également Web Forms. 
 
 Vous pouvez exécuter l'application localement sans abonnement Azure, mais il vous en faut un pour déployer l'application dans le cloud. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN](/fr-fr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) ou [obtenir une évaluation gratuite](/fr-fr/pricing/free-trial/?WT.mc_id=A55E3C668).
 
@@ -795,7 +795,7 @@ L'application Contoso Ads est intentionnellement simple pour un didacticiel de p
 Voici quelques exemples d'applications de service cloud qui montrent des pratiques d'encodage réelles, de la plus simple à la plus complexe :
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). De conception identique à Contoso Ads, mais implémente plus de fonctionnalités et plus de pratiques d'encodage réelles.
-* [Application multiniveau Azure Cloud Service avec tables, files d'attente et objets blob](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Présente les tables Azure Storage, les objets blob et les files d'attente, et contient une [série de didacticiels pas à pas](http://azure.microsoft.com/ documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/).
+* [Application multiniveau Azure Cloud Service avec tables, files d'attente et objets blob](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Présente les tables Azure Storage, les objets blob et les files d'attente, et contient une [série de didacticiels pas à pas](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/).
 * [Concepts de base de service cloud dans Microsoft Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Cet exemple complet présente une grande variété de meilleures pratiques, produites par le groupe Microsoft Patterns and Practices.
 
 Pour obtenir des informations générales sur le développement pour le cloud, consultez [Création d'applications cloud réalistes avec Microsoft Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
@@ -807,7 +807,7 @@ Pour plus d'informations, consultez les ressources suivantes :
 * [Azure Cloud Services, première partie : Introduction](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Services cloud Azure](/fr-fr/documentation/services/cloud-services/)
 * [Stockage Azure](/fr-fr/documentation/services/storage/)
-* [Utilisation du stockage d'objets blob à partir de .NET](/fr-fr/documentation/articles/storage-dotnet-how-to-use-blobs/)
-* [Utilisation du service de stockage de files d'attente à partir de .NET](/fr-fr/documentation/articles/storage-dotnet-how-to-use-queues/)
+* [Utilisation du stockage d'objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md)
+* [Utilisation du service de stockage de files d'attente à partir de .NET](storage-dotnet-how-to-use-queues.md)
 
 <!--HONumber=45--> 

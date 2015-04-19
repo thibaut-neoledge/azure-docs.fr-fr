@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Mise en route](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
-> - [Que s'est-il passé ?](/documentation/articles/vs-storage-aspnet-what-happened/)
+> - [Mise en route](vs-storage-aspnet-getting-started-tables.md)
+> - [Que s'est-il passé ?](vs-storage-aspnet-what-happened.md)
 
 ## Prise en main d'Azure Storage (projets ASP.NET)
 
 > [AZURE.SELECTOR]
-> - [Objets blob](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
-> - [Files d'attente](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
-> - [Tables](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
+> - [Objets blob](vs-storage-aspnet-getting-started-blobs.md)
+> - [Files d'attente](vs-storage-aspnet-getting-started-queues.md)
+> - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
 Le service de stockage de tables Azure vous permet de stocker de grandes quantités de données structurées. Il s'agit d'une banque de données NoSQL qui accepte les appels authentifiés provenant de l'intérieur et de l'extérieur du cloud Azure. Les tables Azure sont idéales pour le stockage des données structurées non relationnelles.  Pour plus d'informations, consultez la page [Utilisation du stockage de tables à partir de .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET").
 

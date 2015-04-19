@@ -17,8 +17,8 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Mise en route](/documentation/articles/vs-mobile-services-dotnet-getting-started/)
-> - [Que s'est-il passé](/documentation/articles/vs-mobile-services-dotnet-what-happened/)
+> - [Mise en route](vs-mobile-services-dotnet-getting-started.md)
+> - [Que s'est-il passé](vs-mobile-services-dotnet-what-happened.md)
 
 ###<span id="whathappened">Qu'est-il arrivé à mon projet ?</span>
 

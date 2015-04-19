@@ -19,7 +19,7 @@
 
 # Signatures d'accès partagé, partie 2 : création et utilisation d'une signature d'accès partagé avec le service BLOB
 
-La [partie 1](../storage-dotnet-shared-access-signature-part-1/) de ce didacticiel traitait des signatures d'accès partagé et indiquait les meilleures pratiques les concernant. La partie 2 indique comment générer et utiliser les signatures d'accès partagé avec le service BLOB Azure. Les exemples ont été écrits en C# et utilisent la bibliothèque du client Azure Storage pour .NET. Les scénarios traités incluent les points suivants de l'utilisation des signatures d'accès partagé :
+La [partie 1](storage-dotnet-shared-access-signature-part-1.md) de ce didacticiel traitait des signatures d'accès partagé et indiquait les meilleures pratiques les concernant. La partie 2 indique comment générer et utiliser les signatures d'accès partagé avec le service BLOB Azure. Les exemples ont été écrits en C# et utilisent la bibliothèque du client Azure Storage pour .NET. Les scénarios traités incluent les points suivants de l'utilisation des signatures d'accès partagé :
 
 - Génération d'une signature d'accès partagé sur un conteneur
 - Génération d'une signature d'accès partagé sur un objet blob
@@ -533,7 +533,7 @@ Exécutez l'application console et observez la sortie pour connaître les opéra
 
 # Étapes suivantes #
 
-[Signatures d'accès partagé, partie 1 : présentation du modèle SAP](../storage-dotnet-shared-access-signature-part-1/)
+[Signatures d'accès partagé, partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md)
 
 [Gestion de l'accès aux ressources de stockage Azure](http://msdn.microsoft.com/library/windowsazure/ee393343.aspx)
 

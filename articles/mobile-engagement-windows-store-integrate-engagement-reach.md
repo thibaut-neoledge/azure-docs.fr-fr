@@ -18,7 +18,7 @@
 
 #Comment intégrer le module Couverture d'Engagement à Windows
 
-Vous devez suivre la procédure d'intégration décrite dans le document [Comment intégrer Engagement à Windows](../mobile-engagement-windows-store-integrate-engagement/) avant de suivre ce guide.
+Vous devez suivre la procédure d'intégration décrite dans le document [Comment intégrer Engagement à Windows](mobile-engagement-windows-store-integrate-engagement.md) avant de suivre ce guide.
 
 ##Intégrer le Kit de développement logiciel (SDK) du module Couverture d'Engagement à un projet Windows
 

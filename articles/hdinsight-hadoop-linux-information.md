@@ -125,9 +125,9 @@ Outre la commande Hadoop depuis le cluster, vous pouvez accéder aux objets blob
 
 ##Étapes suivantes
 
-* [Utiliser Hive avec HDInsight](../hdinsight-use-hive/)
-* [Utilisation de Pig avec HDInsight](../hdinsight-use-pig/)
-* [Utilisation des tâches MapReduce avec HDInsight](../hdinsight-use-mapreduce)
+* [Utiliser Hive avec HDInsight](hdinsight-use-hive.md)
+* [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
+* [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
 
 <!--HONumber=47-->

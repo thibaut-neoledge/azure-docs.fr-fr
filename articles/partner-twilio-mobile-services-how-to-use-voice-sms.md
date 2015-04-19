@@ -72,14 +72,14 @@ Lorsque vous êtes prêt à créer votre compte Twilio, inscrivez-vous dans la p
 Lorsque vous créez un compte Twilio, vous recevez un ID de compte et un jeton d'authentification. Les deux sont nécessaires pour passer des appels d'API Twilio. Pour éviter qu'une personne non autorisée n'accède à votre compte, conservez votre jeton d'authentification en lieu sûr. Vous pouvez consulter vos ID de compte et jeton d'authentification dans la [page du compte Twilio ][twilio_account], dans les champs respectivement intitulés **ACCOUNT SID** et **AUTH TOKEN**.
 
 <h2><a id="create_app"></a>Création d'un service mobile</h2>
-Un service mobile qui héberge une application Twilio n'est pas différent d'un autre service mobile. Vous ajoutez simplement la bibliothèque node.js Twilio afin de pouvoir y faire référence depuis vos scripts d'API Mobile Service personnalisée. Pour plus d'informations sur la création d'un service mobile initial, consultez [Prise en main de Mobile Services](/fr-fr/documentation/articles/mobile-services-ios-get-started/).
+Un service mobile qui héberge une application Twilio n'est pas différent d'un autre service mobile. Vous ajoutez simplement la bibliothèque node.js Twilio afin de pouvoir y faire référence depuis vos scripts d'API Mobile Service personnalisée. Pour plus d'informations sur la création d'un service mobile initial, consultez [Prise en main de Mobile Services](mobile-services-ios-get-started.md).
 
 <h2><a id="ConfigureMobileService"></a>Configuration de votre service mobile pour l'utilisation de la bibliothèque Twilio Node.js</h2>
 Twilio comporte une bibliothèque Node.js qui couvre différents aspects de Twilio afin de fournir des moyens simples et faciles d'interaction avec l'API REST Twilio et le client Twilio en vue de générer des réponses TwiML.
 
 Pour utiliser la bibliothèque Twilio node.js dans votre service mobile, vous devez réutiliser la prise en charge du module npm de Mobile Services, ce que vous pouvez faire en enregistrant vos scripts dans le contrôle de code source. 
 
-1. Effectuez le didacticiel [Stockage des scripts dans le contrôle du code source](/fr-fr/documentation/articles/mobile-services-store-scripts-source-control/). Ce didacticiel vous explique comment configurer un contrôle de code source pour vos services mobiles et comment stocker vos scripts serveur dans un référentiel Git.
+1. Effectuez le didacticiel [Stockage des scripts dans le contrôle du code source](mobile-services-store-scripts-source-control.md). Ce didacticiel vous explique comment configurer un contrôle de code source pour vos services mobiles et comment stocker vos scripts serveur dans un référentiel Git.
 
 2. Après avoir configuré le contrôle de code source de votre service mobile, ouvrez le référentiel sur votre ordinateur local, accédez au sous-dossier  `\services`, ouvrez le fichier package.json dans un éditeur de texte, puis ajoutez le champ suivant à l'objet **dependencies** :
 

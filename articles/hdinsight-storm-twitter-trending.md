@@ -127,17 +127,17 @@ Après le démarrage de la topologie, vous devez voir des informations de débog
 
 ##Étapes suivantes
 
-Maintenant que vous avez testé la topologie localement, découvrez comment [déployer cette topologie vers Storm sur HDInsight](../hdinsight-storm-deploy-monitor-topology/).
+Maintenant que vous avez testé la topologie localement, découvrez comment [déployer cette topologie vers Storm sur HDInsight](hdinsight-storm-deploy-monitor-topology.md).
 
 Les rubriques Storm suivantes peuvent également vous intéresser :
 
-* [Développement de topologies Java pour Storm sur HDInsight à l'aide de Maven](../hdinsight-storm-develop-java-topology/)
+* [Développement de topologies Java pour Storm sur HDInsight à l'aide de Maven](hdinsight-storm-develop-java-topology.md)
 
-* [Développement de topologies C# pour Storm sur HDInsight à l'aide de Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)
+* [Développement de topologies C# pour Storm sur HDInsight à l'aide de Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 Pour obtenir plus d'exemples Storm pour HDinsight :
 
 * [Exemples Storm sur HDInsight](https://github.com/hdinsight/hdinsight-storm-examples)
 
-* [Analyse des données de capteur de hub d'événements avec Storm sur HDInsight](../hdinsight-storm-sensor-data-analysis/)
+* [Analyse des données de capteur de hub d'événements avec Storm sur HDInsight](hdinsight-storm-sensor-data-analysis.md)
 <!--HONumber=47-->

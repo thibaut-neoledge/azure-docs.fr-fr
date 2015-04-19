@@ -431,7 +431,7 @@ Si vous écrivez un script qui dépend de l'état de sortie, vérifiez que les c
 
 * Si vous rencontrez des problèmes lors de l'utilisation de l'interface xplat-cli ou d'Azure, consultez les [forums Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home).
 
-* Pour plus d'informations sur Azure, consultez le site [http://azure.microsoft.com/fr-fr/](http://azure.microsoft.com).
+* Pour plus d'informations sur Azure, consultez le site [http://azure.microsoft.com/](http://azure.microsoft.com).
 
 
 

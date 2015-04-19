@@ -49,7 +49,7 @@ Vous aurez également besoin d'un ordinateur local se connectant à Azure au moy
 
 Pour utiliser une base de données SQL Server ou SQL Server Express locale avec une connexion hybride, TCP/IP doit être activé sur un port statique. Les instances par défaut dans SQL Server utilisent le port statique 1433, mais pas les instances nommées. 
 
-Pour obtenir des instructions détaillées sur la façon de configurer SQL Server afin de répondre aux conditions décrites ci-dessus, consultez la section [Installation de SQL Server Express, activation de TCP/IP et création d'une base de données SQL Server locale](/fr-fr/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL). Si SQL Server est déjà installé dans une configuration et dans un environnement qui répondent aux conditions décrites ci-dessus, vous pouvez passer directement à la section [Création d'une base de données SQL Server locale](/fr-fr/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB). 
+Pour obtenir des instructions détaillées sur la façon de configurer SQL Server afin de répondre aux conditions décrites ci-dessus, consultez la section [Installation de SQL Server Express, activation de TCP/IP et création d'une base de données SQL Server locale](web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL.md). Si SQL Server est déjà installé dans une configuration et dans un environnement qui répondent aux conditions décrites ci-dessus, vous pouvez passer directement à la section [Création d'une base de données SQL Server locale](web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB.md). 
 
 Dans le cadre de ce didacticiel, nous supposerons que le nom de la base de données est **OnPremisesDB**, qu'elle est en cours d'exécution sur le port **1433** et que le nom d'hôte de l'ordinateur est **onPremisesServer**.
 
@@ -115,7 +115,7 @@ Le Gestionnaire de connexions hybrides permet à votre ordinateur local de se co
 ### Association d'une connexion hybride à un service
 1. Sous l'onglet **Services mobiles** du portail, sélectionnez un service mobile existant ou créez-en un. 
 
-	>[AZURE.NOTE]Veillez à sélectionner un service qui a été créé au moyen du serveur principal .NET ou créez un service mobile principal .NET. Pour apprendre à créer un service mobile principal .NET, consultez la page [Prise en main de Mobile Services](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) 
+	>[AZURE.NOTE]Veillez à sélectionner un service qui a été créé au moyen du serveur principal .NET ou créez un service mobile principal .NET. Pour apprendre à créer un service mobile principal .NET, consultez la page [Prise en main de Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) 
 
 2. Sous l'onglet **Configurer** de votre service mobile, accédez à la section **Connexions hybrides** et sélectionnez **Ajouter une connexion hybride**.
 
@@ -140,7 +140,7 @@ Pour finir, nous devons créer un paramètre d'application permettant de stocker
 
 3. Dans Visual Studio 2013, ouvrez le projet qui définit votre service mobile basé sur .NET. 
 
-	Pour apprendre à télécharger votre projet principal .NET, consultez la page [Prise en main de Mobile Services](/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) ..
+	Pour apprendre à télécharger votre projet principal .NET, consultez la page [Prise en main de Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) ..
  
 4. Dans l'Explorateur de solutions, développez le dossier **Modèles** et ouvrez le fichier de modèle de données, se terminant par *Context.cs*.
 

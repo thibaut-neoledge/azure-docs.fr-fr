@@ -218,7 +218,7 @@ Azure fournit une prise en charge directe de Hadoop et permet également d'utili
 
 * [Données volumineuses (" Big Data ")](/fr-fr/solutions/big-data/) 
 * [Azure HDInsight Service](/fr-fr/documentation/services/hdinsight/)
-* [Prise en main d'Azure HDInsight Service](/fr-fr/documentation/articles/hdinsight-get-started/)
+* [Prise en main d'Azure HDInsight Service](hdinsight-get-started.md)
 
 Pour une discussion sur les problèmes liés aux différentes méthodes de stockage noSQL, consultez les pages suivantes : 
 

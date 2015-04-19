@@ -36,6 +36,6 @@ Dès que vous activez un point de terminaison CDN pour votre origine en tant que
 > Remarque : La configuration créée pour le point de terminaison ne sera pas disponible immédiatement, car la propagation de l'enregistrement sur le CDN peut prendre jusqu'à 60 minutes. Les utilisateurs qui tentent d'utiliser immédiatement le nom de domaine CDN peuvent recevoir le code d'état 400 (Requête incorrecte) jusqu'à ce que le contenu soit disponible via le CDN.
 
 #Voir aussi
-[Comment mapper le contenu du réseau de distribution de contenu Azure (CDN) à un domaine personnalisé](./cdn-map-content-to-custom-domain.md)
+[Comment mapper le contenu du réseau de distribution de contenu Azure (CDN) à un domaine personnalisé](cdn-map-content-to-custom-domain.md)
 
 <!--HONumber=49-->

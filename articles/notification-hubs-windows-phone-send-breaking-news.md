@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Utilisation de Notification Hubs pour diffuser les dernières nouvelles (Windows Phone)" 
 	description="Utilisez Azure Notification Hubs afin d'utiliser dans les inscriptions une balise permettant d'envoyer les dernières nouvelles à une application Windows Phone." 
 	services="notification-hubs" 
@@ -18,10 +18,10 @@
 
 # Utilisation de Notification Hubs pour diffuser les dernières nouvelles
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="notification-hubs-windows-store-dotnet-send-breaking-news.md" title="Windows Universal">Windows Universel</a><a href="/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone" class="current">Windows Phone</a><a href="/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS">iOS</a><a href="/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
+    	<a href="/fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal">Windows Universal</a><a href="/fr-fr/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone" class="current">Windows Phone</a><a href="/fr-fr/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS">iOS</a><a href="/fr-fr/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
 </div>
 
-Cette rubrique montre comment utiliser Azure Notification Hubs pour diffuser des notifications relatives aux dernières nouvelles vers une application Windows Phone 8.0/8.1 Silverlight. Si vous ciblez une application Windows Store ou Windows Phone 8.1, consultez la version [Windows Universel](notification-hubs-windows-store-dotnet-send-breaking-news.md) . Lorsque vous aurez terminé, vous pourrez vous inscrire aux catégories de dernières nouvelles qui vous intéressent et recevoir uniquement des notifications Push pour ces catégories. Ce scénario est un modèle courant pour de nombreuses applications pour lesquelles des notifications doivent être envoyées à des groupes d'utilisateurs qui ont signalé antérieurement un intérêt, par exemple, lecteur RSS, applications pour fans de musique, etc. 
+Cette rubrique montre comment utiliser Azure Notification Hubs pour diffuser des notifications relatives aux dernières nouvelles vers une application Windows Phone 8.0/8.1 Silverlight. Si vous ciblez une application Windows Store ou Windows Phone 8.1, reportez-vous à la version [Windows universel](/ fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/). Lorsque vous aurez terminé, vous pourrez vous inscrire aux catégories de dernières nouvelles qui vous intéressent et recevoir uniquement des notifications Push pour ces catégories. Ce scénario est un modèle courant pour de nombreuses applications pour lesquelles des notifications doivent être envoyées à des groupes d'utilisateurs qui ont signalé antérieurement un intérêt, par exemple, lecteur RSS, applications pour fans de musique, etc. 
 
 Les scénarios de diffusion sont activés en incluant une ou plusieurs _balises_ lors de la création d'une inscription dans le concentrateur de notification. Lorsque des notifications sont envoyées à une balise, tous les appareils pour lesquels cette balise est inscrite reçoivent la notification. Les balises étant de simples chaînes, il n'est pas nécessaire de les mettre en service à l'avance. Pour plus d'informations sur les balises, consultez la page [Recommandations relatives à Notification Hubs]. 
 
@@ -65,7 +65,7 @@ La première étape consiste à ajouter des éléments de l'interface utilisateu
             <Button Name="SubscribeButton" Content="Subscribe" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
         </Grid>
 
-2. Dans le projet, créez une classe nommée **Notifications**, ajoutez le modificateur **public** à la définition de la classe, puis ajoutez les instructions **using** suivantes au nouveau fichier de code :
+2. Dans le projet, créez une classe nommée **Notifications**, ajoutez le modificateur **public** à la définition de classe, puis ajoutez les instructions **using** suivantes au nouveau fichier de code :
 
 		using Microsoft.Phone.Notification;
 		using Microsoft.WindowsAzure.Messaging;
@@ -113,7 +113,7 @@ La première étape consiste à ajouter des éléments de l'interface utilisateu
 
     Cette classe utilise le stockage local pour stocker les catégories de nouvelles que cet appareil doit recevoir. Elle comporte également des méthodes pour s'inscrire à ces catégories.
 
-4. Dans le code ci-dessus, remplacez les espaces réservés `<hub name>` et `<connection string with listen access>` par le nom de votre concentrateur de notification et par la chaîne de connexion de la signature *DefaultListenSharedAccessSignature* obtenue précédemment.
+4. Dans le code ci-dessus, remplacez les espaces réservés <hub name> et <connection string with listen access> par le nom du concentrateur de notification et la chaîne de connexion pour *DefaultListenSharedAccessSignature* obtenue précédemment.
 
 	> [AZURE.NOTE] Les informations d'identification distribuées avec une application cliente n'étant généralement pas sécurisées, vous ne devez distribuer que la clé d'accès d'écoute avec votre application cliente. L'accès d'écoute permet à votre application de s'inscrire à des notifications, mais les inscriptions existantes ne peuvent pas être modifiées et les notifications ne peuvent pas être envoyées. La clé d'accès complet est utilisée dans un service de serveur principal sécurisé pour l'envoi de notifications et la modification d'inscriptions existantes.
 
@@ -202,7 +202,7 @@ L'application est désormais terminée et peut stocker un ensemble de catégorie
 
 	Notez que l'interface utilisateur de l'application fournit un ensemble de bascules qui vous permet de choisir les catégories auxquelles vous abonner. 
 
-2. Activez un ou plusieurs boutons bascules de catégories, puis cliquez sur **S'abonner**.
+2. Activez une ou plusieurs bascules de catégories, puis cliquez sur **S'abonner**.
 
 	L'application convertit les catégories sélectionnées en balises et demande une nouvelle inscription de l'appareil pour les balises sélectionnées depuis le concentrateur de notification. Les catégories inscrites sont renvoyées et affichées dans une boîte de dialogue.
 
@@ -210,9 +210,9 @@ L'application est désormais terminée et peut stocker un ensemble de catégorie
 
 4. Envoyez une nouvelle notification depuis le serveur principal de l'une des manières suivantes :
 
-	+ **Application console :** démarrez l'application console.
+	+ **Application console :** démarrer l'application console.
 
-	+ **Java/PHP:** exécutez votre application/script.
+	+ **Java/PHP:** exécuter votre application/script.
 
 	Les notifications pour les catégories sélectionnées apparaissent comme notifications toast.
 
@@ -220,17 +220,17 @@ L'application est désormais terminée et peut stocker un ensemble de catégorie
 
 Vous avez terminé cette rubrique.
 
-<!--## <a name="next-steps"> </a>Next steps
+<!--## <a name="next-steps"> </a>Étapes suivantes
 
-In this tutorial we learned how to broadcast breaking news by category. Consider completing one of the following tutorials that highlight other advanced Notification Hubs scenarios:
-       
-+ [Use Notification Hubs to broadcast localized breaking news]
+Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par catégorie. Envisagez de suivre un des didacticiels suivants qui soulignent d'autres scénarios avancés Notification Hubs :
 
-	Learn how to expand the breaking news app to enable sending localized notifications. 
++ [Utilisation de Notification Hubs pour diffuser les dernières nouvelles localisées]
 
-+ [Notify users with Notification Hubs]
+	Apprenez à développer l'application relative aux dernières nouvelles pour permettre l'envoi de notifications localisées. 
 
-	Learn how to push notifications to specific authenticated users. This is a good solution for sending notifications only to specific users.
++ [Notification des utilisateurs avec Notification Hubs]
+
+	Apprenez comment transmettre des notifications à des utilisateurs authentifiés spécifiques. Il s'agit d'une solution appropriée pour l'envoi de notifications uniquement vers des utilisateurs spécifiques.
 -->
 
 <!-- Anchors. -->
@@ -248,10 +248,10 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
 
 <!-- URLs.-->
-[Prise en main de Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-wp8/
-[Utilisation de Notification Hubs pour diffuser les dernières nouvelles localisées]: breakingnews-localized-wp8.md 
-[Notification des utilisateurs avec Notification Hubs]: /manage/services/notification-hubs/notify-users/
-[Mobile Service]: /develop/mobile/tutorials/get-started
+[Prise en main de Notification Hubs]: /fr-fr/manage/services/notification-hubs/get-started-notification-hubs-wp8/
+[Utilisation de Notification Hubs pour diffuser les dernières nouvelles localisées]: ./breakingnews-localized-wp8.md 
+[Notification des utilisateurs avec Notification Hubs]: /fr-fr/manage/services/notification-hubs/notify-users/
+[Mobile Service]: /fr-fr/develop/mobile/tutorials/get-started
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Procédure Notification Hubs pour Windows Phone]: ??
 
@@ -261,4 +261,4 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
 
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

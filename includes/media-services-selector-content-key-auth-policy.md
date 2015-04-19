@@ -1,5 +1,5 @@
 ﻿> [AZURE.SELECTOR]
-- [Portail](/documentation/articles/media-services-portal-configure-content-key-auth-policy/)
-- [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](/documentation/articles/media-services-dotnet-configure-content-key-auth-policy/)
-- [API REST](/documentation/articles/media-services-rest-configure-content-key-auth-policy/)
+- [Portail](media-services-portal-configure-content-key-auth-policy.md)
+- [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](media-services-dotnet-configure-content-key-auth-policy.md)
+- [API REST](media-services-rest-configure-content-key-auth-policy.md)
 <!--HONumber=47-->

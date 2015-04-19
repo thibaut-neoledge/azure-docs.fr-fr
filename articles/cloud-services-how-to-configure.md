@@ -41,7 +41,7 @@ Azure ne peut garantir que 99,95 % de disponibilité du service pendant les mise
 	
 	Dans la page **Configurer**, vous pouvez configurer la surveillance, mettre à jour les paramètres de rôle, et choisir le système d'exploitation invité et la famille pour les instances de rôle. 
 
-2. Dans les paramètres de **surveillance**, définissez le niveau de surveillance Détaillé ou Minimal, puis configurez les chaînes de connexion des diagnostics nécessaires pour la surveillance détaillée. Pour obtenir des instructions, consultez la rubrique [Surveillance des services cloud](../how-to-monitor-a-cloud-service/).
+2. Dans les paramètres de **surveillance**, définissez le niveau de surveillance Détaillé ou Minimal, puis configurez les chaînes de connexion des diagnostics nécessaires pour la surveillance détaillée. Pour obtenir des instructions, consultez la rubrique [Surveillance des services cloud](how-to-monitor-a-cloud-service.md).
 
 
 3. Pour les rôles de service (regroupés par rôle), vous pouvez mettre à jour les paramètres suivants :

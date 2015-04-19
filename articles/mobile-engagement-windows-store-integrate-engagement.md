@@ -22,7 +22,7 @@
 
 Cette procédure décrit comment activer les fonctions d'analyse et de surveillance d'Engagement dans votre application Windows de la manière la plus simple possible.
 
-Les étapes suivantes permettent d'activer la génération des journaux nécessaires pour calculer toutes les statistiques concernant les utilisateurs, les sessions, les activités, les incidents et les informations techniques. Pour calculer d'autres statistiques qui dépendent de l'application, comme les événements, les erreurs et les tâches, vous devez générer manuellement les journaux correspondants à l'aide de l'API Engagement. Consultez [Comment utiliser l'API de balisage avancée Mobile Engagement dans votre application du Windows Store](../mobile-engagement-windows-store-use-engagement-api/).
+Les étapes suivantes permettent d'activer la génération des journaux nécessaires pour calculer toutes les statistiques concernant les utilisateurs, les sessions, les activités, les incidents et les informations techniques. Pour calculer d'autres statistiques qui dépendent de l'application, comme les événements, les erreurs et les tâches, vous devez générer manuellement les journaux correspondants à l'aide de l'API Engagement. Consultez [Comment utiliser l'API de balisage avancée Mobile Engagement dans votre application du Windows Store](mobile-engagement-windows-store-use-engagement-api.md).
 
 ##Versions prises en charge
 

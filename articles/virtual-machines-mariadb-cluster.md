@@ -368,8 +368,8 @@ Vous souhaiterez peut-être étudier [une autre façon de mettre MySQL en cluste
 [Interface de ligne de commande Azure]: http://azure.microsoft.com/documentation/articles/xplat-cli/
 [Référence des commandes de l'interface de ligne de commande Azure]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/
 [Création d'une clé SSH pour l'authentification]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
-[Stratégie d'optimisation des performances]: http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
-[Optimisation et test des performances de MySQL sur les machines virtuelles Linux Azure]:http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[Stratégie d'optimisation des performances]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[Optimisation et test des performances de MySQL sur les machines virtuelles Linux Azure]:http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [Problème n°1268 dans l'interface de ligne de commande Azure]:https://github.com/Azure/azure-xplat-cli/issues/1268
 [Une autre façon de mettre MySQL en cluster sur Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 

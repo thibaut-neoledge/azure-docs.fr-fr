@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Azure Notification Hubs : instructions relatives au diagnostic" 
 	description="Instructions sur la méthode de diagnostic des problèmes courants avec Azure Notification Hubs." 
 	services="notification-hubs" 
@@ -23,7 +23,7 @@ Une des questions les plus courantes de nos clients Azure Notification Hubs est 
 Tout d'abord, il est essentiel de comprendre comment Azure Notification Hubs envoie des notifications aux appareils.
 ![][0]
 
-Dans un flux de notification d'envoi par défaut, le message est envoyé à partir du **serveur principal d'application** à **Azure Notification Hub (NH)**, qui à son tour effectue un traitement sur toutes les inscriptions en prenant en compte les balises et les expressions de balises configurées pour déterminer les " cibles " : par exemple, tous les enregistrements qui ont besoin de recevoir les notifications Push. Ces inscriptions peuvent s'étendre sur tout ou partie de nos plateformes prises en charge : iOS, Google, Windows, Windows Phone, Kindle et Baidu pour Android en Chine. Une fois les cibles établies, NH transmet les notifications, réparties sur plusieurs lots d'inscriptions, au **service de notifications Push (PNS)** propre à la plateforme de l'appareil : par exemple, APNs pour Apple, GCM pour Google, etc. NH s'authentifie avec le PNS respectif, conformément aux informations d'identification que vous définissez dans le portail Azure sur la page Configurer un concentrateur de notification. Le PNS transmet alors les notifications aux **périphériques clients** respectifs. Il s'agit de la méthode recommandée pour la plateforme pour fournir des notifications Push. Notez que le dernier tronçon de remise des notifications s'effectue entre le PNS de la plateforme et le périphérique. Il y a donc quatre composants principaux (*client*, *serveur principal d'application*, *Azure Notification Hubs (NH)* et *services de notifications Push (PNS)*), chacun d'eux pouvant être à l'origine de la perte de notifications. Plus de détails sur cette architecture sont disponibles sur la page [Vue d'ensemble de Notification Hubs].
+Dans un flux de notification d'envoi par défaut, le message est envoyé à partir du **serveur principal d'application** à **Azure Notification Hub (NH)**, qui à son tour effectue un traitement sur toutes les inscriptions en prenant en compte les balises et les expressions de balises configurées pour déterminer les " cibles " : par exemple, tous les enregistrements qui ont besoin de recevoir les notifications Push. Ces inscriptions peuvent s'étendre sur tout ou partie de nos plateformes prises en charge : iOS, Google, Windows, Windows Phone, Kindle et Baidu pour Android en Chine. Une fois les cibles établies, NH transmet les notifications, réparties sur plusieurs lots d'inscriptions, à la plate-forme de périphérique spécifique du **Service de Notification Push (PNS)** : par exemple, APN pour Apple, GCM pour Google, etc. NH s'authentifie avec le PNS respectif, conformément aux informations d'identification que vous définissez dans le portail Azure sur la page Configurer un concentrateur de notification. Le PNS transmet alors les notifications aux **périphériques clients** respectifs. Il s'agit de la méthode recommandée pour la plateforme pour fournir des notifications Push. Notez que le dernier tronçon de remise des notifications s'effectue entre le PNS de la plateforme et le périphérique. Par conséquent, nous avons quatre composants principaux : *client*, *application backend*, *Azure Notification Hubs (NH)* et *Push Notification Services (PNS)*. N'importe lequel d'entre eux peut être la source de la perte d'une notification. Plus de détails sur cette architecture sont disponibles sur la page [Vue d'ensemble de Notification Hubs].
 
 L'échec de la remise de notifications peut se produire pendant la phase initiale de test/de mise en lots. Cela peut indiquer un problème de configuration. Il peut également se produire lors de la production, où l'ensemble ou une partie des notifications peut être égarée, ce qui indique un problème de modèle d'application ou de messagerie plus sérieux. Dans la section ci-dessous, nous allons examiner différents scénarios de notifications supprimées allant des plus courants aux plus rares : certains vous sembleront peut-être évidents mais d'autres moins. 
 
@@ -44,9 +44,9 @@ Azure Notification Hubs a besoin de s'authentifier dans le contexte de l'applica
 
 2. **Configuration du service de notifications Push Apple (APNS)**
  
-	Vous devez disposer de deux concentrateurs différents : un pour la production et un autre pour vos essais. Il convient donc de télécharger le certificat que vous utiliserez dans un environnement de bac à sable (sandbox) sur un concentrateur et le certificat que vous utiliserez en production sur un concentrateur distinct. N'essayez pas de télécharger différents types de certificats sur le même concentrateur car cela pourrait provoquer des défaillances de notification plus tard. Si vous avez téléchargé par inadvertance différents types de certificat sur le même concentrateur, il est recommandé de supprimer le concentrateur et de recommencer. Si vous ne pouvez pas supprimer le concentrateur pour une raison quelconque, vous devez au moins supprimer tous les enregistrements existants du concentrateur. 
+	Vous devez disposer de deux concentrateurs différents : un pour la production et un autre pour vos essais. Il convient donc de télécharger le certificat que vous utiliserez dans un environnement de bac à sable (sandbox) sur un concentrateur et le certificat que utiliserez en production sur un concentrateur distinct. N'essayez pas de télécharger différents types de certificats sur le même concentrateur car cela pourrait provoquer des défaillances de notification plus tard. Si vous avez téléchargé par inadvertance différents types de certificat sur le même concentrateur, il est recommandé de supprimer le concentrateur et de recommencer. Si vous ne pouvez pas supprimer le concentrateur pour une raison quelconque, vous devez au moins supprimer tous les enregistrements existants du concentrateur. 
 
-3. **Configuration de Google Cloud Messaging (GCM)**
+3. **Configuration de Google Cloud Messaging (GCM)** 
 
 	a) Assurez-vous que vous activez " Google Cloud Messaging pour Android " dans votre projet cloud. 
 	
@@ -85,9 +85,9 @@ Lorsque le message de notification a été reçu par le PNS respectif, il est de
 Si un PNS tente de remettre une notification, mais que le périphérique est en mode hors connexion, la notification est stockée par le PNS pendant une période limitée et remise au périphérique lorsqu'il est disponible. Seule une notification récente est stockée pour une application donnée. Si plusieurs notifications sont envoyées lorsque le périphérique est hors connexion, chaque nouvelle notification provoque la suppression de la notification préalable. Ce comportement consistant à ne conserver que la dernière notification est appelé fusion des notifications dans APN et réduction dans GCM (qui utilise une clé de réduction). Si le périphérique reste hors connexion pendant une longue période, les notifications qui ont été stockées sont ignorées. 
 Source : [conseils APN] et [conseils GCM]
 
-Avec Azure Notification Hubs : vous pouvez transmettre une clé de fusion via un en-tête HTTP avec l'API `SendNotification` générique (par exemple, pour le Kit de développement logiciel (SDK) .NET - `SendNotificationAsync`), qui transmet également les en-têtes HTTP tels quels au PNS respectif. 
+Avec Azure Notification Hubs : vous pouvez transmettre une clé de fusion via un en-tête HTTP avec l'API `SendNotification` générique (par exemple, pour le Kit de développement logiciel (SDK) .NET - `SendNotificationAsync`). Il transmet également les en-têtes HTTP, qui sont des passages, telles quelles au PNS respectif. 
 
-##Conseils pour le diagnostic personnel
+##Conseils relatifs au diagnostic personnel
 
 Nous examinerons ici les différents moyens pour diagnostiquer et trouver les causes des problèmes de Notification Hub :
 
@@ -137,7 +137,7 @@ Nous examinerons ici les différents moyens pour diagnostiquer et trouver les ca
 
 	Vous en saurez davantage sur les fonctionnalités de l'Explorateur Azure Visual Studio Notification Hub ici : 
 	
-	- [Vue d'ensemble de l'Explorateur de serveurs Visual Studio]
+	- [Vue d'ensemble de l'explorateur de serveurs Visual Studio]
 	- [Billet de blog concernant l'Explorateur de serveurs de Visual Studio : 1]
 	- [Billet de blog concernant l'Explorateur de serveurs de Visual Studio : 2]
 
@@ -158,8 +158,8 @@ Supposons que vous utilisiez le Kit de développement logiciel (SDK) .NET pour e
     var result = await hub.SendWindowsNativeNotificationAsync(toast);
     Console.WriteLine(result.State);
  
-`result.State` affichera simplement `Enqueued` (en attente) à la fin de l'exécution, sans informations sur ce qui est arrivé à votre notification Push. 
-Vous pouvez désormais utiliser la propriété booléenne `EnableTestSend` lors de l'initialisation de  `NotificationHubClient` et obtenir l'état détaillé des erreurs PNS rencontrées lors de l'envoi de la notification. L'appel d'envoi prendra plus de temps, car il retourne uniquement après que NH a envoyé la notification au PNS pour en déterminer le résultat. 
+`result.State` affichera simplement `Enqueued` à la fin de l'exécution, sans informations sur ce qui est arrivé à votre notification Push. 
+Vous pouvez désormais utiliser la propriété booléenne `EnableTestSend` lors de l'initialisation de `NotificationHubClient` et obtenir l'état détaillé des erreurs PNS rencontrées lors de l'envoi de la notification. L'appel d'envoi prendra plus de temps, car il retourne uniquement après que NH a envoyé la notification au PNS pour en déterminer le résultat. 
  
 	bool enableTestSend = true;
 	NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName, enableTestSend);
@@ -206,9 +206,9 @@ Ce message indique que des informations d'identification non valides sont config
 Plus de détails ici : 
 
 - [Accès par programme à la télémétrie]
-- [Exemple d'accès à la télémétrie via les API]
+- [Exemple d'accès à la télémétrie via les API] 
 
-> [AZURE.NOTE] Plusieurs fonctionnalités liées à la télémétrie, comme l'**Exportation/importation des enregistrements**, l'**accès à la télémétrie via les API**, etc., sont uniquement disponibles en niveau Standard. Si vous essayez d'utiliser ces fonctionnalités et que vous disposez d'un niveau Libre ou De base, vous obtenez un message d'exception lors de l'utilisation du Kit de développement logiciel (SDK) et une erreur HTTP 403 (interdit) lorsque vous les utilisez directement à partir des API REST. Assurez-vous que vous n'êtes pas passé au niveau Standard via le portail de gestion Azure.  
+> [AZURE.NOTE] Plusieurs fonctionnalités liées à la télémétrie, comme l'**Exportation/importation des enregistrements**, l'**accès à la télémétrie via les API** etc., sont uniquement disponibles en niveau Standard. Si vous essayez d'utiliser ces fonctionnalités et que vous disposez d'un niveau Libre ou De base, vous obtenez un message d'exception lors de l'utilisation du Kit de développement logiciel (SDK) et une erreur HTTP 403 (interdit) lorsque vous les utilisez directement à partir des API REST. Assurez-vous que vous n'êtes pas passé au niveau Standard via le portail de gestion Azure.  
 
 <!-- IMAGES -->
 [0]: ./media/notification-hubs-diagnosing/Architecture.png
@@ -226,12 +226,12 @@ Plus de détails ici :
 <!-- LINKS -->
 [Vue d'ensemble de Notification Hubs]: http://azure.microsoft.com/documentation/articles/notification-hubs-overview/
 [Didacticiels de prise en main]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Conseils relatifs aux modèles]: https://msdn.microsoft.com/library/dn530748.aspx 
-[Conseils liés à APNs]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
+[Conseils liés aux modèles]: https://msdn.microsoft.com/fr-fr/library/dn530748.aspx 
+[Conseils liés à APN]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
 [Conseils liés à GCM]: http://developer.android.com/google/gcm/adv.html
-[Importation/exportation des inscriptions]: http://msdn.microsoft.com/library/dn790624.aspx
-[Explorateur ServiceBus]: http://msdn.microsoft.com/library/dn530751.aspx
-[Code de l'explorateur ServiceBus]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
+[Exportation/importation des enregistrements]: http://msdn.microsoft.com/library/dn790624.aspx
+[ServiceBus Explorer]: http://msdn.microsoft.com/library/dn530751.aspx
+[Code de ServiceBus Explorer]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
 [Vue d'ensemble de l'Explorateur de serveurs Visual Studio]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx 
 [Billet de blog concernant l'Explorateur de serveurs de Visual Studio : 1]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs 
 [Billet de blog concernant l'Explorateur de serveurs de Visual Studio : 2]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/ 
@@ -240,4 +240,4 @@ Plus de détails ici :
 [Exemple d'accès à la télémétrie via les API]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

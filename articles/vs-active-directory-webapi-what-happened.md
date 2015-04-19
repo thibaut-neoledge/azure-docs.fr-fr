@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="" 
-	description="Décrit les modifications que présente votre projet Visual Studio après l'exécution de l'Assistant d'Azure Active Directory" 
+	description="Décrit ce qui a été modifié dans votre projet Visual Studio après l’exécution de l’Assistant Azure Active Directory." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="kempb" 
@@ -16,10 +16,8 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
-# Qu'est-il arrivé à mon projet ?
-
 > [AZURE.SELECTOR]
-> - [Prise en main](vs-active-directory-webapi-getting-started.md)
+> - [Mise en route](vs-active-directory-webapi-getting-started.md)
 > - [Que s'est-il passé ?](vs-active-directory-webapi-what-happened.md)
 
 ###<span id="whathappened">Qu'est-il arrivé à mon projet ?</span>
@@ -28,27 +26,27 @@ Des références ont été ajoutées.
 
 #####Références du package NuGet 
 
-- `Microsoft.Owin`
-- `Microsoft.Owin.Host.SystemWeb`
-- `Microsoft.Owin.Security`
-- `Microsoft.Owin.Security.ActiveDirectory`
-- `Microsoft.Owin.Security.Jwt`
-- `Microsoft.Owin.Security.OAuth`
-- `Newtonsoft.Json`
-- `Owin`
-- `System.IdentityModel.Tokens.Jwt`
+- Microsoft.Owin
+- Microsoft.Owin.Host.SystemWeb
+- Microsoft.Owin.Security
+- Microsoft.Owin.Security.ActiveDirectory
+- Microsoft.Owin.Security.Jwt
+- Microsoft.Owin.Security.OAuth
+- Newtonsoft.Json
+- Owin
+- System.IdentityModel.Tokens.Jwt
 
 #####Références .NET 
 
-- `Microsoft.Owin`
-- `Microsoft.Owin.Host.SystemWeb`
-- `Microsoft.Owin.Security`
-- `Microsoft.Owin.Security.ActiveDirectory`
-- `Microsoft.Owin.Security.Jwt`
-- `Microsoft.Owin.Security.OAuth`
-- `Newtonsoft.Json`
-- `Owin`
-- `System.IdentityModel.Tokens.Jwt` 
+- Microsoft.Owin
+- Microsoft.Owin.Host.SystemWeb
+- Microsoft.Owin.Security
+- Microsoft.Owin.Security.ActiveDirectory
+- Microsoft.Owin.Security.Jwt
+- Microsoft.Owin.Security.OAuth
+- Newtonsoft.Json
+- Owin
+- System.IdentityModel.Tokens.Jwt 
 
 #####Des fichiers de code ont été ajoutés à votre projet 
 
@@ -56,7 +54,7 @@ La classe de démarrage d'authentification **App_Start/Startup.Auth.cs** a été
 
 #####Un code de démarrage a été ajouté à votre projet 
 
-Si vous disposiez déjà d'une classe de démarrage dans votre projet, la méthode **Configuration** a été mise à jour afin d'inclure un appel vers `ConfigureAuth(app)`. Sinon, une classe de démarrage a été ajoutée à votre projet. 
+Si vous disposiez déjà d'une classe de démarrage dans votre projet, la méthode **Configuration** a été mise à jour afin d'inclure un appel vers ConfigureAuth(app). Sinon, une classe de démarrage a été ajoutée à votre projet. 
 
 
 #####Votre fichier app.config ou web.config comporte de nouvelles valeurs de configuration.
@@ -76,4 +74,4 @@ Une application Azure AD a été créée dans le répertoire que vous avez séle
 
 [En savoir plus sur Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!--HONumber=49-->
+<!--HONumber=46--> 

@@ -6,15 +6,15 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 
 *  Pour transmettre par push les modifications au serveur, nous avons appelé `IMobileServiceSyncContext.PushAsync()`. Cette méthode est membre de `IMobileServicesSyncContext` à la place de la table de synchronisation parce qu'elle envoie par Push les modifications sur toutes les tables.
 
-    Seuls les enregistrements qui ont été modifiés d'une certaine façon localement (par le biais d'opérations CUD) seront envoyés au serveur.
+    Seuls les enregistrements qui ont été modifiés d'une certaine façon en local (par le biais d'opérations CUD) seront envoyés au serveur.
    
-* Pour envoyer par pull les données d'une table sur le serveur vers l'application, nous avons appelé  `IMobileServiceSyncTable.PullAsync`.
+* Pour envoyer par Pull les données d'une table sur le serveur vers l'application, nous avons appelé `IMobileServiceSyncTable.PullAsync`.
 
     Une opération Pull émet toujours d'abord une opération Push. Cela a pour but de garantir que toutes les tables dans le magasin local, ainsi que les relations, restent cohérentes.
 
     Il existe également des surcharges de `PullAsync()` qui permettent de spécifier une requête afin de filtrer les données stockées sur le client. Si une requête n'est pas transmise, `PullAsync()` extrait toutes les lignes de la table (ou requête) correspondante. Vous pouvez transmettre la requête pour filtrer uniquement les modifications avec lesquelles votre application doit se synchroniser.
 
-* Pour activer la synchronisation incrémentielle, transmettez un ID de requête à `PullAsync()`. L'ID de requête est utilisé pour stocker le dernier horodatage des résultats de la dernière opération d'extraction. L'ID de requête doit être une chaîne descriptive unique pour chaque requête logique de votre application. Si la requête possède un paramètre, alors la même valeur de paramètre doit faire partie de l'ID de requête.
+* Pour activer la synchronisation incrémentielle, transmettez un ID de requête à `PullAsync()`. L'ID de requête est utilisé pour stocker le dernier horodateur mis à jour par les résultats de la dernière opération d'extraction. L'ID de requête doit être une chaîne descriptive unique pour chaque requête logique de votre application. Si la requête possède un paramètre, la même valeur de paramètre doit alors faire partie de l'ID de requête.
 
     Par exemple, si vous filtrez selon userid, il doit faire partie de l'ID de la requête :
 
@@ -24,4 +24,4 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 
 * Pour supprimer des enregistrements du magasin local du périphérique lorsqu'ils ont été supprimés dans la base de données de votre service mobile, vous devez activer la [Suppression réversible]. Sinon, votre application doit appeler périodiquement `IMobileServiceSyncTable.PurgeAsync()` afin de vider le magasin local.
 
-<!--HONumber=49-->
+\<!--HONumber=42-->

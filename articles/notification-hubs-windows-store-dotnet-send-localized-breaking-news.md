@@ -18,7 +18,7 @@
 # Utilisation de Notification Hubs pour envoyer les dernières nouvelles localisées
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows Store C#" class="current">Windows Store C#</a><a href="/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS">iOS</a>
+    	<a href="/fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows Store C#" class="current">Windows Store C#</a><a href="/fr-fr/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS">iOS</a>
 </div>
 
 Cette rubrique montre comment utiliser la fonctionnalité de **modèle** d'Azure Notification Hubs pour diffuser des notifications relatives aux dernières nouvelles qui ont été localisées par langue et par appareil. Vous devez commencer ce didacticiel avec l'application Windows Store que vous avez créée dans le cadre du didacticiel [Utilisation de Notification Hubs pour envoyer les dernières nouvelles]. Lorsque vous aurez terminé, vous pourrez vous inscrire aux catégories qui vous intéressent, spécifier une langue dans laquelle recevoir les notifications et recevoir uniquement des notifications Push pour les catégories sélectionnées dans cette langue.
@@ -41,7 +41,7 @@ Ce scénario comporte deux parties :
 
 ##Conditions préalables ##
 
-Vous devez avoir suivi le didacticiel [Utilisation de Notifications Hubs pour envoyer les dernières nouvelles] et avoir le code à disposition, car le présent didacticiel est basé sur ce code. 
+Vous devez avoir suivi le didacticiel [Utilisation de Notification Hubs pour envoyer les dernières nouvelles] et avoir le code à disposition, car le présent didacticiel est basé sur ce code. 
 
 Vous avez également besoin de Visual Studio 2012.
 
@@ -82,7 +82,7 @@ Les modèles sont une fonctionnalité très puissante sur laquelle vous pouvez o
 Nous allons maintenant modifier l'application de dernières nouvelles que vous avez créée à la rubrique [Utilisation de Notification Hubs pour envoyer les dernières nouvelles] pour envoyer les dernières nouvelles localisées à l'aide de modèles.
 
 
-Pour adapter vos applications clientes afin qu'elles puissent recevoir des messages localisés, vous devez remplacer vos inscriptions *natives* (c'est-à-dire les inscriptions qui ne spécifient pas de modèle) par des inscriptions avec modèle.
+Pour adapter vos applications clientes afin qu'elles puissent recevoir des messages localisés, vous devez remplacer vos inscriptions *native* (c.-à-d. les inscriptions qui ne spécifient pas de modèle) par des inscriptions avec modèle.
 
 
 Dans votre application Windows Store :
@@ -215,21 +215,21 @@ Pour plus d'informations sur l'utilisation de modèles, consultez [Notification 
 
 
 <!-- URLs. -->
-[Mobile Service]: /develop/mobile/tutorials/get-started
-[Notification des utilisateurs avec Notification Hubs : ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Notification des utilisateurs avec Notification Hubs : Mobile Services]: /manage/services/notification-hubs/notify-users
-[Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: /manage/services/notification-hubs/breaking-news-dotnet 
+[Mobile Service]: /fr-fr/develop/mobile/tutorials/get-started
+[Notification des utilisateurs avec Notification Hubs : ASP.NET]: /fr-fr/manage/services/notification-hubs/notify-users-aspnet
+[Notification des utilisateurs avec Notification Hubs : Mobile Services]: /fr-fr/manage/services/notification-hubs/notify-users
+[Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: /fr-fr/manage/services/notification-hubs/breaking-news-dotnet 
 
-[Page Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Page Soumette une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mes Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Kit de développement logiciel (SDK) Live pour Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Prise en main de Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
-[Prise en main des données]: /develop/mobile/tutorials/get-started-with-data-dotnet
-[Prise en main de l'authentification]: /develop/mobile/tutorials/get-started-with-users-dotnet
-[Prise en main des notifications Push]: /develop/mobile/tutorials/get-started-with-push-dotnet
-[Notifications Push pour les utilisateurs de l'application]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
-[Autorisation des utilisateurs avec des scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
-[JavaScript et HTML]: /develop/mobile/tutorials/get-started-with-push-js
+[Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started/#create-new-service
+[Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-dotnet
+[Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-dotnet
+[Prise en main des notifications Push]: /fr-fr/develop/mobile/tutorials/get-started-with-push-dotnet
+[Notifications Push pour les utilisateurs de l'application]: /fr-fr/develop/mobile/tutorials/push-notifications-to-app-users-dotnet
+[Autorisation des utilisateurs avec des scripts]: /fr-fr/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
+[JavaScript et HTML]: /fr-fr/develop/mobile/tutorials/get-started-with-push-js
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [objet wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
@@ -237,4 +237,4 @@ Pour plus d'informations sur l'utilisation de modèles, consultez [Notification 
 [Procédures Notification Hubs pour iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Notification Hubs, procédures pour Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

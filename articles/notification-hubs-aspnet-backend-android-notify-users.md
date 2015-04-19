@@ -19,14 +19,14 @@
 #Notification des utilisateurs via Azure Notification Hubs
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Windows Universel</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
-		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android" class="current">Android</a>
+    	<a href="/fr-fr/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Windows Universel</a><a href="/fr-fr/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
+		<a href="/fr-fr/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android" class="current">Android</a>
 </div>
 
-La prise en charge des notifications Push dans Azure vous permet d'accéder à une infrastructure Push conviviale, multi-plateforme et avec montée en charge qui simplifie fortement l'implémentation des notifications Push pour les applications consommateur et entreprise pour les plateformes mobiles. Ce didacticiel explique comment utiliser Azure Notification Hubs pour envoyer des notifications Push à un utilisateur particulier d'une application sur un appareil spécifique. Un serveur principal API Web ASP.NET est utilisé pour authentifier les clients et pour générer les notifications, comme indiqué dans la rubrique d'aide [Inscription auprès du serveur principal de votre application](http://msdn.microsoft.com/library/dn743807.aspx). Ce didacticiel fait intervenir le concentrateur de notification que vous avez créé dans le didacticiel intitulé **Prise en main de Notification Hubs**.
+La prise en charge des notifications Push dans Azure vous permet d'accéder à une infrastructure Push conviviale, multi-plateforme et avec montée en charge qui simplifie fortement l'implémentation des notifications Push pour les applications consommateur et entreprise pour les plateformes mobiles. Ce didacticiel explique comment utiliser Azure Notification Hubs pour envoyer des notifications Push à un utilisateur particulier d'une application sur un appareil spécifique. Un code WebAPI principal ASP.NET est utilisé pour authentifier les clients et pour générer les notifications, comme présenté dans la rubrique de conseils [Inscription auprès du serveur principal de votre application](http://msdn.microsoft.com/library/dn743807.aspx). Ce didacticiel fait intervenir le concentrateur de notification que vous avez créé dans le didacticiel intitulé **Prise en main de Notification Hubs**.
 
-> [AZURE.NOTE] Ce didacticiel repose sur l'hypothèse que vous avez créé et configuré votre concentrateur de notification comme décrit dans [Prise en main de Notification Hubs (Android)](notification-hubs-android-get-started.md). 
-> Si vous utilisez Mobile Services comme service principal, consultez la [version Mobile Services](mobile-services-javascript-backend-android-push-notifications-app-users.md) de ce didacticiel.
+> [AZURE.NOTE] Ce didacticiel part du principe que vous avez créé et configuré votre concentrateur de notification comme décrit dans [Prise en main de Notification Hubs (Android)](notification-hubs-android-get-started.md). 
+> Si vous utilisez Mobile Services comme service principal, consultez la [version consacrée à Mobile Services](mobile-services-javascript-backend-android-push-notifications-app-users.md) de ce didacticiel.
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -34,7 +34,7 @@ La prise en charge des notifications Push dans Azure vous permet d'accéder à u
 
 L'étape suivante consiste à créer l'application Android.
 
-1. Suivez le didacticiel [Prise en main de Notification Hubs (Android)](notification-hubs-android-get-started.md) pour créer et configurer votre application de façon à recevoir les notifications Push de GCM.
+1. Suivez le didacticiel [Prise en main de Notification Hubs (Android)](notification-hubs-android-get-started.md) pour créer et configurer votre application afin de recevoir des notifications Push de GCM.
 
 2. Ouvrez votre fichier res/layout/activity_main.xml et remplacez le contenu par ce qui suit :
 			
@@ -87,7 +87,7 @@ L'étape suivante consiste à créer l'application Android.
 
 	![][A1]
 
-3. À présent, créez une classe **RegisterClient** dans le même package que votre classe **MainActivity**. Remplacez bien `{backend endpoint}` par le point de terminaison de votre serveur principal, obtenu dans la section précédente :
+3. Créez maintenant une classe **RegisterClient** dans le même package que votre classe **MainActivity**. Remplacez bien `{backend endpoint}` par le point de terminaison de votre serveur principal, obtenu dans la section précédente :
 
 		import java.io.IOException;
 		import java.io.UnsupportedEncodingException;
@@ -191,7 +191,7 @@ L'étape suivante consiste à créer l'application Android.
 			}
 		}
 
-	Ce composant met en œuvre les appels REST nécessaires pour contacter le serveur principal de l'application, afin de l'inscrire aux notifications Push. Il enregistre également les valeurs *registrationIds* créées par le concentrateur de notification, comme expliqué en détail dans [Inscription auprès du serveur principal de votre application](http://msdn.microsoft.com/library/dn743807.aspx). Notez qu'il utilise un jeton d'autorisation qui se trouve dans le stockage local lorsque vous cliquez sur le bouton **Se connecter et s'inscrire**.
+	Ce composant met en œuvre les appels REST nécessaires pour contacter le serveur principal de l'application, afin de l'inscrire aux notifications Push. Il enregistre également en local les informations *registrationIds* créées par le concentrateur de notification, comme expliqué dans la rubrique [Inscription auprès du serveur principal de votre application](http://msdn.microsoft.com/library/dn743807.aspx). Notez qu'il utilise un jeton d'autorisation qui se trouve dans le stockage local lorsque vous cliquez sur le bouton **Se connecter et s'inscrire**.
 
 4. Dans la classe **MainActivity**, supprimez vos champs privés pour **NotificationHub**, puis ajoutez un champ pour **RegisterClient** :
 
@@ -277,7 +277,7 @@ L'étape suivante consiste à créer l'application Android.
 	    	return basicAuthHeader;
 		}
 
-	Le rappel de **Log in** génère un jeton d'authentification de base reposant sur le nom d'utilisateur et le mot de passe entrés (notez que cela représente n'importe quel jeton utilisé par votre schéma d'authentification), puis utilise `RegisterClient` pour appeler le serveur principal. Le rappel de **Send push** appelle le serveur principal pour déclencher une notification sécurisée vers tous les appareils de cet utilisateur. 
+	Le rappel de **Log in** génère un jeton d'authentification de base, basé sur le nom d'utilisateur et le mot de passe entrés (notez que cela représente n'importe quel jeton utilisé par votre système d'authentification), puis utilise `RegisterClient` pour appeler le serveur principal. Le rappel de **Send push** appelle le serveur principal pour déclencher une notification sécurisée vers tous les appareils de cet utilisateur. 
 
 ## Exécution de l'application
 
@@ -292,4 +292,4 @@ Pour exécuter l'application, procédez comme suit :
 
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users1.PNG
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

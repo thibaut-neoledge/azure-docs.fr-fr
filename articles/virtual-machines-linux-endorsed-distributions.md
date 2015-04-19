@@ -22,7 +22,7 @@
 
 #Linux dans les distributions approuvées par Azure
 
-Les images de distribution présentes dans la galerie Azure sont fournies par les partenaires ci-dessous, et nous collaborons avec les différentes communautés Linux pour mettre à disposition encore plus de distributions approuvées. En attendant, pour les distributions non disponibles dans la galerie, vous pouvez toujours apporter votre propre distribution Linux en suivant les instructions fournies sur [cette page](../virtual-machines-linux-create-upload-vhd/).
+Les images de distribution présentes dans la galerie Azure sont fournies par les partenaires ci-dessous, et nous collaborons avec les différentes communautés Linux pour mettre à disposition encore plus de distributions approuvées. En attendant, pour les distributions non disponibles dans la galerie, vous pouvez toujours apporter votre propre distribution Linux en suivant les instructions fournies sur [cette page](virtual-machines-linux-create-upload-vhd.md).
 
 ## Canonical ##
  

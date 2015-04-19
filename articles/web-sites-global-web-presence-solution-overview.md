@@ -90,7 +90,7 @@ Rendez votre site .COM attrayant avec du contenu multimédia riche, tel que :
 ## Plus de ressources
 
 - [Documentation de Sites Web Azure](/fr-fr/documentation/services/websites/)
-- [Plan de formation pour Sites Web Azure](/fr-fr/documentation/articles/websites-learning-map/)
+- [Plan de formation pour Sites Web Azure](websites-learning-map.md)
 - [Blog Web Azure](/blog/topics/web/)
 
 

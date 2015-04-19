@@ -32,7 +32,7 @@ Ce didacticiel se compose des sections suivantes :
 <a name="ExistingModel"></a>
 ## Exploration du modèle de base de données existant
 
-Ce didacticiel fait appel à la base de données créée avec votre service mobile. Cependant, le modèle créé par défaut ne sera pas utilisé. Nous allons plutôt créer un modèle arbitraire qui représentera une application existante que vous possédez peut-être. Pour plus de détails sur la connexion à une base de données locale, consultez la rubrique [Connexion à un serveur SQL serveur local à partir d'un service mobile Azure au moyen de connexions hybrides](/fr-fr/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
+Ce didacticiel fait appel à la base de données créée avec votre service mobile. Cependant, le modèle créé par défaut ne sera pas utilisé. Nous allons plutôt créer un modèle arbitraire qui représentera une application existante que vous possédez peut-être. Pour plus de détails sur la connexion à une base de données locale, consultez la rubrique [Connexion à un serveur SQL serveur local à partir d'un service mobile Azure au moyen de connexions hybrides](mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
 1. Créez tout d'abord un projet de serveur Mobiles Services dans **Visual Studio 2013 Update 2** ou avec le projet de démarrage rapide, que vous pouvez télécharger sous l'onglet Mobile Services pour votre service dans le [portail de gestion Azure](http://manage.windowsazure.com). Dans le cadre de ce didacticiel, nous partons du principe que le nom de votre projet de serveur est **ShoppingService**.
 

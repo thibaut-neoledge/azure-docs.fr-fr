@@ -339,8 +339,8 @@ Le tableau suivant compare les fonctionnalités de Sites Web Azure, Azure Cloud 
 
 Pour plus d'informations sur les trois options d'hébergement web, consultez les ressources suivantes :
 
-* [Présentation d'Azure](../fundamentals-introduction-to-azure/)
-* [Calcul des options d'hébergement fournies par Azure](../fundamentals-application-models/)
+* [Présentation d'Azure](fundamentals-introduction-to-azure.md)
+* [Calcul des options d'hébergement fournies par Azure](fundamentals-application-models.md)
 
 Pour choisir une ou plusieurs de ces options pour votre application, consultez les ressources suivantes :
 

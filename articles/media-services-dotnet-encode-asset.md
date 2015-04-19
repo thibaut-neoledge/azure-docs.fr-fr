@@ -19,7 +19,7 @@
 
 #Encodage d'un élément multimédia à l'aide d'Azure Media Encoder
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) . 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) . 
 
 ##Vue d'ensemble
 
@@ -207,7 +207,7 @@ La méthode **CreateChainedTaskEncodingJob** suivante crée un travail qui conti
 
 
 ##Étapes suivantes
-Maintenant que vous savez comment créer une tâche pour encoder un élément multimédia, consultez la rubrique [Vérification de la progression d'une tâche avec Media Services](../media-services-check-job-progress/) .
+Maintenant que vous savez comment créer une tâche pour encoder un élément multimédia, consultez la rubrique [Vérification de la progression d'une tâche avec Media Services](media-services-check-job-progress.md) .
 
 [Azure Marketplace]: https://datamarket.azure.com/
 [Préréglage de l'encodeur]: http://msdn.microsoft.com/library/dn619392.aspx

@@ -18,17 +18,17 @@
 
 #2.0.0
 
-Cliquez ici pour obtenir tous les détails de l'intégration d'Azure Mobile Engagement dans une application du Windows Store. Si vous souhaitez tout d'abord l'essayer, pensez à effectuer notre [didacticiel de 15 minutes](../mobile-engagement-windows-store-dotnet-get-started/).
+Cliquez ici pour obtenir tous les détails de l'intégration d'Azure Mobile Engagement dans une application du Windows Store. Si vous souhaitez tout d'abord l'essayer, pensez à effectuer notre [didacticiel de 15 minutes](mobile-engagement-windows-store-dotnet-get-started.md).
 
-Cliquez pour voir le [contenu du Kit de développement logiciel](../mobile-engagement-windows-store-sdk-content/)
+Cliquez pour voir le [contenu du Kit de développement logiciel](mobile-engagement-windows-store-sdk-content.md)
 
 ##Procédures d'intégration
 
-1. Démarrez ici : [Comment intégrer Mobile Engagement dans votre application du Windows Store](../mobile-engagement-windows-store-integrate-engagement/)
+1. Démarrez ici : [Comment intégrer Mobile Engagement dans votre application du Windows Store](mobile-engagement-windows-store-integrate-engagement.md)
 
-2. Pour les Notifications : [Comment intégrer Reach (Notifications) dans votre application du Windows Store](../mobile-engagement-windows-store-integrate-engagement-reach/)
+2. Pour les Notifications : [Comment intégrer Reach (Notifications) dans votre application du Windows Store](mobile-engagement-windows-store-integrate-engagement-reach.md)
 
-3. Implémentation du plan de balise : [Comment utiliser l'API de balisage avancée Mobile Engagement dans votre application du Windows Store](../mobile-engagement-windows-store-use-engagement-api/)
+3. Implémentation du plan de balise : [Comment utiliser l'API de balisage avancée Mobile Engagement dans votre application du Windows Store](mobile-engagement-windows-store-use-engagement-api.md)
 
 ##Notes de publication
 
@@ -39,13 +39,13 @@ Cliquez pour voir le [contenu du Kit de développement logiciel](../mobile-engag
 -   La configuration d'appId/sdkKey est remplacée par une configuration de chaîne de connexion.
 -   Améliorations de sécurité.
 
-Pour les versions antérieures, consultez les [notes de publication complètes](../mobile-engagement-windows-store-release-notes/)
+Pour les versions antérieures, consultez les [notes de publication complètes](mobile-engagement-windows-store-release-notes.md)
 
 ##Procédures de mise à niveau
 
 Si vous avez déjà intégré une version antérieure d'Engagement dans votre application, vous devez prendre en compte les points suivants lors de la mise à niveau du Kit de développement logiciel.
 
-Vous devrez peut-être suivre quelques procédures si vous avez manqué plusieurs versions du kit SDK. Consultez les [Procédures de mise à niveau] complètes(../mobile-engagement-windows-store-upgrade-procedure/). Par exemple, si vous migrez de la version 0.10.1 vers 0.11.0, vous devez tout d'abord suivre la procédure " Migration de 0.9.0 vers 0.10.1 ", puis la procédure " Migration de 0.10.1 vers 0.11.0 ".
+Vous devrez peut-être suivre quelques procédures si vous avez manqué plusieurs versions du kit SDK. Consultez les [Procédures de mise à niveau] complètes(mobile-engagement-windows-store-upgrade-procedure.md). Par exemple, si vous migrez de la version 0.10.1 vers 0.11.0, vous devez tout d'abord suivre la procédure " Migration de 0.9.0 vers 0.10.1 ", puis la procédure " Migration de 0.10.1 vers 0.11.0 ".
 
 ##Migration de 1.1.1 vers 2.0.0
 

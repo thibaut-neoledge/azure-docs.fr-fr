@@ -659,7 +659,7 @@ Une signature d'accès partagé peut prendre deux formes :
 - **Signature d'accès partagé ad hoc** : lorsque vous créez une signature d'accès partagé ad hoc, l'heure de début, l'heure d'expiration et les autorisations associées à cette signature sont spécifiées sur l'URI de signature d'accès partagé. Ce type de signature d'accès partagé peut être créé sur un conteneur, un objet blob, une table ou une file d'attente, et il ne peut pas être révoqué.
 - **Signature d'accès partagé avec stratégie d'accès stockée** : une stratégie d'accès stockée est définie sur un conteneur de ressources (un conteneur d'objets blob, une table ou une file d'attente) et vous pouvez l'utiliser pour gérer les contraintes pour une ou plusieurs signatures d'accès partagé. Lorsque vous associez une signature d'accès partagé à une stratégie d'accès stockée, la signature hérite des contraintes (heure de début, heure d'expiration et autorisations) définies pour la stratégie. Ce type de signature d'accès partagé peut être révoqué.
 
-Pour plus d'informations, consultez [Signatures d'accès partagé](./storage-dotnet-shared-access-signature-part-1.md/), [Partie 1 : présentation du modèle SAP](./storage-dotnet-shared-access-signature-part-1.md/)et [Gestion de l'accès aux ressources d'Azure Storage](http://msdn.microsoft.com/library/azure/ee393343.aspx).
+Pour plus d'informations, consultez [Signatures d'accès partagé](storage-dotnet-shared-access-signature-part-1.md), [Partie 1 : présentation du modèle SAP](storage-dotnet-shared-access-signature-part-1.md)et [Gestion de l'accès aux ressources d'Azure Storage](http://msdn.microsoft.com/library/azure/ee393343.aspx).
 
 Dans les sections suivantes, vous allez découvrir comment créer un jeton de signature d'accès partagé et une stratégie d'accès stockée pour les tables Azure. PowerShell Azure fournit aussi des applets de commande semblables pour les conteneurs, les objets blob et les files d'attente. Pour exécuter les scripts de cette section, vous devez télécharger [Azure PowerShell version 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) ou ultérieure.
 
@@ -721,7 +721,7 @@ Pour utiliser Azure Storage avec [Azure pour le gouvernement des États-Unis](ht
 
 Pour plus d'informations, consultez les pages suivantes :
 
-- [Guide du développeur Microsoft Azure Government](../azure-government-developer-guide/). 
+- [Guide du développeur Microsoft Azure Government](azure-government-developer-guide.md). 
 - [Différences entre AzureCloud pour Azure global et AzureChinaCloud pour Azure géré par 21Vianet en Chine](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 
 ## <a name="next"></a>Étapes suivantes

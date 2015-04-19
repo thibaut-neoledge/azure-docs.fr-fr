@@ -22,7 +22,7 @@
 
 <h1>Procédure : de contenu de diffusion en continu HLS Apple</h1>
 
-Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [ Fourniture de contenu de diffusion en continu](../media-services-deliver-streaming-content/).
+Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [ Fourniture de contenu de diffusion en continu](media-services-deliver-streaming-content.md).
 
 Cette rubrique décrit la création d'un localisateur renvoyant vers du contenu de diffusion en continu HTTP (HLS) Apple sur un serveur d'origine Media Services. Cette méthode vous permet de créer une URL renvoyant vers du contenu de diffusion en continu HTTP (HLS) Apple qui permettra la lecture de contenu en continu sur des appareils iOS Apple. Le principe de base pour la création de l'URL du localisateur est identique. Générez un localisateur renvoyant vers le chemin d'accès de l'élément multimédia de diffusion en continu HTTP (HLS) Apple sur un serveur d'origine, puis créez une URL complète renvoyant vers le fichier manifeste du contenu de diffusion en continu.
 
@@ -92,8 +92,8 @@ Cette rubrique est la dernière consacrée à l'utilisation d'Azure Media Servic
 -   [Création d'applications avec le Kit de développement logiciel (SDK) Media Services pour .NET][]
 -   [Création d'applications avec l'API REST d'Azure Media Services][]
 -   [Forum Media Services][]
--	[Surveillance d'un compte Media Services](../media-services-monitor-services-account/)
--	[Gestion du contenu dans Media Services](../media-services-manage-content/)
+-	[Surveillance d'un compte Media Services](media-services-monitor-services-account.md)
+-	[Gestion du contenu dans Media Services](media-services-manage-content.md)
 
 [Documentation Azure Media Services]: http://go.microsoft.com/fwlink/?linkid=245437
 [Prise en main du Kit de développement logiciel (SDK) Media Services pour .NET]: http://go.microsoft.com/fwlink/?linkid=252966

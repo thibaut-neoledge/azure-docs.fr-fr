@@ -104,7 +104,7 @@ La tâche planifiée suivante purge les enregistrements supprimés de manière r
         }
     }
 
-Pour en savoir plus sur les tâches planifiées avec le serveur principal .NET de Mobiles services, consultez la page suivante : [Planification de tâches récurrentes avec le serveur principal JavaScript de Mobile Services](/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/) 
+Pour en savoir plus sur les tâches planifiées avec le serveur principal .NET de Mobiles services, consultez la page suivante : [Planification de tâches récurrentes avec le serveur principal JavaScript de Mobile Services](mobile-services-dotnet-backend-schedule-recurring-tasks.md) 
 
 
 
@@ -145,7 +145,7 @@ Voici un exemple de tâche planifiée qui supprime les enregistrements qui ont �
         }});
     }
 
-Pour en savoir plus sur les tâches planifiées avec le serveur principal JavaScript de Mobiles Services, consultez la page suivante : [Planification de tâches récurrentes avec le serveur principal JavaScript de Mobile Services](/documentation/articles/mobile-services-schedule-recurring-tasks/).
+Pour en savoir plus sur les tâches planifiées avec le serveur principal JavaScript de Mobiles Services, consultez la page suivante : [Planification de tâches récurrentes avec le serveur principal JavaScript de Mobile Services](mobile-services-schedule-recurring-tasks.md).
 
 
 

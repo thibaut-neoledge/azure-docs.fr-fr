@@ -31,7 +31,7 @@ Dans cet exemple, vous allez utiliser Hive pour traiter les données d'historiqu
 
 ##Conditions préalables :
 
-* Un cluster HDInsight (Hadoop) - Consultez la rubrique [Approvisionnement de clusters Hadoop dans HDInsight](/fr-fr/documentation/articles/hdinsight-provision-clusters/) pour des informations sur la création d'un cluster.
+* Un cluster HDInsight (Hadoop) - Consultez la rubrique [Approvisionnement de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md) pour des informations sur la création d'un cluster.
 
 * Microsoft Excel 2013
 

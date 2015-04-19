@@ -114,7 +114,7 @@ La sélection d'un spout à partir de la section **Spouts** ou **Bolts** affiche
 
 ##Outils HDInsight pour Visual Studio
 
-Les outils HDInsight permettent de soumettre des topologies C# ou hybrides à votre Cluster Storm. La procédure suivante utilise un exemple d'application. Pour plus d'informations sur la création de vos propres topologies à l'aide des outils HDInsight, consultez [Développement de topologies C# à l'aide des outils HDInsight pour Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/).
+Les outils HDInsight permettent de soumettre des topologies C# ou hybrides à votre Cluster Storm. La procédure suivante utilise un exemple d'application. Pour plus d'informations sur la création de vos propres topologies à l'aide des outils HDInsight, consultez [Développement de topologies C# à l'aide des outils HDInsight pour Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 Utilisez les étapes suivantes pour déployer un exemple sur votre Storm sur le cluster HDInsight, puis afficher et gérer la topologie.
 
@@ -166,7 +166,7 @@ Les informations renvoyées par l'API REST sont uniquement utilisables au sein d
 
 ##Étapes suivantes
 
-Maintenant que vous avez appris à déployer et surveiller des topologies à l'aide du tableau de bord Storm, découvrez comment [développer des topologies C# à l'aide des outils HDInsight pour Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/) ou comment [développer des topologies basées sur Java à l'aide de Maven](../hdinsight-storm-develop-java-topology/).
+Maintenant que vous avez appris à déployer et surveiller des topologies à l'aide du tableau de bord Storm, découvrez comment [développer des topologies C# à l'aide des outils HDInsight pour Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md) ou comment [développer des topologies basées sur Java à l'aide de Maven](hdinsight-storm-develop-java-topology.md).
 
 
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor/dashboard-link.png

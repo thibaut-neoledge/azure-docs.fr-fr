@@ -21,7 +21,7 @@
 #Configuration de la stratégie d'autorisation de clé de contenu 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) et [workflow de vidéo en flux continu Media Services](../media-services-live-streaming-workflow) . 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md) . 
 
 
 ##Vue d'ensemble
@@ -35,14 +35,14 @@ Lorsqu'un lecteur demande un flux de données devant être chiffré dynamiquemen
 
 Si vous prévoyez de disposer de plusieurs clés de contenu ou souhaitez spécifier une URL de **service de remise de clés/de licences** autre que le service de remise de clé Media Services, utilisez le Kit de développement logiciel (SDK) .NET Media Services ou des API REST.
 
-[Configurer la stratégie d'autorisation de clé de contenu à l'aide du Kit de développement logiciel (SDK).NET Media Services](../media-services-dotnet-configure-content-key-auth-policy/)
+[Configurer la stratégie d'autorisation de clé de contenu à l'aide du Kit de développement logiciel (SDK).NET Media Services](media-services-dotnet-configure-content-key-auth-policy.md)
 
-[Configurer la stratégie d'autorisation de clé de contenu à l'aide de l'API REST Media Services](../media-services-rest-configure-content-key-auth-policy/)
+[Configurer la stratégie d'autorisation de clé de contenu à l'aide de l'API REST Media Services](media-services-rest-configure-content-key-auth-policy.md)
 
 ###Certaines considérations s'appliquent :
 
-- Pour pouvoir utiliser l'empaquetage et le chiffrement dynamiques, vous devez vous assurer d'avoir au moins une unité d'échelle (également appelée unité de diffusion). Pour plus d'informations, consultez [Mise à l'échelle d'un service de média](../media-services-manage-origins#scale_streaming_endpoints). 
-- Votre ressource doit contenir un ensemble de MP4 à débit adaptatif ou des fichiers de diffusion en continu lisse à débit adaptatif. Pour plus d'informations, consultez [Encodage d'une ressource](../media-services-encode-asset/).  
+- Pour pouvoir utiliser l'empaquetage et le chiffrement dynamiques, vous devez vous assurer d'avoir au moins une unité d'échelle (également appelée unité de diffusion). Pour plus d'informations, consultez [Mise à l'échelle d'un service de média](media-services-manage-origins#scale_streaming_endpoints.md). 
+- Votre ressource doit contenir un ensemble de MP4 à débit adaptatif ou des fichiers de diffusion en continu lisse à débit adaptatif. Pour plus d'informations, consultez [Encodage d'une ressource](media-services-encode-asset.md).  
 - Le service de remise de clé met en cache ContentKeyAuthorizationPolicy et ses objets connexes (options de stratégie et restrictions) pendant 15 minutes.  Si vous créez une ContentKeyAuthorizationPolicy et que vous spécifiez l'utilisation d'une restriction " Jeton ", puis la testez avant de mettre à jour la stratégie de restriction vers " Ouverte ", vous devrez attendre environ 15 minutes avant que la stratégie bascule vers la version " Ouverte ".
 
 
@@ -87,7 +87,7 @@ Lorsque vous protégez votre contenu avec **PlayReady**, l'une des choses à sp�
 Vous pouvez cliquer sur le bouton **importer le xml de la stratégie** et fournir un autre XML conforme au schéma XML défini [ici](https://msdn.microsoft.com/library/azure/dn783459.aspx).
 
 ##Étapes suivantes
-Maintenant que vous avez configuré la stratégie d'autorisation de la clé de contenu, consultez [ Utilisez le portail de gestion Azure pour activer le chiffrement](../media-services-manage-content#encrypt/) .
+Maintenant que vous avez configuré la stratégie d'autorisation de la clé de contenu, consultez [ Utilisez le portail de gestion Azure pour activer le chiffrement](media-services-manage-content#encrypt.md) .
 
 
 [open_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-open-restriction.png

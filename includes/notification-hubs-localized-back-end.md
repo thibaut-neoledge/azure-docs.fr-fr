@@ -1,4 +1,4 @@
-
+﻿
 
 Dans votre application principale, vous devez maintenant basculer vers l'envoi de modèles de notification plutôt que de charges utiles natives. Cela simplifie le code principal, car vous n'avez pas à envoyer plusieurs charges utiles pour les différentes plateformes.
 
@@ -13,8 +13,8 @@ Lorsque vous envoyez des notifications de modèle, vous devez uniquement fournir
 
 Cette section présente deux façons d'envoyer des notifications :
 
-- à l’aide d’une application de console 
-- à l’aide d’un script Mobile Services.
+- à l'aide d'une application de console ;
+- à l'aide d'un script Mobile Services.
 
 Le code inclus diffuse vers les appareils iOS et Windows Store, car le serveur principal peut diffuser vers n'importe quel appareil pris en charge.
 
@@ -52,4 +52,4 @@ Dans votre planificateur Mobile Service, remplacez votre script par :
 	
 Remarquez comment, dans ce cas, il n'est pas obligatoire d'envoyer plusieurs notifications pour différents paramètres régionaux et différentes plateformes.
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

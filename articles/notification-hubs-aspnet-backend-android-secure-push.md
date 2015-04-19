@@ -1,8 +1,8 @@
 ﻿<properties 
 	pageTitle="Notifications Push sécurisées avec Azure Notification Hubs" 
-	description="Découvrez comment envoyer des notifications Push sécurisées à une application Android depuis Azure. Exemples de code écrits en Java et C#." 
+	description="Découvrez comment envoyer des notifications Push sécurisées à une application Android depuis Azure. Code samples written in Java and C#." 
 	documentationCenter="android" 
-	authors="wesmc7777" 
+	authors="RickSaling" 
 	manager="dwrede" 
 	editor="" 
 	services="notification-hubs"/>
@@ -13,19 +13,17 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
-	ms.author="wesmc"/>
+	ms.date="09/24/2014" 
+	ms.author="ricksal"/>
 
 #Notifications Push sécurisées avec Azure Notification Hubs
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universel</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
-		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android" class="current">Android</a>
+    	<a href="/fr-fr/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universel</a><a href="/fr-fr/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
+		<a href="/fr-fr/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android" class="current">Android</a>
 </div>
 
-#Vue d'ensemble
-
-La prise en charge des notifications Push dans Microsoft Azure vous permet d'accéder à une infrastructure Push conviviale, multiplateforme et avec montée en charge qui simplifie fortement l'implémentation des notifications Push pour les applications grand public et d'entreprise destinées aux plateformes mobiles. 
+La prise en charge des notifications Push dans Microsoft Azure vous permet d'accéder à une infrastructure Push conviviale, multiplateforme et avec montée en charge qui simplifie fortement l'implémentation des notifications Push pour les applications grand public et entreprise destinées aux plateformes mobiles. 
 
 En raison de contraintes liées à la réglementation ou à la sécurité, une application peut avoir besoin d'inclure dans la notification des informations qui ne peuvent pas être transmises via l'infrastructure de notification Push standard. Ce didacticiel montre comment procéder en envoyant des informations sensibles par l'intermédiaire d'une connexion authentifiée sécurisée entre l'appareil client et le serveur principal de l'application.
 
@@ -42,16 +40,16 @@ Il est important de noter que dans le processus précédent (et dans ce didactic
 
 Ce didacticiel sur les notifications Push sécurisées montre comment envoyer une notification Push en toute sécurité. Il s'appuie sur le didacticiel **Notification des utilisateurs**. Vous devez donc suivre ce dernier au préalable.
 
-> [AZURE.NOTE] Ce didacticiel repose sur l'hypothèse que vous avez créé et configuré votre concentrateur de notification comme décrit dans [Prise en main de Notification Hubs (Android)](notification-hubs-android-get-started.md).
+> [AZURE.NOTE] Ce didacticiel part du principe que vous avez créé et configuré votre concentrateur de notification comme décrit dans [Prise en main de Notification Hubs (Android)](http://azure.microsoft.com/documentation/articles/notification-hubs-android-get-started/).
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Modification du projet Android
 
-À présent que vous avez modifié le serveur principal de votre application pour qu'il n'envoie que la valeur *id* d'une notification, vous devez modifier votre application Android afin qu'elle gère cette notification et qu'elle rappelle votre serveur principal pour récupérer le message sécurisé à afficher.
-Pour atteindre cet objectif, vous devez vous assurer que votre application Android sait comment s'authentifier auprès de votre serveur principal lorsqu'elle reçoit les notifications Push.
+Maintenant que vous avez modifié le serveur principal de votre application pour qu'il n'envoie que l' *id* d'une notification, vous devez modifier votre application Android pour gérer cette notification et rappeler votre serveur pour récupérer le message sécurisé à afficher.
+Pour atteindre cet objectif, vous devez vous assurer que votre application Android sait comment s'authentifier auprès de votre serveur principal lorsqu'il reçoit les notifications Push.
 
-Nous allons à présent modifier le processus *login* de façon à enregistrer la valeur d'en-tête de l'authentification dans les préférences partagées de votre application. D'autres mécanismes de même type peuvent être utilisés pour stocker n'importe quel jeton d'authentification (par exemple des jetons OAuth) que l'application doit utiliser sans demander d'informations d'identification.
+Nous allons maintenant modifier le processus de *login* afin d'enregistrer la valeur d'en-tête de l'authentification dans les préférences partagées de votre application. D'autres mécanismes de même type peuvent être utilisés pour stocker n'importe quel jeton d'authentification (par exemple des jetons OAuth) que l'application doit utiliser sans demander d'informations d'identification.
 
 1. Dans votre projet d'application Android, ajoutez les constantes suivantes au début de la classe **MainActivity** :
 
@@ -72,7 +70,7 @@ Nous allons à présent modifier le processus *login* de façon à enregistrer l
     		return basicAuthHeader;
 		}
 
-3. Ajoutez les instructions `import` ci-après au début du fichier **MainActivity** :
+3. Ajoutez les instructions `import` suivantes au début du fichier **MainActivity** :
 
 		import android.content.SharedPreferences;
 
@@ -86,7 +84,7 @@ Nous allons maintenant changer le gestionnaire qui est appelé lorsque la notifi
 	    	retrieveNotification(secureMessageId);
 		}
 
-5. Puis ajoutez la méthode `retrieveNotification()` en remplaçant l'espace réservé `{back-end endpoint}` par le point de terminaison du serveur principal obtenu lors du déploiement de votre serveur principal :
+5. Ajoutez ensuite la méthode `retrieveNotification()`, en remplaçant l'espace réservé `{back-end endpoint}` par le point de terminaison du serveur principal obtenu lors du déploiement de votre serveur principal :
 
 		private void retrieveNotification(final String secureMessageId) {
 			SharedPreferences sp = ctx.getSharedPreferences(MainActivity.NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
@@ -132,4 +130,4 @@ Pour exécuter l'application, procédez comme suit :
 
 4. Dans l'interface utilisateur de l'application Android, cliquez sur **Log in** (Connexion). Cliquez ensuite sur **Send push** (Envoyer une notification Push).
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

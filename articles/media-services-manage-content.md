@@ -22,7 +22,7 @@
 
 # Gestion du contenu dans Media Services #
 
-Cet article fait partie de la série [workflow à la demande de vidéo Media Services](../media-services-video-on-demand-workflow). 
+Cet article fait partie de la série [workflow à la demande de vidéo Media Services](media-services-video-on-demand-workflow.md). 
 
 Cette rubrique présente l'utilisation du portail de gestion Azure pour gérer du contenu multimédia dans votre compte Media Services.
 
@@ -84,7 +84,7 @@ Media Services fournit l'empaquetage dynamique qui permet de distribuer un conte
 Pour tirer parti de l'empaquetage dynamique, vous devez effectuer les opérations suivantes :
 
 - encoder votre fichier mezzanine (source) dans un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif (les étapes de codage sont décrites plus loin dans ce didacticiel).
-- obtenir au moins une unité de diffusion à la demande pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu. Pour plus d'informations, consultez la page [Extension des unités réservées de diffusion en continu à la demande](../media-services-manage-origins#scale_streaming_endpoints/).
+- obtenir au moins une unité de diffusion à la demande pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu. Pour plus d'informations, consultez la page [Extension des unités réservées de diffusion en continu à la demande](media-services-manage-origins#scale_streaming_endpoints.md).
 
 Avec l'empaquetage dynamique, vous devez stocker et payer les fichiers dans un seul format de stockage. Ensuite, Media Services crée et fournit la réponse appropriée en fonction des demandes des clients. 
 
@@ -128,8 +128,8 @@ Cette section décrit les étapes à suivre pour encoder votre contenu avec Azur
 Si vous souhaitez que Media Services chiffre dynamiquement votre ressource avec une clé AES ou la DRM PlayReady, veillez à effectuer les opérations suivantes :
 
 - encoder vos fichiers votre fichier mezzanine (source) en un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif (les étapes de codage sont décrites dans la section [Encodage](#encode) ).
-- obtenir au moins une unité de diffusion à la demande pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu. Pour plus d'informations, consultez la page [Extension des unités réservées de diffusion en continu à la demande](../media-services-manage-origins#scale_streaming_endpoints/).
-- Configurez " stratégie de service de clé en clair aes par défaut " ou " stratégie de service de licence playready par défaut ". Pour plus d'informations, consultez [Configuration de la stratégie d'autorisation de clé de contenu](../media-services-portal-configure-content-key-auth-policy).  
+- obtenir au moins une unité de diffusion à la demande pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu. Pour plus d'informations, consultez la page [Extension des unités réservées de diffusion en continu à la demande](media-services-manage-origins#scale_streaming_endpoints.md).
+- Configurez " stratégie de service de clé en clair aes par défaut " ou " stratégie de service de licence playready par défaut ". Pour plus d'informations, consultez [Configuration de la stratégie d'autorisation de clé de contenu](media-services-portal-configure-content-key-auth-policy.md).  
 
 
 	Lorsque vous êtes prêt à activer le chiffrement, appuyez sur le bouton **CRYPTAGE** au bas de la page **CONTENU**.

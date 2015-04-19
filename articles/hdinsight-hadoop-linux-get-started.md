@@ -21,7 +21,7 @@
 Ce didacticiel vous offre une prise en main rapide de HDInsight sur Linux en vous montrant comment approvisionner un cluster Hadoop dans HDInsight sur Linux et exécuter une requête Hive pour l'extraction d'informations utiles à partir de données non structurées. Vous pourrez ensuite analyser les résultats dans outil décisionnel tel que Tableau.
 
 
-> [AZURE.NOTE] Si vous ne connaissez pas Hadoop et les données volumineuses (Big Data), vous pouvez vous familiariser avec les termes <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">HDFS</a> et <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a>. Pour comprendre la manière dont HDInsight prend en charge Hadoop dans Azure, consultez la page [Présentation de Hadoop dans HDInsight](../hdinsight-hadoop-introduction/).
+> [AZURE.NOTE] Si vous ne connaissez pas Hadoop et les données volumineuses (Big Data), vous pouvez vous familiariser avec les termes <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">HDFS</a> et <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a>. Pour comprendre la manière dont HDInsight prend en charge Hadoop dans Azure, consultez la page [Présentation de Hadoop dans HDInsight](hdinsight-hadoop-introduction.md).
 
 
 ## Objectif de ce didacticiel ##
@@ -49,11 +49,11 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 ## <a name="storage"></a>Création d'un compte Azure Storage
 
-HDInsight utilise le stockage d'objets blob Azure pour stocker des données. On utilise l'appellation  *WASB* ou  *Azure Storage - Blob*. WASB correspond à l'implémentation Microsoft du HDFS sur le stockage d'objets blob Azure. Pour plus d'informations, consultez la page [Utilisation du stockage d'objets blob Azure avec HDInsight](../hdinsight-use-blob-storage/).
+HDInsight utilise le stockage d'objets blob Azure pour stocker des données. On utilise l'appellation  *WASB* ou  *Azure Storage - Blob*. WASB correspond à l'implémentation Microsoft du HDFS sur le stockage d'objets blob Azure. Pour plus d'informations, consultez la page [Utilisation du stockage d'objets blob Azure avec HDInsight](hdinsight-use-blob-storage.md).
 
 Lors de l'approvisionnement d'un cluster HDInsight, vous spécifiez un compte Azure Storage. Un conteneur de stockage d'objets blob spécifique de ce compte est désigné en tant que système de fichiers par défaut, comme dans HDFS. Le cluster HDInsight est approvisionné par défaut dans le même centre de données que le compte de stockage que vous spécifiez.
 
-En plus de ce compte de stockage, vous pouvez ajouter des comptes de stockage supplémentaires lorsque vous configurez de façon personnalisée un cluster HDInsight. Ce compte de stockage supplémentaire peut être ajouté à partir du même abonnement Azure ou à partir d'autres abonnements Azure. Pour plus d'informations, consultez la page [Approvisionnement de clusters HDInsight sur Linux au moyen d'options personnalisées](../hdinsight-hadoop-provision-linux-clusters). 
+En plus de ce compte de stockage, vous pouvez ajouter des comptes de stockage supplémentaires lorsque vous configurez de façon personnalisée un cluster HDInsight. Ce compte de stockage supplémentaire peut être ajouté à partir du même abonnement Azure ou à partir d'autres abonnements Azure. Pour plus d'informations, consultez la page [Approvisionnement de clusters HDInsight sur Linux au moyen d'options personnalisées](hdinsight-hadoop-provision-linux-clusters.md). 
 
 Afin de simplifier ce didacticiel, seuls le conteneur d'objets blob par défaut et le compte de stockage par défaut sont utilisés. En pratique, les fichiers de données sont généralement stockés dans un compte de stockage précis.
 
@@ -74,13 +74,13 @@ Afin de simplifier ce didacticiel, seuls le conteneur d'objets blob par défaut 
 
 
 Pour plus d'informations, consultez les pages
-[Création d'un compte de stockage](../storage-create-storage-account/) et [Utilisation du stockage d'objets blob Azure avec HDInsight](../hdinsight-use-blob-storage/).
+[Création d'un compte de stockage](storage-create-storage-account.md) et [Utilisation du stockage d'objets blob Azure avec HDInsight](hdinsight-use-blob-storage.md).
 	
 ## <a name="provision"></a>Approvisionnement d'un cluster HDInsight sur Linux
 
 Lorsque vous approvisionnez un cluster HDInsight, vous approvisionnez des ressources de calcul Azure contenant Hadoop et des applications connexes. Dans cette section, vous approvisionnez un cluster HDInsight sur Linux à l'aide de l'option de création rapide. Cette option utilise par défaut les noms d'utilisateurs et les conteneurs de stockage Azure et configure un cluster avec HDInsight version 3.2 (Hadoop version 2.5, HDP version 2.2) exécutée sur Ubuntu 12.04 LTS. Pour plus d'informations sur les différentes versions de HDInsight et leurs contrats SLA, consultez la page [Contrôle de version des composants HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
->[AZURE.NOTE]  Vous pouvez également créer des clusters Hadoop qui s'exécutent sur le système d'exploitation Windows Server. Pour obtenir des instructions, consultez [Prise en main de HDInsight sur Windows](../hdinsight-get-started/).
+>[AZURE.NOTE]  Vous pouvez également créer des clusters Hadoop qui s'exécutent sur le système d'exploitation Windows Server. Pour obtenir des instructions, consultez [Prise en main de HDInsight sur Windows](hdinsight-get-started.md).
 
 
 **Pour approvisionner un cluster HDInsight**
@@ -112,7 +112,7 @@ Lorsque vous approvisionnez un cluster HDInsight, vous approvisionnez des ressou
 	
 5. Cliquez sur **Créer un cluster HDInsight**. À l'issue de l'approvisionnement, la colonne de statut indique **En cours d'exécution**.
 
-	>[AZURE.NOTE] La procédure ci-dessus crée un cluster Linux avec l'option de création rapide qui utilise le nom d'utilisateur SSH par défaut et les conteneurs de stockage Azure. Pour créer un cluster avec des options personnalisées telles que l'utilisation d'une clé SSH pour l'authentification ou l'utilisation de comptes de stockage supplémentaires, consultez [Approvisionnement des clusters HDInsight sur Linux à l'aide des options personnalisées](../hdinsight-hadoop-provision-linux-clusters).
+	>[AZURE.NOTE] La procédure ci-dessus crée un cluster Linux avec l'option de création rapide qui utilise le nom d'utilisateur SSH par défaut et les conteneurs de stockage Azure. Pour créer un cluster avec des options personnalisées telles que l'utilisation d'une clé SSH pour l'authentification ou l'utilisation de comptes de stockage supplémentaires, consultez [Approvisionnement des clusters HDInsight sur Linux à l'aide des options personnalisées](hdinsight-hadoop-provision-linux-clusters.md).
 
 
 ## <a name="hivequery"></a>Envoi d'une tâche Hive sur le cluster
@@ -240,13 +240,13 @@ Lorsque vous êtes connecté au cluster à l'aide du SSH, utilisez les commandes
 ## <a name="nextsteps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à approvisionner un cluster Hadoop sur Linux avec HDInsight et à exécuter une requête Hive sur celui-ci en utilisant le SSH. Pour en savoir plus, consultez les articles suivants :
 
-- [Approvisionnement de HDInsight sur Linux à l'aide des options personnalisées](../hdinsight-hadoop-provision-linux-clusters)
-- [Utilisation de HDInsight sur Linux](../hdinsight-hadoop-linux-information)
-- [Gestion des clusters HDInsight à l'aide d'Ambari](../hdinsight-hadoop-manage-ambari)
+- [Approvisionnement de HDInsight sur Linux à l'aide des options personnalisées](hdinsight-hadoop-provision-linux-clusters.md)
+- [Utilisation de HDInsight sur Linux](hdinsight-hadoop-linux-information.md)
+- [Gestion des clusters HDInsight à l'aide d'Ambari](hdinsight-hadoop-manage-ambari.md)
 - [Utilisation de MapReduce avec HDInsight][hdinsight-use-mapreduce]
 - [Utilisation de Hive avec HDInsight][hdinsight-use-hive]
 - [Utilisation de Pig avec HDInsight][hdinsight-use-pig]
-- [Utilisation du stockage d'objets blob Azure avec HDInsight](../hdinsight-use-blob-storage)
+- [Utilisation du stockage d'objets blob Azure avec HDInsight](hdinsight-use-blob-storage.md)
 - [Téléchargement de données vers HDInsight][hdinsight-upload-data]
 
 

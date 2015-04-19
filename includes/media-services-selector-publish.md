@@ -1,6 +1,6 @@
 ﻿> [AZURE.SELECTOR]
-- [Portail](/documentation/articles/media-services-manage-content#publish/)
-- [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](/documentation/articles/media-services-deliver-streaming-content/)
-- [API REST](/documentation/articles/media-services-rest-deliver-streaming-content)
+- [Portail](media-services-manage-content#publish.md)
+- [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](media-services-deliver-streaming-content.md)
+- [API REST](media-services-rest-deliver-streaming-content.md)
 
 <!--HONumber=47-->

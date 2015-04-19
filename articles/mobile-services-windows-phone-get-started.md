@@ -18,8 +18,8 @@
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
-Cette rubrique n'est plus prise en charge. Aucun projet de démarrage rapide Windows Phone 8.0 ne peut faire l'objet d'un téléchargement à partir du portail. Pour ajouter Mobile Services à une application Windows Phone 8.0 ou Windows Phone 8.1 Silverlight existante, consultez la rubrique [Ajout de Mobile Services à une application existante](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started-data/). 
+Cette rubrique n'est plus prise en charge. Aucun projet de démarrage rapide Windows Phone 8.0 ne peut faire l'objet d'un téléchargement à partir du portail. Pour ajouter Mobile Services à une application Windows Phone 8.0 ou Windows Phone 8.1 Silverlight existante, consultez la rubrique [Ajout de Mobile Services à une application existante](mobile-services-windows-phone-get-started-data.md). 
 
-Un projet de démarrage rapide peut être téléchargé pour les applications Windows Phone Store 8.1 dans le cadre d'un projet Windows universel. Pour plus d'informations, consultez la page [Prise en main de Mobile Services](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/). 
+Un projet de démarrage rapide peut être téléchargé pour les applications Windows Phone Store 8.1 dans le cadre d'un projet Windows universel. Pour plus d'informations, consultez la page [Prise en main de Mobile Services](mobile-services-javascript-backend-windows-store-dotnet-get-started.md). 
 
 <!--HONumber=42-->

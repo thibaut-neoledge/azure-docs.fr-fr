@@ -73,7 +73,7 @@ Voir aussi les sections suivantes sur le [Déploiement de WebJobs](#deploy) et l
 * [Code d'hébergement interactif dans le cloud](http://blogs.msdn.com/b/jmstall/archive/2014/04/26/hosting-interactive-code-in-the-cloud.aspx)
 * [Obtention d'un tableau de bord pour le développement local avec le Kit de développement logiciel (SDK) WebJobs](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)
 * [Ajout de Trace au service Sites web Azure et à WebJobs](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)
-* [Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting/)
+* [Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)
 * Vidéos
 	* [Outils relatifs à WebJobs et débogage distant](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 

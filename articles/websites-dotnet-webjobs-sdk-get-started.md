@@ -78,7 +78,7 @@ Si le trafic varie pendant la journée ou la semaine et que le traitement princi
 * Exécution du programme sous la forme d'une tâche web dans une application web dédiée à cet effet. Vous pouvez ensuite faire évoluer votre application web principale indépendamment de votre application web frontale.
 * Exécution du programme dans un rôle de travail Azure Cloud Services. Si vous choisissez cette option, vous pouvez exécuter le programme frontal dans un rôle Web de service cloud ou dans une application web.
 
-Ce didacticiel vous explique comment exécuter le programme frontal dans une application web et le programme principal sous la forme d'une tâche web dans la même application web. Pour plus d'informations sur le choix du meilleur environnement pour votre scénario, voir [Comparaison entre les applications web, les services cloud et les machines virtuelles Azure](../choose-web-site-cloud-service-vm/).
+Ce didacticiel vous explique comment exécuter le programme frontal dans une application web et le programme principal sous la forme d'une tâche web dans la même application web. Pour plus d'informations sur le choix du meilleur environnement pour votre scénario, voir [Comparaison entre les applications web, les services cloud et les machines virtuelles Azure](choose-web-site-cloud-service-vm.md).
 
 [AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 

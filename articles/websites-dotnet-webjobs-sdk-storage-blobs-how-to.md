@@ -18,11 +18,11 @@
 
 # Comment utiliser le stockage d'objets blob Azure avec SDK WebJobs
 
-Ce guide fournit des exemples de code C# qui montrent comment déclencher un processus, lorsqu'un objet blob Azure est créé ou mis à jour. Les exemples de code utilisent la version 1.x de [SDK WebJobs](../websites-dotnet-webjobs-sdk/).
+Ce guide fournit des exemples de code C# qui montrent comment déclencher un processus, lorsqu'un objet blob Azure est créé ou mis à jour. Les exemples de code utilisent la version 1.x de [SDK WebJobs](websites-dotnet-webjobs-sdk.md).
 
-Pour plus d'exemples de code qui montrent comment créer des objets blob, consultez [Utilisation du stockage de file d'attente Azure avec SDK WebJobs](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
+Pour plus d'exemples de code qui montrent comment créer des objets blob, consultez [Utilisation du stockage de file d'attente Azure avec SDK WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 		
-Le guide suppose que vous savez [créer un projet WebJob dans Visual Studio avec des chaînes de connexion qui pointent vers votre compte de stockage](../websites-dotnet-webjobs-sdk-get-started/).
+Le guide suppose que vous savez [créer un projet WebJob dans Visual Studio avec des chaînes de connexion qui pointent vers votre compte de stockage](websites-dotnet-webjobs-sdk-get-started.md).
 
 ## Sommaire
 
@@ -223,7 +223,7 @@ Si vous souhaitez forcer le retraitement d'un objet blob, vous pouvez supprimer 
 
 ## <a id="queues"></a>Rubriques couvertes par l'article de files d'attente
 
-Pour plus d'informations sur la façon de gérer le traitement des objets blob déclenchés par un message de file d'attente ou pour les scénarios SDK WebJobs non spécifiques au traitement des objets blob, consultez [Utilisation du stockage de file d'attente Azure avec SDK WebJobs](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
+Pour plus d'informations sur la façon de gérer le traitement des objets blob déclenchés par un message de file d'attente ou pour les scénarios SDK WebJobs non spécifiques au traitement des objets blob, consultez [Utilisation du stockage de file d'attente Azure avec SDK WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 Les rubriques abordées dans cet article sont les suivantes :
 

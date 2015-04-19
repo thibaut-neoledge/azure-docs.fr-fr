@@ -165,11 +165,11 @@ Comme vous pouvez le voir, Azure PowerShell offre un moyen facile d'exécuter de
 
 Pour obtenir des informations générales sur les tâches MapReduce dans HDInsight.
 
-* [Utilisation de MapReduce dans Hadoop HDInsight](../hdinsight-use-mapreduce/)
+* [Utilisation de MapReduce dans Hadoop HDInsight](hdinsight-use-mapreduce.md)
 
 Pour plus d'informations sur d'autres méthodes de travail avec Hadoop sur HDInsight.
 
-* [Utilisation de Hive avec Hadoop sur HDInsight](../hdinsight-use-hive/)
+* [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md)
 
-* [Utilisation de Pig avec Hadoop sur HDInsight](../hdinsight-use-pig/)
+* [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 <!--HONumber=47-->

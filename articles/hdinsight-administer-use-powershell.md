@@ -70,7 +70,7 @@ Après avoir importé le fichier de paramètres de publication, vous pouvez util
 
 
 
-Pour plus d'informations sur la création d'un compte Azure Storage au moyen du portail de gestion, consultez la rubrique [Création, gestion ou suppression d'un compte de stockage](../storage-create-storage-account/).
+Pour plus d'informations sur la création d'un compte Azure Storage au moyen du portail de gestion, consultez la rubrique [Création, gestion ou suppression d'un compte de stockage](storage-create-storage-account.md).
 
 Si vous disposez déjà d'un compte de stockage mais que vous ne connaissez ni le nom ni la clé du compte, vous pouvez utiliser les commandes suivantes pour récupérer les informations :
 
@@ -79,7 +79,7 @@ Si vous disposez déjà d'un compte de stockage mais que vous ne connaissez ni l
 	# List the keys for a storage account
 	Get-AzureStorageKey <StorageAccountName>
 
-Pour plus d'informations sur l'obtention d'informations à l'aide du portail de gestion, consultez la section * Affichage, copie et régénération de clés d'accès de stockage* de la rubrique [Création, gestion ou suppression d'un compte de stockage](../storage-create-storage-account/).
+Pour plus d'informations sur l'obtention d'informations à l'aide du portail de gestion, consultez la section * Affichage, copie et régénération de clés d'accès de stockage* de la rubrique [Création, gestion ou suppression d'un compte de stockage](storage-create-storage-account.md).
 
 **Pour créer un conteneur de stockage Azure**
 

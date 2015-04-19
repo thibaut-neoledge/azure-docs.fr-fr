@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Mise en route](/documentation/articles/vs-storage-cloud-services-getting-started-queues/)
-> - [Que s'est-il passé ?](/documentation/articles/vs-storage-cloud-services-what-happened/)
+> - [Mise en route](vs-storage-cloud-services-getting-started-queues.md)
+> - [Que s'est-il passé ?](vs-storage-cloud-services-what-happened.md)
 
 ## Prise en main d'Azure Storage (Projets de service cloud)
 
 > [AZURE.SELECTOR]
-> - [Objets blob](/documentation/articles/vs-storage-cloud-services-getting-started-blobs)
-> - [Queues](/documentation/articles/vs-storage-cloud-services-getting-started-queues/)
-> - [Tables](/documentation/articles/vs-storage-cloud-services-getting-started-tables/)
+> - [Objets blob](vs-storage-cloud-services-getting-started-blobs.md)
+> - [Queues](vs-storage-cloud-services-getting-started-queues.md)
+> - [Tables](vs-storage-cloud-services-getting-started-tables.md)
 
 Le service de stockage de files d'attente Azure permet de stocker un grand nombre de messages accessibles partout dans le monde via des appels authentifiés avec HTTP ou HTTPS. Un simple message de file d'attente peut avoir une taille de 64 Ko et une file d'attente peut contenir des millions de messages, jusqu'à la limite de capacité totale d'un compte de stockage. Pour plus d'informations, consultez la page [Utilisation du service de stockage de files d'attente à partir de .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/ "How to use Queue Storage from .NET").
 

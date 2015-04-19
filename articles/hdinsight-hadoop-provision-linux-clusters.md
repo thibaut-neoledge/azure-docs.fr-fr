@@ -27,9 +27,9 @@ Vous êtes-vous déjà demandé pourquoi nous évoquons les clusters à chaque f
 
 ![HDInsight Cluster][img-hdi-cluster]
 
-Un cluster HDInsight résume les détails de l'implémentation Hadoop pour que vous n'ayez pas à vous demander comment communiquer avec différents nœuds d'un cluster. Lorsque vous approvisionnez un cluster HDInsight, vous approvisionnez les ressources de calcul Azure contenant Hadoop et ses applications associées. Pour plus d'informations, consultez la rubrique [Présentation de Hadoop dans HDInsight](../hdinsight-hadoop-introduction/). Les données destinées à l'attrition sont stockées dans un stockage d'objets blob Azure, également nommé  *Stockage Azure : Blob* (ou WASB) dans le contexte de HDInsight. Pour plus d'informations, consultez la page [Utilisation du stockage d'objets blob Azure avec HDInsight](../hdinsight-use-blob-storage/).
+Un cluster HDInsight résume les détails de l'implémentation Hadoop pour que vous n'ayez pas à vous demander comment communiquer avec différents nœuds d'un cluster. Lorsque vous approvisionnez un cluster HDInsight, vous approvisionnez les ressources de calcul Azure contenant Hadoop et ses applications associées. Pour plus d'informations, consultez la rubrique [Présentation de Hadoop dans HDInsight](hdinsight-hadoop-introduction.md). Les données destinées à l'attrition sont stockées dans un stockage d'objets blob Azure, également nommé  *Stockage Azure : Blob* (ou WASB) dans le contexte de HDInsight. Pour plus d'informations, consultez la page [Utilisation du stockage d'objets blob Azure avec HDInsight](hdinsight-use-blob-storage.md).
 
-Cet article fournit des instructions sur les différentes méthodes d'approvisionnement de cluster. Si vous recherchez une approche de démarrage rapide pour approvisionner un cluster, consultez [Prise en main d'Azure HDInsight sur Linux](../hdinsight-hadoop-linux-get-started).
+Cet article fournit des instructions sur les différentes méthodes d'approvisionnement de cluster. Si vous recherchez une approche de démarrage rapide pour approvisionner un cluster, consultez [Prise en main d'Azure HDInsight sur Linux](hdinsight-hadoop-linux-get-started.md).
 
 **Configuration requise :**
 
@@ -37,14 +37,14 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 - Un abonnement Azure. Azure est une plateforme disponible par abonnement. Les applets de commande HDInsight PowerShell permettent d'effectuer les tâches avec votre abonnement. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les pages traitant des <a href="http://azure.microsoft.com/pricing/purchase-options/" target="_blank">formules d'abonnement</a>, des <a href="http://azure.microsoft.com/pricing/member-offers/" target="_blank">offres spéciales membres</a> ou de la <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">version d'évaluation gratuite</a>.
 - Clés SSH. Si vous souhaitez gérer à distance un cluster Linux à l'aide de SSH avec une clé plutôt qu'un mot de passe. L'utilisation d'une clé constitue la méthode  recommandée, car elle est plus sécurisée. Pour savoir comment générer des clés SSH, consultez les articles suivants :
-	-  Depuis un ordinateur Linux : [Utilisation de HDInsight Linux (Hadoop) depuis Linux, Unix ou OS X](../hdinsight-hadoop-linux-use-ssh-unix).
-	-  Depuis un ordinateur Windows : [Utilisation de SSH avec HDInsight Linux (Hadoop) depuis Windows](../hdinsight-hadoop-linux-use-ssh-windows).
+	-  Depuis un ordinateur Linux : [Utilisation de HDInsight Linux (Hadoop) depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+	-  Depuis un ordinateur Windows : [Utilisation de SSH avec HDInsight Linux (Hadoop) depuis Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 ## <a id="configuration"></a>Options de configuration
 
 ### Clusters sur Linux
 
-HDInsight offre la possibilité d'approvisionner des clusters Linux sur Azure. Approvisionnez un cluster Linux si vous maîtrisez Linux ou Unix, en effectuant une migration à partir d'une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l'écosystème Hadoop conçus pour Linux. Pour en savoir plus sur Azure HDInsight sur Linux, consultez la page [Présentation d'Hadoop sur HDInsight](../hdinsight-hadoop-introduction). 
+HDInsight offre la possibilité d'approvisionner des clusters Linux sur Azure. Approvisionnez un cluster Linux si vous maîtrisez Linux ou Unix, en effectuant une migration à partir d'une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l'écosystème Hadoop conçus pour Linux. Pour en savoir plus sur Azure HDInsight sur Linux, consultez la page [Présentation d'Hadoop sur HDInsight](hdinsight-hadoop-introduction.md). 
 
 ### Stockage supplémentaire
 
@@ -72,7 +72,7 @@ Windows | Cliquez [ici](#portal) | Cliquez [ici](#cli) | Cliquez [ici](#sdk) | B
 
 ### <a id="portal"></a> Utilisation du portail de gestion Azure
 
-Les clusters HDInsight utilisent un conteneur de stockage d'objets blob Azure comme système de fichiers par défaut. Un compte Azure Storage se trouvant dans le même centre de données est nécessaire pour pouvoir créer un cluster HDInsight. Pour plus d'informations, consultez la page [Utilisation du stockage d'objets blob Azure avec HDInsight](../hdinsight-use-blob-storage/). Pour plus d'informations sur la création d'un compte Azure Storage, consultez la page [Création d'un compte de stockage][azure-create-storageaccount].
+Les clusters HDInsight utilisent un conteneur de stockage d'objets blob Azure comme système de fichiers par défaut. Un compte Azure Storage se trouvant dans le même centre de données est nécessaire pour pouvoir créer un cluster HDInsight. Pour plus d'informations, consultez la page [Utilisation du stockage d'objets blob Azure avec HDInsight](hdinsight-use-blob-storage.md). Pour plus d'informations sur la création d'un compte Azure Storage, consultez la page [Création d'un compte de stockage][azure-create-storageaccount].
 
 
 > [WACOM.NOTE] Actuellement, seules les régions **Est de l'Asie**, **Sud-Est de l'Asie**, **Europe du Nord**, **Europe de l'Ouest**, **Est des États-Unis**, **Ouest des États-Unis**, **Centre-Nord des États-Unis** et **Centre-Sud des États-Unis** peuvent héberger des clusters HDInsight.
@@ -526,12 +526,12 @@ Lorsque l'application est ouverte dans Visual Studio, appuyez sur **F5** pour l'
 ##<a id="nextsteps"></a> Étapes suivantes
 Cet article vous a présenté différentes méthodes pour configurer un cluster HDInsight Hadoop sur Linux. Pour en savoir plus, consultez les articles suivants :
 
-- [Utilisation de HDInsight sur Linux](../hdinsight-hadoop-linux-information). Familiarisez-vous avec l'utilisation d'un cluster HDInsight sur Linux.
-- [Gestion de clusters HDInsight à l'aide d'Ambari | Aure](../hdinsight-hadoop-manage-ambari). Découvrez comment gérer et contrôler votre Hadoop Linux sur le cluster HDInsight à l'aide d'Ambari Web ou de l'API REST d'Ambari. 
+- [Utilisation de HDInsight sur Linux](hdinsight-hadoop-linux-information.md). Familiarisez-vous avec l'utilisation d'un cluster HDInsight sur Linux.
+- [Gestion de clusters HDInsight à l'aide d'Ambari | Aure](hdinsight-hadoop-manage-ambari.md). Découvrez comment gérer et contrôler votre Hadoop Linux sur le cluster HDInsight à l'aide d'Ambari Web ou de l'API REST d'Ambari. 
 - [Utilisation de MapReduce avec HDInsight][hdinsight-use-mapreduce]. Découvrez les différentes façons d'exécuter des tâches MapReduce sur un cluster.
 - [Utilisation de Hive avec HDInsight][hdinsight-use-hive]. Découvrez les différentes façons d'exécuter une requête Hive sur un cluster.
 - [Utilisation de Pig avec HDInsight][hdinsight-use-pig]. Découvrez les différentes façons d'exécuter une tâche Pig sur un cluster.
-- [Utilisation du stockage d'objets blob Azure avec HDInsight](../hdinsight-use-blob-storage). Découvrez comment HDInsight utilise le stockage d'objets blob Azure pour stocker des données pour les clusters HDInsight.
+- [Utilisation du stockage d'objets blob Azure avec HDInsight](hdinsight-use-blob-storage.md). Découvrez comment HDInsight utilise le stockage d'objets blob Azure pour stocker des données pour les clusters HDInsight.
 - [Téléchargement de données vers HDInsight][hdinsight-upload-data]. Découvrez comment utiliser des données stockées dans un stockage d'objets blob Azure pour un cluster HDInsight.
 
 [hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/

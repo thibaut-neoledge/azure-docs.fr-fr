@@ -74,6 +74,6 @@ Entrez de nouveau le mot de passe. Patientez pendant l’installation des mises 
 
   [Présentation du réseau virtuel Azure]: http://go.microsoft.com/fwlink/p/?LinkID=294063
   [Créer une machine virtuelle]: ./media/create-and-configure-centos-vm-in-portal/CreateVM.png
-  [mot de passe fort]: http://msdn.microsoft.com/fr-fr/library/ms161962.aspx
+  [mot de passe fort]: http://msdn.microsoft.com/library/ms161962.aspx
   [page de téléchargement de PuTTY]: http://www.puttyssh.org/download.html
   [PuTTY Screen]: ./media/create-and-configure-centos-vm-in-portal/putty.png

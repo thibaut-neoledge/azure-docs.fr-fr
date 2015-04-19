@@ -26,7 +26,7 @@ Cette section contient les conditions préalables générales pour le développe
 
 ### Conditions préalables
 
--   Un compte Media Services dans un abonnement Azure nouveau ou existant. Consultez la rubrique [Création d'un compte Media Services](../media-services-create-account/).
+-   Un compte Media Services dans un abonnement Azure nouveau ou existant. Consultez la rubrique [Création d'un compte Media Services](media-services-create-account.md).
 -   Systèmes d'exploitation : Windows 7, Windows 2008 R2 ou Windows 8.
 -   .NET Framework 4.
 -   Visual Studio 2013, Visual Studio 2012 ou Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express). 

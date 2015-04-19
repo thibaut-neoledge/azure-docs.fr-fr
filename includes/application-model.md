@@ -269,7 +269,7 @@ de rôle.
 Comme mentionné précédemment, le fichier de définition de service (CSDEF) est un fichier XML
 qui décrit les différents rôles constituant votre application
 . Vous trouverez le schéma complet de ce fichier XML ici :
-[http://msdn.microsoft.com/fr-fr/library/windowsazure/ee758711.aspx][].
+[http://msdn.microsoft.com/library/windowsazure/ee758711.aspx][].
 Le fichier CSDEF contient un élément WebRole ou WorkerRole pour chaque rôle
 que vous souhaitez avoir dans votre application. Déployer un rôle en tant que rôle web (à l'aide de
 l'élément WebRole) signifie que le code s'exécutera sur une instance de rôle
@@ -486,7 +486,7 @@ attributs pour chaque rôle de votre application. Voici certains des
 Le fichier de configuration de service (CSCFG) est un fichier XML qui décrit
 les paramètres que vous pouvez modifier sans redéployer votre application. Le
 schéma complet de ce fichier XML se trouve ici :
-[http://msdn.microsoft.com/fr-fr/library/windowsazure/ee758710.aspx][].
+[http://msdn.microsoft.com/library/windowsazure/ee758710.aspx][].
 Le fichier CSCFG contient un élément Rôle pour chaque rôle de votre
 application. Voici certains des éléments que vous pouvez spécifier dans le fichier CSCFG
  :
@@ -503,7 +503,7 @@ application. Voici certains des éléments que vous pouvez spécifier dans le fi
     si vous affectez la valeur 
     " WA-GUEST-OS-2.8\_201109-01 " à l'attribut osVersion, toutes vos instances de rôle vont obtenir
     ce qui est décrit dans la page web suivante :
-    [http://msdn.microsoft.com/fr-fr/library/hh560567.aspx][]. Pour plus
+    [http://msdn.microsoft.com/library/hh560567.aspx][]. Pour plus
     d'informations sur les versions de SE invité, consultez la page [Gestion des mises à niveau vers
     les systèmes d'exploitation invités Azure].
 
@@ -585,14 +585,14 @@ rôles, consultez l'article [Déploiement et mise à niveau des applications Azu
   [4]: ./media/application-model/application-model-7.jpg
   
   [Tarification Azure]: http://www.windowsazure.com/fr-fr/pricing/calculator/
-  [Gestion des certificats dans Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/gg981929.aspx
-  [http://msdn.microsoft.com/fr-fr/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee758710.aspx
-  [http://msdn.microsoft.com/fr-fr/library/hh560567.aspx]: http://msdn.microsoft.com/fr-fr/library/hh560567.aspx
-  [Gestion des mises à niveau vers les systèmes d'exploitation invités d'Azure]: http://msdn.microsoft.com/fr-fr/library/ee924680.aspx
+  [Gestion des certificats dans Azure]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
+  [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+  [http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
+  [Gestion des mises à niveau vers les systèmes d'exploitation invités d'Azure]: http://msdn.microsoft.com/library/ee924680.aspx
   [Portail de gestion Azure]: http://manage.windowsazure.com/
   [5]: ./media/application-model/application-model-8.jpg
   [Déploiement et mise à jour des applications Azure]: http://www.windowsazure.com/fr-fr/develop/net/fundamentals/deploying-applications/
-  [Création d'un service hébergé pour Azure]: http://msdn.microsoft.com/fr-fr/library/gg432967.aspx
-  [Gestion des services hébergés dans Azure]: http://msdn.microsoft.com/fr-fr/library/gg433038.aspx
-  [Migration des applications vers Azure]: http://msdn.microsoft.com/fr-fr/library/gg186051.aspx
-  [Configuration d'une application Azure]: http://msdn.microsoft.com/fr-fr/library/windowsazure/ee405486.aspx
+  [Création d'un service hébergé pour Azure]: http://msdn.microsoft.com/library/gg432967.aspx
+  [Gestion des services hébergés dans Azure]: http://msdn.microsoft.com/library/gg433038.aspx
+  [Migration des applications vers Azure]: http://msdn.microsoft.com/library/gg186051.aspx
+  [Configuration d'une application Azure]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx

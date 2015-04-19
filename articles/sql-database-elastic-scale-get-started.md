@@ -26,7 +26,7 @@ Ce document présente l'aspect développement de l'infrastructure élastique de 
 
 Pour plus d'informations sur le fonctionnement de l'infrastructure élastique, consultez la page [Vue d'ensemble de l'infrastructure élastique](http://go.microsoft.com/?linkid=9862592).
 
-Pour obtenir la liste de toutes les rubriques sur l'infrastructure élastique, consultez la rubrique [Documentation sur l'infrastructure élastique](./sql-database-elastic-scale-documentation-map.md)
+Pour obtenir la liste de toutes les rubriques sur l'infrastructure élastique, consultez la rubrique [Documentation sur l'infrastructure élastique](sql-database-elastic-scale-documentation-map.md)
 
 ## Exemple d'application d'infrastructure élastique
 
@@ -92,7 +92,7 @@ Pour plus d'informations sur la tarification, consultez la page [Tarification - 
 ## Étapes suivantes
 Pour plus d'informations sur la fonctionnalité d'infrastructure élastique, consultez les pages suivantes :
 
-* [Page de formation sur l'infrastructure élastique](./sql-database-elastic-scale-documentation-map.md) 
+* [Page de formation sur l'infrastructure élastique](sql-database-elastic-scale-documentation-map.md) 
 -    Exemples de code : 
     -    [Infrastructure élastique avec Base de données SQL Azure - Prise en main](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
     -    [Infrastructure élastique avec Base de données SQL Azure - Intégration avec Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)

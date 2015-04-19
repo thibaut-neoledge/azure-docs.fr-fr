@@ -32,7 +32,7 @@ La batterie de serveurs SharePoint à haute disponibilité se compose de neuf ma
 
 Vous pouvez utiliser cette configuration de batterie pour tester des charges de clients plus élevées, la haute disponibilité du site SharePoint externe et SQL Server AlwaysOn pour une batterie SharePoint. Vous pouvez également l'utiliser pour le développement d'applications SharePoint dans un environnement à haute disponibilité.
  
-Pour obtenir des informations sur la configuration de ces deux batteries de serveurs, consultez [Détails de configuration de la batterie de serveurs SharePoint](../virtual-machines-sharepoint-farm-config-azure-preview/).
+Pour obtenir des informations sur la configuration de ces deux batteries de serveurs, consultez [Détails de configuration de la batterie de serveurs SharePoint](virtual-machines-sharepoint-farm-config-azure-preview.md).
 
 ## Parcours de la configuration##
 
@@ -87,7 +87,7 @@ La batterie de serveurs SharePoint utilise des scripts et le module Azure Resour
 
 [SharePoint sur les services d'infrastructure Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-[Informations de configuration de la batterie de serveurs SharePoint](../virtual-machines-sharepoint-farm-config-azure-preview/)
+[Informations de configuration de la batterie de serveurs SharePoint](virtual-machines-sharepoint-farm-config-azure-preview.md)
 
 [Configuration d'une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 

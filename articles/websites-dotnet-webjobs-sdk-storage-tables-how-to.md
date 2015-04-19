@@ -18,9 +18,9 @@
 
 # Comment utiliser le stockage de table Windows Azure avec SDK WebJobs
 
-Ce guide fournit des exemples de code C# qui montrent comment lire et écrire des tables de stockage Azure à l'aide de la version 1.x de [SDK WebJobs](../websites-dotnet-webjobs-sdk/).
+Ce guide fournit des exemples de code C# qui montrent comment lire et écrire des tables de stockage Azure à l'aide de la version 1.x de [SDK WebJobs](websites-dotnet-webjobs-sdk.md).
 
-Le guide suppose que vous savez [créer un projet WebJob dans Visual Studio avec des chaînes de connexion qui pointent vers votre compte de stockage](../websites-dotnet-webjobs-sdk-get-started/).
+Le guide suppose que vous savez [créer un projet WebJob dans Visual Studio avec des chaînes de connexion qui pointent vers votre compte de stockage](websites-dotnet-webjobs-sdk-get-started.md).
 		
 Une partie des extraits de code montrent l'attribut  `Table` utilisé dans les fonctions qui sont [appelées manuellement](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#manual), autrement dit, sans utiliser l'un des attributs de déclenchement. 
 
@@ -149,11 +149,11 @@ L'exemple de code suivant utilise un objet  `CloudTable` pour ajouter une entit�
 		    tableBinding.Execute(insertOperation);
 		}
 
-Pour plus d'informations sur l'utilisation de l'objet  `CloudTable`, consultez [Utilisation du service de stockage de tables à partir de .NET](../storage-dotnet-how-to-use-tables/). 
+Pour plus d'informations sur l'utilisation de l'objet  `CloudTable`, consultez [Utilisation du service de stockage de tables à partir de .NET](storage-dotnet-how-to-use-tables.md). 
 
 ## <a id="queues"></a>Rubriques couvertes par l'article de procédure de files d'attente
 
-Pour plus d'informations sur la façon de gérer le traitement des tables déclenchées par un message de file d'attente ou pour les scénarios SDK WebJobs non spécifiques au traitement des tables, consultez [Utilisation du stockage de file d'attente Azure avec SDK WebJobs](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
+Pour plus d'informations sur la façon de gérer le traitement des tables déclenchées par un message de file d'attente ou pour les scénarios SDK WebJobs non spécifiques au traitement des tables, consultez [Utilisation du stockage de file d'attente Azure avec SDK WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 Les sujets abordés dans cet article sont les suivants :
 

@@ -19,7 +19,7 @@
 
 # Connexion à une machine virtuelle exécutant Windows Server#
 
-Pour vous connecter à une machine virtuelle exécutant Windows Server, utilisez le bouton de connexion du portail de gestion pour démarrer une connexion de bureau à distance. Pour les machines virtuelles Linux, consultez [Connexion à une machine virtuelle exécutant Linux](./virtual-machines-linux-how-to-log-on/).)
+Pour vous connecter à une machine virtuelle exécutant Windows Server, utilisez le bouton de connexion du portail de gestion pour démarrer une connexion de bureau à distance. Pour les machines virtuelles Linux, consultez [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-how-to-log-on).)
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
 

@@ -20,9 +20,9 @@ authors="torsteng"/>
 
 Les applications basées sur la base de données SQL Azure font face à des défis lorsque leurs données ou besoins de traitement ne tiennent plus sur une unité d'échelle unique dans la base de données SQL Azure. Par exemple, il s'agit des applications qui deviennent virales ou pour lesquelles un ensemble spécifique de locataires s'étend au-delà des limites d'une seule base de données SQL Azure. Le **service de fractionnement/fusion** de l'infrastructure élastique simplifie considérablement ce problème. 
 
-Cette description du service de fractionnement/fusion gère les mises à l'échelle (réduction ou augmentation) en modifiant le nombre de bases de données Azure et en équilibrant la distribution des **shardlets** entre elles. (Vous trouverez les définitions des termes évoqués ici sur la page [Glossaire de l'infrastructure élastique](./sql-database-elastic-scale-glossary.md)). 
+Cette description du service de fractionnement/fusion gère les mises à l'échelle (réduction ou augmentation) en modifiant le nombre de bases de données Azure et en équilibrant la distribution des **shardlets** entre elles. (Vous trouverez les définitions des termes évoqués ici sur la page [Glossaire de l'infrastructure élastique](sql-database-elastic-scale-glossary.md)). 
 
-Avec les choix actuels entre les éditions de base de données SQL Azure, la capacité peut également être gérée par la mise à l'échelle vers le haut ou vers le bas de la capacité d'une seule base de données SQL Azure. La dimension de la mise à l'échelle vers le haut/bas de la gestion des capacités élastiques n'est pas abordée dans cette rubrique. Consultez plutôt la rubrique [Élasticité des partitions de l'infrastructure élastique](./sql-database-elastic-scale-elasticity.md)). 
+Avec les choix actuels entre les éditions de base de données SQL Azure, la capacité peut également être gérée par la mise à l'échelle vers le haut ou vers le bas de la capacité d'une seule base de données SQL Azure. La dimension de la mise à l'échelle vers le haut/bas de la gestion des capacités élastiques n'est pas abordée dans cette rubrique. Consultez plutôt la rubrique [Élasticité des partitions de l'infrastructure élastique](sql-database-elastic-scale-elasticity.md)). 
  
 ## Nouveautés du fractionnement et de la fusion
 
@@ -65,7 +65,7 @@ Figure 1 : vue d'ensemble conceptuelle du service de fractionnement/fusion
 
 ## Concepts et fonctionnalités clés
 
-**Services hébergés par le client** : le service de fractionnement/fusion est fourni comme un service hébergé par le client. Vous devez déployer et héberger le service dans votre abonnement Microsoft Azure. Le package que vous téléchargez à partir de NuGet comporte un modèle de configuration à réaliser ainsi que les informations relatives à votre déploiement. Consultez le [Didacticiel de fusion et fractionnement](./sql-database-elastic-scale-configure-deploy-split-and-merge.md) pour en savoir plus. Étant donné que le service s'exécute dans votre abonnement Azure, vous pouvez contrôler et configurer la plupart des aspects de sécurité du service. Le modèle par défaut comprend les options permettant de configurer SSL, l'authentification client basée sur certificat, le chiffrement des informations d'identification stockées, la protection contre le déni de service et les restrictions d'adresse IP. Vous trouverez plus d'informations sur la sécurité dans le document suivant [Considérations de sécurité de l'infrastructure élastique](./sql-database-elastic-scale-configure-security.md).
+**Services hébergés par le client** : le service de fractionnement/fusion est fourni comme un service hébergé par le client. Vous devez déployer et héberger le service dans votre abonnement Microsoft Azure. Le package que vous téléchargez à partir de NuGet comporte un modèle de configuration à réaliser ainsi que les informations relatives à votre déploiement. Consultez le [Didacticiel de fusion et fractionnement](sql-database-elastic-scale-configure-deploy-split-and-merge.md) pour en savoir plus. Étant donné que le service s'exécute dans votre abonnement Azure, vous pouvez contrôler et configurer la plupart des aspects de sécurité du service. Le modèle par défaut comprend les options permettant de configurer SSL, l'authentification client basée sur certificat, le chiffrement des informations d'identification stockées, la protection contre le déni de service et les restrictions d'adresse IP. Vous trouverez plus d'informations sur la sécurité dans le document suivant [Considérations de sécurité de l'infrastructure élastique](sql-database-elastic-scale-configure-security.md).
 
 Le service déployé par défaut s'exécute avec un rôle de travail et un rôle web. Chacun utilise la taille de machine virtuelle A1 dans Azure Cloud Services. Même si vous ne pouvez pas modifier ces paramètres lors du déploiement du package, vous pouvez les modifier après un déploiement dans le service cloud en cours d'exécution (via le portail Azure). Notez que le rôle de travail ne doit pas être configuré pour plus d'une instance unique pour des raisons techniques. 
 
@@ -109,7 +109,7 @@ Les tables " region " et " nation " sont définies comme des tables de référen
 
 ## Obtention des fichiers binaires du service
 
-Les fichiers binaires du service de fractionnement/fusion sont fournis via [Nuget](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). Consultez le [Didacticiel de fusion et fractionnement](./sql-database-elastic-scale-configure-deploy-split-and-merge.md) étape par étape pour obtenir plus d'informations sur le téléchargement de fichiers binaires.
+Les fichiers binaires du service de fractionnement/fusion sont fournis via [Nuget](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). Consultez le [Didacticiel de fusion et fractionnement](sql-database-elastic-scale-configure-deploy-split-and-merge.md) étape par étape pour obtenir plus d'informations sur le téléchargement de fichiers binaires.
 
 ## Interface utilisateur du service de fractionnement/fusion
 
@@ -204,9 +204,9 @@ En outre, une propriété d'unicité avec la clé de partitionnement en tant que
 
 ## Références 
 
-* [Didacticiel du service de fractionnement/fusion](./sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+* [Didacticiel du service de fractionnement/fusion](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 
-* [Considérations de sécurité de l'infrastructure élastique](./sql-database-elastic-scale-configure-security.md)  
+* [Considérations de sécurité de l'infrastructure élastique](sql-database-elastic-scale-configure-security.md)  
 
 
 <!--Anchors-->

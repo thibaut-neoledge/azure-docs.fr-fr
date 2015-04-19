@@ -24,7 +24,7 @@ Vous pouvez surveiller votre compte de stockage à partir du portail de gestion 
 
 > Le service de fichier Azure ne prend actuellement pas en charge Storage Analytics.
 
-> Pour un guide détaillé concernant l'utilisation de Storage Analytics et d'autres outils permettant d'identifier, de diagnostiquer et de résoudre les problèmes d'Azure Storage, consultez la page [Surveillance, diagnostic et résolution des problèmes sur Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting/).
+> Pour un guide détaillé concernant l'utilisation de Storage Analytics et d'autres outils permettant d'identifier, de diagnostiquer et de résoudre les problèmes d'Azure Storage, consultez la page [Surveillance, diagnostic et résolution des problèmes sur Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
 
 ##Sommaire##

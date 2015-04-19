@@ -94,6 +94,6 @@ Si vous le souhaitez, vous pouvez utiliser un outil tel que **wget** ou Fiddler 
 
 #Voir aussi
 
-[Comment gérer l'expiration des contenus de service cloud dans le réseau de distribution de contenu Azure (CDN)](./cdn-manage-expiration-of-cloud-service-content.md)
+[Comment gérer l'expiration des contenus de service cloud dans le réseau de distribution de contenu Azure (CDN)](cdn-manage-expiration-of-cloud-service-content.md)
 
 <!--HONumber=49-->

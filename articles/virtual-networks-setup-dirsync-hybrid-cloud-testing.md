@@ -45,7 +45,7 @@ Si vous n'avez pas encore d'abonnement Azure, vous pouvez obtenir une version d'
 
 ## Phase 1 : configuration de l'environnement de cloud hybride
 
-Suivez les instructions de la rubrique [Configuration d'un environnement de cloud hybride à des fins de test](../virtual-networks-setup-hybrid-cloud-environment-testing/) . Étant donné que cet environnement de test ne nécessite pas la présence du serveur APP1 sur le sous-réseau de réseau d'entreprise, n'hésitez pas à l'arrêter pour le moment.
+Suivez les instructions de la rubrique [Configuration d'un environnement de cloud hybride à des fins de test](virtual-networks-setup-hybrid-cloud-environment-testing.md) . Étant donné que cet environnement de test ne nécessite pas la présence du serveur APP1 sur le sous-réseau de réseau d'entreprise, n'hésitez pas à l'arrêter pour le moment.
 
 Ceci est votre configuration actuelle.
 
@@ -180,12 +180,12 @@ Cet environnement est maintenant prêt à exécuter le test des applications Off
 
 [Solutions utilisant Office Server et le cloud](http://technet.microsoft.com/library/dn262744.aspx)
 
-[Configuration d'un environnement de cloud hybride pour le test](../virtual-networks-setup-hybrid-cloud-environment-testing/)
+[Configuration d'un environnement de cloud hybride pour le test](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
-[Configuration d'une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Configuration d'une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-[Configuration d'une application métier web dans un cloud hybride à des fins de test](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+[Configuration d'une application métier web dans un cloud hybride à des fins de test](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
-[Configuration d'une simulation d'environnement de cloud hybride à des fins de test](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+[Configuration d'une simulation d'environnement de cloud hybride à des fins de test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 
 <!--HONumber=47-->

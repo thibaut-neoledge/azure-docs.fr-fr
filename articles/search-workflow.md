@@ -22,7 +22,7 @@
 
 Cet article propose une feuille de route et quelques pratiques recommandées pour créer et gérer le service de recherche et les index associés. 
 
-Nous partons du principe que vous avez déjà approvisionné le service. Si vous ne l'avez pas encore fait, consultez la section [Prise en main d'Azure Search](../search-get-started/) pour en savoir plus.
+Nous partons du principe que vous avez déjà approvisionné le service. Si vous ne l'avez pas encore fait, consultez la section [Prise en main d'Azure Search](search-get-started.md) pour en savoir plus.
 
 + [Étape 1 : Création de l'index](#sub-1)
 + [Étape 2 : Ajout de documents](#sub-2)
@@ -35,7 +35,7 @@ Nous partons du principe que vous avez déjà approvisionné le service. Si vous
 
 Les requêtes ciblent un index de recherche qui contient des attributs et des données de recherche. Par conséquent, votre première étape après l'approvisionnement du service est de définir le schéma d'index au format JSON et d'exécuter une requête HTTPS PUT pour créer l'index dans le service. 
 
-Les index sont construits par votre code d'application. Il n'existe aucun outil ou éditeur intégré pour vous aider à définir un index dans une interface utilisateur. Les exemples qui illustrent les divers moyens de construire un index se trouvent dans les sections [Créer votre première solution de recherche à l'aide d'Azure Search](../search-create-first-solution/), dans laquelle le schéma est indiqué dans le fichier Program.cs, et [Prise en main des profils de score dans Azure Search](../search-get-started-scoring-profiles) qui fournit l'index dans un fichier de schéma autonome au format JSON. Pour plus d'informations sur la création d'index, consultez la section [Création d'un index (API Azure Search)](http://msdn.microsoft.com/library/dn798941.aspx) sur MSDN.
+Les index sont construits par votre code d'application. Il n'existe aucun outil ou éditeur intégré pour vous aider à définir un index dans une interface utilisateur. Les exemples qui illustrent les divers moyens de construire un index se trouvent dans les sections [Créer votre première solution de recherche à l'aide d'Azure Search](search-create-first-solution.md), dans laquelle le schéma est indiqué dans le fichier Program.cs, et [Prise en main des profils de score dans Azure Search](search-get-started-scoring-profiles.md) qui fournit l'index dans un fichier de schéma autonome au format JSON. Pour plus d'informations sur la création d'index, consultez la section [Création d'un index (API Azure Search)](http://msdn.microsoft.com/library/dn798941.aspx) sur MSDN.
 
 <h2 id="sub-2">Étape 2 : Ajout de documents</h2>
 

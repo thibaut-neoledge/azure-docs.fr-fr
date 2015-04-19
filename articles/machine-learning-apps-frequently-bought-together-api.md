@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="Exemple d'application Machine Learning : Frequently Bought Together | Azure" 
-	description="Service web Machine Learning qui effectue une analyse du panier d'achat en ligne afin de proposer des recommandations sur des produits fréquemment achetés ensemble, sur la base de l'historique des transactions fourni par l'utilisateur." 
+	pageTitle="Exemple d'application Machine Learning : Frequently Bought Together | Azure" 
+	description="Un service web Machine Learning qui effectue une analyse du panier d'achat en ligne afin de proposer des recommandations de produits fréquemment achetés ensemble sur la base de l'historique des transactions fourni par l'utilisateur." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="CoromT" 
@@ -14,23 +14,18 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="10/17/2014" 
-	ms.author="coromt"/> 
+	ms.author="coromt"/>  
 
 # Exemple d'application Machine Learning : Frequently Bought Together
-
-##Vue d'ensemble
  
-Le [service web Frequently Bought Together]( https://datamarket.azure.com/dataset/amla/mba) de Machine Learning effectue une analyse du panier d'achats en ligne, afin de proposer des recommandations basées sur les produits récemment achetés ensemble, à partir de l'historique des transactions. Les recommandations du service Frequently Bought Together permettent aux utilisateurs d'identifier les produits d'un catalogue regroupant les éléments les plus pertinents lorsqu'ils recherchent un produit spécifique. La mise en évidence de ces recommandations s'est avérée utile, améliorant les ventes des détaillants en ligne. 
-
-[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
+Ce service web [Machine Learning]( https://datamarket.azure.com/dataset/amla/mba) effectue une analyse du panier d'achat en ligne afin de proposer des recommandations de produits fréquemment achetés ensemble sur la base de l'historique des transactions fourni par l'utilisateur. Les recommandations de Frequently Bought Together aident les acheteurs à identifier des produits du catalogue plus pertinents lorsqu'ils achètent un article particulier. L'affichage en évidence de ces recommandations s'est avéré efficace pour développer les ventes des boutiques en ligne. 
   
 ##Prise en main 
-
-Une fois que vous vous êtes abonné au service web Frequently Bought Together, vous pouvez utiliser l'[exemple d'application web Market Basket Analysis Service](https://marketbasket.cloudapp.net/) pour charger vos données dans un modèle et découvrir les ensembles de produits fréquemment achetés. Pour utiliser l'application ou l'API, vous devez posséder une clé API, que vous pouvez obtenir sur la [page de votre compte Microsoft Azure Data Market](https://datamarket.azure.com/account).
+Une fois que vous êtes abonné au [service web]( https://datamarket.azure.com/dataset/amla/mba), vous pouvez utiliser [la version de l'application web Frequently Bought Together](https://marketbasket.cloudapp.net/) afin de télécharger facilement vos données dans un modèle et de découvrir quels sont les groupes de produits fréquemment achetés ensemble.  Pour utiliser l'application ou l'API, vous devez posséder une clé API que vous pouvez obtenir sur la [page de votre compte Azure Data Market.](https://datamarket.azure.com/account)
 
 ##Utilisation du service web 
 
-Ce service contient les API permettant de créer des modèles Frequently Bought Together, de charger l'historique des transactions et de récupérer les ensembles de produits souvent achetés ensemble les mieux classés, pour un produit donné. Vous trouverez des exemples expliquant comment utiliser ces API dans le référentiel [Azure-MachineLearning-DataScience](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Apps/FrequentlyBoughtTogether), sur GitHub.
+Ce service contient les API pour gérer la création de modèles Frequently Bought Together, pour télécharger l'historique des transactions et pour récupérer les ensembles de produits souvent achetés ensemble les mieux classés pour un produit donné.  Consultez le référentiel [Azure-MachineLearning-DataScience sur GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Apps/FrequentlyBoughtTogether) pour trouver des exemples d'utilisation de ces API.
 
 
-<!--HONumber=49-->
+<!--HONumber=46--> 

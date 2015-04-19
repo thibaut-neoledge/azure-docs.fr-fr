@@ -31,7 +31,7 @@ Ce didacticiel vous explique comment exécuter un exemple de comptage de mots Ma
 
 - Vous devez disposer d'un compte Azure. Pour connaître les options disponibles lors de la création d'un compte, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-- Vous devez avoir approvisionné un cluster HDInsight. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de clusters, consultez la page [Prise en main d'Azure HDInsight][hdinsight-get-started] ou [Approvisionnement de clusters HDInsight](../hdinsight-provision-clusters/)
+- Vous devez avoir approvisionné un cluster HDInsight. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de clusters, consultez la page [Prise en main d'Azure HDInsight][hdinsight-get-started] ou [Approvisionnement de clusters HDInsight](hdinsight-provision-clusters.md)
 
 - Vous devez avoir installé Azure PowerShell et l'avoir configuré pour une utilisation avec votre compte. Pour des instructions sur la marche à suivre, consultez la page [Installation et configuration d'Azure PowerShell][powershell-install-configure].
 

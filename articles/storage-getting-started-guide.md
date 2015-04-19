@@ -66,7 +66,7 @@ Pour terminer cette section, assurez-vous d'effectuer d'abord les tâches préal
 3. Vérifiez si vous disposez de [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) sur votre ordinateur, car les exemples de projet du démarrage rapide Azure en ont besoin. Si vous ne savez pas quelle version de .NET Framework est installée sur votre ordinateur, consultez la rubrique [ Versions de .NET Framework installées](https://msdn.microsoft.com/vstudio/hh925568.aspx). Ou bien cliquez sur le bouton **Démarrer** ou appuyez sur la touche Windows, et tapez **panneau de configuration**. Ensuite, cliquez sur **Programmes** > **Programmes et fonctionnalités**. Vérifiez si .NET Framework 4.5 figure dans la liste des programmes installés.
 4.	Obtenez un abonnement Azure (si vous n'en avez pas encore) et créez aussi un compte de **stockage standard** :
 	- Pour obtenir un abonnement Azure, consultez [Version d'évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/), [Options d'achat](http://azure.microsoft.com/pricing/purchase-options/) et [Offres spéciales membres](http://azure.microsoft.com/pricing/member-offers/) (pour les membres MSDN, Microsoft Partner Network, BizSpark et autres programmes Microsoft).
-	- Pour créer un compte de **stockage standard** dans Azure, consultez la page [Création, gestion ou suppression d'un compte de stockage](./storage-create-storage-account.md). **Remarque :** Il existe deux types de compte de stockage dans Azure : le compte de stockage Standard et le compte de stockage Premium. Le compte de stockage standard offre l'accès au stockage d'objets blob, de tables et de files d'attente Azure. Le compte de stockage Premium est actuellement disponible uniquement pour stocker des données sur les disques utilisés par les machines virtuelles Azure. Pour plus d'informations, consultez la page [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](./storage-premium-storage-preview-portal.md).
+	- Pour créer un compte de **stockage standard** dans Azure, consultez la page [Création, gestion ou suppression d'un compte de stockage](storage-create-storage-account.md). **Remarque :** Il existe deux types de compte de stockage dans Azure : le compte de stockage Standard et le compte de stockage Premium. Le compte de stockage standard offre l'accès au stockage d'objets blob, de tables et de files d'attente Azure. Le compte de stockage Premium est actuellement disponible uniquement pour stocker des données sur les disques utilisés par les machines virtuelles Azure. Pour plus d'informations, consultez la page [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage-preview-portal.md).
 
 Maintenant, nous allons créer une application Azure Storage simple à l'aide d'un des exemples de projet de démarrage rapide Azure dans Visual Studio. Ce didacticiel se concentre sur les exemples de projets de **stockage d'objets blob Azure**, de **tables Azure Storage** et de **files d'attente Azure Storage**. Pour chaque exemple de projet, les instructions suivantes s'appliquent, à ceci près que vous choisissez un autre modèle à l'étape 3.a :
 
@@ -88,7 +88,7 @@ Exécutez ensuite l'exemple d'application :
 2.	Annulez les marques de commentaire de la chaîne de connexion du service Azure Storage et indiquez le nom du compte de stockage et la clé d'accès dans le fichier App.config :
 	`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"` 
 
-	Pour rechercher la clé d'accès et le nom du compte stockage, consultez [Présentation d'un compte de stockage](./storage-whatis-account.md). 
+	Pour rechercher la clé d'accès et le nom du compte stockage, consultez [Présentation d'un compte de stockage](storage-whatis-account.md). 
 
 3.	Une fois que vous avez fourni la clé d'accès et le nom du compte de stockage dans le fichier App.config, dans le menu **Fichier**, cliquez sur **Enregistrer tout** pour enregistrer tous les fichiers du projet. 
 4.	Dans le menu **Générer**, cliquez sur **Générer la solution**. 
@@ -100,10 +100,10 @@ Dans ce didacticiel, vous avez appris comment programmer pour le stockage d'obje
 
 Si vous souhaitez en savoir plus, suivez ces liens :
 
-* [Introduction à Microsoft Azure Storage](./storage-introduction.md)
-* [Utilisation du stockage d'objets blob à partir de .NET](./storage-dotnet-how-to-use-blobs.md)
-* [Utilisation du stockage de tables à partir de .NET](./storage-dotnet-how-to-use-tables.md)
-* [Utilisation du service de stockage de files d'attente à partir de .NET](./storage-dotnet-how-to-use-queues.md)
+* [Introduction à Microsoft Azure Storage](storage-introduction.md)
+* [Utilisation du stockage d'objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md)
+* [Utilisation du stockage de tables à partir de .NET](storage-dotnet-how-to-use-tables.md)
+* [Utilisation du service de stockage de files d'attente à partir de .NET](storage-dotnet-how-to-use-queues.md)
 * [Documentation d'Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
 * [Référence MSDN d'Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 * [Bibliothèque cliente de stockage Azure](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)

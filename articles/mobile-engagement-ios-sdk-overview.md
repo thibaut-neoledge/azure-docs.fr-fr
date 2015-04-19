@@ -18,16 +18,16 @@
 
 # 2.0.0
 
-Cliquez ici pour obtenir tous les détails de l'intégration d'Azure Mobile Engagement dans une application iOS. Si vous souhaitez tout d'abord l'essayer, veillez à suivre nos [didacticiel de 15 minutes](../mobile-engagement-ios-get-started/).
+Cliquez ici pour obtenir tous les détails de l'intégration d'Azure Mobile Engagement dans une application iOS. Si vous souhaitez tout d'abord l'essayer, veillez à suivre nos [didacticiel de 15 minutes](mobile-engagement-ios-get-started.md).
 
-Cliquez pour voir le [contenu du Kit de développement logiciel](../mobile-engagement-ios-sdk-content)
+Cliquez pour voir le [contenu du Kit de développement logiciel](mobile-engagement-ios-sdk-content.md)
 
 ## Procédures d'intégration
-1. Démarrez ici : [Intégration de Mobile Engagement dans votre application iOS](../mobile-engagement-ios-integrate-engagement/)
+1. Démarrez ici : [Intégration de Mobile Engagement dans votre application iOS](mobile-engagement-ios-integrate-engagement.md)
 
-2. Pour les Notifications : [Comment intégrer Reach (Notifications) dans votre application iOS](../mobile-engagement-ios-integrate-engagement-reach/)
+2. Pour les Notifications : [Comment intégrer Reach (Notifications) dans votre application iOS](mobile-engagement-ios-integrate-engagement-reach.md)
 
-3. Implémentation du plan de balises : [Utilisation de l'API avancée de balisage de Mobile Engagement dans votre application iOS](../mobile-engagement-ios-use-engagement-api/)
+3. Implémentation du plan de balises : [Utilisation de l'API avancée de balisage de Mobile Engagement dans votre application iOS](mobile-engagement-ios-use-engagement-api.md)
 
 
 ## Notes de publication
@@ -41,13 +41,13 @@ Cliquez pour voir le [contenu du Kit de développement logiciel](../mobile-engag
 -   Améliorations de sécurité.
 -   Suppression du suivi SmartAd.
 
-Pour les versions antérieures, consultez le [les notes de publication complètes](../mobile-engagement-ios-release-notes/)
+Pour les versions antérieures, consultez le [les notes de publication complètes](mobile-engagement-ios-release-notes.md)
 
 ## Procédures de mise à niveau
 
 Si vous avez déjà intégré une version antérieure d'Engagement dans votre application, vous devez prendre en compte les points suivants lors de la mise à niveau du Kit de développement logiciel.
 
-Vous devrez peut-être suivre plusieurs procédures si vous avez manqué plusieurs versions du Kit de développement logiciel. Voir les [procédures de mise à niveau](../mobile-engagement-ios-upgrade-procedure/) complètes.
+Vous devrez peut-être suivre plusieurs procédures si vous avez manqué plusieurs versions du Kit de développement logiciel. Voir les [procédures de mise à niveau](mobile-engagement-ios-upgrade-procedure.md) complètes.
 
 Pour chaque nouvelle version du Kit de développement logiciel, vous devez d'abord remplacer (supprimer et importer de nouveau dans xcode) les dossiers EngagementSDK et EngagementReach.
 

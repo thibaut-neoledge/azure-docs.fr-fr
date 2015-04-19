@@ -23,7 +23,7 @@ Cette rubrique explique comment créer un environnement Windows Server Active Di
 
 Les rubriques suivantes peuvent également vous intéresser :
 
-- Vous pouvez éventuellement [configurer un réseau privé virtuel de site à site à l'aide de l'Assistant du Portail de gestion](http://msdn.microsoft.com/library/windowsazure/dn133795.aspx), puis installer une nouvelle forêt ou étendre une forêt locale à un réseau virtuel Azure. Dans ce cas, consultez [Installation d'un réplica de contrôleur de domaine Active Directory dans un réseau virtuel Azure](../virtual-networks-install-replica-active-directory-domain-controller).
+- Vous pouvez éventuellement [configurer un réseau privé virtuel de site à site à l'aide de l'Assistant du Portail de gestion](http://msdn.microsoft.com/library/windowsazure/dn133795.aspx), puis installer une nouvelle forêt ou étendre une forêt locale à un réseau virtuel Azure. Dans ce cas, consultez [Installation d'un réplica de contrôleur de domaine Active Directory dans un réseau virtuel Azure](virtual-networks-install-replica-active-directory-domain-controller.md).
 -  Pour obtenir des recommandations sur l'installation des services de domaine Active Directory (AD DS) sur un réseau virtuel Azure, consultez la rubrique [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Azure](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
 
@@ -65,7 +65,7 @@ Répétez les étapes suivantes pour créer des machines virtuelles pour héberg
 	**Configuration de la machine virtuelle**  | <p>Service de cloud computing : Sélectionnez <b>Créer un nouveau service de cloud computing</b> pour la première machine virtuelle et sélectionnez ce même nom de service cloud lors de la création de machines virtuelles supplémentaires qui hébergeront le rôle de contrôleur de domaine.</p><p>Nom DNS du service de cloud computing : Spécifiez un nom global unique</p><p>Région/Groupe d'affinités/Réseau virtuel : Spécifiez le nom du réseau virtuel (par exemple, WestUSVNet).</p><p>Compte de stockage : Choisissez <b>Utiliser un compte de stockage généré automatiquement</b> pour la première machine virtuelle, puis sélectionnez ce même nom de compte de stockage lors de la création de machines virtuelles supplémentaires qui hébergeront le rôle de contrôleur de domaine.</p><p>Groupe à haute disponibilité : Choisissez <b>Créer un groupe à haute disponibilité</b>.</p><p>Nom du groupe à haute disponibilité : Tapez un nom pour le groupe à haute disponibilité quand vous créez la première machine virtuelle, puis sélectionnez ce même nom lors de la création de machines virtuelles supplémentaires.</p>
 	**Configuration de machine virtuelle**  | <p>Sélectionnez <b>Installer l'Agent de machine virtuelle</b> et toutes les extensions dont vous avez besoin.</p>
 2. Attachez un disque à chaque machine virtuelle qui exécutera le rôle de serveur de contrôleur de domaine. Le disque supplémentaire est nécessaire pour stocker la base de données Active Directory, les journaux et SYSVOL. Spécifiez une taille pour le disque (par exemple, 10 Go) et laissez l'option **Préférences de cache d'hôte** définie sur **Aucun**. Après la première connexion à la machine virtuelle, ouvrez **Gestionnaire de serveur** > **Service de fichiers et de stockage** pour créer un volume sur ce disque à l'aide de NTFS.
-3. Réservez une adresse IP statique pour les machines virtuelles qui exécuteront le rôle de contrôleur de domaine. Pour réserver une adresse IP statique, téléchargez Microsoft Web Platform Installer et [installez Azure PowerShell](../powershell-install-configure) , puis exécutez l'applet de commande Set-AzureStaticVNetIP. Par exemple :
+3. Réservez une adresse IP statique pour les machines virtuelles qui exécuteront le rôle de contrôleur de domaine. Pour réserver une adresse IP statique, téléchargez Microsoft Web Platform Installer et [installez Azure PowerShell](powershell-install-configure.md) , puis exécutez l'applet de commande Set-AzureStaticVNetIP. Par exemple :
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
@@ -115,7 +115,7 @@ Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Pri
 
 -  [Configuration d'un réseau VPN de site à site dans le Portail de gestion](https://msdn.microsoft.com/library/dn133795.aspx)
 
--  [Installation d'un contrôleur de domaine Active Directory de réplication dans un réseau virtuel Azure](../virtual-networks-install-replica-active-directory-domain-controller)
+-  [Installation d'un contrôleur de domaine Active Directory de réplication dans un réseau virtuel Azure](virtual-networks-install-replica-active-directory-domain-controller.md)
 
 -  [Microsoft Azure IT Pro IaaS : (01) Concepts de base des machines virtuelles](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 
@@ -123,7 +123,7 @@ Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Pri
 
 -  [Présentation du réseau virtuel](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 
--  [Installation et configuration d'Azure PowerShell](../powershell-install-configure/)
+-  [Installation et configuration d'Azure PowerShell](powershell-install-configure.md)
 
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 

@@ -175,7 +175,7 @@ Maintenant que l'infrastructure de connexion hybride est terminée, vous pouvez 
 
 [Site web des connexions hybrides](http://azure.microsoft.com/services/biztalk-services/)
 
-[BizTalk Services : onglets Tableau de bord, Surveiller, Mettre à l'échelle, Configurer et Connexion hybride](../biztalk-dashboard-monitor-scale-tabs/)
+[BizTalk Services : onglets Tableau de bord, Surveiller, Mettre à l'échelle, Configurer et Connexion hybride](biztalk-dashboard-monitor-scale-tabs.md)
 
 [Création d'un cloud hybride réel avec la portabilité transparente des applications (vidéo Channel 9) (en anglais)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 

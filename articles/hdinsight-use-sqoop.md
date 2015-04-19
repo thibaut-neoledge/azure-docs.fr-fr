@@ -82,7 +82,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 		* Lorsque vous utilisez SQL Server dans une **machine virtuelle Azure**, toute configuration de réseau virtuel peut être utilisée dès lors que la machine virtuelle qui héberge SQL Server est membre du même réseau virtuel que HDInsight.
 
-	* Pour **approvisionner un cluster HDInsight sur un réseau virtuel**, consultez la page [Approvisionnement de clusters HDInsight au moyen d'options personnalisées](/fr-fr/documentation/articles/hdinsight-provision-clusters/)
+	* Pour **approvisionner un cluster HDInsight sur un réseau virtuel**, consultez la page [Approvisionnement de clusters HDInsight au moyen d'options personnalisées](hdinsight-provision-clusters.md)
 
 	> [AZURE.NOTE] Le serveur SQL Server doit également autoriser l'authentification SQL. Vous devez utiliser une connexion SQL pour les étapes décrites dans cet article.
 
@@ -363,7 +363,7 @@ Dans cette section, vous allez utiliser Azure PowerShell pour exécuter la comma
 > [AZURE.NOTE] En dehors des informations de chaîne de connexion, les étapes décrites dans cette section doivent fonctionner pour une base de données SQL Azure ou SQL Server. Elles ont été testées avec la configuration suivante :
 > 
 > * **Configuration " de point à site " d'Azure Virtual Network** : réseau virtuel connectant le cluster HDInsight à un serveur SQL Server dans un centre de données privé. Pour plus d'informations, consultez la page [Configuration d'un réseau privé virtuel (VPN) de point à site dans le portail de gestion](http://msdn.microsoft.com/library/azure/dn133792.aspx).
-> * **Azure HDInsight 3.1** : pour plus d'informations sur la création d'un cluster sur un réseau virtuel, consultez la page [Approvisionnement de clusters HDInsight au moyen d'options personnalisées](/fr-fr/documentation/articles/hdinsight-provision-clusters/).
+> * **Azure HDInsight 3.1** : pour plus d'informations sur la création d'un cluster sur un réseau virtuel, consultez la page [Approvisionnement de clusters HDInsight au moyen d'options personnalisées](hdinsight-provision-clusters.md).
 > * **SQL Server 2014** : configuré de manière à autoriser l'authentification SQL et à exécuter le package de configuration du client VPN pour établir une connexion sécurisée au réseau virtuel.
 
 **Pour exporter le fichier journal log4j**

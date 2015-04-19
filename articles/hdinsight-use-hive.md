@@ -209,11 +209,11 @@ Bien que Hive facilite l'interrogation des données avec un langage de requête 
 * [Prise en main de HDInsight Hadoop Tools pour Visual Studio][1]
 * [Utilisation d'Oozie avec HDInsight][hdinsight-use-oozie]
 * [Envoi de tâches Hadoop par programme][hdinsight-submit-jobs]
-* [Utilisation de Pig avec HDInsight](../hdinsight-use-pig/)
+* [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Analyse des données sur les retards de vol avec HDInsight][hdinsight-analyze-flight-data]
 * [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][hdinsight-sdk-documentation]
 * [Téléchargement de données vers HDInsight][hdinsight-upload-data]
-* [Prise en main d'Azure HDInsight](../hdinsight-get-started/)
+* [Prise en main d'Azure HDInsight](hdinsight-get-started.md)
 
 
 [1]: ../hdinsight-hadoop-visual-studio-tools-get-started/

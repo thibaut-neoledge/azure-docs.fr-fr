@@ -88,7 +88,7 @@ Tout d'abord, assurez-vous d'avoir un contenu public qui est mis en cache au poi
 #Voir aussi
 
 
-[Comment activer le réseau de distribution de contenu (CDN) pour Azure](./cdn-create-new-endpoint.md)  
+[Comment activer le réseau de distribution de contenu (CDN) pour Azure](cdn-create-new-endpoint.md)  
 **Vue d'ensemble du CDN Azure**
 
 

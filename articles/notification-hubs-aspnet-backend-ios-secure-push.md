@@ -1,8 +1,8 @@
 ﻿<properties 
 	pageTitle="Notifications Push sécurisées avec Azure Notification Hubs" 
-	description="Découvrez comment envoyer des notifications Push sécurisées à une application iOS depuis Azure. Exemples de code écrits en Objective-C et C#." 
+	description="Découvrez comment envoyer des notifications Push sécurisées à une application iOS depuis Azure. Code samples written in Objective-C and C#." 
 	documentationCenter="ios" 
-	authors="wesmc7777" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor="" 
 	services="notification-hubs"/>
@@ -13,19 +13,17 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
-	ms.author="wesmc,yuaxu"/>
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 
 #Notifications Push sécurisées avec Azure Notification Hubs
 
 <div class="dev-center-tutorial-selector sublanding">
-    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universel</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
-		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
+    	<a href="/fr-fr/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universel</a><a href="/fr-fr/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
+		<a href="/fr-fr/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
 </div>
 
-##Vue d'ensemble
-
-La prise en charge des notifications Push dans Microsoft Azure vous permet d'accéder à une infrastructure Push conviviale, multiplateforme et avec montée en charge qui simplifie fortement l'implémentation des notifications Push pour les applications grand public et d'entreprise destinées aux plateformes mobiles.
+La prise en charge des notifications Push dans Microsoft Azure vous permet d'accéder à une infrastructure Push conviviale, multiplateforme et avec montée en charge qui simplifie fortement l'implémentation des notifications Push pour les applications grand public et entreprise destinées aux plateformes mobiles.
 
 En raison de contraintes liées à la réglementation ou à la sécurité, une application peut avoir besoin d'inclure dans la notification des informations qui ne peuvent pas être transmises via l'infrastructure de notification Push standard. Ce didacticiel montre comment procéder en envoyant des informations sensibles par l'intermédiaire d'une connexion authentifiée sécurisée entre l'appareil client et le serveur principal de l'application.
 
@@ -42,13 +40,13 @@ Il est important de noter que dans le processus précédent (et dans ce didactic
 
 Ce didacticiel sur les notifications Push sécurisées montre comment envoyer une notification Push en toute sécurité. Il s'appuie sur le didacticiel **Notification des utilisateurs**. Vous devez donc suivre ce dernier au préalable.
 
-> [AZURE.NOTE] Ce didacticiel repose sur l'hypothèse que vous avez créé et configuré votre concentrateur de notification comme décrit dans [Prise en main de Notification Hubs (iOS)](notification-hubs-ios-get-started.md).
+> [AZURE.NOTE] Ce didacticiel part du principe que vous avez créé et configuré votre concentrateur de notification comme décrit dans [Prise en main de Notification Hubs (iOS)](http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/).
 
-[AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-serveur- principal-notifications-push-sécurisées](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Modification du projet iOS
 
-À présent que vous avez modifié le serveur principal de votre application pour qu'il n'envoie que la valeur *id* d'une notification, vous devez modifier votre application iOS afin qu'elle gère cette notification et qu'elle rappelle votre serveur principal pour récupérer le message sécurisé à afficher.
+Maintenant que vous avez modifié le serveur principal de votre application pour qu'il n'envoie que l' *id* d'une notification, vous devez modifier votre application iOS pour gérer cette notification et rappeler votre serveur pour récupérer le message sécurisé à afficher.
 
 Pour cela, nous devons écrire la logique permettant de récupérer le contenu sécurisé auprès du serveur principal de l'application.
 
@@ -101,7 +99,7 @@ Pour cela, nous devons écrire la logique permettant de récupérer le contenu s
 		            NSLog(@"Error status: %ld, request: %@", (long)httpResponse.statusCode, error);
 		            if (error)
 		                completion(nil, error);
-		            else {
+		            else{
 		                completion(nil, [NSError errorWithDomain:@"APICall" code:httpResponse.statusCode userInfo:nil]);
 		            }
 		        }
@@ -126,7 +124,7 @@ Pour cela, nous devons écrire la logique permettant de récupérer le contenu s
 
 		    [self retrieveSecurePayloadWithId:[[userInfo objectForKey:@"secureId"] intValue] completion:^(NSString * payload, NSError *error) {
 		        if (!error) {
-		            // show local notification
+		            // afficher une notification locale
 		            UILocalNotification* localNotification = [[UILocalNotification alloc] init];
 		            localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
 		            localNotification.alertBody = payload;
@@ -155,4 +153,4 @@ Pour exécuter l'application, procédez comme suit :
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

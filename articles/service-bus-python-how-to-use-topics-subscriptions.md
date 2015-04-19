@@ -25,7 +25,7 @@ Ce guide vous montre comment utiliser les rubriques et les abonnements Service B
 
 [AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
-**Remarque :** si vous devez installer Python ou le [package Azure Python][], veuillez consulter le [Guide d'installation de Python](../python-how-to-install/)
+**Remarque :** si vous devez installer Python ou le [package Azure Python][], veuillez consulter le [Guide d'installation de Python](python-how-to-install.md)
 
 
 ## Création d'une rubrique

@@ -18,7 +18,7 @@
 
 # Gérer vos machines virtuelles à l'aide d'Azure PowerShell
 
-Avant de commencer, vous devez vérifier qu'Azure PowerShell est installé. Pour ce faire, visitez la page [Installation et configuration d'Azure PowerShell](../install-configure-powershell/)
+Avant de commencer, vous devez vérifier qu'Azure PowerShell est installé. Pour ce faire, visitez la page [Installation et configuration d'Azure PowerShell](install-configure-powershell.md)
 
 ## Obtenir une image
 

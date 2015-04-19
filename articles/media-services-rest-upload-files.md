@@ -21,7 +21,7 @@
 #Téléchargement de fichiers dans un compte Media Services à l'aide des API REST
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) . 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) . 
 
 Dans Media Services, vous téléchargez vos fichiers numériques dans une ressource. L'entité [Asset](https://msdn.microsoft.com/library/azure/hh974277.aspx) peut contenir des fichiers vidéo et audio, des images, des collections de miniatures, des pistes textuelles et des légendes (et les métadonnées concernant ces fichiers).  Une fois les fichiers téléchargés dans la ressource, votre contenu est stocké en toute sécurité dans le cloud et peut faire l'objet d'un traitement et d'une diffusion en continu. 
 
@@ -39,9 +39,9 @@ Le flux de travail classique d'ingestion de ressources se divise en différentes
 
 >[AZURE.NOTE] Lorsque vous utilisez l'API REST de Media Services, les considérations suivantes s'appliquent :
 >
->Lors de l'accès aux entités dans Media Services, vous devez définir les valeurs et les champs d'en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Configuration du développement de l'API REST Media Services](../media-services-rest-how-to-use).
+>Lors de l'accès aux entités dans Media Services, vous devez définir les valeurs et les champs d'en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Configuration du développement de l'API REST Media Services](media-services-rest-how-to-use.md).
 
->Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez adresser les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](../media-services-rest-connect_programmatically/). 
+>Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez adresser les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](media-services-rest-connect_programmatically.md). 
  
 Une ressource est un conteneur pour plusieurs types ou ensembles d'objets dans Media Services, y compris des fichiers vidéo, audio, des images, des collections de miniatures, des pistes textuelles et des légendes. Dans l'API REST, la création d'une ressource nécessite d'envoyer une demande POST vers Media Services et de placer les informations de propriété concernant votre ressource dans le corps de la demande.
 
@@ -56,7 +56,7 @@ L'une des propriétés que vous pouvez spécifier lors de la création d'une res
 
 - **EnvelopeEncryptionProtected** = **4**: Spécifiez si vous téléchargez des fichiers TLS chiffrés avec AES. Notez que les fichiers doivent avoir été encodés et chiffrés par le gestionnaire de transformation Transform Manager.
 
->[AZURE.NOTE]Si vous prévoyez d'utiliser le chiffrement pour votre ressource, vous devez créer un **ContentKey** et le lier à votre ressource, comme décrit dans la rubrique suivante :[Comment créer un ContentKey](../media-services-rest-create-contentkey). Notez qu'après avoir téléchargé les fichiers dans la ressource, vous devez mettre à jour les propriétés de cryptage sur l'entité **AssetFile** avec les valeurs obtenues au cours du cryptage **Asset**. Pour ce faire, utilisez la demande HTTP **MERGE**. 
+>[AZURE.NOTE]Si vous prévoyez d'utiliser le chiffrement pour votre ressource, vous devez créer un **ContentKey** et le lier à votre ressource, comme décrit dans la rubrique suivante :[Comment créer un ContentKey](media-services-rest-create-contentkey.md). Notez qu'après avoir téléchargé les fichiers dans la ressource, vous devez mettre à jour les propriétés de cryptage sur l'entité **AssetFile** avec les valeurs obtenues au cours du cryptage **Asset**. Pour ce faire, utilisez la demande HTTP **MERGE**. 
 
 
 L'exemple suivant montre comment créer une ressource.

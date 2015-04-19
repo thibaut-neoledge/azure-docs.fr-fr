@@ -22,11 +22,11 @@ Ces étapes vous montrent comment personnaliser un jeu de commandes Azure PowerS
 
 Ces étapes utilisent une méthode de cases à remplir pour créer des jeux de commandes Azure PowerShell. Cette méthode peut être utile si vous découvrez PowerShell ou simplement si vous souhaitez connaître les valeurs à indiquer pour une configuration réussie. Les utilisateurs avancés de PowerShell peuvent prendre les commandes et indiquer leurs propres valeurs pour les variables (lignes commençant par " $ ").
 
-Si vous souhaitez connaître la rubrique associée pour configurer des machines virtuelles basées sur Windows, consultez [Utilisation d'Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows](../virtual-machines-ps-create-preconfigure-windows-vms/).
+Si vous souhaitez connaître la rubrique associée pour configurer des machines virtuelles basées sur Windows, consultez [Utilisation d'Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows](virtual-machines-ps-create-preconfigure-windows-vms.md).
 
 ## Étape 1 : Installation d'Azure PowerShell
 
-Si ce n'est pas encore fait, installez Azure PowerShell sur votre ordinateur local à l'aide des instructions décrites dans [Installation et configuration d'Azure PowerShell](../install-configure-powershell/). Ouvrez ensuite une invite de commande Azure PowerShell.
+Si ce n'est pas encore fait, installez Azure PowerShell sur votre ordinateur local à l'aide des instructions décrites dans [Installation et configuration d'Azure PowerShell](install-configure-powershell.md). Ouvrez ensuite une invite de commande Azure PowerShell.
 
 ## Étape 2 : Configuration de votre compte d'abonnement et de stockage
 
@@ -89,7 +89,7 @@ Vous pouvez éventuellement spécifier un jeu de paires de clés SSH déjà dép
 
 	$vm1 | Add-AzureProvisioningConfig -Linux -SSHKeyPairs "<SSH key pairs>"
 
-Pour plus d'informations, consultez la rubrique [Utilisation de SSH avec Linux dans Azure](../virtual-machines-linux-use-ssh-key/).
+Pour plus d'informations, consultez la rubrique [Utilisation de SSH avec Linux dans Azure](virtual-machines-linux-use-ssh-key.md).
 
 Vous pouvez éventuellement spécifier une liste de clés publiques SSH déjà déployées dans l'abonnement.
 
@@ -157,7 +157,7 @@ Passez en revue le jeu de commandes Azure PowerShell constitué de plusieurs blo
 
 Copiez le jeu de commandes dans le Presse-papiers, puis cliquez avec le bouton droit sur votre invite de commandes Azure PowerShell ouverte. Vous émettez ainsi le jeu de commandes en tant que série de commandes PowerShell et créez votre machine virtuelle Azure. Si vous le faites dans un abonnement, un compte de stockage, un service cloud, un groupe de haute disponibilité, un réseau virtuel ou un sous-réseau inapproprié, supprimez la machine virtuelle, corrigez la syntaxe du bloc de commande, puis exécutez le jeu de commandes modifié. 
 
-Une fois la machine virtuelle créée, consultez [Connexion à une machine virtuelle exécutant Linux](../virtual-machines-linux-how-to-log-on/). 
+Une fois la machine virtuelle créée, consultez [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-how-to-log-on.md). 
 
 Si vous comptez créer cette machine virtuelle de nouveau ou une autre similaire, vous pouvez : 
 
@@ -260,11 +260,11 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 
 [Vue d'ensemble des machines virtuelles Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[Installation et configuration d'Azure PowerShell](../install-configure-powershell/)
+[Installation et configuration d'Azure PowerShell](install-configure-powershell.md)
 
-[Connexion à une machine virtuelle exécutant Linux](../virtual-machines-linux-how-to-log-on/)
+[Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-how-to-log-on.md)
 
-[Utilisation d'Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows](../virtual-machines-ps-create-preconfigure-windows-vms/)
+[Utilisation d'Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 
 <!--HONumber=47-->

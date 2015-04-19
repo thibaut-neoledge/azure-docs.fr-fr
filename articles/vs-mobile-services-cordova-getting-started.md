@@ -17,8 +17,8 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Mise en route](/documentation/articles/vs-mobile-services-cordova-getting-started/)
-> - [Que s'est-il passé ?](/documentation/articles/vs-mobile-services-cordova-what-happened/)
+> - [Mise en route](vs-mobile-services-cordova-getting-started.md)
+> - [Que s'est-il passé ?](vs-mobile-services-cordova-what-happened.md)
 
 ## Prise en main de Mobile Services (Projets Cordova)
 

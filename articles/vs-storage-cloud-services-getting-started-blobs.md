@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Mise en route](/documentation/articles/vs-storage-cloud-services-getting-started-blobs/)
-> - [Que s'est-il passé ?](/documentation/articles/vs-storage-cloud-services-what-happened/)
+> - [Mise en route](vs-storage-cloud-services-getting-started-blobs.md)
+> - [Que s'est-il passé ?](vs-storage-cloud-services-what-happened.md)
 
 ## Prise en main d'Azure Storage (Projets de service cloud)
 
 > [AZURE.SELECTOR]
-> - [Objets blob](/documentation/articles/vs-storage-cloud-services-getting-started-blobs/)
-> - [Files d'attente](/documentation/articles/vs-storage-cloud-services-getting-started-queues/)
-> - [Tables](/documentation/articles/vs-storage-cloud-services-getting-started-tables/)
+> - [Objets blob](vs-storage-cloud-services-getting-started-blobs.md)
+> - [Files d'attente](vs-storage-cloud-services-getting-started-queues.md)
+> - [Tables](vs-storage-cloud-services-getting-started-tables.md)
 
 Le stockage d'objets blob Azure est un service permettant de stocker de grandes quantités de données non structurées accessibles depuis n'importe où dans le monde via HTTP ou HTTPS. Les objets blob peuvent être de toutes tailles. Il peut s'agir d'images, de fichiers audio ou vidéo, de données brutes ou de fichiers de documents.
 

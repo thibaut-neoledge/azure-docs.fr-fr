@@ -17,8 +17,8 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Mise en route](/documentation/articles/vs-mobile-services-javascript-getting-started/)
-> - [Que s'est-il passé ?](/documentation/articles/vs-mobile-services-javascript-what-happened/)
+> - [Mise en route](vs-mobile-services-javascript-getting-started.md)
+> - [Que s'est-il passé ?](vs-mobile-services-javascript-what-happened.md)
 
 ## Prise en main de Mobile Services
 

@@ -31,7 +31,7 @@ Ce didacticiel vous familiarise avec les étapes de base permettant d'activer le
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de le lancer, suivez d'abord le didacticiel [Prise en main de Mobile Services] ou [Prise en main des données] pour connecter votre projet au service mobile. Lorsqu'un service mobile n'est pas connecté, l'Assistant Ajouter une notification Push crée cette connexion pour vous. 
 
->[AZURE.NOTE]Pour envoyer des notifications Push à une application Windows Phone 8.1 Store, consultez la version de l'[application du Windows Store](/fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push) de ce didacticiel.
+>[AZURE.NOTE]Pour envoyer des notifications Push à une application Windows Phone 8.1 Store, consultez la version de l'[application du Windows Store](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) de ce didacticiel.
 
 ##<a id="update-app"></a> Mise à jour de l'application pour l'inscription aux notifications
 

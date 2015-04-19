@@ -17,17 +17,17 @@
 	ms.author="kapiteir" />
 
 #Kit SDK Windows Phone pour Azure Mobile Engagement v2.0.0
-Cette introduction contient toutes les informations nécessaires pour intégrer Azure Mobile Engagement à une application Windows Phone. Si vous souhaitez commencer par la pratique, suivez notre [didacticiel de 15 minutes](../mobile-engagement-windows-phone-get-started/).
+Cette introduction contient toutes les informations nécessaires pour intégrer Azure Mobile Engagement à une application Windows Phone. Si vous souhaitez commencer par la pratique, suivez notre [didacticiel de 15 minutes](mobile-engagement-windows-phone-get-started.md).
 
-Pour afficher le contenu du Kit SDK, cliquez [ici](../mobile-engagement-windows-phone-sdk-content/).
+Pour afficher le contenu du Kit SDK, cliquez [ici](mobile-engagement-windows-phone-sdk-content.md).
 
 ##Procédures d'intégration
 
-1. Commencez ici : [Comment intégrer Mobile Engagement à votre application Windows Phone](../mobile-engagement-windows-phone-integrate-engagement/)
+1. Commencez ici : [Comment intégrer Mobile Engagement à votre application Windows Phone](mobile-engagement-windows-phone-integrate-engagement.md)
 
-2. Pour Notifications : [Comment intégrer Reach (Notifications) à votre application Windows Phone](../mobile-engagement-windows-phone-integrate-engagement-reach/)
+2. Pour Notifications : [Comment intégrer Reach (Notifications) à votre application Windows Phone](mobile-engagement-windows-phone-integrate-engagement-reach.md)
 
-3. Implémentation du plan de balisage : [Comment utiliser l'API de balisage avancée Mobile Engagement dans votre application Windows Phone](../mobile-engagement-windows-phone-use-engagement-api/)
+3. Implémentation du plan de balisage : [Comment utiliser l'API de balisage avancée Mobile Engagement dans votre application Windows Phone](mobile-engagement-windows-phone-use-engagement-api.md)
 
 ##Notes de publication
 
@@ -36,7 +36,7 @@ Pour afficher le contenu du Kit SDK, cliquez [ici](../mobile-engagement-windows-
 -   La configuration d'une chaîne de connexion remplace désormais la configuration d'appId/sdkKey.
 -   Améliorations de la sécurité.
 
-Pour les versions antérieures, consultez la [version complète des notes de publication](../mobile-engagement-windows-phone-release-notes/).
+Pour les versions antérieures, consultez la [version complète des notes de publication](mobile-engagement-windows-phone-release-notes.md).
 
 ##Procédures de mise à niveau
 

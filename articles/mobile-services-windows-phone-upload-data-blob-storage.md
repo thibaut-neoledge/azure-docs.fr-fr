@@ -25,7 +25,7 @@ Cette rubrique vous montre comment utiliser Azure Mobile Services pour permettre
 
 Vous ne pouvez pas distribuer de manière sécurisée les informations d'identification nécessaires à un téléchargement sécurisé de données vers le service de stockage d'objets blob avec l'application cliente. Au lieu de cela, vous devez stocker ces informations d'identification dans votre service mobile et vous en servir pour générer une signature d'accès partagé qui sera utilisée pour télécharger une nouvelle image. La signature d'accès partagé, information d'identification dont le délai d'expiration est très court&mdash;dans ce cas, 5 minutes, est renvoyée de manière sécurisée par Mobile Services à l'application cliente. L'application utilise ensuite cette information d'identification provisoire pour télécharger l'image. Dans cet exemple, les téléchargements à partir du service BLOB sont publics.
 
-Dans ce didacticiel, vous allez ajouter une fonctionnalité au [projet de l'exemple d'application GetStartedWithData](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started-data/) pour prendre des photos et télécharger les images vers Azure en utilisant une signature d'accès partagé générée par Mobile Services. Ce didacticiel vous guide tout au long des étapes de base suivantes pour mettre à jour l'application TodoList simple en vue de télécharger des images vers le service de stockage d'objets blob :
+Dans ce didacticiel, vous allez ajouter une fonctionnalité au [projet de l'exemple d'application GetStartedWithData](mobile-services-windows-phone-get-started-data.md) pour prendre des photos et télécharger les images vers Azure en utilisant une signature d'accès partagé générée par Mobile Services. Ce didacticiel vous guide tout au long des étapes de base suivantes pour mettre à jour l'application TodoList simple en vue de télécharger des images vers le service de stockage d'objets blob :
 
 1. [Installation de la bibliothèque du client de stockage]
 2. [Mise à jour du script d'insertion pour générer une signature d'accès partagé]
@@ -38,7 +38,7 @@ Ce didacticiel requiert les éléments suivants :
 + [Kit de développement logiciel (SDK) Windows Phone 8.0] ou supérieur ;
 + Gestionnaire de package Nuget pour Microsoft Visual Studio ;
 + [Compte Azure Storage][Création d'un compte Storage]
-+ Avoir terminé le didacticiel [Ajout de Mobile Services à une application existante](/fr-fr/documentation/articles/mobile-services-windows-phone-get-started-data/)  
++ Avoir terminé le didacticiel [Ajout de Mobile Services à une application existante](mobile-services-windows-phone-get-started-data.md)  
 
 
 ##<a name="install-storage-client"></a>Installation du client de stockage pour les applications Windows Phone

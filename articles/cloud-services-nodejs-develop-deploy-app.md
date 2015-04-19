@@ -29,7 +29,7 @@ applications cloud évolutives dans Azure. Ils vous permettent de séparer, de g
 et de monter en charge les composants serveurs frontaux et principaux de votre application.  Les services cloud 
 hébergent de façon fiable chaque rôle sur une machine virtuelle dédiée.
 
-Pour plus d'informations sur les services cloud, et pour connaître les différences avec les sites Web Azure et les machines virtuelles, consultez [Comparaison des sites Web Azure, des services cloud et des machines virtuelles](http://azure.microsoft.com/ documentation/articles/choose-web-site-cloud-service-vm/).
+Pour plus d'informations sur les services cloud, et pour connaître les différences avec les sites Web Azure et les machines virtuelles, consultez [Comparaison des sites Web Azure, des services cloud et des machines virtuelles](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/).
 
 >[AZURE.TIP] Vous voulez créer un simple site Web ? Si votre scénario ne comporte qu'un simple composant frontal de site Web, <a href="/fr-fr/documentation/articles/web-sites-nodejs-develop-deploy-mac/">utilisez un site Web Azure léger.</a> Vous pouvez facilement passer à un service cloud en fonction de l'évolution de votre site et de vos besoins.
 

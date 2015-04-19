@@ -28,7 +28,7 @@ L'exemple d'application illustre des comportements de score à l'aide de donnée
 
 L'exemple d'application est écrit en C# à l'aide de Visual Studio 2013. Essayez l'[édition Visual Studio 2013 Express](http://www.visualstudio.com/fr-fr/products/visual-studio-express-vs.aspx) si vous ne disposez pas déjà d'une copie de Visual Studio.
 
-Vous avez besoin d'un abonnement Azure et d'un service Azure Search pour suivre ce didacticiel. Consultez la rubrique [Prise en main d'Azure Search](../search-get-started/) pour vous aider à configurer le service.
+Vous avez besoin d'un abonnement Azure et d'un service Azure Search pour suivre ce didacticiel. Consultez la rubrique [Prise en main d'Azure Search](search-get-started.md) pour vous aider à configurer le service.
 
 [WACOM.INCLUDE [Pour suivre ce didacticiel, vous avez besoin d'un compte Azure :](../includes/free-trial-note.md)]
 

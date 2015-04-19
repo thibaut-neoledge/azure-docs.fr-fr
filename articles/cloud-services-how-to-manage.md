@@ -86,7 +86,7 @@ Vous pouvez inverser les déploiements à partir de la page **Cloud Services** o
 
 Pour afficher les dépendances de votre service cloud vis-à-vis d'autres ressources, vous pouvez lier une instance de base de données SQL Azure ou un compte de stockage au service cloud. Vous pouvez lier des ressources et annuler la liaison vers des ressources dans la page **Ressources liées**, puis surveiller leur utilisation dans le tableau de bord du service cloud. Si la surveillance du compte de stockage lié est activée, vous pouvez surveiller le nombre total de demandes dans le tableau de bord du service cloud.
 
-Utilisez **Lier** pour créer une liaison entre une instance de base de données SQL ou un compte de stockage, nouveau ou existant, et votre service cloud. Vous pouvez ensuite étendre la base de données en même temps que le service cloud qui utilise cette base de données sur la page **Mettre à l'échelle**. (Le compte de stockage s'étend automatiquement avec l'augmentation de l'utilisation.) Pour plus d'informations, consultez la page [Extension d'un service cloud et des ressources liées](../cloud-services-how-to-scale/). 
+Utilisez **Lier** pour créer une liaison entre une instance de base de données SQL ou un compte de stockage, nouveau ou existant, et votre service cloud. Vous pouvez ensuite étendre la base de données en même temps que le service cloud qui utilise cette base de données sur la page **Mettre à l'échelle**. (Le compte de stockage s'étend automatiquement avec l'augmentation de l'utilisation.) Pour plus d'informations, consultez la page [Extension d'un service cloud et des ressources liées](cloud-services-how-to-scale.md). 
 
 Vous pouvez également surveiller, gérer et étendre la base de données dans le nœud **Bases de données** du portail de gestion. 
 
@@ -120,7 +120,7 @@ La procédure qui suit décrit comment lier une nouvelle instance de base de don
 
 	![Link Progress](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkProgress.png)
 
-	Une fois la liaison terminée, vous pouvez surveiller l'état de la ressource liée dans le tableau de bord du service cloud. Pour plus d'informations sur l'extension d'une base de données SQL liée, consultez la page [Extension d'un service cloud et des ressources liées](../cloud-services-how-to-scale/).
+	Une fois la liaison terminée, vous pouvez surveiller l'état de la ressource liée dans le tableau de bord du service cloud. Pour plus d'informations sur l'extension d'une base de données SQL liée, consultez la page [Extension d'un service cloud et des ressources liées](cloud-services-how-to-scale.md).
 
 ###Pour annuler la liaison d'une ressource liée###
 
@@ -158,7 +158,7 @@ Utiliser la procédure suivante pour supprimer un déploiement ou un service clo
 5. Pour supprimer le service cloud, cliquez sur **Supprimer le service cloud**. Ensuite, à l'invite de confirmation, cliquez sur **Oui**.
 
 > [AZURE.NOTE]
-> Si la surveillance détaillée est configurée pour votre service cloud, Azure ne supprime pas les données de surveillance de votre compte de stockage lorsque vous supprimez le service cloud. Vous devez supprimer manuellement les données. Pour plus d'informations sur les tables de mesures, consultez la page " Accès aux données de la surveillance détaillée en dehors du portail de gestion " dans <a href="http://azure.microsoft.com/ documentation/articles/cloud-services-how-to-monitor/">Surveillance des services cloud</a>.
+> Si la surveillance détaillée est configurée pour votre service cloud, Azure ne supprime pas les données de surveillance de votre compte de stockage lorsque vous supprimez le service cloud. Vous devez supprimer manuellement les données. Pour plus d'informations sur les tables de mesures, consultez la page " Accès aux données de la surveillance détaillée en dehors du portail de gestion " dans <a href="http://azure.microsoft.com/documentation/articles/cloud-services-how-to-monitor/">Surveillance des services cloud</a>.
 
 
 <!--HONumber=45--> 

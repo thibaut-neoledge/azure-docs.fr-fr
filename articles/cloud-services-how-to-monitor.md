@@ -38,7 +38,7 @@ Les affichages de surveillance dans le portail de gestion sont configurables à 
 Par défaut, une surveillance minimale est fournie pour le nouveau service cloud à l'aide de compteurs de performances récupérés sur le système d'exploitation hôte pour les instances de rôle (machines virtuelles). Les mesures minimales sont limitées au pourcentage processeur, aux données entrantes, aux données sortantes, au débit d'écriture sur le disque et au débit de lecture sur le disque. En configurant la surveillance détaillée, vous obtenez des mesures supplémentaires basées sur les données de performances dans les machines virtuelles (instances de rôle). Les mesures détaillées offrent une analyse plus fine des problèmes qui surviennent au cours du fonctionnement de l'application.
 
 > [AZURE.NOTE]
-> Si vous utilisez la surveillance détaillée, vous pouvez ajouter d'autres compteurs de performances au démarrage de l'instance de rôle, via un fichier de configuration du diagnostic. Pour pouvoir surveiller ces mesures dans le portail de gestion, vous devez ajouter les compteurs de performances avant de configurer la surveillance détaillée. Pour plus d'informations, consultez <a href="http://azure.microsoft.com/ documentation/articles/cloud-services-dotnet-diagnostics/">Activation de Diagnostics dans les services cloud et les machines virtuelles Azure</a>.
+> Si vous utilisez la surveillance détaillée, vous pouvez ajouter d'autres compteurs de performances au démarrage de l'instance de rôle, via un fichier de configuration du diagnostic. Pour pouvoir surveiller ces mesures dans le portail de gestion, vous devez ajouter les compteurs de performances avant de configurer la surveillance détaillée. Pour plus d'informations, consultez <a href="http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/">Activation de Diagnostics dans les services cloud et les machines virtuelles Azure</a>.
 
 Par défaut, les données des compteurs de performances des instances de rôle sont échantillonnées et transférées à partir de l'instance de rôle toutes les 3 minutes. Lorsque vous activez la surveillance détaillée, les données brutes des compteurs de performances sont consolidées pour chaque instance de rôle et pour toutes les instances de rôle de chaque rôle toutes les 5 minutes, toutes les heures et toutes les 12 heures. Les données consolidées sont purgées tous les 10 jours.
 
@@ -56,13 +56,13 @@ Les procédures suivantes permettent de configurer la surveillance minimale ou d
 - Créez un compte de stockage pour stocker les données de surveillance. Vous pouvez utiliser différents comptes de stockage pour différents rôles. Pour plus d'informations, consultez **Comptes de stockage** ou la page [Création d'un compte de stockage](/fr-fr/manage/services/storage/how-to-create-a-storage-account/).
 
 
-- Activez le diagnostic Azure pour vos rôles de service cloud. <br /><br />Pour plus d'informations, consultez la page [Activation de Diagnostics dans Azure Cloud Services et Azure Virtual Machines](/fr-fr/documentation/articles/cloud-services-dotnet-diagnostics/).
+- Activez le diagnostic Azure pour vos rôles de service cloud. <br /><br />Pour plus d'informations, consultez la page [Activation de Diagnostics dans Azure Cloud Services et Azure Virtual Machines](cloud-services-dotnet-diagnostics.md).
 
 Dans le portail de gestion, vous pouvez ajouter ou modifier les chaînes de connexion de diagnostic utilisées par Azure Diagnostics pour accéder aux comptes de stockage qui contiennent les données de la surveillance détaillée, et vous pouvez choisir le niveau de surveillance minimal ou détaillé. Comme la surveillance détaillée stocke les données dans un compte de stockage, vous devez configurer les chaînes de connexion de diagnostic avant de sélectionner le niveau de surveillance détaillé.
 
 ###Configuration de chaînes de connexion de diagnostic pour la surveillance détaillée###
 
-1. Copiez une clé d'accès au stockage correspondant au compte que vous allez utiliser pour stocker les données de la surveillance détaillée. Dans le [portail de gestion Azure](https://manage.windowsazure.com/), vous pouvez utiliser **Gérer les clés** sur la page **Comptes de stockage**. Pour plus d'informations, consultez la page [Gestion des services cloud](/fr-fr/documentation/articles/cloud-services-how-to-manage/) ou l'aide sur les **Comptes de stockage**. 
+1. Copiez une clé d'accès au stockage correspondant au compte que vous allez utiliser pour stocker les données de la surveillance détaillée. Dans le [portail de gestion Azure](https://manage.windowsazure.com/), vous pouvez utiliser **Gérer les clés** sur la page **Comptes de stockage**. Pour plus d'informations, consultez la page [Gestion des services cloud](cloud-services-how-to-manage.md) ou l'aide sur les **Comptes de stockage**. 
 
 2. Ouvrez **Cloud Services**. Ensuite, pour ouvrir le tableau de bord, cliquez sur le nom du service cloud que vous voulez configurer.
 

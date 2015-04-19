@@ -301,8 +301,8 @@ Une fois la configuration terminée, le nom de domaine personnalisé est répert
 [digweb]: http://www.digwebinterface.com/
 [cloudservicedns]: ../custom-dns/
 [trafficmanager]: /fr-fr/documentation/articles/web-sites-traffic-manager/
-[addendpoint]: http://msdn.microsoft.com/fr-fr/library/windowsazure/hh744839.aspx
-[createprofile]: http://msdn.microsoft.com/fr-fr/library/windowsazure/dn339012.aspx
+[addendpoint]: http://msdn.microsoft.com/library/windowsazure/hh744839.aspx
+[createprofile]: http://msdn.microsoft.com/library/windowsazure/dn339012.aspx
 
 <!-- images -->
 

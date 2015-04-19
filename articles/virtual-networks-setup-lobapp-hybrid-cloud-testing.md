@@ -46,7 +46,7 @@ Si vous n'avez pas encore d'abonnement Azure, vous pouvez obtenir une version d'
 
 ## Phase 1 : configuration de l'environnement de cloud hybride
 
-Suivez les instructions de la rubrique [Configuration d'un environnement de cloud hybride à des fins de test](../virtual-networks-setup-hybrid-cloud-environment-testing/) . Étant donné que cet environnement de test ne nécessite pas la présence du serveur APP1 sur le sous-réseau de réseau d'entreprise, n'hésitez pas à l'arrêter pour le moment.
+Suivez les instructions de la rubrique [Configuration d'un environnement de cloud hybride à des fins de test](virtual-networks-setup-hybrid-cloud-environment-testing.md) . Étant donné que cet environnement de test ne nécessite pas la présence du serveur APP1 sur le sous-réseau de réseau d'entreprise, n'hésitez pas à l'arrêter pour le moment.
 
 Ceci est votre configuration actuelle.
 
@@ -182,11 +182,11 @@ Cet environnement est maintenant prêt pour le déploiement de votre application
 
 [Plateforme de serveur adaptée à l'hébergement Web (IIS)](http://technet.microsoft.com/library/hh831818)
 
-[Configuration d'un environnement de cloud hybride pour le test](../virtual-networks-setup-hybrid-cloud-environment-testing/)
+[Configuration d'un environnement de cloud hybride pour le test](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
-[Configuration d'une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Configuration d'une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-[Configuration de la synchronisation d'annuaires Office 365 (DirSync) dans un cloud hybride pour le test](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+[Configuration de la synchronisation d'annuaires Office 365 (DirSync) dans un cloud hybride pour le test](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
 
-[Configuration d'une simulation d'environnement de cloud hybride à des fins de test](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+[Configuration d'une simulation d'environnement de cloud hybride à des fins de test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 <!--HONumber=47-->

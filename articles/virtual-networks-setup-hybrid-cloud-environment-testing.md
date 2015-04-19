@@ -124,7 +124,7 @@ Tout d'abord, ouvrez une session sur le [portail de gestion Azure](https://manag
 	- Cliquez sur **Ajouter un sous-réseau de passerelle**.
 11.	Cliquez sur l'icône Terminer. Attendez que le réseau virtuel soit créé avant de continuer.
 
-Ensuite, suivez les instructions de la page [Installation et configuration d'Azure PowerShell](../install-configure-powershell/) pour installer Azure PowerShell sur votre ordinateur local.
+Ensuite, suivez les instructions de la page [Installation et configuration d'Azure PowerShell](install-configure-powershell.md) pour installer Azure PowerShell sur votre ordinateur local.
 
 Ensuite, créez un service cloud pour le réseau virtuel TestVNET. Vous devez choisir un nom unique. Par exemple, vous pouvez le nommer TestVNET-*UniqueSequence*, dans lequel *UniqueSequence* est l'abréviation de votre organisation. Par exemple, si votre organisation est nommée Tailspin Toys, vous pouvez nommer le service cloud TestVNET-Tailspin.
 
@@ -287,17 +287,17 @@ Votre environnement de cloud hybride est maintenant prêt à être testé.
 
 ## Ressources supplémentaires
 
-[Configuration d'une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Configuration d'une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-[Configuration d'une application métier web dans un cloud hybride pour le test](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+[Configuration d'une application métier web dans un cloud hybride pour le test](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
-[Configuration de la synchronisation d'annuaires Office 365 (DirSync) dans un cloud hybride pour le test](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+[Configuration de la synchronisation d'annuaires Office 365 (DirSync) dans un cloud hybride pour le test](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
 
-[Configuration d'une simulation d'environnement de cloud hybride à des fins de test](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+[Configuration d'une simulation d'environnement de cloud hybride à des fins de test](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 
 ## Réduction des coûts récurrents de cet environnement
 
-Afin de réduire les coûts d'exécution des machines virtuelles dans cet environnement, effectuez les tests et démonstrations nécessaires aussi rapidement que possible et supprimez ou arrêtez les machines virtuelles lorsque vous ne les utilisez pas. Par exemple, vous pouvez utiliser Azure Automation et un runbook pour arrêter automatiquement les machines virtuelles du réseau virtuel Test_VNET à la fin de chaque journée. Pour plus d'informations, consultez la page [Prise en main d'Azure Automation](../automation-create-runbook-from-samples/). 
+Afin de réduire les coûts d'exécution des machines virtuelles dans cet environnement, effectuez les tests et démonstrations nécessaires aussi rapidement que possible et supprimez ou arrêtez les machines virtuelles lorsque vous ne les utilisez pas. Par exemple, vous pouvez utiliser Azure Automation et un runbook pour arrêter automatiquement les machines virtuelles du réseau virtuel Test_VNET à la fin de chaque journée. Pour plus d'informations, consultez la page [Prise en main d'Azure Automation](automation-create-runbook-from-samples.md). 
 
 La passerelle VPN Azure est implémentée comme un ensemble de deux machines virtuelles qui entraînent un coût continu. Pour plus d'informations, consultez la page [Tarification - Réseau virtuel](http://azure.microsoft.com/pricing/details/virtual-network/). Pour réduire les coûts de la passerelle VPN, créez l'environnement de test et exécutez vos tests et démonstrations requis aussi rapidement que possible ou supprimez la passerelle en procédant comme suit. 
 

@@ -44,7 +44,7 @@ Cette démonstration a pour but la prise en main d'Azure Search via les exercice
 <h2 id="sub-1">Configuration requise</h2>
 
 +	Visual Studio 2012 ou une version ultérieure avec ASP.NET MVC 4 et SQL Server doivent être installés. Vous pouvez télécharger les éditions Express gratuites si vous n'avez pas encore installé le logiciel : [Visual Studio 2013 Express](http://www.visualstudio.com/fr-fr/products/visual-studio-express-vs.aspx) et [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
-+	Un service Azure Search. Vous aurez besoin du nom du service Azure Search et de la clé d'administration. Voir [Prise en main d'Azure Search](../search-get-started/) pour plus d'informations.
++	Un service Azure Search. Vous aurez besoin du nom du service Azure Search et de la clé d'administration. Voir [Prise en main d'Azure Search](search-get-started.md) pour plus d'informations.
 +	[Adventure Works Azure Search Demo project sur CodePlex](http://go.microsoft.com/fwlink/p/?LinkID=510972). Sous l'onglet Source, cliquez sur **Télécharger** pour obtenir un fichier zip de la solution. 
 
     ![][12]

@@ -38,7 +38,7 @@ Ce didacticiel vous explique les procédures suivantes :
 
 Une fois la machine virtuelle créée, vous pouvez éventuellement attacher un disque de données supplémentaire. Cette action est recommandée pour les charges de travail de production et pour éviter de manquer d'espace sur le lecteur du système d'exploitation (C:), qui est actuellement limité à 127 Go et inclut le système d'exploitation.
 
-Consultez la rubrique [Association d'un disque de données à une machine virtuelle Windows](../storage-windows-attach-disk/) et suivez les instructions permettant d'attacher un disque vide. Définissez la valeur **Aucun** ou **Lecture seule** pour le paramètre de cache d'hôte.
+Consultez la rubrique [Association d'un disque de données à une machine virtuelle Windows](storage-windows-attach-disk.md) et suivez les instructions permettant d'attacher un disque vide. Définissez la valeur **Aucun** ou **Lecture seule** pour le paramètre de cache d'hôte.
 
 ## Connexion à la machine virtuelle
 
@@ -91,7 +91,7 @@ Pour installer, configurer et exécuter la version Community de MySQL Server, pr
 Si vous souhaitez que le service MySQL Server soit disponible pour les ordinateurs du client MySQL sur Internet, vous devez configurer un point de terminaison pour le port TCP sur lequel le service MySQL Server écoute et créer une nouvelle règle de pare-feu Windows. Il s'agit du port TCP 3306, sauf si vous en spécifiez un autre sur la page Type et réseau (étape 10 de la procédure précédente). 
 
 
-> [AZURE.NOTE] Envisagez avec soin les implications en matière de sécurité, car le service MySQL Server sera disponible à tous les ordinateurs sur Internet. Vous pouvez définir l'ensemble des adresses IP source autorisées à utiliser le point de terminaison avec une liste de contrôle d'accès (ACL). Pour plus d'informations, consultez la page [Configuration des points de terminaison sur une machine virtuelle](../virtual-machines-set-up-endpoints/).
+> [AZURE.NOTE] Envisagez avec soin les implications en matière de sécurité, car le service MySQL Server sera disponible à tous les ordinateurs sur Internet. Vous pouvez définir l'ensemble des adresses IP source autorisées à utiliser le point de terminaison avec une liste de contrôle d'accès (ACL). Pour plus d'informations, consultez la page [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md).
 
 
 Pour configurer un point de terminaison pour le service MySQL Server :

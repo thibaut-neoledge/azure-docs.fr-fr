@@ -20,7 +20,7 @@
 
 Dans cet article, vous allez apprendre à créer une application métier ASP.NET MVC dans [sites Web Azure](http://azure.microsoft.com/services/websites/) à l'aide des [services AD FS (Active Directory Federation Services)](http://technet.microsoft.com/ library/hh831502.aspx) comme fournisseur d'identité. Ce scénario peut fonctionner lorsque vous souhaitez créer des applications métier dans Sites Web Azure, mais que votre organisation a besoin que toutes les données soient stockées localement.
 
-Pour une vue d'ensemble des différentes options d'authentification et d'autorisation des entreprises pour Sites Web Azure, consultez la page [Authentification et autorisation des utilisateurs dans les applications métier dans des Sites Web Azure](./web-sites-authentication-authorization).
+Pour une vue d'ensemble des différentes options d'authentification et d'autorisation des entreprises pour Sites Web Azure, consultez la page [Authentification et autorisation des utilisateurs dans les applications métier dans des Sites Web Azure](web-sites-authentication-authorization).
 
 <a name="bkmk_build"></a>
 ## Ce que vous allez créer ##
@@ -341,8 +341,8 @@ Sites Web Azure prend en charge l'accès aux bases de données locales avec deux
 ## Ressources supplémentaires
 
 - [Protection de l'application à l'aide du protocole SSL et de l'attribut Authorize](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/#protect-the-application-with-ssl-and-the-authorize-attribute)
-- [Authentification et autorisation des utilisateurs dans les applications métier dans Sites Web Azure](../web-sites-authentication-authorization/)
-- [Création d'une application métier ASP.NET MVC dans Sites Web Azure qui s'authentifie auprès d'Azure Active Directory](../web-sites-dotnet-lob-application-azure-ad/)
+- [Authentification et autorisation des utilisateurs dans les applications métier dans Sites Web Azure](web-sites-authentication-authorization.md)
+- [Création d'une application métier ASP.NET MVC dans Sites Web Azure qui s'authentifie auprès d'Azure Active Directory](web-sites-dotnet-lob-application-azure-ad.md)
 - [Utilisation de l'option d'authentification organisationnelle locale (AD FS) avec ASP.NET dans Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)
 - [Blog de Vittorio Bertocci](http://blogs.msdn.com/b/vbertocci/)
 - [Migration d'un projet web VS2013 de WIF vers Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)

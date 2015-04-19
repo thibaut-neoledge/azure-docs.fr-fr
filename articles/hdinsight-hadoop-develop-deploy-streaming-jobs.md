@@ -525,7 +525,7 @@ Cette section montre comment télécharger et afficher le résultat.  Pour obten
 ##<a id="nextsteps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à développer une tâche MapReduce de diffusion en continu Hadoop, à tester l'application sur un émulateur HDInsight et à écrire un script PowerShell pour approvisionner un cluster HDInsight et exécuter une tâche MapReduce sur le cluster. Pour en savoir plus, consultez les articles suivants :
 
-- [Prise en main d'Azure HDInsight](../hdinsight-get-started/)
+- [Prise en main d'Azure HDInsight](hdinsight-get-started.md)
 - [Prise en main de l'émulateur HDInsight][hdinsight-get-started-emulator]
 - [Développement de programmes MapReduce en Java pour HDInsight][hdinsight-develop-mapreduce]
 - [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage]

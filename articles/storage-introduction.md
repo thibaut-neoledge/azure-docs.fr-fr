@@ -68,7 +68,7 @@ L'image ci-dessous affiche les relations entre les ressources de stockage Azure 
 
 ![Azure Storage Resources](./media/storage-introduction/storage-concepts.png)
 
-Une fois que vous êtes prêt à créer un compte de stockage standard, consultez la page [Création, gestion ou suppression d'un compte de stockage](../storage-create-storage-account/) pour plus d'informations.
+Une fois que vous êtes prêt à créer un compte de stockage standard, consultez la page [Création, gestion ou suppression d'un compte de stockage](storage-create-storage-account.md) pour plus d'informations.
 
 ### Comptes de stockage Premium (version préliminaire)
 
@@ -128,7 +128,7 @@ Par défaut, seul le propriétaire du compte de stockage peut accéder aux resso
 
 Deux clés d'accès privées sont attribuées à votre compte de stockage lors de sa création. Elles sont utilisées pour l'authentification. L'existence de deux clés permet de s'assurer que votre application reste disponible lorsque la pratique courante de gestion des clés de sécurité vous amène à régénérer régulièrement les clés.
 
-Si vous devez autoriser un accès contrôlé à vos ressources de stockage pour les utilisateurs, vous pouvez créer une [signature d'accès partagé](../storage-dotnet-shared-access-signature-part-1/). Une signature d'accès partagé est un jeton pouvant être ajouté à une URL qui permet un accès délégué à un conteneur, un objet blob, une table ou une file d'attente. Quiconque possède le jeton peut accéder à la ressource qu'il désigne avec les autorisations qu'il spécifie, pendant son délai de validité. Le stockage de fichiers Azure ne prend pas actuellement en charge les signatures d'accès partagé.
+Si vous devez autoriser un accès contrôlé à vos ressources de stockage pour les utilisateurs, vous pouvez créer une [signature d'accès partagé](storage-dotnet-shared-access-signature-part-1.md). Une signature d'accès partagé est un jeton pouvant être ajouté à une URL qui permet un accès délégué à un conteneur, un objet blob, une table ou une file d'attente. Quiconque possède le jeton peut accéder à la ressource qu'il désigne avec les autorisations qu'il spécifie, pendant son délai de validité. Le stockage de fichiers Azure ne prend pas actuellement en charge les signatures d'accès partagé.
 
 Enfin, vous pouvez spécifier qu'un conteneur et ses objets blob, ou un objet blob particulier, sont disponibles pour l'accès public. Lorsque vous indiquez qu'un conteneur ou un objet blob est public, n'importe qui peut le lire de manière anonyme ; aucune authentification n'est requise.  Les conteneurs et les objets blob publics sont utiles pour exposer des ressources telles que des médias et des documents hébergés sur des sites Web.  Afin de réduire la latence du réseau pour un public mondial, vous pouvez mettre en cache les données d'objets blob utilisées par des sites Web avec le réseau de distribution de contenu (CDN) Azure.
 
@@ -183,39 +183,39 @@ Pour la prise en main d'Azure Storage, explorez les ressources suivantes :
 <h3>Pour les développeurs .NET</h3>
 
 - [Référence de bibliothèque cliente .NET](http://msdn.microsoft.com/library/wa_storage_30_reference_home.aspx)
-- [Utilisation du stockage d'objets blob à partir de .NET](../storage-dotnet-how-to-use-blobs/)
-- [Utilisation du stockage de tables à partir de .NET](../storage-dotnet-how-to-use-tables/)
-- [Utilisation du service de stockage de files d'attente à partir de .NET](../storage-dotnet-how-to-use-queues/)
+- [Utilisation du stockage d'objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md)
+- [Utilisation du stockage de tables à partir de .NET](storage-dotnet-how-to-use-tables.md)
+- [Utilisation du service de stockage de files d'attente à partir de .NET](storage-dotnet-how-to-use-queues.md)
 
 <h3>Pour les développeurs Java/Android</h3>
 
 - [Référence de bibliothèque cliente JAVA]()
-- [Utilisation du stockage d'objets blob à partir de Java/Android](../storage-java-how-to-use-blob-storage/)
-- [Utilisation du stockage de tables à partir de Java/Android](../storage-java-how-to-use-table-storage/)
-- [Utilisation du stockage de files d'attente à partir de Java/Android](../storage-java-how-to-use-queue-storage/)
+- [Utilisation du stockage d'objets blob à partir de Java/Android](storage-java-how-to-use-blob-storage.md)
+- [Utilisation du stockage de tables à partir de Java/Android](storage-java-how-to-use-table-storage.md)
+- [Utilisation du stockage de files d'attente à partir de Java/Android](storage-java-how-to-use-queue-storage.md)
 
 <h3>Pour les développeurs Node.js</h3>
 
-- [Utilisation du stockage d'objets blob à partir de Node.js](../storage-nodejs-how-to-use-blob-storage/)
-- [Utilisation du stockage de tables à partir de Node.js](../storage-nodejs-how-to-use-table-storage/)
-- [Utilisation du stockage de files d'attente à partir de Node.js](../storage-nodejs-how-to-use-queues/)
+- [Utilisation du stockage d'objets blob à partir de Node.js](storage-nodejs-how-to-use-blob-storage.md)
+- [Utilisation du stockage de tables à partir de Node.js](storage-nodejs-how-to-use-table-storage.md)
+- [Utilisation du stockage de files d'attente à partir de Node.js](storage-nodejs-how-to-use-queues.md)
 
 <h3>Pour les développeurs PHP</h3>
 
-- [Utilisation du stockage d'objets blob à partir de PHP](../storage-php-how-to-use-blobs/)
-- [Utilisation du stockage de tables à partir de PHP](../storage-php-how-to-use-table-storage/)
-- [Utilisation du stockage de files d'attente à partir de PHP](../storage-php-how-to-use-queues/)
+- [Utilisation du stockage d'objets blob à partir de PHP](storage-php-how-to-use-blobs.md)
+- [Utilisation du stockage de tables à partir de PHP](storage-php-how-to-use-table-storage.md)
+- [Utilisation du stockage de files d'attente à partir de PHP](storage-php-how-to-use-queues.md)
 
 <h3>Pour les développeurs Ruby</h3>
 
-- [Utilisation du stockage d'objets blob à partir de Ruby](../storage-ruby-how-to-use-blob-storage/)
-- [Utilisation du stockage de tables à partir de Ruby](../storage-ruby-how-to-use-table-storage/)
-- [Utilisation du stockage de files d'attente à partir de Ruby](../storage-ruby-how-to-use-queue-storage/)
+- [Utilisation du stockage d'objets blob à partir de Ruby](storage-ruby-how-to-use-blob-storage.md)
+- [Utilisation du stockage de tables à partir de Ruby](storage-ruby-how-to-use-table-storage.md)
+- [Utilisation du stockage de files d'attente à partir de Ruby](storage-ruby-how-to-use-queue-storage.md)
 
 <h3>Pour les développeurs Python</h3>
 
-- [Utilisation du stockage d'objets blob à partir de Python](../storage-python-how-to-use-blob-storage/)
-- [Utilisation du stockage de tables à partir de Python](../storage-python-how-to-use-table-storage/)
-- [Utilisation du stockage de files d'attente à partir de Python](../storage-python-how-to-use-queue-storage/)
+- [Utilisation du stockage d'objets blob à partir de Python](storage-python-how-to-use-blob-storage.md)
+- [Utilisation du stockage de tables à partir de Python](storage-python-how-to-use-table-storage.md)
+- [Utilisation du stockage de files d'attente à partir de Python](storage-python-how-to-use-queue-storage.md)
 
 \<!--HONumber=42-->

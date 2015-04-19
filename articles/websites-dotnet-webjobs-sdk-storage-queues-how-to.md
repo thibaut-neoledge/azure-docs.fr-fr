@@ -20,7 +20,7 @@
 
 Ce guide fournit des exemples de code C# qui montrent comment utiliser la version 1.x du Kit de développement logiciel Azure WebJobs avec le service de stockage de file d'attente Azure.
 
-Le guide suppose que vous savez [créer un projet WebJob dans Visual Studio avec des chaînes de connexion qui pointent vers votre compte de stockage](../websites-dotnet-webjobs-sdk-get-started/).
+Le guide suppose que vous savez [créer un projet WebJob dans Visual Studio avec des chaînes de connexion qui pointent vers votre compte de stockage](websites-dotnet-webjobs-sdk-get-started.md).
 
 La plupart des extraits de code montrent uniquement les fonctions, et non le code qui crée l'objet  `JobHost` comme dans cet exemple :
 
@@ -294,7 +294,7 @@ L'interface  `IBinder` peut également être utilisée avec les attributs  `Tabl
 
 ## <a id="blobs"></a>Comment lire et écrire des objets blob et des tables lors du traitement d'un message de file d'attente
 
-Les attributs  `Blob` et  `Table` permettent de lire et d'écrire des objets blob et des tables. Les exemples de cette section s'appliquent aux objets blob. Pour plus d'exemples de code qui montrent comment déclencher des processus lorsque les objets blob sont créés ou mis à jour, consultez [Comment utiliser le stockage d'objets blob Azure avec SDK WebJobs](../websites-dotnet-webjobs-sdk-storage-blobs-how-to/), et pour des exemples de code qui lisent et écrivent des tables, consultez [Comment utiliser le stockage de table Windows Azure avec SDK WebJobs](../websites-dotnet-webjobs-sdk-storage-tables-how-to/).
+Les attributs  `Blob` et  `Table` permettent de lire et d'écrire des objets blob et des tables. Les exemples de cette section s'appliquent aux objets blob. Pour plus d'exemples de code qui montrent comment déclencher des processus lorsque les objets blob sont créés ou mis à jour, consultez [Comment utiliser le stockage d'objets blob Azure avec SDK WebJobs](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), et pour des exemples de code qui lisent et écrivent des tables, consultez [Comment utiliser le stockage de table Windows Azure avec SDK WebJobs](websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
 
 ### Messages de file d'attente de chaîne qui déclenchent des opérations d'objet blob
 
@@ -310,7 +310,7 @@ L'exemple suivant utilise des objets  `Stream` pour lire et écrire des objets b
 		    blobInput.CopyTo(blobOutput, 4096);
 		}
 
-Le constructeur d'attribut  `Blob` prend un paramètre  `blobPath` qui spécifie le conteneur et le de l'objet blob. Pour plus d'informations sur cet espace réservé, consultez [Comment utiliser le stockage d'objets blob Azure avec SDK WebJobs](../websites-dotnet-webjobs-sdk-storage-blobs-how-to/), 
+Le constructeur d'attribut  `Blob` prend un paramètre  `blobPath` qui spécifie le conteneur et le de l'objet blob. Pour plus d'informations sur cet espace réservé, consultez [Comment utiliser le stockage d'objets blob Azure avec SDK WebJobs](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), 
 
 Lorsque l'attribut décore un objet  `Stream`, un autre paramètre de constructeur spécifie l' `FileAccess` en mode lecture, écriture ou lecture/écriture. 
 

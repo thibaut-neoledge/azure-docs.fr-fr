@@ -42,7 +42,7 @@ Ce didacticiel requiert les éléments suivant :
 
 * Windows Azure PowerShell
 
-* Si vous ne connaissez pas Apache Storm, nous vous conseillons de commencer par lire l'article [Présentation de Storm HDInsight](/fr-fr/documentation/articles/hdinsight-storm-overview).
+* Si vous ne connaissez pas Apache Storm, nous vous conseillons de commencer par lire l'article [Présentation de Storm HDInsight](hdinsight-storm-overview.md).
 
 ## <a id="provision"></a>Approvisionnement d'un cluster Storm dans le portail Azure
 
@@ -72,7 +72,7 @@ Ce didacticiel requiert les éléments suivant :
 
 	![storage account](./media/hdinsight-storm-getting-started/wizard4.png)
 
-8. Dans la page **Actions de Script**, cliquez sur **Ajouter une action de script** pour fournir des détails sur le script personnalisé que vous souhaitez exécuter pour personnaliser un cluster, pendant la création du cluster. Par exemple, vous pouvez utiliser une action de Script pour personnaliser un cluster et installer <a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a>. Pour plus d'informations, consultez [Personnalisation de clusters HDInsight à l'aide d'une action de script](/fr-fr/documentation/articles/hdinsight-hadoop-customize-cluster/). 
+8. Dans la page **Actions de Script**, cliquez sur **Ajouter une action de script** pour fournir des détails sur le script personnalisé que vous souhaitez exécuter pour personnaliser un cluster, pendant la création du cluster. Par exemple, vous pouvez utiliser une action de Script pour personnaliser un cluster et installer <a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a>. Pour plus d'informations, consultez [Personnalisation de clusters HDInsight à l'aide d'une action de script](hdinsight-hadoop-customize-cluster.md). 
 	
 	![Configure Script Action to customize an HDInsight HBase cluster](./media/hdinsight-storm-getting-started/wizard5.png "Use Script Action to customize an HDInsight cluster") 
 
@@ -197,9 +197,9 @@ Si vous affichez la page web d'interface utilisateur Storm immédiatement après
 
 	> [AZURE.NOTE] Les documents Java se composent de pages web. Lorsque vous les avez extraits, utilisez un navigateur pour afficher le fichier **index.html**.
 
-* [Analyse des données du capteur avec Storm et HDInsight](/fr-fr/documentation/articles/hdinsight-storm-sensor-data-analysis)
+* [Analyse des données du capteur avec Storm et HDInsight](hdinsight-storm-sensor-data-analysis.md)
 
-* [Développement d'applications de traitement des données de diffusion avec SCP.NET et C# sur Storm dans HDInsight](/fr-fr/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application)
+* [Développement d'applications de traitement des données de diffusion avec SCP.NET et C# sur Storm dans HDInsight](hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html
