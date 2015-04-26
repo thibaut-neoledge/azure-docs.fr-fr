@@ -72,4 +72,5 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [Guide de fonctionnement Mobile Services .NET]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library
 
 
+
 <!--HONumber=42-->

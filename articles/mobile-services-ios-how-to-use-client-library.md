@@ -530,4 +530,5 @@ Pour plus d'informations, consultez la nouvelle rubrique relative au traitement 
 [Interface de ligne de commande pour la gestion des tables Mobile Services]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 
 
+
 <!--HONumber=42-->

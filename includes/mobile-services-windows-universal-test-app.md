@@ -12,4 +12,6 @@
 	![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png)
 	
 	Notez que les données enregistrées à l'étape précédente sont chargées à partir du service mobile après le démarrage de l'application.
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

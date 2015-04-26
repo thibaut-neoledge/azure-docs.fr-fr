@@ -1356,4 +1356,5 @@ Vous avez à présent appris à utiliser Storm pour lire des données à partir 
 * Pour plus d'informations sur la création de topologies dans .NET, consultez la page [Développement d'applications de traitement des données de diffusion avec SCP.NET et C# sur Storm dans HDInsight](hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application.md)
 
 [azure-portal]: https://manage.windowsazure.com/
+
 <!--HONumber=42-->

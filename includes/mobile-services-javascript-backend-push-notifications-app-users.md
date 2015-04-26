@@ -45,4 +45,6 @@
 	Ceci ajoute une balise à l'inscription, qui est l'ID de l'utilisateur connecté. Les balises fournies sont validées pour empêcher un utilisateur de s'inscrire avec l'ID d'un autre utilisateur Lorsqu'une notification est envoyée à cet utilisateur, elle est reçue sur ce périphérique et tout autre périphérique enregistré par l'utilisateur.
 
 4. Cliquez sur la flèche Précédent, cliquez sur l'onglet **Données**, cliquez sur **TodoItem**, cliquez sur **Script** et sélectionnez **Insérer**. 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

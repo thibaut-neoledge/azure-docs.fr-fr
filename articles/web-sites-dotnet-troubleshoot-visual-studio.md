@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Dépanner une application web dans le Service d'application Microsoft Azure à l'aide de Visual Studio" 
 	description="Découvrez comment dépanner une application web Microsoft Azure via des outils de journalisation, de suivi et de débogage distants intégrés dans Visual Studio 2013." 
 	services="app-service\web" 
@@ -207,9 +207,9 @@ Cette section explique comment déboguer un élément à distance en utilisant l
 
 	![Set breakpoint](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
-1. In **Solution Explorer**, right-click the web project (not the WebJob project), and click **Publish**.
+1. Dans l' **Explorateur de solutions**, cliquez sur le projet web (et non le projet WebJob), puis cliquez sur **Publier**.
 
-2. In the **Profile** drop-down list, select the same profile that you used in [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md).
+2. Dans le menu déroulant **Profil** , sélectionnez le même profil que celui utilisé dans [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md).
 
 3. Cliquez sur l'onglet **Paramètres**, remplacez **Configuration** par **Débogage**, puis cliquez sur **Publier**.
 

@@ -384,4 +384,6 @@ du service de stockage d'objets blob à partir de Java].
   [Gestion des comptes de stockage]: http://azure.microsoft.com/manage/services/storage/how-to-manage-a-storage-account/
   [Utilisation du service de stockage d'objets blob à partir de Java]: http://azure.microsoft.com/develop/java/how-to-guides/blob-storage/
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

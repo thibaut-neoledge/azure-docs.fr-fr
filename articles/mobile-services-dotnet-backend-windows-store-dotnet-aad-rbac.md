@@ -317,4 +317,5 @@ Dans cette section, vous allez créer un attribut d'autorisation personnalisé p
 [Bibliothèque cliente Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 
+
 <!--HONumber=42-->

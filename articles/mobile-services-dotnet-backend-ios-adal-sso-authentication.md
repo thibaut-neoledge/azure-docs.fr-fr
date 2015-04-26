@@ -128,4 +128,5 @@ Ce didacticiel requiert les éléments suivants :
 [Bibliothèque d'authentification Active Directory pour iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
 
+
 <!--HONumber=42-->

@@ -1,4 +1,11 @@
-﻿<properties pageTitle="Utilisation de Notification Hubs avec Python" description="Learn how to use Azure Notification Hubs from a Python back-end." services="notification-hubs" documentationCenter="" authors="piyushjo" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Utilisation de Notification Hubs avec Python" 
+	description="Découvrez comment utiliser Azure Notification Hubs à partir d'un serveur principal Python." 
+	services="notification-hubs" 
+	documentationCenter="" 
+	authors="yuaxu" 
+	manager="dwrede" 
+	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
@@ -7,14 +14,14 @@
 	ms.devlang="php" 
 	ms.topic="article" 
 	ms.date="12/09/2014" 
-	ms.author="piyushjo"/>
+	ms.author="yuaxu"/>
 
 # Utilisation de Notification Hubs à partir de Python
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/fr-fr/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/fr-fr/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/fr-fr/documentation/articles/notification-hubs-python-backend-how-to/" title="Python" class="current">Python</a>
+    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python" class="current">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
 </div>
 
-Vous pouvez accéder à toutes les fonctionnalités de Notification Hubs à partir d'un serveur principal Java/PHP/Python/Ruby en utilisant l'interface REST des concentrateurs de notifications, comme décrit dans la rubrique MSDN [API REST de Notification Hubs](http://msdn.microsoft.com/library/dn223264.aspx).
+Vous pouvez accéder à toutes les fonctionnalités de Notification Hubs à partir d'un serveur principal Java/PHP/Python/Ruby en utilisant l'interface REST des concentrateurs de notification, comme décrit dans la rubrique MSDN [API REST de Notification Hubs](http://msdn.microsoft.com/library/dn223264.aspx).
 
 > [AZURE.NOTE] Ceci est un exemple d'implémentation de référence pour l'implémentation des envois de notifications dans Python et ce n'est pas le Kit de développement logiciel (SDK) Python de concentrateur de notification officiellement pris en charge.
 
@@ -26,12 +33,12 @@ Dans cette rubrique, nous vous montrons comment :
 * envoyer des notifications à l'aide de l'interface de Python vers les API REST de concentrateur de notification ; 
 * obtenir un vidage de la demande/réponse HTTP REST à des fins pédagogiques/de débogage. 
 
-Vous pouvez suivre le [didacticiel de prise en main](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/) pour la plateforme mobile de votre choix, en implémentant la partie concernant le serveur principal dans Python.
+Vous pouvez suivre le [didacticiel de prise en main](notification-hubs-windows-store-dotnet-get-started.md) pour la plateforme mobile de votre choix, en implémentant la partie concernant le serveur principal en Python.
 
 > [AZURE.NOTE] L'étendue de l'exemple est limitée uniquement à l'envoi de notifications et il n'effectue aucune gestion des inscriptions.
 
 ## Interface client
-L'interface cliente principale peut fournir les mêmes méthodes que celles disponibles dans le [Kit de développement logiciel (SDK) .NET Notification Hubs](http://msdn.microsoft.com/library/jj933431.aspx). Cela vous permet de traduire directement les didacticiels et les exemples actuellement disponibles sur ce site et fournis par la communauté sur Internet.
+L'interface client principale peut fournir les mêmes méthodes que celles disponibles dans le [Kit de développement logiciel (SDK) .NET Notification Hubs](http://msdn.microsoft.com/library/jj933431.aspx). Cela vous permet de traduire directement les didacticiels et les exemples actuellement disponibles sur ce site et fournis par la communauté sur Internet.
 
 Tout le code est disponible dans [l'exemple de wrapper REST Python].
 
@@ -44,8 +51,8 @@ Pour envoyer une notification toast de Windows :
 	wns_payload = """<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello world!</text></binding></visual></toast>"""
 	hub.send_windows_notification(wns_payload)
 	
-## Implémentation
-Si vous ne l'avez pas encore fait, suivez le [didacticiel de prise en main] jusqu'à la dernière section où vous devez implémenter le serveur principal.
+## Implementation
+Si ce n'est déjà fait, suivez notre [didacticiel de prise en main] jusqu'à la dernière section, dans laquelle vous devrez implémenter le serveur principal.
 
 Tous les détails de l'implémentation d'un wrapper REST complet se trouvent sur [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Dans cette section, nous allons décrire l'implémentation Python des principales étapes requises pour accéder aux point de terminaison REST de Notification Hubs et envoyer des notifications :
 
@@ -295,7 +302,7 @@ Notez les en-têtes qui sont envoyés lorsque vous envoyez une notification toas
 
 ### Envoyer une notification indiquant une balise (ou une expression de balise)
 
-Notez l'en-tête HTTP de balises qui est ajouté à la requête HTTP (dans l'exemple ci-dessous, vous envoyez la notification uniquement aux inscriptions avec la charge utile 'sports')
+Notez l'en-tête HTTP de balises qui est ajouté à la requête HTTP (dans l'exemple ci-dessous, vous envoyez la notification uniquement aux inscriptions avec la charge utile " sports ").
 
 	hub.send_windows_notification(wns_payload, "sports")
 
@@ -303,7 +310,7 @@ Notez l'en-tête HTTP de balises qui est ajouté à la requête HTTP (dans l'exe
 
 ### Envoyer une notification spécifiant plusieurs balises
 
-Notez comment l'en-tête HTTP des balises change lorsque plusieurs balises sont envoyés. 
+Notez comment l'en-tête HTTP des balises change lorsque plusieurs balises sont envoyées. 
 	
 	tags = {'sports', 'politics'}
 	hub.send_windows_notification(wns_payload, tags)
@@ -335,9 +342,9 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Pytho
 * poursuivre l'apprentissage de la fonctionnalité des modèles de Notification Hubs dans le [didacticiel de localisation des dernières nouvelles].
 
 <!-- URLs -->
-[Exemple de wrapper REST Python]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
+[l'exemple de wrapper REST Python]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
 [Didacticiel de prise en main]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Didacticiel relatif aux dernières nouvelles]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+[didacticiel Nouvelles de dernière minute]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
 [Didacticiel de localisation des dernières nouvelles]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 
 <!-- Images. -->
@@ -347,4 +354,4 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Pytho
 [4]: ./media/notification-hubs-python-backend-how-to/SendWithMultipleTags.png
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

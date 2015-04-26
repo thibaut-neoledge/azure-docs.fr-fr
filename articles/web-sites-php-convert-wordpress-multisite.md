@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Convertir WordPress en WordPress multisite dans Azure App Service" 
 	description="Découvrez comment prendre une application web WordPress existante créée par le biais de la galerie dans Azure et la convertir en WordPress multisite" 
 	services="app-service\web" 
@@ -40,7 +40,7 @@ Commencez par activer le multisite par le biais du fichier `wp-config.php` avec 
 
 * [Site web PHP avec MySQL et Git][website-w-mysql-and-git-git-setup]
 
-Ouvrez le fichier `wp-config.php` avec l'éditeur de votre choix, puis ajoutez la chaîne suivante au-dessus de la ligne `/* That's all, stop editing! Happy blogging. */`.
+Ouvrez le fichier `wp-config.php` avec l'éditeur de votre choix, puis ajoutez la chaîne suivante au-dessus de la ligne " /* That's all, stop editing! Happy blogging. */ ".
 
 	/* Multisite */
 

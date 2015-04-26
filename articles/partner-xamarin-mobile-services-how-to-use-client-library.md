@@ -505,4 +505,5 @@ Maintenant que vous avez consulté ce guide de fonctionnement, découvrez en dé
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
 
 
+
 <!--HONumber=42-->

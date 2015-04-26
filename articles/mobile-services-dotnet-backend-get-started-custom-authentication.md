@@ -321,4 +321,5 @@ Dans votre application cliente, vous devrez développer un écran de connexion p
 [Prise en main des utilisateurs]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
 [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
 
+
 <!--HONumber=42-->

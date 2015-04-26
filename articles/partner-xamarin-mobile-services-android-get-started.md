@@ -141,4 +141,5 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 [Portail de gestion]: https://manage.windowsazure.com/
 
 
+
 <!--HONumber=42-->

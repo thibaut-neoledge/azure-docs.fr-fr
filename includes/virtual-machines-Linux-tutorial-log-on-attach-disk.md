@@ -4,12 +4,12 @@
 
 Pour gérer les paramètres de la machine virtuelle et des applications associées, vous pouvez utiliser un client SSH. Pour ce faire, vous devez installer ce dernier sur l'ordinateur utilisé pour accéder à la machine virtuelle. Vous pouvez opérer votre choix parmi de nombreux clients SSH, dont :
 
-- Si vous utilisez un ordinateur qui exécute un système d'exploitation Windows, vous pouvez utiliser un client SSH tel que PuTTY. Pour plus d'informations, consultez la page [Téléchargement PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+- Si vous utilisez un ordinateur qui exécute un système d'exploitation Windows, vous pouvez utiliser un client SSH tel que PuTTY. Pour plus d'informations, consultez la [page de téléchargement de PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 - Si vous utilisez un ordinateur qui exécute un système d'exploitation Linux, vous pouvez utiliser un client SSH comme OpenSSH. Pour plus d'informations, consultez la page [OpenSSH](http://www.openssh.org/).
 
 Ce didacticiel montre comment utiliser le programme PuTTY pour accéder à la machine virtuelle.
 
-1. Recherchez le **Nom d'hôte** et les **Informations sur le port** dans le portail de gestion. Les informations dont vous avez besoin sont disponibles dans le tableau de bord de la machine virtuelle. Cliquez sur le nom de la machine virtuelle, puis recherchez **Détails SSH** dans la section **Aperçu rapide** du tableau de bord.
+1. Recherchez le **Nom d'hôte** et les **Informations sur le port** dans le portail de gestion. Les informations dont vous avez besoin sont disponibles dans le tableau de bord de la machine virtuelle. Cliquez sur le nom de la machine virtuelle, puis recherchez les **Détails SSH** dans la section **Aperçu rapide** du tableau de bord.
 
 	![Find SSH details](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/SSHdetails.png)
 
@@ -42,11 +42,11 @@ Sous Linux, le disque de ressources est habituellement géré par l'agent Linux 
 	
 	La boîte de dialogue **Attacher un disque vide** s'affiche.
 
-	![Définition des détails du disque](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/attachnewdisklinux.png)
+	![Define disk details](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/attachnewdisklinux.png)
 
 4. Les options **Nom de la machine virtuelle**, **Emplacement de stockage** et **Nom de fichier** sont déjà définies. Il vous suffit d'entrer la taille de disque souhaitée. Tapez **5** dans le champ **Taille**.
 
-	**Remarque :** tous les disques sont créés à partir d'un fichier de disque dur virtuel dans le stockage Azure. Vous pouvez fournir un nom pour le fichier de disque dur virtuel est ajouté au stockage, mais le nom du disque est automatiquement généré.
+	**Remarque :** tous les disques sont créés à partir d'un fichier de disque dur virtuel dans le stockage Azure. Vous pouvez fournir un nom pour le fichier de disque dur virtuel qui est ajouté au stockage, mais le nom du disque est généré automatiquement.
 
 5. Cliquez sur la coche pour attacher le disque de données à la machine virtuelle.
 
@@ -75,10 +75,10 @@ Une fois ajouté, le disque de données que vous venez d'attacher à la machine 
 
 	`sudo fdisk /dev/sdc`
 
-	>[AZURE.NOTE] Dans cet exemple, vous devrez peut-être utiliser `sudo -i`  avec certaines distributions si /sbin ou /usr/sbin n'est pas dans votre `$PATH`.
+	>[AZURE.NOTE] Dans cet exemple, vous devrez peut-être utiliser `sudo -i` avec certaines distributions si /sbin ou /usr/sbin ne figurent pas dans votre `$PATH`.
 
 
-4. Tapez **n** pour créer une nouvelle partition.
+4. Type **n** pour créer une nouvelle partition.
 
 	![Create new device](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskpartition.png)
 
@@ -131,9 +131,9 @@ Une fois ajouté, le disque de données que vous venez d'attacher à la machine 
 		`/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"`
 		`/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"`
 
-	>[AZURE.NOTE] Il se peut que blkid ne nécessite pas systématiquement un accès sudo. Toutefois, il peut s'avérer plus simple à exécuter avec `sudo -i` dans certaines distributions si /sbin ou /usr/sbin ne sont pas situés dans `$PATH`.
+	>[AZURE.NOTE] Il se peut que blkid ne nécessite pas systématiquement un accès sudo. Toutefois, il peut s'avérer plus facile à exécuter avec `sudo -i` dans certaines distributions si /sbin ou /usr/sbin ne figurent pas dans votre `$PATH`.
 
-	**Attention :** une modification incorrecte du fichier /etc/fstab peut entraîner problème d'amorçage du système. En cas de doute, consultez la documentation de la distribution pour plus d'informations sur la modification adéquate de ce fichier. Il est également recommandé de créer une sauvegarde du fichier /etc/fstab avant de le modifier.
+	**Attention :** si vous ne modifiez pas correctement le fichier /etc/fstab, il se peut que le système ne puisse plus démarrer. En cas de doute, reportez-vous à la documentation de la distribution pour obtenir des informations sur la modification adéquate de ce fichier. Il est par ailleurs vivement recommandé de créer une sauvegarde du fichier /etc/fstab avant de le modifier.
 
 	Dans un éditeur de texte, entrez les informations relatives au nouveau système de fichiers à la fin du fichier /etc/fstab.  Dans cet exemple, nous utilisons la valeur UUID pour le nouvel appareil **/dev/sdc1** créé lors des étapes précédentes et le point de montage **/datadrive** :
 
@@ -153,7 +153,8 @@ Une fois ajouté, le disque de données que vous venez d'attacher à la machine 
 	Si la deuxième commande génère une erreur, vérifiez que la syntaxe utilisée dans le fichier /etc/fstab est correcte.
 
 
-	>[AZURE.NOTE] La suppression ultérieure d'un disque de données sans modifier fstab pourrait entraîner l'échec du démarrage de la machine virtuelle. S'il s'agit d'une occurrence courante, la plupart des distributions proposent les options `nofail` et/ou `nobootwait` fstab qui permettent à un système de démarrer même si le disque n'est pas présent. Pour plus d'informations sur ces paramètres, consultez la documentation de votre distribution.
+	>[AZURE.NOTE] La suppression ultérieure d'un disque de données sans modifier fstab pourrait entraîner l'échec du démarrage de la machine virtuelle. S'il s'agit d'une occurrence courante, la plupart des distributions proposent les options fstab `nofail` et/ou `nobootwait` qui permettent à un système de démarrer même si le disque n'est pas présent. Pour plus d'informations sur ces paramètres, consultez la documentation de votre distribution.
 
 
-<!--HONumber=42-->
+
+<!--HONumber=45--> 

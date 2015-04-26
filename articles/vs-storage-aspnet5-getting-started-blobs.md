@@ -151,4 +151,5 @@ Pour supprimer un objet blob, commencez par en obtenir la référence, puis appe
 [En savoir plus sur Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
 Voir aussi [Consultation des ressources de stockage avec l'Explorateur de serveurs](http://msdn.microsoft.com/library/azure/ff683677.aspx) et [ASP.NET 5](http://www.asp.net/vnext).
 
+
 <!--HONumber=42-->

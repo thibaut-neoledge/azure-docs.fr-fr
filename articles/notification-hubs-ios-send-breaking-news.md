@@ -1,9 +1,9 @@
-﻿<properties 
+<properties 
 	pageTitle="Didacticiel sur l'utilisation de Notification Hubs pour envoyer les dernières nouvelles - iOS" 
 	description="Découvrez comment utiliser Azure Service Bus Notification Hubs pour envoyer des notifications de dernières nouvelles aux appareils iOS." 
 	services="notification-hubs" 
 	documentationCenter="ios" 
-	authors="ysxu" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,29 +13,27 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
-	ms.author="yuaxu"/>
+	ms.date="02/26/2015" 
+	ms.author="wesmc"/>
 
 # Utilisation de Notification Hubs pour diffuser les dernières nouvelles
 <div class="dev-center-tutorial-selector sublanding">
-	<a href="/fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal" >Windows Universal</a><a href="/fr-fr/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/fr-fr/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS" class="current">iOS</a>
-	<a href="/fr-fr/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
+	<a href="/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal" >Windows Universal</a><a href="/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS" class="current">iOS</a>
+	<a href="/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
 </div>
+
+##Vue d'ensemble
 
 Cette rubrique montre comment utiliser Azure Notification Hubs pour diffuser des notifications relatives aux dernières nouvelles vers une application iOS. Lorsque vous aurez terminé, vous pourrez vous inscrire aux catégories de dernières nouvelles qui vous intéressent et recevoir uniquement des notifications Push pour ces catégories. Ce scénario est un modèle courant pour de nombreuses applications pour lesquelles des notifications doivent être envoyées à des groupes d'utilisateurs qui ont signalé antérieurement un intérêt, par exemple, lecteur RSS, applications pour fans de musique, etc.
 
 Les scénarios de diffusion sont activés en incluant une ou plusieurs _balises_ lors de la création d'une inscription dans le concentrateur de notification. Lorsque des notifications sont envoyées à une balise, tous les appareils pour lesquels cette balise est inscrite reçoivent la notification. Les balises étant de simples chaînes, il n'est pas nécessaire de les mettre en service à l'avance. Pour plus d'informations sur les balises, consultez la page [Recommandations relatives à Notification Hubs].
 
-Ce didacticiel vous familiarise avec les étapes de base pour activer ce scénario :
 
-1. [Ajout d'une sélection de catégories à l'application]
-2. [Inscription à des notifications]
-3. [Envoi de notifications à partir de votre serveur principal]
-4. [Exécution de l'application et génération de notifications]
+##Conditions préalables
 
-Cette rubrique s'appuie sur l'application que vous avez créée dans [Prise en main de Notification Hubs][prise-en-main]. Avant de commencer ce didacticiel, vous devez suivre celui intitulé [Prise en main de Notification Hubs][prise-en-main].
+Cette rubrique s'appuie sur l'application que vous avez créée dans [Prise en main de Notification Hubs][get-started]. Avant de commencer ce didacticiel, vous devez suivre celui intitulé [Prise en main de Notification Hubs][get-started].
 
-##<a name="adding-categories"></a>Ajout d'une sélection de catégories à l'application
+##Ajout d'une sélection de catégories à l'application
 
 La première étape consiste à ajouter à votre storyboard existant les éléments d'interface utilisateur qui permettent à l'utilisateur de sélectionner les catégories à inscrire. Les catégories sélectionnées par un utilisateur sont stockées sur l'appareil. Lorsque l'application démarre, une inscription d'appareil est créée dans votre concentrateur de notification avec les catégories sélectionnées sous forme de balises.
 
@@ -92,7 +90,7 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
 
 	Cette classe utilise le stockage local pour stocker les catégories de nouvelles que cet appareil doit recevoir. Elle contient également les méthodes pour inscrire ces catégories.
 
-4. Dans le code ci-dessus, remplacez les espaces réservés <hub name> et <connection string with listen access> par le nom du concentrateur de notification et la chaîne de connexion pour *DefaultListenSharedAccessSignature* obtenue précédemment.
+4. Dans le code ci-dessus, remplacez les espaces réservés `<hub name>` et `<connection string with listen access>` par le nom de votre concentrateur de notification et par la chaîne de connexion de la signature *DefaultListenSharedAccessSignature* obtenue précédemment.
 
 	> [AZURE.NOTE] Les informations d'identification distribuées avec une application cliente n'étant généralement pas sécurisées, vous ne devez distribuer que la clé d'accès d'écoute avec votre application cliente. L'accès d'écoute permet à votre application de s'inscrire à des notifications, mais les inscriptions existantes ne peuvent pas être modifiées et les notifications ne peuvent pas être envoyées. La clé d'accès complet est utilisée dans un service de serveur principal sécurisé pour l'envoi de notifications et la modification d'inscriptions existantes.
 
@@ -106,7 +104,7 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
 
 		self.notifications = [[Notifications alloc] init];
 
-	Ce dernier initialise le singleton Notification.
+	The initializes the Notification singleton.
 
 10. Dans la méthode **didRegisterForRemoteNotificationsWithDeviceToken** du fichier BreakingNewsAppDelegate.m, retirez l'appel à **registerNativeWithDeviceToken** et ajoutez le code suivant :
 
@@ -154,7 +152,7 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
 
 Votre application peut désormais stocker un ensemble de catégories dans le stockage local sur l'appareil et s'inscrire auprès du concentrateur de notification lorsque l'utilisateur modifie la sélection des catégories.
 
-##<a name="register"></a>Inscription à des notifications
+##Inscription à des notifications
 
 Les étapes suivantes permettent l'inscription auprès du concentrateur de notification au démarrage en utilisant les catégories qui ont été stockées dans le stockage local.
 
@@ -177,7 +175,7 @@ Les étapes suivantes permettent l'inscription auprès du concentrateur de notif
 		    return [[NSSet alloc] initWithArray:categories];
 		}
 
-2. Add the following code in the **didRegisterForRemoteNotificationsWithDeviceToken** method:
+2. Ajoutez le code suivant à la méthode **didRegisterForRemoteNotificationsWithDeviceToken** :
 
 		Notifications* notifications = [(BreakingNewsAppDelegate*)[[UIApplication sharedApplication]delegate] notifications];
 
@@ -207,11 +205,11 @@ Les étapes suivantes permettent l'inscription auprès du concentrateur de notif
 
 L'application est désormais terminée et peut stocker un ensemble de catégories dans le stockage local de l'appareil utilisé pour s'inscrire auprès du concentrateur de notification lorsque l'utilisateur modifie la sélection des catégories. Vous allez ensuite définir un serveur principal qui pourra envoyer des notifications de catégories à cette application.
 
-<h2><a name="send"></a>Envoi de notifications à partir de votre serveur principal</h2>
+##Envoi de notifications à partir de votre serveur principal
 
 [AZURE.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
-##<a name="test-app"></a>Exécution de l'application et génération de notifications
+##Exécution de l'application et génération de notifications
 
 1. Appuyez sur le bouton Exécuter pour générer le projet et démarrer l'application.
 
@@ -219,19 +217,19 @@ L'application est désormais terminée et peut stocker un ensemble de catégorie
 
 	Notez que l'interface utilisateur de l'application fournit un ensemble de bascules qui vous permet de choisir les catégories auxquelles vous abonner.
 
-2. Activez une ou plusieurs bascules de catégories, puis cliquez sur **S'abonner**.
+2. Activez un ou plusieurs boutons bascules de catégories, puis cliquez sur **S'abonner**.
 
 	Lorsque vous sélectionnez **S'abonner**, l'application convertit les catégories sélectionnées en balises et demande une nouvelle inscription de l'appareil aux balises sélectionnées depuis le concentrateur de notification.
 
 4. Envoyez une nouvelle notification depuis le serveur principal de l'une des manières suivantes :
 
-	+ **Application console :** démarrer l'application console.
+	+ **Application console :** démarrez l'application console.
 
-	+ **Java/PHP:** exécuter votre application/script.
+	+ **Java/PHP:** exécutez votre application/script.
 
 5. Les notifications pour les catégories sélectionnées apparaissent comme notifications toast.
 
-## <a name="next-steps"> </a>Étapes suivantes
+## Étapes suivantes
 
 Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par catégorie. Envisagez de suivre un des didacticiels suivants qui soulignent d'autres scénarios avancés Notification Hubs :
 
@@ -243,12 +241,7 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 
 	Apprenez comment transmettre des notifications à des utilisateurs authentifiés spécifiques. Il s'agit d'une solution appropriée pour l'envoi de notifications uniquement vers des utilisateurs spécifiques.
 
-<!-- Anchors. -->
-[Ajout d'une sélection de catégories à l'application]: #adding-categories
-[Inscription à des notifications]: #register
-[Envoi de notifications à partir de votre serveur principal]: #send
-[Exécution de l'application et génération de notifications]: #test-app
-[Étapes suivantes]: #next-steps
+
 
 <!-- Images. -->
 [2]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios1.png
@@ -263,13 +256,13 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 
 <!-- URLs. -->
 [Procédure : Service Bus Notification Hubs (applications iOS)]: http://msdn.microsoft.com/library/jj927168.aspx
-[Utilisation de Notification Hubs pour diffuser les dernières nouvelles localisées]: /fr-fr/manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Mobile Service]: /fr-fr/develop/mobile/tutorials/get-started
-[Notification des utilisateurs avec Notification Hubs]: /fr-fr/manage/services/notification-hubs/notify-users/
+[Utilisation de Notification Hubs pour diffuser les dernières nouvelles localisées]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
+[Mobile Service]: /develop/mobile/tutorials/get-started
+[Notification des utilisateurs avec Notification Hubs]: /manage/services/notification-hubs/notify-users/
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Procédures Notification Hubs pour iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-[prise-en-main]: /fr-fr/manage/services/notification-hubs/get-started-notification-hubs-ios/
+[get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

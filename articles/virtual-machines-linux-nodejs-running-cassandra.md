@@ -26,12 +26,12 @@
 ## Sommaire##
 
 - [Vue d'ensemble] []
-- [Déploiement dans une seule région] []
-- [Test de cluster Cassandra à une seule région] []
-- [Déploiement dans plusieurs régions] []
-- [Test de cluster Cassandra à plusieurs régions] []
-- [Test de cluster Cassandra depuis Node.js] []
-- [Conclusion] []
+- [Déploiement dans une seule région][]
+- [Test de cluster Cassandra à une seule région][]
+- [Déploiement dans plusieurs régions][]
+- [Test de cluster Cassandra à plusieurs régions][]
+- [Test de cluster Cassandra depuis Node.js][]
+- [Conclusion][]
 
 ##<a id="overview"> </a>Vue d'ensemble ##
 Microsoft Azure est une plateforme de cloud ouverte qui exécute des logiciels Microsoft et non-Microsoft tels que des systèmes d'exploitation, serveurs d'applications, intergiciels de messagerie, ainsi que des bases de données SQL et NoSQL à partir de modèles commerciaux et open source. La création de services résilients sur des clouds publics, y compris Azure, nécessite une planification soignée et une architecture délibérée pour les serveurs d'applications et les niveaux de stockage. L'architecture de stockage distribuée de Cassandra aide naturellement à créer des systèmes hautement disponibles qui offrent une tolérance de panne en cas de défaillance de cluster. Cassandra est une base de données NoSQL à l'échelle du cloud maintenue par Apache Software Foundation à l'adresse cassandra.apache.org ; Cassandra est écrit en Java et s'exécute donc sur Windows, ainsi que sur les plateformes Linux. 
@@ -40,7 +40,7 @@ L'objectif de cet article est d'illustrer le déploiement de Cassandra sur Ubunt
 
 Cet article adopte une approche fondamentale pour montrer les opérations nécessaires à la création d'un cluster Cassandra comparé à Docker, Chef ou Puppet, qui peuvent faciliter le déploiement de l'infrastructure.  
 
-##<a id="depmodels"></a>Les modèles de déploiement ##
+##<a id="depmodels"> </a>Les modèles de déploiement ##
 La mise en réseau Microsoft Azure permet de déployer des clusters privés isolés dont l'accès peut être limité afin de bénéficier d'une sécurité réseau affinée.  Cet article ayant pour but d'illustrer le déploiement de Cassandra à un niveau fondamental, nous ne nous concentrerons pas sur le niveau de cohérence et la conception du stockage optimale pour le débit. Voici la liste des exigences de mise en réseau pour notre cluster hypothétique :
 
 - Les systèmes externes ne peuvent pas accéder à la base de données Cassandra depuis Azure ou en dehors d'Azure
@@ -56,7 +56,7 @@ Cassandra peut être déployé dans une seule région Azure ou dans plusieurs r�
 ###<a id="oneregion"> </a>Déploiement dans une seule région ###
 Nous allons commencer avec un déploiement dans une seule région, puis nous utiliserons les enseignements que nous aurons tirer afin de créer un modèle à plusieurs régions. Nous utiliserons la mise en réseau virtuel Azure pour créer des sous-réseaux isolés, afin que les exigences de sécurité réseau mentionnées ci-dessus puissent être satisfaites.  Le processus décrit lors de la création du déploiement dans une seule région utilise Ubuntu 14.04 LTS et Cassandra 2.08 ; toutefois, vous pouvez aisément adapter le processus à d'autres variantes de Linux. Voici certaines des caractéristiques du déploiement dans une seule région.  
 
-**Haute disponibilité :** les nœuds Cassandra illustrés dans la Figure 1 sont déployés dans deux groupes à haute disponibilité afin d'être répartis entre plusieurs domaines d'erreur à des fins de haute disponibilité. Les machines virtuelles annotées avec chaque groupe à haute disponibilité sont mappées à deux domaines d'erreur. Microsoft Azure utilise le concept de domaine d'erreur pour gérer les temps d'arrêt non planifiés (par exemple, les défaillances matérielles ou logicielles), alors que le concept de domaine de mise à niveau (correctifs/mises à niveau du système d'exploitation hôte ou invité, mises à niveau des applications) permet de gérer les temps d'arrêt planifiés. Consultez [Récupération d'urgence et haute disponibilité des applications Azure](http://msdn.microsoft.com/library/dn251004.aspx) pour plus d'informations sur le rôle des domaines d'erreur et de mise à niveau dans l'obtention d'une haute disponibilité.
+**Haute disponibilité :** les nœuds Cassandra illustrés dans la Figure 1 sont déployés dans deux groupes à haute disponibilité afin d'être répartis entre plusieurs domaines d'erreur à des fins de haute disponibilité. Les machines virtuelles annotées avec chaque groupe à haute disponibilité sont mappées à deux domaines d'erreur. Microsoft Azure utilise le concept de domaine d'erreur pour gérer les temps d'arrêt non planifiés (par exemple, les défaillances matérielles ou logicielles), alors que le concept de domaine de mise à niveau (correctifs/mises à niveau du système d'exploitation hôte ou invité, mises à niveau des applications) permet de gérer les temps d'arrêt planifiés. Consultez [Récupération d'urgence et haute disponibilité des applications Azure](http://msdn.microsoft.com/library/dn251004.aspx) pour plus d'informations sur le rôle des domaines d'erreur et de mise à niveau dans l'obtention d'une haute disponibilité. 
 
 ![Single region deployment](./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux1.png)
 
@@ -66,7 +66,7 @@ Notez qu'à la date de rédaction de cet article, Azure n'autorise pas le mappag
 
 **Équilibrage de la charge du trafic Thrift :** les bibliothèques clientes Thrift sur le serveur web se connectent au cluster via un équilibreur de charge interne. Cela nécessite d'ajouter l'équilibrage de la charge interne au sous-réseau de " données " (voir Figure 1) dans le contexte de l'hébergement, par le service cloud, du cluster Cassandra. Une fois l'équilibrage de la charge interne défini, chaque nœud nécessite que le point de terminaison à charge équilibrée soit ajouté avec les annotations d'un jeu d'équilibrage de la charge avec le nom d'équilibrage de charge défini précédemment. Consultez [Équilibrage de la charge interne Azure](http://msdn.microsoft.com/library/azure/dn690121.aspx) pour plus de détails.
 
-**Valeurs initiales de cluster :** il est important de sélectionner les nœuds les plus disponibles pour les valeurs initiales, car les nouveaux nœuds communiqueront avec les nœuds de départ pour découvrir la topologie du cluster. Un nœud de chaque groupe à haute disponibilité est désigné comme nœud de départ afin d'éviter tout point de défaillance unique.
+**Semences de cluster :** il est important de sélectionner les nœuds les plus disponibles pour les valeurs de départ, car les nouveaux nœuds communiqueront avec les nœuds de départ pour découvrir la topologie du cluster. Un nœud de chaque groupe à haute disponibilité est désigné comme nœud de départ afin d'éviter tout point de défaillance unique. 
 
 **Facteur de réplication et niveau de cohérence :** la haute disponibilité et la durabilité des données intégrées à Cassandra sont caractérisées par le facteur de réplication (RF : nombre de copies de chaque ligne stockée sur le cluster) et le niveau de cohérence (nombre de réplicas à lire/écrire avant de retourner le résultat à l'appelant). Le facteur de réplication est spécifié lors de la création de KEYSPACE (semblable à une base de données relationnelle) alors que le niveau de cohérence est spécifié lors de l'émission de la requête CRUD. Le facteur de réplication est spécifié lors de la création de KEYSPACE, tandis que le niveau de cohérence est spécifié lors de l'exécution de la requête. Consultez la rubrique [Configuration pour la cohérence](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) dans la documentation de Cassandra pour plus de détails sur la cohérence et pour connaître la formule de calcul du quorum.
 
@@ -88,18 +88,18 @@ Configuration de cluster Cassandra à une seule région :
 <tr><td>Snitch	</td><td>GossipingPropertyFileSnitch [voir [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) dans la documentation de Cassandra pour plus d'informations]</td><td>	NetworkTopologyStrategy utilise un concept de snitch pour comprendre la topologie. GossipingPropertyFileSnitch procure un meilleur contrôle lors du mappage de chaque nœud au centre de données et au rack. Le cluster utilise ensuite gossip pour propager ces informations. Cela est beaucoup plus simple pour le paramétrage d'adresses IP dynamiques que PropertyFileSnitch </td></tr>
 </TABLE>
 
-**Considérations relatives à Azure pour le cluster Cassandra :** les fonctionnalité de machines virtuelles Microsoft Azure utilisent le stockage d'objets blob Azure pour la persistance des disques ; le stockage Azure enregistre trois réplicas de chaque disque pour une durabilité élevée. Cela signifie que chaque ligne de données insérée dans une table Cassandra est déjà stockée dans trois réplicas ; ainsi, la cohérence des données est déjà prise en charge même si le facteur de réplication (RF) est 1. Le principal problème posé par un facteur de réplication de 1 est que l'application subira une interruption de service même en cas de défaillance d'un seul nœud Cassandra. Toutefois, si un nœud est arrêté suite aux problèmes reconnus par Azure Fabric Controller (matériel, défaillances de logiciels système), ce dernier approvisionne un nouveau nœud à la place à avec les mêmes lecteurs de stockage. L'approvisionnement d'un nouveau nœud pour remplacer l'ancien peut prendre quelques minutes. De même, pour les activités de maintenance planifiée telles que les modifications du système d'exploitation invité, les mises à niveau de Cassandra et les modifications d'applications, Azure Fabric Controller effectue des mises à niveau cumulatives des nœuds dans le cluster.  Les mises à niveau cumulatives peuvent également mettre hors connexion plusieurs nœuds à la fois et, par conséquent, le cluster peut subir une interruption de courte durée pour quelques partitions. Toutefois, les données ne seront pas perdues, grâce à la redondance de stockage intégrée à Azure.
+**Considérations relatives à Azure pour le cluster Cassandra :** les fonctionnalité de Machines virtuelles Microsoft Azure utilisent le stockage Blob Azure pour la persistance des disques ; le stockage Azure enregistre trois réplicas de chaque disque pour une durabilité élevée. Cela signifie que chaque ligne de données insérée dans une table Cassandra est déjà stockée dans trois réplicas ; ainsi, la cohérence des données est déjà prise en charge même si le facteur de réplication (RF) est 1. Le principal problème posé par un facteur de réplication de 1 est que l'application subira une interruption de service même en cas de défaillance d'un seul nœud Cassandra. Toutefois, si un nœud est arrêté suite aux problèmes reconnus par Azure Fabric Controller (matériel, défaillances de logiciels système), il approvisionne un nouveau nœud à la place à l'aide des mêmes lecteurs de stockage. L'approvisionnement d'un nouveau nœud pour remplacer l'ancien peut prendre quelques minutes. De même, pour les activités de maintenance planifiée telles que les modifications du système d'exploitation invité, les mises à niveau de Cassandra et les modifications d'applications, Azure Fabric Controller effectue des mises à niveau cumulatives des nœuds dans le cluster.  Les mises à niveau cumulatives peuvent également mettre hors connexion quelques nœuds à la fois et, par conséquent, le cluster peut subir une interruption de courte durée pour quelques partitions. Toutefois, les données ne seront pas perdues en raison de la redondance de stockage intégrée à Azure.
 
 Les systèmes déployés sur Azure ne nécessitant pas de haute disponibilité (par exemple environ 99,9 %, ce qui équivaut à 8,76 heures par an, consultez [Haute disponibilité](http://en.wikipedia.org/wiki/High_availability) pour plus d'informations) peuvent être exécutés avec RF=1 et un Niveau de cohérence=UN.  Pour les applications ayant des exigences de haute disponibilité, RF=3 et Niveau de cohérence=QUORUM tolère un temps d'arrêt de l'un des nœuds de l'un des réplicas. RF=1 dans les déploiements traditionnels (par exemple locaux) ne peut pas être utilisé en raison de la perte de données résultant de problèmes tels que les défaillances de disques.   
 
 ## Déploiement dans plusieurs régions ##
 Le modèle de cohérence et de réplication compatible avec les centres de données Cassandra décrit ci-dessus simplifie le déploiement par défaut dans plusieurs régions sans la nécessité de faire appel à des outils externes. Cela est assez différent des bases de données relationnelles traditionnelles, où la configuration de la mise en miroir de base de données pour les écritures multimaîtres peut être très complexe. Cassandra dans une configuration à plusieurs régions peut aider à implémenter les scénarios d'utilisation suivants : 
 
-**Déploiement basé sur la proximité :** les applications mutualisées, avec un mappage clair entre les utilisateurs clients et les régions, peuvent tirer parti des faibles latences du cluster à plusieurs régions. Par exemple, des systèmes de gestion de formation pour des établissements d'enseignement peuvent déployer un cluster distribué dans les régions Est et Ouest des États-Unis pour servir les campus respectifs pour les transactions et l'analyse. Les données peuvent être localement cohérentes au moment des lectures et des écritures et peuvent être finalement cohérentes entre les deux régions. Il existe d'autres exemples, comme la distribution multimédia ou le commerce électronique et tout ce qui répond aux demandes des bases d'utilisateurs concentrées géographiquement constitue un bon cas d'utilisation pour ce modèle de déploiement.
+**Déploiement basée sur la proximité :** les applications mutualisées, avec un mappage clair entre les utilisateurs clients et les régions, peuvent tirer parti des faibles latences du cluster à plusieurs régions. Par exemple, des systèmes de gestion de formation pour des établissements d'enseignement peuvent déployer un cluster distribué dans les régions Est et Ouest des États-Unis pour servir les campus respectifs pour pour les transactions et l'analyse. Les données peuvent être localement cohérentes au moment des lectures et des écritures et peuvent être finalement cohérentes entre les deux régions. Il existe d'autres exemples, tels que la distribution multimédia ou le commerce électronique, et tout ce qui répond aux demandes des bases d'utilisateurs concentrées géographiquement constitue un bon cas d'utilisation pour ce modèle de déploiement. 
 
-**Haute disponibilité :** la redondance est un facteur clé dans l'obtention de la haute disponibilité des logiciels et du matériel ; pour plus d'informations, consultez Création de systèmes de cloud fiables sur Microsoft Azure. Sur Microsoft Azure, la seule méthode fiable pour assurer la redondance consiste à déployer un cluster dans plusieurs régions. Vous pouvez déployer les applications en mode actif-actif ou actif-passif et si l'une des régions est défaillante, Azure Traffic Manager peut rediriger le trafic vers la région active. Avec le déploiement dans une seule région, si la disponibilité est de 99,9 %, un déploiement dans deux régions peut atteindre une disponibilité de 99,9999 % calculée par la formule suivante : (1-(1-0.999) * (1-0.999))*100) ; pour plus d'informations, consultez le document ci-dessus.
+**Haute disponibilité :** la redondance est un facteur clé dans l'obtention de la haute disponibilité des logiciels et du matériel ; pour plus d'informations, consultez Création de systèmes de cloud fiables sur Microsoft Azure. Sur Microsoft Azure, la seule méthode fiable pour assurer la redondance consiste à déployer un cluster dans plusieurs régions. Vous pouvez déployer les applications en mode actif-actif ou actif-passif et si l'une des régions est défaillante, Azure Traffic Manager peut rediriger le trafic vers la région active. Avec le déploiement dans une seule région, si la disponibilité est de 99,9 %, un déploiement dans deux régions peut atteindre une disponibilité de 99,9999 % calculée par la formule suivante : (1-(1-0.999) * (1-0.999))*100) ; pour plus d'informations, consultez le document ci-dessus. 
 
-**Récupération d'urgence :** conçu correctement, un cluster Cassandra à plusieurs régions peut résister aux pannes catastrophiques d'un centre de données. Si une région est défaillante, l'application déployée dans d'autres régions peut répondre aux demandes des utilisateurs. Comme toute autre implémentation de continuité des activités métier, l'application doit pouvoir tolérer certaines pertes de données dues aux données contenues dans le pipeline asynchrone. Toutefois, Cassandra accélère la récupération par rapport aux processus de récupération de bases de données traditionnels. La Figure 2 montre le modèle de déploiement dans plusieurs régions classique avec huit nœuds dans chaque région. Les deux régions sont des images miroirs l'une de l'autre ; les conceptions réelles varient selon le type de charge de travail (par exemple, transactionnelle ou analytique), l'objectif de point de récupération, l'objectif de temps de récupération, la cohérence des données et les exigences de disponibilité.
+**Récupération d'urgence :** un cluster Cassandra à plusieurs régions, conçu correctement, peut résister aux pannes catastrophiques d'un centre de données. Si une région est défaillante, l'application déployée dans d'autres régions peut répondre aux demandes des utilisateurs finaux. Comme toute autre implémentation de continuité des activités métier, l'application doit pouvoir tolérer certaines pertes de données dues aux données contenues dans le pipeline asynchrone. Toutefois, Cassandra accélère la récupération par rapport aux processus de récupération de bases de données traditionnels. La Figure 2 montre le modèle de déploiement dans plusieurs régions classique avec huit nœuds dans chaque région. Les deux régions sont des images miroirs l'une de l'autre ; les conceptions réelles varient selon le type de charge de travail (par exemple, transactionnelle ou analytique), l'objectif de point de récupération, l'objectif de temps de récupération, la cohérence des données et les exigences de disponibilité. 
 
 ![Multi region deployment](./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux2.png)
 
@@ -153,11 +153,11 @@ Entrez les informations suivantes dans l'écran " Configuration de la machine vi
 <tr><th>Nom du champ              </td><td>       Valeur du champ               </td><td>         Remarques                </td><tr>
 <tr><td>Date de sortie de la version    </td><td> Sélectionnez une date dans la liste déroulante</td><td></td><tr>
 <tr><td>Nom de la machine virtuelle    </td><td> cass-template	               </td><td> Nom d'hôte de la machine virtuelle </td><tr>
-<tr><td>Niveau	                 </td><td> Standard	                       </td><td> Conservez la valeur par défaut              </td><tr>
+<tr><td>Niveau	                 </td><td> STANDARD	                       </td><td> Conservez la valeur par défaut              </td><tr>
 <tr><td>Taille	                 </td><td> A1                              </td><td>Sélectionnez la machine virtuelle en fonction des besoins en E/S ; pour cela, conservez la valeur par défaut </td><tr>
 <tr><td> Nouveau nom d'utilisateur	         </td><td> localadmin	                   </td><td> Dans Ubuntu 12.xx et versions ultérieures, " admin " est un nom d'utilisateur réservé.</td><tr>
 <tr><td> Authentification	     </td><td> Clic sur la case à cocher                 </td><td>Déterminez si vous souhaitez utiliser une clé SSH pour la sécurisation. </td><tr>
-<tr><td> Certificat	         </td><td> Nom de fichier du certificat de clé publique </td><td> Utilisez la clé publique générée précédemment</td><tr>
+<tr><td> CERTIFICAT	         </td><td> Nom de fichier du certificat de clé publique </td><td> Utilisez la clé publique générée précédemment</td><tr>
 <tr><td> Nouveau mot de passe	</td><td> Mot de passe fort </td><td> </td><tr>
 <tr><td> Confirmer le mot de passe	</td><td> Mot de passe fort </td><td></td><tr>
 </table>
@@ -169,7 +169,7 @@ Entrez les informations suivantes dans l'écran " Configuration de la machine vi
 <tr><td> Service de cloud computing	</td><td> Créer un nouveau service de cloud computing	</td><td>Le service cloud est un conteneur qui calcule des ressources telles que des machines virtuelles</td></tr>
 <tr><td> Nom du cloud Service DNS	</td><td>ubuntu-template.cloudapp.net	</td><td>Donnez un nom d'équilibrage de charge non spécifique à la machine.</td></tr>
 <tr><td> Région/Groupe d'affinités/Réseau virtuel </td><td>	Ouest des États-Unis	</td><td> Sélectionnez une région à partir de laquelle vos applications Web auront accès au cluster Cassandra.</td></tr>
-<tr><td>Compte de stockage </td><td>	Utiliser la valeur par défaut	</td><td>Utilisez le compte de stockage par défaut ou un compte de stockage créé au préalable dans une région particulière</td></tr>
+<tr><td>Compte de stockage </td><td>	Utiliser la valeur par défaut	</td><td>Utiliser le compte de stockage par défaut  ou un compte de stockage créé au préalable dans une région particulière</td></tr>
 <tr><td>Groupe à haute disponibilité </td><td>	Aucun </td><td>	Laissez cette valeur vide</td></tr>
 <tr><td>Points de terminaison	</td><td>Utiliser la valeur par défaut </td><td>	Utilisez la configuration SSH par défaut </td></tr>
 </table>
@@ -286,17 +286,17 @@ Créez des liens symboliques dans le répertoire $CASS_HOME/lib pour que le scri
 
 	ln -s /usr/share/java/jna-3.2.7.jar $CASS_HOME/lib/jna.jar
 
-	ln -s /usr/share/java/jna-platrom-3.2.7.jar $CASS_HOME/lib/jna-platform.jar
+	ln -s /usr/share/java/jna-platform-3.2.7.jar $CASS_HOME/lib/jna-platform.jar
 
 ####Étape 5 : configuration de cassandra.yaml####
-Modifiez cassandra.yaml sur chaque machine virtuelle afin de refléter la configuration requise par toutes les machines virtuelles [nous procéderons à quelques ajustements lors de l'approvisionnement réel] : 
+Modifiez cassandra.yaml sur chaque machine virtuelle afin de refléter la configuration requise par toutes les machines virtuelles [nous procéderons à quelques ajustements lors de l'approvisionnement réel]: 
 
 <table>
 <tr><th>Nom du champ   </th><th> Valeur  </th><th>	Remarques </th></tr>
 <tr><td>nom_cluster </td><td>	" CustomerService "	</td><td> Utilisez le nom qui reflète votre déploiement</td></tr> 
 <tr><td>listen_address	</td><td>[Laissez cette valeur vide]	</td><td> Supprimez " localhost " </td></tr>
-<tr><td>rpc_addres   </td><td>[Laissez cette valeur vide]	</td><td> Supprimez " localhost " </td></tr>
-<tr><td>valeurs initiales	</td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"	</td><td>Liste de toutes les adresses IP qui sont désignées comme valeurs initiales.</td></tr>
+<tr><td>rpc_addres   </td><td>[laissez cette valeur vide]	</td><td> Supprimez " localhost " </td></tr>
+<tr><td>valeurs initiales	</td><td>" 10.1.2.4, 10.1.2.6, 10.1.2.8 "	</td><td>Liste de  toutes les adresses IP désignées comme valeurs initiales.</td></tr>
 <tr><td>endpoint_snitch </td><td> org.apache.cassandra.locator.GossipingPropertyFileSnitch </td><td> Ceci est utilisé par NetworkTopologyStrateg pour la déduction du centre de données et du rack de la machine virtuelle</td></tr>
 </table>
 
@@ -432,7 +432,7 @@ Connectez-vous à la machine virtuelle et effectuez les tâches suivantes :
 
 * Modifiez cassandra.yaml pour configurer les nœuds de départ comme indiqué ci-dessous :
      
-       Valeurs initiales : "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10"
+       Seeds: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10"
 
 **Étape 4 : démarrage des machines virtuelles et test du cluster**
 
@@ -444,14 +444,14 @@ Vous devez obtenir un affichage semblable à celui ci-dessous pour un cluster à
 
 <table>
 <tr><th>Statut</th></th>Adresse	</th><th>Charge	</th><th>Jetons	</th><th>Appartenance </th><th>ID de l'hôte	</th><th>Rack</th></tr>
-<tr><th>UN	</td><td>10.1.2.4 	</td><td>87.81 KB	</td><td>256	</td><td>38,0%	</td><td>GUID (supprimé)</td><td>rack1</td></tr>
-<tr><th>UN	</td><td>10.1.2.5 	</td><td>41.08 KB	</td><td>256	</td><td>68,9%	</td><td>GUID (supprimé)</td><td>rack1</td></tr>
-<tr><th>UN	</td><td>10.1.2.6 	</td><td>55.29 KB	</td><td>256	</td><td>68,8%	</td><td>GUID (supprimé)</td><td>rack2</td></tr>
-<tr><th>UN	</td><td>10.1.2.7 	</td><td>55.29 KB	</td><td>256	</td><td>68,8%	</td><td>GUID (supprimé)</td><td>rack2</td></tr>
-<tr><th>UN	</td><td>10.1.2.8 	</td><td>55.29 KB	</td><td>256	</td><td>68,8%	</td><td>GUID (supprimé)</td><td>rack3</td></tr>
-<tr><th>UN	</td><td>10.1.2.9 	</td><td>55.29 KB	</td><td>256	</td><td>68,8%	</td><td>GUID (supprimé)</td><td>rack3</td></tr>
-<tr><th>UN	</td><td>10.1.2.10 	</td><td>55.29 KB	</td><td>256	</td><td>68.8%	</td><td>GUID (supprimé)</td><td>rack4</td></tr>
-<tr><th>UN	</td><td>10.1.2.11 	</td><td>55.29 KB	</td><td>256	</td><td>68.8%	</td><td>GUID (supprimé)</td><td>rack4</td></tr>
+<tr><th>UN	</td><td>10.1.2.4 	</td><td>87,81 KB	</td><td>256	</td><td>38,0%	</td><td>GUID (supprimé)</td><td>rack1</td></tr>
+<tr><th>UN	</td><td>10.1.2.5 	</td><td>41,08 KB	</td><td>256	</td><td>68,9%	</td><td>GUID (supprimé)</td><td>rack1</td></tr>
+<tr><th>UN	</td><td>10.1.2.6 	</td><td>55,29 KB	</td><td>256	</td><td>68,8%	</td><td>GUID (supprimé)</td><td>rack2</td></tr>
+<tr><th>UN	</td><td>10.1.2.7 	</td><td>55,29 KB	</td><td>256	</td><td>68,8%	</td><td>GUID (supprimé)</td><td>rack2</td></tr>
+<tr><th>UN	</td><td>10.1.2.8 	</td><td>55,29 KB	</td><td>256	</td><td>68,8%	</td><td>GUID (supprimé)</td><td>rack3</td></tr>
+<tr><th>UN	</td><td>10.1.2.9 	</td><td>55,29 KB	</td><td>256	</td><td>68,8%	</td><td>GUID (supprimé)</td><td>rack3</td></tr>
+<tr><th>UN	</td><td>10.1.2.10 	</td><td>55,29 KB	</td><td>256	</td><td>68,8%	</td><td>GUID (supprimé)</td><td>rack4</td></tr>
+<tr><th>UN	</td><td>10.1.2.11 	</td><td>55,29 KB	</td><td>256	</td><td>68,8%	</td><td>GUID (supprimé)</td><td>rack4</td></tr>
 </table>
 
 ##<a id="testone"> </a>Test du cluster à une seule région##
@@ -539,7 +539,7 @@ Modifiez les deux réseaux locaux pour remplacer l'espace réservé d'adresse IP
 </table>
 
 ###Étape 6 : mise à jour de la clé partagée###
-Utilisez le script Powershell suivant pour mettre à jour la clé IPSec de chaque passerelle VPN [utilisez la même clé pour les deux passerelles] : 
+Utilisez le script Powershell suivant pour mettre à jour la clé IPSec de chaque passerelle VPN [utilisez la même clé pour les deux passerelles]: 
 Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK
 Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK 
 
@@ -570,7 +570,7 @@ Connectez-vous à la machine virtuelle et effectuez les tâches suivantes :
     dc =EASTUS
     rack =rack1
 2. Modifiez cassandra.yaml pour configurer les nœuds de départ : 
-    Valeurs initiales : "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
+    Valeurs initiales : " 10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10 "
 ###Étape 9 : démarrage de Cassandra###
 Connectez-vous à chaque machine virtuelle et démarrez Cassandra en arrière-plan en exécutant la commande suivante :
 $CASS_HOME/bin/cassandra
@@ -578,8 +578,8 @@ $CASS_HOME/bin/cassandra
 ##<a id="testtwo"> </a>Test du cluster à plusieurs régions##
 À ce stade, Cassandra a été déployé sur 16 nœuds, avec huit nœuds dans chaque région Azure. Ces nœuds sont dans le même cluster suite à la configuration des nœuds de départ et du nom de cluster identique. Pour tester le cluster, procédez comme suit :
 ###Étape 1 : obtention de l'adresse IP de l'équilibreur de charge interne pour les deux régions à l'aide de PowerShell### 
-- Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
-- Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"  
+- Get-AzureInternalLoadbalancer -ServiceName " hk-c-svc-west-us "
+- Get-AzureInternalLoadbalancer -ServiceName " hk-c-svc-east-us "  
 
     Notez les adresses IP affichées (par exemple, west - 10.1.2.101, east - 10.2.2.101).
 
@@ -623,7 +623,7 @@ Vous devez obtenir le même affichage que pour la région Ouest :
 
 Exécutez quelques insertions de plus et vérifiez qu'elles sont répliquées vers la partie west-us du cluster. 
 
-##<a id="testnode"> </a>Test de cluster Cassandra depuis Node.js##
+##<a id="testnode"> </a>Test de cluster Cassandra à partir de Node.js##
 À l'aide de l'une des machines virtuelles Linux créées au niveau " web " précédemment, nous allons exécuter un script Node.js simple pour lire les données insérées précédemment 
 
 **Étape 1 : installation de Node.js et du client Cassandra**
@@ -733,5 +733,4 @@ Microsoft Azure est une plateforme flexible qui autorise l'exécution de logicie
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

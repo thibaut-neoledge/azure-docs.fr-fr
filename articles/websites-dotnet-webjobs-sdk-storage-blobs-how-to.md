@@ -242,4 +242,5 @@ Les rubriques abordées dans cet article sont les suivantes :
 Cette guide fournit des exemples de code qui montrent comment gérer des scénarios courants d'utilisation des objets blob Azure. Pour plus d'informations sur le Kit de développement logiciel (SDK) WebJobs Azure, consultez [Tâches web Azure - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
 
 
+
 <!--HONumber=42-->

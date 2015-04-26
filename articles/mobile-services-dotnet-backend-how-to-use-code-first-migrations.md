@@ -159,4 +159,5 @@ Ce code appelle la méthode d'extension de l'assistance [AddOrUpdate] pour ajout
 [DbContext]: http://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.113).aspx
 [AddOrUpdate]: http://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
 
+
 <!--HONumber=42-->

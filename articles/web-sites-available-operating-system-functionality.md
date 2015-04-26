@@ -120,4 +120,5 @@ Les applications disposent d'un accès en lecture seule à la majeure partie du 
 L'accès en écriture au registre est bloqué, y compris l'accès aux éventuelles clés de registre par utilisateur. Dans un environnement cloud, une application ne doit jamais compter sur l'accès en écriture au registre, car les applications peuvent être (et sont) migrées entre différentes machines virtuelles. Le seul stockage toujours accessible en écriture sur lequel une application Web peut compter est la structure des répertoires de contenu par site Web stockée dans les partages UNC de Sites Web Azure. 
 
 
+
 <!--HONumber=42-->

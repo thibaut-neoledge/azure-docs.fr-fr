@@ -6,4 +6,5 @@ Si vous n'avez pas déjà ajouté votre site web comme point de terminaison de T
 
 > [AZURE.NOTE] Si votre site web n'est pas répertorié lors de l'ajout d'un point de terminaison, vérifiez qu'il est configuré pour le mode Standard. Vous devez utiliser le mode Standard pour votre site web si vous voulez utiliser Traffic Manager.
 
+
 <!--HONumber=42-->

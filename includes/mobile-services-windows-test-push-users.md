@@ -11,4 +11,6 @@
 
 	Vérifiez que la notification est reçue seulement sur cet appareil, car l'appareil précédent n'a pas été balisé avec l'identifiant de l'utilisateur actuel. 
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

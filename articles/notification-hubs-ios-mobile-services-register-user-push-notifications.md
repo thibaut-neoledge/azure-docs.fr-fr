@@ -122,4 +122,5 @@ Maintenant que l'application cliente a été mise à jour, revenez à la [notifi
 [Prise en main des concentrateurs de Notification]: /fr-fr/manage/services/notification-hubs/get-started-notification-hubs-ios/
 
 
+
 <!--HONumber=42-->

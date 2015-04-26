@@ -278,4 +278,6 @@ Cette section décrit comment créer un compte de stockage Premium et l'utiliser
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Prise en main de l'authentification (Windows Phone) | Centre de développement mobile" 
 	description="Apprenez à utiliser Mobile Services pour authentifier les utilisateurs de votre application Windows Phone par l'intermédiaire de divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
 	services="mobile-services" 
@@ -38,13 +38,13 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 >[AZURE.NOTE]Ce didacticiel explique le flux d'authentification géré par Mobile Services via différents fournisseurs d'identité. Cette méthode est facilement configurable et prend en charge plusieurs fournisseurs. Pour utiliser plutôt Live Connect avec l'authentification gérée par un client afin de fournir une authentification unique dans votre application Windows Phone, consultez la rubrique [Authentification unique pour les applications Windows Phone à l'aide de Live Connect]. L'authentification gérée par un client permet à votre application d'accéder à des données supplémentaires détenues par le fournisseur d'identité. Vous pouvez obtenir les mêmes données utilisateur dans votre service mobile en appelant la fonction **user.getIdentities()** dans les scripts serveur. Pour plus d'informations, consultez [ce billet](http://go.microsoft.com/fwlink/p/?LinkId=506605).
 
-##<a name="register"></a>Inscription de votre application pour l'authentification et configuration de Mobile Services
+## <a name="register"></a>Inscription de votre application pour l'authentification et configuration de Mobile Services
 
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 
-##<a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
+## <a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
 
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
@@ -57,11 +57,11 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 Ensuite, vous allez mettre à jour l'application pour authentifier les utilisateurs avant de demander des ressources à partir du service mobile.
 
-##<a name="add-authentication"></a>Ajout de l'authentification à l'application
+## <a name="add-authentication"></a>Ajout de l'authentification à l'application
 
 [AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app](../includes/mobile-services-windows-phone-authenticate-app.md)]
 
-##<a name="tokens"></a>Stockage des jetons d'authentification sur le client
+## <a name="tokens"></a>Stockage des jetons d'authentification sur le client
 
 [AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../includes/mobile-services-windows-phone-authenticate-app-with-token.md)] 
 

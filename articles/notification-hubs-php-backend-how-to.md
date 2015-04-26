@@ -1,9 +1,9 @@
-﻿<properties 
+<properties 
 	pageTitle="Utilisation de Notification Hubs avec PHP" 
 	description="Découvrez comment utiliser Azure Notification Hubs à partir d'un serveur principal PHP." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="piyushjo" 
+	authors="yuaxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,19 +14,19 @@
 	ms.devlang="php" 
 	ms.topic="article" 
 	ms.date="11/14/2014" 
-	ms.author="piyushjo"/>
+	ms.author="yuaxu"/>
 
 # Utilisation de Notification Hubs à partir de PHP
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/fr-fr/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/fr-fr/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP" class="current">PHP</a><a href="/fr-fr/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a>
+    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP" class="current">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
 </div>
 
-Vous pouvez accéder à toutes les fonctionnalités de Notification Hubs à partir d'un serveur principal Java/PHP/Ruby en utilisant l'interface REST des concentrateurs de notifications, comme décrit dans la rubrique MSDN [API REST de Notification Hubs](http://msdn.microsoft.com/library/dn223264.aspx).
+Vous pouvez accéder à toutes les fonctionnalités de Notification Hubs à partir d'un serveur principal Java/PHP/Ruby en utilisant l'interface REST des concentrateurs de notification, comme décrit dans la rubrique MSDN [API REST de Notification Hubs](http://msdn.microsoft.com/library/dn223264.aspx).
 
 Dans cette rubrique, nous vous montrons comment :
 
 * créer un client REST pour les fonctionnalités de Notification Hubs en PHP ;
-* suivre le [didacticiel de prise en main](http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/) pour la plateforme mobile de votre choix, en implémentant la partie concernant le serveur principal en PHP.
+* suivre le [didacticiel de prise en main](notification-hubs-ios-get-started.md) pour la plateforme mobile de votre choix, en implémentant la partie concernant le serveur principal en PHP.
 
 ## Interface client
 L'interface client principale peut fournir les mêmes méthodes que celles disponibles dans le [Kit de développement logiciel (SDK) .NET Notification Hubs](http://msdn.microsoft.com/library/jj933431.aspx), ce qui vous permet de traduire directement l'ensemble des didacticiels et des exemples actuellement disponibles sur ce site, enrichis par les contributions de la communauté Internet.
@@ -43,10 +43,10 @@ Pour envoyer une notification iOS native :
 	$hub->sendNotification($notification);
 
 ## Implémentation
-Si vous ne l'avez pas encore fait, suivez le [didacticiel de prise en main] jusqu'à la dernière section où vous devez implémenter le serveur principal.
+Si ce n'est déjà fait, suivez notre [didacticiel de prise en main] jusqu'à la dernière section, dans laquelle vous devrez implémenter le serveur principal.
 De même, vous pouvez éventuellement utiliser le code de l'[exemple de wrapper REST PHP] et accéder directement à la section [Suivi du didacticiel](#complete-tutorial) .
 
-Tous les détails de l'implémentation d'un wrapper REST complet se trouvent sur [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Dans cette section, nous allons décrire l'implémentation PHP des principales étapes requises pour accéder aux point de terminaison REST de Notification Hubs :
+Tous les détails de l'implémentation d'un wrapper REST complet se trouvent sur [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Dans cette section, nous allons décrire l'implémentation PHP des principales étapes requises pour accéder aux points de terminaison REST de Notification Hubs :
 
 1. Analyse de la chaîne de connexion
 2. Génération du jeton d'autorisation
@@ -251,12 +251,12 @@ L'exécution de votre code PHP produit normalement une notification qui apparaî
 ## Étapes suivantes
 Dans cette rubrique, nous vous avons montré comment créer un client REST Java simple pour Notification Hubs. À ce stade, vous pouvez :
 
-* télécharger l'intégralité de l'[exemple de wrapper REST PHP], qui contient tout le code ci-dessus ;
-* poursuivre l'apprentissage de la fonctionnalité de balisage des concentrateurs de notification dans le [didacticiel Nouvelles de dernière minute] ;
+* télécharger l'intégralité de l'[Exemple de wrapper REST PHP], qui contient tout le code ci-dessus ;
+* poursuivre l'apprentissage de la fonctionnalité de balisage des concentrateurs de notification dans le [Didacticiel Nouvelles de dernière minute] ;
 * vous familiariser avec l'envoi de notifications Push à des utilisateurs individuels dans le [didacticiel Envoi de notifications à des utilisateurs]
 
 
 [Exemple de wrapper REST PHP]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [Didacticiel de prise en main]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

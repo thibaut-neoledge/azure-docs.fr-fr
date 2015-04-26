@@ -142,8 +142,8 @@ Pour vous aider à démarrer, HDInsight propose des exemples de scripts pour ins
 
 - **Installation de Spark**. Consultez la rubrique [Installation de Spark sur des clusters HDInsight][hdinsight-install-spark].
 - **Installation de R**. Consultez la rubrique [Installation de R sur des clusters HDInsight][hdinsight-install-r].
-- **Installation de Solr**. [Installation et utilisation de Solr sur des clusters HDInsight](../hdinsight-hadoop-solr-install)
-- **Installation de Giraph**. [Installation et utilisation de Giraph sur des clusters HDInsight](../hdinsight-hadoop-giraph-install)
+- **Installation de Solr**. [Installation et utilisation de Solr sur des clusters HDInsight](hdinsight-hadoop-solr-install.md)
+- **Installation de Giraph**. [Installation et utilisation de Giraph sur des clusters HDInsight](hdinsight-hadoop-giraph-install.md)
 
 ## <a name="support"></a>Prise en charge des logiciels Open Source utilisés sur un cluster HDInsight
 Le service Microsoft Azure HDInsight est une plateforme flexible qui vous permet de créer des applications de données volumineuses (Big Data) dans le cloud à l'aide de l'écosystème des technologies Open Source articulées autour de Hadoop. Microsoft Azure fournit un niveau de support général pour les technologies Open Source, comme indiqué dans la <a href="http://azure.microsoft.com/support/faq/" target="_blank">section " Portée du support " du site web FAQ du support Azure</a>. En outre, le service HDInsight fournit un niveau de support supplémentaire pour certains des composants, comme indiqué ci-dessous.
@@ -175,4 +175,5 @@ Le service HDInsight offre plusieurs moyens d'utiliser des composants personnali
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster provisioning"
+
 <!--HONumber=42-->

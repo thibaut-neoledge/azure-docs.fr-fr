@@ -256,4 +256,5 @@ orsqu'une opération Push est annulée,  `PushAsync` génère une  `MobileServic
 [Prise en main des données]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-data/
 
 
+
 <!--HONumber=42-->

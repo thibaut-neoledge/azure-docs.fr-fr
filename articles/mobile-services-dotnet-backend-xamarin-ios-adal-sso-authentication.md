@@ -150,4 +150,5 @@ Ce didacticiel requiert les éléments suivants :
 [Extension Xamarin]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download
 
+
 <!--HONumber=42-->

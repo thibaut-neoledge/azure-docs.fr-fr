@@ -67,4 +67,5 @@ Pour associer votre domaine personnalisé à un site Web Azure, vous devez ajout
 [AZURE.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
 
 
+
 <!--HONumber=42-->

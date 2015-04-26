@@ -236,4 +236,5 @@ Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Flask 
 [Projets de service cloud]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
 
+
 <!--HONumber=42-->

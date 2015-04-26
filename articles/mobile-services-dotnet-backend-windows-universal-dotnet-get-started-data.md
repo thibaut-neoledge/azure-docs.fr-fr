@@ -151,4 +151,5 @@ Une fois que vous avez terminé les séries de données, essayez l'un de ces aut
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
+
 <!--HONumber=42-->

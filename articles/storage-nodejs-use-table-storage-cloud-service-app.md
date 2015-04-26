@@ -406,4 +406,6 @@ La procédure suivante présente l'arrêt et la suppression de l'application.
   [Node.js Web Application]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
  
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

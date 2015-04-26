@@ -108,8 +108,8 @@ Des projets Visual Studio avec code source C\# sont disponibles pour cette rubri
 	Une fois que Visual Studio a terminé de publier le projet de démarrage dans l'application web Azure, le navigateur de bureau s'ouvre et affiche l'application web en ligne.
 
 14.	Lancez l'émulateur de navigateur mobile, copiez l'URL de l'application de conférence (*<préfixe>*.azurewebsites.net) dans l'émulateur, puis cliquez sur le bouton supérieur droit et sélectionnez **Parcourir par balise**. Si vous utilisez Internet
-Explorer 11 comme navigateur par défaut, il vous suffit d'appuyer sur `F12`, puis sur
-`Ctrl+8`, et de redéfinir le profil de navigateur sur **Windows Phone**. L'image ci-après illustre la vue *AllTags* en mode Portrait (après la sélection de l'option
+Explorer 11 comme navigateur par défaut, il vous suffit d'appuyer sur F12, puis sur
+Ctrl+8, et de redéfinir le profil de navigateur sur **Windows Phone**. L'image ci-après illustre la vue *AllTags* en mode Portrait (après la sélection de l'option
 **Parcourir par balise**).
 
 	![][AllTags]
@@ -140,7 +140,7 @@ Pour voir l'aspect de l'application web sans Bootstrap, ouvrez
               //"~/Content/bootstrap.css",
               "~/Content/site.css"));
 
-Appuyez sur `Ctrl+F5` pour exécuter l'application.
+Appuyez sur Ctrl+F5 pour exécuter l'application.
 
 La barre de navigation réductible a maintenant la forme d'une simple liste non triée classique. Cliquez de nouveau sur **Parcourir par balise**, puis cliquez sur **ASP.NET**.
 Dans la vue de l'émulateur mobile, vous voyez maintenant qu'elle n'est plus adaptée à l'écran, et vous devez faire défiler la page horizontalement afin de voir le côté droit du tableau.
@@ -169,7 +169,7 @@ Pour commencer, copiez *Views\\Shared\\\_Layout.cshtml* dans
 *Views\\Shared\\\_Layout.Mobile.cshtml*. Ouvrez *\_Layout.Mobile.cshtml*, puis remplacez le titre **MVC5 Application** par **MVC5 Application (Mobile)**.
 
 Dans chaque appel `Html.ActionLink` pour la barre de navigation, supprimez " Parcourir par " de chaque lien
-*ActionLink*. Le code ci-après présente la balise `<ul class="nav navbar-nav">` complétée du fichier de disposition mobile.
+*ActionLink*. Le code ci-après présente la balise " <ul class="nav navbar-nav"> " complétée du fichier de disposition mobile.
 
     <ul class="nav navbar-nav">
         <li>@Html.ActionLink("Home", "Index", "Home")</li>
@@ -180,7 +180,7 @@ Dans chaque appel `Html.ActionLink` pour la barre de navigation, supprimez " Par
 
 Copiez le fichier *Views\\Home\\AllTags.cshtml* dans
 *Views\\Home\\AllTags.Mobile.cshtml*. Ouvrez le nouveau fichier et remplacez l'élément
-`<h2>` "Tags" par "Tags (M)" :
+`<h2>" Tags " par " Tags (M) " :
 
     <h2>Tags (M)</h2>
 
@@ -199,7 +199,7 @@ En revanche, l'affichage de bureau n'a pas changé (avec les titres de *\_Layout
 Outre les vues mobiles et de bureau, vous pouvez créer des vues pour un navigateur en particulier. Par exemple, vous pouvez créer des vues spécialement adaptées aux navigateurs de l'iPhone et d'Android. Dans cette section,vous allez créer une disposition pour le navigateur de l'iPhone et une version pour iPhone de la vue *AllTags*.
 
 Ouvrez le fichier *Global.asax*, puis ajoutez le code ci-après au bas de la méthode
-`Application_Start`.
+" Application_Start ".
 
     DisplayModeProvider.Instance.Modes.Insert(0, new DefaultDisplayMode("iPhone")
     {
@@ -211,26 +211,26 @@ Ce code définit un nouveau mode d'affichage appelé " iPhone ", qui répondra �
 " iPhone "), ASP.NET MVC cherchera les vues dont le nom contient le suffixe
 " iPhone ".
 
->[AZURE.NOTE] Lors de l'ajout de modes d'affichage de navigateur mobile, pour iPhone et Android par exemple, prenez soin de définir le premier argument sur `0` (insérez-le en haut de la liste) pour que le mode propre au navigateur soit prioritaire sur le modèle mobile (*.Mobile.cshtml). Si le modèle mobile est en haut de la liste, il est sélectionné à la place du mode d'affichage souhaité (le premier résultat est prioritaire et le modèle mobile correspond à tous les navigateurs mobiles). 
+>[AZURE.NOTE] Lors de l'ajout de modes d'affichage de navigateur mobile, pour iPhone et Android par exemple, prenez soin de définir le premier argument sur " 0 " (insérez-le en haut de la liste) pour que le mode propre au navigateur soit prioritaire sur le modèle mobile (*.Mobile.cshtml). Si le modèle mobile est en haut de la liste, il est sélectionné à la place du mode d'affichage souhaité (le premier résultat est prioritaire et le modèle mobile correspond à tous les navigateurs mobiles). 
 
 Dans le code, cliquez avec le bouton droit sur `DefaultDisplayMode`, choisissez **Résoudre**, puis choisissez `using System.Web.WebPages;`. This adds a reference to the
 espace de noms `System.Web.WebPages`, qui constitue l'emplacement où
-les types `DisplayModeProvider` et  `DefaultDisplayMode` sont définis.
+les types " DisplayModeProvider " et  `DefaultDisplayMode` sont définis.
 
 ![][ResolveDefaultDisplayMode]
 
 Vous pouvez également ajouter simplement manuellement la ligne suivante à la
-section `using` du fichier.
+section " using " du fichier.
 
     using System.Web.WebPages;
 
 Enregistrez les modifications. Copiez le fichier
 *Views\\Shared\\\_Layout.Mobile.cshtml* dans
 *Views\\Shared\\\_Layout.iPhone.cshtml*. Ouvrez le nouveau fichier, puis remplacez le titre `MVC5 Application (Mobile)` par
-`MVC5 Application (iPhone)`.
+" MVC5 Application (iPhone) ".
 
 Copiez le fichier *Views\\Home\\AllTags.Mobile.cshtml* dans
-*Views\\Home\\AllTags.iPhone.cshtml*. Dans le nouveau fichier, remplacez l'élément web-sites-dotnet-deploy-aspnet-mvc-mobile-app" Tags (M)" par "Tags (iPhone)".
+*Views\\Home\\AllTags.iPhone.cshtml*. Dans le nouveau fichier, remplacez l'élément web-sites-dotnet-deploy-aspnet-mvc-mobile-app" Tags (M) " par " Tags (iPhone) ".
 
 Exécutez l'application. Lancez un émulateur de navigateur mobile, vérifiez que son agent utilisateur est défini sur " iPhone ", puis accédez à la vue *AllTags*. Si vous utilisez l'émulateur dans les outils de développement F12 d'Internet Explorer 11,configurez l'émulation comme suit :
 
@@ -330,7 +330,7 @@ Certes, l'affichage du navigateur mobile a été amélioré, mais il est tout de
         }
     </div>
 
-Notez que les styles Bootstrap sont appliqués aux deux balises `<form>` et `<input>`. L'élément `<span>` ajoute une
+Notez que les styles Bootstrap sont appliqués aux deux balises <form> et <input>. L'élément " <span> " ajoute une
 [icône][] Bootstrap à la zone de recherche.
 
 Dans le dossier *Scripts*, ajoutez un fichier JavaScript nommé *filter.js*. Ouvrez le fichier et collez-y le code suivant :
@@ -437,7 +437,7 @@ Vous pouvez encore améliorer la vue *Dates* en classant les valeurs date-heure 
         </div>
     }
 
-Ce code crée une balise `<div class="panel panel-primary>` distincte pour chaque date de la liste, et utilise le style [liste groupée avec liens][] pour les liens respectifs, comme précédemment. Voici à quoi le navigateur mobile ressemble lorsque ce code est exécuté :
+Ce code crée une balise<div class="panel panel-primary">distincte pour chaque date de la liste, et utilise le style [liste groupée avec liens][] pour les liens respectifs, comme précédemment. Voici à quoi le navigateur mobile ressemble lorsque ce code est exécuté :
 
 ![][AllDatesFixed2]
 
@@ -622,10 +622,10 @@ Ce didacticiel vous a guidé dans l'utilisation d'ASP.NET MVC 5 pour développer
 [CompletedProject]: http://go.microsoft.com/fwlink/?LinkID=398781&clcid=0x409
 [BootstrapSite]: http://getbootstrap.com/
 [WebPIAzureSdk23NetVS13]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk23NetVS13.png
-[liste groupée avec liens]: http://getbootstrap.com/components/#list-group-linked
-[icône]: http://getbootstrap.com/components/#glyphicons
-[panneaux]: http://getbootstrap.com/components/#panels
-[liste groupée personnalisée avec liens]: http://getbootstrap.com/components/#list-group-custom-content
+[linked list group]: http://getbootstrap.com/components/#list-group-linked
+[glyphicon]: http://getbootstrap.com/components/#glyphicons
+[panels]: http://getbootstrap.com/components/#panels
+[custom linked list group]: http://getbootstrap.com/components/#list-group-custom-content
 [système de grille]: http://getbootstrap.com/css/#grid
 [utilitaires réactifs]: http://getbootstrap.com/css/#responsive-utilities
 [Blog officiel Bootstrap (en anglais)]: http://blog.getbootstrap.com/

@@ -218,4 +218,6 @@ Pour la prise en main d'Azure Storage, explorez les ressources suivantes :
 - [Utilisation du stockage de tables à partir de Python](storage-python-how-to-use-table-storage.md)
 - [Utilisation du stockage de files d'attente à partir de Python](storage-python-how-to-use-queue-storage.md)
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

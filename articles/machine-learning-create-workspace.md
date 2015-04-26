@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="Création d'un espace de travail Machine Learning | Azure" 
-	description="Création d'un espace de travail pour Azure Machine Learning Studio" 
+	pageTitle="Création d'un espace de travail Machine Learning | Azure" 
+	description="Création d'un espace de travail pour Microsoft Azure Machine Learning Studio." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
@@ -17,8 +17,8 @@
 	ms.author="garye"/>
 
 
-# Création d'un espace de travail Azure Machine Learning 
-Un espace de travail Microsoft Azure Machine Learning (espace de travail ML) contient les outils dont vous avez besoin pour gérer et publier des expériences. Pour plus d'informations sur l'espace de travail Machine Learning, lien.
+# Création d'un espace de travail Microsoft Azure Machine Learning 
+Un espace de travail Microsoft Azure Machine Learning (ML) contient les outils requis pour gérer et publier des expériences. Pour en savoir plus à ce sujet, cliquez sur le lien.
 ## Création d'un espace de travail ##
 1. Connectez-vous à votre compte Microsoft Azure.
 2. Dans le volet des services Microsoft Azure, cliquez sur **MACHINE LEARNING**.
@@ -27,11 +27,11 @@ Un espace de travail Microsoft Azure Machine Learning (espace de travail ML) con
  
 
 1. Cliquez sur **CRÉER UN ESPACE DE TRAVAIL ML**.
-2. Dans la page **CRÉATION RAPIDE** :
+2. Sur la page **CRÉATION RAPIDE**, procédez comme suit :
 	1. Entrez vos informations d'espace de travail.    
-	REMARQUE : Le **PROPRIÉTAIRE DE L'ESPACE DE TRAVAIL** est votre compte Microsoft (name@outlook.com) ou compte de l'organisation.
+	> [AZURE.NOTE] Le champ **PROPRIÉTAIRE DE L'ESPACE DE TRAVAIL** correspond au nom de votre compte Microsoft (name@outlook.com) ou du compte de votre organisation.
 	2. Cliquez sur **CRÉER UN ESPACE DE TRAVAIL ML**.
-3. Une fois votre espace de travail ML créé, vous voyez son nom sur la page **machine learning**.
+3. Une fois votre espace de travail Machine Learning créé, vous voyez son nom apparaître sur la page **Machine Learning**.
  
 ![][2]
 
@@ -46,4 +46,4 @@ Un espace de travail Microsoft Azure Machine Learning (espace de travail ML) con
 
 <!--Link references-->
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

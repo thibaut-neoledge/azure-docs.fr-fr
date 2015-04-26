@@ -132,4 +132,6 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 
 Maintenant que l'application a été mise à jour pour utiliser Mobile Services pour le stockage principal, le moment est venu de tester l'application avec Mobile Services.
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

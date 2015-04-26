@@ -678,4 +678,5 @@ Les notes de publication des HDP utilisés par les versions de cluster HDInsight
 
 
 
+
 <!--HONumber=42-->

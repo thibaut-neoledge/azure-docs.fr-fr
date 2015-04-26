@@ -163,4 +163,5 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 [Partage des ressources cross-origin]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 
 
+
 <!--HONumber=42-->

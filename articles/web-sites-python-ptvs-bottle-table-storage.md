@@ -224,4 +224,5 @@ Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Bottle
 [Kit de développement logiciel (SDK) Azure pour Python]: https://github.com/Azure/azure-sdk-for-python
 
 
+
 <!--HONumber=42-->

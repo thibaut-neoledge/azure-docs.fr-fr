@@ -722,4 +722,5 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 [image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png
 
 [apache-hive]: http://hive.apache.org/
+
 <!--HONumber=42-->

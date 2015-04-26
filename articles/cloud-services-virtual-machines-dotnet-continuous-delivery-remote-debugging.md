@@ -17,7 +17,7 @@
 	ms.author="kempb"/>
 # Activation du débogage distant lors de l'utilisation de la remise continue pour publier sur Azure
 
-Vous pouvez activer le débogage distant dans Azure lorsque vous utilisez [livraison continue](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-continuous-delivery/) pour publier dans Azure en suivant ces étapes.
+Vous pouvez activer le débogage distant dans Azure lorsque vous utilisez [livraison continue](http://azure.microsoft.com/ documentation/articles/cloud-services-dotnet-continuous-delivery/) pour publier dans Azure en suivant ces étapes.
 
 Dans cette rubrique :
 
@@ -39,7 +39,7 @@ Dans cette rubrique :
 
 <h2> <a name="virtualmachine"></a>Activation du débogage distant pour les machines virtuelles</h2>
 
-1. Créez une machine virtuelle Azure. Consultez [Création d'une machine virtuelle exécutant Windows Server](http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/) ou [Création de machines virtuelles Azure dans Visual Studio](http://msdn.microsoft.com/library/azure/dn569263.aspx).
+1. Créez une machine virtuelle Azure. Consultez [Création d'une machine virtuelle exécutant Windows Server](http://azure.microsoft.com/ documentation/articles/virtual-machines-windows-tutorial/) ou [Création de machines virtuelles Azure dans Visual Studio](http://msdn.microsoft.com/library/azure/dn569263.aspx).
 2. Sur la [page du portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=269851), affichez le tableau de bord de la machine virtuelle pour voir l'" empreinte numérique de certificat RDP " de la machine virtuelle. On l'utilise pour la valeur ServerThumbprint dans la configuration de l'extension.
 3. Créez un certificat client comme expliqué dans [Créer un certificat de service pour Azure](http://msdn.microsoft.com/library/azure/gg432987.aspx) (conservez l'empreinte numérique de certificat .pfx et RDP).
 4. Installez [Azure Powershell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (version 0.7.4 ou ultérieure) à partir du Centre de téléchargement Microsoft.

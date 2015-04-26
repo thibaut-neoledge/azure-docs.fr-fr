@@ -776,4 +776,5 @@ Transmettez l'URL de service et la clé d'application au constructeur **MobileSe
 [Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-dotnet
 
 
+
 <!--HONumber=42-->

@@ -80,4 +80,6 @@ Dans cette méthode, vous avez ajouté du code pour l'inscription provenant du d
 		    });
 		}  
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

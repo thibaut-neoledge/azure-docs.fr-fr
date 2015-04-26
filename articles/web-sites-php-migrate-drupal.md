@@ -110,4 +110,5 @@ Pour plus d'informations, consultez les billets et rubriques ci-dessous :
   [Module d'intégration Azure]: http://drupal.org/project/azure
 
 
+
 <!--HONumber=42-->

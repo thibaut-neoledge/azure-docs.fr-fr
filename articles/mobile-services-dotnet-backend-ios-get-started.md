@@ -129,4 +129,5 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 [Version principale JavaScript]: /fr-fr/documentation/articles/mobile-services-ios-get-started
 
 
+
 <!--HONumber=42-->

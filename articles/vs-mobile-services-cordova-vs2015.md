@@ -63,4 +63,5 @@ Pour utiliser Azure Mobile Services dans les projets Cordova dans Visual Studio 
 
 [1]: ./media/vs-mobile-services-cordova-vs2015/AzureMobileServicesPlugIn.png 
 
+
 <!--HONumber=42-->

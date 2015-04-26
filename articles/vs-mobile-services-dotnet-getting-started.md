@@ -85,4 +85,5 @@ Supprimez une ligne de la base de données. L'élément de paramètre correspond
 
 [En savoir plus sur les services mobiles](http://azure.microsoft.com/documentation/services/mobile-services/)
 
+
 <!--HONumber=42-->

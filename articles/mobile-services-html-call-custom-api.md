@@ -96,4 +96,5 @@ Maintenant que vous avez créé une API personnalisée et que vous l'avez appel�
 [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-html-get-started
 [Prise en main des données]: /fr-fr/documentation/articles/mobile-services-html-get-started-data
 
+
 <!--HONumber=42-->

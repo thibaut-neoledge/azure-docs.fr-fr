@@ -1,8 +1,8 @@
 ﻿## Création du projet WebAPI
 
-Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET afin d'authentifier les clients et générer des notifications, ou modifiez un serveur principal existant à partir des projets précédents ou le didacticiel [Envoi de notifications Push aux utilisateurs authentifiés](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/).
+Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET afin d'authentifier les clients et générer des notifications, ou modifiez un serveur principal existant créé dans le cadre de projets précédents ou du didacticiel [Envoi de notifications Push aux utilisateurs authentifiés](../articles/mobile-services-dotnet-backend-ios-push-notifications-app-users.md) .
 
-> [AZURE.NOTE] **Important** : Avant d'entamer ce didacticiel, vérifiez que la version la plus récente du Gestionnaire de package NuGet est installé. Pour ce faire, lancez Visual Studio. Dans le menu **Outils**, cliquez sur **Extensions et mises à jour**. Recherchez **Gestionnaire de package NuGet pour Visual Studio 2013** et vérifiez que vous disposez de la version 2.8.50313.46 (ou ultérieure). Si ce n'est pas le cas, désinstallez puis réinstallez le Gestionnaire de package NuGet.
+> [AZURE.NOTE] **Important** : Avant d'entamer ce didacticiel, vérifiez que la version la plus récente du Gestionnaire de package NuGet est installée. Pour ce faire, lancez Visual Studio. Dans le menu **Outils**, cliquez sur **Extensions et mises à jour**. Recherchez **Gestionnaire de package NuGet pour Visual Studio 2013** et vérifiez que vous disposez de la version 2.8.50313.46 (ou ultérieure). Si ce n'est pas le cas, désinstallez puis réinstallez le Gestionnaire de package NuGet.
 > 
 > ![][4]
 
@@ -17,7 +17,7 @@ Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET af
 
 	![][2]
 
-4. Dans la boîte de dialogue **Configurer un site Azure** choisissez l'abonnement, la région et la base de données à utiliser pour ce projet. Cliquez ensuite sue **OK** pour créer le projet.
+4. Dans la boîte de dialogue **Configurer un site Azure** choisissez l'abonnement, la région et la base de données à utiliser pour ce projet. Cliquez ensuite sur **OK** pour créer le projet.
 
 	![][5]
 
@@ -116,7 +116,7 @@ Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET af
 
 		config.MessageHandlers.Add(new AuthenticationTestHandler());
 
-15. Nous allons ensuite créer un nouveau contrôleur **RegisterController**. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le dossier **Contrôleurs**, puis cliquez sur **Ajouter** et sur **Contrôleur**. Cliquez sur l'élément **Web API 2 Controller -- Empty**, et cliquez sur **Ajouter**. Nommez la nouvelle classe **RegisterController**, puis cliquez de nouveau sur **Ajouter** pour générer le contrôleur.
+15. Next we create a new controller **RegisterController**. In Solution Explorer, right-click the **Controllers** folder, then click **Add**, then click **Controller**. Click the **Web API 2 Controller -- Empty** item, and then click **Add**. Name the new class **RegisterController**, and then click **Add** again to generate the controller.
 
 	![][7]
 
@@ -299,4 +299,4 @@ Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET af
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

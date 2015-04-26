@@ -188,4 +188,6 @@ La section suivante présente les composants du service BLOB.
   [Présentation de Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
   [ms-open-tech]: http://msopentech.com
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

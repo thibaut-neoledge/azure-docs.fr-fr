@@ -246,4 +246,5 @@ Même si MapReduce est doté de puissantes capacités de diagnostic, il peut êt
 
 
 
+
 <!--HONumber=42-->

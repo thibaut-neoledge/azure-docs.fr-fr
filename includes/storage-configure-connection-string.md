@@ -64,4 +64,5 @@ Vous pouvez à présent effectuer les tâches présentées dans ce guide.
 
 [Configuration des chaînes de connexion]: http://msdn.microsoft.com/library/windowsazure/ee758697.asp.
 
+
 <!--HONumber=42-->

@@ -221,4 +221,5 @@ Une fois que vous avez terminé la série de données, vous pouvez essayer l'un 
 [Site d'exemples de code développeur]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
 
 
+
 <!--HONumber=42-->

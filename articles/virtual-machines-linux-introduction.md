@@ -149,4 +149,5 @@ Sous Linux, le disque de données peut être nommé `/dev/sdc` par le noyau et l
 
 
 
+
 <!--HONumber=42-->

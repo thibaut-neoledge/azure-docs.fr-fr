@@ -33,4 +33,6 @@ Ensuite, vous devez changer la façon dont les notifications Push sont inscrites
 		    UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 		}
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

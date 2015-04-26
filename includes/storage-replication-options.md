@@ -19,4 +19,5 @@
 Pour plus d'informations sur les options de réplication, consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/) et la page [Options de redondance d'Azure Storage](http://msdn.microsoft.com/library/azure/dn727290.aspx).
 	
 Les prix des différentes options de réplication sont disponibles sur la page [Tarification et stockage](/fr-fr/pricing/details/storage/).
+
 <!--HONumber=42-->

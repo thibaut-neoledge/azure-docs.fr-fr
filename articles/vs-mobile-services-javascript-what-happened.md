@@ -31,4 +31,5 @@ La bibliothèque Windows Azure Mobile Services a été ajoutée à votre projet 
 Dans le dossier  `services\mobileServices\settings`, un nouveau fichier JavaScript (.js) avec un objet **MobileServiceClient** a été généré. Il contient l'URL et la clé d'application du service mobile sélectionné.  
 
 
+
 <!--HONumber=42-->

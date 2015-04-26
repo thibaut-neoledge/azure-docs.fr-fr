@@ -387,4 +387,5 @@ Dans ce didacticiel, nous avons appris à approvisionner un cluster HBase. Pour 
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Provision details for the new HBase cluster"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Use Script Action to customize an HBase cluster.
 
+
 <!--HONumber=42-->

@@ -143,4 +143,5 @@ Pour plus d'informations sur les applications Windows universelles, consultez la
 [Résolution des problèmes du service principal .NET de Mobile Services]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
 
 
+
 <!--HONumber=42-->

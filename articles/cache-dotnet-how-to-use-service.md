@@ -428,6 +428,7 @@ Pour plus d'informations sur l'utilisation du fournisseur de caches de sortie d'
 [Création du cache]: #create-cache
 [Configuration du cache]: #enable-caching
 [Configuration des clients du cache]: #NuGet
+[Configuration des clients de cache]: #NuGet
 [Utilisation des caches]: #working-with-caches
 [Procédure : Création d'un objet DataCache]: #create-cache-object
 [Procédure : Ajout et récupération d'un objet dans le cache]: #add-object

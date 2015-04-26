@@ -298,4 +298,5 @@ Consultez la session [Envoi de tâches MapReduce](#mapreduce) dans cet article.
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
 
+
 <!--HONumber=42-->

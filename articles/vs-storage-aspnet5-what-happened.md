@@ -43,4 +43,5 @@ Dans le fichier config.json de votre projet, un élément a été créé avec la
 
 Pour plus d'informations, consultez la page [ASP.NET 5](http://www.asp.net/vnext).
 
+
 <!--HONumber=42-->

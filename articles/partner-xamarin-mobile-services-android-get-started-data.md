@@ -287,4 +287,5 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
 [Exemple de projet terminé]: http://go.microsoft.com/fwlink/p/?LinkId=331302
 
 
+
 <!--HONumber=42-->

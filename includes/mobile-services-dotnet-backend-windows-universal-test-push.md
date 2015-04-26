@@ -20,4 +20,6 @@
    	![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push5-wp8.png)
 
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

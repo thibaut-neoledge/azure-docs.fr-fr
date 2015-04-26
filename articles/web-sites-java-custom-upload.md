@@ -21,7 +21,7 @@
 Cette rubrique explique comment télécharger un site Web Java personnalisé dans Azure. Vous y trouverez des informations s'appliquant à tous les sites Web Java, ainsi que quelques exemples d'applications spécifiques.
 
 Notez qu'Azure permet de créer des sites Web Java en utilisant l'interface utilisateur de configuration du portail Azure, ainsi que la galerie d'applications Azure, comme indiqué dans la page [Prise en main d'Azure Web Sites et de Java
-](../web-sites-java-get-started). Ce didacticiel est consacré aux scénarios pour lesquels vous ne souhaitez pas utiliser l'interface utilisateur de configuration Azure ni la galerie d'applications Azure.  
+](web-sites-java-get-started.md). Ce didacticiel est consacré aux scénarios pour lesquels vous ne souhaitez pas utiliser l'interface utilisateur de configuration Azure ni la galerie d'applications Azure.  
 
 # Instructions de configuration
 
@@ -231,6 +231,7 @@ Il est intéressant de remarquer que la variable d'environnement JRE_HOME est sp
 Une fois ces changements effectués, redémarrez votre site Web exécutant Liferay puis ouvrez la page http://yoursite.  Le portail Liferay est disponible depuis la racine du site Web. 
 
 Pour plus d'informations sur Liferay, consultez la page [http://www.liferay.com](http://www.liferay.com).
+
 
 
 

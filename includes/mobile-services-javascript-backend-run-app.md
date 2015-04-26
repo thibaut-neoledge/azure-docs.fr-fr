@@ -20,4 +20,6 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
    Cela vous permet de parcourir les données insérées par l'application dans la table.
 
    ![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

@@ -59,4 +59,6 @@
 [Page Soumette une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

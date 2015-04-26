@@ -290,4 +290,5 @@ Dans cette section, vous allez tester les opérations Push et Pull pour synchron
 [Nuget - magasin SQLite]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
 
 
+
 <!--HONumber=42-->

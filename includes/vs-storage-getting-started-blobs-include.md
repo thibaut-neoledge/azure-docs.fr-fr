@@ -94,4 +94,5 @@ Pour supprimer un objet blob, tout d'abord obtenir une référence à l'objet bl
 [En savoir plus sur Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
 Voir aussi [Consultation des ressources de stockage avec l'Explorateur de serveurs](http://msdn.microsoft.com/library/azure/ff683677.aspx).
 
+
 <!--HONumber=42-->

@@ -23,7 +23,7 @@
 
 Ce didacticiel décrit la prise en main de l'exécution de Python sur Sites Web Azure.  Sites Web Azure fournit un hébergement gratuit limité ainsi qu'un déploiement rapide. Vous pouvez maintenant également utiliser Python !  À mesure que votre application croît, vous pouvez passer à un hébergement payant, et vous pouvez également intégrer l'application à tous les autres services Azure.
 
-Vous créerez une application à l'aide de l'infrastructure Web Flask (voir les autres versions de ce didacticiel pour [Django](../web-sites-python-create-deploy-django-app) et [Bottle](../web-sites-python-create-deploy-bottle-app)).  Vous créerez le site Web à partir de la galerie Azure, vous configurerez le déploiement Git et vous clonerez le référentiel localement.  Puis, vous exécuterez l'application localement, vous apporterez des modifications, et vous les validerez et les transmettrez par push vers Azure.  Ce didacticiel vous explique comment effectuer cette opération à partir de Windows ou Mac/Linux.
+Vous créerez une application à l'aide de l'infrastructure Web Flask (voir les autres versions de ce didacticiel pour [Django](web-sites-python-create-deploy-django-app.md) et [Bottle](web-sites-python-create-deploy-bottle-app.md)).  Vous créerez le site Web à partir de la galerie Azure, vous configurerez le déploiement Git et vous clonerez le référentiel localement.  Puis, vous exécuterez l'application localement, vous apporterez des modifications, et vous les validerez et les transmettrez par push vers Azure.  Ce didacticiel vous explique comment effectuer cette opération à partir de Windows ou Mac/Linux.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
@@ -424,6 +424,7 @@ Pour plus d'informations sur l'utilisation du stockage de tables Azure et MongoD
 <!--External Link references-->
 [Documentation de Python Tools pour Visual Studio]: http://pytools.codeplex.com/documentation 
 [Documentation de Flask]: http://flask.pocoo.org/ 
+
 
 
 <!--HONumber=42-->

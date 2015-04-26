@@ -1,3 +1,4 @@
 ﻿Données de ponctualité des vols passagers provenant de la collection de données TranStats du ministère des transports des États-Unis (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">À l'heure</a>).<p> </p>Le jeu de données couvre la période d'avril à octobre 2013. Avant son téléchargement dans Azure ML Studio, le jeu de données a été traité comme suit :<ul><li>Le jeu de données a été filtré afin de prendre uniquement en compte les 70 aéroports les plus fréquentés aux États-Unis.</li><li>Les vols annulés ont été considérés comme ayant été retardés de plus de 15 minutes.</li><li>Les vols déviés ont été supprimés.</li><li>Les colonnes suivantes ont été sélectionnées : Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Cancelled</li></ul.
 
+
 <!--HONumber=42-->

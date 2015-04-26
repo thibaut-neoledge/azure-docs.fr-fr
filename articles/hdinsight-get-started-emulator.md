@@ -495,4 +495,5 @@ Dans ce didacticiel, vous avez installé un émulateur HDInsight et exécuté ce
 [hadoop-commands-manual]: http://hadoop.apache.org/docs/r1.1.1/commands_manual.html
 
 [image-hdi-emulator-services]: ./media/hdinsight-get-started-emulator/HDI.Emulator.Services.png 
+
 <!--HONumber=42-->

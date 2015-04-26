@@ -103,4 +103,5 @@ Les applications peuvent fonctionner par-dessus HBase, en l'utilisant comme banq
 
 
 
+
 <!--HONumber=42-->

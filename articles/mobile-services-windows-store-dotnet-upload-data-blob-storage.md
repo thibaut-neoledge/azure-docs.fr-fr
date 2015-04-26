@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Utilisation de Mobile Services pour télécharger des images dans le stockage d'objets blob (Windows Store) | Mobile Services" 
 	description="Découvrez comment utiliser Mobile Services pour télécharger des images vers le stockage d'objets blob Azure et y accéder à partir de votre application Windows Store." 
 	services="mobile-services, storage" 
@@ -53,7 +53,7 @@ Avant de pouvoir utiliser une signature d'accès partagé en vue de télécharge
 
 Dans la prochaine étape, vous allez mettre à jour l'application de démarrage rapide pour capturer et télécharger des images.
 
-##<a name="update-scripts"></a>Mise à jour du script d'insertion inscrit dans le portail de gestion
+## <a name="update-scripts"></a>Mise à jour du script d'insertion inscrit dans le portail de gestion
 
 [AZURE.INCLUDE [mobile-services-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
 
@@ -100,10 +100,11 @@ Maintenant que vous avez intégré votre service mobile au service BLOB et que v
 [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-store-get-started
 
 [Portail de gestion Azure]: https://manage.windowsazure.com/
-[Création d'un compte de stockage]: /fr-fr/manage/services/storage/how-to-create-a-storage-account
+[Création d'un compte Storage]: /fr-fr/manage/services/storage/how-to-create-a-storage-account
 [Bibliothèque cliente d'Azure Storage pour les applications Windows Store]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
 [Guide de fonctionnement Mobile Services .NET]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library
 [Paramètres de l'application]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+
 
 
 <!--HONumber=42-->

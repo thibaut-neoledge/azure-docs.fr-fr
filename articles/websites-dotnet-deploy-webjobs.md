@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Déployer des tâches web à l'aide de Visual Studio" 
 	description="Découvrez comment déployer des tâches web Azure dans Azure App Service Web Apps à l'aide de Visual Studio." 
 	services="app-service\web" 
@@ -127,7 +127,7 @@ La boîte de dialogue **Ajouter une tâche web Azure** vous permet d'entrer le n
 
 ![Add Azure WebJob dialog](./media/websites-dotnet-deploy-webjobs/aaw2.png)
 
-The fields in this dialog correspond to fields on the **New Job** dialog of the Azure Management Portal. For more information, see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
+Les champs de cette boîte de dialogue correspondent à ceux de la boîte de dialogue **Nouvelle tâche** du portail de gestion Azure. Pour plus d’informations, consultez la page [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
 
 Dans le cas d'une tâche web planifiée (mais non pour les tâches web continues), Visual Studio crée une collection de tâches [Azure Scheduler](/services/scheduler/) s'il n'en existe encore aucune, puis crée une tâche dans cette collection :
 

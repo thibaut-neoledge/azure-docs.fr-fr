@@ -191,4 +191,5 @@ Dans le prochain didacticiel, [Contrôle d'accès basé sur les rôles avec Azur
 [Contrôle d'accès en fonction du rôle avec AAD dans Mobile Services]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/
 
 
+
 <!--HONumber=42-->

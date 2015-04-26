@@ -482,4 +482,5 @@ Pour suivre des didacticiels exécutant d'autres exemples et fournissant des ins
 [hdinsight-use-pig]: ../hdinsight-use-pig/
  
 
+
 <!--HONumber=42-->

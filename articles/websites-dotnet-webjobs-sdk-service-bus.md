@@ -156,4 +156,5 @@ Les sujets abordés dans cet article sont les suivants :
 Ce guide fournit des exemples de code qui montrent comment gérer des scénarios courants pour fonctionner avec Service Bus Azure. Pour plus d'informations sur l'utilisation d'Azure WebJobs et de SDK WebJobs, consultez [Azure WebJobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
 
 
+
 <!--HONumber=42-->

@@ -149,4 +149,5 @@ Sites Web Microsoft Azure offre une solution souple, rentable et réactive qui s
 Pour plus d'informations sur le service Sites Web Microsoft Azure, visitez [http://aka.ms/enterprisewebsites](http://aka.ms/enterprisewebsites). Vous pouvez vous inscrire pour un essai aujourd'hui sur [http://aka.ms/azuretrial](http://aka.ms/azuretrial) pour évaluer le service et découvrir les avantages qui en découlent pour votre entreprise.
 
 
+
 <!--HONumber=42-->

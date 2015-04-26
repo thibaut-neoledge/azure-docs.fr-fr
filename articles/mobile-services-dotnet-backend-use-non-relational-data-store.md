@@ -121,4 +121,5 @@ Notez que vous devez avoir déjà suivi le didacticiel [Prise en main de Mobile 
 [Présentation du service de table]: /fr-fr/documentation/articles/storage-dotnet-how-to-use-tables/#what-is
 [Page du module complémentaire MongoLab]: /fr-fr/gallery/store/mongolab/mongolab
 
+
 <!--HONumber=42-->

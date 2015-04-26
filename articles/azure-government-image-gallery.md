@@ -1,12 +1,8 @@
 <properties 
 	pageTitle="Bibliothèque d'images Azure Government" 
 	description="Cet article fournit une vue d'ensemble de la bibliothèque d'images Azure Government et des images incluses" 
-  	services="Azure-Government" 
-   	documentationCenter="" 
-   	authors="joharve2" 
-   	manager="chrisnie" 
-   	editor=""/>
-
+	services="" 
+	authors="John Harvey" 
 
 <tags 
 	ms.service="multiple" 

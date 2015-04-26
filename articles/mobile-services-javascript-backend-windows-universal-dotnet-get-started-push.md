@@ -102,4 +102,5 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Utilisation d'un client .NET pour Azure Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
 
 
+
 <!--HONumber=42-->

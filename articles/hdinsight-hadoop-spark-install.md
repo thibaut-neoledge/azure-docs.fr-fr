@@ -372,8 +372,8 @@ Entrez un nom de cluster, puis appuyez sur Entrée pour approvisionner un cluste
 
 ## Voir aussi##
 - [Installation de R sur des clusters HDInsight][ pour obtenir des instructions sur la personnalisation des clusters pour installer et utiliser R sur des clusters HDInsight Hadoop. R est un environnement de calcul statistique open source. Il intègre des centaines de fonctions statistiques et possède son propre langage de programmation qui regroupe des aspects de la programmation fonctionnelle et de la programmation orientée objet. Il offre également des fonctionnalités graphiques étendues.
-- [Installation de Giraph sur des clusters HDInsight](../hdinsight-hadoop-giraph-install). Utilisez la personnalisation de clusters pour installer Giraph sur des clusters HDInsight Hadoop. Giraph permet de traiter des graphiques avec Hadoop et peut être utilisé avec Azure HDInsight.
-- [Installation de Solr sur des clusters HDInsight](../hdinsight-hadoop-solr-install). Utilisez la personnalisation de clusters pour installer Solr sur des clusters HDInsight Hadoop. Solr vous permet d'effectuer de puissantes opérations de recherche sur des données stockées.
+- [Installation de Giraph sur des clusters HDInsight](hdinsight-hadoop-giraph-install.md). Utilisez la personnalisation de clusters pour installer Giraph sur des clusters HDInsight Hadoop. Giraph permet de traiter des graphiques avec Hadoop et peut être utilisé avec Azure HDInsight.
+- [Installation de Solr sur des clusters HDInsight](hdinsight-hadoop-solr-install.md). Utilisez la personnalisation de clusters pour installer Solr sur des clusters HDInsight Hadoop. Solr vous permet d'effectuer de puissantes opérations de recherche sur des données stockées.
 
 
 
@@ -383,5 +383,6 @@ Entrez un nom de cluster, puis appuyez sur Entrée pour approvisionner un cluste
 [hdinsight-install-r]: ../hdinsight-hadoop-r-scripts/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [powershell-install-configure]: ../install-configure-powershell.
+
 
 <!--HONumber=42-->

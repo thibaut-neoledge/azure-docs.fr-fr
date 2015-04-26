@@ -255,4 +255,5 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Guide de fonctionnement de Mobile Services avec Objective-C]: /fr-fr/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 
 
+
 <!--HONumber=42-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Modèles de ressource et concepts DocumentDB | Azure" 
 	description="Microsoft Azure DocumentDB est une base de données de documents NoSQL entièrement gérée qui utilise un modèle hiérarchique de comptes de base de données, bases de données, collections, procédures stockées, déclencheurs, fonctions définies par l'utilisateur, documents, pièces jointes, supports, utilisateurs et autorisations pour gérer les ressources."  
 	services="documentdb" 
@@ -351,7 +351,7 @@ L'exécution d'une procédure stockée s'effectue grâce à l'émission d'une in
 	    });
 
 ###Unregistering a stored procedure
-Un-registering a stored procedure is simply done by issuing an HTTP DELETE against an existing stored procedure resource.   
+L'annulation de l'enregistrement d'une procédure stockée s'effectue simplement grâce à l'émission d'une instruction HTTP DELETE sur une ressource de procédure stockée existante.   
 
 	client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
 	    .then(function (response) {

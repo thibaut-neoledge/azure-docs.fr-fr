@@ -787,8 +787,8 @@ Le tableau suivant compare les fonctionnalités prises en charge par Azure Diagn
 [Débogage d'une application Azure]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
 [Collecte des données de journalisation avec Azure Diagnostics]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Meilleures pratiques de dépannage pour développer des applications Azure]: http://msdn.microsoft.com/library/windowsazure/hh771389.aspx
-[évaluation gratuite]: http://azure.microsoft.com/pricing/free-trial/
-[installé et configuré Azure PowerShell version 0.8.7 ou ultérieure]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[évaluation gratuite]: http://azure.microsoft.com/ pricing/free-trial/
+[installé et configuré Azure PowerShell version 0.8.7 ou ultérieure]: http://azure.microsoft.com/ documentation/articles/install-configure-powershell/
 [Schéma de configuration Azure Diagnostics 1.2]: http://msdn.microsoft.com/library/azure/dn782207.aspx
 [Définir AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495270.aspx
 [Obtenir AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495145.aspx

@@ -621,4 +621,5 @@ Maintenant que vous connaissez les grandes lignes, la prochaine étape est de cr
 
 [Poster Azure Media Services]: http://azure.microsoft.com/documentation/infographics/media-services/
 
+
 <!--HONumber=42-->

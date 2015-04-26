@@ -97,4 +97,5 @@ Pour plus d'informations sur les applications Windows universelles, consultez la
 [Portail de gestion]: https://manage.windowsazure.com/
 
 
+
 <!--HONumber=42-->

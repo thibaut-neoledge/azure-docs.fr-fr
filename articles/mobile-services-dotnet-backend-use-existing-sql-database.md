@@ -623,4 +623,5 @@ Veuillez noter que les deux implémentations de contrôleur exercent une utilisa
 
 Vous pouvez ensuite créer l'application cliente pour accéder au service. 
 
+
 <!--HONumber=42-->

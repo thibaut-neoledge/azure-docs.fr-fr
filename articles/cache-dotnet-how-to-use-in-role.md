@@ -368,6 +368,7 @@ Maintenant que vous avez appris les bases de In-Role Cache, suivez ces liens pou
 [Configuration du cluster de cache]: #enable-caching
 [Configuration de la taille de cache souhaitée]: #cache-size
 [Configuration des clients du cache]: #NuGet
+[Configuration des clients de cache]: #NuGet
 
 [Utilisation des caches]: #working-with-caches
 [Procédure : Création d'un objet DataCache]: #create-cache-object
@@ -404,6 +405,7 @@ Maintenant que vous avez appris les bases de In-Role Cache, suivez ces liens pou
 [Directive OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
 [Vue d'ensemble d'In-Role Cache]: http://go.microsoft.com/fwlink/?LinkId=254172
 [Fournisseur d'état de session pour In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
+[Fournisseur de l'état de session pour In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
 [Blog de l'équipe]: http://blogs.msdn.com/b/windowsazure/
 [Résolution des problèmes et diagnostic pour In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
 [Cache Azure AppFabric : mise en cache de l'état de session]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20

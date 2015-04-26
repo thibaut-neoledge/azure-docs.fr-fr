@@ -93,4 +93,5 @@ Supprimez une ligne d'une table de données à l'aide de la méthode **del**. Ap
 
 [En savoir plus sur les services mobiles](http://azure.microsoft.com/documentation/services/mobile-services/)
 
+
 <!--HONumber=42-->

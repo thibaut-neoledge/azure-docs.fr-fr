@@ -134,4 +134,5 @@ Pour plus d'informations sur les applications Windows universelles, consultez la
 [Prise en main des données dans Mobile Services avec Visual Studio 2012]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
 
 
+
 <!--HONumber=42-->

@@ -18,4 +18,6 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
   >[AZURE.NOTE]Dans le fichier TodoService.m, vous pouvez vérifier le code qui permet d'accéder à votre service mobile pour exécuter une requête et insérer des données.</p> 
  	</div>
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

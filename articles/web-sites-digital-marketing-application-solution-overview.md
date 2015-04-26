@@ -141,4 +141,5 @@ Dans le plan d'hébergement **Standard**, vous pourrez surveiller la réactivit�
   [gitstaging]:http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites  
 
 
+
 <!--HONumber=42-->

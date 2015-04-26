@@ -375,6 +375,7 @@ Maintenant que vous avez appris les bases du Cache Redis Azure, suivez ces liens
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
 [Documentation du client du cache StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
+[documentation du client de cache StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
 
 [Redis]: http://redis.io/documentation
 [Types de données Redis]: http://redis.io/topics/data-types

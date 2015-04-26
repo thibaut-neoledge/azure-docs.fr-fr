@@ -141,4 +141,5 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 [Xamarin pour Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 
 
+
 <!--HONumber=42-->

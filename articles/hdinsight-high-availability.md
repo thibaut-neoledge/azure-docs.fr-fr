@@ -84,4 +84,5 @@ Pour le Kit de développement logiciel (SDK), l'histoire est similaire. La créa
 
 
 
+
 <!--HONumber=42-->

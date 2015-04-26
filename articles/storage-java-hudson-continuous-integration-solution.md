@@ -186,4 +186,6 @@ La section suivante présente les composants du service BLOB.
   [ms-open-tech]: http://msopentech.com
 
 
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

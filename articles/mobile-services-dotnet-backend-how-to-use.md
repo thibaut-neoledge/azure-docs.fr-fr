@@ -34,4 +34,5 @@ Le service principal .NET de Mobile Services fournit une abstraction de " table 
 
 À la racine de ce modèle de programmation se trouve la classe [**TableController<T>**](http://msdn.microsoft.com/library/dn643359.aspx), qui est simplement une classe [**ApiController**](http://msdn.microsoft.com/library/system.web.http.apicontroller.aspx) d'API web ordinaire personnalisée pour un modèle d'accès aux données CRUD. Le **TableController** peut utiliser différents magasins de données, y compris SQL (via [Entity Framework](http://msdn.microsoft.com/data/ef.aspx)), [Azure Table Storage](http://azure.microsoft.com/documentation/services/storage/), [MongoDB](http://www.mongodb.org) ou votre propre magasin personnalisé.
 
+
 <!--HONumber=42-->

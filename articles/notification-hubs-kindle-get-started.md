@@ -1,27 +1,31 @@
-<properties 
+﻿<properties 
 	pageTitle="Prise en main d'Azure Notification Hubs" 
 	description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="piyushjo" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-kindle" 
 	ms.devlang="Java" 
 	ms.topic="hero-article" 
-	ms.date="09/24/2014" 
-	ms.author="piyushjo"/>
+	ms.date="03/16/2015" 
+	ms.author="wesmc"/>
 
 # Prise en main de Notification Hubs
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/fr-fr/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/fr-fr/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/fr-fr/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/fr-fr/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/fr-fr/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle" class="current">Kindle</a><a href="/fr-fr/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/fr-fr/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/fr-fr/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
+[AZURE.INCLUDE [notification-hubs-selector-get-started](../includes/notification-hubs-selector-get-started.md)]
+
+##Vue d'ensemble
 
 Cette rubrique montre comment utiliser Azure Notification Hubs pour envoyer des notifications Push vers une application Kindle. 
 Dans ce didacticiel, vous allez créer une application Kindle vierge qui reçoit des notifications Push à l'aide d'Amazon Device Messaging (ADM).
+
+##Conditions préalables
 
 Ce didacticiel requiert les éléments suivants :
 
@@ -42,11 +46,11 @@ Ce didacticiel requiert les éléments suivants :
 
 	![][2]
 
-4. Cliquez sur **Create a New Security Profile**, puis créez un nouveau profil de sécurité (par exemple, le **profil de sécurité TestAdm**). Cliquez ensuite sur **Enregistrer**.
+4. Cliquez sur **Create a New Security Profile**, puis créez un profil de sécurité (par exemple, le **profil de sécurité TestAdm**). Cliquez ensuite sur **Enregistrer**.
 
 	![][3]
 
-5. Cliquez sur " Profils de sécurité " pour afficher le profil de sécurité que vous venez de créer. Copiez les valeurs **ID client** et **Clé secrète client** pour une utilisation ultérieure.
+5. Cliquez sur " Profils de sécurité " pour afficher le profil de sécurité que vous venez de créer. Copiez les valeurs **Client ID** et **Client Secret** pour une utilisation ultérieure.
 
 	![][4]
 
@@ -63,11 +67,11 @@ Ce didacticiel requiert les éléments suivants :
 4.  Pour le mot de passe **keystore**, tapez **android**.
 
 5.  Copiez l'empreinte digitale **MD5**.
-6.  De retour dans le portail des développeurs, dans l'onglet **Messagerie**, cliquez sur **Android/Kindle** et entrez le nom du package correspondant à votre application (par exemple, **com.sample.notificationhubtest**) ainsi que la valeur **MD5**, puis cliquez sur **Générer une clé API**.
+6.  De retour dans le portail des développeurs, dans l'onglet **Messaging**, cliquez sur **Android/Kindle** et entrez le nom du package correspondant à votre application (par exemple, **com.sample.notificationhubtest**) ainsi que la valeur **MD5**, puis cliquez sur **Generate API Key**.
 
 ## Ajout d'informations d'identification à Hub
 
-Dans le portail, ajoutez la clé secrète client et l'ID client à l'onglet **Configurer** de votre Notification Hub.
+Dans le portail, ajoutez la clé secrète client et l'ID client à l'onglet **Configurer** de votre concentrateur de notification.
 
 ## Configuration de votre application
 
@@ -76,7 +80,7 @@ Dans le portail, ajoutez la clé secrète client et l'ID client à l'onglet **Co
 Ajoutez les bibliothèques ADM à votre projet Eclipse
 
 1. Pour obtenir la bibliothèque ADM, [téléchargez le Kit de développement logiciel (SDK)]. Extrayez le fichier zip du Kit de développement logiciel (SDK).
-2. Dans Eclipse, cliquez avec le bouton droit sur votre projet, puis cliquez sur **Propriétés**. Sélectionnez **Java Build Path** sur la gauche, puis sélectionnez l'onglet **Bibliothèques** en haut. Cliquez sur **Add External Jar** et sélectionnez le fichier `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` dans le répertoire dans lequel vous avez extrait le Kit de développement logiciel (SDK) Amazon.
+2. Dans Eclipse, cliquez avec le bouton droit sur votre projet, puis cliquez sur **Propriétés**. Sélectionnez **Java Build Path** sur la gauche, puis sélectionnez l'onglet **Libraries **en haut de la page. Cliquez sur **Add External Jar** et sélectionnez le fichier `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` dans le répertoire utilisé pour extraire le Kit de développement logiciel (SDK) Amazon.
 3. Téléchargez le Kit de développement logiciel (SDK) Android Notification Hubs (lien).
 4. Décompressez le package, puis faites glisser le fichier `notification-hubs-sdk.jar` dans le dossier `libs `dans Eclipse.
 
@@ -267,7 +271,7 @@ Pour envoyer un message à l'aide de .NET :
 
 <!-- URLs. -->
 [portail des développeurs]: https://developer.amazon.com/home.html
-[téléchargez le Kit de développement logiciel (SDK)]: https://developer.amazon.com/public/resources/development-tools/sdk
+[télécharger le Kit de développement logiciel (SDK)]: https://developer.amazon.com/public/resources/development-tools/sdk
 
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
 [1]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal2.png
@@ -278,4 +282,4 @@ Pour envoyer un message à l'aide de .NET :
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

@@ -69,4 +69,5 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
 [Guide de fonctionnement Mobile Services .NET]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library
 
 
+
 <!--HONumber=42-->

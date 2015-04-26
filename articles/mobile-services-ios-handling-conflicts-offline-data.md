@@ -472,4 +472,5 @@ Au cours du processus, vous avez ajouté une classe d'assistance **QSUIAlertView
 [Prise en main des données]: /fr-fr/documentation/articles/mobile-services-ios-get-started-data/
 
 
+
 <!--HONumber=42-->
