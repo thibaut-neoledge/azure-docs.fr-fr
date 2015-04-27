@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Création et téléchargement d'un disque dur virtuel Linux CentOS dans Azure" 
 	description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant le système d'exploitation Linux CentOS." 
 	services="virtual-machines" 
@@ -21,7 +21,7 @@
 - [Préparation d'une machine virtuelle CentOS 6.x pour Azure](#centos6)
 - [Préparation d'une machine virtuelle CentOS 7.0+ pour Azure](#centos7)
 
-##Configuration requise##
+## Configuration requise##
 
 Cet article suppose que vous avez déjà installé un système d'exploitation CentOS (ou une distribution dérivée similaire) de Linux dans un disque dur virtuel. Il existe de nombreux outils de création de fichiers .vhd, par exemple une solution de virtualisation telle que Hyper-V. Pour obtenir des instructions à ce sujet, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx). 
 
@@ -51,7 +51,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation Ce
 
 	**Remarque :** si le package n'est pas déjà installé, la commande échoue et un message d'erreur s'affiche. C'est tout à fait normal.
 
-4.	Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le texte suivant :
+4.	Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le code suivant :
 
 		NETWORKING=yes
 		HOSTNAME=localhost.localdomain
@@ -80,7 +80,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation Ce
 
 8. **CentOS 6.3 uniquement** : installez les pilotes pour les services d'intégration Linux
 
-	**Important : cette opération s'applique uniquement à CentOS 6.3 et aux versions antérieures.**  Sous CentOS 6.4+, les services d'intégration Linux sont *déjà disponibles dans le noyau*.
+	**Important : cette opération s'applique uniquement à CentOS 6.3 et aux versions antérieures**.  Sous CentOS 6.4+, les services d'intégration Linux sont *already available in the kernel*.
 
 	a) Récupérez le fichier .iso qui contient les pilotes des services d'intégration Linux sur le [Centre de téléchargement Microsoft](http://www.microsoft.com/fr-fr/download/details.aspx?id=41554).
 
@@ -165,7 +165,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation Ce
 
 		exclude=kernel*
 
-12. Désactivez le module yum " fastestmirror " en modifiant le fichier " /etc/yum/pluginconf.d/fastestmirror.conf ". Sous `[main]` entrez le texte suivant :
+12. Désactivez le module yum " fastestmirror " en modifiant le fichier " /etc/yum/pluginconf.d/fastestmirror.conf ". Sous `[main]`, entrez le texte suivant :
 
 		set enabled=0
 
@@ -183,13 +183,13 @@ Cet article suppose que vous avez déjà installé un système d'exploitation Ce
 
 	Ce permet également d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d'Azure. Cela désactive NUMA en raison d'une erreur dans la version de noyau utilisée par CentOS 6.
 
-	Outre les précautions ci-dessus, il est recommandé de *supprimer* les paramètres suivants :
+	Outre les précautions ci-dessus, il est recommandé de *remove* les paramètres suivants :
 
 		rhgb quiet crashkernel=auto
 
 	Le démarrage graphique et transparent n'est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série.
 
-	L'option  `crashkernel` peut rester configurée le cas échéant, mais notez que ce paramètre réduit d'au moins 128 Mo la mémoire disponible dans la machine virtuelle, ce qui peut poser un problème sur les petites machines virtuelles.
+	L'option `crashkernel` peut rester configurée le cas échéant, mais notez que ce paramètre réduit d'au moins 128 Mo la mémoire disponible dans la machine virtuelle, ce qui peut poser un problème sur les petites machines virtuelles.
 
 
 16.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu.  C'est généralement le cas par défaut.
@@ -202,7 +202,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation Ce
 
 18.	Ne créez pas d'espace swap sur le disque du système d'exploitation.
 
-	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
+	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources est un disque *temporary* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -239,7 +239,7 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similaire 
 
 2. Cliquez sur **Connecter** pour ouvrir une fenêtre de console de la machine virtuelle.
 
-3.	Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le texte suivant :
+3.	Créez un fichier nommé **network** dans le répertoire `/etc/sysconfig/` et entrez-y le code suivant :
 
 		NETWORKING=yes
 		HOSTNAME=localhost.localdomain
@@ -321,17 +321,17 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similaire 
 		# sudo yum clean all
 		# sudo yum -y update
 
-10.	Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier " /etc/default/grub " dans un éditeur de texte et modifiez le paramètre  `GRUB_CMDLINE_LINUX`, par exemple :
+10.	Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier " /etc/default/grub " dans un éditeur de texte et modifiez le paramètre `GRUB_CMDLINE_LINUX`, par exemple :
 
 		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
-	Ce permet également d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d'Azure. Outre les précautions ci-dessus, il est recommandé de *supprimer* les paramètres suivants :
+	Ce permet également d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d'Azure. Outre les précautions ci-dessus, il est recommandé de *remove* les paramètres suivants :
 
 		rhgb quiet crashkernel=auto
 
 	Le démarrage graphique et transparent n'est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série.
 
-	L'option  `crashkernel` peut rester configurée le cas échéant, mais notez que ce paramètre réduit d'au moins 128 Mo la mémoire disponible dans la machine virtuelle, ce qui peut poser un problème sur les petites machines virtuelles.
+	L'option `crashkernel` peut rester configurée le cas échéant, mais notez que ce paramètre réduit d'au moins 128 Mo la mémoire disponible dans la machine virtuelle, ce qui peut poser un problème sur les petites machines virtuelles.
 
 11. Lorsque vous avez fini de modifier le fichier " /etc/default/grub ", exécutez la commande suivante pour régénérer la configuration grub :
 
@@ -345,7 +345,7 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similaire 
 
 14.	Ne créez pas d'espace swap sur le disque du système d'exploitation.
 
-	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
+	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources est un disque *temporary* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -363,6 +363,4 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similaire 
 
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 
