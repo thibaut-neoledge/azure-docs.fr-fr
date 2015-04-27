@@ -61,7 +61,7 @@ Des projets Visual Studio avec code source C\# sont disponibles pour cette rubri
 -   [Téléchargement du projet de départ][StarterProject]
 -   [Téléchargement du projet terminé][CompletedProject]
 
-##<a name="bkmk_DeployStarterProject"></a>Déployer le projet de départ dans une application web Azure
+## <a name="bkmk_DeployStarterProject"></a>Déployer le projet de départ dans une application web Azure
 
 1.	Téléchargez le [projet de départ][StarterProject] de l'application de listes de conférence.
 
@@ -108,8 +108,8 @@ Des projets Visual Studio avec code source C\# sont disponibles pour cette rubri
 	Une fois que Visual Studio a terminé de publier le projet de démarrage dans l'application web Azure, le navigateur de bureau s'ouvre et affiche l'application web en ligne.
 
 14.	Lancez l'émulateur de navigateur mobile, copiez l'URL de l'application de conférence (*<préfixe>*.azurewebsites.net) dans l'émulateur, puis cliquez sur le bouton supérieur droit et sélectionnez **Parcourir par balise**. Si vous utilisez Internet
-Explorer 11 comme navigateur par défaut, il vous suffit d'appuyer sur F12, puis sur
-Ctrl+8, et de redéfinir le profil de navigateur sur **Windows Phone**. L'image ci-après illustre la vue *AllTags* en mode Portrait (après la sélection de l'option
+Explorer 11 comme navigateur par défaut, il vous suffit d'appuyer sur `F12`, puis sur
+`Ctrl+8`, et de redéfinir le profil de navigateur sur **Windows Phone**. L'image ci-après illustre la vue *AllTags* en mode Portrait (après la sélection de l'option
 **Parcourir par balise**).
 
 	![][AllTags]
@@ -123,7 +123,7 @@ Cliquez sur le lien **ASP.NET**.
 
 La vue avec balises ASP.NET s'adapte à l'écran, ce que Bootstrap effectue pour vous automatiquement. Toutefois, vous pouvez optimiser cette vue afin de mieux l'adapter au navigateur mobile. Par exemple, la colonne **Date** n'est pas très lisible. Dans la suite de ce didacticiel, vous modifierez la vue *AllTags* pour l'adapter aux appareils mobiles.
 
-##<a name="bkmk_bootstrap"></a> Infrastructure CSS Bootstrap
+## <a name="bkmk_bootstrap"></a> Infrastructure CSS Bootstrap
 
 La prise en charge de Bootstrap intégrée est une nouveauté du modèle MVC 5. Vous avez déjà constaté dans quelle mesure cette prise en charge améliore les différentes vues de votre application. Par exemple, la barre de navigateur dans la partie supérieure se réduit automatiquement lorsque la largeur du navigateur est inférieure. Dans le navigateur de bureau,essayez de redimensionner la fenêtre du navigateur et observez le comportement de la barre de navigation. Il s'agit de la conception de sites web réactive intégrée à
 Bootstrap.
@@ -140,7 +140,7 @@ Pour voir l'aspect de l'application web sans Bootstrap, ouvrez
               //"~/Content/bootstrap.css",
               "~/Content/site.css"));
 
-Appuyez sur Ctrl+F5 pour exécuter l'application.
+Appuyez sur `Ctrl+F5` pour exécuter l'application.
 
 La barre de navigation réductible a maintenant la forme d'une simple liste non triée classique. Cliquez de nouveau sur **Parcourir par balise**, puis cliquez sur **ASP.NET**.
 Dans la vue de l'émulateur mobile, vous voyez maintenant qu'elle n'est plus adaptée à l'écran, et vous devez faire défiler la page horizontalement afin de voir le côté droit du tableau.
@@ -157,7 +157,7 @@ Pour plus d'informations sur Bootstrap, accédez au site
 
 La section suivante vous indique comment proposer des vues spécialement adaptées aux navigateurs mobiles.
 
-##<a name="bkmk_overrideviews"></a> Remplacer des vues, des dispositions et des vues partielles
+## <a name="bkmk_overrideviews"></a> Remplacer des vues, des dispositions et des vues partielles
 
 Vous pouvez remplacer toutes les vues (y compris les dispositions et les vues partielles) des navigateurs mobiles en général, mais aussi d'un navigateur mobile particulier ou encore d'un navigateur spécifique. Pour fournir une vue adaptée aux appareils mobiles, vous pouvez copier un fichier de vue et ajouter *.Mobile* au nom du fichier. Par exemple, pour créer une vue
 *Index* mobile, vous pouvez copier *Views\\Home\\Index.cshtml* dans
@@ -169,7 +169,7 @@ Pour commencer, copiez *Views\\Shared\\\_Layout.cshtml* dans
 *Views\\Shared\\\_Layout.Mobile.cshtml*. Ouvrez *\_Layout.Mobile.cshtml*, puis remplacez le titre **MVC5 Application** par **MVC5 Application (Mobile)**.
 
 Dans chaque appel `Html.ActionLink` pour la barre de navigation, supprimez " Parcourir par " de chaque lien
-*ActionLink*. Le code ci-après présente la balise " <ul class="nav navbar-nav"> " complétée du fichier de disposition mobile.
+*ActionLink*. Le code ci-après présente la balise `<ul class="nav navbar-nav">` complétée du fichier de disposition mobile.
 
     <ul class="nav navbar-nav">
         <li>@Html.ActionLink("Home", "Index", "Home")</li>
@@ -180,7 +180,7 @@ Dans chaque appel `Html.ActionLink` pour la barre de navigation, supprimez " Par
 
 Copiez le fichier *Views\\Home\\AllTags.cshtml* dans
 *Views\\Home\\AllTags.Mobile.cshtml*. Ouvrez le nouveau fichier et remplacez l'élément
-`<h2>" Tags " par " Tags (M) " :
+`<h2>` "Tags" par "Tags (M)" :
 
     <h2>Tags (M)</h2>
 
@@ -194,12 +194,12 @@ En revanche, l'affichage de bureau n'a pas changé (avec les titres de *\_Layout
 
 ![][AllTagsMobile_LayoutMobileDesktop]
 
-##<a name="bkmk_browserviews"></a> Créer des vues spécifiques du navigateur
+## <a name="bkmk_browserviews"></a> Créer des vues spécifiques du navigateur
 
 Outre les vues mobiles et de bureau, vous pouvez créer des vues pour un navigateur en particulier. Par exemple, vous pouvez créer des vues spécialement adaptées aux navigateurs de l'iPhone et d'Android. Dans cette section,vous allez créer une disposition pour le navigateur de l'iPhone et une version pour iPhone de la vue *AllTags*.
 
 Ouvrez le fichier *Global.asax*, puis ajoutez le code ci-après au bas de la méthode
-" Application_Start ".
+`Application_Start`.
 
     DisplayModeProvider.Instance.Modes.Insert(0, new DefaultDisplayMode("iPhone")
     {
@@ -208,29 +208,29 @@ Ouvrez le fichier *Global.asax*, puis ajoutez le code ci-après au bas de la mé
     });
 
 Ce code définit un nouveau mode d'affichage appelé " iPhone ", qui répondra à chaque demande entrante. Si la demande entrante correspond à la condition que vous avez définie (en d'autres termes, si l'agent utilisateur contient la chaîne
-" iPhone "), ASP.NET MVC cherchera les vues dont le nom contient le suffixe
-" iPhone ".
+"iPhone"), ASP.NET MVC cherchera les vues dont le nom contient le suffixe
+"iPhone".
 
->[AZURE.NOTE] Lors de l'ajout de modes d'affichage de navigateur mobile, pour iPhone et Android par exemple, prenez soin de définir le premier argument sur " 0 " (insérez-le en haut de la liste) pour que le mode propre au navigateur soit prioritaire sur le modèle mobile (*.Mobile.cshtml). Si le modèle mobile est en haut de la liste, il est sélectionné à la place du mode d'affichage souhaité (le premier résultat est prioritaire et le modèle mobile correspond à tous les navigateurs mobiles). 
+>[AZURE.NOTE] Lors de l'ajout de modes d'affichage de navigateur mobile, pour iPhone et Android par exemple, prenez soin de définir le premier argument sur `0` (insérez-le en haut de la liste) pour que le mode propre au navigateur soit prioritaire sur le modèle mobile (*.Mobile.cshtml). Si le modèle mobile est en haut de la liste, il est sélectionné à la place du mode d'affichage souhaité (le premier résultat est prioritaire et le modèle mobile correspond à tous les navigateurs mobiles). 
 
 Dans le code, cliquez avec le bouton droit sur `DefaultDisplayMode`, choisissez **Résoudre**, puis choisissez `using System.Web.WebPages;`. This adds a reference to the
 espace de noms `System.Web.WebPages`, qui constitue l'emplacement où
-les types " DisplayModeProvider " et  `DefaultDisplayMode` sont définis.
+les types `DisplayModeProvider` et  `DefaultDisplayMode` sont définis.
 
 ![][ResolveDefaultDisplayMode]
 
 Vous pouvez également ajouter simplement manuellement la ligne suivante à la
-section " using " du fichier.
+section `using` du fichier.
 
     using System.Web.WebPages;
 
 Enregistrez les modifications. Copiez le fichier
 *Views\\Shared\\\_Layout.Mobile.cshtml* dans
 *Views\\Shared\\\_Layout.iPhone.cshtml*. Ouvrez le nouveau fichier, puis remplacez le titre `MVC5 Application (Mobile)` par
-" MVC5 Application (iPhone) ".
+`MVC5 Application (iPhone)`.
 
 Copiez le fichier *Views\\Home\\AllTags.Mobile.cshtml* dans
-*Views\\Home\\AllTags.iPhone.cshtml*. Dans le nouveau fichier, remplacez l'élément web-sites-dotnet-deploy-aspnet-mvc-mobile-app" Tags (M) " par " Tags (iPhone) ".
+*Views\\Home\\AllTags.iPhone.cshtml*. Dans le nouveau fichier, remplacez l'élément `<h2>` "Tags (M)" par "Tags (iPhone)".
 
 Exécutez l'application. Lancez un émulateur de navigateur mobile, vérifiez que son agent utilisateur est défini sur " iPhone ", puis accédez à la vue *AllTags*. Si vous utilisez l'émulateur dans les outils de développement F12 d'Internet Explorer 11,configurez l'émulation comme suit :
 
@@ -247,20 +247,21 @@ Dans le navigateur mobile, sélectionnez le lien **Speakers**. En l'absence d'af
 ![][AllSpeakers_LayoutMobile]
 
 Vous pouvez désactiver globalement le rendu d'une vue par défaut (non mobile) dans une disposition mobile en définissant `RequireConsistentDisplayMode` sur la valeur
-" true " dans le fichier *Views\\\_ViewStart.cshtml*, comme suit :
+`true` dans le fichier *Views\\\_ViewStart.cshtml*, comme suit :
 
     @{
         Layout = "~/Views/Shared/_Layout.cshtml";
         DisplayModeProvider.Instance.RequireConsistentDisplayMode = true;
     }
 
-Lorsque `RequireConsistentDisplayMode` est défini sur  `true`, la disposition mobile (*\_Layout.Mobile.cshtml*) est uniquement utilisée pour les vues mobiles (autrement dit, lorsque le fichier de vue se présente sous la forme ***NomVue**.Mobile.cshtml*). Vous pouvez définir `RequireConsistentDisplayMode` sur `true` si votre disposition mobile ne fonctionne pas correctement avec les vues non mobiles. La capture d'écran ci-après illustre le rendu de la page *Speakers* lorsque `RequireConsistentDisplayMode` est défini sur `true` (sans la chaîne " (Mobile) " dans la barre de navigation dans la partie supérieure).
+Lorsque `RequireConsistentDisplayMode` est défini sur  `true`, la disposition mobile (*\_Layout.Mobile.cshtml*) est uniquement utilisée pour les vues mobiles (autrement dit, lorsque le fichier de vue se présente sous la forme ***NomVue**.Mobile.cshtml*). Vous pouvez définir `RequireConsistentDisplayMode` sur `true` si votre disposition
+mobile ne fonctionne pas correctement avec les vues non mobiles. La capture d'écran ci-après illustre le rendu de la page *Speakers* lorsque `RequireConsistentDisplayMode` est défini sur `true` (sans la chaîne "(Mobile)" dans la barre de navigation dans la partie supérieure).
 
 ![][AllSpeakers_LayoutMobileOverridden]
 
 Vous pouvez désactiver le mode d'affichage cohérent dans une vue spécifique en définissant
-" RequireConsistentDisplayMode " sur `false` dans le fichier de vue. Le balisage ci-après dans le fichier *Views\\Home\\AllSpeakers.cshtml* définit
-" RequireConsistentDisplayMode " sur  `false` :
+`RequireConsistentDisplayMode` sur `false` dans le fichier de vue. Le balisage ci-après dans le fichier *Views\\Home\\AllSpeakers.cshtml* définit
+`RequireConsistentDisplayMode` sur  `false` :
 
     @model IEnumerable<string>
 
@@ -272,7 +273,7 @@ Vous pouvez désactiver le mode d'affichage cohérent dans une vue spécifique e
 Dans cette section, nous avons vu comment créer des dispositions mobiles et des vues, ainsi que des dispositions et des vues pour des appareils spécifiques tels que l'iPhone.
 Toutefois, le principal avantage de l'infrastructure d'amorçage (Bootstrap) CSS est la disposition réactive, ce qui signifie qu'une seule feuille de style peut être appliquée sur les navigateurs de bureau, de téléphone et de tablette pour créer une apparence cohérente. La section suivante vous indique comment tirer parti de Bootstrap pour créer des vues adaptées aux appareils mobiles.
 
-##<a name="bkmk_Improvespeakerslist"></a> Améliorer la liste des intervenants
+## <a name="bkmk_Improvespeakerslist"></a> Améliorer la liste des intervenants
 
 Comme vous venez de le voir, la vue *Speakers* est lisible, mais les liens apparaissent en petits caractères et sont difficilement sélectionnables sur un appareil mobile. Dans cette section, vous allez adapter la vue *AllSpeakers* aux appareils mobiles en affichant des liens dans une police plus grande, faciles à sélectionner et contenant une zone de recherche permettant de trouver rapidement des intervenants.
 
@@ -330,7 +331,7 @@ Certes, l'affichage du navigateur mobile a été amélioré, mais il est tout de
         }
     </div>
 
-Notez que les styles Bootstrap sont appliqués aux deux balises <form> et <input>. L'élément " <span> " ajoute une
+Notez que les styles Bootstrap sont appliqués aux deux balises `<form>` et `<input>`. L'élément `<span>` ajoute une
 [icône][] Bootstrap à la zone de recherche.
 
 Dans le dossier *Scripts*, ajoutez un fichier JavaScript nommé *filter.js*. Ouvrez le fichier et collez-y le code suivant :
@@ -375,7 +376,7 @@ Actualisez le navigateur mobile, puis accédez à la vue *AllSpeakers*. Dans la 
 
 ![][AllSpeakersFixedSearchBySC]
 
-##<a name="bkmk_improvetags"></a> Améliorer la liste des balises
+## <a name="bkmk_improvetags"></a> Améliorer la liste des balises
 
 À l'instar de la vue *Speakers*, la vue *Tags* est lisible, mais les liens s'affichent en petits caractères et sont difficilement sélectionnables sur un appareil mobile. Vous pouvez corriger la vue *Tags* de la même façon que la vue *Speakers*, mais si vous utilisez les modifications de code décrites précédemment, vous devez appliquer la syntaxe suivante de la méthode `Html.ActionLink` dans *Views\\Home\\AllTags.cshtml* :
 
@@ -394,7 +395,7 @@ Quant au navigateur mobile actualisé, il se présente ainsi :
 
 >[AZURE.NOTE] Si vous remarquez que le format de liste d'origine apparaît toujours dans le navigateur mobile, et que vous vous demandez ce que votre style Bootstrap est devenu, il s'agit d'un artefact de votre précédente action visant à créer des vues propres aux navigateurs mobiles. Toutefois, maintenant que vous utilisez l'infrastructure CSS Bootstrap pour créer une conception Web réactive, passez à l'étape suivante et supprimez les vues et les dispositions spécifiques aux navigateurs mobiles. Ensuite, le navigateur mobile actualisé affichera le style Bootstrap.
 
-##<a name="bkmk_improvedates"></a> Améliorer la liste des dates
+## <a name="bkmk_improvedates"></a> Améliorer la liste des dates
 
 Vous pouvez améliorer la vue *Dates* en procédant de la même façon que pour les vues *Speakers* et
 *Tags*, mais si vous utilisez les modifications de code décrites précédemment, vous devez appliquer la syntaxe suivante de la méthode `Html.ActionLink` dans *Views\\Home\\AllDates.cshtml* :
@@ -437,7 +438,7 @@ Vous pouvez encore améliorer la vue *Dates* en classant les valeurs date-heure 
         </div>
     }
 
-Ce code crée une balise<div class="panel panel-primary">distincte pour chaque date de la liste, et utilise le style [liste groupée avec liens][] pour les liens respectifs, comme précédemment. Voici à quoi le navigateur mobile ressemble lorsque ce code est exécuté :
+Ce code crée une balise `<div class="panel panel-primary>` distincte pour chaque date de la liste, et utilise le style [liste groupée avec liens][] pour les liens respectifs, comme précédemment. Voici à quoi le navigateur mobile ressemble lorsque ce code est exécuté :
 
 ![][AllDatesFixed2]
 
@@ -445,7 +446,7 @@ Basculez vers le navigateur de bureau. Remarquez l'aspect cohérent.
 
 ![][AllDatesFixed2Desktop]
 
-##<a name="bkmk_improvesessionstable"></a> Améliorer la vue SessionsTable
+## <a name="bkmk_improvesessionstable"></a> Améliorer la vue SessionsTable
 
 Dans cette section, vous allez adapter la vue *SessionsTable* aux appareils mobiles. Cette modification est plus importante que les précédentes.
 
@@ -494,7 +495,7 @@ Comme vous pouvez le constater, l'affichage se fait sous forme de tableau, actue
 Le code se compose de trois étapes :
 
 -   utilisation du style Bootstrap [liste groupée personnalisée avec liens][]
-    pour mettre en forme les informations de session sous forme verticale afin que toutes ces informations soient lisibles dans un navigateur mobile (à l'aide de classes comme list-group-item-text) ;
+    pour mettre en forme les informations de session sous forme verticale afin que toutes ces informations soient lisibles dans un navigateur mobile (à l'aide de classes comme list-group-item-text)
 -   application du [système de grille][] à la disposition, afin que les éléments de la session s'affichent sous forme horizontale dans le navigateur de bureau et sous forme verticale dans le navigateur mobile (à l'aide de la classe col-md-4) ;
 -   utilisation des [utilitaires réactifs][] pour masquer les balises de session en cas d'affichage dans le navigateur mobile (à l'aide de la classe hidden-xs).
 
@@ -508,7 +509,7 @@ Le système de grille Bootstrap que vous avez automatiquement appliqué permet d
 
 Dans le navigateur de bureau, vous remarquez que les balises s'affichent désormais. De même, vous pouvez constater que le système de grille Bootstrap que vous avez appliqué classe les éléments de session en deux colonnes. Si vous agrandissez le navigateur, l'organisation s'étend sur trois colonnes.
 
-##<a name="bkmk_improvesessionbycode"></a> Améliorer la vue SessionByCode
+## <a name="bkmk_improvesessionbycode"></a> Améliorer la vue SessionByCode
 
 Pour finir, vous allez optimiser la vue *SessionByCode* pour l'adapter aux appareils mobiles.
 
@@ -622,10 +623,10 @@ Ce didacticiel vous a guidé dans l'utilisation d'ASP.NET MVC 5 pour développer
 [CompletedProject]: http://go.microsoft.com/fwlink/?LinkID=398781&clcid=0x409
 [BootstrapSite]: http://getbootstrap.com/
 [WebPIAzureSdk23NetVS13]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk23NetVS13.png
-[linked list group]: http://getbootstrap.com/components/#list-group-linked
-[glyphicon]: http://getbootstrap.com/components/#glyphicons
-[panels]: http://getbootstrap.com/components/#panels
-[custom linked list group]: http://getbootstrap.com/components/#list-group-custom-content
+[liste groupée avec liens]: http://getbootstrap.com/components/#list-group-linked
+[icône]: http://getbootstrap.com/components/#glyphicons
+[panneaux]: http://getbootstrap.com/components/#panels
+[liste groupée personnalisée avec liens]: http://getbootstrap.com/components/#list-group-custom-content
 [système de grille]: http://getbootstrap.com/css/#grid
 [utilitaires réactifs]: http://getbootstrap.com/css/#responsive-utilities
 [Blog officiel Bootstrap (en anglais)]: http://blog.getbootstrap.com/

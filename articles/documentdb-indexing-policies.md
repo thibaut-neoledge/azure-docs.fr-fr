@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Stratégies d'indexation de DocumentDB | Azure" 
 	description="Découvrez le fonctionnement de l'indexation dans DocumentDB et apprenez à configurer une stratégie d'indexation." 
 	services="documentdb" 
@@ -151,8 +151,8 @@ Le choix du type d'index **plage** permet les requêtes de plage (à l'aide de >
 
 Si votre cas d'utilisation ne nécessite pas des requêtes de plage efficaces, la valeur par défaut des index de hachage offre le meilleur compromis entre le stockage et les performances. Notez que pour prendre en charge les requêtes de plage, vous devez spécifier une stratégie d'index personnalisée.
 
-> [AZURE.NOTE] Les index de plage ne sont pris en charge que pour les valeurs numériques.
-  
+> [AZURE.NOTE] Les index de plage ne sont pris en charge que pour les valeurs numériques..
+  
 L'exemple suivant montre comment augmenter la précision des index de plage d'une collection à l'aide du Kit de développement (SDK) .NET. Notez que l'exemple utilise un chemin d'accès spécial " / " - voir les explications de la section suivante.
 
 
