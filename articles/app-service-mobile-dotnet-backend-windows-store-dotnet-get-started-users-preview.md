@@ -24,11 +24,11 @@ Cette rubrique montre comment authentifier les utilisateurs d'une application Ap
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile App. Vous devez également commencer par suivre le didacticiel [Prise en main de votre application mobile]. 
 
-##<a name="register"></a>Inscription de votre application pour l'authentification et configuration d'App Service
+## <a name="register"></a>Inscription de votre application pour l'authentification et configuration d'App Service
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../includes/app-service-mobile-register-authentication.md)] 
 
-##<a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
+## <a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
 
@@ -41,7 +41,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile App. Vous devez éga
 
 Ensuite, vous allez mettre à jour l'application pour authentifier les utilisateurs avant de demander des ressources à partir de votre service App Service.
 
-##<a name="add-authentication"></a>Ajout de l'authentification à l'application
+## <a name="add-authentication"></a>Ajout de l'authentification à l'application
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-dotnet-authenticate-app](../includes/app-service-mobile-windows-universal-dotnet-authenticate-app.md)] 
 
@@ -49,7 +49,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 [AZURE.NOTE] Quand vous avez inscrit les informations de package d'application du Windows Store avec App Services, vous devez appeler la méthode <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> en fournissant la valeur <strong>true</strong> pour le paramètre <em>useSingleSignOn</em>. Si vous ne le faites pas, vos utilisateurs seront toujours invités à se connecter à chaque appel de la méthode de connexion.
 
 
-##<a name="tokens"></a>Stockage du jeton d'authentification sur le client
+## <a name="tokens"></a>Stockage du jeton d'authentification sur le client
 
 [AZURE.INCLUDE [app-service-mobile-windows-store-dotnet-authenticate-app-with-token](../includes/app-service-mobile-windows-store-dotnet-authenticate-app-with-token.md)] 
 

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Utilisation de Notification Hubs avec Java" 
 	description="Découvrez comment utiliser Azure Notification Hubs à partir d'un serveur principal Java." 
 	services="notification-hubs" 
@@ -300,6 +300,7 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Java 
 	- [Envoi de notifications multiplateforme aux utilisateurs authentifiés]
 
 [Kit de développement logiciel (SDK) Java]: https://github.com/Azure/azure-notificationhubs-java-backend
+[Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
 [Didacticiel de prise en main]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Prise en main de Notification Hubs]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
 [Envoi des dernières nouvelles]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/

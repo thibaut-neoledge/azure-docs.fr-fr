@@ -19,7 +19,7 @@
 	ms.author="hangzh;bradsev" />
 
  
-#Créer et charger des données dans des tables Hive à partir d'un stockage Azure Blob
+# Créer et charger des données dans des tables Hive à partir d'un stockage Azure Blob
  
 Ce document présente des requêtes Hive génériques qui créent des tables Hive et chargent des données à partir d'un stockage Azure Blob. Il donne également quelques conseils sur le partitionnement des tables Hive et sur l'utilisation du format ORC (Optimized Row Columnar) pour améliorer les performances des requêtes.
 

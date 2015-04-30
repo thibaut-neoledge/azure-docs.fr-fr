@@ -485,11 +485,14 @@ Afin de cibler des utilisateurs spécifiques, consultez le didacticiel [Notifica
 
 <!-- URLs. -->
 [Exemple de concentrateur de notification d'application Chrome]: http://google.com
+[l'exemple de concentrateur de notification d'application Chrome]: http://google.com
 [Console Cloud Google]: http://cloud.google.com/console
+[Google Cloud Console]: http://cloud.google.com/console
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Vue d'ensemble des concentrateurs de notification]: http://msdn.microsoft.com/library/jj927170.aspx
 [Vue d'ensemble des applications Chrome]: https://developer.chrome.com/apps/about_apps
 [Exemple d'application Chrome GCM]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
+[exemple GCM d'application Chrome]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Applications Web installables]: https://developers.google.com/chrome/apps/docs/
 [Applications Chrome sur mobile]: https://developer.chrome.com/apps/chrome_apps_on_mobile
 [Création de l'API REST NH d'inscription]: http://msdn.microsoft.com/library/azure/dn223265.aspx

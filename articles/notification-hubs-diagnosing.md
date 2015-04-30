@@ -228,7 +228,9 @@ Plus de détails ici :
 [Didacticiels de prise en main]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Conseils relatifs aux modèles]: https://msdn.microsoft.com/library/dn530748.aspx 
 [Conseils liés à APNs]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
+[conseils APN]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
 [Conseils liés à GCM]: http://developer.android.com/google/gcm/adv.html
+[conseils GCM]: http://developer.android.com/google/gcm/adv.html
 [Importation/exportation des inscriptions]: http://msdn.microsoft.com/library/dn790624.aspx
 [Explorateur ServiceBus]: http://msdn.microsoft.com/library/dn530751.aspx
 [Code de l'explorateur ServiceBus]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
@@ -236,6 +238,7 @@ Plus de détails ici :
 [Billet de blog concernant l'Explorateur de serveurs de Visual Studio : 1]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs 
 [Billet de blog concernant l'Explorateur de serveurs de Visual Studio : 2]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/ 
 [Fonction EnableTestSend]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx
+[fonctionnalité EnableTestSend]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx
 [Accès par programme à la télémétrie]: http://msdn.microsoft.com/library/azure/dn458823.aspx
 [Exemple d'accès à la télémétrie via les API]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 

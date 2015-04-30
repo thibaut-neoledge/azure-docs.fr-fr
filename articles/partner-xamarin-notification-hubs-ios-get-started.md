@@ -471,10 +471,13 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 [Portail d'approvisionnement iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Utilisation de Notification Hubs pour envoyer des notifications aux utilisateurs]: /manage/services/notification-hubs/notify-users-aspnet
+[Utilisation de Notification Hubs pour envoyer des notifications Push aux utilisateurs]: /manage/services/notification-hubs/notify-users-aspnet
 [Utilisation de Notification Hubs pour diffuser les dernières nouvelles]: /manage/services/notification-hubs/breaking-news-dotnet
+[Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: /manage/services/notification-hubs/breaking-news-dotnet
 
 [Guide de programmation des notifications locales et Push d'Apple]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Services de notification Push Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+[Service de notification Push Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 
 [Composant Azure Mobile Services]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329

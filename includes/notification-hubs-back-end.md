@@ -73,7 +73,7 @@ Ignorez les étapes 1 à 3 si vous avez créé une application de console lorsqu
 	
 	> [AZURE.NOTE] Ce code principal prend en charge les clients Windows Store, Windows Phone, iOS et Android. Les méthodes d'envoi retournent une réponse d'erreur lorsque le Notification Hub n'a pas encore été configuré pour une plateforme cliente particulière. 
 
-6. Dans le code ci-dessus, remplacez les espaces réservés <hub name> et <connection string with full access> par le nom du concentrateur de notification et la chaîne de connexion pour  *DefaultFullSharedAccessSignature* obtenue précédemment.
+6. Dans le code ci-dessus, remplacez les espaces réservés `<hub name>` et `<connection string with full access>` par le nom du concentrateur de notification et la chaîne de connexion pour  *DefaultFullSharedAccessSignature* obtenue précédemment.
 
 7. Ajoutez les lignes suivantes à la méthode **Main** :
 
@@ -100,6 +100,7 @@ Ignorez les étapes 1 à 3 si vous avez créé une application de console lorsqu
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
+[interface REST de Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
 
 <!--HONumber=49-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Connecteurs et applications API entreprise-entreprise dans Microsoft Azure App Service | Azure" 
 	description="Découvrez comment créer et configurer des connecteurs EDI, EDIFACT, AS2 et TPM ; architecture microservices" 
 	services="app-service-logic" 
@@ -136,7 +136,7 @@ Nom | Entrez un nom pour l'application API B2B. Par exemple, vous pouvez la nomm
 Paramètres du package | Entrez les paramètres propres à cette application API, comme le nom de l'instance TPM. <br/><br/>Consultez [Paramètres de package X12 ou EDIFACT](#AddX12) dans cette rubrique pour connaître les propriétés spécifiques. 
 Plan de service de l'application | Répertorie votre plan de paiement. Vous pouvez le modifier si vous avez besoin de plus ou moins de ressources.
 Niveau de tarification | Propriété en lecture seule qui répertorie la catégorie de tarification dans votre abonnement Azure. 
-Groupe de ressources | Créez-en un nouveau ou utilisez un groupe existant. [Utilisation des groupes de ressources]azure-preview-portal-using-resource-groups.md) explique cette propriété. 
+Groupe de ressources | Créez-en un nouveau ou utilisez un groupe existant. [Utilisation des groupes de ressources](azure-preview-portal-using-resource-groups.md) explique cette propriété. 
 Abonnement | Propriété en lecture seule qui répertorie votre abonnement actuel.
 Emplacement | Emplacement géographique qui héberge votre service Azure. 
 Ajouter au tableau d'accueil | Sélectionnez cette option pour ajouter l'application API B2B à votre tableau d'accueil (la page d'accueil).

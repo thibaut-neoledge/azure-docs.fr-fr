@@ -107,7 +107,7 @@ Les utilisateurs peuvent aisément charger un notebook IPython de leur ordinateu
 ![Create workspace][23]
 
 
-##<a name="shutdown"></a>Arrêter et libérer une machine virtuelle inutilisée
+## <a name="shutdown"></a>Arrêter et libérer une machine virtuelle inutilisée
 
 Le service Azure Virtual Machines est facturé au tarif du **paiement à l'utilisation**. Pour vous assurer que vous n'êtes pas facturé lorsque vous n'utilisez pas votre machine virtuelle, cette dernière doit définie sur l'état **Arrêté (désalloué)** quand elle est inutilisée.
 

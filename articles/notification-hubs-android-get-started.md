@@ -302,6 +302,7 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 
 <!-- URLs. -->
 [Kit de développement logiciel (SDK) Mobile Services pour Android]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[Kit de développement logiciel (SDK) Mobile Services Android]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Référence à un projet de bibliothèque]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Portail de gestion Azure]: https://manage.windowsazure.com/
 [Vue d'ensemble de Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx

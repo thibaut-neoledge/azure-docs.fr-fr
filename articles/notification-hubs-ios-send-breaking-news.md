@@ -104,7 +104,7 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
 
 		self.notifications = [[Notifications alloc] init];
 
-	The initializes the Notification singleton.
+	Ce dernier initialise le singleton Notification.
 
 10. Dans la méthode **didRegisterForRemoteNotificationsWithDeviceToken** du fichier BreakingNewsAppDelegate.m, retirez l'appel à **registerNativeWithDeviceToken** et ajoutez le code suivant :
 
