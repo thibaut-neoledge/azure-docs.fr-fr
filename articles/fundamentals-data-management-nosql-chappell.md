@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Understand NoSQL technologies" pageTitle="Présentation des technologies NoSQL sur Azure | Azure" metaKeywords="" description="Apprenez comment les technologies NoSQL sur HDInsight peuvent vous aider à gérer des données ne convenant pas aux bases de données relationnelles, telles que les jeux de données volumineux et les documents ou les graphiques JSON." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight,documentdb" documentationCenter="" title="Data management: Understanding NoSQL technologies on Azure" authors="cgronlun" />
+<properties urlDisplayName="Understand NoSQL technologies" pageTitle="Présentation des technologies NoSQL sur Azure | Azure" metaKeywords="" description="Apprenez comment les technologies NoSQL sur HDInsight peuvent vous aider à gérer des données ne convenant pas aux bases de données relationnelles, telles que les jeux de données volumineux et les documents ou les graphiques JSON." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight,documentdb" documentationCenter="" title="Data management: Understanding NoSQL technologies on Azure" authors="cgronlun" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/01/2014" ms.author="cgronlun" />
 
@@ -28,3 +28,5 @@ La technologie relationnelle a été pendant longtemps l'approche prédominante 
 
 **Téléchargement :** <a href="http://go.microsoft.com/fwlink/p/?LinkId=330292" target="_blank">Fichier PDF " Présentation de NoSQL sur Microsoft Azure "</a>
 
+
+<!--HONumber=35.2-->
