@@ -1,6 +1,5 @@
-﻿Seuls les sites web en mode Standard peuvent avoir un nom de domaine personnalisé si l'équilibrage de charge de ces sites est assuré par Traffic Manager. Avant de faire passer un site web du mode Gratuit au mode Partagé, De base ou Standard, vous devez d'abord supprimer les limites de dépense mises en place pour l'abonnement de votre site web. 
+Seuls les sites web en mode **Standard** peuvent avoir un nom de domaine personnalisé si l'équilibrage de charge de l'application web dans Azure App Service est assuré par Traffic Manager. Avant de basculer une application web du mode de plan App Service gratuit au mode partagé, de base ou standard, vous devez commencer par supprimer les limites de dépense mises en place pour votre abonnement App Service. 
 
-Pour plus d'informations sur les modes de sites web, notamment sur la modification du mode de votre site, consultez la page [Mise à l'échelle de sites Web)]/fr-fr/documentation/articles/web-sites-scale/).
+Pour plus d'informations sur les modes de plan App Service, notamment sur la modification du mode de votre site, voir [Mise à l'échelle des sites web](../articles/web-sites-scale.md).
 
-
-<!--HONumber=42-->
+<!--HONumber=52--> 

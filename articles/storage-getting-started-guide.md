@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Prise en main des objets blob, des tables et des files d'attente Azure en 5 minutes" 
 	description="Apprenez à développer rapidement les objets blob, les tables et les files d'attente Microsoft Azure à l'aide des rubriques de démarrage rapide Azure et Visual Studio." 
 	services="storage" 
@@ -22,10 +22,10 @@ Ce didacticiel vous montre comment programmer rapidement pour des **objets blob 
 
 Ce didacticiel comprend deux scénarios principaux pour un démarrage rapide avec Azure Storage :
 
-- Exécuter votre première application Azure Storage sur l'émulateur de stockage Azure
-- Exécuter votre première application Azure Storage sur le service Azure Storage
+- Exécution de votre première application Azure Storage sur l'émulateur de stockage Azure
+- Exécution de votre première application Azure Storage sur le service Azure Storage
 
-Si vous souhaitez en savoir plus sur Azure Storage avant de vous plonger dans le code, consultez la page [Étapes suivantes][].
+Si vous souhaitez en savoir plus sur Azure Storage avant de vous plonger dans le code, consultez la page [Étapes suivantes](#next-steps).
 
 ## Exécution de votre première application Azure Storage sur l'émulateur de stockage Azure
 
@@ -56,7 +56,7 @@ Nous vous encourageons à examiner le code source pour apprendre à programmer p
 2.	Dans Visual Studio, dans le menu **Générer**, cliquez sur **Déployer la solution**. 
 3.	Dans le menu **Déboguer**, appuyez sur **F11** pour exécuter la solution étape par étape ou appuyez sur **F5** pour exécuter la solution.
 
-## Exécution de votre première application Azure Storage sur le service Azure Storage
+## Exécution de votre première application Azure Storage sur Azure Storage dans le cloud
 Cette section explique comment programmer pour les **objets blob Azure Storage**, les **tables** et les **files d'attente** en développant un exemple d'application qui accède au [service Azure Storage](http://azure.microsoft.com/documentation/services/storage/).
 
 Pour terminer cette section, assurez-vous d'effectuer d'abord les tâches préalables suivantes :
@@ -112,4 +112,4 @@ Si vous souhaitez en savoir plus, suivez ces liens :
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->

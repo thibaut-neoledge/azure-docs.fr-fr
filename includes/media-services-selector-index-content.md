@@ -1,5 +1,4 @@
-﻿> [AZURE.SELECTOR]
-- [Portail](media-services-manage-content.md)
-- [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](media-services-index-content.md)
-
-<!--HONumber=47-->
+> [AZURE.SELECTOR]
+- [Portail](../articles/media-services-manage-content.md)
+- [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](../articles/media-services-index-content.md)
+<!--HONumber=52--> 

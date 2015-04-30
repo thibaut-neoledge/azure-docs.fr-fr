@@ -10,9 +10,9 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/20/2014" 
 	ms.author="glenga"/>
 
@@ -23,6 +23,4 @@ Cette rubrique n'est plus prise en charge. Aucun projet de démarrage rapide Win
 Un projet de démarrage rapide peut être téléchargé pour les applications Windows Phone Store 8.1 dans le cadre d'un projet Windows universel. Pour plus d'informations, consultez la page [Prise en main de Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md).
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

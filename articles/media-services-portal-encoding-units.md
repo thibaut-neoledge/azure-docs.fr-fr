@@ -17,11 +17,11 @@
 	ms.author="juliako"/>
 
 
-#Comment mettre à l'échelle l'encodage
+# Comment mettre à l'échelle l'encodage
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) .
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md).
 
-##Vue d'ensemble
+## Vue d'ensemble
 
 Un compte Media Services est associé à un Type d'unité réservé qui détermine la vitesse à laquelle vos tâches d'encodage sont traitées. Vous pouvez choisir entre les types d'unités réservées suivantes : **De base**, **Standard** ou **Premium**. Par exemple, une même tâche d'encodage s'exécute plus rapidement quand vous utilisez le type d'unité réservée **Standard** que le type **De base**. Pour plus d'informations, consultez [Types d'unité réservé d'encodage](http://azure.microsoft.com/blog/author/milanga).
 
@@ -49,12 +49,12 @@ Pour modifier le type d'unité réservée et le nombre d'unités réservées d'e
 
 	>[Azure.Note] C'est le plus grand nombre d'unités spécifiées sur 24 heures qui est utilisé pour calculer le coût.
 
-##Quotas et limitations
+## Quotas et limitations
 
-Pour plus d'informations sur les quotas et les limitations et pour savoir comment ouvrir un ticket de support, consultez [Quotas et limitations](../media-services-quotas-and-limitations).
-
-
+Pour plus d'informations sur les quotas et les limitations et pour savoir comment ouvrir un ticket de support, consultez la rubrique [Quotas et limitations](media-services-quotas-and-limitations.md).
 
 
 
-<!--HONumber=47-->
+
+
+<!--HONumber=52-->

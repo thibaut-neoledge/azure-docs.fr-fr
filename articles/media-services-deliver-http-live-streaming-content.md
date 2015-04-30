@@ -20,7 +20,7 @@
 
 
 
-<h1>Procédure : de contenu de diffusion en continu HLS Apple</h1>
+<h1>Procédure : Remise de contenu de diffusion en continu HLS Apple</h1>
 
 Cet article fait partie d'une série qui présente la programmation Azure Media Services. La rubrique précédente s'intitulait [ Fourniture de contenu de diffusion en continu](media-services-deliver-streaming-content.md).
 
@@ -99,6 +99,6 @@ Cette rubrique est la dernière consacrée à l'utilisation d'Azure Media Servic
 [Prise en main du Kit de développement logiciel (SDK) Media Services pour .NET]: http://go.microsoft.com/fwlink/?linkid=252966
 [Création d'applications avec l'API REST d'Azure Media Services]: http://go.microsoft.com/fwlink/?linkid=252967
 [Création d'applications avec le Kit de développement logiciel (SDK) Media Services pour .NET]: http://go.microsoft.com/fwlink/?linkid=247821
-[Forum Media Services]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
+[Forum Media Services]: http://social.msdn.microsoft.com/Forums/MediaServices/threads
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

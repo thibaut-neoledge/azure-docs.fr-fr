@@ -1,4 +1,4 @@
-﻿
+
 
 Suivez cette procédure pour créer un service mobile.
 
@@ -13,7 +13,7 @@ Suivez cette procédure pour créer un service mobile.
 	![](./media/mobile-services-create-new-service/mobile-create-page1.png)
 
 	La page **Spécifier les paramètres de la base de données** s'affiche.
-	>[AZURE.NOTE]Dans ce didacticiel, vous créez une instance et un serveur de base de données SQL. Vous pouvez réutiliser cette nouvelle base de données et la gérer comme une autre instance de base de données SQL. Si vous disposez déjà d'une base de données dans la même région que le nouveau service mobile, vous pouvez alors choisir **Utiliser la base de données existante** et sélectionner cette base de données. À cause des coûts supplémentaires liés à la bande passante et en raison des latences élevées, il est déconseillé d'utiliser une base de données dans une autre région.
+	>[AZURE.NOTE] Dans ce didacticiel, vous créez une instance et un serveur de base de données SQL. Vous pouvez réutiliser cette nouvelle base de données et la gérer comme une autre instance de base de données SQL. Si vous disposez déjà d'une base de données dans la même région que le nouveau service mobile, vous pouvez alors choisir **Utiliser la base de données existante** et sélectionner cette base de données. À cause des coûts supplémentaires liés à la bande passante et en raison des latences élevées, il est déconseillé d'utiliser une base de données dans une autre région.
 
 3.	Dans **Nom**, tapez le nom de la nouvelle base de données, puis le **Nom de connexion**, qui est le nom de connexion de l'administrateur pour le nouveau serveur de base de données SQL, tapez et confirmez le mot de passe, puis cliquez sur le bouton de vérification pour terminer le processus.
 	![](./media/mobile-services-create-new-service/mobile-create-page2.png)
@@ -24,5 +24,4 @@ Vous avez créé un service mobile pouvant être utilisé par vos applications m
 
 <!-- URLs. -->
 [Portail de gestion]: https://manage.windowsazure.com/
-
-<!--HONumber=47-->
+<!--HONumber=52--> 

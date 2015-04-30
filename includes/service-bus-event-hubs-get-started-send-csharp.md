@@ -1,4 +1,4 @@
-﻿## Envoi de messages vers les concentrateurs d'événements
+## Envoi de messages vers les concentrateurs d'événements
 Dans cette section, vous allez écrire une application console Windows pour envoyer des événements à votre concentrateur d'événements.
 
 1. Dans Visual Studio, créez un projet d'application de bureau Visual C# à l'aide du modèle de projet **d'application de console**. Nommez le projet **Sender**.
@@ -19,7 +19,7 @@ Dans cette section, vous allez écrire une application console Windows pour envo
 
 		using Microsoft.ServiceBus.Messaging;
 
-5. Ajoutez les champs  `static` suivants à la classe **Program**, en remplaçant les valeurs par le nom du concentrateur d'événements que vous avez créé dans la section précédente et en attribuant les droits d'**envoi** à la chaîne de connexion :
+5. Ajoutez les champs suivants à la classe **Program**, en remplaçant les valeurs par le nom du concentrateur d'événements que vous avez créé dans la section précédente et en attribuant les droits d'**envoi** à la chaîne de connexion :
 
 		static string eventHubName = "{event hub name}";
         static string connectionString = "{send connection string}";
@@ -61,4 +61,4 @@ Dans cette section, vous allez écrire une application console Windows pour envo
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
-<!--HONumber=47-->
+<!--HONumber=52--> 

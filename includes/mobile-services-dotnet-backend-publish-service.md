@@ -1,4 +1,4 @@
-﻿
+
 
 Une fois que l'application cliente a été testée sur le service mobile local, la dernière étape de ce didacticiel consiste à publier le service mobile sur Azure et à exécuter l'application sur le service en ligne.
 
@@ -15,5 +15,4 @@ Une fois que l'application cliente a été testée sur le service mobile local, 
 	![](./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish-2.png)
 
 	Une fois la publication effectuée, vous accédez de nouveau à la page vous confirmant que le service mobile est opérationnel, sur Azure, cette fois.
-
-<!--HONumber=49-->
+<!--HONumber=52--> 

@@ -2,7 +2,7 @@
 
 <tags ms.service="media-services" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="media" ms.date="01/23/2015" ms.author="juliako" />
 
-#Quotas et limitations
+# Quotas et limitations
 
 Cette rubrique décrit les quotas et les limitations associées à Microsoft Azure Media Services.
 
@@ -20,7 +20,7 @@ Cette rubrique décrit les quotas et les limitations associées à Microsoft Azu
  
 - Le nombre maximal de travaux dans votre compte ne doit pas dépasser 50 000.
  
-- Vous pouvez supprimer les anciens travaux à l'aide de **IJob.Delete** ou de la requête HTTP **DELETE**. Pour plus d'informations, consultez [Limite des enregistrements de tâche pour Azure Media Encoder](http://blogs.msdn.com/b/randomnumber/archive/2014/05/05/job-record-limit-for-windows-azure-media-encoder.aspx) et [Gestion de ressources](https://msdn.microsoft.com/fr-fr/library/azure/dn642436.aspx). 
+- Vous pouvez supprimer les anciens travaux à l'aide de **IJob.Delete** ou de la requête HTTP **DELETE**. Pour plus d'informations, consultez les pages [Limite des enregistrements de tâche pour Azure Media Encoder](http://blogs.msdn.com/b/randomnumber/archive/2014/05/05/job-record-limit-for-windows-azure-media-encoder.aspx) et [Gestion de ressources](https://msdn.microsoft.com/library/azure/dn642436.aspx). 
  
 - Lors d'une requête visant à répertorier les entités de travail, un maximum de 1 000 est retourné par requête. Si vous souhaitez effectuer le suivi de l'ensemble des travaux soumis, vous pouvez utiliser top/skip comme décrit dans [Options de requête du système OData](http://msdn.microsoft.com/library/gg309461.aspx).  
 
@@ -54,9 +54,9 @@ Cette rubrique décrit les quotas et les limitations associées à Microsoft Azu
 	**Important**
 	Ne créez pas d'autres comptes Media Services pour augmenter les limites, mais envoyez un ticket de support.
 
-##Demande d'une limite plus élevée pour les quotas pouvant être mis à jour
+## Demande d'une limite plus élevée pour les quotas pouvant être mis à jour
 
-###Quotas pouvant être mis à jour
+### Quotas pouvant être mis à jour
 
 Vous pouvez demander la mise à jour des quotas suivants en ouvrant un ticket de support.
 - Unités d'encodage
@@ -67,7 +67,7 @@ Vous pouvez demander la mise à jour des quotas suivants en ouvrant un ticket de
  
 - Unités de diffusion en continu
 
-###Ouverture d'un ticket de support
+### Ouverture d'un ticket de support
 
 Pour ouvrir un ticket de support, procédez comme suit :
 
@@ -89,4 +89,5 @@ Pour ouvrir un ticket de support, procédez comme suit :
  
 1. Cliquez sur Envoyer pour ouvrir le ticket.
  
-<!--HONumber=45--> 
+
+<!--HONumber=52-->

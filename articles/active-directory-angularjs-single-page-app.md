@@ -1,7 +1,7 @@
-﻿<properties 
+<properties 
 	pageTitle="Création d'une application à page unique AngularJS avec Azure AD" 
 	description="Illustre l'utilisation d'Active Directory Authentication Library (ADAL) pour Javascript pour sécuriser une application à page unique AngularJS, implémentée avec un serveur principal d'API web ASP.NET, qui appelle une autre API web ASP.NET à l'aide de CORS." 
-	services="" 
+	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
 	manager="terrylan" 
@@ -13,13 +13,13 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="identity" 
-	ms.date="02/20/2015" 
+	ms.date="04/01/2015" 
 	ms.author="justinha"/>
 
 
 # Création d'une application à page unique AngularJS avec Azure AD 
 
-Ce didacticiel illustre l'utilisation d'Active Directory Authentication Library (ADAL) pour Javascript pour sécuriser une application à page unique AngularJS, implémentée avec un serveur principal d'API web ASP.NET, qui appelle une autre API web ASP.NET à l'aide de CORS. Pour voir l'exemple de code de ce didacticiel, consultez la page [AzureADSamples/SinglePageApp-AngularJS-DotNet](https://github.com/AzureADSamples/SinglePageApp-AngularJS-DotNet) sur GitHub.
+Ce didacticiel illustre l'utilisation d'Active Directory Authentication Library (ADAL) pour Javascript pour sécuriser une application à page unique AngularJS, implémentée avec un serveur principal d'API web ASP.NET, qui appelle une autre API web ASP.NET à l'aide de CORS. Pour voir l'exemple de code de ce didacticiel, consultez [AzureADSamples/SinglePageApp-AngularJS-DotNet](https://github.com/AzureADSamples/SinglePageApp-AngularJS-DotNet) sur github.
 
 La bibliothèque ADAL pour Javascript est une bibliothèque open source.  Pour les options de distribution, le code source et les contributions, consultez la page [Référentiel JS ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-js).
 
@@ -31,7 +31,7 @@ La mise en route est aisée.  Pour exécuter cet exemple, vous avez besoin des �
 
 - Visual Studio 2013
 - Une connexion Internet
-- Un abonnement Azure (une [version d'évaluation gratuite](https://account.windowsazure.com/organization) est suffisante)
+- Un abonnement à Azure (une [version d'évaluation gratuite](https://account.windowsazure.com/organization) suffit)
 
 Chaque abonnement Azure possède un client Azure Active Directory (Azure AD) associé. Toutes les fonctionnalités d'Azure AD utilisées par cet exemple sont disponibles gratuitement.
 
@@ -50,7 +50,7 @@ Chaque abonnement Azure possède un client Azure Active Directory (Azure AD) ass
 6. Cliquez sur **Ajouter une application développée par mon organisation**.
 7. Entrez un nom convivial pour l'application, par exemple " API To Go ", sélectionnez **Application web** et/ou **API web**, puis cliquez sur **Suivant**.
 8. Pour l'URL d'authentification, entrez l'URL de base pour l'exemple, qui est par défaut `https://localhost:44327/`.
-9. Pour l'URI ID d'application, entrez `https://<your_directory_name>/ToGoAPI`, en remplaçant `<your_directory_name>` par le nom de votre répertoire Azure AD.  Enregistrez la configuration.
+9. Comme URI d'ID d'application, saisissez  `https://<your_directory_name>/ToGoAPI`, en remplaçant `<your_directory_name>` par le nom de votre répertoire Azure AD. Enregistrez la configuration.
 
 Vous avez terminé.  Avant de passer à l'étape suivante, vous devez rechercher l'URI ID d'application de votre API.
 
@@ -60,12 +60,12 @@ Vous avez terminé.  Avant de passer à l'étape suivante, vous devez rechercher
 ## Configuration de l'API To Go pour utiliser votre client Azure Active Directory
 
 1. Ouvrez la solution dans Visual Studio 2013.
-2. Dans le projet API To Go, ouvrez le fichier `web.config`.
+2. Dans le projet ToGoAPI, ouvrez le fichier `web.config`.
 3. Recherchez la clé d'application `ida:Tenant` et remplacez la valeur par le nom de votre client Azure AD.
-4. Recherchez la clé d'application `ida:Audience` et remplacez la valeur par l'URI ID d'application que vous avez copié à partir du portail Azure.
-5. Également dans le projet API To Go, ouvrez le fichier `Controllers/ToGoListController.cs`.  Dans l'attribut `[EnableCors...]`, entrez l'emplacement du client SPA To Do.  La valeur par défaut est `https://localhost:44326`.  Veillez à omettre la barre oblique de fin.
+4. Recherchez la clé d'application `ida:Audience` et remplacez la valeur par l'URI d'ID d'application que vous avez copiée à partir du portail Azure.
+5. Également dans le projet ToGoAPI, ouvrez le fichier `Controllers/ToGoListController.cs`.  Dans l'attribut `[EnableCors...]`, indiquez l'emplacement du client SPA To Do.  La valeur par défaut est `https://localhost:44326`.  Veillez à omettre la barre oblique de fin.
 5. Dans le projet SPA To Do, ouvrez le fichier `App/Scripts/App.js` et recherchez la déclaration de l'objet `endpoints`.
-6. Entrez un mappage de l'emplacement du point de terminaison de l'API To Go à son identificateur de ressource ou à l'URI ID d'application.  Le nom de la propriété de l'objet `endpoints` doit être l'emplacement de l'API To Go.  Par défaut, il s'agit de `https://localhost:44327/`.  La valeur de cette propriété doit être l'URI ID d'application que vous avez copié depuis le portail, par exemple `https://<your_tenant_name>/ToGoAPI`.
+6. Entrez un mappage de l'emplacement du point de terminaison de l'API To Go à son identificateur de ressource ou à l'URI ID d'application.  Le nom de la propriété de l'objet `endpoints` doit être l'emplacement de l'API To Go.  Par défaut, c'est `https://localhost:44327/`. La valeur de cette propriété doit être l'URI d'ID d'application que vous avez copiée à partir du portail, par exemple `https://<your_tenant_name>/ToGoAPI`.
 8. Ne vous inquiétez pas pour l'instant des autres valeurs de configuration de ce fichier, nous y reviendrons dans une seconde.
 9. Également dans le projet SPA To Do, ouvrez le fichier `App/Scripts/toGoListSvc.js`.  Remplacez la valeur de la variable `apiEndpoint` par l'emplacement de votre API To Go.  Par défaut, il s'agit de `https://localhost:44327/`.
 
@@ -73,13 +73,13 @@ Vous avez terminé.  Avant de passer à l'étape suivante, vous devez rechercher
 
 1. Reconnectez-vous au [portail de gestion Azure](https://manage.windowsazure.com).
 2. Cliquez sur **Active Directory** dans la partie de gauche.
-3. Cliquez sur le répertoire client dans lequel vous souhaitez enregistrer l'exemple d'application.
+3. Cliquez sur le client où vous souhaitez enregistrer l'exemple d'application.
 4. Cliquez sur l'onglet **Applications**.
 5. Dans le tiroir, cliquez sur **Ajouter**.
 6. Cliquez sur **Ajouter une application développée par mon organisation**.
 7. Entrez un nom convivial pour l'application, par exemple " SPA To Do ", sélectionnez **Application web et/ou API web**, puis cliquez sur **Suivant**.
 8. Pour l'URL d'authentification, entrez l'URL de base pour l'exemple, qui est par défaut `https://localhost:44326/`.
-9. Pour l'URI ID d'application, entrez `https://<your_directory_name>/ToDoSPA`, en remplaçant `<your_directory_name>` par le nom de votre répertoire Azure AD.
+9. Comme URI d'ID d'application, saisissez  `https://<your_directory_name>/ToDoSPA`, en remplaçant `<your_directory_name>` par le nom de votre répertoire Azure AD.
 10. Dans la section **Autorisations pour d'autres applications**, cliquez sur **Ajouter une application**.  Sélectionnez **Autre** dans la liste déroulante **Afficher** et cliquez sur la coche supérieure.  Recherchez et cliquez sur l'API To Go, puis cliquez sur la coche inférieure pour ajouter l'application.  Sélectionnez **Accéder à l'API To Go** à partir de la liste déroulante **Autorisations déléguées**, puis enregistrez la configuration.
 
 Vous avez terminé.  Avant de passer à l'étape suivante, vous devez rechercher l'ID client de votre application.
@@ -102,10 +102,10 @@ Par défaut, les applications approvisionnées dans Azure AD ne sont pas activé
 1. Ouvrez la solution dans Visual Studio 2013.
 2. Dans le projet SPA To Do, ouvrez le fichier `web.config`.
 3. Recherchez la clé d'application `ida:Tenant` et remplacez la valeur par le nom de votre répertoire Azure AD.
-4. Recherchez la clé d'application `ida:Audience` et remplacez la valeur par l'ID client provenant du portail Azure.
+4. Recherchez la clé d'application `ida:Audience` et remplacez la valeur par l'ID de client provenant du portail Azure.
 5. Également dans le projet SPA To Do, ouvrez à nouveau le fichier `App/Scripts/App.js` et recherchez la ligne `adalAuthenticationServiceProvider.init(`.
 6. Remplacez la valeur de `tenant` par le nom de votre répertoire Azure AD.
-7. Remplacez la valeur de `clientId` par l'ID client provenant du portail Azure.
+7. Remplacez la valeur de `clientId` par l'ID de client provenant du portail Azure.
 
 ## Exécution de l'exemple
 
@@ -122,7 +122,7 @@ Pour déployer les projets SPA To Do et API To Go vers des sites web Azure, vous
 1. Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com).
 2. Cliquez sur **Sites Web** dans la partie de gauche.
 3. Cliquez sur **Nouveau** dans le coin inférieur gauche, sélectionnez **Compute** > **Site Web** > **Création personnalisée**, sélectionnez le plan d'hébergement et la région et nommez votre site web, par exemple togo-contoso.azurewebsites.net.  Sélectionnez une base de données à utiliser ou créez-en une nouvelle.  Cliquez sur **Créer un site Web**.
-4. Une fois le site web créé, cliquez dessus pour le gérer.  Pour cet ensemble d'étapes, téléchargez le fichier .publishsettings et enregistrez-le.  D'autres mécanismes de déploiement, par exemple à partir du contrôle de code source, peuvent également être utilisés. Pour plus d'informations sur l'utilisation d'un fichier .publishsettings, consultez la rubrique [Procédure : Connexion à votre abonnement](http://azure.microsoft.com/documentation/articles/install-configure-powershell/#Connect). 
+4. Une fois le site web créé, cliquez dessus pour le gérer.  Pour cet ensemble d'étapes, téléchargez le fichier .publishsettings et enregistrez-le.  D'autres mécanismes de déploiement, par exemple à partir du contrôle de code source, peuvent également être utilisés. Pour plus d'informations sur l'utilisation d'un fichier .publishsettings, consultez la rubrique [Procédure : Connectez-vous à votre abonnement](http://azure.microsoft.com/documentation/articles/install-configure-powershell/#Connect). 
 
 ### Création du site web Azure du projet SPA To Do
 
@@ -134,20 +134,20 @@ Pour déployer les projets SPA To Do et API To Go vers des sites web Azure, vous
 ### Mise à jour des deux projets pour utiliser des sites web Azure
 
 1. Dans Visual Studio, accédez au projet SPA To Do.
-2. Deux modifications sont nécessaires.  Dans `App\Scripts\app.js`, remplacez le nom de la propriété de l'objet `endpoints` par le nouvel emplacement de votre API To Go, par exemple  `https://togo-contoso.azurewebsites.net/`. . Dans `App\Scripts\toGoListSvc.js`, remplacez la variable `apiEndpoint` par la même valeur.
-3. Dans le projet API To Go, une seule modification est nécessaire. Dans `Controllers\ToGoListController.cs`, mettez à jour l'attribut `[EnableCors...]` afin de refléter le nouvel emplacement du projet SPA To Do, par exemple `https://todo-contoso.azurewebsites.net`.  Une fois encore, assurez-vous d'omettre la barre oblique de fin.
+2. Deux modifications sont nécessaires.  Dans `App\Scripts\app.js`, remplacez le nom de la propriété de l'objet `endpoints` par le nouvel emplacement de votre API To Go, par exemple `https://togo-contoso.azurewebsites.net/`.  . Dans `App\Scripts\toGoListSvc.js`, remplacez la variable `apiEndpoint` par la même valeur.
+3. Dans le projet API To Go, une seule modification est nécessaire. Dans `Controllers\ToGoListController.cs`, mettez à jour l'attribut `[EnableCors...]` en fonction du nouvel emplacement du projet SPA To Do, par exemple `https://todo-contoso.azurewebsites.net`.  Une fois encore, assurez-vous d'omettre la barre oblique de fin.
 
 ### Publication du projet API To Go sur des sites web Azure
 
 1. Basculez vers Visual Studio et accédez au projet API To Go.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis sélectionnez **Publier**. Cliquez sur **Importer** et importez le profil de publication de l'API To Go que vous avez téléchargé.
-6. Sous l'onglet **Connexion**, mettez à jour l'URL de destination afin qu'elle soit au format https, par exemple https://togo-constoso.azurewebsites.net. Cliquez sur **Suivant**.
+6. Dans l'onglet **Connexion**, mettez à jour l'URL de destination pour qu'elle soit au format https, comme https://togo-constoso.azurewebsites.net. Cliquez sur **Suivant**.
 7. Sous l'onglet **Paramètres**, vérifiez que la case à cocher **Activer l'authentification d'organisation** n'est pas activée.  Cliquez sur **Publier**.
 8. Visual Studio publie le projet et ouvre automatiquement un navigateur vers l'URL du projet.  Si la page web par défaut du projet s'affiche, la publication a réussi.
 
 ### Publication du projet SPA To Do sur des sites web Azure
 
 1. Basculez vers Visual Studio et accédez au projet SPA To Do.  Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis sélectionnez **Publier**.  Cliquez sur **Importer** et importez le fichier .publishsettings du projet que vous avez téléchargé.
-6. Sous l'onglet **Connexion**, mettez à jour l'URL de destination afin qu'elle soit au format https, par exemple https://todo-contoso.azurewebsites.net.  Cliquez sur **Suivant**.
+6. Dans l'onglet **Connexion**, mettez à jour l'URL de destination pour qu'elle soit au format https, comme https://todo-contoso.azurewebsites.net.  Cliquez sur **Suivant**.
 7. Sous l'onglet **Paramètres**, vérifiez que la case à cocher **Activer l'authentification d'organisation** n'est pas activée.  Cliquez sur **Publier**.
 8. Visual Studio publie le projet et ouvre automatiquement un navigateur vers l'URL du projet.  Si la page web par défaut du projet s'affiche, la publication a réussi.
 
@@ -156,7 +156,7 @@ Pour déployer les projets SPA To Do et API To Go vers des sites web Azure, vous
 1. Accédez au [portail de gestion Azure](https://manage.windowsazure.com).
 2. Dans la partie de gauche, cliquez sur **Active Directory** et sélectionnez votre client.
 3. Sous l'onglet **Applications**, sélectionnez l'application **SPA To Do**.
-4. Sous l'onglet **Configurer**, mettez à jour les champs **URL de connexion** et **URL de réponse** à l'adresse de votre SPA, par exemple https://todo-contoso.azurewebsites.net.  Enregistrez la configuration.
+4. Dans l'onglet **Configurer**, mettez à jour les champs **URL de connexion** et **URL de réponse** avec l'adresse de votre SPA, par exemple https://todo-contoso.azurewebsites.net.  Enregistrez la configuration.
 
 ## À propos du code
 
@@ -183,4 +183,4 @@ Voici quelques ressources supplémentaires pour vous aider à utiliser Azure AD 
 
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->

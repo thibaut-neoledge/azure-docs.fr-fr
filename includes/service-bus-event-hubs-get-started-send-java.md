@@ -1,5 +1,5 @@
-﻿## Envoi de messages vers les concentrateurs d'événements
-Dans cette section, nous allons écrire une application console Java pour envoyer des événements à votre concentrateur d'événements. Nous allons utiliser le fournisseur JMS AMQP du [projet Apache Qpid](http://qpid.apache.org/). Cette approche est similaire à l'utilisation des files d'attente et des rubriques Service Bus avec AMQP en partant du langage Java comme indiqué [ici](http://azure.microsoft.com/documentation/articles/service-bus-java-how-to-use-jms-api-amqp/). Pour plus d'informations, consultez la [documentation Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) et la page [Service de messagerie Java](http://www.oracle.com/technetwork/java/jms/index.html).
+## Envoi de messages vers les concentrateurs d'événements
+Dans cette section, nous allons écrire une application console Java pour envoyer des événements à votre concentrateur d'événements. Nous allons utiliser le fournisseur JMS AMQP du [projet Apache Qpid](http://qpid.apache.org/). Cette approche est similaire à l'utilisation des rubriques et des files d'attente Service Bus avec AMQP en partant du langage Java comme indiqué [ici](../articles/service-bus-java-how-to-use-jms-api-amqp.md). Pour plus d'informations, consultez la [documentation Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) et la page [Service de messagerie Java](http://www.oracle.com/technetwork/java/jms/index.html).
 
 1. Dans Eclipse, créez un projet Java nommé **Sender**.
 
@@ -11,7 +11,7 @@ Dans cette section, nous allons écrire une application console Java pour envoye
 
 	![][8]
 
-5. Créez un fichier nommé **servicebus.properties** à la racine du projet **Sender**, avec le contenu suivant. N'oubliez pas de remplacer la valeur de votre nom de concentrateur d'événements et le nom de l'espace de noms (ce dernier est généralement `{event hub name}-ns`). Vous devez également remplacer une version codée URL de la clé pour le **SendRule** précédemment créé. Vous pouvez la coder par URL [ici](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. Créez un fichier nommé **servicebus.properties** à la racine du projet **Sender**, avec le contenu suivant. N'oubliez pas de remplacer la valeur de votre nom de concentrateur d'événements et le nom de l'espace de noms (ce dernier est généralement  `{event hub name}-ns`). Vous devez également remplacer une version codée URL de la clé pour le **SendRule** précédemment créé. Vous pouvez la coder par URL [ici](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 		# servicebus.properties - sample JNDI configuration
 
@@ -24,7 +24,7 @@ Dans cette section, nous allons écrire une application console Java pour envoye
 		# topic.[jndi_name] = [physical_name]
 		queue.EventHub = {event hub name}
 
-5. Créez une nouvelle classe appelée **Sender**. Ajoutez les instructions `import` suivantes :
+5. Créez une nouvelle classe appelée **Sender**. Ajoutez les instructions  `import` suivantes :
 
 		import java.io.BufferedReader;
 		import java.io.IOException;
@@ -47,7 +47,7 @@ Dans cette section, nous allons écrire une application console Java pour envoye
 
 		public static void main(String[] args) throws NamingException,
 				JMSException, IOException, InterruptedException {
-			// Configure JNDI environment
+			// Configurer l'environnement JNDI
 			Hashtable<String, String> env = new Hashtable<String, String>();
 			env.put(Context.INITIAL_CONTEXT_FACTORY,
 					"org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory");
@@ -58,10 +58,10 @@ Dans cette section, nous allons écrire une application console Java pour envoye
 	
 			Destination queue = (Destination) context.lookup("EventHub");
 	
-			// Create Connection
+			// Créer une connexion
 			Connection connection = cf.createConnection();
 	
-			// Create sender-side Session and MessageProducer
+			// Créer une session côté envoyeur et MessageProducer
 			Session sendSession = connection.createSession(false,
 					Session.AUTO_ACKNOWLEDGE);
 			MessageProducer sender = sendSession.createProducer(queue);
@@ -93,4 +93,4 @@ Dans cette section, nous allons écrire une application console Java pour envoye
 
 <!-- Images -->
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
-<!--HONumber=47-->
+<!--HONumber=52--> 

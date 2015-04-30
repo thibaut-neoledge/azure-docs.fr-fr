@@ -1,4 +1,4 @@
-﻿Le script de déploiement ignorera la création de l'environnement virtuel sur Azure s'il détecte qu'il existe déjà un environnement virtuel compatible.  Ceci peut accélérer considérablement le déploiement.  Les packages déjà installés sont ignorés par pip.
+Le script de déploiement ignorera la création de l'environnement virtuel sur Azure s'il détecte qu'il existe déjà un environnement virtuel compatible.  Ceci peut accélérer considérablement le déploiement.  Les packages déjà installés sont ignorés par pip.
 
 Dans certaines situations, vous pouvez souhaiter forcer la suppression de cet environnement virtuel.  Cela peut être intéressant notamment si vous décidez d'inclure un environnement virtuel dans le cadre de votre référentiel.  Vous pouvez également effectuer cette opération si vous devez supprimer certains packages ou tester les modifications apportées au fichier requirements.txt.
 
@@ -20,5 +20,4 @@ Cette alternative tire parti du fait que le script de déploiement supprime le d
 ### Option 3 : Script de déploiement personnalisé
 
 Si vous avez personnalisé le script de déploiement, vous pouvez modifier le code dans le fichier deploy.cmd afin de forcer la suppression du dossier env.
-
-<!--HONumber=49-->
+<!--HONumber=52--> 

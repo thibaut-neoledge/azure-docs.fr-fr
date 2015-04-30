@@ -16,18 +16,18 @@
 	ms.date="02/18/2015" 
 	ms.author="juliako"/>
 
-#Démarrages rapides Media Services
+# Démarrages rapides Media Services
 
-##<a id="vod_quickstart"></a>Vidéo à la demande 
+## <a id="vod_quickstart"></a>Vidéo à la demande 
 
 Optez pour le démarrage rapide implémenté avec .NET ou REST.
  
 [AZURE.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
 
 
-##<a id="live_quickstart"></a>Vidéo en flux continu
+## <a id="live_quickstart"></a>Vidéo en flux continu
  
 [Prise en main de .NET](http://msdn.microsoft.com/library/azure/dn783465.aspx)
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->

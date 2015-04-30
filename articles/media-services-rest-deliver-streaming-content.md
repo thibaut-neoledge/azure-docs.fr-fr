@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Fourniture de contenu de diffusion en continu à partir de Media Services" 
 	description="Apprenez à créer un localisateur utilisé pour générer une URL de diffusion en continu. Le code utilise l'API REST." 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor="" 
 	services="media-services" 
@@ -17,14 +17,14 @@
 	ms.author="juliako"/>
 
 
-#Procédure : diffusion de contenu en continu
+# Procédure : diffusion de contenu en continu
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) et [workflow de vidéo en flux continu Media Services](../media-services-live-streaming-workflow) .  
+Cet article fait partie des séries [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md).  
 
-##Vue d'ensemble
+## Vue d'ensemble
 
 
-Vous pouvez diffuser un MP4 à débit adaptatif défini par la création d'un localisateur de diffusion en continu à la demande et la création d'une URL de diffusion en continu. La rubrique [Encodage d'une ressource](../media-services-rest-encode-asset) indique comment encoder sous forme de jeu de fichiers MP4 à débit adaptatif. Avant de créer un localisateur, configurez une stratégie de remise de ressources comme décrit dans [cette](../media-services-rest-configure-asset-delivery-policy) rubrique. 
+Vous pouvez diffuser un MP4 à débit adaptatif défini par la création d'un localisateur de diffusion en continu à la demande et la création d'une URL de diffusion en continu. La rubrique [Encodage d'une ressource](media-services-rest-encode-asset.md) indique comment encoder dans un ensemble de fichiers MP4 à débit adaptatif. Avant de créer un localisateur, vous devez configurer la stratégie de remise de ressources comme décrit dans [cette](media-services-rest-configure-asset-delivery-policy.md) rubrique. 
 
 Vous pouvez également utiliser un localisateur de diffusion en continu à la demande pour créer des URL qui pointent vers les fichiers MP4 pouvant être téléchargés progressivement.  
 
@@ -32,7 +32,7 @@ Cette rubrique montre comment créer un localisateur de diffusion en continu à 
 
 La [section](#types) suivante indique les types d'énumération dont les valeurs sont utilisées dans les appels REST.   
   
-##Création d'un localisateur de diffusion en continu à la demande
+## Création d'un localisateur de diffusion en continu à la demande
 
 Pour créer le localisateur de diffusion en continu à la demande et obtenir les URL, vous devez effectuer les opérations suivantes :
 
@@ -45,7 +45,7 @@ Pour créer le localisateur de diffusion en continu à la demande et obtenir les
    4. Création d'URL vers le fichier manifeste ou les fichiers MP4. 
 
 
-###Définition d'une stratégie d'accès.
+### Définition d'une stratégie d'accès.
 
 Demande :
 		
@@ -55,7 +55,7 @@ Demande :
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=bbbef702-e769-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
 	x-ms-version: 2.8
 	x-ms-client-request-id: 6bcfd511-a561-448d-a022-a319a89ecffa
 	Host: media.windows.net
@@ -63,7 +63,7 @@ Demande :
 	
 	{"Name":"access policy","DurationInMinutes":43200.0,"Permissions":1}
 	
-Réponse :
+Response:
 	
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -82,7 +82,7 @@ Réponse :
 	
 	{"odata.metadata":"https://media.windows.net/api/$metadata#AccessPolicies/@Element","Id":"nb:pid:UUID:69c80d98-7830-407f-a9af-e25f4b0d3e5f","Created":"2015-02-18T06:52:09.8862191Z","LastModified":"2015-02-18T06:52:09.8862191Z","Name":"access policy","DurationInMinutes":43200.0,"Permissions":1}
 
-###Création d'un localisateur de diffusion en continu à la demande
+### Création d'un localisateur de diffusion en continu à la demande
 
 Créez le localisateur pour la ressource et la stratégie de ressource spécifiées.
 
@@ -94,7 +94,7 @@ Demande :
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=bbbef702-e769-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
 	x-ms-version: 2.8
 	x-ms-client-request-id: ac159492-9a0c-40c3-aacc-551b1b4c5f62
 	Host: media.windows.net
@@ -102,7 +102,7 @@ Demande :
 	
 	{"AccessPolicyId":"nb:pid:UUID:1480030d-c481-430a-9687-535c6a5cb272","AssetId":"nb:cid:UUID:cc1e445d-1500-80bd-538e-f1e4b71b465e","StartTime":"2015-02-18T06:34:47.267872Z","Type":2}
 
-Réponse :
+Response:
 	
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -121,7 +121,7 @@ Réponse :
 	
 	{"odata.metadata":"https://media.windows.net/api/$metadata#Locators/@Element","Id":"nb:lid:UUID:be245661-2bbd-4fc6-b14f-9cf9a1492e5e","ExpirationDateTime":"2015-03-20T06:34:47.267872+00:00","Type":2,"Path":"http://amstest1.streaming.mediaservices.windows.net/be245661-2bbd-4fc6-b14f-9cf9a1492e5e/","BaseUri":"http://amstest1.streaming.mediaservices.windows.net","ContentAccessComponent":"be245661-2bbd-4fc6-b14f-9cf9a1492e5e","AccessPolicyId":"nb:pid:UUID:1480030d-c481-430a-9687-535c6a5cb272","AssetId":"nb:cid:UUID:cc1e445d-1500-80bd-538e-f1e4b71b465e","StartTime":"2015-02-18T06:34:47.267872+00:00","Name":null}
 
-###Création d'URL de diffusion
+### Création d'URL de diffusion
 
 Utilisez la valeur de **chemin d'accès** renvoyée après la création du localisateur pour générer les URL lisse, TLS et MPEG DASH. 
 
@@ -146,7 +146,7 @@ exemple :
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
-###Génération d'URL de téléchargement progressif
+### Génération d'URL de téléchargement progressif
 
 Utilisez la valeur de **chemin d'accès** renvoyée après la création du localisateur pour générer l'URL de téléchargement progressif.   
 
@@ -156,7 +156,7 @@ exemple :
 
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-##<a id="types"></a>Types Enum
+## <a id="types"></a>Types Enum
 
     [Flags]
     public enum AccessPermissions
@@ -174,4 +174,5 @@ exemple :
         Sas = 1,
         OnDemandOrigin = 2,
     }
-<!--HONumber=47-->
+
+<!--HONumber=52-->

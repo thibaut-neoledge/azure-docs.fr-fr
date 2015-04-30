@@ -1,5 +1,6 @@
-﻿> [AZURE.SELECTOR]
-- [Portail](media-services-manage-content#encode.md)
-- [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](media-services-dotnet-encode-asset.md)
-- [API REST](media-services-rest-encode-asset.md)
-<!--HONumber=47-->
+> [AZURE.SELECTOR]
+- [Portail](../articles/media-services-manage-content.md#encode)
+- [.NET SDK](../articles/media-services-dotnet-encode-asset.md)
+- [API REST](../articles/media-services-rest-encode-asset.md)
+
+<!--HONumber=52--> 

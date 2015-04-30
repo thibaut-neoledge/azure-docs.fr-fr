@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Prise en main de Mobile Services pour les applications Windows Store | Centre de développement mobile" 
 	description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement Windows Store en C#, VB ou JavaScript." 
 	services="mobile-services" 
@@ -10,9 +10,9 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/21/2014" 
 	ms.author="glenga"/>
 
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
-Ce didacticiel présente l'ajout d'un service principal cloud à une application Windows universelle à l'aide d'Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application *To do list* en HTML et JavaScript qui stocke les données d'application dans le nouveau service mobile. Le service mobile que vous allez créer utilise les langages .NET pris en charge à l'aide de Visual Studio pour la logique métier côté serveur et pour la gestion du service mobile. Pour créer un service mobile vous permettant d'écrire votre logique métier côté serveur en JavaScript, consultez la version principale JavaScript de cette rubrique.
+Ce didacticiel présente l'ajout d'un service principal cloud à une application Windows universelle à l'aide d'Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application (*To do list*) en HTML et JavaScript qui stocke les données d'application dans le nouveau service mobile. Le service mobile que vous allez créer utilise les langages .NET pris en charge à l'aide de Visual Studio pour la logique métier côté serveur et pour la gestion du service mobile. Pour créer un service mobile vous permettant d'écrire votre logique métier côté serveur en JavaScript, consultez la version principale JavaScript de cette rubrique.
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
 
@@ -51,11 +51,11 @@ Dans cette section, vous allez créer une application Windows universelle connec
 
   	![][7]
 
-3. Si ce n'est déjà fait, téléchargez et installez <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> sur votre ordinateur local ou sur votre machine virtuelle.
+3. Si ce n'est pas déjà fait, téléchargez et installez <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> sur votre ordinateur local ou votre machine virtuelle.
 
-4. Sous **Télécharger et exécuter votre application et votre service en local**, sélectionnez la langue de votre application Windows Store, puis cliquez sur **Télécharger**. 
+4. Sous **Télécharger et exécuter votre application et votre service en local**, sélectionnez la langue de votre application du Windows Store, puis cliquez sur **Télécharger**. 
 
-  	Ceci entraîne le téléchargement d'une solution contenant les projets du service mobile et de l'exemple d'application _To do list_ connectée à votre service mobile. Enregistrez le fichier projet compressé sur votre ordinateur local et notez l'emplacement où vous l'avez enregistré.
+  	Ceci entraîne le téléchargement d'une solution contenant les projets du service mobile et de l'exemple d'application _To do list_ connectée à votre service mobile. Enregistrez le fichier projet compressé sur votre ordinateur local et notez l'emplacement d'enregistrement.
 
 
 ## Test de l'application avec le service mobile local
@@ -69,7 +69,7 @@ Dans cette section, vous allez créer une application Windows universelle connec
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 <ol start="4">
-<li><p>Dans le projet de code partagé, ouvrez le fichier default.js, recherchez le code de création d'une instance <a href="http://msdn.microsoft.com/library/azure/jj554219.aspx" target="_blank">WindowsAzure.MobileServiceClient</a>, placez en commentaire le code de création de ce client à l'aide de <em>localhost</em> et annulez le commentaire du code de création du client à l'aide de l'URL du service mobile distant, lequel est semblable à ce qui suit :</p>
+<li><p>Dans le projet de code partagé, ouvrez le fichier default.js, recherchez le code de création d'une instance <a href="http://msdn.microsoft.com/library/azure/jj554219.aspx" target="_blank">WindowsAzure.MobileServiceClient</a>, placez en commentaire le code de création de ce client à l'aide de <em>localhost</em> et annulez le commentaire du code de création du client à l'aide de l'URL du service mobile distant, lequel est semblable à ce qui suit</p>
 
         <pre><code>var client = new WindowsAzure.MobileServiceClient(
             "https://todolist.azure-mobile.net/",
@@ -89,20 +89,7 @@ Dans cette section, vous allez créer une application Windows universelle connec
 	<p>Notez que les données enregistrées à l'étape précédente sont chargées à partir du service mobile après le démarrage de l'application.</p></li>
 </ol>
 
-
-## Étapes suivantes
-Maintenant que vous avez effectué le démarrage rapide, découvrez comment exécuter d'autres tâches importantes dans Mobile Services : 
-
-* [Prise en main des données]
-  <br/>En savoir plus sur le stockage et l'interrogation des données à l'aide de Mobile Services.
-
-* [Prise en main de l'authentification]
-  <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec un fournisseur d'identité.
-
-* [Prise en main des notifications Push]
-  <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
-
-Pour plus d'informations sur les applications Windows universelles, consultez la page [Prise en charge de plusieurs plateformes d'appareil à partir d'un service mobile unique](mobile-services-how-to-use-multiple-clients-single-service#shared-vs.md)..
+Pour plus d'informations sur les applications Windows universelles, consultez la page [Prise en charge de plusieurs plateformes d'appareil à partir d'un service mobile unique](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs).
 
 <!-- Anchors. -->
 [Prise en main de Mobile Services]:#getting-started
@@ -123,16 +110,14 @@ Pour plus d'informations sur les applications Windows universelles, consultez la
 
 
 <!-- URLs. -->
-[Prise en main des données]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-data
-[Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users
-[Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push
+[Prise en main des données]: mobile-services-dotnet-backend-windows-universal-javascript-get-started-data.md
+[Prise en main de l'authentification]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
+[Prise en main des notifications Push]: mobile-services-dotnet-backend-windows-store-javascript-get-started-push.md
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Kit de développement logiciel (SDK) Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=257545
-[JavaScript et HTML] : mobile-services-win8-javascript/
+[JavaScript et HTML]: mobile-services-win8-javascript/
 [Portail de gestion]: https://manage.windowsazure.com/
-[Version JavaScript]: /fr-fr/documentation/articles/mobile-services-windows-store-get-started
-[Prise en main des données dans Mobile Services avec Visual Studio 2012]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
+[Version JavaScript]: mobile-services-windows-store-get-started.md
+[Prise en main des données dans Mobile Services avec Visual Studio 2012]: mobile-services-windows-store-dotnet-get-started-data-vs2012.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

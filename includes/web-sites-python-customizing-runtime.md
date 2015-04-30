@@ -1,4 +1,4 @@
-﻿Azure détermine la version de Python à utiliser pour son environnement virtuel avec l'ordre de priorité suivant :
+Azure détermine la version de Python à utiliser pour son environnement virtuel avec l'ordre de priorité suivant :
 
 1. Version spécifiée dans runtime.txt dans le dossier racine
 1. Version spécifiée par le paramètre Python dans la configuration du site web (page Configurer du portail Azure)
@@ -14,5 +14,4 @@ sont :
 - python-3.4
 
 Si la version micro (le troisième chiffre) est spécifiée, elle est ignorée.
-
-<!--HONumber=49-->
+<!--HONumber=52--> 

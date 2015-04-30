@@ -3,7 +3,7 @@
 	description="Vue d'ensemble de l'API REST Media Services" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -30,9 +30,9 @@ Pour chaque appel dans Media Services, il existe un ensemble d'en-têtes requis,
 <table border="1">
 <tr><th>En-tête</th><th>Type</th><th>Valeur</th></tr>
 <tr><td>Autorisation</td><td>Support</td><td>Le support est le seul mécanisme d'autorisation accepté. La valeur doit également inclure le jeton d'accès fourni par ACS.</td></tr>
-<tr><td>x-ms-version</td><td>Décimal</td><td>2.9</td></tr>
-<tr><td>DataServiceVersion</td><td>Décimal</td><td>3.0</td></tr>
-<tr><td>MaxDataServiceVersion</td><td>Décimal</td><td>3.0</td></tr>
+<tr><td>x-ms-version</td><td>Décimal</td><td>2,9</td></tr>
+<tr><td>DataServiceVersion</td><td>Décimal</td><td>3,0</td></tr>
+<tr><td>MaxDataServiceVersion</td><td>Décimal</td><td>3,0</td></tr>
 </table><br/>
 
 
@@ -88,7 +88,7 @@ Voici une liste complète des verbes HTTP pouvant être utilisés lors de requê
 
 ## Découverte du modèle Media Services
 
-Pour rendre les entités Media Services plus détectables, l'opération $metadata peut être utilisée. Elle vous permet de récupérer l'ensemble des types d'entité, des propriétés d'entité, des associations, des fonctions, des actions valides, etc. L'exemple suivant montre comment construire l'URI : https://media.windows.net/API/$metadata.
+Pour rendre les entités Media Services plus détectables, l'opération $metadata peut être utilisée. Elle vous permet de récupérer l'ensemble des types d'entité, des propriétés d'entité, des associations, des fonctions, des actions valides, etc. L'exemple suivant montre comment construire l'URI: https://media.windows.net/API/$metadata.
 
 Vous devez ajouter " ?api-version=2.x " à la fin de l'URI si vous souhaitez afficher les métadonnées dans un navigateur ou n'incluez pas l'en-tête x-ms-version dans votre requête.
 
@@ -103,4 +103,4 @@ Vous devez ajouter " ?api-version=2.x " à la fin de l'URI si vous souhaitez aff
 
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->

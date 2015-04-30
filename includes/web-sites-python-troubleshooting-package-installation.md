@@ -1,4 +1,4 @@
-﻿Il est possible que certains packages ne soient pas installés via pip sous Azure.  Cela peut signifier simplement que le package n'est pas disponible dans l'index de packages Python.  Ou bien qu'un compilateur est nécessaire (aucun compilateur n'est disponible sur la machine exécutant le site web Azure).
+Il est possible que certains packages ne soient pas installés via pip sous Azure.  Cela peut signifier simplement que le package n'est pas disponible dans l'index de packages Python.  Ou bien qu'un compilateur est nécessaire (aucun compilateur n'est disponible sur la machine exécutant le site web Azure).
 
 Dans cette section, nous étudierons les différentes façons de résoudre ce problème.
 
@@ -14,7 +14,7 @@ Remarque : lorsque vous utilisez cette option, veillez à compiler le package à
 
 Si l'installation du package échoue car un compilateur est requis, vous pouvez installer le compilateur sur votre machine locale et créer une roue pour le package, que vous inclurez ensuite dans votre référentiel.
 
-Utilisateurs Mac/Linux : Si vous n'avez pas accès à un ordinateur Windows, consultez la rubrique [Création d'une machine virtuelle exécutant Windows][] pour savoir comment créer une machine virtuelle sur Azure.  Vous pouvez alors utiliser cette machine virtuelle pour générer des roues et les ajouter au référentiel, puis la supprimer si vous le souhaitez. 
+Utilisateurs Mac/Linux : Si vous n'avez pas accès à un ordinateur Windows, consultez la rubrique [Créer une machine virtuelle exécutant Windows][] pour savoir comment créer une machine virtuelle sur Azure.  Vous pouvez alors utiliser cette machine virtuelle pour générer des roues et les ajouter au référentiel, puis la supprimer si vous le souhaitez. 
 
 Pour Python 2.7, vous pouvez installer le [Compilateur Microsoft Visual C++ pour Python 2.7][].
 
@@ -67,5 +67,4 @@ Nous vous recommandons de supprimer l'environnement virtuel existant sur le site
 [Créer une machine virtuelle exécutant Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
 [Compilateur Microsoft Visual C++ pour Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
-
-<!--HONumber=49-->
+<!--HONumber=52--> 

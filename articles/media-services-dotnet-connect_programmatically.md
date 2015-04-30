@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Connexion à un compte Media Services à l'aide de .NET" 
 	description="Cette rubrique montre comment se connecter à Media Services avec .NET." 
 	services="media-services" 
@@ -19,7 +19,7 @@
 
 # Connexion à un compte Media Services à l'aide du Kit de développement logiciel (SDK) Media Services pour .NET
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) et [Workflow de diffusion en continu Media Services](../media-services-live-streaming-workflow) . 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md). 
 
 Cette rubrique décrit comment obtenir une connexion à Microsoft Azure Media Services par programme lorsque vous programmez avec le Kit de développement logiciel (SDK) Media Services pour .NET.
 
@@ -63,7 +63,7 @@ Cette section montre comment réutiliser les jetons du Service de contrôle d'ac
 
 [Azure Active Directory Access Control](https://msdn.microsoft.com/library/hh147631.aspx) (également appelé Service de contrôle d'accès ou ACS) est un service cloud qui offre un moyen facile d'authentifier les utilisateurs et d'autoriser l'accès à leurs applications Web. Microsoft Azure Media Services contrôle l'accès à ses services via le protocole OAuth, qui requiert un jeton ACS. Media Services reçoit les jetons ACS d'un serveur d'autorisation.
 
-Lorsque vous développez avec le Kit de développement logiciel (SDK) Media Services, vous pouvez choisir de ne pas traiter les jetons, étant donné que le code du Kit de développement (SDK) les gère pour vous. Toutefois, laisser le Kit de développement logiciel (SDK) gérer entièrement les jetons ACS entraîne des demandes de jetons inutiles. Les demandes de jetons prennent du temps et consomment les ressources client et serveur. En outre, le serveur ACS limite les demandes si le taux est trop élevé. La limite est de 30 demandes par seconde, consultez [Limitations du Service ACS](https://msdn.microsoft.com/library/gg185909.aspx) pour plus de détails.
+Lorsque vous développez avec le Kit de développement logiciel (SDK) Media Services, vous pouvez choisir de ne pas traiter les jetons, étant donné que le code du Kit de développement (SDK) les gère pour vous. Toutefois, laisser le Kit de développement logiciel (SDK) gérer entièrement les jetons ACS entraîne des demandes de jetons inutiles. Les demandes de jetons prennent du temps et consomment les ressources client et serveur. En outre, le serveur ACS limite les demandes si le taux est trop élevé. La limite est de 30 demandes par seconde. Consultez la page [Limitations du Service ACS](https://msdn.microsoft.com/library/gg185909.aspx) pour plus de détails.
 
 À compter de la version 3.0.0.0 du Kit de développement logiciel (SDK) Media Services, vous pouvez réutiliser les jetons ACS. Les constructeurs **CloudMediaContext** qui acceptent **MediaServicesCredentials** comme paramètre autorisent le partage des jetons entre plusieurs contextes. La classe MediaServicesCredentials encapsule les informations d'identification de Media Services. Si un jeton ACS est disponible et que son heure d'expiration est connue, vous pouvez créer une instance de MediaServicesCredentials avec le jeton et le transmettre au constructeur de CloudMediaContext. Notez que le Kit de développement logiciel (SDK) Media Services actualise automatiquement les jetons chaque fois qu'ils arrivent à expiration. Il existe deux façons de réutiliser les jetons ACS, comme le montrent les exemples ci-dessous.
 
@@ -191,4 +191,4 @@ Pour récupérer les valeurs de connexion de configuration, vous pouvez utiliser
 
 <!-- URLs. -->
 
-<!--HONumber=47-->
+<!--HONumber=52-->

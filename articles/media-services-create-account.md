@@ -1,9 +1,9 @@
-﻿<properties 
+<properties 
 	pageTitle="Création d'un compte Media Services - Azure" 
 	description="Explique comment créer un compte Media Services dans Azure." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -17,30 +17,24 @@
 	ms.author="juliako"/>
 
 
+# Création d'un compte Media Services
 
-#Création d'un compte Media Services
-
-Cet article fait partie des séries [workflow à la demande de vidéo Media Services](../media-services-video-on-demand-workflow) et [workflow de vidéo en flux continu Media Services](../media-services-live-streaming-workflow).  
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md).  
 
 Le portail de gestion Azure permet de créer rapidement un compte Azure Media Services. Vous pouvez utiliser ce dernier pour accéder à Media Services afin de stocker, de chiffrer, d'encoder, de gérer et de diffuser du contenu multimédia dans Azure. Lorsque vous créez un compte Media Services, vous créez également un compte de stockage associé ou en utilisez un existant, situé dans la même zone géographique que le compte Media Services. 
 
 Cette rubrique présente l'utilisation de la méthode Création rapide pour créer un compte Media Services, puis l'associer au compte de stockage. 
 
-##Sommaire
-
--  [Concepts][]
--  [Procédure : Création d'un compte Media Services grâce à la méthode Création rapide][]
-
-
-<h2><a id="concepts"></a>Concepts</h2>
+## <a id="concepts"></a>Concepts
 L'accès à Media Services requiert deux comptes associés :
 
 -   **Un compte Media Services**. Votre compte vous donne accès à un ensemble de services Media Services sur le cloud, disponibles dans Azure. Un compte Media Services ne stocke pas de contenu multimédia à proprement parler. Il stocke des métadonnées relatives au contenu multimédia et aux travaux de traitement multimédia dans votre compte. Lorsque vous créez le compte, vous sélectionnez une région Media Services disponible. Cette dernière est un centre de données qui stocke les enregistrements de métadonnées pour votre compte. 
+
     > [AZURE.NOTE]
     > Les régions disponibles pour Media Services sont les suivantes : **Europe du Nord**, **Europe de l'Ouest**, **Ouest des États-Unis**, **Est des États-Unis**, **Sud-Est de l'Asie**, **Est de l'Asie**, **Ouest du Japon**, **Est du Japon**. Media Services n'utilise pas de groupes d'affinités. 
 -   **Un compte de stockage associé**. Il s'agit d'un compte de stockage Azure associé à votre compte Media Services. Il permet de stocker des objets blob pour les fichiers multimédia et doit se trouver dans la même zone géographique que le compte Media Services. Lorsque vous créez un compte Media Services, vous pouvez choisir un compte de stockage existant dans la même région ou en créer un. Si vous supprimez un compte Media Services, les objets blob de votre compte de stockage associé ne seront pas supprimés. 
 
-<h2><a id="quick"></a>Procédure : Création d'un compte Media Services grâce à la méthode Création rapide</h2>
+## <a id="quick"></a>Procédure : Création d'un compte Media Services grâce à la méthode Création rapide
 
 1. Dans le [portail de gestion][], cliquez sur **Nouveau**, sur **Service de média**, puis sur **Création rapide**.
    
@@ -72,7 +66,7 @@ L'accès à Media Services requiert deux comptes associés :
 <!-- Anchors. -->
   [Concepts]: #concepts
   [Avant de commencer]: #begin
-  [Création d'un compte Media Services grâce à la méthode Création rapide]: #quick
+  [Procédure : Création d'un compte Media Services grâce à la méthode Création rapide]: #quick
 
 <!-- URLs. -->
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
@@ -81,4 +75,4 @@ L'accès à Media Services requiert deux comptes associés :
 
 
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

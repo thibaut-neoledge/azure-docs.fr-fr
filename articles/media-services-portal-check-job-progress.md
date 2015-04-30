@@ -16,11 +16,11 @@
 	ms.date="02/10/2015" 
 	ms.author="juliako"/>
 
-#Procédure : vérification de la progression des tâches
+# Procédure : vérification de la progression des tâches
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) . 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md). 
 
-##Utilisation du portail pour vérifier l'état de la tâche
+## Utilisation du portail pour vérifier l'état de la tâche
 
 1. Dans le [portail de gestion](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), cliquez sur **Services de média**, puis sur le nom du compte Media Services.
 2. Sélectionnez la page **TÂCHES**. 
@@ -29,11 +29,11 @@ Cet article fait partie de la série [workflow de vidéo à la demande Media Ser
 
 	![CheckStatus][checkstatus]
 
-##Étape suivante
+## Étape suivante
 
-Publiez votre contenu. Pour plus d'informations, consultez la page [ d'un élément multimédia](../media-services-manage-content#publish). 
+Publiez votre contenu. Pour plus d'informations, consultez la page [ Encodage d'un élément multimédia](media-services-manage-content#publish.md). 
 
 
 [checkstatus]: ./media/media-services-monitor-job-progress/media-services-monitor-job-progress.png
 
-<!--HONumber=47-->
+<!--HONumber=52-->

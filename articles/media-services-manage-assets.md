@@ -17,9 +17,9 @@
 	ms.author="juliako"/>
 
 
-#Procédure : des éléments multimédias dans le stockage
+# Procédure : Gestion des éléments multimédias dans le stockage
 
-Cet article fait partie des séries [workflow à la demande de vidéo Media Services](../media-services-video-on-demand-workflow) et [workflow de vidéo en flux continu Media Services](../media-services-live-streaming-workflow).  
+Cet article fait partie des séries [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md).  
 
 
 Une fois que vous avez créé des éléments multimédias, vous pouvez y accéder et les gérer sur le serveur. Vous pouvez également gérer sur le serveur d'autres objets faisant partie de Media Services, entre autres, des travaux, des tâches, des stratégies d'accès et des localisateurs.
@@ -85,4 +85,4 @@ L'extrait de code suivant supprime tous les éléments multimédias du compte Me
 	}
 
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

@@ -3,20 +3,20 @@
 	description="Cette rubrique offre une vue d'ensemble d'Azure Media Services" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="dotnet" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/26/2015" 
 	ms.author="juliako"/>
 
-#Vue d'ensemble d'Azure Media Services
+# Vue d'ensemble d'Azure Media Services
 
 Microsoft Azure Media Services est une plateforme extensible basée sur le cloud qui permet aux développeurs de créer des applications évolutives de gestion et de diffusion de médias. Media Services est basé sur les API REST qui permettent de télécharger, stocker, encoder et empaqueter en toute sécurité du contenu vidéo ou audio destiné à être diffusé à la demande ou en direct sur différents clients (par exemple, téléviseurs, PC et appareils mobiles).
 
@@ -34,15 +34,15 @@ L'affiche suivante présente les flux de travail Azure Media Services, de la cr�
 
 ![Overview][overview]
 
-##Concepts
+## Concepts
 
-Pour plus d'informations, consultez [Concepts](../media-services-concepts).
+Pour plus d'informations, consultez la page [Concepts](media-services-concepts.md).
 
-##Choix de votre expérience multimédia
+## Choix de votre expérience multimédia
 
 Une des premières étapes du partage de contenu vidéo consiste à décider quel type d'expérience vous voulez proposer à vos clients. Comment vos clients visualiseront-ils le contenu vidéo ? Seront-ils connectés à Internet ? Visionneront-ils votre contenu sur un ordinateur ou sur un appareil de poche ? Vos clients espèrent-ils visionner une vidéo haute définition ? C'est en vous posant ce genre de question que vous parviendrez à faire vivre à vos clients la meilleure expérience possible.
 
-###Accès aux vidéos
+### Accès aux vidéos
  
 Globalement, les clients ont quatre manières différentes d'accéder aux vidéos :
 
@@ -50,42 +50,42 @@ Globalement, les clients ont quatre manières différentes d'accéder aux vidéo
 - Téléchargement progressif
 - Diffusion en continu\Diffusion en continu à débit adaptatif
 
-####Visualisation hors connexion
+#### Visualisation hors connexion
 
 Pour visualiser une vidéo en mode hors connexion, le client doit télécharger la vidéo en entier sur son ordinateur ou appareil. Les vidéos ayant tendance à être assez volumineuses, le téléchargement peut prendre un certain temps. L'avantage d'une visualisation hors connexion est qu'il n'y a pas besoin de connexion réseau pour visualiser la vidéo une fois qu'elle est téléchargée sur l'appareil. 
 
-####Téléchargement progressif
+#### Téléchargement progressif
 
 Le téléchargement progressif impose au client d'être connecté à Internet, mais il peut commencer à regarder la vidéo avant le téléchargement complet de la vidéo. Que ce soit avec la visualisation hors connexion ou le téléchargement progressif, l'appareil dont se sert le client pour visualiser la vidéo doit avoir suffisamment d'espace de stockage pour accueillir la vidéo entière.
 
-####Diffusion en continu
+#### Diffusion en continu
 
 Si les technologies de diffusion en continu requièrent aussi une connexion Internet, elles téléchargent une petite partie de la vidéo à la fois et la supprime dès qu'elle a été affichée. Elles demandent très peu d'espace de stockage sur l'appareil de visualisation. Si le débit d'une connexion réseau peut varier, les clients peuvent néanmoins espérer pouvoir visualiser les vidéos, quelle que soit la bande passante réseau disponible. Les technologies à débit adaptatif permettent aux applications de lecteur vidéo de déterminer les conditions réseau et de choisir entre plusieurs débits. Si la communication réseau se dégrade, le client peut sélectionner un débit inférieur, ce qui permet au lecteur de continuer à lire la vidéo, au détriment cependant de la qualité vidéo. Dès que les conditions réseau s'améliorent, le client peut passer à un débit binaire supérieur pour une meilleure qualité vidéo. Azure Media Services prend en charge les technologies à débit adaptatif suivantes : diffusion en continu HTTP(HLS), diffusion en continu lisse (Smooth Streaming), MPEG DASH et HDS.
 
-###Sur quels appareils
+### Sur quels appareils
 
 L'autre décision à prendre concerne le type d'appareil à cibler, à savoir, le type d'appareil que les clients utiliseront pour visualiser vos vidéos. Media Services prend en charge les navigateurs web, smartphones, tablettes, XBOX, décodeurs et téléviseurs connectés.
 
-####Navigateurs web
+#### Navigateurs web
 
 Les navigateurs web peuvent s'exécuter sur les PC Windows, les Macintosh et les smartphones. En utilisant un PC ou un Macintosh, vous pouvez profiter de la taille de l'écran et de sa capacité de stockage. Cela vous permet de diffuser des vidéos de qualité supérieure. Les PC Windows ou les Macintosh peuvent lire les vidéos remises par Media Services à l'aide d'une application native ou d'un navigateur web compatible HTML. Les applications natives peuvent prendre en charge la diffusion en continu lisse, la technologie Apple HLS, le téléchargement progressif ou la visualisation hors connexion. Les pages web HTML5 prennent en charge le téléchargement progressif.
 
 
-####Smartphones
+#### Smartphones
 
 Les smartphones sont dotés de petits écrans et de plus faibles capacités de stockage. La diffusion en continu est le meilleur choix pour ces appareils. Les iPhone, Windows Phone et téléphones Android sont pris en charge. Les iPhone et téléphones Android prennent en charge la diffusion en continu lisse et la technologie HLS. Les Windows Phone prennent en charge la diffusion en continu lisse.
 
-###Tablettes
+### Tablettes
 
 Les tablettes ont des écrans plus grands que les smartphones, mais disposent généralement d'une moindre capacité de stockage. La diffusion en continu est le meilleur choix pour les tablettes. Les tablettes dotées de capacités de stockage supérieures peuvent aussi bénéficier de la visualisation hors connexion et du téléchargement progressif.
 
-####XBox
+#### XBox
 
 Les consoles XBox bénéficient de grands écrans et d'une capacité de stockage supérieure, ce qui les rend parfaitement compatibles avec la visualisation hors connexion, le téléchargement progressif et la diffusion en continu .
 Décodeurs et téléviseurs connectés
 Bien que bénéficiant d'écrans de grande taille, ces appareils ont une capacité de stockage minime, ce qui fait de la diffusion en continu le meilleur choix.
 
-###Technologies prises en charge par appareil
+### Technologies prises en charge par appareil
 
 Le tableau suivant présente chaque type d'appareil, ainsi que les technologies clientes pris en charge par Media Services :
  
@@ -102,70 +102,36 @@ Le tableau suivant présente chaque type d'appareil, ainsi que les technologies 
 </table>
 
 
-##Flux de travail de développement courants : Vidéo à la demande et vidéo en flux continu
+## Distribution de médias à la demande avec Azure Media Services
 
-###Vidéo à la demande : remise de contenu diffusé en continu 
+Pour plus d'informations, consultez la page [Distribution de médias à la demande avec Azure Media Services](media-services-video-on-demand-workflow.md).
 
-1. Téléchargez un fichier mezzanine de haute qualité dans une ressource.
-1. Encodez-la sous forme de jeu de fichiers MP4 à débit adaptatif.
-1. Configurez la stratégie de remise de ressources (utilisée par l'empaquetage dynamique).
-1. (Facultatif) Configurez la stratégie de protection du contenu et d'autorisation de clé (utilisée par le chiffrement dynamique).
-1. Publiez la ressource.
-1. Diffusez le contenu publié. 
+## Diffusion vidéo en flux continu avec Azure Media Services
 
-###Vidéo à la demande : Indexer le contenu
+Pour plus d'informations, consultez la page [Diffusion vidéo en flux continu avec Azure Media Services](media-services-live-streaming-workflow.md), qui contient des liens vers des rubriques expliquant comment effectuer les tâches mentionnées ci-dessus.
 
-1. Téléchargez un fichier mezzanine de haute qualité dans une ressource.
-1. Indexez le contenu.
-1. Consommez le contenu indexé.
-
-###Vidéo à la demande : Remettre le téléchargement progressif 
-
-1. Téléchargez un fichier mezzanine de haute qualité dans une ressource.
-1. Encodez-la sous forme de jeu de fichiers MP4 à débit adaptatif ou de fichier MP4 unique.
-1. Publiez la ressource.
-1. Téléchargez le contenu de manière progressive.
-
-[Vidéo à la demande Media Services](../media-services-video-on-demand-workflow) contient des liens vers des rubriques qui montrent comment effectuer les tâches mentionnées ci-dessus.
-
-###Vidéo en flux continu
-
-1. Créez et démarrez un canal.
-1. Récupérez l'URL de réception du canal.
-1. Démarrez et configurez le transcodeur en temps réel de votre choix.
-1. Récupérez le point de terminaison d'aperçu du canal et vérifiez que votre canal reçoit correctement le flux dynamique.
-1. Créez un programme et une ressource. 
-2. Configurez la stratégie de remise pour la ressource (utilisé par l'empaquetage dynamique).
-3. (Facultatif) Configurez la stratégie de protection du contenu et d'autorisation de clé (utilisée par le chiffrement dynamique).
-1. Pour mettre le flux à la disposition des utilisateurs, créez un localisateur de diffusion en continu qui est nécessaire pour accéder à la ressource associée au programme.
-1. Démarrez le programme dès que vous êtes prêt à lancer la diffusion en continu et l'archivage.
-1. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l'événement.
-1. Supprimez le programme (et éventuellement la ressource).
-
-[Vidéo en flux continu Media Services](../media-services-live-streaming-wrokflow) contient des liens vers des rubriques qui montrent comment effectuer les tâches mentionnées ci-dessus.
-
-##Clients
+## Clients
 
 Azure Media Services fournit les outils dont vous avez besoin pour créer des applications de lecteur clientes riches et dynamiques pour la plupart des plateformes, notamment : appareils iOS, Android, Windows, Windows Phone, Xbox et décodeurs.
 
 - [Kit de développement logiciel (SDK) de client de diffusion en continu lisse](http://www.iis.net/downloads/microsoft/smooth-streaming) 
-- [Plateforme multimédia Microsoft : Player Framework](http://playerframework.codeplex.com/) 
-- [Documentation de Player Framework HTML5](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
+- [Plateforme multimédia Microsoft : infrastructure de lecteur](http://playerframework.codeplex.com/) 
+- [Documentation de l'infrastructure de lecteur HTML5](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 - [Plug-in de diffusion en continu lisse Microsoft pour OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
-- [Media Player Framework pour iOS](https://github.com/Azure/azure-media-player-framework) 
+- [Infrastructure de lecteur multimédia pour iOS](https://github.com/Azure/azure-media-player-framework) 
 - [Licence du kit de portage du client de diffusion en continu lisse Microsoft(r)](https://www.microsoft.com/mediaplatform/sspk.aspx) 
 - Création d'applications vidéo sur Windows 8 
 - [Développement d'applications vidéo pour XBOX](http://xbox.create.msdn.com/) 
 
-Pour plus d'informations, consultez [Développement d'applications de lecteur vidéo](../media-services-develop-video-players)
+Pour plus d'informations, consultez la page [Développement d'applications vidéo pour XBOX](media-services-develop-video-players.md)
 
-##Modèles et pratiques recommandées
+## Modèles et pratiques recommandées
 
 [Modèles et pratiques recommandées](https://wamsg.codeplex.com/)
 [Documentation en ligne](https://msdn.microsoft.com/library/dn735912.aspx)
 [Livre électronique téléchargeable](https://www.microsoft.com/download/details.aspx?id=42629)
 
-##Support
+## Support
 
 Le [support Azure](http://azure.microsoft.com/support/options/) propose des options de support pour Azure, y compris Media Services.
 
@@ -174,4 +140,4 @@ Le [support Azure](http://azure.microsoft.com/support/options/) propose des opti
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
 
-<!--HONumber=47-->
+<!--HONumber=52-->

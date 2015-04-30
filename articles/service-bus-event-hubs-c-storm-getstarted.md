@@ -22,7 +22,7 @@
 
 ## Introduction
 
-Les concentrateurs d'événements représentent un système d'ingestion à l'extensibilité élevée en mesure d'absorber des millions d'événements par seconde, ce qui permet à une application de traiter et d'analyser les quantités énormes de données produites par vos périphériques connectés et vos applications. Une fois collectées dans des concentrateurs d'événements, vous pouvez transformer et stocker des données à l'aide de n'importe quel fournisseur d'analyses en temps réel ou d'un cluster de stockage.
+Les concentrateurs d'événements représentent un système d'ingestion à l'extensibilité élevée en mesure d'absorber des millions d'événements par seconde, ce qui permet à une application de traiter et d'analyser les quantités énormes de données produites par vos périphériques connectés et vos applications. Une fois collectés dans des concentrateurs d'événements, vous pouvez transformer et stocker des données à l'aide de n'importe quel fournisseur d'analyses en temps réel ou d'un cluster de stockage.
 
 Pour plus d'informations, consultez la rubrique [Vue d'ensemble des concentrateurs d'événements].
 
@@ -30,11 +30,11 @@ Dans ce didacticiel, vous allez apprendre comment procéder à la réception des
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-+ Un environnement de développement en C. Pour ce didacticiel, nous partirons du principe que la pile GCC est sur une [machine virtuelle Linux Azure](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/) dotée du système d'exploitation Ubuntu 14.04. Vous trouverez des instructions pour d'autres environnements en consultant les liens externes.
++ Un environnement de développement en C. Pour ce didacticiel, nous partirons du principe que la pile GCC est sur une [machine virtuelle Linux Azure](virtual-machines-linux-tutorial.md) dotée du système d'exploitation Ubuntu 14.04. Vous trouverez des instructions pour d'autres environnements en consultant les liens externes.
 
 + Un environnement de développement Java configuré pour exécuter [Maven](http://maven.apache.org/). Pour ce didacticiel, nous partirons du principe que la solution utilisée est [Eclipse](https://www.eclipse.org/).
 
-+ un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">version d'évaluation gratuite d'Azure</a>.
++ un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la rubrique <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.
 
 ## Création d'un concentrateur d'événements
 
@@ -56,7 +56,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
    	![][4]
 
-6. Cliquez sur l'onglet **Configurer**en haut de la page, ajoutez une règle appelée **SendRule** avec des droits *Send*, ajoutez une autre règle appelée **ReceiveRule** avec des droits *Listen*, puis cliquez sur **Enregistrer**.
+6. Cliquez sur l'onglet **Configurer** en haut de la page, ajoutez une règle appelée **SendRule** avec des droits *Send*, ajoutez une autre règle appelée **ReceiveRule** avec des droits *Listen*, puis cliquez sur **Enregistrer**.
 
    	![][5]
 
@@ -87,7 +87,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 Les ressources suivantes sont disponibles pour les applications de développement intégrant des concentrateurs d'événements et Storm.
 
-- [Le didacticiel Analyse des données de capteur avec Storm dans HDInsight] est un didacticiel de scénario complet tirant parti des concentrateurs d'événements, de Storm et de HBase pour la réception des données du capteur dans un cluster Hadoop.
+- [Le didacticiel Analyse des données de capteur avec Storm et HDInsight] est un didacticiel de scénario complet tirant parti des concentrateurs d'événements, de Storm et de HBase pour la réception des données du capteur dans un cluster Hadoop.
 - [Le didacticiel Développement d'applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight] décrit la marche à suivre pour écrire des pipelines Storm en C#.
 
 <!-- Images. -->
@@ -108,6 +108,7 @@ Les ressources suivantes sont disponibles pour les applications de développemen
 
 [Apache Storm]: https://storm.incubator.apache.org
 [Vue d'ensemble HDInsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
-[Le didacticiel Analyse des données de capteur avec Storm dans HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[Le didacticiel Analyse des données de capteur avec Storm et HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 [Le didacticiel Développement d'applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
-<!--HONumber=47-->
+
+<!--HONumber=52-->

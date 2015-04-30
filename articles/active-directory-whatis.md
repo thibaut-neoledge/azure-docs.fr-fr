@@ -46,4 +46,4 @@ Azure AD comporte de nombreux niveaux fonctionnels, du fractionnement depuis un 
 * [Identité Azure](/manage/windows/fundamentals/identity/)
 * [Bibliothèque Azure AD sur MSDN](http://go.microsoft.com/fwlink/?LinkId=293425)
 
-<!--HONumber=47-->
+<!--HONumber=52-->

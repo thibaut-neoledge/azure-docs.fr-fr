@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Indexation de fichiers multimédias avec Azure Media Indexer" 
 	description="Azure Media Indexer permet de rendre le contenu de vos fichiers multimédias consultable et de générer une transcription en texte intégral de sous-titrages et de mots-clés. Cette rubrique explique comment utiliser Media Indexer." 
 	services="media-services" 
@@ -10,18 +10,18 @@
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/04/2015" 
+	ms.date="03/25/2015" 
 	ms.author="juliako"/>
 
 
 # Indexation de fichiers multimédias avec Azure Media Indexer
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) . 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md). 
 
-Azure Media Indexer permet de rendre le contenu de vos fichiers multimédias consultable et de générer une transcription en texte intégral de sous-titrages et de mots-clés. Vous pouvez traiter un fichier multimédia ou plusieurs dans un lot. Vous pouvez également indexer les fichiers accessibles sur Internet en spécifiant l'URL des fichiers dans le fichier manifeste.
+Azure Media Indexer permet de rendre le contenu de vos fichiers multimédias consultable et de générer une transcription en texte intégral de sous-titrages et de mots-clés. Vous pouvez traiter un fichier multimédia ou plusieurs dans un lot.  
 
 >[AZURE.NOTE] Lors de l'indexation de contenu, veillez à utiliser des fichiers multimédias avec des mots clairs (sans musique de fond, bruit, effets ou sifflement du microphone). Voici quelques exemples de contenu approprié : des réunions, des conférences ou des présentations enregistrées. Le contenu suivant peut ne pas convenir à l'indexation : des films, des émissions de télévision, des fichiers avec du son et des effets sonores mélangés, du contenu mal enregistré avec un bruit de fond (sifflement).
 
@@ -31,18 +31,18 @@ Un travail d'indexation génère quatre sorties pour chaque fichier d'indexation
 - Un fichier de sous-titres codés au format SAMI.
 - Un fichier de sous-titres codés au format TTML (Timed Text Markup Language).
 
-	SAMI et TTML incluent une balise appelée Recognizability, qui note une tâche d'indexation en fonction de la possibilité de reconnaître les mots de la vidéo source.  Vous pouvez utiliser la valeur de Recognizability pour vérifier l'utilité des fichiers de sortie. Un faible score sous-entend de mauvais résultats d'indexation en raison de la qualité audio.
+	SAMI et TTML incluent une balise appelée Recognizability, qui note une tâche d'indexation en fonction de la possibilité de reconnaître les mots de la vidéo source.  Vous pouvez utiliser la valeur de Recognizability pour filtrer les fichiers de sortie en fonction de leur usage. Un faible score sous-entend de mauvais résultats d'indexation en raison de la qualité audio.
 - Un fichier de mot-clé(XML).
 - Un fichier blob d'indexation audio (AIB) à utiliser avec SQL Server.
 	
 	Pour plus d'informations, consultez [Utilisation de fichiers AIB avec Azure Media Indexer et SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
 
 
-Cette rubrique montre comment créer des tâches d'indexation afin d'**Indexer une ressource**, d'**Indexer plusieurs fichiers**, ainsi que les **fichiers accessibles sur Internet**.
+Cette rubrique explique comment créer des tâches d'indexation pour **indexer une ressource** et **indexer plusieurs fichiers**.
 
 Pour connaître les derniers développements d'Azure Media Indexer, consultez les [blogs Media Services](http://azure.microsoft.com/blog/topics/media-services/).
 
-##Utilisation des fichiers de configuration et manifeste pour l'indexation des tâches
+## Utilisation des fichiers de configuration et manifeste pour l'indexation des tâches
 
 Vous pouvez définir plus de détails pour vos tâches d'indexation en utilisant une configuration de tâche. Par exemple, vous pouvez spécifier les métadonnées à utiliser pour votre fichier multimédia. Ces métadonnées sont utilisées par le moteur de langue pour développer son vocabulaire et améliorent considérablement la précision de la reconnaissance vocale.
 
@@ -50,7 +50,7 @@ Vous pouvez également traiter plusieurs fichiers multimédias à la fois à l'a
 
 Pour plus d'informations, consultez [Présélection de tâches pour Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
-##Indexation d'une ressource
+## Indexation d'une ressource
 
 La méthode suivante télécharge un fichier multimédia en tant que ressource et crée une tâche pour indexer la ressource.
 
@@ -58,53 +58,53 @@ Notez que si aucun fichier de configuration n'est spécifié, la ressource est i
 	
 	static bool RunIndexingJob(string inputMediaFilePath, string outputFolder, string configurationFile = "")
 	{
-	    // Create an asset and upload the input media file to storage.
+	    // Créez une ressource et chargez le fichier multimédia d'entrée dans le stockage.
 	    IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
 	        "My Indexing Input Asset",
 	        AssetCreationOptions.None);
 	
-	    // Declare a new job.
+	    // Déclarez une nouvelle tâche.
 	    IJob job = _context.Jobs.Create("My Indexing Job");
 	
-	    // Get a reference to the Azure Media Indexer.
+	    // Obtenez une référence à Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer",
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
-	    // Read configuration from file if specified.
+	    // Lisez la configuration à partir du fichier si cette opération est spécifiée.
 	    string configuration = string.IsNullOrEmpty(configurationFile) ? "" : File.ReadAllText(configurationFile);
 	
-	    // Create a task with the encoding details, using a string preset.
+	    // Créez une tâche avec les détails de l'encodage, à l'aide d'une chaîne de présélection.
 	    ITask task = job.Tasks.AddNew("My Indexing Task",
 	        processor,
 	        configuration,
 	        TaskOptions.None);
 	
-	    // Specify the input asset to be indexed.
+	    // Spécifiez l'élément multimédia d'entrée à indexer.
 	    task.InputAssets.Add(asset);
 	
-	    // Add an output asset to contain the results of the job. 
+	    // Ajoutez un élément multimédia de sortie pour contenir les résultats de la tâche. 
 	    task.OutputAssets.AddNew("My Indexing Output Asset", AssetCreationOptions.None);
 	
-	    // Use the following event handler to check job progress.  
+	    // Utilisez le gestionnaire d'événements suivant pour suivre la progression de la tâche.  
 	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 	
-	    // Launch the job.
+	    // Lancez la tâche.
 	    job.Submit();
 	
-	    // Check job execution and wait for job to finish. 
+	    // Contrôlez l'exécution de la tâche et attendez la fin de la tâche. 
 	    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 	    progressJobTask.Wait();
 	
-	    // If job state is Error, the event handling 
-	    // method for job progress should log errors.  Here we check 
-	    // for error state and exit if needed.
+	    // Si l'état de la tâche est Error, la méthode de gestion 
+	    // des erreurs de la progression de la tâche doit noter les erreurs.  Ici, nous vérifions 
+	    // l'état de l'erreur, et quittons si nécessaire.
 	    if (job.State == JobState.Error)
 	    {
 	        Console.WriteLine("Exiting method due to job error.");
 	        return false;
 	    }
 	
-	    // Download the job outputs.
+	    // Téléchargez les sorties de la tâche.
 	    DownloadAsset(task.OutputAssets.First(), outputFolder);
 	
 	    return true;
@@ -143,7 +143,7 @@ Notez que si aucun fichier de configuration n'est spécifié, la ressource est i
 	    return processor;
 	} 
 	
-###<a id="output_files"></a>Fichiers de sortie
+### <a id="output_files"></a>Fichiers de sortie
 
 La tâche d'indexation génère les fichiers de sortie suivants. Les fichiers sont stockés dans la première ressource de sortie.
 
@@ -160,13 +160,13 @@ Il requiert l'installation du module complémentaire d'indexeur SQL sur un ordin
 Pour télécharger le composant additionnel, cliquez sur <a href="http://aka.ms/indexersql">Composant additionnel SQL Azure Media Indexer</a>.
 <br/><br/>
 Il est également possible d'utiliser d'autres moteurs de recherche comme Apache Lucene/Solr pour indexer la vidéo selon les sous-titres et les fichiers XML de mots clés, mais les résultats sont moins précis.</td></tr>
-<tr><td>InputFileName.smi<br/>InputFileName.ttml</td>
+<tr><td>NomFichierEntrée.smi<br/>NomFichierEntrée.ttml</td>
 <td>Fichiers de sous-titres aux formats SAMI et TTML.
 <br/><br/>
 Ils permettent de rendre un fichier audio et vidéo accessible aux malentendants.
 <br/><br/>
 SAMI et TTML incluent une balise appelée <b>Recognizability</b>, qui note une tâche d'indexation en fonction de la possibilité de reconnaître les mots de la vidéo source.  Vous pouvez utiliser la valeur de <b>Recognizability</b> pour filtrer les fichiers de sortie en fonction de leur usage. Un faible score sous-entend de mauvais résultats d'indexation en raison de la qualité audio.</td></tr>
-<tr><td>InputFileName.kw.xml</td>
+<tr><td>NomFichierEntrée.kw.xml</td>
 <td>Fichier de mot-clé.
 <br/><br/>
 Un fichier de mot-clé est un fichier XML qui contient les mots clés extraits à partir du contenu de la reconnaissance vocale, avec les informations relatives à la fréquence et à la référence.
@@ -176,7 +176,7 @@ Le fichier peut utilisé pour plusieurs raisons, par exemple, pour effectuer une
 
 Si tous les fichiers multimédias d'entrée ne sont pas correctement indexés, la tâche d'indexation échoue avec le code d'erreur 4000. Pour plus d'informations, consultez [Codes d'erreur](#error_codes).
 
-##Indexation de plusieurs fichiers
+## Indexation de plusieurs fichiers
 
 La méthode suivante télécharge plusieurs fichiers multimédias en tant que ressource et crée une tâche pour indexer tous ces fichiers en lot.
 
@@ -184,59 +184,59 @@ Un fichier manifeste avec l'extension .lst est créé et téléchargé dans la r
 	
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
-	    // Create an asset and upload to storage.
+	    // Créez un élément multimédia et chargez-le dans le stockage.
 	    IAsset asset = CreateAssetAndUploadMultipleFiles(inputMediaFiles,
 	        "My Indexing Input Asset - Batch Mode",
 	        AssetCreationOptions.None);
 	
-	    // Create a manifest file that contains all the asset file names and upload to storage.
+	    // Créez un fichier manifeste contenant les noms de tous les fichiers de ressources et chargez-le dans le stockage.
 	    string manifestFile = "input.lst";            
 	    File.WriteAllLines(manifestFile, asset.AssetFiles.Select(f => f.Name).ToArray());
 	    var assetFile = asset.AssetFiles.Create(Path.GetFileName(manifestFile));
 	    assetFile.Upload(manifestFile);
 	
-	    // Declare a new job.
+	    // Déclarez une nouvelle tâche.
 	    IJob job = _context.Jobs.Create("My Indexing Job - Batch Mode");
 	
-	    // Get a reference to the Azure Media Indexer.
+	    // Obtenez une référence à Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer";
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
-	    // Read configuration.
+	    // Lisez la configuration.
 	    string configuration = File.ReadAllText("batch.config");
 	
-	    // Create a task with the encoding details, using a string preset.
+	    // Créez une tâche avec les détails de l'encodage, à l'aide d'une chaîne de présélection.
 	    ITask task = job.Tasks.AddNew("My Indexing Task - Batch Mode",
 	        processor,
 	        configuration,
 	        TaskOptions.None);
 	
-	    // Specify the input asset to be indexed.
+	    // Spécifiez l'élément multimédia d'entrée à indexer.
 	    task.InputAssets.Add(asset);
 	
-	    // Add an output asset to contain the results of the job.
+	    // Ajoutez un élément multimédia de sortie pour contenir les résultats de la tâche.
 	    task.OutputAssets.AddNew("My Indexing Output Asset - Batch Mode", AssetCreationOptions.None);
 	
-	    // Use the following event handler to check job progress.  
+	    // Utilisez le gestionnaire d'événements suivant pour suivre la progression de la tâche.  
 	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 	
-	    // Launch the job.
+	    // Lancez la tâche.
 	    job.Submit();
 	
-	    // Check job execution and wait for job to finish. 
+	    // Contrôlez l'exécution de la tâche et attendez la fin de la tâche. 
 	    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 	    progressJobTask.Wait();
 	
-	    // If job state is Error, the event handling 
-	    // method for job progress should log errors.  Here we check 
-	    // for error state and exit if needed.
+	    // Si l'état de la tâche est Error, la méthode de gestion 
+	    // des erreurs de la progression de la tâche doit noter les erreurs.  Ici, nous vérifions 
+	    // l'état de l'erreur, et quittons si nécessaire.
 	    if (job.State == JobState.Error)
 	    {
 	        Console.WriteLine("Exiting method due to job error.");
 	        return false;
 	    }
 	
-	    // Download the job outputs.
+	    // Téléchargez les sorties de la tâche.
 	    DownloadAsset(task.OutputAssets.First(), outputFolder);
 	
 	    return true;
@@ -256,7 +256,7 @@ Un fichier manifeste avec l'extension .lst est créé et téléchargé dans la r
 	}
 
 
-###Fichiers de sortie
+### Fichiers de sortie
 
 Lorsqu'il existe plusieurs fichiers multimédias d'entrée, WAMI génère un fichier manifeste pour les sorties de la tâche, nommé " JobResult.txt ". Pour chaque fichier multimédia d'entrée, les fichiers AIB, SAMI, TTML et mots clés de sortie sont numérotés de façon séquentielle, comme indiqué ci-dessous.
 
@@ -284,7 +284,7 @@ Alias : nom du fichier de sortie correspondant.
 <br/><br/>
 MediaLength : longueur du fichier multimédia d'entrée, en secondes. Elle peut être de 0 en cas d'erreur.
 <br/><br/>
-Error : indique si ce fichier multimédia a été indexé avec succès. 0 en cas de réussite, différent en cas d'échec. Reportez-vous aux <a href="#error_codes">codes d'erreur</a> pour des erreurs concrètes.
+Erreur : indique si ce fichier multimédia a été indexé avec succès. 0 en cas de réussite, différent en cas d'échec. Reportez-vous aux <a href="#error_codes">codes d'erreur</a> pour des erreurs concrètes.
 </td></tr>
 <tr><td>Media_1.aib </td>
 <td>Fichier #0 : fichier blob d'indexation audio.</td></tr>
@@ -298,88 +298,13 @@ Error : indique si ce fichier multimédia a été indexé avec succès. 0 en cas
 
 Si tous les fichiers multimédias d'entrée ne sont pas correctement indexés, la tâche d'indexation échoue avec le code d'erreur 4000. Pour plus d'informations, consultez [Codes d'erreur](#error_codes).
 
-###Tâche partiellement réussie
+### Tâche partiellement réussie
 
 Si tous les fichiers multimédias d'entrée ne sont pas correctement indexés, la tâche d'indexation échoue avec le code d'erreur 4000. Pour plus d'informations, consultez [Codes d'erreur](#error_codes).
 
 
 Les mêmes sorties que pour des tâches réussies sont générées. Vous pouvez consulter le fichier manifeste de sortie pour savoir quels fichiers d'entrée ont échoué, en fonction des valeurs de la colonne d'erreur. Pour les fichiers d'entrée ayant échoué, les fichiers AIB, SAMI, TTML et de mot-clé ne sont pas générés.
 
-##Indexation de fichiers à partir d'Internet
-
-Les fichiers multimédias disponibles publiquement sur Internet peuvent également être indexés sans être copiés sur Azure Storage. Vous pouvez utiliser le fichier manifeste pour spécifier l'URL des fichiers multimédias. Pour plus d'informations, consultez [Présélection de tâches pour Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
-
-Notez que les protocoles d'URL HTTP et HTTPS sont pris en charge.
-
-La méthode et la configuration suivantes créent une tâche d'indexation d'un fichier multimédia sur Internet.
-	
-	static bool RunIndexingJobWithPublicUrl(string inputMediaUrl, string outputFolder)
-	{
-	    // Create the manifest file that contains the input media URL
-	    string manifestFile = "input.lst";
-	    File.WriteAllLines(manifestFile, new string[] { inputMediaUrl });
-	
-	    // Create an asset and upload the manifest file to storage.
-	    IAsset asset = CreateAssetAndUploadSingleFile(manifestFile,
-	        "My Indexing Input Asset - Public URL",
-	        AssetCreationOptions.None);
-	
-	    // Declare a new job.
-	    IJob job = _context.Jobs.Create("My Indexing Job - Public URL");
-	
-	    // Get a reference to the Azure Media Indexer.
-	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
-	
-	    // Read configuration.
-	    string configuration = File.ReadAllText("public.config");
-	
-	    // Create a task with the encoding details, using a string preset.
-	    ITask task = job.Tasks.AddNew("My Indexing Task - Public URL",
-	        processor,
-	        configuration,
-	        TaskOptions.None);
-	
-	    // Specify the input asset to be indexed.
-	    task.InputAssets.Add(asset);
-	
-	    // Add an output asset to contain the results of the job.
-	    task.OutputAssets.AddNew("My Indexing Output Asset - Public URL", AssetCreationOptions.None);
-	
-	    // Use the following event handler to check job progress.  
-	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
-	
-	    // Launch the job.
-	    job.Submit();
-	
-	    // Check job execution and wait for job to finish. 
-	    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-	    progressJobTask.Wait();
-	
-	    // If job state is Error, the event handling 
-	    // method for job progress should log errors.  Here we check 
-	    // for error state and exit if needed.
-	    if (job.State == JobState.Error)
-	    {
-	        Console.WriteLine("Exiting method due to job error.");
-	        return false;
-	    }
-	
-	    // Download the job outputs.
-	    DownloadAsset(task.OutputAssets.First(), outputFolder);
-	
-	    return true;
-	}
-
-###Fichiers de sortie
-
-Pour obtenir une description des fichiers de sortie, consultez [Fichiers de sortie](#output_files). 
-
-
-##Fichiers protégés par le processus
-
-Indexer prend en charge l'authentification de base avec le nom d'utilisateur et le mot de passe lors du téléchargement de fichiers depuis Internet via http ou https.
-
-Vous pouvez spécifier **username** et **password** dans la configuration de la tâche comme décrit dans [Présélection de tâches pour Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
 ### <a id="error_codes"></a>Codes d'erreur
 
@@ -399,16 +324,16 @@ Vous pouvez spécifier **username** et **password** dans la configuration de la 
 Le fichier multimédia est endommagé.
 <br/>ou<br/>
 Il n'y a aucun flux audio dans le fichier d'entrée.</td></tr>
-<tr><td>4000</td><td>Indexation en lot partiellement réussie</td><td>Impossible d'indexer certains des fichiers multimédias d'entrée. Pour plus d'informations, consultez <a href="output_files">Fichiers de sortie</a>.</td></tr>
+<tr><td>4000</td><td>Indexation en lot partiellement réussie</td><td>Impossible d'indexer certains des fichiers multimédias d'entrée. Pour plus d'informations, consultez la section <a href="output_files">Fichiers de sortie</a>.</td></tr>
 <tr><td>autres</td><td>Erreurs internes</td><td>Veuillez contacter l'équipe du support technique.</td></tr>
 </table>
 
 
-##<a id="supported_languages"></a>Langues prises en charge
+## <a id="supported_languages"></a>Langues prises en charge
 
 Actuellement, seul l'anglais est pris en charge.
 
-##Liens connexes
+## Liens connexes
 
 [Utilisation de fichiers AIB avec Azure Media Indexer et SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
@@ -418,4 +343,4 @@ Actuellement, seul l'anglais est pris en charge.
 
 <!-- URLs. -->
 
-<!--HONumber=47-->
+<!--HONumber=52-->

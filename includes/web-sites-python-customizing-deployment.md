@@ -1,4 +1,4 @@
-﻿Azure détermine que votre application utilise Python **si les deux conditions suivantes sont réunies** :
+Azure détermine que votre application utilise Python **si les deux conditions suivantes sont réunies** :
 
 - Fichier requirements.txt présent dans le dossier racine
 - N'importe quel fichier .py présent dans le dossier racine ou un fichier runtime.txt spécifiant python
@@ -32,5 +32,4 @@ Vous pouvez utiliser l'[interface de ligne de commande Azure][] pour créer les 
 Lorsque ces fichiers n'existent pas, Azure crée un script de déploiement temporaire et l'exécute.  Il est identique à celui que vous créez à l'aide de la commande ci-dessus.
 
 [Interface de ligne de commande Azure]: http://azure.microsoft.com/downloads/
-
-<!--HONumber=49-->
+<!--HONumber=52--> 

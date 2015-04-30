@@ -6,24 +6,24 @@
 
 3. Sélectionnez **Ouvrir un projet Android Studio**, accédez à l'emplacement du projet, puis cliquez sur **OK**. 
 
- 	![][14]
+ 	![](./media/mobile-services-android-get-started/android-studio-import-project.png)
 
 4. Dans la fenêtre de gauche de l'**Explorateur de projets**, assurez-vous que l'onglet *Project* est sélectionné, puis ouvrez **Application**, **src**, **java** et double-cliquez sur **ToDoactivity**,
 
-   	![][8]
+   	![](./media/mobile-services-android-get-started/Android-Studio-quickstart.png)
 
 
-4. Si vous avez téléchargé la version 2.0 du Kit de développement logiciel (SDK), vous devez mettre à jour le code avec l'URL et la clé de votre service mobile :
+5. Si vous avez téléchargé la version 2.0 du Kit de développement logiciel (SDK), vous devez mettre à jour le code avec l'URL et la clé de votre service mobile :
 	- 	Recherchez la méthode **OnCreate** dans **TodoActivity.java** et recherchez le code qui instancie le client des services mobiles. Le code est visible dans l'image précédente.
 	- 	Remplacez " MobileServiceUrl " par l'URL réelle de votre service mobile.
 	- 	Remplacez " AppKey " par la clé de votre service mobile.
-	- 	Pour plus d'informations, consultez le didacticiel <a href="http://azure.microsoft.com/documentation/articles/mobile-services-android-get-started-data/">Ajouter des Services mobiles à une application existante</a>. 
+	- 	Pour plus d'informations, consultez le didacticiel [Ajouter des Services mobiles à une application existante](../articles/mobile-services-android-get-started-data.md). 
 
-5. Dans le menu **Exécuter**, cliquez sur **Exécuter** pour démarrer le projet dans l'émulateur Android.
+6. Dans le menu **Exécuter**, cliquez sur **Exécuter** pour démarrer le projet dans l'émulateur Android.
 
-	> [AZURE.IMPORTANT] Pour exécuter le projet dans l'émulateur Android, vous devez définir au moins un AVD (appareil virtuel Android). Utilisez le gestionnaire AVD pour créer et gérer ces appareils.
+	> [AZURE.IMPORTANT] Afin d'exécuter le projet dans l'émulateur Android, vous devez définir au moins un AVD (appareil virtuel Android). Utilisez le gestionnaire AVD pour créer et gérer ces appareils.
 
-6. Dans l'application, tapez un texte explicite, par exemple _Terminer le didacticiel_, puis cliquez sur **Ajouter**.
+7. Dans l'application, tapez un texte explicite, par exemple _Terminer le didacticiel_, puis cliquez sur **Ajouter**.
 
    	![][10]
 
@@ -31,13 +31,13 @@
 
 	> [AZURE.NOTE] Vous pouvez vérifier le code qui se trouve dans le fichier ToDoActivity.java et permet d'accéder au service mobile pour exécuter une requête et insérer des données.
 
-6. De retour dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItems**.
+8. De retour dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItems**.
 
-   	![][11]
+   	![](./media/mobile-services-android-get-started/mobile-data-tab1.png)
 
    	Cela vous permet de parcourir les données insérées par l'application dans la table.
 
-   	![][12]
+   	![](./media/mobile-services-android-get-started/mobile-data-browse.png)
 
 
 <!-- Images. -->
@@ -52,12 +52,13 @@
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Prise en main des données] : /documentation/articles/mobile-services-android-get-started-data/
-[Prise en main de l'authentification] : /documentation/articles/mobile-services-android-get-started-users/
-[Prise en main des notifications Push] : /documentation/articles/mobile-services-javascript-backend-android-get-started-push/
+[Ajouter Mobile Services à une application existante]: ../articles/mobile-services-android-get-started-data.md
+[Prise en main de l'authentification]: ../articles/mobile-services-android-get-started-users.md
+[Prise en main des notifications Push]: ../articles/mobile-services-javascript-backend-android-get-started-push.md
 [Kit de développement logiciel (SDK) Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Android Studio]: https://developer.android.com/sdk/index.html
 [Kit de développement logiciel (SDK) Mobile Services pour Android]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Portail de gestion]: https://manage.windowsazure.com/
-<!--HONumber=47-->
+
+<!--HONumber=52-->

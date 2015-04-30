@@ -16,14 +16,14 @@
 	ms.date="02/02/2015" 
 	ms.author="juliako"/>
 
-#Développement Media Services avec .NET 
+# Développement Media Services avec .NET 
 
 Cette rubrique explique comment commencer à développer des applications Media Services à l'aide de .NET. 
 
 La bibliothèque du **Kit de développement logiciel (SDK) Azure Media Services pour .NET** permet de programmer pour Media Services à l'aide de .NET. Pour que le développement avec .NET soit encore plus simple, la bibliothèque des **extensions du Kit de développement logiciel (SDK) Azure Media Services pour .NET** est fournie. Cette bibliothèque contient un ensemble de méthodes d'extension et de fonctions d'assistance qui simplifieront votre code .NET. Les deux bibliothèques sont disponibles via **NuGet** et **GitHub**.
  
 
-##Conditions préalables
+## Conditions préalables
 
 -   Un compte Media Services dans un abonnement Azure nouveau ou existant. Consultez la rubrique [Création d'un compte Media Services](media-services-create-account.md).
 -   Systèmes d'exploitation : Windows 7, Windows 2008 R2 ou Windows 8.
@@ -31,7 +31,7 @@ La bibliothèque du **Kit de développement logiciel (SDK) Azure Media Services 
 -   Visual Studio 2013, Visual Studio 2012 ou Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express). 
   
 
-##Créer et configurer un projet Visual Studio 
+## Créer et configurer un projet Visual Studio 
 
 Cette section vous montre comment créer un projet dans Visual Studio et le configurer pour le développement Media Services.  Dans ce cas, le projet est une application console C# Windows, mais les étapes de configuration présentées ici s'appliquent aux autres types de projets que vous pouvez créer pour les applications Media Services (par exemple, une application Windows Forms ou Web ASP.NET).
 
@@ -44,17 +44,17 @@ Vous pouvez également obtenir les dernières informations relatives au Kit de d
 2. Générez la solution.
 
 2. Utilisez **NuGet** pour installer et ajouter les **extensions du Kit de développement logiciel (SDK) .NET Azure Media Services**. L'installation de ce package installe également le **Kit de développement logiciel (SDK) Media Services pour .NET** et ajoute toutes les autres dépendances requises.
-	1. Assurez-vous que la version la plus récente de NuGet est installée. Pour plus d'informations et des instructions relatives à l'installation, consultez [NuGet](http://nuget.codeplex.com/).
+	1. Assurez-vous que la version la plus récente de NuGet est installée. Pour obtenir des informations supplémentaires et des instructions relatives à l'installation, consultez la page [NuGet](http://nuget.codeplex.com/).
 	
 	2. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le nom du projet, puis sélectionnez Gérer les packages NuGet ....
 	
-		The Manage NuGet Packages dialog box appears.
+		La boîte de dialogue Gérer les packages NuGet apparaît.
 
 	3. Dans la galerie en ligne, recherchez Extensions Azure MediaServices, choisissez Extensions du Kit de développement logiciel (SDK) Azure Media Services pour .NET, puis cliquez sur le bouton Installer.
  
 		Le projet est modifié et des références aux extensions du Kit de développement logiciel (SDK) Media Services pour .NET, au Kit de développement logiciel (SDK) Media Services pour .NET et à d'autres assemblys dépendants sont ajoutées.
 
-	4. Pour promouvoir un environnement de développement plus propre, envisagez d'activer la restauration du package NuGet. Pour plus d'informations, consultez [Restauration du package NuGet](http://docs.nuget.org/consume/package-restore).
+	4. Pour promouvoir un environnement de développement plus propre, envisagez d'activer la restauration du package NuGet. Pour plus d'informations, consultez le document [Restauration du package NuGet](http://docs.nuget.org/consume/package-restore).
 
 3. Ajoutez une référence à l'assembly **System.Configuration**. Cet assembly contient la classe System.Configuration.**ConfigurationManager** qui est utilisée pour accéder aux fichiers de configuration (par exemple, App.config). 
 
@@ -97,4 +97,4 @@ Vous pouvez également obtenir les dernières informations relatives au Kit de d
 
 À ce stade, vous êtes prêt à commencer le développement d'une application Media Services.    
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

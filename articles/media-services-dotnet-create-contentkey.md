@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Création de ContentKeys avec .NET" 
-	description="Apprenez à créer des clés de contenu qui fournissent un accès sécurisé aux éléments multimédias." 
+	description="Apprenez à créer des clés de contenu qui fournissent un accès sécurisé aux ressources." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -17,21 +17,21 @@
 	ms.author="juliako"/>
 
 
-#Création de ContentKeys avec .NET
+# Création de ContentKeys avec .NET
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [Workflow de diffusion en continu Media Services](media-services-live-streaming-workflow.md) .  
+Cet article fait partie des séries [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md).  
 
-Media Services vous permet de créer et de fournir des éléments multimédias chiffrés. Une **ContentKey** fournit un accès sécurisé à vos **Éléments multimédias**. 
+Media Services vous permet de créer et de fournir des ressources chiffrées. Une **ContentKey** fournit un accès sécurisé à vos **Ressources**. 
 
-Lorsque vous créez un élément multimédia (par exemple avant de [télécharger des fichiers](media-services-dotnet-upload-files.md)), vous pouvez spécifier les options de chiffrement suivantes : **StorageEncrypted**, **CommonEncryptionProtected** ou **EnvelopeEncryptionProtected**. 
+Lorsque vous créez une nouvelle ressource (par exemple, avant de [télécharger des fichiers](media-services-dotnet-upload-files.md)), vous pouvez spécifier les options de chiffrement suivantes : **StorageEncrypted**, **CommonEncryptionProtected** ou **EnvelopeEncryptionProtected**. 
 
-Lors de la remise des éléments multimédias à vos clients, vous pouvez [configurer le chiffrement dynamique des éléments multimédias](media-services-dotnet-configure-asset-delivery-policy.md) avec l'un des deux chiffrements suivants : **DynamicEnvelopeEncryption** ou **DynamicCommonEncryption**.
+Lors de la fourniture des ressources à vos clients, vous pouvez [configurer les ressources devant être chiffrées dynamiquement](media-services-dotnet-configure-asset-delivery-policy.md) avec un des deux chiffrements suivants : **DynamicEnvelopeEncryption** ou **DynamicCommonEncryption**.
 
-Les éléments multimédias chiffrés doivent être associés à des **ContentKey**. Cet article décrit comment créer une clé de contenu.
+Les ressources chiffrées doivent être associées à des **ContentKey**. Cet article décrit comment créer une clé de contenu.
 
 >[AZURE.NOTE] Lorsque vous créez un élément multimédia **StorageEncrypted** à l'aide du Kit de développement logiciel (SDK) Media Services pour .NET, les **ContentKey** sont automatiquement créées et liées à l'élément multimédia.
 
-##ContentKeyType
+## ContentKeyType
 
 Une des valeurs que vous devez définir lors de la création d'une clé de contenu est le type de clé de contenu. Choisissez une des valeurs suivantes. 
 
@@ -67,7 +67,7 @@ Une des valeurs que vous devez définir lors de la création d'une clé de conte
         EnvelopeEncryption = 4
     }
 
-##<a id="envelope_contentkey"></a>Créer une ContentKey de type enveloppe
+## <a id="envelope_contentkey"></a>Créer une ContentKey de type enveloppe
 
 L'extrait de code suivant crée une clé de contenu du type de chiffrement d'enveloppe. Il associe ensuite la clé à l'élément multimédia spécifié.
 
@@ -99,13 +99,13 @@ L'extrait de code suivant crée une clé de contenu du type de chiffrement d'env
         return randomBytes;
     }
 
-appel
+call
 
 	IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
 
 
 
-##<a id="common_contentkey"></a>Créer une ContentKey de type commun    
+## <a id="common_contentkey"></a>Créer une ContentKey de type commun    
 
 L'extrait de code suivant crée une clé de contenu du type de chiffrement commun. Il associe ensuite la clé à l'élément multimédia spécifié.
 
@@ -139,7 +139,8 @@ L'extrait de code suivant crée une clé de contenu du type de chiffrement commu
 
         return returnValue;
     }
-appel
+call
 
 	IContentKey key = CreateCommonTypeContentKey(encryptedsset);
-<!--HONumber=47-->
+
+<!--HONumber=52-->

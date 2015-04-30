@@ -1,144 +1,144 @@
 <properties 
-	pageTitle="Création d'une présence sur le Web à l'international dans Sites Web Azure" 
-	description="Ce guide offre un aperçu technique de l'hébergement du site (.COM) de votre organisation sur Sites Web Azure. Il aborde notamment le déploiement, les domaines personnalisés, SSL et l'analyse." 
+	pageTitle="Créer une présence sur le web à l'international sur Azure App Service Web Apps" 
+	description="Ce guide offre un aperçu technique de l'hébergement du site (.COM) de votre organisation sur Microsoft Azure App Service Web Apps. Il aborde notamment le déploiement, les domaines personnalisés, SSL et l'analyse." 
 	editor="jimbe" 
 	manager="wpickett" 
 	authors="cephalin" 
-	services="web-sites" 
+	services="app-service\web" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2014" 
+	ms.date="04/08/2015" 
 	ms.author="cephalin"/>
 
 
-# Création d'une présence sur le Web à l'international dans Sites Web Azure
+# Créer une présence sur le web à l'international sur Azure App Service Web Apps
 
-[Sites Web Azure] a toutes les fonctionnalités dont vous avez besoin pour établir une présence Web globale de votre site .COM. Quelle que soit la taille de votre organisation, vous avez besoin d'une plateforme robuste, sécurisée et évolutive pour votre entreprise, de la conscience de votre marque et de vos communications client. Sites Web Azure peut vous aider à maintenir votre marque et votre identité avec la continuité d'activité soutenue de Microsoft.
+[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps inclut toutes les fonctions requises pour établir une présence sur le web à l'international pour votre site .COM. Quelle que soit la taille de votre organisation, il vous faut une plate-forme robuste, sécurisée et évolutive pour favoriser votre activité, la connaissance de votre marque et vos communications client. App Service Web Apps peut vous aider à assurer la bonne réputation de votre marque et de votre identité, grâce au soutien de votre continuité d'activité par Microsoft.
 
-> [AZURE.NOTE] Si vous voulez prendre en main Azure Web Sites avant de créer un compte, accédez à <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, où vous pouvez immédiatement et gratuitement créer un site de départ ASP.NET de courte durée dans Azure Web Sites. Aucune carte de crédit n'est requise, vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d'ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n'est requise ; vous ne prenez aucun engagement.
 
-Voici un exemple de site Web .COM s'exécutant sur Sites Web Azure. Ceci montre comment cela peut se faire simplement en combinant Sites Web Azure avec d'autres services avec des investissements techniques minimes. **Cliquez sur un élément dans la topographie pour en savoir plus à ce sujet.** 
+Voici un exemple de site web .COM exécutant App Service Web Apps. Il indique les actions possibles lorsque vous vous contentez de combiner des applications web avec d'autres services, pour un investissement technique minime. **Cliquez sur un élément de la topographie pour en savoir plus à ce sujet.** 
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/corp-website-visio.svg" width="100%" height="100%"></object>
 
-> [WACOM.NOTE]
-> Ce guide présente les domaines et les tâches parmi les plus courants s'adaptant à l'exécution de sites .COM publics dans Sites Web Azure. Toutefois, il existe d'autres solutions courantes que vous pouvez implémenter dans Sites Web Azure. Pour les découvrir, consultez également les autres guides concernant les <a href="http://azure.microsoft.com/manage/services/web-sites/digital-marketing-campaign-solution-overview">campagnes marketing numériques</a> et les <a href="http://azure.microsoft.com/manage/services/web-sites/business-application-solution-overview">applications métier</a>.
+> [AZURE.NOTE]
+> Ce guide présente certaines des zones et tâches les plus courantes, alignées avec l'exécution d'un site .COM public dans Azure App Service Web Apps. Toutefois, il existe d'autres solutions courantes, que vous pouvez implémenter dans Azure App Service Web Apps. Pour consulter ces solutions, consultez les autres guides sur les [campagnes marketing numériques](web-sites-digital-marketing-application-solution-overview.md) et les [applications métier](web-sites-business-application-solution-overview.md).
 
-### Création intégrale ou apport de ressources existantes
+## Créer des ressources ou utiliser des ressources existantes
 
-Créez rapidement des sites à partir d'un CMS populaire dans la galerie ou mettez vos ressources Web existantes sur Sites Web Azure à partir d'une variété de langages et d'infrastructures.
+Vous pouvez créer rapidement des sites à partir d'un système de gestion de contenu (CMS) bien connu de la galerie, ou exploiter les ressources web existantes dans App Service Web Apps, qui utilisent différents langages et structures.
 
-La galerie Azure fournit des modèles à partir des systèmes de gestion de contenu (CMS) populaires de site Web, tel que [Orchard], [Umbraco], [Drupal], et [WordPress]. Vous pouvez créer un site Web à l'aide de la variante préférée de votre CMS. Vous pouvez choisir parmi les principaux serveurs de base de données différents pour répondre à vos besoins, y compris [Base de données SQL Azure] et [MySQL].
+Microsoft Azure Marketplace fournit des modèles proposés par des systèmes CMS bien connus, tel que [Orchard], [Umbraco], [Drupal], et [WordPress]. Vous pouvez créer une application web en utilisant votre version de CMS préférée. Différents systèmes de bases de données principaux permettent de répondre à vos besoins, y compris la [base de données SQL Microsoft Azure] et [MySQL].
 
-Vos ressources Web existantes peuvent s'exécuter sur Sites Web Azure, qu'ils soient .NET, PHP, Java, Node.js ou Python. Vous pouvez les déplacer vers Sites Web Azure à l'aide de outils [FTP] habituels ou votre système de gestion de contrôle de code source. Sites Web Azure prend en charge la publication directe à partir des options de contrôle de code source populaires, telles que [Visual Studio], [Visual Studio Online], et [Git] (Local, GitHub, BitBucket, DropBox, Mercurial, etc.).
+Vos ressources web existantes peuvent s'exécuter sur App Service Web Apps, qu'il s'agisse de ressources .NET, PHP, Java, Node.js ou Python. Vous pouvez les déplacer vers App Service Web Apps à l'aide de votre système de gestion de contrôle de code source ou de vos outils [FTP] habituels. App Service Web Apps prend en charge la publication directe depuis des systèmes de contrôle source bien connus, tels que [Visual Studio], [Visual Studio Online] et [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
 
-### Publier de façon fiable
+## Publication fiable
 
-Publiez votre site Web de manière fiable en publiant directement en continu à partir de votre système de contrôle de code source existant et en testant votre contenu en direct. 
+Publiez votre site web de manière fiable en optant pour la publication en continu et ce, directement à partir de votre système de contrôle de code source existant, et en testant en direct votre contenu. 
 
-Lors des phases de planification, de prototypage et de développement initial d'un site, vous pouvez travailler sur des versions fonctionnelles réelles du site de campagne avant de le mettre en ligne en vous [déploiement vers un emplacement intermédiaire] de votre Site Web Azure. En intégrant le contrôle de code source avec Sites Web Azure, vous pouvez [publication en continu] vers un intermédiaire d'emplacement et basculer en production sans interruption lorsque vous êtes prêt pour cela. Si une erreur se produit sur le site de production, vous pouvez également immédiatement changer une version précédente de votre site de façon automatique. 
+Lors de la planification, du prototypage et du développement initial d'un site, vous pouvez consulter les versions fonctionnelles réelles du site web avant sa mise en service via le [déploiement vers un module de transfert] de votre site sur l'application vers App Service Web Apps. En intégrant le contrôle de code source dans Web Apps, vous pouvez effectuer une [publication en continu] vers un module de transfert, puis basculer en mode de production sans temps d'arrêt, le moment venu. En cas de défaillance sur le site de production, vous pouvez également rebasculer vers une version précédente de votre site et ce, immédiatement. 
 
-De plus, lorsque vous planifiez les modifications apportées à un site Web actif, vous pouvez facilement [exécution de tests A/B] sur les mises à jour proposées à l'aide de la fonctionnalité Test in Production et analyser le comportement réel d'utilisateurs pour vous aider à prendre des décisions avisées sur la conception de site.
+De plus, lorsque vous envisagez d'apporter des modifications à un site web en ligne, vous pouvez facilement [exécuter des tests A/B] sur les mises à jour prévues, en utilisant la fonction de test en production, puis analyser le comportement réel de l'utilisateur, afin de prendre des décisions éclairées sur la conception de votre site.
 
-### Marque et sécurité
+## Marque et sécurité
 
-Utilisez le domaine de sites Web gratuitement ou mappez à votre nom de domaine enregistré, puis sécurisez votre marque avec votre certificat SSL signé par une autorité de certification.
+Vous pouvez utiliser gratuitement le domaine App Service Web Apps, ou effectuer un mappage vers le nom de domaine enregistrer, puis sécuriser votre marque au moyen du certificat SSL signé par une autorité de certification.
 
-Le domaine **\*.azurewebsites.net** est gratuit lorsque vous exécutez votre site Web sur Sites Web Azure. Vous pouvez également mapper votre site Web à un [domaine personnalisé] (par exemple, contoso.com), que vous avez obtenu à partir de n'importe quel Registre DNS, tel que GoDaddy.
+Le domaine **\*.azurewebsites.net** est gratuit lorsque vous exécutez votre site web sur Web Apps. Vous pouvez également mapper votre site web sur un [domaine personnalisé] (par exemple : contoso.com), obtenu
 
-Si vous collectez toutes les informations utilisateur, effectuez un commerce électronique ou gérez d'autres données sensibles, vous pouvez protéger votre réputation et vos clients avec [HTTPS]. Le nom de domaine **\*.azurewebsites.net** est déjà fourni avec un certificat SSL, et si vous utilisez votre domaine personnalisé, vous pouvez utiliser votre certificat SSL pour celui-ci sur Sites Web Azure. Il existe une facturation mensuelle (au prorata des heures) associée à chaque certificat SSL. Pour plus d'informations, consultez la rubrique [Détails de la tarification des sites Web].
+Si vous collectez des informations sur les utilisateurs, effectuez des transactions de type e-commerce ou gérez des données sensibles, vous pouvez protéger la réputation de votre marque et vos clients avec [HTTPS]. Le nom de domaine **\*.azurewebsites.net** propose déjà un certificat SSL. Si vous utilisez votre domaine personnalisé, vous pouvez intégrer le certificat SSL qui lui est associé dans Web Apps. Une facturation mensuelle (au prorata des heures) est associée à chaque certificat SSL. Pour en savoir plus, voir [Détails de la tarification - App Service].
 
-### Pensez à l'international
+## Optez pour l'international !
 
-Pensez à l'international en servant des sites régionaux avec Azure Traffic Manager et en livrant des contenus ultra-rapide avec Azure CDN.
+Optez pour l'international, en desservant des sites régionaux avec Microsoft Azure Traffic Manager et en fournissant du contenu très rapidement, grâce à Microsoft Azure Content Delivery Network (CDN).
 
-Pour servir des clients étrangers dans leurs régions respectives, utilisez [Azure Traffic Manager] pour guider les visiteurs vers un site régional qui fournit les meilleures performances. Vous pouvez également répartir uniformément la charge du site entre plusieurs copies de votre site Web hébergé dans plusieurs régions.
+Pour desservir des clients dans leurs régions respectives, recourez à [Azure Traffic Manager] pour rediriger les visiteurs vers un site régional, qui propose des performances améliorées. Vous pouvez également répartir la charge du site entre plusieurs copies de votre site web hébergé dans plusieurs régions et ce, de manière équitable.
 
-Délivrez votre contenu statique en un éclair aux utilisateurs internationaux en [intégration de votre site Web à Azure CDN]. Azure CDN met en cache le contenu statique dans le [nœud CDN] le plus proche de l'utilisateur, ce qui réduit la latence et les connexions pour votre site Web.
+Fournissez très rapidement un contenu statique aux utilisateurs au niveau international, via l'[intégration de votre application web avec Microsoft Azure CDN]. CDN met en cache le contenu statique dans le [nœud CDN] le plus proche de l'utilisateur, ce qui réduit la latence et les connexions à votre site web.
 
-### Optimisez
+## Optimisation
 
-Optimisez votre site .COM en le mettant à l'échelle automatiquement grâce à la Mise à l'échelle automatique, en mettant en cache avec le Cache Redis Azure, en exécutant des tâches en arrière-plan avec WebJobs et en maintenant une haute disponibilité avec Azure Traffic Manager.
+Optimisez votre site .COM en le mettant automatiquement à l'échelle avec la fonction Mise à l'échelle automatique, en le mettant en cache avec le cache Redis Azure, en exécutant des tâches en arrière-plan avec WebJobs et assurant une haute disponibilité avec Azure Traffic Manager.
 
-Les capacités de Sites Web Azure à [multiplication et diversification] répond aux besoins de votre site .COM, quelle que soit votre charge de travail. Mise à l'échelle manuelle de votre site Web via le [portail de gestion Azure], par programmation via l'[API de gestion des services] ou les [scripts PowerShell], ou automatique via la fonctionnalité de mise à l'échelle. Dans le plan d'hébergement **Standard**, la mise à l'échelle vous permet de faire évoluer un site Web automatiquement en fonction de l'utilisation du processeur. Pour les meilleures pratiques, consultez l'article de [Troy Hunt] : [10 choses que j'ai appris rapidement sur la mise à l'échelle des sites Web avec Azure].
+La capacité de l'application App Service Web Apps à [adapter la taille des sites] répond aux besoins de votre site .COM, quelle que soit la taille de votre charge de travail. Augmentez la taille de votre site manuellement via [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), ou par programme, via l'[API Service Management] ou des [scripts PowerShell], ou encore automatiquement, via la fonction Mise à l'échelle automatique. Dans le plan d'hébergement **standard**, la fonction Mise à l'échelle automatique vous permet d'augmenter automatiquement la taille d'un site web, selon l'utilisation de l'UC. Pour connaître les meilleures pratiques, consultez le site de [Troy Hunt], notamment la section [10 things I learned about rapidly scaling web apps with Azure].
 
-Rendez votre site Web plus réactif avec le [Cache Redis Azure]. Utilisez-le pour mettre en cache des données à partir de bases de données principales et d'autres choses telles que les [états de session ASP.NET] et le [cache de sortie].
+Optimisez la réactivité de votre site web grâce au [cache Azure Redis]. Utilisez-le pour mettre en cache les données des bases de données principales et d'autres éléments, par exemple les [états de session ASP.NET] et le [cache de sortie].
 
-Maintenez une grande disponibilité de votre site Web à l'aide d'[Azure Traffic Manager]. À l'aide de la méthode de **basculement**, Traffic Manager achemine automatiquement le trafic vers un site secondaire s'il existe un problème sur le site principal.
+Assurez la haute disponibilité de votre site web à l'aide [Azure Traffic Manager]. À l'aide de la méthode **Failover**, Traffic Manager achemine automatiquement le trafic vers un site secondaire en cas de problème sur le site principal.
 
-### Surveillance et analyse
+## Surveillance et analyse
 
-Tenez-vous informé sur les performances de votre site Web avec Azure ou des outils tiers. Recevez des alertes sur des événements critiques de site Web. Découvrez un aperçu de vos utilisateurs avec Application Insight ou grâce aux analyses de journaux Web avec HDInsight. 
+Tenez-vous informé sur les performances de votre site web au moyen d'outils Microsoft Azure ou tiers. Recevez des alertes sur des événements critiques de votre site web. Grâce à Application Insight ou à la fonction d'analyse de journaux web du logiciel HDInsight, vous pouvez mieux connaître les utilisateurs. 
 
-Obtenez un [aperçu rapide] de mesures de performances du site Web en cours et des quotas de ressource dans le tableau de bord de Sites Web Azure. Pour une vue 360° de votre application en termes de disponibilité, de performances et d'utilisation, utilisez [Azure Application Insights] pour vous donner un dépannage rapide et puissant, des diagnostics et des analyses d'utilisation. Sinon, utilisez un outil tiers comme [New Relic] pour fournir les données d'analyse avancées pour vos sites Web.
+Bénéficiez d'un [aperçu rapide] sur les mesures de performance et les quotas de ressources actuels de votre site web, en consultant le volet de l'application web dans [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). Pour profiter d'une vue à 360° de votre application, en termes de disponibilité, de performances et d'utilisation, utilisez [Azure Application Insights], qui vous apporte un aperçu rapide et approfondi sur l'utilisation, les diagnostics et le dépannage. Vous pouvez aussi recourir à un outil tiers comme [New Relic], qui fournit des données de surveillance avancées pour tous vos sites web.
 
-Dans le plan d'hébergement **Standard**, analysez la réactivité du site et recevez des notifications par courrier électronique chaque fois que votre site ne répond plus. Pour plus d'informations, consultez la rubrique [Procédures : réception de notifications d'alerte et gestion des règles d'alerte dans Azure].
+Dans le plan d'hébergement **Standard**, vous pouvez surveiller la réactivité de votre site, en recevant des notifications par messagerie électronique chaque fois que votre site ne répond pas. Pour en savoir plus, consultez la page [Procédure : recevoir des notifications d'alerte et gérer des règles d'alerte dans Azure].
 
-### Utilisez des contenus multimédias riches et accédez à tous les périphériques
+## Utilisation de contenus multimédia enrichis et atteindre tous les périphériques
 
-Rendez votre site .COM attrayant avec du contenu multimédia riche, tel que :
+Rendez votre site .COM attrayant grâce à des contenus multimédia enrichis, comme ce qui suit :
 
--  Téléchargez et diffusez des vidéos à l'international avec [Azure Media Services]
--  Envoyez des courriers électroniques aux utilisateurs avec le [service SendGrid d'Azure Marketplace]
+-  Chargement et diffusion en continu de vidéos avec [Azure Media Services] au niveau global
+-  Envoi de courriers électroniques aux utilisateurs grâce au [service SendGrid de Microsoft Azure Marketplace]
 
-## Plus de ressources
+## Autres ressources
 
-- [Documentation de Sites Web Azure](/fr-fr/documentation/services/websites/)
-- [Plan de formation pour Sites Web Azure](websites-learning-map.md)
-- [Blog Web Azure](/blog/topics/web/)
+- [Documentation relative à App Service Web Apps](/services/app-service/web/)
+- [Plan d'apprentissage pour Azure App Service Web Apps](websites-learning-map.md)
+- [Blog web sur Microsoft Azure](/blog/topics/web/)
 
+## Changements apportés
+* Pour obtenir des informations détaillées sur le passage de Sites Web à App Service, consultez : [Azure App Service et son impact sur les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour obtenir des informations détaillées sur le passage de l'ancien portail au nouveau portail, consultez : [Référence pour la navigation dans le portail en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715)
 
+[Azure App Service]: /services/app-service/web/
 
-[Sites Web Azure]:/fr-fr/services/websites/
+[Orchard]:web-sites-dotnet-orchard-cms-gallery.md
+[Umbraco]:web-sites-gallery-umbraco.md
+[Drupal]:web-sites-php-migrate-drupal.md
+[WordPress]:web-sites-php-web-site-gallery.md
+[MySQL]:web-sites-php-mysql-deploy-use-git.md
+[Base de données SQL Azure]:web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
+[FTP]:web-sites-deploy.md#ftp
+[Visual Studio]:web-sites-dotnet-get-started.md
+[Visual Studio Online]:cloud-services-continuous-delivery-use-vso.md
+[Git]:web-sites-publish-source-control.md
 
-[Orchard]:/fr-fr/documentation/articles/web-sites-dotnet-orchard-cms-gallery/
-[Umbraco]:/fr-fr/documentation/articles/web-sites-gallery-umbraco/
-[Drupal]:/fr-fr/documentation/articles/web-sites-php-migrate-drupal/
-[WordPress]:/fr-fr/documentation/articles/web-sites-php-web-site-gallery/
-[MySQL]:/fr-fr/documentation/articles/web-sites-php-mysql-deploy-use-git/
-[Base de données SQL Azure]:/fr-fr/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
-[FTP]:/fr-fr/documentation/articles/web-sites-deploy/#ftp
-[Visual Studio]:/fr-fr/documentation/articles/web-sites-dotnet-get-started/
-[Visual Studio Online]:/fr-fr/documentation/articles/cloud-services-continuous-delivery-use-vso/
-[Git]:/fr-fr/documentation/articles/web-sites-publish-source-control/
-
-[déploiement vers un emplacement intermédiaire]:/fr-fr/documentation/articles/web-sites-staged-publishing/ 
+[déploiement vers un module de transfert]:web-sites-staged-publishing.md 
 [publication en continu]:http://rickrainey.com/2014/01/21/continuous-deployment-github-with-azure-web-sites-and-staged-publishing/
-[exécution de tests A/B]:http://blogs.msdn.com/b/tomholl/archive/2014/11/10/a-b-testing-with-azure-websites.aspx
+[exécuter des tests A/B]:http://blogs.msdn.com/b/tomholl/archive/2014/11/10/a-b-testing-with-azure-websites.aspx
 
-[domaine personnalisé]:/fr-fr/documentation/articles/web-sites-custom-domain-name/
-[HTTPS]:/fr-fr/documentation/articles/web-sites-configure-ssl-certificate/
-[Détails de la tarification des sites Web]:/fr-fr/pricing/details/web-sites/#service-ssl
+[domaine personnalisé]:web-sites-custom-domain-name.md
+[HTTPS]:web-sites-configure-ssl-certificate.md
+[Détails de la tarification - App Service]: /pricing/details/app-service/#ssl-connections
 
 [Azure Traffic Manager]:http://www.hanselman.com/blog/CloudPowerHowToScaleAzureWebsitesGloballyWithTrafficManager.aspx
-[intégration de votre site Web à Azure CDN]:/fr-fr/documentation/articles/cdn-websites-with-cdn/ 
-[Nœud CDN]:https://msdn.microsoft.com/library/azure/gg680302.aspx
+[intégration de votre application web avec Microsoft Azure CDN]:cdn-websites-with-cdn.md 
+[nœud CDN]:https://msdn.microsoft.com/library/azure/gg680302.aspx
 
-[multiplication et diversification]:/fr-fr/manage/services/web-sites/how-to-scale-websites/
+[adapter la taille des sites]:web-sites-scale.md
 [Portail de gestion Azure]:http://manage.windowsazure.com/
-[API de gestion de service]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
-[scripts PowerShell]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
+[API Service Management]:https://msdn.microsoft.com/library/azure/ee460799.aspx
+[scripts PowerShell]:https://msdn.microsoft.com/library/azure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
-[10 choses que j'ai appris rapidement sur la mise à l'échelle des sites Web avec Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
-[Cache Redis Azure]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
-[états de session ASP.NET]:https://msdn.microsoft.com/fr-fr/library/azure/dn690522.aspx
-[cache de sortie]:https://msdn.microsoft.com/fr-fr/library/azure/dn798898.aspx
+[10 things I learned about rapidly scaling web apps with Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
+[cache Azure Redis]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
+[états de session ASP.NET]:https://msdn.microsoft.com/library/azure/dn690522.aspx
+[cache de sortie]:https://msdn.microsoft.com/library/azure/dn798898.aspx
 
-[aperçu rapide]:/fr-fr/manage/services/web-sites/how-to-monitor-websites/
+[aperçu rapide]:web-sites-monitor.md
 [Azure Application Insights]:http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
-[New Relic]:/fr-fr/develop/net/how-to-guides/new-relic/
-[Procédures : réception de notifications d'alerte et gestion des règles d'alerte dans Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
+[New Relic]:store-new-relic-cloud-services-dotnet-application-performance-management.md
+[Procédure : recevoir des notifications d'alerte et gérer des règles d'alerte dans Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 
 [Azure Media Services]:http://blogs.technet.com/b/cbernier/archive/2013/09/03/windows-azure-media-services-and-web-sites.aspx
-[service SendGrid d'Azure Marketplace]:/fr-fr/documentation/articles/sendgrid-dotnet-how-to-send-email/
+[service SendGrid de Microsoft Azure Marketplace]:sendgrid-dotnet-how-to-send-email.md
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

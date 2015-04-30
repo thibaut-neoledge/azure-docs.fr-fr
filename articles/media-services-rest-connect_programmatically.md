@@ -3,7 +3,7 @@
 	description="Cette rubrique montre comment se connecter à Media Services avec l'API REST." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="04/13/2015" 
 	ms.author="juliako"/>
 
 
 # Connexion à un compte Media Services à l'aide de l'API REST
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) et [workflow de vidéo en flux continu Media Services](../media-services-live-streaming-workflow) . 
+Cet article fait partie des séries [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md). 
 
 Cette rubrique décrit comment obtenir une connexion à Microsoft Azure Media Services par programme lorsque vous programmez avec l'API REST Media Services.
 
@@ -37,12 +37,12 @@ Les étapes suivantes décrivent le flux de travail habituel lors de l'utilisati
 
 	Par exemple, si après avoir essayé de vous connecter, vous avez les éléments suivants :
 
-		HTTP/1.1 301 Moved Permanently
-		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
+		HTTP/1.1 301 Déplacé de façon permanente
+		Emplacement: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-	Vous devez envoyer vos appels d'API suivants à https://wamsbayclus001rest-hs.cloudapp.net/api/.
+	Vous devez envoyer vos appels d'API suivants à https://wamsbayclus001rest-hs.cloudapp.net/api/..
 
-##obtention d'un jeton d'accès
+## obtention d'un jeton d'accès
 
 Pour accéder à Media Services directement par le biais de l'API REST, obtenez un jeton d'accès ACS et utilisez-le lors de chaque demande HTTP adressée au service. Ce jeton est semblable aux autres jetons fournis par ACS basés sur les revendications d'accès fournies dans l'en-tête d'une demande HTTP et à l'aide du protocole OAuth v2. Il n'existe pas d'autre condition préalable pour vous connecter directement à Media Services.
 
@@ -63,7 +63,7 @@ L'exemple suivant montre l'en-tête et le corps de demande HTTP qui permet de r�
 
 Il convient de vérifier les valeurs client_id et client_secret dans le corps de cette demande ; client_id et client_secret correspondent aux valeurs AccountName et AccountKey, respectivement. Ces valeurs sont fournies par Media Services pour vous lorsque vous configurez votre compte. 
 
-Notez que la valeur AccountKey de votre compte Media Services doit être encodée dans l'URL quand vous l'utilisez comme valeur client_secret dans votre demande de jeton d'accès.
+Notez que la valeur AccountKey de votre compte Media Services doit être encodée dans l'URL (voir l'[encodage par pourcentage](http://tools.ietf.org/html/rfc3986#section-2.1) quand vous l'utilisez comme valeur client_secret dans votre demande de jeton d'accès.
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
@@ -88,7 +88,7 @@ L'exemple suivant montre la réponse HTTP qui contient le jeton d'accès dans le
 	
 	{  
 	   "token_type":"http://schemas.xmlsoap.org/ws/2009/11/swt-token-profile-1.0",
-	   "access_token":"http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421330840&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=uf69n82KlqZmkJDNxhJkOxpyIpA2HDyeGUTtSnq1vlE%3d",
+	   "access_token":"http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f19258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421330840&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=uf69n82KlqZmkJDNxhJkOxpyIpA2HDyeGUTtSnq1vlE%3d",
 	   "expires_in":"21600",
 	   "scope":"urn:WindowsAzureMediaServices"
 	}
@@ -99,7 +99,7 @@ Il est recommandé de mettre en cache les valeurs " access_token " et " expires_
 
 Veillez à analyser la valeur " expires_in " du jeton d'accès et à mettre à jour vos appels d'API REST avec de nouveaux jetons le cas échéant.
 
-###connexion à l'URI Media Services
+### connexion à l'URI Media Services
 
 L'URI racine de Media Services est https://media.windows.net/. Pour commencer, connectez-vous à cet URI. Si vous obtenez une redirection 301 en réponse, adressez les appels suivants au nouvel URI. En outre, n'utilisez pas de logique de redirection automatique/de suivi dans vos demandes. Les verbes HTTP et les corps de demande ne seront pas transférés au nouvel URI.
 
@@ -110,8 +110,8 @@ L'exemple suivant montre la demande HTTP vers l'URI racine de Media Services (ht
 **Demande HTTP** :
 	
 	GET https://media.windows.net/ HTTP/1.1
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
-	x-ms-version: 2.8
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f19258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
+	x-ms-version: 2.9
 	Accept: application/json
 	Host: media.windows.net
 
@@ -136,8 +136,8 @@ L'exemple suivant montre la demande HTTP vers l'URI racine de Media Services (ht
 **Demande HTTP** (à l'aide du nouvel URI) :
 			
 	GET https://wamsbayclus001rest-hs.cloudapp.net/api/ HTTP/1.1
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
-	x-ms-version: 2.8
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f19258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
+	x-ms-version: 2.9
 	Accept: application/json
 	Host: wamsbayclus001rest-hs.cloudapp.net
 
@@ -169,4 +169,4 @@ L'exemple suivant montre la demande HTTP vers l'URI racine de Media Services (ht
 
 <!-- URLs. -->
 
-<!--HONumber=47-->
+<!--HONumber=52-->

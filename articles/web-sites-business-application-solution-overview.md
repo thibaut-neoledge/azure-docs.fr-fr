@@ -1,127 +1,128 @@
 <properties 
-	pageTitle="Création d'applications métier dans Sites Web Azure" 
-	description="Ce guide fournit un aperçu technique de l'utilisation de Sites Web Azure pour créer des applications métier intranet. Il aborde notamment les stratégies d'authentification, le relais de bus de services et l'analyse." 
+	pageTitle="Créer une application web métier sur Azure App Service" 
+	description="Ce guide fournit un aperçu technique de l'utilisation d'Azure App Service Web Apps pour créer des applications métier intranet. Il aborde notamment les stratégies d'authentification, le relais de bus de services et l'analyse." 
 	editor="jimbe" 
 	manager="wpickett" 
 	authors="cephalin" 
-	services="web-sites" 
+	services="app-service\web" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2014" 
+	ms.date="04/08/2015" 
 	ms.author="cephalin"/>
 
 
 
-# Création d'applications métier dans Sites Web Azure
+# Créer une application web métier sur Azure App Service
 
-[Sites Web Azure] est un excellent choix pour les applications métier. Ces applications sont des applications intranet devant être sécurisées pour un usage professionnel interne. Généralement, elles nécessitent une authentification via un annuaire d'entreprise, ainsi qu'un accès ou une intégration aux données et services locaux. 
+[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps représente un choix idéal pour les applications métier. Il s'agit d'applications intranet qui doivent être sécurisées pour une utilisation professionnelle interne. Elles nécessitent généralement une authentification, le plus souvent par rapport à un annuaire d'entreprise, et une forme d'accès ou d'intégration aux données et services locaux. 
 
-Les applications métier mobiles des sites Web Azure présentent d'énormes avantages, comme :
+Voici les principaux avantages du déplacement des applications métier vers App Service Web Apps :
 
--  la mise à l'échelle des charges de travail dynamiques telles qu'une application qui gère des bilans annuels de performance. Mais, dans le cas d'une grande entreprise, ce trafic connaît une très forte augmentation pendant la période des bilans. Azure offre des options de mise à l'échelle permettant à une entreprise d'accroître ses capacités pendant la période de trafic important tout en réalisant des économies avec des capacités réduites durant tout le reste de l'année ; 
--  la possibilité de se concentrer davantage sur le développement de l'application et moins sur l'acquisition et la gestion de l'infrastructure ;
--  une meilleure prise en charge pour que les employés et les partenaires puissent utiliser l'application partout. Les utilisateurs n'ont en effet pas besoin d'être connectés au réseau de l'entreprise pour pouvoir utiliser l'application, et cela évite au service informatique de devoir mettre en place des solutions de proxy inverse complexes. Plusieurs options d'authentification sont disponibles pour protéger l'accès aux applications.
+-  Montée et descente en puissance selon les charges de travail dynamiques, par exemple avec une application qui gère les analyses de performances annuelles. Dans le cas d'une grande entreprise, le trafic connaît une très forte augmentation pendant la période d'analyse. Azure offre des options de mise à l'échelle permettant à une entreprise d'accroître ses capacités pendant la période de fort trafic tout en réalisant des économies avec des capacités réduites pendant tout le reste de l'année. 
+-  Intérêt porté sur le développement d'applications, plutôt que sur l'acquisition et la gestion d'infrastructures
+-  Meilleure prise en charge des employés et partenaires pour une utilisation de l'application à partir de n'importe quel endroit. Les utilisateurs n'ont en effet pas besoin d'être connectés au réseau de l'entreprise pour pouvoir utiliser l'application, et cela évite au service informatique de devoir mettre en place des solutions de proxy inverse complexes. Plusieurs options d'authentification sont disponibles pour protéger l'accès aux applications ;
 
-Ci-dessous, vous trouverez un exemple d'application métier fonctionnant sur Sites Web Azure. Il montre ce que vous pouvez faire en associant simplement Sites Web Azure avec d'autres services, et ce avec un investissement technique minimal. **Cliquez sur un élément du schéma pour en savoir plus.** 
+Voici un exemple d'une application métier exécutée sur App Service Web Apps. Il montre ce que vous pouvez faire en associant simplement des applications web à d'autres services, moyennant des investissements techniques minimes. **Pour en savoir plus sur un élément, cliquez dessus dans la topographie.** 
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/web-app-notitle.svg" width="100%" height="100%"></object>
 
-<div class="dev-callout">
-<strong>Remarque</strong>
-<p>Ce guide présente les domaines et les tâches les plus courants s'adaptant aux applications métier. Cependant, Sites Web Azure offre encore d'autres fonctionnalités, que vous pouvez utiliser pour votre implémentation spécifique. Pour les découvrir, consultez également les autres guides concernant la <a href="http://azure.microsoft.com/manage/services/web-sites/global-web-presence-solution-overview/">Présence sur le Web à l'international</a> et les <a href="http://azure.microsoft.com/manage/services/web-sites/digital-marketing-campaign-solution-overview">Campagnes marketing numériques</a>.</p>
-</div>
+> [AZURE.NOTE]
+> Ce guide présente les domaines et les tâches parmi les plus courants s'adaptant aux applications métier. Cependant, Azure App Service Web Apps offre encore d'autres fonctionnalités, que vous pouvez utiliser pour votre implémentation. Pour les découvrir, consultez les guides relatifs à la [Présence sur le Web à l'international](web-sites-global-web-presence-solution-overview.md) et aux [Campagnes de marketing numérique](web-sites-digital-marketing-application-solution-overview.md).
 
-### Utilisation de vos ressources existantes
+## Apporter des ressources existantes
 
-Utilisez vos ressources Web existantes sur Sites Web Azure grâce à une variété de langages et d'infrastructure.
+Apportez vos ressources web existantes dans App Service Web Apps à partir d'une variété de langages et d'infrastructures.
 
-Vos ressources Web existantes peuvent s'exécuter sur Sites Web Azure, qu'ils soient .NET, PHP, Java, Node.js ou Python. Vous pouvez les transférer vers Sites Web Azure à l'aide de vos outils [FTP] habituels ou votre système de gestion de contrôle de code source. Sites Web Azure prend en charge la publication directe à partir d'options de contrôle du code source populaires, telles que [Visual Studio], [Visual Studio Online], et [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
+Vos ressources web existantes peuvent s'exécuter sur App Service Web Apps, qu'il s'agisse de ressources .NET, PHP, Java, Node.js ou Python. Vous pouvez les déplacer vers Web Apps à l'aide de vos outils [FTP] favoris ou de votre système de gestion de contrôle de code source. Web Apps prend en charge la publication directe à partir d'options de contrôle de code source populaires, tels que [Visual Studio], [Visual Studio Online] et [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
 
-### Sécurisation de vos ressources
+## Sécuriser vos ressources
 
-Sécurisez vos ressources par chiffrement, permettez aux utilisateurs de l'entreprise de s'authentifier sur site ou à distance et autorisez-les à utiliser les ressources. 
+Sécurisez les ressources par chiffrement, authentifiez les utilisateurs d'entreprise locaux et distants, et autorisez l'utilisation des ressources pour ces utilisateurs. 
 
-Protégez les ressources internes contre les intrusions avec [HTTPS]. Le nom de domaine **\*.azurewebsites.net** est fourni avec un certificat SSL. Si vous utilisez votre domaine personnalisé, vous pouvez appliquer votre certificat SSL à Sites Web Azure. Des frais mensuels (au prorata des heures) seront à régler pour chaque certificat SSL. Pour plus d'informations, consultez la page [Tarification - Sites Web].
+Protégez les ressources internes contre les écoutes clandestines avec [HTTPS]. Le nom de domaine **\*.azurewebsites.net** est déjà fourni avec un certificat SSL, et si vous utilisez votre domaine personnalisé, vous pouvez apporter votre certificat SSL pour celui-ci dans App Service Web Apps. Une facturation mensuelle (au prorata des heures) est appliquée pour chaque certificat SSL. Pour plus d'informations, consultez la page [Détails de la tarification - App Service].
 
-[Authentifiez les utilisateurs] via l'annuaire d'entreprise. Sites Web Azure peut authentifier les utilisateurs avec des fournisseurs d'identité sur site, comme qu'Active Directory Federation Services (ADFS), ou avec un locataire Azure Active Directory synchronisé avec le déploiement Active Directory de votre entreprise. Les utilisateurs peuvent accéder à vos propriétés Web dans Sites Web Azure via l'authentification unique lorsqu'ils sont sur site et en déplacement. Les services existants, comme Office 365 ou Windows Intune, utilisent déjà Active Directory Azure. Avec [l'authentification simple], il est très facile d'activer l'authentification avec le même locataire Azure Active Directory pour votre site Web. 
+[Authentifiez les utilisateurs] par rapport à l'annuaire d'entreprise. App Service Web Apps peut authentifier les utilisateurs avec des fournisseurs d'identité locaux tels que les services AD FS (Active Directory Federation Services) ou avec un client Azure Active Directory qui a été synchronisé avec votre déploiement Active Directory d'entreprise. Les utilisateurs peuvent accéder à vos propriétés web dans Web Apps via l'authentification unique lorsqu'ils sont sur site ou sur le terrain. Les services existants comme Office 365 ou Windows Intune utilisent déjà Azure Active Directory. La fonctionnalité d'[authentification simple] permet d'activer aisément l'authentification avec le même client Azure Active Directory pour votre application web. 
 
-[Permettez aux utilisateurs] d'utiliser les propriétés Web. Avec un minimum de code supplémentaire, vous pouvez transférer votre modèle de codage ASP.NET sur les sites Web Azure à l'aide de l'attribut `[Authorize]`, par exemple. Vous conservez la même souplesse pour le contrôle d'accès précis que pour les applications sur site.
+[Autorisez les utilisateurs] à utiliser les propriétés web. Avec un minimum de code supplémentaire, vous pouvez apporter le même modèle de codage ASP.NET local dans App Service Web Apps en utilisant la décoration `[Authorize]`, par exemple. Vous conservez un contrôle d'accès précis d'une grande souplesse, équivalent à celui des applications que vous gérez sur site.
 
-### Connexion à des ressources locales ###
+## Se connecter aux ressources locales ##
 
-Connectez-vous aux données ou ressources de votre site Web, qu'elles soient sur le cloud par souci de performances ou sur site par souci de conformité. Pour plus d'informations sur la conservation des données dans Azure, consultez le [centre de gestion de la confidentialité Azure]. 
+Connectez-vous aux données et ressources de votre application web, qu'elles soient dans le cloud pour les performances ou sur site pour la conformité. Pour plus d'informations sur la conservation des données dans Azure, consultez la rubrique [Centre de gestion de la confidentialité Azure]. 
 
-Vous pouvez choisir parmi les différents serveurs principaux de base de données dans Azure pour répondre aux besoins de votre site Web, y compris la [base de données SQL Azure] et [MySQL]. La protection de vos données dans Azure rapproche géographiquement vos données de votre site Web et optimise ses performances.
+Selon les exigences de votre application web, vous pouvez choisir parmi différents serveurs principaux de base de données dans Azure, y compris une [base de données SQL Azure] et [MySQL]. Lorsque vos données sont conservées en toute sécurité dans Azure, elles sont géographiquement proches de votre application web, ce qui optimise ses performances.
 
-Toutefois, il se peut que votre entreprise ait besoin que ses données soient conservées sur site. Sites Web Azure vous permet de configurer facilement une [connexion hybride] pour vos ressources sur site comme une base de données principale. Si vous souhaitez une gestion unifiée de vos connexions locales, vous pouvez intégrer de nombreux sites Web Azure sur un réseau [Azure Virtual Network] disposant d'un VPN de site à site. Vous pouvez ensuite accéder aux ressources locales comme si vos sites Web Azure étaient sur site. [Pizzeria - Connexion de sites Web à un réseau local via Service Bus][enterprisepizza]
+Toutefois, votre entreprise peut avoir besoin de conserver ses données localement. App Service Web Apps vous permet de configurer facilement une [connexion hybride] vers votre ressource locale, par exemple un serveur principal de base de données. Si vous souhaitez une gestion unifiée de vos connexions locales, vous devez intégrer de nombreuses applications web à un réseau [Azure Virtual Network] disposant d'un VPN de site à site. Vous pouvez ensuite accéder aux ressources locales comme si vos applications web étaient présentes sur site.
 
-### Optimisation
+## Optimiser
 
-Optimisez votre application métier grâce à la mise à l'échelle automatique, à la mise en cache avec le Cache Redis Azure, à l'exécution des tâches en arrière-plan avec WebJobs et au maintien d'une haute disponibilité avec Azure Traffic Manager.
+Optimisez votre application métier via la mise à l'échelle automatique, la mise en cache avec le Cache Redis Azure, l'exécution de tâches en arrière-plan avec WebJobs et l'assurance d'une haute disponibilité avec Azure Traffic Manager.
 
-Grâce à leur capacité de [mise à l'échelle], les sites Web Azure peuvent répondre aux besoins de votre application métier, quelle que soit la taille de votre charge de travail. Mettez votre site Web à l'échelle manuellement via le [portail de gestion Azure], par programmation via l'[API de gestion de service] ou [scripts PowerShell], ou automatiquement via la fonctionnalité de mise à l'échelle automatique. Dans le plan d'hébergement **Standard**, la mise à l'échelle automatique vous permet de faire évoluer un site Web automatiquement en fonction de l'utilisation du processeur. Pour une utilisation optimale, consultez l'article de [Troy Hunt] [10 choses que j'ai apprises rapidement grâce à l'évolution des sites Web avec Azure].
+La capacité d'App Service Web Apps à [monter en puissance] répond aux besoins de votre application métier, quelle que soit l'envergure de votre charge de travail. Faites monter en puissance votre application web manuellement via le [portail de gestion Azure], par programme via l'[API de gestion de service] ou l'exécution de [scripts PowerShell], ou automatiquement via la fonctionnalité de mise à l'échelle automatique. Au niveau **Standard**, la mise à l'échelle automatique vous permet de faire monter en puissance une application web automatiquement selon l'utilisation de l'UC. Pour connaître les meilleures pratiques, consultez le document de [Troy Hunt]:[10 choses que j'ai apprises pour mettre à l'échelle rapidement des applications web avec Azure] (en anglais).
 
-Rendez votre site Web plus réactif avec le [Cache Redis Azure]. Utilisez-le pour mettre en cache des données stockées sur les bases de données principales et d'autres supports tels que [l'état de session ASP.NET] et le [cache de sortie].
+Renforcez la réactivité de votre application web avec le [Cache Redis Azure]. Utilisez-le pour mettre en cache les données de vos bases de données principales et d'autres éléments, notamment l'[état de session ASP.NET] et le [cache de sortie].
 
-Maintenez une haute disponibilité pour votre site Web à l'aide d'[Azure Traffic Manager]. À l'aide de la méthode de **basculement**, Traffic Manager achemine automatiquement le trafic vers un site secondaire en cas de problèmes sur le site principal.
+Assurez une haute disponibilité de votre application web à l'aide d'[Azure Traffic Manager]. Grâce à la méthode de **basculement**, Traffic Manager achemine automatiquement le trafic vers un site secondaire en cas de problème sur le site principal.
 
-### Surveillance et analyse
+## Surveiller et analyser
 
-Suivez les performances de votre site Web avec Azure ou des outils tiers. Recevez des alertes sur les événements critiques de votre site Web. Apprenez-en plus sur l'utilisation avec Application Insights ou avec l'analyse de journal Web HDInsight. 
+Restez informé des performances de votre application web avec Azure ou des outils tiers. Recevez des alertes sur les événements critiques concernant les applications web. Obtenez facilement des commentaires des utilisateurs grâce à Application Insights ou à l'analyse des journaux web de HDInsight. 
 
-Obtenez un [aperçu rapide] des mesures de performances en temps réel du site Web et des quotas de ressource dans le tableau de bord des sites Web Azure. Pour une vue complète sur la disponibilité, les performances et l'utilisation de votre application, utilisez [Azure Application Insights], un outil rapide et performant pour la résolution des problèmes, le diagnostic et l'analyse de l'utilisation de votre application. Sinon, utilisez un outil tiers comme [New Relic] afin d'obtenir des données avancées pour l'analyse de vos sites Web.
+Obtenez un [aperçu] des métriques de performance en cours de l'application web et des quotas de ressources dans le panneau de l'application web du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Pour une vue complète de la disponibilité, des performances et de l'utilisation de votre application, utilisez [Azure Application Insights] qui vous fournit rapidement de précieuses informations de dépannage, de diagnostic et d'utilisation. Vous pouvez également utiliser un outil tiers comme [New Relic], qui fournit des données de surveillance avancées pour vos applications web.
 
-Dans le plan d'hébergement **Standard**, vous pourrez surveiller la réactivité de votre site grâce à des notifications e-mail dès que votre site ne répond plus. Pour plus d'informations, consultez a page [Procédure : recevoir des notifications d'alerte et gérer des règles d'alerte dans Azure].
+Au niveau **Standard**, surveillez la réactivité de l'application et recevez des notifications par courrier électronique dès lors que votre application cesse de répondre. Pour plus d'informations, consultez la page [Réception recevoir des notifications d'alerte et gérer des règles d'alerte dans Azure].
 
-## Plus de ressources
+## Autres ressources
 
-- [Documentation sur les sites Web Azure](/fr-fr/documentation/services/websites/)
-- [Plan de formation pour les sites Web Azure](websites-learning-map.md)
-- [Blog Azure Web](/blog/topics/web/)
+- [App Service Web Apps Documentation](/services/app-service/web/)
+- [Plan d'apprentissage pour Azure App Service Web Apps](websites-learning-map.md)
+- [Azure Web Blog](/blog/topics/web/)
+
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d'ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n'est requise ; vous ne prenez aucun engagement.
+
+## Changements apportés
+* Pour obtenir des informations détaillées sur le passage de Sites Web à App Service, consultez : [Azure App Service et son impact sur les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour obtenir des informations détaillées sur le passage de l'ancien portail au nouveau portail, consultez : [Référence pour la navigation dans le portail en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
+[Azure App Service]: /services/app-service/web/
 
-[Sites Web Azure]:/fr-fr/services/websites/
+[FTP]:web-sites-deploy.md#ftp
+[Visual Studio]:web-sites-dotnet-get-started.md
+[Visual Studio Online]:cloud-services-continuous-delivery-use-vso.md
+[Git]:web-sites-publish-source-control.md
 
-[FTP]:/fr-fr/documentation/articles/web-sites-deploy/#ftp
-[Visual Studio]:/fr-fr/documentation/articles/web-sites-dotnet-get-started/
-[Visual Studio Online]:/fr-fr/documentation/articles/cloud-services-continuous-delivery-use-vso/
-[Git]:/fr-fr/documentation/articles/web-sites-publish-source-control/
+[HTTPS]:web-sites-configure-ssl-certificate.md
+[Détails de la tarification - App Service]: /pricing/details/app-service/#ssl-connections
+[Authentifiez les utilisateurs]:web-sites-authentication-authorization.md
+[Authentification simple]:/blog/2014/11/13/azure-websites-authentication-authorization/
+[Autorisez les utilisateurs]:web-sites-authentication-authorization.md
 
-[HTTPS]:/fr-fr/documentation/articles/web-sites-configure-ssl-certificate/
-[Tarification - Sites Web]:/fr-fr/pricing/details/web-sites/#service-ssl
-[Authentifiez les utilisateurs]:/fr-fr/documentation/articles/web-sites-authentication-authorization/
-[l'authentification simple]:/blog/2014/11/13/azure-websites-authentication-authorization/
-[Permettez aux utilisateurs]:/fr-fr/documentation/articles/web-sites-authentication-authorization/
+[Centre de gestion de la confidentialité Azure]:/support/trust-center/
+[MySQL]:web-sites-php-mysql-deploy-use-git.md
 
-[centre de gestion de la confidentialité Azure]:/fr-fr/support/trust-center/
-[MySQL]:/fr-fr/documentation/articles/web-sites-php-mysql-deploy-use-git/
-[base de données SQL Azure]:/fr-fr/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
-[connexion hybride]:/fr-fr/documentation/articles/web-sites-hybrid-connection-get-started/
-[Azure Virtual Network]:/fr-fr/documentation/articles/web-sites-integrate-with-vnet/
-
-[mise à l'échelle]:/fr-fr/manage/services/web-sites/how-to-scale-websites/
-[portail de gestion Azure]:http://manage.windowsazure.com/
+[Connexion hybride]:web-sites-hybrid-connection-get-started.md
+[Azure Virtual Network]:web-sites-integrate-with-vnet.md
+[base de données SQL Azure]::web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
+[monter en puissance]:web-sites-scale.md
+[Portail de gestion Azure]:http://manage.windowsazure.com/
 [API de gestion de service]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
-[scripts PowerShell]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
+[Scripts PowerShell]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
-[10 choses que j'ai apprises rapidement grâce à l'évolution des sites Web avec Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
+[10 choses que j'ai apprises pour mettre à l'échelle rapidement des applications web avec Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Cache Redis Azure]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
-[l'état de session ASP.NET]:https://msdn.microsoft.com/fr-fr/library/azure/dn690522.aspx
-[cache de sortie]:https://msdn.microsoft.com/fr-fr/library/azure/dn798898.aspx
+[État de session ASP.NET]:https://msdn.microsoft.com/library/azure/dn690522.aspx
+[Cache de sortie]:https://msdn.microsoft.com/library/azure/dn798898.aspx
 
-[aperçu rapide]:/fr-fr/manage/services/web-sites/how-to-monitor-websites/
+[Aperçu]:web-sites-monitor.md
 [Azure Application Insights]:http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
-[New Relic]:/fr-fr/develop/net/how-to-guides/new-relic/
-[Procédure : recevoir des notifications d'alerte et gérer des règles d'alerte dans Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
+[New Relic]:store-new-relic-cloud-services-dotnet-application-performance-management.md
+[Réception recevoir des notifications d'alerte et gérer des règles d'alerte dans Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

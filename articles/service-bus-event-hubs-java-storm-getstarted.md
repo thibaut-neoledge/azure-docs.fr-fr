@@ -32,7 +32,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 + Un environnement de développement Java configuré pour exécuter [Maven](http://maven.apache.org/). Pour ce didacticiel, nous partirons du principe que la solution utilisée est [Eclipse](https://www.eclipse.org/).
 
-+ un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">version d'évaluation gratuite d'Azure</a>.
++ un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.
 
 ## Création d'un concentrateur d'événements
 
@@ -54,7 +54,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
    	![][4]
 
-6. Cliquez sur l'onglet **Configurer**en haut de la page, ajoutez une règle appelée **SendRule** avec des droits *Send*, ajoutez une autre règle appelée **ReceiveRule** avec des droits *Listen*, puis cliquez sur **Enregistrer**.
+6. Cliquez sur l'onglet **Configurer** en haut de la page, ajoutez une règle appelée **SendRule** avec des droits *Send*, ajoutez une autre règle appelée **ReceiveRule** avec des droits *Listen*, puis cliquez sur **Enregistrer**.
 
    	![][5]
 
@@ -86,7 +86,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 Les ressources suivantes sont disponibles pour les applications de développement intégrant des concentrateurs d'événements et Storm.
 
 - [Le didacticiel Analyse des données de capteur avec Storm et HDInsight] est un didacticiel de scénario complet tirant parti des concentrateurs d'événements, de Storm et de HBase pour la réception des données du capteur dans un cluster Hadoop.
-- [Le didacticiel Développement d'applications de traitement de données de diffusion avec SCP.NET et C# sur Storm dans HDInsight] décrit la marche à suivre pour écrire des pipelines Storm en C#.
+- [Le didacticiel Développement d'applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight] décrit la marche à suivre pour écrire des pipelines Storm en C#.
 
 <!-- Images. -->
 [1]: ./media/service-bus-event-hubs-getstarted/create-event-hub1.png
@@ -105,7 +105,8 @@ Les ressources suivantes sont disponibles pour les applications de développemen
 [Vue d'ensemble des concentrateurs d'événements]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 
 [Apache Storm]: https://storm.incubator.apache.org
-[Vue d'ensemble HDInsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
+[Présentation de Storm HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
 [Le didacticiel Analyse des données de capteur avec Storm et HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
-[Le didacticiel Développement d'applications de traitement de données de diffusion avec SCP.NET et C# sur Storm dans HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
-<!--HONumber=47-->
+[Le didacticiel Développement d'applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
+
+<!--HONumber=52-->

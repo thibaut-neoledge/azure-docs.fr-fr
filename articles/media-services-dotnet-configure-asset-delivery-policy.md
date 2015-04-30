@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Configuration de stratégies de remise d'éléments multimédias à l'aide de .NET" 
-	description="Cette rubrique montre comment configurer différentes stratégies de remise d'éléments multimédias." 
+	description="Cette rubrique montre comment configurer différentes stratégies de remise de ressources." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -16,24 +16,24 @@
 	ms.date="02/06/2015" 
 	ms.author="juliako"/>
 
-#Procédure : Configuration de stratégies de remise d'éléments multimédias
+# Procédure : Configuration de stratégies de remise de ressources
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](../media-services-video-on-demand-workflow) et [Workflow de diffusion en continu Media Services](../media-services-live-streaming-workflow) . 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md). 
 
-L'une des étapes du workflow de remise de contenu Media Services consiste à configurer des stratégies de remise pour les éléments multimédias diffusés en continu. La stratégie de remise d'éléments multimédias indique à Media Services comment vous souhaitez distribuer votre élément multimédia : dans quel protocole de diffusion en continu votre élément multimédia doit être empaqueté dynamiquement (par exemple, MPEG DASH, HLS, diffusion en continu lisse ou tous), si vous souhaitez chiffrer dynamiquement votre élément multimédia ou non et comment (chiffrement commun ou d'enveloppe). 
+L'une des étapes du workflow de remise de contenu Media Services consiste à configurer les stratégies de remise pour les ressources que vous souhaitez diffuser en continu. La stratégie de remise de ressources indique à Media Services comment vous souhaitez distribuer vos ressources : dans quel protocole de diffusion en continu votre ressource doit être empaquetée dynamiquement (par exemple, MPEG DASH, HLS, diffusion en continu lisse ou tous), si vous souhaitez chiffrer dynamiquement votre ressource ou non et comment (chiffrement commun ou d'enveloppe). 
 
-Cette rubrique explique pourquoi et comment créer et configurer des stratégies de remise d'éléments multimédias. 
+Cette rubrique explique pourquoi et comment créer et configurer des stratégies de remise de ressources. 
 
->[AZURE.NOTE]Pour pouvoir utiliser l'empaquetage et le chiffrement dynamiques, vous devez vous assurer d'avoir au moins une unité d'échelle (également appelée unité de diffusion). Pour plus d'informations, consultez la page [Mise à l'échelle d'un service multimédia](../media-services-manage-origins#scale_streaming_endpoints). 
+>[AZURE.NOTE]Pour pouvoir utiliser l'empaquetage et le chiffrement dynamiques, vous devez vous assurer d'avoir au moins une unité d'échelle (également appelée unité de diffusion). Pour plus d'informations, consultez [Mise à l'échelle d'un service de média](media-services-manage-origins.md#scale_streaming_endpoints). 
 >
->De plus, votre élément multimédia doit contenir un ensemble de MP4 à débit adaptatif ou des fichiers de diffusion en continu lisse à débit adaptatif.      
+>De plus, votre ressource doit contenir un ensemble de MP4 à débit adaptatif ou des fichiers de diffusion en continu lisse à débit adaptatif.      
 
-Vous pouvez appliquer des stratégies différentes au même élément multimédia. Par exemple, vous pouvez appliquer le chiffrement PlayReady pour la diffusion en continu lisse et AES en enveloppe pour MPEG DASH et TLS. Tous les protocoles qui ne sont pas définis dans une stratégie de remise (par exemple, en cas d'ajout d'une stratégie unique qui spécifie uniquement TLS comme protocole) seront bloqués de la diffusion en continu. Cela ne s'applique toutefois pas si vous n'avez défini aucune stratégie de remise d'éléments multimédias. Tous les protocoles seront alors autorisés.
+Vous pouvez appliquer des stratégies différentes à la même ressource. Par exemple, vous pouvez appliquer le chiffrement PlayReady pour la diffusion en continu lisse et AES en enveloppe pour MPEG DASH et TLS. Tous les protocoles qui ne sont pas définis dans une stratégie de remise (par exemple, en cas d'ajout d'une stratégie unique qui spécifie uniquement TLS comme protocole) seront bloqués de la diffusion en continu. Cela ne s'applique toutefois pas si vous n'avez défini aucune stratégie de remise de ressources. Tous les protocoles seront alors autorisés.
 
-Notez que si vous souhaitez remettre un élément multimédia à chiffrement de stockage, vous devez configurer la stratégie de remise de l'élément multimédia. Avant de pouvoir diffuser votre élément multimédia en continu, le serveur de diffusion supprime le chiffrement de stockage et transmet en continu votre contenu à l'aide de la stratégie de remise spécifiée. Par exemple, pour remettre votre élément multimédia chiffré avec la clé de chiffrement d'enveloppe AES, définissez le type de stratégie sur **DynamicEnvelopeEncryption**. Pour supprimer le chiffrement de stockage et diffuser l'élément multimédia en clair, définissez le type de stratégie sur **NoDynamicEncryption**. Vous trouverez des exemples qui montrent comment configurer ces types de stratégie ci-dessous. 
+Notez que si vous souhaitez remettre une ressource à chiffrement de stockage, vous devez configurer la stratégie de remise de la ressource. Avant de pouvoir diffuser votre ressource en continu, le serveur de diffusion supprime le chiffrement de stockage et transmet en continu votre contenu à l'aide de la stratégie de remise spécifiée. Par exemple, pour remettre votre ressource chiffrée avec la clé de chiffrement d'enveloppe AES, définissez le type de stratégie sur **DynamicEnvelopeEncryption**. Pour supprimer le chiffrement de stockage et diffuser la ressource en clair, définissez le type de stratégie sur **NoDynamicEncryption**. Vous trouverez des exemples qui montrent comment configurer ces types de stratégie ci-dessous. 
 
-Selon la configuration de la stratégie de remise d'éléments multimédias, vous pourrez empaqueter dynamiquement, chiffrer dynamiquement et diffuser les protocoles de diffusion en continu suivants : Diffusion en continu lisse, TLS, MPEG DASH et HDS.  
+Selon la configuration de la stratégie de remise de ressources, vous pourrez empaqueter dynamiquement, chiffrer dynamiquement et diffuser les protocoles de diffusion en continu suivants : Diffusion en continu lisse, TLS, MPEG DASH et HDS.  
 
 La liste suivante présente les formats utilisés pour diffuser en continu lisse, TLS, DASH et HDS.  
 
@@ -53,13 +53,13 @@ HDS
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
-Pour savoir comment publier un élément multimédia et générer une URL de diffusion en continu, consultez [Création d'une URL de diffusion en continu](../media-services-deliver-streaming-content).
+Pour savoir comment publier un élément multimédia et générer une URL de diffusion en continu, consultez la page [Création d'une URL de diffusion en continu](media-services-deliver-streaming-content.md).
 
-##Stratégie de remise d'éléments multimédias 
+## Stratégie de remise de ressources 
 
 La méthode **ConfigureClearAssetDeliveryPolicy** qui suit indique de ne pas appliquer le chiffrement dynamique et de distribuer le flux via un des protocoles suivants :  MPEG DASH, HLS et Smooth Streaming. 
   
-Pour plus d'informations sur les valeurs que vous pouvez spécifier lors de la création d'une AssetDeliveryPolicy, consultez [Types utilisés lors de la définition d'AssetDeliveryPolicy](#types) . 
+Pour plus d'informations sur les valeurs que vous pouvez spécifier lors de la création d'une AssetDeliveryPolicy, consultez [Types utilisés lors de la définition d'AssetDeliveryPolicy](#types). 
 
     static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
     {
@@ -71,12 +71,12 @@ Pour plus d'informations sur les valeurs que vous pouvez spécifier lors de la c
         asset.DeliveryPolicies.Add(policy);
     }
 
-##Stratégie de remise d'éléments multimédias DynamicCommonEncryption 
+## Stratégie de remise de ressources DynamicCommonEncryption 
 
 
-La méthode **CreateAssetDeliveryPolicy** suivante crée l'**AssetDeliveryPolicy** configurée pour appliquer le chiffrement dynamique courant (**DynamicCommonEncryption**) à un protocole de diffusion en continu lisse (les autres protocoles ne pourront pas être diffusés en continu). La méthode accepte deux paramètres : **Asset** (l'élément multimédia auquel vous souhaitez appliquer la stratégie de remise) et **IContentKey** (la clé de contenu de type **CommonEncryption**. Pour plus d'informations, consultez : [Création d'une clé de contenu](../media-services-dotnet-create-contentkey#common_contentkey)).
+La méthode **CreateAssetDeliveryPolicy** suivante crée l'**AssetDeliveryPolicy** configurée pour appliquer le chiffrement dynamique courant (**DynamicCommonEncryption**) à un protocole de diffusion en continu lisse (les autres protocoles ne pourront pas être diffusés en continu). La méthode accepte deux paramètres : **Asset** (l'élément multimédia auquel vous souhaitez appliquer la stratégie de remise) et **IContentKey** (la clé de contenu de type **CommonEncryption**. Pour plus d'informations, consultez : [Création d'une clé de contenu](media-services-dotnet-create-contentkey.md#common_contentkey)).
 
-Pour plus d'informations sur les valeurs que vous pouvez spécifier lors de la création d'une AssetDeliveryPolicy, consultez [Types utilisés lors de la définition d'AssetDeliveryPolicy](#types) . 
+Pour plus d'informations sur les valeurs que vous pouvez spécifier lors de la création d'une AssetDeliveryPolicy, consultez [Types utilisés lors de la définition d'AssetDeliveryPolicy](#types). 
 
 
     static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
@@ -105,12 +105,12 @@ Pour plus d'informations sur les valeurs que vous pouvez spécifier lors de la c
 
 
 
-##Stratégie de remise d'éléments multimédias DynamicEnvelopeEncryption 
+## Stratégie de remise de ressources DynamicEnvelopeEncryption 
 
-La méthode **CreateAssetDeliveryPolicy** suivante crée l'**AssetDeliveryPolicy** configurée pour appliquer le chiffrement dynamique en enveloppe (**DynamicEnvelopeEncryption**) aux protocoles TLS et DASH (les autres protocoles ne pourront pas être diffusés en continu). La méthode accepte deux paramètres : **Asset** (l'élément multimédia auquel vous souhaitez appliquer la stratégie de remise) et **IContentKey** (la clé de contenu de type **EnvelopeEncryption**. Pour plus d'informations, consultez : [Création d'une clé de contenu](../media-services-dotnet-create-contentkey#envelope_contentkey)).
+La méthode **CreateAssetDeliveryPolicy** suivante crée l'**AssetDeliveryPolicy** configurée pour appliquer le chiffrement dynamique en enveloppe (**DynamicEnvelopeEncryption**) aux protocoles TLS et DASH (les autres protocoles ne pourront pas être diffusés en continu). La méthode accepte deux paramètres : **Asset** (l'élément multimédia auquel vous souhaitez appliquer la stratégie de remise) et **IContentKey** (la clé de contenu de type **EnvelopeEncryption**. Pour plus d'informations, consultez : [Création d'une clé de contenu](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
 
 
-Pour plus d'informations sur les valeurs que vous pouvez spécifier lors de la création d'une AssetDeliveryPolicy, consultez [Types utilisés lors de la définition d'AssetDeliveryPolicy](#types) .   
+Pour plus d'informations sur les valeurs que vous pouvez spécifier lors de la création d'une AssetDeliveryPolicy, consultez [Types utilisés lors de la définition d'AssetDeliveryPolicy](#types).   
 
     private static void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
@@ -150,9 +150,9 @@ Pour plus d'informations sur les valeurs que vous pouvez spécifier lors de la c
     }
 
 
-##<a id="types"></a>Types utilisés lors de la définition d'AssetDeliveryPolicy
+## <a id="types"></a>Types utilisés durant la définition de AssetDeliveryPolicy
 
-###<a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol 
+### <a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol 
 
     /// <summary>
     /// Delivery protocol for an asset delivery policy.
@@ -191,7 +191,7 @@ Pour plus d'informations sur les valeurs que vous pouvez spécifier lors de la c
         All = 0xFFFF
     }
 
-###<a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
+### <a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
 
     /// <summary>
     /// Policy type for dynamic encryption of assets.
@@ -225,7 +225,7 @@ Pour plus d'informations sur les valeurs que vous pouvez spécifier lors de la c
         DynamicCommonEncryption
     }
 
-###<a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
 
     /// <summary>
     /// Delivery method of the content key to the client.
@@ -248,7 +248,7 @@ Pour plus d'informations sur les valeurs que vous pouvez spécifier lors de la c
         BaselineHttp
     }
 
-###<a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
+### <a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
 
     /// <summary>
     /// Keys used to get specific configuration for an asset delivery policy.
@@ -290,4 +290,5 @@ Pour plus d'informations sur les valeurs que vous pouvez spécifier lors de la c
         /// </summary>
         EnvelopeEncryptionIV,
     }
-<!--HONumber=47-->
+
+<!--HONumber=52-->
