@@ -80,4 +80,5 @@ Configurez les propriétés d'entrée de l'action " Upload File " comme suit :
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
+
 <!--HONumber=52-->

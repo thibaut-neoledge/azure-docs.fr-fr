@@ -93,4 +93,5 @@ Dans cette section, nous allons écrire une application console Java pour envoye
 
 <!-- Images -->
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
+
 <!--HONumber=52--> 

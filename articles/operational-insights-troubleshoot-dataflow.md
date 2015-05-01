@@ -121,4 +121,5 @@ Les détails vous présentent la recherche et affichent l'horodateur des derniè
 
 Cette page comporte également des informations de mesure (cela n'utilise pas l'index de recherche mais le système de facturation, actualisé toutes les deux heures) concernant les quantités de données envoyées au service par pack d'analyse décisionnelle.
 
+
 <!--HONumber=52-->

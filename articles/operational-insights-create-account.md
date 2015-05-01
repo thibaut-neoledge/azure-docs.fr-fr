@@ -40,4 +40,5 @@ Pour plus d'informations sur la prise en main d'Operational Insights, consultez 
 
 - [Installation et configuration de votre espace de travail](operational-insights-setup-workspace.md)
 
+
 <!--HONumber=52-->

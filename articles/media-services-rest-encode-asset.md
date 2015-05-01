@@ -122,4 +122,5 @@ Maintenant que vous savez comment créer une tâche pour encoder un élément mu
 [Vérification de la progression des tâches]:http://go.microsoft.com/fwlink/?LinkId=301737
 [Présélection de tâches pour Azure Media Packager]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
 
+
 <!--HONumber=52-->

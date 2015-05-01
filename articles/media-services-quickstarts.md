@@ -30,4 +30,5 @@ Optez pour le démarrage rapide implémenté avec .NET ou REST.
 [Prise en main de .NET](http://msdn.microsoft.com/library/azure/dn783465.aspx)
 
 
+
 <!--HONumber=52-->

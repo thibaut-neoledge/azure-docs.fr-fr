@@ -73,4 +73,5 @@ Pour associer votre domaine personnalisé à une application web dans Azure App 
 * Pour obtenir des informations détaillées sur le passage de Sites Web à App Service, consultez : [Azure App Service et son impact sur les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Pour obtenir des informations détaillées sur le passage de l'ancien portail au nouveau portail, consultez : [Référence pour la navigation au sein du portail en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715)
 
+
 <!--HONumber=52-->

@@ -87,4 +87,5 @@ Vous devez utiliser la famille la plus récente de SE invités pour concevoir vo
 
 Si l'architecture de votre application web nécessite une intégration plus avancée au système d'exploitation sous-jacent, utilisez les fonctionnalités de plateforme prise en charge telles que les " [Tâches de démarrage](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx) " ou d'autres mécanismes d'extensibilité qui peuvent exister par la suite. Sinon, vous pouvez également utiliser les [machines virtuelles Azure](http://www.windowsazure.com/home/scenarios/virtual-machines/) (IaaS - Infrastructure en tant que Service), qui vous permettent d'être responsable de la maintenance du système d'exploitation sous-jacent.
 
+
 <!--HONumber=52-->

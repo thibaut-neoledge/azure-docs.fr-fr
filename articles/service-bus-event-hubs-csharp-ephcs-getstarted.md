@@ -106,4 +106,5 @@ Vous avez conçu une application opérationnelle qui crée un concentrateur d'é
 [montée en puissance du traitement des événements avec les concentrateurs d'événements]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [Solution de messages de file d'attente]: cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
 
+
 <!--HONumber=52-->

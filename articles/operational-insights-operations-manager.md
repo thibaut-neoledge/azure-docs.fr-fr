@@ -100,4 +100,5 @@ Par exemple, si vous supposez une taille de téléchargement quotidienne de 100 
 Si vous souhaitez analyser des données à partir de serveurs dans divers emplacements géographiques, envisagez de disposer d'un groupe d'administration par emplacement. Cela peut améliorer les performances de transfert de données de l'agent au groupe d'administration.
 
 
+
 <!--HONumber=52-->

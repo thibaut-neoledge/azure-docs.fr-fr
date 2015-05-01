@@ -104,4 +104,5 @@ Par exemple, votre chaîne de connexion doit ressembler à l'exemple de chaîne 
 	DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtR7wYQk33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIHy5l/Yhg==;EndpointSuffix=core.chinacloudapi.cn;
 
 
+
 <!--HONumber=52-->

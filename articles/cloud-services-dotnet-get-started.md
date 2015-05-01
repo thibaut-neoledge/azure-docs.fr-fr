@@ -814,4 +814,5 @@ Pour plus d'informations, consultez les ressources suivantes :
 * [Utilisation du stockage d'objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md)
 * [Utilisation du service de stockage de files d'attente à partir de .NET](storage-dotnet-how-to-use-queues.md)
 
+
 <!--HONumber=52-->

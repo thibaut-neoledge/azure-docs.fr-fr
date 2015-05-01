@@ -106,4 +106,5 @@ Pour obtenir des didacticiels complets, rendez-vous sur la page [Didacticiels du
 [Service d'application Tarification]: /pricing/details/app-service/
 [Mise à l'échelle d'une application web dans Microsoft Azure App Service]: web-sites-scale.md
 
+
 <!--HONumber=52-->

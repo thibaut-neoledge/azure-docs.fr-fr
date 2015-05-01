@@ -395,4 +395,5 @@ Pour obtenir un jeton de test basé sur la restriction par jeton utilisée pour 
 ## Étapes suivantes
 Maintenant que vous avez configuré la stratégie d'autorisation de la clé de contenu, accédez à la [procédure de configuration de stratégies de remise de ressources](media-services-dotnet-configure-asset-delivery-policy.md).
 
+
 <!--HONumber=52-->

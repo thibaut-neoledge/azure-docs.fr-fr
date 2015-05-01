@@ -52,4 +52,5 @@ Vous pouvez utiliser les contrôles de facette et de filtre pour affiner les ré
 - [Équivalents de recherches OpInsights des règles d'alertes d'événements de pack d'administration IIS](http://blogs.msdn.com/b/dmuscett/archive/2014/11/05/iis-mp-event-alerting-rules-s-opinsights-searches-equivalents.aspx)
 - [Collection de requêtes de recherche Operational Insights utiles](http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-searches-collection.aspx)
 
+
 <!--HONumber=52-->

@@ -55,4 +55,5 @@ Si l'une des erreurs ci-dessus s'affiche, vérifiez les éléments suivants :
 - Vérifiez que les informations d'identification de jonction de domaine sont correctes et disposent des autorisations de jonction de domaine appropriées
 - Vérifiez que l'unité d'organisation est correctement formatée et qu'elle n'existe pas dans Active Directory.
 
+
 <!--HONumber=52-->

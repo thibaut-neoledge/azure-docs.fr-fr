@@ -51,4 +51,5 @@ Maintenant que vous avez créé votre image de modèle personnalisée ou l'avez 
 - Ne modifiez jamais le script, les validations sont pensées pour vous faciliter la tâche.
 - Si le fichier de disque dur virtuel est verrouillé pendant le téléchargement, copiez le fichier ou déplacez-le vers un nouvel emplacement et essayez à nouveau. Un processus Windows peut empêcher le téléchargement.  
 
+
 <!--HONumber=52-->

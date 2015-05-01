@@ -650,4 +650,5 @@ Chaque attribut est décrit ci-dessous.
 
 **TruePeak** : ce résultat contient la valeur true‐peak absolue la plus élevée dans tout canal depuis la réinitialisation de la mesure. Pour obtenir la description du niveau true peak, consultez ITU‐R BS.1770‐2. La plage de valeurs est comprise entre -70 et 12,04 dBTP.
 
+
 <!--HONumber=52-->

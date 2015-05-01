@@ -208,4 +208,5 @@ La signature d'accès partagé et la stratégie d'accès stockée doivent inclur
 
 Pour révoquer l'accès aux signatures d'accès partagé qui utilisent la même stratégie d'accès stockée, supprimez la stratégie stockée de la ressource de stockage en remplaçant la liste des stratégies stockées par une nouvelle liste qui ne contient pas le nom de la stratégie. Pour modifier les paramètres d'accès d'une stratégie d'accès stockée, remplacez la liste de stratégies stockées par une nouvelle liste contenant une stratégie de même nom mais associée à de nouvelles informations de contrôle d'accès.
 
+
 <!--HONumber=52-->

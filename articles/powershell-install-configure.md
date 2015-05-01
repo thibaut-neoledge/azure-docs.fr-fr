@@ -260,4 +260,5 @@ Voici certaines des ressources disponibles pour apprendre à utiliser Azure et W
 
   [Microsoft Online Services - Portail Clients]: https://mocp.microsoftonline.com/site/default.aspx
 
+
 <!--HONumber=52-->

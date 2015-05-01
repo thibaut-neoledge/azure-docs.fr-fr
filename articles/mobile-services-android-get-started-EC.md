@@ -160,4 +160,5 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 
 [Portail de gestion]: https://manage.windowsazure.com/
 
+
 <!--HONumber=52-->

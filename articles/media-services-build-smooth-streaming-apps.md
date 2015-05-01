@@ -1009,4 +1009,5 @@ Vous avez terminé la leçon 4.  Dans cette leçon, vous avez ajouté la fonctio
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
 
+
 <!--HONumber=52-->

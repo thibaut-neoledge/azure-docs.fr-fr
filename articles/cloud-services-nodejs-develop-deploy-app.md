@@ -216,4 +216,5 @@ Après avoir déployé votre application, vous pouvez la désactiver afin de vou
 [Comment supprimer un compte de stockage d'un abonnement Azure]: https://www.windowsazure.com/manage/services/storage/how-to-manage-a-storage-account/
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
 
+
 <!--HONumber=52-->

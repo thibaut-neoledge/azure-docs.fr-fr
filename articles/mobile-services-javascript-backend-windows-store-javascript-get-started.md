@@ -93,4 +93,5 @@ Pour plus d'informations sur les applications Windows universelles, consultez la
 [Kit de développement logiciel (SDK) Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Portail de gestion]: https://manage.windowsazure.com/
 
+
 <!--HONumber=52-->

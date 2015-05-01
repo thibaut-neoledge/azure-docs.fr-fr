@@ -37,4 +37,5 @@ RemoteApp utilise une image Windows Server 2012 R2 pour héberger tous les progr
 - L'image doit être préparée avec Sysprep à l'aide des paramètres **/oobe /generalize /shutdown** (ne PAS utiliser le paramètre **/mode:vm**).
 - Le téléchargement de votre disque dur virtuel à partir d'une chaîne d'instantanés n'est pas pris en charge.
 
+
 <!--HONumber=52-->

@@ -65,4 +65,5 @@ Les publicités peuvent être placées à n'importe quel point dans la chronolog
 
 Pour en savoir plus sur la prise en charge du sous-titrage et des publicités dans les vidéos en flux continu, consultez la page [Normes de sous-titrage et d'insertion de publicités prises en charge](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad).
 
+
 <!--HONumber=52-->

@@ -14,4 +14,5 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
    	Ceci envoie une demande POST vers le nouveau service mobile hébergé dans Azure. Les données de la demande sont insérées dans la table TodoItem. Les éléments stockés dans la table sont renvoyés par le service mobile et les données sont affichées dans la liste.
 
  	</div>
+
 <!--HONumber=52--> 

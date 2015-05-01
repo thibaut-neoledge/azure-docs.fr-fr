@@ -115,4 +115,5 @@ Configurez la stratégie de remise de ressources à l'aide de **.NET** ou de l'*
 
 [content-protection]: ./media/media-services-content-protection/media-services-content-protection.png
 
+
 <!--HONumber=52-->

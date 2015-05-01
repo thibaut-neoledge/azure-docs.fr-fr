@@ -713,4 +713,5 @@ Pour plus d'informations sur la prise en main de Sencha Touch, consultez l'ensem
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
+
 <!--HONumber=52-->

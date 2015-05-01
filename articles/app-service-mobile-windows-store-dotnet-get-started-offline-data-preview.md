@@ -275,4 +275,5 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 [SQLite store Nuget]: http://www.nuget.org/packages/
 [Nuget - magasin SQLite]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
 
+
 <!--HONumber=52-->

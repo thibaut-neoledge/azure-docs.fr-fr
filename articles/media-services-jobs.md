@@ -59,4 +59,5 @@ Vous pouvez surveiller la progression des travaux à l'aide du **portail de gest
 
 [Quotas et limitations](media-services-quotas-and-limitations.md) : décrit les quotas utilisés et les limitations de l'encodeur Media Services
 
+
 <!--HONumber=52-->

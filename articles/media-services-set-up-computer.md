@@ -36,4 +36,5 @@ Choisissez **.NET** ou **API REST** pour vous connecter par programme à Azure M
 
 [AZURE.INCLUDE [media-services-selector-connect](../includes/media-services-selector-connect.md)]
 
+
 <!--HONumber=52-->

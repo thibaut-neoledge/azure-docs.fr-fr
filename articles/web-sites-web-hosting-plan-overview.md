@@ -66,4 +66,5 @@ Pour prendre en main Azure, consultez la page [Version d'évaluation gratuite de
 
 
 
+
 <!--HONumber=52-->

@@ -130,4 +130,5 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
 
+
 <!--HONumber=52-->

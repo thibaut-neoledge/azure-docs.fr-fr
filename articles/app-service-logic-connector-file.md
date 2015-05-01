@@ -93,4 +93,5 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur File 
 [Créer une application logique]: app-service-logic-create-a-logic-app.md
 [Définition des API du connecteur File]: https://msdn.microsoft.com/en-US/library/dn936296.aspx
 
+
 <!--HONumber=52-->

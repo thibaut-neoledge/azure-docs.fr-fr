@@ -111,4 +111,5 @@ Les ressources suivantes sont disponibles pour les applications de développemen
 [Le didacticiel Analyse des données de capteur avec Storm et HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 [Le didacticiel Développement d'applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
 
+
 <!--HONumber=52-->

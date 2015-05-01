@@ -174,4 +174,5 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Visual Studio 2012 Express pour Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 
 
+
 <!--HONumber=52-->

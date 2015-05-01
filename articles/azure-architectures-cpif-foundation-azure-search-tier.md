@@ -46,4 +46,5 @@ Ce document présente un modèle de base permettant d'utiliser Azure Search à l
 
 [Niveau de traitement par lots](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
+
 <!--HONumber=52-->

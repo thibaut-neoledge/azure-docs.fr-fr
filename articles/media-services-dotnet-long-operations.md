@@ -186,4 +186,5 @@ L'exemple montre également comment le client peut utiliser cette classe.
 	// If we got here, we should have the newly created channel id.
 	Console.WriteLine(channelId);
 
+
 <!--HONumber=52-->

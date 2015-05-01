@@ -507,4 +507,5 @@ La fonctionnalité suivante est une nouveauté de la version de novembre du Kit 
 [Gestion des notifications de travaux de Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
 [Gestion des notifications de tâches Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
 
+
 <!--HONumber=52-->

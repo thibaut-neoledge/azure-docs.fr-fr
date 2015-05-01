@@ -78,4 +78,5 @@ Nous vous recommandons de migrer vos rôles de service cloud vers l'une des fami
 ## Fin de la prise en charge étendue pour la famille 1 des SE invités depuis le 3 novembre 2014
 Les services cloud de la famille 1 des SE invités ne sont plus pris en charge. Veuillez quitter la famille 1 dès que possible pour éviter toute interruption de service. 
 
+
 <!--HONumber=52-->

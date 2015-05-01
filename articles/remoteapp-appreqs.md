@@ -55,4 +55,5 @@ Utilisez les instructions suivantes pour développer des applications pour Remot
 - Paramétrez et équilibrez l'[utilisation de threads](https://msdn.microsoft.com/library/aa383520.aspx) de l'application pour un environnement multi-utilisateur et multiprocesseur.
 - Pour optimiser les performances, il est recommandé que les applications [détectent](https://msdn.microsoft.com/library/aa380798.aspx) si elles s'exécutent dans une session client. 
 
+
 <!--HONumber=52-->

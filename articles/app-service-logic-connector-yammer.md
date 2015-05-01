@@ -100,4 +100,5 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Yamme
 [10]: ./media/app-service-logic-connector-yammer/img10.PNG
 [11]: ./media/app-service-logic-connector-yammer/img11.PNG
 
+
 <!--HONumber=52-->

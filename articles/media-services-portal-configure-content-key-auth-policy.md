@@ -94,4 +94,5 @@ Maintenant que vous avez configuré la stratégie d'autorisation de la clé de c
 [token_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-token-restriction.png
 
 
+
 <!--HONumber=52-->

@@ -422,4 +422,5 @@ Pour obtenir des informations concernant l'utilisation du stockage de tables Azu
 [Documentation de Python Tools pour Visual Studio]: http://pytools.codeplex.com/documentation 
 [Documentation relative à Flask]: http://flask.pocoo.org/ 
 
+
 <!--HONumber=52-->

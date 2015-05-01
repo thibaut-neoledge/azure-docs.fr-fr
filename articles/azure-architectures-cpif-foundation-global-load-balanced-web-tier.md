@@ -50,4 +50,5 @@ Ce document présente un modèle permettant de fournir un accès à des services
 [Niveau de traitement par lots](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
 
+
 <!--HONumber=52-->

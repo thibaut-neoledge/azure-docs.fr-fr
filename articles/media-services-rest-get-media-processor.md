@@ -122,4 +122,5 @@ Maintenant que vous savez comment obtenir une instance de processeur multimédia
 [Chaînes de présélection de tâche pour l'Encodeur multimédia Azure]: http://msdn.microsoft.com/library/jj129582.aspx
 [Établissement connexion à Media Services par programme]: ../media-services-rest-connect_programmatically/
 
+
 <!--HONumber=52-->

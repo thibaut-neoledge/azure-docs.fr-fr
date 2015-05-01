@@ -130,4 +130,5 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Prise en main de l'authentification]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users.md
 [Prise en main des notifications Push]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push.md
 
+
 <!--HONumber=52-->

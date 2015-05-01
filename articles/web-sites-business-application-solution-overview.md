@@ -125,4 +125,5 @@ Au niveau **Standard**, surveillez la réactivité de l'application et recevez d
 [Réception recevoir des notifications d'alerte et gérer des règles d'alerte dans Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 
 
+
 <!--HONumber=52-->

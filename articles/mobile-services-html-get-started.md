@@ -162,4 +162,5 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Guide de fonctionnement de Mobile Services avec HTML/JavaScript]: /develop/mobile/how-to-guides/work-with-html-js-client
 [Partage des ressources cross-origin]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 
+
 <!--HONumber=52-->

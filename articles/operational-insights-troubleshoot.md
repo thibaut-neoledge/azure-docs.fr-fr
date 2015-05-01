@@ -56,4 +56,5 @@ Si vous êtes confronté à ces deux problèmes, vous devez installer SQL Server
 Après avoir installé le service pack, vous devez voir des données Operational Insights pour le serveur dans les 24 heures.
 
 
+
 <!--HONumber=52-->

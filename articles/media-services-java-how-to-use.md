@@ -453,4 +453,5 @@ Pour obtenir de la documentation Media Services Javadoc, consultez la rubrique [
   [Développement de clients Media Services]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
 
 
+
 <!--HONumber=52-->

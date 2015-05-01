@@ -194,4 +194,5 @@ Félicitations ! L'application WordPress dispose maintenant d'un cache en mémoi
 [12]: /services/cache/
 [13]: http://memcached.org
 
+
 <!--HONumber=52-->

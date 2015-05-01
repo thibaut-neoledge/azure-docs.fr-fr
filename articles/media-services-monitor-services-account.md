@@ -68,4 +68,5 @@ Les mesures sont stockées dans le compte de stockage dans quatre tables nommée
 [storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
 
+
 <!--HONumber=52-->

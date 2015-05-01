@@ -36,4 +36,5 @@ Votre opinion est importante. À la fin de chaque session, vous verrez une boît
 >[AZURE.NOTE] Comme il s'agit d'un environnement contrôlé à des fins de démonstration, nous n'avons pas activé l'accès internet externe à partir des applications de démonstration publiées. Pour cette raison, des services comme OneDrive ne sont pas accessibles. En outre, le partage du presse-papiers (copier-coller), ainsi que la redirection USB et de l'imprimante sont désactivés.  
 
 
+
 <!--HONumber=52-->

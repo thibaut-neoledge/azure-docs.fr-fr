@@ -132,4 +132,5 @@ Consultez le résumé des évaluations de conformité pour votre infrastructure,
 
 4. Effectuez les actions correctives suggérées dans **Mesures conseillées**. Une fois l'élément traité, les évaluations ultérieures indiqueront que des mesures ont été prises et votre score de conformité augmentera. Les éléments corrigés apparaissent comme **objets passés**.
 
+
 <!--HONumber=52-->

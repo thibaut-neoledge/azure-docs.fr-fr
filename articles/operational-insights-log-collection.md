@@ -94,4 +94,5 @@ Vous pouvez configurer ce paramètre à partir du portail de gestion Azure, et n
 - [Exigences de format de journal IIS dans Azure Operational Insights](http://blogs.technet.com/b/momteam/archive/2014/09/19/iis-log-format-requirements-in-system-center-advisor.aspx)
 - Consultez les autres sources de données et types de journaux que la communauté nous demande de mettre en œuvre dans notre [Forum de commentaires](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
 
+
 <!--HONumber=52-->

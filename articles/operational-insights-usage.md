@@ -56,4 +56,5 @@ Le tableau de bord **Utilisation** affiche les informations suivantes :
 3. Si un groupe d'administration n'envoie pas de données, vous pouvez cliquer sur **Dépannage** pour obtenir des informations de dépannage détaillées. Si vous ne souhaitez plus conserver un groupe d'administration ni les agents liés à ce dernier, cliquez sur **Supprimer**.
 
 
+
 <!--HONumber=52-->

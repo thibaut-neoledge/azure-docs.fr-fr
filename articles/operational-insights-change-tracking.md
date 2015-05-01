@@ -52,4 +52,5 @@ Vous pouvez afficher les modifications apportées à votre infrastructure, puis 
 
 4. Depuis toute page de la section Recherche, vous pouvez **Exporter** les résultats détaillés dans un fichier CSV que vous pouvez ouvrir avec Excel ou une autre application, afin de l'afficher ou de le modifier.
 
+
 <!--HONumber=52-->

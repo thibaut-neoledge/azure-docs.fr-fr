@@ -489,4 +489,5 @@ Ajoutez AuthorizationPolicy à la ContentKey, comme illustré [ici](#AddAuthoriz
 Maintenant que vous avez configuré la stratégie d'autorisation de la clé de contenu, consultez la rubrique [Configuration de la stratégie de remise de ressources](media-services-rest-configure-asset-delivery-policy.md).
 
 
+
 <!--HONumber=52-->

@@ -95,4 +95,5 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Chatt
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
+
 <!--HONumber=52-->

@@ -56,4 +56,5 @@ Chaque domaine principal de services est décrit plus en détail dans ce schéma
 
 [Niveau de traitement par lots](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
+
 <!--HONumber=52-->

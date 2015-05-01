@@ -216,4 +216,5 @@ Suivez ces liens pour en savoir plus sur Python Tools for Visual Studio, Flask e
 [Stockage Azure]: http://azure.microsoft.com/documentation/services/storage/
 [Kit de développement logiciel (SDK) Azure pour Python]: https://github.com/Azure/azure-sdk-for-python
 
+
 <!--HONumber=52-->

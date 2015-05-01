@@ -41,4 +41,5 @@ Q : Le stockage des images est-il pris en charge par Azure Media Services ?
 
 R : Si vous cherchez uniquement à stocker des images JPEG ou PNG, nous vous recommandons de les conserver dans le stockage d'objets blob Azure. Il n'y a aucun avantage à les placer dans votre compte Media Services, à moins que vous souhaitiez qu'elles restent associées à vos ressources vidéo ou audio ou les utiliser sous forme de superpositions dans l'encodeur vidéo. L'encodeur Media Services prend en charge la superposition d'images sur les vidéos, ce qui explique pourquoi JPEG et PNG figurent parmi les formats d'entrée pris en charge. Pour plus d'informations, consultez la page [Création de superpositions](https://msdn.microsoft.com/library/azure/dn640496.aspx).
 
+
 <!--HONumber=52-->

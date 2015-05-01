@@ -82,4 +82,5 @@ Si vous avez des serveurs proxy ou un pare-feu qui limitent l'accès à Internet
 - [Billet de blog : activation d'Operational Insights pour les machines virtuelles Azure](http://azure.microsoft.com/updates/easily-enable-operational-insights-for-azure-virtual-machines/)
 
 
+
 <!--HONumber=52-->

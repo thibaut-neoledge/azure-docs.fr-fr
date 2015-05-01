@@ -161,4 +161,5 @@ L'outil de projection vous permet d'afficher l'historique des tendances d'utilis
 4. Dans l'**outil de projection**, déplacez le curseur de date pour afficher une projection de la capacité qui sera utilisée à la date choisie.
 
 
+
 <!--HONumber=52-->

@@ -15,4 +15,5 @@ Une fois que l'application cliente a été testée sur le service mobile local, 
 	![](./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish-2.png)
 
 	Une fois la publication effectuée, vous accédez de nouveau à la page vous confirmant que le service mobile est opérationnel, sur Azure, cette fois.
+
 <!--HONumber=52--> 

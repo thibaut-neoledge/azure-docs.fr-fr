@@ -137,4 +137,5 @@ Voici une liste non exhaustive des formats non compressés pris en charge.
 <tr><td>Format Indeo-produced YVU9</td><td>Format Indeo-produced YVU9 avec informations supplémentaires sur les différences par rapport au dernier frame. 9,5 bits par pixel mais déclaré comme 9.</td></tr>
 </table>
 
+
 <!--HONumber=52-->

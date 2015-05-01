@@ -90,4 +90,5 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur SMTP 
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
+
 <!--HONumber=52-->

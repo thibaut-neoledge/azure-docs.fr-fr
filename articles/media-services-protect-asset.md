@@ -34,4 +34,5 @@ Configuration de stratégies de remise de ressources
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
  
 
+
 <!--HONumber=52-->

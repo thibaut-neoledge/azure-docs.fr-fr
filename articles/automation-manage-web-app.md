@@ -42,4 +42,5 @@ Maintenant que vous connaissez les bases d'Azure Automation et que vous savez l'
 
 * Consultez la rubrique [Didacticiel de prise en main d'Azure Automation](automation-create-runbook-from-samples.md) 
 
+
 <!--HONumber=52-->

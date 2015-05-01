@@ -219,4 +219,5 @@ Plusieurs choses sont à remarquer ici :
 Comme l'illustre l'exemple de code ci-dessus, si vous définissez **deleteAfterPlay** sur **YES**, cette publicité sera seulement lue une fois. De plus, si vous définissez **deleteAfterPlay** sur **NO**, la lecture de cette publicité continue ; c'est ce qu'on appelle une " sticky ad ".
 ### Pour plus d'informations, consultez la rubrique [wiki de l'infrastructure Azure Media Player](https://github.com/WindowsAzure/azure-media-player-framework/wiki).
 
+
 <!--HONumber=52-->

@@ -39,4 +39,5 @@ Vous pouvez connecter Operational Insights à un environnement System Center Ope
 
 [Configuration des paramètres de pare-feu et de proxy (facultatif)](https://msdn.microsoft.com/library/azure/dn884643.aspx)
 
+
 <!--HONumber=52-->

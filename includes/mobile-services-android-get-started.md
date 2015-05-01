@@ -61,4 +61,5 @@
 
 [Portail de gestion]: https://manage.windowsazure.com/
 
+
 <!--HONumber=52-->
