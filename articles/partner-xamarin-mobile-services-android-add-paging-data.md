@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Ajout de la pagination aux données (Xamarin Android) | Centre de développement mobile" 
-	description="Découvrez comment utiliser la pagination pour gérer la quantité de données renvoyées vers votre application Xamarin Android à partir de Mobile Services. 
+	description="Découvrez comment utiliser la pagination pour gérer la quantité de données renvoyées vers votre application Xamarin Android à partir de Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 

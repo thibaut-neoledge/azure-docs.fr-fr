@@ -1,6 +1,6 @@
-﻿<properties 
-   pageTitle="Gérer les points de terminaison dans Traffic Manager
-   description="Cet article vous aide à ajouter, supprimer, activer et désactiver des points de terminaison dans Traffic Manager.
+<properties 
+   pageTitle="Gérer les points de terminaison dans Traffic Manager"
+   description="Cet article vous aide à ajouter, supprimer, activer et désactiver des points de terminaison dans Traffic Manager."
    services="traffic-manager"
    documentationCenter=""
    authors="cherylmc"

@@ -1,6 +1,5 @@
-﻿<properties 
-	pageTitle="Prise en main des données (JavaScript Windows Store) | Centre de développement mobile" 
-	description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application Windows Store JavaScript. 
+<properties 
+	pageTitle="Prise en main des données (JavaScript Windows Store) | Centre de développement mobile" description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application Windows Store JavaScript."
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 

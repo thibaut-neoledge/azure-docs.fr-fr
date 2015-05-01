@@ -2,7 +2,10 @@
 	pageTitle="Bibliothèque d'images Azure Government" 
 	description="Cet article fournit une vue d'ensemble de la bibliothèque d'images Azure Government et des images incluses" 
 	services="" 
-	authors="John Harvey" 
+	authors="John Harvey"
+	documentationCenter=""
+	manager="" 
+	editor=""/> 
 
 <tags 
 	ms.service="multiple" 

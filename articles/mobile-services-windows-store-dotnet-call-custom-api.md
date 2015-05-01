@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Appel d'une API personnalisée à partir d'un client Windows Store - Mobile Services" 
-	description="Découvrez comment définir une API personnalisée et l'appeler depuis une application Windows Store qui utilise Azure Mobile Services. 
+	description="Découvrez comment définir une API personnalisée et l'appeler depuis une application Windows Store qui utilise Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 

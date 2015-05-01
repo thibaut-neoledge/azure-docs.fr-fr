@@ -1,6 +1,6 @@
-﻿<properties
-   pageTitle="Vue d'ensemble de Traffic Manager
-   description="Cet article contient la présentation technique de Traffic Manager
+<properties
+   pageTitle="Vue d'ensemble de Traffic Manager"
+   description="Cet article contient la présentation technique de Traffic Manager"
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
