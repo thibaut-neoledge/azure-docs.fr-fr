@@ -1,6 +1,6 @@
 ﻿<properties
-	pageTitle="Configurer des environnements intermédiaires pour les applications web dans Azure App Service
-	description="Découvrez comment utiliser la publication intermédiaire pour les applications web dans Azure App Service.
+	pageTitle="Configurer des environnements intermédiaires pour les applications web dans Azure App Service"
+	description="Découvrez comment utiliser la publication intermédiaire pour les applications web dans Azure App Service."
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"

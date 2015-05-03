@@ -115,7 +115,7 @@ Voici un exemple de code qui montre comment utiliser la version synchrone de cet
 	            string certfriendlyname = "<CertificateFriendlyName>";     
 	            string subscriptionid = "<SubscriptionID>";
 	            string clustername = "<ClusterDNSName>";
-	     		string location = "<ClusterLocation>"";
+	     		string location = "<ClusterLocation>";
 				int newSize = <NewClusterSize>;
 	
 	            // Get the certificate object from certificate store using the friendly name to identify it

@@ -5,8 +5,9 @@
 	documentationCenter="" 
 	authors="cephalin" 
 	writer="cephalin" 
-	Gestionnaire = " wpickett " 
-	éditeur="mollybos"/>
+	manager="wpickett" 
+	editor="mollybos"/>
+
 
 <tags 
 	ms.service="app-service-web" 

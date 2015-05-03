@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Authentification de votre application avec Live Connect (JavaScript)" 
-	Description = " Apprenez à utiliser l'authentification unique Live Connect dans Azure Mobile Services à partir d'une application Windows Store. " 
+	Description="Apprenez à utiliser l'authentification unique Live Connect dans Azure Mobile Services à partir d'une application Windows Store. " 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
