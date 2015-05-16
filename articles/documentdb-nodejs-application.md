@@ -1,6 +1,6 @@
-﻿<properties 
-	pageTitle="Création d'une application web Node.js avec DocumentDB | Azure" 
-	description="Apprenez à utiliser Microsoft Azure DocumentDB pour stocker des données et y accéder à partir d'une application web Node.js Express hébergée sur Sites Web Azure." 
+<properties 
+	pageTitle="Création d&#39;une application web Node.js avec DocumentDB | Azure" 
+	description="Apprenez à utiliser Microsoft Azure DocumentDB pour stocker des données et y accéder à partir d&#39;une application web Node.js Express hébergée sur Azure Websites." 
 	services="documentdb" 
 	documentationCenter="nodejs" 
 	authors="ryancrawcour" 
@@ -13,54 +13,50 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="03/20/2015" 
+	ms.date="04/29/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Création d'une application web Node.js avec DocumentDB
 
-Ce didacticiel vous montre comment utiliser le service Azure DocumentDB pour stocker des données et accéder à ces dernières à partir d'une application Node.js Express hébergée sur Sites Web Azure.
+Ce didacticiel vous montre comment utiliser le service Azure DocumentDB pour stocker des données et accéder à ces dernières à partir d'une application Node.js Express hébergée sur Azure Websites.
 
-Nous vous recommandons de commencer par visionner la vidéo suivante, dans laquelle Andrew Liu explique comment approvisionner un compte de base de données Azure DocumentDB et stocker des documents JSON dans votre application Node.js. 
+Nous vous recommandons de commencer par regarder la vidéo suivante, dans laquelle nous vous expliquons comment approvisionner un compte de base de données Azure DocumentDB et stocker des documents JSON dans votre application Node.js.
 
 > [AZURE.VIDEO azure-demo-getting-started-with-azure-documentdb-on-nodejs-in-linux]
 
-Ensuite, revenez à cet article dans lequel vous découvrirez les réponses aux questions suivantes :
+Ensuite, revenez à cet article dans lequel vous découvrirez les réponses aux questions suivantes :
 
-- Comment utiliser DocumentDB à l'aide du module npm de documentdb ?
-- Comment déployer l'application web sur Sites Web Azure ?
+- Comment utiliser DocumentDB à l'aide du module npm de documentdb ?
+- Comment déployer l'application web sur Azure Websites ?
 
-Dans ce didacticiel, vous allez créer une application web simple de
-gestion des tâches permettant de créer, de récupérer et de
-terminer des tâches. Ces dernières sont stockées en tant que documents JSON dans Azure
-DocumentDB.
+Dans ce didacticiel, vous allez concevoir une simple application web de gestion des tâches permettant de créer, de récupérer et de terminer des tâches. Ces dernières sont stockées en tant que documents JSON dans Azure DocumentDB.
 
-![Screen shot of the My Todo List application created in this tutorial](./media/documentdb-nodejs-application/image1.png)
+![Capture d'écran de l'application My Todo List créée dans ce didacticiel](./media/documentdb-nodejs-application/image1.png)
 
-Vous n'avez pas le temps de terminer le didacticiel et vous souhaitez simplement obtenir la solution complète de GitHub ? Ce n'est pas un problème. Vous pouvez l'obtenir [ici](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
+Vous n'avez pas le temps de terminer le didacticiel et vous souhaitez simplement obtenir la solution complète de GitHub ? Ce n'est pas un problème. Vous pouvez l'obtenir [ici](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
 
-## <a name="_Toc395783176"></a>Conditions préalables
+## <a name="_Toc395783176"></a>Configuration requise
 
-> [AZURE.TIP] Ce didacticiel suppose que vous avez déjà utilisé Node.js et Sites Web Azure.
+> [AZURE.TIP]Ce didacticiel suppose que vous avez déjà utilisé Node.js et Azure Websites.
 
-Avant de suivre les instructions de cet article, vérifiez que
-vous disposez des éléments suivants :
+Avant de suivre les instructions de cet article, vérifiez que les éléments suivants sont installés :
 
 - Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](../../pricing/free-trial/).
-- [Node.js][] version v0.10.29 ou ultérieure.
-- [Générateur Express](http://www.expressjs.com/starter/generator.html) (installation possible via `npm install express-generator -g`)
+- [Node.js][] version v0.10.29 ou supérieure.
+- [Générateur Express](http://www.expressjs.com/starter/generator.html) \(installation possible via `npm install express-generator -g`\)
 - [Git][].
 
-## <a name="_Toc395637761"></a>Étape 1 : Création d'un compte de base de données DocumentDB
+## <a name="_Toc395637761"></a>Étape 1 : création d'un compte de base de données DocumentDB
 
-Commençons par créer un compte DocumentDB. Si vous avez déjà un compte, vous pouvez passer à l'[étape 2 : Création d'une application Node.js](#_Toc395783178).
+Commençons par créer un compte DocumentDB. Si vous possédez déjà un compte, vous pouvez passer à l'[Étape 2 : création d'une application Node.js](#_Toc395783178).
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../includes/documentdb-create-dbaccount.md)]
 
 [AZURE.INCLUDE [documentdb-keys](../includes/documentdb-keys.md)]
 
-## <a name="_Toc395783178"></a>Étape 2 : Création d'une application Node.js
+## <a name="_Toc395783178"></a>Étape 2 : création d'une application Node.js
 
-Nous allons maintenant créer un projet Node.js " Hello World " simple en utilisant l'infrastructure [Express](http://expressjs.com/).
+Nous allons maintenant créer un projet Node.js « Hello World » de base à l'aide de l'infrastructure [Express](http://expressjs.com/).
 
 1. Ouvrez votre terminal préféré.
 
@@ -79,15 +75,11 @@ Nous allons maintenant créer un projet Node.js " Hello World " simple en utilis
 
 5. Vous pouvez afficher votre nouvelle application en accédant à l'adresse [http://localhost:3000](http://localhost:3000) dans votre navigateur.
 
-	![Screenshot of the Hello World application in a browser window](./media/documentdb-nodejs-application/image12.png)
+	![Capture d'écran de l'application Hello World dans une fenêtre de navigateur](./media/documentdb-nodejs-application/image12.png)
 
-## <a name="_Toc395783179"></a>Étape 3 : Installation de modules supplémentaires
+## <a name="_Toc395783179"></a>Étape 3 : installation de modules supplémentaires
 
-Le fichier **package.json** est l'un des fichiers créés à la racine du
-projet. Il contient une liste des modules supplémentaires qui sont
-nécessaires pour votre application Node.js. Ensuite, lorsque vous déployez cette
-application sur Sites Web Azure, ce fichier permet de déterminer
-quels modules doivent être installés sur Azure pour prendre en charge votre application. Nous avons besoin d'installer deux autres packages pour ce didacticiel.
+Le fichier **package.json** est l'un des fichiers créés à la racine du projet. Il contient une liste de modules supplémentaires qui sont nécessaires pour les applications Node.js. Ensuite, lorsque vous déployez cette application vers un site web Azure, ce fichier permet de déterminer quels modules doivent être installés sur Azure pour prendre en charge votre application. Nous avons besoin d'installer deux autres packages pour ce didacticiel.
 
 1. De retour dans le terminal, installez le module **async** via npm.
 
@@ -97,13 +89,13 @@ quels modules doivent être installés sur Azure pour prendre en charge votre ap
 
 		npm install documentdb --save
 
-3. Une vérification rapide du fichier **package.json** de l'application doit faire apparaître les modules complémentaires. Ce fichier indiquera à Azure les packages à télécharger et à installer lors de l'exécution de votre application. Il doit ressembler à l'exemple ci-dessous.
+3. Une vérification rapide du fichier **package.json** de l'application doit faire apparaître les modules supplémentaires. Ce fichier indiquera à Azure les packages à télécharger et à installer lors de l'exécution de votre application. Il doit ressembler à l'exemple ci-dessous.
 
-	![Screenshot of the package.json tab](./media/documentdb-nodejs-application/image17.png)
+	![Capture d'écran de l'onglet package.json](./media/documentdb-nodejs-application/image17.png)
 
-       Ce code indique à Node (et à Azure ultérieurement) que votre application dépend de ces modules supplémentaires.
+Ce code indique à Node \(et à Azure ultérieurement\) que votre application dépend de ces modules supplémentaires.
 
-## <a name="_Toc395783180"></a>Étape 4 : Utilisation du service DocumentDB dans une application Node
+## <a name="_Toc395783180"></a>Étape 4 : utilisation du service DocumentDB dans une application Node
 
 Ceci concerne l'ensemble de l'installation et de la configuration initiales. Venons-en à présent à la raison de notre présence ici, à savoir écrire du code avec Azure DocumentDB.
 
@@ -154,8 +146,8 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		                name: '@id',
 		                value: collectionId
 		            }]
-		        };
-		        
+		        };		       
+				
 		        client.queryCollections(databaseLink, querySpec).toArray(function (err, results) {
 		            if (err) {
 		                callback(err);
@@ -165,8 +157,12 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		                    var collectionSpec = {
 		                        id: collectionId
 		                    };
-		
-		                    client.createCollection(databaseLink, collectionSpec, function (err, created) {
+							
+				 			var requestOptions = {
+								offerType: 'S1'
+							};
+							
+		                    client.createCollection(databaseLink, collectionSpec, requestOptions, function (err, created) {
 		                        callback(null, created);
 		                    });
 		
@@ -179,10 +175,12 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		};
 				
 		module.exports = DocDBUtils;
-		
-3. Enregistrez, puis fermez le fichier **docdbUtils.js**.
 
-4. Au début du fichier **taskDao.js**, ajoutez le code suivant pour faire référence au **DocumentDBClient** et au fichier **docdbUtils.js** créé précédemment :
+> [AZURE.TIP]createCollection prend un paramètre facultatif requestOptions qui permet de spécifier le type d'offre de la collection. Si aucune valeur requestOptions.offerType n'est fournie, alors la collection est créée à l'aide du type d'offre par défaut. Pour plus d'informations sur les types d'offre DocumentDB, reportez-vous aux [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md)
+		
+3. Enregistrez et fermez le fichier **docdbUtils.js**.
+
+4. Au début du fichier **taskDao.js**, ajoutez le code suivant pour faire référence à **DocumentDBClient** et au fichier **docdbUtils.js** créé précédemment :
 
         var DocumentDBClient = require('documentdb').DocumentClient;
 		var docdbUtils = require('./docdbUtils');
@@ -297,12 +295,12 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		    }
 		};
 
-6. Enregistrez, puis fermez le fichier **taskDao.js**. 
+6. Enregistrez et fermez le fichier **taskDao.js**.
 
 ### Création du contrôleur
 
-1. Dans le répertoire **routes** de votre projet, créez un nouveau fichier nommé **tasklist.js**. 
-2. Ajoutez le code suivant dans **tasklist.js**. Ce code charge les modules DocumentDBClient et async qui sont utilisés par **tasklist.js**. Cela a également permis de définir la fonction **TaskList**, à qui est transmise une instance de l'objet **Task** défini précédemment :
+1. Dans le répertoire **routes** de votre projet, créez un fichier nommé **tasklist.js**. 
+2. Ajoutez le code suivant dans **tasklist.js**. Ce code charge DocumentDBClient et les modules asynchrones, qui sont utilisés par **tasklist.js**. Cela a également permis de définir la fonction **TaskList**, à qui est transmise une instance de l'objet **Task** défini précédemment :
 
 		var DocumentDBClient = require('documentdb').DocumentClient;
 		var async = require('async');
@@ -313,7 +311,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		
 		module.exports = TaskList;
 
-3. Continuez à modifier le fichier **tasklist.js** en ajoutant les méthodes utilisées pour afficher les tâches, ajouter les tâches et marquer les tâches comme terminées (**showTasks, addTask** et **completeTasks**) :
+3. Continuez à modifier le fichier **tasklist.js** en ajoutant les méthodes utilisées pour **afficher les tâches \(showTasks\), ajouter les tâches \(addTask\)** et **marquer les tâches comme terminées \(completeTasks\)** :
 		
 		TaskList.prototype = {
 		    showTasks: function (req, res) {
@@ -375,12 +373,12 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		};
 
 
-4. Enregistrez, puis fermez le fichier **task.js**.
+4. Enregistrez et fermez le fichier **tasklist.js**.
  
-### Ajout de config.json
+### Ajout de config.js
 
-1. Dans le répertoire de projet, créez un nouveau fichier nommé **config.js**.
-2. Ajoutez le code suivant à **config.json**. Définit les paramètres de configuration et les valeurs nécessaires à notre application.
+1. Dans le répertoire de projet, créez un fichier nommé **config.js**.
+2. Ajoutez le code suivant à **config.js**. Définit les paramètres de configuration et les valeurs nécessaires à notre application.
 
 		var config = {}
 		
@@ -391,14 +389,14 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		
 		module.exports = config;
 
-3. Dans le fichier **config.js**, modifiez les valeurs de HOST et AUTH_KEY avec les valeurs trouvées dans le volet Clés de votre compte DocumentDB dans le [portail Azure en version préliminaire ](http://portal.azure.com) :
+3. Dans le fichier **config.js**, modifiez les valeurs de HOST et AUTH\_KEY avec les valeurs trouvées dans le volet Clés de votre compte DocumentDB, dans le [portail Microsoft Azure](http://portal.azure.com) :
 
-4. Enregistrez, puis fermez le fichier **config.js**.
+4. Enregistrez et fermez le fichier **config.js**.
  
 ### Modification de app.js
 
 1. Dans le répertoire du projet, ouvrez le fichier **app.js**. Ce fichier a été créé précédemment lors de la création de l'application web Express.
-2. Ajoutez le code suivant au début de **app.js**
+2. Ajoutez le code suivant au début du fichier **app.js**
 	
 		var DocumentDBClient = require('documentdb').DocumentClient;
 		var config = require('./config');
@@ -406,12 +404,12 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		var TaskDao = require('./models/taskDao');
 
 3. Ce code définit le fichier de configuration à utiliser et procède à la lecture des valeurs de ce fichier dans des variables que nous utiliserons prochainement.
-4. Remplacez les deux lignes suivantes dans le fichier **app.js** :
+4. Remplacez les deux lignes suivantes dans le fichier **app.js** :
 
 		app.use('/', routes);
 		app.use('/users', users); 
 
-      par l'extrait de code suivant :
+      par l'extrait de code suivant :
 
 		var docDbClient = new DocumentDBClient(config.host, {
 		    masterKey: config.authKey
@@ -425,16 +423,16 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		app.post('/completetask', taskList.completeTask.bind(taskList));
 
 
-6. Ces lignes définissent une nouvelle instance de notre objet **TaskDao**, avec une nouvelle connexion à DocumentDB (à l'aide des valeurs lues dans **config.js**), initialisent l'objet Task et lient les actions de formulaire à des méthodes dans notre contrôleur **TaskList**. 
+6. Ces lignes définissent une nouvelle instance de notre objet **TaskDao**, avec une nouvelle connexion à DocumentDB \(à l'aide des valeurs lues dans **config.js**\), initialisent l'objet Task et relient les actions de formulaire à des méthodes dans notre contrôleur **TaskList**. 
 
 7. Enfin, enregistrez et fermez le fichier **app.js**. Nous avons presque terminé.
  
-## <a name="_Toc395783181"></a>Étape 5 : Création d'une interface utilisateur
+## <a name="_Toc395783181"></a>Étape 5 : création d'une interface utilisateur
 
 Intéressons-nous à présent à la création de l'interface utilisateur pour permettre à un utilisateur d'interagir réellement avec notre application. L'application Express que nous avons créée utilise **Jade** comme moteur de vue. Pour plus d'informations sur Jade, consultez la page [http://jade-lang.com/](http://jade-lang.com/).
 
-1. Le fichier **layout.jade** du répertoire **views** sert de modèle global aux autres fichiers**.jade**. Dans cette étape, vous allez le modifier pour utiliser [Twitter Bootstrap](https://github.com/twbs/bootstrap), un kit de ressources qui facilite la conception d'un site web bien présenté. 
-2. Ouvrez le fichier **layout.jade** trouvé dans le dossier **views** et remplacez le contenu par le code suivant :
+1. Le fichier **layout.jade** du répertoire **views** sert de modèle global aux autres fichiers **.jade**. Dans cette étape, vous allez le modifier pour utiliser [Twitter Bootstrap](https://github.com/twbs/bootstrap), qui est un kit de ressources qui facilite la conception d'un site web bien présenté. 
+2. Ouvrez le fichier **layout.jade** trouvé dans le dossier **views** et remplacez le contenu par le code suivant :
 	
 		doctype html
 		html
@@ -452,10 +450,10 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
 
 
-	Ce code demande au moteur **Jade** de générer un rendu HTML pour notre application et crée un **bloc** intitulé **content** dans lequel nous pouvons fournir la mise en page de nos pages de contenu.
-	Enregistrez et fermez ce fichier **layout.jade**.
+	This effectively tells the **Jade** engine to render some HTML for our application and creates a **block** called **content** where we can supply the layout for our content pages.
+	Save and close this **layout.jade** file.
 
-4. Ouvrez maintenant le fichier **index.jade**, la vue qui sera utilisée par l'application, et remplacez le contenu du fichier par le code suivant :
+4. Ouvrez maintenant le fichier **index.jade**, la vue qui sera utilisée par l'application, et remplacez le contenu du fichier par le code suivant :
 
 		extends layout
 		
@@ -497,13 +495,11 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
 	Ce code étend la mise en page et fournit du contenu pour l'espace réservé **content** que nous avons vu plus haut dans le fichier **layout.jade**.
 	
-	Dans cette mise en page, nous avons créé deux fichiers HTML. 
-	Le premier formulaire contient un tableau pour nos données et un bouton qui permet de mettre à jour des éléments en appelant la méthode **/completetask** de notre contrôleur.
-	Le second formulaire contient deux champs d'entrée et un bouton qui permet de créer un élément en appelant la méthode **/addtask** de notre contrôleur.
+	Dans cette mise en page, nous avons créé deux fichiers HTML. Le premier formulaire contient un tableau pour nos données et un bouton qui permet de mettre à jour des éléments en appelant la méthode **/completetask** de notre contrôleur. Le deuxième formulaire contient deux champs d'entrée et un bouton qui permet de créer un élément en appelant la méthode **/addtask** de notre contrôleur.
 	
 	Ceci devrait être suffisant pour que notre application puisse fonctionner.
 
-5. Ouvrez le fichier **style.css** dans le répertoire **public\stylesheets** et remplacez le code par le code suivant :
+5. Ouvrez le fichier **style.css** dans le répertoire **public\\stylesheets** et remplacez le code par le suivant :
 
 		body {
 		  padding: 50px;
@@ -525,25 +521,22 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
 	Enregistrez et fermez ce fichier **style.css**.
 
-## <a name="_Toc395783181"></a>Étape 6 : Exécution locale de l'application
+## <a name="_Toc395783181"></a>Étape 6 : exécution locale de l'application
 
-1. Pour tester l'application sur votre ordinateur local, exécutez `npm start` sur un terminal pour démarrer votre application et lancer un navigateur avec une page similaire à celle illustrée ci-dessous :
+1. Pour tester l'application sur votre ordinateur local, exécutez `npm start` sur un terminal pour démarrer votre application et lancer un navigateur avec une page similaire à celle illustrée ci-dessous :
 
-	![Screenshot of the MyTodo List application in a browser window](./media/documentdb-nodejs-application/image18.png)
+	![Capture d'écran de l'application MyTodo List dans une fenêtre de navigateur](./media/documentdb-nodejs-application/image18.png)
 
 
-2. Dans les champs Item Name (Nom de l'élément) et Item Category (Catégorie de l'élément), entrez
-les informations appropriées, puis cliquez sur **Add Item (Ajouter un élément)**.
+2. Utilisez les champs Item \(Élément\), Item Name \(Nom de l'élément\) et Category \(Catégorie\) pour entrer les informations, puis cliquez sur **Add Item** \(Ajouter l'élément\).
 
-3. La page doit alors s'actualiser et afficher le nouvel élément dans la liste des tâches
-.
+3. La page doit se mettre à jour et afficher le nouvel élément créé dans la liste des tâches.
 
-	![Screenshot of the application with a new item in the ToDo list](./media/documentdb-nodejs-application/image19.png)
+	![Capture d'écran de l'application avec un nouvel élément dans la liste de tâches](./media/documentdb-nodejs-application/image19.png)
 
-4. Pour terminer une tâche, cochez la case dans la colonne Complete (Terminé),
-puis cliquez sur **Update Tasks (Mettre à jour les tâches)**.
+4. Pour terminer une tâche, activez simplement la case à cocher dans la colonne Complete, puis cliquez sur **Update tasks**.
 
-## <a name="_Toc395783182"></a>Étape 7 : Déploiement de votre application vers Sites Web Azure
+## <a name="_Toc395783182"></a>Étape 7 : déploiement de votre application sur Azure Websites
 
 1. Si vous ne l'avez pas encore fait, activez un référentiel git pour votre site web Azure. Vous trouverez des instructions sur la façon de procéder [ici](web-sites-publish-source-control-git.md#step4).
 
@@ -555,19 +548,15 @@ puis cliquez sur **Update Tasks (Mettre à jour les tâches)**.
 
 		git push azure master
 
-4. En quelques secondes, Git achève la publication de votre application web
-et lance un navigateur dans lequel vous pouvez voir votre réalisation
-exécutée dans Azure !
+4. En quelques secondes, git achève la publication de votre application web et lance un navigateur dans lequel vous pouvez voir votre réalisation exécutée dans Azure !
 
 ## <a name="_Toc395637775"></a>Étapes suivantes
 
-Félicitations ! Vous venez de créer votre première application web Node.js Express
-avec Azure DocumentDB et de la publier dans Sites Web Azure.
+Félicitations ! Vous venez de créer votre première application web Express Node.js avec Azure DocumentDB et de la publier sur Azure Websites.
 
 Vous pouvez télécharger le code source de l'application de référence complète [ici](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
 
-  [Node.js]: http://nodejs.org/
-  [Git]: http://git-scm.com/
-  [Portail de gestion Azure]: http://portal.azure.com
+[Node.js]: http://nodejs.org/
+[Git]: http://git-scm.com/
 
-<!--HONumber=49-->
+<!--HONumber=52-->

@@ -1,0 +1,101 @@
+<properties
+   pageTitle="Utilisation d’Azure PowerShell en mode Gestion des services pour réaliser les tâches courantes de la machine virtuelle"
+   description="Vous indique les commandes permettant de réaliser les tâches courantes de la machine virtuelle à l’aide du mode Gestion des services dans Azure PowerShell"
+   services="virtual-machines"
+   documentationCenter="windows"
+   authors="KBDAzure"
+   manager="timlt"
+   editor=""/>
+
+   <tags
+   ms.service="virtual-machines"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-windows"
+   ms.workload="infrastructure-services"
+   ms.date="04/22/2015"
+   ms.author="kathydav;singhkay"/>
+
+# Utilisation d’Azure PowerShell en mode Gestion des services pour réaliser les tâches courantes de la machine virtuelle
+
+ > [AZURE.SELECTOR]
+    - [Resource Manager](virtual-machines-manage-powershell-resource-management.md)
+    - [Service Management](virtual-machines-manage-powershell-service-management.md)
+
+Il est possible d’automatiser les nombreuses tâches quotidiennes liées à la gestion de vos machines virtuelles en utilisant les applets de commande Azure PowerShell en mode Gestion des services. Cet article donne des exemples de commandes pour réaliser des tâches simples et contient des liens vers des articles indiquant les commandes à utiliser pour des tâches plus complexes.
+
+>[AZURE.NOTE]Si vous n’avez pas encore installé ni configuré Azure PowerShell, cliquez [ici](install-configure-powershell.md) pour obtenir les instructions.
+
+## Utilisation des exemples de commandes
+Vous devrez remplacer une partie du texte des commandes par un texte approprié à votre environnement. Les symboles < and > indiquent le texte à remplacer. Lorsque vous remplacez le texte, supprimez les symboles, mais laissez les guillemets en place.
+
+## Obtenir une machine virtuelle
+Il s’agit d’une tâche de base que vous utiliserez souvent. Utilisez-la pour obtenir des informations sur une machine virtuelle, effectuer des tâches sur cette dernière ou pour obtenir un résultat à stocker dans une variable.
+
+Pour obtenir des informations sur la machine virtuelle, exécutez cette commande en remplaçant tous les éléments entre guillemets notamment les caractères < and > :
+
+     Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+
+Pour stocker le résultat dans une variable $vm, exécutez :
+
+    $vm = Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+
+## Connectez-vous à une machine virtuelle Windows
+
+Exécutez ces commandes :
+
+>[AZURE.NOTE]Vous pouvez obtenir le nom du service cloud et de la machine virtuelle à partir de l’affichage de la commande **Get-AzureVM**.
+>
+	$svcName="<cloud service name>"
+	$vmName="<virtual machine name>"
+	$localPath="<drive and folder location to store the downloaded RDP file, example: c:\temp >"
+	$localFile=$localPath + "\" + $vmname + ".rdp"
+	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
+
+## Arrêter une machine virtuelle
+
+Exécutez cette commande :
+
+    Stop-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+
+>[AZURE.IMPORTANT]Utilisez le paramètre **StayProvisioned** pour conserver l’adresse IP virtuelle du service cloud s’il s’agit de la dernière machine virtuelle de ce service. Si vous utilisez ce paramètre, vous êtes toujours facturé pour cette machine virtuelle.
+
+## Démarrer une machine virtuelle
+
+Exécutez cette commande :
+
+    Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+
+## Associer un disque de données
+Cette tâche nécessite de réaliser quelques étapes. Commencez par utiliser l’applet de commande \*\*\*\*Add-AzureDataDisk\*\*\*\* pour ajouter le disque à l’objet $vm, puis utilisez Update-AzureVM pour mettre à jour la configuration de la machine virtuelle.
+
+Vous devez également décider d’associer un nouveau disque ou un disque existant, qui contient des données. Dans le cas d’un nouveau disque, cette même commande entraîne la création du fichier .vhd et son association.
+
+Pour associer un nouveau disque, exécutez cette commande :
+
+    Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "<main>" -LUN <0> -VM <$vm> `
+              | Update-AzureVM
+
+Pour associer un disque existant, exécutez cette commande :
+
+    Add-AzureDataDisk -Import -DiskName "<MyExistingDisk>" -LUN <0> `
+              | Update-AzureVM
+
+Pour attacher des disques de données à partir d’un fichier .vhd existant dans le stockage d’objets blob, exécutez la commande suivante :
+
+    Add-AzureDataDisk -ImportFrom -MediaLocation `
+              "<https://mystorage.blob.core.windows.net/mycontainer/MyExistingDisk.vhd>" `
+              -DiskLabel "<main>" -LUN <0> `
+              | Update-AzureVM
+
+## Créer une machine virtuelle Windows
+
+Pour créer une nouvelle machine virtuelle Windows dans Azure, consultez [Utilisation d’Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](virtual-machines-ps-create-preconfigure-windows-vms.md). Cette rubrique vous guide lors de la création d’un jeu de commandes PowerShell permettant de créer une machine virtuelle Windows qui peut être préconfigurée avec :
+
+- une appartenance au domaine Active Directory ;
+- des disques supplémentaires ;
+- une appartenance à un jeu d’équilibrage de la charge ;
+- une adresse IP statique.
+
+
+<!--HONumber=52-->
