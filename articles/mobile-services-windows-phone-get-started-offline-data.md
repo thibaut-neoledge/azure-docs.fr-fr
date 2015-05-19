@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Utilisation des données hors connexion dans Mobile Services (Windows Phone) | Centre de développement mobile" 
 	description="Découvrez comment utiliser Azure Mobile Services avec les données hors connexion de synchronisation dans votre application Windows Phone" 
 	documentationCenter="windows" 
@@ -26,7 +26,7 @@ Cette rubrique vous explique comment utiliser les fonctionnalités hors connexio
 Dans ce didacticiel, vous allez mettre à jour l'application à partir du didacticiel [Prise en main des données] pour pouvoir prendre en charge les fonctionnalités hors connexion d'Azure Mobile Services. Ensuite, vous allez ajouter les données dans le cadre d'un scénario hors connexion déconnecté, synchroniser ces éléments dans la base de données en ligne, puis vous connecter au portail de gestion Azure pour afficher les modifications apportées aux données lors de l'exécution de l'application.
 
 
->[AZURE.NOTE] Ce didacticiel vise à mieux vous faire comprendre en quoi Mobile Services vous permet de stocker et de récupérer des données dans une application Windows Phone à l'aide d'Azure. Si vous n'avez aucune expérience de Mobile Services, nous vous invitons à suivre d'abord les didacticiels [Prise en main de Mobile Services ] et [Prise en main des données]. 
+>[AZURE.NOTE] Ce didacticiel vise à mieux vous faire comprendre en quoi Mobile Services vous permet de stocker et de récupérer des données dans une application Windows Phone à l'aide d'Azure. Si vous n'avez aucune expérience de Mobile Services, nous vous invitons à suivre d'abord les didacticiels [Prise en main de Mobile Services] et [Prise en main des données]. 
 
 Ce didacticiel vous familiarise avec ces étapes de base :
 
@@ -243,9 +243,9 @@ Dans cette section, vous allez tester les opérations Push et Pull pour synchron
     ![][10] 
   
 
-##Résumé
+## Résumé
 
-##Résumé
+## Résumé
 
 [AZURE.INCLUDE [mobile-services-offline-summary-csharp](../includes/mobile-services-offline-summary-csharp.md)]
 
@@ -282,13 +282,13 @@ Dans cette section, vous allez tester les opérations Push et Pull pour synchron
 [Prise en main de l'exemple hors connexion pour Windows Phone]: http://go.microsoft.com/fwlink/?LinkId=397952
 [Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started/
 [Prise en main des données]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-data/
+[Prise en main de données]: /fr-fr/documentation/articles/mobile-services-windows-phone-get-started-data/
 [SQLite pour Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
 [Kit de développement logiciel (SDK) Windows Phone 8]: http://go.microsoft.com/fwlink/p/?linkid=268374
 [Suppression réversible]: /fr-fr/documentation/articles/mobile-services-using-soft-delete/
 
 [Nuget - Kit de développement logiciel (SDK) Mobile Services]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [Nuget - magasin SQLite]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
-
 
 
 <!--HONumber=42-->

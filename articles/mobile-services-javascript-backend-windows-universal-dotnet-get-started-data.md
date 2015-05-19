@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Prise en main des données (application Windows universelle) | Centre de développement mobile" 
 	description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application universelle Windows." 
 	services="mobile-services" 
@@ -118,6 +118,7 @@ Une fois que vous avez terminé les séries de données, essayez l'un de ces aut
 <!-- Anchors. -->
 
 [Obtention de l'application Windows Store]: #download-app
+[Obtenir l'application Windows Store]: #download-app
 [Création du service mobile à partir de Visual Studio]: #create-service
 [Ajout d'une table de données pour le stockage]: #add-table
 [Mise à jour de l'application pour utiliser le service mobile]: #update-app
@@ -142,7 +143,6 @@ Une fois que vous avez terminé les séries de données, essayez l'un de ces aut
 [Site d'exemples de code développeur]:  http://go.microsoft.com/fwlink/p/?LinkID=510826
 
 [Classe MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-
 
 
 <!--HONumber=42-->

@@ -46,7 +46,7 @@ Trace.TraceError("My error statement");
 
 La classe Trace réside dans l’espace de noms System.Diagnostics.
 
-In a node.js app you can write this code to achieve the same result:
+Dans une application node.js, vous pouvez écrire le code suivant pour atteindre le même résultat :
 
 `````````````````````````
 console.log("My trace statement").
@@ -92,6 +92,5 @@ cd
 [BrowseSitesScreenshot]: ./media/web-sites-streaming-logs-and-console/browse-sites.png
 [StreamingLogsScreenshot]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
 [ConsoleScreenshot]: ./media/web-sites-streaming-logs-and-console/console.png
-
 
 <!--HONumber=52-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Création d'une application web PHP dans Azure App Service et déploiement à l'aide de Git" 
 	description="Ce didacticiel vous explique comment créer une application web PHP dans Azure App Service et comment utiliser le service de stockage de tables Azure sur le serveur principal." 
 	services="app-service\web, storage" 
@@ -205,7 +205,7 @@ La page d'accueil de l'application Tasklist doit répertorier toutes les tâches
 			echo "<h3>No items on list.</h3>";
 		?>
 
-* Last, you must insert the form that feeds data into the task insertion script and complete the HTML:
+* Enfin, vous devez insérer le formulaire qui fournit les données au script d'insertion de la tâche et compléter le code HTML :
 
 			<hr/>
 			<form action="additem.php" method="post">
@@ -427,6 +427,5 @@ Pour publier des modifications apportées à votre application, procédez comme 
 [credentials]: ./media/web-sites-php-storage/git-deployment-credentials.png
 
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
-
 
 <!--HONumber=52-->

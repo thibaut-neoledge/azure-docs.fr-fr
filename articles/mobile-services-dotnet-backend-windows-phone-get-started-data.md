@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Ajout de Mobile Services à une application existante (Windows Phone) | Centre de développement mobile" 
 	description="Apprenez à Mobile Services pour tirer parti des données de votre application Windows Phone." 
 	services="mobile-services" 
@@ -345,6 +345,7 @@ Une fois que vous avez terminé les séries de données, essayez l'un de ces aut
 [Prise en main des notifications Push]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
 [JavaScript et HTML]: /develop/mobile/tutorials/get-started-with-data-js
 [Version du service principal JavaScript]: /develop/mobile/tutorials/get-started-with-data-wp8
+[version relative au service principal JavaScript]: /develop/mobile/tutorials/get-started-with-data-wp8
 
 [Kit de développement logiciel (SDK) Windows Phone 8]: http://go.microsoft.com/fwlink/p/?linkid=268374
 [Portail de gestion Azure]: https://manage.windowsazure.com/

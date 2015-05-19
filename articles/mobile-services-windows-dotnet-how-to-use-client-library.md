@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Utilisation de la bibliothèque cliente .NET pour Mobile Services" 
 	description="Découvrez comment utiliser un client .NET pour Azure Mobile Services." 
 	services="" 
@@ -264,7 +264,7 @@ La valeur d' `id` doit être unique et ne contenir aucun caractère présent dan
 +  Les ID " . " et " .. "
 
 
-Vous pouvez également utiliser des ID d'entier pour vos tables. Pour pouvoir utiliser un ID d'entier, vous devez créer votre table avec la commande `mobile table create` à l'aide de l'option --integerId. Cette commande s'utilise avec l'interface de ligne de commande (CLI) pour Azure. Pour plus d'informations sur l'utilisation de l'interface de ligne de commande, consultez la page [Interface de ligne de commande pour la gestion des tables Mobile Services].
+Vous pouvez également utiliser des ID d'entier pour vos tables. Pour pouvoir utiliser un ID d'entier, vous devez créer votre table avec la commande `mobile table create` à l'aide de l'option `--integerId`. Cette commande s'utilise avec l'interface de ligne de commande (CLI) pour Azure. Pour plus d'informations sur l'utilisation de l'interface de ligne de commande, consultez la page [Interface de ligne de commande pour la gestion des tables Mobile Services].
 
 
 Pour insérer des données non typées, vous pouvez tirer parti de Json.NET comme indiqué ci-dessous.
@@ -332,9 +332,9 @@ Notez qu'il s'agit d'un appel de méthode typé pour lequel le type de renvoi de
 
 Dans certains scénarios, plusieurs clients peuvent écrire à un même moment des modifications dans un même élément. En l'absence de détection de conflits, la dernière écriture remplace les mises à jour précédentes, même si cela n'était pas le but recherché. Le contrôle d'accès concurrentiel optimiste considère que chaque transaction peut être validée et qu'à ce titre, elle ne fait appel à aucun verrouillage de ressources. Avant de valider une transaction, le contrôle d'accès concurrentiel optimiste vérifie qu'aucune autre transaction n'a modifié les données. Si les données ont été modifiées, la transaction de validation est annulée.
 
-Mobile Services prend en charge le contrôle d'accès concurrentiel optimiste en suivant les modifications apportées à chaque élément à l'aide de la colonne de la propriété système __version définie pour chaque table créée par Mobile Services. Chaque fois qu'un enregistrement est mis à jour, Mobile Services attribue une nouvelle valeur à la propriété __version de cet enregistrement. À chaque demande de mise à jour, la propriété __version de l'enregistrement inclus dans la demande est comparée à celle de l'enregistrement basé sur le serveur. Si la version transmise avec la demande ne correspond pas à celle du serveur, la bibliothèque cliente .NET de Mobile Services lève une exception `MobileServicePreconditionFailedException<T>`. Le type inclus avec l'exception est l'enregistrement du serveur contenant la version. À partir de cette information, l'application peut ensuite décider ou non de réexécuter la demande de mise à jour avec la valeur correcte de __version du serveur pour valider les modifications.  
+Mobile Services prend en charge le contrôle d'accès concurrentiel optimiste en suivant les modifications apportées à chaque élément à l'aide de la colonne de la propriété système `__version` définie pour chaque table créée par Mobile Services. Chaque fois qu'un enregistrement est mis à jour, Mobile Services attribue une nouvelle valeur à la propriété `__version` de cet enregistrement. À chaque demande de mise à jour, la propriété `__version` de l'enregistrement inclus dans la demande est comparée à celle de l'enregistrement basé sur le serveur. Si la version transmise avec la demande ne correspond pas à celle du serveur, la bibliothèque cliente .NET de Mobile Services lève une exception `MobileServicePreconditionFailedException<T>`. Le type inclus avec l'exception est l'enregistrement du serveur contenant la version. À partir de cette information, l'application peut ensuite décider ou non de réexécuter la demande de mise à jour avec la valeur correcte de `__version` du serveur pour valider les modifications.  
 
-Pour activer l'accès concurrentiel optimiste, l'application définit une colonne dans la classe table pour la propriété système __version. La définition suivante en fournit un exemple.
+Pour activer l'accès concurrentiel optimiste, l'application définit une colonne dans la classe table pour la propriété système `__version`. La définition suivante en fournit un exemple.
 
     public class TodoItem
     {
@@ -358,7 +358,7 @@ Dans le cas des applications utilisant des tables non typées, l'accès concurre
 	todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 
-Le code suivant montre comment résoudre un conflit d'écriture une fois qu'il est détecté. La valeur correcte de _version doit être incluse dans l'appel `UpdateAsync()` pour valider une résolution.
+Le code suivant montre comment résoudre un conflit d'écriture une fois qu'il est détecté. La valeur correcte de `__version` doit être incluse dans l'appel `UpdateAsync()` pour valider une résolution.
 
 	private async void UpdateToDoItem(TodoItem item)
 	{
@@ -746,6 +746,7 @@ Maintenant que vous avez consulté ce guide de fonctionnement, découvrez en dé
 [Codes de contrôle ASCII C0 et C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Interface de ligne de commande pour la gestion des tables Mobile Services]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [Didacticiel Accès concurrentiel optimiste]: http://azure.microsoft.com/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/
+[Accès concurrentiel optimiste]: http://azure.microsoft.com/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/
 
 [IncludeTotalCount]: http://msdn.microsoft.com/library/windowsazure/dn250560.aspx
 [Skip]: http://msdn.microsoft.com/library/windowsazure/dn250573.aspx
@@ -754,7 +755,6 @@ Maintenant que vous avez consulté ce guide de fonctionnement, découvrez en dé
 [API personnalisée dans les Kits de développement logiciel (SDK) clients pour Azure Mobile Services]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [Appel d'une API personnalisée à partir du client]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
-
 
 
 <!--HONumber=42-->

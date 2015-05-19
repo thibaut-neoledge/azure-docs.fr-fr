@@ -30,12 +30,12 @@ Utilisez `pip wheel` pour compiler une dépendance :
 
 Cette commande crée un fichier .whl dans le dossier \wheelhouse.  Ajoutez les fichiers de roue et ceux du dossier \wheelhouse à votre référentiel.
 
-Modifiez votre fichier requirements.txt en ajoutant l'option " --find-links " en haut. Ceci indique à pip de rechercher une correspondance exacte dans le dossier local, avant de passer à l'index de packages Python.
+Modifiez votre fichier requirements.txt en ajoutant l'option `--find-links` en haut. Ceci indique à pip de rechercher une correspondance exacte dans le dossier local, avant de passer à l'index de packages Python.
 
     --find-links wheelhouse
     azure==0.8.4
 
-Si vous souhaitez inclure toutes les dépendances dans le dossier \wheelhouse et ne pas utiliser l'index de packages Python, forcez pip à ignorer l'index de packages en ajoutant " --no-index " en haut du fichier requirements.txt.
+Si vous souhaitez inclure toutes les dépendances dans le dossier \wheelhouse et ne pas utiliser l'index de packages Python, forcez pip à ignorer l'index de packages en ajoutant `--no-index` en haut du fichier requirements.txt.
 
     --no-index
 
@@ -67,5 +67,4 @@ Nous vous recommandons de supprimer l'environnement virtuel existant sur le site
 [Créer une machine virtuelle exécutant Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
 [Compilateur Microsoft Visual C++ pour Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
-
 <!--HONumber=52--> 

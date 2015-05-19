@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Utilisation d'un client HTML - Azure Mobile Services" 
 	description="Découvrez comment utiliser un client HTML pour Azure Mobile Services." 
 	services="mobile-services" 
@@ -648,6 +648,7 @@ Maintenant que vous avez consulté ce guide de fonctionnement, découvrez en dé
 [Liaison de données (applications du Windows Store en JavaScript et HTML)]: http://msdn.microsoft.com/library/windows/apps/hh758311.aspx
 [Démarrage rapide de Windows Store JavaScript]: http://azure.microsoft.com/develop/mobile/tutorials/get-started
 [Guide de démarrage HTML]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-html
+[Démarrage rapide HTML consacré à Mobile Services]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-html
 [Prise en main des données dans Windows Store JavaScript]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-js
 [Prise en main des données dans HTML/JavaScript]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-html/
 [Un exemple complet de configuration de ce scénario est disponible ici]: http://azure.microsoft.com/develop/mobile/tutorials/single-sign-on-windows-8-js/
@@ -657,10 +658,10 @@ Maintenant que vous avez consulté ce guide de fonctionnement, découvrez en dé
 [Autorisation des utilisateurs avec des scripts]: /fr-fr/develop/mobile/tutorials/authorize-users-in-scripts-html
 [login]: http://msdn.microsoft.com/library/windowsazure/jj554236.aspx
 [Authentification de votre application avec Active Directory]: /fr-fr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
+[Authentification de votre application avec l'authentification unique]: /fr-fr/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [Codes de contrôle ASCII C0 et C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Interface de ligne de commande pour la gestion des tables Mobile Services]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [Référence des options de requête système OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
-
 
 
 <!--HONumber=42-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Utilisation du stockage de file d'attente Microsoft Azure avec le Kit de développement logiciel (SDK) de WebJobs" 
 	description="Découvrez comment utiliser le stockage de file d'attente Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs. Créez et supprimez des files d'attente ; insérez, lisez, recevez et supprimez les messages de la file d'attente et bien plus encore." 
 	services="app-service\web, storage" 
@@ -477,7 +477,7 @@ Par exemple, supposons que vous souhaitiez utiliser une file d'attente nomméelo
 		    Console.WriteLine(logMessage);
 		}
 
-Your `NameResolver` class could then get the queue name from `appSettings` as shown in the following example:
+Votre classe « NameResolver » peut alors obtenir le nom de la file d'attente à partir d'« appSettings » comme indiqué dans l'exemple suivant :
 
 		public class QueueNameResolver : INameResolver
 		{
@@ -582,6 +582,5 @@ Dans une table Azure, les journaux `Console.Out` et `Console.Error` ressemblent 
 ## <a id="nextsteps"></a>Étapes suivantes
 
 Ce guide fournit des exemples de code qui indiquent comment gérer des scénarios courants pour l'utilisation des files d'attente Microsoft Azure. Pour plus d'informations sur le Kit de développement logiciel (SDK) WebJobs Azure, consultez [Tâches web Azure - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
-
 
 <!--HONumber=52-->
