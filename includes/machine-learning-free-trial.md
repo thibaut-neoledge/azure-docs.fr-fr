@@ -1,3 +1,4 @@
 >[AZURE.NOTE (Try Azure Machine Learning for free)]
 >
->Pas de carte de crédit ou d'abonnement Azure requis. <a href="https://studio.azureml.net/Home" target="_blank">\*\*Commencer dès maintenant \>\*\*</a> <!--HONumber=52-->
+>Aucune carte de crédit ou abonnement Azure n'est requis. <a href="https://studio.azureml.net/Home" target="_blank">\*\*Commencez maintenant \>\*\*</a>
+<!--HONumber=54-->

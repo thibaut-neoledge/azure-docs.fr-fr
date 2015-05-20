@@ -4,8 +4,7 @@
 	services="app-service\api" 
 	documentationCenter="nodejs" 
 	authors="pkefal" 
-	manager="", 
-	editor=""/>
+	manager="", editor=""/>
 
 <tags
 	ms.service="app-service-api"
