@@ -1,7 +1,21 @@
 
-<properties pageTitle="Configuration et récupération des propriétés et des métadonnées des objets blob de stockage | Microsoft Azure" description="Découvrez comment configurer et récupérer des propriétés et des métadonnées à partir des conteneurs et objets blob Azure Storage." services="storage" documentationCenter="" authors="tamram" manager="adinah" editor=""/>
+<properties 
+  pageTitle="Configuration et récupération des propriétés et des métadonnées des objets blob de stockage | Microsoft Azure" 
+  description="Découvrez comment configurer et récupérer des propriétés et des métadonnées à partir des conteneurs et objets blob Azure Storage." 
+services="storage" 
+documentationCenter="" 
+authors="tamram" 
+manager="adinah" 
+editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="04/21/2015" ms.author="tamram"/>
+<tags 
+ms.service="storage" 
+ms.workload="storage" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="04/21/2015" 
+ms.author="tamram"/>
 
 
 # Configuration et récupération des propriétés et des métadonnées #
