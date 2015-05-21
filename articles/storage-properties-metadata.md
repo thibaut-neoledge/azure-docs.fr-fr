@@ -1,7 +1,7 @@
 
-\<properties pageTitle="Configuration et récupération des propriétés et des métadonnées des objets blob de stockage \| Microsoft Azure" description="Découvrez comment configurer et récupérer des propriétés et des métadonnées à partir des conteneurs et objets blob Azure Storage." services="storage" documentationCenter="" authors="tamram" manager="adinah" editor=""/\>
+<properties pageTitle="Configuration et récupération des propriétés et des métadonnées des objets blob de stockage | Microsoft Azure" description="Découvrez comment configurer et récupérer des propriétés et des métadonnées à partir des conteneurs et objets blob Azure Storage." services="storage" documentationCenter="" authors="tamram" manager="adinah" editor=""/>
 
-\<tags ms.service="storage" ms.workload="storage" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="04/21/2015" ms.author="tamram"/\>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="04/21/2015" ms.author="tamram"/>
 
 
 # Configuration et récupération des propriétés et des métadonnées #
@@ -103,7 +103,7 @@ L'exemple de code suivant crée un conteneur et un objet blob et écrit les vale
 
 Vous pouvez indiquer des métadonnées sous la forme de paires nom-valeur sur une ressource d’objet blob ou de conteneur. Pour configurer des métadonnées, ajoutez des paires nom-valeur à la collection **Metadata** de la ressource, puis appelez la méthode **SetMetadata** pour enregistrer les valeurs sur le service.
 
-> [AZURE.NOTE]\: le nom de vos métadonnées doit respecter la convention d’affectation de noms pour les identificateurs C\#.
+> [AZURE.NOTE]: le nom de vos métadonnées doit respecter la convention d’affectation de noms pour les identificateurs C#.
  
 Pour récupérer des métadonnées, appelez la méthode **FetchAttributes** sur votre objet blob ou votre conteneur pour remplir la collection **Metadata**, puis lisez les valeurs.
 
