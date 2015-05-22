@@ -103,7 +103,7 @@ Recherchez tous les éléments dont la valeur de la propriété est la même :
 
 Récupérez toutes les demandes dont le temps de réponse excède 5 secondes. Les heures sont indiquées en cycles : 10 000 cycles = 1 ms.
 
-!\["Response time":\(threshold TO *\)\](./media/app-insights-diagnostic-search/11-responsetime.png\)
+!["Response time":(threshold TO *)](./media/app-insights-diagnostic-search/11-responsetime.png)
 
 
 
