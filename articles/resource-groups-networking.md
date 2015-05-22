@@ -5,7 +5,8 @@
    documentationCenter="na"
    authors="telmosampaio"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="virtual-networks"
    ms.devlang="na"
    ms.topic="article"
@@ -346,4 +347,6 @@ Les propriétés clé d'un point de terminaison sont les suivantes :
 
 [Utilisation de balises dans le gestionnaire des ressources Azure](https://msdn.microsoft.com/library/azure/dn848368.aspx)
 
-[Déploiements de modèles](https://msdn.microsoft.com/library/azure/dn790549.aspx) <!--HONumber=52-->
+[Déploiements de modèles](https://msdn.microsoft.com/library/azure/dn790549.aspx)
+
+<!--HONumber=52-->
