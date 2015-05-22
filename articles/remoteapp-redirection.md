@@ -25,8 +25,8 @@ RemoteApp utilise le protocole RDP \(Remote Desktop Protocol\) et RemoteFX pour 
 ## Quelle redirection est activée par défaut ?
 Lorsque vous utilisez RemoteApp, les redirections suivantes sont activées par défaut. Les informations entre parenthèses indiquent le paramètre RDP.
 
-- Lire des sons sur la machine locale \(\*\*Lire sur cet ordinateur\*\*\) \(audiomode:i:0\)
-- Capturer des données audio à partir de la machine locale et les envoyer à l'ordinateur distant \(\*\*Enregistrer à partir de cet ordinateur\*\*\). \(audiocapturemode:i:1\)
+- Lire des sons sur la machine locale \(**Lire sur cet ordinateur**) \(audiomode:i:0\)
+- Capturer des données audio à partir de la machine locale et les envoyer à l'ordinateur distant \(**Enregistrer à partir de cet ordinateur\**). \(audiocapturemode:i:1\)
 - Imprimer sur des imprimantes locales \(redirectprinters:i:1\)
 - Ports COM \(redirectcomports:i:1\)
 - Périphérique à carte à puce \(redirectsmartcards:i:1\)
@@ -47,7 +47,7 @@ Utilisez ensuite une commande semblable à la suivante pour définir les propri�
 
 	Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:*"
     
-\(Notez que *\`n* est utilisé comme délimiteur entre des propriétés individuelles.\)
+\(Notez que *`n* est utilisé comme délimiteur entre des propriétés individuelles.\)
 
 Pour obtenir la liste des propriétés RDP personnalisées qui sont configurées, exécutez l'applet de commande suivante. Notez que seules les propriétés personnalisées sont représentées en tant que résultats, et pas les propriétés par défaut :
 
@@ -77,7 +77,8 @@ Si vous voulez utiliser la redirection USB sur un ordinateur qui se connecte à 
 > [AZURE.NOTE]La redirection USB avec Azure RemoteApp est prise en charge uniquement pour les ordinateurs Windows.
 
 ### Activation de la redirection USB pour la collection RemoteApp
-Utilisez l'applet de commande suivante pour activer la redirection USB au niveau de la collection : Set-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s:\*"
+Utilisez l'applet de commande suivante pour activer la redirection USB au niveau de la collection :
+    Set-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s:*"
 
 ### Activation de la redirection USB pour l'ordinateur client
 
@@ -102,4 +103,6 @@ Vous pouvez également utiliser l'outil de gestion des stratégie de groupe pour
 6. Double-cliquez sur **Autoriser la redirection RDP d'autres périphériques USB RemoteFX pris en charge à partir de cet ordinateur**.
 7. Sélectionnez **Activé**, puis sélectionnez **Administrateurs et utilisateurs dans les droits d'accès à la redirection USB RemoteFX**.
 8. Cliquez sur **OK**. 
+
+
 <!--HONumber=54-->
